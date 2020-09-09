@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TokenDetails/StackBar matches snapshot 1`] = `
+<div
+  details={
+    Array [
+      Object {
+        "detail": "$2.52",
+        "label": "price",
+      },
+      Object {
+        "detail": "$76,350,191",
+        "label": "marketCap",
+      },
+      Object {
+        "detail": "1,280,390",
+        "label": "holders",
+      },
+      Object {
+        "detail": "1,280,390",
+        "label": "transactions",
+      },
+      Object {
+        "detail": "291,902.98",
+        "label": "supply",
+      },
+    ]
+  }
+  id="BoxDetails"
+  title="market"
+/>
+`;

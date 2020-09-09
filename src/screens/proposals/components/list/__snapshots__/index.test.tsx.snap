@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Tokens/List matches snapshot 1`] = `
+<TokensProvider>
+  <div
+    className="makeStyles-root"
+    id="Box"
+  >
+    <div
+      className="makeStyles-topContent"
+    >
+      <div
+        className="makeStyles-total"
+        id="Total"
+      />
+      <div
+        className="makeStyles-search"
+        id="Search"
+      />
+    </div>
+    <div
+      className="makeStyles-list"
+    >
+      <div
+        className="makeStyles-mobile"
+        id="Mobile"
+      />
+      <div
+        className="makeStyles-desktop"
+        id="Desktop"
+      />
+    </div>
+  </div>
+</TokensProvider>
+`;

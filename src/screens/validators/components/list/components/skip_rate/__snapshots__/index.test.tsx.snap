@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Validators/SkipRate matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <div
+    className="makeStyles-content"
+  >
+    <p
+      className="MuiTypography-root MuiTypography-body1"
+    >
+      content
+    </p>
+    <p
+      className="MuiTypography-root percentage MuiTypography-body1"
+    >
+      30
+      %
+    </p>
+  </div>
+  <div
+    className="makeStyles-chart"
+  >
+    <div
+      className="makeStyles-active"
+    />
+  </div>
+</div>
+`;

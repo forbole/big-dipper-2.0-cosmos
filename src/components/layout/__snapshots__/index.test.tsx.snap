@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component: Layout it renders 1`] = `
+Array [
+  <div
+    additionalMetaTags={
+      Array [
+        Object {
+          "content": "#da532c",
+          "name": "msapplication-TileColor",
+        },
+        Object {
+          "content": "http://localhost/icons/browserconfig.xml",
+          "name": "msapplication-config",
+        },
+        Object {
+          "content": "#ffffff",
+          "name": "theme-color",
+        },
+      ]
+    }
+    description="description"
+    id="NextSeo"
+    openGraph={
+      Object {
+        "description": "description",
+        "images": Array [
+          Object {
+            "alt": "description",
+            "url": "http://localhost/icons/android-chrome-512x512.png",
+          },
+        ],
+        "site_name": "Big Dipper",
+        "title": "validators",
+        "type": "website",
+        "url": "http://localhost/",
+      }
+    }
+    title="validators"
+    twitter={
+      Object {
+        "cardType": "summary_large_image",
+      }
+    }
+  />,
+  <div
+    className="makeStyles-root"
+  >
+    <div
+      className="makeStyles-contentWrapper"
+    >
+      <div
+        id="Nav"
+      />
+      <div
+        className="makeStyles-children"
+      >
+        <div
+          className="makeStyles-appBarPlaceholder"
+        />
+        <div
+          className="main-content"
+        >
+          <div>
+            hello world
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="makeStyles-footer"
+      id="Footer"
+    />
+  </div>,
+]
+`;

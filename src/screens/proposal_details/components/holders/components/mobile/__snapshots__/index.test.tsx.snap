@@ -1,0 +1,3165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TokenDetails/Holders/Mobile matches snapshot 1`] = `
+<div
+  className=""
+>
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 1
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 2
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 3
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 4
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 5
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 6
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 7
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 8
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 9
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 10
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 11
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 12
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 13
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 14
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 15
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 16
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 17
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 18
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 19
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 20
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 21
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 22
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 23
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 24
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 25
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 26
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 27
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 28
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 29
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 30
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 31
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 32
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 33
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 34
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 35
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 36
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 37
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 38
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 39
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        # 40
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        address
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="/accounts/6gfi6GSjrhqc5xDLtDkVrTR61Hi7GMNPmJknxvbqzb1x"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        6gfi6GSjrhqc5xD...qzb1x
+      </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        quantity
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        430,012,872.844027
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        percentage
+      </h4>
+      <div
+        id="StackBar"
+        percentage={3.1754}
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        value
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        $429,656,822.19
+      </p>
+    </div>
+  </div>
+</div>
+`;

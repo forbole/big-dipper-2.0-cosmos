@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TokenDetails matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="Layout"
+  navTitle="tokens:tokenDetails"
+>
+  <div
+    className="makeStyles-overview"
+    id="Overview"
+  />
+  <div
+    className="makeStyles-market"
+    id="Market"
+  />
+  <div
+    className="makeStyles-holders"
+    id="Holders"
+  />
+  <div
+    className="makeStyles-transactions"
+    id="Transactions"
+  />
+</div>
+`;

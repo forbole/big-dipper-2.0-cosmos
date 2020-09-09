@@ -1,0 +1,10 @@
+schema: https://48p1r2roz4.sse.codesandbox.io
+overwrite: true
+documents: src/**/*.graphql
+generates:
+  ./src/graphql/types.tsx:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo" # To generate custom hooks per query
+

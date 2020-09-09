@@ -1,0 +1,11 @@
+query GetCurrencyUsd {
+  rates(currency: "USD") {
+    currency
+  }
+}
+
+query GetCurrencyCad {
+  rates(currency: "CAD") {
+    currency
+  }
+}

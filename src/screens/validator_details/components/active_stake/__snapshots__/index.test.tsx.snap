@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Home/ActiveStake matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <h2
+    className="MuiTypography-root makeStyles-label MuiTypography-h2"
+  >
+    activeStake
+  </h2>
+  <div
+    className="makeStyles-dateWrapper"
+  >
+    <div
+      className="makeStyles-date"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body2"
+      >
+        today
+      </p>
+      <h3
+        className="MuiTypography-root MuiTypography-h3 MuiTypography-colorPrimary"
+      >
+        184,136.334
+      </h3>
+    </div>
+    <div
+      className="makeStyles-date"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body2"
+      >
+        lastMonth
+      </p>
+      <h3
+        className="MuiTypography-root MuiTypography-h3"
+      >
+        179,647.354
+      </h3>
+    </div>
+  </div>
+  <div
+    className="makeStyles-chart"
+  >
+    <div
+      id="ResponsiveContainer"
+      width="99%"
+    />
+  </div>
+</div>
+`;

@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Tokens/Desktop matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <div
+    onScroll={[Function]}
+    style={
+      Object {
+        "WebkitOverflowScrolling": "touch",
+        "direction": "ltr",
+        "height": 50,
+        "overflow": "auto",
+        "position": "relative",
+        "width": 600,
+        "willChange": "transform",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": 50,
+          "pointerEvents": undefined,
+          "width": 600,
+        }
+      }
+    >
+      <div
+        className="makeStyles-cell"
+        style={
+          Object {
+            "height": 50,
+            "left": 0,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 90,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4"
+        >
+          idx
+        </h4>
+      </div>
+      <div
+        className="makeStyles-cell"
+        style={
+          Object {
+            "height": 50,
+            "left": 90,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 60,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4"
+        >
+          token
+        </h4>
+      </div>
+      <div
+        className="makeStyles-cell"
+        style={
+          Object {
+            "height": 50,
+            "left": 150,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 90,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight"
+        >
+          price
+        </h4>
+      </div>
+      <div
+        className="makeStyles-cell"
+        style={
+          Object {
+            "height": 50,
+            "left": 240,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 90,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight"
+        >
+          change
+        </h4>
+      </div>
+      <div
+        className="makeStyles-cell"
+        style={
+          Object {
+            "height": 50,
+            "left": 330,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 90,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight"
+        >
+          volume
+        </h4>
+      </div>
+      <div
+        className="makeStyles-cell"
+        style={
+          Object {
+            "height": 50,
+            "left": 420,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 90,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight"
+        >
+          marketCap
+        </h4>
+      </div>
+      <div
+        className="makeStyles-cell"
+        style={
+          Object {
+            "height": 50,
+            "left": 510,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 90,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight"
+        >
+          holders
+        </h4>
+      </div>
+    </div>
+  </div>
+  <div
+    onScroll={[Function]}
+    style={
+      Object {
+        "WebkitOverflowScrolling": "touch",
+        "direction": "ltr",
+        "height": 550,
+        "overflow": "auto",
+        "position": "relative",
+        "width": 600,
+        "willChange": "transform",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": NaN,
+          "pointerEvents": undefined,
+          "width": 600,
+        }
+      }
+    />
+  </div>
+</div>
+`;

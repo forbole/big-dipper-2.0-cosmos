@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Home matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="Layout"
+>
+  <div
+    className="makeStyles-dataBlocks"
+    id="DataBlocks"
+  />
+  <div
+    className="makeStyles-onlineVotingPower"
+    id="OnlineVotingPower"
+  />
+  <div
+    className="makeStyles-tokenomics"
+    id="Tokenomics"
+  />
+  <div
+    className="makeStyles-consensus"
+    id="Consensus"
+  />
+  <div
+    className="makeStyles-blocks"
+    id="Blocks"
+  />
+  <div
+    className="makeStyles-transactions"
+    id="Transactions"
+  />
+</div>
+`;

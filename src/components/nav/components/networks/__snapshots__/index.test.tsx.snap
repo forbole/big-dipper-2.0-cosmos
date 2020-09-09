@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Nav/Networks it renders 1`] = `
+<div>
+  <div
+    className="makeStyles-networkList"
+  >
+    <img
+      alt="logo"
+      src="logo"
+    />
+    <div
+      className="network"
+    >
+      <h4
+        className="MuiTypography-root MuiTypography-h4"
+      >
+        name
+      </h4>
+      <a
+        className="makeStyles-root"
+        href="url"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <div
+          className="makeStyles-item"
+        >
+          <p>
+            chain id
+          </p>
+          <div
+            className="MuiTypography-root mainnet makeStyles-status MuiTypography-caption"
+          >
+            name
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+`;

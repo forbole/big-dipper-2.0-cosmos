@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
+<div
+  details={
+    Array [
+      Object {
+        "detail": <Link
+          href="/blocks/123"
+          passHref={true}
+        >
+          <WithStyles(ForwardRef(Typography))
+            className="value"
+            component="a"
+            variant="body1"
+          >
+            100,000,000
+          </WithStyles(ForwardRef(Typography))>
+        </Link>,
+        "label": "transactions:slot",
+      },
+      Object {
+        "detail": <Result />,
+        "label": "transactions:result",
+      },
+      Object {
+        "detail": "MAX",
+        "label": "transactions:confirmations",
+      },
+      Object {
+        "detail": "0.001",
+        "label": "transactions:fee",
+      },
+      Object {
+        "detail": "2mGBpvVcxhLXpnTEeDj4aV1SvVCnXcPKroj3idjnri7TwcR4W2UVUkjEUAHk5fL4Wh3EXiwXLw3cDBe6Rbn8sjUU",
+        "label": "transactions:signature",
+      },
+    ]
+  }
+  id="BoxDetails"
+  title="transactions:overview"
+/>
+`;

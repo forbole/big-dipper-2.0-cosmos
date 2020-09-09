@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Transactions matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="Layout"
+  navTitle="transactions:transactions"
+>
+  <div
+    id="List"
+  />
+</div>
+`;

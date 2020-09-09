@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <h1
+    className="MuiTypography-root MuiTypography-h1"
+  >
+    Validators
+  </h1>
+  <div
+    className="makeStyles-content"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <p
+        className="MuiTypography-root label MuiTypography-body1"
+      >
+        common:price
+      </p>
+      <p
+        className="MuiTypography-root MuiTypography-body1"
+      >
+        0
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <p
+        className="MuiTypography-root label MuiTypography-body1"
+      >
+        common:marketCap
+      </p>
+      <p
+        className="MuiTypography-root MuiTypography-body1"
+      >
+        0
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <p
+        className="MuiTypography-root label MuiTypography-body1"
+      >
+        common:inflation
+      </p>
+      <p
+        className="MuiTypography-root MuiTypography-body1"
+      >
+        0
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <p
+        className="MuiTypography-root label MuiTypography-body1"
+      >
+        common:communityPool
+      </p>
+      <p
+        className="MuiTypography-root MuiTypography-body1"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`screen: Nav/TitleBar it renders 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <svg
+    className="makeStyles-logo"
+    data-file-name="SvgLogoSolana"
+  />
+  <div
+    className="makeStyles-content"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <p
+        className="MuiTypography-root label MuiTypography-body1"
+      >
+        common:price
+      </p>
+      <p
+        className="MuiTypography-root MuiTypography-body1"
+      >
+        0
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <p
+        className="MuiTypography-root label MuiTypography-body1"
+      >
+        common:marketCap
+      </p>
+      <p
+        className="MuiTypography-root MuiTypography-body1"
+      >
+        0
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <p
+        className="MuiTypography-root label MuiTypography-body1"
+      >
+        common:inflation
+      </p>
+      <p
+        className="MuiTypography-root MuiTypography-body1"
+      >
+        0
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <p
+        className="MuiTypography-root label MuiTypography-body1"
+      >
+        common:communityPool
+      </p>
+      <p
+        className="MuiTypography-root MuiTypography-body1"
+      />
+    </div>
+  </div>
+</div>
+`;

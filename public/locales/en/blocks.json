@@ -1,0 +1,14 @@
+{
+  "blocks": "Blocks",
+  "blockDetails": "Block Details",
+  "height": "Height",
+  "validator": "Validator",
+  "hash": "Hash",
+  "parentHash": "Parent Hash",
+  "txs": "Txs",
+  "time": "Time",
+  "overview": "Overview",
+  "parentSlot": "Parent Slot",
+  "blockHash": "Blockhash",
+  "parentBlockHash": "Parent Blockhash"
+}

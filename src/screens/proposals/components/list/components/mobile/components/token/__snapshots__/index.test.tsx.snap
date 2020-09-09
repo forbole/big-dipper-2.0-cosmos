@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Tokens/Token matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <div
+    className="makeStyles-item"
+  >
+    <h4
+      className="MuiTypography-root label MuiTypography-h4"
+    >
+      token
+    </h4>
+    <div>
+      token
+    </div>
+  </div>
+  <div
+    className="makeStyles-flex"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        price
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        price
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        change
+      </h4>
+      <div>
+        change
+      </div>
+    </div>
+  </div>
+  <div
+    className="makeStyles-item"
+  >
+    <h4
+      className="MuiTypography-root label MuiTypography-h4"
+    >
+      volume
+    </h4>
+    <p
+      className="MuiTypography-root value MuiTypography-body1"
+    >
+      volume
+    </p>
+  </div>
+  <div
+    className="makeStyles-item"
+  >
+    <h4
+      className="MuiTypography-root label MuiTypography-h4"
+    >
+      marketCap
+    </h4>
+    <p
+      className="MuiTypography-root value MuiTypography-body1"
+    >
+      marketCap
+    </p>
+  </div>
+  <div
+    className="makeStyles-item"
+  >
+    <h4
+      className="MuiTypography-root label MuiTypography-h4"
+    >
+      holders
+    </h4>
+    <p
+      className="MuiTypography-root value MuiTypography-body1"
+    >
+      holders
+    </p>
+  </div>
+</div>
+`;

@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Home/Tokenomics matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="box"
+>
+  <h2
+    className="MuiTypography-root makeStyles-label MuiTypography-h2"
+  >
+    tokenomics
+  </h2>
+  <div
+    className="makeStyles-data"
+  >
+    <div
+      className="data__item"
+    >
+      <h4
+        className="MuiTypography-root MuiTypography-h4"
+      >
+        29,500
+      </h4>
+      <span
+        className="MuiTypography-root MuiTypography-caption"
+      >
+        bondedPercent
+      </span>
+    </div>
+    <div
+      className="data__item"
+    >
+      <h4
+        className="MuiTypography-root MuiTypography-h4"
+      >
+        30,000
+      </h4>
+      <span
+        className="MuiTypography-root MuiTypography-caption"
+      >
+        unbondedPercent
+      </span>
+    </div>
+  </div>
+  <div
+    className="makeStyles-content"
+  >
+    <div
+      className="recharts-wrapper"
+      style={
+        Object {
+          "cursor": "default",
+          "height": 100,
+          "position": "relative",
+          "width": 200,
+        }
+      }
+    >
+      <svg
+        className="recharts-surface"
+        cx="50%"
+        cy={100}
+        height={100}
+        version="1.1"
+        viewBox="0 0 200 100"
+        width={200}
+      >
+        <defs>
+          <clipPath
+            id="recharts1-clip"
+          >
+            <rect
+              height={90}
+              width={190}
+              x={5}
+              y={5}
+            />
+          </clipPath>
+        </defs>
+        <g
+          className="recharts-layer recharts-pie"
+        >
+          <g
+            className="recharts-layer"
+          >
+            <g
+              className="recharts-layer recharts-pie-sector"
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            />
+            <g
+              className="recharts-layer recharts-pie-sector"
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            />
+          </g>
+        </g>
+      </svg>
+      <div
+        className="recharts-tooltip-wrapper"
+        style={
+          Object {
+            "MozTransform": "translate(undefinedpx, undefinedpx)",
+            "OTransform": "translate(undefinedpx, undefinedpx)",
+            "WebkitTransform": "translate(undefinedpx, undefinedpx)",
+            "left": 0,
+            "msTransform": "translate(undefinedpx, undefinedpx)",
+            "pointerEvents": "none",
+            "position": "absolute",
+            "top": 0,
+            "transform": "translate(undefinedpx, undefinedpx)",
+            "visibility": "hidden",
+          }
+        }
+      >
+        <div
+          className="recharts-default-tooltip"
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "border": "1px solid #ccc",
+              "margin": 0,
+              "padding": 10,
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          <p
+            className="recharts-tooltip-label"
+            style={
+              Object {
+                "margin": 0,
+              }
+            }
+          >
+            
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="makeStyles-legends"
+    >
+      <div
+        className="legends__item"
+      >
+        <span
+          className="MuiTypography-root MuiTypography-caption"
+        >
+          bonded
+        </span>
+      </div>
+      <div
+        className="legends__item"
+      >
+        <span
+          className="MuiTypography-root MuiTypography-caption"
+        >
+          unbonded
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

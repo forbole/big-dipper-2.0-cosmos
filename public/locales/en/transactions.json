@@ -1,0 +1,14 @@
+{
+  "block": "Block",
+  "hash": "Hash",
+  "type": "Type",
+  "time": "Time",
+  "messages": "Messages",
+  "result": "Result",
+  "transactions": "Transactions",
+  "transactionDetails": "Transaction Details",
+  "overview": "Overview",
+  "confirmations": "Confirmations",
+  "fee": "Fee",
+  "instructions": "Instructions"
+}

@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: ValidatorDetails/SkipRate matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="Box"
+>
+  <h2
+    className="MuiTypography-root MuiTypography-h2"
+  >
+    validators:skipRate
+  </h2>
+  <div
+    className="makeStyles-actionsWrapper"
+  >
+    <div
+      className="makeStyles-data"
+    >
+      <h3
+        className="MuiTypography-root primary__data MuiTypography-h3"
+      >
+        4.9%
+      </h3>
+      <p
+        className="MuiTypography-root MuiTypography-body1"
+      >
+        5904 / 203
+      </p>
+    </div>
+    <div
+      className="makeStyles-options"
+    >
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-text selected"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          validators:lastEpoch
+        </span>
+      </button>
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-text"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          validators:numEpoch
+        </span>
+      </button>
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-text"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          validators:numEpoch
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    className="makeStyles-chart"
+  >
+    <div
+      className="makeStyles-active"
+    />
+  </div>
+</div>
+`;

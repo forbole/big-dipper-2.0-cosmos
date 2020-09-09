@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Home/Transactions/Mobile matches snapshot 1`] = `
+<div
+  className=""
+>
+  <div
+    block={
+      <Link
+        href="/blocks/123"
+        passHref={true}
+      >
+        <WithStyles(ForwardRef(Typography))
+          component="a"
+          variant="body1"
+        >
+          812,768,640
+        </WithStyles(ForwardRef(Typography))>
+      </Link>
+    }
+    hash={
+      <Link
+        href="/transactions/undefined"
+        passHref={true}
+      >
+        <WithStyles(ForwardRef(Typography))
+          component="a"
+          variant="body1"
+        >
+          76nwV8zz8tLz97S...hQ857
+        </WithStyles(ForwardRef(Typography))>
+      </Link>
+    }
+    id="SingleTransactionMobile"
+    result={
+      <Result
+        success={true}
+      />
+    }
+    time="16 days ago"
+  />
+</div>
+`;

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
+<div
+  className=""
+  id="box"
+>
+  <h2
+    className="MuiTypography-root makeStyles-label MuiTypography-h2"
+  >
+    onlineVotingPower
+  </h2>
+  <div
+    className="makeStyles-chart"
+  >
+    <div
+      id="ResponsiveContainer"
+      width="99%"
+    />
+  </div>
+</div>
+`;

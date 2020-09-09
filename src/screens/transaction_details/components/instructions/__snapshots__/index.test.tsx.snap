@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="Box"
+>
+  <h2
+    className="MuiTypography-root MuiTypography-h2"
+  >
+    transactions:instructions
+  </h2>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="List"
+      onScroll={[Function]}
+      style={
+        Object {
+          "WebkitOverflowScrolling": "touch",
+          "direction": "ltr",
+          "height": 600,
+          "overflow": "auto",
+          "position": "relative",
+          "width": 600,
+          "willChange": "transform",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "height": 200,
+            "pointerEvents": undefined,
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "height": 100,
+              "left": 0,
+              "position": "absolute",
+              "right": undefined,
+              "top": 0,
+              "width": "100%",
+            }
+          }
+        >
+          <div>
+            <div
+              className="makeStyles-fakeItem"
+            >
+              <div
+                className="makeStyles-tags"
+              >
+                <div
+                  id="Tag"
+                  theme="two"
+                  value="system"
+                />
+                <div
+                  id="Tag"
+                  theme="two"
+                  value="transfer"
+                />
+              </div>
+              <p
+                className="MuiTypography-root MuiTypography-body1"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent libero dolor, sollicitudin fringilla augue gravida, tincidunt viverra odio. Curabitur sit amet erat ultricies nisi posuere bibendum.
+              </p>
+            </div>
+            <hr
+              className="MuiDivider-root"
+            />
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "height": 100,
+              "left": 0,
+              "position": "absolute",
+              "right": undefined,
+              "top": 100,
+              "width": "100%",
+            }
+          }
+        >
+          <div>
+            <div
+              className="makeStyles-fakeItem"
+            >
+              <div
+                className="makeStyles-tags"
+              >
+                <div
+                  id="Tag"
+                  theme="two"
+                  value="system"
+                />
+                <div
+                  id="Tag"
+                  theme="two"
+                  value="transfer"
+                />
+              </div>
+              <p
+                className="MuiTypography-root MuiTypography-body1"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent libero dolor, sollicitudin fringilla augue gravida, tincidunt viverra odio. Curabitur sit amet erat ultricies nisi posuere bibendum.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

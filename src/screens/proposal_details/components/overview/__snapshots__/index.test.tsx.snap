@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
+<div
+  details={
+    Array [
+      Object {
+        "className": "makeStyles-copyText",
+        "detail": <React.Fragment>
+          <SvgIconCopy
+            onClick={[Function]}
+          />
+          <WithStyles(ForwardRef(Typography))
+            className="value"
+            variant="body1"
+          >
+            HjTgC7ukwMA1gsE...E6B6X
+          </WithStyles(ForwardRef(Typography))>
+        </React.Fragment>,
+        "label": "tokens:address",
+      },
+      Object {
+        "detail": "7",
+        "label": "tokens:decimals",
+      },
+      Object {
+        "className": "makeStyles-copyText",
+        "detail": <React.Fragment>
+          <SvgIconCopy
+            onClick={[Function]}
+          />
+          <Link
+            href="/accounts/123"
+            passHref={true}
+          >
+            <WithStyles(ForwardRef(Typography))
+              className="value"
+              component="a"
+              variant="body1"
+            >
+              HjTgC7ukwMA1gsE...E6B6X
+            </WithStyles(ForwardRef(Typography))>
+          </Link>
+        </React.Fragment>,
+        "label": "tokens:mintAuthority",
+      },
+      Object {
+        "className": "makeStyles-copyText",
+        "detail": <React.Fragment>
+          <SvgIconCopy
+            onClick={[Function]}
+          />
+          <Link
+            href="/accounts/123"
+            passHref={true}
+          >
+            <WithStyles(ForwardRef(Typography))
+              className="value"
+              component="a"
+              variant="body1"
+            >
+              HjTgC7ukwMA1gsE...E6B6X
+            </WithStyles(ForwardRef(Typography))>
+          </Link>
+        </React.Fragment>,
+        "label": "tokens:freezeAuthority",
+      },
+      Object {
+        "detail": <WithStyles(ForwardRef(Typography))
+          className="value"
+          component="a"
+          href="tokenname.com"
+          rel="noopener"
+          target="_blank"
+          variant="body1"
+        >
+          tokenname.com
+        </WithStyles(ForwardRef(Typography))>,
+        "label": "tokens:officialSite",
+      },
+    ]
+  }
+  id="BoxDetails"
+  title="tokens:overview"
+/>
+`;
