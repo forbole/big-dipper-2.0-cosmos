@@ -7,7 +7,7 @@ module.exports = {
     '/': ['home', 'blocks', 'transactions'],
     'rgx:^/blocks': ['blocks', 'transactions'],
     'rgx:^/transactions': ['transactions'],
-    'rgx:^/tokens': ['tokens', 'transactions'],
+    'rgx:^/proposals': ['proposals'],
     'rgx:^/validators': ['validators', 'transactions'],
   },
   loadLocaleFrom: (lang, ns) => import(`./public/locales/${lang}/${ns}.json`).then((m) => m.default),

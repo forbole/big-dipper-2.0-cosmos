@@ -3,25 +3,32 @@ import {
   useEffect,
 } from 'react';
 
-export const useTokens = () => {
+export const useProposals = () => {
   const fakeData = {
-    token: 'BTC',
-    price: '$1,802',
-    change: 10,
-    volume: '$15,902,496,558',
-    marketCap: '$515,912,496',
-    holders: '2,178,994',
-    address: '9n4nbM75f5Ui33ZbPYXn59EwSgE8CGsHtAeTH5YFeJ9E',
+    id: 3,
+    proposer: {
+      image: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
+      moniker: 'Forbole',
+      identity: 'FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk',
+    },
+    title: 'Enable IBC transfers',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse placerat velit ipsum, tempus tristique tellus rhoncus tempus. Duis elementum varius neque, eu pharetra eros porttitor in.',
+    submissionTime: 1615187146246,
+    votingTimeStart: 1615187146246,
+    status: 1,
   };
 
   const fakeDataTwo = {
-    token: 'ETH',
-    price: '$1,802',
-    change: -25,
-    volume: '$15,902,496,558',
-    marketCap: '$515,912,496',
-    holders: '2,178,994',
-    address: '9n4nbM75f5Ui33ZbPYXn59EwSgE8CGsHtAeTH5YFeJ9E',
+    id: 6,
+    proposer: {
+      image: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
+      moniker: 'Forbole',
+      identity: 'FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk',
+    },
+    title: 'Takeoff Proposal from Cyber to Cosmos',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse placerat velit ipsum, tempus tristique tellus rhoncus tempus. Duis elementum varius neque, eu pharetra eros porttitor in.',
+    submissiongTime: 1615187146246,
+    status: 2,
   };
 
   const [state, setState] = useState({

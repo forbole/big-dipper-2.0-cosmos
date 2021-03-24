@@ -19,30 +19,12 @@ jest.mock('./components', () => ({
   Mobile: (props) => <div id="Mobile" {...props} />,
   Desktop: (props) => <div id="Desktop" {...props} />,
   Total: (props) => <div id="Total" {...props} />,
-  Search: (props) => <div id="Search" {...props} />,
-}));
-
-const mockContext = {
-  hasNextPage: true,
-  isNextPageLoading: false,
-  items: [],
-  loadNextPage: jest.fn(),
-  itemCount: jest.fn(),
-  loadMoreItems: jest.fn(),
-  isItemLoaded: jest.fn(),
-};
-
-jest.mock('./contexts/tokens', () => ({
-  TokensProvider: 'TokensProvider',
-  TokenssContext: {
-    Consumer: ({ children }) => children(mockContext),
-  },
 }));
 
 // ==================================
 // unit tests
 // ==================================
-describe('screen: Tokens/List', () => {
+describe('screen: Proposals/List', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>

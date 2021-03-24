@@ -1,0 +1,7 @@
+{
+  "proposals": "Proposals",
+  "totalProposals": "A total of {{amount}} proposals found",
+  "proposer": "Proposer",
+  "submissionTime": "Submission time",
+  "votingTimeStart": "Voting time start"
+}

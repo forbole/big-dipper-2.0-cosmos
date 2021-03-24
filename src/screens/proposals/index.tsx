@@ -6,15 +6,15 @@ import {
 import { useStyles } from './styles';
 import { List } from './components';
 
-const Tokens = () => {
-  const { t } = useTranslation('tokens');
+const Proposals = () => {
+  const { t } = useTranslation('proposals');
   const classes = useStyles();
 
   return (
-    <Layout navTitle={t('tokens')} className={classes.root}>
+    <Layout navTitle={t('proposals')} className={classes.root}>
       <List />
     </Layout>
   );
 };
 
-export default Tokens;
+export default Proposals;

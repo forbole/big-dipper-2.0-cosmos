@@ -1,35 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: Tokens/List matches snapshot 1`] = `
-<TokensProvider>
+exports[`screen: Proposals/List matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="Box"
+>
   <div
-    className="makeStyles-root"
-    id="Box"
+    className="makeStyles-topContent"
   >
     <div
-      className="makeStyles-topContent"
-    >
-      <div
-        className="makeStyles-total"
-        id="Total"
-      />
-      <div
-        className="makeStyles-search"
-        id="Search"
-      />
-    </div>
-    <div
-      className="makeStyles-list"
-    >
-      <div
-        className="makeStyles-mobile"
-        id="Mobile"
-      />
-      <div
-        className="makeStyles-desktop"
-        id="Desktop"
-      />
-    </div>
+      className="makeStyles-total"
+      id="Total"
+      total="1,000"
+    />
   </div>
-</TokensProvider>
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      style={
+        Object {
+          "height": 0,
+          "overflow": "visible",
+          "width": 0,
+        }
+      }
+    />
+  </div>
+</div>
 `;
