@@ -4,29 +4,25 @@ export const columns:{
   width: number;
 }[] = [
   {
-    key: 'slot',
-    width: 10,
+    key: 'height',
+    width: 15,
   },
   {
-    key: 'leader',
-    width: 15,
+    key: 'validator',
+    width: 25,
   },
   {
     key: 'hash',
     width: 25,
   },
   {
-    key: 'parentHash',
-    width: 25,
-  },
-  {
     key: 'txs',
     align: 'right',
-    width: 10,
+    width: 15,
   },
   {
     key: 'time',
     align: 'right',
-    width: 15,
+    width: 20,
   },
 ];

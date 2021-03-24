@@ -45,22 +45,23 @@ const Mobile: React.FC<{
   const formatSlots = items.map((x) => {
     dayjs.extend(relativeTime);
     return ({
-      slot: (
+      height: (
         <Link href={BLOCK_DETAILS(123)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {x.slot}
+          <Typography variant="body1" component="a">
+            {x.height}
           </Typography>
         </Link>
       ),
-      hash: getMiddleEllipsis(x.hash, { beginning: 15 }),
-      parentHash: getMiddleEllipsis(x.hash, { beginning: 15 }),
+      validator: (
+        <AvatarName
+          address={x.validator.identity}
+          imageUrl={x.validator.image}
+          name={x.validator.moniker}
+        />
+      ),
+      hash: getMiddleEllipsis(x.hash, { beginning: 13 }),
       txs: x.tx,
       time: dayjs(x.time).fromNow(),
-      leader: <AvatarName
-        address={x.leader.identity}
-        imageUrl={x.leader.image}
-        name={x.leader.moniker}
-      />,
     });
   });
 

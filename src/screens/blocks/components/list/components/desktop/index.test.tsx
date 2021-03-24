@@ -23,8 +23,8 @@ jest.mock('react-virtualized-auto-sizer', () => ({ children }: any) => children(
 jest.mock('@src/screens/blocks/components/list/contexts/blocks', () => ({
   useBlocksContext: () => ({
     items: [{
-      slot: '812,768,640',
-      leader: {
+      height: '812,768,640',
+      validator: {
         image: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
         moniker: 'Forbole',
         identity: 'FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk',
