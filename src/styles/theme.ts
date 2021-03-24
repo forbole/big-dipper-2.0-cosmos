@@ -36,10 +36,6 @@ export const common = {
       '& > *': {
         width: '100%',
       },
-      background: '#131316',
-      '&.odd': {
-        background: '#19191D',
-      },
       '& .MuiTypography-body1': {
         whiteSpace: 'nowrap',
       },
@@ -156,6 +152,14 @@ export const common = {
 
 /** Custom theme overrides for light mode */
 const lightThemeOverride = {
+  mixins: {
+    tableCell: {
+      background: '#FFFFFF',
+      '&.odd': {
+        background: '#F8F8F8',
+      },
+    },
+  },
   palette: {
     type: 'light',
     primary: {
@@ -229,6 +233,14 @@ const lightThemeOverride = {
 
 /** Custom theme overrides for dark mode */
 const darkThemeOverride = {
+  mixins: {
+    tableCell: {
+      background: '#131316',
+      '&.odd': {
+        background: '#19191D',
+      },
+    },
+  },
   palette: {
     type: 'dark',
     primary: {

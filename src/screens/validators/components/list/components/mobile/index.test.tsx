@@ -12,7 +12,7 @@ const mockI18n = {
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('..', () => ({
-  SkipRate: (props) => <div id="SkipRate" {...props} />,
+  VotingPower: (props) => <div id="VotingPower" {...props} />,
 }));
 
 jest.mock('./component', () => ({
@@ -25,7 +25,19 @@ jest.mock('@components', () => ({
 
 jest.mock('../../contexts/validators', () => ({
   useValidatorsContext: () => ({
-    items: [],
+    items: [{
+      validator: {
+        image: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
+        moniker: 'Forbole',
+        identity: 'FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk',
+      },
+      votingPower: '12,320,000',
+      votingPowerPercent: 40,
+      votingPowerTotal: '100,000,000',
+      commission: '10%',
+      self: '10%',
+      condition: 50,
+    }],
   }),
 }));
 

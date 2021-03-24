@@ -12,7 +12,8 @@ import { useStyles } from './styles';
 import { useValidatorsContext } from '../../contexts/validators';
 import { fetchColumns } from './utils';
 import {
-  SkipRate, Condition,
+  VotingPower,
+  Condition,
 } from '..';
 
 const Desktop: React.FC<{
@@ -46,13 +47,12 @@ const Desktop: React.FC<{
           name={x.validator.moniker}
         />
       ),
-      stake: `${x.stake} (${x.stakePercent}%)`,
-      fee: x.fee,
-      lastVote: x.lastVote,
-      skipRate: (
-        <SkipRate
-          percentage={x.skipPercent}
-          content={`${x.skipRate} / ${x.skipTotal}`}
+      self: x.self,
+      commission: x.commission,
+      votingPower: (
+        <VotingPower
+          percentage={x.votingPowerPercent}
+          content={`${x.votingPower}`}
         />
       ),
       condition: (

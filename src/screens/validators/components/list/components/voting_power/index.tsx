@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 
-const SkipRate: React.FC<{
+const VotingPower: React.FC<{
   className?: string;
   percentage: number;
   content: string;
@@ -29,4 +29,4 @@ const SkipRate: React.FC<{
   );
 };
 
-export default SkipRate;
+export default VotingPower;

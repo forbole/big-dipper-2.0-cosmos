@@ -22,26 +22,20 @@ export const fetchColumns = (t): {
       sort: true,
     },
     {
-      key: 'stake',
+      key: 'votingPower',
+      width: 25,
+      sort: true,
+    },
+    {
+      key: 'self',
       align: 'right',
       width: 15,
       sort: true,
     },
     {
-      key: 'fee',
-      align: 'right',
-      width: 10,
-      sort: true,
-    },
-    {
-      key: 'lastVote',
+      key: 'commission',
       align: 'right',
       width: 15,
-    },
-    {
-      key: 'skipRate',
-      width: 15,
-      sort: true,
     },
     {
       key: 'condition',

@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import Color from 'color';
 
 export const useStyles = (percentage: number) => {
   const styles = makeStyles(
@@ -13,12 +14,12 @@ export const useStyles = (percentage: number) => {
           display: 'flex',
           height: '2px',
           borderRadius: theme.shape.borderRadius,
-          background: theme.palette.custom.chartData.two,
+          background: Color(theme.palette.custom.chartData.two).alpha(0.2).string(),
           overflow: 'hidden',
         },
         active: {
           width: `${percentage}%`,
-          background: theme.palette.custom.chartData.one,
+          background: theme.palette.custom.chartData.two,
         },
         content: {
           display: 'flex',

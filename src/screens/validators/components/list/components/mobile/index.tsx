@@ -10,7 +10,7 @@ import {
 } from '@hooks';
 import { useValidatorsContext } from '../../contexts/validators';
 import { SingleValidator } from './component';
-import { SkipRate } from '..';
+import { VotingPower } from '..';
 
 const Mobile: React.FC<{
   className?: string;
@@ -35,13 +35,12 @@ const Mobile: React.FC<{
           name={x.validator.moniker}
         />
       ),
-      stake: `${x.stake} (${x.stakePercent}%)`,
-      fee: x.fee,
-      lastVote: x.lastVote,
-      skipRate: (
-        <SkipRate
-          percentage={x.skipPercent}
-          content={`${x.skipRate} / ${x.skipTotal}`}
+      self: x.self,
+      commission: x.commission,
+      votingPower: (
+        <VotingPower
+          percentage={x.votingPowerPercent}
+          content={`${x.votingPower}`}
         />
       ),
     });

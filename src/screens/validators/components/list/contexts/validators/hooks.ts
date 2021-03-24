@@ -13,13 +13,11 @@ export const useValidators = () => {
       moniker: 'Forbole',
       identity: 'FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk',
     },
-    stake: '13,079,735',
-    stakePercent: 12,
-    fee: 0.9,
-    lastVote: 56969523,
-    skipRate: 80,
-    skipTotal: 100, // idk what this is atm,
-    skipPercent: 55,
+    votingPower: '12,320,000',
+    votingPowerPercent: 40,
+    votingPowerTotal: '100,000,000',
+    commission: '10%',
+    self: '10%',
     condition: 90,
   };
 
@@ -29,13 +27,11 @@ export const useValidators = () => {
       moniker: 'Forbole',
       identity: 'FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk',
     },
-    stake: '13,079,735',
-    stakePercent: 12,
-    fee: 0.9,
-    lastVote: 10, // for example if last vote isnt greater than min sliding window its bad
-    skipRate: 80,
-    skipTotal: 100, // idk what this is atm,
-    skipPercent: 20,
+    votingPower: '12,320,000',
+    votingPowerPercent: 40,
+    votingPowerTotal: '100,000,000',
+    commission: '10%',
+    self: '10%',
     condition: 50,
   };
 
