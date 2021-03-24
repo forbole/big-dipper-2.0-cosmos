@@ -7,11 +7,6 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
     id="Box"
   >
     <div
-      callback={[Function]}
-      className="makeStyles-filter"
-      id="TransactionsFilter"
-    />
-    <div
       className="makeStyles-list"
       id="TransactionsList"
       useContext={[MockFunction]}

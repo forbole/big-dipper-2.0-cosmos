@@ -5,18 +5,18 @@ import {
 
 export const useTransactions = () => {
   const fakeData = {
-    slot: '812,768,640',
-    signature: '4SGxuRMcseNbwki3tGxXPpfz7iFnuo9FUpTfiM4gJ8rhH59uZYSBBK2zW27xRdGX8Sb2N4VkGUnBYt59SBKEhPfB',
-    amount: 123,
-    success: true,
+    block: '812,768,640',
+    hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
+    messages: 123,
+    success: false,
     time: 1615187146246,
   };
 
   const fakeDataTwo = {
-    slot: '812,768,640',
-    signature: '4SGxuRMcseNbwki3tGxXPpfz7iFnuo9FUpTfiM4gJ8rhH59uZYSBBK2zW27xRdGX8Sb2N4VkGUnBYt59SBKEhPfB',
-    amount: 123,
-    success: false,
+    block: '812,768,640',
+    hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
+    messages: 12,
+    success: true,
     time: 1615187146246,
   };
 

@@ -50,24 +50,26 @@ const Desktop: React.FC<{
   const formatSlots = items.map((x) => {
     dayjs.extend(relativeTime);
     return ({
-      slot: (
+      block: (
         <Link href={BLOCK_DETAILS(123)} passHref>
           <Typography variant="body1" component="a">
-            {x.slot}
+            {x.block}
           </Typography>
         </Link>
       ),
-      signature: (
+      hash: (
         <Link href={TRANSACTION_DETAILS(x.signature)} passHref>
           <Typography variant="body1" component="a">
-            {getMiddleEllipsis(x.signature, {
-              beginning: 20, ending: 10,
+            {getMiddleEllipsis(x.hash, {
+              beginning: 15,
             })}
           </Typography>
         </Link>
       ),
-      amount: numeral(x.amount).format('0,0.0[000]'),
-      result: x.success ? <Result success /> : <Result />,
+      result: (
+        <Result success={x.success} />
+      ),
+      messages: x.messages,
       time: dayjs(x.time).fromNow(),
     });
   });

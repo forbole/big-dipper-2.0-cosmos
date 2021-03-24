@@ -43,7 +43,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         <h4
           className="MuiTypography-root MuiTypography-h4"
         >
-          slot
+          block
         </h4>
       </div>
       <div
@@ -62,7 +62,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         <h4
           className="MuiTypography-root MuiTypography-h4"
         >
-          signature
+          hash
         </h4>
       </div>
       <div
@@ -74,14 +74,14 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
             "position": "absolute",
             "right": undefined,
             "top": 0,
-            "width": 120,
+            "width": 90,
           }
         }
       >
         <h4
           className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight"
         >
-          amount
+          messages
         </h4>
       </div>
       <div
@@ -89,11 +89,11 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         style={
           Object {
             "height": 50,
-            "left": 390,
+            "left": 360,
             "position": "absolute",
             "right": undefined,
             "top": 0,
-            "width": 90,
+            "width": 120,
           }
         }
       >

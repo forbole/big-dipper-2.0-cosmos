@@ -19,13 +19,9 @@ jest.mock('react-virtualized-auto-sizer', () => ({ children }: any) => children(
 
 const mockUseContext = jest.fn(() => ({
   items: [{
-    slot: '812,768,640',
-    signature: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
-    type: [
-      'System Program',
-      'Transfer',
-    ],
-    amount: 123,
+    block: '812,768,640',
+    hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
+    messages: 12,
     success: true,
     time: 1615187146246,
   }],

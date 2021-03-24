@@ -14,13 +14,6 @@ export const useStyles = () => {
             minHeight: '65vh',
           },
         },
-        filter: {
-          marginBottom: theme.spacing(2),
-          [theme.breakpoints.up('lg')]: {
-            alignSelf: 'flex-end',
-            minWidth: '300px',
-          },
-        },
         list: {
           flex: 1,
         },
