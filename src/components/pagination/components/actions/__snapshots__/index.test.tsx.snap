@@ -4,7 +4,9 @@ exports[`components: Pagination/Actions matches snapshot 1`] = `
 <ul
   className="makeStyles-root"
 >
-  <li>
+  <li
+    className="first"
+  >
     <button
       aria-label="first page"
       className="MuiButtonBase-root MuiIconButton-root makeStyles-button MuiIconButton-disabled MuiButtonBase-disabled"
@@ -111,7 +113,9 @@ exports[`components: Pagination/Actions matches snapshot 1`] = `
       </span>
     </button>
   </li>
-  <li>
+  <li
+    className="last"
+  >
     <button
       aria-label="last page"
       className="MuiButtonBase-root MuiIconButton-root makeStyles-button"

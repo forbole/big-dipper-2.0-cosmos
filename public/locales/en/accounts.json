@@ -1,0 +1,21 @@
+{
+  "accountDetails": "Account Details",
+  "balance": "Balance",
+  "overview": "Overview",
+  "address": "Address",
+  "rewardAddress": "Reward Address",
+  "total": "Total {{unit}}",
+  "delegations": "Delegations ({{num}})",
+  "redelegations": "Redelegations ({{num}})",
+  "unbonding": "Unbondings ({{num}})",
+  "validator": "Validator",
+  "amount": "Amount",
+  "reward": "Reward",
+  "commission": "Commission",
+  "from": "From",
+  "to": "To",
+  "linkedUntil": "Linked Until",
+  "scanForAddress": "Scan for address",
+  "shareTo": "Share to",
+  "transactions": "Transactions"
+}

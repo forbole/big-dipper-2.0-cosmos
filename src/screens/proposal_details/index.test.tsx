@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import TokenDetails from '.';
+import ProposalDetails from '.';
 
 // ==================================
 // mocks
@@ -12,19 +12,26 @@ jest.mock('@components', () => ({
 
 jest.mock('./components', () => ({
   Overview: (props) => <div id="Overview" {...props} />,
-  Market: (props) => <div id="Market" {...props} />,
-  Transactions: (props) => <div id="Transactions" {...props} />,
-  Holders: (props) => <div id="Holders" {...props} />,
+  Votes: (props) => <div id="Votes" {...props} />,
+  Deposits: (props) => <div id="Deposits" {...props} />,
+  VotesGraph: (props) => <div id="VotesGraph" {...props} />,
+}));
+
+jest.mock('./contexts/proposal', () => ({
+  ProposalProvider: 'ProposalProvider',
+  ProposalContext: {
+    Consumer: ({ children }) => children,
+  },
 }));
 
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TokenDetails', () => {
+describe('screen: ProposalDetails', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>
-        <TokenDetails />
+        <ProposalDetails />
       </MockTheme>,
     );
     const tree = component.toJSON();

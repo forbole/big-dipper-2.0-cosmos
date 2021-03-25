@@ -14,11 +14,13 @@ export const useStyles = () => {
           },
           '& li': {
             margin: theme.spacing(0, 0.5),
-            '&:last-child': {
+            '&.last': {
               marginRight: 0,
+              marginLeft: '3px',
             },
-            '&:first-child': {
+            '&.first': {
               marginLeft: 0,
+              marginRight: '3px',
             },
           },
           [theme.breakpoints.up('md')]: {

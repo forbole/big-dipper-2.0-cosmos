@@ -1,7 +1,5 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Typography } from '@material-ui/core';
-import useTranslation from 'next-translate/useTranslation';
 import { Box } from '@components';
 import { usePagination } from '@hooks';
 import { useStyles } from './styles';
@@ -17,7 +15,6 @@ import {
 const Votes: React.FC<{
   className?: string;
 }> = ({ className }) => {
-  const { t } = useTranslation('proposals');
   const { item } = useProposalContext();
   const { votes = [] } = item;
 

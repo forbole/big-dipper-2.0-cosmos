@@ -17,6 +17,7 @@ import Search from './search';
 import InfoPopover from './info_popover';
 import SortArrows from './sort_arrows';
 import SingleProposal from './single_proposal';
+import TabPanel from './tab_panel';
 
 export {
   Layout,
@@ -38,4 +39,5 @@ export {
   InfoPopover,
   SortArrows,
   SingleProposal,
+  TabPanel,
 };

@@ -1,26 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: TokenDetails matches snapshot 1`] = `
+exports[`screen: ProposalDetails matches snapshot 1`] = `
 <div
   className="makeStyles-root"
   id="Layout"
-  navTitle="tokens:tokenDetails"
+  navTitle="proposals:proposalDetails"
 >
-  <div
-    className="makeStyles-overview"
-    id="Overview"
-  />
-  <div
-    className="makeStyles-market"
-    id="Market"
-  />
-  <div
-    className="makeStyles-holders"
-    id="Holders"
-  />
-  <div
-    className="makeStyles-transactions"
-    id="Transactions"
-  />
+  <ProposalProvider>
+    <div
+      className="makeStyles-overview"
+      id="Overview"
+    />
+    <div
+      className="makeStyles-votesGraph"
+      id="VotesGraph"
+    />
+    <div
+      className="makeStyles-votes"
+      id="Votes"
+    />
+    <div
+      className="makeStyles-deposits"
+      id="Deposits"
+    />
+  </ProposalProvider>
 </div>
 `;

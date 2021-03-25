@@ -9,6 +9,7 @@ module.exports = {
     'rgx:^/transactions': ['transactions'],
     'rgx:^/proposals': ['proposals'],
     'rgx:^/validators': ['validators', 'transactions'],
+    'rgx:^/accounts': ['accounts', 'transactions'],
   },
   loadLocaleFrom: (lang, ns) => import(`./public/locales/${lang}/${ns}.json`).then((m) => m.default),
 };

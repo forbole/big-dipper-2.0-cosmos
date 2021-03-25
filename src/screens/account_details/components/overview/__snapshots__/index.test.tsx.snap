@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
+<div
+  details={
+    Array [
+      Object {
+        "className": "makeStyles-copyText",
+        "detail": <React.Fragment>
+          <SvgIconCopy
+            onClick={[Function]}
+          />
+          <SvgIconShare
+            onClick={[Function]}
+          />
+          <WithStyles(ForwardRef(Typography))
+            className="value"
+            variant="body1"
+          >
+            HjTgC7ukwMA1gsE...E6B6X
+          </WithStyles(ForwardRef(Typography))>
+        </React.Fragment>,
+        "label": "accounts:address",
+      },
+      Object {
+        "className": "makeStyles-copyText",
+        "detail": <React.Fragment>
+          <SvgIconCopy
+            onClick={[Function]}
+          />
+          <WithStyles(ForwardRef(Typography))
+            className="value"
+            variant="body1"
+          >
+            HjTgC7ukwMA1gsE...E6B6X
+          </WithStyles(ForwardRef(Typography))>
+        </React.Fragment>,
+        "label": "accounts:rewardAddress",
+      },
+    ]
+  }
+  id="BoxDetails"
+  title="accounts:overview"
+/>
+`;

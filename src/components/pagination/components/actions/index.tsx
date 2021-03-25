@@ -54,7 +54,7 @@ const Actions: React.FC<{
 
   return (
     <ul className={classnames(className, classes.root)}>
-      <li>
+      <li className="first">
         <IconButton
           className={classes.button}
           disableRipple
@@ -100,7 +100,7 @@ const Actions: React.FC<{
           <NextIcon />
         </IconButton>
       </li>
-      <li>
+      <li className="last">
         <IconButton
           disableRipple
           className={classes.button}
