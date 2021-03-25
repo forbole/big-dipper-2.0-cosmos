@@ -2,85 +2,54 @@
 
 exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
 <div
-  details={
-    Array [
-      Object {
-        "className": "makeStyles-copyText",
-        "detail": <React.Fragment>
-          <SvgIconCopy
-            onClick={[Function]}
-          />
-          <WithStyles(ForwardRef(Typography))
-            className="value"
-            variant="body1"
-          >
-            HjTgC7ukwMA1gsE...E6B6X
-          </WithStyles(ForwardRef(Typography))>
-        </React.Fragment>,
-        "label": "tokens:address",
-      },
-      Object {
-        "detail": "7",
-        "label": "tokens:decimals",
-      },
-      Object {
-        "className": "makeStyles-copyText",
-        "detail": <React.Fragment>
-          <SvgIconCopy
-            onClick={[Function]}
-          />
-          <Link
-            href="/accounts/123"
-            passHref={true}
-          >
-            <WithStyles(ForwardRef(Typography))
-              className="value"
-              component="a"
-              variant="body1"
-            >
-              HjTgC7ukwMA1gsE...E6B6X
-            </WithStyles(ForwardRef(Typography))>
-          </Link>
-        </React.Fragment>,
-        "label": "tokens:mintAuthority",
-      },
-      Object {
-        "className": "makeStyles-copyText",
-        "detail": <React.Fragment>
-          <SvgIconCopy
-            onClick={[Function]}
-          />
-          <Link
-            href="/accounts/123"
-            passHref={true}
-          >
-            <WithStyles(ForwardRef(Typography))
-              className="value"
-              component="a"
-              variant="body1"
-            >
-              HjTgC7ukwMA1gsE...E6B6X
-            </WithStyles(ForwardRef(Typography))>
-          </Link>
-        </React.Fragment>,
-        "label": "tokens:freezeAuthority",
-      },
-      Object {
-        "detail": <WithStyles(ForwardRef(Typography))
-          className="value"
-          component="a"
-          href="tokenname.com"
-          rel="noopener"
-          target="_blank"
-          variant="body1"
-        >
-          tokenname.com
-        </WithStyles(ForwardRef(Typography))>,
-        "label": "tokens:officialSite",
-      },
-    ]
-  }
-  id="BoxDetails"
-  title="tokens:overview"
-/>
+  className=""
+  id="Box"
+>
+  <div
+    id="#3"
+    proposer={
+      <AvatarName
+        address="FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk"
+        imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
+        name="Forbole"
+      />
+    }
+    status={
+      <Tag
+        theme="one"
+        value="status"
+      />
+    }
+    submissionTime="2021-03-08"
+    title="Enable IBC transfers"
+    votingTimeStart="2021-03-08"
+  />
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-content"
+  >
+    <p
+      className="MuiTypography-root label MuiTypography-body1"
+    >
+      proposals:type
+    </p>
+    <p
+      className="MuiTypography-root value MuiTypography-body1"
+    >
+      text proposal
+    </p>
+    <p
+      className="MuiTypography-root label MuiTypography-body1"
+    >
+      proposals:description
+    </p>
+    <p
+      className="MuiTypography-root value MuiTypography-body1"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse placerat velit ipsum, tempus tristique tellus rhoncus tempus. Duis elementum varius neque, eu pharetra eros porttitor in.
+    </p>
+  </div>
+</div>
 `;

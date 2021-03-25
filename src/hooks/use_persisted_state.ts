@@ -13,7 +13,7 @@ export const usePersistedState = <P>(
   const retrievePersistedValue = React.useCallback(() => {
     try {
       const persistedString = localStorage.getItem(key);
-      if (!persistedString) {
+      if (persistedString === null) {
         return;
       }
       const persistedValue = JSON.parse(persistedString);
@@ -30,5 +30,6 @@ export const usePersistedState = <P>(
   React.useEffect(() => {
     localStorage.setItem(key, JSON.stringify(value));
   }, [value]);
+
   return [value, setValue];
 };

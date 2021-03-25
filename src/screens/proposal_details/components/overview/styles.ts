@@ -4,15 +4,17 @@ export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
       return ({
-        copyText: {
-          '& .detail': {
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'flex-start',
-            '& svg': {
-              width: '1rem',
-              marginRight: theme.spacing(1),
-            },
+        content: {
+          marginTop: theme.spacing(2),
+          display: 'grid',
+          '& .label': {
+            color: theme.palette.custom.fonts.fontThree,
+          },
+          '& > *': {
+            marginBottom: theme.spacing(1),
+          },
+          [theme.breakpoints.up('lg')]: {
+            gridTemplateColumns: '150px auto',
           },
         },
       });

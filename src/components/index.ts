@@ -16,6 +16,7 @@ import Pagination from './pagination';
 import Search from './search';
 import InfoPopover from './info_popover';
 import SortArrows from './sort_arrows';
+import SingleProposal from './single_proposal';
 
 export {
   Layout,
@@ -36,4 +37,5 @@ export {
   Search,
   InfoPopover,
   SortArrows,
+  SingleProposal,
 };

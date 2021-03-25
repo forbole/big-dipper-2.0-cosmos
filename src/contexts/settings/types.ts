@@ -1,8 +1,8 @@
-export type Theme = 'light' | 'dark';
+export type Theme = 'light' | 'dark' | 'device';
 
 export interface SettingsState {
   theme: Theme;
   muiTheme: any;
-  firstTime: boolean;
+  themeSelection: string;
   toggleThemeMode?: () => void;
 }

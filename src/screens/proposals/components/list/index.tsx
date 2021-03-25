@@ -47,14 +47,6 @@ const ProposalsList: React.FC<{
   const formatItems = items.map((x, i) => {
     return ({
       id: `#${x.id}`,
-      // (
-      //   <Link href={PROPOSAL_DETAILS(x.id)} passHref>
-      //     <Typography variant="body1" className="value" component="a">
-      //       #
-      //       {x.id}
-      //     </Typography>
-      //   </Link>
-      // ),
       proposer: (
         <AvatarName
           address={x.proposer.identity}

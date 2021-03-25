@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
+import * as R from 'ramda';
 
+type Options = {
+  pageChangeCallback?: (page: number, rowsPerPage: number) => void;
+  rowsChangeCallback?: (page: number, rowsPerPage: number) => void;
+  rowsPage?: number;
+}
 /**
  * Hook helper for reusable
  */
-export const usePagination = ({
-  pageChangeCallback,
-  rowsChangeCallback,
-  rowsPage,
-}: {
-  pageChangeCallback: (page: number, rowsPerPage: number) => void;
-  rowsChangeCallback: (page: number, rowsPerPage: number) => void;
-  rowsPage?: number;
-}) => {
+export const usePagination = (options?:Options) => {
+  const rowsPage = R.pathOr(null, ['rowsPage'], options);
+  const rowsChangeCallback = R.pathOr(null, ['rowsChangeCallback'], options);
+  const pageChangeCallback = R.pathOr(null, ['pageChangeCallback'], options);
+
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(rowsPage ?? 10);
 
@@ -20,14 +22,27 @@ export const usePagination = ({
     newPage: number,
   ) => {
     setPage(newPage);
-    pageChangeCallback(page, rowsPerPage);
+    if (pageChangeCallback) {
+      pageChangeCallback(page, rowsPerPage);
+    }
   };
 
   const handleChangeRowsPerPage = (selectedRowsPerPage: number) => {
-    console.log(selectedRowsPerPage, 'new selected');
     setRowsPerPage(selectedRowsPerPage);
     setPage(0);
-    rowsChangeCallback(page, selectedRowsPerPage);
+    if (rowsChangeCallback) {
+      rowsChangeCallback(page, selectedRowsPerPage);
+    }
+  };
+
+  const sliceItems = (items:any[]) => {
+    const start = page * rowsPerPage;
+    const end = start + rowsPerPage;
+    return items.slice(start, end);
+  };
+
+  const getTotal = (items:any[]) => {
+    return items.length;
   };
 
   return {
@@ -35,5 +50,7 @@ export const usePagination = ({
     rowsPerPage,
     handleChangePage,
     handleChangeRowsPerPage,
+    sliceItems,
+    getTotal,
   };
 };

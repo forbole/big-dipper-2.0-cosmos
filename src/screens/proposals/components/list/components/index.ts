@@ -1,5 +1,5 @@
 import Total from './total';
-import SingleProposal from './single_proposal';
+import SingleProposal from '../../../../../components/single_proposal';
 
 export {
   Total,

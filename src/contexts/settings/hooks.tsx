@@ -1,5 +1,6 @@
 import {
   useEffect,
+  useState,
 } from 'react';
 import {
   darkTheme,
@@ -13,30 +14,34 @@ import { SettingsState } from './types';
  * @param initialState
  */
 export const useTheme = (initialState:SettingsState) => {
-  const [theme, setTheme] = usePersistedState('theme', initialState.theme);
-  const [firstTime, setFirstTime] = usePersistedState('firstTime', initialState.firstTime);
+  const [theme, setTheme] = useState(initialState.theme);
+  const [themeSelection, setThemeSelection] = usePersistedState('themeSelection', initialState.themeSelection);
 
   useEffect(() => {
     const isClient = typeof window === 'object';
-    if (
-      firstTime
-      && isClient
-      && window?.matchMedia('(prefers-color-scheme: dark)')?.matches
-    ) {
+    if (themeSelection === 'device') {
+      if (
+        isClient
+        && window?.matchMedia('(prefers-color-scheme: dark)')?.matches
+      ) {
+        setTheme('dark');
+      }
+    } else if (themeSelection === 'dark') {
       setTheme('dark');
-      setFirstTime(false);
+    } else if (themeSelection === 'light') {
+      setTheme('light');
     }
-  }, []);
+  }, [themeSelection]);
 
   const toggleThemeMode = () => {
     const value = theme === 'light' ? 'dark' : 'light';
-    setTheme(value);
+    setThemeSelection(value);
   };
 
   return {
     theme,
     muiTheme: theme === 'dark' ? darkTheme : lightTheme,
     toggleThemeMode,
-    firstTime,
+    themeSelection,
   };
 };

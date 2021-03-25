@@ -1,11 +1,11 @@
 import Overview from './overview';
-import Market from './market';
-import Transactions from './transactions';
-import Holders from './holders';
+import Votes from './votes';
+import Deposits from './deposits';
+import VotesGraph from './votes_graph';
 
 export {
   Overview,
-  Market,
-  Transactions,
-  Holders,
+  Votes,
+  Deposits,
+  VotesGraph,
 };

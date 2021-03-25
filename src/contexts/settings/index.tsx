@@ -5,7 +5,7 @@ import { SettingsState } from './types';
 
 const initialState: SettingsState = {
   theme: 'light',
-  firstTime: true,
+  themeSelection: 'device',
   muiTheme: lightTheme,
 };
 
@@ -18,16 +18,16 @@ const SettingsProvider: React.FC = (props: {children: React.ReactNode }) => {
     theme,
     muiTheme,
     toggleThemeMode,
-    firstTime,
+    themeSelection,
   } = useTheme(initialState);
 
   return (
     <SettingsContext.Provider
       value={{
         theme,
+        themeSelection,
         muiTheme,
         toggleThemeMode,
-        firstTime,
       }}
     >
       {children}

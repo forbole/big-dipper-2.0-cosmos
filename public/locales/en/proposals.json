@@ -3,5 +3,20 @@
   "totalProposals": "A total of {{amount}} proposals found",
   "proposer": "Proposer",
   "submissionTime": "Submission time",
-  "votingTimeStart": "Voting time start"
+  "votingTimeStart": "Voting time start",
+  "proposalDetails": "Proposal Details",
+  "type": "Type",
+  "description": "Description",
+  "votes": "Votes",
+  "voter": "Voter",
+  "votingPower": "Voting Power",
+  "vote": "Vote",
+  "all": "All ({{num}})",
+  "yes": "Yes ({{num}})",
+  "no": "No ({{num}})",
+  "noWithVeto": "No With Veto ({{num}})",
+  "deposits": "Deposits",
+  "depositor": "Depositor",
+  "amount": "Amount",
+  "time": "Time"
 }
