@@ -10,7 +10,7 @@ import SingleTransactionMobile from './single_transaction_mobile';
 import Box from './box';
 import Loading from './loading';
 import TransactionsList from './transactions_list';
-import TransactionsFilter from './transactions_filter';
+import TransactionMessagesFilter from './transaction_messages_filter';
 import BoxDetails from './box_details';
 import Pagination from './pagination';
 import Search from './search';
@@ -30,7 +30,7 @@ export {
   Box,
   Loading,
   TransactionsList,
-  TransactionsFilter,
+  TransactionMessagesFilter,
   BoxDetails,
   Pagination,
   Search,

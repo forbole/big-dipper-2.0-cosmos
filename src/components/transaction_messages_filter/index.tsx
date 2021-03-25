@@ -13,14 +13,14 @@ import { getFilterLabels } from './utils';
 import { useStyles } from './styles';
 import { useTransactionsFilter } from './hooks';
 
-const TransactionsFilter: React.FC<{
+const TransactionMessagesFilter: React.FC<{
   className?: string;
   callback: (value: string) => void;
 }> = ({
   className, callback,
 }) => {
   const filterLabels = getFilterLabels();
-  const { t } = useTranslation('common');
+  const { t } = useTranslation('transactions');
   const classes = useStyles();
   const {
     handleSelect,
@@ -79,4 +79,4 @@ const TransactionsFilter: React.FC<{
   );
 };
 
-export default TransactionsFilter;
+export default TransactionMessagesFilter;

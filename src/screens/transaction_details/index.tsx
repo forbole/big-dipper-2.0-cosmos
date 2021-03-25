@@ -3,7 +3,8 @@ import useTranslation from 'next-translate/useTranslation';
 import { Layout } from '@components';
 import { useStyles } from './styles';
 import {
-  Overview, Instructions,
+  Overview,
+  Messages,
 } from './components';
 import { TransactionProvider } from './contexts/transaction';
 
@@ -15,7 +16,7 @@ const TransactionDetails = () => {
     <Layout navTitle={t('transactionDetails')} className={classes.root}>
       <TransactionProvider>
         <Overview />
-        <Instructions className={classes.instructions} />
+        <Messages className={classes.messages} />
       </TransactionProvider>
     </Layout>
   );

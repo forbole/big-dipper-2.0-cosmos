@@ -13,12 +13,14 @@ const TransactionProvider: React.FC = (props: {children: React.ReactNode }) => {
 
   const {
     item,
+    onMessageFilterCallback,
   } = useTransaction();
 
   return (
     <TransactionContext.Provider
       value={{
         item,
+        onMessageFilterCallback,
       }}
     >
       {children}

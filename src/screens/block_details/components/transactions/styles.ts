@@ -21,14 +21,6 @@ export const useStyles = () => {
             justifyContent: 'space-between',
           },
         },
-        filter: {
-          marginTop: theme.spacing(2),
-          [theme.breakpoints.up('lg')]: {
-            marginTop: 0,
-            alignSelf: 'flex-end',
-            minWidth: '300px',
-          },
-        },
         list: {
           flex: 1,
         },

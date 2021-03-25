@@ -5,6 +5,10 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
   details={
     Array [
       Object {
+        "detail": "4SGxuRMcseNbwki3tGxXPpfz7iFnuo9FUpTfiM4gJ8rhH59uZYSBBK2zW27xRdGX8Sb2N4VkGUnBYt59SBKEhPfB",
+        "label": "transactions:hash",
+      },
+      Object {
         "detail": <Link
           href="/blocks/123"
           passHref={true}
@@ -14,26 +18,33 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
             component="a"
             variant="body1"
           >
-            100,000,000
+            812,768,640
           </WithStyles(ForwardRef(Typography))>
         </Link>,
-        "label": "transactions:slot",
+        "label": "transactions:height",
       },
       Object {
-        "detail": <Result />,
-        "label": "transactions:result",
+        "detail": "2020-08-10 12:00:00",
+        "label": "transactions:time",
       },
       Object {
-        "detail": "MAX",
-        "label": "transactions:confirmations",
-      },
-      Object {
-        "detail": "0.001",
+        "detail": "123 udaric",
         "label": "transactions:fee",
       },
       Object {
-        "detail": "2mGBpvVcxhLXpnTEeDj4aV1SvVCnXcPKroj3idjnri7TwcR4W2UVUkjEUAHk5fL4Wh3EXiwXLw3cDBe6Rbn8sjUU",
-        "label": "transactions:signature",
+        "detail": "100 / 200",
+        "label": "transactions:gas",
+      },
+      Object {
+        "detail": <Result
+          success={true}
+        />,
+        "label": "transactions:result",
+      },
+      Object {
+        "className": "makeStyles-memo",
+        "detail": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel cursus tortor. Fusce lobortis sollicitudin dolor id mollis. Nullam quam ex, dignissim eu eros vel, tincidunt ultrices ligula.",
+        "label": "transactions:memo",
       },
     ]
   }

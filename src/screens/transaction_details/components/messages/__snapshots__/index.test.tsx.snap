@@ -5,11 +5,19 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
   className="makeStyles-root"
   id="Box"
 >
-  <h2
-    className="MuiTypography-root MuiTypography-h2"
+  <div
+    className="makeStyles-header"
   >
-    transactions:instructions
-  </h2>
+    <h2
+      className="MuiTypography-root MuiTypography-h2"
+    >
+      transactions:messages
+    </h2>
+    <div
+      className="makeStyles-filter"
+      id="TransactionMessagesFilter"
+    />
+  </div>
   <hr
     className="MuiDivider-root"
   />
@@ -34,7 +42,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
       <div
         style={
           Object {
-            "height": 200,
+            "height": 100,
             "pointerEvents": undefined,
             "width": "100%",
           }
@@ -62,53 +70,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
                 <div
                   id="Tag"
                   theme="two"
-                  value="system"
-                />
-                <div
-                  id="Tag"
-                  theme="two"
-                  value="transfer"
-                />
-              </div>
-              <p
-                className="MuiTypography-root MuiTypography-body1"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent libero dolor, sollicitudin fringilla augue gravida, tincidunt viverra odio. Curabitur sit amet erat ultricies nisi posuere bibendum.
-              </p>
-            </div>
-            <hr
-              className="MuiDivider-root"
-            />
-          </div>
-        </div>
-        <div
-          style={
-            Object {
-              "height": 100,
-              "left": 0,
-              "position": "absolute",
-              "right": undefined,
-              "top": 100,
-              "width": "100%",
-            }
-          }
-        >
-          <div>
-            <div
-              className="makeStyles-fakeItem"
-            >
-              <div
-                className="makeStyles-tags"
-              >
-                <div
-                  id="Tag"
-                  theme="two"
-                  value="system"
-                />
-                <div
-                  id="Tag"
-                  theme="two"
-                  value="transfer"
+                  value="/cosmos.bank.v1beta1.MsgSend"
                 />
               </div>
               <p

@@ -5,12 +5,12 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
   details={
     Array [
       Object {
-        "detail": "100,000,000",
-        "label": "blocks:slot",
+        "detail": undefined,
+        "label": "blocks:height",
       },
       Object {
-        "detail": "76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857",
-        "label": "blocks:blockHash",
+        "detail": undefined,
+        "label": "blocks:hash",
       },
       Object {
         "detail": <AvatarName
@@ -18,33 +18,18 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
           imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
           name="Forbole"
         />,
-        "label": "blocks:leader",
+        "label": "blocks:proposer",
       },
       Object {
         "detail": "2020-08-10 12:00:00",
         "label": "blocks:time",
       },
       Object {
-        "detail": <Link
-          href="/blocks/123"
-          passHref={true}
-        >
-          <WithStyles(ForwardRef(Typography))
-            className="value"
-            component="a"
-            variant="body1"
-          >
-            100,000
-          </WithStyles(ForwardRef(Typography))>
-        </Link>,
-        "label": "blocks:parentSlot",
+        "detail": undefined,
+        "label": "blocks:signedVotingPower",
       },
       Object {
-        "detail": "76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857",
-        "label": "blocks:parentBlockHash",
-      },
-      Object {
-        "detail": "300 / 301",
+        "detail": undefined,
         "label": "blocks:txs",
       },
     ]

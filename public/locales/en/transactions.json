@@ -4,11 +4,20 @@
   "type": "Type",
   "time": "Time",
   "messages": "Messages",
-  "result": "Result",
   "transactions": "Transactions",
   "transactionDetails": "Transaction Details",
   "overview": "Overview",
-  "confirmations": "Confirmations",
   "fee": "Fee",
-  "instructions": "Instructions"
+  "height": "Height",
+  "gas": "Gas (used / wanted)",
+  "result": "Result",
+  "memo": "Memo",
+  "none": "None",
+  "bank": "Bank",
+  "crisis": "Crisis",
+  "distribution": "Distribution",
+  "governance": "Governance",
+  "slashing": "Slashing",
+  "staking": "Staking",
+  "filterBy": "Filter By"
 }

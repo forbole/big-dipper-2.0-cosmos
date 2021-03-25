@@ -1,7 +1,7 @@
 import Overview from './overview';
-import Instructions from './instructions';
+import Messages from './messages';
 
 export {
   Overview,
-  Instructions,
+  Messages,
 };

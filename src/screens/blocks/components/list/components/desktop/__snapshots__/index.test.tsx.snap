@@ -62,7 +62,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         <h4
           className="MuiTypography-root MuiTypography-h4"
         >
-          validator
+          proposer
         </h4>
       </div>
       <div

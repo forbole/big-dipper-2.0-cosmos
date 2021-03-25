@@ -11,8 +11,8 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
       id="Overview"
     />
     <div
-      className="makeStyles-instructions"
-      id="Instructions"
+      className="makeStyles-messages"
+      id="Messages"
     />
   </TransactionProvider>
 </div>

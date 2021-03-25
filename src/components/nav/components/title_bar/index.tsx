@@ -2,7 +2,6 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
-import Logo from '@assets/logo-solana.svg';
 import { useNavContext } from '@src/components/nav/contexts/nav';
 import { useStyles } from './styles';
 import { formatMarket } from './utils';
@@ -30,7 +29,7 @@ const TitleBar:React.FC<{className?: string}> = ({ className }) => {
       {
       title
         ? <Typography variant="h1">{title}</Typography>
-        : <Logo className={classes.logo} />
+        : <img src="/logo-desmos.png" className={classes.logo} alt="logo" />
       }
       <div className={classes.content}>
         {market.map((x) => (

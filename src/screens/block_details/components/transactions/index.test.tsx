@@ -9,25 +9,6 @@ import Transactions from '.';
 jest.mock('@components', () => ({
   Box: (props) => <div id="Box" {...props} />,
   TransactionsList: (props) => <div id="TransactionsList" {...props} />,
-  TransactionsFilter: (props) => <div id="TransactionsFilter" {...props} />,
-}));
-
-const mockTransactionsContext = {
-  hasNextPage: true,
-  isNextPageLoading: false,
-  items: [],
-  loadNextPage: jest.fn(),
-  itemCount: jest.fn(),
-  loadMoreItems: jest.fn(),
-  isItemLoaded: jest.fn(),
-};
-
-jest.mock('./contexts/transactions', () => ({
-  TransactionsProvider: 'TransactionsProvider',
-  useTransactionsContext: jest.fn(),
-  TransactionsContext: {
-    Consumer: ({ children }) => children(mockTransactionsContext),
-  },
 }));
 
 // ==================================

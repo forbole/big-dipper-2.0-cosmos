@@ -16,10 +16,14 @@ export const useStyles = () => {
             justifyContent: 'space-between',
             flexDirection: 'row',
             width: '100%',
+            '& .MuiTypography-h1': {
+              lineHeight: 1,
+              alignSelf: 'flex-end',
+            },
           },
         },
         logo: {
-          width: '200px',
+          width: '225px',
         },
         content: {
           width: '100%',

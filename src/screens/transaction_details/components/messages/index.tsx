@@ -12,18 +12,21 @@ import {
   useListRow,
 } from '@hooks';
 import {
-  Box, Tag,
+  Box,
+  Tag,
+  TransactionMessagesFilter,
 } from '@components';
 import { useTransactionContext } from '../../contexts/transaction';
 import { useStyles } from './styles';
 
-const Instructions: React.FC<{
+const Messages: React.FC<{
   className?: string;
 }> = ({ className }) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   const {
     item,
+    onMessageFilterCallback,
   } = useTransactionContext();
   const {
     listRef,
@@ -31,25 +34,26 @@ const Instructions: React.FC<{
     setRowHeight,
   } = useList();
 
-  const instructions = R.pathOr([], ['instructions'], item);
+  const messages = R.pathOr([], ['messages'], item);
 
-  const formatItems = instructions.map((x) => {
+  const formatItems = messages.map((x) => {
     return ({
-      program: (
-        <Tag value={x.program} theme="two" />
-      ),
-      type: (
-        <Tag value={x.parsed.type} theme="two" />
-      ),
+      type: <Tag value={x['@type']} theme="two" />,
       message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent libero dolor, sollicitudin fringilla augue gravida, tincidunt viverra odio. Curabitur sit amet erat ultricies nisi posuere bibendum.',
     });
   });
 
   return (
     <Box className={classnames(className, classes.root)}>
-      <Typography variant="h2">
-        {t('instructions')}
-      </Typography>
+      <div className={classes.header}>
+        <Typography variant="h2">
+          {t('messages')}
+        </Typography>
+        <TransactionMessagesFilter
+          className={classes.filter}
+          callback={onMessageFilterCallback}
+        />
+      </div>
       <Divider />
       <div className={classes.list}>
         <AutoSizer>
@@ -76,7 +80,6 @@ const Instructions: React.FC<{
                         {/* setup individual message types later */}
                         <div className={classes.fakeItem}>
                           <div className={classes.tags}>
-                            {selectedItem.program}
                             {selectedItem.type}
                           </div>
                           <Typography>
@@ -98,4 +101,4 @@ const Instructions: React.FC<{
   );
 };
 
-export default Instructions;
+export default Messages;

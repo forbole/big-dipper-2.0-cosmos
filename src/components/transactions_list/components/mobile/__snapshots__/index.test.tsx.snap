@@ -57,7 +57,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
             }
             hash={
               <Link
-                href="/transactions/undefined"
+                href="/transactions/76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857"
                 passHref={true}
               >
                 <WithStyles(ForwardRef(Typography))

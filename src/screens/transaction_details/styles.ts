@@ -14,11 +14,11 @@ export const useStyles = () => {
             gridGap: theme.spacing(2),
           },
         },
-        instructions: {
+        messages: {
           minHeight: '500px',
           height: '50vh',
           [theme.breakpoints.up('lg')]: {
-            minHeight: '400px',
+            minHeight: '650px',
             height: '40vh',
           },
         },

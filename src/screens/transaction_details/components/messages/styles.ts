@@ -7,8 +7,21 @@ export const useStyles = () => {
         root: {
           display: 'flex',
           flexDirection: 'column',
+        },
+        header: {
+          paddingBottom: theme.spacing(2),
           '& .MuiTypography-h2': {
             paddingBottom: theme.spacing(2),
+          },
+          [theme.breakpoints.up('md')]: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          },
+        },
+        filter: {
+          [theme.breakpoints.up('md')]: {
+            minWidth: '300px',
           },
         },
         list: {
@@ -17,9 +30,17 @@ export const useStyles = () => {
         },
         fakeItem: {
           margin: theme.spacing(2, 0),
+          [theme.breakpoints.up('lg')]: {
+            display: 'flex',
+          },
         },
         tags: {
           marginBottom: theme.spacing(2),
+          [theme.breakpoints.up('lg')]: {
+            minWidth: '350px',
+            marginBottom: 0,
+            alignSelf: 'flex-end',
+          },
         },
       });
     },

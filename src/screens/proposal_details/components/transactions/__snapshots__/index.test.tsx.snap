@@ -16,7 +16,6 @@ exports[`screen: BlockDetails/Transactions matches snapshot 1`] = `
       </h2>
       <div
         callback={[Function]}
-        className="makeStyles-filter"
         id="TransactionsFilter"
       />
     </div>
