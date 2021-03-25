@@ -1,6 +1,5 @@
 import React from 'react';
 import classnames from 'classnames';
-import numeral from 'numeral';
 import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
@@ -24,22 +23,16 @@ import {
   useList,
   useListRow,
 } from '@hooks';
-import { UseContext } from '../../types';
 import { useStyles } from './styles';
+import { TransactionsListState } from '../../types';
 
-const Mobile: React.FC<{
-  className?: string;
-  useContext: UseContext;
-}> = ({
-  className, useContext,
+const Mobile: React.FC<TransactionsListState> = ({
+  className,
+  items,
+  itemCount,
+  loadMoreItems,
+  isItemLoaded,
 }) => {
-  const {
-    items,
-    itemCount,
-    loadMoreItems,
-    isItemLoaded,
-  } = useContext();
-
   const classes = useStyles();
 
   const {

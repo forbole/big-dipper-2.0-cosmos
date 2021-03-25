@@ -37,7 +37,7 @@ exports[`screen: Home/Transactions/Mobile matches snapshot 1`] = `
         success={true}
       />
     }
-    time="16 days ago"
+    time="17 days ago"
   />
 </div>
 `;

@@ -17,17 +17,23 @@ jest.mock('react-virtualized-auto-sizer', () => ({ children }: any) => children(
   height: 600, width: 600,
 }));
 
-const mockUseContext = jest.fn(() => ({
-  items: [{
-    block: '812,768,640',
-    hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
-    messages: 12,
-    success: true,
-    time: 1615187146246,
-  }],
+const props = {
+  items: [
+    {
+      block: '812,768,640',
+      hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
+      messages: 123,
+      success: false,
+      time: 1615187146246,
+    },
+  ],
+  itemCount: 1,
   hasNextPage: false,
-  isNextPageLoading: true,
-}));
+  isNextPageLoading: false,
+  loadNextPage: () => null,
+  loadMoreItems: () => null,
+  isItemLoaded: () => true,
+};
 
 // ==================================
 // unit tests
@@ -36,7 +42,9 @@ describe('screen: Home/Blocks/Mobile', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>
-        <Mobile useContext={mockUseContext} />
+        <Mobile
+          {...props}
+        />
       </MockTheme>,
     );
     const tree = component.toJSON();

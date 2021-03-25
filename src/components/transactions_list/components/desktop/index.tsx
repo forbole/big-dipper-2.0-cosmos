@@ -19,23 +19,17 @@ import {
   Loading,
 } from '@components';
 import { useGrid } from '@hooks';
-import { UseContext } from '../../types';
+import { TransactionsListState } from '../../types';
 import { columns } from './utils';
 import { useStyles } from './styles';
 
-const Desktop: React.FC<{
-  className?: string;
-  useContext: UseContext;
-}> = ({
-  className, useContext,
+const Desktop: React.FC<TransactionsListState> = ({
+  className,
+  items,
+  itemCount,
+  loadMoreItems,
+  isItemLoaded,
 }) => {
-  const {
-    items,
-    itemCount,
-    loadMoreItems,
-    isItemLoaded,
-  } = useContext();
-
   const {
     gridRef,
     columnRef,

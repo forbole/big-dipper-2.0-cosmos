@@ -21,15 +21,15 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
       </Link>
     }
     id="SingleBlockMobile"
-    time="16 days ago"
-    txs={2}
-    validator={
+    proposer={
       <AvatarName
         address="FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk"
         imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
         name="Forbole"
       />
     }
+    time="17 days ago"
+    txs={2}
   />
 </div>
 `;

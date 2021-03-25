@@ -19,7 +19,7 @@ exports[`component: SingleSlotMobile matches snapshot 1`] = `
     <h4
       className="MuiTypography-root label MuiTypography-h4"
     >
-      validator
+      proposer
     </h4>
   </div>
   <div
@@ -104,7 +104,7 @@ exports[`component: SingleSlotMobile matches snapshot without parentHash 1`] = `
     <h4
       className="MuiTypography-root label MuiTypography-h4"
     >
-      validator
+      proposer
     </h4>
   </div>
   <div

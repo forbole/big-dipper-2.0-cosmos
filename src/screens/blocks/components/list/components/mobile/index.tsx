@@ -52,11 +52,11 @@ const Mobile: React.FC<{
           </Typography>
         </Link>
       ),
-      validator: (
+      proposer: (
         <AvatarName
-          address={x.validator.identity}
-          imageUrl={x.validator.image}
-          name={x.validator.moniker}
+          address={x.proposer.identity}
+          imageUrl={x.proposer.image}
+          name={x.proposer.moniker}
         />
       ),
       hash: getMiddleEllipsis(x.hash, { beginning: 13 }),

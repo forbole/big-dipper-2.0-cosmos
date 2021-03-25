@@ -7,11 +7,17 @@ export const useStyles = () => {
         root: {
           ...theme.mixins.layout,
           display: 'grid',
-          gridTemplateRows: 'auto 1fr',
+          gridTemplateRows: 'auto auto 1fr',
           gridTemplateColumns: '1fr',
           gridGap: theme.spacing(1),
           [theme.breakpoints.up('lg')]: {
             gridGap: theme.spacing(2),
+          },
+        },
+        signatures: {
+          height: '300px',
+          [theme.breakpoints.up('lg')]: {
+            height: '450px',
           },
         },
       });

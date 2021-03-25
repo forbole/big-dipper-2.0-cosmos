@@ -1,16 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Transactions/List matches snapshot 1`] = `
-<TransactionsProvider>
+<div
+  className="makeStyles-root"
+  id="Box"
+>
   <div
-    className="makeStyles-root"
-    id="Box"
-  >
-    <div
-      className="makeStyles-list"
-      id="TransactionsList"
-      useContext={[MockFunction]}
-    />
-  </div>
-</TransactionsProvider>
+    className="makeStyles-list"
+    hasNextPage={true}
+    id="TransactionsList"
+    isItemLoaded={[Function]}
+    isNextPageLoading={false}
+    itemCount={1}
+    items={Array []}
+    loadMoreItems={[Function]}
+    loadNextPage={[Function]}
+  />
+</div>
 `;

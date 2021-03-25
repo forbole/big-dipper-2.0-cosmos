@@ -28,7 +28,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
           className="MuiTableCell-root MuiTableCell-head"
           scope="col"
         >
-          validator
+          proposer
         </th>
         <th
           aria-sort={null}
@@ -101,7 +101,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
         >
-          16 days ago
+          17 days ago
         </td>
       </tr>
     </tbody>

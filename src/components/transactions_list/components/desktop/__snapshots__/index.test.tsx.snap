@@ -141,12 +141,125 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
     <div
       style={
         Object {
-          "height": NaN,
+          "height": 50,
           "pointerEvents": undefined,
           "width": 600,
         }
       }
-    />
+    >
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 0,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 90,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          <a
+            className="MuiTypography-root MuiTypography-body1"
+            href="/blocks/123"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+          >
+            812,768,640
+          </a>
+        </div>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 90,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 180,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          <a
+            className="MuiTypography-root MuiTypography-body1"
+            href="/transactions/undefined"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+          >
+            76nwV8zz8tLz97S...DLQfF66jZhQ857
+          </a>
+        </div>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 270,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 90,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
+        >
+          123
+        </div>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 360,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 120,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
+        >
+          <div
+            id="Result"
+            success={false}
+          />
+        </div>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 480,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 120,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
+        >
+          17 days ago
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;

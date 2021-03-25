@@ -13,9 +13,9 @@ const SingleBlockMobile: React.FC<{
   parentHash?: string;
   txs: string;
   time: string;
-  validator: React.ReactNode;
+  proposer: React.ReactNode;
 }> = ({
-  className, height, hash, parentHash, txs, time, validator,
+  className, height, hash, parentHash, txs, time, proposer,
 }) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
@@ -30,9 +30,9 @@ const SingleBlockMobile: React.FC<{
       </div>
       <div className={classes.item}>
         <Typography variant="h4" className="label">
-          {t('validator')}
+          {t('proposer')}
         </Typography>
-        {validator}
+        {proposer}
       </div>
       <div className={classes.item}>
         <Typography variant="h4" className="label">

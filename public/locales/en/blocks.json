@@ -4,11 +4,12 @@
   "height": "Height",
   "validator": "Validator",
   "hash": "Hash",
-  "parentHash": "Parent Hash",
   "txs": "Txs",
   "time": "Time",
   "overview": "Overview",
-  "parentSlot": "Parent Slot",
-  "blockHash": "Blockhash",
-  "parentBlockHash": "Parent Blockhash"
+  "signedVotingPower": "Signed Voting Power",
+  "proposer": "Proposer",
+  "signatures": "Signatures",
+  "votingPower": "Voting Power",
+  "signed": "Signed"
 }

@@ -11,24 +11,6 @@ jest.mock('@components', () => ({
   TransactionsList: (props) => <div id="TransactionsList" {...props} />,
 }));
 
-const mockTransactionsContext = {
-  hasNextPage: true,
-  isNextPageLoading: false,
-  items: [],
-  loadNextPage: jest.fn(),
-  itemCount: jest.fn(),
-  loadMoreItems: jest.fn(),
-  isItemLoaded: jest.fn(),
-};
-
-jest.mock('./contexts/transactions', () => ({
-  TransactionsProvider: 'TransactionsProvider',
-  useTransactionsContext: jest.fn(),
-  TransactionsContext: {
-    Consumer: ({ children }) => children(mockTransactionsContext),
-  },
-}));
-
 // ==================================
 // unit tests
 // ==================================

@@ -5,21 +5,18 @@ import {
   Box,
 } from '@components';
 import { useStyles } from './styles';
-import {
-  TransactionsProvider, useTransactionsContext,
-} from './contexts/transactions';
+import { useTransactions } from './hooks';
 
 const List: React.FC<{
   className?: string;
 }> = ({ className }) => {
   const classes = useStyles();
+  const useTransactionUtils = useTransactions();
 
   return (
-    <TransactionsProvider>
-      <Box className={classnames(className, classes.root)}>
-        <TransactionsList useContext={useTransactionsContext} className={classes.list} />
-      </Box>
-    </TransactionsProvider>
+    <Box className={classnames(className, classes.root)}>
+      <TransactionsList {...useTransactionUtils} className={classes.list} />
+    </Box>
   );
 };
 

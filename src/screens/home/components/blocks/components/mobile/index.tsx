@@ -32,10 +32,10 @@ const Mobile: React.FC<{
       hash: getMiddleEllipsis(x.hash, { beginning: 13 }),
       txs: x.tx,
       time: dayjs(x.time).fromNow(),
-      validator: <AvatarName
-        address={x.validator.identity}
-        imageUrl={x.validator.image}
-        name={x.validator.moniker}
+      proposer: <AvatarName
+        address={x.proposer.identity}
+        imageUrl={x.proposer.image}
+        name={x.proposer.moniker}
       />,
     });
   });
@@ -43,7 +43,7 @@ const Mobile: React.FC<{
     <div className={classnames(className)}>
       {formatSlots.map((x, i) => {
         return (
-          <React.Fragment key={`${x.slot}-${i}`}>
+          <React.Fragment key={`${x.height}-${i}`}>
             <SingleBlockMobile {...x} />
             {i !== formatSlots.length - 1 && <Divider />}
           </React.Fragment>

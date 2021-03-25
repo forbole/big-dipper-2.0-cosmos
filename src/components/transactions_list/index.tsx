@@ -5,20 +5,33 @@ import {
   Mobile,
 } from './components';
 import { useStyles } from './styles';
-import { UseContext } from './types';
+import { TransactionsListState } from './types';
 
-const TransactionsList: React.FC<{
-  className?: string;
-  useContext: UseContext;
-}> = ({
-  className,
-  useContext,
-}) => {
+const TransactionsList: React.FC<TransactionsListState> = (props) => {
+  const {
+    className,
+    hasNextPage = false,
+    isNextPageLoading = false,
+    items,
+    loadNextPage = () => null,
+    loadMoreItems = () => null,
+    isItemLoaded = () => true,
+    itemCount,
+  } = props;
   const classes = useStyles();
+  const formatProps = {
+    hasNextPage,
+    isNextPageLoading,
+    isItemLoaded,
+    loadNextPage,
+    loadMoreItems,
+    items,
+    itemCount,
+  };
   return (
     <div className={classnames(className)}>
-      <Mobile className={classes.mobile} useContext={useContext} />
-      <Desktop className={classes.desktop} useContext={useContext} />
+      <Mobile className={classes.mobile} {...formatProps} />
+      <Desktop className={classes.desktop} {...formatProps} />
     </div>
   );
 };
