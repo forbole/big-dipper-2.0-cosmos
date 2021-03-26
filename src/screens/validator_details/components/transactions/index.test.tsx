@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import Transactions from '.';
+import List from '.';
 
 // ==================================
 // mocks
@@ -11,32 +11,14 @@ jest.mock('@components', () => ({
   TransactionsList: (props) => <div id="TransactionsList" {...props} />,
 }));
 
-const mockTransactionsContext = {
-  hasNextPage: true,
-  isNextPageLoading: false,
-  items: [],
-  loadNextPage: jest.fn(),
-  itemCount: jest.fn(),
-  loadMoreItems: jest.fn(),
-  isItemLoaded: jest.fn(),
-};
-
-jest.mock('./contexts/transactions', () => ({
-  TransactionsProvider: 'TransactionsProvider',
-  useTransactionsContext: jest.fn(),
-  TransactionsContext: {
-    Consumer: ({ children }) => children(mockTransactionsContext),
-  },
-}));
-
 // ==================================
 // unit tests
 // ==================================
-describe('screen: BlockDetails/Transactions', () => {
+describe('screen: Transactions/List', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>
-        <Transactions />
+        <List />
       </MockTheme>,
     );
     const tree = component.toJSON();

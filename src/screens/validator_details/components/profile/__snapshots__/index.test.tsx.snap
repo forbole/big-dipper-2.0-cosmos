@@ -59,7 +59,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
       <h4
         className="MuiTypography-root label MuiTypography-h4"
       >
-        validators:identity
+        validators:operatorAddress
       </h4>
       <div
         className="makeStyles-copyText"
@@ -84,7 +84,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
       <h4
         className="MuiTypography-root label MuiTypography-h4"
       >
-        validators:voteAccount
+        validators:selfDelegateAddress
       </h4>
       <div
         className="makeStyles-copyText"
@@ -119,6 +119,38 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
       >
         https://www.forbole.com
       </a>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        validators:commission
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        10%
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label condition MuiTypography-h4"
+      >
+        validators:condition
+        <div
+          content="validators:conditionExplanation"
+          id="InfoPopover"
+        />
+      </h4>
+      <p
+        className="MuiTypography-root value good MuiTypography-body1"
+      >
+        validators:good
+      </p>
     </div>
   </div>
 </div>

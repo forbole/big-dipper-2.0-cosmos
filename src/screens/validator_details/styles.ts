@@ -20,30 +20,26 @@ export const useStyles = () => {
             gridColumn: '1 / 4',
           },
         },
-        skipRate: {
-          [theme.breakpoints.up('lg')]: {
-            gridColumn: '1 / 4',
-          },
-        },
-        activeStakeGraph: {
+        votingPower: {
+          background: '#ffc93c',
           [theme.breakpoints.up('lg')]: {
             gridColumn: '1 / 3',
-            // height: '550px',
           },
         },
-        potential: {
-          background: '#fed9b7',
+        blocks: {
+          background: '#dbf6e9',
           [theme.breakpoints.up('lg')]: {
             gridColumn: '3 / 4',
           },
         },
-        stakeList: {
-          background: '#f07167',
+        staking: {
+          background: '#9ddfd3',
           [theme.breakpoints.up('lg')]: {
             gridColumn: '1 / 4',
           },
         },
         transactions: {
+          background: '#31326f',
           [theme.breakpoints.up('lg')]: {
             gridColumn: '1 / 4',
           },

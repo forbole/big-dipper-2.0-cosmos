@@ -14,6 +14,7 @@ import {
   Box,
   Avatar,
   Tag,
+  InfoPopover,
 } from '@components';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
@@ -34,7 +35,7 @@ const Profile: React.FC<{
   const bio = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et quam vestibulum, ullamcorper mauris ut, imperdiet quam. Donec sed fermentum ligula. Quisque et est sit amet augue cursus varius vitae in tortor.';
 
   const formattedItem = {
-    identity: (
+    operatorAddress: (
       <div className={classes.copyText}>
         <Link href={ACCOUNT_DETAILS('123')} passHref>
           <Typography variant="body1" className="value" component="a">
@@ -47,7 +48,7 @@ const Profile: React.FC<{
         <CopyIcon onClick={() => handleCopyToClipboard('1334')} />
       </div>
     ),
-    voteAccount: (
+    selfDelegateAddress: (
       <div className={classes.copyText}>
         <Link href={ACCOUNT_DETAILS('123')} passHref>
           <Typography variant="body1" className="value" component="a">
@@ -70,6 +71,22 @@ const Profile: React.FC<{
         rel="noreferrer"
       >
         https://www.forbole.com
+      </Typography>
+    ),
+    commission: (
+      <Typography
+        variant="body1"
+        className="value"
+      >
+        10%
+      </Typography>
+    ),
+    condition: (
+      <Typography
+        variant="body1"
+        className="value good"
+      >
+        {t('good')}
       </Typography>
     ),
   };
@@ -112,21 +129,36 @@ const Profile: React.FC<{
       <div>
         <div className={classes.item}>
           <Typography variant="h4" className="label">
-            {t('identity')}
+            {t('operatorAddress')}
           </Typography>
-          {formattedItem.identity}
+          {formattedItem.operatorAddress}
         </div>
         <div className={classes.item}>
           <Typography variant="h4" className="label">
-            {t('voteAccount')}
+            {t('selfDelegateAddress')}
           </Typography>
-          {formattedItem.voteAccount}
+          {formattedItem.selfDelegateAddress}
         </div>
         <div className={classes.item}>
           <Typography variant="h4" className="label">
             {t('website')}
           </Typography>
           {formattedItem.website}
+        </div>
+        <div className={classes.item}>
+          <Typography variant="h4" className="label">
+            {t('commission')}
+          </Typography>
+          {formattedItem.commission}
+        </div>
+        <div className={classes.item}>
+          <Typography variant="h4" className="label condition">
+            {t('condition')}
+            <InfoPopover
+              content={t('conditionExplanation')}
+            />
+          </Typography>
+          {formattedItem.condition}
         </div>
       </div>
     </Box>

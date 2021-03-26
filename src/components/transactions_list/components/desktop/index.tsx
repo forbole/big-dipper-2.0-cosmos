@@ -1,6 +1,5 @@
 import React from 'react';
 import classnames from 'classnames';
-import numeral from 'numeral';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import InfiniteLoader from 'react-window-infinite-loader';
 import { VariableSizeGrid as Grid } from 'react-window';

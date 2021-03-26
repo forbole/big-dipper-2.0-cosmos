@@ -92,9 +92,25 @@ export const useStyles = () => {
           '& .label': {
             marginBottom: theme.spacing(1),
             color: theme.palette.custom.fonts.fontThree,
+            '&.condition': {
+              display: 'flex',
+              alignItems: 'center',
+            },
+            [theme.breakpoints.up('lg')]: {
+              marginBottom: 0,
+            },
           },
           '& p.value': {
             color: theme.palette.custom.fonts.fontTwo,
+            '&.good': {
+              color: theme.palette.custom.tags.one,
+            },
+            '&.moderate': {
+              color: theme.palette.custom.tags.two,
+            },
+            '&.bad': {
+              color: theme.palette.custom.tags.three,
+            },
           },
           '& a': {
             color: theme.palette.custom.fonts.highlight,
@@ -104,6 +120,7 @@ export const useStyles = () => {
             display: 'grid',
             gridTemplateColumns: '200px auto',
             gridGap: theme.spacing(2),
+            alignItems: 'center',
           },
         },
         copyText: {

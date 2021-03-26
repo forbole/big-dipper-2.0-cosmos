@@ -9,16 +9,12 @@ export const useStyles = () => {
           height: '50vh',
           display: 'flex',
           flexDirection: 'column',
+          '& .MuiTypography-h2': {
+            marginBottom: theme.spacing(2),
+          },
           [theme.breakpoints.up('lg')]: {
             height: '100%',
-          },
-        },
-        header: {
-          marginBottom: theme.spacing(2),
-          [theme.breakpoints.up('lg')]: {
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
+            minHeight: '65vh',
           },
         },
         list: {

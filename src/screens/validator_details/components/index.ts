@@ -1,13 +1,13 @@
 import Profile from './profile';
-import SkipRate from './skip_rate';
+import VotingPower from './voting_power';
 import Transactions from './transactions';
-import ActiveStake from './active_stake';
-import Potential from './potential';
+import Staking from './staking';
+import Blocks from './blocks';
 
 export {
   Profile,
-  SkipRate,
+  VotingPower,
   Transactions,
-  ActiveStake,
-  Potential,
+  Staking,
+  Blocks,
 };

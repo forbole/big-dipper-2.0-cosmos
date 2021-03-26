@@ -5,31 +5,24 @@ import useTranslation from 'next-translate/useTranslation';
 import {
   TransactionsList,
   Box,
-  TransactionsFilter,
 } from '@components';
 import { useStyles } from './styles';
-import {
-  TransactionsProvider, useTransactionsContext,
-} from './contexts/transactions';
+import { useTransactions } from './hooks';
 
 const Transactions: React.FC<{
   className?: string;
 }> = ({ className }) => {
-  const { t } = useTranslation('transactions');
   const classes = useStyles();
-  const callback = (value:string) => {
-    console.log(`filted wtih ${value}`);
-  };
+  const { t } = useTranslation('validators');
+  const useTransactionUtils = useTransactions();
+
   return (
-    <TransactionsProvider>
-      <Box className={classnames(className, classes.root)}>
-        <div className={classes.header}>
-          <Typography variant="h2">{t('transactions')}</Typography>
-          <TransactionsFilter callback={callback} className={classes.filter} />
-        </div>
-        <TransactionsList useContext={useTransactionsContext} className={classes.list} />
-      </Box>
-    </TransactionsProvider>
+    <Box className={classnames(className, classes.root)}>
+      <Typography variant="h2">
+        {t('transactions')}
+      </Typography>
+      <TransactionsList {...useTransactionUtils} className={classes.list} />
+    </Box>
   );
 };
 

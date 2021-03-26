@@ -44,7 +44,7 @@ const ProposalsList: React.FC<{
     setRowHeight,
   } = useList();
 
-  const formatItems = items.map((x, i) => {
+  const formatItems = items.map((x) => {
     return ({
       id: `#${x.id}`,
       proposer: (
