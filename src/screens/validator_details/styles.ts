@@ -34,14 +34,12 @@ export const useStyles = () => {
         },
         staking: {
           background: '#9ddfd3',
-          height: '400px',
           [theme.breakpoints.up('lg')]: {
             gridColumn: '1 / 4',
           },
         },
         transactions: {
           background: '#31326f',
-          height: '400px',
           [theme.breakpoints.up('lg')]: {
             gridColumn: '1 / 4',
           },

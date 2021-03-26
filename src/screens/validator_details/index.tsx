@@ -7,6 +7,8 @@ import { useStyles } from './styles';
 import {
   Profile,
   VotingPower,
+  Transactions,
+  Staking,
 } from './components';
 
 const ValidatorDetails = () => {
@@ -17,8 +19,8 @@ const ValidatorDetails = () => {
       <Profile className={classes.profile} />
       <VotingPower className={classes.votingPower} />
       <div className={classes.blocks}>blocks</div>
-      <div className={classes.staking}>staking</div>
-      <div className={classes.transactions}>transactions</div>
+      <Staking className={classes.staking} />
+      <Transactions className={classes.transactions} />
     </Layout>
   );
 };

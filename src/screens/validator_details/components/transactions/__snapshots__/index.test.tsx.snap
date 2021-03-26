@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Transactions/List matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="Box"
+>
+  <h2
+    className="MuiTypography-root MuiTypography-h2"
+  >
+    accounts:transactions
+  </h2>
+  <div
+    className="makeStyles-list"
+    hasNextPage={true}
+    id="TransactionsList"
+    isItemLoaded={[Function]}
+    isNextPageLoading={false}
+    itemCount={1}
+    items={Array []}
+    loadMoreItems={[Function]}
+    loadNextPage={[Function]}
+  />
+</div>
+`;
