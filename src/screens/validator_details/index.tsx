@@ -6,10 +6,7 @@ import {
 import { useStyles } from './styles';
 import {
   Profile,
-  SkipRate,
-  Transactions,
-  ActiveStake,
-  Potential,
+  VotingPower,
 } from './components';
 
 const ValidatorDetails = () => {
@@ -18,11 +15,10 @@ const ValidatorDetails = () => {
   return (
     <Layout navTitle={t('validatorDetails')} className={classes.root}>
       <Profile className={classes.profile} />
-      <SkipRate className={classes.skipRate} />
-      <ActiveStake className={classes.activeStakeGraph} />
-      <Potential className={classes.potential} />
-      <div className={classes.stakeList}>stake list</div>
-      <Transactions className={classes.transactions} />
+      <VotingPower className={classes.votingPower} />
+      <div className={classes.blocks}>blocks</div>
+      <div className={classes.staking}>staking</div>
+      <div className={classes.transactions}>transactions</div>
     </Layout>
   );
 };

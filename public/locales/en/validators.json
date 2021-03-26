@@ -15,14 +15,14 @@
   "identity": "Identity",
   "voteAccount": "Vote Account",
   "website": "Website",
-  "lastEpoch": "Last Epoch",
-  "numEpoch": "{{num}} Epochs",
-  "activeStake": "Active Stake",
   "today": "Today",
   "lastMonth": "Last Month",
   "potential": "Potential",
   "potentialExplanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut ex et leo aliquet lacinia. Donec finibus eros in consectetur porta. Aenean ut erat eu nunc pulvinar ullamcorper non non quam.",
-  "rootDistance": "Root Distance",
-  "voteDistance": "Vote Distance",
-  "accountStakers": "Account Stakers"
+  "operatorAddress": "Operator Address",
+  "selfDelegateAddress": "Self Delegate Address",
+  "selfDelegatedTokens": "Self Delegated Tokens",
+  "block": "Block",
+  "lastVotingPowerChange": "Last Voting Power Change",
+  "powerChange": "<0>{{change}}</0> at block "
 }
