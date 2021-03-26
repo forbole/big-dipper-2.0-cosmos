@@ -72,7 +72,7 @@ const Blocks: React.FC<{
             <Tooltip
               enterTouchDelay={50}
               title={(
-                <Box>
+                <Box className={classes.toolTip}>
                   <div className={classes.item}>
                     <Typography variant="h4" className="label">
                       {t('proposer')}

@@ -40,5 +40,8 @@
   "lastBlocks": "Last 100 Blocks",
   "proposer": "Proposer",
   "gas": "Gas (used / wanted)",
-  "signed": "Signed"
+  "signed": "Signed",
+  "good": "Good",
+  "moderate": "Moderate",
+  "bad": "Bad"
 }

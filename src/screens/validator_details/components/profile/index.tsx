@@ -14,6 +14,7 @@ import {
   Box,
   Avatar,
   Tag,
+  InfoPopover,
 } from '@components';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
@@ -80,6 +81,14 @@ const Profile: React.FC<{
         10%
       </Typography>
     ),
+    condition: (
+      <Typography
+        variant="body1"
+        className="value good"
+      >
+        {t('good')}
+      </Typography>
+    ),
   };
 
   return (
@@ -141,6 +150,15 @@ const Profile: React.FC<{
             {t('commission')}
           </Typography>
           {formattedItem.commission}
+        </div>
+        <div className={classes.item}>
+          <Typography variant="h4" className="label condition">
+            {t('condition')}
+            <InfoPopover
+              content={t('conditionExplanation')}
+            />
+          </Typography>
+          {formattedItem.condition}
         </div>
       </div>
     </Box>

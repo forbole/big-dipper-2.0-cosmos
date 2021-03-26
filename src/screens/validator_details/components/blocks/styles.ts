@@ -39,9 +39,9 @@ export const useStyles = () => {
             height: '28px',
           },
         },
-        // toolTip: {
-        //   margin: theme.spacing(2, 0),
-        // },
+        toolTip: {
+          boxShadow: theme.shadows[3],
+        },
         item: {
           marginBottom: theme.spacing(2),
           '& .label': {

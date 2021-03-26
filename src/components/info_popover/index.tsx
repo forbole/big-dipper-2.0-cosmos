@@ -10,7 +10,7 @@ import { useStyles } from './styles';
 
 const InfoPopover: React.FC<{
   className?: string;
-  content?: string;
+  content?: string | React.ReactNode;
 }> = ({
   className, content,
 }) => {
