@@ -36,5 +36,9 @@
   "delegateTotal": "{{delegators}} delegators delegated {{amount}}",
   "redelegateTotal": "{{delegators}} delegators redelegated {{amount}}",
   "undelegateTotal": "{{delegators}} delegators undelegated {{amount}}",
-  "linkedUntil": "Linked Until"
+  "linkedUntil": "Linked Until",
+  "lastBlocks": "Last 100 Blocks",
+  "proposer": "Proposer",
+  "gas": "Gas (used / wanted)",
+  "signed": "Signed"
 }

@@ -9,6 +9,7 @@ import {
   VotingPower,
   Transactions,
   Staking,
+  Blocks,
 } from './components';
 
 const ValidatorDetails = () => {
@@ -18,7 +19,7 @@ const ValidatorDetails = () => {
     <Layout navTitle={t('validatorDetails')} className={classes.root}>
       <Profile className={classes.profile} />
       <VotingPower className={classes.votingPower} />
-      <div className={classes.blocks}>blocks</div>
+      <Blocks className={classes.blocks} />
       <Staking className={classes.staking} />
       <Transactions className={classes.transactions} />
     </Layout>

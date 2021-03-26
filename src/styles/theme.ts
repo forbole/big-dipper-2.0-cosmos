@@ -128,6 +128,11 @@ export const common = {
         backgroundColor: 'initial',
       },
     },
+    MuiTooltip: {
+      tooltip: {
+        backgroundColor: 'transparent',
+      },
+    },
     MuiTableCell: {
       root: {
         borderBottom: 'none',
