@@ -50,7 +50,7 @@ export const useNav = (initalState: NavState) => {
       price: uiData.price,
       marketCap: uiData.marketCap,
       inflation: uiData.inflation,
-      communityPool: numeral(formatDenom(rawData.communityPool)).format('0,0.00'),
+      communityPool: `${numeral(formatDenom(rawData.communityPool)).format('0,0.00')} ${chainConfig.display.toUpperCase()}`,
     });
   };
 
