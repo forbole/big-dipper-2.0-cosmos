@@ -40,10 +40,11 @@ export const useSelectedNetwork = (initialState: NetworksState) => {
   const [selected, setSelected] = useState(initialState.selected);
 
   useChainIdQuery(
-    { onCompleted: (data) => {
-      console.log(data, 'wtf');
-      setSelected(formatUseChainIdQuery(data));
-    } },
+    {
+      onCompleted: (data) => {
+        setSelected(formatUseChainIdQuery(data));
+      },
+    },
   );
 
   const formatUseChainIdQuery = (data: ChainIdQuery) => {

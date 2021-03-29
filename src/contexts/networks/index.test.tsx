@@ -19,6 +19,7 @@ import {
 // ==================================
 // mocks
 // ==================================
+
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
@@ -81,7 +82,6 @@ describe('context: NetworksContext', () => {
     await wait();
 
     const { result } = hook;
-
     expect(result.current.selected).toBe('morpheus-2021');
     expect(result.current.networks).toHaveLength(1);
     expect(result.current.networks[0].name).toBe('IRISnet');
