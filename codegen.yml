@@ -1,4 +1,4 @@
-schema: https://48p1r2roz4.sse.codesandbox.io
+schema: https://gql.morpheus.desmos.network/v1/graphql
 overwrite: true
 documents: src/**/*.graphql
 generates:

@@ -1,15 +1,20 @@
 import React from 'react';
 import { NavState } from './types';
-
-const fakeData = {
-  price: 0,
-  marketCap: 0,
-  inflation: 0,
-  communityPool: 0,
-};
+import { useNav } from './hooks';
 
 const initialState: NavState = {
-  ...fakeData,
+  rawData: {
+    price: 0,
+    marketCap: 0,
+    inflation: 0,
+    communityPool: 0,
+  },
+  uiData: {
+    price: '$0.00',
+    marketCap: 'N/A',
+    inflation: '0.00%',
+    communityPool: '0',
+  },
 };
 
 const NavContext = React.createContext<NavState>(initialState);
@@ -20,11 +25,17 @@ const NavProvider: React.FC<{
 }> = ({
   children, title,
 }) => {
+  const {
+    rawData,
+    uiData,
+  } = useNav(initialState);
+
   return (
     <NavContext.Provider
       value={{
         title,
-        ...fakeData,
+        rawData,
+        uiData,
       }}
     >
       {children}

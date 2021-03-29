@@ -1,8 +1,8 @@
 export const formatMarket = (data: {
-  marketCap: number;
-  communityPool: number;
-  price: number;
-  inflation: number;
+  marketCap: string;
+  communityPool: string;
+  price: string;
+  inflation: string;
 }) => {
   return ([
     {
