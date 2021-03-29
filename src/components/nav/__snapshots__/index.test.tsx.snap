@@ -1,16 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component: Nav it renders 1`] = `
-<NetworksProvider>
-  <NavProvider>
-    <div
-      className="makeStyles-mobile"
-      id="Mobile"
-    />
-    <div
-      className="makeStyles-desktop"
-      id="Desktop"
-    />
-  </NavProvider>
-</NetworksProvider>
+<NavProvider>
+  <div
+    className="makeStyles-mobile"
+    id="Mobile"
+  />
+  <div
+    className="makeStyles-desktop"
+    id="Desktop"
+  />
+</NavProvider>
 `;

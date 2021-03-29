@@ -12,7 +12,7 @@ exports[`screen: Nav/NetworkList it renders 1`] = `
     }
   >
     <svg
-      data-file-name="SvgBigDipperWhite"
+      data-file-name="SvgBigDipperRed"
     />
   </div>
   <Networks

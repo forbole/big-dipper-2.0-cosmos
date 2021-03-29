@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import { useNetworksContext } from '@src/components/nav/contexts/networks';
+import { useNetworksContext } from '@src/contexts';
 import { useStyles } from './styles';
 import { SingleNetwork } from './components';
 

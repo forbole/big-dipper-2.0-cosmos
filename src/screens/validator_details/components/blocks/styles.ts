@@ -19,7 +19,7 @@ export const useStyles = () => {
           width: '28px',
           height: '28px',
           borderRadius: '2px',
-          background: theme.palette.custom.tags.zero,
+          background: theme.palette.custom.general.surfaceTwo,
           margin: theme.spacing(0.25),
           '&:hover': {
             background: Color(theme.palette.custom.tags.zero).alpha(0.5).string(),
