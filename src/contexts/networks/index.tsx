@@ -1,7 +1,8 @@
 import React from 'react';
 import { chainConfig } from '@src/chain_config';
 import {
-  useNetwork, useSelectedNetwork,
+  useNetwork,
+  useSelectedNetwork,
 } from './hooks';
 import { NetworksState } from './types';
 
