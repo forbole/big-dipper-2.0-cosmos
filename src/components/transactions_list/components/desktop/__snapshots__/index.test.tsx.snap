@@ -256,7 +256,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         <div
           className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
         >
-          18 days ago
+          21 days ago
         </div>
       </div>
     </div>

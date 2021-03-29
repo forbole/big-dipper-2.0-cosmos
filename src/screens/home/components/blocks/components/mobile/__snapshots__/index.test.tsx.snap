@@ -28,7 +28,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
         name="Forbole"
       />
     }
-    time="17 days ago"
+    time="21 days ago"
     txs={2}
   />
 </div>

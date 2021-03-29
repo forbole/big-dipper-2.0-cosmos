@@ -10,6 +10,7 @@ jest.mock('@components', () => ({
   Box: (props) => <div id="Box" {...props} />,
   Avatar: (props) => <div id="Avatar" {...props} />,
   Tag: (props) => <div id="Tag" {...props} />,
+  InfoPopover: (props) => <div id="InfoPopover" {...props} />,
 }));
 
 // ==================================

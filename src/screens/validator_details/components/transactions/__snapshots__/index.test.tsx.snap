@@ -8,7 +8,7 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
   <h2
     className="MuiTypography-root MuiTypography-h2"
   >
-    accounts:transactions
+    validators:transactions
   </h2>
   <div
     className="makeStyles-list"
