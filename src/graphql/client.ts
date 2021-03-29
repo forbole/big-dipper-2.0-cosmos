@@ -1,16 +1,16 @@
-// import WebSocket from 'isomorphic-ws';
+import WebSocket from 'isomorphic-ws';
 import {
   ApolloClient,
   InMemoryCache,
-  // split,
+  split,
   HttpLink,
   ApolloLink,
   concat,
 } from '@apollo/client';
 import {
-// getMainDefinition,
+  getMainDefinition,
 } from '@apollo/client/utilities';
-// import { WebSocketLink } from '@apollo/client/link/ws';
+import { WebSocketLink } from '@apollo/client/link/ws';
 
 import { useMemo } from 'react';
 
@@ -31,26 +31,24 @@ const httpLink = new HttpLink({
   uri: process.env.NEXT_PUBLIC_GRAPHQL_URL,
 });
 
-// const wsLink = new WebSocketLink({
-//   uri: process.env.NEXT_PUBLIC_GRAPHQL_WS ?? 'wss://localhost:3000',
-//   options: {
-//     reconnect: true,
-//   },
-//   webSocketImpl: WebSocket,
-// });
+const wsLink = new WebSocketLink({
+  uri: process.env.NEXT_PUBLIC_GRAPHQL_WS ?? 'wss://localhost:3000',
+  options: {
+    reconnect: true,
+  },
+  webSocketImpl: WebSocket,
+});
 
-// const link = typeof window !== 'undefined' ? split(
-//   ({ query }) => {
-//     const {
-//       kind, operation,
-//     }:any = getMainDefinition(query);
-//     return kind === 'OperationDefinition' && operation === 'subscription';
-//   },
-//   // wsLink,
-//   httpLink,
-// ) : httpLink;
-
-const link = httpLink;
+const link = typeof window !== 'undefined' ? split(
+  ({ query }) => {
+    const {
+      kind, operation,
+    }:any = getMainDefinition(query);
+    return kind === 'OperationDefinition' && operation === 'subscription';
+  },
+  wsLink,
+  httpLink,
+) : httpLink;
 
 const authMiddleware = new ApolloLink((operation, forward) => {
   operation.setContext({
