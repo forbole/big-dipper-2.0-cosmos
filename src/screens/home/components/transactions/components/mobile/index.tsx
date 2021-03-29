@@ -41,6 +41,7 @@ const Mobile:React.FC<{
       result: (
         <Result success={x.success} />
       ),
+      messages: x.messages,
       time: dayjs(x.time).fromNow(),
     });
   });
@@ -49,7 +50,7 @@ const Mobile:React.FC<{
     <div className={classnames(className)}>
       {formatSlots.map((x, i) => {
         return (
-          <React.Fragment key={`${x.slot}-${i}`}>
+          <React.Fragment key={`${x.block}-${i}`}>
             <SingleTransactionMobile {...x} />
             {i !== formatSlots.length - 1 && <Divider />}
           </React.Fragment>

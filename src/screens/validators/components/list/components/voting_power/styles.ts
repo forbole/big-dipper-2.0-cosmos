@@ -27,7 +27,7 @@ export const useStyles = (percentage: number) => {
           justifyContent: 'space-between',
           marginBottom: theme.spacing(1),
           '& .percentage': {
-            color: theme.palette.custom.fonts.skipOne,
+            color: theme.palette.custom.tags.seven,
           },
           [theme.breakpoints.up('lg')]: {
             marginBottom: 0,
