@@ -32,6 +32,7 @@ exports[`screen: Home/Transactions/Mobile matches snapshot 1`] = `
       </Link>
     }
     id="SingleTransactionMobile"
+    messages={12}
     result={
       <Result
         success={true}
