@@ -2,7 +2,12 @@ import {
   useState, useEffect,
 } from 'react';
 import axios from 'axios';
+import * as R from 'ramda';
 import { BigDipperNetwork } from '@models';
+import {
+  useChainIdQuery, ChainIdQuery,
+} from '@graphql/types';
+import { NetworksState } from './types';
 
 export const useNetwork = () => {
   const NETWORK_LIST_API = 'https://gist.githubusercontent.com/kwunyeung/8be4598c77c61e497dfc7220a678b3ee/raw/bd-networks.json';
@@ -28,5 +33,23 @@ export const useNetwork = () => {
 
   return {
     bigDipperNetworks: networks,
+  };
+};
+
+export const useSelectedNetwork = (initialState: NetworksState) => {
+  const [selected, setSelected] = useState(initialState.selected);
+
+  useChainIdQuery(
+    { onCompleted: (data) => {
+      setSelected(formatUseChainIdQuery(data));
+    } },
+  );
+
+  const formatUseChainIdQuery = (data: ChainIdQuery) => {
+    return R.pathOr(initialState.selected, ['genesis', 0, 'chain_id'], data);
+  };
+
+  return {
+    selected,
   };
 };

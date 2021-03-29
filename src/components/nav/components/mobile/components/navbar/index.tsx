@@ -5,14 +5,15 @@ import { ExpandMore } from '@material-ui/icons';
 import { useSettingsContext } from '@contexts';
 import BigDipperLogoWhite from '@assets/big-dipper-white.svg';
 import BigDipperLogoRed from '@assets/big-dipper-red.svg';
-import { chainConfig } from '@src/chain_config';
 import { HOME } from '@utils/go_to_page';
 import { useStyles } from './styles';
 import { NavbarProps } from './types';
+import { useNetworksContext } from '../../../../contexts/networks';
 
 const Navbar = (props:NavbarProps) => {
   const classes = useStyles();
   const { theme } = useSettingsContext();
+  const { selected } = useNetworksContext();
   const {
     isOpen,
     openNetwork,
@@ -39,7 +40,7 @@ const Navbar = (props:NavbarProps) => {
           role="button"
         >
           <p className="text">
-            {chainConfig.network}
+            {selected}
           </p>
           <ExpandMore fontSize="small" />
         </div>
