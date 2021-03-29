@@ -43,7 +43,7 @@ const mockChainId = jest.fn().mockResolvedValue({
   data: {
     genesis: [
       {
-        chain_id: 'morpheus-2021',
+        chainId: 'morpheus-2021',
         time: '2021-01-20T07:00:00',
       },
     ],
@@ -56,13 +56,11 @@ const mockChainId = jest.fn().mockResolvedValue({
 describe('context: NetworksContext', () => {
   it('expects networks to be a list', async () => {
     mockedAxios.get.mockImplementationOnce(() => Promise.resolve(mockNetworkData));
-
     const mockClient = createMockClient();
     mockClient.setRequestHandler(
       ChainIdDocument,
       mockChainId,
     );
-
     const Wrapper: React.FC = ({ children }) => {
       return (
         <ApolloProvider client={mockClient}>
@@ -83,7 +81,7 @@ describe('context: NetworksContext', () => {
 
     const { result } = hook;
     expect(mockChainId).toBeCalledTimes(1);
-    // expect(result.current.selected).toBe('morpheus-2021');
+    expect(result.current.selected).toBe('morpheus-2021');
     expect(result.current.networks).toHaveLength(1);
     expect(result.current.networks[0].name).toBe('IRISnet');
   });

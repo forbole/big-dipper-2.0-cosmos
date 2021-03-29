@@ -42,7 +42,6 @@ export const useSelectedNetwork = (initialState: NetworksState) => {
   useChainIdQuery(
     {
       onCompleted: (data) => {
-        console.log(data, 'aw yis');
         setSelected(formatUseChainIdQuery(data));
       },
     },
