@@ -18,7 +18,8 @@ const Network:React.FC<{
       onClick={toggleNetwork}
       role="button"
     >
-      <chainConfig.icon className={classes.icon} />
+      <img src={chainConfig.icon} className={classes.icon} alt="icon" />
+      {/* <chainConfig.icon className={classes.icon} /> */}
       <Typography variant="body1">
         {chainConfig.network}
       </Typography>
