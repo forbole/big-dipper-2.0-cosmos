@@ -6,14 +6,15 @@ exports[`screen: Nav/Network it renders 1`] = `
   onClick={[MockFunction]}
   role="button"
 >
-  <svg
+  <img
+    alt="icon"
     className="makeStyles-icon"
-    data-file-name="SvgIconSolona"
+    src="https://gist.githubusercontent.com/kwunyeung/8be4598c77c61e497dfc7220a678b3ee/raw/desmos.svg?sanitize=true"
   />
   <p
     className="MuiTypography-root MuiTypography-body1"
   >
-    morpheus-13001
+    selected
   </p>
   <svg
     aria-hidden={true}

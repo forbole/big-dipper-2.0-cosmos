@@ -10,9 +10,9 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
     onClick={[Function]}
     onMouseEnter={[Function]}
   >
-    <svg
+    <div
       className="makeStyles-logo"
-      data-file-name="SvgBigDipperRed"
+      id="RED"
     />
   </a>
   <div
@@ -26,7 +26,7 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
       <p
         className="text"
       >
-        morpheus-13001
+        selected
       </p>
       <svg
         aria-hidden={true}
@@ -63,9 +63,9 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
     onClick={[Function]}
     onMouseEnter={[Function]}
   >
-    <svg
+    <div
       className="makeStyles-logo"
-      data-file-name="SvgBigDipperRed"
+      id="RED"
     />
   </a>
   <div
@@ -79,7 +79,7 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
       <p
         className="text"
       >
-        morpheus-13001
+        selected
       </p>
       <svg
         aria-hidden={true}

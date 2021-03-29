@@ -1,8 +1,24 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import {
+  MockTheme,
+} from '@tests/utils';
 import Navbar from '.';
 
+// ==================================
+// mocks
+// ==================================
+jest.mock('@src/contexts', () => ({
+  useNetworksContext: () => ({
+    selected: 'selected',
+  }),
+  useSettingsContext: () => ({
+    theme: 'light',
+  }),
+}));
+
+jest.mock('@assets/big-dipper-white.svg', () => (props) => <div id="WHITE" {...props} />);
+jest.mock('@assets/big-dipper-red.svg', () => (props) => <div id="RED" {...props} />);
 // ==================================
 // global setup
 // ==================================

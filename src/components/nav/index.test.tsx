@@ -17,10 +17,6 @@ jest.mock('./components', () => ({
   Mobile: (props) => <div id="Mobile" {...props} />,
 }));
 
-jest.mock('./contexts/networks', () => ({
-  NetworksProvider: 'NetworksProvider',
-}));
-
 jest.mock('./contexts/nav', () => ({
   NavProvider: 'NavProvider',
 }));

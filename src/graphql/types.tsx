@@ -11405,7 +11405,26 @@ export type ChainIdQuery = (
   { __typename?: 'query_root' }
   & { genesis: Array<(
     { __typename?: 'genesis' }
-    & Pick<Genesis, 'chain_id' | 'time'>
+    & Pick<Genesis, 'time'>
+    & { chainId: Genesis['chain_id'] }
+  )> }
+);
+
+export type MarketDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MarketDataQuery = (
+  { __typename?: 'query_root' }
+  & { communityPool: Array<(
+    { __typename?: 'community_pool' }
+    & Pick<Community_Pool, 'coins'>
+  )>, inflation: Array<(
+    { __typename?: 'inflation' }
+    & Pick<Inflation, 'value'>
+  )>, tokenPrice: Array<(
+    { __typename?: 'token_price' }
+    & Pick<Token_Price, 'price'>
+    & { marketCap: Token_Price['market_cap'] }
   )> }
 );
 
@@ -11413,7 +11432,7 @@ export type ChainIdQuery = (
 export const ChainIdDocument = gql`
     query ChainId {
   genesis(limit: 1, order_by: {time: desc}) {
-    chain_id
+    chainId: chain_id
     time
   }
 }
@@ -11445,3 +11464,44 @@ export function useChainIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Ch
 export type ChainIdQueryHookResult = ReturnType<typeof useChainIdQuery>;
 export type ChainIdLazyQueryHookResult = ReturnType<typeof useChainIdLazyQuery>;
 export type ChainIdQueryResult = Apollo.QueryResult<ChainIdQuery, ChainIdQueryVariables>;
+export const MarketDataDocument = gql`
+    query MarketData {
+  communityPool: community_pool(order_by: {height: desc}, limit: 1) {
+    coins
+  }
+  inflation: inflation(order_by: {height: desc}, limit: 1) {
+    value
+  }
+  tokenPrice: token_price(order_by: {timestamp: asc}, limit: 1) {
+    marketCap: market_cap
+    price
+  }
+}
+    `;
+
+/**
+ * __useMarketDataQuery__
+ *
+ * To run a query within a React component, call `useMarketDataQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMarketDataQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMarketDataQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useMarketDataQuery(baseOptions?: Apollo.QueryHookOptions<MarketDataQuery, MarketDataQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<MarketDataQuery, MarketDataQueryVariables>(MarketDataDocument, options);
+      }
+export function useMarketDataLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MarketDataQuery, MarketDataQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<MarketDataQuery, MarketDataQueryVariables>(MarketDataDocument, options);
+        }
+export type MarketDataQueryHookResult = ReturnType<typeof useMarketDataQuery>;
+export type MarketDataLazyQueryHookResult = ReturnType<typeof useMarketDataLazyQuery>;
+export type MarketDataQueryResult = Apollo.QueryResult<MarketDataQuery, MarketDataQueryVariables>;

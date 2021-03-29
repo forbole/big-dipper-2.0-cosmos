@@ -41,12 +41,13 @@ export const useSelectedNetwork = (initialState: NetworksState) => {
 
   useChainIdQuery(
     { onCompleted: (data) => {
+      console.log(data, 'wtf');
       setSelected(formatUseChainIdQuery(data));
     } },
   );
 
   const formatUseChainIdQuery = (data: ChainIdQuery) => {
-    return R.pathOr(initialState.selected, ['genesis', 0, 'chain_id'], data);
+    return R.pathOr(initialState.selected, ['genesis', 0, 'chainId'], data);
   };
 
   return {

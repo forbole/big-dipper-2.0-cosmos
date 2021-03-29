@@ -2,13 +2,14 @@ import React from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
 import { ExpandMore } from '@material-ui/icons';
-import { useSettingsContext } from '@contexts';
+import {
+  useSettingsContext, useNetworksContext,
+} from '@contexts';
 import BigDipperLogoWhite from '@assets/big-dipper-white.svg';
 import BigDipperLogoRed from '@assets/big-dipper-red.svg';
 import { HOME } from '@utils/go_to_page';
 import { useStyles } from './styles';
 import { NavbarProps } from './types';
-import { useNetworksContext } from '../../../../contexts/networks';
 
 const Navbar = (props:NavbarProps) => {
   const classes = useStyles();
@@ -19,6 +20,7 @@ const Navbar = (props:NavbarProps) => {
     openNetwork,
     toggleNavMenus,
   } = props;
+
   return (
     <div className={classes.root}>
       <Link href={HOME}>

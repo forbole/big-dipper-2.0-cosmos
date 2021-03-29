@@ -13,6 +13,12 @@ let component:renderer.ReactTestRenderer;
 // ==================================
 const mockToggleNetwork = jest.fn();
 
+jest.mock('@src/contexts', () => ({
+  useNetworksContext: () => ({
+    selected: 'selected',
+  }),
+}));
+
 // ==================================
 // unit tests
 // ==================================

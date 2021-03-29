@@ -1,6 +1,6 @@
 query ChainId {
   genesis(limit: 1, order_by: {time: desc}) {
-    chain_id
+    chainId: chain_id
     time
   }
 }

@@ -4,7 +4,9 @@ import { AppProps } from 'next/app';
 import { ToastContainer } from 'react-toastify';
 import { ApolloProvider } from '@apollo/client';
 import { useApollo } from '@src/graphql/client';
-import { SettingsProvider } from '@contexts';
+import {
+  SettingsProvider, NetworksProvider,
+} from '@contexts';
 import { InnerApp } from './components';
 import { useApp } from './hooks';
 
@@ -31,18 +33,20 @@ function App(props: AppProps) {
         client={apolloClient}
       >
         <SettingsProvider>
-          <ToastContainer
-            position="top-center"
-            autoClose={5000}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            hideProgressBar
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          />
-          <InnerApp {...props} />
+          <NetworksProvider>
+            <ToastContainer
+              position="top-center"
+              autoClose={5000}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              hideProgressBar
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
+            <InnerApp {...props} />
+          </NetworksProvider>
         </SettingsProvider>
       </ApolloProvider>
     </>

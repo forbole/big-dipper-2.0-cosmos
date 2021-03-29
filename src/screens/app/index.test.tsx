@@ -18,6 +18,10 @@ jest.mock('@contexts', () => ({
   SettingsContext: {
     Consumer: ({ children }) => children(mockThemeContext),
   },
+  NetworksProvider: 'NetworksProvider',
+  NetworksContext: {
+    Consumer: ({ children }) => children,
+  },
 }));
 jest.mock('@styles', () => ({
   GlobalCss: 'GlobalCss',

@@ -1,0 +1,12 @@
+query MarketData {
+  communityPool: community_pool(order_by: {height: desc}, limit: 1) {
+    coins
+  }
+  inflation: inflation(order_by: {height: desc}, limit: 1) {
+    value
+  }
+  tokenPrice: token_price(order_by: {timestamp: asc}, limit: 1) {
+    marketCap: market_cap
+    price
+  }
+}

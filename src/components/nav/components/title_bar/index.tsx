@@ -11,17 +11,11 @@ const TitleBar:React.FC<{className?: string}> = ({ className }) => {
   const classes = useStyles();
   const {
     title,
-    marketCap,
-    communityPool,
-    price,
-    inflation,
+    uiData,
   } = useNavContext();
 
   const market = formatMarket({
-    communityPool,
-    marketCap,
-    price,
-    inflation,
+    ...uiData,
   });
 
   return (
