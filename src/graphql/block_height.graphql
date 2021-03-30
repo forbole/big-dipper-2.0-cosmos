@@ -1,4 +1,4 @@
-subscription LatestHeight {
+subscription LatestBlockHeight {
   height: block(order_by: {height: desc}, limit: 1) {
     height
   }

@@ -11426,10 +11426,10 @@ export type ActiveValidatorCountQuery = (
   ) }
 );
 
-export type LatestHeightSubscriptionVariables = Exact<{ [key: string]: never; }>;
+export type LatestBlockHeightSubscriptionVariables = Exact<{ [key: string]: never; }>;
 
 
-export type LatestHeightSubscription = (
+export type LatestBlockHeightSubscription = (
   { __typename?: 'subscription_root' }
   & { height: Array<(
     { __typename?: 'block' }
@@ -11541,8 +11541,8 @@ export function useActiveValidatorCountLazyQuery(baseOptions?: Apollo.LazyQueryH
 export type ActiveValidatorCountQueryHookResult = ReturnType<typeof useActiveValidatorCountQuery>;
 export type ActiveValidatorCountLazyQueryHookResult = ReturnType<typeof useActiveValidatorCountLazyQuery>;
 export type ActiveValidatorCountQueryResult = Apollo.QueryResult<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>;
-export const LatestHeightDocument = gql`
-    subscription LatestHeight {
+export const LatestBlockHeightDocument = gql`
+    subscription LatestBlockHeight {
   height: block(order_by: {height: desc}, limit: 1) {
     height
   }
@@ -11550,26 +11550,26 @@ export const LatestHeightDocument = gql`
     `;
 
 /**
- * __useLatestHeightSubscription__
+ * __useLatestBlockHeightSubscription__
  *
- * To run a query within a React component, call `useLatestHeightSubscription` and pass it any options that fit your needs.
- * When your component renders, `useLatestHeightSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useLatestBlockHeightSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useLatestBlockHeightSubscription` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useLatestHeightSubscription({
+ * const { data, loading, error } = useLatestBlockHeightSubscription({
  *   variables: {
  *   },
  * });
  */
-export function useLatestHeightSubscription(baseOptions?: Apollo.SubscriptionHookOptions<LatestHeightSubscription, LatestHeightSubscriptionVariables>) {
+export function useLatestBlockHeightSubscription(baseOptions?: Apollo.SubscriptionHookOptions<LatestBlockHeightSubscription, LatestBlockHeightSubscriptionVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useSubscription<LatestHeightSubscription, LatestHeightSubscriptionVariables>(LatestHeightDocument, options);
+        return Apollo.useSubscription<LatestBlockHeightSubscription, LatestBlockHeightSubscriptionVariables>(LatestBlockHeightDocument, options);
       }
-export type LatestHeightSubscriptionHookResult = ReturnType<typeof useLatestHeightSubscription>;
-export type LatestHeightSubscriptionResult = Apollo.SubscriptionResult<LatestHeightSubscription>;
+export type LatestBlockHeightSubscriptionHookResult = ReturnType<typeof useLatestBlockHeightSubscription>;
+export type LatestBlockHeightSubscriptionResult = Apollo.SubscriptionResult<LatestBlockHeightSubscription>;
 export const AverageBlockTimeDocument = gql`
     query AverageBlockTime {
   average_block_time_per_day(limit: 1, order_by: {height: desc}) {

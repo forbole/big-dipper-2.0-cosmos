@@ -34,7 +34,7 @@
     "next-seo": "^4.20.0",
     "next-translate": "^1.0.3",
     "npm": "^7.6.1",
-    "numeral": "^2.0.6",
+    "numeral": "^2.0.4",
     "qrcode.react": "^1.0.1",
     "ramda": "^0.27.1",
     "react": "16.13.1",
@@ -44,7 +44,8 @@
     "react-virtualized-auto-sizer": "^1.0.4",
     "react-window": "^1.8.6",
     "react-window-infinite-loader": "^1.0.7",
-    "recharts": "^2.0.8"
+    "recharts": "^2.0.8",
+    "subscriptions-transport-ws": "^0.9.18"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.21.1",
