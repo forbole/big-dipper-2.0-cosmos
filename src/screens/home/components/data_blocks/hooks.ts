@@ -1,7 +1,14 @@
 import { useState } from 'react';
 import numeral from 'numeral';
 import {
-  useLatestBlockHeightSubscription, LatestBlockHeightSubscription,
+  useLatestBlockHeightSubscription,
+  LatestBlockHeightSubscription,
+  useAverageBlockTimeQuery,
+  AverageBlockTimeQuery,
+  useTokenPriceQuery,
+  TokenPriceQuery,
+  useActiveValidatorCountQuery,
+  ActiveValidatorCountQuery,
 } from '@graphql/types';
 
 export const useDataBlocks = () => {
@@ -23,17 +30,74 @@ export const useDataBlocks = () => {
     },
   });
 
+  // ====================================
+  // block height
+  // ====================================
+
   useLatestBlockHeightSubscription({
     onSubscriptionData: (data) => {
       setState((prevState) => ({
         ...prevState,
-        blockHeight: formatLatestBlockHeightSubscription(data.subscriptionData.data),
+        blockHeight: formatLatestBlockHeight(data.subscriptionData.data),
       }));
     },
   });
 
-  const formatLatestBlockHeightSubscription = (data: LatestBlockHeightSubscription) => {
-    return data.height[0]?.height ?? 0;
+  const formatLatestBlockHeight = (data: LatestBlockHeightSubscription) => {
+    return data.height[0]?.height ?? state.blockHeight;
+  };
+
+  // ====================================
+  // block time
+  // ====================================
+  useAverageBlockTimeQuery({
+    onCompleted: (data) => {
+      setState((prevState) => ({
+        ...prevState,
+        blockTime: formatAverageBlockTime(data),
+      }));
+    },
+  });
+
+  const formatAverageBlockTime = (data: AverageBlockTimeQuery) => {
+    return data.averageBlockTimePerDay[0]?.averageTime ?? state.blockTime;
+  };
+
+  // ====================================
+  // token price
+  // ====================================
+
+  useTokenPriceQuery({
+    onCompleted: (data) => {
+      setState((prevState) => ({
+        ...prevState,
+        price: formatTokenPrice(data),
+      }));
+    },
+  });
+
+  const formatTokenPrice = (data: TokenPriceQuery) => {
+    return data?.tokenPrice[0]?.price ?? state.price;
+  };
+
+  // ====================================
+  // validators
+  // ====================================
+
+  useActiveValidatorCountQuery({
+    onCompleted: (data) => {
+      setState((prevState) => ({
+        ...prevState,
+        validators: formatActiveValidatorsCount(data),
+      }));
+    },
+  });
+
+  const formatActiveValidatorsCount = (data: ActiveValidatorCountQuery) => {
+    return {
+      active: data.activeTotal.aggregate.count,
+      total: 0,
+    };
   };
 
   const formatUi = () => {
@@ -46,7 +110,7 @@ export const useDataBlocks = () => {
 
     return ({
       blockHeight: numeral(blockHeight).format('0,0'),
-      blockTime: `${numeral(blockTime).format('0.00')}s`,
+      blockTime: `${numeral(blockTime).format('0.00')} s`,
       price: `$${numeral(price).format('0.00')}`,
       validators: {
         active: numeral(validators.active).format('0,0'),

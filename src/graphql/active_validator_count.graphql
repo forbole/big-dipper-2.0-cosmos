@@ -1,10 +1,10 @@
-query ActiveValidatorCount($height: bigint) {
-  active_total: validator_status_aggregate(where: {height: {_eq: $height}, status: {_eq: 3}}) {
+query ActiveValidatorCountQuery($height: bigint) {
+  activeTotal: validator_status_aggregate(where: {height: {_eq: $height}, status: {_eq: 3}}) {
     aggregate {
       count
     }
   }
-  inactive_total: validator_status_aggregate(where: {height: {_eq: $height}, status: {_neq: 3}}) {
+  inactiveTotal: validator_status_aggregate(where: {height: {_eq: $height}, status: {_neq: 3}}) {
     aggregate {
       count
     }

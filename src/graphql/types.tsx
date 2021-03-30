@@ -338,6 +338,8 @@ export type Account_Balance = {
   /** An object relationship */
   account: Account;
   address: Scalars['String'];
+  /** An object relationship */
+  block?: Maybe<Block>;
   coins: Scalars['_coin'];
   height: Scalars['bigint'];
 };
@@ -405,6 +407,7 @@ export type Account_Balance_Bool_Exp = {
   _or?: Maybe<Array<Maybe<Account_Balance_Bool_Exp>>>;
   account?: Maybe<Account_Bool_Exp>;
   address?: Maybe<String_Comparison_Exp>;
+  block?: Maybe<Block_Bool_Exp>;
   coins?: Maybe<_Coin_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
 };
@@ -439,6 +442,7 @@ export type Account_Balance_Min_Order_By = {
 export type Account_Balance_Order_By = {
   account?: Maybe<Account_Order_By>;
   address?: Maybe<Order_By>;
+  block?: Maybe<Block_Order_By>;
   coins?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
 };
@@ -11403,15 +11407,13 @@ export type ActiveValidatorCountQueryVariables = Exact<{
 }>;
 
 
-export type ActiveValidatorCountQuery = (
-  { __typename?: 'query_root' }
-  & { active_total: (
+export type ActiveValidatorCountQuery = { activeTotal: (
     { __typename?: 'validator_status_aggregate' }
     & { aggregate?: Maybe<(
       { __typename?: 'validator_status_aggregate_fields' }
       & Pick<Validator_Status_Aggregate_Fields, 'count'>
     )> }
-  ), inactive_total: (
+  ), inactiveTotal: (
     { __typename?: 'validator_status_aggregate' }
     & { aggregate?: Maybe<(
       { __typename?: 'validator_status_aggregate_fields' }
@@ -11423,49 +11425,47 @@ export type ActiveValidatorCountQuery = (
       { __typename?: 'validator_status_aggregate_fields' }
       & Pick<Validator_Status_Aggregate_Fields, 'count'>
     )> }
-  ) }
-);
+  ) };
 
 export type LatestBlockHeightSubscriptionVariables = Exact<{ [key: string]: never; }>;
 
 
-export type LatestBlockHeightSubscription = (
-  { __typename?: 'subscription_root' }
-  & { height: Array<(
+export type LatestBlockHeightSubscription = { height: Array<(
     { __typename?: 'block' }
     & Pick<Block, 'height'>
-  )> }
-);
+  )> };
+
+export type LatestBlockHeightQueryVariables = Exact<{
+  offset?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type LatestBlockHeightQuery = { height: Array<(
+    { __typename?: 'block' }
+    & Pick<Block, 'height'>
+  )> };
 
 export type AverageBlockTimeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AverageBlockTimeQuery = (
-  { __typename?: 'query_root' }
-  & { average_block_time_per_day: Array<(
+export type AverageBlockTimeQuery = { averageBlockTimePerDay: Array<(
     { __typename?: 'average_block_time_per_day' }
     & { averageTime: Average_Block_Time_Per_Day['average_time'] }
-  )> }
-);
+  )> };
 
 export type ChainIdQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ChainIdQuery = (
-  { __typename?: 'query_root' }
-  & { genesis: Array<(
+export type ChainIdQuery = { genesis: Array<(
     { __typename?: 'genesis' }
     & Pick<Genesis, 'time'>
     & { chainId: Genesis['chain_id'] }
-  )> }
-);
+  )> };
 
 export type MarketDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MarketDataQuery = (
-  { __typename?: 'query_root' }
-  & { communityPool: Array<(
+export type MarketDataQuery = { communityPool: Array<(
     { __typename?: 'community_pool' }
     & Pick<Community_Pool, 'coins'>
   )>, inflation: Array<(
@@ -11475,31 +11475,27 @@ export type MarketDataQuery = (
     { __typename?: 'token_price' }
     & Pick<Token_Price, 'price'>
     & { marketCap: Token_Price['market_cap'] }
-  )> }
-);
+  )> };
 
 export type TokenPriceQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type TokenPriceQuery = (
-  { __typename?: 'query_root' }
-  & { tokenPrice: Array<(
+export type TokenPriceQuery = { tokenPrice: Array<(
     { __typename?: 'token_price' }
     & Pick<Token_Price, 'price'>
-  )> }
-);
+  )> };
 
 
-export const ActiveValidatorCountDocument = gql`
-    query ActiveValidatorCount($height: bigint) {
-  active_total: validator_status_aggregate(
+export const ActiveValidatorCountQueryDocument = gql`
+    query ActiveValidatorCountQuery($height: bigint) {
+  activeTotal: validator_status_aggregate(
     where: {height: {_eq: $height}, status: {_eq: 3}}
   ) {
     aggregate {
       count
     }
   }
-  inactive_total: validator_status_aggregate(
+  inactiveTotal: validator_status_aggregate(
     where: {height: {_eq: $height}, status: {_neq: 3}}
   ) {
     aggregate {
@@ -11532,17 +11528,17 @@ export const ActiveValidatorCountDocument = gql`
  */
 export function useActiveValidatorCountQuery(baseOptions?: Apollo.QueryHookOptions<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>(ActiveValidatorCountDocument, options);
+        return Apollo.useQuery<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>(ActiveValidatorCountQueryDocument, options);
       }
-export function useActiveValidatorCountLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>) {
+export function useActiveValidatorCountQueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>(ActiveValidatorCountDocument, options);
+          return Apollo.useLazyQuery<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>(ActiveValidatorCountQueryDocument, options);
         }
 export type ActiveValidatorCountQueryHookResult = ReturnType<typeof useActiveValidatorCountQuery>;
-export type ActiveValidatorCountLazyQueryHookResult = ReturnType<typeof useActiveValidatorCountLazyQuery>;
-export type ActiveValidatorCountQueryResult = Apollo.QueryResult<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>;
-export const LatestBlockHeightDocument = gql`
-    subscription LatestBlockHeight {
+export type ActiveValidatorCountQueryLazyQueryHookResult = ReturnType<typeof useActiveValidatorCountQueryLazyQuery>;
+export type ActiveValidatorCountQueryQueryResult = Apollo.QueryResult<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>;
+export const LatestBlockHeightSubscriptionDocument = gql`
+    subscription LatestBlockHeightSubscription {
   height: block(order_by: {height: desc}, limit: 1) {
     height
   }
@@ -11566,13 +11562,51 @@ export const LatestBlockHeightDocument = gql`
  */
 export function useLatestBlockHeightSubscription(baseOptions?: Apollo.SubscriptionHookOptions<LatestBlockHeightSubscription, LatestBlockHeightSubscriptionVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useSubscription<LatestBlockHeightSubscription, LatestBlockHeightSubscriptionVariables>(LatestBlockHeightDocument, options);
+        return Apollo.useSubscription<LatestBlockHeightSubscription, LatestBlockHeightSubscriptionVariables>(LatestBlockHeightSubscriptionDocument, options);
       }
 export type LatestBlockHeightSubscriptionHookResult = ReturnType<typeof useLatestBlockHeightSubscription>;
-export type LatestBlockHeightSubscriptionResult = Apollo.SubscriptionResult<LatestBlockHeightSubscription>;
-export const AverageBlockTimeDocument = gql`
-    query AverageBlockTime {
-  average_block_time_per_day(limit: 1, order_by: {height: desc}) {
+export type LatestBlockHeightSubscriptionSubscriptionResult = Apollo.SubscriptionResult<LatestBlockHeightSubscription>;
+export const LatestBlockHeightQueryDocument = gql`
+    query LatestBlockHeightQuery($offset: Int = 2) {
+  height: block(order_by: {height: desc}, limit: 1, offset: $offset) {
+    height
+  }
+}
+    `;
+
+/**
+ * __useLatestBlockHeightQuery__
+ *
+ * To run a query within a React component, call `useLatestBlockHeightQuery` and pass it any options that fit your needs.
+ * When your component renders, `useLatestBlockHeightQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useLatestBlockHeightQuery({
+ *   variables: {
+ *      offset: // value for 'offset'
+ *   },
+ * });
+ */
+export function useLatestBlockHeightQuery(baseOptions?: Apollo.QueryHookOptions<LatestBlockHeightQuery, LatestBlockHeightQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<LatestBlockHeightQuery, LatestBlockHeightQueryVariables>(LatestBlockHeightQueryDocument, options);
+      }
+export function useLatestBlockHeightQueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LatestBlockHeightQuery, LatestBlockHeightQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<LatestBlockHeightQuery, LatestBlockHeightQueryVariables>(LatestBlockHeightQueryDocument, options);
+        }
+export type LatestBlockHeightQueryHookResult = ReturnType<typeof useLatestBlockHeightQuery>;
+export type LatestBlockHeightQueryLazyQueryHookResult = ReturnType<typeof useLatestBlockHeightQueryLazyQuery>;
+export type LatestBlockHeightQueryQueryResult = Apollo.QueryResult<LatestBlockHeightQuery, LatestBlockHeightQueryVariables>;
+export const AverageBlockTimeQueryDocument = gql`
+    query AverageBlockTimeQuery {
+  averageBlockTimePerDay: average_block_time_per_day(
+    limit: 1
+    order_by: {height: desc}
+  ) {
     averageTime: average_time
   }
 }
@@ -11595,17 +11629,17 @@ export const AverageBlockTimeDocument = gql`
  */
 export function useAverageBlockTimeQuery(baseOptions?: Apollo.QueryHookOptions<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>(AverageBlockTimeDocument, options);
+        return Apollo.useQuery<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>(AverageBlockTimeQueryDocument, options);
       }
-export function useAverageBlockTimeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>) {
+export function useAverageBlockTimeQueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>(AverageBlockTimeDocument, options);
+          return Apollo.useLazyQuery<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>(AverageBlockTimeQueryDocument, options);
         }
 export type AverageBlockTimeQueryHookResult = ReturnType<typeof useAverageBlockTimeQuery>;
-export type AverageBlockTimeLazyQueryHookResult = ReturnType<typeof useAverageBlockTimeLazyQuery>;
-export type AverageBlockTimeQueryResult = Apollo.QueryResult<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>;
-export const ChainIdDocument = gql`
-    query ChainId {
+export type AverageBlockTimeQueryLazyQueryHookResult = ReturnType<typeof useAverageBlockTimeQueryLazyQuery>;
+export type AverageBlockTimeQueryQueryResult = Apollo.QueryResult<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>;
+export const ChainIdQueryDocument = gql`
+    query ChainIdQuery {
   genesis(limit: 1, order_by: {time: desc}) {
     chainId: chain_id
     time
@@ -11630,17 +11664,17 @@ export const ChainIdDocument = gql`
  */
 export function useChainIdQuery(baseOptions?: Apollo.QueryHookOptions<ChainIdQuery, ChainIdQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<ChainIdQuery, ChainIdQueryVariables>(ChainIdDocument, options);
+        return Apollo.useQuery<ChainIdQuery, ChainIdQueryVariables>(ChainIdQueryDocument, options);
       }
-export function useChainIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ChainIdQuery, ChainIdQueryVariables>) {
+export function useChainIdQueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ChainIdQuery, ChainIdQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<ChainIdQuery, ChainIdQueryVariables>(ChainIdDocument, options);
+          return Apollo.useLazyQuery<ChainIdQuery, ChainIdQueryVariables>(ChainIdQueryDocument, options);
         }
 export type ChainIdQueryHookResult = ReturnType<typeof useChainIdQuery>;
-export type ChainIdLazyQueryHookResult = ReturnType<typeof useChainIdLazyQuery>;
-export type ChainIdQueryResult = Apollo.QueryResult<ChainIdQuery, ChainIdQueryVariables>;
-export const MarketDataDocument = gql`
-    query MarketData {
+export type ChainIdQueryLazyQueryHookResult = ReturnType<typeof useChainIdQueryLazyQuery>;
+export type ChainIdQueryQueryResult = Apollo.QueryResult<ChainIdQuery, ChainIdQueryVariables>;
+export const MarketDataQueryDocument = gql`
+    query MarketDataQuery {
   communityPool: community_pool(order_by: {height: desc}, limit: 1) {
     coins
   }
@@ -11671,17 +11705,17 @@ export const MarketDataDocument = gql`
  */
 export function useMarketDataQuery(baseOptions?: Apollo.QueryHookOptions<MarketDataQuery, MarketDataQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<MarketDataQuery, MarketDataQueryVariables>(MarketDataDocument, options);
+        return Apollo.useQuery<MarketDataQuery, MarketDataQueryVariables>(MarketDataQueryDocument, options);
       }
-export function useMarketDataLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MarketDataQuery, MarketDataQueryVariables>) {
+export function useMarketDataQueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MarketDataQuery, MarketDataQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<MarketDataQuery, MarketDataQueryVariables>(MarketDataDocument, options);
+          return Apollo.useLazyQuery<MarketDataQuery, MarketDataQueryVariables>(MarketDataQueryDocument, options);
         }
 export type MarketDataQueryHookResult = ReturnType<typeof useMarketDataQuery>;
-export type MarketDataLazyQueryHookResult = ReturnType<typeof useMarketDataLazyQuery>;
-export type MarketDataQueryResult = Apollo.QueryResult<MarketDataQuery, MarketDataQueryVariables>;
-export const TokenPriceDocument = gql`
-    query TokenPrice {
+export type MarketDataQueryLazyQueryHookResult = ReturnType<typeof useMarketDataQueryLazyQuery>;
+export type MarketDataQueryQueryResult = Apollo.QueryResult<MarketDataQuery, MarketDataQueryVariables>;
+export const TokenPriceQueryDocument = gql`
+    query TokenPriceQuery {
   tokenPrice: token_price(order_by: {timestamp: asc}, limit: 1) {
     price
   }
@@ -11705,12 +11739,12 @@ export const TokenPriceDocument = gql`
  */
 export function useTokenPriceQuery(baseOptions?: Apollo.QueryHookOptions<TokenPriceQuery, TokenPriceQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<TokenPriceQuery, TokenPriceQueryVariables>(TokenPriceDocument, options);
+        return Apollo.useQuery<TokenPriceQuery, TokenPriceQueryVariables>(TokenPriceQueryDocument, options);
       }
-export function useTokenPriceLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TokenPriceQuery, TokenPriceQueryVariables>) {
+export function useTokenPriceQueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TokenPriceQuery, TokenPriceQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<TokenPriceQuery, TokenPriceQueryVariables>(TokenPriceDocument, options);
+          return Apollo.useLazyQuery<TokenPriceQuery, TokenPriceQueryVariables>(TokenPriceQueryDocument, options);
         }
 export type TokenPriceQueryHookResult = ReturnType<typeof useTokenPriceQuery>;
-export type TokenPriceLazyQueryHookResult = ReturnType<typeof useTokenPriceLazyQuery>;
-export type TokenPriceQueryResult = Apollo.QueryResult<TokenPriceQuery, TokenPriceQueryVariables>;
+export type TokenPriceQueryLazyQueryHookResult = ReturnType<typeof useTokenPriceQueryLazyQuery>;
+export type TokenPriceQueryQueryResult = Apollo.QueryResult<TokenPriceQuery, TokenPriceQueryVariables>;
