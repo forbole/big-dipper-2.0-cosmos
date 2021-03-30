@@ -108,7 +108,6 @@ export const useDataBlocks = () => {
   });
 
   const formatActiveValidatorsCount = (data: ActiveValidatorCountQuery) => {
-    console.log(data, 'data');
     return {
       active: data.activeTotal.aggregate.count,
       total: data.total.aggregate.count,
