@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import numeral from 'numeral';
 import {
-  useLatestBlockHeightSubscription,
-  LatestBlockHeightSubscription,
+  useLatestBlockHeightListenerSubscription,
+  LatestBlockHeightListenerSubscription,
   useAverageBlockTimeQuery,
   AverageBlockTimeQuery,
   useTokenPriceQuery,
   TokenPriceQuery,
-  useActiveValidatorCountQuery,
+  useActiveValidatorCountLazyQuery,
   ActiveValidatorCountQuery,
+  useLatestBlockHeightOffsetQuery,
 } from '@graphql/types';
 
 export const useDataBlocks = () => {
@@ -34,7 +35,7 @@ export const useDataBlocks = () => {
   // block height
   // ====================================
 
-  useLatestBlockHeightSubscription({
+  useLatestBlockHeightListenerSubscription({
     onSubscriptionData: (data) => {
       setState((prevState) => ({
         ...prevState,
@@ -43,7 +44,7 @@ export const useDataBlocks = () => {
     },
   });
 
-  const formatLatestBlockHeight = (data: LatestBlockHeightSubscription) => {
+  const formatLatestBlockHeight = (data: LatestBlockHeightListenerSubscription) => {
     return data.height[0]?.height ?? state.blockHeight;
   };
 
@@ -84,7 +85,20 @@ export const useDataBlocks = () => {
   // validators
   // ====================================
 
-  useActiveValidatorCountQuery({
+  useLatestBlockHeightOffsetQuery({
+    onCompleted: (data) => {
+      const blockHeight = formatLatestBlockHeight(data);
+      if (blockHeight) {
+        useActiveValidatorCountQuery({
+          variables: {
+            height: blockHeight,
+          },
+        });
+      }
+    },
+  });
+
+  const [useActiveValidatorCountQuery] = useActiveValidatorCountLazyQuery({
     onCompleted: (data) => {
       setState((prevState) => ({
         ...prevState,
@@ -94,9 +108,10 @@ export const useDataBlocks = () => {
   });
 
   const formatActiveValidatorsCount = (data: ActiveValidatorCountQuery) => {
+    console.log(data, 'data');
     return {
       active: data.activeTotal.aggregate.count,
-      total: 0,
+      total: data.total.aggregate.count,
     };
   };
 

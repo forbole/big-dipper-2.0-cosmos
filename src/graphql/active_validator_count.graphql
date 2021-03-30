@@ -1,4 +1,4 @@
-query ActiveValidatorCountQuery($height: bigint) {
+query ActiveValidatorCount($height: bigint) {
   activeTotal: validator_status_aggregate(where: {height: {_eq: $height}, status: {_eq: 3}}) {
     aggregate {
       count

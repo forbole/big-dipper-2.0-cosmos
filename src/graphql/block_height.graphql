@@ -1,11 +1,11 @@
-subscription LatestBlockHeightSubscription {
+subscription LatestBlockHeightListener {
   height: block(order_by: {height: desc}, limit: 1) {
     height
   }
 }
 
 
-query LatestBlockHeightQuery ($offset: Int = 2){
+query LatestBlockHeightOffset ($offset: Int = 2){
   height: block(order_by: {height: desc}, limit: 1, offset: $offset) {
     height
   }

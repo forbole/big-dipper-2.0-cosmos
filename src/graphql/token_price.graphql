@@ -1,4 +1,4 @@
-query TokenPriceQuery {
+query TokenPrice {
   tokenPrice: token_price(order_by: {timestamp: asc}, limit: 1) {
     price
   }

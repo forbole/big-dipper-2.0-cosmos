@@ -1,4 +1,4 @@
-query ChainIdQuery {
+query ChainId {
   genesis(limit: 1, order_by: {time: desc}) {
     chainId: chain_id
     time
