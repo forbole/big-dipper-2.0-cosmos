@@ -3,12 +3,16 @@ import {
 } from 'react';
 import numeral from 'numeral';
 import dayjs from 'dayjs';
+import Link from 'next/link';
+import { Typography } from '@material-ui/core';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import {
   useBlocksListenerSubscription,
   BlocksListenerSubscription,
 } from '@graphql/types';
+import { AvatarName } from '@components';
 import { useChainContext } from '@contexts';
+import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { BlocksState } from './types';
 
@@ -63,14 +67,22 @@ export const useBlocks = (initialState: BlocksState) => {
         : getMiddleEllipsis(x.hash, { beginning: 13 });
 
       return ({
-        height: numeral(x.height).format('0,0'),
+        height: (
+          <Link href={BLOCK_DETAILS(123)} passHref>
+            <Typography variant="body1" className="value" component="a">
+              {numeral(x.height).format('0,0')}
+            </Typography>
+          </Link>
+        ),
         txs: numeral(x.txs).format('0,0'),
-        timestamp: dayjs(x.timestamp).fromNow(),
-        proposer: {
-          address: x.proposer,
-          imageUrl: validator ? validator?.imageUrl : null,
-          name: validator ? validator.moniker : x.proposer,
-        },
+        time: dayjs(x.timestamp).fromNow(),
+        proposer: (
+          <AvatarName
+            address={x.proposer}
+            imageUrl={validator ? validator?.imageUrl : null}
+            name={validator ? validator.moniker : x.proposer}
+          />
+        ),
         hash,
       });
     });

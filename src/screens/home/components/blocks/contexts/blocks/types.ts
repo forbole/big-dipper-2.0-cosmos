@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface BlocksState {
   blocks: any[];
   rawData: {
@@ -8,10 +10,10 @@ export interface BlocksState {
     hash: string;
   }[];
   uiData: {
-    height: string;
+    height: React.ReactNode;
     txs: string;
-    timestamp: string;
-    proposer: string;
+    time: string;
+    proposer: React.ReactNode;
     hash: string;
   }[];
 }
