@@ -20,5 +20,11 @@
   "round": "Round {{round}}",
   "step": "Step {{step}}",
   "height": "Height",
-  "proposer": "Proposer"
+  "proposer": "Proposer",
+  "block": "Block",
+  "votingPowerPercent": "Voting Power %",
+  "votingPower": "Voting Power",
+  "totalVotingPower": "Total Voting Power",
+  "lastVotingPowerChange": "Last Voting Power Change",
+  "powerChange": "<0>{{change}}</0> at block "
 }
