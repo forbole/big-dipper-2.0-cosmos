@@ -11500,11 +11500,7 @@ export type BlocksListenerSubscription = { blocks: Array<(
       { __typename?: 'validator' }
       & { validatorInfo?: Maybe<(
         { __typename?: 'validator_info' }
-        & Pick<Validator_Info, 'self_delegate_address'>
         & { operatorAddress: Validator_Info['operator_address'] }
-      )>, validatorDescriptions: Array<(
-        { __typename?: 'validator_description' }
-        & Pick<Validator_Description, 'moniker' | 'identity'>
       )> }
     ) }
   )> };
@@ -11747,14 +11743,6 @@ export const BlocksListenerDocument = gql`
     validator {
       validatorInfo: validator_info {
         operatorAddress: operator_address
-        self_delegate_address
-      }
-      validatorDescriptions: validator_descriptions(
-        limit: 1
-        order_by: {height: desc}
-      ) {
-        moniker
-        identity
       }
     }
   }

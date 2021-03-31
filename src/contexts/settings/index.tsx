@@ -1,18 +1,12 @@
 import React from 'react';
 import { lightTheme } from '@styles';
-import {
-  useTheme, useValidatorsAddress,
-} from './hooks';
+import { useTheme } from './hooks';
 import { SettingsState } from './types';
 
 const initialState: SettingsState = {
   theme: 'light',
   themeSelection: 'device',
   muiTheme: lightTheme,
-  validatorsAddresses: {
-    validators: {},
-    selfDelegateAddresses: {},
-  },
 };
 
 const SettingsContext = React.createContext<SettingsState>(initialState);
@@ -26,7 +20,6 @@ const SettingsProvider: React.FC = (props: {children: React.ReactNode }) => {
     toggleThemeMode,
     themeSelection,
   } = useTheme(initialState);
-  const { validatorsAddresses } = useValidatorsAddress(initialState);
 
   return (
     <SettingsContext.Provider
@@ -35,7 +28,6 @@ const SettingsProvider: React.FC = (props: {children: React.ReactNode }) => {
         themeSelection,
         muiTheme,
         toggleThemeMode,
-        validatorsAddresses,
       }}
     >
       {children}

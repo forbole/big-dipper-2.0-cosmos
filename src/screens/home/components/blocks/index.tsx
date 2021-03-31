@@ -19,6 +19,7 @@ const Blocks:React.FC<{
 }> = ({ className }) => {
   const { t } = useTranslation('home');
   const classes = useStyles();
+
   return (
     <BlocksProvider>
       <Box className={classnames(className, classes.root)}>

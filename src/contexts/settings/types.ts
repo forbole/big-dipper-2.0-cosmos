@@ -5,18 +5,4 @@ export interface SettingsState {
   muiTheme: any;
   themeSelection: string;
   toggleThemeMode?: () => void;
-  validatorsAddresses: {
-    validators: {
-      [key: string]: {
-        moniker: string;
-        imageUrl?: string;
-      }
-    };
-    selfDelegateAddresses: {
-      [key: string]: {
-        moniker: string;
-        imageUrl?: string;
-      }
-    };
-  }
 }
