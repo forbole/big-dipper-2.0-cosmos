@@ -62,9 +62,13 @@ export const useBlocks = (initialState: BlocksState) => {
   const formatUi = (screen: 'mobile' | 'desktop' = 'mobile') => {
     return blocks.map((x) => {
       const validator = validatorsAddresses[x.proposer];
+      console.log(validator, 'WTHA THE FUCKKKkKKkKK');
+      console.log(x.proposer, 'proposer');
       const hash = screen === 'mobile'
         ? getMiddleEllipsis(x.hash, { beginning: 13 })
-        : getMiddleEllipsis(x.hash, { beginning: 13 });
+        : getMiddleEllipsis(x.hash, {
+          beginning: 6, ending: 5,
+        });
 
       return ({
         height: (
