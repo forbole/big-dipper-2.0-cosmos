@@ -6,39 +6,19 @@ exports[`screen: Home/Transactions/Mobile matches snapshot 1`] = `
 >
   <div
     block={
-      <Link
-        href="/blocks/123"
-        passHref={true}
-      >
-        <WithStyles(ForwardRef(Typography))
-          component="a"
-          variant="body1"
-        >
-          812,768,640
-        </WithStyles(ForwardRef(Typography))>
-      </Link>
+      <div>
+        4,000
+      </div>
     }
-    hash={
-      <Link
-        href="/transactions/undefined"
-        passHref={true}
-      >
-        <WithStyles(ForwardRef(Typography))
-          component="a"
-          variant="body1"
-        >
-          76nwV8zz8tLz97S...hQ857
-        </WithStyles(ForwardRef(Typography))>
-      </Link>
-    }
+    hash="76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857"
     id="SingleTransactionMobile"
-    messages={12}
+    messages="12"
     result={
-      <Result
-        success={true}
-      />
+      <div>
+        result
+      </div>
     }
-    time="23 days ago"
+    time="moments ago"
   />
 </div>
 `;
