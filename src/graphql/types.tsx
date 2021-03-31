@@ -342,6 +342,18 @@ export type Account_Balance = {
   block?: Maybe<Block>;
   coins: Scalars['_coin'];
   height: Scalars['bigint'];
+  /** A computed field, executes function "token_price" */
+  token_price?: Maybe<Array<Token_Price>>;
+};
+
+
+/** columns and relationships of "account_balance" */
+export type Account_BalanceToken_PriceArgs = {
+  distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Token_Price_Order_By>>;
+  where?: Maybe<Token_Price_Bool_Exp>;
 };
 
 /** aggregated selection of "account_balance" */
@@ -5439,6 +5451,8 @@ export type Query_Root = {
   token_price: Array<Token_Price>;
   /** fetch aggregated fields from the table: "token_price" */
   token_price_aggregate: Token_Price_Aggregate;
+  /** fetch data from the table: "token_price" using primary key columns */
+  token_price_by_pk?: Maybe<Token_Price>;
   /** fetch data from the table: "transaction" */
   transaction: Array<Transaction>;
   /** fetch aggregated fields from the table: "transaction" */
@@ -6160,6 +6174,12 @@ export type Query_RootToken_Price_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Token_Price_Order_By>>;
   where?: Maybe<Token_Price_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootToken_Price_By_PkArgs = {
+  id: Scalars['Int'];
 };
 
 
@@ -7424,6 +7444,8 @@ export type Subscription_Root = {
   token_price: Array<Token_Price>;
   /** fetch aggregated fields from the table: "token_price" */
   token_price_aggregate: Token_Price_Aggregate;
+  /** fetch data from the table: "token_price" using primary key columns */
+  token_price_by_pk?: Maybe<Token_Price>;
   /** fetch data from the table: "transaction" */
   transaction: Array<Transaction>;
   /** fetch aggregated fields from the table: "transaction" */
@@ -8149,6 +8171,12 @@ export type Subscription_RootToken_Price_AggregateArgs = {
 
 
 /** subscription root */
+export type Subscription_RootToken_Price_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+/** subscription root */
 export type Subscription_RootTransactionArgs = {
   distinct_on?: Maybe<Array<Transaction_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8715,6 +8743,11 @@ export type Token_Price_Order_By = {
   market_cap?: Maybe<Order_By>;
   price?: Maybe<Order_By>;
   timestamp?: Maybe<Order_By>;
+};
+
+/** primary key columns input for table: "token_price" */
+export type Token_Price_Pk_Columns_Input = {
+  id: Scalars['Int'];
 };
 
 /** select columns of table "token_price" */
@@ -11537,6 +11570,20 @@ export type TokenPriceQuery = { tokenPrice: Array<(
     & Pick<Token_Price, 'price'>
   )> };
 
+export type ValidatorsAddressListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ValidatorsAddressListQuery = { validator: Array<(
+    { __typename?: 'validator' }
+    & { validatorInfo?: Maybe<(
+      { __typename?: 'validator_info' }
+      & { operatorAddress: Validator_Info['operator_address'], selfDelegateAddress: Validator_Info['self_delegate_address'] }
+    )>, validatorDescriptions: Array<(
+      { __typename?: 'validator_description' }
+      & Pick<Validator_Description, 'moniker' | 'identity'>
+    )> }
+  )> };
+
 
 export const ActiveValidatorCountDocument = gql`
     query ActiveValidatorCount($height: bigint) {
@@ -11904,3 +11951,47 @@ export function useTokenPriceLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type TokenPriceQueryHookResult = ReturnType<typeof useTokenPriceQuery>;
 export type TokenPriceLazyQueryHookResult = ReturnType<typeof useTokenPriceLazyQuery>;
 export type TokenPriceQueryResult = Apollo.QueryResult<TokenPriceQuery, TokenPriceQueryVariables>;
+export const ValidatorsAddressListDocument = gql`
+    query ValidatorsAddressList {
+  validator {
+    validatorInfo: validator_info {
+      operatorAddress: operator_address
+      selfDelegateAddress: self_delegate_address
+    }
+    validatorDescriptions: validator_descriptions(
+      limit: 1
+      order_by: {height: desc}
+    ) {
+      moniker
+      identity
+    }
+  }
+}
+    `;
+
+/**
+ * __useValidatorsAddressListQuery__
+ *
+ * To run a query within a React component, call `useValidatorsAddressListQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorsAddressListQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useValidatorsAddressListQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useValidatorsAddressListQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>(ValidatorsAddressListDocument, options);
+      }
+export function useValidatorsAddressListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>(ValidatorsAddressListDocument, options);
+        }
+export type ValidatorsAddressListQueryHookResult = ReturnType<typeof useValidatorsAddressListQuery>;
+export type ValidatorsAddressListLazyQueryHookResult = ReturnType<typeof useValidatorsAddressListLazyQuery>;
+export type ValidatorsAddressListQueryResult = Apollo.QueryResult<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>;
