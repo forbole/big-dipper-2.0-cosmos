@@ -63,7 +63,9 @@ export const useBlocks = (initialState: BlocksState) => {
     return blocks.map((x) => {
       const validator = findAddress(x.proposer);
       const hash = screen === 'mobile'
-        ? getMiddleEllipsis(x.hash, { beginning: 13 })
+        ? getMiddleEllipsis(x.hash, {
+          beginning: 13, ending: 10,
+        })
         : getMiddleEllipsis(x.hash, {
           beginning: 6, ending: 5,
         });
