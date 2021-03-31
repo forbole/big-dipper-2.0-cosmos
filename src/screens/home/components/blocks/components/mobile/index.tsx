@@ -7,8 +7,8 @@ import { SingleBlockMobile } from '@components';
 const Mobile: React.FC<{
   className?: string;
 }> = ({ className }) => {
-  const { uiData } = useBlocksContext();
-
+  const { formatUi } = useBlocksContext();
+  const uiData = formatUi();
   return (
     <div className={classnames(className)}>
       {uiData.map((x, i) => {

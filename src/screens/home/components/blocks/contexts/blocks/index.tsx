@@ -5,7 +5,7 @@ import { BlocksState } from './types';
 const initialState: BlocksState = {
   blocks: [],
   rawData: [],
-  uiData: [],
+
 };
 
 const BlocksContext = React.createContext<BlocksState>(initialState);
@@ -16,7 +16,7 @@ const BlocksProvider: React.FC = (props: {children: React.ReactNode }) => {
   const {
     blocks,
     rawData,
-    uiData,
+    formatUi,
   } = useBlocks(initialState);
 
   return (
@@ -24,7 +24,7 @@ const BlocksProvider: React.FC = (props: {children: React.ReactNode }) => {
       value={{
         blocks,
         rawData,
-        uiData,
+        formatUi,
       }}
     >
       {children}

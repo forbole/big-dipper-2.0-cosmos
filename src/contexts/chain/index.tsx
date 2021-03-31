@@ -14,12 +14,16 @@ const ChainContext = React.createContext<ChainState>(initialState);
 const ChainProvider: React.FC = (props: {children: React.ReactNode }) => {
   const { children } = props;
 
-  const { validatorsAddresses } = useValidatorsAddress(initialState);
+  const {
+    validatorsAddresses,
+    findAddress,
+  } = useValidatorsAddress(initialState);
 
   return (
     <ChainContext.Provider
       value={{
         validatorsAddresses,
+        findAddress,
       }}
     >
       {children}

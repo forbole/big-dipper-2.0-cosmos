@@ -9,7 +9,7 @@ export interface BlocksState {
     proposer: string;
     hash: string;
   }[];
-  uiData: {
+  formatUi?: (screen?: 'mobile' | 'desktop') => {
     height: React.ReactNode;
     txs: string;
     time: string;

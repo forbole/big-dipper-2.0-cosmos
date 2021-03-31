@@ -33,7 +33,7 @@ export const useBlocks = (initialState: BlocksState) => {
   // eslint-disable-next-line
   const [fakeblocks, setfakeBlocks] = useState<any[]>(Array(7).fill(fakeData));
 
-  const { validatorsAddresses } = useChainContext();
+  const { findAddress } = useChainContext();
   const [blocks, setBlocks] = useState<{
     height: number;
     txs: number;
@@ -61,9 +61,7 @@ export const useBlocks = (initialState: BlocksState) => {
 
   const formatUi = (screen: 'mobile' | 'desktop' = 'mobile') => {
     return blocks.map((x) => {
-      const validator = validatorsAddresses[x.proposer];
-      console.log(validator, 'WTHA THE FUCKKKkKKkKK');
-      console.log(x.proposer, 'proposer');
+      const validator = findAddress(x.proposer);
       const hash = screen === 'mobile'
         ? getMiddleEllipsis(x.hash, { beginning: 13 })
         : getMiddleEllipsis(x.hash, {
@@ -95,6 +93,6 @@ export const useBlocks = (initialState: BlocksState) => {
   return {
     blocks: fakeblocks,
     rawData: blocks,
-    uiData: formatUi(),
+    formatUi,
   };
 };

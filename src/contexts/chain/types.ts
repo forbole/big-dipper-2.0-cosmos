@@ -15,4 +15,8 @@ export interface ChainState {
       }
     };
   }
+  findAddress?: (address: string) => {
+    moniker: string;
+    imageUrl?: string;
+  } | null;
 }

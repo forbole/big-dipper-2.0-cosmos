@@ -15,10 +15,10 @@ import { columns } from './utils';
 const Desktop: React.FC<{
   className?: string;
 }> = ({ className }) => {
-  const { uiData } = useBlocksContext();
+  const { formatUi } = useBlocksContext();
   const { t } = useTranslation('blocks');
   const classes = useStyles();
-
+  const uiData = formatUi('desktop');
   return (
     <div
       className={classnames(className, classes.root)}
