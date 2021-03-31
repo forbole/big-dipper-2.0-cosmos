@@ -2,10 +2,9 @@ import {
   useState,
 } from 'react';
 import numeral from 'numeral';
-import dayjs from 'dayjs';
+import dayjs from '@utils/dayjs';
 import Link from 'next/link';
 import { Typography } from '@material-ui/core';
-import relativeTime from 'dayjs/plugin/relativeTime';
 import {
   useBlocksListenerSubscription,
   BlocksListenerSubscription,
@@ -15,8 +14,6 @@ import { useChainContext } from '@contexts';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { BlocksState } from './types';
-
-dayjs.extend(relativeTime);
 
 export const useBlocks = (initialState: BlocksState) => {
   const { findAddress } = useChainContext();
@@ -46,7 +43,7 @@ export const useBlocks = (initialState: BlocksState) => {
   };
 
   const formatUi = (screen: 'mobile' | 'desktop' = 'mobile') => {
-    return blocks.map((x) => {
+    return blocks.map((x, i) => {
       const validator = findAddress(x.proposer);
       const hash = screen === 'mobile'
         ? getMiddleEllipsis(x.hash, {
@@ -58,14 +55,14 @@ export const useBlocks = (initialState: BlocksState) => {
 
       return ({
         height: (
-          <Link href={BLOCK_DETAILS(123)} passHref>
+          <Link href={BLOCK_DETAILS(x.height)} passHref>
             <Typography variant="body1" className="value" component="a">
               {numeral(x.height).format('0,0')}
             </Typography>
           </Link>
         ),
         txs: numeral(x.txs).format('0,0'),
-        time: dayjs(x.timestamp).fromNow(),
+        time: dayjs.utc(x.timestamp).fromNow(),
         proposer: (
           <AvatarName
             address={x.proposer}

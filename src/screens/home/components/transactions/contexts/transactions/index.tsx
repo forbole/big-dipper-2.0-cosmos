@@ -3,7 +3,7 @@ import { useTransactions } from './hooks';
 import { TransactionsState } from './types';
 
 const initialState: TransactionsState = {
-  transactions: [],
+  rawData: [],
 };
 
 const TransactionsContext = React.createContext<TransactionsState>(initialState);
@@ -12,13 +12,15 @@ const TransactionsProvider: React.FC = (props: {children: React.ReactNode }) => 
   const { children } = props;
 
   const {
-    transactions,
-  } = useTransactions();
+    rawData,
+    formatUi,
+  } = useTransactions(initialState);
 
   return (
     <TransactionsContext.Provider
       value={{
-        transactions,
+        rawData,
+        formatUi,
       }}
     >
       {children}
