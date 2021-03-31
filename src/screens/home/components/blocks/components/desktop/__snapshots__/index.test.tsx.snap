@@ -65,43 +65,35 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body"
         >
-          <a
-            className="MuiTypography-root MuiTypography-body1"
-            href="/blocks/123"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-          >
-            812,768,640
-          </a>
+          <div>
+            4,000
+          </div>
         </td>
         <td
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body"
         >
-          <div
-            address="FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk"
-            id="AvatarName"
-            imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
-            name="Forbole"
-          />
+          <div>
+            proposer
+          </div>
         </td>
         <td
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body"
         >
-          76nwV8...hQ857
+          76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857
         </td>
         <td
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body"
         >
-          2
+          12
         </td>
         <td
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
         >
-          22 days ago
+          moments ago
         </td>
       </tr>
     </tbody>

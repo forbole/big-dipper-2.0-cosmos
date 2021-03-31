@@ -1,7 +1,6 @@
 import React from 'react';
 
 export interface BlocksState {
-  blocks: any[];
   rawData: {
     height: number;
     txs: number;
