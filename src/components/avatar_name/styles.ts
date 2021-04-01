@@ -11,6 +11,7 @@ export const useStyles = () => {
           '& p': {
             color: theme.palette.custom.fonts.highlight,
             marginLeft: theme.spacing(1),
+            whiteSpace: 'nowrap',
           },
           '&:hover': {
             cursor: 'pointer',

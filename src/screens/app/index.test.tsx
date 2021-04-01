@@ -22,6 +22,10 @@ jest.mock('@contexts', () => ({
   NetworksContext: {
     Consumer: ({ children }) => children,
   },
+  ChainProvider: 'ChainProvider',
+  ChainContext: {
+    Consumer: ({ children }) => children,
+  },
 }));
 jest.mock('@styles', () => ({
   GlobalCss: 'GlobalCss',

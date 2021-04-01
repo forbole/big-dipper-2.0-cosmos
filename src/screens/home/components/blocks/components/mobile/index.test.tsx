@@ -13,22 +13,26 @@ const mockI18n = {
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('@components', () => ({
   SingleBlockMobile: (props) => <div id="SingleBlockMobile" {...props} />,
-  AvatarName: (props) => <div id="AvatarName" {...props} />,
 }));
 
 jest.mock('@src/screens/home/components/blocks/contexts/blocks', () => ({
   useBlocksContext: () => ({
-    blocks: [{
-      height: '812,768,640',
-      proposer: {
-        image: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
-        moniker: 'Forbole',
-        identity: 'FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk',
-      },
+    rawData: [{
+      height: 4000,
+      txs: 12,
+      timestamp: '2021-02-18T09:02:28.668623',
+      proposer: 'desmosvalcons1why72hjk945yhckcy5hzk2z2w9d5h65t9am0kd',
       hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
-      tx: 2,
-      time: 1615187146246,
     }],
+    formatUi: jest.fn(() => [
+      {
+        height: <div>4,000</div>,
+        txs: 12,
+        time: 'moments ago',
+        proposer: <div>proposer</div>,
+        hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
+      },
+    ]),
   }),
 }));
 

@@ -3,14 +3,16 @@
 exports[`screen: _app matches snapshot 1`] = `
 <SettingsProvider>
   <NetworksProvider>
-    <div
-      className="Toastify"
-    />
-    <ThemeProvider>
+    <ChainProvider>
       <div
-        id="component"
+        className="Toastify"
       />
-    </ThemeProvider>
+      <ThemeProvider>
+        <div
+          id="component"
+        />
+      </ThemeProvider>
+    </ChainProvider>
   </NetworksProvider>
 </SettingsProvider>
 `;

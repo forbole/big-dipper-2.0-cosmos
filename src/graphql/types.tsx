@@ -338,8 +338,22 @@ export type Account_Balance = {
   /** An object relationship */
   account: Account;
   address: Scalars['String'];
+  /** An object relationship */
+  block?: Maybe<Block>;
   coins: Scalars['_coin'];
   height: Scalars['bigint'];
+  /** A computed field, executes function "token_price" */
+  tokens_price?: Maybe<Array<Token_Price>>;
+};
+
+
+/** columns and relationships of "account_balance" */
+export type Account_BalanceTokens_PriceArgs = {
+  distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Token_Price_Order_By>>;
+  where?: Maybe<Token_Price_Bool_Exp>;
 };
 
 /** aggregated selection of "account_balance" */
@@ -405,6 +419,7 @@ export type Account_Balance_Bool_Exp = {
   _or?: Maybe<Array<Maybe<Account_Balance_Bool_Exp>>>;
   account?: Maybe<Account_Bool_Exp>;
   address?: Maybe<String_Comparison_Exp>;
+  block?: Maybe<Block_Bool_Exp>;
   coins?: Maybe<_Coin_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
 };
@@ -439,6 +454,7 @@ export type Account_Balance_Min_Order_By = {
 export type Account_Balance_Order_By = {
   account?: Maybe<Account_Order_By>;
   address?: Maybe<Order_By>;
+  block?: Maybe<Block_Order_By>;
   coins?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
 };
@@ -5433,8 +5449,8 @@ export type Query_Root = {
   supply_by_pk?: Maybe<Supply>;
   /** fetch data from the table: "token_price" */
   token_price: Array<Token_Price>;
-  /** fetch aggregated fields from the table: "token_price" */
-  token_price_aggregate: Token_Price_Aggregate;
+  /** fetch data from the table: "token_price" using primary key columns */
+  token_price_by_pk?: Maybe<Token_Price>;
   /** fetch data from the table: "transaction" */
   transaction: Array<Transaction>;
   /** fetch aggregated fields from the table: "transaction" */
@@ -6150,12 +6166,8 @@ export type Query_RootToken_PriceArgs = {
 
 
 /** query root */
-export type Query_RootToken_Price_AggregateArgs = {
-  distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Token_Price_Order_By>>;
-  where?: Maybe<Token_Price_Bool_Exp>;
+export type Query_RootToken_Price_By_PkArgs = {
+  id: Scalars['Int'];
 };
 
 
@@ -7418,8 +7430,8 @@ export type Subscription_Root = {
   supply_by_pk?: Maybe<Supply>;
   /** fetch data from the table: "token_price" */
   token_price: Array<Token_Price>;
-  /** fetch aggregated fields from the table: "token_price" */
-  token_price_aggregate: Token_Price_Aggregate;
+  /** fetch data from the table: "token_price" using primary key columns */
+  token_price_by_pk?: Maybe<Token_Price>;
   /** fetch data from the table: "transaction" */
   transaction: Array<Transaction>;
   /** fetch aggregated fields from the table: "transaction" */
@@ -8135,12 +8147,8 @@ export type Subscription_RootToken_PriceArgs = {
 
 
 /** subscription root */
-export type Subscription_RootToken_Price_AggregateArgs = {
-  distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Token_Price_Order_By>>;
-  where?: Maybe<Token_Price_Bool_Exp>;
+export type Subscription_RootToken_Price_By_PkArgs = {
+  id: Scalars['Int'];
 };
 
 
@@ -8596,68 +8604,11 @@ export type Timestamp_Comparison_Exp = {
 /** columns and relationships of "token_price" */
 export type Token_Price = {
   __typename?: 'token_price';
-  denom: Scalars['String'];
-  market_cap: Scalars['numeric'];
+  id: Scalars['Int'];
+  market_cap: Scalars['bigint'];
+  name: Scalars['String'];
   price: Scalars['numeric'];
   timestamp: Scalars['timestamp'];
-};
-
-/** aggregated selection of "token_price" */
-export type Token_Price_Aggregate = {
-  __typename?: 'token_price_aggregate';
-  aggregate?: Maybe<Token_Price_Aggregate_Fields>;
-  nodes: Array<Token_Price>;
-};
-
-/** aggregate fields of "token_price" */
-export type Token_Price_Aggregate_Fields = {
-  __typename?: 'token_price_aggregate_fields';
-  avg?: Maybe<Token_Price_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
-  max?: Maybe<Token_Price_Max_Fields>;
-  min?: Maybe<Token_Price_Min_Fields>;
-  stddev?: Maybe<Token_Price_Stddev_Fields>;
-  stddev_pop?: Maybe<Token_Price_Stddev_Pop_Fields>;
-  stddev_samp?: Maybe<Token_Price_Stddev_Samp_Fields>;
-  sum?: Maybe<Token_Price_Sum_Fields>;
-  var_pop?: Maybe<Token_Price_Var_Pop_Fields>;
-  var_samp?: Maybe<Token_Price_Var_Samp_Fields>;
-  variance?: Maybe<Token_Price_Variance_Fields>;
-};
-
-
-/** aggregate fields of "token_price" */
-export type Token_Price_Aggregate_FieldsCountArgs = {
-  columns?: Maybe<Array<Token_Price_Select_Column>>;
-  distinct?: Maybe<Scalars['Boolean']>;
-};
-
-/** order by aggregate values of table "token_price" */
-export type Token_Price_Aggregate_Order_By = {
-  avg?: Maybe<Token_Price_Avg_Order_By>;
-  count?: Maybe<Order_By>;
-  max?: Maybe<Token_Price_Max_Order_By>;
-  min?: Maybe<Token_Price_Min_Order_By>;
-  stddev?: Maybe<Token_Price_Stddev_Order_By>;
-  stddev_pop?: Maybe<Token_Price_Stddev_Pop_Order_By>;
-  stddev_samp?: Maybe<Token_Price_Stddev_Samp_Order_By>;
-  sum?: Maybe<Token_Price_Sum_Order_By>;
-  var_pop?: Maybe<Token_Price_Var_Pop_Order_By>;
-  var_samp?: Maybe<Token_Price_Var_Samp_Order_By>;
-  variance?: Maybe<Token_Price_Variance_Order_By>;
-};
-
-/** aggregate avg on columns */
-export type Token_Price_Avg_Fields = {
-  __typename?: 'token_price_avg_fields';
-  market_cap?: Maybe<Scalars['Float']>;
-  price?: Maybe<Scalars['Float']>;
-};
-
-/** order by avg() on columns of table "token_price" */
-export type Token_Price_Avg_Order_By = {
-  market_cap?: Maybe<Order_By>;
-  price?: Maybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "token_price". All fields are combined with a logical 'AND'. */
@@ -8665,156 +8616,40 @@ export type Token_Price_Bool_Exp = {
   _and?: Maybe<Array<Maybe<Token_Price_Bool_Exp>>>;
   _not?: Maybe<Token_Price_Bool_Exp>;
   _or?: Maybe<Array<Maybe<Token_Price_Bool_Exp>>>;
-  denom?: Maybe<String_Comparison_Exp>;
-  market_cap?: Maybe<Numeric_Comparison_Exp>;
+  id?: Maybe<Int_Comparison_Exp>;
+  market_cap?: Maybe<Bigint_Comparison_Exp>;
+  name?: Maybe<String_Comparison_Exp>;
   price?: Maybe<Numeric_Comparison_Exp>;
   timestamp?: Maybe<Timestamp_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
-export type Token_Price_Max_Fields = {
-  __typename?: 'token_price_max_fields';
-  denom?: Maybe<Scalars['String']>;
-  market_cap?: Maybe<Scalars['numeric']>;
-  price?: Maybe<Scalars['numeric']>;
-  timestamp?: Maybe<Scalars['timestamp']>;
-};
-
-/** order by max() on columns of table "token_price" */
-export type Token_Price_Max_Order_By = {
-  denom?: Maybe<Order_By>;
-  market_cap?: Maybe<Order_By>;
-  price?: Maybe<Order_By>;
-  timestamp?: Maybe<Order_By>;
-};
-
-/** aggregate min on columns */
-export type Token_Price_Min_Fields = {
-  __typename?: 'token_price_min_fields';
-  denom?: Maybe<Scalars['String']>;
-  market_cap?: Maybe<Scalars['numeric']>;
-  price?: Maybe<Scalars['numeric']>;
-  timestamp?: Maybe<Scalars['timestamp']>;
-};
-
-/** order by min() on columns of table "token_price" */
-export type Token_Price_Min_Order_By = {
-  denom?: Maybe<Order_By>;
-  market_cap?: Maybe<Order_By>;
-  price?: Maybe<Order_By>;
-  timestamp?: Maybe<Order_By>;
-};
-
 /** ordering options when selecting data from "token_price" */
 export type Token_Price_Order_By = {
-  denom?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
   market_cap?: Maybe<Order_By>;
+  name?: Maybe<Order_By>;
   price?: Maybe<Order_By>;
   timestamp?: Maybe<Order_By>;
+};
+
+/** primary key columns input for table: "token_price" */
+export type Token_Price_Pk_Columns_Input = {
+  id: Scalars['Int'];
 };
 
 /** select columns of table "token_price" */
 export enum Token_Price_Select_Column {
   /** column name */
-  Denom = 'denom',
+  Id = 'id',
   /** column name */
   MarketCap = 'market_cap',
+  /** column name */
+  Name = 'name',
   /** column name */
   Price = 'price',
   /** column name */
   Timestamp = 'timestamp'
 }
-
-/** aggregate stddev on columns */
-export type Token_Price_Stddev_Fields = {
-  __typename?: 'token_price_stddev_fields';
-  market_cap?: Maybe<Scalars['Float']>;
-  price?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev() on columns of table "token_price" */
-export type Token_Price_Stddev_Order_By = {
-  market_cap?: Maybe<Order_By>;
-  price?: Maybe<Order_By>;
-};
-
-/** aggregate stddev_pop on columns */
-export type Token_Price_Stddev_Pop_Fields = {
-  __typename?: 'token_price_stddev_pop_fields';
-  market_cap?: Maybe<Scalars['Float']>;
-  price?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "token_price" */
-export type Token_Price_Stddev_Pop_Order_By = {
-  market_cap?: Maybe<Order_By>;
-  price?: Maybe<Order_By>;
-};
-
-/** aggregate stddev_samp on columns */
-export type Token_Price_Stddev_Samp_Fields = {
-  __typename?: 'token_price_stddev_samp_fields';
-  market_cap?: Maybe<Scalars['Float']>;
-  price?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_samp() on columns of table "token_price" */
-export type Token_Price_Stddev_Samp_Order_By = {
-  market_cap?: Maybe<Order_By>;
-  price?: Maybe<Order_By>;
-};
-
-/** aggregate sum on columns */
-export type Token_Price_Sum_Fields = {
-  __typename?: 'token_price_sum_fields';
-  market_cap?: Maybe<Scalars['numeric']>;
-  price?: Maybe<Scalars['numeric']>;
-};
-
-/** order by sum() on columns of table "token_price" */
-export type Token_Price_Sum_Order_By = {
-  market_cap?: Maybe<Order_By>;
-  price?: Maybe<Order_By>;
-};
-
-/** aggregate var_pop on columns */
-export type Token_Price_Var_Pop_Fields = {
-  __typename?: 'token_price_var_pop_fields';
-  market_cap?: Maybe<Scalars['Float']>;
-  price?: Maybe<Scalars['Float']>;
-};
-
-/** order by var_pop() on columns of table "token_price" */
-export type Token_Price_Var_Pop_Order_By = {
-  market_cap?: Maybe<Order_By>;
-  price?: Maybe<Order_By>;
-};
-
-/** aggregate var_samp on columns */
-export type Token_Price_Var_Samp_Fields = {
-  __typename?: 'token_price_var_samp_fields';
-  market_cap?: Maybe<Scalars['Float']>;
-  price?: Maybe<Scalars['Float']>;
-};
-
-/** order by var_samp() on columns of table "token_price" */
-export type Token_Price_Var_Samp_Order_By = {
-  market_cap?: Maybe<Order_By>;
-  price?: Maybe<Order_By>;
-};
-
-/** aggregate variance on columns */
-export type Token_Price_Variance_Fields = {
-  __typename?: 'token_price_variance_fields';
-  market_cap?: Maybe<Scalars['Float']>;
-  price?: Maybe<Scalars['Float']>;
-};
-
-/** order by variance() on columns of table "token_price" */
-export type Token_Price_Variance_Order_By = {
-  market_cap?: Maybe<Order_By>;
-  price?: Maybe<Order_By>;
-};
 
 /** columns and relationships of "transaction" */
 export type Transaction = {
@@ -11398,24 +11233,118 @@ export type Validator_Voting_Power_Variance_Order_By = {
   voting_power?: Maybe<Order_By>;
 };
 
+export type ActiveValidatorCountQueryVariables = Exact<{
+  height?: Maybe<Scalars['bigint']>;
+}>;
+
+
+export type ActiveValidatorCountQuery = { activeTotal: (
+    { __typename?: 'validator_status_aggregate' }
+    & { aggregate?: Maybe<(
+      { __typename?: 'validator_status_aggregate_fields' }
+      & Pick<Validator_Status_Aggregate_Fields, 'count'>
+    )> }
+  ), inactiveTotal: (
+    { __typename?: 'validator_status_aggregate' }
+    & { aggregate?: Maybe<(
+      { __typename?: 'validator_status_aggregate_fields' }
+      & Pick<Validator_Status_Aggregate_Fields, 'count'>
+    )> }
+  ), total: (
+    { __typename?: 'validator_status_aggregate' }
+    & { aggregate?: Maybe<(
+      { __typename?: 'validator_status_aggregate_fields' }
+      & Pick<Validator_Status_Aggregate_Fields, 'count'>
+    )> }
+  ) };
+
+export type LatestBlockHeightListenerSubscriptionVariables = Exact<{ [key: string]: never; }>;
+
+
+export type LatestBlockHeightListenerSubscription = { height: Array<(
+    { __typename?: 'block' }
+    & Pick<Block, 'height'>
+  )> };
+
+export type LatestBlockHeightOffsetQueryVariables = Exact<{
+  offset?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type LatestBlockHeightOffsetQuery = { height: Array<(
+    { __typename?: 'block' }
+    & Pick<Block, 'height'>
+  )> };
+
+export type AverageBlockTimeQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AverageBlockTimeQuery = { averageBlockTimePerDay: Array<(
+    { __typename?: 'average_block_time_per_day' }
+    & { averageTime: Average_Block_Time_Per_Day['average_time'] }
+  )> };
+
+export type BlocksListenerSubscriptionVariables = Exact<{
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type BlocksListenerSubscription = { blocks: Array<(
+    { __typename?: 'block' }
+    & Pick<Block, 'height' | 'hash' | 'timestamp'>
+    & { txs: Block['num_txs'] }
+    & { validator: (
+      { __typename?: 'validator' }
+      & { validatorInfo?: Maybe<(
+        { __typename?: 'validator_info' }
+        & { operatorAddress: Validator_Info['operator_address'] }
+      )> }
+    ) }
+  )> };
+
+export type BlocksQueryVariables = Exact<{
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type BlocksQuery = { blocks: Array<(
+    { __typename?: 'block' }
+    & Pick<Block, 'height' | 'hash' | 'timestamp'>
+    & { txs: Block['num_txs'] }
+    & { validator: (
+      { __typename?: 'validator' }
+      & { validatorInfo?: Maybe<(
+        { __typename?: 'validator_info' }
+        & Pick<Validator_Info, 'self_delegate_address'>
+        & { operatorAddress: Validator_Info['operator_address'] }
+      )>, validatorDescriptions: Array<(
+        { __typename?: 'validator_description' }
+        & Pick<Validator_Description, 'moniker' | 'identity'>
+      )> }
+    ) }
+  )>, total: (
+    { __typename?: 'block_aggregate' }
+    & { aggregate?: Maybe<(
+      { __typename?: 'block_aggregate_fields' }
+      & Pick<Block_Aggregate_Fields, 'count'>
+    )> }
+  ) };
+
 export type ChainIdQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ChainIdQuery = (
-  { __typename?: 'query_root' }
-  & { genesis: Array<(
+export type ChainIdQuery = { genesis: Array<(
     { __typename?: 'genesis' }
     & Pick<Genesis, 'time'>
     & { chainId: Genesis['chain_id'] }
-  )> }
-);
+  )> };
 
 export type MarketDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MarketDataQuery = (
-  { __typename?: 'query_root' }
-  & { communityPool: Array<(
+export type MarketDataQuery = { communityPool: Array<(
     { __typename?: 'community_pool' }
     & Pick<Community_Pool, 'coins'>
   )>, inflation: Array<(
@@ -11425,10 +11354,307 @@ export type MarketDataQuery = (
     { __typename?: 'token_price' }
     & Pick<Token_Price, 'price'>
     & { marketCap: Token_Price['market_cap'] }
-  )> }
-);
+  )> };
+
+export type TokenPriceQueryVariables = Exact<{ [key: string]: never; }>;
 
 
+export type TokenPriceQuery = { tokenPrice: Array<(
+    { __typename?: 'token_price' }
+    & Pick<Token_Price, 'price'>
+  )> };
+
+export type TokenomicsQueryVariables = Exact<{
+  height?: Maybe<Scalars['bigint']>;
+}>;
+
+
+export type TokenomicsQuery = { stakingPool: Array<(
+    { __typename?: 'staking_pool' }
+    & { bonded: Staking_Pool['bonded_tokens'], unbonded: Staking_Pool['not_bonded_tokens'] }
+  )>, supply: Array<(
+    { __typename?: 'supply' }
+    & Pick<Supply, 'coins'>
+  )> };
+
+export type TransactionsListenerSubscriptionVariables = Exact<{
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type TransactionsListenerSubscription = { transactions: Array<(
+    { __typename?: 'transaction' }
+    & Pick<Transaction, 'height' | 'hash' | 'success' | 'messages'>
+    & { block: (
+      { __typename?: 'block' }
+      & Pick<Block, 'timestamp'>
+    ) }
+  )> };
+
+export type ValidatorsAddressListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ValidatorsAddressListQuery = { validator: Array<(
+    { __typename?: 'validator' }
+    & { validatorInfo?: Maybe<(
+      { __typename?: 'validator_info' }
+      & { operatorAddress: Validator_Info['operator_address'], selfDelegateAddress: Validator_Info['self_delegate_address'] }
+    )>, validatorDescriptions: Array<(
+      { __typename?: 'validator_description' }
+      & Pick<Validator_Description, 'moniker' | 'identity'>
+    )> }
+  )> };
+
+
+export const ActiveValidatorCountDocument = gql`
+    query ActiveValidatorCount($height: bigint) {
+  activeTotal: validator_status_aggregate(
+    where: {height: {_eq: $height}, status: {_eq: 3}}
+  ) {
+    aggregate {
+      count
+    }
+  }
+  inactiveTotal: validator_status_aggregate(
+    where: {height: {_eq: $height}, status: {_neq: 3}}
+  ) {
+    aggregate {
+      count
+    }
+  }
+  total: validator_status_aggregate(where: {height: {_eq: $height}}) {
+    aggregate {
+      count
+    }
+  }
+}
+    `;
+
+/**
+ * __useActiveValidatorCountQuery__
+ *
+ * To run a query within a React component, call `useActiveValidatorCountQuery` and pass it any options that fit your needs.
+ * When your component renders, `useActiveValidatorCountQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useActiveValidatorCountQuery({
+ *   variables: {
+ *      height: // value for 'height'
+ *   },
+ * });
+ */
+export function useActiveValidatorCountQuery(baseOptions?: Apollo.QueryHookOptions<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>(ActiveValidatorCountDocument, options);
+      }
+export function useActiveValidatorCountLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>(ActiveValidatorCountDocument, options);
+        }
+export type ActiveValidatorCountQueryHookResult = ReturnType<typeof useActiveValidatorCountQuery>;
+export type ActiveValidatorCountLazyQueryHookResult = ReturnType<typeof useActiveValidatorCountLazyQuery>;
+export type ActiveValidatorCountQueryResult = Apollo.QueryResult<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>;
+export const LatestBlockHeightListenerDocument = gql`
+    subscription LatestBlockHeightListener {
+  height: block(order_by: {height: desc}, limit: 1) {
+    height
+  }
+}
+    `;
+
+/**
+ * __useLatestBlockHeightListenerSubscription__
+ *
+ * To run a query within a React component, call `useLatestBlockHeightListenerSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useLatestBlockHeightListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useLatestBlockHeightListenerSubscription({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useLatestBlockHeightListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<LatestBlockHeightListenerSubscription, LatestBlockHeightListenerSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<LatestBlockHeightListenerSubscription, LatestBlockHeightListenerSubscriptionVariables>(LatestBlockHeightListenerDocument, options);
+      }
+export type LatestBlockHeightListenerSubscriptionHookResult = ReturnType<typeof useLatestBlockHeightListenerSubscription>;
+export type LatestBlockHeightListenerSubscriptionResult = Apollo.SubscriptionResult<LatestBlockHeightListenerSubscription>;
+export const LatestBlockHeightOffsetDocument = gql`
+    query LatestBlockHeightOffset($offset: Int = 3) {
+  height: block(order_by: {height: desc}, limit: 1, offset: $offset) {
+    height
+  }
+}
+    `;
+
+/**
+ * __useLatestBlockHeightOffsetQuery__
+ *
+ * To run a query within a React component, call `useLatestBlockHeightOffsetQuery` and pass it any options that fit your needs.
+ * When your component renders, `useLatestBlockHeightOffsetQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useLatestBlockHeightOffsetQuery({
+ *   variables: {
+ *      offset: // value for 'offset'
+ *   },
+ * });
+ */
+export function useLatestBlockHeightOffsetQuery(baseOptions?: Apollo.QueryHookOptions<LatestBlockHeightOffsetQuery, LatestBlockHeightOffsetQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<LatestBlockHeightOffsetQuery, LatestBlockHeightOffsetQueryVariables>(LatestBlockHeightOffsetDocument, options);
+      }
+export function useLatestBlockHeightOffsetLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LatestBlockHeightOffsetQuery, LatestBlockHeightOffsetQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<LatestBlockHeightOffsetQuery, LatestBlockHeightOffsetQueryVariables>(LatestBlockHeightOffsetDocument, options);
+        }
+export type LatestBlockHeightOffsetQueryHookResult = ReturnType<typeof useLatestBlockHeightOffsetQuery>;
+export type LatestBlockHeightOffsetLazyQueryHookResult = ReturnType<typeof useLatestBlockHeightOffsetLazyQuery>;
+export type LatestBlockHeightOffsetQueryResult = Apollo.QueryResult<LatestBlockHeightOffsetQuery, LatestBlockHeightOffsetQueryVariables>;
+export const AverageBlockTimeDocument = gql`
+    query AverageBlockTime {
+  averageBlockTimePerDay: average_block_time_per_day(
+    limit: 1
+    order_by: {height: desc}
+  ) {
+    averageTime: average_time
+  }
+}
+    `;
+
+/**
+ * __useAverageBlockTimeQuery__
+ *
+ * To run a query within a React component, call `useAverageBlockTimeQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAverageBlockTimeQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAverageBlockTimeQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useAverageBlockTimeQuery(baseOptions?: Apollo.QueryHookOptions<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>(AverageBlockTimeDocument, options);
+      }
+export function useAverageBlockTimeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>(AverageBlockTimeDocument, options);
+        }
+export type AverageBlockTimeQueryHookResult = ReturnType<typeof useAverageBlockTimeQuery>;
+export type AverageBlockTimeLazyQueryHookResult = ReturnType<typeof useAverageBlockTimeLazyQuery>;
+export type AverageBlockTimeQueryResult = Apollo.QueryResult<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>;
+export const BlocksListenerDocument = gql`
+    subscription BlocksListener($limit: Int = 7, $offset: Int = 0) {
+  blocks: block(limit: $limit, offset: $offset, order_by: {height: desc}) {
+    height
+    txs: num_txs
+    hash
+    timestamp
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useBlocksListenerSubscription__
+ *
+ * To run a query within a React component, call `useBlocksListenerSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useBlocksListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useBlocksListenerSubscription({
+ *   variables: {
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
+ *   },
+ * });
+ */
+export function useBlocksListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<BlocksListenerSubscription, BlocksListenerSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<BlocksListenerSubscription, BlocksListenerSubscriptionVariables>(BlocksListenerDocument, options);
+      }
+export type BlocksListenerSubscriptionHookResult = ReturnType<typeof useBlocksListenerSubscription>;
+export type BlocksListenerSubscriptionResult = Apollo.SubscriptionResult<BlocksListenerSubscription>;
+export const BlocksDocument = gql`
+    query Blocks($limit: Int = 7, $offset: Int = 0) {
+  blocks: block(limit: $limit, offset: $offset, order_by: {height: desc}) {
+    height
+    txs: num_txs
+    hash
+    timestamp
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
+        self_delegate_address
+      }
+      validatorDescriptions: validator_descriptions(
+        limit: 1
+        order_by: {height: desc}
+      ) {
+        moniker
+        identity
+      }
+    }
+  }
+  total: block_aggregate {
+    aggregate {
+      count
+    }
+  }
+}
+    `;
+
+/**
+ * __useBlocksQuery__
+ *
+ * To run a query within a React component, call `useBlocksQuery` and pass it any options that fit your needs.
+ * When your component renders, `useBlocksQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useBlocksQuery({
+ *   variables: {
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
+ *   },
+ * });
+ */
+export function useBlocksQuery(baseOptions?: Apollo.QueryHookOptions<BlocksQuery, BlocksQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<BlocksQuery, BlocksQueryVariables>(BlocksDocument, options);
+      }
+export function useBlocksLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<BlocksQuery, BlocksQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<BlocksQuery, BlocksQueryVariables>(BlocksDocument, options);
+        }
+export type BlocksQueryHookResult = ReturnType<typeof useBlocksQuery>;
+export type BlocksLazyQueryHookResult = ReturnType<typeof useBlocksLazyQuery>;
+export type BlocksQueryResult = Apollo.QueryResult<BlocksQuery, BlocksQueryVariables>;
 export const ChainIdDocument = gql`
     query ChainId {
   genesis(limit: 1, order_by: {time: desc}) {
@@ -11505,3 +11731,169 @@ export function useMarketDataLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type MarketDataQueryHookResult = ReturnType<typeof useMarketDataQuery>;
 export type MarketDataLazyQueryHookResult = ReturnType<typeof useMarketDataLazyQuery>;
 export type MarketDataQueryResult = Apollo.QueryResult<MarketDataQuery, MarketDataQueryVariables>;
+export const TokenPriceDocument = gql`
+    query TokenPrice {
+  tokenPrice: token_price(order_by: {timestamp: asc}, limit: 1) {
+    price
+  }
+}
+    `;
+
+/**
+ * __useTokenPriceQuery__
+ *
+ * To run a query within a React component, call `useTokenPriceQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTokenPriceQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTokenPriceQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useTokenPriceQuery(baseOptions?: Apollo.QueryHookOptions<TokenPriceQuery, TokenPriceQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<TokenPriceQuery, TokenPriceQueryVariables>(TokenPriceDocument, options);
+      }
+export function useTokenPriceLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TokenPriceQuery, TokenPriceQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<TokenPriceQuery, TokenPriceQueryVariables>(TokenPriceDocument, options);
+        }
+export type TokenPriceQueryHookResult = ReturnType<typeof useTokenPriceQuery>;
+export type TokenPriceLazyQueryHookResult = ReturnType<typeof useTokenPriceLazyQuery>;
+export type TokenPriceQueryResult = Apollo.QueryResult<TokenPriceQuery, TokenPriceQueryVariables>;
+export const TokenomicsDocument = gql`
+    query Tokenomics($height: bigint) {
+  stakingPool: staking_pool(
+    order_by: {height: desc}
+    limit: 1
+    where: {height: {_eq: $height}}
+  ) {
+    bonded: bonded_tokens
+    unbonded: not_bonded_tokens
+  }
+  supply: supply(
+    order_by: {height: desc}
+    limit: 1
+    where: {height: {_eq: $height}}
+  ) {
+    coins
+  }
+}
+    `;
+
+/**
+ * __useTokenomicsQuery__
+ *
+ * To run a query within a React component, call `useTokenomicsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTokenomicsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTokenomicsQuery({
+ *   variables: {
+ *      height: // value for 'height'
+ *   },
+ * });
+ */
+export function useTokenomicsQuery(baseOptions?: Apollo.QueryHookOptions<TokenomicsQuery, TokenomicsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<TokenomicsQuery, TokenomicsQueryVariables>(TokenomicsDocument, options);
+      }
+export function useTokenomicsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TokenomicsQuery, TokenomicsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<TokenomicsQuery, TokenomicsQueryVariables>(TokenomicsDocument, options);
+        }
+export type TokenomicsQueryHookResult = ReturnType<typeof useTokenomicsQuery>;
+export type TokenomicsLazyQueryHookResult = ReturnType<typeof useTokenomicsLazyQuery>;
+export type TokenomicsQueryResult = Apollo.QueryResult<TokenomicsQuery, TokenomicsQueryVariables>;
+export const TransactionsListenerDocument = gql`
+    subscription TransactionsListener($limit: Int = 7, $offset: Int = 0) {
+  transactions: transaction(
+    limit: $limit
+    offset: $offset
+    order_by: {height: desc}
+  ) {
+    height
+    hash
+    success
+    block {
+      timestamp
+    }
+    messages
+  }
+}
+    `;
+
+/**
+ * __useTransactionsListenerSubscription__
+ *
+ * To run a query within a React component, call `useTransactionsListenerSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useTransactionsListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTransactionsListenerSubscription({
+ *   variables: {
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
+ *   },
+ * });
+ */
+export function useTransactionsListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<TransactionsListenerSubscription, TransactionsListenerSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<TransactionsListenerSubscription, TransactionsListenerSubscriptionVariables>(TransactionsListenerDocument, options);
+      }
+export type TransactionsListenerSubscriptionHookResult = ReturnType<typeof useTransactionsListenerSubscription>;
+export type TransactionsListenerSubscriptionResult = Apollo.SubscriptionResult<TransactionsListenerSubscription>;
+export const ValidatorsAddressListDocument = gql`
+    query ValidatorsAddressList {
+  validator {
+    validatorInfo: validator_info {
+      operatorAddress: operator_address
+      selfDelegateAddress: self_delegate_address
+    }
+    validatorDescriptions: validator_descriptions(
+      limit: 1
+      order_by: {height: desc}
+    ) {
+      moniker
+      identity
+    }
+  }
+}
+    `;
+
+/**
+ * __useValidatorsAddressListQuery__
+ *
+ * To run a query within a React component, call `useValidatorsAddressListQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorsAddressListQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useValidatorsAddressListQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useValidatorsAddressListQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>(ValidatorsAddressListDocument, options);
+      }
+export function useValidatorsAddressListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>(ValidatorsAddressListDocument, options);
+        }
+export type ValidatorsAddressListQueryHookResult = ReturnType<typeof useValidatorsAddressListQuery>;
+export type ValidatorsAddressListLazyQueryHookResult = ReturnType<typeof useValidatorsAddressListLazyQuery>;
+export type ValidatorsAddressListQueryResult = Apollo.QueryResult<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>;

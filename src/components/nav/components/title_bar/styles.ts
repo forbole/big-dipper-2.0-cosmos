@@ -49,12 +49,18 @@ export const useStyles = () => {
         },
         item: {
           display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
+          alignItems: 'flex-start',
+          justifyContent: 'flex-start',
+          flexDirection: 'column',
           padding: theme.spacing(1),
           width: '100%',
           '& .label': {
             marginRight: theme.spacing(1),
+          },
+          [theme.breakpoints.up('sm')]: {
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
           },
           [theme.breakpoints.up('md')]: {
             width: '50%',

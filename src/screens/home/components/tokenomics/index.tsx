@@ -2,7 +2,9 @@ import React from 'react';
 import classnames from 'classnames';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
-import { Box } from '@components';
+import {
+  Box, CustomToolTip,
+} from '@components';
 import {
   PieChart,
   Pie,
@@ -10,6 +12,7 @@ import {
   Tooltip,
 } from 'recharts';
 import { useStyles } from './styles';
+import { useTokenomics } from './hooks';
 
 const Tokenomics:React.FC<{
   className?: string;
@@ -18,41 +21,7 @@ const Tokenomics:React.FC<{
   const {
     classes, theme,
   } = useStyles();
-
-  // ========================
-  // fake data
-  // ========================
-
-  const data = [
-    {
-      name: 'Group A', value: 800, fill: theme.palette.custom.chartData.one,
-    },
-    {
-      name: 'Group B', value: 200, fill: theme.palette.custom.chartData.three,
-    },
-  ].reverse();
-
-  const weightData = [
-    {
-      value: '29,500',
-      percent: '29.9%',
-      key: 'bondedPercent',
-    },
-    {
-      value: '30,000',
-      percent: '30.6%',
-      key: 'unbondedPercent',
-    },
-  ];
-
-  const legends = [
-    {
-      version: t('bonded'),
-    },
-    {
-      version: t('unbonded'),
-    },
-  ];
+  const { uiData } = useTokenomics(theme);
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -60,13 +29,13 @@ const Tokenomics:React.FC<{
         {t('tokenomics')}
       </Typography>
       <div className={classes.data}>
-        {weightData.map((x) => (
-          <div className="data__item" key={x.key}>
+        {uiData.slice(0, 2).map((x) => (
+          <div className="data__item" key={x.percentKey}>
             <Typography variant="h4">
               {x.value}
             </Typography>
             <Typography variant="caption">
-              {t(x.key, {
+              {t(x.percentKey, {
                 percent: x.percent,
               })}
             </Typography>
@@ -81,32 +50,56 @@ const Tokenomics:React.FC<{
           cy={100}
         >
           <Pie
-            stroke="none"
-            cornerRadius={40}
+            // stroke="none"
+            // cornerRadius={40}
             cy={90}
-            data={data}
-            startAngle={0}
-            endAngle={180}
-            innerRadius={79}
+            data={uiData}
+            startAngle={180}
+            endAngle={0}
+            // innerRadius={79}
             outerRadius={90}
             fill="#8884d8"
-            paddingAngle={-10}
-            dataKey="value"
+            // paddingAngle={-10}
+            dataKey="rawValue"
+            stroke={theme.palette.divider}
           >
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={data[index % data.length].fill} />
-            ))}
+            {uiData.map((entry) => {
+              return (
+                <Cell key={entry.legendKey} fill={entry.fill} />
+              );
+            })}
           </Pie>
-          <Tooltip />
+          <Tooltip
+            content={(
+              <CustomToolTip>
+                {(data) => {
+                  return (
+                    <>
+                      <Typography variant="caption">
+                        {t(data.legendKey)}
+                      </Typography>
+                      <Typography variant="body1">
+                        {data.value}
+                        {' '}
+                        (
+                        {data.percent}
+                        )
+                      </Typography>
+                    </>
+                  );
+                }}
+              </CustomToolTip>
+            )}
+          />
         </PieChart>
 
         <div className={classes.legends}>
           {
-            legends.map((x) => {
+            uiData.map((x) => {
               return (
-                <div className="legends__item" key={x.version}>
+                <div className="legends__item" key={x.legendKey}>
                   <Typography variant="caption">
-                    {x.version}
+                    {t(x.legendKey)}
                   </Typography>
                 </div>
               );

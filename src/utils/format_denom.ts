@@ -6,9 +6,8 @@ import { chainConfig } from '@src/chain_config';
  * @param denom The denom you wish to convert to
  * @param value The value in base denom value
  */
-export const formatDenom = (value: number | string, denom = chainConfig.base) => {
+export const formatDenom = (value: number | string, denom = chainConfig.display) => {
   let results = 0;
-
   const [selectedDenom] = chainConfig.denomUnits.filter((x) => x.denom === denom);
   if (!selectedDenom) {
     return results;
