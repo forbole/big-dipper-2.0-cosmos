@@ -2,9 +2,9 @@ name: Docker-Staging
 
 on:
   pull_request:
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
 
 jobs:
   Build-and-Publish:
