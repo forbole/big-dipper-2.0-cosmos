@@ -8,7 +8,7 @@ const initialState: BlocksState = {
 
 const BlocksContext = React.createContext<BlocksState>(initialState);
 
-const BlocksProvider: React.FC = (props: {children: React.ReactNode }) => {
+const BlocksProvider: React.FC = (props: {children: any }) => {
   const { children } = props;
 
   const {
@@ -23,7 +23,9 @@ const BlocksProvider: React.FC = (props: {children: React.ReactNode }) => {
         formatUi: () => [],
       }}
     >
-      {children}
+      {children({
+        isEmpty: true,
+      })}
     </BlocksContext.Provider>
   );
 };

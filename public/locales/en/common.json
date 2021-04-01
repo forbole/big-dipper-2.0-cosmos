@@ -34,5 +34,6 @@
   "copied": "Copied",
   "paginationLabelOne": "showing {{from}}-{{to}} of {{count}}",
   "dark": "Dark Mode",
-  "light": "Light Mode"
+  "light": "Light Mode",
+  "nothingToShow": "Nothing to show"
 }

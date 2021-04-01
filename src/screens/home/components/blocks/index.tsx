@@ -6,7 +6,9 @@ import {
 } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import { BLOCKS } from '@utils/go_to_page';
-import { Box } from '@components';
+import {
+  Box, NoData,
+} from '@components';
 import {
   Mobile,
   Desktop,
@@ -22,26 +24,36 @@ const Blocks:React.FC<{
 
   return (
     <BlocksProvider>
-      <Box className={classnames(className, classes.root)}>
-        <div className={classes.label}>
-          <Typography variant="h2">
-            {t('latestBlocks')}
-          </Typography>
-          <Link href={BLOCKS} passHref>
-            <Typography variant="h4" className="button" component="a">
-              {t('seeMore')}
-            </Typography>
-          </Link>
-        </div>
-        <Mobile className={classes.mobile} />
-        <Desktop className={classes.desktop} />
-        <Divider className={classes.mobile} />
-        <Link href={BLOCKS} passHref>
-          <Typography variant="h4" component="a" className={classnames(classes.seeMoreFooter, classes.mobile, 'button')}>
-            {t('seeMore')}
-          </Typography>
-        </Link>
-      </Box>
+      {({ isEmpty }) => {
+        return (
+          <Box className={classnames(className, classes.root)}>
+            <div className={classes.label}>
+              <Typography variant="h2">
+                {t('latestBlocks')}
+              </Typography>
+              <Link href={BLOCKS} passHref>
+                <Typography variant="h4" className="button" component="a">
+                  {t('seeMore')}
+                </Typography>
+              </Link>
+            </div>
+            {isEmpty ? (
+              <NoData />
+            ) : (
+              <>
+                <Mobile className={classes.mobile} />
+                <Desktop className={classes.desktop} />
+                <Divider className={classes.mobile} />
+                <Link href={BLOCKS} passHref>
+                  <Typography variant="h4" component="a" className={classnames(classes.seeMoreFooter, classes.mobile, 'button')}>
+                    {t('seeMore')}
+                  </Typography>
+                </Link>
+              </>
+            )}
+          </Box>
+        );
+      }}
     </BlocksProvider>
   );
 };
