@@ -19,7 +19,7 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
       <h4
         className="MuiTypography-root MuiTypography-h4"
       >
-        29,500
+        254,579
       </h4>
       <span
         className="MuiTypography-root MuiTypography-caption"
@@ -33,7 +33,7 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
       <h4
         className="MuiTypography-root MuiTypography-h4"
       >
-        30,000
+        204,887
       </h4>
       <span
         className="MuiTypography-root MuiTypography-caption"
@@ -93,6 +93,11 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
             />
+            <g
+              className="recharts-layer recharts-pie-sector"
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            />
           </g>
         </g>
       </svg>
@@ -114,28 +119,54 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
         }
       >
         <div
-          className="recharts-default-tooltip"
-          style={
+          active={false}
+          allowEscapeViewBox={
             Object {
-              "backgroundColor": "#fff",
-              "border": "1px solid #ccc",
-              "margin": 0,
-              "padding": 10,
-              "whiteSpace": "nowrap",
+              "x": false,
+              "y": false,
             }
           }
-        >
-          <p
-            className="recharts-tooltip-label"
-            style={
-              Object {
-                "margin": 0,
-              }
+          animationDuration={400}
+          animationEasing="ease"
+          content={
+            <CustomToolTip>
+              [Function]
+            </CustomToolTip>
+          }
+          contentStyle={Object {}}
+          coordinate={
+            Object {
+              "x": 0,
+              "y": 0,
             }
-          >
-            
-          </p>
-        </div>
+          }
+          cursor={true}
+          cursorStyle={Object {}}
+          filterNull={true}
+          id="CustomToolTip"
+          isAnimationActive={true}
+          itemStyle={Object {}}
+          labelStyle={Object {}}
+          offset={10}
+          payload={Array []}
+          separator=" : "
+          trigger="hover"
+          useTranslate3d={false}
+          viewBox={
+            Object {
+              "bottom": 5,
+              "brushBottom": 5,
+              "height": 90,
+              "left": 5,
+              "right": 5,
+              "top": 5,
+              "width": 190,
+              "x": 5,
+              "y": 5,
+            }
+          }
+          wrapperStyle={Object {}}
+        />
       </div>
     </div>
     <div
@@ -157,6 +188,15 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
           className="MuiTypography-root MuiTypography-caption"
         >
           unbonded
+        </span>
+      </div>
+      <div
+        className="legends__item"
+      >
+        <span
+          className="MuiTypography-root MuiTypography-caption"
+        >
+          unbonding
         </span>
       </div>
     </div>
