@@ -5,31 +5,20 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
   className=""
 >
   <div
-    hash="76nwV8zz8tLz9...DLQfF66jZhQ857"
+    hash="76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857"
     height={
-      <Link
-        href="/blocks/123"
-        passHref={true}
-      >
-        <WithStyles(ForwardRef(Typography))
-          className="value"
-          component="a"
-          variant="body1"
-        >
-          812,768,640
-        </WithStyles(ForwardRef(Typography))>
-      </Link>
+      <div>
+        4,000
+      </div>
     }
     id="SingleBlockMobile"
     proposer={
-      <AvatarName
-        address="FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk"
-        imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
-        name="Forbole"
-      />
+      <div>
+        proposer
+      </div>
     }
-    time="21 days ago"
-    txs={2}
+    time="moments ago"
+    txs={12}
   />
 </div>
 `;

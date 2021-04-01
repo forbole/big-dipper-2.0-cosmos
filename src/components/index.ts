@@ -18,6 +18,8 @@ import InfoPopover from './info_popover';
 import SortArrows from './sort_arrows';
 import SingleProposal from './single_proposal';
 import TabPanel from './tab_panel';
+import NoData from './no_data';
+import CustomToolTip from './custom_tool_tip';
 
 export {
   Layout,
@@ -40,4 +42,6 @@ export {
   SortArrows,
   SingleProposal,
   TabPanel,
+  NoData,
+  CustomToolTip,
 };

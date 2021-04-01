@@ -83,14 +83,9 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
             }
           }
         >
-          <a
-            className="MuiTypography-root MuiTypography-body1"
-            href="/blocks/123"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-          >
-            812,768,640
-          </a>
+          <div>
+            4,000
+          </div>
         </td>
         <td
           aria-sort={null}
@@ -101,14 +96,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
             }
           }
         >
-          <a
-            className="MuiTypography-root MuiTypography-body1"
-            href="/transactions/undefined"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-          >
-            76nwV8zz8tLz97S...hQ857
-          </a>
+          76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857
         </td>
         <td
           aria-sort={null}
@@ -119,10 +107,9 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
             }
           }
         >
-          <div
-            id="Result"
-            success={true}
-          />
+          <div>
+            result
+          </div>
         </td>
         <td
           aria-sort={null}
@@ -133,7 +120,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
             }
           }
         >
-          21 days ago
+          moments ago
         </td>
       </tr>
     </tbody>

@@ -6,7 +6,9 @@ import {
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { TRANSACTIONS } from '@utils/go_to_page';
-import { Box } from '@components';
+import {
+  Box, NoData,
+} from '@components';
 import {
   Desktop, Mobile,
 } from './components';
@@ -20,26 +22,36 @@ const Transactions: React.FC<{
   const classes = useStyles();
   return (
     <TransactionsProvider>
-      <Box className={classnames(className, classes.root)}>
-        <div className={classes.label}>
-          <Typography variant="h2">
-            {t('latestTransactions')}
-          </Typography>
-          <Link href={TRANSACTIONS} passHref>
-            <Typography variant="h4" className="button" component="a">
-              {t('seeMore')}
-            </Typography>
-          </Link>
-        </div>
-        <Mobile className={classes.mobile} />
-        <Desktop className={classes.desktop} />
-        <Divider className={classes.mobile} />
-        <Link href={TRANSACTIONS} passHref>
-          <Typography variant="h4" component="a" className={classnames(classes.seeMoreFooter, classes.mobile, 'button')}>
-            {t('seeMore')}
-          </Typography>
-        </Link>
-      </Box>
+      {({ isEmpty }) => {
+        return (
+          <Box className={classnames(className, classes.root)}>
+            <div className={classes.label}>
+              <Typography variant="h2">
+                {t('latestTransactions')}
+              </Typography>
+              <Link href={TRANSACTIONS} passHref>
+                <Typography variant="h4" className="button" component="a">
+                  {t('seeMore')}
+                </Typography>
+              </Link>
+            </div>
+            {isEmpty ? (
+              <NoData />
+            ) : (
+              <>
+                <Mobile className={classes.mobile} />
+                <Desktop className={classes.desktop} />
+                <Divider className={classes.mobile} />
+                <Link href={TRANSACTIONS} passHref>
+                  <Typography variant="h4" component="a" className={classnames(classes.seeMoreFooter, classes.mobile, 'button')}>
+                    {t('seeMore')}
+                  </Typography>
+                </Link>
+              </>
+            )}
+          </Box>
+        );
+      }}
     </TransactionsProvider>
   );
 };

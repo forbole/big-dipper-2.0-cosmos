@@ -5,7 +5,9 @@ import { ToastContainer } from 'react-toastify';
 import { ApolloProvider } from '@apollo/client';
 import { useApollo } from '@src/graphql/client';
 import {
-  SettingsProvider, NetworksProvider,
+  SettingsProvider,
+  NetworksProvider,
+  ChainProvider,
 } from '@contexts';
 import { InnerApp } from './components';
 import { useApp } from './hooks';
@@ -34,18 +36,20 @@ function App(props: AppProps) {
       >
         <SettingsProvider>
           <NetworksProvider>
-            <ToastContainer
-              position="top-center"
-              autoClose={5000}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              hideProgressBar
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-            />
-            <InnerApp {...props} />
+            <ChainProvider>
+              <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                hideProgressBar
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+              />
+              <InnerApp {...props} />
+            </ChainProvider>
           </NetworksProvider>
         </SettingsProvider>
       </ApolloProvider>

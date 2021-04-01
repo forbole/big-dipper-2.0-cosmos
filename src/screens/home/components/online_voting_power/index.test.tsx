@@ -11,10 +11,6 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('recharts', () => ({
-  ...jest.requireActual('recharts'),
-  ResponsiveContainer: (props) => <div id="ResponsiveContainer" {...props} />,
-}));
 jest.mock('@components', () => ({
   Box: (props) => <div id="box" {...props} />,
 }));

@@ -1,0 +1,12 @@
+query ValidatorsAddressList {
+  validator {
+    validatorInfo: validator_info {
+      operatorAddress: operator_address
+      selfDelegateAddress: self_delegate_address
+    }
+    validatorDescriptions: validator_descriptions(limit: 1, order_by: {height: desc}) {
+      moniker
+      identity
+    }
+  }
+}

@@ -7,4 +7,7 @@ generates:
       - "typescript"
       - "typescript-operations"
       - "typescript-react-apollo" # To generate custom hooks per query
+    config:
+      # omitOperationSuffix: true
+      skipTypeNameForRoot: true
 

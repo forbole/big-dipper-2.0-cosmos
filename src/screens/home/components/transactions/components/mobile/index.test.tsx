@@ -18,13 +18,22 @@ jest.mock('@components', () => ({
 
 jest.mock('@src/screens/home/components/transactions/contexts/transactions', () => ({
   useTransactionsContext: () => ({
-    transactions: [{
-      block: '812,768,640',
+    rawData: [{
+      height: 2000,
+      timestamp: '2021-02-18T09:02:28.668623',
       hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
       messages: 12,
       success: true,
-      time: 1615187146246,
     }],
+    formatUi: jest.fn(() => [
+      {
+        block: <div>4,000</div>,
+        hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
+        result: <div>result</div>,
+        time: 'moments ago',
+        messages: '12',
+      },
+    ]),
   }),
 }));
 

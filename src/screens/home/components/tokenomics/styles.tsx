@@ -31,7 +31,8 @@ export const useStyles = () => {
         legends: {
           display: 'flex',
           alignItems: 'flex-start',
-          justifyContent: 'center',
+          justifyContent: 'flex-start',
+          flexWrap: 'wrap',
           width: '100%',
           '& .MuiTypography-caption': {
             color: theme.palette.custom.fonts.fontThree,
@@ -44,13 +45,15 @@ export const useStyles = () => {
               width: '12px',
               height: '12px',
               marginRight: '5px',
-              background: theme.palette.custom.chartData.two,
             },
             '&:first-child:before': {
-              background: theme.palette.custom.chartData.one,
+              background: theme.palette.custom.tags.one,
+            },
+            '&:nth-child(2):before': {
+              background: theme.palette.custom.tags.six,
             },
             '&:last-child:before': {
-              background: theme.palette.custom.chartData.three,
+              background: theme.palette.custom.tags.four,
             },
             '& .caption__percent': {
               color: theme.palette.custom.fonts.fontThree,

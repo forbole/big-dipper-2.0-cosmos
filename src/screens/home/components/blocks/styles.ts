@@ -5,6 +5,8 @@ export const useStyles = () => {
     (theme) => {
       return ({
         root: {
+          display: 'flex',
+          flexDirection: 'column',
           '& .button': {
             color: theme.palette.custom.fonts.fontTwo,
             '&:hover': {

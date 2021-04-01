@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { SingleBlock } from './components';
 import { useStyles } from './styles';
+import { useDataBlocks } from './hooks';
 
 const DataBlocks: React.FC<{
   className?: string;
@@ -11,27 +12,27 @@ const DataBlocks: React.FC<{
 }) => {
   const { t } = useTranslation('home');
   const classes = useStyles();
-
+  const { uiData } = useDataBlocks();
   const fakeData = [
     {
       key: t('latestBlock'),
-      value: '0',
+      value: uiData.blockHeight,
       className: classes.blockHeight,
     },
     {
       key: t('averageBlockTime'),
-      value: '0 s',
+      value: uiData.blockTime,
       className: classes.blockTime,
     },
     {
       key: t('price'),
-      value: '$5.00',
+      value: uiData.price,
       className: classes.price,
     },
     {
       key: t('activeValidators'),
-      value: '1000',
-      description: t('outOfValidators', { count: '300' }),
+      value: uiData.validators.active,
+      description: t('outOfValidators', { count: uiData.validators.total }),
       className: classes.validators,
     },
   ];

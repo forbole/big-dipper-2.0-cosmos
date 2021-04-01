@@ -3,25 +3,31 @@ import { useBlocks } from './hooks';
 import { BlocksState } from './types';
 
 const initialState: BlocksState = {
-  blocks: [],
+  rawData: [],
 };
 
 const BlocksContext = React.createContext<BlocksState>(initialState);
 
-const BlocksProvider: React.FC = (props: {children: React.ReactNode }) => {
+const BlocksProvider: React.FC = (props: {
+  children(options: { isEmpty: boolean }): React.ReactNode;
+}) => {
   const { children } = props;
 
   const {
-    blocks,
-  } = useBlocks();
+    rawData,
+    formatUi,
+  } = useBlocks(initialState);
 
   return (
     <BlocksContext.Provider
       value={{
-        blocks,
+        rawData,
+        formatUi,
       }}
     >
-      {children}
+      {children({
+        isEmpty: rawData.length === 0,
+      })}
     </BlocksContext.Provider>
   );
 };

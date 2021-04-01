@@ -1,18 +1,11 @@
 import React from 'react';
 import classnames from 'classnames';
+import Link from 'next/link';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
-import numeral from 'numeral';
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from 'recharts';
+import Trans from 'next-translate/Trans';
 import { Box } from '@components';
+import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
 
 const OnlineVotingPower: React.FC<{
@@ -21,70 +14,80 @@ const OnlineVotingPower: React.FC<{
   className,
 }) => {
   const { t } = useTranslation('home');
-  const {
-    classes, theme,
-  } = useStyles();
-
-  const fakeData = [
-    {
-      x: 0, y: 5,
-    },
-    {
-      x: 1, y: 10,
-    },
-    {
-      x: 2, y: 15,
-    },
-    {
-      x: 3, y: 20,
-    },
-  ];
-
+  const classes = useStyles(50);
   return (
-    <Box className={classnames(className)}>
-      <Typography variant="h2" className={classes.label}>
+    <Box className={classnames(className, classes.root)}>
+      <Typography variant="h2">
         {t('onlineVotingPower')}
       </Typography>
+      <div className={classes.data}>
+        <Typography variant="h3" className="primary__data">
+          4.9%
+        </Typography>
+        <Typography variant="body1">
+          5904 / 203
+        </Typography>
+      </div>
       <div className={classes.chart}>
-        <ResponsiveContainer width="99%">
-          <LineChart
-            data={fakeData}
-            margin={{
-              top: 5, right: 30, left: 20, bottom: 5,
-            }}
-          >
-            <CartesianGrid stroke={theme.palette.divider} />
-            <XAxis
-              dataKey="x"
-              tickSize={0}
-              dy={20}
-              height={50}
-              stroke={theme.palette.divider}
-              tickFormatter={(tick) => {
-                return numeral(tick).format('0,0');
+        <div className={classes.active} />
+      </div>
+      <div className={classes.itemsContainer}>
+        <div className={classes.item}>
+          <Typography variant="h4" className="label">
+            {t('block')}
+          </Typography>
+          <Link href={BLOCK_DETAILS('123')} passHref>
+            <Typography variant="body1" className="value" component="a">
+              100,001
+            </Typography>
+          </Link>
+        </div>
+        <div className={classes.item}>
+          <Typography variant="h4" className="label">
+            {t('votingPowerPercent')}
+          </Typography>
+          <Typography variant="body1" className="value">
+            49%
+          </Typography>
+        </div>
+        <div className={classes.item}>
+          <Typography variant="h4" className="label">
+            {t('votingPower')}
+          </Typography>
+          <Typography variant="body1" className="value">
+            100,001
+          </Typography>
+        </div>
+        <div className={classes.item}>
+          <Typography variant="h4" className="label">
+            {t('totalVotingPower')}
+          </Typography>
+          <Typography variant="body1" className="value">
+            100,001
+          </Typography>
+        </div>
+        <div className={classes.item}>
+          <Typography variant="h4" className="label">
+            {t('lastVotingPowerChange')}
+          </Typography>
+          <Typography variant="body1" className="value">
+            <Trans
+              i18nKey="home:powerChange"
+              components={[
+                <span className="positive" />,
+              ]}
+              values={{
+                change: '+10',
+                block: '300,000',
               }}
             />
-            <YAxis
-              dataKey="y"
-              dx={-10}
-              tickSize={0}
-              width={30}
-              stroke={theme.palette.divider}
-              tickFormatter={(tick) => {
-                return numeral(tick).format('0,0a');
-              }}
-            />
-            <Tooltip cursor={false} />
-            <Line
-              isAnimationActive={false}
-              type="monotone"
-              dataKey="y"
-              stroke={theme.palette.primary.main}
-              strokeWidth={3}
-              dot={false}
-            />
-          </LineChart>
-        </ResponsiveContainer>
+            <Link href={BLOCK_DETAILS('123')} passHref>
+              <Typography variant="body1" className="value" component="a">
+                100,001
+              </Typography>
+            </Link>
+          </Typography>
+        </div>
       </div>
     </Box>
   );
