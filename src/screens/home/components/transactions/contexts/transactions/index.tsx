@@ -8,7 +8,9 @@ const initialState: TransactionsState = {
 
 const TransactionsContext = React.createContext<TransactionsState>(initialState);
 
-const TransactionsProvider: React.FC = (props: {children: React.ReactNode }) => {
+const TransactionsProvider: React.FC = (props: {
+  children(options: { isEmpty: boolean }): React.ReactNode;
+ }) => {
   const { children } = props;
 
   const {
@@ -19,11 +21,13 @@ const TransactionsProvider: React.FC = (props: {children: React.ReactNode }) => 
   return (
     <TransactionsContext.Provider
       value={{
-        rawData: [],
-        formatUi: () => [],
+        rawData,
+        formatUi,
       }}
     >
-      {children}
+      {children({
+        isEmpty: rawData.length === 0,
+      })}
     </TransactionsContext.Provider>
   );
 };

@@ -8,7 +8,9 @@ const initialState: BlocksState = {
 
 const BlocksContext = React.createContext<BlocksState>(initialState);
 
-const BlocksProvider: React.FC = (props: {children: any }) => {
+const BlocksProvider: React.FC = (props: {
+  children(options: { isEmpty: boolean }): React.ReactNode;
+}) => {
   const { children } = props;
 
   const {
@@ -19,12 +21,12 @@ const BlocksProvider: React.FC = (props: {children: any }) => {
   return (
     <BlocksContext.Provider
       value={{
-        rawData: [],
-        formatUi: () => [],
+        rawData,
+        formatUi,
       }}
     >
       {children({
-        isEmpty: true,
+        isEmpty: rawData.length === 0,
       })}
     </BlocksContext.Provider>
   );
