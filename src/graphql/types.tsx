@@ -11371,7 +11371,7 @@ export type TokenomicsQueryVariables = Exact<{
 
 export type TokenomicsQuery = { stakingPool: Array<(
     { __typename?: 'staking_pool' }
-    & Pick<Staking_Pool, 'bonded_tokens' | 'not_bonded_tokens'>
+    & { bonded: Staking_Pool['bonded_tokens'], unbonded: Staking_Pool['not_bonded_tokens'] }
   )>, supply: Array<(
     { __typename?: 'supply' }
     & Pick<Supply, 'coins'>
@@ -11772,8 +11772,8 @@ export const TokenomicsDocument = gql`
     limit: 1
     where: {height: {_eq: $height}}
   ) {
-    bonded_tokens
-    not_bonded_tokens
+    bonded: bonded_tokens
+    unbonded: not_bonded_tokens
   }
   supply: supply(
     order_by: {height: desc}

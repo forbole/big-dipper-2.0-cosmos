@@ -18,7 +18,7 @@ export const useStyles = () => {
         data: {
           display: 'flex',
           '& .data__item': {
-            width: '33.33%',
+            width: '50%',
             whiteSpace: 'pre-wrap',
             '& h4': {
               color: theme.palette.custom.fonts.fontTwo,
@@ -31,13 +31,14 @@ export const useStyles = () => {
         legends: {
           display: 'flex',
           alignItems: 'flex-start',
-          justifyContent: 'center',
+          justifyContent: 'flex-start',
+          flexWrap: 'wrap',
           width: '100%',
           '& .MuiTypography-caption': {
             color: theme.palette.custom.fonts.fontThree,
           },
           '& .legends__item': {
-            width: '33.33%',
+            width: '50%',
             '&:before': {
               content: '""',
               display: 'inline-block',

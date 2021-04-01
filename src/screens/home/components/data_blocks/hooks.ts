@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import numeral from 'numeral';
+import { formatLatestBlockHeight } from '@utils/format_latest_block_height';
 import {
   useLatestBlockHeightListenerSubscription,
-  LatestBlockHeightListenerSubscription,
   useAverageBlockTimeQuery,
   AverageBlockTimeQuery,
   useTokenPriceQuery,
@@ -43,10 +43,6 @@ export const useDataBlocks = () => {
       }));
     },
   });
-
-  const formatLatestBlockHeight = (data: LatestBlockHeightListenerSubscription) => {
-    return data.height[0]?.height ?? state.blockHeight;
-  };
 
   // ====================================
   // block time

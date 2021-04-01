@@ -1,7 +1,7 @@
 query Tokenomics($height: bigint) {
   stakingPool: staking_pool(order_by: {height: desc}, limit: 1, where: {height: {_eq: $height}}) {
-    bonded_tokens
-    not_bonded_tokens
+    bonded: bonded_tokens
+    unbonded: not_bonded_tokens
   }
   supply: supply(order_by: {height: desc}, limit: 1, where: {height: {_eq: $height}}) {
     coins
