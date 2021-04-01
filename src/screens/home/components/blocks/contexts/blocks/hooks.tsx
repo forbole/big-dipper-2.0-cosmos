@@ -43,7 +43,7 @@ export const useBlocks = (initialState: BlocksState) => {
   };
 
   const formatUi = (screen: 'mobile' | 'desktop' = 'mobile') => {
-    return blocks.map((x, i) => {
+    return blocks.map((x) => {
       const validator = findAddress(x.proposer);
       const hash = screen === 'mobile'
         ? getMiddleEllipsis(x.hash, {
