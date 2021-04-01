@@ -343,12 +343,12 @@ export type Account_Balance = {
   coins: Scalars['_coin'];
   height: Scalars['bigint'];
   /** A computed field, executes function "token_price" */
-  token_price?: Maybe<Array<Token_Price>>;
+  tokens_price?: Maybe<Array<Token_Price>>;
 };
 
 
 /** columns and relationships of "account_balance" */
-export type Account_BalanceToken_PriceArgs = {
+export type Account_BalanceTokens_PriceArgs = {
   distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
@@ -5449,8 +5449,6 @@ export type Query_Root = {
   supply_by_pk?: Maybe<Supply>;
   /** fetch data from the table: "token_price" */
   token_price: Array<Token_Price>;
-  /** fetch aggregated fields from the table: "token_price" */
-  token_price_aggregate: Token_Price_Aggregate;
   /** fetch data from the table: "token_price" using primary key columns */
   token_price_by_pk?: Maybe<Token_Price>;
   /** fetch data from the table: "transaction" */
@@ -6159,16 +6157,6 @@ export type Query_RootSupply_By_PkArgs = {
 
 /** query root */
 export type Query_RootToken_PriceArgs = {
-  distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Token_Price_Order_By>>;
-  where?: Maybe<Token_Price_Bool_Exp>;
-};
-
-
-/** query root */
-export type Query_RootToken_Price_AggregateArgs = {
   distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
@@ -7442,8 +7430,6 @@ export type Subscription_Root = {
   supply_by_pk?: Maybe<Supply>;
   /** fetch data from the table: "token_price" */
   token_price: Array<Token_Price>;
-  /** fetch aggregated fields from the table: "token_price" */
-  token_price_aggregate: Token_Price_Aggregate;
   /** fetch data from the table: "token_price" using primary key columns */
   token_price_by_pk?: Maybe<Token_Price>;
   /** fetch data from the table: "transaction" */
@@ -8161,16 +8147,6 @@ export type Subscription_RootToken_PriceArgs = {
 
 
 /** subscription root */
-export type Subscription_RootToken_Price_AggregateArgs = {
-  distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Token_Price_Order_By>>;
-  where?: Maybe<Token_Price_Bool_Exp>;
-};
-
-
-/** subscription root */
 export type Subscription_RootToken_Price_By_PkArgs = {
   id: Scalars['Int'];
 };
@@ -8628,68 +8604,11 @@ export type Timestamp_Comparison_Exp = {
 /** columns and relationships of "token_price" */
 export type Token_Price = {
   __typename?: 'token_price';
-  denom: Scalars['String'];
-  market_cap: Scalars['numeric'];
+  id: Scalars['Int'];
+  market_cap: Scalars['bigint'];
+  name: Scalars['String'];
   price: Scalars['numeric'];
   timestamp: Scalars['timestamp'];
-};
-
-/** aggregated selection of "token_price" */
-export type Token_Price_Aggregate = {
-  __typename?: 'token_price_aggregate';
-  aggregate?: Maybe<Token_Price_Aggregate_Fields>;
-  nodes: Array<Token_Price>;
-};
-
-/** aggregate fields of "token_price" */
-export type Token_Price_Aggregate_Fields = {
-  __typename?: 'token_price_aggregate_fields';
-  avg?: Maybe<Token_Price_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
-  max?: Maybe<Token_Price_Max_Fields>;
-  min?: Maybe<Token_Price_Min_Fields>;
-  stddev?: Maybe<Token_Price_Stddev_Fields>;
-  stddev_pop?: Maybe<Token_Price_Stddev_Pop_Fields>;
-  stddev_samp?: Maybe<Token_Price_Stddev_Samp_Fields>;
-  sum?: Maybe<Token_Price_Sum_Fields>;
-  var_pop?: Maybe<Token_Price_Var_Pop_Fields>;
-  var_samp?: Maybe<Token_Price_Var_Samp_Fields>;
-  variance?: Maybe<Token_Price_Variance_Fields>;
-};
-
-
-/** aggregate fields of "token_price" */
-export type Token_Price_Aggregate_FieldsCountArgs = {
-  columns?: Maybe<Array<Token_Price_Select_Column>>;
-  distinct?: Maybe<Scalars['Boolean']>;
-};
-
-/** order by aggregate values of table "token_price" */
-export type Token_Price_Aggregate_Order_By = {
-  avg?: Maybe<Token_Price_Avg_Order_By>;
-  count?: Maybe<Order_By>;
-  max?: Maybe<Token_Price_Max_Order_By>;
-  min?: Maybe<Token_Price_Min_Order_By>;
-  stddev?: Maybe<Token_Price_Stddev_Order_By>;
-  stddev_pop?: Maybe<Token_Price_Stddev_Pop_Order_By>;
-  stddev_samp?: Maybe<Token_Price_Stddev_Samp_Order_By>;
-  sum?: Maybe<Token_Price_Sum_Order_By>;
-  var_pop?: Maybe<Token_Price_Var_Pop_Order_By>;
-  var_samp?: Maybe<Token_Price_Var_Samp_Order_By>;
-  variance?: Maybe<Token_Price_Variance_Order_By>;
-};
-
-/** aggregate avg on columns */
-export type Token_Price_Avg_Fields = {
-  __typename?: 'token_price_avg_fields';
-  market_cap?: Maybe<Scalars['Float']>;
-  price?: Maybe<Scalars['Float']>;
-};
-
-/** order by avg() on columns of table "token_price" */
-export type Token_Price_Avg_Order_By = {
-  market_cap?: Maybe<Order_By>;
-  price?: Maybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "token_price". All fields are combined with a logical 'AND'. */
@@ -8697,50 +8616,18 @@ export type Token_Price_Bool_Exp = {
   _and?: Maybe<Array<Maybe<Token_Price_Bool_Exp>>>;
   _not?: Maybe<Token_Price_Bool_Exp>;
   _or?: Maybe<Array<Maybe<Token_Price_Bool_Exp>>>;
-  denom?: Maybe<String_Comparison_Exp>;
-  market_cap?: Maybe<Numeric_Comparison_Exp>;
+  id?: Maybe<Int_Comparison_Exp>;
+  market_cap?: Maybe<Bigint_Comparison_Exp>;
+  name?: Maybe<String_Comparison_Exp>;
   price?: Maybe<Numeric_Comparison_Exp>;
   timestamp?: Maybe<Timestamp_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
-export type Token_Price_Max_Fields = {
-  __typename?: 'token_price_max_fields';
-  denom?: Maybe<Scalars['String']>;
-  market_cap?: Maybe<Scalars['numeric']>;
-  price?: Maybe<Scalars['numeric']>;
-  timestamp?: Maybe<Scalars['timestamp']>;
-};
-
-/** order by max() on columns of table "token_price" */
-export type Token_Price_Max_Order_By = {
-  denom?: Maybe<Order_By>;
-  market_cap?: Maybe<Order_By>;
-  price?: Maybe<Order_By>;
-  timestamp?: Maybe<Order_By>;
-};
-
-/** aggregate min on columns */
-export type Token_Price_Min_Fields = {
-  __typename?: 'token_price_min_fields';
-  denom?: Maybe<Scalars['String']>;
-  market_cap?: Maybe<Scalars['numeric']>;
-  price?: Maybe<Scalars['numeric']>;
-  timestamp?: Maybe<Scalars['timestamp']>;
-};
-
-/** order by min() on columns of table "token_price" */
-export type Token_Price_Min_Order_By = {
-  denom?: Maybe<Order_By>;
-  market_cap?: Maybe<Order_By>;
-  price?: Maybe<Order_By>;
-  timestamp?: Maybe<Order_By>;
-};
-
 /** ordering options when selecting data from "token_price" */
 export type Token_Price_Order_By = {
-  denom?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
   market_cap?: Maybe<Order_By>;
+  name?: Maybe<Order_By>;
   price?: Maybe<Order_By>;
   timestamp?: Maybe<Order_By>;
 };
@@ -8753,105 +8640,16 @@ export type Token_Price_Pk_Columns_Input = {
 /** select columns of table "token_price" */
 export enum Token_Price_Select_Column {
   /** column name */
-  Denom = 'denom',
+  Id = 'id',
   /** column name */
   MarketCap = 'market_cap',
+  /** column name */
+  Name = 'name',
   /** column name */
   Price = 'price',
   /** column name */
   Timestamp = 'timestamp'
 }
-
-/** aggregate stddev on columns */
-export type Token_Price_Stddev_Fields = {
-  __typename?: 'token_price_stddev_fields';
-  market_cap?: Maybe<Scalars['Float']>;
-  price?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev() on columns of table "token_price" */
-export type Token_Price_Stddev_Order_By = {
-  market_cap?: Maybe<Order_By>;
-  price?: Maybe<Order_By>;
-};
-
-/** aggregate stddev_pop on columns */
-export type Token_Price_Stddev_Pop_Fields = {
-  __typename?: 'token_price_stddev_pop_fields';
-  market_cap?: Maybe<Scalars['Float']>;
-  price?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "token_price" */
-export type Token_Price_Stddev_Pop_Order_By = {
-  market_cap?: Maybe<Order_By>;
-  price?: Maybe<Order_By>;
-};
-
-/** aggregate stddev_samp on columns */
-export type Token_Price_Stddev_Samp_Fields = {
-  __typename?: 'token_price_stddev_samp_fields';
-  market_cap?: Maybe<Scalars['Float']>;
-  price?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_samp() on columns of table "token_price" */
-export type Token_Price_Stddev_Samp_Order_By = {
-  market_cap?: Maybe<Order_By>;
-  price?: Maybe<Order_By>;
-};
-
-/** aggregate sum on columns */
-export type Token_Price_Sum_Fields = {
-  __typename?: 'token_price_sum_fields';
-  market_cap?: Maybe<Scalars['numeric']>;
-  price?: Maybe<Scalars['numeric']>;
-};
-
-/** order by sum() on columns of table "token_price" */
-export type Token_Price_Sum_Order_By = {
-  market_cap?: Maybe<Order_By>;
-  price?: Maybe<Order_By>;
-};
-
-/** aggregate var_pop on columns */
-export type Token_Price_Var_Pop_Fields = {
-  __typename?: 'token_price_var_pop_fields';
-  market_cap?: Maybe<Scalars['Float']>;
-  price?: Maybe<Scalars['Float']>;
-};
-
-/** order by var_pop() on columns of table "token_price" */
-export type Token_Price_Var_Pop_Order_By = {
-  market_cap?: Maybe<Order_By>;
-  price?: Maybe<Order_By>;
-};
-
-/** aggregate var_samp on columns */
-export type Token_Price_Var_Samp_Fields = {
-  __typename?: 'token_price_var_samp_fields';
-  market_cap?: Maybe<Scalars['Float']>;
-  price?: Maybe<Scalars['Float']>;
-};
-
-/** order by var_samp() on columns of table "token_price" */
-export type Token_Price_Var_Samp_Order_By = {
-  market_cap?: Maybe<Order_By>;
-  price?: Maybe<Order_By>;
-};
-
-/** aggregate variance on columns */
-export type Token_Price_Variance_Fields = {
-  __typename?: 'token_price_variance_fields';
-  market_cap?: Maybe<Scalars['Float']>;
-  price?: Maybe<Scalars['Float']>;
-};
-
-/** order by variance() on columns of table "token_price" */
-export type Token_Price_Variance_Order_By = {
-  market_cap?: Maybe<Order_By>;
-  price?: Maybe<Order_By>;
-};
 
 /** columns and relationships of "transaction" */
 export type Transaction = {
@@ -11566,6 +11364,19 @@ export type TokenPriceQuery = { tokenPrice: Array<(
     & Pick<Token_Price, 'price'>
   )> };
 
+export type TokenomicsQueryVariables = Exact<{
+  height?: Maybe<Scalars['bigint']>;
+}>;
+
+
+export type TokenomicsQuery = { stakingPool: Array<(
+    { __typename?: 'staking_pool' }
+    & Pick<Staking_Pool, 'bonded_tokens' | 'not_bonded_tokens'>
+  )>, supply: Array<(
+    { __typename?: 'supply' }
+    & Pick<Supply, 'coins'>
+  )> };
+
 export type TransactionsListenerSubscriptionVariables = Exact<{
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
@@ -11677,7 +11488,7 @@ export function useLatestBlockHeightListenerSubscription(baseOptions?: Apollo.Su
 export type LatestBlockHeightListenerSubscriptionHookResult = ReturnType<typeof useLatestBlockHeightListenerSubscription>;
 export type LatestBlockHeightListenerSubscriptionResult = Apollo.SubscriptionResult<LatestBlockHeightListenerSubscription>;
 export const LatestBlockHeightOffsetDocument = gql`
-    query LatestBlockHeightOffset($offset: Int = 2) {
+    query LatestBlockHeightOffset($offset: Int = 3) {
   height: block(order_by: {height: desc}, limit: 1, offset: $offset) {
     height
   }
@@ -11954,6 +11765,53 @@ export function useTokenPriceLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type TokenPriceQueryHookResult = ReturnType<typeof useTokenPriceQuery>;
 export type TokenPriceLazyQueryHookResult = ReturnType<typeof useTokenPriceLazyQuery>;
 export type TokenPriceQueryResult = Apollo.QueryResult<TokenPriceQuery, TokenPriceQueryVariables>;
+export const TokenomicsDocument = gql`
+    query Tokenomics($height: bigint) {
+  stakingPool: staking_pool(
+    order_by: {height: desc}
+    limit: 1
+    where: {height: {_eq: $height}}
+  ) {
+    bonded_tokens
+    not_bonded_tokens
+  }
+  supply: supply(
+    order_by: {height: desc}
+    limit: 1
+    where: {height: {_eq: $height}}
+  ) {
+    coins
+  }
+}
+    `;
+
+/**
+ * __useTokenomicsQuery__
+ *
+ * To run a query within a React component, call `useTokenomicsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTokenomicsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTokenomicsQuery({
+ *   variables: {
+ *      height: // value for 'height'
+ *   },
+ * });
+ */
+export function useTokenomicsQuery(baseOptions?: Apollo.QueryHookOptions<TokenomicsQuery, TokenomicsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<TokenomicsQuery, TokenomicsQueryVariables>(TokenomicsDocument, options);
+      }
+export function useTokenomicsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TokenomicsQuery, TokenomicsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<TokenomicsQuery, TokenomicsQueryVariables>(TokenomicsDocument, options);
+        }
+export type TokenomicsQueryHookResult = ReturnType<typeof useTokenomicsQuery>;
+export type TokenomicsLazyQueryHookResult = ReturnType<typeof useTokenomicsLazyQuery>;
+export type TokenomicsQueryResult = Apollo.QueryResult<TokenomicsQuery, TokenomicsQueryVariables>;
 export const TransactionsListenerDocument = gql`
     subscription TransactionsListener($limit: Int = 7, $offset: Int = 0) {
   transactions: transaction(

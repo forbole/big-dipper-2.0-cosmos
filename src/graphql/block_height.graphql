@@ -5,7 +5,7 @@ subscription LatestBlockHeightListener {
 }
 
 
-query LatestBlockHeightOffset ($offset: Int = 2){
+query LatestBlockHeightOffset ($offset: Int = 3){
   height: block(order_by: {height: desc}, limit: 1, offset: $offset) {
     height
   }
