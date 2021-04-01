@@ -8,7 +8,7 @@ export const useStyles = () => {
           ...theme.mixins.layout,
           display: 'grid',
           gridGap: theme.spacing(1),
-          gridTemplateRows: 'auto',
+          gridTemplateRows: 'auto auto 1fr',
           gridTemplateColumns: 'repeat(1, 1fr)',
           [theme.breakpoints.up('md')]: {
             gridTemplateColumns: 'repeat(2, 1fr)',
@@ -32,7 +32,7 @@ export const useStyles = () => {
           },
           [theme.breakpoints.up('lg')]: {
             gridColumn: '1 / 3',
-            height: '375px',
+            height: '400px',
           },
         },
         tokenomics: {

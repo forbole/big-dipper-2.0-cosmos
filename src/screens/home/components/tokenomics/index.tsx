@@ -7,7 +7,6 @@ import {
   PieChart,
   Pie,
   Cell,
-  Tooltip,
 } from 'recharts';
 import { useStyles } from './styles';
 
@@ -25,10 +24,13 @@ const Tokenomics:React.FC<{
 
   const data = [
     {
-      name: 'Group A', value: 800, fill: theme.palette.custom.chartData.one,
+      name: 'Group B', value: 200, fill: theme.palette.custom.tags.one,
     },
     {
-      name: 'Group B', value: 200, fill: theme.palette.custom.chartData.three,
+      name: 'Group A', value: 300, fill: theme.palette.custom.tags.six,
+    },
+    {
+      name: 'Group B', value: 200, fill: theme.palette.custom.tags.four,
     },
   ].reverse();
 
@@ -43,14 +45,22 @@ const Tokenomics:React.FC<{
       percent: '30.6%',
       key: 'unbondedPercent',
     },
+    {
+      value: '30,000',
+      percent: '30.6%',
+      key: 'unbondingPercent',
+    },
   ];
 
   const legends = [
     {
-      version: t('bonded'),
+      key: t('bonded'),
     },
     {
-      version: t('unbonded'),
+      key: t('unbonded'),
+    },
+    {
+      key: t('unbonding'),
     },
   ];
 
@@ -97,16 +107,15 @@ const Tokenomics:React.FC<{
               <Cell key={`cell-${index}`} fill={data[index % data.length].fill} />
             ))}
           </Pie>
-          <Tooltip />
         </PieChart>
 
         <div className={classes.legends}>
           {
             legends.map((x) => {
               return (
-                <div className="legends__item" key={x.version}>
+                <div className="legends__item" key={x.key}>
                   <Typography variant="caption">
-                    {x.version}
+                    {x.key}
                   </Typography>
                 </div>
               );

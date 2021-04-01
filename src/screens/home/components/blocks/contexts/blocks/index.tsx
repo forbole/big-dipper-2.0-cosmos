@@ -19,8 +19,8 @@ const BlocksProvider: React.FC = (props: {children: React.ReactNode }) => {
   return (
     <BlocksContext.Provider
       value={{
-        rawData,
-        formatUi,
+        rawData: [],
+        formatUi: () => [],
       }}
     >
       {children}

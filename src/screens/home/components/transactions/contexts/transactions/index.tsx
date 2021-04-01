@@ -19,8 +19,8 @@ const TransactionsProvider: React.FC = (props: {children: React.ReactNode }) => 
   return (
     <TransactionsContext.Provider
       value={{
-        rawData,
-        formatUi,
+        rawData: [],
+        formatUi: () => [],
       }}
     >
       {children}

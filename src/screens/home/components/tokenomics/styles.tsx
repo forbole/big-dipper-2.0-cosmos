@@ -18,7 +18,7 @@ export const useStyles = () => {
         data: {
           display: 'flex',
           '& .data__item': {
-            width: '50%',
+            width: '33.33%',
             whiteSpace: 'pre-wrap',
             '& h4': {
               color: theme.palette.custom.fonts.fontTwo,
@@ -37,20 +37,22 @@ export const useStyles = () => {
             color: theme.palette.custom.fonts.fontThree,
           },
           '& .legends__item': {
-            width: '50%',
+            width: '33.33%',
             '&:before': {
               content: '""',
               display: 'inline-block',
               width: '12px',
               height: '12px',
               marginRight: '5px',
-              background: theme.palette.custom.chartData.two,
             },
             '&:first-child:before': {
-              background: theme.palette.custom.chartData.one,
+              background: theme.palette.custom.tags.one,
+            },
+            '&:nth-child(2):before': {
+              background: theme.palette.custom.tags.six,
             },
             '&:last-child:before': {
-              background: theme.palette.custom.chartData.three,
+              background: theme.palette.custom.tags.four,
             },
             '& .caption__percent': {
               color: theme.palette.custom.fonts.fontThree,
