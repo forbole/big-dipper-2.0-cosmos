@@ -9,11 +9,16 @@ import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
-import { BLOCK_DETAILS } from '@utils/go_to_page';
+import {
+  BLOCK_DETAILS, TRANSACTION_DETAILS,
+} from '@utils/go_to_page';
 import { replaceNaN } from '@utils/replace_nan';
-import { AvatarName } from '@components';
+import {
+  AvatarName, Result,
+} from '@components';
 import { useChainContext } from '@contexts';
 import { formatDenom } from '@utils/format_denom';
+import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import {
   useBlockDetailsQuery,
   BlockDetailsQuery,
@@ -105,8 +110,6 @@ export const useBlock = (initialState: BlockState) => {
       height: numeral(router.query.height).value(),
     },
     onCompleted: (data) => {
-      const rawData = formatBlockDetails(data);
-      console.log(rawData, 'rawData');
       handleSetState(formatBlockDetails(data));
     },
   });
@@ -146,10 +149,21 @@ export const useBlock = (initialState: BlockState) => {
     };
     results.rawData.supply = supply;
 
+    const transactions = data.transaction.map((x) => {
+      return ({
+        height: x.height,
+        hash: x.hash,
+        success: x.success,
+        timestamp: results.rawData.block.timestamp,
+        messages: x.messages.length,
+      });
+    });
+
+    results.rawData.transactions = transactions;
     return results;
   };
 
-  const formatUi = () => {
+  const formatUi = (screen: 'mobile' | 'desktop' = 'mobile') => {
     const validator = findAddress(state.rawData.block.proposer);
     return ({
       block: [
@@ -192,6 +206,35 @@ export const useBlock = (initialState: BlockState) => {
           detail: numeral(state.rawData.block.txs).format('0,0'),
         },
       ],
+      transactions: state.rawData.transactions.map((x) => {
+        const hash = screen === 'mobile'
+          ? getMiddleEllipsis(x.hash, {
+            beginning: 15, ending: 5,
+          }) : getMiddleEllipsis(x.hash, {
+            beginning: 15, ending: 5,
+          });
+        return ({
+          block: (
+            <Link href={BLOCK_DETAILS(x.height)} passHref>
+              <Typography variant="body1" component="a">
+                {numeral(x.height).format('0,0')}
+              </Typography>
+            </Link>
+          ),
+          hash: (
+            <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
+              <Typography variant="body1" component="a">
+                {hash}
+              </Typography>
+            </Link>
+          ),
+          result: (
+            <Result success={x.success} />
+          ),
+          time: replaceNaN(dayjs.utc(x.timestamp).fromNow()),
+          messages: numeral(x.messages).format('0,0'),
+        });
+      }),
     });
   };
 

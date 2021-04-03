@@ -28,6 +28,7 @@ const TransactionsList: React.FC<TransactionsListState> = (props) => {
     items,
     itemCount,
   };
+
   return (
     <div className={classnames(className)}>
       <Mobile className={classes.mobile} {...formatProps} />

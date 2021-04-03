@@ -18,9 +18,11 @@ const initialState: BlockState = {
     supply: {
       bonded: 0,
     },
+    transactions: [],
   },
   uiData: {
     block: [],
+    transactions: [],
   },
 };
 

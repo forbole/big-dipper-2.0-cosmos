@@ -16,11 +16,25 @@ export type BlockState = {
     supply: {
       bonded: number;
     }
+    transactions: {
+      height: number;
+      hash: string;
+      success: boolean;
+      timestamp: string;
+      messages: number;
+    }[]
   }
   uiData: {
     block: {
       label: string;
       detail: string | React.ReactNode;
+    }[],
+    transactions: {
+      block: React.ReactNode;
+      hash: React.ReactNode;
+      result: React.ReactNode;
+      time: string;
+      messages: string;
     }[]
   };
 }
