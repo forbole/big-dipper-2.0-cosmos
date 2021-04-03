@@ -9,21 +9,17 @@ export const useStyles = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          minHeight: '150px',
           height: '100%',
-          '& .MuiTypography-body1': {
-            color: theme.palette.divider,
-          },
-          '& .MuiSvgIcon-root': {
-            color: theme.palette.divider,
-          },
-        },
-        content: {
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexDirection: 'column',
+          minHeight: '150px',
           padding: theme.spacing(2),
+          '& > *': {
+            width: '70%',
+          },
+          [theme.breakpoints.up('md')]: {
+            '& > *': {
+              width: '40%',
+            },
+          },
         },
       });
     },

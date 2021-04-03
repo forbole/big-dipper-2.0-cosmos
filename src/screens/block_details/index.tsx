@@ -3,6 +3,7 @@ import useTranslation from 'next-translate/useTranslation';
 import {
   Layout,
   NotFound,
+  LinearLoading,
 } from '@components';
 import {
   Overview,
@@ -17,15 +18,13 @@ const BlockDetails = () => {
   const classes = useStyles();
 
   return (
-    <Layout navTitle={t('blockDetails')} className={classes.root}>
+    <Layout navTitle={t('blockDetails')}>
       <BlockProvider>
         {({
           exists, loading,
         }) => {
           if (loading) {
-            return (
-              <div>loading</div>
-            );
+            return <LinearLoading />;
           }
 
           if (!exists && !loading) {
@@ -33,11 +32,11 @@ const BlockDetails = () => {
           }
 
           return (
-            <>
+            <span className={classes.root}>
               <Overview />
               <Signatures className={classes.signatures} />
               <Transactions />
-            </>
+            </span>
           );
         }}
       </BlockProvider>

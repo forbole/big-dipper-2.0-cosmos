@@ -21,6 +21,7 @@ import TabPanel from './tab_panel';
 import NoData from './no_data';
 import CustomToolTip from './custom_tool_tip';
 import NotFound from './not_found';
+import LinearLoading from './linear_loading';
 
 export {
   Layout,
@@ -46,4 +47,5 @@ export {
   NoData,
   CustomToolTip,
   NotFound,
+  LinearLoading,
 };
