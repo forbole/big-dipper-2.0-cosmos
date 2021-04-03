@@ -1,7 +1,6 @@
 import React from 'react';
 
 export type BlockState = {
-  item?: any;
   rawData: {
     exists: boolean;
     loading: boolean;

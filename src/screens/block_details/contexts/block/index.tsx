@@ -3,7 +3,6 @@ import { useBlock } from './hooks';
 import { BlockState } from './types';
 
 const initialState: BlockState = {
-  item: {},
   rawData: {
     exists: false,
     loading: true,
@@ -34,7 +33,6 @@ const BlockProvider: React.FC = (props: {children: React.ReactNode }) => {
   const { children } = props;
 
   const {
-    item,
     rawData,
     uiData,
   } = useBlock(initialState);
@@ -42,7 +40,6 @@ const BlockProvider: React.FC = (props: {children: React.ReactNode }) => {
   return (
     <BlockContext.Provider
       value={{
-        item,
         rawData,
         uiData,
       }}
