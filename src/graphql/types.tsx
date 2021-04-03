@@ -12085,6 +12085,24 @@ export type MarketDataQuery = { communityPool: Array<(
     & { marketCap: Token_Price['market_cap'] }
   )> };
 
+export type OnlineVotingPowerSubscriptionVariables = Exact<{ [key: string]: never; }>;
+
+
+export type OnlineVotingPowerSubscription = { block: Array<(
+    { __typename?: 'block' }
+    & Pick<Block, 'height'>
+    & { preCommitsAggregate: (
+      { __typename?: 'pre_commit_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'pre_commit_aggregate_fields' }
+        & { sum?: Maybe<(
+          { __typename?: 'pre_commit_sum_fields' }
+          & { votingPower: Pre_Commit_Sum_Fields['voting_power'] }
+        )> }
+      )> }
+    ) }
+  )> };
+
 export type TokenPriceQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -12541,6 +12559,42 @@ export function useMarketDataLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type MarketDataQueryHookResult = ReturnType<typeof useMarketDataQuery>;
 export type MarketDataLazyQueryHookResult = ReturnType<typeof useMarketDataLazyQuery>;
 export type MarketDataQueryResult = Apollo.QueryResult<MarketDataQuery, MarketDataQueryVariables>;
+export const OnlineVotingPowerDocument = gql`
+    subscription OnlineVotingPower {
+  block(offset: 1, limit: 1, order_by: {height: desc}) {
+    height
+    preCommitsAggregate: pre_commits_aggregate {
+      aggregate {
+        sum {
+          votingPower: voting_power
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useOnlineVotingPowerSubscription__
+ *
+ * To run a query within a React component, call `useOnlineVotingPowerSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useOnlineVotingPowerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useOnlineVotingPowerSubscription({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useOnlineVotingPowerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<OnlineVotingPowerSubscription, OnlineVotingPowerSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<OnlineVotingPowerSubscription, OnlineVotingPowerSubscriptionVariables>(OnlineVotingPowerDocument, options);
+      }
+export type OnlineVotingPowerSubscriptionHookResult = ReturnType<typeof useOnlineVotingPowerSubscription>;
+export type OnlineVotingPowerSubscriptionResult = Apollo.SubscriptionResult<OnlineVotingPowerSubscription>;
 export const TokenPriceDocument = gql`
     query TokenPrice {
   tokenPrice: token_price(order_by: {timestamp: asc}, limit: 1) {
