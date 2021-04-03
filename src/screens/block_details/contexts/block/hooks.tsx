@@ -133,7 +133,7 @@ export const useBlock = (initialState: BlockState) => {
     });
 
     verifiedValidators.sort((a, b) => (
-      a?.moniker?.toLowerCase() > b?.moniker?.toLowerCase() ? 1 : -1));
+      a.moniker.toLowerCase() > b.moniker.toLowerCase() ? 1 : -1));
 
     shyGuys.sort((a, b) => (
       a?.moniker?.toLowerCase() > b?.moniker?.toLowerCase() ? 1 : -1));
