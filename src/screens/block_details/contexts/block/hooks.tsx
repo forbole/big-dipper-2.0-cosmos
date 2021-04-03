@@ -23,6 +23,7 @@ import {
   useBlockDetailsQuery,
   BlockDetailsQuery,
 } from '@graphql/types';
+import { sign } from 'node:crypto';
 import { BlockState } from './types';
 
 export const useBlock = (initialState: BlockState) => {
@@ -197,25 +198,51 @@ export const useBlock = (initialState: BlockState) => {
       // ============================
       // signatures
       // ============================
-      signatures: state.rawData.signatures.map((x) => {
-        const signatureValidator = findAddress(x.validator);
-        return ({
-          signed: (
-            <Result success={x.signed} />
-          ),
-          validator: (
-            <AvatarName
-              address={x.validator}
-              imageUrl={signatureValidator ? signatureValidator?.imageUrl : null}
-              name={signatureValidator ? signatureValidator.moniker : x.validator}
-            />
-          ),
-          votingPower: `${replaceNaN(
-            numeral((x.votingPower / state.rawData.supply.bonded) * 100).format('0.00'),
-          )}%`,
-        });
-      }),
+      signatures: formatSignaturesUi(),
     });
+  };
+
+  const formatSignaturesUi = () => {
+    let signatures = state.rawData.signatures.map((x) => {
+      const signatureValidator = findAddress(x.validator);
+      return ({
+        validatorName: signatureValidator.moniker,
+        signed: (
+          <Result success={x.signed} />
+        ),
+        validator: (
+          <AvatarName
+            address={x.validator}
+            imageUrl={signatureValidator ? signatureValidator?.imageUrl : null}
+            name={signatureValidator ? signatureValidator.moniker : x.validator}
+          />
+        ),
+        votingPower: `${replaceNaN(
+          numeral((x.votingPower / state.rawData.supply.bonded) * 100).format('0.00'),
+        )}%`,
+      });
+    });
+
+    const shyGuys = [];
+    const verifiedValidators = [];
+
+    signatures.forEach((x) => {
+      if (x.validatorName && x.validatorName !== 'Shy Validator') {
+        verifiedValidators.push(x);
+      } else {
+        shyGuys.push(x);
+      }
+    });
+
+    verifiedValidators.sort((a, b) => (
+      a.validatorName.toLowerCase() > b.validatorName.toLowerCase() ? 1 : -1));
+
+    shyGuys.sort((a, b) => (
+      a.validatorName.toLowerCase() > b.validatorName.toLowerCase() ? 1 : -1));
+
+    signatures = [...verifiedValidators, ...shyGuys];
+
+    return signatures;
   };
 
   return {
