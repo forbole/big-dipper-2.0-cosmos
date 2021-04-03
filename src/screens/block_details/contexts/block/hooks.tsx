@@ -2,6 +2,7 @@ import {
   useState,
   useEffect,
 } from 'react';
+import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import dayjs from '@utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
@@ -9,6 +10,7 @@ import Link from 'next/link';
 import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
+import { replaceNaN } from '@utils/replace_nan';
 import { AvatarName } from '@components';
 import { useChainContext } from '@contexts';
 import {
@@ -87,6 +89,7 @@ export const useBlock = (initialState: BlockState) => {
   // ==============================
   // start
   // ==============================
+  const router = useRouter();
   const { t } = useTranslation('blocks');
   const { findAddress } = useChainContext();
 
@@ -97,7 +100,12 @@ export const useBlock = (initialState: BlockState) => {
   };
 
   useBlockDetailsQuery({
+    variables: {
+      height: numeral(router.query.height).value(),
+    },
     onCompleted: (data) => {
+      const rawData = formatBlockDetails(data);
+      console.log(rawData, 'rawData');
       handleSetState(formatBlockDetails(data));
     },
   });
@@ -123,6 +131,7 @@ export const useBlock = (initialState: BlockState) => {
     };
 
     results.rawData.block = block;
+    return results;
   };
 
   const formatUi = () => {
@@ -155,7 +164,7 @@ export const useBlock = (initialState: BlockState) => {
         },
         {
           label: t('time'),
-          detail: dayjs.utc(state.rawData.block.timestamp).fromNow(),
+          detail: replaceNaN(dayjs.utc(state.rawData.block.timestamp).fromNow()),
         },
         {
           label: t('signedVotingPower'),
