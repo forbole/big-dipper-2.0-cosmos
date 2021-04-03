@@ -11,6 +11,10 @@ export type BlockState = {
       timestamp: string;
       proposer: string;
       hash: string;
+      votingPower: number;
+    }
+    supply: {
+      bonded: number;
     }
   }
   uiData: {

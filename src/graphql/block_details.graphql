@@ -18,6 +18,13 @@ query BlockDetails($height: bigint) {
         operatorAddress: operator_address
       }
     }
+    preCommitsAggregate: pre_commits_aggregate{
+      aggregate{
+        sum {
+          votingPower: voting_power
+        }
+      }
+    }
   }
   preCommits: pre_commit(where: {height: {_eq: $height}}) {
     validator {

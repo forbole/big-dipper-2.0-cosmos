@@ -13,6 +13,10 @@ const initialState: BlockState = {
       txs: 0,
       timestamp: '',
       proposer: '',
+      votingPower: 0,
+    },
+    supply: {
+      bonded: 0,
     },
   },
   uiData: {

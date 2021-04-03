@@ -11954,6 +11954,15 @@ export type BlockDetailsQuery = { transaction: Array<(
         { __typename?: 'validator_info' }
         & { operatorAddress: Validator_Info['operator_address'] }
       )> }
+    ), preCommitsAggregate: (
+      { __typename?: 'pre_commit_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'pre_commit_aggregate_fields' }
+        & { sum?: Maybe<(
+          { __typename?: 'pre_commit_sum_fields' }
+          & { votingPower: Pre_Commit_Sum_Fields['voting_power'] }
+        )> }
+      )> }
     ) }
   )>, preCommits: Array<(
     { __typename?: 'pre_commit' }
@@ -12198,6 +12207,13 @@ export const BlockDetailsDocument = gql`
     validator {
       validatorInfo: validator_info {
         operatorAddress: operator_address
+      }
+    }
+    preCommitsAggregate: pre_commits_aggregate {
+      aggregate {
+        sum {
+          votingPower: voting_power
+        }
       }
     }
   }

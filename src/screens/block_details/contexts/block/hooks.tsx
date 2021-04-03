@@ -13,6 +13,7 @@ import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { replaceNaN } from '@utils/replace_nan';
 import { AvatarName } from '@components';
 import { useChainContext } from '@contexts';
+import { formatDenom } from '@utils/format_denom';
 import {
   useBlockDetailsQuery,
   BlockDetailsQuery,
@@ -128,9 +129,23 @@ export const useBlock = (initialState: BlockState) => {
       txs: data.block[0].txs,
       timestamp: data.block[0].timestamp,
       proposer: data.block[0].validator.validatorInfo.operatorAddress,
+      votingPower: R.pathOr(0, [
+        'block',
+        0,
+        'preCommitsAggregate',
+        'aggregate',
+        'sum',
+        'votingPower',
+      ], data),
     };
 
     results.rawData.block = block;
+
+    const supply = {
+      bonded: formatDenom(R.pathOr(0, ['pool', 0, 'bondedTokens'], data)),
+    };
+    results.rawData.supply = supply;
+
     return results;
   };
 
@@ -168,7 +183,9 @@ export const useBlock = (initialState: BlockState) => {
         },
         {
           label: t('signedVotingPower'),
-          detail: '100%',
+          detail: `${replaceNaN(
+            numeral((state.rawData.block.votingPower / state.rawData.supply.bonded) * 100).format('0.00'),
+          )}%`,
         },
         {
           label: t('txs'),
