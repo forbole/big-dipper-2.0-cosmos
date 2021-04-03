@@ -42,40 +42,12 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
       >
         <div>
           <div
-            block={
-              <Link
-                href="/blocks/123"
-                passHref={true}
-              >
-                <WithStyles(ForwardRef(Typography))
-                  component="a"
-                  variant="body1"
-                >
-                  812,768,640
-                </WithStyles(ForwardRef(Typography))>
-              </Link>
-            }
-            hash={
-              <Link
-                href="/transactions/76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857"
-                passHref={true}
-              >
-                <WithStyles(ForwardRef(Typography))
-                  component="a"
-                  variant="body1"
-                >
-                  76nwV8zz8tLz97S...hQ857
-                </WithStyles(ForwardRef(Typography))>
-              </Link>
-            }
+            block="812,768,640"
+            hash="76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857"
             id="SingleTransactionMobile"
             messages={123}
-            result={
-              <Result
-                success={false}
-              />
-            }
-            time="24 days ago"
+            success={false}
+            time={1615187146246}
           />
         </div>
       </div>

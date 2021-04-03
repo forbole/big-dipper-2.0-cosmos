@@ -17,8 +17,24 @@ exports[`screen: BlockDetails/Transactions matches snapshot 1`] = `
   <div
     className="makeStyles-list"
     id="TransactionsList"
-    itemCount={0}
-    items={Array []}
+    itemCount={1}
+    items={
+      Array [
+        Object {
+          "block": <div>
+            block
+          </div>,
+          "hash": <div>
+            hash
+          </div>,
+          "messages": "12",
+          "result": <div>
+            result
+          </div>,
+          "time": "time",
+        },
+      ]
+    }
   />
 </div>
 `;

@@ -163,14 +163,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         <div
           className="MuiTypography-root MuiTypography-body1"
         >
-          <a
-            className="MuiTypography-root MuiTypography-body1"
-            href="/blocks/123"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-          >
-            812,768,640
-          </a>
+          812,768,640
         </div>
       </div>
       <div
@@ -189,14 +182,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         <div
           className="MuiTypography-root MuiTypography-body1"
         >
-          <a
-            className="MuiTypography-root MuiTypography-body1"
-            href="/transactions/76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-          >
-            76nwV8zz8tLz97S...DLQfF66jZhQ857
-          </a>
+          76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857
         </div>
       </div>
       <div
@@ -233,12 +219,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       >
         <div
           className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
-        >
-          <div
-            id="Result"
-            success={false}
-          />
-        </div>
+        />
       </div>
       <div
         className="makeStyles-cell makeStyles-body odd"
@@ -256,7 +237,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         <div
           className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
         >
-          24 days ago
+          1615187146246
         </div>
       </div>
     </div>

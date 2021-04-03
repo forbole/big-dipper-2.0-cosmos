@@ -11,12 +11,20 @@ jest.mock('@components', () => ({
   AvatarName: (props) => <div id="BoxDetailAvatarName" {...props} />,
 }));
 
-jest.mock('dayjs', () => {
-  const mockTest = () => ({
-    format: jest.fn(() => '2020-08-10 12:00:00'),
-  });
-  return mockTest;
-});
+jest.mock('../../contexts/block', () => ({
+  useBlockContext: () => {
+    return ({
+      uiData: {
+        block: [
+          {
+            label: 'label',
+            detail: <div>detail</div>,
+          },
+        ],
+      },
+    });
+  },
+}));
 
 // ==================================
 // unit tests
