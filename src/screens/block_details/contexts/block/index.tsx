@@ -4,7 +4,7 @@ import { BlockState } from './types';
 
 const initialState: BlockState = {
   rawData: {
-    exists: false,
+    exists: true,
     loading: true,
     block: {
       height: 0,
@@ -29,7 +29,12 @@ const initialState: BlockState = {
 
 const BlockContext = React.createContext<BlockState>(initialState);
 
-const BlockProvider: React.FC = (props: {children: React.ReactNode }) => {
+const BlockProvider: React.FC = (props: {
+  children: (options: {
+    exists: boolean;
+    loading: boolean;
+  }) => React.ReactNode;
+}) => {
   const { children } = props;
 
   const {
@@ -44,7 +49,10 @@ const BlockProvider: React.FC = (props: {children: React.ReactNode }) => {
         uiData,
       }}
     >
-      {children}
+      {children({
+        exists: rawData.exists,
+        loading: rawData.loading,
+      })}
     </BlockContext.Provider>
   );
 };

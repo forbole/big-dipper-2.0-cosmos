@@ -20,6 +20,7 @@ import SingleProposal from './single_proposal';
 import TabPanel from './tab_panel';
 import NoData from './no_data';
 import CustomToolTip from './custom_tool_tip';
+import NotFound from './not_found';
 
 export {
   Layout,
@@ -44,4 +45,5 @@ export {
   TabPanel,
   NoData,
   CustomToolTip,
+  NotFound,
 };
