@@ -2,18 +2,28 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
-import { Box } from '@components';
+import {
+  Box, NoData,
+} from '@components';
 import { useStyles } from './styles';
 import {
   Desktop,
   Mobile,
 } from './components';
+import { useBlockContext } from '../../contexts/block';
 
 const Signatures: React.FC<{
   className?: string;
 }> = ({ className }) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
+  const {
+    rawData,
+  } = useBlockContext();
+
+  if (!rawData.signatures.length) {
+    return <NoData />;
+  }
 
   return (
     <Box className={classnames(className, classes.root)}>

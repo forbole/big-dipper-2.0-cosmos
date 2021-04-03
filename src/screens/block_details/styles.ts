@@ -15,7 +15,7 @@ export const useStyles = () => {
           },
         },
         signatures: {
-          height: '300px',
+          height: '450px',
           [theme.breakpoints.up('lg')]: {
             height: '450px',
           },

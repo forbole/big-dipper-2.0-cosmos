@@ -14,17 +14,15 @@ const Transactions: React.FC<{
 }> = ({ className }) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
-  const { item } = useBlockContext();
-  const { transactions = [] } = item;
+  const { uiData } = useBlockContext();
   return (
-
     <Box className={classnames(className, classes.root)}>
       <div className={classes.header}>
         <Typography variant="h2">{t('transactions')}</Typography>
       </div>
       <TransactionsList
-        items={transactions}
-        itemCount={transactions.length}
+        items={uiData.transactions}
+        itemCount={uiData.transactions.length}
         className={classes.list}
       />
     </Box>

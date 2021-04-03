@@ -11,6 +11,28 @@ jest.mock('@components', () => ({
   TransactionsList: (props) => <div id="TransactionsList" {...props} />,
 }));
 
+jest.mock('../../contexts/block', () => ({
+  useBlockContext: () => {
+    return ({
+      uiData: {
+        transactions: [{
+          block: (
+            <div>block</div>
+          ),
+          hash: (
+            <div>hash</div>
+          ),
+          result: (
+            <div>result</div>
+          ),
+          time: 'time',
+          messages: '12',
+        }],
+      },
+    });
+  },
+}));
+
 // ==================================
 // unit tests
 // ==================================

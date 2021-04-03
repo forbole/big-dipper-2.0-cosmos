@@ -13,15 +13,17 @@ export const useNetwork = () => {
   const NETWORK_LIST_API = 'https://gist.githubusercontent.com/kwunyeung/8be4598c77c61e497dfc7220a678b3ee/raw/bd-networks.json';
 
   const [networks, setNetworks] = useState<BigDipperNetwork[]>([]);
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const getNetworkList = async () => {
       let data = [];
       try {
         const results = await axios.get(NETWORK_LIST_API);
         data = results?.data ?? [];
+        setLoading(false);
       } catch (error) {
         console.error(error);
+        setLoading(false);
       }
       const formattedData = data
         .map((x) => BigDipperNetwork.fromJson(x))
@@ -33,16 +35,22 @@ export const useNetwork = () => {
 
   return {
     bigDipperNetworks: networks,
+    loading,
   };
 };
 
 export const useSelectedNetwork = (initialState: NetworksState) => {
   const [selected, setSelected] = useState(initialState.selected);
+  const [loading, setLoading] = useState(true);
 
   useChainIdQuery(
     {
+      onError: () => {
+        setLoading(false);
+      },
       onCompleted: (data) => {
         setSelected(formatUseChainIdQuery(data));
+        setLoading(false);
       },
     },
   );
@@ -53,5 +61,6 @@ export const useSelectedNetwork = (initialState: NetworksState) => {
 
   return {
     selected,
+    loading,
   };
 };

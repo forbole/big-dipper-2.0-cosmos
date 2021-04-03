@@ -5,32 +5,10 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
   details={
     Array [
       Object {
-        "detail": undefined,
-        "label": "blocks:height",
-      },
-      Object {
-        "detail": undefined,
-        "label": "blocks:hash",
-      },
-      Object {
-        "detail": <AvatarName
-          address="FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk"
-          imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
-          name="Forbole"
-        />,
-        "label": "blocks:proposer",
-      },
-      Object {
-        "detail": "2020-08-10 12:00:00",
-        "label": "blocks:time",
-      },
-      Object {
-        "detail": undefined,
-        "label": "blocks:signedVotingPower",
-      },
-      Object {
-        "detail": undefined,
-        "label": "blocks:txs",
+        "detail": <div>
+          detail
+        </div>,
+        "label": "label",
       },
     ]
   }

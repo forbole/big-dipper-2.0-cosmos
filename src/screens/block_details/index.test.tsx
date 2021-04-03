@@ -10,6 +10,19 @@ jest.mock('@components', () => ({
   Layout: (props) => <div id="Layout" {...props} />,
 }));
 
+jest.mock('./contexts/block', () => ({
+  BlockProvider: ({
+    children, ...props
+  }) => (
+    <div id="BlockProvider" {...props}>
+      {children({
+        exists: true,
+        loading: false,
+      })}
+    </div>
+  ),
+}));
+
 jest.mock('./components', () => ({
   Overview: (props) => <div id="Overview" {...props} />,
   Transactions: (props) => <div id="Transactions" {...props} />,
