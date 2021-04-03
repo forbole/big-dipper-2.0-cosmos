@@ -9,6 +9,7 @@ import { NetworksState } from './types';
 const initialState: NetworksState = {
   networks: [],
   selected: chainConfig.network,
+  loading: true,
 };
 
 const NetworksContext = React.createContext<NetworksState>(initialState);
@@ -16,14 +17,21 @@ const NetworksContext = React.createContext<NetworksState>(initialState);
 const NetworksProvider: React.FC = (props: {children: React.ReactNode }) => {
   const { children } = props;
 
-  const { bigDipperNetworks } = useNetwork();
-  const { selected } = useSelectedNetwork(initialState);
+  const {
+    bigDipperNetworks,
+    loading: networkLoading,
+  } = useNetwork();
+  const {
+    selected,
+    loading: selectedLoading,
+  } = useSelectedNetwork(initialState);
 
   return (
     <NetworksContext.Provider
       value={{
         networks: bigDipperNetworks,
         selected,
+        loading: networkLoading || selectedLoading,
       }}
     >
       {children}

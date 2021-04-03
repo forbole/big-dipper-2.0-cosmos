@@ -3,7 +3,9 @@ import { useValidatorsAddress } from './hooks';
 import { ChainState } from './types';
 
 const initialState: ChainState = {
+  loading: true,
   validatorsAddresses: {
+    loading: true,
     validators: {},
     selfDelegateAddresses: {},
   },
@@ -17,6 +19,7 @@ const ChainProvider: React.FC = (props: {children: React.ReactNode }) => {
   const {
     validatorsAddresses,
     findAddress,
+    loading,
   } = useValidatorsAddress(initialState);
 
   return (
@@ -24,6 +27,7 @@ const ChainProvider: React.FC = (props: {children: React.ReactNode }) => {
       value={{
         validatorsAddresses,
         findAddress,
+        loading,
       }}
     >
       {children}
