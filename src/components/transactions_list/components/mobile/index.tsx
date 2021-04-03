@@ -3,20 +3,10 @@ import classnames from 'classnames';
 import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
-import {
-  Divider, Typography,
-} from '@material-ui/core';
-import dayjs from 'dayjs';
-import Link from 'next/link';
-import relativeTime from 'dayjs/plugin/relativeTime';
-import {
-  BLOCK_DETAILS, TRANSACTION_DETAILS,
-} from '@utils/go_to_page';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { Divider } from '@material-ui/core';
 import { mergeRefs } from '@utils/merge_refs';
 import {
   SingleTransactionMobile,
-  Result,
   Loading,
 } from '@components';
 import {
@@ -40,33 +30,6 @@ const Mobile: React.FC<TransactionsListState> = ({
     getRowHeight,
     setRowHeight,
   } = useList();
-
-  const formatItems = items.map((x) => {
-    dayjs.extend(relativeTime);
-    return ({
-      block: (
-        <Link href={BLOCK_DETAILS(123)} passHref>
-          <Typography variant="body1" component="a">
-            {x.block}
-          </Typography>
-        </Link>
-      ),
-      hash: (
-        <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
-          <Typography variant="body1" component="a">
-            {getMiddleEllipsis(x.hash, {
-              beginning: 15, ending: 5,
-            })}
-          </Typography>
-        </Link>
-      ),
-      result: (
-        <Result success={x.success} />
-      ),
-      messages: x.messages,
-      time: dayjs(x.time).fromNow(),
-    });
-  });
 
   return (
     <div className={classnames(className, classes.root)}>
@@ -105,7 +68,7 @@ const Mobile: React.FC<TransactionsListState> = ({
                         </div>
                       );
                     }
-                    const item = formatItems[index];
+                    const item = items[index];
                     return (
                       <div style={style}>
                         <div ref={rowRef}>

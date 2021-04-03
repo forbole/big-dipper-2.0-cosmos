@@ -4,19 +4,9 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import InfiniteLoader from 'react-window-infinite-loader';
 import { VariableSizeGrid as Grid } from 'react-window';
 import { Typography } from '@material-ui/core';
-import dayjs from 'dayjs';
-import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
-import relativeTime from 'dayjs/plugin/relativeTime';
-import {
-  BLOCK_DETAILS, TRANSACTION_DETAILS,
-} from '@utils/go_to_page';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { mergeRefs } from '@utils/merge_refs';
-import {
-  Result,
-  Loading,
-} from '@components';
+import { Loading } from '@components';
 import { useGrid } from '@hooks';
 import { TransactionsListState } from '../../types';
 import { columns } from './utils';
@@ -39,33 +29,6 @@ const Desktop: React.FC<TransactionsListState> = ({
 
   const classes = useStyles();
   const { t } = useTranslation('transactions');
-
-  const formatSlots = items.map((x) => {
-    dayjs.extend(relativeTime);
-    return ({
-      block: (
-        <Link href={BLOCK_DETAILS(123)} passHref>
-          <Typography variant="body1" component="a">
-            {x.block}
-          </Typography>
-        </Link>
-      ),
-      hash: (
-        <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
-          <Typography variant="body1" component="a">
-            {getMiddleEllipsis(x.hash, {
-              beginning: 15,
-            })}
-          </Typography>
-        </Link>
-      ),
-      result: (
-        <Result success={x.success} />
-      ),
-      messages: x.messages,
-      time: dayjs(x.time).fromNow(),
-    });
-  });
 
   return (
     <div className={classnames(className, classes.root)}>
@@ -166,7 +129,7 @@ const Desktop: React.FC<TransactionsListState> = ({
                         const {
                           key, align,
                         } = columns[columnIndex];
-                        const item = formatSlots[rowIndex][key];
+                        const item = items[rowIndex][key];
                         return (
                           <div
                             style={style}
@@ -174,15 +137,13 @@ const Desktop: React.FC<TransactionsListState> = ({
                               odd: !(rowIndex % 2),
                             })}
                           >
-                            {React.isValidElement(item) ? item : (
-                              <Typography
-                                variant="body1"
-                                align={align}
-                                component="div"
-                              >
-                                {item}
-                              </Typography>
-                            )}
+                            <Typography
+                              variant="body1"
+                              align={align}
+                              component="div"
+                            >
+                              {item}
+                            </Typography>
                           </div>
                         );
                       }}

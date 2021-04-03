@@ -228,14 +228,11 @@ export const useBlock = (initialState: BlockState) => {
             </Link>
           ),
           hash: (
-            <Typography variant="body1" component="div">
-              {hash}
-            </Typography>
-            // <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
-            //   <Typography variant="body1" component="a">
-            //     {hash}
-            //   </Typography>
-            // </Link>
+            <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
+              <Typography variant="body1" component="a">
+                {hash}
+              </Typography>
+            </Link>
           ),
           result: (
             <Result success={x.success} />
