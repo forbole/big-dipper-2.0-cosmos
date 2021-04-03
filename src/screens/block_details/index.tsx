@@ -1,6 +1,10 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import { Layout } from '@components';
+import {
+  Layout,
+  NotFound,
+  LinearLoading,
+} from '@components';
 import {
   Overview,
   Transactions,
@@ -14,11 +18,27 @@ const BlockDetails = () => {
   const classes = useStyles();
 
   return (
-    <Layout navTitle={t('blockDetails')} className={classes.root}>
+    <Layout navTitle={t('blockDetails')}>
       <BlockProvider>
-        <Overview />
-        <Signatures className={classes.signatures} />
-        <Transactions />
+        {({
+          exists, loading,
+        }) => {
+          if (loading) {
+            return <LinearLoading />;
+          }
+
+          if (!exists && !loading) {
+            return <NotFound />;
+          }
+
+          return (
+            <span className={classes.root}>
+              <Overview />
+              <Signatures className={classes.signatures} />
+              <Transactions />
+            </span>
+          );
+        }}
       </BlockProvider>
     </Layout>
   );

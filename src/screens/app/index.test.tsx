@@ -10,10 +10,20 @@ const mockThemeContext = {
   theme: 'light',
 };
 
+const mockNetworksContext = {
+  loading: false,
+};
+
+const mockChainContext = {
+  loading: false,
+};
+
 const mockClient = createMockClient();
 
 jest.mock('@contexts', () => ({
   useSettingsContext: () => mockThemeContext,
+  useNetworksContext: () => mockNetworksContext,
+  useChainContext: () => mockChainContext,
   SettingsProvider: 'SettingsProvider',
   SettingsContext: {
     Consumer: ({ children }) => children(mockThemeContext),

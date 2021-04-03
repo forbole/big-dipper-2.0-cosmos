@@ -7,10 +7,6 @@ import {
   Divider, Typography,
 } from '@material-ui/core';
 import {
-  Result,
-  AvatarName,
-} from '@components';
-import {
   useList,
   useListRow,
 } from '@hooks';
@@ -22,7 +18,7 @@ const Mobile: React.FC<{
 }> = ({ className }) => {
   const { t } = useTranslation('blocks');
   const {
-    item,
+    uiData,
   } = useBlockContext();
 
   const {
@@ -32,23 +28,8 @@ const Mobile: React.FC<{
   } = useList();
   const classes = useStyles();
 
-  const { signatures = [] } = item;
+  const { signatures = [] } = uiData;
 
-  const formatItems = signatures.map((x) => {
-    return ({
-      signed: (
-        <Result success={x.signed} />
-      ),
-      validator: (
-        <AvatarName
-          address={x.validator.identity}
-          imageUrl={x.validator.image}
-          name={x.validator.moniker}
-        />
-      ),
-      votingPower: x.votingPower,
-    });
-  });
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer>
@@ -59,7 +40,7 @@ const Mobile: React.FC<{
             <List
               className="List"
               height={height}
-              itemCount={formatItems.length}
+              itemCount={signatures.length}
               itemSize={getRowHeight}
               ref={listRef}
               width={width}
@@ -68,7 +49,7 @@ const Mobile: React.FC<{
                 index, style,
               }) => {
                 const { rowRef } = useListRow(index, setRowHeight);
-                const selectedItem = formatItems[index];
+                const selectedItem = signatures[index];
                 return (
                   <div style={style}>
                     <div ref={rowRef}>
@@ -98,7 +79,7 @@ const Mobile: React.FC<{
                         </div>
                       </div>
                       {/* single signature end */}
-                      {index !== formatItems.length - 1 && <Divider />}
+                      {index !== signatures.length - 1 && <Divider />}
                     </div>
                   </div>
                 );

@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import { NoData } from '@components';
 import {
   Desktop,
   Mobile,
@@ -28,6 +29,13 @@ const TransactionsList: React.FC<TransactionsListState> = (props) => {
     items,
     itemCount,
   };
+
+  if (!items.length) {
+    return (
+      <NoData />
+    );
+  }
+
   return (
     <div className={classnames(className)}>
       <Mobile className={classes.mobile} {...formatProps} />

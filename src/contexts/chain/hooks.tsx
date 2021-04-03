@@ -8,25 +8,24 @@ import {
 import { ChainState } from './types';
 
 export const useValidatorsAddress = (initialstate:ChainState) => {
-  const [state, setState] = useState<{
-    validators: {
-      [key: string]: {
-        moniker: string;
-        imageUrl?: string;
-      }
-    };
-    selfDelegateAddresses: {
-      [key: string]: {
-        moniker: string;
-        imageUrl?: string;
-      }
-    };
-  }>(initialstate.validatorsAddresses);
+  const [state, setState] = useState(initialstate.validatorsAddresses);
+
+  const handleSetState = (stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  };
 
   useValidatorsAddressListQuery({
+    onError: () => {
+      handleSetState({
+        loading: false,
+      });
+    },
     onCompleted: async (data) => {
       const formattedList = await formatValidatorsAddressList(data);
-      setState(formattedList);
+      handleSetState({
+        ...formattedList,
+        loading: false,
+      });
     },
   });
 
@@ -114,6 +113,7 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
 
   return {
     validatorsAddresses: state,
+    loading: state.loading,
     findAddress,
   };
 };

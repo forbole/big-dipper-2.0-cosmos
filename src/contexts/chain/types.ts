@@ -1,7 +1,9 @@
 export type Theme = 'light' | 'dark' | 'device';
 
 export interface ChainState {
+  loading: boolean;
   validatorsAddresses: {
+    loading: boolean;
     validators: {
       [key: string]: {
         moniker: string;

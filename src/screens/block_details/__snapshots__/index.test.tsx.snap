@@ -2,19 +2,26 @@
 
 exports[`screen: BlockDetails matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
   id="Layout"
   navTitle="blocks:blockDetails"
 >
   <div
-    id="Overview"
-  />
-  <div
-    className="makeStyles-signatures"
-    id="Signatures"
-  />
-  <div
-    id="Transactions"
-  />
+    id="BlockProvider"
+  >
+    <span
+      className="makeStyles-root"
+    >
+      <div
+        id="Overview"
+      />
+      <div
+        className="makeStyles-signatures"
+        id="Signatures"
+      />
+      <div
+        id="Transactions"
+      />
+    </span>
+  </div>
 </div>
 `;

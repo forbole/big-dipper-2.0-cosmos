@@ -35,5 +35,6 @@
   "paginationLabelOne": "showing {{from}}-{{to}} of {{count}}",
   "dark": "Dark Mode",
   "light": "Light Mode",
-  "nothingToShow": "Nothing to show"
+  "nothingToShow": "Nothing to show",
+  "notFound": "Not Found"
 }
