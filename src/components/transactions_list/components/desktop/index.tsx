@@ -174,13 +174,15 @@ const Desktop: React.FC<TransactionsListState> = ({
                               odd: !(rowIndex % 2),
                             })}
                           >
-                            <Typography
-                              variant="body1"
-                              align={align}
-                              component="div"
-                            >
-                              {item}
-                            </Typography>
+                            {React.isValidElement(item) ? item : (
+                              <Typography
+                                variant="body1"
+                                align={align}
+                                component="div"
+                              >
+                                {item}
+                              </Typography>
+                            )}
                           </div>
                         );
                       }}

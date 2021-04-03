@@ -166,6 +166,9 @@ export const useBlock = (initialState: BlockState) => {
   const formatUi = (screen: 'mobile' | 'desktop' = 'mobile') => {
     const validator = findAddress(state.rawData.block.proposer);
     return ({
+      // ============================
+      // blocks
+      // ============================
       block: [
         {
           label: t('height'),
@@ -206,6 +209,9 @@ export const useBlock = (initialState: BlockState) => {
           detail: numeral(state.rawData.block.txs).format('0,0'),
         },
       ],
+      // ============================
+      // transactions
+      // ============================
       transactions: state.rawData.transactions.map((x) => {
         const hash = screen === 'mobile'
           ? getMiddleEllipsis(x.hash, {
@@ -222,11 +228,14 @@ export const useBlock = (initialState: BlockState) => {
             </Link>
           ),
           hash: (
-            <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
-              <Typography variant="body1" component="a">
-                {hash}
-              </Typography>
-            </Link>
+            <Typography variant="body1" component="div">
+              {hash}
+            </Typography>
+            // <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
+            //   <Typography variant="body1" component="a">
+            //     {hash}
+            //   </Typography>
+            // </Link>
           ),
           result: (
             <Result success={x.success} />
