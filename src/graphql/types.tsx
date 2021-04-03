@@ -11979,7 +11979,6 @@ export type BlockDetailsQuery = { transaction: Array<(
       { __typename?: 'validator' }
       & { validatorVotingPowers: Array<(
         { __typename?: 'validator_voting_power' }
-        & Pick<Validator_Voting_Power, 'height'>
         & { votingPower: Validator_Voting_Power['voting_power'] }
       )>, validatorInfo?: Maybe<(
         { __typename?: 'validator_info' }
@@ -12233,7 +12232,6 @@ export const BlockDetailsDocument = gql`
         where: {height: {_eq: $height}}
       ) {
         votingPower: voting_power
-        height
       }
       validatorInfo: validator_info {
         operatorAddress: operator_address

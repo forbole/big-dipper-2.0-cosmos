@@ -4,10 +4,6 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import useTranslation from 'next-translate/useTranslation';
 import { VariableSizeGrid as Grid } from 'react-window';
 import { Typography } from '@material-ui/core';
-import {
-  Result,
-  AvatarName,
-} from '@components';
 import { useGrid } from '@hooks';
 import { useBlockContext } from '../../../../contexts/block';
 import { columns } from './utils';
@@ -19,9 +15,8 @@ const Desktop: React.FC<{
   const { t } = useTranslation('blocks');
   const classes = useStyles();
   const {
-    item,
+    uiData,
   } = useBlockContext();
-  const { signatures = [] } = item;
   const {
     gridRef,
     columnRef,
@@ -29,22 +24,6 @@ const Desktop: React.FC<{
     getColumnWidth,
     getRowHeight,
   } = useGrid(columns);
-
-  const formatItems = signatures.map((x) => {
-    return ({
-      signed: (
-        <Result success={x.signed} />
-      ),
-      validator: (
-        <AvatarName
-          address={x.validator.identity}
-          imageUrl={x.validator.image}
-          name={x.validator.moniker}
-        />
-      ),
-      votingPower: x.votingPower,
-    });
-  });
 
   return (
     <div className={classnames(className, classes.root)}>
@@ -96,7 +75,7 @@ const Desktop: React.FC<{
                 columnCount={columns.length}
                 columnWidth={(index) => getColumnWidth(width, index)}
                 height={height - 50}
-                rowCount={signatures.length}
+                rowCount={uiData.signatures.length}
                 rowHeight={getRowHeight}
                 width={width}
               >
@@ -106,7 +85,7 @@ const Desktop: React.FC<{
                   const {
                     key, align,
                   } = columns[columnIndex];
-                  const selectedItem = formatItems[rowIndex][key];
+                  const selectedItem = uiData.signatures[rowIndex][key];
                   return (
                     <div
                       style={style}

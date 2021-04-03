@@ -160,6 +160,28 @@ export const useBlock = (initialState: BlockState) => {
     });
 
     results.rawData.transactions = transactions;
+
+    const signedDictionary = {};
+    data.preCommits.forEach((x) => {
+      signedDictionary[x.validator.validatorInfo.operatorAddress] = true;
+    });
+
+    const signatures = data.validatorStatus.map((x) => {
+      const validator = x.validator.validatorInfo.operatorAddress;
+      return ({
+        validator,
+        votingPower: R.pathOr(0, [
+          'validator',
+          'validatorVotingPowers',
+          0,
+          'votingPower',
+        ], x),
+        signed: !!signedDictionary[validator],
+      });
+    });
+
+    results.rawData.signatures = signatures;
+
     return results;
   };
 
@@ -239,6 +261,25 @@ export const useBlock = (initialState: BlockState) => {
           ),
           time: replaceNaN(dayjs.utc(x.timestamp).fromNow()),
           messages: numeral(x.messages).format('0,0'),
+        });
+      }),
+      // ============================
+      // signatures
+      // ============================
+      signatures: state.rawData.signatures.map((x) => {
+        const signatureValidator = findAddress(state.rawData.block.proposer);
+        return ({
+          signed: (
+            <Result success={x.signed} />
+          ),
+          validator: (
+            <AvatarName
+              address={x.validator}
+              imageUrl={validator ? signatureValidator?.imageUrl : null}
+              name={validator ? signatureValidator.moniker : x.validator}
+            />
+          ),
+          votingPower: x.votingPower,
         });
       }),
     });

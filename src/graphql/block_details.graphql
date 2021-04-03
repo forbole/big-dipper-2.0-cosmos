@@ -37,7 +37,6 @@ query BlockDetails($height: bigint) {
     validator {
       validatorVotingPowers: validator_voting_powers(limit: 1, where: {height: {_eq: $height}}) {
         votingPower: voting_power
-        height
       }
       validatorInfo: validator_info {
         operatorAddress: operator_address

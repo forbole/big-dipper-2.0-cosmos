@@ -22,7 +22,12 @@ export type BlockState = {
       success: boolean;
       timestamp: string;
       messages: number;
-    }[]
+    }[];
+    signatures: {
+      validator: string;
+      votingPower: number;
+      signed: boolean;
+    }[];
   }
   uiData: {
     block: {
@@ -35,6 +40,11 @@ export type BlockState = {
       result: React.ReactNode;
       time: string;
       messages: string;
+    }[],
+    signatures: {
+      signed: React.ReactNode;
+      validator: React.ReactNode;
+      votingPower: string;
     }[]
   };
 }

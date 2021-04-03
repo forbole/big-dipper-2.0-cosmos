@@ -19,10 +19,12 @@ const initialState: BlockState = {
       bonded: 0,
     },
     transactions: [],
+    signatures: [],
   },
   uiData: {
     block: [],
     transactions: [],
+    signatures: [],
   },
 };
 
