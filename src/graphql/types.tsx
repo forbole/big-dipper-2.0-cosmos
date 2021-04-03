@@ -5447,10 +5447,20 @@ export type Query_Root = {
   supply_aggregate: Supply_Aggregate;
   /** fetch data from the table: "supply" using primary key columns */
   supply_by_pk?: Maybe<Supply>;
+  /** fetch data from the table: "token" */
+  token: Array<Token>;
+  /** fetch aggregated fields from the table: "token" */
+  token_aggregate: Token_Aggregate;
   /** fetch data from the table: "token_price" */
   token_price: Array<Token_Price>;
+  /** fetch aggregated fields from the table: "token_price" */
+  token_price_aggregate: Token_Price_Aggregate;
   /** fetch data from the table: "token_price" using primary key columns */
   token_price_by_pk?: Maybe<Token_Price>;
+  /** fetch data from the table: "token_unit" */
+  token_unit: Array<Token_Unit>;
+  /** fetch aggregated fields from the table: "token_unit" */
+  token_unit_aggregate: Token_Unit_Aggregate;
   /** fetch data from the table: "transaction" */
   transaction: Array<Transaction>;
   /** fetch aggregated fields from the table: "transaction" */
@@ -6156,7 +6166,37 @@ export type Query_RootSupply_By_PkArgs = {
 
 
 /** query root */
+export type Query_RootTokenArgs = {
+  distinct_on?: Maybe<Array<Token_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Token_Order_By>>;
+  where?: Maybe<Token_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootToken_AggregateArgs = {
+  distinct_on?: Maybe<Array<Token_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Token_Order_By>>;
+  where?: Maybe<Token_Bool_Exp>;
+};
+
+
+/** query root */
 export type Query_RootToken_PriceArgs = {
+  distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Token_Price_Order_By>>;
+  where?: Maybe<Token_Price_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootToken_Price_AggregateArgs = {
   distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
@@ -6168,6 +6208,26 @@ export type Query_RootToken_PriceArgs = {
 /** query root */
 export type Query_RootToken_Price_By_PkArgs = {
   id: Scalars['Int'];
+};
+
+
+/** query root */
+export type Query_RootToken_UnitArgs = {
+  distinct_on?: Maybe<Array<Token_Unit_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Token_Unit_Order_By>>;
+  where?: Maybe<Token_Unit_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootToken_Unit_AggregateArgs = {
+  distinct_on?: Maybe<Array<Token_Unit_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Token_Unit_Order_By>>;
+  where?: Maybe<Token_Unit_Bool_Exp>;
 };
 
 
@@ -7428,10 +7488,20 @@ export type Subscription_Root = {
   supply_aggregate: Supply_Aggregate;
   /** fetch data from the table: "supply" using primary key columns */
   supply_by_pk?: Maybe<Supply>;
+  /** fetch data from the table: "token" */
+  token: Array<Token>;
+  /** fetch aggregated fields from the table: "token" */
+  token_aggregate: Token_Aggregate;
   /** fetch data from the table: "token_price" */
   token_price: Array<Token_Price>;
+  /** fetch aggregated fields from the table: "token_price" */
+  token_price_aggregate: Token_Price_Aggregate;
   /** fetch data from the table: "token_price" using primary key columns */
   token_price_by_pk?: Maybe<Token_Price>;
+  /** fetch data from the table: "token_unit" */
+  token_unit: Array<Token_Unit>;
+  /** fetch aggregated fields from the table: "token_unit" */
+  token_unit_aggregate: Token_Unit_Aggregate;
   /** fetch data from the table: "transaction" */
   transaction: Array<Transaction>;
   /** fetch aggregated fields from the table: "transaction" */
@@ -8137,7 +8207,37 @@ export type Subscription_RootSupply_By_PkArgs = {
 
 
 /** subscription root */
+export type Subscription_RootTokenArgs = {
+  distinct_on?: Maybe<Array<Token_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Token_Order_By>>;
+  where?: Maybe<Token_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootToken_AggregateArgs = {
+  distinct_on?: Maybe<Array<Token_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Token_Order_By>>;
+  where?: Maybe<Token_Bool_Exp>;
+};
+
+
+/** subscription root */
 export type Subscription_RootToken_PriceArgs = {
+  distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Token_Price_Order_By>>;
+  where?: Maybe<Token_Price_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootToken_Price_AggregateArgs = {
   distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
@@ -8149,6 +8249,26 @@ export type Subscription_RootToken_PriceArgs = {
 /** subscription root */
 export type Subscription_RootToken_Price_By_PkArgs = {
   id: Scalars['Int'];
+};
+
+
+/** subscription root */
+export type Subscription_RootToken_UnitArgs = {
+  distinct_on?: Maybe<Array<Token_Unit_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Token_Unit_Order_By>>;
+  where?: Maybe<Token_Unit_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootToken_Unit_AggregateArgs = {
+  distinct_on?: Maybe<Array<Token_Unit_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Token_Unit_Order_By>>;
+  where?: Maybe<Token_Unit_Bool_Exp>;
 };
 
 
@@ -8601,6 +8721,109 @@ export type Timestamp_Comparison_Exp = {
   _nin?: Maybe<Array<Scalars['timestamp']>>;
 };
 
+/** columns and relationships of "token" */
+export type Token = {
+  __typename?: 'token';
+  name: Scalars['String'];
+  /** An array relationship */
+  token_units: Array<Token_Unit>;
+  /** An aggregated array relationship */
+  token_units_aggregate: Token_Unit_Aggregate;
+  traded_unit: Scalars['String'];
+};
+
+
+/** columns and relationships of "token" */
+export type TokenToken_UnitsArgs = {
+  distinct_on?: Maybe<Array<Token_Unit_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Token_Unit_Order_By>>;
+  where?: Maybe<Token_Unit_Bool_Exp>;
+};
+
+
+/** columns and relationships of "token" */
+export type TokenToken_Units_AggregateArgs = {
+  distinct_on?: Maybe<Array<Token_Unit_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Token_Unit_Order_By>>;
+  where?: Maybe<Token_Unit_Bool_Exp>;
+};
+
+/** aggregated selection of "token" */
+export type Token_Aggregate = {
+  __typename?: 'token_aggregate';
+  aggregate?: Maybe<Token_Aggregate_Fields>;
+  nodes: Array<Token>;
+};
+
+/** aggregate fields of "token" */
+export type Token_Aggregate_Fields = {
+  __typename?: 'token_aggregate_fields';
+  count?: Maybe<Scalars['Int']>;
+  max?: Maybe<Token_Max_Fields>;
+  min?: Maybe<Token_Min_Fields>;
+};
+
+
+/** aggregate fields of "token" */
+export type Token_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Token_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "token" */
+export type Token_Aggregate_Order_By = {
+  count?: Maybe<Order_By>;
+  max?: Maybe<Token_Max_Order_By>;
+  min?: Maybe<Token_Min_Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "token". All fields are combined with a logical 'AND'. */
+export type Token_Bool_Exp = {
+  _and?: Maybe<Array<Maybe<Token_Bool_Exp>>>;
+  _not?: Maybe<Token_Bool_Exp>;
+  _or?: Maybe<Array<Maybe<Token_Bool_Exp>>>;
+  name?: Maybe<String_Comparison_Exp>;
+  token_units?: Maybe<Token_Unit_Bool_Exp>;
+  traded_unit?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Token_Max_Fields = {
+  __typename?: 'token_max_fields';
+  name?: Maybe<Scalars['String']>;
+  traded_unit?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "token" */
+export type Token_Max_Order_By = {
+  name?: Maybe<Order_By>;
+  traded_unit?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Token_Min_Fields = {
+  __typename?: 'token_min_fields';
+  name?: Maybe<Scalars['String']>;
+  traded_unit?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "token" */
+export type Token_Min_Order_By = {
+  name?: Maybe<Order_By>;
+  traded_unit?: Maybe<Order_By>;
+};
+
+/** ordering options when selecting data from "token" */
+export type Token_Order_By = {
+  name?: Maybe<Order_By>;
+  token_units_aggregate?: Maybe<Token_Unit_Aggregate_Order_By>;
+  traded_unit?: Maybe<Order_By>;
+};
+
 /** columns and relationships of "token_price" */
 export type Token_Price = {
   __typename?: 'token_price';
@@ -8609,6 +8832,68 @@ export type Token_Price = {
   name: Scalars['String'];
   price: Scalars['numeric'];
   timestamp: Scalars['timestamp'];
+  /** An object relationship */
+  token_unit: Token_Unit;
+};
+
+/** aggregated selection of "token_price" */
+export type Token_Price_Aggregate = {
+  __typename?: 'token_price_aggregate';
+  aggregate?: Maybe<Token_Price_Aggregate_Fields>;
+  nodes: Array<Token_Price>;
+};
+
+/** aggregate fields of "token_price" */
+export type Token_Price_Aggregate_Fields = {
+  __typename?: 'token_price_aggregate_fields';
+  avg?: Maybe<Token_Price_Avg_Fields>;
+  count?: Maybe<Scalars['Int']>;
+  max?: Maybe<Token_Price_Max_Fields>;
+  min?: Maybe<Token_Price_Min_Fields>;
+  stddev?: Maybe<Token_Price_Stddev_Fields>;
+  stddev_pop?: Maybe<Token_Price_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Token_Price_Stddev_Samp_Fields>;
+  sum?: Maybe<Token_Price_Sum_Fields>;
+  var_pop?: Maybe<Token_Price_Var_Pop_Fields>;
+  var_samp?: Maybe<Token_Price_Var_Samp_Fields>;
+  variance?: Maybe<Token_Price_Variance_Fields>;
+};
+
+
+/** aggregate fields of "token_price" */
+export type Token_Price_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Token_Price_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "token_price" */
+export type Token_Price_Aggregate_Order_By = {
+  avg?: Maybe<Token_Price_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Token_Price_Max_Order_By>;
+  min?: Maybe<Token_Price_Min_Order_By>;
+  stddev?: Maybe<Token_Price_Stddev_Order_By>;
+  stddev_pop?: Maybe<Token_Price_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Token_Price_Stddev_Samp_Order_By>;
+  sum?: Maybe<Token_Price_Sum_Order_By>;
+  var_pop?: Maybe<Token_Price_Var_Pop_Order_By>;
+  var_samp?: Maybe<Token_Price_Var_Samp_Order_By>;
+  variance?: Maybe<Token_Price_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Token_Price_Avg_Fields = {
+  __typename?: 'token_price_avg_fields';
+  id?: Maybe<Scalars['Float']>;
+  market_cap?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "token_price" */
+export type Token_Price_Avg_Order_By = {
+  id?: Maybe<Order_By>;
+  market_cap?: Maybe<Order_By>;
+  price?: Maybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "token_price". All fields are combined with a logical 'AND'. */
@@ -8621,6 +8906,45 @@ export type Token_Price_Bool_Exp = {
   name?: Maybe<String_Comparison_Exp>;
   price?: Maybe<Numeric_Comparison_Exp>;
   timestamp?: Maybe<Timestamp_Comparison_Exp>;
+  token_unit?: Maybe<Token_Unit_Bool_Exp>;
+};
+
+/** aggregate max on columns */
+export type Token_Price_Max_Fields = {
+  __typename?: 'token_price_max_fields';
+  id?: Maybe<Scalars['Int']>;
+  market_cap?: Maybe<Scalars['bigint']>;
+  name?: Maybe<Scalars['String']>;
+  price?: Maybe<Scalars['numeric']>;
+  timestamp?: Maybe<Scalars['timestamp']>;
+};
+
+/** order by max() on columns of table "token_price" */
+export type Token_Price_Max_Order_By = {
+  id?: Maybe<Order_By>;
+  market_cap?: Maybe<Order_By>;
+  name?: Maybe<Order_By>;
+  price?: Maybe<Order_By>;
+  timestamp?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Token_Price_Min_Fields = {
+  __typename?: 'token_price_min_fields';
+  id?: Maybe<Scalars['Int']>;
+  market_cap?: Maybe<Scalars['bigint']>;
+  name?: Maybe<Scalars['String']>;
+  price?: Maybe<Scalars['numeric']>;
+  timestamp?: Maybe<Scalars['timestamp']>;
+};
+
+/** order by min() on columns of table "token_price" */
+export type Token_Price_Min_Order_By = {
+  id?: Maybe<Order_By>;
+  market_cap?: Maybe<Order_By>;
+  name?: Maybe<Order_By>;
+  price?: Maybe<Order_By>;
+  timestamp?: Maybe<Order_By>;
 };
 
 /** ordering options when selecting data from "token_price" */
@@ -8630,6 +8954,7 @@ export type Token_Price_Order_By = {
   name?: Maybe<Order_By>;
   price?: Maybe<Order_By>;
   timestamp?: Maybe<Order_By>;
+  token_unit?: Maybe<Token_Unit_Order_By>;
 };
 
 /** primary key columns input for table: "token_price" */
@@ -8650,6 +8975,356 @@ export enum Token_Price_Select_Column {
   /** column name */
   Timestamp = 'timestamp'
 }
+
+/** aggregate stddev on columns */
+export type Token_Price_Stddev_Fields = {
+  __typename?: 'token_price_stddev_fields';
+  id?: Maybe<Scalars['Float']>;
+  market_cap?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "token_price" */
+export type Token_Price_Stddev_Order_By = {
+  id?: Maybe<Order_By>;
+  market_cap?: Maybe<Order_By>;
+  price?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Token_Price_Stddev_Pop_Fields = {
+  __typename?: 'token_price_stddev_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+  market_cap?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "token_price" */
+export type Token_Price_Stddev_Pop_Order_By = {
+  id?: Maybe<Order_By>;
+  market_cap?: Maybe<Order_By>;
+  price?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Token_Price_Stddev_Samp_Fields = {
+  __typename?: 'token_price_stddev_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+  market_cap?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "token_price" */
+export type Token_Price_Stddev_Samp_Order_By = {
+  id?: Maybe<Order_By>;
+  market_cap?: Maybe<Order_By>;
+  price?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Token_Price_Sum_Fields = {
+  __typename?: 'token_price_sum_fields';
+  id?: Maybe<Scalars['Int']>;
+  market_cap?: Maybe<Scalars['bigint']>;
+  price?: Maybe<Scalars['numeric']>;
+};
+
+/** order by sum() on columns of table "token_price" */
+export type Token_Price_Sum_Order_By = {
+  id?: Maybe<Order_By>;
+  market_cap?: Maybe<Order_By>;
+  price?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Token_Price_Var_Pop_Fields = {
+  __typename?: 'token_price_var_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+  market_cap?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "token_price" */
+export type Token_Price_Var_Pop_Order_By = {
+  id?: Maybe<Order_By>;
+  market_cap?: Maybe<Order_By>;
+  price?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Token_Price_Var_Samp_Fields = {
+  __typename?: 'token_price_var_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+  market_cap?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "token_price" */
+export type Token_Price_Var_Samp_Order_By = {
+  id?: Maybe<Order_By>;
+  market_cap?: Maybe<Order_By>;
+  price?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Token_Price_Variance_Fields = {
+  __typename?: 'token_price_variance_fields';
+  id?: Maybe<Scalars['Float']>;
+  market_cap?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "token_price" */
+export type Token_Price_Variance_Order_By = {
+  id?: Maybe<Order_By>;
+  market_cap?: Maybe<Order_By>;
+  price?: Maybe<Order_By>;
+};
+
+/** select columns of table "token" */
+export enum Token_Select_Column {
+  /** column name */
+  Name = 'name',
+  /** column name */
+  TradedUnit = 'traded_unit'
+}
+
+/** columns and relationships of "token_unit" */
+export type Token_Unit = {
+  __typename?: 'token_unit';
+  aliases: Scalars['_text'];
+  denom: Scalars['String'];
+  exponent: Scalars['Int'];
+  /** An object relationship */
+  token?: Maybe<Token>;
+  /** An object relationship */
+  tokenByTokenName: Token;
+  token_name: Scalars['String'];
+  /** An array relationship */
+  token_prices: Array<Token_Price>;
+  /** An aggregated array relationship */
+  token_prices_aggregate: Token_Price_Aggregate;
+};
+
+
+/** columns and relationships of "token_unit" */
+export type Token_UnitToken_PricesArgs = {
+  distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Token_Price_Order_By>>;
+  where?: Maybe<Token_Price_Bool_Exp>;
+};
+
+
+/** columns and relationships of "token_unit" */
+export type Token_UnitToken_Prices_AggregateArgs = {
+  distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Token_Price_Order_By>>;
+  where?: Maybe<Token_Price_Bool_Exp>;
+};
+
+/** aggregated selection of "token_unit" */
+export type Token_Unit_Aggregate = {
+  __typename?: 'token_unit_aggregate';
+  aggregate?: Maybe<Token_Unit_Aggregate_Fields>;
+  nodes: Array<Token_Unit>;
+};
+
+/** aggregate fields of "token_unit" */
+export type Token_Unit_Aggregate_Fields = {
+  __typename?: 'token_unit_aggregate_fields';
+  avg?: Maybe<Token_Unit_Avg_Fields>;
+  count?: Maybe<Scalars['Int']>;
+  max?: Maybe<Token_Unit_Max_Fields>;
+  min?: Maybe<Token_Unit_Min_Fields>;
+  stddev?: Maybe<Token_Unit_Stddev_Fields>;
+  stddev_pop?: Maybe<Token_Unit_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Token_Unit_Stddev_Samp_Fields>;
+  sum?: Maybe<Token_Unit_Sum_Fields>;
+  var_pop?: Maybe<Token_Unit_Var_Pop_Fields>;
+  var_samp?: Maybe<Token_Unit_Var_Samp_Fields>;
+  variance?: Maybe<Token_Unit_Variance_Fields>;
+};
+
+
+/** aggregate fields of "token_unit" */
+export type Token_Unit_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Token_Unit_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "token_unit" */
+export type Token_Unit_Aggregate_Order_By = {
+  avg?: Maybe<Token_Unit_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Token_Unit_Max_Order_By>;
+  min?: Maybe<Token_Unit_Min_Order_By>;
+  stddev?: Maybe<Token_Unit_Stddev_Order_By>;
+  stddev_pop?: Maybe<Token_Unit_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Token_Unit_Stddev_Samp_Order_By>;
+  sum?: Maybe<Token_Unit_Sum_Order_By>;
+  var_pop?: Maybe<Token_Unit_Var_Pop_Order_By>;
+  var_samp?: Maybe<Token_Unit_Var_Samp_Order_By>;
+  variance?: Maybe<Token_Unit_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Token_Unit_Avg_Fields = {
+  __typename?: 'token_unit_avg_fields';
+  exponent?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "token_unit" */
+export type Token_Unit_Avg_Order_By = {
+  exponent?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "token_unit". All fields are combined with a logical 'AND'. */
+export type Token_Unit_Bool_Exp = {
+  _and?: Maybe<Array<Maybe<Token_Unit_Bool_Exp>>>;
+  _not?: Maybe<Token_Unit_Bool_Exp>;
+  _or?: Maybe<Array<Maybe<Token_Unit_Bool_Exp>>>;
+  aliases?: Maybe<_Text_Comparison_Exp>;
+  denom?: Maybe<String_Comparison_Exp>;
+  exponent?: Maybe<Int_Comparison_Exp>;
+  token?: Maybe<Token_Bool_Exp>;
+  tokenByTokenName?: Maybe<Token_Bool_Exp>;
+  token_name?: Maybe<String_Comparison_Exp>;
+  token_prices?: Maybe<Token_Price_Bool_Exp>;
+};
+
+/** aggregate max on columns */
+export type Token_Unit_Max_Fields = {
+  __typename?: 'token_unit_max_fields';
+  denom?: Maybe<Scalars['String']>;
+  exponent?: Maybe<Scalars['Int']>;
+  token_name?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "token_unit" */
+export type Token_Unit_Max_Order_By = {
+  denom?: Maybe<Order_By>;
+  exponent?: Maybe<Order_By>;
+  token_name?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Token_Unit_Min_Fields = {
+  __typename?: 'token_unit_min_fields';
+  denom?: Maybe<Scalars['String']>;
+  exponent?: Maybe<Scalars['Int']>;
+  token_name?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "token_unit" */
+export type Token_Unit_Min_Order_By = {
+  denom?: Maybe<Order_By>;
+  exponent?: Maybe<Order_By>;
+  token_name?: Maybe<Order_By>;
+};
+
+/** ordering options when selecting data from "token_unit" */
+export type Token_Unit_Order_By = {
+  aliases?: Maybe<Order_By>;
+  denom?: Maybe<Order_By>;
+  exponent?: Maybe<Order_By>;
+  token?: Maybe<Token_Order_By>;
+  tokenByTokenName?: Maybe<Token_Order_By>;
+  token_name?: Maybe<Order_By>;
+  token_prices_aggregate?: Maybe<Token_Price_Aggregate_Order_By>;
+};
+
+/** select columns of table "token_unit" */
+export enum Token_Unit_Select_Column {
+  /** column name */
+  Aliases = 'aliases',
+  /** column name */
+  Denom = 'denom',
+  /** column name */
+  Exponent = 'exponent',
+  /** column name */
+  TokenName = 'token_name'
+}
+
+/** aggregate stddev on columns */
+export type Token_Unit_Stddev_Fields = {
+  __typename?: 'token_unit_stddev_fields';
+  exponent?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "token_unit" */
+export type Token_Unit_Stddev_Order_By = {
+  exponent?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Token_Unit_Stddev_Pop_Fields = {
+  __typename?: 'token_unit_stddev_pop_fields';
+  exponent?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "token_unit" */
+export type Token_Unit_Stddev_Pop_Order_By = {
+  exponent?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Token_Unit_Stddev_Samp_Fields = {
+  __typename?: 'token_unit_stddev_samp_fields';
+  exponent?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "token_unit" */
+export type Token_Unit_Stddev_Samp_Order_By = {
+  exponent?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Token_Unit_Sum_Fields = {
+  __typename?: 'token_unit_sum_fields';
+  exponent?: Maybe<Scalars['Int']>;
+};
+
+/** order by sum() on columns of table "token_unit" */
+export type Token_Unit_Sum_Order_By = {
+  exponent?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Token_Unit_Var_Pop_Fields = {
+  __typename?: 'token_unit_var_pop_fields';
+  exponent?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "token_unit" */
+export type Token_Unit_Var_Pop_Order_By = {
+  exponent?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Token_Unit_Var_Samp_Fields = {
+  __typename?: 'token_unit_var_samp_fields';
+  exponent?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "token_unit" */
+export type Token_Unit_Var_Samp_Order_By = {
+  exponent?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Token_Unit_Variance_Fields = {
+  __typename?: 'token_unit_variance_fields';
+  exponent?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "token_unit" */
+export type Token_Unit_Variance_Order_By = {
+  exponent?: Maybe<Order_By>;
+};
 
 /** columns and relationships of "transaction" */
 export type Transaction = {
@@ -11258,6 +11933,52 @@ export type ActiveValidatorCountQuery = { activeTotal: (
     )> }
   ) };
 
+export type BlockDetailsQueryVariables = Exact<{
+  height?: Maybe<Scalars['bigint']>;
+}>;
+
+
+export type BlockDetailsQuery = { transaction: Array<(
+    { __typename?: 'transaction' }
+    & Pick<Transaction, 'height' | 'hash' | 'messages' | 'success'>
+  )>, pool: Array<(
+    { __typename?: 'staking_pool' }
+    & { bondedTokens: Staking_Pool['bonded_tokens'] }
+  )>, block: Array<(
+    { __typename?: 'block' }
+    & Pick<Block, 'height' | 'hash' | 'timestamp'>
+    & { txs: Block['num_txs'] }
+    & { validator: (
+      { __typename?: 'validator' }
+      & { validatorInfo?: Maybe<(
+        { __typename?: 'validator_info' }
+        & { operatorAddress: Validator_Info['operator_address'] }
+      )> }
+    ) }
+  )>, preCommits: Array<(
+    { __typename?: 'pre_commit' }
+    & { validator: (
+      { __typename?: 'validator' }
+      & { validatorInfo?: Maybe<(
+        { __typename?: 'validator_info' }
+        & { operatorAddress: Validator_Info['operator_address'] }
+      )> }
+    ) }
+  )>, validatorStatus: Array<(
+    { __typename?: 'validator_status' }
+    & { validator: (
+      { __typename?: 'validator' }
+      & { validatorVotingPowers: Array<(
+        { __typename?: 'validator_voting_power' }
+        & Pick<Validator_Voting_Power, 'height'>
+        & { votingPower: Validator_Voting_Power['voting_power'] }
+      )>, validatorInfo?: Maybe<(
+        { __typename?: 'validator_info' }
+        & { operatorAddress: Validator_Info['operator_address'] }
+      )> }
+    ) }
+  )> };
+
 export type LatestBlockHeightListenerSubscriptionVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -11458,6 +12179,81 @@ export function useActiveValidatorCountLazyQuery(baseOptions?: Apollo.LazyQueryH
 export type ActiveValidatorCountQueryHookResult = ReturnType<typeof useActiveValidatorCountQuery>;
 export type ActiveValidatorCountLazyQueryHookResult = ReturnType<typeof useActiveValidatorCountLazyQuery>;
 export type ActiveValidatorCountQueryResult = Apollo.QueryResult<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>;
+export const BlockDetailsDocument = gql`
+    query BlockDetails($height: bigint) {
+  transaction(where: {height: {_eq: $height}}) {
+    height
+    hash
+    messages
+    success
+  }
+  pool: staking_pool(limit: 1, where: {height: {_eq: $height}}) {
+    bondedTokens: bonded_tokens
+  }
+  block(limit: 1, where: {height: {_eq: $height}}) {
+    height
+    hash
+    timestamp
+    txs: num_txs
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
+      }
+    }
+  }
+  preCommits: pre_commit(where: {height: {_eq: $height}}) {
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
+      }
+    }
+  }
+  validatorStatus: validator_status(
+    where: {height: {_eq: $height}, status: {_eq: 3}}
+  ) {
+    validator {
+      validatorVotingPowers: validator_voting_powers(
+        limit: 1
+        where: {height: {_eq: $height}}
+      ) {
+        votingPower: voting_power
+        height
+      }
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useBlockDetailsQuery__
+ *
+ * To run a query within a React component, call `useBlockDetailsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useBlockDetailsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useBlockDetailsQuery({
+ *   variables: {
+ *      height: // value for 'height'
+ *   },
+ * });
+ */
+export function useBlockDetailsQuery(baseOptions?: Apollo.QueryHookOptions<BlockDetailsQuery, BlockDetailsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<BlockDetailsQuery, BlockDetailsQueryVariables>(BlockDetailsDocument, options);
+      }
+export function useBlockDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<BlockDetailsQuery, BlockDetailsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<BlockDetailsQuery, BlockDetailsQueryVariables>(BlockDetailsDocument, options);
+        }
+export type BlockDetailsQueryHookResult = ReturnType<typeof useBlockDetailsQuery>;
+export type BlockDetailsLazyQueryHookResult = ReturnType<typeof useBlockDetailsLazyQuery>;
+export type BlockDetailsQueryResult = Apollo.QueryResult<BlockDetailsQuery, BlockDetailsQueryVariables>;
 export const LatestBlockHeightListenerDocument = gql`
     subscription LatestBlockHeightListener {
   height: block(order_by: {height: desc}, limit: 1) {
