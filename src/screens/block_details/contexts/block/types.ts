@@ -26,6 +26,7 @@ export type BlockState = {
       validator: string;
       votingPower: number;
       signed: boolean;
+      moniker: string;
     }[];
   }
   uiData: {

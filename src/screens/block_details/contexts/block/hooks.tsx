@@ -1,7 +1,4 @@
-import {
-  useState,
-  useEffect,
-} from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import dayjs from '@utils/dayjs';
@@ -23,7 +20,6 @@ import {
   useBlockDetailsQuery,
   BlockDetailsQuery,
 } from '@graphql/types';
-import { sign } from 'node:crypto';
 import { BlockState } from './types';
 
 export const useBlock = (initialState: BlockState) => {
@@ -58,6 +54,10 @@ export const useBlock = (initialState: BlockState) => {
       return results;
     }
 
+    // ============================
+    // block
+    // ============================
+
     const block = {
       height: data.block[0].height,
       hash: data.block[0].hash,
@@ -76,6 +76,10 @@ export const useBlock = (initialState: BlockState) => {
 
     results.rawData.block = block;
 
+    // ============================
+    // supply
+    // ============================
+
     const supply = {
       bonded: formatDenom(R.pathOr(0, ['pool', 0, 'bondedTokens'], data)),
     };
@@ -93,24 +97,48 @@ export const useBlock = (initialState: BlockState) => {
 
     results.rawData.transactions = transactions;
 
+    // ============================
+    // signatures
+    // ============================
     const signedDictionary = {};
     data.preCommits.forEach((x) => {
       signedDictionary[x.validator.validatorInfo.operatorAddress] = true;
     });
 
-    const signatures = data.validatorStatus.map((x) => {
-      const validator = x.validator.validatorInfo.operatorAddress;
+    let signatures = data.validatorStatus.map((x) => {
+      const validatorAddress = x.validator.validatorInfo.operatorAddress;
+      const validator = findAddress(validatorAddress);
       return ({
-        validator,
+        validator: validatorAddress,
         votingPower: R.pathOr(0, [
           'validator',
           'validatorVotingPowers',
           0,
           'votingPower',
         ], x),
-        signed: !!signedDictionary[validator],
+        signed: !!signedDictionary[validatorAddress],
+        moniker: validator?.moniker,
       });
     });
+
+    const shyGuys = [];
+    const verifiedValidators = [];
+
+    signatures.forEach((x) => {
+      if (x.moniker && x.moniker !== 'Shy Validator') {
+        verifiedValidators.push(x);
+      } else {
+        shyGuys.push(x);
+      }
+    });
+
+    verifiedValidators.sort((a, b) => (
+      a?.moniker?.toLowerCase() > b?.moniker?.toLowerCase() ? 1 : -1));
+
+    shyGuys.sort((a, b) => (
+      a?.moniker?.toLowerCase() > b?.moniker?.toLowerCase() ? 1 : -1));
+
+    signatures = [...verifiedValidators, ...shyGuys];
 
     results.rawData.signatures = signatures;
 
@@ -198,51 +226,25 @@ export const useBlock = (initialState: BlockState) => {
       // ============================
       // signatures
       // ============================
-      signatures: formatSignaturesUi(),
+      signatures: state.rawData.signatures.map((x) => {
+        const signatureValidator = findAddress(x.validator);
+        return ({
+          signed: (
+            <Result success={x.signed} />
+          ),
+          validator: (
+            <AvatarName
+              address={x.validator}
+              imageUrl={signatureValidator ? signatureValidator?.imageUrl : null}
+              name={signatureValidator ? signatureValidator.moniker : x.validator}
+            />
+          ),
+          votingPower: `${replaceNaN(
+            numeral((x.votingPower / state.rawData.supply.bonded) * 100).format('0.00'),
+          )}%`,
+        });
+      }),
     });
-  };
-
-  const formatSignaturesUi = () => {
-    let signatures = state.rawData.signatures.map((x) => {
-      const signatureValidator = findAddress(x.validator);
-      return ({
-        validatorName: signatureValidator.moniker,
-        signed: (
-          <Result success={x.signed} />
-        ),
-        validator: (
-          <AvatarName
-            address={x.validator}
-            imageUrl={signatureValidator ? signatureValidator?.imageUrl : null}
-            name={signatureValidator ? signatureValidator.moniker : x.validator}
-          />
-        ),
-        votingPower: `${replaceNaN(
-          numeral((x.votingPower / state.rawData.supply.bonded) * 100).format('0.00'),
-        )}%`,
-      });
-    });
-
-    const shyGuys = [];
-    const verifiedValidators = [];
-
-    signatures.forEach((x) => {
-      if (x.validatorName && x.validatorName !== 'Shy Validator') {
-        verifiedValidators.push(x);
-      } else {
-        shyGuys.push(x);
-      }
-    });
-
-    verifiedValidators.sort((a, b) => (
-      a.validatorName.toLowerCase() > b.validatorName.toLowerCase() ? 1 : -1));
-
-    shyGuys.sort((a, b) => (
-      a.validatorName.toLowerCase() > b.validatorName.toLowerCase() ? 1 : -1));
-
-    signatures = [...verifiedValidators, ...shyGuys];
-
-    return signatures;
   };
 
   return {
