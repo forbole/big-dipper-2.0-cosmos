@@ -15,8 +15,9 @@ import {
   useBlockDetailsQuery,
   BlockDetailsQuery,
 } from '@graphql/types';
+import { BlockState } from './types';
 
-export const useBlock = () => {
+export const useBlock = (initialState: BlockState) => {
   const fakeSignature = {
     validator: {
       image: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
@@ -88,25 +89,6 @@ export const useBlock = () => {
   // ==============================
   const { t } = useTranslation('blocks');
   const { findAddress } = useChainContext();
-  const initialState: {
-    exists: false;
-    loading: true;
-    block: {
-      height: number;
-      txs: number;
-      timestamp: string;
-      proposer: string;
-      hash: string;
-    }
-  } = {
-    block: {
-      height: 0,
-      hash: '',
-      txs: 0,
-      timestamp: '',
-      proposer: '',
-    },
-  };
 
   const [state, setState] = useState(initialState);
 
@@ -122,11 +104,13 @@ export const useBlock = () => {
 
   const formatBlockDetails = (data: BlockDetailsQuery) => {
     const results: any = {
-      loading: false,
+      rawData: {
+        loading: false,
+      },
     };
 
     if (!data.block.length) {
-      results.exists = false;
+      results.rawData.exists = false;
       return results;
     }
 
@@ -138,40 +122,40 @@ export const useBlock = () => {
       proposer: data.block[0].validator.validatorInfo.operatorAddress,
     };
 
-    results.block = block;
+    results.rawData.block = block;
   };
 
   const formatUi = () => {
-    const validator = findAddress(state.block.proposer);
+    const validator = findAddress(state.rawData.block.proposer);
     return ({
       block: [
         {
           label: t('height'),
           detail: (
-            <Link href={BLOCK_DETAILS(state.block.height)} passHref>
+            <Link href={BLOCK_DETAILS(state.rawData.block.height)} passHref>
               <Typography variant="body1" className="value" component="a">
-                {numeral(state.block.height).format('0,0')}
+                {numeral(state.rawData.block.height).format('0,0')}
               </Typography>
             </Link>
           ),
         },
         {
           label: t('hash'),
-          detail: state.block.hash,
+          detail: state.rawData.block.hash,
         },
         {
           label: t('proposer'),
           detail: (
             <AvatarName
-              address={state.block.proposer}
+              address={state.rawData.block.proposer}
               imageUrl={validator ? validator?.imageUrl : null}
-              name={validator ? validator.moniker : state.block.proposer}
+              name={validator ? validator.moniker : state.rawData.block.proposer}
             />
           ),
         },
         {
           label: t('time'),
-          detail: dayjs.utc(state.block.timestamp).fromNow(),
+          detail: dayjs.utc(state.rawData.block.timestamp).fromNow(),
         },
         {
           label: t('signedVotingPower'),
@@ -179,7 +163,7 @@ export const useBlock = () => {
         },
         {
           label: t('txs'),
-          detail: numeral(state.block.txs).format('0,0'),
+          detail: numeral(state.rawData.block.txs).format('0,0'),
         },
       ],
     });
@@ -188,6 +172,6 @@ export const useBlock = () => {
   return {
     item,
     uiData: formatUi(),
-    rawData: state,
+    rawData: state.rawData,
   };
 };
