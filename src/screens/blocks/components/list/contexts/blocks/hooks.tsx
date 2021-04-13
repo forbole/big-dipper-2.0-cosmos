@@ -5,7 +5,7 @@ import dayjs from '@utils/dayjs';
 import Link from 'next/link';
 import { Typography } from '@material-ui/core';
 import {
-  // useBlocksListenerSubscription,
+  useBlocksListenerSubscription,
   useBlocksQuery,
   BlocksListenerSubscription,
 } from '@graphql/types';
@@ -32,16 +32,19 @@ export const useBlocks = (initialState: BlocksState) => {
   // ================================
   // block subscription
   // ================================
-  // useBlocksListenerSubscription({
-  //   onSubscriptionData: (data) => {
-  // handleSetState({
-  //   items: [
-  //     formatBlocks(data.subscriptionData.data),
-  //     ...state.items,
-  //   ],
-  //     });
-  //   },
-  // });
+  useBlocksListenerSubscription({
+    variables: {
+      limit: 1,
+    },
+    onSubscriptionData: (data) => {
+      handleSetState({
+        items: [
+          ...formatBlocks(data.subscriptionData.data),
+          ...state.items,
+        ],
+      });
+    },
+  });
 
   // ================================
   // block query
@@ -52,7 +55,7 @@ export const useBlocks = (initialState: BlocksState) => {
       offset: 1,
     },
     onCompleted: (data) => {
-      const newItems = [...state.items, ...formatBlocks(data)];
+      const newItems = R.uniq([...state.items, ...formatBlocks(data)]);
       handleSetState({
         items: newItems,
         hasNextPage: newItems.length < data.total.aggregate.count,
@@ -62,16 +65,10 @@ export const useBlocks = (initialState: BlocksState) => {
     },
   });
 
-  // wingman
-  // setup loadmore
   const loadNextPage = async () => {
-    console.log('im in here');
-    // if (state.items.length > 9) {
-    // set state so it doesnt double call
     handleSetState({
       isNextPageLoading: true,
     });
-    console.log(state.items.length, 'the offset');
     // refetch query
     await blockQuery.fetchMore({
       variables: {
@@ -79,11 +76,10 @@ export const useBlocks = (initialState: BlocksState) => {
         limit: 50,
       },
     }).then(({ data }) => {
-      const newItems = [
+      const newItems = R.uniq([
         ...state.items,
         ...formatBlocks(data),
-      ];
-      console.log(data.total.aggregate.count, 'the total');
+      ]);
       // set new state
       handleSetState({
         items: newItems,
@@ -92,7 +88,6 @@ export const useBlocks = (initialState: BlocksState) => {
         rawDataTotal: data.total.aggregate.count,
       });
     });
-    // }
   };
 
   const formatBlocks = (data: BlocksListenerSubscription) => {
@@ -115,7 +110,7 @@ export const useBlocks = (initialState: BlocksState) => {
           beginning: 13, ending: 10,
         })
         : getMiddleEllipsis(x.hash, {
-          beginning: 6, ending: 5,
+          beginning: 13, ending: 15,
         });
 
       return ({
