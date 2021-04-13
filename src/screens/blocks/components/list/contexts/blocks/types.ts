@@ -5,7 +5,8 @@ export interface BlocksState {
   itemCount?: number;
   loadMoreItems?: (any) => void;
   isItemLoaded?: (index: number) => boolean;
-  rawData: {
+  rawDataTotal: number;
+  items: {
     height: number;
     txs: number;
     timestamp: string;

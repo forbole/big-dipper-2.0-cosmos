@@ -1,7 +1,4 @@
-import {
-  useState,
-  useEffect,
-} from 'react';
+import { useState } from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
@@ -16,51 +13,37 @@ import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { AvatarName } from '@components';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { useChainContext } from '@contexts';
+import { BlocksState } from './types';
 
-export const useBlocks = () => {
+export const useBlocks = (initialState: BlocksState) => {
   const { findAddress } = useChainContext();
 
-  const fakeData = {
-    height: '812,768,640',
-    proposer: {
-      image: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
-      moniker: 'Forbole',
-      identity: 'FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk',
-    },
-    hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
-    tx: 2,
-    time: 1615187146246,
-  };
-
-  const [state, setState] = useState({
-    items: [],
-    isNextPageLoading: false,
-    hasNextPage: true,
-  });
+  const [state, setState] = useState(initialState);
   const {
     items,
     isNextPageLoading,
     hasNextPage,
   } = state;
-  const TOTAL = 1000;
+  // const TOTAL = 1000;
 
-  useEffect(() => {
-    if (isNextPageLoading) {
-      setTimeout(() => {
-        setState((prevState) => {
-          const newItems = [...prevState.items, ...Array(20).fill(fakeData)];
-          return (
-            {
-              ...prevState,
-              hasNextPage: newItems.length < TOTAL,
-              isNextPageLoading: false,
-              items: newItems,
-            }
-          );
-        });
-      }, 2500);
-    }
-  }, [state]);
+  // useEffect(() => {
+  //   if (isNextPageLoading) {
+  //     setTimeout(() => {
+  //       setState((prevState) => {
+  //         const newItems = [...prevState.items, ...Array(20).fill(fakeData)];
+  //         return (
+  //           {
+  //             ...prevState,
+  //             hasNextPage: newItems.length < TOTAL,
+  //             isNextPageLoading: false,
+  //             items: newItems,
+  //             rawDataTotal: data.total.aggregate.count,
+  //           }
+  //         );
+  //       });
+  //     }, 2500);
+  //   }
+  // }, [state]);
 
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
@@ -86,39 +69,50 @@ export const useBlocks = () => {
   const blockQuery = useBlocksQuery({
     variables: {
       limit: 10,
-      offset: 1,
+      height: R.pathOr(null, ['items', state.items.length - 1, 'height'], state),
     },
     onCompleted: (data) => {
+      const newItems = [...state.items, ...formatBlocks(data)];
       handleSetState({
-        items: [
-          ...state.items,
-          formatBlocks(data), // paste on to existing ones
-        ],
+        items: newItems,
+        hasNextPage: newItems.length < data.total.aggregate.count,
+        isNextPageLoading: false,
+        rawDataTotal: data.total.aggregate.count,
       });
-      // setState((prevState) => ({
-      //   ...prevState,
-      //   blockTime: formatAverageBlockTime(data),
-      // }));
     },
   });
 
   // wingman
   // setup loadmore
   const loadNextPage = async () => {
-    if (state.items.length > 10) {
-      await blockQuery.fetchMore({
-        variables: {
-          offset: state.items.length,
-        },
-      }).then(({ data }) => {
-        handleSetState({
-          items: [
-            ...state.items,
-            formatBlocks(data), // paste on to existing ones
-          ],
-        });
+    // console.log('im in here');
+    // if (state.items.length > 9) {
+    // set state so it doesnt double call
+    handleSetState({
+      isNextPageLoading: true,
+    });
+
+    // refetch query
+    await blockQuery.fetchMore({
+      variables: {
+        offset: state.items.length,
+        limit: 50,
+      },
+    }).then(({ data }) => {
+      const newItems = [
+        ...state.items,
+        ...formatBlocks(data),
+      ];
+
+      // set new state
+      handleSetState({
+        items: newItems,
+        isNextPageLoading: false,
+        hasNextPage: newItems.length < data.total.aggregate.count,
+        rawDataTotal: data.total.aggregate.count,
       });
-    }
+    });
+    // }
   };
 
   const formatBlocks = (data: BlocksListenerSubscription) => {
@@ -179,5 +173,6 @@ export const useBlocks = () => {
     isItemLoaded,
     formatUi,
     rawData: state.items,
+    rawDataTotal: state.rawDataTotal,
   };
 };
