@@ -3,7 +3,7 @@ import { useBlocks } from './hooks';
 import { BlocksState } from './types';
 
 const initialState: BlocksState = {
-  hasNextPage: true,
+  hasNextPage: false,
   isNextPageLoading: false,
   items: [],
   rawDataTotal: 0,
@@ -23,6 +23,7 @@ const BlocksProvider: React.FC = (props: {children: React.ReactNode }) => {
     isItemLoaded,
     formatUi,
     rawData,
+    rawDataTotal,
   } = useBlocks(initialState);
 
   return (
@@ -35,7 +36,8 @@ const BlocksProvider: React.FC = (props: {children: React.ReactNode }) => {
         loadMoreItems,
         isItemLoaded,
         formatUi,
-        rawData,
+        items: rawData,
+        rawDataTotal,
       }}
     >
       {children}

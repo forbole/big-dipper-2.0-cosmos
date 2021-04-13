@@ -24,26 +24,6 @@ export const useBlocks = (initialState: BlocksState) => {
     isNextPageLoading,
     hasNextPage,
   } = state;
-  // const TOTAL = 1000;
-
-  // useEffect(() => {
-  //   if (isNextPageLoading) {
-  //     setTimeout(() => {
-  //       setState((prevState) => {
-  //         const newItems = [...prevState.items, ...Array(20).fill(fakeData)];
-  //         return (
-  //           {
-  //             ...prevState,
-  //             hasNextPage: newItems.length < TOTAL,
-  //             isNextPageLoading: false,
-  //             items: newItems,
-  //             rawDataTotal: data.total.aggregate.count,
-  //           }
-  //         );
-  //       });
-  //     }, 2500);
-  //   }
-  // }, [state]);
 
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
@@ -68,11 +48,11 @@ export const useBlocks = (initialState: BlocksState) => {
   // ================================
   const blockQuery = useBlocksQuery({
     variables: {
-      limit: 10,
-      height: R.pathOr(null, ['items', state.items.length - 1, 'height'], state),
+      limit: 50,
+      offset: 1,
     },
     onCompleted: (data) => {
-      const newItems = [...state.items, ...formatBlocks(data)];
+      const newItems = R.uniq([...state.items, ...formatBlocks(data)]);
       handleSetState({
         items: newItems,
         hasNextPage: newItems.length < data.total.aggregate.count,

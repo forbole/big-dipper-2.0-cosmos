@@ -12035,7 +12035,6 @@ export type BlocksListenerSubscription = { blocks: Array<(
 export type BlocksQueryVariables = Exact<{
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
-  height?: Maybe<Scalars['bigint']>;
 }>;
 
 
@@ -12410,13 +12409,8 @@ export function useBlocksListenerSubscription(baseOptions?: Apollo.SubscriptionH
 export type BlocksListenerSubscriptionHookResult = ReturnType<typeof useBlocksListenerSubscription>;
 export type BlocksListenerSubscriptionResult = Apollo.SubscriptionResult<BlocksListenerSubscription>;
 export const BlocksDocument = gql`
-    query Blocks($limit: Int = 3, $offset: Int = 0, $height: bigint = null) {
-  blocks: block(
-    limit: $limit
-    offset: $offset
-    order_by: {height: desc}
-    where: {height: {_lt: $height}}
-  ) {
+    query Blocks($limit: Int = 7, $offset: Int = 0) {
+  blocks: block(limit: $limit, offset: $offset, order_by: {height: desc}) {
     height
     txs: num_txs
     hash
@@ -12457,7 +12451,6 @@ export const BlocksDocument = gql`
  *   variables: {
  *      limit: // value for 'limit'
  *      offset: // value for 'offset'
- *      height: // value for 'height'
  *   },
  * });
  */
