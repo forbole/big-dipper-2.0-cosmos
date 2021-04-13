@@ -1,16 +1,12 @@
 import { useState } from 'react';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import Link from 'next/link';
 import { formatDenom } from '@utils/format_denom';
-import { Typography } from '@material-ui/core';
-import { BLOCK_DETAILS } from '@utils/go_to_page';
 import {
-  useOnlineVotingPowerSubscription,
-  OnlineVotingPowerSubscription,
+  useOnlineVotingPowerListenerSubscription,
+  OnlineVotingPowerListenerSubscription,
   useTokenomicsLazyQuery,
   TokenomicsQuery,
-  useLatestBlockHeightOffsetQuery,
 } from '@graphql/types';
 
 const initialState: {
@@ -38,7 +34,7 @@ export const useOnlineVotingPower = () => {
   // block voting power
   // ====================================
 
-  useOnlineVotingPowerSubscription({
+  useOnlineVotingPowerListenerSubscription({
     onSubscriptionData: (data) => {
       const currentVotingPower = formatOnlineVotingPower(data.subscriptionData.data);
 
@@ -58,7 +54,7 @@ export const useOnlineVotingPower = () => {
     },
   });
 
-  const formatOnlineVotingPower = (data: OnlineVotingPowerSubscription) => {
+  const formatOnlineVotingPower = (data: OnlineVotingPowerListenerSubscription) => {
     return {
       height: R.pathOr(initialState.current.height, ['block', 0, 'height'], data),
       votingPower: R.pathOr(initialState.current.votingPower, ['block', 0, 'preCommitsAggregate', 'aggregate', 'sum', 'votingPower'], data),
@@ -93,11 +89,14 @@ export const useOnlineVotingPower = () => {
     const {
       current,
     } = state;
+
+    const votingPowerPercent = numeral((current.votingPower / current.totalVotingPower) * 100);
     return ({
       current: {
         height: numeral(current.height).format('0,0'),
         votingPower: numeral(current.votingPower).format('0,0'),
-        votingPowerPercent: `${numeral((current.votingPower / current.totalVotingPower) * 100).format('0,0.00')}%`,
+        votingPowerPercentRaw: votingPowerPercent.format(0, Math.floor),
+        votingPowerPercent: `${votingPowerPercent.format('0,0.00')}%`,
         totalVotingPower: numeral(current.totalVotingPower).format('0,0'),
       },
     });

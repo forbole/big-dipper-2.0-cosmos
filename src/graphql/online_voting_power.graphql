@@ -1,4 +1,4 @@
-subscription OnlineVotingPower {
+subscription OnlineVotingPowerListener {
   block(offset: 1, limit: 1, order_by: { height: desc }) {
     height
     preCommitsAggregate: pre_commits_aggregate {

@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import Link from 'next/link';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
-import Trans from 'next-translate/Trans';
+// import Trans from 'next-translate/Trans';
 import { Box } from '@components';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
@@ -15,10 +15,11 @@ const OnlineVotingPower: React.FC<{
   className,
 }) => {
   const { t } = useTranslation('home');
-  const classes = useStyles(50);
   const {
-    rawData, uiData,
+    rawData,
+    uiData,
   } = useOnlineVotingPower();
+  const classes = useStyles(uiData.current.votingPowerPercentRaw);
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -27,10 +28,14 @@ const OnlineVotingPower: React.FC<{
       </Typography>
       <div className={classes.data}>
         <Typography variant="h3" className="primary__data">
-          4.9%
+          {uiData.current.votingPowerPercent}
         </Typography>
         <Typography variant="body1">
-          5904 / 203
+          {uiData.current.votingPower}
+          {' '}
+          /
+          {' '}
+          {uiData.current.totalVotingPower}
         </Typography>
       </div>
       <div className={classes.chart}>
@@ -71,7 +76,7 @@ const OnlineVotingPower: React.FC<{
             {uiData.current.totalVotingPower}
           </Typography>
         </div>
-        <div className={classes.item}>
+        {/* <div className={classes.item}>
           <Typography variant="h4" className="label">
             {t('lastVotingPowerChange')}
           </Typography>
@@ -92,7 +97,7 @@ const OnlineVotingPower: React.FC<{
               </Typography>
             </Link>
           </Typography>
-        </div>
+        </div> */}
       </div>
     </Box>
   );
