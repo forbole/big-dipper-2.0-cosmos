@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import Color from 'color';
 
-export const useStyles = (percentage: number) => {
+export const useStyles = (percentage: number | string) => {
   const styles = makeStyles(
     (theme) => {
       return ({
