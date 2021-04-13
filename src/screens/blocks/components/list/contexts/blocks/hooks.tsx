@@ -52,7 +52,7 @@ export const useBlocks = (initialState: BlocksState) => {
       offset: 1,
     },
     onCompleted: (data) => {
-      const newItems = R.uniq([...state.items, ...formatBlocks(data)]);
+      const newItems = [...state.items, ...formatBlocks(data)];
       handleSetState({
         items: newItems,
         hasNextPage: newItems.length < data.total.aggregate.count,
@@ -65,13 +65,13 @@ export const useBlocks = (initialState: BlocksState) => {
   // wingman
   // setup loadmore
   const loadNextPage = async () => {
-    // console.log('im in here');
+    console.log('im in here');
     // if (state.items.length > 9) {
     // set state so it doesnt double call
     handleSetState({
       isNextPageLoading: true,
     });
-
+    console.log(state.items.length, 'the offset');
     // refetch query
     await blockQuery.fetchMore({
       variables: {
@@ -83,7 +83,7 @@ export const useBlocks = (initialState: BlocksState) => {
         ...state.items,
         ...formatBlocks(data),
       ];
-
+      console.log(data.total.aggregate.count, 'the total');
       // set new state
       handleSetState({
         items: newItems,

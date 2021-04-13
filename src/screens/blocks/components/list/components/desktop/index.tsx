@@ -20,9 +20,8 @@ const Desktop: React.FC<{
     itemCount,
     loadMoreItems,
     isItemLoaded,
-    hasNextPage,
   } = useBlocksContext();
-  console.log(hasNextPage, 'do you');
+
   const { t } = useTranslation('blocks');
   const classes = useStyles();
   const {
