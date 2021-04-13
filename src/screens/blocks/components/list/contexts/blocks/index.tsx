@@ -3,9 +3,10 @@ import { useBlocks } from './hooks';
 import { BlocksState } from './types';
 
 const initialState: BlocksState = {
-  hasNextPage: true,
+  hasNextPage: false,
   isNextPageLoading: false,
   items: [],
+  rawDataTotal: 0,
 };
 
 const BlocksContext = React.createContext<BlocksState>(initialState);
@@ -16,23 +17,27 @@ const BlocksProvider: React.FC = (props: {children: React.ReactNode }) => {
   const {
     hasNextPage,
     isNextPageLoading,
-    items,
     loadNextPage,
     itemCount,
     loadMoreItems,
     isItemLoaded,
-  } = useBlocks();
+    formatUi,
+    rawData,
+    rawDataTotal,
+  } = useBlocks(initialState);
 
   return (
     <BlocksContext.Provider
       value={{
         hasNextPage,
         isNextPageLoading,
-        items,
         loadNextPage,
         itemCount,
         loadMoreItems,
         isItemLoaded,
+        formatUi,
+        items: rawData,
+        rawDataTotal,
       }}
     >
       {children}

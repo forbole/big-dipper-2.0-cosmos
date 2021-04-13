@@ -1,20 +1,12 @@
 import React from 'react';
-import Link from 'next/link';
 import classnames from 'classnames';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import InfiniteLoader from 'react-window-infinite-loader';
-import dayjs from 'dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
-import relativeTime from 'dayjs/plugin/relativeTime';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { VariableSizeGrid as Grid } from 'react-window';
 import { useBlocksContext } from '@src/screens/blocks/components/list/contexts/blocks';
-import {
-  AvatarName,
-  Loading,
-} from '@components';
+import { Loading } from '@components';
 import { useGrid } from '@hooks';
 import { mergeRefs } from '@src/utils/merge_refs';
 import { useStyles } from './styles';
@@ -24,11 +16,12 @@ const Desktop: React.FC<{
   className?: string;
 }> = ({ className }) => {
   const {
-    items,
+    formatUi,
     itemCount,
     loadMoreItems,
     isItemLoaded,
   } = useBlocksContext();
+
   const { t } = useTranslation('blocks');
   const classes = useStyles();
   const {
@@ -38,29 +31,7 @@ const Desktop: React.FC<{
     getColumnWidth,
     getRowHeight,
   } = useGrid(columns);
-
-  const formatSlots = items.map((x) => {
-    dayjs.extend(relativeTime);
-    return ({
-      height: (
-        <Link href={BLOCK_DETAILS(123)} passHref>
-          <Typography variant="body1" component="a">
-            {x.height}
-          </Typography>
-        </Link>
-      ),
-      proposer: (
-        <AvatarName
-          address={x.proposer.identity}
-          imageUrl={x.proposer.image}
-          name={x.proposer.moniker}
-        />
-      ),
-      hash: getMiddleEllipsis(x.hash, { beginning: 13 }),
-      txs: x.tx,
-      time: dayjs(x.time).fromNow(),
-    });
-  });
+  const uiData = formatUi('desktop');
 
   return (
     <div className={classnames(className, classes.root)}>
@@ -161,7 +132,7 @@ const Desktop: React.FC<{
                         const {
                           key, align,
                         } = columns[columnIndex];
-                        const item = formatSlots[rowIndex][key];
+                        const item = uiData[rowIndex][key];
                         return (
                           <div
                             style={style}
