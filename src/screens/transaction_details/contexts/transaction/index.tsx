@@ -13,10 +13,13 @@ const initialState: TransactionState = {
       fee: 0,
       gasUsed: 0,
       gasWanted: 0,
-      result: false,
+      success: false,
       memo: '',
     },
     messages: [],
+  },
+  uiData: {
+    transaction: [],
   },
 };
 
@@ -26,15 +29,17 @@ const TransactionProvider: React.FC = (props: {children: React.ReactNode }) => {
   const { children } = props;
 
   const {
-    item,
+    rawData,
     onMessageFilterCallback,
+    uiData,
   } = useTransaction(initialState);
 
   return (
     <TransactionContext.Provider
       value={{
-        item,
+        rawData,
         onMessageFilterCallback,
+        uiData,
       }}
     >
       {children}

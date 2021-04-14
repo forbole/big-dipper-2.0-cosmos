@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface TransactionState {
   rawData: {
     exists: boolean;
@@ -9,10 +11,17 @@ export interface TransactionState {
       fee: number;
       gasUsed: number;
       gasWanted: number;
-      result: boolean;
+      success: boolean;
       memo: string;
     }
     messages: any[];
+  }
+  uiData: {
+    transaction: {
+      label: string;
+      detail: string | React.ReactNode;
+      className?: string;
+    }[];
   }
   onMessageFilterCallback?: (value: string) => void;
 }

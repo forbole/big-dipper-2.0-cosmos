@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import { VariableSizeList as List } from 'react-window';
 import useTranslation from 'next-translate/useTranslation';
 import AutoSizer from 'react-virtualized-auto-sizer';
-import * as R from 'ramda';
 import {
   Divider, Typography,
 } from '@material-ui/core';
@@ -25,7 +24,7 @@ const Messages: React.FC<{
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   const {
-    item,
+    rawData,
     onMessageFilterCallback,
   } = useTransactionContext();
   const {
@@ -34,9 +33,7 @@ const Messages: React.FC<{
     setRowHeight,
   } = useList();
 
-  const messages = R.pathOr([], ['messages'], item);
-
-  const formatItems = messages.map((x) => {
+  const formatItems = rawData.messages.map((x) => {
     return ({
       type: <Tag value={x['@type']} theme="two" />,
       message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent libero dolor, sollicitudin fringilla augue gravida, tincidunt viverra odio. Curabitur sit amet erat ultricies nisi posuere bibendum.',
