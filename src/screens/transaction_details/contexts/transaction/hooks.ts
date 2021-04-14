@@ -2,19 +2,35 @@ import {
   useState,
   useEffect,
 } from 'react';
+import * as R from 'ramda';
+import { useRouter } from 'next/router';
+import {
+  useTransactionDetailsQuery,
+  TransactionDetailsQuery,
+} from '@graphql/types';
+import { TransactionState } from './types';
 
-export const useTransaction = () => {
-  const TOTAL_INSTRUCTION = 2;
-  const message = {
-    '@type': '/cosmos.bank.v1beta1.MsgSend',
-    amount: [
-      {
-        denom: 'udaric',
-        amount: '1100000',
-      },
-    ],
-    to_address: 'desmos1srujv22zfrwyfvu2vyyaqqq3f0z7yjeaggd9n2',
-    from_address: 'desmos1dzn2s7l0wm9kekyazcnhapu8j95n90efmcmrad',
+export const useTransaction = (initalState: TransactionState) => {
+  const router = useRouter();
+  const [state, setState] = useState(initalState);
+
+  useTransactionDetailsQuery({
+    variables: {
+      hash: router.query.tx as string,
+    },
+    onCompleted: (data) => {
+      handleSetState(formatTransactionDetails(data));
+    },
+  });
+
+  const handleSetState = (stateChange: typeof state) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  };
+
+  const formatTransactionDetails = (data: TransactionDetailsQuery) => {
+    return ({
+      height: data.height,
+    });
   };
 
   const fakeData = {
@@ -24,12 +40,9 @@ export const useTransaction = () => {
     success: true,
     time: 1615187146246,
     memo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel cursus tortor. Fusce lobortis sollicitudin dolor id mollis. Nullam quam ex, dignissim eu eros vel, tincidunt ultrices ligula.',
-    messages: Array(TOTAL_INSTRUCTION).fill(message),
+    messages: [],
   };
 
-  const [state, setState] = useState({
-    item: {},
-  });
   const {
     item,
   } = state;
