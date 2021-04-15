@@ -34,6 +34,7 @@
   "txDepositLabel": "Deposit",
   "txVoteLabel": "Vote",
   "txSubmitProposalLabel": "Submit Proposal",
+  "txUnjailLabel": "Unjail",
   "txUnknownLabel": "Unknown",
   "and": "and",
   "yes": "YES",
@@ -47,5 +48,13 @@
   "txEditValidatorContent": "<0>{{validator}}</0> updated",
   "txSendContent": "<0>{{user}}</0> sent <1>{{amount}}</1> to <2>{{address}}</2>",
   "txMultisendContentOne": "<0>{{user}}</0> sent <1>{{amount}}</1> to the following recipients:",
-  "txMultisendContentTwo": "<0>{{user}}</0> received <1>{{amount}}</1>"
+  "txMultisendContentTwo": "<0>{{user}}</0> received <1>{{amount}}</1>",
+  "txVerifyInvariantContent": "<0>{{user}}</0> verified invariant",
+  "txFundContent": "<0>{{user}}</0> funded <1>{{amount}}</1> to the community pool",
+  "txsetRewardAddressContent": "<0>{{user}}</0> set reward address <1>{{address}}</1>",
+  "txWithdrawRewardContent": "<0>{{user}}</0> withdrew reward from <1>{{validator}}</1>",
+  "txSubmitProposalContent": "<0>{{user}}</0> submitted proposal <1>{{proposal}}</1>",
+  "txDepositContent": "{{user}} deposited {{amount}} to {{proposal}}",
+  "txVoteContent": "{{user}} voted {{vote}} to {{proposal}}",
+  "txUnjailContent": "{{validator}} unjailed"
 }

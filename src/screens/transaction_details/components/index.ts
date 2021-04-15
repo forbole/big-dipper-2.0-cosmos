@@ -8,11 +8,11 @@ import CreateValidator from './create_validator';
 import EditValidator from './edit_validator';
 import Send from './send';
 import Multisend from './multisend';
-// import VerifyInvariant from './verify_invariant';
+import VerifyInvariant from './verify_invariant';
 // import Unjail from './unjail';
-// import Fund from './fund';
-// import SetWithdrawalAddress from './set_withdrawal_address';
-// import WithdrawReward from './withdraw_reward';
+import Fund from './fund';
+import SetWithdrawalAddress from './set_withdrawal_address';
+import WithdrawReward from './withdraw_reward';
 // import DepositProposal from './deposit_proposal';
 // import ProposalDisplay from './proposal_display';
 // import Vote from './vote';
@@ -33,11 +33,11 @@ export {
   EditValidator,
   Send,
   Multisend,
-  // VerifyInvariant,
+  VerifyInvariant,
   // Unjail,
-  // Fund,
-  // SetWithdrawalAddress,
-  // WithdrawReward,
+  Fund,
+  SetWithdrawalAddress,
+  WithdrawReward,
   // DepositProposal,
   // ProposalDisplay,
   // Vote,

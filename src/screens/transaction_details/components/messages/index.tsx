@@ -15,10 +15,10 @@ import {
   TransactionMessagesFilter,
   Tag,
 } from '@components';
-import { MsgMultiSend } from '@models';
+import { MsgWithdrawDelegatorReward } from '@models';
 import { useTransactionContext } from '../../contexts/transaction';
 import { useStyles } from './styles';
-import { Multisend } from '..';
+import { WithdrawReward } from '..';
 
 const Messages: React.FC<{
   className?: string;
@@ -37,35 +37,15 @@ const Messages: React.FC<{
 
   // wingman
   const formatItems = Array(2).fill(null).map((x) => {
-    const message = MsgMultiSend.fromJson({
-      '@type': '/cosmos.bank.v1beta1.MsgMultiSend',
-      inputs: [
-        {
-          address: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
-          coins: [
-            {
-              denom: 'udaric',
-              amount: '1000',
-            },
-          ],
-        },
-      ],
-      outputs: [
-        {
-          address: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
-          coins: [
-            {
-              denom: 'udaric',
-              amount: '1000',
-            },
-          ],
-        },
-      ],
+    const message = MsgWithdrawDelegatorReward.fromJson({
+      '@type': '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward',
+      delegator_address: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
+      validator_address: 'desmosvaloper13yp2fq3tslq6mmtq4628q38xzj75ethz8j43kw',
     });
 
     return ({
-      type: <Tag value="hello world" theme="four" />,
-      message: <Multisend message={message} />,
+      type: <Tag value="hello world" theme="six" />,
+      message: <WithdrawReward message={message} />,
     });
   });
 

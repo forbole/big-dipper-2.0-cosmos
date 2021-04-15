@@ -1,24 +1,33 @@
 import React from 'react';
-import { useTranslation } from 'i18n';
-import { AddressDisplay } from '@components';
+import Trans from 'next-translate/Trans';
+import { Typography } from '@material-ui/core';
+import { Name } from '@components';
 import { MsgVerifyInvariant } from '@models';
-import { translationFormatter } from '../../utils';
+import { useChainContext } from '@contexts';
 
 const VerifyInvariant = (props: {
   message: MsgVerifyInvariant;
 }) => {
-  const { t } = useTranslation(['activities']);
+  const { findAddress } = useChainContext();
   const { message } = props;
 
+  const user = findAddress(message.sender);
+  const userMoniker = user ? user?.moniker : message.sender;
+
   return (
-    <p>
-      <span className="address">
-        <AddressDisplay address={message.sender} />
-      </span>
-      {translationFormatter(t('txVerifyInvariantOne'), {
-        after: false,
-      })}
-    </p>
+    <Typography>
+      <Trans
+        i18nKey="transactions:txVerifyInvariantContent"
+        components={[
+          (
+            <Name
+              address={message.sender}
+              name={userMoniker}
+            />
+          ),
+        ]}
+      />
+    </Typography>
   );
 };
 

@@ -151,7 +151,7 @@
 //   let results: {
 //     content: React.ReactNode;
 //     tagDisplay: string;
-//     tagTheme?: 'one' | 'two' | 'three' | 'four' | 'five';
+//     tagTheme?: 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven' | 'eight' | 'zero';
 //   } = {
 //     content: Unknown,
 //     tagDisplay: 'txUnknownLabel',
@@ -227,7 +227,7 @@
 //   if (type === '/cosmos.crisis.v1beta1.MsgVerifyInvariant') {
 //     results = {
 //       content: VerifyInvariant,
-//       tagTheme: 'two',
+//       tagTheme: 'five',
 //       tagDisplay: 'txVerifyInvariantLabel',
 //     };
 //   }
@@ -250,7 +250,7 @@
 //   if (type === '/cosmos.distribution.v1beta1.MsgFundCommunityPool') {
 //     results = {
 //       content: Fund,
-//       tagTheme: 'two',
+//       tagTheme: 'six',
 //       tagDisplay: 'txFundLabel',
 //     };
 //   }
@@ -258,7 +258,7 @@
 //   if (type === '/cosmos.distribution.v1beta1.MsgSetWithdrawAddress') {
 //     results = {
 //       content: SetWithdrawalAddress,
-//       tagTheme: 'two',
+//       tagTheme: 'six',
 //       tagDisplay: 'txsetRewardAddressLabel',
 //     };
 //   }
@@ -266,7 +266,7 @@
 //   if (type === '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward') {
 //     results = {
 //       content: WithdrawReward,
-//       tagTheme: 'two',
+//       tagTheme: 'six',
 //       tagDisplay: 'txWithdrawRewardLabel',
 //     };
 //   }

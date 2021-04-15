@@ -1,35 +1,46 @@
 import React from 'react';
-import { useTranslation } from 'i18n';
 import numeral from 'numeral';
-import { AddressDisplay } from '@components';
+import useTranslation from 'next-translate/useTranslation';
+import Trans from 'next-translate/Trans';
+import { Typography } from '@material-ui/core';
+import { formatDenom } from '@utils/format_denom';
+import { Name } from '@components';
 import { MsgFundCommunityPool } from '@models';
-import { formatDenom } from '@utils';
 import { chainConfig } from '@src/chain_config';
-import { translationFormatter } from '../../utils';
+import { useChainContext } from '@contexts';
 
 const Fund = (props: {
   message : MsgFundCommunityPool;
 }) => {
-  const { t } = useTranslation(['activities']);
+  const { t } = useTranslation('transactions');
+  const { findAddress } = useChainContext();
   const { message } = props;
 
   const parsedAmount = message?.amount?.map((x) => {
-    return `${formatDenom(chainConfig.display, numeral(x.amount).value(), '0,0.0[000]').format} ${chainConfig.display.toUpperCase()}`;
+    return `${numeral(formatDenom(x.amount)).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`;
   }).reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
 
+  const depositor = findAddress(message.depositor);
+  const depositorMoniker = depositor ? depositor?.moniker : message.depositor;
+
   return (
-    <p>
-      <span className="address">
-        <AddressDisplay address={message.depositor} />
-      </span>
-      {translationFormatter(t('txFundOne'))}
-      <span className="amount">
-        {parsedAmount}
-      </span>
-      {translationFormatter(t('txFundTwo'), {
-        after: false,
-      })}
-    </p>
+    <Typography>
+      <Trans
+        i18nKey="transactions:txFundContent"
+        components={[
+          (
+            <Name
+              address={message.depositor}
+              name={depositorMoniker}
+            />
+          ),
+          <b />,
+        ]}
+        values={{
+          amount: parsedAmount,
+        }}
+      />
+    </Typography>
   );
 };
 

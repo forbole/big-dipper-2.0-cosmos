@@ -1,25 +1,43 @@
 import React from 'react';
-import { useTranslation } from 'i18n';
-import { AddressDisplay } from '@components';
+import Trans from 'next-translate/Trans';
+import { Typography } from '@material-ui/core';
+import { Name } from '@components';
 import { MsgWithdrawDelegatorReward } from '@models';
-import { translationFormatter } from '../../utils';
+import { useChainContext } from '@contexts';
 
 const WithdrawReward = (props: {
   message: MsgWithdrawDelegatorReward;
 }) => {
-  const { t } = useTranslation(['activities']);
+  const { findAddress } = useChainContext();
   const { message } = props;
 
+  const delegator = findAddress(message.delegatorAddress);
+  const delegatorMoniker = delegator ? delegator?.moniker : message.delegatorAddress;
+
+  const validator = findAddress(message.validatorAddress);
+  const validatorMoniker = validator ? validator?.moniker : message
+    .validatorAddress;
+
   return (
-    <p>
-      <span className="address">
-        <AddressDisplay address={message.delegatorAddress} />
-      </span>
-      {translationFormatter(t('txWithdrawRewardOne'))}
-      <span className="address">
-        <AddressDisplay address={message.validatorAddress} />
-      </span>
-    </p>
+    <Typography>
+      <Trans
+        i18nKey="transactions:txWithdrawRewardContent"
+        components={[
+          (
+            <Name
+              address={message.delegatorAddress}
+              name={delegatorMoniker}
+            />
+          ),
+          (
+            <Name
+              address={message.validatorAddress}
+              name={validatorMoniker}
+            />
+          ),
+        ]}
+      />
+    </Typography>
   );
 };
 
