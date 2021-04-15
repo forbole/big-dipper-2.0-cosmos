@@ -27,7 +27,7 @@ const Delegate = (props: {
     .validatorAddress;
   const validatorHref = validator ? ACCOUNT_DETAILS : VALIDATOR_DETAILS;
 
-  const parsedAmount = formatDenom(message.amount.amount);
+  const parsedAmount = `${numeral(formatDenom(message.amount.amount)).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`;
 
   return (
     <p>

@@ -44,7 +44,7 @@ const Messages: React.FC<{
       validator_address: 'desmosvaloper1q9scflz3zycq35wrvzj8qwjnqwx8pc6q4h2cz7',
       amount: {
         denom: 'udaric',
-        amount: '1000',
+        amount: '1000000',
       },
     });
 
