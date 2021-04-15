@@ -32,13 +32,15 @@ export const useStyles = () => {
           margin: theme.spacing(2, 0),
           [theme.breakpoints.up('lg')]: {
             display: 'flex',
+            padding: theme.spacing(0, 2),
           },
         },
         tags: {
           marginBottom: theme.spacing(2),
           [theme.breakpoints.up('lg')]: {
-            minWidth: '350px',
+            minWidth: '200px',
             marginBottom: 0,
+            PaddingRight: theme.spacing(2),
             alignSelf: 'flex-start',
           },
         },
