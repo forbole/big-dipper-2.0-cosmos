@@ -1,26 +1,44 @@
 import React from 'react';
-import { useTranslation } from 'i18n';
-import { AddressDisplay } from '@components';
+import Link from 'next/link';
+import Trans from 'next-translate/Trans';
+import { Typography } from '@material-ui/core';
+import { Name } from '@components';
 import { MsgSubmitProposal } from '@models';
-import { ProposalDisplay } from '..';
-import { translationFormatter } from '../../utils';
+import { useChainContext } from '@contexts';
+import { PROPOSAL_DETAILS } from '@utils/go_to_page';
 
 const SubmitProposal = (props: {
   message: MsgSubmitProposal;
 }) => {
-  const { t } = useTranslation(['activities']);
+  const { findAddress } = useChainContext();
   const { message } = props;
 
+  const proposer = findAddress(message.proposer);
+  const proposerMoniker = proposer ? proposer?.moniker : message.proposer;
+  console.log('im in here');
   return (
-    <p>
-      <span className="address">
-        <AddressDisplay address={message.proposer} />
-      </span>
-      {translationFormatter(t('txSubmitProposalOne'))}
-      <span className="link">
-        <ProposalDisplay proposalId={null} />
-      </span>
-    </p>
+    <Typography>
+      <Trans
+        i18nKey="transactions:txSubmitProposalContent"
+        components={[
+          (
+            <Name
+              address={message.proposer}
+              name={proposerMoniker}
+            />
+          ),
+          (
+            <Link href={PROPOSAL_DETAILS(1)}>
+              <a>
+                <p>
+                  #1
+                </p>
+              </a>
+            </Link>
+          ),
+        ]}
+      />
+    </Typography>
   );
 };
 

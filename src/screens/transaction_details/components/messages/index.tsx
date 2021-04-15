@@ -15,10 +15,10 @@ import {
   TransactionMessagesFilter,
   Tag,
 } from '@components';
-import { MsgWithdrawDelegatorReward } from '@models';
+import { MsgSubmitProposal } from '@models';
 import { useTransactionContext } from '../../contexts/transaction';
 import { useStyles } from './styles';
-import { WithdrawReward } from '..';
+import { SubmitProposal } from '..';
 
 const Messages: React.FC<{
   className?: string;
@@ -37,15 +37,25 @@ const Messages: React.FC<{
 
   // wingman
   const formatItems = Array(2).fill(null).map((x) => {
-    const message = MsgWithdrawDelegatorReward.fromJson({
-      '@type': '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward',
-      delegator_address: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
-      validator_address: 'desmosvaloper13yp2fq3tslq6mmtq4628q38xzj75ethz8j43kw',
+    const message = MsgSubmitProposal.fromJson({
+      '@type': '/cosmos.gov.v1beta1.MsgSubmitProposal',
+      content: {
+        '@type': '/cosmos.gov.v1beta1.TextProposal',
+        title: 'test software upgrade proposal',
+        description: 'something about the proposal here',
+      },
+      initial_deposit: [
+        {
+          denom: 'udaric',
+          amount: '20000000',
+        },
+      ],
+      proposer: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
     });
 
     return ({
-      type: <Tag value="hello world" theme="six" />,
-      message: <WithdrawReward message={message} />,
+      type: <Tag value="hello world" theme="seven" />,
+      message: <SubmitProposal message={message} />,
     });
   });
 

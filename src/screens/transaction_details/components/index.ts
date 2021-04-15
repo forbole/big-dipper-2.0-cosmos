@@ -16,7 +16,7 @@ import WithdrawReward from './withdraw_reward';
 // import DepositProposal from './deposit_proposal';
 // import ProposalDisplay from './proposal_display';
 // import Vote from './vote';
-// import SubmitProposal from './submit_proposal';
+import SubmitProposal from './submit_proposal';
 
 export {
   Overview,
@@ -41,5 +41,5 @@ export {
   // DepositProposal,
   // ProposalDisplay,
   // Vote,
-  // SubmitProposal,
+  SubmitProposal,
 };
