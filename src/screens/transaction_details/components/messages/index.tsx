@@ -12,11 +12,14 @@ import {
 } from '@hooks';
 import {
   Box,
-  Tag,
   TransactionMessagesFilter,
+  Tag,
 } from '@components';
+
+import { MsgDelegate } from '@models';
 import { useTransactionContext } from '../../contexts/transaction';
 import { useStyles } from './styles';
+import { Delegate } from '..';
 
 const Messages: React.FC<{
   className?: string;
@@ -24,7 +27,7 @@ const Messages: React.FC<{
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   const {
-    rawData,
+    uiData,
     onMessageFilterCallback,
   } = useTransactionContext();
   const {
@@ -32,12 +35,22 @@ const Messages: React.FC<{
     getRowHeight,
     setRowHeight,
   } = useList();
-  console.log(rawData.messages, 'messages');
-  const formatItems = Array(3).fill(null).map((x) => {
+
+  // wingman
+  const formatItems = Array(2).fill(null).map((x) => {
+    const message = MsgDelegate.fromJson({
+      '@type': '/cosmos.staking.v1beta1.MsgDelegate',
+      delegator_address: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
+      validator_address: 'desmosvaloper13yp2fq3tslq6mmtq4628q38xzj75ethz8j43kw',
+      amount: {
+        denom: 'udaric',
+        amount: '1000',
+      },
+    });
+
     return ({
-      // type: <Tag value={x['@type']} theme="two" />,
-      type: <Tag value="asd" theme="two" />,
-      message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent libero dolor, sollicitudin fringilla augue gravida, tincidunt viverra odio. Curabitur sit amet erat ultricies nisi posuere bibendum.',
+      type: <Tag value="hello world" theme="two" />,
+      message: <Delegate message={message} />,
     });
   });
 
@@ -62,6 +75,7 @@ const Messages: React.FC<{
               <List
                 className="List"
                 height={height}
+                // itemCount={uiData.messages.length}
                 itemCount={formatItems.length}
                 itemSize={getRowHeight}
                 ref={listRef}
@@ -71,21 +85,20 @@ const Messages: React.FC<{
                   index, style,
                 }) => {
                   const { rowRef } = useListRow(index, setRowHeight);
+                  // const selectedItem = uiData.messages[index];
                   const selectedItem = formatItems[index];
                   return (
                     <div style={style}>
                       <div ref={rowRef}>
                         {/* setup individual message types later */}
-                        <div className={classes.fakeItem}>
+                        <div className={classes.item}>
                           <div className={classes.tags}>
                             {selectedItem.type}
                           </div>
-                          <Typography>
-                            {selectedItem.message}
-                          </Typography>
+                          {selectedItem.message}
                         </div>
                         {/* setup individual message types later */}
-                        {index !== formatItems.length - 1 && <Divider />}
+                        {index !== uiData.messages.length - 1 && <Divider />}
                       </div>
                     </div>
                   );

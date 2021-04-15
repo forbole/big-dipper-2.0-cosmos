@@ -1,8 +1,7 @@
 import React from 'react';
-import { useTranslation } from 'i18n';
+import useTranslation from 'next-translate/useTranslation';
 import { AddressDisplay } from '@components';
 import { MsgCreateValidator } from '@models';
-import { translationFormatter } from '../../utils';
 
 const CreateValidator = (props: {
   message: MsgCreateValidator;
@@ -15,7 +14,7 @@ const CreateValidator = (props: {
       <span className="address">
         <AddressDisplay address={message.delegatorAddress} />
       </span>
-      {translationFormatter(t('txCreateValidatorOne'))}
+      {t('txCreateValidatorOne')}
       <span className="address">
         <AddressDisplay
           address={message.validatorAddress}

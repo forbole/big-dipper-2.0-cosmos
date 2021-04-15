@@ -20,6 +20,7 @@ const initialState: TransactionState = {
   },
   uiData: {
     transaction: [],
+    messages: [],
   },
 };
 

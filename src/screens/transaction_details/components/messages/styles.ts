@@ -28,7 +28,7 @@ export const useStyles = () => {
           height: '100%',
           flex: 1,
         },
-        fakeItem: {
+        item: {
           margin: theme.spacing(2, 0),
           [theme.breakpoints.up('lg')]: {
             display: 'flex',

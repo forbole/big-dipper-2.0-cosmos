@@ -1,33 +1,57 @@
 import React from 'react';
 import numeral from 'numeral';
-import { useTranslation } from 'i18n';
-import { formatDenom } from '@utils';
-import { AddressDisplay } from '@components';
+import Trans from 'next-translate/Trans';
+import useTranslation from 'next-translate/useTranslation';
+import { formatDenom } from '@utils/format_denom';
+import { AvatarName } from '@components';
 import { MsgDelegate } from '@models';
 import { chainConfig } from '@src/chain_config';
-import { translationFormatter } from '../../utils';
 
 const Delegate = (props: {
   message: MsgDelegate;
 }) => {
-  const { t } = useTranslation(['activities']);
+  const { t } = useTranslation('transactions');
   const { message } = props;
 
-  const parsedAmount = `${formatDenom(chainConfig.display, numeral(message.amount.amount).value(), '0,0.0[000]').format} ${chainConfig.display.toUpperCase()}`;
+  const parsedAmount = formatDenom(message.amount.amount);
 
   return (
     <p>
-      <span className="address">
-        <AddressDisplay address={message.delegatorAddress} />
-      </span>
-      {translationFormatter(t('txDelegateOne'))}
-      <span className="amount">
-        {parsedAmount}
-      </span>
-      {translationFormatter(t('txDelegateTwo'))}
-      <span className="address">
-        <AddressDisplay address={message.validatorAddress} />
-      </span>
+      <Trans
+        i18nKey="transactions:txDelegateContent"
+        components={[
+          (
+            <AvatarName
+              address={message.delegatorAddress}
+              name={message.delegatorAddress}
+            />
+          ),
+          <b />,
+          (
+            <AvatarName
+              address={message.delegatorAddress}
+              name={message.delegatorAddress}
+            />
+          ),
+        ]}
+        values={{
+          amount: parsedAmount,
+        }}
+      />
+      {/* {t('txDelegateContent')} */}
+      {/* <span className="address"> */}
+      {/* another address */}
+      {/* <AddressDisplay address={message.delegatorAddress} /> */}
+      {/* </span> */}
+      {/* {t('txDelegateOne')} */}
+      {/* <span className="amount"> */}
+      {/* {parsedAmount} */}
+      {/* </span> */}
+      {/* {translationFormatter(t('txDelegateTwo'))} */}
+      {/* <span className="address"> */}
+      {/* something else first */}
+      {/* <AddressDisplay address={message.validatorAddress} /> */}
+      {/* </span> */}
     </p>
   );
 };

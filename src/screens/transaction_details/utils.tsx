@@ -1,290 +1,314 @@
-import {
-  MsgSend,
-  MsgMultiSend,
-  MsgVerifyInvariant,
-  MsgFundCommunityPool,
-  MsgSetWithdrawAddress,
-  MsgWithdrawDelegatorReward,
-  // MsgCommunityPoolSpendProposal,
-  // MsgParameterChangeProposal,
-  // MsgSoftwareUpgradeProposal,
-  // MsgTextProposal,
-  MsgDeposit,
-  MsgVote,
-  MsgUnjail,
-  MsgCreateValidator,
-  MsgDelegate,
-  MsgEditValidator,
-  MsgRedelegate,
-  MsgUndelegate,
-  MsgSubmitProposal,
-  MsgUnknown,
-} from '@models';
+// import {
+//   MsgSend,
+//   MsgMultiSend,
+//   MsgVerifyInvariant,
+//   MsgFundCommunityPool,
+//   MsgSetWithdrawAddress,
+//   MsgWithdrawDelegatorReward,
+//   MsgDeposit,
+//   MsgVote,
+//   MsgUnjail,
+//   MsgCreateValidator,
+//   MsgDelegate,
+//   MsgEditValidator,
+//   MsgRedelegate,
+//   MsgUndelegate,
+//   MsgSubmitProposal,
+//   MsgUnknown,
+// } from '@models';
 
-import {
-  Delegate,
-  Unknown,
-  Redelegate,
-  Undelegate,
-  CreateValidator,
-  EditValidator,
-  Send,
-  Multisend,
-  VerifyInvariant,
-  Unjail,
-  Fund,
-  SetWithdrawalAddress,
-  WithdrawReward,
-  DepositProposal,
-  ProposalDisplay,
-  Vote,
-  SubmitProposal,
-} from './components';
+// import {
+//   Tag,
+// } from '@components';
+// import {
+//   Delegate,
+//   Unknown,
+//   Redelegate,
+//   Undelegate,
+//   CreateValidator,
+//   EditValidator,
+//   Send,
+//   Multisend,
+//   VerifyInvariant,
+//   Unjail,
+//   Fund,
+//   SetWithdrawalAddress,
+//   WithdrawReward,
+//   DepositProposal,
+//   // ProposalDisplay,
+//   Vote,
+//   SubmitProposal,
+// } from './components';
 
-/**
- * Helper function that helps get model by type
- * @param type Model type
- */
-export const getMessageModelByType = (type: string) => {
-  // ========================
-  // staking
-  // ========================
-  if (type === '/cosmos.staking.v1beta1.MsgDelegate') {
-    return MsgDelegate;
-  }
+// /**
+//  * Helper function that helps get model by type
+//  * @param type Model type
+//  */
+// export const getMessageModelByType = (type: string) => {
+//   // ========================
+//   // staking
+//   // ========================
+//   if (type === '/cosmos.staking.v1beta1.MsgDelegate') {
+//     return MsgDelegate;
+//   }
 
-  if (type === '/cosmos.staking.v1beta1.MsgBeginRedelegate') {
-    return MsgRedelegate;
-  }
+//   if (type === '/cosmos.staking.v1beta1.MsgBeginRedelegate') {
+//     return MsgRedelegate;
+//   }
 
-  if (type === '/cosmos.staking.v1beta1.MsgUndelegate') {
-    return MsgUndelegate;
-  }
+//   if (type === '/cosmos.staking.v1beta1.MsgUndelegate') {
+//     return MsgUndelegate;
+//   }
 
-  if (type === '/cosmos.staking.v1beta1.MsgCreateValidator') {
-    return MsgCreateValidator;
-  }
+//   if (type === '/cosmos.staking.v1beta1.MsgCreateValidator') {
+//     return MsgCreateValidator;
+//   }
 
-  if (type === '/cosmos.staking.v1beta1.MsgEditValidator') {
-    return MsgEditValidator;
-  }
+//   if (type === '/cosmos.staking.v1beta1.MsgEditValidator') {
+//     return MsgEditValidator;
+//   }
 
-  // ========================
-  // bank
-  // ========================
+//   // ========================
+//   // bank
+//   // ========================
 
-  if (type === '/cosmos.bank.v1beta1.MsgSend') {
-    return MsgSend;
-  }
+//   if (type === '/cosmos.bank.v1beta1.MsgSend') {
+//     return MsgSend;
+//   }
 
-  if (type === '/cosmos.bank.v1beta1.MsgMultiSend') {
-    return MsgMultiSend;
-  }
+//   if (type === '/cosmos.bank.v1beta1.MsgMultiSend') {
+//     return MsgMultiSend;
+//   }
 
-  // ========================
-  // crisis
-  // ========================
+//   // ========================
+//   // crisis
+//   // ========================
 
-  if (type === '/cosmos.crisis.v1beta1.MsgVerifyInvariant') {
-    return MsgVerifyInvariant;
-  }
+//   if (type === '/cosmos.crisis.v1beta1.MsgVerifyInvariant') {
+//     return MsgVerifyInvariant;
+//   }
 
-  // ========================
-  // slashing
-  // ========================
+//   // ========================
+//   // slashing
+//   // ========================
 
-  if (type === '/cosmos.slashing.v1beta1.MsgUnjail') {
-    return MsgUnjail;
-  }
+//   if (type === '/cosmos.slashing.v1beta1.MsgUnjail') {
+//     return MsgUnjail;
+//   }
 
-  // ========================
-  // distribution
-  // ========================
-  if (type === '/cosmos.distribution.v1beta1.MsgFundCommunityPool') {
-    return MsgFundCommunityPool;
-  }
+//   // ========================
+//   // distribution
+//   // ========================
+//   if (type === '/cosmos.distribution.v1beta1.MsgFundCommunityPool') {
+//     return MsgFundCommunityPool;
+//   }
 
-  if (type === '/cosmos.distribution.v1beta1.MsgSetWithdrawAddress') {
-    return MsgSetWithdrawAddress;
-  }
+//   if (type === '/cosmos.distribution.v1beta1.MsgSetWithdrawAddress') {
+//     return MsgSetWithdrawAddress;
+//   }
 
-  if (type === '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward') {
-    return MsgWithdrawDelegatorReward;
-  }
+//   if (type === '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward') {
+//     return MsgWithdrawDelegatorReward;
+//   }
 
-  // ========================
-  // governance
-  // ========================
+//   // ========================
+//   // governance
+//   // ========================
 
-  if (type === '/cosmos.gov.v1beta1.MsgDeposit') {
-    return MsgDeposit;
-  }
+//   if (type === '/cosmos.gov.v1beta1.MsgDeposit') {
+//     return MsgDeposit;
+//   }
 
-  if (type === '/cosmos.gov.v1beta1.MsgVote') {
-    return MsgVote;
-  }
+//   if (type === '/cosmos.gov.v1beta1.MsgVote') {
+//     return MsgVote;
+//   }
 
-  if (type === '/cosmos.gov.v1beta1.MsgSubmitProposal') {
-    return MsgSubmitProposal;
-  }
+//   if (type === '/cosmos.gov.v1beta1.MsgSubmitProposal') {
+//     return MsgSubmitProposal;
+//   }
 
-  return MsgUnknown;
-};
+//   return MsgUnknown;
+// };
 
-export const getMessageByType = (type:string) => {
-  // ========================
-  // staking
-  // ========================
-  if (type === '/cosmos.staking.v1beta1.MsgDelegate') {
-    return {
-      content: Delegate,
-      tagTheme: 'two',
-      tagDisplay: 'txDelegateLabel',
-    };
-  }
+// export const getMessageByType = (message: (MsgCreateValidator
+//   | MsgDelegate
+//   | MsgDeposit
+//   | MsgEditValidator
+//   | MsgFundCommunityPool
+//   | MsgMultiSend
+//   | MsgRedelegate
+//   | MsgSend
+//   | MsgSetWithdrawAddress
+//   | MsgSubmitProposal
+//   | MsgUndelegate
+//   | MsgUnjail
+//   | MsgVerifyInvariant
+//   | MsgVote
+//   | MsgUnknown
+//   | MsgWithdrawDelegatorReward), t:any) => {
+//   const { type } = message;
 
-  if (type === '/cosmos.staking.v1beta1.MsgBeginRedelegate') {
-    return {
-      content: Redelegate,
-      tagTheme: 'two',
-      tagDisplay: 'txRedelegateLabel',
-    };
-  }
+//   let results: {
+//     content: React.ReactNode;
+//     tagDisplay: string;
+//     tagTheme: 'one' | 'two' | 'three' | 'four' | 'five';
+//   } = {
+//     content: Unknown,
+//     tagDisplay: 'txUnknownLabel',
+//     tagTheme: 'two',
+//   };
 
-  if (type === '/cosmos.staking.v1beta1.MsgUndelegate') {
-    return {
-      content: Undelegate,
-      tagTheme: 'two',
-      tagDisplay: 'txUndelegateLabel',
-    };
-  }
+//   // ========================
+//   // staking
+//   // ========================
+//   if (type === '/cosmos.staking.v1beta1.MsgDelegate') {
+//     results = {
+//       content: Delegate,
+//       tagTheme: 'two',
+//       tagDisplay: 'txDelegateLabel',
+//     };
+//   }
 
-  if (type === '/cosmos.staking.v1beta1.MsgCreateValidator') {
-    return {
-      content: CreateValidator,
-      tagTheme: 'two',
-      tagDisplay: 'txCreateValidatorLabel',
-    };
-  }
+//   if (type === '/cosmos.staking.v1beta1.MsgBeginRedelegate') {
+//     results = {
+//       content: Redelegate,
+//       tagTheme: 'two',
+//       tagDisplay: 'txRedelegateLabel',
+//     };
+//   }
 
-  if (type === '/cosmos.staking.v1beta1.MsgEditValidator') {
-    return {
-      content: EditValidator,
-      tagTheme: 'two',
-      tagDisplay: 'txEditValidatorLabel',
-    };
-  }
+//   if (type === '/cosmos.staking.v1beta1.MsgUndelegate') {
+//     results = {
+//       content: Undelegate,
+//       tagTheme: 'two',
+//       tagDisplay: 'txUndelegateLabel',
+//     };
+//   }
 
-  // ========================
-  // bank
-  // ========================
+//   if (type === '/cosmos.staking.v1beta1.MsgCreateValidator') {
+//     results = {
+//       content: CreateValidator,
+//       tagTheme: 'two',
+//       tagDisplay: 'txCreateValidatorLabel',
+//     };
+//   }
 
-  if (type === '/cosmos.bank.v1beta1.MsgSend') {
-    return {
-      content: Send,
-      tagTheme: 'two',
-      tagDisplay: 'txSendLabel',
-    };
-  }
+//   if (type === '/cosmos.staking.v1beta1.MsgEditValidator') {
+//     results = {
+//       content: EditValidator,
+//       tagTheme: 'two',
+//       tagDisplay: 'txEditValidatorLabel',
+//     };
+//   }
 
-  if (type === '/cosmos.bank.v1beta1.MsgMultiSend') {
-    return {
-      content: Multisend,
-      tagTheme: 'two',
-      tagDisplay: 'txMultisendLabel',
-    };
-  }
+//   // ========================
+//   // bank
+//   // ========================
 
-  // ========================
-  // crisis
-  // ========================
+//   if (type === '/cosmos.bank.v1beta1.MsgSend') {
+//     results = {
+//       content: Send,
+//       tagTheme: 'two',
+//       tagDisplay: 'txSendLabel',
+//     };
+//   }
 
-  if (type === '/cosmos.crisis.v1beta1.MsgVerifyInvariant') {
-    return {
-      content: VerifyInvariant,
-      tagTheme: 'two',
-      tagDisplay: 'txVerifyInvariantLabel',
-    };
-  }
+//   if (type === '/cosmos.bank.v1beta1.MsgMultiSend') {
+//     results = {
+//       content: Multisend,
+//       tagTheme: 'two',
+//       tagDisplay: 'txMultisendLabel',
+//     };
+//   }
 
-  // ========================
-  // slashing
-  // ========================
+//   // ========================
+//   // crisis
+//   // ========================
 
-  if (type === '/cosmos.slashing.v1beta1.MsgUnjail') {
-    return {
-      content: Unjail,
-      tagTheme: 'two',
-      tagDisplay: 'txUnjailLabel',
-    };
-  }
+//   if (type === '/cosmos.crisis.v1beta1.MsgVerifyInvariant') {
+//     results = {
+//       content: VerifyInvariant,
+//       tagTheme: 'two',
+//       tagDisplay: 'txVerifyInvariantLabel',
+//     };
+//   }
 
-  // ========================
-  // distribution
-  // ========================
-  if (type === '/cosmos.distribution.v1beta1.MsgFundCommunityPool') {
-    return {
-      content: Fund,
-      tagTheme: 'two',
-      tagDisplay: 'txFundLabel',
-    };
-  }
+//   // ========================
+//   // slashing
+//   // ========================
 
-  if (type === '/cosmos.distribution.v1beta1.MsgSetWithdrawAddress') {
-    return {
-      content: SetWithdrawalAddress,
-      tagTheme: 'two',
-      tagDisplay: 'txsetRewardAddressLabel',
-    };
-  }
+//   if (type === '/cosmos.slashing.v1beta1.MsgUnjail') {
+//     results = {
+//       content: Unjail,
+//       tagTheme: 'two',
+//       tagDisplay: 'txUnjailLabel',
+//     };
+//   }
 
-  if (type === '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward') {
-    return {
-      content: WithdrawReward,
-      tagTheme: 'two',
-      tagDisplay: 'txWithdrawRewardLabel',
-    };
-  }
+//   // ========================
+//   // distribution
+//   // ========================
+//   if (type === '/cosmos.distribution.v1beta1.MsgFundCommunityPool') {
+//     results = {
+//       content: Fund,
+//       tagTheme: 'two',
+//       tagDisplay: 'txFundLabel',
+//     };
+//   }
 
-  // ========================
-  // governance
-  // ========================
+//   if (type === '/cosmos.distribution.v1beta1.MsgSetWithdrawAddress') {
+//     results = {
+//       content: SetWithdrawalAddress,
+//       tagTheme: 'two',
+//       tagDisplay: 'txsetRewardAddressLabel',
+//     };
+//   }
 
-  if (type === '/cosmos.gov.v1beta1.MsgDeposit') {
-    return {
-      content: DepositProposal,
-      tagTheme: 'two',
-      tagDisplay: 'txDepositLabel',
-    };
-  }
+//   if (type === '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward') {
+//     results = {
+//       content: WithdrawReward,
+//       tagTheme: 'two',
+//       tagDisplay: 'txWithdrawRewardLabel',
+//     };
+//   }
 
-  if (type === '/cosmos.gov.v1beta1.MsgVote') {
-    return {
-      content: Vote,
-      tagTheme: 'two',
-      tagDisplay: 'txVoteLabel',
-    };
-  }
+//   // ========================
+//   // governance
+//   // ========================
 
-  if (type === '/cosmos.gov.v1beta1.MsgSubmitProposal') {
-    return {
-      content: SubmitProposal,
-      tagTheme: 'two',
-      tagDisplay: 'txSubmitProposalLabel',
-    };
-  }
+//   if (type === '/cosmos.gov.v1beta1.MsgDeposit') {
+//     results = {
+//       content: DepositProposal,
+//       tagTheme: 'two',
+//       tagDisplay: 'txDepositLabel',
+//     };
+//   }
 
-  let tagDisplay = 'txUnknownLabel';
-  // if unknown but has a type we display it
-  if (type) {
-    const tagSplit = type?.split('.');
-    tagDisplay = tagSplit[tagSplit.length - 1];
-  }
+//   if (type === '/cosmos.gov.v1beta1.MsgVote') {
+//     results = {
+//       content: Vote,
+//       tagTheme: 'two',
+//       tagDisplay: 'txVoteLabel',
+//     };
+//   }
 
-  return {
-    content: Unknown,
-    tagTheme: 'two',
-    // tagTheme: 'unknown',
-    tagDisplay,
-  };
-};
+//   if (type === '/cosmos.gov.v1beta1.MsgSubmitProposal') {
+//     results = {
+//       content: SubmitProposal,
+//       tagTheme: 'two',
+//       tagDisplay: 'txSubmitProposalLabel',
+//     };
+//   }
+
+//   if (results.tagDisplay === 'txUnknownLabel' && type) {
+//     const tagSplit = type?.split('.');
+//     results.tagDisplay = tagSplit[tagSplit.length - 1];
+//   }
+
+//   const { content: Content } = results;
+
+//   return {
+//     type: <Tag value={t(results.tagDisplay)} theme={results.tagTheme} />,
+//     // message: <Content message={message as any} />,
+//   };
+// };

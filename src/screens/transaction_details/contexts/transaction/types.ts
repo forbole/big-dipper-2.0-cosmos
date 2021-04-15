@@ -55,22 +55,10 @@ export interface TransactionState {
       detail: string | React.ReactNode;
       className?: string;
     }[];
-    messages: (MsgCreateValidator
-      | MsgDelegate
-      | MsgDeposit
-      | MsgEditValidator
-      | MsgFundCommunityPool
-      | MsgMultiSend
-      | MsgRedelegate
-      | MsgSend
-      | MsgSetWithdrawAddress
-      | MsgSubmitProposal
-      | MsgUndelegate
-      | MsgUnjail
-      | MsgVerifyInvariant
-      | MsgVote
-      | MsgUnknown
-      | MsgWithdrawDelegatorReward)[];
+    messages: {
+      type: React.ReactNode;
+      // message: React.ReactNode;
+    }[];
   }
   onMessageFilterCallback?: (value: string) => void;
 }
