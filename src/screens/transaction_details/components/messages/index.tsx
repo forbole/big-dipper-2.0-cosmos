@@ -15,11 +15,10 @@ import {
   TransactionMessagesFilter,
   Tag,
 } from '@components';
-
-import { MsgDelegate } from '@models';
+import { MsgRedelegate } from '@models';
 import { useTransactionContext } from '../../contexts/transaction';
 import { useStyles } from './styles';
-import { Delegate } from '..';
+import { Redelegate } from '..';
 
 const Messages: React.FC<{
   className?: string;
@@ -38,19 +37,20 @@ const Messages: React.FC<{
 
   // wingman
   const formatItems = Array(2).fill(null).map((x) => {
-    const message = MsgDelegate.fromJson({
-      '@type': '/cosmos.staking.v1beta1.MsgDelegate',
+    const message = MsgRedelegate.fromJson({
+      '@type': '/cosmos.staking.v1beta1.MsgBeginRedelegate',
       delegator_address: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
-      validator_address: 'desmosvaloper1q9scflz3zycq35wrvzj8qwjnqwx8pc6q4h2cz7',
+      validator_src_address: 'desmosvaloper1qjxe4r8lcr6rx4u2thx4f3v8gadfq39edkmq20',
+      validator_dst_address: 'desmosvaloper1q7rffdxkvxx5d5vm0ye0y4qag8d4qfwgstludz',
       amount: {
         denom: 'udaric',
-        amount: '1000000',
+        amount: '1000',
       },
     });
 
     return ({
-      type: <Tag value="hello world" theme="five" />,
-      message: <Delegate message={message} />,
+      type: <Tag value="hello world" theme="two" />,
+      message: <Redelegate message={message} />,
     });
   });
 

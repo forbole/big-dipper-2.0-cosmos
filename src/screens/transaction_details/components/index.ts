@@ -2,7 +2,7 @@ import Overview from './overview';
 import Messages from './messages';
 import Delegate from './delegate';
 // import Unknown from './unknown';
-// import Redelegate from './redelegate';
+import Redelegate from './redelegate';
 // import Undelegate from './undelegate';
 // import CreateValidator from './create_validator';
 // import EditValidator from './edit_validator';
@@ -27,7 +27,7 @@ export {
 export {
   Delegate,
   // Unknown,
-  // Redelegate,
+  Redelegate,
   // Undelegate,
   // CreateValidator,
   // EditValidator,

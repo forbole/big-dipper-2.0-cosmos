@@ -1,7 +1,7 @@
 import React from 'react';
 import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
-import useTranslation from 'next-translate/useTranslation';
+import { Typography } from '@material-ui/core';
 import { formatDenom } from '@utils/format_denom';
 import { Name } from '@components';
 import { MsgDelegate } from '@models';
@@ -15,7 +15,6 @@ const Delegate = (props: {
   message: MsgDelegate;
 }) => {
   const { findAddress } = useChainContext();
-  const { t } = useTranslation('transactions');
   const { message } = props;
   const delegator = findAddress(message.delegatorAddress);
   const delegatorMoniker = delegator ? delegator?.moniker : message
@@ -25,12 +24,12 @@ const Delegate = (props: {
   const validator = findAddress(message.validatorAddress);
   const validatorMoniker = validator ? validator?.moniker : message
     .validatorAddress;
-  const validatorHref = validator ? ACCOUNT_DETAILS : VALIDATOR_DETAILS;
+  const validatorHref = validator ? VALIDATOR_DETAILS : ACCOUNT_DETAILS;
 
   const parsedAmount = `${numeral(formatDenom(message.amount.amount)).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`;
 
   return (
-    <p>
+    <Typography>
       <Trans
         i18nKey="transactions:txDelegateContent"
         components={[
@@ -54,21 +53,7 @@ const Delegate = (props: {
           amount: parsedAmount,
         }}
       />
-      {/* {t('txDelegateContent')} */}
-      {/* <span className="address"> */}
-      {/* another address */}
-      {/* <AddressDisplay address={message.delegatorAddress} /> */}
-      {/* </span> */}
-      {/* {t('txDelegateOne')} */}
-      {/* <span className="amount"> */}
-      {/* {parsedAmount} */}
-      {/* </span> */}
-      {/* {translationFormatter(t('txDelegateTwo'))} */}
-      {/* <span className="address"> */}
-      {/* something else first */}
-      {/* <AddressDisplay address={message.validatorAddress} /> */}
-      {/* </span> */}
-    </p>
+    </Typography>
   );
 };
 
