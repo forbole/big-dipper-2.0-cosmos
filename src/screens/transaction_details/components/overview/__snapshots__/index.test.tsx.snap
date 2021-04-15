@@ -2,52 +2,7 @@
 
 exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
 <div
-  details={
-    Array [
-      Object {
-        "detail": "4SGxuRMcseNbwki3tGxXPpfz7iFnuo9FUpTfiM4gJ8rhH59uZYSBBK2zW27xRdGX8Sb2N4VkGUnBYt59SBKEhPfB",
-        "label": "transactions:hash",
-      },
-      Object {
-        "detail": <Link
-          href="/blocks/123"
-          passHref={true}
-        >
-          <WithStyles(ForwardRef(Typography))
-            className="value"
-            component="a"
-            variant="body1"
-          >
-            812,768,640
-          </WithStyles(ForwardRef(Typography))>
-        </Link>,
-        "label": "transactions:height",
-      },
-      Object {
-        "detail": "2020-08-10 12:00:00",
-        "label": "transactions:time",
-      },
-      Object {
-        "detail": "123 udaric",
-        "label": "transactions:fee",
-      },
-      Object {
-        "detail": "100 / 200",
-        "label": "transactions:gas",
-      },
-      Object {
-        "detail": <Result
-          success={true}
-        />,
-        "label": "transactions:result",
-      },
-      Object {
-        "className": "makeStyles-memo",
-        "detail": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel cursus tortor. Fusce lobortis sollicitudin dolor id mollis. Nullam quam ex, dignissim eu eros vel, tincidunt ultrices ligula.",
-        "label": "transactions:memo",
-      },
-    ]
-  }
+  className="makeStyles-root"
   id="BoxDetails"
   title="transactions:overview"
 />
