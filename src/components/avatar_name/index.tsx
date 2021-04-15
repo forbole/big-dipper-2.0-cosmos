@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import Link from 'next/link';
 import { Typography } from '@material-ui/core';
 import { Avatar } from '@components';
-import { VALIDATOR_DETAILS } from '@utils/go_to_page';
+import { PROFILE_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
 
 const AvatarName: React.FC<{
@@ -13,7 +13,7 @@ const AvatarName: React.FC<{
   name: string;
   href?: (address: string) => string;
 }> = ({
-  className, address, name, imageUrl, href = VALIDATOR_DETAILS,
+  className, address, name, imageUrl, href = PROFILE_DETAILS,
 }) => {
   const classes = useStyles();
 

@@ -2,15 +2,16 @@ import React from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
 import { Typography } from '@material-ui/core';
+import { PROFILE_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
 
 const Name: React.FC<{
   className?: string;
   address: string;
   name: string;
-  href: (address: string) => string;
+  href?: (address: string) => string;
 }> = ({
-  className, address, name, href,
+  className, address, name, href = PROFILE_DETAILS,
 }) => {
   const classes = useStyles();
 
