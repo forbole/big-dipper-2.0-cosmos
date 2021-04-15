@@ -41,7 +41,7 @@ const Messages: React.FC<{
     const message = MsgDelegate.fromJson({
       '@type': '/cosmos.staking.v1beta1.MsgDelegate',
       delegator_address: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
-      validator_address: 'desmosvaloper13yp2fq3tslq6mmtq4628q38xzj75ethz8j43kw',
+      validator_address: 'desmosvaloper1q9scflz3zycq35wrvzj8qwjnqwx8pc6q4h2cz7',
       amount: {
         denom: 'udaric',
         amount: '1000',
@@ -49,7 +49,7 @@ const Messages: React.FC<{
     });
 
     return ({
-      type: <Tag value="hello world" theme="two" />,
+      type: <Tag value="hello world" theme="five" />,
       message: <Delegate message={message} />,
     });
   });

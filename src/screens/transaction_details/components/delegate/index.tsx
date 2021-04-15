@@ -3,15 +3,29 @@ import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 import { formatDenom } from '@utils/format_denom';
-import { AvatarName } from '@components';
+import { Name } from '@components';
 import { MsgDelegate } from '@models';
 import { chainConfig } from '@src/chain_config';
+import { useChainContext } from '@contexts';
+import {
+  VALIDATOR_DETAILS, ACCOUNT_DETAILS,
+} from '@utils/go_to_page';
 
 const Delegate = (props: {
   message: MsgDelegate;
 }) => {
+  const { findAddress } = useChainContext();
   const { t } = useTranslation('transactions');
   const { message } = props;
+  const delegator = findAddress(message.delegatorAddress);
+  const delegatorMoniker = delegator ? delegator?.moniker : message
+    .delegatorAddress;
+  const delegatorHref = delegator ? VALIDATOR_DETAILS : ACCOUNT_DETAILS;
+
+  const validator = findAddress(message.validatorAddress);
+  const validatorMoniker = validator ? validator?.moniker : message
+    .validatorAddress;
+  const validatorHref = validator ? ACCOUNT_DETAILS : VALIDATOR_DETAILS;
 
   const parsedAmount = formatDenom(message.amount.amount);
 
@@ -21,16 +35,18 @@ const Delegate = (props: {
         i18nKey="transactions:txDelegateContent"
         components={[
           (
-            <AvatarName
+            <Name
               address={message.delegatorAddress}
-              name={message.delegatorAddress}
+              name={delegatorMoniker}
+              href={delegatorHref}
             />
           ),
           <b />,
           (
-            <AvatarName
-              address={message.delegatorAddress}
-              name={message.delegatorAddress}
+            <Name
+              address={message.validatorAddress}
+              name={validatorMoniker}
+              href={validatorHref}
             />
           ),
         ]}

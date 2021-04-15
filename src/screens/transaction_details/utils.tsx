@@ -151,11 +151,10 @@
 //   let results: {
 //     content: React.ReactNode;
 //     tagDisplay: string;
-//     tagTheme: 'one' | 'two' | 'three' | 'four' | 'five';
+//     tagTheme?: 'one' | 'two' | 'three' | 'four' | 'five';
 //   } = {
 //     content: Unknown,
 //     tagDisplay: 'txUnknownLabel',
-//     tagTheme: 'two',
 //   };
 
 //   // ========================
@@ -164,7 +163,7 @@
 //   if (type === '/cosmos.staking.v1beta1.MsgDelegate') {
 //     results = {
 //       content: Delegate,
-//       tagTheme: 'two',
+//       tagTheme: 'one',
 //       tagDisplay: 'txDelegateLabel',
 //     };
 //   }
