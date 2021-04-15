@@ -18,6 +18,10 @@ export const useStyles = () => {
             whiteSpace: 'nowrap',
           },
         },
+        zero: {
+          color: theme.palette.custom.tags.zero,
+          background: Color(theme.palette.custom.tags.zero).alpha(0.2).string(),
+        },
         one: {
           color: theme.palette.custom.tags.one,
           background: Color(theme.palette.custom.tags.one).alpha(0.2).string(),
@@ -37,6 +41,18 @@ export const useStyles = () => {
         five: {
           color: theme.palette.custom.tags.five,
           background: Color(theme.palette.custom.tags.five).alpha(0.2).string(),
+        },
+        six: {
+          color: theme.palette.custom.tags.six,
+          background: Color(theme.palette.custom.tags.six).alpha(0.2).string(),
+        },
+        seven: {
+          color: theme.palette.custom.tags.seven,
+          background: Color(theme.palette.custom.tags.seven).alpha(0.2).string(),
+        },
+        eight: {
+          color: theme.palette.custom.tags.eight,
+          background: Color(theme.palette.custom.tags.eight).alpha(0.2).string(),
         },
       });
     },

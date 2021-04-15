@@ -12124,6 +12124,20 @@ export type TokenomicsQuery = { stakingPool: Array<(
     & Pick<Supply, 'coins'>
   )> };
 
+export type TransactionDetailsQueryVariables = Exact<{
+  hash?: Maybe<Scalars['String']>;
+}>;
+
+
+export type TransactionDetailsQuery = { transaction: Array<(
+    { __typename?: 'transaction' }
+    & { hash: Transaction['hash'], height: Transaction['height'], fee: Transaction['fee'], gasUsed: Transaction['gas_used'], gasWanted: Transaction['gas_wanted'], success: Transaction['success'], memo: Transaction['memo'], messages: Transaction['messages'] }
+    & { block: (
+      { __typename?: 'block' }
+      & { timestamp: Block['timestamp'] }
+    ) }
+  )> };
+
 export type TransactionsListenerSubscriptionVariables = Exact<{
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
@@ -12676,6 +12690,51 @@ export function useTokenomicsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type TokenomicsQueryHookResult = ReturnType<typeof useTokenomicsQuery>;
 export type TokenomicsLazyQueryHookResult = ReturnType<typeof useTokenomicsLazyQuery>;
 export type TokenomicsQueryResult = Apollo.QueryResult<TokenomicsQuery, TokenomicsQueryVariables>;
+export const TransactionDetailsDocument = gql`
+    query TransactionDetails($hash: String) {
+  transaction(where: {hash: {_eq: $hash}}, limit: 1) {
+    hash: hash
+    height: height
+    block: block {
+      timestamp: timestamp
+    }
+    fee: fee
+    gasUsed: gas_used
+    gasWanted: gas_wanted
+    success: success
+    memo: memo
+    messages: messages
+  }
+}
+    `;
+
+/**
+ * __useTransactionDetailsQuery__
+ *
+ * To run a query within a React component, call `useTransactionDetailsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTransactionDetailsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTransactionDetailsQuery({
+ *   variables: {
+ *      hash: // value for 'hash'
+ *   },
+ * });
+ */
+export function useTransactionDetailsQuery(baseOptions?: Apollo.QueryHookOptions<TransactionDetailsQuery, TransactionDetailsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<TransactionDetailsQuery, TransactionDetailsQueryVariables>(TransactionDetailsDocument, options);
+      }
+export function useTransactionDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TransactionDetailsQuery, TransactionDetailsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<TransactionDetailsQuery, TransactionDetailsQueryVariables>(TransactionDetailsDocument, options);
+        }
+export type TransactionDetailsQueryHookResult = ReturnType<typeof useTransactionDetailsQuery>;
+export type TransactionDetailsLazyQueryHookResult = ReturnType<typeof useTransactionDetailsLazyQuery>;
+export type TransactionDetailsQueryResult = Apollo.QueryResult<TransactionDetailsQuery, TransactionDetailsQueryVariables>;
 export const TransactionsListenerDocument = gql`
     subscription TransactionsListener($limit: Int = 7, $offset: Int = 0) {
   transactions: transaction(

@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import { VariableSizeList as List } from 'react-window';
 import useTranslation from 'next-translate/useTranslation';
 import AutoSizer from 'react-virtualized-auto-sizer';
-import * as R from 'ramda';
 import {
   Divider, Typography,
 } from '@material-ui/core';
@@ -13,7 +12,6 @@ import {
 } from '@hooks';
 import {
   Box,
-  Tag,
   TransactionMessagesFilter,
 } from '@components';
 import { useTransactionContext } from '../../contexts/transaction';
@@ -25,7 +23,7 @@ const Messages: React.FC<{
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   const {
-    item,
+    uiData,
     onMessageFilterCallback,
   } = useTransactionContext();
   const {
@@ -33,15 +31,6 @@ const Messages: React.FC<{
     getRowHeight,
     setRowHeight,
   } = useList();
-
-  const messages = R.pathOr([], ['messages'], item);
-
-  const formatItems = messages.map((x) => {
-    return ({
-      type: <Tag value={x['@type']} theme="two" />,
-      message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent libero dolor, sollicitudin fringilla augue gravida, tincidunt viverra odio. Curabitur sit amet erat ultricies nisi posuere bibendum.',
-    });
-  });
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -64,7 +53,7 @@ const Messages: React.FC<{
               <List
                 className="List"
                 height={height}
-                itemCount={formatItems.length}
+                itemCount={uiData.messages.length}
                 itemSize={getRowHeight}
                 ref={listRef}
                 width={width}
@@ -73,21 +62,19 @@ const Messages: React.FC<{
                   index, style,
                 }) => {
                   const { rowRef } = useListRow(index, setRowHeight);
-                  const selectedItem = formatItems[index];
+                  const selectedItem = uiData.messages[index];
                   return (
                     <div style={style}>
                       <div ref={rowRef}>
                         {/* setup individual message types later */}
-                        <div className={classes.fakeItem}>
+                        <div className={classes.item}>
                           <div className={classes.tags}>
                             {selectedItem.type}
                           </div>
-                          <Typography>
-                            {selectedItem.message}
-                          </Typography>
+                          {selectedItem.message}
                         </div>
                         {/* setup individual message types later */}
-                        {index !== formatItems.length - 1 && <Divider />}
+                        {index !== uiData.messages.length - 1 && <Divider />}
                       </div>
                     </div>
                   );

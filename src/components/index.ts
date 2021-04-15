@@ -22,6 +22,7 @@ import NoData from './no_data';
 import CustomToolTip from './custom_tool_tip';
 import NotFound from './not_found';
 import LinearLoading from './linear_loading';
+import Name from './name';
 
 export {
   Layout,
@@ -48,4 +49,5 @@ export {
   CustomToolTip,
   NotFound,
   LinearLoading,
+  Name,
 };

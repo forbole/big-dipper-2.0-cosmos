@@ -42,46 +42,12 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
       <div
         style={
           Object {
-            "height": 100,
+            "height": 0,
             "pointerEvents": undefined,
             "width": "100%",
           }
         }
-      >
-        <div
-          style={
-            Object {
-              "height": 100,
-              "left": 0,
-              "position": "absolute",
-              "right": undefined,
-              "top": 0,
-              "width": "100%",
-            }
-          }
-        >
-          <div>
-            <div
-              className="makeStyles-fakeItem"
-            >
-              <div
-                className="makeStyles-tags"
-              >
-                <div
-                  id="Tag"
-                  theme="two"
-                  value="/cosmos.bank.v1beta1.MsgSend"
-                />
-              </div>
-              <p
-                className="MuiTypography-root MuiTypography-body1"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent libero dolor, sollicitudin fringilla augue gravida, tincidunt viverra odio. Curabitur sit amet erat ultricies nisi posuere bibendum.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      />
     </div>
   </div>
 </div>
