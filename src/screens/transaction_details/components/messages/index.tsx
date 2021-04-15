@@ -32,7 +32,7 @@ const Messages: React.FC<{
     getRowHeight,
     setRowHeight,
   } = useList();
-
+  console.log(rawData.messages, 'messages');
   const formatItems = Array(3).fill(null).map((x) => {
     return ({
       // type: <Tag value={x['@type']} theme="two" />,

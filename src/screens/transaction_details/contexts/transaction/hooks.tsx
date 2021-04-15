@@ -13,6 +13,7 @@ import {
   TransactionDetailsQuery,
 } from '@graphql/types';
 import { getDenom } from '@utils/get_denom';
+import { getMessageModelByType } from '@utils/get_transaction_model_by_type';
 import { formatDenom } from '@utils/format_denom';
 import { TransactionState } from './types';
 
@@ -44,7 +45,9 @@ export const useTransaction = (initalState: TransactionState) => {
     const { fee } = data.transaction[0];
     const feeList = R.pathOr([], ['amount'], fee);
     const feeAmount = getDenom(feeList);
-
+    // =============================
+    // transaction
+    // =============================
     const transaction = {
       hash: data.transaction[0].hash,
       height: data.transaction[0].height,
@@ -56,6 +59,15 @@ export const useTransaction = (initalState: TransactionState) => {
       memo: data.transaction[0].memo,
     };
     results.rawData.transaction = transaction;
+
+    // =============================
+    // messages
+    // =============================
+    const messages = data.transaction[0].messages.map((x) => {
+      return getMessageModelByType(x?.['@type']).fromJson(x);
+    });
+
+    results.rawData.messages = messages;
 
     return results;
   };

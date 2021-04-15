@@ -21,13 +21,11 @@ import {
   MsgUnknown,
 } from '@models';
 
-// return getMessageModelByType(x?.['@type']).fromJson(x);
-
 /**
  * Helper function that helps get model by type
  * @param type Model type
  */
-const getMessageModelByType = (type: string) => {
+export const getMessageModelByType = (type: string) => {
   // ========================
   // staking
   // ========================

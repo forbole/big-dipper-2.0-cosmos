@@ -1,4 +1,22 @@
 import React from 'react';
+import {
+  MsgSend,
+  MsgMultiSend,
+  MsgVerifyInvariant,
+  MsgFundCommunityPool,
+  MsgSetWithdrawAddress,
+  MsgWithdrawDelegatorReward,
+  MsgDeposit,
+  MsgVote,
+  MsgUnjail,
+  MsgCreateValidator,
+  MsgDelegate,
+  MsgEditValidator,
+  MsgRedelegate,
+  MsgUndelegate,
+  MsgSubmitProposal,
+  MsgUnknown,
+} from '@models';
 
 export interface TransactionState {
   rawData: {
@@ -22,6 +40,22 @@ export interface TransactionState {
       detail: string | React.ReactNode;
       className?: string;
     }[];
+    messages: (MsgCreateValidator
+      | MsgDelegate
+      | MsgDeposit
+      | MsgEditValidator
+      | MsgFundCommunityPool
+      | MsgMultiSend
+      | MsgRedelegate
+      | MsgSend
+      | MsgSetWithdrawAddress
+      | MsgSubmitProposal
+      | MsgUndelegate
+      | MsgUnjail
+      | MsgVerifyInvariant
+      | MsgVote
+      | MsgUnknown
+      | MsgWithdrawDelegatorReward)[];
   }
   onMessageFilterCallback?: (value: string) => void;
 }
