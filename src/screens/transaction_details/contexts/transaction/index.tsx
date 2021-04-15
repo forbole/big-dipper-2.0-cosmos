@@ -26,7 +26,11 @@ const initialState: TransactionState = {
 
 const TransactionContext = React.createContext<TransactionState>(initialState);
 
-const TransactionProvider: React.FC = (props: {children: React.ReactNode }) => {
+const TransactionProvider: React.FC = (props: {
+  children: (options: {
+  exists: boolean;
+  loading: boolean;
+}) => React.ReactNode; }) => {
   const { children } = props;
 
   const {
@@ -43,7 +47,10 @@ const TransactionProvider: React.FC = (props: {children: React.ReactNode }) => {
         uiData,
       }}
     >
-      {children}
+      {children({
+        exists: rawData.exists,
+        loading: rawData.loading,
+      })}
     </TransactionContext.Provider>
   );
 };
