@@ -41,5 +41,7 @@
   "noWithVeto": "NO WITH VETO",
   "txDelegateContent": "<0>{{user}}</0> delegated <1>{{amount}}</1> to <2>{{to}}</2>",
   "txRedelegateContent": "<0>{{user}}</0> redelegated <1>{{amount}}</1> from <2>{{from}}</2> to <3>{{to}}</3>",
-  "txUndelegateContent": "{{user}} undelegated {{amount}} from {{from}}"
+  "txUndelegateContent": "<0>{{user}}</0> undelegated <1>{{amount}}</1> from <2>{{from}}</2>",
+  "txCreateValidatorContent": "<0>{{user}}</0> created validator <1>{{validator}}</1>",
+  "txEditValidatorContent": "<0>{{validator}}</0> updated"
 }

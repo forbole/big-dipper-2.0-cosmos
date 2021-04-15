@@ -179,7 +179,7 @@
 //   if (type === '/cosmos.staking.v1beta1.MsgUndelegate') {
 //     results = {
 //       content: Undelegate,
-//       tagTheme: 'two',
+//       tagTheme: 'three',
 //       tagDisplay: 'txUndelegateLabel',
 //     };
 //   }
@@ -187,7 +187,7 @@
 //   if (type === '/cosmos.staking.v1beta1.MsgCreateValidator') {
 //     results = {
 //       content: CreateValidator,
-//       tagTheme: 'two',
+//       tagTheme: 'one',
 //       tagDisplay: 'txCreateValidatorLabel',
 //     };
 //   }
@@ -195,7 +195,7 @@
 //   if (type === '/cosmos.staking.v1beta1.MsgEditValidator') {
 //     results = {
 //       content: EditValidator,
-//       tagTheme: 'two',
+//       tagTheme: 'one',
 //       tagDisplay: 'txEditValidatorLabel',
 //     };
 //   }

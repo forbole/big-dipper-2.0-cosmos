@@ -1,27 +1,36 @@
 import React from 'react';
-import { useTranslation } from 'i18n';
-import { AddressDisplay } from '@components';
+import Trans from 'next-translate/Trans';
+import { Typography } from '@material-ui/core';
+import { Name } from '@components';
 import { MsgEditValidator } from '@models';
-import { translationFormatter } from '../../utils';
+import { VALIDATOR_DETAILS } from '@utils/go_to_page';
+import { useChainContext } from '@contexts';
 
 const EditValidator = (props: {
   message: MsgEditValidator;
 }) => {
-  const { t } = useTranslation(['activities']);
+  const { findAddress } = useChainContext();
   const { message } = props;
 
+  const validator = findAddress(message.validatorAddress);
+  const validatorMoniker = validator ? validator?.moniker : message
+    .validatorAddress;
+
   return (
-    <p>
-      <span className="address">
-        <AddressDisplay
-          address={message.validatorAddress}
-          display={message?.description?.moniker}
-        />
-      </span>
-      {translationFormatter(t('txEditValidatorOne'), {
-        after: false,
-      })}
-    </p>
+    <Typography>
+      <Trans
+        i18nKey="transactions:txEditValidatorContent"
+        components={[
+          (
+            <Name
+              address={message.validatorAddress}
+              name={validatorMoniker}
+              href={VALIDATOR_DETAILS}
+            />
+          ),
+        ]}
+      />
+    </Typography>
   );
 };
 

@@ -5,11 +5,8 @@ export const useStyles = () => {
     (theme) => {
       return ({
         root: {
-          '& p': {
-            color: theme.palette.custom.fonts.highlight,
-            marginLeft: theme.spacing(1),
-            wordBreak: 'break-all',
-          },
+          color: theme.palette.custom.fonts.highlight,
+          wordBreak: 'break-all',
           '&:hover': {
             cursor: 'pointer',
           },
