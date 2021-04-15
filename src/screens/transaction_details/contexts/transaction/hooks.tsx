@@ -70,7 +70,7 @@ export const useTransaction = (initalState: TransactionState) => {
       return getMessageModelByType(x?.['@type']).fromJson(x);
     });
 
-    // results.rawData.messages = messages;
+    results.rawData.messages = messages;
 
     return results;
   };

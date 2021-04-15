@@ -23,7 +23,6 @@ const Messages: React.FC<{
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   const {
-    rawData,
     uiData,
     onMessageFilterCallback,
   } = useTransactionContext();
@@ -32,21 +31,6 @@ const Messages: React.FC<{
     getRowHeight,
     setRowHeight,
   } = useList();
-
-  console.log(rawData, 'wht');
-
-  // wingman
-  // const formatItems = Array(2).fill(null).map((x) => {
-  //   const message = MsgUnjail.fromJson({
-  //     '@type': '/cosmos.slashing.v1beta1.MsgUnjail',
-  //     validator_addr: 'desmosvaloper13yp2fq3tslq6mmtq4628q38xzj75ethz8j43kw',
-  //   });
-
-  //   return ({
-  //     type: <Tag value="hello world" theme="eight" />,
-  //     message: <Unjail message={message} />,
-  //   });
-  // });
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -87,8 +71,7 @@ const Messages: React.FC<{
                           <div className={classes.tags}>
                             {selectedItem.type}
                           </div>
-                          hello world
-                          {/* {selectedItem.message} */}
+                          {selectedItem.message}
                         </div>
                         {/* setup individual message types later */}
                         {index !== uiData.messages.length - 1 && <Divider />}

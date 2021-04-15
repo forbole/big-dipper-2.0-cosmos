@@ -35,9 +35,8 @@ import {
   SetWithdrawalAddress,
   WithdrawReward,
   DepositProposal,
-  // ProposalDisplay,
   Vote,
-  SubmitProposal,
+  // SubmitProposal,
 } from './components';
 
 /**
@@ -123,9 +122,10 @@ export const getMessageModelByType = (type: string) => {
     return MsgVote;
   }
 
-  if (type === '/cosmos.gov.v1beta1.MsgSubmitProposal') {
-    return MsgSubmitProposal;
-  }
+  // unable to get proposal id atm
+  // if (type === '/cosmos.gov.v1beta1.MsgSubmitProposal') {
+  //   return MsgSubmitProposal;
+  // }
 
   return MsgUnknown;
 };
@@ -149,12 +149,29 @@ export const getMessageByType = (message: (MsgCreateValidator
   const { type } = message;
 
   let results: {
-    content: React.ReactNode;
+    content: (
+      typeof Delegate
+    | typeof Unknown
+    | typeof Redelegate
+    | typeof Undelegate
+    | typeof CreateValidator
+    | typeof EditValidator
+    | typeof Send
+    | typeof Multisend
+    | typeof VerifyInvariant
+    | typeof Unjail
+    | typeof Fund
+    | typeof SetWithdrawalAddress
+    | typeof WithdrawReward
+    | typeof DepositProposal
+    | typeof Vote
+    );
     tagDisplay: string;
     tagTheme?: 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven' | 'eight' | 'zero';
   } = {
     content: Unknown,
     tagDisplay: 'txUnknownLabel',
+    tagTheme: 'zero',
   };
 
   // ========================
@@ -291,23 +308,21 @@ export const getMessageByType = (message: (MsgCreateValidator
     };
   }
 
-  if (type === '/cosmos.gov.v1beta1.MsgSubmitProposal') {
-    results = {
-      content: SubmitProposal,
-      tagTheme: 'two',
-      tagDisplay: 'txSubmitProposalLabel',
-    };
-  }
+  // if (type === '/cosmos.gov.v1beta1.MsgSubmitProposal') {
+  //   results = {
+  //     content: SubmitProposal,
+  //     tagTheme: 'two',
+  //     tagDisplay: 'txSubmitProposalLabel',
+  //   };
+  // }
 
   if (results.tagDisplay === 'txUnknownLabel' && type) {
     const tagSplit = type?.split('.');
     results.tagDisplay = tagSplit[tagSplit.length - 1];
   }
 
-  const { content: Content } = results;
-
   return {
     type: <Tag value={t(results.tagDisplay)} theme={results.tagTheme} />,
-    // message: <Content message={message as any} />,
+    message: <results.content message={message as any} />,
   };
 };

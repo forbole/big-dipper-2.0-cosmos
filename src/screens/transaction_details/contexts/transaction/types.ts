@@ -57,7 +57,7 @@ export interface TransactionState {
     }[];
     messages: {
       type: React.ReactNode;
-      // message: React.ReactNode;
+      message: React.ReactNode;
     }[];
   }
   onMessageFilterCallback?: (value: string) => void;
