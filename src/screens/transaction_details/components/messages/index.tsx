@@ -33,9 +33,10 @@ const Messages: React.FC<{
     setRowHeight,
   } = useList();
 
-  const formatItems = Array(3).map((x) => {
+  const formatItems = Array(3).fill(null).map((x) => {
     return ({
-      type: <Tag value={x['@type']} theme="two" />,
+      // type: <Tag value={x['@type']} theme="two" />,
+      type: <Tag value="asd" theme="two" />,
       message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent libero dolor, sollicitudin fringilla augue gravida, tincidunt viverra odio. Curabitur sit amet erat ultricies nisi posuere bibendum.',
     });
   });
