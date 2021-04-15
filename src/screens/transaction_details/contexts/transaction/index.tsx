@@ -3,27 +3,55 @@ import { useTransaction } from './hooks';
 import { TransactionState } from './types';
 
 const initialState: TransactionState = {
-  item: {},
+  rawData: {
+    exists: true,
+    loading: true,
+    filterBy: 'none',
+    transaction: {
+      hash: '',
+      height: 0,
+      timestamp: '',
+      fee: 0,
+      gasUsed: 0,
+      gasWanted: 0,
+      success: false,
+      memo: '',
+    },
+    messages: [],
+  },
+  uiData: {
+    transaction: [],
+    messages: [],
+  },
 };
 
 const TransactionContext = React.createContext<TransactionState>(initialState);
 
-const TransactionProvider: React.FC = (props: {children: React.ReactNode }) => {
+const TransactionProvider: React.FC = (props: {
+  children: (options: {
+  exists: boolean;
+  loading: boolean;
+}) => React.ReactNode; }) => {
   const { children } = props;
 
   const {
-    item,
+    rawData,
     onMessageFilterCallback,
-  } = useTransaction();
+    uiData,
+  } = useTransaction(initialState);
 
   return (
     <TransactionContext.Provider
       value={{
-        item,
+        rawData,
         onMessageFilterCallback,
+        uiData,
       }}
     >
-      {children}
+      {children({
+        exists: rawData.exists,
+        loading: rawData.loading,
+      })}
     </TransactionContext.Provider>
   );
 };

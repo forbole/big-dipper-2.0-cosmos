@@ -6,7 +6,9 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
   id="Layout"
   navTitle="transactionDetails"
 >
-  <TransactionProvider>
+  <div
+    id="TransactionProvider"
+  >
     <div
       id="Overview"
     />
@@ -14,6 +16,6 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
       className="makeStyles-messages"
       id="Messages"
     />
-  </TransactionProvider>
+  </div>
 </div>
 `;

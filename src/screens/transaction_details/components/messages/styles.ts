@@ -28,18 +28,20 @@ export const useStyles = () => {
           height: '100%',
           flex: 1,
         },
-        fakeItem: {
+        item: {
           margin: theme.spacing(2, 0),
           [theme.breakpoints.up('lg')]: {
             display: 'flex',
+            padding: theme.spacing(0, 2),
           },
         },
         tags: {
           marginBottom: theme.spacing(2),
           [theme.breakpoints.up('lg')]: {
-            minWidth: '350px',
+            minWidth: '200px',
             marginBottom: 0,
-            alignSelf: 'flex-end',
+            PaddingRight: theme.spacing(2),
+            alignSelf: 'flex-start',
           },
         },
       });

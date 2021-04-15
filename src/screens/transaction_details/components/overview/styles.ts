@@ -4,10 +4,12 @@ export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
       return ({
-        memo: {
-          alignItems: 'flex-start',
-          '& .label': {
-            marginRight: theme.spacing(5),
+        root: {
+          '& .memo': {
+            alignItems: 'flex-start',
+            '& .label': {
+              marginRight: theme.spacing(5),
+            },
           },
         },
       });
