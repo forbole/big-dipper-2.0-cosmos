@@ -34,7 +34,7 @@ export const useTransaction = (initalState: TransactionState) => {
     },
   });
 
-  const handleSetState = (stateChange: typeof state) => {
+  const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
 
@@ -44,6 +44,11 @@ export const useTransaction = (initalState: TransactionState) => {
         loading: false,
       },
     };
+
+    if (!data.transaction.length) {
+      results.rawData.exists = false;
+      return results;
+    }
 
     const { fee } = data.transaction[0];
     const feeList = R.pathOr([], ['amount'], fee);
@@ -77,7 +82,12 @@ export const useTransaction = (initalState: TransactionState) => {
 
   const formatUi = () => {
     return ({
-      messages: state.rawData.messages.map((x) => {
+      messages: state.rawData.messages.filter((x) => {
+        if (state.rawData.filterBy !== 'none') {
+          return x.category === state.rawData.filterBy;
+        }
+        return true;
+      }).map((x) => {
         return getMessageByType(x, t);
       }),
       transaction: [
@@ -123,7 +133,11 @@ export const useTransaction = (initalState: TransactionState) => {
   };
 
   const onMessageFilterCallback = (value: string) => {
-    console.log(`filtered value: ${value}`);
+    handleSetState({
+      rawData: {
+        filterBy: value,
+      },
+    });
   };
 
   return {

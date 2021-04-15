@@ -6,6 +6,7 @@ const initialState: TransactionState = {
   rawData: {
     exists: true,
     loading: true,
+    filterBy: 'none',
     transaction: {
       hash: '',
       height: 0,

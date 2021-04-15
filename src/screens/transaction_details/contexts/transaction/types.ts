@@ -22,6 +22,7 @@ export interface TransactionState {
   rawData: {
     exists: boolean;
     loading: boolean;
+    filterBy: string;
     transaction: {
       hash: string;
       height: number;
