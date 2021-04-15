@@ -15,10 +15,10 @@ import {
   TransactionMessagesFilter,
   Tag,
 } from '@components';
-import { MsgEditValidator } from '@models';
+import { MsgMultiSend } from '@models';
 import { useTransactionContext } from '../../contexts/transaction';
 import { useStyles } from './styles';
-import { EditValidator } from '..';
+import { Multisend } from '..';
 
 const Messages: React.FC<{
   className?: string;
@@ -37,23 +37,35 @@ const Messages: React.FC<{
 
   // wingman
   const formatItems = Array(2).fill(null).map((x) => {
-    const message = MsgEditValidator.fromJson({
-      '@type': '/cosmos.staking.v1beta1.MsgEditValidator',
-      description: {
-        moniker: 'Forbole',
-        identity: '[do-not-modify]',
-        website: '[do-not-modify]',
-        security_contact: '[do-not-modify]',
-        details: '[do-not-modify]',
-      },
-      validator_address: 'desmosvaloper13yp2fq3tslq6mmtq4628q38xzj75ethz8j43kw',
-      commission_rate: null,
-      min_self_delegation: null,
+    const message = MsgMultiSend.fromJson({
+      '@type': '/cosmos.bank.v1beta1.MsgMultiSend',
+      inputs: [
+        {
+          address: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
+          coins: [
+            {
+              denom: 'udaric',
+              amount: '1000',
+            },
+          ],
+        },
+      ],
+      outputs: [
+        {
+          address: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
+          coins: [
+            {
+              denom: 'udaric',
+              amount: '1000',
+            },
+          ],
+        },
+      ],
     });
 
     return ({
-      type: <Tag value="hello world" theme="one" />,
-      message: <EditValidator message={message} />,
+      type: <Tag value="hello world" theme="four" />,
+      message: <Multisend message={message} />,
     });
   });
 

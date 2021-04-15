@@ -35,6 +35,7 @@
   "txVoteLabel": "Vote",
   "txSubmitProposalLabel": "Submit Proposal",
   "txUnknownLabel": "Unknown",
+  "and": "and",
   "yes": "YES",
   "no": "NO",
   "abstain": "ABSTAIN",
@@ -44,5 +45,7 @@
   "txUndelegateContent": "<0>{{user}}</0> undelegated <1>{{amount}}</1> from <2>{{from}}</2>",
   "txCreateValidatorContent": "<0>{{user}}</0> created validator <1>{{validator}}</1>",
   "txEditValidatorContent": "<0>{{validator}}</0> updated",
-  "txSendContent": "<0>{{user}}</0> sent {{amount}} to <1>{{address}}</1>"
+  "txSendContent": "<0>{{user}}</0> sent <1>{{amount}}</1> to <2>{{address}}</2>",
+  "txMultisendContentOne": "<0>{{user}}</0> sent <1>{{amount}}</1> to the following recipients:",
+  "txMultisendContentTwo": "<0>{{user}}</0> received <1>{{amount}}</1>"
 }

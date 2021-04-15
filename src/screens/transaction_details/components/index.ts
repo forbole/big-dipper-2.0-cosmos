@@ -1,13 +1,13 @@
 import Overview from './overview';
 import Messages from './messages';
 import Delegate from './delegate';
-// import Unknown from './unknown';
+import Unknown from './unknown';
 import Redelegate from './redelegate';
 import Undelegate from './undelegate';
 import CreateValidator from './create_validator';
 import EditValidator from './edit_validator';
-// import Send from './send';
-// import Multisend from './multisend';
+import Send from './send';
+import Multisend from './multisend';
 // import VerifyInvariant from './verify_invariant';
 // import Unjail from './unjail';
 // import Fund from './fund';
@@ -26,13 +26,13 @@ export {
 // message types
 export {
   Delegate,
-  // Unknown,
+  Unknown,
   Redelegate,
   Undelegate,
   CreateValidator,
   EditValidator,
-  // Send,
-  // Multisend,
+  Send,
+  Multisend,
   // VerifyInvariant,
   // Unjail,
   // Fund,

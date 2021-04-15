@@ -39,7 +39,7 @@ export const useStyles = () => {
           [theme.breakpoints.up('lg')]: {
             minWidth: '350px',
             marginBottom: 0,
-            alignSelf: 'flex-end',
+            alignSelf: 'flex-start',
           },
         },
       });

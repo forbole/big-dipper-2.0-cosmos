@@ -1,31 +1,34 @@
 import React from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
-import { useTranslation } from 'i18n';
-import { formatDenom } from '@utils';
-import { AddressDisplay } from '@components';
+import Trans from 'next-translate/Trans';
+import useTranslation from 'next-translate/useTranslation';
+import { Typography } from '@material-ui/core';
+import { formatDenom } from '@utils/format_denom';
+import { Name } from '@components';
 import { MsgMultiSend } from '@models';
 import { chainConfig } from '@src/chain_config';
-import { useGetStyles } from './styles';
-import { translationFormatter } from '../../utils';
+import { useChainContext } from '@contexts';
+import { useStyles } from './styles';
 
 const Multisend = (props: {
   message: MsgMultiSend;
 }) => {
-  const { t } = useTranslation(['activities']);
-  const { classes } = useGetStyles();
+  const { findAddress } = useChainContext();
+  const { t } = useTranslation('transactions');
+  const classes = useStyles();
 
   const { message } = props;
 
   const sender = R.pathOr({
   }, ['inputs', 0], message);
   const senderAmount = sender?.coins?.map((x) => {
-    return `${formatDenom(chainConfig.display, numeral(x.amount).value(), '0,0.0[000]').format} ${chainConfig.display.toUpperCase()}`;
+    return `${numeral(formatDenom(x.amount)).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`;
   }).reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
 
   const receivers = message?.outputs?.map((output) => {
     const parsedAmount = output?.coins?.map((x) => {
-      return `${formatDenom(chainConfig.display, numeral(x.amount).value(), '0,0.0[000]').format} ${chainConfig.display.toUpperCase()}`;
+      return `${numeral(formatDenom(x.amount)).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`;
     }).reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
 
     return {
@@ -34,39 +37,56 @@ const Multisend = (props: {
     };
   });
 
+  const userSend = findAddress(sender?.address);
+  const validatorMoniker = userSend ? userSend?.moniker : sender?.address;
+
   return (
-    <>
-      <p>
-        <span className="address">
-          <AddressDisplay address={sender?.address} />
-        </span>
-        {translationFormatter(t('txMultisendOne'))}
-        <span className="amount">
-          {senderAmount}
-        </span>
-        {translationFormatter(t('txMultisendTwo'), {
-          after: false,
-        })}
-        :
-      </p>
+    <div>
+      <Typography>
+        <Trans
+          i18nKey="transactions:txMultisendContentOne"
+          components={[
+            (
+              <Name
+                address={sender?.address}
+                name={validatorMoniker}
+              />
+            ),
+            <b />,
+          ]}
+          values={{
+            amount: senderAmount,
+          }}
+        />
+      </Typography>
       <div className={classes.multisend}>
         {
         receivers?.map((x, i) => {
+          const recieverUser = findAddress(x?.address);
+          const recieverMoniker = recieverUser ? recieverUser?.moniker : x?.address;
           return (
-            <p key={`${x.address}-${i}`}>
-              <span className="address">
-                <AddressDisplay address={x.address} />
-              </span>
-              {translationFormatter(t('txMultisendThree'))}
-              <span className="amount">
-                {x.parsedAmount}
-              </span>
-            </p>
+            <Typography key={`${x.address}-${i}`}>
+              <Trans
+                i18nKey="transactions:txMultisendContentTwo"
+                components={[
+                  (
+                    <Name
+                      address={x?.address}
+                      name={recieverMoniker}
+                    />
+                  ),
+                  <b />,
+                ]}
+                values={{
+                  amount: x.parsedAmount,
+                }}
+              />
+            </Typography>
           );
         })
       }
       </div>
-    </>
+    </div>
   );
 };
 

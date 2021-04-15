@@ -207,7 +207,7 @@
 //   if (type === '/cosmos.bank.v1beta1.MsgSend') {
 //     results = {
 //       content: Send,
-//       tagTheme: 'two',
+//       tagTheme: 'four',
 //       tagDisplay: 'txSendLabel',
 //     };
 //   }
@@ -215,7 +215,7 @@
 //   if (type === '/cosmos.bank.v1beta1.MsgMultiSend') {
 //     results = {
 //       content: Multisend,
-//       tagTheme: 'two',
+//       tagTheme: 'four',
 //       tagDisplay: 'txMultisendLabel',
 //     };
 //   }
