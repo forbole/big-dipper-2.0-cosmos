@@ -32,7 +32,22 @@ export interface TransactionState {
       success: boolean;
       memo: string;
     }
-    messages: any[];
+    messages: (MsgCreateValidator
+      | MsgDelegate
+      | MsgDeposit
+      | MsgEditValidator
+      | MsgFundCommunityPool
+      | MsgMultiSend
+      | MsgRedelegate
+      | MsgSend
+      | MsgSetWithdrawAddress
+      | MsgSubmitProposal
+      | MsgUndelegate
+      | MsgUnjail
+      | MsgVerifyInvariant
+      | MsgVote
+      | MsgUnknown
+      | MsgWithdrawDelegatorReward)[];
   }
   uiData: {
     transaction: {

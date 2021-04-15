@@ -13,9 +13,13 @@ import {
   TransactionDetailsQuery,
 } from '@graphql/types';
 import { getDenom } from '@utils/get_denom';
-import { getMessageModelByType } from '@utils/get_transaction_model_by_type';
 import { formatDenom } from '@utils/format_denom';
+import { resourceLimits } from 'node:worker_threads';
 import { TransactionState } from './types';
+import {
+  getMessageModelByType,
+  getMessageByType,
+} from '../../utils';
 
 export const useTransaction = (initalState: TransactionState) => {
   const router = useRouter();
@@ -74,6 +78,9 @@ export const useTransaction = (initalState: TransactionState) => {
 
   const formatUi = () => {
     return ({
+      messages: state.rawData.messages.map((x) => (
+        getMessageByType(x.type)
+      )),
       transaction: [
         {
           label: t('hash'),
