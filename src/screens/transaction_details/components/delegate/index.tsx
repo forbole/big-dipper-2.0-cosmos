@@ -14,8 +14,7 @@ const Delegate = (props: {
   const { findAddress } = useChainContext();
   const { message } = props;
   const delegator = findAddress(message.delegatorAddress);
-  const delegatorMoniker = delegator ? delegator?.moniker : message
-    .delegatorAddress;
+  const delegatorMoniker = delegator ? delegator?.moniker : message.delegatorAddress;
 
   const validator = findAddress(message.validatorAddress);
   const validatorMoniker = validator ? validator?.moniker : message

@@ -1,31 +1,53 @@
 import React from 'react';
-import { useTranslation } from 'i18n';
-import { AddressDisplay } from '@components';
+import Link from 'next/link';
+import Trans from 'next-translate/Trans';
+import useTranslation from 'next-translate/useTranslation';
+import { Typography } from '@material-ui/core';
+import { Name } from '@components';
 import { MsgVote } from '@models';
-import { ProposalDisplay } from '..';
-import { translationFormatter } from '../../utils';
+import { useChainContext } from '@contexts';
+import { PROPOSAL_DETAILS } from '@utils/go_to_page';
 
 const Vote = (props: {
   message: MsgVote;
 }) => {
-  const { t } = useTranslation(['activities']);
+  const { findAddress } = useChainContext();
+  const { t } = useTranslation('transactions');
   const { message } = props;
-
   const vote = t(message.getOptionTranslationKey());
+
+  const voter = findAddress(message.voter);
+  const voterMoniker = voter ? voter?.moniker : message.voter;
+
+  const Proposal = () => {
+    return (
+      <Link href={PROPOSAL_DETAILS(message.proposalId)} passHref>
+        <Typography component="a">
+          #1
+        </Typography>
+      </Link>
+    );
+  };
+
   return (
-    <p>
-      <span className="address">
-        <AddressDisplay address={message.voter} />
-      </span>
-      {translationFormatter(t('txVoteOne'))}
-      <span className="bold">
-        {vote}
-      </span>
-      {translationFormatter(t('txVoteTwo'))}
-      <span className="link">
-        <ProposalDisplay proposalId={message.proposalId} />
-      </span>
-    </p>
+    <Typography>
+      <Trans
+        i18nKey="transactions:txVoteContent"
+        components={[
+          (
+            <Name
+              address={message.voter}
+              name={voterMoniker}
+            />
+          ),
+          <b />,
+          <Proposal />,
+        ]}
+        values={{
+          vote,
+        }}
+      />
+    </Typography>
   );
 };
 

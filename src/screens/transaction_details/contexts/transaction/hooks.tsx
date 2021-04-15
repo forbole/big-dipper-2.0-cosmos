@@ -66,10 +66,9 @@ export const useTransaction = (initalState: TransactionState) => {
     // =============================
     // messages
     // =============================
-    // wingman
-    // const messages = data.transaction[0].messages.map((x) => {
-    //   return getMessageModelByType(x?.['@type']).fromJson(x);
-    // });
+    const messages = data.transaction[0].messages.map((x) => {
+      return getMessageModelByType(x?.['@type']).fromJson(x);
+    });
 
     // results.rawData.messages = messages;
 
@@ -78,11 +77,9 @@ export const useTransaction = (initalState: TransactionState) => {
 
   const formatUi = () => {
     return ({
-      // messages: state.rawData.messages.map((x) => (
-      //   getMessageByType(x, t)
-      // )),
-      // wingman
-      messages: [],
+      messages: state.rawData.messages.map((x) => {
+        return getMessageByType(x, t);
+      }),
       transaction: [
         {
           label: t('hash'),

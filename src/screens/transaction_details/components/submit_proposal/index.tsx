@@ -15,7 +15,16 @@ const SubmitProposal = (props: {
 
   const proposer = findAddress(message.proposer);
   const proposerMoniker = proposer ? proposer?.moniker : message.proposer;
-  console.log('im in here');
+
+  const Proposal = () => {
+    return (
+      <Link href={PROPOSAL_DETAILS(1)} passHref>
+        <Typography component="a">
+          #1
+        </Typography>
+      </Link>
+    );
+  };
   return (
     <Typography>
       <Trans
@@ -28,13 +37,7 @@ const SubmitProposal = (props: {
             />
           ),
           (
-            <Link href={PROPOSAL_DETAILS(1)}>
-              <a>
-                <p>
-                  #1
-                </p>
-              </a>
-            </Link>
+            <Proposal />
           ),
         ]}
       />

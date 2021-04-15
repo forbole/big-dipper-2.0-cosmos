@@ -1,24 +1,32 @@
 import React from 'react';
-import { useTranslation } from 'i18n';
-import { AddressDisplay } from '@components';
+import Trans from 'next-translate/Trans';
+import { Typography } from '@material-ui/core';
+import { Name } from '@components';
 import { MsgUnjail } from '@models';
-import { translationFormatter } from '../../utils';
+import { useChainContext } from '@contexts';
 
 const Unjail = (props: {
   message: MsgUnjail;
 }) => {
-  const { t } = useTranslation(['activities']);
+  const { findAddress } = useChainContext();
   const { message } = props;
+  const validator = findAddress(message.validatorAddress);
+  const validatorMoniker = validator ? validator?.moniker : message.validatorAddress;
 
   return (
-    <p>
-      <span className="address">
-        <AddressDisplay address={message.validatorAddress} />
-      </span>
-      {translationFormatter(t('txUnjailOne'), {
-        after: false,
-      })}
-    </p>
+    <Typography>
+      <Trans
+        i18nKey="transactions:txUnjailContent"
+        components={[
+          (
+            <Name
+              address={message.validatorAddress}
+              name={validatorMoniker}
+            />
+          ),
+        ]}
+      />
+    </Typography>
   );
 };
 

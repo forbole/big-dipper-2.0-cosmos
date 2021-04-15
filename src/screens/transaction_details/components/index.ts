@@ -9,13 +9,12 @@ import EditValidator from './edit_validator';
 import Send from './send';
 import Multisend from './multisend';
 import VerifyInvariant from './verify_invariant';
-// import Unjail from './unjail';
+import Unjail from './unjail';
 import Fund from './fund';
 import SetWithdrawalAddress from './set_withdrawal_address';
 import WithdrawReward from './withdraw_reward';
-// import DepositProposal from './deposit_proposal';
-// import ProposalDisplay from './proposal_display';
-// import Vote from './vote';
+import DepositProposal from './deposit_proposal';
+import Vote from './vote';
 import SubmitProposal from './submit_proposal';
 
 export {
@@ -34,12 +33,11 @@ export {
   Send,
   Multisend,
   VerifyInvariant,
-  // Unjail,
+  Unjail,
   Fund,
   SetWithdrawalAddress,
   WithdrawReward,
-  // DepositProposal,
-  // ProposalDisplay,
-  // Vote,
+  DepositProposal,
+  Vote,
   SubmitProposal,
 };

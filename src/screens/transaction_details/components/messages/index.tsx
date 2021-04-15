@@ -13,12 +13,9 @@ import {
 import {
   Box,
   TransactionMessagesFilter,
-  Tag,
 } from '@components';
-import { MsgSubmitProposal } from '@models';
 import { useTransactionContext } from '../../contexts/transaction';
 import { useStyles } from './styles';
-import { SubmitProposal } from '..';
 
 const Messages: React.FC<{
   className?: string;
@@ -26,6 +23,7 @@ const Messages: React.FC<{
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   const {
+    rawData,
     uiData,
     onMessageFilterCallback,
   } = useTransactionContext();
@@ -35,29 +33,20 @@ const Messages: React.FC<{
     setRowHeight,
   } = useList();
 
-  // wingman
-  const formatItems = Array(2).fill(null).map((x) => {
-    const message = MsgSubmitProposal.fromJson({
-      '@type': '/cosmos.gov.v1beta1.MsgSubmitProposal',
-      content: {
-        '@type': '/cosmos.gov.v1beta1.TextProposal',
-        title: 'test software upgrade proposal',
-        description: 'something about the proposal here',
-      },
-      initial_deposit: [
-        {
-          denom: 'udaric',
-          amount: '20000000',
-        },
-      ],
-      proposer: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
-    });
+  console.log(rawData, 'wht');
 
-    return ({
-      type: <Tag value="hello world" theme="seven" />,
-      message: <SubmitProposal message={message} />,
-    });
-  });
+  // wingman
+  // const formatItems = Array(2).fill(null).map((x) => {
+  //   const message = MsgUnjail.fromJson({
+  //     '@type': '/cosmos.slashing.v1beta1.MsgUnjail',
+  //     validator_addr: 'desmosvaloper13yp2fq3tslq6mmtq4628q38xzj75ethz8j43kw',
+  //   });
+
+  //   return ({
+  //     type: <Tag value="hello world" theme="eight" />,
+  //     message: <Unjail message={message} />,
+  //   });
+  // });
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -80,8 +69,7 @@ const Messages: React.FC<{
               <List
                 className="List"
                 height={height}
-                // itemCount={uiData.messages.length}
-                itemCount={formatItems.length}
+                itemCount={uiData.messages.length}
                 itemSize={getRowHeight}
                 ref={listRef}
                 width={width}
@@ -90,8 +78,7 @@ const Messages: React.FC<{
                   index, style,
                 }) => {
                   const { rowRef } = useListRow(index, setRowHeight);
-                  // const selectedItem = uiData.messages[index];
-                  const selectedItem = formatItems[index];
+                  const selectedItem = uiData.messages[index];
                   return (
                     <div style={style}>
                       <div ref={rowRef}>
@@ -100,7 +87,8 @@ const Messages: React.FC<{
                           <div className={classes.tags}>
                             {selectedItem.type}
                           </div>
-                          {selectedItem.message}
+                          hello world
+                          {/* {selectedItem.message} */}
                         </div>
                         {/* setup individual message types later */}
                         {index !== uiData.messages.length - 1 && <Divider />}
