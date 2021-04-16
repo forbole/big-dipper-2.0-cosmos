@@ -8,16 +8,18 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
         "className": "makeStyles-copyText",
         "detail": <React.Fragment>
           <SvgIconCopy
+            className="makeStyles-actionIcons"
             onClick={[Function]}
           />
           <SvgIconShare
+            className="makeStyles-actionIcons"
             onClick={[Function]}
           />
           <WithStyles(ForwardRef(Typography))
             className="value"
             variant="body1"
           >
-            HjTgC7ukwMA1gsE...E6B6X
+            address
           </WithStyles(ForwardRef(Typography))>
         </React.Fragment>,
         "label": "accounts:address",
@@ -26,13 +28,14 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
         "className": "makeStyles-copyText",
         "detail": <React.Fragment>
           <SvgIconCopy
+            className="makeStyles-actionIcons"
             onClick={[Function]}
           />
           <WithStyles(ForwardRef(Typography))
             className="value"
             variant="body1"
           >
-            HjTgC7ukwMA1gsE...E6B6X
+            withdrawaddress
           </WithStyles(ForwardRef(Typography))>
         </React.Fragment>,
         "label": "accounts:rewardAddress",
