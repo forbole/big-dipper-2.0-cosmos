@@ -145,7 +145,7 @@ export const useAccount = (initialState: AccountState) => {
       },
       balance: {
         chart: balanceChart,
-        total: numeral(state.rawData.balance.total).format('0,0.[0000]'),
+        total: `${numeral(state.rawData.balance.total).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
       },
     });
   };
