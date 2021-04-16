@@ -9,12 +9,6 @@ const initialState: NavState = {
     inflation: 0,
     communityPool: 0,
   },
-  uiData: {
-    price: '$0.00',
-    marketCap: 'N/A',
-    inflation: '0.00%',
-    communityPool: '0',
-  },
 };
 
 const NavContext = React.createContext<NavState>(initialState);

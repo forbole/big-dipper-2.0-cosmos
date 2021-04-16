@@ -42,7 +42,7 @@ export const useStyles = () => {
             alignItems: 'center',
             justifyContent: 'space-between',
             marginTop: 0,
-            width: '60%',
+            width: '70%',
             padding: theme.spacing(1, 3),
             flexWrap: 'nowrap',
           },

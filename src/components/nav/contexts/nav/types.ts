@@ -6,7 +6,7 @@ export interface NavState {
     inflation: number;
     communityPool: number;
   }
-  uiData: {
+  uiData?: {
     price: string;
     marketCap: string;
     inflation: string;
