@@ -11,14 +11,22 @@ export interface AccountState {
       delegate: number;
       unbonding: number;
       reward: number;
-      total: 0,
       commission?: number;
+      total: number;
     }
   }
   uiData?: {
     account: {
       address: string;
       withdrawalAddress: string;
+    }
+    balance: {
+      chart: {
+        key: string;
+        display: string;
+        value: number;
+      }[]
+      total: string;
     }
   }
 }

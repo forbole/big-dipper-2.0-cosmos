@@ -33,12 +33,14 @@ const AccountProvider: React.FC = (props: {
 
   const {
     rawData,
+    uiData,
   } = useAccount(initialState);
 
   return (
     <AccountContext.Provider
       value={{
         rawData,
+        uiData,
       }}
     >
       {children({

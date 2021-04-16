@@ -12,7 +12,9 @@ import {
 } from 'recharts';
 import useTranslation from 'next-translate/useTranslation';
 import { Box } from '@components';
+import { chainConfig } from '@src/chain_config';
 import { useStyles } from './styles';
+import { useAccountContext } from '../../contexts/account';
 
 const Balance: React.FC<{
   className?: string;
@@ -23,32 +25,32 @@ const Balance: React.FC<{
   const {
     classes, theme,
   } = useStyles();
+  const { uiData } = useAccountContext();
 
   const empty = {
-    name: 'Empty', value: 2400, background: theme.palette.custom.tags.eight,
+    key: 'empty',
+    value: 2400,
+    background: theme.palette.custom.tags.eight,
+    display: '',
   };
 
-  const data02 = [
-    {
-      name: 'Available', value: 2400, background: theme.palette.custom.tags.eight,
-    },
-    {
-      name: 'Delegate', value: 4567, background: theme.palette.custom.tags.six,
-    },
-    {
-      name: 'Unbonding', value: 1398, background: theme.palette.custom.tags.two,
-    },
-    {
-      name: 'Reward', value: 9800, background: theme.palette.custom.tags.one,
-    },
-    {
-      name: 'Commission', value: 3908, background: theme.palette.custom.tags.four,
-    },
+  const backgrounds = [
+    theme.palette.custom.tags.eight,
+    theme.palette.custom.tags.six,
+    theme.palette.custom.tags.two,
+    theme.palette.custom.tags.one,
+    theme.palette.custom.tags.four,
   ];
 
-  const notEmpty = data02.some((x) => x.value > 0);
+  const formatData = uiData.balance.chart.map((x, i) => ({
+    ...x,
+    background: backgrounds[i],
+  }));
 
-  const data = notEmpty ? data02 : [...data02, empty];
+  const notEmpty = formatData.some((x) => x.value > 0);
+  const dataCount = formatData.filter((x) => x.value > 0).length;
+
+  const data = notEmpty ? formatData : [...formatData, empty];
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -65,7 +67,7 @@ const Balance: React.FC<{
                 innerRadius="90%"
                 outerRadius="100%"
                 cornerRadius={40}
-                paddingAngle={data.length > 1 ? 5 : 0}
+                paddingAngle={dataCount > 1 ? 5 : 0}
                 fill="#82ca9d"
                 stroke="none"
               >
@@ -82,20 +84,20 @@ const Balance: React.FC<{
         </div>
         <div className={classes.legends}>
           {data.map((x) => {
-            if (x.name.toLowerCase() === 'empty') {
+            if (x.key.toLowerCase() === 'empty') {
               return null;
             }
 
             return (
-              <div key={x.name} className="legends__single--container">
+              <div key={x.key} className="legends__single--container">
                 <div className="single__label--container">
                   <div className="legend-color" style={{ background: x.background }} />
                   <Typography variant="body1">
-                    {x.name}
+                    {t(x.key)}
                   </Typography>
                 </div>
                 <Typography variant="body1">
-                  {x.value}
+                  {x.display}
                 </Typography>
               </div>
             );
@@ -108,7 +110,7 @@ const Balance: React.FC<{
           <div className="total__single--container">
             <Typography variant="h3" className="label">
               {t('total', {
-                unit: 'DSM',
+                unit: chainConfig.display.toUpperCase(),
               })}
             </Typography>
             <Typography variant="h3">

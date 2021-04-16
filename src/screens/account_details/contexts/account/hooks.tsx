@@ -89,6 +89,36 @@ export const useAccount = (initialState: AccountState) => {
         address: state.rawData.account.address,
         withdrawalAddress: state.rawData.account.withdrawalAddress,
       },
+      balance: {
+        chart: [
+          {
+            key: 'balanceAvailable',
+            display: numeral(state.rawData.balance.available).format('0,0.[0000]'),
+            value: state.rawData.balance.available,
+          },
+          {
+            key: 'balanceDelegate',
+            display: numeral(state.rawData.balance.delegate).format('0,0.[0000]'),
+            value: state.rawData.balance.delegate,
+          },
+          {
+            key: 'balanceUnbonding',
+            display: numeral(state.rawData.balance.unbonding).format('0,0.[0000]'),
+            value: state.rawData.balance.unbonding,
+          },
+          {
+            key: 'balanceReward',
+            display: numeral(state.rawData.balance.reward).format('0,0.[0000]'),
+            value: state.rawData.balance.reward,
+          },
+          {
+            key: 'balanceCommission',
+            display: numeral(state.rawData.balance.commission).format('0,0.[0000]'),
+            value: state.rawData.balance.commission,
+          },
+        ],
+        total: numeral(state.rawData.balance.total).format('0,0.[0000]'),
+      },
     });
   };
 
