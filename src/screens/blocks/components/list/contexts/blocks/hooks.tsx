@@ -35,6 +35,7 @@ export const useBlocks = (initialState: BlocksState) => {
   useBlocksListenerSubscription({
     variables: {
       limit: 1,
+      offset: 0,
     },
     onSubscriptionData: (data) => {
       handleSetState({
