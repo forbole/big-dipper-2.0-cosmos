@@ -1,28 +1,21 @@
 export interface AccountState {
-  // hasNextPage: boolean;
-  // isNextPageLoading: boolean;
-  // loadNextPage?: (any) => void;
-  // itemCount?: number;
-  // loadMoreItems?: (any) => void;
-  // isItemLoaded?: (index: number) => boolean;
-  // rawDataTotal: number;
-  // items: {
-  //   height: number;
-  //   txs: number;
-  //   timestamp: string;
-  //   proposer: string;
-  //   hash: string;
-  // }[];
-  // formatUi?: (screen?: 'mobile' | 'desktop') => {
-  //   height: React.ReactNode;
-  //   txs: string;
-  //   time: string;
-  //   proposer: React.ReactNode;
-  //   hash: string;
-  // }[];
   rawData: {
     exists: boolean;
     loading: boolean;
+    account: {
+      address: string;
+      withdrawalAddress: string;
+    }
+    balance: {
+      available: number;
+      delegate: number;
+      unbonding: number;
+      reward: number;
+      total: 0,
+      commission?: number;
+    }
+  }
+  uiData?: {
     account: {
       address: string;
       withdrawalAddress: string;

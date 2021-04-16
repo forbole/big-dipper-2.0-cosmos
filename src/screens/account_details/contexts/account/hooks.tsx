@@ -14,7 +14,11 @@ import { AvatarName } from '@components';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { useChainContext } from '@contexts';
 import { CodeSharp } from '@material-ui/icons';
+import { getDenom } from '@utils/get_denom';
+import { formatDenom } from '@utils/format_denom';
 import { AccountState } from './types';
+
+// moment().utc().format('YYYY-MM-DDTHH:mm:ss')
 
 export const useAccount = (initialState: AccountState) => {
   const router = useRouter();
@@ -28,6 +32,7 @@ export const useAccount = (initialState: AccountState) => {
   useAccountQuery({
     variables: {
       address: R.pathOr('', ['query', 'address'], router),
+      utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
     },
     onCompleted: (data) => {
       handleSetState(formatAccountQuery(data));
@@ -35,6 +40,7 @@ export const useAccount = (initialState: AccountState) => {
   });
 
   const formatAccountQuery = (data: AccountQuery) => {
+    console.log(data, 'data');
     const results: any = {
       rawData: {
         loading: false,
@@ -55,6 +61,24 @@ export const useAccount = (initialState: AccountState) => {
     };
 
     results.rawData.account = account;
+
+    // ============================
+    // balance
+    // ============================
+    const available = getDenom(
+      R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data),
+    );
+
+    const balance = {
+      available: formatDenom(available.amount),
+      delegate: 0,
+      unbonding: 0,
+      reward: 0,
+      commission: 0,
+      total: 0,
+    };
+
+    results.rawData.balance = balance;
 
     return results;
   };

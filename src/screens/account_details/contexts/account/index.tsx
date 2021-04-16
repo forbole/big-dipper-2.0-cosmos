@@ -10,6 +10,14 @@ const initialState: AccountState = {
       address: '',
       withdrawalAddress: '',
     },
+    balance: {
+      available: 0,
+      delegate: 0,
+      unbonding: 0,
+      reward: 0,
+      commission: 0,
+      total: 0,
+    },
   },
 };
 

@@ -11906,15 +11906,32 @@ export type Validator_Voting_Power_Variance_Order_By = {
 
 export type AccountQueryVariables = Exact<{
   address?: Maybe<Scalars['String']>;
+  utc?: Maybe<Scalars['timestamp']>;
 }>;
 
 
 export type AccountQuery = { account: Array<(
     { __typename?: 'account' }
     & Pick<Account, 'address'>
-    & { delegationRewards: Array<(
+    & { accountBalances: Array<(
+      { __typename?: 'account_balance' }
+      & Pick<Account_Balance, 'coins'>
+    )>, delegations: Array<(
+      { __typename?: 'delegation' }
+      & Pick<Delegation, 'amount'>
+    )>, unbonding: Array<(
+      { __typename?: 'unbonding_delegation' }
+      & Pick<Unbonding_Delegation, 'amount'>
+    )>, delegationRewards: Array<(
       { __typename?: 'delegation_reward' }
+      & Pick<Delegation_Reward, 'amount'>
       & { withdrawAddress: Delegation_Reward['withdraw_address'] }
+    )> }
+  )>, validator: Array<(
+    { __typename?: 'validator' }
+    & { commission: Array<(
+      { __typename?: 'validator_commission_amount' }
+      & Pick<Validator_Commission_Amount, 'amount'>
     )> }
   )> };
 
@@ -12207,14 +12224,36 @@ export type ValidatorsAddressListQuery = { validator: Array<(
 
 
 export const AccountDocument = gql`
-    query Account($address: String) {
+    query Account($address: String, $utc: timestamp) {
   account(where: {address: {_eq: $address}}) {
     address
+    accountBalances: account_balances(limit: 1, order_by: {height: desc}) {
+      coins
+    }
+    delegations(limit: 1, order_by: {height: desc}) {
+      amount
+    }
+    unbonding: unbonding_delegations(
+      limit: 1
+      order_by: {height: desc}
+      where: {completion_timestamp: {_gt: $utc}}
+    ) {
+      amount
+    }
     delegationRewards: delegation_rewards(
       limit: 1
       order_by: {block: {height: desc}}
     ) {
+      amount
       withdrawAddress: withdraw_address
+    }
+  }
+  validator: validator(
+    limit: 1
+    where: {validator_info: {self_delegate_address: {_eq: $address}}}
+  ) {
+    commission: validator_commission_amounts(limit: 1, order_by: {height: desc}) {
+      amount
     }
   }
 }
@@ -12233,6 +12272,7 @@ export const AccountDocument = gql`
  * const { data, loading, error } = useAccountQuery({
  *   variables: {
  *      address: // value for 'address'
+ *      utc: // value for 'utc'
  *   },
  * });
  */

@@ -1,8 +1,23 @@
-query Account($address: String) {
+query Account($address: String, $utc: timestamp) {
   account(where: {address: {_eq: $address}}) {
     address
+    accountBalances: account_balances(limit: 1, order_by: {height: desc}) {
+      coins
+    }
+    delegations(limit: 1, order_by: {height: desc}) {
+      amount
+    }
+    unbonding: unbonding_delegations(limit: 1, order_by: {height: desc}, where: {completion_timestamp: {_gt: $utc}}) {
+      amount
+    }
     delegationRewards: delegation_rewards(limit: 1, order_by: {block: {height: desc}}) {
+      amount
       withdrawAddress: withdraw_address
+    }
+  }
+  validator: validator(limit: 1, where: {validator_info: {self_delegate_address: {_eq: $address}}}) {
+    commission: validator_commission_amounts(limit: 1, order_by: {height: desc}) {
+      amount
     }
   }
 }
