@@ -342,13 +342,13 @@ export type Account_Balance = {
   block?: Maybe<Block>;
   coins: Scalars['_coin'];
   height: Scalars['bigint'];
-  /** A computed field, executes function "token_price" */
-  tokens_price?: Maybe<Array<Token_Price>>;
+  /** A computed field, executes function "account_balance_tokens_prices" */
+  tokens_prices?: Maybe<Array<Token_Price>>;
 };
 
 
 /** columns and relationships of "account_balance" */
-export type Account_BalanceTokens_PriceArgs = {
+export type Account_BalanceTokens_PricesArgs = {
   distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
@@ -8729,7 +8729,6 @@ export type Token = {
   token_units: Array<Token_Unit>;
   /** An aggregated array relationship */
   token_units_aggregate: Token_Unit_Aggregate;
-  traded_unit: Scalars['String'];
 };
 
 
@@ -8788,40 +8787,34 @@ export type Token_Bool_Exp = {
   _or?: Maybe<Array<Maybe<Token_Bool_Exp>>>;
   name?: Maybe<String_Comparison_Exp>;
   token_units?: Maybe<Token_Unit_Bool_Exp>;
-  traded_unit?: Maybe<String_Comparison_Exp>;
 };
 
 /** aggregate max on columns */
 export type Token_Max_Fields = {
   __typename?: 'token_max_fields';
   name?: Maybe<Scalars['String']>;
-  traded_unit?: Maybe<Scalars['String']>;
 };
 
 /** order by max() on columns of table "token" */
 export type Token_Max_Order_By = {
   name?: Maybe<Order_By>;
-  traded_unit?: Maybe<Order_By>;
 };
 
 /** aggregate min on columns */
 export type Token_Min_Fields = {
   __typename?: 'token_min_fields';
   name?: Maybe<Scalars['String']>;
-  traded_unit?: Maybe<Scalars['String']>;
 };
 
 /** order by min() on columns of table "token" */
 export type Token_Min_Order_By = {
   name?: Maybe<Order_By>;
-  traded_unit?: Maybe<Order_By>;
 };
 
 /** ordering options when selecting data from "token" */
 export type Token_Order_By = {
   name?: Maybe<Order_By>;
   token_units_aggregate?: Maybe<Token_Unit_Aggregate_Order_By>;
-  traded_unit?: Maybe<Order_By>;
 };
 
 /** columns and relationships of "token_price" */
@@ -8829,11 +8822,11 @@ export type Token_Price = {
   __typename?: 'token_price';
   id: Scalars['Int'];
   market_cap: Scalars['bigint'];
-  name: Scalars['String'];
   price: Scalars['numeric'];
   timestamp: Scalars['timestamp'];
   /** An object relationship */
   token_unit: Token_Unit;
+  unit_name: Scalars['String'];
 };
 
 /** aggregated selection of "token_price" */
@@ -8903,10 +8896,10 @@ export type Token_Price_Bool_Exp = {
   _or?: Maybe<Array<Maybe<Token_Price_Bool_Exp>>>;
   id?: Maybe<Int_Comparison_Exp>;
   market_cap?: Maybe<Bigint_Comparison_Exp>;
-  name?: Maybe<String_Comparison_Exp>;
   price?: Maybe<Numeric_Comparison_Exp>;
   timestamp?: Maybe<Timestamp_Comparison_Exp>;
   token_unit?: Maybe<Token_Unit_Bool_Exp>;
+  unit_name?: Maybe<String_Comparison_Exp>;
 };
 
 /** aggregate max on columns */
@@ -8914,18 +8907,18 @@ export type Token_Price_Max_Fields = {
   __typename?: 'token_price_max_fields';
   id?: Maybe<Scalars['Int']>;
   market_cap?: Maybe<Scalars['bigint']>;
-  name?: Maybe<Scalars['String']>;
   price?: Maybe<Scalars['numeric']>;
   timestamp?: Maybe<Scalars['timestamp']>;
+  unit_name?: Maybe<Scalars['String']>;
 };
 
 /** order by max() on columns of table "token_price" */
 export type Token_Price_Max_Order_By = {
   id?: Maybe<Order_By>;
   market_cap?: Maybe<Order_By>;
-  name?: Maybe<Order_By>;
   price?: Maybe<Order_By>;
   timestamp?: Maybe<Order_By>;
+  unit_name?: Maybe<Order_By>;
 };
 
 /** aggregate min on columns */
@@ -8933,28 +8926,28 @@ export type Token_Price_Min_Fields = {
   __typename?: 'token_price_min_fields';
   id?: Maybe<Scalars['Int']>;
   market_cap?: Maybe<Scalars['bigint']>;
-  name?: Maybe<Scalars['String']>;
   price?: Maybe<Scalars['numeric']>;
   timestamp?: Maybe<Scalars['timestamp']>;
+  unit_name?: Maybe<Scalars['String']>;
 };
 
 /** order by min() on columns of table "token_price" */
 export type Token_Price_Min_Order_By = {
   id?: Maybe<Order_By>;
   market_cap?: Maybe<Order_By>;
-  name?: Maybe<Order_By>;
   price?: Maybe<Order_By>;
   timestamp?: Maybe<Order_By>;
+  unit_name?: Maybe<Order_By>;
 };
 
 /** ordering options when selecting data from "token_price" */
 export type Token_Price_Order_By = {
   id?: Maybe<Order_By>;
   market_cap?: Maybe<Order_By>;
-  name?: Maybe<Order_By>;
   price?: Maybe<Order_By>;
   timestamp?: Maybe<Order_By>;
   token_unit?: Maybe<Token_Unit_Order_By>;
+  unit_name?: Maybe<Order_By>;
 };
 
 /** primary key columns input for table: "token_price" */
@@ -8969,11 +8962,11 @@ export enum Token_Price_Select_Column {
   /** column name */
   MarketCap = 'market_cap',
   /** column name */
-  Name = 'name',
-  /** column name */
   Price = 'price',
   /** column name */
-  Timestamp = 'timestamp'
+  Timestamp = 'timestamp',
+  /** column name */
+  UnitName = 'unit_name'
 }
 
 /** aggregate stddev on columns */
@@ -9084,21 +9077,17 @@ export type Token_Price_Variance_Order_By = {
 /** select columns of table "token" */
 export enum Token_Select_Column {
   /** column name */
-  Name = 'name',
-  /** column name */
-  TradedUnit = 'traded_unit'
+  Name = 'name'
 }
 
 /** columns and relationships of "token_unit" */
 export type Token_Unit = {
   __typename?: 'token_unit';
-  aliases: Scalars['_text'];
+  aliases?: Maybe<Scalars['_text']>;
   denom: Scalars['String'];
   exponent: Scalars['Int'];
   /** An object relationship */
-  token?: Maybe<Token>;
-  /** An object relationship */
-  tokenByTokenName: Token;
+  token: Token;
   token_name: Scalars['String'];
   /** An array relationship */
   token_prices: Array<Token_Price>;
@@ -9191,7 +9180,6 @@ export type Token_Unit_Bool_Exp = {
   denom?: Maybe<String_Comparison_Exp>;
   exponent?: Maybe<Int_Comparison_Exp>;
   token?: Maybe<Token_Bool_Exp>;
-  tokenByTokenName?: Maybe<Token_Bool_Exp>;
   token_name?: Maybe<String_Comparison_Exp>;
   token_prices?: Maybe<Token_Price_Bool_Exp>;
 };
@@ -9232,7 +9220,6 @@ export type Token_Unit_Order_By = {
   denom?: Maybe<Order_By>;
   exponent?: Maybe<Order_By>;
   token?: Maybe<Token_Order_By>;
-  tokenByTokenName?: Maybe<Token_Order_By>;
   token_name?: Maybe<Order_By>;
   token_prices_aggregate?: Maybe<Token_Price_Aggregate_Order_By>;
 };
@@ -10743,6 +10730,7 @@ export type Validator_Commission_Variance_Order_By = {
 /** columns and relationships of "validator_description" */
 export type Validator_Description = {
   __typename?: 'validator_description';
+  avatar_url?: Maybe<Scalars['String']>;
   details?: Maybe<Scalars['String']>;
   height: Scalars['bigint'];
   identity?: Maybe<Scalars['String']>;
@@ -10815,6 +10803,7 @@ export type Validator_Description_Bool_Exp = {
   _and?: Maybe<Array<Maybe<Validator_Description_Bool_Exp>>>;
   _not?: Maybe<Validator_Description_Bool_Exp>;
   _or?: Maybe<Array<Maybe<Validator_Description_Bool_Exp>>>;
+  avatar_url?: Maybe<String_Comparison_Exp>;
   details?: Maybe<String_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
   identity?: Maybe<String_Comparison_Exp>;
@@ -10828,6 +10817,7 @@ export type Validator_Description_Bool_Exp = {
 /** aggregate max on columns */
 export type Validator_Description_Max_Fields = {
   __typename?: 'validator_description_max_fields';
+  avatar_url?: Maybe<Scalars['String']>;
   details?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
   identity?: Maybe<Scalars['String']>;
@@ -10839,6 +10829,7 @@ export type Validator_Description_Max_Fields = {
 
 /** order by max() on columns of table "validator_description" */
 export type Validator_Description_Max_Order_By = {
+  avatar_url?: Maybe<Order_By>;
   details?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
   identity?: Maybe<Order_By>;
@@ -10851,6 +10842,7 @@ export type Validator_Description_Max_Order_By = {
 /** aggregate min on columns */
 export type Validator_Description_Min_Fields = {
   __typename?: 'validator_description_min_fields';
+  avatar_url?: Maybe<Scalars['String']>;
   details?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
   identity?: Maybe<Scalars['String']>;
@@ -10862,6 +10854,7 @@ export type Validator_Description_Min_Fields = {
 
 /** order by min() on columns of table "validator_description" */
 export type Validator_Description_Min_Order_By = {
+  avatar_url?: Maybe<Order_By>;
   details?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
   identity?: Maybe<Order_By>;
@@ -10873,6 +10866,7 @@ export type Validator_Description_Min_Order_By = {
 
 /** ordering options when selecting data from "validator_description" */
 export type Validator_Description_Order_By = {
+  avatar_url?: Maybe<Order_By>;
   details?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
   identity?: Maybe<Order_By>;
@@ -10891,6 +10885,8 @@ export type Validator_Description_Pk_Columns_Input = {
 
 /** select columns of table "validator_description" */
 export enum Validator_Description_Select_Column {
+  /** column name */
+  AvatarUrl = 'avatar_url',
   /** column name */
   Details = 'details',
   /** column name */
@@ -11987,7 +11983,9 @@ export type BlockDetailsQuery = { transaction: Array<(
     ) }
   )> };
 
-export type LatestBlockHeightListenerSubscriptionVariables = Exact<{ [key: string]: never; }>;
+export type LatestBlockHeightListenerSubscriptionVariables = Exact<{
+  offset?: Maybe<Scalars['Int']>;
+}>;
 
 
 export type LatestBlockHeightListenerSubscription = { height: Array<(
@@ -12301,8 +12299,8 @@ export type BlockDetailsQueryHookResult = ReturnType<typeof useBlockDetailsQuery
 export type BlockDetailsLazyQueryHookResult = ReturnType<typeof useBlockDetailsLazyQuery>;
 export type BlockDetailsQueryResult = Apollo.QueryResult<BlockDetailsQuery, BlockDetailsQueryVariables>;
 export const LatestBlockHeightListenerDocument = gql`
-    subscription LatestBlockHeightListener {
-  height: block(order_by: {height: desc}, limit: 1) {
+    subscription LatestBlockHeightListener($offset: Int = 3) {
+  height: block(order_by: {height: desc}, limit: 1, offset: $offset) {
     height
   }
 }
@@ -12320,6 +12318,7 @@ export const LatestBlockHeightListenerDocument = gql`
  * @example
  * const { data, loading, error } = useLatestBlockHeightListenerSubscription({
  *   variables: {
+ *      offset: // value for 'offset'
  *   },
  * });
  */
@@ -12402,7 +12401,7 @@ export type AverageBlockTimeQueryHookResult = ReturnType<typeof useAverageBlockT
 export type AverageBlockTimeLazyQueryHookResult = ReturnType<typeof useAverageBlockTimeLazyQuery>;
 export type AverageBlockTimeQueryResult = Apollo.QueryResult<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>;
 export const BlocksListenerDocument = gql`
-    subscription BlocksListener($limit: Int = 7, $offset: Int = 0) {
+    subscription BlocksListener($limit: Int = 7, $offset: Int = 3) {
   blocks: block(limit: $limit, offset: $offset, order_by: {height: desc}) {
     height
     txs: num_txs
@@ -12575,7 +12574,7 @@ export type MarketDataLazyQueryHookResult = ReturnType<typeof useMarketDataLazyQ
 export type MarketDataQueryResult = Apollo.QueryResult<MarketDataQuery, MarketDataQueryVariables>;
 export const OnlineVotingPowerListenerDocument = gql`
     subscription OnlineVotingPowerListener {
-  block(offset: 1, limit: 1, order_by: {height: desc}) {
+  block(offset: 3, limit: 1, order_by: {height: desc}) {
     height
     preCommitsAggregate: pre_commits_aggregate {
       aggregate {
