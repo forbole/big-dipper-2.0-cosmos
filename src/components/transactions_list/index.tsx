@@ -18,7 +18,6 @@ const TransactionsList: React.FC<TransactionsListState> = (props) => {
     loadMoreItems = () => null,
     isItemLoaded = () => true,
     itemCount,
-    formatUi,
     rawDataTotal,
   } = props;
   const classes = useStyles();
@@ -31,7 +30,6 @@ const TransactionsList: React.FC<TransactionsListState> = (props) => {
     loadMoreItems,
     items,
     itemCount,
-    formatUi,
     rawDataTotal,
   };
 

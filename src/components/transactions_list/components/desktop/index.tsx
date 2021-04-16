@@ -14,10 +14,10 @@ import { useStyles } from './styles';
 
 const Desktop: React.FC<TransactionsListState> = ({
   className,
-  formatUi,
   itemCount,
   loadMoreItems,
   isItemLoaded,
+  items,
 }) => {
   const {
     gridRef,
@@ -29,7 +29,6 @@ const Desktop: React.FC<TransactionsListState> = ({
 
   const classes = useStyles();
   const { t } = useTranslation('transactions');
-  const items = formatUi('desktop');
 
   return (
     <div className={classnames(className, classes.root)}>

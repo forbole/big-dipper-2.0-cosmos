@@ -10,17 +10,10 @@ export type TransactionsListState = {
   isItemLoaded?: (index: number) => boolean;
   rawDataTotal?: number;
   items: {
-    block: number;
-    hash: string;
-    messages: number;
-    success: boolean;
-    time: string;
-  }[];
-  formatUi?: (screen?: 'mobile' | 'desktop') => {
     block: React.ReactNode;
     hash: React.ReactNode;
     messages: string;
-    result: React.ReactNode;
+    result?: React.ReactNode;
     time: string;
   }[];
 }
