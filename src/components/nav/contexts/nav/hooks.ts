@@ -12,23 +12,27 @@ export const useNav = (initalState: NavState) => {
   const [state, setState] = useState<NavState>(initalState);
 
   useMarketDataQuery(
-    { onCompleted: (data) => {
-      setState((prevState) => ({
-        ...prevState,
-        rawData: formatUseChainIdQuery(data),
-      }));
-    } },
+    {
+      variables: {
+        denom: chainConfig.display,
+      },
+      onCompleted: (data) => {
+        setState((prevState) => ({
+          ...prevState,
+          rawData: formatUseChainIdQuery(data),
+        }));
+      },
+    },
   );
 
   const formatUseChainIdQuery = (data: MarketDataQuery) => {
     // initial
     const { rawData } = initalState;
-    const { price } = rawData; // update once on market
-    const { marketCap } = rawData; // update once on market
     const { inflation } = rawData; // update once on market
     let { communityPool } = rawData;
-
     // formats
+    const price = data.tokenPrice[0]?.price ?? state.rawData.price;
+    const marketCap = data.tokenPrice[0]?.marketCap ?? state.rawData.marketCap;
     const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter((x) => x.denom === chainConfig.base);
     if (communityPoolCoin) {
       communityPool = communityPoolCoin.amount;
@@ -44,12 +48,12 @@ export const useNav = (initalState: NavState) => {
 
   const formatUi = () => {
     const {
-      rawData, uiData,
+      rawData,
     } = state;
     return ({
-      price: uiData.price,
-      marketCap: uiData.marketCap,
-      inflation: uiData.inflation,
+      price: `$${numeral(state.rawData.price).format('0,0.[00]')}`,
+      marketCap: `$${numeral(state.rawData.marketCap).format('0,0.[00]')}`,
+      inflation: 'N/A',
       communityPool: `${numeral(formatDenom(rawData.communityPool)).format('0,0.00')} ${chainConfig.display.toUpperCase()}`,
     });
   };

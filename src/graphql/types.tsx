@@ -12068,7 +12068,9 @@ export type ChainIdQuery = { genesis: Array<(
     & { chainId: Genesis['chain_id'] }
   )> };
 
-export type MarketDataQueryVariables = Exact<{ [key: string]: never; }>;
+export type MarketDataQueryVariables = Exact<{
+  denom?: Maybe<Scalars['String']>;
+}>;
 
 
 export type MarketDataQuery = { communityPool: Array<(
@@ -12101,12 +12103,15 @@ export type OnlineVotingPowerListenerSubscription = { block: Array<(
     ) }
   )> };
 
-export type TokenPriceQueryVariables = Exact<{ [key: string]: never; }>;
+export type TokenPriceQueryVariables = Exact<{
+  denom?: Maybe<Scalars['String']>;
+}>;
 
 
 export type TokenPriceQuery = { tokenPrice: Array<(
     { __typename?: 'token_price' }
-    & Pick<Token_Price, 'price'>
+    & Pick<Token_Price, 'id' | 'price' | 'timestamp'>
+    & { marketCap: Token_Price['market_cap'], unitName: Token_Price['unit_name'] }
   )> };
 
 export type TokenomicsQueryVariables = Exact<{
@@ -12553,14 +12558,14 @@ export type ChainIdQueryHookResult = ReturnType<typeof useChainIdQuery>;
 export type ChainIdLazyQueryHookResult = ReturnType<typeof useChainIdLazyQuery>;
 export type ChainIdQueryResult = Apollo.QueryResult<ChainIdQuery, ChainIdQueryVariables>;
 export const MarketDataDocument = gql`
-    query MarketData {
+    query MarketData($denom: String) {
   communityPool: community_pool(order_by: {height: desc}, limit: 1) {
     coins
   }
   inflation: inflation(order_by: {height: desc}, limit: 1) {
     value
   }
-  tokenPrice: token_price(order_by: {timestamp: asc}, limit: 1) {
+  tokenPrice: token_price(where: {unit_name: {_eq: $denom}}) {
     marketCap: market_cap
     price
   }
@@ -12579,6 +12584,7 @@ export const MarketDataDocument = gql`
  * @example
  * const { data, loading, error } = useMarketDataQuery({
  *   variables: {
+ *      denom: // value for 'denom'
  *   },
  * });
  */
@@ -12630,9 +12636,13 @@ export function useOnlineVotingPowerListenerSubscription(baseOptions?: Apollo.Su
 export type OnlineVotingPowerListenerSubscriptionHookResult = ReturnType<typeof useOnlineVotingPowerListenerSubscription>;
 export type OnlineVotingPowerListenerSubscriptionResult = Apollo.SubscriptionResult<OnlineVotingPowerListenerSubscription>;
 export const TokenPriceDocument = gql`
-    query TokenPrice {
-  tokenPrice: token_price(order_by: {timestamp: asc}, limit: 1) {
+    query TokenPrice($denom: String) {
+  tokenPrice: token_price(where: {unit_name: {_eq: $denom}}) {
+    id
     price
+    timestamp
+    marketCap: market_cap
+    unitName: unit_name
   }
 }
     `;
@@ -12649,6 +12659,7 @@ export const TokenPriceDocument = gql`
  * @example
  * const { data, loading, error } = useTokenPriceQuery({
  *   variables: {
+ *      denom: // value for 'denom'
  *   },
  * });
  */

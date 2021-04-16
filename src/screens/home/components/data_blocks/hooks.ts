@@ -11,6 +11,7 @@ import {
   ActiveValidatorCountQuery,
   useLatestBlockHeightOffsetQuery,
 } from '@graphql/types';
+import { chainConfig } from '@src/chain_config';
 
 export const useDataBlocks = () => {
   const [state, setState] = useState<{
@@ -65,6 +66,9 @@ export const useDataBlocks = () => {
   // ====================================
 
   useTokenPriceQuery({
+    variables: {
+      denom: chainConfig.display,
+    },
     onCompleted: (data) => {
       setState((prevState) => ({
         ...prevState,
