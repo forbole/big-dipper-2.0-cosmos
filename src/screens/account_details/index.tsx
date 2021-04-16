@@ -8,7 +8,7 @@ import {
   Overview,
   Balance,
   Staking,
-  Transactions,
+  // Transactions,
 } from './components';
 
 const AccountDetails = () => {
@@ -19,7 +19,7 @@ const AccountDetails = () => {
       <Balance className={classes.balance} />
       <Overview className={classes.overview} />
       <Staking className={classes.staking} />
-      <Transactions className={classes.transactions} />
+      {/* <Transactions className={classes.transactions} /> */}
     </Layout>
   );
 };
