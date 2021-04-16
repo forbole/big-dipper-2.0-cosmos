@@ -11912,9 +11912,9 @@ export type AccountQueryVariables = Exact<{
 export type AccountQuery = { account: Array<(
     { __typename?: 'account' }
     & Pick<Account, 'address'>
-    & { delegation_rewards: Array<(
+    & { delegationRewards: Array<(
       { __typename?: 'delegation_reward' }
-      & Pick<Delegation_Reward, 'withdraw_address'>
+      & { withdrawAddress: Delegation_Reward['withdraw_address'] }
     )> }
   )> };
 
@@ -12210,8 +12210,11 @@ export const AccountDocument = gql`
     query Account($address: String) {
   account(where: {address: {_eq: $address}}) {
     address
-    delegation_rewards(limit: 1, order_by: {block: {height: desc}}) {
-      withdraw_address
+    delegationRewards: delegation_rewards(
+      limit: 1
+      order_by: {block: {height: desc}}
+    ) {
+      withdrawAddress: withdraw_address
     }
   }
 }

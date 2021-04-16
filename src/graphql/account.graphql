@@ -1,8 +1,8 @@
 query Account($address: String) {
   account(where: {address: {_eq: $address}}) {
     address
-    delegation_rewards(limit: 1, order_by: {block: {height: desc}}) {
-      withdraw_address
+    delegationRewards: delegation_rewards(limit: 1, order_by: {block: {height: desc}}) {
+      withdrawAddress: withdraw_address
     }
   }
 }
