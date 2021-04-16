@@ -6,45 +6,49 @@ exports[`components: TransactionsList matches snapshot 1`] = `
 >
   <div
     className="makeStyles-mobile"
+    formatUi={[MockFunction]}
     hasNextPage={false}
     id="Mobile"
-    isItemLoaded={[Function]}
+    isItemLoaded={[MockFunction]}
     isNextPageLoading={false}
     itemCount={1}
     items={
       Array [
         Object {
-          "block": "812,768,640",
+          "block": 123,
           "hash": "76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857",
           "messages": 123,
           "success": false,
-          "time": 1615187146246,
+          "time": "time",
         },
       ]
     }
-    loadMoreItems={[Function]}
-    loadNextPage={[Function]}
+    loadMoreItems={[MockFunction]}
+    loadNextPage={[MockFunction]}
+    rawDataTotal={10}
   />
   <div
     className="makeStyles-desktop"
+    formatUi={[MockFunction]}
     hasNextPage={false}
     id="Desktop"
-    isItemLoaded={[Function]}
+    isItemLoaded={[MockFunction]}
     isNextPageLoading={false}
     itemCount={1}
     items={
       Array [
         Object {
-          "block": "812,768,640",
+          "block": 123,
           "hash": "76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857",
           "messages": 123,
           "success": false,
-          "time": 1615187146246,
+          "time": "time",
         },
       ]
     }
-    loadMoreItems={[Function]}
-    loadNextPage={[Function]}
+    loadMoreItems={[MockFunction]}
+    loadNextPage={[MockFunction]}
+    rawDataTotal={10}
   />
 </div>
 `;

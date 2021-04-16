@@ -19,16 +19,23 @@ describe('components: TransactionsList', () => {
     const component = renderer.create(
       <MockTheme>
         <TransactionsList
+          hasNextPage={false}
+          isNextPageLoading={false}
+          loadNextPage={jest.fn()}
+          loadMoreItems={jest.fn()}
+          isItemLoaded={jest.fn()}
           items={[
             {
-              block: '812,768,640',
+              block: 123,
               hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
               messages: 123,
               success: false,
-              time: 1615187146246,
+              time: 'time',
             },
           ]}
+          rawDataTotal={10}
           itemCount={1}
+          formatUi={jest.fn()}
         />
       </MockTheme>,
     );

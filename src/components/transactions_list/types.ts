@@ -8,7 +8,7 @@ export type TransactionsListState = {
   itemCount?: number;
   loadMoreItems?: (any) => void;
   isItemLoaded?: (index: number) => boolean;
-  rawDataTotal: number;
+  rawDataTotal?: number;
   items: {
     block: number;
     hash: string;

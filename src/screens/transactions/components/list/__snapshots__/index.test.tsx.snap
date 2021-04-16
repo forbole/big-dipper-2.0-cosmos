@@ -1,20 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Transactions/List matches snapshot 1`] = `
-<div
-  className="makeStyles-root"
-  id="Box"
->
+Array [
   <div
-    className="makeStyles-list"
-    hasNextPage={true}
-    id="TransactionsList"
-    isItemLoaded={[Function]}
-    isNextPageLoading={false}
-    itemCount={1}
-    items={Array []}
-    loadMoreItems={[Function]}
-    loadNextPage={[Function]}
-  />
-</div>
+    className="makeStyles-root"
+    id="Box"
+  >
+    <div
+      className="makeStyles-list"
+      formatUi={[Function]}
+      hasNextPage={true}
+      id="TransactionsList"
+      isItemLoaded={[Function]}
+      isNextPageLoading={false}
+      itemCount={2}
+      items={
+        Array [
+          Object {
+            "block": 1177924,
+            "hash": "1E9232E8F8D450B32367698AB9DFD814A4570A3C95B4309B8E1D4B9D9F3629CB",
+            "messages": 1,
+            "success": true,
+            "time": "2021-04-15T22:50:22.324996",
+          },
+        ]
+      }
+      loadMoreItems={[Function]}
+      loadNextPage={[Function]}
+      rawDataTotal={1926}
+    />
+  </div>,
+  ",",
+]
+`;
+
+exports[`screen: Transactions/List matches snapshot 2`] = `
+Array [
+  <div
+    className="makeStyles-root"
+    id="Box"
+  >
+    <div
+      className="makeStyles-list"
+      formatUi={[Function]}
+      hasNextPage={true}
+      id="TransactionsList"
+      isItemLoaded={[Function]}
+      isNextPageLoading={false}
+      itemCount={3}
+      items={
+        Array [
+          Object {
+            "block": 1177925,
+            "hash": "1E9232E8F8D450B32367698AB9DFD814A4570A3C95B4309B8E1D4B9D9F3629CB",
+            "messages": 1,
+            "success": false,
+            "time": "2021-04-15T22:50:22.324996",
+          },
+          Object {
+            "block": 1177924,
+            "hash": "1E9232E8F8D450B32367698AB9DFD814A4570A3C95B4309B8E1D4B9D9F3629CB",
+            "messages": 1,
+            "success": true,
+            "time": "2021-04-15T22:50:22.324996",
+          },
+        ]
+      }
+      loadMoreItems={[Function]}
+      loadNextPage={[Function]}
+      rawDataTotal={1926}
+    />
+  </div>,
+  ",",
+]
 `;
