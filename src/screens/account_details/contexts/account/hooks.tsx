@@ -16,6 +16,7 @@ import { useChainContext } from '@contexts';
 import { CodeSharp } from '@material-ui/icons';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
+import { chainConfig } from '@src/chain_config';
 import { AccountState } from './types';
 
 // moment().utc().format('YYYY-MM-DDTHH:mm:ss')
@@ -69,12 +70,17 @@ export const useAccount = (initialState: AccountState) => {
       R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data),
     );
 
+    const delegate = R.pathOr([], ['account', 0, 'delegations', 0, 'amount'], data);
+    const unbonding = R.pathOr([], ['account', 0, 'unbonding', 0, 'amount'], data);
+    const reward = getDenom(R.pathOr([], ['account', 0, 'delegationRewards', 0, 'amount'], data));
+    const commission = getDenom(R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data));
+
     const balance = {
       available: formatDenom(available.amount),
-      delegate: 0,
-      unbonding: 0,
-      reward: 0,
-      commission: 0,
+      delegate: formatDenom(delegate.amount),
+      unbonding: formatDenom(unbonding.amount),
+      reward: formatDenom(reward.amount),
+      commission: formatDenom(commission.amount),
       total: 0,
     };
 
@@ -87,22 +93,22 @@ export const useAccount = (initialState: AccountState) => {
     const balanceChart = [
       {
         key: 'balanceAvailable',
-        display: numeral(state.rawData.balance.available).format('0,0.[0000]'),
+        display: `${numeral(state.rawData.balance.available).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
         value: state.rawData.balance.available,
       },
       {
         key: 'balanceDelegate',
-        display: numeral(state.rawData.balance.delegate).format('0,0.[0000]'),
+        display: `${numeral(state.rawData.balance.delegate).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
         value: state.rawData.balance.delegate,
       },
       {
         key: 'balanceUnbonding',
-        display: numeral(state.rawData.balance.unbonding).format('0,0.[0000]'),
+        display: `${numeral(state.rawData.balance.unbonding).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
         value: state.rawData.balance.unbonding,
       },
       {
         key: 'balanceReward',
-        display: numeral(state.rawData.balance.reward).format('0,0.[0000]'),
+        display: `${numeral(state.rawData.balance.reward).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
         value: state.rawData.balance.reward,
       },
     ];
@@ -110,7 +116,7 @@ export const useAccount = (initialState: AccountState) => {
     if (state.rawData.balance.commission) {
       balanceChart.push({
         key: 'balanceCommission',
-        display: numeral(state.rawData.balance.commission).format('0,0.[0000]'),
+        display: `${numeral(state.rawData.balance.commission).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
         value: state.rawData.balance.commission,
       });
     }
