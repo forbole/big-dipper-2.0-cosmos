@@ -163,7 +163,9 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         <div
           className="MuiTypography-root MuiTypography-body1"
         >
-          812,768,640
+          <div>
+            block
+          </div>
         </div>
       </div>
       <div
@@ -182,7 +184,9 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         <div
           className="MuiTypography-root MuiTypography-body1"
         >
-          76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857
+          <div>
+            76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857
+          </div>
         </div>
       </div>
       <div
@@ -201,7 +205,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         <div
           className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
         >
-          123
+          2
         </div>
       </div>
       <div
@@ -219,7 +223,11 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       >
         <div
           className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
-        />
+        >
+          <div>
+            success
+          </div>
+        </div>
       </div>
       <div
         className="makeStyles-cell makeStyles-body odd"
@@ -237,7 +245,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         <div
           className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
         >
-          1615187146246
+          time
         </div>
       </div>
     </div>

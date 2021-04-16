@@ -34,17 +34,18 @@ export type BlockState = {
       label: string;
       detail: string | React.ReactNode;
     }[],
-    transactions: {
-      block: React.ReactNode;
-      hash: React.ReactNode;
-      result: React.ReactNode;
-      time: string;
-      messages: string;
-    }[],
     signatures: {
       signed: React.ReactNode;
       validator: React.ReactNode;
       votingPower: string;
     }[]
   };
+  formatTransactions?: (screen?: 'desktop' | 'mobile') => {
+    block: React.ReactNode;
+    hash: React.ReactNode;
+    result: React.ReactNode;
+    time: string;
+    messages: string;
+  }[],
+
 }
