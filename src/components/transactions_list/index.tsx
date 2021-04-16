@@ -13,12 +13,12 @@ const TransactionsList: React.FC<TransactionsListState> = (props) => {
     className,
     hasNextPage = false,
     isNextPageLoading = false,
-    items,
     loadNextPage = () => null,
     loadMoreItems = () => null,
     isItemLoaded = () => true,
     itemCount,
     rawDataTotal,
+    formatUi,
   } = props;
   const classes = useStyles();
 
@@ -28,12 +28,12 @@ const TransactionsList: React.FC<TransactionsListState> = (props) => {
     isItemLoaded,
     loadNextPage,
     loadMoreItems,
-    items,
     itemCount,
     rawDataTotal,
+    formatUi,
   };
 
-  if (!items.length) {
+  if (!itemCount) {
     return (
       <NoData />
     );
@@ -41,8 +41,14 @@ const TransactionsList: React.FC<TransactionsListState> = (props) => {
 
   return (
     <div className={classnames(className)}>
-      <Mobile className={classes.mobile} {...formatProps} />
-      <Desktop className={classes.desktop} {...formatProps} />
+      <Mobile
+        className={classes.mobile}
+        {...formatProps}
+      />
+      <Desktop
+        className={classes.desktop}
+        {...formatProps}
+      />
     </div>
   );
 };

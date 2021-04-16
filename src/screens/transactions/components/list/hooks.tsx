@@ -163,7 +163,7 @@ export const useTransactions = () => {
     loadMoreItems,
     isItemLoaded,
     formatUi,
-    items: state.items,
+    items: formatUi(),
     rawDataTotal: state.rawDataTotal,
   };
 };

@@ -12,12 +12,12 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
   </h2>
   <div
     className="makeStyles-list"
+    formatUi={[Function]}
     hasNextPage={true}
     id="TransactionsList"
     isItemLoaded={[Function]}
     isNextPageLoading={false}
     itemCount={1}
-    items={Array []}
     loadMoreItems={[Function]}
     loadNextPage={[Function]}
   />
