@@ -18,10 +18,10 @@ import { TransactionsListState } from '../../types';
 
 const Mobile: React.FC<TransactionsListState> = ({
   className,
-  items,
   itemCount,
   loadMoreItems,
   isItemLoaded,
+  formatUi,
 }) => {
   const classes = useStyles();
 
@@ -30,6 +30,7 @@ const Mobile: React.FC<TransactionsListState> = ({
     getRowHeight,
     setRowHeight,
   } = useList();
+  const items = formatUi();
 
   return (
     <div className={classnames(className, classes.root)}>

@@ -18,6 +18,6 @@ export interface BlocksState {
     txs: string;
     time: string;
     proposer: React.ReactNode;
-    hash: string;
+    hash: z;
   }[];
 }
