@@ -13,7 +13,9 @@ import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { AvatarName } from '@components';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { useChainContext } from '@contexts';
-import { CodeSharp } from '@material-ui/icons';
+import {
+  CodeSharp, ContactsOutlined,
+} from '@material-ui/icons';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
 import { chainConfig } from '@src/chain_config';
@@ -69,19 +71,34 @@ export const useAccount = (initialState: AccountState) => {
     const available = getDenom(
       R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data),
     );
+    const availableDenom = formatDenom(available.amount);
 
-    const delegate = R.pathOr([], ['account', 0, 'delegations', 0, 'amount'], data);
-    const unbonding = R.pathOr([], ['account', 0, 'unbonding', 0, 'amount'], data);
+    const delegate = R.pathOr({
+      amount: 0,
+    }, ['account', 0, 'delegations', 0, 'amount'], data);
+    const delegateDenom = formatDenom(delegate.amount);
+
+    const unbonding = R.pathOr({
+      amount: 0,
+    }, ['account', 0, 'unbonding', 0, 'amount'], data);
+    const unbondingDenom = formatDenom(unbonding.amount);
+
     const reward = getDenom(R.pathOr([], ['account', 0, 'delegationRewards', 0, 'amount'], data));
+    const rewardDenom = formatDenom(reward.amount);
+
     const commission = getDenom(R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data));
+    const commissionDenom = formatDenom(commission.amount);
+
+    const total = (
+      availableDenom + delegateDenom + unbondingDenom + rewardDenom + commissionDenom);
 
     const balance = {
-      available: formatDenom(available.amount),
-      delegate: formatDenom(delegate.amount),
-      unbonding: formatDenom(unbonding.amount),
-      reward: formatDenom(reward.amount),
-      commission: formatDenom(commission.amount),
-      total: 0,
+      available: availableDenom,
+      delegate: delegateDenom,
+      unbonding: unbondingDenom,
+      reward: rewardDenom,
+      commission: commissionDenom,
+      total,
     };
 
     results.rawData.balance = balance;

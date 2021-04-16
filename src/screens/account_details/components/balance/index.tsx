@@ -114,7 +114,7 @@ const Balance: React.FC<{
               })}
             </Typography>
             <Typography variant="h3">
-              400,000,000
+              {uiData.balance.total}
             </Typography>
           </div>
           <div className="total__secondary--container total__single--container">
