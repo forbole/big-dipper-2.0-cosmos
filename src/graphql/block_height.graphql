@@ -1,5 +1,5 @@
-subscription LatestBlockHeightListener {
-  height: block(order_by: {height: desc}, limit: 1) {
+subscription LatestBlockHeightListener ($offset: Int = 3){
+  height: block(order_by: {height: desc}, limit: 1, offset: $offset) {
     height
   }
 }
