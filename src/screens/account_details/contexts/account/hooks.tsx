@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as R from 'ramda';
+import { useRouter } from 'next/router';
 import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
 import Link from 'next/link';
@@ -12,6 +13,7 @@ import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { AvatarName } from '@components';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { useChainContext } from '@contexts';
+import { CodeSharp } from '@material-ui/icons';
 import { AccountState } from './types';
 
 export const useAccount = (initialState: AccountState) => {
@@ -25,7 +27,7 @@ export const useAccount = (initialState: AccountState) => {
 
   useAccountQuery({
     variables: {
-      address: router.query.address,
+      address: R.pathOr('', ['query', 'address'], router),
     },
     onCompleted: (data) => {
       handleSetState(formatAccountQuery(data));
@@ -53,9 +55,21 @@ export const useAccount = (initialState: AccountState) => {
     };
 
     results.rawData.account = account;
+
+    return results;
+  };
+
+  const formatUi = () => {
+    return ({
+      account: {
+        address: state.rawData.account.address,
+        withdrawalAddress: state.rawData.account.withdrawalAddress,
+      },
+    });
   };
 
   return {
     rawData: state.rawData,
+    uiData: formatUi(),
   };
 };

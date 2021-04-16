@@ -15,7 +15,12 @@ const initialState: AccountState = {
 
 const AccountContext = React.createContext<AccountState>(initialState);
 
-const AccountProvider: React.FC = (props: {children: React.ReactNode }) => {
+const AccountProvider: React.FC = (props: {
+  children: (options: {
+    exists: boolean;
+    loading: boolean;
+  }) => React.ReactNode;
+ }) => {
   const { children } = props;
 
   const {
@@ -28,7 +33,10 @@ const AccountProvider: React.FC = (props: {children: React.ReactNode }) => {
         rawData,
       }}
     >
-      {children}
+      {children({
+        exists: rawData.exists,
+        loading: rawData.loading,
+      })}
     </AccountContext.Provider>
   );
 };

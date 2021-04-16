@@ -17,7 +17,7 @@ const TransactionDetails = () => {
   const classes = useStyles();
 
   return (
-    <Layout navTitle={t('transactionDetails')} className={classes.root}>
+    <Layout navTitle={t('transactionDetails')}>
       <TransactionProvider>
         {({
           exists, loading,
@@ -31,10 +31,10 @@ const TransactionDetails = () => {
           }
 
           return (
-            <>
+            <span className={classes.root}>
               <Overview />
               <Messages className={classes.messages} />
-            </>
+            </span>
           );
         }}
       </TransactionProvider>
