@@ -22,7 +22,6 @@ const initialState: BlockState = {
   },
   uiData: {
     block: [],
-    transactions: [],
     signatures: [],
   },
 };
@@ -40,6 +39,7 @@ const BlockProvider: React.FC = (props: {
   const {
     rawData,
     uiData,
+    formatTransactions,
   } = useBlock(initialState);
 
   return (
@@ -47,6 +47,7 @@ const BlockProvider: React.FC = (props: {
       value={{
         rawData,
         uiData,
+        formatTransactions,
       }}
     >
       {children({

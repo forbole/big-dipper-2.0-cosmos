@@ -74,7 +74,8 @@ export const useTransactions = () => {
   return {
     hasNextPage,
     isNextPageLoading,
-    items,
+    // items,
+    formatUi: () => [],
     loadNextPage,
     itemCount,
     loadMoreItems,

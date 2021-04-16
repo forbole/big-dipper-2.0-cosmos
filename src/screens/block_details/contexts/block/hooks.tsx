@@ -145,7 +145,7 @@ export const useBlock = (initialState: BlockState) => {
     return results;
   };
 
-  const formatUi = (screen: 'mobile' | 'desktop' = 'mobile') => {
+  const formatUi = () => {
     const proposer = findAddress(state.rawData.block.proposer);
     return ({
       // ============================
@@ -192,38 +192,6 @@ export const useBlock = (initialState: BlockState) => {
         },
       ],
       // ============================
-      // transactions
-      // ============================
-      transactions: state.rawData.transactions.map((x) => {
-        const hash = screen === 'mobile'
-          ? getMiddleEllipsis(x.hash, {
-            beginning: 15, ending: 5,
-          }) : getMiddleEllipsis(x.hash, {
-            beginning: 15, ending: 5,
-          });
-        return ({
-          block: (
-            <Link href={BLOCK_DETAILS(x.height)} passHref>
-              <Typography variant="body1" component="a">
-                {numeral(x.height).format('0,0')}
-              </Typography>
-            </Link>
-          ),
-          hash: (
-            <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
-              <Typography variant="body1" component="a">
-                {hash}
-              </Typography>
-            </Link>
-          ),
-          result: (
-            <Result success={x.success} />
-          ),
-          time: replaceNaN(dayjs.utc(x.timestamp).fromNow()),
-          messages: numeral(x.messages).format('0,0'),
-        });
-      }),
-      // ============================
       // signatures
       // ============================
       signatures: state.rawData.signatures.map((x) => {
@@ -247,7 +215,42 @@ export const useBlock = (initialState: BlockState) => {
     });
   };
 
+  const formatTransactions = (screen: 'mobile' | 'desktop' = 'mobile') => {
+    return (
+      state.rawData.transactions.map((x) => {
+        const hash = screen === 'mobile'
+          ? getMiddleEllipsis(x.hash, {
+            beginning: 15, ending: 5,
+          }) : getMiddleEllipsis(x.hash, {
+            beginning: 20, ending: 15,
+          });
+        return ({
+          block: (
+            <Link href={BLOCK_DETAILS(x.height)} passHref>
+              <Typography variant="body1" component="a">
+                {numeral(x.height).format('0,0')}
+              </Typography>
+            </Link>
+          ),
+          hash: (
+            <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
+              <Typography variant="body1" component="a">
+                {hash}
+              </Typography>
+            </Link>
+          ),
+          result: (
+            <Result success={x.success} />
+          ),
+          time: replaceNaN(dayjs.utc(x.timestamp).fromNow()),
+          messages: numeral(x.messages).format('0,0'),
+        });
+      })
+    );
+  };
+
   return {
+    formatTransactions,
     uiData: formatUi(),
     rawData: state.rawData,
   };

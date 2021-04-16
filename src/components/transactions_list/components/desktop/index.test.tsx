@@ -24,11 +24,11 @@ jest.mock('react-virtualized-auto-sizer', () => ({ children }: any) => children(
 const props = {
   items: [
     {
-      block: '812,768,640',
+      block: 123,
       hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
       messages: 123,
       success: false,
-      time: 1615187146246,
+      time: 'time',
     },
   ],
   itemCount: 1,
@@ -37,6 +37,16 @@ const props = {
   loadNextPage: () => null,
   loadMoreItems: () => null,
   isItemLoaded: () => true,
+  rawDataTotal: 0,
+  formatUi: jest.fn(() => ([
+    {
+      block: <div>block</div>,
+      hash: <div>76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857</div>,
+      messages: '2',
+      result: <div>success</div>,
+      time: 'time',
+    },
+  ])),
 };
 
 // ==================================

@@ -14,6 +14,9 @@ jest.mock('@components', () => ({
 jest.mock('../../contexts/block', () => ({
   useBlockContext: () => {
     return ({
+      rawData: {
+        transactions: [],
+      },
       uiData: {
         transactions: [{
           block: (
