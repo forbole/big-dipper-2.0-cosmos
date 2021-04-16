@@ -12,26 +12,10 @@ import { Result } from '@components';
 import {
   useTransactionsQuery,
   useTransactionsListenerSubscription,
-  TransactionsQuery,
+  TransactionsListenerSubscription,
 } from '@graphql/types';
 
 export const useTransactions = () => {
-  // const fakeData = {
-  //   block: '812,768,640',
-  //   hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
-  //   messages: 123,
-  //   success: false,
-  //   time: 1615187146246,
-  // };
-
-  // const fakeDataTwo = {
-  // block: '812,768,640',
-  // hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
-  // messages: 12,
-  // success: true,
-  // time: 1615187146246,
-  // };
-
   const [state, setState] = useState<{
     hasNextPage: boolean;
     isNextPageLoading: boolean;
@@ -58,6 +42,24 @@ export const useTransactions = () => {
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
+
+  // ================================
+  // transaction subscription
+  // ================================
+  useTransactionsListenerSubscription({
+    variables: {
+      limit: 1,
+      offset: 0,
+    },
+    onSubscriptionData: (data) => {
+      handleSetState({
+        items: [
+          ...formatTransactions(data.subscriptionData.data),
+          ...state.items,
+        ],
+      });
+    },
+  });
 
   // ================================
   // transaction query
@@ -103,7 +105,7 @@ export const useTransactions = () => {
     });
   };
 
-  const formatTransactions = (data: TransactionsQuery) => {
+  const formatTransactions = (data: TransactionsListenerSubscription) => {
     return data.transactions.map((x) => {
       return ({
         block: x.height,
