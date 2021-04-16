@@ -17,13 +17,13 @@ export const useStyles = () => {
         balance: {
           [theme.breakpoints.up('lg')]: {
             gridColumn: '1 / 2',
-            height: '360px',
+            // height: '360px',
           },
         },
         overview: {
           [theme.breakpoints.up('lg')]: {
             gridColumn: '2 / 3',
-            height: '360px',
+            // height: '360px',
           },
         },
         staking: {
