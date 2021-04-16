@@ -3,29 +3,17 @@ import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
-import Link from 'next/link';
-import { Typography } from '@material-ui/core';
 import {
   useAccountQuery,
   AccountQuery,
 } from '@graphql/types';
-import { BLOCK_DETAILS } from '@utils/go_to_page';
-import { AvatarName } from '@components';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import { useChainContext } from '@contexts';
-import {
-  CodeSharp, ContactsOutlined,
-} from '@material-ui/icons';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
 import { chainConfig } from '@src/chain_config';
 import { AccountState } from './types';
 
-// moment().utc().format('YYYY-MM-DDTHH:mm:ss')
-
 export const useAccount = (initialState: AccountState) => {
   const router = useRouter();
-  const { findAddress } = useChainContext();
   const [state, setState] = useState(initialState);
 
   const handleSetState = (stateChange: any) => {
@@ -43,7 +31,6 @@ export const useAccount = (initialState: AccountState) => {
   });
 
   const formatAccountQuery = (data: AccountQuery) => {
-    console.log(data, 'data');
     const results: any = {
       rawData: {
         loading: false,

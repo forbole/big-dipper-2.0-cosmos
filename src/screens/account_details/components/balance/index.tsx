@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import numeral from 'numeral';
 import {
   Typography,
   Divider,
@@ -13,6 +14,7 @@ import {
 import useTranslation from 'next-translate/useTranslation';
 import { Box } from '@components';
 import { chainConfig } from '@src/chain_config';
+import { useChainContext } from '@contexts';
 import { useStyles } from './styles';
 import { useAccountContext } from '../../contexts/account';
 
@@ -25,7 +27,10 @@ const Balance: React.FC<{
   const {
     classes, theme,
   } = useStyles();
-  const { uiData } = useAccountContext();
+  const { market } = useChainContext();
+  const {
+    uiData, rawData,
+  } = useAccountContext();
 
   const empty = {
     key: 'empty',
@@ -52,6 +57,7 @@ const Balance: React.FC<{
 
   const data = notEmpty ? formatData : [...formatData, empty];
 
+  const totalAmount = `$${numeral(market.rawData.price * rawData.balance.total).format('0,0.00')}`;
   return (
     <Box className={classnames(className, classes.root)}>
       <Typography variant="h2">
@@ -119,10 +125,14 @@ const Balance: React.FC<{
           </div>
           <div className="total__secondary--container total__single--container">
             <Typography variant="body1" className="label">
-              $0.00 / DSM
+              {market.uiData.price}
+              {' '}
+              /
+              {' '}
+              {chainConfig.display.toUpperCase()}
             </Typography>
             <Typography variant="body1">
-              $40,000,000.00
+              {totalAmount}
             </Typography>
           </div>
         </div>
