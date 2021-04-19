@@ -12133,6 +12133,26 @@ export type ChainIdQuery = { genesis: Array<(
     & { chainId: Genesis['chain_id'] }
   )> };
 
+export type GetMessagesByAddressQueryVariables = Exact<{
+  address?: Maybe<Scalars['_text']>;
+  limit?: Maybe<Scalars['bigint']>;
+  offset?: Maybe<Scalars['bigint']>;
+  types?: Maybe<Scalars['_text']>;
+}>;
+
+
+export type GetMessagesByAddressQuery = { messagesByAddress: Array<(
+    { __typename?: 'message' }
+    & { transaction: (
+      { __typename?: 'transaction' }
+      & Pick<Transaction, 'height' | 'hash' | 'success' | 'messages'>
+      & { block: (
+        { __typename?: 'block' }
+        & Pick<Block, 'height'>
+      ) }
+    ) }
+  )> };
+
 export type MarketDataQueryVariables = Exact<{
   denom?: Maybe<Scalars['String']>;
 }>;
@@ -12726,6 +12746,54 @@ export function useChainIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Ch
 export type ChainIdQueryHookResult = ReturnType<typeof useChainIdQuery>;
 export type ChainIdLazyQueryHookResult = ReturnType<typeof useChainIdLazyQuery>;
 export type ChainIdQueryResult = Apollo.QueryResult<ChainIdQuery, ChainIdQueryVariables>;
+export const GetMessagesByAddressDocument = gql`
+    query GetMessagesByAddress($address: _text, $limit: bigint = 50, $offset: bigint = 0, $types: _text = "{}") {
+  messagesByAddress: messages_by_address(
+    args: {addresses: $address, types: $types, limit: $limit, offset: $offset}
+  ) {
+    transaction {
+      height
+      hash
+      success
+      messages
+      block {
+        height
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetMessagesByAddressQuery__
+ *
+ * To run a query within a React component, call `useGetMessagesByAddressQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetMessagesByAddressQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetMessagesByAddressQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
+ *      types: // value for 'types'
+ *   },
+ * });
+ */
+export function useGetMessagesByAddressQuery(baseOptions?: Apollo.QueryHookOptions<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>(GetMessagesByAddressDocument, options);
+      }
+export function useGetMessagesByAddressLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>(GetMessagesByAddressDocument, options);
+        }
+export type GetMessagesByAddressQueryHookResult = ReturnType<typeof useGetMessagesByAddressQuery>;
+export type GetMessagesByAddressLazyQueryHookResult = ReturnType<typeof useGetMessagesByAddressLazyQuery>;
+export type GetMessagesByAddressQueryResult = Apollo.QueryResult<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>;
 export const MarketDataDocument = gql`
     query MarketData($denom: String) {
   communityPool: community_pool(order_by: {height: desc}, limit: 1) {
