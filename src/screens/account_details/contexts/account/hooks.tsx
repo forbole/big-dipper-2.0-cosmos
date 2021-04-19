@@ -110,6 +110,36 @@ export const useAccount = (initialState: AccountState) => {
 
     results.rawData.balance = balance;
 
+    // ============================
+    // delegations
+    // ============================
+    // {
+    //   "amount": {
+    //     "denom": "udaric",
+    //     "amount": "991"
+    //   },
+    //   "validator": {
+    //     "validator_info": {
+    //       "operator_address": "desmosvaloper1smg7rjchhtuc93fjvngypd9jrgvw2ly3u2qvqp"
+    //     },
+    //     "validator_commissions": [
+    //       {
+    //         "commission": 0.1
+    //       }
+    //     ]
+    //   }
+    // },
+    const delegations = R.pathOr([], ['account', 0, 'delegations'], data);
+    data.account[0].delegations.map((x) => {
+      return ({
+        amount: x.amount,
+        validator: x.validator.validatorInfo.operatorAddress,
+        commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
+      });
+    });
+
+    console.log(delegations, 'delegations');
+
     return results;
   };
 

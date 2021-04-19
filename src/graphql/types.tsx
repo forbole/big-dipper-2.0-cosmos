@@ -11923,6 +11923,16 @@ export type AccountQuery = { account: Array<(
     )>, delegations: Array<(
       { __typename?: 'delegation' }
       & Pick<Delegation, 'amount'>
+      & { validator: (
+        { __typename?: 'validator' }
+        & { validatorInfo?: Maybe<(
+          { __typename?: 'validator_info' }
+          & { operatorAddress: Validator_Info['operator_address'] }
+        )>, validatorCommissions: Array<(
+          { __typename?: 'validator_commission' }
+          & Pick<Validator_Commission, 'commission'>
+        )> }
+      ) }
     )>, unbonding: Array<(
       { __typename?: 'unbonding_delegation' }
       & Pick<Unbonding_Delegation, 'amount'>
@@ -12253,6 +12263,14 @@ export const AccountDocument = gql`
     }
     delegations(where: {height: {_eq: $delegationHeight}}) {
       amount
+      validator {
+        validatorInfo: validator_info {
+          operatorAddress: operator_address
+        }
+        validatorCommissions: validator_commissions(limit: 1, order_by: {height: desc}) {
+          commission
+        }
+      }
     }
     unbonding: unbonding_delegations(
       where: {completion_timestamp: {_gt: $utc}, height: {_eq: $unbondingHeight}}

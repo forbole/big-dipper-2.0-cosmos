@@ -14,6 +14,14 @@ export interface AccountState {
       commission?: number;
       total: number;
     }
+    staking: {
+      delegations: {
+        validator: string;
+        commission: number;
+        amount: number;
+        reward: number;
+      }[];
+    }
   }
   uiData?: {
     account: {

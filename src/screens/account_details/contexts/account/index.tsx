@@ -18,6 +18,9 @@ const initialState: AccountState = {
       commission: 0,
       total: 0,
     },
+    staking: {
+      delegations: [],
+    },
   },
 };
 

@@ -6,6 +6,14 @@ query Account($address: String, $utc: timestamp, $delegationHeight: bigint, $red
     }
     delegations(where: {height: {_eq: $delegationHeight}}) {
       amount
+      validator {
+        validatorInfo: validator_info {
+          operatorAddress: operator_address
+        }
+        validatorCommissions: validator_commissions (limit: 1, order_by: {height: desc}) {
+          commission
+        }
+      }
     }
     unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}, height:{_eq: $unbondingHeight}}) {
       amount
