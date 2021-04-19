@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as R from 'ramda';
+import { useRouter } from 'next/router';
 import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
 import Link from 'next/link';
@@ -10,13 +11,12 @@ import {
 } from '@utils/go_to_page';
 import { Result } from '@components';
 import {
-  useTransactionsQuery,
-  useTransactionsListenerSubscription,
-  TransactionsListenerSubscription,
-
+  useGetMessagesByAddressQuery,
+  GetMessagesByAddressQuery,
 } from '@graphql/types';
 
 export const useTransactions = () => {
+  const router = useRouter();
   const [state, setState] = useState<{
     hasNextPage: boolean;
     isNextPageLoading: boolean;
@@ -45,38 +45,23 @@ export const useTransactions = () => {
   };
 
   // ================================
-  // transaction subscription
-  // ================================
-  useTransactionsListenerSubscription({
-    variables: {
-      limit: 1,
-      offset: 0,
-    },
-    onSubscriptionData: (data) => {
-      handleSetState({
-        items: [
-          ...formatTransactions(data.subscriptionData.data),
-          ...state.items,
-        ],
-      });
-    },
-  });
-
-  // ================================
   // transaction query
   // ================================
-  const transactionQuery = useTransactionsQuery({
+  const transactionQuery = useGetMessagesByAddressQuery({
     variables: {
       limit: 50,
-      offset: 1,
+      offset: 0,
+      address: `{${R.pathOr('', ['query', 'address'], router)}}`,
     },
     onCompleted: (data) => {
       const newItems = R.uniq([...state.items, ...formatTransactions(data)]);
       handleSetState({
         items: newItems,
-        hasNextPage: newItems.length < data.total.aggregate.count,
+        // hasNextPage: newItems.length < data.total.aggregate.count,
+        hasNextPage: false,
         isNextPageLoading: false,
-        rawDataTotal: data.total.aggregate.count,
+        // rawDataTotal: data.total.aggregate.count,
+        rawDataTotal: newItems.length,
       });
     },
   });
@@ -100,20 +85,23 @@ export const useTransactions = () => {
       handleSetState({
         items: newItems,
         isNextPageLoading: false,
-        hasNextPage: newItems.length < data.total.aggregate.count,
-        rawDataTotal: data.total.aggregate.count,
+        // hasNextPage: newItems.length < data.total.aggregate.count,
+        hasNextPage: false,
+        // rawDataTotal: data.total.aggregate.count,
+        rawDataTotal: newItems.length,
       });
     });
   };
 
-  const formatTransactions = (data: TransactionsListenerSubscription) => {
-    return data.transactions.map((x) => {
+  const formatTransactions = (data: GetMessagesByAddressQuery) => {
+    return data.messagesByAddress.map((x) => {
+      const { transaction } = x;
       return ({
-        block: x.height,
-        hash: x.hash,
-        messages: x.messages.length,
-        success: x.success,
-        time: x.block.timestamp,
+        block: transaction.height,
+        hash: transaction.hash,
+        messages: transaction.messages.length,
+        success: transaction.success,
+        time: transaction.block.timestamp,
       });
     });
   };

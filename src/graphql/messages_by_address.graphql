@@ -7,6 +7,7 @@ query GetMessagesByAddress($address: _text, $limit: bigint = 50, $offset: bigint
       messages
       block {
         height
+        timestamp
       }
     }
   }
