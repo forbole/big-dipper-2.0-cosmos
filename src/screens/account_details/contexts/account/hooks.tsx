@@ -254,6 +254,27 @@ export const useAccount = (initialState: AccountState) => {
       });
     }).sort((a, b) => (a.linkedUntil > b.linkedUntil ? 1 : -1));
 
+    // ==================================
+    // unbondings
+    // ==================================
+    const unbondings = state.rawData.staking.unbondings.map((x) => {
+      const validator = findAddress(x.validator);
+
+      return ({
+        validatorMoniker: validator ? validator.moniker : x.validator,
+        validator: (
+          <AvatarName
+            address={x.validator}
+            imageUrl={validator ? validator?.imageUrl : null}
+            name={validator ? validator.moniker : x.validator}
+          />
+        ),
+        commission: `${numeral(x.commission * 100).format('0.00')}%`,
+        linkedUntil: dayjs.utc(x.linkedUntil).local().format('HH:mm:ss A'),
+        amount: `${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
+      });
+    });
+
     return ({
       account: {
         address: state.rawData.account.address,
@@ -266,6 +287,7 @@ export const useAccount = (initialState: AccountState) => {
       staking: {
         delegations,
         redelegations,
+        unbondings,
       },
     });
   };
