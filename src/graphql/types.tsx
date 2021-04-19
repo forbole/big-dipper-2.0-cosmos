@@ -11908,8 +11908,6 @@ export type AccountQueryVariables = Exact<{
   address?: Maybe<Scalars['String']>;
   utc?: Maybe<Scalars['timestamp']>;
   delegationHeight?: Maybe<Scalars['bigint']>;
-  redelegationHeight?: Maybe<Scalars['bigint']>;
-  unbondingHeight?: Maybe<Scalars['bigint']>;
   rewardsHeight?: Maybe<Scalars['bigint']>;
 }>;
 
@@ -11936,6 +11934,14 @@ export type AccountQuery = { account: Array<(
     )>, unbonding: Array<(
       { __typename?: 'unbonding_delegation' }
       & Pick<Unbonding_Delegation, 'amount'>
+      & { completionTimestamp: Unbonding_Delegation['completion_timestamp'] }
+      & { validator: (
+        { __typename?: 'validator' }
+        & { validatorInfo?: Maybe<(
+          { __typename?: 'validator_info' }
+          & { operatorAddress: Validator_Info['operator_address'] }
+        )> }
+      ) }
     )>, redelegations: Array<(
       { __typename?: 'redelegation' }
       & Pick<Redelegation, 'amount'>
@@ -12266,7 +12272,7 @@ export type ValidatorsAddressListQuery = { validator: Array<(
 
 
 export const AccountDocument = gql`
-    query Account($address: String, $utc: timestamp, $delegationHeight: bigint, $redelegationHeight: bigint, $unbondingHeight: bigint, $rewardsHeight: bigint) {
+    query Account($address: String, $utc: timestamp, $delegationHeight: bigint, $rewardsHeight: bigint) {
   account(where: {address: {_eq: $address}}) {
     address
     accountBalances: account_balances(limit: 1, order_by: {height: desc}) {
@@ -12283,14 +12289,16 @@ export const AccountDocument = gql`
         }
       }
     }
-    unbonding: unbonding_delegations(
-      where: {completion_timestamp: {_gt: $utc}, height: {_eq: $unbondingHeight}}
-    ) {
+    unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}}) {
       amount
+      completionTimestamp: completion_timestamp
+      validator {
+        validatorInfo: validator_info {
+          operatorAddress: operator_address
+        }
+      }
     }
-    redelegations(
-      where: {completion_time: {_gt: $utc}, height: {_eq: $redelegationHeight}}
-    ) {
+    redelegations(where: {completion_time: {_gt: $utc}}) {
       amount
       completionTime: completion_time
       to: src_validator_address
@@ -12332,8 +12340,6 @@ export const AccountDocument = gql`
  *      address: // value for 'address'
  *      utc: // value for 'utc'
  *      delegationHeight: // value for 'delegationHeight'
- *      redelegationHeight: // value for 'redelegationHeight'
- *      unbondingHeight: // value for 'unbondingHeight'
  *      rewardsHeight: // value for 'rewardsHeight'
  *   },
  * });

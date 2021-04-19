@@ -29,6 +29,12 @@ export interface AccountState {
         linkedUntil: string;
         amount: number;
       }[];
+      unbondings: {
+        validator: string;
+        commission: number;
+        amount: number;
+        linkedUntil: string;
+      }
     }
   }
   uiData?: {
