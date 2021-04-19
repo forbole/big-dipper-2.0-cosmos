@@ -11907,6 +11907,10 @@ export type Validator_Voting_Power_Variance_Order_By = {
 export type AccountQueryVariables = Exact<{
   address?: Maybe<Scalars['String']>;
   utc?: Maybe<Scalars['timestamp']>;
+  delegationHeight?: Maybe<Scalars['bigint']>;
+  redelegationHeight?: Maybe<Scalars['bigint']>;
+  unbondingHeight?: Maybe<Scalars['bigint']>;
+  rewardsHeight?: Maybe<Scalars['bigint']>;
 }>;
 
 
@@ -12134,6 +12138,23 @@ export type OnlineVotingPowerListenerSubscription = { block: Array<(
     ) }
   )> };
 
+export type LatestStakingHeightQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type LatestStakingHeightQuery = { delegation: Array<(
+    { __typename?: 'delegation' }
+    & Pick<Delegation, 'height'>
+  )>, redelegation: Array<(
+    { __typename?: 'redelegation' }
+    & Pick<Redelegation, 'height'>
+  )>, unbonding: Array<(
+    { __typename?: 'unbonding_delegation' }
+    & Pick<Unbonding_Delegation, 'height'>
+  )>, reward: Array<(
+    { __typename?: 'delegation_reward' }
+    & Pick<Delegation_Reward, 'height'>
+  )> };
+
 export type TokenPriceQueryVariables = Exact<{
   denom?: Maybe<Scalars['String']>;
 }>;
@@ -12224,26 +12245,21 @@ export type ValidatorsAddressListQuery = { validator: Array<(
 
 
 export const AccountDocument = gql`
-    query Account($address: String, $utc: timestamp) {
+    query Account($address: String, $utc: timestamp, $delegationHeight: bigint, $redelegationHeight: bigint, $unbondingHeight: bigint, $rewardsHeight: bigint) {
   account(where: {address: {_eq: $address}}) {
     address
     accountBalances: account_balances(limit: 1, order_by: {height: desc}) {
       coins
     }
-    delegations(limit: 1, order_by: {height: desc}) {
+    delegations(where: {height: {_eq: $delegationHeight}}) {
       amount
     }
     unbonding: unbonding_delegations(
-      limit: 1
-      order_by: {height: desc}
-      where: {completion_timestamp: {_gt: $utc}}
+      where: {completion_timestamp: {_gt: $utc}, height: {_eq: $unbondingHeight}}
     ) {
       amount
     }
-    delegationRewards: delegation_rewards(
-      limit: 1
-      order_by: {block: {height: desc}}
-    ) {
+    delegationRewards: delegation_rewards(where: {height: {_eq: $rewardsHeight}}) {
       amount
       withdrawAddress: withdraw_address
     }
@@ -12273,6 +12289,10 @@ export const AccountDocument = gql`
  *   variables: {
  *      address: // value for 'address'
  *      utc: // value for 'utc'
+ *      delegationHeight: // value for 'delegationHeight'
+ *      redelegationHeight: // value for 'redelegationHeight'
+ *      unbondingHeight: // value for 'unbondingHeight'
+ *      rewardsHeight: // value for 'rewardsHeight'
  *   },
  * });
  */
@@ -12730,6 +12750,49 @@ export function useOnlineVotingPowerListenerSubscription(baseOptions?: Apollo.Su
       }
 export type OnlineVotingPowerListenerSubscriptionHookResult = ReturnType<typeof useOnlineVotingPowerListenerSubscription>;
 export type OnlineVotingPowerListenerSubscriptionResult = Apollo.SubscriptionResult<OnlineVotingPowerListenerSubscription>;
+export const LatestStakingHeightDocument = gql`
+    query LatestStakingHeight {
+  delegation(limit: 1, order_by: {height: desc}) {
+    height
+  }
+  redelegation(limit: 1, order_by: {height: desc}) {
+    height
+  }
+  unbonding: unbonding_delegation(limit: 1, order_by: {height: desc}) {
+    height
+  }
+  reward: delegation_reward(limit: 1, order_by: {height: desc}) {
+    height
+  }
+}
+    `;
+
+/**
+ * __useLatestStakingHeightQuery__
+ *
+ * To run a query within a React component, call `useLatestStakingHeightQuery` and pass it any options that fit your needs.
+ * When your component renders, `useLatestStakingHeightQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useLatestStakingHeightQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useLatestStakingHeightQuery(baseOptions?: Apollo.QueryHookOptions<LatestStakingHeightQuery, LatestStakingHeightQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<LatestStakingHeightQuery, LatestStakingHeightQueryVariables>(LatestStakingHeightDocument, options);
+      }
+export function useLatestStakingHeightLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LatestStakingHeightQuery, LatestStakingHeightQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<LatestStakingHeightQuery, LatestStakingHeightQueryVariables>(LatestStakingHeightDocument, options);
+        }
+export type LatestStakingHeightQueryHookResult = ReturnType<typeof useLatestStakingHeightQuery>;
+export type LatestStakingHeightLazyQueryHookResult = ReturnType<typeof useLatestStakingHeightLazyQuery>;
+export type LatestStakingHeightQueryResult = Apollo.QueryResult<LatestStakingHeightQuery, LatestStakingHeightQueryVariables>;
 export const TokenPriceDocument = gql`
     query TokenPrice($denom: String) {
   tokenPrice: token_price(where: {unit_name: {_eq: $denom}}) {

@@ -4,7 +4,8 @@ import { useRouter } from 'next/router';
 import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
 import {
-  useAccountQuery,
+  useLatestStakingHeightQuery,
+  useAccountLazyQuery,
   AccountQuery,
 } from '@graphql/types';
 import { getDenom } from '@utils/get_denom';
@@ -20,11 +21,26 @@ export const useAccount = (initialState: AccountState) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
 
-  useAccountQuery({
-    variables: {
-      address: R.pathOr('', ['query', 'address'], router),
-      utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
+  useLatestStakingHeightQuery({
+    onCompleted: (data) => {
+      const delegationHeight = data.delegation[0]?.height;
+      const redelegationHeight = data.redelegation[0]?.height;
+      const unbondingHeight = data.unbonding[0]?.height;
+      const rewardsHeight = data.reward[0]?.height;
+      useAccountQuery({
+        variables: {
+          address: R.pathOr('', ['query', 'address'], router),
+          utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
+          delegationHeight,
+          redelegationHeight,
+          unbondingHeight,
+          rewardsHeight,
+        },
+      });
     },
+  });
+
+  const [useAccountQuery] = useAccountLazyQuery({
     onCompleted: (data) => {
       handleSetState(formatAccountQuery(data));
     },
@@ -60,18 +76,22 @@ export const useAccount = (initialState: AccountState) => {
     );
     const availableDenom = formatDenom(available.amount);
 
-    const delegate = R.pathOr({
-      amount: 0,
-    }, ['account', 0, 'delegations', 0, 'amount'], data);
-    const delegateDenom = formatDenom(delegate.amount);
+    const delegate = R.pathOr([], ['account', 0, 'delegations'], data).reduce((a, b) => {
+      return a + numeral(b.amount.amount).value();
+    }, 0);
+    const delegateDenom = formatDenom(delegate);
 
-    const unbonding = R.pathOr({
-      amount: 0,
-    }, ['account', 0, 'unbonding', 0, 'amount'], data);
-    const unbondingDenom = formatDenom(unbonding.amount);
+    const unbonding = R.pathOr([], ['account', 0, 'unbonding'], data).reduce((a, b) => {
+      return a + numeral(b.amount.amount).value();
+    }, 0);
+    const unbondingDenom = formatDenom(unbonding);
 
-    const reward = getDenom(R.pathOr([], ['account', 0, 'delegationRewards', 0, 'amount'], data));
-    const rewardDenom = formatDenom(reward.amount);
+    const reward = R.pathOr([], ['account', 0, 'delegationRewards'], data).reduce((a, b) => {
+      const denom = getDenom(b.amount);
+      return a + numeral(denom.amount).value();
+    }, 0);
+
+    const rewardDenom = formatDenom(reward);
 
     const commission = getDenom(R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data));
     const commissionDenom = formatDenom(commission.amount);

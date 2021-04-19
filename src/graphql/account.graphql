@@ -1,16 +1,16 @@
-query Account($address: String, $utc: timestamp) {
+query Account($address: String, $utc: timestamp, $delegationHeight: bigint, $redelegationHeight: bigint, $unbondingHeight: bigint, $rewardsHeight: bigint) {
   account(where: {address: {_eq: $address}}) {
     address
     accountBalances: account_balances(limit: 1, order_by: {height: desc}) {
       coins
     }
-    delegations(limit: 1, order_by: {height: desc}) {
+    delegations(where: {height: {_eq: $delegationHeight}}) {
       amount
     }
-    unbonding: unbonding_delegations(limit: 1, order_by: {height: desc}, where: {completion_timestamp: {_gt: $utc}}) {
+    unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}, height:{_eq: $unbondingHeight}}) {
       amount
     }
-    delegationRewards: delegation_rewards(limit: 1, order_by: {block: {height: desc}}) {
+    delegationRewards: delegation_rewards(where: {height: {_eq: $rewardsHeight}}) {
       amount
       withdrawAddress: withdraw_address
     }
@@ -21,3 +21,5 @@ query Account($address: String, $utc: timestamp) {
     }
   }
 }
+
+
