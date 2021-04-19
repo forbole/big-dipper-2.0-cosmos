@@ -23,14 +23,12 @@ const Delegations: React.FC<{
   } = usePagination({});
 
   const { uiData } = useAccountContext();
-  // const { item } = useStakingContext();
-  // const { delegations = [] } = item;
-  // const items = sliceItems(delegations);
+  const items = sliceItems(uiData.staking.delegations);
 
   return (
     <div className={classnames(className)}>
-      <Mobile className={classes.mobile} items={uiData.staking.delegations} />
-      <Desktop className={classes.desktop} items={uiData.staking.delegations} />
+      <Mobile className={classes.mobile} items={items} />
+      <Desktop className={classes.desktop} items={items} />
       <Pagination
         className={classes.paginate}
         total={uiData.staking.delegations.length}

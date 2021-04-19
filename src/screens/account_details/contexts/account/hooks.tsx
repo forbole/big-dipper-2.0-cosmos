@@ -53,6 +53,7 @@ export const useAccount = (initialState: AccountState) => {
     const results: any = {
       rawData: {
         loading: false,
+        staking: {},
       },
     };
 
