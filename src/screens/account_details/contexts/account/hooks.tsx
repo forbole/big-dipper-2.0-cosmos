@@ -148,6 +148,7 @@ export const useAccount = (initialState: AccountState) => {
         amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
       });
     });
+
     results.rawData.staking.redelegations = redelegations;
 
     // ============================
@@ -236,7 +237,7 @@ export const useAccount = (initialState: AccountState) => {
             name={from ? from.moniker : x.from}
           />
         ),
-        linkedUntil: dayjs.utc(x.linkedUntil).format('HH:mm:ss A'),
+        linkedUntil: dayjs.utc(x.linkedUntil).local().format('HH:mm:ss A'),
         amount: `${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
       });
     }).sort((a, b) => (a.linkedUntil > b.linkedUntil ? 1 : -1));

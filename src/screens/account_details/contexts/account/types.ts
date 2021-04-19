@@ -57,7 +57,7 @@ export interface AccountState {
         from: React.ReactNode;
         linkedUntil: string;
         amount: string;
-      }
+      }[];
     }
   }
 }
