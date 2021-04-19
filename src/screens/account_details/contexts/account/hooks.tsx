@@ -27,16 +27,13 @@ export const useAccount = (initialState: AccountState) => {
   useLatestStakingHeightQuery({
     onCompleted: (data) => {
       const delegationHeight = data.delegation[0]?.height;
-      const redelegationHeight = data.redelegation[0]?.height;
-      const unbondingHeight = data.unbonding[0]?.height;
       const rewardsHeight = data.reward[0]?.height;
+
       useAccountQuery({
         variables: {
           address: R.pathOr('', ['query', 'address'], router),
           utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
           delegationHeight,
-          redelegationHeight,
-          unbondingHeight,
           rewardsHeight,
         },
       });
@@ -115,6 +112,10 @@ export const useAccount = (initialState: AccountState) => {
     results.rawData.balance = balance;
 
     // ============================
+    // staking
+    // ============================
+
+    // ============================
     // delegations
     // ============================
     const rewardsDict = {};
@@ -154,6 +155,17 @@ export const useAccount = (initialState: AccountState) => {
     // ============================
     // unbondings
     // ============================
+    const unbondings = data.account[0].unbonding.map((x) => {
+      const validator = x.validator.validatorInfo.operatorAddress;
+      return ({
+        validator,
+        amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
+        linkedUntil: x.completionTimestamp,
+        commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
+      });
+    });
+
+    results.rawData.staking.unbondings = unbondings;
 
     return results;
   };

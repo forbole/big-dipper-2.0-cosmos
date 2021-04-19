@@ -19,6 +19,9 @@ query Account($address: String, $utc: timestamp, $delegationHeight: bigint, $rew
       amount
       completionTimestamp: completion_timestamp
       validator {
+        validatorCommissions: validator_commissions(limit: 1, order_by: {height: desc}) {
+          commission
+        }
         validatorInfo: validator_info {
           operatorAddress: operator_address
         }

@@ -34,7 +34,7 @@ export interface AccountState {
         commission: number;
         amount: number;
         linkedUntil: string;
-      }
+      }[],
     }
   }
   uiData?: {
@@ -63,6 +63,12 @@ export interface AccountState {
         from: React.ReactNode;
         linkedUntil: string;
         amount: string;
+      }[];
+      unbondings: {
+        validator: React.ReactNode;
+        commission: string;
+        amount: string;
+        linkedUntil: string;
       }[];
     }
   }

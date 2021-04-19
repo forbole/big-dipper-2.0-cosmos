@@ -11937,7 +11937,10 @@ export type AccountQuery = { account: Array<(
       & { completionTimestamp: Unbonding_Delegation['completion_timestamp'] }
       & { validator: (
         { __typename?: 'validator' }
-        & { validatorInfo?: Maybe<(
+        & { validatorCommissions: Array<(
+          { __typename?: 'validator_commission' }
+          & Pick<Validator_Commission, 'commission'>
+        )>, validatorInfo?: Maybe<(
           { __typename?: 'validator_info' }
           & { operatorAddress: Validator_Info['operator_address'] }
         )> }
@@ -12293,6 +12296,9 @@ export const AccountDocument = gql`
       amount
       completionTimestamp: completion_timestamp
       validator {
+        validatorCommissions: validator_commissions(limit: 1, order_by: {height: desc}) {
+          commission
+        }
         validatorInfo: validator_info {
           operatorAddress: operator_address
         }
