@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface AccountState {
   rawData: {
     exists: boolean;
@@ -20,6 +22,12 @@ export interface AccountState {
         commission: number;
         amount: number;
         reward: number;
+      }[];
+      redelegations: {
+        to: string;
+        from: string;
+        linkedUntil: string;
+        amount: number;
       }[];
     }
   }
@@ -44,6 +52,12 @@ export interface AccountState {
         amount: string;
         reward: string;
       }[];
+      redelegations: {
+        to: React.ReactNode;
+        from: React.ReactNode;
+        linkedUntil: string;
+        amount: string;
+      }
     }
   }
 }

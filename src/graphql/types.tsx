@@ -11936,6 +11936,10 @@ export type AccountQuery = { account: Array<(
     )>, unbonding: Array<(
       { __typename?: 'unbonding_delegation' }
       & Pick<Unbonding_Delegation, 'amount'>
+    )>, redelegations: Array<(
+      { __typename?: 'redelegation' }
+      & Pick<Redelegation, 'amount'>
+      & { completionTime: Redelegation['completion_time'], to: Redelegation['src_validator_address'], from: Redelegation['dst_validator_address'] }
     )>, delegationRewards: Array<(
       { __typename?: 'delegation_reward' }
       & Pick<Delegation_Reward, 'amount'>
@@ -12283,6 +12287,14 @@ export const AccountDocument = gql`
       where: {completion_timestamp: {_gt: $utc}, height: {_eq: $unbondingHeight}}
     ) {
       amount
+    }
+    redelegations(
+      where: {completion_time: {_gt: $utc}, height: {_eq: $redelegationHeight}}
+    ) {
+      amount
+      completionTime: completion_time
+      to: src_validator_address
+      from: dst_validator_address
     }
     delegationRewards: delegation_rewards(where: {height: {_eq: $rewardsHeight}}) {
       amount

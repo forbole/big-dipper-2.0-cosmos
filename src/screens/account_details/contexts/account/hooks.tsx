@@ -137,6 +137,23 @@ export const useAccount = (initialState: AccountState) => {
 
     results.rawData.staking.delegations = delegations;
 
+    // ============================
+    // redelegations
+    // ============================
+    const redelegations = data.account[0].redelegations.map((x) => {
+      return ({
+        to: x.to,
+        from: x.from,
+        linkedUntil: x.completionTime,
+        amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
+      });
+    });
+    results.rawData.staking.redelegations = redelegations;
+
+    // ============================
+    // unbondings
+    // ============================
+
     return results;
   };
 
@@ -197,6 +214,33 @@ export const useAccount = (initialState: AccountState) => {
     }).sort((a, b) => (
       a.validatorMoniker.toLowerCase() > b.validatorMoniker.toLowerCase() ? 1 : -1));
 
+    // ==================================
+    // redelegations
+    // ==================================
+    const redelegations = state.rawData.staking.redelegations.map((x) => {
+      const to = findAddress(x.to);
+      const from = findAddress(x.from);
+
+      return ({
+        to: (
+          <AvatarName
+            address={x.to}
+            imageUrl={to ? to?.imageUrl : null}
+            name={to ? to.moniker : x.to}
+          />
+        ),
+        from: (
+          <AvatarName
+            address={x.from}
+            imageUrl={from ? from?.imageUrl : null}
+            name={from ? from.moniker : x.from}
+          />
+        ),
+        linkedUntil: dayjs.utc(x.linkedUntil).format('HH:mm:ss A'),
+        amount: `${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
+      });
+    }).sort((a, b) => (a.linkedUntil > b.linkedUntil ? 1 : -1));
+
     return ({
       account: {
         address: state.rawData.account.address,
@@ -208,6 +252,7 @@ export const useAccount = (initialState: AccountState) => {
       },
       staking: {
         delegations,
+        redelegations,
       },
     });
   };

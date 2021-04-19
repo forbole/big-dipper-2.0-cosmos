@@ -37,7 +37,11 @@ const Redelegations: React.FC<{
           <Desktop className={classes.desktop} items={items} />
         </>
       ) : (
-        <NoData />
+        <>
+          <Mobile className={classes.mobile} items={items} />
+          <Desktop className={classes.desktop} items={items} />
+        </>
+        // <NoData />
       )}
       <Pagination
         className={classes.paginate}
