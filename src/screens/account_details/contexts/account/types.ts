@@ -36,5 +36,13 @@ export interface AccountState {
       }[]
       total: string;
     }
+    staking: {
+      delegations: {
+        validator: React.ReactNode;
+        commission: string;
+        amount: string;
+        reward: string;
+      }[];
+    }
   }
 }

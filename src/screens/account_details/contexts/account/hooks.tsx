@@ -8,12 +8,15 @@ import {
   useAccountLazyQuery,
   AccountQuery,
 } from '@graphql/types';
+import { AvatarName } from '@components';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
 import { chainConfig } from '@src/chain_config';
+import { useChainContext } from '@contexts';
 import { AccountState } from './types';
 
 export const useAccount = (initialState: AccountState) => {
+  const { findAddress } = useChainContext();
   const router = useRouter();
   const [state, setState] = useState(initialState);
 
@@ -113,37 +116,33 @@ export const useAccount = (initialState: AccountState) => {
     // ============================
     // delegations
     // ============================
-    // {
-    //   "amount": {
-    //     "denom": "udaric",
-    //     "amount": "991"
-    //   },
-    //   "validator": {
-    //     "validator_info": {
-    //       "operator_address": "desmosvaloper1smg7rjchhtuc93fjvngypd9jrgvw2ly3u2qvqp"
-    //     },
-    //     "validator_commissions": [
-    //       {
-    //         "commission": 0.1
-    //       }
-    //     ]
-    //   }
-    // },
-    const delegations = R.pathOr([], ['account', 0, 'delegations'], data);
-    data.account[0].delegations.map((x) => {
+    const rewardsDict = {};
+
+    data.account[0].delegationRewards.forEach((x) => {
+      const denomAmount = getDenom(x.amount);
+      const denomFormat = formatDenom(denomAmount.amount);
+      rewardsDict[x.validator.validatorInfo.operatorAddress] = denomFormat;
+    });
+
+    const delegations = data.account[0].delegations.map((x) => {
+      const validator = x.validator.validatorInfo.operatorAddress;
       return ({
-        amount: x.amount,
-        validator: x.validator.validatorInfo.operatorAddress,
+        validator,
+        reward: rewardsDict[validator],
+        amount: formatDenom(x.amount.amount),
         commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
       });
     });
 
-    console.log(delegations, 'delegations');
+    results.rawData.staking.delegations = delegations;
 
     return results;
   };
 
   const formatUi = () => {
+    // ==================================
+    // balance
+    // ==================================
     const balanceChart = [
       {
         key: 'balanceAvailable',
@@ -175,6 +174,26 @@ export const useAccount = (initialState: AccountState) => {
       });
     }
 
+    // ==================================
+    // delegations
+    // ==================================
+    const delegations = state.rawData.staking.delegations.map((x) => {
+      const validator = findAddress(x.validator);
+
+      return ({
+        validator: (
+          <AvatarName
+            address={x.validator}
+            imageUrl={validator ? validator?.imageUrl : null}
+            name={validator ? validator.moniker : x.validator}
+          />
+        ),
+        commission: `${numeral(x.commission * 100).format('0.00')}%`,
+        amount: `${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
+        reward: `${numeral(x.reward).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
+      });
+    });
+
     return ({
       account: {
         address: state.rawData.account.address,
@@ -183,6 +202,9 @@ export const useAccount = (initialState: AccountState) => {
       balance: {
         chart: balanceChart,
         total: `${numeral(state.rawData.balance.total).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
+      },
+      staking: {
+        delegations,
       },
     });
   };

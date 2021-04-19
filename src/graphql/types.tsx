@@ -11940,6 +11940,13 @@ export type AccountQuery = { account: Array<(
       { __typename?: 'delegation_reward' }
       & Pick<Delegation_Reward, 'amount'>
       & { withdrawAddress: Delegation_Reward['withdraw_address'] }
+      & { validator: (
+        { __typename?: 'validator' }
+        & { validatorInfo?: Maybe<(
+          { __typename?: 'validator_info' }
+          & { operatorAddress: Validator_Info['operator_address'] }
+        )> }
+      ) }
     )> }
   )>, validator: Array<(
     { __typename?: 'validator' }
@@ -12280,6 +12287,11 @@ export const AccountDocument = gql`
     delegationRewards: delegation_rewards(where: {height: {_eq: $rewardsHeight}}) {
       amount
       withdrawAddress: withdraw_address
+      validator {
+        validatorInfo: validator_info {
+          operatorAddress: operator_address
+        }
+      }
     }
   }
   validator: validator(

@@ -21,6 +21,11 @@ query Account($address: String, $utc: timestamp, $delegationHeight: bigint, $red
     delegationRewards: delegation_rewards(where: {height: {_eq: $rewardsHeight}}) {
       amount
       withdrawAddress: withdraw_address
+      validator {
+        validatorInfo: validator_info {
+          operatorAddress: operator_address
+        }
+      }
     }
   }
   validator: validator(limit: 1, where: {validator_info: {self_delegate_address: {_eq: $address}}}) {
