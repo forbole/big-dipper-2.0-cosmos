@@ -38,6 +38,7 @@ export interface AccountState {
     }
     staking: {
       delegations: {
+        validatorMoniker: string;
         validator: React.ReactNode;
         commission: string;
         amount: string;

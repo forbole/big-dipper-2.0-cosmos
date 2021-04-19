@@ -182,6 +182,7 @@ export const useAccount = (initialState: AccountState) => {
       const validator = findAddress(x.validator);
 
       return ({
+        validatorMoniker: validator ? validator.moniker : x.validator,
         validator: (
           <AvatarName
             address={x.validator}
@@ -193,7 +194,8 @@ export const useAccount = (initialState: AccountState) => {
         amount: `${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
         reward: `${numeral(x.reward).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
       });
-    });
+    }).sort((a, b) => (
+      a.validatorMoniker.toLowerCase() > b.validatorMoniker.toLowerCase() ? 1 : -1));
 
     return ({
       account: {
