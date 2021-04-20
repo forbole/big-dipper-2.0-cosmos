@@ -117,6 +117,7 @@ export const useAccount = (initialState: AccountState) => {
         imageUrl: validator ? validator.imageUrl : undefined,
       },
       status,
+      description: state.rawData.profile.description,
     };
 
     return ({

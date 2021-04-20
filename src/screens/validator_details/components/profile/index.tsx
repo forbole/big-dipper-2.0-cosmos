@@ -15,6 +15,7 @@ import {
   Avatar,
   Tag,
   InfoPopover,
+  Markdown,
 } from '@components';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
@@ -36,8 +37,6 @@ const Profile: React.FC<{
   };
 
   const statusTheme = getStatusTheme(uiData.profile.status);
-
-  const bio = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et quam vestibulum, ullamcorper mauris ut, imperdiet quam. Donec sed fermentum ligula. Quisque et est sit amet augue cursus varius vitae in tortor.';
 
   const formattedItem = {
     operatorAddress: (
@@ -126,9 +125,11 @@ const Profile: React.FC<{
           {/* ======================== */}
           {/* bio */}
           {/* ======================== */}
-          <Typography variant="body1" className="bio__content">
-            {bio}
-          </Typography>
+          <div className="bio__content">
+            <Markdown>
+              {uiData.profile.description}
+            </Markdown>
+          </div>
         </div>
       </div>
 

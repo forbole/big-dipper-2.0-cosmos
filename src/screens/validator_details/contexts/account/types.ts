@@ -21,6 +21,7 @@ export interface AccountState {
         imageUrl?: string;
       }
       status: string;
+      description: string;
     }
   //   balance: {
   //     chart: {
