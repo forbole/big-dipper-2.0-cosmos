@@ -49,19 +49,20 @@ export const useTransactions = () => {
   // ================================
   const transactionQuery = useGetMessagesByAddressQuery({
     variables: {
-      limit: 50,
+      limit: 51, // to check if more exist
       offset: 0,
       address: `{${R.pathOr('', ['query', 'address'], router)}}`,
     },
     onCompleted: (data) => {
+      const itemsLength = data.messagesByAddress.length;
       const newItems = R.uniq([...state.items, ...formatTransactions(data)]);
       handleSetState({
         items: newItems,
         // hasNextPage: newItems.length < data.total.aggregate.count,
-        hasNextPage: false,
+        hasNextPage: itemsLength === 51,
         isNextPageLoading: false,
         // rawDataTotal: data.total.aggregate.count,
-        rawDataTotal: newItems.length,
+        rawDataTotal: itemsLength + state.items.length,
       });
     },
   });
@@ -74,9 +75,10 @@ export const useTransactions = () => {
     await transactionQuery.fetchMore({
       variables: {
         offset: state.items.length,
-        limit: 50,
+        limit: 51,
       },
     }).then(({ data }) => {
+      const itemsLength = data.messagesByAddress.length;
       const newItems = R.uniq([
         ...state.items,
         ...formatTransactions(data),
@@ -86,15 +88,19 @@ export const useTransactions = () => {
         items: newItems,
         isNextPageLoading: false,
         // hasNextPage: newItems.length < data.total.aggregate.count,
-        hasNextPage: false,
+        hasNextPage: itemsLength === 51,
         // rawDataTotal: data.total.aggregate.count,
-        rawDataTotal: newItems.length,
+        rawDataTotal: itemsLength + state.items.length,
       });
     });
   };
 
   const formatTransactions = (data: GetMessagesByAddressQuery) => {
-    return data.messagesByAddress.map((x) => {
+    let formattedData = data.messagesByAddress;
+    if (data.messagesByAddress.length === 51) {
+      formattedData = data.messagesByAddress.slice(0, 51);
+    }
+    return formattedData.map((x) => {
       const { transaction } = x;
       return ({
         block: transaction.height,
