@@ -8,18 +8,54 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
   <h2
     className="MuiTypography-root MuiTypography-h2"
   >
-    validators:transactions
+    accounts:transactions
   </h2>
   <div
     className="makeStyles-list"
     formatUi={[Function]}
-    hasNextPage={true}
+    hasNextPage={false}
     id="TransactionsList"
     isItemLoaded={[Function]}
     isNextPageLoading={false}
     itemCount={1}
+    items={
+      Array [
+        Object {
+          "block": <Link
+            href="/blocks/1117165"
+            passHref={true}
+          >
+            <WithStyles(ForwardRef(Typography))
+              className="value"
+              component="a"
+              variant="body1"
+            >
+              1,117,165
+            </WithStyles(ForwardRef(Typography))>
+          </Link>,
+          "hash": <Link
+            href="/transactions/2B0732E5ADBE72F388E869ADD9C0400453D6228FA58D32EE4501E9773D53F23C"
+            passHref={true}
+          >
+            <WithStyles(ForwardRef(Typography))
+              className="value"
+              component="a"
+              variant="body1"
+            >
+              2B0732E5ADBE7...773D53F23C
+            </WithStyles(ForwardRef(Typography))>
+          </Link>,
+          "messages": "1",
+          "result": <UNDEFINED
+            success={true}
+          />,
+          "time": "9 days ago",
+        },
+      ]
+    }
     loadMoreItems={[Function]}
     loadNextPage={[Function]}
+    rawDataTotal={1}
   />
 </div>
 `;
