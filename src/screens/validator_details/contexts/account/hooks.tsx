@@ -84,7 +84,7 @@ export const useAccount = (initialState: AccountState) => {
       condition,
     };
 
-    results.rawData.account = profile;
+    results.rawData.profile = profile;
 
     return results;
   };
@@ -94,7 +94,6 @@ export const useAccount = (initialState: AccountState) => {
     // profile
     // ==================================
     const validator = findAddress(state.rawData.profile.operatorAddress);
-
     const profile = {
       operatorAddress: state.rawData.profile.operatorAddress,
       validator: {
