@@ -77,8 +77,8 @@ export const useAccount = (initialState: AccountState) => {
       operatorAddress: data.validator[0].validatorInfo.operatorAddress,
       selfDelegateAddress: data.validator[0].validatorInfo.selfDelegateAddress,
       description: R.pathOr('', ['validatorDescriptions', 0, 'details'], data.validator[0]),
-      status: R.pathOr('', ['validatorStatuses', 0, 'status'], data.validator[0]),
-      jailed: R.pathOr('', ['validatorStatuses', 0, 'jailed'], data.validator[0]),
+      status: R.pathOr(3, ['validatorStatuses', 0, 'status'], data.validator[0]),
+      jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], data.validator[0]),
       website: R.pathOr('', ['validatorDescriptions', 0, 'website'], data.validator[0]),
       commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], data.validator[0]),
       condition,
@@ -110,16 +110,29 @@ export const useAccount = (initialState: AccountState) => {
       status = 'unknown';
     }
 
+    let condition = 'na';
+
+    if (state.rawData.profile.status === 3) {
+      if (state.rawData.profile.condition > 90) {
+        condition = 'good';
+      } else if (state.rawData.profile.condition > 70 && state.rawData.profile.condition < 90) {
+        condition = 'moderate';
+      } else {
+        condition = 'bad';
+      }
+    }
+
     const profile = {
+      status,
+      condition,
       operatorAddress: state.rawData.profile.operatorAddress,
       selfDelegateAddress: state.rawData.profile.selfDelegateAddress,
       website: state.rawData.profile.website,
-      commission: state.rawData.profile.commission,
+      commission: `${numeral(state.rawData.profile.commission * 100).value()}%`,
       validator: {
         moniker: validator ? validator.moniker : state.rawData.profile.operatorAddress,
         imageUrl: validator ? validator.imageUrl : undefined,
       },
-      status,
       description: state.rawData.profile.description,
     };
 

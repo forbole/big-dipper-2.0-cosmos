@@ -9,7 +9,7 @@
   "commission": "Commission",
   "votingPower": "Voting Power",
   "condition": "Condition",
-  "conditionExplanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut ex et leo aliquet lacinia. Donec finibus eros in consectetur porta. Aenean ut erat eu nunc pulvinar ullamcorper non non quam.",
+  "conditionExplanation": "The overall health of a validator within the current signed block window",
   "searchValidator": "Search Validator",
   "validatorDetails": "Validator Details",
   "identity": "Identity",
@@ -47,5 +47,6 @@
   "unbonding": "Unbonding",
   "jailed": "Jailed",
   "unbonded": "Unbonded",
-  "unknown": "Unknown"
+  "unknown": "Unknown",
+  "na": "N/A"
 }

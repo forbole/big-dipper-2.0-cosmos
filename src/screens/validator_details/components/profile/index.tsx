@@ -78,16 +78,15 @@ const Profile: React.FC<{
         variant="body1"
         className="value"
       >
-        {numeral(uiData.profile.commission * 100).value()}
-        %
+        {uiData.profile.commission}
       </Typography>
     ),
     condition: (
       <Typography
         variant="body1"
-        className="value good"
+        className={classnames('value', uiData.profile.condition)}
       >
-        {t('good')}
+        {t(uiData.profile.condition)}
       </Typography>
     ),
   };

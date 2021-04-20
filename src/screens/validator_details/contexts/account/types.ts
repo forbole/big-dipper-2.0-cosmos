@@ -18,13 +18,14 @@ export interface AccountState {
       operatorAddress: string;
       selfDelegateAddress: string;
       website: string;
-      commission: number;
+      commission: string;
       validator: {
         moniker: string;
         imageUrl?: string;
       }
       status: string;
       description: string;
+      condition: string;
     }
   //   balance: {
   //     chart: {
