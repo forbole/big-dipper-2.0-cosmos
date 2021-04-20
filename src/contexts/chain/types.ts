@@ -1,7 +1,22 @@
 export type Theme = 'light' | 'dark' | 'device';
 
 export interface ChainState {
-  loading: boolean;
+  loading?: boolean;
+  market: {
+    loading: boolean;
+    rawData: {
+      price: number;
+      marketCap: number;
+      inflation: number;
+      communityPool: number;
+    }
+    uiData?: {
+      price: string;
+      marketCap: string;
+      inflation: string;
+      communityPool: string;
+    }
+  }
   validatorsAddresses: {
     loading: boolean;
     validators: {

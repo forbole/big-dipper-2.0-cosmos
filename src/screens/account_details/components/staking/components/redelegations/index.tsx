@@ -1,8 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
 import { usePagination } from '@hooks';
-import { Pagination } from '@components';
-import { useStakingContext } from '../../contexts/staking';
+import {
+  NoData, Pagination,
+} from '@components';
+import { useAccountContext } from '../../../../contexts/account';
 import {
   Desktop, Mobile,
 } from './components';
@@ -21,17 +23,23 @@ const Redelegations: React.FC<{
     handleChangeRowsPerPage,
     sliceItems,
   } = usePagination({});
+  const { uiData } = useAccountContext();
 
-  const { item } = useStakingContext();
-  const { redelegations = [] } = item;
-  const items = sliceItems(redelegations);
+  const items = sliceItems(uiData.staking.redelegations);
+
   return (
     <div className={classnames(className)}>
-      <Mobile className={classes.mobile} items={items} />
-      <Desktop className={classes.desktop} items={items} />
+      {items.length ? (
+        <>
+          <Mobile className={classes.mobile} items={items} />
+          <Desktop className={classes.desktop} items={items} />
+        </>
+      ) : (
+        <NoData />
+      )}
       <Pagination
         className={classes.paginate}
-        total={redelegations.length}
+        total={uiData.staking.redelegations.length}
         rowsPerPage={rowsPerPage}
         page={page}
         handleChangePage={handleChangePage}

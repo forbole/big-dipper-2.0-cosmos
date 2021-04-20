@@ -8,7 +8,6 @@ import {
   TableCell,
   TableBody,
 } from '@material-ui/core';
-import { AvatarName } from '@components';
 import { columns } from './utils';
 
 const Desktop: React.FC<{
@@ -18,20 +17,7 @@ const Desktop: React.FC<{
   className, items,
 }) => {
   const { t } = useTranslation('accounts');
-  const formatItems = items.map((x) => {
-    return ({
-      validator: (
-        <AvatarName
-          address={x?.validator?.identity}
-          imageUrl={x?.validator?.image}
-          name={x?.validator?.moniker}
-        />
-      ),
-      amount: x.amount,
-      commission: x.commission,
-      reward: x.reward,
-    });
-  });
+
   return (
     <div className={classnames(className)}>
       <Table>
@@ -51,7 +37,7 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formatItems.map((row, i) => (
+          {items.map((row, i) => (
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => {
                 return (

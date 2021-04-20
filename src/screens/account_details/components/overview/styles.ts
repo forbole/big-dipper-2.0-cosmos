@@ -26,6 +26,11 @@ export const useStyles = () => {
             },
           },
         },
+        actionIcons: {
+          '&:hover': {
+            cursor: 'pointer',
+          },
+        },
         icons: {
           '& svg': {
             width: theme.spacing(4.5),

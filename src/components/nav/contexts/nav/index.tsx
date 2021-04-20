@@ -1,6 +1,6 @@
 import React from 'react';
+import { useChainContext } from '@contexts';
 import { NavState } from './types';
-import { useNav } from './hooks';
 
 const initialState: NavState = {
   rawData: {
@@ -20,9 +20,11 @@ const NavProvider: React.FC<{
   children, title,
 }) => {
   const {
-    rawData,
-    uiData,
-  } = useNav(initialState);
+    market: {
+      rawData,
+      uiData,
+    },
+  } = useChainContext();
 
   return (
     <NavContext.Provider

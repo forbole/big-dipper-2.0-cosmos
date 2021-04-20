@@ -6,7 +6,6 @@ import {
 import { Tabs } from './components';
 import { useStaking } from './hooks';
 import { getTabs } from './utils';
-import { StakingProvider } from './contexts/staking';
 import { useStyles } from './styles';
 
 const Staking: React.FC<{
@@ -21,23 +20,21 @@ const Staking: React.FC<{
   const tabs = getTabs();
 
   return (
-    <StakingProvider>
-      <Box className={classnames(className, classes.root)}>
-        <Tabs tab={state.tab} handleTabChange={handleTabChange} />
-        {tabs.map((x) => {
-          const Component = x.component;
-          return (
-            <TabPanel
-              key={x.id}
-              index={x.id}
-              value={state.tab}
-            >
-              <Component />
-            </TabPanel>
-          );
-        })}
-      </Box>
-    </StakingProvider>
+    <Box className={classnames(className, classes.root)}>
+      <Tabs tab={state.tab} handleTabChange={handleTabChange} />
+      {tabs.map((x) => {
+        const Component = x.component;
+        return (
+          <TabPanel
+            key={x.id}
+            index={x.id}
+            value={state.tab}
+          >
+            <Component />
+          </TabPanel>
+        );
+      })}
+    </Box>
   );
 };
 

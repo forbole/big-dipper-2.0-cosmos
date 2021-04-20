@@ -11,13 +11,13 @@ const InitialLoad = () => {
   return (
     <div className={classes.root}>
       <div>
+        <img src="/logo-desmos.png" className={classes.logo} alt="logo" />
+        <LinearProgress className={classes.divider} />
         {theme === 'light' ? (
           <BigDipperLogoRed />
         ) : (
           <BigDipperLogoWhite />
         )}
-        <LinearProgress className={classes.divider} />
-        <img src="/logo-desmos.png" className={classes.logo} alt="logo" />
       </div>
     </div>
   );

@@ -1,8 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
 import { usePagination } from '@hooks';
-import { Pagination } from '@components';
-import { useStakingContext } from '../../contexts/staking';
+import {
+  Pagination, NoData,
+} from '@components';
+import { useAccountContext } from '../../../../contexts/account';
 import {
   Desktop, Mobile,
 } from './components';
@@ -21,17 +23,24 @@ const Unbondings: React.FC<{
     handleChangeRowsPerPage,
     sliceItems,
   } = usePagination({});
+  const { uiData } = useAccountContext();
+  const items = sliceItems(uiData.staking.unbondings);
 
-  const { item } = useStakingContext();
-  const { unbondings = [] } = item;
-  const items = sliceItems(unbondings);
   return (
     <div className={classnames(className)}>
-      <Mobile className={classes.mobile} items={items} />
-      <Desktop className={classes.desktop} items={items} />
+      {
+        items.length ? (
+          <>
+            <Mobile className={classes.mobile} items={items} />
+            <Desktop className={classes.desktop} items={items} />
+          </>
+        ) : (
+          <NoData />
+        )
+      }
       <Pagination
         className={classes.paginate}
-        total={unbondings.length}
+        total={uiData.staking.unbondings.length}
         rowsPerPage={rowsPerPage}
         page={page}
         handleChangePage={handleChangePage}
