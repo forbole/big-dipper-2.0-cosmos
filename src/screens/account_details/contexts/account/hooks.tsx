@@ -28,6 +28,8 @@ export const useAccount = (initialState: AccountState) => {
     onCompleted: (data) => {
       const delegationHeight = data.delegation[0]?.height;
       const rewardsHeight = data.reward[0]?.height;
+      const redelegationHeight = data.redelegation[0]?.height;
+      const unbondingHeight = data.unbonding[0]?.height;
 
       useAccountQuery({
         variables: {
@@ -35,6 +37,8 @@ export const useAccount = (initialState: AccountState) => {
           utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
           delegationHeight,
           rewardsHeight,
+          redelegationHeight,
+          unbondingHeight,
         },
       });
     },
