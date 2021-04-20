@@ -1,9 +1,19 @@
 import React from 'react';
-import { useValidatorsAddress } from './hooks';
+import {
+  useValidatorsAddress, useMarket,
+} from './hooks';
 import { ChainState } from './types';
 
 const initialState: ChainState = {
-  loading: true,
+  market: {
+    loading: true,
+    rawData: {
+      price: 0,
+      marketCap: 0,
+      inflation: 0,
+      communityPool: 0,
+    },
+  },
   validatorsAddresses: {
     loading: true,
     validators: {},
@@ -19,15 +29,26 @@ const ChainProvider: React.FC = (props: {children: React.ReactNode }) => {
   const {
     validatorsAddresses,
     findAddress,
-    loading,
+    loading: addressLoading,
   } = useValidatorsAddress(initialState);
+
+  const {
+    rawData,
+    uiData,
+    loading: marketLoading,
+  } = useMarket(initialState);
 
   return (
     <ChainContext.Provider
       value={{
         validatorsAddresses,
         findAddress,
-        loading,
+        loading: addressLoading && marketLoading,
+        market: {
+          loading: marketLoading,
+          rawData,
+          uiData,
+        },
       }}
     >
       {children}

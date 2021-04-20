@@ -1,10 +1,15 @@
 import { useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
+import numeral from 'numeral';
+import { formatDenom } from '@utils/format_denom';
 import {
   useValidatorsAddressListQuery,
   ValidatorsAddressListQuery,
+  useMarketDataQuery,
+  MarketDataQuery,
 } from '@graphql/types';
+import { chainConfig } from '@src/chain_config';
 import { ChainState } from './types';
 
 export const useValidatorsAddress = (initialstate:ChainState) => {
@@ -115,5 +120,69 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
     validatorsAddresses: state,
     loading: state.loading,
     findAddress,
+  };
+};
+
+export const useMarket = (initalState: ChainState) => {
+  const [state, setState] = useState(initalState.market);
+
+  useMarketDataQuery(
+    {
+      variables: {
+        denom: chainConfig.display,
+      },
+      onError: () => {
+        setState((prevState) => ({
+          ...prevState,
+          loading: false,
+        }));
+      },
+      onCompleted: (data) => {
+        setState((prevState) => ({
+          ...prevState,
+          rawData: formatUseChainIdQuery(data),
+          loading: false,
+        }));
+      },
+    },
+  );
+
+  const formatUseChainIdQuery = (data: MarketDataQuery) => {
+    // initial
+    const { rawData } = initalState.market;
+    const { inflation } = rawData; // update once on market
+    let { communityPool } = rawData;
+    // formats
+    const price = data.tokenPrice[0]?.price ?? state.rawData.price;
+    const marketCap = data.tokenPrice[0]?.marketCap ?? state.rawData.marketCap;
+    const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter((x) => x.denom === chainConfig.base);
+    if (communityPoolCoin) {
+      communityPool = communityPoolCoin.amount;
+    }
+
+    return ({
+      price,
+      marketCap,
+      inflation,
+      communityPool,
+    });
+  };
+
+  const formatUi = () => {
+    const {
+      rawData,
+    } = state;
+    return ({
+      price: `$${numeral(state.rawData.price).format('0,0.[00]')}`,
+      marketCap: `$${numeral(state.rawData.marketCap).format('0,0.[00]')}`,
+      inflation: 'N/A',
+      communityPool: `${numeral(formatDenom(rawData.communityPool)).format('0,0.00')} ${chainConfig.display.toUpperCase()}`,
+    });
+  };
+
+  return {
+    loading: state.loading,
+    rawData: state.rawData,
+    uiData: formatUi(),
   };
 };

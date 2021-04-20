@@ -17,6 +17,11 @@ export const formatDenom = (value: number | string, denom = chainConfig.display)
     value = numeral(value).value() as number;
   }
 
+  // if udaric is less than one edgecase
+  if (value < 1) {
+    value = 0;
+  }
+
   const ratio = 10 ** selectedDenom.exponent;
   results = value / ratio;
 

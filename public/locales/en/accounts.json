@@ -17,5 +17,10 @@
   "linkedUntil": "Linked Until",
   "scanForAddress": "Scan for address",
   "shareTo": "Share to",
-  "transactions": "Transactions"
+  "transactions": "Transactions",
+  "balanceAvailable": "Available",
+  "balanceDelegate": "Delegate",
+  "balanceUnbonding": "Unbonding",
+  "balanceReward": "Reward",
+  "balanceCommission": "Commission"
 }

@@ -25,6 +25,7 @@ import {
 } from '@components';
 import { useStyles } from './styles';
 import { useOverview } from './hooks';
+import { useAccountContext } from '../../contexts/account';
 
 const Overview: React.FC<{
   className?: string;
@@ -37,6 +38,7 @@ const Overview: React.FC<{
     handleOpen,
     handleCopyToClipboard,
   } = useOverview(t);
+  const { rawData } = useAccountContext();
 
   const dummyProps = {
     title: t('overview'),
@@ -46,10 +48,16 @@ const Overview: React.FC<{
         className: classes.copyText,
         detail: (
           <>
-            <CopyIcon onClick={() => handleCopyToClipboard('1334')} />
-            <ShareIcon onClick={handleOpen} />
+            <CopyIcon
+              onClick={() => handleCopyToClipboard(rawData.account.address)}
+              className={classes.actionIcons}
+            />
+            <ShareIcon
+              onClick={handleOpen}
+              className={classes.actionIcons}
+            />
             <Typography variant="body1" className="value">
-              {getMiddleEllipsis('HjTgC7ukwMA1gsEC5YGTaDFM5zt0skfsdkhfsdkhfshjsfdGE6B6X', {
+              {getMiddleEllipsis(rawData.account.address, {
                 beginning: 15, ending: 5,
               })}
             </Typography>
@@ -61,9 +69,12 @@ const Overview: React.FC<{
         className: classes.copyText,
         detail: (
           <>
-            <CopyIcon onClick={() => handleCopyToClipboard('1334')} />
+            <CopyIcon
+              className={classes.actionIcons}
+              onClick={() => handleCopyToClipboard(rawData.account.withdrawalAddress)}
+            />
             <Typography variant="body1" className="value">
-              {getMiddleEllipsis('HjTgC7ukwMA1gsEC5YGTaDFM5zt0skfsdkhfsdkhfshjsfdGE6B6X', {
+              {getMiddleEllipsis(rawData.account.withdrawalAddress, {
                 beginning: 15, ending: 5,
               })}
             </Typography>
@@ -73,8 +84,7 @@ const Overview: React.FC<{
     ],
   };
 
-  const fakeAddress = 'HjTgC7ukwMA1gsEC5YGTaDFM5zt0skfsdkhfsdkhfshjsfdGE6B6X';
-  const url = `https://desmos.bigdipper.live/accounts${fakeAddress}`;
+  const url = `${process.env.NEXT_PUBLIC_URL}/accounts/${rawData.account.address}`;
   const hashTags = ['#forbole', '#bigdipper'];
   return (
     <>
@@ -89,7 +99,7 @@ const Overview: React.FC<{
             {t('scanForAddress')}
           </Typography>
           <QRCode
-            value="HjTgC7ukwMA1gsEC5YGTaDFM5zt0skfsdkhfsdkhfshjsfdGE6B6X"
+            value={rawData.account.address}
             size={200}
             bgColor="#ffffff"
             fgColor="#000000"
@@ -102,7 +112,7 @@ const Overview: React.FC<{
             <div className={classes.icons}>
               <FacebookShareButton
                 url={url}
-                quote={fakeAddress}
+                quote={rawData.account.address}
                 hashtag={hashTags[0]}
                 className="share-buttons"
               >
@@ -112,7 +122,7 @@ const Overview: React.FC<{
               </FacebookShareButton>
               <TwitterShareButton
                 url={url}
-                title={fakeAddress}
+                title={rawData.account.address}
                 hashtags={hashTags}
                 className="share-buttons"
               >
@@ -123,7 +133,7 @@ const Overview: React.FC<{
 
               <TelegramShareButton
                 url={url}
-                title={fakeAddress}
+                title={rawData.account.address}
                 className="share-buttons"
               >
                 <TelegramIcon
@@ -133,7 +143,7 @@ const Overview: React.FC<{
 
               <WhatsappShareButton
                 url={url}
-                title={fakeAddress}
+                title={rawData.account.address}
                 separator=":: "
                 className="share-buttons"
               >
@@ -144,7 +154,7 @@ const Overview: React.FC<{
               <EmailShareButton
                 url={url}
                 subject="address"
-                body={fakeAddress}
+                body={rawData.account.address}
                 separator=":: "
                 className="share-buttons email"
               >

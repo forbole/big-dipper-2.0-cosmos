@@ -11,6 +11,19 @@ jest.mock('@components', () => ({
   Box: (props) => <div id="Box" {...props} />,
 }));
 
+jest.mock('../../contexts/account', () => ({
+  useAccountContext: () => {
+    return ({
+      rawData: {
+        account: {
+          address: 'address',
+          withdrawalAddress: 'withdrawaddress',
+        },
+      },
+    });
+  },
+}));
+
 // ==================================
 // unit tests
 // ==================================
