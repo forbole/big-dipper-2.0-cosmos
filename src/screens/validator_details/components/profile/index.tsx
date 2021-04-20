@@ -108,12 +108,13 @@ const Profile: React.FC<{
             {/* ======================== */}
             <div className={classes.header}>
               <Avatar
-                address="Forbole"
+                address={uiData.profile.operatorAddress}
+                imageUrl={uiData.profile.validator.imageUrl}
                 className={classnames(classes.avatar, classes.mobile)}
               />
               <div className="header__content">
                 <Typography variant="h2">
-                  Forbole
+                  {uiData.profile.validator.moniker}
                 </Typography>
                 <Tag value="Active" theme="one" className={classes.tag} />
               </div>
