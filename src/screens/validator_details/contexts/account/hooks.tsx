@@ -94,12 +94,29 @@ export const useAccount = (initialState: AccountState) => {
     // profile
     // ==================================
     const validator = findAddress(state.rawData.profile.operatorAddress);
+    let status = '';
+
+    if (state.rawData.profile.status === 3) {
+      status = 'active';
+    } else if (state.rawData.profile.status === 2) {
+      if (state.rawData.profile.jailed) {
+        status = 'jailed';
+      } else {
+        status = 'unbonding';
+      }
+    } else if (state.rawData.profile.status === 1) {
+      status = 'unbonded';
+    } else {
+      status = 'unknown';
+    }
+
     const profile = {
       operatorAddress: state.rawData.profile.operatorAddress,
       validator: {
         moniker: validator ? validator.moniker : state.rawData.profile.operatorAddress,
         imageUrl: validator ? validator.imageUrl : undefined,
       },
+      status,
     };
 
     return ({

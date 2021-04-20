@@ -20,6 +20,7 @@ import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { useStyles } from './styles';
 import { useAccountContext } from '../../contexts/account';
+import { getStatusTheme } from './utils';
 
 const Profile: React.FC<{
   className?: string;
@@ -33,6 +34,8 @@ const Profile: React.FC<{
     copy(value);
     toast(t('common:copied'));
   };
+
+  const statusTheme = getStatusTheme(uiData.profile.status);
 
   const bio = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et quam vestibulum, ullamcorper mauris ut, imperdiet quam. Donec sed fermentum ligula. Quisque et est sit amet augue cursus varius vitae in tortor.';
 
@@ -116,7 +119,7 @@ const Profile: React.FC<{
                 <Typography variant="h2">
                   {uiData.profile.validator.moniker}
                 </Typography>
-                <Tag value="Active" theme="one" className={classes.tag} />
+                <Tag value={t(uiData.profile.status)} theme={statusTheme} className={classes.tag} />
               </div>
             </div>
           </div>

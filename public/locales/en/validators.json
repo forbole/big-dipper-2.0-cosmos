@@ -43,5 +43,9 @@
   "signed": "Signed",
   "good": "Good",
   "moderate": "Moderate",
-  "bad": "Bad"
+  "bad": "Bad",
+  "unbonding": "Unbonding",
+  "jailed": "Jailed",
+  "unbonded": "Unbonded",
+  "unknown": "Unknown"
 }

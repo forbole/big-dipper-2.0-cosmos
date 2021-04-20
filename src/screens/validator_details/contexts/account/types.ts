@@ -20,6 +20,7 @@ export interface AccountState {
         moniker: string;
         imageUrl?: string;
       }
+      status: string;
     }
   //   balance: {
   //     chart: {
