@@ -16,6 +16,9 @@ export interface AccountState {
   uiData?: {
     profile: {
       operatorAddress: string;
+      selfDelegateAddress: string;
+      website: string;
+      commission: number;
       validator: {
         moniker: string;
         imageUrl?: string;

@@ -112,6 +112,9 @@ export const useAccount = (initialState: AccountState) => {
 
     const profile = {
       operatorAddress: state.rawData.profile.operatorAddress,
+      selfDelegateAddress: state.rawData.profile.selfDelegateAddress,
+      website: state.rawData.profile.website,
+      commission: state.rawData.profile.commission,
       validator: {
         moniker: validator ? validator.moniker : state.rawData.profile.operatorAddress,
         imageUrl: validator ? validator.imageUrl : undefined,

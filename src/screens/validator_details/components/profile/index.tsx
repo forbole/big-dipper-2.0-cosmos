@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
+import numeral from 'numeral';
 import {
   Typography,
   Divider,
@@ -40,29 +41,24 @@ const Profile: React.FC<{
 
   const formattedItem = {
     operatorAddress: (
-      <div className={classes.copyText}>
-        <Link href={ACCOUNT_DETAILS('123')} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {isMobile ? getMiddleEllipsis(
-              'forb5u56XgvzxiKfRt4FVNFQKJrd2LWAfNCsCqL6P7q',
-              { beginning: 9 },
-            ) : 'forb5u56XgvzxiKfRt4FVNFQKJrd2LWAfNCsCqL6P7q'}
-          </Typography>
-        </Link>
-        <CopyIcon onClick={() => handleCopyToClipboard('1334')} />
-      </div>
+      <Typography variant="body1" className="value">
+        {isMobile ? getMiddleEllipsis(
+          uiData.profile.operatorAddress,
+          { beginning: 9 },
+        ) : uiData.profile.operatorAddress}
+      </Typography>
     ),
     selfDelegateAddress: (
       <div className={classes.copyText}>
-        <Link href={ACCOUNT_DETAILS('123')} passHref>
+        <Link href={ACCOUNT_DETAILS(uiData.profile.selfDelegateAddress)} passHref>
           <Typography variant="body1" className="value" component="a">
             {isMobile ? getMiddleEllipsis(
-              'forb5u56XgvzxiKfRt4FVNFQKJrd2LWAfNCsCqL6P7q',
+              uiData.profile.selfDelegateAddress,
               { beginning: 9 },
-            ) : 'forb5u56XgvzxiKfRt4FVNFQKJrd2LWAfNCsCqL6P7q'}
+            ) : uiData.profile.selfDelegateAddress}
           </Typography>
         </Link>
-        <CopyIcon onClick={() => handleCopyToClipboard('1334')} />
+        <CopyIcon onClick={() => handleCopyToClipboard(uiData.profile.selfDelegateAddress)} />
       </div>
     ),
     website: (
@@ -70,11 +66,11 @@ const Profile: React.FC<{
         variant="body1"
         className="value"
         component="a"
-        href="https://www.forbole.com"
+        href={uiData.profile.website}
         target="_blank"
         rel="noreferrer"
       >
-        https://www.forbole.com
+        {uiData.profile.website}
       </Typography>
     ),
     commission: (
@@ -82,7 +78,8 @@ const Profile: React.FC<{
         variant="body1"
         className="value"
       >
-        10%
+        {numeral(uiData.profile.commission * 100).value()}
+        %
       </Typography>
     ),
     condition: (
