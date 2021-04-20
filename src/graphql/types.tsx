@@ -12281,6 +12281,34 @@ export type TransactionsQuery = { transactions: Array<(
     )> }
   ) };
 
+export type ValidatorDetailsQueryVariables = Exact<{
+  address?: Maybe<Scalars['String']>;
+}>;
+
+
+export type ValidatorDetailsQuery = { validator: Array<(
+    { __typename?: 'validator' }
+    & { validatorDescriptions: Array<(
+      { __typename?: 'validator_description' }
+      & Pick<Validator_Description, 'details' | 'website'>
+    )>, validatorStatuses: Array<(
+      { __typename?: 'validator_status' }
+      & Pick<Validator_Status, 'status' | 'jailed' | 'height'>
+    )>, validatorSigningInfos: Array<(
+      { __typename?: 'validator_signing_info' }
+      & { missedBlocksCounter: Validator_Signing_Info['missed_blocks_counter'] }
+    )>, validatorInfo?: Maybe<(
+      { __typename?: 'validator_info' }
+      & { operatorAddress: Validator_Info['operator_address'], selfDelegateAddress: Validator_Info['self_delegate_address'] }
+    )>, validatorCommissions: Array<(
+      { __typename?: 'validator_commission' }
+      & Pick<Validator_Commission, 'commission'>
+    )> }
+  )>, slashingParams: Array<(
+    { __typename?: 'slashing_params' }
+    & { signedBlockWindow: Slashing_Params['signed_block_window'] }
+  )> };
+
 export type ValidatorsAddressListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -13147,6 +13175,68 @@ export function useTransactionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptio
 export type TransactionsQueryHookResult = ReturnType<typeof useTransactionsQuery>;
 export type TransactionsLazyQueryHookResult = ReturnType<typeof useTransactionsLazyQuery>;
 export type TransactionsQueryResult = Apollo.QueryResult<TransactionsQuery, TransactionsQueryVariables>;
+export const ValidatorDetailsDocument = gql`
+    query ValidatorDetails($address: String) {
+  validator(where: {validator_info: {operator_address: {_eq: $address}}}) {
+    validatorDescriptions: validator_descriptions(
+      order_by: {height: desc}
+      limit: 1
+    ) {
+      details
+      website
+    }
+    validatorStatuses: validator_statuses(order_by: {height: desc}, limit: 1) {
+      status
+      jailed
+      height
+    }
+    validatorSigningInfos: validator_signing_infos(
+      order_by: {height: desc}
+      limit: 1
+    ) {
+      missedBlocksCounter: missed_blocks_counter
+    }
+    validatorInfo: validator_info {
+      operatorAddress: operator_address
+      selfDelegateAddress: self_delegate_address
+    }
+    validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
+      commission
+    }
+  }
+  slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
+    signedBlockWindow: signed_block_window
+  }
+}
+    `;
+
+/**
+ * __useValidatorDetailsQuery__
+ *
+ * To run a query within a React component, call `useValidatorDetailsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorDetailsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useValidatorDetailsQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useValidatorDetailsQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>(ValidatorDetailsDocument, options);
+      }
+export function useValidatorDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>(ValidatorDetailsDocument, options);
+        }
+export type ValidatorDetailsQueryHookResult = ReturnType<typeof useValidatorDetailsQuery>;
+export type ValidatorDetailsLazyQueryHookResult = ReturnType<typeof useValidatorDetailsLazyQuery>;
+export type ValidatorDetailsQueryResult = Apollo.QueryResult<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>;
 export const ValidatorsAddressListDocument = gql`
     query ValidatorsAddressList {
   validator {

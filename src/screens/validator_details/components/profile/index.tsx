@@ -19,6 +19,7 @@ import {
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { useStyles } from './styles';
+import { useAccountContext } from '../../contexts/account';
 
 const Profile: React.FC<{
   className?: string;
@@ -26,6 +27,7 @@ const Profile: React.FC<{
   const classes = useStyles();
   const { t } = useTranslation('validators');
   const { isMobile } = useScreenSize();
+  const { uiData } = useAccountContext();
 
   const handleCopyToClipboard = (value: string) => {
     copy(value);
@@ -95,7 +97,8 @@ const Profile: React.FC<{
     <Box className={classnames(className)}>
       <div className={classes.bio}>
         <Avatar
-          address="Forbole"
+          address={uiData.profile.operatorAddress}
+          imageUrl={uiData.profile.validator.imageUrl}
           className={classnames(classes.avatar, classes.desktopAvatar)}
         />
         <div>
