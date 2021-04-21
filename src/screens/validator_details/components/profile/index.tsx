@@ -1,7 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
-import numeral from 'numeral';
 import {
   Typography,
   Divider,

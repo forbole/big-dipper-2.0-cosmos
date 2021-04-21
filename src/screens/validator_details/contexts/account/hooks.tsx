@@ -5,18 +5,13 @@ import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
 import {
   useLatestStakingHeightQuery,
-  // useAccountLazyQuery,
-  // AccountQuery,
   useValidatorDetailsLazyQuery,
   ValidatorDetailsQuery,
 } from '@graphql/types';
 import { Avatar } from '@components';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
-import {
-  getValidatorCondition,
-  getValidatorConditionClass,
-} from '@utils/get_validator_condition';
+import { getValidatorCondition } from '@utils/get_validator_condition';
 import { chainConfig } from '@src/chain_config';
 import { useChainContext } from '@contexts';
 import { AccountState } from './types';
@@ -32,11 +27,8 @@ export const useAccount = (initialState: AccountState) => {
 
   useLatestStakingHeightQuery({
     onCompleted: (data) => {
-      const delegationHeight = data.delegation[0]?.height;
+      // const delegationHeight = data.delegation[0]?.height;
       // const rewardsHeight = data.reward[0]?.height;
-      setStakingHeight({
-        delegationHeight,
-      });
 
       useValidatorDetailsQuery({
         variables: {
