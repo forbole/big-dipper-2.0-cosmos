@@ -11,6 +11,7 @@ import {
 import {
   Avatar, AvatarName,
 } from '@components';
+import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
 import { getValidatorCondition } from '@utils/get_validator_condition';
@@ -215,12 +216,15 @@ export const useAccount = (initialState: AccountState) => {
     // ==================================
     const delegations = state.rawData.staking.delegations.map((x) => {
       const validatorRole = findAddress(x.delegatorAddress);
+      const address = getMiddleEllipsis(x.delegatorAddress, {
+        beginning: 12, ending: 10,
+      });
       return ({
         address: (
           <AvatarName
             address={x.delegatorAddress}
             imageUrl={validatorRole ? validatorRole?.imageUrl : null}
-            name={validatorRole ? validatorRole.moniker : x.delegatorAddress}
+            name={validatorRole ? validatorRole.moniker : address}
           />
         ),
         amount: `${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
@@ -236,13 +240,16 @@ export const useAccount = (initialState: AccountState) => {
       const to = findAddress(x.to);
       const from = findAddress(x.from);
       const validatorRole = findAddress(x.delegatorAddress);
+      const address = getMiddleEllipsis(x.delegatorAddress, {
+        beginning: 12, ending: 10,
+      });
 
       return ({
         address: (
           <AvatarName
             address={x.delegatorAddress}
             imageUrl={validatorRole ? validatorRole?.imageUrl : null}
-            name={validatorRole ? validatorRole.moniker : x.delegatorAddress}
+            name={validatorRole ? validatorRole.moniker : address}
           />
         ),
         to: (
@@ -271,13 +278,15 @@ export const useAccount = (initialState: AccountState) => {
     // ==================================
     const unbondings = state.rawData.staking.unbondings.map((x) => {
       const validatorRole = findAddress(x.delegatorAddress);
-
+      const address = getMiddleEllipsis(x.delegatorAddress, {
+        beginning: 12, ending: 10,
+      });
       return ({
         address: (
           <AvatarName
             address={x.delegatorAddress}
             imageUrl={validatorRole ? validatorRole?.imageUrl : null}
-            name={validatorRole ? validatorRole.moniker : x.delegatorAddress}
+            name={validatorRole ? validatorRole.moniker : address}
           />
         ),
         linkedUntil: dayjs.utc(x.linkedUntil).local().format('HH:mm:ss A'),

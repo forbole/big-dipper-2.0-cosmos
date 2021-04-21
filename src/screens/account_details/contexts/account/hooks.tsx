@@ -214,7 +214,6 @@ export const useAccount = (initialState: AccountState) => {
     // ==================================
     const delegations = state.rawData.staking.delegations.map((x) => {
       const validator = findAddress(x.validator);
-
       return ({
         validatorMoniker: validator ? validator.moniker : x.validator,
         validator: (
