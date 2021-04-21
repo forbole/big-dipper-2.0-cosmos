@@ -32,8 +32,11 @@ export const useAccount = (initialState: AccountState) => {
 
   useLatestStakingHeightQuery({
     onCompleted: (data) => {
-      // const delegationHeight = data.delegation[0]?.height;
+      const delegationHeight = data.delegation[0]?.height;
       // const rewardsHeight = data.reward[0]?.height;
+      setStakingHeight({
+        delegationHeight,
+      });
 
       useValidatorDetailsQuery({
         variables: {
