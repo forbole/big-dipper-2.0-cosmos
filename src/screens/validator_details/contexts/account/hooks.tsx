@@ -30,14 +30,14 @@ export const useAccount = (initialState: AccountState) => {
   useLatestStakingHeightQuery({
     onCompleted: (data) => {
       const delegationHeight = data.delegation[0]?.height;
-      // const rewardsHeight = data.reward[0]?.height;
+      const undelegationHeight = data.unbonding[0]?.height;
 
       useValidatorDetailsQuery({
         variables: {
           address: R.pathOr('', ['query', 'address'], router),
-          // utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
+          utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
           delegationHeight,
-          // rewardsHeight,
+          undelegationHeight,
         },
       });
     },
@@ -105,6 +105,47 @@ export const useAccount = (initialState: AccountState) => {
     });
 
     results.rawData.staking.delegations = delegations;
+
+    // ============================
+    // redelegations
+    // ============================
+
+    const redelegations = [
+      ...data.validator[0].redelegationsByDstValidatorAddress.map((x) => {
+        return ({
+          to: x.to,
+          from: x.from,
+          linkedUntil: x.completionTime,
+          amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
+          delegatorAddress: x.delegatorAddress,
+        });
+      }),
+      ...data.validator[0].redelegationsBySrcValidatorAddress.map((x) => {
+        return ({
+          to: x.to,
+          from: x.from,
+          linkedUntil: x.completionTime,
+          amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
+          delegatorAddress: x.delegatorAddress,
+        });
+      }),
+    ];
+
+    results.rawData.staking.redelegations = redelegations;
+
+    // ============================
+    // unbondings
+    // ============================
+    const unbondings = data.validator[0].unbonding.map((x) => {
+      return ({
+        delegatorAddress: x.delegatorAddress,
+        amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
+        linkedUntil: x.completionTimestamp,
+        commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
+      });
+    });
+
+    results.rawData.staking.unbondings = unbondings;
 
     return results;
   };
@@ -188,11 +229,71 @@ export const useAccount = (initialState: AccountState) => {
     }).sort((a, b) => (
       a.amount > b.amount ? 1 : -1));
 
+    // ==================================
+    // redelegations
+    // ==================================
+    const redelegations = state.rawData.staking.redelegations.map((x) => {
+      const to = findAddress(x.to);
+      const from = findAddress(x.from);
+      const validatorRole = findAddress(x.delegatorAddress);
+
+      return ({
+        address: (
+          <AvatarName
+            address={x.delegatorAddress}
+            imageUrl={validatorRole ? validatorRole?.imageUrl : null}
+            name={validatorRole ? validatorRole.moniker : x.delegatorAddress}
+          />
+        ),
+        to: (
+          <AvatarName
+            address={x.to}
+            imageUrl={to ? to?.imageUrl : null}
+            name={to ? to.moniker : x.to}
+          />
+        ),
+        from: (
+          <AvatarName
+            address={x.from}
+            imageUrl={from ? from?.imageUrl : null}
+            name={from ? from.moniker : x.from}
+          />
+        ),
+        linkedUntil: dayjs.utc(x.linkedUntil).local().format('HH:mm:ss A'),
+        amount: `${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
+        amountRaw: x.amount,
+      });
+    }).sort((a, b) => (
+      a.amount > b.amount ? 1 : -1));
+
+    // ==================================
+    // unbondings
+    // ==================================
+    const unbondings = state.rawData.staking.unbondings.map((x) => {
+      const validatorRole = findAddress(x.delegatorAddress);
+
+      return ({
+        address: (
+          <AvatarName
+            address={x.delegatorAddress}
+            imageUrl={validatorRole ? validatorRole?.imageUrl : null}
+            name={validatorRole ? validatorRole.moniker : x.delegatorAddress}
+          />
+        ),
+        linkedUntil: dayjs.utc(x.linkedUntil).local().format('HH:mm:ss A'),
+        amount: `${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
+        amountRaw: x.amount,
+      });
+    }).sort((a, b) => (
+      a.amount > b.amount ? 1 : -1));
+
     return ({
       profile,
       votingPower,
       staking: {
         delegations,
+        redelegations,
+        unbondings,
       },
     });
   };

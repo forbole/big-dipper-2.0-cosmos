@@ -24,6 +24,18 @@ export interface AccountState {
         amount: number;
         delegatorAddress: string;
       }[];
+      redelegations: {
+        to: string;
+        from: string;
+        linkedUntil: string;
+        amount: number;
+        delegatorAddress: string;
+      }[];
+      unbondings: {
+        amount: number;
+        linkedUntil: string;
+        delegatorAddress: string;
+      }[],
     }
   }
   uiData?: {
@@ -49,22 +61,25 @@ export interface AccountState {
     }
     staking: {
       delegations: {
-        delegator: React.ReactNode;
+        address: React.ReactNode;
         amount: string;
         amountRaw: number;
       }[];
-  //     redelegations: {
-  //       to: React.ReactNode;
-  //       from: React.ReactNode;
-  //       linkedUntil: string;
-  //       amount: string;
-  //     }[];
-  //     unbondings: {
-  //       validator: React.ReactNode;
-  //       commission: string;
-  //       amount: string;
-  //       linkedUntil: string;
-  //     }[];
+      redelegations: {
+        address: React.ReactNode;
+        to: React.ReactNode;
+        from: React.ReactNode;
+        linkedUntil: string;
+        amount: string;
+        amountRaw: number;
+
+      }[];
+      unbondings: {
+        address: React.ReactNode;
+        amount: string;
+        linkedUntil: string;
+        amountRaw: number;
+      }[];
     }
   }
 }

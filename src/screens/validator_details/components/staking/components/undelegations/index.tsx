@@ -6,6 +6,7 @@ import {
   Desktop, Mobile,
 } from './components';
 import { useStyles } from './styles';
+import { useAccountContext } from '../../../../contexts/account';
 
 const Undelegations: React.FC<{
   className?: string;
@@ -21,14 +22,16 @@ const Undelegations: React.FC<{
     sliceItems,
   } = usePagination({});
 
-  const items = sliceItems([]);
+  const { uiData } = useAccountContext();
+  const items = sliceItems(uiData.staking.unbondings);
+
   return (
     <div className={classnames(className)}>
       <Mobile className={classes.mobile} items={items} />
       <Desktop className={classes.desktop} items={items} />
       <Pagination
         className={classes.paginate}
-        total={0} // wingman
+        total={uiData.staking.unbondings.length}
         rowsPerPage={rowsPerPage}
         page={page}
         handleChangePage={handleChangePage}

@@ -12284,6 +12284,8 @@ export type TransactionsQuery = { transactions: Array<(
 export type ValidatorDetailsQueryVariables = Exact<{
   address?: Maybe<Scalars['String']>;
   delegationHeight?: Maybe<Scalars['bigint']>;
+  utc?: Maybe<Scalars['timestamp']>;
+  undelegationHeight?: Maybe<Scalars['bigint']>;
 }>;
 
 
@@ -12316,6 +12318,18 @@ export type ValidatorDetailsQuery = { stakingPool: Array<(
       { __typename?: 'delegation' }
       & Pick<Delegation, 'amount'>
       & { delegatorAddress: Delegation['delegator_address'] }
+    )>, redelegationsByDstValidatorAddress: Array<(
+      { __typename?: 'redelegation' }
+      & Pick<Redelegation, 'amount'>
+      & { completionTime: Redelegation['completion_time'], to: Redelegation['src_validator_address'], from: Redelegation['dst_validator_address'], delegatorAddress: Redelegation['delegator_address'] }
+    )>, redelegationsBySrcValidatorAddress: Array<(
+      { __typename?: 'redelegation' }
+      & Pick<Redelegation, 'amount'>
+      & { completionTime: Redelegation['completion_time'], to: Redelegation['src_validator_address'], from: Redelegation['dst_validator_address'], delegatorAddress: Redelegation['delegator_address'] }
+    )>, unbonding: Array<(
+      { __typename?: 'unbonding_delegation' }
+      & Pick<Unbonding_Delegation, 'amount'>
+      & { completionTimestamp: Unbonding_Delegation['completion_timestamp'], delegatorAddress: Unbonding_Delegation['delegator_address'] }
     )> }
   )>, slashingParams: Array<(
     { __typename?: 'slashing_params' }
@@ -13189,7 +13203,7 @@ export type TransactionsQueryHookResult = ReturnType<typeof useTransactionsQuery
 export type TransactionsLazyQueryHookResult = ReturnType<typeof useTransactionsLazyQuery>;
 export type TransactionsQueryResult = Apollo.QueryResult<TransactionsQuery, TransactionsQueryVariables>;
 export const ValidatorDetailsDocument = gql`
-    query ValidatorDetails($address: String, $delegationHeight: bigint) {
+    query ValidatorDetails($address: String, $delegationHeight: bigint, $utc: timestamp, $undelegationHeight: bigint) {
   stakingPool: staking_pool(order_by: {height: desc}, limit: 1, offset: 3) {
     height
     bonded: bonded_tokens
@@ -13232,6 +13246,27 @@ export const ValidatorDetailsDocument = gql`
       amount
       delegatorAddress: delegator_address
     }
+    redelegationsByDstValidatorAddress(where: {completion_time: {_gt: $utc}}) {
+      amount
+      completionTime: completion_time
+      to: src_validator_address
+      from: dst_validator_address
+      delegatorAddress: delegator_address
+    }
+    redelegationsBySrcValidatorAddress(where: {completion_time: {_gt: $utc}}) {
+      amount
+      completionTime: completion_time
+      to: src_validator_address
+      from: dst_validator_address
+      delegatorAddress: delegator_address
+    }
+    unbonding: unbonding_delegations(
+      where: {completion_timestamp: {_gt: $utc}, height: {_eq: $undelegationHeight}}
+    ) {
+      amount
+      completionTimestamp: completion_timestamp
+      delegatorAddress: delegator_address
+    }
   }
   slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
     signedBlockWindow: signed_block_window
@@ -13253,6 +13288,8 @@ export const ValidatorDetailsDocument = gql`
  *   variables: {
  *      address: // value for 'address'
  *      delegationHeight: // value for 'delegationHeight'
+ *      utc: // value for 'utc'
+ *      undelegationHeight: // value for 'undelegationHeight'
  *   },
  * });
  */

@@ -6,6 +6,7 @@ import {
   Desktop, Mobile,
 } from './components';
 import { useStyles } from './styles';
+import { useAccountContext } from '../../../../contexts/account';
 
 const Redelegations: React.FC<{
   className?: string;
@@ -20,15 +21,15 @@ const Redelegations: React.FC<{
     handleChangeRowsPerPage,
     sliceItems,
   } = usePagination({});
-
-  const items = sliceItems([]);
+  const { uiData } = useAccountContext();
+  const items = sliceItems(uiData.staking.redelegations);
   return (
     <div className={classnames(className)}>
       <Mobile className={classes.mobile} items={items} />
       <Desktop className={classes.desktop} items={items} />
       <Pagination
         className={classes.paginate}
-        total={0} // wingman
+        total={uiData.staking.redelegations.length}
         rowsPerPage={rowsPerPage}
         page={page}
         handleChangePage={handleChangePage}

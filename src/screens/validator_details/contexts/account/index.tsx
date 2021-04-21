@@ -23,8 +23,8 @@ const initialState: AccountState = {
     },
     staking: {
       delegations: [],
-      // redelegations: [],
-      // unbondings: [],
+      redelegations: [],
+      unbondings: [],
     },
   },
 };
