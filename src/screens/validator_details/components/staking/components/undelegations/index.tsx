@@ -1,7 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
 import { usePagination } from '@hooks';
-import { Pagination } from '@components';
+import {
+  Pagination, NoData,
+} from '@components';
 import {
   Desktop, Mobile,
 } from './components';
@@ -27,8 +29,14 @@ const Undelegations: React.FC<{
 
   return (
     <div className={classnames(className)}>
-      <Mobile className={classes.mobile} items={items} />
-      <Desktop className={classes.desktop} items={items} />
+      {items.length ? (
+        <>
+          <Mobile className={classes.mobile} items={items} />
+          <Desktop className={classes.desktop} items={items} />
+        </>
+      ) : (
+        <NoData />
+      )}
       <Pagination
         className={classes.paginate}
         total={uiData.staking.unbondings.length}
