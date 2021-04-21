@@ -16,6 +16,11 @@ const initialState: AccountState = {
       condition: 0,
       commission: 0,
     },
+    votingPower: {
+      height: 0,
+      overall: 0,
+      self: 0,
+    },
     // staking: {
     //   delegations: [],
     //   redelegations: [],

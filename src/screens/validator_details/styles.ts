@@ -12,7 +12,7 @@ export const useStyles = () => {
           gridGap: theme.spacing(1),
           [theme.breakpoints.up('lg')]: {
             gridGap: theme.spacing(2),
-            gridTemplateColumns: 'repeat(3, 1fr)',
+            gridTemplateColumns: 'repeat(2, 1fr) 500px',
           },
         },
         profile: {

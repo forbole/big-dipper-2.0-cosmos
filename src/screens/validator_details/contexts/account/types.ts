@@ -13,6 +13,7 @@ export interface AccountState {
       commission: number;
     }
     votingPower: {
+      height: number;
       overall: number;
       self: number;
     }
@@ -30,6 +31,13 @@ export interface AccountState {
       status: string;
       description: string;
       condition: string;
+    }
+    votingPower: {
+      height: string;
+      votingPower: string;
+      votingPowerPercentRaw: number;
+      votingPowerPercent: string;
+      totalVotingPower: string;
     }
   //   balance: {
   //     chart: {

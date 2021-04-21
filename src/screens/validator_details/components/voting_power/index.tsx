@@ -9,6 +9,7 @@ import Trans from 'next-translate/Trans';
 import { Box } from '@components';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
+import { useAccountContext } from '../../contexts/account';
 
 const VotingPower: React.FC<{
   className?: string;
@@ -16,7 +17,11 @@ const VotingPower: React.FC<{
   className,
 }) => {
   const { t } = useTranslation('validators');
-  const classes = useStyles(50);
+  const {
+    uiData, rawData,
+  } = useAccountContext();
+  const classes = useStyles(uiData.votingPower.votingPowerPercentRaw);
+
   return (
     <Box className={classnames(className, classes.root)}>
       <Typography variant="h2">
@@ -24,10 +29,13 @@ const VotingPower: React.FC<{
       </Typography>
       <div className={classes.data}>
         <Typography variant="h3" className="primary__data">
-          4.9%
+          {uiData.votingPower.votingPowerPercent}
         </Typography>
         <Typography variant="body1">
-          5904 / 203
+          {uiData.votingPower.votingPower}
+          {' '}
+          /
+          {uiData.votingPower.totalVotingPower}
         </Typography>
       </div>
       <div className={classes.chart}>
@@ -37,9 +45,9 @@ const VotingPower: React.FC<{
         <Typography variant="h4" className="label">
           {t('block')}
         </Typography>
-        <Link href={BLOCK_DETAILS('123')} passHref>
+        <Link href={BLOCK_DETAILS(rawData.votingPower.height)} passHref>
           <Typography variant="body1" className="value" component="a">
-            100,001
+            {uiData.votingPower.height}
           </Typography>
         </Link>
       </div>
@@ -48,7 +56,7 @@ const VotingPower: React.FC<{
           {t('votingPower')}
         </Typography>
         <Typography variant="body1" className="value">
-          100,001
+          {uiData.votingPower.votingPower}
         </Typography>
       </div>
       <div className={classes.item}>

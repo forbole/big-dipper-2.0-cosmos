@@ -12286,19 +12286,9 @@ export type ValidatorDetailsQueryVariables = Exact<{
 }>;
 
 
-export type ValidatorDetailsQuery = { block: Array<(
-    { __typename?: 'block' }
-    & Pick<Block, 'height'>
-    & { preCommitsAggregate: (
-      { __typename?: 'pre_commit_aggregate' }
-      & { aggregate?: Maybe<(
-        { __typename?: 'pre_commit_aggregate_fields' }
-        & { sum?: Maybe<(
-          { __typename?: 'pre_commit_sum_fields' }
-          & { votingPower: Pre_Commit_Sum_Fields['voting_power'] }
-        )> }
-      )> }
-    ) }
+export type ValidatorDetailsQuery = { stakingPool: Array<(
+    { __typename?: 'staking_pool' }
+    & { bonded: Staking_Pool['bonded_tokens'] }
   )>, validator: Array<(
     { __typename?: 'validator' }
     & { validatorDescriptions: Array<(
@@ -13194,15 +13184,8 @@ export type TransactionsLazyQueryHookResult = ReturnType<typeof useTransactionsL
 export type TransactionsQueryResult = Apollo.QueryResult<TransactionsQuery, TransactionsQueryVariables>;
 export const ValidatorDetailsDocument = gql`
     query ValidatorDetails($address: String) {
-  block(offset: 3, limit: 1, order_by: {height: desc}) {
-    height
-    preCommitsAggregate: pre_commits_aggregate {
-      aggregate {
-        sum {
-          votingPower: voting_power
-        }
-      }
-    }
+  stakingPool: staking_pool(order_by: {height: desc}, limit: 1, offset: 3) {
+    bonded: bonded_tokens
   }
   validator(where: {validator_info: {operator_address: {_eq: $address}}}) {
     validatorDescriptions: validator_descriptions(

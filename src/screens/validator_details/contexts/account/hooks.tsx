@@ -90,9 +90,12 @@ export const useAccount = (initialState: AccountState) => {
     // votingPower
     // ============================
     const votingPower = {
-      overall: R.pathOr(0, ['block', 0, 'preCommitsAggregate', 'aggregate', 'sum', 'votingPower'], data),
-      // self:
+      overall: formatDenom(R.pathOr(0, ['stakingPool', 0, 'bonded'], data)),
+      self: R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], data.validator[0]),
+      height: R.pathOr(0, ['validatorVotingPowers', 0, 'height'], data.validator[0]),
     };
+
+    results.rawData.votingPower = votingPower;
 
     return results;
   };
@@ -144,8 +147,23 @@ export const useAccount = (initialState: AccountState) => {
       description: state.rawData.profile.description,
     };
 
+    // ==================================
+    // voting power
+    // ==================================
+    const votingPowerPercent = numeral((
+      state.rawData.votingPower.self / state.rawData.votingPower.overall) * 100);
+    console.log(state.rawData.votingPower, 'wtf raw data');
+    const votingPower = {
+      height: numeral(state.rawData.votingPower.height).format('0,0'),
+      votingPower: numeral(state.rawData.votingPower.self).format('0,0'),
+      votingPowerPercentRaw: votingPowerPercent.format(0, Math.floor),
+      votingPowerPercent: `${votingPowerPercent.format('0,0.00')}%`,
+      totalVotingPower: numeral(state.rawData.votingPower.overall).format('0,0'),
+    };
+
     return ({
       profile,
+      votingPower,
       // account: {
       //   address: state.rawData.account.address,
       //   withdrawalAddress: state.rawData.account.withdrawalAddress,

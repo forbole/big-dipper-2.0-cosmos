@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactMarkdown, { compiler } from 'markdown-to-jsx';
+import ReactMarkdown from 'markdown-to-jsx';
 import { withStyles } from '@material-ui/core/styles';
 import {
   Typography,
