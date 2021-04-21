@@ -12283,11 +12283,13 @@ export type TransactionsQuery = { transactions: Array<(
 
 export type ValidatorDetailsQueryVariables = Exact<{
   address?: Maybe<Scalars['String']>;
+  delegationHeight?: Maybe<Scalars['bigint']>;
 }>;
 
 
 export type ValidatorDetailsQuery = { stakingPool: Array<(
     { __typename?: 'staking_pool' }
+    & Pick<Staking_Pool, 'height'>
     & { bonded: Staking_Pool['bonded_tokens'] }
   )>, validator: Array<(
     { __typename?: 'validator' }
@@ -12310,6 +12312,10 @@ export type ValidatorDetailsQuery = { stakingPool: Array<(
       { __typename?: 'validator_voting_power' }
       & Pick<Validator_Voting_Power, 'height'>
       & { votingPower: Validator_Voting_Power['voting_power'] }
+    )>, delegations: Array<(
+      { __typename?: 'delegation' }
+      & Pick<Delegation, 'amount'>
+      & { delegatorAddress: Delegation['delegator_address'] }
     )> }
   )>, slashingParams: Array<(
     { __typename?: 'slashing_params' }
@@ -13183,8 +13189,9 @@ export type TransactionsQueryHookResult = ReturnType<typeof useTransactionsQuery
 export type TransactionsLazyQueryHookResult = ReturnType<typeof useTransactionsLazyQuery>;
 export type TransactionsQueryResult = Apollo.QueryResult<TransactionsQuery, TransactionsQueryVariables>;
 export const ValidatorDetailsDocument = gql`
-    query ValidatorDetails($address: String) {
+    query ValidatorDetails($address: String, $delegationHeight: bigint) {
   stakingPool: staking_pool(order_by: {height: desc}, limit: 1, offset: 3) {
+    height
     bonded: bonded_tokens
   }
   validator(where: {validator_info: {operator_address: {_eq: $address}}}) {
@@ -13221,6 +13228,10 @@ export const ValidatorDetailsDocument = gql`
       height
       votingPower: voting_power
     }
+    delegations(where: {height: {_eq: $delegationHeight}}) {
+      amount
+      delegatorAddress: delegator_address
+    }
   }
   slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
     signedBlockWindow: signed_block_window
@@ -13241,6 +13252,7 @@ export const ValidatorDetailsDocument = gql`
  * const { data, loading, error } = useValidatorDetailsQuery({
  *   variables: {
  *      address: // value for 'address'
+ *      delegationHeight: // value for 'delegationHeight'
  *   },
  * });
  */

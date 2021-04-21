@@ -1,5 +1,6 @@
-query ValidatorDetails($address: String) {
+query ValidatorDetails($address: String, $delegationHeight: bigint) {
   stakingPool: staking_pool(order_by: {height: desc}, limit: 1, offset: 3) {
+    height
     bonded: bonded_tokens
   }
   validator(where: {validator_info: {operator_address: {_eq: $address}}}) {
@@ -25,6 +26,10 @@ query ValidatorDetails($address: String) {
     validatorVotingPowers: validator_voting_powers(offset: 3, limit: 1, order_by: {height: desc}) {
       height
       votingPower: voting_power
+    }
+    delegations(where: {height: {_eq: $delegationHeight}}) {
+      amount
+      delegatorAddress: delegator_address
     }
   }
   slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {

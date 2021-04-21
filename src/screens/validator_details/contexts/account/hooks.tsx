@@ -8,7 +8,9 @@ import {
   useValidatorDetailsLazyQuery,
   ValidatorDetailsQuery,
 } from '@graphql/types';
-import { Avatar } from '@components';
+import {
+  Avatar, AvatarName,
+} from '@components';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
 import { getValidatorCondition } from '@utils/get_validator_condition';
@@ -27,14 +29,14 @@ export const useAccount = (initialState: AccountState) => {
 
   useLatestStakingHeightQuery({
     onCompleted: (data) => {
-      // const delegationHeight = data.delegation[0]?.height;
+      const delegationHeight = data.delegation[0]?.height;
       // const rewardsHeight = data.reward[0]?.height;
 
       useValidatorDetailsQuery({
         variables: {
           address: R.pathOr('', ['query', 'address'], router),
           // utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
-          // delegationHeight,
+          delegationHeight,
           // rewardsHeight,
         },
       });
@@ -51,7 +53,7 @@ export const useAccount = (initialState: AccountState) => {
     const results: any = {
       rawData: {
         loading: false,
-        // staking: {},
+        staking: {},
       },
     };
 
@@ -91,6 +93,18 @@ export const useAccount = (initialState: AccountState) => {
     };
 
     results.rawData.votingPower = votingPower;
+
+    // ============================
+    // delegations
+    // ============================
+    const delegations = data.validator[0].delegations.map((x) => {
+      return ({
+        amount: formatDenom(x.amount.amount),
+        delegatorAddress: x.delegatorAddress,
+      });
+    });
+
+    results.rawData.staking.delegations = delegations;
 
     return results;
   };
@@ -147,7 +161,6 @@ export const useAccount = (initialState: AccountState) => {
     // ==================================
     const votingPowerPercent = numeral((
       state.rawData.votingPower.self / state.rawData.votingPower.overall) * 100);
-    console.log(state.rawData.votingPower, 'wtf raw data');
     const votingPower = {
       height: numeral(state.rawData.votingPower.height).format('0,0'),
       votingPower: numeral(state.rawData.votingPower.self).format('0,0'),
@@ -156,22 +169,31 @@ export const useAccount = (initialState: AccountState) => {
       totalVotingPower: numeral(state.rawData.votingPower.overall).format('0,0'),
     };
 
+    // ==================================
+    // delegations
+    // ==================================
+    const delegations = state.rawData.staking.delegations.map((x) => {
+      const validatorRole = findAddress(x.delegatorAddress);
+      return ({
+        address: (
+          <AvatarName
+            address={x.delegatorAddress}
+            imageUrl={validatorRole ? validatorRole?.imageUrl : null}
+            name={validatorRole ? validatorRole.moniker : x.delegatorAddress}
+          />
+        ),
+        amount: `${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
+        amountRaw: x.amount,
+      });
+    }).sort((a, b) => (
+      a.amount > b.amount ? 1 : -1));
+
     return ({
       profile,
       votingPower,
-      // account: {
-      //   address: state.rawData.account.address,
-      //   withdrawalAddress: state.rawData.account.withdrawalAddress,
-      // },
-      // balance: {
-      //   chart: balanceChart,
-      //   total: `${numeral(state.rawData.balance.total).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
-      // },
-      // staking: {
-      //   delegations,
-      //   redelegations,
-      //   unbondings,
-      // },
+      staking: {
+        delegations,
+      },
     });
   };
 

@@ -6,8 +6,9 @@ import {
   Tab,
 } from '@material-ui/core';
 import { a11yProps } from '@utils/allyProps';
-import { tabLabels } from '../../utils';
+import { getTabs } from '../../utils';
 import { useStyles } from './styles';
+import { useAccountContext } from '../../../../contexts/account';
 
 const TabsHeader: React.FC<{
   className?: string;
@@ -18,15 +19,17 @@ const TabsHeader: React.FC<{
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('validators');
+  const tabs = getTabs();
+  const { uiData } = useAccountContext();
 
   return (
     <div className={classnames(className, classes.root)}>
       <Tabs value={tab} onChange={handleTabChange}>
-        {tabLabels.map((x) => (
+        {tabs.map((x) => (
           <Tab
             key={x.key}
             label={t(x.key, {
-              num: x.num,
+              num: uiData.staking[x.key]?.length ?? 0,
             })}
             {...a11yProps(x.id)}
           />

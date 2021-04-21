@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { usePagination } from '@hooks';
 import { Pagination } from '@components';
-import { useStakingContext } from '../../contexts/staking';
+import { useAccountContext } from '../../../../contexts/account';
 import {
   Desktop, Mobile,
 } from './components';
@@ -22,16 +22,16 @@ const Delegations: React.FC<{
     sliceItems,
   } = usePagination({});
 
-  const { item } = useStakingContext();
-  const { delegations = [] } = item;
-  const items = sliceItems(delegations);
+  const { uiData } = useAccountContext();
+  const items = sliceItems(uiData.staking.delegations);
+
   return (
     <div className={classnames(className)}>
       <Mobile className={classes.mobile} items={items} />
       <Desktop className={classes.desktop} items={items} />
       <Pagination
         className={classes.paginate}
-        total={delegations.length}
+        total={uiData.staking.delegations.length}
         rowsPerPage={rowsPerPage}
         page={page}
         handleChangePage={handleChangePage}

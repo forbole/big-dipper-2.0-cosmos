@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface AccountState {
   rawData: {
     exists: boolean;
@@ -16,6 +18,12 @@ export interface AccountState {
       height: number;
       overall: number;
       self: number;
+    }
+    staking: {
+      delegations: {
+        amount: number;
+        delegatorAddress: string;
+      }[];
     }
   }
   uiData?: {
@@ -39,22 +47,12 @@ export interface AccountState {
       votingPowerPercent: string;
       totalVotingPower: string;
     }
-  //   balance: {
-  //     chart: {
-  //       key: string;
-  //       display: string;
-  //       value: number;
-  //     }[]
-  //     total: string;
-  //   }
-  //   staking: {
-  //     delegations: {
-  //       validatorMoniker: string;
-  //       validator: React.ReactNode;
-  //       commission: string;
-  //       amount: string;
-  //       reward: string;
-  //     }[];
+    staking: {
+      delegations: {
+        delegator: React.ReactNode;
+        amount: string;
+        amountRaw: number;
+      }[];
   //     redelegations: {
   //       to: React.ReactNode;
   //       from: React.ReactNode;
@@ -67,6 +65,6 @@ export interface AccountState {
   //       amount: string;
   //       linkedUntil: string;
   //     }[];
-  //   }
+    }
   }
 }

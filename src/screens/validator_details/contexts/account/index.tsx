@@ -21,11 +21,11 @@ const initialState: AccountState = {
       overall: 0,
       self: 0,
     },
-    // staking: {
-    //   delegations: [],
-    //   redelegations: [],
-    //   unbondings: [],
-    // },
+    staking: {
+      delegations: [],
+      // redelegations: [],
+      // unbondings: [],
+    },
   },
 };
 
