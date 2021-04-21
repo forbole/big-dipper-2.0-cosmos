@@ -59,7 +59,7 @@ const VotingPower: React.FC<{
           100,001
         </Typography>
       </div>
-      <div className={classes.item}>
+      {/* <div className={classes.item}>
         <Typography variant="h4" className="label">
           {t('lastVotingPowerChange')}
         </Typography>
@@ -80,7 +80,7 @@ const VotingPower: React.FC<{
             </Typography>
           </Link>
         </Typography>
-      </div>
+      </div> */}
     </Box>
   );
 };
