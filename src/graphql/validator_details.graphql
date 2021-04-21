@@ -55,3 +55,39 @@ query ValidatorDetails($address: String, $delegationHeight: bigint, $utc: timest
     signedBlockWindow: signed_block_window
   }
 }
+
+query LastHundredBlocks($address: String) {
+  block(offset: 3, order_by: {height: desc}, limit: 100) {
+    height
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
+      }
+    }
+    validatorVotingPowers: validator_voting_powers_aggregate {
+      aggregate {
+        sum {
+          votingPower: voting_power
+        }
+      }
+    }
+    preCommitsAggregate: pre_commits_aggregate {
+      aggregate {
+        sum {
+          votingPower: voting_power
+        }
+      }
+    }
+    transactionsAggregate: transactions_aggregate {
+      aggregate {
+        sum {
+          gasUsed: gas_used
+          gasWanted: gas_wanted
+        }
+      }
+    }
+    precommits: pre_commits(where: {validator: {validator_info: {operator_address: {_eq: $address}}}}) {
+      validatorAddress: validator_address
+    }
+  }
+}

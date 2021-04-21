@@ -12336,6 +12336,53 @@ export type ValidatorDetailsQuery = { stakingPool: Array<(
     & { signedBlockWindow: Slashing_Params['signed_block_window'] }
   )> };
 
+export type LastHundredBlocksQueryVariables = Exact<{
+  address?: Maybe<Scalars['String']>;
+}>;
+
+
+export type LastHundredBlocksQuery = { block: Array<(
+    { __typename?: 'block' }
+    & Pick<Block, 'height'>
+    & { validator: (
+      { __typename?: 'validator' }
+      & { validatorInfo?: Maybe<(
+        { __typename?: 'validator_info' }
+        & { operatorAddress: Validator_Info['operator_address'] }
+      )> }
+    ), validatorVotingPowers: (
+      { __typename?: 'validator_voting_power_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'validator_voting_power_aggregate_fields' }
+        & { sum?: Maybe<(
+          { __typename?: 'validator_voting_power_sum_fields' }
+          & { votingPower: Validator_Voting_Power_Sum_Fields['voting_power'] }
+        )> }
+      )> }
+    ), preCommitsAggregate: (
+      { __typename?: 'pre_commit_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'pre_commit_aggregate_fields' }
+        & { sum?: Maybe<(
+          { __typename?: 'pre_commit_sum_fields' }
+          & { votingPower: Pre_Commit_Sum_Fields['voting_power'] }
+        )> }
+      )> }
+    ), transactionsAggregate: (
+      { __typename?: 'transaction_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'transaction_aggregate_fields' }
+        & { sum?: Maybe<(
+          { __typename?: 'transaction_sum_fields' }
+          & { gasUsed: Transaction_Sum_Fields['gas_used'], gasWanted: Transaction_Sum_Fields['gas_wanted'] }
+        )> }
+      )> }
+    ), precommits: Array<(
+      { __typename?: 'pre_commit' }
+      & { validatorAddress: Pre_Commit['validator_address'] }
+    )> }
+  )> };
+
 export type ValidatorsAddressListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -13304,6 +13351,73 @@ export function useValidatorDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookO
 export type ValidatorDetailsQueryHookResult = ReturnType<typeof useValidatorDetailsQuery>;
 export type ValidatorDetailsLazyQueryHookResult = ReturnType<typeof useValidatorDetailsLazyQuery>;
 export type ValidatorDetailsQueryResult = Apollo.QueryResult<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>;
+export const LastHundredBlocksDocument = gql`
+    query LastHundredBlocks($address: String) {
+  block(offset: 3, order_by: {height: desc}, limit: 100) {
+    height
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
+      }
+    }
+    validatorVotingPowers: validator_voting_powers_aggregate {
+      aggregate {
+        sum {
+          votingPower: voting_power
+        }
+      }
+    }
+    preCommitsAggregate: pre_commits_aggregate {
+      aggregate {
+        sum {
+          votingPower: voting_power
+        }
+      }
+    }
+    transactionsAggregate: transactions_aggregate {
+      aggregate {
+        sum {
+          gasUsed: gas_used
+          gasWanted: gas_wanted
+        }
+      }
+    }
+    precommits: pre_commits(
+      where: {validator: {validator_info: {operator_address: {_eq: $address}}}}
+    ) {
+      validatorAddress: validator_address
+    }
+  }
+}
+    `;
+
+/**
+ * __useLastHundredBlocksQuery__
+ *
+ * To run a query within a React component, call `useLastHundredBlocksQuery` and pass it any options that fit your needs.
+ * When your component renders, `useLastHundredBlocksQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useLastHundredBlocksQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useLastHundredBlocksQuery(baseOptions?: Apollo.QueryHookOptions<LastHundredBlocksQuery, LastHundredBlocksQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<LastHundredBlocksQuery, LastHundredBlocksQueryVariables>(LastHundredBlocksDocument, options);
+      }
+export function useLastHundredBlocksLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LastHundredBlocksQuery, LastHundredBlocksQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<LastHundredBlocksQuery, LastHundredBlocksQueryVariables>(LastHundredBlocksDocument, options);
+        }
+export type LastHundredBlocksQueryHookResult = ReturnType<typeof useLastHundredBlocksQuery>;
+export type LastHundredBlocksLazyQueryHookResult = ReturnType<typeof useLastHundredBlocksLazyQuery>;
+export type LastHundredBlocksQueryResult = Apollo.QueryResult<LastHundredBlocksQuery, LastHundredBlocksQueryVariables>;
 export const ValidatorsAddressListDocument = gql`
     query ValidatorsAddressList {
   validator {
