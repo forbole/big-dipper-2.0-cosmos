@@ -86,6 +86,14 @@ export const useAccount = (initialState: AccountState) => {
 
     results.rawData.profile = profile;
 
+    // ============================
+    // votingPower
+    // ============================
+    const votingPower = {
+      overall: R.pathOr(0, ['block', 0, 'preCommitsAggregate', 'aggregate', 'sum', 'votingPower'], data),
+      // self:
+    };
+
     return results;
   };
 

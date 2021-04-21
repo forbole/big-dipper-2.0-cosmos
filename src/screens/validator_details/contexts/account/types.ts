@@ -12,6 +12,10 @@ export interface AccountState {
       condition: number;
       commission: number;
     }
+    votingPower: {
+      overall: number;
+      self: number;
+    }
   }
   uiData?: {
     profile: {

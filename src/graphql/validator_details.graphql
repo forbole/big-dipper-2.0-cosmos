@@ -1,12 +1,16 @@
 query ValidatorDetails($address: String) {
-  validator(where: {
-    validator_info: {
-      operator_address: {
-        _eq: $address
+  block(offset: 3, limit: 1, order_by: {height: desc}) {
+    height
+    preCommitsAggregate: pre_commits_aggregate {
+      aggregate {
+        sum {
+          votingPower: voting_power
+        }
       }
     }
-  }) {
-    validatorDescriptions: validator_descriptions (order_by: {height: desc}, limit: 1){
+  }
+  validator(where: {validator_info: {operator_address: {_eq: $address}}}) {
+    validatorDescriptions: validator_descriptions(order_by: {height: desc}, limit: 1) {
       details
       website
     }
@@ -24,6 +28,10 @@ query ValidatorDetails($address: String) {
     }
     validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
       commission
+    }
+    validatorVotingPowers: validator_voting_powers(offset: 3, limit: 1, order_by: {height: desc}) {
+      height
+      votingPower: voting_power
     }
   }
   slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {

@@ -12286,7 +12286,20 @@ export type ValidatorDetailsQueryVariables = Exact<{
 }>;
 
 
-export type ValidatorDetailsQuery = { validator: Array<(
+export type ValidatorDetailsQuery = { block: Array<(
+    { __typename?: 'block' }
+    & Pick<Block, 'height'>
+    & { preCommitsAggregate: (
+      { __typename?: 'pre_commit_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'pre_commit_aggregate_fields' }
+        & { sum?: Maybe<(
+          { __typename?: 'pre_commit_sum_fields' }
+          & { votingPower: Pre_Commit_Sum_Fields['voting_power'] }
+        )> }
+      )> }
+    ) }
+  )>, validator: Array<(
     { __typename?: 'validator' }
     & { validatorDescriptions: Array<(
       { __typename?: 'validator_description' }
@@ -12303,6 +12316,10 @@ export type ValidatorDetailsQuery = { validator: Array<(
     )>, validatorCommissions: Array<(
       { __typename?: 'validator_commission' }
       & Pick<Validator_Commission, 'commission'>
+    )>, validatorVotingPowers: Array<(
+      { __typename?: 'validator_voting_power' }
+      & Pick<Validator_Voting_Power, 'height'>
+      & { votingPower: Validator_Voting_Power['voting_power'] }
     )> }
   )>, slashingParams: Array<(
     { __typename?: 'slashing_params' }
@@ -13177,6 +13194,16 @@ export type TransactionsLazyQueryHookResult = ReturnType<typeof useTransactionsL
 export type TransactionsQueryResult = Apollo.QueryResult<TransactionsQuery, TransactionsQueryVariables>;
 export const ValidatorDetailsDocument = gql`
     query ValidatorDetails($address: String) {
+  block(offset: 3, limit: 1, order_by: {height: desc}) {
+    height
+    preCommitsAggregate: pre_commits_aggregate {
+      aggregate {
+        sum {
+          votingPower: voting_power
+        }
+      }
+    }
+  }
   validator(where: {validator_info: {operator_address: {_eq: $address}}}) {
     validatorDescriptions: validator_descriptions(
       order_by: {height: desc}
@@ -13202,6 +13229,14 @@ export const ValidatorDetailsDocument = gql`
     }
     validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
       commission
+    }
+    validatorVotingPowers: validator_voting_powers(
+      offset: 3
+      limit: 1
+      order_by: {height: desc}
+    ) {
+      height
+      votingPower: voting_power
     }
   }
   slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
