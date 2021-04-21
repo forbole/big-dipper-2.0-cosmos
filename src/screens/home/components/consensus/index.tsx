@@ -12,6 +12,7 @@ import {
   Tooltip,
 } from 'recharts';
 import { useStyles } from './styles';
+import { useConsensus } from './hooks';
 
 const Consensus: React.FC<{
   className?: string;
@@ -19,6 +20,7 @@ const Consensus: React.FC<{
   const {
     classes, theme,
   } = useStyles();
+  useConsensus();
   const { t } = useTranslation('home');
 
   const data = [
