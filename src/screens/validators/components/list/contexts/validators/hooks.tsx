@@ -56,7 +56,6 @@ export const useValidators = (initialState: ValidatorsState) => {
   const formatValidators = (data: ValidatorsQuery) => {
     const votingPowerOverall = formatDenom(R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data));
     const signedBlockWindow = R.pathOr(0, ['slashingParams', 0, 'signedBlockWindow'], data);
-    console.log(votingPowerOverall, 'data');
     const formattedItems = data.validator.map((x, i) => {
       const validator = x.validatorInfo.operatorAddress;
       const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
@@ -71,16 +70,17 @@ export const useValidators = (initialState: ValidatorsState) => {
       const selfPercent = (self / (votingPower || 1)) * 100;
       const missedBlockCounter = R.pathOr(0, ['validatorSigningInfos', 0, 'missedBlocksCounter'], x);
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
-      if (i === 64) {
-        console.log(selfPercent, 'expecting 100');
-        console.log(self, 'self');
-        console.log(votingPower, 'vp');
-      }
+      // if (i === 1) {
+      //   console.log()
+      //   console.log(selfPercent, 'expecting 100');
+      //   console.log(self, 'self');
+      //   console.log(votingPower, 'vp');
+      // }
       return ({
         validator,
         votingPower,
         votingPowerPercent,
-        commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], x),
+        commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], x) * 100,
         self,
         selfPercent,
         condition,
