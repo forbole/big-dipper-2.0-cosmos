@@ -12,7 +12,9 @@ const initialState: ValidatorsState = {
 
 const ValidatorsContext = React.createContext<ValidatorsState>(initialState);
 
-const ValidatorsProvider: React.FC = (props: {children: React.ReactNode }) => {
+const ValidatorsProvider: React.FC = (props: {children: ({
+  itemsLength: number,
+}) => React.ReactNode }) => {
   const { children } = props;
 
   const {
@@ -23,6 +25,8 @@ const ValidatorsProvider: React.FC = (props: {children: React.ReactNode }) => {
     sortKey,
     sortDirection,
     handleSearch,
+    votingPowerOverall,
+    uiData,
   } = useValidators(initialState);
 
   return (
@@ -35,9 +39,11 @@ const ValidatorsProvider: React.FC = (props: {children: React.ReactNode }) => {
         sortKey,
         sortDirection,
         handleSearch,
+        votingPowerOverall,
+        uiData,
       }}
     >
-      {children}
+      {children({ itemsLength: items.length })}
     </ValidatorsContext.Provider>
   );
 };

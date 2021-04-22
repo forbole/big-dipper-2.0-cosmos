@@ -214,5 +214,7 @@ export const useValidators = (initialState: ValidatorsState) => {
     sortKey,
     sortDirection,
     handleSearch,
+    votingPowerOverall: state.votingPowerOverall,
+    uiData: formatUi(),
   };
 };
