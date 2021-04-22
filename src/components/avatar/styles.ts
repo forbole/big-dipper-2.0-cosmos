@@ -7,6 +7,8 @@ export const useStyles = () => {
         root: {
           width: '28px',
           height: '28px',
+          minWidth: '28px',
+          minHeight: '28px',
           borderRadius: '50%',
           overflow: 'hidden',
           background: theme.palette.custom.general.surfaceTwo,

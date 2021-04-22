@@ -12,6 +12,8 @@ export const useStyles = () => {
             color: theme.palette.custom.fonts.highlight,
             marginLeft: theme.spacing(1),
             whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
           },
           '&:hover': {
             cursor: 'pointer',

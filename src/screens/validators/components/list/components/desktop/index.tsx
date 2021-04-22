@@ -83,7 +83,7 @@ const Desktop: React.FC<{
                         {t(key)}
                         {!!sort && (
                         <SortArrows
-                          sort={sortKey === key
+                          sort={sortKey === sortingKey
                             ? sortDirection
                             : undefined}
                         />

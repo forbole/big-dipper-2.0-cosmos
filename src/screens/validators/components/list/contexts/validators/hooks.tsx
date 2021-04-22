@@ -89,9 +89,6 @@ export const useValidators = (initialState: ValidatorsState) => {
         jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], x),
       });
     });
-    // .sort((a, b) => {
-    //   return a.moniker.toLowerCase() < b.moniker.toLowerCase() ? -1 : 1;
-    // });
 
     return {
       votingPowerOverall,
@@ -112,7 +109,7 @@ export const useValidators = (initialState: ValidatorsState) => {
             name={validator ? validator.moniker : x.validator}
           />
         ),
-        commission: `${x.commission}%`,
+        commission: `${numeral(x.commission).format('0.[00]')}%`,
         self: `${numeral(x.selfPercent).format('0.[00]')}%`,
         condition: (
           <Condition className={condition} />
@@ -139,23 +136,6 @@ export const useValidators = (initialState: ValidatorsState) => {
   // sorting
   // ===========================
 
-  // const sortedItems = useMemo(() => {
-  //   const sortableItems = [...items];
-  //   if (sortKey && sortDirection) {
-  //     sortableItems.sort((a, b) => {
-  // if (a[sortKey] < b[sortKey]) {
-  //   console.log('im in here');
-  //   return sortDirection === 'asc' ? -1 : 1;
-  // }
-  // if (a[sortKey] > b[sortKey]) {
-  //   return sortDirection === 'asc' ? 1 : -1;
-  // }
-  // return 0;
-  //     });
-  //   }
-  //   return sortableItems;
-  // }, [items, sortKey, sortDirection]);
-
   const handleSort = (key: string) => {
     if (key === sortKey) {
       setState((prevState) => ({
@@ -172,7 +152,16 @@ export const useValidators = (initialState: ValidatorsState) => {
   };
 
   const uiSort = () => {
-    const sorted = R.clone(items);
+    let sorted: ValidatorItems[] = R.clone(items);
+
+    if (tab === 1) {
+      sorted = sorted.filter((x) => x.status === 3);
+    }
+
+    if (tab === 2) {
+      sorted = sorted.filter((x) => x.status !== 3);
+    }
+
     if (sortKey && sortDirection) {
       sorted.sort((a, b) => {
         let compareA = a[sortKey];
