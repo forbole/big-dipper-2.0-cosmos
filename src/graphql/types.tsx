@@ -12384,7 +12384,7 @@ export type ValidatorsAddressListQuery = { validator: Array<(
     { __typename?: 'validator' }
     & { validatorInfo?: Maybe<(
       { __typename?: 'validator_info' }
-      & { operatorAddress: Validator_Info['operator_address'], selfDelegateAddress: Validator_Info['self_delegate_address'] }
+      & { operatorAddress: Validator_Info['operator_address'], selfDelegateAddress: Validator_Info['self_delegate_address'], consensusAddress: Validator_Info['consensus_address'] }
     )>, validatorDescriptions: Array<(
       { __typename?: 'validator_description' }
       & Pick<Validator_Description, 'moniker' | 'identity'>
@@ -13413,6 +13413,7 @@ export const ValidatorsAddressListDocument = gql`
     validatorInfo: validator_info {
       operatorAddress: operator_address
       selfDelegateAddress: self_delegate_address
+      consensusAddress: consensus_address
     }
     validatorDescriptions: validator_descriptions(
       limit: 1

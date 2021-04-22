@@ -5,6 +5,7 @@ import {
   useList, useListRow, useGrid,
 } from './use_react_window';
 import { usePagination } from './use_pagination';
+import { useInterval } from './use_interval';
 
 export {
   usePersistedState,
@@ -14,4 +15,5 @@ export {
   useListRow,
   useGrid,
   usePagination,
+  useInterval,
 };

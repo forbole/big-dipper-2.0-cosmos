@@ -29,12 +29,13 @@ exports[`screen: Home/Consensus matches snapshot 1`] = `
       <h4
         className="MuiTypography-root MuiTypography-h4"
       >
-        100,500
+        0
       </h4>
       <div
-        address="Forbole"
+        address=""
         id="AvatarName"
-        name="Forbole"
+        imageUrl={null}
+        name="Shy Validator"
       />
     </div>
   </div>
@@ -50,7 +51,7 @@ exports[`screen: Home/Consensus matches snapshot 1`] = `
         Array [
           Object {
             "fill": "#FD5D4E",
-            "value": 73,
+            "value": 0,
           },
         ]
       }
@@ -93,7 +94,7 @@ exports[`screen: Home/Consensus matches snapshot 1`] = `
         <tspan
           className="makeStyles-chartPercentLabel"
         >
-          73%
+          0%
         </tspan>
       </text>
       <text
@@ -104,7 +105,7 @@ exports[`screen: Home/Consensus matches snapshot 1`] = `
         <tspan
           className="makeStyles-chartLabel"
         >
-          Round 0
+          round
         </tspan>
       </text>
       <text
@@ -115,7 +116,7 @@ exports[`screen: Home/Consensus matches snapshot 1`] = `
         <tspan
           className="makeStyles-chartLabel"
         >
-          Step 1
+          step
         </tspan>
       </text>
     </div>
