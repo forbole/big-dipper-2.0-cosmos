@@ -5,16 +5,10 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import { Typography } from '@material-ui/core';
 import { useGrid } from '@hooks';
-import {
-  AvatarName, SortArrows,
-} from '@components';
+import { SortArrows } from '@components';
 import { useStyles } from './styles';
 import { useValidatorsContext } from '../../contexts/validators';
 import { fetchColumns } from './utils';
-import {
-  VotingPower,
-  Condition,
-} from '..';
 
 const Desktop: React.FC<{
   className?: string;

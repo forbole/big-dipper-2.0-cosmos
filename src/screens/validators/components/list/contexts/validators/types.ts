@@ -22,11 +22,9 @@ export interface ValidatorsState {
   uiData?: {
     validator: React.ReactNode;
     votingPower: React.ReactNode;
-    // votingPowerPercent: string;
-    // votingPowerTotal: string;
     commission: string;
     self: string;
-    condition: string | number;
+    condition: React.ReactNode;
     idx: string;
   }[];
 }
