@@ -29,7 +29,7 @@ export const useValidators = (initialState: ValidatorsState) => {
   };
 
   const [state, setState] = useState(initialState);
-
+  const [search, setSearch] = useState('');
   const {
     items,
     tab,
@@ -162,6 +162,10 @@ export const useValidators = (initialState: ValidatorsState) => {
       sorted = sorted.filter((x) => x.status !== 3);
     }
 
+    if (search) {
+      sorted = sorted.filter((x) => x.moniker.toLowerCase().includes(search));
+    }
+
     if (sortKey && sortDirection) {
       sorted.sort((a, b) => {
         let compareA = a[sortKey];
@@ -189,7 +193,7 @@ export const useValidators = (initialState: ValidatorsState) => {
   // search
   // ===========================
   const handleSearch = (value: string) => {
-    console.log('search validators: ', value);
+    setSearch(value);
   };
 
   return {
