@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import {
-  Box, AvatarName,
+  Box,
 } from '@components';
 import {
   RadialBarChart,
@@ -12,6 +12,7 @@ import {
   Tooltip,
 } from 'recharts';
 import { useStyles } from './styles';
+import { useConsensus } from './hooks';
 
 const Consensus: React.FC<{
   className?: string;
@@ -19,11 +20,14 @@ const Consensus: React.FC<{
   const {
     classes, theme,
   } = useStyles();
+  const {
+    uiData, rawData,
+  } = useConsensus();
   const { t } = useTranslation('home');
 
   const data = [
     {
-      value: 73,
+      value: rawData.stepCompletion,
       fill: theme.palette.custom.primaryData.three,
     },
   ];
@@ -46,9 +50,9 @@ const Consensus: React.FC<{
         </div>
         <div>
           <Typography variant="h4">
-            100,500
+            {uiData.height}
           </Typography>
-          <AvatarName address="Forbole" name="Forbole" />
+          {uiData.proposer}
         </div>
       </div>
       <div className={classes.content}>
@@ -85,7 +89,7 @@ const Consensus: React.FC<{
             className="progress-label"
           >
             <tspan className={classes.chartPercentLabel}>
-              73%
+              {uiData.stepCompletion}
             </tspan>
           </text>
           <text
@@ -94,7 +98,9 @@ const Consensus: React.FC<{
             className={classes.chartExtraLabel}
           >
             <tspan className={classes.chartLabel}>
-              Round 0
+              {t('round', {
+                round: uiData.round,
+              })}
             </tspan>
           </text>
           <text
@@ -103,7 +109,9 @@ const Consensus: React.FC<{
             className={classes.chartExtraLabel}
           >
             <tspan className={classes.chartLabel}>
-              Step 1
+              {t('step', {
+                step: uiData.step,
+              })}
             </tspan>
           </text>
         </RadialBarChart>
