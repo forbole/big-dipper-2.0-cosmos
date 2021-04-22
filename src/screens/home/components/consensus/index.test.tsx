@@ -34,6 +34,7 @@ export const mockData = {
 jest.mock('@contexts', () => ({
   useChainContext: () => ({
     findAddress: jest.fn(() => null),
+    findOperator: jest.fn(() => null),
   }),
 }));
 
