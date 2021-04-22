@@ -84,9 +84,20 @@ export const useAccount = (initialState: AccountState) => {
     // ============================
     // votingPower
     // ============================
+    // self voting power
+    const self = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], data.validator[0]);
+
+    const [selfDelegate] = data.validator[0].delegations.filter(
+      (x) => x.delegatorAddress === data.validator[0].validatorInfo.selfDelegateAddress,
+    );
+    const selfDelegateAmount = formatDenom(numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value());
+    const selfDelegatePercent = (selfDelegateAmount / self) * 100;
+
     const votingPower = {
+      self,
+      selfDelegate: selfDelegateAmount,
+      selfDelegatePercent,
       overall: formatDenom(R.pathOr(0, ['stakingPool', 0, 'bonded'], data)),
-      self: R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], data.validator[0]),
       height: R.pathOr(0, ['validatorVotingPowers', 0, 'height'], data.validator[0]),
     };
 
@@ -206,6 +217,8 @@ export const useAccount = (initialState: AccountState) => {
       votingPowerPercentRaw: votingPowerPercent.format(0, Math.floor),
       votingPowerPercent: `${votingPowerPercent.format('0,0.00')}%`,
       totalVotingPower: numeral(state.rawData.votingPower.overall).format('0,0'),
+      selfDelegationPercent: `${numeral(state.rawData.votingPower.selfDelegatePercent).format('0.[00]')}%`,
+      selfDelegation: numeral(state.rawData.votingPower.selfDelegate).format('0,0'),
     };
 
     // ==================================

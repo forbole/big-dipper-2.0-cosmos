@@ -8,6 +8,7 @@ query Validators ($delegationHeight: bigint){
     }
     validatorInfo: validator_info {
       operatorAddress: operator_address
+      selfDelegateAddress: self_delegate_address
     }
     validatorVotingPowers: validator_voting_powers(offset: 3, limit: 1, order_by: {height: desc}) {
       votingPower: voting_power
@@ -17,11 +18,7 @@ query Validators ($delegationHeight: bigint){
     }
     delegations(where: {height: {_eq: $delegationHeight}}) {
       amount
-      validator {
-        validatorInfo: validator_info {
-          operatorAddress: operator_address
-        }
-      }
+      delegatorAddress: delegator_address
     }
     validatorSigningInfos: validator_signing_infos(order_by: {height: desc}, limit: 1) {
       missedBlocksCounter: missed_blocks_counter

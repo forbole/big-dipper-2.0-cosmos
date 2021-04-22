@@ -12392,7 +12392,7 @@ export type ValidatorsQuery = { stakingPool: Array<(
       & { missedBlocksCounter: Validator_Signing_Info['missed_blocks_counter'] }
     )>, validatorInfo?: Maybe<(
       { __typename?: 'validator_info' }
-      & { operatorAddress: Validator_Info['operator_address'] }
+      & { operatorAddress: Validator_Info['operator_address'], selfDelegateAddress: Validator_Info['self_delegate_address'] }
     )>, validatorVotingPowers: Array<(
       { __typename?: 'validator_voting_power' }
       & { votingPower: Validator_Voting_Power['voting_power'] }
@@ -12402,13 +12402,7 @@ export type ValidatorsQuery = { stakingPool: Array<(
     )>, delegations: Array<(
       { __typename?: 'delegation' }
       & Pick<Delegation, 'amount'>
-      & { validator: (
-        { __typename?: 'validator' }
-        & { validatorInfo?: Maybe<(
-          { __typename?: 'validator_info' }
-          & { operatorAddress: Validator_Info['operator_address'] }
-        )> }
-      ) }
+      & { delegatorAddress: Delegation['delegator_address'] }
     )> }
   )>, slashingParams: Array<(
     { __typename?: 'slashing_params' }
@@ -13459,6 +13453,7 @@ export const ValidatorsDocument = gql`
     }
     validatorInfo: validator_info {
       operatorAddress: operator_address
+      selfDelegateAddress: self_delegate_address
     }
     validatorVotingPowers: validator_voting_powers(
       offset: 3
@@ -13472,11 +13467,7 @@ export const ValidatorsDocument = gql`
     }
     delegations(where: {height: {_eq: $delegationHeight}}) {
       amount
-      validator {
-        validatorInfo: validator_info {
-          operatorAddress: operator_address
-        }
-      }
+      delegatorAddress: delegator_address
     }
     validatorSigningInfos: validator_signing_infos(
       order_by: {height: desc}

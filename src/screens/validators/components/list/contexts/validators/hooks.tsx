@@ -10,9 +10,7 @@ import {
   useLatestStakingHeightQuery,
   ValidatorsQuery,
 } from '@graphql/types';
-import {
-  AvatarName, Result,
-} from '@components';
+import { AvatarName } from '@components';
 import { formatDenom } from '@utils/format_denom';
 import { useChainContext } from '@contexts';
 import { getValidatorCondition } from '@utils/get_validator_condition';
@@ -64,27 +62,20 @@ export const useValidators = (initialState: ValidatorsState) => {
       const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
       const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
       const [selfDelegation] = x.delegations.filter(
-        (y) => y.validator.validatorInfo.operatorAddress === validator,
+        (y) => {
+          return y.delegatorAddress === x.validatorInfo.selfDelegateAddress;
+        },
       );
 
       const self = formatDenom(numeral(R.pathOr(0, ['amount', 'amount'], selfDelegation)).value());
-      const selfPercent = (self / votingPower) * 100;
+      const selfPercent = (self / (votingPower || 1)) * 100;
       const missedBlockCounter = R.pathOr(0, ['validatorSigningInfos', 0, 'missedBlocksCounter'], x);
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
-
-      if (i === 0) {
-        const totalDelegations = formatDenom(x.delegations.reduce(
-          (a, b) => a + numeral(b.amount.amount).value(), 0,
-        ));
-        console.log(x, 'x');
-        console.log(selfDelegation, 'where is the self delegation');
-        console.log(self, 'le self');
-        console.log(selfPercent, 'self percent');
-        console.log('====================');
-        console.log(totalDelegations, ' total delegations');
-        console.log((self / totalDelegations) * 100, 'other percent');
+      if (i === 64) {
+        console.log(selfPercent, 'expecting 100');
+        console.log(self, 'self');
+        console.log(votingPower, 'vp');
       }
-
       return ({
         validator,
         votingPower,
@@ -103,6 +94,10 @@ export const useValidators = (initialState: ValidatorsState) => {
 
   const formatUi = () => {
     return state.items.map((x, i) => {
+      if (i === 64) {
+        console.log(x.selfPercent, 'expecting 100');
+        console.log(numeral(x.selfPercent).format('0.[00]'));
+      }
       const validator = findAddress(x.validator);
       return ({
         idx: `#${i + 1}`,

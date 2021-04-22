@@ -63,7 +63,11 @@ const VotingPower: React.FC<{
           {t('selfDelegatedTokens')}
         </Typography>
         <Typography variant="body1" className="value">
-          100,001
+          {uiData.votingPower.selfDelegation}
+          {' '}
+          (
+          {uiData.votingPower.selfDelegationPercent}
+          )
         </Typography>
       </div>
       {/* <div className={classes.item}>
