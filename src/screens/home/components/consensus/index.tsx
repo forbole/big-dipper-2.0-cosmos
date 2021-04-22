@@ -11,6 +11,7 @@ import {
   RadialBar,
   Tooltip,
 } from 'recharts';
+import { useValidatorDetailsQuery } from '@src/graphql/types';
 import { useStyles } from './styles';
 import { useConsensus } from './hooks';
 
@@ -20,7 +21,7 @@ const Consensus: React.FC<{
   const {
     classes, theme,
   } = useStyles();
-  useConsensus();
+  const { uiData } = useConsensus();
   const { t } = useTranslation('home');
 
   const data = [
@@ -48,9 +49,9 @@ const Consensus: React.FC<{
         </div>
         <div>
           <Typography variant="h4">
-            100,500
+            {uiData.height}
           </Typography>
-          <AvatarName address="Forbole" name="Forbole" />
+          {uiData.proposer}
         </div>
       </div>
       <div className={classes.content}>
@@ -96,7 +97,9 @@ const Consensus: React.FC<{
             className={classes.chartExtraLabel}
           >
             <tspan className={classes.chartLabel}>
-              Round 0
+              {t('round', {
+                round: uiData.round,
+              })}
             </tspan>
           </text>
           <text
@@ -105,7 +108,9 @@ const Consensus: React.FC<{
             className={classes.chartExtraLabel}
           >
             <tspan className={classes.chartLabel}>
-              Step 1
+              {t('step', {
+                step: uiData.step,
+              })}
             </tspan>
           </text>
         </RadialBarChart>

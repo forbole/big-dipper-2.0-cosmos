@@ -1,63 +1,62 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
+import axios from 'axios';
+import numeral from 'numeral';
+import * as R from 'ramda';
+import { AvatarName } from '@components';
+import { useInterval } from '@hooks';
+import { useChainContext } from '@contexts';
+import { hexToBech32 } from '@utils/hex_to_bech32';
 
 export const useConsensus = () => {
-  const client = new WebSocket(process.env.NEXT_PUBLIC_WS_CHAIN_URL);
-  useEffect(() => {
-    // networks.cosmos.current.onopen = () => {
-    //   networks.cosmos.current.send(HEIGHT_QUERY);
-    // };
-    client.onopen = () => {
-      // const newRoundStep = {
-      //   jsonrpc: '2.0',
-      //   method: 'subscribe',
-      //   id: 0,
-      //   params: {
-      //     query: 'tm.event=\'NewRoundStep\'',
-      //   },
-      // };
+  const { findAddress } = useChainContext();
+  const [state, setState] = useState({
+    height: 0,
+    round: 0,
+    step: 0,
+    proposer: '',
+  });
 
-      // const polka = {
-      //   jsonrpc: '2.0',
-      //   method: 'subscribe',
-      //   id: 0,
-      //   params: {
-      //     query: 'tm.event=\'Polka\'',
-      //   },
-      // };
+  const callback = async () => {
+    try {
+      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_RPC_CHAIN_URL}/consensus_state`);
+      formatCallback(data);
+    } catch (error) {
+      console.log(error.message, 'ls error');
+    }
+  };
 
-      // const vote = {
-      //   jsonrpc: '2.0',
-      //   method: 'subscribe',
-      //   id: 0,
-      //   params: {
-      //     query: 'tm.event=\'ValidBlock\'',
-      //   },
-      // };
+  useInterval(callback, 50000);
 
-      // const headerB = {
-      //   jsonrpc: '2.0',
-      //   method: 'subscribe',
-      //   id: 0,
-      //   params: {
-      //     query: 'tm.event=\'CompleteProposal\'',
-      //   },
-      // };
-      // client.send(JSON.stringify(vote));
-      // client.send(JSON.stringify(headerB));
-      // console.log('WebSocket Client Connected');
-    };
+  const formatCallback = (data: any) => {
+    console.log(data, 'data');
+    const [height, round, step] = R.pathOr('0/0/0', ['result', 'round_state', 'height/round/step'], data).split('/');
 
-    // client.onmessage = (e) => {
-    //   console.log(e.data, 'what are you');
-    // };
+    setState({
+      height,
+      round,
+      step,
+      proposer: hexToBech32(R.pathOr('', ['result', 'round_state', 'proposer', 'address'], data), 'desmosvaloper'),
+    });
+  };
 
-    // client.onclose = () => {
-    //   console.log('close');
-    // };
+  const formatUi = () => {
+    const proposer = findAddress(state.proposer);
+    return ({
+      height: numeral(state.height).format('0,0'),
+      round: numeral(state.round).format('0,0'),
+      step: numeral(state.step).format('0,0'),
+      proposer: (
+        <AvatarName
+          address={state.proposer}
+          imageUrl={proposer ? proposer?.imageUrl : null}
+          name={proposer ? proposer.moniker : 'Shy Validator'}
+        />
+      ),
+    });
+  };
 
-    // return () => {
-    //   client.close();
-    // };
-    console.log('im in here');
-  }, []);
+  return {
+    rawData: state,
+    uiData: formatUi(),
+  };
 };
