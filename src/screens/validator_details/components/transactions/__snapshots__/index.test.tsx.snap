@@ -8,7 +8,7 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
   <h2
     className="MuiTypography-root MuiTypography-h2"
   >
-    accounts:transactions
+    validators:transactions
   </h2>
   <div
     className="makeStyles-list"
@@ -49,7 +49,7 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
           "result": <UNDEFINED
             success={true}
           />,
-          "time": "9 days ago",
+          "time": "11 days ago",
         },
       ]
     }
