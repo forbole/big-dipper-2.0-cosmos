@@ -78,14 +78,9 @@ query LastHundredBlocks($address: String) {
         }
       }
     }
-    transactionsAggregate: transactions_aggregate {
-      aggregate {
-        sum {
-          gasUsed: gas_used
-          gasWanted: gas_wanted
-        }
-      }
-    }
+    transactions {
+    	hash
+  	}
     precommits: pre_commits(where: {validator: {validator_info: {operator_address: {_eq: $address}}}}) {
       validatorAddress: validator_address
     }

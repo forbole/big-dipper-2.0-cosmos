@@ -12368,16 +12368,10 @@ export type LastHundredBlocksQuery = { block: Array<(
           & { votingPower: Pre_Commit_Sum_Fields['voting_power'] }
         )> }
       )> }
-    ), transactionsAggregate: (
-      { __typename?: 'transaction_aggregate' }
-      & { aggregate?: Maybe<(
-        { __typename?: 'transaction_aggregate_fields' }
-        & { sum?: Maybe<(
-          { __typename?: 'transaction_sum_fields' }
-          & { gasUsed: Transaction_Sum_Fields['gas_used'], gasWanted: Transaction_Sum_Fields['gas_wanted'] }
-        )> }
-      )> }
-    ), precommits: Array<(
+    ), transactions: Array<(
+      { __typename?: 'transaction' }
+      & Pick<Transaction, 'hash'>
+    )>, precommits: Array<(
       { __typename?: 'pre_commit' }
       & { validatorAddress: Pre_Commit['validator_address'] }
     )> }
@@ -13374,13 +13368,8 @@ export const LastHundredBlocksDocument = gql`
         }
       }
     }
-    transactionsAggregate: transactions_aggregate {
-      aggregate {
-        sum {
-          gasUsed: gas_used
-          gasWanted: gas_wanted
-        }
-      }
+    transactions {
+      hash
     }
     precommits: pre_commits(
       where: {validator: {validator_info: {operator_address: {_eq: $address}}}}

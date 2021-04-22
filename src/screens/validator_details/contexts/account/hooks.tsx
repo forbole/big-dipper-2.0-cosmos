@@ -8,11 +8,8 @@ import {
   useValidatorDetailsLazyQuery,
   ValidatorDetailsQuery,
 } from '@graphql/types';
-import {
-  Avatar, AvatarName,
-} from '@components';
+import { AvatarName } from '@components';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
 import { getValidatorCondition } from '@utils/get_validator_condition';
 import { chainConfig } from '@src/chain_config';

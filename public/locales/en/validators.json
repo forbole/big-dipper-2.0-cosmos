@@ -48,5 +48,6 @@
   "jailed": "Jailed",
   "unbonded": "Unbonded",
   "unknown": "Unknown",
-  "na": "N/A"
+  "na": "N/A",
+  "txs": "Txs"
 }
