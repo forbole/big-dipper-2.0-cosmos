@@ -11,7 +11,6 @@ import {
   RadialBar,
   Tooltip,
 } from 'recharts';
-import { useValidatorDetailsQuery } from '@src/graphql/types';
 import { useStyles } from './styles';
 import { useConsensus } from './hooks';
 

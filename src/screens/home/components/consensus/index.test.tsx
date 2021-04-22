@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import Consensus from '.';
@@ -6,6 +7,36 @@ import Consensus from '.';
 // ==================================
 // mocks
 // ==================================
+jest.mock('axios');
+const mockedAxios = axios as jest.Mocked<typeof axios>;
+
+export const mockData = {
+  data: [
+    {
+      result: {
+        round_state: {
+          'height/round/step': '10/0/2',
+          proposer: {
+            address: 'address',
+          },
+          height_vote_set: [
+            {
+              precommits_bit_array: ' = 0.50',
+              prevotes_bit_array: ' = 0.50',
+            },
+          ],
+        },
+      },
+    },
+  ],
+};
+
+jest.mock('@contexts', () => ({
+  useChainContext: () => ({
+    findAddress: jest.fn(() => null),
+  }),
+}));
+
 const mockI18n = {
   t: (key: string) => key,
   lang: 'en',
@@ -28,6 +59,7 @@ jest.mock('recharts', () => ({
 // ==================================
 describe('screen: Home/Consensus', () => {
   it('matches snapshot', () => {
+    mockedAxios.get.mockImplementationOnce(() => Promise.resolve(mockData));
     const component = renderer.create(
       <MockTheme>
         <Consensus />

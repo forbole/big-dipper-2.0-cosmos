@@ -27,7 +27,7 @@ export const useConsensus = () => {
     }
   };
 
-  useInterval(callback, 50000);
+  useInterval(callback, 1000);
 
   const formatCallback = (data: any) => {
     // console.log(data, 'data');
