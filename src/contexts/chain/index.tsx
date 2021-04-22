@@ -18,6 +18,7 @@ const initialState: ChainState = {
     loading: true,
     validators: {},
     selfDelegateAddresses: {},
+    consensusAddresses: {},
   },
 };
 

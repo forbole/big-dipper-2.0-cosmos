@@ -31,6 +31,12 @@ export interface ChainState {
         imageUrl?: string;
       }
     };
+    consensusAddresses: {
+      [key: string]: {
+        moniker: string;
+        imageUrl?: string;
+      }
+    }
   }
   findAddress?: (address: string) => {
     moniker: string;

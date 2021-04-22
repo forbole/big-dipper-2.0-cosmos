@@ -47,6 +47,12 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
         imageUrl?: string;
       }
     } = {};
+    const consensusAddresses: {
+      [key: string]: {
+        moniker: string;
+        imageUrl?: string;
+      }
+    } = {};
 
     // ===============================
     // Set up initial dictionary and axios calls
@@ -57,11 +63,14 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
     data.validator.forEach((x) => {
       const validatorAddress = x.validatorInfo.operatorAddress;
       const selfAddress = x.validatorInfo.selfDelegateAddress;
+      const { consensusAddress } = x.validatorInfo;
 
       validators[validatorAddress] = {
         moniker: R.pathOr('Shy Validator', ['validatorDescriptions', 0, 'moniker'], x),
       };
+
       selfDelegateAddresses[selfAddress] = validators[validatorAddress];
+      consensusAddresses[consensusAddress] = validators[validatorAddress];
 
       if (
         x.validatorDescriptions.length
