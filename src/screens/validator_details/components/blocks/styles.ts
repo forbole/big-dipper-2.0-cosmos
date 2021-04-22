@@ -35,8 +35,8 @@ export const useStyles = () => {
             height: '32px',
           },
           [theme.breakpoints.up('lg')]: {
-            width: '28px',
-            height: '28px',
+            width: '25px',
+            height: '25px',
           },
         },
         toolTip: {

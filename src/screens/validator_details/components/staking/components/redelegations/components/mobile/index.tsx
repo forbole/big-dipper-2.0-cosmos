@@ -1,11 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import dayjs from 'dayjs';
 import {
   Divider, Typography,
 } from '@material-ui/core';
-import { AvatarName } from '@components';
 import { useStyles } from './styles';
 
 const Mobile: React.FC<{
@@ -16,32 +14,19 @@ const Mobile: React.FC<{
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('validators');
-  const formatItems = items.map((x) => {
-    return ({
-      from: (
-        <AvatarName
-          address={x?.from?.identity}
-          imageUrl={x?.from?.image}
-          name={x?.from?.moniker}
-        />
-      ),
-      to: (
-        <AvatarName
-          address={x?.to?.identity}
-          imageUrl={x?.to?.image}
-          name={x?.to?.moniker}
-        />
-      ),
-      amount: x.amount,
-      linkedUntil: dayjs(x.linkedUntil).format('YYYY-MM-DD'),
-    });
-  });
+
   return (
     <div className={classnames(className)}>
-      {formatItems.map((x, i) => {
+      {items.map((x, i) => {
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
+              <div className={classes.item}>
+                <Typography variant="h4" className="label">
+                  {t('address')}
+                </Typography>
+                {x.address}
+              </div>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
                   {t('from')}
@@ -71,7 +56,7 @@ const Mobile: React.FC<{
                 </Typography>
               </div>
             </div>
-            {i !== formatItems.length - 1 && <Divider />}
+            {i !== items.length - 1 && <Divider />}
           </React.Fragment>
         );
       })}

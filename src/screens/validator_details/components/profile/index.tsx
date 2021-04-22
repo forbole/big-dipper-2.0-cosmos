@@ -15,10 +15,13 @@ import {
   Avatar,
   Tag,
   InfoPopover,
+  Markdown,
 } from '@components';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { useStyles } from './styles';
+import { useAccountContext } from '../../contexts/account';
+import { getStatusTheme } from './utils';
 
 const Profile: React.FC<{
   className?: string;
@@ -26,39 +29,35 @@ const Profile: React.FC<{
   const classes = useStyles();
   const { t } = useTranslation('validators');
   const { isMobile } = useScreenSize();
+  const { uiData } = useAccountContext();
 
   const handleCopyToClipboard = (value: string) => {
     copy(value);
     toast(t('common:copied'));
   };
 
-  const bio = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et quam vestibulum, ullamcorper mauris ut, imperdiet quam. Donec sed fermentum ligula. Quisque et est sit amet augue cursus varius vitae in tortor.';
+  const statusTheme = getStatusTheme(uiData.profile.status);
 
   const formattedItem = {
     operatorAddress: (
-      <div className={classes.copyText}>
-        <Link href={ACCOUNT_DETAILS('123')} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {isMobile ? getMiddleEllipsis(
-              'forb5u56XgvzxiKfRt4FVNFQKJrd2LWAfNCsCqL6P7q',
-              { beginning: 9 },
-            ) : 'forb5u56XgvzxiKfRt4FVNFQKJrd2LWAfNCsCqL6P7q'}
-          </Typography>
-        </Link>
-        <CopyIcon onClick={() => handleCopyToClipboard('1334')} />
-      </div>
+      <Typography variant="body1" className="value">
+        {isMobile ? getMiddleEllipsis(
+          uiData.profile.operatorAddress,
+          { beginning: 9 },
+        ) : uiData.profile.operatorAddress}
+      </Typography>
     ),
     selfDelegateAddress: (
       <div className={classes.copyText}>
-        <Link href={ACCOUNT_DETAILS('123')} passHref>
+        <Link href={ACCOUNT_DETAILS(uiData.profile.selfDelegateAddress)} passHref>
           <Typography variant="body1" className="value" component="a">
             {isMobile ? getMiddleEllipsis(
-              'forb5u56XgvzxiKfRt4FVNFQKJrd2LWAfNCsCqL6P7q',
+              uiData.profile.selfDelegateAddress,
               { beginning: 9 },
-            ) : 'forb5u56XgvzxiKfRt4FVNFQKJrd2LWAfNCsCqL6P7q'}
+            ) : uiData.profile.selfDelegateAddress}
           </Typography>
         </Link>
-        <CopyIcon onClick={() => handleCopyToClipboard('1334')} />
+        <CopyIcon onClick={() => handleCopyToClipboard(uiData.profile.selfDelegateAddress)} />
       </div>
     ),
     website: (
@@ -66,11 +65,11 @@ const Profile: React.FC<{
         variant="body1"
         className="value"
         component="a"
-        href="https://www.forbole.com"
+        href={uiData.profile.website}
         target="_blank"
         rel="noreferrer"
       >
-        https://www.forbole.com
+        {uiData.profile.website}
       </Typography>
     ),
     commission: (
@@ -78,15 +77,15 @@ const Profile: React.FC<{
         variant="body1"
         className="value"
       >
-        10%
+        {uiData.profile.commission}
       </Typography>
     ),
     condition: (
       <Typography
         variant="body1"
-        className="value good"
+        className={classnames('value', uiData.profile.condition)}
       >
-        {t('good')}
+        {t(uiData.profile.condition)}
       </Typography>
     ),
   };
@@ -95,7 +94,8 @@ const Profile: React.FC<{
     <Box className={classnames(className)}>
       <div className={classes.bio}>
         <Avatar
-          address="Forbole"
+          address={uiData.profile.operatorAddress}
+          imageUrl={uiData.profile.validator.imageUrl}
           className={classnames(classes.avatar, classes.desktopAvatar)}
         />
         <div>
@@ -105,23 +105,26 @@ const Profile: React.FC<{
             {/* ======================== */}
             <div className={classes.header}>
               <Avatar
-                address="Forbole"
+                address={uiData.profile.operatorAddress}
+                imageUrl={uiData.profile.validator.imageUrl}
                 className={classnames(classes.avatar, classes.mobile)}
               />
               <div className="header__content">
                 <Typography variant="h2">
-                  Forbole
+                  {uiData.profile.validator.moniker}
                 </Typography>
-                <Tag value="Active" theme="one" className={classes.tag} />
+                <Tag value={t(uiData.profile.status)} theme={statusTheme} className={classes.tag} />
               </div>
             </div>
           </div>
           {/* ======================== */}
           {/* bio */}
           {/* ======================== */}
-          <Typography variant="body1" className="bio__content">
-            {bio}
-          </Typography>
+          <div className="bio__content">
+            <Markdown>
+              {uiData.profile.description}
+            </Markdown>
+          </div>
         </div>
       </div>
 

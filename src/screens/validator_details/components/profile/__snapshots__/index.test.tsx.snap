@@ -9,7 +9,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
     className="makeStyles-bio"
   >
     <div
-      address="Forbole"
+      address="operatorAddress"
       className="makeStyles-avatar makeStyles-desktopAvatar"
       id="Avatar"
     />
@@ -21,7 +21,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
           className="makeStyles-header"
         >
           <div
-            address="Forbole"
+            address="operatorAddress"
             className="makeStyles-avatar makeStyles-mobile"
             id="Avatar"
           />
@@ -31,22 +31,26 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
             <h2
               className="MuiTypography-root MuiTypography-h2"
             >
-              Forbole
+              moniker
             </h2>
             <div
               className="makeStyles-tag"
               id="Tag"
               theme="one"
-              value="Active"
+              value="validators:active"
             />
           </div>
         </div>
       </div>
-      <p
-        className="MuiTypography-root bio__content MuiTypography-body1"
+      <div
+        className="bio__content"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et quam vestibulum, ullamcorper mauris ut, imperdiet quam. Donec sed fermentum ligula. Quisque et est sit amet augue cursus varius vitae in tortor.
-      </p>
+        <div
+          id="Markdown"
+        >
+          description
+        </div>
+      </div>
     </div>
   </div>
   <hr
@@ -61,22 +65,11 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
       >
         validators:operatorAddress
       </h4>
-      <div
-        className="makeStyles-copyText"
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
       >
-        <a
-          className="MuiTypography-root value MuiTypography-body1"
-          href="/accounts/123"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-        >
-          forb5u56X...LWAfNCsCqL6P7q
-        </a>
-        <svg
-          data-file-name="SvgIconCopy"
-          onClick={[Function]}
-        />
-      </div>
+        operatorA...dress
+      </p>
     </div>
     <div
       className="makeStyles-item"
@@ -91,11 +84,11 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
       >
         <a
           className="MuiTypography-root value MuiTypography-body1"
-          href="/accounts/123"
+          href="/accounts/selfDelegateAddress"
           onClick={[Function]}
           onMouseEnter={[Function]}
         >
-          forb5u56X...LWAfNCsCqL6P7q
+          selfDeleg...ddress
         </a>
         <svg
           data-file-name="SvgIconCopy"
@@ -113,11 +106,11 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
       </h4>
       <a
         className="MuiTypography-root value MuiTypography-body1"
-        href="https://www.forbole.com"
+        href="website"
         rel="noreferrer"
         target="_blank"
       >
-        https://www.forbole.com
+        website
       </a>
     </div>
     <div
@@ -130,9 +123,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
       </h4>
       <p
         className="MuiTypography-root value MuiTypography-body1"
-      >
-        10%
-      </p>
+      />
     </div>
     <div
       className="makeStyles-item"
@@ -147,9 +138,9 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
         />
       </h4>
       <p
-        className="MuiTypography-root value good MuiTypography-body1"
+        className="MuiTypography-root value active MuiTypography-body1"
       >
-        validators:good
+        validators:active
       </p>
     </div>
   </div>

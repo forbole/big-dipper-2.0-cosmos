@@ -4,21 +4,25 @@ export const columns:{
   width: number;
 }[] = [
   {
+    key: 'address',
+    width: 20,
+  },
+  {
     key: 'from',
-    width: 25,
+    width: 20,
   },
   {
     key: 'to',
-    width: 25,
+    width: 20,
   },
   {
     key: 'amount',
-    width: 25,
+    width: 20,
     align: 'right',
   },
   {
     key: 'linkedUntil',
-    width: 25,
+    width: 20,
     align: 'right',
   },
 ];
