@@ -48,7 +48,7 @@ export const useBlocks = () => {
   };
 
   const formatUi = () => {
-    return state.map((x, i) => {
+    return state.map((x) => {
       const proposer = findAddress(x.proposer);
       return ({
         proposer: (
