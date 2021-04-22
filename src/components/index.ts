@@ -23,6 +23,7 @@ import CustomToolTip from './custom_tool_tip';
 import NotFound from './not_found';
 import LinearLoading from './linear_loading';
 import Name from './name';
+import Markdown from './markdown';
 
 export {
   Layout,
@@ -50,4 +51,5 @@ export {
   NotFound,
   LinearLoading,
   Name,
+  Markdown,
 };

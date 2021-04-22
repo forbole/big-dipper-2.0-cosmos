@@ -11,6 +11,27 @@ jest.mock('@components', () => ({
   Avatar: (props) => <div id="Avatar" {...props} />,
   Tag: (props) => <div id="Tag" {...props} />,
   InfoPopover: (props) => <div id="InfoPopover" {...props} />,
+  Markdown: (props) => <div id="Markdown" {...props} />,
+}));
+
+jest.mock('../../contexts/account', () => ({
+  useAccountContext: () => {
+    return ({
+      uiData: {
+        profile: {
+          operatorAddress: 'operatorAddress',
+          selfDelegateAddress: 'selfDelegateAddress',
+          website: 'website',
+          validator: {
+            moniker: 'moniker',
+          },
+          status: 'active',
+          description: 'description',
+          condition: 'active',
+        },
+      },
+    });
+  },
 }));
 
 // ==================================

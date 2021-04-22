@@ -5,10 +5,9 @@ import {
   Typography,
   Tooltip,
 } from '@material-ui/core';
-import {
-  Box, AvatarName, Result,
-} from '@components';
+import { Box } from '@components';
 import { useStyles } from './styles';
+import { useBlocks } from './hooks';
 
 const Blocks: React.FC<{
   className?: string;
@@ -16,49 +15,9 @@ const Blocks: React.FC<{
   className,
 }) => {
   const { t } = useTranslation('validators');
-  const fakeBlock = {
-    signed: true,
-    block: '120,322',
-    proposer: {
-      image: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
-      moniker: 'Forbole',
-      identity: 'FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk',
-    },
-    votingPower: '70%',
-    gas: '345 / 345',
-  };
-
-  const fakeBlockTwo = {
-    signed: false,
-    block: '120,322',
-    proposer: {
-      image: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
-      moniker: 'Forbole',
-      identity: 'FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk',
-    },
-    votingPower: '70%',
-    gas: '345 / 345',
-  };
-
-  const blocks = [...Array(50).fill(fakeBlock), ...Array(50).fill(fakeBlockTwo)];
-
-  const formattedBlocks = blocks.map((x) => {
-    return ({
-      proposer: (
-        <AvatarName
-          address={x?.proposer?.identity}
-          imageUrl={x?.proposer?.image}
-          name={x?.proposer?.moniker}
-        />
-      ),
-      block: x.block,
-      votingPower: x.votingPower,
-      gas: x.gas,
-      signed: (
-        <Result success={x.signed} />
-      ),
-    });
-  });
+  const {
+    uiData, rawData,
+  } = useBlocks();
 
   const classes = useStyles();
   return (
@@ -67,7 +26,7 @@ const Blocks: React.FC<{
         {t('lastBlocks')}
       </Typography>
       <div className={classes.blocks}>
-        {formattedBlocks.map((x, i) => {
+        {uiData.map((x, i) => {
           return (
             <Tooltip
               enterTouchDelay={50}
@@ -97,10 +56,10 @@ const Blocks: React.FC<{
                   </div>
                   <div className={classes.item}>
                     <Typography variant="h4" className="label">
-                      {t('gas')}
+                      {t('txs')}
                     </Typography>
                     <Typography variant="body1" className="value">
-                      {x.gas}
+                      {x.txs}
                     </Typography>
                   </div>
                   <div className={classes.item}>
@@ -118,7 +77,7 @@ const Blocks: React.FC<{
                 className={classnames(
                   classes.singleBlock,
                   {
-                    signed: blocks[i].signed,
+                    signed: rawData[i].signed,
                   },
                 )}
               />

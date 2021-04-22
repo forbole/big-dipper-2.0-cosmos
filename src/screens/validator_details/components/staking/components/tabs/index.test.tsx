@@ -10,6 +10,20 @@ jest.mock('@components', () => ({
   Search: (props) => <div id="Search" {...props} />,
 }));
 
+jest.mock('../../../../contexts/account', () => ({
+  useAccountContext: () => {
+    return ({
+      uiData: {
+        staking: {
+          delegations: Array(4).fill(null),
+          redelegations: Array(14).fill(null),
+          unbonding: Array(4).fill(null),
+        },
+      },
+    });
+  },
+}));
+
 // ==================================
 // unit tests
 // ==================================

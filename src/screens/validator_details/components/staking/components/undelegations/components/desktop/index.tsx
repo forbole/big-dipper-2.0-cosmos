@@ -1,7 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import dayjs from 'dayjs';
 import {
   Table,
   TableHead,
@@ -9,7 +8,6 @@ import {
   TableCell,
   TableBody,
 } from '@material-ui/core';
-import { AvatarName } from '@components';
 import { columns } from './utils';
 
 const Desktop: React.FC<{
@@ -19,19 +17,7 @@ const Desktop: React.FC<{
   className, items,
 }) => {
   const { t } = useTranslation('validators');
-  const formatItems = items.map((x) => {
-    return ({
-      address: (
-        <AvatarName
-          address={x?.address?.identity}
-          imageUrl={x?.address?.image}
-          name={x?.address?.moniker}
-        />
-      ),
-      amount: x.amount,
-      linkedUntil: dayjs(x.linkedUntil).format('YYYY-MM-DD'),
-    });
-  });
+
   return (
     <div className={classnames(className)}>
       <Table>
@@ -51,7 +37,7 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formatItems.map((row, i) => (
+          {items.map((row, i) => (
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => {
                 return (

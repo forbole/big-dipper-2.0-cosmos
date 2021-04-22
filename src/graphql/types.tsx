@@ -12281,6 +12281,102 @@ export type TransactionsQuery = { transactions: Array<(
     )> }
   ) };
 
+export type ValidatorDetailsQueryVariables = Exact<{
+  address?: Maybe<Scalars['String']>;
+  delegationHeight?: Maybe<Scalars['bigint']>;
+  utc?: Maybe<Scalars['timestamp']>;
+  undelegationHeight?: Maybe<Scalars['bigint']>;
+}>;
+
+
+export type ValidatorDetailsQuery = { stakingPool: Array<(
+    { __typename?: 'staking_pool' }
+    & Pick<Staking_Pool, 'height'>
+    & { bonded: Staking_Pool['bonded_tokens'] }
+  )>, validator: Array<(
+    { __typename?: 'validator' }
+    & { validatorDescriptions: Array<(
+      { __typename?: 'validator_description' }
+      & Pick<Validator_Description, 'details' | 'website'>
+    )>, validatorStatuses: Array<(
+      { __typename?: 'validator_status' }
+      & Pick<Validator_Status, 'status' | 'jailed' | 'height'>
+    )>, validatorSigningInfos: Array<(
+      { __typename?: 'validator_signing_info' }
+      & { missedBlocksCounter: Validator_Signing_Info['missed_blocks_counter'] }
+    )>, validatorInfo?: Maybe<(
+      { __typename?: 'validator_info' }
+      & { operatorAddress: Validator_Info['operator_address'], selfDelegateAddress: Validator_Info['self_delegate_address'] }
+    )>, validatorCommissions: Array<(
+      { __typename?: 'validator_commission' }
+      & Pick<Validator_Commission, 'commission'>
+    )>, validatorVotingPowers: Array<(
+      { __typename?: 'validator_voting_power' }
+      & Pick<Validator_Voting_Power, 'height'>
+      & { votingPower: Validator_Voting_Power['voting_power'] }
+    )>, delegations: Array<(
+      { __typename?: 'delegation' }
+      & Pick<Delegation, 'amount'>
+      & { delegatorAddress: Delegation['delegator_address'] }
+    )>, redelegationsByDstValidatorAddress: Array<(
+      { __typename?: 'redelegation' }
+      & Pick<Redelegation, 'amount'>
+      & { completionTime: Redelegation['completion_time'], to: Redelegation['src_validator_address'], from: Redelegation['dst_validator_address'], delegatorAddress: Redelegation['delegator_address'] }
+    )>, redelegationsBySrcValidatorAddress: Array<(
+      { __typename?: 'redelegation' }
+      & Pick<Redelegation, 'amount'>
+      & { completionTime: Redelegation['completion_time'], to: Redelegation['src_validator_address'], from: Redelegation['dst_validator_address'], delegatorAddress: Redelegation['delegator_address'] }
+    )>, unbonding: Array<(
+      { __typename?: 'unbonding_delegation' }
+      & Pick<Unbonding_Delegation, 'amount'>
+      & { completionTimestamp: Unbonding_Delegation['completion_timestamp'], delegatorAddress: Unbonding_Delegation['delegator_address'] }
+    )> }
+  )>, slashingParams: Array<(
+    { __typename?: 'slashing_params' }
+    & { signedBlockWindow: Slashing_Params['signed_block_window'] }
+  )> };
+
+export type LastHundredBlocksQueryVariables = Exact<{
+  address?: Maybe<Scalars['String']>;
+}>;
+
+
+export type LastHundredBlocksQuery = { block: Array<(
+    { __typename?: 'block' }
+    & Pick<Block, 'height'>
+    & { validator: (
+      { __typename?: 'validator' }
+      & { validatorInfo?: Maybe<(
+        { __typename?: 'validator_info' }
+        & { operatorAddress: Validator_Info['operator_address'] }
+      )> }
+    ), validatorVotingPowers: (
+      { __typename?: 'validator_voting_power_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'validator_voting_power_aggregate_fields' }
+        & { sum?: Maybe<(
+          { __typename?: 'validator_voting_power_sum_fields' }
+          & { votingPower: Validator_Voting_Power_Sum_Fields['voting_power'] }
+        )> }
+      )> }
+    ), preCommitsAggregate: (
+      { __typename?: 'pre_commit_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'pre_commit_aggregate_fields' }
+        & { sum?: Maybe<(
+          { __typename?: 'pre_commit_sum_fields' }
+          & { votingPower: Pre_Commit_Sum_Fields['voting_power'] }
+        )> }
+      )> }
+    ), transactions: Array<(
+      { __typename?: 'transaction' }
+      & Pick<Transaction, 'hash'>
+    )>, precommits: Array<(
+      { __typename?: 'pre_commit' }
+      & { validatorAddress: Pre_Commit['validator_address'] }
+    )> }
+  )> };
+
 export type ValidatorsAddressListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -13147,6 +13243,170 @@ export function useTransactionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptio
 export type TransactionsQueryHookResult = ReturnType<typeof useTransactionsQuery>;
 export type TransactionsLazyQueryHookResult = ReturnType<typeof useTransactionsLazyQuery>;
 export type TransactionsQueryResult = Apollo.QueryResult<TransactionsQuery, TransactionsQueryVariables>;
+export const ValidatorDetailsDocument = gql`
+    query ValidatorDetails($address: String, $delegationHeight: bigint, $utc: timestamp, $undelegationHeight: bigint) {
+  stakingPool: staking_pool(order_by: {height: desc}, limit: 1, offset: 3) {
+    height
+    bonded: bonded_tokens
+  }
+  validator(where: {validator_info: {operator_address: {_eq: $address}}}) {
+    validatorDescriptions: validator_descriptions(
+      order_by: {height: desc}
+      limit: 1
+    ) {
+      details
+      website
+    }
+    validatorStatuses: validator_statuses(order_by: {height: desc}, limit: 1) {
+      status
+      jailed
+      height
+    }
+    validatorSigningInfos: validator_signing_infos(
+      order_by: {height: desc}
+      limit: 1
+    ) {
+      missedBlocksCounter: missed_blocks_counter
+    }
+    validatorInfo: validator_info {
+      operatorAddress: operator_address
+      selfDelegateAddress: self_delegate_address
+    }
+    validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
+      commission
+    }
+    validatorVotingPowers: validator_voting_powers(
+      offset: 3
+      limit: 1
+      order_by: {height: desc}
+    ) {
+      height
+      votingPower: voting_power
+    }
+    delegations(where: {height: {_eq: $delegationHeight}}) {
+      amount
+      delegatorAddress: delegator_address
+    }
+    redelegationsByDstValidatorAddress(where: {completion_time: {_gt: $utc}}) {
+      amount
+      completionTime: completion_time
+      to: src_validator_address
+      from: dst_validator_address
+      delegatorAddress: delegator_address
+    }
+    redelegationsBySrcValidatorAddress(where: {completion_time: {_gt: $utc}}) {
+      amount
+      completionTime: completion_time
+      to: src_validator_address
+      from: dst_validator_address
+      delegatorAddress: delegator_address
+    }
+    unbonding: unbonding_delegations(
+      where: {completion_timestamp: {_gt: $utc}, height: {_eq: $undelegationHeight}}
+    ) {
+      amount
+      completionTimestamp: completion_timestamp
+      delegatorAddress: delegator_address
+    }
+  }
+  slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
+    signedBlockWindow: signed_block_window
+  }
+}
+    `;
+
+/**
+ * __useValidatorDetailsQuery__
+ *
+ * To run a query within a React component, call `useValidatorDetailsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorDetailsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useValidatorDetailsQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *      delegationHeight: // value for 'delegationHeight'
+ *      utc: // value for 'utc'
+ *      undelegationHeight: // value for 'undelegationHeight'
+ *   },
+ * });
+ */
+export function useValidatorDetailsQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>(ValidatorDetailsDocument, options);
+      }
+export function useValidatorDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>(ValidatorDetailsDocument, options);
+        }
+export type ValidatorDetailsQueryHookResult = ReturnType<typeof useValidatorDetailsQuery>;
+export type ValidatorDetailsLazyQueryHookResult = ReturnType<typeof useValidatorDetailsLazyQuery>;
+export type ValidatorDetailsQueryResult = Apollo.QueryResult<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>;
+export const LastHundredBlocksDocument = gql`
+    query LastHundredBlocks($address: String) {
+  block(offset: 3, order_by: {height: desc}, limit: 100) {
+    height
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
+      }
+    }
+    validatorVotingPowers: validator_voting_powers_aggregate {
+      aggregate {
+        sum {
+          votingPower: voting_power
+        }
+      }
+    }
+    preCommitsAggregate: pre_commits_aggregate {
+      aggregate {
+        sum {
+          votingPower: voting_power
+        }
+      }
+    }
+    transactions {
+      hash
+    }
+    precommits: pre_commits(
+      where: {validator: {validator_info: {operator_address: {_eq: $address}}}}
+    ) {
+      validatorAddress: validator_address
+    }
+  }
+}
+    `;
+
+/**
+ * __useLastHundredBlocksQuery__
+ *
+ * To run a query within a React component, call `useLastHundredBlocksQuery` and pass it any options that fit your needs.
+ * When your component renders, `useLastHundredBlocksQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useLastHundredBlocksQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useLastHundredBlocksQuery(baseOptions?: Apollo.QueryHookOptions<LastHundredBlocksQuery, LastHundredBlocksQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<LastHundredBlocksQuery, LastHundredBlocksQueryVariables>(LastHundredBlocksDocument, options);
+      }
+export function useLastHundredBlocksLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LastHundredBlocksQuery, LastHundredBlocksQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<LastHundredBlocksQuery, LastHundredBlocksQueryVariables>(LastHundredBlocksDocument, options);
+        }
+export type LastHundredBlocksQueryHookResult = ReturnType<typeof useLastHundredBlocksQuery>;
+export type LastHundredBlocksLazyQueryHookResult = ReturnType<typeof useLastHundredBlocksLazyQuery>;
+export type LastHundredBlocksQueryResult = Apollo.QueryResult<LastHundredBlocksQuery, LastHundredBlocksQueryVariables>;
 export const ValidatorsAddressListDocument = gql`
     query ValidatorsAddressList {
   validator {
