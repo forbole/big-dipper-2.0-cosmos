@@ -21,12 +21,14 @@ const Consensus: React.FC<{
   const {
     classes, theme,
   } = useStyles();
-  const { uiData } = useConsensus();
+  const {
+    uiData, rawData,
+  } = useConsensus();
   const { t } = useTranslation('home');
 
   const data = [
     {
-      value: 73,
+      value: rawData.stepCompletion,
       fill: theme.palette.custom.primaryData.three,
     },
   ];
@@ -88,7 +90,7 @@ const Consensus: React.FC<{
             className="progress-label"
           >
             <tspan className={classes.chartPercentLabel}>
-              73%
+              {uiData.stepCompletion}
             </tspan>
           </text>
           <text

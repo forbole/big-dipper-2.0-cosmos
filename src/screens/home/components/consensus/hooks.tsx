@@ -14,6 +14,8 @@ export const useConsensus = () => {
     round: 0,
     step: 0,
     proposer: '',
+    stepCompletion: 0,
+    proposerRaw: '',
   });
 
   const callback = async () => {
@@ -28,19 +30,42 @@ export const useConsensus = () => {
   useInterval(callback, 50000);
 
   const formatCallback = (data: any) => {
-    console.log(data, 'data');
+    // console.log(data, 'data');
     const [height, round, step] = R.pathOr('0/0/0', ['result', 'round_state', 'height/round/step'], data).split('/');
+
+    let completionPercent = '0.00';
+    // prevote
+    completionPercent = R.pathOr(0, ['result', 'round_state', 'height_vote_set', round, 'precommits_bit_array'], data);
+    if (step >= 4) {
+      completionPercent = R.pathOr(0, ['result', 'round_state', 'height_vote_set', round, 'precommits_bit_array'], data);
+    }
+
+    // precommit
+    if (step <= 5) {
+      completionPercent = R.pathOr(0, ['result', 'round_state', 'height_vote_set', round, 'prevotes_bit_array'], data);
+    }
+
+    const stepCompletion = numeral(R.pathOr('0.00', [1], completionPercent.split(' = '))).value() * 100;
 
     setState({
       height,
       round,
       step,
-      proposer: hexToBech32(R.pathOr('', ['result', 'round_state', 'proposer', 'address'], data), 'desmosvaloper'),
+      proposer: hexToBech32(R.pathOr('', ['result', 'round_state', 'proposer', 'address'], data), 'desmos'),
+      stepCompletion,
+      proposerRaw: R.pathOr('', ['result', 'round_state', 'proposer', 'address'], data),
     });
   };
 
   const formatUi = () => {
     const proposer = findAddress(state.proposer);
+    if (proposer) {
+      console.log(state.proposer);
+      console.log(state.proposerRaw, 'raw');
+      console.log(hexToBech32(state.proposerRaw, 'desmosvaloper'), 'operater');
+      console.log(hexToBech32(state.proposerRaw, 'desmosvalcons'), 'consensus');
+      console.log(proposer.moniker, 'moniker');
+    }
     return ({
       height: numeral(state.height).format('0,0'),
       round: numeral(state.round).format('0,0'),
@@ -52,6 +77,7 @@ export const useConsensus = () => {
           name={proposer ? proposer.moniker : 'Shy Validator'}
         />
       ),
+      stepCompletion: `${numeral(state.stepCompletion).format('0')}%`,
     });
   };
 
