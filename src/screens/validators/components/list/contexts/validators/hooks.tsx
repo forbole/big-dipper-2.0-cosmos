@@ -83,6 +83,8 @@ export const useValidators = (initialState: ValidatorsState) => {
         self,
         selfPercent,
         condition,
+        status: R.pathOr(0, ['validatorStatuses', 0, 'status'], x),
+        jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], x),
       });
     });
     return {
@@ -94,6 +96,7 @@ export const useValidators = (initialState: ValidatorsState) => {
   const formatUi = () => {
     return state.items.map((x, i) => {
       const validator = findAddress(x.validator);
+      const condition = x.status === 3 ? getValidatorConditionClass(x.condition) : undefined;
       return ({
         idx: `#${i + 1}`,
         validator: (
@@ -106,7 +109,7 @@ export const useValidators = (initialState: ValidatorsState) => {
         commission: `${x.commission}%`,
         self: `${numeral(x.selfPercent).format('0.[00]')}%`,
         condition: (
-          <Condition className={getValidatorConditionClass(x.condition)} />
+          <Condition className={condition} />
         ),
         votingPower: (
           <VotingPower

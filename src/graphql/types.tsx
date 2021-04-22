@@ -12387,7 +12387,10 @@ export type ValidatorsQuery = { stakingPool: Array<(
     & { bondedTokens: Staking_Pool['bonded_tokens'] }
   )>, validator: Array<(
     { __typename?: 'validator' }
-    & { validatorSigningInfos: Array<(
+    & { validatorStatuses: Array<(
+      { __typename?: 'validator_status' }
+      & Pick<Validator_Status, 'status' | 'jailed' | 'height'>
+    )>, validatorSigningInfos: Array<(
       { __typename?: 'validator_signing_info' }
       & { missedBlocksCounter: Validator_Signing_Info['missed_blocks_counter'] }
     )>, validatorInfo?: Maybe<(
@@ -13445,6 +13448,11 @@ export const ValidatorsDocument = gql`
     bondedTokens: bonded_tokens
   }
   validator {
+    validatorStatuses: validator_statuses(order_by: {height: desc}, limit: 1) {
+      status
+      jailed
+      height
+    }
     validatorSigningInfos: validator_signing_infos(
       order_by: {height: desc}
       limit: 1

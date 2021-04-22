@@ -10,6 +10,8 @@ export interface ValidatorsState {
     self: number;
     selfPercent: number;
     condition: number;
+    status: number;
+    jailed: boolean;
   }[];
   tab: number;
   handleTabChange?: (event:any, newvalue:number) => void;

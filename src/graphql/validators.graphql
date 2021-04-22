@@ -3,6 +3,11 @@ query Validators ($delegationHeight: bigint){
     bondedTokens: bonded_tokens
   }
   validator {
+    validatorStatuses: validator_statuses(order_by: {height: desc}, limit: 1) {
+      status
+      jailed
+      height
+    }
     validatorSigningInfos: validator_signing_infos(order_by: {height: desc}, limit: 1) {
       missedBlocksCounter: missed_blocks_counter
     }
