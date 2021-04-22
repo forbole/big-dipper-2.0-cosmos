@@ -1,7 +1,6 @@
 import {
   useState,
   useEffect,
-  useMemo,
 } from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
@@ -16,7 +15,9 @@ import { useChainContext } from '@contexts';
 import {
   getValidatorCondition, getValidatorConditionClass,
 } from '@utils/get_validator_condition';
-import { ValidatorsState } from './types';
+import {
+  ValidatorsState, ValidatorItems,
+} from './types';
 import {
   VotingPower, Condition,
 } from '../../components';
@@ -98,8 +99,8 @@ export const useValidators = (initialState: ValidatorsState) => {
     };
   };
 
-  const formatUi = () => {
-    return state.items.map((x, i) => {
+  const formatUi = (formatItems: ValidatorItems[]) => {
+    return formatItems.map((x, i) => {
       const validator = findAddress(x.validator);
       const condition = x.status === 3 ? getValidatorConditionClass(x.condition) : undefined;
       return ({
@@ -137,22 +138,23 @@ export const useValidators = (initialState: ValidatorsState) => {
   // ===========================
   // sorting
   // ===========================
-  const sortedItems = useMemo(() => {
-    const sortableItems = [...items];
-    console.log('am i here');
-    if (sortKey && sortDirection) {
-      sortableItems.sort((a, b) => {
-        if (a[sortKey] < b[sortKey]) {
-          return sortDirection === 'asc' ? -1 : 1;
-        }
-        if (a[sortKey] > b[sortKey]) {
-          return sortDirection === 'asc' ? 1 : -1;
-        }
-        return 0;
-      });
-    }
-    return sortableItems;
-  }, [items, sortKey, sortDirection]);
+
+  // const sortedItems = useMemo(() => {
+  //   const sortableItems = [...items];
+  //   if (sortKey && sortDirection) {
+  //     sortableItems.sort((a, b) => {
+  // if (a[sortKey] < b[sortKey]) {
+  //   console.log('im in here');
+  //   return sortDirection === 'asc' ? -1 : 1;
+  // }
+  // if (a[sortKey] > b[sortKey]) {
+  //   return sortDirection === 'asc' ? 1 : -1;
+  // }
+  // return 0;
+  //     });
+  //   }
+  //   return sortableItems;
+  // }, [items, sortKey, sortDirection]);
 
   const handleSort = (key: string) => {
     if (key === sortKey) {
@@ -169,6 +171,31 @@ export const useValidators = (initialState: ValidatorsState) => {
     }
   };
 
+  const uiSort = () => {
+    const sorted = R.clone(items);
+    if (sortKey && sortDirection) {
+      sorted.sort((a, b) => {
+        let compareA = a[sortKey];
+        let compareB = b[sortKey];
+
+        if (typeof compareA === 'string') {
+          compareA = compareA.toLowerCase();
+          compareB = compareB.toLowerCase();
+        }
+
+        if (compareA < compareB) {
+          return sortDirection === 'asc' ? -1 : 1;
+        }
+        if (compareA > compareB) {
+          return sortDirection === 'asc' ? 1 : -1;
+        }
+        return 0;
+      });
+    }
+
+    return formatUi(sorted);
+  };
+
   // ===========================
   // search
   // ===========================
@@ -177,7 +204,7 @@ export const useValidators = (initialState: ValidatorsState) => {
   };
 
   return {
-    items: sortedItems,
+    items: state.items,
     tab,
     handleTabChange,
     handleSort,
@@ -185,6 +212,6 @@ export const useValidators = (initialState: ValidatorsState) => {
     sortDirection,
     handleSearch,
     votingPowerOverall: state.votingPowerOverall,
-    uiData: formatUi(),
+    uiData: uiSort(),
   };
 };

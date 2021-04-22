@@ -6,7 +6,7 @@ const initialState: ValidatorsState = {
   items: [],
   votingPowerOverall: 0,
   tab: 0,
-  sortKey: 'validator',
+  sortKey: 'moniker',
   sortDirection: 'asc',
 };
 

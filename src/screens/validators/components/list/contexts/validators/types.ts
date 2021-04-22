@@ -1,19 +1,20 @@
 import React from 'react';
 
+export type ValidatorItems = {
+  moniker: string;
+  validator: string;
+  votingPower: number;
+  votingPowerPercent: number;
+  commission: number;
+  self: number;
+  selfPercent: number;
+  condition: number;
+  status: number;
+  jailed: boolean;
+}
 export interface ValidatorsState {
   votingPowerOverall: number;
-  items: {
-    moniker: string;
-    validator: string;
-    votingPower: number;
-    votingPowerPercent: number;
-    commission: number;
-    self: number;
-    selfPercent: number;
-    condition: number;
-    status: number;
-    jailed: boolean;
-  }[];
+  items: ValidatorItems[];
   tab: number;
   handleTabChange?: (event:any, newvalue:number) => void;
   sortKey: string;
