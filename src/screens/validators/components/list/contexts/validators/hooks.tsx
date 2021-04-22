@@ -13,9 +13,13 @@ import {
 import { AvatarName } from '@components';
 import { formatDenom } from '@utils/format_denom';
 import { useChainContext } from '@contexts';
-import { getValidatorCondition } from '@utils/get_validator_condition';
+import {
+  getValidatorCondition, getValidatorConditionClass,
+} from '@utils/get_validator_condition';
 import { ValidatorsState } from './types';
-import { VotingPower } from '../../components';
+import {
+  VotingPower, Condition,
+} from '../../components';
 
 export const useValidators = (initialState: ValidatorsState) => {
   const { findAddress } = useChainContext();
@@ -70,12 +74,7 @@ export const useValidators = (initialState: ValidatorsState) => {
       const selfPercent = (self / (votingPower || 1)) * 100;
       const missedBlockCounter = R.pathOr(0, ['validatorSigningInfos', 0, 'missedBlocksCounter'], x);
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
-      // if (i === 1) {
-      //   console.log()
-      //   console.log(selfPercent, 'expecting 100');
-      //   console.log(self, 'self');
-      //   console.log(votingPower, 'vp');
-      // }
+
       return ({
         validator,
         votingPower,
@@ -94,10 +93,6 @@ export const useValidators = (initialState: ValidatorsState) => {
 
   const formatUi = () => {
     return state.items.map((x, i) => {
-      if (i === 64) {
-        console.log(x.selfPercent, 'expecting 100');
-        console.log(numeral(x.selfPercent).format('0.[00]'));
-      }
       const validator = findAddress(x.validator);
       return ({
         idx: `#${i + 1}`,
@@ -110,8 +105,9 @@ export const useValidators = (initialState: ValidatorsState) => {
         ),
         commission: `${x.commission}%`,
         self: `${numeral(x.selfPercent).format('0.[00]')}%`,
-        condition: x.condition,
-
+        condition: (
+          <Condition className={getValidatorConditionClass(x.condition)} />
+        ),
         votingPower: (
           <VotingPower
             percentDisplay={`${numeral(x.votingPowerPercent).format('0.[00]')}%`}

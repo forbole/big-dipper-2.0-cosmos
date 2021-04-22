@@ -7,7 +7,7 @@
     "build": "npm run build:next && npm run build:server",
     "build:server": "tsc --project tsconfig.server.json",
     "build:next": "next build",
-    "start": "ENV=production node dist/index.js",
+    "start": "NODE_ENV=production node dist/index.js",
     "type-check": "tsc",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "test": "NODE_ENV=test jest",
