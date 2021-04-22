@@ -3,6 +3,7 @@ import React from 'react';
 export interface ValidatorsState {
   votingPowerOverall: number;
   items: {
+    moniker: string;
     validator: string;
     votingPower: number;
     votingPowerPercent: number;

@@ -60,7 +60,7 @@ export const useValidators = (initialState: ValidatorsState) => {
   const formatValidators = (data: ValidatorsQuery) => {
     const votingPowerOverall = formatDenom(R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data));
     const signedBlockWindow = R.pathOr(0, ['slashingParams', 0, 'signedBlockWindow'], data);
-    const formattedItems = data.validator.map((x, i) => {
+    const formattedItems = data.validator.map((x) => {
       const validator = x.validatorInfo.operatorAddress;
       const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
       const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
@@ -76,6 +76,7 @@ export const useValidators = (initialState: ValidatorsState) => {
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
 
       return ({
+        moniker: findAddress(validator)?.moniker || validator,
         validator,
         votingPower,
         votingPowerPercent,
@@ -87,6 +88,10 @@ export const useValidators = (initialState: ValidatorsState) => {
         jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], x),
       });
     });
+    // .sort((a, b) => {
+    //   return a.moniker.toLowerCase() < b.moniker.toLowerCase() ? -1 : 1;
+    // });
+
     return {
       votingPowerOverall,
       items: formattedItems,
@@ -134,17 +139,18 @@ export const useValidators = (initialState: ValidatorsState) => {
   // ===========================
   const sortedItems = useMemo(() => {
     const sortableItems = [...items];
-    // if (sortKey && sortDirection) {
-    //   sortableItems.sort((a, b) => {
-    //     if (a[sortKey] < b[sortKey]) {
-    //       return sortDirection === 'asc' ? -1 : 1;
-    //     }
-    //     if (a[sortKey] > b[sortKey]) {
-    //       return sortDirection === 'asc' ? 1 : -1;
-    //     }
-    //     return 0;
-    //   });
-    // }
+    console.log('am i here');
+    if (sortKey && sortDirection) {
+      sortableItems.sort((a, b) => {
+        if (a[sortKey] < b[sortKey]) {
+          return sortDirection === 'asc' ? -1 : 1;
+        }
+        if (a[sortKey] > b[sortKey]) {
+          return sortDirection === 'asc' ? 1 : -1;
+        }
+        return 0;
+      });
+    }
     return sortableItems;
   }, [items, sortKey, sortDirection]);
 

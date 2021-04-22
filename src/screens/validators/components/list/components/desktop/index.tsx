@@ -59,6 +59,7 @@ const Desktop: React.FC<{
                     align,
                     component,
                     sort,
+                    sortKey: sortingKey,
                   } = columns[columnIndex];
 
                   return (
@@ -71,7 +72,7 @@ const Desktop: React.FC<{
                           [align]: sort || component,
                         },
                       )}
-                      onClick={() => (sort ? handleSort(key) : null)}
+                      onClick={() => (sort ? handleSort(sortingKey) : null)}
                       role="button"
                     >
                       {component || (
