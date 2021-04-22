@@ -48,10 +48,7 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
       }
     } = {};
     const consensusAddresses: {
-      [key: string]: {
-        moniker: string;
-        imageUrl?: string;
-      }
+      [key: string]: string;
     } = {};
 
     // ===============================
@@ -64,13 +61,12 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
       const validatorAddress = x.validatorInfo.operatorAddress;
       const selfAddress = x.validatorInfo.selfDelegateAddress;
       const { consensusAddress } = x.validatorInfo;
-
       validators[validatorAddress] = {
         moniker: R.pathOr('Shy Validator', ['validatorDescriptions', 0, 'moniker'], x),
       };
 
       selfDelegateAddresses[selfAddress] = validators[validatorAddress];
-      consensusAddresses[consensusAddress] = validators[validatorAddress];
+      consensusAddresses[consensusAddress] = validatorAddress;
 
       if (
         x.validatorDescriptions.length
@@ -85,7 +81,6 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
         promiseIndexTracker[promises.length - 1] = validatorAddress;
       }
     });
-
     // ===============================
     // Set imageUrl in to the dictionary
     // ===============================
@@ -112,6 +107,7 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
     return {
       validators,
       selfDelegateAddresses,
+      consensusAddresses,
     };
   };
 
@@ -125,10 +121,15 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
     return null;
   };
 
+  const findOperator = (consensusAddress: string) => {
+    return state.consensusAddresses[consensusAddress] ?? null;
+  };
+
   return {
     validatorsAddresses: state,
     loading: state.loading,
     findAddress,
+    findOperator,
   };
 };
 

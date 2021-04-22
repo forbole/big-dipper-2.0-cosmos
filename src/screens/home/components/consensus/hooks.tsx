@@ -8,7 +8,9 @@ import { useChainContext } from '@contexts';
 import { hexToBech32 } from '@utils/hex_to_bech32';
 
 export const useConsensus = () => {
-  const { findAddress } = useChainContext();
+  const {
+    findAddress, findOperator,
+  } = useChainContext();
   const [state, setState] = useState({
     height: 0,
     round: 0,
@@ -51,28 +53,23 @@ export const useConsensus = () => {
       height,
       round,
       step,
-      proposer: hexToBech32(R.pathOr('', ['result', 'round_state', 'proposer', 'address'], data), 'desmos'),
+      proposer: hexToBech32(R.pathOr('', ['result', 'round_state', 'proposer', 'address'], data), 'desmosvalcons'),
       stepCompletion,
       proposerRaw: R.pathOr('', ['result', 'round_state', 'proposer', 'address'], data),
     });
   };
 
   const formatUi = () => {
-    const proposer = findAddress(state.proposer);
-    if (proposer) {
-      console.log(state.proposer);
-      console.log(state.proposerRaw, 'raw');
-      console.log(hexToBech32(state.proposerRaw, 'desmosvaloper'), 'operater');
-      console.log(hexToBech32(state.proposerRaw, 'desmosvalcons'), 'consensus');
-      console.log(proposer.moniker, 'moniker');
-    }
+    const operatorAddress = findOperator(state.proposer);
+    const proposer = findAddress(operatorAddress);
+
     return ({
       height: numeral(state.height).format('0,0'),
       round: numeral(state.round).format('0,0'),
       step: numeral(state.step).format('0,0'),
       proposer: (
         <AvatarName
-          address={state.proposer}
+          address={operatorAddress || state.proposer}
           imageUrl={proposer ? proposer?.imageUrl : null}
           name={proposer ? proposer.moniker : 'Shy Validator'}
         />

@@ -32,14 +32,12 @@ export interface ChainState {
       }
     };
     consensusAddresses: {
-      [key: string]: {
-        moniker: string;
-        imageUrl?: string;
-      }
+      [key: string]: string;
     }
   }
   findAddress?: (address: string) => {
     moniker: string;
     imageUrl?: string;
   } | null;
+  findOperator?: (consensusAddress: string) => string | null;
 }
