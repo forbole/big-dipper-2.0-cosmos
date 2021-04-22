@@ -58,17 +58,33 @@ export const useValidators = (initialState: ValidatorsState) => {
   const formatValidators = (data: ValidatorsQuery) => {
     const votingPowerOverall = formatDenom(R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data));
     const signedBlockWindow = R.pathOr(0, ['slashingParams', 0, 'signedBlockWindow'], data);
-    const formattedItems = data.validator.map((x) => {
+    console.log(votingPowerOverall, 'data');
+    const formattedItems = data.validator.map((x, i) => {
       const validator = x.validatorInfo.operatorAddress;
       const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
       const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
       const [selfDelegation] = x.delegations.filter(
         (y) => y.validator.validatorInfo.operatorAddress === validator,
       );
+
       const self = formatDenom(numeral(R.pathOr(0, ['amount', 'amount'], selfDelegation)).value());
       const selfPercent = (self / votingPower) * 100;
       const missedBlockCounter = R.pathOr(0, ['validatorSigningInfos', 0, 'missedBlocksCounter'], x);
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
+
+      if (i === 0) {
+        const totalDelegations = formatDenom(x.delegations.reduce(
+          (a, b) => a + numeral(b.amount.amount).value(), 0,
+        ));
+        console.log(x, 'x');
+        console.log(selfDelegation, 'where is the self delegation');
+        console.log(self, 'le self');
+        console.log(selfPercent, 'self percent');
+        console.log('====================');
+        console.log(totalDelegations, ' total delegations');
+        console.log((self / totalDelegations) * 100, 'other percent');
+      }
+
       return ({
         validator,
         votingPower,
@@ -97,16 +113,14 @@ export const useValidators = (initialState: ValidatorsState) => {
             name={validator ? validator.moniker : x.validator}
           />
         ),
-        // votingPower: numeral(x.votingPower).format('0,0'),
-        // votingPowerPercent: `${x.votingPowerPercent}%`,
-        // votingPowerTotal: numeral(state.votingPowerOverall).format('0,0'),
         commission: `${x.commission}%`,
-        self: `${x.selfPercent}`,
+        self: `${numeral(x.selfPercent).format('0.[00]')}%`,
         condition: x.condition,
 
         votingPower: (
           <VotingPower
-            percentage={`${x.votingPowerPercent}%`}
+            percentDisplay={`${numeral(x.votingPowerPercent).format('0.[00]')}%`}
+            percentage={x.votingPowerPercent}
             content={numeral(x.votingPower).format('0,0')}
           />
         ),
