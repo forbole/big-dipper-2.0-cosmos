@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import {
-  Box, AvatarName,
+  Box,
 } from '@components';
 import {
   RadialBarChart,
