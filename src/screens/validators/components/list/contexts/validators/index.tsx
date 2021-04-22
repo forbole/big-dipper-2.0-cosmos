@@ -4,6 +4,7 @@ import { ValidatorsState } from './types';
 
 const initialState: ValidatorsState = {
   items: [],
+  votingPowerOverall: 0,
   tab: 0,
   sortKey: '',
   sortDirection: 'asc',
@@ -22,7 +23,7 @@ const ValidatorsProvider: React.FC = (props: {children: React.ReactNode }) => {
     sortKey,
     sortDirection,
     handleSearch,
-  } = useValidators();
+  } = useValidators(initialState);
 
   return (
     <ValidatorsContext.Provider
