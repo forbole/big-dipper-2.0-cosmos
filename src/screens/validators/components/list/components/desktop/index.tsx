@@ -24,7 +24,7 @@ const Desktop: React.FC<{
   const columns = fetchColumns(t);
 
   const {
-    items,
+    uiData,
     sortDirection,
     sortKey,
     handleSort,
@@ -36,30 +36,6 @@ const Desktop: React.FC<{
     getColumnWidth,
     getRowHeight,
   } = useGrid(columns);
-
-  const formatItems = items.map((x, i) => {
-    return ({
-      idx: `#${i + 1}`,
-      validator: (
-        <AvatarName
-          address={x.validator.identity}
-          imageUrl={x.validator.image}
-          name={x.validator.moniker}
-        />
-      ),
-      self: x.self,
-      commission: x.commission,
-      votingPower: (
-        <VotingPower
-          percentage={x.votingPowerPercent}
-          content={`${x.votingPower}`}
-        />
-      ),
-      condition: (
-        <Condition />
-      ),
-    });
-  });
 
   return (
     <div className={classnames(className, classes.root)}>
@@ -131,7 +107,7 @@ const Desktop: React.FC<{
                 columnCount={columns.length}
                 columnWidth={(index) => getColumnWidth(width, index)}
                 height={height - 50}
-                rowCount={formatItems.length}
+                rowCount={uiData.length}
                 rowHeight={getRowHeight}
                 width={width}
               >
@@ -141,7 +117,7 @@ const Desktop: React.FC<{
                   const {
                     key, align,
                   } = columns[columnIndex];
-                  const item = formatItems[rowIndex][key];
+                  const item = uiData[rowIndex][key];
                   return (
                     <div
                       style={style}

@@ -19,11 +19,12 @@ export interface ValidatorsState {
   handleSearch?: (value: string) => void;
   uiData?: {
     validator: React.ReactNode;
-    votingPower: string;
-    votingPowerPercent: string;
-    votingPowerTotal: string;
+    votingPower: React.ReactNode;
+    // votingPowerPercent: string;
+    // votingPowerTotal: string;
     commission: string;
     self: string;
     condition: string | number;
+    idx: string;
   }[];
 }

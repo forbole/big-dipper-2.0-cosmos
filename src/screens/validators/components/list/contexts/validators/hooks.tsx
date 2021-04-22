@@ -17,39 +17,13 @@ import { formatDenom } from '@utils/format_denom';
 import { useChainContext } from '@contexts';
 import { getValidatorCondition } from '@utils/get_validator_condition';
 import { ValidatorsState } from './types';
+import { VotingPower } from '../../components';
 
 export const useValidators = (initialState: ValidatorsState) => {
   const { findAddress } = useChainContext();
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
-  // const fakeData = {
-  //   validator: {
-  //     image: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
-  //     moniker: 'Forbole',
-  //     identity: 'FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk',
-  //   },
-  //   votingPower: '12,320,000',
-  //   votingPowerPercent: 40,
-  //   votingPowerTotal: '100,000,000',
-  //   commission: '10%',
-  //   self: '10%',
-  //   condition: 90,
-  // };
-
-  // const fakeDataTwo = {
-  //   validator: {
-  //     image: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
-  //     moniker: 'Forbole',
-  //     identity: 'FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk',
-  //   },
-  //   votingPower: '12,320,000',
-  //   votingPowerPercent: 40,
-  //   votingPowerTotal: '100,000,000',
-  //   commission: '10%',
-  //   self: '10%',
-  //   condition: 50,
-  // };
 
   const [state, setState] = useState(initialState);
 
@@ -59,18 +33,6 @@ export const useValidators = (initialState: ValidatorsState) => {
     sortKey,
     sortDirection,
   } = state;
-
-  // useEffect(() => {
-  //   const newItems = Array(TOTAL).fill(null);
-  //   newItems.forEach((x, i) => {
-  //     newItems[i] = i % 2 ? fakeData : fakeDataTwo;
-  //   });
-
-  //   setState((prevState) => ({
-  //     ...prevState,
-  //     items: newItems,
-  //   }));
-  // }, []);
 
   useLatestStakingHeightQuery({
     onCompleted: (data) => {
@@ -92,20 +54,6 @@ export const useValidators = (initialState: ValidatorsState) => {
   useEffect(() => {
     console.log(`tab has changed to ${tab}`);
   }, [tab]);
-
-  // const fakeDataTwo = {
-  //   validator: {
-  //     image: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
-  //     moniker: 'Forbole',
-  //     identity: 'FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk',
-  //   },
-  //   votingPower: '12,320,000',
-  //   votingPowerPercent: 40,
-  //   votingPowerTotal: '100,000,000',
-  //   commission: '10%',
-  //   self: '10%',
-  //   condition: 50,
-  // };
 
   const formatValidators = (data: ValidatorsQuery) => {
     const votingPowerOverall = formatDenom(R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data));
@@ -138,9 +86,10 @@ export const useValidators = (initialState: ValidatorsState) => {
   };
 
   const formatUi = () => {
-    return state.items.map((x) => {
+    return state.items.map((x, i) => {
       const validator = findAddress(x.validator);
       return ({
+        idx: `#${i + 1}`,
         validator: (
           <AvatarName
             address={x.validator}
@@ -148,12 +97,19 @@ export const useValidators = (initialState: ValidatorsState) => {
             name={validator ? validator.moniker : x.validator}
           />
         ),
-        votingPower: numeral(x.votingPower).format('0,0'),
-        votingPowerPercent: `${x.votingPowerPercent}%`,
-        votingPowerTotal: numeral(state.votingPowerOverall).format('0,0'),
+        // votingPower: numeral(x.votingPower).format('0,0'),
+        // votingPowerPercent: `${x.votingPowerPercent}%`,
+        // votingPowerTotal: numeral(state.votingPowerOverall).format('0,0'),
         commission: `${x.commission}%`,
         self: `${x.selfPercent}`,
         condition: x.condition,
+
+        votingPower: (
+          <VotingPower
+            percentage={`${x.votingPowerPercent}%`}
+            content={numeral(x.votingPower).format('0,0')}
+          />
+        ),
       });
     });
   };
