@@ -4,6 +4,9 @@ import express, {
 } from 'express';
 import next from 'next';
 import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const isDev = process.env.NODE_ENV !== 'production';
 const app = next({
@@ -24,7 +27,7 @@ const port = process.env.PORT || 3000;
     });
     server.listen(port, (err?: any) => {
       if (err) throw err;
-      console.log('isDev: ', isDev);
+      // console.log('isDev: ', isDev);
       console.log('> Blast Off Ready On:');
       console.log(`> URL: http://localhost:${port}`);
       console.log(`> ENV: ${process.env.NODE_ENV || 'development'}`);
