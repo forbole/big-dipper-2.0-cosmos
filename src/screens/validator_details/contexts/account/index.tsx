@@ -20,6 +20,8 @@ const initialState: AccountState = {
       height: 0,
       overall: 0,
       self: 0,
+      selfDelegatePercent: 0,
+      selfDelegate: 0,
     },
     staking: {
       delegations: [],
