@@ -36,5 +36,6 @@
   "dark": "Dark Mode",
   "light": "Light Mode",
   "nothingToShow": "Nothing to show",
-  "notFound": "Not Found"
+  "notFound": "Not Found",
+  "useValidatorAddress": "Please use a validator address instead"
 }
