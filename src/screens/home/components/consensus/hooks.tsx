@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import {
+  useState, useEffect,
+} from 'react';
 import axios from 'axios';
 import numeral from 'numeral';
 import * as R from 'ramda';
@@ -21,43 +23,55 @@ export const useConsensus = () => {
     proposerRaw: '',
   });
 
-  const callback = async () => {
-    try {
-      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_RPC_CHAIN_URL}/consensus_state`);
-      formatCallback(data);
-    } catch (error) {
-      console.log(error.message, 'ls error');
-    }
-  };
+  const client = new WebSocket(process.env.NEXT_PUBLIC_CHAIN_WS);
 
-  useInterval(callback, 1000);
+  useEffect(() => {
+    client.onopen = () => {
+      console.log('connected');
+    };
 
-  const formatCallback = (data: any) => {
-    const [height, round, step] = R.pathOr('0/0/0', ['result', 'round_state', 'height/round/step'], data).split('/');
+    client.onclose = () => {
+      console.log('connected');
+    };
+  }, []);
 
-    let completionPercent = '0.00';
-    // prevote
-    completionPercent = R.pathOr(0, ['result', 'round_state', 'height_vote_set', round, 'precommits_bit_array'], data);
-    if (step >= 4) {
-      completionPercent = R.pathOr(0, ['result', 'round_state', 'height_vote_set', round, 'precommits_bit_array'], data);
-    }
+  // const callback = async () => {
+  //   try {
+  //     const { data } = await axios.get(`${process.env.NEXT_PUBLIC_RPC_CHAIN_URL}/consensus_state`);
+  //     formatCallback(data);
+  //   } catch (error) {
+  //     console.log(error.message, 'ls error');
+  //   }
+  // };
 
-    // precommit
-    if (step <= 5) {
-      completionPercent = R.pathOr(0, ['result', 'round_state', 'height_vote_set', round, 'prevotes_bit_array'], data);
-    }
+  // useInterval(callback, 1000);
 
-    const stepCompletion = numeral(R.pathOr('0.00', [1], completionPercent.split(' = '))).value() * 100;
+  // const formatCallback = (data: any) => {
+  //   const [height, round, step] = R.pathOr('0/0/0', ['result', 'round_state', 'height/round/step'], data).split('/');
 
-    setState({
-      height,
-      round,
-      step,
-      proposer: hexToBech32(R.pathOr('', ['result', 'round_state', 'proposer', 'address'], data), chainConfig.prefix.consensus),
-      stepCompletion,
-      proposerRaw: R.pathOr('', ['result', 'round_state', 'proposer', 'address'], data),
-    });
-  };
+  //   let completionPercent = '0.00';
+  //   // prevote
+  //   completionPercent = R.pathOr(0, ['result', 'round_state', 'height_vote_set', round, 'precommits_bit_array'], data);
+  //   if (step >= 4) {
+  //     completionPercent = R.pathOr(0, ['result', 'round_state', 'height_vote_set', round, 'precommits_bit_array'], data);
+  //   }
+
+  //   // precommit
+  //   if (step <= 5) {
+  //     completionPercent = R.pathOr(0, ['result', 'round_state', 'height_vote_set', round, 'prevotes_bit_array'], data);
+  //   }
+
+  //   const stepCompletion = numeral(R.pathOr('0.00', [1], completionPercent.split(' = '))).value() * 100;
+
+  //   setState({
+  //     height,
+  //     round,
+  //     step,
+  //     proposer: hexToBech32(R.pathOr('', ['result', 'round_state', 'proposer', 'address'], data), chainConfig.prefix.consensus),
+  //     stepCompletion,
+  //     proposerRaw: R.pathOr('', ['result', 'round_state', 'proposer', 'address'], data),
+  //   });
+  // };
 
   const formatUi = () => {
     const operatorAddress = findOperator(state.proposer);
