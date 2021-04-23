@@ -13,7 +13,7 @@ RUN npm install pm2 -g
 
 # Installing dependencies
 COPY package*.json ./
-RUN npm i
+RUN npm ci
 
 # Copying source files
 COPY . .

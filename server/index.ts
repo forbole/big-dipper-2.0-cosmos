@@ -6,7 +6,6 @@ import next from 'next';
 import cors from 'cors';
 
 const isDev = process.env.NODE_ENV !== 'production';
-console.log('isDev: ', isDev);
 const app = next({
   dev: isDev,
 });
@@ -25,6 +24,7 @@ const port = process.env.PORT || 3000;
     });
     server.listen(port, (err?: any) => {
       if (err) throw err;
+      console.log('isDev: ', isDev);
       console.log('> Blast Off Ready On:');
       console.log(`> URL: http://localhost:${port}`);
       console.log(`> ENV: ${process.env.NODE_ENV || 'development'}`);
