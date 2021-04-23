@@ -32,7 +32,6 @@ export const useConsensus = () => {
   useInterval(callback, 1000);
 
   const formatCallback = (data: any) => {
-    // console.log(data, 'data');
     const [height, round, step] = R.pathOr('0/0/0', ['result', 'round_state', 'height/round/step'], data).split('/');
 
     let completionPercent = '0.00';
