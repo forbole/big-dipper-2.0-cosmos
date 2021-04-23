@@ -9,6 +9,7 @@ export const useSearch = (callback: (value: string) => void) => {
 
   const handleOnSubmit = () => {
     callback(value);
+    setValue('');
   };
 
   const handleKeyDown = (e:any) => {
@@ -17,6 +18,7 @@ export const useSearch = (callback: (value: string) => void) => {
     if (isEnter && !shift) {
       e.preventDefault();
       callback(value);
+      setValue('');
     }
   };
 
