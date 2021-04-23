@@ -5,16 +5,10 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import { Typography } from '@material-ui/core';
 import { useGrid } from '@hooks';
-import {
-  AvatarName, SortArrows,
-} from '@components';
+import { SortArrows } from '@components';
 import { useStyles } from './styles';
 import { useValidatorsContext } from '../../contexts/validators';
 import { fetchColumns } from './utils';
-import {
-  VotingPower,
-  Condition,
-} from '..';
 
 const Desktop: React.FC<{
   className?: string;
@@ -24,7 +18,7 @@ const Desktop: React.FC<{
   const columns = fetchColumns(t);
 
   const {
-    items,
+    uiData,
     sortDirection,
     sortKey,
     handleSort,
@@ -36,30 +30,6 @@ const Desktop: React.FC<{
     getColumnWidth,
     getRowHeight,
   } = useGrid(columns);
-
-  const formatItems = items.map((x, i) => {
-    return ({
-      idx: `#${i + 1}`,
-      validator: (
-        <AvatarName
-          address={x.validator.identity}
-          imageUrl={x.validator.image}
-          name={x.validator.moniker}
-        />
-      ),
-      self: x.self,
-      commission: x.commission,
-      votingPower: (
-        <VotingPower
-          percentage={x.votingPowerPercent}
-          content={`${x.votingPower}`}
-        />
-      ),
-      condition: (
-        <Condition />
-      ),
-    });
-  });
 
   return (
     <div className={classnames(className, classes.root)}>
@@ -89,6 +59,7 @@ const Desktop: React.FC<{
                     align,
                     component,
                     sort,
+                    sortKey: sortingKey,
                   } = columns[columnIndex];
 
                   return (
@@ -101,7 +72,7 @@ const Desktop: React.FC<{
                           [align]: sort || component,
                         },
                       )}
-                      onClick={() => (sort ? handleSort(key) : null)}
+                      onClick={() => (sort ? handleSort(sortingKey) : null)}
                       role="button"
                     >
                       {component || (
@@ -112,7 +83,7 @@ const Desktop: React.FC<{
                         {t(key)}
                         {!!sort && (
                         <SortArrows
-                          sort={sortKey === key
+                          sort={sortKey === sortingKey
                             ? sortDirection
                             : undefined}
                         />
@@ -131,7 +102,7 @@ const Desktop: React.FC<{
                 columnCount={columns.length}
                 columnWidth={(index) => getColumnWidth(width, index)}
                 height={height - 50}
-                rowCount={formatItems.length}
+                rowCount={uiData.length}
                 rowHeight={getRowHeight}
                 width={width}
               >
@@ -141,7 +112,7 @@ const Desktop: React.FC<{
                   const {
                     key, align,
                   } = columns[columnIndex];
-                  const item = formatItems[rowIndex][key];
+                  const item = uiData[rowIndex][key];
                   return (
                     <div
                       style={style}

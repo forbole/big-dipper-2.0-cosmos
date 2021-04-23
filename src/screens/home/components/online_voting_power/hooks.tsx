@@ -95,7 +95,7 @@ export const useOnlineVotingPower = () => {
       current: {
         height: numeral(current.height).format('0,0'),
         votingPower: numeral(current.votingPower).format('0,0'),
-        votingPowerPercentRaw: votingPowerPercent.format(0, Math.floor),
+        votingPowerPercentRaw: votingPowerPercent.format(0),
         votingPowerPercent: `${votingPowerPercent.format('0,0.00')}%`,
         totalVotingPower: numeral(current.totalVotingPower).format('0,0'),
       },

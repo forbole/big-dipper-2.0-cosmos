@@ -1,3 +1,5 @@
+import { chainConfig } from '@src/chain_config';
+
 export const HOME = '/';
 export const BLOCKS = '/blocks';
 export const BLOCK_DETAILS = (slot:string | number): string => `/blocks/${slot}`;
@@ -14,5 +16,5 @@ export const ACCOUNT_DETAILS = (address: string): string => `/accounts/${address
  * @param address
  * @returns
  */
-export const PROFILE_DETAILS = (address: string) => (address.includes('desmosvaloper')
+export const PROFILE_DETAILS = (address: string) => (address.includes(chainConfig.prefix.validator)
   ? VALIDATOR_DETAILS(address) : ACCOUNT_DETAILS(address));

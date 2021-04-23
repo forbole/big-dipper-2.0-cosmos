@@ -9,6 +9,7 @@ export const fetchColumns = (t): {
   align?: 'left' | 'center' | 'right' | 'justify' | 'inherit';
   width: number;
   component?: React.ReactNode;
+  sortKey?: string;
   sort?: boolean;
 }[] => {
   return ([
@@ -18,16 +19,19 @@ export const fetchColumns = (t): {
     },
     {
       key: 'validator',
+      sortKey: 'moniker',
       width: 20,
       sort: true,
     },
     {
       key: 'votingPower',
+      sortKey: 'votingPower',
       width: 25,
       sort: true,
     },
     {
       key: 'self',
+      sortKey: 'self',
       align: 'right',
       width: 15,
       sort: true,

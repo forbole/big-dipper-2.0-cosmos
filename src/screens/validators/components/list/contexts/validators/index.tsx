@@ -4,14 +4,17 @@ import { ValidatorsState } from './types';
 
 const initialState: ValidatorsState = {
   items: [],
+  votingPowerOverall: 0,
   tab: 0,
-  sortKey: '',
+  sortKey: 'moniker',
   sortDirection: 'asc',
 };
 
 const ValidatorsContext = React.createContext<ValidatorsState>(initialState);
 
-const ValidatorsProvider: React.FC = (props: {children: React.ReactNode }) => {
+const ValidatorsProvider: React.FC = (props: {children: ({
+  itemsLength: number,
+}) => React.ReactNode }) => {
   const { children } = props;
 
   const {
@@ -22,7 +25,9 @@ const ValidatorsProvider: React.FC = (props: {children: React.ReactNode }) => {
     sortKey,
     sortDirection,
     handleSearch,
-  } = useValidators();
+    votingPowerOverall,
+    uiData,
+  } = useValidators(initialState);
 
   return (
     <ValidatorsContext.Provider
@@ -34,9 +39,11 @@ const ValidatorsProvider: React.FC = (props: {children: React.ReactNode }) => {
         sortKey,
         sortDirection,
         handleSearch,
+        votingPowerOverall,
+        uiData,
       }}
     >
-      {children}
+      {children({ itemsLength: items.length })}
     </ValidatorsContext.Provider>
   );
 };

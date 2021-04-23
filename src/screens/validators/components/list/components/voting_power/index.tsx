@@ -6,9 +6,10 @@ import { useStyles } from './styles';
 const VotingPower: React.FC<{
   className?: string;
   percentage: number;
+  percentDisplay: string;
   content: string;
 }> = ({
-  className, percentage, content,
+  className, percentage, content, percentDisplay,
 }) => {
   const classes = useStyles(percentage);
   return (
@@ -18,8 +19,7 @@ const VotingPower: React.FC<{
           {content}
         </Typography>
         <Typography variant="body1" className="percentage">
-          {percentage}
-          %
+          {percentDisplay}
         </Typography>
       </div>
       <div className={classes.chart}>
