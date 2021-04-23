@@ -111,15 +111,15 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
     };
   };
 
-  const findAddress = (address) => {
+  const findAddress = (address: string) => {
     const validatorRegex = `^(${chainConfig.prefix.validator})`;
     const userRegex = `^(${chainConfig.prefix.account})`;
 
     if (new RegExp(validatorRegex).test(address)) {
-      return 'validator';
+      return state.validators[address] ?? null;
     }
     if (new RegExp(userRegex).test(address)) {
-      return 'user';
+      return state.selfDelegateAddresses[address] ?? null;
     }
     return null;
   };
