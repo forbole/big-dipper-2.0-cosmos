@@ -4,6 +4,9 @@ import express, {
 } from 'express';
 import next from 'next';
 import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const isDev = process.env.NODE_ENV !== 'production';
 const app = next({
