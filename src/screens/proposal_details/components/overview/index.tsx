@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import dayjs from 'dayjs';
+import dayjs from '@utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Typography,

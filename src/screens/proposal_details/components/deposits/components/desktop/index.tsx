@@ -8,7 +8,7 @@ import {
   TableCell,
   TableBody,
 } from '@material-ui/core';
-import dayjs from 'dayjs';
+import dayjs from '@utils/dayjs';
 import { AvatarName } from '@components';
 import { columns } from './utils';
 

@@ -8,6 +8,10 @@ export const chainConfig = {
     validator: 'desmosvaloper',
     account: 'desmos',
   },
+  genesis: {
+    time: '2021-04-25T07:00:00',
+    height: 1,
+  },
   denomUnits: [
     {
       denom: 'udaric',
