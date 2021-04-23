@@ -111,12 +111,15 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
     };
   };
 
-  const findAddress = (address: string) => {
-    if (new RegExp(/^(desmosvaloper)/).test(address)) {
-      return state.validators[address] ?? null;
+  const findAddress = (address) => {
+    const validatorRegex = `^(${chainConfig.prefix.validator})`;
+    const userRegex = `^(${chainConfig.prefix.account})`;
+
+    if (new RegExp(validatorRegex).test(address)) {
+      return 'validator';
     }
-    if (new RegExp(/^(desmos)/).test(address)) {
-      return state.selfDelegateAddresses[address] ?? null;
+    if (new RegExp(userRegex).test(address)) {
+      return 'user';
     }
     return null;
   };

@@ -3,6 +3,11 @@ export const chainConfig = {
   icon: 'https://gist.githubusercontent.com/kwunyeung/8be4598c77c61e497dfc7220a678b3ee/raw/desmos.svg?sanitize=true',
   base: 'udaric',
   display: 'daric',
+  prefix: {
+    consensus: 'desmosvalcons',
+    validator: 'desmosvaloper',
+    account: 'desmos',
+  },
   denomUnits: [
     {
       denom: 'udaric',
