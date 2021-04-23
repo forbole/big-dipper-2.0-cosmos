@@ -2,7 +2,6 @@
   "validators": "Validators",
   "allValidators": "All Validators",
   "active": "Active",
-  "delinquent": "Delinquent",
   "idx": "Idx",
   "validator": "Validator",
   "self": "Self",
@@ -49,5 +48,6 @@
   "unbonded": "Unbonded",
   "unknown": "Unknown",
   "na": "N/A",
-  "txs": "Txs"
+  "txs": "Txs",
+  "inactive": "Inactive"
 }

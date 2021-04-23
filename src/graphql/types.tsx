@@ -12377,6 +12377,41 @@ export type LastHundredBlocksQuery = { block: Array<(
     )> }
   )> };
 
+export type ValidatorsQueryVariables = Exact<{
+  delegationHeight?: Maybe<Scalars['bigint']>;
+}>;
+
+
+export type ValidatorsQuery = { stakingPool: Array<(
+    { __typename?: 'staking_pool' }
+    & { bondedTokens: Staking_Pool['bonded_tokens'] }
+  )>, validator: Array<(
+    { __typename?: 'validator' }
+    & { validatorStatuses: Array<(
+      { __typename?: 'validator_status' }
+      & Pick<Validator_Status, 'status' | 'jailed' | 'height'>
+    )>, validatorSigningInfos: Array<(
+      { __typename?: 'validator_signing_info' }
+      & { missedBlocksCounter: Validator_Signing_Info['missed_blocks_counter'] }
+    )>, validatorInfo?: Maybe<(
+      { __typename?: 'validator_info' }
+      & { operatorAddress: Validator_Info['operator_address'], selfDelegateAddress: Validator_Info['self_delegate_address'] }
+    )>, validatorVotingPowers: Array<(
+      { __typename?: 'validator_voting_power' }
+      & { votingPower: Validator_Voting_Power['voting_power'] }
+    )>, validatorCommissions: Array<(
+      { __typename?: 'validator_commission' }
+      & Pick<Validator_Commission, 'commission'>
+    )>, delegations: Array<(
+      { __typename?: 'delegation' }
+      & Pick<Delegation, 'amount'>
+      & { delegatorAddress: Delegation['delegator_address'] }
+    )> }
+  )>, slashingParams: Array<(
+    { __typename?: 'slashing_params' }
+    & { signedBlockWindow: Slashing_Params['signed_block_window'] }
+  )> };
+
 export type ValidatorsAddressListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -13407,6 +13442,81 @@ export function useLastHundredBlocksLazyQuery(baseOptions?: Apollo.LazyQueryHook
 export type LastHundredBlocksQueryHookResult = ReturnType<typeof useLastHundredBlocksQuery>;
 export type LastHundredBlocksLazyQueryHookResult = ReturnType<typeof useLastHundredBlocksLazyQuery>;
 export type LastHundredBlocksQueryResult = Apollo.QueryResult<LastHundredBlocksQuery, LastHundredBlocksQueryVariables>;
+export const ValidatorsDocument = gql`
+    query Validators($delegationHeight: bigint) {
+  stakingPool: staking_pool(limit: 1, order_by: {height: desc}) {
+    bondedTokens: bonded_tokens
+  }
+  validator {
+    validatorStatuses: validator_statuses(order_by: {height: desc}, limit: 1) {
+      status
+      jailed
+      height
+    }
+    validatorSigningInfos: validator_signing_infos(
+      order_by: {height: desc}
+      limit: 1
+    ) {
+      missedBlocksCounter: missed_blocks_counter
+    }
+    validatorInfo: validator_info {
+      operatorAddress: operator_address
+      selfDelegateAddress: self_delegate_address
+    }
+    validatorVotingPowers: validator_voting_powers(
+      offset: 3
+      limit: 1
+      order_by: {height: desc}
+    ) {
+      votingPower: voting_power
+    }
+    validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
+      commission
+    }
+    delegations(where: {height: {_eq: $delegationHeight}}) {
+      amount
+      delegatorAddress: delegator_address
+    }
+    validatorSigningInfos: validator_signing_infos(
+      order_by: {height: desc}
+      limit: 1
+    ) {
+      missedBlocksCounter: missed_blocks_counter
+    }
+  }
+  slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
+    signedBlockWindow: signed_block_window
+  }
+}
+    `;
+
+/**
+ * __useValidatorsQuery__
+ *
+ * To run a query within a React component, call `useValidatorsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useValidatorsQuery({
+ *   variables: {
+ *      delegationHeight: // value for 'delegationHeight'
+ *   },
+ * });
+ */
+export function useValidatorsQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorsQuery, ValidatorsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorsQuery, ValidatorsQueryVariables>(ValidatorsDocument, options);
+      }
+export function useValidatorsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorsQuery, ValidatorsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorsQuery, ValidatorsQueryVariables>(ValidatorsDocument, options);
+        }
+export type ValidatorsQueryHookResult = ReturnType<typeof useValidatorsQuery>;
+export type ValidatorsLazyQueryHookResult = ReturnType<typeof useValidatorsLazyQuery>;
+export type ValidatorsQueryResult = Apollo.QueryResult<ValidatorsQuery, ValidatorsQueryVariables>;
 export const ValidatorsAddressListDocument = gql`
     query ValidatorsAddressList {
   validator {

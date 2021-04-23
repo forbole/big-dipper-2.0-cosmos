@@ -18,6 +18,8 @@ export interface AccountState {
       height: number;
       overall: number;
       self: number;
+      selfDelegatePercent: number;
+      selfDelegate: number;
     }
     staking: {
       delegations: {
@@ -58,6 +60,8 @@ export interface AccountState {
       votingPowerPercentRaw: number;
       votingPowerPercent: string;
       totalVotingPower: string;
+      selfDelegation: string;
+      selfDelegationPercent: string;
     }
     staking: {
       delegations: {

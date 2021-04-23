@@ -6,6 +6,7 @@ import { AvatarName } from '@components';
 import { useInterval } from '@hooks';
 import { useChainContext } from '@contexts';
 import { hexToBech32 } from '@utils/hex_to_bech32';
+import { chainConfig } from '@src/chain_config';
 
 export const useConsensus = () => {
   const {
@@ -32,7 +33,6 @@ export const useConsensus = () => {
   useInterval(callback, 1000);
 
   const formatCallback = (data: any) => {
-    // console.log(data, 'data');
     const [height, round, step] = R.pathOr('0/0/0', ['result', 'round_state', 'height/round/step'], data).split('/');
 
     let completionPercent = '0.00';
@@ -53,7 +53,7 @@ export const useConsensus = () => {
       height,
       round,
       step,
-      proposer: hexToBech32(R.pathOr('', ['result', 'round_state', 'proposer', 'address'], data), 'desmosvalcons'),
+      proposer: hexToBech32(R.pathOr('', ['result', 'round_state', 'proposer', 'address'], data), chainConfig.prefix.consensus),
       stepCompletion,
       proposerRaw: R.pathOr('', ['result', 'round_state', 'proposer', 'address'], data),
     });

@@ -10,6 +10,15 @@ export const useStyles = () => {
           background: theme.palette.custom.tags.zero,
           margin: '0 auto',
           borderRadius: '50%',
+          '&.green': {
+            background: theme.palette.custom.tags.one,
+          },
+          '&.yellow': {
+            background: theme.palette.custom.tags.two,
+          },
+          '&.red': {
+            background: theme.palette.custom.tags.three,
+          },
         },
       });
     },

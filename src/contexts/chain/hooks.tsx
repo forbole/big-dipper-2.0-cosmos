@@ -112,10 +112,13 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
   };
 
   const findAddress = (address: string) => {
-    if (new RegExp(/^(desmosvaloper)/).test(address)) {
+    const validatorRegex = `^(${chainConfig.prefix.validator})`;
+    const userRegex = `^(${chainConfig.prefix.account})`;
+
+    if (new RegExp(validatorRegex).test(address)) {
       return state.validators[address] ?? null;
     }
-    if (new RegExp(/^(desmos)/).test(address)) {
+    if (new RegExp(userRegex).test(address)) {
       return state.selfDelegateAddresses[address] ?? null;
     }
     return null;

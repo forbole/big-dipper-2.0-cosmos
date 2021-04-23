@@ -1,6 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Box } from '@components';
+import {
+  Box, NoData,
+} from '@components';
 import {
   Mobile,
   Desktop,
@@ -15,13 +17,27 @@ const List: React.FC<{
   const classes = useStyles();
   return (
     <ValidatorsProvider>
-      <Box className={classnames(className, classes.root)}>
-        <Tabs />
-        <div className={classes.list}>
-          <Mobile className={classes.mobile} />
-          <Desktop className={classes.desktop} />
-        </div>
-      </Box>
+      {
+        ({ itemsLength }) => {
+          return (
+            <Box className={classnames(className, classes.root)}>
+              <Tabs />
+              <div className={classes.list}>
+                {
+                  itemsLength ? (
+                    <>
+                      <Mobile className={classes.mobile} />
+                      <Desktop className={classes.desktop} />
+                    </>
+                  ) : (
+                    <NoData />
+                  )
+                }
+              </div>
+            </Box>
+          );
+        }
+      }
     </ValidatorsProvider>
   );
 };

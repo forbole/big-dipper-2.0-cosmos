@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import Color from 'color';
 
 export const useStyles = () => {
   const styles = makeStyles(
@@ -23,12 +24,12 @@ export const useStyles = () => {
         up: {
           transform: 'rotate(180deg)',
           '&.desc': {
-            fill: theme.palette.custom.fonts.fontThree,
+            fill: Color(theme.palette.custom.fonts.fontThree).alpha(0.2).string(),
           },
         },
         down: {
           '&.asc': {
-            fill: theme.palette.custom.fonts.fontThree,
+            fill: Color(theme.palette.custom.fonts.fontThree).alpha(0.2).string(),
           },
         },
       });
