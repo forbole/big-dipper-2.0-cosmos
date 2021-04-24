@@ -1,6 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@material-ui/core/styles';
 import { ToastContainer } from 'react-toastify';
 import { ApolloProvider } from '@apollo/client';
 import { useApollo } from '@src/graphql/client';
@@ -9,13 +11,20 @@ import {
   NetworksProvider,
   ChainProvider,
 } from '@contexts';
+import Countdown from '@screens/countdown';
 import { InnerApp } from './components';
-import { useApp } from './hooks';
+import {
+  useApp, useGenesis,
+} from './hooks';
 
 function App(props: AppProps) {
   useApp();
   const { pageProps } = props;
   const apolloClient = useApollo(pageProps.initialApolloState);
+  const {
+    genesisStarted,
+    startGenesis,
+  } = useGenesis();
 
   return (
     <>
@@ -35,22 +44,35 @@ function App(props: AppProps) {
         client={apolloClient}
       >
         <SettingsProvider>
-          <NetworksProvider>
-            <ChainProvider>
-              <ToastContainer
-                position="top-center"
-                autoClose={5000}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                hideProgressBar
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-              />
-              <InnerApp {...props} />
-            </ChainProvider>
-          </NetworksProvider>
+          {({ muiTheme }) => {
+            return (
+              <ThemeProvider theme={muiTheme}>
+                <CssBaseline />
+                {
+                genesisStarted ? (
+                  <NetworksProvider>
+                    <ChainProvider>
+                      <ToastContainer
+                        position="top-center"
+                        autoClose={5000}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        hideProgressBar
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                      />
+                      <InnerApp {...props} />
+                    </ChainProvider>
+                  </NetworksProvider>
+                ) : (
+                  <Countdown startGenesis={startGenesis} />
+                )
+              }
+              </ThemeProvider>
+            );
+          }}
         </SettingsProvider>
       </ApolloProvider>
     </>

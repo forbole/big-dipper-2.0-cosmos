@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactMarkdown from 'markdown-to-jsx';
-import { withStyles } from '@material-ui/core/styles';
+// import { withStyles } from '@material-ui/core/styles';
 import {
   Typography,
   // Link,
 } from '@material-ui/core';
 
-const styles = (theme) => ({
-  listItem: {
-    marginTop: theme.spacing(1),
-  },
-});
+// const styles = (theme) => ({
+//   listItem: {
+//     marginTop: theme.spacing(1),
+//   },
+// });
 
 const options = {
   overrides: {
@@ -69,15 +69,15 @@ const options = {
         variant: 'body1',
       },
     },
-    li: {
-      component: withStyles(styles)(({
-        classes, ...props
-      }: any) => (
-        <li className={classes.listItem}>
-          <Typography component="span" {...props} />
-        </li>
-      )),
-    },
+    // li: {
+    //   component: withStyles(styles)(({
+    //     classes, ...props
+    //   }: any) => (
+    //     <li className={classes.listItem}>
+    //       <Typography component="span" {...props} />
+    //     </li>
+    //   )),
+    // },
   },
 };
 

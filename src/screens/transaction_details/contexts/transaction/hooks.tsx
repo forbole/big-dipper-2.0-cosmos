@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { Typography } from '@material-ui/core';
 import Link from 'next/link';
-import dayjs from 'dayjs';
+import dayjs from '@utils/dayjs';
 import { Result } from '@components';
 import {
   useTransactionDetailsQuery,

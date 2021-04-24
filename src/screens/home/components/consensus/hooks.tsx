@@ -7,6 +7,7 @@ import { AvatarName } from '@components';
 import { useChainContext } from '@contexts';
 import { hexToBech32 } from '@utils/hex_to_bech32';
 import { chainConfig } from '@src/chain_config';
+import WebSocket from 'isomorphic-ws';
 
 export const useConsensus = () => {
   const {
