@@ -27,7 +27,7 @@ const Consensus: React.FC<{
 
   const data = [
     {
-      value: rawData.stepCompletion,
+      value: rawData.roundCompletion,
       fill: theme.palette.custom.primaryData.three,
     },
   ];
@@ -81,7 +81,7 @@ const Consensus: React.FC<{
             cornerRadius={circleSize / 2}
           />
           <Tooltip />
-          <text
+          {/* <text
             x={circleSize / 2}
             y={circleSize / 2}
             textAnchor="middle"
@@ -91,7 +91,7 @@ const Consensus: React.FC<{
             <tspan className={classes.chartPercentLabel}>
               {uiData.stepCompletion}
             </tspan>
-          </text>
+          </text> */}
           <text
             x={(circleSize / 2) - 32}
             y={(circleSize / 2) + 35}
