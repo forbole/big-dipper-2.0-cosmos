@@ -91,6 +91,7 @@ export const useConsensus = () => {
     const step = stepReference[R.pathOr(0, ['result', 'data', 'value', 'step'], data)];
 
     const roundCompletion = (step / state.totalSteps) * 100;
+
     setState((prevState) => ({
       ...prevState,
       round,
@@ -107,12 +108,14 @@ export const useConsensus = () => {
       height: numeral(state.height).format('0,0'),
       round: numeral(state.round).format('0,0'),
       step: numeral(state.step).format('0,0'),
-      proposer: (
+      proposer: operatorAddress ? (
         <AvatarName
           address={operatorAddress || state.proposer}
           imageUrl={proposer ? proposer?.imageUrl : null}
           name={proposer ? proposer.moniker : 'Shy Validator'}
         />
+      ) : (
+        '-'
       ),
     });
   };
