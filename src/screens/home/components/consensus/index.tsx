@@ -81,7 +81,7 @@ const Consensus: React.FC<{
             cornerRadius={circleSize / 2}
           />
           <Tooltip />
-          {/* <text
+          <text
             x={circleSize / 2}
             y={circleSize / 2}
             textAnchor="middle"
@@ -89,9 +89,11 @@ const Consensus: React.FC<{
             className="progress-label"
           >
             <tspan className={classes.chartPercentLabel}>
-              {uiData.stepCompletion}
+              {t('step', {
+                step: uiData.step,
+              })}
             </tspan>
-          </text> */}
+          </text>
           <text
             x={(circleSize / 2) - 32}
             y={(circleSize / 2) + 35}
@@ -100,17 +102,6 @@ const Consensus: React.FC<{
             <tspan className={classes.chartLabel}>
               {t('round', {
                 round: uiData.round,
-              })}
-            </tspan>
-          </text>
-          <text
-            x={(circleSize / 2) - 24}
-            y={(circleSize / 2) + 55}
-            className={classes.chartExtraLabel}
-          >
-            <tspan className={classes.chartLabel}>
-              {t('step', {
-                step: uiData.step,
               })}
             </tspan>
           </text>

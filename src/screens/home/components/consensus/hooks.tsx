@@ -1,11 +1,9 @@
 import {
   useState, useEffect,
 } from 'react';
-import axios from 'axios';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { AvatarName } from '@components';
-import { useInterval } from '@hooks';
 import { useChainContext } from '@contexts';
 import { hexToBech32 } from '@utils/hex_to_bech32';
 import { chainConfig } from '@src/chain_config';
@@ -48,7 +46,6 @@ export const useConsensus = () => {
     client.onopen = () => {
       client.send(JSON.stringify(stepHeader));
       client.send(JSON.stringify(roundHeader));
-      console.log('connected');
     };
 
     client.onmessage = (e: any) => {
@@ -60,10 +57,6 @@ export const useConsensus = () => {
       if (event === 'tendermint/event/RoundState') {
         formatNewStep(data);
       }
-    };
-
-    client.onclose = () => {
-      console.log('closed');
     };
 
     return () => {
