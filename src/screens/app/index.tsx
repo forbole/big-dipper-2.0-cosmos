@@ -11,19 +11,20 @@ import {
   NetworksProvider,
   ChainProvider,
 } from '@contexts';
-import dayjs from '@utils/dayjs';
-import { chainConfig } from '@src/chain_config';
 import Countdown from '@screens/countdown';
 import { InnerApp } from './components';
-import { useApp } from './hooks';
+import {
+  useApp, useGenesis,
+} from './hooks';
 
 function App(props: AppProps) {
   useApp();
   const { pageProps } = props;
   const apolloClient = useApollo(pageProps.initialApolloState);
-
-  const utcTimeNow = dayjs.utc().format('YYYY-MM-DDTHH:mm:ss');
-  const genesisStarted = chainConfig.genesis.time < utcTimeNow;
+  const {
+    genesisStarted,
+    startGenesis,
+  } = useGenesis();
 
   return (
     <>
@@ -66,7 +67,7 @@ function App(props: AppProps) {
                     </ChainProvider>
                   </NetworksProvider>
                 ) : (
-                  <Countdown />
+                  <Countdown startGenesis={startGenesis} />
                 )
               }
               </ThemeProvider>

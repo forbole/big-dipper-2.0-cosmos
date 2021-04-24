@@ -9,7 +9,7 @@ export const chainConfig = {
     account: 'desmos',
   },
   genesis: {
-    time: '2021-04-25T07:00:00',
+    time: '2021-04-24T07:49:00',
     height: 1,
   },
   denomUnits: [
