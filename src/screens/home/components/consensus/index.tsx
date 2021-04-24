@@ -27,7 +27,7 @@ const Consensus: React.FC<{
 
   const data = [
     {
-      value: rawData.stepCompletion,
+      value: rawData.roundCompletion,
       fill: theme.palette.custom.primaryData.three,
     },
   ];
@@ -89,7 +89,9 @@ const Consensus: React.FC<{
             className="progress-label"
           >
             <tspan className={classes.chartPercentLabel}>
-              {uiData.stepCompletion}
+              {t('step', {
+                step: uiData.step,
+              })}
             </tspan>
           </text>
           <text
@@ -100,17 +102,6 @@ const Consensus: React.FC<{
             <tspan className={classes.chartLabel}>
               {t('round', {
                 round: uiData.round,
-              })}
-            </tspan>
-          </text>
-          <text
-            x={(circleSize / 2) - 24}
-            y={(circleSize / 2) + 55}
-            className={classes.chartExtraLabel}
-          >
-            <tspan className={classes.chartLabel}>
-              {t('step', {
-                step: uiData.step,
               })}
             </tspan>
           </text>
