@@ -9,6 +9,8 @@ import {
   NetworksProvider,
   ChainProvider,
 } from '@contexts';
+import dayjs from '@utils/dayjs';
+import { chainConfig } from '@src/chain_config';
 import { InnerApp } from './components';
 import { useApp } from './hooks';
 
@@ -16,6 +18,9 @@ function App(props: AppProps) {
   useApp();
   const { pageProps } = props;
   const apolloClient = useApollo(pageProps.initialApolloState);
+
+  const utcTimeNow = dayjs.utc().format('YYYY-MM-DDTHH:mm:ss');
+  const genesisStarted = chainConfig.genesis.time < utcTimeNow;
 
   return (
     <>
@@ -35,22 +40,30 @@ function App(props: AppProps) {
         client={apolloClient}
       >
         <SettingsProvider>
-          <NetworksProvider>
-            <ChainProvider>
-              <ToastContainer
-                position="top-center"
-                autoClose={5000}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                hideProgressBar
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-              />
-              <InnerApp {...props} />
-            </ChainProvider>
-          </NetworksProvider>
+          {
+            genesisStarted ? (
+              <NetworksProvider>
+                <ChainProvider>
+                  <ToastContainer
+                    position="top-center"
+                    autoClose={5000}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    hideProgressBar
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                  />
+                  <InnerApp {...props} />
+                </ChainProvider>
+              </NetworksProvider>
+            ) : (
+              <div>
+                genesis not started
+              </div>
+            )
+          }
         </SettingsProvider>
       </ApolloProvider>
     </>
