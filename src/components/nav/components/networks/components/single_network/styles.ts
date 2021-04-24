@@ -26,10 +26,10 @@ export const useStyles = () => {
           borderRadius: theme.shape.borderRadius,
           background: theme.palette.custom.general.icon,
           '&.retired': {
-            background: theme.palette.custom.primaryData.three,
+            background: theme.palette.custom.primaryData.four,
           },
           '&.testnet': {
-            background: theme.palette.secondary.main,
+            background: theme.palette.custom.primaryData.three,
           },
           '&.mainnet': {
             background: theme.palette.primary.main,

@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import dayjs from 'dayjs';
+import dayjs from '@utils/dayjs';
 import Link from 'next/link';
 import { PROPOSAL_DETAILS } from '@utils/go_to_page';
 import { mergeRefs } from '@utils/merge_refs';

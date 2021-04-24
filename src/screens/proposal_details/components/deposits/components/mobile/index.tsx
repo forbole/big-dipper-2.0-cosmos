@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import dayjs from 'dayjs';
+import dayjs from '@utils/dayjs';
 import {
   Divider, Typography,
 } from '@material-ui/core';
