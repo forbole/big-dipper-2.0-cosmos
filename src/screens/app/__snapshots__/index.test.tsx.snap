@@ -1,18 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: _app matches snapshot 1`] = `
-<SettingsProvider>
-  <NetworksProvider>
-    <ChainProvider>
-      <div
-        className="Toastify"
-      />
-      <ThemeProvider>
-        <div
-          id="component"
-        />
-      </ThemeProvider>
-    </ChainProvider>
-  </NetworksProvider>
-</SettingsProvider>
-`;
+exports[`screen: _app matches snapshot 1`] = `<SettingsProvider />`;

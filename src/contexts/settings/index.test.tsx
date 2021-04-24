@@ -32,7 +32,15 @@ describe('context: SettingsContext', () => {
     });
     const wrapper: React.FC = ({ children }) => {
       return (
-        <SettingsProvider>{children}</SettingsProvider>
+        <SettingsProvider>
+          {() => {
+            return (
+              <>
+                {children}
+              </>
+            );
+          }}
+        </SettingsProvider>
       );
     };
     const { result } = renderHook(() => useSettingsContext(), {
