@@ -11,6 +11,7 @@ import {
 } from '@contexts';
 import dayjs from '@utils/dayjs';
 import { chainConfig } from '@src/chain_config';
+import Countdown from '@screens/countdown';
 import { InnerApp } from './components';
 import { useApp } from './hooks';
 
@@ -59,9 +60,7 @@ function App(props: AppProps) {
                 </ChainProvider>
               </NetworksProvider>
             ) : (
-              <div>
-                genesis not started
-              </div>
+              <Countdown />
             )
           }
         </SettingsProvider>
