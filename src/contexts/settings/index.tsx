@@ -11,7 +11,9 @@ const initialState: SettingsState = {
 
 const SettingsContext = React.createContext<SettingsState>(initialState);
 
-const SettingsProvider: React.FC = (props: {children: React.ReactNode }) => {
+const SettingsProvider: React.FC = (props: {children: ({
+  muiTheme: any,
+}) => React.ReactNode }) => {
   const { children } = props;
 
   const {
@@ -30,7 +32,7 @@ const SettingsProvider: React.FC = (props: {children: React.ReactNode }) => {
         toggleThemeMode,
       }}
     >
-      {children}
+      {children({ muiTheme })}
     </SettingsContext.Provider>
   );
 };
