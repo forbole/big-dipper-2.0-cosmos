@@ -12,6 +12,9 @@ export const useStyles = () => {
           flexDirection: 'column',
           background: theme.palette.background.default,
         },
+        chain: {
+          color: theme.palette.primary.main,
+        },
         timeContainer: {
           display: 'grid',
           gridTemplateColumns: 'repeat(4, 1fr)',

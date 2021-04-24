@@ -8,8 +8,6 @@ import { useStyles } from './styles';
 
 const Countdown = () => {
   const classes = useStyles();
-  // const utcTimeNow = dayjs.utc().diff(genesisTime,'day');
-  // .format('YYYY-MM-DDTHH:mm:ss');
   const genesisTime = dayjs.utc(chainConfig.genesis.time);
   const [state, setState] = useState({
     day: 0,
@@ -35,8 +33,8 @@ const Countdown = () => {
 
   return (
     <div className={classes.root}>
-      <Typography variant="h2">
-        Genesis Countdown
+      <Typography variant="h2" className={classes.chain}>
+      {chainConfig.network}
       </Typography>
       <div className={classes.timeContainer}>
         <div className={classes.item}>
