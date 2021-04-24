@@ -3,14 +3,26 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
-      console.log(theme, 'my theme');
       return ({
         root: {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           minHeight: '100vh',
+          flexDirection: 'column',
           background: theme.palette.background.default,
+        },
+        timeContainer: {
+          display: 'grid',
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gridGap: '8px',
+          margin: theme.spacing(1, 0),
+        },
+        item: {
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexDirection: 'column',
         },
       });
     }, {
