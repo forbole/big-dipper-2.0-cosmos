@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import axios from 'axios';
+import {
+  useState, useEffect,
+} from 'react';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { AvatarName } from '@components';
-import { useInterval } from '@hooks';
 import { useChainContext } from '@contexts';
 import { hexToBech32 } from '@utils/hex_to_bech32';
 import { chainConfig } from '@src/chain_config';
@@ -16,47 +16,88 @@ export const useConsensus = () => {
     height: 0,
     round: 0,
     step: 0,
+    totalSteps: 5,
+    roundCompletion: 0,
     proposer: '',
-    stepCompletion: 0,
     proposerRaw: '',
   });
 
-  const callback = async () => {
-    try {
-      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_RPC_CHAIN_URL}/consensus_state`);
-      formatCallback(data);
-    } catch (error) {
-      console.log(error.message, 'ls error');
-    }
+  const client = new WebSocket(process.env.NEXT_PUBLIC_WS_CHAIN_URL);
+
+  useEffect(() => {
+    const stepHeader = {
+      jsonrpc: '2.0',
+      method: 'subscribe',
+      id: 0,
+      params: {
+        query: 'tm.event=\'NewRoundStep\'',
+      },
+    };
+
+    const roundHeader = {
+      jsonrpc: '2.0',
+      method: 'subscribe',
+      id: 0,
+      params: {
+        query: 'tm.event=\'NewRound\'',
+      },
+    };
+
+    client.onopen = () => {
+      client.send(JSON.stringify(stepHeader));
+      client.send(JSON.stringify(roundHeader));
+    };
+
+    client.onmessage = (e: any) => {
+      const data = JSON.parse(e.data);
+      const event = R.pathOr('', ['result', 'data', 'type'], data);
+      if (event === 'tendermint/event/NewRound') {
+        formatNewRound(data);
+      }
+      if (event === 'tendermint/event/RoundState') {
+        formatNewStep(data);
+      }
+    };
+
+    return () => {
+      client.close();
+    };
+  }, []);
+
+  const formatNewRound = (data:any) => {
+    const height = numeral(R.pathOr('', ['result', 'data', 'value', 'height'], data)).value();
+    const proposer = R.pathOr('', ['result', 'data', 'value', 'proposer', 'address'], data);
+    const consensusAddress = hexToBech32(proposer, chainConfig.prefix.consensus);
+
+    setState((prevState) => ({
+      ...prevState,
+      height,
+      proposer: consensusAddress,
+      proposerRaw: proposer,
+    }));
   };
 
-  useInterval(callback, 1000);
+  const formatNewStep = (data:any) => {
+    const stepReference = {
+      0: 0,
+      RoundStepNewHeight: 1,
+      RoundStepPropose: 2,
+      RoundStepPrevote: 3,
+      RoundStepPrecommit: 4,
+      RoundStepCommit: 5,
+    };
 
-  const formatCallback = (data: any) => {
-    const [height, round, step] = R.pathOr('0/0/0', ['result', 'round_state', 'height/round/step'], data).split('/');
+    const round = R.pathOr(0, ['result', 'data', 'value', 'round'], data);
+    const step = stepReference[R.pathOr(0, ['result', 'data', 'value', 'step'], data)];
 
-    let completionPercent = '0.00';
-    // prevote
-    completionPercent = R.pathOr(0, ['result', 'round_state', 'height_vote_set', round, 'precommits_bit_array'], data);
-    if (step >= 4) {
-      completionPercent = R.pathOr(0, ['result', 'round_state', 'height_vote_set', round, 'precommits_bit_array'], data);
-    }
+    const roundCompletion = (step / state.totalSteps) * 100;
 
-    // precommit
-    if (step <= 5) {
-      completionPercent = R.pathOr(0, ['result', 'round_state', 'height_vote_set', round, 'prevotes_bit_array'], data);
-    }
-
-    const stepCompletion = numeral(R.pathOr('0.00', [1], completionPercent.split(' = '))).value() * 100;
-
-    setState({
-      height,
+    setState((prevState) => ({
+      ...prevState,
       round,
       step,
-      proposer: hexToBech32(R.pathOr('', ['result', 'round_state', 'proposer', 'address'], data), chainConfig.prefix.consensus),
-      stepCompletion,
-      proposerRaw: R.pathOr('', ['result', 'round_state', 'proposer', 'address'], data),
-    });
+      roundCompletion,
+    }));
   };
 
   const formatUi = () => {
@@ -67,14 +108,15 @@ export const useConsensus = () => {
       height: numeral(state.height).format('0,0'),
       round: numeral(state.round).format('0,0'),
       step: numeral(state.step).format('0,0'),
-      proposer: (
+      proposer: operatorAddress ? (
         <AvatarName
           address={operatorAddress || state.proposer}
           imageUrl={proposer ? proposer?.imageUrl : null}
           name={proposer ? proposer.moniker : 'Shy Validator'}
         />
+      ) : (
+        '-'
       ),
-      stepCompletion: `${numeral(state.stepCompletion).format('0')}%`,
     });
   };
 
