@@ -19,15 +19,14 @@ Array [
         },
       ]
     }
-    description="description"
+    description="common:description"
     id="NextSeo"
     openGraph={
       Object {
-        "description": "description",
+        "description": "common:description",
         "images": Array [
           Object {
-            "alt": "description",
-            "url": "http://localhost/icons/android-chrome-512x512.png",
+            "url": "https://staging.bigdipper.live/images/big-dipper-social-media.png",
           },
         ],
         "site_name": "Big Dipper",

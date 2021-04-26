@@ -23,11 +23,11 @@ const Layout = (props:LayoutProps) => {
   }
 
   const {
-    description = 'description',
+    description = t('common:description'),
     title = t('common:bigDipper'),
     type = 'website',
-    imageUrl = `${baseUrl}/icons/android-chrome-512x512.png`,
-    imageAlt,
+    // imageUrl = `${baseUrl}/icons/android-chrome-512x512.png`,
+    imageUrl = 'https://staging.bigdipper.live/images/big-dipper-social-media.png',
     children,
     navTitle,
     className,
@@ -51,7 +51,6 @@ const Layout = (props:LayoutProps) => {
           images: [
             {
               url: imageUrl,
-              alt: imageAlt ?? description,
             },
           ],
         }}
