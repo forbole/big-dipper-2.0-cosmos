@@ -1,5 +1,5 @@
 export const chainConfig = {
-  network: 'morpheus-13001', // initial value
+  network: 'morpheus-apollo-1', // initial value
   icon: 'https://gist.githubusercontent.com/kwunyeung/8be4598c77c61e497dfc7220a678b3ee/raw/desmos.svg?sanitize=true',
   base: 'udaric',
   display: 'daric',
