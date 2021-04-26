@@ -45,7 +45,7 @@ Array [
             "result": <UNDEFINED
               success={true}
             />,
-            "time": "8 days ago",
+            "time": "10 days ago",
           },
         ]
       }
@@ -103,7 +103,7 @@ Array [
             "result": <UNDEFINED
               success={false}
             />,
-            "time": "8 days ago",
+            "time": "10 days ago",
           },
           Object {
             "block": <Link
@@ -134,7 +134,7 @@ Array [
             "result": <UNDEFINED
               success={true}
             />,
-            "time": "8 days ago",
+            "time": "10 days ago",
           },
         ]
       }

@@ -49,7 +49,7 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
           "result": <UNDEFINED
             success={true}
           />,
-          "time": "13 days ago",
+          "time": "15 days ago",
         },
       ]
     }
