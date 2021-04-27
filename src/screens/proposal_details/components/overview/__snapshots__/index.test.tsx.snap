@@ -20,9 +20,9 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
         value="status"
       />
     }
-    submissionTime="2021-03-08"
+    submissionTime="2020-08-10 12:00:00"
     title="Enable IBC transfers"
-    votingTimeStart="2021-03-08"
+    votingTimeStart="2020-08-10 12:00:00"
   />
   <hr
     className="MuiDivider-root"
