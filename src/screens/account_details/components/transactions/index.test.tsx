@@ -18,6 +18,18 @@ jest.mock('@components', () => ({
   TransactionsList: (props) => <div id="TransactionsList" {...props} />,
 }));
 
+const mockDayjs = () => ({
+  format: jest.fn(() => '2020-08-10 12:00:00'),
+});
+
+mockDayjs.utc = jest.fn(() => {
+  return (
+    {
+      fromNow: jest.fn(() => '1 day ago'),
+    }
+  );
+});
+
 const mockTransactions = jest.fn().mockResolvedValue({
   data: {
     messagesByAddress: [
