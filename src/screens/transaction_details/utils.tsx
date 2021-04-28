@@ -168,6 +168,7 @@ export const getMessageByType = (message: (MsgCreateValidator
     );
     tagDisplay: string;
     tagTheme?: 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven' | 'eight' | 'zero';
+    unknown?: boolean;
   } = {
     content: Unknown,
     tagDisplay: 'txUnknownLabel',
@@ -316,13 +317,17 @@ export const getMessageByType = (message: (MsgCreateValidator
   //   };
   // }
 
-  if (results.tagDisplay === 'txUnknownLabel' && type) {
-    const tagSplit = type?.split('.');
-    results.tagDisplay = tagSplit[tagSplit.length - 1];
-  }
+  // if (results.tagDisplay === 'txUnknownLabel' && type) {
+  //   const tagSplit = type?.split('.');
+  //   results.tagDisplay = tagSplit[tagSplit.length - 1];
+  //   results.unknown = true;
+  // }
 
   return {
-    type: <Tag value={t(results.tagDisplay)} theme={results.tagTheme} />,
+    type: <Tag
+      value={results.unknown ? results.tagDisplay : t(results.tagDisplay)}
+      theme={results.tagTheme}
+    />,
     message: <results.content message={message as any} />,
   };
 };
