@@ -1462,7 +1462,7 @@ export type Block = {
   pre_commits: Array<Pre_Commit>;
   /** An aggregated array relationship */
   pre_commits_aggregate: Pre_Commit_Aggregate;
-  proposer_address: Scalars['String'];
+  proposer_address?: Maybe<Scalars['String']>;
   /** An array relationship */
   slashing_params: Array<Slashing_Params>;
   /** An aggregated array relationship */
@@ -1474,7 +1474,7 @@ export type Block = {
   /** An aggregated array relationship */
   transactions_aggregate: Transaction_Aggregate;
   /** An object relationship */
-  validator: Validator;
+  validator?: Maybe<Validator>;
   /** An array relationship */
   validator_commission_amounts: Array<Validator_Commission_Amount>;
   /** An aggregated array relationship */
@@ -12011,13 +12011,13 @@ export type BlockDetailsQuery = { transaction: Array<(
     { __typename?: 'block' }
     & Pick<Block, 'height' | 'hash' | 'timestamp'>
     & { txs: Block['num_txs'] }
-    & { validator: (
+    & { validator?: Maybe<(
       { __typename?: 'validator' }
       & { validatorInfo?: Maybe<(
         { __typename?: 'validator_info' }
         & { operatorAddress: Validator_Info['operator_address'] }
       )> }
-    ), preCommitsAggregate: (
+    )>, preCommitsAggregate: (
       { __typename?: 'pre_commit_aggregate' }
       & { aggregate?: Maybe<(
         { __typename?: 'pre_commit_aggregate_fields' }
@@ -12073,9 +12073,9 @@ export type LatestBlockHeightOffsetQuery = { height: Array<(
 export type AverageBlockTimeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AverageBlockTimeQuery = { averageBlockTimePerDay: Array<(
-    { __typename?: 'average_block_time_per_day' }
-    & { averageTime: Average_Block_Time_Per_Day['average_time'] }
+export type AverageBlockTimeQuery = { averageBlockTime: Array<(
+    { __typename?: 'average_block_time_from_genesis' }
+    & { averageTime: Average_Block_Time_From_Genesis['average_time'] }
   )> };
 
 export type BlocksListenerSubscriptionVariables = Exact<{
@@ -12088,13 +12088,13 @@ export type BlocksListenerSubscription = { blocks: Array<(
     { __typename?: 'block' }
     & Pick<Block, 'height' | 'hash' | 'timestamp'>
     & { txs: Block['num_txs'] }
-    & { validator: (
+    & { validator?: Maybe<(
       { __typename?: 'validator' }
       & { validatorInfo?: Maybe<(
         { __typename?: 'validator_info' }
         & { operatorAddress: Validator_Info['operator_address'] }
       )> }
-    ) }
+    )> }
   )> };
 
 export type BlocksQueryVariables = Exact<{
@@ -12107,7 +12107,7 @@ export type BlocksQuery = { blocks: Array<(
     { __typename?: 'block' }
     & Pick<Block, 'height' | 'hash' | 'timestamp'>
     & { txs: Block['num_txs'] }
-    & { validator: (
+    & { validator?: Maybe<(
       { __typename?: 'validator' }
       & { validatorInfo?: Maybe<(
         { __typename?: 'validator_info' }
@@ -12117,7 +12117,7 @@ export type BlocksQuery = { blocks: Array<(
         { __typename?: 'validator_description' }
         & Pick<Validator_Description, 'moniker' | 'identity'>
       )> }
-    ) }
+    )> }
   )>, total: (
     { __typename?: 'block_aggregate' }
     & { aggregate?: Maybe<(
@@ -12344,13 +12344,13 @@ export type LastHundredBlocksQueryVariables = Exact<{
 export type LastHundredBlocksQuery = { block: Array<(
     { __typename?: 'block' }
     & Pick<Block, 'height'>
-    & { validator: (
+    & { validator?: Maybe<(
       { __typename?: 'validator' }
       & { validatorInfo?: Maybe<(
         { __typename?: 'validator_info' }
         & { operatorAddress: Validator_Info['operator_address'] }
       )> }
-    ), validatorVotingPowers: (
+    )>, validatorVotingPowers: (
       { __typename?: 'validator_voting_power_aggregate' }
       & { aggregate?: Maybe<(
         { __typename?: 'validator_voting_power_aggregate_fields' }
@@ -12719,7 +12719,7 @@ export type LatestBlockHeightOffsetLazyQueryHookResult = ReturnType<typeof useLa
 export type LatestBlockHeightOffsetQueryResult = Apollo.QueryResult<LatestBlockHeightOffsetQuery, LatestBlockHeightOffsetQueryVariables>;
 export const AverageBlockTimeDocument = gql`
     query AverageBlockTime {
-  averageBlockTimePerDay: average_block_time_per_day(
+  averageBlockTime: average_block_time_from_genesis(
     limit: 1
     order_by: {height: desc}
   ) {
