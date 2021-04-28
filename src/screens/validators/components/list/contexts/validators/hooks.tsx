@@ -160,7 +160,12 @@ export const useValidators = (initialState: ValidatorsState) => {
     }
 
     if (search) {
-      sorted = sorted.filter((x) => x.moniker.toLowerCase().includes(search));
+      sorted = sorted.filter((x) => {
+        return (
+          x.moniker.toLowerCase().includes(search)
+          || x.validator.includes(search)
+        );
+      });
     }
 
     if (sortKey && sortDirection) {
