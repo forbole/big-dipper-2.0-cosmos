@@ -1,7 +1,4 @@
-import {
-  useState,
-  useEffect,
-} from 'react';
+import { useState } from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
 import {

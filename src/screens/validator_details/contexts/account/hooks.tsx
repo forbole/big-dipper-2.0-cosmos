@@ -87,11 +87,15 @@ export const useAccount = (initialState: AccountState) => {
     // self voting power
     const self = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], data.validator[0]);
 
+    const totalDelegations = data.validator[0].delegations.reduce((a, b) => {
+      return a + numeral(R.pathOr(0, ['amount', 'amount'], b)).value();
+    }, 0);
+
     const [selfDelegate] = data.validator[0].delegations.filter(
       (x) => x.delegatorAddress === data.validator[0].validatorInfo.selfDelegateAddress,
     );
     const selfDelegateAmount = formatDenom(numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value());
-    const selfDelegatePercent = (selfDelegateAmount / self) * 100;
+    const selfDelegatePercent = (numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value() / totalDelegations) * 100;
 
     const votingPower = {
       self,
