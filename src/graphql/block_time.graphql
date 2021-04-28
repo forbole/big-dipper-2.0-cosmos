@@ -1,5 +1,5 @@
 query AverageBlockTime {
-  averageBlockTimePerDay: average_block_time_per_day(limit: 1, order_by: {height: desc}){
+  averageBlockTime: average_block_time_from_genesis(limit: 1, order_by: {height: desc}) {
     averageTime: average_time
   }
 }

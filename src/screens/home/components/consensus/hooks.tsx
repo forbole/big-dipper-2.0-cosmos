@@ -23,9 +23,8 @@ export const useConsensus = () => {
     proposerRaw: '',
   });
 
-  const client = new WebSocket(process.env.NEXT_PUBLIC_WS_CHAIN_URL);
-
   useEffect(() => {
+    const client = new WebSocket(process.env.NEXT_PUBLIC_WS_CHAIN_URL);
     const stepHeader = {
       jsonrpc: '2.0',
       method: 'subscribe',
@@ -58,6 +57,10 @@ export const useConsensus = () => {
       if (event === 'tendermint/event/RoundState') {
         formatNewStep(data);
       }
+    };
+
+    client.onclose = () => {
+      console.log('closing socket');
     };
 
     return () => {
