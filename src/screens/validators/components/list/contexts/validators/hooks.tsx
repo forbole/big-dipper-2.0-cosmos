@@ -76,6 +76,12 @@ export const useValidators = (initialState: ValidatorsState) => {
       const missedBlockCounter = R.pathOr(0, ['validatorSigningInfos', 0, 'missedBlocksCounter'], x);
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
 
+      if (validator === 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3') {
+        console.log(x, 'x');
+        console.log(self, 'self');
+        console.log(votingPower, 'votingPower');
+      }
+
       return ({
         moniker: findAddress(validator)?.moniker || validator,
         validator,
