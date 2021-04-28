@@ -10,6 +10,7 @@ import {
   MarketDataQuery,
 } from '@graphql/types';
 import { chainConfig } from '@src/chain_config';
+import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { ChainState } from './types';
 
 export const useValidatorsAddress = (initialstate:ChainState) => {
@@ -61,11 +62,24 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
       const validatorAddress = x.validatorInfo.operatorAddress;
       const selfAddress = x.validatorInfo.selfDelegateAddress;
       const { consensusAddress } = x.validatorInfo;
+      const defaultMoniker = getMiddleEllipsis(validatorAddress, {
+        beginning: 6, ending: 10,
+      });
+      const defaultSelfDelegateMoniker = getMiddleEllipsis(selfAddress, {
+        beginning: 6, ending: 10,
+      });
+
       validators[validatorAddress] = {
-        moniker: R.pathOr('Shy Validator', ['validatorDescriptions', 0, 'moniker'], x),
+        moniker: R.pathOr(defaultMoniker, ['validatorDescriptions', 0, 'moniker'], x),
       };
 
-      selfDelegateAddresses[selfAddress] = validators[validatorAddress];
+      // edge case if validator has no moniker
+      // we need to display the self delegation address accordingly
+      if (validators[validatorAddress].moniker === defaultMoniker) {
+        selfDelegateAddresses[selfAddress] = R.clone(validators[validatorAddress]);
+        selfDelegateAddresses[selfAddress].moniker = defaultSelfDelegateMoniker;
+      }
+
       consensusAddresses[consensusAddress] = validatorAddress;
 
       if (
@@ -81,6 +95,7 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
         promiseIndexTracker[promises.length - 1] = validatorAddress;
       }
     });
+
     // ===============================
     // Set imageUrl in to the dictionary
     // ===============================

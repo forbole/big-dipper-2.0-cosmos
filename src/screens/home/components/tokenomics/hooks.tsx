@@ -63,16 +63,15 @@ export const useTokenomics = (theme: Theme) => {
     ], data);
     results.bonded = formatDenom(bonded);
 
-    const unbonded = R.pathOr(state.bonded, [
+    const unbonding = R.pathOr(state.bonded, [
       'stakingPool',
       0,
       'unbonded',
     ], data);
-    results.unbonded = formatDenom(unbonded);
+    results.unbonding = formatDenom(unbonding);
 
-    const unbonding = results.total - results.unbonded - results.bonded;
-    results.unbonding = unbonding;
-
+    const unbonded = results.total - results.unbonding - results.bonded;
+    results.unbonded = unbonded;
     return results;
   };
 
