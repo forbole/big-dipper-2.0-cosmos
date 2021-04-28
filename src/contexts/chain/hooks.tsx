@@ -73,8 +73,13 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
         moniker: R.pathOr(defaultMoniker, ['validatorDescriptions', 0, 'moniker'], x),
       };
 
-      selfDelegateAddresses[selfAddress] = validators[validatorAddress];
-      selfDelegateAddresses[selfAddress].moniker = defaultSelfDelegateMoniker;
+      // edge case if validator has no moniker
+      // we need to display the self delegation address accordingly
+      if (validators[validatorAddress].moniker === defaultMoniker) {
+        selfDelegateAddresses[selfAddress] = R.clone(validators[validatorAddress]);
+        selfDelegateAddresses[selfAddress].moniker = defaultSelfDelegateMoniker;
+      }
+
       consensusAddresses[consensusAddress] = validatorAddress;
 
       if (
@@ -90,6 +95,7 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
         promiseIndexTracker[promises.length - 1] = validatorAddress;
       }
     });
+
     // ===============================
     // Set imageUrl in to the dictionary
     // ===============================
