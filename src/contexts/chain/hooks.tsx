@@ -176,7 +176,6 @@ export const useMarket = (initalState: ChainState) => {
   );
 
   const formatUseChainIdQuery = (data: MarketDataQuery) => {
-    // console.log(data, 'data');
     // initial
     const { rawData } = initalState.market;
     let { communityPool } = rawData;

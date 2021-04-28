@@ -38,7 +38,7 @@ const mockLatestBlockHeight = jest.fn().mockResolvedValue({
 
 const mockAverageBlockTime = jest.fn().mockResolvedValue({
   data: {
-    averageBlockTimePerDay: [
+    averageBlockTime: [
       {
         averageTime: 6.540624503709312,
       },
