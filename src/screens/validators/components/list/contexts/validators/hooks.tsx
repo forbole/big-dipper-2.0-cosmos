@@ -1,7 +1,4 @@
-import {
-  useState,
-  useEffect,
-} from 'react';
+import { useState } from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
 import {
@@ -54,10 +51,6 @@ export const useValidators = (initialState: ValidatorsState) => {
     },
   });
 
-  useEffect(() => {
-    console.log(`tab has changed to ${tab}`);
-  }, [tab]);
-
   const formatValidators = (data: ValidatorsQuery) => {
     const votingPowerOverall = formatDenom(R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data));
     const signedBlockWindow = R.pathOr(0, ['slashingParams', 0, 'signedBlockWindow'], data);
@@ -65,14 +58,18 @@ export const useValidators = (initialState: ValidatorsState) => {
       const validator = x.validatorInfo.operatorAddress;
       const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
       const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
+      const totalDelegations = x.delegations.reduce((a, b) => {
+        return a + numeral(R.pathOr(0, ['amount', 'amount'], b)).value();
+      }, 0);
+
       const [selfDelegation] = x.delegations.filter(
         (y) => {
           return y.delegatorAddress === x.validatorInfo.selfDelegateAddress;
         },
       );
+      const self = numeral(R.pathOr(0, ['amount', 'amount'], selfDelegation)).value();
+      const selfPercent = (self / (totalDelegations || 1)) * 100;
 
-      const self = formatDenom(numeral(R.pathOr(0, ['amount', 'amount'], selfDelegation)).value());
-      const selfPercent = (self / (votingPower || 1)) * 100;
       const missedBlockCounter = R.pathOr(0, ['validatorSigningInfos', 0, 'missedBlocksCounter'], x);
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
 
@@ -163,7 +160,12 @@ export const useValidators = (initialState: ValidatorsState) => {
     }
 
     if (search) {
-      sorted = sorted.filter((x) => x.moniker.toLowerCase().includes(search));
+      sorted = sorted.filter((x) => {
+        return (
+          x.moniker.toLowerCase().includes(search)
+          || x.validator.includes(search)
+        );
+      });
     }
 
     if (sortKey && sortDirection) {

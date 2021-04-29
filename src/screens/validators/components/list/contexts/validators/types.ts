@@ -6,7 +6,6 @@ export type ValidatorItems = {
   votingPower: number;
   votingPowerPercent: number;
   commission: number;
-  self: number;
   selfPercent: number;
   condition: number;
   status: number;
