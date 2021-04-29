@@ -23,7 +23,7 @@ export const useStyles = () => {
           ...theme.mixins.toolbar,
           display: 'flex',
           alignItems: 'flex-end',
-          justifyContent: 'center',
+          justifyContent: 'flex-start',
           background: theme?.palette?.background?.default,
           color: theme?.palette?.custom?.fonts?.fontTwo ?? 'inherit',
           width: `calc(100% - ${CLOSED_DRAWER_WIDTH}px)`,

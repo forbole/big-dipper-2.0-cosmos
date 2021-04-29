@@ -46,7 +46,7 @@ const ChainProvider: React.FC = (props: {children: React.ReactNode }) => {
         validatorsAddresses,
         findAddress,
         findOperator,
-        loading: addressLoading && marketLoading,
+        loading: addressLoading || marketLoading,
         market: {
           loading: marketLoading,
           rawData,
