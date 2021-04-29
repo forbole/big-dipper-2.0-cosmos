@@ -28,6 +28,7 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
     },
     onCompleted: async (data) => {
       const formattedList = await formatValidatorsAddressList(data);
+      console.log(formattedList, 'the fullll list');
       handleSetState({
         ...formattedList,
         loading: false,
@@ -73,6 +74,7 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
         moniker: R.pathOr(defaultMoniker, ['validatorDescriptions', 0, 'moniker'], x),
       };
 
+      selfDelegateAddresses[selfAddress] = validators[validatorAddress];
       // edge case if validator has no moniker
       // we need to display the self delegation address accordingly
       if (validators[validatorAddress].moniker === defaultMoniker) {
