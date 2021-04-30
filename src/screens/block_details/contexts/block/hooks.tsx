@@ -176,7 +176,7 @@ export const useBlock = (initialState: BlockState) => {
         },
         {
           label: t('time'),
-          detail: replaceNaN(dayjs.utc(state.rawData.block.timestamp).fromNow()),
+          detail: replaceNaN(dayjs.utc(state.rawData.block.timestamp).local().format('MMMM DD, YYYY hh:mm A')),
         },
         {
           label: t('signedVotingPower'),
