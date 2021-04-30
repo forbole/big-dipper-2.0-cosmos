@@ -21,17 +21,17 @@ const Signatures: React.FC<{
     rawData,
   } = useBlockContext();
 
-  if (!rawData.signatures.length) {
-    return <NoData />;
-  }
-
   return (
     <Box className={classnames(className, classes.root)}>
       <Typography className={classes.title} variant="h2">{t('signatures')}</Typography>
-      <div className={classes.wrapper}>
-        <Mobile className={classes.mobile} />
-        <Desktop className={classes.desktop} />
-      </div>
+      {!rawData.signatures.length ? (
+        <NoData />
+      ) : (
+        <div className={classes.wrapper}>
+          <Mobile className={classes.mobile} />
+          <Desktop className={classes.desktop} />
+        </div>
+      )}
     </Box>
   );
 };
