@@ -3,8 +3,8 @@ import * as R from 'ramda';
 import numeral from 'numeral';
 import { useRouter } from 'next/router';
 import {
-  useLastHundredBlocksQuery,
-  LastHundredBlocksQuery,
+  useLastHundredBlocksSubscription,
+  LastHundredBlocksSubscription,
 } from '@graphql/types';
 import {
   AvatarName,
@@ -25,16 +25,16 @@ export const useBlocks = () => {
   const router = useRouter();
   const { findAddress } = useChainContext();
 
-  useLastHundredBlocksQuery({
+  useLastHundredBlocksSubscription({
     variables: {
       address: R.pathOr('', ['query', 'address'], router),
     },
-    onCompleted: (data) => {
-      setState(formatLastHundredBlocks(data));
+    onSubscriptionData: (data) => {
+      setState(formatLastHundredBlocks(data.subscriptionData.data));
     },
   });
 
-  const formatLastHundredBlocks = (data: LastHundredBlocksQuery) => {
+  const formatLastHundredBlocks = (data: LastHundredBlocksSubscription) => {
     return data.block.map((x) => {
       return {
         height: x.height,

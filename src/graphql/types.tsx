@@ -12336,12 +12336,12 @@ export type ValidatorDetailsQuery = { stakingPool: Array<(
     & { signedBlockWindow: Slashing_Params['signed_block_window'] }
   )> };
 
-export type LastHundredBlocksQueryVariables = Exact<{
+export type LastHundredBlocksSubscriptionVariables = Exact<{
   address?: Maybe<Scalars['String']>;
 }>;
 
 
-export type LastHundredBlocksQuery = { block: Array<(
+export type LastHundredBlocksSubscription = { block: Array<(
     { __typename?: 'block' }
     & Pick<Block, 'height'>
     & { validator?: Maybe<(
@@ -13381,7 +13381,7 @@ export type ValidatorDetailsQueryHookResult = ReturnType<typeof useValidatorDeta
 export type ValidatorDetailsLazyQueryHookResult = ReturnType<typeof useValidatorDetailsLazyQuery>;
 export type ValidatorDetailsQueryResult = Apollo.QueryResult<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>;
 export const LastHundredBlocksDocument = gql`
-    query LastHundredBlocks($address: String) {
+    subscription LastHundredBlocks($address: String) {
   block(offset: 3, order_by: {height: desc}, limit: 100) {
     height
     validator {
@@ -13416,32 +13416,27 @@ export const LastHundredBlocksDocument = gql`
     `;
 
 /**
- * __useLastHundredBlocksQuery__
+ * __useLastHundredBlocksSubscription__
  *
- * To run a query within a React component, call `useLastHundredBlocksQuery` and pass it any options that fit your needs.
- * When your component renders, `useLastHundredBlocksQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useLastHundredBlocksSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useLastHundredBlocksSubscription` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useLastHundredBlocksQuery({
+ * const { data, loading, error } = useLastHundredBlocksSubscription({
  *   variables: {
  *      address: // value for 'address'
  *   },
  * });
  */
-export function useLastHundredBlocksQuery(baseOptions?: Apollo.QueryHookOptions<LastHundredBlocksQuery, LastHundredBlocksQueryVariables>) {
+export function useLastHundredBlocksSubscription(baseOptions?: Apollo.SubscriptionHookOptions<LastHundredBlocksSubscription, LastHundredBlocksSubscriptionVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<LastHundredBlocksQuery, LastHundredBlocksQueryVariables>(LastHundredBlocksDocument, options);
+        return Apollo.useSubscription<LastHundredBlocksSubscription, LastHundredBlocksSubscriptionVariables>(LastHundredBlocksDocument, options);
       }
-export function useLastHundredBlocksLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LastHundredBlocksQuery, LastHundredBlocksQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<LastHundredBlocksQuery, LastHundredBlocksQueryVariables>(LastHundredBlocksDocument, options);
-        }
-export type LastHundredBlocksQueryHookResult = ReturnType<typeof useLastHundredBlocksQuery>;
-export type LastHundredBlocksLazyQueryHookResult = ReturnType<typeof useLastHundredBlocksLazyQuery>;
-export type LastHundredBlocksQueryResult = Apollo.QueryResult<LastHundredBlocksQuery, LastHundredBlocksQueryVariables>;
+export type LastHundredBlocksSubscriptionHookResult = ReturnType<typeof useLastHundredBlocksSubscription>;
+export type LastHundredBlocksSubscriptionResult = Apollo.SubscriptionResult<LastHundredBlocksSubscription>;
 export const ValidatorsDocument = gql`
     query Validators($delegationHeight: bigint) {
   stakingPool: staking_pool(limit: 1, order_by: {height: desc}) {

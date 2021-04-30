@@ -29,6 +29,7 @@ const Blocks: React.FC<{
         {uiData.map((x, i) => {
           return (
             <Tooltip
+              key={`blocks-tooltip-${i}`}
               enterTouchDelay={50}
               title={(
                 <Box className={classes.toolTip}>
