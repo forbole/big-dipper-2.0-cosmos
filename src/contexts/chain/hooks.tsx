@@ -28,7 +28,6 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
     },
     onCompleted: async (data) => {
       const formattedList = await formatValidatorsAddressList(data);
-      console.log(formattedList, 'the fullll list');
       handleSetState({
         ...formattedList,
         loading: false,

@@ -63,7 +63,7 @@ export const useBlock = (initialState: BlockState) => {
       hash: data.block[0].hash,
       txs: data.block[0].txs,
       timestamp: data.block[0].timestamp,
-      proposer: data.block[0].validator.validatorInfo.operatorAddress,
+      proposer: R.pathOr('', ['block', 0, 'validator', 'validatorInfo', 'operatorAddress'], data),
       votingPower: R.pathOr(0, [
         'block',
         0,
@@ -155,11 +155,9 @@ export const useBlock = (initialState: BlockState) => {
         {
           label: t('height'),
           detail: (
-            <Link href={BLOCK_DETAILS(state.rawData.block.height)} passHref>
-              <Typography variant="body1" className="value" component="a">
-                {numeral(state.rawData.block.height).format('0,0')}
-              </Typography>
-            </Link>
+            <Typography variant="body1" className="value">
+              {numeral(state.rawData.block.height).format('0,0')}
+            </Typography>
           ),
         },
         {
@@ -178,7 +176,7 @@ export const useBlock = (initialState: BlockState) => {
         },
         {
           label: t('time'),
-          detail: replaceNaN(dayjs.utc(state.rawData.block.timestamp).fromNow()),
+          detail: replaceNaN(dayjs.utc(state.rawData.block.timestamp).local().format('MMMM DD, YYYY hh:mm A')),
         },
         {
           label: t('signedVotingPower'),
