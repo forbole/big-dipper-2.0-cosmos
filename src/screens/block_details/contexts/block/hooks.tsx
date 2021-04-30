@@ -63,7 +63,7 @@ export const useBlock = (initialState: BlockState) => {
       hash: data.block[0].hash,
       txs: data.block[0].txs,
       timestamp: data.block[0].timestamp,
-      proposer: data.block[0].validator.validatorInfo.operatorAddress,
+      proposer: R.pathOr('', ['block', 0, 'validator', 'validatorInfo', 'operatorAddress'], data),
       votingPower: R.pathOr(0, [
         'block',
         0,
