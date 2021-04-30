@@ -155,11 +155,9 @@ export const useBlock = (initialState: BlockState) => {
         {
           label: t('height'),
           detail: (
-            <Link href={BLOCK_DETAILS(state.rawData.block.height)} passHref>
-              <Typography variant="body1" className="value" component="a">
-                {numeral(state.rawData.block.height).format('0,0')}
-              </Typography>
-            </Link>
+            <Typography variant="body1" className="value">
+              {numeral(state.rawData.block.height).format('0,0')}
+            </Typography>
           ),
         },
         {
