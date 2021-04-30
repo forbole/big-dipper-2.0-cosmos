@@ -56,7 +56,7 @@ query ValidatorDetails($address: String, $delegationHeight: bigint, $utc: timest
   }
 }
 
-query LastHundredBlocks($address: String) {
+subscription LastHundredBlocks($address: String) {
   block(offset: 3, order_by: {height: desc}, limit: 100) {
     height
     validator {
