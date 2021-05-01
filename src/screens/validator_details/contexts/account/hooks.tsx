@@ -63,7 +63,7 @@ export const useAccount = (initialState: AccountState) => {
     // ============================
     // profile
     // ============================
-    const missedBlockCounter = R.pathOr(0, ['validatorSigningInfo', 0, 'missedBlocksCounter'], data.validator[0]);
+    const missedBlockCounter = R.pathOr(0, ['validatorSigningInfos', 0, 'missedBlocksCounter'], data.validator[0]);
     const signedBlockWindow = data.slashingParams[0]?.signedBlockWindow ?? 0;
 
     const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
