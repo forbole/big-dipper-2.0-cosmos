@@ -34,6 +34,7 @@ const VotingPower: React.FC<{
           {uiData.votingPower.votingPower}
           {' '}
           /
+          {' '}
           {uiData.votingPower.totalVotingPower}
         </Typography>
       </div>

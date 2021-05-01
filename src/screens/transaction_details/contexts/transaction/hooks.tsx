@@ -8,6 +8,7 @@ import { Typography } from '@material-ui/core';
 import Link from 'next/link';
 import dayjs from '@utils/dayjs';
 import { Result } from '@components';
+import { replaceNaN } from '@utils/replace_nan';
 import {
   useTransactionDetailsQuery,
   TransactionDetailsQuery,
@@ -98,16 +99,16 @@ export const useTransaction = (initalState: TransactionState) => {
         {
           label: t('height'),
           detail: (
-            <Link href={BLOCK_DETAILS(123)} passHref>
+            <Link href={BLOCK_DETAILS(state.rawData.transaction.height)} passHref>
               <Typography variant="body1" className="value" component="a">
-                {state.rawData.transaction.height}
+                {numeral(state.rawData.transaction.height).format('0,0')}
               </Typography>
             </Link>
           ),
         },
         {
           label: t('time'),
-          detail: dayjs(state.rawData.transaction.timestamp).format('DD MMM YYYY, HH:mm'),
+          detail: replaceNaN(dayjs.utc(state.rawData.transaction.timestamp).local().format('MMMM DD, YYYY hh:mm A')),
         },
         {
           label: t('fee'),
