@@ -22,6 +22,7 @@ import MsgEditValidator from './msg/msg_edit_validator';
 import MsgRedelegate from './msg/msg_redelegate';
 import MsgUndelegate from './msg/msg_undelegate';
 import MsgUnknown from './msg/msg_unknown';
+import MsgWithdrawValidatorCommission from './msg/msg_withdraw_validator_commission';
 
 export {
   BigDipperNetwork,
@@ -48,4 +49,5 @@ export {
   MsgUndelegate,
   MsgSubmitProposal,
   MsgUnknown,
+  MsgWithdrawValidatorCommission,
 };

@@ -16,6 +16,7 @@ import WithdrawReward from './withdraw_reward';
 import DepositProposal from './deposit_proposal';
 import Vote from './vote';
 import SubmitProposal from './submit_proposal';
+import WithdrawCommission from './withdraw_commission';
 
 export {
   Overview,
@@ -40,4 +41,5 @@ export {
   DepositProposal,
   Vote,
   SubmitProposal,
+  WithdrawCommission,
 };

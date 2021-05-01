@@ -15,6 +15,7 @@ import {
   MsgUndelegate,
   MsgSubmitProposal,
   MsgUnknown,
+  MsgWithdrawValidatorCommission,
 } from '@models';
 
 import {
@@ -36,6 +37,7 @@ import {
   WithdrawReward,
   DepositProposal,
   Vote,
+  WithdrawCommission,
   // SubmitProposal,
 } from './components';
 
@@ -110,6 +112,10 @@ export const getMessageModelByType = (type: string) => {
     return MsgWithdrawDelegatorReward;
   }
 
+  if (type === '/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission') {
+    return MsgWithdrawValidatorCommission;
+  }
+
   // ========================
   // governance
   // ========================
@@ -145,7 +151,8 @@ export const getMessageByType = (message: (MsgCreateValidator
   | MsgVerifyInvariant
   | MsgVote
   | MsgUnknown
-  | MsgWithdrawDelegatorReward), t:any) => {
+  | MsgWithdrawDelegatorReward
+  | MsgWithdrawValidatorCommission), t:any) => {
   const { type } = message;
 
   let results: {
@@ -165,6 +172,7 @@ export const getMessageByType = (message: (MsgCreateValidator
     | typeof WithdrawReward
     | typeof DepositProposal
     | typeof Vote
+    | typeof WithdrawCommission
     );
     tagDisplay: string;
     tagTheme?: 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven' | 'eight' | 'zero';
@@ -286,6 +294,14 @@ export const getMessageByType = (message: (MsgCreateValidator
       content: WithdrawReward,
       tagTheme: 'six',
       tagDisplay: 'txWithdrawRewardLabel',
+    };
+  }
+
+  if (type === '/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission') {
+    results = {
+      content: WithdrawCommission,
+      tagTheme: 'six',
+      tagDisplay: 'txWithdrawCommissionLabel',
     };
   }
 
