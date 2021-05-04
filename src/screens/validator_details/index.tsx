@@ -9,8 +9,8 @@ import { useStyles } from './styles';
 import {
   Profile,
   VotingPower,
-  Transactions,
-  Staking,
+  // Transactions,
+  // Staking,
   Blocks,
 } from './components';
 import { AccountProvider } from './contexts/account';
@@ -37,8 +37,8 @@ const ValidatorDetails = () => {
               <Profile className={classes.profile} />
               <VotingPower className={classes.votingPower} />
               <Blocks className={classes.blocks} />
-              <Staking className={classes.staking} />
-              <Transactions className={classes.transactions} />
+              {/* <Staking className={classes.staking} /> */}
+              {/* <Transactions className={classes.transactions} /> */}
             </span>
           );
         }}

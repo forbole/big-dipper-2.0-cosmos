@@ -4,8 +4,7 @@ import { useRouter } from 'next/router';
 import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
 import {
-  useLatestStakingHeightQuery,
-  useValidatorDetailsLazyQuery,
+  useValidatorDetailsQuery,
   ValidatorDetailsQuery,
 } from '@graphql/types';
 import { AvatarName } from '@components';
@@ -25,23 +24,11 @@ export const useAccount = (initialState: AccountState) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
 
-  useLatestStakingHeightQuery({
-    onCompleted: (data) => {
-      const delegationHeight = data.delegation[0]?.height;
-      const undelegationHeight = data.unbonding[0]?.height;
-
-      useValidatorDetailsQuery({
-        variables: {
-          address: R.pathOr('', ['query', 'address'], router),
-          utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
-          delegationHeight,
-          undelegationHeight,
-        },
-      });
+  useValidatorDetailsQuery({
+    variables: {
+      address: R.pathOr('', ['query', 'address'], router),
+      utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
     },
-  });
-
-  const [useValidatorDetailsQuery] = useValidatorDetailsLazyQuery({
     onCompleted: (data) => {
       handleSetState(formatAccountQuery(data));
     },
