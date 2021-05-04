@@ -3,11 +3,11 @@ import { Layout } from '@components';
 import { useStyles } from './styles';
 import {
   DataBlocks,
-  OnlineVotingPower,
-  Consensus,
-  Tokenomics,
-  Blocks,
-  Transactions,
+  // OnlineVotingPower,
+  // Consensus,
+  // Tokenomics,
+  // Blocks,
+  // Transactions,
 } from './components';
 
 const Home = () => {
@@ -16,11 +16,11 @@ const Home = () => {
   return (
     <Layout className={classes.root}>
       <DataBlocks className={classes.dataBlocks} />
-      <OnlineVotingPower className={classes.onlineVotingPower} />
+      {/* <OnlineVotingPower className={classes.onlineVotingPower} />
       <Tokenomics className={classes.tokenomics} />
       <Consensus className={classes.consensus} />
       <Blocks className={classes.blocks} />
-      <Transactions className={classes.transactions} />
+      <Transactions className={classes.transactions} /> */}
     </Layout>
   );
 };

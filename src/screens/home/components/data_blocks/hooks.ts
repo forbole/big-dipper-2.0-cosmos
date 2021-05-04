@@ -5,11 +5,10 @@ import {
   useLatestBlockHeightListenerSubscription,
   useAverageBlockTimeQuery,
   AverageBlockTimeQuery,
-  useTokenPriceQuery,
-  TokenPriceQuery,
-  useActiveValidatorCountLazyQuery,
+  useTokenPriceListenerSubscription,
+  TokenPriceListenerSubscription,
+  useActiveValidatorCountQuery,
   ActiveValidatorCountQuery,
-  useLatestBlockHeightOffsetQuery,
 } from '@graphql/types';
 import { chainConfig } from '@src/chain_config';
 
@@ -64,40 +63,26 @@ export const useDataBlocks = () => {
   // ====================================
   // token price
   // ====================================
-  useTokenPriceQuery({
+  useTokenPriceListenerSubscription({
     variables: {
       denom: chainConfig.display,
     },
-    onCompleted: (data) => {
+    onSubscriptionData: (data) => {
       setState((prevState) => ({
         ...prevState,
-        price: formatTokenPrice(data),
+        price: formatTokenPrice(data.subscriptionData.data),
       }));
     },
   });
 
-  const formatTokenPrice = (data: TokenPriceQuery) => {
+  const formatTokenPrice = (data: TokenPriceListenerSubscription) => {
     return data?.tokenPrice[0]?.price ?? state.price;
   };
 
   // ====================================
   // validators
   // ====================================
-
-  useLatestBlockHeightOffsetQuery({
-    onCompleted: (data) => {
-      const blockHeight = formatLatestBlockHeight(data);
-      if (blockHeight) {
-        useActiveValidatorCountQuery({
-          variables: {
-            height: blockHeight,
-          },
-        });
-      }
-    },
-  });
-
-  const [useActiveValidatorCountQuery] = useActiveValidatorCountLazyQuery({
+  useActiveValidatorCountQuery({
     onCompleted: (data) => {
       setState((prevState) => ({
         ...prevState,

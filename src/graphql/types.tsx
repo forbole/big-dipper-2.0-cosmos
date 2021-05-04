@@ -11909,22 +11909,35 @@ export type Validator_Voting_Power_Variance_Order_By = {
   voting_power?: Maybe<Order_By>;
 };
 
+export type ActiveValidatorCountQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ActiveValidatorCountQuery = { activeTotal: (
+    { __typename?: 'validator_status_aggregate' }
+    & { aggregate?: Maybe<(
+      { __typename?: 'validator_status_aggregate_fields' }
+      & Pick<Validator_Status_Aggregate_Fields, 'count'>
+    )> }
+  ), inactiveTotal: (
+    { __typename?: 'validator_status_aggregate' }
+    & { aggregate?: Maybe<(
+      { __typename?: 'validator_status_aggregate_fields' }
+      & Pick<Validator_Status_Aggregate_Fields, 'count'>
+    )> }
+  ), total: (
+    { __typename?: 'validator_status_aggregate' }
+    & { aggregate?: Maybe<(
+      { __typename?: 'validator_status_aggregate_fields' }
+      & Pick<Validator_Status_Aggregate_Fields, 'count'>
+    )> }
+  ) };
+
 export type LatestBlockHeightListenerSubscriptionVariables = Exact<{
   offset?: Maybe<Scalars['Int']>;
 }>;
 
 
 export type LatestBlockHeightListenerSubscription = { height: Array<(
-    { __typename?: 'block' }
-    & Pick<Block, 'height'>
-  )> };
-
-export type LatestBlockHeightOffsetQueryVariables = Exact<{
-  offset?: Maybe<Scalars['Int']>;
-}>;
-
-
-export type LatestBlockHeightOffsetQuery = { height: Array<(
     { __typename?: 'block' }
     & Pick<Block, 'height'>
   )> };
@@ -11944,6 +11957,23 @@ export type ChainIdQuery = { genesis: Array<(
     { __typename?: 'genesis' }
     & Pick<Genesis, 'time'>
     & { chainId: Genesis['chain_id'] }
+  )> };
+
+export type MarketDataQueryVariables = Exact<{
+  denom?: Maybe<Scalars['String']>;
+}>;
+
+
+export type MarketDataQuery = { communityPool: Array<(
+    { __typename?: 'community_pool' }
+    & Pick<Community_Pool, 'coins'>
+  )>, inflation: Array<(
+    { __typename?: 'inflation' }
+    & Pick<Inflation, 'value'>
+  )>, tokenPrice: Array<(
+    { __typename?: 'token_price' }
+    & Pick<Token_Price, 'price'>
+    & { marketCap: Token_Price['market_cap'] }
   )> };
 
 export type TokenPriceListenerSubscriptionVariables = Exact<{
@@ -11972,6 +12002,52 @@ export type ValidatorsAddressListQuery = { validator: Array<(
   )> };
 
 
+export const ActiveValidatorCountDocument = gql`
+    query ActiveValidatorCount {
+  activeTotal: validator_status_aggregate(where: {status: {_eq: 3}}) {
+    aggregate {
+      count
+    }
+  }
+  inactiveTotal: validator_status_aggregate(where: {status: {_neq: 3}}) {
+    aggregate {
+      count
+    }
+  }
+  total: validator_status_aggregate {
+    aggregate {
+      count
+    }
+  }
+}
+    `;
+
+/**
+ * __useActiveValidatorCountQuery__
+ *
+ * To run a query within a React component, call `useActiveValidatorCountQuery` and pass it any options that fit your needs.
+ * When your component renders, `useActiveValidatorCountQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useActiveValidatorCountQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useActiveValidatorCountQuery(baseOptions?: Apollo.QueryHookOptions<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>(ActiveValidatorCountDocument, options);
+      }
+export function useActiveValidatorCountLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>(ActiveValidatorCountDocument, options);
+        }
+export type ActiveValidatorCountQueryHookResult = ReturnType<typeof useActiveValidatorCountQuery>;
+export type ActiveValidatorCountLazyQueryHookResult = ReturnType<typeof useActiveValidatorCountLazyQuery>;
+export type ActiveValidatorCountQueryResult = Apollo.QueryResult<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>;
 export const LatestBlockHeightListenerDocument = gql`
     subscription LatestBlockHeightListener($offset: Int = 0) {
   height: block(order_by: {height: desc}, limit: 1, offset: $offset) {
@@ -12002,41 +12078,6 @@ export function useLatestBlockHeightListenerSubscription(baseOptions?: Apollo.Su
       }
 export type LatestBlockHeightListenerSubscriptionHookResult = ReturnType<typeof useLatestBlockHeightListenerSubscription>;
 export type LatestBlockHeightListenerSubscriptionResult = Apollo.SubscriptionResult<LatestBlockHeightListenerSubscription>;
-export const LatestBlockHeightOffsetDocument = gql`
-    query LatestBlockHeightOffset($offset: Int = 0) {
-  height: block(order_by: {height: desc}, limit: 1, offset: $offset) {
-    height
-  }
-}
-    `;
-
-/**
- * __useLatestBlockHeightOffsetQuery__
- *
- * To run a query within a React component, call `useLatestBlockHeightOffsetQuery` and pass it any options that fit your needs.
- * When your component renders, `useLatestBlockHeightOffsetQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useLatestBlockHeightOffsetQuery({
- *   variables: {
- *      offset: // value for 'offset'
- *   },
- * });
- */
-export function useLatestBlockHeightOffsetQuery(baseOptions?: Apollo.QueryHookOptions<LatestBlockHeightOffsetQuery, LatestBlockHeightOffsetQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<LatestBlockHeightOffsetQuery, LatestBlockHeightOffsetQueryVariables>(LatestBlockHeightOffsetDocument, options);
-      }
-export function useLatestBlockHeightOffsetLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LatestBlockHeightOffsetQuery, LatestBlockHeightOffsetQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<LatestBlockHeightOffsetQuery, LatestBlockHeightOffsetQueryVariables>(LatestBlockHeightOffsetDocument, options);
-        }
-export type LatestBlockHeightOffsetQueryHookResult = ReturnType<typeof useLatestBlockHeightOffsetQuery>;
-export type LatestBlockHeightOffsetLazyQueryHookResult = ReturnType<typeof useLatestBlockHeightOffsetLazyQuery>;
-export type LatestBlockHeightOffsetQueryResult = Apollo.QueryResult<LatestBlockHeightOffsetQuery, LatestBlockHeightOffsetQueryVariables>;
 export const AverageBlockTimeDocument = gql`
     query AverageBlockTime {
   averageBlockTime: average_block_time_from_genesis(
@@ -12109,6 +12150,48 @@ export function useChainIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Ch
 export type ChainIdQueryHookResult = ReturnType<typeof useChainIdQuery>;
 export type ChainIdLazyQueryHookResult = ReturnType<typeof useChainIdLazyQuery>;
 export type ChainIdQueryResult = Apollo.QueryResult<ChainIdQuery, ChainIdQueryVariables>;
+export const MarketDataDocument = gql`
+    query MarketData($denom: String) {
+  communityPool: community_pool(order_by: {height: desc}, limit: 1) {
+    coins
+  }
+  inflation: inflation(order_by: {height: desc}, limit: 1) {
+    value
+  }
+  tokenPrice: token_price(where: {unit_name: {_eq: $denom}}) {
+    marketCap: market_cap
+    price
+  }
+}
+    `;
+
+/**
+ * __useMarketDataQuery__
+ *
+ * To run a query within a React component, call `useMarketDataQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMarketDataQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMarketDataQuery({
+ *   variables: {
+ *      denom: // value for 'denom'
+ *   },
+ * });
+ */
+export function useMarketDataQuery(baseOptions?: Apollo.QueryHookOptions<MarketDataQuery, MarketDataQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<MarketDataQuery, MarketDataQueryVariables>(MarketDataDocument, options);
+      }
+export function useMarketDataLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MarketDataQuery, MarketDataQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<MarketDataQuery, MarketDataQueryVariables>(MarketDataDocument, options);
+        }
+export type MarketDataQueryHookResult = ReturnType<typeof useMarketDataQuery>;
+export type MarketDataLazyQueryHookResult = ReturnType<typeof useMarketDataLazyQuery>;
+export type MarketDataQueryResult = Apollo.QueryResult<MarketDataQuery, MarketDataQueryVariables>;
 export const TokenPriceListenerDocument = gql`
     subscription TokenPriceListener($denom: String) {
   tokenPrice: token_price(where: {unit_name: {_eq: $denom}}) {
