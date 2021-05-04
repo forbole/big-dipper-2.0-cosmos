@@ -10,19 +10,19 @@ subscription TransactionsListener($limit: Int = 7, $offset: Int = 0) {
   }
 }
 
-# query Transactions($limit: Int = 7, $offset: Int = 0) {
-#   transactions: transaction(limit: $limit, offset: $offset, order_by: {height: desc}) {
-#     height
-#     hash
-#     success
-#     block {
-#       timestamp
-#     }
-#     messages
-#   }
-#   total: transaction_aggregate {
-#     aggregate {
-#       count
-#     }
-#   }
-# }
+query Transactions($limit: Int = 7, $offset: Int = 0) {
+  transactions: transaction(limit: $limit, offset: $offset, order_by: {height: desc}) {
+    height
+    hash
+    success
+    block {
+      timestamp
+    }
+    messages
+  }
+  total: transaction_aggregate {
+    aggregate {
+      count
+    }
+  }
+}
