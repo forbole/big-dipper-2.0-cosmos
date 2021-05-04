@@ -11932,6 +11932,60 @@ export type ActiveValidatorCountQuery = { activeTotal: (
     )> }
   ) };
 
+export type BlockDetailsQueryVariables = Exact<{
+  height?: Maybe<Scalars['bigint']>;
+}>;
+
+
+export type BlockDetailsQuery = { transaction: Array<(
+    { __typename?: 'transaction' }
+    & Pick<Transaction, 'height' | 'hash' | 'messages' | 'success'>
+  )>, pool: Array<(
+    { __typename?: 'staking_pool' }
+    & { bondedTokens: Staking_Pool['bonded_tokens'] }
+  )>, block: Array<(
+    { __typename?: 'block' }
+    & Pick<Block, 'height' | 'hash' | 'timestamp'>
+    & { txs: Block['num_txs'] }
+    & { validator?: Maybe<(
+      { __typename?: 'validator' }
+      & { validatorInfo?: Maybe<(
+        { __typename?: 'validator_info' }
+        & { operatorAddress: Validator_Info['operator_address'] }
+      )> }
+    )>, preCommitsAggregate: (
+      { __typename?: 'pre_commit_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'pre_commit_aggregate_fields' }
+        & { sum?: Maybe<(
+          { __typename?: 'pre_commit_sum_fields' }
+          & { votingPower: Pre_Commit_Sum_Fields['voting_power'] }
+        )> }
+      )> }
+    ) }
+  )>, preCommits: Array<(
+    { __typename?: 'pre_commit' }
+    & { validator: (
+      { __typename?: 'validator' }
+      & { validatorInfo?: Maybe<(
+        { __typename?: 'validator_info' }
+        & { operatorAddress: Validator_Info['operator_address'] }
+      )> }
+    ) }
+  )>, validatorStatus: Array<(
+    { __typename?: 'validator_status' }
+    & { validator: (
+      { __typename?: 'validator' }
+      & { validatorVotingPowers: Array<(
+        { __typename?: 'validator_voting_power' }
+        & { votingPower: Validator_Voting_Power['voting_power'] }
+      )>, validatorInfo?: Maybe<(
+        { __typename?: 'validator_info' }
+        & { operatorAddress: Validator_Info['operator_address'] }
+      )> }
+    ) }
+  )> };
+
 export type LatestBlockHeightListenerSubscriptionVariables = Exact<{
   offset?: Maybe<Scalars['Int']>;
 }>;
@@ -12140,6 +12194,87 @@ export function useActiveValidatorCountLazyQuery(baseOptions?: Apollo.LazyQueryH
 export type ActiveValidatorCountQueryHookResult = ReturnType<typeof useActiveValidatorCountQuery>;
 export type ActiveValidatorCountLazyQueryHookResult = ReturnType<typeof useActiveValidatorCountLazyQuery>;
 export type ActiveValidatorCountQueryResult = Apollo.QueryResult<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>;
+export const BlockDetailsDocument = gql`
+    query BlockDetails($height: bigint) {
+  transaction(where: {height: {_eq: $height}}) {
+    height
+    hash
+    messages
+    success
+  }
+  pool: staking_pool(limit: 1, where: {height: {_eq: $height}}) {
+    bondedTokens: bonded_tokens
+  }
+  block(limit: 1, where: {height: {_eq: $height}}) {
+    height
+    hash
+    timestamp
+    txs: num_txs
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
+      }
+    }
+    preCommitsAggregate: pre_commits_aggregate {
+      aggregate {
+        sum {
+          votingPower: voting_power
+        }
+      }
+    }
+  }
+  preCommits: pre_commit(where: {height: {_eq: $height}}) {
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
+      }
+    }
+  }
+  validatorStatus: validator_status(
+    where: {height: {_eq: $height}, status: {_eq: 3}}
+  ) {
+    validator {
+      validatorVotingPowers: validator_voting_powers(
+        limit: 1
+        where: {height: {_eq: $height}}
+      ) {
+        votingPower: voting_power
+      }
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useBlockDetailsQuery__
+ *
+ * To run a query within a React component, call `useBlockDetailsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useBlockDetailsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useBlockDetailsQuery({
+ *   variables: {
+ *      height: // value for 'height'
+ *   },
+ * });
+ */
+export function useBlockDetailsQuery(baseOptions?: Apollo.QueryHookOptions<BlockDetailsQuery, BlockDetailsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<BlockDetailsQuery, BlockDetailsQueryVariables>(BlockDetailsDocument, options);
+      }
+export function useBlockDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<BlockDetailsQuery, BlockDetailsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<BlockDetailsQuery, BlockDetailsQueryVariables>(BlockDetailsDocument, options);
+        }
+export type BlockDetailsQueryHookResult = ReturnType<typeof useBlockDetailsQuery>;
+export type BlockDetailsLazyQueryHookResult = ReturnType<typeof useBlockDetailsLazyQuery>;
+export type BlockDetailsQueryResult = Apollo.QueryResult<BlockDetailsQuery, BlockDetailsQueryVariables>;
 export const LatestBlockHeightListenerDocument = gql`
     subscription LatestBlockHeightListener($offset: Int = 1) {
   height: block(order_by: {height: desc}, limit: 1, offset: $offset) {

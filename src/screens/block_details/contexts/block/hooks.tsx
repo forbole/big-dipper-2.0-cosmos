@@ -178,12 +178,12 @@ export const useBlock = (initialState: BlockState) => {
           label: t('time'),
           detail: replaceNaN(dayjs.utc(state.rawData.block.timestamp).local().format('MMMM DD, YYYY hh:mm A')),
         },
-        {
-          label: t('signedVotingPower'),
-          detail: `${replaceNaN(
-            numeral((state.rawData.block.votingPower / state.rawData.supply.bonded) * 100).format('0.00'),
-          )}%`,
-        },
+        // {
+        //   label: t('signedVotingPower'),
+        //   detail: `${replaceNaN(
+        //     numeral((state.rawData.block.votingPower / state.rawData.supply.bonded) * 100).format('0.00'),
+        //   )}%`,
+        // },
         {
           label: t('txs'),
           detail: numeral(state.rawData.block.txs).format('0,0'),
