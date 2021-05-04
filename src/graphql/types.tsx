@@ -11995,6 +11995,24 @@ export type MarketDataQuery = { communityPool: Array<(
     & { marketCap: Token_Price['market_cap'] }
   )> };
 
+export type OnlineVotingPowerListenerSubscriptionVariables = Exact<{ [key: string]: never; }>;
+
+
+export type OnlineVotingPowerListenerSubscription = { block: Array<(
+    { __typename?: 'block' }
+    & Pick<Block, 'height'>
+    & { preCommitsAggregate: (
+      { __typename?: 'pre_commit_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'pre_commit_aggregate_fields' }
+        & { sum?: Maybe<(
+          { __typename?: 'pre_commit_sum_fields' }
+          & { votingPower: Pre_Commit_Sum_Fields['voting_power'] }
+        )> }
+      )> }
+    ) }
+  )> };
+
 export type TokenPriceListenerSubscriptionVariables = Exact<{
   denom?: Maybe<Scalars['String']>;
 }>;
@@ -12094,7 +12112,7 @@ export type ActiveValidatorCountQueryHookResult = ReturnType<typeof useActiveVal
 export type ActiveValidatorCountLazyQueryHookResult = ReturnType<typeof useActiveValidatorCountLazyQuery>;
 export type ActiveValidatorCountQueryResult = Apollo.QueryResult<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>;
 export const LatestBlockHeightListenerDocument = gql`
-    subscription LatestBlockHeightListener($offset: Int = 0) {
+    subscription LatestBlockHeightListener($offset: Int = 1) {
   height: block(order_by: {height: desc}, limit: 1, offset: $offset) {
     height
   }
@@ -12161,7 +12179,7 @@ export type AverageBlockTimeQueryHookResult = ReturnType<typeof useAverageBlockT
 export type AverageBlockTimeLazyQueryHookResult = ReturnType<typeof useAverageBlockTimeLazyQuery>;
 export type AverageBlockTimeQueryResult = Apollo.QueryResult<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>;
 export const BlocksListenerDocument = gql`
-    subscription BlocksListener($limit: Int = 7, $offset: Int = 0) {
+    subscription BlocksListener($limit: Int = 7, $offset: Int = 1) {
   blocks: block(limit: $limit, offset: $offset, order_by: {height: desc}) {
     height
     txs: num_txs
@@ -12276,6 +12294,42 @@ export function useMarketDataLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type MarketDataQueryHookResult = ReturnType<typeof useMarketDataQuery>;
 export type MarketDataLazyQueryHookResult = ReturnType<typeof useMarketDataLazyQuery>;
 export type MarketDataQueryResult = Apollo.QueryResult<MarketDataQuery, MarketDataQueryVariables>;
+export const OnlineVotingPowerListenerDocument = gql`
+    subscription OnlineVotingPowerListener {
+  block(offset: 1, limit: 1, order_by: {height: desc}) {
+    height
+    preCommitsAggregate: pre_commits_aggregate {
+      aggregate {
+        sum {
+          votingPower: voting_power
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useOnlineVotingPowerListenerSubscription__
+ *
+ * To run a query within a React component, call `useOnlineVotingPowerListenerSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useOnlineVotingPowerListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useOnlineVotingPowerListenerSubscription({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useOnlineVotingPowerListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<OnlineVotingPowerListenerSubscription, OnlineVotingPowerListenerSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<OnlineVotingPowerListenerSubscription, OnlineVotingPowerListenerSubscriptionVariables>(OnlineVotingPowerListenerDocument, options);
+      }
+export type OnlineVotingPowerListenerSubscriptionHookResult = ReturnType<typeof useOnlineVotingPowerListenerSubscription>;
+export type OnlineVotingPowerListenerSubscriptionResult = Apollo.SubscriptionResult<OnlineVotingPowerListenerSubscription>;
 export const TokenPriceListenerDocument = gql`
     subscription TokenPriceListener($denom: String) {
   tokenPrice: token_price(where: {unit_name: {_eq: $denom}}) {

@@ -3,7 +3,7 @@ import { Layout } from '@components';
 import { useStyles } from './styles';
 import {
   DataBlocks,
-  // OnlineVotingPower,
+  OnlineVotingPower,
   Consensus,
   Tokenomics,
   Blocks,
@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <Layout className={classes.root}>
       <DataBlocks className={classes.dataBlocks} />
-      {/* <OnlineVotingPower className={classes.onlineVotingPower} /> */}
+      <OnlineVotingPower className={classes.onlineVotingPower} />
       <Tokenomics className={classes.tokenomics} />
       <Consensus className={classes.consensus} />
       <Blocks className={classes.blocks} />
