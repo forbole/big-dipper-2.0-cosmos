@@ -270,7 +270,6 @@ export const useAccount = (initialState: AccountState) => {
           />
         ),
         linkedUntil: dayjs.utc(x.linkedUntil).local().format('MMMM DD, YYYY hh:mm A'),
-        // .format('YYYY-MM-DD HH:mm:ss A'),
         amount: `${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
         amountRaw: x.amount,
       });
@@ -278,9 +277,9 @@ export const useAccount = (initialState: AccountState) => {
       a.amount > b.amount ? 1 : -1));
 
     // ==================================
-    // unbondings
+    // undelegations
     // ==================================
-    const unbondings = state.rawData.staking.unbondings.map((x) => {
+    const undelegations = state.rawData.staking.unbondings.map((x) => {
       const validatorRole = findAddress(x.delegatorAddress);
       const address = getMiddleEllipsis(x.delegatorAddress, {
         beginning: 12, ending: 10,
@@ -293,7 +292,7 @@ export const useAccount = (initialState: AccountState) => {
             name={validatorRole ? validatorRole.moniker : address}
           />
         ),
-        linkedUntil: dayjs.utc(x.linkedUntil).local().format('HH:mm:ss A'),
+        linkedUntil: dayjs.utc(x.linkedUntil).local().format('MMMM DD, YYYY hh:mm A'),
         amount: `${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
         amountRaw: x.amount,
       });
@@ -306,7 +305,7 @@ export const useAccount = (initialState: AccountState) => {
       staking: {
         delegations,
         redelegations,
-        unbondings,
+        undelegations,
       },
     });
   };

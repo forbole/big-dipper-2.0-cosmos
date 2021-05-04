@@ -17,8 +17,6 @@ export const useBlocks = () => {
     height: number;
     txs: number;
     proposer: string;
-    votingPower: number;
-    totalVotingPower: number;
     signed: boolean;
   }[]>([]);
 
