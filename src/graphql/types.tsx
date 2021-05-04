@@ -12078,6 +12078,26 @@ export type MarketDataQuery = { communityPool: Array<(
     & { marketCap: Token_Price['market_cap'] }
   )> };
 
+export type GetMessagesByAddressQueryVariables = Exact<{
+  address?: Maybe<Scalars['_text']>;
+  limit?: Maybe<Scalars['bigint']>;
+  offset?: Maybe<Scalars['bigint']>;
+  types?: Maybe<Scalars['_text']>;
+}>;
+
+
+export type GetMessagesByAddressQuery = { messagesByAddress: Array<(
+    { __typename?: 'message' }
+    & { transaction: (
+      { __typename?: 'transaction' }
+      & Pick<Transaction, 'height' | 'hash' | 'success' | 'messages'>
+      & { block: (
+        { __typename?: 'block' }
+        & Pick<Block, 'height' | 'timestamp'>
+      ) }
+    ) }
+  )> };
+
 export type OnlineVotingPowerListenerSubscriptionVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -12170,9 +12190,7 @@ export type TransactionsQuery = { transactions: Array<(
 
 export type ValidatorDetailsQueryVariables = Exact<{
   address?: Maybe<Scalars['String']>;
-  delegationHeight?: Maybe<Scalars['bigint']>;
   utc?: Maybe<Scalars['timestamp']>;
-  undelegationHeight?: Maybe<Scalars['bigint']>;
 }>;
 
 
@@ -12661,6 +12679,55 @@ export function useMarketDataLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type MarketDataQueryHookResult = ReturnType<typeof useMarketDataQuery>;
 export type MarketDataLazyQueryHookResult = ReturnType<typeof useMarketDataLazyQuery>;
 export type MarketDataQueryResult = Apollo.QueryResult<MarketDataQuery, MarketDataQueryVariables>;
+export const GetMessagesByAddressDocument = gql`
+    query GetMessagesByAddress($address: _text, $limit: bigint = 50, $offset: bigint = 0, $types: _text = "{}") {
+  messagesByAddress: messages_by_address(
+    args: {addresses: $address, types: $types, limit: $limit, offset: $offset}
+  ) {
+    transaction {
+      height
+      hash
+      success
+      messages
+      block {
+        height
+        timestamp
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetMessagesByAddressQuery__
+ *
+ * To run a query within a React component, call `useGetMessagesByAddressQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetMessagesByAddressQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetMessagesByAddressQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
+ *      types: // value for 'types'
+ *   },
+ * });
+ */
+export function useGetMessagesByAddressQuery(baseOptions?: Apollo.QueryHookOptions<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>(GetMessagesByAddressDocument, options);
+      }
+export function useGetMessagesByAddressLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>(GetMessagesByAddressDocument, options);
+        }
+export type GetMessagesByAddressQueryHookResult = ReturnType<typeof useGetMessagesByAddressQuery>;
+export type GetMessagesByAddressLazyQueryHookResult = ReturnType<typeof useGetMessagesByAddressLazyQuery>;
+export type GetMessagesByAddressQueryResult = Apollo.QueryResult<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>;
 export const OnlineVotingPowerListenerDocument = gql`
     subscription OnlineVotingPowerListener {
   block(offset: 1, limit: 1, order_by: {height: desc}) {
@@ -12907,7 +12974,7 @@ export type TransactionsQueryHookResult = ReturnType<typeof useTransactionsQuery
 export type TransactionsLazyQueryHookResult = ReturnType<typeof useTransactionsLazyQuery>;
 export type TransactionsQueryResult = Apollo.QueryResult<TransactionsQuery, TransactionsQueryVariables>;
 export const ValidatorDetailsDocument = gql`
-    query ValidatorDetails($address: String, $delegationHeight: bigint, $utc: timestamp, $undelegationHeight: bigint) {
+    query ValidatorDetails($address: String, $utc: timestamp) {
   stakingPool: staking_pool(order_by: {height: desc}, limit: 1, offset: 0) {
     height
     bonded: bonded_tokens
@@ -12946,7 +13013,7 @@ export const ValidatorDetailsDocument = gql`
       height
       votingPower: voting_power
     }
-    delegations(where: {height: {_eq: $delegationHeight}}) {
+    delegations {
       amount
       delegatorAddress: delegator_address
     }
@@ -12964,9 +13031,7 @@ export const ValidatorDetailsDocument = gql`
       from: dst_validator_address
       delegatorAddress: delegator_address
     }
-    unbonding: unbonding_delegations(
-      where: {completion_timestamp: {_gt: $utc}, height: {_eq: $undelegationHeight}}
-    ) {
+    unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}}) {
       amount
       completionTimestamp: completion_timestamp
       delegatorAddress: delegator_address
@@ -12991,9 +13056,7 @@ export const ValidatorDetailsDocument = gql`
  * const { data, loading, error } = useValidatorDetailsQuery({
  *   variables: {
  *      address: // value for 'address'
- *      delegationHeight: // value for 'delegationHeight'
  *      utc: // value for 'utc'
- *      undelegationHeight: // value for 'undelegationHeight'
  *   },
  * });
  */

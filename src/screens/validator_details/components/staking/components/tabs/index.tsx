@@ -21,7 +21,6 @@ const TabsHeader: React.FC<{
   const { t } = useTranslation('validators');
   const tabs = getTabs();
   const { uiData } = useAccountContext();
-  console.log(uiData, 'uiData');
   return (
     <div className={classnames(className, classes.root)}>
       <Tabs value={tab} onChange={handleTabChange}>

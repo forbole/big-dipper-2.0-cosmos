@@ -9,7 +9,7 @@ import { useStyles } from './styles';
 import {
   Profile,
   VotingPower,
-  // Transactions,
+  Transactions,
   Staking,
   Blocks,
 } from './components';
@@ -38,7 +38,7 @@ const ValidatorDetails = () => {
               <VotingPower className={classes.votingPower} />
               <Blocks className={classes.blocks} />
               <Staking className={classes.staking} />
-              {/* <Transactions className={classes.transactions} /> */}
+              <Transactions className={classes.transactions} />
             </span>
           );
         }}

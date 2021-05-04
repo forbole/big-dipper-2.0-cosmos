@@ -1,4 +1,4 @@
-query ValidatorDetails($address: String, $delegationHeight: bigint, $utc: timestamp, $undelegationHeight: bigint) {
+query ValidatorDetails($address: String, $utc: timestamp) {
   stakingPool: staking_pool(order_by: {height: desc}, limit: 1, offset: 0) {
     height
     bonded: bonded_tokens
@@ -27,7 +27,7 @@ query ValidatorDetails($address: String, $delegationHeight: bigint, $utc: timest
       height
       votingPower: voting_power
     }
-    delegations(where: {height: {_eq: $delegationHeight}}) {
+    delegations {
       amount
       delegatorAddress: delegator_address
     }
@@ -45,7 +45,7 @@ query ValidatorDetails($address: String, $delegationHeight: bigint, $utc: timest
       from: dst_validator_address
       delegatorAddress: delegator_address
     }
-    unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}, height: {_eq: $undelegationHeight}}) {
+    unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}}) {
       amount
       completionTimestamp: completion_timestamp
       delegatorAddress: delegator_address
