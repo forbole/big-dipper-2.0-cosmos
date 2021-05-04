@@ -181,7 +181,8 @@ export const useBlock = (initialState: BlockState) => {
         // {
         //   label: t('signedVotingPower'),
         //   detail: `${replaceNaN(
-        //     numeral((state.rawData.block.votingPower / state.rawData.supply.bonded) * 100).format('0.00'),
+        //     numeral((state.rawData.block.votingPower / state.rawData.supply.bonded) * 100)
+        // .format('0.00'),
         //   )}%`,
         // },
         {
