@@ -11950,6 +11950,25 @@ export type AverageBlockTimeQuery = { averageBlockTime: Array<(
     & { averageTime: Average_Block_Time_From_Genesis['average_time'] }
   )> };
 
+export type BlocksListenerSubscriptionVariables = Exact<{
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type BlocksListenerSubscription = { blocks: Array<(
+    { __typename?: 'block' }
+    & Pick<Block, 'height' | 'hash' | 'timestamp'>
+    & { txs: Block['num_txs'] }
+    & { validator?: Maybe<(
+      { __typename?: 'validator' }
+      & { validatorInfo?: Maybe<(
+        { __typename?: 'validator_info' }
+        & { operatorAddress: Validator_Info['operator_address'] }
+      )> }
+    )> }
+  )> };
+
 export type ChainIdQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -11996,6 +12015,21 @@ export type TokenomicsQuery = { stakingPool: Array<(
   )>, supply: Array<(
     { __typename?: 'supply' }
     & Pick<Supply, 'coins'>
+  )> };
+
+export type TransactionsListenerSubscriptionVariables = Exact<{
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type TransactionsListenerSubscription = { transactions: Array<(
+    { __typename?: 'transaction' }
+    & Pick<Transaction, 'height' | 'hash' | 'success' | 'messages'>
+    & { block: (
+      { __typename?: 'block' }
+      & Pick<Block, 'timestamp'>
+    ) }
   )> };
 
 export type ValidatorsAddressListQueryVariables = Exact<{ [key: string]: never; }>;
@@ -12126,6 +12160,45 @@ export function useAverageBlockTimeLazyQuery(baseOptions?: Apollo.LazyQueryHookO
 export type AverageBlockTimeQueryHookResult = ReturnType<typeof useAverageBlockTimeQuery>;
 export type AverageBlockTimeLazyQueryHookResult = ReturnType<typeof useAverageBlockTimeLazyQuery>;
 export type AverageBlockTimeQueryResult = Apollo.QueryResult<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>;
+export const BlocksListenerDocument = gql`
+    subscription BlocksListener($limit: Int = 7, $offset: Int = 0) {
+  blocks: block(limit: $limit, offset: $offset, order_by: {height: desc}) {
+    height
+    txs: num_txs
+    hash
+    timestamp
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useBlocksListenerSubscription__
+ *
+ * To run a query within a React component, call `useBlocksListenerSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useBlocksListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useBlocksListenerSubscription({
+ *   variables: {
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
+ *   },
+ * });
+ */
+export function useBlocksListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<BlocksListenerSubscription, BlocksListenerSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<BlocksListenerSubscription, BlocksListenerSubscriptionVariables>(BlocksListenerDocument, options);
+      }
+export type BlocksListenerSubscriptionHookResult = ReturnType<typeof useBlocksListenerSubscription>;
+export type BlocksListenerSubscriptionResult = Apollo.SubscriptionResult<BlocksListenerSubscription>;
 export const ChainIdDocument = gql`
     query ChainId {
   genesis(limit: 1, order_by: {time: desc}) {
@@ -12275,6 +12348,47 @@ export function useTokenomicsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type TokenomicsQueryHookResult = ReturnType<typeof useTokenomicsQuery>;
 export type TokenomicsLazyQueryHookResult = ReturnType<typeof useTokenomicsLazyQuery>;
 export type TokenomicsQueryResult = Apollo.QueryResult<TokenomicsQuery, TokenomicsQueryVariables>;
+export const TransactionsListenerDocument = gql`
+    subscription TransactionsListener($limit: Int = 7, $offset: Int = 0) {
+  transactions: transaction(
+    limit: $limit
+    offset: $offset
+    order_by: {height: desc}
+  ) {
+    height
+    hash
+    success
+    block {
+      timestamp
+    }
+    messages
+  }
+}
+    `;
+
+/**
+ * __useTransactionsListenerSubscription__
+ *
+ * To run a query within a React component, call `useTransactionsListenerSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useTransactionsListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTransactionsListenerSubscription({
+ *   variables: {
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
+ *   },
+ * });
+ */
+export function useTransactionsListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<TransactionsListenerSubscription, TransactionsListenerSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<TransactionsListenerSubscription, TransactionsListenerSubscriptionVariables>(TransactionsListenerDocument, options);
+      }
+export type TransactionsListenerSubscriptionHookResult = ReturnType<typeof useTransactionsListenerSubscription>;
+export type TransactionsListenerSubscriptionResult = Apollo.SubscriptionResult<TransactionsListenerSubscription>;
 export const ValidatorsAddressListDocument = gql`
     query ValidatorsAddressList {
   validator {

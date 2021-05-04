@@ -6,8 +6,8 @@ import {
   // OnlineVotingPower,
   Consensus,
   Tokenomics,
-  // Blocks,
-  // Transactions,
+  Blocks,
+  Transactions,
 } from './components';
 
 const Home = () => {
@@ -19,8 +19,8 @@ const Home = () => {
       {/* <OnlineVotingPower className={classes.onlineVotingPower} /> */}
       <Tokenomics className={classes.tokenomics} />
       <Consensus className={classes.consensus} />
-      {/* <Blocks className={classes.blocks} /> */}
-      {/* <Transactions className={classes.transactions} /> */}
+      <Blocks className={classes.blocks} />
+      <Transactions className={classes.transactions} />
     </Layout>
   );
 };
