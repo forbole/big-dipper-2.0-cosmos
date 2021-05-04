@@ -11969,6 +11969,35 @@ export type BlocksListenerSubscription = { blocks: Array<(
     )> }
   )> };
 
+export type BlocksQueryVariables = Exact<{
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type BlocksQuery = { blocks: Array<(
+    { __typename?: 'block' }
+    & Pick<Block, 'height' | 'hash' | 'timestamp'>
+    & { txs: Block['num_txs'] }
+    & { validator?: Maybe<(
+      { __typename?: 'validator' }
+      & { validatorInfo?: Maybe<(
+        { __typename?: 'validator_info' }
+        & Pick<Validator_Info, 'self_delegate_address'>
+        & { operatorAddress: Validator_Info['operator_address'] }
+      )>, validatorDescriptions: Array<(
+        { __typename?: 'validator_description' }
+        & Pick<Validator_Description, 'moniker' | 'identity'>
+      )> }
+    )> }
+  )>, total: (
+    { __typename?: 'block_aggregate' }
+    & { aggregate?: Maybe<(
+      { __typename?: 'block_aggregate_fields' }
+      & Pick<Block_Aggregate_Fields, 'count'>
+    )> }
+  ) };
+
 export type ChainIdQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -12217,6 +12246,63 @@ export function useBlocksListenerSubscription(baseOptions?: Apollo.SubscriptionH
       }
 export type BlocksListenerSubscriptionHookResult = ReturnType<typeof useBlocksListenerSubscription>;
 export type BlocksListenerSubscriptionResult = Apollo.SubscriptionResult<BlocksListenerSubscription>;
+export const BlocksDocument = gql`
+    query Blocks($limit: Int = 7, $offset: Int = 0) {
+  blocks: block(limit: $limit, offset: $offset, order_by: {height: desc}) {
+    height
+    txs: num_txs
+    hash
+    timestamp
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
+        self_delegate_address
+      }
+      validatorDescriptions: validator_descriptions(
+        limit: 1
+        order_by: {height: desc}
+      ) {
+        moniker
+        identity
+      }
+    }
+  }
+  total: block_aggregate {
+    aggregate {
+      count
+    }
+  }
+}
+    `;
+
+/**
+ * __useBlocksQuery__
+ *
+ * To run a query within a React component, call `useBlocksQuery` and pass it any options that fit your needs.
+ * When your component renders, `useBlocksQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useBlocksQuery({
+ *   variables: {
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
+ *   },
+ * });
+ */
+export function useBlocksQuery(baseOptions?: Apollo.QueryHookOptions<BlocksQuery, BlocksQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<BlocksQuery, BlocksQueryVariables>(BlocksDocument, options);
+      }
+export function useBlocksLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<BlocksQuery, BlocksQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<BlocksQuery, BlocksQueryVariables>(BlocksDocument, options);
+        }
+export type BlocksQueryHookResult = ReturnType<typeof useBlocksQuery>;
+export type BlocksLazyQueryHookResult = ReturnType<typeof useBlocksLazyQuery>;
+export type BlocksQueryResult = Apollo.QueryResult<BlocksQuery, BlocksQueryVariables>;
 export const ChainIdDocument = gql`
     query ChainId {
   genesis(limit: 1, order_by: {time: desc}) {
