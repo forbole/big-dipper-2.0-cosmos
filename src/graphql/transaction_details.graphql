@@ -1,15 +1,15 @@
-query TransactionDetails($hash: String) {
-  transaction(where: {hash: {_eq: $hash}}, limit: 1) {
-    hash: hash
-    height: height
-    block: block {
-      timestamp: timestamp
-    }
-    fee: fee
-    gasUsed: gas_used
-    gasWanted: gas_wanted
-    success: success
-    memo: memo
-    messages: messages
-  }
-}
+# query TransactionDetails($hash: String) {
+#   transaction(where: {hash: {_eq: $hash}}, limit: 1) {
+#     hash: hash
+#     height: height
+#     block: block {
+#       timestamp: timestamp
+#     }
+#     fee: fee
+#     gasUsed: gas_used
+#     gasWanted: gas_wanted
+#     success: success
+#     memo: memo
+#     messages: messages
+#   }
+# }

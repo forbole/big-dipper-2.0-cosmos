@@ -64,7 +64,6 @@ export const useDataBlocks = () => {
   // ====================================
   // token price
   // ====================================
-
   useTokenPriceQuery({
     variables: {
       denom: chainConfig.display,
