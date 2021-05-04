@@ -11909,6 +11909,69 @@ export type Validator_Voting_Power_Variance_Order_By = {
   voting_power?: Maybe<Order_By>;
 };
 
+export type AccountQueryVariables = Exact<{
+  address?: Maybe<Scalars['String']>;
+  utc?: Maybe<Scalars['timestamp']>;
+}>;
+
+
+export type AccountQuery = { account: Array<(
+    { __typename?: 'account' }
+    & Pick<Account, 'address'>
+    & { accountBalances: Array<(
+      { __typename?: 'account_balance' }
+      & Pick<Account_Balance, 'coins'>
+    )>, delegations: Array<(
+      { __typename?: 'delegation' }
+      & Pick<Delegation, 'amount'>
+      & { validator: (
+        { __typename?: 'validator' }
+        & { validatorInfo?: Maybe<(
+          { __typename?: 'validator_info' }
+          & { operatorAddress: Validator_Info['operator_address'] }
+        )>, validatorCommissions: Array<(
+          { __typename?: 'validator_commission' }
+          & Pick<Validator_Commission, 'commission'>
+        )> }
+      ) }
+    )>, unbonding: Array<(
+      { __typename?: 'unbonding_delegation' }
+      & Pick<Unbonding_Delegation, 'amount'>
+      & { completionTimestamp: Unbonding_Delegation['completion_timestamp'] }
+      & { validator: (
+        { __typename?: 'validator' }
+        & { validatorCommissions: Array<(
+          { __typename?: 'validator_commission' }
+          & Pick<Validator_Commission, 'commission'>
+        )>, validatorInfo?: Maybe<(
+          { __typename?: 'validator_info' }
+          & { operatorAddress: Validator_Info['operator_address'] }
+        )> }
+      ) }
+    )>, redelegations: Array<(
+      { __typename?: 'redelegation' }
+      & Pick<Redelegation, 'amount'>
+      & { completionTime: Redelegation['completion_time'], to: Redelegation['src_validator_address'], from: Redelegation['dst_validator_address'] }
+    )>, delegationRewards: Array<(
+      { __typename?: 'delegation_reward' }
+      & Pick<Delegation_Reward, 'amount'>
+      & { withdrawAddress: Delegation_Reward['withdraw_address'] }
+      & { validator: (
+        { __typename?: 'validator' }
+        & { validatorInfo?: Maybe<(
+          { __typename?: 'validator_info' }
+          & { operatorAddress: Validator_Info['operator_address'] }
+        )> }
+      ) }
+    )> }
+  )>, validator: Array<(
+    { __typename?: 'validator' }
+    & { commission: Array<(
+      { __typename?: 'validator_commission_amount' }
+      & Pick<Validator_Commission_Amount, 'amount'>
+    )> }
+  )> };
+
 export type ActiveValidatorCountQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -12312,6 +12375,91 @@ export type ValidatorsAddressListQuery = { validator: Array<(
   )> };
 
 
+export const AccountDocument = gql`
+    query Account($address: String, $utc: timestamp) {
+  account(where: {address: {_eq: $address}}) {
+    address
+    accountBalances: account_balances(limit: 1, order_by: {height: desc}) {
+      coins
+    }
+    delegations {
+      amount
+      validator {
+        validatorInfo: validator_info {
+          operatorAddress: operator_address
+        }
+        validatorCommissions: validator_commissions(limit: 1, order_by: {height: desc}) {
+          commission
+        }
+      }
+    }
+    unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}}) {
+      amount
+      completionTimestamp: completion_timestamp
+      validator {
+        validatorCommissions: validator_commissions(limit: 1, order_by: {height: desc}) {
+          commission
+        }
+        validatorInfo: validator_info {
+          operatorAddress: operator_address
+        }
+      }
+    }
+    redelegations(where: {completion_time: {_gt: $utc}}) {
+      amount
+      completionTime: completion_time
+      to: src_validator_address
+      from: dst_validator_address
+    }
+    delegationRewards: delegation_rewards {
+      amount
+      withdrawAddress: withdraw_address
+      validator {
+        validatorInfo: validator_info {
+          operatorAddress: operator_address
+        }
+      }
+    }
+  }
+  validator: validator(
+    limit: 1
+    where: {validator_info: {self_delegate_address: {_eq: $address}}}
+  ) {
+    commission: validator_commission_amounts(limit: 1, order_by: {height: desc}) {
+      amount
+    }
+  }
+}
+    `;
+
+/**
+ * __useAccountQuery__
+ *
+ * To run a query within a React component, call `useAccountQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *      utc: // value for 'utc'
+ *   },
+ * });
+ */
+export function useAccountQuery(baseOptions?: Apollo.QueryHookOptions<AccountQuery, AccountQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountQuery, AccountQueryVariables>(AccountDocument, options);
+      }
+export function useAccountLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountQuery, AccountQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountQuery, AccountQueryVariables>(AccountDocument, options);
+        }
+export type AccountQueryHookResult = ReturnType<typeof useAccountQuery>;
+export type AccountLazyQueryHookResult = ReturnType<typeof useAccountLazyQuery>;
+export type AccountQueryResult = Apollo.QueryResult<AccountQuery, AccountQueryVariables>;
 export const ActiveValidatorCountDocument = gql`
     query ActiveValidatorCount {
   activeTotal: validator_status_aggregate(where: {status: {_eq: 3}}) {

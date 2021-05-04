@@ -7,7 +7,7 @@
   "total": "Total {{unit}}",
   "delegations": "Delegations ({{num}})",
   "redelegations": "Redelegations ({{num}})",
-  "unbonding": "Unbondings ({{num}})",
+  "unbondings": "Unbondings ({{num}})",
   "validator": "Validator",
   "amount": "Amount",
   "reward": "Reward",
