@@ -4,8 +4,8 @@ import { useStyles } from './styles';
 import {
   DataBlocks,
   // OnlineVotingPower,
-  // Consensus,
-  // Tokenomics,
+  Consensus,
+  Tokenomics,
   // Blocks,
   // Transactions,
 } from './components';
@@ -16,11 +16,11 @@ const Home = () => {
   return (
     <Layout className={classes.root}>
       <DataBlocks className={classes.dataBlocks} />
-      {/* <OnlineVotingPower className={classes.onlineVotingPower} />
+      {/* <OnlineVotingPower className={classes.onlineVotingPower} /> */}
       <Tokenomics className={classes.tokenomics} />
       <Consensus className={classes.consensus} />
-      <Blocks className={classes.blocks} />
-      <Transactions className={classes.transactions} /> */}
+      {/* <Blocks className={classes.blocks} /> */}
+      {/* <Transactions className={classes.transactions} /> */}
     </Layout>
   );
 };

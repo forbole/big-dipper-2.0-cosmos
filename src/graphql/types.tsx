@@ -11987,6 +11987,17 @@ export type TokenPriceListenerSubscription = { tokenPrice: Array<(
     & { marketCap: Token_Price['market_cap'], unitName: Token_Price['unit_name'] }
   )> };
 
+export type TokenomicsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type TokenomicsQuery = { stakingPool: Array<(
+    { __typename?: 'staking_pool' }
+    & { bonded: Staking_Pool['bonded_tokens'], unbonded: Staking_Pool['not_bonded_tokens'] }
+  )>, supply: Array<(
+    { __typename?: 'supply' }
+    & Pick<Supply, 'coins'>
+  )> };
+
 export type ValidatorsAddressListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -12226,6 +12237,44 @@ export function useTokenPriceListenerSubscription(baseOptions?: Apollo.Subscript
       }
 export type TokenPriceListenerSubscriptionHookResult = ReturnType<typeof useTokenPriceListenerSubscription>;
 export type TokenPriceListenerSubscriptionResult = Apollo.SubscriptionResult<TokenPriceListenerSubscription>;
+export const TokenomicsDocument = gql`
+    query Tokenomics {
+  stakingPool: staking_pool(order_by: {height: desc}, limit: 1) {
+    bonded: bonded_tokens
+    unbonded: not_bonded_tokens
+  }
+  supply: supply(order_by: {height: desc}, limit: 1) {
+    coins
+  }
+}
+    `;
+
+/**
+ * __useTokenomicsQuery__
+ *
+ * To run a query within a React component, call `useTokenomicsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTokenomicsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTokenomicsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useTokenomicsQuery(baseOptions?: Apollo.QueryHookOptions<TokenomicsQuery, TokenomicsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<TokenomicsQuery, TokenomicsQueryVariables>(TokenomicsDocument, options);
+      }
+export function useTokenomicsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TokenomicsQuery, TokenomicsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<TokenomicsQuery, TokenomicsQueryVariables>(TokenomicsDocument, options);
+        }
+export type TokenomicsQueryHookResult = ReturnType<typeof useTokenomicsQuery>;
+export type TokenomicsLazyQueryHookResult = ReturnType<typeof useTokenomicsLazyQuery>;
+export type TokenomicsQueryResult = Apollo.QueryResult<TokenomicsQuery, TokenomicsQueryVariables>;
 export const ValidatorsAddressListDocument = gql`
     query ValidatorsAddressList {
   validator {

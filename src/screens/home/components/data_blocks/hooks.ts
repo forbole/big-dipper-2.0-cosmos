@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import numeral from 'numeral';
-import { formatLatestBlockHeight } from '@utils/format_latest_block_height';
+import * as R from 'ramda';
 import {
   useLatestBlockHeightListenerSubscription,
   useAverageBlockTimeQuery,
@@ -39,7 +39,7 @@ export const useDataBlocks = () => {
     onSubscriptionData: (data) => {
       setState((prevState) => ({
         ...prevState,
-        blockHeight: formatLatestBlockHeight(data.subscriptionData.data),
+        blockHeight: R.pathOr(0, ['height', 0, 'height'], data.subscriptionData.data),
       }));
     },
   });
