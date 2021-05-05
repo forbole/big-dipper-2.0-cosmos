@@ -1,4 +1,5 @@
 import React from 'react';
+import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
@@ -10,13 +11,14 @@ const WithdrawReward = (props: {
 }) => {
   const { findAddress } = useChainContext();
   const { message } = props;
-
   const delegator = findAddress(message.delegatorAddress);
   const delegatorMoniker = delegator ? delegator?.moniker : message.delegatorAddress;
 
   const validator = findAddress(message.validatorAddress);
   const validatorMoniker = validator ? validator?.moniker : message
     .validatorAddress;
+
+  const parsedAmount = `${numeral(message.amount).format('0,0.[0000]')} ${message.denom.toUpperCase()}`;
 
   return (
     <Typography>
@@ -29,6 +31,7 @@ const WithdrawReward = (props: {
               name={delegatorMoniker}
             />
           ),
+          <b />,
           (
             <Name
               address={message.validatorAddress}
@@ -36,6 +39,9 @@ const WithdrawReward = (props: {
             />
           ),
         ]}
+        values={{
+          amount: parsedAmount,
+        }}
       />
     </Typography>
   );
