@@ -15,10 +15,6 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
         id="Overview"
       />
       <div
-        className="makeStyles-signatures"
-        id="Signatures"
-      />
-      <div
         id="Transactions"
       />
     </span>

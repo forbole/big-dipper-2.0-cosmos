@@ -4,13 +4,14 @@ import {
   MockTheme, wait,
 } from '@tests/utils';
 import { ApolloProvider } from '@apollo/client';
-import { createMockClient } from 'mock-apollo-client';
+import {
+  createMockClient, createMockSubscription,
+} from 'mock-apollo-client';
 import {
   LatestBlockHeightListenerDocument,
   AverageBlockTimeDocument,
-  TokenPriceDocument,
+  TokenPriceListenerDocument,
   ActiveValidatorCountDocument,
-  LatestBlockHeightOffsetDocument,
 } from '@graphql/types';
 import DataBlocks from '.';
 
@@ -26,7 +27,7 @@ jest.mock('./components', () => ({
   SingleBlock: (props) => <div id="SingleBlock" {...props} />,
 }));
 
-const mockLatestBlockHeight = jest.fn().mockResolvedValue({
+const mockLatestBlockHeight = {
   data: {
     height: [
       {
@@ -34,7 +35,7 @@ const mockLatestBlockHeight = jest.fn().mockResolvedValue({
       },
     ],
   },
-});
+};
 
 const mockAverageBlockTime = jest.fn().mockResolvedValue({
   data: {
@@ -46,11 +47,11 @@ const mockAverageBlockTime = jest.fn().mockResolvedValue({
   },
 });
 
-const mockTokenPrice = jest.fn().mockResolvedValue({
+const mockTokenPrice = {
   data: {
     tokenPrice: [],
   },
-});
+};
 
 const mockActiveValidatorsCount = jest.fn().mockResolvedValue({
   data: {
@@ -78,25 +79,22 @@ const mockActiveValidatorsCount = jest.fn().mockResolvedValue({
 describe('screen: Home/DataBlocks', () => {
   it('matches snapshot', async () => {
     const mockClient = createMockClient();
+    const mockSubscription = createMockSubscription();
+    const mockSubscriptionTwo = createMockSubscription();
 
     mockClient.setRequestHandler(
       LatestBlockHeightListenerDocument,
-      mockLatestBlockHeight,
+      () => mockSubscription,
+    );
+
+    mockClient.setRequestHandler(
+      TokenPriceListenerDocument,
+      () => mockSubscriptionTwo,
     );
 
     mockClient.setRequestHandler(
       AverageBlockTimeDocument,
       mockAverageBlockTime,
-    );
-
-    mockClient.setRequestHandler(
-      TokenPriceDocument,
-      mockTokenPrice,
-    );
-
-    mockClient.setRequestHandler(
-      LatestBlockHeightOffsetDocument,
-      mockLatestBlockHeight,
     );
 
     mockClient.setRequestHandler(
@@ -117,10 +115,21 @@ describe('screen: Home/DataBlocks', () => {
     });
     await wait();
 
+    renderer.act(() => {
+      mockSubscription.next(mockLatestBlockHeight);
+    });
+
+    await wait();
+
+    renderer.act(() => {
+      mockSubscriptionTwo.next(mockTokenPrice);
+    });
+
+    await wait();
+
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
     expect(mockActiveValidatorsCount).toBeCalledTimes(1);
-    expect(mockActiveValidatorsCount).toBeCalledWith({ height: 953992 });
   });
 
   afterEach(() => {
