@@ -23,16 +23,6 @@ jest.mock('@components', () => ({
   CustomToolTip: (props) => <div id="CustomToolTip" {...props} />,
 }));
 
-const mockLatestBlockHeight = jest.fn().mockResolvedValue({
-  data: {
-    height: [
-      {
-        height: 953992,
-      },
-    ],
-  },
-});
-
 const mockTokenomics = jest.fn().mockResolvedValue({
   data: {
     stakingPool: [
