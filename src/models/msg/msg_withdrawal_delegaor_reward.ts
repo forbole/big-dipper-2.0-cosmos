@@ -1,5 +1,4 @@
 import * as R from 'ramda';
-import numeral from 'numeral';
 import { chainConfig } from '@src/chain_config';
 import { formatDenom } from '@utils/format_denom';
 

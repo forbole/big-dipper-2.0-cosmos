@@ -15,7 +15,10 @@ import {
 } from '@graphql/types';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
-import { MsgWithdrawDelegatorReward } from '@models';
+import {
+  MsgWithdrawDelegatorReward,
+  MsgWithdrawValidatorCommission,
+} from '@models';
 import { TransactionState } from './types';
 import {
   getMessageModelByType,
@@ -75,7 +78,7 @@ export const useTransaction = (initalState: TransactionState) => {
     // =============================
     const messages = data.transaction[0].messages.map((x, i) => {
       const model = getMessageModelByType(x?.['@type']);
-      if (model === MsgWithdrawDelegatorReward) {
+      if (model === MsgWithdrawDelegatorReward || model === MsgWithdrawValidatorCommission) {
         const log = R.pathOr(null, ['logs', i], data.transaction[0]);
         return model.fromJson(x, log);
       }
