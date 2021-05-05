@@ -5,7 +5,7 @@ import { formatDenom } from '@utils/format_denom';
 import {
   useOnlineVotingPowerListenerSubscription,
   OnlineVotingPowerListenerSubscription,
-  useTokenomicsLazyQuery,
+  useTokenomicsQuery,
   TokenomicsQuery,
 } from '@graphql/types';
 
@@ -38,14 +38,6 @@ export const useOnlineVotingPower = () => {
     onSubscriptionData: (data) => {
       const currentVotingPower = formatOnlineVotingPower(data.subscriptionData.data);
 
-      if (currentVotingPower.height) {
-        useTokenomicsQuery({
-          variables: {
-            height: currentVotingPower.height,
-          },
-        });
-      }
-
       handleSetState({
         current: {
           ...currentVotingPower,
@@ -65,7 +57,7 @@ export const useOnlineVotingPower = () => {
   // tokenomics
   // ====================================
 
-  const [useTokenomicsQuery] = useTokenomicsLazyQuery({
+  useTokenomicsQuery({
     onCompleted: (data) => {
       handleSetState({
         current: {
