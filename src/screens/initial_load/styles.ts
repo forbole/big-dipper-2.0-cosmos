@@ -9,11 +9,11 @@ export const useStyles = () => {
           alignItems: 'center',
           justifyContent: 'center',
           minHeight: '100vh',
-          padding: theme.spacing(2),
+          padding: theme.spacing(6),
           '& svg': {
             width: '100%',
           },
-          [theme.breakpoints.up('md')]: {
+          [theme.breakpoints.up('sm')]: {
             '& svg': {
               width: '300px',
             },
@@ -21,7 +21,7 @@ export const useStyles = () => {
         },
         logo: {
           width: '100%',
-          [theme.breakpoints.up('md')]: {
+          [theme.breakpoints.up('sm')]: {
             width: '300px',
           },
         },
