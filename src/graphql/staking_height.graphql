@@ -1,14 +1,14 @@
-query LatestStakingHeight {
-  delegation(limit: 1, order_by: {height: desc}) {
-    height
-  }
-  redelegation(limit: 1, order_by: {height: desc}) {
-    height
-  }
-  unbonding: unbonding_delegation(limit: 1, order_by: {height: desc}) {
-    height
-  }
-  reward: delegation_reward(limit: 1, order_by: {height: desc}) {
-    height
-  }
-}
+# query LatestStakingHeight {
+#   delegation(limit: 1, order_by: {height: desc}) {
+#     height
+#   }
+#   redelegation(limit: 1, order_by: {height: desc}) {
+#     height
+#   }
+#   unbonding: unbonding_delegation(limit: 1, order_by: {height: desc}) {
+#     height
+#   }
+#   reward: delegation_reward(limit: 1, order_by: {height: desc}) {
+#     height
+#   }
+# }

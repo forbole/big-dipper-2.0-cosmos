@@ -6,7 +6,6 @@ import {
 import { ApolloProvider } from '@apollo/client';
 import { createMockClient } from 'mock-apollo-client';
 import {
-  LatestBlockHeightOffsetDocument,
   TokenomicsDocument,
 } from '@graphql/types';
 import Tokenomics from '.';
@@ -23,16 +22,6 @@ jest.mock('@components', () => ({
   Box: (props) => <div id="box" {...props} />,
   CustomToolTip: (props) => <div id="CustomToolTip" {...props} />,
 }));
-
-const mockLatestBlockHeight = jest.fn().mockResolvedValue({
-  data: {
-    height: [
-      {
-        height: 953992,
-      },
-    ],
-  },
-});
 
 const mockTokenomics = jest.fn().mockResolvedValue({
   data: {
@@ -65,10 +54,6 @@ const mockTokenomics = jest.fn().mockResolvedValue({
 describe('screen: Home/Tokenomics', () => {
   it('matches snapshot', async () => {
     const mockClient = createMockClient();
-    mockClient.setRequestHandler(
-      LatestBlockHeightOffsetDocument,
-      mockLatestBlockHeight,
-    );
 
     mockClient.setRequestHandler(
       TokenomicsDocument,

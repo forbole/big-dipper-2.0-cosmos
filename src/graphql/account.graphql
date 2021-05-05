@@ -1,10 +1,10 @@
-query Account($address: String, $utc: timestamp, $delegationHeight: bigint, $rewardsHeight: bigint, $redelegationHeight: bigint, $unbondingHeight: bigint) {
+query Account($address: String, $utc: timestamp) {
   account(where: {address: {_eq: $address}}) {
     address
     accountBalances: account_balances(limit: 1, order_by: {height: desc}) {
       coins
     }
-    delegations(where: {height: {_eq: $delegationHeight}}) {
+    delegations {
       amount
       validator {
         validatorInfo: validator_info {
@@ -15,7 +15,7 @@ query Account($address: String, $utc: timestamp, $delegationHeight: bigint, $rew
         }
       }
     }
-    unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}, height: {_eq: $unbondingHeight}}) {
+    unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}}) {
       amount
       completionTimestamp: completion_timestamp
       validator {
@@ -27,13 +27,13 @@ query Account($address: String, $utc: timestamp, $delegationHeight: bigint, $rew
         }
       }
     }
-    redelegations(where: {completion_time: {_gt: $utc}, height: {_eq: $redelegationHeight}}) {
+    redelegations(where: {completion_time: {_gt: $utc}}) {
       amount
       completionTime: completion_time
       to: src_validator_address
       from: dst_validator_address
     }
-    delegationRewards: delegation_rewards(where: {height: {_eq: $rewardsHeight}}) {
+    delegationRewards: delegation_rewards {
       amount
       withdrawAddress: withdraw_address
       validator {

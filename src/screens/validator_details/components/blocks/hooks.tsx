@@ -17,8 +17,6 @@ export const useBlocks = () => {
     height: number;
     txs: number;
     proposer: string;
-    votingPower: number;
-    totalVotingPower: number;
     signed: boolean;
   }[]>([]);
 
@@ -40,8 +38,6 @@ export const useBlocks = () => {
         height: x.height,
         txs: x.transactions.length,
         proposer: x.validator.validatorInfo.operatorAddress,
-        votingPower: x.preCommitsAggregate.aggregate.sum.votingPower,
-        totalVotingPower: x.validatorVotingPowers.aggregate.sum.votingPower,
         signed: x.precommits.length === 1,
       };
     });
@@ -59,7 +55,6 @@ export const useBlocks = () => {
           />
         ),
         block: numeral(x.height).format('0,0'),
-        votingPower: `${numeral((x.votingPower / x.totalVotingPower) * 100).format('0.[00]')}%`,
         txs: numeral(x.txs).format('0,0'),
         signed: (
           <Result success={x.signed} />

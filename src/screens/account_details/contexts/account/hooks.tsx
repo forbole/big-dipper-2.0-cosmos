@@ -4,9 +4,8 @@ import { useRouter } from 'next/router';
 import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
 import {
-  useLatestStakingHeightQuery,
-  useAccountLazyQuery,
   AccountQuery,
+  useAccountQuery,
 } from '@graphql/types';
 import { AvatarName } from '@components';
 import { getDenom } from '@utils/get_denom';
@@ -16,7 +15,9 @@ import { useChainContext } from '@contexts';
 import { AccountState } from './types';
 
 export const useAccount = (initialState: AccountState) => {
-  const { findAddress } = useChainContext();
+  const {
+    findAddress, findOperator,
+  } = useChainContext();
   const router = useRouter();
   const [state, setState] = useState(initialState);
 
@@ -24,27 +25,11 @@ export const useAccount = (initialState: AccountState) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
 
-  useLatestStakingHeightQuery({
-    onCompleted: (data) => {
-      const delegationHeight = data.delegation[0]?.height;
-      const rewardsHeight = data.reward[0]?.height;
-      const redelegationHeight = data.redelegation[0]?.height;
-      const unbondingHeight = data.unbonding[0]?.height;
-
-      useAccountQuery({
-        variables: {
-          address: R.pathOr('', ['query', 'address'], router),
-          utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
-          delegationHeight,
-          rewardsHeight,
-          redelegationHeight,
-          unbondingHeight,
-        },
-      });
+  useAccountQuery({
+    variables: {
+      address: R.pathOr('', ['query', 'address'], router),
+      utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
     },
-  });
-
-  const [useAccountQuery] = useAccountLazyQuery({
     onCompleted: (data) => {
       handleSetState(formatAccountQuery(data));
     },
@@ -234,8 +219,8 @@ export const useAccount = (initialState: AccountState) => {
     // redelegations
     // ==================================
     const redelegations = state.rawData.staking.redelegations.map((x) => {
-      const to = findAddress(x.to);
-      const from = findAddress(x.from);
+      const to = findAddress(findOperator(x.to));
+      const from = findAddress(findOperator(x.from));
 
       return ({
         to: (
@@ -252,7 +237,7 @@ export const useAccount = (initialState: AccountState) => {
             name={from ? from.moniker : x.from}
           />
         ),
-        linkedUntil: dayjs.utc(x.linkedUntil).local().format('HH:mm:ss A'),
+        linkedUntil: dayjs.utc(x.linkedUntil).local().format('MMMM DD, YYYY hh:mm A'),
         amount: `${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
       });
     }).sort((a, b) => (a.linkedUntil > b.linkedUntil ? 1 : -1));
@@ -273,7 +258,7 @@ export const useAccount = (initialState: AccountState) => {
           />
         ),
         commission: `${numeral(x.commission * 100).format('0.00')}%`,
-        linkedUntil: dayjs.utc(x.linkedUntil).local().format('HH:mm:ss A'),
+        linkedUntil: dayjs.utc(x.linkedUntil).local().format('MMMM DD, YYYY hh:mm A'),
         amount: `${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
       });
     });

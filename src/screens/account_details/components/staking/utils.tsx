@@ -18,7 +18,7 @@ export const getTabs = () => {
     },
     {
       id: 2,
-      key: 'unbonding',
+      key: 'unbondings',
       component: Unbondings,
     },
   ]);
