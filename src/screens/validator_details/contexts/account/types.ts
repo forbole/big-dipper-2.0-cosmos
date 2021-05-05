@@ -78,7 +78,7 @@ export interface AccountState {
         amountRaw: number;
 
       }[];
-      unbondings: {
+      undelegations: {
         address: React.ReactNode;
         amount: string;
         linkedUntil: string;

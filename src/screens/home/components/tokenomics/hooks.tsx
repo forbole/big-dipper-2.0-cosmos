@@ -3,11 +3,10 @@ import * as R from 'ramda';
 import numeral from 'numeral';
 import { Theme } from '@material-ui/core/styles';
 import {
-  useTokenomicsLazyQuery,
+  useTokenomicsQuery,
   TokenomicsQuery,
-  useLatestBlockHeightOffsetQuery,
+
 } from '@graphql/types';
-import { formatLatestBlockHeight } from '@utils/format_latest_block_height';
 import { formatDenom } from '@utils/format_denom';
 import { chainConfig } from '@src/chain_config';
 
@@ -24,20 +23,7 @@ export const useTokenomics = (theme: Theme) => {
     total: 0,
   });
 
-  useLatestBlockHeightOffsetQuery({
-    onCompleted: (data) => {
-      const blockHeight = formatLatestBlockHeight(data);
-      if (blockHeight) {
-        useTokenomicsQuery({
-          variables: {
-            height: blockHeight,
-          },
-        });
-      }
-    },
-  });
-
-  const [useTokenomicsQuery] = useTokenomicsLazyQuery({
+  useTokenomicsQuery({
     onCompleted: (data) => {
       setState(formatTokenomics(data));
     },

@@ -10,7 +10,7 @@ jest.mock('../../../../contexts/account', () => ({
         staking: {
           delegations: Array(4).fill(null),
           redelegations: Array(14).fill(null),
-          unbonding: Array(4).fill(null),
+          unbondings: Array(4).fill(null),
         },
       },
     });

@@ -1,5 +1,6 @@
 schema: https://gql.morpheus.desmos.network/v1/graphql
 overwrite: true
+# documents: src/**/*.graphql
 documents: src/**/*.graphql
 generates:
   ./src/graphql/types.tsx:

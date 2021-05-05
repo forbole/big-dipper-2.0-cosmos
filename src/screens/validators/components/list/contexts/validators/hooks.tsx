@@ -2,8 +2,7 @@ import { useState } from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
 import {
-  useValidatorsLazyQuery,
-  useLatestStakingHeightQuery,
+  useValidatorsQuery,
   ValidatorsQuery,
 } from '@graphql/types';
 import { AvatarName } from '@components';
@@ -34,18 +33,7 @@ export const useValidators = (initialState: ValidatorsState) => {
     sortDirection,
   } = state;
 
-  useLatestStakingHeightQuery({
-    onCompleted: (data) => {
-      const delegationHeight = data.delegation[0]?.height;
-      useValidatorQuery({
-        variables: {
-          delegationHeight,
-        },
-      });
-    },
-  });
-
-  const [useValidatorQuery] = useValidatorsLazyQuery({
+  useValidatorsQuery({
     onCompleted: (data) => {
       handleSetState(formatValidators(data));
     },

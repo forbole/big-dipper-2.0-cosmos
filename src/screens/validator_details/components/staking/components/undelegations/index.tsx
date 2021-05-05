@@ -25,7 +25,7 @@ const Undelegations: React.FC<{
   } = usePagination({});
 
   const { uiData } = useAccountContext();
-  const items = sliceItems(uiData.staking.unbondings);
+  const items = sliceItems(uiData.staking.undelegations);
 
   return (
     <div className={classnames(className)}>
@@ -39,7 +39,7 @@ const Undelegations: React.FC<{
       )}
       <Pagination
         className={classes.paginate}
-        total={uiData.staking.unbondings.length}
+        total={uiData.staking.undelegations.length}
         rowsPerPage={rowsPerPage}
         page={page}
         handleChangePage={handleChangePage}

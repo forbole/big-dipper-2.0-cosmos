@@ -4,8 +4,7 @@ import { useRouter } from 'next/router';
 import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
 import {
-  useLatestStakingHeightQuery,
-  useValidatorDetailsLazyQuery,
+  useValidatorDetailsQuery,
   ValidatorDetailsQuery,
 } from '@graphql/types';
 import { AvatarName } from '@components';
@@ -17,7 +16,9 @@ import { useChainContext } from '@contexts';
 import { AccountState } from './types';
 
 export const useAccount = (initialState: AccountState) => {
-  const { findAddress } = useChainContext();
+  const {
+    findAddress, findOperator,
+  } = useChainContext();
   const router = useRouter();
   const [state, setState] = useState(initialState);
 
@@ -25,23 +26,11 @@ export const useAccount = (initialState: AccountState) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
 
-  useLatestStakingHeightQuery({
-    onCompleted: (data) => {
-      const delegationHeight = data.delegation[0]?.height;
-      const undelegationHeight = data.unbonding[0]?.height;
-
-      useValidatorDetailsQuery({
-        variables: {
-          address: R.pathOr('', ['query', 'address'], router),
-          utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
-          delegationHeight,
-          undelegationHeight,
-        },
-      });
+  useValidatorDetailsQuery({
+    variables: {
+      address: R.pathOr('', ['query', 'address'], router),
+      utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
     },
-  });
-
-  const [useValidatorDetailsQuery] = useValidatorDetailsLazyQuery({
     onCompleted: (data) => {
       handleSetState(formatAccountQuery(data));
     },
@@ -251,8 +240,8 @@ export const useAccount = (initialState: AccountState) => {
     // redelegations
     // ==================================
     const redelegations = state.rawData.staking.redelegations.map((x) => {
-      const to = findAddress(x.to);
-      const from = findAddress(x.from);
+      const to = findAddress(findOperator(x.to));
+      const from = findAddress(findOperator(x.from));
       const validatorRole = findAddress(x.delegatorAddress);
       const address = getMiddleEllipsis(x.delegatorAddress, {
         beginning: 12, ending: 10,
@@ -280,7 +269,7 @@ export const useAccount = (initialState: AccountState) => {
             name={from ? from.moniker : x.from}
           />
         ),
-        linkedUntil: dayjs.utc(x.linkedUntil).local().format('HH:mm:ss A'),
+        linkedUntil: dayjs.utc(x.linkedUntil).local().format('MMMM DD, YYYY hh:mm A'),
         amount: `${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
         amountRaw: x.amount,
       });
@@ -288,9 +277,9 @@ export const useAccount = (initialState: AccountState) => {
       a.amount > b.amount ? 1 : -1));
 
     // ==================================
-    // unbondings
+    // undelegations
     // ==================================
-    const unbondings = state.rawData.staking.unbondings.map((x) => {
+    const undelegations = state.rawData.staking.unbondings.map((x) => {
       const validatorRole = findAddress(x.delegatorAddress);
       const address = getMiddleEllipsis(x.delegatorAddress, {
         beginning: 12, ending: 10,
@@ -303,7 +292,7 @@ export const useAccount = (initialState: AccountState) => {
             name={validatorRole ? validatorRole.moniker : address}
           />
         ),
-        linkedUntil: dayjs.utc(x.linkedUntil).local().format('HH:mm:ss A'),
+        linkedUntil: dayjs.utc(x.linkedUntil).local().format('MMMM DD, YYYY hh:mm A'),
         amount: `${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
         amountRaw: x.amount,
       });
@@ -316,7 +305,7 @@ export const useAccount = (initialState: AccountState) => {
       staking: {
         delegations,
         redelegations,
-        unbondings,
+        undelegations,
       },
     });
   };

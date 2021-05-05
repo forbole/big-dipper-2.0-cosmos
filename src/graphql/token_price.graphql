@@ -1,4 +1,4 @@
-query TokenPrice($denom: String) {
+subscription TokenPriceListener($denom: String) {
   tokenPrice: token_price(where: {unit_name: {_eq: $denom}}) {
     id
     price

@@ -49,14 +49,6 @@ const Blocks: React.FC<{
                   </div>
                   <div className={classes.item}>
                     <Typography variant="h4" className="label">
-                      {t('votingPower')}
-                    </Typography>
-                    <Typography variant="body1" className="value">
-                      {x.votingPower}
-                    </Typography>
-                  </div>
-                  <div className={classes.item}>
-                    <Typography variant="h4" className="label">
                       {t('txs')}
                     </Typography>
                     <Typography variant="body1" className="value">
