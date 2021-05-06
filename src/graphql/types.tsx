@@ -12139,6 +12139,9 @@ export type MarketDataQuery = { communityPool: Array<(
     { __typename?: 'token_price' }
     & Pick<Token_Price, 'price'>
     & { marketCap: Token_Price['market_cap'] }
+  )>, supply: Array<(
+    { __typename?: 'supply' }
+    & Pick<Supply, 'coins'>
   )> };
 
 export type GetMessagesByAddressQueryVariables = Exact<{
@@ -12797,6 +12800,9 @@ export const MarketDataDocument = gql`
   tokenPrice: token_price(where: {unit_name: {_eq: $denom}}) {
     marketCap: market_cap
     price
+  }
+  supply {
+    coins
   }
 }
     `;

@@ -6,16 +6,16 @@ export const formatMarket = (data: {
 }) => {
   return ([
     {
-      key: 'price',
-      data: data.price,
-    },
-    {
       key: 'marketCap',
       data: data.marketCap,
     },
     {
       key: 'inflation',
       data: data.inflation,
+    },
+    {
+      key: 'totalSupply',
+      data: data.price,
     },
     {
       key: 'communityPool',
