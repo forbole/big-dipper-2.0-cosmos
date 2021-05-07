@@ -2,7 +2,9 @@ import React from 'react';
 import {
   Typography,
 } from '@material-ui/core';
-import { InfoPopover } from '@components';
+import {
+  InfoPopover, ConditionExplanation,
+} from '@components';
 
 export const fetchColumns = (t): {
   key: string;
@@ -58,7 +60,7 @@ export const fetchColumns = (t): {
         <Typography variant="h4" className="label popover">
           {t('condition')}
           <InfoPopover
-            content={t('conditionExplanation')}
+            content={<ConditionExplanation />}
           />
         </Typography>
       ),

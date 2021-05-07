@@ -24,6 +24,7 @@ import NotFound from './not_found';
 import LinearLoading from './linear_loading';
 import Name from './name';
 import Markdown from './markdown';
+import ConditionExplanation from './condition_explanation';
 
 export {
   Layout,
@@ -52,4 +53,5 @@ export {
   LinearLoading,
   Name,
   Markdown,
+  ConditionExplanation,
 };
