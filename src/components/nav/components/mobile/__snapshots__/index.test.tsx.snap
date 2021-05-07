@@ -52,18 +52,6 @@ exports[`screen: Nav/Mobile it renders 1`] = `
         <p
           className="MuiTypography-root label MuiTypography-body1"
         >
-          common:price
-        </p>
-        <p
-          className="MuiTypography-root MuiTypography-body1"
-        />
-      </div>
-      <div
-        className="makeStyles-item"
-      >
-        <p
-          className="MuiTypography-root label MuiTypography-body1"
-        >
           common:marketCap
         </p>
         <p
@@ -77,6 +65,18 @@ exports[`screen: Nav/Mobile it renders 1`] = `
           className="MuiTypography-root label MuiTypography-body1"
         >
           common:inflation
+        </p>
+        <p
+          className="MuiTypography-root MuiTypography-body1"
+        />
+      </div>
+      <div
+        className="makeStyles-item"
+      >
+        <p
+          className="MuiTypography-root label MuiTypography-body1"
+        >
+          common:supply
         </p>
         <p
           className="MuiTypography-root MuiTypography-body1"

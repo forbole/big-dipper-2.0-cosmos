@@ -2,7 +2,9 @@ import React from 'react';
 import {
   Typography,
 } from '@material-ui/core';
-import { InfoPopover } from '@components';
+import {
+  InfoPopover, ConditionExplanation,
+} from '@components';
 
 export const fetchColumns = (t): {
   key: string;
@@ -15,7 +17,7 @@ export const fetchColumns = (t): {
   return ([
     {
       key: 'idx',
-      width: 10,
+      width: 5,
     },
     {
       key: 'validator',
@@ -26,30 +28,39 @@ export const fetchColumns = (t): {
     {
       key: 'votingPower',
       sortKey: 'votingPower',
-      width: 25,
+      width: 20,
       sort: true,
     },
     {
       key: 'self',
-      sortKey: 'self',
+      sortKey: 'selfPercent',
+      align: 'right',
+      width: 10,
+      sort: true,
+    },
+    {
+      key: 'delegators',
+      sortKey: 'delegators',
       align: 'right',
       width: 15,
       sort: true,
     },
     {
       key: 'commission',
+      sortKey: 'commission',
       align: 'right',
       width: 15,
+      sort: true,
     },
     {
       key: 'condition',
       align: 'center',
-      width: 15,
+      width: 14,
       component: (
         <Typography variant="h4" className="label popover">
           {t('condition')}
           <InfoPopover
-            content={t('conditionExplanation')}
+            content={<ConditionExplanation />}
           />
         </Typography>
       ),

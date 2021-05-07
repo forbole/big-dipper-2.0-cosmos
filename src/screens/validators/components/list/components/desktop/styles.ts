@@ -10,6 +10,9 @@ export const useStyles = () => {
         },
         cell: {
           ...theme.mixins.tableCell,
+          '&.sort:hover': {
+            cursor: 'pointer',
+          },
         },
         flexCells: {
           '& > *': {

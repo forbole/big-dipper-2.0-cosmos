@@ -12,5 +12,6 @@ query TransactionDetails($hash: String) {
     memo: memo
     messages: messages
     logs
+    rawLog: raw_log
   }
 }
