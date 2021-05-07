@@ -31,7 +31,7 @@ export const fetchColumns = (t): {
     },
     {
       key: 'self',
-      sortKey: 'self',
+      sortKey: 'selfPercent',
       align: 'right',
       width: 10,
       sort: true,
@@ -53,7 +53,7 @@ export const fetchColumns = (t): {
     {
       key: 'condition',
       align: 'center',
-      width: 15,
+      width: 14,
       component: (
         <Typography variant="h4" className="label popover">
           {t('condition')}

@@ -106,6 +106,7 @@ const Desktop: React.FC<{
                 rowCount={uiData.length}
                 rowHeight={getRowHeight}
                 width={width}
+                className="scrollbar"
               >
                 {({
                   columnIndex, rowIndex, style,

@@ -162,7 +162,6 @@ export const useValidators = (initialState: ValidatorsState) => {
       sorted.sort((a, b) => {
         let compareA = a[sortKey];
         let compareB = b[sortKey];
-
         if (typeof compareA === 'string') {
           compareA = compareA.toLowerCase();
           compareB = compareB.toLowerCase();
