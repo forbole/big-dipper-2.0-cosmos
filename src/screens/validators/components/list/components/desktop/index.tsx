@@ -70,6 +70,7 @@ const Desktop: React.FC<{
                         {
                           [classes.flexCells]: component || sort,
                           [align]: sort || component,
+                          sort,
                         },
                       )}
                       onClick={() => (sort ? handleSort(sortingKey) : null)}

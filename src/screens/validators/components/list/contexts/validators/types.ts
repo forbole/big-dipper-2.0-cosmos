@@ -10,6 +10,7 @@ export type ValidatorItems = {
   condition: number;
   status: number;
   jailed: boolean;
+  delegators: number;
 }
 export interface ValidatorsState {
   votingPowerOverall: number;
@@ -27,5 +28,6 @@ export interface ValidatorsState {
     self: string;
     condition: React.ReactNode;
     idx: string;
+    delegators: string;
   }[];
 }

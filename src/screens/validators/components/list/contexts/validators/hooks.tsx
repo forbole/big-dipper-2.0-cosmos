@@ -72,6 +72,7 @@ export const useValidators = (initialState: ValidatorsState) => {
         condition,
         status: R.pathOr(0, ['validatorStatuses', 0, 'status'], x),
         jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], x),
+        delegators: x.delegations.length,
       });
     });
 
@@ -87,6 +88,7 @@ export const useValidators = (initialState: ValidatorsState) => {
       const condition = x.status === 3 ? getValidatorConditionClass(x.condition) : undefined;
       return ({
         idx: `#${i + 1}`,
+        delegators: numeral(x.delegators).format('0,0'),
         validator: (
           <AvatarName
             address={x.validator}

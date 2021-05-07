@@ -15,7 +15,7 @@ export const fetchColumns = (t): {
   return ([
     {
       key: 'idx',
-      width: 10,
+      width: 5,
     },
     {
       key: 'validator',
@@ -26,20 +26,29 @@ export const fetchColumns = (t): {
     {
       key: 'votingPower',
       sortKey: 'votingPower',
-      width: 25,
+      width: 20,
       sort: true,
     },
     {
       key: 'self',
       sortKey: 'self',
       align: 'right',
+      width: 10,
+      sort: true,
+    },
+    {
+      key: 'delegators',
+      sortKey: 'delegators',
+      align: 'right',
       width: 15,
       sort: true,
     },
     {
       key: 'commission',
+      sortKey: 'commission',
       align: 'right',
       width: 15,
+      sort: true,
     },
     {
       key: 'condition',
