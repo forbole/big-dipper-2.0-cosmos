@@ -8,6 +8,30 @@ export const useStyles = () => {
           flexDirection: 'column',
           height: '100%',
         },
+        itemWrapper: {
+          marginTop: theme.spacing(2),
+        },
+        item: {
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        },
+        condition: {
+          width: '7px',
+          height: '7px',
+          background: theme.palette.custom.tags.zero,
+          marginLeft: theme.spacing(1),
+          borderRadius: '50%',
+          '&.green': {
+            background: theme.palette.custom.tags.one,
+          },
+          '&.yellow': {
+            background: theme.palette.custom.tags.two,
+          },
+          '&.red': {
+            background: theme.palette.custom.tags.three,
+          },
+        },
       });
     },
   )();
