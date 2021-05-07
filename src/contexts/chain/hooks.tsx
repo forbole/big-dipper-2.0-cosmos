@@ -11,6 +11,7 @@ import {
 } from '@graphql/types';
 import { chainConfig } from '@src/chain_config';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { getDenom } from '@utils/get_denom';
 import { ChainState } from './types';
 
 export const useValidatorsAddress = (initialstate:ChainState) => {
@@ -181,17 +182,16 @@ export const useMarket = (initalState: ChainState) => {
     const { rawData } = initalState.market;
     let { communityPool } = rawData;
     // formats
-    const price = data.tokenPrice[0]?.price ?? state.rawData.price;
     const marketCap = data.tokenPrice[0]?.marketCap ?? state.rawData.marketCap;
     const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter((x) => x.denom === chainConfig.base);
     const inflation = R.pathOr(0, ['inflation', 0, 'value'], data);
-
+    const supply = numeral(getDenom(R.pathOr([], ['supply', 0, 'coins'], data)).amount).value();
     if (communityPoolCoin) {
       communityPool = communityPoolCoin.amount;
     }
 
     return ({
-      price,
+      supply,
       marketCap,
       inflation,
       communityPool,
@@ -203,10 +203,10 @@ export const useMarket = (initalState: ChainState) => {
       rawData,
     } = state;
     return ({
-      price: `$${numeral(state.rawData.price).format('0,0.[00]')}`,
       marketCap: `$${numeral(state.rawData.marketCap).format('0,0.[00]')}`,
       inflation: `${numeral(state.rawData.inflation * 100).format('0')}%`,
       communityPool: `${numeral(formatDenom(rawData.communityPool)).format('0,0.00')} ${chainConfig.display.toUpperCase()}`,
+      supply: `${numeral(formatDenom(rawData.supply)).format('0,0.[00]')} ${chainConfig.display.toUpperCase()}`,
     });
   };
 
