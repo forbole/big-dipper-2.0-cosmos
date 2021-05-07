@@ -12212,7 +12212,7 @@ export type TransactionDetailsQueryVariables = Exact<{
 export type TransactionDetailsQuery = { transaction: Array<(
     { __typename?: 'transaction' }
     & Pick<Transaction, 'logs'>
-    & { hash: Transaction['hash'], height: Transaction['height'], fee: Transaction['fee'], gasUsed: Transaction['gas_used'], gasWanted: Transaction['gas_wanted'], success: Transaction['success'], memo: Transaction['memo'], messages: Transaction['messages'] }
+    & { hash: Transaction['hash'], height: Transaction['height'], fee: Transaction['fee'], gasUsed: Transaction['gas_used'], gasWanted: Transaction['gas_wanted'], success: Transaction['success'], memo: Transaction['memo'], messages: Transaction['messages'], rawLog: Transaction['raw_log'] }
     & { block: (
       { __typename?: 'block' }
       & { timestamp: Block['timestamp'] }
@@ -13006,6 +13006,7 @@ export const TransactionDetailsDocument = gql`
     memo: memo
     messages: messages
     logs
+    rawLog: raw_log
   }
 }
     `;

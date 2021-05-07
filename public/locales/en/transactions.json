@@ -58,5 +58,6 @@
   "txSubmitProposalContent": "<0>{{user}}</0> submitted proposal <1>{{proposal}}</1>",
   "txDepositContent": "<0>{{user}}</0> deposited <1>{{amount}}</1> to proposal <2>{{proposal}}</2>",
   "txVoteContent": "<0>{{user}}</0> voted <1>{{vote}}</1> to proposal <2>{{proposal}}</2>",
-  "txUnjailContent": "<0>{{validator}}</0> unjailed"
+  "txUnjailContent": "<0>{{validator}}</0> unjailed",
+  "error": "Error"
 }

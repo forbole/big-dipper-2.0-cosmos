@@ -32,6 +32,7 @@ export interface TransactionState {
       gasWanted: number;
       success: boolean;
       memo: string;
+      error: '',
     }
     messages: (MsgCreateValidator
       | MsgDelegate

@@ -16,6 +16,7 @@ const initialState: TransactionState = {
       gasWanted: 0,
       success: false,
       memo: '',
+      error: '',
     },
     messages: [],
   },
