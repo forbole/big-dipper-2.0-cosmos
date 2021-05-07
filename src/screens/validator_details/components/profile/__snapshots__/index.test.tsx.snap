@@ -133,7 +133,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
       >
         validators:condition
         <div
-          content="validators:conditionExplanation"
+          content={<UNDEFINED />}
           id="InfoPopover"
         />
       </h4>
