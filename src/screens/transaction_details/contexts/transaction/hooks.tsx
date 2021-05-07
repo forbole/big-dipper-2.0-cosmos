@@ -61,6 +61,7 @@ export const useTransaction = (initalState: TransactionState) => {
     // =============================
     // transaction
     // =============================
+    const { success } = data.transaction[0];
     const transaction = {
       hash: data.transaction[0].hash,
       height: data.transaction[0].height,
@@ -68,8 +69,9 @@ export const useTransaction = (initalState: TransactionState) => {
       fee: formatDenom(feeAmount.amount),
       gasUsed: data.transaction[0].gasUsed,
       gasWanted: data.transaction[0].gasWanted,
-      success: data.transaction[0].success,
+      success,
       memo: data.transaction[0].memo,
+      error: success ? '' : data.transaction[0].rawLog,
     };
     results.rawData.transaction = transaction;
 
@@ -91,7 +93,7 @@ export const useTransaction = (initalState: TransactionState) => {
   };
 
   const formatUi = () => {
-    return ({
+    const ui = {
       messages: state.rawData.messages.filter((x) => {
         if (state.rawData.filterBy !== 'none') {
           return x.category === state.rawData.filterBy;
@@ -139,7 +141,18 @@ export const useTransaction = (initalState: TransactionState) => {
           detail: state.rawData.transaction.memo,
         },
       ],
-    });
+    };
+
+    if (!state.rawData.transaction.success) {
+      ui.transaction.push(
+        {
+          className: 'memo',
+          label: t('error'),
+          detail: state.rawData.transaction.error,
+        },
+      );
+    }
+    return ui;
   };
 
   const onMessageFilterCallback = (value: string) => {

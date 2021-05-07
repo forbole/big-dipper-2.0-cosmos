@@ -9,6 +9,7 @@ const initialState: ChainState = {
     loading: true,
     rawData: {
       price: 0,
+      supply: 0,
       marketCap: 0,
       inflation: 0,
       communityPool: 0,

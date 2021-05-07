@@ -16,6 +16,7 @@ import {
   Tag,
   InfoPopover,
   Markdown,
+  ConditionExplanation,
 } from '@components';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
@@ -158,7 +159,7 @@ const Profile: React.FC<{
           <Typography variant="h4" className="label condition">
             {t('condition')}
             <InfoPopover
-              content={t('conditionExplanation')}
+              content={<ConditionExplanation />}
             />
           </Typography>
           {formattedItem.condition}

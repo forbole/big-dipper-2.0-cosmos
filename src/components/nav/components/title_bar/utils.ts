@@ -1,14 +1,10 @@
 export const formatMarket = (data: {
   marketCap: string;
   communityPool: string;
-  price: string;
+  supply: string;
   inflation: string;
 }) => {
   return ([
-    {
-      key: 'price',
-      data: data.price,
-    },
     {
       key: 'marketCap',
       data: data.marketCap,
@@ -16,6 +12,10 @@ export const formatMarket = (data: {
     {
       key: 'inflation',
       data: data.inflation,
+    },
+    {
+      key: 'supply',
+      data: data.supply,
     },
     {
       key: 'communityPool',

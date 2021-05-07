@@ -125,6 +125,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
     </div>
   </div>
   <div
+    className="scrollbar"
     onScroll={[Function]}
     style={
       Object {

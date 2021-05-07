@@ -9,4 +9,7 @@ query MarketData ($denom: String) {
     marketCap: market_cap
     price
   }
+  supply {
+    coins
+  }
 }

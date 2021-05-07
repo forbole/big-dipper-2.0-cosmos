@@ -5,6 +5,7 @@ import { NavState } from './types';
 const initialState: NavState = {
   rawData: {
     price: 0,
+    supply: 0,
     marketCap: 0,
     inflation: 0,
     communityPool: 0,

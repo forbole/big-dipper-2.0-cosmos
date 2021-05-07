@@ -49,5 +49,6 @@
   "unknown": "Unknown",
   "na": "N/A",
   "txs": "Txs",
-  "inactive": "Inactive"
+  "inactive": "Inactive",
+  "delegators": "Delegators"
 }

@@ -70,6 +70,7 @@ const Desktop: React.FC<{
                         {
                           [classes.flexCells]: component || sort,
                           [align]: sort || component,
+                          sort,
                         },
                       )}
                       onClick={() => (sort ? handleSort(sortingKey) : null)}
@@ -105,6 +106,7 @@ const Desktop: React.FC<{
                 rowCount={uiData.length}
                 rowHeight={getRowHeight}
                 width={width}
+                className="scrollbar"
               >
                 {({
                   columnIndex, rowIndex, style,

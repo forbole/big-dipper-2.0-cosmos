@@ -105,6 +105,7 @@ const Desktop: React.FC<TransactionsListState> = ({
                       rowCount={itemCount}
                       rowHeight={getRowHeight}
                       width={width}
+                      className="scrollbar"
                     >
                       {({
                         columnIndex, rowIndex, style,
