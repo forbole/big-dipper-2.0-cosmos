@@ -38,7 +38,7 @@ import {
   DepositProposal,
   Vote,
   WithdrawCommission,
-  // SubmitProposal,
+  SubmitProposal,
 } from './components';
 
 /**
@@ -128,10 +128,9 @@ export const getMessageModelByType = (type: string) => {
     return MsgVote;
   }
 
-  // unable to get proposal id atm
-  // if (type === '/cosmos.gov.v1beta1.MsgSubmitProposal') {
-  //   return MsgSubmitProposal;
-  // }
+  if (type === '/cosmos.gov.v1beta1.MsgSubmitProposal') {
+    return MsgSubmitProposal;
+  }
 
   return MsgUnknown;
 };
@@ -173,6 +172,7 @@ export const getMessageByType = (message: (MsgCreateValidator
     | typeof DepositProposal
     | typeof Vote
     | typeof WithdrawCommission
+    | typeof SubmitProposal
     );
     tagDisplay: string;
     tagTheme?: 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven' | 'eight' | 'zero';
@@ -325,13 +325,13 @@ export const getMessageByType = (message: (MsgCreateValidator
     };
   }
 
-  // if (type === '/cosmos.gov.v1beta1.MsgSubmitProposal') {
-  //   results = {
-  //     content: SubmitProposal,
-  //     tagTheme: 'two',
-  //     tagDisplay: 'txSubmitProposalLabel',
-  //   };
-  // }
+  if (type === '/cosmos.gov.v1beta1.MsgSubmitProposal') {
+    results = {
+      content: SubmitProposal,
+      tagTheme: 'two',
+      tagDisplay: 'txSubmitProposalLabel',
+    };
+  }
 
   // if (results.tagDisplay === 'txUnknownLabel' && type) {
   //   const tagSplit = type?.split('.');

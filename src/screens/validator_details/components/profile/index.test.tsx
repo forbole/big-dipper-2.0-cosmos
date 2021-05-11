@@ -17,6 +17,11 @@ jest.mock('@components', () => ({
 jest.mock('../../contexts/account', () => ({
   useAccountContext: () => {
     return ({
+      rawData: {
+        profile: {
+          status: 3,
+        },
+      },
       uiData: {
         profile: {
           operatorAddress: 'operatorAddress',
@@ -28,6 +33,8 @@ jest.mock('../../contexts/account', () => ({
           status: 'active',
           description: 'description',
           condition: 'active',
+          missedBlockCounter: 0,
+          signedBlockWindow: 0,
         },
       },
     });

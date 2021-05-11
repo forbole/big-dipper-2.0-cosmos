@@ -12,7 +12,7 @@ import { toast } from 'react-toastify';
 export const useSearchBar = (t) => {
   const { findOperator } = useChainContext();
   const router = useRouter();
-  const handleOnSubmit = (value: string) => {
+  const handleOnSubmit = (value: string, clear?: () => void) => {
     const consensusRegex = `^(${chainConfig.prefix.consensus})`;
     const validatorRegex = `^(${chainConfig.prefix.validator})`;
     const userRegex = `^(${chainConfig.prefix.account})`;
@@ -33,6 +33,10 @@ export const useSearchBar = (t) => {
       router.push(BLOCK_DETAILS(value));
     } else {
       router.push(TRANSACTION_DETAILS(value));
+    }
+
+    if (clear) {
+      clear();
     }
   };
 

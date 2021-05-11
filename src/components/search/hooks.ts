@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useSearch = (callback: (value: string) => void) => {
+export const useSearch = (callback: (value: string, clear?: () => void) => void) => {
   const [value, setValue] = useState('');
   const handleOnChange = (e:any) => {
     const newValue = e?.target?.value ?? '';
@@ -8,8 +8,7 @@ export const useSearch = (callback: (value: string) => void) => {
   };
 
   const handleOnSubmit = () => {
-    callback(value);
-    setValue('');
+    callback(value, clear);
   };
 
   const handleKeyDown = (e:any) => {
@@ -17,9 +16,12 @@ export const useSearch = (callback: (value: string) => void) => {
     const isEnter = e?.keyCode === 13 || e?.key === 'Enter';
     if (isEnter && !shift) {
       e.preventDefault();
-      callback(value);
-      setValue('');
+      callback(value, clear);
     }
+  };
+
+  const clear = () => {
+    setValue('');
   };
 
   return {

@@ -8,7 +8,9 @@ export const VALIDATORS = '/validators';
 export const TRANSACTIONS = '/transactions';
 export const TRANSACTION_DETAILS = (tx: string): string => `/transactions/${tx}`;
 export const PROPOSALS = '/proposals';
-export const PROPOSAL_DETAILS = (id:string | number): string => `/proposals/${id}`;
+// export const PROPOSAL_DETAILS = (id:string | number): string => `/proposals/${id}`;
+// eslint-disable-next-line
+export const PROPOSAL_DETAILS = (id:string | number): string => '/404';
 export const ACCOUNT_DETAILS = (address: string): string => `/accounts/${address}`;
 
 /**
