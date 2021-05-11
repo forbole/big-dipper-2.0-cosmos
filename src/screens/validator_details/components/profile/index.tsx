@@ -41,12 +41,15 @@ const Profile: React.FC<{
 
   const formattedItem = {
     operatorAddress: (
-      <Typography variant="body1" className="value">
-        {isMobile ? getMiddleEllipsis(
-          uiData.profile.operatorAddress,
-          { beginning: 9 },
-        ) : uiData.profile.operatorAddress}
-      </Typography>
+      <div className={classes.copyText}>
+        <Typography variant="body1" className="value">
+          {isMobile ? getMiddleEllipsis(
+            uiData.profile.operatorAddress,
+            { beginning: 9 },
+          ) : uiData.profile.operatorAddress}
+        </Typography>
+        <CopyIcon onClick={() => handleCopyToClipboard(uiData.profile.operatorAddress)} />
+      </div>
     ),
     selfDelegateAddress: (
       <div className={classes.copyText}>
