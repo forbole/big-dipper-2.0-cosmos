@@ -58,6 +58,7 @@ const Balance: React.FC<{
   const data = notEmpty ? formatData : [...formatData, empty];
 
   const totalAmount = `$${numeral(market.rawData.price * rawData.balance.total).format('0,0.00')}`;
+
   return (
     <Box className={classnames(className, classes.root)}>
       <Typography variant="h2">
@@ -70,6 +71,7 @@ const Balance: React.FC<{
               <Pie
                 dataKey="value"
                 data={data}
+                isAnimationActive={false}
                 innerRadius="90%"
                 outerRadius="100%"
                 cornerRadius={40}
