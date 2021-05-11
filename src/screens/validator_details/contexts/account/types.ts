@@ -13,6 +13,8 @@ export interface AccountState {
       website: string;
       condition: number;
       commission: number;
+      signedBlockWindow: number;
+      missedBlockCounter: number;
     }
     votingPower: {
       height: number;
@@ -53,6 +55,8 @@ export interface AccountState {
       status: string;
       description: string;
       condition: string;
+      signedBlockWindow: string;
+      missedBlockCounter: string;
     }
     votingPower: {
       height: string;

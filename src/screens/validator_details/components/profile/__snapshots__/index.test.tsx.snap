@@ -65,11 +65,19 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
       >
         validators:operatorAddress
       </h4>
-      <p
-        className="MuiTypography-root value MuiTypography-body1"
+      <div
+        className="makeStyles-copyText"
       >
-        operatorA...dress
-      </p>
+        <p
+          className="MuiTypography-root value MuiTypography-body1"
+        >
+          operatorA...dress
+        </p>
+        <svg
+          data-file-name="SvgIconCopy"
+          onClick={[Function]}
+        />
+      </div>
     </div>
     <div
       className="makeStyles-item"
@@ -137,11 +145,35 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
           id="InfoPopover"
         />
       </h4>
-      <p
-        className="MuiTypography-root value active MuiTypography-body1"
+      <div
+        className="condition__body"
       >
-        validators:active
-      </p>
+        <div
+          content={
+            <React.Fragment>
+              <WithStyles(ForwardRef(Typography))
+                variant="body1"
+              >
+                validators:missedBlockCounter
+              </WithStyles(ForwardRef(Typography))>
+              <WithStyles(ForwardRef(Typography))
+                variant="body1"
+              >
+                validators:signedBlockWindow
+              </WithStyles(ForwardRef(Typography))>
+            </React.Fragment>
+          }
+          display={
+            <WithStyles(ForwardRef(Typography))
+              className="value active"
+              variant="body1"
+            >
+              validators:active
+            </WithStyles(ForwardRef(Typography))>
+          }
+          id="InfoPopover"
+        />
+      </div>
     </div>
   </div>
 </div>

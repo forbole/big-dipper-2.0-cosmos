@@ -100,6 +100,9 @@ export const useStyles = () => {
               marginBottom: 0,
             },
           },
+          '& .condition__body': {
+            justifySelf: 'flex-start',
+          },
           '& p.value': {
             color: theme.palette.custom.fonts.fontTwo,
             '&.good': {
@@ -110,6 +113,9 @@ export const useStyles = () => {
             },
             '&.bad': {
               color: theme.palette.custom.tags.three,
+            },
+            '&.condition': {
+              color: theme.palette.custom.tags.zero,
             },
           },
           '& a': {

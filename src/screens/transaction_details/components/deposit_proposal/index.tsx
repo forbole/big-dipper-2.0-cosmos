@@ -29,7 +29,8 @@ const DepositProposal = (props: {
     return (
       <Link href={PROPOSAL_DETAILS(message.proposalId)} passHref>
         <Typography component="a">
-          #1
+          #
+          {message.proposalId}
         </Typography>
       </Link>
     );

@@ -5,6 +5,7 @@ import { NextSeo } from 'next-seo';
 import {
   Nav, Footer,
 } from '@components';
+import { chainConfig } from '@src/chain_config';
 import { LayoutProps } from './types';
 import { useStyles } from './styles';
 
@@ -24,7 +25,7 @@ const Layout = (props:LayoutProps) => {
 
   const {
     description = t('common:description'),
-    title = t('common:bigDipper'),
+    title = `${t('common:bigDipper')} | ${chainConfig.title}`,
     type = 'website',
     // imageUrl = `${baseUrl}/icons/android-chrome-512x512.png`,
     imageUrl = 'https://staging.bigdipper.live/images/big-dipper-social-media.png',

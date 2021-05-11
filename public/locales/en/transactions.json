@@ -55,7 +55,7 @@
   "txFundContent": "<0>{{user}}</0> funded <1>{{amount}}</1> to the community pool",
   "txsetRewardAddressContent": "<0>{{user}}</0> set reward address <1>{{address}}</1>",
   "txWithdrawRewardContent": "<0>{{user}}</0> withdrew <1>{{amount}}</1> reward from <2>{{validator}}</2>",
-  "txSubmitProposalContent": "<0>{{user}}</0> submitted proposal <1>{{proposal}}</1>",
+  "txSubmitProposalContent": "<0>{{user}}</0> submitted a proposal",
   "txDepositContent": "<0>{{user}}</0> deposited <1>{{amount}}</1> to proposal <2>{{proposal}}</2>",
   "txVoteContent": "<0>{{user}}</0> voted <1>{{vote}}</1> to proposal <2>{{proposal}}</2>",
   "txUnjailContent": "<0>{{validator}}</0> unjailed",

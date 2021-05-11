@@ -66,6 +66,8 @@ export const useAccount = (initialState: AccountState) => {
       website: R.pathOr('', ['validatorDescriptions', 0, 'website'], data.validator[0]),
       commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], data.validator[0]),
       condition,
+      missedBlockCounter,
+      signedBlockWindow,
     };
 
     results.rawData.profile = profile;
@@ -197,6 +199,8 @@ export const useAccount = (initialState: AccountState) => {
         imageUrl: validator ? validator.imageUrl : undefined,
       },
       description: state.rawData.profile.description,
+      signedBlockWindow: numeral(state.rawData.profile.signedBlockWindow).format('0,0'),
+      missedBlockCounter: numeral(state.rawData.profile.missedBlockCounter).format('0,0'),
     };
 
     // ==================================

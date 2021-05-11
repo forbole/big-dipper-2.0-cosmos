@@ -10,16 +10,20 @@ const ConditionExplanation = () => {
 
   const conditions = [
     {
-      display: '90% >= 100%',
+      display: '90% - 100%',
       className: 'green',
     },
     {
-      display: '70% > 90%',
+      display: '70% - 90%',
       className: 'yellow',
     },
     {
-      display: '0% > 70%',
+      display: '1% - 70%',
       className: 'red',
+    },
+    {
+      display: '0%',
+      className: '',
     },
   ];
   return (

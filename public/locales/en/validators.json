@@ -50,5 +50,7 @@
   "na": "N/A",
   "txs": "Txs",
   "inactive": "Inactive",
-  "delegators": "Delegators"
+  "delegators": "Delegators",
+  "missedBlockCounter": "Missed Block Counter: {{amount}}",
+  "signedBlockWindow": "Signed Block Window: {{amount}}"
 }

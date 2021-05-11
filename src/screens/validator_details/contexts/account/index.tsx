@@ -15,6 +15,8 @@ const initialState: AccountState = {
       website: '',
       condition: 0,
       commission: 0,
+      missedBlockCounter: 0,
+      signedBlockWindow: 0,
     },
     votingPower: {
       height: 0,
