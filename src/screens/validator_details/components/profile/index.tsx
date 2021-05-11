@@ -30,7 +30,9 @@ const Profile: React.FC<{
   const classes = useStyles();
   const { t } = useTranslation('validators');
   const { isMobile } = useScreenSize();
-  const { uiData } = useAccountContext();
+  const {
+    uiData, rawData,
+  } = useAccountContext();
 
   const handleCopyToClipboard = (value: string) => {
     copy(value);
@@ -85,12 +87,41 @@ const Profile: React.FC<{
       </Typography>
     ),
     condition: (
-      <Typography
-        variant="body1"
-        className={classnames('value', uiData.profile.condition)}
-      >
-        {t(uiData.profile.condition)}
-      </Typography>
+      rawData.profile.status === 3 ? (
+        <div className="condition__body">
+          <InfoPopover
+            content={(
+              <>
+                <Typography variant="body1">
+                  {t('missedBlockCounter', {
+                    amount: uiData.profile.missedBlockCounter,
+                  })}
+                </Typography>
+                <Typography variant="body1">
+                  {t('signedBlockWindow', {
+                    amount: uiData.profile.signedBlockWindow,
+                  })}
+                </Typography>
+              </>
+            )}
+            display={(
+              <Typography
+                variant="body1"
+                className={classnames('value', uiData.profile.condition)}
+              >
+                {t(uiData.profile.condition)}
+              </Typography>
+        )}
+          />
+        </div>
+      ) : (
+        <Typography
+          variant="body1"
+          className={classnames('value', 'condition', uiData.profile.condition)}
+        >
+          {t(uiData.profile.condition)}
+        </Typography>
+      )
     ),
   };
 

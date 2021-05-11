@@ -11,8 +11,11 @@ import { useStyles } from './styles';
 const InfoPopover: React.FC<{
   className?: string;
   content?: string | React.ReactNode;
+  display?: string | React.ReactNode;
 }> = ({
-  className, content,
+  className,
+  content,
+  display,
 }) => {
   const {
     handlePopoverOpen,
@@ -25,13 +28,18 @@ const InfoPopover: React.FC<{
 
   return (
     <>
-      <HelpOutline
+      <span
         aria-owns={open ? 'mouse-over-popover' : undefined}
         aria-haspopup="true"
         onMouseEnter={handlePopoverOpen}
         onMouseLeave={handlePopoverClose}
-        className={classnames(className, classes.icon)}
-      />
+      >
+        {display || (
+        <HelpOutline
+          className={classnames(className, classes.icon)}
+        />
+        )}
+      </span>
       <Popover
         id="mouse-over-popover"
         className={classes.popover}
