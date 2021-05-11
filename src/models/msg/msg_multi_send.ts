@@ -39,11 +39,9 @@ class MsgMultiSend {
         });
       }),
       outputs: json.outputs?.map((output) => {
-        console.log(output, 'output');
         return ({
           address: output?.address,
           coins: output?.coins?.map((coin) => {
-            console.log(coin, 'coins');
             return ({
               denom: coin?.denom,
               amount: numeral(coin?.amount).value(),
