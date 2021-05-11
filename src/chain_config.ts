@@ -1,4 +1,5 @@
 export const chainConfig = {
+  title: 'Desmos', // title to display on the tabs
   network: 'morpheus-apollo-1', // initial value
   icon: 'https://gist.githubusercontent.com/kwunyeung/8be4598c77c61e497dfc7220a678b3ee/raw/desmos.svg?sanitize=true',
   base: 'udaric',
