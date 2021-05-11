@@ -38,10 +38,12 @@ class MsgMultiSend {
           }),
         });
       }),
-      outputs: json.inputs?.map((input) => {
+      outputs: json.outputs?.map((output) => {
+        console.log(output, 'output');
         return ({
-          address: input?.address,
-          coins: input?.coins?.map((coin) => {
+          address: output?.address,
+          coins: output?.coins?.map((coin) => {
+            console.log(coin, 'coins');
             return ({
               denom: coin?.denom,
               amount: numeral(coin?.amount).value(),
