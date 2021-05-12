@@ -19,7 +19,7 @@ const ValidatorDetails = () => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
   return (
-    <Layout navTitle={t('validatorDetails')}>
+    <Layout navTitle={t('validatorDetails')} title={t('validatorDetails')}>
       <AccountProvider>
         {({
           exists, loading,

@@ -25,7 +25,7 @@ const Layout = (props:LayoutProps) => {
 
   const {
     description = t('common:description'),
-    title = `${t('common:bigDipper')} | ${chainConfig.title}`,
+    title = t('common:bigDipper'),
     type = 'website',
     // imageUrl = `${baseUrl}/icons/android-chrome-512x512.png`,
     imageUrl = 'https://staging.bigdipper.live/images/big-dipper-social-media.png',
@@ -37,15 +37,16 @@ const Layout = (props:LayoutProps) => {
   // ============================
   // ui
   // ============================
+  const formattedTitle = `${title} | ${chainConfig.title}`;
 
   return (
     <>
       <NextSeo
-        title={title}
+        title={formattedTitle}
         description={description}
         openGraph={{
           type,
-          title,
+          title: formattedTitle,
           site_name: 'Big Dipper',
           url: currentPath,
           description,

@@ -18,7 +18,7 @@ const BlockDetails = () => {
   const classes = useStyles();
 
   return (
-    <Layout navTitle={t('blockDetails')}>
+    <Layout navTitle={t('blockDetails')} title={t('blockDetails')}>
       <BlockProvider>
         {({
           exists, loading,

@@ -10,7 +10,11 @@ const Blocks = () => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
   return (
-    <Layout navTitle={t('blocks')} className={classes.root}>
+    <Layout
+      title={t('blocks')}
+      navTitle={t('blocks')}
+      className={classes.root}
+    >
       <List />
     </Layout>
   );
