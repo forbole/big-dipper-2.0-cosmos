@@ -47,9 +47,13 @@ export const useOnlineVotingPower = () => {
   });
 
   const formatOnlineVotingPower = (data: OnlineVotingPowerListenerSubscription) => {
+    const votingPower = R.pathOr(state.current.votingPower, [
+      'block', 0, 'validatorVotingPowersAggregate', 'aggregate', 'sum', 'votingPower',
+    ], data);
+
     return {
       height: R.pathOr(initialState.current.height, ['block', 0, 'height'], data),
-      votingPower: R.pathOr(initialState.current.votingPower, ['block', 0, 'preCommitsAggregate', 'aggregate', 'sum', 'votingPower'], data),
+      votingPower,
     };
   };
 
