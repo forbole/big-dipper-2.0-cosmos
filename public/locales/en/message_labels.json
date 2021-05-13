@@ -1,0 +1,22 @@
+{
+  "txDelegateLabel": "Delegate",
+  "txRedelegateLabel": "Redelegate",
+  "txUndelegateLabel": "Undelegate",
+  "txCreateValidatorLabel": "Create Validator",
+  "txEditValidatorLabel": "Edit Validator",
+  "txSendLabel": "Send",
+  "txMultisendLabel": "Multisend",
+  "txVerifyInvariantLabel": "Verify Invariant",
+  "txFundLabel": "Fund",
+  "txsetRewardAddressLabel": "Set Reward Address",
+  "txWithdrawRewardLabel": "Withdraw Reward",
+  "txDepositLabel": "Deposit",
+  "txVoteLabel": "Vote",
+  "txSubmitProposalLabel": "Submit Proposal",
+  "txUnjailLabel": "Unjail",
+  "txUnknownLabel": "Unknown",
+  "txWithdrawCommissionLabel": "Withdraw Commission",
+  "txSaveProfileLabel": "Save Profile",
+  "txDeleteProfileLabel": "Delete Profile",
+  "txCreateRelationshipLabel": "Create Relationship"
+}
