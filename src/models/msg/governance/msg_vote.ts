@@ -7,6 +7,7 @@ class MsgVote {
   public proposalId: number | string;
   public voter: string;
   public option: 'VOTE_OPTION_YES' | 'VOTE_OPTION_ABSTAIN' | 'VOTE_OPTION_NO' | 'VOTE_OPTION_NO_WITH_VETO';
+  public json: any;
 
   constructor(payload: any) {
     this.category = 'governance';
@@ -14,6 +15,7 @@ class MsgVote {
     this.proposalId = payload.proposalId;
     this.voter = payload.voter;
     this.option = payload.option;
+    this.json = payload.json;
   }
 
   public getOptionTranslationKey() {
@@ -34,6 +36,7 @@ class MsgVote {
 
   static fromJson(json: any) {
     return new MsgVote({
+      json,
       type: json['@type'],
       proposalId: numeral(json?.proposal_id).value(),
       voter: json.voter,

@@ -10,6 +10,7 @@ class MsgWithdrawDelegatorReward {
   public validatorAddress: string;
   public amount: number;
   public denom: string;
+  public json: any;
 
   constructor(payload: any) {
     this.category = 'distribution';
@@ -18,6 +19,7 @@ class MsgWithdrawDelegatorReward {
     this.validatorAddress = payload.validatorAddress;
     this.amount = payload.amount;
     this.denom = payload.denom;
+    this.json = payload.json;
   }
 
   static getWithdrawalAmount(log: any) {
@@ -39,6 +41,7 @@ class MsgWithdrawDelegatorReward {
     const displayAmount = formatDenom(amount);
 
     return new MsgWithdrawDelegatorReward({
+      json,
       type: json['@type'],
       delegatorAddress: json.delegator_address,
       validatorAddress: json.validator_address,

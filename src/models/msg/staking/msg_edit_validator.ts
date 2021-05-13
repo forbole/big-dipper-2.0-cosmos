@@ -14,6 +14,7 @@ class MsgEditValidator {
   public validatorAddress: string;
   public commissionRate: string | number;
   public minSelfDelegation: string | number;
+  public json: any;
 
   constructor(payload: any) {
     this.category = 'staking';
@@ -22,10 +23,12 @@ class MsgEditValidator {
     this.validatorAddress = payload.validatorAddress;
     this.commissionRate = payload.commissionRate;
     this.minSelfDelegation = payload.minSelfDelegation;
+    this.json = payload.json;
   }
 
   static fromJson(json: any) {
     return new MsgEditValidator({
+      json,
       type: json['@type'],
       description: {
         moniker: json?.description?.moniker,

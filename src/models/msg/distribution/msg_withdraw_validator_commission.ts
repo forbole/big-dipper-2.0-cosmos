@@ -9,6 +9,7 @@ class MsgWithdrawValidatorCommission {
   public validatorAddress: string;
   public amount: number;
   public denom: string;
+  public json: any;
 
   constructor(payload: any) {
     this.category = 'distribution';
@@ -16,6 +17,7 @@ class MsgWithdrawValidatorCommission {
     this.validatorAddress = payload.validatorAddress;
     this.amount = payload.amount;
     this.denom = payload.denom;
+    this.json = payload.json;
   }
 
   static getWithdrawalAmount(log: any) {
@@ -37,6 +39,7 @@ class MsgWithdrawValidatorCommission {
     const displayAmount = formatDenom(amount);
 
     return new MsgWithdrawValidatorCommission({
+      json,
       type: json['@type'],
       validatorAddress: json.validator_address,
       amount: displayAmount,

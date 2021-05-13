@@ -10,6 +10,7 @@ class MsgDeposit {
     denom: string;
     amount: string | number;
   }[];
+  public json: any;
 
   constructor(payload: any) {
     this.category = 'governance';
@@ -17,10 +18,12 @@ class MsgDeposit {
     this.proposalId = payload.proposalId;
     this.depositor = payload.depositor;
     this.amount = payload.amount;
+    this.json = payload.json;
   }
 
   static fromJson(json: any) {
     return new MsgDeposit({
+      json,
       type: json['@type'],
       proposalId: numeral(json.proposal_id).value(),
       depositor: json.depositor,

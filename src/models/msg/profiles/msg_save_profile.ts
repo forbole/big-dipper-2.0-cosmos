@@ -1,22 +1,22 @@
 import { Categories } from '../types';
 
-class MsgUnjail {
+class MsgSaveProfiles {
   public category: Categories;
   public type: string;
-  public validatorAddress: string;
+  public json: any;
 
   constructor(payload: any) {
     this.category = 'profiles';
     this.type = payload.type;
-    this.validatorAddress = payload.validatorAddress;
+    this.json = payload.json;
   }
 
   static fromJson(json: any) {
-    return new MsgUnjail({
+    return new MsgSaveProfiles({
       type: json['@type'],
-      validatorAddress: json.validator_addr,
+      json,
     });
   }
 }
 
-export default MsgUnjail;
+export default MsgSaveProfiles;

@@ -27,6 +27,7 @@ class MsgCreateValidator {
     denom: string;
     amount: string | number;
   }
+  public json: any;
 
   constructor(payload: any) {
     this.category = 'staking';
@@ -38,10 +39,12 @@ class MsgCreateValidator {
     this.validatorAddress = payload.validatorAddress;
     this.pubkey = payload.pubkey;
     this.value = payload.value;
+    this.json = payload.json;
   }
 
   static fromJson(json: any) {
     return new MsgCreateValidator({
+      json,
       type: json['@type'],
       description: {
         moniker: json?.description?.moniker,

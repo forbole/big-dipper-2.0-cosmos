@@ -19,6 +19,7 @@ class MsgSubmitProposal {
     amount: string | number;
   }[]
   public proposer: string;
+  public json: any;
 
   constructor(payload: any) {
     this.category = 'governance';
@@ -26,6 +27,7 @@ class MsgSubmitProposal {
     this.content = payload.content;
     this.initialDeposit = payload.initialDeposit;
     this.proposer = payload.proposer;
+    this.json = payload.json;
   }
 
   static fromJson(json: any) {
@@ -56,6 +58,7 @@ class MsgSubmitProposal {
     }
 
     return new MsgSubmitProposal({
+      json,
       content,
       type: json['@type'],
       initialDeposit: json?.initial_deposit?.map((x) => {

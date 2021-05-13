@@ -10,6 +10,7 @@ class MsgSend {
     denom: string;
     amount: string | number;
   }[];
+  public json: any;
 
   constructor(payload: any) {
     this.category = 'bank';
@@ -17,10 +18,12 @@ class MsgSend {
     this.fromAddress = payload.fromAddress;
     this.toAddress = payload.toAddress;
     this.amount = payload.amount;
+    this.json = payload.json;
   }
 
   static fromJson(json: any) {
     return new MsgSend({
+      json,
       type: json['@type'],
       fromAddress: json.from_address,
       toAddress: json.to_address,

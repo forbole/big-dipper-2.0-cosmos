@@ -5,8 +5,10 @@ class MsgSetWithdrawAddress {
   public type: string;
   public delegatorAddress: string;
   public withdrawalAddress: string;
+  public json: any;
 
   constructor(payload: any) {
+    this.json = payload.json;
     this.category = 'distribution';
     this.type = payload.type;
     this.delegatorAddress = payload.delegatorAddress;
@@ -15,6 +17,7 @@ class MsgSetWithdrawAddress {
 
   static fromJson(json: any) {
     return new MsgSetWithdrawAddress({
+      json,
       type: json['@type'],
       delegatorAddress: json.delegator_address,
       withdrawalAddress: json.withdraw_address,

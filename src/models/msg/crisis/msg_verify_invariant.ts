@@ -6,9 +6,11 @@ class MsgVerifyInvariant {
   public sender: string;
   public invariantModuleName: string;
   public invariantRoute: string;
+  public json: any;
 
   constructor(payload: any) {
     this.category = 'crisis';
+    this.json = payload.json;
     this.type = payload.type;
     this.sender = payload.sender;
     this.invariantModuleName = payload.invariantModuleName;
@@ -17,6 +19,7 @@ class MsgVerifyInvariant {
 
   static fromJson(json: any) {
     return new MsgVerifyInvariant({
+      json,
       type: json['@type'],
       sender: json.sender,
       invariantModuleName: json.invariant_module_name,

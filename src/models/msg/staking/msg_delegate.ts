@@ -10,6 +10,7 @@ class MsgDelegate {
     denom: string;
     amount: string | number;
   }
+  public json: any;
 
   constructor(payload: any) {
     this.category = 'staking';
@@ -17,10 +18,12 @@ class MsgDelegate {
     this.delegatorAddress = payload.delegatorAddress;
     this.validatorAddress = payload.validatorAddress;
     this.amount = payload.amount;
+    this.json = payload.json;
   }
 
   static fromJson(json: any) {
     return new MsgDelegate({
+      json,
       type: json['@type'],
       delegatorAddress: json?.delegator_address,
       validatorAddress: json?.validator_address,
