@@ -3,10 +3,10 @@ import numeral from 'numeral';
 import * as R from 'ramda';
 import { formatDenom } from '@utils/format_denom';
 import {
+  useTotalVotingPowerListenerSubscription,
   useOnlineVotingPowerListenerSubscription,
   OnlineVotingPowerListenerSubscription,
-  useTokenomicsQuery,
-  TokenomicsQuery,
+  TotalVotingPowerListenerSubscription,
 } from '@graphql/types';
 
 const initialState: {
@@ -47,27 +47,29 @@ export const useOnlineVotingPower = () => {
   });
 
   const formatOnlineVotingPower = (data: OnlineVotingPowerListenerSubscription) => {
+    const votingPower = R.pathOr(state.current.votingPower, [
+      'block', 0, 'validatorVotingPowersAggregate', 'aggregate', 'sum', 'votingPower',
+    ], data);
     return {
       height: R.pathOr(initialState.current.height, ['block', 0, 'height'], data),
-      votingPower: R.pathOr(initialState.current.votingPower, ['block', 0, 'preCommitsAggregate', 'aggregate', 'sum', 'votingPower'], data),
+      votingPower,
     };
   };
 
   // ====================================
-  // tokenomics
+  // total voting power
   // ====================================
-
-  useTokenomicsQuery({
-    onCompleted: (data) => {
+  useTotalVotingPowerListenerSubscription({
+    onSubscriptionData: (data) => {
       handleSetState({
         current: {
-          totalVotingPower: formatTokenomics(data),
+          totalVotingPower: formatTotalVotingPower(data.subscriptionData.data),
         },
       });
     },
   });
 
-  const formatTokenomics = (data: TokenomicsQuery) => {
+  const formatTotalVotingPower = (data: TotalVotingPowerListenerSubscription) => {
     let bonded = R.pathOr(initialState.current.totalVotingPower, [
       'stakingPool',
       0,
@@ -88,7 +90,7 @@ export const useOnlineVotingPower = () => {
         height: numeral(current.height).format('0,0'),
         votingPower: numeral(current.votingPower).format('0,0'),
         votingPowerPercentRaw: votingPowerPercent.format(0),
-        votingPowerPercent: `${votingPowerPercent.format('0,0.00')}%`,
+        votingPowerPercent: `${votingPowerPercent.format('0,0.00', (n) => ~~n)}%`,
         totalVotingPower: numeral(current.totalVotingPower).format('0,0'),
       },
     });

@@ -26,7 +26,7 @@ Array [
          
         /
          
-        254,579
+        0
       </p>
     </div>
     <div
@@ -95,7 +95,7 @@ Array [
         <p
           className="MuiTypography-root value MuiTypography-body1"
         >
-          254,579
+          0
         </p>
       </div>
     </div>
@@ -121,12 +121,12 @@ Array [
       <h3
         className="MuiTypography-root primary__data MuiTypography-h3"
       >
-        101.15%
+        0.00%
       </h3>
       <p
         className="MuiTypography-root MuiTypography-body1"
       >
-        257,518
+        0
          
         /
          
@@ -171,7 +171,7 @@ Array [
         <p
           className="MuiTypography-root value MuiTypography-body1"
         >
-          101.15%
+          0.00%
         </p>
       </div>
       <div
@@ -185,7 +185,7 @@ Array [
         <p
           className="MuiTypography-root value MuiTypography-body1"
         >
-          257,518
+          0
         </p>
       </div>
       <div

@@ -1,7 +1,7 @@
 subscription OnlineVotingPowerListener {
-  block(offset: 1, limit: 1, order_by: { height: desc }) {
+  block(offset: 0, limit: 1, order_by: {height: desc}) {
     height
-    preCommitsAggregate: pre_commits_aggregate {
+    validatorVotingPowersAggregate: validator_voting_powers_aggregate {
       aggregate {
         sum {
           votingPower: voting_power
@@ -10,3 +10,10 @@ subscription OnlineVotingPowerListener {
     }
   }
 }
+
+subscription TotalVotingPowerListener {
+  stakingPool: staking_pool(order_by: {height: desc}, limit: 1) {
+    bonded: bonded_tokens
+  }
+}
+

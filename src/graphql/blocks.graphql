@@ -1,4 +1,4 @@
-subscription BlocksListener($limit: Int = 7, $offset: Int = 1) {
+subscription BlocksListener($limit: Int = 7, $offset: Int = 0) {
   blocks: block(limit: $limit, offset: $offset, order_by: {height: desc}) {
     height
     txs: num_txs
