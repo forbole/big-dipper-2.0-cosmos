@@ -12238,6 +12238,14 @@ export type OnlineVotingPowerListenerSubscription = { block: Array<(
     ) }
   )> };
 
+export type TotalVotingPowerListenerSubscriptionVariables = Exact<{ [key: string]: never; }>;
+
+
+export type TotalVotingPowerListenerSubscription = { stakingPool: Array<(
+    { __typename?: 'staking_pool' }
+    & { bonded: Staking_Pool['bonded_tokens'] }
+  )> };
+
 export type TokenPriceListenerSubscriptionVariables = Exact<{
   denom?: Maybe<Scalars['String']>;
 }>;
@@ -12975,6 +12983,35 @@ export function useOnlineVotingPowerListenerSubscription(baseOptions?: Apollo.Su
       }
 export type OnlineVotingPowerListenerSubscriptionHookResult = ReturnType<typeof useOnlineVotingPowerListenerSubscription>;
 export type OnlineVotingPowerListenerSubscriptionResult = Apollo.SubscriptionResult<OnlineVotingPowerListenerSubscription>;
+export const TotalVotingPowerListenerDocument = gql`
+    subscription TotalVotingPowerListener {
+  stakingPool: staking_pool(order_by: {height: desc}, limit: 1) {
+    bonded: bonded_tokens
+  }
+}
+    `;
+
+/**
+ * __useTotalVotingPowerListenerSubscription__
+ *
+ * To run a query within a React component, call `useTotalVotingPowerListenerSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useTotalVotingPowerListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTotalVotingPowerListenerSubscription({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useTotalVotingPowerListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<TotalVotingPowerListenerSubscription, TotalVotingPowerListenerSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<TotalVotingPowerListenerSubscription, TotalVotingPowerListenerSubscriptionVariables>(TotalVotingPowerListenerDocument, options);
+      }
+export type TotalVotingPowerListenerSubscriptionHookResult = ReturnType<typeof useTotalVotingPowerListenerSubscription>;
+export type TotalVotingPowerListenerSubscriptionResult = Apollo.SubscriptionResult<TotalVotingPowerListenerSubscription>;
 export const TokenPriceListenerDocument = gql`
     subscription TokenPriceListener($denom: String) {
   tokenPrice: token_price(where: {unit_name: {_eq: $denom}}) {

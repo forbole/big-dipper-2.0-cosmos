@@ -6,7 +6,7 @@ import {
 } from 'mock-apollo-client';
 import {
   OnlineVotingPowerListenerDocument,
-  TokenomicsDocument,
+  TotalVotingPowerListenerDocument,
 } from '@graphql/types';
 import {
   MockTheme, wait,
@@ -42,30 +42,15 @@ const mockOnlineVotingPower = {
   },
 };
 
-const mockTokenomics = jest.fn().mockResolvedValue({
+const mockTotalVotingPower = {
   data: {
     stakingPool: [
       {
         bonded: 254578529800,
-        unbonded: 204887435198,
-      },
-    ],
-    supply: [
-      {
-        coins: [
-          {
-            denom: 'udaric',
-            amount: '7987725829900',
-          },
-          {
-            denom: 'upotin',
-            amount: '80000000000000',
-          },
-        ],
       },
     ],
   },
-});
+};
 
 // ==================================
 // unit tests
@@ -74,6 +59,7 @@ describe('screen: Home/OnlineVotingPower', () => {
   it('matches snapshot', async () => {
     const mockClient = createMockClient();
     const mockSubscription = createMockSubscription();
+    const mockSubscription2 = createMockSubscription();
 
     mockClient.setRequestHandler(
       OnlineVotingPowerListenerDocument,
@@ -81,8 +67,8 @@ describe('screen: Home/OnlineVotingPower', () => {
     );
 
     mockClient.setRequestHandler(
-      TokenomicsDocument,
-      mockTokenomics,
+      TotalVotingPowerListenerDocument,
+      () => mockSubscription2,
     );
 
     let component;
@@ -104,6 +90,7 @@ describe('screen: Home/OnlineVotingPower', () => {
 
     renderer.act(() => {
       mockSubscription.next(mockOnlineVotingPower);
+      mockSubscription2.next(mockTotalVotingPower);
     });
     await wait();
 

@@ -3,10 +3,10 @@ import numeral from 'numeral';
 import * as R from 'ramda';
 import { formatDenom } from '@utils/format_denom';
 import {
+  useTotalVotingPowerListenerSubscription,
   useOnlineVotingPowerListenerSubscription,
   OnlineVotingPowerListenerSubscription,
-  useTokenomicsQuery,
-  TokenomicsQuery,
+  TotalVotingPowerListenerSubscription,
 } from '@graphql/types';
 
 const initialState: {
@@ -50,7 +50,6 @@ export const useOnlineVotingPower = () => {
     const votingPower = R.pathOr(state.current.votingPower, [
       'block', 0, 'validatorVotingPowersAggregate', 'aggregate', 'sum', 'votingPower',
     ], data);
-
     return {
       height: R.pathOr(initialState.current.height, ['block', 0, 'height'], data),
       votingPower,
@@ -58,20 +57,19 @@ export const useOnlineVotingPower = () => {
   };
 
   // ====================================
-  // tokenomics
+  // total voting power
   // ====================================
-
-  useTokenomicsQuery({
-    onCompleted: (data) => {
+  useTotalVotingPowerListenerSubscription({
+    onSubscriptionData: (data) => {
       handleSetState({
         current: {
-          totalVotingPower: formatTokenomics(data),
+          totalVotingPower: formatTotalVotingPower(data.subscriptionData.data),
         },
       });
     },
   });
 
-  const formatTokenomics = (data: TokenomicsQuery) => {
+  const formatTotalVotingPower = (data: TotalVotingPowerListenerSubscription) => {
     let bonded = R.pathOr(initialState.current.totalVotingPower, [
       'stakingPool',
       0,
