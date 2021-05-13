@@ -1517,6 +1517,10 @@ export type Block = {
   transactions_aggregate: Transaction_Aggregate;
   /** An object relationship */
   validator?: Maybe<Validator>;
+  /** An array relationship */
+  validator_voting_powers: Array<Validator_Voting_Power>;
+  /** An aggregated array relationship */
+  validator_voting_powers_aggregate: Validator_Voting_Power_Aggregate;
 };
 
 
@@ -1557,6 +1561,26 @@ export type BlockTransactions_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Transaction_Order_By>>;
   where?: Maybe<Transaction_Bool_Exp>;
+};
+
+
+/** columns and relationships of "block" */
+export type BlockValidator_Voting_PowersArgs = {
+  distinct_on?: Maybe<Array<Validator_Voting_Power_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Validator_Voting_Power_Order_By>>;
+  where?: Maybe<Validator_Voting_Power_Bool_Exp>;
+};
+
+
+/** columns and relationships of "block" */
+export type BlockValidator_Voting_Powers_AggregateArgs = {
+  distinct_on?: Maybe<Array<Validator_Voting_Power_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Validator_Voting_Power_Order_By>>;
+  where?: Maybe<Validator_Voting_Power_Bool_Exp>;
 };
 
 /** aggregated selection of "block" */
@@ -1633,6 +1657,7 @@ export type Block_Bool_Exp = {
   total_gas?: Maybe<Bigint_Comparison_Exp>;
   transactions?: Maybe<Transaction_Bool_Exp>;
   validator?: Maybe<Validator_Bool_Exp>;
+  validator_voting_powers?: Maybe<Validator_Voting_Power_Bool_Exp>;
 };
 
 /** aggregate max on columns */
@@ -1688,6 +1713,7 @@ export type Block_Order_By = {
   total_gas?: Maybe<Order_By>;
   transactions_aggregate?: Maybe<Transaction_Aggregate_Order_By>;
   validator?: Maybe<Validator_Order_By>;
+  validator_voting_powers_aggregate?: Maybe<Validator_Voting_Power_Aggregate_Order_By>;
 };
 
 /** primary key columns input for table: "block" */
@@ -9100,6 +9126,8 @@ export type Token_Unit = {
   /** An object relationship */
   token: Token;
   token_name: Scalars['String'];
+  /** An object relationship */
+  token_price?: Maybe<Token_Price>;
   /** An array relationship */
   token_prices: Array<Token_Price>;
   /** An aggregated array relationship */
@@ -9192,6 +9220,7 @@ export type Token_Unit_Bool_Exp = {
   exponent?: Maybe<Int_Comparison_Exp>;
   token?: Maybe<Token_Bool_Exp>;
   token_name?: Maybe<String_Comparison_Exp>;
+  token_price?: Maybe<Token_Price_Bool_Exp>;
   token_prices?: Maybe<Token_Price_Bool_Exp>;
 };
 
@@ -9232,6 +9261,7 @@ export type Token_Unit_Order_By = {
   exponent?: Maybe<Order_By>;
   token?: Maybe<Token_Order_By>;
   token_name?: Maybe<Order_By>;
+  token_price?: Maybe<Token_Price_Order_By>;
   token_prices_aggregate?: Maybe<Token_Price_Aggregate_Order_By>;
 };
 
@@ -9931,6 +9961,10 @@ export type Validator = {
   /** An object relationship */
   validator_info?: Maybe<Validator_Info>;
   /** An array relationship */
+  validator_infos: Array<Validator_Info>;
+  /** An aggregated array relationship */
+  validator_infos_aggregate: Validator_Info_Aggregate;
+  /** An array relationship */
   validator_signing_infos: Array<Validator_Signing_Info>;
   /** An aggregated array relationship */
   validator_signing_infos_aggregate: Validator_Signing_Info_Aggregate;
@@ -10176,6 +10210,26 @@ export type ValidatorValidator_Descriptions_AggregateArgs = {
 
 
 /** columns and relationships of "validator" */
+export type ValidatorValidator_InfosArgs = {
+  distinct_on?: Maybe<Array<Validator_Info_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Validator_Info_Order_By>>;
+  where?: Maybe<Validator_Info_Bool_Exp>;
+};
+
+
+/** columns and relationships of "validator" */
+export type ValidatorValidator_Infos_AggregateArgs = {
+  distinct_on?: Maybe<Array<Validator_Info_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Validator_Info_Order_By>>;
+  where?: Maybe<Validator_Info_Bool_Exp>;
+};
+
+
+/** columns and relationships of "validator" */
 export type ValidatorValidator_Signing_InfosArgs = {
   distinct_on?: Maybe<Array<Validator_Signing_Info_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10282,6 +10336,7 @@ export type Validator_Bool_Exp = {
   validator_commissions?: Maybe<Validator_Commission_Bool_Exp>;
   validator_descriptions?: Maybe<Validator_Description_Bool_Exp>;
   validator_info?: Maybe<Validator_Info_Bool_Exp>;
+  validator_infos?: Maybe<Validator_Info_Bool_Exp>;
   validator_signing_infos?: Maybe<Validator_Signing_Info_Bool_Exp>;
   validator_statuses?: Maybe<Validator_Status_Bool_Exp>;
   validator_voting_powers?: Maybe<Validator_Voting_Power_Bool_Exp>;
@@ -11157,6 +11212,7 @@ export type Validator_Order_By = {
   validator_commissions_aggregate?: Maybe<Validator_Commission_Aggregate_Order_By>;
   validator_descriptions_aggregate?: Maybe<Validator_Description_Aggregate_Order_By>;
   validator_info?: Maybe<Validator_Info_Order_By>;
+  validator_infos_aggregate?: Maybe<Validator_Info_Aggregate_Order_By>;
   validator_signing_infos_aggregate?: Maybe<Validator_Signing_Info_Aggregate_Order_By>;
   validator_statuses_aggregate?: Maybe<Validator_Status_Aggregate_Order_By>;
   validator_voting_powers_aggregate?: Maybe<Validator_Voting_Power_Aggregate_Order_By>;
@@ -12170,16 +12226,24 @@ export type OnlineVotingPowerListenerSubscriptionVariables = Exact<{ [key: strin
 export type OnlineVotingPowerListenerSubscription = { block: Array<(
     { __typename?: 'block' }
     & Pick<Block, 'height'>
-    & { preCommitsAggregate: (
-      { __typename?: 'pre_commit_aggregate' }
+    & { validatorVotingPowersAggregate: (
+      { __typename?: 'validator_voting_power_aggregate' }
       & { aggregate?: Maybe<(
-        { __typename?: 'pre_commit_aggregate_fields' }
+        { __typename?: 'validator_voting_power_aggregate_fields' }
         & { sum?: Maybe<(
-          { __typename?: 'pre_commit_sum_fields' }
-          & { votingPower: Pre_Commit_Sum_Fields['voting_power'] }
+          { __typename?: 'validator_voting_power_sum_fields' }
+          & { votingPower: Validator_Voting_Power_Sum_Fields['voting_power'] }
         )> }
       )> }
     ) }
+  )> };
+
+export type TotalVotingPowerListenerSubscriptionVariables = Exact<{ [key: string]: never; }>;
+
+
+export type TotalVotingPowerListenerSubscription = { stakingPool: Array<(
+    { __typename?: 'staking_pool' }
+    & { bonded: Staking_Pool['bonded_tokens'] }
   )> };
 
 export type TokenPriceListenerSubscriptionVariables = Exact<{
@@ -12659,7 +12723,7 @@ export type AverageBlockTimeQueryHookResult = ReturnType<typeof useAverageBlockT
 export type AverageBlockTimeLazyQueryHookResult = ReturnType<typeof useAverageBlockTimeLazyQuery>;
 export type AverageBlockTimeQueryResult = Apollo.QueryResult<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>;
 export const BlocksListenerDocument = gql`
-    subscription BlocksListener($limit: Int = 7, $offset: Int = 1) {
+    subscription BlocksListener($limit: Int = 7, $offset: Int = 0) {
   blocks: block(limit: $limit, offset: $offset, order_by: {height: desc}) {
     height
     txs: num_txs
@@ -12885,9 +12949,9 @@ export type GetMessagesByAddressLazyQueryHookResult = ReturnType<typeof useGetMe
 export type GetMessagesByAddressQueryResult = Apollo.QueryResult<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>;
 export const OnlineVotingPowerListenerDocument = gql`
     subscription OnlineVotingPowerListener {
-  block(offset: 1, limit: 1, order_by: {height: desc}) {
+  block(offset: 0, limit: 1, order_by: {height: desc}) {
     height
-    preCommitsAggregate: pre_commits_aggregate {
+    validatorVotingPowersAggregate: validator_voting_powers_aggregate {
       aggregate {
         sum {
           votingPower: voting_power
@@ -12919,6 +12983,35 @@ export function useOnlineVotingPowerListenerSubscription(baseOptions?: Apollo.Su
       }
 export type OnlineVotingPowerListenerSubscriptionHookResult = ReturnType<typeof useOnlineVotingPowerListenerSubscription>;
 export type OnlineVotingPowerListenerSubscriptionResult = Apollo.SubscriptionResult<OnlineVotingPowerListenerSubscription>;
+export const TotalVotingPowerListenerDocument = gql`
+    subscription TotalVotingPowerListener {
+  stakingPool: staking_pool(order_by: {height: desc}, limit: 1) {
+    bonded: bonded_tokens
+  }
+}
+    `;
+
+/**
+ * __useTotalVotingPowerListenerSubscription__
+ *
+ * To run a query within a React component, call `useTotalVotingPowerListenerSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useTotalVotingPowerListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTotalVotingPowerListenerSubscription({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useTotalVotingPowerListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<TotalVotingPowerListenerSubscription, TotalVotingPowerListenerSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<TotalVotingPowerListenerSubscription, TotalVotingPowerListenerSubscriptionVariables>(TotalVotingPowerListenerDocument, options);
+      }
+export type TotalVotingPowerListenerSubscriptionHookResult = ReturnType<typeof useTotalVotingPowerListenerSubscription>;
+export type TotalVotingPowerListenerSubscriptionResult = Apollo.SubscriptionResult<TotalVotingPowerListenerSubscription>;
 export const TokenPriceListenerDocument = gql`
     subscription TokenPriceListener($denom: String) {
   tokenPrice: token_price(where: {unit_name: {_eq: $denom}}) {
