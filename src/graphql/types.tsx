@@ -12715,7 +12715,7 @@ export type AverageBlockTimeQueryHookResult = ReturnType<typeof useAverageBlockT
 export type AverageBlockTimeLazyQueryHookResult = ReturnType<typeof useAverageBlockTimeLazyQuery>;
 export type AverageBlockTimeQueryResult = Apollo.QueryResult<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>;
 export const BlocksListenerDocument = gql`
-    subscription BlocksListener($limit: Int = 7, $offset: Int = 1) {
+    subscription BlocksListener($limit: Int = 7, $offset: Int = 0) {
   blocks: block(limit: $limit, offset: $offset, order_by: {height: desc}) {
     height
     txs: num_txs
