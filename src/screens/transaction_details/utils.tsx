@@ -16,6 +16,15 @@ import {
   MsgSubmitProposal,
   MsgUnknown,
   MsgWithdrawValidatorCommission,
+  MsgUnblockUser,
+  MsgSaveProfile,
+  MsgDtagTransferRequest,
+  MsgDtagRefuseTransfer,
+  MsgDtagCancelTransfer,
+  MsgDtagAcceptTransfer,
+  MsgDeleteProfile,
+  MsgCreateRelationship,
+  MsgBlockUser,
 } from '@models';
 
 import {
@@ -132,10 +141,50 @@ export const getMessageModelByType = (type: string) => {
     return MsgSubmitProposal;
   }
 
+  // ========================
+  // profiles
+  // ========================
+  if (type === '/desmos.profiles.v1beta1.MsgSaveProfile') {
+    return MsgSaveProfile;
+  }
+
+  if (type === '/desmos.profiles.v1beta1.MsgDeleteProfile') {
+    return MsgDeleteProfile;
+  }
+
+  if (type === '/desmos.profiles.v1beta1.MsgCreateRelationship') {
+    return MsgCreateRelationship;
+  }
+
+  if (type === '/desmos.profiles.v1beta1.MsgRequestDTagTransfer') {
+    return MsgDtagTransferRequest;
+  }
+
+  if (type === '/desmos.profiles.v1beta1.MsgAcceptDTagTransfer') {
+    return MsgDtagAcceptTransfer;
+  }
+
+  if (type === '/desmos.profiles.v1beta1.MsgCancelDTagTransfer') {
+    return MsgDtagCancelTransfer;
+  }
+
+  if (type === '/desmos.profiles.v1beta1.MsgRefuseDTagTransfer') {
+    return MsgDtagRefuseTransfer;
+  }
+
+  if (type === '/desmos.profiles.v1beta1.MsgBlockUser') {
+    return MsgBlockUser;
+  }
+
+  if (type === '/desmos.profiles.v1beta1.MsgUnblockUser') {
+    return MsgUnblockUser;
+  }
+
   return MsgUnknown;
 };
 
-export const getMessageByType = (message: (MsgCreateValidator
+export const getMessageByType = (message: (
+  MsgCreateValidator
   | MsgDelegate
   | MsgDeposit
   | MsgEditValidator
@@ -151,7 +200,17 @@ export const getMessageByType = (message: (MsgCreateValidator
   | MsgVote
   | MsgUnknown
   | MsgWithdrawDelegatorReward
-  | MsgWithdrawValidatorCommission), t:any) => {
+  | MsgWithdrawValidatorCommission
+  | MsgUnblockUser
+  | MsgSaveProfile
+  | MsgDtagTransferRequest
+  | MsgDtagRefuseTransfer
+  | MsgDtagCancelTransfer
+  | MsgDtagAcceptTransfer
+  | MsgDeleteProfile
+  | MsgCreateRelationship
+  | MsgBlockUser
+  ), t:any) => {
   const { type } = message;
 
   let results: {
@@ -330,6 +389,33 @@ export const getMessageByType = (message: (MsgCreateValidator
       content: SubmitProposal,
       tagTheme: 'two',
       tagDisplay: 'txSubmitProposalLabel',
+    };
+  }
+
+  // ========================
+  // profiles
+  // ========================
+  if (type === '/desmos.profiles.v1beta1.MsgSaveProfile') {
+    results = {
+      content: Unknown,
+      tagTheme: 'one',
+      tagDisplay: 'txSaveProfileLabel',
+    };
+  }
+
+  if (type === '/desmos.profiles.v1beta1.MsgDeleteProfile') {
+    results = {
+      content: Unknown,
+      tagTheme: 'one',
+      tagDisplay: 'txDeleteProfileLabel',
+    };
+  }
+
+  if (type === '/desmos.profiles.v1beta1.MsgCreateRelationship') {
+    results = {
+      content: Unknown,
+      tagTheme: 'one',
+      tagDisplay: 'txCreateRelationshipLabel',
     };
   }
 

@@ -23,6 +23,15 @@ import MsgRedelegate from './msg/staking/msg_redelegate';
 import MsgUndelegate from './msg/staking/msg_undelegate';
 import MsgUnknown from './msg/msg_unknown';
 import MsgWithdrawValidatorCommission from './msg/distribution/msg_withdraw_validator_commission';
+import MsgBlockUser from './msg/profiles/msg_block_user';
+import MsgCreateRelationship from './msg/profiles/msg_create_relationship';
+import MsgDeleteProfile from './msg/profiles/msg_delete_profile';
+import MsgDtagAcceptTransfer from './msg/profiles/msg_dtag_accept_transfer';
+import MsgDtagCancelTransfer from './msg/profiles/msg_dtag_cancel_transfer';
+import MsgDtagRefuseTransfer from './msg/profiles/msg_dtag_refuse_transfer';
+import MsgDtagTransferRequest from './msg/profiles/msg_dtag_transfer_request';
+import MsgSaveProfile from './msg/profiles/msg_save_profile';
+import MsgUnblockUser from './msg/profiles/msg_unblock_user';
 
 export {
   BigDipperNetwork,
@@ -50,4 +59,13 @@ export {
   MsgSubmitProposal,
   MsgUnknown,
   MsgWithdrawValidatorCommission,
+  MsgUnblockUser,
+  MsgSaveProfile,
+  MsgDtagTransferRequest,
+  MsgDtagRefuseTransfer,
+  MsgDtagCancelTransfer,
+  MsgDtagAcceptTransfer,
+  MsgDeleteProfile,
+  MsgCreateRelationship,
+  MsgBlockUser,
 };

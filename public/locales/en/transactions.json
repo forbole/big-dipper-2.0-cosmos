@@ -37,6 +37,9 @@
   "txUnjailLabel": "Unjail",
   "txUnknownLabel": "Unknown",
   "txWithdrawCommissionLabel": "Withdraw Commission",
+  "txSaveProfileLabel": "Save Profile",
+  "txDeleteProfileLabel": "Delete Profile",
+  "txCreateRelationshipLabel": "Create Relationship",
   "and": "and",
   "yes": "YES",
   "no": "NO",
@@ -59,5 +62,6 @@
   "txDepositContent": "<0>{{user}}</0> deposited <1>{{amount}}</1> to proposal <2>{{proposal}}</2>",
   "txVoteContent": "<0>{{user}}</0> voted <1>{{vote}}</1> to proposal <2>{{proposal}}</2>",
   "txUnjailContent": "<0>{{validator}}</0> unjailed",
+  "txSaveProfileContent": "<0>{{user}}</0> saved their profile",
   "error": "Error"
 }
