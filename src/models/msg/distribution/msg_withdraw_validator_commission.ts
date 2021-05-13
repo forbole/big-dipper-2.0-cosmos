@@ -1,11 +1,11 @@
 import * as R from 'ramda';
 import { chainConfig } from '@src/chain_config';
 import { formatDenom } from '@utils/format_denom';
+import { Categories } from '../types';
 
-class MsgWithdrawDelegatorReward {
-  public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';
+class MsgWithdrawValidatorCommission {
+  public category: Categories;
   public type: string;
-  public delegatorAddress: string;
   public validatorAddress: string;
   public amount: number;
   public denom: string;
@@ -13,14 +13,13 @@ class MsgWithdrawDelegatorReward {
   constructor(payload: any) {
     this.category = 'distribution';
     this.type = payload.type;
-    this.delegatorAddress = payload.delegatorAddress;
     this.validatorAddress = payload.validatorAddress;
     this.amount = payload.amount;
     this.denom = payload.denom;
   }
 
   static getWithdrawalAmount(log: any) {
-    const [withdrawEvent] = log?.events?.filter((x) => x.type === 'withdraw_rewards');
+    const [withdrawEvent] = log?.events?.filter((x) => x.type === 'withdraw_commission');
     const [withdrawAmount] = R.pathOr([], ['attributes'], withdrawEvent).filter((x) => x.key === 'amount');
     const [amount, denom] = withdrawAmount.value.match(/[a-z]+|[^a-z]+/gi);
     return {
@@ -37,9 +36,8 @@ class MsgWithdrawDelegatorReward {
 
     const displayAmount = formatDenom(amount);
 
-    return new MsgWithdrawDelegatorReward({
+    return new MsgWithdrawValidatorCommission({
       type: json['@type'],
-      delegatorAddress: json.delegator_address,
       validatorAddress: json.validator_address,
       amount: displayAmount,
       denom: denom === chainConfig.base ? chainConfig.display : denom,
@@ -47,4 +45,4 @@ class MsgWithdrawDelegatorReward {
   }
 }
 
-export default MsgWithdrawDelegatorReward;
+export default MsgWithdrawValidatorCommission;

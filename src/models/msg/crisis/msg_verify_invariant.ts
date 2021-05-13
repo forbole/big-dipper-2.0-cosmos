@@ -1,5 +1,7 @@
+import { Categories } from '../types';
+
 class MsgVerifyInvariant {
-  public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';
+  public category: Categories;
   public type: string;
   public sender: string;
   public invariantModuleName: string;

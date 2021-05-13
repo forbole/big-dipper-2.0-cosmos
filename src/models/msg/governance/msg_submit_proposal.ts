@@ -4,10 +4,11 @@ import {
   MsgSoftwareUpgradeProposal,
   MsgParameterChangeProposal,
   MsgCommunityPoolSpendProposal,
-} from '..';
+} from '../..';
+import { Categories } from '../types';
 
 class MsgSubmitProposal {
-  public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';
+  public category: Categories;
   public type: string;
   public content: MsgTextProposal
   | MsgSoftwareUpgradeProposal

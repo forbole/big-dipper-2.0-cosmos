@@ -1,24 +1,28 @@
 import numeral from 'numeral';
+import { Categories } from '../types';
 
-class MsgFundCommunityPool {
-  public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';
+class MsgDeposit {
+  public category: Categories;
   public type: string;
+  public proposalId: number | string;
   public depositor: string;
   public amount: {
     denom: string;
     amount: string | number;
-  }[]
+  }[];
 
   constructor(payload: any) {
-    this.category = 'distribution';
+    this.category = 'governance';
     this.type = payload.type;
+    this.proposalId = payload.proposalId;
     this.depositor = payload.depositor;
     this.amount = payload.amount;
   }
 
   static fromJson(json: any) {
-    return new MsgFundCommunityPool({
+    return new MsgDeposit({
       type: json['@type'],
+      proposalId: numeral(json.proposal_id).value(),
       depositor: json.depositor,
       amount: json?.amount.map((x) => {
         return ({
@@ -30,4 +34,4 @@ class MsgFundCommunityPool {
   }
 }
 
-export default MsgFundCommunityPool;
+export default MsgDeposit;

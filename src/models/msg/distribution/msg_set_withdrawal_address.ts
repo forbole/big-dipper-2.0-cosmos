@@ -1,5 +1,7 @@
+import { Categories } from '../types';
+
 class MsgSetWithdrawAddress {
-  public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';
+  public category: Categories;
   public type: string;
   public delegatorAddress: string;
   public withdrawalAddress: string;

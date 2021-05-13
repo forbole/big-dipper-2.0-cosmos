@@ -1,7 +1,8 @@
 import numeral from 'numeral';
+import { Categories } from '../types';
 
-class MsgUndelegate {
-  public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';
+class MsgDelegate {
+  public category: Categories;
   public type: string;
   public delegatorAddress: string;
   public validatorAddress: string;
@@ -19,7 +20,7 @@ class MsgUndelegate {
   }
 
   static fromJson(json: any) {
-    return new MsgUndelegate({
+    return new MsgDelegate({
       type: json['@type'],
       delegatorAddress: json?.delegator_address,
       validatorAddress: json?.validator_address,
@@ -31,4 +32,4 @@ class MsgUndelegate {
   }
 }
 
-export default MsgUndelegate;
+export default MsgDelegate;

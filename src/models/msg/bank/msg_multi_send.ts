@@ -1,4 +1,5 @@
 import numeral from 'numeral';
+import { Categories } from '../types';
 
 type Coins = {
   denom: string;
@@ -6,7 +7,7 @@ type Coins = {
 }
 
 class MsgMultiSend {
-  public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';
+  public category: Categories;
   public type: string;
   public inputs: {
     address: string;

@@ -1,10 +1,12 @@
 import numeral from 'numeral';
+import { Categories } from '../types';
 
-class MsgDelegate {
-  public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';
+class MsgRedelegate {
+  public category: Categories;
   public type: string;
   public delegatorAddress: string;
-  public validatorAddress: string;
+  public validatorSrcAddress: string;
+  public validatorDstAddress: string;
   public amount: {
     denom: string;
     amount: string | number;
@@ -14,15 +16,17 @@ class MsgDelegate {
     this.category = 'staking';
     this.type = payload.type;
     this.delegatorAddress = payload.delegatorAddress;
-    this.validatorAddress = payload.validatorAddress;
+    this.validatorDstAddress = payload.validatorDstAddress;
+    this.validatorSrcAddress = payload.validatorSrcAddress;
     this.amount = payload.amount;
   }
 
   static fromJson(json: any) {
-    return new MsgDelegate({
+    return new MsgRedelegate({
       type: json['@type'],
       delegatorAddress: json?.delegator_address,
-      validatorAddress: json?.validator_address,
+      validatorSrcAddress: json?.validator_src_address,
+      validatorDstAddress: json?.validator_dst_address,
       amount: {
         denom: json?.amount?.denom,
         amount: numeral(json?.amount?.amount).value(),
@@ -31,4 +35,4 @@ class MsgDelegate {
   }
 }
 
-export default MsgDelegate;
+export default MsgRedelegate;
