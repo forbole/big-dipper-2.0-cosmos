@@ -1,10 +1,10 @@
 import { Categories } from '../types';
 
-class MsgSaveProfile {
+class MsgDeleteProfile {
   public category: Categories;
   public type: string;
-  public json: any;
   public creator: string;
+  public json: any;
 
   constructor(payload: any) {
     this.category = 'profiles';
@@ -14,7 +14,7 @@ class MsgSaveProfile {
   }
 
   static fromJson(json: any) {
-    return new MsgSaveProfile({
+    return new MsgDeleteProfile({
       type: json['@type'],
       creator: json.creator,
       json,
@@ -22,4 +22,4 @@ class MsgSaveProfile {
   }
 }
 
-export default MsgSaveProfile;
+export default MsgDeleteProfile;
