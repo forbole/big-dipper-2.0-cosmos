@@ -29,7 +29,7 @@ export const useStyles = () => {
           color: theme.palette.custom.fonts.fontThree,
         },
         title: {
-          marginBottom: theme.spacing(1),
+          marginBottom: theme.spacing(0.5),
         },
         infoWrapper: {
           [theme.breakpoints.up('lg')]: {

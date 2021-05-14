@@ -33,6 +33,21 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
     <p
       className="MuiTypography-root label MuiTypography-body1"
     >
+      proposals:proposer
+    </p>
+    <p
+      className="MuiTypography-root value MuiTypography-body1"
+    >
+      <div
+        address="FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk"
+        id="AvatarName"
+        imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
+        name="Forbole"
+      />
+    </p>
+    <p
+      className="MuiTypography-root label MuiTypography-body1"
+    >
       proposals:type
     </p>
     <p

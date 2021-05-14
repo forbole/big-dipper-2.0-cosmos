@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import Tokens from '.';
+import List from '.';
 
 // ==================================
 // mocks
@@ -17,11 +17,11 @@ jest.mock('./components', () => ({
 // ==================================
 // unit tests
 // ==================================
-describe('screen: Tokens', () => {
+describe('screen: List', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>
-        <Tokens />
+        <List />
       </MockTheme>,
     );
     const tree = component.toJSON();
