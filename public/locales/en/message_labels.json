@@ -18,5 +18,11 @@
   "txWithdrawCommissionLabel": "Withdraw Commission",
   "txSaveProfileLabel": "Save Profile",
   "txDeleteProfileLabel": "Delete Profile",
-  "txCreateRelationshipLabel": "Create Relationship"
+  "txCreateRelationshipLabel": "Create Relationship",
+  "txRequestDTagTransferLabel": "DTag Transfer Request",
+  "txAcceptDTagTransferLabel": "Accept DTag Transfer",
+  "txCancelDTagTransferLabel": "Cancel DTag Transfer",
+  "txRefuseDTagTransferLabel": "Refuse DTag Transfer",
+  "txBlockUserLabel": "Block User",
+  "txUnblockUserLabel": "Unblock User"
 }

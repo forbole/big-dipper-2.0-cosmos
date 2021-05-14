@@ -31,7 +31,7 @@ const Redelegate = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="transactions:txRedelegateContent"
+        i18nKey="message_contents:txRedelegateContent"
         components={[
           (
             <Name

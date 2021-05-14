@@ -4,7 +4,8 @@ import { VariableSizeList as List } from 'react-window';
 import useTranslation from 'next-translate/useTranslation';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import {
-  Divider, Typography,
+  Divider,
+  Typography,
 } from '@material-ui/core';
 import {
   useList,
@@ -13,6 +14,7 @@ import {
 import {
   Box,
   TransactionMessagesFilter,
+  Tag,
 } from '@components';
 import { useTransactionContext } from '../../contexts/transaction';
 import { useStyles } from './styles';
@@ -66,14 +68,12 @@ const Messages: React.FC<{
                   return (
                     <div style={style}>
                       <div ref={rowRef}>
-                        {/* setup individual message types later */}
                         <div className={classes.item}>
                           <div className={classes.tags}>
                             {selectedItem.type}
                           </div>
                           {selectedItem.message}
                         </div>
-                        {/* setup individual message types later */}
                         {index !== uiData.messages.length - 1 && <Divider />}
                       </div>
                     </div>

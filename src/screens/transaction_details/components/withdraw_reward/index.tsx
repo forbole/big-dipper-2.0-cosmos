@@ -23,7 +23,7 @@ const WithdrawReward = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="transactions:txWithdrawRewardContent"
+        i18nKey="message_contents:txWithdrawRewardContent"
         components={[
           (
             <Name

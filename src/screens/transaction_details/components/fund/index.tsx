@@ -26,7 +26,7 @@ const Fund = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="transactions:txFundContent"
+        i18nKey="message_contents:txFundContent"
         components={[
           (
             <Name

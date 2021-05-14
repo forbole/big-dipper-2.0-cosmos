@@ -25,7 +25,7 @@ const Delegate = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="transactions:txDelegateContent"
+        i18nKey="message_contents:txDelegateContent"
         components={[
           (
             <Name

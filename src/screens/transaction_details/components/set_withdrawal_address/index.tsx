@@ -21,7 +21,7 @@ const SetWithdrawalAddress = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="transactions:txsetRewardAddressContent"
+        i18nKey="message_contents:txsetRewardAddressContent"
         components={[
           (
             <Name

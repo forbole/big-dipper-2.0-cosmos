@@ -29,7 +29,7 @@ const Send = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="transactions:txSendContent"
+        i18nKey="message_contents:txSendContent"
         components={[
           (
             <Name

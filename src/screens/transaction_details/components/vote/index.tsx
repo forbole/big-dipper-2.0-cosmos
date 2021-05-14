@@ -33,7 +33,7 @@ const Vote = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="transactions:txVoteContent"
+        i18nKey="message_contents:txVoteContent"
         components={[
           (
             <Name

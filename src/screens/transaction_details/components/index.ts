@@ -17,6 +17,9 @@ import DepositProposal from './deposit_proposal';
 import Vote from './vote';
 import SubmitProposal from './submit_proposal';
 import WithdrawCommission from './withdraw_commission';
+import SaveProfile from './save_profile';
+import DeleteProfile from './delete_profile';
+import CreateRelationship from './create_relationship';
 
 export {
   Overview,
@@ -42,4 +45,7 @@ export {
   Vote,
   SubmitProposal,
   WithdrawCommission,
+  SaveProfile,
+  DeleteProfile,
+  CreateRelationship,
 };

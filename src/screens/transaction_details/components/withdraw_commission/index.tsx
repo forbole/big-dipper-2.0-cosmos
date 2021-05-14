@@ -18,7 +18,7 @@ const WithdrawCommission = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="transactions:txWithdrawCommissionContent"
+        i18nKey="message_contents:txWithdrawCommissionContent"
         components={[
           (
             <Name

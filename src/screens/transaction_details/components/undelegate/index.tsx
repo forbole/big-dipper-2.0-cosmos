@@ -27,7 +27,7 @@ const Undelegate = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="transactions:txUndelegateContent"
+        i18nKey="message_contents:txUndelegateContent"
         components={[
           (
             <Name

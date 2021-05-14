@@ -48,6 +48,9 @@ import {
   Vote,
   WithdrawCommission,
   SubmitProposal,
+  SaveProfile,
+  DeleteProfile,
+  CreateRelationship,
 } from './components';
 
 /**
@@ -397,7 +400,7 @@ export const getMessageByType = (message: (
   // ========================
   if (type === '/desmos.profiles.v1beta1.MsgSaveProfile') {
     results = {
-      content: Unknown,
+      content: SaveProfile,
       tagTheme: 'one',
       tagDisplay: 'txSaveProfileLabel',
     };
@@ -405,7 +408,7 @@ export const getMessageByType = (message: (
 
   if (type === '/desmos.profiles.v1beta1.MsgDeleteProfile') {
     results = {
-      content: Unknown,
+      content: DeleteProfile,
       tagTheme: 'one',
       tagDisplay: 'txDeleteProfileLabel',
     };
@@ -413,9 +416,57 @@ export const getMessageByType = (message: (
 
   if (type === '/desmos.profiles.v1beta1.MsgCreateRelationship') {
     results = {
-      content: Unknown,
+      content: CreateRelationship,
       tagTheme: 'one',
       tagDisplay: 'txCreateRelationshipLabel',
+    };
+  }
+
+  if (type === '/desmos.profiles.v1beta1.MsgRequestDTagTransfer') {
+    results = {
+      content: Unknown,
+      tagTheme: 'one',
+      tagDisplay: 'txRequestDTagTransferLabel',
+    };
+  }
+
+  if (type === '/desmos.profiles.v1beta1.MsgAcceptDTagTransfer') {
+    results = {
+      content: Unknown,
+      tagTheme: 'one',
+      tagDisplay: 'txAcceptDTagTransferLabel',
+    };
+  }
+
+  if (type === '/desmos.profiles.v1beta1.MsgCancelDTagTransfer') {
+    results = {
+      content: Unknown,
+      tagTheme: 'one',
+      tagDisplay: 'txCancelDTagTransferLabel',
+    };
+  }
+
+  if (type === '/desmos.profiles.v1beta1.MsgRefuseDTagTransfer') {
+    results = {
+      content: Unknown,
+      tagTheme: 'one',
+      tagDisplay: 'txRefuseDTagTransferLabel',
+    };
+  }
+
+  if (type === '/desmos.profiles.v1beta1.MsgBlockUser') {
+    results = {
+      content: Unknown,
+      tagTheme: 'one',
+      tagDisplay: 'txBlockUserLabel',
+    };
+  }
+
+  if (type === '/desmos.profiles.v1beta1.MsgUnblockUser') {
+    results = {
+      content: Unknown,
+      tagTheme: 'one',
+      tagDisplay: 'txUnblockUserLabel',
     };
   }
 
@@ -427,7 +478,7 @@ export const getMessageByType = (message: (
 
   return {
     type: <Tag
-      value={results.unknown ? results.tagDisplay : t(results.tagDisplay)}
+      value={results.unknown ? results.tagDisplay : t(`message_labels:${results.tagDisplay}`)}
       theme={results.tagTheme}
     />,
     message: <results.content message={message as any} />,

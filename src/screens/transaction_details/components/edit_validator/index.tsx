@@ -19,7 +19,7 @@ const EditValidator = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="transactions:txEditValidatorContent"
+        i18nKey="message_contents:txEditValidatorContent"
         components={[
           (
             <Name

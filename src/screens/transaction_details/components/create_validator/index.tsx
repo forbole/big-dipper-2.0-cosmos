@@ -18,7 +18,7 @@ const CreateValidator = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="transactions:txCreateValidatorContent"
+        i18nKey="message_contents:txCreateValidatorContent"
         components={[
           (
             <Name

@@ -17,7 +17,7 @@ const SubmitProposal = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="transactions:txSubmitProposalContent"
+        i18nKey="message_contents:txSubmitProposalContent"
         components={[
           (
             <Name

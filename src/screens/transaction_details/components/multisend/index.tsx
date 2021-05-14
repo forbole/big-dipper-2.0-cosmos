@@ -44,7 +44,7 @@ const Multisend = (props: {
     <div>
       <Typography>
         <Trans
-          i18nKey="transactions:txMultisendContentOne"
+          i18nKey="message_contents:txMultisendContentOne"
           components={[
             (
               <Name
@@ -67,7 +67,7 @@ const Multisend = (props: {
           return (
             <Typography key={`${x.address}-${i}`}>
               <Trans
-                i18nKey="transactions:txMultisendContentTwo"
+                i18nKey="message_contents:txMultisendContentTwo"
                 components={[
                   (
                     <Name

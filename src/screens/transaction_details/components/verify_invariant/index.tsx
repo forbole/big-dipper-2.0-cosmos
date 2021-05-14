@@ -17,7 +17,7 @@ const VerifyInvariant = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="transactions:txVerifyInvariantContent"
+        i18nKey="message_contents:txVerifyInvariantContent"
         components={[
           (
             <Name

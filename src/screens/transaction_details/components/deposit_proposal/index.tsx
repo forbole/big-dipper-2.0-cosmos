@@ -38,7 +38,7 @@ const DepositProposal = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="transactions:txDepositContent"
+        i18nKey="message_contents:txDepositContent"
         components={[
           (
             <Name
