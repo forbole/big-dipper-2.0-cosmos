@@ -10,7 +10,11 @@ const Validators = () => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
   return (
-    <Layout navTitle={t('validators')} className={classes.root}>
+    <Layout
+      title={t('validators')}
+      navTitle={t('validators')}
+      className={classes.root}
+    >
       <List />
     </Layout>
   );

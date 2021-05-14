@@ -5,6 +5,7 @@ exports[`screen: Blocks matches snapshot 1`] = `
   className="makeStyles-root"
   id="Layout"
   navTitle="blocks:blocks"
+  title="blocks:blocks"
 >
   <div
     id="List"

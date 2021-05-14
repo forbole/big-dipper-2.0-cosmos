@@ -18,7 +18,11 @@ const ProposalDetails = () => {
   const classes = useStyles();
 
   return (
-    <Layout navTitle={t('proposalDetails')} className={classes.root}>
+    <Layout
+      title={t('proposalDetails')}
+      navTitle={t('proposalDetails')}
+      className={classes.root}
+    >
       <ProposalProvider>
         <Overview className={classes.overview} />
         <VotesGraph className={classes.votesGraph} />

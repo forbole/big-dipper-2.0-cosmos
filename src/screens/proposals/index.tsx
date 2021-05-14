@@ -11,7 +11,11 @@ const Proposals = () => {
   const classes = useStyles();
 
   return (
-    <Layout navTitle={t('proposals')} className={classes.root}>
+    <Layout
+      title={t('proposals')}
+      navTitle={t('proposals')}
+      className={classes.root}
+    >
       <List />
     </Layout>
   );

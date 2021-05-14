@@ -30,12 +30,12 @@ Array [
           },
         ],
         "site_name": "Big Dipper",
-        "title": "validators",
+        "title": "validators | Desmos Block Explorer",
         "type": "website",
         "url": "http://localhost/",
       }
     }
-    title="validators"
+    title="validators | Desmos Block Explorer"
     twitter={
       Object {
         "cardType": "summary_large_image",

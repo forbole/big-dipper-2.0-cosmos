@@ -1,18 +1,20 @@
+import { Categories } from './types';
+
 class MsgUnknown {
-  public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking' | 'unknown';
+  public category: Categories;
   public type: string;
-  public data: JSON;
+  public json: JSON;
 
   constructor(payload: any) {
-    this.category = 'unknown';
+    this.category = 'others';
     this.type = payload.type;
-    this.data = payload.data;
+    this.json = payload.json;
   }
 
   static fromJson(json: any) {
     return new MsgUnknown({
       type: json['@type'] ?? '',
-      data: json,
+      json,
     });
   }
 }

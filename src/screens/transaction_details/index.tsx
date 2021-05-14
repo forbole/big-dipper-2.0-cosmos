@@ -17,7 +17,7 @@ const TransactionDetails = () => {
   const classes = useStyles();
 
   return (
-    <Layout navTitle={t('transactionDetails')}>
+    <Layout navTitle={t('transactionDetails')} title={t('transactionDetails')}>
       <TransactionProvider>
         {({
           exists, loading,

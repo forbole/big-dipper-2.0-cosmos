@@ -18,7 +18,7 @@ const AccountDetails = () => {
   const { t } = useTranslation('accounts');
   const classes = useStyles();
   return (
-    <Layout navTitle={t('accountDetails')}>
+    <Layout navTitle={t('accountDetails')} title={t('accountDetails')}>
       <AccountProvider>
         {({
           exists, loading,

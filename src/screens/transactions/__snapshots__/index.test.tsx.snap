@@ -5,6 +5,7 @@ exports[`screen: Transactions matches snapshot 1`] = `
   className="makeStyles-root"
   id="Layout"
   navTitle="transactions:transactions"
+  title="transactions:transactions"
 >
   <div
     id="List"
