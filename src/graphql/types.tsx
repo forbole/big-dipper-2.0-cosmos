@@ -12265,6 +12265,7 @@ export type ProposalDetailsQueryVariables = Exact<{
 export type ProposalDetailsQuery = { proposal: Array<(
     { __typename?: 'proposal' }
     & Pick<Proposal, 'title' | 'description' | 'status' | 'content'>
+    & { proposalId: Proposal['proposal_id'] }
   )> };
 
 export type ProposalsQueryVariables = Exact<{
@@ -13058,6 +13059,7 @@ export const ProposalDetailsDocument = gql`
     description
     status
     content
+    proposalId: proposal_id
   }
 }
     `;

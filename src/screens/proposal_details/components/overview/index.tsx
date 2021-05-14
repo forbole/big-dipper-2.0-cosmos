@@ -21,47 +21,46 @@ const Overview: React.FC<{
 }> = ({ className }) => {
   const classes = useStyles();
   const { t } = useTranslation('proposals');
-  const { item } = useProposalContext();
+  const { uiData } = useProposalContext();
+  console.log(uiData, 'ui data');
 
-  const formatItem = {
-    id: `#${item.id}`,
-    proposer: (
-      <AvatarName
-        address={item?.proposer?.identity || ''}
-        imageUrl={item?.proposer?.image || ''}
-        name={item?.proposer?.moniker || ''}
-      />
-    ),
-    title: item.title,
-    submissionTime: dayjs(item.submissionTime).format('YYYY-MM-DD'),
-    votingTimeStart: dayjs(item.votingTimeStart).format('YYYY-MM-DD'),
-    status: (
-      <Tag theme="one" value="status" />
-    ),
-  };
+  // const formatItem = {
+  //   id: `#${item.id}`,
+  //   proposer: (
+  //     <AvatarName
+  //       address={item?.proposer?.identity || ''}
+  //       imageUrl={item?.proposer?.image || ''}
+  //       name={item?.proposer?.moniker || ''}
+  //     />
+  //   ),
+  //   title: item.title,
+  //   submissionTime: dayjs(item.submissionTime).format('YYYY-MM-DD'),
+  //   votingTimeStart: dayjs(item.votingTimeStart).format('YYYY-MM-DD'),
+  //   status: (
+  //     <Tag theme="one" value="status" />
+  //   ),
+  // };
 
   return (
     <Box className={classnames(className)}>
-      <SingleProposal {...formatItem} />
+      <SingleProposal
+        id={uiData.overview.id}
+        title={uiData.overview.title}
+        status={uiData.overview.status}
+      />
       <Divider />
       <div className={classes.content}>
-        <Typography variant="body1" className="label">
-          {t('proposer')}
-        </Typography>
-        <Typography variant="body1" className="value">
-          {formatItem.proposer}
-        </Typography>
         <Typography variant="body1" className="label">
           {t('type')}
         </Typography>
         <Typography variant="body1" className="value">
-          {item.type}
+          TYPE TYPE
         </Typography>
         <Typography variant="body1" className="label">
           {t('description')}
         </Typography>
         <Typography variant="body1" className="value">
-          {item.content}
+          {uiData.overview.description}
         </Typography>
       </div>
     </Box>

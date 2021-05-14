@@ -6,6 +6,12 @@ const initialState: ProposalState = {
   rawData: {
     exists: true,
     loading: true,
+    overview: {
+      title: '',
+      id: 0,
+      description: '',
+      status: '',
+    },
   },
 };
 
@@ -19,12 +25,14 @@ const ProposalProvider: React.FC = (props: {children: (options: {
 
   const {
     rawData,
+    uiData,
   } = useProposal(initialState);
 
   return (
     <ProposalContext.Provider
       value={{
         rawData,
+        uiData,
       }}
     >
       {children({

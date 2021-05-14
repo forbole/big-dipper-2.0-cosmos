@@ -4,5 +4,6 @@ query ProposalDetails($proposalId: numeric) {
     description
     status
     content
+    proposalId: proposal_id
   }
 }
