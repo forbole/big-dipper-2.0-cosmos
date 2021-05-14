@@ -11,6 +11,10 @@ const initialState: ProposalState = {
       id: 0,
       description: '',
       status: '',
+      submitTime: '',
+      depositEndTime: '',
+      votingEndTime: null,
+      votingStartTime: null,
     },
   },
 };

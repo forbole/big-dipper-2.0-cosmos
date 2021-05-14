@@ -9,6 +9,11 @@ export interface ProposalState {
       id: number;
       description: string;
       status: string;
+      submitTime: string;
+      depositEndTime: string;
+      votingStartTime: string | null;
+      votingEndTime: string | null;
+      content: JSON;
     }
   }
   uiData?: {
@@ -17,6 +22,11 @@ export interface ProposalState {
       id: string;
       description: string;
       status: React.ReactNode;
+      submitTime: string;
+      depositEndTime: string;
+      votingEndTime?: string;
+      votingStartTime?: string;
+      type: string;
     }
   }
 }

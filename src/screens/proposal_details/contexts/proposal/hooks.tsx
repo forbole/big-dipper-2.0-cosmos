@@ -2,6 +2,7 @@ import { useState } from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
 import { useRouter } from 'next/router';
+import dayjs from '@utils/dayjs';
 import {
   useProposalDetailsQuery,
   ProposalDetailsQuery,
@@ -53,6 +54,11 @@ export const useProposal = (initialState: ProposalState) => {
       id: data.proposal[0].proposalId,
       description: data.proposal[0].description,
       status: data.proposal[0].status,
+      submitTime: data.proposal[0].submitTime,
+      depositEndTime: data.proposal[0].depositEndTime,
+      votingStartTime: data.proposal[0].votingStartTime !== '0001-01-01T00:00:00' ? data.proposal[0].votingStartTime : null,
+      votingEndTime: data.proposal[0].votingEndTime !== '0001-01-01T00:00:00' ? data.proposal[0].votingEndTime : null,
+      content: data.proposal[0].content,
     };
 
     results.rawData.overview = overview;
@@ -60,16 +66,52 @@ export const useProposal = (initialState: ProposalState) => {
     return results;
   };
 
+  const getProposalType = (proposalType: string) => {
+    let type = proposalType;
+    if (proposalType === '/cosmos.gov.v1beta1.TextProposal') {
+      type = 'textProposal';
+    }
+
+    if (proposalType === '/cosmos.params.v1beta1.ParameterChangeProposal') {
+      type = 'parameterChangeProposal';
+    }
+
+    if (proposalType === '/cosmos.upgrade.v1beta1.SoftwareUpgradeProposal') {
+      type = 'softwareUpgradeProposal';
+    }
+
+    return type;
+  };
+
   const formatUi = () => {
+    // =========================
+    // overview
+    // =========================
+
+    const overview: any = {
+      title: state.rawData.overview.title,
+      id: `#${numeral(state.rawData.overview.id).format('0,0')}`,
+      description: state.rawData.overview.description,
+      status: (
+        <Tag theme="one" value={state.rawData.overview.status.replace('PROPOSAL_STATUS_', '').replace('_', ' ')} />
+      ),
+      submitTime: dayjs.utc(state.rawData.overview.submitTime).local().format('MMMM DD, YYYY hh:mm A'),
+      depositEndTime: dayjs.utc(state.rawData.overview.depositEndTime).local().format('MMMM DD, YYYY hh:mm A'),
+      type: getProposalType(R.pathOr('', [
+        'rawData', 'overview', 'content', '@type',
+      ], state)),
+    };
+
+    if (state.rawData.overview.votingStartTime) {
+      overview.votingStartTime = dayjs.utc(state.rawData.overview.votingStartTime).local().format('MMMM DD, YYYY hh:mm A');
+    }
+
+    if (state.rawData.overview.votingEndTime) {
+      overview.votingEndTime = dayjs.utc(state.rawData.overview.votingEndTime).local().format('MMMM DD, YYYY hh:mm A');
+    }
+
     return ({
-      overview: {
-        title: state.rawData.overview.title,
-        id: `#${numeral(state.rawData.overview.id).format('0,0')}`,
-        description: state.rawData.overview.description,
-        status: (
-          <Tag theme="one" value={state.rawData.overview.status.replace('PROPOSAL_STATUS_', '').replace('_', ' ')} />
-        ),
-      },
+      overview,
     });
   };
 

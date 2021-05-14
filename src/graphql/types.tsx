@@ -12265,7 +12265,7 @@ export type ProposalDetailsQueryVariables = Exact<{
 export type ProposalDetailsQuery = { proposal: Array<(
     { __typename?: 'proposal' }
     & Pick<Proposal, 'title' | 'description' | 'status' | 'content'>
-    & { proposalId: Proposal['proposal_id'] }
+    & { proposalId: Proposal['proposal_id'], submitTime: Proposal['submit_time'], depositEndTime: Proposal['deposit_end_time'], votingStartTime: Proposal['voting_start_time'], votingEndTime: Proposal['voting_end_time'] }
   )> };
 
 export type ProposalsQueryVariables = Exact<{
@@ -13060,6 +13060,10 @@ export const ProposalDetailsDocument = gql`
     status
     content
     proposalId: proposal_id
+    submitTime: submit_time
+    depositEndTime: deposit_end_time
+    votingStartTime: voting_start_time
+    votingEndTime: voting_end_time
   }
 }
     `;

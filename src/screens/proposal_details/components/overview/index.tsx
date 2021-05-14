@@ -1,6 +1,5 @@
 import React from 'react';
 import classnames from 'classnames';
-import dayjs from '@utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Typography,
@@ -8,9 +7,7 @@ import {
 } from '@material-ui/core';
 import {
   SingleProposal,
-  AvatarName,
   Box,
-  Tag,
 } from '@components';
 
 import { useStyles } from './styles';
@@ -22,24 +19,6 @@ const Overview: React.FC<{
   const classes = useStyles();
   const { t } = useTranslation('proposals');
   const { uiData } = useProposalContext();
-  console.log(uiData, 'ui data');
-
-  // const formatItem = {
-  //   id: `#${item.id}`,
-  //   proposer: (
-  //     <AvatarName
-  //       address={item?.proposer?.identity || ''}
-  //       imageUrl={item?.proposer?.image || ''}
-  //       name={item?.proposer?.moniker || ''}
-  //     />
-  //   ),
-  //   title: item.title,
-  //   submissionTime: dayjs(item.submissionTime).format('YYYY-MM-DD'),
-  //   votingTimeStart: dayjs(item.votingTimeStart).format('YYYY-MM-DD'),
-  //   status: (
-  //     <Tag theme="one" value="status" />
-  //   ),
-  // };
 
   return (
     <Box className={classnames(className)}>
@@ -54,7 +33,7 @@ const Overview: React.FC<{
           {t('type')}
         </Typography>
         <Typography variant="body1" className="value">
-          TYPE TYPE
+          {t(uiData.overview.type)}
         </Typography>
         <Typography variant="body1" className="label">
           {t('description')}
@@ -62,6 +41,54 @@ const Overview: React.FC<{
         <Typography variant="body1" className="value">
           {uiData.overview.description}
         </Typography>
+        {
+          !!uiData.overview.submitTime && (
+            <>
+              <Typography variant="body1" className="label">
+                {t('submitTime')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {uiData.overview.submitTime}
+              </Typography>
+            </>
+          )
+        }
+        {
+          !!uiData.overview.depositEndTime && (
+            <>
+              <Typography variant="body1" className="label">
+                {t('depositEndTime')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {uiData.overview.depositEndTime}
+              </Typography>
+            </>
+          )
+        }
+        {
+          !!uiData.overview.votingStartTime && (
+            <>
+              <Typography variant="body1" className="label">
+                {t('depositEndTime')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {uiData.overview.votingStartTime}
+              </Typography>
+            </>
+          )
+        }
+        {
+          !!uiData.overview.votingEndTime && (
+            <>
+              <Typography variant="body1" className="label">
+                {t('depositEndTime')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {uiData.overview.votingEndTime}
+              </Typography>
+            </>
+          )
+        }
       </div>
     </Box>
   );

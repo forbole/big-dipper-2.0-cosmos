@@ -5,5 +5,9 @@ query ProposalDetails($proposalId: numeric) {
     status
     content
     proposalId: proposal_id
+    submitTime: submit_time
+    depositEndTime: deposit_end_time
+    votingStartTime: voting_start_time
+    votingEndTime: voting_end_time
   }
 }
