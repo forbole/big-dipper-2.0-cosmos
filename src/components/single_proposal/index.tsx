@@ -7,20 +7,14 @@ import { useStyles } from './styles';
 const SingleProposal: React.FC<{
   className?: string;
   id: string;
-  proposer: React.ReactNode;
   title: React.ReactNode;
   status: React.ReactNode;
-  submissionTime: string;
-  votingTimeStart: string;
   content?: string;
 }> = ({
   className,
   id,
-  proposer,
   title,
   status,
-  submissionTime,
-  votingTimeStart,
   content,
 }) => {
   const classes = useStyles();
@@ -50,31 +44,6 @@ const SingleProposal: React.FC<{
           {content}
         </Typography>
         )}
-        <div className={classes.infoWrapper}>
-          <div className={classes.item}>
-            <Typography variant="h4" className="label">
-              {t('proposer')}
-            </Typography>
-            {proposer}
-          </div>
-          <div className={classes.item}>
-            <Typography variant="h4" className="label">
-              {t('submissionTime')}
-            </Typography>
-            <Typography variant="body1" className="value">
-              {submissionTime}
-            </Typography>
-          </div>
-
-          <div className={classes.item}>
-            <Typography variant="h4" className="label">
-              {t('votingTimeStart')}
-            </Typography>
-            <Typography variant="body1" className="value">
-              {votingTimeStart}
-            </Typography>
-          </div>
-        </div>
       </div>
       {/* ================= */}
       {/* ================= */}

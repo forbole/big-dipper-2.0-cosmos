@@ -27,9 +27,9 @@ const Overview: React.FC<{
     id: `#${item.id}`,
     proposer: (
       <AvatarName
-        address={item?.proposer?.identity}
-        imageUrl={item?.proposer?.image}
-        name={item?.proposer?.moniker}
+        address={item?.proposer?.identity || ''}
+        imageUrl={item?.proposer?.image || ''}
+        name={item?.proposer?.moniker || ''}
       />
     ),
     title: item.title,
@@ -45,6 +45,12 @@ const Overview: React.FC<{
       <SingleProposal {...formatItem} />
       <Divider />
       <div className={classes.content}>
+        <Typography variant="body1" className="label">
+          {t('proposer')}
+        </Typography>
+        <Typography variant="body1" className="value">
+          {formatItem.proposer}
+        </Typography>
         <Typography variant="body1" className="label">
           {t('type')}
         </Typography>
