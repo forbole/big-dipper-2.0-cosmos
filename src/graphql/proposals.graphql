@@ -1,7 +1,7 @@
 query Proposals ($limit: Int = 7, $offset: Int = 0) {
-  proposals: proposal (limit: $limit, offset: $offset, order_by: {proposal_id: desc}) {
+  proposals: proposal (limit: $limit, offset: $offset, order_by: {id: desc}) {
     title
-    proposalId: proposal_id
+    proposalId: id
     status
     description
   }

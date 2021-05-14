@@ -1,13 +1,16 @@
-query ProposalDetails($proposalId: numeric) {
-  proposal(where: { proposal_id: {_eq: $proposalId}}) {
+query ProposalDetails($proposalId: Int) {
+  proposal(where: {id: {_eq: $proposalId}}) {
     title
     description
     status
     content
-    proposalId: proposal_id
+    proposalId: id
     submitTime: submit_time
     depositEndTime: deposit_end_time
     votingStartTime: voting_start_time
     votingEndTime: voting_end_time
+    proposal_deposits {
+      amount
+    }
   }
 }
