@@ -28,5 +28,13 @@ export const getFilterLabels = () => {
       key: 'staking',
       display: 'staking',
     },
+    {
+      key: 'profiles',
+      display: 'profiles',
+    },
+    {
+      key: 'others',
+      display: 'others',
+    },
   ]);
 };

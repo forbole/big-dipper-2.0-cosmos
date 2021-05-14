@@ -265,7 +265,7 @@ export const getMessageByType = (message: (
   if (type === '/cosmos.staking.v1beta1.MsgBeginRedelegate') {
     results = {
       content: Redelegate,
-      tagTheme: 'two',
+      tagTheme: 'one',
       tagDisplay: 'txRedelegateLabel',
     };
   }
@@ -273,7 +273,7 @@ export const getMessageByType = (message: (
   if (type === '/cosmos.staking.v1beta1.MsgUndelegate') {
     results = {
       content: Undelegate,
-      tagTheme: 'three',
+      tagTheme: 'one',
       tagDisplay: 'txUndelegateLabel',
     };
   }
@@ -301,7 +301,7 @@ export const getMessageByType = (message: (
   if (type === '/cosmos.bank.v1beta1.MsgSend') {
     results = {
       content: Send,
-      tagTheme: 'four',
+      tagTheme: 'two',
       tagDisplay: 'txSendLabel',
     };
   }
@@ -309,7 +309,7 @@ export const getMessageByType = (message: (
   if (type === '/cosmos.bank.v1beta1.MsgMultiSend') {
     results = {
       content: Multisend,
-      tagTheme: 'four',
+      tagTheme: 'two',
       tagDisplay: 'txMultisendLabel',
     };
   }
@@ -321,7 +321,7 @@ export const getMessageByType = (message: (
   if (type === '/cosmos.crisis.v1beta1.MsgVerifyInvariant') {
     results = {
       content: VerifyInvariant,
-      tagTheme: 'five',
+      tagTheme: 'three',
       tagDisplay: 'txVerifyInvariantLabel',
     };
   }
@@ -333,7 +333,7 @@ export const getMessageByType = (message: (
   if (type === '/cosmos.slashing.v1beta1.MsgUnjail') {
     results = {
       content: Unjail,
-      tagTheme: 'eight',
+      tagTheme: 'five',
       tagDisplay: 'txUnjailLabel',
     };
   }
@@ -380,7 +380,7 @@ export const getMessageByType = (message: (
   if (type === '/cosmos.gov.v1beta1.MsgDeposit') {
     results = {
       content: DepositProposal,
-      tagTheme: 'two',
+      tagTheme: 'seven',
       tagDisplay: 'txDepositLabel',
     };
   }
@@ -388,7 +388,7 @@ export const getMessageByType = (message: (
   if (type === '/cosmos.gov.v1beta1.MsgVote') {
     results = {
       content: Vote,
-      tagTheme: 'two',
+      tagTheme: 'seven',
       tagDisplay: 'txVoteLabel',
     };
   }
@@ -396,7 +396,7 @@ export const getMessageByType = (message: (
   if (type === '/cosmos.gov.v1beta1.MsgSubmitProposal') {
     results = {
       content: SubmitProposal,
-      tagTheme: 'two',
+      tagTheme: 'seven',
       tagDisplay: 'txSubmitProposalLabel',
     };
   }
@@ -407,7 +407,7 @@ export const getMessageByType = (message: (
   if (type === '/desmos.profiles.v1beta1.MsgSaveProfile') {
     results = {
       content: SaveProfile,
-      tagTheme: 'one',
+      tagTheme: 'four',
       tagDisplay: 'txSaveProfileLabel',
     };
   }
@@ -415,7 +415,7 @@ export const getMessageByType = (message: (
   if (type === '/desmos.profiles.v1beta1.MsgDeleteProfile') {
     results = {
       content: DeleteProfile,
-      tagTheme: 'one',
+      tagTheme: 'four',
       tagDisplay: 'txDeleteProfileLabel',
     };
   }
@@ -423,7 +423,7 @@ export const getMessageByType = (message: (
   if (type === '/desmos.profiles.v1beta1.MsgCreateRelationship') {
     results = {
       content: CreateRelationship,
-      tagTheme: 'one',
+      tagTheme: 'four',
       tagDisplay: 'txCreateRelationshipLabel',
     };
   }
@@ -431,7 +431,7 @@ export const getMessageByType = (message: (
   if (type === '/desmos.profiles.v1beta1.MsgRequestDTagTransfer') {
     results = {
       content: DtagTransferRequest,
-      tagTheme: 'one',
+      tagTheme: 'four',
       tagDisplay: 'txRequestDTagTransferLabel',
     };
   }
@@ -439,7 +439,7 @@ export const getMessageByType = (message: (
   if (type === '/desmos.profiles.v1beta1.MsgAcceptDTagTransfer') {
     results = {
       content: DtagAcceptTransfer,
-      tagTheme: 'one',
+      tagTheme: 'four',
       tagDisplay: 'txAcceptDTagTransferLabel',
     };
   }
@@ -447,7 +447,7 @@ export const getMessageByType = (message: (
   if (type === '/desmos.profiles.v1beta1.MsgCancelDTagTransfer') {
     results = {
       content: DtagCancelTransfer,
-      tagTheme: 'one',
+      tagTheme: 'four',
       tagDisplay: 'txCancelDTagTransferLabel',
     };
   }
@@ -455,7 +455,7 @@ export const getMessageByType = (message: (
   if (type === '/desmos.profiles.v1beta1.MsgRefuseDTagTransfer') {
     results = {
       content: DtagRefuseTransfer,
-      tagTheme: 'one',
+      tagTheme: 'four',
       tagDisplay: 'txRefuseDTagTransferLabel',
     };
   }
@@ -463,7 +463,7 @@ export const getMessageByType = (message: (
   if (type === '/desmos.profiles.v1beta1.MsgBlockUser') {
     results = {
       content: BlockUser,
-      tagTheme: 'one',
+      tagTheme: 'four',
       tagDisplay: 'txBlockUserLabel',
     };
   }
@@ -471,7 +471,7 @@ export const getMessageByType = (message: (
   if (type === '/desmos.profiles.v1beta1.MsgUnblockUser') {
     results = {
       content: UnBlockUser,
-      tagTheme: 'one',
+      tagTheme: 'four',
       tagDisplay: 'txUnblockUserLabel',
     };
   }

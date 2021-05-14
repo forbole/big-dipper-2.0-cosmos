@@ -14,7 +14,6 @@ import {
 import {
   Box,
   TransactionMessagesFilter,
-  Tag,
 } from '@components';
 import { useTransactionContext } from '../../contexts/transaction';
 import { useStyles } from './styles';
