@@ -56,7 +56,6 @@ export const useAccount = (initialState: AccountState) => {
     const signedBlockWindow = data.slashingParams[0]?.signedBlockWindow ?? 0;
 
     const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
-
     const profile = {
       operatorAddress: data.validator[0].validatorInfo.operatorAddress,
       selfDelegateAddress: data.validator[0].validatorInfo.selfDelegateAddress,
@@ -193,7 +192,7 @@ export const useAccount = (initialState: AccountState) => {
       operatorAddress: state.rawData.profile.operatorAddress,
       selfDelegateAddress: state.rawData.profile.selfDelegateAddress,
       website: state.rawData.profile.website,
-      commission: `${numeral(state.rawData.profile.commission * 100).value()}%`,
+      commission: `${numeral(state.rawData.profile.commission * 100).format('0.00')}%`,
       validator: {
         moniker: validator ? validator.moniker : state.rawData.profile.operatorAddress,
         imageUrl: validator ? validator.imageUrl : undefined,

@@ -5,6 +5,7 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
   className="makeStyles-root"
   id="Layout"
   navTitle="proposals:proposalDetails"
+  title="proposals:proposalDetails"
 >
   <ProposalProvider>
     <div

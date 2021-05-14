@@ -4,6 +4,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
 <div
   id="Layout"
   navTitle="blocks:blockDetails"
+  title="blocks:blockDetails"
 >
   <div
     id="BlockProvider"
