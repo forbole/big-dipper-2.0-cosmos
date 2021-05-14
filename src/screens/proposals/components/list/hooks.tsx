@@ -8,7 +8,9 @@ import {
   useProposalsQuery,
   ProposalsQuery,
 } from '@graphql/types';
-import { Tag } from '@components';
+import {
+  Tag,
+} from '@components';
 
 export interface ProposalsState {
   hasNextPage: boolean;

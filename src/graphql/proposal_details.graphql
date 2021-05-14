@@ -1,0 +1,8 @@
+query ProposalDetails($proposalId: numeric) {
+  proposal(where: { proposal_id: {_eq: $proposalId}}) {
+    title
+    description
+    status
+    content
+  }
+}

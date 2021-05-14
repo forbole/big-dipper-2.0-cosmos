@@ -1,3 +1,8 @@
 export interface ProposalState {
-  item: any;
+  rawData: {
+    exists: boolean;
+    loading: boolean;
+  }
+  uiData?: {
+  }
 }
