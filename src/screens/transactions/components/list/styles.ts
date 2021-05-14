@@ -12,9 +12,6 @@ export const useStyles = () => {
             minHeight: '65vh',
           },
         },
-        list: {
-          height: '100%',
-        },
       });
     },
   )();
