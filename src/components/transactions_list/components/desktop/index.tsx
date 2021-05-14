@@ -36,6 +36,7 @@ const Desktop: React.FC<TransactionsListState> = ({
         {({
           height, width,
         }) => {
+          console.log(height, 'height');
           return (
             <>
               {/* ======================================= */}

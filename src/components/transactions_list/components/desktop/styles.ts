@@ -6,7 +6,6 @@ export const useStyles = () => {
       return ({
         root: {
           height: '100%',
-          width: '100%',
         },
         cell: {
           ...theme.mixins.tableCell,
