@@ -4088,6 +4088,7 @@ export type Proposal = {
   __typename?: 'proposal';
   /** An object relationship */
   account: Account;
+  content: Scalars['jsonb'];
   deposit_end_time?: Maybe<Scalars['timestamp']>;
   description: Scalars['String'];
   /** An array relationship */
@@ -4111,6 +4112,12 @@ export type Proposal = {
   title: Scalars['String'];
   voting_end_time?: Maybe<Scalars['timestamp']>;
   voting_start_time?: Maybe<Scalars['timestamp']>;
+};
+
+
+/** columns and relationships of "proposal" */
+export type ProposalContentArgs = {
+  path?: Maybe<Scalars['String']>;
 };
 
 
@@ -4235,6 +4242,7 @@ export type Proposal_Bool_Exp = {
   _not?: Maybe<Proposal_Bool_Exp>;
   _or?: Maybe<Array<Maybe<Proposal_Bool_Exp>>>;
   account?: Maybe<Account_Bool_Exp>;
+  content?: Maybe<Jsonb_Comparison_Exp>;
   deposit_end_time?: Maybe<Timestamp_Comparison_Exp>;
   description?: Maybe<String_Comparison_Exp>;
   proposal_deposits?: Maybe<Proposal_Deposit_Bool_Exp>;
@@ -4550,6 +4558,7 @@ export type Proposal_Min_Order_By = {
 /** ordering options when selecting data from "proposal" */
 export type Proposal_Order_By = {
   account?: Maybe<Account_Order_By>;
+  content?: Maybe<Order_By>;
   deposit_end_time?: Maybe<Order_By>;
   description?: Maybe<Order_By>;
   proposal_deposits_aggregate?: Maybe<Proposal_Deposit_Aggregate_Order_By>;
@@ -4573,6 +4582,8 @@ export type Proposal_Pk_Columns_Input = {
 
 /** select columns of table "proposal" */
 export enum Proposal_Select_Column {
+  /** column name */
+  Content = 'content',
   /** column name */
   DepositEndTime = 'deposit_end_time',
   /** column name */
@@ -12246,6 +12257,24 @@ export type TotalVotingPowerListenerSubscription = { stakingPool: Array<(
     & { bonded: Staking_Pool['bonded_tokens'] }
   )> };
 
+export type ProposalsQueryVariables = Exact<{
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type ProposalsQuery = { proposals: Array<(
+    { __typename?: 'proposal' }
+    & Pick<Proposal, 'title' | 'status' | 'description'>
+    & { proposalId: Proposal['proposal_id'] }
+  )>, total: (
+    { __typename?: 'proposal_aggregate' }
+    & { aggregate?: Maybe<(
+      { __typename?: 'proposal_aggregate_fields' }
+      & Pick<Proposal_Aggregate_Fields, 'count'>
+    )> }
+  ) };
+
 export type TokenPriceListenerSubscriptionVariables = Exact<{
   denom?: Maybe<Scalars['String']>;
 }>;
@@ -13012,6 +13041,54 @@ export function useTotalVotingPowerListenerSubscription(baseOptions?: Apollo.Sub
       }
 export type TotalVotingPowerListenerSubscriptionHookResult = ReturnType<typeof useTotalVotingPowerListenerSubscription>;
 export type TotalVotingPowerListenerSubscriptionResult = Apollo.SubscriptionResult<TotalVotingPowerListenerSubscription>;
+export const ProposalsDocument = gql`
+    query Proposals($limit: Int = 7, $offset: Int = 0) {
+  proposals: proposal(
+    limit: $limit
+    offset: $offset
+    order_by: {proposal_id: desc}
+  ) {
+    title
+    proposalId: proposal_id
+    status
+    description
+  }
+  total: proposal_aggregate {
+    aggregate {
+      count
+    }
+  }
+}
+    `;
+
+/**
+ * __useProposalsQuery__
+ *
+ * To run a query within a React component, call `useProposalsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useProposalsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useProposalsQuery({
+ *   variables: {
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
+ *   },
+ * });
+ */
+export function useProposalsQuery(baseOptions?: Apollo.QueryHookOptions<ProposalsQuery, ProposalsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ProposalsQuery, ProposalsQueryVariables>(ProposalsDocument, options);
+      }
+export function useProposalsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProposalsQuery, ProposalsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ProposalsQuery, ProposalsQueryVariables>(ProposalsDocument, options);
+        }
+export type ProposalsQueryHookResult = ReturnType<typeof useProposalsQuery>;
+export type ProposalsLazyQueryHookResult = ReturnType<typeof useProposalsLazyQuery>;
+export type ProposalsQueryResult = Apollo.QueryResult<ProposalsQuery, ProposalsQueryVariables>;
 export const TokenPriceListenerDocument = gql`
     subscription TokenPriceListener($denom: String) {
   tokenPrice: token_price(where: {unit_name: {_eq: $denom}}) {

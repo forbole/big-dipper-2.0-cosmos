@@ -7,15 +7,15 @@ import { useStyles } from './styles';
 const SingleProposal: React.FC<{
   className?: string;
   id: string;
-  title: React.ReactNode;
-  status: React.ReactNode;
-  content?: string;
+  title: string | React.ReactNode;
+  status: string | React.ReactNode;
+  description?: string;
 }> = ({
   className,
   id,
   title,
   status,
-  content,
+  description,
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('proposals');
@@ -39,9 +39,9 @@ const SingleProposal: React.FC<{
             </Typography>
           )}
         </div>
-        {!!content && (
-        <Typography variant="body1" className={classnames(classes.desktop, classes.content)}>
-          {content}
+        {!!description && (
+        <Typography variant="body2" className={classnames(classes.content)}>
+          {description}
         </Typography>
         )}
       </div>
