@@ -2,11 +2,11 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
-import { MsgCreateRelationship } from '@models';
+import { MsgDtagRefuseTransfer } from '@models';
 import { useChainContext } from '@contexts';
 
-const CreateRelationship = (props: {
-  message: MsgCreateRelationship;
+const DtagRefuseTransfer = (props: {
+  message: MsgDtagRefuseTransfer;
 }) => {
   const { findAddress } = useChainContext();
   const { message } = props;
@@ -22,7 +22,7 @@ const CreateRelationship = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txCreateRelationshipContent"
+        i18nKey="message_contents:txRefuseDTagTransferContent"
         components={[
           (
             <Name
@@ -36,14 +36,10 @@ const CreateRelationship = (props: {
               name={receiverMoniker}
             />
           ),
-          <span style={{ wordBreak: 'break-all' }} />,
         ]}
-        values={{
-          subspace: message.subspace,
-        }}
       />
     </Typography>
   );
 };
 
-export default CreateRelationship;
+export default DtagRefuseTransfer;

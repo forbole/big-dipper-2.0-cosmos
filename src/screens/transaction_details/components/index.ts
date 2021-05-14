@@ -20,6 +20,12 @@ import WithdrawCommission from './withdraw_commission';
 import SaveProfile from './save_profile';
 import DeleteProfile from './delete_profile';
 import CreateRelationship from './create_relationship';
+import DtagTransferRequest from './dtag_transfer_request';
+import DtagAcceptTransfer from './dtag_accept_transfer';
+import DtagCancelTransfer from './dtag_cancel_transfer';
+import DtagRefuseTransfer from './dtag_refuse_transfer';
+import BlockUser from './block_user';
+import UnBlockUser from './unblock_user';
 
 export {
   Overview,
@@ -48,4 +54,10 @@ export {
   SaveProfile,
   DeleteProfile,
   CreateRelationship,
+  DtagTransferRequest,
+  DtagAcceptTransfer,
+  DtagCancelTransfer,
+  DtagRefuseTransfer,
+  BlockUser,
+  UnBlockUser,
 };

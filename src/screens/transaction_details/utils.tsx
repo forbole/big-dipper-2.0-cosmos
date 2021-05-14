@@ -51,6 +51,12 @@ import {
   SaveProfile,
   DeleteProfile,
   CreateRelationship,
+  DtagTransferRequest,
+  DtagAcceptTransfer,
+  DtagCancelTransfer,
+  DtagRefuseTransfer,
+  BlockUser,
+  UnBlockUser,
 } from './components';
 
 /**
@@ -424,7 +430,7 @@ export const getMessageByType = (message: (
 
   if (type === '/desmos.profiles.v1beta1.MsgRequestDTagTransfer') {
     results = {
-      content: Unknown,
+      content: DtagTransferRequest,
       tagTheme: 'one',
       tagDisplay: 'txRequestDTagTransferLabel',
     };
@@ -432,7 +438,7 @@ export const getMessageByType = (message: (
 
   if (type === '/desmos.profiles.v1beta1.MsgAcceptDTagTransfer') {
     results = {
-      content: Unknown,
+      content: DtagAcceptTransfer,
       tagTheme: 'one',
       tagDisplay: 'txAcceptDTagTransferLabel',
     };
@@ -440,7 +446,7 @@ export const getMessageByType = (message: (
 
   if (type === '/desmos.profiles.v1beta1.MsgCancelDTagTransfer') {
     results = {
-      content: Unknown,
+      content: DtagCancelTransfer,
       tagTheme: 'one',
       tagDisplay: 'txCancelDTagTransferLabel',
     };
@@ -448,7 +454,7 @@ export const getMessageByType = (message: (
 
   if (type === '/desmos.profiles.v1beta1.MsgRefuseDTagTransfer') {
     results = {
-      content: Unknown,
+      content: DtagRefuseTransfer,
       tagTheme: 'one',
       tagDisplay: 'txRefuseDTagTransferLabel',
     };
@@ -456,7 +462,7 @@ export const getMessageByType = (message: (
 
   if (type === '/desmos.profiles.v1beta1.MsgBlockUser') {
     results = {
-      content: Unknown,
+      content: BlockUser,
       tagTheme: 'one',
       tagDisplay: 'txBlockUserLabel',
     };
@@ -464,7 +470,7 @@ export const getMessageByType = (message: (
 
   if (type === '/desmos.profiles.v1beta1.MsgUnblockUser') {
     results = {
-      content: Unknown,
+      content: UnBlockUser,
       tagTheme: 'one',
       tagDisplay: 'txUnblockUserLabel',
     };

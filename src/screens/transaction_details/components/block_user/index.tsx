@@ -2,38 +2,38 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
-import { MsgCreateRelationship } from '@models';
+import { MsgBlockUser } from '@models';
 import { useChainContext } from '@contexts';
 
-const CreateRelationship = (props: {
-  message: MsgCreateRelationship;
+const BlockUser = (props: {
+  message: MsgBlockUser;
 }) => {
   const { findAddress } = useChainContext();
   const { message } = props;
 
-  const sender = findAddress(message.sender);
-  const senderMoniker = sender ? sender?.moniker : message
-    .sender;
+  const blocker = findAddress(message.blocker);
+  const blockerMoniker = blocker ? blocker?.moniker : message
+    .blocker;
 
-  const receiver = findAddress(message.receiver);
-  const receiverMoniker = receiver ? receiver?.moniker : message
-    .receiver;
+  const blocked = findAddress(message.blocked);
+  const blockedMoniker = blocked ? blocked?.moniker : message
+    .blocked;
 
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txCreateRelationshipContent"
+        i18nKey="message_contents:txBlockUserContent"
         components={[
           (
             <Name
-              address={message.sender}
-              name={senderMoniker}
+              address={message.blocker}
+              name={blockerMoniker}
             />
           ),
           (
             <Name
-              address={message.receiver}
-              name={receiverMoniker}
+              address={message.blocked}
+              name={blockedMoniker}
             />
           ),
           <span style={{ wordBreak: 'break-all' }} />,
@@ -46,4 +46,4 @@ const CreateRelationship = (props: {
   );
 };
 
-export default CreateRelationship;
+export default BlockUser;

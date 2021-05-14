@@ -21,8 +21,8 @@
   "txCreateRelationshipContent": "<0>{{sender}}</0> created a relationship with <1>{{receiver}}</1> in <2>{{subspace}}</2>",
   "txRequestDTagTransferContent": "<0>{{sender}}</0> sent a Dtag transfer request to <1>{{receiver}}</1>",
   "txAcceptDTagTransferContent": "<0>{{receiver}}</0> accepted a Dtag transfer request from <1>{{sender}}</1>",
-  "txCancelDTagTransferContent": "<0>{{sender}}</0> canceled a Dtag transfer request to <1>{{sender}}</1>",
+  "txCancelDTagTransferContent": "<0>{{sender}}</0> canceled a Dtag transfer request to <1>{{receiver}}</1>",
   "txRefuseDTagTransferContent": "<0>{{receiver}}</0> refused a Dtag transfer request from <1>{{sender}}</1>",
-  "txBlockUserContent": "<0>{{blocker}}</0> blocked <1>{{blocked}} in {{subspace}}</1>",
-  "txUnblockUserContent": "<0>{{blocker}}</0> unblocked <1>{{blocked}} in {{subspace}}</1>"
+  "txBlockUserContent": "<0>{{blocker}}</0> blocked <1>{{blocked}}</1> in <2>{{subspace}}</2>",
+  "txUnblockUserContent": "<0>{{blocker}}</0> unblocked <1>{{blocked}}</1> in <2>{{subspace}}</2>"
 }
