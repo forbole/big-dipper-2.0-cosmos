@@ -69,7 +69,7 @@ const Overview: React.FC<{
           !!uiData.overview.votingStartTime && (
             <>
               <Typography variant="body1" className="label">
-                {t('depositEndTime')}
+                {t('votingStartTime')}
               </Typography>
               <Typography variant="body1" className="value">
                 {uiData.overview.votingStartTime}
@@ -81,7 +81,7 @@ const Overview: React.FC<{
           !!uiData.overview.votingEndTime && (
             <>
               <Typography variant="body1" className="label">
-                {t('depositEndTime')}
+                {t('votingEndTime')}
               </Typography>
               <Typography variant="body1" className="value">
                 {uiData.overview.votingEndTime}

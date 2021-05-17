@@ -7,6 +7,7 @@ const initialState: ProposalState = {
     exists: true,
     loading: true,
     deposits: [],
+    votes: [],
     overview: {
       title: '',
       id: 0,

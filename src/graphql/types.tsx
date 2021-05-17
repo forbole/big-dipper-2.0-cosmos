@@ -14521,6 +14521,17 @@ export type ProposalDetailsQuery = { proposal: Array<(
     )> }
   )> };
 
+export type ProposalVotesListenerSubscriptionVariables = Exact<{
+  proposalId?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type ProposalVotesListenerSubscription = { proposalVote: Array<(
+    { __typename?: 'proposal_vote' }
+    & Pick<Proposal_Vote, 'option'>
+    & { voterAddress: Proposal_Vote['voter_address'] }
+  )> };
+
 export type ProposalsQueryVariables = Exact<{
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
@@ -15352,6 +15363,37 @@ export function useProposalDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOp
 export type ProposalDetailsQueryHookResult = ReturnType<typeof useProposalDetailsQuery>;
 export type ProposalDetailsLazyQueryHookResult = ReturnType<typeof useProposalDetailsLazyQuery>;
 export type ProposalDetailsQueryResult = Apollo.QueryResult<ProposalDetailsQuery, ProposalDetailsQueryVariables>;
+export const ProposalVotesListenerDocument = gql`
+    subscription ProposalVotesListener($proposalId: Int) {
+  proposalVote: proposal_vote(where: {proposal_id: {_eq: $proposalId}}) {
+    option
+    voterAddress: voter_address
+  }
+}
+    `;
+
+/**
+ * __useProposalVotesListenerSubscription__
+ *
+ * To run a query within a React component, call `useProposalVotesListenerSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useProposalVotesListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useProposalVotesListenerSubscription({
+ *   variables: {
+ *      proposalId: // value for 'proposalId'
+ *   },
+ * });
+ */
+export function useProposalVotesListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<ProposalVotesListenerSubscription, ProposalVotesListenerSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<ProposalVotesListenerSubscription, ProposalVotesListenerSubscriptionVariables>(ProposalVotesListenerDocument, options);
+      }
+export type ProposalVotesListenerSubscriptionHookResult = ReturnType<typeof useProposalVotesListenerSubscription>;
+export type ProposalVotesListenerSubscriptionResult = Apollo.SubscriptionResult<ProposalVotesListenerSubscription>;
 export const ProposalsDocument = gql`
     query Proposals($limit: Int = 7, $offset: Int = 0) {
   proposals: proposal(limit: $limit, offset: $offset, order_by: {id: desc}) {

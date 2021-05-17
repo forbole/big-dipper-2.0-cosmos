@@ -15,3 +15,11 @@ query ProposalDetails($proposalId: Int) {
     }
   }
 }
+
+
+subscription ProposalVotesListener ($proposalId: Int) {
+  proposalVote: proposal_vote(where: {proposal_id: {_eq: $proposalId}}) {
+    option
+    voterAddress: voter_address
+  }
+}

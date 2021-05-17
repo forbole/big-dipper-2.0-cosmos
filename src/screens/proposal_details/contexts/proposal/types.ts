@@ -18,7 +18,11 @@ export interface ProposalState {
     deposits: {
       depositor: string;
       amount: number;
-    }[]
+    }[];
+    votes: {
+      option: string;
+      voter: string;
+    }[];
   }
   uiData?: {
     overview: {
@@ -35,6 +39,10 @@ export interface ProposalState {
     deposits: {
       depositor: React.ReactNode;
       amount: string;
+    }[];
+    votes: {
+      option: string;
+      voter: React.ReactNode;
     }[]
   }
 }

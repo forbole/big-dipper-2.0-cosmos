@@ -6,6 +6,8 @@ import dayjs from '@utils/dayjs';
 import {
   useProposalDetailsQuery,
   ProposalDetailsQuery,
+  useProposalVotesListenerSubscription,
+  ProposalVotesListenerSubscription,
 } from '@graphql/types';
 import {
   AvatarName,
@@ -38,6 +40,28 @@ export const useProposal = (initialState: ProposalState) => {
       handleSetState(formatProposalQuery(data));
     },
   });
+
+  useProposalVotesListenerSubscription({
+    variables: {
+      proposalId: R.pathOr('', ['query', 'id'], router),
+    },
+    onSubscriptionData: (data) => {
+      handleSetState({
+        rawData: {
+          votes: formatProposalVotes(data.subscriptionData.data),
+        },
+      });
+    },
+  });
+
+  const formatProposalVotes = (data: ProposalVotesListenerSubscription) => {
+    return data.proposalVote.map((x) => {
+      return ({
+        voter: x.voterAddress,
+        option: x.option,
+      });
+    });
+  };
 
   const formatProposalQuery = (data: ProposalDetailsQuery) => {
     const results: any = {
@@ -145,9 +169,29 @@ export const useProposal = (initialState: ProposalState) => {
       });
     });
 
+    // =========================
+    // votes
+    // =========================
+
+    const votes = state.rawData.votes.map((x) => {
+      const voter = findAddress(x.voter);
+
+      return ({
+        voter: (
+          <AvatarName
+            address={x.voter}
+            imageUrl={voter ? voter?.imageUrl : null}
+            name={voter ? voter.moniker : x.voter}
+          />
+        ),
+        option: x.option,
+      });
+    });
+
     return ({
       overview,
       deposits,
+      votes,
     });
   };
 
