@@ -20,9 +20,15 @@ export interface ProposalState {
       amount: number;
     }[];
     votes: {
-      option: string;
+      vote: string;
       voter: string;
     }[];
+    voteTally: {
+      yes: number;
+      no: number;
+      abstain: number;
+      veto: number;
+    }
   }
   uiData?: {
     overview: {
@@ -41,8 +47,8 @@ export interface ProposalState {
       amount: string;
     }[];
     votes: {
-      option: string;
+      vote: string;
       voter: React.ReactNode;
-    }[]
+    }[];
   }
 }

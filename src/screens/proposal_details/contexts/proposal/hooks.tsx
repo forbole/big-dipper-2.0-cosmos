@@ -25,7 +25,6 @@ export const useProposal = (initialState: ProposalState) => {
   const [state, setState] = useState(initialState);
   const {
     findAddress,
-    findOperator,
   } = useChainContext();
 
   const handleSetState = (stateChange: any) => {
@@ -48,19 +47,46 @@ export const useProposal = (initialState: ProposalState) => {
     onSubscriptionData: (data) => {
       handleSetState({
         rawData: {
-          votes: formatProposalVotes(data.subscriptionData.data),
+          ...formatProposalVotes(data.subscriptionData.data),
         },
       });
     },
   });
 
   const formatProposalVotes = (data: ProposalVotesListenerSubscription) => {
-    return data.proposalVote.map((x) => {
+    let yes = 0;
+    let no = 0;
+    let abstain = 0;
+    let veto = 0;
+
+    const votes = data.proposalVote.map((x) => {
+      if (x.option === 'VOTE_OPTION_YES') {
+        yes += 1;
+      }
+      if (x.option === 'VOTE_OPTION_ABSTAIN') {
+        abstain += 1;
+      }
+      if (x.option === 'VOTE_OPTION_NO') {
+        no += 1;
+      }
+      if (x.option === 'VOTE_OPTION_NO_WITH_VETO') {
+        veto += 1;
+      }
       return ({
         voter: x.voterAddress,
-        option: x.option,
+        vote: x.option,
       });
     });
+
+    return {
+      votes,
+      voteTally: {
+        yes,
+        no,
+        abstain,
+        veto,
+      },
+    };
   };
 
   const formatProposalQuery = (data: ProposalDetailsQuery) => {
@@ -175,7 +201,6 @@ export const useProposal = (initialState: ProposalState) => {
 
     const votes = state.rawData.votes.map((x) => {
       const voter = findAddress(x.voter);
-
       return ({
         voter: (
           <AvatarName
@@ -184,7 +209,7 @@ export const useProposal = (initialState: ProposalState) => {
             name={voter ? voter.moniker : x.voter}
           />
         ),
-        option: x.option,
+        vote: x.vote,
       });
     });
 

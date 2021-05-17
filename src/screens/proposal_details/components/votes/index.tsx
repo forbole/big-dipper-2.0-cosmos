@@ -15,7 +15,10 @@ import {
 const Votes: React.FC<{
   className?: string;
 }> = ({ className }) => {
-  const { uiData } = useProposalContext();
+  const {
+    uiData,
+    rawData,
+  } = useProposalContext();
   const { votes = [] } = uiData;
 
   const {
@@ -36,7 +39,11 @@ const Votes: React.FC<{
 
   return (
     <Box className={classnames(className, classes.root)}>
-      <Tabs tab={state.tab} handleTabChange={handleTabChange} />
+      <Tabs
+        data={rawData.voteTally}
+        tab={state.tab}
+        handleTabChange={handleTabChange}
+      />
       <div className={classes.list}>
         <Mobile className={classes.mobile} items={items} />
         <Desktop className={classes.desktop} items={items} />

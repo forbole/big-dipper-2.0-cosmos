@@ -8,15 +8,15 @@ export const columns:{
     // width: 34,
     width: 50,
   },
+  // {
+  //   key: 'votingPower',
+  //   width: 33,
+  //   align: 'right',
+  // },
   {
-    key: 'votingPower',
+    key: 'vote',
     // width: 33,
     width: 50,
     align: 'right',
   },
-  // {
-  //   key: 'vote',
-  //   width: 33,
-  //   align: 'right',
-  // },
 ];

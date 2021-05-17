@@ -1,18 +1,34 @@
-export const tabLabels = [
-  {
-    key: 'all',
-    num: 30,
-  },
-  {
-    key: 'yes',
-    num: 3,
-  },
-  {
-    key: 'no',
-    num: 3,
-  },
-  {
-    key: 'noWithVeto',
-    num: 3,
-  },
-];
+export const tabLabels = (data: {
+  yes: number;
+  no: number;
+  abstain: number;
+  veto: number;
+}) => {
+  const {
+    yes,
+    no,
+    abstain,
+    veto,
+  } = data;
+  const total = yes + no + abstain + veto;
+  return (
+    [
+      {
+        key: 'all',
+        num: total,
+      },
+      {
+        key: 'yes',
+        num: yes,
+      },
+      {
+        key: 'no',
+        num: no,
+      },
+      {
+        key: 'noWithVeto',
+        num: veto,
+      },
+    ]
+  );
+};
