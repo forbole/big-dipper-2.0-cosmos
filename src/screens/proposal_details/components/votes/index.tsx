@@ -15,8 +15,8 @@ import {
 const Votes: React.FC<{
   className?: string;
 }> = ({ className }) => {
-  const { item } = useProposalContext();
-  const { votes = [] } = item;
+  const { uiData } = useProposalContext();
+  const { votes = [] } = uiData;
 
   const {
     state,

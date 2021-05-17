@@ -9,7 +9,7 @@ import { useStyles } from './styles';
 
 import {
   Overview,
-  // Votes,
+  Votes,
   Deposits,
   // VotesGraph,
 } from './components';
@@ -40,7 +40,7 @@ const ProposalDetails = () => {
             <span className={classes.root}>
               <Overview className={classes.overview} />
               {/* <VotesGraph className={classes.votesGraph} /> */}
-              {/* <Votes className={classes.votes} /> */}
+              <Votes className={classes.votes} />
               <Deposits className={classes.deposits} />
             </span>
           );
