@@ -21,7 +21,9 @@ const Transactions: React.FC<{
       <Typography variant="h2">
         {t('transactions')}
       </Typography>
-      <TransactionsList {...useTransactionUtils} className={classes.list} />
+      <div className={classes.list}>
+        <TransactionsList {...useTransactionUtils} />
+      </div>
     </Box>
   );
 };
