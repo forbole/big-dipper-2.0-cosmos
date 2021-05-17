@@ -13,8 +13,12 @@ export interface ProposalState {
       depositEndTime: string;
       votingStartTime: string | null;
       votingEndTime: string | null;
-      content: JSON;
+      content?: JSON;
     }
+    deposits: {
+      depositor: string;
+      amount: number;
+    }[]
   }
   uiData?: {
     overview: {
@@ -28,5 +32,9 @@ export interface ProposalState {
       votingStartTime?: string;
       type: string;
     }
+    deposits: {
+      depositor: React.ReactNode;
+      amount: string;
+    }[]
   }
 }

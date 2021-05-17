@@ -8,8 +8,13 @@ import {
   ProposalDetailsQuery,
 } from '@graphql/types';
 import {
+  AvatarName,
   Tag,
 } from '@components';
+
+import { getDenom } from '@utils/get_denom';
+import { formatDenom } from '@utils/format_denom';
+import { chainConfig } from '@src/chain_config';
 import { useChainContext } from '@contexts';
 import { ProposalState } from './types';
 
@@ -63,6 +68,19 @@ export const useProposal = (initialState: ProposalState) => {
 
     results.rawData.overview = overview;
 
+    // =========================
+    // deposits
+    // =========================
+    const deposits = data.proposal[0].proposalDeposits.map((x) => {
+      const depositAmount = getDenom(x.amount);
+      return ({
+        depositor: x.depositorAddress,
+        amount: formatDenom(depositAmount.amount),
+      });
+    });
+
+    results.rawData.deposits = deposits;
+
     return results;
   };
 
@@ -87,7 +105,6 @@ export const useProposal = (initialState: ProposalState) => {
     // =========================
     // overview
     // =========================
-
     const overview: any = {
       title: state.rawData.overview.title,
       id: `#${numeral(state.rawData.overview.id).format('0,0')}`,
@@ -110,8 +127,27 @@ export const useProposal = (initialState: ProposalState) => {
       overview.votingEndTime = dayjs.utc(state.rawData.overview.votingEndTime).local().format('MMMM DD, YYYY hh:mm A');
     }
 
+    // =========================
+    // deposits
+    // =========================
+    const deposits = state.rawData.deposits.map((x) => {
+      const depositor = findAddress(x.depositor);
+
+      return ({
+        depositor: (
+          <AvatarName
+            address={x.depositor}
+            imageUrl={depositor ? depositor?.imageUrl : null}
+            name={depositor ? depositor.moniker : x.depositor}
+          />
+        ),
+        amount: `${numeral(x.amount).format('0,0.[000000]')} ${chainConfig.display.toUpperCase()}`,
+      });
+    });
+
     return ({
       overview,
+      deposits,
     });
   };
 

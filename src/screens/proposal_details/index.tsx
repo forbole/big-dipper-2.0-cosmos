@@ -10,7 +10,7 @@ import { useStyles } from './styles';
 import {
   Overview,
   // Votes,
-  // Deposits,
+  Deposits,
   // VotesGraph,
 } from './components';
 import { ProposalProvider } from './contexts/proposal';
@@ -41,7 +41,7 @@ const ProposalDetails = () => {
               <Overview className={classes.overview} />
               {/* <VotesGraph className={classes.votesGraph} /> */}
               {/* <Votes className={classes.votes} /> */}
-              {/* <Deposits className={classes.deposits} /> */}
+              <Deposits className={classes.deposits} />
             </span>
           );
         }}

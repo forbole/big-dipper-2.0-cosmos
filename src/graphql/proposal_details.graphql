@@ -9,8 +9,9 @@ query ProposalDetails($proposalId: Int) {
     depositEndTime: deposit_end_time
     votingStartTime: voting_start_time
     votingEndTime: voting_end_time
-    proposal_deposits {
+    proposalDeposits: proposal_deposits {
       amount
+      depositorAddress: depositor_address
     }
   }
 }

@@ -6,6 +6,7 @@ const initialState: ProposalState = {
   rawData: {
     exists: true,
     loading: true,
+    deposits: [],
     overview: {
       title: '',
       id: 0,

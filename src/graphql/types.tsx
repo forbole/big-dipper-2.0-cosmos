@@ -14514,9 +14514,10 @@ export type ProposalDetailsQuery = { proposal: Array<(
     { __typename?: 'proposal' }
     & Pick<Proposal, 'title' | 'description' | 'status' | 'content'>
     & { proposalId: Proposal['id'], submitTime: Proposal['submit_time'], depositEndTime: Proposal['deposit_end_time'], votingStartTime: Proposal['voting_start_time'], votingEndTime: Proposal['voting_end_time'] }
-    & { proposal_deposits: Array<(
+    & { proposalDeposits: Array<(
       { __typename?: 'proposal_deposit' }
       & Pick<Proposal_Deposit, 'amount'>
+      & { depositorAddress: Proposal_Deposit['depositor_address'] }
     )> }
   )> };
 
@@ -15316,8 +15317,9 @@ export const ProposalDetailsDocument = gql`
     depositEndTime: deposit_end_time
     votingStartTime: voting_start_time
     votingEndTime: voting_end_time
-    proposal_deposits {
+    proposalDeposits: proposal_deposits {
       amount
+      depositorAddress: depositor_address
     }
   }
 }
