@@ -9,7 +9,9 @@ import {
   SingleProposal,
   Box,
 } from '@components';
-
+import {
+  ParamsChange,
+} from './components';
 import { useStyles } from './styles';
 import { useProposalContext } from '../../contexts/proposal';
 
@@ -41,6 +43,27 @@ const Overview: React.FC<{
         <Typography variant="body1" className="value">
           {uiData.overview.description}
         </Typography>
+        {uiData.overview.type === 'parameterChangeProposal' && (
+          <>
+            <Typography variant="body1" className="label">
+              {t('changes')}
+            </Typography>
+            <ParamsChange
+              changes={[
+                {
+                  subSpace: 'sub',
+                  key: 'key',
+                  value: 'value',
+                },
+                {
+                  subSpace: 'sub2',
+                  key: 'key2',
+                  value: 'value2',
+                },
+              ]}
+            />
+          </>
+        )}
         {
           !!uiData.overview.submitTime && (
             <>

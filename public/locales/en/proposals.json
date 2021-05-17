@@ -27,5 +27,9 @@
   "textProposal": "Text Proposal",
   "parameterChangeProposal": "Parameter Change Proposal",
   "communityPoolSpendProposal": "Community Pool Spend Proposal",
-  "softwareUpgradeProposal": "Software Upgrade Proposal"
+  "softwareUpgradeProposal": "Software Upgrade Proposal",
+  "changes": "Changes",
+  "subspace": "Subspace",
+  "key": "Key",
+  "value": "Value"
 }
