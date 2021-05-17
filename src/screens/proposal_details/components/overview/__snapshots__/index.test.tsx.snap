@@ -6,23 +6,13 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
   id="Box"
 >
   <div
-    id="#3"
-    proposer={
-      <AvatarName
-        address="FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk"
-        imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
-        name="Forbole"
-      />
-    }
+    id="3"
     status={
-      <Tag
-        theme="one"
-        value="status"
-      />
+      <div>
+        status
+      </div>
     }
-    submissionTime="2020-08-10 12:00:00"
-    title="Enable IBC transfers"
-    votingTimeStart="2020-08-10 12:00:00"
+    title="title"
   />
   <hr
     className="MuiDivider-root"
@@ -33,27 +23,12 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
     <p
       className="MuiTypography-root label MuiTypography-body1"
     >
-      proposals:proposer
-    </p>
-    <p
-      className="MuiTypography-root value MuiTypography-body1"
-    >
-      <div
-        address="FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk"
-        id="AvatarName"
-        imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
-        name="Forbole"
-      />
-    </p>
-    <p
-      className="MuiTypography-root label MuiTypography-body1"
-    >
       proposals:type
     </p>
     <p
       className="MuiTypography-root value MuiTypography-body1"
     >
-      text proposal
+      proposals:type
     </p>
     <p
       className="MuiTypography-root label MuiTypography-body1"
@@ -63,7 +38,27 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
     <p
       className="MuiTypography-root value MuiTypography-body1"
     >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse placerat velit ipsum, tempus tristique tellus rhoncus tempus. Duis elementum varius neque, eu pharetra eros porttitor in.
+      description
+    </p>
+    <p
+      className="MuiTypography-root label MuiTypography-body1"
+    >
+      proposals:submitTime
+    </p>
+    <p
+      className="MuiTypography-root value MuiTypography-body1"
+    >
+      submitTime
+    </p>
+    <p
+      className="MuiTypography-root label MuiTypography-body1"
+    >
+      proposals:depositEndTime
+    </p>
+    <p
+      className="MuiTypography-root value MuiTypography-body1"
+    >
+      depositEndTime
     </p>
   </div>
 </div>
