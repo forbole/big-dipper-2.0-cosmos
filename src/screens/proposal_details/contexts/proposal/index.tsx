@@ -3,6 +3,7 @@ import { useProposal } from './hooks';
 import { ProposalState } from './types';
 
 const initialState: ProposalState = {
+  tab: 0,
   rawData: {
     exists: true,
     loading: true,
@@ -38,6 +39,8 @@ const ProposalProvider: React.FC = (props: {children: (options: {
   const {
     rawData,
     uiData,
+    handleTabChange,
+    tab,
   } = useProposal(initialState);
 
   return (
@@ -45,6 +48,8 @@ const ProposalProvider: React.FC = (props: {children: (options: {
       value={{
         rawData,
         uiData,
+        handleTabChange,
+        tab,
       }}
     >
       {children({

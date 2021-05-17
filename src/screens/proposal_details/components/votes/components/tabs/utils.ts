@@ -29,6 +29,10 @@ export const tabLabels = (data: {
         key: 'noWithVeto',
         num: veto,
       },
+      {
+        key: 'abstain',
+        num: abstain,
+      },
     ]
   );
 };

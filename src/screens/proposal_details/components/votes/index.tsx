@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import { Box } from '@components';
 import { usePagination } from '@hooks';
 import { useStyles } from './styles';
-import { useVotes } from './hooks';
 import { useProposalContext } from '../../contexts/proposal';
 import {
   Tabs,
@@ -18,13 +17,10 @@ const Votes: React.FC<{
   const {
     uiData,
     rawData,
+    tab,
+    handleTabChange,
   } = useProposalContext();
   const { votes = [] } = uiData;
-
-  const {
-    state,
-    handleTabChange,
-  } = useVotes();
 
   const {
     page,
@@ -41,7 +37,7 @@ const Votes: React.FC<{
     <Box className={classnames(className, classes.root)}>
       <Tabs
         data={rawData.voteTally}
-        tab={state.tab}
+        tab={tab}
         handleTabChange={handleTabChange}
       />
       <div className={classes.list}>

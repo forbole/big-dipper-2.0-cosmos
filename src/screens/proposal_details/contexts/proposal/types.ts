@@ -1,6 +1,8 @@
 import React from 'react';
 
 export interface ProposalState {
+  handleTabChange?: (event:any, newvalue:number) => void;
+  tab: number;
   rawData: {
     exists: boolean;
     loading: boolean;

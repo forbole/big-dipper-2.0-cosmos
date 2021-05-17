@@ -199,7 +199,25 @@ export const useProposal = (initialState: ProposalState) => {
     // votes
     // =========================
 
-    const votes = state.rawData.votes.map((x) => {
+    const votes = state.rawData.votes.filter((x) => {
+      if (state.tab === 1) {
+        return x.vote === 'VOTE_OPTION_YES';
+      }
+
+      if (state.tab === 2) {
+        return x.vote === 'VOTE_OPTION_NO';
+      }
+
+      if (state.tab === 3) {
+        return x.vote === 'VOTE_OPTION_NO_WITH_VETO';
+      }
+
+      if (state.tab === 4) {
+        return x.vote === 'VOTE_OPTION_ABSTAIN';
+      }
+
+      return true;
+    }).map((x) => {
       const voter = findAddress(x.voter);
       return ({
         voter: (
@@ -220,8 +238,17 @@ export const useProposal = (initialState: ProposalState) => {
     });
   };
 
+  const handleTabChange = (_event: any, newValue: number) => {
+    setState((prevState) => ({
+      ...prevState,
+      tab: newValue,
+    }));
+  };
+
   return {
     rawData: state.rawData,
     uiData: formatUi(),
+    handleTabChange,
+    tab: state.tab,
   };
 };

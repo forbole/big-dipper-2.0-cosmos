@@ -15,6 +15,7 @@
   "yes": "Yes ({{num}})",
   "no": "No ({{num}})",
   "noWithVeto": "No With Veto ({{num}})",
+  "abstain": "Abstain ({{num}})",
   "deposits": "Deposits",
   "depositor": "Depositor",
   "amount": "Amount",
