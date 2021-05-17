@@ -20,7 +20,7 @@ export const useStyles = () => {
         desktop: {
           display: 'none',
           [theme.breakpoints.up('lg')]: {
-            display: 'flex',
+            display: 'block',
           },
         },
       });

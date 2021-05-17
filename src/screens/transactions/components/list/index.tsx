@@ -15,7 +15,7 @@ const List: React.FC<{
 
   return (
     <Box className={classnames(className, classes.root)}>
-      <TransactionsList {...useTransactionUtils} className={classes.list} />
+      <TransactionsList {...useTransactionUtils} />
     </Box>
   );
 };

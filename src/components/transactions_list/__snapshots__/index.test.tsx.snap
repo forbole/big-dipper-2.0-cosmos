@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components: TransactionsList matches snapshot 1`] = `
-<div
-  className=""
->
+Array [
   <div
     className="makeStyles-mobile"
     formatUi={[MockFunction]}
@@ -15,7 +13,7 @@ exports[`components: TransactionsList matches snapshot 1`] = `
     loadMoreItems={[MockFunction]}
     loadNextPage={[MockFunction]}
     rawDataTotal={10}
-  />
+  />,
   <div
     className="makeStyles-desktop"
     formatUi={[MockFunction]}
@@ -27,6 +25,6 @@ exports[`components: TransactionsList matches snapshot 1`] = `
     loadMoreItems={[MockFunction]}
     loadNextPage={[MockFunction]}
     rawDataTotal={10}
-  />
-</div>
+  />,
+]
 `;

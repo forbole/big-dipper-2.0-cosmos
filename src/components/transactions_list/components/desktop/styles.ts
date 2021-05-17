@@ -5,7 +5,6 @@ export const useStyles = () => {
     (theme) => {
       return ({
         root: {
-          flexDirection: 'column',
           height: '100%',
         },
         cell: {

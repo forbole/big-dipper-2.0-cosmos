@@ -20,7 +20,7 @@ const List: React.FC<{
       {
         ({ itemsLength }) => {
           return (
-            <Box className={classnames(className, classes.root)}>
+            <Box className={classnames(className)}>
               <Tabs />
               <div className={classes.list}>
                 {

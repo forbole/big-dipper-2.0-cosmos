@@ -1,5 +1,4 @@
 import React from 'react';
-import classnames from 'classnames';
 import { NoData } from '@components';
 import {
   Desktop,
@@ -10,7 +9,6 @@ import { TransactionsListState } from './types';
 
 const TransactionsList: React.FC<TransactionsListState> = (props) => {
   const {
-    className,
     hasNextPage = false,
     isNextPageLoading = false,
     loadNextPage = () => null,
@@ -40,7 +38,7 @@ const TransactionsList: React.FC<TransactionsListState> = (props) => {
   }
 
   return (
-    <div className={classnames(className)}>
+    <>
       <Mobile
         className={classes.mobile}
         {...formatProps}
@@ -49,7 +47,7 @@ const TransactionsList: React.FC<TransactionsListState> = (props) => {
         className={classes.desktop}
         {...formatProps}
       />
-    </div>
+    </>
   );
 };
 

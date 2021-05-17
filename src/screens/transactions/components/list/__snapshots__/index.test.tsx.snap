@@ -7,7 +7,6 @@ Array [
     id="Box"
   >
     <div
-      className="makeStyles-list"
       formatUi={[Function]}
       hasNextPage={true}
       id="TransactionsList"
@@ -65,7 +64,6 @@ Array [
     id="Box"
   >
     <div
-      className="makeStyles-list"
       formatUi={[Function]}
       hasNextPage={true}
       id="TransactionsList"
