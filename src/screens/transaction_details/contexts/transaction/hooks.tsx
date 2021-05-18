@@ -100,7 +100,7 @@ export const useTransaction = (initalState: TransactionState) => {
         }
         return true;
       }).map((x) => {
-        return getMessageByType(x, t);
+        return getMessageByType(x, state.viewRaw, t);
       }),
       transaction: [
         {
@@ -163,9 +163,17 @@ export const useTransaction = (initalState: TransactionState) => {
     });
   };
 
+  const toggleMessageDisplay = (event: React.ChangeEvent<HTMLInputElement>) => {
+    handleSetState({
+      viewRaw: event.target.checked,
+    });
+  };
+
   return {
+    viewRaw: state.viewRaw,
     rawData: state.rawData,
     uiData: formatUi(),
     onMessageFilterCallback,
+    toggleMessageDisplay,
   };
 };

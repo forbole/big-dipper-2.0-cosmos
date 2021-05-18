@@ -219,7 +219,7 @@ export const getMessageByType = (message: (
   | MsgDeleteProfile
   | MsgCreateRelationship
   | MsgBlockUser
-  ), t:any) => {
+  ), viewRaw: boolean, t:any) => {
   const { type } = message;
 
   let results: {
@@ -481,6 +481,11 @@ export const getMessageByType = (message: (
   //   results.tagDisplay = tagSplit[tagSplit.length - 1];
   //   results.unknown = true;
   // }
+
+  // If user asks to view the raw data
+  if (viewRaw) {
+    results.content = Unknown;
+  }
 
   return {
     type: <Tag

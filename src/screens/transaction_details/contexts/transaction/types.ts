@@ -19,6 +19,8 @@ import {
 } from '@models';
 
 export interface TransactionState {
+  viewRaw: boolean;
+  toggleMessageDisplay?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   rawData: {
     exists: boolean;
     loading: boolean;
