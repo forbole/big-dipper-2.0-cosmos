@@ -5,15 +5,6 @@ export const columns:{
 }[] = [
   {
     key: 'validator',
-    width: 34,
-  },
-  {
-    key: 'votingPower',
-    align: 'right',
-    width: 33,
-  },
-  {
-    key: 'signed',
-    width: 33,
+    width: 100,
   },
 ];

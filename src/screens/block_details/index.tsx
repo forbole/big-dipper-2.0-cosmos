@@ -8,7 +8,7 @@ import {
 import {
   Overview,
   Transactions,
-  // Signatures,
+  Signatures,
 } from './components';
 import { useStyles } from './styles';
 import { BlockProvider } from './contexts/block';
@@ -34,7 +34,7 @@ const BlockDetails = () => {
           return (
             <span className={classes.root}>
               <Overview />
-              {/* <Signatures className={classes.signatures} /> */}
+              <Signatures className={classes.signatures} />
               <Transactions />
             </span>
           );

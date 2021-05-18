@@ -32,6 +32,13 @@ export const fetchColumns = (t): {
       sort: true,
     },
     {
+      key: 'commission',
+      sortKey: 'commission',
+      align: 'right',
+      width: 15,
+      sort: true,
+    },
+    {
       key: 'self',
       sortKey: 'selfPercent',
       align: 'right',
@@ -41,13 +48,6 @@ export const fetchColumns = (t): {
     {
       key: 'delegators',
       sortKey: 'delegators',
-      align: 'right',
-      width: 15,
-      sort: true,
-    },
-    {
-      key: 'commission',
-      sortKey: 'commission',
       align: 'right',
       width: 15,
       sort: true,

@@ -61,22 +61,6 @@ const Mobile: React.FC<{
                           </Typography>
                           {selectedItem.validator}
                         </div>
-                        <div className={classes.flex}>
-                          <div className={classes.item}>
-                            <Typography variant="h4" className="label">
-                              {t('votingPower')}
-                            </Typography>
-                            <Typography variant="body1" className="value">
-                              {selectedItem.votingPower}
-                            </Typography>
-                          </div>
-                          <div className={classes.item}>
-                            <Typography variant="h4" className="label">
-                              {t('signed')}
-                            </Typography>
-                            {selectedItem.signed}
-                          </div>
-                        </div>
                       </div>
                       {/* single signature end */}
                       {index !== signatures.length - 1 && <Divider />}
