@@ -100,7 +100,7 @@ export const useTransaction = (initalState: TransactionState) => {
         }
         return true;
       }).map((x) => {
-        return getMessageByType(x, t);
+        return getMessageByType(x, state.viewRaw, t);
       }),
       transaction: [
         {
