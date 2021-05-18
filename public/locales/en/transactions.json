@@ -27,5 +27,6 @@
   "no": "NO",
   "abstain": "ABSTAIN",
   "noWithVeto": "NO WITH VETO",
-  "error": "Error"
+  "error": "Error",
+  "raw": "Raw"
 }
