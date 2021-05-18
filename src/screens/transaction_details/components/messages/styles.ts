@@ -8,11 +8,37 @@ export const useStyles = () => {
           display: 'flex',
           flexDirection: 'column',
         },
+        desktopOptions: {
+          display: 'flex',
+          alignItems: 'flex-end',
+          justifyContent: 'center',
+          '& .MuiFormControlLabel-root': {
+            display: 'none',
+            [theme.breakpoints.up('md')]: {
+              display: 'inline-flex',
+            },
+          },
+        },
+        mobileOptions: {
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          paddingBottom: theme.spacing(2),
+          '& .MuiFormControlLabel-root': {
+            marginRight: 0,
+            [theme.breakpoints.up('md')]: {
+              display: 'none',
+            },
+          },
+          [theme.breakpoints.up('md')]: {
+            paddingBottom: theme.spacing(0),
+          },
+        },
         header: {
           paddingBottom: theme.spacing(2),
-          '& .MuiTypography-h2': {
-            paddingBottom: theme.spacing(2),
-          },
+          // '& .MuiTypography-h2': {
+          //   paddingBottom: theme.spacing(2),
+          // },
           [theme.breakpoints.up('md')]: {
             display: 'flex',
             alignItems: 'center',
@@ -20,6 +46,7 @@ export const useStyles = () => {
           },
         },
         filter: {
+          width: '100%',
           [theme.breakpoints.up('md')]: {
             minWidth: '300px',
           },

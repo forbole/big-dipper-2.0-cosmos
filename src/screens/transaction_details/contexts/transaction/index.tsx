@@ -3,6 +3,7 @@ import { useTransaction } from './hooks';
 import { TransactionState } from './types';
 
 const initialState: TransactionState = {
+  viewRaw: false,
   rawData: {
     exists: true,
     loading: true,
@@ -39,14 +40,18 @@ const TransactionProvider: React.FC = (props: {
     rawData,
     onMessageFilterCallback,
     uiData,
+    viewRaw,
+    toggleMessageDisplay,
   } = useTransaction(initialState);
 
   return (
     <TransactionContext.Provider
       value={{
+        viewRaw,
         rawData,
         onMessageFilterCallback,
         uiData,
+        toggleMessageDisplay,
       }}
     >
       {children({

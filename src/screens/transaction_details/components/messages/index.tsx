@@ -6,6 +6,8 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import {
   Divider,
   Typography,
+  Switch,
+  FormControlLabel,
 } from '@material-ui/core';
 import {
   useList,
@@ -26,6 +28,8 @@ const Messages: React.FC<{
   const {
     uiData,
     onMessageFilterCallback,
+    viewRaw,
+    toggleMessageDisplay,
   } = useTransactionContext();
   const {
     listRef,
@@ -36,13 +40,37 @@ const Messages: React.FC<{
   return (
     <Box className={classnames(className, classes.root)}>
       <div className={classes.header}>
-        <Typography variant="h2">
-          {t('messages')}
-        </Typography>
-        <TransactionMessagesFilter
-          className={classes.filter}
-          callback={onMessageFilterCallback}
-        />
+        <div className={classes.mobileOptions}>
+          <Typography variant="h2">
+            {t('messages')}
+          </Typography>
+          <FormControlLabel
+            control={(
+              <Switch
+                checked={viewRaw}
+                onChange={toggleMessageDisplay}
+                color="primary"
+              />
+            )}
+            label={t('raw')}
+          />
+        </div>
+        <div className={classes.desktopOptions}>
+          <FormControlLabel
+            control={(
+              <Switch
+                checked={viewRaw}
+                onChange={toggleMessageDisplay}
+                color="primary"
+              />
+            )}
+            label={t('raw')}
+          />
+          <TransactionMessagesFilter
+            className={classes.filter}
+            callback={onMessageFilterCallback}
+          />
+        </div>
       </div>
       <Divider />
       <div className={classes.list}>
