@@ -28,7 +28,7 @@ const VotesGraph: React.FC<{
   const keys = Object.keys(rawData.voteTally);
   const formattedData = keys.map((x) => {
     return ({
-      name: `tally-${x}`,
+      name: x,
       value: rawData.voteTally[x],
     });
   });

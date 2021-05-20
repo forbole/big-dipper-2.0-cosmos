@@ -31,9 +31,7 @@ const TabsHeader: React.FC<{
         {tabLabels(data).map((x, i) => (
           <Tab
             key={x.key}
-            label={t(x.key, {
-              num: x.num,
-            })}
+            label={`${t(x.key)} (${x.num})`}
             {...a11yProps(i)}
           />
         ))}

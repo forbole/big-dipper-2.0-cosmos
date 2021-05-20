@@ -26,7 +26,7 @@ export const tabLabels = (data: {
         num: no,
       },
       {
-        key: 'noWithVeto',
+        key: 'veto',
         num: veto,
       },
       {

@@ -11,11 +11,11 @@
   "voter": "Voter",
   "votingPower": "Voting Power",
   "vote": "Vote",
-  "all": "All ({{num}})",
-  "yes": "Yes ({{num}})",
-  "no": "No ({{num}})",
-  "noWithVeto": "No With Veto ({{num}})",
-  "abstain": "Abstain ({{num}})",
+  "all": "All",
+  "yes": "Yes",
+  "no": "No",
+  "veto": "Veto",
+  "abstain": "Abstain",
   "deposits": "Deposits",
   "depositor": "Depositor",
   "amount": "Amount",
@@ -31,9 +31,5 @@
   "changes": "Changes",
   "subspace": "Subspace",
   "key": "Key",
-  "value": "Value",
-  "tally-yes": "Yes",
-  "tally-no": "No",
-  "tally-abstain": "Abstain",
-  "tally-veto": "Veto"
+  "value": "Value"
 }
