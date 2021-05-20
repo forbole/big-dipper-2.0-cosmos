@@ -6,6 +6,7 @@ export interface ProposalState {
   rawData: {
     exists: boolean;
     loading: boolean;
+    content?: JSON;
     overview: {
       title: string;
       id: number;
@@ -15,7 +16,6 @@ export interface ProposalState {
       depositEndTime: string;
       votingStartTime: string | null;
       votingEndTime: string | null;
-      content?: JSON;
     }
     deposits: {
       depositor: string;

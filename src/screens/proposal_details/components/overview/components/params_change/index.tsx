@@ -11,7 +11,7 @@ import {
 const ParamsChange: React.FC<{
   className?: string;
   changes: {
-    subSpace: string;
+    subspace: string;
     key: string;
     value: string;
   }[];
@@ -32,7 +32,7 @@ const ParamsChange: React.FC<{
         <TableBody>
           {changes.map((row) => (
             <TableRow key={row.key}>
-              <TableCell>{row.subSpace}</TableCell>
+              <TableCell>{row.subspace}</TableCell>
               <TableCell>{row.key}</TableCell>
               <TableCell>{row.value}</TableCell>
             </TableRow>

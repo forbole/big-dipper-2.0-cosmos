@@ -1,4 +1,5 @@
 import React from 'react';
+import * as R from 'ramda';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import {
@@ -20,7 +21,9 @@ const Overview: React.FC<{
 }> = ({ className }) => {
   const classes = useStyles();
   const { t } = useTranslation('proposals');
-  const { uiData } = useProposalContext();
+  const {
+    uiData, rawData,
+  } = useProposalContext();
 
   return (
     <Box className={classnames(className)}>
@@ -49,18 +52,7 @@ const Overview: React.FC<{
               {t('changes')}
             </Typography>
             <ParamsChange
-              changes={[
-                {
-                  subSpace: 'sub',
-                  key: 'key',
-                  value: 'value',
-                },
-                {
-                  subSpace: 'sub2',
-                  key: 'key2',
-                  value: 'value2',
-                },
-              ]}
+              changes={R.pathOr([], ['content', 'changes'], rawData)}
             />
           </>
         )}

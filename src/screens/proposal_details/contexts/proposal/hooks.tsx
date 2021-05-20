@@ -100,7 +100,10 @@ export const useProposal = (initialState: ProposalState) => {
       results.rawData.exists = false;
       return results;
     }
-
+    // =========================
+    // content
+    // =========================
+    results.rawData.content = data.proposal[0].content;
     // =========================
     // overview
     // =========================
@@ -113,7 +116,6 @@ export const useProposal = (initialState: ProposalState) => {
       depositEndTime: data.proposal[0].depositEndTime,
       votingStartTime: data.proposal[0].votingStartTime !== '0001-01-01T00:00:00' ? data.proposal[0].votingStartTime : null,
       votingEndTime: data.proposal[0].votingEndTime !== '0001-01-01T00:00:00' ? data.proposal[0].votingEndTime : null,
-      content: data.proposal[0].content,
     };
 
     results.rawData.overview = overview;
@@ -165,7 +167,7 @@ export const useProposal = (initialState: ProposalState) => {
       submitTime: dayjs.utc(state.rawData.overview.submitTime).local().format('MMMM DD, YYYY hh:mm A'),
       depositEndTime: dayjs.utc(state.rawData.overview.depositEndTime).local().format('MMMM DD, YYYY hh:mm A'),
       type: getProposalType(R.pathOr('', [
-        'rawData', 'overview', 'content', '@type',
+        'rawData', 'content', '@type',
       ], state)),
     };
 
