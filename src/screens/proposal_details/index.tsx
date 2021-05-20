@@ -11,7 +11,7 @@ import {
   Overview,
   Votes,
   Deposits,
-  // VotesGraph,
+  VotesGraph,
 } from './components';
 import { ProposalProvider } from './contexts/proposal';
 
@@ -39,7 +39,7 @@ const ProposalDetails = () => {
           return (
             <span className={classes.root}>
               <Overview className={classes.overview} />
-              {/* <VotesGraph className={classes.votesGraph} /> */}
+              <VotesGraph className={classes.votesGraph} />
               <Votes className={classes.votes} />
               <Deposits className={classes.deposits} />
             </span>

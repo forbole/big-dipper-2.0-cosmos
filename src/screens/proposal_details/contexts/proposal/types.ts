@@ -25,6 +25,12 @@ export interface ProposalState {
       vote: string;
       voter: string;
     }[];
+    voteCount: {
+      yes: number;
+      no: number;
+      abstain: number;
+      veto: number;
+    }
     voteTally: {
       yes: number;
       no: number;

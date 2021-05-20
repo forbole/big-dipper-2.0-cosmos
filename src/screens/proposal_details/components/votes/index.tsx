@@ -36,7 +36,7 @@ const Votes: React.FC<{
   return (
     <Box className={classnames(className, classes.root)}>
       <Tabs
-        data={rawData.voteTally}
+        data={rawData.voteCount}
         tab={tab}
         handleTabChange={handleTabChange}
       />

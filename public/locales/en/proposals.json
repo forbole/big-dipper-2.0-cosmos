@@ -31,5 +31,9 @@
   "changes": "Changes",
   "subspace": "Subspace",
   "key": "Key",
-  "value": "Value"
+  "value": "Value",
+  "tally-yes": "Yes",
+  "tally-no": "No",
+  "tally-abstain": "Abstain",
+  "tally-veto": "Veto"
 }

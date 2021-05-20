@@ -21,7 +21,7 @@ jest.mock('../../contexts/proposal', () => ({
       loading: true,
       deposits: [],
       votes: [],
-      voteTally: {
+      voteCount: {
         yes: 0,
         no: 0,
         abstain: 0,

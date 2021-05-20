@@ -4359,6 +4359,229 @@ export enum Genesis_Select_Column {
   Time = 'time'
 }
 
+/** columns and relationships of "gov_params" */
+export type Gov_Params = {
+  __typename?: 'gov_params';
+  deposit_params: Scalars['jsonb'];
+  height: Scalars['bigint'];
+  one_row_id: Scalars['Boolean'];
+  tally_params: Scalars['jsonb'];
+  voting_params: Scalars['jsonb'];
+};
+
+
+/** columns and relationships of "gov_params" */
+export type Gov_ParamsDeposit_ParamsArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+
+/** columns and relationships of "gov_params" */
+export type Gov_ParamsTally_ParamsArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+
+/** columns and relationships of "gov_params" */
+export type Gov_ParamsVoting_ParamsArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+/** aggregated selection of "gov_params" */
+export type Gov_Params_Aggregate = {
+  __typename?: 'gov_params_aggregate';
+  aggregate?: Maybe<Gov_Params_Aggregate_Fields>;
+  nodes: Array<Gov_Params>;
+};
+
+/** aggregate fields of "gov_params" */
+export type Gov_Params_Aggregate_Fields = {
+  __typename?: 'gov_params_aggregate_fields';
+  avg?: Maybe<Gov_Params_Avg_Fields>;
+  count?: Maybe<Scalars['Int']>;
+  max?: Maybe<Gov_Params_Max_Fields>;
+  min?: Maybe<Gov_Params_Min_Fields>;
+  stddev?: Maybe<Gov_Params_Stddev_Fields>;
+  stddev_pop?: Maybe<Gov_Params_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Gov_Params_Stddev_Samp_Fields>;
+  sum?: Maybe<Gov_Params_Sum_Fields>;
+  var_pop?: Maybe<Gov_Params_Var_Pop_Fields>;
+  var_samp?: Maybe<Gov_Params_Var_Samp_Fields>;
+  variance?: Maybe<Gov_Params_Variance_Fields>;
+};
+
+
+/** aggregate fields of "gov_params" */
+export type Gov_Params_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Gov_Params_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "gov_params" */
+export type Gov_Params_Aggregate_Order_By = {
+  avg?: Maybe<Gov_Params_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Gov_Params_Max_Order_By>;
+  min?: Maybe<Gov_Params_Min_Order_By>;
+  stddev?: Maybe<Gov_Params_Stddev_Order_By>;
+  stddev_pop?: Maybe<Gov_Params_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Gov_Params_Stddev_Samp_Order_By>;
+  sum?: Maybe<Gov_Params_Sum_Order_By>;
+  var_pop?: Maybe<Gov_Params_Var_Pop_Order_By>;
+  var_samp?: Maybe<Gov_Params_Var_Samp_Order_By>;
+  variance?: Maybe<Gov_Params_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Gov_Params_Avg_Fields = {
+  __typename?: 'gov_params_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "gov_params" */
+export type Gov_Params_Avg_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "gov_params". All fields are combined with a logical 'AND'. */
+export type Gov_Params_Bool_Exp = {
+  _and?: Maybe<Array<Maybe<Gov_Params_Bool_Exp>>>;
+  _not?: Maybe<Gov_Params_Bool_Exp>;
+  _or?: Maybe<Array<Maybe<Gov_Params_Bool_Exp>>>;
+  deposit_params?: Maybe<Jsonb_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  one_row_id?: Maybe<Boolean_Comparison_Exp>;
+  tally_params?: Maybe<Jsonb_Comparison_Exp>;
+  voting_params?: Maybe<Jsonb_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Gov_Params_Max_Fields = {
+  __typename?: 'gov_params_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** order by max() on columns of table "gov_params" */
+export type Gov_Params_Max_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Gov_Params_Min_Fields = {
+  __typename?: 'gov_params_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** order by min() on columns of table "gov_params" */
+export type Gov_Params_Min_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** ordering options when selecting data from "gov_params" */
+export type Gov_Params_Order_By = {
+  deposit_params?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  one_row_id?: Maybe<Order_By>;
+  tally_params?: Maybe<Order_By>;
+  voting_params?: Maybe<Order_By>;
+};
+
+/** primary key columns input for table: "gov_params" */
+export type Gov_Params_Pk_Columns_Input = {
+  one_row_id: Scalars['Boolean'];
+};
+
+/** select columns of table "gov_params" */
+export enum Gov_Params_Select_Column {
+  /** column name */
+  DepositParams = 'deposit_params',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  OneRowId = 'one_row_id',
+  /** column name */
+  TallyParams = 'tally_params',
+  /** column name */
+  VotingParams = 'voting_params'
+}
+
+/** aggregate stddev on columns */
+export type Gov_Params_Stddev_Fields = {
+  __typename?: 'gov_params_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "gov_params" */
+export type Gov_Params_Stddev_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Gov_Params_Stddev_Pop_Fields = {
+  __typename?: 'gov_params_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "gov_params" */
+export type Gov_Params_Stddev_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Gov_Params_Stddev_Samp_Fields = {
+  __typename?: 'gov_params_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "gov_params" */
+export type Gov_Params_Stddev_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Gov_Params_Sum_Fields = {
+  __typename?: 'gov_params_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** order by sum() on columns of table "gov_params" */
+export type Gov_Params_Sum_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Gov_Params_Var_Pop_Fields = {
+  __typename?: 'gov_params_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "gov_params" */
+export type Gov_Params_Var_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Gov_Params_Var_Samp_Fields = {
+  __typename?: 'gov_params_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "gov_params" */
+export type Gov_Params_Var_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Gov_Params_Variance_Fields = {
+  __typename?: 'gov_params_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "gov_params" */
+export type Gov_Params_Variance_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
 /** columns and relationships of "inflation" */
 export type Inflation = {
   __typename?: 'inflation';
@@ -6268,6 +6491,12 @@ export type Query_Root = {
   genesis_aggregate: Genesis_Aggregate;
   /** fetch data from the table: "genesis" using primary key columns */
   genesis_by_pk?: Maybe<Genesis>;
+  /** fetch data from the table: "gov_params" */
+  gov_params: Array<Gov_Params>;
+  /** fetch aggregated fields from the table: "gov_params" */
+  gov_params_aggregate: Gov_Params_Aggregate;
+  /** fetch data from the table: "gov_params" using primary key columns */
+  gov_params_by_pk?: Maybe<Gov_Params>;
   /** fetch data from the table: "inflation" */
   inflation: Array<Inflation>;
   /** fetch aggregated fields from the table: "inflation" */
@@ -6841,6 +7070,32 @@ export type Query_RootGenesis_AggregateArgs = {
 
 /** query root */
 export type Query_RootGenesis_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
+};
+
+
+/** query root */
+export type Query_RootGov_ParamsArgs = {
+  distinct_on?: Maybe<Array<Gov_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Gov_Params_Order_By>>;
+  where?: Maybe<Gov_Params_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootGov_Params_AggregateArgs = {
+  distinct_on?: Maybe<Array<Gov_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Gov_Params_Order_By>>;
+  where?: Maybe<Gov_Params_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootGov_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
 
@@ -8773,6 +9028,12 @@ export type Subscription_Root = {
   genesis_aggregate: Genesis_Aggregate;
   /** fetch data from the table: "genesis" using primary key columns */
   genesis_by_pk?: Maybe<Genesis>;
+  /** fetch data from the table: "gov_params" */
+  gov_params: Array<Gov_Params>;
+  /** fetch aggregated fields from the table: "gov_params" */
+  gov_params_aggregate: Gov_Params_Aggregate;
+  /** fetch data from the table: "gov_params" using primary key columns */
+  gov_params_by_pk?: Maybe<Gov_Params>;
   /** fetch data from the table: "inflation" */
   inflation: Array<Inflation>;
   /** fetch aggregated fields from the table: "inflation" */
@@ -9346,6 +9607,32 @@ export type Subscription_RootGenesis_AggregateArgs = {
 
 /** subscription root */
 export type Subscription_RootGenesis_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
+};
+
+
+/** subscription root */
+export type Subscription_RootGov_ParamsArgs = {
+  distinct_on?: Maybe<Array<Gov_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Gov_Params_Order_By>>;
+  where?: Maybe<Gov_Params_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootGov_Params_AggregateArgs = {
+  distinct_on?: Maybe<Array<Gov_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Gov_Params_Order_By>>;
+  where?: Maybe<Gov_Params_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootGov_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
 
@@ -14517,6 +14804,17 @@ export type ProposalVotesListenerSubscription = { proposalVote: Array<(
     & { voterAddress: Proposal_Vote['voter_address'] }
   )> };
 
+export type ProposalTallyListenerSubscriptionVariables = Exact<{
+  proposalId?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type ProposalTallyListenerSubscription = { proposalTallyResult: Array<(
+    { __typename?: 'proposal_tally_result' }
+    & Pick<Proposal_Tally_Result, 'yes' | 'no' | 'abstain'>
+    & { noWithVeto: Proposal_Tally_Result['no_with_veto'] }
+  )> };
+
 export type ProposalsQueryVariables = Exact<{
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
@@ -15361,6 +15659,41 @@ export function useProposalVotesListenerSubscription(baseOptions?: Apollo.Subscr
       }
 export type ProposalVotesListenerSubscriptionHookResult = ReturnType<typeof useProposalVotesListenerSubscription>;
 export type ProposalVotesListenerSubscriptionResult = Apollo.SubscriptionResult<ProposalVotesListenerSubscription>;
+export const ProposalTallyListenerDocument = gql`
+    subscription ProposalTallyListener($proposalId: Int) {
+  proposalTallyResult: proposal_tally_result(
+    where: {proposal_id: {_eq: $proposalId}}
+  ) {
+    yes
+    no
+    noWithVeto: no_with_veto
+    abstain
+  }
+}
+    `;
+
+/**
+ * __useProposalTallyListenerSubscription__
+ *
+ * To run a query within a React component, call `useProposalTallyListenerSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useProposalTallyListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useProposalTallyListenerSubscription({
+ *   variables: {
+ *      proposalId: // value for 'proposalId'
+ *   },
+ * });
+ */
+export function useProposalTallyListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<ProposalTallyListenerSubscription, ProposalTallyListenerSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<ProposalTallyListenerSubscription, ProposalTallyListenerSubscriptionVariables>(ProposalTallyListenerDocument, options);
+      }
+export type ProposalTallyListenerSubscriptionHookResult = ReturnType<typeof useProposalTallyListenerSubscription>;
+export type ProposalTallyListenerSubscriptionResult = Apollo.SubscriptionResult<ProposalTallyListenerSubscription>;
 export const ProposalsDocument = gql`
     query Proposals($limit: Int = 7, $offset: Int = 0) {
   proposals: proposal(limit: $limit, offset: $offset, order_by: {id: desc}) {

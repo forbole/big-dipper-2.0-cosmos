@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { Box } from '@components';
+import useTranslation from 'next-translate/useTranslation';
 import {
   PieChart,
   Pie,
@@ -8,21 +9,7 @@ import {
   ResponsiveContainer,
   Cell,
 } from 'recharts';
-
-const data01 = [
-  {
-    name: 'Yes', value: 400,
-  },
-  {
-    name: 'No', value: 300,
-  },
-  {
-    name: 'No With Veto', value: 300,
-  },
-  {
-    name: 'Abstain', value: 200,
-  },
-];
+import { useProposalContext } from '../../contexts/proposal';
 
 const COLORS = [
   '#355070',
@@ -34,6 +21,17 @@ const COLORS = [
 const VotesGraph: React.FC<{
   className?: string;
 }> = ({ className }) => {
+  const {
+    rawData,
+  } = useProposalContext();
+  const { t } = useTranslation('proposals');
+  const keys = Object.keys(rawData.voteTally);
+  const formattedData = keys.map((x) => {
+    return ({
+      name: `tally-${x}`,
+      value: rawData.voteTally[x],
+    });
+  });
   return (
     <Box className={classnames(className)}>
       <ResponsiveContainer width="99%">
@@ -41,11 +39,11 @@ const VotesGraph: React.FC<{
           <Pie
             stroke="none"
             dataKey="value"
-            data={data01}
+            data={formattedData}
             fill="#8884d8"
-            label={(entry) => `${entry.name}`}
+            label={(entry) => t(entry.name)}
           >
-            {data01.map((entry, index) => (
+            {formattedData.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}
                 fill={COLORS[index % COLORS.length]}

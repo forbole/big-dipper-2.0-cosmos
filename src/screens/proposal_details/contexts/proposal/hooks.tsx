@@ -8,6 +8,8 @@ import {
   ProposalDetailsQuery,
   useProposalVotesListenerSubscription,
   ProposalVotesListenerSubscription,
+  useProposalTallyListenerSubscription,
+  ProposalTallyListenerSubscription,
 } from '@graphql/types';
 import {
   AvatarName,
@@ -53,6 +55,32 @@ export const useProposal = (initialState: ProposalState) => {
     },
   });
 
+  useProposalTallyListenerSubscription({
+    variables: {
+      proposalId: R.pathOr('', ['query', 'id'], router),
+    },
+    onSubscriptionData: (data) => {
+      handleSetState({
+        rawData: {
+          voteTally: formatProposalTally(data.subscriptionData.data),
+        },
+      });
+    },
+  });
+
+  const formatProposalTally = (data: ProposalTallyListenerSubscription) => {
+    if (!data) {
+      return initialState.rawData.voteTally;
+    }
+
+    return ({
+      yes: data.proposalTallyResult[0].yes,
+      no: data.proposalTallyResult[0].no,
+      abstain: data.proposalTallyResult[0].abstain,
+      veto: data.proposalTallyResult[0].noWithVeto,
+    });
+  };
+
   const formatProposalVotes = (data: ProposalVotesListenerSubscription) => {
     let yes = 0;
     let no = 0;
@@ -80,7 +108,7 @@ export const useProposal = (initialState: ProposalState) => {
 
     return {
       votes,
-      voteTally: {
+      voteCount: {
         yes,
         no,
         abstain,
