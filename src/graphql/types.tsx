@@ -11754,18 +11754,229 @@ export type Unbonding_Delegation_History_Var_Pop_Order_By = {
   height?: Maybe<Order_By>;
 };
 
-/** aggregate var_samp on columns */
-export type Unbonding_Delegation_History_Var_Samp_Fields = {
-  __typename?: 'unbonding_delegation_history_var_samp_fields';
-  height?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "unbonding_delegation_history" */
-export type Unbonding_Delegation_History_Var_Samp_Order_By = {
+/** order by avg() on columns of table "unbonding_delegation" */
+export type Unbonding_Delegation_Avg_Order_By = {
   height?: Maybe<Order_By>;
 };
 
-/** aggregate variance on columns */
+/** Boolean expression to filter rows from the table "unbonding_delegation". All fields are combined with a logical 'AND'. */
+export type Unbonding_Delegation_Bool_Exp = {
+  _and?: Maybe<Array<Maybe<Unbonding_Delegation_Bool_Exp>>>;
+  _not?: Maybe<Unbonding_Delegation_Bool_Exp>;
+  _or?: Maybe<Array<Maybe<Unbonding_Delegation_Bool_Exp>>>;
+  account?: Maybe<Account_Bool_Exp>;
+  amount?: Maybe<Coin_Comparison_Exp>;
+  completion_timestamp?: Maybe<Timestamp_Comparison_Exp>;
+  delegator_address?: Maybe<String_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  validator?: Maybe<Validator_Bool_Exp>;
+  validator_address?: Maybe<String_Comparison_Exp>;
+};
+
+/** columns and relationships of "unbonding_delegation_history" */
+export type Unbonding_Delegation_History = {
+  __typename?: 'unbonding_delegation_history';
+  /** An object relationship */
+  account: Account;
+  amount: Scalars['coin'];
+  /** An object relationship */
+  block: Block;
+  completion_timestamp: Scalars['timestamp'];
+  delegator_address: Scalars['String'];
+  height: Scalars['bigint'];
+  validator_address: Scalars['String'];
+};
+
+/** aggregated selection of "unbonding_delegation_history" */
+export type Unbonding_Delegation_History_Aggregate = {
+  __typename?: 'unbonding_delegation_history_aggregate';
+  aggregate?: Maybe<Unbonding_Delegation_History_Aggregate_Fields>;
+  nodes: Array<Unbonding_Delegation_History>;
+};
+
+/** aggregate fields of "unbonding_delegation_history" */
+export type Unbonding_Delegation_History_Aggregate_Fields = {
+  __typename?: 'unbonding_delegation_history_aggregate_fields';
+  avg?: Maybe<Unbonding_Delegation_History_Avg_Fields>;
+  count?: Maybe<Scalars['Int']>;
+  max?: Maybe<Unbonding_Delegation_History_Max_Fields>;
+  min?: Maybe<Unbonding_Delegation_History_Min_Fields>;
+  stddev?: Maybe<Unbonding_Delegation_History_Stddev_Fields>;
+  stddev_pop?: Maybe<Unbonding_Delegation_History_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Unbonding_Delegation_History_Stddev_Samp_Fields>;
+  sum?: Maybe<Unbonding_Delegation_History_Sum_Fields>;
+  var_pop?: Maybe<Unbonding_Delegation_History_Var_Pop_Fields>;
+  var_samp?: Maybe<Unbonding_Delegation_History_Var_Samp_Fields>;
+  variance?: Maybe<Unbonding_Delegation_History_Variance_Fields>;
+};
+
+
+/** aggregate fields of "unbonding_delegation_history" */
+export type Unbonding_Delegation_History_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Unbonding_Delegation_History_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "unbonding_delegation_history" */
+export type Unbonding_Delegation_History_Aggregate_Order_By = {
+  avg?: Maybe<Unbonding_Delegation_History_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Unbonding_Delegation_History_Max_Order_By>;
+  min?: Maybe<Unbonding_Delegation_History_Min_Order_By>;
+  stddev?: Maybe<Unbonding_Delegation_History_Stddev_Order_By>;
+  stddev_pop?: Maybe<Unbonding_Delegation_History_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Unbonding_Delegation_History_Stddev_Samp_Order_By>;
+  sum?: Maybe<Unbonding_Delegation_History_Sum_Order_By>;
+  var_pop?: Maybe<Unbonding_Delegation_History_Var_Pop_Order_By>;
+  var_samp?: Maybe<Unbonding_Delegation_History_Var_Samp_Order_By>;
+  variance?: Maybe<Unbonding_Delegation_History_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Unbonding_Delegation_History_Avg_Fields = {
+  __typename?: 'unbonding_delegation_history_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "unbonding_delegation_history" */
+export type Unbonding_Delegation_History_Avg_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "unbonding_delegation_history". All fields are combined with a logical 'AND'. */
+export type Unbonding_Delegation_History_Bool_Exp = {
+  _and?: Maybe<Array<Maybe<Unbonding_Delegation_History_Bool_Exp>>>;
+  _not?: Maybe<Unbonding_Delegation_History_Bool_Exp>;
+  _or?: Maybe<Array<Maybe<Unbonding_Delegation_History_Bool_Exp>>>;
+  account?: Maybe<Account_Bool_Exp>;
+  amount?: Maybe<Coin_Comparison_Exp>;
+  block?: Maybe<Block_Bool_Exp>;
+  completion_timestamp?: Maybe<Timestamp_Comparison_Exp>;
+  delegator_address?: Maybe<String_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  validator_address?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Unbonding_Delegation_History_Max_Fields = {
+  __typename?: 'unbonding_delegation_history_max_fields';
+  completion_timestamp?: Maybe<Scalars['timestamp']>;
+  delegator_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  validator_address?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "unbonding_delegation_history" */
+export type Unbonding_Delegation_History_Max_Order_By = {
+  completion_timestamp?: Maybe<Order_By>;
+  delegator_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  validator_address?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Unbonding_Delegation_History_Min_Fields = {
+  __typename?: 'unbonding_delegation_history_min_fields';
+  completion_timestamp?: Maybe<Scalars['timestamp']>;
+  delegator_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  validator_address?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "unbonding_delegation_history" */
+export type Unbonding_Delegation_History_Min_Order_By = {
+  completion_timestamp?: Maybe<Order_By>;
+  delegator_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  validator_address?: Maybe<Order_By>;
+};
+
+/** ordering options when selecting data from "unbonding_delegation_history" */
+export type Unbonding_Delegation_History_Order_By = {
+  account?: Maybe<Account_Order_By>;
+  amount?: Maybe<Order_By>;
+  block?: Maybe<Block_Order_By>;
+  completion_timestamp?: Maybe<Order_By>;
+  delegator_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  validator_address?: Maybe<Order_By>;
+};
+
+/** select columns of table "unbonding_delegation_history" */
+export enum Unbonding_Delegation_History_Select_Column {
+  /** column name */
+  Amount = 'amount',
+  /** column name */
+  CompletionTimestamp = 'completion_timestamp',
+  /** column name */
+  DelegatorAddress = 'delegator_address',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  ValidatorAddress = 'validator_address'
+}
+
+/** aggregate stddev on columns */
+export type Unbonding_Delegation_History_Stddev_Fields = {
+  __typename?: 'unbonding_delegation_history_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "unbonding_delegation_history" */
+export type Unbonding_Delegation_History_Stddev_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Unbonding_Delegation_History_Stddev_Pop_Fields = {
+  __typename?: 'unbonding_delegation_history_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "unbonding_delegation_history" */
+export type Unbonding_Delegation_History_Stddev_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Unbonding_Delegation_History_Stddev_Samp_Fields = {
+  __typename?: 'unbonding_delegation_history_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "unbonding_delegation_history" */
+export type Unbonding_Delegation_History_Stddev_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Unbonding_Delegation_History_Sum_Fields = {
+  __typename?: 'unbonding_delegation_history_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** order by sum() on columns of table "unbonding_delegation_history" */
+export type Unbonding_Delegation_History_Sum_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Unbonding_Delegation_History_Var_Pop_Fields = {
+  __typename?: 'unbonding_delegation_history_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "unbonding_delegation_history" */
+export type Unbonding_Delegation_History_Var_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+  height?: Maybe<Scalars['Float']>;
+/** order by var_samp() on columns of table "unbonding_delegation_history" */
+};
 export type Unbonding_Delegation_History_Variance_Fields = {
   __typename?: 'unbonding_delegation_history_variance_fields';
   height?: Maybe<Scalars['Float']>;
@@ -14318,9 +14529,6 @@ export type BlockDetailsQueryVariables = Exact<{
 export type BlockDetailsQuery = { transaction: Array<(
     { __typename?: 'transaction' }
     & Pick<Transaction, 'height' | 'hash' | 'messages' | 'success'>
-  )>, pool: Array<(
-    { __typename?: 'staking_pool' }
-    & { bondedTokens: Staking_Pool['bonded_tokens'] }
   )>, block: Array<(
     { __typename?: 'block' }
     & Pick<Block, 'height' | 'hash' | 'timestamp'>
@@ -14331,6 +14539,15 @@ export type BlockDetailsQuery = { transaction: Array<(
         { __typename?: 'validator_info' }
         & { operatorAddress: Validator_Info['operator_address'] }
       )> }
+    )>, preCommits: Array<(
+      { __typename?: 'pre_commit' }
+      & { validator: (
+        { __typename?: 'validator' }
+        & { validatorInfo?: Maybe<(
+          { __typename?: 'validator_info' }
+          & { operatorAddress: Validator_Info['operator_address'] }
+        )> }
+      ) }
     )>, preCommitsAggregate: (
       { __typename?: 'pre_commit_aggregate' }
       & { aggregate?: Maybe<(
@@ -14339,27 +14556,6 @@ export type BlockDetailsQuery = { transaction: Array<(
           { __typename?: 'pre_commit_sum_fields' }
           & { votingPower: Pre_Commit_Sum_Fields['voting_power'] }
         )> }
-      )> }
-    ) }
-  )>, preCommits: Array<(
-    { __typename?: 'pre_commit' }
-    & { validator: (
-      { __typename?: 'validator' }
-      & { validatorInfo?: Maybe<(
-        { __typename?: 'validator_info' }
-        & { operatorAddress: Validator_Info['operator_address'] }
-      )> }
-    ) }
-  )>, validatorStatus: Array<(
-    { __typename?: 'validator_status' }
-    & { validator: (
-      { __typename?: 'validator' }
-      & { validatorVotingPowers: Array<(
-        { __typename?: 'validator_voting_power' }
-        & { votingPower: Validator_Voting_Power['voting_power'] }
-      )>, validatorInfo?: Maybe<(
-        { __typename?: 'validator_info' }
-        & { operatorAddress: Validator_Info['operator_address'] }
       )> }
     ) }
   )> };
@@ -14886,9 +15082,6 @@ export const BlockDetailsDocument = gql`
     messages
     success
   }
-  pool: staking_pool(limit: 1, where: {height: {_eq: $height}}) {
-    bondedTokens: bonded_tokens
-  }
   block(limit: 1, where: {height: {_eq: $height}}) {
     height
     hash
@@ -14899,33 +15092,18 @@ export const BlockDetailsDocument = gql`
         operatorAddress: operator_address
       }
     }
+    preCommits: pre_commits {
+      validator {
+        validatorInfo: validator_info {
+          operatorAddress: operator_address
+        }
+      }
+    }
     preCommitsAggregate: pre_commits_aggregate {
       aggregate {
         sum {
           votingPower: voting_power
         }
-      }
-    }
-  }
-  preCommits: pre_commit(where: {height: {_eq: $height}}) {
-    validator {
-      validatorInfo: validator_info {
-        operatorAddress: operator_address
-      }
-    }
-  }
-  validatorStatus: validator_status(
-    where: {height: {_eq: $height}, status: {_eq: 3}}
-  ) {
-    validator {
-      validatorVotingPowers: validator_voting_powers(
-        limit: 1
-        where: {height: {_eq: $height}}
-      ) {
-        votingPower: voting_power
-      }
-      validatorInfo: validator_info {
-        operatorAddress: operator_address
       }
     }
   }

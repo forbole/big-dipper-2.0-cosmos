@@ -24,8 +24,6 @@ export type BlockState = {
     }[];
     signatures: {
       validator: string;
-      votingPower: number;
-      signed: boolean;
       moniker: string;
     }[];
   }
@@ -35,9 +33,7 @@ export type BlockState = {
       detail: string | React.ReactNode;
     }[],
     signatures: {
-      signed: React.ReactNode;
       validator: React.ReactNode;
-      votingPower: string;
     }[]
   };
   formatTransactions?: (screen?: 'desktop' | 'mobile') => {

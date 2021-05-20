@@ -100,45 +100,18 @@ export const useBlock = (initialState: BlockState) => {
     // ============================
     // signatures
     // ============================
-    const signedDictionary = {};
-    data.preCommits.forEach((x) => {
-      signedDictionary[x.validator.validatorInfo.operatorAddress] = true;
-    });
 
-    let signatures = data.validatorStatus.map((x) => {
+    const signatures = data.block[0].preCommits.map((x) => {
       const validatorAddress = x.validator.validatorInfo.operatorAddress;
       const validator = findAddress(validatorAddress);
       return ({
         validator: validatorAddress,
-        votingPower: R.pathOr(0, [
-          'validator',
-          'validatorVotingPowers',
-          0,
-          'votingPower',
-        ], x),
-        signed: !!signedDictionary[validatorAddress],
         moniker: validator?.moniker,
       });
     });
 
-    const shyGuys = [];
-    const verifiedValidators = [];
-
-    signatures.forEach((x) => {
-      if (x.moniker && x.moniker !== 'Shy Validator') {
-        verifiedValidators.push(x);
-      } else {
-        shyGuys.push(x);
-      }
-    });
-
-    verifiedValidators.sort((a, b) => (
+    signatures.sort((a, b) => (
       a.moniker.toLowerCase() > b.moniker.toLowerCase() ? 1 : -1));
-
-    shyGuys.sort((a, b) => (
-      a?.moniker?.toLowerCase() > b?.moniker?.toLowerCase() ? 1 : -1));
-
-    signatures = [...verifiedValidators, ...shyGuys];
 
     results.rawData.signatures = signatures;
 
@@ -196,9 +169,6 @@ export const useBlock = (initialState: BlockState) => {
       signatures: state.rawData.signatures.map((x) => {
         const signatureValidator = findAddress(x.validator);
         return ({
-          signed: (
-            <Result success={x.signed} />
-          ),
           validator: (
             <AvatarName
               address={x.validator}
@@ -206,9 +176,6 @@ export const useBlock = (initialState: BlockState) => {
               name={signatureValidator ? signatureValidator.moniker : x.validator}
             />
           ),
-          votingPower: `${replaceNaN(
-            numeral((x.votingPower / state.rawData.supply.bonded) * 100).format('0.00'),
-          )}%`,
         });
       }),
     });
