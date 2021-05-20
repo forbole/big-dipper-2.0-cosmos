@@ -278,7 +278,7 @@ const darkThemeOverride = {
       },
       primaryData: {
         one: '#af2929',
-        two: '#af2929',
+        two: '#b44516',
         three: '#b14237',
         four: '#b16919',
       },
