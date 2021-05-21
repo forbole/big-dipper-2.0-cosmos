@@ -36,6 +36,11 @@ export interface ProposalState {
       no: number;
       abstain: number;
       veto: number;
+      total: number;
+    }
+    tallyParams: {
+      quorumPercent: number;
+      bondedTokens: number;
     }
   }
   uiData?: {
@@ -58,5 +63,11 @@ export interface ProposalState {
       vote: string;
       voter: React.ReactNode;
     }[];
+    chart: {
+      quorumPercent: string;
+      votePercent: string;
+      quorumAmount: string;
+      voteAmount: string;
+    }
   }
 }

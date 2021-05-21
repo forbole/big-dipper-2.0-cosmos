@@ -9,6 +9,10 @@ const initialState: ProposalState = {
     loading: true,
     deposits: [],
     votes: [],
+    tallyParams: {
+      quorumPercent: 0,
+      bondedTokens: 0,
+    },
     voteCount: {
       yes: 0,
       no: 0,
@@ -20,6 +24,7 @@ const initialState: ProposalState = {
       no: 0,
       abstain: 0,
       veto: 0,
+      total: 0,
     },
     overview: {
       title: '',

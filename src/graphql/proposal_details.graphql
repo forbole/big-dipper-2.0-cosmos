@@ -32,3 +32,12 @@ subscription ProposalTallyListener($proposalId: Int) {
     abstain
   }
 }
+
+query TallyParams {
+  govParams: gov_params {
+    tallyParams: tally_params
+  }
+  stakingPool: staking_pool {
+    bondedTokens: bonded_tokens
+  }
+}

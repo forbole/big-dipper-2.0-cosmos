@@ -14,12 +14,12 @@ export const useStyles = (percentage: number) => {
           display: 'flex',
           height: '2px',
           borderRadius: theme.shape.borderRadius,
-          background: Color(theme.palette.custom.chartData.two).alpha(0.2).string(),
+          background: Color(theme.palette.custom.primaryData.three).alpha(0.2).string(),
           overflow: 'hidden',
         },
         active: {
           width: `${percentage}%`,
-          background: theme.palette.custom.chartData.two,
+          background: theme.palette.custom.primaryData.three,
         },
         content: {
           display: 'flex',

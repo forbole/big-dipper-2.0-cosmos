@@ -62,6 +62,7 @@ const Tokenomics:React.FC<{
             // paddingAngle={-10}
             dataKey="rawValue"
             stroke={theme.palette.divider}
+            isAnimationActive={false}
           >
             {uiData.map((entry) => {
               return (

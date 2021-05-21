@@ -98,13 +98,6 @@ export const common = {
       general: {
         icon: '#999999',
       },
-      chartData: {
-        one: '#FF7846',
-        two: '#E86F51',
-        three: '#FFD800',
-        four: '#1BA6BC',
-        five: '#686868',
-      },
       tags: {
         zero: '#E8E8E8',
         one: '#1EC490',

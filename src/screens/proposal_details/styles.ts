@@ -32,7 +32,8 @@ export const useStyles = () => {
           },
         },
         votesGraph: {
-          height: '350px',
+          // wingman
+          // height: '350px',
           [theme.breakpoints.up('md')]: {
             gridColumn: '1 / 2',
             height: '500px',

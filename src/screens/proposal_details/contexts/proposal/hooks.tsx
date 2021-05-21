@@ -10,6 +10,8 @@ import {
   ProposalVotesListenerSubscription,
   useProposalTallyListenerSubscription,
   ProposalTallyListenerSubscription,
+  useTallyParamsQuery,
+  TallyParamsQuery,
 } from '@graphql/types';
 import {
   AvatarName,
@@ -33,6 +35,9 @@ export const useProposal = (initialState: ProposalState) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
 
+  // ==========================
+  // proposal details
+  // ==========================
   useProposalDetailsQuery({
     variables: {
       proposalId: R.pathOr('', ['query', 'id'], router),
@@ -42,6 +47,9 @@ export const useProposal = (initialState: ProposalState) => {
     },
   });
 
+  // ==========================
+  // votes
+  // ==========================
   useProposalVotesListenerSubscription({
     variables: {
       proposalId: R.pathOr('', ['query', 'id'], router),
@@ -55,6 +63,9 @@ export const useProposal = (initialState: ProposalState) => {
     },
   });
 
+  // ==========================
+  // tally
+  // ==========================
   useProposalTallyListenerSubscription({
     variables: {
       proposalId: R.pathOr('', ['query', 'id'], router),
@@ -68,16 +79,42 @@ export const useProposal = (initialState: ProposalState) => {
     },
   });
 
+  // ==========================
+  // params and bonded
+  // ==========================
+  useTallyParamsQuery({
+    onCompleted: (data) => {
+      handleSetState({
+        rawData: {
+          tallyParams: formatTallyParams(data),
+        },
+      });
+    },
+  });
+
+  const formatTallyParams = (data: TallyParamsQuery) => {
+    const percent = numeral(numeral(R.pathOr(initialState.rawData.tallyParams.quorumPercent, ['govParams', 0, 'tallyParams', 'quorum'], data)).format('0.[00]')).value();
+    return ({
+      quorumPercent: percent,
+      bondedTokens: formatDenom(R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data)),
+    });
+  };
+
   const formatProposalTally = (data: ProposalTallyListenerSubscription) => {
     if (!data) {
       return initialState.rawData.voteTally;
     }
+    const yes = formatDenom(data.proposalTallyResult[0].yes);
+    const no = formatDenom(data.proposalTallyResult[0].no);
+    const veto = formatDenom(data.proposalTallyResult[0].noWithVeto);
+    const abstain = formatDenom(data.proposalTallyResult[0].abstain);
 
     return ({
-      yes: data.proposalTallyResult[0].yes,
-      no: data.proposalTallyResult[0].no,
-      abstain: data.proposalTallyResult[0].abstain,
-      veto: data.proposalTallyResult[0].noWithVeto,
+      yes,
+      no,
+      abstain,
+      veto,
+      total: yes + no + abstain + veto,
     });
   };
 
@@ -261,10 +298,29 @@ export const useProposal = (initialState: ProposalState) => {
       });
     });
 
+    // =========================
+    // chart
+    // =========================
+    const quorumPercent = numeral(state.rawData.tallyParams.quorumPercent * 100).value();
+    const votePercent = numeral(
+      (state.rawData.voteTally.total / state.rawData.tallyParams.bondedTokens) * 100,
+    ).format('0.[00]');
+    const voteAmount = numeral(state.rawData.voteTally.total).format('0,0.[00]');
+    const quorumAmount = numeral(state.rawData.tallyParams.bondedTokens / (
+      state.rawData.tallyParams.quorumPercent || 1)).format('0,0.[00]');
+
+    const chart = {
+      quorumPercent: `${quorumPercent}%`,
+      votePercent: `${votePercent}%`,
+      voteAmount,
+      quorumAmount,
+    };
+
     return ({
       overview,
       deposits,
       votes,
+      chart,
     });
   };
 

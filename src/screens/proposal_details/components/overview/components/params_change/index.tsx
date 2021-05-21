@@ -20,7 +20,7 @@ const ParamsChange: React.FC<{
 }) => {
   const { t } = useTranslation('proposals');
   return (
-    <div>
+    <div style={{ overflow: 'auto' }}>
       <Table>
         <TableHead>
           <TableRow>

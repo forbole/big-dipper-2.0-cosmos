@@ -14815,6 +14815,17 @@ export type ProposalTallyListenerSubscription = { proposalTallyResult: Array<(
     & { noWithVeto: Proposal_Tally_Result['no_with_veto'] }
   )> };
 
+export type TallyParamsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type TallyParamsQuery = { govParams: Array<(
+    { __typename?: 'gov_params' }
+    & { tallyParams: Gov_Params['tally_params'] }
+  )>, stakingPool: Array<(
+    { __typename?: 'staking_pool' }
+    & { bondedTokens: Staking_Pool['bonded_tokens'] }
+  )> };
+
 export type ProposalsQueryVariables = Exact<{
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
@@ -15694,6 +15705,43 @@ export function useProposalTallyListenerSubscription(baseOptions?: Apollo.Subscr
       }
 export type ProposalTallyListenerSubscriptionHookResult = ReturnType<typeof useProposalTallyListenerSubscription>;
 export type ProposalTallyListenerSubscriptionResult = Apollo.SubscriptionResult<ProposalTallyListenerSubscription>;
+export const TallyParamsDocument = gql`
+    query TallyParams {
+  govParams: gov_params {
+    tallyParams: tally_params
+  }
+  stakingPool: staking_pool {
+    bondedTokens: bonded_tokens
+  }
+}
+    `;
+
+/**
+ * __useTallyParamsQuery__
+ *
+ * To run a query within a React component, call `useTallyParamsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTallyParamsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTallyParamsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useTallyParamsQuery(baseOptions?: Apollo.QueryHookOptions<TallyParamsQuery, TallyParamsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<TallyParamsQuery, TallyParamsQueryVariables>(TallyParamsDocument, options);
+      }
+export function useTallyParamsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TallyParamsQuery, TallyParamsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<TallyParamsQuery, TallyParamsQueryVariables>(TallyParamsDocument, options);
+        }
+export type TallyParamsQueryHookResult = ReturnType<typeof useTallyParamsQuery>;
+export type TallyParamsLazyQueryHookResult = ReturnType<typeof useTallyParamsLazyQuery>;
+export type TallyParamsQueryResult = Apollo.QueryResult<TallyParamsQuery, TallyParamsQueryVariables>;
 export const ProposalsDocument = gql`
     query Proposals($limit: Int = 7, $offset: Int = 0) {
   proposals: proposal(limit: $limit, offset: $offset, order_by: {id: desc}) {
