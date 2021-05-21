@@ -8,7 +8,6 @@ import {
   TableCell,
   TableBody,
 } from '@material-ui/core';
-import { AvatarName } from '@components';
 import { columns } from './utils';
 
 const Desktop: React.FC<{
@@ -18,19 +17,7 @@ const Desktop: React.FC<{
   className, items,
 }) => {
   const { t } = useTranslation('proposals');
-  const formatItems = items.map((x) => {
-    return ({
-      voter: (
-        <AvatarName
-          address={x?.voter?.identity}
-          imageUrl={x?.voter?.image}
-          name={x?.voter?.moniker}
-        />
-      ),
-      votingPower: x.votingPower,
-      vote: x.vote,
-    });
-  });
+
   return (
     <div className={classnames(className)}>
       <Table>
@@ -50,7 +37,7 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formatItems.map((row, i) => (
+          {items.map((row, i) => (
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => {
                 return (

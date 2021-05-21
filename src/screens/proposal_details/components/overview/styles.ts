@@ -12,6 +12,9 @@ export const useStyles = () => {
           },
           '& > *': {
             marginBottom: theme.spacing(1),
+            [theme.breakpoints.up('lg')]: {
+              marginBottom: theme.spacing(2),
+            },
           },
           [theme.breakpoints.up('lg')]: {
             gridTemplateColumns: '150px auto',

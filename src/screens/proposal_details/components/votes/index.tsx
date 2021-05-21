@@ -1,9 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Box } from '@components';
+import {
+  Box, NoData,
+} from '@components';
 import { usePagination } from '@hooks';
 import { useStyles } from './styles';
-import { useVotes } from './hooks';
 import { useProposalContext } from '../../contexts/proposal';
 import {
   Tabs,
@@ -15,13 +16,13 @@ import {
 const Votes: React.FC<{
   className?: string;
 }> = ({ className }) => {
-  const { item } = useProposalContext();
-  const { votes = [] } = item;
-
   const {
-    state,
+    uiData,
+    rawData,
+    tab,
     handleTabChange,
-  } = useVotes();
+  } = useProposalContext();
+  const { votes = [] } = uiData;
 
   const {
     page,
@@ -29,17 +30,28 @@ const Votes: React.FC<{
     handleChangePage,
     handleChangeRowsPerPage,
     sliceItems,
-  } = usePagination({});
+  } = usePagination({
+  });
 
   const classes = useStyles();
   const items = sliceItems(votes);
 
   return (
     <Box className={classnames(className, classes.root)}>
-      <Tabs tab={state.tab} handleTabChange={handleTabChange} />
+      <Tabs
+        data={rawData.voteCount}
+        tab={tab}
+        handleTabChange={handleTabChange}
+      />
       <div className={classes.list}>
-        <Mobile className={classes.mobile} items={items} />
-        <Desktop className={classes.desktop} items={items} />
+        {items.length ? (
+          <>
+            <Mobile className={classes.mobile} items={items} />
+            <Desktop className={classes.desktop} items={items} />
+          </>
+        ) : (
+          <NoData />
+        )}
       </div>
       <Paginate
         total={votes.length}

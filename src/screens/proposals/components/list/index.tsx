@@ -1,24 +1,18 @@
 import React from 'react';
+import numeral from 'numeral';
 import classnames from 'classnames';
-import dayjs from '@utils/dayjs';
-import Link from 'next/link';
-import { PROPOSAL_DETAILS } from '@utils/go_to_page';
 import { mergeRefs } from '@utils/merge_refs';
 import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
-import {
-  Divider, Typography,
-} from '@material-ui/core';
+import { Divider } from '@material-ui/core';
 import {
   useList,
   useListRow,
 } from '@hooks';
 import {
   Loading,
-  AvatarName,
   Box,
-  Tag,
 } from '@components';
 import { useProposals } from './hooks';
 import {
@@ -32,10 +26,11 @@ const ProposalsList: React.FC<{
 }> = ({ className }) => {
   const classes = useStyles();
   const {
-    items,
+    uiData,
     itemCount,
     loadMoreItems,
     isItemLoaded,
+    rawDataTotal,
   } = useProposals();
 
   const {
@@ -44,36 +39,10 @@ const ProposalsList: React.FC<{
     setRowHeight,
   } = useList();
 
-  const formatItems = items.map((x) => {
-    return ({
-      id: `#${x.id}`,
-      proposer: (
-        <AvatarName
-          address={x.proposer.identity}
-          imageUrl={x.proposer.image}
-          name={x.proposer.moniker}
-        />
-      ),
-      title: (
-        <Link href={PROPOSAL_DETAILS(x.id)} passHref>
-          <Typography variant="h3" className="value" component="a">
-            {x.title}
-          </Typography>
-        </Link>
-      ),
-      submissionTime: dayjs(x.submissionTime).format('YYYY-MM-DD'),
-      votingTimeStart: dayjs(x.votingTimeStart).format('YYYY-MM-DD'),
-      content: x.content,
-      status: (
-        <Tag theme="one" value="status" />
-      ),
-    });
-  });
-
   return (
     <Box className={classnames(className, classes.root)}>
       <div className={classes.topContent}>
-        <Total className={classes.total} total="1,000" />
+        <Total className={classes.total} total={numeral(rawDataTotal).format('0,0')} />
         {/* <Search className={classes.search} /> */}
       </div>
       <div className={classes.list}>
@@ -112,7 +81,7 @@ const ProposalsList: React.FC<{
                           </div>
                         );
                       }
-                      const item = formatItems[index];
+                      const item = uiData[index];
                       return (
                         <div style={style}>
                           <div ref={rowRef}>

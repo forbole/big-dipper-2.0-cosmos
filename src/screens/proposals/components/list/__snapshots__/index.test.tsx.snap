@@ -11,7 +11,7 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
     <div
       className="makeStyles-total"
       id="Total"
-      total="1,000"
+      total="0"
     />
   </div>
   <div

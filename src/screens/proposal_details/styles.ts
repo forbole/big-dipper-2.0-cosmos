@@ -27,19 +27,16 @@ export const useStyles = () => {
         },
         votes: {
           [theme.breakpoints.up('lg')]: {
-            gridColumn: '2 / 4',
-            height: '690px',
+            gridColumn: '1 / 4',
           },
         },
         votesGraph: {
-          height: '350px',
           [theme.breakpoints.up('md')]: {
             gridColumn: '1 / 2',
-            height: '500px',
           },
           [theme.breakpoints.up('lg')]: {
-            gridColumn: '1 / 2',
-            height: '690px',
+            gridColumn: '1 / 4',
+            height: 'auto',
           },
         },
       });

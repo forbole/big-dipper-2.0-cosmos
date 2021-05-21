@@ -8,8 +8,6 @@ import {
   TableCell,
   TableBody,
 } from '@material-ui/core';
-import dayjs from '@utils/dayjs';
-import { AvatarName } from '@components';
 import { columns } from './utils';
 
 const Desktop: React.FC<{
@@ -19,19 +17,6 @@ const Desktop: React.FC<{
   className, items,
 }) => {
   const { t } = useTranslation('proposals');
-  const formatItems = items.map((x) => {
-    return ({
-      depositor: (
-        <AvatarName
-          address={x?.depositor?.identity}
-          imageUrl={x?.depositor?.image}
-          name={x?.depositor?.moniker}
-        />
-      ),
-      amount: x.amount,
-      time: dayjs(x.time).format('YYYY-MM-DD'),
-    });
-  });
 
   return (
     <div className={classnames(className)}>
@@ -52,7 +37,7 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formatItems.map((row, i) => (
+          {items.map((row, i) => (
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => {
                 return (

@@ -13,8 +13,14 @@ const TabsHeader: React.FC<{
   className?: string;
   tab: number;
   handleTabChange: (_event: any, newValue: number) => void;
+  data: {
+    yes: number;
+    no: number;
+    abstain: number;
+    veto: number;
+  }
 }> = ({
-  className, tab, handleTabChange,
+  className, tab, handleTabChange, data,
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('proposals');
@@ -22,12 +28,10 @@ const TabsHeader: React.FC<{
   return (
     <div className={classnames(className, classes.root)}>
       <Tabs value={tab} onChange={handleTabChange}>
-        {tabLabels.map((x, i) => (
+        {tabLabels(data).map((x, i) => (
           <Tab
             key={x.key}
-            label={t(x.key, {
-              num: x.num,
-            })}
+            label={`${t(x.key)} (${x.num})`}
             {...a11yProps(i)}
           />
         ))}

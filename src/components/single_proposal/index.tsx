@@ -1,30 +1,22 @@
 import React from 'react';
 import classnames from 'classnames';
-import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 
 const SingleProposal: React.FC<{
   className?: string;
   id: string;
-  proposer: React.ReactNode;
-  title: React.ReactNode;
-  status: React.ReactNode;
-  submissionTime: string;
-  votingTimeStart: string;
-  content?: string;
+  title: string | React.ReactNode;
+  status: string | React.ReactNode;
+  description?: string;
 }> = ({
   className,
   id,
-  proposer,
   title,
   status,
-  submissionTime,
-  votingTimeStart,
-  content,
+  description,
 }) => {
   const classes = useStyles();
-  const { t } = useTranslation('proposals');
   return (
     <div className={classnames(className, classes.root)}>
       <div className={classes.header}>
@@ -45,36 +37,11 @@ const SingleProposal: React.FC<{
             </Typography>
           )}
         </div>
-        {!!content && (
-        <Typography variant="body1" className={classnames(classes.desktop, classes.content)}>
-          {content}
+        {!!description && (
+        <Typography variant="body2" className={classnames(classes.content)}>
+          {description}
         </Typography>
         )}
-        <div className={classes.infoWrapper}>
-          <div className={classes.item}>
-            <Typography variant="h4" className="label">
-              {t('proposer')}
-            </Typography>
-            {proposer}
-          </div>
-          <div className={classes.item}>
-            <Typography variant="h4" className="label">
-              {t('submissionTime')}
-            </Typography>
-            <Typography variant="body1" className="value">
-              {submissionTime}
-            </Typography>
-          </div>
-
-          <div className={classes.item}>
-            <Typography variant="h4" className="label">
-              {t('votingTimeStart')}
-            </Typography>
-            <Typography variant="body1" className="value">
-              {votingTimeStart}
-            </Typography>
-          </div>
-        </div>
       </div>
       {/* ================= */}
       {/* ================= */}

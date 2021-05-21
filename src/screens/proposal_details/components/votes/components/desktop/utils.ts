@@ -5,16 +5,18 @@ export const columns:{
 }[] = [
   {
     key: 'voter',
-    width: 34,
+    // width: 34,
+    width: 50,
   },
-  {
-    key: 'votingPower',
-    width: 33,
-    align: 'right',
-  },
+  // {
+  //   key: 'votingPower',
+  //   width: 33,
+  //   align: 'right',
+  // },
   {
     key: 'vote',
-    width: 33,
+    // width: 33,
+    width: 50,
     align: 'right',
   },
 ];
