@@ -5,10 +5,10 @@ export const useStyles = () => {
     (theme) => {
       return ({
         root: {
-          // display: 'flex',
-          // alignItems: 'center',
-          // justifyContent: 'space-between',
-          // flexDirection: 'column',
+          [theme.breakpoints.up('lg')]: {
+            display: 'flex',
+            alignItems: 'center',
+          },
         },
         pie: {
           display: 'flex',
@@ -21,6 +21,11 @@ export const useStyles = () => {
           gridGap: theme.spacing(2),
           [theme.breakpoints.up('md')]: {
             gridTemplateColumns: 'repeat(2, 1fr)',
+          },
+          [theme.breakpoints.up('lg')]: {
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            flex: 1,
+            marginLeft: theme.spacing(4),
           },
         },
         total: {

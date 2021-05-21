@@ -1,6 +1,5 @@
 import React from 'react';
 import classnames from 'classnames';
-import numeral from 'numeral';
 import { Box } from '@components';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
@@ -35,6 +34,8 @@ const VotesGraph: React.FC<{
           height={250}
         >
           <Pie
+            cx="50%"
+            cy="50%"
             stroke="none"
             dataKey="value"
             data={formattedData}
