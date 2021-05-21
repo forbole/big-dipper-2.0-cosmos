@@ -1,6 +1,6 @@
 import React from 'react';
+import * as R from 'ramda';
 import classnames from 'classnames';
-import dayjs from '@utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Typography,
@@ -8,11 +8,11 @@ import {
 } from '@material-ui/core';
 import {
   SingleProposal,
-  AvatarName,
   Box,
-  Tag,
 } from '@components';
-
+import {
+  ParamsChange,
+} from './components';
 import { useStyles } from './styles';
 import { useProposalContext } from '../../contexts/proposal';
 
@@ -21,42 +21,89 @@ const Overview: React.FC<{
 }> = ({ className }) => {
   const classes = useStyles();
   const { t } = useTranslation('proposals');
-  const { item } = useProposalContext();
-
-  const formatItem = {
-    id: `#${item.id}`,
-    proposer: (
-      <AvatarName
-        address={item?.proposer?.identity}
-        imageUrl={item?.proposer?.image}
-        name={item?.proposer?.moniker}
-      />
-    ),
-    title: item.title,
-    submissionTime: dayjs(item.submissionTime).format('YYYY-MM-DD'),
-    votingTimeStart: dayjs(item.votingTimeStart).format('YYYY-MM-DD'),
-    status: (
-      <Tag theme="one" value="status" />
-    ),
-  };
+  const {
+    uiData, rawData,
+  } = useProposalContext();
 
   return (
     <Box className={classnames(className)}>
-      <SingleProposal {...formatItem} />
+      <SingleProposal
+        id={uiData.overview.id}
+        title={uiData.overview.title}
+        status={uiData.overview.status}
+      />
       <Divider />
       <div className={classes.content}>
         <Typography variant="body1" className="label">
           {t('type')}
         </Typography>
         <Typography variant="body1" className="value">
-          {item.type}
+          {t(uiData.overview.type)}
         </Typography>
         <Typography variant="body1" className="label">
           {t('description')}
         </Typography>
         <Typography variant="body1" className="value">
-          {item.content}
+          {uiData.overview.description}
         </Typography>
+        {uiData.overview.type === 'parameterChangeProposal' && (
+          <>
+            <Typography variant="body1" className="label">
+              {t('changes')}
+            </Typography>
+            <ParamsChange
+              changes={R.pathOr([], ['content', 'changes'], rawData)}
+            />
+          </>
+        )}
+        {
+          !!uiData.overview.submitTime && (
+            <>
+              <Typography variant="body1" className="label">
+                {t('submitTime')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {uiData.overview.submitTime}
+              </Typography>
+            </>
+          )
+        }
+        {
+          !!uiData.overview.depositEndTime && (
+            <>
+              <Typography variant="body1" className="label">
+                {t('depositEndTime')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {uiData.overview.depositEndTime}
+              </Typography>
+            </>
+          )
+        }
+        {
+          !!uiData.overview.votingStartTime && (
+            <>
+              <Typography variant="body1" className="label">
+                {t('votingStartTime')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {uiData.overview.votingStartTime}
+              </Typography>
+            </>
+          )
+        }
+        {
+          !!uiData.overview.votingEndTime && (
+            <>
+              <Typography variant="body1" className="label">
+                {t('votingEndTime')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {uiData.overview.votingEndTime}
+              </Typography>
+            </>
+          )
+        }
       </div>
     </Box>
   );

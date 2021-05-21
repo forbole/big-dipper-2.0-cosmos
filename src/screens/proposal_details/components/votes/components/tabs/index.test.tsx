@@ -21,6 +21,12 @@ describe('screen: Validators/Tabs', () => {
           {...{
             tab: 0,
             handleTabChange: jest.fn(),
+            data: {
+              yes: 10,
+              no: 4,
+              abstain: 0,
+              veto: 10,
+            },
           }}
         />
       </MockTheme>,

@@ -16,8 +16,8 @@ const Deposits: React.FC<{
   className?: string;
 }> = ({ className }) => {
   const { t } = useTranslation('proposals');
-  const { item } = useProposalContext();
-  const { deposits = [] } = item;
+  const { uiData } = useProposalContext();
+  const { deposits = [] } = uiData;
 
   const {
     page,

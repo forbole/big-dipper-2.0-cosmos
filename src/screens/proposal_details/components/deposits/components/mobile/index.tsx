@@ -1,11 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import dayjs from '@utils/dayjs';
 import {
   Divider, Typography,
 } from '@material-ui/core';
-import { AvatarName } from '@components';
 import { useStyles } from './styles';
 
 const Mobile: React.FC<{
@@ -16,22 +14,10 @@ const Mobile: React.FC<{
 }) => {
   const { t } = useTranslation('proposals');
   const classes = useStyles();
-  const formatItems = items.map((x) => {
-    return ({
-      depositor: (
-        <AvatarName
-          address={x?.depositor?.identity}
-          imageUrl={x?.depositor?.image}
-          name={x?.depositor?.moniker}
-        />
-      ),
-      amount: x.amount,
-      time: dayjs(x.time).format('YYYY-MM-DD'),
-    });
-  });
+
   return (
     <div className={classnames(className)}>
-      {formatItems.map((x, i) => {
+      {items.map((x, i) => {
         return (
           <React.Fragment key={`depositors-mobile-${i}`}>
             <div className={classes.list}>
@@ -49,16 +35,8 @@ const Mobile: React.FC<{
                   {x.amount}
                 </Typography>
               </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('time')}
-                </Typography>
-                <Typography variant="body1" className="value">
-                  {x.time}
-                </Typography>
-              </div>
             </div>
-            {i !== formatItems.length - 1 && <Divider />}
+            {i !== items.length - 1 && <Divider />}
           </React.Fragment>
         );
       })}

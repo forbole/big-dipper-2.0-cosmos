@@ -47,7 +47,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
           <span
             className="MuiTab-wrapper"
           >
-            proposals:all
+            proposals:all (24)
           </span>
           <span
             className="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
@@ -79,7 +79,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
           <span
             className="MuiTab-wrapper"
           >
-            proposals:yes
+            proposals:yes (10)
           </span>
         </button>
         <button
@@ -107,7 +107,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
           <span
             className="MuiTab-wrapper"
           >
-            proposals:no
+            proposals:no (4)
           </span>
         </button>
         <button
@@ -135,7 +135,35 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
           <span
             className="MuiTab-wrapper"
           >
-            proposals:noWithVeto
+            proposals:veto (10)
+          </span>
+        </button>
+        <button
+          aria-controls="simple-tabpanel-4"
+          aria-selected={false}
+          className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit"
+          disabled={false}
+          id="simple-tab-4"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="tab"
+          tabIndex={-1}
+          type="button"
+        >
+          <span
+            className="MuiTab-wrapper"
+          >
+            proposals:abstain (0)
           </span>
         </button>
       </div>

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: Tokens matches snapshot 1`] = `
+exports[`screen: List matches snapshot 1`] = `
 <div
   className="makeStyles-root"
   id="Layout"
