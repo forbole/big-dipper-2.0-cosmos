@@ -1,6 +1,9 @@
-import { makeStyles } from '@material-ui/core/styles';
+import {
+  makeStyles, useTheme,
+} from '@material-ui/core/styles';
 
 export const useStyles = () => {
+  const defaultTheme = useTheme();
   const styles = makeStyles(
     (theme) => {
       return ({
@@ -72,5 +75,8 @@ export const useStyles = () => {
     },
   )();
 
-  return styles;
+  return {
+    classes: styles,
+    theme: defaultTheme,
+  };
 };

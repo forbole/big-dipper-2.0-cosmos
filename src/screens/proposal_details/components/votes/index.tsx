@@ -1,6 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Box } from '@components';
+import {
+  Box, NoData,
+} from '@components';
 import { usePagination } from '@hooks';
 import { useStyles } from './styles';
 import { useProposalContext } from '../../contexts/proposal';
@@ -42,8 +44,14 @@ const Votes: React.FC<{
         handleTabChange={handleTabChange}
       />
       <div className={classes.list}>
-        <Mobile className={classes.mobile} items={items} />
-        <Desktop className={classes.desktop} items={items} />
+        {items.length ? (
+          <>
+            <Mobile className={classes.mobile} items={items} />
+            <Desktop className={classes.desktop} items={items} />
+          </>
+        ) : (
+          <NoData />
+        )}
       </div>
       <Paginate
         total={votes.length}

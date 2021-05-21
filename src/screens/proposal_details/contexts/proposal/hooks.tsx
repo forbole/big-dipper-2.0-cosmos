@@ -104,10 +104,10 @@ export const useProposal = (initialState: ProposalState) => {
     if (!data) {
       return initialState.rawData.voteTally;
     }
-    const yes = formatDenom(data.proposalTallyResult[0].yes);
-    const no = formatDenom(data.proposalTallyResult[0].no);
-    const veto = formatDenom(data.proposalTallyResult[0].noWithVeto);
-    const abstain = formatDenom(data.proposalTallyResult[0].abstain);
+    const yes = formatDenom(R.pathOr(0, ['proposalTallyResult', 0, 'yes'], data));
+    const no = formatDenom(R.pathOr(0, ['proposalTallyResult', 0, 'no'], data));
+    const veto = formatDenom(R.pathOr(0, ['proposalTallyResult', 0, 'noWithVeto'], data));
+    const abstain = formatDenom(R.pathOr(0, ['proposalTallyResult', 0, 'abstain'], data));
 
     return ({
       yes,

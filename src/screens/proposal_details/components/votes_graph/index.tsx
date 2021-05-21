@@ -19,12 +19,22 @@ const VotesGraph: React.FC<{
     uiData,
     rawData,
   } = useProposalContext();
-  const classes = useStyles();
+  const {
+    classes, theme,
+  } = useStyles();
   const { t } = useTranslation('proposals');
   const formattedData = formatGraphData({
     uiData,
     rawData,
   });
+  const empty = {
+    name: 'empty',
+    value: 2400,
+    color: theme.palette.custom.tags.zero,
+    display: '',
+  };
+  const notEmpty = formattedData.some((x) => x.value > 0);
+  const data = notEmpty ? formattedData : [...formattedData, empty];
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -38,17 +48,20 @@ const VotesGraph: React.FC<{
             cy="50%"
             stroke="none"
             dataKey="value"
-            data={formattedData}
+            data={data}
             fill="#8884d8"
             isAnimationActive={false}
           >
-            {formattedData.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={entry.color}
-                stroke={entry.color}
-              />
-            ))}
+            {data.map((entry, index) => {
+              console.log(entry, 'entry');
+              return (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={entry.color}
+                  stroke={entry.color}
+                />
+              );
+            })}
           </Pie>
         </PieChart>
       </div>
