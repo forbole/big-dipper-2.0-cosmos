@@ -4,6 +4,12 @@ export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
       return ({
+        root: {
+          // display: 'flex',
+          // alignItems: 'center',
+          // justifyContent: 'space-between',
+          // flexDirection: 'column',
+        },
         pie: {
           display: 'flex',
           alignItems: 'center',

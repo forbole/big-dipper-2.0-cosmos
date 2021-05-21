@@ -319,7 +319,7 @@ export const useProposal = (initialState: ProposalState) => {
     return ({
       overview,
       deposits,
-      votes,
+      votes: [...votes, ...votes, ...votes, ...votes],
       chart,
     });
   };

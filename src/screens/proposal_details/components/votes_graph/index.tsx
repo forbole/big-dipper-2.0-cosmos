@@ -28,7 +28,7 @@ const VotesGraph: React.FC<{
   });
 
   return (
-    <Box className={classnames(className)}>
+    <Box className={classnames(className, classes.root)}>
       <div className={classes.pie}>
         <PieChart
           width={250}

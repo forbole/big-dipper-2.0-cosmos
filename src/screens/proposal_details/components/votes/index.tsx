@@ -28,7 +28,8 @@ const Votes: React.FC<{
     handleChangePage,
     handleChangeRowsPerPage,
     sliceItems,
-  } = usePagination({});
+  } = usePagination({
+  });
 
   const classes = useStyles();
   const items = sliceItems(votes);
