@@ -37,16 +37,7 @@ const props = {
   loadNextPage: () => null,
   loadMoreItems: () => null,
   isItemLoaded: () => true,
-  rawDataTotal: 0,
-  formatUi: jest.fn(() => ([
-    {
-      block: <div>block</div>,
-      hash: <div>76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857</div>,
-      messages: '2',
-      result: <div>success</div>,
-      time: 'time',
-    },
-  ])),
+  transactions: [],
 };
 
 // ==================================

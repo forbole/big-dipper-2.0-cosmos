@@ -6,9 +6,9 @@ import { Typography } from '@material-ui/core';
 import {
   BoxDetails, AvatarName,
 } from '@components';
-import { Overview } from '../../types';
+import { OverviewType } from '../../types';
 
-const Overview: React.FC<Overview & ComponentDefault> = (props, { className }) => {
+const Overview: React.FC<OverviewType & ComponentDefault> = (props, { className }) => {
   const { t } = useTranslation('blocks');
   return (
     <BoxDetails

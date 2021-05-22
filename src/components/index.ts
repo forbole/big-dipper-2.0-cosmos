@@ -9,7 +9,7 @@ import Result from './result';
 import SingleTransactionMobile from './single_transaction_mobile';
 import Box from './box';
 import Loading from './loading';
-import TransactionsList from './transactions_list_old';
+import TransactionsListOld from './transactions_list_old';
 import TransactionMessagesFilter from './transaction_messages_filter';
 import BoxDetails from './box_details';
 import Pagination from './pagination';
@@ -39,7 +39,7 @@ export {
   SingleTransactionMobile,
   Box,
   Loading,
-  TransactionsList,
+  TransactionsListNew,
   TransactionMessagesFilter,
   BoxDetails,
   Pagination,
@@ -55,5 +55,5 @@ export {
   Name,
   Markdown,
   ConditionExplanation,
-  TransactionsListNew,
+  TransactionsListOld,
 };

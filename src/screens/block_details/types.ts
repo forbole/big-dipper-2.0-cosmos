@@ -1,4 +1,4 @@
-export type Overview = {
+export type OverviewType = {
   height: number;
   hash: string;
   txs: number;
@@ -7,7 +7,7 @@ export type Overview = {
   // votingPower: number;
 }
 
-export type Transactions = {
+export type TransactionType = {
   height: number;
   hash: string;
   success: boolean;
@@ -18,7 +18,7 @@ export type Transactions = {
 export type BlockDetailState = {
   loading: boolean;
   exists: boolean;
-  overview: Overview;
+  overview: OverviewType;
   signatures: AvatarName[];
-  transactions: Transactions[];
+  transactions: TransactionType[];
 }

@@ -7,10 +7,10 @@ import {
   Box,
 } from '@components';
 import { useStyles } from './styles';
-import { Transactions } from '../../types';
+import { TransactionType } from '../../types';
 
 const Transactions: React.FC<ComponentDefault & {
-  transactions: Transactions[];
+  transactions: TransactionType[];
 }> = ({
   className, transactions,
 }) => {
