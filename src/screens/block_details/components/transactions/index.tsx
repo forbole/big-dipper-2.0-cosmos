@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import {
-  TransactionsListNew,
+  TransactionsList,
   Box,
 } from '@components';
 import { useStyles } from './styles';
@@ -21,7 +21,7 @@ const Transactions: React.FC<ComponentDefault & {
       <div className={classes.header}>
         <Typography variant="h2">{t('transactions')}</Typography>
       </div>
-      <TransactionsListNew
+      <TransactionsList
         transactions={transactions}
         itemCount={transactions.length}
         className={classes.list}

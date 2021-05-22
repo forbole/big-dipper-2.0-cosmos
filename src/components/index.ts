@@ -25,7 +25,7 @@ import LinearLoading from './linear_loading';
 import Name from './name';
 import Markdown from './markdown';
 import ConditionExplanation from './condition_explanation';
-import TransactionsListNew from './transactions_list_new';
+import TransactionsList from './transactions_list_new';
 
 export {
   Layout,
@@ -39,7 +39,7 @@ export {
   SingleTransactionMobile,
   Box,
   Loading,
-  TransactionsListNew,
+  TransactionsList,
   TransactionMessagesFilter,
   BoxDetails,
   Pagination,
