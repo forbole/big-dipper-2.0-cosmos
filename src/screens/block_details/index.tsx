@@ -11,7 +11,6 @@ import {
   Signatures,
 } from './components';
 import { useStyles } from './styles';
-import { BlockProvider } from './contexts/block';
 import { useBlockDetails } from './hooks';
 
 const BlockDetails = () => {
@@ -19,40 +18,41 @@ const BlockDetails = () => {
   const classes = useStyles();
   const { state } = useBlockDetails();
   const {
-    overview, signatures,
+    overview,
+    signatures,
+    transactions,
   } = state;
+
+  let component = null;
+
+  if (state.loading) {
+    component = <LinearLoading />;
+  } else if (!state.exists && !state.loading) {
+    component = <NotFound />;
+  } else {
+    component = (
+      <span className={classes.root}>
+        <Overview
+          height={overview.height}
+          hash={overview.hash}
+          proposer={overview.proposer}
+          timestamp={overview.timestamp}
+          txs={overview.txs}
+        />
+        <Signatures
+          className={classes.signatures}
+          signatures={signatures}
+        />
+        <Transactions
+          transactions={transactions}
+        />
+      </span>
+    );
+  }
+
   return (
     <Layout navTitle={t('blockDetails')} title={t('blockDetails')}>
-      <BlockProvider>
-        {({
-          exists, loading,
-        }) => {
-          if (state.loading) {
-            return <LinearLoading />;
-          }
-
-          if (!state.exists && !state.loading) {
-            return <NotFound />;
-          }
-
-          return (
-            <span className={classes.root}>
-              <Overview
-                height={overview.height}
-                hash={overview.hash}
-                proposer={overview.proposer}
-                timestamp={overview.timestamp}
-                txs={overview.txs}
-              />
-              <Signatures
-                className={classes.signatures}
-                signatures={signatures}
-              />
-              <Transactions />
-            </span>
-          );
-        }}
-      </BlockProvider>
+      {component}
     </Layout>
   );
 };
