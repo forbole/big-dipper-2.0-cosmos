@@ -1,13 +1,16 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { NoData } from '@components';
-import {
-  Desktop,
-  Mobile,
-} from './components';
+import { useScreenSize } from '@hooks';
 import { useStyles } from './styles';
 import { TransactionsListState } from './types';
 
+const Desktop = dynamic(() => import('./components/desktop'));
+const Mobile = dynamic(() => import('./components/mobile'));
+
 const TransactionsList: React.FC<TransactionsListState> = (props) => {
+  const { isDesktop } = useScreenSize();
+  // setting fallback values
   const {
     hasNextPage = false,
     isNextPageLoading = false,
@@ -15,8 +18,7 @@ const TransactionsList: React.FC<TransactionsListState> = (props) => {
     loadMoreItems = () => null,
     isItemLoaded = () => true,
     itemCount,
-    rawDataTotal,
-    formatUi,
+    transactions,
   } = props;
   const classes = useStyles();
 
@@ -27,8 +29,7 @@ const TransactionsList: React.FC<TransactionsListState> = (props) => {
     loadNextPage,
     loadMoreItems,
     itemCount,
-    rawDataTotal,
-    formatUi,
+    transactions,
   };
 
   if (!itemCount) {
@@ -39,14 +40,17 @@ const TransactionsList: React.FC<TransactionsListState> = (props) => {
 
   return (
     <>
-      <Mobile
-        className={classes.mobile}
-        {...formatProps}
-      />
-      <Desktop
-        className={classes.desktop}
-        {...formatProps}
-      />
+      {isDesktop ? (
+        <Desktop
+          className={classes.desktop}
+          {...formatProps}
+        />
+      ) : (
+        <Mobile
+          className={classes.mobile}
+          {...formatProps}
+        />
+      )}
     </>
   );
 };

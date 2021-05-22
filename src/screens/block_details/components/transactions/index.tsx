@@ -22,9 +22,14 @@ const Transactions: React.FC<ComponentDefault & {
         <Typography variant="h2">{t('transactions')}</Typography>
       </div>
       <TransactionsListNew
-        formatUi={transactions}
+        transactions={transactions}
         itemCount={transactions.length}
         className={classes.list}
+        hasNextPage={false}
+        isNextPageLoading={false}
+        loadNextPage={() => null}
+        loadMoreItems={() => null}
+        isItemLoaded={() => true}
       />
     </Box>
 

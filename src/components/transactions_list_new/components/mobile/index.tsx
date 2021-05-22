@@ -1,18 +1,30 @@
 import React from 'react';
 import classnames from 'classnames';
+import numeral from 'numeral';
+import dayjs from '@utils/dayjs';
+import Link from 'next/link';
+import {
+  TRANSACTION_DETAILS,
+  BLOCK_DETAILS,
+} from '@utils/go_to_page';
+import {
+  Typography, Divider,
+} from '@material-ui/core';
 import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
-import { Divider } from '@material-ui/core';
+
 import { mergeRefs } from '@utils/merge_refs';
 import {
   SingleTransactionMobile,
   Loading,
+  Result,
 } from '@components';
 import {
   useList,
   useListRow,
 } from '@hooks';
+import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { useStyles } from './styles';
 import { TransactionsListState } from '../../types';
 
@@ -21,7 +33,7 @@ const Mobile: React.FC<TransactionsListState> = ({
   itemCount,
   loadMoreItems,
   isItemLoaded,
-  formatUi,
+  transactions,
 }) => {
   const classes = useStyles();
 
@@ -30,7 +42,31 @@ const Mobile: React.FC<TransactionsListState> = ({
     getRowHeight,
     setRowHeight,
   } = useList();
-  const items = formatUi();
+
+  const items = transactions.map((x) => ({
+    block: (
+      <Link href={BLOCK_DETAILS(x.height)} passHref>
+        <Typography variant="body1" component="a">
+          {numeral(x.height).format('0,0')}
+        </Typography>
+      </Link>
+    ),
+    hash: (
+      <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
+        <Typography variant="body1" component="a">
+          {getMiddleEllipsis(x.hash, {
+            beginning: 15, ending: 5,
+          })}
+        </Typography>
+      </Link>
+    ),
+    result: (
+      <Result success={x.success} />
+    ),
+    time: dayjs.utc(x.timestamp).fromNow(),
+    messages: numeral(x.messages).format('0,0'),
+  }));
+
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer>

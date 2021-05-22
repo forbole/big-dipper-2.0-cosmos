@@ -15,3 +15,11 @@ interface AvatarName {
   name: string;
   href?: (address: string) => string;
 }
+
+type Transactions = {
+  height: number;
+  hash: string;
+  success: boolean;
+  timestamp: string;
+  messages: number;
+}

@@ -1,13 +1,23 @@
 import React from 'react';
 import classnames from 'classnames';
 import AutoSizer from 'react-virtualized-auto-sizer';
+import numeral from 'numeral';
+import dayjs from '@utils/dayjs';
+import Link from 'next/link';
+import {
+  TRANSACTION_DETAILS,
+  BLOCK_DETAILS,
+} from '@utils/go_to_page';
 import InfiniteLoader from 'react-window-infinite-loader';
 import { VariableSizeGrid as Grid } from 'react-window';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import { mergeRefs } from '@utils/merge_refs';
-import { Loading } from '@components';
+import {
+  Loading, Result,
+} from '@components';
 import { useGrid } from '@hooks';
+import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { TransactionsListState } from '../../types';
 import { columns } from './utils';
 import { useStyles } from './styles';
@@ -17,7 +27,7 @@ const Desktop: React.FC<TransactionsListState> = ({
   itemCount,
   loadMoreItems,
   isItemLoaded,
-  formatUi,
+  transactions,
 }) => {
   const {
     gridRef,
@@ -29,7 +39,30 @@ const Desktop: React.FC<TransactionsListState> = ({
 
   const classes = useStyles();
   const { t } = useTranslation('transactions');
-  const items = formatUi('desktop');
+
+  const items = transactions.map((x) => ({
+    block: (
+      <Link href={BLOCK_DETAILS(x.height)} passHref>
+        <Typography variant="body1" component="a">
+          {numeral(x.height).format('0,0')}
+        </Typography>
+      </Link>
+    ),
+    hash: (
+      <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
+        <Typography variant="body1" component="a">
+          {getMiddleEllipsis(x.hash, {
+            beginning: 20, ending: 15,
+          })}
+        </Typography>
+      </Link>
+    ),
+    result: (
+      <Result success={x.success} />
+    ),
+    time: dayjs.utc(x.timestamp).fromNow(),
+    messages: numeral(x.messages).format('0,0'),
+  }));
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer onResize={onResize}>
