@@ -22,7 +22,7 @@ const BlockDetails = () => {
     signatures,
     transactions,
   } = state;
-  console.log(state, 'give me state');
+
   let component = null;
 
   if (state.loading) {
