@@ -13,7 +13,7 @@ const Overview: React.FC<{
   hash: string;
   proposer: AvatarName;
   timestamp: string;
-  txs: string;
+  txs: number;
 }> = (props, { className }) => {
   const { t } = useTranslation('blocks');
   return (

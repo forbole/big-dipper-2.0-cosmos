@@ -7,22 +7,12 @@ import {
   BlockDetailsQuery,
 } from '@graphql/types';
 import { useChainContext } from '@contexts';
+import { BlockDetailState } from './types';
 
 export const useBlockDetails = () => {
   const { findAddress } = useChainContext();
   const router = useRouter();
-  const [state, setState] = useState<{
-    loading: boolean;
-    exists: boolean;
-    overview: {
-      height: number;
-      hash: string;
-      txs: number;
-      timestamp: string;
-      proposer: AvatarName;
-      votingPower: number;
-    }
-  }>({
+  const [state, setState] = useState<BlockDetailState>({
     loading: true,
     exists: true,
     overview: {
@@ -37,6 +27,7 @@ export const useBlockDetails = () => {
       },
       votingPower: 0,
     },
+    signatures: [],
   });
 
   const handleSetState = (stateChange: typeof state) => {
@@ -68,30 +59,36 @@ export const useBlockDetails = () => {
     // ==========================
     // Overview
     // ==========================
-    const proposerAddress = R.pathOr('', ['block', 0, 'validator', 'validatorInfo', 'operatorAddress'], data);
-    const proposer = findAddress(proposerAddress);
-
-    const overview = {
-      height: data.block[0].height,
-      hash: data.block[0].hash,
-      txs: data.block[0].txs,
-      timestamp: data.block[0].timestamp,
-      proposer: {
-        address: proposerAddress,
-        imageUrl: proposer.imageUrl,
-        name: proposer.moniker,
-      },
-      // votingPower: R.pathOr(0, [
-      //   'block',
-      //   0,
-      //   'preCommitsAggregate',
-      //   'aggregate',
-      //   'sum',
-      //   'votingPower',
-      // ], data),
+    const formatOverview = () => {
+      const proposerAddress = R.pathOr('', ['block', 0, 'validator', 'validatorInfo', 'operatorAddress'], data);
+      const proposer = findAddress(proposerAddress);
+      const overview = {
+        height: data.block[0].height,
+        hash: data.block[0].hash,
+        txs: data.block[0].txs,
+        timestamp: data.block[0].timestamp,
+        proposer: {
+          address: proposerAddress,
+          imageUrl: proposer.imageUrl,
+          name: proposer.moniker,
+        },
+      };
+      return overview;
     };
 
-    stateChange.overview = overview;
+    stateChange.overview = formatOverview();
+
+    // ==========================
+    // Signatures
+    // ==========================
+    const formatSignatures = () => {
+      const signatures = data.block[0].preCommits.map((x) => {
+        return findAddress(x.validator.validatorInfo.operatorAddress);
+      });
+      return signatures;
+    };
+    stateChange.signatures = formatSignatures();
+
     return stateChange;
   };
 

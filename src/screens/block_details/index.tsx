@@ -18,7 +18,9 @@ const BlockDetails = () => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
   const { state } = useBlockDetails();
-  console.log(state, 'state');
+  const {
+    overview, signatures,
+  } = state;
   return (
     <Layout navTitle={t('blockDetails')} title={t('blockDetails')}>
       <BlockProvider>
@@ -35,8 +37,17 @@ const BlockDetails = () => {
 
           return (
             <span className={classes.root}>
-              <Overview />
-              <Signatures className={classes.signatures} />
+              <Overview
+                height={overview.height}
+                hash={overview.hash}
+                proposer={overview.proposer}
+                timestamp={overview.timestamp}
+                txs={overview.txs}
+              />
+              <Signatures
+                className={classes.signatures}
+                signatures={signatures}
+              />
               <Transactions />
             </span>
           );

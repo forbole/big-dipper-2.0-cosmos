@@ -8,32 +8,37 @@ import {
 } from '@components';
 import { useScreenSize } from '@hooks';
 import { useStyles } from './styles';
-import { useBlockContext } from '../../contexts/block';
 
 const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
 
 const Signatures: React.FC<{
   className?: string;
-}> = ({ className }) => {
+  signatures: AvatarName[];
+}> = ({
+  className, signatures,
+}) => {
   const { isDesktop } = useScreenSize();
   const { t } = useTranslation('blocks');
   const classes = useStyles();
-  const {
-    rawData,
-  } = useBlockContext();
 
   return (
     <Box className={classnames(className, classes.root)}>
       <Typography className={classes.title} variant="h2">{t('signatures')}</Typography>
-      {!rawData.signatures.length ? (
+      {!signatures.length ? (
         <NoData />
       ) : (
         <div className={classes.wrapper}>
           {isDesktop ? (
-            <Desktop className={classes.desktop} />
+            <Desktop
+              className={classes.desktop}
+              signatures={signatures}
+            />
           ) : (
-            <Mobile className={classes.mobile} />
+            <Mobile
+              className={classes.mobile}
+              signatures={signatures}
+            />
           )}
         </div>
       )}

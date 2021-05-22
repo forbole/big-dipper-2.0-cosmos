@@ -10,16 +10,16 @@ import {
   useList,
   useListRow,
 } from '@hooks';
-import { useBlockContext } from '../../../../contexts/block';
+import { AvatarName } from '@components';
 import { useStyles } from './styles';
 
 const Mobile: React.FC<{
   className?: string;
-}> = ({ className }) => {
+  signatures?: AvatarName[];
+}> = ({
+  className, signatures,
+}) => {
   const { t } = useTranslation('blocks');
-  const {
-    uiData,
-  } = useBlockContext();
 
   const {
     listRef,
@@ -27,8 +27,6 @@ const Mobile: React.FC<{
     setRowHeight,
   } = useList();
   const classes = useStyles();
-
-  const { signatures = [] } = uiData;
 
   return (
     <div className={classnames(className, classes.root)}>
@@ -59,7 +57,11 @@ const Mobile: React.FC<{
                           <Typography variant="h4" className="label">
                             {t('validator')}
                           </Typography>
-                          {selectedItem.validator}
+                          <AvatarName
+                            address={selectedItem.address}
+                            imageUrl={selectedItem.imageUrl}
+                            name={selectedItem.name}
+                          />
                         </div>
                       </div>
                       {/* single signature end */}
