@@ -12,22 +12,24 @@ import {
 } from './components';
 import { useStyles } from './styles';
 import { BlockProvider } from './contexts/block';
+import { useBlockDetails } from './hooks';
 
 const BlockDetails = () => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
-
+  const { state } = useBlockDetails();
+  console.log(state, 'state');
   return (
     <Layout navTitle={t('blockDetails')} title={t('blockDetails')}>
       <BlockProvider>
         {({
           exists, loading,
         }) => {
-          if (loading) {
+          if (state.loading) {
             return <LinearLoading />;
           }
 
-          if (!exists && !loading) {
+          if (!state.exists && !state.loading) {
             return <NotFound />;
           }
 
