@@ -25,9 +25,9 @@ export const useBlockDetails = () => {
         name: '',
         imageUrl: null,
       },
-      votingPower: 0,
     },
     signatures: [],
+    transactions: [],
   });
 
   const handleSetState = (stateChange: typeof state) => {
@@ -35,7 +35,7 @@ export const useBlockDetails = () => {
   };
 
   // ==========================
-  // Data
+  // Fetch Data
   // ==========================
   useBlockDetailsQuery({
     variables: {
@@ -88,6 +88,24 @@ export const useBlockDetails = () => {
       return signatures;
     };
     stateChange.signatures = formatSignatures();
+
+    // ==========================
+    // Transactions
+    // ==========================
+    const formatTransactions = () => {
+      const transactions = data.transaction.map((x) => {
+        return ({
+          height: x.height,
+          hash: x.hash,
+          success: x.success,
+          timestamp: stateChange.overview.timestamp,
+          messages: x.messages.length,
+        });
+      });
+
+      return transactions;
+    };
+    stateChange.transactions = formatTransactions();
 
     return stateChange;
   };

@@ -12,8 +12,7 @@ import { useStyles } from './styles';
 const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
 
-const Signatures: React.FC<{
-  className?: string;
+const Signatures: React.FC<ComponentDefault & {
   signatures: AvatarName[];
 }> = ({
   className, signatures,

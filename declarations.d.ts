@@ -5,6 +5,9 @@ declare module '*.jpeg';
 declare module '*.svg';
 declare module '*.gif';
 
+type ComponentDefault = {
+  className?: string;
+}
 interface AvatarName {
   className?: string;
   imageUrl?: string | null;
