@@ -32,8 +32,7 @@ jest.mock('@contexts', () => ({
 
 jest.mock('@components', () => ({
   Layout: (props) => <div id="Layout" {...props} />,
-  NotFound: (props) => <div id="NotFound" {...props} />,
-  LinearLoading: (props) => <div id="LinearLoading" {...props} />,
+  LoadAndExist: (props) => <div id="LoadAndExist" {...props} />,
 }));
 
 jest.mock('./components', () => ({

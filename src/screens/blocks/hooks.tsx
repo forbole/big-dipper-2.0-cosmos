@@ -1,29 +1,25 @@
 import { useState } from 'react';
 import * as R from 'ramda';
-import numeral from 'numeral';
-import dayjs from '@utils/dayjs';
-import Link from 'next/link';
-import { Typography } from '@material-ui/core';
 import {
   useBlocksListenerSubscription,
   useBlocksQuery,
   BlocksListenerSubscription,
 } from '@graphql/types';
-import { BLOCK_DETAILS } from '@utils/go_to_page';
-import { AvatarName } from '@components';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { useChainContext } from '@contexts';
-import { BlocksState } from './types';
+import {
+  BlocksState, BlockType,
+} from './types';
 
-export const useBlocks = (initialState: BlocksState) => {
+export const useBlocks = () => {
   const { findAddress } = useChainContext();
-
-  const [state, setState] = useState(initialState);
-  const {
-    items,
-    isNextPageLoading,
-    hasNextPage,
-  } = state;
+  const [state, setState] = useState<BlocksState>({
+    loading: true,
+    exists: true,
+    items: [],
+    hasNextPage: false,
+    isNextPageLoading: false,
+    rawDataTotal: 0,
+  });
 
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
@@ -39,6 +35,7 @@ export const useBlocks = (initialState: BlocksState) => {
     },
     onSubscriptionData: (data) => {
       handleSetState({
+        loading: false,
         items: [
           ...formatBlocks(data.subscriptionData.data),
           ...state.items,
@@ -58,6 +55,7 @@ export const useBlocks = (initialState: BlocksState) => {
     onCompleted: (data) => {
       const newItems = R.uniq([...state.items, ...formatBlocks(data)]);
       handleSetState({
+        loading: false,
         items: newItems,
         hasNextPage: newItems.length < data.total.aggregate.count,
         isNextPageLoading: false,
@@ -91,64 +89,33 @@ export const useBlocks = (initialState: BlocksState) => {
     });
   };
 
-  const formatBlocks = (data: BlocksListenerSubscription) => {
+  const formatBlocks = (data: BlocksListenerSubscription): BlockType[] => {
     return data.blocks.map((x) => {
+      const proposerAddress = R.pathOr('', ['validator', 'validatorInfo', 'operatorAddress'], x);
+      const proposer = findAddress(proposerAddress);
       return ({
         height: x.height,
         txs: x.txs,
         hash: x.hash,
         timestamp: x.timestamp,
-        proposer: x.validator.validatorInfo.operatorAddress,
+        proposer: {
+          address: proposerAddress,
+          imageUrl: proposer.imageUrl,
+          name: proposer.moniker,
+        },
       });
     });
   };
 
-  const formatUi = (screen: 'mobile' | 'desktop' = 'mobile') => {
-    return state.items.map((x) => {
-      const validator = findAddress(x.proposer);
-      const hash = screen === 'mobile'
-        ? getMiddleEllipsis(x.hash, {
-          beginning: 13, ending: 10,
-        })
-        : getMiddleEllipsis(x.hash, {
-          beginning: 13, ending: 15,
-        });
-
-      return ({
-        height: (
-          <Link href={BLOCK_DETAILS(x.height)} passHref>
-            <Typography variant="body1" className="value" component="a">
-              {numeral(x.height).format('0,0')}
-            </Typography>
-          </Link>
-        ),
-        txs: numeral(x.txs).format('0,0'),
-        time: dayjs.utc(x.timestamp).fromNow(),
-        proposer: (
-          <AvatarName
-            address={x.proposer}
-            imageUrl={validator ? validator?.imageUrl : null}
-            name={validator ? validator.moniker : x.proposer}
-          />
-        ),
-        hash,
-      });
-    });
-  };
-
-  const itemCount = hasNextPage ? items.length + 1 : items.length;
-  const loadMoreItems = isNextPageLoading ? () => null : loadNextPage;
-  const isItemLoaded = (index) => !hasNextPage || index < items.length;
+  const itemCount = state.hasNextPage ? state.items.length + 1 : state.items.length;
+  const loadMoreItems = state.isNextPageLoading ? () => null : loadNextPage;
+  const isItemLoaded = (index) => !state.hasNextPage || index < state.items.length;
 
   return {
-    hasNextPage,
-    isNextPageLoading,
+    state,
     loadNextPage,
     itemCount,
     loadMoreItems,
     isItemLoaded,
-    formatUi,
-    rawData: state.items,
-    rawDataTotal: state.rawDataTotal,
   };
 };
