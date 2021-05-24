@@ -1,11 +1,12 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import classnames from 'classnames';
 import { Box } from '@components';
-import {
-  Mobile, Desktop,
-} from './components';
 import { useStyles } from './styles';
 import { BlocksProvider } from './contexts/blocks';
+
+const Desktop = dynamic(() => import('./components/desktop'));
+const Mobile = dynamic(() => import('./components/mobile'));
 
 const List: React.FC<{
   className?: string;

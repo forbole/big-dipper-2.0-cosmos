@@ -1,11 +1,11 @@
 export interface BlocksState {
-  hasNextPage: boolean;
-  isNextPageLoading: boolean;
-  loadNextPage?: (any) => void;
-  itemCount?: number;
-  loadMoreItems?: (any) => void;
-  isItemLoaded?: (index: number) => boolean;
-  rawDataTotal: number;
+  // hasNextPage: boolean;
+  // isNextPageLoading: boolean;
+  // loadNextPage?: (any) => void;
+  // itemCount?: number;
+  // loadMoreItems?: (any) => void;
+  // isItemLoaded?: (index: number) => boolean;
+  // rawDataTotal: number;
   items: {
     height: number;
     txs: number;

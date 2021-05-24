@@ -15,7 +15,10 @@ const Blocks = () => {
       navTitle={t('blocks')}
       className={classes.root}
     >
-      <List />
+      <Box className={classnames(className, classes.root)}>
+        <Mobile className={classes.mobile} />
+        <Desktop className={classes.desktop} />
+      </Box>
     </Layout>
   );
 };
