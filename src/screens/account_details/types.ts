@@ -20,12 +20,36 @@ export type TransactionType = {
   messages: number;
 }
 
+export type DelegationType = {
+  validator: AvatarName;
+  commission: number;
+  amount: number;
+  reward: number;
+}
+
+export type RedelegationType = {
+  to: AvatarName;
+  from: AvatarName;
+  linkedUntil: string;
+  amount: number;
+}
+
+export type UnbondingType = {
+  validator: AvatarName;
+  commission: number;
+  amount: number;
+  linkedUntil: string;
+}
+
 export type AccountDetailState = {
   loading: boolean;
   exists: boolean;
   overview: OverviewType;
   balance: BalanceType;
-
-  // signatures: AvatarName[];
+  staking: {
+    delegations: DelegationType[];
+    redelegations: RedelegationType[];
+    unbondings: UnbondingType[];
+  }
   // transactions: TransactionType[];
 }

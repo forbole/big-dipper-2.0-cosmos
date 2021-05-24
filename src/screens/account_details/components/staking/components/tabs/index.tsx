@@ -8,18 +8,27 @@ import {
 import { a11yProps } from '@utils/allyProps';
 import { getTabs } from '../../utils';
 import { useStyles } from './styles';
-import { useAccountContext } from '../../../../contexts/account';
+import {
+  RedelegationType, UnbondingType, DelegationType,
+} from '../../../../types';
 
 const TabsHeader: React.FC<{
   className?: string;
   tab: number;
   handleTabChange: (_event: any, newValue: number) => void;
+  staking: {
+    delegations: DelegationType[];
+    redelegations: RedelegationType[];
+    unbondings: UnbondingType[];
+  }
 }> = ({
-  className, tab, handleTabChange,
+  className,
+  tab,
+  handleTabChange,
+  staking,
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('accounts');
-  const { uiData } = useAccountContext();
   const tabs = getTabs();
 
   return (
@@ -29,7 +38,7 @@ const TabsHeader: React.FC<{
           <Tab
             key={x.key}
             label={t(x.key, {
-              num: uiData.staking[x.key]?.length ?? 0,
+              num: staking[x.key]?.length ?? 0,
             })}
             {...a11yProps(x.id)}
           />

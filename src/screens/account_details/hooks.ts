@@ -13,7 +13,9 @@ import { formatDenom } from '@utils/format_denom';
 import { AccountDetailState } from './types';
 
 export const useAccountDetails = () => {
-  const { findAddress } = useChainContext();
+  const {
+    findAddress, findOperator,
+  } = useChainContext();
   const router = useRouter();
   const [state, setState] = useState<AccountDetailState>({
     loading: true,
@@ -29,6 +31,11 @@ export const useAccountDetails = () => {
       reward: 0,
       commission: 0,
       total: 0,
+    },
+    staking: {
+      delegations: [],
+      redelegations: [],
+      unbondings: [],
     },
   });
 
@@ -62,106 +69,142 @@ export const useAccountDetails = () => {
     // ============================
     // overview
     // ============================
-    const overview = {
-      address: data.account[0].address,
-      withdrawalAddress: R.pathOr(data.account[0].address, ['account', 0, 'delegationRewards', 0, 'withdrawAddress'], data),
+    const formatOverview = () => {
+      const overview = {
+        address: data.account[0].address,
+        withdrawalAddress: R.pathOr(data.account[0].address, ['account', 0, 'delegationRewards', 0, 'withdrawAddress'], data),
+      };
+      return overview;
     };
 
-    stateChange.overview = overview;
+    stateChange.overview = formatOverview();
 
     // ============================
     // balance
     // ============================
-    const available = getDenom(
-      R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data),
-    );
-    const availableDenom = formatDenom(available.amount);
+    const formatBalance = () => {
+      const available = getDenom(
+        R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data),
+      );
+      const availableDenom = formatDenom(available.amount);
 
-    const delegate = R.pathOr([], ['account', 0, 'delegations'], data).reduce((a, b) => {
-      return a + numeral(b.amount.amount).value();
-    }, 0);
-    const delegateDenom = formatDenom(delegate);
+      const delegate = R.pathOr([], ['account', 0, 'delegations'], data).reduce((a, b) => {
+        return a + numeral(b.amount.amount).value();
+      }, 0);
+      const delegateDenom = formatDenom(delegate);
 
-    const unbonding = R.pathOr([], ['account', 0, 'unbonding'], data).reduce((a, b) => {
-      return a + numeral(b.amount.amount).value();
-    }, 0);
-    const unbondingDenom = formatDenom(unbonding);
+      const unbonding = R.pathOr([], ['account', 0, 'unbonding'], data).reduce((a, b) => {
+        return a + numeral(b.amount.amount).value();
+      }, 0);
+      const unbondingDenom = formatDenom(unbonding);
 
-    const reward = R.pathOr([], ['account', 0, 'delegationRewards'], data).reduce((a, b) => {
-      const denom = getDenom(b.amount);
-      return a + numeral(denom.amount).value();
-    }, 0);
+      const reward = R.pathOr([], ['account', 0, 'delegationRewards'], data).reduce((a, b) => {
+        const denom = getDenom(b.amount);
+        return a + numeral(denom.amount).value();
+      }, 0);
 
-    const rewardDenom = formatDenom(reward);
+      const rewardDenom = formatDenom(reward);
 
-    const commission = getDenom(R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data));
-    const commissionDenom = formatDenom(commission.amount);
+      const commission = getDenom(R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data));
+      const commissionDenom = formatDenom(commission.amount);
 
-    const total = (
-      availableDenom + delegateDenom + unbondingDenom + rewardDenom + commissionDenom);
+      const total = (
+        availableDenom + delegateDenom + unbondingDenom + rewardDenom + commissionDenom);
 
-    const balance = {
-      available: availableDenom,
-      delegate: delegateDenom,
-      unbonding: unbondingDenom,
-      reward: rewardDenom,
-      commission: commissionDenom,
-      total,
+      const balance = {
+        available: availableDenom,
+        delegate: delegateDenom,
+        unbonding: unbondingDenom,
+        reward: rewardDenom,
+        commission: commissionDenom,
+        total,
+      };
+
+      return balance;
     };
 
-    stateChange.balance = balance;
+    stateChange.balance = formatBalance();
 
     // ============================
     // delegations
     // ============================
-    // const rewardsDict = {};
+    const formatDelegations = () => {
+      const rewardsDict = {};
+      data.account[0].delegationRewards.forEach((x) => {
+        const denomAmount = getDenom(x.amount);
+        const denomFormat = formatDenom(denomAmount.amount);
+        rewardsDict[x.validator.validatorInfo.operatorAddress] = denomFormat;
+      });
 
-    // data.account[0].delegationRewards.forEach((x) => {
-    //   const denomAmount = getDenom(x.amount);
-    //   const denomFormat = formatDenom(denomAmount.amount);
-    //   rewardsDict[x.validator.validatorInfo.operatorAddress] = denomFormat;
-    // });
+      const delegations = data.account[0].delegations.map((x) => {
+        const validatorAddress = x.validator.validatorInfo.operatorAddress;
+        const validator = findAddress(validatorAddress);
+        return ({
+          validator: {
+            address: validatorAddress,
+            imageUrl: validator.imageUrl,
+            name: validator.moniker,
+          },
+          reward: rewardsDict[validatorAddress],
+          amount: formatDenom(x.amount.amount),
+          commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
+        });
+      });
 
-    // const delegations = data.account[0].delegations.map((x) => {
-    //   const validator = x.validator.validatorInfo.operatorAddress;
-    //   return ({
-    //     validator,
-    //     reward: rewardsDict[validator],
-    //     amount: formatDenom(x.amount.amount),
-    //     commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
-    //   });
-    // });
+      return delegations;
+    };
 
-    // results.rawData.staking.delegations = delegations;
+    stateChange.staking.delegations = formatDelegations();
 
     // ============================
     // redelegations
     // ============================
-    // const redelegations = data.account[0].redelegations.map((x) => {
-    //   return ({
-    //     to: x.to,
-    //     from: x.from,
-    //     linkedUntil: x.completionTime,
-    //     amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
-    //   });
-    // });
+    const formatRedelegations = () => {
+      const redelegations = data.account[0].redelegations.map((x) => {
+        const to = findAddress(findOperator(x.to));
+        const from = findAddress(findOperator(x.from));
+        return ({
+          to: {
+            address: x.to,
+            imageUrl: to.imageUrl,
+            name: to.moniker,
+          },
+          from: {
+            address: x.from,
+            imageUrl: from.imageUrl,
+            name: from.moniker,
+          },
+          linkedUntil: x.completionTime,
+          amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
+        });
+      });
+      return redelegations;
+    };
 
-    // results.rawData.staking.redelegations = redelegations;
+    stateChange.staking.redelegations = formatRedelegations();
 
     // ============================
     // unbondings
     // ============================
-    // const unbondings = data.account[0].unbonding.map((x) => {
-    //   const validator = x.validator.validatorInfo.operatorAddress;
-    //   return ({
-    //     validator,
-    //     amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
-    //     linkedUntil: x.completionTimestamp,
-    //     commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
-    //   });
-    // });
+    const formatUnbondings = () => {
+      const unbondings = data.account[0].unbonding.map((x) => {
+        const validatorAddress = x.validator.validatorInfo.operatorAddress;
+        const validator = findAddress(validatorAddress);
+        return ({
+          validator: {
+            address: validatorAddress,
+            imageUrl: validator.imageUrl,
+            name: validator.moniker,
+          },
+          amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
+          linkedUntil: x.completionTimestamp,
+          commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
+        });
+      });
+      return unbondings;
+    };
 
-    // results.rawData.staking.unbondings = unbondings;
+    stateChange.staking.unbondings = formatUnbondings();
 
     return stateChange;
   };
