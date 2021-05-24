@@ -4,6 +4,7 @@ import {
   Layout,
   NotFound,
   LinearLoading,
+  LoadAndExist,
 } from '@components';
 import { useStyles } from './styles';
 import {
@@ -12,11 +13,14 @@ import {
   Staking,
   Transactions,
 } from './components';
+import { useAccountDetails } from './hooks';
 import { AccountProvider } from './contexts/account';
 
 const AccountDetails = () => {
   const { t } = useTranslation('accounts');
   const classes = useStyles();
+  const { state } = useAccountDetails();
+
   return (
     <Layout navTitle={t('accountDetails')} title={t('accountDetails')}>
       <AccountProvider>
@@ -34,7 +38,11 @@ const AccountDetails = () => {
           return (
             <span className={classes.root}>
               <Balance className={classes.balance} />
-              <Overview className={classes.overview} />
+              <Overview
+                className={classes.overview}
+                withdrawalAddress={state.overview.withdrawalAddress}
+                address={state.overview.address}
+              />
               <Staking className={classes.staking} />
               <Transactions className={classes.transactions} />
             </span>
