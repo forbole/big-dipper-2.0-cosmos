@@ -11,10 +11,6 @@ export type BlocksState = {
   exists: boolean;
   hasNextPage: boolean;
   isNextPageLoading: boolean;
-  // loadNextPage?: (any) => void;
-  // itemCount?: number;
-  // loadMoreItems?: (any) => void;
-  // isItemLoaded?: (index: number) => boolean;
   rawDataTotal: number;
   items: BlockType[];
 }

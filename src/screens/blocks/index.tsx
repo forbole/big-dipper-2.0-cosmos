@@ -21,14 +21,13 @@ const Blocks = () => {
     itemCount,
     isItemLoaded,
   } = useBlocks();
-
   return (
     <Layout
       title={t('blocks')}
       navTitle={t('blocks')}
       className={classes.root}
     >
-      <Box className={classes.root}>
+      <Box className={classes.box}>
         {isDesktop ? (
           <Desktop
             items={state.items}
