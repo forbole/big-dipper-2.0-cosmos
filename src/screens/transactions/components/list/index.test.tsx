@@ -18,7 +18,7 @@ import List from '.';
 // ==================================
 jest.mock('@components', () => ({
   Box: (props) => <div id="Box" {...props} />,
-  TransactionsList: (props) => <div id="TransactionsList" {...props} />,
+  TransactionsListOld: (props) => <div id="TransactionsListOld" {...props} />,
 }));
 
 const mockTransactions = jest.fn().mockResolvedValue({
