@@ -15,8 +15,8 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
       className="makeStyles-root"
     >
       <div
-        hash="A8067C16018C78B7729FEA891A292C559C7E565B61524E0162C0C30A9BC2A467"
-        height={300}
+        hash="E568ACFE5717F79A44979563410FF7F6C3043A07307E541EF21E15FC478C3DF0"
+        height={999}
         id="Overview"
         proposer={
           Object {
@@ -25,8 +25,8 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
             "name": "moniker",
           }
         }
-        timestamp="2021-04-27T15:26:36.986315"
-        txs={0}
+        timestamp="2021-04-27T16:27:34.331769"
+        txs={1}
       />
       <div
         className="makeStyles-signatures"
@@ -34,7 +34,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
         signatures={
           Array [
             Object {
-              "address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+              "address": "desmosvaloper1qlh47ty9ah2d5e0xq6gsvqjvfulljl9602k7f9",
               "imageUrl": null,
               "name": "moniker",
             },
@@ -43,7 +43,17 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
       />
       <div
         id="Transactions"
-        transactions={Array []}
+        transactions={
+          Array [
+            Object {
+              "hash": "393310C681CB39E09CD3AC16C600DBFDACB2DF5085277DA81E52698620C06136",
+              "height": 999,
+              "messages": 1,
+              "success": true,
+              "timestamp": "2021-04-27T16:27:34.331769",
+            },
+          ]
+        }
       />
     </span>
   </div>
