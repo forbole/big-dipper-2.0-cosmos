@@ -1,23 +1,48 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
+import dayjs from '@utils/dayjs';
+import numeral from 'numeral';
 import {
   Divider, Typography,
 } from '@material-ui/core';
+import { AvatarName } from '@components';
+import { RedelegationType } from '@src/screens/account_details/types';
+import { chainConfig } from '@src/chain_config';
 import { useStyles } from './styles';
 
 const Mobile: React.FC<{
   className?: string;
-  items?: any[];
+  items?: RedelegationType[];
 }> = ({
   className, items,
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('accounts');
+  const formattedItems = items.map((x) => {
+    return ({
+      to: (
+        <AvatarName
+          address={x.to.address}
+          imageUrl={x.to.imageUrl}
+          name={x.to.name}
+        />
+      ),
+      from: (
+        <AvatarName
+          address={x.from.address}
+          imageUrl={x.from.imageUrl}
+          name={x.from.name}
+        />
+      ),
+      linkedUntil: dayjs.utc(x.linkedUntil).local().format('MMMM DD, YYYY hh:mm A'),
+      amount: `${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
+    });
+  });
 
   return (
     <div className={classnames(className)}>
-      {items.map((x, i) => {
+      {formattedItems.map((x, i) => {
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
