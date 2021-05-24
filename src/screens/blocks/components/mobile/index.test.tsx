@@ -9,27 +9,11 @@ import Mobile from '.';
 jest.mock('@components', () => ({
   SingleBlockMobile: (props) => <div id="SingleBlockMobile" {...props} />,
   Loading: (props) => <div id="Loading" {...props} />,
+  AvatarName: (props) => <div id="AvatarName" {...props} />,
 }));
 
 jest.mock('react-virtualized-auto-sizer', () => ({ children }: any) => children({
   height: 600, width: 600,
-}));
-
-jest.mock('@src/screens/blocks/components/list/contexts/blocks', () => ({
-  useBlocksContext: () => ({
-    formatUi: jest.fn(() => [
-      {
-        height: <div>4,000</div>,
-        txs: 12,
-        time: 'moments ago',
-        proposer: <div>proposer</div>,
-        hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
-      },
-    ]),
-    itemsCount: 2,
-    loadMoreItems: jest.fn(),
-    isItemLoaded: jest.fn(),
-  }),
 }));
 
 // ==================================
@@ -39,7 +23,33 @@ describe('screen: Home/Blocks/Mobile', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>
-        <Mobile />
+        <Mobile
+          items={[
+            {
+              height: 300,
+              txs: 2,
+              timestamp: '',
+              proposer: {
+                name: 'proposer',
+                address: 'address',
+              },
+              hash: 'hash',
+            },
+            {
+              height: 301,
+              txs: 2,
+              timestamp: '',
+              proposer: {
+                name: 'proposer',
+                address: 'address',
+              },
+              hash: 'hash',
+            },
+          ]}
+          itemCount={2}
+          loadMoreItems={() => jest.fn()}
+          isItemLoaded={() => true}
+        />
       </MockTheme>,
     );
     const tree = component.toJSON();
