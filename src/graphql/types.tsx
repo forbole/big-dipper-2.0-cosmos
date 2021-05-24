@@ -5244,8 +5244,6 @@ export type Pre_Commit_Variance_Order_By = {
 /** columns and relationships of "proposal" */
 export type Proposal = {
   __typename?: 'proposal';
-  /** An object relationship */
-  account: Account;
   content: Scalars['jsonb'];
   deposit_end_time?: Maybe<Scalars['timestamp']>;
   description: Scalars['String'];
@@ -5264,6 +5262,8 @@ export type Proposal = {
   proposal_votes: Array<Proposal_Vote>;
   /** An aggregated array relationship */
   proposal_votes_aggregate: Proposal_Vote_Aggregate;
+  /** An object relationship */
+  proposer: Account;
   proposer_address: Scalars['String'];
   status?: Maybe<Scalars['String']>;
   submit_time: Scalars['timestamp'];
@@ -5399,7 +5399,6 @@ export type Proposal_Bool_Exp = {
   _and?: Maybe<Array<Maybe<Proposal_Bool_Exp>>>;
   _not?: Maybe<Proposal_Bool_Exp>;
   _or?: Maybe<Array<Maybe<Proposal_Bool_Exp>>>;
-  account?: Maybe<Account_Bool_Exp>;
   content?: Maybe<Jsonb_Comparison_Exp>;
   deposit_end_time?: Maybe<Timestamp_Comparison_Exp>;
   description?: Maybe<String_Comparison_Exp>;
@@ -5409,6 +5408,7 @@ export type Proposal_Bool_Exp = {
   proposal_tally_results?: Maybe<Proposal_Tally_Result_Bool_Exp>;
   proposal_type?: Maybe<String_Comparison_Exp>;
   proposal_votes?: Maybe<Proposal_Vote_Bool_Exp>;
+  proposer?: Maybe<Account_Bool_Exp>;
   proposer_address?: Maybe<String_Comparison_Exp>;
   status?: Maybe<String_Comparison_Exp>;
   submit_time?: Maybe<Timestamp_Comparison_Exp>;
@@ -5423,6 +5423,8 @@ export type Proposal_Deposit = {
   /** An object relationship */
   account: Account;
   amount?: Maybe<Scalars['_coin']>;
+  /** An object relationship */
+  block: Block;
   depositor_address: Scalars['String'];
   height: Scalars['bigint'];
   /** An object relationship */
@@ -5495,6 +5497,7 @@ export type Proposal_Deposit_Bool_Exp = {
   _or?: Maybe<Array<Maybe<Proposal_Deposit_Bool_Exp>>>;
   account?: Maybe<Account_Bool_Exp>;
   amount?: Maybe<_Coin_Comparison_Exp>;
+  block?: Maybe<Block_Bool_Exp>;
   depositor_address?: Maybe<String_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
   proposal?: Maybe<Proposal_Bool_Exp>;
@@ -5535,6 +5538,7 @@ export type Proposal_Deposit_Min_Order_By = {
 export type Proposal_Deposit_Order_By = {
   account?: Maybe<Account_Order_By>;
   amount?: Maybe<Order_By>;
+  block?: Maybe<Block_Order_By>;
   depositor_address?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
   proposal?: Maybe<Proposal_Order_By>;
@@ -5715,7 +5719,6 @@ export type Proposal_Min_Order_By = {
 
 /** ordering options when selecting data from "proposal" */
 export type Proposal_Order_By = {
-  account?: Maybe<Account_Order_By>;
   content?: Maybe<Order_By>;
   deposit_end_time?: Maybe<Order_By>;
   description?: Maybe<Order_By>;
@@ -5725,6 +5728,7 @@ export type Proposal_Order_By = {
   proposal_tally_results_aggregate?: Maybe<Proposal_Tally_Result_Aggregate_Order_By>;
   proposal_type?: Maybe<Order_By>;
   proposal_votes_aggregate?: Maybe<Proposal_Vote_Aggregate_Order_By>;
+  proposer?: Maybe<Account_Order_By>;
   proposer_address?: Maybe<Order_By>;
   status?: Maybe<Order_By>;
   submit_time?: Maybe<Order_By>;
@@ -6163,6 +6167,8 @@ export type Proposal_Vote = {
   __typename?: 'proposal_vote';
   /** An object relationship */
   account: Account;
+  /** An object relationship */
+  block: Block;
   height: Scalars['bigint'];
   option: Scalars['String'];
   /** An object relationship */
@@ -6235,6 +6241,7 @@ export type Proposal_Vote_Bool_Exp = {
   _not?: Maybe<Proposal_Vote_Bool_Exp>;
   _or?: Maybe<Array<Maybe<Proposal_Vote_Bool_Exp>>>;
   account?: Maybe<Account_Bool_Exp>;
+  block?: Maybe<Block_Bool_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
   option?: Maybe<String_Comparison_Exp>;
   proposal?: Maybe<Proposal_Bool_Exp>;
@@ -6279,6 +6286,7 @@ export type Proposal_Vote_Min_Order_By = {
 /** ordering options when selecting data from "proposal_vote" */
 export type Proposal_Vote_Order_By = {
   account?: Maybe<Account_Order_By>;
+  block?: Maybe<Block_Order_By>;
   height?: Maybe<Order_By>;
   option?: Maybe<Order_By>;
   proposal?: Maybe<Proposal_Order_By>;
@@ -14599,6 +14607,7 @@ export type ActiveValidatorCountQuery = { activeTotal: (
 
 export type BlockDetailsQueryVariables = Exact<{
   height?: Maybe<Scalars['bigint']>;
+  signatureHeight?: Maybe<Scalars['bigint']>;
 }>;
 
 
@@ -14615,23 +14624,23 @@ export type BlockDetailsQuery = { transaction: Array<(
         { __typename?: 'validator_info' }
         & { operatorAddress: Validator_Info['operator_address'] }
       )> }
-    )>, preCommits: Array<(
-      { __typename?: 'pre_commit' }
-      & { validator: (
-        { __typename?: 'validator' }
-        & { validatorInfo?: Maybe<(
-          { __typename?: 'validator_info' }
-          & { operatorAddress: Validator_Info['operator_address'] }
-        )> }
-      ) }
-    )>, preCommitsAggregate: (
-      { __typename?: 'pre_commit_aggregate' }
-      & { aggregate?: Maybe<(
-        { __typename?: 'pre_commit_aggregate_fields' }
-        & { sum?: Maybe<(
-          { __typename?: 'pre_commit_sum_fields' }
-          & { votingPower: Pre_Commit_Sum_Fields['voting_power'] }
-        )> }
+    )> }
+  )>, preCommitsAggregate: (
+    { __typename?: 'pre_commit_aggregate' }
+    & { aggregate?: Maybe<(
+      { __typename?: 'pre_commit_aggregate_fields' }
+      & { sum?: Maybe<(
+        { __typename?: 'pre_commit_sum_fields' }
+        & { votingPower: Pre_Commit_Sum_Fields['voting_power'] }
+      )> }
+    )> }
+  ), preCommits: Array<(
+    { __typename?: 'pre_commit' }
+    & { validator: (
+      { __typename?: 'validator' }
+      & { validatorInfo?: Maybe<(
+        { __typename?: 'validator_info' }
+        & { operatorAddress: Validator_Info['operator_address'] }
       )> }
     ) }
   )> };
@@ -15173,7 +15182,7 @@ export type ActiveValidatorCountQueryHookResult = ReturnType<typeof useActiveVal
 export type ActiveValidatorCountLazyQueryHookResult = ReturnType<typeof useActiveValidatorCountLazyQuery>;
 export type ActiveValidatorCountQueryResult = Apollo.QueryResult<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>;
 export const BlockDetailsDocument = gql`
-    query BlockDetails($height: bigint) {
+    query BlockDetails($height: bigint, $signatureHeight: bigint) {
   transaction(where: {height: {_eq: $height}}) {
     height
     hash
@@ -15190,18 +15199,20 @@ export const BlockDetailsDocument = gql`
         operatorAddress: operator_address
       }
     }
-    preCommits: pre_commits {
-      validator {
-        validatorInfo: validator_info {
-          operatorAddress: operator_address
-        }
+  }
+  preCommitsAggregate: pre_commit_aggregate(
+    where: {height: {_eq: $signatureHeight}}
+  ) {
+    aggregate {
+      sum {
+        votingPower: voting_power
       }
     }
-    preCommitsAggregate: pre_commits_aggregate {
-      aggregate {
-        sum {
-          votingPower: voting_power
-        }
+  }
+  preCommits: pre_commit(where: {height: {_eq: $signatureHeight}}) {
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
       }
     }
   }
@@ -15221,6 +15232,7 @@ export const BlockDetailsDocument = gql`
  * const { data, loading, error } = useBlockDetailsQuery({
  *   variables: {
  *      height: // value for 'height'
+ *      signatureHeight: // value for 'signatureHeight'
  *   },
  * });
  */

@@ -43,32 +43,49 @@ jest.mock('./components', () => ({
 
 const mockAverageBlockTime = jest.fn().mockResolvedValue({
   data: {
-    transaction: [],
+    transaction: [
+      {
+        height: 999,
+        hash: '393310C681CB39E09CD3AC16C600DBFDACB2DF5085277DA81E52698620C06136',
+        messages: [
+          {
+            '@type': '/cosmos.staking.v1beta1.MsgDelegate',
+            amount: {
+              denom: 'udaric',
+              amount: '27466368',
+            },
+            delegator_address: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
+            validator_address: 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3',
+          },
+        ],
+        success: true,
+      },
+    ],
     block: [
       {
-        height: 300,
-        hash: 'A8067C16018C78B7729FEA891A292C559C7E565B61524E0162C0C30A9BC2A467',
-        timestamp: '2021-04-27T15:26:36.986315',
-        txs: 0,
+        height: 999,
+        hash: 'E568ACFE5717F79A44979563410FF7F6C3043A07307E541EF21E15FC478C3DF0',
+        timestamp: '2021-04-27T16:27:34.331769',
+        txs: 1,
         validator: {
           validatorInfo: {
             operatorAddress: 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3',
           },
         },
-        preCommits: [
-          {
-            validator: {
-              validatorInfo: {
-                operatorAddress: 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3',
-              },
-            },
-          },
-        ],
-        preCommitsAggregate: {
-          aggregate: {
-            sum: {
-              votingPower: 603,
-            },
+      },
+    ],
+    preCommitsAggregate: {
+      aggregate: {
+        sum: {
+          votingPower: 7304,
+        },
+      },
+    },
+    preCommits: [
+      {
+        validator: {
+          validatorInfo: {
+            operatorAddress: 'desmosvaloper1qlh47ty9ah2d5e0xq6gsvqjvfulljl9602k7f9',
           },
         },
       },
