@@ -8,7 +8,14 @@ exports[`screen: Blocks matches snapshot 1`] = `
   title="blocks:blocks"
 >
   <div
-    id="List"
-  />
+    exists={true}
+    id="LoadAndExist"
+    loading={false}
+  >
+    <div
+      className="makeStyles-box"
+      id="Box"
+    />
+  </div>
 </div>
 `;

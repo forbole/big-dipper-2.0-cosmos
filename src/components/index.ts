@@ -26,6 +26,7 @@ import Name from './name';
 import Markdown from './markdown';
 import ConditionExplanation from './condition_explanation';
 import TransactionsList from './transactions_list_new';
+import LoadAndExist from './load_and_exist';
 
 export {
   Layout,
@@ -56,4 +57,5 @@ export {
   Markdown,
   ConditionExplanation,
   TransactionsListOld,
+  LoadAndExist,
 };

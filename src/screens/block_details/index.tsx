@@ -2,8 +2,7 @@ import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Layout,
-  NotFound,
-  LinearLoading,
+  LoadAndExist,
 } from '@components';
 import {
   Overview,
@@ -23,36 +22,29 @@ const BlockDetails = () => {
     transactions,
   } = state;
 
-  let component = null;
-
-  if (state.loading) {
-    component = <LinearLoading />;
-  } else if (!state.exists && !state.loading) {
-    component = <NotFound />;
-  } else {
-    component = (
-      <span className={classes.root}>
-        <Overview
-          height={overview.height}
-          hash={overview.hash}
-          proposer={overview.proposer}
-          timestamp={overview.timestamp}
-          txs={overview.txs}
-        />
-        <Signatures
-          className={classes.signatures}
-          signatures={signatures}
-        />
-        <Transactions
-          transactions={transactions}
-        />
-      </span>
-    );
-  }
-
   return (
     <Layout navTitle={t('blockDetails')} title={t('blockDetails')}>
-      {component}
+      <LoadAndExist
+        loading={state.loading}
+        exists={state.exists}
+      >
+        <span className={classes.root}>
+          <Overview
+            height={overview.height}
+            hash={overview.hash}
+            proposer={overview.proposer}
+            timestamp={overview.timestamp}
+            txs={overview.txs}
+          />
+          <Signatures
+            className={classes.signatures}
+            signatures={signatures}
+          />
+          <Transactions
+            transactions={transactions}
+          />
+        </span>
+      </LoadAndExist>
     </Layout>
   );
 };
