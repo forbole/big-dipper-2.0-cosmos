@@ -1,20 +1,19 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import classnames from 'classnames';
 import {
   Box, TabPanel,
 } from '@components';
-import {
-  Tabs,
-  Delegations,
-  Redelgations,
-  Unbondings,
-} from './components';
+import { Tabs } from './components';
 import { useStaking } from './hooks';
-
 import { useStyles } from './styles';
 import {
   RedelegationType, UnbondingType, DelegationType,
 } from '../../types';
+
+const Delegations = dynamic(() => import('./components/delegations'));
+const Redelgations = dynamic(() => import('./components/redelegations'));
+const Unbondings = dynamic(() => import('./components/unbondings'));
 
 const Staking: React.FC<{
   className?: string;
@@ -36,7 +35,6 @@ const Staking: React.FC<{
     state,
     handleTabChange,
   } = useStaking();
-
   const tabs = [
     {
       id: 0,
@@ -53,7 +51,10 @@ const Staking: React.FC<{
       id: 1,
       key: 'redelegations',
       component: (
-        <Redelgations />
+        <Redelgations
+          data={props.redelegations.data}
+          count={props.redelegations.count}
+        />
       ),
       data: props.redelegations,
       count: props.redelegations.count,
@@ -62,7 +63,10 @@ const Staking: React.FC<{
       id: 2,
       key: 'unbondings',
       component: (
-        <Unbondings />
+        <Unbondings
+          data={props.unbondings.data}
+          count={props.unbondings.count}
+        />
       ),
       count: props.unbondings.count,
     },

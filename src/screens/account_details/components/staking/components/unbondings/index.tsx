@@ -1,19 +1,26 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import classnames from 'classnames';
-import { usePagination } from '@hooks';
+import {
+  usePagination, useScreenSize,
+} from '@hooks';
 import {
   Pagination, NoData,
 } from '@components';
-import { useAccountContext } from '../../../../contexts/account';
-import {
-  Desktop, Mobile,
-} from './components';
 import { useStyles } from './styles';
+import { UnbondingType } from '../../../../types';
+
+const Desktop = dynamic(() => import('./components/desktop'));
+const Mobile = dynamic(() => import('./components/mobile'));
 
 const Unbondings: React.FC<{
   className?: string;
+  data: UnbondingType[],
+  count: number;
 }> = ({
   className,
+  data,
+  count,
 }) => {
   const classes = useStyles();
   const {
@@ -23,24 +30,25 @@ const Unbondings: React.FC<{
     handleChangeRowsPerPage,
     sliceItems,
   } = usePagination({});
-  const { uiData } = useAccountContext();
-  const items = sliceItems(uiData.staking.unbondings);
+  const { isDesktop } = useScreenSize();
+  const items = sliceItems(data);
 
   return (
     <div className={classnames(className)}>
-      {
-        items.length ? (
-          <>
-            <Mobile className={classes.mobile} items={items} />
+      {items.length ? (
+        <>
+          {isDesktop ? (
             <Desktop className={classes.desktop} items={items} />
-          </>
-        ) : (
-          <NoData />
-        )
-      }
+          ) : (
+            <Mobile className={classes.mobile} items={items} />
+          )}
+        </>
+      ) : (
+        <NoData />
+      )}
       <Pagination
         className={classes.paginate}
-        total={uiData.staking.unbondings.length}
+        total={count}
         rowsPerPage={rowsPerPage}
         page={page}
         handleChangePage={handleChangePage}

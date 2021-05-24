@@ -156,12 +156,15 @@ export const useAccountDetails = () => {
           amount: formatDenom(x.amount.amount),
           commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
         });
-      });
+      }).sort((a, b) => ((a.validator.name > b.validator.name) ? 1 : -1));
 
-      return delegations;
+      return {
+        data: delegations,
+        count: delegations.length,
+      };
     };
 
-    stateChange.staking.delegations = formatDelegations();
+    stateChange.delegations = formatDelegations();
 
     // ============================
     // redelegations
@@ -184,11 +187,14 @@ export const useAccountDetails = () => {
           linkedUntil: x.completionTime,
           amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
         });
-      });
-      return redelegations;
+      }).sort((a, b) => ((a.to.name > b.to.name) ? 1 : -1));
+      return {
+        data: redelegations,
+        count: redelegations.length,
+      };
     };
 
-    stateChange.staking.redelegations = formatRedelegations();
+    stateChange.redelegations = formatRedelegations();
 
     // ============================
     // unbondings
@@ -207,11 +213,14 @@ export const useAccountDetails = () => {
           linkedUntil: x.completionTimestamp,
           commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
         });
-      });
-      return unbondings;
+      }).sort((a, b) => ((a.validator.name > b.validator.name) ? 1 : -1));
+      return {
+        data: unbondings,
+        count: unbondings.length,
+      };
     };
 
-    stateChange.staking.unbondings = formatUnbondings();
+    stateChange.unbondings = formatUnbondings();
 
     return stateChange;
   };
