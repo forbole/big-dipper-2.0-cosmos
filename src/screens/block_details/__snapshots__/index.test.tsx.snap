@@ -6,23 +6,40 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
   navTitle="blocks:blockDetails"
   title="blocks:blockDetails"
 >
-  <div
-    id="BlockProvider"
+  <span
+    className="makeStyles-root"
   >
-    <span
-      className="makeStyles-root"
-    >
-      <div
-        id="Overview"
-      />
-      <div
-        className="makeStyles-signatures"
-        id="Signatures"
-      />
-      <div
-        id="Transactions"
-      />
-    </span>
-  </div>
+    <div
+      hash="A8067C16018C78B7729FEA891A292C559C7E565B61524E0162C0C30A9BC2A467"
+      height={300}
+      id="Overview"
+      proposer={
+        Object {
+          "address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+          "imageUrl": null,
+          "name": "moniker",
+        }
+      }
+      timestamp="2021-04-27T15:26:36.986315"
+      txs={0}
+    />
+    <div
+      className="makeStyles-signatures"
+      id="Signatures"
+      signatures={
+        Array [
+          Object {
+            "address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+            "imageUrl": null,
+            "name": "moniker",
+          },
+        ]
+      }
+    />
+    <div
+      id="Transactions"
+      transactions={Array []}
+    />
+  </span>
 </div>
 `;

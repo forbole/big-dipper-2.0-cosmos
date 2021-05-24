@@ -42,24 +42,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
       >
         <div>
           <div
-            block={
-              <div>
-                block
-              </div>
-            }
-            hash={
-              <div>
-                76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857
-              </div>
-            }
             id="SingleTransactionMobile"
-            messages="2"
-            result={
-              <div>
-                success
-              </div>
-            }
-            time="time"
           />
         </div>
       </div>

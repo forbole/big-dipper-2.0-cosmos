@@ -5,10 +5,32 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
   details={
     Array [
       Object {
-        "detail": <div>
-          detail
-        </div>,
-        "label": "label",
+        "detail": <WithStyles(ForwardRef(Typography))
+          className="value"
+          variant="body1"
+        >
+          300
+        </WithStyles(ForwardRef(Typography))>,
+        "label": "blocks:height",
+      },
+      Object {
+        "detail": "hash",
+        "label": "blocks:hash",
+      },
+      Object {
+        "detail": <AvatarName
+          address="address"
+          name="name"
+        />,
+        "label": "blocks:proposer",
+      },
+      Object {
+        "detail": "2020-08-10 12:00:00",
+        "label": "blocks:time",
+      },
+      Object {
+        "detail": "0",
+        "label": "blocks:txs",
       },
     ]
   }
