@@ -24,13 +24,13 @@ export interface ChainState {
     validators: {
       [key: string]: {
         moniker: string;
-        imageUrl?: string;
+        imageUrl: string | null;
       }
     };
     selfDelegateAddresses: {
       [key: string]: {
         moniker: string;
-        imageUrl?: string;
+        imageUrl: string | null;
       }
     };
     consensusAddresses: {
@@ -39,7 +39,7 @@ export interface ChainState {
   }
   findAddress?: (address: string) => {
     moniker: string;
-    imageUrl?: string;
-  } | null;
+    imageUrl: string | null;
+  };
   findOperator?: (consensusAddress: string) => string | null;
 }

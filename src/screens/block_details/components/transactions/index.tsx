@@ -6,27 +6,30 @@ import {
   TransactionsList,
   Box,
 } from '@components';
-import { useBlockContext } from '../../contexts/block';
 import { useStyles } from './styles';
+import { TransactionType } from '../../types';
 
-const Transactions: React.FC<{
-  className?: string;
-}> = ({ className }) => {
+const Transactions: React.FC<ComponentDefault & {
+  transactions: TransactionType[];
+}> = ({
+  className, transactions,
+}) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
-  const {
-    formatTransactions,
-    rawData,
-  } = useBlockContext();
   return (
     <Box className={classnames(className, classes.root)}>
       <div className={classes.header}>
         <Typography variant="h2">{t('transactions')}</Typography>
       </div>
       <TransactionsList
-        formatUi={formatTransactions}
-        itemCount={rawData.transactions.length}
+        transactions={transactions}
+        itemCount={transactions.length}
         className={classes.list}
+        hasNextPage={false}
+        isNextPageLoading={false}
+        loadNextPage={() => null}
+        loadMoreItems={() => null}
+        isItemLoaded={() => true}
       />
     </Box>
 

@@ -17,6 +17,25 @@ jest.mock('../../../../contexts/account', () => ({
   },
 }));
 
+jest.mock('../../utils', () => ({
+  getTabs: jest.fn(() => ([
+    {
+      id: 0,
+      key: 'delegations',
+      component: jest.fn(() => <div id="delegations" />),
+    },
+    {
+      id: 1,
+      key: 'redelegations',
+      component: jest.fn(() => <div id="delegations" />),
+    },
+    {
+      id: 2,
+      key: 'unbondings',
+      component: jest.fn(() => <div id="delegations" />),
+    },
+  ])),
+}));
 // ==================================
 // unit tests
 // ==================================

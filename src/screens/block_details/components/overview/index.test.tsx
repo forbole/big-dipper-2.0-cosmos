@@ -11,21 +11,6 @@ jest.mock('@components', () => ({
   AvatarName: (props) => <div id="BoxDetailAvatarName" {...props} />,
 }));
 
-jest.mock('../../contexts/block', () => ({
-  useBlockContext: () => {
-    return ({
-      uiData: {
-        block: [
-          {
-            label: 'label',
-            detail: <div>detail</div>,
-          },
-        ],
-      },
-    });
-  },
-}));
-
 // ==================================
 // unit tests
 // ==================================
@@ -33,7 +18,16 @@ describe('screen: BlockDetails/Overview', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>
-        <Overview />
+        <Overview
+          height={300}
+          hash="hash"
+          proposer={{
+            address: 'address',
+            name: 'name',
+          }}
+          txs={0}
+          timestamp=""
+        />
       </MockTheme>,
     );
     const tree = component.toJSON();

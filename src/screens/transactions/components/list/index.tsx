@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import {
-  TransactionsList,
+  TransactionsListOld,
   Box,
 } from '@components';
 import { useStyles } from './styles';
@@ -15,7 +15,7 @@ const List: React.FC<{
 
   return (
     <Box className={classnames(className, classes.root)}>
-      <TransactionsList {...useTransactionUtils} />
+      <TransactionsListOld {...useTransactionUtils} />
     </Box>
   );
 };

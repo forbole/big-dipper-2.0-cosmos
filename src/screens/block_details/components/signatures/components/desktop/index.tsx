@@ -5,18 +5,19 @@ import useTranslation from 'next-translate/useTranslation';
 import { VariableSizeGrid as Grid } from 'react-window';
 import { Typography } from '@material-ui/core';
 import { useGrid } from '@hooks';
-import { useBlockContext } from '../../../../contexts/block';
-import { columns } from './utils';
+import {
+  columns, formatRows,
+} from './utils';
 import { useStyles } from './styles';
 
 const Desktop: React.FC<{
   className?: string;
-}> = ({ className }) => {
+  signatures: AvatarName[];
+}> = ({
+  className, signatures,
+}) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
-  const {
-    uiData,
-  } = useBlockContext();
   const {
     gridRef,
     columnRef,
@@ -24,6 +25,7 @@ const Desktop: React.FC<{
     getColumnWidth,
     getRowHeight,
   } = useGrid(columns);
+  const rows = formatRows(signatures);
 
   return (
     <div className={classnames(className, classes.root)}>
@@ -75,7 +77,7 @@ const Desktop: React.FC<{
                 columnCount={columns.length}
                 columnWidth={(index) => getColumnWidth(width, index)}
                 height={height - 50}
-                rowCount={uiData.signatures.length}
+                rowCount={rows.length}
                 rowHeight={getRowHeight}
                 width={width}
               >
@@ -85,7 +87,7 @@ const Desktop: React.FC<{
                   const {
                     key, align,
                   } = columns[columnIndex];
-                  const selectedItem = uiData.signatures[rowIndex][key];
+                  const selectedItem = rows[rowIndex][key];
                   return (
                     <div
                       style={style}

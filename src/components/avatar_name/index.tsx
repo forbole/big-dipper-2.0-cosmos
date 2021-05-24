@@ -6,13 +6,7 @@ import { Avatar } from '@components';
 import { PROFILE_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
 
-const AvatarName: React.FC<{
-  className?: string;
-  imageUrl?: string;
-  address: string;
-  name: string;
-  href?: (address: string) => string;
-}> = ({
+const AvatarName: React.FC<AvatarName> = ({
   className, address, name, imageUrl, href = PROFILE_DETAILS,
 }) => {
   const classes = useStyles();
