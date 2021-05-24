@@ -35,6 +35,7 @@ export const useBlocks = () => {
     },
     onSubscriptionData: (data) => {
       handleSetState({
+        loading: false,
         items: [
           ...formatBlocks(data.subscriptionData.data),
           ...state.items,
@@ -54,6 +55,7 @@ export const useBlocks = () => {
     onCompleted: (data) => {
       const newItems = R.uniq([...state.items, ...formatBlocks(data)]);
       handleSetState({
+        loading: false,
         items: newItems,
         hasNextPage: newItems.length < data.total.aggregate.count,
         isNextPageLoading: false,

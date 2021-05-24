@@ -2,7 +2,10 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import useTranslation from 'next-translate/useTranslation';
 import {
-  Layout, Box,
+  Layout,
+  Box,
+  NotFound,
+  LinearLoading,
 } from '@components';
 import { useScreenSize } from '@hooks';
 import { useStyles } from './styles';
@@ -21,12 +24,15 @@ const Blocks = () => {
     itemCount,
     isItemLoaded,
   } = useBlocks();
-  return (
-    <Layout
-      title={t('blocks')}
-      navTitle={t('blocks')}
-      className={classes.root}
-    >
+
+  let component = null;
+
+  if (state.loading) {
+    component = <LinearLoading />;
+  } else if (!state.exists && !state.loading) {
+    component = <NotFound />;
+  } else {
+    component = (
       <Box className={classes.box}>
         {isDesktop ? (
           <Desktop
@@ -44,6 +50,16 @@ const Blocks = () => {
           />
         )}
       </Box>
+    );
+  }
+
+  return (
+    <Layout
+      title={t('blocks')}
+      navTitle={t('blocks')}
+      className={classes.root}
+    >
+      {component}
     </Layout>
   );
 };

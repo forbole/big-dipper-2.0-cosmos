@@ -8,10 +8,9 @@ import Blocks from '.';
 // ==================================
 jest.mock('@components', () => ({
   Layout: (props) => <div id="Layout" {...props} />,
-}));
-
-jest.mock('./components', () => ({
-  List: (props) => <div id="List" {...props} />,
+  Box: (props) => <div id="Box" {...props} />,
+  NotFound: (props) => <div id="NotFound" {...props} />,
+  LinearLoading: (props) => <div id="LinearLoading" {...props} />,
 }));
 
 // ==================================
