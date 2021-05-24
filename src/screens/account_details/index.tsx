@@ -51,7 +51,12 @@ const AccountDetails = () => {
                 withdrawalAddress={state.overview.withdrawalAddress}
                 address={state.overview.address}
               />
-              <Staking className={classes.staking} />
+              <Staking
+                className={classes.staking}
+                redelegations={state.redelegations}
+                delegations={state.delegations}
+                unbondings={state.unbondings}
+              />
               <Transactions className={classes.transactions} />
             </span>
           );

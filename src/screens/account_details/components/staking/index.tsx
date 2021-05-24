@@ -41,19 +41,29 @@ const Staking: React.FC<{
     {
       id: 0,
       key: 'delegations',
-      component: Delegations,
+      component: (
+        <Delegations
+          data={props.delegations.data}
+          count={props.delegations.count}
+        />
+      ),
       count: props.delegations.count,
     },
     {
       id: 1,
       key: 'redelegations',
-      component: Redelgations,
+      component: (
+        <Redelgations />
+      ),
+      data: props.redelegations,
       count: props.redelegations.count,
     },
     {
       id: 2,
       key: 'unbondings',
-      component: Unbondings,
+      component: (
+        <Unbondings />
+      ),
       count: props.unbondings.count,
     },
   ];
@@ -66,14 +76,13 @@ const Staking: React.FC<{
         tabs={tabs}
       />
       {tabs.map((x) => {
-        const Component = x.component;
         return (
           <TabPanel
             key={x.id}
             index={x.id}
             value={state.tab}
           >
-            <Component />
+            {x.component}
           </TabPanel>
         );
       })}
