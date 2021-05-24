@@ -5,8 +5,8 @@ import { Box } from '@components';
 import { useStyles } from './styles';
 import { BlocksProvider } from './contexts/blocks';
 
-const Desktop = dynamic(() => import('./components/desktop'));
-const Mobile = dynamic(() => import('./components/mobile'));
+const Desktop = dynamic(() => import('../desktop'));
+const Mobile = dynamic(() => import('../mobile'));
 
 const List: React.FC<{
   className?: string;
