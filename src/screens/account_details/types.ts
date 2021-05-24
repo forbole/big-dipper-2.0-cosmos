@@ -46,10 +46,17 @@ export type AccountDetailState = {
   exists: boolean;
   overview: OverviewType;
   balance: BalanceType;
-  staking: {
-    delegations: DelegationType[];
-    redelegations: RedelegationType[];
-    unbondings: UnbondingType[];
+  delegations: {
+    data: DelegationType[];
+    count: number;
+  }
+  redelegations: {
+    data: RedelegationType[];
+    count: number;
+  }
+  unbondings: {
+    data: UnbondingType[];
+    count: number;
   }
   // transactions: TransactionType[];
 }

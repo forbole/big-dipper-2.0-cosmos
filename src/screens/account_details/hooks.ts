@@ -32,10 +32,17 @@ export const useAccountDetails = () => {
       commission: 0,
       total: 0,
     },
-    staking: {
-      delegations: [],
-      redelegations: [],
-      unbondings: [],
+    delegations: {
+      data: [],
+      count: 0,
+    },
+    redelegations: {
+      data: [],
+      count: 0,
+    },
+    unbondings: {
+      data: [],
+      count: 0,
     },
   });
 

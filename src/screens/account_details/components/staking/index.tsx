@@ -3,25 +3,68 @@ import classnames from 'classnames';
 import {
   Box, TabPanel,
 } from '@components';
-import { Tabs } from './components';
+import {
+  Tabs,
+  Delegations,
+  Redelgations,
+  Unbondings,
+} from './components';
 import { useStaking } from './hooks';
-import { getTabs } from './utils';
+
 import { useStyles } from './styles';
+import {
+  RedelegationType, UnbondingType, DelegationType,
+} from '../../types';
 
 const Staking: React.FC<{
   className?: string;
-}> = ({ className }) => {
+  delegations: {
+    data: DelegationType[];
+    count: number;
+  }
+  redelegations: {
+    data: RedelegationType[];
+    count: number;
+  }
+  unbondings: {
+    data: UnbondingType[];
+    count: number;
+  }
+}> = (props) => {
   const classes = useStyles();
   const {
     state,
     handleTabChange,
   } = useStaking();
 
-  const tabs = getTabs();
+  const tabs = [
+    {
+      id: 0,
+      key: 'delegations',
+      component: Delegations,
+      count: props.delegations.count,
+    },
+    {
+      id: 1,
+      key: 'redelegations',
+      component: Redelgations,
+      count: props.redelegations.count,
+    },
+    {
+      id: 2,
+      key: 'unbondings',
+      component: Unbondings,
+      count: props.unbondings.count,
+    },
+  ];
 
   return (
-    <Box className={classnames(className, classes.root)}>
-      <Tabs tab={state.tab} handleTabChange={handleTabChange} />
+    <Box className={classnames(props.className, classes.root)}>
+      <Tabs
+        tab={state.tab}
+        handleTabChange={handleTabChange}
+        tabs={tabs}
+      />
       {tabs.map((x) => {
         const Component = x.component;
         return (

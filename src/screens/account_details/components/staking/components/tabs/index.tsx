@@ -1,35 +1,31 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
 import {
   Tabs,
   Tab,
 } from '@material-ui/core';
 import { a11yProps } from '@utils/allyProps';
-import { getTabs } from '../../utils';
 import { useStyles } from './styles';
-import {
-  RedelegationType, UnbondingType, DelegationType,
-} from '../../../../types';
 
 const TabsHeader: React.FC<{
   className?: string;
   tab: number;
   handleTabChange: (_event: any, newValue: number) => void;
-  staking: {
-    delegations: DelegationType[];
-    redelegations: RedelegationType[];
-    unbondings: UnbondingType[];
-  }
+  tabs: {
+    id: number;
+    key: string;
+    count: number;
+  }[]
 }> = ({
   className,
   tab,
   handleTabChange,
-  staking,
+  tabs,
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('accounts');
-  const tabs = getTabs();
 
   return (
     <div className={classnames(className, classes.root)}>
@@ -38,7 +34,7 @@ const TabsHeader: React.FC<{
           <Tab
             key={x.key}
             label={t(x.key, {
-              num: staking[x.key]?.length ?? 0,
+              num: numeral(x.count ?? 0).format('0,0'),
             })}
             {...a11yProps(x.id)}
           />
