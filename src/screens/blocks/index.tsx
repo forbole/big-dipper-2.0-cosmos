@@ -15,7 +15,12 @@ const Blocks = () => {
   const { t } = useTranslation('blocks');
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
-  const { state } = useBlocks();
+  const {
+    state,
+    loadMoreItems,
+    itemCount,
+    isItemLoaded,
+  } = useBlocks();
 
   return (
     <Layout
@@ -25,9 +30,19 @@ const Blocks = () => {
     >
       <Box className={classes.root}>
         {isDesktop ? (
-          <Desktop />
+          <Desktop
+            items={state.items}
+            itemCount={itemCount}
+            loadMoreItems={loadMoreItems}
+            isItemLoaded={isItemLoaded}
+          />
         ) : (
-          <Mobile />
+          <Mobile
+            items={state.items}
+            itemCount={itemCount}
+            loadMoreItems={loadMoreItems}
+            isItemLoaded={isItemLoaded}
+          />
         )}
       </Box>
     </Layout>
