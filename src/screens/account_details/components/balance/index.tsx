@@ -16,21 +16,23 @@ import { Box } from '@components';
 import { chainConfig } from '@src/chain_config';
 import { useChainContext } from '@contexts';
 import { useStyles } from './styles';
-import { useAccountContext } from '../../contexts/account';
+import { formatBalanceData } from './utils';
 
 const Balance: React.FC<{
   className?: string;
-}> = ({
-  className,
-}) => {
+  available: number;
+  delegate: number;
+  unbonding: number;
+  reward: number;
+  commission?: number;
+  total: number;
+}> = (props) => {
   const { t } = useTranslation('accounts');
   const {
     classes, theme,
   } = useStyles();
   const { market } = useChainContext();
-  const {
-    uiData, rawData,
-  } = useAccountContext();
+  const formattedChartData = formatBalanceData(props);
 
   const empty = {
     key: 'empty',
@@ -47,20 +49,18 @@ const Balance: React.FC<{
     theme.palette.custom.tags.four,
   ];
 
-  const formatData = uiData.balance.chart.map((x, i) => ({
+  const formatData = formattedChartData.map((x, i) => ({
     ...x,
     background: backgrounds[i],
   }));
 
   const notEmpty = formatData.some((x) => x.value > 0);
   const dataCount = formatData.filter((x) => x.value > 0).length;
-
   const data = notEmpty ? formatData : [...formatData, empty];
-
-  const totalAmount = `$${numeral(market.rawData.price * rawData.balance.total).format('0,0.00')}`;
+  const totalAmount = `$${numeral(market.rawData.price * props.total).format('0,0.00')}`;
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={classnames(props.className, classes.root)}>
       <Typography variant="h2">
         {t('balance')}
       </Typography>
@@ -122,7 +122,7 @@ const Balance: React.FC<{
               })}
             </Typography>
             <Typography variant="h3">
-              {uiData.balance.total}
+              {numeral(props.total).format('0,0.[000000]')}
             </Typography>
           </div>
           <div className="total__secondary--container total__single--container">

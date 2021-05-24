@@ -37,7 +37,15 @@ const AccountDetails = () => {
 
           return (
             <span className={classes.root}>
-              <Balance className={classes.balance} />
+              <Balance
+                className={classes.balance}
+                available={state.balance.available}
+                delegate={state.balance.delegate}
+                unbonding={state.balance.unbonding}
+                reward={state.balance.reward}
+                commission={state.balance.commission}
+                total={state.balance.total}
+              />
               <Overview
                 className={classes.overview}
                 withdrawalAddress={state.overview.withdrawalAddress}

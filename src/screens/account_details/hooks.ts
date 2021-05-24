@@ -8,6 +8,8 @@ import {
   useAccountQuery,
 } from '@graphql/types';
 import { useChainContext } from '@contexts';
+import { getDenom } from '@utils/get_denom';
+import { formatDenom } from '@utils/format_denom';
 import { AccountDetailState } from './types';
 
 export const useAccountDetails = () => {
@@ -19,6 +21,14 @@ export const useAccountDetails = () => {
     overview: {
       address: '',
       withdrawalAddress: '',
+    },
+    balance: {
+      available: 0,
+      delegate: 0,
+      unbonding: 0,
+      reward: 0,
+      commission: 0,
+      total: 0,
     },
   });
 
@@ -62,44 +72,44 @@ export const useAccountDetails = () => {
     // ============================
     // balance
     // ============================
-    // const available = getDenom(
-    //   R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data),
-    // );
-    // const availableDenom = formatDenom(available.amount);
+    const available = getDenom(
+      R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data),
+    );
+    const availableDenom = formatDenom(available.amount);
 
-    // const delegate = R.pathOr([], ['account', 0, 'delegations'], data).reduce((a, b) => {
-    //   return a + numeral(b.amount.amount).value();
-    // }, 0);
-    // const delegateDenom = formatDenom(delegate);
+    const delegate = R.pathOr([], ['account', 0, 'delegations'], data).reduce((a, b) => {
+      return a + numeral(b.amount.amount).value();
+    }, 0);
+    const delegateDenom = formatDenom(delegate);
 
-    // const unbonding = R.pathOr([], ['account', 0, 'unbonding'], data).reduce((a, b) => {
-    //   return a + numeral(b.amount.amount).value();
-    // }, 0);
-    // const unbondingDenom = formatDenom(unbonding);
+    const unbonding = R.pathOr([], ['account', 0, 'unbonding'], data).reduce((a, b) => {
+      return a + numeral(b.amount.amount).value();
+    }, 0);
+    const unbondingDenom = formatDenom(unbonding);
 
-    // const reward = R.pathOr([], ['account', 0, 'delegationRewards'], data).reduce((a, b) => {
-    //   const denom = getDenom(b.amount);
-    //   return a + numeral(denom.amount).value();
-    // }, 0);
+    const reward = R.pathOr([], ['account', 0, 'delegationRewards'], data).reduce((a, b) => {
+      const denom = getDenom(b.amount);
+      return a + numeral(denom.amount).value();
+    }, 0);
 
-    // const rewardDenom = formatDenom(reward);
+    const rewardDenom = formatDenom(reward);
 
-    // const commission = getDenom(R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data));
-    // const commissionDenom = formatDenom(commission.amount);
+    const commission = getDenom(R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data));
+    const commissionDenom = formatDenom(commission.amount);
 
-    // const total = (
-    //   availableDenom + delegateDenom + unbondingDenom + rewardDenom + commissionDenom);
+    const total = (
+      availableDenom + delegateDenom + unbondingDenom + rewardDenom + commissionDenom);
 
-    // const balance = {
-    //   available: availableDenom,
-    //   delegate: delegateDenom,
-    //   unbonding: unbondingDenom,
-    //   reward: rewardDenom,
-    //   commission: commissionDenom,
-    //   total,
-    // };
+    const balance = {
+      available: availableDenom,
+      delegate: delegateDenom,
+      unbonding: unbondingDenom,
+      reward: rewardDenom,
+      commission: commissionDenom,
+      total,
+    };
 
-    // results.rawData.balance = balance;
+    stateChange.balance = balance;
 
     // ============================
     // delegations
