@@ -16,7 +16,7 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
     <div
       formatUi={[Function]}
       hasNextPage={false}
-      id="TransactionsList"
+      id="TransactionsListOld"
       isItemLoaded={[Function]}
       isNextPageLoading={false}
       itemCount={1}

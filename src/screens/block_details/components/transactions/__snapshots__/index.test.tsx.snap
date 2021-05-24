@@ -16,8 +16,31 @@ exports[`screen: BlockDetails/Transactions matches snapshot 1`] = `
   </div>
   <div
     className="makeStyles-list"
+    hasNextPage={false}
     id="TransactionsList"
-    itemCount={0}
+    isItemLoaded={[Function]}
+    isNextPageLoading={false}
+    itemCount={2}
+    loadMoreItems={[Function]}
+    loadNextPage={[Function]}
+    transactions={
+      Array [
+        Object {
+          "hash": "hash",
+          "height": 300,
+          "messages": 3,
+          "success": false,
+          "timestamp": "",
+        },
+        Object {
+          "hash": "hash1",
+          "height": 300,
+          "messages": 10,
+          "success": true,
+          "timestamp": "",
+        },
+      ]
+    }
   />
 </div>
 `;

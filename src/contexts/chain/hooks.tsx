@@ -128,17 +128,27 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
     };
   };
 
-  const findAddress = (address: string) => {
+  const findAddress = (address: string): {
+    imageUrl: string | null;
+    moniker: string;
+  } => {
     const validatorRegex = `^(${chainConfig.prefix.validator})`;
     const userRegex = `^(${chainConfig.prefix.account})`;
-
+    let results = {
+      imageUrl: null,
+      moniker: address,
+    };
     if (new RegExp(validatorRegex).test(address)) {
-      return state.validators[address] ?? null;
+      if (state.validators[address]) {
+        results = state.validators[address];
+      }
     }
     if (new RegExp(userRegex).test(address)) {
-      return state.selfDelegateAddresses[address] ?? null;
+      if (state.selfDelegateAddresses[address]) {
+        results = state.selfDelegateAddresses[address];
+      }
     }
-    return null;
+    return results;
   };
 
   const findOperator = (consensusAddress: string) => {

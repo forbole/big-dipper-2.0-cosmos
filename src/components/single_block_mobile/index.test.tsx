@@ -17,28 +17,12 @@ describe('component: SingleSlotMobile', () => {
     const component = renderer.create(
       <MockTheme>
         <SingleSlotMobile
-          slot={<div id="slot" />}
           hash="hash"
           parentHash="parentHash"
           txs="txs"
           time="time"
-          leader={<div id="leader" />}
-        />
-      </MockTheme>,
-    );
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('matches snapshot without parentHash', () => {
-    const component = renderer.create(
-      <MockTheme>
-        <SingleSlotMobile
-          slot={<div id="slot" />}
-          hash="hash"
-          txs="txs"
-          time="time"
-          leader={<div id="leader" />}
+          proposer={<div id="proposer" />}
+          height={<div id="height" />}
         />
       </MockTheme>,
     );
