@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
+exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
 <div
   details={
     Array [
@@ -35,7 +35,7 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
             className="value"
             variant="body1"
           >
-            withdrawaddress
+            withdrawalAddress
           </WithStyles(ForwardRef(Typography))>
         </React.Fragment>,
         "label": "accounts:rewardAddress",

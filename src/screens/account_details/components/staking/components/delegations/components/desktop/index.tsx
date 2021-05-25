@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Table,
@@ -8,15 +9,36 @@ import {
   TableCell,
   TableBody,
 } from '@material-ui/core';
+import {
+  AvatarName,
+} from '@components';
+import { DelegationType } from '@src/screens/account_details/types';
+import { chainConfig } from '@src/chain_config';
 import { columns } from './utils';
 
 const Desktop: React.FC<{
   className?: string;
-  items: any[];
+  items?: DelegationType[];
 }> = ({
-  className, items,
+  className,
+  items,
 }) => {
   const { t } = useTranslation('accounts');
+
+  const formattedItems = items.map((x) => {
+    return ({
+      validator: (
+        <AvatarName
+          name={x.validator.name}
+          address={x.validator.address}
+          imageUrl={x.validator.imageUrl}
+        />
+      ),
+      commission: `${numeral(x.commission * 100).format('0.00')}%`,
+      amount: `${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
+      reward: `${numeral(x.reward).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
+    });
+  });
 
   return (
     <div className={classnames(className)}>
@@ -37,7 +59,7 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {items.map((row, i) => (
+          {formattedItems.map((row, i) => (
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => {
                 return (

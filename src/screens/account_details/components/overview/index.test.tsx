@@ -11,27 +11,17 @@ jest.mock('@components', () => ({
   Box: (props) => <div id="Box" {...props} />,
 }));
 
-jest.mock('../../contexts/account', () => ({
-  useAccountContext: () => {
-    return ({
-      rawData: {
-        account: {
-          address: 'address',
-          withdrawalAddress: 'withdrawaddress',
-        },
-      },
-    });
-  },
-}));
-
 // ==================================
 // unit tests
 // ==================================
-describe('screen: BlockDetails/Overview', () => {
+describe('screen: AccountDetails/Overview', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>
-        <Overview />
+        <Overview
+          withdrawalAddress="withdrawalAddress"
+          address="address"
+        />
       </MockTheme>,
     );
     const tree = component.toJSON();

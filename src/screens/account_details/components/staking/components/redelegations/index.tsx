@@ -1,20 +1,28 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import classnames from 'classnames';
-import { usePagination } from '@hooks';
+import {
+  usePagination, useScreenSize,
+} from '@hooks';
 import {
   NoData, Pagination,
 } from '@components';
-import { useAccountContext } from '../../../../contexts/account';
-import {
-  Desktop, Mobile,
-} from './components';
 import { useStyles } from './styles';
+import { RedelegationType } from '../../../../types';
+
+const Desktop = dynamic(() => import('./components/desktop'));
+const Mobile = dynamic(() => import('./components/mobile'));
 
 const Redelegations: React.FC<{
   className?: string;
+  data: RedelegationType[];
+  count: number;
 }> = ({
   className,
+  data,
+  count,
 }) => {
+  const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const {
     page,
@@ -23,23 +31,25 @@ const Redelegations: React.FC<{
     handleChangeRowsPerPage,
     sliceItems,
   } = usePagination({});
-  const { uiData } = useAccountContext();
 
-  const items = sliceItems(uiData.staking.redelegations);
+  const items = sliceItems(data);
 
   return (
     <div className={classnames(className)}>
       {items.length ? (
         <>
-          <Mobile className={classes.mobile} items={items} />
-          <Desktop className={classes.desktop} items={items} />
+          {isDesktop ? (
+            <Desktop className={classes.desktop} items={items} />
+          ) : (
+            <Mobile className={classes.mobile} items={items} />
+          )}
         </>
       ) : (
         <NoData />
       )}
       <Pagination
         className={classes.paginate}
-        total={uiData.staking.redelegations.length}
+        total={count}
         rowsPerPage={rowsPerPage}
         page={page}
         handleChangePage={handleChangePage}
