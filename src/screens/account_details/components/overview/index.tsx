@@ -5,6 +5,7 @@ import {
   Dialog,
 } from '@material-ui/core';
 import QRCode from 'qrcode.react';
+import { useScreenSize } from '@hooks';
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -25,11 +26,17 @@ import {
 } from '@components';
 import { useStyles } from './styles';
 import { useOverview } from './hooks';
-import { useAccountContext } from '../../contexts/account';
 
 const Overview: React.FC<{
   className?: string;
-}> = ({ className }) => {
+  withdrawalAddress: string;
+  address: string;
+}> = ({
+  className,
+  address,
+  withdrawalAddress,
+}) => {
+  const { isMobile } = useScreenSize();
   const classes = useStyles();
   const { t } = useTranslation('accounts');
   const {
@@ -38,7 +45,6 @@ const Overview: React.FC<{
     handleOpen,
     handleCopyToClipboard,
   } = useOverview(t);
-  const { rawData } = useAccountContext();
 
   const dummyProps = {
     title: t('overview'),
@@ -49,7 +55,7 @@ const Overview: React.FC<{
         detail: (
           <>
             <CopyIcon
-              onClick={() => handleCopyToClipboard(rawData.account.address)}
+              onClick={() => handleCopyToClipboard(address)}
               className={classes.actionIcons}
             />
             <ShareIcon
@@ -57,9 +63,15 @@ const Overview: React.FC<{
               className={classes.actionIcons}
             />
             <Typography variant="body1" className="value">
-              {getMiddleEllipsis(rawData.account.address, {
-                beginning: 15, ending: 5,
-              })}
+              {
+                isMobile ? (
+                  getMiddleEllipsis(address, {
+                    beginning: 15, ending: 5,
+                  })
+                ) : (
+                  address
+                )
+              }
             </Typography>
           </>
         ),
@@ -71,12 +83,18 @@ const Overview: React.FC<{
           <>
             <CopyIcon
               className={classes.actionIcons}
-              onClick={() => handleCopyToClipboard(rawData.account.withdrawalAddress)}
+              onClick={() => handleCopyToClipboard(withdrawalAddress)}
             />
             <Typography variant="body1" className="value">
-              {getMiddleEllipsis(rawData.account.withdrawalAddress, {
-                beginning: 15, ending: 5,
-              })}
+              {
+                isMobile ? (
+                  getMiddleEllipsis(withdrawalAddress, {
+                    beginning: 15, ending: 5,
+                  })
+                ) : (
+                  withdrawalAddress
+                )
+              }
             </Typography>
           </>
         ),
@@ -84,7 +102,7 @@ const Overview: React.FC<{
     ],
   };
 
-  const url = `${process.env.NEXT_PUBLIC_URL}/accounts/${rawData.account.address}`;
+  const url = `${process.env.NEXT_PUBLIC_URL}/accounts/${address}`;
   const hashTags = ['#forbole', '#bigdipper'];
   return (
     <>
@@ -99,7 +117,7 @@ const Overview: React.FC<{
             {t('scanForAddress')}
           </Typography>
           <QRCode
-            value={rawData.account.address}
+            value={address}
             size={200}
             bgColor="#ffffff"
             fgColor="#000000"
@@ -112,7 +130,7 @@ const Overview: React.FC<{
             <div className={classes.icons}>
               <FacebookShareButton
                 url={url}
-                quote={rawData.account.address}
+                quote={address}
                 hashtag={hashTags[0]}
                 className="share-buttons"
               >
@@ -122,7 +140,7 @@ const Overview: React.FC<{
               </FacebookShareButton>
               <TwitterShareButton
                 url={url}
-                title={rawData.account.address}
+                title={address}
                 hashtags={hashTags}
                 className="share-buttons"
               >
@@ -133,7 +151,7 @@ const Overview: React.FC<{
 
               <TelegramShareButton
                 url={url}
-                title={rawData.account.address}
+                title={address}
                 className="share-buttons"
               >
                 <TelegramIcon
@@ -143,7 +161,7 @@ const Overview: React.FC<{
 
               <WhatsappShareButton
                 url={url}
-                title={rawData.account.address}
+                title={address}
                 separator=":: "
                 className="share-buttons"
               >
@@ -154,7 +172,7 @@ const Overview: React.FC<{
               <EmailShareButton
                 url={url}
                 subject="address"
-                body={rawData.account.address}
+                body={address}
                 separator=":: "
                 className="share-buttons email"
               >
