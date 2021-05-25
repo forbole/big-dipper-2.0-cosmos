@@ -2,8 +2,6 @@ import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Layout,
-  NotFound,
-  LinearLoading,
   LoadAndExist,
 } from '@components';
 import { useStyles } from './styles';
@@ -14,12 +12,14 @@ import {
   Transactions,
 } from './components';
 import { useAccountDetails } from './hooks';
-import { AccountProvider } from './contexts/account';
 
 const AccountDetails = () => {
   const { t } = useTranslation('accounts');
   const classes = useStyles();
-  const { state } = useAccountDetails();
+  const {
+    state,
+    loadNextPage,
+  } = useAccountDetails();
   return (
     <Layout navTitle={t('accountDetails')} title={t('accountDetails')}>
       <LoadAndExist
@@ -47,7 +47,13 @@ const AccountDetails = () => {
             delegations={state.delegations}
             unbondings={state.unbondings}
           />
-          <Transactions className={classes.transactions} />
+          <Transactions
+            className={classes.transactions}
+            loadNextPage={loadNextPage}
+            data={state.transactions.data}
+            hasNextPage={state.transactions.hasNextPage}
+            isNextPageLoading={state.transactions.isNextPageLoading}
+          />
         </span>
       </LoadAndExist>
     </Layout>

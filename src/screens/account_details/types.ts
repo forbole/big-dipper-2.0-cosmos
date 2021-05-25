@@ -58,5 +58,10 @@ export type AccountDetailState = {
     data: UnbondingType[];
     count: number;
   }
-  // transactions: TransactionType[];
+  transactions: {
+    hasNextPage: boolean;
+    isNextPageLoading: boolean;
+    offsetCount: number;
+    data: TransactionType[];
+  };
 }
