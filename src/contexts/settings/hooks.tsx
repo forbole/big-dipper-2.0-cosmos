@@ -17,6 +17,22 @@ export const useTheme = (initialState:SettingsState) => {
   const [theme, setTheme] = useState(initialState.theme);
   const [themeSelection, setThemeSelection] = usePersistedState('themeSelection', initialState.themeSelection);
 
+  const themeList = [
+    'light',
+    'dark',
+    'deuteranopia',
+    'tritanopia',
+    'achromatopsia',
+  ];
+
+  const themeDictionary = {
+    light: lightTheme,
+    dark: darkTheme,
+    deuteranopia: darkTheme,
+    tritanopia: darkTheme,
+    achromatopsia: darkTheme,
+  };
+
   useEffect(() => {
     const isClient = typeof window === 'object';
     if (themeSelection === 'device') {
@@ -26,22 +42,31 @@ export const useTheme = (initialState:SettingsState) => {
       ) {
         setTheme('dark');
       }
-    } else if (themeSelection === 'dark') {
-      setTheme('dark');
-    } else if (themeSelection === 'light') {
+    } else if (themeDictionary[themeSelection]) {
+      setTheme(themeSelection as any);
+    } else {
       setTheme('light');
     }
   }, [themeSelection]);
 
-  const toggleThemeMode = () => {
-    const value = theme === 'light' ? 'dark' : 'light';
-    setThemeSelection(value);
+  // const toggleThemeMode = () => {
+  //   const value = theme === 'light' ? 'dark' : 'light';
+  //   setThemeSelection(value);
+  // };
+
+  const changeTheme = (value: string) => {
+    if (themeDictionary[theme]) {
+      setThemeSelection(value);
+    }
   };
 
   return {
     theme,
-    muiTheme: theme === 'dark' ? darkTheme : lightTheme,
-    toggleThemeMode,
+    muiTheme: themeDictionary[theme] ?? lightTheme,
+    // toggleThemeMode,
     themeSelection,
+    themeList,
+    themeDictionary,
+    changeTheme,
   };
 };

@@ -1,4 +1,4 @@
-export type Theme = 'light' | 'dark' | 'device';
+export type Theme = 'light' | 'dark' | 'device' | 'deuteranopia' | 'tritanopia' | 'achromatopsia';
 
 export interface SettingsState {
   theme: Theme;
