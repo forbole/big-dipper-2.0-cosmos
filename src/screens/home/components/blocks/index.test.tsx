@@ -6,7 +6,6 @@ import {
 import {
   createMockClient, createMockSubscription,
 } from 'mock-apollo-client';
-
 import { ApolloProvider } from '@apollo/client';
 import {
   BlocksListenerDocument,
