@@ -1,9 +1,11 @@
 import {
-  darkTheme,
-  lightTheme,
+  lightTemplate,
+  darkTemplate,
+  deuteranopiaTemplate,
 } from './theme';
 
 export {
-  darkTheme,
-  lightTheme,
+  lightTemplate,
+  darkTemplate,
+  deuteranopiaTemplate,
 };

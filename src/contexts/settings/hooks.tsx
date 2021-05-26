@@ -2,9 +2,13 @@ import {
   useEffect,
   useState,
 } from 'react';
+import { createMuiTheme } from '@material-ui/core/styles';
 import {
-  darkTheme,
-  lightTheme,
+  // darkTheme,
+  // lightTheme,
+  lightTemplate,
+  darkTemplate,
+  deuteranopiaTemplate,
 } from '@styles';
 import { usePersistedState } from '@hooks';
 import { SettingsState } from './types';
@@ -21,16 +25,16 @@ export const useTheme = (initialState:SettingsState) => {
     'light',
     'dark',
     'deuteranopia',
-    'tritanopia',
-    'achromatopsia',
+    // 'tritanopia',
+    // 'achromatopsia',
   ];
 
   const themeDictionary = {
-    light: lightTheme,
-    dark: darkTheme,
-    deuteranopia: darkTheme,
-    tritanopia: darkTheme,
-    achromatopsia: darkTheme,
+    light: lightTemplate,
+    dark: darkTemplate,
+    deuteranopia: deuteranopiaTemplate,
+    // tritanopia: darkTheme,
+    // achromatopsia: darkTheme,
   };
 
   useEffect(() => {
@@ -62,7 +66,7 @@ export const useTheme = (initialState:SettingsState) => {
 
   return {
     theme,
-    muiTheme: themeDictionary[theme] ?? lightTheme,
+    muiTheme: createMuiTheme(themeDictionary[theme] ?? lightTemplate),
     // toggleThemeMode,
     themeSelection,
     themeList,
