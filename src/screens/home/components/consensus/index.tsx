@@ -1,9 +1,11 @@
 import React from 'react';
 import classnames from 'classnames';
+import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Box,
+  AvatarName,
 } from '@components';
 import {
   RadialBarChart,
@@ -20,14 +22,12 @@ const Consensus: React.FC<{
   const {
     classes, theme,
   } = useStyles();
-  const {
-    uiData, rawData,
-  } = useConsensus();
+  const { state } = useConsensus();
   const { t } = useTranslation('home');
 
   const data = [
     {
-      value: rawData.roundCompletion,
+      value: state.roundCompletion,
       fill: theme.palette.primary.main,
     },
   ];
@@ -50,9 +50,17 @@ const Consensus: React.FC<{
         </div>
         <div>
           <Typography variant="h4">
-            {uiData.height}
+            {numeral(state.height).format('0,0')}
           </Typography>
-          {uiData.proposer}
+          {state.proposer.address ? (
+            <AvatarName
+              address={state.proposer.address}
+              imageUrl={state.proposer.imageUrl}
+              name={state.proposer.name}
+            />
+          ) : (
+            '-'
+          )}
         </div>
       </div>
       <div className={classes.content}>
@@ -90,7 +98,7 @@ const Consensus: React.FC<{
           >
             <tspan className={classes.chartPercentLabel}>
               {t('step', {
-                step: uiData.step,
+                step: numeral(state.step).format('0,0'),
               })}
             </tspan>
           </text>
@@ -101,7 +109,7 @@ const Consensus: React.FC<{
           >
             <tspan className={classes.chartLabel}>
               {t('round', {
-                round: uiData.round,
+                round: numeral(state.round).format('0,0'),
               })}
             </tspan>
           </text>
