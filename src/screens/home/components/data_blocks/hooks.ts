@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import numeral from 'numeral';
 import * as R from 'ramda';
 import {
   useLatestBlockHeightListenerSubscription,
@@ -98,27 +97,7 @@ export const useDataBlocks = () => {
     };
   };
 
-  const formatUi = () => {
-    const {
-      blockHeight,
-      blockTime,
-      price,
-      validators,
-    } = state;
-
-    return ({
-      blockHeight: numeral(blockHeight).format('0,0'),
-      blockTime: `${numeral(blockTime).format('0.00')} s`,
-      price: `$${numeral(price).format('0.00')}`,
-      validators: {
-        active: numeral(validators.active).format('0,0'),
-        total: numeral(validators.total).format('0,0'),
-      },
-    });
-  };
-
   return {
-    rawData: state,
-    uiData: formatUi(),
+    state,
   };
 };

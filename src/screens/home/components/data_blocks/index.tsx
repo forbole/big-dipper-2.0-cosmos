@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import { SingleBlock } from './components';
 import { useStyles } from './styles';
@@ -12,34 +13,36 @@ const DataBlocks: React.FC<{
 }) => {
   const { t } = useTranslation('home');
   const classes = useStyles();
-  const { uiData } = useDataBlocks();
-  const fakeData = [
+  const { state } = useDataBlocks();
+  const data = [
     {
       key: t('latestBlock'),
-      value: uiData.blockHeight,
+      value: numeral(state.blockHeight).format('0,0'),
       className: classes.blockHeight,
     },
     {
       key: t('averageBlockTime'),
-      value: uiData.blockTime,
+      value: `${numeral(state.blockTime).format('0.00')} s`,
       className: classes.blockTime,
     },
     {
       key: t('price'),
-      value: uiData.price,
+      value: `$${numeral(state.price).format('0.00')}`,
       className: classes.price,
     },
     {
       key: t('activeValidators'),
-      value: uiData.validators.active,
-      description: t('outOfValidators', { count: uiData.validators.total }),
+      value: numeral(state.validators.active).format('0,0'),
+      description: t('outOfValidators', {
+        count: numeral(state.validators.total).format('0,0'),
+      }),
       className: classes.validators,
     },
   ];
 
   return (
     <div className={classnames(classes.root, className)}>
-      {fakeData.map((x) => (
+      {data.map((x) => (
         <SingleBlock
           key={x.key}
           label={x.key}
