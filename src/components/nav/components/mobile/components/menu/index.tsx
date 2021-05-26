@@ -16,7 +16,9 @@ import {
 } from '@material-ui/icons';
 import { useStyles } from './styles';
 import { MenuItems } from '../../..';
-import { useMenu } from './hooks';
+import {
+  useLanguageDrawer, useThemeDrawer,
+} from './hooks';
 import { MenuProps } from './types';
 
 const Menu = (props: MenuProps) => {
@@ -27,7 +29,8 @@ const Menu = (props: MenuProps) => {
   } = useTranslation('common');
   const {
     theme,
-    toggleThemeMode,
+    themeList,
+    changeTheme,
   } = useSettingsContext();
 
   const {
@@ -35,17 +38,18 @@ const Menu = (props: MenuProps) => {
     className,
   } = props;
   const classes = useStyles();
-  const {
-    toggleDrawer,
-    drawerOpen,
-  } = useMenu(lang, toggleNavMenus);
+  const languageOptions = useLanguageDrawer(lang, toggleNavMenus);
 
+  const themeOptions = useThemeDrawer(theme, toggleNavMenus);
   return (
     <>
+      {/* ================================== */}
+      {/* Lang Drawer */}
+      {/* ================================== */}
       <Drawer
         anchor="bottom"
-        open={drawerOpen}
-        onClose={toggleDrawer}
+        open={languageOptions.drawerOpen}
+        onClose={languageOptions.toggleDrawer}
         className={classes.drawer}
       >
         <div className={classnames('content')}>
@@ -72,6 +76,29 @@ const Menu = (props: MenuProps) => {
         </div>
       </Drawer>
       {/* ================================== */}
+      {/* Theme Drawer */}
+      {/* ================================== */}
+      <Drawer
+        anchor="bottom"
+        open={themeOptions.drawerOpen}
+        onClose={themeOptions.toggleDrawer}
+        className={classes.drawer}
+      >
+        <div className={classnames('content')}>
+          {
+            themeList
+              .filter((l) => l !== theme)
+              .map((l) => (
+                <div key={l}>
+                  <MenuItem button component="a" onClick={() => changeTheme(l)}>
+                    {t(l)}
+                  </MenuItem>
+                </div>
+              ))
+            }
+        </div>
+      </Drawer>
+      {/* ================================== */}
       {/* Main Content */}
       {/* ================================== */}
       <div className={classnames(className, classes.root)}>
@@ -85,14 +112,18 @@ const Menu = (props: MenuProps) => {
           <div
             className={classes.language}
             role="button"
-            onClick={toggleDrawer}
+            onClick={languageOptions.toggleDrawer}
           >
             <Language />
             <Typography variant="caption">{t(router.locale)}</Typography>
             <ExpandMoreOutlined fontSize="small" />
           </div>
-          <div className={classes.theme}>
-            <span onClick={toggleThemeMode} role="button">
+          <div
+            className={classes.theme}
+            role="button"
+            onClick={themeOptions.toggleDrawer}
+          >
+            <span role="button">
               <ThemeIcon />
             </span>
             <Typography variant="caption">{t(theme)}</Typography>
