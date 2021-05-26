@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import {
@@ -21,7 +22,33 @@ const Tokenomics:React.FC<{
   const {
     classes, theme,
   } = useStyles();
-  const { uiData } = useTokenomics(theme);
+  const { state } = useTokenomics();
+
+  const data = [
+    {
+      legendKey: 'bonded',
+      percentKey: 'bondedPercent',
+      value: numeral(state.bonded).format('0,0'),
+      rawValue: state.bonded,
+      percent: `${numeral((state.bonded * 100) / state.total).format('0.00')}%`,
+      fill: theme.palette.custom.tags.one,
+    },
+    {
+      legendKey: 'unbonded',
+      percentKey: 'unbondedPercent',
+      value: numeral(state.unbonded).format('0,0'),
+      rawValue: state.unbonded,
+      percent: `${numeral((state.unbonded * 100) / state.total).format('0.00')}%`,
+      fill: theme.palette.custom.tags.six,
+    },
+    {
+      legendKey: 'unbonding',
+      value: numeral(state.unbonding).format('0,0'),
+      rawValue: state.unbonding,
+      percent: `${numeral((state.unbonding * 100) / state.total).format('0.00')}%`,
+      fill: theme.palette.custom.tags.four,
+    },
+  ];
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -29,7 +56,7 @@ const Tokenomics:React.FC<{
         {t('tokenomics')}
       </Typography>
       <div className={classes.data}>
-        {uiData.slice(0, 2).map((x) => (
+        {data.slice(0, 2).map((x) => (
           <div className="data__item" key={x.percentKey}>
             <Typography variant="h4">
               {x.value}
@@ -53,7 +80,7 @@ const Tokenomics:React.FC<{
             // stroke="none"
             // cornerRadius={40}
             cy={90}
-            data={uiData}
+            data={data}
             startAngle={180}
             endAngle={0}
             // innerRadius={79}
@@ -64,7 +91,7 @@ const Tokenomics:React.FC<{
             stroke={theme.palette.divider}
             isAnimationActive={false}
           >
-            {uiData.map((entry) => {
+            {data.map((entry) => {
               return (
                 <Cell key={entry.legendKey} fill={entry.fill} />
               );
@@ -73,17 +100,17 @@ const Tokenomics:React.FC<{
           <Tooltip
             content={(
               <CustomToolTip>
-                {(data) => {
+                {(x) => {
                   return (
                     <>
                       <Typography variant="caption">
-                        {t(data.legendKey)}
+                        {t(x.legendKey)}
                       </Typography>
                       <Typography variant="body1">
-                        {data.value}
+                        {x.value}
                         {' '}
                         (
-                        {data.percent}
+                        {x.percent}
                         )
                       </Typography>
                     </>
@@ -96,7 +123,7 @@ const Tokenomics:React.FC<{
 
         <div className={classes.legends}>
           {
-            uiData.map((x) => {
+            data.map((x) => {
               return (
                 <div className="legends__item" key={x.legendKey}>
                   <Typography variant="caption">
