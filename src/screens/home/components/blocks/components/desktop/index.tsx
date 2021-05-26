@@ -22,7 +22,7 @@ import { BlockType } from '../../types';
 
 const Desktop: React.FC<{
   className?: string;
-  items?: BlockType[]
+  items: BlockType[];
 }> = ({
   className, items,
 }) => {

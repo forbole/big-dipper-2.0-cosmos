@@ -42,7 +42,10 @@ const Blocks:React.FC<{
       ) : (
         <>
           {isDesktop ? (
-            <Desktop className={classes.desktop} />
+            <Desktop
+              className={classes.desktop}
+              items={state.items}
+            />
           ) : (
             <Mobile
               className={classes.mobile}
