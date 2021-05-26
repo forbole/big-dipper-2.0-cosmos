@@ -2,12 +2,18 @@ import {
   useEffect,
   useState,
 } from 'react';
+import { createMuiTheme } from '@material-ui/core/styles';
 import {
-  darkTheme,
-  lightTheme,
+  // darkTheme,
+  // lightTheme,
+  lightTemplate,
+  darkTemplate,
+  deuteranopiaTemplate,
 } from '@styles';
 import { usePersistedState } from '@hooks';
-import { SettingsState } from './types';
+import {
+  SettingsState, Theme,
+} from './types';
 
 /**
  *
@@ -16,6 +22,22 @@ import { SettingsState } from './types';
 export const useTheme = (initialState:SettingsState) => {
   const [theme, setTheme] = useState(initialState.theme);
   const [themeSelection, setThemeSelection] = usePersistedState('themeSelection', initialState.themeSelection);
+
+  const themeList = [
+    'light',
+    'dark',
+    'deuteranopia',
+    // 'tritanopia',
+    // 'achromatopsia',
+  ];
+
+  const themeDictionary = {
+    light: lightTemplate,
+    dark: darkTemplate,
+    deuteranopia: deuteranopiaTemplate,
+    // tritanopia: darkTheme,
+    // achromatopsia: darkTheme,
+  };
 
   useEffect(() => {
     const isClient = typeof window === 'object';
@@ -26,22 +48,32 @@ export const useTheme = (initialState:SettingsState) => {
       ) {
         setTheme('dark');
       }
-    } else if (themeSelection === 'dark') {
-      setTheme('dark');
-    } else if (themeSelection === 'light') {
+    } else if (themeDictionary[themeSelection]) {
+      setTheme(themeSelection as Theme);
+    } else {
       setTheme('light');
     }
   }, [themeSelection]);
 
-  const toggleThemeMode = () => {
-    const value = theme === 'light' ? 'dark' : 'light';
-    setThemeSelection(value);
+  // const toggleThemeMode = () => {
+  //   const value = theme === 'light' ? 'dark' : 'light';
+  //   setThemeSelection(value);
+  // };
+
+  const changeTheme = (value: string) => {
+    if (themeDictionary[value]) {
+      setThemeSelection(value);
+    }
   };
 
   return {
     theme,
-    muiTheme: theme === 'dark' ? darkTheme : lightTheme,
-    toggleThemeMode,
+    muiTheme: createMuiTheme(themeDictionary[theme] || lightTemplate),
+    // muiTheme: createMuiTheme(lightTemplate),
+    // toggleThemeMode,
     themeSelection,
+    themeList,
+    themeDictionary,
+    changeTheme,
   };
 };

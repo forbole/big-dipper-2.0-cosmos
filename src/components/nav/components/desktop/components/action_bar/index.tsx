@@ -1,13 +1,12 @@
 import React from 'react';
 import classnames from 'classnames';
 import { useGetComponentDimension } from '@hooks';
-import ThemeIcon from '@assets/icon-theme.svg';
-import { useSettingsContext } from '@contexts';
 import { useStyles } from './styles';
 import {
   Language,
   Network,
   NetworkList,
+  ThemeList,
 } from './components';
 import { SearchBar } from '../../..';
 
@@ -21,10 +20,6 @@ const ActionBar: React.FC<{
   isNetwork,
 }) => {
   const {
-    toggleThemeMode,
-  } = useSettingsContext();
-
-  const {
     ref: heightRef,
     height,
   } = useGetComponentDimension();
@@ -37,9 +32,7 @@ const ActionBar: React.FC<{
           className={classnames(classes.network, { open: isNetwork })}
           toggleNetwork={toggleNetwork}
         />
-        <div onClick={toggleThemeMode} role="button" className={classes.theme}>
-          <ThemeIcon />
-        </div>
+        <ThemeList className={classes.theme} />
         <Language />
       </div>
       <NetworkList

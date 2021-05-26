@@ -1,9 +1,17 @@
 import {
-  darkTheme,
-  lightTheme,
+  lightTemplate,
+  darkTemplate,
+  deuteranopiaTemplate,
+  // lightTheme,
+  // darkTheme,
+  // deuteranopiaTheme,
 } from './theme';
 
 export {
-  darkTheme,
-  lightTheme,
+  lightTemplate,
+  darkTemplate,
+  deuteranopiaTemplate,
+  // lightTheme,
+  // darkTheme,
+  // deuteranopiaTheme,
 };

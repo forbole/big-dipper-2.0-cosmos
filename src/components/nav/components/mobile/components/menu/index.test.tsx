@@ -61,12 +61,12 @@ describe('screen: Nav/Menu', () => {
   });
 
   it('drawer displays on click', () => {
-    expect(component.root.findByProps({ id: 'drawer' }).props.open).toEqual(false);
+    expect(component.root.findByProps({ className: 'makeStyles-drawer lang-drawer' }).props.open).toEqual(false);
 
     renderer.act(() => {
       component.root.findByProps({ className: 'makeStyles-language' }).props.onClick();
     });
-    expect(component.root.findByProps({ id: 'drawer' }).props.open).toEqual(true);
+    expect(component.root.findByProps({ className: 'makeStyles-drawer lang-drawer' }).props.open).toEqual(true);
   });
 });
 

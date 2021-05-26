@@ -1,12 +1,14 @@
 import React from 'react';
-import { lightTheme } from '@styles';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { lightTemplate } from '@styles';
 import { useTheme } from './hooks';
 import { SettingsState } from './types';
 
 const initialState: SettingsState = {
   theme: 'light',
   themeSelection: 'device',
-  muiTheme: lightTheme,
+  muiTheme: createMuiTheme(lightTemplate),
+  themeList: [],
 };
 
 const SettingsContext = React.createContext<SettingsState>(initialState);
@@ -19,8 +21,9 @@ const SettingsProvider: React.FC = (props: {children: ({
   const {
     theme,
     muiTheme,
-    toggleThemeMode,
     themeSelection,
+    changeTheme,
+    themeList,
   } = useTheme(initialState);
 
   return (
@@ -29,7 +32,8 @@ const SettingsProvider: React.FC = (props: {children: ({
         theme,
         themeSelection,
         muiTheme,
-        toggleThemeMode,
+        changeTheme,
+        themeList,
       }}
     >
       {children({ muiTheme })}

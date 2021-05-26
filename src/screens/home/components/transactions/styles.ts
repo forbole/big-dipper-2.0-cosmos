@@ -7,6 +7,9 @@ export const useStyles = () => {
         root: {
           display: 'flex',
           flexDirection: 'column',
+          '& a': {
+            color: theme.palette.custom.fonts.highlight,
+          },
           '& .button': {
             color: theme.palette.custom.fonts.fontTwo,
             '&:hover': {

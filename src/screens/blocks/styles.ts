@@ -6,6 +6,9 @@ export const useStyles = () => {
       return ({
         root: {
           ...theme.mixins.layout,
+          '& a': {
+            color: theme.palette.custom.fonts.highlight,
+          },
         },
         box: {
           minHeight: '500px',
