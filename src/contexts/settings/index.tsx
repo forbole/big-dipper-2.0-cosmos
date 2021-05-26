@@ -25,8 +25,7 @@ const SettingsProvider: React.FC = (props: {children: ({
     changeTheme,
     themeList,
   } = useTheme(initialState);
-  // console.log(muiTheme.palette.type, 'mui theme');
-  console.log(theme, 'theme');
+
   return (
     <SettingsContext.Provider
       value={{

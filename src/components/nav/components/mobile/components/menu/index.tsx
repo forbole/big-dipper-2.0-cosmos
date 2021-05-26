@@ -50,7 +50,7 @@ const Menu = (props: MenuProps) => {
         anchor="bottom"
         open={languageOptions.drawerOpen}
         onClose={languageOptions.toggleDrawer}
-        className={classes.drawer}
+        className={classnames(classes.drawer, 'lang-drawer')}
       >
         <div className={classnames('content')}>
           {

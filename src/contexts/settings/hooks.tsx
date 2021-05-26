@@ -41,7 +41,6 @@ export const useTheme = (initialState:SettingsState) => {
 
   useEffect(() => {
     const isClient = typeof window === 'object';
-    console.log(themeSelection, 'what is this');
     if (themeSelection === 'device') {
       if (
         isClient
