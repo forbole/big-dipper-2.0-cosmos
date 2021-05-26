@@ -11,6 +11,9 @@ export const useStyles = () => {
           minHeight: '100vh',
           flexDirection: 'column',
           background: theme.palette.background.default,
+          '& a': {
+            color: theme.palette.custom.fonts.highlight,
+          },
         },
         chain: {
           color: theme.palette.primary.main,

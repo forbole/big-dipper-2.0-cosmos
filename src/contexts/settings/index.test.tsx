@@ -3,13 +3,15 @@ import {
   act,
   cleanup,
 } from '@testing-library/react-hooks';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { MockTheme } from '@tests/utils';
 import {
   SettingsProvider,
   useSettingsContext,
 } from '@contexts';
 import {
-  lightTheme,
-  darkTheme,
+  lightTemplate,
+  darkTemplate,
 } from '@styles';
 
 // ==================================
@@ -35,9 +37,9 @@ describe('context: SettingsContext', () => {
         <SettingsProvider>
           {() => {
             return (
-              <>
+              <MockTheme>
                 {children}
-              </>
+              </MockTheme>
             );
           }}
         </SettingsProvider>
@@ -46,18 +48,21 @@ describe('context: SettingsContext', () => {
     const { result } = renderHook(() => useSettingsContext(), {
       wrapper,
     });
+    const lightTheme = JSON.stringify(createMuiTheme(lightTemplate));
+    const darkTheme = JSON.stringify(createMuiTheme(darkTemplate));
+
     expect(result.current.theme).toBe('light');
-    expect(result.current.muiTheme).toBe(lightTheme);
+    expect(JSON.stringify(result.current.muiTheme)).toEqual(lightTheme);
     await act(async () => {
-      await result.current.toggleThemeMode();
+      await result.current.changeTheme('dark');
     });
     expect(result.current.theme).toBe('dark');
-    expect(result.current.muiTheme).toBe(darkTheme);
+    expect(JSON.stringify(result.current.muiTheme)).toBe(darkTheme);
     await act(async () => {
-      await result.current.toggleThemeMode();
+      await result.current.changeTheme('light');
     });
     expect(result.current.theme).toBe('light');
-    expect(result.current.muiTheme).toBe(lightTheme);
+    expect(JSON.stringify(result.current.muiTheme)).toBe(lightTheme);
   });
 });
 

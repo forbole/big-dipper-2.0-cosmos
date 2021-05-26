@@ -28,7 +28,7 @@ const Consensus: React.FC<{
   const data = [
     {
       value: rawData.roundCompletion,
-      fill: theme.palette.custom.primaryData.three,
+      fill: theme.palette.primary.main,
     },
   ];
 

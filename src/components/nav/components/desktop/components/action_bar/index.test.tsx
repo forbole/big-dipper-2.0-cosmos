@@ -17,6 +17,7 @@ jest.mock('./components', () => ({
   Language: (props) => <div id="language" {...props} />,
   Network: (props) => <div id="network" {...props} />,
   NetworkList: (props) => <div id="NetworkList" {...props} />,
+  ThemeList: (props) => <div id="ThemeList" {...props} />,
 }));
 // ==================================
 // unit tests

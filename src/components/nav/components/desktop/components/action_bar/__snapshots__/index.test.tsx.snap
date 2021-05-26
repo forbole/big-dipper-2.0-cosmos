@@ -51,12 +51,8 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
     />
     <div
       className="makeStyles-theme"
-      role="button"
-    >
-      <svg
-        data-file-name="SvgIconTheme"
-      />
-    </div>
+      id="ThemeList"
+    />
     <div
       id="language"
     />
@@ -120,12 +116,8 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
     />
     <div
       className="makeStyles-theme"
-      role="button"
-    >
-      <svg
-        data-file-name="SvgIconTheme"
-      />
-    </div>
+      id="ThemeList"
+    />
     <div
       id="language"
     />
