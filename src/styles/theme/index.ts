@@ -1,7 +1,5 @@
 import * as R from 'ramda';
-import {
-  ThemeOptions, createMuiTheme,
-} from '@material-ui/core/styles';
+import { ThemeOptions } from '@material-ui/core/styles';
 
 import { darkThemeOverride } from './dark';
 import { lightThemeOverride } from './light';
