@@ -152,8 +152,8 @@ export const useValidators = (initialState: ValidatorsState) => {
     if (search) {
       sorted = sorted.filter((x) => {
         return (
-          x.moniker.toLowerCase().includes(search)
-          || x.validator.includes(search)
+          x.moniker.toLowerCase().replace(/ /g, '').includes(search.toLowerCase())
+          || x.validator.toLowerCase().includes(search.toLowerCase())
         );
       });
     }
