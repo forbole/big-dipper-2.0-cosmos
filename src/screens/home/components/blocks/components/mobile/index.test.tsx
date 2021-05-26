@@ -13,27 +13,7 @@ const mockI18n = {
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('@components', () => ({
   SingleBlockMobile: (props) => <div id="SingleBlockMobile" {...props} />,
-}));
-
-jest.mock('@src/screens/home/components/blocks/contexts/blocks', () => ({
-  useBlocksContext: () => ({
-    rawData: [{
-      height: 4000,
-      txs: 12,
-      timestamp: '2021-02-18T09:02:28.668623',
-      proposer: 'desmosvalcons1why72hjk945yhckcy5hzk2z2w9d5h65t9am0kd',
-      hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
-    }],
-    formatUi: jest.fn(() => [
-      {
-        height: <div>4,000</div>,
-        txs: 12,
-        time: 'moments ago',
-        proposer: <div>proposer</div>,
-        hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
-      },
-    ]),
-  }),
+  AvatarName: (props) => <div id="AvatarName" {...props} />,
 }));
 
 // ==================================
@@ -43,7 +23,21 @@ describe('screen: Home/Blocks/Mobile', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>
-        <Mobile />
+        <Mobile
+          items={[
+            {
+              height: 4000,
+              txs: 12,
+              timestamp: '2021-02-18T09:02:28.668623',
+              hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
+              proposer: {
+                address: 'desmosvalcons1why72hjk945yhckcy5hzk2z2w9d5h65t9am0kd',
+                imageUrl: '',
+                name: 'name',
+              },
+            },
+          ]}
+        />
       </MockTheme>,
     );
     const tree = component.toJSON();

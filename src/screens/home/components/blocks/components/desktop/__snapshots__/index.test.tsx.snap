@@ -65,23 +65,31 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body"
         >
-          <div>
+          <a
+            className="MuiTypography-root value MuiTypography-body1"
+            href="/blocks/4000"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+          >
             4,000
-          </div>
+          </a>
         </td>
         <td
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body"
         >
-          <div>
-            proposer
-          </div>
+          <div
+            address="desmosvalcons1why72hjk945yhckcy5hzk2z2w9d5h65t9am0kd"
+            id="AvatarName"
+            imageUrl=""
+            name="name"
+          />
         </td>
         <td
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body"
         >
-          76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857
+          76nwV8...hQ857
         </td>
         <td
           aria-sort={null}
@@ -93,7 +101,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
         >
-          moments ago
+          1 day ago
         </td>
       </tr>
     </tbody>

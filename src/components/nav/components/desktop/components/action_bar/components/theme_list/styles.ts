@@ -4,6 +4,11 @@ export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
       return ({
+        menu: {
+          '& .MuiMenu-list': {
+            padding: 0,
+          },
+        },
         selected: {
           display: 'flex',
           justifyContent: 'flex-end',

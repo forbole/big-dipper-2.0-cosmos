@@ -27,6 +27,11 @@ const ThemeList: React.FC<{
     handleClose,
   } = useThemeList();
 
+  const handleOnClick = (value:string) => {
+    changeTheme(value);
+    handleClose();
+  };
+
   return (
     <div>
       <div
@@ -40,6 +45,7 @@ const ThemeList: React.FC<{
         </Typography>
       </div>
       <Menu
+        className={classes.menu}
         anchorEl={anchor}
         getContentAnchorEl={null}
         anchorOrigin={{
@@ -58,7 +64,7 @@ const ThemeList: React.FC<{
           .filter((l) => l !== theme)
           .map((l) => (
             <div key={l}>
-              <MenuItem button component="a" onClick={() => changeTheme(l)}>
+              <MenuItem button component="a" onClick={() => handleOnClick(l)}>
                 {t(l)}
               </MenuItem>
             </div>

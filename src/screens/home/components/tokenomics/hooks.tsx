@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
-import { Theme } from '@material-ui/core/styles';
 import {
   useTokenomicsQuery,
   TokenomicsQuery,
@@ -10,7 +9,7 @@ import {
 import { formatDenom } from '@utils/format_denom';
 import { chainConfig } from '@src/chain_config';
 
-export const useTokenomics = (theme: Theme) => {
+export const useTokenomics = () => {
   const [state, setState] = useState<{
     bonded: number;
     unbonded: number;
@@ -61,43 +60,7 @@ export const useTokenomics = (theme: Theme) => {
     return results;
   };
 
-  const formatUi = () => {
-    const {
-      bonded,
-      unbonded,
-      unbonding,
-      total,
-    } = state;
-
-    return ([
-      {
-        legendKey: 'bonded',
-        percentKey: 'bondedPercent',
-        value: numeral(bonded).format('0,0'),
-        rawValue: bonded,
-        percent: `${numeral((bonded * 100) / total).format('0.00')}%`,
-        fill: theme.palette.custom.tags.one,
-      },
-      {
-        legendKey: 'unbonded',
-        percentKey: 'unbondedPercent',
-        value: numeral(unbonded).format('0,0'),
-        rawValue: unbonded,
-        percent: `${numeral((unbonded * 100) / total).format('0.00')}%`,
-        fill: theme.palette.custom.tags.six,
-      },
-      {
-        legendKey: 'unbonding',
-        value: numeral(unbonding).format('0,0'),
-        rawValue: unbonding,
-        percent: `${numeral((unbonding * 100) / total).format('0.00')}%`,
-        fill: theme.palette.custom.tags.four,
-      },
-    ]);
-  };
-
   return {
-    rawData: state,
-    uiData: formatUi(),
+    state,
   };
 };
