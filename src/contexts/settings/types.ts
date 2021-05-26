@@ -4,5 +4,7 @@ export interface SettingsState {
   theme: Theme;
   muiTheme: any;
   themeSelection: string;
-  toggleThemeMode?: () => void;
+  // toggleThemeMode?: () => void;
+  themeList: string[];
+  changeTheme?: (value: string) => void;
 }

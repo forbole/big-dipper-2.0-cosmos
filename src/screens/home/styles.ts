@@ -10,6 +10,9 @@ export const useStyles = () => {
           gridGap: theme.spacing(1),
           gridTemplateRows: 'auto auto 1fr',
           gridTemplateColumns: 'repeat(1, 1fr)',
+          '& a': {
+            color: theme.palette.custom.fonts.highlight,
+          },
           [theme.breakpoints.up('md')]: {
             gridTemplateColumns: 'repeat(2, 1fr)',
           },

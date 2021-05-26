@@ -11,7 +11,9 @@ import {
   deuteranopiaTemplate,
 } from '@styles';
 import { usePersistedState } from '@hooks';
-import { SettingsState } from './types';
+import {
+  SettingsState, Theme,
+} from './types';
 
 /**
  *
@@ -39,6 +41,7 @@ export const useTheme = (initialState:SettingsState) => {
 
   useEffect(() => {
     const isClient = typeof window === 'object';
+    console.log(themeSelection, 'what is this');
     if (themeSelection === 'device') {
       if (
         isClient
@@ -47,7 +50,7 @@ export const useTheme = (initialState:SettingsState) => {
         setTheme('dark');
       }
     } else if (themeDictionary[themeSelection]) {
-      setTheme(themeSelection as any);
+      setTheme(themeSelection as Theme);
     } else {
       setTheme('light');
     }
@@ -59,14 +62,15 @@ export const useTheme = (initialState:SettingsState) => {
   // };
 
   const changeTheme = (value: string) => {
-    if (themeDictionary[theme]) {
+    if (themeDictionary[value]) {
       setThemeSelection(value);
     }
   };
 
   return {
     theme,
-    muiTheme: createMuiTheme(themeDictionary[theme] ?? lightTemplate),
+    muiTheme: createMuiTheme(themeDictionary[theme] || lightTemplate),
+    // muiTheme: createMuiTheme(lightTemplate),
     // toggleThemeMode,
     themeSelection,
     themeList,

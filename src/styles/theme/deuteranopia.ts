@@ -22,20 +22,9 @@ export const deuteranopiaThemeOverride = {
     },
   },
   palette: {
-    type: 'deuteranopia',
+    type: 'dark',
     general: {
       icon,
-    },
-    tags: {
-      zero: '#F9F9F9',
-      one: '#F9F9F9',
-      two: '#F9F9F9',
-      three: '#F9F9F9',
-      four: '#F9F9F9',
-      five: '#F9F9F9',
-      six: '#F9F9F9',
-      seven: '#F9F9F9',
-      eight: '#F9F9F9',
     },
     primary: {
       main: '#FFDC3D',
@@ -72,6 +61,17 @@ export const deuteranopiaThemeOverride = {
       results: {
         pass: '#005FCC',
         fail: '#CD022D',
+      },
+      tags: {
+        zero: '#F9F9F9',
+        one: '#F9F9F9',
+        two: '#F9F9F9',
+        three: '#F9F9F9',
+        four: '#F9F9F9',
+        five: '#F9F9F9',
+        six: '#F9F9F9',
+        seven: '#F9F9F9',
+        eight: '#F9F9F9',
       },
     },
   },
