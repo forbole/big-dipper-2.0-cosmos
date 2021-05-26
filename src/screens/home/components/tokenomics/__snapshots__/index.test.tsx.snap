@@ -157,53 +157,7 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
         }
       >
         <div
-          active={false}
-          allowEscapeViewBox={
-            Object {
-              "x": false,
-              "y": false,
-            }
-          }
-          animationDuration={400}
-          animationEasing="ease"
-          content={
-            <CustomToolTip>
-              [Function]
-            </CustomToolTip>
-          }
-          contentStyle={Object {}}
-          coordinate={
-            Object {
-              "x": 0,
-              "y": 0,
-            }
-          }
-          cursor={true}
-          cursorStyle={Object {}}
-          filterNull={true}
           id="CustomToolTip"
-          isAnimationActive={true}
-          itemStyle={Object {}}
-          labelStyle={Object {}}
-          offset={10}
-          payload={Array []}
-          separator=" : "
-          trigger="hover"
-          useTranslate3d={false}
-          viewBox={
-            Object {
-              "bottom": 5,
-              "brushBottom": 5,
-              "height": 90,
-              "left": 5,
-              "right": 5,
-              "top": 5,
-              "width": 190,
-              "x": 5,
-              "y": 5,
-            }
-          }
-          wrapperStyle={Object {}}
         />
       </div>
     </div>
