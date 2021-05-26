@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
+import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 // import Trans from 'next-translate/Trans';
@@ -15,11 +16,11 @@ const OnlineVotingPower: React.FC<{
   className,
 }) => {
   const { t } = useTranslation('home');
-  const {
-    rawData,
-    uiData,
-  } = useOnlineVotingPower();
-  const classes = useStyles(uiData.current.votingPowerPercentRaw);
+  const { state } = useOnlineVotingPower();
+
+  const votingPowerPercent = numeral((state.votingPower / state.totalVotingPower) * 100);
+
+  const classes = useStyles(votingPowerPercent.format(0));
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -28,14 +29,14 @@ const OnlineVotingPower: React.FC<{
       </Typography>
       <div className={classes.data}>
         <Typography variant="h3" className="primary__data">
-          {uiData.current.votingPowerPercent}
+          {`${votingPowerPercent.format('0,0.00', (n) => ~~n)}%`}
         </Typography>
         <Typography variant="body1">
-          {uiData.current.votingPower}
+          {numeral(state.votingPower).format('0,0')}
           {' '}
           /
           {' '}
-          {uiData.current.totalVotingPower}
+          {numeral(state.totalVotingPower).format('0,0')}
         </Typography>
       </div>
       <div className={classes.chart}>
@@ -46,9 +47,9 @@ const OnlineVotingPower: React.FC<{
           <Typography variant="h4" className="label">
             {t('block')}
           </Typography>
-          <Link href={BLOCK_DETAILS(rawData.current.height)} passHref>
+          <Link href={BLOCK_DETAILS(state.height)} passHref>
             <Typography variant="body1" className="value" component="a">
-              {uiData.current.height}
+              {numeral(state.height).format('0,0')}
             </Typography>
           </Link>
         </div>
@@ -57,7 +58,7 @@ const OnlineVotingPower: React.FC<{
             {t('votingPowerPercent')}
           </Typography>
           <Typography variant="body1" className="value">
-            {uiData.current.votingPowerPercent}
+            {`${votingPowerPercent.format('0,0.00', (n) => ~~n)}%`}
           </Typography>
         </div>
         <div className={classes.item}>
@@ -65,7 +66,7 @@ const OnlineVotingPower: React.FC<{
             {t('votingPower')}
           </Typography>
           <Typography variant="body1" className="value">
-            {uiData.current.votingPower}
+            {numeral(state.votingPower).format('0,0')}
           </Typography>
         </div>
         <div className={classes.item}>
@@ -73,7 +74,7 @@ const OnlineVotingPower: React.FC<{
             {t('totalVotingPower')}
           </Typography>
           <Typography variant="body1" className="value">
-            {uiData.current.totalVotingPower}
+            {numeral(state.totalVotingPower).format('0,0')}
           </Typography>
         </div>
         {/* <div className={classes.item}>

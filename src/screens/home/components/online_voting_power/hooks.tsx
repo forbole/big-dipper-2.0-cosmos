@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import numeral from 'numeral';
 import * as R from 'ramda';
 import { formatDenom } from '@utils/format_denom';
 import {
@@ -10,17 +9,13 @@ import {
 } from '@graphql/types';
 
 const initialState: {
-  current: {
-    height: number;
-    votingPower: number;
-    totalVotingPower: number;
-  }
+  height: number;
+  votingPower: number;
+  totalVotingPower: number;
 } = {
-  current: {
-    height: 0,
-    votingPower: 0,
-    totalVotingPower: 0,
-  },
+  height: 0,
+  votingPower: 0,
+  totalVotingPower: 0,
 };
 
 export const useOnlineVotingPower = () => {
@@ -39,19 +34,17 @@ export const useOnlineVotingPower = () => {
       const currentVotingPower = formatOnlineVotingPower(data.subscriptionData.data);
 
       handleSetState({
-        current: {
-          ...currentVotingPower,
-        },
+        ...currentVotingPower,
       });
     },
   });
 
   const formatOnlineVotingPower = (data: OnlineVotingPowerListenerSubscription) => {
-    const votingPower = R.pathOr(state.current.votingPower, [
+    const votingPower = R.pathOr(state.votingPower, [
       'block', 0, 'validatorVotingPowersAggregate', 'aggregate', 'sum', 'votingPower',
     ], data);
     return {
-      height: R.pathOr(initialState.current.height, ['block', 0, 'height'], data),
+      height: R.pathOr(initialState.height, ['block', 0, 'height'], data),
       votingPower,
     };
   };
@@ -62,15 +55,13 @@ export const useOnlineVotingPower = () => {
   useTotalVotingPowerListenerSubscription({
     onSubscriptionData: (data) => {
       handleSetState({
-        current: {
-          totalVotingPower: formatTotalVotingPower(data.subscriptionData.data),
-        },
+        totalVotingPower: formatTotalVotingPower(data.subscriptionData.data),
       });
     },
   });
 
   const formatTotalVotingPower = (data: TotalVotingPowerListenerSubscription) => {
-    let bonded = R.pathOr(initialState.current.totalVotingPower, [
+    let bonded = R.pathOr(initialState.totalVotingPower, [
       'stakingPool',
       0,
       'bonded',
@@ -79,25 +70,7 @@ export const useOnlineVotingPower = () => {
     return bonded;
   };
 
-  const formatUi = () => {
-    const {
-      current,
-    } = state;
-
-    const votingPowerPercent = numeral((current.votingPower / current.totalVotingPower) * 100);
-    return ({
-      current: {
-        height: numeral(current.height).format('0,0'),
-        votingPower: numeral(current.votingPower).format('0,0'),
-        votingPowerPercentRaw: votingPowerPercent.format(0),
-        votingPowerPercent: `${votingPowerPercent.format('0,0.00', (n) => ~~n)}%`,
-        totalVotingPower: numeral(current.totalVotingPower).format('0,0'),
-      },
-    });
-  };
-
   return {
-    rawData: state,
-    uiData: formatUi(),
+    state,
   };
 };

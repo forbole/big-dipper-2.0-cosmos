@@ -13,14 +13,24 @@ export const useConsensus = () => {
   const {
     findAddress, findOperator,
   } = useChainContext();
-  const [state, setState] = useState({
+  const [state, setState] = useState<{
+    height: number;
+    round: number;
+    step: number;
+    totalSteps: number;
+    roundCompletion: number;
+    proposer: AvatarName;
+  }>({
     height: 0,
     round: 0,
     step: 0,
     totalSteps: 5,
     roundCompletion: 0,
-    proposer: '',
-    proposerRaw: '',
+    proposer: {
+      name: '',
+      address: '',
+      imageUrl: '',
+    },
   });
 
   useEffect(() => {
@@ -70,14 +80,20 @@ export const useConsensus = () => {
 
   const formatNewRound = (data:any) => {
     const height = numeral(R.pathOr('', ['result', 'data', 'value', 'height'], data)).value();
-    const proposer = R.pathOr('', ['result', 'data', 'value', 'proposer', 'address'], data);
-    const consensusAddress = hexToBech32(proposer, chainConfig.prefix.consensus);
+    const proposerHex = R.pathOr('', ['result', 'data', 'value', 'proposer', 'address'], data);
+    const consensusAddress = hexToBech32(proposerHex, chainConfig.prefix.consensus);
+
+    const operatorAddress = findOperator(consensusAddress);
+    const proposer = findAddress(operatorAddress);
 
     setState((prevState) => ({
       ...prevState,
       height,
-      proposer: consensusAddress,
-      proposerRaw: proposer,
+      proposer: {
+        address: operatorAddress,
+        imageUrl: proposer.imageUrl,
+        name: proposer.moniker,
+      },
     }));
   };
 
@@ -104,28 +120,7 @@ export const useConsensus = () => {
     }));
   };
 
-  const formatUi = () => {
-    const operatorAddress = findOperator(state.proposer);
-    const proposer = findAddress(operatorAddress);
-
-    return ({
-      height: numeral(state.height).format('0,0'),
-      round: numeral(state.round).format('0,0'),
-      step: numeral(state.step).format('0,0'),
-      proposer: operatorAddress ? (
-        <AvatarName
-          address={operatorAddress || state.proposer}
-          imageUrl={proposer ? proposer?.imageUrl : null}
-          name={proposer ? proposer.moniker : 'Shy Validator'}
-        />
-      ) : (
-        '-'
-      ),
-    });
-  };
-
   return {
-    rawData: state,
-    uiData: formatUi(),
+    state,
   };
 };
