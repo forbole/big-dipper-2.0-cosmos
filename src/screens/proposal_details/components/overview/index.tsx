@@ -1,6 +1,8 @@
 import React from 'react';
 import * as R from 'ramda';
+import numeral from 'numeral';
 import classnames from 'classnames';
+import dayjs from '@utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Typography,
@@ -9,28 +11,44 @@ import {
 import {
   SingleProposal,
   Box,
+  Tag,
 } from '@components';
 import {
   ParamsChange,
 } from './components';
 import { useStyles } from './styles';
-import { useProposalContext } from '../../contexts/proposal';
+import { getProposalType } from '../../utils';
 
 const Overview: React.FC<{
   className?: string;
-}> = ({ className }) => {
+  title: string;
+  id: number;
+  description: string;
+  status: string;
+  submitTime: string;
+  depositEndTime: string;
+  votingStartTime: string | null;
+  votingEndTime: string | null;
+  content: string;
+}> = ({
+  className, ...props
+}) => {
   const classes = useStyles();
   const { t } = useTranslation('proposals');
-  const {
-    uiData, rawData,
-  } = useProposalContext();
+
+  const type = getProposalType(R.pathOr('', ['@type'], props.content));
 
   return (
     <Box className={classnames(className)}>
       <SingleProposal
-        id={uiData.overview.id}
-        title={uiData.overview.title}
-        status={uiData.overview.status}
+        id={`#${numeral(props.id).format('0,0')}`}
+        title={props.title}
+        status={(
+          <Tag
+            theme="one"
+            value={props.status.replace('PROPOSAL_STATUS_', '').replace('_', ' ')}
+          />
+        )}
       />
       <Divider />
       <div className={classes.content}>
@@ -38,68 +56,68 @@ const Overview: React.FC<{
           {t('type')}
         </Typography>
         <Typography variant="body1" className="value">
-          {t(uiData.overview.type)}
+          {t(type)}
         </Typography>
         <Typography variant="body1" className="label">
           {t('description')}
         </Typography>
         <Typography variant="body1" className="value">
-          {uiData.overview.description}
+          {props.description}
         </Typography>
-        {uiData.overview.type === 'parameterChangeProposal' && (
+        {type === 'parameterChangeProposal' && (
           <>
             <Typography variant="body1" className="label">
               {t('changes')}
             </Typography>
             <ParamsChange
-              changes={R.pathOr([], ['content', 'changes'], rawData)}
+              changes={R.pathOr([], ['changes'], props.content)}
             />
           </>
         )}
         {
-          !!uiData.overview.submitTime && (
+          !!props.submitTime && (
             <>
               <Typography variant="body1" className="label">
                 {t('submitTime')}
               </Typography>
               <Typography variant="body1" className="value">
-                {uiData.overview.submitTime}
+                {dayjs.utc(props.submitTime).local().format('MMMM DD, YYYY hh:mm A')}
               </Typography>
             </>
           )
         }
         {
-          !!uiData.overview.depositEndTime && (
+          !!props.depositEndTime && (
             <>
               <Typography variant="body1" className="label">
                 {t('depositEndTime')}
               </Typography>
               <Typography variant="body1" className="value">
-                {uiData.overview.depositEndTime}
+                {dayjs.utc(props.depositEndTime).local().format('MMMM DD, YYYY hh:mm A')}
               </Typography>
             </>
           )
         }
         {
-          !!uiData.overview.votingStartTime && (
+          !!props.votingStartTime && (
             <>
               <Typography variant="body1" className="label">
                 {t('votingStartTime')}
               </Typography>
               <Typography variant="body1" className="value">
-                {uiData.overview.votingStartTime}
+                {dayjs.utc(props.votingStartTime).local().format('MMMM DD, YYYY hh:mm A')}
               </Typography>
             </>
           )
         }
         {
-          !!uiData.overview.votingEndTime && (
+          !!props.votingEndTime && (
             <>
               <Typography variant="body1" className="label">
                 {t('votingEndTime')}
               </Typography>
               <Typography variant="body1" className="value">
-                {uiData.overview.votingEndTime}
+                {dayjs.utc(props.votingEndTime).local().format('MMMM DD, YYYY hh:mm A')}
               </Typography>
             </>
           )

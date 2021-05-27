@@ -18,6 +18,10 @@ const ProposalDetails = () => {
   const { t } = useTranslation('proposals');
   const classes = useStyles();
   const { state } = useProposalDetails();
+  const {
+    overview,
+    content,
+  } = state;
   console.log(state, 'state');
   return (
     <Layout
@@ -34,7 +38,18 @@ const ProposalDetails = () => {
               loading={state.loading}
             >
               <span className={classes.root}>
-                <Overview className={classes.overview} />
+                <Overview
+                  className={classes.overview}
+                  title={overview.title}
+                  id={overview.id}
+                  description={overview.description}
+                  status={overview.status}
+                  submitTime={overview.submitTime}
+                  depositEndTime={overview.depositEndTime}
+                  votingStartTime={overview.votingStartTime}
+                  votingEndTime={overview.votingEndTime}
+                  content={content}
+                />
                 <VotesGraph className={classes.votesGraph} />
                 <Votes className={classes.votes} />
                 <Deposits className={classes.deposits} />
