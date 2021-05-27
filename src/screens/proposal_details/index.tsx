@@ -21,6 +21,7 @@ const ProposalDetails = () => {
   const {
     overview,
     content,
+    tally,
   } = state;
   console.log(state, 'state');
   return (
@@ -50,7 +51,10 @@ const ProposalDetails = () => {
                   votingEndTime={overview.votingEndTime}
                   content={content}
                 />
-                <VotesGraph className={classes.votesGraph} />
+                <VotesGraph
+                  className={classes.votesGraph}
+                  data={tally}
+                />
                 <Votes className={classes.votes} />
                 <Deposits className={classes.deposits} />
               </span>

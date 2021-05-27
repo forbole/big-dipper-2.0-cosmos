@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import numeral from 'numeral';
 import { Box } from '@components';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
@@ -8,33 +9,36 @@ import {
   Pie,
   Cell,
 } from 'recharts';
-import { useProposalContext } from '../../contexts/proposal';
 import { useStyles } from './styles';
 import { formatGraphData } from './utils';
+import { TallyType } from '../../types';
 
 const VotesGraph: React.FC<{
   className?: string;
-}> = ({ className }) => {
-  const {
-    uiData,
-    rawData,
-  } = useProposalContext();
+  data: TallyType;
+}> = ({
+  className, data,
+}) => {
   const {
     classes, theme,
   } = useStyles();
   const { t } = useTranslation('proposals');
-  const formattedData = formatGraphData({
-    uiData,
-    rawData,
-  });
+  let formattedData = formatGraphData(data);
+
   const empty = {
     name: 'empty',
     value: 2400,
     color: theme.palette.custom.tags.zero,
+    percentage: '0%',
     display: '',
   };
   const notEmpty = formattedData.some((x) => x.value > 0);
-  const data = notEmpty ? formattedData : [...formattedData, empty];
+  formattedData = notEmpty ? formattedData : [...formattedData, empty];
+
+  const quorumPercent = numeral(data.quorum * 100).value();
+  const votePercent = numeral((data.total / data.bondedTokens) * 100).format('0.[00]');
+  const voteAmount = numeral(data.total).format('0,0.[00]');
+  const quorumAmount = numeral(data.bondedTokens / (data.quorum || 1)).format('0,0.[00]');
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -48,11 +52,11 @@ const VotesGraph: React.FC<{
             cy="50%"
             stroke="none"
             dataKey="value"
-            data={data}
+            data={formattedData}
             fill="#8884d8"
             isAnimationActive={false}
           >
-            {data.map((entry, index) => {
+            {formattedData.map((entry, index) => {
               return (
                 <Cell
                   key={`cell-${index}`}
@@ -68,19 +72,19 @@ const VotesGraph: React.FC<{
         <div className={classes.total}>
           <Typography variant="caption">
             Voted / Quorum (
-            {uiData.chart.votePercent}
+            {votePercent}
             {' '}
             /
             {' '}
-            {uiData.chart.quorumPercent}
+            {quorumPercent}
             )
           </Typography>
           <Typography>
-            {uiData.chart.voteAmount}
+            {voteAmount}
             {' '}
             /
             {' '}
-            {uiData.chart.quorumAmount}
+            {quorumAmount}
           </Typography>
         </div>
         {formattedData.map((x) => {
