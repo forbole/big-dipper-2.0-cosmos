@@ -2,11 +2,8 @@ import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Layout,
-  NotFound,
-  LinearLoading,
   LoadAndExist,
 } from '@components';
-import { Satellite } from '@material-ui/icons';
 import { useStyles } from './styles';
 import {
   Overview,
@@ -21,7 +18,7 @@ const ProposalDetails = () => {
   const { t } = useTranslation('proposals');
   const classes = useStyles();
   const { state } = useProposalDetails();
-
+  console.log(state, 'state');
   return (
     <Layout
       title={t('proposalDetails')}
@@ -31,26 +28,18 @@ const ProposalDetails = () => {
         {({
           exists, loading,
         }) => {
-          if (state.loading) {
-            return <LinearLoading />;
-          }
-
-          if (!exists && !loading) {
-            return <NotFound />;
-          }
-
           return (
-          // <LoadAndExist
-          //   exists={state.exists}
-          //   loading={state.loading}
-          // >
-            <span className={classes.root}>
-              <Overview className={classes.overview} />
-              <VotesGraph className={classes.votesGraph} />
-              <Votes className={classes.votes} />
-              <Deposits className={classes.deposits} />
-            </span>
-          // {/* </LoadAndExist> */}
+            <LoadAndExist
+              exists={state.exists}
+              loading={state.loading}
+            >
+              <span className={classes.root}>
+                <Overview className={classes.overview} />
+                <VotesGraph className={classes.votesGraph} />
+                <Votes className={classes.votes} />
+                <Deposits className={classes.deposits} />
+              </span>
+            </LoadAndExist>
           );
         }}
       </ProposalProvider>

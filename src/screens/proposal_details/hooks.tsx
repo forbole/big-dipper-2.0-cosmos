@@ -43,7 +43,14 @@ export const useProposalDetails = () => {
       quorum: 0,
       bondedTokens: 0,
     },
-    votes: [],
+    votes: {
+      yes: 0,
+      no: 0,
+      abstain: 0,
+      veto: 0,
+      total: 0,
+      data: [],
+    },
     deposits: [],
   });
 
@@ -99,9 +106,7 @@ export const useProposalDetails = () => {
 
   const formatProposalQuery = (data: ProposalDetailsQuery) => {
     const stateChange: any = {
-      rawData: {
-        loading: false,
-      },
+      loading: false,
     };
 
     if (!data.proposal.length) {
@@ -159,7 +164,24 @@ export const useProposalDetails = () => {
   };
 
   const formatProposalVotes = (data: ProposalVotesListenerSubscription) => {
+    let yes = 0;
+    let no = 0;
+    let abstain = 0;
+    let veto = 0;
     const votes = data.proposalVote.map((x) => {
+      if (x.option === 'VOTE_OPTION_YES') {
+        yes += 1;
+      }
+      if (x.option === 'VOTE_OPTION_ABSTAIN') {
+        abstain += 1;
+      }
+      if (x.option === 'VOTE_OPTION_NO') {
+        no += 1;
+      }
+      if (x.option === 'VOTE_OPTION_NO_WITH_VETO') {
+        veto += 1;
+      }
+
       const user = findAddress(x.voterAddress);
       return ({
         user: {
@@ -171,7 +193,14 @@ export const useProposalDetails = () => {
       });
     });
 
-    return votes;
+    return {
+      data: votes,
+      yes,
+      no,
+      abstain,
+      veto,
+      total: veto + abstain + no + yes,
+    };
   };
 
   const formatProposalTally = (data: ProposalTallyListenerSubscription) => {
