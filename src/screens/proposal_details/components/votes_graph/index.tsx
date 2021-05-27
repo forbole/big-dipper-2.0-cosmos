@@ -87,7 +87,7 @@ const VotesGraph: React.FC<{
             {quorumAmount}
           </Typography>
         </div>
-        {formattedData.map((x) => {
+        {formattedData.filter((x) => x.name !== 'empty').map((x) => {
           return (
             <div key={x.name} className={classnames(classes.voteItem, x.name)}>
               <Typography variant="caption">
