@@ -17,11 +17,14 @@ import { useProposalDetails } from './hooks';
 const ProposalDetails = () => {
   const { t } = useTranslation('proposals');
   const classes = useStyles();
-  const { state } = useProposalDetails();
+  const {
+    state, handleTabChange,
+  } = useProposalDetails();
   const {
     overview,
     content,
     tally,
+    votes,
   } = state;
   console.log(state, 'state');
   return (
@@ -55,7 +58,17 @@ const ProposalDetails = () => {
                   className={classes.votesGraph}
                   data={tally}
                 />
-                <Votes className={classes.votes} />
+                <Votes
+                  className={classes.votes}
+                  data={votes.data}
+                  tab={votes.tab}
+                  yes={votes.yes}
+                  no={votes.no}
+                  abstain={votes.abstain}
+                  veto={votes.veto}
+                  total={votes.total}
+                  handleTabChange={handleTabChange}
+                />
                 <Deposits className={classes.deposits} />
               </span>
             </LoadAndExist>

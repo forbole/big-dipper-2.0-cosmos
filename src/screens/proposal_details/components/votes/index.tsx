@@ -1,17 +1,23 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import classnames from 'classnames';
 import {
   Box, NoData,
 } from '@components';
-import { usePagination } from '@hooks';
+import {
+  usePagination,
+  useScreenSize,
+} from '@hooks';
+
 import { useStyles } from './styles';
 import {
   Tabs,
-  Desktop,
-  Mobile,
   Paginate,
 } from './components';
 import { VoteType } from '../../types';
+
+const Desktop = dynamic(() => import('./components/desktop'));
+const Mobile = dynamic(() => import('./components/mobile'));
 
 const Votes: React.FC<{
   className?: string;
@@ -26,6 +32,7 @@ const Votes: React.FC<{
 }> = ({
   className, ...props
 }) => {
+  const { isDesktop } = useScreenSize();
   const {
     page,
     rowsPerPage,
@@ -75,8 +82,17 @@ const Votes: React.FC<{
       <div className={classes.list}>
         {items.length ? (
           <>
-            <Mobile className={classes.mobile} items={items} />
-            <Desktop className={classes.desktop} items={items} />
+            {isDesktop ? (
+              <Desktop
+                className={classes.desktop}
+                items={items}
+              />
+            ) : (
+              <Mobile
+                className={classes.mobile}
+                items={items}
+              />
+            )}
           </>
         ) : (
           <NoData />
