@@ -4,20 +4,37 @@ import useTranslation from 'next-translate/useTranslation';
 import {
   Divider, Typography,
 } from '@material-ui/core';
+import numeral from 'numeral';
+import { AvatarName } from '@components';
+import { chainConfig } from '@src/chain_config';
 import { useStyles } from './styles';
+import { DepositType } from '../../../../types';
 
 const Mobile: React.FC<{
   className?: string;
-  items?: any[];
+  items?: DepositType[];
 }> = ({
   className, items,
 }) => {
   const { t } = useTranslation('proposals');
   const classes = useStyles();
 
+  const formattedItems = items.map((x) => {
+    return ({
+      depositor: (
+        <AvatarName
+          address={x.user.address}
+          imageUrl={x.user.imageUrl}
+          name={x.user.name}
+        />
+      ),
+      amount: `${numeral(x.amount).format('0,0.[000000]')} ${chainConfig.display.toUpperCase()}`,
+    });
+  });
+
   return (
     <div className={classnames(className)}>
-      {items.map((x, i) => {
+      {formattedItems.map((x, i) => {
         return (
           <React.Fragment key={`depositors-mobile-${i}`}>
             <div className={classes.list}>
