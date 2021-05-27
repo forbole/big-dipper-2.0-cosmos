@@ -11,7 +11,9 @@ import {
 } from '@models';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
-import { TransactionState } from './types';
+import {
+  TransactionState, MessageType,
+} from './types';
 import { getMessageModelByType } from './utils';
 
 export const useTransactionDetails = () => {
@@ -103,7 +105,9 @@ export const useTransactionDetails = () => {
         return model.fromJson(x);
       });
 
-      return messages;
+      return {
+        items: messages,
+      };
     };
     stateChange.messages = formatMessages();
     return stateChange;
@@ -125,9 +129,19 @@ export const useTransactionDetails = () => {
     });
   };
 
+  const filterMessages = (messages: MessageType[]) => {
+    return messages.filter((x) => {
+      if (state.messages.filterBy !== 'none') {
+        return x.category === state.messages.filterBy;
+      }
+      return true;
+    });
+  };
+
   return {
     state,
     onMessageFilterCallback,
     toggleMessageDisplay,
+    filterMessages,
   };
 };

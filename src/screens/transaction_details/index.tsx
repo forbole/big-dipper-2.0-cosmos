@@ -2,42 +2,47 @@ import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Layout,
-  NotFound,
-  LinearLoading,
+  LoadAndExist,
 } from '@components';
 import { useStyles } from './styles';
 import {
   Overview,
   Messages,
 } from './components';
-import { TransactionProvider } from './contexts/transaction';
+import { useTransactionDetails } from './hooks';
 
 const TransactionDetails = () => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
-
+  const {
+    state,
+    onMessageFilterCallback,
+    toggleMessageDisplay,
+    filterMessages,
+  } = useTransactionDetails();
+  const {
+    overview,
+    messages,
+  } = state;
   return (
     <Layout navTitle={t('transactionDetails')} title={t('transactionDetails')}>
-      <TransactionProvider>
-        {({
-          exists, loading,
-        }) => {
-          if (loading) {
-            return <LinearLoading />;
-          }
-
-          if (!exists && !loading) {
-            return <NotFound />;
-          }
-
-          return (
-            <span className={classes.root}>
-              <Overview />
-              <Messages className={classes.messages} />
-            </span>
-          );
-        }}
-      </TransactionProvider>
+      <LoadAndExist
+        loading={state.loading}
+        exists={state.exists}
+      >
+        <span className={classes.root}>
+          <Overview
+            data={overview}
+          />
+          <Messages
+            className={classes.messages}
+            messages={filterMessages(messages.items)}
+            viewRaw={messages.viewRaw}
+            toggleMessageDisplay={toggleMessageDisplay}
+            onMessageFilterCallback={onMessageFilterCallback}
+          />
+        </span>
+      </LoadAndExist>
     </Layout>
   );
 };
