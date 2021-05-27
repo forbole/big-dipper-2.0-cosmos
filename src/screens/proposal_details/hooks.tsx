@@ -44,6 +44,7 @@ export const useProposalDetails = () => {
       bondedTokens: 0,
     },
     votes: {
+      tab: 0,
       yes: 0,
       no: 0,
       abstain: 0,
@@ -229,7 +230,16 @@ export const useProposalDetails = () => {
     });
   };
 
+  const handleTabChange = (_event: any, newValue: number) => {
+    handleSetState({
+      votes: {
+        tab: newValue,
+      },
+    });
+  };
+
   return {
     state,
+    handleTabChange,
   };
 };

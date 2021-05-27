@@ -36,12 +36,13 @@ export type ProposalState = {
   overview: OverviewType;
   tally: TallyType;
   votes: {
+    tab: number;
     yes: number;
     no: number;
     abstain: number;
     veto: number;
     total: number;
-    data: VoteType[]
+    data: VoteType[];
   };
   deposits: DepositType[];
 }
