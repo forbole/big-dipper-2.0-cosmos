@@ -2,11 +2,9 @@ import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Layout,
-  NotFound,
-  LinearLoading,
+  LoadAndExist,
 } from '@components';
 import { useStyles } from './styles';
-
 import {
   Overview,
   Votes,
@@ -14,10 +12,12 @@ import {
   VotesGraph,
 } from './components';
 import { ProposalProvider } from './contexts/proposal';
+import { useProposalDetails } from './hooks';
 
 const ProposalDetails = () => {
   const { t } = useTranslation('proposals');
   const classes = useStyles();
+  const { state } = useProposalDetails();
 
   return (
     <Layout
@@ -28,21 +28,18 @@ const ProposalDetails = () => {
         {({
           exists, loading,
         }) => {
-          if (loading) {
-            return <LinearLoading />;
-          }
-
-          if (!exists && !loading) {
-            return <NotFound />;
-          }
-
           return (
-            <span className={classes.root}>
-              <Overview className={classes.overview} />
-              <VotesGraph className={classes.votesGraph} />
-              <Votes className={classes.votes} />
-              <Deposits className={classes.deposits} />
-            </span>
+            <LoadAndExist
+              exists={state.exists}
+              loading={state.loading}
+            >
+              <span className={classes.root}>
+                <Overview className={classes.overview} />
+                <VotesGraph className={classes.votesGraph} />
+                <Votes className={classes.votes} />
+                <Deposits className={classes.deposits} />
+              </span>
+            </LoadAndExist>
           );
         }}
       </ProposalProvider>

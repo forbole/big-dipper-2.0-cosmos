@@ -6,7 +6,7 @@ export interface ProposalState {
   rawData: {
     exists: boolean;
     loading: boolean;
-    content?: JSON;
+    content: string;
     overview: {
       title: string;
       id: number;
