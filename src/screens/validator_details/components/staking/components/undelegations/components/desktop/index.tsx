@@ -11,6 +11,7 @@ import {
   TableBody,
 } from '@material-ui/core';
 import { AvatarName } from '@components';
+import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { chainConfig } from '@src/chain_config';
 import { columns } from './utils';
 import { UndelegationType } from '../../../../../../types';
@@ -29,7 +30,9 @@ const Desktop: React.FC<{
         <AvatarName
           address={x.delegator.address}
           imageUrl={x.delegator.imageUrl}
-          name={x.delegator.name}
+          name={x.delegator.name.length > 20 ? getMiddleEllipsis(x.delegator.name, {
+            beginning: 12, ending: 10,
+          }) : x.delegator.name}
         />
       ),
       linkedUntil: dayjs.utc(x.linkedUntil).local().format('MMMM DD, YYYY hh:mm A'),

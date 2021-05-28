@@ -21,7 +21,7 @@ export const useValidators = () => {
     items: [],
     votingPowerOverall: 0,
     tab: 0,
-    sortKey: 'moniker',
+    sortKey: 'validator.name',
     sortDirection: 'asc',
   });
 
@@ -34,7 +34,10 @@ export const useValidators = () => {
   // ==========================
   useValidatorsQuery({
     onCompleted: (data) => {
-      handleSetState(formatValidators(data));
+      handleSetState({
+        loading: false,
+        ...formatValidators(data),
+      });
     },
   });
 
@@ -109,8 +112,8 @@ export const useValidators = () => {
     }
   };
 
-  const sortItems = () => {
-    let sorted: ValidatorType[] = R.clone(state.items);
+  const sortItems = (items: ValidatorType[]) => {
+    let sorted: ValidatorType[] = R.clone(items);
 
     if (state.tab === 1) {
       sorted = sorted.filter((x) => x.status === 3);
@@ -131,8 +134,9 @@ export const useValidators = () => {
 
     if (state.sortKey && state.sortDirection) {
       sorted.sort((a, b) => {
-        let compareA = a[state.sortKey];
-        let compareB = b[state.sortKey];
+        let compareA = R.pathOr(undefined, [...state.sortKey.split('.')], a);
+        let compareB = R.pathOr(undefined, [...state.sortKey.split('.')], b);
+
         if (typeof compareA === 'string') {
           compareA = compareA.toLowerCase();
           compareB = compareB.toLowerCase();
