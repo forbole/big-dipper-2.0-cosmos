@@ -23,10 +23,19 @@ export type TransactionType = {
   messages: number;
 }
 
+export type VotingPowerType = {
+  height: number;
+  overall: number;
+  self: number;
+  selfDelegatePercent: number;
+  selfDelegate: number;
+}
+
 export type ValidatorDetailsState = {
   loading: boolean;
   exists: boolean;
   overview: OverviewType;
+  votingPower: VotingPowerType;
   // signatures: AvatarName[];
   // transactions: TransactionType[];
 }

@@ -35,7 +35,10 @@ const ValidatorDetails = () => {
                   className={classes.profile}
                   data={state.overview}
                 />
-                <VotingPower className={classes.votingPower} />
+                <VotingPower
+                  className={classes.votingPower}
+                  data={state.votingPower}
+                />
                 <Blocks className={classes.blocks} />
                 <Staking className={classes.staking} />
                 <Transactions className={classes.transactions} />

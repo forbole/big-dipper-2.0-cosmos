@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
+import { formatDenom } from '@utils/format_denom';
+import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
 import {
   useValidatorDetailsQuery,
@@ -31,6 +33,13 @@ export const useValidatorDetails = () => {
       commission: 0,
       missedBlockCounter: 0,
       signedBlockWindow: 0,
+    },
+    votingPower: {
+      height: 0,
+      overall: 0,
+      self: 0,
+      selfDelegatePercent: 0,
+      selfDelegate: 0,
     },
   });
 
@@ -95,28 +104,30 @@ export const useValidatorDetails = () => {
     // ============================
     // votingPower
     // ============================
-    // self voting power
-    // const self = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], data.validator[0]);
+    const formatVotingPower = () => {
+      const self = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], data.validator[0]);
 
-    // const totalDelegations = data.validator[0].delegations.reduce((a, b) => {
-    //   return a + numeral(R.pathOr(0, ['amount', 'amount'], b)).value();
-    // }, 0);
+      const totalDelegations = data.validator[0].delegations.reduce((a, b) => {
+        return a + numeral(R.pathOr(0, ['amount', 'amount'], b)).value();
+      }, 0);
 
-    // const [selfDelegate] = data.validator[0].delegations.filter(
-    //   (x) => x.delegatorAddress === data.validator[0].validatorInfo.selfDelegateAddress,
-    // );
-    // const selfDelegateAmount = formatDenom(numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value());
-    // const selfDelegatePercent = (numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value() / totalDelegations) * 100;
+      const [selfDelegate] = data.validator[0].delegations.filter(
+        (x) => x.delegatorAddress === data.validator[0].validatorInfo.selfDelegateAddress,
+      );
+      const selfDelegateAmount = formatDenom(numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value());
+      const selfDelegatePercent = (numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value() / totalDelegations) * 100;
 
-    // const votingPower = {
-    //   self,
-    //   selfDelegate: selfDelegateAmount,
-    //   selfDelegatePercent,
-    //   overall: formatDenom(R.pathOr(0, ['stakingPool', 0, 'bonded'], data)),
-    //   height: R.pathOr(0, ['validatorVotingPowers', 0, 'height'], data.validator[0]),
-    // };
+      const votingPower = {
+        self,
+        selfDelegate: selfDelegateAmount,
+        selfDelegatePercent,
+        overall: formatDenom(R.pathOr(0, ['stakingPool', 0, 'bonded'], data)),
+        height: R.pathOr(0, ['validatorVotingPowers', 0, 'height'], data.validator[0]),
+      };
 
-    // results.rawData.votingPower = votingPower;
+      return votingPower;
+    };
+    stateChange.votingPower = formatVotingPower();
 
     // // ============================
     // // delegations

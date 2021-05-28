@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
+import numeral from 'numeral';
 import {
   Typography,
 } from '@material-ui/core';
@@ -8,18 +9,23 @@ import useTranslation from 'next-translate/useTranslation';
 import { Box } from '@components';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
-import { useAccountContext } from '../../contexts/account';
+import { VotingPowerType } from '../../types';
 
 const VotingPower: React.FC<{
   className?: string;
+  data: VotingPowerType;
 }> = ({
   className,
+  data,
 }) => {
   const { t } = useTranslation('validators');
-  const {
-    uiData, rawData,
-  } = useAccountContext();
-  const classes = useStyles(uiData.votingPower.votingPowerPercentRaw);
+
+  const votingPowerPercent = numeral((
+    data.self / data.overall) * 100);
+
+  const classes = useStyles(votingPowerPercent.format(0, Math.floor));
+
+  const votingPower = numeral(data.self).format('0,0');
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -28,14 +34,14 @@ const VotingPower: React.FC<{
       </Typography>
       <div className={classes.data}>
         <Typography variant="h3" className="primary__data">
-          {uiData.votingPower.votingPowerPercent}
+          {`${votingPowerPercent.format('0,0.00')}%`}
         </Typography>
         <Typography variant="body1">
-          {uiData.votingPower.votingPower}
+          {votingPower}
           {' '}
           /
           {' '}
-          {uiData.votingPower.totalVotingPower}
+          {numeral(data.overall).format('0,0')}
         </Typography>
       </div>
       <div className={classes.chart}>
@@ -45,9 +51,9 @@ const VotingPower: React.FC<{
         <Typography variant="h4" className="label">
           {t('block')}
         </Typography>
-        <Link href={BLOCK_DETAILS(rawData.votingPower.height)} passHref>
+        <Link href={BLOCK_DETAILS(data.height)} passHref>
           <Typography variant="body1" className="value" component="a">
-            {uiData.votingPower.height}
+            {numeral(data.height).format('0,0')}
           </Typography>
         </Link>
       </div>
@@ -56,7 +62,7 @@ const VotingPower: React.FC<{
           {t('votingPower')}
         </Typography>
         <Typography variant="body1" className="value">
-          {uiData.votingPower.votingPower}
+          {votingPower}
         </Typography>
       </div>
       <div className={classes.item}>
@@ -64,35 +70,13 @@ const VotingPower: React.FC<{
           {t('selfDelegatedTokens')}
         </Typography>
         <Typography variant="body1" className="value">
-          {uiData.votingPower.selfDelegation}
+          {numeral(data.selfDelegate).format('0,0')}
           {' '}
           (
-          {uiData.votingPower.selfDelegationPercent}
+          {`${numeral(data.selfDelegatePercent).format('0.[00]')}%`}
           )
         </Typography>
       </div>
-      {/* <div className={classes.item}>
-        <Typography variant="h4" className="label">
-          {t('lastVotingPowerChange')}
-        </Typography>
-        <Typography variant="body1" className="value">
-          <Trans
-            i18nKey="validators:powerChange"
-            components={[
-              <span className="positive" />,
-            ]}
-            values={{
-              change: '+10',
-              block: '300,000',
-            }}
-          />
-          <Link href={BLOCK_DETAILS('123')} passHref>
-            <Typography variant="body1" className="value" component="a">
-              100,001
-            </Typography>
-          </Link>
-        </Typography>
-      </div> */}
     </Box>
   );
 };
