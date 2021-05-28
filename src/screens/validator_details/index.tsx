@@ -19,6 +19,7 @@ const ValidatorDetails = () => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
   const { state } = useValidatorDetails();
+  const { overview } = state;
   return (
     <Layout navTitle={t('validatorDetails')} title={t('validatorDetails')}>
       <AccountProvider>
@@ -33,7 +34,17 @@ const ValidatorDetails = () => {
               <span className={classes.root}>
                 <Profile
                   className={classes.profile}
-                  data={state.overview}
+                  validator={overview.validator}
+                  operatorAddress={overview.operatorAddress}
+                  selfDelegateAddress={overview.selfDelegateAddress}
+                  description={overview.description}
+                  status={overview.status}
+                  jailed={overview.jailed}
+                  website={overview.website}
+                  condition={overview.condition}
+                  commission={overview.commission}
+                  signedBlockWindow={overview.signedBlockWindow}
+                  missedBlockCounter={overview.missedBlockCounter}
                 />
                 <VotingPower
                   className={classes.votingPower}

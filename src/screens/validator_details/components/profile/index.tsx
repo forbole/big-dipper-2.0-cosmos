@@ -27,11 +27,10 @@ import {
 } from './utils';
 import { OverviewType } from '../../types';
 
-const Profile: React.FC<{
+const Profile: React.FC<OverviewType & {
   className?: string;
-  data: OverviewType;
 }> = ({
-  className, data,
+  className, ...data
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('validators');
