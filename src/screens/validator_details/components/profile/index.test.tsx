@@ -23,9 +23,20 @@ describe('screen: ValidatorDetails/Profile', () => {
     const component = renderer.create(
       <MockTheme>
         <Profile
-          data={{
-
+          validator={{
+            moniker: 'moniker',
+            imageUrl: '',
           }}
+          operatorAddress="operatorAddress"
+          selfDelegateAddress="selfDelegateAddress"
+          description="description"
+          status={3}
+          jailed={false}
+          website=""
+          condition={70}
+          commission={10}
+          signedBlockWindow={7200}
+          missedBlockCounter={0}
         />
       </MockTheme>,
     );
