@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Table,
@@ -8,16 +9,32 @@ import {
   TableCell,
   TableBody,
 } from '@material-ui/core';
+import { AvatarName } from '@components';
+import { chainConfig } from '@src/chain_config';
 import { columns } from './utils';
+import { DelegationType } from '../../../../../../types';
 
 const Desktop: React.FC<{
   className?: string;
-  items: any[];
+  items: DelegationType[];
 }> = ({
   className,
   items,
 }) => {
   const { t } = useTranslation('validators');
+
+  const formattedData = items.map((x) => {
+    return ({
+      address: (
+        <AvatarName
+          address={x.delegator.address}
+          imageUrl={x.delegator.imageUrl}
+          name={x.delegator.name}
+        />
+      ),
+      amount: `${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
+    });
+  });
 
   return (
     <div className={classnames(className)}>
@@ -38,7 +55,7 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {items.map((row, i) => (
+          {formattedData.map((row, i) => (
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => {
                 return (
