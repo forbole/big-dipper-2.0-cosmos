@@ -7,7 +7,8 @@ import { VariableSizeGrid as Grid } from 'react-window';
 import { Typography } from '@material-ui/core';
 import { useGrid } from '@hooks';
 import {
-  SortArrows, AvatarName,
+  SortArrows,
+  AvatarName,
 } from '@components';
 import { getValidatorConditionClass } from '@utils/get_validator_condition';
 import { useStyles } from './styles';

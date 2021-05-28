@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import TabsHeader from '.';
+import Desktop from '.';
 
 // ==================================
 // mocks
@@ -19,32 +19,37 @@ jest.mock('..', () => ({
 jest.mock('@components', () => ({
   AvatarName: (props) => <div id="AvatarName" {...props} />,
   SortArrows: (props) => <div id="SortArrows" {...props} />,
-  InfoPopover: (props) => <div id="InfoPopover" {...props} />,
-}));
-
-jest.mock('../../contexts/validators', () => ({
-  useValidatorsContext: () => ({
-    sortDirection: 'asc',
-    sortKey: '',
-    handleSort: jest.fn(),
-    uiData: [{
-      idx: 'idx',
-      validator: <div>validator</div>,
-      votingPower: <div>votingpower</div>,
-      self: 'self',
-      commission: <div>commission</div>,
-    }],
-  }),
 }));
 
 // ==================================
 // unit tests
 // ==================================
-describe('screen: Validators/Tabs', () => {
+describe('screen: Validators/Desktop', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>
-        <TabsHeader />
+        <Desktop
+          sortDirection="asc"
+          sortKey="validator.name"
+          handleSort={jest.fn()}
+          items={[
+            {
+              validator: {
+                name: '',
+                address: '',
+                imageUrl: '',
+              },
+              votingPower: 0,
+              votingPowerPercent: 0,
+              commission: 0,
+              selfPercent: 0,
+              condition: 0,
+              jailed: true,
+              delegators: 4,
+              status: 3,
+            },
+          ]}
+        />
       </MockTheme>,
     );
     const tree = component.toJSON();
