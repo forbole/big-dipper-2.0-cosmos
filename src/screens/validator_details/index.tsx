@@ -2,8 +2,7 @@ import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Layout,
-  NotFound,
-  LinearLoading,
+  LoadAndExist,
 } from '@components';
 import { useStyles } from './styles';
 import {
@@ -14,32 +13,31 @@ import {
   Blocks,
 } from './components';
 import { AccountProvider } from './contexts/account';
+import { useValidatorDetails } from './hooks';
 
 const ValidatorDetails = () => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
+  const { state } = useValidatorDetails();
   return (
     <Layout navTitle={t('validatorDetails')} title={t('validatorDetails')}>
       <AccountProvider>
         {({
           exists, loading,
         }) => {
-          if (loading) {
-            return <LinearLoading />;
-          }
-
-          if (!exists && !loading) {
-            return <NotFound />;
-          }
-
           return (
-            <span className={classes.root}>
-              <Profile className={classes.profile} />
-              <VotingPower className={classes.votingPower} />
-              <Blocks className={classes.blocks} />
-              <Staking className={classes.staking} />
-              <Transactions className={classes.transactions} />
-            </span>
+            <LoadAndExist
+              exists={state.exists}
+              loading={state.loading}
+            >
+              <span className={classes.root}>
+                <Profile className={classes.profile} />
+                <VotingPower className={classes.votingPower} />
+                <Blocks className={classes.blocks} />
+                <Staking className={classes.staking} />
+                <Transactions className={classes.transactions} />
+              </span>
+            </LoadAndExist>
           );
         }}
       </AccountProvider>

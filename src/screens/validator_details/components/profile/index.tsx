@@ -1,4 +1,5 @@
 import React from 'react';
+import numeral from 'numeral';
 import classnames from 'classnames';
 import Link from 'next/link';
 import {
@@ -21,49 +22,49 @@ import {
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { useStyles } from './styles';
-import { useAccountContext } from '../../contexts/account';
 import { getStatusTheme } from './utils';
+import { OverviewType } from '../../types';
 
 const Profile: React.FC<{
   className?: string;
-}> = ({ className }) => {
+  data: OverviewType;
+}> = ({
+  className, data,
+}) => {
   const classes = useStyles();
   const { t } = useTranslation('validators');
   const { isMobile } = useScreenSize();
-  const {
-    uiData, rawData,
-  } = useAccountContext();
 
   const handleCopyToClipboard = (value: string) => {
     copy(value);
     toast(t('common:copied'));
   };
 
-  const statusTheme = getStatusTheme(uiData.profile.status);
+  const statusTheme = getStatusTheme(data.status, data.jailed);
 
   const formattedItem = {
     operatorAddress: (
       <div className={classes.copyText}>
         <Typography variant="body1" className="value">
           {isMobile ? getMiddleEllipsis(
-            uiData.profile.operatorAddress,
+            data.operatorAddress,
             { beginning: 9 },
-          ) : uiData.profile.operatorAddress}
+          ) : data.operatorAddress}
         </Typography>
-        <CopyIcon onClick={() => handleCopyToClipboard(uiData.profile.operatorAddress)} />
+        <CopyIcon onClick={() => handleCopyToClipboard(data.operatorAddress)} />
       </div>
     ),
     selfDelegateAddress: (
       <div className={classes.copyText}>
-        <Link href={ACCOUNT_DETAILS(uiData.profile.selfDelegateAddress)} passHref>
+        <Link href={ACCOUNT_DETAILS(data.selfDelegateAddress)} passHref>
           <Typography variant="body1" className="value" component="a">
             {isMobile ? getMiddleEllipsis(
-              uiData.profile.selfDelegateAddress,
+              data.selfDelegateAddress,
               { beginning: 9 },
-            ) : uiData.profile.selfDelegateAddress}
+            ) : data.selfDelegateAddress}
           </Typography>
         </Link>
-        <CopyIcon onClick={() => handleCopyToClipboard(uiData.profile.selfDelegateAddress)} />
+        <CopyIcon onClick={() => handleCopyToClipboard(data.selfDelegateAddress)} />
       </div>
     ),
     website: (
@@ -71,11 +72,11 @@ const Profile: React.FC<{
         variant="body1"
         className="value"
         component="a"
-        href={uiData.profile.website}
+        href={data.website}
         target="_blank"
         rel="noreferrer"
       >
-        {uiData.profile.website}
+        {data.website}
       </Typography>
     ),
     commission: (
@@ -83,7 +84,7 @@ const Profile: React.FC<{
         variant="body1"
         className="value"
       >
-        {uiData.profile.commission}
+        {`${numeral(data.commission * 100).format('0.00')}%`}
       </Typography>
     ),
     condition: (
