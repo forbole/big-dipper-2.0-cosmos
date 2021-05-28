@@ -46,7 +46,7 @@ export type RedelegationType = {
 
 export type UndelegationType = {
   delegator: AvatarName;
-  commission: number;
+  amount: number;
   linkedUntil: string;
 }
 

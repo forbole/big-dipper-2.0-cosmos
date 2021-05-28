@@ -19,7 +19,12 @@ const ValidatorDetails = () => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
   const { state } = useValidatorDetails();
-  const { overview } = state;
+  const {
+    overview,
+    delegations,
+    redelegations,
+    undelegations,
+  } = state;
   return (
     <Layout navTitle={t('validatorDetails')} title={t('validatorDetails')}>
       <AccountProvider>
@@ -51,7 +56,12 @@ const ValidatorDetails = () => {
                   data={state.votingPower}
                 />
                 <Blocks className={classes.blocks} />
-                <Staking className={classes.staking} />
+                <Staking
+                  className={classes.staking}
+                  delegations={delegations}
+                  redelegations={redelegations}
+                  undelegations={undelegations}
+                />
                 <Transactions className={classes.transactions} />
               </span>
             </LoadAndExist>
