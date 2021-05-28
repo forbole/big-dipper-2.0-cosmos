@@ -22,19 +22,17 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
   };
 
   useValidatorsAddressListQuery({
-    onError: (err) => {
+    onError: () => {
       handleSetState({
         loading: false,
       });
     },
     onCompleted: async (data) => {
-      if (data) {
-        const formattedList = await formatValidatorsAddressList(data);
-        handleSetState({
-          ...formattedList,
-          loading: false,
-        });
-      }
+      const formattedList = await formatValidatorsAddressList(data);
+      handleSetState({
+        ...formattedList,
+        loading: false,
+      });
     },
   });
 

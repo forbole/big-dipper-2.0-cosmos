@@ -17,11 +17,11 @@ import { useMemo } from 'react';
 const defaultOptions:any = {
   watchQuery: {
     fetchPolicy: 'no-cache',
-    errorPolicy: 'ignore',
+    errorPolicy: 'all',
   },
   query: {
-    // fetchPolicy: 'no-cache',
-    // errorPolicy: 'all',
+    fetchPolicy: 'no-cache',
+    errorPolicy: 'all',
   },
 };
 
