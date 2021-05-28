@@ -48,6 +48,11 @@ export const useTransactions = () => {
       limit: 50,
       offset: 1,
     },
+    onError: () => {
+      handleSetState({
+        loading: false,
+      });
+    },
     onCompleted: (data) => {
       const newItems = R.uniq([...state.items, ...formatTransactions(data)]);
       handleSetState({

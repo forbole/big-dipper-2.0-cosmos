@@ -52,6 +52,11 @@ export const useBlocks = () => {
       limit: 50,
       offset: 1,
     },
+    onError: () => {
+      handleSetState({
+        loading: false,
+      });
+    },
     onCompleted: (data) => {
       const newItems = R.uniq([...state.items, ...formatBlocks(data)]);
       handleSetState({
