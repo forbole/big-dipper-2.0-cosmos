@@ -10,14 +10,6 @@ jest.mock('@components', () => ({
   Search: (props) => <div id="Search" {...props} />,
 }));
 
-jest.mock('../../contexts/validators', () => ({
-  useValidatorsContext: () => ({
-    tab: 0,
-    handleTabChange: jest.fn(),
-    handleSearch: jest.fn(),
-  }),
-}));
-
 // ==================================
 // unit tests
 // ==================================
@@ -25,7 +17,11 @@ describe('screen: Validators/Tabs', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>
-        <TabsHeader />
+        <TabsHeader
+          tab={0}
+          handleSearch={jest.fn()}
+          handleTabChange={jest.fn()}
+        />
       </MockTheme>,
     );
     const tree = component.toJSON();

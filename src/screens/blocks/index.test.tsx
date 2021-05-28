@@ -29,6 +29,7 @@ jest.mock('@components', () => ({
   Layout: (props) => <div id="Layout" {...props} />,
   Box: (props) => <div id="Box" {...props} />,
   LoadAndExist: (props) => <div id="LoadAndExist" {...props} />,
+  NoData: (props) => <div id="NoData" {...props} />,
 }));
 
 const mockBlocksListenerDocument = {

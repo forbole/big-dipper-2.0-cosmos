@@ -13,47 +13,6 @@ jest.mock('@components', () => ({
   Tag: (props) => <div id="Tag" {...props} />,
 }));
 
-jest.mock('../../contexts/proposal', () => ({
-  useProposalContext: () => ({
-    tab: 0,
-    rawData: {
-      exists: true,
-      loading: true,
-      deposits: [],
-      votes: [],
-      voteCount: {
-        yes: 0,
-        no: 0,
-        abstain: 0,
-        veto: 0,
-      },
-      overview: {
-        title: '',
-        id: 0,
-        description: '',
-        status: '',
-        submitTime: '',
-        depositEndTime: '',
-        votingEndTime: null,
-        votingStartTime: null,
-      },
-    },
-    uiData: {
-      overview: {
-        title: 'title',
-        id: '3',
-        description: 'description',
-        status: <div>status</div>,
-        submitTime: 'submitTime',
-        depositEndTime: 'depositEndTime',
-        votingEndTime: null,
-        votingStartTime: null,
-        type: 'type',
-      },
-    },
-  }),
-}));
-
 // ==================================
 // unit tests
 // ==================================
@@ -61,7 +20,17 @@ describe('screen: BlockDetails/Overview', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>
-        <Overview />
+        <Overview
+          title="title"
+          id={10}
+          description="description"
+          status="status"
+          submitTime=""
+          depositEndTime=""
+          votingEndTime={null}
+          votingStartTime={null}
+          content=""
+        />
       </MockTheme>,
     );
     const tree = component.toJSON();

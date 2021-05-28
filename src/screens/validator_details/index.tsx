@@ -2,8 +2,7 @@ import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Layout,
-  NotFound,
-  LinearLoading,
+  LoadAndExist,
 } from '@components';
 import { useStyles } from './styles';
 import {
@@ -13,37 +12,62 @@ import {
   Staking,
   Blocks,
 } from './components';
-import { AccountProvider } from './contexts/account';
+import { useValidatorDetails } from './hooks';
 
 const ValidatorDetails = () => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
+  const {
+    state,
+    loadNextPage,
+  } = useValidatorDetails();
+  const {
+    overview,
+    delegations,
+    redelegations,
+    undelegations,
+  } = state;
   return (
     <Layout navTitle={t('validatorDetails')} title={t('validatorDetails')}>
-      <AccountProvider>
-        {({
-          exists, loading,
-        }) => {
-          if (loading) {
-            return <LinearLoading />;
-          }
-
-          if (!exists && !loading) {
-            return <NotFound />;
-          }
-
-          return (
-            <span className={classes.root}>
-              <Profile className={classes.profile} />
-              <VotingPower className={classes.votingPower} />
-              <Blocks className={classes.blocks} />
-              <Staking className={classes.staking} />
-              <Transactions className={classes.transactions} />
-            </span>
-          );
-        }}
-      </AccountProvider>
-
+      <LoadAndExist
+        exists={state.exists}
+        loading={state.loading}
+      >
+        <span className={classes.root}>
+          <Profile
+            className={classes.profile}
+            validator={overview.validator}
+            operatorAddress={overview.operatorAddress}
+            selfDelegateAddress={overview.selfDelegateAddress}
+            description={overview.description}
+            status={overview.status}
+            jailed={overview.jailed}
+            website={overview.website}
+            condition={overview.condition}
+            commission={overview.commission}
+            signedBlockWindow={overview.signedBlockWindow}
+            missedBlockCounter={overview.missedBlockCounter}
+          />
+          <VotingPower
+            className={classes.votingPower}
+            data={state.votingPower}
+          />
+          <Blocks className={classes.blocks} />
+          <Staking
+            className={classes.staking}
+            delegations={delegations}
+            redelegations={redelegations}
+            undelegations={undelegations}
+          />
+          <Transactions
+            className={classes.transactions}
+            loadNextPage={loadNextPage}
+            data={state.transactions.data}
+            hasNextPage={state.transactions.hasNextPage}
+            isNextPageLoading={state.transactions.isNextPageLoading}
+          />
+        </span>
+      </LoadAndExist>
     </Layout>
   );
 };

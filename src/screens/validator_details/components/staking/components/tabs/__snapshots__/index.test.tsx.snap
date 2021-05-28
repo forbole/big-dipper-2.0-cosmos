@@ -47,68 +47,12 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
           <span
             className="MuiTab-wrapper"
           >
-            validators:delegations
+            validators:key
           </span>
           <span
             className="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
             style={Object {}}
           />
-        </button>
-        <button
-          aria-controls="simple-tabpanel-1"
-          aria-selected={false}
-          className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit"
-          disabled={false}
-          id="simple-tab-1"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          role="tab"
-          tabIndex={-1}
-          type="button"
-        >
-          <span
-            className="MuiTab-wrapper"
-          >
-            validators:redelegations
-          </span>
-        </button>
-        <button
-          aria-controls="simple-tabpanel-2"
-          aria-selected={false}
-          className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit"
-          disabled={false}
-          id="simple-tab-2"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          role="tab"
-          tabIndex={-1}
-          type="button"
-        >
-          <span
-            className="MuiTab-wrapper"
-          >
-            validators:undelegations
-          </span>
         </button>
       </div>
     </div>

@@ -5,45 +5,50 @@ import {
   useValidatorsQuery,
   ValidatorsQuery,
 } from '@graphql/types';
-import { AvatarName } from '@components';
 import { formatDenom } from '@utils/format_denom';
 import { useChainContext } from '@contexts';
+import { getValidatorCondition } from '@utils/get_validator_condition';
 import {
-  getValidatorCondition, getValidatorConditionClass,
-} from '@utils/get_validator_condition';
-import {
-  ValidatorsState, ValidatorItems,
+  ValidatorsState, ValidatorType,
 } from './types';
-import {
-  VotingPower, Condition,
-} from '../../components';
 
-export const useValidators = (initialState: ValidatorsState) => {
+export const useValidators = () => {
   const { findAddress } = useChainContext();
+  const [search, setSearch] = useState('');
+  const [state, setState] = useState<ValidatorsState>({
+    loading: true,
+    exists: true,
+    items: [],
+    votingPowerOverall: 0,
+    tab: 0,
+    sortKey: 'validator.name',
+    sortDirection: 'asc',
+  });
+
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
 
-  const [state, setState] = useState(initialState);
-  const [search, setSearch] = useState('');
-  const {
-    items,
-    tab,
-    sortKey,
-    sortDirection,
-  } = state;
-
+  // ==========================
+  // Fetch Data
+  // ==========================
   useValidatorsQuery({
     onCompleted: (data) => {
-      handleSetState(formatValidators(data));
+      handleSetState({
+        loading: false,
+        ...formatValidators(data),
+      });
     },
   });
 
+  // ==========================
+  // Parse data
+  // ==========================
   const formatValidators = (data: ValidatorsQuery) => {
     const votingPowerOverall = formatDenom(R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data));
     const signedBlockWindow = R.pathOr(0, ['slashingParams', 0, 'signedBlockWindow'], data);
     const formattedItems = data.validator.map((x) => {
-      const validator = x.validatorInfo.operatorAddress;
+      const validator = findAddress(x.validatorInfo.operatorAddress);
       const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
       const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
       const totalDelegations = x.delegations.reduce((a, b) => {
@@ -62,8 +67,11 @@ export const useValidators = (initialState: ValidatorsState) => {
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
 
       return ({
-        moniker: findAddress(validator)?.moniker || validator,
-        validator,
+        validator: {
+          address: x.validatorInfo.operatorAddress,
+          imageUrl: validator.imageUrl,
+          name: validator.moniker,
+        },
         votingPower,
         votingPowerPercent,
         commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], x) * 100,
@@ -82,36 +90,6 @@ export const useValidators = (initialState: ValidatorsState) => {
     };
   };
 
-  const formatUi = (formatItems: ValidatorItems[]) => {
-    return formatItems.map((x, i) => {
-      const validator = findAddress(x.validator);
-      const condition = x.status === 3 ? getValidatorConditionClass(x.condition) : undefined;
-      return ({
-        idx: `#${i + 1}`,
-        delegators: numeral(x.delegators).format('0,0'),
-        validator: (
-          <AvatarName
-            address={x.validator}
-            imageUrl={validator ? validator?.imageUrl : null}
-            name={validator ? validator.moniker : x.validator}
-          />
-        ),
-        commission: `${numeral(x.commission).format('0.[00]')}%`,
-        self: `${numeral(x.selfPercent).format('0.[00]')}%`,
-        condition: (
-          <Condition className={condition} />
-        ),
-        votingPower: (
-          <VotingPower
-            percentDisplay={`${numeral(x.votingPowerPercent).format('0.[00]')}%`}
-            percentage={x.votingPowerPercent}
-            content={numeral(x.votingPower).format('0,0')}
-          />
-        ),
-      });
-    });
-  };
-
   const handleTabChange = (_event: any, newValue: number) => {
     setState((prevState) => ({
       ...prevState,
@@ -119,12 +97,8 @@ export const useValidators = (initialState: ValidatorsState) => {
     }));
   };
 
-  // ===========================
-  // sorting
-  // ===========================
-
   const handleSort = (key: string) => {
-    if (key === sortKey) {
+    if (key === state.sortKey) {
       setState((prevState) => ({
         ...prevState,
         sortDirection: prevState.sortDirection === 'asc' ? 'desc' : 'asc',
@@ -138,64 +112,58 @@ export const useValidators = (initialState: ValidatorsState) => {
     }
   };
 
-  const uiSort = () => {
-    let sorted: ValidatorItems[] = R.clone(items);
+  const sortItems = (items: ValidatorType[]) => {
+    let sorted: ValidatorType[] = R.clone(items);
 
-    if (tab === 1) {
+    if (state.tab === 1) {
       sorted = sorted.filter((x) => x.status === 3);
     }
 
-    if (tab === 2) {
+    if (state.tab === 2) {
       sorted = sorted.filter((x) => x.status !== 3);
     }
 
     if (search) {
       sorted = sorted.filter((x) => {
         return (
-          x.moniker.toLowerCase().replace(/ /g, '').includes(search.toLowerCase())
-          || x.validator.toLowerCase().includes(search.toLowerCase())
+          x.validator.name.toLowerCase().replace(/ /g, '').includes(search.toLowerCase())
+          || x.validator.address.toLowerCase().includes(search.toLowerCase())
         );
       });
     }
 
-    if (sortKey && sortDirection) {
+    if (state.sortKey && state.sortDirection) {
       sorted.sort((a, b) => {
-        let compareA = a[sortKey];
-        let compareB = b[sortKey];
+        let compareA = R.pathOr(undefined, [...state.sortKey.split('.')], a);
+        let compareB = R.pathOr(undefined, [...state.sortKey.split('.')], b);
+
         if (typeof compareA === 'string') {
           compareA = compareA.toLowerCase();
           compareB = compareB.toLowerCase();
         }
 
         if (compareA < compareB) {
-          return sortDirection === 'asc' ? -1 : 1;
+          return state.sortDirection === 'asc' ? -1 : 1;
         }
         if (compareA > compareB) {
-          return sortDirection === 'asc' ? 1 : -1;
+          return state.sortDirection === 'asc' ? 1 : -1;
         }
         return 0;
       });
     }
 
-    return formatUi(sorted);
+    return sorted;
   };
 
-  // ===========================
-  // search
-  // ===========================
   const handleSearch = (value: string) => {
     setSearch(value);
   };
 
   return {
-    items: state.items,
-    tab,
+    state,
     handleTabChange,
     handleSort,
-    sortKey,
-    sortDirection,
     handleSearch,
-    votingPowerOverall: state.votingPowerOverall,
-    uiData: uiSort(),
+    sortItems,
   };
 };

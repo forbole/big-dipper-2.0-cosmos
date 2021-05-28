@@ -1,11 +1,16 @@
 import React from 'react';
 import numeral from 'numeral';
 import classnames from 'classnames';
+import Link from 'next/link';
 import { mergeRefs } from '@utils/merge_refs';
+import {
+  Typography, Divider,
+} from '@material-ui/core';
 import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
-import { Divider } from '@material-ui/core';
+
+import { PROPOSAL_DETAILS } from '@utils/go_to_page';
 import {
   useList,
   useListRow,
@@ -13,31 +18,54 @@ import {
 import {
   Loading,
   Box,
+  Tag,
 } from '@components';
-import { useProposals } from './hooks';
 import {
   Total,
   SingleProposal,
 } from './components';
 import { useStyles } from './styles';
+import { ProposalType } from '../../types';
 
 const ProposalsList: React.FC<{
   className?: string;
-}> = ({ className }) => {
+  items: ProposalType[];
+  rawDataTotal: number;
+  isItemLoaded: (index: number) => boolean;
+  itemCount: number;
+  loadMoreItems: () => void;
+}> = ({
+  className,
+  items,
+  rawDataTotal,
+  isItemLoaded,
+  itemCount,
+  loadMoreItems,
+}) => {
   const classes = useStyles();
-  const {
-    uiData,
-    itemCount,
-    loadMoreItems,
-    isItemLoaded,
-    rawDataTotal,
-  } = useProposals();
 
   const {
     listRef,
     getRowHeight,
     setRowHeight,
   } = useList();
+
+  const formattedItems = items.map((x) => {
+    return ({
+      description: x.description.length > 200 ? `${x.description.slice(0, 200)}...` : x.description,
+      status: (
+        <Tag theme="one" value={x.status.replace('PROPOSAL_STATUS_', '').replace('_', ' ')} />
+      ),
+      title: (
+        <Link href={PROPOSAL_DETAILS(x.id)} passHref>
+          <Typography variant="h3" className="value" component="a">
+            {x.title}
+          </Typography>
+        </Link>
+      ),
+      id: `#${numeral(x.id).format('0,0')}`,
+    });
+  });
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -81,7 +109,7 @@ const ProposalsList: React.FC<{
                           </div>
                         );
                       }
-                      const item = uiData[index];
+                      const item = formattedItems[index];
                       return (
                         <div style={style}>
                           <div ref={rowRef}>

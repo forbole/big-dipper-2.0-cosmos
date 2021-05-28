@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
+exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
 <div
   className="makeStyles-root"
   id="Box"
@@ -42,6 +42,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
               className="MuiIconButton-label"
             >
               <input
+                checked={false}
                 className="PrivateSwitchBase-input MuiSwitch-input"
                 onChange={[Function]}
                 type="checkbox"
@@ -91,6 +92,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
               className="MuiIconButton-label"
             >
               <input
+                checked={false}
                 className="PrivateSwitchBase-input MuiSwitch-input"
                 onChange={[Function]}
                 type="checkbox"
@@ -111,6 +113,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
         </span>
       </label>
       <div
+        callback={[MockFunction]}
         className="makeStyles-filter"
         id="TransactionMessagesFilter"
       />
@@ -140,12 +143,46 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
       <div
         style={
           Object {
-            "height": 0,
+            "height": 100,
             "pointerEvents": undefined,
             "width": "100%",
           }
         }
-      />
+      >
+        <div
+          style={
+            Object {
+              "height": 100,
+              "left": 0,
+              "position": "absolute",
+              "right": undefined,
+              "top": 0,
+              "width": "100%",
+            }
+          }
+        >
+          <div>
+            <div
+              className="makeStyles-item"
+            >
+              <div
+                className="makeStyles-tags"
+              >
+                <div
+                  id="Tag"
+                  theme="two"
+                  value="message_labels:txSendLabel"
+                />
+              </div>
+              <p
+                className="MuiTypography-root MuiTypography-body1"
+              >
+                message_contents:txSendContent
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

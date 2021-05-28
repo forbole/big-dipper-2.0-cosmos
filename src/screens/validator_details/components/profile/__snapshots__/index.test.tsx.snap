@@ -12,6 +12,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
       address="operatorAddress"
       className="makeStyles-avatar makeStyles-desktopAvatar"
       id="Avatar"
+      imageUrl=""
     />
     <div>
       <div
@@ -24,6 +25,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
             address="operatorAddress"
             className="makeStyles-avatar makeStyles-mobile"
             id="Avatar"
+            imageUrl=""
           />
           <div
             className="header__content"
@@ -114,11 +116,11 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
       </h4>
       <a
         className="MuiTypography-root value MuiTypography-body1"
-        href="website"
+        href=""
         rel="noreferrer"
         target="_blank"
       >
-        website
+        
       </a>
     </div>
     <div
@@ -131,7 +133,9 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
       </h4>
       <p
         className="MuiTypography-root value MuiTypography-body1"
-      />
+      >
+        1000.00%
+      </p>
     </div>
     <div
       className="makeStyles-item"
@@ -141,7 +145,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
       >
         validators:condition
         <div
-          content={<UNDEFINED />}
+          content={<ConditionExplanation />}
           id="InfoPopover"
         />
       </h4>
@@ -165,10 +169,10 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
           }
           display={
             <WithStyles(ForwardRef(Typography))
-              className="value active"
+              className="value bad"
               variant="body1"
             >
-              validators:active
+              validators:bad
             </WithStyles(ForwardRef(Typography))>
           }
           id="InfoPopover"

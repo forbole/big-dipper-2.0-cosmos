@@ -59,7 +59,7 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
     const promiseIndexTracker = {};
     const promises = [];
 
-    data.validator.forEach((x) => {
+    data?.validator?.forEach((x) => {
       const validatorAddress = x.validatorInfo.operatorAddress;
       const selfAddress = x.validatorInfo.selfDelegateAddress;
       const { consensusAddress } = x.validatorInfo;
@@ -178,11 +178,13 @@ export const useMarket = (initalState: ChainState) => {
         }));
       },
       onCompleted: (data) => {
-        setState((prevState) => ({
-          ...prevState,
-          rawData: formatUseChainIdQuery(data),
-          loading: false,
-        }));
+        if (data) {
+          setState((prevState) => ({
+            ...prevState,
+            rawData: formatUseChainIdQuery(data),
+            loading: false,
+          }));
+        }
       },
     },
   );

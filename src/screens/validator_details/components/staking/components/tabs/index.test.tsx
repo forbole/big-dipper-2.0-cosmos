@@ -4,34 +4,24 @@ import { MockTheme } from '@tests/utils';
 import TabsHeader from '.';
 
 // ==================================
-// mocks
-// ==================================
-jest.mock('@components', () => ({
-  Search: (props) => <div id="Search" {...props} />,
-}));
-
-jest.mock('../../../../contexts/account', () => ({
-  useAccountContext: () => {
-    return ({
-      uiData: {
-        staking: {
-          delegations: Array(4).fill(null),
-          redelegations: Array(14).fill(null),
-          unbonding: Array(4).fill(null),
-        },
-      },
-    });
-  },
-}));
-
-// ==================================
 // unit tests
 // ==================================
 describe('screen: Validators/Tabs', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>
-        <TabsHeader tab={0} handleTabChange={jest.fn()} />
+        <TabsHeader
+          tab={0}
+          handleTabChange={jest.fn()}
+          tabs={[
+            {
+              id: 0,
+              key: 'key',
+              count: 1,
+              component: <div id="component" />,
+            },
+          ]}
+        />
       </MockTheme>,
     );
     const tree = component.toJSON();

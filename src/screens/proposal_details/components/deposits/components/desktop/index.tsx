@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
 import {
   Table,
   TableHead,
@@ -8,15 +9,31 @@ import {
   TableCell,
   TableBody,
 } from '@material-ui/core';
+import { AvatarName } from '@components';
+import { chainConfig } from '@src/chain_config';
 import { columns } from './utils';
+import { DepositType } from '../../../../types';
 
 const Desktop: React.FC<{
   className?: string;
-  items?: any[];
+  items?: DepositType[];
 }> = ({
   className, items,
 }) => {
   const { t } = useTranslation('proposals');
+
+  const formattedItems = items.map((x) => {
+    return ({
+      depositor: (
+        <AvatarName
+          address={x.user.address}
+          imageUrl={x.user.imageUrl}
+          name={x.user.name}
+        />
+      ),
+      amount: `${numeral(x.amount).format('0,0.[000000]')} ${chainConfig.display.toUpperCase()}`,
+    });
+  });
 
   return (
     <div className={classnames(className)}>
@@ -37,7 +54,7 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {items.map((row, i) => (
+          {formattedItems.map((row, i) => (
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => {
                 return (

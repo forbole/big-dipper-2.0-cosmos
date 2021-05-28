@@ -1,18 +1,13 @@
 import { useState } from 'react';
 import * as R from 'ramda';
 import {
-  useBlocksListenerSubscription,
-  useBlocksQuery,
-  BlocksListenerSubscription,
+  useProposalsQuery,
+  ProposalsQuery,
 } from '@graphql/types';
-import { useChainContext } from '@contexts';
-import {
-  BlocksState, BlockType,
-} from './types';
+import { ProposalsState } from './types';
 
-export const useBlocks = () => {
-  const { findAddress } = useChainContext();
-  const [state, setState] = useState<BlocksState>({
+export const useProposals = () => {
+  const [state, setState] = useState<ProposalsState>({
     loading: true,
     exists: true,
     items: [],
@@ -26,41 +21,17 @@ export const useBlocks = () => {
   };
 
   // ================================
-  // block subscription
+  // proposals query
   // ================================
-  useBlocksListenerSubscription({
-    variables: {
-      limit: 1,
-      offset: 0,
-    },
-    onSubscriptionData: (data) => {
-      handleSetState({
-        loading: false,
-        items: [
-          ...formatBlocks(data.subscriptionData.data),
-          ...state.items,
-        ],
-      });
-    },
-  });
 
-  // ================================
-  // block query
-  // ================================
-  const blockQuery = useBlocksQuery({
+  const proposalQuery = useProposalsQuery({
     variables: {
       limit: 50,
-      offset: 1,
-    },
-    onError: () => {
-      handleSetState({
-        loading: false,
-      });
+      offset: 0,
     },
     onCompleted: (data) => {
-      const newItems = R.uniq([...state.items, ...formatBlocks(data)]);
+      const newItems = R.uniq([...state.items, ...formatProposals(data)]);
       handleSetState({
-        loading: false,
         items: newItems,
         hasNextPage: newItems.length < data.total.aggregate.count,
         isNextPageLoading: false,
@@ -74,7 +45,7 @@ export const useBlocks = () => {
       isNextPageLoading: true,
     });
     // refetch query
-    await blockQuery.fetchMore({
+    await proposalQuery.fetchMore({
       variables: {
         offset: state.items.length,
         limit: 50,
@@ -82,7 +53,7 @@ export const useBlocks = () => {
     }).then(({ data }) => {
       const newItems = R.uniq([
         ...state.items,
-        ...formatBlocks(data),
+        ...formatProposals(data),
       ]);
       // set new state
       handleSetState({
@@ -94,20 +65,13 @@ export const useBlocks = () => {
     });
   };
 
-  const formatBlocks = (data: BlocksListenerSubscription): BlockType[] => {
-    return data.blocks.map((x) => {
-      const proposerAddress = R.pathOr('', ['validator', 'validatorInfo', 'operatorAddress'], x);
-      const proposer = findAddress(proposerAddress);
+  const formatProposals = (data: ProposalsQuery) => {
+    return data.proposals.map((x) => {
       return ({
-        height: x.height,
-        txs: x.txs,
-        hash: x.hash,
-        timestamp: x.timestamp,
-        proposer: {
-          address: proposerAddress,
-          imageUrl: proposer.imageUrl,
-          name: proposer.moniker,
-        },
+        id: x.proposalId,
+        title: x.title,
+        description: x.description,
+        status: x.status,
       });
     });
   };

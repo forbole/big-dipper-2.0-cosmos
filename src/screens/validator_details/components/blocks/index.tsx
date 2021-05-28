@@ -1,11 +1,16 @@
 import React from 'react';
 import classnames from 'classnames';
+import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Typography,
   Tooltip,
 } from '@material-ui/core';
-import { Box } from '@components';
+import {
+  Box,
+  AvatarName,
+  Result,
+} from '@components';
 import { useStyles } from './styles';
 import { useBlocks } from './hooks';
 
@@ -15,9 +20,7 @@ const Blocks: React.FC<{
   className,
 }) => {
   const { t } = useTranslation('validators');
-  const {
-    uiData, rawData,
-  } = useBlocks();
+  const { state } = useBlocks();
 
   const classes = useStyles();
   return (
@@ -26,7 +29,7 @@ const Blocks: React.FC<{
         {t('lastBlocks')}
       </Typography>
       <div className={classes.blocks}>
-        {uiData.map((x, i) => {
+        {state.map((x, i) => {
           return (
             <Tooltip
               key={`blocks-tooltip-${i}`}
@@ -37,14 +40,18 @@ const Blocks: React.FC<{
                     <Typography variant="h4" className="label">
                       {t('proposer')}
                     </Typography>
-                    {x.proposer}
+                    <AvatarName
+                      address={x.proposer.address}
+                      imageUrl={x.proposer.imageUrl}
+                      name={x.proposer.name}
+                    />
                   </div>
                   <div className={classes.item}>
                     <Typography variant="h4" className="label">
                       {t('block')}
                     </Typography>
                     <Typography variant="body1" className="value">
-                      {x.block}
+                      {numeral(x.height).format('0,0')}
                     </Typography>
                   </div>
                   <div className={classes.item}>
@@ -52,14 +59,14 @@ const Blocks: React.FC<{
                       {t('txs')}
                     </Typography>
                     <Typography variant="body1" className="value">
-                      {x.txs}
+                      {numeral(x.txs).format('0,0')}
                     </Typography>
                   </div>
                   <div className={classes.item}>
                     <Typography variant="h4" className="label">
                       {t('signed')}
                     </Typography>
-                    {x.signed}
+                    <Result success={x.signed} />
                   </div>
                 </Box>
             )}
@@ -70,7 +77,7 @@ const Blocks: React.FC<{
                 className={classnames(
                   classes.singleBlock,
                   {
-                    signed: rawData[i].signed,
+                    signed: state[i].signed,
                   },
                 )}
               />
