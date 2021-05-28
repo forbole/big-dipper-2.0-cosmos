@@ -12,13 +12,15 @@ import {
   Staking,
   Blocks,
 } from './components';
-import { AccountProvider } from './contexts/account';
 import { useValidatorDetails } from './hooks';
 
 const ValidatorDetails = () => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
-  const { state } = useValidatorDetails();
+  const {
+    state,
+    loadNextPage,
+  } = useValidatorDetails();
   const {
     overview,
     delegations,
@@ -27,48 +29,45 @@ const ValidatorDetails = () => {
   } = state;
   return (
     <Layout navTitle={t('validatorDetails')} title={t('validatorDetails')}>
-      <AccountProvider>
-        {({
-          exists, loading,
-        }) => {
-          return (
-            <LoadAndExist
-              exists={state.exists}
-              loading={state.loading}
-            >
-              <span className={classes.root}>
-                <Profile
-                  className={classes.profile}
-                  validator={overview.validator}
-                  operatorAddress={overview.operatorAddress}
-                  selfDelegateAddress={overview.selfDelegateAddress}
-                  description={overview.description}
-                  status={overview.status}
-                  jailed={overview.jailed}
-                  website={overview.website}
-                  condition={overview.condition}
-                  commission={overview.commission}
-                  signedBlockWindow={overview.signedBlockWindow}
-                  missedBlockCounter={overview.missedBlockCounter}
-                />
-                <VotingPower
-                  className={classes.votingPower}
-                  data={state.votingPower}
-                />
-                <Blocks className={classes.blocks} />
-                <Staking
-                  className={classes.staking}
-                  delegations={delegations}
-                  redelegations={redelegations}
-                  undelegations={undelegations}
-                />
-                <Transactions className={classes.transactions} />
-              </span>
-            </LoadAndExist>
-          );
-        }}
-      </AccountProvider>
-
+      <LoadAndExist
+        exists={state.exists}
+        loading={state.loading}
+      >
+        <span className={classes.root}>
+          <Profile
+            className={classes.profile}
+            validator={overview.validator}
+            operatorAddress={overview.operatorAddress}
+            selfDelegateAddress={overview.selfDelegateAddress}
+            description={overview.description}
+            status={overview.status}
+            jailed={overview.jailed}
+            website={overview.website}
+            condition={overview.condition}
+            commission={overview.commission}
+            signedBlockWindow={overview.signedBlockWindow}
+            missedBlockCounter={overview.missedBlockCounter}
+          />
+          <VotingPower
+            className={classes.votingPower}
+            data={state.votingPower}
+          />
+          <Blocks className={classes.blocks} />
+          <Staking
+            className={classes.staking}
+            delegations={delegations}
+            redelegations={redelegations}
+            undelegations={undelegations}
+          />
+          <Transactions
+            className={classes.transactions}
+            loadNextPage={loadNextPage}
+            data={state.transactions.data}
+            hasNextPage={state.transactions.hasNextPage}
+            isNextPageLoading={state.transactions.isNextPageLoading}
+          />
+        </span>
+      </LoadAndExist>
     </Layout>
   );
 };
