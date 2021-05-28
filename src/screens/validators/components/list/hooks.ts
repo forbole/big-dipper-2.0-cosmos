@@ -12,7 +12,7 @@ import {
   ValidatorsState, ValidatorType,
 } from './types';
 
-const useValidators = () => {
+export const useValidators = () => {
   const { findAddress } = useChainContext();
   const [search, setSearch] = useState('');
   const [state, setState] = useState<ValidatorsState>({

@@ -9,18 +9,20 @@ import { a11yProps } from '@utils/allyProps';
 import { Search } from '@components';
 import { tabLabels } from './utils';
 import { useStyles } from './styles';
-import { useValidatorsContext } from '../../contexts/validators';
 
 const TabsHeader: React.FC<{
   className?: string;
-}> = ({ className }) => {
+  tab: number;
+  handleTabChange: (event:any, newvalue:number) => void;
+  handleSearch: (value: string) => void;
+}> = ({
+  className,
+  tab,
+  handleTabChange,
+  handleSearch,
+}) => {
   const classes = useStyles();
   const { t } = useTranslation('validators');
-  const {
-    tab,
-    handleTabChange,
-    handleSearch,
-  } = useValidatorsContext();
 
   return (
     <div className={classnames(className, classes.root)}>
