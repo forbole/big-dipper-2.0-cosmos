@@ -14,7 +14,9 @@ import { ValidatorDetailsState } from './types';
 
 export const useValidatorDetails = () => {
   const router = useRouter();
-  const { findAddress } = useChainContext();
+  const {
+    findAddress, findOperator,
+  } = useChainContext();
   const [state, setState] = useState<ValidatorDetailsState>({
     loading: true,
     exists: true,
@@ -40,6 +42,18 @@ export const useValidatorDetails = () => {
       self: 0,
       selfDelegatePercent: 0,
       selfDelegate: 0,
+    },
+    delegations: {
+      count: 0,
+      data: [],
+    },
+    redelegations: {
+      count: 0,
+      data: [],
+    },
+    undelegations: {
+      count: 0,
+      data: [],
     },
   });
 
@@ -129,60 +143,117 @@ export const useValidatorDetails = () => {
     };
     stateChange.votingPower = formatVotingPower();
 
-    // // ============================
-    // // delegations
-    // // ============================
-    // const delegations = data.validator[0].delegations.map((x) => {
-    //   return ({
-    //     amount: formatDenom(x.amount.amount),
-    //     delegatorAddress: x.delegatorAddress,
-    //   });
-    // });
+    // ============================
+    // delegations
+    // ============================
+    const formatDelegations = () => {
+      const delegations = data.validator[0].delegations.map((x) => {
+        const delegator = findAddress(x.delegatorAddress);
+        return ({
+          amount: formatDenom(x.amount.amount),
+          delegator: {
+            address: x.delegatorAddress,
+            imageUrl: delegator.imageUrl,
+            name: delegator.moniker,
+          },
+        });
+      });
+      return {
+        data: delegations,
+        count: delegations.length,
+      };
+    };
+    stateChange.delegations = formatDelegations();
 
-    // results.rawData.staking.delegations = delegations;
+    // ============================
+    // redelegations
+    // ============================
+    const formatRedelegations = () => {
+      const redelegations = [
+        ...data.validator[0].redelegationsByDstValidatorAddress.map((x) => {
+          const to = findAddress(findOperator(x.to));
+          const from = findAddress(findOperator(x.from));
+          const delegator = findAddress(x.delegatorAddress);
 
-    // // ============================
-    // // redelegations
-    // // ============================
+          return ({
+            to: {
+              address: x.to,
+              imageUrl: to.imageUrl,
+              name: to.moniker,
+            },
+            from: {
+              address: x.from,
+              imageUrl: from.imageUrl,
+              name: from.moniker,
+            },
+            linkedUntil: x.completionTime,
+            amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
+            delegator: {
+              address: x.delegatorAddress,
+              imageUrl: delegator.imageUrl,
+              name: delegator.moniker,
+            },
+          });
+        }),
+        ...data.validator[0].redelegationsBySrcValidatorAddress.map((x) => {
+          const to = findAddress(findOperator(x.to));
+          const from = findAddress(findOperator(x.from));
+          const delegator = findAddress(x.delegatorAddress);
+          return ({
+            to: {
+              address: x.to,
+              imageUrl: to.imageUrl,
+              name: to.moniker,
+            },
+            from: {
+              address: x.from,
+              imageUrl: from.imageUrl,
+              name: from.moniker,
+            },
+            linkedUntil: x.completionTime,
+            amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
+            delegator: {
+              address: x.delegatorAddress,
+              imageUrl: delegator.imageUrl,
+              name: delegator.moniker,
+            },
+          });
+        }),
+      ];
 
-    // const redelegations = [
-    //   ...data.validator[0].redelegationsByDstValidatorAddress.map((x) => {
-    //     return ({
-    //       to: x.to,
-    //       from: x.from,
-    //       linkedUntil: x.completionTime,
-    //       amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
-    //       delegatorAddress: x.delegatorAddress,
-    //     });
-    //   }),
-    //   ...data.validator[0].redelegationsBySrcValidatorAddress.map((x) => {
-    //     return ({
-    //       to: x.to,
-    //       from: x.from,
-    //       linkedUntil: x.completionTime,
-    //       amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
-    //       delegatorAddress: x.delegatorAddress,
-    //     });
-    //   }),
-    // ];
+      return {
+        data: redelegations,
+        count: redelegations.length,
+      };
+    };
+    state.redelegations = formatRedelegations();
 
-    // results.rawData.staking.redelegations = redelegations;
+    // ============================
+    // unbondings
+    // ============================
+    const formatUndelegations = () => {
+      const undelegations = data.validator[0].unbonding.map((x) => {
+        const delegator = findAddress(x.delegatorAddress);
+        return ({
+          delegator: {
+            address: x.delegatorAddress,
+            imageUrl: delegator.imageUrl,
+            name: delegator.moniker,
+          },
+          amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
+          linkedUntil: x.completionTimestamp,
+          commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
+        });
+      });
 
-    // // ============================
-    // // unbondings
-    // // ============================
-    // const unbondings = data.validator[0].unbonding.map((x) => {
-    //   return ({
-    //     delegatorAddress: x.delegatorAddress,
-    //     amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
-    //     linkedUntil: x.completionTimestamp,
-    //     commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
-    //   });
-    // });
+      return {
+        data: undelegations,
+        count: undelegations.length,
+      };
+    };
 
-    // results.rawData.staking.unbondings = unbondings;
+    state.undelegations = formatUndelegations();
 
-    // return results;
     return stateChange;
   };
 

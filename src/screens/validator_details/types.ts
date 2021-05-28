@@ -31,11 +31,41 @@ export type VotingPowerType = {
   selfDelegate: number;
 }
 
+export type DelegationType = {
+  delegator: AvatarName;
+  amount: number;
+}
+
+export type RedelegationType = {
+  to: AvatarName;
+  from: AvatarName;
+  delegator: AvatarName;
+  linkedUntil: string;
+  amount: number;
+}
+
+export type UndelegationType = {
+  delegator: AvatarName;
+  commission: number;
+  linkedUntil: string;
+}
+
 export type ValidatorDetailsState = {
   loading: boolean;
   exists: boolean;
   overview: OverviewType;
   votingPower: VotingPowerType;
-  // signatures: AvatarName[];
+  delegations: {
+    data: DelegationType[];
+    count: number;
+  }
+  redelegations: {
+    data: RedelegationType[];
+    count: number;
+  }
+  undelegations: {
+    data: UndelegationType[];
+    count: number;
+  }
   // transactions: TransactionType[];
 }
