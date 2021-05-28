@@ -67,5 +67,10 @@ export type ValidatorDetailsState = {
     data: UndelegationType[];
     count: number;
   }
-  // transactions: TransactionType[];
+  transactions: {
+    hasNextPage: boolean;
+    isNextPageLoading: boolean;
+    offsetCount: number;
+    data: TransactionType[];
+  };
 }
