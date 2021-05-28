@@ -6,6 +6,110 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
   navTitle="proposals:proposalDetails"
   title="proposals:proposalDetails"
 >
-  <ProposalProvider />
+  <div
+    exists={true}
+    id="LoadAndExist"
+    loading={false}
+  >
+    <span
+      className="makeStyles-root"
+    >
+      <div
+        className="makeStyles-overview"
+        content={
+          Object {
+            "@type": "/cosmos.params.v1beta1.ParameterChangeProposal",
+            "changes": Array [
+              Object {
+                "key": "MaxValidators",
+                "subspace": "staking",
+                "value": "105",
+              },
+            ],
+            "description": "Update max validators",
+            "title": "Staking Param Change Part Two",
+          }
+        }
+        depositEndTime="2021-05-19T05:15:17.990588"
+        description="Update max validators"
+        id={7}
+        status="PROPOSAL_STATUS_REJECTED"
+        submitTime="2021-05-17T05:15:17.990588"
+        title="Staking Param Change Part Two"
+        votingEndTime="2021-05-19T05:15:17.990588"
+        votingStartTime="2021-05-17T05:15:17.990588"
+      />
+      <div
+        className="makeStyles-votesGraph"
+        data={
+          Object {
+            "abstain": 0,
+            "bondedTokens": 3893835.180066,
+            "no": 0,
+            "quorum": 0.33,
+            "total": 170003.125372,
+            "veto": 0,
+            "yes": 170003.125372,
+          }
+        }
+        id="VotesGraph"
+      />
+      <div
+        abstain={1}
+        className="makeStyles-votes"
+        data={
+          Array [
+            Object {
+              "user": Object {
+                "address": "desmos124xa66ghhq5hrgv28slhmszgvcqa0skcfwphh3",
+                "imageUrl": null,
+                "name": "moniker",
+              },
+              "vote": "VOTE_OPTION_YES",
+            },
+            Object {
+              "user": Object {
+                "address": "desmos1c2zkjtg5rhtux0x4gd0nq6q7x79uwnh96r8a4s",
+                "imageUrl": null,
+                "name": "moniker",
+              },
+              "vote": "VOTE_OPTION_NO",
+            },
+            Object {
+              "user": Object {
+                "address": "desmos15g8dfvn3m4lg9pdtpwp4gkygvwpfxywf2rzxly",
+                "imageUrl": null,
+                "name": "moniker",
+              },
+              "vote": "VOTE_OPTION_ABSTAIN",
+            },
+          ]
+        }
+        handleTabChange={[Function]}
+        id="Votes"
+        no={1}
+        tab={0}
+        total={3}
+        veto={0}
+        yes={1}
+      />
+      <div
+        className="makeStyles-deposits"
+        data={
+          Array [
+            Object {
+              "amount": 10,
+              "user": Object {
+                "address": "desmos124xa66ghhq5hrgv28slhmszgvcqa0skcfwphh3",
+                "imageUrl": null,
+                "name": "moniker",
+              },
+            },
+          ]
+        }
+        id="Deposits"
+      />
+    </span>
+  </div>
 </div>
 `;

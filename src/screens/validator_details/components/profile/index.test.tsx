@@ -12,33 +12,7 @@ jest.mock('@components', () => ({
   Tag: (props) => <div id="Tag" {...props} />,
   InfoPopover: (props) => <div id="InfoPopover" {...props} />,
   Markdown: (props) => <div id="Markdown" {...props} />,
-}));
-
-jest.mock('../../contexts/account', () => ({
-  useAccountContext: () => {
-    return ({
-      rawData: {
-        profile: {
-          status: 3,
-        },
-      },
-      uiData: {
-        profile: {
-          operatorAddress: 'operatorAddress',
-          selfDelegateAddress: 'selfDelegateAddress',
-          website: 'website',
-          validator: {
-            moniker: 'moniker',
-          },
-          status: 'active',
-          description: 'description',
-          condition: 'active',
-          missedBlockCounter: 0,
-          signedBlockWindow: 0,
-        },
-      },
-    });
-  },
+  ConditionExplanation: (props) => <div id="ConditionExplanation" {...props} />,
 }));
 
 // ==================================
@@ -48,7 +22,22 @@ describe('screen: ValidatorDetails/Profile', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>
-        <Profile />
+        <Profile
+          validator={{
+            moniker: 'moniker',
+            imageUrl: '',
+          }}
+          operatorAddress="operatorAddress"
+          selfDelegateAddress="selfDelegateAddress"
+          description="description"
+          status={3}
+          jailed={false}
+          website=""
+          condition={70}
+          commission={10}
+          signedBlockWindow={7200}
+          missedBlockCounter={0}
+        />
       </MockTheme>,
     );
     const tree = component.toJSON();

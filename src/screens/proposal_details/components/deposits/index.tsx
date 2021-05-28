@@ -1,24 +1,27 @@
 import React from 'react';
 import classnames from 'classnames';
+import dynamic from 'next/dynamic';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import { Box } from '@components';
-import { usePagination } from '@hooks';
-import { useStyles } from './styles';
-import { useProposalContext } from '../../contexts/proposal';
 import {
-  Desktop,
-  Mobile,
-  Paginate,
-} from './components';
+  usePagination, useScreenSize,
+} from '@hooks';
+import { useStyles } from './styles';
+import { Paginate } from './components';
+import { DepositType } from '../../types';
+
+const Desktop = dynamic(() => import('./components/desktop'));
+const Mobile = dynamic(() => import('./components/mobile'));
 
 const Deposits: React.FC<{
   className?: string;
-}> = ({ className }) => {
+  data: DepositType[];
+}> = ({
+  className, data,
+}) => {
+  const { isDesktop } = useScreenSize();
   const { t } = useTranslation('proposals');
-  const { uiData } = useProposalContext();
-  const { deposits = [] } = uiData;
-
   const {
     page,
     rowsPerPage,
@@ -28,17 +31,26 @@ const Deposits: React.FC<{
   } = usePagination({});
 
   const classes = useStyles();
-  const items = sliceItems(deposits);
+  const items = sliceItems(data);
 
   return (
     <Box className={classnames(className, classes.root)}>
       <Typography className={classes.title} variant="h2">{t('deposits')}</Typography>
       <div className={classes.list}>
-        <Mobile className={classes.mobile} items={items} />
-        <Desktop className={classes.desktop} items={items} />
+        {isDesktop ? (
+          <Desktop
+            className={classes.desktop}
+            items={items}
+          />
+        ) : (
+          <Mobile
+            className={classes.mobile}
+            items={items}
+          />
+        )}
       </div>
       <Paginate
-        total={deposits.length}
+        total={data.length}
         page={page}
         rowsPerPage={rowsPerPage}
         handleChangePage={handleChangePage}

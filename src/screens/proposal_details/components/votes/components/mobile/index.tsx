@@ -2,8 +2,10 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import {
-  Divider, Typography,
+  Divider,
+  Typography,
 } from '@material-ui/core';
+import { AvatarName } from '@components';
 import { useStyles } from './styles';
 
 const Mobile: React.FC<{
@@ -15,9 +17,22 @@ const Mobile: React.FC<{
   const { t } = useTranslation('proposals');
   const classes = useStyles();
 
+  const formattedItems = items.map((x) => {
+    return ({
+      voter: (
+        <AvatarName
+          address={x.user.address}
+          imageUrl={x.user.imageUrl}
+          name={x.user.name}
+        />
+      ),
+      vote: x.vote,
+    });
+  });
+
   return (
     <div className={classnames(className)}>
-      {items.map((x, i) => {
+      {formattedItems.map((x, i) => {
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
@@ -44,7 +59,7 @@ const Mobile: React.FC<{
                 </Typography>
               </div>
             </div>
-            {i !== items.length - 1 && <Divider />}
+            {i !== formattedItems.length - 1 && <Divider />}
           </React.Fragment>
         );
       })}

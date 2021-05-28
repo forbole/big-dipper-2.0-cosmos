@@ -5,6 +5,7 @@ import {
   Layout,
   Box,
   LoadAndExist,
+  NoData,
 } from '@components';
 import { useScreenSize } from '@hooks';
 import { useStyles } from './styles';
@@ -35,20 +36,26 @@ const Blocks = () => {
         exists={state.exists}
       >
         <Box className={classes.box}>
-          {isDesktop ? (
-            <Desktop
-              items={state.items}
-              itemCount={itemCount}
-              loadMoreItems={loadMoreItems}
-              isItemLoaded={isItemLoaded}
-            />
+          {!state.items.length ? (
+            <NoData />
           ) : (
-            <Mobile
-              items={state.items}
-              itemCount={itemCount}
-              loadMoreItems={loadMoreItems}
-              isItemLoaded={isItemLoaded}
-            />
+            <>
+              {isDesktop ? (
+                <Desktop
+                  items={state.items}
+                  itemCount={itemCount}
+                  loadMoreItems={loadMoreItems}
+                  isItemLoaded={isItemLoaded}
+                />
+              ) : (
+                <Mobile
+                  items={state.items}
+                  itemCount={itemCount}
+                  loadMoreItems={loadMoreItems}
+                  isItemLoaded={isItemLoaded}
+                />
+              )}
+            </>
           )}
         </Box>
       </LoadAndExist>

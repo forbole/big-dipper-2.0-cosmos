@@ -1,28 +1,34 @@
 import React from 'react';
 import classnames from 'classnames';
+import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import { Typography } from '@material-ui/core';
 import { useGrid } from '@hooks';
-import { SortArrows } from '@components';
+import {
+  SortArrows,
+  AvatarName,
+} from '@components';
+import { getValidatorConditionClass } from '@utils/get_validator_condition';
 import { useStyles } from './styles';
-import { useValidatorsContext } from '../../contexts/validators';
 import { fetchColumns } from './utils';
+import { ValidatorType } from '../../types';
+import {
+  Condition, VotingPower,
+} from '..';
 
 const Desktop: React.FC<{
   className?: string;
-}> = ({ className }) => {
+  sortDirection: 'desc' | 'asc';
+  sortKey: string;
+  handleSort: (key: string) => void;
+  items: ValidatorType[];
+}> = (props) => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
   const columns = fetchColumns(t);
 
-  const {
-    uiData,
-    sortDirection,
-    sortKey,
-    handleSort,
-  } = useValidatorsContext();
   const {
     gridRef,
     columnRef,
@@ -31,8 +37,35 @@ const Desktop: React.FC<{
     getRowHeight,
   } = useGrid(columns);
 
+  const formattedItems = props.items.map((x, i) => {
+    const condition = x.status === 3 ? getValidatorConditionClass(x.condition) : undefined;
+    return ({
+      idx: `#${i + 1}`,
+      delegators: numeral(x.delegators).format('0,0'),
+      validator: (
+        <AvatarName
+          address={x.validator.address}
+          imageUrl={x.validator.imageUrl}
+          name={x.validator.name}
+        />
+      ),
+      commission: `${numeral(x.commission).format('0.[00]')}%`,
+      self: `${numeral(x.selfPercent).format('0.[00]')}%`,
+      condition: (
+        <Condition className={condition} />
+      ),
+      votingPower: (
+        <VotingPower
+          percentDisplay={`${numeral(x.votingPowerPercent).format('0.[00]')}%`}
+          percentage={x.votingPowerPercent}
+          content={numeral(x.votingPower).format('0,0')}
+        />
+      ),
+    });
+  });
+
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={classnames(props.className, classes.root)}>
       <AutoSizer onResize={onResize}>
         {({
           height, width,
@@ -73,7 +106,7 @@ const Desktop: React.FC<{
                           sort,
                         },
                       )}
-                      onClick={() => (sort ? handleSort(sortingKey) : null)}
+                      onClick={() => (sort ? props.handleSort(sortingKey) : null)}
                       role="button"
                     >
                       {component || (
@@ -84,8 +117,8 @@ const Desktop: React.FC<{
                         {t(key)}
                         {!!sort && (
                         <SortArrows
-                          sort={sortKey === sortingKey
-                            ? sortDirection
+                          sort={props.sortKey === sortingKey
+                            ? props.sortDirection
                             : undefined}
                         />
                         )}
@@ -103,7 +136,7 @@ const Desktop: React.FC<{
                 columnCount={columns.length}
                 columnWidth={(index) => getColumnWidth(width, index)}
                 height={height - 50}
-                rowCount={uiData.length}
+                rowCount={formattedItems.length}
                 rowHeight={getRowHeight}
                 width={width}
                 className="scrollbar"
@@ -114,7 +147,7 @@ const Desktop: React.FC<{
                   const {
                     key, align,
                   } = columns[columnIndex];
-                  const item = uiData[rowIndex][key];
+                  const item = formattedItems[rowIndex][key];
                   return (
                     <div
                       style={style}

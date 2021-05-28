@@ -3,7 +3,7 @@ const surfaceOne = '#1C1C1C';
 const surfaceTwo = '#252527';
 const fontOne = '#FFFFFF';
 const fontTwo = '#C4C4C4';
-const fontThree = '#DA00FD';
+const fontThree = '#8D8D8D';
 const icon = '#9F9F9F';
 
 /** Custom theme overrides for deuteranopia mode */

@@ -6,11 +6,12 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
   id="Box"
 >
   <div
-    id="3"
+    id="#10"
     status={
-      <div>
-        status
-      </div>
+      <Tag
+        theme="one"
+        value="status"
+      />
     }
     title="title"
   />
@@ -28,7 +29,7 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
     <p
       className="MuiTypography-root value MuiTypography-body1"
     >
-      proposals:type
+      proposals:
     </p>
     <p
       className="MuiTypography-root label MuiTypography-body1"
@@ -39,26 +40,6 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
       className="MuiTypography-root value MuiTypography-body1"
     >
       description
-    </p>
-    <p
-      className="MuiTypography-root label MuiTypography-body1"
-    >
-      proposals:submitTime
-    </p>
-    <p
-      className="MuiTypography-root value MuiTypography-body1"
-    >
-      submitTime
-    </p>
-    <p
-      className="MuiTypography-root label MuiTypography-body1"
-    >
-      proposals:depositEndTime
-    </p>
-    <p
-      className="MuiTypography-root value MuiTypography-body1"
-    >
-      depositEndTime
     </p>
   </div>
 </div>

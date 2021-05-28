@@ -8,7 +8,42 @@ exports[`screen: Transactions matches snapshot 1`] = `
   title="transactions:transactions"
 >
   <div
-    id="List"
-  />
+    exists={true}
+    id="LoadAndExist"
+    loading={false}
+  >
+    <div
+      className="makeStyles-box"
+      id="Box"
+    >
+      <div
+        hasNextPage={true}
+        id="TransactionsList"
+        isItemLoaded={[Function]}
+        isNextPageLoading={false}
+        itemCount={3}
+        loadMoreItems={[Function]}
+        loadNextPage={[Function]}
+        transactions={
+          Array [
+            Object {
+              "hash": "D223E2E4E4FD29868D1034EFE5FB162EAB78B4CCE1D53EFD4F34A40608FB6C4B",
+              "height": 432022,
+              "messages": 2,
+              "success": true,
+              "timestamp": "2021-05-28T00:08:33.700487",
+            },
+            Object {
+              "hash": "D223E2E4E4FD29868D1034EFE5FB162EAB78B4CCE1D53EFD4F34A40608FB6C4B",
+              "height": 432022,
+              "messages": 2,
+              "success": true,
+              "timestamp": "2021-05-28T00:08:33.700487",
+            },
+          ]
+        }
+      />
+    </div>
+  </div>
 </div>
 `;

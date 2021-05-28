@@ -1,22 +1,17 @@
 import { useState } from 'react';
 import * as R from 'ramda';
-import numeral from 'numeral';
 import { useRouter } from 'next/router';
 import {
   useLastHundredBlocksSubscription,
   LastHundredBlocksSubscription,
 } from '@graphql/types';
-import {
-  AvatarName,
-  Result,
-} from '@components';
 import { useChainContext } from '@contexts';
 
 export const useBlocks = () => {
   const [state, setState] = useState<{
     height: number;
     txs: number;
-    proposer: string;
+    proposer: AvatarName;
     signed: boolean;
   }[]>([]);
 
@@ -34,37 +29,21 @@ export const useBlocks = () => {
 
   const formatLastHundredBlocks = (data: LastHundredBlocksSubscription) => {
     return data.block.map((x) => {
+      const proposer = findAddress(x.validator.validatorInfo.operatorAddress);
       return {
         height: x.height,
         txs: x.transactions.length,
-        proposer: x.validator.validatorInfo.operatorAddress,
+        proposer: {
+          address: x.validator.validatorInfo.operatorAddress,
+          name: proposer.moniker,
+          imageUrl: proposer.imageUrl,
+        },
         signed: x.precommits.length === 1,
       };
     });
   };
 
-  const formatUi = () => {
-    return state.map((x) => {
-      const proposer = findAddress(x.proposer);
-      return ({
-        proposer: (
-          <AvatarName
-            address={x.proposer}
-            imageUrl={proposer ? proposer?.imageUrl : null}
-            name={proposer ? proposer.moniker : x.proposer}
-          />
-        ),
-        block: numeral(x.height).format('0,0'),
-        txs: numeral(x.txs).format('0,0'),
-        signed: (
-          <Result success={x.signed} />
-        ),
-      });
-    });
-  };
-
   return {
-    rawData: state,
-    uiData: formatUi(),
+    state,
   };
 };

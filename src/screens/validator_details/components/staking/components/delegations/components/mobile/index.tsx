@@ -1,14 +1,18 @@
 import React from 'react';
 import classnames from 'classnames';
+import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Divider, Typography,
 } from '@material-ui/core';
+import { chainConfig } from '@src/chain_config';
+import { AvatarName } from '@components';
 import { useStyles } from './styles';
+import { DelegationType } from '../../../../../../types';
 
 const Mobile: React.FC<{
   className?: string;
-  items?: any[];
+  items?: DelegationType[];
 }> = ({
   className, items,
 }) => {
@@ -25,14 +29,18 @@ const Mobile: React.FC<{
                 <Typography variant="h4" className="label">
                   {t('address')}
                 </Typography>
-                {x.address}
+                <AvatarName
+                  address={x.delegator.address}
+                  imageUrl={x.delegator.imageUrl}
+                  name={x.delegator.name}
+                />
               </div>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
                   {t('amount')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {x.amount}
+                  {`${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`}
                 </Typography>
               </div>
             </div>

@@ -1,14 +1,19 @@
 import React from 'react';
 import classnames from 'classnames';
+import numeral from 'numeral';
+import dayjs from '@utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Divider, Typography,
 } from '@material-ui/core';
+import { AvatarName } from '@components';
+import { chainConfig } from '@src/chain_config';
 import { useStyles } from './styles';
+import { RedelegationType } from '../../../../../../types';
 
 const Mobile: React.FC<{
   className?: string;
-  items?: any[];
+  items: RedelegationType[];
 }> = ({
   className, items,
 }) => {
@@ -25,26 +30,38 @@ const Mobile: React.FC<{
                 <Typography variant="h4" className="label">
                   {t('address')}
                 </Typography>
-                {x.address}
+                <AvatarName
+                  address={x.delegator.address}
+                  imageUrl={x.delegator.imageUrl}
+                  name={x.delegator.name}
+                />
               </div>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
                   {t('from')}
                 </Typography>
-                {x.from}
+                <AvatarName
+                  address={x.from.address}
+                  imageUrl={x.from.imageUrl}
+                  name={x.from.name}
+                />
               </div>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
                   {t('to')}
                 </Typography>
-                {x.to}
+                <AvatarName
+                  address={x.to.address}
+                  imageUrl={x.to.imageUrl}
+                  name={x.to.name}
+                />
               </div>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
                   {t('amount')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {x.amount}
+                  {`${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`}
                 </Typography>
               </div>
               <div className={classes.item}>
@@ -52,7 +69,7 @@ const Mobile: React.FC<{
                   {t('linkedUntil')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {x.linkedUntil}
+                  {dayjs.utc(x.linkedUntil).local().format('MMMM DD, YYYY hh:mm A')}
                 </Typography>
               </div>
             </div>

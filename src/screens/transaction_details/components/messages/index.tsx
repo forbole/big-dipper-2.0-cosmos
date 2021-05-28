@@ -17,25 +17,31 @@ import {
   Box,
   TransactionMessagesFilter,
 } from '@components';
-import { useTransactionContext } from '../../contexts/transaction';
 import { useStyles } from './styles';
+import { MessageType } from '../../types';
+import { getMessageByType } from '../../utils';
 
 const Messages: React.FC<{
   className?: string;
-}> = ({ className }) => {
+  messages: MessageType[];
+  viewRaw: boolean;
+  toggleMessageDisplay: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onMessageFilterCallback: (value: string) => void;
+}> = ({
+  className, ...props
+}) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
-  const {
-    uiData,
-    onMessageFilterCallback,
-    viewRaw,
-    toggleMessageDisplay,
-  } = useTransactionContext();
+
   const {
     listRef,
     getRowHeight,
     setRowHeight,
   } = useList();
+
+  const formattedItems = props.messages.map((x) => {
+    return getMessageByType(x, props.viewRaw, t);
+  });
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -47,8 +53,8 @@ const Messages: React.FC<{
           <FormControlLabel
             control={(
               <Switch
-                checked={viewRaw}
-                onChange={toggleMessageDisplay}
+                checked={props.viewRaw}
+                onChange={props.toggleMessageDisplay}
                 color="primary"
               />
             )}
@@ -59,8 +65,8 @@ const Messages: React.FC<{
           <FormControlLabel
             control={(
               <Switch
-                checked={viewRaw}
-                onChange={toggleMessageDisplay}
+                checked={props.viewRaw}
+                onChange={props.toggleMessageDisplay}
                 color="primary"
               />
             )}
@@ -68,7 +74,7 @@ const Messages: React.FC<{
           />
           <TransactionMessagesFilter
             className={classes.filter}
-            callback={onMessageFilterCallback}
+            callback={props.onMessageFilterCallback}
           />
         </div>
       </div>
@@ -82,7 +88,7 @@ const Messages: React.FC<{
               <List
                 className="List"
                 height={height}
-                itemCount={uiData.messages.length}
+                itemCount={props.messages.length}
                 itemSize={getRowHeight}
                 ref={listRef}
                 width={width}
@@ -91,7 +97,7 @@ const Messages: React.FC<{
                   index, style,
                 }) => {
                   const { rowRef } = useListRow(index, setRowHeight);
-                  const selectedItem = uiData.messages[index];
+                  const selectedItem = formattedItems[index];
                   return (
                     <div style={style}>
                       <div ref={rowRef}>
@@ -101,7 +107,7 @@ const Messages: React.FC<{
                           </div>
                           {selectedItem.message}
                         </div>
-                        {index !== uiData.messages.length - 1 && <Divider />}
+                        {index !== props.messages.length - 1 && <Divider />}
                       </div>
                     </div>
                   );
