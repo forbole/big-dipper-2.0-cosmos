@@ -172,6 +172,7 @@ export const useValidatorDetails = () => {
     // results.rawData.staking.unbondings = unbondings;
 
     // return results;
+    return stateChange;
   };
 
   return {

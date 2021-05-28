@@ -13,6 +13,9 @@ export const getStatusTheme = (status: number, jailed: boolean) => {
   } else if (status === 2 && !jailed) {
     results.status = 'unbonding';
     results.theme = 'three';
+  } else if (status === 1) {
+    results.status = 'unbonded';
+    results.theme = 'zero';
   } else {
     results.status = 'unknown';
     results.theme = 'zero';
