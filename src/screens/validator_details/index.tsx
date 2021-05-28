@@ -31,7 +31,10 @@ const ValidatorDetails = () => {
               loading={state.loading}
             >
               <span className={classes.root}>
-                <Profile className={classes.profile} />
+                <Profile
+                  className={classes.profile}
+                  data={state.overview}
+                />
                 <VotingPower className={classes.votingPower} />
                 <Blocks className={classes.blocks} />
                 <Staking className={classes.staking} />

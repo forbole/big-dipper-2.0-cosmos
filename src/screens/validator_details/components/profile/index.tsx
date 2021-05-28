@@ -22,7 +22,9 @@ import {
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { useStyles } from './styles';
-import { getStatusTheme } from './utils';
+import {
+  getStatusTheme, getCondition,
+} from './utils';
 import { OverviewType } from '../../types';
 
 const Profile: React.FC<{
@@ -41,6 +43,7 @@ const Profile: React.FC<{
   };
 
   const statusTheme = getStatusTheme(data.status, data.jailed);
+  const condition = getCondition(data.condition, data.status);
 
   const formattedItem = {
     operatorAddress: (
@@ -88,19 +91,19 @@ const Profile: React.FC<{
       </Typography>
     ),
     condition: (
-      rawData.profile.status === 3 ? (
+      data.status === 3 ? (
         <div className="condition__body">
           <InfoPopover
             content={(
               <>
                 <Typography variant="body1">
                   {t('missedBlockCounter', {
-                    amount: uiData.profile.missedBlockCounter,
+                    amount: numeral(data.missedBlockCounter).format('0,0'),
                   })}
                 </Typography>
                 <Typography variant="body1">
                   {t('signedBlockWindow', {
-                    amount: uiData.profile.signedBlockWindow,
+                    amount: numeral(data.signedBlockWindow).format('0,0'),
                   })}
                 </Typography>
               </>
@@ -108,9 +111,9 @@ const Profile: React.FC<{
             display={(
               <Typography
                 variant="body1"
-                className={classnames('value', uiData.profile.condition)}
+                className={classnames('value', condition)}
               >
-                {t(uiData.profile.condition)}
+                {t(condition)}
               </Typography>
         )}
           />
@@ -118,9 +121,9 @@ const Profile: React.FC<{
       ) : (
         <Typography
           variant="body1"
-          className={classnames('value', 'condition', uiData.profile.condition)}
+          className={classnames('value', 'condition', condition)}
         >
-          {t(uiData.profile.condition)}
+          {t(condition)}
         </Typography>
       )
     ),
@@ -130,8 +133,8 @@ const Profile: React.FC<{
     <Box className={classnames(className)}>
       <div className={classes.bio}>
         <Avatar
-          address={uiData.profile.operatorAddress}
-          imageUrl={uiData.profile.validator.imageUrl}
+          address={data.operatorAddress}
+          imageUrl={data.validator.imageUrl}
           className={classnames(classes.avatar, classes.desktopAvatar)}
         />
         <div>
@@ -141,15 +144,19 @@ const Profile: React.FC<{
             {/* ======================== */}
             <div className={classes.header}>
               <Avatar
-                address={uiData.profile.operatorAddress}
-                imageUrl={uiData.profile.validator.imageUrl}
+                address={data.operatorAddress}
+                imageUrl={data.validator.imageUrl}
                 className={classnames(classes.avatar, classes.mobile)}
               />
               <div className="header__content">
                 <Typography variant="h2">
-                  {uiData.profile.validator.moniker}
+                  {data.validator.moniker}
                 </Typography>
-                <Tag value={t(uiData.profile.status)} theme={statusTheme} className={classes.tag} />
+                <Tag
+                  value={t(statusTheme.status)}
+                  theme={statusTheme.theme as any}
+                  className={classes.tag}
+                />
               </div>
             </div>
           </div>
@@ -158,7 +165,7 @@ const Profile: React.FC<{
           {/* ======================== */}
           <div className="bio__content">
             <Markdown>
-              {uiData.profile.description}
+              {data.description}
             </Markdown>
           </div>
         </div>
