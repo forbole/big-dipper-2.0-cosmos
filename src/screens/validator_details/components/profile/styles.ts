@@ -106,16 +106,16 @@ export const useStyles = () => {
           '& p.value': {
             color: theme.palette.custom.fonts.fontTwo,
             '&.good': {
-              color: theme.palette.custom.tags.one,
+              color: theme.palette.custom.condition.one,
             },
             '&.moderate': {
-              color: theme.palette.custom.tags.two,
+              color: theme.palette.custom.condition.two,
             },
             '&.bad': {
-              color: theme.palette.custom.tags.three,
+              color: theme.palette.custom.condition.three,
             },
             '&.condition': {
-              color: theme.palette.custom.tags.zero,
+              color: theme.palette.custom.condition.zero,
             },
           },
           '& a': {

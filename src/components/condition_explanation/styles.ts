@@ -19,17 +19,17 @@ export const useStyles = () => {
         condition: {
           width: '7px',
           height: '7px',
-          background: theme.palette.custom.tags.zero,
+          background: theme.palette.custom.condition.zero,
           marginLeft: theme.spacing(1),
           borderRadius: '50%',
           '&.green': {
-            background: theme.palette.custom.tags.one,
+            background: theme.palette.custom.condition.one,
           },
           '&.yellow': {
-            background: theme.palette.custom.tags.two,
+            background: theme.palette.custom.condition.two,
           },
           '&.red': {
-            background: theme.palette.custom.tags.three,
+            background: theme.palette.custom.condition.three,
           },
         },
       });

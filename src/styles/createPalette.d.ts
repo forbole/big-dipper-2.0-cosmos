@@ -23,13 +23,6 @@ declare module '@material-ui/core/styles/createPalette' {
             three: string;
             four: string;
         },
-        chartData: {
-            one: string;
-            two: string;
-            three: string;
-            four: string;
-            five: string;
-        },
         tags: {
             zero: string;
             one: string;
@@ -40,6 +33,20 @@ declare module '@material-ui/core/styles/createPalette' {
             six: string;
             seven: string;
             eight: string;
+        },
+        charts: {
+            zero: string;
+            one: string;
+            two: string;
+            three: string;
+            four: string;
+            five: string;
+        },
+        condition: {
+            zero: string;
+            one: string;
+            two: string;
+            three: string;
         },
         results: {
             pass: string;

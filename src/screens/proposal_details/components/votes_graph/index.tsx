@@ -23,12 +23,12 @@ const VotesGraph: React.FC<{
     classes, theme,
   } = useStyles();
   const { t } = useTranslation('proposals');
-  let formattedData = formatGraphData(data);
+  let formattedData = formatGraphData(data, theme);
 
   const empty = {
     name: 'empty',
     value: 2400,
-    color: theme.palette.custom.tags.zero,
+    color: theme.palette.custom.charts.zero,
     percentage: '0%',
     display: '',
   };
