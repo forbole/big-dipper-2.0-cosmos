@@ -47,13 +47,13 @@ export const useStyles = () => {
               marginRight: '5px',
             },
             '&:first-child:before': {
-              background: theme.palette.custom.tags.one,
+              background: theme.palette.custom.charts.four,
             },
             '&:nth-child(2):before': {
-              background: theme.palette.custom.tags.six,
+              background: theme.palette.custom.charts.two,
             },
             '&:last-child:before': {
-              background: theme.palette.custom.tags.four,
+              background: theme.palette.custom.charts.five,
             },
             '& .caption__percent': {
               color: theme.palette.custom.fonts.fontThree,

@@ -52,22 +52,22 @@ export const useStyles = () => {
           },
           '&.yes': {
             '&::before': {
-              background: '#355070',
+              background: theme.palette.custom.charts.one,
             },
           },
           '&.no': {
             '&::before': {
-              background: '#6d597a',
+              background: theme.palette.custom.charts.two,
             },
           },
           '&.veto': {
             '&::before': {
-              background: '#b56576',
+              background: theme.palette.custom.charts.three,
             },
           },
           '&.abstain': {
             '&::before': {
-              background: '#e56b6f',
+              background: theme.palette.custom.charts.four,
             },
           },
         },

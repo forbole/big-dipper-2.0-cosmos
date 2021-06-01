@@ -73,6 +73,20 @@ export const deuteranopiaThemeOverride = {
         seven: '#F9F9F9',
         eight: '#F9F9F9',
       },
+      condition: {
+        zero: '#6D6D6C',
+        one: '#FFFFFF',
+        two: '#FFAC3B',
+        three: '#0079FA',
+      },
+      charts: {
+        zero: '#6D6D6C',
+        one: '#FFDF01',
+        two: '#F60239',
+        three: '#A40122',
+        four: '#009FFA',
+        five: '#FF92FD',
+      },
     },
   },
   overrides: {

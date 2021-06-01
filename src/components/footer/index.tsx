@@ -7,11 +7,11 @@ import { SocialMedia } from './components';
 import {
   footerLinks, donateLink,
 } from './utils';
-import { useGetStyles } from './styles';
+import { useStyles } from './styles';
 
 const Footer: React.FC<{className?: string}> = ({ className }) => {
   const { t } = useTranslation();
-  const { classes } = useGetStyles();
+  const classes = useStyles();
 
   // ============================
   // Footer

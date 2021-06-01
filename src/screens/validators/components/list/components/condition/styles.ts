@@ -7,17 +7,17 @@ export const useStyles = () => {
         root: {
           width: '10px',
           height: '10px',
-          background: theme.palette.custom.tags.zero,
+          background: theme.palette.custom.condition.zero,
           margin: '0 auto',
           borderRadius: '50%',
           '&.green': {
-            background: theme.palette.custom.tags.one,
+            background: theme.palette.custom.condition.one,
           },
           '&.yellow': {
-            background: theme.palette.custom.tags.two,
+            background: theme.palette.custom.condition.two,
           },
           '&.red': {
-            background: theme.palette.custom.tags.three,
+            background: theme.palette.custom.condition.three,
           },
         },
       });
