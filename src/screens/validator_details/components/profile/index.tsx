@@ -43,6 +43,12 @@ const Profile: React.FC<OverviewType & {
 
   const statusTheme = getStatusTheme(data.status, data.jailed);
   const condition = getCondition(data.condition, data.status);
+  const pattern = /^((http|https|ftp):\/\/)/;
+  let { website } = data;
+
+  if (!pattern.test(data.website)) {
+    website = `//${data.website}`;
+  }
 
   const formattedItem = {
     operatorAddress: (
@@ -74,7 +80,7 @@ const Profile: React.FC<OverviewType & {
         variant="body1"
         className="value"
         component="a"
-        href={data.website}
+        href={website}
         target="_blank"
         rel="noreferrer"
       >
