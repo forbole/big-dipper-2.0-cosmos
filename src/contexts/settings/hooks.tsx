@@ -9,6 +9,7 @@ import {
   lightTemplate,
   darkTemplate,
   deuteranopiaTemplate,
+  tritanopiaTemplate,
 } from '@styles';
 import { usePersistedState } from '@hooks';
 import {
@@ -27,7 +28,7 @@ export const useTheme = (initialState:SettingsState) => {
     'light',
     'dark',
     'deuteranopia',
-    // 'tritanopia',
+    'tritanopia',
     // 'achromatopsia',
   ];
 
@@ -35,7 +36,7 @@ export const useTheme = (initialState:SettingsState) => {
     light: lightTemplate,
     dark: darkTemplate,
     deuteranopia: deuteranopiaTemplate,
-    // tritanopia: darkTheme,
+    tritanopia: tritanopiaTemplate,
     // achromatopsia: darkTheme,
   };
 
