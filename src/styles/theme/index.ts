@@ -114,6 +114,20 @@ export const common = {
         fontFive: '#FFFFFF',
         highlight: '#56B4E9', // links
       },
+      condition: {
+        zero: '#E8E8E8',
+        one: '#1EC490',
+        two: '#FF961B',
+        three: '#FC6A8A',
+      },
+      charts: {
+        zero: '#E8E8E8',
+        one: '#EB3AA4',
+        two: '#497BFF',
+        three: '#FF961B',
+        four: '#1EC490',
+        five: '#9F46EC',
+      },
     },
   },
   overrides: {

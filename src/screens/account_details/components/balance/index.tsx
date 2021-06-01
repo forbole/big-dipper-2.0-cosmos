@@ -37,16 +37,16 @@ const Balance: React.FC<{
   const empty = {
     key: 'empty',
     value: 2400,
-    background: theme.palette.custom.tags.eight,
+    background: theme.palette.custom.charts.zero,
     display: '',
   };
 
   const backgrounds = [
-    theme.palette.custom.tags.eight,
-    theme.palette.custom.tags.six,
-    theme.palette.custom.tags.two,
-    theme.palette.custom.tags.one,
-    theme.palette.custom.tags.four,
+    theme.palette.custom.charts.one,
+    theme.palette.custom.charts.two,
+    theme.palette.custom.charts.three,
+    theme.palette.custom.charts.four,
+    theme.palette.custom.charts.five,
   ];
 
   const formatData = formattedChartData.map((x, i) => ({
@@ -55,6 +55,7 @@ const Balance: React.FC<{
   }));
 
   const notEmpty = formatData.some((x) => x.value > 0);
+
   const dataCount = formatData.filter((x) => x.value > 0).length;
   const data = notEmpty ? formatData : [...formatData, empty];
   const totalAmount = `$${numeral(market.rawData.price * props.total).format('0,0.00')}`;
