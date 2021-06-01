@@ -6,7 +6,7 @@ export const useStyles = () => {
       return ({
         root: {
           '&.footer': {
-            background: theme.palette.background.paper,
+            background: '#131316',
             padding: '3rem 1.5rem 4rem',
             color: 'white',
           },
