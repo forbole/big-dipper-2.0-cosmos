@@ -116,7 +116,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
       </h4>
       <a
         className="MuiTypography-root value MuiTypography-body1"
-        href=""
+        href="//"
         rel="noreferrer"
         target="_blank"
       >
