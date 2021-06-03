@@ -61,11 +61,11 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
           Array [
             Object {
               "user": Object {
-                "address": "desmos124xa66ghhq5hrgv28slhmszgvcqa0skcfwphh3",
+                "address": "desmos15g8dfvn3m4lg9pdtpwp4gkygvwpfxywf2rzxly",
                 "imageUrl": null,
                 "name": "moniker",
               },
-              "vote": "VOTE_OPTION_YES",
+              "vote": "VOTE_OPTION_ABSTAIN",
             },
             Object {
               "user": Object {
@@ -77,11 +77,11 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
             },
             Object {
               "user": Object {
-                "address": "desmos15g8dfvn3m4lg9pdtpwp4gkygvwpfxywf2rzxly",
+                "address": "desmos124xa66ghhq5hrgv28slhmszgvcqa0skcfwphh3",
                 "imageUrl": null,
                 "name": "moniker",
               },
-              "vote": "VOTE_OPTION_ABSTAIN",
+              "vote": "VOTE_OPTION_YES",
             },
           ]
         }
