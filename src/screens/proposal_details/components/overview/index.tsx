@@ -43,12 +43,7 @@ const Overview: React.FC<{
       <SingleProposal
         id={`#${numeral(props.id).format('0,0')}`}
         title={props.title}
-        status={(
-          <Tag
-            theme="one"
-            value={props.status.replace('PROPOSAL_STATUS_', '').replace('_', ' ')}
-          />
-        )}
+        status={props.status}
       />
       <Divider />
       <div className={classes.content}>

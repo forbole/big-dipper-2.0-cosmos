@@ -53,9 +53,7 @@ const ProposalsList: React.FC<{
   const formattedItems = items.map((x) => {
     return ({
       description: x.description.length > 200 ? `${x.description.slice(0, 200)}...` : x.description,
-      status: (
-        <Tag theme="one" value={x.status.replace('PROPOSAL_STATUS_', '').replace('_', ' ')} />
-      ),
+      status: x.status,
       title: (
         <Link href={PROPOSAL_DETAILS(x.id)} passHref>
           <Typography variant="h3" className="value" component="a">
