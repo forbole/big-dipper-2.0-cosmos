@@ -11,6 +11,7 @@ import {
 import {
   SingleProposal,
   Box,
+  Markdown,
 } from '@components';
 import {
   ParamsChange,
@@ -55,9 +56,9 @@ const Overview: React.FC<{
         <Typography variant="body1" className="label">
           {t('description')}
         </Typography>
-        <Typography variant="body1" className="value">
+        <Markdown>
           {props.description}
-        </Typography>
+        </Markdown>
         {type === 'parameterChangeProposal' && (
           <>
             <Typography variant="body1" className="label">
