@@ -7,6 +7,7 @@ import {
 } from '@material-ui/core';
 import { AvatarName } from '@components';
 import { useStyles } from './styles';
+import { getVoteKey } from '../../utils';
 
 const Mobile: React.FC<{
   className?: string;
@@ -26,7 +27,7 @@ const Mobile: React.FC<{
           name={x.user.name}
         />
       ),
-      vote: x.vote,
+      vote: t(getVoteKey(x.vote)),
     });
   });
 

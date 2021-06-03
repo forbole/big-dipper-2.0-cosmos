@@ -11,6 +11,7 @@ import {
 import { AvatarName } from '@components';
 import { columns } from './utils';
 import { VoteType } from '../../../../types';
+import { getVoteKey } from '../../utils';
 
 const Desktop: React.FC<{
   className?: string;
@@ -29,7 +30,7 @@ const Desktop: React.FC<{
           name={x.user.name}
         />
       ),
-      vote: x.vote,
+      vote: t(getVoteKey(x.vote)),
     });
   });
 
