@@ -12,7 +12,12 @@ import {
   SearchBar,
 } from './components';
 
-const Mobile: React.FC<{className?: string}> = ({ className }) => {
+const Mobile: React.FC<{
+  className?: string;
+  title: string;
+}> = ({
+  className, title,
+}) => {
   const {
     ref: heightRef,
     height,
@@ -58,7 +63,7 @@ const Mobile: React.FC<{className?: string}> = ({ className }) => {
       {/* Height placeholder */}
       {/* ============================== */}
       <div style={{ height }} />
-      <TitleBar />
+      <TitleBar title={title} />
     </div>
   );
 };
