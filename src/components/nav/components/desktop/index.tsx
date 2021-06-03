@@ -16,7 +16,12 @@ import {
 } from '..';
 import { ActionBar } from './components';
 
-const Desktop: React.FC<{className?: string}> = ({ className }) => {
+const Desktop: React.FC<{
+  className?: string;
+  title: string;
+}> = ({
+  className, title,
+}) => {
   const classes = useStyles();
   const { theme } = useSettingsContext();
   const {
@@ -41,7 +46,7 @@ const Desktop: React.FC<{className?: string}> = ({ className }) => {
             toggleNetwork={toggleNetwork}
             isNetwork={isNetwork}
           />
-          <TitleBar />
+          <TitleBar title={title} />
         </AppBar>
         <Drawer
           variant="permanent"

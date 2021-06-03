@@ -39,7 +39,7 @@ export const useStyles = () => {
         pageButton: {
           color: theme.palette.custom.fonts.fontThree,
           '&.selected': {
-            color: theme.palette.custom.fonts.fontFive,
+            color: theme.palette.primary.contrastText,
             background: theme.palette.primary.main,
           },
         },

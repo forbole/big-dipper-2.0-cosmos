@@ -31,5 +31,11 @@
   "changes": "Changes",
   "subspace": "Subspace",
   "key": "Key",
-  "value": "Value"
+  "value": "Value",
+  "deposit": "Deposit",
+  "invalid": "Invalid",
+  "voting": "Voting",
+  "passed": "Passed",
+  "rejected": "Rejected",
+  "failed": "Failed"
 }

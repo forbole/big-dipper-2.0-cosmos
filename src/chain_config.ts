@@ -31,7 +31,7 @@ export const chainConfig = {
     {
       denom: 'upotic',
       exponent: 0,
-      aliases: ['microdaric'],
+      aliases: ['micropotic'],
     },
     {
       denom: 'mpotic',

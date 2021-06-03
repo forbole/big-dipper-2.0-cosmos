@@ -1,13 +1,16 @@
 import React from 'react';
 import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
+import { Tag } from '@components';
 import { useStyles } from './styles';
+import { getStatusInfo } from './utils';
 
 const SingleProposal: React.FC<{
   className?: string;
   id: string;
   title: string | React.ReactNode;
-  status: string | React.ReactNode;
+  status: string;
   description?: string;
 }> = ({
   className,
@@ -16,7 +19,10 @@ const SingleProposal: React.FC<{
   status,
   description,
 }) => {
+  const { t } = useTranslation('proposals');
   const classes = useStyles();
+  const statusInfo = getStatusInfo(status, t);
+
   return (
     <div className={classnames(className, classes.root)}>
       <div className={classes.header}>
@@ -24,7 +30,10 @@ const SingleProposal: React.FC<{
           {id}
         </Typography>
         <span className={classes.mobile}>
-          {status}
+          <Tag
+            theme={statusInfo.tag}
+            value={statusInfo.value}
+          />
         </span>
       </div>
       {/* ================= */}
@@ -46,7 +55,10 @@ const SingleProposal: React.FC<{
       {/* ================= */}
       {/* ================= */}
       <span className={classes.desktop}>
-        {status}
+        <Tag
+          theme={statusInfo.tag}
+          value={statusInfo.value}
+        />
       </span>
     </div>
   );

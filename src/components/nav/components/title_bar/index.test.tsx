@@ -28,10 +28,6 @@ const mockUseNavContext = {
   },
 };
 
-jest.mock('@src/components/nav/contexts/nav', () => ({
-  useNavContext: () => mockUseNavContext,
-}));
-
 // ==================================
 // unit tests
 // ==================================
@@ -39,7 +35,9 @@ describe('screen: Nav/TitleBar', () => {
   beforeEach(() => {
     component = renderer.create(
       <MockTheme>
-        <TitleBar />
+        <TitleBar
+          title="hello world"
+        />
       </MockTheme>,
     );
   });
@@ -53,7 +51,7 @@ describe('screen: Nav/TitleBar', () => {
     mockUseNavContext.title = 'Validators';
     component.update(
       <MockTheme>
-        <TitleBar />
+        <TitleBar title="hello world" />
       </MockTheme>,
     );
     const tree = component.toJSON();
