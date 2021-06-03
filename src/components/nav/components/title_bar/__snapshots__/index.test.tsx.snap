@@ -7,7 +7,7 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
   <h1
     className="MuiTypography-root MuiTypography-h1"
   >
-    Validators
+    hello world
   </h1>
   <div
     className="makeStyles-content"
@@ -22,9 +22,7 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
       </p>
       <p
         className="MuiTypography-root MuiTypography-body1"
-      >
-        N/A
-      </p>
+      />
     </div>
     <div
       className="makeStyles-item"
@@ -36,9 +34,7 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
       </p>
       <p
         className="MuiTypography-root MuiTypography-body1"
-      >
-        0.00%
-      </p>
+      />
     </div>
     <div
       className="makeStyles-item"
@@ -62,9 +58,7 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
       </p>
       <p
         className="MuiTypography-root MuiTypography-body1"
-      >
-        0
-      </p>
+      />
     </div>
   </div>
 </div>
@@ -74,11 +68,11 @@ exports[`screen: Nav/TitleBar it renders 1`] = `
 <div
   className="makeStyles-root"
 >
-  <img
-    alt="logo"
-    className="makeStyles-logo"
-    src="/logo-desmos.png"
-  />
+  <h1
+    className="MuiTypography-root MuiTypography-h1"
+  >
+    hello world
+  </h1>
   <div
     className="makeStyles-content"
   >
@@ -92,9 +86,7 @@ exports[`screen: Nav/TitleBar it renders 1`] = `
       </p>
       <p
         className="MuiTypography-root MuiTypography-body1"
-      >
-        N/A
-      </p>
+      />
     </div>
     <div
       className="makeStyles-item"
@@ -106,9 +98,7 @@ exports[`screen: Nav/TitleBar it renders 1`] = `
       </p>
       <p
         className="MuiTypography-root MuiTypography-body1"
-      >
-        0.00%
-      </p>
+      />
     </div>
     <div
       className="makeStyles-item"
@@ -132,9 +122,7 @@ exports[`screen: Nav/TitleBar it renders 1`] = `
       </p>
       <p
         className="MuiTypography-root MuiTypography-body1"
-      >
-        0
-      </p>
+      />
     </div>
   </div>
 </div>

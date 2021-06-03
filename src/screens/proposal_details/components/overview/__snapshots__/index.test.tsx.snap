@@ -7,12 +7,7 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
 >
   <div
     id="#10"
-    status={
-      <Tag
-        theme="one"
-        value="status"
-      />
-    }
+    status="status"
     title="title"
   />
   <hr
