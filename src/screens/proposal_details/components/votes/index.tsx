@@ -44,7 +44,7 @@ const Votes: React.FC<{
 
   const classes = useStyles();
   const formatItems = () => {
-    return sliceItems(props.data.filter((x) => {
+    return props.data.filter((x) => {
       if (props.tab === 1) {
         return x.vote === 'VOTE_OPTION_YES';
       }
@@ -62,10 +62,12 @@ const Votes: React.FC<{
       }
 
       return true;
-    }));
+    });
+    // return sliceItems();
   };
 
   const items = formatItems();
+  const itemsPaginated = sliceItems(items);
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -85,12 +87,12 @@ const Votes: React.FC<{
             {isDesktop ? (
               <Desktop
                 className={classes.desktop}
-                items={items}
+                items={itemsPaginated}
               />
             ) : (
               <Mobile
                 className={classes.mobile}
-                items={items}
+                items={itemsPaginated}
               />
             )}
           </>

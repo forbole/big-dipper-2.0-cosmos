@@ -41,6 +41,12 @@ export const useStyles = () => {
           '&.selected': {
             color: theme.palette.primary.contrastText,
             background: theme.palette.primary.main,
+            '&:hover': {
+              cursor: 'initial',
+            },
+          },
+          '&:hover': {
+            cursor: 'pointer',
           },
         },
         prev: {
