@@ -35,8 +35,8 @@ const VotesGraph: React.FC<{
   const notEmpty = formattedData.some((x) => x.value > 0);
   formattedData = notEmpty ? formattedData : [...formattedData, empty];
 
-  const quorumPercent = numeral(data.quorum * 100).value();
-  const votePercent = numeral((data.total / data.bondedTokens) * 100).format('0.[00]');
+  const quorumPercent = `${numeral(data.quorum * 100).value()}%`;
+  const votePercent = `${numeral((data.total / data.bondedTokens) * 100).format('0.[00]')}%`;
   const voteAmount = numeral(data.total).format('0,0.[00]');
   const quorumAmount = numeral(data.bondedTokens / (data.quorum || 1)).format('0,0.[00]');
 
