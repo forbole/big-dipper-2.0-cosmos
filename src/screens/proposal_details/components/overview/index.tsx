@@ -11,7 +11,6 @@ import {
 import {
   SingleProposal,
   Box,
-  Tag,
 } from '@components';
 import {
   ParamsChange,

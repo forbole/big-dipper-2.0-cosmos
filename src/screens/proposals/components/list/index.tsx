@@ -18,7 +18,6 @@ import {
 import {
   Loading,
   Box,
-  Tag,
 } from '@components';
 import {
   Total,
