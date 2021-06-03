@@ -31,11 +31,11 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
     >
       proposals:description
     </p>
-    <p
-      className="MuiTypography-root value MuiTypography-body1"
+    <div
+      id="Markdown"
     >
       description
-    </p>
+    </div>
   </div>
 </div>
 `;
