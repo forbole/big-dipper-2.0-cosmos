@@ -15,6 +15,7 @@ import {
 } from '@components';
 import {
   ParamsChange,
+  SoftwareUpgrade,
 } from './components';
 import { useStyles } from './styles';
 import { getProposalType } from '../../utils';
@@ -37,6 +38,39 @@ const Overview: React.FC<{
   const { t } = useTranslation('proposals');
 
   const type = getProposalType(R.pathOr('', ['@type'], props.content));
+
+  const getExtraDetails = () => {
+    let extraDetails = null;
+    if (type === 'parameterChangeProposal') {
+      extraDetails = (
+        <>
+          <Typography variant="body1" className="label">
+            {t('changes')}
+          </Typography>
+          <ParamsChange
+            changes={R.pathOr([], ['changes'], props.content)}
+          />
+        </>
+      );
+    } else if (type === 'softwareUpgradeProposal') {
+      extraDetails = (
+        <>
+          <Typography variant="body1" className="label">
+            {t('plan')}
+          </Typography>
+          <SoftwareUpgrade
+            height={R.pathOr('0', ['plan', 'height'], props.content)}
+            info={R.pathOr('', ['plan', 'info'], props.content)}
+            name={R.pathOr('', ['plan', 'name'], props.content)}
+          />
+        </>
+      );
+    }
+
+    return extraDetails;
+  };
+
+  const extra = getExtraDetails();
 
   return (
     <Box className={classnames(className)}>
@@ -61,16 +95,7 @@ const Overview: React.FC<{
             {props.description}
           </Markdown>
         </Typography>
-        {type === 'parameterChangeProposal' && (
-          <>
-            <Typography variant="body1" className="label">
-              {t('changes')}
-            </Typography>
-            <ParamsChange
-              changes={R.pathOr([], ['changes'], props.content)}
-            />
-          </>
-        )}
+        {extra}
         {
           !!props.submitTime && (
             <>

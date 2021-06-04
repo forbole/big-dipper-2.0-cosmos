@@ -37,5 +37,9 @@
   "voting": "Voting",
   "passed": "Passed",
   "rejected": "Rejected",
-  "failed": "Failed"
+  "failed": "Failed",
+  "plan": "Plan",
+  "name": "Name",
+  "height": "Height",
+  "info": "Info"
 }
