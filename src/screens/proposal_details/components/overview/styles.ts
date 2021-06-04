@@ -4,12 +4,14 @@ export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
       return ({
-        content: {
-          marginTop: theme.spacing(2),
-          display: 'grid',
+        root: {
           '& .label': {
             color: theme.palette.custom.fonts.fontThree,
           },
+        },
+        content: {
+          marginTop: theme.spacing(2),
+          display: 'grid',
           '& > *': {
             marginBottom: theme.spacing(1),
             [theme.breakpoints.up('lg')]: {
@@ -18,6 +20,19 @@ export const useStyles = () => {
           },
           [theme.breakpoints.up('lg')]: {
             gridTemplateColumns: '150px auto',
+          },
+        },
+        time: {
+          marginTop: theme.spacing(2),
+          display: 'grid',
+          '& > *': {
+            marginBottom: theme.spacing(1),
+            [theme.breakpoints.up('lg')]: {
+              marginBottom: theme.spacing(2),
+            },
+          },
+          [theme.breakpoints.up('lg')]: {
+            gridTemplateColumns: 'repeat(2, 1fr)',
           },
         },
       });

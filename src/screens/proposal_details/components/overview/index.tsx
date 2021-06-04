@@ -73,7 +73,7 @@ const Overview: React.FC<{
   const extra = getExtraDetails();
 
   return (
-    <Box className={classnames(className)}>
+    <Box className={classnames(className, classes.root)}>
       <SingleProposal
         id={`#${numeral(props.id).format('0,0')}`}
         title={props.title}
@@ -96,52 +96,54 @@ const Overview: React.FC<{
           </Markdown>
         </Typography>
         {extra}
+      </div>
+      <div className={classes.time}>
         {
           !!props.submitTime && (
-            <>
+            <div>
               <Typography variant="body1" className="label">
                 {t('submitTime')}
               </Typography>
               <Typography variant="body1" className="value">
                 {dayjs.utc(props.submitTime).local().format('MMMM DD, YYYY hh:mm A')}
               </Typography>
-            </>
+            </div>
           )
         }
         {
           !!props.depositEndTime && (
-            <>
+            <div>
               <Typography variant="body1" className="label">
                 {t('depositEndTime')}
               </Typography>
               <Typography variant="body1" className="value">
                 {dayjs.utc(props.depositEndTime).local().format('MMMM DD, YYYY hh:mm A')}
               </Typography>
-            </>
+            </div>
           )
         }
         {
           !!props.votingStartTime && (
-            <>
+            <div>
               <Typography variant="body1" className="label">
                 {t('votingStartTime')}
               </Typography>
               <Typography variant="body1" className="value">
                 {dayjs.utc(props.votingStartTime).local().format('MMMM DD, YYYY hh:mm A')}
               </Typography>
-            </>
+            </div>
           )
         }
         {
           !!props.votingEndTime && (
-            <>
+            <div>
               <Typography variant="body1" className="label">
                 {t('votingEndTime')}
               </Typography>
               <Typography variant="body1" className="value">
                 {dayjs.utc(props.votingEndTime).local().format('MMMM DD, YYYY hh:mm A')}
               </Typography>
-            </>
+            </div>
           )
         }
       </div>
