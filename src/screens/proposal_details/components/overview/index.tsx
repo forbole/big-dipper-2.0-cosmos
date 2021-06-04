@@ -56,9 +56,11 @@ const Overview: React.FC<{
         <Typography variant="body1" className="label">
           {t('description')}
         </Typography>
-        <Markdown>
-          {props.description}
-        </Markdown>
+        <Typography variant="body1" className="value">
+          <Markdown>
+            {props.description}
+          </Markdown>
+        </Typography>
         {type === 'parameterChangeProposal' && (
           <>
             <Typography variant="body1" className="label">
