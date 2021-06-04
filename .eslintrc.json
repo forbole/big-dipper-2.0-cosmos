@@ -64,7 +64,7 @@
     }
   ],
   "rules": {
-    "react/destructuring-assignment": "warn",
+    "react/destructuring-assignment": "off",
     "no-bitwise": "off",
     "@typescript-eslint/ban-types": "warn",
     "consistent-return": "off",
@@ -86,7 +86,7 @@
     "no-use-before-define": "off",
     "import/no-unresolved": "off",
     "lines-between-class-members": "off",
-    "react/no-array-index-key": "warn",
+    "react/no-array-index-key": "off",
     "jsx-a11y/anchor-is-valid": "off",
     "react/jsx-first-prop-new-line": [
       "error",

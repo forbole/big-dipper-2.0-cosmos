@@ -2,7 +2,7 @@
 
 exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
 <div
-  className=""
+  className="makeStyles-root"
   id="Box"
 >
   <div
@@ -31,11 +31,18 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
     >
       proposals:description
     </p>
-    <div
-      id="Markdown"
+    <p
+      className="MuiTypography-root value MuiTypography-body1"
     >
-      description
-    </div>
+      <div
+        id="Markdown"
+      >
+        description
+      </div>
+    </p>
   </div>
+  <div
+    className="makeStyles-time"
+  />
 </div>
 `;
