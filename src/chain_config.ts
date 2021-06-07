@@ -1,7 +1,8 @@
 export const chainConfig = {
   title: 'Desmos Block Explorer', // title to display on the tabs
   network: 'morpheus-apollo-1', // initial value
-  icon: 'https://gist.githubusercontent.com/kwunyeung/8be4598c77c61e497dfc7220a678b3ee/raw/desmos.svg?sanitize=true',
+  icon: 'https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true',
+  logo: 'https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.png?sanitize=true',
   base: 'udaric',
   display: 'daric',
   prefix: {
