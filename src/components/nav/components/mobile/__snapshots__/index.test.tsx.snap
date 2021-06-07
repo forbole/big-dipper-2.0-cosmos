@@ -41,7 +41,7 @@ exports[`screen: Nav/Mobile it renders 1`] = `
     <img
       alt="logo"
       className="makeStyles-logo"
-      src="/logo-desmos.png"
+      src="https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.png?sanitize=true"
     />
     <div
       className="makeStyles-content"
