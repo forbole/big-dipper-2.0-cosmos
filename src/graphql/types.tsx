@@ -14561,7 +14561,7 @@ export type AccountQuery = { account: Array<(
     )>, redelegations: Array<(
       { __typename?: 'redelegation' }
       & Pick<Redelegation, 'amount'>
-      & { completionTime: Redelegation['completion_time'], to: Redelegation['src_validator_address'], from: Redelegation['dst_validator_address'] }
+      & { completionTime: Redelegation['completion_time'], from: Redelegation['src_validator_address'], to: Redelegation['dst_validator_address'] }
     )>, delegationRewards: Array<(
       { __typename?: 'delegation_reward' }
       & Pick<Delegation_Reward, 'amount'>
@@ -14964,11 +14964,11 @@ export type ValidatorDetailsQuery = { stakingPool: Array<(
     )>, redelegationsByDstValidatorAddress: Array<(
       { __typename?: 'redelegation' }
       & Pick<Redelegation, 'amount'>
-      & { completionTime: Redelegation['completion_time'], to: Redelegation['src_validator_address'], from: Redelegation['dst_validator_address'], delegatorAddress: Redelegation['delegator_address'] }
+      & { completionTime: Redelegation['completion_time'], from: Redelegation['src_validator_address'], to: Redelegation['dst_validator_address'], delegatorAddress: Redelegation['delegator_address'] }
     )>, redelegationsBySrcValidatorAddress: Array<(
       { __typename?: 'redelegation' }
       & Pick<Redelegation, 'amount'>
-      & { completionTime: Redelegation['completion_time'], to: Redelegation['src_validator_address'], from: Redelegation['dst_validator_address'], delegatorAddress: Redelegation['delegator_address'] }
+      & { completionTime: Redelegation['completion_time'], from: Redelegation['src_validator_address'], to: Redelegation['dst_validator_address'], delegatorAddress: Redelegation['delegator_address'] }
     )>, unbonding: Array<(
       { __typename?: 'unbonding_delegation' }
       & Pick<Unbonding_Delegation, 'amount'>
@@ -15083,8 +15083,8 @@ export const AccountDocument = gql`
     redelegations(where: {completion_time: {_gt: $utc}}) {
       amount
       completionTime: completion_time
-      to: src_validator_address
-      from: dst_validator_address
+      from: src_validator_address
+      to: dst_validator_address
     }
     delegationRewards: delegation_rewards {
       amount
@@ -16056,15 +16056,15 @@ export const ValidatorDetailsDocument = gql`
     redelegationsByDstValidatorAddress(where: {completion_time: {_gt: $utc}}) {
       amount
       completionTime: completion_time
-      to: src_validator_address
-      from: dst_validator_address
+      from: src_validator_address
+      to: dst_validator_address
       delegatorAddress: delegator_address
     }
     redelegationsBySrcValidatorAddress(where: {completion_time: {_gt: $utc}}) {
       amount
       completionTime: completion_time
-      to: src_validator_address
-      from: dst_validator_address
+      from: src_validator_address
+      to: dst_validator_address
       delegatorAddress: delegator_address
     }
     unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}}) {

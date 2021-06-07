@@ -9,7 +9,7 @@ import {
   useMarketDataQuery,
   MarketDataQuery,
 } from '@graphql/types';
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { getDenom } from '@utils/get_denom';
 import { ChainState } from './types';

@@ -1,4 +1,4 @@
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 import { useRouter } from 'next/router';
 import { useChainContext } from '@contexts';
 import {

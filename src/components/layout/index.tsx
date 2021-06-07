@@ -5,7 +5,7 @@ import { NextSeo } from 'next-seo';
 import {
   Nav, Footer,
 } from '@components';
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 import { LayoutProps } from './types';
 import { useStyles } from './styles';
 

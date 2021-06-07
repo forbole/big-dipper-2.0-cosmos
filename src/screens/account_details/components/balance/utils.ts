@@ -1,5 +1,5 @@
 import numeral from 'numeral';
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 
 export const formatBalanceData = (data: {
   available: number;

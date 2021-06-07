@@ -34,15 +34,15 @@ query ValidatorDetails($address: String, $utc: timestamp) {
     redelegationsByDstValidatorAddress(where: {completion_time: {_gt: $utc}}) {
       amount
       completionTime: completion_time
-      to: src_validator_address
-      from: dst_validator_address
+      from: src_validator_address
+      to: dst_validator_address
       delegatorAddress: delegator_address
     }
     redelegationsBySrcValidatorAddress(where: {completion_time: {_gt: $utc}}) {
       amount
       completionTime: completion_time
-      to: src_validator_address
-      from: dst_validator_address
+      from: src_validator_address
+      to: dst_validator_address
       delegatorAddress: delegator_address
     }
     unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}}) {

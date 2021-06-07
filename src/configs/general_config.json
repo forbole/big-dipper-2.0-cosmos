@@ -1,0 +1,6 @@
+{
+  "pollInterval": {
+    "default": 300000,
+    "minute": 60000
+  }
+}
