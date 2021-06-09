@@ -10,7 +10,7 @@ import {
   TableBody,
 } from '@material-ui/core';
 import { AvatarName } from '@components';
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 import { columns } from './utils';
 import { DepositType } from '../../../../types';
 

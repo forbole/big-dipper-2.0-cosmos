@@ -5,7 +5,7 @@ import { Typography } from '@material-ui/core';
 import { formatDenom } from '@utils/format_denom';
 import { Name } from '@components';
 import { MsgUndelegate } from '@models';
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 import { useChainContext } from '@contexts';
 
 const Undelegate = (props: {

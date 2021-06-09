@@ -5,7 +5,7 @@ import useTranslation from 'next-translate/useTranslation';
 import {
   Divider, Typography,
 } from '@material-ui/core';
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 import { AvatarName } from '@components';
 import { useStyles } from './styles';
 import { DelegationType } from '../../../../../../types';

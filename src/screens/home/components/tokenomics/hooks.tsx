@@ -7,7 +7,7 @@ import {
 
 } from '@graphql/types';
 import { formatDenom } from '@utils/format_denom';
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 
 export const useTokenomics = () => {
   const [state, setState] = useState<{

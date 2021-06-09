@@ -11,7 +11,7 @@ import {
 } from '@material-ui/core';
 import { AvatarName } from '@components';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 import { columns } from './utils';
 import { DelegationType } from '../../../../../../types';
 

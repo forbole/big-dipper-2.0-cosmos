@@ -192,7 +192,7 @@ export const useProposalDetails = () => {
         },
         vote: x.option,
       });
-    }).sort((a, b) => ((a.user.name > b.user.name) ? 1 : -1));
+    }).sort((a, b) => ((a.user.name.toLowerCase() > b.user.name.toLowerCase()) ? 1 : -1));
 
     return {
       data: votes,

@@ -9,7 +9,7 @@ import {
   useActiveValidatorCountQuery,
   ActiveValidatorCountQuery,
 } from '@graphql/types';
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 
 export const useDataBlocks = () => {
   const [state, setState] = useState<{

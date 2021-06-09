@@ -1,4 +1,4 @@
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 
 export const HOME = '/';
 export const BLOCKS = '/blocks';

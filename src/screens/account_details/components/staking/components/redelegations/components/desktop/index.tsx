@@ -12,7 +12,7 @@ import {
 } from '@material-ui/core';
 import { AvatarName } from '@components';
 import { RedelegationType } from '@src/screens/account_details/types';
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 import { columns } from './utils';
 
 const Desktop: React.FC<{

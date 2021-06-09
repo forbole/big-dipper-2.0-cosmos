@@ -13,7 +13,7 @@ import {
 } from 'recharts';
 import useTranslation from 'next-translate/useTranslation';
 import { Box } from '@components';
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 import { useChainContext } from '@contexts';
 import { useStyles } from './styles';
 import { formatBalanceData } from './utils';
