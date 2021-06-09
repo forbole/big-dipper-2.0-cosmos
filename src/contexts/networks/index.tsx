@@ -1,5 +1,5 @@
 import React from 'react';
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 import {
   useNetwork,
   useSelectedNetwork,

@@ -6,7 +6,7 @@ import { Typography } from '@material-ui/core';
 import numeral from 'numeral';
 import { Name } from '@components';
 import { MsgDeposit } from '@models';
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 import { formatDenom } from '@utils/format_denom';
 import { useChainContext } from '@contexts';
 import { PROPOSAL_DETAILS } from '@utils/go_to_page';

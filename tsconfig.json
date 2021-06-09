@@ -55,6 +55,9 @@
       "@graphql": [
         "src/graphql"
       ],
+      "@configs": [
+        "src/configs"
+      ],
       "@graphql/types": [
         "src/graphql/types"
       ],

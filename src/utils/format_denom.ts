@@ -1,5 +1,5 @@
 import numeral from 'numeral';
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 
 /**
  * Helper Function to converts Denom to display depending on the exponent given

@@ -5,7 +5,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 import { useInterval } from '@hooks';
 import dayjs from '@utils/dayjs';
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 import { useStyles } from './styles';
 import { Loading } from '@components';
 
@@ -95,7 +95,7 @@ const Countdown: React.FC<{
         ]}
       />
     <div className={classes.root}>
-      <img src="/logo-desmos.png" className={classes.logo} alt="logo" />
+      <img src={chainConfig.logo} className={classes.logo} alt="logo" />
       <div className={classes.timeContainer}>
         <div className={classes.item}>
           <Typography variant="h1">

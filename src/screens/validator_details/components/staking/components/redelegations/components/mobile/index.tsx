@@ -7,7 +7,7 @@ import {
   Divider, Typography,
 } from '@material-ui/core';
 import { AvatarName } from '@components';
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 import { useStyles } from './styles';
 import { RedelegationType } from '../../../../../../types';
 

@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import { useChainContext } from '@contexts';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
+import { chainConfig } from '@configs';
 import { useStyles } from './styles';
 import { formatMarket } from './utils';
 
@@ -29,7 +30,7 @@ const TitleBar:React.FC<{
       {
       title
         ? <Typography variant="h1">{title}</Typography>
-        : <img src="/logo-desmos.png" className={classes.logo} alt="logo" />
+        : <img src={chainConfig.logo} className={classes.logo} alt="logo" />
       }
       <div className={classes.content}>
         {market.map((x) => (

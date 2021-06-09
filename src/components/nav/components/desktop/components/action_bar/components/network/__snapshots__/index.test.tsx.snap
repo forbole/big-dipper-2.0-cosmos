@@ -9,7 +9,7 @@ exports[`screen: Nav/Network it renders 1`] = `
   <img
     alt="icon"
     className="makeStyles-icon"
-    src="https://gist.githubusercontent.com/kwunyeung/8be4598c77c61e497dfc7220a678b3ee/raw/desmos.svg?sanitize=true"
+    src="https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true"
   />
   <p
     className="MuiTypography-root MuiTypography-body1"

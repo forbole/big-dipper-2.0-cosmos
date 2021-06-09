@@ -8,7 +8,7 @@ import {
 } from '@material-ui/core';
 import { AvatarName } from '@components';
 import { UnbondingType } from '@src/screens/account_details/types';
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 import { useStyles } from './styles';
 
 const Mobile: React.FC<{

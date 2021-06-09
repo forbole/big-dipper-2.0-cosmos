@@ -1,4 +1,4 @@
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 
 /**
  * Helper Function to get Denom from a list

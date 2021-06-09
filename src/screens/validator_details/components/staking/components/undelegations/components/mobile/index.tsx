@@ -4,7 +4,7 @@ import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import { AvatarName } from '@components';
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 import {
   Divider, Typography,
 } from '@material-ui/core';

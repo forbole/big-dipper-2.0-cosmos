@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { ExpandMore } from '@material-ui/icons';
 import { Typography } from '@material-ui/core';
 import { useNetworksContext } from '@src/contexts';
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 import { useStyles } from './styles';
 
 const Network:React.FC<{

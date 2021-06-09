@@ -3,7 +3,7 @@ import {
 } from 'react';
 import * as jdenticon from 'jdenticon';
 import useTranslation from 'next-translate/useTranslation';
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 import dayjs from '@utils/dayjs';
 
 export const useApp = () => {

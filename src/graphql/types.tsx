@@ -5420,11 +5420,11 @@ export type Proposal_Bool_Exp = {
 /** columns and relationships of "proposal_deposit" */
 export type Proposal_Deposit = {
   __typename?: 'proposal_deposit';
-  /** An object relationship */
-  account: Account;
   amount?: Maybe<Scalars['_coin']>;
   /** An object relationship */
   block: Block;
+  /** An object relationship */
+  depositor: Account;
   depositor_address: Scalars['String'];
   height: Scalars['bigint'];
   /** An object relationship */
@@ -5495,9 +5495,9 @@ export type Proposal_Deposit_Bool_Exp = {
   _and?: Maybe<Array<Maybe<Proposal_Deposit_Bool_Exp>>>;
   _not?: Maybe<Proposal_Deposit_Bool_Exp>;
   _or?: Maybe<Array<Maybe<Proposal_Deposit_Bool_Exp>>>;
-  account?: Maybe<Account_Bool_Exp>;
   amount?: Maybe<_Coin_Comparison_Exp>;
   block?: Maybe<Block_Bool_Exp>;
+  depositor?: Maybe<Account_Bool_Exp>;
   depositor_address?: Maybe<String_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
   proposal?: Maybe<Proposal_Bool_Exp>;
@@ -5536,9 +5536,9 @@ export type Proposal_Deposit_Min_Order_By = {
 
 /** ordering options when selecting data from "proposal_deposit" */
 export type Proposal_Deposit_Order_By = {
-  account?: Maybe<Account_Order_By>;
   amount?: Maybe<Order_By>;
   block?: Maybe<Block_Order_By>;
+  depositor?: Maybe<Account_Order_By>;
   depositor_address?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
   proposal?: Maybe<Proposal_Order_By>;
@@ -14561,7 +14561,7 @@ export type AccountQuery = { account: Array<(
     )>, redelegations: Array<(
       { __typename?: 'redelegation' }
       & Pick<Redelegation, 'amount'>
-      & { completionTime: Redelegation['completion_time'], to: Redelegation['src_validator_address'], from: Redelegation['dst_validator_address'] }
+      & { completionTime: Redelegation['completion_time'], from: Redelegation['src_validator_address'], to: Redelegation['dst_validator_address'] }
     )>, delegationRewards: Array<(
       { __typename?: 'delegation_reward' }
       & Pick<Delegation_Reward, 'amount'>
@@ -14964,11 +14964,11 @@ export type ValidatorDetailsQuery = { stakingPool: Array<(
     )>, redelegationsByDstValidatorAddress: Array<(
       { __typename?: 'redelegation' }
       & Pick<Redelegation, 'amount'>
-      & { completionTime: Redelegation['completion_time'], to: Redelegation['src_validator_address'], from: Redelegation['dst_validator_address'], delegatorAddress: Redelegation['delegator_address'] }
+      & { completionTime: Redelegation['completion_time'], from: Redelegation['src_validator_address'], to: Redelegation['dst_validator_address'], delegatorAddress: Redelegation['delegator_address'] }
     )>, redelegationsBySrcValidatorAddress: Array<(
       { __typename?: 'redelegation' }
       & Pick<Redelegation, 'amount'>
-      & { completionTime: Redelegation['completion_time'], to: Redelegation['src_validator_address'], from: Redelegation['dst_validator_address'], delegatorAddress: Redelegation['delegator_address'] }
+      & { completionTime: Redelegation['completion_time'], from: Redelegation['src_validator_address'], to: Redelegation['dst_validator_address'], delegatorAddress: Redelegation['delegator_address'] }
     )>, unbonding: Array<(
       { __typename?: 'unbonding_delegation' }
       & Pick<Unbonding_Delegation, 'amount'>
@@ -15083,8 +15083,8 @@ export const AccountDocument = gql`
     redelegations(where: {completion_time: {_gt: $utc}}) {
       amount
       completionTime: completion_time
-      to: src_validator_address
-      from: dst_validator_address
+      from: src_validator_address
+      to: dst_validator_address
     }
     delegationRewards: delegation_rewards {
       amount
@@ -15248,7 +15248,7 @@ export type BlockDetailsQueryHookResult = ReturnType<typeof useBlockDetailsQuery
 export type BlockDetailsLazyQueryHookResult = ReturnType<typeof useBlockDetailsLazyQuery>;
 export type BlockDetailsQueryResult = Apollo.QueryResult<BlockDetailsQuery, BlockDetailsQueryVariables>;
 export const LatestBlockHeightListenerDocument = gql`
-    subscription LatestBlockHeightListener($offset: Int = 1) {
+    subscription LatestBlockHeightListener($offset: Int = 0) {
   height: block(order_by: {height: desc}, limit: 1, offset: $offset) {
     height
   }
@@ -16056,15 +16056,15 @@ export const ValidatorDetailsDocument = gql`
     redelegationsByDstValidatorAddress(where: {completion_time: {_gt: $utc}}) {
       amount
       completionTime: completion_time
-      to: src_validator_address
-      from: dst_validator_address
+      from: src_validator_address
+      to: dst_validator_address
       delegatorAddress: delegator_address
     }
     redelegationsBySrcValidatorAddress(where: {completion_time: {_gt: $utc}}) {
       amount
       completionTime: completion_time
-      to: src_validator_address
-      from: dst_validator_address
+      from: src_validator_address
+      to: dst_validator_address
       delegatorAddress: delegator_address
     }
     unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}}) {

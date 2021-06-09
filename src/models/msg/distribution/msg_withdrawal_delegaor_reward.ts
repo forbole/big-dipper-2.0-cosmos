@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@configs';
 import { formatDenom } from '@utils/format_denom';
 import { Categories } from '../types';
 
