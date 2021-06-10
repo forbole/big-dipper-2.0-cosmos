@@ -5,10 +5,10 @@ export interface ChainState {
   market: {
     loading: boolean;
     price: number;
-    supply: number;
+    supply: TokenUnit;
     marketCap: number;
     inflation: number;
-    communityPool: number;
+    communityPool: TokenUnit;
   }
   validatorsAddresses: {
     loading: boolean;
