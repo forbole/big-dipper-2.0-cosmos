@@ -41,12 +41,12 @@ export type RedelegationType = {
   from: AvatarName;
   delegator: AvatarName;
   linkedUntil: string;
-  amount: number;
+  amount: TokenUnit;
 }
 
 export type UndelegationType = {
   delegator: AvatarName;
-  amount: number;
+  amount: TokenUnit;
   linkedUntil: string;
 }
 

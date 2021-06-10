@@ -275,7 +275,7 @@ export const useValidatorDetails = () => {
               name: from.moniker,
             },
             linkedUntil: x.completionTime,
-            amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
+            amount: formatDenom(x.amount.amount, x.amount.denom),
             delegator: {
               address: x.delegatorAddress,
               imageUrl: delegator.imageUrl,
@@ -299,7 +299,7 @@ export const useValidatorDetails = () => {
               name: from.moniker,
             },
             linkedUntil: x.completionTime,
-            amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
+            amount: formatDenom(x.amount.amount, x.amount.denom),
             delegator: {
               address: x.delegatorAddress,
               imageUrl: delegator.imageUrl,
@@ -328,7 +328,7 @@ export const useValidatorDetails = () => {
             imageUrl: delegator.imageUrl,
             name: delegator.moniker,
           },
-          amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
+          amount: formatDenom(x.amount.amount, x.amount.denom),
           linkedUntil: x.completionTimestamp,
           commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
         });
