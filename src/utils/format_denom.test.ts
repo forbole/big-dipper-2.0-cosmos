@@ -1,37 +1,50 @@
-// import {
-//   renderHook, act,
-// } from '@testing-library/react-hooks';
-// import { usePersistedState } from '.';
+import { formatDenom } from './format_denom';
 
-// describe('misc: usePersistedState', () => {
-//   it('retrieves persisted value from localStorage on mount', async () => {
-//     (localStorage.getItem as jest.Mock).mockReturnValueOnce('"persisted"');
-//     const { result } = renderHook(() => usePersistedState('storagekey', 'initial'));
-//     expect(result.current[0]).toBe('persisted');
-//   });
-//   it('throws error when persisted string is not valid JSON', () => {
-//     (localStorage.getItem as jest.Mock).mockReturnValueOnce('persisted');
-//     try {
-//       renderHook(() => usePersistedState('storagekey', 'initial'));
-//     } catch (err) {
-//       expect(err).toBeTruthy();
-//     }
-//   });
-//   it('returns initial value if persisted value doesnt exist on mount', async () => {
-//     (localStorage.getItem as jest.Mock).mockReturnValueOnce(null);
-//     const { result } = renderHook(() => usePersistedState('storagekey', 'initial'));
-//     expect(result.current[0]).toBe('initial');
-//   });
-//   it('calls localStorage.setItem on value change', async () => {
-//     const { result } = renderHook(() => usePersistedState('storagekey', 'initial'));
-//     act(() => {
-//       result.current[1]('new value');
-//     });
-//     expect(result.current[0]).toBe('new value');
-//     expect(localStorage.setItem).toBeCalledWith('storagekey', '"new value"');
-//   });
-// });
+jest.mock('@configs', () => ({
+  chainConfig: {
+    primaryTokenUnit: 'udaric',
+    tokenUnits: {
+      udaric: {
+        display: 'daric',
+        exponent: 6,
+      },
+      upotic: {
+        display: 'potic',
+        exponent: 0,
+      },
+    },
+  },
+}));
 
-// afterEach(() => {
-//   jest.clearAllMocks();
-// });
+// ==================================
+// unit tests
+// ==================================
+describe('utils: formatDenom', () => {
+  it('formats correctly 1', async () => {
+    const results = formatDenom('1000000', 'udaric');
+    expect(results.value).toBe(1);
+    expect(results.denom).toBe('daric');
+  });
+
+  it('formats correctly 2', async () => {
+    const results = formatDenom('1000000', 'upotic');
+    expect(results.value).toBe(1000000);
+    expect(results.denom).toBe('potic');
+  });
+
+  it('when token unit is unknown', async () => {
+    const results = formatDenom('1000000', 'unknown');
+    expect(results.value).toBe(1000000);
+    expect(results.denom).toBe('unknown');
+  });
+
+  it('when unit is less than 1', async () => {
+    const results = formatDenom('0.1', 'udaric');
+    expect(results.value).toBe(0);
+    expect(results.denom).toBe('daric');
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+});
