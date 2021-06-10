@@ -7,13 +7,11 @@ import { ChainState } from './types';
 const initialState: ChainState = {
   market: {
     loading: true,
-    rawData: {
-      price: 0,
-      supply: 0,
-      marketCap: 0,
-      inflation: 0,
-      communityPool: 0,
-    },
+    price: 0,
+    supply: 0,
+    marketCap: 0,
+    inflation: 0,
+    communityPool: 0,
   },
   validatorsAddresses: {
     loading: true,
@@ -36,9 +34,7 @@ const ChainProvider: React.FC = (props: {children: React.ReactNode }) => {
   } = useValidatorsAddress(initialState);
 
   const {
-    rawData,
-    uiData,
-    loading: marketLoading,
+    state: marketState,
   } = useMarket(initialState);
 
   return (
@@ -47,11 +43,9 @@ const ChainProvider: React.FC = (props: {children: React.ReactNode }) => {
         validatorsAddresses,
         findAddress,
         findOperator,
-        loading: addressLoading || marketLoading,
+        loading: addressLoading || marketState.loading,
         market: {
-          loading: marketLoading,
-          rawData,
-          uiData,
+          ...marketState,
         },
       }}
     >

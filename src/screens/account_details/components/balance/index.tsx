@@ -58,7 +58,7 @@ const Balance: React.FC<{
 
   const dataCount = formatData.filter((x) => x.value > 0).length;
   const data = notEmpty ? formatData : [...formatData, empty];
-  const totalAmount = `$${numeral(market.rawData.price * props.total).format('0,0.00')}`;
+  const totalAmount = `$${numeral(market.price * props.total).format('0,0.00')}`;
 
   return (
     <Box className={classnames(props.className, classes.root)}>
@@ -128,7 +128,8 @@ const Balance: React.FC<{
           </div>
           <div className="total__secondary--container total__single--container">
             <Typography variant="body1" className="label">
-              {market.uiData.price}
+              $
+              {numeral(market.price).format('0,0.[00]')}
               {' '}
               /
               {' '}

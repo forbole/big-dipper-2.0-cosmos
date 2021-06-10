@@ -2,7 +2,6 @@ import { useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
 import numeral from 'numeral';
-import { formatDenom } from '@utils/format_denom';
 import {
   useValidatorsAddressListQuery,
   ValidatorsAddressListQuery,
@@ -10,6 +9,7 @@ import {
   MarketDataQuery,
 } from '@graphql/types';
 import { chainConfig } from '@configs';
+import { formatDenom } from '@utils/format_denom';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { getDenom } from '@utils/get_denom';
 import { ChainState } from './types';
@@ -181,7 +181,7 @@ export const useMarket = (initalState: ChainState) => {
         if (data) {
           setState((prevState) => ({
             ...prevState,
-            rawData: formatUseChainIdQuery(data),
+            ...formatUseChainIdQuery(data),
             loading: false,
           }));
         }
@@ -191,16 +191,18 @@ export const useMarket = (initalState: ChainState) => {
 
   const formatUseChainIdQuery = (data: MarketDataQuery) => {
     // initial
-    const { rawData } = initalState.market;
-    let { communityPool } = rawData;
+    let { communityPool } = initalState.market;
+
     // formats
-    const price = data.tokenPrice[0]?.price ?? state.rawData.price;
-    const marketCap = data.tokenPrice[0]?.marketCap ?? state.rawData.marketCap;
+    const price = formatDenom(data.tokenPrice[0]?.price ?? state.price);
+    const marketCap = data.tokenPrice[0]?.marketCap ?? state.marketCap;
     const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter((x) => x.denom === chainConfig.base);
     const inflation = R.pathOr(0, ['inflation', 0, 'value'], data);
-    const supply = numeral(getDenom(R.pathOr([], ['supply', 0, 'coins'], data)).amount).value();
+    const supply = formatDenom(
+      numeral(getDenom(R.pathOr([], ['supply', 0, 'coins'], data)).amount).value(),
+    );
     if (communityPoolCoin) {
-      communityPool = communityPoolCoin.amount;
+      communityPool = formatDenom(communityPoolCoin.amount);
     }
 
     return ({
@@ -212,22 +214,7 @@ export const useMarket = (initalState: ChainState) => {
     });
   };
 
-  const formatUi = () => {
-    const {
-      rawData,
-    } = state;
-    return ({
-      price: `$${numeral(state.rawData.price).format('0,0.[00]')}`,
-      marketCap: `$${numeral(state.rawData.marketCap).format('0,0.[00]')}`,
-      inflation: `${numeral(state.rawData.inflation * 100).format('0')}%`,
-      communityPool: `${numeral(formatDenom(rawData.communityPool)).format('0,0.00')} ${chainConfig.display.toUpperCase()}`,
-      supply: `${numeral(formatDenom(rawData.supply)).format('0,0.[00]')} ${chainConfig.display.toUpperCase()}`,
-    });
-  };
-
   return {
-    loading: state.loading,
-    rawData: state.rawData,
-    uiData: formatUi(),
+    state,
   };
 };
