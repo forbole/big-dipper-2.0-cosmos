@@ -21,7 +21,7 @@ const VotingPower: React.FC<{
   const { t } = useTranslation('validators');
 
   const votingPowerPercent = numeral((
-    data.self / data.overall) * 100);
+    data.self / data.overall.value) * 100);
 
   const classes = useStyles(votingPowerPercent.format(0, Math.floor));
 
@@ -70,7 +70,7 @@ const VotingPower: React.FC<{
           {t('selfDelegatedTokens')}
         </Typography>
         <Typography variant="body1" className="value">
-          {numeral(data.selfDelegate).format('0,0')}
+          {numeral(data.selfDelegate.value).format('0,0')}
           {' '}
           (
           {`${numeral(data.selfDelegatePercent).format('0.[00]')}%`}

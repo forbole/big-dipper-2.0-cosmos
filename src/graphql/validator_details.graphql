@@ -1,4 +1,7 @@
 query ValidatorDetails($address: String, $utc: timestamp) {
+  stakingParams: staking_params(limit: 1) {
+    bondDenom: bond_denom
+  }
   stakingPool: staking_pool(order_by: {height: desc}, limit: 1, offset: 0) {
     height
     bonded: bonded_tokens
@@ -53,22 +56,5 @@ query ValidatorDetails($address: String, $utc: timestamp) {
   }
   slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
     signedBlockWindow: signed_block_window
-  }
-}
-
-subscription LastHundredBlocks($address: String) {
-  block(offset: 1, order_by: {height: desc}, limit: 100) {
-    height
-    validator {
-      validatorInfo: validator_info {
-        operatorAddress: operator_address
-      }
-    }
-    transactions {
-    	hash
-  	}
-    precommits: pre_commits(where: {validator: {validator_info: {operator_address: {_eq: $address}}}}) {
-      validatorAddress: validator_address
-    }
   }
 }

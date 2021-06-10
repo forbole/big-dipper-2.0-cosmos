@@ -25,15 +25,15 @@ export type TransactionType = {
 
 export type VotingPowerType = {
   height: number;
-  overall: number;
+  overall: TokenUnit;
   self: number;
   selfDelegatePercent: number;
-  selfDelegate: number;
+  selfDelegate: TokenUnit;
 }
 
 export type DelegationType = {
   delegator: AvatarName;
-  amount: number;
+  amount: TokenUnit;
 }
 
 export type RedelegationType = {

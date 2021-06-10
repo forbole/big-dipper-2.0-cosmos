@@ -14932,7 +14932,10 @@ export type ValidatorDetailsQueryVariables = Exact<{
 }>;
 
 
-export type ValidatorDetailsQuery = { stakingPool: Array<(
+export type ValidatorDetailsQuery = { stakingParams: Array<(
+    { __typename?: 'staking_params' }
+    & { bondDenom: Staking_Params['bond_denom'] }
+  )>, stakingPool: Array<(
     { __typename?: 'staking_pool' }
     & Pick<Staking_Pool, 'height'>
     & { bonded: Staking_Pool['bonded_tokens'] }
@@ -14977,29 +14980,6 @@ export type ValidatorDetailsQuery = { stakingPool: Array<(
   )>, slashingParams: Array<(
     { __typename?: 'slashing_params' }
     & { signedBlockWindow: Slashing_Params['signed_block_window'] }
-  )> };
-
-export type LastHundredBlocksSubscriptionVariables = Exact<{
-  address?: Maybe<Scalars['String']>;
-}>;
-
-
-export type LastHundredBlocksSubscription = { block: Array<(
-    { __typename?: 'block' }
-    & Pick<Block, 'height'>
-    & { validator?: Maybe<(
-      { __typename?: 'validator' }
-      & { validatorInfo?: Maybe<(
-        { __typename?: 'validator_info' }
-        & { operatorAddress: Validator_Info['operator_address'] }
-      )> }
-    )>, transactions: Array<(
-      { __typename?: 'transaction' }
-      & Pick<Transaction, 'hash'>
-    )>, precommits: Array<(
-      { __typename?: 'pre_commit' }
-      & { validatorAddress: Pre_Commit['validator_address'] }
-    )> }
   )> };
 
 export type ValidatorsQueryVariables = Exact<{ [key: string]: never; }>;
@@ -16014,6 +15994,9 @@ export type TransactionsLazyQueryHookResult = ReturnType<typeof useTransactionsL
 export type TransactionsQueryResult = Apollo.QueryResult<TransactionsQuery, TransactionsQueryVariables>;
 export const ValidatorDetailsDocument = gql`
     query ValidatorDetails($address: String, $utc: timestamp) {
+  stakingParams: staking_params(limit: 1) {
+    bondDenom: bond_denom
+  }
   stakingPool: staking_pool(order_by: {height: desc}, limit: 1, offset: 0) {
     height
     bonded: bonded_tokens
@@ -16110,49 +16093,6 @@ export function useValidatorDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookO
 export type ValidatorDetailsQueryHookResult = ReturnType<typeof useValidatorDetailsQuery>;
 export type ValidatorDetailsLazyQueryHookResult = ReturnType<typeof useValidatorDetailsLazyQuery>;
 export type ValidatorDetailsQueryResult = Apollo.QueryResult<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>;
-export const LastHundredBlocksDocument = gql`
-    subscription LastHundredBlocks($address: String) {
-  block(offset: 1, order_by: {height: desc}, limit: 100) {
-    height
-    validator {
-      validatorInfo: validator_info {
-        operatorAddress: operator_address
-      }
-    }
-    transactions {
-      hash
-    }
-    precommits: pre_commits(
-      where: {validator: {validator_info: {operator_address: {_eq: $address}}}}
-    ) {
-      validatorAddress: validator_address
-    }
-  }
-}
-    `;
-
-/**
- * __useLastHundredBlocksSubscription__
- *
- * To run a query within a React component, call `useLastHundredBlocksSubscription` and pass it any options that fit your needs.
- * When your component renders, `useLastHundredBlocksSubscription` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useLastHundredBlocksSubscription({
- *   variables: {
- *      address: // value for 'address'
- *   },
- * });
- */
-export function useLastHundredBlocksSubscription(baseOptions?: Apollo.SubscriptionHookOptions<LastHundredBlocksSubscription, LastHundredBlocksSubscriptionVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useSubscription<LastHundredBlocksSubscription, LastHundredBlocksSubscriptionVariables>(LastHundredBlocksDocument, options);
-      }
-export type LastHundredBlocksSubscriptionHookResult = ReturnType<typeof useLastHundredBlocksSubscription>;
-export type LastHundredBlocksSubscriptionResult = Apollo.SubscriptionResult<LastHundredBlocksSubscription>;
 export const ValidatorsDocument = gql`
     query Validators {
   stakingParams: staking_params(limit: 1) {
