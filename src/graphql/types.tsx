@@ -15005,7 +15005,10 @@ export type LastHundredBlocksSubscription = { block: Array<(
 export type ValidatorsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ValidatorsQuery = { stakingPool: Array<(
+export type ValidatorsQuery = { stakingParams: Array<(
+    { __typename?: 'staking_params' }
+    & { bondDenom: Staking_Params['bond_denom'] }
+  )>, stakingPool: Array<(
     { __typename?: 'staking_pool' }
     & { bondedTokens: Staking_Pool['bonded_tokens'] }
   )>, validator: Array<(
@@ -16152,6 +16155,9 @@ export type LastHundredBlocksSubscriptionHookResult = ReturnType<typeof useLastH
 export type LastHundredBlocksSubscriptionResult = Apollo.SubscriptionResult<LastHundredBlocksSubscription>;
 export const ValidatorsDocument = gql`
     query Validators {
+  stakingParams: staking_params(limit: 1) {
+    bondDenom: bond_denom
+  }
   stakingPool: staking_pool(limit: 1, order_by: {height: desc}) {
     bondedTokens: bonded_tokens
   }

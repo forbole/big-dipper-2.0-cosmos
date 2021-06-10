@@ -1,4 +1,7 @@
 query Validators {
+  stakingParams: staking_params(limit: 1) {
+    bondDenom: bond_denom
+  }
   stakingPool: staking_pool(limit: 1, order_by: {height: desc}) {
     bondedTokens: bonded_tokens
   }
