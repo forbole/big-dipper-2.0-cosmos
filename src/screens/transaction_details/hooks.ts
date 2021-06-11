@@ -75,7 +75,10 @@ export const useTransactionDetails = () => {
     // =============================
     const formatOverview = () => {
       const { fee } = data.transaction[0];
-      const feeAmount = R.pathOr([], ['amount', 0], fee);
+      const feeAmount = R.pathOr({
+        denom: '',
+        amount: 0,
+      }, ['amount', 0], fee);
       const { success } = data.transaction[0];
       const overview = {
         hash: data.transaction[0].hash,
