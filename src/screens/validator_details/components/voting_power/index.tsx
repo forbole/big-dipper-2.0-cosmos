@@ -19,7 +19,6 @@ const VotingPower: React.FC<{
   data,
 }) => {
   const { t } = useTranslation('validators');
-
   const votingPowerPercent = numeral((
     data.self / data.overall.value) * 100);
 
@@ -41,7 +40,7 @@ const VotingPower: React.FC<{
           {' '}
           /
           {' '}
-          {numeral(data.overall).format('0,0')}
+          {numeral(data.overall.value).format('0,0')}
         </Typography>
       </div>
       <div className={classes.chart}>

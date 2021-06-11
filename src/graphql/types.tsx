@@ -14926,6 +14926,29 @@ export type TransactionsQuery = { transactions: Array<(
     )> }
   ) };
 
+export type LastHundredBlocksSubscriptionVariables = Exact<{
+  address?: Maybe<Scalars['String']>;
+}>;
+
+
+export type LastHundredBlocksSubscription = { block: Array<(
+    { __typename?: 'block' }
+    & Pick<Block, 'height'>
+    & { validator?: Maybe<(
+      { __typename?: 'validator' }
+      & { validatorInfo?: Maybe<(
+        { __typename?: 'validator_info' }
+        & { operatorAddress: Validator_Info['operator_address'] }
+      )> }
+    )>, transactions: Array<(
+      { __typename?: 'transaction' }
+      & Pick<Transaction, 'hash'>
+    )>, precommits: Array<(
+      { __typename?: 'pre_commit' }
+      & { validatorAddress: Pre_Commit['validator_address'] }
+    )> }
+  )> };
+
 export type ValidatorDetailsQueryVariables = Exact<{
   address?: Maybe<Scalars['String']>;
   utc?: Maybe<Scalars['timestamp']>;
@@ -15992,6 +16015,49 @@ export function useTransactionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptio
 export type TransactionsQueryHookResult = ReturnType<typeof useTransactionsQuery>;
 export type TransactionsLazyQueryHookResult = ReturnType<typeof useTransactionsLazyQuery>;
 export type TransactionsQueryResult = Apollo.QueryResult<TransactionsQuery, TransactionsQueryVariables>;
+export const LastHundredBlocksDocument = gql`
+    subscription LastHundredBlocks($address: String) {
+  block(offset: 1, order_by: {height: desc}, limit: 100) {
+    height
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
+      }
+    }
+    transactions {
+      hash
+    }
+    precommits: pre_commits(
+      where: {validator: {validator_info: {operator_address: {_eq: $address}}}}
+    ) {
+      validatorAddress: validator_address
+    }
+  }
+}
+    `;
+
+/**
+ * __useLastHundredBlocksSubscription__
+ *
+ * To run a query within a React component, call `useLastHundredBlocksSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useLastHundredBlocksSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useLastHundredBlocksSubscription({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useLastHundredBlocksSubscription(baseOptions?: Apollo.SubscriptionHookOptions<LastHundredBlocksSubscription, LastHundredBlocksSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<LastHundredBlocksSubscription, LastHundredBlocksSubscriptionVariables>(LastHundredBlocksDocument, options);
+      }
+export type LastHundredBlocksSubscriptionHookResult = ReturnType<typeof useLastHundredBlocksSubscription>;
+export type LastHundredBlocksSubscriptionResult = Apollo.SubscriptionResult<LastHundredBlocksSubscription>;
 export const ValidatorDetailsDocument = gql`
     query ValidatorDetails($address: String, $utc: timestamp) {
   stakingParams: staking_params(limit: 1) {

@@ -1,10 +1,9 @@
 import numeral from 'numeral';
-import { chainConfig } from '@src/configs';
 
 export const formatMarket = (data: {
   marketCap: number;
-  communityPool: number;
-  supply: number;
+  communityPool: TokenUnit;
+  supply: TokenUnit;
   inflation: number;
 }) => {
   return ([
@@ -18,11 +17,11 @@ export const formatMarket = (data: {
     },
     {
       key: 'supply',
-      data: `${numeral(data.supply).format('0,0.[00]')} ${chainConfig.display.toUpperCase()}`,
+      data: `${numeral(data.supply.value).format('0,0.[00]')} ${data.supply.denom.toUpperCase()}`,
     },
     {
       key: 'communityPool',
-      data: `${numeral(data.communityPool).format('0,0.00')} ${chainConfig.display.toUpperCase()}`,
+      data: `${numeral(data.communityPool.value).format('0,0.00')} ${data.communityPool.denom.toUpperCase()}`,
     },
   ]);
 };

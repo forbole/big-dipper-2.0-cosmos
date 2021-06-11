@@ -169,7 +169,7 @@ export const useMarket = (initalState: ChainState) => {
   useMarketDataQuery(
     {
       variables: {
-        denom: chainConfig.display,
+        denom: chainConfig.primaryTokenUnit,
       },
       onError: () => {
         setState((prevState) => ({
@@ -194,15 +194,20 @@ export const useMarket = (initalState: ChainState) => {
     let { communityPool } = initalState.market;
 
     // formats
-    const price = formatDenom(data.tokenPrice[0]?.price ?? state.price);
+    const price = data.tokenPrice[0]?.price ?? state.price;
     const marketCap = data.tokenPrice[0]?.marketCap ?? state.marketCap;
-    const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter((x) => x.denom === chainConfig.base);
+    const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter((x) => x.denom === chainConfig.primaryTokenUnit);
     const inflation = R.pathOr(0, ['inflation', 0, 'value'], data);
+
     const supply = formatDenom(
-      numeral(getDenom(R.pathOr([], ['supply', 0, 'coins'], data)).amount).value(),
+      numeral(getDenom(
+        R.pathOr([], ['supply', 0, 'coins'], data),
+        chainConfig.primaryTokenUnit,
+      ).amount).value(),
+      chainConfig.primaryTokenUnit,
     );
     if (communityPoolCoin) {
-      communityPool = formatDenom(communityPoolCoin.amount);
+      communityPool = formatDenom(communityPoolCoin.amount, communityPoolCoin.denom);
     }
 
     return ({
