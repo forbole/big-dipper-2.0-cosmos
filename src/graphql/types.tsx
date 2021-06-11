@@ -14870,7 +14870,10 @@ export type TokenPriceListenerSubscription = { tokenPrice: Array<(
 export type TokenomicsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type TokenomicsQuery = { stakingPool: Array<(
+export type TokenomicsQuery = { stakingParams: Array<(
+    { __typename?: 'staking_params' }
+    & { bondDenom: Staking_Params['bond_denom'] }
+  )>, stakingPool: Array<(
     { __typename?: 'staking_pool' }
     & { bonded: Staking_Pool['bonded_tokens'], unbonded: Staking_Pool['not_bonded_tokens'] }
   )>, supply: Array<(
@@ -15846,6 +15849,9 @@ export type TokenPriceListenerSubscriptionHookResult = ReturnType<typeof useToke
 export type TokenPriceListenerSubscriptionResult = Apollo.SubscriptionResult<TokenPriceListenerSubscription>;
 export const TokenomicsDocument = gql`
     query Tokenomics {
+  stakingParams: staking_params(limit: 1) {
+    bondDenom: bond_denom
+  }
   stakingPool: staking_pool(order_by: {height: desc}, limit: 1) {
     bonded: bonded_tokens
     unbonded: not_bonded_tokens
