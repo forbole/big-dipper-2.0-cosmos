@@ -21,7 +21,7 @@ export type OverviewType = {
   hash: string;
   height: number;
   timestamp: string;
-  fee: number;
+  fee: TokenUnit;
   gasUsed: number;
   gasWanted: number;
   success: boolean;

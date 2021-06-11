@@ -9,7 +9,6 @@ import {
   MsgWithdrawDelegatorReward,
   MsgWithdrawValidatorCommission,
 } from '@models';
-import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
 import {
   TransactionState, MessageType,
@@ -25,7 +24,10 @@ export const useTransactionDetails = () => {
       hash: '',
       height: 0,
       timestamp: '',
-      fee: 0,
+      fee: {
+        value: 0,
+        denom: '',
+      },
       gasUsed: 0,
       gasWanted: 0,
       success: false,
@@ -73,14 +75,13 @@ export const useTransactionDetails = () => {
     // =============================
     const formatOverview = () => {
       const { fee } = data.transaction[0];
-      const feeList = R.pathOr([], ['amount'], fee);
-      const feeAmount = getDenom(feeList);
+      const feeAmount = R.pathOr([], ['amount', 0], fee);
       const { success } = data.transaction[0];
       const overview = {
         hash: data.transaction[0].hash,
         height: data.transaction[0].height,
         timestamp: data.transaction[0].block.timestamp,
-        fee: formatDenom(feeAmount.amount),
+        fee: formatDenom(feeAmount.amount, feeAmount.denom),
         gasUsed: data.transaction[0].gasUsed,
         gasWanted: data.transaction[0].gasWanted,
         success,

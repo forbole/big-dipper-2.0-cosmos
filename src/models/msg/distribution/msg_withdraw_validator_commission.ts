@@ -33,17 +33,17 @@ class MsgWithdrawValidatorCommission {
   static fromJson(json: any, log?: any) {
     const {
       amount = 0,
-      denom = chainConfig.base,
+      denom = chainConfig.primaryTokenUnit,
     } = this.getWithdrawalAmount(log);
 
-    const displayAmount = formatDenom(amount);
+    const displayAmount = formatDenom(amount, denom);
 
     return new MsgWithdrawValidatorCommission({
       json,
       type: json['@type'],
       validatorAddress: json.validator_address,
-      amount: displayAmount,
-      denom: denom === chainConfig.base ? chainConfig.display : denom,
+      amount: displayAmount.value,
+      denom: displayAmount.denom,
     });
   }
 }
