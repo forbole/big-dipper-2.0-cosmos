@@ -79,7 +79,7 @@ const VotesGraph: React.FC<{
             {quorumPercent}
             )
           </Typography>
-          <Typography>
+          <Typography variant="h2">
             {voteAmount}
             {' '}
             /

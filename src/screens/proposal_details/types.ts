@@ -17,6 +17,7 @@ export type TallyType = {
   total: number;
   quorum: number;
   bondedTokens: number;
+  denom: string;
 }
 
 export type VoteType = {
