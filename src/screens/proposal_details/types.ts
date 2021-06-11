@@ -25,7 +25,7 @@ export type VoteType = {
 }
 
 export type DepositType = {
-  amount: number;
+  amount: TokenUnit;
   user: AvatarName;
 }
 

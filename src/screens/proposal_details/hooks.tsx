@@ -15,6 +15,7 @@ import {
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
 import { useChainContext } from '@contexts';
+import { chainConfig } from '@src/configs';
 import { ProposalState } from './types';
 
 export const useProposalDetails = () => {
@@ -153,7 +154,7 @@ export const useProposalDetails = () => {
             imageUrl: user.imageUrl,
             name: user.moniker,
           },
-          amount: formatDenom(depositAmount.amount),
+          amount: formatDenom(depositAmount.amount, depositAmount.denom),
         });
       });
       return deposits;
@@ -208,10 +209,10 @@ export const useProposalDetails = () => {
     if (!data) {
       return state.tally;
     }
-    const yes = formatDenom(R.pathOr(0, ['proposalTallyResult', 0, 'yes'], data));
-    const no = formatDenom(R.pathOr(0, ['proposalTallyResult', 0, 'no'], data));
-    const veto = formatDenom(R.pathOr(0, ['proposalTallyResult', 0, 'noWithVeto'], data));
-    const abstain = formatDenom(R.pathOr(0, ['proposalTallyResult', 0, 'abstain'], data));
+    const yes = R.pathOr(0, ['proposalTallyResult', 0, 'yes'], data);
+    const no = R.pathOr(0, ['proposalTallyResult', 0, 'no'], data);
+    const veto = R.pathOr(0, ['proposalTallyResult', 0, 'noWithVeto'], data);
+    const abstain = R.pathOr(0, ['proposalTallyResult', 0, 'abstain'], data);
 
     return ({
       yes,
@@ -226,7 +227,10 @@ export const useProposalDetails = () => {
     const percent = numeral(numeral(R.pathOr(state.tally.quorum, ['govParams', 0, 'tallyParams', 'quorum'], data)).format('0.[00]')).value();
     return ({
       quorum: percent,
-      bondedTokens: formatDenom(R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data)),
+      bondedTokens: formatDenom(
+        R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data),
+        R.pathOr(chainConfig.primaryTokenUnit, ['stakingParams', 0, 'bondDenom'], data),
+      ),
     });
   };
 

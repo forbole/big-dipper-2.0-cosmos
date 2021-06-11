@@ -14833,6 +14833,9 @@ export type TallyParamsQuery = { govParams: Array<(
   )>, stakingPool: Array<(
     { __typename?: 'staking_pool' }
     & { bondedTokens: Staking_Pool['bonded_tokens'] }
+  )>, stakingParams: Array<(
+    { __typename?: 'staking_params' }
+    & { bondDenom: Staking_Params['bond_denom'] }
   )> };
 
 export type ProposalsQueryVariables = Exact<{
@@ -15730,6 +15733,9 @@ export const TallyParamsDocument = gql`
   }
   stakingPool: staking_pool {
     bondedTokens: bonded_tokens
+  }
+  stakingParams: staking_params(limit: 1) {
+    bondDenom: bond_denom
   }
 }
     `;
