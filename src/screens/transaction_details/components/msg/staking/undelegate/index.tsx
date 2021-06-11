@@ -5,7 +5,6 @@ import { Typography } from '@material-ui/core';
 import { formatDenom } from '@utils/format_denom';
 import { Name } from '@components';
 import { MsgUndelegate } from '@models';
-import { chainConfig } from '@configs';
 import { useChainContext } from '@contexts';
 
 const Undelegate = (props: {
@@ -13,8 +12,8 @@ const Undelegate = (props: {
 }) => {
   const { findAddress } = useChainContext();
   const { message } = props;
-
-  const parsedAmount = `${numeral(formatDenom(message.amount.amount)).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`;
+  const amount = formatDenom(message.amount.amount, message.amount.denom);
+  const parsedAmount = `${numeral(amount.value).format('0,0.[0000]')} ${amount.denom.toUpperCase()}`;
 
   const delegator = findAddress(message.delegatorAddress);
   const delegatorMoniker = delegator ? delegator?.moniker : message

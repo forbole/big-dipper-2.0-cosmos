@@ -5,7 +5,6 @@ import { Typography } from '@material-ui/core';
 import { formatDenom } from '@utils/format_denom';
 import { Name } from '@components';
 import { MsgDelegate } from '@models';
-import { chainConfig } from '@configs';
 import { useChainContext } from '@contexts';
 
 const Delegate = (props: {
@@ -19,8 +18,9 @@ const Delegate = (props: {
   const validator = findAddress(message.validatorAddress);
   const validatorMoniker = validator ? validator?.moniker : message
     .validatorAddress;
+  const amount = formatDenom(message.amount.amount, message.amount.denom);
 
-  const parsedAmount = `${numeral(formatDenom(message.amount.amount)).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`;
+  const parsedAmount = `${numeral(amount.value).format('0,0.[0000]')} ${amount.denom.toUpperCase()}`;
 
   return (
     <Typography>

@@ -6,7 +6,6 @@ import { Typography } from '@material-ui/core';
 import numeral from 'numeral';
 import { Name } from '@components';
 import { MsgDeposit } from '@models';
-import { chainConfig } from '@configs';
 import { formatDenom } from '@utils/format_denom';
 import { useChainContext } from '@contexts';
 import { PROPOSAL_DETAILS } from '@utils/go_to_page';
@@ -19,7 +18,8 @@ const DepositProposal = (props: {
   const { message } = props;
 
   const parsedAmount = message?.amount?.map((x) => {
-    return `${numeral(formatDenom(x.amount)).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`;
+    const amount = formatDenom(x.amount, x.denom);
+    return `${numeral(amount.value).format('0,0.[0000]')} ${amount.denom.toUpperCase()}`;
   }).reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
 
   const depositor = findAddress(message.depositor);

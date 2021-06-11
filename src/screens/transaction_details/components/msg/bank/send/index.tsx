@@ -6,7 +6,6 @@ import { Typography } from '@material-ui/core';
 import { formatDenom } from '@utils/format_denom';
 import { Name } from '@components';
 import { MsgSend } from '@models';
-import { chainConfig } from '@configs';
 import { useChainContext } from '@contexts';
 
 const Send = (props: {
@@ -17,7 +16,9 @@ const Send = (props: {
   const { message } = props;
 
   const parsedAmount = message?.amount?.map((x) => {
-    return `${numeral(formatDenom(x.amount)).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`;
+    const amount = formatDenom(x.amount, x.denom);
+
+    return `${numeral(amount.value).format('0,0.[0000]')} ${amount.denom.toUpperCase()}`;
   }).reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
 
   const from = findAddress(message.fromAddress);
