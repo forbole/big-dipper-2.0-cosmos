@@ -13,7 +13,6 @@ import {
   AvatarName,
 } from '@components';
 import { DelegationType } from '@src/screens/account_details/types';
-import { chainConfig } from '@configs';
 import { columns } from './utils';
 
 const Desktop: React.FC<{
@@ -35,8 +34,8 @@ const Desktop: React.FC<{
         />
       ),
       commission: `${numeral(x.commission * 100).format('0.00')}%`,
-      amount: `${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
-      reward: `${numeral(x.reward).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
+      amount: `${numeral(x.amount.value).format('0,0.[0000]')} ${x.amount.denom.toUpperCase()}`,
+      reward: `${numeral(x.reward.value).format('0,0.[0000]')} ${x.reward.denom.toUpperCase()}`,
     });
   });
 
