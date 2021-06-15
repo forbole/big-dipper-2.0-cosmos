@@ -7,6 +7,7 @@ import {
 import {
   OnlineVotingPowerListenerDocument,
   TotalVotingPowerListenerDocument,
+  StakingParamsDocument,
 } from '@graphql/types';
 import {
   MockTheme, wait,
@@ -52,6 +53,16 @@ const mockTotalVotingPower = {
   },
 };
 
+const mockStakingParams = jest.fn().mockResolvedValue({
+  data: {
+    stakingParams: [
+      {
+        bondDenom: 'utoken',
+      },
+    ],
+  },
+});
+
 // ==================================
 // unit tests
 // ==================================
@@ -60,6 +71,11 @@ describe('screen: Home/OnlineVotingPower', () => {
     const mockClient = createMockClient();
     const mockSubscription = createMockSubscription();
     const mockSubscription2 = createMockSubscription();
+
+    mockClient.setRequestHandler(
+      StakingParamsDocument,
+      mockStakingParams,
+    );
 
     mockClient.setRequestHandler(
       OnlineVotingPowerListenerDocument,

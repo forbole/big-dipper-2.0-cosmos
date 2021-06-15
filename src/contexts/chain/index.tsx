@@ -8,10 +8,16 @@ const initialState: ChainState = {
   market: {
     loading: true,
     price: 0,
-    supply: 0,
+    supply: {
+      value: 0,
+      denom: '',
+    },
     marketCap: 0,
     inflation: 0,
-    communityPool: 0,
+    communityPool: {
+      value: 0,
+      denom: '',
+    },
   },
   validatorsAddresses: {
     loading: true,

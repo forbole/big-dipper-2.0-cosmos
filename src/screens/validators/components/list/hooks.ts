@@ -51,6 +51,7 @@ export const useValidators = () => {
       R.pathOr(chainConfig.primaryTokenUnit, ['stakingParams', 0, 'bondDenom'], data),
     ).value;
     const signedBlockWindow = R.pathOr(0, ['slashingParams', 0, 'signedBlockWindow'], data);
+
     const formattedItems = data.validator.map((x) => {
       const validator = findAddress(x.validatorInfo.operatorAddress);
       const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
