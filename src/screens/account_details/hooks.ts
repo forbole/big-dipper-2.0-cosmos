@@ -172,37 +172,46 @@ export const useAccountDetails = () => {
         R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data),
         chainConfig.primaryTokenUnit,
       );
-      const availableDenom = formatDenom(available.amount);
+      const availableAmount = formatDenom(available.amount, available.denom);
 
       const delegate = R.pathOr([], ['account', 0, 'delegations'], data).reduce((a, b) => {
         return a + numeral(b.amount.amount).value();
       }, 0);
-      const delegateDenom = formatDenom(delegate);
+      const delegateDenom = R.pathOr('', ['account', 0, 'delegations', 0, 'amount', 'denom'], data);
+      const delegateAmount = formatDenom(delegate, delegateDenom);
 
       const unbonding = R.pathOr([], ['account', 0, 'unbonding'], data).reduce((a, b) => {
         return a + numeral(b.amount.amount).value();
       }, 0);
-      const unbondingDenom = formatDenom(unbonding);
+      const unbondingDenom = R.pathOr('', ['account', 0, 'unbonding', 0, 'amount', 'denom'], data);
+      const unbondingAmount = formatDenom(unbonding, unbondingDenom);
 
       const reward = R.pathOr([], ['account', 0, 'delegationRewards'], data).reduce((a, b) => {
         const denom = getDenom(b.amount);
         return a + numeral(denom.amount).value();
       }, 0);
+      const rewardDenom = R.pathOr('', ['account', 0, 'delegationRewards', 0, 'amount', 0, 'denom'], data);
+      const rewardAmount = formatDenom(reward, rewardDenom);
 
-      const rewardDenom = formatDenom(reward);
-
-      const commission = getDenom(R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data));
-      const commissionDenom = formatDenom(commission.amount);
+      const commission = getDenom(
+        R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data),
+      );
+      const commissionAmount = formatDenom(commission.amount, commission.denom);
 
       const total = (
-        availableDenom + delegateDenom + unbondingDenom + rewardDenom + commissionDenom);
+        availableAmount.value
+        + delegateAmount.value
+        + unbondingAmount.value
+        + rewardAmount.value
+        + commissionAmount.value
+      );
 
       const balance = {
-        available: availableDenom,
-        delegate: delegateDenom,
-        unbonding: unbondingDenom,
-        reward: rewardDenom,
-        commission: commissionDenom,
+        available: availableAmount,
+        delegate: delegateAmount,
+        unbonding: unbondingAmount,
+        reward: rewardAmount,
+        commission: commissionAmount,
         total,
       };
 

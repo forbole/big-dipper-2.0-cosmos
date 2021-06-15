@@ -20,11 +20,11 @@ import { formatBalanceData } from './utils';
 
 const Balance: React.FC<{
   className?: string;
-  available: number;
-  delegate: number;
-  unbonding: number;
-  reward: number;
-  commission?: number;
+  available: TokenUnit;
+  delegate: TokenUnit;
+  unbonding: TokenUnit;
+  reward: TokenUnit;
+  commission?: TokenUnit;
   total: number;
 }> = (props) => {
   const { t } = useTranslation('accounts');
@@ -119,7 +119,7 @@ const Balance: React.FC<{
           <div className="total__single--container">
             <Typography variant="h3" className="label">
               {t('total', {
-                unit: chainConfig.display.toUpperCase(),
+                unit: chainConfig.primaryTokenUnit.toUpperCase(),
               })}
             </Typography>
             <Typography variant="h3">
@@ -133,7 +133,7 @@ const Balance: React.FC<{
               {' '}
               /
               {' '}
-              {chainConfig.display.toUpperCase()}
+              {chainConfig.primaryTokenUnit.toUpperCase()}
             </Typography>
             <Typography variant="body1">
               {totalAmount}

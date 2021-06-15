@@ -1,42 +1,41 @@
 import numeral from 'numeral';
-import { chainConfig } from '@configs';
 
 export const formatBalanceData = (data: {
-  available: number;
-  delegate: number;
-  unbonding: number;
-  reward: number;
-  commission?: number;
-  total: number;
+  available: TokenUnit;
+  delegate: TokenUnit;
+  unbonding: TokenUnit;
+  reward: TokenUnit;
+  commission?: TokenUnit;
+  total?: number;
 }) => {
   const balanceChart = [
     {
       key: 'balanceAvailable',
-      display: `${numeral(data.available).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
-      value: data.available,
+      display: `${numeral(data.available.value).format('0,0.[0000]')} ${data.available.denom.toUpperCase()}`,
+      value: data.available.value,
     },
     {
       key: 'balanceDelegate',
-      display: `${numeral(data.delegate).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
-      value: data.delegate,
+      display: `${numeral(data.delegate.value).format('0,0.[0000]')} ${data.delegate.denom.toUpperCase()}`,
+      value: data.delegate.value,
     },
     {
       key: 'balanceUnbonding',
-      display: `${numeral(data.unbonding).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
-      value: data.unbonding,
+      display: `${numeral(data.unbonding.value).format('0,0.[0000]')} ${data.unbonding.denom.toUpperCase()}`,
+      value: data.unbonding.value,
     },
     {
       key: 'balanceReward',
-      display: `${numeral(data.reward).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
-      value: data.reward,
+      display: `${numeral(data.reward.value).format('0,0.[0000]')} ${data.reward.denom.toUpperCase()}`,
+      value: data.reward.value,
     },
   ];
 
   if (data.commission) {
     balanceChart.push({
       key: 'balanceCommission',
-      display: `${numeral(data.commission).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
-      value: data.commission,
+      display: `${numeral(data.commission.value).format('0,0.[0000]')} ${data.commission.denom.toUpperCase()}`,
+      value: data.commission.value,
     });
   }
 
