@@ -7,7 +7,6 @@ import {
   Divider, Typography,
 } from '@material-ui/core';
 import { AvatarName } from '@components';
-import { chainConfig } from '@configs';
 import { useStyles } from './styles';
 import { RedelegationType } from '../../../../../../types';
 
@@ -61,7 +60,7 @@ const Mobile: React.FC<{
                   {t('amount')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {`${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`}
+                  {`${numeral(x.amount.value).format('0,0.[0000]')} ${x.amount.denom.toUpperCase()}`}
                 </Typography>
               </div>
               <div className={classes.item}>

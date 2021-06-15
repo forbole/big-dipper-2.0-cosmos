@@ -12,7 +12,6 @@ import {
 } from '@material-ui/core';
 import { AvatarName } from '@components';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import { chainConfig } from '@configs';
 import { columns } from './utils';
 import { UndelegationType } from '../../../../../../types';
 
@@ -36,7 +35,7 @@ const Desktop: React.FC<{
         />
       ),
       linkedUntil: dayjs.utc(x.linkedUntil).local().format('MMMM DD, YYYY hh:mm A'),
-      amount: `${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
+      amount: `${numeral(x.amount.value).format('0,0.[0000]')} ${x.amount.denom.toUpperCase()}`,
     });
   });
 

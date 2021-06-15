@@ -16,6 +16,7 @@ exports[`screen: Nav/Desktop hook toggles correctly 1`] = `
     />
     <div
       id="TitleBar"
+      title="hello world"
     />
   </header>
   <div
@@ -54,6 +55,7 @@ exports[`screen: Nav/Desktop it renders 1`] = `
     />
     <div
       id="TitleBar"
+      title="hello world"
     />
   </header>
   <div

@@ -38,11 +38,11 @@ exports[`screen: Nav/Mobile it renders 1`] = `
   <div
     className="makeStyles-root"
   >
-    <img
-      alt="logo"
-      className="makeStyles-logo"
-      src="https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.png?sanitize=true"
-    />
+    <h1
+      className="MuiTypography-root MuiTypography-h1"
+    >
+      hello world
+    </h1>
     <div
       className="makeStyles-content"
     >
@@ -56,7 +56,9 @@ exports[`screen: Nav/Mobile it renders 1`] = `
         </p>
         <p
           className="MuiTypography-root MuiTypography-body1"
-        />
+        >
+          $0
+        </p>
       </div>
       <div
         className="makeStyles-item"
@@ -68,7 +70,9 @@ exports[`screen: Nav/Mobile it renders 1`] = `
         </p>
         <p
           className="MuiTypography-root MuiTypography-body1"
-        />
+        >
+          0%
+        </p>
       </div>
       <div
         className="makeStyles-item"
@@ -80,7 +84,9 @@ exports[`screen: Nav/Mobile it renders 1`] = `
         </p>
         <p
           className="MuiTypography-root MuiTypography-body1"
-        />
+        >
+          0 
+        </p>
       </div>
       <div
         className="makeStyles-item"
@@ -92,7 +98,9 @@ exports[`screen: Nav/Mobile it renders 1`] = `
         </p>
         <p
           className="MuiTypography-root MuiTypography-body1"
-        />
+        >
+          0.00 
+        </p>
       </div>
     </div>
   </div>

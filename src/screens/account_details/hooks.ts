@@ -12,6 +12,7 @@ import {
 import { useChainContext } from '@contexts';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
+import { chainConfig } from '@src/configs';
 import { AccountDetailState } from './types';
 
 export const useAccountDetails = () => {
@@ -27,11 +28,26 @@ export const useAccountDetails = () => {
       withdrawalAddress: '',
     },
     balance: {
-      available: 0,
-      delegate: 0,
-      unbonding: 0,
-      reward: 0,
-      commission: 0,
+      available: {
+        value: 0,
+        denom: '',
+      },
+      delegate: {
+        value: 0,
+        denom: '',
+      },
+      unbonding: {
+        value: 0,
+        denom: '',
+      },
+      reward: {
+        value: 0,
+        denom: '',
+      },
+      commission: {
+        value: 0,
+        denom: '',
+      },
       total: 0,
     },
     delegations: {
@@ -169,38 +185,48 @@ export const useAccountDetails = () => {
     const formatBalance = () => {
       const available = getDenom(
         R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data),
+        chainConfig.primaryTokenUnit,
       );
-      const availableDenom = formatDenom(available.amount);
+      const availableAmount = formatDenom(available.amount, available.denom);
 
       const delegate = R.pathOr([], ['account', 0, 'delegations'], data).reduce((a, b) => {
         return a + numeral(b.amount.amount).value();
       }, 0);
-      const delegateDenom = formatDenom(delegate);
+      const delegateDenom = R.pathOr('', ['stakingParams', 0, 'bondDenom'], data);
+      const delegateAmount = formatDenom(delegate, delegateDenom);
 
       const unbonding = R.pathOr([], ['account', 0, 'unbonding'], data).reduce((a, b) => {
         return a + numeral(b.amount.amount).value();
       }, 0);
-      const unbondingDenom = formatDenom(unbonding);
+      const unbondingDenom = R.pathOr('', ['stakingParams', 0, 'bondDenom'], data);
+      const unbondingAmount = formatDenom(unbonding, unbondingDenom);
 
       const reward = R.pathOr([], ['account', 0, 'delegationRewards'], data).reduce((a, b) => {
         const denom = getDenom(b.amount);
         return a + numeral(denom.amount).value();
       }, 0);
+      const rewardDenom = R.pathOr('', ['account', 0, 'delegationRewards', 0, 'amount', 0, 'denom'], data);
+      const rewardAmount = formatDenom(reward, rewardDenom);
 
-      const rewardDenom = formatDenom(reward);
-
-      const commission = getDenom(R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data));
-      const commissionDenom = formatDenom(commission.amount);
+      const commission = getDenom(
+        R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data),
+      );
+      const commissionAmount = formatDenom(commission.amount, commission.denom);
 
       const total = (
-        availableDenom + delegateDenom + unbondingDenom + rewardDenom + commissionDenom);
+        availableAmount.value
+        + delegateAmount.value
+        + unbondingAmount.value
+        + rewardAmount.value
+        + commissionAmount.value
+      );
 
       const balance = {
-        available: availableDenom,
-        delegate: delegateDenom,
-        unbonding: unbondingDenom,
-        reward: rewardDenom,
-        commission: commissionDenom,
+        available: availableAmount,
+        delegate: delegateAmount,
+        unbonding: unbondingAmount,
+        reward: rewardAmount,
+        commission: commissionAmount,
         total,
       };
 
@@ -216,7 +242,7 @@ export const useAccountDetails = () => {
       const rewardsDict = {};
       data.account[0].delegationRewards.forEach((x) => {
         const denomAmount = getDenom(x.amount);
-        const denomFormat = formatDenom(denomAmount.amount);
+        const denomFormat = formatDenom(denomAmount.amount, denomAmount.denom);
         rewardsDict[x.validator.validatorInfo.operatorAddress] = denomFormat;
       });
 
@@ -230,7 +256,7 @@ export const useAccountDetails = () => {
             name: validator.moniker,
           },
           reward: rewardsDict[validatorAddress],
-          amount: formatDenom(x.amount.amount),
+          amount: formatDenom(x.amount.amount, x.amount.denom),
           commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
         });
       }).sort((a, b) => ((a.validator.name > b.validator.name) ? 1 : -1));
@@ -262,7 +288,10 @@ export const useAccountDetails = () => {
             name: from.moniker,
           },
           linkedUntil: x.completionTime,
-          amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
+          amount: formatDenom(
+            R.pathOr(0, ['amount', 'amount'], x),
+            R.pathOr(0, ['amount', 'denom'], x),
+          ),
         });
       }).sort((a, b) => ((a.to.name > b.to.name) ? 1 : -1));
       return {
@@ -286,7 +315,10 @@ export const useAccountDetails = () => {
             imageUrl: validator.imageUrl,
             name: validator.moniker,
           },
-          amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
+          amount: formatDenom(
+            R.pathOr(0, ['amount', 'amount'], x),
+            R.pathOr(0, ['amount', 'denom'], x),
+          ),
           linkedUntil: x.completionTimestamp,
           commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
         });

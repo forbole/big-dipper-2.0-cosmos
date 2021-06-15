@@ -2,19 +2,27 @@ import numeral from 'numeral';
 import { chainConfig } from '@configs';
 
 /**
- * Helper Function to converts Denom to display depending on the exponent given
+ * Helper Function to convert the base denom to their display denom
  * @param denom The denom you wish to convert to
  * @param value The value in base denom value
  */
-export const formatDenom = (value: number | string, denom = chainConfig.display) => {
-  let results = 0;
-  const [selectedDenom] = chainConfig.denomUnits.filter((x) => x.denom === denom);
-  if (!selectedDenom) {
-    return results;
-  }
+export const formatDenom = (value: number | string, denom: string): {
+  value: number;
+  denom: string;
+} => {
+  const selectedDenom = chainConfig.tokenUnits[denom];
 
   if (typeof value === 'string') {
     value = numeral(value).value() as number;
+  }
+
+  const results = {
+    value,
+    denom,
+  };
+
+  if (!selectedDenom) {
+    return results;
   }
 
   // if udaric is less than one edgecase
@@ -23,7 +31,8 @@ export const formatDenom = (value: number | string, denom = chainConfig.display)
   }
 
   const ratio = 10 ** selectedDenom.exponent;
-  results = value / ratio;
+  results.value = value / ratio;
+  results.denom = selectedDenom.display;
 
   return results;
 };

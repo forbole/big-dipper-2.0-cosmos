@@ -64,7 +64,7 @@ export const useDataBlocks = () => {
   // ====================================
   useTokenPriceListenerSubscription({
     variables: {
-      denom: chainConfig.display,
+      denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
     },
     onSubscriptionData: (data) => {
       setState((prevState) => ({

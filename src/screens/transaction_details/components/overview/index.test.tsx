@@ -24,7 +24,10 @@ describe('screen: BlockDetails/Overview', () => {
             hash: '',
             height: 0,
             timestamp: '',
-            fee: 0,
+            fee: {
+              denom: 'daric',
+              value: 5000,
+            },
             gasUsed: 0,
             gasWanted: 0,
             success: false,

@@ -44,12 +44,13 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
         data={
           Object {
             "abstain": 0,
-            "bondedTokens": 3893835.180066,
+            "bondedTokens": 0,
+            "denom": "",
             "no": 0,
-            "quorum": 0.33,
-            "total": 170003.125372,
+            "quorum": 0,
+            "total": 170003125372,
             "veto": 0,
-            "yes": 170003.125372,
+            "yes": 170003125372,
           }
         }
         id="VotesGraph"
@@ -98,7 +99,10 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
         data={
           Array [
             Object {
-              "amount": 10,
+              "amount": Object {
+                "denom": "daric",
+                "value": 10,
+              },
               "user": Object {
                 "address": "desmos124xa66ghhq5hrgv28slhmszgvcqa0skcfwphh3",
                 "imageUrl": null,

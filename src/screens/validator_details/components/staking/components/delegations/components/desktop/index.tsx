@@ -11,7 +11,6 @@ import {
 } from '@material-ui/core';
 import { AvatarName } from '@components';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import { chainConfig } from '@configs';
 import { columns } from './utils';
 import { DelegationType } from '../../../../../../types';
 
@@ -35,7 +34,7 @@ const Desktop: React.FC<{
           }) : x.delegator.name}
         />
       ),
-      amount: `${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`,
+      amount: `${numeral(x.amount.value).format('0,0.[0000]')} ${x.amount.denom.toUpperCase()}`,
     });
   });
 

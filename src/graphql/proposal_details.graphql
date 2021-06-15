@@ -40,4 +40,7 @@ query TallyParams {
   stakingPool: staking_pool {
     bondedTokens: bonded_tokens
   }
+  stakingParams: staking_params(limit: 1) {
+    bondDenom: bond_denom
+  }
 }

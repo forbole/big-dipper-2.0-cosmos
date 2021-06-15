@@ -7,7 +7,6 @@ import { Typography } from '@material-ui/core';
 import { formatDenom } from '@utils/format_denom';
 import { Name } from '@components';
 import { MsgMultiSend } from '@models';
-import { chainConfig } from '@configs';
 import { useChainContext } from '@contexts';
 import { useStyles } from './styles';
 
@@ -23,12 +22,14 @@ const Multisend = (props: {
   const sender = R.pathOr({
   }, ['inputs', 0], message);
   const senderAmount = sender?.coins?.map((x) => {
-    return `${numeral(formatDenom(x.amount)).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`;
+    const amount = formatDenom(x.amount, x.denom);
+    return `${numeral(amount.value).format('0,0.[0000]')} ${amount.denom.toUpperCase()}`;
   }).reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
 
   const receivers = message?.outputs?.map((output) => {
     const parsedAmount = output?.coins?.map((x) => {
-      return `${numeral(formatDenom(x.amount)).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`;
+      const amount = formatDenom(x.amount, x.denom);
+      return `${numeral(amount.value).format('0,0.[0000]')} ${amount.denom.toUpperCase()}`;
     }).reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
 
     return {

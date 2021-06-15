@@ -20,11 +20,11 @@ import { formatBalanceData } from './utils';
 
 const Balance: React.FC<{
   className?: string;
-  available: number;
-  delegate: number;
-  unbonding: number;
-  reward: number;
-  commission?: number;
+  available: TokenUnit;
+  delegate: TokenUnit;
+  unbonding: TokenUnit;
+  reward: TokenUnit;
+  commission?: TokenUnit;
   total: number;
 }> = (props) => {
   const { t } = useTranslation('accounts');
@@ -58,7 +58,7 @@ const Balance: React.FC<{
 
   const dataCount = formatData.filter((x) => x.value > 0).length;
   const data = notEmpty ? formatData : [...formatData, empty];
-  const totalAmount = `$${numeral(market.rawData.price * props.total).format('0,0.00')}`;
+  const totalAmount = `$${numeral(market.price * props.total).format('0,0.00')}`;
 
   return (
     <Box className={classnames(props.className, classes.root)}>
@@ -119,7 +119,7 @@ const Balance: React.FC<{
           <div className="total__single--container">
             <Typography variant="h3" className="label">
               {t('total', {
-                unit: chainConfig.display.toUpperCase(),
+                unit: chainConfig.primaryTokenUnit.toUpperCase(),
               })}
             </Typography>
             <Typography variant="h3">
@@ -128,11 +128,12 @@ const Balance: React.FC<{
           </div>
           <div className="total__secondary--container total__single--container">
             <Typography variant="body1" className="label">
-              {market.uiData.price}
+              $
+              {numeral(market.price).format('0,0.[00]')}
               {' '}
               /
               {' '}
-              {chainConfig.display.toUpperCase()}
+              {chainConfig.tokenUnits[chainConfig.primaryTokenUnit]?.display.toUpperCase()}
             </Typography>
             <Typography variant="body1">
               {totalAmount}

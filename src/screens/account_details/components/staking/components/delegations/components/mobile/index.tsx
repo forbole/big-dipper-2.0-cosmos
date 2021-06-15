@@ -10,7 +10,6 @@ import {
   AvatarName,
 } from '@components';
 import { DelegationType } from '@src/screens/account_details/types';
-import { chainConfig } from '@configs';
 import { useStyles } from './styles';
 
 const Mobile: React.FC<{
@@ -52,9 +51,9 @@ const Mobile: React.FC<{
                   {t('amount')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {numeral(x.amount).format('0,0.[0000]')}
+                  {numeral(x.amount.value).format('0,0.[0000]')}
                   {' '}
-                  {chainConfig.display.toUpperCase()}
+                  {x.amount.denom.toUpperCase()}
                 </Typography>
               </div>
               <div className={classes.item}>
@@ -62,9 +61,9 @@ const Mobile: React.FC<{
                   {t('reward')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {numeral(x.reward).format('0,0.[0000]')}
+                  {numeral(x.reward.value).format('0,0.[0000]')}
                   {' '}
-                  {chainConfig.display.toUpperCase()}
+                  {x.reward.denom.toUpperCase()}
                 </Typography>
               </div>
             </div>

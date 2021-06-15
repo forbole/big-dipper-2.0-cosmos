@@ -12,6 +12,7 @@ import {
 } from '@graphql/types';
 import { useChainContext } from '@contexts';
 import { getValidatorCondition } from '@utils/get_validator_condition';
+import { chainConfig } from '@src/configs';
 import { ValidatorDetailsState } from './types';
 
 export const useValidatorDetails = () => {
@@ -40,10 +41,16 @@ export const useValidatorDetails = () => {
     },
     votingPower: {
       height: 0,
-      overall: 0,
+      overall: {
+        value: 0,
+        denom: '',
+      },
       self: 0,
       selfDelegatePercent: 0,
-      selfDelegate: 0,
+      selfDelegate: {
+        value: 0,
+        denom: '',
+      },
     },
     delegations: {
       count: 0,
@@ -203,14 +210,20 @@ export const useValidatorDetails = () => {
       const [selfDelegate] = data.validator[0].delegations.filter(
         (x) => x.delegatorAddress === data.validator[0].validatorInfo.selfDelegateAddress,
       );
-      const selfDelegateAmount = formatDenom(numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value());
+      const selfDelegateAmount = formatDenom(
+        numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value(),
+        R.pathOr(0, ['amount', 'denom'], selfDelegate),
+      );
       const selfDelegatePercent = (numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value() / totalDelegations) * 100;
 
       const votingPower = {
         self,
         selfDelegate: selfDelegateAmount,
         selfDelegatePercent,
-        overall: formatDenom(R.pathOr(0, ['stakingPool', 0, 'bonded'], data)),
+        overall: formatDenom(
+          R.pathOr(0, ['stakingPool', 0, 'bonded'], data),
+          R.pathOr(chainConfig.primaryTokenUnit, ['stakingParams', 0, 'bondDenom'], data),
+        ),
         height: R.pathOr(0, ['validatorVotingPowers', 0, 'height'], data.validator[0]),
       };
 
@@ -225,7 +238,7 @@ export const useValidatorDetails = () => {
       const delegations = data.validator[0].delegations.map((x) => {
         const delegator = findAddress(x.delegatorAddress);
         return ({
-          amount: formatDenom(x.amount.amount),
+          amount: formatDenom(x.amount.amount, x.amount.denom),
           delegator: {
             address: x.delegatorAddress,
             imageUrl: delegator.imageUrl,
@@ -262,7 +275,7 @@ export const useValidatorDetails = () => {
               name: from.moniker,
             },
             linkedUntil: x.completionTime,
-            amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
+            amount: formatDenom(x.amount.amount, x.amount.denom),
             delegator: {
               address: x.delegatorAddress,
               imageUrl: delegator.imageUrl,
@@ -286,7 +299,7 @@ export const useValidatorDetails = () => {
               name: from.moniker,
             },
             linkedUntil: x.completionTime,
-            amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
+            amount: formatDenom(x.amount.amount, x.amount.denom),
             delegator: {
               address: x.delegatorAddress,
               imageUrl: delegator.imageUrl,
@@ -315,7 +328,7 @@ export const useValidatorDetails = () => {
             imageUrl: delegator.imageUrl,
             name: delegator.moniker,
           },
-          amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
+          amount: formatDenom(x.amount.amount, x.amount.denom),
           linkedUntil: x.completionTimestamp,
           commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
         });

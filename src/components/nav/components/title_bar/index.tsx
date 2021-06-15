@@ -15,15 +15,9 @@ const TitleBar:React.FC<{
 }) => {
   const { t } = useTranslation('common');
   const classes = useStyles();
-  const {
-    market: {
-      uiData,
-    },
-  } = useChainContext();
+  const { market: marketContext } = useChainContext();
 
-  const market = formatMarket({
-    ...uiData,
-  });
+  const market = formatMarket(marketContext);
 
   return (
     <div className={classnames(className, classes.root)}>

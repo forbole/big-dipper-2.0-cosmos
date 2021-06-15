@@ -34,6 +34,11 @@ jest.mock('@components', () => ({
 
 const mockValidatorsDocument = jest.fn().mockResolvedValue({
   data: {
+    stakingParams: [
+      {
+        bondDenom: 'udenom',
+      },
+    ],
     stakingPool: [
       {
         bondedTokens: 3932987528498,

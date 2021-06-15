@@ -36,19 +36,6 @@ jest.mock('./components', () => ({
   Messages: (props) => <div id="Messages" {...props} />,
 }));
 
-jest.mock('./contexts/transaction', () => ({
-  TransactionProvider: ({
-    children, ...props
-  }) => (
-    <div id="TransactionProvider" {...props}>
-      {children({
-        exists: true,
-        loading: false,
-      })}
-    </div>
-  ),
-}));
-
 const mockTransactionDetailsDocument = jest.fn().mockResolvedValue({
   data: {
     transaction: [

@@ -4,7 +4,6 @@ import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import { AvatarName } from '@components';
-import { chainConfig } from '@configs';
 import {
   Divider, Typography,
 } from '@material-ui/core';
@@ -41,7 +40,7 @@ const Mobile: React.FC<{
                   {t('amount')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {`${numeral(x.amount).format('0,0.[0000]')} ${chainConfig.display.toUpperCase()}`}
+                  {`${numeral(x.amount.value).format('0,0.[0000]')} ${x.amount.denom.toUpperCase()}`}
                 </Typography>
               </div>
               <div className={classes.item}>
