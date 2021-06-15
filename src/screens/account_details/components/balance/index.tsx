@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
+import * as R from 'ramda';
 import {
   Typography,
   Divider,
@@ -119,7 +120,7 @@ const Balance: React.FC<{
           <div className="total__single--container">
             <Typography variant="h3" className="label">
               {t('total', {
-                unit: chainConfig.primaryTokenUnit.toUpperCase(),
+                unit: R.pathOr('', ['tokenUnits', chainConfig.primaryTokenUnit, 'display'], chainConfig).toUpperCase(),
               })}
             </Typography>
             <Typography variant="h3">
@@ -133,7 +134,7 @@ const Balance: React.FC<{
               {' '}
               /
               {' '}
-              {chainConfig.tokenUnits[chainConfig.primaryTokenUnit]?.display.toUpperCase()}
+              {R.pathOr('', ['tokenUnits', chainConfig.primaryTokenUnit, 'display'], chainConfig).toUpperCase()}
             </Typography>
             <Typography variant="body1">
               {totalAmount}
