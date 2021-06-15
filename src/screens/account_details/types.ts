@@ -23,21 +23,21 @@ export type TransactionType = {
 export type DelegationType = {
   validator: AvatarName;
   commission: number;
-  amount: number;
-  reward: number;
+  amount: TokenUnit;
+  reward: TokenUnit;
 }
 
 export type RedelegationType = {
   to: AvatarName;
   from: AvatarName;
   linkedUntil: string;
-  amount: number;
+  amount: TokenUnit;
 }
 
 export type UnbondingType = {
   validator: AvatarName;
   commission: number;
-  amount: number;
+  amount: TokenUnit;
   linkedUntil: string;
 }
 

@@ -28,11 +28,26 @@ export const useAccountDetails = () => {
       withdrawalAddress: '',
     },
     balance: {
-      available: 0,
-      delegate: 0,
-      unbonding: 0,
-      reward: 0,
-      commission: 0,
+      available: {
+        value: 0,
+        denom: '',
+      },
+      delegate: {
+        value: 0,
+        denom: '',
+      },
+      unbonding: {
+        value: 0,
+        denom: '',
+      },
+      reward: {
+        value: 0,
+        denom: '',
+      },
+      commission: {
+        value: 0,
+        denom: '',
+      },
       total: 0,
     },
     delegations: {
@@ -227,7 +242,7 @@ export const useAccountDetails = () => {
       const rewardsDict = {};
       data.account[0].delegationRewards.forEach((x) => {
         const denomAmount = getDenom(x.amount);
-        const denomFormat = formatDenom(denomAmount.amount);
+        const denomFormat = formatDenom(denomAmount.amount, denomAmount.denom);
         rewardsDict[x.validator.validatorInfo.operatorAddress] = denomFormat;
       });
 
@@ -241,7 +256,7 @@ export const useAccountDetails = () => {
             name: validator.moniker,
           },
           reward: rewardsDict[validatorAddress],
-          amount: formatDenom(x.amount.amount),
+          amount: formatDenom(x.amount.amount, x.amount.denom),
           commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
         });
       }).sort((a, b) => ((a.validator.name > b.validator.name) ? 1 : -1));
@@ -273,7 +288,10 @@ export const useAccountDetails = () => {
             name: from.moniker,
           },
           linkedUntil: x.completionTime,
-          amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
+          amount: formatDenom(
+            R.pathOr(0, ['amount', 'amount'], x),
+            R.pathOr(0, ['amount', 'denom'], x),
+          ),
         });
       }).sort((a, b) => ((a.to.name > b.to.name) ? 1 : -1));
       return {
@@ -297,7 +315,10 @@ export const useAccountDetails = () => {
             imageUrl: validator.imageUrl,
             name: validator.moniker,
           },
-          amount: formatDenom(R.pathOr(0, ['amount', 'amount'], x)),
+          amount: formatDenom(
+            R.pathOr(0, ['amount', 'amount'], x),
+            R.pathOr(0, ['amount', 'denom'], x),
+          ),
           linkedUntil: x.completionTimestamp,
           commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
         });
