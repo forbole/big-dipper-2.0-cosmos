@@ -12,6 +12,7 @@ import {
 import { useChainContext } from '@contexts';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
+import { chainConfig } from '@src/configs';
 import { AccountDetailState } from './types';
 
 export const useAccountDetails = () => {
@@ -169,6 +170,7 @@ export const useAccountDetails = () => {
     const formatBalance = () => {
       const available = getDenom(
         R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data),
+        chainConfig.primaryTokenUnit,
       );
       const availableDenom = formatDenom(available.amount);
 
