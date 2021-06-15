@@ -23,3 +23,8 @@ type Transactions = {
   timestamp: string;
   messages: number;
 }
+
+type TokenUnit = {
+  value: number;
+  denom: string;
+}

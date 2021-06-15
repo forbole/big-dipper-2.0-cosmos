@@ -1,4 +1,7 @@
 query Tokenomics{
+  stakingParams: staking_params(limit: 1) {
+    bondDenom: bond_denom
+  }
   stakingPool: staking_pool(order_by: {height: desc}, limit: 1) {
     bonded: bonded_tokens
     unbonded: not_bonded_tokens

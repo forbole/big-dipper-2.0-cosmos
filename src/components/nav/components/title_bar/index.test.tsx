@@ -14,18 +14,10 @@ let component:renderer.ReactTestRenderer;
 
 const mockUseNavContext = {
   title: undefined,
-  rawData: {
-    price: 0,
-    marketCap: 0,
-    inflation: 0,
-    communityPool: 0,
-  },
-  uiData: {
-    price: '$0.00',
-    marketCap: 'N/A',
-    inflation: '0.00%',
-    communityPool: '0',
-  },
+  price: 0,
+  marketCap: 0,
+  inflation: 0,
+  communityPool: 0,
 };
 
 // ==================================

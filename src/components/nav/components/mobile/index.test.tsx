@@ -24,7 +24,7 @@ describe('screen: Nav/Mobile', () => {
   beforeEach(() => {
     component = renderer.create(
       <MockTheme>
-        <Mobile />
+        <Mobile title="hello world" />
       </MockTheme>,
     );
   });

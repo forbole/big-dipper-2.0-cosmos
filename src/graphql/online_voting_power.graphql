@@ -17,3 +17,8 @@ subscription TotalVotingPowerListener {
   }
 }
 
+query StakingParams {
+  stakingParams: staking_params(limit: 1) {
+    bondDenom: bond_denom
+  }
+}

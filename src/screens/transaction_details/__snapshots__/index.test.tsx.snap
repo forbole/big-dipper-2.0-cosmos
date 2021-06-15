@@ -18,7 +18,10 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
         data={
           Object {
             "error": "",
-            "fee": 0.00005,
+            "fee": Object {
+              "denom": "daric",
+              "value": 0.00005,
+            },
             "gasUsed": 149488,
             "gasWanted": 200000,
             "hash": "7D373DE5C5FB03EA72006F6CEC8F908545D435AE1C598A1B53AD0770C243822A",

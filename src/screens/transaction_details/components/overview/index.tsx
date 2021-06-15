@@ -46,7 +46,7 @@ const Overview: React.FC<{
         },
         {
           label: t('fee'),
-          detail: numeral(data.fee).format('0,0.[0000]'),
+          detail: `${numeral(data.fee.value).format('0,0.[0000]')} ${data?.fee?.denom?.toUpperCase()}`,
         },
         {
           label: t('gas'),

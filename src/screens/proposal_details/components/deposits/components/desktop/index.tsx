@@ -10,7 +10,6 @@ import {
   TableBody,
 } from '@material-ui/core';
 import { AvatarName } from '@components';
-import { chainConfig } from '@configs';
 import { columns } from './utils';
 import { DepositType } from '../../../../types';
 
@@ -31,7 +30,7 @@ const Desktop: React.FC<{
           name={x.user.name}
         />
       ),
-      amount: `${numeral(x.amount).format('0,0.[000000]')} ${chainConfig.display.toUpperCase()}`,
+      amount: `${numeral(x.amount.value).format('0,0.[000000]')} ${x.amount.denom.toUpperCase()}`,
     });
   });
 

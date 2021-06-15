@@ -4,11 +4,11 @@ export type OverviewType = {
 }
 
 export type BalanceType = {
-  available: number;
-  delegate: number;
-  unbonding: number;
-  reward: number;
-  commission?: number;
+  available: TokenUnit;
+  delegate: TokenUnit;
+  unbonding: TokenUnit;
+  reward: TokenUnit;
+  commission?: TokenUnit;
   total: number;
 }
 
@@ -23,21 +23,21 @@ export type TransactionType = {
 export type DelegationType = {
   validator: AvatarName;
   commission: number;
-  amount: number;
-  reward: number;
+  amount: TokenUnit;
+  reward: TokenUnit;
 }
 
 export type RedelegationType = {
   to: AvatarName;
   from: AvatarName;
   linkedUntil: string;
-  amount: number;
+  amount: TokenUnit;
 }
 
 export type UnbondingType = {
   validator: AvatarName;
   commission: number;
-  amount: number;
+  amount: TokenUnit;
   linkedUntil: string;
 }
 

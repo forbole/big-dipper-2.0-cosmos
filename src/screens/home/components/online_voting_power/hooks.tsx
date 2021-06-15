@@ -6,16 +6,19 @@ import {
   useOnlineVotingPowerListenerSubscription,
   OnlineVotingPowerListenerSubscription,
   TotalVotingPowerListenerSubscription,
+  useStakingParamsQuery,
 } from '@graphql/types';
 
 const initialState: {
   height: number;
   votingPower: number;
   totalVotingPower: number;
+  denom: string;
 } = {
   height: 0,
   votingPower: 0,
   totalVotingPower: 0,
+  denom: '',
 };
 
 export const useOnlineVotingPower = () => {
@@ -24,6 +27,17 @@ export const useOnlineVotingPower = () => {
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
+
+  // ====================================
+  // staking params
+  // ====================================
+  useStakingParamsQuery({
+    onCompleted: (data) => {
+      handleSetState({
+        denom: R.pathOr('', ['stakingParams', 0, 'bondDenom'], data),
+      });
+    },
+  });
 
   // ====================================
   // block voting power
@@ -66,7 +80,7 @@ export const useOnlineVotingPower = () => {
       0,
       'bonded',
     ], data);
-    bonded = formatDenom(bonded);
+    bonded = formatDenom(bonded, state.denom).value;
     return bonded;
   };
 

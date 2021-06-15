@@ -29,7 +29,7 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
         "label": "transactions:time",
       },
       Object {
-        "detail": "0",
+        "detail": "5,000 DARIC",
         "label": "transactions:fee",
       },
       Object {

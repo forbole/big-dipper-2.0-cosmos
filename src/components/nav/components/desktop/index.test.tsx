@@ -26,7 +26,7 @@ describe('screen: Nav/Desktop', () => {
   beforeEach(() => {
     component = renderer.create(
       <MockTheme>
-        <Desktop />
+        <Desktop title="hello world" />
       </MockTheme>,
     );
   });

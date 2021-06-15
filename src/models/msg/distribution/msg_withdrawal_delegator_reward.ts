@@ -36,18 +36,18 @@ class MsgWithdrawDelegatorReward {
   static fromJson(json: any, log?: any) {
     const {
       amount = 0,
-      denom = chainConfig.base,
+      denom = chainConfig.primaryTokenUnit,
     } = this.getWithdrawalAmount(log);
 
-    const displayAmount = formatDenom(amount);
+    const displayAmount = formatDenom(amount, denom);
 
     return new MsgWithdrawDelegatorReward({
       json,
       type: json['@type'],
       delegatorAddress: json.delegator_address,
       validatorAddress: json.validator_address,
-      amount: displayAmount,
-      denom: denom === chainConfig.base ? chainConfig.display : denom,
+      amount: displayAmount.value,
+      denom: displayAmount.denom,
     });
   }
 }

@@ -7,7 +7,6 @@ import {
 
 } from '@graphql/types';
 import { formatDenom } from '@utils/format_denom';
-import { chainConfig } from '@configs';
 
 export const useTokenomics = () => {
   const [state, setState] = useState<{
@@ -15,11 +14,13 @@ export const useTokenomics = () => {
     unbonded: number;
     unbonding: number;
     total: number;
+    denom: string;
   }>({
     bonded: 0,
     unbonded: 0,
     unbonding: 0,
     total: 0,
+    denom: '',
   });
 
   useTokenomicsQuery({
@@ -31,14 +32,16 @@ export const useTokenomics = () => {
   const formatTokenomics = (data: TokenomicsQuery) => {
     const results = { ...state };
 
+    results.denom = R.pathOr('', ['stakingParams', 0, 'bondDenom'], data);
+
     const [total] = R.pathOr([], [
       'supply',
       0,
       'coins',
     ], data)
-      .filter((x) => x.denom === chainConfig.base);
+      .filter((x) => x.denom === results.denom);
     if (total) {
-      results.total = formatDenom(numeral(total.amount).value());
+      results.total = formatDenom(numeral(total.amount).value(), total.denom).value;
     }
 
     const bonded = R.pathOr(state.bonded, [
@@ -46,17 +49,18 @@ export const useTokenomics = () => {
       0,
       'bonded',
     ], data);
-    results.bonded = formatDenom(bonded);
+    results.bonded = formatDenom(bonded, results.denom).value;
 
     const unbonding = R.pathOr(state.bonded, [
       'stakingPool',
       0,
       'unbonded',
     ], data);
-    results.unbonding = formatDenom(unbonding);
+    results.unbonding = formatDenom(unbonding, results.denom).value;
 
     const unbonded = results.total - results.unbonding - results.bonded;
     results.unbonded = unbonded;
+
     return results;
   };
 
