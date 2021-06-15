@@ -14525,7 +14525,10 @@ export type AccountQueryVariables = Exact<{
 }>;
 
 
-export type AccountQuery = { account: Array<(
+export type AccountQuery = { stakingParams: Array<(
+    { __typename?: 'staking_params' }
+    & { bondDenom: Staking_Params['bond_denom'] }
+  )>, account: Array<(
     { __typename?: 'account' }
     & Pick<Account, 'address'>
     & { accountBalances: Array<(
@@ -15072,6 +15075,9 @@ export type ValidatorsAddressListQuery = { validator: Array<(
 
 export const AccountDocument = gql`
     query Account($address: String, $utc: timestamp) {
+  stakingParams: staking_params(limit: 1) {
+    bondDenom: bond_denom
+  }
   account(where: {address: {_eq: $address}}) {
     address
     accountBalances: account_balances(limit: 1, order_by: {height: desc}) {

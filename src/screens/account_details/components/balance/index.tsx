@@ -133,7 +133,7 @@ const Balance: React.FC<{
               {' '}
               /
               {' '}
-              {chainConfig.primaryTokenUnit.toUpperCase()}
+              {chainConfig.tokenUnits[chainConfig.primaryTokenUnit]?.display.toUpperCase()}
             </Typography>
             <Typography variant="body1">
               {totalAmount}
