@@ -14786,6 +14786,14 @@ export type TotalVotingPowerListenerSubscription = { stakingPool: Array<(
     & { bonded: Staking_Pool['bonded_tokens'] }
   )> };
 
+export type StakingParamsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type StakingParamsQuery = { stakingParams: Array<(
+    { __typename?: 'staking_params' }
+    & { bondDenom: Staking_Params['bond_denom'] }
+  )> };
+
 export type ProposalDetailsQueryVariables = Exact<{
   proposalId?: Maybe<Scalars['Int']>;
 }>;
@@ -15616,6 +15624,40 @@ export function useTotalVotingPowerListenerSubscription(baseOptions?: Apollo.Sub
       }
 export type TotalVotingPowerListenerSubscriptionHookResult = ReturnType<typeof useTotalVotingPowerListenerSubscription>;
 export type TotalVotingPowerListenerSubscriptionResult = Apollo.SubscriptionResult<TotalVotingPowerListenerSubscription>;
+export const StakingParamsDocument = gql`
+    query StakingParams {
+  stakingParams: staking_params(limit: 1) {
+    bondDenom: bond_denom
+  }
+}
+    `;
+
+/**
+ * __useStakingParamsQuery__
+ *
+ * To run a query within a React component, call `useStakingParamsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useStakingParamsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useStakingParamsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useStakingParamsQuery(baseOptions?: Apollo.QueryHookOptions<StakingParamsQuery, StakingParamsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<StakingParamsQuery, StakingParamsQueryVariables>(StakingParamsDocument, options);
+      }
+export function useStakingParamsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<StakingParamsQuery, StakingParamsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<StakingParamsQuery, StakingParamsQueryVariables>(StakingParamsDocument, options);
+        }
+export type StakingParamsQueryHookResult = ReturnType<typeof useStakingParamsQuery>;
+export type StakingParamsLazyQueryHookResult = ReturnType<typeof useStakingParamsLazyQuery>;
+export type StakingParamsQueryResult = Apollo.QueryResult<StakingParamsQuery, StakingParamsQueryVariables>;
 export const ProposalDetailsDocument = gql`
     query ProposalDetails($proposalId: Int) {
   proposal(where: {id: {_eq: $proposalId}}) {
