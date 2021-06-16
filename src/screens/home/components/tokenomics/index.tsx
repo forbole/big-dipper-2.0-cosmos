@@ -12,6 +12,7 @@ import {
   Cell,
   Tooltip,
 } from 'recharts';
+import { chainConfig } from '@configs';
 import { useStyles } from './styles';
 import { useTokenomics } from './hooks';
 
@@ -60,6 +61,8 @@ const Tokenomics:React.FC<{
           <div className="data__item" key={x.percentKey}>
             <Typography variant="h4">
               {x.value}
+              {' '}
+              {chainConfig.tokenUnits[state.denom]?.display?.toUpperCase()}
             </Typography>
             <Typography variant="caption">
               {t(x.percentKey, {
