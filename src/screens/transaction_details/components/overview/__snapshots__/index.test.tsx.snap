@@ -47,6 +47,11 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
         "detail": "",
         "label": "transactions:memo",
       },
+      Object {
+        "className": "memo",
+        "detail": "",
+        "label": "transactions:error",
+      },
     ]
   }
   id="BoxDetails"
