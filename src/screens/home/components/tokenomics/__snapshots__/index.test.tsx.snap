@@ -20,6 +20,7 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
         className="MuiTypography-root MuiTypography-h4"
       >
         0
+         
       </h4>
       <span
         className="MuiTypography-root MuiTypography-caption"
@@ -34,6 +35,7 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
         className="MuiTypography-root MuiTypography-h4"
       >
         0
+         
       </h4>
       <span
         className="MuiTypography-root MuiTypography-caption"
