@@ -5,6 +5,7 @@ import express, {
 import next from 'next';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import helmet from 'helmet';
 
 dotenv.config();
 
@@ -12,14 +13,17 @@ const isDev = process.env.NODE_ENV !== 'production';
 const app = next({
   dev: isDev,
 });
+
 const handle = app.getRequestHandler();
+
 const port = process.env.PORT || 3000;
 
 (async () => {
   try {
     await app.prepare();
     const server = express();
-
+    server.use(helmet.hidePoweredBy());
+    // server.use(helmet());
     server.use(cors());
 
     server.all('*', (req: Request, res: Response) => {
