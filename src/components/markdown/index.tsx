@@ -13,6 +13,7 @@ import {
 // });
 
 const options = {
+  disableParsingRawHTML: true,
   overrides: {
     h1: {
       component: Typography,
