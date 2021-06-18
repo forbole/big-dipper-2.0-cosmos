@@ -187,7 +187,7 @@ export const useAccountDetails = () => {
         R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data),
         chainConfig.primaryTokenUnit,
       );
-      const availableAmount = formatDenom(available.amount, available.denom);
+      const availableAmount = formatDenom(available.amount, chainConfig.primaryTokenUnit);
 
       const delegate = R.pathOr([], ['account', 0, 'delegations'], data).reduce((a, b) => {
         return a + numeral(b.amount.amount).value();
@@ -202,16 +202,17 @@ export const useAccountDetails = () => {
       const unbondingAmount = formatDenom(unbonding, unbondingDenom);
 
       const reward = R.pathOr([], ['account', 0, 'delegationRewards'], data).reduce((a, b) => {
-        const denom = getDenom(b.amount);
+        const denom = getDenom(b.amount, chainConfig.primaryTokenUnit);
         return a + numeral(denom.amount).value();
       }, 0);
-      const rewardDenom = R.pathOr('', ['account', 0, 'delegationRewards', 0, 'amount', 0, 'denom'], data);
-      const rewardAmount = formatDenom(reward, rewardDenom);
+      // only display primary token in balance
+      const rewardAmount = formatDenom(reward, chainConfig.primaryTokenUnit);
 
       const commission = getDenom(
         R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data),
+        chainConfig.primaryTokenUnit,
       );
-      const commissionAmount = formatDenom(commission.amount, commission.denom);
+      const commissionAmount = formatDenom(commission.amount, chainConfig.primaryTokenUnit);
 
       const total = (
         availableAmount.value
@@ -241,7 +242,7 @@ export const useAccountDetails = () => {
     const formatDelegations = () => {
       const rewardsDict = {};
       data.account[0].delegationRewards.forEach((x) => {
-        const denomAmount = getDenom(x.amount);
+        const denomAmount = getDenom(x.amount, chainConfig.primaryTokenUnit);
         const denomFormat = formatDenom(denomAmount.amount, denomAmount.denom);
         rewardsDict[x.validator.validatorInfo.operatorAddress] = denomFormat;
       });
