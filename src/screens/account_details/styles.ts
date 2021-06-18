@@ -22,6 +22,11 @@ export const useStyles = () => {
             gridColumn: '1 / 3',
           },
         },
+        otherTokens: {
+          [theme.breakpoints.up('lg')]: {
+            gridColumn: '1 / 3',
+          },
+        },
         overview: {
           [theme.breakpoints.up('lg')]: {
             gridColumn: '1 / 3',

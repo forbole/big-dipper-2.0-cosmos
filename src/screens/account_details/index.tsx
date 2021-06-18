@@ -10,6 +10,7 @@ import {
   Balance,
   Staking,
   Transactions,
+  OtherTokens,
 } from './components';
 import { useAccountDetails } from './hooks';
 
@@ -40,6 +41,9 @@ const AccountDetails = () => {
             reward={state.balance.reward}
             commission={state.balance.commission}
             total={state.balance.total}
+          />
+          <OtherTokens
+            className={classes.otherTokens}
           />
           <Staking
             className={classes.staking}
