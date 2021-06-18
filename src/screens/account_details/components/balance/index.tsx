@@ -34,7 +34,7 @@ const Balance: React.FC<{
   } = useStyles();
   const { market } = useChainContext();
   const formattedChartData = formatBalanceData(props);
-
+  console.log(props.reward, 'reward');
   const empty = {
     key: 'empty',
     value: 2400,

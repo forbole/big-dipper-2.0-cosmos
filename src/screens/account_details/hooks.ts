@@ -192,13 +192,13 @@ export const useAccountDetails = () => {
       const delegate = R.pathOr([], ['account', 0, 'delegations'], data).reduce((a, b) => {
         return a + numeral(b.amount.amount).value();
       }, 0);
-      const delegateDenom = R.pathOr('', ['stakingParams', 0, 'bondDenom'], data);
+      const delegateDenom = R.pathOr(chainConfig.primaryTokenUnit, ['stakingParams', 0, 'bondDenom'], data);
       const delegateAmount = formatDenom(delegate, delegateDenom);
 
       const unbonding = R.pathOr([], ['account', 0, 'unbonding'], data).reduce((a, b) => {
         return a + numeral(b.amount.amount).value();
       }, 0);
-      const unbondingDenom = R.pathOr('', ['stakingParams', 0, 'bondDenom'], data);
+      const unbondingDenom = R.pathOr(chainConfig.primaryTokenUnit, ['stakingParams', 0, 'bondDenom'], data);
       const unbondingAmount = formatDenom(unbonding, unbondingDenom);
 
       const reward = R.pathOr([], ['account', 0, 'delegationRewards'], data).reduce((a, b) => {
@@ -331,7 +331,6 @@ export const useAccountDetails = () => {
     };
 
     stateChange.unbondings = formatUnbondings();
-
     return stateChange;
   };
 

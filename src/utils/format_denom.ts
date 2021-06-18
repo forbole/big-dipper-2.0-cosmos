@@ -12,6 +12,10 @@ export const formatDenom = (value: number | string, denom: string): {
 } => {
   const selectedDenom = chainConfig.tokenUnits[denom];
 
+  if (typeof value !== 'string' && typeof value !== 'number') {
+    value = 0;
+  }
+
   if (typeof value === 'string') {
     value = numeral(value).value() as number;
   }
