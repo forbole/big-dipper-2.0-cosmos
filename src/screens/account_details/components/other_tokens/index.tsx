@@ -13,14 +13,20 @@ import {
 } from '@hooks';
 import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
+import { OtherTokenType } from '../../types';
 
 const Desktop = dynamic(() => import('./components/desktop'));
 // const Mobile = dynamic(() => import('./components/mobile'));
 
 export const OtherTokens: React.FC<{
   className?: string;
+  otherTokens: {
+    data: OtherTokenType[],
+    count: number;
+  }
 }> = ({
   className,
+  otherTokens,
 }) => {
   const { t } = useTranslation('accounts');
   // const { isDesktop } = useScreenSize();
@@ -33,7 +39,7 @@ export const OtherTokens: React.FC<{
     sliceItems,
   } = usePagination({});
 
-  const data = [];
+  const { data } = otherTokens;
   const count = data.length;
   // if (!data.length) {
   //   return null;

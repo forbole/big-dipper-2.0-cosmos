@@ -27,6 +27,41 @@ export const useAccountDetails = () => {
       address: '',
       withdrawalAddress: '',
     },
+    otherTokens: {
+      count: 2,
+      data: [
+        {
+          denom: 'ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84',
+          available: {
+            value: 100,
+            denom: 'ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84',
+          },
+          reward: {
+            value: 100,
+            denom: 'ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84',
+          },
+          commission: {
+            value: 0,
+            denom: 'ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84',
+          },
+        },
+        {
+          denom: 'ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84',
+          available: {
+            value: 100,
+            denom: 'ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84',
+          },
+          reward: {
+            value: 100,
+            denom: 'ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84',
+          },
+          commission: {
+            value: 0,
+            denom: 'ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84',
+          },
+        },
+      ],
+    },
     balance: {
       available: {
         value: 0,

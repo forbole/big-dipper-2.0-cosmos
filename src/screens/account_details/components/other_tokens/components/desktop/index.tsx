@@ -9,15 +9,12 @@ import {
   TableCell,
   TableBody,
 } from '@material-ui/core';
-import {
-  AvatarName,
-} from '@components';
-import { DelegationType } from '@src/screens/account_details/types';
+import { OtherTokenType } from '@src/screens/account_details/types';
 import { columns } from './utils';
 
 const Desktop: React.FC<{
   className?: string;
-  items?: DelegationType[];
+  items?: OtherTokenType[];
 }> = ({
   className,
   items,
@@ -26,19 +23,14 @@ const Desktop: React.FC<{
 
   const formattedItems = items.map((x) => {
     return ({
-      validator: (
-        <AvatarName
-          name={x.validator.name}
-          address={x.validator.address}
-          imageUrl={x.validator.imageUrl}
-        />
-      ),
-      commission: `${numeral(x.commission * 100).format('0.00')}%`,
-      amount: `${numeral(x.amount.value).format('0,0.[0000]')} ${x.amount.denom.toUpperCase()}`,
-      reward: `${numeral(x.reward.value).format('0,0.[0000]')} ${x.reward.denom.toUpperCase()}`,
+      token: x.denom,
+      commission: `${numeral(x.commission.value).format('0,0.[0000]')}`,
+      available: `${numeral(x.available.value).format('0,0.[0000]')}`,
+      reward: `${numeral(x.reward.value).format('0,0.[0000]')}`,
     });
   });
 
+  console.log(formattedItems, 'items');
   return (
     <div className={classnames(className)}>
       <Table>

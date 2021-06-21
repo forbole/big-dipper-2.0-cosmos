@@ -44,6 +44,7 @@ const AccountDetails = () => {
           />
           <OtherTokens
             className={classes.otherTokens}
+            otherTokens={state.otherTokens}
           />
           <Staking
             className={classes.staking}

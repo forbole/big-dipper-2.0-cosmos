@@ -8,7 +8,7 @@ export const columns:{
     width: 25,
   },
   {
-    key: 'balanceAvailable',
+    key: 'available',
     width: 25,
     align: 'right',
   },
