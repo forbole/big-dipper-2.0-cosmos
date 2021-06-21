@@ -6,6 +6,7 @@ export const useStyles = () => {
       return ({
         list: {
           margin: theme.spacing(2, 0),
+          width: '100%',
         },
         item: {
           marginBottom: theme.spacing(2),
@@ -15,6 +16,7 @@ export const useStyles = () => {
           },
           '& p.value': {
             color: theme.palette.custom.fonts.fontTwo,
+            wordBreak: 'break-all',
           },
           '& a': {
             color: theme.palette.custom.fonts.highlight,

@@ -201,6 +201,8 @@ export const useAccountDetails = () => {
       return stateChange;
     }
 
+    console.log(data, 'data');
+
     // ============================
     // overview
     // ============================
@@ -270,6 +272,47 @@ export const useAccountDetails = () => {
     };
 
     stateChange.balance = formatBalance();
+
+    // ============================
+    // other tokens
+    // ============================
+    const formatOtherTokens = () => {
+      // Later remove the primary token
+      // Loop through balance and delegation to figure out what the other tokens are
+      const otherTokens = new Set();
+      const results = [];
+      // available tokens
+      const available = R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data).forEach((x) => {
+        otherTokens.add(x.denom);
+      });
+
+      // rewards tokens
+      const rewards = R.pathOr([], ['account', 0, 'delegationRewards'], data).forEach((x) => {
+        x.amount.forEach((y) => {
+          otherTokens.add(y.denom);
+        });
+      });
+
+      // commission tokens
+      const commission = R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data).forEach((x) => {
+        otherTokens.add(x.denom);
+      });
+
+      otherTokens.forEach((x) => {
+        console.log(x, 'other token x');
+        // find their reward / available / commission amounts
+        // const available = getDenom(
+        //   R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data),
+        //   chainConfig.primaryTokenUnit,
+        // );
+
+        // const availableAmount = formatDenom(available.amount, chainConfig.primaryTokenUnit);
+      });
+    };
+
+    formatOtherTokens();
+
+    // stateChange.otherTokens = formatOtherTokens();
 
     // ============================
     // delegations

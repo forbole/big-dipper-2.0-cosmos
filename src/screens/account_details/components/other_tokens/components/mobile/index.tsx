@@ -6,15 +6,12 @@ import {
   Divider,
   Typography,
 } from '@material-ui/core';
-import {
-  AvatarName,
-} from '@components';
-import { DelegationType } from '@src/screens/account_details/types';
+import { OtherTokenType } from '@src/screens/account_details/types';
 import { useStyles } from './styles';
 
 const Mobile: React.FC<{
   className?: string;
-  items?: DelegationType[];
+  items?: OtherTokenType[];
 }> = ({
   className, items,
 }) => {
@@ -29,31 +26,18 @@ const Mobile: React.FC<{
             <div className={classes.list}>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
-                  {t('validator')}
-                </Typography>
-                <AvatarName
-                  name={x.validator.name}
-                  address={x.validator.address}
-                  imageUrl={x.validator.imageUrl}
-                />
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('commission')}
+                  {t('token')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {numeral(x.commission * 100).format('0.00')}
-                  %
+                  {x.denom}
                 </Typography>
               </div>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
-                  {t('amount')}
+                  {t('available')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {numeral(x.amount.value).format('0,0.[0000]')}
-                  {' '}
-                  {x.amount.denom.toUpperCase()}
+                  {numeral(x.available.value).format('0,0.[0000]')}
                 </Typography>
               </div>
               <div className={classes.item}>
@@ -62,8 +46,14 @@ const Mobile: React.FC<{
                 </Typography>
                 <Typography variant="body1" className="value">
                   {numeral(x.reward.value).format('0,0.[0000]')}
-                  {' '}
-                  {x.reward.denom.toUpperCase()}
+                </Typography>
+              </div>
+              <div className={classes.item}>
+                <Typography variant="h4" className="label">
+                  {t('commission')}
+                </Typography>
+                <Typography variant="body1" className="value">
+                  {numeral(x.commission.value).format('0,0.[0000]')}
                 </Typography>
               </div>
             </div>

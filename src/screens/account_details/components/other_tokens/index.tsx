@@ -9,14 +9,14 @@ import {
 
 import {
   usePagination,
-  // useScreenSize,
+  useScreenSize,
 } from '@hooks';
 import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 import { OtherTokenType } from '../../types';
 
 const Desktop = dynamic(() => import('./components/desktop'));
-// const Mobile = dynamic(() => import('./components/mobile'));
+const Mobile = dynamic(() => import('./components/mobile'));
 
 export const OtherTokens: React.FC<{
   className?: string;
@@ -29,7 +29,7 @@ export const OtherTokens: React.FC<{
   otherTokens,
 }) => {
   const { t } = useTranslation('accounts');
-  // const { isDesktop } = useScreenSize();
+  const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const {
     page,
@@ -41,9 +41,9 @@ export const OtherTokens: React.FC<{
 
   const { data } = otherTokens;
   const count = data.length;
-  // if (!data.length) {
-  //   return null;
-  // }
+  if (!data.length) {
+    return null;
+  }
 
   const items = sliceItems(data);
 
@@ -52,12 +52,12 @@ export const OtherTokens: React.FC<{
       <Typography variant="h2">
         {t('otherTokens')}
       </Typography>
-      <Desktop className={classes.desktop} items={items} />
-      {/* {isDesktop ? (
+
+      {isDesktop ? (
         <Desktop className={classes.desktop} items={items} />
       ) : (
         <Mobile className={classes.mobile} items={items} />
-      )} */}
+      )}
       <Pagination
         className={classes.paginate}
         total={count}
