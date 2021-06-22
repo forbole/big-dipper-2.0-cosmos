@@ -19,14 +19,17 @@ export const useStyles = () => {
         },
         balance: {
           [theme.breakpoints.up('lg')]: {
-            gridColumn: '1 / 2',
-            // height: '360px',
+            gridColumn: '1 / 3',
+          },
+        },
+        otherTokens: {
+          [theme.breakpoints.up('lg')]: {
+            gridColumn: '1 / 3',
           },
         },
         overview: {
           [theme.breakpoints.up('lg')]: {
-            gridColumn: '2 / 3',
-            // height: '360px',
+            gridColumn: '1 / 3',
           },
         },
         staking: {

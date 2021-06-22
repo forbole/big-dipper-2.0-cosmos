@@ -22,5 +22,8 @@
   "balanceDelegate": "Delegate",
   "balanceUnbonding": "Unbonding",
   "balanceReward": "Reward",
-  "balanceCommission": "Commission"
+  "balanceCommission": "Commission",
+  "otherTokens": "Other Tokens",
+  "token": "Token",
+  "available": "Available"
 }

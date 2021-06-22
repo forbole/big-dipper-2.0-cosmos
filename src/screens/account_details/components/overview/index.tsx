@@ -103,7 +103,7 @@ const Overview: React.FC<{
   };
 
   const url = `${process.env.NEXT_PUBLIC_URL}/accounts/${address}`;
-  const hashTags = ['#forbole', '#bigdipper'];
+  const hashTags = ['bigdipperexplorer', 'bigdipper'];
   return (
     <>
       <Dialog
