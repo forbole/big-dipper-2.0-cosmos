@@ -201,8 +201,6 @@ export const useAccountDetails = () => {
       return stateChange;
     }
 
-    console.log(data, 'data');
-
     // ============================
     // overview
     // ============================
@@ -279,40 +277,64 @@ export const useAccountDetails = () => {
     const formatOtherTokens = () => {
       // Later remove the primary token
       // Loop through balance and delegation to figure out what the other tokens are
-      const otherTokens = new Set();
-      const results = [];
+      const otherTokenUnits = new Set();
+      const otherTokens = [];
       // available tokens
-      const available = R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data).forEach((x) => {
-        otherTokens.add(x.denom);
+      const available = R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data);
+
+      available.forEach((x) => {
+        otherTokenUnits.add(x.denom);
       });
 
       // rewards tokens
-      const rewards = R.pathOr([], ['account', 0, 'delegationRewards'], data).forEach((x) => {
+      const rewards = R.pathOr([], ['account', 0, 'delegationRewards'], data);
+
+      rewards.forEach((x) => {
         x.amount.forEach((y) => {
-          otherTokens.add(y.denom);
+          otherTokenUnits.add(y.denom);
         });
       });
 
       // commission tokens
-      const commission = R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data).forEach((x) => {
-        otherTokens.add(x.denom);
+      const commission = R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data);
+
+      commission.forEach((x) => {
+        otherTokenUnits.add(x.denom);
       });
 
-      otherTokens.forEach((x) => {
-        console.log(x, 'other token x');
-        // find their reward / available / commission amounts
-        // const available = getDenom(
-        //   R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data),
-        //   chainConfig.primaryTokenUnit,
-        // );
+      // remove the primary token unit thats being shown in balance
+      otherTokenUnits.delete(chainConfig.primaryTokenUnit);
 
-        // const availableAmount = formatDenom(available.amount, chainConfig.primaryTokenUnit);
+      otherTokenUnits.forEach((x: string) => {
+        const availableRawAmount = getDenom(available, x);
+        const availableAmount = formatDenom(availableRawAmount.amount, x);
+
+        const rewardsRawAmount = rewards.reduce((a, b) => {
+          const denom = getDenom(b.amount, x);
+          return a + numeral(denom.amount).value();
+        }, 0);
+        const rewardAmount = formatDenom(rewardsRawAmount, x);
+
+        const commissionRawAmount = getDenom(commission, x);
+        const commissionAmount = formatDenom(commissionRawAmount.amount, x);
+
+        otherTokens.push({
+          denom: R.pathOr(x, ['tokenUnits', x, 'display'], chainConfig),
+          available: availableAmount,
+          reward: rewardAmount,
+          commission: commissionAmount,
+        });
+      });
+
+      return ({
+        data: otherTokens,
+        count: otherTokens.length,
       });
     };
 
     formatOtherTokens();
 
-    // stateChange.otherTokens = formatOtherTokens();
+    stateChange.otherTokens = formatOtherTokens();
 
     // ============================
     // delegations

@@ -29,7 +29,7 @@ const Mobile: React.FC<{
                   {t('token')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {x.denom}
+                  {x.denom.toUpperCase()}
                 </Typography>
               </div>
               <div className={classes.item}>
