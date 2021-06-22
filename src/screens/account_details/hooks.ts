@@ -28,39 +28,8 @@ export const useAccountDetails = () => {
       withdrawalAddress: '',
     },
     otherTokens: {
-      count: 2,
-      data: [
-        {
-          denom: 'ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84',
-          available: {
-            value: 100,
-            denom: 'ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84',
-          },
-          reward: {
-            value: 100,
-            denom: 'ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84',
-          },
-          commission: {
-            value: 0,
-            denom: 'ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84',
-          },
-        },
-        {
-          denom: 'ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84',
-          available: {
-            value: 100,
-            denom: 'ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84',
-          },
-          reward: {
-            value: 100,
-            denom: 'ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84',
-          },
-          commission: {
-            value: 0,
-            denom: 'ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84',
-          },
-        },
-      ],
+      count: 0,
+      data: [],
     },
     balance: {
       available: {
@@ -275,7 +244,6 @@ export const useAccountDetails = () => {
     // other tokens
     // ============================
     const formatOtherTokens = () => {
-      // Later remove the primary token
       // Loop through balance and delegation to figure out what the other tokens are
       const otherTokenUnits = new Set();
       const otherTokens = [];
@@ -343,7 +311,7 @@ export const useAccountDetails = () => {
       const rewardsDict = {};
       data.account[0].delegationRewards.forEach((x) => {
         const denomAmount = getDenom(x.amount, chainConfig.primaryTokenUnit);
-        const denomFormat = formatDenom(denomAmount.amount, denomAmount.denom);
+        const denomFormat = formatDenom(denomAmount.amount, chainConfig.primaryTokenUnit);
         rewardsDict[x.validator.validatorInfo.operatorAddress] = denomFormat;
       });
 

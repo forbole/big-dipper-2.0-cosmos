@@ -1,0 +1,159 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: BlockDetails matches snapshot 1`] = `
+<div
+  id="Layout"
+  navTitle="accounts:accountDetails"
+  title="accounts:accountDetails"
+>
+  <div
+    exists={true}
+    id="LoadAndExist"
+    loading={false}
+  >
+    <span
+      className="makeStyles-root"
+    >
+      <div
+        address="desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr"
+        className="makeStyles-overview"
+        id="Overview"
+        withdrawalAddress="desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr"
+      />
+      <div
+        available={
+          Object {
+            "denom": "daric",
+            "value": 21.280246,
+          }
+        }
+        className="makeStyles-balance"
+        commission={
+          Object {
+            "denom": "daric",
+            "value": 0.725602207464032,
+          }
+        }
+        delegate={
+          Object {
+            "denom": "daric",
+            "value": 1632425.218854,
+          }
+        }
+        id="Balance"
+        reward={
+          Object {
+            "denom": "daric",
+            "value": 58219.06133827526,
+          }
+        }
+        total={1690666.2860404828}
+        unbonding={
+          Object {
+            "denom": "daric",
+            "value": 0,
+          }
+        }
+      />
+      <div
+        className="makeStyles-otherTokens"
+        id="OtherTokens"
+        otherTokens={
+          Object {
+            "count": 2,
+            "data": Array [
+              Object {
+                "available": Object {
+                  "denom": "someotherbalance",
+                  "value": 21280246,
+                },
+                "commission": Object {
+                  "denom": "someotherbalance",
+                  "value": 0,
+                },
+                "denom": "someotherbalance",
+                "reward": Object {
+                  "denom": "someotherbalance",
+                  "value": 0,
+                },
+              },
+              Object {
+                "available": Object {
+                  "denom": "ufootoken",
+                  "value": 0,
+                },
+                "commission": Object {
+                  "denom": "ufootoken",
+                  "value": 0,
+                },
+                "denom": "ufootoken",
+                "reward": Object {
+                  "denom": "ufootoken",
+                  "value": 58219061338,
+                },
+              },
+            ],
+          }
+        }
+      />
+      <div
+        className="makeStyles-staking"
+        delegations={
+          Object {
+            "count": 1,
+            "data": Array [
+              Object {
+                "amount": Object {
+                  "denom": "daric",
+                  "value": 1632425.218854,
+                },
+                "commission": 0.0999,
+                "reward": Object {
+                  "denom": "daric",
+                  "value": 58219.06133827526,
+                },
+                "validator": Object {
+                  "address": "desmosvaloper1u0dae8r8hay6r2gvccegg2fz6ryftf2wfnj5ft",
+                  "imageUrl": null,
+                  "name": "moniker",
+                },
+              },
+            ],
+          }
+        }
+        id="Staking"
+        redelegations={
+          Object {
+            "count": 0,
+            "data": Array [],
+          }
+        }
+        unbondings={
+          Object {
+            "count": 0,
+            "data": Array [],
+          }
+        }
+      />
+      <div
+        className="makeStyles-transactions"
+        data={
+          Array [
+            Object {
+              "hash": "6BC372069E41B5493B785002FD795746384A07C3F373FF6E2CAD6ABDE29860BA",
+              "height": 793314,
+              "messages": 2,
+              "success": true,
+              "timestamp": "2021-06-22T03:40:33.804715",
+            },
+          ]
+        }
+        hasNextPage={false}
+        id="Transactions"
+        isNextPageLoading={false}
+        loadNextPage={[Function]}
+      />
+    </span>
+  </div>
+</div>
+`;

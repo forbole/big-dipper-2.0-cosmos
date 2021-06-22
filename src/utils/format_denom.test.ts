@@ -20,49 +20,49 @@ jest.mock('@configs', () => ({
 // unit tests
 // ==================================
 describe('utils: formatDenom', () => {
-  xit('formats correctly 1', async () => {
+  it('formats correctly 1', async () => {
     const results = formatDenom('1000000', 'udaric');
     expect(results.value).toBe(1);
     expect(results.denom).toBe('daric');
   });
 
-  xit('formats correctly 2', async () => {
+  it('formats correctly 2', async () => {
     const results = formatDenom('1000000', 'upotic');
     expect(results.value).toBe(1000000);
     expect(results.denom).toBe('potic');
   });
 
-  xit('when token unit is unknown', async () => {
+  it('when token unit is unknown', async () => {
     const results = formatDenom('1000000', 'unknown');
     expect(results.value).toBe(1000000);
     expect(results.denom).toBe('unknown');
   });
 
-  xit('when unit is less than 1', async () => {
+  it('when unit is less than 1', async () => {
     const results = formatDenom('0.1', 'udaric');
     expect(results.value).toBe(0);
     expect(results.denom).toBe('daric');
   });
 
-  xit('bdjuno testcase: 1', async () => {
+  it('bdjuno testcase: 1', async () => {
     const results = formatDenom('3591842519.561197300000000000', 'udaric');
     expect(results.value).toBe(3591.842519561197);
     expect(results.denom).toBe('daric');
   });
 
-  xit('bdjuno testcase: 2', async () => {
+  it('bdjuno testcase: 2', async () => {
     const results = formatDenom('0', 'udaric');
     expect(results.value).toBe(0);
     expect(results.denom).toBe('daric');
   });
 
-  xit('bdjuno testcase: 3', async () => {
+  it('bdjuno testcase: 3', async () => {
     const results = formatDenom(undefined, 'udaric');
     expect(results.value).toBe(0);
     expect(results.denom).toBe('daric');
   });
 
-  xit('bdjuno testcase: 4', async () => {
+  it('bdjuno testcase: 4', async () => {
     const results = formatDenom(null, 'udaric');
     expect(results.value).toBe(0);
     expect(results.denom).toBe('daric');
