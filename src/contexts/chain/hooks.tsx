@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import * as R from 'ramda';
-import axios from 'axios';
 import numeral from 'numeral';
 import {
   useValidatorsAddressListQuery,
@@ -56,8 +55,6 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
     // ===============================
     // Set up initial dictionary and axios calls
     // ===============================
-    const promiseIndexTracker = {};
-    const promises = [];
 
     data?.validator?.forEach((x) => {
       const validatorAddress = x.validatorInfo.operatorAddress;
@@ -86,40 +83,11 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
 
       if (
         x.validatorDescriptions.length
-        && x.validatorDescriptions[0].identity
-        && x.validatorDescriptions[0].identity.length === 16
+        && x.validatorDescriptions[0].avatarUrl
       ) {
-        const keyBaseIdentity = x.validatorDescriptions[0].identity;
-        // batch promises and index
-        const promise = axios.get(`https://keybase.io/_/api/1.0/user/lookup.json?key_suffix=${keyBaseIdentity}&fields=basics&fields=pictures`);
-
-        promises.push(promise);
-        promiseIndexTracker[promises.length - 1] = validatorAddress;
+        validators[validatorAddress].imageUrl = x.validatorDescriptions[0].avatarUrl;
       }
     });
-
-    // ===============================
-    // Set imageUrl in to the dictionary
-    // ===============================
-    await Promise.allSettled(promises)
-      .then((results) => {
-        results.forEach((result, index) => {
-          const keybaseStatus = R.pathOr(null, ['value', 'data', 'status', 'code'], result);
-          const keybaseData = R.pathOr(null, ['value', 'data', 'them', 0], result);
-          if (
-            result.status === 'fulfilled'
-            && keybaseStatus === 0
-            && keybaseData
-          ) {
-            const validator = promiseIndexTracker[index];
-            const imageUrl = R.pathOr(null, ['pictures', 'primary', 'url'], keybaseData);
-
-            if (validator) {
-              validators[validator].imageUrl = imageUrl;
-            }
-          }
-        });
-      });
 
     return {
       validators,
