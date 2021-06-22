@@ -44,6 +44,36 @@ describe('utils: formatDenom', () => {
     expect(results.denom).toBe('daric');
   });
 
+  it('bdjuno testcase: 1', async () => {
+    const results = formatDenom('3591842519.561197300000000000', 'udaric');
+    expect(results.value).toBe(3591.842519561197);
+    expect(results.denom).toBe('daric');
+  });
+
+  it('bdjuno testcase: 2', async () => {
+    const results = formatDenom('0', 'udaric');
+    expect(results.value).toBe(0);
+    expect(results.denom).toBe('daric');
+  });
+
+  it('bdjuno testcase: 3', async () => {
+    const results = formatDenom(undefined, 'udaric');
+    expect(results.value).toBe(0);
+    expect(results.denom).toBe('daric');
+  });
+
+  it('bdjuno testcase: 4', async () => {
+    const results = formatDenom(null, 'udaric');
+    expect(results.value).toBe(0);
+    expect(results.denom).toBe('daric');
+  });
+
+  it('bdjuno testcase: 5', async () => {
+    const results = formatDenom('3259217548.864862539902764586', 'udaric');
+    expect(results.value).toBeLessThan(3259.217548864862539902764586);
+    expect(results.denom).toBe('daric');
+  });
+
   afterEach(() => {
     jest.clearAllMocks();
   });

@@ -12,6 +12,13 @@ export type BalanceType = {
   total: number;
 }
 
+export type OtherTokenType = {
+  denom: string;
+  available: TokenUnit;
+  reward: TokenUnit;
+  commission: TokenUnit;
+}
+
 export type TransactionType = {
   height: number;
   hash: string;
@@ -46,6 +53,10 @@ export type AccountDetailState = {
   exists: boolean;
   overview: OverviewType;
   balance: BalanceType;
+  otherTokens: {
+    data: OtherTokenType[];
+    count: number;
+  };
   delegations: {
     data: DelegationType[];
     count: number;

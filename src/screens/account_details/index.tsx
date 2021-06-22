@@ -10,6 +10,7 @@ import {
   Balance,
   Staking,
   Transactions,
+  OtherTokens,
 } from './components';
 import { useAccountDetails } from './hooks';
 
@@ -27,6 +28,11 @@ const AccountDetails = () => {
         exists={state.exists}
       >
         <span className={classes.root}>
+          <Overview
+            className={classes.overview}
+            withdrawalAddress={state.overview.withdrawalAddress}
+            address={state.overview.address}
+          />
           <Balance
             className={classes.balance}
             available={state.balance.available}
@@ -36,10 +42,9 @@ const AccountDetails = () => {
             commission={state.balance.commission}
             total={state.balance.total}
           />
-          <Overview
-            className={classes.overview}
-            withdrawalAddress={state.overview.withdrawalAddress}
-            address={state.overview.address}
+          <OtherTokens
+            className={classes.otherTokens}
+            otherTokens={state.otherTokens}
           />
           <Staking
             className={classes.staking}
