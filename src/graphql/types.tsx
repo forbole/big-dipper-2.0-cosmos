@@ -6294,13 +6294,6 @@ export type Proposal_Vote_Order_By = {
   voter_address?: Maybe<Order_By>;
 };
 
-/** primary key columns input for table: "proposal_vote" */
-export type Proposal_Vote_Pk_Columns_Input = {
-  height: Scalars['bigint'];
-  proposal_id: Scalars['Int'];
-  voter_address: Scalars['String'];
-};
-
 /** select columns of table "proposal_vote" */
 export enum Proposal_Vote_Select_Column {
   /** column name */
@@ -6547,8 +6540,6 @@ export type Query_Root = {
   proposal_vote: Array<Proposal_Vote>;
   /** fetch aggregated fields from the table: "proposal_vote" */
   proposal_vote_aggregate: Proposal_Vote_Aggregate;
-  /** fetch data from the table: "proposal_vote" using primary key columns */
-  proposal_vote_by_pk?: Maybe<Proposal_Vote>;
   /** fetch data from the table: "redelegation" */
   redelegation: Array<Redelegation>;
   /** fetch aggregated fields from the table: "redelegation" */
@@ -7299,14 +7290,6 @@ export type Query_RootProposal_Vote_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Proposal_Vote_Order_By>>;
   where?: Maybe<Proposal_Vote_Bool_Exp>;
-};
-
-
-/** query root */
-export type Query_RootProposal_Vote_By_PkArgs = {
-  height: Scalars['bigint'];
-  proposal_id: Scalars['Int'];
-  voter_address: Scalars['String'];
 };
 
 
@@ -9084,8 +9067,6 @@ export type Subscription_Root = {
   proposal_vote: Array<Proposal_Vote>;
   /** fetch aggregated fields from the table: "proposal_vote" */
   proposal_vote_aggregate: Proposal_Vote_Aggregate;
-  /** fetch data from the table: "proposal_vote" using primary key columns */
-  proposal_vote_by_pk?: Maybe<Proposal_Vote>;
   /** fetch data from the table: "redelegation" */
   redelegation: Array<Redelegation>;
   /** fetch aggregated fields from the table: "redelegation" */
@@ -9836,14 +9817,6 @@ export type Subscription_RootProposal_Vote_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Proposal_Vote_Order_By>>;
   where?: Maybe<Proposal_Vote_Bool_Exp>;
-};
-
-
-/** subscription root */
-export type Subscription_RootProposal_Vote_By_PkArgs = {
-  height: Scalars['bigint'];
-  proposal_id: Scalars['Int'];
-  voter_address: Scalars['String'];
 };
 
 
@@ -15069,6 +15042,7 @@ export type ValidatorsAddressListQuery = { validator: Array<(
     )>, validatorDescriptions: Array<(
       { __typename?: 'validator_description' }
       & Pick<Validator_Description, 'moniker' | 'identity'>
+      & { avatarUrl: Validator_Description['avatar_url'] }
     )> }
   )> };
 
@@ -16310,6 +16284,7 @@ export const ValidatorsAddressListDocument = gql`
     ) {
       moniker
       identity
+      avatarUrl: avatar_url
     }
   }
 }

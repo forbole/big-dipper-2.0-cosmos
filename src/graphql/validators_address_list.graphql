@@ -8,6 +8,7 @@ query ValidatorsAddressList {
     validatorDescriptions: validator_descriptions(limit: 1, order_by: {height: desc}) {
       moniker
       identity
+      avatarUrl: avatar_url
     }
   }
 }

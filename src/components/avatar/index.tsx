@@ -1,5 +1,5 @@
 import React, {
-  useEffect, useRef,
+  useEffect, useRef, useState,
 } from 'react';
 import classnames from 'classnames';
 import * as jdenticon from 'jdenticon';
@@ -15,14 +15,24 @@ const Avatar: React.FC<{
   imageUrl,
 }) => {
   const icon = useRef(null);
+  const [error, setError] = useState<boolean>(false);
   useEffect(() => {
     jdenticon.update(icon.current, address);
-  }, [address]);
+  }, [address, error]);
+
+  const handleError = () => {
+    setError(true);
+  };
+
   const classes = useStyles();
   return (
     <div className={classnames(className, classes.root)}>
-      {imageUrl ? (
-        <img src={imageUrl} alt="address avatar" />
+      {imageUrl && !error ? (
+        <img
+          src={imageUrl}
+          alt="address avatar"
+          onError={handleError}
+        />
       ) : (
         <svg data-jdenticon-value={address} height="100%" ref={icon} width="100%" />
       )}
