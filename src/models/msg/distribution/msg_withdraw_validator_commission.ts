@@ -1,7 +1,5 @@
 import * as R from 'ramda';
-import { chainConfig } from '@configs';
 import { formatDenom } from '@utils/format_denom';
-import { Community_Pool_Select_Column } from '@src/graphql/types';
 import { Categories } from '../types';
 
 class MsgWithdrawValidatorCommission {
