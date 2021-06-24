@@ -18,7 +18,9 @@ const WithdrawReward = (props: {
   const validatorMoniker = validator ? validator?.moniker : message
     .validatorAddress;
 
-  const parsedAmount = `${numeral(message.amount).format('0,0.[0000]')} ${message.denom.toUpperCase()}`;
+  const parsedAmount = message.amounts.map((x) => {
+    return `${numeral(x.value).format('0,0.[0000]')} ${x.denom.toUpperCase()}`;
+  }).join(', ');
 
   return (
     <Typography>
