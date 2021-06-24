@@ -6,7 +6,6 @@ class MsgWithdrawValidatorCommission {
   public category: Categories;
   public type: string;
   public validatorAddress: string;
-  public amount: number;
   public amounts: {
     denom: string;
     value: number;
