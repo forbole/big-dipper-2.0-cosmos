@@ -14,6 +14,7 @@ jest.mock('@utils/dayjs', () => {
       {
         format,
         fromNow: jest.fn(() => '1 day ago'),
+        diff: jest.fn(() => 30),
         local: jest.fn(() => ({
           format,
         }))
