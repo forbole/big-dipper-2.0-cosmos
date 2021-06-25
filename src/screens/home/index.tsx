@@ -9,9 +9,11 @@ import {
   Blocks,
   Transactions,
 } from './components';
+import { useHome } from './hooks';
 
 const Home = () => {
   const classes = useStyles();
+  useHome();
 
   return (
     <Layout className={classes.root}>
