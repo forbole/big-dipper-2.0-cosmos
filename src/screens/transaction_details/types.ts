@@ -1,21 +1,4 @@
-import {
-  MsgSend,
-  MsgMultiSend,
-  MsgVerifyInvariant,
-  MsgFundCommunityPool,
-  MsgSetWithdrawAddress,
-  MsgWithdrawDelegatorReward,
-  MsgDeposit,
-  MsgVote,
-  MsgUnjail,
-  MsgCreateValidator,
-  MsgDelegate,
-  MsgEditValidator,
-  MsgRedelegate,
-  MsgUndelegate,
-  MsgSubmitProposal,
-  MsgUnknown,
-} from '@models';
+import * as MODELS from '@models';
 
 export type OverviewType = {
   hash: string;
@@ -29,22 +12,41 @@ export type OverviewType = {
   error: string;
 }
 
-export type MessageType = (MsgCreateValidator
-  | MsgDelegate
-  | MsgDeposit
-  | MsgEditValidator
-  | MsgFundCommunityPool
-  | MsgMultiSend
-  | MsgRedelegate
-  | MsgSend
-  | MsgSetWithdrawAddress
-  | MsgSubmitProposal
-  | MsgUndelegate
-  | MsgUnjail
-  | MsgVerifyInvariant
-  | MsgVote
-  | MsgUnknown
-  | MsgWithdrawDelegatorReward);
+// ==============================================
+// initialized message types for ui display
+// ==============================================
+export type DefaultMessageType = (
+  MODELS.MsgCreateValidator
+  | MODELS.MsgDelegate
+  | MODELS.MsgDeposit
+  | MODELS.MsgEditValidator
+  | MODELS.MsgFundCommunityPool
+  | MODELS.MsgMultiSend
+  | MODELS.MsgRedelegate
+  | MODELS.MsgSend
+  | MODELS.MsgSetWithdrawAddress
+  | MODELS.MsgSubmitProposal
+  | MODELS.MsgUndelegate
+  | MODELS.MsgUnjail
+  | MODELS.MsgVerifyInvariant
+  | MODELS.MsgVote
+  | MODELS.MsgUnknown
+  | MODELS.MsgWithdrawDelegatorReward
+  | MODELS.MsgWithdrawValidatorCommission
+)
+
+export type CustomMessagetype = (
+  MODELS.MsgUnblockUser
+  | MODELS.MsgSaveProfile
+  | MODELS.MsgDtagTransferRequest
+  | MODELS.MsgDtagRefuseTransfer
+  | MODELS.MsgDtagCancelTransfer
+  | MODELS.MsgDtagAcceptTransfer
+  | MODELS.MsgDeleteProfile
+  | MODELS.MsgCreateRelationship
+  | MODELS.MsgBlockUser
+)
+export type MessageType = DefaultMessageType | CustomMessagetype;
 
 export type TransactionState = {
   loading: boolean;

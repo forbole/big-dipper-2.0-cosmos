@@ -1,35 +1,37 @@
-import {
-  MsgSend,
-  MsgMultiSend,
-  MsgVerifyInvariant,
-  MsgFundCommunityPool,
-  MsgSetWithdrawAddress,
-  MsgWithdrawDelegatorReward,
-  MsgDeposit,
-  MsgVote,
-  MsgUnjail,
-  MsgCreateValidator,
-  MsgDelegate,
-  MsgEditValidator,
-  MsgRedelegate,
-  MsgUndelegate,
-  MsgSubmitProposal,
-  MsgUnknown,
-  MsgWithdrawValidatorCommission,
-  MsgUnblockUser,
-  MsgSaveProfile,
-  MsgDtagTransferRequest,
-  MsgDtagRefuseTransfer,
-  MsgDtagCancelTransfer,
-  MsgDtagAcceptTransfer,
-  MsgDeleteProfile,
-  MsgCreateRelationship,
-  MsgBlockUser,
-} from '@models';
+// import {
+//   MsgSend,
+//   MsgMultiSend,
+//   MsgVerifyInvariant,
+//   MsgFundCommunityPool,
+//   MsgSetWithdrawAddress,
+//   MsgWithdrawDelegatorReward,
+//   MsgDeposit,
+//   MsgVote,
+//   MsgUnjail,
+//   MsgCreateValidator,
+//   MsgDelegate,
+//   MsgEditValidator,
+//   MsgRedelegate,
+//   MsgUndelegate,
+//   MsgSubmitProposal,
+//   MsgUnknown,
+//   MsgWithdrawValidatorCommission,
+//   MsgUnblockUser,
+//   MsgSaveProfile,
+//   MsgDtagTransferRequest,
+//   MsgDtagRefuseTransfer,
+//   MsgDtagCancelTransfer,
+//   MsgDtagAcceptTransfer,
+//   MsgDeleteProfile,
+//   MsgCreateRelationship,
+//   MsgBlockUser,
+// } from '@models';
 
+import * as MODELS from '@models';
 import {
   Tag,
 } from '@components';
+import { MessageType } from './types';
 import {
   Delegate,
   Unknown,
@@ -68,23 +70,23 @@ export const getMessageModelByType = (type: string) => {
   // staking
   // ========================
   if (type === '/cosmos.staking.v1beta1.MsgDelegate') {
-    return MsgDelegate;
+    return MODELS.MsgDelegate;
   }
 
   if (type === '/cosmos.staking.v1beta1.MsgBeginRedelegate') {
-    return MsgRedelegate;
+    return MODELS.MsgRedelegate;
   }
 
   if (type === '/cosmos.staking.v1beta1.MsgUndelegate') {
-    return MsgUndelegate;
+    return MODELS.MsgUndelegate;
   }
 
   if (type === '/cosmos.staking.v1beta1.MsgCreateValidator') {
-    return MsgCreateValidator;
+    return MODELS.MsgCreateValidator;
   }
 
   if (type === '/cosmos.staking.v1beta1.MsgEditValidator') {
-    return MsgEditValidator;
+    return MODELS.MsgEditValidator;
   }
 
   // ========================
@@ -92,11 +94,11 @@ export const getMessageModelByType = (type: string) => {
   // ========================
 
   if (type === '/cosmos.bank.v1beta1.MsgSend') {
-    return MsgSend;
+    return MODELS.MsgSend;
   }
 
   if (type === '/cosmos.bank.v1beta1.MsgMultiSend') {
-    return MsgMultiSend;
+    return MODELS.MsgMultiSend;
   }
 
   // ========================
@@ -104,7 +106,7 @@ export const getMessageModelByType = (type: string) => {
   // ========================
 
   if (type === '/cosmos.crisis.v1beta1.MsgVerifyInvariant') {
-    return MsgVerifyInvariant;
+    return MODELS.MsgVerifyInvariant;
   }
 
   // ========================
@@ -112,26 +114,26 @@ export const getMessageModelByType = (type: string) => {
   // ========================
 
   if (type === '/cosmos.slashing.v1beta1.MsgUnjail') {
-    return MsgUnjail;
+    return MODELS.MsgUnjail;
   }
 
   // ========================
   // distribution
   // ========================
   if (type === '/cosmos.distribution.v1beta1.MsgFundCommunityPool') {
-    return MsgFundCommunityPool;
+    return MODELS.MsgFundCommunityPool;
   }
 
   if (type === '/cosmos.distribution.v1beta1.MsgSetWithdrawAddress') {
-    return MsgSetWithdrawAddress;
+    return MODELS.MsgSetWithdrawAddress;
   }
 
   if (type === '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward') {
-    return MsgWithdrawDelegatorReward;
+    return MODELS.MsgWithdrawDelegatorReward;
   }
 
   if (type === '/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission') {
-    return MsgWithdrawValidatorCommission;
+    return MODELS.MsgWithdrawValidatorCommission;
   }
 
   // ========================
@@ -139,87 +141,60 @@ export const getMessageModelByType = (type: string) => {
   // ========================
 
   if (type === '/cosmos.gov.v1beta1.MsgDeposit') {
-    return MsgDeposit;
+    return MODELS.MsgDeposit;
   }
 
   if (type === '/cosmos.gov.v1beta1.MsgVote') {
-    return MsgVote;
+    return MODELS.MsgVote;
   }
 
   if (type === '/cosmos.gov.v1beta1.MsgSubmitProposal') {
-    return MsgSubmitProposal;
+    return MODELS.MsgSubmitProposal;
   }
 
   // ========================
   // profiles
   // ========================
   if (type === '/desmos.profiles.v1beta1.MsgSaveProfile') {
-    return MsgSaveProfile;
+    return MODELS.MsgSaveProfile;
   }
 
   if (type === '/desmos.profiles.v1beta1.MsgDeleteProfile') {
-    return MsgDeleteProfile;
+    return MODELS.MsgDeleteProfile;
   }
 
   if (type === '/desmos.profiles.v1beta1.MsgCreateRelationship') {
-    return MsgCreateRelationship;
+    return MODELS.MsgCreateRelationship;
   }
 
   if (type === '/desmos.profiles.v1beta1.MsgRequestDTagTransfer') {
-    return MsgDtagTransferRequest;
+    return MODELS.MsgDtagTransferRequest;
   }
 
   if (type === '/desmos.profiles.v1beta1.MsgAcceptDTagTransfer') {
-    return MsgDtagAcceptTransfer;
+    return MODELS.MsgDtagAcceptTransfer;
   }
 
   if (type === '/desmos.profiles.v1beta1.MsgCancelDTagTransfer') {
-    return MsgDtagCancelTransfer;
+    return MODELS.MsgDtagCancelTransfer;
   }
 
   if (type === '/desmos.profiles.v1beta1.MsgRefuseDTagTransfer') {
-    return MsgDtagRefuseTransfer;
+    return MODELS.MsgDtagRefuseTransfer;
   }
 
   if (type === '/desmos.profiles.v1beta1.MsgBlockUser') {
-    return MsgBlockUser;
+    return MODELS.MsgBlockUser;
   }
 
   if (type === '/desmos.profiles.v1beta1.MsgUnblockUser') {
-    return MsgUnblockUser;
+    return MODELS.MsgUnblockUser;
   }
 
-  return MsgUnknown;
+  return MODELS.MsgUnknown;
 };
 
-export const getMessageByType = (message: (
-  MsgCreateValidator
-  | MsgDelegate
-  | MsgDeposit
-  | MsgEditValidator
-  | MsgFundCommunityPool
-  | MsgMultiSend
-  | MsgRedelegate
-  | MsgSend
-  | MsgSetWithdrawAddress
-  | MsgSubmitProposal
-  | MsgUndelegate
-  | MsgUnjail
-  | MsgVerifyInvariant
-  | MsgVote
-  | MsgUnknown
-  | MsgWithdrawDelegatorReward
-  | MsgWithdrawValidatorCommission
-  | MsgUnblockUser
-  | MsgSaveProfile
-  | MsgDtagTransferRequest
-  | MsgDtagRefuseTransfer
-  | MsgDtagCancelTransfer
-  | MsgDtagAcceptTransfer
-  | MsgDeleteProfile
-  | MsgCreateRelationship
-  | MsgBlockUser
-  ), viewRaw: boolean, t:any) => {
+export const getMessageByType = (message: MessageType, viewRaw: boolean, t:any) => {
   const { type } = message;
 
   let results: {
