@@ -1,65 +1,85 @@
-// import {
-//   MsgSend,
-//   MsgMultiSend,
-//   MsgVerifyInvariant,
-//   MsgFundCommunityPool,
-//   MsgSetWithdrawAddress,
-//   MsgWithdrawDelegatorReward,
-//   MsgDeposit,
-//   MsgVote,
-//   MsgUnjail,
-//   MsgCreateValidator,
-//   MsgDelegate,
-//   MsgEditValidator,
-//   MsgRedelegate,
-//   MsgUndelegate,
-//   MsgSubmitProposal,
-//   MsgUnknown,
-//   MsgWithdrawValidatorCommission,
-//   MsgUnblockUser,
-//   MsgSaveProfile,
-//   MsgDtagTransferRequest,
-//   MsgDtagRefuseTransfer,
-//   MsgDtagCancelTransfer,
-//   MsgDtagAcceptTransfer,
-//   MsgDeleteProfile,
-//   MsgCreateRelationship,
-//   MsgBlockUser,
-// } from '@models';
-
 import * as MODELS from '@models';
 import {
   Tag,
 } from '@components';
-import { MessageType } from './types';
 import {
-  Delegate,
-  Unknown,
-  Redelegate,
-  Undelegate,
-  CreateValidator,
-  EditValidator,
-  Send,
-  Multisend,
-  VerifyInvariant,
-  Unjail,
-  Fund,
-  SetWithdrawalAddress,
-  WithdrawReward,
-  DepositProposal,
-  Vote,
-  WithdrawCommission,
-  SubmitProposal,
-  SaveProfile,
-  DeleteProfile,
-  CreateRelationship,
-  DtagTransferRequest,
-  DtagAcceptTransfer,
-  DtagCancelTransfer,
-  DtagRefuseTransfer,
-  BlockUser,
-  UnBlockUser,
-} from './components';
+  MessageType, MessageComponentType,
+} from './types';
+import * as COMPONENTS from './components';
+
+const defaultTypeToModel = {
+  // ========================
+// staking
+// ========================
+  '/cosmos.staking.v1beta1.MsgDelegate': {
+    model: MODELS.MsgDelegate,
+    content: COMPONENTS.Delegate,
+    tagTheme: 'one',
+    tagDisplay: 'txDelegateLabel',
+  },
+  '/cosmos.staking.v1beta1.MsgBeginRedelegate': {
+    model: MODELS.MsgRedelegate,
+    content: COMPONENTS.Redelegate,
+    tagTheme: 'one',
+    tagDisplay: 'txRedelegateLabel',
+  },
+  '/cosmos.staking.v1beta1.MsgUndelegate': {
+    model: MODELS.MsgUndelegate,
+    content: COMPONENTS.Undelegate,
+    tagTheme: 'one',
+    tagDisplay: 'txUndelegateLabel',
+  },
+  '/cosmos.staking.v1beta1.MsgCreateValidator': {
+    model: MODELS.MsgCreateValidator,
+    content: COMPONENTS.CreateValidator,
+    tagTheme: 'one',
+    tagDisplay: 'txCreateValidatorLabel',
+  },
+  '/cosmos.staking.v1beta1.MsgEditValidator': {
+    model: MODELS.MsgEditValidator,
+    content: COMPONENTS.EditValidator,
+    tagTheme: 'one',
+    tagDisplay: 'txEditValidatorLabel',
+  },
+};
+
+// const getDataByType = (type: string) => {
+//   const defaultTypeToModel = {
+//     // ========================
+//   // staking
+//   // ========================
+//     '/cosmos.staking.v1beta1.MsgDelegate': {
+//       model: MODELS.MsgDelegate,
+//       content: COMPONENTS.Delegate,
+//       tagTheme: 'one',
+//       tagDisplay: 'txDelegateLabel',
+//     },
+//     '/cosmos.staking.v1beta1.MsgBeginRedelegate': {
+//       model: MODELS.MsgRedelegate,
+//       content: COMPONENTS.Redelegate,
+//       tagTheme: 'one',
+//       tagDisplay: 'txRedelegateLabel',
+//     },
+//     '/cosmos.staking.v1beta1.MsgUndelegate': {
+//       model: MODELS.MsgUndelegate,
+//       content: COMPONENTS.Undelegate,
+//       tagTheme: 'one',
+//       tagDisplay: 'txUndelegateLabel',
+//     },
+//     '/cosmos.staking.v1beta1.MsgCreateValidator': {
+//       model: MODELS.MsgCreateValidator,
+//       content: COMPONENTS.CreateValidator,
+//       tagTheme: 'one',
+//       tagDisplay: 'txCreateValidatorLabel',
+//     },
+//     '/cosmos.staking.v1beta1.MsgEditValidator': {
+//       model: MODELS.MsgEditValidator,
+//       content: COMPONENTS.EditValidator,
+//       tagTheme: 'one',
+//       tagDisplay: 'txEditValidatorLabel',
+//     },
+//   };
+// };
 
 /**
  * Helper function that helps get model by type
@@ -194,279 +214,255 @@ export const getMessageModelByType = (type: string) => {
   return MODELS.MsgUnknown;
 };
 
-export const getMessageByType = (message: MessageType, viewRaw: boolean, t:any) => {
-  const { type } = message;
+// export const getMessageByType = (message: MessageType, viewRaw: boolean, t:any) => {
+//   const { type } = message;
 
-  let results: {
-    content: (
-      typeof Delegate
-    | typeof Unknown
-    | typeof Redelegate
-    | typeof Undelegate
-    | typeof CreateValidator
-    | typeof EditValidator
-    | typeof Send
-    | typeof Multisend
-    | typeof VerifyInvariant
-    | typeof Unjail
-    | typeof Fund
-    | typeof SetWithdrawalAddress
-    | typeof WithdrawReward
-    | typeof DepositProposal
-    | typeof Vote
-    | typeof WithdrawCommission
-    | typeof SubmitProposal
-    );
-    tagDisplay: string;
-    tagTheme?: 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven' | 'eight' | 'zero';
-    unknown?: boolean;
-  } = {
-    content: Unknown,
-    tagDisplay: 'txUnknownLabel',
-    tagTheme: 'zero',
-  };
+//   let results: {
+//     content: MessageComponentType;
+//     tagDisplay: string;
+//     tagTheme?: 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven' | 'eight' | 'zero';
+//     unknown?: boolean;
+//   } = {
+//     content: COMPONENTS.Unknown,
+//     tagDisplay: 'txUnknownLabel',
+//     tagTheme: 'zero',
+//   };
 
-  // ========================
-  // staking
-  // ========================
-  if (type === '/cosmos.staking.v1beta1.MsgDelegate') {
-    results = {
-      content: Delegate,
-      tagTheme: 'one',
-      tagDisplay: 'txDelegateLabel',
-    };
-  }
+//   // ========================
+//   // staking
+//   // ========================
+//   if (type === '/cosmos.staking.v1beta1.MsgDelegate') {
+//     results = {
+//       content: COMPONENTS.Delegate,
+//       tagTheme: 'one',
+//       tagDisplay: 'txDelegateLabel',
+//     };
+//   }
 
-  if (type === '/cosmos.staking.v1beta1.MsgBeginRedelegate') {
-    results = {
-      content: Redelegate,
-      tagTheme: 'one',
-      tagDisplay: 'txRedelegateLabel',
-    };
-  }
+//   if (type === '/cosmos.staking.v1beta1.MsgBeginRedelegate') {
+//     results = {
+//       content: COMPONENTS.Redelegate,
+//       tagTheme: 'one',
+//       tagDisplay: 'txRedelegateLabel',
+//     };
+//   }
 
-  if (type === '/cosmos.staking.v1beta1.MsgUndelegate') {
-    results = {
-      content: Undelegate,
-      tagTheme: 'one',
-      tagDisplay: 'txUndelegateLabel',
-    };
-  }
+//   if (type === '/cosmos.staking.v1beta1.MsgUndelegate') {
+//     results = {
+//       content: COMPONENTS.Undelegate,
+//       tagTheme: 'one',
+//       tagDisplay: 'txUndelegateLabel',
+//     };
+//   }
 
-  if (type === '/cosmos.staking.v1beta1.MsgCreateValidator') {
-    results = {
-      content: CreateValidator,
-      tagTheme: 'one',
-      tagDisplay: 'txCreateValidatorLabel',
-    };
-  }
+//   if (type === '/cosmos.staking.v1beta1.MsgCreateValidator') {
+//     results = {
+//       content: COMPONENTS.CreateValidator,
+//       tagTheme: 'one',
+//       tagDisplay: 'txCreateValidatorLabel',
+//     };
+//   }
 
-  if (type === '/cosmos.staking.v1beta1.MsgEditValidator') {
-    results = {
-      content: EditValidator,
-      tagTheme: 'one',
-      tagDisplay: 'txEditValidatorLabel',
-    };
-  }
+//   if (type === '/cosmos.staking.v1beta1.MsgEditValidator') {
+//     results = {
+//       content: COMPONENTS.EditValidator,
+//       tagTheme: 'one',
+//       tagDisplay: 'txEditValidatorLabel',
+//     };
+//   }
 
-  // ========================
-  // bank
-  // ========================
+//   // ========================
+//   // bank
+//   // ========================
 
-  if (type === '/cosmos.bank.v1beta1.MsgSend') {
-    results = {
-      content: Send,
-      tagTheme: 'two',
-      tagDisplay: 'txSendLabel',
-    };
-  }
+//   if (type === '/cosmos.bank.v1beta1.MsgSend') {
+//     results = {
+//       content: COMPONENTS.Send,
+//       tagTheme: 'two',
+//       tagDisplay: 'txSendLabel',
+//     };
+//   }
 
-  if (type === '/cosmos.bank.v1beta1.MsgMultiSend') {
-    results = {
-      content: Multisend,
-      tagTheme: 'two',
-      tagDisplay: 'txMultisendLabel',
-    };
-  }
+//   if (type === '/cosmos.bank.v1beta1.MsgMultiSend') {
+//     results = {
+//       content: COMPONENTS.Multisend,
+//       tagTheme: 'two',
+//       tagDisplay: 'txMultisendLabel',
+//     };
+//   }
 
-  // ========================
-  // crisis
-  // ========================
+//   // ========================
+//   // crisis
+//   // ========================
 
-  if (type === '/cosmos.crisis.v1beta1.MsgVerifyInvariant') {
-    results = {
-      content: VerifyInvariant,
-      tagTheme: 'three',
-      tagDisplay: 'txVerifyInvariantLabel',
-    };
-  }
+//   if (type === '/cosmos.crisis.v1beta1.MsgVerifyInvariant') {
+//     results = {
+//       content: COMPONENTS.VerifyInvariant,
+//       tagTheme: 'three',
+//       tagDisplay: 'txVerifyInvariantLabel',
+//     };
+//   }
 
-  // ========================
-  // slashing
-  // ========================
+//   // ========================
+//   // slashing
+//   // ========================
 
-  if (type === '/cosmos.slashing.v1beta1.MsgUnjail') {
-    results = {
-      content: Unjail,
-      tagTheme: 'five',
-      tagDisplay: 'txUnjailLabel',
-    };
-  }
+//   if (type === '/cosmos.slashing.v1beta1.MsgUnjail') {
+//     results = {
+//       content: COMPONENTS.Unjail,
+//       tagTheme: 'five',
+//       tagDisplay: 'txUnjailLabel',
+//     };
+//   }
 
-  // ========================
-  // distribution
-  // ========================
-  if (type === '/cosmos.distribution.v1beta1.MsgFundCommunityPool') {
-    results = {
-      content: Fund,
-      tagTheme: 'six',
-      tagDisplay: 'txFundLabel',
-    };
-  }
+//   // ========================
+//   // distribution
+//   // ========================
+//   if (type === '/cosmos.distribution.v1beta1.MsgFundCommunityPool') {
+//     results = {
+//       content: COMPONENTS.Fund,
+//       tagTheme: 'six',
+//       tagDisplay: 'txFundLabel',
+//     };
+//   }
 
-  if (type === '/cosmos.distribution.v1beta1.MsgSetWithdrawAddress') {
-    results = {
-      content: SetWithdrawalAddress,
-      tagTheme: 'six',
-      tagDisplay: 'txsetRewardAddressLabel',
-    };
-  }
+//   if (type === '/cosmos.distribution.v1beta1.MsgSetWithdrawAddress') {
+//     results = {
+//       content: COMPONENTS.SetWithdrawalAddress,
+//       tagTheme: 'six',
+//       tagDisplay: 'txsetRewardAddressLabel',
+//     };
+//   }
 
-  if (type === '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward') {
-    results = {
-      content: WithdrawReward,
-      tagTheme: 'six',
-      tagDisplay: 'txWithdrawRewardLabel',
-    };
-  }
+//   if (type === '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward') {
+//     results = {
+//       content: COMPONENTS.WithdrawReward,
+//       tagTheme: 'six',
+//       tagDisplay: 'txWithdrawRewardLabel',
+//     };
+//   }
 
-  if (type === '/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission') {
-    results = {
-      content: WithdrawCommission,
-      tagTheme: 'six',
-      tagDisplay: 'txWithdrawCommissionLabel',
-    };
-  }
+//   if (type === '/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission') {
+//     results = {
+//       content: COMPONENTS.WithdrawCommission,
+//       tagTheme: 'six',
+//       tagDisplay: 'txWithdrawCommissionLabel',
+//     };
+//   }
 
-  // ========================
-  // governance
-  // ========================
+//   // ========================
+//   // governance
+//   // ========================
 
-  if (type === '/cosmos.gov.v1beta1.MsgDeposit') {
-    results = {
-      content: DepositProposal,
-      tagTheme: 'seven',
-      tagDisplay: 'txDepositLabel',
-    };
-  }
+//   if (type === '/cosmos.gov.v1beta1.MsgDeposit') {
+//     results = {
+//       content: COMPONENTS.DepositProposal,
+//       tagTheme: 'seven',
+//       tagDisplay: 'txDepositLabel',
+//     };
+//   }
 
-  if (type === '/cosmos.gov.v1beta1.MsgVote') {
-    results = {
-      content: Vote,
-      tagTheme: 'seven',
-      tagDisplay: 'txVoteLabel',
-    };
-  }
+//   if (type === '/cosmos.gov.v1beta1.MsgVote') {
+//     results = {
+//       content: COMPONENTS.Vote,
+//       tagTheme: 'seven',
+//       tagDisplay: 'txVoteLabel',
+//     };
+//   }
 
-  if (type === '/cosmos.gov.v1beta1.MsgSubmitProposal') {
-    results = {
-      content: SubmitProposal,
-      tagTheme: 'seven',
-      tagDisplay: 'txSubmitProposalLabel',
-    };
-  }
+//   if (type === '/cosmos.gov.v1beta1.MsgSubmitProposal') {
+//     results = {
+//       content: COMPONENTS.SubmitProposal,
+//       tagTheme: 'seven',
+//       tagDisplay: 'txSubmitProposalLabel',
+//     };
+//   }
 
-  // ========================
-  // profiles
-  // ========================
-  if (type === '/desmos.profiles.v1beta1.MsgSaveProfile') {
-    results = {
-      content: SaveProfile,
-      tagTheme: 'four',
-      tagDisplay: 'txSaveProfileLabel',
-    };
-  }
+//   // ========================
+//   // profiles
+//   // ========================
+//   if (type === '/desmos.profiles.v1beta1.MsgSaveProfile') {
+//     results = {
+//       content: COMPONENTS.SaveProfile,
+//       tagTheme: 'four',
+//       tagDisplay: 'txSaveProfileLabel',
+//     };
+//   }
 
-  if (type === '/desmos.profiles.v1beta1.MsgDeleteProfile') {
-    results = {
-      content: DeleteProfile,
-      tagTheme: 'four',
-      tagDisplay: 'txDeleteProfileLabel',
-    };
-  }
+//   if (type === '/desmos.profiles.v1beta1.MsgDeleteProfile') {
+//     results = {
+//       content: COMPONENTS.DeleteProfile,
+//       tagTheme: 'four',
+//       tagDisplay: 'txDeleteProfileLabel',
+//     };
+//   }
 
-  if (type === '/desmos.profiles.v1beta1.MsgCreateRelationship') {
-    results = {
-      content: CreateRelationship,
-      tagTheme: 'four',
-      tagDisplay: 'txCreateRelationshipLabel',
-    };
-  }
+//   if (type === '/desmos.profiles.v1beta1.MsgCreateRelationship') {
+//     results = {
+//       content: COMPONENTS.CreateRelationship,
+//       tagTheme: 'four',
+//       tagDisplay: 'txCreateRelationshipLabel',
+//     };
+//   }
 
-  if (type === '/desmos.profiles.v1beta1.MsgRequestDTagTransfer') {
-    results = {
-      content: DtagTransferRequest,
-      tagTheme: 'four',
-      tagDisplay: 'txRequestDTagTransferLabel',
-    };
-  }
+//   if (type === '/desmos.profiles.v1beta1.MsgRequestDTagTransfer') {
+//     results = {
+//       content: COMPONENTS.DtagTransferRequest,
+//       tagTheme: 'four',
+//       tagDisplay: 'txRequestDTagTransferLabel',
+//     };
+//   }
 
-  if (type === '/desmos.profiles.v1beta1.MsgAcceptDTagTransfer') {
-    results = {
-      content: DtagAcceptTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txAcceptDTagTransferLabel',
-    };
-  }
+//   if (type === '/desmos.profiles.v1beta1.MsgAcceptDTagTransfer') {
+//     results = {
+//       content: COMPONENTS.DtagAcceptTransfer,
+//       tagTheme: 'four',
+//       tagDisplay: 'txAcceptDTagTransferLabel',
+//     };
+//   }
 
-  if (type === '/desmos.profiles.v1beta1.MsgCancelDTagTransfer') {
-    results = {
-      content: DtagCancelTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txCancelDTagTransferLabel',
-    };
-  }
+//   if (type === '/desmos.profiles.v1beta1.MsgCancelDTagTransfer') {
+//     results = {
+//       content: COMPONENTS.DtagCancelTransfer,
+//       tagTheme: 'four',
+//       tagDisplay: 'txCancelDTagTransferLabel',
+//     };
+//   }
 
-  if (type === '/desmos.profiles.v1beta1.MsgRefuseDTagTransfer') {
-    results = {
-      content: DtagRefuseTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txRefuseDTagTransferLabel',
-    };
-  }
+//   if (type === '/desmos.profiles.v1beta1.MsgRefuseDTagTransfer') {
+//     results = {
+//       content: COMPONENTS.DtagRefuseTransfer,
+//       tagTheme: 'four',
+//       tagDisplay: 'txRefuseDTagTransferLabel',
+//     };
+//   }
 
-  if (type === '/desmos.profiles.v1beta1.MsgBlockUser') {
-    results = {
-      content: BlockUser,
-      tagTheme: 'four',
-      tagDisplay: 'txBlockUserLabel',
-    };
-  }
+//   if (type === '/desmos.profiles.v1beta1.MsgBlockUser') {
+//     results = {
+//       content: COMPONENTS.BlockUser,
+//       tagTheme: 'four',
+//       tagDisplay: 'txBlockUserLabel',
+//     };
+//   }
 
-  if (type === '/desmos.profiles.v1beta1.MsgUnblockUser') {
-    results = {
-      content: UnBlockUser,
-      tagTheme: 'four',
-      tagDisplay: 'txUnblockUserLabel',
-    };
-  }
+//   if (type === '/desmos.profiles.v1beta1.MsgUnblockUser') {
+//     results = {
+//       content: COMPONENTS.UnBlockUser,
+//       tagTheme: 'four',
+//       tagDisplay: 'txUnblockUserLabel',
+//     };
+//   }
 
-  // if (results.tagDisplay === 'txUnknownLabel' && type) {
-  //   const tagSplit = type?.split('.');
-  //   results.tagDisplay = tagSplit[tagSplit.length - 1];
-  //   results.unknown = true;
-  // }
+//   // If user asks to view the raw data
+//   if (viewRaw) {
+//     results.content = COMPONENTS.Unknown;
+//   }
 
-  // If user asks to view the raw data
-  if (viewRaw) {
-    results.content = Unknown;
-  }
-
-  return {
-    type: <Tag
-      value={results.unknown ? results.tagDisplay : t(`message_labels:${results.tagDisplay}`)}
-      theme={results.tagTheme}
-    />,
-    message: <results.content message={message as any} />,
-  };
-};
+//   return {
+//     type: <Tag
+//       value={results.unknown ? results.tagDisplay : t(`message_labels:${results.tagDisplay}`)}
+//       theme={results.tagTheme}
+//     />,
+//     message: <results.content message={message as any} />,
+//   };
+// };
