@@ -19,7 +19,8 @@
       "exponent": 6
     }
   },
-  "extraModules": {
-    "desmosProfile": false
+  "extra": {
+    "desmosProfile": false,
+    "forboleX": false
   }
 }
