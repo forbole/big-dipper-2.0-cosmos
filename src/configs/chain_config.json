@@ -18,5 +18,8 @@
       "display": "daric",
       "exponent": 6
     }
+  },
+  "extraModules": {
+    "desmosProfile": false
   }
 }
