@@ -41,5 +41,6 @@
   "plan": "Plan",
   "name": "Name",
   "height": "Height",
-  "info": "Info"
+  "info": "Info",
+  "didNotVote": "Did not vote"
 }

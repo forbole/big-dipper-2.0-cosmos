@@ -61,9 +61,12 @@ const Votes: React.FC<{
         return x.vote === 'VOTE_OPTION_ABSTAIN';
       }
 
+      if (props.tab === 5) {
+        return x.vote === 'VOTE_OPTION_ABSTAIN';
+      }
+
       return true;
     });
-    // return sliceItems();
   };
 
   const items = formatItems();

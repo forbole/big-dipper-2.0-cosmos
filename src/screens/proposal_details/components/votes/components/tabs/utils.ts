@@ -11,6 +11,7 @@ export const tabLabels = (data: {
     veto,
   } = data;
   const total = yes + no + abstain + veto;
+  // did not vote needs to get snapshot of validators
   return (
     [
       {
@@ -32,6 +33,10 @@ export const tabLabels = (data: {
       {
         key: 'abstain',
         num: abstain,
+      },
+      {
+        key: 'didNotVote',
+        num: 0,
       },
     ]
   );
