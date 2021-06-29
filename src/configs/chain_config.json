@@ -18,5 +18,9 @@
       "display": "daric",
       "exponent": 6
     }
+  },
+  "extra": {
+    "desmosProfile": false,
+    "forboleX": false
   }
 }
