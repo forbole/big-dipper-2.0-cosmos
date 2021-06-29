@@ -12,6 +12,7 @@ import {
   VotesGraph,
 } from './components';
 import { useProposalDetails } from './hooks';
+import { shouldShowData } from './utils';
 
 const ProposalDetails = () => {
   const { t } = useTranslation('proposals');
@@ -49,21 +50,25 @@ const ProposalDetails = () => {
             votingEndTime={overview.votingEndTime}
             content={content}
           />
-          <VotesGraph
-            className={classes.votesGraph}
-            data={tally}
-          />
-          <Votes
-            className={classes.votes}
-            data={votes.data}
-            tab={votes.tab}
-            yes={votes.yes}
-            no={votes.no}
-            abstain={votes.abstain}
-            veto={votes.veto}
-            total={votes.total}
-            handleTabChange={handleTabChange}
-          />
+          {shouldShowData(overview.status) && (
+            <VotesGraph
+              className={classes.votesGraph}
+              data={tally}
+            />
+          )}
+          {shouldShowData(overview.status) && (
+            <Votes
+              className={classes.votes}
+              data={votes.data}
+              tab={votes.tab}
+              yes={votes.yes}
+              no={votes.no}
+              abstain={votes.abstain}
+              veto={votes.veto}
+              total={votes.total}
+              handleTabChange={handleTabChange}
+            />
+          )}
           <Deposits
             className={classes.deposits}
             data={deposits}
