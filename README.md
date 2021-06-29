@@ -11,7 +11,7 @@ While the original [Big Dipper](https://github.com/forbole/big-dipper) was a ful
 ## Quick Start (development mode)
 In this quick start we assume you are running [BDJuno](https://github.com/forbole/bdjuno), our default indexer.
 
-1) `npm i`
+1) `npm ci`
 
 2) Create a `.env` file and fill it with the following
 
@@ -28,7 +28,7 @@ NEXT_PUBLIC_WS_CHAIN_URL=
 `PORT` - the port to run the app on
 `NEXT_PUBLIC_GRAPHQL_URL` - refers to the api hosted by [BDJuno](https://github.com/forbole/bdjuno)
 `NEXT_PUBLIC_GRAPHQL_WS` - refers to the websocket hosted by [BDJuno](https://github.com/forbole/bdjuno)
-`NEXT_PUBLIC_URL` - the api where you will be hosting the frontend of this explorer
+`NEXT_PUBLIC_URL` - the api where you will be hosting the frontend of this explorer (make sure there is no `/` at the end ex: `https://morpheus.desmos.network` not `https://morpheus.desmos.network/`)
 `NEXT_PUBLIC_WS_CHAIN_URL` - refers to the rpc websocket hosted by the node
 
 3) In `src/configs/chain_config.json` update the json to fit your needs
