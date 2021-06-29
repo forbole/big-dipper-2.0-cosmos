@@ -53,8 +53,8 @@ ex:
   },
 ```
 
-- Turn `desmosProfile` if your chain uses the desmos profile
-- Turn `forboleX` if your chain uses `Forbole X`
+- Turn `desmosProfile` on if your chain uses the desmos profile
+- Turn `forboleX` on if your chain uses `Forbole X`
 
 4) `npm run dev`
 
@@ -62,7 +62,7 @@ ex:
 You are free to change big dipper however you'd like to fit your needs. Below will be some basic changes available.
 
 ### Themes
-By default we offer `light` and `dark` mode as well as `deuteranopia` and `tritanopia` themes to make our explorer more accessible.
+By default we offer `light`, `dark`, `deuteranopia` and `tritanopia` themes to make our explorer more accessible.
 
 We recommend you only edit the `light` and `dark` modes. They are available in `src/styles/themes`.
 
@@ -75,16 +75,16 @@ By default, message types that don't exist on the base chain (cosmos in this cas
 
 ```
 class MsgUnjail {
-  public category: Categories;
-  public type: string;
+  public category: Categories; // required
+  public type: string; // required
+  public json: any; // required
   public validatorAddress: string;
-  public json: any;
 
   constructor(payload: any) {
-    this.category = 'slashing';
-    this.type = payload.type;
+    this.category = 'slashing'; // required
+    this.type = payload.type; // required
+    this.json = payload.json; // required
     this.validatorAddress = payload.validatorAddress;
-    this.json = payload.json;
   }
 
   static fromJson(json: any) {
