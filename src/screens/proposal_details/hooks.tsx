@@ -95,6 +95,9 @@ export const useProposalDetails = () => {
   });
 
   useTallyParamsQuery({
+    variables: {
+      proposalId: R.pathOr('', ['query', 'id'], router),
+    },
     onCompleted: (data) => {
       handleSetState({
         tally: formatTallyParams(data),

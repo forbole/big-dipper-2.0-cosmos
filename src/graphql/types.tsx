@@ -4834,6 +4834,62 @@ export type MessageValueArgs = {
   path?: Maybe<Scalars['String']>;
 };
 
+/** aggregated selection of "message" */
+export type Message_Aggregate = {
+  __typename?: 'message_aggregate';
+  aggregate?: Maybe<Message_Aggregate_Fields>;
+  nodes: Array<Message>;
+};
+
+/** aggregate fields of "message" */
+export type Message_Aggregate_Fields = {
+  __typename?: 'message_aggregate_fields';
+  avg?: Maybe<Message_Avg_Fields>;
+  count?: Maybe<Scalars['Int']>;
+  max?: Maybe<Message_Max_Fields>;
+  min?: Maybe<Message_Min_Fields>;
+  stddev?: Maybe<Message_Stddev_Fields>;
+  stddev_pop?: Maybe<Message_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Message_Stddev_Samp_Fields>;
+  sum?: Maybe<Message_Sum_Fields>;
+  var_pop?: Maybe<Message_Var_Pop_Fields>;
+  var_samp?: Maybe<Message_Var_Samp_Fields>;
+  variance?: Maybe<Message_Variance_Fields>;
+};
+
+
+/** aggregate fields of "message" */
+export type Message_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Message_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "message" */
+export type Message_Aggregate_Order_By = {
+  avg?: Maybe<Message_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Message_Max_Order_By>;
+  min?: Maybe<Message_Min_Order_By>;
+  stddev?: Maybe<Message_Stddev_Order_By>;
+  stddev_pop?: Maybe<Message_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Message_Stddev_Samp_Order_By>;
+  sum?: Maybe<Message_Sum_Order_By>;
+  var_pop?: Maybe<Message_Var_Pop_Order_By>;
+  var_samp?: Maybe<Message_Var_Samp_Order_By>;
+  variance?: Maybe<Message_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Message_Avg_Fields = {
+  __typename?: 'message_avg_fields';
+  index?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "message" */
+export type Message_Avg_Order_By = {
+  index?: Maybe<Order_By>;
+};
+
 /** Boolean expression to filter rows from the table "message". All fields are combined with a logical 'AND'. */
 export type Message_Bool_Exp = {
   _and?: Maybe<Array<Maybe<Message_Bool_Exp>>>;
@@ -4845,6 +4901,36 @@ export type Message_Bool_Exp = {
   transaction_hash?: Maybe<String_Comparison_Exp>;
   type?: Maybe<String_Comparison_Exp>;
   value?: Maybe<Jsonb_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Message_Max_Fields = {
+  __typename?: 'message_max_fields';
+  index?: Maybe<Scalars['bigint']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "message" */
+export type Message_Max_Order_By = {
+  index?: Maybe<Order_By>;
+  transaction_hash?: Maybe<Order_By>;
+  type?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Message_Min_Fields = {
+  __typename?: 'message_min_fields';
+  index?: Maybe<Scalars['bigint']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "message" */
+export type Message_Min_Order_By = {
+  index?: Maybe<Order_By>;
+  transaction_hash?: Maybe<Order_By>;
+  type?: Maybe<Order_By>;
 };
 
 /** ordering options when selecting data from "message" */
@@ -4870,6 +4956,83 @@ export enum Message_Select_Column {
   /** column name */
   Value = 'value'
 }
+
+/** aggregate stddev on columns */
+export type Message_Stddev_Fields = {
+  __typename?: 'message_stddev_fields';
+  index?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "message" */
+export type Message_Stddev_Order_By = {
+  index?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Message_Stddev_Pop_Fields = {
+  __typename?: 'message_stddev_pop_fields';
+  index?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "message" */
+export type Message_Stddev_Pop_Order_By = {
+  index?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Message_Stddev_Samp_Fields = {
+  __typename?: 'message_stddev_samp_fields';
+  index?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "message" */
+export type Message_Stddev_Samp_Order_By = {
+  index?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Message_Sum_Fields = {
+  __typename?: 'message_sum_fields';
+  index?: Maybe<Scalars['bigint']>;
+};
+
+/** order by sum() on columns of table "message" */
+export type Message_Sum_Order_By = {
+  index?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Message_Var_Pop_Fields = {
+  __typename?: 'message_var_pop_fields';
+  index?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "message" */
+export type Message_Var_Pop_Order_By = {
+  index?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Message_Var_Samp_Fields = {
+  __typename?: 'message_var_samp_fields';
+  index?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "message" */
+export type Message_Var_Samp_Order_By = {
+  index?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Message_Variance_Fields = {
+  __typename?: 'message_variance_fields';
+  index?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "message" */
+export type Message_Variance_Order_By = {
+  index?: Maybe<Order_By>;
+};
 
 export type Messages_By_Address_Args = {
   addresses?: Maybe<Scalars['_text']>;
@@ -5253,6 +5416,8 @@ export type Proposal = {
   /** An aggregated array relationship */
   proposal_deposits_aggregate: Proposal_Deposit_Aggregate;
   proposal_route: Scalars['String'];
+  /** An object relationship */
+  proposal_tally_result?: Maybe<Proposal_Tally_Result>;
   /** An array relationship */
   proposal_tally_results: Array<Proposal_Tally_Result>;
   /** An aggregated array relationship */
@@ -5265,9 +5430,15 @@ export type Proposal = {
   /** An object relationship */
   proposer: Account;
   proposer_address: Scalars['String'];
+  /** An object relationship */
+  staking_pool_snapshot?: Maybe<Proposal_Staking_Pool_Snapshot>;
   status?: Maybe<Scalars['String']>;
   submit_time: Scalars['timestamp'];
   title: Scalars['String'];
+  /** An array relationship */
+  validator_status_snapshots: Array<Proposal_Validator_Status_Snapshot>;
+  /** An aggregated array relationship */
+  validator_status_snapshots_aggregate: Proposal_Validator_Status_Snapshot_Aggregate;
   voting_end_time?: Maybe<Scalars['timestamp']>;
   voting_start_time?: Maybe<Scalars['timestamp']>;
 };
@@ -5338,6 +5509,26 @@ export type ProposalProposal_Votes_AggregateArgs = {
   where?: Maybe<Proposal_Vote_Bool_Exp>;
 };
 
+
+/** columns and relationships of "proposal" */
+export type ProposalValidator_Status_SnapshotsArgs = {
+  distinct_on?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Proposal_Validator_Status_Snapshot_Order_By>>;
+  where?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
+};
+
+
+/** columns and relationships of "proposal" */
+export type ProposalValidator_Status_Snapshots_AggregateArgs = {
+  distinct_on?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Proposal_Validator_Status_Snapshot_Order_By>>;
+  where?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
+};
+
 /** aggregated selection of "proposal" */
 export type Proposal_Aggregate = {
   __typename?: 'proposal_aggregate';
@@ -5405,14 +5596,17 @@ export type Proposal_Bool_Exp = {
   id?: Maybe<Int_Comparison_Exp>;
   proposal_deposits?: Maybe<Proposal_Deposit_Bool_Exp>;
   proposal_route?: Maybe<String_Comparison_Exp>;
+  proposal_tally_result?: Maybe<Proposal_Tally_Result_Bool_Exp>;
   proposal_tally_results?: Maybe<Proposal_Tally_Result_Bool_Exp>;
   proposal_type?: Maybe<String_Comparison_Exp>;
   proposal_votes?: Maybe<Proposal_Vote_Bool_Exp>;
   proposer?: Maybe<Account_Bool_Exp>;
   proposer_address?: Maybe<String_Comparison_Exp>;
+  staking_pool_snapshot?: Maybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>;
   status?: Maybe<String_Comparison_Exp>;
   submit_time?: Maybe<Timestamp_Comparison_Exp>;
   title?: Maybe<String_Comparison_Exp>;
+  validator_status_snapshots?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
   voting_end_time?: Maybe<Timestamp_Comparison_Exp>;
   voting_start_time?: Maybe<Timestamp_Comparison_Exp>;
 };
@@ -5725,14 +5919,17 @@ export type Proposal_Order_By = {
   id?: Maybe<Order_By>;
   proposal_deposits_aggregate?: Maybe<Proposal_Deposit_Aggregate_Order_By>;
   proposal_route?: Maybe<Order_By>;
+  proposal_tally_result?: Maybe<Proposal_Tally_Result_Order_By>;
   proposal_tally_results_aggregate?: Maybe<Proposal_Tally_Result_Aggregate_Order_By>;
   proposal_type?: Maybe<Order_By>;
   proposal_votes_aggregate?: Maybe<Proposal_Vote_Aggregate_Order_By>;
   proposer?: Maybe<Account_Order_By>;
   proposer_address?: Maybe<Order_By>;
+  staking_pool_snapshot?: Maybe<Proposal_Staking_Pool_Snapshot_Order_By>;
   status?: Maybe<Order_By>;
   submit_time?: Maybe<Order_By>;
   title?: Maybe<Order_By>;
+  validator_status_snapshots_aggregate?: Maybe<Proposal_Validator_Status_Snapshot_Aggregate_Order_By>;
   voting_end_time?: Maybe<Order_By>;
   voting_start_time?: Maybe<Order_By>;
 };
@@ -5769,6 +5966,270 @@ export enum Proposal_Select_Column {
   /** column name */
   VotingStartTime = 'voting_start_time'
 }
+
+/** columns and relationships of "proposal_staking_pool_snapshot" */
+export type Proposal_Staking_Pool_Snapshot = {
+  __typename?: 'proposal_staking_pool_snapshot';
+  bonded_tokens: Scalars['bigint'];
+  height: Scalars['bigint'];
+  not_bonded_tokens: Scalars['bigint'];
+  /** An object relationship */
+  proposal: Proposal;
+  proposal_id: Scalars['Int'];
+};
+
+/** aggregated selection of "proposal_staking_pool_snapshot" */
+export type Proposal_Staking_Pool_Snapshot_Aggregate = {
+  __typename?: 'proposal_staking_pool_snapshot_aggregate';
+  aggregate?: Maybe<Proposal_Staking_Pool_Snapshot_Aggregate_Fields>;
+  nodes: Array<Proposal_Staking_Pool_Snapshot>;
+};
+
+/** aggregate fields of "proposal_staking_pool_snapshot" */
+export type Proposal_Staking_Pool_Snapshot_Aggregate_Fields = {
+  __typename?: 'proposal_staking_pool_snapshot_aggregate_fields';
+  avg?: Maybe<Proposal_Staking_Pool_Snapshot_Avg_Fields>;
+  count?: Maybe<Scalars['Int']>;
+  max?: Maybe<Proposal_Staking_Pool_Snapshot_Max_Fields>;
+  min?: Maybe<Proposal_Staking_Pool_Snapshot_Min_Fields>;
+  stddev?: Maybe<Proposal_Staking_Pool_Snapshot_Stddev_Fields>;
+  stddev_pop?: Maybe<Proposal_Staking_Pool_Snapshot_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Proposal_Staking_Pool_Snapshot_Stddev_Samp_Fields>;
+  sum?: Maybe<Proposal_Staking_Pool_Snapshot_Sum_Fields>;
+  var_pop?: Maybe<Proposal_Staking_Pool_Snapshot_Var_Pop_Fields>;
+  var_samp?: Maybe<Proposal_Staking_Pool_Snapshot_Var_Samp_Fields>;
+  variance?: Maybe<Proposal_Staking_Pool_Snapshot_Variance_Fields>;
+};
+
+
+/** aggregate fields of "proposal_staking_pool_snapshot" */
+export type Proposal_Staking_Pool_Snapshot_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "proposal_staking_pool_snapshot" */
+export type Proposal_Staking_Pool_Snapshot_Aggregate_Order_By = {
+  avg?: Maybe<Proposal_Staking_Pool_Snapshot_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Proposal_Staking_Pool_Snapshot_Max_Order_By>;
+  min?: Maybe<Proposal_Staking_Pool_Snapshot_Min_Order_By>;
+  stddev?: Maybe<Proposal_Staking_Pool_Snapshot_Stddev_Order_By>;
+  stddev_pop?: Maybe<Proposal_Staking_Pool_Snapshot_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Proposal_Staking_Pool_Snapshot_Stddev_Samp_Order_By>;
+  sum?: Maybe<Proposal_Staking_Pool_Snapshot_Sum_Order_By>;
+  var_pop?: Maybe<Proposal_Staking_Pool_Snapshot_Var_Pop_Order_By>;
+  var_samp?: Maybe<Proposal_Staking_Pool_Snapshot_Var_Samp_Order_By>;
+  variance?: Maybe<Proposal_Staking_Pool_Snapshot_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Proposal_Staking_Pool_Snapshot_Avg_Fields = {
+  __typename?: 'proposal_staking_pool_snapshot_avg_fields';
+  bonded_tokens?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  not_bonded_tokens?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "proposal_staking_pool_snapshot" */
+export type Proposal_Staking_Pool_Snapshot_Avg_Order_By = {
+  bonded_tokens?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  not_bonded_tokens?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "proposal_staking_pool_snapshot". All fields are combined with a logical 'AND'. */
+export type Proposal_Staking_Pool_Snapshot_Bool_Exp = {
+  _and?: Maybe<Array<Maybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>>>;
+  _not?: Maybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>;
+  _or?: Maybe<Array<Maybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>>>;
+  bonded_tokens?: Maybe<Bigint_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  not_bonded_tokens?: Maybe<Bigint_Comparison_Exp>;
+  proposal?: Maybe<Proposal_Bool_Exp>;
+  proposal_id?: Maybe<Int_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Proposal_Staking_Pool_Snapshot_Max_Fields = {
+  __typename?: 'proposal_staking_pool_snapshot_max_fields';
+  bonded_tokens?: Maybe<Scalars['bigint']>;
+  height?: Maybe<Scalars['bigint']>;
+  not_bonded_tokens?: Maybe<Scalars['bigint']>;
+  proposal_id?: Maybe<Scalars['Int']>;
+};
+
+/** order by max() on columns of table "proposal_staking_pool_snapshot" */
+export type Proposal_Staking_Pool_Snapshot_Max_Order_By = {
+  bonded_tokens?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  not_bonded_tokens?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Proposal_Staking_Pool_Snapshot_Min_Fields = {
+  __typename?: 'proposal_staking_pool_snapshot_min_fields';
+  bonded_tokens?: Maybe<Scalars['bigint']>;
+  height?: Maybe<Scalars['bigint']>;
+  not_bonded_tokens?: Maybe<Scalars['bigint']>;
+  proposal_id?: Maybe<Scalars['Int']>;
+};
+
+/** order by min() on columns of table "proposal_staking_pool_snapshot" */
+export type Proposal_Staking_Pool_Snapshot_Min_Order_By = {
+  bonded_tokens?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  not_bonded_tokens?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+};
+
+/** ordering options when selecting data from "proposal_staking_pool_snapshot" */
+export type Proposal_Staking_Pool_Snapshot_Order_By = {
+  bonded_tokens?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  not_bonded_tokens?: Maybe<Order_By>;
+  proposal?: Maybe<Proposal_Order_By>;
+  proposal_id?: Maybe<Order_By>;
+};
+
+/** primary key columns input for table: "proposal_staking_pool_snapshot" */
+export type Proposal_Staking_Pool_Snapshot_Pk_Columns_Input = {
+  proposal_id: Scalars['Int'];
+};
+
+/** select columns of table "proposal_staking_pool_snapshot" */
+export enum Proposal_Staking_Pool_Snapshot_Select_Column {
+  /** column name */
+  BondedTokens = 'bonded_tokens',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  NotBondedTokens = 'not_bonded_tokens',
+  /** column name */
+  ProposalId = 'proposal_id'
+}
+
+/** aggregate stddev on columns */
+export type Proposal_Staking_Pool_Snapshot_Stddev_Fields = {
+  __typename?: 'proposal_staking_pool_snapshot_stddev_fields';
+  bonded_tokens?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  not_bonded_tokens?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "proposal_staking_pool_snapshot" */
+export type Proposal_Staking_Pool_Snapshot_Stddev_Order_By = {
+  bonded_tokens?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  not_bonded_tokens?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Proposal_Staking_Pool_Snapshot_Stddev_Pop_Fields = {
+  __typename?: 'proposal_staking_pool_snapshot_stddev_pop_fields';
+  bonded_tokens?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  not_bonded_tokens?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "proposal_staking_pool_snapshot" */
+export type Proposal_Staking_Pool_Snapshot_Stddev_Pop_Order_By = {
+  bonded_tokens?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  not_bonded_tokens?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Proposal_Staking_Pool_Snapshot_Stddev_Samp_Fields = {
+  __typename?: 'proposal_staking_pool_snapshot_stddev_samp_fields';
+  bonded_tokens?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  not_bonded_tokens?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "proposal_staking_pool_snapshot" */
+export type Proposal_Staking_Pool_Snapshot_Stddev_Samp_Order_By = {
+  bonded_tokens?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  not_bonded_tokens?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Proposal_Staking_Pool_Snapshot_Sum_Fields = {
+  __typename?: 'proposal_staking_pool_snapshot_sum_fields';
+  bonded_tokens?: Maybe<Scalars['bigint']>;
+  height?: Maybe<Scalars['bigint']>;
+  not_bonded_tokens?: Maybe<Scalars['bigint']>;
+  proposal_id?: Maybe<Scalars['Int']>;
+};
+
+/** order by sum() on columns of table "proposal_staking_pool_snapshot" */
+export type Proposal_Staking_Pool_Snapshot_Sum_Order_By = {
+  bonded_tokens?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  not_bonded_tokens?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Proposal_Staking_Pool_Snapshot_Var_Pop_Fields = {
+  __typename?: 'proposal_staking_pool_snapshot_var_pop_fields';
+  bonded_tokens?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  not_bonded_tokens?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "proposal_staking_pool_snapshot" */
+export type Proposal_Staking_Pool_Snapshot_Var_Pop_Order_By = {
+  bonded_tokens?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  not_bonded_tokens?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Proposal_Staking_Pool_Snapshot_Var_Samp_Fields = {
+  __typename?: 'proposal_staking_pool_snapshot_var_samp_fields';
+  bonded_tokens?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  not_bonded_tokens?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "proposal_staking_pool_snapshot" */
+export type Proposal_Staking_Pool_Snapshot_Var_Samp_Order_By = {
+  bonded_tokens?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  not_bonded_tokens?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Proposal_Staking_Pool_Snapshot_Variance_Fields = {
+  __typename?: 'proposal_staking_pool_snapshot_variance_fields';
+  bonded_tokens?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  not_bonded_tokens?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "proposal_staking_pool_snapshot" */
+export type Proposal_Staking_Pool_Snapshot_Variance_Order_By = {
+  bonded_tokens?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  not_bonded_tokens?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+};
 
 /** aggregate stddev on columns */
 export type Proposal_Stddev_Fields = {
@@ -6127,6 +6588,313 @@ export type Proposal_Tally_Result_Variance_Order_By = {
   no_with_veto?: Maybe<Order_By>;
   proposal_id?: Maybe<Order_By>;
   yes?: Maybe<Order_By>;
+};
+
+/** columns and relationships of "proposal_validator_status_snapshot" */
+export type Proposal_Validator_Status_Snapshot = {
+  __typename?: 'proposal_validator_status_snapshot';
+  height: Scalars['bigint'];
+  id: Scalars['Int'];
+  jailed: Scalars['Boolean'];
+  /** An object relationship */
+  proposal?: Maybe<Proposal>;
+  proposal_id?: Maybe<Scalars['Int']>;
+  status: Scalars['Int'];
+  /** An object relationship */
+  validator: Validator;
+  validator_address: Scalars['String'];
+  voting_power: Scalars['bigint'];
+};
+
+/** aggregated selection of "proposal_validator_status_snapshot" */
+export type Proposal_Validator_Status_Snapshot_Aggregate = {
+  __typename?: 'proposal_validator_status_snapshot_aggregate';
+  aggregate?: Maybe<Proposal_Validator_Status_Snapshot_Aggregate_Fields>;
+  nodes: Array<Proposal_Validator_Status_Snapshot>;
+};
+
+/** aggregate fields of "proposal_validator_status_snapshot" */
+export type Proposal_Validator_Status_Snapshot_Aggregate_Fields = {
+  __typename?: 'proposal_validator_status_snapshot_aggregate_fields';
+  avg?: Maybe<Proposal_Validator_Status_Snapshot_Avg_Fields>;
+  count?: Maybe<Scalars['Int']>;
+  max?: Maybe<Proposal_Validator_Status_Snapshot_Max_Fields>;
+  min?: Maybe<Proposal_Validator_Status_Snapshot_Min_Fields>;
+  stddev?: Maybe<Proposal_Validator_Status_Snapshot_Stddev_Fields>;
+  stddev_pop?: Maybe<Proposal_Validator_Status_Snapshot_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Proposal_Validator_Status_Snapshot_Stddev_Samp_Fields>;
+  sum?: Maybe<Proposal_Validator_Status_Snapshot_Sum_Fields>;
+  var_pop?: Maybe<Proposal_Validator_Status_Snapshot_Var_Pop_Fields>;
+  var_samp?: Maybe<Proposal_Validator_Status_Snapshot_Var_Samp_Fields>;
+  variance?: Maybe<Proposal_Validator_Status_Snapshot_Variance_Fields>;
+};
+
+
+/** aggregate fields of "proposal_validator_status_snapshot" */
+export type Proposal_Validator_Status_Snapshot_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "proposal_validator_status_snapshot" */
+export type Proposal_Validator_Status_Snapshot_Aggregate_Order_By = {
+  avg?: Maybe<Proposal_Validator_Status_Snapshot_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Proposal_Validator_Status_Snapshot_Max_Order_By>;
+  min?: Maybe<Proposal_Validator_Status_Snapshot_Min_Order_By>;
+  stddev?: Maybe<Proposal_Validator_Status_Snapshot_Stddev_Order_By>;
+  stddev_pop?: Maybe<Proposal_Validator_Status_Snapshot_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Proposal_Validator_Status_Snapshot_Stddev_Samp_Order_By>;
+  sum?: Maybe<Proposal_Validator_Status_Snapshot_Sum_Order_By>;
+  var_pop?: Maybe<Proposal_Validator_Status_Snapshot_Var_Pop_Order_By>;
+  var_samp?: Maybe<Proposal_Validator_Status_Snapshot_Var_Samp_Order_By>;
+  variance?: Maybe<Proposal_Validator_Status_Snapshot_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Proposal_Validator_Status_Snapshot_Avg_Fields = {
+  __typename?: 'proposal_validator_status_snapshot_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+  status?: Maybe<Scalars['Float']>;
+  voting_power?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "proposal_validator_status_snapshot" */
+export type Proposal_Validator_Status_Snapshot_Avg_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+  status?: Maybe<Order_By>;
+  voting_power?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "proposal_validator_status_snapshot". All fields are combined with a logical 'AND'. */
+export type Proposal_Validator_Status_Snapshot_Bool_Exp = {
+  _and?: Maybe<Array<Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>>>;
+  _not?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
+  _or?: Maybe<Array<Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>>>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  id?: Maybe<Int_Comparison_Exp>;
+  jailed?: Maybe<Boolean_Comparison_Exp>;
+  proposal?: Maybe<Proposal_Bool_Exp>;
+  proposal_id?: Maybe<Int_Comparison_Exp>;
+  status?: Maybe<Int_Comparison_Exp>;
+  validator?: Maybe<Validator_Bool_Exp>;
+  validator_address?: Maybe<String_Comparison_Exp>;
+  voting_power?: Maybe<Bigint_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Proposal_Validator_Status_Snapshot_Max_Fields = {
+  __typename?: 'proposal_validator_status_snapshot_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+  proposal_id?: Maybe<Scalars['Int']>;
+  status?: Maybe<Scalars['Int']>;
+  validator_address?: Maybe<Scalars['String']>;
+  voting_power?: Maybe<Scalars['bigint']>;
+};
+
+/** order by max() on columns of table "proposal_validator_status_snapshot" */
+export type Proposal_Validator_Status_Snapshot_Max_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+  status?: Maybe<Order_By>;
+  validator_address?: Maybe<Order_By>;
+  voting_power?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Proposal_Validator_Status_Snapshot_Min_Fields = {
+  __typename?: 'proposal_validator_status_snapshot_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+  proposal_id?: Maybe<Scalars['Int']>;
+  status?: Maybe<Scalars['Int']>;
+  validator_address?: Maybe<Scalars['String']>;
+  voting_power?: Maybe<Scalars['bigint']>;
+};
+
+/** order by min() on columns of table "proposal_validator_status_snapshot" */
+export type Proposal_Validator_Status_Snapshot_Min_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+  status?: Maybe<Order_By>;
+  validator_address?: Maybe<Order_By>;
+  voting_power?: Maybe<Order_By>;
+};
+
+/** ordering options when selecting data from "proposal_validator_status_snapshot" */
+export type Proposal_Validator_Status_Snapshot_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  jailed?: Maybe<Order_By>;
+  proposal?: Maybe<Proposal_Order_By>;
+  proposal_id?: Maybe<Order_By>;
+  status?: Maybe<Order_By>;
+  validator?: Maybe<Validator_Order_By>;
+  validator_address?: Maybe<Order_By>;
+  voting_power?: Maybe<Order_By>;
+};
+
+/** primary key columns input for table: "proposal_validator_status_snapshot" */
+export type Proposal_Validator_Status_Snapshot_Pk_Columns_Input = {
+  id: Scalars['Int'];
+};
+
+/** select columns of table "proposal_validator_status_snapshot" */
+export enum Proposal_Validator_Status_Snapshot_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Jailed = 'jailed',
+  /** column name */
+  ProposalId = 'proposal_id',
+  /** column name */
+  Status = 'status',
+  /** column name */
+  ValidatorAddress = 'validator_address',
+  /** column name */
+  VotingPower = 'voting_power'
+}
+
+/** aggregate stddev on columns */
+export type Proposal_Validator_Status_Snapshot_Stddev_Fields = {
+  __typename?: 'proposal_validator_status_snapshot_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+  status?: Maybe<Scalars['Float']>;
+  voting_power?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "proposal_validator_status_snapshot" */
+export type Proposal_Validator_Status_Snapshot_Stddev_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+  status?: Maybe<Order_By>;
+  voting_power?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Proposal_Validator_Status_Snapshot_Stddev_Pop_Fields = {
+  __typename?: 'proposal_validator_status_snapshot_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+  status?: Maybe<Scalars['Float']>;
+  voting_power?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "proposal_validator_status_snapshot" */
+export type Proposal_Validator_Status_Snapshot_Stddev_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+  status?: Maybe<Order_By>;
+  voting_power?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Proposal_Validator_Status_Snapshot_Stddev_Samp_Fields = {
+  __typename?: 'proposal_validator_status_snapshot_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+  status?: Maybe<Scalars['Float']>;
+  voting_power?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "proposal_validator_status_snapshot" */
+export type Proposal_Validator_Status_Snapshot_Stddev_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+  status?: Maybe<Order_By>;
+  voting_power?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Proposal_Validator_Status_Snapshot_Sum_Fields = {
+  __typename?: 'proposal_validator_status_snapshot_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+  proposal_id?: Maybe<Scalars['Int']>;
+  status?: Maybe<Scalars['Int']>;
+  voting_power?: Maybe<Scalars['bigint']>;
+};
+
+/** order by sum() on columns of table "proposal_validator_status_snapshot" */
+export type Proposal_Validator_Status_Snapshot_Sum_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+  status?: Maybe<Order_By>;
+  voting_power?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Proposal_Validator_Status_Snapshot_Var_Pop_Fields = {
+  __typename?: 'proposal_validator_status_snapshot_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+  status?: Maybe<Scalars['Float']>;
+  voting_power?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "proposal_validator_status_snapshot" */
+export type Proposal_Validator_Status_Snapshot_Var_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+  status?: Maybe<Order_By>;
+  voting_power?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Proposal_Validator_Status_Snapshot_Var_Samp_Fields = {
+  __typename?: 'proposal_validator_status_snapshot_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+  status?: Maybe<Scalars['Float']>;
+  voting_power?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "proposal_validator_status_snapshot" */
+export type Proposal_Validator_Status_Snapshot_Var_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+  status?: Maybe<Order_By>;
+  voting_power?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Proposal_Validator_Status_Snapshot_Variance_Fields = {
+  __typename?: 'proposal_validator_status_snapshot_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+  status?: Maybe<Scalars['Float']>;
+  voting_power?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "proposal_validator_status_snapshot" */
+export type Proposal_Validator_Status_Snapshot_Variance_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+  status?: Maybe<Order_By>;
+  voting_power?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -6506,8 +7274,12 @@ export type Query_Root = {
   inflation_by_pk?: Maybe<Inflation>;
   /** fetch data from the table: "message" */
   message: Array<Message>;
+  /** fetch aggregated fields from the table: "message" */
+  message_aggregate: Message_Aggregate;
   /** execute function "messages_by_address" which returns "message" */
   messages_by_address: Array<Message>;
+  /** execute function "messages_by_address" and query aggregates on result of table type "message" */
+  messages_by_address_aggregate: Message_Aggregate;
   /** fetch data from the table: "modules" */
   modules: Array<Modules>;
   /** fetch aggregated fields from the table: "modules" */
@@ -6530,12 +7302,24 @@ export type Query_Root = {
   proposal_deposit_aggregate: Proposal_Deposit_Aggregate;
   /** fetch data from the table: "proposal_deposit" using primary key columns */
   proposal_deposit_by_pk?: Maybe<Proposal_Deposit>;
+  /** fetch data from the table: "proposal_staking_pool_snapshot" */
+  proposal_staking_pool_snapshot: Array<Proposal_Staking_Pool_Snapshot>;
+  /** fetch aggregated fields from the table: "proposal_staking_pool_snapshot" */
+  proposal_staking_pool_snapshot_aggregate: Proposal_Staking_Pool_Snapshot_Aggregate;
+  /** fetch data from the table: "proposal_staking_pool_snapshot" using primary key columns */
+  proposal_staking_pool_snapshot_by_pk?: Maybe<Proposal_Staking_Pool_Snapshot>;
   /** fetch data from the table: "proposal_tally_result" */
   proposal_tally_result: Array<Proposal_Tally_Result>;
   /** fetch aggregated fields from the table: "proposal_tally_result" */
   proposal_tally_result_aggregate: Proposal_Tally_Result_Aggregate;
   /** fetch data from the table: "proposal_tally_result" using primary key columns */
   proposal_tally_result_by_pk?: Maybe<Proposal_Tally_Result>;
+  /** fetch data from the table: "proposal_validator_status_snapshot" */
+  proposal_validator_status_snapshot: Array<Proposal_Validator_Status_Snapshot>;
+  /** fetch aggregated fields from the table: "proposal_validator_status_snapshot" */
+  proposal_validator_status_snapshot_aggregate: Proposal_Validator_Status_Snapshot_Aggregate;
+  /** fetch data from the table: "proposal_validator_status_snapshot" using primary key columns */
+  proposal_validator_status_snapshot_by_pk?: Maybe<Proposal_Validator_Status_Snapshot>;
   /** fetch data from the table: "proposal_vote" */
   proposal_vote: Array<Proposal_Vote>;
   /** fetch aggregated fields from the table: "proposal_vote" */
@@ -7136,7 +7920,28 @@ export type Query_RootMessageArgs = {
 
 
 /** query root */
+export type Query_RootMessage_AggregateArgs = {
+  distinct_on?: Maybe<Array<Message_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Message_Order_By>>;
+  where?: Maybe<Message_Bool_Exp>;
+};
+
+
+/** query root */
 export type Query_RootMessages_By_AddressArgs = {
+  args: Messages_By_Address_Args;
+  distinct_on?: Maybe<Array<Message_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Message_Order_By>>;
+  where?: Maybe<Message_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootMessages_By_Address_AggregateArgs = {
   args: Messages_By_Address_Args;
   distinct_on?: Maybe<Array<Message_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -7247,6 +8052,32 @@ export type Query_RootProposal_Deposit_By_PkArgs = {
 
 
 /** query root */
+export type Query_RootProposal_Staking_Pool_SnapshotArgs = {
+  distinct_on?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Order_By>>;
+  where?: Maybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootProposal_Staking_Pool_Snapshot_AggregateArgs = {
+  distinct_on?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Order_By>>;
+  where?: Maybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootProposal_Staking_Pool_Snapshot_By_PkArgs = {
+  proposal_id: Scalars['Int'];
+};
+
+
+/** query root */
 export type Query_RootProposal_Tally_ResultArgs = {
   distinct_on?: Maybe<Array<Proposal_Tally_Result_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -7270,6 +8101,32 @@ export type Query_RootProposal_Tally_Result_AggregateArgs = {
 export type Query_RootProposal_Tally_Result_By_PkArgs = {
   height: Scalars['bigint'];
   proposal_id: Scalars['Int'];
+};
+
+
+/** query root */
+export type Query_RootProposal_Validator_Status_SnapshotArgs = {
+  distinct_on?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Proposal_Validator_Status_Snapshot_Order_By>>;
+  where?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootProposal_Validator_Status_Snapshot_AggregateArgs = {
+  distinct_on?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Proposal_Validator_Status_Snapshot_Order_By>>;
+  where?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootProposal_Validator_Status_Snapshot_By_PkArgs = {
+  id: Scalars['Int'];
 };
 
 
@@ -9033,8 +9890,12 @@ export type Subscription_Root = {
   inflation_by_pk?: Maybe<Inflation>;
   /** fetch data from the table: "message" */
   message: Array<Message>;
+  /** fetch aggregated fields from the table: "message" */
+  message_aggregate: Message_Aggregate;
   /** execute function "messages_by_address" which returns "message" */
   messages_by_address: Array<Message>;
+  /** execute function "messages_by_address" and query aggregates on result of table type "message" */
+  messages_by_address_aggregate: Message_Aggregate;
   /** fetch data from the table: "modules" */
   modules: Array<Modules>;
   /** fetch aggregated fields from the table: "modules" */
@@ -9057,12 +9918,24 @@ export type Subscription_Root = {
   proposal_deposit_aggregate: Proposal_Deposit_Aggregate;
   /** fetch data from the table: "proposal_deposit" using primary key columns */
   proposal_deposit_by_pk?: Maybe<Proposal_Deposit>;
+  /** fetch data from the table: "proposal_staking_pool_snapshot" */
+  proposal_staking_pool_snapshot: Array<Proposal_Staking_Pool_Snapshot>;
+  /** fetch aggregated fields from the table: "proposal_staking_pool_snapshot" */
+  proposal_staking_pool_snapshot_aggregate: Proposal_Staking_Pool_Snapshot_Aggregate;
+  /** fetch data from the table: "proposal_staking_pool_snapshot" using primary key columns */
+  proposal_staking_pool_snapshot_by_pk?: Maybe<Proposal_Staking_Pool_Snapshot>;
   /** fetch data from the table: "proposal_tally_result" */
   proposal_tally_result: Array<Proposal_Tally_Result>;
   /** fetch aggregated fields from the table: "proposal_tally_result" */
   proposal_tally_result_aggregate: Proposal_Tally_Result_Aggregate;
   /** fetch data from the table: "proposal_tally_result" using primary key columns */
   proposal_tally_result_by_pk?: Maybe<Proposal_Tally_Result>;
+  /** fetch data from the table: "proposal_validator_status_snapshot" */
+  proposal_validator_status_snapshot: Array<Proposal_Validator_Status_Snapshot>;
+  /** fetch aggregated fields from the table: "proposal_validator_status_snapshot" */
+  proposal_validator_status_snapshot_aggregate: Proposal_Validator_Status_Snapshot_Aggregate;
+  /** fetch data from the table: "proposal_validator_status_snapshot" using primary key columns */
+  proposal_validator_status_snapshot_by_pk?: Maybe<Proposal_Validator_Status_Snapshot>;
   /** fetch data from the table: "proposal_vote" */
   proposal_vote: Array<Proposal_Vote>;
   /** fetch aggregated fields from the table: "proposal_vote" */
@@ -9663,7 +10536,28 @@ export type Subscription_RootMessageArgs = {
 
 
 /** subscription root */
+export type Subscription_RootMessage_AggregateArgs = {
+  distinct_on?: Maybe<Array<Message_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Message_Order_By>>;
+  where?: Maybe<Message_Bool_Exp>;
+};
+
+
+/** subscription root */
 export type Subscription_RootMessages_By_AddressArgs = {
+  args: Messages_By_Address_Args;
+  distinct_on?: Maybe<Array<Message_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Message_Order_By>>;
+  where?: Maybe<Message_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootMessages_By_Address_AggregateArgs = {
   args: Messages_By_Address_Args;
   distinct_on?: Maybe<Array<Message_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9774,6 +10668,32 @@ export type Subscription_RootProposal_Deposit_By_PkArgs = {
 
 
 /** subscription root */
+export type Subscription_RootProposal_Staking_Pool_SnapshotArgs = {
+  distinct_on?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Order_By>>;
+  where?: Maybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootProposal_Staking_Pool_Snapshot_AggregateArgs = {
+  distinct_on?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Order_By>>;
+  where?: Maybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootProposal_Staking_Pool_Snapshot_By_PkArgs = {
+  proposal_id: Scalars['Int'];
+};
+
+
+/** subscription root */
 export type Subscription_RootProposal_Tally_ResultArgs = {
   distinct_on?: Maybe<Array<Proposal_Tally_Result_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9797,6 +10717,32 @@ export type Subscription_RootProposal_Tally_Result_AggregateArgs = {
 export type Subscription_RootProposal_Tally_Result_By_PkArgs = {
   height: Scalars['bigint'];
   proposal_id: Scalars['Int'];
+};
+
+
+/** subscription root */
+export type Subscription_RootProposal_Validator_Status_SnapshotArgs = {
+  distinct_on?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Proposal_Validator_Status_Snapshot_Order_By>>;
+  where?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootProposal_Validator_Status_Snapshot_AggregateArgs = {
+  distinct_on?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Proposal_Validator_Status_Snapshot_Order_By>>;
+  where?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootProposal_Validator_Status_Snapshot_By_PkArgs = {
+  id: Scalars['Int'];
 };
 
 
@@ -11422,6 +12368,8 @@ export type Transaction = {
   messages: Scalars['jsonb'];
   /** An array relationship */
   messagesByTransactionHash: Array<Message>;
+  /** An aggregated array relationship */
+  messagesByTransactionHash_aggregate: Message_Aggregate;
   raw_log?: Maybe<Scalars['String']>;
   signatures: Scalars['_text'];
   signer_infos: Scalars['jsonb'];
@@ -11449,6 +12397,16 @@ export type TransactionMessagesArgs = {
 
 /** columns and relationships of "transaction" */
 export type TransactionMessagesByTransactionHashArgs = {
+  distinct_on?: Maybe<Array<Message_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Message_Order_By>>;
+  where?: Maybe<Message_Bool_Exp>;
+};
+
+
+/** columns and relationships of "transaction" */
+export type TransactionMessagesByTransactionHash_AggregateArgs = {
   distinct_on?: Maybe<Array<Message_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
@@ -11596,6 +12554,7 @@ export type Transaction_Order_By = {
   logs?: Maybe<Order_By>;
   memo?: Maybe<Order_By>;
   messages?: Maybe<Order_By>;
+  messagesByTransactionHash_aggregate?: Maybe<Message_Aggregate_Order_By>;
   raw_log?: Maybe<Order_By>;
   signatures?: Maybe<Order_By>;
   signer_infos?: Maybe<Order_By>;
@@ -14818,18 +15777,20 @@ export type ProposalTallyListenerSubscription = { proposalTallyResult: Array<(
     & { noWithVeto: Proposal_Tally_Result['no_with_veto'] }
   )> };
 
-export type TallyParamsQueryVariables = Exact<{ [key: string]: never; }>;
+export type TallyParamsQueryVariables = Exact<{
+  proposalId?: Maybe<Scalars['Int']>;
+}>;
 
 
 export type TallyParamsQuery = { govParams: Array<(
     { __typename?: 'gov_params' }
     & { tallyParams: Gov_Params['tally_params'] }
-  )>, stakingPool: Array<(
-    { __typename?: 'staking_pool' }
-    & { bondedTokens: Staking_Pool['bonded_tokens'] }
   )>, stakingParams: Array<(
     { __typename?: 'staking_params' }
     & { bondDenom: Staking_Params['bond_denom'] }
+  )>, stakingPool: Array<(
+    { __typename?: 'proposal_staking_pool_snapshot' }
+    & { bondedTokens: Proposal_Staking_Pool_Snapshot['bonded_tokens'] }
   )> };
 
 export type ProposalsQueryVariables = Exact<{
@@ -15797,15 +16758,17 @@ export function useProposalTallyListenerSubscription(baseOptions?: Apollo.Subscr
 export type ProposalTallyListenerSubscriptionHookResult = ReturnType<typeof useProposalTallyListenerSubscription>;
 export type ProposalTallyListenerSubscriptionResult = Apollo.SubscriptionResult<ProposalTallyListenerSubscription>;
 export const TallyParamsDocument = gql`
-    query TallyParams {
+    query TallyParams($proposalId: Int) {
   govParams: gov_params {
     tallyParams: tally_params
   }
-  stakingPool: staking_pool {
-    bondedTokens: bonded_tokens
-  }
   stakingParams: staking_params(limit: 1) {
     bondDenom: bond_denom
+  }
+  stakingPool: proposal_staking_pool_snapshot(
+    where: {proposal_id: {_eq: $proposalId}}
+  ) {
+    bondedTokens: bonded_tokens
   }
 }
     `;
@@ -15822,6 +16785,7 @@ export const TallyParamsDocument = gql`
  * @example
  * const { data, loading, error } = useTallyParamsQuery({
  *   variables: {
+ *      proposalId: // value for 'proposalId'
  *   },
  * });
  */
