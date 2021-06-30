@@ -55,7 +55,9 @@ export const useProposalDetails = () => {
       abstain: 0,
       veto: 0,
       total: 0,
+      notVoted: 0,
       data: [],
+      notVotedData: [],
     },
     deposits: [],
     validators: [],
@@ -189,6 +191,7 @@ export const useProposalDetails = () => {
     let no = 0;
     let abstain = 0;
     let veto = 0;
+    const votedUserDictionary = {};
     const votes = data.proposalVote.map((x) => {
       if (x.option === 'VOTE_OPTION_YES') {
         yes += 1;
@@ -204,6 +207,7 @@ export const useProposalDetails = () => {
       }
 
       const user = findAddress(x.voterAddress);
+      votedUserDictionary[x.voterAddress] = true;
       return ({
         user: {
           address: x.voterAddress,
@@ -214,6 +218,25 @@ export const useProposalDetails = () => {
       });
     }).sort((a, b) => ((a.user.name.toLowerCase() > b.user.name.toLowerCase()) ? 1 : -1));
 
+    // =====================================
+    // Get data for active validators that did not vote
+    // =====================================
+    const validatorsNotVoted = [];
+
+    state.validators.forEach((x) => {
+      if (!votedUserDictionary[x.selfDelegateAddress]) {
+        const validator = findAddress(x.selfDelegateAddress);
+        validatorsNotVoted.push({
+          user: {
+            address: x.operatorAddress,
+            imageUrl: validator.imageUrl,
+            name: validator.moniker,
+          },
+          vote: 'NOT_VOTED',
+        });
+      }
+    });
+
     return {
       data: votes,
       yes,
@@ -221,6 +244,8 @@ export const useProposalDetails = () => {
       abstain,
       veto,
       total: veto + abstain + no + yes,
+      notVotedData: validatorsNotVoted,
+      notVoted: validatorsNotVoted.length,
     };
   };
 

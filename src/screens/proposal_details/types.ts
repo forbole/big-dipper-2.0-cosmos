@@ -48,7 +48,9 @@ export type ProposalState = {
     abstain: number;
     veto: number;
     total: number;
+    notVoted: number;
     data: VoteType[];
+    notVotedData: VoteType[];
   };
   deposits: DepositType[];
   validators: ValidatorType[];
