@@ -60,16 +60,7 @@ export const useProposalDetails = () => {
       notVotedData: [],
     },
     deposits: [],
-    validators: [
-      {
-        selfDelegateAddress: 'desmos1cvnsnnydjhl4njncjzpkh69al64tjc9yzd0gd3',
-        operatorAddress: 'desmosvaloper1cvnsnnydjhl4njncjzpkh69al64tjc9yuq8u8r',
-      },
-      {
-        selfDelegateAddress: 'desmos15fpte387ygestt8w3gz7wls0wnsggtvfjzks0z',
-        operatorAddress: 'desmosvaloper15fpte387ygestt8w3gz7wls0wnsggtvfv07y9s',
-      },
-    ],
+    validators: [],
   });
 
   const handleSetState = (stateChange: any) => {
