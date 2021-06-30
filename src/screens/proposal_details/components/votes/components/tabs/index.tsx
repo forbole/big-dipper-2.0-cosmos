@@ -18,6 +18,7 @@ const TabsHeader: React.FC<{
     no: number;
     abstain: number;
     veto: number;
+    notVoted: number;
   }
 }> = ({
   className, tab, handleTabChange, data,

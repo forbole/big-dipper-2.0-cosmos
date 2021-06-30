@@ -22,12 +22,14 @@ const Mobile = dynamic(() => import('./components/mobile'));
 const Votes: React.FC<{
   className?: string;
   data: VoteType[];
+  notVotedData: VoteType[];
   tab: number;
   yes: number;
   no: number;
   abstain: number;
   veto: number;
   total: number;
+  notVoted: number;
   handleTabChange: (e, val) => void;
 }> = ({
   className, ...props
@@ -39,11 +41,15 @@ const Votes: React.FC<{
     handleChangePage,
     handleChangeRowsPerPage,
     sliceItems,
+    resetPagination,
   } = usePagination({
   });
 
   const classes = useStyles();
   const formatItems = () => {
+    if (props.tab === 5) {
+      return props.notVotedData;
+    }
     return props.data.filter((x) => {
       if (props.tab === 1) {
         return x.vote === 'VOTE_OPTION_YES';
@@ -63,11 +69,15 @@ const Votes: React.FC<{
 
       return true;
     });
-    // return sliceItems();
   };
 
   const items = formatItems();
   const itemsPaginated = sliceItems(items);
+
+  const tabChangeParentHelper = (_event: any, newValue: number) => {
+    resetPagination();
+    props.handleTabChange(_event, newValue);
+  };
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -77,9 +87,10 @@ const Votes: React.FC<{
           no: props.no,
           abstain: props.abstain,
           veto: props.veto,
+          notVoted: props.notVoted,
         }}
         tab={props.tab}
-        handleTabChange={props.handleTabChange}
+        handleTabChange={tabChangeParentHelper}
       />
       <div className={classes.list}>
         {items.length ? (

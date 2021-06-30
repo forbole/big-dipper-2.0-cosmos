@@ -14,6 +14,7 @@ import {
 
 const options = {
   disableParsingRawHTML: true,
+  forceBlock: true,
   overrides: {
     h1: {
       component: Typography,

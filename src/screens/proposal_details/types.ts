@@ -30,6 +30,11 @@ export type DepositType = {
   user: AvatarName;
 }
 
+export type ValidatorType = {
+  selfDelegateAddress: string;
+  operatorAddress: string;
+}
+
 export type ProposalState = {
   loading: boolean;
   exists: boolean;
@@ -43,7 +48,10 @@ export type ProposalState = {
     abstain: number;
     veto: number;
     total: number;
+    notVoted: number;
     data: VoteType[];
+    notVotedData: VoteType[];
   };
   deposits: DepositType[];
+  validators: ValidatorType[];
 }

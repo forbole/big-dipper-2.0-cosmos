@@ -33,14 +33,28 @@ subscription ProposalTallyListener($proposalId: Int) {
   }
 }
 
-query TallyParams {
+
+query TallyParams($proposalId: Int) {
   govParams: gov_params {
     tallyParams: tally_params
   }
-  stakingPool: staking_pool {
-    bondedTokens: bonded_tokens
-  }
   stakingParams: staking_params(limit: 1) {
     bondDenom: bond_denom
+  }
+  stakingPool: proposal_staking_pool_snapshot(where: {proposal_id: {_eq: $proposalId}}) {
+    bondedTokens: bonded_tokens
+  }
+}
+
+query ProposalValidatorSnapshot($proposalId: Int) {
+  validatorStatuses: proposal_validator_status_snapshot(where: {proposal_id: {_eq: $proposalId}, status: {_eq: 3}}) {
+    validatorAddress: validator_address
+    status
+    votingPower: voting_power
+    validator {
+      validatorInfo: validator_info {
+        selfDelegateAddress: self_delegate_address
+      }
+    }
   }
 }

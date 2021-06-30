@@ -12,6 +12,7 @@ import {
   ProposalVotesListenerDocument,
   ProposalTallyListenerDocument,
   TallyParamsDocument,
+  ProposalValidatorSnapshotDocument,
 } from '@graphql/types';
 import ProposalDetails from '.';
 
@@ -78,6 +79,12 @@ const mockProposalTallyListenerDocument = {
     ],
   },
 };
+
+const mockProposalValidatorSnapshotDocument = jest.fn().mockResolvedValue({
+  data: {
+    validatorStatuses: [],
+  },
+});
 
 const mockTallyParamsDocument = jest.fn().mockResolvedValue({
   data: {
@@ -165,6 +172,11 @@ describe('screen: ProposalDetails', () => {
     mockClient.setRequestHandler(
       TallyParamsDocument,
       mockTallyParamsDocument,
+    );
+
+    mockClient.setRequestHandler(
+      ProposalValidatorSnapshotDocument,
+      mockProposalValidatorSnapshotDocument,
     );
 
     let component;
