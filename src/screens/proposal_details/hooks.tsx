@@ -11,6 +11,8 @@ import {
   ProposalTallyListenerSubscription,
   useTallyParamsQuery,
   TallyParamsQuery,
+  useProposalValidatorSnapshotQuery,
+  ProposalValidatorSnapshotQuery,
 } from '@graphql/types';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
@@ -19,7 +21,9 @@ import { ProposalState } from './types';
 
 export const useProposalDetails = () => {
   const router = useRouter();
-  const { findAddress } = useChainContext();
+  const {
+    findAddress, findOperator,
+  } = useChainContext();
   const [state, setState] = useState<ProposalState>({
     loading: true,
     exists: true,
@@ -51,9 +55,21 @@ export const useProposalDetails = () => {
       abstain: 0,
       veto: 0,
       total: 0,
+      notVoted: 0,
       data: [],
+      notVotedData: [],
     },
     deposits: [],
+    validators: [
+      {
+        selfDelegateAddress: 'desmos1cvnsnnydjhl4njncjzpkh69al64tjc9yzd0gd3',
+        operatorAddress: 'desmosvaloper1cvnsnnydjhl4njncjzpkh69al64tjc9yuq8u8r',
+      },
+      {
+        selfDelegateAddress: 'desmos15fpte387ygestt8w3gz7wls0wnsggtvfjzks0z',
+        operatorAddress: 'desmosvaloper15fpte387ygestt8w3gz7wls0wnsggtvfv07y9s',
+      },
+    ],
   });
 
   const handleSetState = (stateChange: any) => {
@@ -69,6 +85,17 @@ export const useProposalDetails = () => {
     },
     onCompleted: (data) => {
       handleSetState(formatProposalQuery(data));
+    },
+  });
+
+  useProposalValidatorSnapshotQuery({
+    variables: {
+      proposalId: R.pathOr('', ['query', 'id'], router),
+    },
+    onCompleted: (data) => {
+      handleSetState({
+        validators: formatProposalValidatorSnapshotQuery(data),
+      });
     },
   });
 
@@ -95,6 +122,9 @@ export const useProposalDetails = () => {
   });
 
   useTallyParamsQuery({
+    variables: {
+      proposalId: R.pathOr('', ['query', 'id'], router),
+    },
     onCompleted: (data) => {
       handleSetState({
         tally: formatTallyParams(data),
@@ -170,6 +200,7 @@ export const useProposalDetails = () => {
     let no = 0;
     let abstain = 0;
     let veto = 0;
+    const votedUserDictionary = {};
     const votes = data.proposalVote.map((x) => {
       if (x.option === 'VOTE_OPTION_YES') {
         yes += 1;
@@ -185,6 +216,7 @@ export const useProposalDetails = () => {
       }
 
       const user = findAddress(x.voterAddress);
+      votedUserDictionary[x.voterAddress] = true;
       return ({
         user: {
           address: x.voterAddress,
@@ -195,6 +227,23 @@ export const useProposalDetails = () => {
       });
     }).sort((a, b) => ((a.user.name.toLowerCase() > b.user.name.toLowerCase()) ? 1 : -1));
 
+    // =====================================
+    // Get data for active validators that did not vote
+    // =====================================
+    const validatorsNotVoted = state.validators.filter((x) => (
+      !votedUserDictionary[x.selfDelegateAddress]
+    )).map((y) => {
+      const validator = findAddress(y.selfDelegateAddress);
+      return ({
+        user: {
+          address: y.operatorAddress,
+          imageUrl: validator.imageUrl,
+          name: validator.moniker,
+        },
+        vote: 'NOT_VOTED',
+      });
+    }).sort((a, b) => ((a.user.name.toLowerCase() > b.user.name.toLowerCase()) ? 1 : -1));
+
     return {
       data: votes,
       yes,
@@ -202,6 +251,8 @@ export const useProposalDetails = () => {
       abstain,
       veto,
       total: veto + abstain + no + yes,
+      notVotedData: validatorsNotVoted,
+      notVoted: validatorsNotVoted.length,
     };
   };
 
@@ -234,6 +285,18 @@ export const useProposalDetails = () => {
         R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data),
         R.pathOr('', ['stakingParams', 0, 'bondDenom'], data),
       ).value,
+    });
+  };
+
+  const formatProposalValidatorSnapshotQuery = (data: ProposalValidatorSnapshotQuery) => {
+    return data.validatorStatuses.map((x) => {
+      const selfDelegateAddress = R.pathOr('', ['validator', 'validatorInfo', 'selfDelegateAddress'], x);
+      const operatorAddress = findOperator(x.validatorAddress);
+
+      return ({
+        selfDelegateAddress,
+        operatorAddress,
+      });
     });
   };
 

@@ -24,12 +24,12 @@ NEXT_PUBLIC_URL=
 NEXT_PUBLIC_WS_CHAIN_URL=
 ```
 
-`NODE_ENV` - `development` | `production`
-`PORT` - the port to run the app on
-`NEXT_PUBLIC_GRAPHQL_URL` - refers to the api hosted by [BDJuno](https://github.com/forbole/bdjuno)
-`NEXT_PUBLIC_GRAPHQL_WS` - refers to the websocket hosted by [BDJuno](https://github.com/forbole/bdjuno)
-`NEXT_PUBLIC_URL` - the api where you will be hosting the frontend of this explorer (make sure there is no `/` at the end ex: `https://morpheus.desmos.network` not `https://morpheus.desmos.network/`)
-`NEXT_PUBLIC_WS_CHAIN_URL` - refers to the rpc websocket hosted by the node
+`NODE_ENV` - `development` | `production` \
+`PORT` - the port to run the app on \
+`NEXT_PUBLIC_GRAPHQL_URL` - refers to the api hosted by [BDJuno](https://github.com/forbole/bdjuno) \
+`NEXT_PUBLIC_GRAPHQL_WS` - refers to the websocket hosted by [BDJuno](https://github.com/forbole/bdjuno) \
+`NEXT_PUBLIC_URL` - the api where you will be hosting the frontend of this explorer (make sure there is no `/` at the end ex: `https://morpheus.desmos.network` not `https://morpheus.desmos.network/`) \
+`NEXT_PUBLIC_WS_CHAIN_URL` - refers to the rpc websocket hosted by the node \
 
 3) In `src/configs/chain_config.json` update the json to fit your needs
 

@@ -9,6 +9,7 @@ import {
   Pie,
   Cell,
 } from 'recharts';
+import { replaceNaN } from '@utils/replace_nan';
 import { useStyles } from './styles';
 import { formatGraphData } from './utils';
 import { TallyType } from '../../types';
@@ -36,7 +37,7 @@ const VotesGraph: React.FC<{
   formattedData = notEmpty ? formattedData : [...formattedData, empty];
 
   const quorumPercent = `${numeral(data.quorum * 100).value()}%`; // correct
-  const votePercent = `${numeral((data.total / data.bondedTokens) * 100).format('0.[00]')}%`;
+  const votePercent = replaceNaN(`${numeral((data.total / data.bondedTokens) * 100).format('0.[00]')}%`);
   const voteAmount = numeral(data.total).format('0,0.[00]');
   const quorumAmount = numeral((data.bondedTokens * (data.quorum * 100)) / 100).format('0,0.[00]');
 
