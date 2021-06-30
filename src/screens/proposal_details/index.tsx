@@ -67,6 +67,8 @@ const ProposalDetails = () => {
               veto={votes.veto}
               total={votes.total}
               handleTabChange={handleTabChange}
+              notVotedData={votes.notVotedData}
+              notVoted={votes.notVoted}
             />
           )}
           <Deposits

@@ -60,7 +60,16 @@ export const useProposalDetails = () => {
       notVotedData: [],
     },
     deposits: [],
-    validators: [],
+    validators: [
+      {
+        selfDelegateAddress: 'desmos1cvnsnnydjhl4njncjzpkh69al64tjc9yzd0gd3',
+        operatorAddress: 'desmosvaloper1cvnsnnydjhl4njncjzpkh69al64tjc9yuq8u8r',
+      },
+      {
+        selfDelegateAddress: 'desmos15fpte387ygestt8w3gz7wls0wnsggtvfjzks0z',
+        operatorAddress: 'desmosvaloper15fpte387ygestt8w3gz7wls0wnsggtvfv07y9s',
+      },
+    ],
   });
 
   const handleSetState = (stateChange: any) => {
@@ -84,9 +93,10 @@ export const useProposalDetails = () => {
       proposalId: R.pathOr('', ['query', 'id'], router),
     },
     onCompleted: (data) => {
-      handleSetState({
-        validators: formatProposalValidatorSnapshotQuery(data),
-      });
+      // wingman
+      // handleSetState({
+      //   validators: formatProposalValidatorSnapshotQuery(data),
+      // });
     },
   });
 
@@ -221,21 +231,19 @@ export const useProposalDetails = () => {
     // =====================================
     // Get data for active validators that did not vote
     // =====================================
-    const validatorsNotVoted = [];
-
-    state.validators.forEach((x) => {
-      if (!votedUserDictionary[x.selfDelegateAddress]) {
-        const validator = findAddress(x.selfDelegateAddress);
-        validatorsNotVoted.push({
-          user: {
-            address: x.operatorAddress,
-            imageUrl: validator.imageUrl,
-            name: validator.moniker,
-          },
-          vote: 'NOT_VOTED',
-        });
-      }
-    });
+    const validatorsNotVoted = state.validators.filter((x) => (
+      !votedUserDictionary[x.selfDelegateAddress]
+    )).map((y) => {
+      const validator = findAddress(y.selfDelegateAddress);
+      return ({
+        user: {
+          address: y.operatorAddress,
+          imageUrl: validator.imageUrl,
+          name: validator.moniker,
+        },
+        vote: 'NOT_VOTED',
+      });
+    }).sort((a, b) => ((a.user.name.toLowerCase() > b.user.name.toLowerCase()) ? 1 : -1));
 
     return {
       data: votes,
