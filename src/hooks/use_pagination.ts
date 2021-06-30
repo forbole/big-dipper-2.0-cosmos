@@ -45,6 +45,11 @@ export const usePagination = (options?:Options) => {
     return items.length;
   };
 
+  const resetPagination = () => {
+    setPage(0);
+    setRowsPerPage(rowsPage ?? 10);
+  };
+
   return {
     page,
     rowsPerPage,
@@ -52,5 +57,6 @@ export const usePagination = (options?:Options) => {
     handleChangeRowsPerPage,
     sliceItems,
     getTotal,
+    resetPagination,
   };
 };

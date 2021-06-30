@@ -25,6 +25,13 @@ const Pagination: React.FC<{
 }) => {
   const { t } = useTranslation('common');
   const classes = useStyles();
+
+  // hides pagination if the total items is less than
+  // the rows per page option (default 10)
+  if (total <= rowsPerPage) {
+    return null;
+  }
+
   return (
     <TablePagination
       className={classnames(className, classes.root)}

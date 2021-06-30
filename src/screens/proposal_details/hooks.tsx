@@ -93,10 +93,9 @@ export const useProposalDetails = () => {
       proposalId: R.pathOr('', ['query', 'id'], router),
     },
     onCompleted: (data) => {
-      // wingman
-      // handleSetState({
-      //   validators: formatProposalValidatorSnapshotQuery(data),
-      // });
+      handleSetState({
+        validators: formatProposalValidatorSnapshotQuery(data),
+      });
     },
   });
 

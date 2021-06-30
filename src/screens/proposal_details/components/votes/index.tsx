@@ -41,6 +41,7 @@ const Votes: React.FC<{
     handleChangePage,
     handleChangeRowsPerPage,
     sliceItems,
+    resetPagination,
   } = usePagination({
   });
 
@@ -73,6 +74,11 @@ const Votes: React.FC<{
   const items = formatItems();
   const itemsPaginated = sliceItems(items);
 
+  const tabChangeParentHelper = (_event: any, newValue: number) => {
+    resetPagination();
+    props.handleTabChange(_event, newValue);
+  };
+
   return (
     <Box className={classnames(className, classes.root)}>
       <Tabs
@@ -84,7 +90,7 @@ const Votes: React.FC<{
           notVoted: props.notVoted,
         }}
         tab={props.tab}
-        handleTabChange={props.handleTabChange}
+        handleTabChange={tabChangeParentHelper}
       />
       <div className={classes.list}>
         {items.length ? (
