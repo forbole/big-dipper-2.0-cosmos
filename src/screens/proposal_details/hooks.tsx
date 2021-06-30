@@ -11,6 +11,8 @@ import {
   ProposalTallyListenerSubscription,
   useTallyParamsQuery,
   TallyParamsQuery,
+  useProposalValidatorSnapshotQuery,
+  ProposalValidatorSnapshotQuery,
 } from '@graphql/types';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
@@ -19,7 +21,9 @@ import { ProposalState } from './types';
 
 export const useProposalDetails = () => {
   const router = useRouter();
-  const { findAddress } = useChainContext();
+  const {
+    findAddress, findOperator,
+  } = useChainContext();
   const [state, setState] = useState<ProposalState>({
     loading: true,
     exists: true,
@@ -54,6 +58,7 @@ export const useProposalDetails = () => {
       data: [],
     },
     deposits: [],
+    validators: [],
   });
 
   const handleSetState = (stateChange: any) => {
@@ -69,6 +74,17 @@ export const useProposalDetails = () => {
     },
     onCompleted: (data) => {
       handleSetState(formatProposalQuery(data));
+    },
+  });
+
+  useProposalValidatorSnapshotQuery({
+    variables: {
+      proposalId: R.pathOr('', ['query', 'id'], router),
+    },
+    onCompleted: (data) => {
+      handleSetState({
+        validators: formatProposalValidatorSnapshotQuery(data),
+      });
     },
   });
 
@@ -237,6 +253,18 @@ export const useProposalDetails = () => {
         R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data),
         R.pathOr('', ['stakingParams', 0, 'bondDenom'], data),
       ).value,
+    });
+  };
+
+  const formatProposalValidatorSnapshotQuery = (data: ProposalValidatorSnapshotQuery) => {
+    return data.validatorStatuses.map((x) => {
+      const selfDelegateAddress = R.pathOr('', ['validator', 'validatorInfo', 'selfDelegateAddress'], x);
+      const operatorAddress = findOperator(x.validatorAddress);
+
+      return ({
+        selfDelegateAddress,
+        operatorAddress,
+      });
     });
   };
 

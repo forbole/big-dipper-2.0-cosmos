@@ -15793,6 +15793,24 @@ export type TallyParamsQuery = { govParams: Array<(
     & { bondedTokens: Proposal_Staking_Pool_Snapshot['bonded_tokens'] }
   )> };
 
+export type ProposalValidatorSnapshotQueryVariables = Exact<{
+  proposalId?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type ProposalValidatorSnapshotQuery = { validatorStatuses: Array<(
+    { __typename?: 'proposal_validator_status_snapshot' }
+    & Pick<Proposal_Validator_Status_Snapshot, 'status'>
+    & { validatorAddress: Proposal_Validator_Status_Snapshot['validator_address'], votingPower: Proposal_Validator_Status_Snapshot['voting_power'] }
+    & { validator: (
+      { __typename?: 'validator' }
+      & { validatorInfo?: Maybe<(
+        { __typename?: 'validator_info' }
+        & { selfDelegateAddress: Validator_Info['self_delegate_address'] }
+      )> }
+    ) }
+  )> };
+
 export type ProposalsQueryVariables = Exact<{
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
@@ -16800,6 +16818,50 @@ export function useTallyParamsLazyQuery(baseOptions?: Apollo.LazyQueryHookOption
 export type TallyParamsQueryHookResult = ReturnType<typeof useTallyParamsQuery>;
 export type TallyParamsLazyQueryHookResult = ReturnType<typeof useTallyParamsLazyQuery>;
 export type TallyParamsQueryResult = Apollo.QueryResult<TallyParamsQuery, TallyParamsQueryVariables>;
+export const ProposalValidatorSnapshotDocument = gql`
+    query ProposalValidatorSnapshot($proposalId: Int) {
+  validatorStatuses: proposal_validator_status_snapshot(
+    where: {proposal_id: {_eq: $proposalId}, status: {_eq: 3}}
+  ) {
+    validatorAddress: validator_address
+    status
+    votingPower: voting_power
+    validator {
+      validatorInfo: validator_info {
+        selfDelegateAddress: self_delegate_address
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useProposalValidatorSnapshotQuery__
+ *
+ * To run a query within a React component, call `useProposalValidatorSnapshotQuery` and pass it any options that fit your needs.
+ * When your component renders, `useProposalValidatorSnapshotQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useProposalValidatorSnapshotQuery({
+ *   variables: {
+ *      proposalId: // value for 'proposalId'
+ *   },
+ * });
+ */
+export function useProposalValidatorSnapshotQuery(baseOptions?: Apollo.QueryHookOptions<ProposalValidatorSnapshotQuery, ProposalValidatorSnapshotQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ProposalValidatorSnapshotQuery, ProposalValidatorSnapshotQueryVariables>(ProposalValidatorSnapshotDocument, options);
+      }
+export function useProposalValidatorSnapshotLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProposalValidatorSnapshotQuery, ProposalValidatorSnapshotQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ProposalValidatorSnapshotQuery, ProposalValidatorSnapshotQueryVariables>(ProposalValidatorSnapshotDocument, options);
+        }
+export type ProposalValidatorSnapshotQueryHookResult = ReturnType<typeof useProposalValidatorSnapshotQuery>;
+export type ProposalValidatorSnapshotLazyQueryHookResult = ReturnType<typeof useProposalValidatorSnapshotLazyQuery>;
+export type ProposalValidatorSnapshotQueryResult = Apollo.QueryResult<ProposalValidatorSnapshotQuery, ProposalValidatorSnapshotQueryVariables>;
 export const ProposalsDocument = gql`
     query Proposals($limit: Int = 7, $offset: Int = 0) {
   proposals: proposal(limit: $limit, offset: $offset, order_by: {id: desc}) {

@@ -46,3 +46,15 @@ query TallyParams($proposalId: Int) {
   }
 }
 
+query ProposalValidatorSnapshot($proposalId: Int) {
+  validatorStatuses: proposal_validator_status_snapshot(where: {proposal_id: {_eq: $proposalId}, status: {_eq: 3}}) {
+    validatorAddress: validator_address
+    status
+    votingPower: voting_power
+    validator {
+      validatorInfo: validator_info {
+        selfDelegateAddress: self_delegate_address
+      }
+    }
+  }
+}

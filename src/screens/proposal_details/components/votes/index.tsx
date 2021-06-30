@@ -41,7 +41,7 @@ const Votes: React.FC<{
     sliceItems,
   } = usePagination({
   });
-
+  console.log(props, 'props data');
   const classes = useStyles();
   const formatItems = () => {
     return props.data.filter((x) => {
