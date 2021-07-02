@@ -116,11 +116,6 @@ const Settings: React.FC<{
                       {t(l)}
                     </MenuItem>
                   ))}
-                <MenuItem
-                  value="zht"
-                >
-                  zht
-                </MenuItem>
               </Select>
             </div>
           </form>
