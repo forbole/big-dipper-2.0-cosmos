@@ -39,7 +39,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props, { className 
         },
         {
           label: t('time'),
-          detail: dayjs.utc(props.timestamp).local().format('MMMM DD, YYYY hh:mm A'),
+          detail: dayjs.utc(props.timestamp).local().format('MMMM DD, YYYY hh:mm A (z)'),
         },
         {
           label: t('txs'),
