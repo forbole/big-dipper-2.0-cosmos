@@ -24,6 +24,7 @@ export const useStyles = () => {
           },
         },
         formItem: {
+          marginBottom: theme.spacing(2),
           '& .MuiOutlinedInput-root': {
             width: '100%',
           },

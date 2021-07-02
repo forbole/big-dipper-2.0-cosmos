@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import SettingIcon from '@assets/icon-setting.svg';
@@ -22,12 +23,15 @@ const Settings: React.FC<{
   className?: string;
 }> = (props) => {
   const classes = useStyles();
+  const router = useRouter();
   const {
     themeList,
     theme,
     changeTheme,
   } = useSettingsContext();
-  const { t } = useTranslation('common');
+  const {
+    t, lang,
+  } = useTranslation('common');
   const {
     open,
     handleOpen,
@@ -38,6 +42,7 @@ const Settings: React.FC<{
   } = useSettingList({
     theme,
     changeTheme,
+    lang,
   });
 
   return (
@@ -87,6 +92,35 @@ const Settings: React.FC<{
                       {t(l)}
                     </MenuItem>
                   ))}
+              </Select>
+            </div>
+
+            <div className={classes.formItem}>
+              <Typography className="form-item--label">
+                Language
+              </Typography>
+              <Select
+                variant="outlined"
+                value={state.lang}
+                onChange={(e) => handleChange('lang', e?.target?.value)}
+                MenuProps={{ MenuListProps: {
+                  disablePadding: true,
+                } }}
+              >
+                {router.locales
+                  .map((l) => (
+                    <MenuItem
+                      key={l}
+                      value={l}
+                    >
+                      {t(l)}
+                    </MenuItem>
+                  ))}
+                <MenuItem
+                  value="zht"
+                >
+                  zht
+                </MenuItem>
               </Select>
             </div>
           </form>

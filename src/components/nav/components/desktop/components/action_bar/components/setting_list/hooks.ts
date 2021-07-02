@@ -1,13 +1,15 @@
 import { useState } from 'react';
+import setLanguage from 'next-translate/setLanguage';
 import * as R from 'ramda';
 
 export const useSettingList = ({
   theme,
   changeTheme,
+  lang,
 }) => {
   const [open, setOpen] = useState(false);
   const [state, setState] = useState({
-    language: '',
+    lang,
     theme,
     dateDisplay: '',
   });
@@ -48,6 +50,11 @@ export const useSettingList = ({
     if (state.theme !== theme) {
       changeTheme(state.theme);
     }
+
+    if (state.lang !== lang) {
+      setLanguage(state.lang);
+    }
+
     handleClose();
   };
 
