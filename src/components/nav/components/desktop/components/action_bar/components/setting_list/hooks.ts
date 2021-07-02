@@ -3,6 +3,7 @@ import * as R from 'ramda';
 
 export const useSettingList = ({
   theme,
+  changeTheme,
 }) => {
   const [open, setOpen] = useState(false);
   const [state, setState] = useState({
@@ -11,9 +12,23 @@ export const useSettingList = ({
     dateDisplay: '',
   });
 
+  const resetSettings = () => {
+    handleSetState({
+      theme,
+      dateDisplay: '',
+      language: '',
+    });
+  };
+
   const handleOpen = () => {
     setOpen(true);
   };
+
+  const handleCancel = () => {
+    resetSettings();
+    handleClose();
+  };
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -23,7 +38,6 @@ export const useSettingList = ({
   };
 
   const handleChange = (label: string, value: any) => {
-    console.log(value, 'value');
     handleSetState({
       [label]: value,
     });
@@ -31,11 +45,11 @@ export const useSettingList = ({
 
   const handleFormSubmit = (e: any) => {
     e.preventDefault();
+    if (state.theme !== theme) {
+      changeTheme(state.theme);
+    }
+    handleClose();
   };
-
-  // const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-  //   setAge(event.target.value as string);
-  // };
 
   return {
     open,
@@ -44,5 +58,6 @@ export const useSettingList = ({
     state,
     handleChange,
     handleFormSubmit,
+    handleCancel,
   };
 };

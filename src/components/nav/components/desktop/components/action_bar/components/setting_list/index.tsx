@@ -4,7 +4,6 @@ import useTranslation from 'next-translate/useTranslation';
 import SettingIcon from '@assets/icon-setting.svg';
 import {
   MenuItem,
-  Menu,
   Typography,
   Dialog,
   DialogTitle,
@@ -32,19 +31,14 @@ const Settings: React.FC<{
   const {
     open,
     handleOpen,
-    handleClose,
     state,
     handleChange,
     handleFormSubmit,
+    handleCancel,
   } = useSettingList({
     theme,
+    changeTheme,
   });
-  console.log(state.theme, 'theme');
-
-  // const handleOnClick = (value:string) => {
-  //   changeTheme(value);
-  //   handleClose();
-  // };
 
   return (
     <div>
@@ -57,7 +51,7 @@ const Settings: React.FC<{
       </div>
       <Dialog
         maxWidth="md"
-        onClose={handleClose}
+        onClose={handleCancel}
         open={open}
         className={classes.dialog}
       >
@@ -65,7 +59,7 @@ const Settings: React.FC<{
           <Typography variant="h2">Settings</Typography>
           <IconButton
             aria-label="close"
-            onClick={handleClose}
+            onClick={handleCancel}
           >
             <CloseIcon />
           </IconButton>
@@ -93,16 +87,13 @@ const Settings: React.FC<{
                       {t(l)}
                     </MenuItem>
                   ))}
-                {/* <MenuItem value={10}>some random ass theme</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem> */}
               </Select>
             </div>
           </form>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose} color="primary">
-            Save changes
+          <Button autoFocus onClick={handleFormSubmit} color="primary">
+            Save
           </Button>
         </DialogActions>
       </Dialog>
