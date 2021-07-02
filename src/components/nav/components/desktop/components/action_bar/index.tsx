@@ -35,7 +35,7 @@ const ActionBar: React.FC<{
         />
         {/* <ThemeList className={classes.theme} />
         <Language /> */}
-        <SettingsList className={classes.theme} />
+        <SettingsList />
       </div>
       <NetworkList
         actionHeight={height}

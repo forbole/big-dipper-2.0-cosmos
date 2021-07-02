@@ -4,6 +4,15 @@ export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
       return ({
+        icon: {
+          '&:hover': {
+            cursor: 'pointer',
+          },
+          '& svg': {
+            width: theme.spacing(3.5),
+            height: theme.spacing(3.5),
+          },
+        },
         closeButton: {
           position: 'absolute',
           right: theme.spacing(1),

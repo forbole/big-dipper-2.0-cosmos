@@ -50,7 +50,7 @@ const Settings: React.FC<{
       <div
         onClick={handleOpen}
         role="button"
-        className={classnames(props.className)}
+        className={classnames(props.className, classes.icon)}
       >
         <SettingIcon />
       </div>
@@ -73,7 +73,7 @@ const Settings: React.FC<{
           <form onSubmit={handleFormSubmit}>
             <div className={classes.formItem}>
               <Typography className="form-item--label">
-                Theme
+                {t('theme')}
               </Typography>
               <Select
                 variant="outlined"
@@ -97,7 +97,7 @@ const Settings: React.FC<{
 
             <div className={classes.formItem}>
               <Typography className="form-item--label">
-                Language
+                {t('language')}
               </Typography>
               <Select
                 variant="outlined"
