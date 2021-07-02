@@ -71,12 +71,12 @@ export const useTheme = (initialState:ThemeState) => {
 };
 
 export const useDateFormat = (initialState:DateFormatState) => {
-  // const [dateFormat, setDateFormat] = useState(initialState.dateFormat);
   const [dateSelection, setDateSelection] = usePersistedState('dateFormatSelection', initialState.dateFormat);
 
-  // useEffect(() => {
-  //   setDateFormat(dateSelection)
-  // }, [dateSelection]);
+  const dateFormatList = [
+    'locale',
+    'utc',
+  ];
 
   const changeDateFormat = (value: string) => {
     setDateSelection(value);
@@ -85,5 +85,6 @@ export const useDateFormat = (initialState:DateFormatState) => {
   return {
     dateFormat: dateSelection,
     changeDateFormat,
+    dateFormatList,
   };
 };

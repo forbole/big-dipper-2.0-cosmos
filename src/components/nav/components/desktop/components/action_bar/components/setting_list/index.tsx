@@ -28,6 +28,9 @@ const Settings: React.FC<{
     themeList,
     theme,
     changeTheme,
+    dateFormat,
+    changeDateFormat,
+    dateFormatList,
   } = useSettingsContext();
   const {
     t, lang,
@@ -43,6 +46,8 @@ const Settings: React.FC<{
     theme,
     changeTheme,
     lang,
+    dateFormat,
+    changeDateFormat,
   });
 
   return (
@@ -118,10 +123,38 @@ const Settings: React.FC<{
                   ))}
               </Select>
             </div>
+
+            <div className={classes.formItem}>
+              <Typography className="form-item--label">
+                {t('dateFormat')}
+              </Typography>
+              <Select
+                variant="outlined"
+                value={state.dateFormat}
+                onChange={(e) => handleChange('dateFormat', e?.target?.value)}
+                MenuProps={{ MenuListProps: {
+                  disablePadding: true,
+                } }}
+              >
+                {dateFormatList
+                  .map((l) => (
+                    <MenuItem
+                      key={l}
+                      value={l}
+                    >
+                      {t(l)}
+                    </MenuItem>
+                  ))}
+              </Select>
+            </div>
           </form>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleFormSubmit} color="primary">
+          <Button
+            onClick={handleFormSubmit}
+            color="primary"
+            // variant="contained"
+          >
             Save
           </Button>
         </DialogActions>

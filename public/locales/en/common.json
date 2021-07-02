@@ -46,5 +46,7 @@
   "settings": "Settings",
   "theme": "Theme",
   "language": "Language",
-  "dateDisplay": "Date Display"
+  "dateFormat": "Date Format",
+  "locale": "Locale",
+  "utc": "UTC"
 }

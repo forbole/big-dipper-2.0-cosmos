@@ -1,12 +1,13 @@
 import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
-import dayjs from '@utils/dayjs';
+import dayjs, { formatDayJs } from '@utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Divider, Typography,
 } from '@material-ui/core';
 import { AvatarName } from '@components';
+import { useSettingsContext } from '@contexts';
 import { useStyles } from './styles';
 import { RedelegationType } from '../../../../../../types';
 
@@ -16,6 +17,9 @@ const Mobile: React.FC<{
 }> = ({
   className, items,
 }) => {
+  const {
+    dateFormat,
+  } = useSettingsContext();
   const classes = useStyles();
   const { t } = useTranslation('validators');
 
@@ -68,7 +72,7 @@ const Mobile: React.FC<{
                   {t('linkedUntil')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {dayjs.utc(x.linkedUntil).local().format('MMMM DD, YYYY hh:mm A')}
+                  {formatDayJs(dayjs.utc(x.linkedUntil), dateFormat)}
                 </Typography>
               </div>
             </div>

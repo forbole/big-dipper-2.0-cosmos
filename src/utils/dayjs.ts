@@ -37,10 +37,10 @@ export default dayjs;
  * @param isUtc
  * @returns
  */
-export const formatDayJs = (time: dayjs.Dayjs, isUtc = false) => {
-  if (isUtc) {
-    time.format('MMMM DD, YYYY hh:mm A [(UTC)]');
+export const formatDayJs = (time: dayjs.Dayjs, mode: 'locale' | 'utc' = 'locale') => {
+  if (mode === 'utc') {
+    return time.format('MMMM DD, YYYY hh:mm A [(UTC)]');
   }
 
-  return time.format('MMMM DD, YYYY hh:mm A (z)');
+  return time.local().format('MMMM DD, YYYY hh:mm A (z)');
 };

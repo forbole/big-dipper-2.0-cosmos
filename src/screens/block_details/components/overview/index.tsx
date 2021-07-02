@@ -1,8 +1,9 @@
 import React from 'react';
 import numeral from 'numeral';
-import dayjs from '@utils/dayjs';
+import dayjs, { formatDayJs } from '@utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
+import { useSettingsContext } from '@contexts';
 import {
   BoxDetails, AvatarName,
 } from '@components';
@@ -10,6 +11,10 @@ import { OverviewType } from '../../types';
 
 const Overview: React.FC<OverviewType & ComponentDefault> = (props, { className }) => {
   const { t } = useTranslation('blocks');
+  const {
+    dateFormat,
+  } = useSettingsContext();
+
   return (
     <BoxDetails
       className={className}
@@ -39,7 +44,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props, { className 
         },
         {
           label: t('time'),
-          detail: dayjs.utc(props.timestamp).local().format('MMMM DD, YYYY hh:mm A (z)'),
+          detail: formatDayJs(dayjs.utc(props.timestamp), dateFormat),
         },
         {
           label: t('txs'),

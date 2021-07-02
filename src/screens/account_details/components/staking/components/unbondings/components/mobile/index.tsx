@@ -1,12 +1,13 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import dayjs from '@utils/dayjs';
+import dayjs, { formatDayJs } from '@utils/dayjs';
 import numeral from 'numeral';
 import {
   Divider, Typography,
 } from '@material-ui/core';
 import { AvatarName } from '@components';
+import { useSettingsContext } from '@contexts';
 import { UnbondingType } from '@src/screens/account_details/types';
 import { useStyles } from './styles';
 
@@ -18,6 +19,9 @@ const Mobile: React.FC<{
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('accounts');
+  const {
+    dateFormat,
+  } = useSettingsContext();
   const formattedItems = items.map((x) => {
     return ({
       validator: (
@@ -28,7 +32,7 @@ const Mobile: React.FC<{
         />
       ),
       commission: `${numeral(x.commission * 100).format('0.00')}%`,
-      linkedUntil: dayjs.utc(x.linkedUntil).local().format('MMMM DD, YYYY hh:mm A'),
+      linkedUntil: formatDayJs(dayjs.utc(x.linkedUntil), dateFormat),
       amount: `${numeral(x.amount.value).format('0,0.[0000]')} ${x.amount.denom.toUpperCase()}`,
     });
   });

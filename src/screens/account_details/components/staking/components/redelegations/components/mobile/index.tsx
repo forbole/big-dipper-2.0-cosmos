@@ -1,11 +1,12 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import dayjs from '@utils/dayjs';
+import dayjs, { formatDayJs } from '@utils/dayjs';
 import numeral from 'numeral';
 import {
   Divider, Typography,
 } from '@material-ui/core';
+import { useSettingsContext } from '@contexts';
 import { AvatarName } from '@components';
 import { RedelegationType } from '@src/screens/account_details/types';
 import { useStyles } from './styles';
@@ -18,6 +19,9 @@ const Mobile: React.FC<{
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('accounts');
+  const {
+    dateFormat,
+  } = useSettingsContext();
   const formattedItems = items.map((x) => {
     return ({
       to: (
@@ -34,7 +38,7 @@ const Mobile: React.FC<{
           name={x.from.name}
         />
       ),
-      linkedUntil: dayjs.utc(x.linkedUntil).local().format('MMMM DD, YYYY hh:mm A'),
+      linkedUntil: formatDayJs(dayjs.utc(x.linkedUntil), dateFormat),
       amount: `${numeral(x.amount.value).format('0,0.[0000]')} ${x.amount.denom.toUpperCase()}`,
     });
   });

@@ -2,8 +2,9 @@ import React from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
 import classnames from 'classnames';
-import dayjs from '@utils/dayjs';
+import dayjs, { formatDayJs } from '@utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
+import { useSettingsContext } from '@contexts';
 import {
   Typography,
   Divider,
@@ -34,6 +35,9 @@ const Overview: React.FC<{
 }> = ({
   className, ...props
 }) => {
+  const {
+    dateFormat,
+  } = useSettingsContext();
   const classes = useStyles();
   const { t } = useTranslation('proposals');
 
@@ -103,7 +107,7 @@ const Overview: React.FC<{
                 {t('submitTime')}
               </Typography>
               <Typography variant="body1" className="value">
-                {dayjs.utc(props.submitTime).local().format('MMMM DD, YYYY hh:mm A')}
+                {formatDayJs(dayjs.utc(props.submitTime), dateFormat)}
               </Typography>
             </div>
           )
@@ -115,7 +119,7 @@ const Overview: React.FC<{
                 {t('depositEndTime')}
               </Typography>
               <Typography variant="body1" className="value">
-                {dayjs.utc(props.depositEndTime).local().format('MMMM DD, YYYY hh:mm A')}
+                {formatDayJs(dayjs.utc(props.depositEndTime), dateFormat)}
               </Typography>
             </div>
           )
@@ -127,7 +131,7 @@ const Overview: React.FC<{
                 {t('votingStartTime')}
               </Typography>
               <Typography variant="body1" className="value">
-                {dayjs.utc(props.votingStartTime).local().format('MMMM DD, YYYY hh:mm A')}
+                {formatDayJs(dayjs.utc(props.votingStartTime), dateFormat)}
               </Typography>
             </div>
           )
@@ -139,7 +143,7 @@ const Overview: React.FC<{
                 {t('votingEndTime')}
               </Typography>
               <Typography variant="body1" className="value">
-                {dayjs.utc(props.votingEndTime).local().format('MMMM DD, YYYY hh:mm A')}
+                {formatDayJs(dayjs.utc(props.votingEndTime), dateFormat)}
               </Typography>
             </div>
           )

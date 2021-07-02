@@ -42,6 +42,7 @@ const SettingsProvider: React.FC = (props: {children: ({
   const {
     dateFormat,
     changeDateFormat,
+    dateFormatList,
   } = useDateFormat(initialDateState);
 
   return (
@@ -54,6 +55,7 @@ const SettingsProvider: React.FC = (props: {children: ({
         themeList,
         dateFormat,
         changeDateFormat,
+        dateFormatList,
       }}
     >
       {children({ muiTheme })}

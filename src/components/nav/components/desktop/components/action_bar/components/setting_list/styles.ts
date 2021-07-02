@@ -5,6 +5,9 @@ export const useStyles = () => {
     (theme) => {
       return ({
         icon: {
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           '&:hover': {
             cursor: 'pointer',
           },

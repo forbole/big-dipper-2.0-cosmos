@@ -6,18 +6,20 @@ export const useSettingList = ({
   theme,
   changeTheme,
   lang,
+  dateFormat,
+  changeDateFormat,
 }) => {
   const [open, setOpen] = useState(false);
   const [state, setState] = useState({
     lang,
     theme,
-    dateDisplay: '',
+    dateFormat,
   });
 
   const resetSettings = () => {
     handleSetState({
       theme,
-      dateDisplay: '',
+      dateFormat: '',
       language: '',
     });
   };
@@ -53,6 +55,10 @@ export const useSettingList = ({
 
     if (state.lang !== lang) {
       setLanguage(state.lang);
+    }
+
+    if (state.dateFormat !== dateFormat) {
+      changeDateFormat(state.dateFormat);
     }
 
     handleClose();

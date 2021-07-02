@@ -9,8 +9,9 @@ export interface ThemeState {
 }
 
 export interface DateFormatState {
-  dateFormat: string;
+  dateFormat: 'locale' | 'utc';
   changeDateFormat?: (value: string) => void;
+  dateFormatList: string[];
 }
 
 export type SettingsState = ThemeState & DateFormatState;

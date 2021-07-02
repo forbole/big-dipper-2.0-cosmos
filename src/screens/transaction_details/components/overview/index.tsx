@@ -2,10 +2,11 @@ import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import Link from 'next/link';
-import dayjs from '@utils/dayjs';
+import dayjs, { formatDayJs } from '@utils/dayjs';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
+import { useSettingsContext } from '@contexts';
 import {
   BoxDetails, Result,
 } from '@components';
@@ -20,6 +21,9 @@ const Overview: React.FC<{
 }) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
+  const {
+    dateFormat,
+  } = useSettingsContext();
 
   const details = [
     {
@@ -38,7 +42,7 @@ const Overview: React.FC<{
     },
     {
       label: t('time'),
-      detail: dayjs.utc(data.timestamp).local().format('MMMM DD, YYYY hh:mm A'),
+      detail: formatDayJs(dayjs.utc(data.timestamp), dateFormat),
     },
     {
       label: t('fee'),
