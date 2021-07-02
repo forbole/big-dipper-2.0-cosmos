@@ -7,6 +7,7 @@ import {
   Network,
   NetworkList,
   ThemeList,
+  SettingsList,
 } from './components';
 import { SearchBar } from '../../..';
 
@@ -32,8 +33,9 @@ const ActionBar: React.FC<{
           className={classnames(classes.network, { open: isNetwork })}
           toggleNetwork={toggleNetwork}
         />
-        <ThemeList className={classes.theme} />
-        <Language />
+        {/* <ThemeList className={classes.theme} />
+        <Language /> */}
+        <SettingsList className={classes.theme} />
       </div>
       <NetworkList
         actionHeight={height}
