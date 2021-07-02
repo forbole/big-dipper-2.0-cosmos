@@ -1,17 +1,30 @@
 import React from 'react';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { lightTemplate } from '@styles';
-import { useTheme } from './hooks';
-import { SettingsState } from './types';
+import {
+  useTheme, useDateFormat,
+} from './hooks';
+import {
+  SettingsState,
+  ThemeState,
+  DateFormatState,
+} from './types';
 
-const initialState: SettingsState = {
+const initialThemeState: ThemeState = {
   theme: 'light',
   themeSelection: 'device',
   muiTheme: createMuiTheme(lightTemplate),
   themeList: [],
 };
 
-const SettingsContext = React.createContext<SettingsState>(initialState);
+const initialDateState: DateFormatState = {
+  dateFormat: 'locale',
+};
+
+const SettingsContext = React.createContext<SettingsState>({
+  ...initialThemeState,
+  ...initialDateState,
+});
 
 const SettingsProvider: React.FC = (props: {children: ({
   muiTheme: any,
@@ -24,7 +37,12 @@ const SettingsProvider: React.FC = (props: {children: ({
     themeSelection,
     changeTheme,
     themeList,
-  } = useTheme(initialState);
+  } = useTheme(initialThemeState);
+
+  const {
+    dateFormat,
+    changeDateFormat,
+  } = useDateFormat(initialDateState);
 
   return (
     <SettingsContext.Provider
@@ -34,6 +52,8 @@ const SettingsProvider: React.FC = (props: {children: ({
         muiTheme,
         changeTheme,
         themeList,
+        dateFormat,
+        changeDateFormat,
       }}
     >
       {children({ muiTheme })}

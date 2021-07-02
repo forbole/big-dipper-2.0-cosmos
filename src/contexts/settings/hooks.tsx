@@ -4,8 +4,6 @@ import {
 } from 'react';
 import { createMuiTheme } from '@material-ui/core/styles';
 import {
-  // darkTheme,
-  // lightTheme,
   lightTemplate,
   darkTemplate,
   deuteranopiaTemplate,
@@ -13,14 +11,16 @@ import {
 } from '@styles';
 import { usePersistedState } from '@hooks';
 import {
-  SettingsState, Theme,
+  Theme,
+  ThemeState,
+  DateFormatState,
 } from './types';
 
 /**
  *
  * @param initialState
  */
-export const useTheme = (initialState:SettingsState) => {
+export const useTheme = (initialState:ThemeState) => {
   const [theme, setTheme] = useState(initialState.theme);
   const [themeSelection, setThemeSelection] = usePersistedState('themeSelection', initialState.themeSelection);
 
@@ -29,7 +29,6 @@ export const useTheme = (initialState:SettingsState) => {
     'dark',
     'deuteranopia',
     'tritanopia',
-    // 'achromatopsia',
   ];
 
   const themeDictionary = {
@@ -37,7 +36,6 @@ export const useTheme = (initialState:SettingsState) => {
     dark: darkTemplate,
     deuteranopia: deuteranopiaTemplate,
     tritanopia: tritanopiaTemplate,
-    // achromatopsia: darkTheme,
   };
 
   useEffect(() => {
@@ -56,11 +54,6 @@ export const useTheme = (initialState:SettingsState) => {
     }
   }, [themeSelection]);
 
-  // const toggleThemeMode = () => {
-  //   const value = theme === 'light' ? 'dark' : 'light';
-  //   setThemeSelection(value);
-  // };
-
   const changeTheme = (value: string) => {
     if (themeDictionary[value]) {
       setThemeSelection(value);
@@ -70,11 +63,27 @@ export const useTheme = (initialState:SettingsState) => {
   return {
     theme,
     muiTheme: createMuiTheme(themeDictionary[theme] || lightTemplate),
-    // muiTheme: createMuiTheme(lightTemplate),
-    // toggleThemeMode,
     themeSelection,
     themeList,
     themeDictionary,
     changeTheme,
+  };
+};
+
+export const useDateFormat = (initialState:DateFormatState) => {
+  // const [dateFormat, setDateFormat] = useState(initialState.dateFormat);
+  const [dateSelection, setDateSelection] = usePersistedState('dateFormatSelection', initialState.dateFormat);
+
+  // useEffect(() => {
+  //   setDateFormat(dateSelection)
+  // }, [dateSelection]);
+
+  const changeDateFormat = (value: string) => {
+    setDateSelection(value);
+  };
+
+  return {
+    dateFormat: dateSelection,
+    changeDateFormat,
   };
 };
