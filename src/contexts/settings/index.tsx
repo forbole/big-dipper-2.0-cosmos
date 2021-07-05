@@ -19,6 +19,7 @@ const initialThemeState: ThemeState = {
 
 const initialDateState: DateFormatState = {
   dateFormat: 'locale',
+  dateFormatList: [],
 };
 
 const SettingsContext = React.createContext<SettingsState>({

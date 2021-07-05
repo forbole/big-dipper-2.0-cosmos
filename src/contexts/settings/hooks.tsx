@@ -78,7 +78,7 @@ export const useDateFormat = (initialState:DateFormatState) => {
     'utc',
   ];
 
-  const changeDateFormat = (value: string) => {
+  const changeDateFormat = (value: 'locale' | 'utc') => {
     setDateSelection(value);
   };
 
