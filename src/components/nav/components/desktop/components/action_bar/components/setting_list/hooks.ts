@@ -19,8 +19,8 @@ export const useSettingList = ({
   const resetSettings = () => {
     handleSetState({
       theme,
-      dateFormat: '',
-      language: '',
+      dateFormat,
+      lang,
     });
   };
 

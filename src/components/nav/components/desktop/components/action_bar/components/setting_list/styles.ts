@@ -12,8 +12,12 @@ export const useStyles = () => {
             cursor: 'pointer',
           },
           '& svg': {
-            width: theme.spacing(3.5),
-            height: theme.spacing(3.5),
+            // width: theme.spacing(3.5),
+            // height: theme.spacing(3.5),
+            fill: theme.palette.custom.general.icon,
+            '& path': {
+              fill: theme.palette.custom.general.icon,
+            },
           },
         },
         closeButton: {

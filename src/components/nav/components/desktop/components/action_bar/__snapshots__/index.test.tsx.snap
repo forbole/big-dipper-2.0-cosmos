@@ -50,11 +50,7 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
       toggleNetwork={[MockFunction]}
     />
     <div
-      className="makeStyles-theme"
-      id="ThemeList"
-    />
-    <div
-      id="language"
+      id="SettingsList"
     />
   </div>
   <div
@@ -115,11 +111,7 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
       toggleNetwork={[MockFunction]}
     />
     <div
-      className="makeStyles-theme"
-      id="ThemeList"
-    />
-    <div
-      id="language"
+      id="SettingsList"
     />
   </div>
   <div
