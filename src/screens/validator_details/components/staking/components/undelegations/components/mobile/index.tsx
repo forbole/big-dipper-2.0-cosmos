@@ -1,9 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
-import dayjs from '@utils/dayjs';
+import dayjs, { formatDayJs } from '@utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import { AvatarName } from '@components';
+import { useSettingsContext } from '@contexts';
 import {
   Divider, Typography,
 } from '@material-ui/core';
@@ -18,7 +19,9 @@ const Mobile: React.FC<{
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('validators');
-
+  const {
+    dateFormat,
+  } = useSettingsContext();
   return (
     <div className={classnames(className)}>
       {items.map((x, i) => {
@@ -48,7 +51,7 @@ const Mobile: React.FC<{
                   {t('linkedUntil')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {dayjs.utc(x.linkedUntil).local().format('MMMM DD, YYYY hh:mm A')}
+                  {formatDayJs(dayjs.utc(x.linkedUntil), dateFormat)}
                 </Typography>
               </div>
             </div>

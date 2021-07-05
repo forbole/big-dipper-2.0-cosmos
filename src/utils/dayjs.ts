@@ -2,10 +2,14 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import utc from 'dayjs/plugin/utc';
 import updateLocal from 'dayjs/plugin/updateLocale';
+import advancedFormat from 'dayjs/plugin/advancedFormat';
+import timezone from 'dayjs/plugin/timezone';
 
 dayjs.extend(relativeTime);
 dayjs.extend(utc);
 dayjs.extend(updateLocal);
+dayjs.extend(advancedFormat);
+dayjs.extend(timezone);
 
 dayjs.updateLocale('en', {
   relativeTime: {
@@ -26,3 +30,17 @@ dayjs.updateLocale('en', {
 });
 
 export default dayjs;
+
+/**
+ *
+ * @param time dayjs.Dayjs
+ * @param isUtc
+ * @returns
+ */
+export const formatDayJs = (time: dayjs.Dayjs, mode: 'locale' | 'utc' = 'locale') => {
+  if (mode === 'utc') {
+    return time.format('MMMM DD, YYYY hh:mm A [(UTC)]');
+  }
+
+  return time.local().format('MMMM DD, YYYY hh:mm A (z)');
+};
