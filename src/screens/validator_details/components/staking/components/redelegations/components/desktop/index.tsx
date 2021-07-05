@@ -2,7 +2,8 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import dayjs from '@utils/dayjs';
+import { useSettingsContext } from '@contexts';
+import dayjs, { formatDayJs } from '@utils/dayjs';
 import {
   Table,
   TableHead,
@@ -21,6 +22,9 @@ const Desktop: React.FC<{
 }> = ({
   className, items,
 }) => {
+  const {
+    dateFormat,
+  } = useSettingsContext();
   const { t } = useTranslation('validators');
 
   const formattedItems = items.map((x) => {
@@ -48,7 +52,7 @@ const Desktop: React.FC<{
           name={x.from.name}
         />
       ),
-      linkedUntil: dayjs.utc(x.linkedUntil).local().format('MMMM DD, YYYY hh:mm A'),
+      linkedUntil: formatDayJs(dayjs.utc(x.linkedUntil), dateFormat),
       amount: `${numeral(x.amount.value).format('0,0.[0000]')} ${x.amount.denom.toUpperCase()}`,
     });
   });

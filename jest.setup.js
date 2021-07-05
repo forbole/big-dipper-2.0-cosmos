@@ -21,7 +21,12 @@ jest.mock('@utils/dayjs', () => {
       }
     );
   });
-  return mockTest;
+
+  return ({
+    __esModule: true,
+    default: mockTest,
+    formatDayJs: jest.fn(() => '2020-08-10 12:00:00')
+  });
 });
 
 jest.mock('next/dynamic', () => () => {

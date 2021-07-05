@@ -31,7 +31,7 @@ export const formatBalanceData = (data: {
     },
   ];
 
-  if (data.commission) {
+  if (data.commission && data.commission.value !== 0) {
     balanceChart.push({
       key: 'balanceCommission',
       display: `${numeral(data.commission.value).format('0,0.[0000]')} ${data.commission.denom.toUpperCase()}`,

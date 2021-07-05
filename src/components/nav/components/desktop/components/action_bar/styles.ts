@@ -48,16 +48,6 @@ export const useStyles = () => {
             visibility: 'visible',
           },
         },
-        theme: {
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginRight: theme.spacing(2),
-          '& svg': {
-            width: theme.spacing(3.5),
-            height: theme.spacing(3.5),
-          },
-        },
       });
     },
   )();
