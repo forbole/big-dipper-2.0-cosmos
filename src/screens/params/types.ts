@@ -15,12 +15,19 @@ export type Slashing = {
 }
 
 export type Minting = {
-  blocksPerYear: number,
-  goalBonded: number,
-  inflationMax: number,
-  inflationMin: number,
-  inflationRateChange: number,
-  mintDenom: string
+  blocksPerYear: number;
+  goalBonded: number;
+  inflationMax: number;
+  inflationMin: number;
+  inflationRateChange: number;
+  mintDenom: string;
+}
+
+export type Distribution = {
+  baseProposerReward: number;
+  bonusProposerReward: number;
+  communityTax: number;
+  withdrawAddressEnabled: boolean;
 }
 
 export type ParamsState = {
@@ -29,4 +36,5 @@ export type ParamsState = {
   staking: Staking | null;
   slashing: Slashing | null;
   minting: Minting | null;
+  distribution: Distribution | null;
 }

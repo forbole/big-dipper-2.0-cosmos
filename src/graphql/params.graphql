@@ -22,7 +22,7 @@ query Params {
     mintDenom: mint_denom
   }
   distributionParams: distribution_params(limit: 1, order_by: {height: desc}) {
-    basePropoerReward: base_proposer_reward
+    baseProposerReward: base_proposer_reward
     bonusProposerReward: bonus_proposer_reward
     communityTax: community_tax
     withdrawAddressEnabled: withdraw_address_enabled

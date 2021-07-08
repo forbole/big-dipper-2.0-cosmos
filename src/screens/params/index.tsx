@@ -11,6 +11,7 @@ import {
   formatStaking,
   formatSlashing,
   formatMinting,
+  formatDistribution,
 } from './utils';
 
 const Params = () => {
@@ -63,6 +64,11 @@ const Params = () => {
     details: formatMinting(state.minting, t),
   } : null;
 
+  const distribution = state.distribution ? {
+    title: t('distribution'),
+    details: formatDistribution(state.distribution, t),
+  } : null;
+
   return (
     <Layout
       title={t('params')}
@@ -84,8 +90,9 @@ const Params = () => {
           {minting && (
             <BoxDetails {...minting} />
           )}
-          <BoxDetails {...boxDataDummy} />
-          <BoxDetails {...boxDataDummy} />
+          {distribution && (
+            <BoxDetails {...distribution} />
+          )}
         </span>
       </LoadAndExist>
     </Layout>

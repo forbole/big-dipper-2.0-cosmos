@@ -16693,7 +16693,7 @@ export type ParamsQuery = { stakingParams: Array<(
     & { blocksPerYear: Mint_Params['blocks_per_year'], goalBonded: Mint_Params['goal_bonded'], inflationMax: Mint_Params['inflation_max'], inflationMin: Mint_Params['inflation_min'], inflationRateChange: Mint_Params['inflation_rate_change'], mintDenom: Mint_Params['mint_denom'] }
   )>, distributionParams: Array<(
     { __typename?: 'distribution_params' }
-    & { basePropoerReward: Distribution_Params['base_proposer_reward'], bonusProposerReward: Distribution_Params['bonus_proposer_reward'], communityTax: Distribution_Params['community_tax'], withdrawAddressEnabled: Distribution_Params['withdraw_address_enabled'] }
+    & { baseProposerReward: Distribution_Params['base_proposer_reward'], bonusProposerReward: Distribution_Params['bonus_proposer_reward'], communityTax: Distribution_Params['community_tax'], withdrawAddressEnabled: Distribution_Params['withdraw_address_enabled'] }
   )>, govParams: Array<(
     { __typename?: 'gov_params' }
     & { depositParams: Gov_Params['deposit_params'], tallyParams: Gov_Params['tally_params'], votingParams: Gov_Params['voting_params'] }
@@ -17647,7 +17647,7 @@ export const ParamsDocument = gql`
     mintDenom: mint_denom
   }
   distributionParams: distribution_params(limit: 1, order_by: {height: desc}) {
-    basePropoerReward: base_proposer_reward
+    baseProposerReward: base_proposer_reward
     bonusProposerReward: bonus_proposer_reward
     communityTax: community_tax
     withdrawAddressEnabled: withdraw_address_enabled

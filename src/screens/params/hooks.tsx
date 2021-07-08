@@ -14,6 +14,7 @@ const initialState = {
   staking: null,
   slashing: null,
   minting: null,
+  distribution: null,
 };
 
 export const useParams = () => {
@@ -103,6 +104,26 @@ export const useParams = () => {
     };
 
     results.minting = formatMint();
+
+    // ================================
+    // distribution
+    // ================================
+
+    const formatDistribution = () => {
+      if (data.distributionParams.length) {
+        const distributionParamsRaw = data.distributionParams[0];
+        return {
+          baseProposerReward: distributionParamsRaw.baseProposerReward,
+          bonusProposerReward: distributionParamsRaw.bonusProposerReward,
+          communityTax: distributionParamsRaw.communityTax,
+          withdrawAddressEnabled: distributionParamsRaw.withdrawAddressEnabled,
+        };
+      }
+
+      return null;
+    };
+
+    results.distribution = formatDistribution();
 
     return results;
   };

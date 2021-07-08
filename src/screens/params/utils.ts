@@ -3,7 +3,10 @@ import {
 } from '@utils/time';
 import numeral from 'numeral';
 import {
-  Staking, Slashing, Minting,
+  Staking,
+  Slashing,
+  Minting,
+  Distribution,
 } from './types';
 
 export const formatStaking = (data: Staking, t: any) => {
@@ -64,7 +67,7 @@ export const formatMinting = (data: Minting, t: any) => {
   return ([
     {
       label: t('blocksPerYear'),
-      detail: data.blocksPerYear,
+      detail: numeral(data.blocksPerYear).format('0,0'),
     },
     {
       label: t('goalBonded'),
@@ -79,12 +82,33 @@ export const formatMinting = (data: Minting, t: any) => {
       detail: data.inflationMin,
     },
     {
-      label: t('inflationRateChangeslashFractionDowntime'),
+      label: t('inflationRateChange'),
       detail: data.inflationRateChange,
     },
     {
       label: t('mintDenom'),
       detail: data.mintDenom,
+    },
+  ]);
+};
+
+export const formatDistribution = (data: Distribution, t: any) => {
+  return ([
+    {
+      label: t('baseProposerReward'),
+      detail: data.baseProposerReward,
+    },
+    {
+      label: t('bonusProposerReward'),
+      detail: data.bonusProposerReward,
+    },
+    {
+      label: t('communityTax'),
+      detail: data.communityTax,
+    },
+    {
+      label: t('withdrawAddressEnabled'),
+      detail: `${data.withdrawAddressEnabled}`.toUpperCase(),
     },
   ]);
 };
