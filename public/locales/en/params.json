@@ -1,3 +1,17 @@
 {
-  "params": "Params"
+  "params": "Params",
+  "staking": "Staking",
+  "days": "{{day}} DAY(S)",
+  "seconds": "{{second}} SECOND(S)",
+  "bondDenom": "Bond Denom",
+  "unbondingTime": "Unbonding Time",
+  "maxEntries": "Max Entries",
+  "historicalEntries": "Historical Entries",
+  "maxValidators": "Max Validators",
+  "slashing": "Slashing",
+  "downtimeJailDuration": "Downtime Jail Duration",
+  "minSignedPerWindow": "Min Signed Per Window",
+  "signedBlockWindow": "Signed Block Window",
+  "slashFractionDoubleSign": "Slash Fraction Double Sign",
+  "slashFractionDowntime": "Slash Traction Downtime"
 }

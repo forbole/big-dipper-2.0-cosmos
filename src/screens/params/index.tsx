@@ -6,11 +6,15 @@ import {
   BoxDetails,
 } from '@components';
 import { useStyles } from './styles';
+import { useParams } from './hooks';
+import {
+  formatStaking, formatSlashing,
+} from './utils';
 
 const Params = () => {
   const { t } = useTranslation('params');
   const classes = useStyles();
-
+  const { state } = useParams();
   const fakeData = [
     {
       param: 'unbonding_time',
@@ -42,18 +46,28 @@ const Params = () => {
     })),
   };
 
+  const staking = {
+    title: t('staking'),
+    details: formatStaking(state.staking, t),
+  };
+
+  const slashing = {
+    title: t('slashing'),
+    details: formatSlashing(state.slashing, t),
+  };
+
   return (
     <Layout
       title={t('params')}
       navTitle={t('params')}
     >
       <LoadAndExist
-        loading={false}
-        exists
+        loading={state.loading}
+        exists={state.exists}
       >
         <span className={classes.root}>
-          <BoxDetails {...boxDataDummy} />
-          <BoxDetails {...boxDataDummy} />
+          <BoxDetails {...staking} />
+          <BoxDetails {...slashing} />
           <BoxDetails {...boxDataDummy} />
           <BoxDetails {...boxDataDummy} />
           <BoxDetails {...boxDataDummy} />

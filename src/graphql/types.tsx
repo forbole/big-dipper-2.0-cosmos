@@ -3663,6 +3663,276 @@ export type Delegation_Variance_Order_By = {
   id?: Maybe<Order_By>;
 };
 
+/** columns and relationships of "distribution_params" */
+export type Distribution_Params = {
+  __typename?: 'distribution_params';
+  base_proposer_reward: Scalars['numeric'];
+  bonus_proposer_reward: Scalars['numeric'];
+  community_tax: Scalars['numeric'];
+  height: Scalars['bigint'];
+  one_row_id: Scalars['Boolean'];
+  withdraw_address_enabled: Scalars['Boolean'];
+};
+
+/** aggregated selection of "distribution_params" */
+export type Distribution_Params_Aggregate = {
+  __typename?: 'distribution_params_aggregate';
+  aggregate?: Maybe<Distribution_Params_Aggregate_Fields>;
+  nodes: Array<Distribution_Params>;
+};
+
+/** aggregate fields of "distribution_params" */
+export type Distribution_Params_Aggregate_Fields = {
+  __typename?: 'distribution_params_aggregate_fields';
+  avg?: Maybe<Distribution_Params_Avg_Fields>;
+  count?: Maybe<Scalars['Int']>;
+  max?: Maybe<Distribution_Params_Max_Fields>;
+  min?: Maybe<Distribution_Params_Min_Fields>;
+  stddev?: Maybe<Distribution_Params_Stddev_Fields>;
+  stddev_pop?: Maybe<Distribution_Params_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Distribution_Params_Stddev_Samp_Fields>;
+  sum?: Maybe<Distribution_Params_Sum_Fields>;
+  var_pop?: Maybe<Distribution_Params_Var_Pop_Fields>;
+  var_samp?: Maybe<Distribution_Params_Var_Samp_Fields>;
+  variance?: Maybe<Distribution_Params_Variance_Fields>;
+};
+
+
+/** aggregate fields of "distribution_params" */
+export type Distribution_Params_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Distribution_Params_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "distribution_params" */
+export type Distribution_Params_Aggregate_Order_By = {
+  avg?: Maybe<Distribution_Params_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Distribution_Params_Max_Order_By>;
+  min?: Maybe<Distribution_Params_Min_Order_By>;
+  stddev?: Maybe<Distribution_Params_Stddev_Order_By>;
+  stddev_pop?: Maybe<Distribution_Params_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Distribution_Params_Stddev_Samp_Order_By>;
+  sum?: Maybe<Distribution_Params_Sum_Order_By>;
+  var_pop?: Maybe<Distribution_Params_Var_Pop_Order_By>;
+  var_samp?: Maybe<Distribution_Params_Var_Samp_Order_By>;
+  variance?: Maybe<Distribution_Params_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Distribution_Params_Avg_Fields = {
+  __typename?: 'distribution_params_avg_fields';
+  base_proposer_reward?: Maybe<Scalars['Float']>;
+  bonus_proposer_reward?: Maybe<Scalars['Float']>;
+  community_tax?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "distribution_params" */
+export type Distribution_Params_Avg_Order_By = {
+  base_proposer_reward?: Maybe<Order_By>;
+  bonus_proposer_reward?: Maybe<Order_By>;
+  community_tax?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "distribution_params". All fields are combined with a logical 'AND'. */
+export type Distribution_Params_Bool_Exp = {
+  _and?: Maybe<Array<Maybe<Distribution_Params_Bool_Exp>>>;
+  _not?: Maybe<Distribution_Params_Bool_Exp>;
+  _or?: Maybe<Array<Maybe<Distribution_Params_Bool_Exp>>>;
+  base_proposer_reward?: Maybe<Numeric_Comparison_Exp>;
+  bonus_proposer_reward?: Maybe<Numeric_Comparison_Exp>;
+  community_tax?: Maybe<Numeric_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  one_row_id?: Maybe<Boolean_Comparison_Exp>;
+  withdraw_address_enabled?: Maybe<Boolean_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Distribution_Params_Max_Fields = {
+  __typename?: 'distribution_params_max_fields';
+  base_proposer_reward?: Maybe<Scalars['numeric']>;
+  bonus_proposer_reward?: Maybe<Scalars['numeric']>;
+  community_tax?: Maybe<Scalars['numeric']>;
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** order by max() on columns of table "distribution_params" */
+export type Distribution_Params_Max_Order_By = {
+  base_proposer_reward?: Maybe<Order_By>;
+  bonus_proposer_reward?: Maybe<Order_By>;
+  community_tax?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Distribution_Params_Min_Fields = {
+  __typename?: 'distribution_params_min_fields';
+  base_proposer_reward?: Maybe<Scalars['numeric']>;
+  bonus_proposer_reward?: Maybe<Scalars['numeric']>;
+  community_tax?: Maybe<Scalars['numeric']>;
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** order by min() on columns of table "distribution_params" */
+export type Distribution_Params_Min_Order_By = {
+  base_proposer_reward?: Maybe<Order_By>;
+  bonus_proposer_reward?: Maybe<Order_By>;
+  community_tax?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+};
+
+/** ordering options when selecting data from "distribution_params" */
+export type Distribution_Params_Order_By = {
+  base_proposer_reward?: Maybe<Order_By>;
+  bonus_proposer_reward?: Maybe<Order_By>;
+  community_tax?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  one_row_id?: Maybe<Order_By>;
+  withdraw_address_enabled?: Maybe<Order_By>;
+};
+
+/** primary key columns input for table: "distribution_params" */
+export type Distribution_Params_Pk_Columns_Input = {
+  one_row_id: Scalars['Boolean'];
+};
+
+/** select columns of table "distribution_params" */
+export enum Distribution_Params_Select_Column {
+  /** column name */
+  BaseProposerReward = 'base_proposer_reward',
+  /** column name */
+  BonusProposerReward = 'bonus_proposer_reward',
+  /** column name */
+  CommunityTax = 'community_tax',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  OneRowId = 'one_row_id',
+  /** column name */
+  WithdrawAddressEnabled = 'withdraw_address_enabled'
+}
+
+/** aggregate stddev on columns */
+export type Distribution_Params_Stddev_Fields = {
+  __typename?: 'distribution_params_stddev_fields';
+  base_proposer_reward?: Maybe<Scalars['Float']>;
+  bonus_proposer_reward?: Maybe<Scalars['Float']>;
+  community_tax?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "distribution_params" */
+export type Distribution_Params_Stddev_Order_By = {
+  base_proposer_reward?: Maybe<Order_By>;
+  bonus_proposer_reward?: Maybe<Order_By>;
+  community_tax?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Distribution_Params_Stddev_Pop_Fields = {
+  __typename?: 'distribution_params_stddev_pop_fields';
+  base_proposer_reward?: Maybe<Scalars['Float']>;
+  bonus_proposer_reward?: Maybe<Scalars['Float']>;
+  community_tax?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "distribution_params" */
+export type Distribution_Params_Stddev_Pop_Order_By = {
+  base_proposer_reward?: Maybe<Order_By>;
+  bonus_proposer_reward?: Maybe<Order_By>;
+  community_tax?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Distribution_Params_Stddev_Samp_Fields = {
+  __typename?: 'distribution_params_stddev_samp_fields';
+  base_proposer_reward?: Maybe<Scalars['Float']>;
+  bonus_proposer_reward?: Maybe<Scalars['Float']>;
+  community_tax?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "distribution_params" */
+export type Distribution_Params_Stddev_Samp_Order_By = {
+  base_proposer_reward?: Maybe<Order_By>;
+  bonus_proposer_reward?: Maybe<Order_By>;
+  community_tax?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Distribution_Params_Sum_Fields = {
+  __typename?: 'distribution_params_sum_fields';
+  base_proposer_reward?: Maybe<Scalars['numeric']>;
+  bonus_proposer_reward?: Maybe<Scalars['numeric']>;
+  community_tax?: Maybe<Scalars['numeric']>;
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** order by sum() on columns of table "distribution_params" */
+export type Distribution_Params_Sum_Order_By = {
+  base_proposer_reward?: Maybe<Order_By>;
+  bonus_proposer_reward?: Maybe<Order_By>;
+  community_tax?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Distribution_Params_Var_Pop_Fields = {
+  __typename?: 'distribution_params_var_pop_fields';
+  base_proposer_reward?: Maybe<Scalars['Float']>;
+  bonus_proposer_reward?: Maybe<Scalars['Float']>;
+  community_tax?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "distribution_params" */
+export type Distribution_Params_Var_Pop_Order_By = {
+  base_proposer_reward?: Maybe<Order_By>;
+  bonus_proposer_reward?: Maybe<Order_By>;
+  community_tax?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Distribution_Params_Var_Samp_Fields = {
+  __typename?: 'distribution_params_var_samp_fields';
+  base_proposer_reward?: Maybe<Scalars['Float']>;
+  bonus_proposer_reward?: Maybe<Scalars['Float']>;
+  community_tax?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "distribution_params" */
+export type Distribution_Params_Var_Samp_Order_By = {
+  base_proposer_reward?: Maybe<Order_By>;
+  bonus_proposer_reward?: Maybe<Order_By>;
+  community_tax?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Distribution_Params_Variance_Fields = {
+  __typename?: 'distribution_params_variance_fields';
+  base_proposer_reward?: Maybe<Scalars['Float']>;
+  bonus_proposer_reward?: Maybe<Scalars['Float']>;
+  community_tax?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "distribution_params" */
+export type Distribution_Params_Variance_Order_By = {
+  base_proposer_reward?: Maybe<Order_By>;
+  bonus_proposer_reward?: Maybe<Order_By>;
+  community_tax?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+};
+
 /** columns and relationships of "double_sign_evidence" */
 export type Double_Sign_Evidence = {
   __typename?: 'double_sign_evidence';
@@ -5039,6 +5309,330 @@ export type Messages_By_Address_Args = {
   limit?: Maybe<Scalars['bigint']>;
   offset?: Maybe<Scalars['bigint']>;
   types?: Maybe<Scalars['_text']>;
+};
+
+/** columns and relationships of "mint_params" */
+export type Mint_Params = {
+  __typename?: 'mint_params';
+  blocks_per_year: Scalars['bigint'];
+  goal_bonded: Scalars['numeric'];
+  height: Scalars['bigint'];
+  inflation_max: Scalars['numeric'];
+  inflation_min: Scalars['numeric'];
+  inflation_rate_change: Scalars['numeric'];
+  mint_denom: Scalars['String'];
+  one_row_id: Scalars['Boolean'];
+};
+
+/** aggregated selection of "mint_params" */
+export type Mint_Params_Aggregate = {
+  __typename?: 'mint_params_aggregate';
+  aggregate?: Maybe<Mint_Params_Aggregate_Fields>;
+  nodes: Array<Mint_Params>;
+};
+
+/** aggregate fields of "mint_params" */
+export type Mint_Params_Aggregate_Fields = {
+  __typename?: 'mint_params_aggregate_fields';
+  avg?: Maybe<Mint_Params_Avg_Fields>;
+  count?: Maybe<Scalars['Int']>;
+  max?: Maybe<Mint_Params_Max_Fields>;
+  min?: Maybe<Mint_Params_Min_Fields>;
+  stddev?: Maybe<Mint_Params_Stddev_Fields>;
+  stddev_pop?: Maybe<Mint_Params_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Mint_Params_Stddev_Samp_Fields>;
+  sum?: Maybe<Mint_Params_Sum_Fields>;
+  var_pop?: Maybe<Mint_Params_Var_Pop_Fields>;
+  var_samp?: Maybe<Mint_Params_Var_Samp_Fields>;
+  variance?: Maybe<Mint_Params_Variance_Fields>;
+};
+
+
+/** aggregate fields of "mint_params" */
+export type Mint_Params_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Mint_Params_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "mint_params" */
+export type Mint_Params_Aggregate_Order_By = {
+  avg?: Maybe<Mint_Params_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Mint_Params_Max_Order_By>;
+  min?: Maybe<Mint_Params_Min_Order_By>;
+  stddev?: Maybe<Mint_Params_Stddev_Order_By>;
+  stddev_pop?: Maybe<Mint_Params_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Mint_Params_Stddev_Samp_Order_By>;
+  sum?: Maybe<Mint_Params_Sum_Order_By>;
+  var_pop?: Maybe<Mint_Params_Var_Pop_Order_By>;
+  var_samp?: Maybe<Mint_Params_Var_Samp_Order_By>;
+  variance?: Maybe<Mint_Params_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Mint_Params_Avg_Fields = {
+  __typename?: 'mint_params_avg_fields';
+  blocks_per_year?: Maybe<Scalars['Float']>;
+  goal_bonded?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  inflation_max?: Maybe<Scalars['Float']>;
+  inflation_min?: Maybe<Scalars['Float']>;
+  inflation_rate_change?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "mint_params" */
+export type Mint_Params_Avg_Order_By = {
+  blocks_per_year?: Maybe<Order_By>;
+  goal_bonded?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  inflation_max?: Maybe<Order_By>;
+  inflation_min?: Maybe<Order_By>;
+  inflation_rate_change?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "mint_params". All fields are combined with a logical 'AND'. */
+export type Mint_Params_Bool_Exp = {
+  _and?: Maybe<Array<Maybe<Mint_Params_Bool_Exp>>>;
+  _not?: Maybe<Mint_Params_Bool_Exp>;
+  _or?: Maybe<Array<Maybe<Mint_Params_Bool_Exp>>>;
+  blocks_per_year?: Maybe<Bigint_Comparison_Exp>;
+  goal_bonded?: Maybe<Numeric_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  inflation_max?: Maybe<Numeric_Comparison_Exp>;
+  inflation_min?: Maybe<Numeric_Comparison_Exp>;
+  inflation_rate_change?: Maybe<Numeric_Comparison_Exp>;
+  mint_denom?: Maybe<String_Comparison_Exp>;
+  one_row_id?: Maybe<Boolean_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Mint_Params_Max_Fields = {
+  __typename?: 'mint_params_max_fields';
+  blocks_per_year?: Maybe<Scalars['bigint']>;
+  goal_bonded?: Maybe<Scalars['numeric']>;
+  height?: Maybe<Scalars['bigint']>;
+  inflation_max?: Maybe<Scalars['numeric']>;
+  inflation_min?: Maybe<Scalars['numeric']>;
+  inflation_rate_change?: Maybe<Scalars['numeric']>;
+  mint_denom?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "mint_params" */
+export type Mint_Params_Max_Order_By = {
+  blocks_per_year?: Maybe<Order_By>;
+  goal_bonded?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  inflation_max?: Maybe<Order_By>;
+  inflation_min?: Maybe<Order_By>;
+  inflation_rate_change?: Maybe<Order_By>;
+  mint_denom?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Mint_Params_Min_Fields = {
+  __typename?: 'mint_params_min_fields';
+  blocks_per_year?: Maybe<Scalars['bigint']>;
+  goal_bonded?: Maybe<Scalars['numeric']>;
+  height?: Maybe<Scalars['bigint']>;
+  inflation_max?: Maybe<Scalars['numeric']>;
+  inflation_min?: Maybe<Scalars['numeric']>;
+  inflation_rate_change?: Maybe<Scalars['numeric']>;
+  mint_denom?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "mint_params" */
+export type Mint_Params_Min_Order_By = {
+  blocks_per_year?: Maybe<Order_By>;
+  goal_bonded?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  inflation_max?: Maybe<Order_By>;
+  inflation_min?: Maybe<Order_By>;
+  inflation_rate_change?: Maybe<Order_By>;
+  mint_denom?: Maybe<Order_By>;
+};
+
+/** ordering options when selecting data from "mint_params" */
+export type Mint_Params_Order_By = {
+  blocks_per_year?: Maybe<Order_By>;
+  goal_bonded?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  inflation_max?: Maybe<Order_By>;
+  inflation_min?: Maybe<Order_By>;
+  inflation_rate_change?: Maybe<Order_By>;
+  mint_denom?: Maybe<Order_By>;
+  one_row_id?: Maybe<Order_By>;
+};
+
+/** primary key columns input for table: "mint_params" */
+export type Mint_Params_Pk_Columns_Input = {
+  one_row_id: Scalars['Boolean'];
+};
+
+/** select columns of table "mint_params" */
+export enum Mint_Params_Select_Column {
+  /** column name */
+  BlocksPerYear = 'blocks_per_year',
+  /** column name */
+  GoalBonded = 'goal_bonded',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  InflationMax = 'inflation_max',
+  /** column name */
+  InflationMin = 'inflation_min',
+  /** column name */
+  InflationRateChange = 'inflation_rate_change',
+  /** column name */
+  MintDenom = 'mint_denom',
+  /** column name */
+  OneRowId = 'one_row_id'
+}
+
+/** aggregate stddev on columns */
+export type Mint_Params_Stddev_Fields = {
+  __typename?: 'mint_params_stddev_fields';
+  blocks_per_year?: Maybe<Scalars['Float']>;
+  goal_bonded?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  inflation_max?: Maybe<Scalars['Float']>;
+  inflation_min?: Maybe<Scalars['Float']>;
+  inflation_rate_change?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "mint_params" */
+export type Mint_Params_Stddev_Order_By = {
+  blocks_per_year?: Maybe<Order_By>;
+  goal_bonded?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  inflation_max?: Maybe<Order_By>;
+  inflation_min?: Maybe<Order_By>;
+  inflation_rate_change?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Mint_Params_Stddev_Pop_Fields = {
+  __typename?: 'mint_params_stddev_pop_fields';
+  blocks_per_year?: Maybe<Scalars['Float']>;
+  goal_bonded?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  inflation_max?: Maybe<Scalars['Float']>;
+  inflation_min?: Maybe<Scalars['Float']>;
+  inflation_rate_change?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "mint_params" */
+export type Mint_Params_Stddev_Pop_Order_By = {
+  blocks_per_year?: Maybe<Order_By>;
+  goal_bonded?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  inflation_max?: Maybe<Order_By>;
+  inflation_min?: Maybe<Order_By>;
+  inflation_rate_change?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Mint_Params_Stddev_Samp_Fields = {
+  __typename?: 'mint_params_stddev_samp_fields';
+  blocks_per_year?: Maybe<Scalars['Float']>;
+  goal_bonded?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  inflation_max?: Maybe<Scalars['Float']>;
+  inflation_min?: Maybe<Scalars['Float']>;
+  inflation_rate_change?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "mint_params" */
+export type Mint_Params_Stddev_Samp_Order_By = {
+  blocks_per_year?: Maybe<Order_By>;
+  goal_bonded?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  inflation_max?: Maybe<Order_By>;
+  inflation_min?: Maybe<Order_By>;
+  inflation_rate_change?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Mint_Params_Sum_Fields = {
+  __typename?: 'mint_params_sum_fields';
+  blocks_per_year?: Maybe<Scalars['bigint']>;
+  goal_bonded?: Maybe<Scalars['numeric']>;
+  height?: Maybe<Scalars['bigint']>;
+  inflation_max?: Maybe<Scalars['numeric']>;
+  inflation_min?: Maybe<Scalars['numeric']>;
+  inflation_rate_change?: Maybe<Scalars['numeric']>;
+};
+
+/** order by sum() on columns of table "mint_params" */
+export type Mint_Params_Sum_Order_By = {
+  blocks_per_year?: Maybe<Order_By>;
+  goal_bonded?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  inflation_max?: Maybe<Order_By>;
+  inflation_min?: Maybe<Order_By>;
+  inflation_rate_change?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Mint_Params_Var_Pop_Fields = {
+  __typename?: 'mint_params_var_pop_fields';
+  blocks_per_year?: Maybe<Scalars['Float']>;
+  goal_bonded?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  inflation_max?: Maybe<Scalars['Float']>;
+  inflation_min?: Maybe<Scalars['Float']>;
+  inflation_rate_change?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "mint_params" */
+export type Mint_Params_Var_Pop_Order_By = {
+  blocks_per_year?: Maybe<Order_By>;
+  goal_bonded?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  inflation_max?: Maybe<Order_By>;
+  inflation_min?: Maybe<Order_By>;
+  inflation_rate_change?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Mint_Params_Var_Samp_Fields = {
+  __typename?: 'mint_params_var_samp_fields';
+  blocks_per_year?: Maybe<Scalars['Float']>;
+  goal_bonded?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  inflation_max?: Maybe<Scalars['Float']>;
+  inflation_min?: Maybe<Scalars['Float']>;
+  inflation_rate_change?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "mint_params" */
+export type Mint_Params_Var_Samp_Order_By = {
+  blocks_per_year?: Maybe<Order_By>;
+  goal_bonded?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  inflation_max?: Maybe<Order_By>;
+  inflation_min?: Maybe<Order_By>;
+  inflation_rate_change?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Mint_Params_Variance_Fields = {
+  __typename?: 'mint_params_variance_fields';
+  blocks_per_year?: Maybe<Scalars['Float']>;
+  goal_bonded?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  inflation_max?: Maybe<Scalars['Float']>;
+  inflation_min?: Maybe<Scalars['Float']>;
+  inflation_rate_change?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "mint_params" */
+export type Mint_Params_Variance_Order_By = {
+  blocks_per_year?: Maybe<Order_By>;
+  goal_bonded?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  inflation_max?: Maybe<Order_By>;
+  inflation_min?: Maybe<Order_By>;
+  inflation_rate_change?: Maybe<Order_By>;
 };
 
 /** columns and relationships of "modules" */
@@ -7244,6 +7838,12 @@ export type Query_Root = {
   delegation_reward_history: Array<Delegation_Reward_History>;
   /** fetch aggregated fields from the table: "delegation_reward_history" */
   delegation_reward_history_aggregate: Delegation_Reward_History_Aggregate;
+  /** fetch data from the table: "distribution_params" */
+  distribution_params: Array<Distribution_Params>;
+  /** fetch aggregated fields from the table: "distribution_params" */
+  distribution_params_aggregate: Distribution_Params_Aggregate;
+  /** fetch data from the table: "distribution_params" using primary key columns */
+  distribution_params_by_pk?: Maybe<Distribution_Params>;
   /** fetch data from the table: "double_sign_evidence" */
   double_sign_evidence: Array<Double_Sign_Evidence>;
   /** fetch aggregated fields from the table: "double_sign_evidence" */
@@ -7280,6 +7880,12 @@ export type Query_Root = {
   messages_by_address: Array<Message>;
   /** execute function "messages_by_address" and query aggregates on result of table type "message" */
   messages_by_address_aggregate: Message_Aggregate;
+  /** fetch data from the table: "mint_params" */
+  mint_params: Array<Mint_Params>;
+  /** fetch aggregated fields from the table: "mint_params" */
+  mint_params_aggregate: Mint_Params_Aggregate;
+  /** fetch data from the table: "mint_params" using primary key columns */
+  mint_params_by_pk?: Maybe<Mint_Params>;
   /** fetch data from the table: "modules" */
   modules: Array<Modules>;
   /** fetch aggregated fields from the table: "modules" */
@@ -7786,6 +8392,32 @@ export type Query_RootDelegation_Reward_History_AggregateArgs = {
 
 
 /** query root */
+export type Query_RootDistribution_ParamsArgs = {
+  distinct_on?: Maybe<Array<Distribution_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Distribution_Params_Order_By>>;
+  where?: Maybe<Distribution_Params_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootDistribution_Params_AggregateArgs = {
+  distinct_on?: Maybe<Array<Distribution_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Distribution_Params_Order_By>>;
+  where?: Maybe<Distribution_Params_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootDistribution_Params_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
+};
+
+
+/** query root */
 export type Query_RootDouble_Sign_EvidenceArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Evidence_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -7948,6 +8580,32 @@ export type Query_RootMessages_By_Address_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Message_Order_By>>;
   where?: Maybe<Message_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootMint_ParamsArgs = {
+  distinct_on?: Maybe<Array<Mint_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Mint_Params_Order_By>>;
+  where?: Maybe<Mint_Params_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootMint_Params_AggregateArgs = {
+  distinct_on?: Maybe<Array<Mint_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Mint_Params_Order_By>>;
+  where?: Maybe<Mint_Params_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootMint_Params_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
 };
 
 
@@ -9469,6 +10127,12 @@ export type Smallint_Comparison_Exp = {
 export type Staking_Params = {
   __typename?: 'staking_params';
   bond_denom: Scalars['String'];
+  height: Scalars['bigint'];
+  historical_entries: Scalars['bigint'];
+  max_entries: Scalars['bigint'];
+  max_validators: Scalars['bigint'];
+  one_row_id: Scalars['Boolean'];
+  unbonding_time: Scalars['bigint'];
 };
 
 /** aggregated selection of "staking_params" */
@@ -9481,9 +10145,17 @@ export type Staking_Params_Aggregate = {
 /** aggregate fields of "staking_params" */
 export type Staking_Params_Aggregate_Fields = {
   __typename?: 'staking_params_aggregate_fields';
+  avg?: Maybe<Staking_Params_Avg_Fields>;
   count?: Maybe<Scalars['Int']>;
   max?: Maybe<Staking_Params_Max_Fields>;
   min?: Maybe<Staking_Params_Min_Fields>;
+  stddev?: Maybe<Staking_Params_Stddev_Fields>;
+  stddev_pop?: Maybe<Staking_Params_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Staking_Params_Stddev_Samp_Fields>;
+  sum?: Maybe<Staking_Params_Sum_Fields>;
+  var_pop?: Maybe<Staking_Params_Var_Pop_Fields>;
+  var_samp?: Maybe<Staking_Params_Var_Samp_Fields>;
+  variance?: Maybe<Staking_Params_Variance_Fields>;
 };
 
 
@@ -9495,9 +10167,36 @@ export type Staking_Params_Aggregate_FieldsCountArgs = {
 
 /** order by aggregate values of table "staking_params" */
 export type Staking_Params_Aggregate_Order_By = {
+  avg?: Maybe<Staking_Params_Avg_Order_By>;
   count?: Maybe<Order_By>;
   max?: Maybe<Staking_Params_Max_Order_By>;
   min?: Maybe<Staking_Params_Min_Order_By>;
+  stddev?: Maybe<Staking_Params_Stddev_Order_By>;
+  stddev_pop?: Maybe<Staking_Params_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Staking_Params_Stddev_Samp_Order_By>;
+  sum?: Maybe<Staking_Params_Sum_Order_By>;
+  var_pop?: Maybe<Staking_Params_Var_Pop_Order_By>;
+  var_samp?: Maybe<Staking_Params_Var_Samp_Order_By>;
+  variance?: Maybe<Staking_Params_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Staking_Params_Avg_Fields = {
+  __typename?: 'staking_params_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+  historical_entries?: Maybe<Scalars['Float']>;
+  max_entries?: Maybe<Scalars['Float']>;
+  max_validators?: Maybe<Scalars['Float']>;
+  unbonding_time?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "staking_params" */
+export type Staking_Params_Avg_Order_By = {
+  height?: Maybe<Order_By>;
+  historical_entries?: Maybe<Order_By>;
+  max_entries?: Maybe<Order_By>;
+  max_validators?: Maybe<Order_By>;
+  unbonding_time?: Maybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "staking_params". All fields are combined with a logical 'AND'. */
@@ -9506,33 +10205,65 @@ export type Staking_Params_Bool_Exp = {
   _not?: Maybe<Staking_Params_Bool_Exp>;
   _or?: Maybe<Array<Maybe<Staking_Params_Bool_Exp>>>;
   bond_denom?: Maybe<String_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  historical_entries?: Maybe<Bigint_Comparison_Exp>;
+  max_entries?: Maybe<Bigint_Comparison_Exp>;
+  max_validators?: Maybe<Bigint_Comparison_Exp>;
+  one_row_id?: Maybe<Boolean_Comparison_Exp>;
+  unbonding_time?: Maybe<Bigint_Comparison_Exp>;
 };
 
 /** aggregate max on columns */
 export type Staking_Params_Max_Fields = {
   __typename?: 'staking_params_max_fields';
   bond_denom?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  historical_entries?: Maybe<Scalars['bigint']>;
+  max_entries?: Maybe<Scalars['bigint']>;
+  max_validators?: Maybe<Scalars['bigint']>;
+  unbonding_time?: Maybe<Scalars['bigint']>;
 };
 
 /** order by max() on columns of table "staking_params" */
 export type Staking_Params_Max_Order_By = {
   bond_denom?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  historical_entries?: Maybe<Order_By>;
+  max_entries?: Maybe<Order_By>;
+  max_validators?: Maybe<Order_By>;
+  unbonding_time?: Maybe<Order_By>;
 };
 
 /** aggregate min on columns */
 export type Staking_Params_Min_Fields = {
   __typename?: 'staking_params_min_fields';
   bond_denom?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  historical_entries?: Maybe<Scalars['bigint']>;
+  max_entries?: Maybe<Scalars['bigint']>;
+  max_validators?: Maybe<Scalars['bigint']>;
+  unbonding_time?: Maybe<Scalars['bigint']>;
 };
 
 /** order by min() on columns of table "staking_params" */
 export type Staking_Params_Min_Order_By = {
   bond_denom?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  historical_entries?: Maybe<Order_By>;
+  max_entries?: Maybe<Order_By>;
+  max_validators?: Maybe<Order_By>;
+  unbonding_time?: Maybe<Order_By>;
 };
 
 /** ordering options when selecting data from "staking_params" */
 export type Staking_Params_Order_By = {
   bond_denom?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  historical_entries?: Maybe<Order_By>;
+  max_entries?: Maybe<Order_By>;
+  max_validators?: Maybe<Order_By>;
+  one_row_id?: Maybe<Order_By>;
+  unbonding_time?: Maybe<Order_By>;
 };
 
 /** primary key columns input for table: "staking_params" */
@@ -9543,8 +10274,153 @@ export type Staking_Params_Pk_Columns_Input = {
 /** select columns of table "staking_params" */
 export enum Staking_Params_Select_Column {
   /** column name */
-  BondDenom = 'bond_denom'
+  BondDenom = 'bond_denom',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  HistoricalEntries = 'historical_entries',
+  /** column name */
+  MaxEntries = 'max_entries',
+  /** column name */
+  MaxValidators = 'max_validators',
+  /** column name */
+  OneRowId = 'one_row_id',
+  /** column name */
+  UnbondingTime = 'unbonding_time'
 }
+
+/** aggregate stddev on columns */
+export type Staking_Params_Stddev_Fields = {
+  __typename?: 'staking_params_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+  historical_entries?: Maybe<Scalars['Float']>;
+  max_entries?: Maybe<Scalars['Float']>;
+  max_validators?: Maybe<Scalars['Float']>;
+  unbonding_time?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "staking_params" */
+export type Staking_Params_Stddev_Order_By = {
+  height?: Maybe<Order_By>;
+  historical_entries?: Maybe<Order_By>;
+  max_entries?: Maybe<Order_By>;
+  max_validators?: Maybe<Order_By>;
+  unbonding_time?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Staking_Params_Stddev_Pop_Fields = {
+  __typename?: 'staking_params_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  historical_entries?: Maybe<Scalars['Float']>;
+  max_entries?: Maybe<Scalars['Float']>;
+  max_validators?: Maybe<Scalars['Float']>;
+  unbonding_time?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "staking_params" */
+export type Staking_Params_Stddev_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+  historical_entries?: Maybe<Order_By>;
+  max_entries?: Maybe<Order_By>;
+  max_validators?: Maybe<Order_By>;
+  unbonding_time?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Staking_Params_Stddev_Samp_Fields = {
+  __typename?: 'staking_params_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  historical_entries?: Maybe<Scalars['Float']>;
+  max_entries?: Maybe<Scalars['Float']>;
+  max_validators?: Maybe<Scalars['Float']>;
+  unbonding_time?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "staking_params" */
+export type Staking_Params_Stddev_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+  historical_entries?: Maybe<Order_By>;
+  max_entries?: Maybe<Order_By>;
+  max_validators?: Maybe<Order_By>;
+  unbonding_time?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Staking_Params_Sum_Fields = {
+  __typename?: 'staking_params_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+  historical_entries?: Maybe<Scalars['bigint']>;
+  max_entries?: Maybe<Scalars['bigint']>;
+  max_validators?: Maybe<Scalars['bigint']>;
+  unbonding_time?: Maybe<Scalars['bigint']>;
+};
+
+/** order by sum() on columns of table "staking_params" */
+export type Staking_Params_Sum_Order_By = {
+  height?: Maybe<Order_By>;
+  historical_entries?: Maybe<Order_By>;
+  max_entries?: Maybe<Order_By>;
+  max_validators?: Maybe<Order_By>;
+  unbonding_time?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Staking_Params_Var_Pop_Fields = {
+  __typename?: 'staking_params_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  historical_entries?: Maybe<Scalars['Float']>;
+  max_entries?: Maybe<Scalars['Float']>;
+  max_validators?: Maybe<Scalars['Float']>;
+  unbonding_time?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "staking_params" */
+export type Staking_Params_Var_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+  historical_entries?: Maybe<Order_By>;
+  max_entries?: Maybe<Order_By>;
+  max_validators?: Maybe<Order_By>;
+  unbonding_time?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Staking_Params_Var_Samp_Fields = {
+  __typename?: 'staking_params_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  historical_entries?: Maybe<Scalars['Float']>;
+  max_entries?: Maybe<Scalars['Float']>;
+  max_validators?: Maybe<Scalars['Float']>;
+  unbonding_time?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "staking_params" */
+export type Staking_Params_Var_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+  historical_entries?: Maybe<Order_By>;
+  max_entries?: Maybe<Order_By>;
+  max_validators?: Maybe<Order_By>;
+  unbonding_time?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Staking_Params_Variance_Fields = {
+  __typename?: 'staking_params_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+  historical_entries?: Maybe<Scalars['Float']>;
+  max_entries?: Maybe<Scalars['Float']>;
+  max_validators?: Maybe<Scalars['Float']>;
+  unbonding_time?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "staking_params" */
+export type Staking_Params_Variance_Order_By = {
+  height?: Maybe<Order_By>;
+  historical_entries?: Maybe<Order_By>;
+  max_entries?: Maybe<Order_By>;
+  max_validators?: Maybe<Order_By>;
+  unbonding_time?: Maybe<Order_By>;
+};
 
 /** columns and relationships of "staking_pool" */
 export type Staking_Pool = {
@@ -9860,6 +10736,12 @@ export type Subscription_Root = {
   delegation_reward_history: Array<Delegation_Reward_History>;
   /** fetch aggregated fields from the table: "delegation_reward_history" */
   delegation_reward_history_aggregate: Delegation_Reward_History_Aggregate;
+  /** fetch data from the table: "distribution_params" */
+  distribution_params: Array<Distribution_Params>;
+  /** fetch aggregated fields from the table: "distribution_params" */
+  distribution_params_aggregate: Distribution_Params_Aggregate;
+  /** fetch data from the table: "distribution_params" using primary key columns */
+  distribution_params_by_pk?: Maybe<Distribution_Params>;
   /** fetch data from the table: "double_sign_evidence" */
   double_sign_evidence: Array<Double_Sign_Evidence>;
   /** fetch aggregated fields from the table: "double_sign_evidence" */
@@ -9896,6 +10778,12 @@ export type Subscription_Root = {
   messages_by_address: Array<Message>;
   /** execute function "messages_by_address" and query aggregates on result of table type "message" */
   messages_by_address_aggregate: Message_Aggregate;
+  /** fetch data from the table: "mint_params" */
+  mint_params: Array<Mint_Params>;
+  /** fetch aggregated fields from the table: "mint_params" */
+  mint_params_aggregate: Mint_Params_Aggregate;
+  /** fetch data from the table: "mint_params" using primary key columns */
+  mint_params_by_pk?: Maybe<Mint_Params>;
   /** fetch data from the table: "modules" */
   modules: Array<Modules>;
   /** fetch aggregated fields from the table: "modules" */
@@ -10402,6 +11290,32 @@ export type Subscription_RootDelegation_Reward_History_AggregateArgs = {
 
 
 /** subscription root */
+export type Subscription_RootDistribution_ParamsArgs = {
+  distinct_on?: Maybe<Array<Distribution_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Distribution_Params_Order_By>>;
+  where?: Maybe<Distribution_Params_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootDistribution_Params_AggregateArgs = {
+  distinct_on?: Maybe<Array<Distribution_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Distribution_Params_Order_By>>;
+  where?: Maybe<Distribution_Params_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootDistribution_Params_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
+};
+
+
+/** subscription root */
 export type Subscription_RootDouble_Sign_EvidenceArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Evidence_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10564,6 +11478,32 @@ export type Subscription_RootMessages_By_Address_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Message_Order_By>>;
   where?: Maybe<Message_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootMint_ParamsArgs = {
+  distinct_on?: Maybe<Array<Mint_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Mint_Params_Order_By>>;
+  where?: Maybe<Mint_Params_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootMint_Params_AggregateArgs = {
+  distinct_on?: Maybe<Array<Mint_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Mint_Params_Order_By>>;
+  where?: Maybe<Mint_Params_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootMint_Params_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
 };
 
 
@@ -15739,6 +16679,26 @@ export type StakingParamsQuery = { stakingParams: Array<(
     & { bondDenom: Staking_Params['bond_denom'] }
   )> };
 
+export type ParamsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ParamsQuery = { stakingParams: Array<(
+    { __typename?: 'staking_params' }
+    & { bondDenom: Staking_Params['bond_denom'], unbondingTime: Staking_Params['unbonding_time'], maxEntries: Staking_Params['max_entries'], historicalEntries: Staking_Params['historical_entries'], maxValidators: Staking_Params['max_validators'] }
+  )>, slashingParams: Array<(
+    { __typename?: 'slashing_params' }
+    & { downtimeJailDuration: Slashing_Params['downtime_jail_duration'], minSignedPerWindow: Slashing_Params['min_signed_per_window'], signedBlockWindow: Slashing_Params['signed_block_window'], slashFractionDoubleSign: Slashing_Params['slash_fraction_double_sign'], slashFractionDowntime: Slashing_Params['slash_fraction_downtime'] }
+  )>, mintParams: Array<(
+    { __typename?: 'mint_params' }
+    & { blocksPerYear: Mint_Params['blocks_per_year'], goalBonded: Mint_Params['goal_bonded'], inflationMax: Mint_Params['inflation_max'], inflationMin: Mint_Params['inflation_min'], inflcationRateChange: Mint_Params['inflation_rate_change'], mintDenom: Mint_Params['mint_denom'] }
+  )>, distributionParams: Array<(
+    { __typename?: 'distribution_params' }
+    & { basePropoerReward: Distribution_Params['base_proposer_reward'], bonusProposerReward: Distribution_Params['bonus_proposer_reward'], communityTax: Distribution_Params['community_tax'], withdrawAddressEnabled: Distribution_Params['withdraw_address_enabled'] }
+  )>, govParams: Array<(
+    { __typename?: 'gov_params' }
+    & { depositParams: Gov_Params['deposit_params'], tallyParams: Gov_Params['tally_params'], votingParams: Gov_Params['voting_params'] }
+  )> };
+
 export type ProposalDetailsQueryVariables = Exact<{
   proposalId?: Maybe<Scalars['Int']>;
 }>;
@@ -16662,6 +17622,70 @@ export function useStakingParamsLazyQuery(baseOptions?: Apollo.LazyQueryHookOpti
 export type StakingParamsQueryHookResult = ReturnType<typeof useStakingParamsQuery>;
 export type StakingParamsLazyQueryHookResult = ReturnType<typeof useStakingParamsLazyQuery>;
 export type StakingParamsQueryResult = Apollo.QueryResult<StakingParamsQuery, StakingParamsQueryVariables>;
+export const ParamsDocument = gql`
+    query Params {
+  stakingParams: staking_params(limit: 1, order_by: {height: desc}) {
+    bondDenom: bond_denom
+    unbondingTime: unbonding_time
+    maxEntries: max_entries
+    historicalEntries: historical_entries
+    maxValidators: max_validators
+  }
+  slashingParams: slashing_params(limit: 1, order_by: {height: desc}) {
+    downtimeJailDuration: downtime_jail_duration
+    minSignedPerWindow: min_signed_per_window
+    signedBlockWindow: signed_block_window
+    slashFractionDoubleSign: slash_fraction_double_sign
+    slashFractionDowntime: slash_fraction_downtime
+  }
+  mintParams: mint_params(limit: 1, order_by: {height: desc}) {
+    blocksPerYear: blocks_per_year
+    goalBonded: goal_bonded
+    inflationMax: inflation_max
+    inflationMin: inflation_min
+    inflcationRateChange: inflation_rate_change
+    mintDenom: mint_denom
+  }
+  distributionParams: distribution_params(limit: 1, order_by: {height: desc}) {
+    basePropoerReward: base_proposer_reward
+    bonusProposerReward: bonus_proposer_reward
+    communityTax: community_tax
+    withdrawAddressEnabled: withdraw_address_enabled
+  }
+  govParams: gov_params(limit: 1, order_by: {height: desc}) {
+    depositParams: deposit_params
+    tallyParams: tally_params
+    votingParams: voting_params
+  }
+}
+    `;
+
+/**
+ * __useParamsQuery__
+ *
+ * To run a query within a React component, call `useParamsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useParamsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useParamsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useParamsQuery(baseOptions?: Apollo.QueryHookOptions<ParamsQuery, ParamsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ParamsQuery, ParamsQueryVariables>(ParamsDocument, options);
+      }
+export function useParamsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ParamsQuery, ParamsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ParamsQuery, ParamsQueryVariables>(ParamsDocument, options);
+        }
+export type ParamsQueryHookResult = ReturnType<typeof useParamsQuery>;
+export type ParamsLazyQueryHookResult = ReturnType<typeof useParamsLazyQuery>;
+export type ParamsQueryResult = Apollo.QueryResult<ParamsQuery, ParamsQueryVariables>;
 export const ProposalDetailsDocument = gql`
     query ProposalDetails($proposalId: Int) {
   proposal(where: {id: {_eq: $proposalId}}) {

@@ -1,0 +1,35 @@
+query Params {
+  stakingParams: staking_params(limit: 1, order_by: {height: desc}) {
+    bondDenom: bond_denom
+    unbondingTime: unbonding_time
+    maxEntries: max_entries
+    historicalEntries: historical_entries
+    maxValidators: max_validators
+  }
+  slashingParams: slashing_params(limit: 1, order_by: {height: desc}) {
+    downtimeJailDuration: downtime_jail_duration
+    minSignedPerWindow: min_signed_per_window
+    signedBlockWindow: signed_block_window
+    slashFractionDoubleSign: slash_fraction_double_sign
+    slashFractionDowntime: slash_fraction_downtime
+  }
+  mintParams: mint_params(limit: 1, order_by: {height: desc}) {
+    blocksPerYear: blocks_per_year
+    goalBonded: goal_bonded
+    inflationMax: inflation_max
+    inflationMin: inflation_min
+    inflcationRateChange: inflation_rate_change
+    mintDenom: mint_denom
+  }
+  distributionParams: distribution_params(limit: 1, order_by: {height: desc}) {
+    basePropoerReward: base_proposer_reward
+    bonusProposerReward: bonus_proposer_reward
+    communityTax: community_tax
+    withdrawAddressEnabled: withdraw_address_enabled
+  }
+  govParams: gov_params (limit: 1, order_by: {height: desc}) {
+    depositParams: deposit_params
+    tallyParams: tally_params
+    votingParams: voting_params
+  }
+}
