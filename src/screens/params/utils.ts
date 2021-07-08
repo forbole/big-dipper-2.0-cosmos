@@ -2,7 +2,6 @@ import {
   nanoToSeconds, secondsToDays,
 } from '@utils/time';
 import numeral from 'numeral';
-import { formatDenom } from '@utils/format_denom';
 import {
   Staking,
   Slashing,
