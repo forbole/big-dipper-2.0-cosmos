@@ -16690,7 +16690,7 @@ export type ParamsQuery = { stakingParams: Array<(
     & { downtimeJailDuration: Slashing_Params['downtime_jail_duration'], minSignedPerWindow: Slashing_Params['min_signed_per_window'], signedBlockWindow: Slashing_Params['signed_block_window'], slashFractionDoubleSign: Slashing_Params['slash_fraction_double_sign'], slashFractionDowntime: Slashing_Params['slash_fraction_downtime'] }
   )>, mintParams: Array<(
     { __typename?: 'mint_params' }
-    & { blocksPerYear: Mint_Params['blocks_per_year'], goalBonded: Mint_Params['goal_bonded'], inflationMax: Mint_Params['inflation_max'], inflationMin: Mint_Params['inflation_min'], inflcationRateChange: Mint_Params['inflation_rate_change'], mintDenom: Mint_Params['mint_denom'] }
+    & { blocksPerYear: Mint_Params['blocks_per_year'], goalBonded: Mint_Params['goal_bonded'], inflationMax: Mint_Params['inflation_max'], inflationMin: Mint_Params['inflation_min'], inflationRateChange: Mint_Params['inflation_rate_change'], mintDenom: Mint_Params['mint_denom'] }
   )>, distributionParams: Array<(
     { __typename?: 'distribution_params' }
     & { basePropoerReward: Distribution_Params['base_proposer_reward'], bonusProposerReward: Distribution_Params['bonus_proposer_reward'], communityTax: Distribution_Params['community_tax'], withdrawAddressEnabled: Distribution_Params['withdraw_address_enabled'] }
@@ -17643,7 +17643,7 @@ export const ParamsDocument = gql`
     goalBonded: goal_bonded
     inflationMax: inflation_max
     inflationMin: inflation_min
-    inflcationRateChange: inflation_rate_change
+    inflationRateChange: inflation_rate_change
     mintDenom: mint_denom
   }
   distributionParams: distribution_params(limit: 1, order_by: {height: desc}) {

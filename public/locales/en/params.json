@@ -13,5 +13,12 @@
   "minSignedPerWindow": "Min Signed Per Window",
   "signedBlockWindow": "Signed Block Window",
   "slashFractionDoubleSign": "Slash Fraction Double Sign",
-  "slashFractionDowntime": "Slash Traction Downtime"
+  "slashFractionDowntime": "Slash Traction Downtime",
+  "minting": "Minting",
+  "blocksPerYear": "Blocks Per Year",
+  "goalBonded": "Goal Bonded",
+  "inflationMax": "Inflation Max",
+  "inflationMin": "Inflation Min",
+  "inflationRateChange": "Inflation Rate Change",
+  "mintDenom": "Mint Denom"
 }

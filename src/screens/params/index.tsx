@@ -8,7 +8,9 @@ import {
 import { useStyles } from './styles';
 import { useParams } from './hooks';
 import {
-  formatStaking, formatSlashing,
+  formatStaking,
+  formatSlashing,
+  formatMinting,
 } from './utils';
 
 const Params = () => {
@@ -46,15 +48,20 @@ const Params = () => {
     })),
   };
 
-  const staking = {
+  const staking = state.staking ? {
     title: t('staking'),
     details: formatStaking(state.staking, t),
-  };
+  } : null;
 
-  const slashing = {
+  const slashing = state.slashing ? {
     title: t('slashing'),
     details: formatSlashing(state.slashing, t),
-  };
+  } : null;
+
+  const minting = state.minting ? {
+    title: t('minting'),
+    details: formatMinting(state.minting, t),
+  } : null;
 
   return (
     <Layout
@@ -66,9 +73,17 @@ const Params = () => {
         exists={state.exists}
       >
         <span className={classes.root}>
-          <BoxDetails {...staking} />
-          <BoxDetails {...slashing} />
-          <BoxDetails {...boxDataDummy} />
+          {staking && (
+            <BoxDetails {...staking} />
+          )}
+          {
+            slashing && (
+              <BoxDetails {...slashing} />
+            )
+          }
+          {minting && (
+            <BoxDetails {...minting} />
+          )}
           <BoxDetails {...boxDataDummy} />
           <BoxDetails {...boxDataDummy} />
         </span>

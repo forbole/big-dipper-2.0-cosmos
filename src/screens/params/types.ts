@@ -14,9 +14,19 @@ export type Slashing = {
   slashFractionDowntime: number;
 }
 
+export type Minting = {
+  blocksPerYear: number,
+  goalBonded: number,
+  inflationMax: number,
+  inflationMin: number,
+  inflationRateChange: number,
+  mintDenom: string
+}
+
 export type ParamsState = {
   loading: boolean;
   exists: boolean;
-  staking: Staking;
-  slashing: Slashing;
+  staking: Staking | null;
+  slashing: Slashing | null;
+  minting: Minting | null;
 }

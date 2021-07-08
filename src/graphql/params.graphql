@@ -18,7 +18,7 @@ query Params {
     goalBonded: goal_bonded
     inflationMax: inflation_max
     inflationMin: inflation_min
-    inflcationRateChange: inflation_rate_change
+    inflationRateChange: inflation_rate_change
     mintDenom: mint_denom
   }
   distributionParams: distribution_params(limit: 1, order_by: {height: desc}) {

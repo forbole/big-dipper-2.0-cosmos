@@ -3,7 +3,7 @@ import {
 } from '@utils/time';
 import numeral from 'numeral';
 import {
-  Staking, Slashing,
+  Staking, Slashing, Minting,
 } from './types';
 
 export const formatStaking = (data: Staking, t: any) => {
@@ -56,6 +56,35 @@ export const formatSlashing = (data: Slashing, t: any) => {
     {
       label: t('slashFractionDowntime'),
       detail: data.slashFractionDowntime,
+    },
+  ]);
+};
+
+export const formatMinting = (data: Minting, t: any) => {
+  return ([
+    {
+      label: t('blocksPerYear'),
+      detail: data.blocksPerYear,
+    },
+    {
+      label: t('goalBonded'),
+      detail: data.goalBonded,
+    },
+    {
+      label: t('inflationMax'),
+      detail: data.inflationMax,
+    },
+    {
+      label: t('inflationMin'),
+      detail: data.inflationMin,
+    },
+    {
+      label: t('inflationRateChangeslashFractionDowntime'),
+      detail: data.inflationRateChange,
+    },
+    {
+      label: t('mintDenom'),
+      detail: data.mintDenom,
     },
   ]);
 };

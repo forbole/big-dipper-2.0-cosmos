@@ -4,7 +4,6 @@ import {
   useParamsQuery,
   ParamsQuery,
 } from '@graphql/types';
-import { chainConfig } from '@configs';
 import {
   ParamsState,
 } from './types';
@@ -12,20 +11,9 @@ import {
 const initialState = {
   loading: true,
   exists: true,
-  staking: {
-    bondDenom: chainConfig.primaryTokenUnit,
-    unbondingTime: 0,
-    maxEntries: 0,
-    historicalEntries: 0,
-    maxValidators: 0,
-  },
-  slashing: {
-    downtimeJailDuration: 0,
-    minSignedPerWindow: 0,
-    signedBlockWindow: 0,
-    slashFractionDoubleSign: 0,
-    slashFractionDowntime: 0,
-  },
+  staking: null,
+  slashing: null,
+  minting: null,
 };
 
 export const useParams = () => {
@@ -70,7 +58,7 @@ export const useParams = () => {
         };
       }
 
-      return initialState.staking;
+      return null;
     };
 
     results.staking = formatStaking();
@@ -90,10 +78,31 @@ export const useParams = () => {
         };
       }
 
-      return initialState.slashing;
+      return null;
     };
 
     results.slashing = formatSlashing();
+
+    // ================================
+    // minting
+    // ================================
+    const formatMint = () => {
+      if (data.mintParams.length) {
+        const mintParamsRaw = data.mintParams[0];
+        return {
+          blocksPerYear: mintParamsRaw.blocksPerYear,
+          goalBonded: mintParamsRaw.goalBonded,
+          inflationMax: mintParamsRaw.inflationMax,
+          inflationMin: mintParamsRaw.inflationMin,
+          inflationRateChange: mintParamsRaw.inflationRateChange,
+          mintDenom: mintParamsRaw.mintDenom,
+        };
+      }
+
+      return null;
+    };
+
+    results.minting = formatMint();
 
     return results;
   };
