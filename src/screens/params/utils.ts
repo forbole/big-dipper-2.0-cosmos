@@ -2,11 +2,13 @@ import {
   nanoToSeconds, secondsToDays,
 } from '@utils/time';
 import numeral from 'numeral';
+import { formatDenom } from '@utils/format_denom';
 import {
   Staking,
   Slashing,
   Minting,
   Distribution,
+  Gov,
 } from './types';
 
 export const formatStaking = (data: Staking, t: any) => {
@@ -110,5 +112,34 @@ export const formatDistribution = (data: Distribution, t: any) => {
       label: t('withdrawAddressEnabled'),
       detail: `${data.withdrawAddressEnabled}`.toUpperCase(),
     },
+  ]);
+};
+
+export const formatGov = (data: Gov, t: any) => {
+  return ([
+    {
+      label: t('minDeposit'),
+      detail: `${data.minDeposit.value} ${data.minDeposit.denom.toUpperCase()}`,
+    },
+    // {
+    //   label: t('maxDepositPeriod'),
+    //   detail: data.maxDepositPeriod,
+    // },
+    {
+      label: t('quorum'),
+      detail: numeral(data.quorum).format('0.[00]'),
+    },
+    {
+      label: t('threshold'),
+      detail: numeral(data.threshold).format('0.[00]'),
+    },
+    {
+      label: t('vetoThreshold'),
+      detail: numeral(data.vetoThreshold).format('0.[00]'),
+    },
+    // {
+    //   label: t('votingPeriod'),
+    //   detail: data.votingPeriod,
+    // },
   ]);
 };

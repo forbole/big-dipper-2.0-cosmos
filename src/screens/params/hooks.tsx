@@ -4,6 +4,8 @@ import {
   useParamsQuery,
   ParamsQuery,
 } from '@graphql/types';
+import { formatDenom } from '@utils/format_denom';
+import { chainConfig } from '@configs';
 import {
   ParamsState,
 } from './types';
@@ -15,6 +17,7 @@ const initialState = {
   slashing: null,
   minting: null,
   distribution: null,
+  gov: null,
 };
 
 export const useParams = () => {
@@ -124,6 +127,31 @@ export const useParams = () => {
     };
 
     results.distribution = formatDistribution();
+
+    // ================================
+    // distribution
+    // ================================
+
+    const formatGov = () => {
+      if (data.govParams.length) {
+        const govParamsRaw = data.govParams[0];
+        return {
+          minDeposit: formatDenom(
+            R.pathOr(0, ['min_deposit', 0, 'amount'], govParamsRaw.depositParams),
+            R.pathOr(chainConfig.primaryTokenUnit, ['min_deposit', 0, 'denom'], govParamsRaw.depositParams),
+          ),
+          maxDepositPeriod: R.pathOr(0, ['max_deposit_period'], govParamsRaw.depositParams),
+          quorum: R.pathOr(0, ['quorum'], govParamsRaw.tallyParams),
+          threshold: R.pathOr(0, ['threshold'], govParamsRaw.tallyParams),
+          vetoThreshold: R.pathOr(0, ['veto_threshold'], govParamsRaw.tallyParams),
+          votingPeriod: R.pathOr(0, ['voting_period'], govParamsRaw.votingParams),
+        };
+      }
+
+      return null;
+    };
+
+    results.gov = formatGov();
 
     return results;
   };

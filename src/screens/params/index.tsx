@@ -12,42 +12,13 @@ import {
   formatSlashing,
   formatMinting,
   formatDistribution,
+  formatGov,
 } from './utils';
 
 const Params = () => {
   const { t } = useTranslation('params');
   const classes = useStyles();
   const { state } = useParams();
-  const fakeData = [
-    {
-      param: 'unbonding_time',
-      value: 2432535,
-    },
-    {
-      param: 'unbonding_time',
-      value: 2432535,
-    },
-    {
-      param: 'unbonding_time',
-      value: 2432535,
-    },
-    {
-      param: 'unbonding_time',
-      value: 2432535,
-    },
-    {
-      param: 'unbonding_time',
-      value: 2432535,
-    },
-  ];
-
-  const boxDataDummy = {
-    title: t('staking'),
-    details: fakeData.map((x) => ({
-      label: x.param,
-      detail: x.value,
-    })),
-  };
 
   const staking = state.staking ? {
     title: t('staking'),
@@ -67,6 +38,11 @@ const Params = () => {
   const distribution = state.distribution ? {
     title: t('distribution'),
     details: formatDistribution(state.distribution, t),
+  } : null;
+
+  const gov = state.gov ? {
+    title: t('gov'),
+    details: formatGov(state.gov, t),
   } : null;
 
   return (
@@ -92,6 +68,9 @@ const Params = () => {
           )}
           {distribution && (
             <BoxDetails {...distribution} />
+          )}
+          {gov && (
+            <BoxDetails {...gov} />
           )}
         </span>
       </LoadAndExist>

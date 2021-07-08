@@ -30,6 +30,15 @@ export type Distribution = {
   withdrawAddressEnabled: boolean;
 }
 
+export type Gov = {
+  minDeposit: TokenUnit;
+  maxDepositPeriod: number;
+  quorum: number;
+  threshold: number;
+  vetoThreshold: number;
+  votingPeriod: number;
+}
+
 export type ParamsState = {
   loading: boolean;
   exists: boolean;
@@ -37,4 +46,5 @@ export type ParamsState = {
   slashing: Slashing | null;
   minting: Minting | null;
   distribution: Distribution | null;
+  gov: Gov | null;
 }
