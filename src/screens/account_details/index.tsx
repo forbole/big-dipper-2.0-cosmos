@@ -4,6 +4,7 @@ import {
   Layout,
   LoadAndExist,
 } from '@components';
+import { chainConfig } from '@configs';
 import { useStyles } from './styles';
 import {
   Overview,
@@ -11,6 +12,7 @@ import {
   Staking,
   Transactions,
   OtherTokens,
+  DesmosProfile,
 } from './components';
 import { useAccountDetails } from './hooks';
 
@@ -33,6 +35,9 @@ const AccountDetails = () => {
             withdrawalAddress={state.overview.withdrawalAddress}
             address={state.overview.address}
           />
+          {chainConfig.extra.desmosProfile && (
+            <DesmosProfile />
+          )}
           <Balance
             className={classes.balance}
             available={state.balance.available}

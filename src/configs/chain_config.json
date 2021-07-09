@@ -20,7 +20,7 @@
     }
   },
   "extra": {
-    "desmosProfile": false,
+    "desmosProfile": true,
     "forboleX": false
   }
 }

@@ -184,6 +184,58 @@ const Overview: React.FC<{
           </div>
         </Box>
       </Dialog>
+      <Box>
+        <div className={classes.copyText}>
+          <Typography variant="body1" className="label">
+            {t('address')}
+          </Typography>
+          <div className="detail">
+            <CopyIcon
+              onClick={() => handleCopyToClipboard(address)}
+              className={classes.actionIcons}
+            />
+            <ShareIcon
+              onClick={handleOpen}
+              className={classes.actionIcons}
+            />
+            <Typography variant="body1" className="value">
+              {
+                isMobile ? (
+                  getMiddleEllipsis(address, {
+                    beginning: 15, ending: 5,
+                  })
+                ) : (
+                  address
+                )
+              }
+            </Typography>
+          </div>
+        </div>
+
+        <div className={classes.copyText}>
+          <Typography variant="body1" className="label">
+            {t('rewardAddress')}
+          </Typography>
+          <div className="detail">
+            <CopyIcon
+              className={classes.actionIcons}
+              onClick={() => handleCopyToClipboard(withdrawalAddress)}
+            />
+            <Typography variant="body1" className="value">
+              {
+                isMobile ? (
+                  getMiddleEllipsis(withdrawalAddress, {
+                    beginning: 15, ending: 5,
+                  })
+                ) : (
+                  withdrawalAddress
+                )
+              }
+            </Typography>
+          </div>
+        </div>
+      </Box>
+      {/* delete later */}
       <BoxDetails className={className} {...dummyProps} />
     </>
   );
