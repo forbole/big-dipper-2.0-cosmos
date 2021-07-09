@@ -120,10 +120,12 @@ export const formatGov = (data: Gov, t: any) => {
       label: t('minDeposit'),
       detail: `${data.minDeposit.value} ${data.minDeposit.denom.toUpperCase()}`,
     },
-    // {
-    //   label: t('maxDepositPeriod'),
-    //   detail: data.maxDepositPeriod,
-    // },
+    {
+      label: t('maxDepositPeriod'),
+      detail: t('days', {
+        day: secondsToDays(nanoToSeconds(data.maxDepositPeriod)),
+      }),
+    },
     {
       label: t('quorum'),
       detail: numeral(data.quorum).format('0.[00]'),
@@ -136,9 +138,11 @@ export const formatGov = (data: Gov, t: any) => {
       label: t('vetoThreshold'),
       detail: numeral(data.vetoThreshold).format('0.[00]'),
     },
-    // {
-    //   label: t('votingPeriod'),
-    //   detail: data.votingPeriod,
-    // },
+    {
+      label: t('votingPeriod'),
+      detail: t('days', {
+        day: secondsToDays(nanoToSeconds(data.votingPeriod)),
+      }),
+    },
   ]);
 };
