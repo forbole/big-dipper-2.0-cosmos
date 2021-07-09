@@ -4,6 +4,12 @@ export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
       return ({
+        root: {
+          [theme.breakpoints.up('md')]: {
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2,1fr)',
+          },
+        },
         dialog: {
           display: 'flex',
           alignItems: 'center',
@@ -37,6 +43,36 @@ export const useStyles = () => {
             height: theme.spacing(4.5),
           },
         },
+        item: {
+          padding: theme.spacing(2, 0),
+          color: theme.palette.custom.fonts.fontTwo,
+          '&:first-child': {
+            paddingTop: 0,
+          },
+          '&:last-child': {
+            paddingBottom: 0,
+          },
+          '&:not(:last-child)': {
+            borderBottom: `solid 1px ${theme.palette.divider}`,
+          },
+          '& .label': {
+            marginBottom: theme.spacing(1),
+          },
+          '& .detail': {
+            '&.MuiTypography-body1': {
+              wordWrap: 'break-word',
+            },
+          },
+          [theme.breakpoints.up('md')]: {
+            padding: 0,
+            '&:not(:last-child)': {
+              borderBottom: 'none',
+            },
+            '& .label': {
+              marginBottom: 0,
+            },
+          },
+        },
         copyText: {
           '& .detail': {
             display: 'flex',
@@ -46,14 +82,6 @@ export const useStyles = () => {
             '& svg': {
               width: '1rem',
               marginLeft: theme.spacing(1),
-            },
-            [theme.breakpoints.up('md')]: {
-              flexDirection: 'row',
-              justifyContent: 'flex-start',
-              '& svg': {
-                marginLeft: 0,
-                marginRight: theme.spacing(1),
-              },
             },
           },
         },
