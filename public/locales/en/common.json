@@ -48,5 +48,6 @@
   "language": "Language",
   "dateFormat": "Date Format",
   "locale": "Locale",
-  "utc": "UTC"
+  "utc": "UTC",
+  "params": "Params"
 }

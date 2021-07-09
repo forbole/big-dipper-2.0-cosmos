@@ -10,6 +10,7 @@ export const TRANSACTION_DETAILS = (tx: string): string => `/transactions/${tx}`
 export const PROPOSALS = '/proposals';
 export const PROPOSAL_DETAILS = (id:string | number): string => `/proposals/${id}`;
 export const ACCOUNT_DETAILS = (address: string): string => `/accounts/${address}`;
+export const PARAMS = '/params';
 
 /**
  * Helper to determine if we are routing to validator details or account details
