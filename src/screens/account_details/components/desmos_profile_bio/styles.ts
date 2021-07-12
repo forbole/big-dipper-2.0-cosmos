@@ -4,7 +4,7 @@ export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
       return ({
-        root: {
+        profile: {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'flex-start',
@@ -21,6 +21,9 @@ export const useStyles = () => {
           '& .MuiTypography-body1': {
             color: theme.palette.custom.fonts.fontFour,
           },
+        },
+        divider: {
+          margin: theme.spacing(2),
         },
       });
     },
