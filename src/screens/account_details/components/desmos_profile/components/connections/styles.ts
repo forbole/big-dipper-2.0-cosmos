@@ -4,6 +4,12 @@ export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
       return ({
+        noWrap: {
+          whiteSpace: 'nowrap',
+        },
+        paginate: {
+          marginTop: theme.spacing(2),
+        },
         icon: {
           display: 'flex',
           alignItems: 'center',
@@ -28,7 +34,7 @@ export const useStyles = () => {
         },
         dialog: {
           '& .MuiDialog-paper': {
-            width: '500px',
+            width: '1000px',
           },
         },
         formItem: {

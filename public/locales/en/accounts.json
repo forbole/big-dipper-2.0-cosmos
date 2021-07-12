@@ -27,5 +27,8 @@
   "token": "Token",
   "available": "Available",
   "connections": "{{connections}} Connection(s)",
-  "connectionsTitle": "Connections"
+  "connectionsTitle": "Connections",
+  "network": "Network",
+  "identifier": "Identifier",
+  "creationTime": "Creation Time"
 }

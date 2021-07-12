@@ -13,6 +13,7 @@ import {
 import { useStyles } from './styles';
 import { useDesmosProfile } from './hooks';
 import { Connections } from './components';
+import { ConnectionType } from './types';
 
 const DesmosProfile: React.FC<{
   className?: string;
@@ -20,11 +21,7 @@ const DesmosProfile: React.FC<{
   nickname: string;
   imageUrl: string;
   bio: string;
-  connections: {
-    network: string;
-    identifier: string;
-    creationTime: string;
-  }[]
+  connections: ConnectionType[]
 }> = (props) => {
   const { t } = useTranslation('accounts');
   const classes = useStyles();
@@ -83,6 +80,7 @@ const DesmosProfile: React.FC<{
       <Connections
         open={connectionsOpen}
         handleClose={handleConnectionsClose}
+        data={props.connections}
       />
     </>
   );

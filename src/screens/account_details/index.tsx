@@ -23,6 +23,16 @@ const AccountDetails = () => {
     state,
     loadNextPage,
   } = useAccountDetails();
+  const fakeDesmosProfileData = [...new Array(3).fill({
+    network: 'Desmos',
+    identifier: 'desmos124xa66ghhq5hrgv28slhmszgvcqa0skcfwphh3',
+    creationTime: '2021-05-14T02:58:58.471405',
+  }), ...new Array(3).fill({
+    network: 'Instagram',
+    identifier: '@ryuash',
+    creationTime: '2021-05-14T02:58:58.471405',
+  })];
+
   return (
     <Layout navTitle={t('accountDetails')} title={t('accountDetails')}>
       <LoadAndExist
@@ -42,18 +52,7 @@ const AccountDetails = () => {
                 nickname="ryuash"
                 imageUrl="https://cdn.dribbble.com/users/1223630/screenshots/8115260/char_still_2x.gif?compress=1&resize=400x300"
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisi est, consectetur vitae nibh ac, efficitur ultrices magna. Cras at elementum lectus. Aenean quis risus non turpis efficitur pulvinar eget eu metus."
-                connections={[
-                  {
-                    network: 'Desmos',
-                    identifier: 'desmos124xa66ghhq5hrgv28slhmszgvcqa0skcfwphh3',
-                    creationTime: '2021-05-14T02:58:58.471405',
-                  },
-                  {
-                    network: 'Instagram',
-                    identifier: '@ryuash',
-                    creationTime: '2021-05-14T02:58:58.471405',
-                  },
-                ]}
+                connections={fakeDesmosProfileData}
               />
             </>
           )}
