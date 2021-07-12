@@ -42,7 +42,7 @@ const AccountDetails = () => {
                 dtag="ryuash"
                 nickname="ryuash"
                 imageUrl="https://cdn.dribbble.com/users/1223630/screenshots/8115260/char_still_2x.gif?compress=1&resize=400x300"
-                bio={'## HELLO WORLD \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisi est, consectetur vitae nibh ac, efficitur ultrices magna. Cras at elementum lectus. Aenean quis risus non turpis efficitur pulvinar eget eu metus.'}
+                bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisi est, consectetur vitae nibh ac, efficitur ultrices magna. Cras at elementum lectus. Aenean quis risus non turpis efficitur pulvinar eget eu metus."
               />
               <DesmosProfileInfo />
             </>

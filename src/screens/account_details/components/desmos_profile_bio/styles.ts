@@ -7,7 +7,12 @@ export const useStyles = () => {
         profile: {
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'flex-start',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          [theme.breakpoints.up('md')]: {
+            flexDirection: 'row',
+            justifyContent: 'flex-start',
+          },
         },
         avatar: {
           width: '60px',
@@ -17,13 +22,20 @@ export const useStyles = () => {
         },
         description: {
           flex: 1,
-          marginLeft: theme.spacing(2),
           '& .MuiTypography-body1': {
             color: theme.palette.custom.fonts.fontFour,
           },
+          [theme.breakpoints.up('md')]: {
+            marginLeft: theme.spacing(2),
+          },
         },
         divider: {
-          margin: theme.spacing(2),
+          visibility: 'hidden',
+          margin: theme.spacing(1, 0),
+          [theme.breakpoints.up('md')]: {
+            visibility: 'visible',
+            margin: theme.spacing(2, 0),
+          },
         },
       });
     },
