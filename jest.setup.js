@@ -57,6 +57,10 @@ jest.mock('@configs', () => ({
         "display": "daric",
         "exponent": 6
       }
+    },
+    "extra": {
+      "desmosProfile": true,
+      "forboleX": false
     }
   },
 }));

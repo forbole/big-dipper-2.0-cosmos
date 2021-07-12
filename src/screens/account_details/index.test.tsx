@@ -42,6 +42,7 @@ jest.mock('./components', () => ({
   Staking: (props) => <div id="Staking" {...props} />,
   Transactions: (props) => <div id="Transactions" {...props} />,
   OtherTokens: (props) => <div id="OtherTokens" {...props} />,
+  DesmosProfile: (props) => <div id="DesmosProfile" {...props} />,
 }));
 
 const mockAccount = jest.fn().mockResolvedValue({

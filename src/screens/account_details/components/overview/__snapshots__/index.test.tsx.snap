@@ -2,47 +2,59 @@
 
 exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
 <div
-  details={
-    Array [
-      Object {
-        "className": "makeStyles-copyText",
-        "detail": <React.Fragment>
-          <SvgIconCopy
-            className="makeStyles-actionIcons"
-            onClick={[Function]}
-          />
-          <SvgIconShare
-            className="makeStyles-actionIcons"
-            onClick={[Function]}
-          />
-          <WithStyles(ForwardRef(Typography))
-            className="value"
-            variant="body1"
-          >
-            address
-          </WithStyles(ForwardRef(Typography))>
-        </React.Fragment>,
-        "label": "accounts:address",
-      },
-      Object {
-        "className": "makeStyles-copyText",
-        "detail": <React.Fragment>
-          <SvgIconCopy
-            className="makeStyles-actionIcons"
-            onClick={[Function]}
-          />
-          <WithStyles(ForwardRef(Typography))
-            className="value"
-            variant="body1"
-          >
-            withdrawalAddress
-          </WithStyles(ForwardRef(Typography))>
-        </React.Fragment>,
-        "label": "accounts:rewardAddress",
-      },
-    ]
-  }
-  id="BoxDetails"
-  title="accounts:overview"
-/>
+  className="makeStyles-root"
+  id="Box"
+>
+  <div
+    className="makeStyles-copyText makeStyles-item"
+  >
+    <p
+      className="MuiTypography-root label MuiTypography-body1"
+    >
+      accounts:address
+    </p>
+    <div
+      className="detail"
+    >
+      <svg
+        className="makeStyles-actionIcons"
+        data-file-name="SvgIconCopy"
+        onClick={[Function]}
+      />
+      <svg
+        className="makeStyles-actionIcons"
+        data-file-name="SvgIconShare"
+        onClick={[Function]}
+      />
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        address
+      </p>
+    </div>
+  </div>
+  <div
+    className="makeStyles-copyText makeStyles-item"
+  >
+    <p
+      className="MuiTypography-root label MuiTypography-body1"
+    >
+      accounts:rewardAddress
+    </p>
+    <div
+      className="detail"
+    >
+      <svg
+        className="makeStyles-actionIcons"
+        data-file-name="SvgIconCopy"
+        onClick={[Function]}
+      />
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        withdrawalAddress
+      </p>
+    </div>
+  </div>
+</div>
 `;

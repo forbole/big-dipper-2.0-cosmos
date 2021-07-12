@@ -21,6 +21,47 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
         withdrawalAddress="desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr"
       />
       <div
+        bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisi est, consectetur vitae nibh ac, efficitur ultrices magna. Cras at elementum lectus. Aenean quis risus non turpis efficitur pulvinar eget eu metus."
+        connections={
+          Array [
+            Object {
+              "creationTime": "2021-05-14T02:58:58.471405",
+              "identifier": "desmos124xa66ghhq5hrgv28slhmszgvcqa0skcfwphh3",
+              "network": "Desmos",
+            },
+            Object {
+              "creationTime": "2021-05-14T02:58:58.471405",
+              "identifier": "desmos124xa66ghhq5hrgv28slhmszgvcqa0skcfwphh3",
+              "network": "Desmos",
+            },
+            Object {
+              "creationTime": "2021-05-14T02:58:58.471405",
+              "identifier": "desmos124xa66ghhq5hrgv28slhmszgvcqa0skcfwphh3",
+              "network": "Desmos",
+            },
+            Object {
+              "creationTime": "2021-05-14T02:58:58.471405",
+              "identifier": "@ryuash",
+              "network": "Instagram",
+            },
+            Object {
+              "creationTime": "2021-05-14T02:58:58.471405",
+              "identifier": "@ryuash",
+              "network": "Instagram",
+            },
+            Object {
+              "creationTime": "2021-05-14T02:58:58.471405",
+              "identifier": "@ryuash",
+              "network": "Instagram",
+            },
+          ]
+        }
+        dtag="ryuash"
+        id="DesmosProfile"
+        imageUrl="https://cdn.dribbble.com/users/1223630/screenshots/8115260/char_still_2x.gif?compress=1&resize=400x300"
+        nickname="ryuash"
+      />
+      <div
         available={
           Object {
             "denom": "daric",
