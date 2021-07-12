@@ -4,6 +4,9 @@ export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
       return ({
+        link: {
+          color: theme.palette.custom.fonts.highlight,
+        },
         profile: {
           display: 'flex',
           alignItems: 'center',
@@ -22,16 +25,21 @@ export const useStyles = () => {
         },
         description: {
           flex: 1,
-          '& .MuiTypography-body1': {
+          textAlign: 'center',
+          '& .tag': {
             color: theme.palette.custom.fonts.fontFour,
           },
           [theme.breakpoints.up('md')]: {
+            textAlign: 'left',
             marginLeft: theme.spacing(2),
+            display: 'flex',
+            alignItems: 'flex-end',
+            justifyContent: 'space-between',
           },
         },
         divider: {
           visibility: 'hidden',
-          margin: theme.spacing(1, 0),
+          margin: theme.spacing(0.5, 0),
           [theme.breakpoints.up('md')]: {
             visibility: 'visible',
             margin: theme.spacing(2, 0),

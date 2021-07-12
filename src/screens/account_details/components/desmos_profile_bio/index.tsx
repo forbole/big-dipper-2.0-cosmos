@@ -1,5 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
+import numeral from 'numeral';
+import useTranslation from 'next-translate/useTranslation';
 import {
   Typography,
   Divider,
@@ -17,7 +19,13 @@ const DesmosProfileBio: React.FC<{
   nickname: string;
   imageUrl: string;
   bio: string;
+  connections: {
+    network: string;
+    identifier: string;
+    creationTime: string;
+  }[]
 }> = (props) => {
+  const { t } = useTranslation('accounts');
   const classes = useStyles();
   return (
     <Box>
@@ -28,13 +36,24 @@ const DesmosProfileBio: React.FC<{
           className={classes.avatar}
         />
         <div className={classes.description}>
-          <Typography variant="h2">
-            {props.nickname}
-          </Typography>
-          <Typography variant="body1">
-            @
-            {props.dtag}
-          </Typography>
+          <div className="name">
+            <Typography variant="h2">
+              {props.nickname}
+            </Typography>
+            <Typography variant="body1" className="tag">
+              @
+              {props.dtag}
+            </Typography>
+          </div>
+          {
+            !!props.connections.length && (
+            <Typography variant="body1" className={classes.link}>
+              {t('connections', {
+                connections: numeral(props.connections.length).format('0,0'),
+              })}
+            </Typography>
+            )
+          }
         </div>
       </div>
       {
