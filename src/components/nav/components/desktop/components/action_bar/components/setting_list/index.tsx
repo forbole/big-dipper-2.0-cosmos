@@ -66,7 +66,7 @@ const Settings: React.FC<{
         className={classes.dialog}
       >
         <DialogTitle disableTypography className={classes.header}>
-          <Typography variant="h2">Settings</Typography>
+          <Typography variant="h2">{t('settings')}</Typography>
           <IconButton
             aria-label="close"
             onClick={handleCancel}

@@ -12,7 +12,7 @@ import {
   Staking,
   Transactions,
   OtherTokens,
-  DesmosProfileBio,
+  DesmosProfile,
 } from './components';
 import { useAccountDetails } from './hooks';
 
@@ -37,7 +37,7 @@ const AccountDetails = () => {
           />
           {chainConfig.extra.desmosProfile && (
             <>
-              <DesmosProfileBio
+              <DesmosProfile
                 dtag="ryuash"
                 nickname="ryuash"
                 imageUrl="https://cdn.dribbble.com/users/1223630/screenshots/8115260/char_still_2x.gif?compress=1&resize=400x300"

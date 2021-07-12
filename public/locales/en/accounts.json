@@ -26,5 +26,6 @@
   "otherTokens": "Other Tokens",
   "token": "Token",
   "available": "Available",
-  "connections": "{{connections}} Connection(s)"
+  "connections": "{{connections}} Connection(s)",
+  "connectionsTitle": "Connections"
 }

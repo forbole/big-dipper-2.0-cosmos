@@ -6,6 +6,9 @@ export const useStyles = () => {
       return ({
         link: {
           color: theme.palette.custom.fonts.highlight,
+          '&:hover': {
+            cursor: 'pointer',
+          },
         },
         profile: {
           display: 'flex',
