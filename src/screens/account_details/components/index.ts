@@ -3,7 +3,8 @@ import Balance from './balance';
 import Staking from './staking';
 import Transactions from './transactions';
 import OtherTokens from './other_tokens';
-import DesmosProfile from './desmos_profile';
+import DesmosProfileBio from './desmos_profile_bio';
+import DesmosProfileInfo from './desmos_profile_info';
 
 export {
   Overview,
@@ -11,5 +12,6 @@ export {
   Staking,
   Transactions,
   OtherTokens,
-  DesmosProfile,
+  DesmosProfileBio,
+  DesmosProfileInfo,
 };

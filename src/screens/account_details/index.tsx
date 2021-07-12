@@ -12,7 +12,8 @@ import {
   Staking,
   Transactions,
   OtherTokens,
-  DesmosProfile,
+  DesmosProfileBio,
+  DesmosProfileInfo,
 } from './components';
 import { useAccountDetails } from './hooks';
 
@@ -36,7 +37,14 @@ const AccountDetails = () => {
             address={state.overview.address}
           />
           {chainConfig.extra.desmosProfile && (
-            <DesmosProfile />
+            <>
+              <DesmosProfileBio
+                dtag="ryuash"
+                nickname="ryuash"
+                imageUrl="https://cdn.dribbble.com/users/1223630/screenshots/8115260/char_still_2x.gif?compress=1&resize=400x300"
+              />
+              <DesmosProfileInfo />
+            </>
           )}
           <Balance
             className={classes.balance}
