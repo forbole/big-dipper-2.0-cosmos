@@ -1,6 +1,6 @@
 {
   "title": "Desmos Block Explorer",
-  "network": "morpheus-apollo-1",
+  "network": "morpheus-apollo-2",
   "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
   "logo": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true",
   "prefix": {
@@ -9,7 +9,7 @@
     "account": "desmos"
   },
   "genesis": {
-    "time": "2021-04-27T13:00:00",
+    "time": "2021-07-13T08:00:00",
     "height": 1
   },
   "primaryTokenUnit": "udaric",
