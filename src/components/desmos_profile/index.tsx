@@ -10,6 +10,7 @@ import {
   Box,
   Avatar,
   Markdown,
+  Tag,
 } from '@components';
 import { useStyles } from './styles';
 import { useDesmosProfile } from './hooks';
@@ -17,6 +18,7 @@ import { Connections } from './components';
 import {
   ConnectionType, ValidatorProfile,
 } from './types';
+import { getStatusTheme } from './utils';
 
 const DesmosProfile: React.FC<{
   className?: string;
@@ -35,16 +37,20 @@ const DesmosProfile: React.FC<{
     handleConnectionsOpen,
   } = useDesmosProfile();
 
+  const { validator } = props;
+
+  const statusTheme = validator ? getStatusTheme(validator.status, validator.jailed) : null;
+
   return (
     <>
       <Box className={props.className}>
         <div className={classes.profile}>
-          {props.validator && (
-            <div
-              className={classnames(classes.validatorStatus, 'mobile')}
-            >
-              hellow world
-            </div>
+          {validator && (
+            <Tag
+              value={t(`validators:${statusTheme.status}`)}
+              theme={statusTheme.theme as any}
+              className={classnames(classes.tag, classes.validatorStatus, 'mobile')}
+            />
           )}
           <Avatar
             address={props.dtag}
@@ -57,10 +63,12 @@ const DesmosProfile: React.FC<{
                 <Typography variant="h2">
                   {props.nickname}
                 </Typography>
-                {props.validator && (
-                  <div className={classnames(classes.validatorStatus, 'tablet')}>
-                    hellow world
-                  </div>
+                {validator && (
+                <Tag
+                  value={t(`validators:${statusTheme.status}`)}
+                  theme={statusTheme.theme as any}
+                  className={classnames(classes.tag, classes.validatorStatus, 'tablet')}
+                />
                 )}
               </div>
               <Typography variant="body1" className="tag">

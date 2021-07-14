@@ -20,6 +20,15 @@ export const useStyles = () => {
             justifyContent: 'flex-start',
           },
         },
+        tag: {
+          alignSelf: 'flex-end',
+          '&:not(:last-child)': {
+            marginRight: 0,
+          },
+          '&.tablet': {
+            marginLeft: theme.spacing(2),
+          },
+        },
         avatar: {
           width: '60px',
           height: '60px',
@@ -49,8 +58,6 @@ export const useStyles = () => {
           },
         },
         validatorStatus: {
-          width: '100%',
-          textAlign: 'right',
           '&.mobile': {
             [theme.breakpoints.up('md')]: {
               display: 'none',
