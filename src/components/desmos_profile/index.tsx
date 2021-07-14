@@ -98,8 +98,8 @@ const DesmosProfile: React.FC<{
           </div>
         </div>
         <Divider className={classes.divider} />
-        {validator ? (
-          <div>
+        {validator && (
+          <div className={classes.validatorDetails}>
             <div className={classes.item}>
               <Typography variant="h4" className="label">
                 {t('validators:commission')}
@@ -154,23 +154,12 @@ const DesmosProfile: React.FC<{
                 </Typography>
               )}
             </div>
-            {props.bio && (
-              <div className={classnames(classes.item, 'bio')}>
-                <Typography variant="h4" className="label">
-                  {t('bio')}
-                </Typography>
-                <Markdown className="value">
-                  {props.bio}
-                </Markdown>
-              </div>
-            )}
           </div>
-        ) : (
-          props.bio && (
+        )}
+        {props.bio && (
           <Markdown>
             {props.bio}
           </Markdown>
-          )
         )}
       </Box>
       <Connections

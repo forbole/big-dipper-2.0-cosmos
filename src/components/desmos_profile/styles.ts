@@ -77,10 +77,16 @@ export const useStyles = () => {
             justifyContent: 'center',
           },
         },
-        item: {
-          '&:not(:last-child)': {
-            marginBottom: theme.spacing(2),
+        validatorDetails: {
+          margin: theme.spacing(1, 0),
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          gridTemplateRows: 'auto',
+          [theme.breakpoints.up('md')]: {
+            gridTemplateColumns: 'repeat(1, 1fr)',
           },
+        },
+        item: {
           '& .label': {
             marginBottom: theme.spacing(1),
             color: theme.palette.custom.fonts.fontThree,
@@ -119,6 +125,9 @@ export const useStyles = () => {
             gridTemplateColumns: '200px auto',
             gridGap: theme.spacing(2),
             alignItems: 'center',
+            '&:not(:last-child)': {
+              marginBottom: theme.spacing(1),
+            },
             '&.bio': {
               alignItems: 'flex-start',
             },
