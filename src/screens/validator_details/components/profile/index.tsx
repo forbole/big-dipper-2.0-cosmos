@@ -168,11 +168,13 @@ const Profile: React.FC<OverviewType & {
           {/* ======================== */}
           {/* bio */}
           {/* ======================== */}
-          <div className="bio__content">
-            <Markdown>
-              {data.description}
-            </Markdown>
-          </div>
+          {data.description && (
+            <div className="bio__content">
+              <Markdown>
+                {data.description}
+              </Markdown>
+            </div>
+          )}
         </div>
       </div>
 
