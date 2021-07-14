@@ -7,4 +7,8 @@ export type ConnectionType = {
 export type ValidatorProfile = {
   status: number;
   jailed: boolean;
+  condition: number;
+  commission: number;
+  signedBlockWindow: number;
+  missedBlockCounter: number;
 }
