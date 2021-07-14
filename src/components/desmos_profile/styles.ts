@@ -48,6 +48,28 @@ export const useStyles = () => {
             margin: theme.spacing(2, 0),
           },
         },
+        validatorStatus: {
+          width: '100%',
+          textAlign: 'right',
+          '&.mobile': {
+            [theme.breakpoints.up('md')]: {
+              display: 'none',
+            },
+          },
+          '&.tablet': {
+            display: 'none',
+            [theme.breakpoints.up('md')]: {
+              display: 'block',
+            },
+          },
+        },
+        nicknameWrapper: {
+          [theme.breakpoints.up('md')]: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          },
+        },
       });
     },
     { index: 1 },

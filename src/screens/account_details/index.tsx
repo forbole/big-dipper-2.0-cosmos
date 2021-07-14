@@ -3,6 +3,7 @@ import useTranslation from 'next-translate/useTranslation';
 import {
   Layout,
   LoadAndExist,
+  DesmosProfile,
 } from '@components';
 import { chainConfig } from '@configs';
 import { useStyles } from './styles';
@@ -12,7 +13,6 @@ import {
   Staking,
   Transactions,
   OtherTokens,
-  DesmosProfile,
 } from './components';
 import { useAccountDetails } from './hooks';
 

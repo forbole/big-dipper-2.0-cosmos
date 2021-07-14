@@ -27,6 +27,7 @@ import Markdown from './markdown';
 import ConditionExplanation from './condition_explanation';
 import TransactionsList from './transactions_list_new';
 import LoadAndExist from './load_and_exist';
+import DesmosProfile from './desmos_profile';
 
 export {
   Layout,
@@ -58,4 +59,5 @@ export {
   ConditionExplanation,
   TransactionsListOld,
   LoadAndExist,
+  DesmosProfile,
 };

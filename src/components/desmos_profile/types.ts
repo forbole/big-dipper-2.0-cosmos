@@ -3,3 +3,8 @@ export type ConnectionType = {
   identifier: string;
   creationTime: string;
 }
+
+export type ValidatorProfile = {
+  status: number;
+  jailed: boolean;
+}
