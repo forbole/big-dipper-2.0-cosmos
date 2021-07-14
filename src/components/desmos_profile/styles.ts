@@ -119,6 +119,9 @@ export const useStyles = () => {
             gridTemplateColumns: '200px auto',
             gridGap: theme.spacing(2),
             alignItems: 'center',
+            '&.bio': {
+              alignItems: 'flex-start',
+            },
           },
         },
       });

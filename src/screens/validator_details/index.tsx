@@ -51,34 +51,39 @@ const ValidatorDetails = () => {
             operatorAddress={overview.operatorAddress}
             selfDelegateAddress={overview.selfDelegateAddress}
           />
-          {chainConfig.extra.desmosProfile && (
-          <DesmosProfile
-            className={classes.profile}
-            dtag="ryuash"
-            nickname="ryuash"
-            imageUrl="https://cdn.dribbble.com/users/1223630/screenshots/8115260/char_still_2x.gif?compress=1&resize=400x300"
-            bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisi est, consectetur vitae nibh ac, efficitur ultrices magna. Cras at elementum lectus. Aenean quis risus non turpis efficitur pulvinar eget eu metus."
-            connections={fakeDesmosProfileData}
-            validator={{
-              status: overview.status,
-              jailed: overview.jailed,
-            }}
-          />
+          {chainConfig.extra.desmosProfile ? (
+            <DesmosProfile
+              className={classes.profile}
+              dtag="ryuash"
+              nickname="ryuash"
+              imageUrl="https://cdn.dribbble.com/users/1223630/screenshots/8115260/char_still_2x.gif?compress=1&resize=400x300"
+              bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisi est, consectetur vitae nibh ac, efficitur ultrices magna. Cras at elementum lectus. Aenean quis risus non turpis efficitur pulvinar eget eu metus."
+              connections={fakeDesmosProfileData}
+              validator={{
+                status: overview.status,
+                jailed: overview.jailed,
+                condition: overview.condition,
+                commission: overview.commission,
+                signedBlockWindow: overview.signedBlockWindow,
+                missedBlockCounter: overview.missedBlockCounter,
+              }}
+            />
+          ) : (
+            <Profile
+              className={classes.profile}
+              validator={overview.validator}
+              operatorAddress={overview.operatorAddress}
+              selfDelegateAddress={overview.selfDelegateAddress}
+              description={overview.description}
+              status={overview.status}
+              jailed={overview.jailed}
+              website={overview.website}
+              condition={overview.condition}
+              commission={overview.commission}
+              signedBlockWindow={overview.signedBlockWindow}
+              missedBlockCounter={overview.missedBlockCounter}
+            />
           )}
-          <Profile
-            className={classes.profile}
-            validator={overview.validator}
-            operatorAddress={overview.operatorAddress}
-            selfDelegateAddress={overview.selfDelegateAddress}
-            description={overview.description}
-            status={overview.status}
-            jailed={overview.jailed}
-            website={overview.website}
-            condition={overview.condition}
-            commission={overview.commission}
-            signedBlockWindow={overview.signedBlockWindow}
-            missedBlockCounter={overview.missedBlockCounter}
-          />
           <VotingPower
             className={classes.votingPower}
             data={state.votingPower}

@@ -30,5 +30,6 @@
   "connectionsTitle": "Connections",
   "network": "Network",
   "identifier": "Identifier",
-  "creationTime": "Creation Time"
+  "creationTime": "Creation Time",
+  "bio": "Bio"
 }

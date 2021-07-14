@@ -134,7 +134,7 @@ const DesmosProfile: React.FC<{
                           })}
                         </Typography>
                       </>
-            )}
+                    )}
                     display={(
                       <Typography
                         variant="body1"
@@ -142,7 +142,7 @@ const DesmosProfile: React.FC<{
                       >
                         {t(`validators:${condition}`)}
                       </Typography>
-        )}
+                    )}
                   />
                 </div>
               ) : (
@@ -154,6 +154,16 @@ const DesmosProfile: React.FC<{
                 </Typography>
               )}
             </div>
+            {props.bio && (
+              <div className={classnames(classes.item, 'bio')}>
+                <Typography variant="h4" className="label">
+                  {t('bio')}
+                </Typography>
+                <Markdown className="value">
+                  {props.bio}
+                </Markdown>
+              </div>
+            )}
           </div>
         ) : (
           props.bio && (
