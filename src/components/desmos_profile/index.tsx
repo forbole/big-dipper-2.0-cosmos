@@ -11,6 +11,8 @@ import {
   Avatar,
   Markdown,
   Tag,
+  ConditionExplanation,
+  InfoPopover,
 } from '@components';
 import { useStyles } from './styles';
 import { useDesmosProfile } from './hooks';
@@ -18,7 +20,9 @@ import { Connections } from './components';
 import {
   ConnectionType, ValidatorProfile,
 } from './types';
-import { getStatusTheme } from './utils';
+import {
+  getStatusTheme, getCondition,
+} from './utils';
 
 const DesmosProfile: React.FC<{
   className?: string;
@@ -40,6 +44,7 @@ const DesmosProfile: React.FC<{
   const { validator } = props;
 
   const statusTheme = validator ? getStatusTheme(validator.status, validator.jailed) : null;
+  const condition = getCondition(validator.condition, validator.status);
 
   return (
     <>
@@ -92,16 +97,71 @@ const DesmosProfile: React.FC<{
           }
           </div>
         </div>
-        {
-        props.bio && (
-          <>
-            <Divider className={classes.divider} />
-            <Markdown>
-              {props.bio}
-            </Markdown>
-          </>
-        )
-      }
+        <Divider className={classes.divider} />
+        {validator ? (
+          <div>
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('validators:commission')}
+              </Typography>
+              <Typography
+                variant="body1"
+                className="value"
+              >
+                {`${numeral(validator.commission * 100).format('0.00')}%`}
+              </Typography>
+            </div>
+            <div className={classes.item}>
+              <Typography variant="h4" className="label condition">
+                {t('validators:condition')}
+                <InfoPopover
+                  content={<ConditionExplanation />}
+                />
+              </Typography>
+              {validator.status === 3 ? (
+                <div className="condition__body">
+                  <InfoPopover
+                    content={(
+                      <>
+                        <Typography variant="body1">
+                          {t('validators:missedBlockCounter', {
+                            amount: numeral(validator.missedBlockCounter).format('0,0'),
+                          })}
+                        </Typography>
+                        <Typography variant="body1">
+                          {t('validators:signedBlockWindow', {
+                            amount: numeral(validator.signedBlockWindow).format('0,0'),
+                          })}
+                        </Typography>
+                      </>
+            )}
+                    display={(
+                      <Typography
+                        variant="body1"
+                        className={classnames('value', condition)}
+                      >
+                        {t(`validators:${condition}`)}
+                      </Typography>
+        )}
+                  />
+                </div>
+              ) : (
+                <Typography
+                  variant="body1"
+                  className={classnames('value', 'condition', condition)}
+                >
+                  {t(condition)}
+                </Typography>
+              )}
+            </div>
+          </div>
+        ) : (
+          props.bio && (
+          <Markdown>
+            {props.bio}
+          </Markdown>
+          )
+        )}
       </Box>
       <Connections
         open={connectionsOpen}

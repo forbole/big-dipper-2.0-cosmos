@@ -77,6 +77,50 @@ export const useStyles = () => {
             justifyContent: 'center',
           },
         },
+        item: {
+          '&:not(:last-child)': {
+            marginBottom: theme.spacing(2),
+          },
+          '& .label': {
+            marginBottom: theme.spacing(1),
+            color: theme.palette.custom.fonts.fontThree,
+            '&.condition': {
+              display: 'flex',
+              alignItems: 'center',
+            },
+            [theme.breakpoints.up('md')]: {
+              marginBottom: 0,
+            },
+          },
+          '& .condition__body': {
+            justifySelf: 'flex-start',
+          },
+          '& p.value': {
+            color: theme.palette.custom.fonts.fontTwo,
+            '&.good': {
+              color: theme.palette.custom.condition.one,
+            },
+            '&.moderate': {
+              color: theme.palette.custom.condition.two,
+            },
+            '&.bad': {
+              color: theme.palette.custom.condition.three,
+            },
+            '&.condition': {
+              color: theme.palette.custom.condition.zero,
+            },
+          },
+          '& a': {
+            color: theme.palette.custom.fonts.highlight,
+          },
+
+          [theme.breakpoints.up('md')]: {
+            display: 'grid',
+            gridTemplateColumns: '200px auto',
+            gridGap: theme.spacing(2),
+            alignItems: 'center',
+          },
+        },
       });
     },
     { index: 1 },
