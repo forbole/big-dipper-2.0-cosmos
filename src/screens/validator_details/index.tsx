@@ -4,6 +4,7 @@ import {
   Layout,
   LoadAndExist,
 } from '@components';
+import { chainConfig } from '@configs';
 import { useStyles } from './styles';
 import {
   Profile,
@@ -11,6 +12,8 @@ import {
   Transactions,
   Staking,
   Blocks,
+  Address,
+  DesmosProfile,
 } from './components';
 import { useValidatorDetails } from './hooks';
 
@@ -27,6 +30,15 @@ const ValidatorDetails = () => {
     redelegations,
     undelegations,
   } = state;
+  const fakeDesmosProfileData = [...new Array(3).fill({
+    network: 'Desmos',
+    identifier: 'desmos124xa66ghhq5hrgv28slhmszgvcqa0skcfwphh3',
+    creationTime: '2021-05-14T02:58:58.471405',
+  }), ...new Array(3).fill({
+    network: 'Instagram',
+    identifier: '@ryuash',
+    creationTime: '2021-05-14T02:58:58.471405',
+  })];
   return (
     <Layout navTitle={t('validatorDetails')} title={t('validatorDetails')}>
       <LoadAndExist
@@ -34,6 +46,21 @@ const ValidatorDetails = () => {
         loading={state.loading}
       >
         <span className={classes.root}>
+          <Address
+            className={classes.address}
+            operatorAddress={overview.operatorAddress}
+            selfDelegateAddress={overview.selfDelegateAddress}
+          />
+          {chainConfig.extra.desmosProfile && (
+          <DesmosProfile
+            className={classes.profile}
+            dtag="ryuash"
+            nickname="ryuash"
+            imageUrl="https://cdn.dribbble.com/users/1223630/screenshots/8115260/char_still_2x.gif?compress=1&resize=400x300"
+            bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisi est, consectetur vitae nibh ac, efficitur ultrices magna. Cras at elementum lectus. Aenean quis risus non turpis efficitur pulvinar eget eu metus."
+            connections={fakeDesmosProfileData}
+          />
+          )}
           <Profile
             className={classes.profile}
             validator={overview.validator}

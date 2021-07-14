@@ -1,16 +1,11 @@
 import React from 'react';
 import numeral from 'numeral';
 import classnames from 'classnames';
-import Link from 'next/link';
 import {
   Typography,
   Divider,
 } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
-import { toast } from 'react-toastify';
-import copy from 'copy-to-clipboard';
-import CopyIcon from '@assets/icon-copy.svg';
-import { useScreenSize } from '@hooks';
 import {
   Box,
   Avatar,
@@ -19,8 +14,6 @@ import {
   Markdown,
   ConditionExplanation,
 } from '@components';
-import { ACCOUNT_DETAILS } from '@utils/go_to_page';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { useStyles } from './styles';
 import {
   getStatusTheme, getCondition,
@@ -34,12 +27,6 @@ const Profile: React.FC<OverviewType & {
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('validators');
-  const { isMobile } = useScreenSize();
-
-  const handleCopyToClipboard = (value: string) => {
-    copy(value);
-    toast(t('common:copied'));
-  };
 
   const statusTheme = getStatusTheme(data.status, data.jailed);
   const condition = getCondition(data.condition, data.status);
@@ -51,30 +38,6 @@ const Profile: React.FC<OverviewType & {
   }
 
   const formattedItem = {
-    operatorAddress: (
-      <div className={classes.copyText}>
-        <Typography variant="body1" className="value">
-          {isMobile ? getMiddleEllipsis(
-            data.operatorAddress,
-            { beginning: 9 },
-          ) : data.operatorAddress}
-        </Typography>
-        <CopyIcon onClick={() => handleCopyToClipboard(data.operatorAddress)} />
-      </div>
-    ),
-    selfDelegateAddress: (
-      <div className={classes.copyText}>
-        <Link href={ACCOUNT_DETAILS(data.selfDelegateAddress)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {isMobile ? getMiddleEllipsis(
-              data.selfDelegateAddress,
-              { beginning: 9 },
-            ) : data.selfDelegateAddress}
-          </Typography>
-        </Link>
-        <CopyIcon onClick={() => handleCopyToClipboard(data.selfDelegateAddress)} />
-      </div>
-    ),
     website: (
       <Typography
         variant="body1"
@@ -180,18 +143,6 @@ const Profile: React.FC<OverviewType & {
 
       <Divider className={classes.divider} />
       <div>
-        <div className={classes.item}>
-          <Typography variant="h4" className="label">
-            {t('operatorAddress')}
-          </Typography>
-          {formattedItem.operatorAddress}
-        </div>
-        <div className={classes.item}>
-          <Typography variant="h4" className="label">
-            {t('selfDelegateAddress')}
-          </Typography>
-          {formattedItem.selfDelegateAddress}
-        </div>
         <div className={classes.item}>
           <Typography variant="h4" className="label">
             {t('website')}

@@ -46,15 +46,13 @@ const AccountDetails = () => {
             address={state.overview.address}
           />
           {chainConfig.extra.desmosProfile && (
-            <>
-              <DesmosProfile
-                dtag="ryuash"
-                nickname="ryuash"
-                imageUrl="https://cdn.dribbble.com/users/1223630/screenshots/8115260/char_still_2x.gif?compress=1&resize=400x300"
-                bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisi est, consectetur vitae nibh ac, efficitur ultrices magna. Cras at elementum lectus. Aenean quis risus non turpis efficitur pulvinar eget eu metus."
-                connections={fakeDesmosProfileData}
-              />
-            </>
+          <DesmosProfile
+            dtag="ryuash"
+            nickname="ryuash"
+            imageUrl="https://cdn.dribbble.com/users/1223630/screenshots/8115260/char_still_2x.gif?compress=1&resize=400x300"
+            bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisi est, consectetur vitae nibh ac, efficitur ultrices magna. Cras at elementum lectus. Aenean quis risus non turpis efficitur pulvinar eget eu metus."
+            connections={fakeDesmosProfileData}
+          />
           )}
           <Balance
             className={classes.balance}
