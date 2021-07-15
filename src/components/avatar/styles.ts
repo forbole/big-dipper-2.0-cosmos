@@ -12,6 +12,9 @@ export const useStyles = () => {
           borderRadius: '50%',
           overflow: 'hidden',
           background: theme.palette.custom.general.surfaceTwo,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           '& img': {
             width: '100%',
             height: 'auto',

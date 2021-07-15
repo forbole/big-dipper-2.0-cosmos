@@ -14,32 +14,32 @@ export const useStyles = () => {
           },
           [theme.breakpoints.up('lg')]: {
             gridGap: theme.spacing(2),
-            gridTemplateColumns: 'repeat(2, 1fr)',
+            // gridTemplateColumns: 'repeat(2, 1fr)',
           },
         },
         balance: {
           [theme.breakpoints.up('lg')]: {
-            gridColumn: '1 / 3',
+            // gridColumn: '1 / 3',
           },
         },
         otherTokens: {
           [theme.breakpoints.up('lg')]: {
-            gridColumn: '1 / 3',
+            // gridColumn: '1 / 3',
           },
         },
         overview: {
           [theme.breakpoints.up('lg')]: {
-            gridColumn: '1 / 3',
+            // gridColumn: '1 / 3',
           },
         },
         staking: {
           [theme.breakpoints.up('lg')]: {
-            gridColumn: '1 / 3',
+            // gridColumn: '1 / 3',
           },
         },
         transactions: {
           [theme.breakpoints.up('lg')]: {
-            gridColumn: '1 / 3',
+            // gridColumn: '1 / 3',
           },
         },
       });

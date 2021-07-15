@@ -53,6 +53,7 @@ export type UndelegationType = {
 export type ValidatorDetailsState = {
   loading: boolean;
   exists: boolean;
+  desmosProfile: DesmosProfile | null;
   overview: OverviewType;
   votingPower: VotingPowerType;
   delegations: {

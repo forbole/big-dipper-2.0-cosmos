@@ -51,6 +51,7 @@ export type UnbondingType = {
 export type AccountDetailState = {
   loading: boolean;
   exists: boolean;
+  desmosProfile: DesmosProfile | null;
   overview: OverviewType;
   balance: BalanceType;
   otherTokens: {

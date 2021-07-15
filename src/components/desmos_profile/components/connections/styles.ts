@@ -4,6 +4,12 @@ export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
       return ({
+        noWrap: {
+          whiteSpace: 'nowrap',
+        },
+        paginate: {
+          marginTop: theme.spacing(2),
+        },
         icon: {
           display: 'flex',
           alignItems: 'center',
@@ -18,12 +24,6 @@ export const useStyles = () => {
             },
           },
         },
-        closeButton: {
-          position: 'absolute',
-          right: theme.spacing(1),
-          top: theme.spacing(1),
-          color: theme.palette.grey[500],
-        },
         header: {
           display: 'flex',
           alignItems: 'center',
@@ -34,7 +34,7 @@ export const useStyles = () => {
         },
         dialog: {
           '& .MuiDialog-paper': {
-            width: '500px',
+            width: '1000px',
           },
         },
         formItem: {

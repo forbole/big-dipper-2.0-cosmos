@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
+import { bech32 } from 'bech32';
 import {
   useValidatorsAddressListQuery,
   ValidatorsAddressListQuery,
@@ -123,11 +124,17 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
     return state.consensusAddresses[consensusAddress] ?? null;
   };
 
+  const validatorToDelegatorAddress = (validatorAddress:string) => {
+    const decode = bech32.decode(validatorAddress).words;
+    return bech32.encode(chainConfig.prefix.account, decode);
+  };
+
   return {
     validatorsAddresses: state,
     loading: state.loading,
     findAddress,
     findOperator,
+    validatorToDelegatorAddress,
   };
 };
 
