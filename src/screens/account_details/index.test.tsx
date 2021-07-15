@@ -169,11 +169,13 @@ describe('screen: BlockDetails', () => {
       data: {
         profile: [
           {
-            address: 'desmos1snmetx9sfrmznr4z6d3lnwlyvwu36sgcpzzhlr',
-            bio: 'One of the most important and complex of the Greek gods, son of Zeus and Leto, and the twin brother of Artemis, goddess of the hunt.',
-            dtag: 'Apollo',
-            nickname: 'Apollo',
-            profilePic: 'https://vignette.wikia.nocookie.net/olympians/images/5/54/Apollo_Viria.jpg/revision/latest/scale-to-width-down/298\\?cb\\=20180413123657',
+            address: 'desmos1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w',
+            bio: '',
+            dtag: 'RiccardoMontagnin',
+            nickname: '',
+            profilePic: '',
+            chainLinks: [],
+            applicationLinks: [],
           },
         ],
       },
