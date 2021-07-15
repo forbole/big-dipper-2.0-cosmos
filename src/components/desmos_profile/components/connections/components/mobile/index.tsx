@@ -8,7 +8,6 @@ import {
   Typography,
 } from '@material-ui/core';
 import { useStyles } from './styles';
-import { ConnectionType } from '../../../../types';
 
 const Mobile: React.FC<{
   className?: string;

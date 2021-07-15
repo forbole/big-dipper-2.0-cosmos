@@ -65,53 +65,6 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
       <h4
         className="MuiTypography-root label MuiTypography-h4"
       >
-        validators:operatorAddress
-      </h4>
-      <div
-        className="makeStyles-copyText"
-      >
-        <p
-          className="MuiTypography-root value MuiTypography-body1"
-        >
-          operatorA...dress
-        </p>
-        <svg
-          data-file-name="SvgIconCopy"
-          onClick={[Function]}
-        />
-      </div>
-    </div>
-    <div
-      className="makeStyles-item"
-    >
-      <h4
-        className="MuiTypography-root label MuiTypography-h4"
-      >
-        validators:selfDelegateAddress
-      </h4>
-      <div
-        className="makeStyles-copyText"
-      >
-        <a
-          className="MuiTypography-root value MuiTypography-body1"
-          href="/accounts/selfDelegateAddress"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-        >
-          selfDeleg...ddress
-        </a>
-        <svg
-          data-file-name="SvgIconCopy"
-          onClick={[Function]}
-        />
-      </div>
-    </div>
-    <div
-      className="makeStyles-item"
-    >
-      <h4
-        className="MuiTypography-root label MuiTypography-h4"
-      >
         validators:website
       </h4>
       <a

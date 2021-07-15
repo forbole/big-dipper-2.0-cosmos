@@ -15,7 +15,6 @@ import {
   useScreenSize,
 } from '@hooks';
 import { useStyles } from './styles';
-import { ConnectionType } from '../../types';
 
 const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));

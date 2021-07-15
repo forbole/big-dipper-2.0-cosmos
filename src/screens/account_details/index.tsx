@@ -22,7 +22,6 @@ const AccountDetails = () => {
     state,
     loadNextPage,
   } = useAccountDetails();
-
   return (
     <Layout navTitle={t('accountDetails')} title={t('accountDetails')}>
       <LoadAndExist
@@ -35,7 +34,7 @@ const AccountDetails = () => {
             withdrawalAddress={state.overview.withdrawalAddress}
             address={state.overview.address}
           />
-          {state.desmosProfile && (
+          {!!state.desmosProfile && (
           <DesmosProfile
             dtag={state.desmosProfile.dtag}
             nickname={state.desmosProfile.nickname}

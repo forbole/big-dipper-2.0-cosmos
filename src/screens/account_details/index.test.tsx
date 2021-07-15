@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
 import { createMockClient } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
 import renderer from 'react-test-renderer';
@@ -34,6 +36,7 @@ jest.mock('@contexts', () => ({
 jest.mock('@components', () => ({
   Layout: (props) => <div id="Layout" {...props} />,
   LoadAndExist: (props) => <div id="LoadAndExist" {...props} />,
+  DesmosProfile: (props) => <div id="DesmosProfile" {...props} />,
 }));
 
 jest.mock('./components', () => ({
@@ -42,7 +45,6 @@ jest.mock('./components', () => ({
   Staking: (props) => <div id="Staking" {...props} />,
   Transactions: (props) => <div id="Transactions" {...props} />,
   OtherTokens: (props) => <div id="OtherTokens" {...props} />,
-  DesmosProfile: (props) => <div id="DesmosProfile" {...props} />,
 }));
 
 const mockAccount = jest.fn().mockResolvedValue({
@@ -162,6 +164,21 @@ const mockAccountMessages = jest.fn().mockResolvedValue({
 // ==================================
 describe('screen: BlockDetails', () => {
   it('matches snapshot', async () => {
+    const mockAxios = new MockAdapter(axios);
+    mockAxios.onPost('https://gql.morpheus.desmos.network/v1/graphql').reply(200, {
+      data: {
+        profile: [
+          {
+            address: 'desmos1snmetx9sfrmznr4z6d3lnwlyvwu36sgcpzzhlr',
+            bio: 'One of the most important and complex of the Greek gods, son of Zeus and Leto, and the twin brother of Artemis, goddess of the hunt.',
+            dtag: 'Apollo',
+            nickname: 'Apollo',
+            profilePic: 'https://vignette.wikia.nocookie.net/olympians/images/5/54/Apollo_Viria.jpg/revision/latest/scale-to-width-down/298\\?cb\\=20180413123657',
+          },
+        ],
+      },
+    });
+
     const mockClient = createMockClient();
     mockClient.setRequestHandler(
       AccountDocument,

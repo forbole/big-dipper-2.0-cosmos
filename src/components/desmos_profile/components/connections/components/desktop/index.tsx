@@ -11,7 +11,6 @@ import {
 } from '@material-ui/core';
 import dayjs, { formatDayJs } from '@utils/dayjs';
 import { columns } from './utils';
-import { ConnectionType } from '../../../../types';
 
 const Desktop: React.FC<{
   className?: string;

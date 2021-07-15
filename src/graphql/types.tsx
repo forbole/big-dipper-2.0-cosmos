@@ -23,7 +23,8 @@ export type Scalars = {
   timestamp: any;
 };
 
-/** expression to compare columns of type Boolean. All fields are combined with logical 'AND'. */
+
+/** Boolean expression to compare columns of type "Boolean". All fields are combined with logical 'AND'. */
 export type Boolean_Comparison_Exp = {
   _eq?: Maybe<Scalars['Boolean']>;
   _gt?: Maybe<Scalars['Boolean']>;
@@ -36,7 +37,7 @@ export type Boolean_Comparison_Exp = {
   _nin?: Maybe<Array<Scalars['Boolean']>>;
 };
 
-/** expression to compare columns of type Int. All fields are combined with logical 'AND'. */
+/** Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'. */
 export type Int_Comparison_Exp = {
   _eq?: Maybe<Scalars['Int']>;
   _gt?: Maybe<Scalars['Int']>;
@@ -49,27 +50,41 @@ export type Int_Comparison_Exp = {
   _nin?: Maybe<Array<Scalars['Int']>>;
 };
 
-/** expression to compare columns of type String. All fields are combined with logical 'AND'. */
+/** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
 export type String_Comparison_Exp = {
   _eq?: Maybe<Scalars['String']>;
   _gt?: Maybe<Scalars['String']>;
   _gte?: Maybe<Scalars['String']>;
+  /** does the column match the given case-insensitive pattern */
   _ilike?: Maybe<Scalars['String']>;
   _in?: Maybe<Array<Scalars['String']>>;
+  /** does the column match the given POSIX regular expression, case insensitive */
+  _iregex?: Maybe<Scalars['String']>;
   _is_null?: Maybe<Scalars['Boolean']>;
+  /** does the column match the given pattern */
   _like?: Maybe<Scalars['String']>;
   _lt?: Maybe<Scalars['String']>;
   _lte?: Maybe<Scalars['String']>;
   _neq?: Maybe<Scalars['String']>;
+  /** does the column NOT match the given case-insensitive pattern */
   _nilike?: Maybe<Scalars['String']>;
   _nin?: Maybe<Array<Scalars['String']>>;
+  /** does the column NOT match the given POSIX regular expression, case insensitive */
+  _niregex?: Maybe<Scalars['String']>;
+  /** does the column NOT match the given pattern */
   _nlike?: Maybe<Scalars['String']>;
+  /** does the column NOT match the given POSIX regular expression, case sensitive */
+  _nregex?: Maybe<Scalars['String']>;
+  /** does the column NOT match the given SQL regular expression */
   _nsimilar?: Maybe<Scalars['String']>;
+  /** does the column match the given POSIX regular expression, case sensitive */
+  _regex?: Maybe<Scalars['String']>;
+  /** does the column match the given SQL regular expression */
   _similar?: Maybe<Scalars['String']>;
 };
 
 
-/** expression to compare columns of type _coin. All fields are combined with logical 'AND'. */
+/** Boolean expression to compare columns of type "_coin". All fields are combined with logical 'AND'. */
 export type _Coin_Comparison_Exp = {
   _eq?: Maybe<Scalars['_coin']>;
   _gt?: Maybe<Scalars['_coin']>;
@@ -83,7 +98,7 @@ export type _Coin_Comparison_Exp = {
 };
 
 
-/** expression to compare columns of type _dec_coin. All fields are combined with logical 'AND'. */
+/** Boolean expression to compare columns of type "_dec_coin". All fields are combined with logical 'AND'. */
 export type _Dec_Coin_Comparison_Exp = {
   _eq?: Maybe<Scalars['_dec_coin']>;
   _gt?: Maybe<Scalars['_dec_coin']>;
@@ -97,7 +112,7 @@ export type _Dec_Coin_Comparison_Exp = {
 };
 
 
-/** expression to compare columns of type _text. All fields are combined with logical 'AND'. */
+/** Boolean expression to compare columns of type "_text". All fields are combined with logical 'AND'. */
 export type _Text_Comparison_Exp = {
   _eq?: Maybe<Scalars['_text']>;
   _gt?: Maybe<Scalars['_text']>;
@@ -115,60 +130,60 @@ export type Account = {
   __typename?: 'account';
   /** An array relationship */
   account_balance_histories: Array<Account_Balance_History>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   account_balance_histories_aggregate: Account_Balance_History_Aggregate;
   /** An array relationship */
   account_balances: Array<Account_Balance>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   account_balances_aggregate: Account_Balance_Aggregate;
   address: Scalars['String'];
   /** An array relationship */
   delegation_histories: Array<Delegation_History>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   delegation_histories_aggregate: Delegation_History_Aggregate;
   /** An array relationship */
   delegation_reward_histories: Array<Delegation_Reward_History>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   delegation_reward_histories_aggregate: Delegation_Reward_History_Aggregate;
   /** An array relationship */
   delegation_rewards: Array<Delegation_Reward>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   delegation_rewards_aggregate: Delegation_Reward_Aggregate;
   /** An array relationship */
   delegations: Array<Delegation>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   delegations_aggregate: Delegation_Aggregate;
   /** An array relationship */
   proposal_deposits: Array<Proposal_Deposit>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   proposal_deposits_aggregate: Proposal_Deposit_Aggregate;
   /** An array relationship */
   proposal_votes: Array<Proposal_Vote>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   proposal_votes_aggregate: Proposal_Vote_Aggregate;
   /** An array relationship */
   proposals: Array<Proposal>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   proposals_aggregate: Proposal_Aggregate;
   /** An array relationship */
   redelegation_histories: Array<Redelegation_History>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   redelegation_histories_aggregate: Redelegation_History_Aggregate;
   /** An array relationship */
   redelegations: Array<Redelegation>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   redelegations_aggregate: Redelegation_Aggregate;
   /** An array relationship */
   unbonding_delegation_histories: Array<Unbonding_Delegation_History>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   unbonding_delegation_histories_aggregate: Unbonding_Delegation_History_Aggregate;
   /** An array relationship */
   unbonding_delegations: Array<Unbonding_Delegation>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   unbonding_delegations_aggregate: Unbonding_Delegation_Aggregate;
   /** An array relationship */
   validator_infos: Array<Validator_Info>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   validator_infos_aggregate: Validator_Info_Aggregate;
 };
 
@@ -462,7 +477,7 @@ export type Account_Aggregate = {
 /** aggregate fields of "account" */
 export type Account_Aggregate_Fields = {
   __typename?: 'account_aggregate_fields';
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Account_Max_Fields>;
   min?: Maybe<Account_Min_Fields>;
 };
@@ -472,13 +487,6 @@ export type Account_Aggregate_Fields = {
 export type Account_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Account_Select_Column>>;
   distinct?: Maybe<Scalars['Boolean']>;
-};
-
-/** order by aggregate values of table "account" */
-export type Account_Aggregate_Order_By = {
-  count?: Maybe<Order_By>;
-  max?: Maybe<Account_Max_Order_By>;
-  min?: Maybe<Account_Min_Order_By>;
 };
 
 /** columns and relationships of "account_balance" */
@@ -516,7 +524,7 @@ export type Account_Balance_Aggregate = {
 export type Account_Balance_Aggregate_Fields = {
   __typename?: 'account_balance_aggregate_fields';
   avg?: Maybe<Account_Balance_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Account_Balance_Max_Fields>;
   min?: Maybe<Account_Balance_Min_Fields>;
   stddev?: Maybe<Account_Balance_Stddev_Fields>;
@@ -563,9 +571,9 @@ export type Account_Balance_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "account_balance". All fields are combined with a logical 'AND'. */
 export type Account_Balance_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Account_Balance_Bool_Exp>>>;
+  _and?: Maybe<Array<Account_Balance_Bool_Exp>>;
   _not?: Maybe<Account_Balance_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Account_Balance_Bool_Exp>>>;
+  _or?: Maybe<Array<Account_Balance_Bool_Exp>>;
   account?: Maybe<Account_Bool_Exp>;
   address?: Maybe<String_Comparison_Exp>;
   block?: Maybe<Block_Bool_Exp>;
@@ -608,7 +616,7 @@ export type Account_Balance_History_Aggregate = {
 export type Account_Balance_History_Aggregate_Fields = {
   __typename?: 'account_balance_history_aggregate_fields';
   avg?: Maybe<Account_Balance_History_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Account_Balance_History_Max_Fields>;
   min?: Maybe<Account_Balance_History_Min_Fields>;
   stddev?: Maybe<Account_Balance_History_Stddev_Fields>;
@@ -655,9 +663,9 @@ export type Account_Balance_History_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "account_balance_history". All fields are combined with a logical 'AND'. */
 export type Account_Balance_History_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Account_Balance_History_Bool_Exp>>>;
+  _and?: Maybe<Array<Account_Balance_History_Bool_Exp>>;
   _not?: Maybe<Account_Balance_History_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Account_Balance_History_Bool_Exp>>>;
+  _or?: Maybe<Array<Account_Balance_History_Bool_Exp>>;
   account?: Maybe<Account_Bool_Exp>;
   address?: Maybe<String_Comparison_Exp>;
   block?: Maybe<Block_Bool_Exp>;
@@ -691,7 +699,7 @@ export type Account_Balance_History_Min_Order_By = {
   height?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "account_balance_history" */
+/** Ordering options when selecting data from "account_balance_history". */
 export type Account_Balance_History_Order_By = {
   account?: Maybe<Account_Order_By>;
   address?: Maybe<Order_By>;
@@ -813,18 +821,13 @@ export type Account_Balance_Min_Order_By = {
   height?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "account_balance" */
+/** Ordering options when selecting data from "account_balance". */
 export type Account_Balance_Order_By = {
   account?: Maybe<Account_Order_By>;
   address?: Maybe<Order_By>;
   block?: Maybe<Block_Order_By>;
   coins?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "account_balance" */
-export type Account_Balance_Pk_Columns_Input = {
-  address: Scalars['String'];
 };
 
 /** select columns of table "account_balance" */
@@ -916,9 +919,9 @@ export type Account_Balance_Variance_Order_By = {
 
 /** Boolean expression to filter rows from the table "account". All fields are combined with a logical 'AND'. */
 export type Account_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Account_Bool_Exp>>>;
+  _and?: Maybe<Array<Account_Bool_Exp>>;
   _not?: Maybe<Account_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Account_Bool_Exp>>>;
+  _or?: Maybe<Array<Account_Bool_Exp>>;
   account_balance_histories?: Maybe<Account_Balance_History_Bool_Exp>;
   account_balances?: Maybe<Account_Balance_Bool_Exp>;
   address?: Maybe<String_Comparison_Exp>;
@@ -942,23 +945,13 @@ export type Account_Max_Fields = {
   address?: Maybe<Scalars['String']>;
 };
 
-/** order by max() on columns of table "account" */
-export type Account_Max_Order_By = {
-  address?: Maybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Account_Min_Fields = {
   __typename?: 'account_min_fields';
   address?: Maybe<Scalars['String']>;
 };
 
-/** order by min() on columns of table "account" */
-export type Account_Min_Order_By = {
-  address?: Maybe<Order_By>;
-};
-
-/** ordering options when selecting data from "account" */
+/** Ordering options when selecting data from "account". */
 export type Account_Order_By = {
   account_balance_histories_aggregate?: Maybe<Account_Balance_History_Aggregate_Order_By>;
   account_balances_aggregate?: Maybe<Account_Balance_Aggregate_Order_By>;
@@ -977,16 +970,606 @@ export type Account_Order_By = {
   validator_infos_aggregate?: Maybe<Validator_Info_Aggregate_Order_By>;
 };
 
-/** primary key columns input for table: "account" */
-export type Account_Pk_Columns_Input = {
-  address: Scalars['String'];
-};
-
 /** select columns of table "account" */
 export enum Account_Select_Column {
   /** column name */
   Address = 'address'
 }
+
+/** columns and relationships of "application_link" */
+export type Application_Link = {
+  __typename?: 'application_link';
+  application: Scalars['String'];
+  /** An array relationship */
+  application_link_oracle_requests: Array<Application_Link_Oracle_Request>;
+  /** An aggregate relationship */
+  application_link_oracle_requests_aggregate: Application_Link_Oracle_Request_Aggregate;
+  creation_time: Scalars['timestamp'];
+  height: Scalars['bigint'];
+  id: Scalars['Int'];
+  /** An object relationship */
+  profile: Profile;
+  result?: Maybe<Scalars['jsonb']>;
+  state: Scalars['String'];
+  user_address: Scalars['String'];
+  username: Scalars['String'];
+};
+
+
+/** columns and relationships of "application_link" */
+export type Application_LinkApplication_Link_Oracle_RequestsArgs = {
+  distinct_on?: Maybe<Array<Application_Link_Oracle_Request_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Application_Link_Oracle_Request_Order_By>>;
+  where?: Maybe<Application_Link_Oracle_Request_Bool_Exp>;
+};
+
+
+/** columns and relationships of "application_link" */
+export type Application_LinkApplication_Link_Oracle_Requests_AggregateArgs = {
+  distinct_on?: Maybe<Array<Application_Link_Oracle_Request_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Application_Link_Oracle_Request_Order_By>>;
+  where?: Maybe<Application_Link_Oracle_Request_Bool_Exp>;
+};
+
+
+/** columns and relationships of "application_link" */
+export type Application_LinkResultArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+/** aggregated selection of "application_link" */
+export type Application_Link_Aggregate = {
+  __typename?: 'application_link_aggregate';
+  aggregate?: Maybe<Application_Link_Aggregate_Fields>;
+  nodes: Array<Application_Link>;
+};
+
+/** aggregate fields of "application_link" */
+export type Application_Link_Aggregate_Fields = {
+  __typename?: 'application_link_aggregate_fields';
+  avg?: Maybe<Application_Link_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Application_Link_Max_Fields>;
+  min?: Maybe<Application_Link_Min_Fields>;
+  stddev?: Maybe<Application_Link_Stddev_Fields>;
+  stddev_pop?: Maybe<Application_Link_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Application_Link_Stddev_Samp_Fields>;
+  sum?: Maybe<Application_Link_Sum_Fields>;
+  var_pop?: Maybe<Application_Link_Var_Pop_Fields>;
+  var_samp?: Maybe<Application_Link_Var_Samp_Fields>;
+  variance?: Maybe<Application_Link_Variance_Fields>;
+};
+
+
+/** aggregate fields of "application_link" */
+export type Application_Link_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Application_Link_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "application_link" */
+export type Application_Link_Aggregate_Order_By = {
+  avg?: Maybe<Application_Link_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Application_Link_Max_Order_By>;
+  min?: Maybe<Application_Link_Min_Order_By>;
+  stddev?: Maybe<Application_Link_Stddev_Order_By>;
+  stddev_pop?: Maybe<Application_Link_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Application_Link_Stddev_Samp_Order_By>;
+  sum?: Maybe<Application_Link_Sum_Order_By>;
+  var_pop?: Maybe<Application_Link_Var_Pop_Order_By>;
+  var_samp?: Maybe<Application_Link_Var_Samp_Order_By>;
+  variance?: Maybe<Application_Link_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Application_Link_Avg_Fields = {
+  __typename?: 'application_link_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "application_link" */
+export type Application_Link_Avg_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "application_link". All fields are combined with a logical 'AND'. */
+export type Application_Link_Bool_Exp = {
+  _and?: Maybe<Array<Application_Link_Bool_Exp>>;
+  _not?: Maybe<Application_Link_Bool_Exp>;
+  _or?: Maybe<Array<Application_Link_Bool_Exp>>;
+  application?: Maybe<String_Comparison_Exp>;
+  application_link_oracle_requests?: Maybe<Application_Link_Oracle_Request_Bool_Exp>;
+  creation_time?: Maybe<Timestamp_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  id?: Maybe<Int_Comparison_Exp>;
+  profile?: Maybe<Profile_Bool_Exp>;
+  result?: Maybe<Jsonb_Comparison_Exp>;
+  state?: Maybe<String_Comparison_Exp>;
+  user_address?: Maybe<String_Comparison_Exp>;
+  username?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Application_Link_Max_Fields = {
+  __typename?: 'application_link_max_fields';
+  application?: Maybe<Scalars['String']>;
+  creation_time?: Maybe<Scalars['timestamp']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+  state?: Maybe<Scalars['String']>;
+  user_address?: Maybe<Scalars['String']>;
+  username?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "application_link" */
+export type Application_Link_Max_Order_By = {
+  application?: Maybe<Order_By>;
+  creation_time?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  state?: Maybe<Order_By>;
+  user_address?: Maybe<Order_By>;
+  username?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Application_Link_Min_Fields = {
+  __typename?: 'application_link_min_fields';
+  application?: Maybe<Scalars['String']>;
+  creation_time?: Maybe<Scalars['timestamp']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+  state?: Maybe<Scalars['String']>;
+  user_address?: Maybe<Scalars['String']>;
+  username?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "application_link" */
+export type Application_Link_Min_Order_By = {
+  application?: Maybe<Order_By>;
+  creation_time?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  state?: Maybe<Order_By>;
+  user_address?: Maybe<Order_By>;
+  username?: Maybe<Order_By>;
+};
+
+/** columns and relationships of "application_link_oracle_request" */
+export type Application_Link_Oracle_Request = {
+  __typename?: 'application_link_oracle_request';
+  /** An object relationship */
+  application_link: Application_Link;
+  application_link_id: Scalars['bigint'];
+  call_data: Scalars['jsonb'];
+  client_id: Scalars['String'];
+  height: Scalars['bigint'];
+  id: Scalars['Int'];
+  request_id: Scalars['bigint'];
+  script_id: Scalars['bigint'];
+};
+
+
+/** columns and relationships of "application_link_oracle_request" */
+export type Application_Link_Oracle_RequestCall_DataArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+/** aggregated selection of "application_link_oracle_request" */
+export type Application_Link_Oracle_Request_Aggregate = {
+  __typename?: 'application_link_oracle_request_aggregate';
+  aggregate?: Maybe<Application_Link_Oracle_Request_Aggregate_Fields>;
+  nodes: Array<Application_Link_Oracle_Request>;
+};
+
+/** aggregate fields of "application_link_oracle_request" */
+export type Application_Link_Oracle_Request_Aggregate_Fields = {
+  __typename?: 'application_link_oracle_request_aggregate_fields';
+  avg?: Maybe<Application_Link_Oracle_Request_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Application_Link_Oracle_Request_Max_Fields>;
+  min?: Maybe<Application_Link_Oracle_Request_Min_Fields>;
+  stddev?: Maybe<Application_Link_Oracle_Request_Stddev_Fields>;
+  stddev_pop?: Maybe<Application_Link_Oracle_Request_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Application_Link_Oracle_Request_Stddev_Samp_Fields>;
+  sum?: Maybe<Application_Link_Oracle_Request_Sum_Fields>;
+  var_pop?: Maybe<Application_Link_Oracle_Request_Var_Pop_Fields>;
+  var_samp?: Maybe<Application_Link_Oracle_Request_Var_Samp_Fields>;
+  variance?: Maybe<Application_Link_Oracle_Request_Variance_Fields>;
+};
+
+
+/** aggregate fields of "application_link_oracle_request" */
+export type Application_Link_Oracle_Request_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Application_Link_Oracle_Request_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "application_link_oracle_request" */
+export type Application_Link_Oracle_Request_Aggregate_Order_By = {
+  avg?: Maybe<Application_Link_Oracle_Request_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Application_Link_Oracle_Request_Max_Order_By>;
+  min?: Maybe<Application_Link_Oracle_Request_Min_Order_By>;
+  stddev?: Maybe<Application_Link_Oracle_Request_Stddev_Order_By>;
+  stddev_pop?: Maybe<Application_Link_Oracle_Request_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Application_Link_Oracle_Request_Stddev_Samp_Order_By>;
+  sum?: Maybe<Application_Link_Oracle_Request_Sum_Order_By>;
+  var_pop?: Maybe<Application_Link_Oracle_Request_Var_Pop_Order_By>;
+  var_samp?: Maybe<Application_Link_Oracle_Request_Var_Samp_Order_By>;
+  variance?: Maybe<Application_Link_Oracle_Request_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Application_Link_Oracle_Request_Avg_Fields = {
+  __typename?: 'application_link_oracle_request_avg_fields';
+  application_link_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  request_id?: Maybe<Scalars['Float']>;
+  script_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "application_link_oracle_request" */
+export type Application_Link_Oracle_Request_Avg_Order_By = {
+  application_link_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  request_id?: Maybe<Order_By>;
+  script_id?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "application_link_oracle_request". All fields are combined with a logical 'AND'. */
+export type Application_Link_Oracle_Request_Bool_Exp = {
+  _and?: Maybe<Array<Application_Link_Oracle_Request_Bool_Exp>>;
+  _not?: Maybe<Application_Link_Oracle_Request_Bool_Exp>;
+  _or?: Maybe<Array<Application_Link_Oracle_Request_Bool_Exp>>;
+  application_link?: Maybe<Application_Link_Bool_Exp>;
+  application_link_id?: Maybe<Bigint_Comparison_Exp>;
+  call_data?: Maybe<Jsonb_Comparison_Exp>;
+  client_id?: Maybe<String_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  id?: Maybe<Int_Comparison_Exp>;
+  request_id?: Maybe<Bigint_Comparison_Exp>;
+  script_id?: Maybe<Bigint_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Application_Link_Oracle_Request_Max_Fields = {
+  __typename?: 'application_link_oracle_request_max_fields';
+  application_link_id?: Maybe<Scalars['bigint']>;
+  client_id?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+  request_id?: Maybe<Scalars['bigint']>;
+  script_id?: Maybe<Scalars['bigint']>;
+};
+
+/** order by max() on columns of table "application_link_oracle_request" */
+export type Application_Link_Oracle_Request_Max_Order_By = {
+  application_link_id?: Maybe<Order_By>;
+  client_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  request_id?: Maybe<Order_By>;
+  script_id?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Application_Link_Oracle_Request_Min_Fields = {
+  __typename?: 'application_link_oracle_request_min_fields';
+  application_link_id?: Maybe<Scalars['bigint']>;
+  client_id?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+  request_id?: Maybe<Scalars['bigint']>;
+  script_id?: Maybe<Scalars['bigint']>;
+};
+
+/** order by min() on columns of table "application_link_oracle_request" */
+export type Application_Link_Oracle_Request_Min_Order_By = {
+  application_link_id?: Maybe<Order_By>;
+  client_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  request_id?: Maybe<Order_By>;
+  script_id?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "application_link_oracle_request". */
+export type Application_Link_Oracle_Request_Order_By = {
+  application_link?: Maybe<Application_Link_Order_By>;
+  application_link_id?: Maybe<Order_By>;
+  call_data?: Maybe<Order_By>;
+  client_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  request_id?: Maybe<Order_By>;
+  script_id?: Maybe<Order_By>;
+};
+
+/** select columns of table "application_link_oracle_request" */
+export enum Application_Link_Oracle_Request_Select_Column {
+  /** column name */
+  ApplicationLinkId = 'application_link_id',
+  /** column name */
+  CallData = 'call_data',
+  /** column name */
+  ClientId = 'client_id',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  RequestId = 'request_id',
+  /** column name */
+  ScriptId = 'script_id'
+}
+
+/** aggregate stddev on columns */
+export type Application_Link_Oracle_Request_Stddev_Fields = {
+  __typename?: 'application_link_oracle_request_stddev_fields';
+  application_link_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  request_id?: Maybe<Scalars['Float']>;
+  script_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "application_link_oracle_request" */
+export type Application_Link_Oracle_Request_Stddev_Order_By = {
+  application_link_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  request_id?: Maybe<Order_By>;
+  script_id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Application_Link_Oracle_Request_Stddev_Pop_Fields = {
+  __typename?: 'application_link_oracle_request_stddev_pop_fields';
+  application_link_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  request_id?: Maybe<Scalars['Float']>;
+  script_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "application_link_oracle_request" */
+export type Application_Link_Oracle_Request_Stddev_Pop_Order_By = {
+  application_link_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  request_id?: Maybe<Order_By>;
+  script_id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Application_Link_Oracle_Request_Stddev_Samp_Fields = {
+  __typename?: 'application_link_oracle_request_stddev_samp_fields';
+  application_link_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  request_id?: Maybe<Scalars['Float']>;
+  script_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "application_link_oracle_request" */
+export type Application_Link_Oracle_Request_Stddev_Samp_Order_By = {
+  application_link_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  request_id?: Maybe<Order_By>;
+  script_id?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Application_Link_Oracle_Request_Sum_Fields = {
+  __typename?: 'application_link_oracle_request_sum_fields';
+  application_link_id?: Maybe<Scalars['bigint']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+  request_id?: Maybe<Scalars['bigint']>;
+  script_id?: Maybe<Scalars['bigint']>;
+};
+
+/** order by sum() on columns of table "application_link_oracle_request" */
+export type Application_Link_Oracle_Request_Sum_Order_By = {
+  application_link_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  request_id?: Maybe<Order_By>;
+  script_id?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Application_Link_Oracle_Request_Var_Pop_Fields = {
+  __typename?: 'application_link_oracle_request_var_pop_fields';
+  application_link_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  request_id?: Maybe<Scalars['Float']>;
+  script_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "application_link_oracle_request" */
+export type Application_Link_Oracle_Request_Var_Pop_Order_By = {
+  application_link_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  request_id?: Maybe<Order_By>;
+  script_id?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Application_Link_Oracle_Request_Var_Samp_Fields = {
+  __typename?: 'application_link_oracle_request_var_samp_fields';
+  application_link_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  request_id?: Maybe<Scalars['Float']>;
+  script_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "application_link_oracle_request" */
+export type Application_Link_Oracle_Request_Var_Samp_Order_By = {
+  application_link_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  request_id?: Maybe<Order_By>;
+  script_id?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Application_Link_Oracle_Request_Variance_Fields = {
+  __typename?: 'application_link_oracle_request_variance_fields';
+  application_link_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  request_id?: Maybe<Scalars['Float']>;
+  script_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "application_link_oracle_request" */
+export type Application_Link_Oracle_Request_Variance_Order_By = {
+  application_link_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  request_id?: Maybe<Order_By>;
+  script_id?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "application_link". */
+export type Application_Link_Order_By = {
+  application?: Maybe<Order_By>;
+  application_link_oracle_requests_aggregate?: Maybe<Application_Link_Oracle_Request_Aggregate_Order_By>;
+  creation_time?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  profile?: Maybe<Profile_Order_By>;
+  result?: Maybe<Order_By>;
+  state?: Maybe<Order_By>;
+  user_address?: Maybe<Order_By>;
+  username?: Maybe<Order_By>;
+};
+
+/** select columns of table "application_link" */
+export enum Application_Link_Select_Column {
+  /** column name */
+  Application = 'application',
+  /** column name */
+  CreationTime = 'creation_time',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Result = 'result',
+  /** column name */
+  State = 'state',
+  /** column name */
+  UserAddress = 'user_address',
+  /** column name */
+  Username = 'username'
+}
+
+/** aggregate stddev on columns */
+export type Application_Link_Stddev_Fields = {
+  __typename?: 'application_link_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "application_link" */
+export type Application_Link_Stddev_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Application_Link_Stddev_Pop_Fields = {
+  __typename?: 'application_link_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "application_link" */
+export type Application_Link_Stddev_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Application_Link_Stddev_Samp_Fields = {
+  __typename?: 'application_link_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "application_link" */
+export type Application_Link_Stddev_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Application_Link_Sum_Fields = {
+  __typename?: 'application_link_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+};
+
+/** order by sum() on columns of table "application_link" */
+export type Application_Link_Sum_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Application_Link_Var_Pop_Fields = {
+  __typename?: 'application_link_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "application_link" */
+export type Application_Link_Var_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Application_Link_Var_Samp_Fields = {
+  __typename?: 'application_link_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "application_link" */
+export type Application_Link_Var_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Application_Link_Variance_Fields = {
+  __typename?: 'application_link_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "application_link" */
+export type Application_Link_Variance_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
 
 /** columns and relationships of "average_block_time_from_genesis" */
 export type Average_Block_Time_From_Genesis = {
@@ -1006,7 +1589,7 @@ export type Average_Block_Time_From_Genesis_Aggregate = {
 export type Average_Block_Time_From_Genesis_Aggregate_Fields = {
   __typename?: 'average_block_time_from_genesis_aggregate_fields';
   avg?: Maybe<Average_Block_Time_From_Genesis_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Average_Block_Time_From_Genesis_Max_Fields>;
   min?: Maybe<Average_Block_Time_From_Genesis_Min_Fields>;
   stddev?: Maybe<Average_Block_Time_From_Genesis_Stddev_Fields>;
@@ -1025,21 +1608,6 @@ export type Average_Block_Time_From_Genesis_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "average_block_time_from_genesis" */
-export type Average_Block_Time_From_Genesis_Aggregate_Order_By = {
-  avg?: Maybe<Average_Block_Time_From_Genesis_Avg_Order_By>;
-  count?: Maybe<Order_By>;
-  max?: Maybe<Average_Block_Time_From_Genesis_Max_Order_By>;
-  min?: Maybe<Average_Block_Time_From_Genesis_Min_Order_By>;
-  stddev?: Maybe<Average_Block_Time_From_Genesis_Stddev_Order_By>;
-  stddev_pop?: Maybe<Average_Block_Time_From_Genesis_Stddev_Pop_Order_By>;
-  stddev_samp?: Maybe<Average_Block_Time_From_Genesis_Stddev_Samp_Order_By>;
-  sum?: Maybe<Average_Block_Time_From_Genesis_Sum_Order_By>;
-  var_pop?: Maybe<Average_Block_Time_From_Genesis_Var_Pop_Order_By>;
-  var_samp?: Maybe<Average_Block_Time_From_Genesis_Var_Samp_Order_By>;
-  variance?: Maybe<Average_Block_Time_From_Genesis_Variance_Order_By>;
-};
-
 /** aggregate avg on columns */
 export type Average_Block_Time_From_Genesis_Avg_Fields = {
   __typename?: 'average_block_time_from_genesis_avg_fields';
@@ -1047,17 +1615,11 @@ export type Average_Block_Time_From_Genesis_Avg_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "average_block_time_from_genesis" */
-export type Average_Block_Time_From_Genesis_Avg_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "average_block_time_from_genesis". All fields are combined with a logical 'AND'. */
 export type Average_Block_Time_From_Genesis_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Average_Block_Time_From_Genesis_Bool_Exp>>>;
+  _and?: Maybe<Array<Average_Block_Time_From_Genesis_Bool_Exp>>;
   _not?: Maybe<Average_Block_Time_From_Genesis_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Average_Block_Time_From_Genesis_Bool_Exp>>>;
+  _or?: Maybe<Array<Average_Block_Time_From_Genesis_Bool_Exp>>;
   average_time?: Maybe<Numeric_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
 };
@@ -1069,12 +1631,6 @@ export type Average_Block_Time_From_Genesis_Max_Fields = {
   height?: Maybe<Scalars['bigint']>;
 };
 
-/** order by max() on columns of table "average_block_time_from_genesis" */
-export type Average_Block_Time_From_Genesis_Max_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Average_Block_Time_From_Genesis_Min_Fields = {
   __typename?: 'average_block_time_from_genesis_min_fields';
@@ -1082,21 +1638,10 @@ export type Average_Block_Time_From_Genesis_Min_Fields = {
   height?: Maybe<Scalars['bigint']>;
 };
 
-/** order by min() on columns of table "average_block_time_from_genesis" */
-export type Average_Block_Time_From_Genesis_Min_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
-/** ordering options when selecting data from "average_block_time_from_genesis" */
+/** Ordering options when selecting data from "average_block_time_from_genesis". */
 export type Average_Block_Time_From_Genesis_Order_By = {
   average_time?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "average_block_time_from_genesis" */
-export type Average_Block_Time_From_Genesis_Pk_Columns_Input = {
-  one_row_id: Scalars['Boolean'];
 };
 
 /** select columns of table "average_block_time_from_genesis" */
@@ -1114,23 +1659,11 @@ export type Average_Block_Time_From_Genesis_Stddev_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "average_block_time_from_genesis" */
-export type Average_Block_Time_From_Genesis_Stddev_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate stddev_pop on columns */
 export type Average_Block_Time_From_Genesis_Stddev_Pop_Fields = {
   __typename?: 'average_block_time_from_genesis_stddev_pop_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "average_block_time_from_genesis" */
-export type Average_Block_Time_From_Genesis_Stddev_Pop_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -1140,23 +1673,11 @@ export type Average_Block_Time_From_Genesis_Stddev_Samp_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "average_block_time_from_genesis" */
-export type Average_Block_Time_From_Genesis_Stddev_Samp_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate sum on columns */
 export type Average_Block_Time_From_Genesis_Sum_Fields = {
   __typename?: 'average_block_time_from_genesis_sum_fields';
   average_time?: Maybe<Scalars['numeric']>;
   height?: Maybe<Scalars['bigint']>;
-};
-
-/** order by sum() on columns of table "average_block_time_from_genesis" */
-export type Average_Block_Time_From_Genesis_Sum_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -1166,12 +1687,6 @@ export type Average_Block_Time_From_Genesis_Var_Pop_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "average_block_time_from_genesis" */
-export type Average_Block_Time_From_Genesis_Var_Pop_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate var_samp on columns */
 export type Average_Block_Time_From_Genesis_Var_Samp_Fields = {
   __typename?: 'average_block_time_from_genesis_var_samp_fields';
@@ -1179,23 +1694,11 @@ export type Average_Block_Time_From_Genesis_Var_Samp_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "average_block_time_from_genesis" */
-export type Average_Block_Time_From_Genesis_Var_Samp_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate variance on columns */
 export type Average_Block_Time_From_Genesis_Variance_Fields = {
   __typename?: 'average_block_time_from_genesis_variance_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-};
-
-/** order by variance() on columns of table "average_block_time_from_genesis" */
-export type Average_Block_Time_From_Genesis_Variance_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
 };
 
 /** columns and relationships of "average_block_time_per_day" */
@@ -1216,7 +1719,7 @@ export type Average_Block_Time_Per_Day_Aggregate = {
 export type Average_Block_Time_Per_Day_Aggregate_Fields = {
   __typename?: 'average_block_time_per_day_aggregate_fields';
   avg?: Maybe<Average_Block_Time_Per_Day_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Average_Block_Time_Per_Day_Max_Fields>;
   min?: Maybe<Average_Block_Time_Per_Day_Min_Fields>;
   stddev?: Maybe<Average_Block_Time_Per_Day_Stddev_Fields>;
@@ -1235,21 +1738,6 @@ export type Average_Block_Time_Per_Day_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "average_block_time_per_day" */
-export type Average_Block_Time_Per_Day_Aggregate_Order_By = {
-  avg?: Maybe<Average_Block_Time_Per_Day_Avg_Order_By>;
-  count?: Maybe<Order_By>;
-  max?: Maybe<Average_Block_Time_Per_Day_Max_Order_By>;
-  min?: Maybe<Average_Block_Time_Per_Day_Min_Order_By>;
-  stddev?: Maybe<Average_Block_Time_Per_Day_Stddev_Order_By>;
-  stddev_pop?: Maybe<Average_Block_Time_Per_Day_Stddev_Pop_Order_By>;
-  stddev_samp?: Maybe<Average_Block_Time_Per_Day_Stddev_Samp_Order_By>;
-  sum?: Maybe<Average_Block_Time_Per_Day_Sum_Order_By>;
-  var_pop?: Maybe<Average_Block_Time_Per_Day_Var_Pop_Order_By>;
-  var_samp?: Maybe<Average_Block_Time_Per_Day_Var_Samp_Order_By>;
-  variance?: Maybe<Average_Block_Time_Per_Day_Variance_Order_By>;
-};
-
 /** aggregate avg on columns */
 export type Average_Block_Time_Per_Day_Avg_Fields = {
   __typename?: 'average_block_time_per_day_avg_fields';
@@ -1257,17 +1745,11 @@ export type Average_Block_Time_Per_Day_Avg_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "average_block_time_per_day" */
-export type Average_Block_Time_Per_Day_Avg_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "average_block_time_per_day". All fields are combined with a logical 'AND'. */
 export type Average_Block_Time_Per_Day_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Average_Block_Time_Per_Day_Bool_Exp>>>;
+  _and?: Maybe<Array<Average_Block_Time_Per_Day_Bool_Exp>>;
   _not?: Maybe<Average_Block_Time_Per_Day_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Average_Block_Time_Per_Day_Bool_Exp>>>;
+  _or?: Maybe<Array<Average_Block_Time_Per_Day_Bool_Exp>>;
   average_time?: Maybe<Numeric_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
 };
@@ -1279,12 +1761,6 @@ export type Average_Block_Time_Per_Day_Max_Fields = {
   height?: Maybe<Scalars['bigint']>;
 };
 
-/** order by max() on columns of table "average_block_time_per_day" */
-export type Average_Block_Time_Per_Day_Max_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Average_Block_Time_Per_Day_Min_Fields = {
   __typename?: 'average_block_time_per_day_min_fields';
@@ -1292,21 +1768,10 @@ export type Average_Block_Time_Per_Day_Min_Fields = {
   height?: Maybe<Scalars['bigint']>;
 };
 
-/** order by min() on columns of table "average_block_time_per_day" */
-export type Average_Block_Time_Per_Day_Min_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
-/** ordering options when selecting data from "average_block_time_per_day" */
+/** Ordering options when selecting data from "average_block_time_per_day". */
 export type Average_Block_Time_Per_Day_Order_By = {
   average_time?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "average_block_time_per_day" */
-export type Average_Block_Time_Per_Day_Pk_Columns_Input = {
-  one_row_id: Scalars['Boolean'];
 };
 
 /** select columns of table "average_block_time_per_day" */
@@ -1324,23 +1789,11 @@ export type Average_Block_Time_Per_Day_Stddev_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "average_block_time_per_day" */
-export type Average_Block_Time_Per_Day_Stddev_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate stddev_pop on columns */
 export type Average_Block_Time_Per_Day_Stddev_Pop_Fields = {
   __typename?: 'average_block_time_per_day_stddev_pop_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "average_block_time_per_day" */
-export type Average_Block_Time_Per_Day_Stddev_Pop_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -1350,23 +1803,11 @@ export type Average_Block_Time_Per_Day_Stddev_Samp_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "average_block_time_per_day" */
-export type Average_Block_Time_Per_Day_Stddev_Samp_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate sum on columns */
 export type Average_Block_Time_Per_Day_Sum_Fields = {
   __typename?: 'average_block_time_per_day_sum_fields';
   average_time?: Maybe<Scalars['numeric']>;
   height?: Maybe<Scalars['bigint']>;
-};
-
-/** order by sum() on columns of table "average_block_time_per_day" */
-export type Average_Block_Time_Per_Day_Sum_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -1376,12 +1817,6 @@ export type Average_Block_Time_Per_Day_Var_Pop_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "average_block_time_per_day" */
-export type Average_Block_Time_Per_Day_Var_Pop_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate var_samp on columns */
 export type Average_Block_Time_Per_Day_Var_Samp_Fields = {
   __typename?: 'average_block_time_per_day_var_samp_fields';
@@ -1389,23 +1824,11 @@ export type Average_Block_Time_Per_Day_Var_Samp_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "average_block_time_per_day" */
-export type Average_Block_Time_Per_Day_Var_Samp_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate variance on columns */
 export type Average_Block_Time_Per_Day_Variance_Fields = {
   __typename?: 'average_block_time_per_day_variance_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-};
-
-/** order by variance() on columns of table "average_block_time_per_day" */
-export type Average_Block_Time_Per_Day_Variance_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
 };
 
 /** columns and relationships of "average_block_time_per_hour" */
@@ -1426,7 +1849,7 @@ export type Average_Block_Time_Per_Hour_Aggregate = {
 export type Average_Block_Time_Per_Hour_Aggregate_Fields = {
   __typename?: 'average_block_time_per_hour_aggregate_fields';
   avg?: Maybe<Average_Block_Time_Per_Hour_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Average_Block_Time_Per_Hour_Max_Fields>;
   min?: Maybe<Average_Block_Time_Per_Hour_Min_Fields>;
   stddev?: Maybe<Average_Block_Time_Per_Hour_Stddev_Fields>;
@@ -1445,21 +1868,6 @@ export type Average_Block_Time_Per_Hour_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "average_block_time_per_hour" */
-export type Average_Block_Time_Per_Hour_Aggregate_Order_By = {
-  avg?: Maybe<Average_Block_Time_Per_Hour_Avg_Order_By>;
-  count?: Maybe<Order_By>;
-  max?: Maybe<Average_Block_Time_Per_Hour_Max_Order_By>;
-  min?: Maybe<Average_Block_Time_Per_Hour_Min_Order_By>;
-  stddev?: Maybe<Average_Block_Time_Per_Hour_Stddev_Order_By>;
-  stddev_pop?: Maybe<Average_Block_Time_Per_Hour_Stddev_Pop_Order_By>;
-  stddev_samp?: Maybe<Average_Block_Time_Per_Hour_Stddev_Samp_Order_By>;
-  sum?: Maybe<Average_Block_Time_Per_Hour_Sum_Order_By>;
-  var_pop?: Maybe<Average_Block_Time_Per_Hour_Var_Pop_Order_By>;
-  var_samp?: Maybe<Average_Block_Time_Per_Hour_Var_Samp_Order_By>;
-  variance?: Maybe<Average_Block_Time_Per_Hour_Variance_Order_By>;
-};
-
 /** aggregate avg on columns */
 export type Average_Block_Time_Per_Hour_Avg_Fields = {
   __typename?: 'average_block_time_per_hour_avg_fields';
@@ -1467,17 +1875,11 @@ export type Average_Block_Time_Per_Hour_Avg_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "average_block_time_per_hour" */
-export type Average_Block_Time_Per_Hour_Avg_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "average_block_time_per_hour". All fields are combined with a logical 'AND'. */
 export type Average_Block_Time_Per_Hour_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Average_Block_Time_Per_Hour_Bool_Exp>>>;
+  _and?: Maybe<Array<Average_Block_Time_Per_Hour_Bool_Exp>>;
   _not?: Maybe<Average_Block_Time_Per_Hour_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Average_Block_Time_Per_Hour_Bool_Exp>>>;
+  _or?: Maybe<Array<Average_Block_Time_Per_Hour_Bool_Exp>>;
   average_time?: Maybe<Numeric_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
 };
@@ -1489,12 +1891,6 @@ export type Average_Block_Time_Per_Hour_Max_Fields = {
   height?: Maybe<Scalars['bigint']>;
 };
 
-/** order by max() on columns of table "average_block_time_per_hour" */
-export type Average_Block_Time_Per_Hour_Max_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Average_Block_Time_Per_Hour_Min_Fields = {
   __typename?: 'average_block_time_per_hour_min_fields';
@@ -1502,21 +1898,10 @@ export type Average_Block_Time_Per_Hour_Min_Fields = {
   height?: Maybe<Scalars['bigint']>;
 };
 
-/** order by min() on columns of table "average_block_time_per_hour" */
-export type Average_Block_Time_Per_Hour_Min_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
-/** ordering options when selecting data from "average_block_time_per_hour" */
+/** Ordering options when selecting data from "average_block_time_per_hour". */
 export type Average_Block_Time_Per_Hour_Order_By = {
   average_time?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "average_block_time_per_hour" */
-export type Average_Block_Time_Per_Hour_Pk_Columns_Input = {
-  one_row_id: Scalars['Boolean'];
 };
 
 /** select columns of table "average_block_time_per_hour" */
@@ -1534,23 +1919,11 @@ export type Average_Block_Time_Per_Hour_Stddev_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "average_block_time_per_hour" */
-export type Average_Block_Time_Per_Hour_Stddev_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate stddev_pop on columns */
 export type Average_Block_Time_Per_Hour_Stddev_Pop_Fields = {
   __typename?: 'average_block_time_per_hour_stddev_pop_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "average_block_time_per_hour" */
-export type Average_Block_Time_Per_Hour_Stddev_Pop_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -1560,23 +1933,11 @@ export type Average_Block_Time_Per_Hour_Stddev_Samp_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "average_block_time_per_hour" */
-export type Average_Block_Time_Per_Hour_Stddev_Samp_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate sum on columns */
 export type Average_Block_Time_Per_Hour_Sum_Fields = {
   __typename?: 'average_block_time_per_hour_sum_fields';
   average_time?: Maybe<Scalars['numeric']>;
   height?: Maybe<Scalars['bigint']>;
-};
-
-/** order by sum() on columns of table "average_block_time_per_hour" */
-export type Average_Block_Time_Per_Hour_Sum_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -1586,12 +1947,6 @@ export type Average_Block_Time_Per_Hour_Var_Pop_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "average_block_time_per_hour" */
-export type Average_Block_Time_Per_Hour_Var_Pop_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate var_samp on columns */
 export type Average_Block_Time_Per_Hour_Var_Samp_Fields = {
   __typename?: 'average_block_time_per_hour_var_samp_fields';
@@ -1599,23 +1954,11 @@ export type Average_Block_Time_Per_Hour_Var_Samp_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "average_block_time_per_hour" */
-export type Average_Block_Time_Per_Hour_Var_Samp_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate variance on columns */
 export type Average_Block_Time_Per_Hour_Variance_Fields = {
   __typename?: 'average_block_time_per_hour_variance_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-};
-
-/** order by variance() on columns of table "average_block_time_per_hour" */
-export type Average_Block_Time_Per_Hour_Variance_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
 };
 
 /** columns and relationships of "average_block_time_per_minute" */
@@ -1636,7 +1979,7 @@ export type Average_Block_Time_Per_Minute_Aggregate = {
 export type Average_Block_Time_Per_Minute_Aggregate_Fields = {
   __typename?: 'average_block_time_per_minute_aggregate_fields';
   avg?: Maybe<Average_Block_Time_Per_Minute_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Average_Block_Time_Per_Minute_Max_Fields>;
   min?: Maybe<Average_Block_Time_Per_Minute_Min_Fields>;
   stddev?: Maybe<Average_Block_Time_Per_Minute_Stddev_Fields>;
@@ -1655,21 +1998,6 @@ export type Average_Block_Time_Per_Minute_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "average_block_time_per_minute" */
-export type Average_Block_Time_Per_Minute_Aggregate_Order_By = {
-  avg?: Maybe<Average_Block_Time_Per_Minute_Avg_Order_By>;
-  count?: Maybe<Order_By>;
-  max?: Maybe<Average_Block_Time_Per_Minute_Max_Order_By>;
-  min?: Maybe<Average_Block_Time_Per_Minute_Min_Order_By>;
-  stddev?: Maybe<Average_Block_Time_Per_Minute_Stddev_Order_By>;
-  stddev_pop?: Maybe<Average_Block_Time_Per_Minute_Stddev_Pop_Order_By>;
-  stddev_samp?: Maybe<Average_Block_Time_Per_Minute_Stddev_Samp_Order_By>;
-  sum?: Maybe<Average_Block_Time_Per_Minute_Sum_Order_By>;
-  var_pop?: Maybe<Average_Block_Time_Per_Minute_Var_Pop_Order_By>;
-  var_samp?: Maybe<Average_Block_Time_Per_Minute_Var_Samp_Order_By>;
-  variance?: Maybe<Average_Block_Time_Per_Minute_Variance_Order_By>;
-};
-
 /** aggregate avg on columns */
 export type Average_Block_Time_Per_Minute_Avg_Fields = {
   __typename?: 'average_block_time_per_minute_avg_fields';
@@ -1677,17 +2005,11 @@ export type Average_Block_Time_Per_Minute_Avg_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "average_block_time_per_minute" */
-export type Average_Block_Time_Per_Minute_Avg_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "average_block_time_per_minute". All fields are combined with a logical 'AND'. */
 export type Average_Block_Time_Per_Minute_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Average_Block_Time_Per_Minute_Bool_Exp>>>;
+  _and?: Maybe<Array<Average_Block_Time_Per_Minute_Bool_Exp>>;
   _not?: Maybe<Average_Block_Time_Per_Minute_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Average_Block_Time_Per_Minute_Bool_Exp>>>;
+  _or?: Maybe<Array<Average_Block_Time_Per_Minute_Bool_Exp>>;
   average_time?: Maybe<Numeric_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
 };
@@ -1699,12 +2021,6 @@ export type Average_Block_Time_Per_Minute_Max_Fields = {
   height?: Maybe<Scalars['bigint']>;
 };
 
-/** order by max() on columns of table "average_block_time_per_minute" */
-export type Average_Block_Time_Per_Minute_Max_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Average_Block_Time_Per_Minute_Min_Fields = {
   __typename?: 'average_block_time_per_minute_min_fields';
@@ -1712,21 +2028,10 @@ export type Average_Block_Time_Per_Minute_Min_Fields = {
   height?: Maybe<Scalars['bigint']>;
 };
 
-/** order by min() on columns of table "average_block_time_per_minute" */
-export type Average_Block_Time_Per_Minute_Min_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
-/** ordering options when selecting data from "average_block_time_per_minute" */
+/** Ordering options when selecting data from "average_block_time_per_minute". */
 export type Average_Block_Time_Per_Minute_Order_By = {
   average_time?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "average_block_time_per_minute" */
-export type Average_Block_Time_Per_Minute_Pk_Columns_Input = {
-  one_row_id: Scalars['Boolean'];
 };
 
 /** select columns of table "average_block_time_per_minute" */
@@ -1744,23 +2049,11 @@ export type Average_Block_Time_Per_Minute_Stddev_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "average_block_time_per_minute" */
-export type Average_Block_Time_Per_Minute_Stddev_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate stddev_pop on columns */
 export type Average_Block_Time_Per_Minute_Stddev_Pop_Fields = {
   __typename?: 'average_block_time_per_minute_stddev_pop_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "average_block_time_per_minute" */
-export type Average_Block_Time_Per_Minute_Stddev_Pop_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -1770,23 +2063,11 @@ export type Average_Block_Time_Per_Minute_Stddev_Samp_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "average_block_time_per_minute" */
-export type Average_Block_Time_Per_Minute_Stddev_Samp_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate sum on columns */
 export type Average_Block_Time_Per_Minute_Sum_Fields = {
   __typename?: 'average_block_time_per_minute_sum_fields';
   average_time?: Maybe<Scalars['numeric']>;
   height?: Maybe<Scalars['bigint']>;
-};
-
-/** order by sum() on columns of table "average_block_time_per_minute" */
-export type Average_Block_Time_Per_Minute_Sum_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -1796,23 +2077,11 @@ export type Average_Block_Time_Per_Minute_Var_Pop_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "average_block_time_per_minute" */
-export type Average_Block_Time_Per_Minute_Var_Pop_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate var_samp on columns */
 export type Average_Block_Time_Per_Minute_Var_Samp_Fields = {
   __typename?: 'average_block_time_per_minute_var_samp_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-};
-
-/** order by var_samp() on columns of table "average_block_time_per_minute" */
-export type Average_Block_Time_Per_Minute_Var_Samp_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
 };
 
 /** aggregate variance on columns */
@@ -1822,14 +2091,8 @@ export type Average_Block_Time_Per_Minute_Variance_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "average_block_time_per_minute" */
-export type Average_Block_Time_Per_Minute_Variance_Order_By = {
-  average_time?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
 
-
-/** expression to compare columns of type bigint. All fields are combined with logical 'AND'. */
+/** Boolean expression to compare columns of type "bigint". All fields are combined with logical 'AND'. */
 export type Bigint_Comparison_Exp = {
   _eq?: Maybe<Scalars['bigint']>;
   _gt?: Maybe<Scalars['bigint']>;
@@ -1847,47 +2110,47 @@ export type Block = {
   __typename?: 'block';
   /** An array relationship */
   account_balance_histories: Array<Account_Balance_History>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   account_balance_histories_aggregate: Account_Balance_History_Aggregate;
   /** An array relationship */
   delegation_histories: Array<Delegation_History>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   delegation_histories_aggregate: Delegation_History_Aggregate;
   /** An array relationship */
   delegation_reward_histories: Array<Delegation_Reward_History>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   delegation_reward_histories_aggregate: Delegation_Reward_History_Aggregate;
   hash: Scalars['String'];
   height: Scalars['bigint'];
   num_txs?: Maybe<Scalars['Int']>;
   /** An array relationship */
   pre_commits: Array<Pre_Commit>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   pre_commits_aggregate: Pre_Commit_Aggregate;
   proposer_address?: Maybe<Scalars['String']>;
   /** An array relationship */
   redelegation_histories: Array<Redelegation_History>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   redelegation_histories_aggregate: Redelegation_History_Aggregate;
   timestamp: Scalars['timestamp'];
   total_gas?: Maybe<Scalars['bigint']>;
   /** An array relationship */
   transactions: Array<Transaction>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   transactions_aggregate: Transaction_Aggregate;
   /** An array relationship */
   unbonding_delegation_histories: Array<Unbonding_Delegation_History>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   unbonding_delegation_histories_aggregate: Unbonding_Delegation_History_Aggregate;
   /** An object relationship */
   validator?: Maybe<Validator>;
   /** An array relationship */
   validator_commission_amount_histories: Array<Validator_Commission_Amount_History>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   validator_commission_amount_histories_aggregate: Validator_Commission_Amount_History_Aggregate;
   /** An array relationship */
   validator_voting_powers: Array<Validator_Voting_Power>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   validator_voting_powers_aggregate: Validator_Voting_Power_Aggregate;
 };
 
@@ -2082,7 +2345,7 @@ export type Block_Aggregate = {
 export type Block_Aggregate_Fields = {
   __typename?: 'block_aggregate_fields';
   avg?: Maybe<Block_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Block_Max_Fields>;
   min?: Maybe<Block_Min_Fields>;
   stddev?: Maybe<Block_Stddev_Fields>;
@@ -2133,9 +2396,9 @@ export type Block_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "block". All fields are combined with a logical 'AND'. */
 export type Block_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Block_Bool_Exp>>>;
+  _and?: Maybe<Array<Block_Bool_Exp>>;
   _not?: Maybe<Block_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Block_Bool_Exp>>>;
+  _or?: Maybe<Array<Block_Bool_Exp>>;
   account_balance_histories?: Maybe<Account_Balance_History_Bool_Exp>;
   delegation_histories?: Maybe<Delegation_History_Bool_Exp>;
   delegation_reward_histories?: Maybe<Delegation_Reward_History_Bool_Exp>;
@@ -2196,7 +2459,7 @@ export type Block_Min_Order_By = {
   total_gas?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "block" */
+/** Ordering options when selecting data from "block". */
 export type Block_Order_By = {
   account_balance_histories_aggregate?: Maybe<Account_Balance_History_Aggregate_Order_By>;
   delegation_histories_aggregate?: Maybe<Delegation_History_Aggregate_Order_By>;
@@ -2214,11 +2477,6 @@ export type Block_Order_By = {
   validator?: Maybe<Validator_Order_By>;
   validator_commission_amount_histories_aggregate?: Maybe<Validator_Commission_Amount_History_Aggregate_Order_By>;
   validator_voting_powers_aggregate?: Maybe<Validator_Voting_Power_Aggregate_Order_By>;
-};
-
-/** primary key columns input for table: "block" */
-export type Block_Pk_Columns_Input = {
-  height: Scalars['bigint'];
 };
 
 /** select columns of table "block" */
@@ -2342,8 +2600,710 @@ export type Block_Variance_Order_By = {
   total_gas?: Maybe<Order_By>;
 };
 
+/** columns and relationships of "chain_link" */
+export type Chain_Link = {
+  __typename?: 'chain_link';
+  chain_config_id: Scalars['bigint'];
+  /** An object relationship */
+  chain_link_chain_config: Chain_Link_Chain_Config;
+  /** An array relationship */
+  chain_link_proofs: Array<Chain_Link_Proof>;
+  /** An aggregate relationship */
+  chain_link_proofs_aggregate: Chain_Link_Proof_Aggregate;
+  creation_time: Scalars['timestamp'];
+  external_address: Scalars['String'];
+  height: Scalars['bigint'];
+  id: Scalars['Int'];
+  /** An object relationship */
+  profile: Profile;
+  user_address: Scalars['String'];
+};
 
-/** expression to compare columns of type coin. All fields are combined with logical 'AND'. */
+
+/** columns and relationships of "chain_link" */
+export type Chain_LinkChain_Link_ProofsArgs = {
+  distinct_on?: Maybe<Array<Chain_Link_Proof_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Chain_Link_Proof_Order_By>>;
+  where?: Maybe<Chain_Link_Proof_Bool_Exp>;
+};
+
+
+/** columns and relationships of "chain_link" */
+export type Chain_LinkChain_Link_Proofs_AggregateArgs = {
+  distinct_on?: Maybe<Array<Chain_Link_Proof_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Chain_Link_Proof_Order_By>>;
+  where?: Maybe<Chain_Link_Proof_Bool_Exp>;
+};
+
+/** aggregated selection of "chain_link" */
+export type Chain_Link_Aggregate = {
+  __typename?: 'chain_link_aggregate';
+  aggregate?: Maybe<Chain_Link_Aggregate_Fields>;
+  nodes: Array<Chain_Link>;
+};
+
+/** aggregate fields of "chain_link" */
+export type Chain_Link_Aggregate_Fields = {
+  __typename?: 'chain_link_aggregate_fields';
+  avg?: Maybe<Chain_Link_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Chain_Link_Max_Fields>;
+  min?: Maybe<Chain_Link_Min_Fields>;
+  stddev?: Maybe<Chain_Link_Stddev_Fields>;
+  stddev_pop?: Maybe<Chain_Link_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Chain_Link_Stddev_Samp_Fields>;
+  sum?: Maybe<Chain_Link_Sum_Fields>;
+  var_pop?: Maybe<Chain_Link_Var_Pop_Fields>;
+  var_samp?: Maybe<Chain_Link_Var_Samp_Fields>;
+  variance?: Maybe<Chain_Link_Variance_Fields>;
+};
+
+
+/** aggregate fields of "chain_link" */
+export type Chain_Link_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Chain_Link_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "chain_link" */
+export type Chain_Link_Aggregate_Order_By = {
+  avg?: Maybe<Chain_Link_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Chain_Link_Max_Order_By>;
+  min?: Maybe<Chain_Link_Min_Order_By>;
+  stddev?: Maybe<Chain_Link_Stddev_Order_By>;
+  stddev_pop?: Maybe<Chain_Link_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Chain_Link_Stddev_Samp_Order_By>;
+  sum?: Maybe<Chain_Link_Sum_Order_By>;
+  var_pop?: Maybe<Chain_Link_Var_Pop_Order_By>;
+  var_samp?: Maybe<Chain_Link_Var_Samp_Order_By>;
+  variance?: Maybe<Chain_Link_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Chain_Link_Avg_Fields = {
+  __typename?: 'chain_link_avg_fields';
+  chain_config_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "chain_link" */
+export type Chain_Link_Avg_Order_By = {
+  chain_config_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "chain_link". All fields are combined with a logical 'AND'. */
+export type Chain_Link_Bool_Exp = {
+  _and?: Maybe<Array<Chain_Link_Bool_Exp>>;
+  _not?: Maybe<Chain_Link_Bool_Exp>;
+  _or?: Maybe<Array<Chain_Link_Bool_Exp>>;
+  chain_config_id?: Maybe<Bigint_Comparison_Exp>;
+  chain_link_chain_config?: Maybe<Chain_Link_Chain_Config_Bool_Exp>;
+  chain_link_proofs?: Maybe<Chain_Link_Proof_Bool_Exp>;
+  creation_time?: Maybe<Timestamp_Comparison_Exp>;
+  external_address?: Maybe<String_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  id?: Maybe<Int_Comparison_Exp>;
+  profile?: Maybe<Profile_Bool_Exp>;
+  user_address?: Maybe<String_Comparison_Exp>;
+};
+
+/** columns and relationships of "chain_link_chain_config" */
+export type Chain_Link_Chain_Config = {
+  __typename?: 'chain_link_chain_config';
+  /** An array relationship */
+  chain_links: Array<Chain_Link>;
+  /** An aggregate relationship */
+  chain_links_aggregate: Chain_Link_Aggregate;
+  id: Scalars['Int'];
+  name: Scalars['String'];
+};
+
+
+/** columns and relationships of "chain_link_chain_config" */
+export type Chain_Link_Chain_ConfigChain_LinksArgs = {
+  distinct_on?: Maybe<Array<Chain_Link_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Chain_Link_Order_By>>;
+  where?: Maybe<Chain_Link_Bool_Exp>;
+};
+
+
+/** columns and relationships of "chain_link_chain_config" */
+export type Chain_Link_Chain_ConfigChain_Links_AggregateArgs = {
+  distinct_on?: Maybe<Array<Chain_Link_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Chain_Link_Order_By>>;
+  where?: Maybe<Chain_Link_Bool_Exp>;
+};
+
+/** aggregated selection of "chain_link_chain_config" */
+export type Chain_Link_Chain_Config_Aggregate = {
+  __typename?: 'chain_link_chain_config_aggregate';
+  aggregate?: Maybe<Chain_Link_Chain_Config_Aggregate_Fields>;
+  nodes: Array<Chain_Link_Chain_Config>;
+};
+
+/** aggregate fields of "chain_link_chain_config" */
+export type Chain_Link_Chain_Config_Aggregate_Fields = {
+  __typename?: 'chain_link_chain_config_aggregate_fields';
+  avg?: Maybe<Chain_Link_Chain_Config_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Chain_Link_Chain_Config_Max_Fields>;
+  min?: Maybe<Chain_Link_Chain_Config_Min_Fields>;
+  stddev?: Maybe<Chain_Link_Chain_Config_Stddev_Fields>;
+  stddev_pop?: Maybe<Chain_Link_Chain_Config_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Chain_Link_Chain_Config_Stddev_Samp_Fields>;
+  sum?: Maybe<Chain_Link_Chain_Config_Sum_Fields>;
+  var_pop?: Maybe<Chain_Link_Chain_Config_Var_Pop_Fields>;
+  var_samp?: Maybe<Chain_Link_Chain_Config_Var_Samp_Fields>;
+  variance?: Maybe<Chain_Link_Chain_Config_Variance_Fields>;
+};
+
+
+/** aggregate fields of "chain_link_chain_config" */
+export type Chain_Link_Chain_Config_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Chain_Link_Chain_Config_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Chain_Link_Chain_Config_Avg_Fields = {
+  __typename?: 'chain_link_chain_config_avg_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "chain_link_chain_config". All fields are combined with a logical 'AND'. */
+export type Chain_Link_Chain_Config_Bool_Exp = {
+  _and?: Maybe<Array<Chain_Link_Chain_Config_Bool_Exp>>;
+  _not?: Maybe<Chain_Link_Chain_Config_Bool_Exp>;
+  _or?: Maybe<Array<Chain_Link_Chain_Config_Bool_Exp>>;
+  chain_links?: Maybe<Chain_Link_Bool_Exp>;
+  id?: Maybe<Int_Comparison_Exp>;
+  name?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Chain_Link_Chain_Config_Max_Fields = {
+  __typename?: 'chain_link_chain_config_max_fields';
+  id?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Chain_Link_Chain_Config_Min_Fields = {
+  __typename?: 'chain_link_chain_config_min_fields';
+  id?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "chain_link_chain_config". */
+export type Chain_Link_Chain_Config_Order_By = {
+  chain_links_aggregate?: Maybe<Chain_Link_Aggregate_Order_By>;
+  id?: Maybe<Order_By>;
+  name?: Maybe<Order_By>;
+};
+
+/** select columns of table "chain_link_chain_config" */
+export enum Chain_Link_Chain_Config_Select_Column {
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Name = 'name'
+}
+
+/** aggregate stddev on columns */
+export type Chain_Link_Chain_Config_Stddev_Fields = {
+  __typename?: 'chain_link_chain_config_stddev_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Chain_Link_Chain_Config_Stddev_Pop_Fields = {
+  __typename?: 'chain_link_chain_config_stddev_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Chain_Link_Chain_Config_Stddev_Samp_Fields = {
+  __typename?: 'chain_link_chain_config_stddev_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Chain_Link_Chain_Config_Sum_Fields = {
+  __typename?: 'chain_link_chain_config_sum_fields';
+  id?: Maybe<Scalars['Int']>;
+};
+
+/** aggregate var_pop on columns */
+export type Chain_Link_Chain_Config_Var_Pop_Fields = {
+  __typename?: 'chain_link_chain_config_var_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Chain_Link_Chain_Config_Var_Samp_Fields = {
+  __typename?: 'chain_link_chain_config_var_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Chain_Link_Chain_Config_Variance_Fields = {
+  __typename?: 'chain_link_chain_config_variance_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate max on columns */
+export type Chain_Link_Max_Fields = {
+  __typename?: 'chain_link_max_fields';
+  chain_config_id?: Maybe<Scalars['bigint']>;
+  creation_time?: Maybe<Scalars['timestamp']>;
+  external_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+  user_address?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "chain_link" */
+export type Chain_Link_Max_Order_By = {
+  chain_config_id?: Maybe<Order_By>;
+  creation_time?: Maybe<Order_By>;
+  external_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  user_address?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Chain_Link_Min_Fields = {
+  __typename?: 'chain_link_min_fields';
+  chain_config_id?: Maybe<Scalars['bigint']>;
+  creation_time?: Maybe<Scalars['timestamp']>;
+  external_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+  user_address?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "chain_link" */
+export type Chain_Link_Min_Order_By = {
+  chain_config_id?: Maybe<Order_By>;
+  creation_time?: Maybe<Order_By>;
+  external_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  user_address?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "chain_link". */
+export type Chain_Link_Order_By = {
+  chain_config_id?: Maybe<Order_By>;
+  chain_link_chain_config?: Maybe<Chain_Link_Chain_Config_Order_By>;
+  chain_link_proofs_aggregate?: Maybe<Chain_Link_Proof_Aggregate_Order_By>;
+  creation_time?: Maybe<Order_By>;
+  external_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  profile?: Maybe<Profile_Order_By>;
+  user_address?: Maybe<Order_By>;
+};
+
+/** columns and relationships of "chain_link_proof" */
+export type Chain_Link_Proof = {
+  __typename?: 'chain_link_proof';
+  /** An object relationship */
+  chain_link: Chain_Link;
+  chain_link_id: Scalars['bigint'];
+  height: Scalars['bigint'];
+  id: Scalars['Int'];
+  plain_text: Scalars['String'];
+  public_key: Scalars['jsonb'];
+  signature: Scalars['String'];
+};
+
+
+/** columns and relationships of "chain_link_proof" */
+export type Chain_Link_ProofPublic_KeyArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+/** aggregated selection of "chain_link_proof" */
+export type Chain_Link_Proof_Aggregate = {
+  __typename?: 'chain_link_proof_aggregate';
+  aggregate?: Maybe<Chain_Link_Proof_Aggregate_Fields>;
+  nodes: Array<Chain_Link_Proof>;
+};
+
+/** aggregate fields of "chain_link_proof" */
+export type Chain_Link_Proof_Aggregate_Fields = {
+  __typename?: 'chain_link_proof_aggregate_fields';
+  avg?: Maybe<Chain_Link_Proof_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Chain_Link_Proof_Max_Fields>;
+  min?: Maybe<Chain_Link_Proof_Min_Fields>;
+  stddev?: Maybe<Chain_Link_Proof_Stddev_Fields>;
+  stddev_pop?: Maybe<Chain_Link_Proof_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Chain_Link_Proof_Stddev_Samp_Fields>;
+  sum?: Maybe<Chain_Link_Proof_Sum_Fields>;
+  var_pop?: Maybe<Chain_Link_Proof_Var_Pop_Fields>;
+  var_samp?: Maybe<Chain_Link_Proof_Var_Samp_Fields>;
+  variance?: Maybe<Chain_Link_Proof_Variance_Fields>;
+};
+
+
+/** aggregate fields of "chain_link_proof" */
+export type Chain_Link_Proof_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Chain_Link_Proof_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "chain_link_proof" */
+export type Chain_Link_Proof_Aggregate_Order_By = {
+  avg?: Maybe<Chain_Link_Proof_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Chain_Link_Proof_Max_Order_By>;
+  min?: Maybe<Chain_Link_Proof_Min_Order_By>;
+  stddev?: Maybe<Chain_Link_Proof_Stddev_Order_By>;
+  stddev_pop?: Maybe<Chain_Link_Proof_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Chain_Link_Proof_Stddev_Samp_Order_By>;
+  sum?: Maybe<Chain_Link_Proof_Sum_Order_By>;
+  var_pop?: Maybe<Chain_Link_Proof_Var_Pop_Order_By>;
+  var_samp?: Maybe<Chain_Link_Proof_Var_Samp_Order_By>;
+  variance?: Maybe<Chain_Link_Proof_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Chain_Link_Proof_Avg_Fields = {
+  __typename?: 'chain_link_proof_avg_fields';
+  chain_link_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "chain_link_proof" */
+export type Chain_Link_Proof_Avg_Order_By = {
+  chain_link_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "chain_link_proof". All fields are combined with a logical 'AND'. */
+export type Chain_Link_Proof_Bool_Exp = {
+  _and?: Maybe<Array<Chain_Link_Proof_Bool_Exp>>;
+  _not?: Maybe<Chain_Link_Proof_Bool_Exp>;
+  _or?: Maybe<Array<Chain_Link_Proof_Bool_Exp>>;
+  chain_link?: Maybe<Chain_Link_Bool_Exp>;
+  chain_link_id?: Maybe<Bigint_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  id?: Maybe<Int_Comparison_Exp>;
+  plain_text?: Maybe<String_Comparison_Exp>;
+  public_key?: Maybe<Jsonb_Comparison_Exp>;
+  signature?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Chain_Link_Proof_Max_Fields = {
+  __typename?: 'chain_link_proof_max_fields';
+  chain_link_id?: Maybe<Scalars['bigint']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+  plain_text?: Maybe<Scalars['String']>;
+  signature?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "chain_link_proof" */
+export type Chain_Link_Proof_Max_Order_By = {
+  chain_link_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  plain_text?: Maybe<Order_By>;
+  signature?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Chain_Link_Proof_Min_Fields = {
+  __typename?: 'chain_link_proof_min_fields';
+  chain_link_id?: Maybe<Scalars['bigint']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+  plain_text?: Maybe<Scalars['String']>;
+  signature?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "chain_link_proof" */
+export type Chain_Link_Proof_Min_Order_By = {
+  chain_link_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  plain_text?: Maybe<Order_By>;
+  signature?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "chain_link_proof". */
+export type Chain_Link_Proof_Order_By = {
+  chain_link?: Maybe<Chain_Link_Order_By>;
+  chain_link_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  plain_text?: Maybe<Order_By>;
+  public_key?: Maybe<Order_By>;
+  signature?: Maybe<Order_By>;
+};
+
+/** select columns of table "chain_link_proof" */
+export enum Chain_Link_Proof_Select_Column {
+  /** column name */
+  ChainLinkId = 'chain_link_id',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  PlainText = 'plain_text',
+  /** column name */
+  PublicKey = 'public_key',
+  /** column name */
+  Signature = 'signature'
+}
+
+/** aggregate stddev on columns */
+export type Chain_Link_Proof_Stddev_Fields = {
+  __typename?: 'chain_link_proof_stddev_fields';
+  chain_link_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "chain_link_proof" */
+export type Chain_Link_Proof_Stddev_Order_By = {
+  chain_link_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Chain_Link_Proof_Stddev_Pop_Fields = {
+  __typename?: 'chain_link_proof_stddev_pop_fields';
+  chain_link_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "chain_link_proof" */
+export type Chain_Link_Proof_Stddev_Pop_Order_By = {
+  chain_link_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Chain_Link_Proof_Stddev_Samp_Fields = {
+  __typename?: 'chain_link_proof_stddev_samp_fields';
+  chain_link_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "chain_link_proof" */
+export type Chain_Link_Proof_Stddev_Samp_Order_By = {
+  chain_link_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Chain_Link_Proof_Sum_Fields = {
+  __typename?: 'chain_link_proof_sum_fields';
+  chain_link_id?: Maybe<Scalars['bigint']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+};
+
+/** order by sum() on columns of table "chain_link_proof" */
+export type Chain_Link_Proof_Sum_Order_By = {
+  chain_link_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Chain_Link_Proof_Var_Pop_Fields = {
+  __typename?: 'chain_link_proof_var_pop_fields';
+  chain_link_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "chain_link_proof" */
+export type Chain_Link_Proof_Var_Pop_Order_By = {
+  chain_link_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Chain_Link_Proof_Var_Samp_Fields = {
+  __typename?: 'chain_link_proof_var_samp_fields';
+  chain_link_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "chain_link_proof" */
+export type Chain_Link_Proof_Var_Samp_Order_By = {
+  chain_link_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Chain_Link_Proof_Variance_Fields = {
+  __typename?: 'chain_link_proof_variance_fields';
+  chain_link_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "chain_link_proof" */
+export type Chain_Link_Proof_Variance_Order_By = {
+  chain_link_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** select columns of table "chain_link" */
+export enum Chain_Link_Select_Column {
+  /** column name */
+  ChainConfigId = 'chain_config_id',
+  /** column name */
+  CreationTime = 'creation_time',
+  /** column name */
+  ExternalAddress = 'external_address',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  UserAddress = 'user_address'
+}
+
+/** aggregate stddev on columns */
+export type Chain_Link_Stddev_Fields = {
+  __typename?: 'chain_link_stddev_fields';
+  chain_config_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "chain_link" */
+export type Chain_Link_Stddev_Order_By = {
+  chain_config_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Chain_Link_Stddev_Pop_Fields = {
+  __typename?: 'chain_link_stddev_pop_fields';
+  chain_config_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "chain_link" */
+export type Chain_Link_Stddev_Pop_Order_By = {
+  chain_config_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Chain_Link_Stddev_Samp_Fields = {
+  __typename?: 'chain_link_stddev_samp_fields';
+  chain_config_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "chain_link" */
+export type Chain_Link_Stddev_Samp_Order_By = {
+  chain_config_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Chain_Link_Sum_Fields = {
+  __typename?: 'chain_link_sum_fields';
+  chain_config_id?: Maybe<Scalars['bigint']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+};
+
+/** order by sum() on columns of table "chain_link" */
+export type Chain_Link_Sum_Order_By = {
+  chain_config_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Chain_Link_Var_Pop_Fields = {
+  __typename?: 'chain_link_var_pop_fields';
+  chain_config_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "chain_link" */
+export type Chain_Link_Var_Pop_Order_By = {
+  chain_config_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Chain_Link_Var_Samp_Fields = {
+  __typename?: 'chain_link_var_samp_fields';
+  chain_config_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "chain_link" */
+export type Chain_Link_Var_Samp_Order_By = {
+  chain_config_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Chain_Link_Variance_Fields = {
+  __typename?: 'chain_link_variance_fields';
+  chain_config_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "chain_link" */
+export type Chain_Link_Variance_Order_By = {
+  chain_config_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+
+/** Boolean expression to compare columns of type "coin". All fields are combined with logical 'AND'. */
 export type Coin_Comparison_Exp = {
   _eq?: Maybe<Scalars['coin']>;
   _gt?: Maybe<Scalars['coin']>;
@@ -2374,7 +3334,7 @@ export type Community_Pool_Aggregate = {
 export type Community_Pool_Aggregate_Fields = {
   __typename?: 'community_pool_aggregate_fields';
   avg?: Maybe<Community_Pool_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Community_Pool_Max_Fields>;
   min?: Maybe<Community_Pool_Min_Fields>;
   stddev?: Maybe<Community_Pool_Stddev_Fields>;
@@ -2393,37 +3353,17 @@ export type Community_Pool_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "community_pool" */
-export type Community_Pool_Aggregate_Order_By = {
-  avg?: Maybe<Community_Pool_Avg_Order_By>;
-  count?: Maybe<Order_By>;
-  max?: Maybe<Community_Pool_Max_Order_By>;
-  min?: Maybe<Community_Pool_Min_Order_By>;
-  stddev?: Maybe<Community_Pool_Stddev_Order_By>;
-  stddev_pop?: Maybe<Community_Pool_Stddev_Pop_Order_By>;
-  stddev_samp?: Maybe<Community_Pool_Stddev_Samp_Order_By>;
-  sum?: Maybe<Community_Pool_Sum_Order_By>;
-  var_pop?: Maybe<Community_Pool_Var_Pop_Order_By>;
-  var_samp?: Maybe<Community_Pool_Var_Samp_Order_By>;
-  variance?: Maybe<Community_Pool_Variance_Order_By>;
-};
-
 /** aggregate avg on columns */
 export type Community_Pool_Avg_Fields = {
   __typename?: 'community_pool_avg_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "community_pool" */
-export type Community_Pool_Avg_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "community_pool". All fields are combined with a logical 'AND'. */
 export type Community_Pool_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Community_Pool_Bool_Exp>>>;
+  _and?: Maybe<Array<Community_Pool_Bool_Exp>>;
   _not?: Maybe<Community_Pool_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Community_Pool_Bool_Exp>>>;
+  _or?: Maybe<Array<Community_Pool_Bool_Exp>>;
   coins?: Maybe<_Dec_Coin_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
 };
@@ -2434,31 +3374,16 @@ export type Community_Pool_Max_Fields = {
   height?: Maybe<Scalars['bigint']>;
 };
 
-/** order by max() on columns of table "community_pool" */
-export type Community_Pool_Max_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Community_Pool_Min_Fields = {
   __typename?: 'community_pool_min_fields';
   height?: Maybe<Scalars['bigint']>;
 };
 
-/** order by min() on columns of table "community_pool" */
-export type Community_Pool_Min_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
-/** ordering options when selecting data from "community_pool" */
+/** Ordering options when selecting data from "community_pool". */
 export type Community_Pool_Order_By = {
   coins?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "community_pool" */
-export type Community_Pool_Pk_Columns_Input = {
-  one_row_id: Scalars['Boolean'];
 };
 
 /** select columns of table "community_pool" */
@@ -2475,20 +3400,10 @@ export type Community_Pool_Stddev_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "community_pool" */
-export type Community_Pool_Stddev_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate stddev_pop on columns */
 export type Community_Pool_Stddev_Pop_Fields = {
   __typename?: 'community_pool_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "community_pool" */
-export type Community_Pool_Stddev_Pop_Order_By = {
-  height?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -2497,20 +3412,10 @@ export type Community_Pool_Stddev_Samp_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "community_pool" */
-export type Community_Pool_Stddev_Samp_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate sum on columns */
 export type Community_Pool_Sum_Fields = {
   __typename?: 'community_pool_sum_fields';
   height?: Maybe<Scalars['bigint']>;
-};
-
-/** order by sum() on columns of table "community_pool" */
-export type Community_Pool_Sum_Order_By = {
-  height?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -2519,31 +3424,16 @@ export type Community_Pool_Var_Pop_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "community_pool" */
-export type Community_Pool_Var_Pop_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate var_samp on columns */
 export type Community_Pool_Var_Samp_Fields = {
   __typename?: 'community_pool_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "community_pool" */
-export type Community_Pool_Var_Samp_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate variance on columns */
 export type Community_Pool_Variance_Fields = {
   __typename?: 'community_pool_variance_fields';
   height?: Maybe<Scalars['Float']>;
-};
-
-/** order by variance() on columns of table "community_pool" */
-export type Community_Pool_Variance_Order_By = {
-  height?: Maybe<Order_By>;
 };
 
 /** columns and relationships of "consensus" */
@@ -2565,7 +3455,7 @@ export type Consensus_Aggregate = {
 export type Consensus_Aggregate_Fields = {
   __typename?: 'consensus_aggregate_fields';
   avg?: Maybe<Consensus_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Consensus_Max_Fields>;
   min?: Maybe<Consensus_Min_Fields>;
   stddev?: Maybe<Consensus_Stddev_Fields>;
@@ -2584,21 +3474,6 @@ export type Consensus_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "consensus" */
-export type Consensus_Aggregate_Order_By = {
-  avg?: Maybe<Consensus_Avg_Order_By>;
-  count?: Maybe<Order_By>;
-  max?: Maybe<Consensus_Max_Order_By>;
-  min?: Maybe<Consensus_Min_Order_By>;
-  stddev?: Maybe<Consensus_Stddev_Order_By>;
-  stddev_pop?: Maybe<Consensus_Stddev_Pop_Order_By>;
-  stddev_samp?: Maybe<Consensus_Stddev_Samp_Order_By>;
-  sum?: Maybe<Consensus_Sum_Order_By>;
-  var_pop?: Maybe<Consensus_Var_Pop_Order_By>;
-  var_samp?: Maybe<Consensus_Var_Samp_Order_By>;
-  variance?: Maybe<Consensus_Variance_Order_By>;
-};
-
 /** aggregate avg on columns */
 export type Consensus_Avg_Fields = {
   __typename?: 'consensus_avg_fields';
@@ -2606,17 +3481,11 @@ export type Consensus_Avg_Fields = {
   round?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "consensus" */
-export type Consensus_Avg_Order_By = {
-  height?: Maybe<Order_By>;
-  round?: Maybe<Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "consensus". All fields are combined with a logical 'AND'. */
 export type Consensus_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Consensus_Bool_Exp>>>;
+  _and?: Maybe<Array<Consensus_Bool_Exp>>;
   _not?: Maybe<Consensus_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Consensus_Bool_Exp>>>;
+  _or?: Maybe<Array<Consensus_Bool_Exp>>;
   height?: Maybe<Bigint_Comparison_Exp>;
   round?: Maybe<Int_Comparison_Exp>;
   step?: Maybe<String_Comparison_Exp>;
@@ -2630,13 +3499,6 @@ export type Consensus_Max_Fields = {
   step?: Maybe<Scalars['String']>;
 };
 
-/** order by max() on columns of table "consensus" */
-export type Consensus_Max_Order_By = {
-  height?: Maybe<Order_By>;
-  round?: Maybe<Order_By>;
-  step?: Maybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Consensus_Min_Fields = {
   __typename?: 'consensus_min_fields';
@@ -2645,23 +3507,11 @@ export type Consensus_Min_Fields = {
   step?: Maybe<Scalars['String']>;
 };
 
-/** order by min() on columns of table "consensus" */
-export type Consensus_Min_Order_By = {
-  height?: Maybe<Order_By>;
-  round?: Maybe<Order_By>;
-  step?: Maybe<Order_By>;
-};
-
-/** ordering options when selecting data from "consensus" */
+/** Ordering options when selecting data from "consensus". */
 export type Consensus_Order_By = {
   height?: Maybe<Order_By>;
   round?: Maybe<Order_By>;
   step?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "consensus" */
-export type Consensus_Pk_Columns_Input = {
-  one_row_id: Scalars['Boolean'];
 };
 
 /** select columns of table "consensus" */
@@ -2681,23 +3531,11 @@ export type Consensus_Stddev_Fields = {
   round?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "consensus" */
-export type Consensus_Stddev_Order_By = {
-  height?: Maybe<Order_By>;
-  round?: Maybe<Order_By>;
-};
-
 /** aggregate stddev_pop on columns */
 export type Consensus_Stddev_Pop_Fields = {
   __typename?: 'consensus_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
   round?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "consensus" */
-export type Consensus_Stddev_Pop_Order_By = {
-  height?: Maybe<Order_By>;
-  round?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -2707,23 +3545,11 @@ export type Consensus_Stddev_Samp_Fields = {
   round?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "consensus" */
-export type Consensus_Stddev_Samp_Order_By = {
-  height?: Maybe<Order_By>;
-  round?: Maybe<Order_By>;
-};
-
 /** aggregate sum on columns */
 export type Consensus_Sum_Fields = {
   __typename?: 'consensus_sum_fields';
   height?: Maybe<Scalars['bigint']>;
   round?: Maybe<Scalars['Int']>;
-};
-
-/** order by sum() on columns of table "consensus" */
-export type Consensus_Sum_Order_By = {
-  height?: Maybe<Order_By>;
-  round?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -2733,12 +3559,6 @@ export type Consensus_Var_Pop_Fields = {
   round?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "consensus" */
-export type Consensus_Var_Pop_Order_By = {
-  height?: Maybe<Order_By>;
-  round?: Maybe<Order_By>;
-};
-
 /** aggregate var_samp on columns */
 export type Consensus_Var_Samp_Fields = {
   __typename?: 'consensus_var_samp_fields';
@@ -2746,23 +3566,11 @@ export type Consensus_Var_Samp_Fields = {
   round?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "consensus" */
-export type Consensus_Var_Samp_Order_By = {
-  height?: Maybe<Order_By>;
-  round?: Maybe<Order_By>;
-};
-
 /** aggregate variance on columns */
 export type Consensus_Variance_Fields = {
   __typename?: 'consensus_variance_fields';
   height?: Maybe<Scalars['Float']>;
   round?: Maybe<Scalars['Float']>;
-};
-
-/** order by variance() on columns of table "consensus" */
-export type Consensus_Variance_Order_By = {
-  height?: Maybe<Order_By>;
-  round?: Maybe<Order_By>;
 };
 
 /** columns and relationships of "delegation" */
@@ -2792,7 +3600,7 @@ export type Delegation_Aggregate = {
 export type Delegation_Aggregate_Fields = {
   __typename?: 'delegation_aggregate_fields';
   avg?: Maybe<Delegation_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Delegation_Max_Fields>;
   min?: Maybe<Delegation_Min_Fields>;
   stddev?: Maybe<Delegation_Stddev_Fields>;
@@ -2841,9 +3649,9 @@ export type Delegation_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "delegation". All fields are combined with a logical 'AND'. */
 export type Delegation_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Delegation_Bool_Exp>>>;
+  _and?: Maybe<Array<Delegation_Bool_Exp>>;
   _not?: Maybe<Delegation_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Delegation_Bool_Exp>>>;
+  _or?: Maybe<Array<Delegation_Bool_Exp>>;
   account?: Maybe<Account_Bool_Exp>;
   amount?: Maybe<Coin_Comparison_Exp>;
   delegator_address?: Maybe<String_Comparison_Exp>;
@@ -2877,7 +3685,7 @@ export type Delegation_History_Aggregate = {
 export type Delegation_History_Aggregate_Fields = {
   __typename?: 'delegation_history_aggregate_fields';
   avg?: Maybe<Delegation_History_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Delegation_History_Max_Fields>;
   min?: Maybe<Delegation_History_Min_Fields>;
   stddev?: Maybe<Delegation_History_Stddev_Fields>;
@@ -2924,9 +3732,9 @@ export type Delegation_History_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "delegation_history". All fields are combined with a logical 'AND'. */
 export type Delegation_History_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Delegation_History_Bool_Exp>>>;
+  _and?: Maybe<Array<Delegation_History_Bool_Exp>>;
   _not?: Maybe<Delegation_History_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Delegation_History_Bool_Exp>>>;
+  _or?: Maybe<Array<Delegation_History_Bool_Exp>>;
   account?: Maybe<Account_Bool_Exp>;
   amount?: Maybe<Coin_Comparison_Exp>;
   block?: Maybe<Block_Bool_Exp>;
@@ -2965,7 +3773,7 @@ export type Delegation_History_Min_Order_By = {
   validator_address?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "delegation_history" */
+/** Ordering options when selecting data from "delegation_history". */
 export type Delegation_History_Order_By = {
   account?: Maybe<Account_Order_By>;
   amount?: Maybe<Order_By>;
@@ -3098,7 +3906,7 @@ export type Delegation_Min_Order_By = {
   validator_address?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "delegation" */
+/** Ordering options when selecting data from "delegation". */
 export type Delegation_Order_By = {
   account?: Maybe<Account_Order_By>;
   amount?: Maybe<Order_By>;
@@ -3107,11 +3915,6 @@ export type Delegation_Order_By = {
   id?: Maybe<Order_By>;
   validator?: Maybe<Validator_Order_By>;
   validator_address?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "delegation" */
-export type Delegation_Pk_Columns_Input = {
-  id: Scalars['Int'];
 };
 
 /** columns and relationships of "delegation_reward" */
@@ -3139,7 +3942,7 @@ export type Delegation_Reward_Aggregate = {
 export type Delegation_Reward_Aggregate_Fields = {
   __typename?: 'delegation_reward_aggregate_fields';
   avg?: Maybe<Delegation_Reward_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Delegation_Reward_Max_Fields>;
   min?: Maybe<Delegation_Reward_Min_Fields>;
   stddev?: Maybe<Delegation_Reward_Stddev_Fields>;
@@ -3186,9 +3989,9 @@ export type Delegation_Reward_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "delegation_reward". All fields are combined with a logical 'AND'. */
 export type Delegation_Reward_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Delegation_Reward_Bool_Exp>>>;
+  _and?: Maybe<Array<Delegation_Reward_Bool_Exp>>;
   _not?: Maybe<Delegation_Reward_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Delegation_Reward_Bool_Exp>>>;
+  _or?: Maybe<Array<Delegation_Reward_Bool_Exp>>;
   account?: Maybe<Account_Bool_Exp>;
   amount?: Maybe<_Dec_Coin_Comparison_Exp>;
   delegator_address?: Maybe<String_Comparison_Exp>;
@@ -3225,7 +4028,7 @@ export type Delegation_Reward_History_Aggregate = {
 export type Delegation_Reward_History_Aggregate_Fields = {
   __typename?: 'delegation_reward_history_aggregate_fields';
   avg?: Maybe<Delegation_Reward_History_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Delegation_Reward_History_Max_Fields>;
   min?: Maybe<Delegation_Reward_History_Min_Fields>;
   stddev?: Maybe<Delegation_Reward_History_Stddev_Fields>;
@@ -3272,9 +4075,9 @@ export type Delegation_Reward_History_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "delegation_reward_history". All fields are combined with a logical 'AND'. */
 export type Delegation_Reward_History_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Delegation_Reward_History_Bool_Exp>>>;
+  _and?: Maybe<Array<Delegation_Reward_History_Bool_Exp>>;
   _not?: Maybe<Delegation_Reward_History_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Delegation_Reward_History_Bool_Exp>>>;
+  _or?: Maybe<Array<Delegation_Reward_History_Bool_Exp>>;
   account?: Maybe<Account_Bool_Exp>;
   amount?: Maybe<_Dec_Coin_Comparison_Exp>;
   block?: Maybe<Block_Bool_Exp>;
@@ -3319,7 +4122,7 @@ export type Delegation_Reward_History_Min_Order_By = {
   withdraw_address?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "delegation_reward_history" */
+/** Ordering options when selecting data from "delegation_reward_history". */
 export type Delegation_Reward_History_Order_By = {
   account?: Maybe<Account_Order_By>;
   amount?: Maybe<Order_By>;
@@ -3456,7 +4259,7 @@ export type Delegation_Reward_Min_Order_By = {
   withdraw_address?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "delegation_reward" */
+/** Ordering options when selecting data from "delegation_reward". */
 export type Delegation_Reward_Order_By = {
   account?: Maybe<Account_Order_By>;
   amount?: Maybe<Order_By>;
@@ -3685,7 +4488,7 @@ export type Distribution_Params_Aggregate = {
 export type Distribution_Params_Aggregate_Fields = {
   __typename?: 'distribution_params_aggregate_fields';
   avg?: Maybe<Distribution_Params_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Distribution_Params_Max_Fields>;
   min?: Maybe<Distribution_Params_Min_Fields>;
   stddev?: Maybe<Distribution_Params_Stddev_Fields>;
@@ -3704,21 +4507,6 @@ export type Distribution_Params_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "distribution_params" */
-export type Distribution_Params_Aggregate_Order_By = {
-  avg?: Maybe<Distribution_Params_Avg_Order_By>;
-  count?: Maybe<Order_By>;
-  max?: Maybe<Distribution_Params_Max_Order_By>;
-  min?: Maybe<Distribution_Params_Min_Order_By>;
-  stddev?: Maybe<Distribution_Params_Stddev_Order_By>;
-  stddev_pop?: Maybe<Distribution_Params_Stddev_Pop_Order_By>;
-  stddev_samp?: Maybe<Distribution_Params_Stddev_Samp_Order_By>;
-  sum?: Maybe<Distribution_Params_Sum_Order_By>;
-  var_pop?: Maybe<Distribution_Params_Var_Pop_Order_By>;
-  var_samp?: Maybe<Distribution_Params_Var_Samp_Order_By>;
-  variance?: Maybe<Distribution_Params_Variance_Order_By>;
-};
-
 /** aggregate avg on columns */
 export type Distribution_Params_Avg_Fields = {
   __typename?: 'distribution_params_avg_fields';
@@ -3728,19 +4516,11 @@ export type Distribution_Params_Avg_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "distribution_params" */
-export type Distribution_Params_Avg_Order_By = {
-  base_proposer_reward?: Maybe<Order_By>;
-  bonus_proposer_reward?: Maybe<Order_By>;
-  community_tax?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "distribution_params". All fields are combined with a logical 'AND'. */
 export type Distribution_Params_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Distribution_Params_Bool_Exp>>>;
+  _and?: Maybe<Array<Distribution_Params_Bool_Exp>>;
   _not?: Maybe<Distribution_Params_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Distribution_Params_Bool_Exp>>>;
+  _or?: Maybe<Array<Distribution_Params_Bool_Exp>>;
   base_proposer_reward?: Maybe<Numeric_Comparison_Exp>;
   bonus_proposer_reward?: Maybe<Numeric_Comparison_Exp>;
   community_tax?: Maybe<Numeric_Comparison_Exp>;
@@ -3758,14 +4538,6 @@ export type Distribution_Params_Max_Fields = {
   height?: Maybe<Scalars['bigint']>;
 };
 
-/** order by max() on columns of table "distribution_params" */
-export type Distribution_Params_Max_Order_By = {
-  base_proposer_reward?: Maybe<Order_By>;
-  bonus_proposer_reward?: Maybe<Order_By>;
-  community_tax?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Distribution_Params_Min_Fields = {
   __typename?: 'distribution_params_min_fields';
@@ -3775,15 +4547,7 @@ export type Distribution_Params_Min_Fields = {
   height?: Maybe<Scalars['bigint']>;
 };
 
-/** order by min() on columns of table "distribution_params" */
-export type Distribution_Params_Min_Order_By = {
-  base_proposer_reward?: Maybe<Order_By>;
-  bonus_proposer_reward?: Maybe<Order_By>;
-  community_tax?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
-/** ordering options when selecting data from "distribution_params" */
+/** Ordering options when selecting data from "distribution_params". */
 export type Distribution_Params_Order_By = {
   base_proposer_reward?: Maybe<Order_By>;
   bonus_proposer_reward?: Maybe<Order_By>;
@@ -3791,11 +4555,6 @@ export type Distribution_Params_Order_By = {
   height?: Maybe<Order_By>;
   one_row_id?: Maybe<Order_By>;
   withdraw_address_enabled?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "distribution_params" */
-export type Distribution_Params_Pk_Columns_Input = {
-  one_row_id: Scalars['Boolean'];
 };
 
 /** select columns of table "distribution_params" */
@@ -3823,14 +4582,6 @@ export type Distribution_Params_Stddev_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "distribution_params" */
-export type Distribution_Params_Stddev_Order_By = {
-  base_proposer_reward?: Maybe<Order_By>;
-  bonus_proposer_reward?: Maybe<Order_By>;
-  community_tax?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate stddev_pop on columns */
 export type Distribution_Params_Stddev_Pop_Fields = {
   __typename?: 'distribution_params_stddev_pop_fields';
@@ -3838,14 +4589,6 @@ export type Distribution_Params_Stddev_Pop_Fields = {
   bonus_proposer_reward?: Maybe<Scalars['Float']>;
   community_tax?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "distribution_params" */
-export type Distribution_Params_Stddev_Pop_Order_By = {
-  base_proposer_reward?: Maybe<Order_By>;
-  bonus_proposer_reward?: Maybe<Order_By>;
-  community_tax?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -3857,14 +4600,6 @@ export type Distribution_Params_Stddev_Samp_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "distribution_params" */
-export type Distribution_Params_Stddev_Samp_Order_By = {
-  base_proposer_reward?: Maybe<Order_By>;
-  bonus_proposer_reward?: Maybe<Order_By>;
-  community_tax?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate sum on columns */
 export type Distribution_Params_Sum_Fields = {
   __typename?: 'distribution_params_sum_fields';
@@ -3872,14 +4607,6 @@ export type Distribution_Params_Sum_Fields = {
   bonus_proposer_reward?: Maybe<Scalars['numeric']>;
   community_tax?: Maybe<Scalars['numeric']>;
   height?: Maybe<Scalars['bigint']>;
-};
-
-/** order by sum() on columns of table "distribution_params" */
-export type Distribution_Params_Sum_Order_By = {
-  base_proposer_reward?: Maybe<Order_By>;
-  bonus_proposer_reward?: Maybe<Order_By>;
-  community_tax?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -3891,14 +4618,6 @@ export type Distribution_Params_Var_Pop_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "distribution_params" */
-export type Distribution_Params_Var_Pop_Order_By = {
-  base_proposer_reward?: Maybe<Order_By>;
-  bonus_proposer_reward?: Maybe<Order_By>;
-  community_tax?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate var_samp on columns */
 export type Distribution_Params_Var_Samp_Fields = {
   __typename?: 'distribution_params_var_samp_fields';
@@ -3908,14 +4627,6 @@ export type Distribution_Params_Var_Samp_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "distribution_params" */
-export type Distribution_Params_Var_Samp_Order_By = {
-  base_proposer_reward?: Maybe<Order_By>;
-  bonus_proposer_reward?: Maybe<Order_By>;
-  community_tax?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate variance on columns */
 export type Distribution_Params_Variance_Fields = {
   __typename?: 'distribution_params_variance_fields';
@@ -3923,14 +4634,6 @@ export type Distribution_Params_Variance_Fields = {
   bonus_proposer_reward?: Maybe<Scalars['Float']>;
   community_tax?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-};
-
-/** order by variance() on columns of table "distribution_params" */
-export type Distribution_Params_Variance_Order_By = {
-  base_proposer_reward?: Maybe<Order_By>;
-  bonus_proposer_reward?: Maybe<Order_By>;
-  community_tax?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
 };
 
 /** columns and relationships of "double_sign_evidence" */
@@ -3956,7 +4659,7 @@ export type Double_Sign_Evidence_Aggregate = {
 export type Double_Sign_Evidence_Aggregate_Fields = {
   __typename?: 'double_sign_evidence_aggregate_fields';
   avg?: Maybe<Double_Sign_Evidence_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Double_Sign_Evidence_Max_Fields>;
   min?: Maybe<Double_Sign_Evidence_Min_Fields>;
   stddev?: Maybe<Double_Sign_Evidence_Stddev_Fields>;
@@ -4007,9 +4710,9 @@ export type Double_Sign_Evidence_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "double_sign_evidence". All fields are combined with a logical 'AND'. */
 export type Double_Sign_Evidence_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Double_Sign_Evidence_Bool_Exp>>>;
+  _and?: Maybe<Array<Double_Sign_Evidence_Bool_Exp>>;
   _not?: Maybe<Double_Sign_Evidence_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Double_Sign_Evidence_Bool_Exp>>>;
+  _or?: Maybe<Array<Double_Sign_Evidence_Bool_Exp>>;
   doubleSignVoteByVoteAId?: Maybe<Double_Sign_Vote_Bool_Exp>;
   double_sign_vote?: Maybe<Double_Sign_Vote_Bool_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
@@ -4047,7 +4750,7 @@ export type Double_Sign_Evidence_Min_Order_By = {
   vote_b_id?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "double_sign_evidence" */
+/** Ordering options when selecting data from "double_sign_evidence". */
 export type Double_Sign_Evidence_Order_By = {
   doubleSignVoteByVoteAId?: Maybe<Double_Sign_Vote_Order_By>;
   double_sign_vote?: Maybe<Double_Sign_Vote_Order_By>;
@@ -4177,11 +4880,11 @@ export type Double_Sign_Vote = {
   block_id: Scalars['String'];
   /** An array relationship */
   doubleSignEvidencesByVoteBId: Array<Double_Sign_Evidence>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   doubleSignEvidencesByVoteBId_aggregate: Double_Sign_Evidence_Aggregate;
   /** An array relationship */
   double_sign_evidences: Array<Double_Sign_Evidence>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   double_sign_evidences_aggregate: Double_Sign_Evidence_Aggregate;
   height: Scalars['bigint'];
   id: Scalars['Int'];
@@ -4245,7 +4948,7 @@ export type Double_Sign_Vote_Aggregate = {
 export type Double_Sign_Vote_Aggregate_Fields = {
   __typename?: 'double_sign_vote_aggregate_fields';
   avg?: Maybe<Double_Sign_Vote_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Double_Sign_Vote_Max_Fields>;
   min?: Maybe<Double_Sign_Vote_Min_Fields>;
   stddev?: Maybe<Double_Sign_Vote_Stddev_Fields>;
@@ -4300,9 +5003,9 @@ export type Double_Sign_Vote_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "double_sign_vote". All fields are combined with a logical 'AND'. */
 export type Double_Sign_Vote_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Double_Sign_Vote_Bool_Exp>>>;
+  _and?: Maybe<Array<Double_Sign_Vote_Bool_Exp>>;
   _not?: Maybe<Double_Sign_Vote_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Double_Sign_Vote_Bool_Exp>>>;
+  _or?: Maybe<Array<Double_Sign_Vote_Bool_Exp>>;
   block_id?: Maybe<String_Comparison_Exp>;
   doubleSignEvidencesByVoteBId?: Maybe<Double_Sign_Evidence_Bool_Exp>;
   double_sign_evidences?: Maybe<Double_Sign_Evidence_Bool_Exp>;
@@ -4366,7 +5069,7 @@ export type Double_Sign_Vote_Min_Order_By = {
   validator_index?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "double_sign_vote" */
+/** Ordering options when selecting data from "double_sign_vote". */
 export type Double_Sign_Vote_Order_By = {
   block_id?: Maybe<Order_By>;
   doubleSignEvidencesByVoteBId_aggregate?: Maybe<Double_Sign_Evidence_Aggregate_Order_By>;
@@ -4379,11 +5082,6 @@ export type Double_Sign_Vote_Order_By = {
   validator?: Maybe<Validator_Order_By>;
   validator_address?: Maybe<Order_By>;
   validator_index?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "double_sign_vote" */
-export type Double_Sign_Vote_Pk_Columns_Input = {
-  id: Scalars['Int'];
 };
 
 /** select columns of table "double_sign_vote" */
@@ -4539,10 +5237,217 @@ export type Double_Sign_Vote_Variance_Order_By = {
   validator_index?: Maybe<Order_By>;
 };
 
+/** columns and relationships of "dtag_transfer_requests" */
+export type Dtag_Transfer_Requests = {
+  __typename?: 'dtag_transfer_requests';
+  height: Scalars['bigint'];
+  /** An object relationship */
+  profile: Profile;
+  /** An object relationship */
+  profileBySenderAddress: Profile;
+  receiver_address: Scalars['String'];
+  sender_address: Scalars['String'];
+};
+
+/** aggregated selection of "dtag_transfer_requests" */
+export type Dtag_Transfer_Requests_Aggregate = {
+  __typename?: 'dtag_transfer_requests_aggregate';
+  aggregate?: Maybe<Dtag_Transfer_Requests_Aggregate_Fields>;
+  nodes: Array<Dtag_Transfer_Requests>;
+};
+
+/** aggregate fields of "dtag_transfer_requests" */
+export type Dtag_Transfer_Requests_Aggregate_Fields = {
+  __typename?: 'dtag_transfer_requests_aggregate_fields';
+  avg?: Maybe<Dtag_Transfer_Requests_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Dtag_Transfer_Requests_Max_Fields>;
+  min?: Maybe<Dtag_Transfer_Requests_Min_Fields>;
+  stddev?: Maybe<Dtag_Transfer_Requests_Stddev_Fields>;
+  stddev_pop?: Maybe<Dtag_Transfer_Requests_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Dtag_Transfer_Requests_Stddev_Samp_Fields>;
+  sum?: Maybe<Dtag_Transfer_Requests_Sum_Fields>;
+  var_pop?: Maybe<Dtag_Transfer_Requests_Var_Pop_Fields>;
+  var_samp?: Maybe<Dtag_Transfer_Requests_Var_Samp_Fields>;
+  variance?: Maybe<Dtag_Transfer_Requests_Variance_Fields>;
+};
+
+
+/** aggregate fields of "dtag_transfer_requests" */
+export type Dtag_Transfer_Requests_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "dtag_transfer_requests" */
+export type Dtag_Transfer_Requests_Aggregate_Order_By = {
+  avg?: Maybe<Dtag_Transfer_Requests_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Dtag_Transfer_Requests_Max_Order_By>;
+  min?: Maybe<Dtag_Transfer_Requests_Min_Order_By>;
+  stddev?: Maybe<Dtag_Transfer_Requests_Stddev_Order_By>;
+  stddev_pop?: Maybe<Dtag_Transfer_Requests_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Dtag_Transfer_Requests_Stddev_Samp_Order_By>;
+  sum?: Maybe<Dtag_Transfer_Requests_Sum_Order_By>;
+  var_pop?: Maybe<Dtag_Transfer_Requests_Var_Pop_Order_By>;
+  var_samp?: Maybe<Dtag_Transfer_Requests_Var_Samp_Order_By>;
+  variance?: Maybe<Dtag_Transfer_Requests_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Dtag_Transfer_Requests_Avg_Fields = {
+  __typename?: 'dtag_transfer_requests_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "dtag_transfer_requests" */
+export type Dtag_Transfer_Requests_Avg_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "dtag_transfer_requests". All fields are combined with a logical 'AND'. */
+export type Dtag_Transfer_Requests_Bool_Exp = {
+  _and?: Maybe<Array<Dtag_Transfer_Requests_Bool_Exp>>;
+  _not?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
+  _or?: Maybe<Array<Dtag_Transfer_Requests_Bool_Exp>>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  profile?: Maybe<Profile_Bool_Exp>;
+  profileBySenderAddress?: Maybe<Profile_Bool_Exp>;
+  receiver_address?: Maybe<String_Comparison_Exp>;
+  sender_address?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Dtag_Transfer_Requests_Max_Fields = {
+  __typename?: 'dtag_transfer_requests_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+  receiver_address?: Maybe<Scalars['String']>;
+  sender_address?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "dtag_transfer_requests" */
+export type Dtag_Transfer_Requests_Max_Order_By = {
+  height?: Maybe<Order_By>;
+  receiver_address?: Maybe<Order_By>;
+  sender_address?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Dtag_Transfer_Requests_Min_Fields = {
+  __typename?: 'dtag_transfer_requests_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+  receiver_address?: Maybe<Scalars['String']>;
+  sender_address?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "dtag_transfer_requests" */
+export type Dtag_Transfer_Requests_Min_Order_By = {
+  height?: Maybe<Order_By>;
+  receiver_address?: Maybe<Order_By>;
+  sender_address?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "dtag_transfer_requests". */
+export type Dtag_Transfer_Requests_Order_By = {
+  height?: Maybe<Order_By>;
+  profile?: Maybe<Profile_Order_By>;
+  profileBySenderAddress?: Maybe<Profile_Order_By>;
+  receiver_address?: Maybe<Order_By>;
+  sender_address?: Maybe<Order_By>;
+};
+
+/** select columns of table "dtag_transfer_requests" */
+export enum Dtag_Transfer_Requests_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  ReceiverAddress = 'receiver_address',
+  /** column name */
+  SenderAddress = 'sender_address'
+}
+
+/** aggregate stddev on columns */
+export type Dtag_Transfer_Requests_Stddev_Fields = {
+  __typename?: 'dtag_transfer_requests_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "dtag_transfer_requests" */
+export type Dtag_Transfer_Requests_Stddev_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Dtag_Transfer_Requests_Stddev_Pop_Fields = {
+  __typename?: 'dtag_transfer_requests_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "dtag_transfer_requests" */
+export type Dtag_Transfer_Requests_Stddev_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Dtag_Transfer_Requests_Stddev_Samp_Fields = {
+  __typename?: 'dtag_transfer_requests_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "dtag_transfer_requests" */
+export type Dtag_Transfer_Requests_Stddev_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Dtag_Transfer_Requests_Sum_Fields = {
+  __typename?: 'dtag_transfer_requests_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** order by sum() on columns of table "dtag_transfer_requests" */
+export type Dtag_Transfer_Requests_Sum_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Dtag_Transfer_Requests_Var_Pop_Fields = {
+  __typename?: 'dtag_transfer_requests_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "dtag_transfer_requests" */
+export type Dtag_Transfer_Requests_Var_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Dtag_Transfer_Requests_Var_Samp_Fields = {
+  __typename?: 'dtag_transfer_requests_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "dtag_transfer_requests" */
+export type Dtag_Transfer_Requests_Var_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Dtag_Transfer_Requests_Variance_Fields = {
+  __typename?: 'dtag_transfer_requests_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "dtag_transfer_requests" */
+export type Dtag_Transfer_Requests_Variance_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
 /** columns and relationships of "genesis" */
 export type Genesis = {
   __typename?: 'genesis';
   chain_id: Scalars['String'];
+  initial_height: Scalars['bigint'];
   time: Scalars['timestamp'];
 };
 
@@ -4556,9 +5461,17 @@ export type Genesis_Aggregate = {
 /** aggregate fields of "genesis" */
 export type Genesis_Aggregate_Fields = {
   __typename?: 'genesis_aggregate_fields';
-  count?: Maybe<Scalars['Int']>;
+  avg?: Maybe<Genesis_Avg_Fields>;
+  count: Scalars['Int'];
   max?: Maybe<Genesis_Max_Fields>;
   min?: Maybe<Genesis_Min_Fields>;
+  stddev?: Maybe<Genesis_Stddev_Fields>;
+  stddev_pop?: Maybe<Genesis_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Genesis_Stddev_Samp_Fields>;
+  sum?: Maybe<Genesis_Sum_Fields>;
+  var_pop?: Maybe<Genesis_Var_Pop_Fields>;
+  var_samp?: Maybe<Genesis_Var_Samp_Fields>;
+  variance?: Maybe<Genesis_Variance_Fields>;
 };
 
 
@@ -4568,19 +5481,19 @@ export type Genesis_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "genesis" */
-export type Genesis_Aggregate_Order_By = {
-  count?: Maybe<Order_By>;
-  max?: Maybe<Genesis_Max_Order_By>;
-  min?: Maybe<Genesis_Min_Order_By>;
+/** aggregate avg on columns */
+export type Genesis_Avg_Fields = {
+  __typename?: 'genesis_avg_fields';
+  initial_height?: Maybe<Scalars['Float']>;
 };
 
 /** Boolean expression to filter rows from the table "genesis". All fields are combined with a logical 'AND'. */
 export type Genesis_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Genesis_Bool_Exp>>>;
+  _and?: Maybe<Array<Genesis_Bool_Exp>>;
   _not?: Maybe<Genesis_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Genesis_Bool_Exp>>>;
+  _or?: Maybe<Array<Genesis_Bool_Exp>>;
   chain_id?: Maybe<String_Comparison_Exp>;
+  initial_height?: Maybe<Bigint_Comparison_Exp>;
   time?: Maybe<Timestamp_Comparison_Exp>;
 };
 
@@ -4588,37 +5501,23 @@ export type Genesis_Bool_Exp = {
 export type Genesis_Max_Fields = {
   __typename?: 'genesis_max_fields';
   chain_id?: Maybe<Scalars['String']>;
+  initial_height?: Maybe<Scalars['bigint']>;
   time?: Maybe<Scalars['timestamp']>;
-};
-
-/** order by max() on columns of table "genesis" */
-export type Genesis_Max_Order_By = {
-  chain_id?: Maybe<Order_By>;
-  time?: Maybe<Order_By>;
 };
 
 /** aggregate min on columns */
 export type Genesis_Min_Fields = {
   __typename?: 'genesis_min_fields';
   chain_id?: Maybe<Scalars['String']>;
+  initial_height?: Maybe<Scalars['bigint']>;
   time?: Maybe<Scalars['timestamp']>;
 };
 
-/** order by min() on columns of table "genesis" */
-export type Genesis_Min_Order_By = {
-  chain_id?: Maybe<Order_By>;
-  time?: Maybe<Order_By>;
-};
-
-/** ordering options when selecting data from "genesis" */
+/** Ordering options when selecting data from "genesis". */
 export type Genesis_Order_By = {
   chain_id?: Maybe<Order_By>;
+  initial_height?: Maybe<Order_By>;
   time?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "genesis" */
-export type Genesis_Pk_Columns_Input = {
-  one_row_id: Scalars['Boolean'];
 };
 
 /** select columns of table "genesis" */
@@ -4626,8 +5525,52 @@ export enum Genesis_Select_Column {
   /** column name */
   ChainId = 'chain_id',
   /** column name */
+  InitialHeight = 'initial_height',
+  /** column name */
   Time = 'time'
 }
+
+/** aggregate stddev on columns */
+export type Genesis_Stddev_Fields = {
+  __typename?: 'genesis_stddev_fields';
+  initial_height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Genesis_Stddev_Pop_Fields = {
+  __typename?: 'genesis_stddev_pop_fields';
+  initial_height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Genesis_Stddev_Samp_Fields = {
+  __typename?: 'genesis_stddev_samp_fields';
+  initial_height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Genesis_Sum_Fields = {
+  __typename?: 'genesis_sum_fields';
+  initial_height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Genesis_Var_Pop_Fields = {
+  __typename?: 'genesis_var_pop_fields';
+  initial_height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Genesis_Var_Samp_Fields = {
+  __typename?: 'genesis_var_samp_fields';
+  initial_height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Genesis_Variance_Fields = {
+  __typename?: 'genesis_variance_fields';
+  initial_height?: Maybe<Scalars['Float']>;
+};
 
 /** columns and relationships of "gov_params" */
 export type Gov_Params = {
@@ -4668,7 +5611,7 @@ export type Gov_Params_Aggregate = {
 export type Gov_Params_Aggregate_Fields = {
   __typename?: 'gov_params_aggregate_fields';
   avg?: Maybe<Gov_Params_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Gov_Params_Max_Fields>;
   min?: Maybe<Gov_Params_Min_Fields>;
   stddev?: Maybe<Gov_Params_Stddev_Fields>;
@@ -4687,37 +5630,17 @@ export type Gov_Params_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "gov_params" */
-export type Gov_Params_Aggregate_Order_By = {
-  avg?: Maybe<Gov_Params_Avg_Order_By>;
-  count?: Maybe<Order_By>;
-  max?: Maybe<Gov_Params_Max_Order_By>;
-  min?: Maybe<Gov_Params_Min_Order_By>;
-  stddev?: Maybe<Gov_Params_Stddev_Order_By>;
-  stddev_pop?: Maybe<Gov_Params_Stddev_Pop_Order_By>;
-  stddev_samp?: Maybe<Gov_Params_Stddev_Samp_Order_By>;
-  sum?: Maybe<Gov_Params_Sum_Order_By>;
-  var_pop?: Maybe<Gov_Params_Var_Pop_Order_By>;
-  var_samp?: Maybe<Gov_Params_Var_Samp_Order_By>;
-  variance?: Maybe<Gov_Params_Variance_Order_By>;
-};
-
 /** aggregate avg on columns */
 export type Gov_Params_Avg_Fields = {
   __typename?: 'gov_params_avg_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "gov_params" */
-export type Gov_Params_Avg_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "gov_params". All fields are combined with a logical 'AND'. */
 export type Gov_Params_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Gov_Params_Bool_Exp>>>;
+  _and?: Maybe<Array<Gov_Params_Bool_Exp>>;
   _not?: Maybe<Gov_Params_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Gov_Params_Bool_Exp>>>;
+  _or?: Maybe<Array<Gov_Params_Bool_Exp>>;
   deposit_params?: Maybe<Jsonb_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
   one_row_id?: Maybe<Boolean_Comparison_Exp>;
@@ -4731,34 +5654,19 @@ export type Gov_Params_Max_Fields = {
   height?: Maybe<Scalars['bigint']>;
 };
 
-/** order by max() on columns of table "gov_params" */
-export type Gov_Params_Max_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Gov_Params_Min_Fields = {
   __typename?: 'gov_params_min_fields';
   height?: Maybe<Scalars['bigint']>;
 };
 
-/** order by min() on columns of table "gov_params" */
-export type Gov_Params_Min_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
-/** ordering options when selecting data from "gov_params" */
+/** Ordering options when selecting data from "gov_params". */
 export type Gov_Params_Order_By = {
   deposit_params?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
   one_row_id?: Maybe<Order_By>;
   tally_params?: Maybe<Order_By>;
   voting_params?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "gov_params" */
-export type Gov_Params_Pk_Columns_Input = {
-  one_row_id: Scalars['Boolean'];
 };
 
 /** select columns of table "gov_params" */
@@ -4781,20 +5689,10 @@ export type Gov_Params_Stddev_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "gov_params" */
-export type Gov_Params_Stddev_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate stddev_pop on columns */
 export type Gov_Params_Stddev_Pop_Fields = {
   __typename?: 'gov_params_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "gov_params" */
-export type Gov_Params_Stddev_Pop_Order_By = {
-  height?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -4803,20 +5701,10 @@ export type Gov_Params_Stddev_Samp_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "gov_params" */
-export type Gov_Params_Stddev_Samp_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate sum on columns */
 export type Gov_Params_Sum_Fields = {
   __typename?: 'gov_params_sum_fields';
   height?: Maybe<Scalars['bigint']>;
-};
-
-/** order by sum() on columns of table "gov_params" */
-export type Gov_Params_Sum_Order_By = {
-  height?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -4825,31 +5713,16 @@ export type Gov_Params_Var_Pop_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "gov_params" */
-export type Gov_Params_Var_Pop_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate var_samp on columns */
 export type Gov_Params_Var_Samp_Fields = {
   __typename?: 'gov_params_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "gov_params" */
-export type Gov_Params_Var_Samp_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate variance on columns */
 export type Gov_Params_Variance_Fields = {
   __typename?: 'gov_params_variance_fields';
   height?: Maybe<Scalars['Float']>;
-};
-
-/** order by variance() on columns of table "gov_params" */
-export type Gov_Params_Variance_Order_By = {
-  height?: Maybe<Order_By>;
 };
 
 /** columns and relationships of "inflation" */
@@ -4870,7 +5743,7 @@ export type Inflation_Aggregate = {
 export type Inflation_Aggregate_Fields = {
   __typename?: 'inflation_aggregate_fields';
   avg?: Maybe<Inflation_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Inflation_Max_Fields>;
   min?: Maybe<Inflation_Min_Fields>;
   stddev?: Maybe<Inflation_Stddev_Fields>;
@@ -4889,21 +5762,6 @@ export type Inflation_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "inflation" */
-export type Inflation_Aggregate_Order_By = {
-  avg?: Maybe<Inflation_Avg_Order_By>;
-  count?: Maybe<Order_By>;
-  max?: Maybe<Inflation_Max_Order_By>;
-  min?: Maybe<Inflation_Min_Order_By>;
-  stddev?: Maybe<Inflation_Stddev_Order_By>;
-  stddev_pop?: Maybe<Inflation_Stddev_Pop_Order_By>;
-  stddev_samp?: Maybe<Inflation_Stddev_Samp_Order_By>;
-  sum?: Maybe<Inflation_Sum_Order_By>;
-  var_pop?: Maybe<Inflation_Var_Pop_Order_By>;
-  var_samp?: Maybe<Inflation_Var_Samp_Order_By>;
-  variance?: Maybe<Inflation_Variance_Order_By>;
-};
-
 /** aggregate avg on columns */
 export type Inflation_Avg_Fields = {
   __typename?: 'inflation_avg_fields';
@@ -4911,17 +5769,11 @@ export type Inflation_Avg_Fields = {
   value?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "inflation" */
-export type Inflation_Avg_Order_By = {
-  height?: Maybe<Order_By>;
-  value?: Maybe<Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "inflation". All fields are combined with a logical 'AND'. */
 export type Inflation_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Inflation_Bool_Exp>>>;
+  _and?: Maybe<Array<Inflation_Bool_Exp>>;
   _not?: Maybe<Inflation_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Inflation_Bool_Exp>>>;
+  _or?: Maybe<Array<Inflation_Bool_Exp>>;
   height?: Maybe<Bigint_Comparison_Exp>;
   value?: Maybe<Numeric_Comparison_Exp>;
 };
@@ -4933,12 +5785,6 @@ export type Inflation_Max_Fields = {
   value?: Maybe<Scalars['numeric']>;
 };
 
-/** order by max() on columns of table "inflation" */
-export type Inflation_Max_Order_By = {
-  height?: Maybe<Order_By>;
-  value?: Maybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Inflation_Min_Fields = {
   __typename?: 'inflation_min_fields';
@@ -4946,21 +5792,10 @@ export type Inflation_Min_Fields = {
   value?: Maybe<Scalars['numeric']>;
 };
 
-/** order by min() on columns of table "inflation" */
-export type Inflation_Min_Order_By = {
-  height?: Maybe<Order_By>;
-  value?: Maybe<Order_By>;
-};
-
-/** ordering options when selecting data from "inflation" */
+/** Ordering options when selecting data from "inflation". */
 export type Inflation_Order_By = {
   height?: Maybe<Order_By>;
   value?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "inflation" */
-export type Inflation_Pk_Columns_Input = {
-  one_row_id: Scalars['Boolean'];
 };
 
 /** select columns of table "inflation" */
@@ -4978,23 +5813,11 @@ export type Inflation_Stddev_Fields = {
   value?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "inflation" */
-export type Inflation_Stddev_Order_By = {
-  height?: Maybe<Order_By>;
-  value?: Maybe<Order_By>;
-};
-
 /** aggregate stddev_pop on columns */
 export type Inflation_Stddev_Pop_Fields = {
   __typename?: 'inflation_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
   value?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "inflation" */
-export type Inflation_Stddev_Pop_Order_By = {
-  height?: Maybe<Order_By>;
-  value?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -5004,23 +5827,11 @@ export type Inflation_Stddev_Samp_Fields = {
   value?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "inflation" */
-export type Inflation_Stddev_Samp_Order_By = {
-  height?: Maybe<Order_By>;
-  value?: Maybe<Order_By>;
-};
-
 /** aggregate sum on columns */
 export type Inflation_Sum_Fields = {
   __typename?: 'inflation_sum_fields';
   height?: Maybe<Scalars['bigint']>;
   value?: Maybe<Scalars['numeric']>;
-};
-
-/** order by sum() on columns of table "inflation" */
-export type Inflation_Sum_Order_By = {
-  height?: Maybe<Order_By>;
-  value?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -5030,23 +5841,11 @@ export type Inflation_Var_Pop_Fields = {
   value?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "inflation" */
-export type Inflation_Var_Pop_Order_By = {
-  height?: Maybe<Order_By>;
-  value?: Maybe<Order_By>;
-};
-
 /** aggregate var_samp on columns */
 export type Inflation_Var_Samp_Fields = {
   __typename?: 'inflation_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
   value?: Maybe<Scalars['Float']>;
-};
-
-/** order by var_samp() on columns of table "inflation" */
-export type Inflation_Var_Samp_Order_By = {
-  height?: Maybe<Order_By>;
-  value?: Maybe<Order_By>;
 };
 
 /** aggregate variance on columns */
@@ -5056,14 +5855,8 @@ export type Inflation_Variance_Fields = {
   value?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "inflation" */
-export type Inflation_Variance_Order_By = {
-  height?: Maybe<Order_By>;
-  value?: Maybe<Order_By>;
-};
 
-
-/** expression to compare columns of type jsonb. All fields are combined with logical 'AND'. */
+/** Boolean expression to compare columns of type "jsonb". All fields are combined with logical 'AND'. */
 export type Jsonb_Comparison_Exp = {
   /** is the column contained in the given json value */
   _contained_in?: Maybe<Scalars['jsonb']>;
@@ -5115,7 +5908,7 @@ export type Message_Aggregate = {
 export type Message_Aggregate_Fields = {
   __typename?: 'message_aggregate_fields';
   avg?: Maybe<Message_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Message_Max_Fields>;
   min?: Maybe<Message_Min_Fields>;
   stddev?: Maybe<Message_Stddev_Fields>;
@@ -5162,9 +5955,9 @@ export type Message_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "message". All fields are combined with a logical 'AND'. */
 export type Message_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Message_Bool_Exp>>>;
+  _and?: Maybe<Array<Message_Bool_Exp>>;
   _not?: Maybe<Message_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Message_Bool_Exp>>>;
+  _or?: Maybe<Array<Message_Bool_Exp>>;
   index?: Maybe<Bigint_Comparison_Exp>;
   involved_accounts_addresses?: Maybe<_Text_Comparison_Exp>;
   transaction?: Maybe<Transaction_Bool_Exp>;
@@ -5203,7 +5996,7 @@ export type Message_Min_Order_By = {
   type?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "message" */
+/** Ordering options when selecting data from "message". */
 export type Message_Order_By = {
   index?: Maybe<Order_By>;
   involved_accounts_addresses?: Maybe<Order_By>;
@@ -5335,7 +6128,7 @@ export type Mint_Params_Aggregate = {
 export type Mint_Params_Aggregate_Fields = {
   __typename?: 'mint_params_aggregate_fields';
   avg?: Maybe<Mint_Params_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Mint_Params_Max_Fields>;
   min?: Maybe<Mint_Params_Min_Fields>;
   stddev?: Maybe<Mint_Params_Stddev_Fields>;
@@ -5354,21 +6147,6 @@ export type Mint_Params_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "mint_params" */
-export type Mint_Params_Aggregate_Order_By = {
-  avg?: Maybe<Mint_Params_Avg_Order_By>;
-  count?: Maybe<Order_By>;
-  max?: Maybe<Mint_Params_Max_Order_By>;
-  min?: Maybe<Mint_Params_Min_Order_By>;
-  stddev?: Maybe<Mint_Params_Stddev_Order_By>;
-  stddev_pop?: Maybe<Mint_Params_Stddev_Pop_Order_By>;
-  stddev_samp?: Maybe<Mint_Params_Stddev_Samp_Order_By>;
-  sum?: Maybe<Mint_Params_Sum_Order_By>;
-  var_pop?: Maybe<Mint_Params_Var_Pop_Order_By>;
-  var_samp?: Maybe<Mint_Params_Var_Samp_Order_By>;
-  variance?: Maybe<Mint_Params_Variance_Order_By>;
-};
-
 /** aggregate avg on columns */
 export type Mint_Params_Avg_Fields = {
   __typename?: 'mint_params_avg_fields';
@@ -5380,21 +6158,11 @@ export type Mint_Params_Avg_Fields = {
   inflation_rate_change?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "mint_params" */
-export type Mint_Params_Avg_Order_By = {
-  blocks_per_year?: Maybe<Order_By>;
-  goal_bonded?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  inflation_max?: Maybe<Order_By>;
-  inflation_min?: Maybe<Order_By>;
-  inflation_rate_change?: Maybe<Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "mint_params". All fields are combined with a logical 'AND'. */
 export type Mint_Params_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Mint_Params_Bool_Exp>>>;
+  _and?: Maybe<Array<Mint_Params_Bool_Exp>>;
   _not?: Maybe<Mint_Params_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Mint_Params_Bool_Exp>>>;
+  _or?: Maybe<Array<Mint_Params_Bool_Exp>>;
   blocks_per_year?: Maybe<Bigint_Comparison_Exp>;
   goal_bonded?: Maybe<Numeric_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
@@ -5417,17 +6185,6 @@ export type Mint_Params_Max_Fields = {
   mint_denom?: Maybe<Scalars['String']>;
 };
 
-/** order by max() on columns of table "mint_params" */
-export type Mint_Params_Max_Order_By = {
-  blocks_per_year?: Maybe<Order_By>;
-  goal_bonded?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  inflation_max?: Maybe<Order_By>;
-  inflation_min?: Maybe<Order_By>;
-  inflation_rate_change?: Maybe<Order_By>;
-  mint_denom?: Maybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Mint_Params_Min_Fields = {
   __typename?: 'mint_params_min_fields';
@@ -5440,18 +6197,7 @@ export type Mint_Params_Min_Fields = {
   mint_denom?: Maybe<Scalars['String']>;
 };
 
-/** order by min() on columns of table "mint_params" */
-export type Mint_Params_Min_Order_By = {
-  blocks_per_year?: Maybe<Order_By>;
-  goal_bonded?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  inflation_max?: Maybe<Order_By>;
-  inflation_min?: Maybe<Order_By>;
-  inflation_rate_change?: Maybe<Order_By>;
-  mint_denom?: Maybe<Order_By>;
-};
-
-/** ordering options when selecting data from "mint_params" */
+/** Ordering options when selecting data from "mint_params". */
 export type Mint_Params_Order_By = {
   blocks_per_year?: Maybe<Order_By>;
   goal_bonded?: Maybe<Order_By>;
@@ -5461,11 +6207,6 @@ export type Mint_Params_Order_By = {
   inflation_rate_change?: Maybe<Order_By>;
   mint_denom?: Maybe<Order_By>;
   one_row_id?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "mint_params" */
-export type Mint_Params_Pk_Columns_Input = {
-  one_row_id: Scalars['Boolean'];
 };
 
 /** select columns of table "mint_params" */
@@ -5499,16 +6240,6 @@ export type Mint_Params_Stddev_Fields = {
   inflation_rate_change?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "mint_params" */
-export type Mint_Params_Stddev_Order_By = {
-  blocks_per_year?: Maybe<Order_By>;
-  goal_bonded?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  inflation_max?: Maybe<Order_By>;
-  inflation_min?: Maybe<Order_By>;
-  inflation_rate_change?: Maybe<Order_By>;
-};
-
 /** aggregate stddev_pop on columns */
 export type Mint_Params_Stddev_Pop_Fields = {
   __typename?: 'mint_params_stddev_pop_fields';
@@ -5518,16 +6249,6 @@ export type Mint_Params_Stddev_Pop_Fields = {
   inflation_max?: Maybe<Scalars['Float']>;
   inflation_min?: Maybe<Scalars['Float']>;
   inflation_rate_change?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "mint_params" */
-export type Mint_Params_Stddev_Pop_Order_By = {
-  blocks_per_year?: Maybe<Order_By>;
-  goal_bonded?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  inflation_max?: Maybe<Order_By>;
-  inflation_min?: Maybe<Order_By>;
-  inflation_rate_change?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -5541,16 +6262,6 @@ export type Mint_Params_Stddev_Samp_Fields = {
   inflation_rate_change?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "mint_params" */
-export type Mint_Params_Stddev_Samp_Order_By = {
-  blocks_per_year?: Maybe<Order_By>;
-  goal_bonded?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  inflation_max?: Maybe<Order_By>;
-  inflation_min?: Maybe<Order_By>;
-  inflation_rate_change?: Maybe<Order_By>;
-};
-
 /** aggregate sum on columns */
 export type Mint_Params_Sum_Fields = {
   __typename?: 'mint_params_sum_fields';
@@ -5560,16 +6271,6 @@ export type Mint_Params_Sum_Fields = {
   inflation_max?: Maybe<Scalars['numeric']>;
   inflation_min?: Maybe<Scalars['numeric']>;
   inflation_rate_change?: Maybe<Scalars['numeric']>;
-};
-
-/** order by sum() on columns of table "mint_params" */
-export type Mint_Params_Sum_Order_By = {
-  blocks_per_year?: Maybe<Order_By>;
-  goal_bonded?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  inflation_max?: Maybe<Order_By>;
-  inflation_min?: Maybe<Order_By>;
-  inflation_rate_change?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -5583,16 +6284,6 @@ export type Mint_Params_Var_Pop_Fields = {
   inflation_rate_change?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "mint_params" */
-export type Mint_Params_Var_Pop_Order_By = {
-  blocks_per_year?: Maybe<Order_By>;
-  goal_bonded?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  inflation_max?: Maybe<Order_By>;
-  inflation_min?: Maybe<Order_By>;
-  inflation_rate_change?: Maybe<Order_By>;
-};
-
 /** aggregate var_samp on columns */
 export type Mint_Params_Var_Samp_Fields = {
   __typename?: 'mint_params_var_samp_fields';
@@ -5604,16 +6295,6 @@ export type Mint_Params_Var_Samp_Fields = {
   inflation_rate_change?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "mint_params" */
-export type Mint_Params_Var_Samp_Order_By = {
-  blocks_per_year?: Maybe<Order_By>;
-  goal_bonded?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  inflation_max?: Maybe<Order_By>;
-  inflation_min?: Maybe<Order_By>;
-  inflation_rate_change?: Maybe<Order_By>;
-};
-
 /** aggregate variance on columns */
 export type Mint_Params_Variance_Fields = {
   __typename?: 'mint_params_variance_fields';
@@ -5623,16 +6304,6 @@ export type Mint_Params_Variance_Fields = {
   inflation_max?: Maybe<Scalars['Float']>;
   inflation_min?: Maybe<Scalars['Float']>;
   inflation_rate_change?: Maybe<Scalars['Float']>;
-};
-
-/** order by variance() on columns of table "mint_params" */
-export type Mint_Params_Variance_Order_By = {
-  blocks_per_year?: Maybe<Order_By>;
-  goal_bonded?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  inflation_max?: Maybe<Order_By>;
-  inflation_min?: Maybe<Order_By>;
-  inflation_rate_change?: Maybe<Order_By>;
 };
 
 /** columns and relationships of "modules" */
@@ -5651,7 +6322,7 @@ export type Modules_Aggregate = {
 /** aggregate fields of "modules" */
 export type Modules_Aggregate_Fields = {
   __typename?: 'modules_aggregate_fields';
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Modules_Max_Fields>;
   min?: Maybe<Modules_Min_Fields>;
 };
@@ -5663,18 +6334,11 @@ export type Modules_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "modules" */
-export type Modules_Aggregate_Order_By = {
-  count?: Maybe<Order_By>;
-  max?: Maybe<Modules_Max_Order_By>;
-  min?: Maybe<Modules_Min_Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "modules". All fields are combined with a logical 'AND'. */
 export type Modules_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Modules_Bool_Exp>>>;
+  _and?: Maybe<Array<Modules_Bool_Exp>>;
   _not?: Maybe<Modules_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Modules_Bool_Exp>>>;
+  _or?: Maybe<Array<Modules_Bool_Exp>>;
   module_name?: Maybe<String_Comparison_Exp>;
 };
 
@@ -5684,30 +6348,15 @@ export type Modules_Max_Fields = {
   module_name?: Maybe<Scalars['String']>;
 };
 
-/** order by max() on columns of table "modules" */
-export type Modules_Max_Order_By = {
-  module_name?: Maybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Modules_Min_Fields = {
   __typename?: 'modules_min_fields';
   module_name?: Maybe<Scalars['String']>;
 };
 
-/** order by min() on columns of table "modules" */
-export type Modules_Min_Order_By = {
-  module_name?: Maybe<Order_By>;
-};
-
-/** ordering options when selecting data from "modules" */
+/** Ordering options when selecting data from "modules". */
 export type Modules_Order_By = {
   module_name?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "modules" */
-export type Modules_Pk_Columns_Input = {
-  module_name: Scalars['String'];
 };
 
 /** select columns of table "modules" */
@@ -5717,7 +6366,7 @@ export enum Modules_Select_Column {
 }
 
 
-/** expression to compare columns of type numeric. All fields are combined with logical 'AND'. */
+/** Boolean expression to compare columns of type "numeric". All fields are combined with logical 'AND'. */
 export type Numeric_Comparison_Exp = {
   _eq?: Maybe<Scalars['numeric']>;
   _gt?: Maybe<Scalars['numeric']>;
@@ -5732,19 +6381,1827 @@ export type Numeric_Comparison_Exp = {
 
 /** column ordering options */
 export enum Order_By {
-  /** in the ascending order, nulls last */
+  /** in ascending order, nulls last */
   Asc = 'asc',
-  /** in the ascending order, nulls first */
+  /** in ascending order, nulls first */
   AscNullsFirst = 'asc_nulls_first',
-  /** in the ascending order, nulls last */
+  /** in ascending order, nulls last */
   AscNullsLast = 'asc_nulls_last',
-  /** in the descending order, nulls first */
+  /** in descending order, nulls first */
   Desc = 'desc',
-  /** in the descending order, nulls first */
+  /** in descending order, nulls first */
   DescNullsFirst = 'desc_nulls_first',
-  /** in the descending order, nulls last */
+  /** in descending order, nulls last */
   DescNullsLast = 'desc_nulls_last'
 }
+
+/** columns and relationships of "poll" */
+export type Poll = {
+  __typename?: 'poll';
+  allows_answer_edits: Scalars['Boolean'];
+  allows_multiple_answers: Scalars['Boolean'];
+  end_date: Scalars['timestamp'];
+  id: Scalars['Int'];
+  /** An array relationship */
+  poll_answers: Array<Poll_Answer>;
+  /** An aggregate relationship */
+  poll_answers_aggregate: Poll_Answer_Aggregate;
+  /** An object relationship */
+  post: Post;
+  post_id: Scalars['String'];
+  question: Scalars['String'];
+  /** An array relationship */
+  user_poll_answers: Array<User_Poll_Answer>;
+  /** An aggregate relationship */
+  user_poll_answers_aggregate: User_Poll_Answer_Aggregate;
+};
+
+
+/** columns and relationships of "poll" */
+export type PollPoll_AnswersArgs = {
+  distinct_on?: Maybe<Array<Poll_Answer_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Poll_Answer_Order_By>>;
+  where?: Maybe<Poll_Answer_Bool_Exp>;
+};
+
+
+/** columns and relationships of "poll" */
+export type PollPoll_Answers_AggregateArgs = {
+  distinct_on?: Maybe<Array<Poll_Answer_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Poll_Answer_Order_By>>;
+  where?: Maybe<Poll_Answer_Bool_Exp>;
+};
+
+
+/** columns and relationships of "poll" */
+export type PollUser_Poll_AnswersArgs = {
+  distinct_on?: Maybe<Array<User_Poll_Answer_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<User_Poll_Answer_Order_By>>;
+  where?: Maybe<User_Poll_Answer_Bool_Exp>;
+};
+
+
+/** columns and relationships of "poll" */
+export type PollUser_Poll_Answers_AggregateArgs = {
+  distinct_on?: Maybe<Array<User_Poll_Answer_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<User_Poll_Answer_Order_By>>;
+  where?: Maybe<User_Poll_Answer_Bool_Exp>;
+};
+
+/** aggregated selection of "poll" */
+export type Poll_Aggregate = {
+  __typename?: 'poll_aggregate';
+  aggregate?: Maybe<Poll_Aggregate_Fields>;
+  nodes: Array<Poll>;
+};
+
+/** aggregate fields of "poll" */
+export type Poll_Aggregate_Fields = {
+  __typename?: 'poll_aggregate_fields';
+  avg?: Maybe<Poll_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Poll_Max_Fields>;
+  min?: Maybe<Poll_Min_Fields>;
+  stddev?: Maybe<Poll_Stddev_Fields>;
+  stddev_pop?: Maybe<Poll_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Poll_Stddev_Samp_Fields>;
+  sum?: Maybe<Poll_Sum_Fields>;
+  var_pop?: Maybe<Poll_Var_Pop_Fields>;
+  var_samp?: Maybe<Poll_Var_Samp_Fields>;
+  variance?: Maybe<Poll_Variance_Fields>;
+};
+
+
+/** aggregate fields of "poll" */
+export type Poll_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Poll_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** columns and relationships of "poll_answer" */
+export type Poll_Answer = {
+  __typename?: 'poll_answer';
+  answer_id: Scalars['String'];
+  answer_text: Scalars['String'];
+  /** An object relationship */
+  poll: Poll;
+  poll_id: Scalars['Int'];
+};
+
+/** aggregated selection of "poll_answer" */
+export type Poll_Answer_Aggregate = {
+  __typename?: 'poll_answer_aggregate';
+  aggregate?: Maybe<Poll_Answer_Aggregate_Fields>;
+  nodes: Array<Poll_Answer>;
+};
+
+/** aggregate fields of "poll_answer" */
+export type Poll_Answer_Aggregate_Fields = {
+  __typename?: 'poll_answer_aggregate_fields';
+  avg?: Maybe<Poll_Answer_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Poll_Answer_Max_Fields>;
+  min?: Maybe<Poll_Answer_Min_Fields>;
+  stddev?: Maybe<Poll_Answer_Stddev_Fields>;
+  stddev_pop?: Maybe<Poll_Answer_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Poll_Answer_Stddev_Samp_Fields>;
+  sum?: Maybe<Poll_Answer_Sum_Fields>;
+  var_pop?: Maybe<Poll_Answer_Var_Pop_Fields>;
+  var_samp?: Maybe<Poll_Answer_Var_Samp_Fields>;
+  variance?: Maybe<Poll_Answer_Variance_Fields>;
+};
+
+
+/** aggregate fields of "poll_answer" */
+export type Poll_Answer_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Poll_Answer_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "poll_answer" */
+export type Poll_Answer_Aggregate_Order_By = {
+  avg?: Maybe<Poll_Answer_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Poll_Answer_Max_Order_By>;
+  min?: Maybe<Poll_Answer_Min_Order_By>;
+  stddev?: Maybe<Poll_Answer_Stddev_Order_By>;
+  stddev_pop?: Maybe<Poll_Answer_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Poll_Answer_Stddev_Samp_Order_By>;
+  sum?: Maybe<Poll_Answer_Sum_Order_By>;
+  var_pop?: Maybe<Poll_Answer_Var_Pop_Order_By>;
+  var_samp?: Maybe<Poll_Answer_Var_Samp_Order_By>;
+  variance?: Maybe<Poll_Answer_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Poll_Answer_Avg_Fields = {
+  __typename?: 'poll_answer_avg_fields';
+  poll_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "poll_answer" */
+export type Poll_Answer_Avg_Order_By = {
+  poll_id?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "poll_answer". All fields are combined with a logical 'AND'. */
+export type Poll_Answer_Bool_Exp = {
+  _and?: Maybe<Array<Poll_Answer_Bool_Exp>>;
+  _not?: Maybe<Poll_Answer_Bool_Exp>;
+  _or?: Maybe<Array<Poll_Answer_Bool_Exp>>;
+  answer_id?: Maybe<String_Comparison_Exp>;
+  answer_text?: Maybe<String_Comparison_Exp>;
+  poll?: Maybe<Poll_Bool_Exp>;
+  poll_id?: Maybe<Int_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Poll_Answer_Max_Fields = {
+  __typename?: 'poll_answer_max_fields';
+  answer_id?: Maybe<Scalars['String']>;
+  answer_text?: Maybe<Scalars['String']>;
+  poll_id?: Maybe<Scalars['Int']>;
+};
+
+/** order by max() on columns of table "poll_answer" */
+export type Poll_Answer_Max_Order_By = {
+  answer_id?: Maybe<Order_By>;
+  answer_text?: Maybe<Order_By>;
+  poll_id?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Poll_Answer_Min_Fields = {
+  __typename?: 'poll_answer_min_fields';
+  answer_id?: Maybe<Scalars['String']>;
+  answer_text?: Maybe<Scalars['String']>;
+  poll_id?: Maybe<Scalars['Int']>;
+};
+
+/** order by min() on columns of table "poll_answer" */
+export type Poll_Answer_Min_Order_By = {
+  answer_id?: Maybe<Order_By>;
+  answer_text?: Maybe<Order_By>;
+  poll_id?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "poll_answer". */
+export type Poll_Answer_Order_By = {
+  answer_id?: Maybe<Order_By>;
+  answer_text?: Maybe<Order_By>;
+  poll?: Maybe<Poll_Order_By>;
+  poll_id?: Maybe<Order_By>;
+};
+
+/** select columns of table "poll_answer" */
+export enum Poll_Answer_Select_Column {
+  /** column name */
+  AnswerId = 'answer_id',
+  /** column name */
+  AnswerText = 'answer_text',
+  /** column name */
+  PollId = 'poll_id'
+}
+
+/** aggregate stddev on columns */
+export type Poll_Answer_Stddev_Fields = {
+  __typename?: 'poll_answer_stddev_fields';
+  poll_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "poll_answer" */
+export type Poll_Answer_Stddev_Order_By = {
+  poll_id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Poll_Answer_Stddev_Pop_Fields = {
+  __typename?: 'poll_answer_stddev_pop_fields';
+  poll_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "poll_answer" */
+export type Poll_Answer_Stddev_Pop_Order_By = {
+  poll_id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Poll_Answer_Stddev_Samp_Fields = {
+  __typename?: 'poll_answer_stddev_samp_fields';
+  poll_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "poll_answer" */
+export type Poll_Answer_Stddev_Samp_Order_By = {
+  poll_id?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Poll_Answer_Sum_Fields = {
+  __typename?: 'poll_answer_sum_fields';
+  poll_id?: Maybe<Scalars['Int']>;
+};
+
+/** order by sum() on columns of table "poll_answer" */
+export type Poll_Answer_Sum_Order_By = {
+  poll_id?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Poll_Answer_Var_Pop_Fields = {
+  __typename?: 'poll_answer_var_pop_fields';
+  poll_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "poll_answer" */
+export type Poll_Answer_Var_Pop_Order_By = {
+  poll_id?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Poll_Answer_Var_Samp_Fields = {
+  __typename?: 'poll_answer_var_samp_fields';
+  poll_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "poll_answer" */
+export type Poll_Answer_Var_Samp_Order_By = {
+  poll_id?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Poll_Answer_Variance_Fields = {
+  __typename?: 'poll_answer_variance_fields';
+  poll_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "poll_answer" */
+export type Poll_Answer_Variance_Order_By = {
+  poll_id?: Maybe<Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Poll_Avg_Fields = {
+  __typename?: 'poll_avg_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "poll". All fields are combined with a logical 'AND'. */
+export type Poll_Bool_Exp = {
+  _and?: Maybe<Array<Poll_Bool_Exp>>;
+  _not?: Maybe<Poll_Bool_Exp>;
+  _or?: Maybe<Array<Poll_Bool_Exp>>;
+  allows_answer_edits?: Maybe<Boolean_Comparison_Exp>;
+  allows_multiple_answers?: Maybe<Boolean_Comparison_Exp>;
+  end_date?: Maybe<Timestamp_Comparison_Exp>;
+  id?: Maybe<Int_Comparison_Exp>;
+  poll_answers?: Maybe<Poll_Answer_Bool_Exp>;
+  post?: Maybe<Post_Bool_Exp>;
+  post_id?: Maybe<String_Comparison_Exp>;
+  question?: Maybe<String_Comparison_Exp>;
+  user_poll_answers?: Maybe<User_Poll_Answer_Bool_Exp>;
+};
+
+/** aggregate max on columns */
+export type Poll_Max_Fields = {
+  __typename?: 'poll_max_fields';
+  end_date?: Maybe<Scalars['timestamp']>;
+  id?: Maybe<Scalars['Int']>;
+  post_id?: Maybe<Scalars['String']>;
+  question?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Poll_Min_Fields = {
+  __typename?: 'poll_min_fields';
+  end_date?: Maybe<Scalars['timestamp']>;
+  id?: Maybe<Scalars['Int']>;
+  post_id?: Maybe<Scalars['String']>;
+  question?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "poll". */
+export type Poll_Order_By = {
+  allows_answer_edits?: Maybe<Order_By>;
+  allows_multiple_answers?: Maybe<Order_By>;
+  end_date?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  poll_answers_aggregate?: Maybe<Poll_Answer_Aggregate_Order_By>;
+  post?: Maybe<Post_Order_By>;
+  post_id?: Maybe<Order_By>;
+  question?: Maybe<Order_By>;
+  user_poll_answers_aggregate?: Maybe<User_Poll_Answer_Aggregate_Order_By>;
+};
+
+/** select columns of table "poll" */
+export enum Poll_Select_Column {
+  /** column name */
+  AllowsAnswerEdits = 'allows_answer_edits',
+  /** column name */
+  AllowsMultipleAnswers = 'allows_multiple_answers',
+  /** column name */
+  EndDate = 'end_date',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  PostId = 'post_id',
+  /** column name */
+  Question = 'question'
+}
+
+/** aggregate stddev on columns */
+export type Poll_Stddev_Fields = {
+  __typename?: 'poll_stddev_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Poll_Stddev_Pop_Fields = {
+  __typename?: 'poll_stddev_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Poll_Stddev_Samp_Fields = {
+  __typename?: 'poll_stddev_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Poll_Sum_Fields = {
+  __typename?: 'poll_sum_fields';
+  id?: Maybe<Scalars['Int']>;
+};
+
+/** aggregate var_pop on columns */
+export type Poll_Var_Pop_Fields = {
+  __typename?: 'poll_var_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Poll_Var_Samp_Fields = {
+  __typename?: 'poll_var_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Poll_Variance_Fields = {
+  __typename?: 'poll_variance_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** columns and relationships of "post" */
+export type Post = {
+  __typename?: 'post';
+  comments_state: Scalars['String'];
+  created: Scalars['timestamp'];
+  creator_address: Scalars['String'];
+  height: Scalars['bigint'];
+  hidden: Scalars['Boolean'];
+  id: Scalars['String'];
+  last_edited: Scalars['timestamp'];
+  message: Scalars['String'];
+  parent_id?: Maybe<Scalars['String']>;
+  /** An object relationship */
+  poll: Poll;
+  /** An object relationship */
+  post?: Maybe<Post>;
+  /** An array relationship */
+  post_attachments: Array<Post_Attachment>;
+  /** An aggregate relationship */
+  post_attachments_aggregate: Post_Attachment_Aggregate;
+  /** An array relationship */
+  post_attributes: Array<Post_Attribute>;
+  /** An aggregate relationship */
+  post_attributes_aggregate: Post_Attribute_Aggregate;
+  /** An array relationship */
+  post_reactions: Array<Post_Reaction>;
+  /** An aggregate relationship */
+  post_reactions_aggregate: Post_Reaction_Aggregate;
+  /** An array relationship */
+  post_reports: Array<Post_Report>;
+  /** An aggregate relationship */
+  post_reports_aggregate: Post_Report_Aggregate;
+  /** An array relationship */
+  posts: Array<Post>;
+  /** An aggregate relationship */
+  posts_aggregate: Post_Aggregate;
+  /** An object relationship */
+  profile: Profile;
+  subspace: Scalars['String'];
+};
+
+
+/** columns and relationships of "post" */
+export type PostPost_AttachmentsArgs = {
+  distinct_on?: Maybe<Array<Post_Attachment_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Attachment_Order_By>>;
+  where?: Maybe<Post_Attachment_Bool_Exp>;
+};
+
+
+/** columns and relationships of "post" */
+export type PostPost_Attachments_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Attachment_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Attachment_Order_By>>;
+  where?: Maybe<Post_Attachment_Bool_Exp>;
+};
+
+
+/** columns and relationships of "post" */
+export type PostPost_AttributesArgs = {
+  distinct_on?: Maybe<Array<Post_Attribute_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Attribute_Order_By>>;
+  where?: Maybe<Post_Attribute_Bool_Exp>;
+};
+
+
+/** columns and relationships of "post" */
+export type PostPost_Attributes_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Attribute_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Attribute_Order_By>>;
+  where?: Maybe<Post_Attribute_Bool_Exp>;
+};
+
+
+/** columns and relationships of "post" */
+export type PostPost_ReactionsArgs = {
+  distinct_on?: Maybe<Array<Post_Reaction_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Reaction_Order_By>>;
+  where?: Maybe<Post_Reaction_Bool_Exp>;
+};
+
+
+/** columns and relationships of "post" */
+export type PostPost_Reactions_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Reaction_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Reaction_Order_By>>;
+  where?: Maybe<Post_Reaction_Bool_Exp>;
+};
+
+
+/** columns and relationships of "post" */
+export type PostPost_ReportsArgs = {
+  distinct_on?: Maybe<Array<Post_Report_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Report_Order_By>>;
+  where?: Maybe<Post_Report_Bool_Exp>;
+};
+
+
+/** columns and relationships of "post" */
+export type PostPost_Reports_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Report_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Report_Order_By>>;
+  where?: Maybe<Post_Report_Bool_Exp>;
+};
+
+
+/** columns and relationships of "post" */
+export type PostPostsArgs = {
+  distinct_on?: Maybe<Array<Post_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Order_By>>;
+  where?: Maybe<Post_Bool_Exp>;
+};
+
+
+/** columns and relationships of "post" */
+export type PostPosts_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Order_By>>;
+  where?: Maybe<Post_Bool_Exp>;
+};
+
+/** aggregated selection of "post" */
+export type Post_Aggregate = {
+  __typename?: 'post_aggregate';
+  aggregate?: Maybe<Post_Aggregate_Fields>;
+  nodes: Array<Post>;
+};
+
+/** aggregate fields of "post" */
+export type Post_Aggregate_Fields = {
+  __typename?: 'post_aggregate_fields';
+  avg?: Maybe<Post_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Post_Max_Fields>;
+  min?: Maybe<Post_Min_Fields>;
+  stddev?: Maybe<Post_Stddev_Fields>;
+  stddev_pop?: Maybe<Post_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Post_Stddev_Samp_Fields>;
+  sum?: Maybe<Post_Sum_Fields>;
+  var_pop?: Maybe<Post_Var_Pop_Fields>;
+  var_samp?: Maybe<Post_Var_Samp_Fields>;
+  variance?: Maybe<Post_Variance_Fields>;
+};
+
+
+/** aggregate fields of "post" */
+export type Post_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Post_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "post" */
+export type Post_Aggregate_Order_By = {
+  avg?: Maybe<Post_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Post_Max_Order_By>;
+  min?: Maybe<Post_Min_Order_By>;
+  stddev?: Maybe<Post_Stddev_Order_By>;
+  stddev_pop?: Maybe<Post_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Post_Stddev_Samp_Order_By>;
+  sum?: Maybe<Post_Sum_Order_By>;
+  var_pop?: Maybe<Post_Var_Pop_Order_By>;
+  var_samp?: Maybe<Post_Var_Samp_Order_By>;
+  variance?: Maybe<Post_Variance_Order_By>;
+};
+
+/** columns and relationships of "post_attachment" */
+export type Post_Attachment = {
+  __typename?: 'post_attachment';
+  id: Scalars['Int'];
+  mime_type: Scalars['String'];
+  /** An object relationship */
+  post: Post;
+  /** An array relationship */
+  post_attachment_tags: Array<Post_Attachment_Tag>;
+  /** An aggregate relationship */
+  post_attachment_tags_aggregate: Post_Attachment_Tag_Aggregate;
+  post_id: Scalars['String'];
+  uri: Scalars['String'];
+};
+
+
+/** columns and relationships of "post_attachment" */
+export type Post_AttachmentPost_Attachment_TagsArgs = {
+  distinct_on?: Maybe<Array<Post_Attachment_Tag_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Attachment_Tag_Order_By>>;
+  where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
+};
+
+
+/** columns and relationships of "post_attachment" */
+export type Post_AttachmentPost_Attachment_Tags_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Attachment_Tag_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Attachment_Tag_Order_By>>;
+  where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
+};
+
+/** aggregated selection of "post_attachment" */
+export type Post_Attachment_Aggregate = {
+  __typename?: 'post_attachment_aggregate';
+  aggregate?: Maybe<Post_Attachment_Aggregate_Fields>;
+  nodes: Array<Post_Attachment>;
+};
+
+/** aggregate fields of "post_attachment" */
+export type Post_Attachment_Aggregate_Fields = {
+  __typename?: 'post_attachment_aggregate_fields';
+  avg?: Maybe<Post_Attachment_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Post_Attachment_Max_Fields>;
+  min?: Maybe<Post_Attachment_Min_Fields>;
+  stddev?: Maybe<Post_Attachment_Stddev_Fields>;
+  stddev_pop?: Maybe<Post_Attachment_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Post_Attachment_Stddev_Samp_Fields>;
+  sum?: Maybe<Post_Attachment_Sum_Fields>;
+  var_pop?: Maybe<Post_Attachment_Var_Pop_Fields>;
+  var_samp?: Maybe<Post_Attachment_Var_Samp_Fields>;
+  variance?: Maybe<Post_Attachment_Variance_Fields>;
+};
+
+
+/** aggregate fields of "post_attachment" */
+export type Post_Attachment_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Post_Attachment_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "post_attachment" */
+export type Post_Attachment_Aggregate_Order_By = {
+  avg?: Maybe<Post_Attachment_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Post_Attachment_Max_Order_By>;
+  min?: Maybe<Post_Attachment_Min_Order_By>;
+  stddev?: Maybe<Post_Attachment_Stddev_Order_By>;
+  stddev_pop?: Maybe<Post_Attachment_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Post_Attachment_Stddev_Samp_Order_By>;
+  sum?: Maybe<Post_Attachment_Sum_Order_By>;
+  var_pop?: Maybe<Post_Attachment_Var_Pop_Order_By>;
+  var_samp?: Maybe<Post_Attachment_Var_Samp_Order_By>;
+  variance?: Maybe<Post_Attachment_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Post_Attachment_Avg_Fields = {
+  __typename?: 'post_attachment_avg_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "post_attachment" */
+export type Post_Attachment_Avg_Order_By = {
+  id?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "post_attachment". All fields are combined with a logical 'AND'. */
+export type Post_Attachment_Bool_Exp = {
+  _and?: Maybe<Array<Post_Attachment_Bool_Exp>>;
+  _not?: Maybe<Post_Attachment_Bool_Exp>;
+  _or?: Maybe<Array<Post_Attachment_Bool_Exp>>;
+  id?: Maybe<Int_Comparison_Exp>;
+  mime_type?: Maybe<String_Comparison_Exp>;
+  post?: Maybe<Post_Bool_Exp>;
+  post_attachment_tags?: Maybe<Post_Attachment_Tag_Bool_Exp>;
+  post_id?: Maybe<String_Comparison_Exp>;
+  uri?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Post_Attachment_Max_Fields = {
+  __typename?: 'post_attachment_max_fields';
+  id?: Maybe<Scalars['Int']>;
+  mime_type?: Maybe<Scalars['String']>;
+  post_id?: Maybe<Scalars['String']>;
+  uri?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "post_attachment" */
+export type Post_Attachment_Max_Order_By = {
+  id?: Maybe<Order_By>;
+  mime_type?: Maybe<Order_By>;
+  post_id?: Maybe<Order_By>;
+  uri?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Post_Attachment_Min_Fields = {
+  __typename?: 'post_attachment_min_fields';
+  id?: Maybe<Scalars['Int']>;
+  mime_type?: Maybe<Scalars['String']>;
+  post_id?: Maybe<Scalars['String']>;
+  uri?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "post_attachment" */
+export type Post_Attachment_Min_Order_By = {
+  id?: Maybe<Order_By>;
+  mime_type?: Maybe<Order_By>;
+  post_id?: Maybe<Order_By>;
+  uri?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "post_attachment". */
+export type Post_Attachment_Order_By = {
+  id?: Maybe<Order_By>;
+  mime_type?: Maybe<Order_By>;
+  post?: Maybe<Post_Order_By>;
+  post_attachment_tags_aggregate?: Maybe<Post_Attachment_Tag_Aggregate_Order_By>;
+  post_id?: Maybe<Order_By>;
+  uri?: Maybe<Order_By>;
+};
+
+/** select columns of table "post_attachment" */
+export enum Post_Attachment_Select_Column {
+  /** column name */
+  Id = 'id',
+  /** column name */
+  MimeType = 'mime_type',
+  /** column name */
+  PostId = 'post_id',
+  /** column name */
+  Uri = 'uri'
+}
+
+/** aggregate stddev on columns */
+export type Post_Attachment_Stddev_Fields = {
+  __typename?: 'post_attachment_stddev_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "post_attachment" */
+export type Post_Attachment_Stddev_Order_By = {
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Post_Attachment_Stddev_Pop_Fields = {
+  __typename?: 'post_attachment_stddev_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "post_attachment" */
+export type Post_Attachment_Stddev_Pop_Order_By = {
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Post_Attachment_Stddev_Samp_Fields = {
+  __typename?: 'post_attachment_stddev_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "post_attachment" */
+export type Post_Attachment_Stddev_Samp_Order_By = {
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Post_Attachment_Sum_Fields = {
+  __typename?: 'post_attachment_sum_fields';
+  id?: Maybe<Scalars['Int']>;
+};
+
+/** order by sum() on columns of table "post_attachment" */
+export type Post_Attachment_Sum_Order_By = {
+  id?: Maybe<Order_By>;
+};
+
+/** columns and relationships of "post_attachment_tag" */
+export type Post_Attachment_Tag = {
+  __typename?: 'post_attachment_tag';
+  attachment_id: Scalars['Int'];
+  /** An object relationship */
+  post_attachment: Post_Attachment;
+  /** An object relationship */
+  profile: Profile;
+  tag_address: Scalars['String'];
+};
+
+/** aggregated selection of "post_attachment_tag" */
+export type Post_Attachment_Tag_Aggregate = {
+  __typename?: 'post_attachment_tag_aggregate';
+  aggregate?: Maybe<Post_Attachment_Tag_Aggregate_Fields>;
+  nodes: Array<Post_Attachment_Tag>;
+};
+
+/** aggregate fields of "post_attachment_tag" */
+export type Post_Attachment_Tag_Aggregate_Fields = {
+  __typename?: 'post_attachment_tag_aggregate_fields';
+  avg?: Maybe<Post_Attachment_Tag_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Post_Attachment_Tag_Max_Fields>;
+  min?: Maybe<Post_Attachment_Tag_Min_Fields>;
+  stddev?: Maybe<Post_Attachment_Tag_Stddev_Fields>;
+  stddev_pop?: Maybe<Post_Attachment_Tag_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Post_Attachment_Tag_Stddev_Samp_Fields>;
+  sum?: Maybe<Post_Attachment_Tag_Sum_Fields>;
+  var_pop?: Maybe<Post_Attachment_Tag_Var_Pop_Fields>;
+  var_samp?: Maybe<Post_Attachment_Tag_Var_Samp_Fields>;
+  variance?: Maybe<Post_Attachment_Tag_Variance_Fields>;
+};
+
+
+/** aggregate fields of "post_attachment_tag" */
+export type Post_Attachment_Tag_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Post_Attachment_Tag_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "post_attachment_tag" */
+export type Post_Attachment_Tag_Aggregate_Order_By = {
+  avg?: Maybe<Post_Attachment_Tag_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Post_Attachment_Tag_Max_Order_By>;
+  min?: Maybe<Post_Attachment_Tag_Min_Order_By>;
+  stddev?: Maybe<Post_Attachment_Tag_Stddev_Order_By>;
+  stddev_pop?: Maybe<Post_Attachment_Tag_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Post_Attachment_Tag_Stddev_Samp_Order_By>;
+  sum?: Maybe<Post_Attachment_Tag_Sum_Order_By>;
+  var_pop?: Maybe<Post_Attachment_Tag_Var_Pop_Order_By>;
+  var_samp?: Maybe<Post_Attachment_Tag_Var_Samp_Order_By>;
+  variance?: Maybe<Post_Attachment_Tag_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Post_Attachment_Tag_Avg_Fields = {
+  __typename?: 'post_attachment_tag_avg_fields';
+  attachment_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "post_attachment_tag" */
+export type Post_Attachment_Tag_Avg_Order_By = {
+  attachment_id?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "post_attachment_tag". All fields are combined with a logical 'AND'. */
+export type Post_Attachment_Tag_Bool_Exp = {
+  _and?: Maybe<Array<Post_Attachment_Tag_Bool_Exp>>;
+  _not?: Maybe<Post_Attachment_Tag_Bool_Exp>;
+  _or?: Maybe<Array<Post_Attachment_Tag_Bool_Exp>>;
+  attachment_id?: Maybe<Int_Comparison_Exp>;
+  post_attachment?: Maybe<Post_Attachment_Bool_Exp>;
+  profile?: Maybe<Profile_Bool_Exp>;
+  tag_address?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Post_Attachment_Tag_Max_Fields = {
+  __typename?: 'post_attachment_tag_max_fields';
+  attachment_id?: Maybe<Scalars['Int']>;
+  tag_address?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "post_attachment_tag" */
+export type Post_Attachment_Tag_Max_Order_By = {
+  attachment_id?: Maybe<Order_By>;
+  tag_address?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Post_Attachment_Tag_Min_Fields = {
+  __typename?: 'post_attachment_tag_min_fields';
+  attachment_id?: Maybe<Scalars['Int']>;
+  tag_address?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "post_attachment_tag" */
+export type Post_Attachment_Tag_Min_Order_By = {
+  attachment_id?: Maybe<Order_By>;
+  tag_address?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "post_attachment_tag". */
+export type Post_Attachment_Tag_Order_By = {
+  attachment_id?: Maybe<Order_By>;
+  post_attachment?: Maybe<Post_Attachment_Order_By>;
+  profile?: Maybe<Profile_Order_By>;
+  tag_address?: Maybe<Order_By>;
+};
+
+/** select columns of table "post_attachment_tag" */
+export enum Post_Attachment_Tag_Select_Column {
+  /** column name */
+  AttachmentId = 'attachment_id',
+  /** column name */
+  TagAddress = 'tag_address'
+}
+
+/** aggregate stddev on columns */
+export type Post_Attachment_Tag_Stddev_Fields = {
+  __typename?: 'post_attachment_tag_stddev_fields';
+  attachment_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "post_attachment_tag" */
+export type Post_Attachment_Tag_Stddev_Order_By = {
+  attachment_id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Post_Attachment_Tag_Stddev_Pop_Fields = {
+  __typename?: 'post_attachment_tag_stddev_pop_fields';
+  attachment_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "post_attachment_tag" */
+export type Post_Attachment_Tag_Stddev_Pop_Order_By = {
+  attachment_id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Post_Attachment_Tag_Stddev_Samp_Fields = {
+  __typename?: 'post_attachment_tag_stddev_samp_fields';
+  attachment_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "post_attachment_tag" */
+export type Post_Attachment_Tag_Stddev_Samp_Order_By = {
+  attachment_id?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Post_Attachment_Tag_Sum_Fields = {
+  __typename?: 'post_attachment_tag_sum_fields';
+  attachment_id?: Maybe<Scalars['Int']>;
+};
+
+/** order by sum() on columns of table "post_attachment_tag" */
+export type Post_Attachment_Tag_Sum_Order_By = {
+  attachment_id?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Post_Attachment_Tag_Var_Pop_Fields = {
+  __typename?: 'post_attachment_tag_var_pop_fields';
+  attachment_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "post_attachment_tag" */
+export type Post_Attachment_Tag_Var_Pop_Order_By = {
+  attachment_id?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Post_Attachment_Tag_Var_Samp_Fields = {
+  __typename?: 'post_attachment_tag_var_samp_fields';
+  attachment_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "post_attachment_tag" */
+export type Post_Attachment_Tag_Var_Samp_Order_By = {
+  attachment_id?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Post_Attachment_Tag_Variance_Fields = {
+  __typename?: 'post_attachment_tag_variance_fields';
+  attachment_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "post_attachment_tag" */
+export type Post_Attachment_Tag_Variance_Order_By = {
+  attachment_id?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Post_Attachment_Var_Pop_Fields = {
+  __typename?: 'post_attachment_var_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "post_attachment" */
+export type Post_Attachment_Var_Pop_Order_By = {
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Post_Attachment_Var_Samp_Fields = {
+  __typename?: 'post_attachment_var_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "post_attachment" */
+export type Post_Attachment_Var_Samp_Order_By = {
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Post_Attachment_Variance_Fields = {
+  __typename?: 'post_attachment_variance_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "post_attachment" */
+export type Post_Attachment_Variance_Order_By = {
+  id?: Maybe<Order_By>;
+};
+
+/** columns and relationships of "post_attribute" */
+export type Post_Attribute = {
+  __typename?: 'post_attribute';
+  key: Scalars['String'];
+  /** An object relationship */
+  post: Post;
+  post_id: Scalars['String'];
+  value: Scalars['String'];
+};
+
+/** aggregated selection of "post_attribute" */
+export type Post_Attribute_Aggregate = {
+  __typename?: 'post_attribute_aggregate';
+  aggregate?: Maybe<Post_Attribute_Aggregate_Fields>;
+  nodes: Array<Post_Attribute>;
+};
+
+/** aggregate fields of "post_attribute" */
+export type Post_Attribute_Aggregate_Fields = {
+  __typename?: 'post_attribute_aggregate_fields';
+  count: Scalars['Int'];
+  max?: Maybe<Post_Attribute_Max_Fields>;
+  min?: Maybe<Post_Attribute_Min_Fields>;
+};
+
+
+/** aggregate fields of "post_attribute" */
+export type Post_Attribute_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Post_Attribute_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "post_attribute" */
+export type Post_Attribute_Aggregate_Order_By = {
+  count?: Maybe<Order_By>;
+  max?: Maybe<Post_Attribute_Max_Order_By>;
+  min?: Maybe<Post_Attribute_Min_Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "post_attribute". All fields are combined with a logical 'AND'. */
+export type Post_Attribute_Bool_Exp = {
+  _and?: Maybe<Array<Post_Attribute_Bool_Exp>>;
+  _not?: Maybe<Post_Attribute_Bool_Exp>;
+  _or?: Maybe<Array<Post_Attribute_Bool_Exp>>;
+  key?: Maybe<String_Comparison_Exp>;
+  post?: Maybe<Post_Bool_Exp>;
+  post_id?: Maybe<String_Comparison_Exp>;
+  value?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Post_Attribute_Max_Fields = {
+  __typename?: 'post_attribute_max_fields';
+  key?: Maybe<Scalars['String']>;
+  post_id?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "post_attribute" */
+export type Post_Attribute_Max_Order_By = {
+  key?: Maybe<Order_By>;
+  post_id?: Maybe<Order_By>;
+  value?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Post_Attribute_Min_Fields = {
+  __typename?: 'post_attribute_min_fields';
+  key?: Maybe<Scalars['String']>;
+  post_id?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "post_attribute" */
+export type Post_Attribute_Min_Order_By = {
+  key?: Maybe<Order_By>;
+  post_id?: Maybe<Order_By>;
+  value?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "post_attribute". */
+export type Post_Attribute_Order_By = {
+  key?: Maybe<Order_By>;
+  post?: Maybe<Post_Order_By>;
+  post_id?: Maybe<Order_By>;
+  value?: Maybe<Order_By>;
+};
+
+/** select columns of table "post_attribute" */
+export enum Post_Attribute_Select_Column {
+  /** column name */
+  Key = 'key',
+  /** column name */
+  PostId = 'post_id',
+  /** column name */
+  Value = 'value'
+}
+
+/** aggregate avg on columns */
+export type Post_Avg_Fields = {
+  __typename?: 'post_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "post" */
+export type Post_Avg_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "post". All fields are combined with a logical 'AND'. */
+export type Post_Bool_Exp = {
+  _and?: Maybe<Array<Post_Bool_Exp>>;
+  _not?: Maybe<Post_Bool_Exp>;
+  _or?: Maybe<Array<Post_Bool_Exp>>;
+  comments_state?: Maybe<String_Comparison_Exp>;
+  created?: Maybe<Timestamp_Comparison_Exp>;
+  creator_address?: Maybe<String_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  hidden?: Maybe<Boolean_Comparison_Exp>;
+  id?: Maybe<String_Comparison_Exp>;
+  last_edited?: Maybe<Timestamp_Comparison_Exp>;
+  message?: Maybe<String_Comparison_Exp>;
+  parent_id?: Maybe<String_Comparison_Exp>;
+  poll?: Maybe<Poll_Bool_Exp>;
+  post?: Maybe<Post_Bool_Exp>;
+  post_attachments?: Maybe<Post_Attachment_Bool_Exp>;
+  post_attributes?: Maybe<Post_Attribute_Bool_Exp>;
+  post_reactions?: Maybe<Post_Reaction_Bool_Exp>;
+  post_reports?: Maybe<Post_Report_Bool_Exp>;
+  posts?: Maybe<Post_Bool_Exp>;
+  profile?: Maybe<Profile_Bool_Exp>;
+  subspace?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Post_Max_Fields = {
+  __typename?: 'post_max_fields';
+  comments_state?: Maybe<Scalars['String']>;
+  created?: Maybe<Scalars['timestamp']>;
+  creator_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['String']>;
+  last_edited?: Maybe<Scalars['timestamp']>;
+  message?: Maybe<Scalars['String']>;
+  parent_id?: Maybe<Scalars['String']>;
+  subspace?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "post" */
+export type Post_Max_Order_By = {
+  comments_state?: Maybe<Order_By>;
+  created?: Maybe<Order_By>;
+  creator_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  last_edited?: Maybe<Order_By>;
+  message?: Maybe<Order_By>;
+  parent_id?: Maybe<Order_By>;
+  subspace?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Post_Min_Fields = {
+  __typename?: 'post_min_fields';
+  comments_state?: Maybe<Scalars['String']>;
+  created?: Maybe<Scalars['timestamp']>;
+  creator_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['String']>;
+  last_edited?: Maybe<Scalars['timestamp']>;
+  message?: Maybe<Scalars['String']>;
+  parent_id?: Maybe<Scalars['String']>;
+  subspace?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "post" */
+export type Post_Min_Order_By = {
+  comments_state?: Maybe<Order_By>;
+  created?: Maybe<Order_By>;
+  creator_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  last_edited?: Maybe<Order_By>;
+  message?: Maybe<Order_By>;
+  parent_id?: Maybe<Order_By>;
+  subspace?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "post". */
+export type Post_Order_By = {
+  comments_state?: Maybe<Order_By>;
+  created?: Maybe<Order_By>;
+  creator_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  hidden?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  last_edited?: Maybe<Order_By>;
+  message?: Maybe<Order_By>;
+  parent_id?: Maybe<Order_By>;
+  poll?: Maybe<Poll_Order_By>;
+  post?: Maybe<Post_Order_By>;
+  post_attachments_aggregate?: Maybe<Post_Attachment_Aggregate_Order_By>;
+  post_attributes_aggregate?: Maybe<Post_Attribute_Aggregate_Order_By>;
+  post_reactions_aggregate?: Maybe<Post_Reaction_Aggregate_Order_By>;
+  post_reports_aggregate?: Maybe<Post_Report_Aggregate_Order_By>;
+  posts_aggregate?: Maybe<Post_Aggregate_Order_By>;
+  profile?: Maybe<Profile_Order_By>;
+  subspace?: Maybe<Order_By>;
+};
+
+/** columns and relationships of "post_reaction" */
+export type Post_Reaction = {
+  __typename?: 'post_reaction';
+  height: Scalars['bigint'];
+  owner_address: Scalars['String'];
+  /** An object relationship */
+  post: Post;
+  post_id: Scalars['String'];
+  /** An object relationship */
+  profile: Profile;
+  short_code: Scalars['String'];
+  value: Scalars['String'];
+};
+
+/** aggregated selection of "post_reaction" */
+export type Post_Reaction_Aggregate = {
+  __typename?: 'post_reaction_aggregate';
+  aggregate?: Maybe<Post_Reaction_Aggregate_Fields>;
+  nodes: Array<Post_Reaction>;
+};
+
+/** aggregate fields of "post_reaction" */
+export type Post_Reaction_Aggregate_Fields = {
+  __typename?: 'post_reaction_aggregate_fields';
+  avg?: Maybe<Post_Reaction_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Post_Reaction_Max_Fields>;
+  min?: Maybe<Post_Reaction_Min_Fields>;
+  stddev?: Maybe<Post_Reaction_Stddev_Fields>;
+  stddev_pop?: Maybe<Post_Reaction_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Post_Reaction_Stddev_Samp_Fields>;
+  sum?: Maybe<Post_Reaction_Sum_Fields>;
+  var_pop?: Maybe<Post_Reaction_Var_Pop_Fields>;
+  var_samp?: Maybe<Post_Reaction_Var_Samp_Fields>;
+  variance?: Maybe<Post_Reaction_Variance_Fields>;
+};
+
+
+/** aggregate fields of "post_reaction" */
+export type Post_Reaction_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Post_Reaction_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "post_reaction" */
+export type Post_Reaction_Aggregate_Order_By = {
+  avg?: Maybe<Post_Reaction_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Post_Reaction_Max_Order_By>;
+  min?: Maybe<Post_Reaction_Min_Order_By>;
+  stddev?: Maybe<Post_Reaction_Stddev_Order_By>;
+  stddev_pop?: Maybe<Post_Reaction_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Post_Reaction_Stddev_Samp_Order_By>;
+  sum?: Maybe<Post_Reaction_Sum_Order_By>;
+  var_pop?: Maybe<Post_Reaction_Var_Pop_Order_By>;
+  var_samp?: Maybe<Post_Reaction_Var_Samp_Order_By>;
+  variance?: Maybe<Post_Reaction_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Post_Reaction_Avg_Fields = {
+  __typename?: 'post_reaction_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "post_reaction" */
+export type Post_Reaction_Avg_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "post_reaction". All fields are combined with a logical 'AND'. */
+export type Post_Reaction_Bool_Exp = {
+  _and?: Maybe<Array<Post_Reaction_Bool_Exp>>;
+  _not?: Maybe<Post_Reaction_Bool_Exp>;
+  _or?: Maybe<Array<Post_Reaction_Bool_Exp>>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  owner_address?: Maybe<String_Comparison_Exp>;
+  post?: Maybe<Post_Bool_Exp>;
+  post_id?: Maybe<String_Comparison_Exp>;
+  profile?: Maybe<Profile_Bool_Exp>;
+  short_code?: Maybe<String_Comparison_Exp>;
+  value?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Post_Reaction_Max_Fields = {
+  __typename?: 'post_reaction_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+  owner_address?: Maybe<Scalars['String']>;
+  post_id?: Maybe<Scalars['String']>;
+  short_code?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "post_reaction" */
+export type Post_Reaction_Max_Order_By = {
+  height?: Maybe<Order_By>;
+  owner_address?: Maybe<Order_By>;
+  post_id?: Maybe<Order_By>;
+  short_code?: Maybe<Order_By>;
+  value?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Post_Reaction_Min_Fields = {
+  __typename?: 'post_reaction_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+  owner_address?: Maybe<Scalars['String']>;
+  post_id?: Maybe<Scalars['String']>;
+  short_code?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "post_reaction" */
+export type Post_Reaction_Min_Order_By = {
+  height?: Maybe<Order_By>;
+  owner_address?: Maybe<Order_By>;
+  post_id?: Maybe<Order_By>;
+  short_code?: Maybe<Order_By>;
+  value?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "post_reaction". */
+export type Post_Reaction_Order_By = {
+  height?: Maybe<Order_By>;
+  owner_address?: Maybe<Order_By>;
+  post?: Maybe<Post_Order_By>;
+  post_id?: Maybe<Order_By>;
+  profile?: Maybe<Profile_Order_By>;
+  short_code?: Maybe<Order_By>;
+  value?: Maybe<Order_By>;
+};
+
+/** select columns of table "post_reaction" */
+export enum Post_Reaction_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  OwnerAddress = 'owner_address',
+  /** column name */
+  PostId = 'post_id',
+  /** column name */
+  ShortCode = 'short_code',
+  /** column name */
+  Value = 'value'
+}
+
+/** aggregate stddev on columns */
+export type Post_Reaction_Stddev_Fields = {
+  __typename?: 'post_reaction_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "post_reaction" */
+export type Post_Reaction_Stddev_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Post_Reaction_Stddev_Pop_Fields = {
+  __typename?: 'post_reaction_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "post_reaction" */
+export type Post_Reaction_Stddev_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Post_Reaction_Stddev_Samp_Fields = {
+  __typename?: 'post_reaction_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "post_reaction" */
+export type Post_Reaction_Stddev_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Post_Reaction_Sum_Fields = {
+  __typename?: 'post_reaction_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** order by sum() on columns of table "post_reaction" */
+export type Post_Reaction_Sum_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Post_Reaction_Var_Pop_Fields = {
+  __typename?: 'post_reaction_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "post_reaction" */
+export type Post_Reaction_Var_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Post_Reaction_Var_Samp_Fields = {
+  __typename?: 'post_reaction_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "post_reaction" */
+export type Post_Reaction_Var_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Post_Reaction_Variance_Fields = {
+  __typename?: 'post_reaction_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "post_reaction" */
+export type Post_Reaction_Variance_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** columns and relationships of "post_report" */
+export type Post_Report = {
+  __typename?: 'post_report';
+  height: Scalars['bigint'];
+  id: Scalars['Int'];
+  message?: Maybe<Scalars['String']>;
+  /** An object relationship */
+  post: Post;
+  post_id: Scalars['String'];
+  /** An object relationship */
+  profile: Profile;
+  reporter_address: Scalars['String'];
+  type: Scalars['String'];
+};
+
+/** aggregated selection of "post_report" */
+export type Post_Report_Aggregate = {
+  __typename?: 'post_report_aggregate';
+  aggregate?: Maybe<Post_Report_Aggregate_Fields>;
+  nodes: Array<Post_Report>;
+};
+
+/** aggregate fields of "post_report" */
+export type Post_Report_Aggregate_Fields = {
+  __typename?: 'post_report_aggregate_fields';
+  avg?: Maybe<Post_Report_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Post_Report_Max_Fields>;
+  min?: Maybe<Post_Report_Min_Fields>;
+  stddev?: Maybe<Post_Report_Stddev_Fields>;
+  stddev_pop?: Maybe<Post_Report_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Post_Report_Stddev_Samp_Fields>;
+  sum?: Maybe<Post_Report_Sum_Fields>;
+  var_pop?: Maybe<Post_Report_Var_Pop_Fields>;
+  var_samp?: Maybe<Post_Report_Var_Samp_Fields>;
+  variance?: Maybe<Post_Report_Variance_Fields>;
+};
+
+
+/** aggregate fields of "post_report" */
+export type Post_Report_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Post_Report_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "post_report" */
+export type Post_Report_Aggregate_Order_By = {
+  avg?: Maybe<Post_Report_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Post_Report_Max_Order_By>;
+  min?: Maybe<Post_Report_Min_Order_By>;
+  stddev?: Maybe<Post_Report_Stddev_Order_By>;
+  stddev_pop?: Maybe<Post_Report_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Post_Report_Stddev_Samp_Order_By>;
+  sum?: Maybe<Post_Report_Sum_Order_By>;
+  var_pop?: Maybe<Post_Report_Var_Pop_Order_By>;
+  var_samp?: Maybe<Post_Report_Var_Samp_Order_By>;
+  variance?: Maybe<Post_Report_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Post_Report_Avg_Fields = {
+  __typename?: 'post_report_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "post_report" */
+export type Post_Report_Avg_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "post_report". All fields are combined with a logical 'AND'. */
+export type Post_Report_Bool_Exp = {
+  _and?: Maybe<Array<Post_Report_Bool_Exp>>;
+  _not?: Maybe<Post_Report_Bool_Exp>;
+  _or?: Maybe<Array<Post_Report_Bool_Exp>>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  id?: Maybe<Int_Comparison_Exp>;
+  message?: Maybe<String_Comparison_Exp>;
+  post?: Maybe<Post_Bool_Exp>;
+  post_id?: Maybe<String_Comparison_Exp>;
+  profile?: Maybe<Profile_Bool_Exp>;
+  reporter_address?: Maybe<String_Comparison_Exp>;
+  type?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Post_Report_Max_Fields = {
+  __typename?: 'post_report_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+  message?: Maybe<Scalars['String']>;
+  post_id?: Maybe<Scalars['String']>;
+  reporter_address?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "post_report" */
+export type Post_Report_Max_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  message?: Maybe<Order_By>;
+  post_id?: Maybe<Order_By>;
+  reporter_address?: Maybe<Order_By>;
+  type?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Post_Report_Min_Fields = {
+  __typename?: 'post_report_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+  message?: Maybe<Scalars['String']>;
+  post_id?: Maybe<Scalars['String']>;
+  reporter_address?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "post_report" */
+export type Post_Report_Min_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  message?: Maybe<Order_By>;
+  post_id?: Maybe<Order_By>;
+  reporter_address?: Maybe<Order_By>;
+  type?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "post_report". */
+export type Post_Report_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  message?: Maybe<Order_By>;
+  post?: Maybe<Post_Order_By>;
+  post_id?: Maybe<Order_By>;
+  profile?: Maybe<Profile_Order_By>;
+  reporter_address?: Maybe<Order_By>;
+  type?: Maybe<Order_By>;
+};
+
+/** select columns of table "post_report" */
+export enum Post_Report_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Message = 'message',
+  /** column name */
+  PostId = 'post_id',
+  /** column name */
+  ReporterAddress = 'reporter_address',
+  /** column name */
+  Type = 'type'
+}
+
+/** aggregate stddev on columns */
+export type Post_Report_Stddev_Fields = {
+  __typename?: 'post_report_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "post_report" */
+export type Post_Report_Stddev_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Post_Report_Stddev_Pop_Fields = {
+  __typename?: 'post_report_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "post_report" */
+export type Post_Report_Stddev_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Post_Report_Stddev_Samp_Fields = {
+  __typename?: 'post_report_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "post_report" */
+export type Post_Report_Stddev_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Post_Report_Sum_Fields = {
+  __typename?: 'post_report_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+};
+
+/** order by sum() on columns of table "post_report" */
+export type Post_Report_Sum_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Post_Report_Var_Pop_Fields = {
+  __typename?: 'post_report_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "post_report" */
+export type Post_Report_Var_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Post_Report_Var_Samp_Fields = {
+  __typename?: 'post_report_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "post_report" */
+export type Post_Report_Var_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Post_Report_Variance_Fields = {
+  __typename?: 'post_report_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "post_report" */
+export type Post_Report_Variance_Order_By = {
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** select columns of table "post" */
+export enum Post_Select_Column {
+  /** column name */
+  CommentsState = 'comments_state',
+  /** column name */
+  Created = 'created',
+  /** column name */
+  CreatorAddress = 'creator_address',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Hidden = 'hidden',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  LastEdited = 'last_edited',
+  /** column name */
+  Message = 'message',
+  /** column name */
+  ParentId = 'parent_id',
+  /** column name */
+  Subspace = 'subspace'
+}
+
+/** aggregate stddev on columns */
+export type Post_Stddev_Fields = {
+  __typename?: 'post_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "post" */
+export type Post_Stddev_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Post_Stddev_Pop_Fields = {
+  __typename?: 'post_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "post" */
+export type Post_Stddev_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Post_Stddev_Samp_Fields = {
+  __typename?: 'post_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "post" */
+export type Post_Stddev_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Post_Sum_Fields = {
+  __typename?: 'post_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** order by sum() on columns of table "post" */
+export type Post_Sum_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Post_Var_Pop_Fields = {
+  __typename?: 'post_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "post" */
+export type Post_Var_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Post_Var_Samp_Fields = {
+  __typename?: 'post_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "post" */
+export type Post_Var_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Post_Variance_Fields = {
+  __typename?: 'post_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "post" */
+export type Post_Variance_Order_By = {
+  height?: Maybe<Order_By>;
+};
 
 /** columns and relationships of "pre_commit" */
 export type Pre_Commit = {
@@ -5769,7 +8226,7 @@ export type Pre_Commit_Aggregate = {
 export type Pre_Commit_Aggregate_Fields = {
   __typename?: 'pre_commit_aggregate_fields';
   avg?: Maybe<Pre_Commit_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Pre_Commit_Max_Fields>;
   min?: Maybe<Pre_Commit_Min_Fields>;
   stddev?: Maybe<Pre_Commit_Stddev_Fields>;
@@ -5820,9 +8277,9 @@ export type Pre_Commit_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "pre_commit". All fields are combined with a logical 'AND'. */
 export type Pre_Commit_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Pre_Commit_Bool_Exp>>>;
+  _and?: Maybe<Array<Pre_Commit_Bool_Exp>>;
   _not?: Maybe<Pre_Commit_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Pre_Commit_Bool_Exp>>>;
+  _or?: Maybe<Array<Pre_Commit_Bool_Exp>>;
   height?: Maybe<Bigint_Comparison_Exp>;
   proposer_priority?: Maybe<Int_Comparison_Exp>;
   timestamp?: Maybe<Timestamp_Comparison_Exp>;
@@ -5869,7 +8326,7 @@ export type Pre_Commit_Min_Order_By = {
   voting_power?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "pre_commit" */
+/** Ordering options when selecting data from "pre_commit". */
 export type Pre_Commit_Order_By = {
   height?: Maybe<Order_By>;
   proposer_priority?: Maybe<Order_By>;
@@ -5998,6 +8455,749 @@ export type Pre_Commit_Variance_Order_By = {
   voting_power?: Maybe<Order_By>;
 };
 
+/** columns and relationships of "profile" */
+export type Profile = {
+  __typename?: 'profile';
+  address: Scalars['String'];
+  /** An array relationship */
+  application_links: Array<Application_Link>;
+  /** An aggregate relationship */
+  application_links_aggregate: Application_Link_Aggregate;
+  bio: Scalars['String'];
+  /** An array relationship */
+  chain_links: Array<Chain_Link>;
+  /** An aggregate relationship */
+  chain_links_aggregate: Chain_Link_Aggregate;
+  cover_pic: Scalars['String'];
+  creation_time: Scalars['timestamp'];
+  dtag: Scalars['String'];
+  /** An array relationship */
+  dtagTransferRequestsBySenderAddress: Array<Dtag_Transfer_Requests>;
+  /** An aggregate relationship */
+  dtagTransferRequestsBySenderAddress_aggregate: Dtag_Transfer_Requests_Aggregate;
+  /** An array relationship */
+  dtag_transfer_requests: Array<Dtag_Transfer_Requests>;
+  /** An aggregate relationship */
+  dtag_transfer_requests_aggregate: Dtag_Transfer_Requests_Aggregate;
+  height: Scalars['bigint'];
+  nickname: Scalars['String'];
+  /** An array relationship */
+  post_attachment_tags: Array<Post_Attachment_Tag>;
+  /** An aggregate relationship */
+  post_attachment_tags_aggregate: Post_Attachment_Tag_Aggregate;
+  /** An array relationship */
+  post_reactions: Array<Post_Reaction>;
+  /** An aggregate relationship */
+  post_reactions_aggregate: Post_Reaction_Aggregate;
+  /** An array relationship */
+  post_reports: Array<Post_Report>;
+  /** An aggregate relationship */
+  post_reports_aggregate: Post_Report_Aggregate;
+  /** An array relationship */
+  posts: Array<Post>;
+  /** An aggregate relationship */
+  posts_aggregate: Post_Aggregate;
+  /** An array relationship */
+  profileRelationshipsBySenderAddress: Array<Profile_Relationship>;
+  /** An aggregate relationship */
+  profileRelationshipsBySenderAddress_aggregate: Profile_Relationship_Aggregate;
+  profile_pic: Scalars['String'];
+  /** An array relationship */
+  profile_relationships: Array<Profile_Relationship>;
+  /** An aggregate relationship */
+  profile_relationships_aggregate: Profile_Relationship_Aggregate;
+  /** An array relationship */
+  registered_reactions: Array<Registered_Reactions>;
+  /** An aggregate relationship */
+  registered_reactions_aggregate: Registered_Reactions_Aggregate;
+  /** An array relationship */
+  userBlocksByBlockerAddress: Array<User_Block>;
+  /** An aggregate relationship */
+  userBlocksByBlockerAddress_aggregate: User_Block_Aggregate;
+  /** An array relationship */
+  user_blocks: Array<User_Block>;
+  /** An aggregate relationship */
+  user_blocks_aggregate: User_Block_Aggregate;
+  /** An array relationship */
+  user_poll_answers: Array<User_Poll_Answer>;
+  /** An aggregate relationship */
+  user_poll_answers_aggregate: User_Poll_Answer_Aggregate;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfileApplication_LinksArgs = {
+  distinct_on?: Maybe<Array<Application_Link_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Application_Link_Order_By>>;
+  where?: Maybe<Application_Link_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfileApplication_Links_AggregateArgs = {
+  distinct_on?: Maybe<Array<Application_Link_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Application_Link_Order_By>>;
+  where?: Maybe<Application_Link_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfileChain_LinksArgs = {
+  distinct_on?: Maybe<Array<Chain_Link_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Chain_Link_Order_By>>;
+  where?: Maybe<Chain_Link_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfileChain_Links_AggregateArgs = {
+  distinct_on?: Maybe<Array<Chain_Link_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Chain_Link_Order_By>>;
+  where?: Maybe<Chain_Link_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfileDtagTransferRequestsBySenderAddressArgs = {
+  distinct_on?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Dtag_Transfer_Requests_Order_By>>;
+  where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfileDtagTransferRequestsBySenderAddress_AggregateArgs = {
+  distinct_on?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Dtag_Transfer_Requests_Order_By>>;
+  where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfileDtag_Transfer_RequestsArgs = {
+  distinct_on?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Dtag_Transfer_Requests_Order_By>>;
+  where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfileDtag_Transfer_Requests_AggregateArgs = {
+  distinct_on?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Dtag_Transfer_Requests_Order_By>>;
+  where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfilePost_Attachment_TagsArgs = {
+  distinct_on?: Maybe<Array<Post_Attachment_Tag_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Attachment_Tag_Order_By>>;
+  where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfilePost_Attachment_Tags_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Attachment_Tag_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Attachment_Tag_Order_By>>;
+  where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfilePost_ReactionsArgs = {
+  distinct_on?: Maybe<Array<Post_Reaction_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Reaction_Order_By>>;
+  where?: Maybe<Post_Reaction_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfilePost_Reactions_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Reaction_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Reaction_Order_By>>;
+  where?: Maybe<Post_Reaction_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfilePost_ReportsArgs = {
+  distinct_on?: Maybe<Array<Post_Report_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Report_Order_By>>;
+  where?: Maybe<Post_Report_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfilePost_Reports_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Report_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Report_Order_By>>;
+  where?: Maybe<Post_Report_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfilePostsArgs = {
+  distinct_on?: Maybe<Array<Post_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Order_By>>;
+  where?: Maybe<Post_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfilePosts_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Order_By>>;
+  where?: Maybe<Post_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfileProfileRelationshipsBySenderAddressArgs = {
+  distinct_on?: Maybe<Array<Profile_Relationship_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Profile_Relationship_Order_By>>;
+  where?: Maybe<Profile_Relationship_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfileProfileRelationshipsBySenderAddress_AggregateArgs = {
+  distinct_on?: Maybe<Array<Profile_Relationship_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Profile_Relationship_Order_By>>;
+  where?: Maybe<Profile_Relationship_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfileProfile_RelationshipsArgs = {
+  distinct_on?: Maybe<Array<Profile_Relationship_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Profile_Relationship_Order_By>>;
+  where?: Maybe<Profile_Relationship_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfileProfile_Relationships_AggregateArgs = {
+  distinct_on?: Maybe<Array<Profile_Relationship_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Profile_Relationship_Order_By>>;
+  where?: Maybe<Profile_Relationship_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfileRegistered_ReactionsArgs = {
+  distinct_on?: Maybe<Array<Registered_Reactions_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Registered_Reactions_Order_By>>;
+  where?: Maybe<Registered_Reactions_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfileRegistered_Reactions_AggregateArgs = {
+  distinct_on?: Maybe<Array<Registered_Reactions_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Registered_Reactions_Order_By>>;
+  where?: Maybe<Registered_Reactions_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfileUserBlocksByBlockerAddressArgs = {
+  distinct_on?: Maybe<Array<User_Block_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<User_Block_Order_By>>;
+  where?: Maybe<User_Block_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfileUserBlocksByBlockerAddress_AggregateArgs = {
+  distinct_on?: Maybe<Array<User_Block_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<User_Block_Order_By>>;
+  where?: Maybe<User_Block_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfileUser_BlocksArgs = {
+  distinct_on?: Maybe<Array<User_Block_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<User_Block_Order_By>>;
+  where?: Maybe<User_Block_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfileUser_Blocks_AggregateArgs = {
+  distinct_on?: Maybe<Array<User_Block_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<User_Block_Order_By>>;
+  where?: Maybe<User_Block_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfileUser_Poll_AnswersArgs = {
+  distinct_on?: Maybe<Array<User_Poll_Answer_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<User_Poll_Answer_Order_By>>;
+  where?: Maybe<User_Poll_Answer_Bool_Exp>;
+};
+
+
+/** columns and relationships of "profile" */
+export type ProfileUser_Poll_Answers_AggregateArgs = {
+  distinct_on?: Maybe<Array<User_Poll_Answer_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<User_Poll_Answer_Order_By>>;
+  where?: Maybe<User_Poll_Answer_Bool_Exp>;
+};
+
+/** aggregated selection of "profile" */
+export type Profile_Aggregate = {
+  __typename?: 'profile_aggregate';
+  aggregate?: Maybe<Profile_Aggregate_Fields>;
+  nodes: Array<Profile>;
+};
+
+/** aggregate fields of "profile" */
+export type Profile_Aggregate_Fields = {
+  __typename?: 'profile_aggregate_fields';
+  avg?: Maybe<Profile_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Profile_Max_Fields>;
+  min?: Maybe<Profile_Min_Fields>;
+  stddev?: Maybe<Profile_Stddev_Fields>;
+  stddev_pop?: Maybe<Profile_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Profile_Stddev_Samp_Fields>;
+  sum?: Maybe<Profile_Sum_Fields>;
+  var_pop?: Maybe<Profile_Var_Pop_Fields>;
+  var_samp?: Maybe<Profile_Var_Samp_Fields>;
+  variance?: Maybe<Profile_Variance_Fields>;
+};
+
+
+/** aggregate fields of "profile" */
+export type Profile_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Profile_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Profile_Avg_Fields = {
+  __typename?: 'profile_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "profile". All fields are combined with a logical 'AND'. */
+export type Profile_Bool_Exp = {
+  _and?: Maybe<Array<Profile_Bool_Exp>>;
+  _not?: Maybe<Profile_Bool_Exp>;
+  _or?: Maybe<Array<Profile_Bool_Exp>>;
+  address?: Maybe<String_Comparison_Exp>;
+  application_links?: Maybe<Application_Link_Bool_Exp>;
+  bio?: Maybe<String_Comparison_Exp>;
+  chain_links?: Maybe<Chain_Link_Bool_Exp>;
+  cover_pic?: Maybe<String_Comparison_Exp>;
+  creation_time?: Maybe<Timestamp_Comparison_Exp>;
+  dtag?: Maybe<String_Comparison_Exp>;
+  dtagTransferRequestsBySenderAddress?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
+  dtag_transfer_requests?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  nickname?: Maybe<String_Comparison_Exp>;
+  post_attachment_tags?: Maybe<Post_Attachment_Tag_Bool_Exp>;
+  post_reactions?: Maybe<Post_Reaction_Bool_Exp>;
+  post_reports?: Maybe<Post_Report_Bool_Exp>;
+  posts?: Maybe<Post_Bool_Exp>;
+  profileRelationshipsBySenderAddress?: Maybe<Profile_Relationship_Bool_Exp>;
+  profile_pic?: Maybe<String_Comparison_Exp>;
+  profile_relationships?: Maybe<Profile_Relationship_Bool_Exp>;
+  registered_reactions?: Maybe<Registered_Reactions_Bool_Exp>;
+  userBlocksByBlockerAddress?: Maybe<User_Block_Bool_Exp>;
+  user_blocks?: Maybe<User_Block_Bool_Exp>;
+  user_poll_answers?: Maybe<User_Poll_Answer_Bool_Exp>;
+};
+
+/** aggregate max on columns */
+export type Profile_Max_Fields = {
+  __typename?: 'profile_max_fields';
+  address?: Maybe<Scalars['String']>;
+  bio?: Maybe<Scalars['String']>;
+  cover_pic?: Maybe<Scalars['String']>;
+  creation_time?: Maybe<Scalars['timestamp']>;
+  dtag?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  nickname?: Maybe<Scalars['String']>;
+  profile_pic?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Profile_Min_Fields = {
+  __typename?: 'profile_min_fields';
+  address?: Maybe<Scalars['String']>;
+  bio?: Maybe<Scalars['String']>;
+  cover_pic?: Maybe<Scalars['String']>;
+  creation_time?: Maybe<Scalars['timestamp']>;
+  dtag?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  nickname?: Maybe<Scalars['String']>;
+  profile_pic?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "profile". */
+export type Profile_Order_By = {
+  address?: Maybe<Order_By>;
+  application_links_aggregate?: Maybe<Application_Link_Aggregate_Order_By>;
+  bio?: Maybe<Order_By>;
+  chain_links_aggregate?: Maybe<Chain_Link_Aggregate_Order_By>;
+  cover_pic?: Maybe<Order_By>;
+  creation_time?: Maybe<Order_By>;
+  dtag?: Maybe<Order_By>;
+  dtagTransferRequestsBySenderAddress_aggregate?: Maybe<Dtag_Transfer_Requests_Aggregate_Order_By>;
+  dtag_transfer_requests_aggregate?: Maybe<Dtag_Transfer_Requests_Aggregate_Order_By>;
+  height?: Maybe<Order_By>;
+  nickname?: Maybe<Order_By>;
+  post_attachment_tags_aggregate?: Maybe<Post_Attachment_Tag_Aggregate_Order_By>;
+  post_reactions_aggregate?: Maybe<Post_Reaction_Aggregate_Order_By>;
+  post_reports_aggregate?: Maybe<Post_Report_Aggregate_Order_By>;
+  posts_aggregate?: Maybe<Post_Aggregate_Order_By>;
+  profileRelationshipsBySenderAddress_aggregate?: Maybe<Profile_Relationship_Aggregate_Order_By>;
+  profile_pic?: Maybe<Order_By>;
+  profile_relationships_aggregate?: Maybe<Profile_Relationship_Aggregate_Order_By>;
+  registered_reactions_aggregate?: Maybe<Registered_Reactions_Aggregate_Order_By>;
+  userBlocksByBlockerAddress_aggregate?: Maybe<User_Block_Aggregate_Order_By>;
+  user_blocks_aggregate?: Maybe<User_Block_Aggregate_Order_By>;
+  user_poll_answers_aggregate?: Maybe<User_Poll_Answer_Aggregate_Order_By>;
+};
+
+/** columns and relationships of "profile_relationship" */
+export type Profile_Relationship = {
+  __typename?: 'profile_relationship';
+  height: Scalars['bigint'];
+  /** An object relationship */
+  profile: Profile;
+  /** An object relationship */
+  profileBySenderAddress: Profile;
+  receiver_address: Scalars['String'];
+  sender_address: Scalars['String'];
+  subspace: Scalars['String'];
+};
+
+/** aggregated selection of "profile_relationship" */
+export type Profile_Relationship_Aggregate = {
+  __typename?: 'profile_relationship_aggregate';
+  aggregate?: Maybe<Profile_Relationship_Aggregate_Fields>;
+  nodes: Array<Profile_Relationship>;
+};
+
+/** aggregate fields of "profile_relationship" */
+export type Profile_Relationship_Aggregate_Fields = {
+  __typename?: 'profile_relationship_aggregate_fields';
+  avg?: Maybe<Profile_Relationship_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Profile_Relationship_Max_Fields>;
+  min?: Maybe<Profile_Relationship_Min_Fields>;
+  stddev?: Maybe<Profile_Relationship_Stddev_Fields>;
+  stddev_pop?: Maybe<Profile_Relationship_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Profile_Relationship_Stddev_Samp_Fields>;
+  sum?: Maybe<Profile_Relationship_Sum_Fields>;
+  var_pop?: Maybe<Profile_Relationship_Var_Pop_Fields>;
+  var_samp?: Maybe<Profile_Relationship_Var_Samp_Fields>;
+  variance?: Maybe<Profile_Relationship_Variance_Fields>;
+};
+
+
+/** aggregate fields of "profile_relationship" */
+export type Profile_Relationship_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Profile_Relationship_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "profile_relationship" */
+export type Profile_Relationship_Aggregate_Order_By = {
+  avg?: Maybe<Profile_Relationship_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Profile_Relationship_Max_Order_By>;
+  min?: Maybe<Profile_Relationship_Min_Order_By>;
+  stddev?: Maybe<Profile_Relationship_Stddev_Order_By>;
+  stddev_pop?: Maybe<Profile_Relationship_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Profile_Relationship_Stddev_Samp_Order_By>;
+  sum?: Maybe<Profile_Relationship_Sum_Order_By>;
+  var_pop?: Maybe<Profile_Relationship_Var_Pop_Order_By>;
+  var_samp?: Maybe<Profile_Relationship_Var_Samp_Order_By>;
+  variance?: Maybe<Profile_Relationship_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Profile_Relationship_Avg_Fields = {
+  __typename?: 'profile_relationship_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "profile_relationship" */
+export type Profile_Relationship_Avg_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "profile_relationship". All fields are combined with a logical 'AND'. */
+export type Profile_Relationship_Bool_Exp = {
+  _and?: Maybe<Array<Profile_Relationship_Bool_Exp>>;
+  _not?: Maybe<Profile_Relationship_Bool_Exp>;
+  _or?: Maybe<Array<Profile_Relationship_Bool_Exp>>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  profile?: Maybe<Profile_Bool_Exp>;
+  profileBySenderAddress?: Maybe<Profile_Bool_Exp>;
+  receiver_address?: Maybe<String_Comparison_Exp>;
+  sender_address?: Maybe<String_Comparison_Exp>;
+  subspace?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Profile_Relationship_Max_Fields = {
+  __typename?: 'profile_relationship_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+  receiver_address?: Maybe<Scalars['String']>;
+  sender_address?: Maybe<Scalars['String']>;
+  subspace?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "profile_relationship" */
+export type Profile_Relationship_Max_Order_By = {
+  height?: Maybe<Order_By>;
+  receiver_address?: Maybe<Order_By>;
+  sender_address?: Maybe<Order_By>;
+  subspace?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Profile_Relationship_Min_Fields = {
+  __typename?: 'profile_relationship_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+  receiver_address?: Maybe<Scalars['String']>;
+  sender_address?: Maybe<Scalars['String']>;
+  subspace?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "profile_relationship" */
+export type Profile_Relationship_Min_Order_By = {
+  height?: Maybe<Order_By>;
+  receiver_address?: Maybe<Order_By>;
+  sender_address?: Maybe<Order_By>;
+  subspace?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "profile_relationship". */
+export type Profile_Relationship_Order_By = {
+  height?: Maybe<Order_By>;
+  profile?: Maybe<Profile_Order_By>;
+  profileBySenderAddress?: Maybe<Profile_Order_By>;
+  receiver_address?: Maybe<Order_By>;
+  sender_address?: Maybe<Order_By>;
+  subspace?: Maybe<Order_By>;
+};
+
+/** select columns of table "profile_relationship" */
+export enum Profile_Relationship_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  ReceiverAddress = 'receiver_address',
+  /** column name */
+  SenderAddress = 'sender_address',
+  /** column name */
+  Subspace = 'subspace'
+}
+
+/** aggregate stddev on columns */
+export type Profile_Relationship_Stddev_Fields = {
+  __typename?: 'profile_relationship_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "profile_relationship" */
+export type Profile_Relationship_Stddev_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Profile_Relationship_Stddev_Pop_Fields = {
+  __typename?: 'profile_relationship_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "profile_relationship" */
+export type Profile_Relationship_Stddev_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Profile_Relationship_Stddev_Samp_Fields = {
+  __typename?: 'profile_relationship_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "profile_relationship" */
+export type Profile_Relationship_Stddev_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Profile_Relationship_Sum_Fields = {
+  __typename?: 'profile_relationship_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** order by sum() on columns of table "profile_relationship" */
+export type Profile_Relationship_Sum_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Profile_Relationship_Var_Pop_Fields = {
+  __typename?: 'profile_relationship_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "profile_relationship" */
+export type Profile_Relationship_Var_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Profile_Relationship_Var_Samp_Fields = {
+  __typename?: 'profile_relationship_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "profile_relationship" */
+export type Profile_Relationship_Var_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Profile_Relationship_Variance_Fields = {
+  __typename?: 'profile_relationship_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "profile_relationship" */
+export type Profile_Relationship_Variance_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** select columns of table "profile" */
+export enum Profile_Select_Column {
+  /** column name */
+  Address = 'address',
+  /** column name */
+  Bio = 'bio',
+  /** column name */
+  CoverPic = 'cover_pic',
+  /** column name */
+  CreationTime = 'creation_time',
+  /** column name */
+  Dtag = 'dtag',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Nickname = 'nickname',
+  /** column name */
+  ProfilePic = 'profile_pic'
+}
+
+/** aggregate stddev on columns */
+export type Profile_Stddev_Fields = {
+  __typename?: 'profile_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Profile_Stddev_Pop_Fields = {
+  __typename?: 'profile_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Profile_Stddev_Samp_Fields = {
+  __typename?: 'profile_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Profile_Sum_Fields = {
+  __typename?: 'profile_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Profile_Var_Pop_Fields = {
+  __typename?: 'profile_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Profile_Var_Samp_Fields = {
+  __typename?: 'profile_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Profile_Variance_Fields = {
+  __typename?: 'profile_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
 /** columns and relationships of "proposal" */
 export type Proposal = {
   __typename?: 'proposal';
@@ -6007,19 +9207,19 @@ export type Proposal = {
   id: Scalars['Int'];
   /** An array relationship */
   proposal_deposits: Array<Proposal_Deposit>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   proposal_deposits_aggregate: Proposal_Deposit_Aggregate;
   proposal_route: Scalars['String'];
   /** An object relationship */
   proposal_tally_result?: Maybe<Proposal_Tally_Result>;
   /** An array relationship */
   proposal_tally_results: Array<Proposal_Tally_Result>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   proposal_tally_results_aggregate: Proposal_Tally_Result_Aggregate;
   proposal_type: Scalars['String'];
   /** An array relationship */
   proposal_votes: Array<Proposal_Vote>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   proposal_votes_aggregate: Proposal_Vote_Aggregate;
   /** An object relationship */
   proposer: Account;
@@ -6031,7 +9231,7 @@ export type Proposal = {
   title: Scalars['String'];
   /** An array relationship */
   validator_status_snapshots: Array<Proposal_Validator_Status_Snapshot>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   validator_status_snapshots_aggregate: Proposal_Validator_Status_Snapshot_Aggregate;
   voting_end_time?: Maybe<Scalars['timestamp']>;
   voting_start_time?: Maybe<Scalars['timestamp']>;
@@ -6134,7 +9334,7 @@ export type Proposal_Aggregate = {
 export type Proposal_Aggregate_Fields = {
   __typename?: 'proposal_aggregate_fields';
   avg?: Maybe<Proposal_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Proposal_Max_Fields>;
   min?: Maybe<Proposal_Min_Fields>;
   stddev?: Maybe<Proposal_Stddev_Fields>;
@@ -6181,9 +9381,9 @@ export type Proposal_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "proposal". All fields are combined with a logical 'AND'. */
 export type Proposal_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Proposal_Bool_Exp>>>;
+  _and?: Maybe<Array<Proposal_Bool_Exp>>;
   _not?: Maybe<Proposal_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Proposal_Bool_Exp>>>;
+  _or?: Maybe<Array<Proposal_Bool_Exp>>;
   content?: Maybe<Jsonb_Comparison_Exp>;
   deposit_end_time?: Maybe<Timestamp_Comparison_Exp>;
   description?: Maybe<String_Comparison_Exp>;
@@ -6231,7 +9431,7 @@ export type Proposal_Deposit_Aggregate = {
 export type Proposal_Deposit_Aggregate_Fields = {
   __typename?: 'proposal_deposit_aggregate_fields';
   avg?: Maybe<Proposal_Deposit_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Proposal_Deposit_Max_Fields>;
   min?: Maybe<Proposal_Deposit_Min_Fields>;
   stddev?: Maybe<Proposal_Deposit_Stddev_Fields>;
@@ -6280,9 +9480,9 @@ export type Proposal_Deposit_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "proposal_deposit". All fields are combined with a logical 'AND'. */
 export type Proposal_Deposit_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Proposal_Deposit_Bool_Exp>>>;
+  _and?: Maybe<Array<Proposal_Deposit_Bool_Exp>>;
   _not?: Maybe<Proposal_Deposit_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Proposal_Deposit_Bool_Exp>>>;
+  _or?: Maybe<Array<Proposal_Deposit_Bool_Exp>>;
   amount?: Maybe<_Coin_Comparison_Exp>;
   block?: Maybe<Block_Bool_Exp>;
   depositor?: Maybe<Account_Bool_Exp>;
@@ -6322,7 +9522,7 @@ export type Proposal_Deposit_Min_Order_By = {
   proposal_id?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "proposal_deposit" */
+/** Ordering options when selecting data from "proposal_deposit". */
 export type Proposal_Deposit_Order_By = {
   amount?: Maybe<Order_By>;
   block?: Maybe<Block_Order_By>;
@@ -6331,13 +9531,6 @@ export type Proposal_Deposit_Order_By = {
   height?: Maybe<Order_By>;
   proposal?: Maybe<Proposal_Order_By>;
   proposal_id?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "proposal_deposit" */
-export type Proposal_Deposit_Pk_Columns_Input = {
-  depositor_address: Scalars['String'];
-  height: Scalars['bigint'];
-  proposal_id: Scalars['Int'];
 };
 
 /** select columns of table "proposal_deposit" */
@@ -6505,7 +9698,7 @@ export type Proposal_Min_Order_By = {
   voting_start_time?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "proposal" */
+/** Ordering options when selecting data from "proposal". */
 export type Proposal_Order_By = {
   content?: Maybe<Order_By>;
   deposit_end_time?: Maybe<Order_By>;
@@ -6526,11 +9719,6 @@ export type Proposal_Order_By = {
   validator_status_snapshots_aggregate?: Maybe<Proposal_Validator_Status_Snapshot_Aggregate_Order_By>;
   voting_end_time?: Maybe<Order_By>;
   voting_start_time?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "proposal" */
-export type Proposal_Pk_Columns_Input = {
-  id: Scalars['Int'];
 };
 
 /** select columns of table "proposal" */
@@ -6583,7 +9771,7 @@ export type Proposal_Staking_Pool_Snapshot_Aggregate = {
 export type Proposal_Staking_Pool_Snapshot_Aggregate_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_aggregate_fields';
   avg?: Maybe<Proposal_Staking_Pool_Snapshot_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Proposal_Staking_Pool_Snapshot_Max_Fields>;
   min?: Maybe<Proposal_Staking_Pool_Snapshot_Min_Fields>;
   stddev?: Maybe<Proposal_Staking_Pool_Snapshot_Stddev_Fields>;
@@ -6602,21 +9790,6 @@ export type Proposal_Staking_Pool_Snapshot_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "proposal_staking_pool_snapshot" */
-export type Proposal_Staking_Pool_Snapshot_Aggregate_Order_By = {
-  avg?: Maybe<Proposal_Staking_Pool_Snapshot_Avg_Order_By>;
-  count?: Maybe<Order_By>;
-  max?: Maybe<Proposal_Staking_Pool_Snapshot_Max_Order_By>;
-  min?: Maybe<Proposal_Staking_Pool_Snapshot_Min_Order_By>;
-  stddev?: Maybe<Proposal_Staking_Pool_Snapshot_Stddev_Order_By>;
-  stddev_pop?: Maybe<Proposal_Staking_Pool_Snapshot_Stddev_Pop_Order_By>;
-  stddev_samp?: Maybe<Proposal_Staking_Pool_Snapshot_Stddev_Samp_Order_By>;
-  sum?: Maybe<Proposal_Staking_Pool_Snapshot_Sum_Order_By>;
-  var_pop?: Maybe<Proposal_Staking_Pool_Snapshot_Var_Pop_Order_By>;
-  var_samp?: Maybe<Proposal_Staking_Pool_Snapshot_Var_Samp_Order_By>;
-  variance?: Maybe<Proposal_Staking_Pool_Snapshot_Variance_Order_By>;
-};
-
 /** aggregate avg on columns */
 export type Proposal_Staking_Pool_Snapshot_Avg_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_avg_fields';
@@ -6626,19 +9799,11 @@ export type Proposal_Staking_Pool_Snapshot_Avg_Fields = {
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "proposal_staking_pool_snapshot" */
-export type Proposal_Staking_Pool_Snapshot_Avg_Order_By = {
-  bonded_tokens?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  not_bonded_tokens?: Maybe<Order_By>;
-  proposal_id?: Maybe<Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "proposal_staking_pool_snapshot". All fields are combined with a logical 'AND'. */
 export type Proposal_Staking_Pool_Snapshot_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>>>;
+  _and?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Bool_Exp>>;
   _not?: Maybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>>>;
+  _or?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Bool_Exp>>;
   bonded_tokens?: Maybe<Bigint_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
   not_bonded_tokens?: Maybe<Bigint_Comparison_Exp>;
@@ -6655,14 +9820,6 @@ export type Proposal_Staking_Pool_Snapshot_Max_Fields = {
   proposal_id?: Maybe<Scalars['Int']>;
 };
 
-/** order by max() on columns of table "proposal_staking_pool_snapshot" */
-export type Proposal_Staking_Pool_Snapshot_Max_Order_By = {
-  bonded_tokens?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  not_bonded_tokens?: Maybe<Order_By>;
-  proposal_id?: Maybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Proposal_Staking_Pool_Snapshot_Min_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_min_fields';
@@ -6672,26 +9829,13 @@ export type Proposal_Staking_Pool_Snapshot_Min_Fields = {
   proposal_id?: Maybe<Scalars['Int']>;
 };
 
-/** order by min() on columns of table "proposal_staking_pool_snapshot" */
-export type Proposal_Staking_Pool_Snapshot_Min_Order_By = {
-  bonded_tokens?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  not_bonded_tokens?: Maybe<Order_By>;
-  proposal_id?: Maybe<Order_By>;
-};
-
-/** ordering options when selecting data from "proposal_staking_pool_snapshot" */
+/** Ordering options when selecting data from "proposal_staking_pool_snapshot". */
 export type Proposal_Staking_Pool_Snapshot_Order_By = {
   bonded_tokens?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
   not_bonded_tokens?: Maybe<Order_By>;
   proposal?: Maybe<Proposal_Order_By>;
   proposal_id?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "proposal_staking_pool_snapshot" */
-export type Proposal_Staking_Pool_Snapshot_Pk_Columns_Input = {
-  proposal_id: Scalars['Int'];
 };
 
 /** select columns of table "proposal_staking_pool_snapshot" */
@@ -6715,14 +9859,6 @@ export type Proposal_Staking_Pool_Snapshot_Stddev_Fields = {
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "proposal_staking_pool_snapshot" */
-export type Proposal_Staking_Pool_Snapshot_Stddev_Order_By = {
-  bonded_tokens?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  not_bonded_tokens?: Maybe<Order_By>;
-  proposal_id?: Maybe<Order_By>;
-};
-
 /** aggregate stddev_pop on columns */
 export type Proposal_Staking_Pool_Snapshot_Stddev_Pop_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_stddev_pop_fields';
@@ -6730,14 +9866,6 @@ export type Proposal_Staking_Pool_Snapshot_Stddev_Pop_Fields = {
   height?: Maybe<Scalars['Float']>;
   not_bonded_tokens?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "proposal_staking_pool_snapshot" */
-export type Proposal_Staking_Pool_Snapshot_Stddev_Pop_Order_By = {
-  bonded_tokens?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  not_bonded_tokens?: Maybe<Order_By>;
-  proposal_id?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -6749,14 +9877,6 @@ export type Proposal_Staking_Pool_Snapshot_Stddev_Samp_Fields = {
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "proposal_staking_pool_snapshot" */
-export type Proposal_Staking_Pool_Snapshot_Stddev_Samp_Order_By = {
-  bonded_tokens?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  not_bonded_tokens?: Maybe<Order_By>;
-  proposal_id?: Maybe<Order_By>;
-};
-
 /** aggregate sum on columns */
 export type Proposal_Staking_Pool_Snapshot_Sum_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_sum_fields';
@@ -6764,14 +9884,6 @@ export type Proposal_Staking_Pool_Snapshot_Sum_Fields = {
   height?: Maybe<Scalars['bigint']>;
   not_bonded_tokens?: Maybe<Scalars['bigint']>;
   proposal_id?: Maybe<Scalars['Int']>;
-};
-
-/** order by sum() on columns of table "proposal_staking_pool_snapshot" */
-export type Proposal_Staking_Pool_Snapshot_Sum_Order_By = {
-  bonded_tokens?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  not_bonded_tokens?: Maybe<Order_By>;
-  proposal_id?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -6783,14 +9895,6 @@ export type Proposal_Staking_Pool_Snapshot_Var_Pop_Fields = {
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "proposal_staking_pool_snapshot" */
-export type Proposal_Staking_Pool_Snapshot_Var_Pop_Order_By = {
-  bonded_tokens?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  not_bonded_tokens?: Maybe<Order_By>;
-  proposal_id?: Maybe<Order_By>;
-};
-
 /** aggregate var_samp on columns */
 export type Proposal_Staking_Pool_Snapshot_Var_Samp_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_var_samp_fields';
@@ -6800,14 +9904,6 @@ export type Proposal_Staking_Pool_Snapshot_Var_Samp_Fields = {
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "proposal_staking_pool_snapshot" */
-export type Proposal_Staking_Pool_Snapshot_Var_Samp_Order_By = {
-  bonded_tokens?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  not_bonded_tokens?: Maybe<Order_By>;
-  proposal_id?: Maybe<Order_By>;
-};
-
 /** aggregate variance on columns */
 export type Proposal_Staking_Pool_Snapshot_Variance_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_variance_fields';
@@ -6815,14 +9911,6 @@ export type Proposal_Staking_Pool_Snapshot_Variance_Fields = {
   height?: Maybe<Scalars['Float']>;
   not_bonded_tokens?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
-};
-
-/** order by variance() on columns of table "proposal_staking_pool_snapshot" */
-export type Proposal_Staking_Pool_Snapshot_Variance_Order_By = {
-  bonded_tokens?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  not_bonded_tokens?: Maybe<Order_By>;
-  proposal_id?: Maybe<Order_By>;
 };
 
 /** aggregate stddev on columns */
@@ -6893,7 +9981,7 @@ export type Proposal_Tally_Result_Aggregate = {
 export type Proposal_Tally_Result_Aggregate_Fields = {
   __typename?: 'proposal_tally_result_aggregate_fields';
   avg?: Maybe<Proposal_Tally_Result_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Proposal_Tally_Result_Max_Fields>;
   min?: Maybe<Proposal_Tally_Result_Min_Fields>;
   stddev?: Maybe<Proposal_Tally_Result_Stddev_Fields>;
@@ -6950,9 +10038,9 @@ export type Proposal_Tally_Result_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "proposal_tally_result". All fields are combined with a logical 'AND'. */
 export type Proposal_Tally_Result_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Proposal_Tally_Result_Bool_Exp>>>;
+  _and?: Maybe<Array<Proposal_Tally_Result_Bool_Exp>>;
   _not?: Maybe<Proposal_Tally_Result_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Proposal_Tally_Result_Bool_Exp>>>;
+  _or?: Maybe<Array<Proposal_Tally_Result_Bool_Exp>>;
   abstain?: Maybe<Bigint_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
   no?: Maybe<Bigint_Comparison_Exp>;
@@ -7004,7 +10092,7 @@ export type Proposal_Tally_Result_Min_Order_By = {
   yes?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "proposal_tally_result" */
+/** Ordering options when selecting data from "proposal_tally_result". */
 export type Proposal_Tally_Result_Order_By = {
   abstain?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
@@ -7013,12 +10101,6 @@ export type Proposal_Tally_Result_Order_By = {
   proposal?: Maybe<Proposal_Order_By>;
   proposal_id?: Maybe<Order_By>;
   yes?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "proposal_tally_result" */
-export type Proposal_Tally_Result_Pk_Columns_Input = {
-  height: Scalars['bigint'];
-  proposal_id: Scalars['Int'];
 };
 
 /** select columns of table "proposal_tally_result" */
@@ -7211,7 +10293,7 @@ export type Proposal_Validator_Status_Snapshot_Aggregate = {
 export type Proposal_Validator_Status_Snapshot_Aggregate_Fields = {
   __typename?: 'proposal_validator_status_snapshot_aggregate_fields';
   avg?: Maybe<Proposal_Validator_Status_Snapshot_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Proposal_Validator_Status_Snapshot_Max_Fields>;
   min?: Maybe<Proposal_Validator_Status_Snapshot_Min_Fields>;
   stddev?: Maybe<Proposal_Validator_Status_Snapshot_Stddev_Fields>;
@@ -7266,9 +10348,9 @@ export type Proposal_Validator_Status_Snapshot_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "proposal_validator_status_snapshot". All fields are combined with a logical 'AND'. */
 export type Proposal_Validator_Status_Snapshot_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>>>;
+  _and?: Maybe<Array<Proposal_Validator_Status_Snapshot_Bool_Exp>>;
   _not?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>>>;
+  _or?: Maybe<Array<Proposal_Validator_Status_Snapshot_Bool_Exp>>;
   height?: Maybe<Bigint_Comparison_Exp>;
   id?: Maybe<Int_Comparison_Exp>;
   jailed?: Maybe<Boolean_Comparison_Exp>;
@@ -7322,7 +10404,7 @@ export type Proposal_Validator_Status_Snapshot_Min_Order_By = {
   voting_power?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "proposal_validator_status_snapshot" */
+/** Ordering options when selecting data from "proposal_validator_status_snapshot". */
 export type Proposal_Validator_Status_Snapshot_Order_By = {
   height?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
@@ -7333,11 +10415,6 @@ export type Proposal_Validator_Status_Snapshot_Order_By = {
   validator?: Maybe<Validator_Order_By>;
   validator_address?: Maybe<Order_By>;
   voting_power?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "proposal_validator_status_snapshot" */
-export type Proposal_Validator_Status_Snapshot_Pk_Columns_Input = {
-  id: Scalars['Int'];
 };
 
 /** select columns of table "proposal_validator_status_snapshot" */
@@ -7550,7 +10627,7 @@ export type Proposal_Vote_Aggregate = {
 export type Proposal_Vote_Aggregate_Fields = {
   __typename?: 'proposal_vote_aggregate_fields';
   avg?: Maybe<Proposal_Vote_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Proposal_Vote_Max_Fields>;
   min?: Maybe<Proposal_Vote_Min_Fields>;
   stddev?: Maybe<Proposal_Vote_Stddev_Fields>;
@@ -7599,9 +10676,9 @@ export type Proposal_Vote_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "proposal_vote". All fields are combined with a logical 'AND'. */
 export type Proposal_Vote_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Proposal_Vote_Bool_Exp>>>;
+  _and?: Maybe<Array<Proposal_Vote_Bool_Exp>>;
   _not?: Maybe<Proposal_Vote_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Proposal_Vote_Bool_Exp>>>;
+  _or?: Maybe<Array<Proposal_Vote_Bool_Exp>>;
   account?: Maybe<Account_Bool_Exp>;
   block?: Maybe<Block_Bool_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
@@ -7645,7 +10722,7 @@ export type Proposal_Vote_Min_Order_By = {
   voter_address?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "proposal_vote" */
+/** Ordering options when selecting data from "proposal_vote". */
 export type Proposal_Vote_Order_By = {
   account?: Maybe<Account_Order_By>;
   block?: Maybe<Block_Order_By>;
@@ -7759,7 +10836,6 @@ export type Proposal_Vote_Variance_Order_By = {
   proposal_id?: Maybe<Order_By>;
 };
 
-/** query root */
 export type Query_Root = {
   __typename?: 'query_root';
   /** fetch data from the table: "account" */
@@ -7778,48 +10854,64 @@ export type Query_Root = {
   account_balance_history_aggregate: Account_Balance_History_Aggregate;
   /** fetch data from the table: "account" using primary key columns */
   account_by_pk?: Maybe<Account>;
+  /** fetch data from the table: "application_link" */
+  application_link: Array<Application_Link>;
+  /** fetch aggregated fields from the table: "application_link" */
+  application_link_aggregate: Application_Link_Aggregate;
+  /** fetch data from the table: "application_link" using primary key columns */
+  application_link_by_pk?: Maybe<Application_Link>;
+  /** fetch data from the table: "application_link_oracle_request" */
+  application_link_oracle_request: Array<Application_Link_Oracle_Request>;
+  /** fetch aggregated fields from the table: "application_link_oracle_request" */
+  application_link_oracle_request_aggregate: Application_Link_Oracle_Request_Aggregate;
+  /** fetch data from the table: "application_link_oracle_request" using primary key columns */
+  application_link_oracle_request_by_pk?: Maybe<Application_Link_Oracle_Request>;
   /** fetch data from the table: "average_block_time_from_genesis" */
   average_block_time_from_genesis: Array<Average_Block_Time_From_Genesis>;
   /** fetch aggregated fields from the table: "average_block_time_from_genesis" */
   average_block_time_from_genesis_aggregate: Average_Block_Time_From_Genesis_Aggregate;
-  /** fetch data from the table: "average_block_time_from_genesis" using primary key columns */
-  average_block_time_from_genesis_by_pk?: Maybe<Average_Block_Time_From_Genesis>;
   /** fetch data from the table: "average_block_time_per_day" */
   average_block_time_per_day: Array<Average_Block_Time_Per_Day>;
   /** fetch aggregated fields from the table: "average_block_time_per_day" */
   average_block_time_per_day_aggregate: Average_Block_Time_Per_Day_Aggregate;
-  /** fetch data from the table: "average_block_time_per_day" using primary key columns */
-  average_block_time_per_day_by_pk?: Maybe<Average_Block_Time_Per_Day>;
   /** fetch data from the table: "average_block_time_per_hour" */
   average_block_time_per_hour: Array<Average_Block_Time_Per_Hour>;
   /** fetch aggregated fields from the table: "average_block_time_per_hour" */
   average_block_time_per_hour_aggregate: Average_Block_Time_Per_Hour_Aggregate;
-  /** fetch data from the table: "average_block_time_per_hour" using primary key columns */
-  average_block_time_per_hour_by_pk?: Maybe<Average_Block_Time_Per_Hour>;
   /** fetch data from the table: "average_block_time_per_minute" */
   average_block_time_per_minute: Array<Average_Block_Time_Per_Minute>;
   /** fetch aggregated fields from the table: "average_block_time_per_minute" */
   average_block_time_per_minute_aggregate: Average_Block_Time_Per_Minute_Aggregate;
-  /** fetch data from the table: "average_block_time_per_minute" using primary key columns */
-  average_block_time_per_minute_by_pk?: Maybe<Average_Block_Time_Per_Minute>;
   /** fetch data from the table: "block" */
   block: Array<Block>;
   /** fetch aggregated fields from the table: "block" */
   block_aggregate: Block_Aggregate;
   /** fetch data from the table: "block" using primary key columns */
   block_by_pk?: Maybe<Block>;
+  /** fetch data from the table: "chain_link" */
+  chain_link: Array<Chain_Link>;
+  /** fetch aggregated fields from the table: "chain_link" */
+  chain_link_aggregate: Chain_Link_Aggregate;
+  /** fetch data from the table: "chain_link" using primary key columns */
+  chain_link_by_pk?: Maybe<Chain_Link>;
+  /** fetch data from the table: "chain_link_chain_config" */
+  chain_link_chain_config: Array<Chain_Link_Chain_Config>;
+  /** fetch aggregated fields from the table: "chain_link_chain_config" */
+  chain_link_chain_config_aggregate: Chain_Link_Chain_Config_Aggregate;
+  /** fetch data from the table: "chain_link_chain_config" using primary key columns */
+  chain_link_chain_config_by_pk?: Maybe<Chain_Link_Chain_Config>;
+  /** fetch data from the table: "chain_link_proof" */
+  chain_link_proof: Array<Chain_Link_Proof>;
+  /** fetch aggregated fields from the table: "chain_link_proof" */
+  chain_link_proof_aggregate: Chain_Link_Proof_Aggregate;
   /** fetch data from the table: "community_pool" */
   community_pool: Array<Community_Pool>;
   /** fetch aggregated fields from the table: "community_pool" */
   community_pool_aggregate: Community_Pool_Aggregate;
-  /** fetch data from the table: "community_pool" using primary key columns */
-  community_pool_by_pk?: Maybe<Community_Pool>;
   /** fetch data from the table: "consensus" */
   consensus: Array<Consensus>;
   /** fetch aggregated fields from the table: "consensus" */
   consensus_aggregate: Consensus_Aggregate;
-  /** fetch data from the table: "consensus" using primary key columns */
-  consensus_by_pk?: Maybe<Consensus>;
   /** fetch data from the table: "delegation" */
   delegation: Array<Delegation>;
   /** fetch aggregated fields from the table: "delegation" */
@@ -7854,12 +10946,14 @@ export type Query_Root = {
   double_sign_vote_aggregate: Double_Sign_Vote_Aggregate;
   /** fetch data from the table: "double_sign_vote" using primary key columns */
   double_sign_vote_by_pk?: Maybe<Double_Sign_Vote>;
+  /** An array relationship */
+  dtag_transfer_requests: Array<Dtag_Transfer_Requests>;
+  /** An aggregate relationship */
+  dtag_transfer_requests_aggregate: Dtag_Transfer_Requests_Aggregate;
   /** fetch data from the table: "genesis" */
   genesis: Array<Genesis>;
   /** fetch aggregated fields from the table: "genesis" */
   genesis_aggregate: Genesis_Aggregate;
-  /** fetch data from the table: "genesis" using primary key columns */
-  genesis_by_pk?: Maybe<Genesis>;
   /** fetch data from the table: "gov_params" */
   gov_params: Array<Gov_Params>;
   /** fetch aggregated fields from the table: "gov_params" */
@@ -7870,8 +10964,6 @@ export type Query_Root = {
   inflation: Array<Inflation>;
   /** fetch aggregated fields from the table: "inflation" */
   inflation_aggregate: Inflation_Aggregate;
-  /** fetch data from the table: "inflation" using primary key columns */
-  inflation_by_pk?: Maybe<Inflation>;
   /** fetch data from the table: "message" */
   message: Array<Message>;
   /** fetch aggregated fields from the table: "message" */
@@ -7892,10 +10984,58 @@ export type Query_Root = {
   modules_aggregate: Modules_Aggregate;
   /** fetch data from the table: "modules" using primary key columns */
   modules_by_pk?: Maybe<Modules>;
+  /** fetch data from the table: "poll" */
+  poll: Array<Poll>;
+  /** fetch aggregated fields from the table: "poll" */
+  poll_aggregate: Poll_Aggregate;
+  /** fetch data from the table: "poll_answer" */
+  poll_answer: Array<Poll_Answer>;
+  /** fetch aggregated fields from the table: "poll_answer" */
+  poll_answer_aggregate: Poll_Answer_Aggregate;
+  /** fetch data from the table: "poll" using primary key columns */
+  poll_by_pk?: Maybe<Poll>;
+  /** fetch data from the table: "post" */
+  post: Array<Post>;
+  /** fetch aggregated fields from the table: "post" */
+  post_aggregate: Post_Aggregate;
+  /** fetch data from the table: "post_attachment" */
+  post_attachment: Array<Post_Attachment>;
+  /** fetch aggregated fields from the table: "post_attachment" */
+  post_attachment_aggregate: Post_Attachment_Aggregate;
+  /** fetch data from the table: "post_attachment" using primary key columns */
+  post_attachment_by_pk?: Maybe<Post_Attachment>;
+  /** fetch data from the table: "post_attachment_tag" */
+  post_attachment_tag: Array<Post_Attachment_Tag>;
+  /** fetch aggregated fields from the table: "post_attachment_tag" */
+  post_attachment_tag_aggregate: Post_Attachment_Tag_Aggregate;
+  /** fetch data from the table: "post_attribute" */
+  post_attribute: Array<Post_Attribute>;
+  /** fetch aggregated fields from the table: "post_attribute" */
+  post_attribute_aggregate: Post_Attribute_Aggregate;
+  /** fetch data from the table: "post" using primary key columns */
+  post_by_pk?: Maybe<Post>;
+  /** fetch data from the table: "post_reaction" */
+  post_reaction: Array<Post_Reaction>;
+  /** fetch aggregated fields from the table: "post_reaction" */
+  post_reaction_aggregate: Post_Reaction_Aggregate;
+  /** fetch data from the table: "post_report" */
+  post_report: Array<Post_Report>;
+  /** fetch aggregated fields from the table: "post_report" */
+  post_report_aggregate: Post_Report_Aggregate;
   /** fetch data from the table: "pre_commit" */
   pre_commit: Array<Pre_Commit>;
   /** fetch aggregated fields from the table: "pre_commit" */
   pre_commit_aggregate: Pre_Commit_Aggregate;
+  /** fetch data from the table: "profile" */
+  profile: Array<Profile>;
+  /** fetch aggregated fields from the table: "profile" */
+  profile_aggregate: Profile_Aggregate;
+  /** fetch data from the table: "profile" using primary key columns */
+  profile_by_pk?: Maybe<Profile>;
+  /** fetch data from the table: "profile_relationship" */
+  profile_relationship: Array<Profile_Relationship>;
+  /** fetch aggregated fields from the table: "profile_relationship" */
+  profile_relationship_aggregate: Profile_Relationship_Aggregate;
   /** fetch data from the table: "proposal" */
   proposal: Array<Proposal>;
   /** fetch aggregated fields from the table: "proposal" */
@@ -7938,12 +11078,14 @@ export type Query_Root = {
   redelegation_history: Array<Redelegation_History>;
   /** fetch aggregated fields from the table: "redelegation_history" */
   redelegation_history_aggregate: Redelegation_History_Aggregate;
+  /** An array relationship */
+  registered_reactions: Array<Registered_Reactions>;
+  /** An aggregate relationship */
+  registered_reactions_aggregate: Registered_Reactions_Aggregate;
   /** fetch data from the table: "slashing_params" */
   slashing_params: Array<Slashing_Params>;
   /** fetch aggregated fields from the table: "slashing_params" */
   slashing_params_aggregate: Slashing_Params_Aggregate;
-  /** fetch data from the table: "slashing_params" using primary key columns */
-  slashing_params_by_pk?: Maybe<Slashing_Params>;
   /** fetch data from the table: "staking_params" */
   staking_params: Array<Staking_Params>;
   /** fetch aggregated fields from the table: "staking_params" */
@@ -7954,14 +11096,10 @@ export type Query_Root = {
   staking_pool: Array<Staking_Pool>;
   /** fetch aggregated fields from the table: "staking_pool" */
   staking_pool_aggregate: Staking_Pool_Aggregate;
-  /** fetch data from the table: "staking_pool" using primary key columns */
-  staking_pool_by_pk?: Maybe<Staking_Pool>;
   /** fetch data from the table: "supply" */
   supply: Array<Supply>;
   /** fetch aggregated fields from the table: "supply" */
   supply_aggregate: Supply_Aggregate;
-  /** fetch data from the table: "supply" using primary key columns */
-  supply_by_pk?: Maybe<Supply>;
   /** fetch data from the table: "token" */
   token: Array<Token>;
   /** fetch aggregated fields from the table: "token" */
@@ -7976,8 +11114,6 @@ export type Query_Root = {
   token_price_history: Array<Token_Price_History>;
   /** fetch aggregated fields from the table: "token_price_history" */
   token_price_history_aggregate: Token_Price_History_Aggregate;
-  /** fetch data from the table: "token_price_history" using primary key columns */
-  token_price_history_by_pk?: Maybe<Token_Price_History>;
   /** fetch data from the table: "token_unit" */
   token_unit: Array<Token_Unit>;
   /** fetch aggregated fields from the table: "token_unit" */
@@ -7996,6 +11132,14 @@ export type Query_Root = {
   unbonding_delegation_history: Array<Unbonding_Delegation_History>;
   /** fetch aggregated fields from the table: "unbonding_delegation_history" */
   unbonding_delegation_history_aggregate: Unbonding_Delegation_History_Aggregate;
+  /** fetch data from the table: "user_block" */
+  user_block: Array<User_Block>;
+  /** fetch aggregated fields from the table: "user_block" */
+  user_block_aggregate: User_Block_Aggregate;
+  /** fetch data from the table: "user_poll_answer" */
+  user_poll_answer: Array<User_Poll_Answer>;
+  /** fetch aggregated fields from the table: "user_poll_answer" */
+  user_poll_answer_aggregate: User_Poll_Answer_Aggregate;
   /** fetch data from the table: "validator" */
   validator: Array<Validator>;
   /** fetch aggregated fields from the table: "validator" */
@@ -8051,7 +11195,6 @@ export type Query_Root = {
 };
 
 
-/** query root */
 export type Query_RootAccountArgs = {
   distinct_on?: Maybe<Array<Account_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8061,7 +11204,6 @@ export type Query_RootAccountArgs = {
 };
 
 
-/** query root */
 export type Query_RootAccount_AggregateArgs = {
   distinct_on?: Maybe<Array<Account_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8071,7 +11213,6 @@ export type Query_RootAccount_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootAccount_BalanceArgs = {
   distinct_on?: Maybe<Array<Account_Balance_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8081,7 +11222,6 @@ export type Query_RootAccount_BalanceArgs = {
 };
 
 
-/** query root */
 export type Query_RootAccount_Balance_AggregateArgs = {
   distinct_on?: Maybe<Array<Account_Balance_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8091,13 +11231,11 @@ export type Query_RootAccount_Balance_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootAccount_Balance_By_PkArgs = {
   address: Scalars['String'];
 };
 
 
-/** query root */
 export type Query_RootAccount_Balance_HistoryArgs = {
   distinct_on?: Maybe<Array<Account_Balance_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8107,7 +11245,6 @@ export type Query_RootAccount_Balance_HistoryArgs = {
 };
 
 
-/** query root */
 export type Query_RootAccount_Balance_History_AggregateArgs = {
   distinct_on?: Maybe<Array<Account_Balance_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8117,13 +11254,57 @@ export type Query_RootAccount_Balance_History_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootAccount_By_PkArgs = {
   address: Scalars['String'];
 };
 
 
-/** query root */
+export type Query_RootApplication_LinkArgs = {
+  distinct_on?: Maybe<Array<Application_Link_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Application_Link_Order_By>>;
+  where?: Maybe<Application_Link_Bool_Exp>;
+};
+
+
+export type Query_RootApplication_Link_AggregateArgs = {
+  distinct_on?: Maybe<Array<Application_Link_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Application_Link_Order_By>>;
+  where?: Maybe<Application_Link_Bool_Exp>;
+};
+
+
+export type Query_RootApplication_Link_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Query_RootApplication_Link_Oracle_RequestArgs = {
+  distinct_on?: Maybe<Array<Application_Link_Oracle_Request_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Application_Link_Oracle_Request_Order_By>>;
+  where?: Maybe<Application_Link_Oracle_Request_Bool_Exp>;
+};
+
+
+export type Query_RootApplication_Link_Oracle_Request_AggregateArgs = {
+  distinct_on?: Maybe<Array<Application_Link_Oracle_Request_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Application_Link_Oracle_Request_Order_By>>;
+  where?: Maybe<Application_Link_Oracle_Request_Bool_Exp>;
+};
+
+
+export type Query_RootApplication_Link_Oracle_Request_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
 export type Query_RootAverage_Block_Time_From_GenesisArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_From_Genesis_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8133,7 +11314,6 @@ export type Query_RootAverage_Block_Time_From_GenesisArgs = {
 };
 
 
-/** query root */
 export type Query_RootAverage_Block_Time_From_Genesis_AggregateArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_From_Genesis_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8143,13 +11323,6 @@ export type Query_RootAverage_Block_Time_From_Genesis_AggregateArgs = {
 };
 
 
-/** query root */
-export type Query_RootAverage_Block_Time_From_Genesis_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** query root */
 export type Query_RootAverage_Block_Time_Per_DayArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Day_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8159,7 +11332,6 @@ export type Query_RootAverage_Block_Time_Per_DayArgs = {
 };
 
 
-/** query root */
 export type Query_RootAverage_Block_Time_Per_Day_AggregateArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Day_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8169,13 +11341,6 @@ export type Query_RootAverage_Block_Time_Per_Day_AggregateArgs = {
 };
 
 
-/** query root */
-export type Query_RootAverage_Block_Time_Per_Day_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** query root */
 export type Query_RootAverage_Block_Time_Per_HourArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Hour_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8185,7 +11350,6 @@ export type Query_RootAverage_Block_Time_Per_HourArgs = {
 };
 
 
-/** query root */
 export type Query_RootAverage_Block_Time_Per_Hour_AggregateArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Hour_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8195,13 +11359,6 @@ export type Query_RootAverage_Block_Time_Per_Hour_AggregateArgs = {
 };
 
 
-/** query root */
-export type Query_RootAverage_Block_Time_Per_Hour_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** query root */
 export type Query_RootAverage_Block_Time_Per_MinuteArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Minute_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8211,7 +11368,6 @@ export type Query_RootAverage_Block_Time_Per_MinuteArgs = {
 };
 
 
-/** query root */
 export type Query_RootAverage_Block_Time_Per_Minute_AggregateArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Minute_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8221,13 +11377,6 @@ export type Query_RootAverage_Block_Time_Per_Minute_AggregateArgs = {
 };
 
 
-/** query root */
-export type Query_RootAverage_Block_Time_Per_Minute_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** query root */
 export type Query_RootBlockArgs = {
   distinct_on?: Maybe<Array<Block_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8237,7 +11386,6 @@ export type Query_RootBlockArgs = {
 };
 
 
-/** query root */
 export type Query_RootBlock_AggregateArgs = {
   distinct_on?: Maybe<Array<Block_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8247,13 +11395,75 @@ export type Query_RootBlock_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootBlock_By_PkArgs = {
   height: Scalars['bigint'];
 };
 
 
-/** query root */
+export type Query_RootChain_LinkArgs = {
+  distinct_on?: Maybe<Array<Chain_Link_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Chain_Link_Order_By>>;
+  where?: Maybe<Chain_Link_Bool_Exp>;
+};
+
+
+export type Query_RootChain_Link_AggregateArgs = {
+  distinct_on?: Maybe<Array<Chain_Link_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Chain_Link_Order_By>>;
+  where?: Maybe<Chain_Link_Bool_Exp>;
+};
+
+
+export type Query_RootChain_Link_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Query_RootChain_Link_Chain_ConfigArgs = {
+  distinct_on?: Maybe<Array<Chain_Link_Chain_Config_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Chain_Link_Chain_Config_Order_By>>;
+  where?: Maybe<Chain_Link_Chain_Config_Bool_Exp>;
+};
+
+
+export type Query_RootChain_Link_Chain_Config_AggregateArgs = {
+  distinct_on?: Maybe<Array<Chain_Link_Chain_Config_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Chain_Link_Chain_Config_Order_By>>;
+  where?: Maybe<Chain_Link_Chain_Config_Bool_Exp>;
+};
+
+
+export type Query_RootChain_Link_Chain_Config_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Query_RootChain_Link_ProofArgs = {
+  distinct_on?: Maybe<Array<Chain_Link_Proof_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Chain_Link_Proof_Order_By>>;
+  where?: Maybe<Chain_Link_Proof_Bool_Exp>;
+};
+
+
+export type Query_RootChain_Link_Proof_AggregateArgs = {
+  distinct_on?: Maybe<Array<Chain_Link_Proof_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Chain_Link_Proof_Order_By>>;
+  where?: Maybe<Chain_Link_Proof_Bool_Exp>;
+};
+
+
 export type Query_RootCommunity_PoolArgs = {
   distinct_on?: Maybe<Array<Community_Pool_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8263,7 +11473,6 @@ export type Query_RootCommunity_PoolArgs = {
 };
 
 
-/** query root */
 export type Query_RootCommunity_Pool_AggregateArgs = {
   distinct_on?: Maybe<Array<Community_Pool_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8273,13 +11482,6 @@ export type Query_RootCommunity_Pool_AggregateArgs = {
 };
 
 
-/** query root */
-export type Query_RootCommunity_Pool_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** query root */
 export type Query_RootConsensusArgs = {
   distinct_on?: Maybe<Array<Consensus_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8289,7 +11491,6 @@ export type Query_RootConsensusArgs = {
 };
 
 
-/** query root */
 export type Query_RootConsensus_AggregateArgs = {
   distinct_on?: Maybe<Array<Consensus_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8299,13 +11500,6 @@ export type Query_RootConsensus_AggregateArgs = {
 };
 
 
-/** query root */
-export type Query_RootConsensus_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** query root */
 export type Query_RootDelegationArgs = {
   distinct_on?: Maybe<Array<Delegation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8315,7 +11509,6 @@ export type Query_RootDelegationArgs = {
 };
 
 
-/** query root */
 export type Query_RootDelegation_AggregateArgs = {
   distinct_on?: Maybe<Array<Delegation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8325,13 +11518,11 @@ export type Query_RootDelegation_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootDelegation_By_PkArgs = {
   id: Scalars['Int'];
 };
 
 
-/** query root */
 export type Query_RootDelegation_HistoryArgs = {
   distinct_on?: Maybe<Array<Delegation_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8341,7 +11532,6 @@ export type Query_RootDelegation_HistoryArgs = {
 };
 
 
-/** query root */
 export type Query_RootDelegation_History_AggregateArgs = {
   distinct_on?: Maybe<Array<Delegation_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8351,7 +11541,6 @@ export type Query_RootDelegation_History_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootDelegation_RewardArgs = {
   distinct_on?: Maybe<Array<Delegation_Reward_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8361,7 +11550,6 @@ export type Query_RootDelegation_RewardArgs = {
 };
 
 
-/** query root */
 export type Query_RootDelegation_Reward_AggregateArgs = {
   distinct_on?: Maybe<Array<Delegation_Reward_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8371,7 +11559,6 @@ export type Query_RootDelegation_Reward_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootDelegation_Reward_HistoryArgs = {
   distinct_on?: Maybe<Array<Delegation_Reward_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8381,7 +11568,6 @@ export type Query_RootDelegation_Reward_HistoryArgs = {
 };
 
 
-/** query root */
 export type Query_RootDelegation_Reward_History_AggregateArgs = {
   distinct_on?: Maybe<Array<Delegation_Reward_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8391,7 +11577,6 @@ export type Query_RootDelegation_Reward_History_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootDistribution_ParamsArgs = {
   distinct_on?: Maybe<Array<Distribution_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8401,7 +11586,6 @@ export type Query_RootDistribution_ParamsArgs = {
 };
 
 
-/** query root */
 export type Query_RootDistribution_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Distribution_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8411,13 +11595,11 @@ export type Query_RootDistribution_Params_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootDistribution_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
 
 
-/** query root */
 export type Query_RootDouble_Sign_EvidenceArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Evidence_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8427,7 +11609,6 @@ export type Query_RootDouble_Sign_EvidenceArgs = {
 };
 
 
-/** query root */
 export type Query_RootDouble_Sign_Evidence_AggregateArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Evidence_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8437,7 +11618,6 @@ export type Query_RootDouble_Sign_Evidence_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootDouble_Sign_VoteArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Vote_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8447,7 +11627,6 @@ export type Query_RootDouble_Sign_VoteArgs = {
 };
 
 
-/** query root */
 export type Query_RootDouble_Sign_Vote_AggregateArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Vote_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8457,13 +11636,29 @@ export type Query_RootDouble_Sign_Vote_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootDouble_Sign_Vote_By_PkArgs = {
   id: Scalars['Int'];
 };
 
 
-/** query root */
+export type Query_RootDtag_Transfer_RequestsArgs = {
+  distinct_on?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Dtag_Transfer_Requests_Order_By>>;
+  where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
+};
+
+
+export type Query_RootDtag_Transfer_Requests_AggregateArgs = {
+  distinct_on?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Dtag_Transfer_Requests_Order_By>>;
+  where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
+};
+
+
 export type Query_RootGenesisArgs = {
   distinct_on?: Maybe<Array<Genesis_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8473,7 +11668,6 @@ export type Query_RootGenesisArgs = {
 };
 
 
-/** query root */
 export type Query_RootGenesis_AggregateArgs = {
   distinct_on?: Maybe<Array<Genesis_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8483,13 +11677,6 @@ export type Query_RootGenesis_AggregateArgs = {
 };
 
 
-/** query root */
-export type Query_RootGenesis_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** query root */
 export type Query_RootGov_ParamsArgs = {
   distinct_on?: Maybe<Array<Gov_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8499,7 +11686,6 @@ export type Query_RootGov_ParamsArgs = {
 };
 
 
-/** query root */
 export type Query_RootGov_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Gov_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8509,13 +11695,11 @@ export type Query_RootGov_Params_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootGov_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
 
 
-/** query root */
 export type Query_RootInflationArgs = {
   distinct_on?: Maybe<Array<Inflation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8525,7 +11709,6 @@ export type Query_RootInflationArgs = {
 };
 
 
-/** query root */
 export type Query_RootInflation_AggregateArgs = {
   distinct_on?: Maybe<Array<Inflation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8535,13 +11718,6 @@ export type Query_RootInflation_AggregateArgs = {
 };
 
 
-/** query root */
-export type Query_RootInflation_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** query root */
 export type Query_RootMessageArgs = {
   distinct_on?: Maybe<Array<Message_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8551,7 +11727,6 @@ export type Query_RootMessageArgs = {
 };
 
 
-/** query root */
 export type Query_RootMessage_AggregateArgs = {
   distinct_on?: Maybe<Array<Message_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8561,7 +11736,6 @@ export type Query_RootMessage_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootMessages_By_AddressArgs = {
   args: Messages_By_Address_Args;
   distinct_on?: Maybe<Array<Message_Select_Column>>;
@@ -8572,7 +11746,6 @@ export type Query_RootMessages_By_AddressArgs = {
 };
 
 
-/** query root */
 export type Query_RootMessages_By_Address_AggregateArgs = {
   args: Messages_By_Address_Args;
   distinct_on?: Maybe<Array<Message_Select_Column>>;
@@ -8583,7 +11756,6 @@ export type Query_RootMessages_By_Address_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootMint_ParamsArgs = {
   distinct_on?: Maybe<Array<Mint_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8593,7 +11765,6 @@ export type Query_RootMint_ParamsArgs = {
 };
 
 
-/** query root */
 export type Query_RootMint_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Mint_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8603,13 +11774,11 @@ export type Query_RootMint_Params_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootMint_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
 
 
-/** query root */
 export type Query_RootModulesArgs = {
   distinct_on?: Maybe<Array<Modules_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8619,7 +11788,6 @@ export type Query_RootModulesArgs = {
 };
 
 
-/** query root */
 export type Query_RootModules_AggregateArgs = {
   distinct_on?: Maybe<Array<Modules_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8629,13 +11797,170 @@ export type Query_RootModules_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootModules_By_PkArgs = {
   module_name: Scalars['String'];
 };
 
 
-/** query root */
+export type Query_RootPollArgs = {
+  distinct_on?: Maybe<Array<Poll_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Poll_Order_By>>;
+  where?: Maybe<Poll_Bool_Exp>;
+};
+
+
+export type Query_RootPoll_AggregateArgs = {
+  distinct_on?: Maybe<Array<Poll_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Poll_Order_By>>;
+  where?: Maybe<Poll_Bool_Exp>;
+};
+
+
+export type Query_RootPoll_AnswerArgs = {
+  distinct_on?: Maybe<Array<Poll_Answer_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Poll_Answer_Order_By>>;
+  where?: Maybe<Poll_Answer_Bool_Exp>;
+};
+
+
+export type Query_RootPoll_Answer_AggregateArgs = {
+  distinct_on?: Maybe<Array<Poll_Answer_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Poll_Answer_Order_By>>;
+  where?: Maybe<Poll_Answer_Bool_Exp>;
+};
+
+
+export type Query_RootPoll_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Query_RootPostArgs = {
+  distinct_on?: Maybe<Array<Post_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Order_By>>;
+  where?: Maybe<Post_Bool_Exp>;
+};
+
+
+export type Query_RootPost_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Order_By>>;
+  where?: Maybe<Post_Bool_Exp>;
+};
+
+
+export type Query_RootPost_AttachmentArgs = {
+  distinct_on?: Maybe<Array<Post_Attachment_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Attachment_Order_By>>;
+  where?: Maybe<Post_Attachment_Bool_Exp>;
+};
+
+
+export type Query_RootPost_Attachment_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Attachment_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Attachment_Order_By>>;
+  where?: Maybe<Post_Attachment_Bool_Exp>;
+};
+
+
+export type Query_RootPost_Attachment_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Query_RootPost_Attachment_TagArgs = {
+  distinct_on?: Maybe<Array<Post_Attachment_Tag_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Attachment_Tag_Order_By>>;
+  where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
+};
+
+
+export type Query_RootPost_Attachment_Tag_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Attachment_Tag_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Attachment_Tag_Order_By>>;
+  where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
+};
+
+
+export type Query_RootPost_AttributeArgs = {
+  distinct_on?: Maybe<Array<Post_Attribute_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Attribute_Order_By>>;
+  where?: Maybe<Post_Attribute_Bool_Exp>;
+};
+
+
+export type Query_RootPost_Attribute_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Attribute_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Attribute_Order_By>>;
+  where?: Maybe<Post_Attribute_Bool_Exp>;
+};
+
+
+export type Query_RootPost_By_PkArgs = {
+  id: Scalars['String'];
+};
+
+
+export type Query_RootPost_ReactionArgs = {
+  distinct_on?: Maybe<Array<Post_Reaction_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Reaction_Order_By>>;
+  where?: Maybe<Post_Reaction_Bool_Exp>;
+};
+
+
+export type Query_RootPost_Reaction_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Reaction_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Reaction_Order_By>>;
+  where?: Maybe<Post_Reaction_Bool_Exp>;
+};
+
+
+export type Query_RootPost_ReportArgs = {
+  distinct_on?: Maybe<Array<Post_Report_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Report_Order_By>>;
+  where?: Maybe<Post_Report_Bool_Exp>;
+};
+
+
+export type Query_RootPost_Report_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Report_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Report_Order_By>>;
+  where?: Maybe<Post_Report_Bool_Exp>;
+};
+
+
 export type Query_RootPre_CommitArgs = {
   distinct_on?: Maybe<Array<Pre_Commit_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8645,7 +11970,6 @@ export type Query_RootPre_CommitArgs = {
 };
 
 
-/** query root */
 export type Query_RootPre_Commit_AggregateArgs = {
   distinct_on?: Maybe<Array<Pre_Commit_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8655,7 +11979,47 @@ export type Query_RootPre_Commit_AggregateArgs = {
 };
 
 
-/** query root */
+export type Query_RootProfileArgs = {
+  distinct_on?: Maybe<Array<Profile_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Profile_Order_By>>;
+  where?: Maybe<Profile_Bool_Exp>;
+};
+
+
+export type Query_RootProfile_AggregateArgs = {
+  distinct_on?: Maybe<Array<Profile_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Profile_Order_By>>;
+  where?: Maybe<Profile_Bool_Exp>;
+};
+
+
+export type Query_RootProfile_By_PkArgs = {
+  address: Scalars['String'];
+};
+
+
+export type Query_RootProfile_RelationshipArgs = {
+  distinct_on?: Maybe<Array<Profile_Relationship_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Profile_Relationship_Order_By>>;
+  where?: Maybe<Profile_Relationship_Bool_Exp>;
+};
+
+
+export type Query_RootProfile_Relationship_AggregateArgs = {
+  distinct_on?: Maybe<Array<Profile_Relationship_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Profile_Relationship_Order_By>>;
+  where?: Maybe<Profile_Relationship_Bool_Exp>;
+};
+
+
 export type Query_RootProposalArgs = {
   distinct_on?: Maybe<Array<Proposal_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8665,7 +12029,6 @@ export type Query_RootProposalArgs = {
 };
 
 
-/** query root */
 export type Query_RootProposal_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8675,13 +12038,11 @@ export type Query_RootProposal_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootProposal_By_PkArgs = {
   id: Scalars['Int'];
 };
 
 
-/** query root */
 export type Query_RootProposal_DepositArgs = {
   distinct_on?: Maybe<Array<Proposal_Deposit_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8691,7 +12052,6 @@ export type Query_RootProposal_DepositArgs = {
 };
 
 
-/** query root */
 export type Query_RootProposal_Deposit_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Deposit_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8701,7 +12061,6 @@ export type Query_RootProposal_Deposit_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootProposal_Deposit_By_PkArgs = {
   depositor_address: Scalars['String'];
   height: Scalars['bigint'];
@@ -8709,7 +12068,6 @@ export type Query_RootProposal_Deposit_By_PkArgs = {
 };
 
 
-/** query root */
 export type Query_RootProposal_Staking_Pool_SnapshotArgs = {
   distinct_on?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8719,7 +12077,6 @@ export type Query_RootProposal_Staking_Pool_SnapshotArgs = {
 };
 
 
-/** query root */
 export type Query_RootProposal_Staking_Pool_Snapshot_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8729,13 +12086,11 @@ export type Query_RootProposal_Staking_Pool_Snapshot_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootProposal_Staking_Pool_Snapshot_By_PkArgs = {
   proposal_id: Scalars['Int'];
 };
 
 
-/** query root */
 export type Query_RootProposal_Tally_ResultArgs = {
   distinct_on?: Maybe<Array<Proposal_Tally_Result_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8745,7 +12100,6 @@ export type Query_RootProposal_Tally_ResultArgs = {
 };
 
 
-/** query root */
 export type Query_RootProposal_Tally_Result_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Tally_Result_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8755,14 +12109,12 @@ export type Query_RootProposal_Tally_Result_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootProposal_Tally_Result_By_PkArgs = {
   height: Scalars['bigint'];
   proposal_id: Scalars['Int'];
 };
 
 
-/** query root */
 export type Query_RootProposal_Validator_Status_SnapshotArgs = {
   distinct_on?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8772,7 +12124,6 @@ export type Query_RootProposal_Validator_Status_SnapshotArgs = {
 };
 
 
-/** query root */
 export type Query_RootProposal_Validator_Status_Snapshot_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8782,13 +12133,11 @@ export type Query_RootProposal_Validator_Status_Snapshot_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootProposal_Validator_Status_Snapshot_By_PkArgs = {
   id: Scalars['Int'];
 };
 
 
-/** query root */
 export type Query_RootProposal_VoteArgs = {
   distinct_on?: Maybe<Array<Proposal_Vote_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8798,7 +12147,6 @@ export type Query_RootProposal_VoteArgs = {
 };
 
 
-/** query root */
 export type Query_RootProposal_Vote_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Vote_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8808,7 +12156,6 @@ export type Query_RootProposal_Vote_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootRedelegationArgs = {
   distinct_on?: Maybe<Array<Redelegation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8818,7 +12165,6 @@ export type Query_RootRedelegationArgs = {
 };
 
 
-/** query root */
 export type Query_RootRedelegation_AggregateArgs = {
   distinct_on?: Maybe<Array<Redelegation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8828,7 +12174,6 @@ export type Query_RootRedelegation_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootRedelegation_HistoryArgs = {
   distinct_on?: Maybe<Array<Redelegation_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8838,7 +12183,6 @@ export type Query_RootRedelegation_HistoryArgs = {
 };
 
 
-/** query root */
 export type Query_RootRedelegation_History_AggregateArgs = {
   distinct_on?: Maybe<Array<Redelegation_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8848,7 +12192,24 @@ export type Query_RootRedelegation_History_AggregateArgs = {
 };
 
 
-/** query root */
+export type Query_RootRegistered_ReactionsArgs = {
+  distinct_on?: Maybe<Array<Registered_Reactions_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Registered_Reactions_Order_By>>;
+  where?: Maybe<Registered_Reactions_Bool_Exp>;
+};
+
+
+export type Query_RootRegistered_Reactions_AggregateArgs = {
+  distinct_on?: Maybe<Array<Registered_Reactions_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Registered_Reactions_Order_By>>;
+  where?: Maybe<Registered_Reactions_Bool_Exp>;
+};
+
+
 export type Query_RootSlashing_ParamsArgs = {
   distinct_on?: Maybe<Array<Slashing_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8858,7 +12219,6 @@ export type Query_RootSlashing_ParamsArgs = {
 };
 
 
-/** query root */
 export type Query_RootSlashing_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Slashing_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8868,13 +12228,6 @@ export type Query_RootSlashing_Params_AggregateArgs = {
 };
 
 
-/** query root */
-export type Query_RootSlashing_Params_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** query root */
 export type Query_RootStaking_ParamsArgs = {
   distinct_on?: Maybe<Array<Staking_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8884,7 +12237,6 @@ export type Query_RootStaking_ParamsArgs = {
 };
 
 
-/** query root */
 export type Query_RootStaking_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Staking_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8894,13 +12246,11 @@ export type Query_RootStaking_Params_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootStaking_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
 
 
-/** query root */
 export type Query_RootStaking_PoolArgs = {
   distinct_on?: Maybe<Array<Staking_Pool_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8910,7 +12260,6 @@ export type Query_RootStaking_PoolArgs = {
 };
 
 
-/** query root */
 export type Query_RootStaking_Pool_AggregateArgs = {
   distinct_on?: Maybe<Array<Staking_Pool_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8920,13 +12269,6 @@ export type Query_RootStaking_Pool_AggregateArgs = {
 };
 
 
-/** query root */
-export type Query_RootStaking_Pool_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** query root */
 export type Query_RootSupplyArgs = {
   distinct_on?: Maybe<Array<Supply_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8936,7 +12278,6 @@ export type Query_RootSupplyArgs = {
 };
 
 
-/** query root */
 export type Query_RootSupply_AggregateArgs = {
   distinct_on?: Maybe<Array<Supply_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8946,13 +12287,6 @@ export type Query_RootSupply_AggregateArgs = {
 };
 
 
-/** query root */
-export type Query_RootSupply_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** query root */
 export type Query_RootTokenArgs = {
   distinct_on?: Maybe<Array<Token_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8962,7 +12296,6 @@ export type Query_RootTokenArgs = {
 };
 
 
-/** query root */
 export type Query_RootToken_AggregateArgs = {
   distinct_on?: Maybe<Array<Token_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8972,7 +12305,6 @@ export type Query_RootToken_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootToken_PriceArgs = {
   distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8982,7 +12314,6 @@ export type Query_RootToken_PriceArgs = {
 };
 
 
-/** query root */
 export type Query_RootToken_Price_AggregateArgs = {
   distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8992,13 +12323,11 @@ export type Query_RootToken_Price_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootToken_Price_By_PkArgs = {
   id: Scalars['Int'];
 };
 
 
-/** query root */
 export type Query_RootToken_Price_HistoryArgs = {
   distinct_on?: Maybe<Array<Token_Price_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9008,7 +12337,6 @@ export type Query_RootToken_Price_HistoryArgs = {
 };
 
 
-/** query root */
 export type Query_RootToken_Price_History_AggregateArgs = {
   distinct_on?: Maybe<Array<Token_Price_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9018,13 +12346,6 @@ export type Query_RootToken_Price_History_AggregateArgs = {
 };
 
 
-/** query root */
-export type Query_RootToken_Price_History_By_PkArgs = {
-  id: Scalars['Int'];
-};
-
-
-/** query root */
 export type Query_RootToken_UnitArgs = {
   distinct_on?: Maybe<Array<Token_Unit_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9034,7 +12355,6 @@ export type Query_RootToken_UnitArgs = {
 };
 
 
-/** query root */
 export type Query_RootToken_Unit_AggregateArgs = {
   distinct_on?: Maybe<Array<Token_Unit_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9044,7 +12364,6 @@ export type Query_RootToken_Unit_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootTransactionArgs = {
   distinct_on?: Maybe<Array<Transaction_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9054,7 +12373,6 @@ export type Query_RootTransactionArgs = {
 };
 
 
-/** query root */
 export type Query_RootTransaction_AggregateArgs = {
   distinct_on?: Maybe<Array<Transaction_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9064,13 +12382,11 @@ export type Query_RootTransaction_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootTransaction_By_PkArgs = {
   hash: Scalars['String'];
 };
 
 
-/** query root */
 export type Query_RootUnbonding_DelegationArgs = {
   distinct_on?: Maybe<Array<Unbonding_Delegation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9080,7 +12396,6 @@ export type Query_RootUnbonding_DelegationArgs = {
 };
 
 
-/** query root */
 export type Query_RootUnbonding_Delegation_AggregateArgs = {
   distinct_on?: Maybe<Array<Unbonding_Delegation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9090,7 +12405,6 @@ export type Query_RootUnbonding_Delegation_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootUnbonding_Delegation_HistoryArgs = {
   distinct_on?: Maybe<Array<Unbonding_Delegation_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9100,7 +12414,6 @@ export type Query_RootUnbonding_Delegation_HistoryArgs = {
 };
 
 
-/** query root */
 export type Query_RootUnbonding_Delegation_History_AggregateArgs = {
   distinct_on?: Maybe<Array<Unbonding_Delegation_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9110,7 +12423,42 @@ export type Query_RootUnbonding_Delegation_History_AggregateArgs = {
 };
 
 
-/** query root */
+export type Query_RootUser_BlockArgs = {
+  distinct_on?: Maybe<Array<User_Block_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<User_Block_Order_By>>;
+  where?: Maybe<User_Block_Bool_Exp>;
+};
+
+
+export type Query_RootUser_Block_AggregateArgs = {
+  distinct_on?: Maybe<Array<User_Block_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<User_Block_Order_By>>;
+  where?: Maybe<User_Block_Bool_Exp>;
+};
+
+
+export type Query_RootUser_Poll_AnswerArgs = {
+  distinct_on?: Maybe<Array<User_Poll_Answer_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<User_Poll_Answer_Order_By>>;
+  where?: Maybe<User_Poll_Answer_Bool_Exp>;
+};
+
+
+export type Query_RootUser_Poll_Answer_AggregateArgs = {
+  distinct_on?: Maybe<Array<User_Poll_Answer_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<User_Poll_Answer_Order_By>>;
+  where?: Maybe<User_Poll_Answer_Bool_Exp>;
+};
+
+
 export type Query_RootValidatorArgs = {
   distinct_on?: Maybe<Array<Validator_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9120,7 +12468,6 @@ export type Query_RootValidatorArgs = {
 };
 
 
-/** query root */
 export type Query_RootValidator_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9130,13 +12477,11 @@ export type Query_RootValidator_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootValidator_By_PkArgs = {
   consensus_address: Scalars['String'];
 };
 
 
-/** query root */
 export type Query_RootValidator_CommissionArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9146,7 +12491,6 @@ export type Query_RootValidator_CommissionArgs = {
 };
 
 
-/** query root */
 export type Query_RootValidator_Commission_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9156,7 +12500,6 @@ export type Query_RootValidator_Commission_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootValidator_Commission_AmountArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Amount_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9166,7 +12509,6 @@ export type Query_RootValidator_Commission_AmountArgs = {
 };
 
 
-/** query root */
 export type Query_RootValidator_Commission_Amount_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Amount_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9176,13 +12518,11 @@ export type Query_RootValidator_Commission_Amount_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootValidator_Commission_Amount_By_PkArgs = {
   validator_address: Scalars['String'];
 };
 
 
-/** query root */
 export type Query_RootValidator_Commission_Amount_HistoryArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Amount_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9192,7 +12532,6 @@ export type Query_RootValidator_Commission_Amount_HistoryArgs = {
 };
 
 
-/** query root */
 export type Query_RootValidator_Commission_Amount_History_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Amount_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9202,13 +12541,11 @@ export type Query_RootValidator_Commission_Amount_History_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootValidator_Commission_By_PkArgs = {
   validator_address: Scalars['String'];
 };
 
 
-/** query root */
 export type Query_RootValidator_DescriptionArgs = {
   distinct_on?: Maybe<Array<Validator_Description_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9218,7 +12555,6 @@ export type Query_RootValidator_DescriptionArgs = {
 };
 
 
-/** query root */
 export type Query_RootValidator_Description_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Description_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9228,13 +12564,11 @@ export type Query_RootValidator_Description_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootValidator_Description_By_PkArgs = {
   validator_address: Scalars['String'];
 };
 
 
-/** query root */
 export type Query_RootValidator_InfoArgs = {
   distinct_on?: Maybe<Array<Validator_Info_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9244,7 +12578,6 @@ export type Query_RootValidator_InfoArgs = {
 };
 
 
-/** query root */
 export type Query_RootValidator_Info_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Info_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9254,13 +12587,11 @@ export type Query_RootValidator_Info_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootValidator_Info_By_PkArgs = {
   consensus_address: Scalars['String'];
 };
 
 
-/** query root */
 export type Query_RootValidator_Signing_InfoArgs = {
   distinct_on?: Maybe<Array<Validator_Signing_Info_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9270,7 +12601,6 @@ export type Query_RootValidator_Signing_InfoArgs = {
 };
 
 
-/** query root */
 export type Query_RootValidator_Signing_Info_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Signing_Info_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9280,13 +12610,11 @@ export type Query_RootValidator_Signing_Info_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootValidator_Signing_Info_By_PkArgs = {
   validator_address: Scalars['String'];
 };
 
 
-/** query root */
 export type Query_RootValidator_StatusArgs = {
   distinct_on?: Maybe<Array<Validator_Status_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9296,7 +12624,6 @@ export type Query_RootValidator_StatusArgs = {
 };
 
 
-/** query root */
 export type Query_RootValidator_Status_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Status_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9306,13 +12633,11 @@ export type Query_RootValidator_Status_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootValidator_Status_By_PkArgs = {
   validator_address: Scalars['String'];
 };
 
 
-/** query root */
 export type Query_RootValidator_Voting_PowerArgs = {
   distinct_on?: Maybe<Array<Validator_Voting_Power_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9322,7 +12647,6 @@ export type Query_RootValidator_Voting_PowerArgs = {
 };
 
 
-/** query root */
 export type Query_RootValidator_Voting_Power_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Voting_Power_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9332,7 +12656,6 @@ export type Query_RootValidator_Voting_Power_AggregateArgs = {
 };
 
 
-/** query root */
 export type Query_RootValidator_Voting_Power_By_PkArgs = {
   validator_address: Scalars['String'];
 };
@@ -9365,7 +12688,7 @@ export type Redelegation_Aggregate = {
 export type Redelegation_Aggregate_Fields = {
   __typename?: 'redelegation_aggregate_fields';
   avg?: Maybe<Redelegation_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Redelegation_Max_Fields>;
   min?: Maybe<Redelegation_Min_Fields>;
   stddev?: Maybe<Redelegation_Stddev_Fields>;
@@ -9412,9 +12735,9 @@ export type Redelegation_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "redelegation". All fields are combined with a logical 'AND'. */
 export type Redelegation_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Redelegation_Bool_Exp>>>;
+  _and?: Maybe<Array<Redelegation_Bool_Exp>>;
   _not?: Maybe<Redelegation_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Redelegation_Bool_Exp>>>;
+  _or?: Maybe<Array<Redelegation_Bool_Exp>>;
   account?: Maybe<Account_Bool_Exp>;
   amount?: Maybe<Coin_Comparison_Exp>;
   completion_time?: Maybe<Timestamp_Comparison_Exp>;
@@ -9452,7 +12775,7 @@ export type Redelegation_History_Aggregate = {
 export type Redelegation_History_Aggregate_Fields = {
   __typename?: 'redelegation_history_aggregate_fields';
   avg?: Maybe<Redelegation_History_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Redelegation_History_Max_Fields>;
   min?: Maybe<Redelegation_History_Min_Fields>;
   stddev?: Maybe<Redelegation_History_Stddev_Fields>;
@@ -9499,9 +12822,9 @@ export type Redelegation_History_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "redelegation_history". All fields are combined with a logical 'AND'. */
 export type Redelegation_History_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Redelegation_History_Bool_Exp>>>;
+  _and?: Maybe<Array<Redelegation_History_Bool_Exp>>;
   _not?: Maybe<Redelegation_History_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Redelegation_History_Bool_Exp>>>;
+  _or?: Maybe<Array<Redelegation_History_Bool_Exp>>;
   account?: Maybe<Account_Bool_Exp>;
   amount?: Maybe<Coin_Comparison_Exp>;
   block?: Maybe<Block_Bool_Exp>;
@@ -9550,7 +12873,7 @@ export type Redelegation_History_Min_Order_By = {
   src_validator_address?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "redelegation_history" */
+/** Ordering options when selecting data from "redelegation_history". */
 export type Redelegation_History_Order_By = {
   account?: Maybe<Account_Order_By>;
   amount?: Maybe<Order_By>;
@@ -9693,7 +13016,7 @@ export type Redelegation_Min_Order_By = {
   src_validator_address?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "redelegation" */
+/** Ordering options when selecting data from "redelegation". */
 export type Redelegation_Order_By = {
   account?: Maybe<Account_Order_By>;
   amount?: Maybe<Order_By>;
@@ -9799,6 +13122,226 @@ export type Redelegation_Variance_Order_By = {
   height?: Maybe<Order_By>;
 };
 
+/** columns and relationships of "registered_reactions" */
+export type Registered_Reactions = {
+  __typename?: 'registered_reactions';
+  height: Scalars['bigint'];
+  owner_address: Scalars['String'];
+  /** An object relationship */
+  profile: Profile;
+  short_code: Scalars['String'];
+  subspace: Scalars['String'];
+  value: Scalars['String'];
+};
+
+/** aggregated selection of "registered_reactions" */
+export type Registered_Reactions_Aggregate = {
+  __typename?: 'registered_reactions_aggregate';
+  aggregate?: Maybe<Registered_Reactions_Aggregate_Fields>;
+  nodes: Array<Registered_Reactions>;
+};
+
+/** aggregate fields of "registered_reactions" */
+export type Registered_Reactions_Aggregate_Fields = {
+  __typename?: 'registered_reactions_aggregate_fields';
+  avg?: Maybe<Registered_Reactions_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Registered_Reactions_Max_Fields>;
+  min?: Maybe<Registered_Reactions_Min_Fields>;
+  stddev?: Maybe<Registered_Reactions_Stddev_Fields>;
+  stddev_pop?: Maybe<Registered_Reactions_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Registered_Reactions_Stddev_Samp_Fields>;
+  sum?: Maybe<Registered_Reactions_Sum_Fields>;
+  var_pop?: Maybe<Registered_Reactions_Var_Pop_Fields>;
+  var_samp?: Maybe<Registered_Reactions_Var_Samp_Fields>;
+  variance?: Maybe<Registered_Reactions_Variance_Fields>;
+};
+
+
+/** aggregate fields of "registered_reactions" */
+export type Registered_Reactions_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Registered_Reactions_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "registered_reactions" */
+export type Registered_Reactions_Aggregate_Order_By = {
+  avg?: Maybe<Registered_Reactions_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Registered_Reactions_Max_Order_By>;
+  min?: Maybe<Registered_Reactions_Min_Order_By>;
+  stddev?: Maybe<Registered_Reactions_Stddev_Order_By>;
+  stddev_pop?: Maybe<Registered_Reactions_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Registered_Reactions_Stddev_Samp_Order_By>;
+  sum?: Maybe<Registered_Reactions_Sum_Order_By>;
+  var_pop?: Maybe<Registered_Reactions_Var_Pop_Order_By>;
+  var_samp?: Maybe<Registered_Reactions_Var_Samp_Order_By>;
+  variance?: Maybe<Registered_Reactions_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Registered_Reactions_Avg_Fields = {
+  __typename?: 'registered_reactions_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "registered_reactions" */
+export type Registered_Reactions_Avg_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "registered_reactions". All fields are combined with a logical 'AND'. */
+export type Registered_Reactions_Bool_Exp = {
+  _and?: Maybe<Array<Registered_Reactions_Bool_Exp>>;
+  _not?: Maybe<Registered_Reactions_Bool_Exp>;
+  _or?: Maybe<Array<Registered_Reactions_Bool_Exp>>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  owner_address?: Maybe<String_Comparison_Exp>;
+  profile?: Maybe<Profile_Bool_Exp>;
+  short_code?: Maybe<String_Comparison_Exp>;
+  subspace?: Maybe<String_Comparison_Exp>;
+  value?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Registered_Reactions_Max_Fields = {
+  __typename?: 'registered_reactions_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+  owner_address?: Maybe<Scalars['String']>;
+  short_code?: Maybe<Scalars['String']>;
+  subspace?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "registered_reactions" */
+export type Registered_Reactions_Max_Order_By = {
+  height?: Maybe<Order_By>;
+  owner_address?: Maybe<Order_By>;
+  short_code?: Maybe<Order_By>;
+  subspace?: Maybe<Order_By>;
+  value?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Registered_Reactions_Min_Fields = {
+  __typename?: 'registered_reactions_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+  owner_address?: Maybe<Scalars['String']>;
+  short_code?: Maybe<Scalars['String']>;
+  subspace?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "registered_reactions" */
+export type Registered_Reactions_Min_Order_By = {
+  height?: Maybe<Order_By>;
+  owner_address?: Maybe<Order_By>;
+  short_code?: Maybe<Order_By>;
+  subspace?: Maybe<Order_By>;
+  value?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "registered_reactions". */
+export type Registered_Reactions_Order_By = {
+  height?: Maybe<Order_By>;
+  owner_address?: Maybe<Order_By>;
+  profile?: Maybe<Profile_Order_By>;
+  short_code?: Maybe<Order_By>;
+  subspace?: Maybe<Order_By>;
+  value?: Maybe<Order_By>;
+};
+
+/** select columns of table "registered_reactions" */
+export enum Registered_Reactions_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  OwnerAddress = 'owner_address',
+  /** column name */
+  ShortCode = 'short_code',
+  /** column name */
+  Subspace = 'subspace',
+  /** column name */
+  Value = 'value'
+}
+
+/** aggregate stddev on columns */
+export type Registered_Reactions_Stddev_Fields = {
+  __typename?: 'registered_reactions_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "registered_reactions" */
+export type Registered_Reactions_Stddev_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Registered_Reactions_Stddev_Pop_Fields = {
+  __typename?: 'registered_reactions_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "registered_reactions" */
+export type Registered_Reactions_Stddev_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Registered_Reactions_Stddev_Samp_Fields = {
+  __typename?: 'registered_reactions_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "registered_reactions" */
+export type Registered_Reactions_Stddev_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Registered_Reactions_Sum_Fields = {
+  __typename?: 'registered_reactions_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** order by sum() on columns of table "registered_reactions" */
+export type Registered_Reactions_Sum_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Registered_Reactions_Var_Pop_Fields = {
+  __typename?: 'registered_reactions_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "registered_reactions" */
+export type Registered_Reactions_Var_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Registered_Reactions_Var_Samp_Fields = {
+  __typename?: 'registered_reactions_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "registered_reactions" */
+export type Registered_Reactions_Var_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Registered_Reactions_Variance_Fields = {
+  __typename?: 'registered_reactions_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "registered_reactions" */
+export type Registered_Reactions_Variance_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
 /** columns and relationships of "slashing_params" */
 export type Slashing_Params = {
   __typename?: 'slashing_params';
@@ -9821,7 +13364,7 @@ export type Slashing_Params_Aggregate = {
 export type Slashing_Params_Aggregate_Fields = {
   __typename?: 'slashing_params_aggregate_fields';
   avg?: Maybe<Slashing_Params_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Slashing_Params_Max_Fields>;
   min?: Maybe<Slashing_Params_Min_Fields>;
   stddev?: Maybe<Slashing_Params_Stddev_Fields>;
@@ -9840,21 +13383,6 @@ export type Slashing_Params_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "slashing_params" */
-export type Slashing_Params_Aggregate_Order_By = {
-  avg?: Maybe<Slashing_Params_Avg_Order_By>;
-  count?: Maybe<Order_By>;
-  max?: Maybe<Slashing_Params_Max_Order_By>;
-  min?: Maybe<Slashing_Params_Min_Order_By>;
-  stddev?: Maybe<Slashing_Params_Stddev_Order_By>;
-  stddev_pop?: Maybe<Slashing_Params_Stddev_Pop_Order_By>;
-  stddev_samp?: Maybe<Slashing_Params_Stddev_Samp_Order_By>;
-  sum?: Maybe<Slashing_Params_Sum_Order_By>;
-  var_pop?: Maybe<Slashing_Params_Var_Pop_Order_By>;
-  var_samp?: Maybe<Slashing_Params_Var_Samp_Order_By>;
-  variance?: Maybe<Slashing_Params_Variance_Order_By>;
-};
-
 /** aggregate avg on columns */
 export type Slashing_Params_Avg_Fields = {
   __typename?: 'slashing_params_avg_fields';
@@ -9866,21 +13394,11 @@ export type Slashing_Params_Avg_Fields = {
   slash_fraction_downtime?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "slashing_params" */
-export type Slashing_Params_Avg_Order_By = {
-  downtime_jail_duration?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  min_signed_per_window?: Maybe<Order_By>;
-  signed_block_window?: Maybe<Order_By>;
-  slash_fraction_double_sign?: Maybe<Order_By>;
-  slash_fraction_downtime?: Maybe<Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "slashing_params". All fields are combined with a logical 'AND'. */
 export type Slashing_Params_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Slashing_Params_Bool_Exp>>>;
+  _and?: Maybe<Array<Slashing_Params_Bool_Exp>>;
   _not?: Maybe<Slashing_Params_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Slashing_Params_Bool_Exp>>>;
+  _or?: Maybe<Array<Slashing_Params_Bool_Exp>>;
   downtime_jail_duration?: Maybe<Bigint_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
   min_signed_per_window?: Maybe<Numeric_Comparison_Exp>;
@@ -9900,16 +13418,6 @@ export type Slashing_Params_Max_Fields = {
   slash_fraction_downtime?: Maybe<Scalars['numeric']>;
 };
 
-/** order by max() on columns of table "slashing_params" */
-export type Slashing_Params_Max_Order_By = {
-  downtime_jail_duration?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  min_signed_per_window?: Maybe<Order_By>;
-  signed_block_window?: Maybe<Order_By>;
-  slash_fraction_double_sign?: Maybe<Order_By>;
-  slash_fraction_downtime?: Maybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Slashing_Params_Min_Fields = {
   __typename?: 'slashing_params_min_fields';
@@ -9921,17 +13429,7 @@ export type Slashing_Params_Min_Fields = {
   slash_fraction_downtime?: Maybe<Scalars['numeric']>;
 };
 
-/** order by min() on columns of table "slashing_params" */
-export type Slashing_Params_Min_Order_By = {
-  downtime_jail_duration?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  min_signed_per_window?: Maybe<Order_By>;
-  signed_block_window?: Maybe<Order_By>;
-  slash_fraction_double_sign?: Maybe<Order_By>;
-  slash_fraction_downtime?: Maybe<Order_By>;
-};
-
-/** ordering options when selecting data from "slashing_params" */
+/** Ordering options when selecting data from "slashing_params". */
 export type Slashing_Params_Order_By = {
   downtime_jail_duration?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
@@ -9939,11 +13437,6 @@ export type Slashing_Params_Order_By = {
   signed_block_window?: Maybe<Order_By>;
   slash_fraction_double_sign?: Maybe<Order_By>;
   slash_fraction_downtime?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "slashing_params" */
-export type Slashing_Params_Pk_Columns_Input = {
-  one_row_id: Scalars['Boolean'];
 };
 
 /** select columns of table "slashing_params" */
@@ -9973,16 +13466,6 @@ export type Slashing_Params_Stddev_Fields = {
   slash_fraction_downtime?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "slashing_params" */
-export type Slashing_Params_Stddev_Order_By = {
-  downtime_jail_duration?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  min_signed_per_window?: Maybe<Order_By>;
-  signed_block_window?: Maybe<Order_By>;
-  slash_fraction_double_sign?: Maybe<Order_By>;
-  slash_fraction_downtime?: Maybe<Order_By>;
-};
-
 /** aggregate stddev_pop on columns */
 export type Slashing_Params_Stddev_Pop_Fields = {
   __typename?: 'slashing_params_stddev_pop_fields';
@@ -9992,16 +13475,6 @@ export type Slashing_Params_Stddev_Pop_Fields = {
   signed_block_window?: Maybe<Scalars['Float']>;
   slash_fraction_double_sign?: Maybe<Scalars['Float']>;
   slash_fraction_downtime?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "slashing_params" */
-export type Slashing_Params_Stddev_Pop_Order_By = {
-  downtime_jail_duration?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  min_signed_per_window?: Maybe<Order_By>;
-  signed_block_window?: Maybe<Order_By>;
-  slash_fraction_double_sign?: Maybe<Order_By>;
-  slash_fraction_downtime?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -10015,16 +13488,6 @@ export type Slashing_Params_Stddev_Samp_Fields = {
   slash_fraction_downtime?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "slashing_params" */
-export type Slashing_Params_Stddev_Samp_Order_By = {
-  downtime_jail_duration?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  min_signed_per_window?: Maybe<Order_By>;
-  signed_block_window?: Maybe<Order_By>;
-  slash_fraction_double_sign?: Maybe<Order_By>;
-  slash_fraction_downtime?: Maybe<Order_By>;
-};
-
 /** aggregate sum on columns */
 export type Slashing_Params_Sum_Fields = {
   __typename?: 'slashing_params_sum_fields';
@@ -10034,16 +13497,6 @@ export type Slashing_Params_Sum_Fields = {
   signed_block_window?: Maybe<Scalars['bigint']>;
   slash_fraction_double_sign?: Maybe<Scalars['numeric']>;
   slash_fraction_downtime?: Maybe<Scalars['numeric']>;
-};
-
-/** order by sum() on columns of table "slashing_params" */
-export type Slashing_Params_Sum_Order_By = {
-  downtime_jail_duration?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  min_signed_per_window?: Maybe<Order_By>;
-  signed_block_window?: Maybe<Order_By>;
-  slash_fraction_double_sign?: Maybe<Order_By>;
-  slash_fraction_downtime?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -10057,16 +13510,6 @@ export type Slashing_Params_Var_Pop_Fields = {
   slash_fraction_downtime?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "slashing_params" */
-export type Slashing_Params_Var_Pop_Order_By = {
-  downtime_jail_duration?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  min_signed_per_window?: Maybe<Order_By>;
-  signed_block_window?: Maybe<Order_By>;
-  slash_fraction_double_sign?: Maybe<Order_By>;
-  slash_fraction_downtime?: Maybe<Order_By>;
-};
-
 /** aggregate var_samp on columns */
 export type Slashing_Params_Var_Samp_Fields = {
   __typename?: 'slashing_params_var_samp_fields';
@@ -10076,16 +13519,6 @@ export type Slashing_Params_Var_Samp_Fields = {
   signed_block_window?: Maybe<Scalars['Float']>;
   slash_fraction_double_sign?: Maybe<Scalars['Float']>;
   slash_fraction_downtime?: Maybe<Scalars['Float']>;
-};
-
-/** order by var_samp() on columns of table "slashing_params" */
-export type Slashing_Params_Var_Samp_Order_By = {
-  downtime_jail_duration?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  min_signed_per_window?: Maybe<Order_By>;
-  signed_block_window?: Maybe<Order_By>;
-  slash_fraction_double_sign?: Maybe<Order_By>;
-  slash_fraction_downtime?: Maybe<Order_By>;
 };
 
 /** aggregate variance on columns */
@@ -10099,18 +13532,8 @@ export type Slashing_Params_Variance_Fields = {
   slash_fraction_downtime?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "slashing_params" */
-export type Slashing_Params_Variance_Order_By = {
-  downtime_jail_duration?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  min_signed_per_window?: Maybe<Order_By>;
-  signed_block_window?: Maybe<Order_By>;
-  slash_fraction_double_sign?: Maybe<Order_By>;
-  slash_fraction_downtime?: Maybe<Order_By>;
-};
 
-
-/** expression to compare columns of type smallint. All fields are combined with logical 'AND'. */
+/** Boolean expression to compare columns of type "smallint". All fields are combined with logical 'AND'. */
 export type Smallint_Comparison_Exp = {
   _eq?: Maybe<Scalars['smallint']>;
   _gt?: Maybe<Scalars['smallint']>;
@@ -10146,7 +13569,7 @@ export type Staking_Params_Aggregate = {
 export type Staking_Params_Aggregate_Fields = {
   __typename?: 'staking_params_aggregate_fields';
   avg?: Maybe<Staking_Params_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Staking_Params_Max_Fields>;
   min?: Maybe<Staking_Params_Min_Fields>;
   stddev?: Maybe<Staking_Params_Stddev_Fields>;
@@ -10165,21 +13588,6 @@ export type Staking_Params_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "staking_params" */
-export type Staking_Params_Aggregate_Order_By = {
-  avg?: Maybe<Staking_Params_Avg_Order_By>;
-  count?: Maybe<Order_By>;
-  max?: Maybe<Staking_Params_Max_Order_By>;
-  min?: Maybe<Staking_Params_Min_Order_By>;
-  stddev?: Maybe<Staking_Params_Stddev_Order_By>;
-  stddev_pop?: Maybe<Staking_Params_Stddev_Pop_Order_By>;
-  stddev_samp?: Maybe<Staking_Params_Stddev_Samp_Order_By>;
-  sum?: Maybe<Staking_Params_Sum_Order_By>;
-  var_pop?: Maybe<Staking_Params_Var_Pop_Order_By>;
-  var_samp?: Maybe<Staking_Params_Var_Samp_Order_By>;
-  variance?: Maybe<Staking_Params_Variance_Order_By>;
-};
-
 /** aggregate avg on columns */
 export type Staking_Params_Avg_Fields = {
   __typename?: 'staking_params_avg_fields';
@@ -10190,20 +13598,11 @@ export type Staking_Params_Avg_Fields = {
   unbonding_time?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "staking_params" */
-export type Staking_Params_Avg_Order_By = {
-  height?: Maybe<Order_By>;
-  historical_entries?: Maybe<Order_By>;
-  max_entries?: Maybe<Order_By>;
-  max_validators?: Maybe<Order_By>;
-  unbonding_time?: Maybe<Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "staking_params". All fields are combined with a logical 'AND'. */
 export type Staking_Params_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Staking_Params_Bool_Exp>>>;
+  _and?: Maybe<Array<Staking_Params_Bool_Exp>>;
   _not?: Maybe<Staking_Params_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Staking_Params_Bool_Exp>>>;
+  _or?: Maybe<Array<Staking_Params_Bool_Exp>>;
   bond_denom?: Maybe<String_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
   historical_entries?: Maybe<Bigint_Comparison_Exp>;
@@ -10224,16 +13623,6 @@ export type Staking_Params_Max_Fields = {
   unbonding_time?: Maybe<Scalars['bigint']>;
 };
 
-/** order by max() on columns of table "staking_params" */
-export type Staking_Params_Max_Order_By = {
-  bond_denom?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  historical_entries?: Maybe<Order_By>;
-  max_entries?: Maybe<Order_By>;
-  max_validators?: Maybe<Order_By>;
-  unbonding_time?: Maybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Staking_Params_Min_Fields = {
   __typename?: 'staking_params_min_fields';
@@ -10245,17 +13634,7 @@ export type Staking_Params_Min_Fields = {
   unbonding_time?: Maybe<Scalars['bigint']>;
 };
 
-/** order by min() on columns of table "staking_params" */
-export type Staking_Params_Min_Order_By = {
-  bond_denom?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  historical_entries?: Maybe<Order_By>;
-  max_entries?: Maybe<Order_By>;
-  max_validators?: Maybe<Order_By>;
-  unbonding_time?: Maybe<Order_By>;
-};
-
-/** ordering options when selecting data from "staking_params" */
+/** Ordering options when selecting data from "staking_params". */
 export type Staking_Params_Order_By = {
   bond_denom?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
@@ -10264,11 +13643,6 @@ export type Staking_Params_Order_By = {
   max_validators?: Maybe<Order_By>;
   one_row_id?: Maybe<Order_By>;
   unbonding_time?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "staking_params" */
-export type Staking_Params_Pk_Columns_Input = {
-  one_row_id: Scalars['Boolean'];
 };
 
 /** select columns of table "staking_params" */
@@ -10299,15 +13673,6 @@ export type Staking_Params_Stddev_Fields = {
   unbonding_time?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "staking_params" */
-export type Staking_Params_Stddev_Order_By = {
-  height?: Maybe<Order_By>;
-  historical_entries?: Maybe<Order_By>;
-  max_entries?: Maybe<Order_By>;
-  max_validators?: Maybe<Order_By>;
-  unbonding_time?: Maybe<Order_By>;
-};
-
 /** aggregate stddev_pop on columns */
 export type Staking_Params_Stddev_Pop_Fields = {
   __typename?: 'staking_params_stddev_pop_fields';
@@ -10316,15 +13681,6 @@ export type Staking_Params_Stddev_Pop_Fields = {
   max_entries?: Maybe<Scalars['Float']>;
   max_validators?: Maybe<Scalars['Float']>;
   unbonding_time?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "staking_params" */
-export type Staking_Params_Stddev_Pop_Order_By = {
-  height?: Maybe<Order_By>;
-  historical_entries?: Maybe<Order_By>;
-  max_entries?: Maybe<Order_By>;
-  max_validators?: Maybe<Order_By>;
-  unbonding_time?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -10337,15 +13693,6 @@ export type Staking_Params_Stddev_Samp_Fields = {
   unbonding_time?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "staking_params" */
-export type Staking_Params_Stddev_Samp_Order_By = {
-  height?: Maybe<Order_By>;
-  historical_entries?: Maybe<Order_By>;
-  max_entries?: Maybe<Order_By>;
-  max_validators?: Maybe<Order_By>;
-  unbonding_time?: Maybe<Order_By>;
-};
-
 /** aggregate sum on columns */
 export type Staking_Params_Sum_Fields = {
   __typename?: 'staking_params_sum_fields';
@@ -10354,15 +13701,6 @@ export type Staking_Params_Sum_Fields = {
   max_entries?: Maybe<Scalars['bigint']>;
   max_validators?: Maybe<Scalars['bigint']>;
   unbonding_time?: Maybe<Scalars['bigint']>;
-};
-
-/** order by sum() on columns of table "staking_params" */
-export type Staking_Params_Sum_Order_By = {
-  height?: Maybe<Order_By>;
-  historical_entries?: Maybe<Order_By>;
-  max_entries?: Maybe<Order_By>;
-  max_validators?: Maybe<Order_By>;
-  unbonding_time?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -10375,15 +13713,6 @@ export type Staking_Params_Var_Pop_Fields = {
   unbonding_time?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "staking_params" */
-export type Staking_Params_Var_Pop_Order_By = {
-  height?: Maybe<Order_By>;
-  historical_entries?: Maybe<Order_By>;
-  max_entries?: Maybe<Order_By>;
-  max_validators?: Maybe<Order_By>;
-  unbonding_time?: Maybe<Order_By>;
-};
-
 /** aggregate var_samp on columns */
 export type Staking_Params_Var_Samp_Fields = {
   __typename?: 'staking_params_var_samp_fields';
@@ -10394,15 +13723,6 @@ export type Staking_Params_Var_Samp_Fields = {
   unbonding_time?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "staking_params" */
-export type Staking_Params_Var_Samp_Order_By = {
-  height?: Maybe<Order_By>;
-  historical_entries?: Maybe<Order_By>;
-  max_entries?: Maybe<Order_By>;
-  max_validators?: Maybe<Order_By>;
-  unbonding_time?: Maybe<Order_By>;
-};
-
 /** aggregate variance on columns */
 export type Staking_Params_Variance_Fields = {
   __typename?: 'staking_params_variance_fields';
@@ -10411,15 +13731,6 @@ export type Staking_Params_Variance_Fields = {
   max_entries?: Maybe<Scalars['Float']>;
   max_validators?: Maybe<Scalars['Float']>;
   unbonding_time?: Maybe<Scalars['Float']>;
-};
-
-/** order by variance() on columns of table "staking_params" */
-export type Staking_Params_Variance_Order_By = {
-  height?: Maybe<Order_By>;
-  historical_entries?: Maybe<Order_By>;
-  max_entries?: Maybe<Order_By>;
-  max_validators?: Maybe<Order_By>;
-  unbonding_time?: Maybe<Order_By>;
 };
 
 /** columns and relationships of "staking_pool" */
@@ -10441,7 +13752,7 @@ export type Staking_Pool_Aggregate = {
 export type Staking_Pool_Aggregate_Fields = {
   __typename?: 'staking_pool_aggregate_fields';
   avg?: Maybe<Staking_Pool_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Staking_Pool_Max_Fields>;
   min?: Maybe<Staking_Pool_Min_Fields>;
   stddev?: Maybe<Staking_Pool_Stddev_Fields>;
@@ -10460,21 +13771,6 @@ export type Staking_Pool_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "staking_pool" */
-export type Staking_Pool_Aggregate_Order_By = {
-  avg?: Maybe<Staking_Pool_Avg_Order_By>;
-  count?: Maybe<Order_By>;
-  max?: Maybe<Staking_Pool_Max_Order_By>;
-  min?: Maybe<Staking_Pool_Min_Order_By>;
-  stddev?: Maybe<Staking_Pool_Stddev_Order_By>;
-  stddev_pop?: Maybe<Staking_Pool_Stddev_Pop_Order_By>;
-  stddev_samp?: Maybe<Staking_Pool_Stddev_Samp_Order_By>;
-  sum?: Maybe<Staking_Pool_Sum_Order_By>;
-  var_pop?: Maybe<Staking_Pool_Var_Pop_Order_By>;
-  var_samp?: Maybe<Staking_Pool_Var_Samp_Order_By>;
-  variance?: Maybe<Staking_Pool_Variance_Order_By>;
-};
-
 /** aggregate avg on columns */
 export type Staking_Pool_Avg_Fields = {
   __typename?: 'staking_pool_avg_fields';
@@ -10483,18 +13779,11 @@ export type Staking_Pool_Avg_Fields = {
   not_bonded_tokens?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "staking_pool" */
-export type Staking_Pool_Avg_Order_By = {
-  bonded_tokens?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  not_bonded_tokens?: Maybe<Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "staking_pool". All fields are combined with a logical 'AND'. */
 export type Staking_Pool_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Staking_Pool_Bool_Exp>>>;
+  _and?: Maybe<Array<Staking_Pool_Bool_Exp>>;
   _not?: Maybe<Staking_Pool_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Staking_Pool_Bool_Exp>>>;
+  _or?: Maybe<Array<Staking_Pool_Bool_Exp>>;
   bonded_tokens?: Maybe<Bigint_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
   not_bonded_tokens?: Maybe<Bigint_Comparison_Exp>;
@@ -10508,13 +13797,6 @@ export type Staking_Pool_Max_Fields = {
   not_bonded_tokens?: Maybe<Scalars['bigint']>;
 };
 
-/** order by max() on columns of table "staking_pool" */
-export type Staking_Pool_Max_Order_By = {
-  bonded_tokens?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  not_bonded_tokens?: Maybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Staking_Pool_Min_Fields = {
   __typename?: 'staking_pool_min_fields';
@@ -10523,23 +13805,11 @@ export type Staking_Pool_Min_Fields = {
   not_bonded_tokens?: Maybe<Scalars['bigint']>;
 };
 
-/** order by min() on columns of table "staking_pool" */
-export type Staking_Pool_Min_Order_By = {
-  bonded_tokens?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  not_bonded_tokens?: Maybe<Order_By>;
-};
-
-/** ordering options when selecting data from "staking_pool" */
+/** Ordering options when selecting data from "staking_pool". */
 export type Staking_Pool_Order_By = {
   bonded_tokens?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
   not_bonded_tokens?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "staking_pool" */
-export type Staking_Pool_Pk_Columns_Input = {
-  one_row_id: Scalars['Boolean'];
 };
 
 /** select columns of table "staking_pool" */
@@ -10560,26 +13830,12 @@ export type Staking_Pool_Stddev_Fields = {
   not_bonded_tokens?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "staking_pool" */
-export type Staking_Pool_Stddev_Order_By = {
-  bonded_tokens?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  not_bonded_tokens?: Maybe<Order_By>;
-};
-
 /** aggregate stddev_pop on columns */
 export type Staking_Pool_Stddev_Pop_Fields = {
   __typename?: 'staking_pool_stddev_pop_fields';
   bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
   not_bonded_tokens?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "staking_pool" */
-export type Staking_Pool_Stddev_Pop_Order_By = {
-  bonded_tokens?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  not_bonded_tokens?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -10590,26 +13846,12 @@ export type Staking_Pool_Stddev_Samp_Fields = {
   not_bonded_tokens?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "staking_pool" */
-export type Staking_Pool_Stddev_Samp_Order_By = {
-  bonded_tokens?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  not_bonded_tokens?: Maybe<Order_By>;
-};
-
 /** aggregate sum on columns */
 export type Staking_Pool_Sum_Fields = {
   __typename?: 'staking_pool_sum_fields';
   bonded_tokens?: Maybe<Scalars['bigint']>;
   height?: Maybe<Scalars['bigint']>;
   not_bonded_tokens?: Maybe<Scalars['bigint']>;
-};
-
-/** order by sum() on columns of table "staking_pool" */
-export type Staking_Pool_Sum_Order_By = {
-  bonded_tokens?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  not_bonded_tokens?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -10620,26 +13862,12 @@ export type Staking_Pool_Var_Pop_Fields = {
   not_bonded_tokens?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "staking_pool" */
-export type Staking_Pool_Var_Pop_Order_By = {
-  bonded_tokens?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  not_bonded_tokens?: Maybe<Order_By>;
-};
-
 /** aggregate var_samp on columns */
 export type Staking_Pool_Var_Samp_Fields = {
   __typename?: 'staking_pool_var_samp_fields';
   bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
   not_bonded_tokens?: Maybe<Scalars['Float']>;
-};
-
-/** order by var_samp() on columns of table "staking_pool" */
-export type Staking_Pool_Var_Samp_Order_By = {
-  bonded_tokens?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  not_bonded_tokens?: Maybe<Order_By>;
 };
 
 /** aggregate variance on columns */
@@ -10650,14 +13878,6 @@ export type Staking_Pool_Variance_Fields = {
   not_bonded_tokens?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "staking_pool" */
-export type Staking_Pool_Variance_Order_By = {
-  bonded_tokens?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  not_bonded_tokens?: Maybe<Order_By>;
-};
-
-/** subscription root */
 export type Subscription_Root = {
   __typename?: 'subscription_root';
   /** fetch data from the table: "account" */
@@ -10676,48 +13896,64 @@ export type Subscription_Root = {
   account_balance_history_aggregate: Account_Balance_History_Aggregate;
   /** fetch data from the table: "account" using primary key columns */
   account_by_pk?: Maybe<Account>;
+  /** fetch data from the table: "application_link" */
+  application_link: Array<Application_Link>;
+  /** fetch aggregated fields from the table: "application_link" */
+  application_link_aggregate: Application_Link_Aggregate;
+  /** fetch data from the table: "application_link" using primary key columns */
+  application_link_by_pk?: Maybe<Application_Link>;
+  /** fetch data from the table: "application_link_oracle_request" */
+  application_link_oracle_request: Array<Application_Link_Oracle_Request>;
+  /** fetch aggregated fields from the table: "application_link_oracle_request" */
+  application_link_oracle_request_aggregate: Application_Link_Oracle_Request_Aggregate;
+  /** fetch data from the table: "application_link_oracle_request" using primary key columns */
+  application_link_oracle_request_by_pk?: Maybe<Application_Link_Oracle_Request>;
   /** fetch data from the table: "average_block_time_from_genesis" */
   average_block_time_from_genesis: Array<Average_Block_Time_From_Genesis>;
   /** fetch aggregated fields from the table: "average_block_time_from_genesis" */
   average_block_time_from_genesis_aggregate: Average_Block_Time_From_Genesis_Aggregate;
-  /** fetch data from the table: "average_block_time_from_genesis" using primary key columns */
-  average_block_time_from_genesis_by_pk?: Maybe<Average_Block_Time_From_Genesis>;
   /** fetch data from the table: "average_block_time_per_day" */
   average_block_time_per_day: Array<Average_Block_Time_Per_Day>;
   /** fetch aggregated fields from the table: "average_block_time_per_day" */
   average_block_time_per_day_aggregate: Average_Block_Time_Per_Day_Aggregate;
-  /** fetch data from the table: "average_block_time_per_day" using primary key columns */
-  average_block_time_per_day_by_pk?: Maybe<Average_Block_Time_Per_Day>;
   /** fetch data from the table: "average_block_time_per_hour" */
   average_block_time_per_hour: Array<Average_Block_Time_Per_Hour>;
   /** fetch aggregated fields from the table: "average_block_time_per_hour" */
   average_block_time_per_hour_aggregate: Average_Block_Time_Per_Hour_Aggregate;
-  /** fetch data from the table: "average_block_time_per_hour" using primary key columns */
-  average_block_time_per_hour_by_pk?: Maybe<Average_Block_Time_Per_Hour>;
   /** fetch data from the table: "average_block_time_per_minute" */
   average_block_time_per_minute: Array<Average_Block_Time_Per_Minute>;
   /** fetch aggregated fields from the table: "average_block_time_per_minute" */
   average_block_time_per_minute_aggregate: Average_Block_Time_Per_Minute_Aggregate;
-  /** fetch data from the table: "average_block_time_per_minute" using primary key columns */
-  average_block_time_per_minute_by_pk?: Maybe<Average_Block_Time_Per_Minute>;
   /** fetch data from the table: "block" */
   block: Array<Block>;
   /** fetch aggregated fields from the table: "block" */
   block_aggregate: Block_Aggregate;
   /** fetch data from the table: "block" using primary key columns */
   block_by_pk?: Maybe<Block>;
+  /** fetch data from the table: "chain_link" */
+  chain_link: Array<Chain_Link>;
+  /** fetch aggregated fields from the table: "chain_link" */
+  chain_link_aggregate: Chain_Link_Aggregate;
+  /** fetch data from the table: "chain_link" using primary key columns */
+  chain_link_by_pk?: Maybe<Chain_Link>;
+  /** fetch data from the table: "chain_link_chain_config" */
+  chain_link_chain_config: Array<Chain_Link_Chain_Config>;
+  /** fetch aggregated fields from the table: "chain_link_chain_config" */
+  chain_link_chain_config_aggregate: Chain_Link_Chain_Config_Aggregate;
+  /** fetch data from the table: "chain_link_chain_config" using primary key columns */
+  chain_link_chain_config_by_pk?: Maybe<Chain_Link_Chain_Config>;
+  /** fetch data from the table: "chain_link_proof" */
+  chain_link_proof: Array<Chain_Link_Proof>;
+  /** fetch aggregated fields from the table: "chain_link_proof" */
+  chain_link_proof_aggregate: Chain_Link_Proof_Aggregate;
   /** fetch data from the table: "community_pool" */
   community_pool: Array<Community_Pool>;
   /** fetch aggregated fields from the table: "community_pool" */
   community_pool_aggregate: Community_Pool_Aggregate;
-  /** fetch data from the table: "community_pool" using primary key columns */
-  community_pool_by_pk?: Maybe<Community_Pool>;
   /** fetch data from the table: "consensus" */
   consensus: Array<Consensus>;
   /** fetch aggregated fields from the table: "consensus" */
   consensus_aggregate: Consensus_Aggregate;
-  /** fetch data from the table: "consensus" using primary key columns */
-  consensus_by_pk?: Maybe<Consensus>;
   /** fetch data from the table: "delegation" */
   delegation: Array<Delegation>;
   /** fetch aggregated fields from the table: "delegation" */
@@ -10752,12 +13988,14 @@ export type Subscription_Root = {
   double_sign_vote_aggregate: Double_Sign_Vote_Aggregate;
   /** fetch data from the table: "double_sign_vote" using primary key columns */
   double_sign_vote_by_pk?: Maybe<Double_Sign_Vote>;
+  /** An array relationship */
+  dtag_transfer_requests: Array<Dtag_Transfer_Requests>;
+  /** An aggregate relationship */
+  dtag_transfer_requests_aggregate: Dtag_Transfer_Requests_Aggregate;
   /** fetch data from the table: "genesis" */
   genesis: Array<Genesis>;
   /** fetch aggregated fields from the table: "genesis" */
   genesis_aggregate: Genesis_Aggregate;
-  /** fetch data from the table: "genesis" using primary key columns */
-  genesis_by_pk?: Maybe<Genesis>;
   /** fetch data from the table: "gov_params" */
   gov_params: Array<Gov_Params>;
   /** fetch aggregated fields from the table: "gov_params" */
@@ -10768,8 +14006,6 @@ export type Subscription_Root = {
   inflation: Array<Inflation>;
   /** fetch aggregated fields from the table: "inflation" */
   inflation_aggregate: Inflation_Aggregate;
-  /** fetch data from the table: "inflation" using primary key columns */
-  inflation_by_pk?: Maybe<Inflation>;
   /** fetch data from the table: "message" */
   message: Array<Message>;
   /** fetch aggregated fields from the table: "message" */
@@ -10790,10 +14026,58 @@ export type Subscription_Root = {
   modules_aggregate: Modules_Aggregate;
   /** fetch data from the table: "modules" using primary key columns */
   modules_by_pk?: Maybe<Modules>;
+  /** fetch data from the table: "poll" */
+  poll: Array<Poll>;
+  /** fetch aggregated fields from the table: "poll" */
+  poll_aggregate: Poll_Aggregate;
+  /** fetch data from the table: "poll_answer" */
+  poll_answer: Array<Poll_Answer>;
+  /** fetch aggregated fields from the table: "poll_answer" */
+  poll_answer_aggregate: Poll_Answer_Aggregate;
+  /** fetch data from the table: "poll" using primary key columns */
+  poll_by_pk?: Maybe<Poll>;
+  /** fetch data from the table: "post" */
+  post: Array<Post>;
+  /** fetch aggregated fields from the table: "post" */
+  post_aggregate: Post_Aggregate;
+  /** fetch data from the table: "post_attachment" */
+  post_attachment: Array<Post_Attachment>;
+  /** fetch aggregated fields from the table: "post_attachment" */
+  post_attachment_aggregate: Post_Attachment_Aggregate;
+  /** fetch data from the table: "post_attachment" using primary key columns */
+  post_attachment_by_pk?: Maybe<Post_Attachment>;
+  /** fetch data from the table: "post_attachment_tag" */
+  post_attachment_tag: Array<Post_Attachment_Tag>;
+  /** fetch aggregated fields from the table: "post_attachment_tag" */
+  post_attachment_tag_aggregate: Post_Attachment_Tag_Aggregate;
+  /** fetch data from the table: "post_attribute" */
+  post_attribute: Array<Post_Attribute>;
+  /** fetch aggregated fields from the table: "post_attribute" */
+  post_attribute_aggregate: Post_Attribute_Aggregate;
+  /** fetch data from the table: "post" using primary key columns */
+  post_by_pk?: Maybe<Post>;
+  /** fetch data from the table: "post_reaction" */
+  post_reaction: Array<Post_Reaction>;
+  /** fetch aggregated fields from the table: "post_reaction" */
+  post_reaction_aggregate: Post_Reaction_Aggregate;
+  /** fetch data from the table: "post_report" */
+  post_report: Array<Post_Report>;
+  /** fetch aggregated fields from the table: "post_report" */
+  post_report_aggregate: Post_Report_Aggregate;
   /** fetch data from the table: "pre_commit" */
   pre_commit: Array<Pre_Commit>;
   /** fetch aggregated fields from the table: "pre_commit" */
   pre_commit_aggregate: Pre_Commit_Aggregate;
+  /** fetch data from the table: "profile" */
+  profile: Array<Profile>;
+  /** fetch aggregated fields from the table: "profile" */
+  profile_aggregate: Profile_Aggregate;
+  /** fetch data from the table: "profile" using primary key columns */
+  profile_by_pk?: Maybe<Profile>;
+  /** fetch data from the table: "profile_relationship" */
+  profile_relationship: Array<Profile_Relationship>;
+  /** fetch aggregated fields from the table: "profile_relationship" */
+  profile_relationship_aggregate: Profile_Relationship_Aggregate;
   /** fetch data from the table: "proposal" */
   proposal: Array<Proposal>;
   /** fetch aggregated fields from the table: "proposal" */
@@ -10836,12 +14120,14 @@ export type Subscription_Root = {
   redelegation_history: Array<Redelegation_History>;
   /** fetch aggregated fields from the table: "redelegation_history" */
   redelegation_history_aggregate: Redelegation_History_Aggregate;
+  /** An array relationship */
+  registered_reactions: Array<Registered_Reactions>;
+  /** An aggregate relationship */
+  registered_reactions_aggregate: Registered_Reactions_Aggregate;
   /** fetch data from the table: "slashing_params" */
   slashing_params: Array<Slashing_Params>;
   /** fetch aggregated fields from the table: "slashing_params" */
   slashing_params_aggregate: Slashing_Params_Aggregate;
-  /** fetch data from the table: "slashing_params" using primary key columns */
-  slashing_params_by_pk?: Maybe<Slashing_Params>;
   /** fetch data from the table: "staking_params" */
   staking_params: Array<Staking_Params>;
   /** fetch aggregated fields from the table: "staking_params" */
@@ -10852,14 +14138,10 @@ export type Subscription_Root = {
   staking_pool: Array<Staking_Pool>;
   /** fetch aggregated fields from the table: "staking_pool" */
   staking_pool_aggregate: Staking_Pool_Aggregate;
-  /** fetch data from the table: "staking_pool" using primary key columns */
-  staking_pool_by_pk?: Maybe<Staking_Pool>;
   /** fetch data from the table: "supply" */
   supply: Array<Supply>;
   /** fetch aggregated fields from the table: "supply" */
   supply_aggregate: Supply_Aggregate;
-  /** fetch data from the table: "supply" using primary key columns */
-  supply_by_pk?: Maybe<Supply>;
   /** fetch data from the table: "token" */
   token: Array<Token>;
   /** fetch aggregated fields from the table: "token" */
@@ -10874,8 +14156,6 @@ export type Subscription_Root = {
   token_price_history: Array<Token_Price_History>;
   /** fetch aggregated fields from the table: "token_price_history" */
   token_price_history_aggregate: Token_Price_History_Aggregate;
-  /** fetch data from the table: "token_price_history" using primary key columns */
-  token_price_history_by_pk?: Maybe<Token_Price_History>;
   /** fetch data from the table: "token_unit" */
   token_unit: Array<Token_Unit>;
   /** fetch aggregated fields from the table: "token_unit" */
@@ -10894,6 +14174,14 @@ export type Subscription_Root = {
   unbonding_delegation_history: Array<Unbonding_Delegation_History>;
   /** fetch aggregated fields from the table: "unbonding_delegation_history" */
   unbonding_delegation_history_aggregate: Unbonding_Delegation_History_Aggregate;
+  /** fetch data from the table: "user_block" */
+  user_block: Array<User_Block>;
+  /** fetch aggregated fields from the table: "user_block" */
+  user_block_aggregate: User_Block_Aggregate;
+  /** fetch data from the table: "user_poll_answer" */
+  user_poll_answer: Array<User_Poll_Answer>;
+  /** fetch aggregated fields from the table: "user_poll_answer" */
+  user_poll_answer_aggregate: User_Poll_Answer_Aggregate;
   /** fetch data from the table: "validator" */
   validator: Array<Validator>;
   /** fetch aggregated fields from the table: "validator" */
@@ -10949,7 +14237,6 @@ export type Subscription_Root = {
 };
 
 
-/** subscription root */
 export type Subscription_RootAccountArgs = {
   distinct_on?: Maybe<Array<Account_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10959,7 +14246,6 @@ export type Subscription_RootAccountArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootAccount_AggregateArgs = {
   distinct_on?: Maybe<Array<Account_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10969,7 +14255,6 @@ export type Subscription_RootAccount_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootAccount_BalanceArgs = {
   distinct_on?: Maybe<Array<Account_Balance_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10979,7 +14264,6 @@ export type Subscription_RootAccount_BalanceArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootAccount_Balance_AggregateArgs = {
   distinct_on?: Maybe<Array<Account_Balance_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10989,13 +14273,11 @@ export type Subscription_RootAccount_Balance_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootAccount_Balance_By_PkArgs = {
   address: Scalars['String'];
 };
 
 
-/** subscription root */
 export type Subscription_RootAccount_Balance_HistoryArgs = {
   distinct_on?: Maybe<Array<Account_Balance_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11005,7 +14287,6 @@ export type Subscription_RootAccount_Balance_HistoryArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootAccount_Balance_History_AggregateArgs = {
   distinct_on?: Maybe<Array<Account_Balance_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11015,13 +14296,57 @@ export type Subscription_RootAccount_Balance_History_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootAccount_By_PkArgs = {
   address: Scalars['String'];
 };
 
 
-/** subscription root */
+export type Subscription_RootApplication_LinkArgs = {
+  distinct_on?: Maybe<Array<Application_Link_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Application_Link_Order_By>>;
+  where?: Maybe<Application_Link_Bool_Exp>;
+};
+
+
+export type Subscription_RootApplication_Link_AggregateArgs = {
+  distinct_on?: Maybe<Array<Application_Link_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Application_Link_Order_By>>;
+  where?: Maybe<Application_Link_Bool_Exp>;
+};
+
+
+export type Subscription_RootApplication_Link_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Subscription_RootApplication_Link_Oracle_RequestArgs = {
+  distinct_on?: Maybe<Array<Application_Link_Oracle_Request_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Application_Link_Oracle_Request_Order_By>>;
+  where?: Maybe<Application_Link_Oracle_Request_Bool_Exp>;
+};
+
+
+export type Subscription_RootApplication_Link_Oracle_Request_AggregateArgs = {
+  distinct_on?: Maybe<Array<Application_Link_Oracle_Request_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Application_Link_Oracle_Request_Order_By>>;
+  where?: Maybe<Application_Link_Oracle_Request_Bool_Exp>;
+};
+
+
+export type Subscription_RootApplication_Link_Oracle_Request_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
 export type Subscription_RootAverage_Block_Time_From_GenesisArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_From_Genesis_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11031,7 +14356,6 @@ export type Subscription_RootAverage_Block_Time_From_GenesisArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootAverage_Block_Time_From_Genesis_AggregateArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_From_Genesis_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11041,13 +14365,6 @@ export type Subscription_RootAverage_Block_Time_From_Genesis_AggregateArgs = {
 };
 
 
-/** subscription root */
-export type Subscription_RootAverage_Block_Time_From_Genesis_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** subscription root */
 export type Subscription_RootAverage_Block_Time_Per_DayArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Day_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11057,7 +14374,6 @@ export type Subscription_RootAverage_Block_Time_Per_DayArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootAverage_Block_Time_Per_Day_AggregateArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Day_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11067,13 +14383,6 @@ export type Subscription_RootAverage_Block_Time_Per_Day_AggregateArgs = {
 };
 
 
-/** subscription root */
-export type Subscription_RootAverage_Block_Time_Per_Day_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** subscription root */
 export type Subscription_RootAverage_Block_Time_Per_HourArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Hour_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11083,7 +14392,6 @@ export type Subscription_RootAverage_Block_Time_Per_HourArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootAverage_Block_Time_Per_Hour_AggregateArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Hour_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11093,13 +14401,6 @@ export type Subscription_RootAverage_Block_Time_Per_Hour_AggregateArgs = {
 };
 
 
-/** subscription root */
-export type Subscription_RootAverage_Block_Time_Per_Hour_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** subscription root */
 export type Subscription_RootAverage_Block_Time_Per_MinuteArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Minute_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11109,7 +14410,6 @@ export type Subscription_RootAverage_Block_Time_Per_MinuteArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootAverage_Block_Time_Per_Minute_AggregateArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Minute_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11119,13 +14419,6 @@ export type Subscription_RootAverage_Block_Time_Per_Minute_AggregateArgs = {
 };
 
 
-/** subscription root */
-export type Subscription_RootAverage_Block_Time_Per_Minute_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** subscription root */
 export type Subscription_RootBlockArgs = {
   distinct_on?: Maybe<Array<Block_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11135,7 +14428,6 @@ export type Subscription_RootBlockArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootBlock_AggregateArgs = {
   distinct_on?: Maybe<Array<Block_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11145,13 +14437,75 @@ export type Subscription_RootBlock_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootBlock_By_PkArgs = {
   height: Scalars['bigint'];
 };
 
 
-/** subscription root */
+export type Subscription_RootChain_LinkArgs = {
+  distinct_on?: Maybe<Array<Chain_Link_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Chain_Link_Order_By>>;
+  where?: Maybe<Chain_Link_Bool_Exp>;
+};
+
+
+export type Subscription_RootChain_Link_AggregateArgs = {
+  distinct_on?: Maybe<Array<Chain_Link_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Chain_Link_Order_By>>;
+  where?: Maybe<Chain_Link_Bool_Exp>;
+};
+
+
+export type Subscription_RootChain_Link_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Subscription_RootChain_Link_Chain_ConfigArgs = {
+  distinct_on?: Maybe<Array<Chain_Link_Chain_Config_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Chain_Link_Chain_Config_Order_By>>;
+  where?: Maybe<Chain_Link_Chain_Config_Bool_Exp>;
+};
+
+
+export type Subscription_RootChain_Link_Chain_Config_AggregateArgs = {
+  distinct_on?: Maybe<Array<Chain_Link_Chain_Config_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Chain_Link_Chain_Config_Order_By>>;
+  where?: Maybe<Chain_Link_Chain_Config_Bool_Exp>;
+};
+
+
+export type Subscription_RootChain_Link_Chain_Config_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Subscription_RootChain_Link_ProofArgs = {
+  distinct_on?: Maybe<Array<Chain_Link_Proof_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Chain_Link_Proof_Order_By>>;
+  where?: Maybe<Chain_Link_Proof_Bool_Exp>;
+};
+
+
+export type Subscription_RootChain_Link_Proof_AggregateArgs = {
+  distinct_on?: Maybe<Array<Chain_Link_Proof_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Chain_Link_Proof_Order_By>>;
+  where?: Maybe<Chain_Link_Proof_Bool_Exp>;
+};
+
+
 export type Subscription_RootCommunity_PoolArgs = {
   distinct_on?: Maybe<Array<Community_Pool_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11161,7 +14515,6 @@ export type Subscription_RootCommunity_PoolArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootCommunity_Pool_AggregateArgs = {
   distinct_on?: Maybe<Array<Community_Pool_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11171,13 +14524,6 @@ export type Subscription_RootCommunity_Pool_AggregateArgs = {
 };
 
 
-/** subscription root */
-export type Subscription_RootCommunity_Pool_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** subscription root */
 export type Subscription_RootConsensusArgs = {
   distinct_on?: Maybe<Array<Consensus_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11187,7 +14533,6 @@ export type Subscription_RootConsensusArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootConsensus_AggregateArgs = {
   distinct_on?: Maybe<Array<Consensus_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11197,13 +14542,6 @@ export type Subscription_RootConsensus_AggregateArgs = {
 };
 
 
-/** subscription root */
-export type Subscription_RootConsensus_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** subscription root */
 export type Subscription_RootDelegationArgs = {
   distinct_on?: Maybe<Array<Delegation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11213,7 +14551,6 @@ export type Subscription_RootDelegationArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootDelegation_AggregateArgs = {
   distinct_on?: Maybe<Array<Delegation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11223,13 +14560,11 @@ export type Subscription_RootDelegation_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootDelegation_By_PkArgs = {
   id: Scalars['Int'];
 };
 
 
-/** subscription root */
 export type Subscription_RootDelegation_HistoryArgs = {
   distinct_on?: Maybe<Array<Delegation_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11239,7 +14574,6 @@ export type Subscription_RootDelegation_HistoryArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootDelegation_History_AggregateArgs = {
   distinct_on?: Maybe<Array<Delegation_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11249,7 +14583,6 @@ export type Subscription_RootDelegation_History_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootDelegation_RewardArgs = {
   distinct_on?: Maybe<Array<Delegation_Reward_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11259,7 +14592,6 @@ export type Subscription_RootDelegation_RewardArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootDelegation_Reward_AggregateArgs = {
   distinct_on?: Maybe<Array<Delegation_Reward_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11269,7 +14601,6 @@ export type Subscription_RootDelegation_Reward_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootDelegation_Reward_HistoryArgs = {
   distinct_on?: Maybe<Array<Delegation_Reward_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11279,7 +14610,6 @@ export type Subscription_RootDelegation_Reward_HistoryArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootDelegation_Reward_History_AggregateArgs = {
   distinct_on?: Maybe<Array<Delegation_Reward_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11289,7 +14619,6 @@ export type Subscription_RootDelegation_Reward_History_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootDistribution_ParamsArgs = {
   distinct_on?: Maybe<Array<Distribution_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11299,7 +14628,6 @@ export type Subscription_RootDistribution_ParamsArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootDistribution_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Distribution_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11309,13 +14637,11 @@ export type Subscription_RootDistribution_Params_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootDistribution_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
 
 
-/** subscription root */
 export type Subscription_RootDouble_Sign_EvidenceArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Evidence_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11325,7 +14651,6 @@ export type Subscription_RootDouble_Sign_EvidenceArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootDouble_Sign_Evidence_AggregateArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Evidence_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11335,7 +14660,6 @@ export type Subscription_RootDouble_Sign_Evidence_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootDouble_Sign_VoteArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Vote_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11345,7 +14669,6 @@ export type Subscription_RootDouble_Sign_VoteArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootDouble_Sign_Vote_AggregateArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Vote_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11355,13 +14678,29 @@ export type Subscription_RootDouble_Sign_Vote_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootDouble_Sign_Vote_By_PkArgs = {
   id: Scalars['Int'];
 };
 
 
-/** subscription root */
+export type Subscription_RootDtag_Transfer_RequestsArgs = {
+  distinct_on?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Dtag_Transfer_Requests_Order_By>>;
+  where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
+};
+
+
+export type Subscription_RootDtag_Transfer_Requests_AggregateArgs = {
+  distinct_on?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Dtag_Transfer_Requests_Order_By>>;
+  where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
+};
+
+
 export type Subscription_RootGenesisArgs = {
   distinct_on?: Maybe<Array<Genesis_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11371,7 +14710,6 @@ export type Subscription_RootGenesisArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootGenesis_AggregateArgs = {
   distinct_on?: Maybe<Array<Genesis_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11381,13 +14719,6 @@ export type Subscription_RootGenesis_AggregateArgs = {
 };
 
 
-/** subscription root */
-export type Subscription_RootGenesis_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** subscription root */
 export type Subscription_RootGov_ParamsArgs = {
   distinct_on?: Maybe<Array<Gov_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11397,7 +14728,6 @@ export type Subscription_RootGov_ParamsArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootGov_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Gov_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11407,13 +14737,11 @@ export type Subscription_RootGov_Params_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootGov_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
 
 
-/** subscription root */
 export type Subscription_RootInflationArgs = {
   distinct_on?: Maybe<Array<Inflation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11423,7 +14751,6 @@ export type Subscription_RootInflationArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootInflation_AggregateArgs = {
   distinct_on?: Maybe<Array<Inflation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11433,13 +14760,6 @@ export type Subscription_RootInflation_AggregateArgs = {
 };
 
 
-/** subscription root */
-export type Subscription_RootInflation_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** subscription root */
 export type Subscription_RootMessageArgs = {
   distinct_on?: Maybe<Array<Message_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11449,7 +14769,6 @@ export type Subscription_RootMessageArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootMessage_AggregateArgs = {
   distinct_on?: Maybe<Array<Message_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11459,7 +14778,6 @@ export type Subscription_RootMessage_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootMessages_By_AddressArgs = {
   args: Messages_By_Address_Args;
   distinct_on?: Maybe<Array<Message_Select_Column>>;
@@ -11470,7 +14788,6 @@ export type Subscription_RootMessages_By_AddressArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootMessages_By_Address_AggregateArgs = {
   args: Messages_By_Address_Args;
   distinct_on?: Maybe<Array<Message_Select_Column>>;
@@ -11481,7 +14798,6 @@ export type Subscription_RootMessages_By_Address_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootMint_ParamsArgs = {
   distinct_on?: Maybe<Array<Mint_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11491,7 +14807,6 @@ export type Subscription_RootMint_ParamsArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootMint_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Mint_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11501,13 +14816,11 @@ export type Subscription_RootMint_Params_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootMint_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
 
 
-/** subscription root */
 export type Subscription_RootModulesArgs = {
   distinct_on?: Maybe<Array<Modules_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11517,7 +14830,6 @@ export type Subscription_RootModulesArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootModules_AggregateArgs = {
   distinct_on?: Maybe<Array<Modules_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11527,13 +14839,170 @@ export type Subscription_RootModules_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootModules_By_PkArgs = {
   module_name: Scalars['String'];
 };
 
 
-/** subscription root */
+export type Subscription_RootPollArgs = {
+  distinct_on?: Maybe<Array<Poll_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Poll_Order_By>>;
+  where?: Maybe<Poll_Bool_Exp>;
+};
+
+
+export type Subscription_RootPoll_AggregateArgs = {
+  distinct_on?: Maybe<Array<Poll_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Poll_Order_By>>;
+  where?: Maybe<Poll_Bool_Exp>;
+};
+
+
+export type Subscription_RootPoll_AnswerArgs = {
+  distinct_on?: Maybe<Array<Poll_Answer_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Poll_Answer_Order_By>>;
+  where?: Maybe<Poll_Answer_Bool_Exp>;
+};
+
+
+export type Subscription_RootPoll_Answer_AggregateArgs = {
+  distinct_on?: Maybe<Array<Poll_Answer_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Poll_Answer_Order_By>>;
+  where?: Maybe<Poll_Answer_Bool_Exp>;
+};
+
+
+export type Subscription_RootPoll_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Subscription_RootPostArgs = {
+  distinct_on?: Maybe<Array<Post_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Order_By>>;
+  where?: Maybe<Post_Bool_Exp>;
+};
+
+
+export type Subscription_RootPost_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Order_By>>;
+  where?: Maybe<Post_Bool_Exp>;
+};
+
+
+export type Subscription_RootPost_AttachmentArgs = {
+  distinct_on?: Maybe<Array<Post_Attachment_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Attachment_Order_By>>;
+  where?: Maybe<Post_Attachment_Bool_Exp>;
+};
+
+
+export type Subscription_RootPost_Attachment_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Attachment_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Attachment_Order_By>>;
+  where?: Maybe<Post_Attachment_Bool_Exp>;
+};
+
+
+export type Subscription_RootPost_Attachment_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Subscription_RootPost_Attachment_TagArgs = {
+  distinct_on?: Maybe<Array<Post_Attachment_Tag_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Attachment_Tag_Order_By>>;
+  where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
+};
+
+
+export type Subscription_RootPost_Attachment_Tag_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Attachment_Tag_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Attachment_Tag_Order_By>>;
+  where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
+};
+
+
+export type Subscription_RootPost_AttributeArgs = {
+  distinct_on?: Maybe<Array<Post_Attribute_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Attribute_Order_By>>;
+  where?: Maybe<Post_Attribute_Bool_Exp>;
+};
+
+
+export type Subscription_RootPost_Attribute_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Attribute_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Attribute_Order_By>>;
+  where?: Maybe<Post_Attribute_Bool_Exp>;
+};
+
+
+export type Subscription_RootPost_By_PkArgs = {
+  id: Scalars['String'];
+};
+
+
+export type Subscription_RootPost_ReactionArgs = {
+  distinct_on?: Maybe<Array<Post_Reaction_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Reaction_Order_By>>;
+  where?: Maybe<Post_Reaction_Bool_Exp>;
+};
+
+
+export type Subscription_RootPost_Reaction_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Reaction_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Reaction_Order_By>>;
+  where?: Maybe<Post_Reaction_Bool_Exp>;
+};
+
+
+export type Subscription_RootPost_ReportArgs = {
+  distinct_on?: Maybe<Array<Post_Report_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Report_Order_By>>;
+  where?: Maybe<Post_Report_Bool_Exp>;
+};
+
+
+export type Subscription_RootPost_Report_AggregateArgs = {
+  distinct_on?: Maybe<Array<Post_Report_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Post_Report_Order_By>>;
+  where?: Maybe<Post_Report_Bool_Exp>;
+};
+
+
 export type Subscription_RootPre_CommitArgs = {
   distinct_on?: Maybe<Array<Pre_Commit_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11543,7 +15012,6 @@ export type Subscription_RootPre_CommitArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootPre_Commit_AggregateArgs = {
   distinct_on?: Maybe<Array<Pre_Commit_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11553,7 +15021,47 @@ export type Subscription_RootPre_Commit_AggregateArgs = {
 };
 
 
-/** subscription root */
+export type Subscription_RootProfileArgs = {
+  distinct_on?: Maybe<Array<Profile_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Profile_Order_By>>;
+  where?: Maybe<Profile_Bool_Exp>;
+};
+
+
+export type Subscription_RootProfile_AggregateArgs = {
+  distinct_on?: Maybe<Array<Profile_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Profile_Order_By>>;
+  where?: Maybe<Profile_Bool_Exp>;
+};
+
+
+export type Subscription_RootProfile_By_PkArgs = {
+  address: Scalars['String'];
+};
+
+
+export type Subscription_RootProfile_RelationshipArgs = {
+  distinct_on?: Maybe<Array<Profile_Relationship_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Profile_Relationship_Order_By>>;
+  where?: Maybe<Profile_Relationship_Bool_Exp>;
+};
+
+
+export type Subscription_RootProfile_Relationship_AggregateArgs = {
+  distinct_on?: Maybe<Array<Profile_Relationship_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Profile_Relationship_Order_By>>;
+  where?: Maybe<Profile_Relationship_Bool_Exp>;
+};
+
+
 export type Subscription_RootProposalArgs = {
   distinct_on?: Maybe<Array<Proposal_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11563,7 +15071,6 @@ export type Subscription_RootProposalArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootProposal_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11573,13 +15080,11 @@ export type Subscription_RootProposal_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootProposal_By_PkArgs = {
   id: Scalars['Int'];
 };
 
 
-/** subscription root */
 export type Subscription_RootProposal_DepositArgs = {
   distinct_on?: Maybe<Array<Proposal_Deposit_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11589,7 +15094,6 @@ export type Subscription_RootProposal_DepositArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootProposal_Deposit_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Deposit_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11599,7 +15103,6 @@ export type Subscription_RootProposal_Deposit_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootProposal_Deposit_By_PkArgs = {
   depositor_address: Scalars['String'];
   height: Scalars['bigint'];
@@ -11607,7 +15110,6 @@ export type Subscription_RootProposal_Deposit_By_PkArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootProposal_Staking_Pool_SnapshotArgs = {
   distinct_on?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11617,7 +15119,6 @@ export type Subscription_RootProposal_Staking_Pool_SnapshotArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootProposal_Staking_Pool_Snapshot_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11627,13 +15128,11 @@ export type Subscription_RootProposal_Staking_Pool_Snapshot_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootProposal_Staking_Pool_Snapshot_By_PkArgs = {
   proposal_id: Scalars['Int'];
 };
 
 
-/** subscription root */
 export type Subscription_RootProposal_Tally_ResultArgs = {
   distinct_on?: Maybe<Array<Proposal_Tally_Result_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11643,7 +15142,6 @@ export type Subscription_RootProposal_Tally_ResultArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootProposal_Tally_Result_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Tally_Result_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11653,14 +15151,12 @@ export type Subscription_RootProposal_Tally_Result_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootProposal_Tally_Result_By_PkArgs = {
   height: Scalars['bigint'];
   proposal_id: Scalars['Int'];
 };
 
 
-/** subscription root */
 export type Subscription_RootProposal_Validator_Status_SnapshotArgs = {
   distinct_on?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11670,7 +15166,6 @@ export type Subscription_RootProposal_Validator_Status_SnapshotArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootProposal_Validator_Status_Snapshot_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11680,13 +15175,11 @@ export type Subscription_RootProposal_Validator_Status_Snapshot_AggregateArgs = 
 };
 
 
-/** subscription root */
 export type Subscription_RootProposal_Validator_Status_Snapshot_By_PkArgs = {
   id: Scalars['Int'];
 };
 
 
-/** subscription root */
 export type Subscription_RootProposal_VoteArgs = {
   distinct_on?: Maybe<Array<Proposal_Vote_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11696,7 +15189,6 @@ export type Subscription_RootProposal_VoteArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootProposal_Vote_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Vote_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11706,7 +15198,6 @@ export type Subscription_RootProposal_Vote_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootRedelegationArgs = {
   distinct_on?: Maybe<Array<Redelegation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11716,7 +15207,6 @@ export type Subscription_RootRedelegationArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootRedelegation_AggregateArgs = {
   distinct_on?: Maybe<Array<Redelegation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11726,7 +15216,6 @@ export type Subscription_RootRedelegation_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootRedelegation_HistoryArgs = {
   distinct_on?: Maybe<Array<Redelegation_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11736,7 +15225,6 @@ export type Subscription_RootRedelegation_HistoryArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootRedelegation_History_AggregateArgs = {
   distinct_on?: Maybe<Array<Redelegation_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11746,7 +15234,24 @@ export type Subscription_RootRedelegation_History_AggregateArgs = {
 };
 
 
-/** subscription root */
+export type Subscription_RootRegistered_ReactionsArgs = {
+  distinct_on?: Maybe<Array<Registered_Reactions_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Registered_Reactions_Order_By>>;
+  where?: Maybe<Registered_Reactions_Bool_Exp>;
+};
+
+
+export type Subscription_RootRegistered_Reactions_AggregateArgs = {
+  distinct_on?: Maybe<Array<Registered_Reactions_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Registered_Reactions_Order_By>>;
+  where?: Maybe<Registered_Reactions_Bool_Exp>;
+};
+
+
 export type Subscription_RootSlashing_ParamsArgs = {
   distinct_on?: Maybe<Array<Slashing_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11756,7 +15261,6 @@ export type Subscription_RootSlashing_ParamsArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootSlashing_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Slashing_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11766,13 +15270,6 @@ export type Subscription_RootSlashing_Params_AggregateArgs = {
 };
 
 
-/** subscription root */
-export type Subscription_RootSlashing_Params_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** subscription root */
 export type Subscription_RootStaking_ParamsArgs = {
   distinct_on?: Maybe<Array<Staking_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11782,7 +15279,6 @@ export type Subscription_RootStaking_ParamsArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootStaking_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Staking_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11792,13 +15288,11 @@ export type Subscription_RootStaking_Params_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootStaking_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
 
 
-/** subscription root */
 export type Subscription_RootStaking_PoolArgs = {
   distinct_on?: Maybe<Array<Staking_Pool_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11808,7 +15302,6 @@ export type Subscription_RootStaking_PoolArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootStaking_Pool_AggregateArgs = {
   distinct_on?: Maybe<Array<Staking_Pool_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11818,13 +15311,6 @@ export type Subscription_RootStaking_Pool_AggregateArgs = {
 };
 
 
-/** subscription root */
-export type Subscription_RootStaking_Pool_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** subscription root */
 export type Subscription_RootSupplyArgs = {
   distinct_on?: Maybe<Array<Supply_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11834,7 +15320,6 @@ export type Subscription_RootSupplyArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootSupply_AggregateArgs = {
   distinct_on?: Maybe<Array<Supply_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11844,13 +15329,6 @@ export type Subscription_RootSupply_AggregateArgs = {
 };
 
 
-/** subscription root */
-export type Subscription_RootSupply_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-/** subscription root */
 export type Subscription_RootTokenArgs = {
   distinct_on?: Maybe<Array<Token_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11860,7 +15338,6 @@ export type Subscription_RootTokenArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootToken_AggregateArgs = {
   distinct_on?: Maybe<Array<Token_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11870,7 +15347,6 @@ export type Subscription_RootToken_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootToken_PriceArgs = {
   distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11880,7 +15356,6 @@ export type Subscription_RootToken_PriceArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootToken_Price_AggregateArgs = {
   distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11890,13 +15365,11 @@ export type Subscription_RootToken_Price_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootToken_Price_By_PkArgs = {
   id: Scalars['Int'];
 };
 
 
-/** subscription root */
 export type Subscription_RootToken_Price_HistoryArgs = {
   distinct_on?: Maybe<Array<Token_Price_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11906,7 +15379,6 @@ export type Subscription_RootToken_Price_HistoryArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootToken_Price_History_AggregateArgs = {
   distinct_on?: Maybe<Array<Token_Price_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11916,13 +15388,6 @@ export type Subscription_RootToken_Price_History_AggregateArgs = {
 };
 
 
-/** subscription root */
-export type Subscription_RootToken_Price_History_By_PkArgs = {
-  id: Scalars['Int'];
-};
-
-
-/** subscription root */
 export type Subscription_RootToken_UnitArgs = {
   distinct_on?: Maybe<Array<Token_Unit_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11932,7 +15397,6 @@ export type Subscription_RootToken_UnitArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootToken_Unit_AggregateArgs = {
   distinct_on?: Maybe<Array<Token_Unit_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11942,7 +15406,6 @@ export type Subscription_RootToken_Unit_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootTransactionArgs = {
   distinct_on?: Maybe<Array<Transaction_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11952,7 +15415,6 @@ export type Subscription_RootTransactionArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootTransaction_AggregateArgs = {
   distinct_on?: Maybe<Array<Transaction_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11962,13 +15424,11 @@ export type Subscription_RootTransaction_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootTransaction_By_PkArgs = {
   hash: Scalars['String'];
 };
 
 
-/** subscription root */
 export type Subscription_RootUnbonding_DelegationArgs = {
   distinct_on?: Maybe<Array<Unbonding_Delegation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11978,7 +15438,6 @@ export type Subscription_RootUnbonding_DelegationArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootUnbonding_Delegation_AggregateArgs = {
   distinct_on?: Maybe<Array<Unbonding_Delegation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11988,7 +15447,6 @@ export type Subscription_RootUnbonding_Delegation_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootUnbonding_Delegation_HistoryArgs = {
   distinct_on?: Maybe<Array<Unbonding_Delegation_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11998,7 +15456,6 @@ export type Subscription_RootUnbonding_Delegation_HistoryArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootUnbonding_Delegation_History_AggregateArgs = {
   distinct_on?: Maybe<Array<Unbonding_Delegation_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -12008,7 +15465,42 @@ export type Subscription_RootUnbonding_Delegation_History_AggregateArgs = {
 };
 
 
-/** subscription root */
+export type Subscription_RootUser_BlockArgs = {
+  distinct_on?: Maybe<Array<User_Block_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<User_Block_Order_By>>;
+  where?: Maybe<User_Block_Bool_Exp>;
+};
+
+
+export type Subscription_RootUser_Block_AggregateArgs = {
+  distinct_on?: Maybe<Array<User_Block_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<User_Block_Order_By>>;
+  where?: Maybe<User_Block_Bool_Exp>;
+};
+
+
+export type Subscription_RootUser_Poll_AnswerArgs = {
+  distinct_on?: Maybe<Array<User_Poll_Answer_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<User_Poll_Answer_Order_By>>;
+  where?: Maybe<User_Poll_Answer_Bool_Exp>;
+};
+
+
+export type Subscription_RootUser_Poll_Answer_AggregateArgs = {
+  distinct_on?: Maybe<Array<User_Poll_Answer_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<User_Poll_Answer_Order_By>>;
+  where?: Maybe<User_Poll_Answer_Bool_Exp>;
+};
+
+
 export type Subscription_RootValidatorArgs = {
   distinct_on?: Maybe<Array<Validator_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -12018,7 +15510,6 @@ export type Subscription_RootValidatorArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -12028,13 +15519,11 @@ export type Subscription_RootValidator_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_By_PkArgs = {
   consensus_address: Scalars['String'];
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_CommissionArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -12044,7 +15533,6 @@ export type Subscription_RootValidator_CommissionArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_Commission_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -12054,7 +15542,6 @@ export type Subscription_RootValidator_Commission_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_Commission_AmountArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Amount_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -12064,7 +15551,6 @@ export type Subscription_RootValidator_Commission_AmountArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_Commission_Amount_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Amount_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -12074,13 +15560,11 @@ export type Subscription_RootValidator_Commission_Amount_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_Commission_Amount_By_PkArgs = {
   validator_address: Scalars['String'];
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_Commission_Amount_HistoryArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Amount_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -12090,7 +15574,6 @@ export type Subscription_RootValidator_Commission_Amount_HistoryArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_Commission_Amount_History_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Amount_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -12100,13 +15583,11 @@ export type Subscription_RootValidator_Commission_Amount_History_AggregateArgs =
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_Commission_By_PkArgs = {
   validator_address: Scalars['String'];
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_DescriptionArgs = {
   distinct_on?: Maybe<Array<Validator_Description_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -12116,7 +15597,6 @@ export type Subscription_RootValidator_DescriptionArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_Description_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Description_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -12126,13 +15606,11 @@ export type Subscription_RootValidator_Description_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_Description_By_PkArgs = {
   validator_address: Scalars['String'];
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_InfoArgs = {
   distinct_on?: Maybe<Array<Validator_Info_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -12142,7 +15620,6 @@ export type Subscription_RootValidator_InfoArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_Info_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Info_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -12152,13 +15629,11 @@ export type Subscription_RootValidator_Info_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_Info_By_PkArgs = {
   consensus_address: Scalars['String'];
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_Signing_InfoArgs = {
   distinct_on?: Maybe<Array<Validator_Signing_Info_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -12168,7 +15643,6 @@ export type Subscription_RootValidator_Signing_InfoArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_Signing_Info_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Signing_Info_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -12178,13 +15652,11 @@ export type Subscription_RootValidator_Signing_Info_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_Signing_Info_By_PkArgs = {
   validator_address: Scalars['String'];
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_StatusArgs = {
   distinct_on?: Maybe<Array<Validator_Status_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -12194,7 +15666,6 @@ export type Subscription_RootValidator_StatusArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_Status_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Status_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -12204,13 +15675,11 @@ export type Subscription_RootValidator_Status_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_Status_By_PkArgs = {
   validator_address: Scalars['String'];
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_Voting_PowerArgs = {
   distinct_on?: Maybe<Array<Validator_Voting_Power_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -12220,7 +15689,6 @@ export type Subscription_RootValidator_Voting_PowerArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_Voting_Power_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Voting_Power_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -12230,7 +15698,6 @@ export type Subscription_RootValidator_Voting_Power_AggregateArgs = {
 };
 
 
-/** subscription root */
 export type Subscription_RootValidator_Voting_Power_By_PkArgs = {
   validator_address: Scalars['String'];
 };
@@ -12253,7 +15720,7 @@ export type Supply_Aggregate = {
 export type Supply_Aggregate_Fields = {
   __typename?: 'supply_aggregate_fields';
   avg?: Maybe<Supply_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Supply_Max_Fields>;
   min?: Maybe<Supply_Min_Fields>;
   stddev?: Maybe<Supply_Stddev_Fields>;
@@ -12272,37 +15739,17 @@ export type Supply_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "supply" */
-export type Supply_Aggregate_Order_By = {
-  avg?: Maybe<Supply_Avg_Order_By>;
-  count?: Maybe<Order_By>;
-  max?: Maybe<Supply_Max_Order_By>;
-  min?: Maybe<Supply_Min_Order_By>;
-  stddev?: Maybe<Supply_Stddev_Order_By>;
-  stddev_pop?: Maybe<Supply_Stddev_Pop_Order_By>;
-  stddev_samp?: Maybe<Supply_Stddev_Samp_Order_By>;
-  sum?: Maybe<Supply_Sum_Order_By>;
-  var_pop?: Maybe<Supply_Var_Pop_Order_By>;
-  var_samp?: Maybe<Supply_Var_Samp_Order_By>;
-  variance?: Maybe<Supply_Variance_Order_By>;
-};
-
 /** aggregate avg on columns */
 export type Supply_Avg_Fields = {
   __typename?: 'supply_avg_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "supply" */
-export type Supply_Avg_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "supply". All fields are combined with a logical 'AND'. */
 export type Supply_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Supply_Bool_Exp>>>;
+  _and?: Maybe<Array<Supply_Bool_Exp>>;
   _not?: Maybe<Supply_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Supply_Bool_Exp>>>;
+  _or?: Maybe<Array<Supply_Bool_Exp>>;
   coins?: Maybe<_Coin_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
 };
@@ -12313,31 +15760,16 @@ export type Supply_Max_Fields = {
   height?: Maybe<Scalars['bigint']>;
 };
 
-/** order by max() on columns of table "supply" */
-export type Supply_Max_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Supply_Min_Fields = {
   __typename?: 'supply_min_fields';
   height?: Maybe<Scalars['bigint']>;
 };
 
-/** order by min() on columns of table "supply" */
-export type Supply_Min_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
-/** ordering options when selecting data from "supply" */
+/** Ordering options when selecting data from "supply". */
 export type Supply_Order_By = {
   coins?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "supply" */
-export type Supply_Pk_Columns_Input = {
-  one_row_id: Scalars['Boolean'];
 };
 
 /** select columns of table "supply" */
@@ -12354,20 +15786,10 @@ export type Supply_Stddev_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "supply" */
-export type Supply_Stddev_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate stddev_pop on columns */
 export type Supply_Stddev_Pop_Fields = {
   __typename?: 'supply_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "supply" */
-export type Supply_Stddev_Pop_Order_By = {
-  height?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -12376,20 +15798,10 @@ export type Supply_Stddev_Samp_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "supply" */
-export type Supply_Stddev_Samp_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate sum on columns */
 export type Supply_Sum_Fields = {
   __typename?: 'supply_sum_fields';
   height?: Maybe<Scalars['bigint']>;
-};
-
-/** order by sum() on columns of table "supply" */
-export type Supply_Sum_Order_By = {
-  height?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -12398,20 +15810,10 @@ export type Supply_Var_Pop_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "supply" */
-export type Supply_Var_Pop_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
 /** aggregate var_samp on columns */
 export type Supply_Var_Samp_Fields = {
   __typename?: 'supply_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
-};
-
-/** order by var_samp() on columns of table "supply" */
-export type Supply_Var_Samp_Order_By = {
-  height?: Maybe<Order_By>;
 };
 
 /** aggregate variance on columns */
@@ -12420,13 +15822,8 @@ export type Supply_Variance_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "supply" */
-export type Supply_Variance_Order_By = {
-  height?: Maybe<Order_By>;
-};
 
-
-/** expression to compare columns of type timestamp. All fields are combined with logical 'AND'. */
+/** Boolean expression to compare columns of type "timestamp". All fields are combined with logical 'AND'. */
 export type Timestamp_Comparison_Exp = {
   _eq?: Maybe<Scalars['timestamp']>;
   _gt?: Maybe<Scalars['timestamp']>;
@@ -12445,7 +15842,7 @@ export type Token = {
   name: Scalars['String'];
   /** An array relationship */
   token_units: Array<Token_Unit>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   token_units_aggregate: Token_Unit_Aggregate;
 };
 
@@ -12479,7 +15876,7 @@ export type Token_Aggregate = {
 /** aggregate fields of "token" */
 export type Token_Aggregate_Fields = {
   __typename?: 'token_aggregate_fields';
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Token_Max_Fields>;
   min?: Maybe<Token_Min_Fields>;
 };
@@ -12491,18 +15888,11 @@ export type Token_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "token" */
-export type Token_Aggregate_Order_By = {
-  count?: Maybe<Order_By>;
-  max?: Maybe<Token_Max_Order_By>;
-  min?: Maybe<Token_Min_Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "token". All fields are combined with a logical 'AND'. */
 export type Token_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Token_Bool_Exp>>>;
+  _and?: Maybe<Array<Token_Bool_Exp>>;
   _not?: Maybe<Token_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Token_Bool_Exp>>>;
+  _or?: Maybe<Array<Token_Bool_Exp>>;
   name?: Maybe<String_Comparison_Exp>;
   token_units?: Maybe<Token_Unit_Bool_Exp>;
 };
@@ -12513,23 +15903,13 @@ export type Token_Max_Fields = {
   name?: Maybe<Scalars['String']>;
 };
 
-/** order by max() on columns of table "token" */
-export type Token_Max_Order_By = {
-  name?: Maybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Token_Min_Fields = {
   __typename?: 'token_min_fields';
   name?: Maybe<Scalars['String']>;
 };
 
-/** order by min() on columns of table "token" */
-export type Token_Min_Order_By = {
-  name?: Maybe<Order_By>;
-};
-
-/** ordering options when selecting data from "token" */
+/** Ordering options when selecting data from "token". */
 export type Token_Order_By = {
   name?: Maybe<Order_By>;
   token_units_aggregate?: Maybe<Token_Unit_Aggregate_Order_By>;
@@ -12558,7 +15938,7 @@ export type Token_Price_Aggregate = {
 export type Token_Price_Aggregate_Fields = {
   __typename?: 'token_price_aggregate_fields';
   avg?: Maybe<Token_Price_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Token_Price_Max_Fields>;
   min?: Maybe<Token_Price_Min_Fields>;
   stddev?: Maybe<Token_Price_Stddev_Fields>;
@@ -12609,9 +15989,9 @@ export type Token_Price_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "token_price". All fields are combined with a logical 'AND'. */
 export type Token_Price_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Token_Price_Bool_Exp>>>;
+  _and?: Maybe<Array<Token_Price_Bool_Exp>>;
   _not?: Maybe<Token_Price_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Token_Price_Bool_Exp>>>;
+  _or?: Maybe<Array<Token_Price_Bool_Exp>>;
   id?: Maybe<Int_Comparison_Exp>;
   market_cap?: Maybe<Bigint_Comparison_Exp>;
   price?: Maybe<Numeric_Comparison_Exp>;
@@ -12642,7 +16022,7 @@ export type Token_Price_History_Aggregate = {
 export type Token_Price_History_Aggregate_Fields = {
   __typename?: 'token_price_history_aggregate_fields';
   avg?: Maybe<Token_Price_History_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Token_Price_History_Max_Fields>;
   min?: Maybe<Token_Price_History_Min_Fields>;
   stddev?: Maybe<Token_Price_History_Stddev_Fields>;
@@ -12691,9 +16071,9 @@ export type Token_Price_History_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "token_price_history". All fields are combined with a logical 'AND'. */
 export type Token_Price_History_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Token_Price_History_Bool_Exp>>>;
+  _and?: Maybe<Array<Token_Price_History_Bool_Exp>>;
   _not?: Maybe<Token_Price_History_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Token_Price_History_Bool_Exp>>>;
+  _or?: Maybe<Array<Token_Price_History_Bool_Exp>>;
   market_cap?: Maybe<Bigint_Comparison_Exp>;
   price?: Maybe<Numeric_Comparison_Exp>;
   timestamp?: Maybe<Timestamp_Comparison_Exp>;
@@ -12735,18 +16115,13 @@ export type Token_Price_History_Min_Order_By = {
   unit_name?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "token_price_history" */
+/** Ordering options when selecting data from "token_price_history". */
 export type Token_Price_History_Order_By = {
   market_cap?: Maybe<Order_By>;
   price?: Maybe<Order_By>;
   timestamp?: Maybe<Order_By>;
   token_unit?: Maybe<Token_Unit_Order_By>;
   unit_name?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "token_price_history" */
-export type Token_Price_History_Pk_Columns_Input = {
-  id: Scalars['Int'];
 };
 
 /** select columns of table "token_price_history" */
@@ -12890,7 +16265,7 @@ export type Token_Price_Min_Order_By = {
   unit_name?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "token_price" */
+/** Ordering options when selecting data from "token_price". */
 export type Token_Price_Order_By = {
   id?: Maybe<Order_By>;
   market_cap?: Maybe<Order_By>;
@@ -12898,11 +16273,6 @@ export type Token_Price_Order_By = {
   timestamp?: Maybe<Order_By>;
   token_unit?: Maybe<Token_Unit_Order_By>;
   unit_name?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "token_price" */
-export type Token_Price_Pk_Columns_Input = {
-  id: Scalars['Int'];
 };
 
 /** select columns of table "token_price" */
@@ -13043,11 +16413,11 @@ export type Token_Unit = {
   token_price?: Maybe<Token_Price>;
   /** An array relationship */
   token_price_histories: Array<Token_Price_History>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   token_price_histories_aggregate: Token_Price_History_Aggregate;
   /** An array relationship */
   token_prices: Array<Token_Price>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   token_prices_aggregate: Token_Price_Aggregate;
 };
 
@@ -13102,7 +16472,7 @@ export type Token_Unit_Aggregate = {
 export type Token_Unit_Aggregate_Fields = {
   __typename?: 'token_unit_aggregate_fields';
   avg?: Maybe<Token_Unit_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Token_Unit_Max_Fields>;
   min?: Maybe<Token_Unit_Min_Fields>;
   stddev?: Maybe<Token_Unit_Stddev_Fields>;
@@ -13149,9 +16519,9 @@ export type Token_Unit_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "token_unit". All fields are combined with a logical 'AND'. */
 export type Token_Unit_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Token_Unit_Bool_Exp>>>;
+  _and?: Maybe<Array<Token_Unit_Bool_Exp>>;
   _not?: Maybe<Token_Unit_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Token_Unit_Bool_Exp>>>;
+  _or?: Maybe<Array<Token_Unit_Bool_Exp>>;
   aliases?: Maybe<_Text_Comparison_Exp>;
   denom?: Maybe<String_Comparison_Exp>;
   exponent?: Maybe<Int_Comparison_Exp>;
@@ -13192,7 +16562,7 @@ export type Token_Unit_Min_Order_By = {
   token_name?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "token_unit" */
+/** Ordering options when selecting data from "token_unit". */
 export type Token_Unit_Order_By = {
   aliases?: Maybe<Order_By>;
   denom?: Maybe<Order_By>;
@@ -13308,7 +16678,7 @@ export type Transaction = {
   messages: Scalars['jsonb'];
   /** An array relationship */
   messagesByTransactionHash: Array<Message>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   messagesByTransactionHash_aggregate: Message_Aggregate;
   raw_log?: Maybe<Scalars['String']>;
   signatures: Scalars['_text'];
@@ -13371,7 +16741,7 @@ export type Transaction_Aggregate = {
 export type Transaction_Aggregate_Fields = {
   __typename?: 'transaction_aggregate_fields';
   avg?: Maybe<Transaction_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Transaction_Max_Fields>;
   min?: Maybe<Transaction_Min_Fields>;
   stddev?: Maybe<Transaction_Stddev_Fields>;
@@ -13422,9 +16792,9 @@ export type Transaction_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "transaction". All fields are combined with a logical 'AND'. */
 export type Transaction_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Transaction_Bool_Exp>>>;
+  _and?: Maybe<Array<Transaction_Bool_Exp>>;
   _not?: Maybe<Transaction_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Transaction_Bool_Exp>>>;
+  _or?: Maybe<Array<Transaction_Bool_Exp>>;
   block?: Maybe<Block_Bool_Exp>;
   fee?: Maybe<Jsonb_Comparison_Exp>;
   gas_used?: Maybe<Bigint_Comparison_Exp>;
@@ -13483,7 +16853,7 @@ export type Transaction_Min_Order_By = {
   raw_log?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "transaction" */
+/** Ordering options when selecting data from "transaction". */
 export type Transaction_Order_By = {
   block?: Maybe<Block_Order_By>;
   fee?: Maybe<Order_By>;
@@ -13499,11 +16869,6 @@ export type Transaction_Order_By = {
   signatures?: Maybe<Order_By>;
   signer_infos?: Maybe<Order_By>;
   success?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "transaction" */
-export type Transaction_Pk_Columns_Input = {
-  hash: Scalars['String'];
 };
 
 /** select columns of table "transaction" */
@@ -13664,7 +17029,7 @@ export type Unbonding_Delegation_Aggregate = {
 export type Unbonding_Delegation_Aggregate_Fields = {
   __typename?: 'unbonding_delegation_aggregate_fields';
   avg?: Maybe<Unbonding_Delegation_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Unbonding_Delegation_Max_Fields>;
   min?: Maybe<Unbonding_Delegation_Min_Fields>;
   stddev?: Maybe<Unbonding_Delegation_Stddev_Fields>;
@@ -13711,9 +17076,9 @@ export type Unbonding_Delegation_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "unbonding_delegation". All fields are combined with a logical 'AND'. */
 export type Unbonding_Delegation_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Unbonding_Delegation_Bool_Exp>>>;
+  _and?: Maybe<Array<Unbonding_Delegation_Bool_Exp>>;
   _not?: Maybe<Unbonding_Delegation_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Unbonding_Delegation_Bool_Exp>>>;
+  _or?: Maybe<Array<Unbonding_Delegation_Bool_Exp>>;
   account?: Maybe<Account_Bool_Exp>;
   amount?: Maybe<Coin_Comparison_Exp>;
   completion_timestamp?: Maybe<Timestamp_Comparison_Exp>;
@@ -13748,7 +17113,7 @@ export type Unbonding_Delegation_History_Aggregate = {
 export type Unbonding_Delegation_History_Aggregate_Fields = {
   __typename?: 'unbonding_delegation_history_aggregate_fields';
   avg?: Maybe<Unbonding_Delegation_History_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Unbonding_Delegation_History_Max_Fields>;
   min?: Maybe<Unbonding_Delegation_History_Min_Fields>;
   stddev?: Maybe<Unbonding_Delegation_History_Stddev_Fields>;
@@ -13795,9 +17160,9 @@ export type Unbonding_Delegation_History_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "unbonding_delegation_history". All fields are combined with a logical 'AND'. */
 export type Unbonding_Delegation_History_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Unbonding_Delegation_History_Bool_Exp>>>;
+  _and?: Maybe<Array<Unbonding_Delegation_History_Bool_Exp>>;
   _not?: Maybe<Unbonding_Delegation_History_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Unbonding_Delegation_History_Bool_Exp>>>;
+  _or?: Maybe<Array<Unbonding_Delegation_History_Bool_Exp>>;
   account?: Maybe<Account_Bool_Exp>;
   amount?: Maybe<Coin_Comparison_Exp>;
   block?: Maybe<Block_Bool_Exp>;
@@ -13841,7 +17206,7 @@ export type Unbonding_Delegation_History_Min_Order_By = {
   validator_address?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "unbonding_delegation_history" */
+/** Ordering options when selecting data from "unbonding_delegation_history". */
 export type Unbonding_Delegation_History_Order_By = {
   account?: Maybe<Account_Order_By>;
   amount?: Maybe<Order_By>;
@@ -13977,7 +17342,7 @@ export type Unbonding_Delegation_Min_Order_By = {
   validator_address?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "unbonding_delegation" */
+/** Ordering options when selecting data from "unbonding_delegation". */
 export type Unbonding_Delegation_Order_By = {
   account?: Maybe<Account_Order_By>;
   amount?: Maybe<Order_By>;
@@ -14079,82 +17444,553 @@ export type Unbonding_Delegation_Variance_Order_By = {
   height?: Maybe<Order_By>;
 };
 
+/** columns and relationships of "user_block" */
+export type User_Block = {
+  __typename?: 'user_block';
+  blocked_user_address: Scalars['String'];
+  blocker_address: Scalars['String'];
+  height: Scalars['bigint'];
+  /** An object relationship */
+  profile: Profile;
+  /** An object relationship */
+  profileByBlockerAddress: Profile;
+  reason?: Maybe<Scalars['String']>;
+  subspace: Scalars['String'];
+};
+
+/** aggregated selection of "user_block" */
+export type User_Block_Aggregate = {
+  __typename?: 'user_block_aggregate';
+  aggregate?: Maybe<User_Block_Aggregate_Fields>;
+  nodes: Array<User_Block>;
+};
+
+/** aggregate fields of "user_block" */
+export type User_Block_Aggregate_Fields = {
+  __typename?: 'user_block_aggregate_fields';
+  avg?: Maybe<User_Block_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<User_Block_Max_Fields>;
+  min?: Maybe<User_Block_Min_Fields>;
+  stddev?: Maybe<User_Block_Stddev_Fields>;
+  stddev_pop?: Maybe<User_Block_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<User_Block_Stddev_Samp_Fields>;
+  sum?: Maybe<User_Block_Sum_Fields>;
+  var_pop?: Maybe<User_Block_Var_Pop_Fields>;
+  var_samp?: Maybe<User_Block_Var_Samp_Fields>;
+  variance?: Maybe<User_Block_Variance_Fields>;
+};
+
+
+/** aggregate fields of "user_block" */
+export type User_Block_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<User_Block_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "user_block" */
+export type User_Block_Aggregate_Order_By = {
+  avg?: Maybe<User_Block_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<User_Block_Max_Order_By>;
+  min?: Maybe<User_Block_Min_Order_By>;
+  stddev?: Maybe<User_Block_Stddev_Order_By>;
+  stddev_pop?: Maybe<User_Block_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<User_Block_Stddev_Samp_Order_By>;
+  sum?: Maybe<User_Block_Sum_Order_By>;
+  var_pop?: Maybe<User_Block_Var_Pop_Order_By>;
+  var_samp?: Maybe<User_Block_Var_Samp_Order_By>;
+  variance?: Maybe<User_Block_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type User_Block_Avg_Fields = {
+  __typename?: 'user_block_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "user_block" */
+export type User_Block_Avg_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "user_block". All fields are combined with a logical 'AND'. */
+export type User_Block_Bool_Exp = {
+  _and?: Maybe<Array<User_Block_Bool_Exp>>;
+  _not?: Maybe<User_Block_Bool_Exp>;
+  _or?: Maybe<Array<User_Block_Bool_Exp>>;
+  blocked_user_address?: Maybe<String_Comparison_Exp>;
+  blocker_address?: Maybe<String_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  profile?: Maybe<Profile_Bool_Exp>;
+  profileByBlockerAddress?: Maybe<Profile_Bool_Exp>;
+  reason?: Maybe<String_Comparison_Exp>;
+  subspace?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type User_Block_Max_Fields = {
+  __typename?: 'user_block_max_fields';
+  blocked_user_address?: Maybe<Scalars['String']>;
+  blocker_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  reason?: Maybe<Scalars['String']>;
+  subspace?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "user_block" */
+export type User_Block_Max_Order_By = {
+  blocked_user_address?: Maybe<Order_By>;
+  blocker_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  reason?: Maybe<Order_By>;
+  subspace?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type User_Block_Min_Fields = {
+  __typename?: 'user_block_min_fields';
+  blocked_user_address?: Maybe<Scalars['String']>;
+  blocker_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  reason?: Maybe<Scalars['String']>;
+  subspace?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "user_block" */
+export type User_Block_Min_Order_By = {
+  blocked_user_address?: Maybe<Order_By>;
+  blocker_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  reason?: Maybe<Order_By>;
+  subspace?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "user_block". */
+export type User_Block_Order_By = {
+  blocked_user_address?: Maybe<Order_By>;
+  blocker_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  profile?: Maybe<Profile_Order_By>;
+  profileByBlockerAddress?: Maybe<Profile_Order_By>;
+  reason?: Maybe<Order_By>;
+  subspace?: Maybe<Order_By>;
+};
+
+/** select columns of table "user_block" */
+export enum User_Block_Select_Column {
+  /** column name */
+  BlockedUserAddress = 'blocked_user_address',
+  /** column name */
+  BlockerAddress = 'blocker_address',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Reason = 'reason',
+  /** column name */
+  Subspace = 'subspace'
+}
+
+/** aggregate stddev on columns */
+export type User_Block_Stddev_Fields = {
+  __typename?: 'user_block_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "user_block" */
+export type User_Block_Stddev_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type User_Block_Stddev_Pop_Fields = {
+  __typename?: 'user_block_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "user_block" */
+export type User_Block_Stddev_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type User_Block_Stddev_Samp_Fields = {
+  __typename?: 'user_block_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "user_block" */
+export type User_Block_Stddev_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type User_Block_Sum_Fields = {
+  __typename?: 'user_block_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** order by sum() on columns of table "user_block" */
+export type User_Block_Sum_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type User_Block_Var_Pop_Fields = {
+  __typename?: 'user_block_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "user_block" */
+export type User_Block_Var_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type User_Block_Var_Samp_Fields = {
+  __typename?: 'user_block_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "user_block" */
+export type User_Block_Var_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type User_Block_Variance_Fields = {
+  __typename?: 'user_block_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "user_block" */
+export type User_Block_Variance_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** columns and relationships of "user_poll_answer" */
+export type User_Poll_Answer = {
+  __typename?: 'user_poll_answer';
+  answer: Scalars['Int'];
+  answerer_address: Scalars['String'];
+  height: Scalars['bigint'];
+  /** An object relationship */
+  poll: Poll;
+  poll_id: Scalars['Int'];
+  /** An object relationship */
+  profile: Profile;
+};
+
+/** aggregated selection of "user_poll_answer" */
+export type User_Poll_Answer_Aggregate = {
+  __typename?: 'user_poll_answer_aggregate';
+  aggregate?: Maybe<User_Poll_Answer_Aggregate_Fields>;
+  nodes: Array<User_Poll_Answer>;
+};
+
+/** aggregate fields of "user_poll_answer" */
+export type User_Poll_Answer_Aggregate_Fields = {
+  __typename?: 'user_poll_answer_aggregate_fields';
+  avg?: Maybe<User_Poll_Answer_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<User_Poll_Answer_Max_Fields>;
+  min?: Maybe<User_Poll_Answer_Min_Fields>;
+  stddev?: Maybe<User_Poll_Answer_Stddev_Fields>;
+  stddev_pop?: Maybe<User_Poll_Answer_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<User_Poll_Answer_Stddev_Samp_Fields>;
+  sum?: Maybe<User_Poll_Answer_Sum_Fields>;
+  var_pop?: Maybe<User_Poll_Answer_Var_Pop_Fields>;
+  var_samp?: Maybe<User_Poll_Answer_Var_Samp_Fields>;
+  variance?: Maybe<User_Poll_Answer_Variance_Fields>;
+};
+
+
+/** aggregate fields of "user_poll_answer" */
+export type User_Poll_Answer_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<User_Poll_Answer_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "user_poll_answer" */
+export type User_Poll_Answer_Aggregate_Order_By = {
+  avg?: Maybe<User_Poll_Answer_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<User_Poll_Answer_Max_Order_By>;
+  min?: Maybe<User_Poll_Answer_Min_Order_By>;
+  stddev?: Maybe<User_Poll_Answer_Stddev_Order_By>;
+  stddev_pop?: Maybe<User_Poll_Answer_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<User_Poll_Answer_Stddev_Samp_Order_By>;
+  sum?: Maybe<User_Poll_Answer_Sum_Order_By>;
+  var_pop?: Maybe<User_Poll_Answer_Var_Pop_Order_By>;
+  var_samp?: Maybe<User_Poll_Answer_Var_Samp_Order_By>;
+  variance?: Maybe<User_Poll_Answer_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type User_Poll_Answer_Avg_Fields = {
+  __typename?: 'user_poll_answer_avg_fields';
+  answer?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  poll_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "user_poll_answer" */
+export type User_Poll_Answer_Avg_Order_By = {
+  answer?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  poll_id?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "user_poll_answer". All fields are combined with a logical 'AND'. */
+export type User_Poll_Answer_Bool_Exp = {
+  _and?: Maybe<Array<User_Poll_Answer_Bool_Exp>>;
+  _not?: Maybe<User_Poll_Answer_Bool_Exp>;
+  _or?: Maybe<Array<User_Poll_Answer_Bool_Exp>>;
+  answer?: Maybe<Int_Comparison_Exp>;
+  answerer_address?: Maybe<String_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  poll?: Maybe<Poll_Bool_Exp>;
+  poll_id?: Maybe<Int_Comparison_Exp>;
+  profile?: Maybe<Profile_Bool_Exp>;
+};
+
+/** aggregate max on columns */
+export type User_Poll_Answer_Max_Fields = {
+  __typename?: 'user_poll_answer_max_fields';
+  answer?: Maybe<Scalars['Int']>;
+  answerer_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  poll_id?: Maybe<Scalars['Int']>;
+};
+
+/** order by max() on columns of table "user_poll_answer" */
+export type User_Poll_Answer_Max_Order_By = {
+  answer?: Maybe<Order_By>;
+  answerer_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  poll_id?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type User_Poll_Answer_Min_Fields = {
+  __typename?: 'user_poll_answer_min_fields';
+  answer?: Maybe<Scalars['Int']>;
+  answerer_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  poll_id?: Maybe<Scalars['Int']>;
+};
+
+/** order by min() on columns of table "user_poll_answer" */
+export type User_Poll_Answer_Min_Order_By = {
+  answer?: Maybe<Order_By>;
+  answerer_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  poll_id?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "user_poll_answer". */
+export type User_Poll_Answer_Order_By = {
+  answer?: Maybe<Order_By>;
+  answerer_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  poll?: Maybe<Poll_Order_By>;
+  poll_id?: Maybe<Order_By>;
+  profile?: Maybe<Profile_Order_By>;
+};
+
+/** select columns of table "user_poll_answer" */
+export enum User_Poll_Answer_Select_Column {
+  /** column name */
+  Answer = 'answer',
+  /** column name */
+  AnswererAddress = 'answerer_address',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  PollId = 'poll_id'
+}
+
+/** aggregate stddev on columns */
+export type User_Poll_Answer_Stddev_Fields = {
+  __typename?: 'user_poll_answer_stddev_fields';
+  answer?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  poll_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "user_poll_answer" */
+export type User_Poll_Answer_Stddev_Order_By = {
+  answer?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  poll_id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type User_Poll_Answer_Stddev_Pop_Fields = {
+  __typename?: 'user_poll_answer_stddev_pop_fields';
+  answer?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  poll_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "user_poll_answer" */
+export type User_Poll_Answer_Stddev_Pop_Order_By = {
+  answer?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  poll_id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type User_Poll_Answer_Stddev_Samp_Fields = {
+  __typename?: 'user_poll_answer_stddev_samp_fields';
+  answer?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  poll_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "user_poll_answer" */
+export type User_Poll_Answer_Stddev_Samp_Order_By = {
+  answer?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  poll_id?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type User_Poll_Answer_Sum_Fields = {
+  __typename?: 'user_poll_answer_sum_fields';
+  answer?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['bigint']>;
+  poll_id?: Maybe<Scalars['Int']>;
+};
+
+/** order by sum() on columns of table "user_poll_answer" */
+export type User_Poll_Answer_Sum_Order_By = {
+  answer?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  poll_id?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type User_Poll_Answer_Var_Pop_Fields = {
+  __typename?: 'user_poll_answer_var_pop_fields';
+  answer?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  poll_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "user_poll_answer" */
+export type User_Poll_Answer_Var_Pop_Order_By = {
+  answer?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  poll_id?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type User_Poll_Answer_Var_Samp_Fields = {
+  __typename?: 'user_poll_answer_var_samp_fields';
+  answer?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  poll_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "user_poll_answer" */
+export type User_Poll_Answer_Var_Samp_Order_By = {
+  answer?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  poll_id?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type User_Poll_Answer_Variance_Fields = {
+  __typename?: 'user_poll_answer_variance_fields';
+  answer?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  poll_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "user_poll_answer" */
+export type User_Poll_Answer_Variance_Order_By = {
+  answer?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  poll_id?: Maybe<Order_By>;
+};
+
 /** columns and relationships of "validator" */
 export type Validator = {
   __typename?: 'validator';
   /** An array relationship */
   blocks: Array<Block>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   blocks_aggregate: Block_Aggregate;
   consensus_address: Scalars['String'];
   consensus_pubkey: Scalars['String'];
   /** An array relationship */
   delegation_reward_histories: Array<Delegation_Reward_History>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   delegation_reward_histories_aggregate: Delegation_Reward_History_Aggregate;
   /** An array relationship */
   delegation_rewards: Array<Delegation_Reward>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   delegation_rewards_aggregate: Delegation_Reward_Aggregate;
   /** An array relationship */
   delegations: Array<Delegation>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   delegations_aggregate: Delegation_Aggregate;
   /** An array relationship */
   double_sign_votes: Array<Double_Sign_Vote>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   double_sign_votes_aggregate: Double_Sign_Vote_Aggregate;
   /** An array relationship */
   pre_commits: Array<Pre_Commit>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   pre_commits_aggregate: Pre_Commit_Aggregate;
   /** An array relationship */
   redelegationsByDstValidatorAddress: Array<Redelegation>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   redelegationsByDstValidatorAddress_aggregate: Redelegation_Aggregate;
   /** An array relationship */
   redelegationsBySrcValidatorAddress: Array<Redelegation>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   redelegationsBySrcValidatorAddress_aggregate: Redelegation_Aggregate;
   /** A computed field, executes function "self_delegations" */
   self_delegations?: Maybe<Array<Delegation>>;
   /** An array relationship */
   unbonding_delegations: Array<Unbonding_Delegation>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   unbonding_delegations_aggregate: Unbonding_Delegation_Aggregate;
   /** An array relationship */
   validator_commission_amount_histories: Array<Validator_Commission_Amount_History>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   validator_commission_amount_histories_aggregate: Validator_Commission_Amount_History_Aggregate;
   /** An array relationship */
   validator_commission_amounts: Array<Validator_Commission_Amount>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   validator_commission_amounts_aggregate: Validator_Commission_Amount_Aggregate;
   /** An array relationship */
   validator_commissions: Array<Validator_Commission>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   validator_commissions_aggregate: Validator_Commission_Aggregate;
   /** An array relationship */
   validator_descriptions: Array<Validator_Description>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   validator_descriptions_aggregate: Validator_Description_Aggregate;
   /** An object relationship */
   validator_info?: Maybe<Validator_Info>;
   /** An array relationship */
   validator_infos: Array<Validator_Info>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   validator_infos_aggregate: Validator_Info_Aggregate;
   /** An array relationship */
   validator_signing_infos: Array<Validator_Signing_Info>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   validator_signing_infos_aggregate: Validator_Signing_Info_Aggregate;
   /** An array relationship */
   validator_statuses: Array<Validator_Status>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   validator_statuses_aggregate: Validator_Status_Aggregate;
   /** An array relationship */
   validator_voting_powers: Array<Validator_Voting_Power>;
-  /** An aggregated array relationship */
+  /** An aggregate relationship */
   validator_voting_powers_aggregate: Validator_Voting_Power_Aggregate;
 };
 
@@ -14518,7 +18354,7 @@ export type Validator_Aggregate = {
 /** aggregate fields of "validator" */
 export type Validator_Aggregate_Fields = {
   __typename?: 'validator_aggregate_fields';
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Validator_Max_Fields>;
   min?: Maybe<Validator_Min_Fields>;
 };
@@ -14530,18 +18366,11 @@ export type Validator_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "validator" */
-export type Validator_Aggregate_Order_By = {
-  count?: Maybe<Order_By>;
-  max?: Maybe<Validator_Max_Order_By>;
-  min?: Maybe<Validator_Min_Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "validator". All fields are combined with a logical 'AND'. */
 export type Validator_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Validator_Bool_Exp>>>;
+  _and?: Maybe<Array<Validator_Bool_Exp>>;
   _not?: Maybe<Validator_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Validator_Bool_Exp>>>;
+  _or?: Maybe<Array<Validator_Bool_Exp>>;
   blocks?: Maybe<Block_Bool_Exp>;
   consensus_address?: Maybe<String_Comparison_Exp>;
   consensus_pubkey?: Maybe<String_Comparison_Exp>;
@@ -14586,7 +18415,7 @@ export type Validator_Commission_Aggregate = {
 export type Validator_Commission_Aggregate_Fields = {
   __typename?: 'validator_commission_aggregate_fields';
   avg?: Maybe<Validator_Commission_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Validator_Commission_Max_Fields>;
   min?: Maybe<Validator_Commission_Min_Fields>;
   stddev?: Maybe<Validator_Commission_Stddev_Fields>;
@@ -14641,7 +18470,7 @@ export type Validator_Commission_Amount_Aggregate = {
 export type Validator_Commission_Amount_Aggregate_Fields = {
   __typename?: 'validator_commission_amount_aggregate_fields';
   avg?: Maybe<Validator_Commission_Amount_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Validator_Commission_Amount_Max_Fields>;
   min?: Maybe<Validator_Commission_Amount_Min_Fields>;
   stddev?: Maybe<Validator_Commission_Amount_Stddev_Fields>;
@@ -14688,9 +18517,9 @@ export type Validator_Commission_Amount_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "validator_commission_amount". All fields are combined with a logical 'AND'. */
 export type Validator_Commission_Amount_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Validator_Commission_Amount_Bool_Exp>>>;
+  _and?: Maybe<Array<Validator_Commission_Amount_Bool_Exp>>;
   _not?: Maybe<Validator_Commission_Amount_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Validator_Commission_Amount_Bool_Exp>>>;
+  _or?: Maybe<Array<Validator_Commission_Amount_Bool_Exp>>;
   amount?: Maybe<_Dec_Coin_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
   validator?: Maybe<Validator_Bool_Exp>;
@@ -14720,7 +18549,7 @@ export type Validator_Commission_Amount_History_Aggregate = {
 export type Validator_Commission_Amount_History_Aggregate_Fields = {
   __typename?: 'validator_commission_amount_history_aggregate_fields';
   avg?: Maybe<Validator_Commission_Amount_History_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Validator_Commission_Amount_History_Max_Fields>;
   min?: Maybe<Validator_Commission_Amount_History_Min_Fields>;
   stddev?: Maybe<Validator_Commission_Amount_History_Stddev_Fields>;
@@ -14767,9 +18596,9 @@ export type Validator_Commission_Amount_History_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "validator_commission_amount_history". All fields are combined with a logical 'AND'. */
 export type Validator_Commission_Amount_History_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Validator_Commission_Amount_History_Bool_Exp>>>;
+  _and?: Maybe<Array<Validator_Commission_Amount_History_Bool_Exp>>;
   _not?: Maybe<Validator_Commission_Amount_History_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Validator_Commission_Amount_History_Bool_Exp>>>;
+  _or?: Maybe<Array<Validator_Commission_Amount_History_Bool_Exp>>;
   amount?: Maybe<_Dec_Coin_Comparison_Exp>;
   block?: Maybe<Block_Bool_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
@@ -14803,7 +18632,7 @@ export type Validator_Commission_Amount_History_Min_Order_By = {
   validator_address?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "validator_commission_amount_history" */
+/** Ordering options when selecting data from "validator_commission_amount_history". */
 export type Validator_Commission_Amount_History_Order_By = {
   amount?: Maybe<Order_By>;
   block?: Maybe<Block_Order_By>;
@@ -14925,17 +18754,12 @@ export type Validator_Commission_Amount_Min_Order_By = {
   validator_address?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "validator_commission_amount" */
+/** Ordering options when selecting data from "validator_commission_amount". */
 export type Validator_Commission_Amount_Order_By = {
   amount?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
   validator?: Maybe<Validator_Order_By>;
   validator_address?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "validator_commission_amount" */
-export type Validator_Commission_Amount_Pk_Columns_Input = {
-  validator_address: Scalars['String'];
 };
 
 /** select columns of table "validator_commission_amount" */
@@ -15042,9 +18866,9 @@ export type Validator_Commission_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "validator_commission". All fields are combined with a logical 'AND'. */
 export type Validator_Commission_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Validator_Commission_Bool_Exp>>>;
+  _and?: Maybe<Array<Validator_Commission_Bool_Exp>>;
   _not?: Maybe<Validator_Commission_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Validator_Commission_Bool_Exp>>>;
+  _or?: Maybe<Array<Validator_Commission_Bool_Exp>>;
   commission?: Maybe<Numeric_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
   min_self_delegation?: Maybe<Bigint_Comparison_Exp>;
@@ -15086,18 +18910,13 @@ export type Validator_Commission_Min_Order_By = {
   validator_address?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "validator_commission" */
+/** Ordering options when selecting data from "validator_commission". */
 export type Validator_Commission_Order_By = {
   commission?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
   min_self_delegation?: Maybe<Order_By>;
   validator?: Maybe<Validator_Order_By>;
   validator_address?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "validator_commission" */
-export type Validator_Commission_Pk_Columns_Input = {
-  validator_address: Scalars['String'];
 };
 
 /** select columns of table "validator_commission" */
@@ -15243,7 +19062,7 @@ export type Validator_Description_Aggregate = {
 export type Validator_Description_Aggregate_Fields = {
   __typename?: 'validator_description_aggregate_fields';
   avg?: Maybe<Validator_Description_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Validator_Description_Max_Fields>;
   min?: Maybe<Validator_Description_Min_Fields>;
   stddev?: Maybe<Validator_Description_Stddev_Fields>;
@@ -15290,9 +19109,9 @@ export type Validator_Description_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "validator_description". All fields are combined with a logical 'AND'. */
 export type Validator_Description_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Validator_Description_Bool_Exp>>>;
+  _and?: Maybe<Array<Validator_Description_Bool_Exp>>;
   _not?: Maybe<Validator_Description_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Validator_Description_Bool_Exp>>>;
+  _or?: Maybe<Array<Validator_Description_Bool_Exp>>;
   avatar_url?: Maybe<String_Comparison_Exp>;
   details?: Maybe<String_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
@@ -15354,7 +19173,7 @@ export type Validator_Description_Min_Order_By = {
   website?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "validator_description" */
+/** Ordering options when selecting data from "validator_description". */
 export type Validator_Description_Order_By = {
   avatar_url?: Maybe<Order_By>;
   details?: Maybe<Order_By>;
@@ -15365,11 +19184,6 @@ export type Validator_Description_Order_By = {
   validator?: Maybe<Validator_Order_By>;
   validator_address?: Maybe<Order_By>;
   website?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "validator_description" */
-export type Validator_Description_Pk_Columns_Input = {
-  validator_address: Scalars['String'];
 };
 
 /** select columns of table "validator_description" */
@@ -15493,7 +19307,7 @@ export type Validator_Info_Aggregate = {
 /** aggregate fields of "validator_info" */
 export type Validator_Info_Aggregate_Fields = {
   __typename?: 'validator_info_aggregate_fields';
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Validator_Info_Max_Fields>;
   min?: Maybe<Validator_Info_Min_Fields>;
 };
@@ -15514,9 +19328,9 @@ export type Validator_Info_Aggregate_Order_By = {
 
 /** Boolean expression to filter rows from the table "validator_info". All fields are combined with a logical 'AND'. */
 export type Validator_Info_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Validator_Info_Bool_Exp>>>;
+  _and?: Maybe<Array<Validator_Info_Bool_Exp>>;
   _not?: Maybe<Validator_Info_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Validator_Info_Bool_Exp>>>;
+  _or?: Maybe<Array<Validator_Info_Bool_Exp>>;
   account?: Maybe<Account_Bool_Exp>;
   consensus_address?: Maybe<String_Comparison_Exp>;
   max_change_rate?: Maybe<String_Comparison_Exp>;
@@ -15564,7 +19378,7 @@ export type Validator_Info_Min_Order_By = {
   self_delegate_address?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "validator_info" */
+/** Ordering options when selecting data from "validator_info". */
 export type Validator_Info_Order_By = {
   account?: Maybe<Account_Order_By>;
   consensus_address?: Maybe<Order_By>;
@@ -15573,11 +19387,6 @@ export type Validator_Info_Order_By = {
   operator_address?: Maybe<Order_By>;
   self_delegate_address?: Maybe<Order_By>;
   validator?: Maybe<Validator_Order_By>;
-};
-
-/** primary key columns input for table: "validator_info" */
-export type Validator_Info_Pk_Columns_Input = {
-  consensus_address: Scalars['String'];
 };
 
 /** select columns of table "validator_info" */
@@ -15601,12 +19410,6 @@ export type Validator_Max_Fields = {
   consensus_pubkey?: Maybe<Scalars['String']>;
 };
 
-/** order by max() on columns of table "validator" */
-export type Validator_Max_Order_By = {
-  consensus_address?: Maybe<Order_By>;
-  consensus_pubkey?: Maybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Validator_Min_Fields = {
   __typename?: 'validator_min_fields';
@@ -15614,13 +19417,7 @@ export type Validator_Min_Fields = {
   consensus_pubkey?: Maybe<Scalars['String']>;
 };
 
-/** order by min() on columns of table "validator" */
-export type Validator_Min_Order_By = {
-  consensus_address?: Maybe<Order_By>;
-  consensus_pubkey?: Maybe<Order_By>;
-};
-
-/** ordering options when selecting data from "validator" */
+/** Ordering options when selecting data from "validator". */
 export type Validator_Order_By = {
   blocks_aggregate?: Maybe<Block_Aggregate_Order_By>;
   consensus_address?: Maybe<Order_By>;
@@ -15642,11 +19439,6 @@ export type Validator_Order_By = {
   validator_signing_infos_aggregate?: Maybe<Validator_Signing_Info_Aggregate_Order_By>;
   validator_statuses_aggregate?: Maybe<Validator_Status_Aggregate_Order_By>;
   validator_voting_powers_aggregate?: Maybe<Validator_Voting_Power_Aggregate_Order_By>;
-};
-
-/** primary key columns input for table: "validator" */
-export type Validator_Pk_Columns_Input = {
-  consensus_address: Scalars['String'];
 };
 
 /** select columns of table "validator" */
@@ -15680,7 +19472,7 @@ export type Validator_Signing_Info_Aggregate = {
 export type Validator_Signing_Info_Aggregate_Fields = {
   __typename?: 'validator_signing_info_aggregate_fields';
   avg?: Maybe<Validator_Signing_Info_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Validator_Signing_Info_Max_Fields>;
   min?: Maybe<Validator_Signing_Info_Min_Fields>;
   stddev?: Maybe<Validator_Signing_Info_Stddev_Fields>;
@@ -15733,9 +19525,9 @@ export type Validator_Signing_Info_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "validator_signing_info". All fields are combined with a logical 'AND'. */
 export type Validator_Signing_Info_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Validator_Signing_Info_Bool_Exp>>>;
+  _and?: Maybe<Array<Validator_Signing_Info_Bool_Exp>>;
   _not?: Maybe<Validator_Signing_Info_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Validator_Signing_Info_Bool_Exp>>>;
+  _or?: Maybe<Array<Validator_Signing_Info_Bool_Exp>>;
   height?: Maybe<Bigint_Comparison_Exp>;
   index_offset?: Maybe<Bigint_Comparison_Exp>;
   jailed_until?: Maybe<Timestamp_Comparison_Exp>;
@@ -15787,7 +19579,7 @@ export type Validator_Signing_Info_Min_Order_By = {
   validator_address?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "validator_signing_info" */
+/** Ordering options when selecting data from "validator_signing_info". */
 export type Validator_Signing_Info_Order_By = {
   height?: Maybe<Order_By>;
   index_offset?: Maybe<Order_By>;
@@ -15796,11 +19588,6 @@ export type Validator_Signing_Info_Order_By = {
   start_height?: Maybe<Order_By>;
   tombstoned?: Maybe<Order_By>;
   validator_address?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "validator_signing_info" */
-export type Validator_Signing_Info_Pk_Columns_Input = {
-  validator_address: Scalars['String'];
 };
 
 /** select columns of table "validator_signing_info" */
@@ -15962,7 +19749,7 @@ export type Validator_Status_Aggregate = {
 export type Validator_Status_Aggregate_Fields = {
   __typename?: 'validator_status_aggregate_fields';
   avg?: Maybe<Validator_Status_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Validator_Status_Max_Fields>;
   min?: Maybe<Validator_Status_Min_Fields>;
   stddev?: Maybe<Validator_Status_Stddev_Fields>;
@@ -16011,9 +19798,9 @@ export type Validator_Status_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "validator_status". All fields are combined with a logical 'AND'. */
 export type Validator_Status_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Validator_Status_Bool_Exp>>>;
+  _and?: Maybe<Array<Validator_Status_Bool_Exp>>;
   _not?: Maybe<Validator_Status_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Validator_Status_Bool_Exp>>>;
+  _or?: Maybe<Array<Validator_Status_Bool_Exp>>;
   height?: Maybe<Bigint_Comparison_Exp>;
   jailed?: Maybe<Boolean_Comparison_Exp>;
   status?: Maybe<Int_Comparison_Exp>;
@@ -16051,18 +19838,13 @@ export type Validator_Status_Min_Order_By = {
   validator_address?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "validator_status" */
+/** Ordering options when selecting data from "validator_status". */
 export type Validator_Status_Order_By = {
   height?: Maybe<Order_By>;
   jailed?: Maybe<Order_By>;
   status?: Maybe<Order_By>;
   validator?: Maybe<Validator_Order_By>;
   validator_address?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "validator_status" */
-export type Validator_Status_Pk_Columns_Input = {
-  validator_address: Scalars['String'];
 };
 
 /** select columns of table "validator_status" */
@@ -16189,7 +19971,7 @@ export type Validator_Voting_Power_Aggregate = {
 export type Validator_Voting_Power_Aggregate_Fields = {
   __typename?: 'validator_voting_power_aggregate_fields';
   avg?: Maybe<Validator_Voting_Power_Avg_Fields>;
-  count?: Maybe<Scalars['Int']>;
+  count: Scalars['Int'];
   max?: Maybe<Validator_Voting_Power_Max_Fields>;
   min?: Maybe<Validator_Voting_Power_Min_Fields>;
   stddev?: Maybe<Validator_Voting_Power_Stddev_Fields>;
@@ -16238,9 +20020,9 @@ export type Validator_Voting_Power_Avg_Order_By = {
 
 /** Boolean expression to filter rows from the table "validator_voting_power". All fields are combined with a logical 'AND'. */
 export type Validator_Voting_Power_Bool_Exp = {
-  _and?: Maybe<Array<Maybe<Validator_Voting_Power_Bool_Exp>>>;
+  _and?: Maybe<Array<Validator_Voting_Power_Bool_Exp>>;
   _not?: Maybe<Validator_Voting_Power_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<Validator_Voting_Power_Bool_Exp>>>;
+  _or?: Maybe<Array<Validator_Voting_Power_Bool_Exp>>;
   height?: Maybe<Bigint_Comparison_Exp>;
   validator?: Maybe<Validator_Bool_Exp>;
   validator_address?: Maybe<String_Comparison_Exp>;
@@ -16277,17 +20059,12 @@ export type Validator_Voting_Power_Min_Order_By = {
   voting_power?: Maybe<Order_By>;
 };
 
-/** ordering options when selecting data from "validator_voting_power" */
+/** Ordering options when selecting data from "validator_voting_power". */
 export type Validator_Voting_Power_Order_By = {
   height?: Maybe<Order_By>;
   validator?: Maybe<Validator_Order_By>;
   validator_address?: Maybe<Order_By>;
   voting_power?: Maybe<Order_By>;
-};
-
-/** primary key columns input for table: "validator_voting_power" */
-export type Validator_Voting_Power_Pk_Columns_Input = {
-  validator_address: Scalars['String'];
 };
 
 /** select columns of table "validator_voting_power" */
