@@ -101,7 +101,7 @@ export const useValidatorDetails = () => {
 
       fetchDesmosProfile(address);
     }
-  }, []);
+  }, [R.pathOr('', ['query', 'address'], router)]);
 
   // ==========================
   // Fetch Data

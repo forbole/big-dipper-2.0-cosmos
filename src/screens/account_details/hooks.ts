@@ -101,7 +101,8 @@ export const useAccountDetails = () => {
     if (chainConfig.extra.desmosProfile) {
       fetchDesmosProfile(R.pathOr('', ['query', 'address'], router));
     }
-  }, []);
+  },
+  [R.pathOr('', ['query', 'address'], router)]);
 
   // ==========================
   // Fetch Data
