@@ -2,9 +2,8 @@ import {
   useState, useEffect,
 } from 'react';
 import axios from 'axios';
-import {
-  DesmosProfileDocument, DesmosProfileQuery,
-} from '@graphql/desmos_profile';
+import { DesmosProfileQuery } from '@graphql/desmos_profile';
+import { DesmosProfileDocument } from '@graphql/desmos_profile_graphql';
 
 type Options = {
   address?: string;
@@ -18,11 +17,11 @@ export const useDesmosProfile = (options: Options) => {
 
   useEffect(() => {
     if (options.address) {
-      fetchProfile(options.address);
+      fetchDesmosProfile(options.address);
     }
   }, [options.address]);
 
-  const fetchProfile = async (address: string) => {
+  const fetchDesmosProfile = async (address: string) => {
     try {
       setLoading(true);
       const { data } = await axios.post(PROFILE_API, {
@@ -40,6 +39,6 @@ export const useDesmosProfile = (options: Options) => {
 
   return {
     loading,
-    fetchProfile,
+    fetchDesmosProfile,
   };
 };

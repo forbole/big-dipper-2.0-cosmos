@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import {
+  useState, useEffect,
+} from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
@@ -17,64 +19,67 @@ import { chainConfig } from '@src/configs';
 import { useDesmosProfile } from '@hooks';
 import { AccountDetailState } from './types';
 
+const initialState: AccountDetailState = {
+  loading: true,
+  exists: true,
+  desmosProfile: null,
+  overview: {
+    address: '',
+    withdrawalAddress: '',
+  },
+  otherTokens: {
+    count: 0,
+    data: [],
+  },
+  balance: {
+    available: {
+      value: 0,
+      denom: '',
+    },
+    delegate: {
+      value: 0,
+      denom: '',
+    },
+    unbonding: {
+      value: 0,
+      denom: '',
+    },
+    reward: {
+      value: 0,
+      denom: '',
+    },
+    commission: {
+      value: 0,
+      denom: '',
+    },
+    total: 0,
+  },
+  delegations: {
+    data: [],
+    count: 0,
+  },
+  redelegations: {
+    data: [],
+    count: 0,
+  },
+  unbondings: {
+    data: [],
+    count: 0,
+  },
+  transactions: {
+    data: [],
+    hasNextPage: false,
+    isNextPageLoading: false,
+    offsetCount: 0,
+  },
+};
+
 export const useAccountDetails = () => {
   const {
     findAddress, findOperator,
   } = useChainContext();
   const router = useRouter();
-  const [state, setState] = useState<AccountDetailState>({
-    loading: true,
-    exists: true,
-    overview: {
-      address: '',
-      withdrawalAddress: '',
-    },
-    otherTokens: {
-      count: 0,
-      data: [],
-    },
-    balance: {
-      available: {
-        value: 0,
-        denom: '',
-      },
-      delegate: {
-        value: 0,
-        denom: '',
-      },
-      unbonding: {
-        value: 0,
-        denom: '',
-      },
-      reward: {
-        value: 0,
-        denom: '',
-      },
-      commission: {
-        value: 0,
-        denom: '',
-      },
-      total: 0,
-    },
-    delegations: {
-      data: [],
-      count: 0,
-    },
-    redelegations: {
-      data: [],
-      count: 0,
-    },
-    unbondings: {
-      data: [],
-      count: 0,
-    },
-    transactions: {
-      data: [],
-      hasNextPage: false,
-      isNextPageLoading: false,
-      offsetCount: 0,
-    },
-  });
+  const [state, setState] = useState<AccountDetailState>(initialState);
 
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
@@ -83,12 +88,19 @@ export const useAccountDetails = () => {
   // ==========================
   // Desmos Profile
   // ==========================
-  useDesmosProfile({
-    address: R.pathOr('', ['query', 'address'], router),
+  const { fetchDesmosProfile } = useDesmosProfile({
     onComplete: (data) => {
-      console.log(data, 'data');
+      handleSetState({
+        desmosProfile: formatDesmosProfile(data),
+      });
     },
   });
+
+  useEffect(() => {
+    if (chainConfig.extra.desmosProfile) {
+      fetchDesmosProfile(R.pathOr('', ['query', 'address'], router));
+    }
+  }, []);
 
   // ==========================
   // Fetch Data
@@ -156,7 +168,19 @@ export const useAccountDetails = () => {
   // Format Data
   // ==========================
   const formatDesmosProfile = (data:DesmosProfileQuery) => {
+    if (!data.profile.length) {
+      return null;
+    }
 
+    const profile = data.profile[0];
+
+    return ({
+      dtag: profile.dtag,
+      nickname: profile.nickname,
+      imageUrl: profile.profilePic,
+      bio: profile.bio,
+      connections: [],
+    });
   };
 
   const formatTransactions = (data: GetMessagesByAddressQuery) => {

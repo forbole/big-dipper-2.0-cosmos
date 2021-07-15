@@ -12,11 +12,10 @@ generates:
       - "typescript"
       - "typescript-operations"
       - "typescript-react-apollo" # To generate custom hooks per query
-  ./src/graphql/desmos_profile.tsx:
+  ./src/graphql/desmos_profile.ts:
     schema: https://gql.morpheus.desmos.network/v1/graphql
     documents:
-      - './src/**/desmos_profile.graphql'
+      - 'src/graphql/desmos_profile_graphql.ts'
     plugins:
       - "typescript"
       - "typescript-operations"
-      - "typescript-react-apollo" # To generate custom hooks per query
