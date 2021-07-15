@@ -54,25 +54,19 @@ export const useDesmosProfile = (options: Options) => {
   const fetchDesmosProfile = async (address: string) => {
     try {
       setLoading(true);
-      const { data } = await axios.post(PROFILE_API, {
-        variables: {
-          address,
-        },
-        query: DesmosProfileDocument,
-      });
-      setLoading(false);
-      options.onComplete(data.data);
-      let data = null;
+      let data:DesmosProfileQuery = {
+        profile: [],
+      };
       if (address.includes('desmos')) {
         data = await fetchDesmos(address);
-        // edge case if desmos profile is a link
-        // and not the owner
-        if (!data) {
-          data = await fetchLink(address);
-        }
-      } else {
+      }
+
+      // if the address is a link instead
+      if (!data.profile.length) {
         data = await fetchLink(address);
       }
+      setLoading(false);
+      options.onComplete(data);
     } catch (error) {
       setLoading(false);
     }
