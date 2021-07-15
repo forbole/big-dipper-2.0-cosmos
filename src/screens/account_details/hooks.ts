@@ -90,6 +90,7 @@ export const useAccountDetails = () => {
   // ==========================
   const { fetchDesmosProfile } = useDesmosProfile({
     onComplete: (data) => {
+      console.log(data, 'well im here on compltet');
       handleSetState({
         desmosProfile: formatDesmosProfile(data),
       });
@@ -168,6 +169,7 @@ export const useAccountDetails = () => {
   // Format Data
   // ==========================
   const formatDesmosProfile = (data:DesmosProfileQuery) => {
+    console.log(data, 'data');
     if (!data.profile.length) {
       return null;
     }

@@ -88,7 +88,9 @@ const DesmosProfile: React.FC<{
           }
           </div>
         </div>
-        <Divider className={classes.divider} />
+        {(validator || props.bio) && (
+          <Divider className={classes.divider} />
+        )}
         {validator && (
           <div className={classes.validatorDetails}>
             <div className={classes.item}>

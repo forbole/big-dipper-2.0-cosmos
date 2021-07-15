@@ -31,7 +31,8 @@ export const useDesmosProfile = (options: Options) => {
         },
         query: DesmosProfileDocument,
       });
-      return data;
+      console.log(data, 'data 34');
+      return data.data;
     } catch (error) {
       return null;
     }
@@ -45,18 +46,18 @@ export const useDesmosProfile = (options: Options) => {
         },
         query: DesmosProfileLinkDocument,
       });
-      return data;
+      return data.data;
     } catch (error) {
       return null;
     }
   };
 
   const fetchDesmosProfile = async (address: string) => {
+    let data:DesmosProfileQuery = {
+      profile: [],
+    };
     try {
       setLoading(true);
-      let data:DesmosProfileQuery = {
-        profile: [],
-      };
       if (address.includes('desmos')) {
         data = await fetchDesmos(address);
       }
@@ -69,6 +70,7 @@ export const useDesmosProfile = (options: Options) => {
       options.onComplete(data);
     } catch (error) {
       setLoading(false);
+      // options.onComplete(data);
     }
   };
 
