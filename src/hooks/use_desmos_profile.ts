@@ -74,8 +74,25 @@ export const useDesmosProfile = (options: Options) => {
     }
   };
 
+  const formatDesmosProfile = (data:DesmosProfileQuery): DesmosProfile => {
+    if (!data.profile.length) {
+      return null;
+    }
+
+    const profile = data.profile[0];
+
+    return ({
+      dtag: profile.dtag,
+      nickname: profile.nickname,
+      imageUrl: profile.profilePic,
+      bio: profile.bio,
+      connections: [],
+    });
+  };
+
   return {
     loading,
     fetchDesmosProfile,
+    formatDesmosProfile,
   };
 };

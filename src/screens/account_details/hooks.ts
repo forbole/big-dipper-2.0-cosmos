@@ -88,7 +88,9 @@ export const useAccountDetails = () => {
   // ==========================
   // Desmos Profile
   // ==========================
-  const { fetchDesmosProfile } = useDesmosProfile({
+  const {
+    fetchDesmosProfile, formatDesmosProfile,
+  } = useDesmosProfile({
     onComplete: (data) => {
       console.log(data, 'well im here on compltet');
       handleSetState({
@@ -168,23 +170,6 @@ export const useAccountDetails = () => {
   // ==========================
   // Format Data
   // ==========================
-  const formatDesmosProfile = (data:DesmosProfileQuery) => {
-    console.log(data, 'data');
-    if (!data.profile.length) {
-      return null;
-    }
-
-    const profile = data.profile[0];
-
-    return ({
-      dtag: profile.dtag,
-      nickname: profile.nickname,
-      imageUrl: profile.profilePic,
-      bio: profile.bio,
-      connections: [],
-    });
-  };
-
   const formatTransactions = (data: GetMessagesByAddressQuery) => {
     let formattedData = data.messagesByAddress;
     if (data.messagesByAddress.length === 51) {
