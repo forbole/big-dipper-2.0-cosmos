@@ -33,4 +33,5 @@ export interface ChainState {
     imageUrl: string | null;
   };
   findOperator?: (consensusAddress: string) => string | null;
+  validatorToDelegatorAddress?: (validatorAddress: string) => string;
 }

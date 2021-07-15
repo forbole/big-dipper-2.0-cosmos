@@ -37,6 +37,7 @@ const ChainProvider: React.FC = (props: {children: React.ReactNode }) => {
     findAddress,
     loading: addressLoading,
     findOperator,
+    validatorToDelegatorAddress,
   } = useValidatorsAddress(initialState);
 
   const {
@@ -49,6 +50,7 @@ const ChainProvider: React.FC = (props: {children: React.ReactNode }) => {
         validatorsAddresses,
         findAddress,
         findOperator,
+        validatorToDelegatorAddress,
         loading: addressLoading || marketState.loading,
         market: {
           ...marketState,

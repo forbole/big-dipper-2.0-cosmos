@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import {
+  useState, useEffect,
+} from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import { formatDenom } from '@utils/format_denom';
@@ -10,6 +12,8 @@ import {
   useGetMessagesByAddressQuery,
   GetMessagesByAddressQuery,
 } from '@graphql/types';
+import { DesmosProfileQuery } from '@graphql/desmos_profile';
+import { useDesmosProfile } from '@hooks';
 import { useChainContext } from '@contexts';
 import { getValidatorCondition } from '@utils/get_validator_condition';
 import { chainConfig } from '@src/configs';
@@ -18,11 +22,14 @@ import { ValidatorDetailsState } from './types';
 export const useValidatorDetails = () => {
   const router = useRouter();
   const {
-    findAddress, findOperator,
+    findAddress,
+    findOperator,
+    validatorToDelegatorAddress,
   } = useChainContext();
   const [state, setState] = useState<ValidatorDetailsState>({
     loading: true,
     exists: true,
+    desmosProfile: null,
     overview: {
       validator: {
         imageUrl: '',
@@ -75,6 +82,25 @@ export const useValidatorDetails = () => {
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
+
+  // ==========================
+  // Desmos Profile
+  // ==========================
+  const { fetchDesmosProfile } = useDesmosProfile({
+    onComplete: (data) => {
+      handleSetState({
+        desmosProfile: formatDesmosProfile(data),
+      });
+    },
+  });
+
+  useEffect(() => {
+    if (chainConfig.extra.desmosProfile) {
+      const address = validatorToDelegatorAddress(R.pathOr('', ['query', 'address'], router));
+
+      fetchDesmosProfile(address);
+    }
+  }, []);
 
   // ==========================
   // Fetch Data
@@ -141,6 +167,22 @@ export const useValidatorDetails = () => {
   // ==========================
   // Parse Data
   // ==========================
+  const formatDesmosProfile = (data:DesmosProfileQuery) => {
+    if (!data.profile.length) {
+      return null;
+    }
+
+    const profile = data.profile[0];
+
+    return ({
+      dtag: profile.dtag,
+      nickname: profile.nickname,
+      imageUrl: profile.profilePic,
+      bio: profile.bio,
+      connections: [],
+    });
+  };
+
   const formatTransactions = (data: GetMessagesByAddressQuery) => {
     let formattedData = data.messagesByAddress;
     if (data.messagesByAddress.length === 51) {
