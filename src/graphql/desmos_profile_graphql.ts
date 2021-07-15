@@ -23,13 +23,13 @@ query DesmosProfile($address: String) {
 // use this query if address is a link and not owner
 export const DesmosProfileLinkDocument = /* GraphQL */`
 query DesmosProfileLink($address: String) {
-  profile {
+  profile (where: {chain_links: {external_address: {_eq: $address}}}){
     address
     bio
     dtag
     nickname
     profilePic: profile_pic
-    chainLinks: chain_links (where: { user_address: {_eq: $address}}){
+    chainLinks: chain_links {
       creationTime: creation_time
       externalAddress: external_address
       chainConfigId: chain_config_id

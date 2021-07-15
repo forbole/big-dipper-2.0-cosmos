@@ -69,7 +69,7 @@ export const useDesmosProfile = (options: Options) => {
       options.onComplete(data);
     } catch (error) {
       setLoading(false);
-      // options.onComplete(data);
+      options.onComplete(data);
     }
   };
 
