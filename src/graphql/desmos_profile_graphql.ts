@@ -11,7 +11,7 @@ query DesmosProfile($address: String) {
       externalAddress: external_address
       chainConfigId: chain_config_id
     }
-    applicationLinks: application_links {
+    applicationLinks: application_links (where: {state: {_eq: "APPLICATION_LINK_STATE_VERIFICATION_SUCCESS"}}){
       username
       creationTime: creation_time
       application
@@ -34,7 +34,7 @@ query DesmosProfileLink($address: String) {
       externalAddress: external_address
       chainConfigId: chain_config_id
     }
-    applicationLinks: application_links {
+    applicationLinks: application_links (where: {state: {_eq: "APPLICATION_LINK_STATE_VERIFICATION_SUCCESS"}}){
       username
       creationTime: creation_time
       application

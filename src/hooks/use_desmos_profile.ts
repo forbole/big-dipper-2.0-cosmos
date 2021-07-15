@@ -31,7 +31,6 @@ export const useDesmosProfile = (options: Options) => {
         },
         query: DesmosProfileDocument,
       });
-      console.log(data, 'data 34');
       return data.data;
     } catch (error) {
       return null;

@@ -86,7 +86,9 @@ export const useValidatorDetails = () => {
   // ==========================
   // Desmos Profile
   // ==========================
-  const { fetchDesmosProfile } = useDesmosProfile({
+  const {
+    fetchDesmosProfile, formatDesmosProfile,
+  } = useDesmosProfile({
     onComplete: (data) => {
       handleSetState({
         desmosProfile: formatDesmosProfile(data),
@@ -167,22 +169,6 @@ export const useValidatorDetails = () => {
   // ==========================
   // Parse Data
   // ==========================
-  const formatDesmosProfile = (data:DesmosProfileQuery) => {
-    if (!data.profile.length) {
-      return null;
-    }
-
-    const profile = data.profile[0];
-
-    return ({
-      dtag: profile.dtag,
-      nickname: profile.nickname,
-      imageUrl: profile.profilePic,
-      bio: profile.bio,
-      connections: [],
-    });
-  };
-
   const formatTransactions = (data: GetMessagesByAddressQuery) => {
     let formattedData = data.messagesByAddress;
     if (data.messagesByAddress.length === 51) {
