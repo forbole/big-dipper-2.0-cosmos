@@ -12,7 +12,6 @@ import {
   useGetMessagesByAddressQuery,
   GetMessagesByAddressQuery,
 } from '@graphql/types';
-import { DesmosProfileQuery } from '@graphql/desmos_profile';
 import { useDesmosProfile } from '@hooks';
 import { useChainContext } from '@contexts';
 import { getValidatorCondition } from '@utils/get_validator_condition';

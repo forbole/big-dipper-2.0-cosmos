@@ -5,7 +5,6 @@ import {
   LoadAndExist,
   DesmosProfile,
 } from '@components';
-import { chainConfig } from '@configs';
 import { useStyles } from './styles';
 import {
   Profile,
@@ -31,15 +30,6 @@ const ValidatorDetails = () => {
     undelegations,
     desmosProfile,
   } = state;
-  const fakeDesmosProfileData = [...new Array(3).fill({
-    network: 'Desmos',
-    identifier: 'desmos124xa66ghhq5hrgv28slhmszgvcqa0skcfwphh3',
-    creationTime: '2021-05-14T02:58:58.471405',
-  }), ...new Array(3).fill({
-    network: 'Instagram',
-    identifier: '@ryuash',
-    creationTime: '2021-05-14T02:58:58.471405',
-  })];
 
   return (
     <Layout navTitle={t('validatorDetails')} title={t('validatorDetails')}>

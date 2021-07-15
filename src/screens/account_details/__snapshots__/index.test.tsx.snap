@@ -21,14 +21,6 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
         withdrawalAddress="desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr"
       />
       <div
-        bio="One of the most important and complex of the Greek gods, son of Zeus and Leto, and the twin brother of Artemis, goddess of the hunt."
-        connections={Array []}
-        dtag="Apollo"
-        id="DesmosProfile"
-        imageUrl="https://vignette.wikia.nocookie.net/olympians/images/5/54/Apollo_Viria.jpg/revision/latest/scale-to-width-down/298\\\\?cb\\\\=20180413123657"
-        nickname="Apollo"
-      />
-      <div
         available={
           Object {
             "denom": "daric",
