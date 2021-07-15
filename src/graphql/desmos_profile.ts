@@ -20174,4 +20174,31 @@ export type DesmosProfileQuery = { profile: Array<(
     { __typename?: 'profile' }
     & Pick<Profile, 'address' | 'bio' | 'dtag' | 'nickname'>
     & { profilePic: Profile['profile_pic'] }
+    & { chainLinks: Array<(
+      { __typename?: 'chain_link' }
+      & { creationTime: Chain_Link['creation_time'], externalAddress: Chain_Link['external_address'], chainConfigId: Chain_Link['chain_config_id'] }
+    )>, applicationLinks: Array<(
+      { __typename?: 'application_link' }
+      & Pick<Application_Link, 'username' | 'application'>
+      & { creationTime: Application_Link['creation_time'] }
+    )> }
+  )> };
+
+export type DesmosProfileLinkQueryVariables = Exact<{
+  address?: Maybe<Scalars['String']>;
+}>;
+
+
+export type DesmosProfileLinkQuery = { profile: Array<(
+    { __typename?: 'profile' }
+    & Pick<Profile, 'address' | 'bio' | 'dtag' | 'nickname'>
+    & { profilePic: Profile['profile_pic'] }
+    & { chainLinks: Array<(
+      { __typename?: 'chain_link' }
+      & { creationTime: Chain_Link['creation_time'], externalAddress: Chain_Link['external_address'], chainConfigId: Chain_Link['chain_config_id'] }
+    )>, applicationLinks: Array<(
+      { __typename?: 'application_link' }
+      & Pick<Application_Link, 'username' | 'application'>
+      & { creationTime: Application_Link['creation_time'] }
+    )> }
   )> };

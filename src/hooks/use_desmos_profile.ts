@@ -3,7 +3,9 @@ import {
 } from 'react';
 import axios from 'axios';
 import { DesmosProfileQuery } from '@graphql/desmos_profile';
-import { DesmosProfileDocument } from '@graphql/desmos_profile_graphql';
+import {
+  DesmosProfileDocument, DesmosProfileLinkDocument,
+} from '@graphql/desmos_profile_graphql';
 
 type Options = {
   address?: string;
@@ -21,6 +23,34 @@ export const useDesmosProfile = (options: Options) => {
     }
   }, [options.address]);
 
+  const fetchDesmos = async (address: string) => {
+    try {
+      const { data } = await axios.post(PROFILE_API, {
+        variables: {
+          address,
+        },
+        query: DesmosProfileDocument,
+      });
+      return data;
+    } catch (error) {
+      return null;
+    }
+  };
+
+  const fetchLink = async (address: string) => {
+    try {
+      const { data } = await axios.post(PROFILE_API, {
+        variables: {
+          address,
+        },
+        query: DesmosProfileLinkDocument,
+      });
+      return data;
+    } catch (error) {
+      return null;
+    }
+  };
+
   const fetchDesmosProfile = async (address: string) => {
     try {
       setLoading(true);
@@ -32,6 +62,17 @@ export const useDesmosProfile = (options: Options) => {
       });
       setLoading(false);
       options.onComplete(data.data);
+      let data = null;
+      if (address.includes('desmos')) {
+        data = await fetchDesmos(address);
+        // edge case if desmos profile is a link
+        // and not the owner
+        if (!data) {
+          data = await fetchLink(address);
+        }
+      } else {
+        data = await fetchLink(address);
+      }
     } catch (error) {
       setLoading(false);
     }
