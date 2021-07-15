@@ -32,7 +32,7 @@ const Mobile: React.FC<{
                   {t('network')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {x.network}
+                  {x.network.toUpperCase()}
                 </Typography>
               </div>
               <div className={classes.item}>

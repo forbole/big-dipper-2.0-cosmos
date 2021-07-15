@@ -26,7 +26,7 @@ const Desktop: React.FC<{
 
   const formattedItems = items.map((x) => {
     return ({
-      network: x.network,
+      network: x.network.toUpperCase(),
       identifier: x.identifier,
       creationTime: formatDayJs(dayjs.utc(x.creationTime), dateFormat),
     });

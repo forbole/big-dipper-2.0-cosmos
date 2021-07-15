@@ -81,12 +81,30 @@ export const useDesmosProfile = (options: Options) => {
 
     const profile = data.profile[0];
 
+    const applications = profile.applicationLinks.map((x) => {
+      return ({
+        network: x.application,
+        identifier: x.username,
+        creationTime: x.creationTime,
+      });
+    });
+
+    const chains = profile.chainLinks.map((x) => {
+      return ({
+        network: x.chainConfigId,
+        identifier: x.externalAddress,
+        creationTime: x.creationTime,
+      });
+    });
+
     return ({
       dtag: profile.dtag,
       nickname: profile.nickname,
       imageUrl: profile.profilePic,
       bio: profile.bio,
-      connections: [],
+      connections: [...applications, ...chains].sort((a, b) => (
+        (a.network.toLowerCase() > b.network.toLowerCase()) ? 1 : -1
+      )),
     });
   };
 

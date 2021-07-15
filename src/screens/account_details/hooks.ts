@@ -11,7 +11,6 @@ import {
   useGetMessagesByAddressQuery,
   GetMessagesByAddressQuery,
 } from '@graphql/types';
-import { DesmosProfileQuery } from '@graphql/desmos_profile';
 import { useChainContext } from '@contexts';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
@@ -92,7 +91,6 @@ export const useAccountDetails = () => {
     fetchDesmosProfile, formatDesmosProfile,
   } = useDesmosProfile({
     onComplete: (data) => {
-      console.log(data, 'well im here on compltet');
       handleSetState({
         desmosProfile: formatDesmosProfile(data),
       });
