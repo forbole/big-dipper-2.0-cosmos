@@ -78,13 +78,13 @@ export const useStyles = () => {
           },
         },
         validatorDetails: {
-          margin: theme.spacing(1, 0),
+          margin: theme.spacing(1, 0, 2),
           display: 'grid',
           gridTemplateColumns: 'repeat(2, 1fr)',
           gridTemplateRows: 'auto',
-          [theme.breakpoints.up('md')]: {
-            gridTemplateColumns: 'repeat(1, 1fr)',
-          },
+          // [theme.breakpoints.up('md')]: {
+          //   gridTemplateColumns: 'repeat(1, 1fr)',
+          // },
         },
         item: {
           '& .label': {
@@ -94,9 +94,9 @@ export const useStyles = () => {
               display: 'flex',
               alignItems: 'center',
             },
-            [theme.breakpoints.up('md')]: {
-              marginBottom: 0,
-            },
+            // [theme.breakpoints.up('md')]: {
+            //   marginBottom: 0,
+            // },
           },
           '& .condition__body': {
             justifySelf: 'flex-start',
@@ -120,18 +120,18 @@ export const useStyles = () => {
             color: theme.palette.custom.fonts.highlight,
           },
 
-          [theme.breakpoints.up('md')]: {
-            display: 'grid',
-            gridTemplateColumns: '200px auto',
-            gridGap: theme.spacing(2),
-            alignItems: 'center',
-            '&:not(:last-child)': {
-              marginBottom: theme.spacing(1),
-            },
-            '&.bio': {
-              alignItems: 'flex-start',
-            },
-          },
+          // [theme.breakpoints.up('md')]: {
+          //   display: 'grid',
+          //   gridTemplateColumns: '200px auto',
+          //   gridGap: theme.spacing(2),
+          //   alignItems: 'center',
+          //   '&:not(:last-child)': {
+          //     marginBottom: theme.spacing(1),
+          //   },
+          //   '&.bio': {
+          //     alignItems: 'flex-start',
+          //   },
+          // },
         },
       });
     },

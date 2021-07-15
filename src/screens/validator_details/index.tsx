@@ -60,7 +60,7 @@ const ValidatorDetails = () => {
               nickname={desmosProfile.nickname}
               imageUrl={desmosProfile.imageUrl}
               bio={desmosProfile.bio}
-              connections={fakeDesmosProfileData}
+              connections={desmosProfile.connections}
               validator={{
                 status: overview.status,
                 jailed: overview.jailed,

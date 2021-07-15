@@ -148,9 +148,11 @@ const DesmosProfile: React.FC<{
           </div>
         )}
         {props.bio && (
-          <Markdown>
-            {props.bio}
-          </Markdown>
+          <>
+            <Markdown>
+              {props.bio}
+            </Markdown>
+          </>
         )}
       </Box>
       <Connections
