@@ -18,21 +18,12 @@ import { useStyles } from './styles';
 import { useDesmosProfile } from './hooks';
 import { Connections } from './components';
 import {
-  ConnectionType, ValidatorProfile,
-} from './types';
-import {
   getStatusTheme, getCondition,
 } from './utils';
 
 const DesmosProfile: React.FC<{
   className?: string;
-  dtag: string;
-  nickname: string;
-  imageUrl: string;
-  bio: string;
-  connections: ConnectionType[];
-  validator?: ValidatorProfile;
-}> = (props) => {
+} & DesmosProfile> = (props) => {
   const { t } = useTranslation('accounts');
   const classes = useStyles();
   const {
@@ -44,7 +35,7 @@ const DesmosProfile: React.FC<{
   const { validator } = props;
 
   const statusTheme = validator ? getStatusTheme(validator.status, validator.jailed) : null;
-  const condition = getCondition(validator.condition, validator.status);
+  const condition = validator ? getCondition(validator.condition, validator.status) : null;
 
   return (
     <>

@@ -9,10 +9,12 @@ import {
   useGetMessagesByAddressQuery,
   GetMessagesByAddressQuery,
 } from '@graphql/types';
+import { DesmosProfileQuery } from '@graphql/desmos_profile';
 import { useChainContext } from '@contexts';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
 import { chainConfig } from '@src/configs';
+import { useDesmosProfile } from '@hooks';
 import { AccountDetailState } from './types';
 
 export const useAccountDetails = () => {
@@ -79,6 +81,16 @@ export const useAccountDetails = () => {
   };
 
   // ==========================
+  // Desmos Profile
+  // ==========================
+  useDesmosProfile({
+    address: R.pathOr('', ['query', 'address'], router),
+    onComplete: (data) => {
+      console.log(data, 'data');
+    },
+  });
+
+  // ==========================
   // Fetch Data
   // ==========================
   const LIMIT = 50;
@@ -143,6 +155,10 @@ export const useAccountDetails = () => {
   // ==========================
   // Format Data
   // ==========================
+  const formatDesmosProfile = (data:DesmosProfileQuery) => {
+
+  };
+
   const formatTransactions = (data: GetMessagesByAddressQuery) => {
     let formattedData = data.messagesByAddress;
     if (data.messagesByAddress.length === 51) {

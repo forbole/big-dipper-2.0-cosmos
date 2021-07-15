@@ -1,12 +1,14 @@
 import {
   useState, useEffect,
 } from 'react';
-import * as R from 'ramda';
 import axios from 'axios';
+import {
+  DesmosProfileDocument, DesmosProfileQuery,
+} from '@graphql/desmos_profile';
 
 type Options = {
-  selfDelegateAddress?: string;
-  onComplete: (data: any) => void;
+  address?: string;
+  onComplete: (data: DesmosProfileQuery) => void;
 }
 
 const PROFILE_API = 'https://gql.morpheus.desmos.network/v1/graphql';
@@ -15,31 +17,23 @@ export const useDesmosProfile = (options: Options) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (options.selfDelegateAddress) {
-      fetchProfile(options.selfDelegateAddress);
+    if (options.address) {
+      fetchProfile(options.address);
     }
-  }, [options.selfDelegateAddress]);
+  }, [options.address]);
 
-  const fetchProfile = async (selfDelegateAddress: string) => {
+  const fetchProfile = async (address: string) => {
     try {
       setLoading(true);
       const { data } = await axios.post(PROFILE_API, {
         variables: {
-          address: selfDelegateAddress,
+          address,
         },
-        query: `
-        query DesmosProfile ($address: String){
-          profile (where: {address: {_eq: $address}}, limit: 1) {
-            address
-            bio
-          }
-        }
-        `,
+        query: DesmosProfileDocument,
       });
-      console.log(data, 'data');
       setLoading(false);
+      options.onComplete(data.data);
     } catch (error) {
-      console.error(error);
       setLoading(false);
     }
   };
