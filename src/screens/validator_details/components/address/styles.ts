@@ -10,28 +10,6 @@ export const useStyles = () => {
             gridTemplateColumns: 'repeat(2,1fr)',
           },
         },
-        dialog: {
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexDirection: 'column',
-          '& .MuiTypography-body1': {
-            marginBottom: theme.spacing(2),
-          },
-          '& .dialog__share--wrapper': {
-            marginTop: theme.spacing(2),
-          },
-          '& .share-buttons': {
-            '&:not(:last-child)': {
-              marginRight: theme.spacing(1),
-            },
-            '&.email': {
-              '& circle': {
-                fill: theme.palette.primary.main,
-              },
-            },
-          },
-        },
         actionIcons: {
           '&:hover': {
             cursor: 'pointer',
@@ -62,6 +40,12 @@ export const useStyles = () => {
             '&.MuiTypography-body1': {
               wordWrap: 'break-word',
             },
+          },
+          '& a': {
+            color: theme.palette.custom.fonts.highlight,
+            // '&:hover': {
+            //   cursor: 'pointer',
+            // },
           },
           [theme.breakpoints.up('md')]: {
             padding: 0,

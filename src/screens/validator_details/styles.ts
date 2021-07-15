@@ -18,6 +18,11 @@ export const useStyles = () => {
             gridTemplateColumns: 'repeat(2, 1fr) 500px',
           },
         },
+        address: {
+          [theme.breakpoints.up('lg')]: {
+            gridColumn: '1 / 4',
+          },
+        },
         profile: {
           [theme.breakpoints.up('lg')]: {
             gridColumn: '1 / 4',

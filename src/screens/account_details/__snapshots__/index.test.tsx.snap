@@ -21,6 +21,14 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
         withdrawalAddress="desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr"
       />
       <div
+        bio=""
+        connections={Array []}
+        dtag="RiccardoMontagnin"
+        id="DesmosProfile"
+        imageUrl=""
+        nickname=""
+      />
+      <div
         available={
           Object {
             "denom": "daric",

@@ -3,6 +3,7 @@ import useTranslation from 'next-translate/useTranslation';
 import {
   Layout,
   LoadAndExist,
+  DesmosProfile,
 } from '@components';
 import { useStyles } from './styles';
 import {
@@ -33,6 +34,15 @@ const AccountDetails = () => {
             withdrawalAddress={state.overview.withdrawalAddress}
             address={state.overview.address}
           />
+          {!!state.desmosProfile && (
+          <DesmosProfile
+            dtag={state.desmosProfile.dtag}
+            nickname={state.desmosProfile.nickname}
+            imageUrl={state.desmosProfile.imageUrl}
+            bio={state.desmosProfile.bio}
+            connections={state.desmosProfile.connections}
+          />
+          )}
           <Balance
             className={classes.balance}
             available={state.balance.available}

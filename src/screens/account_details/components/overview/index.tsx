@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Typography,
@@ -21,9 +22,7 @@ import {
 import CopyIcon from '@assets/icon-copy.svg';
 import ShareIcon from '@assets/icon-share.svg';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import {
-  BoxDetails, Box,
-} from '@components';
+import { Box } from '@components';
 import { useStyles } from './styles';
 import { useOverview } from './hooks';
 
@@ -36,7 +35,7 @@ const Overview: React.FC<{
   address,
   withdrawalAddress,
 }) => {
-  const { isMobile } = useScreenSize();
+  const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const { t } = useTranslation('accounts');
   const {
@@ -45,62 +44,6 @@ const Overview: React.FC<{
     handleOpen,
     handleCopyToClipboard,
   } = useOverview(t);
-
-  const dummyProps = {
-    title: t('overview'),
-    details: [
-      {
-        label: t('address'),
-        className: classes.copyText,
-        detail: (
-          <>
-            <CopyIcon
-              onClick={() => handleCopyToClipboard(address)}
-              className={classes.actionIcons}
-            />
-            <ShareIcon
-              onClick={handleOpen}
-              className={classes.actionIcons}
-            />
-            <Typography variant="body1" className="value">
-              {
-                isMobile ? (
-                  getMiddleEllipsis(address, {
-                    beginning: 15, ending: 5,
-                  })
-                ) : (
-                  address
-                )
-              }
-            </Typography>
-          </>
-        ),
-      },
-      {
-        label: t('rewardAddress'),
-        className: classes.copyText,
-        detail: (
-          <>
-            <CopyIcon
-              className={classes.actionIcons}
-              onClick={() => handleCopyToClipboard(withdrawalAddress)}
-            />
-            <Typography variant="body1" className="value">
-              {
-                isMobile ? (
-                  getMiddleEllipsis(withdrawalAddress, {
-                    beginning: 15, ending: 5,
-                  })
-                ) : (
-                  withdrawalAddress
-                )
-              }
-            </Typography>
-          </>
-        ),
-      },
-    ],
-  };
 
   const url = `${process.env.NEXT_PUBLIC_URL}/accounts/${address}`;
   const hashTags = ['bigdipperexplorer', 'bigdipper'];
@@ -184,7 +127,57 @@ const Overview: React.FC<{
           </div>
         </Box>
       </Dialog>
-      <BoxDetails className={className} {...dummyProps} />
+      <Box className={classnames(className, classes.root)}>
+        <div className={classnames(classes.copyText, classes.item)}>
+          <Typography variant="body1" className="label">
+            {t('address')}
+          </Typography>
+          <div className="detail">
+            <CopyIcon
+              onClick={() => handleCopyToClipboard(address)}
+              className={classes.actionIcons}
+            />
+            <ShareIcon
+              onClick={handleOpen}
+              className={classes.actionIcons}
+            />
+            <Typography variant="body1" className="value">
+              {
+                !isDesktop ? (
+                  getMiddleEllipsis(address, {
+                    beginning: 15, ending: 5,
+                  })
+                ) : (
+                  address
+                )
+              }
+            </Typography>
+          </div>
+        </div>
+
+        <div className={classnames(classes.copyText, classes.item)}>
+          <Typography variant="body1" className="label">
+            {t('rewardAddress')}
+          </Typography>
+          <div className="detail">
+            <CopyIcon
+              className={classes.actionIcons}
+              onClick={() => handleCopyToClipboard(withdrawalAddress)}
+            />
+            <Typography variant="body1" className="value">
+              {
+                !isDesktop ? (
+                  getMiddleEllipsis(withdrawalAddress, {
+                    beginning: 15, ending: 5,
+                  })
+                ) : (
+                  withdrawalAddress
+                )
+              }
+            </Typography>
+          </div>
+        </div>
+      </Box>
     </>
   );
 };

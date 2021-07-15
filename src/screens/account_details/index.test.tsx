@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
 import { createMockClient } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
 import renderer from 'react-test-renderer';
@@ -34,6 +36,7 @@ jest.mock('@contexts', () => ({
 jest.mock('@components', () => ({
   Layout: (props) => <div id="Layout" {...props} />,
   LoadAndExist: (props) => <div id="LoadAndExist" {...props} />,
+  DesmosProfile: (props) => <div id="DesmosProfile" {...props} />,
 }));
 
 jest.mock('./components', () => ({
@@ -161,6 +164,23 @@ const mockAccountMessages = jest.fn().mockResolvedValue({
 // ==================================
 describe('screen: BlockDetails', () => {
   it('matches snapshot', async () => {
+    const mockAxios = new MockAdapter(axios);
+    mockAxios.onPost('https://gql.morpheus.desmos.network/v1/graphql').reply(200, {
+      data: {
+        profile: [
+          {
+            address: 'desmos1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w',
+            bio: '',
+            dtag: 'RiccardoMontagnin',
+            nickname: '',
+            profilePic: '',
+            chainLinks: [],
+            applicationLinks: [],
+          },
+        ],
+      },
+    });
+
     const mockClient = createMockClient();
     mockClient.setRequestHandler(
       AccountDocument,

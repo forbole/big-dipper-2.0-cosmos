@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import {
+  useState, useEffect,
+} from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import { formatDenom } from '@utils/format_denom';
@@ -10,6 +12,7 @@ import {
   useGetMessagesByAddressQuery,
   GetMessagesByAddressQuery,
 } from '@graphql/types';
+import { useDesmosProfile } from '@hooks';
 import { useChainContext } from '@contexts';
 import { getValidatorCondition } from '@utils/get_validator_condition';
 import { chainConfig } from '@src/configs';
@@ -18,11 +21,14 @@ import { ValidatorDetailsState } from './types';
 export const useValidatorDetails = () => {
   const router = useRouter();
   const {
-    findAddress, findOperator,
+    findAddress,
+    findOperator,
+    validatorToDelegatorAddress,
   } = useChainContext();
   const [state, setState] = useState<ValidatorDetailsState>({
     loading: true,
     exists: true,
+    desmosProfile: null,
     overview: {
       validator: {
         imageUrl: '',
@@ -75,6 +81,27 @@ export const useValidatorDetails = () => {
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
+
+  // ==========================
+  // Desmos Profile
+  // ==========================
+  const {
+    fetchDesmosProfile, formatDesmosProfile,
+  } = useDesmosProfile({
+    onComplete: (data) => {
+      handleSetState({
+        desmosProfile: formatDesmosProfile(data),
+      });
+    },
+  });
+
+  useEffect(() => {
+    if (chainConfig.extra.desmosProfile) {
+      const address = validatorToDelegatorAddress(R.pathOr('', ['query', 'address'], router));
+
+      fetchDesmosProfile(address);
+    }
+  }, [R.pathOr('', ['query', 'address'], router)]);
 
   // ==========================
   // Fetch Data
