@@ -12,6 +12,7 @@ import { chainConfig } from '@configs';
 import { formatDenom } from '@utils/format_denom';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { getDenom } from '@utils/get_denom';
+import { useDesmosProfile } from '@hooks';
 import { ChainState } from './types';
 
 export const useValidatorsAddress = (initialstate:ChainState) => {
@@ -20,6 +21,18 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
+
+  // ==========================
+  // Fetch Data
+  // ==========================
+
+  const {
+    fetchDesmosProfile,
+  } = useDesmosProfile({
+    onComplete: (data) => {
+      return data;
+    },
+  });
 
   useValidatorsAddressListQuery({
     onError: () => {
@@ -35,6 +48,10 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
       });
     },
   });
+
+  // ==========================
+  // Parse Data
+  // ==========================
 
   const formatValidatorsAddressList = async (data: ValidatorsAddressListQuery) => {
     const validators: {
@@ -61,6 +78,13 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
       const validatorAddress = x.validatorInfo.operatorAddress;
       const selfAddress = x.validatorInfo.selfDelegateAddress;
       const { consensusAddress } = x.validatorInfo;
+
+      // If desmos profile is turned on
+      // Fetch profile
+      if (chainConfig.extra.desmosProfile) {
+        const profile = await fetchDesmosProfile(selfAddress);
+      }
+
       const defaultMoniker = getMiddleEllipsis(validatorAddress, {
         beginning: 6, ending: 10,
       });
