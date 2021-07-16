@@ -12,6 +12,7 @@ import { chainConfig } from '@configs';
 import { formatDenom } from '@utils/format_denom';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { getDenom } from '@utils/get_denom';
+import { useDesmosProfile } from '@hooks';
 import { ChainState } from './types';
 
 export const useValidatorsAddress = (initialstate:ChainState) => {
@@ -20,6 +21,19 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
+
+  // ==========================
+  // Fetch Data
+  // ==========================
+
+  const {
+    fetchDesmosProfile,
+    formatDesmosProfile,
+  } = useDesmosProfile({
+    onComplete: (data) => {
+      return formatDesmosProfile(data);
+    },
+  });
 
   useValidatorsAddressListQuery({
     onError: () => {
@@ -35,6 +49,10 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
       });
     },
   });
+
+  // ==========================
+  // Parse Data
+  // ==========================
 
   const formatValidatorsAddressList = async (data: ValidatorsAddressListQuery) => {
     const validators: {
@@ -53,14 +71,25 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
       [key: string]: string;
     } = {};
 
+    let profiles = [];
+    if (chainConfig.extra.desmosProfile) {
+      data?.validator?.forEach((x) => {
+        profiles.push(fetchDesmosProfile(x.validatorInfo.selfDelegateAddress));
+      });
+    }
+
+    // await Promise.all(profiles.map((p) => p.catch((e) => e)));
+    profiles = await Promise.allSettled(profiles);
+
     // ===============================
     // Set up initial dictionary and axios calls
     // ===============================
 
-    data?.validator?.forEach((x) => {
+    data?.validator?.forEach((x, i) => {
       const validatorAddress = x.validatorInfo.operatorAddress;
       const selfAddress = x.validatorInfo.selfDelegateAddress;
       const { consensusAddress } = x.validatorInfo;
+
       const defaultMoniker = getMiddleEllipsis(validatorAddress, {
         beginning: 6, ending: 10,
       });
@@ -68,8 +97,14 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
         beginning: 6, ending: 10,
       });
 
+      const profile = R.pathOr(undefined, [i, 'value'], profiles);
+
+      // will use profile nicknamed => validator moniker => validator address priority
       validators[validatorAddress] = {
-        moniker: R.pathOr(defaultMoniker, ['validatorDescriptions', 0, 'moniker'], x),
+        moniker: (
+          R.pathOr(undefined, ['nickname'], profile)
+          || R.pathOr(defaultMoniker, ['validatorDescriptions', 0, 'moniker'], x)
+        ),
       };
 
       selfDelegateAddresses[selfAddress] = validators[validatorAddress];
@@ -83,10 +118,13 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
       consensusAddresses[consensusAddress] = validatorAddress;
 
       if (
-        x.validatorDescriptions.length
-        && x.validatorDescriptions[0].avatarUrl
+        R.pathOr(undefined, ['imageUrl'], profile)
+        || R.pathOr(undefined, ['validatorDescriptions', 0, 'avatarUrl'], x)
       ) {
-        validators[validatorAddress].imageUrl = x.validatorDescriptions[0].avatarUrl;
+        validators[validatorAddress].imageUrl = (
+          R.pathOr(undefined, ['imageUrl'], profile)
+          || R.pathOr(undefined, ['validatorDescriptions', 0, 'avatarUrl'], x)
+        );
       }
     });
 
