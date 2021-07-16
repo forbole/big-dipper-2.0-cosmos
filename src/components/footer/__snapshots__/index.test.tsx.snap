@@ -14,7 +14,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
     <p
       className="footer__slogan"
     >
-      common:slogan
+      Desmos Block Explorer
     </p>
     <p
       className="footer__copyright"
