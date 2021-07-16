@@ -97,7 +97,8 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
         beginning: 6, ending: 10,
       });
 
-      const profile = profiles[i]?.value;
+      const profile = R.pathOr(undefined, [i, 'value'], profiles);
+
       // will use profile nicknamed => validator moniker => validator address priority
       validators[validatorAddress] = {
         moniker: (
