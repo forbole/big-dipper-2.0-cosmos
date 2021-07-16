@@ -13,7 +13,6 @@ import { formatDenom } from '@utils/format_denom';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { getDenom } from '@utils/get_denom';
 import { useDesmosProfile } from '@hooks';
-import { CompassCalibrationOutlined } from '@material-ui/icons';
 import { ChainState } from './types';
 
 export const useValidatorsAddress = (initialstate:ChainState) => {
@@ -118,18 +117,13 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
       consensusAddresses[consensusAddress] = validatorAddress;
 
       if (
-        x.validatorDescriptions.length
-        && x.validatorDescriptions[0].avatarUrl
+        R.pathOr(undefined, ['imageUrl'], profile)
+        || R.pathOr(undefined, ['validatorDescriptions', 0, 'avatarUrl'], x)
       ) {
         validators[validatorAddress].imageUrl = (
           R.pathOr(undefined, ['imageUrl'], profile)
-          || x.validatorDescriptions[0].avatarUrl
+          || R.pathOr(undefined, ['validatorDescriptions', 0, 'avatarUrl'], x)
         );
-      }
-
-      if (validatorAddress === 'desmosvaloper16c60y8t8vra27zjg2arlcd58dck9cwn7lhp6pl') {
-        console.log(validators[validatorAddress], 'wtf');
-        console.log(profile, 'profile');
       }
     });
 
