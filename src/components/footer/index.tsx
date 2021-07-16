@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import FooterLogo from '@assets/big-dipper-white.svg';
 import { Button } from '@material-ui/core';
+import { chainConfig } from '@src/configs';
 import { SocialMedia } from './components';
 import {
   footerLinks, donateLink,
@@ -25,7 +26,7 @@ const Footer: React.FC<{className?: string}> = ({ className }) => {
       {/* ============================= */}
       <div className="footer__logo--container">
         <FooterLogo className="footer__logo" />
-        <p className="footer__slogan">{t('common:slogan')}</p>
+        <p className="footer__slogan">{chainConfig.title}</p>
         <p className="footer__copyright">
           {t('common:copyright')}
           {' '}
