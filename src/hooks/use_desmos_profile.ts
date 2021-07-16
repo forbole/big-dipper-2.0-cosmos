@@ -66,10 +66,10 @@ export const useDesmosProfile = (options: Options) => {
         data = await fetchLink(address);
       }
       setLoading(false);
-      options.onComplete(data);
+      return options.onComplete(data);
     } catch (error) {
       setLoading(false);
-      options.onComplete(data);
+      return options.onComplete(data);
     }
   };
 
