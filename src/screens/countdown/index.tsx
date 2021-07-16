@@ -58,15 +58,15 @@ const Countdown: React.FC<{
     currentPath = window?.location?.href || '';
   }
 
-
+  const title = `${t('common:bigDipper')} | ${chainConfig.title}`
   return (
     <>
     <NextSeo
-        title={t('common:bigDipper')}
+        title={title}
         description={t('common:description')}
         openGraph={{
           type: 'website',
-          title: t('common:bigDipper'),
+          title,
           site_name: 'Big Dipper',
           url: currentPath,
           description: t('common:description'),
