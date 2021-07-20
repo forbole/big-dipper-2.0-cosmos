@@ -18,7 +18,7 @@ jobs:
         id: prep
         run: |
           BRANCH=${GITHUB_REF#refs/heads/}
-          if [[ $GITHUB_REF#refs/heads/ == "desmos-test" ]]; then
+          if [[ $GITHUB_REF#refs/heads/ == "refs/heads/desmos-test" ]]; then
             echo "inside here"
             BRANCH="cosmos"
           fi
