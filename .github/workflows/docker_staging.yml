@@ -15,12 +15,15 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Branch name
-        run: echo running on branch ${GITHUB_REF##*/}
       - name: Prepare tags
         id: prep
         run: |
+          BRANCH=${GITHUB_REF#refs/*/}
+          if [[ $GITHUB_REF#refs/*/ == master ]]; then
+            BRANCH="cosmos"
+          fi
           echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
+          echo ::set-output name=branch::${BRANCH}
       - name: Create env file
         run: |
           touch .env
@@ -45,7 +48,7 @@ jobs:
           context: .
           file: ./Dockerfile
           # push: ${{ github.event_name != 'pull_request' }}
-          tags: forbole/big-dipper-${{GITHUB_REF##*/}}:staging
+          tags: "forbole/big-dipper-${{ steps.prep.outputs.branch }}:staging"
           labels: |
             org.opencontainers.image.source=${{ github.event.repository.html_url }}
             org.opencontainers.image.created=${{ steps.prep.outputs.created }}
