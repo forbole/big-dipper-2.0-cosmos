@@ -27,7 +27,7 @@ jobs:
           echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
           echo ::set-output name=branch::${BRANCH}
           echo ${BRANCH}
-          echo ${github.event}
+          echo ${{ github.event.pull_request.base.ref }}
       # - name: Create env file
       #   run: |
       #     touch .env
