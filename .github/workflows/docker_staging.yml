@@ -19,13 +19,14 @@ jobs:
         id: prep
         run: |
           BRANCH=${GITHUB_REF#refs/heads}
-          if [[ $GITHUB_REF#refs/heads == master ]]; then
+          if github.event_name == 'pull_request'; then
+            BRANCH=${github.event.pull_request.head.ref}
+          elif [[ $GITHUB_REF#refs/heads == master ]]; then
             BRANCH="cosmos"
           fi
           echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
           echo ::set-output name=branch::${BRANCH}
           echo ${BRANCH}
-          echo ${GITHUB_REF}
       # - name: Create env file
       #   run: |
       #     touch .env
