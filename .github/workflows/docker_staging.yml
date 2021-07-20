@@ -46,7 +46,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
-          tags: "forbole/big-dipper-2.0:${{ steps.prep.outputs.branch }}-staging"
+          tags: "forbole/big-dipper-2.0-cosmos:${{ steps.prep.outputs.branch }}-staging"
           labels: |
             org.opencontainers.image.source=${{ github.event.repository.html_url }}
             org.opencontainers.image.created=${{ steps.prep.outputs.created }}
