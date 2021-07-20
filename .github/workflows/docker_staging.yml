@@ -2,12 +2,11 @@ name: Docker-Staging
 
 on:
   pull_request:
-    branches:
-      - desmos-test
   push:
     branches:
       - master
       - desmos
+      - desmos-test
 
 jobs:
   Build-and-Publish:
