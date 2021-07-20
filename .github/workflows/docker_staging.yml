@@ -8,7 +8,6 @@ on:
     branches:
       - master
       - desmos
-      - desmos-test
 
 jobs:
   Build-and-Publish:
@@ -19,8 +18,8 @@ jobs:
       - name: Prepare tags
         id: prep
         run: |
-          BRANCH=${GITHUB_REF#refs/*/}
-          if [[ $GITHUB_REF#refs/*/ == master ]]; then
+          BRANCH=${GITHUB_REF#refs/heads}
+          if [[ $GITHUB_REF#refs/heads == master ]]; then
             BRANCH="cosmos"
           fi
           echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
@@ -49,7 +48,7 @@ jobs:
           context: .
           file: ./Dockerfile
           # push: ${{ github.event_name != 'pull_request' }}
-          tags: "forbole/big-dipper-${{ steps.prep.outputs.branch }}:staging"
+          tags: "forbole/big-dipper-2.0:${{ steps.prep.outputs.branch }}-staging"
           labels: |
             org.opencontainers.image.source=${{ github.event.repository.html_url }}
             org.opencontainers.image.created=${{ steps.prep.outputs.created }}
