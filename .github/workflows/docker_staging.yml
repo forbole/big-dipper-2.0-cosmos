@@ -18,13 +18,13 @@ jobs:
         id: prep
         run: |
           BRANCH=${GITHUB_REF#refs/heads/}
-          if [[ $GITHUB_REF#refs/heads/ == desmos-test ]]; then
+          if [[ $GITHUB_REF#refs/heads/ == "desmos-test" ]]; then
+            echo "inside here"
             BRANCH="cosmos"
           fi
           echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
           echo ::set-output name=branch::${BRANCH}
           echo ${BRANCH}
-          echo ${GITHUB_REF#refs/heads/}
       # - name: Create env file
       #   run: |
       #     touch .env
