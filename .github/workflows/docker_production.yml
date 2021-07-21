@@ -17,6 +17,12 @@ jobs:
         run: |
           DOCKER_IMAGE=forbole/big-dipper-2.0-cosmos
           VERSION=edge
+          WEBHOOK_URL=edge
+          WEBHOOK_SECRET=edge
+          if [[ $GITHUB_REF == refs/tags/desmos* ]]; then
+              echo 'Deploying to Desmos'
+              WEBHOOK_URL=secrets.DESMOS_AKASH_WEBHOOK_URL
+              WEBHOOK_SECRET=secrets.DESMOS_AKASH_WEBHOOK_SECRET
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/}
           fi
@@ -24,6 +30,8 @@ jobs:
           echo ::set-output name=version::${VERSION}
           echo ::set-output name=tags::${TAGS}
           echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
+          echo ::set-output name=webhook_url::${WEBHOOK_URL}
+          echo ::set-output name=webhook_secret::${WEBHOOK_SECRET}
 
 
       # - name: Create env file
@@ -54,17 +62,11 @@ jobs:
       #       org.opencontainers.image.revision=${{ github.sha }}
       - name: Deploy to Akash 🌐
         run: |
-            BRANCH=${GITHUB_REF}
-            WEBHOOK_URL=''
-            WEBHOOK_SECRET=''
             if [[ $GITHUB_REF == refs/tags/desmos* ]]; then
               echo 'Deploying to Desmos'
-              WEBHOOK_URL=${{ secrets.DESMOS_AKASH_WEBHOOK_URL }}
-              WEBHOOK_SECRET=${{ secrets.DESMOS_AKASH_WEBHOOK_SECRET }}
             elif [[ $GITHUB_REF == refs/tags/cosmos* ]]; then
               echo 'Deploying to Cosmos'
             fi
-              echo ${WEBHOOK_URL}
-              curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k $WEBHOOK_URL -u "deploy:$WEBHOOK_SECRET"
+              curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k ${{ steps.prep.outputs.webhook_url }} -u "deploy:${{ steps.prep.outputs.webhook_secret }}"
 
 
