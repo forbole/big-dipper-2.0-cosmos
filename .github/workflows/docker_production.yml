@@ -64,7 +64,7 @@ jobs:
             elif [[ $GITHUB_REF == refs/tags/cosmos* ]]; then
               echo 'Deploying to Cosmos'
             fi
-              echo ${BRANCH}
+              echo ${WEBHOOK_URL}
               curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k $WEBHOOK_URL -u "deploy:$WEBHOOK_SECRET"
 
 
