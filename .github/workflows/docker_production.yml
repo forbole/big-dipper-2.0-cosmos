@@ -52,12 +52,18 @@ jobs:
       #       org.opencontainers.image.revision=${{ github.sha }}
       - name: Test 🌐
         run: |
-            echo ${GITHUB_REF}
-      - name: Deploy Desmos to Akash 🌐
-        if: ${GITHUB_REF} == 'refs/tags/desmos*'
-        run: |
-          echo "deploying desmos to akash!"
-      - name: Deploy Cosmos to Akash 🌐
-        if: ${GITHUB_REF} == 'refs/tags/cosmos*'
-        run: |
-          echo "deploying cosmos to akash!"
+            BRANCH=${GITHUB_REF}
+            if [[ $GITHUB_REF == refs/tags/desmos* ]]; then
+              echo 'desmos test'
+            elif [[ $GITHUB_REF == refs/tags/cosmos* ]]; then
+              echo 'cosmos test'
+            fi
+              echo ${BRANCH}
+      # - name: Deploy Desmos to Akash 🌐
+      #   if: ${GITHUB_REF} == 'refs/tags/desmos*'
+      #   run: |
+      #     echo "deploying desmos to akash!"
+      # - name: Deploy Cosmos to Akash 🌐
+      #   if: ${GITHUB_REF} == 'refs/tags/cosmos*'
+      #   run: |
+      #     echo "deploying cosmos to akash!"
