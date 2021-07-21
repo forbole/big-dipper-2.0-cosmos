@@ -4,10 +4,10 @@ on:
     workflows: ["Docker-Production"]
     types: [completed]
     push:
-    branches:
-      - "!*"
-    tags:
-      - "desmos*"
+      branches:
+        - "!*"
+      tags:
+        - "desmos*"
 jobs:
   on-success:
     runs-on: ubuntu-latest
