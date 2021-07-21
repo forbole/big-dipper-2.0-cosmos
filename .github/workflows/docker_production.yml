@@ -50,5 +50,11 @@ jobs:
       #       org.opencontainers.image.source=${{ github.event.repository.html_url }}
       #       org.opencontainers.image.created=${{ steps.prep.outputs.created }}
       #       org.opencontainers.image.revision=${{ github.sha }}
-
-
+      - name: Deploy Desmos to Akash 🌐
+        if: github.ref == 'refs/tags/desmos*'
+        run: |
+          echo "deploying desmos to akash!"
+      - name: Deploy Cosmos to Akash 🌐
+        if: github.ref == 'refs/tags/cosmos*'
+        run: |
+          echo "deploying cosmos to akash!"
