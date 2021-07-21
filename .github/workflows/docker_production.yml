@@ -59,8 +59,8 @@ jobs:
             WEBHOOK_SECRET=''
             if [[ $GITHUB_REF == refs/tags/desmos* ]]; then
               echo 'Deploying to Desmos'
-              WEBHOOK_URL=secrets.DESMOS_AKASH_WEBHOOK_URL
-              WEBHOOK_SECRET=secrets.DESMOS_AKASH_WEBHOOK_SECRET
+              WEBHOOK_URL=${{ secrets.DESMOS_AKASH_WEBHOOK_URL }}
+              WEBHOOK_SECRET=${{ secrets.DESMOS_AKASH_WEBHOOK_SECRET }}
             elif [[ $GITHUB_REF == refs/tags/cosmos* ]]; then
               echo 'Deploying to Cosmos'
             fi
