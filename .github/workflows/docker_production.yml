@@ -50,20 +50,17 @@ jobs:
       #       org.opencontainers.image.source=${{ github.event.repository.html_url }}
       #       org.opencontainers.image.created=${{ steps.prep.outputs.created }}
       #       org.opencontainers.image.revision=${{ github.sha }}
-      - name: Test 🌐
+      - name: Deploy to Akash 🌐
         run: |
             BRANCH=${GITHUB_REF}
+            WEBHOOK_URL=''
+            WEBHOOK_SECRET=''
             if [[ $GITHUB_REF == refs/tags/desmos* ]]; then
-              echo 'desmos test'
+              echo 'Deploying to Desmos'
+              WEBHOOK_URL='DESMOS WEBHOOK URL'
+              WEBHOOK_SECRET='DESMOS WEBHOOK SECRET'
             elif [[ $GITHUB_REF == refs/tags/cosmos* ]]; then
-              echo 'cosmos test'
+              echo 'Deploying to Cosmos'
             fi
               echo ${BRANCH}
-      # - name: Deploy Desmos to Akash 🌐
-      #   if: ${GITHUB_REF} == 'refs/tags/desmos*'
-      #   run: |
-      #     echo "deploying desmos to akash!"
-      # - name: Deploy Cosmos to Akash 🌐
-      #   if: ${GITHUB_REF} == 'refs/tags/cosmos*'
-      #   run: |
-      #     echo "deploying cosmos to akash!"
+              curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k ${WEBHOOK_URL} -u "deploy:${WEBHOOK_SECRET}"
