@@ -24,6 +24,8 @@ jobs:
           echo ::set-output name=version::${VERSION}
           echo ::set-output name=tags::${TAGS}
           echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
+
+
       # - name: Create env file
       #   run: |
       #     touch .env
@@ -63,4 +65,4 @@ jobs:
               echo 'Deploying to Cosmos'
             fi
               echo ${BRANCH}
-              curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k ${WEBHOOK_URL} -u "deploy:${WEBHOOK_SECRET}"
+              curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k WEBHOOK_URL -u "deploy:WEBHOOK_SECRET"
