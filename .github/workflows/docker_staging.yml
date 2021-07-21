@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - master
+      - desmos
 
 jobs:
   Build-and-Publish:
@@ -15,17 +16,14 @@ jobs:
       - name: Prepare tags
         id: prep
         run: |
+          BRANCH=${GITHUB_REF#refs/heads/}
+          if [[ $GITHUB_REF == refs/heads/master ]]; then
+            BRANCH="cosmos"
+          elif [[ $GITHUB_REF == refs/pull/* ]]; then
+            BRANCH="build-test"
+          fi
           echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
-      - name: Create env file
-        run: |
-          touch .env
-          echo NEXT_PUBLIC_GRAPHQL_URL=${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }} >> .env
-          echo NEXT_PUBLIC_GRAPHQL_WS=${{ secrets.NEXT_PUBLIC_GRAPHQL_WS }} >> .env
-          echo NEXT_PUBLIC_URL=${{ secrets.NEXT_PUBLIC_URL }} >> .env
-          echo NEXT_PUBLIC_WS_CHAIN_URL=${{ secrets.NEXT_PUBLIC_WS_CHAIN_URL}} >> .env
-          echo NODE_ENV=${{ secrets.NODE_ENV }} >> .env
-          echo PORT=${{ secrets.PORT }} >> .env
-          cat .env
+          echo ::set-output name=branch::${BRANCH}
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       - name: Login to DockerHub
@@ -40,7 +38,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
-          tags: forbole/big-dipper-desmos:staging
+          tags: "forbole/big-dipper-2.0-cosmos:${{ steps.prep.outputs.branch }}-staging"
           labels: |
             org.opencontainers.image.source=${{ github.event.repository.html_url }}
             org.opencontainers.image.created=${{ steps.prep.outputs.created }}

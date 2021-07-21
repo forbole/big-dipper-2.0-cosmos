@@ -18,6 +18,14 @@ RUN npm ci
 # Copying source files
 COPY . .
 
+# Generate env file
+ENV NEXT_PUBLIC_GRAPHQL_URL https://gql.morpheus.desmos.network/v1/graphql
+ENV NEXT_PUBLIC_GRAPHQL_WS wss://gql.morpheus.desmos.network/v1/graphql
+ENV NEXT_PUBLIC_URL https://morpheus.desmos.network
+ENV NEXT_PUBLIC_WS_CHAIN_URL wss://rpc.morpheus.desmos.network/websocket
+ENV NODE_ENV production
+ENV PORT 3000
+
 # Building app
 RUN npm run build
 EXPOSE 3000
