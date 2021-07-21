@@ -55,7 +55,7 @@ jobs:
       - name: Deploy to Akash 🌐
         env:
           DESMOS_AKASH_WEBHOOK_URL: ${{ secrets.DESMOS_AKASH_WEBHOOK_URL }}
-          DESMOS_AKASH_WEBHOOK_SECRET: ${{ secrest.DESMOS_AKASH_WEBHOOK_SECRET }}
+          DESMOS_AKASH_WEBHOOK_SECRET: ${{ secrets.DESMOS_AKASH_WEBHOOK_SECRET }}
         run: |
             BRANCH=${GITHUB_REF}
             WEBHOOK_URL=''
