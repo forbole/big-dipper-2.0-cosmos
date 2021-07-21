@@ -17,12 +17,6 @@ jobs:
         run: |
           DOCKER_IMAGE=forbole/big-dipper-2.0-cosmos
           VERSION=edge
-          WEBHOOK_URL=edge
-          WEBHOOK_SECRET=edge
-          if [[ $GITHUB_REF == refs/tags/desmos* ]]; then
-              echo 'Deploying to Desmos'
-              WEBHOOK_URL=secrets.DESMOS_AKASH_WEBHOOK_URL
-              WEBHOOK_SECRET=secrets.DESMOS_AKASH_WEBHOOK_SECRET
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/}
           fi
@@ -30,9 +24,16 @@ jobs:
           echo ::set-output name=version::${VERSION}
           echo ::set-output name=tags::${TAGS}
           echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
+
+          WEBHOOK_URL=''
+          WEBHOOK_SECRET=''
+          if [[ $GITHUB_REF == refs/tags/desmos* ]]; then
+              echo 'Deploying to Desmos'
+              WEBHOOK_URL=secrets.DESMOS_AKASH_WEBHOOK_URL
+              WEBHOOK_SECRET=secrets.DESMOS_AKASH_WEBHOOK_SECRET
+          fi
           echo ::set-output name=webhook_url::${WEBHOOK_URL}
           echo ::set-output name=webhook_secret::${WEBHOOK_SECRET}
-
 
       # - name: Create env file
       #   run: |
