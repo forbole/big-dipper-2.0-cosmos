@@ -52,7 +52,7 @@ jobs:
       #       org.opencontainers.image.revision=${{ github.sha }}
       - name: Test 🌐
         run: |
-            echo ${github.ref}
+            echo ${GITHUB_REF}
       - name: Deploy Desmos to Akash 🌐
         if: github.ref == 'refs/tags/desmos*'
         run: |
