@@ -54,10 +54,10 @@ jobs:
         run: |
             echo ${GITHUB_REF}
       - name: Deploy Desmos to Akash 🌐
-        if: github.ref == 'refs/tags/desmos*'
+        if: ${GITHUB_REF} == 'refs/tags/desmos*'
         run: |
           echo "deploying desmos to akash!"
       - name: Deploy Cosmos to Akash 🌐
-        if: github.ref == 'refs/tags/cosmos*'
+        if: ${GITHUB_REF} == 'refs/tags/cosmos*'
         run: |
           echo "deploying cosmos to akash!"
