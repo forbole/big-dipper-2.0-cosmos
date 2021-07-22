@@ -17,7 +17,9 @@ export const useStyles = () => {
           justifyContent: 'center',
           '& img': {
             width: '100%',
-            height: 'auto',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center center',
           },
         },
       });
