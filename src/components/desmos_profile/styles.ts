@@ -82,9 +82,6 @@ export const useStyles = () => {
           display: 'grid',
           gridTemplateColumns: 'repeat(2, 1fr)',
           gridTemplateRows: 'auto',
-          // [theme.breakpoints.up('md')]: {
-          //   gridTemplateColumns: 'repeat(1, 1fr)',
-          // },
         },
         item: {
           '& .label': {
@@ -94,15 +91,13 @@ export const useStyles = () => {
               display: 'flex',
               alignItems: 'center',
             },
-            // [theme.breakpoints.up('md')]: {
-            //   marginBottom: 0,
-            // },
           },
           '& .condition__body': {
             justifySelf: 'flex-start',
           },
           '& p.value': {
             color: theme.palette.custom.fonts.fontTwo,
+            display: 'inline-block',
             '&.good': {
               color: theme.palette.custom.condition.one,
             },
@@ -119,19 +114,6 @@ export const useStyles = () => {
           '& a': {
             color: theme.palette.custom.fonts.highlight,
           },
-
-          // [theme.breakpoints.up('md')]: {
-          //   display: 'grid',
-          //   gridTemplateColumns: '200px auto',
-          //   gridGap: theme.spacing(2),
-          //   alignItems: 'center',
-          //   '&:not(:last-child)': {
-          //     marginBottom: theme.spacing(1),
-          //   },
-          //   '&.bio': {
-          //     alignItems: 'flex-start',
-          //   },
-          // },
         },
       });
     },
