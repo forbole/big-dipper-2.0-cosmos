@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import {
+  useState, useEffect,
+} from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
 import { useRouter } from 'next/router';
@@ -30,9 +32,17 @@ export const useBlockDetails = () => {
     transactions: [],
   });
 
-  const handleSetState = (stateChange: typeof state) => {
+  const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
+
+  useEffect(() => {
+    // reset every call
+    handleSetState({
+      loading: true,
+      exists: true,
+    });
+  }, [router.query.height]);
 
   // ==========================
   // Fetch Data

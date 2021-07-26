@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import {
+  useState, useEffect,
+} from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import {
@@ -44,6 +46,13 @@ export const useTransactionDetails = () => {
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
+
+  useEffect(() => {
+    handleSetState({
+      loading: true,
+      exists: true,
+    });
+  }, [router.query.tx]);
 
   // ===============================
   // Fetch data
