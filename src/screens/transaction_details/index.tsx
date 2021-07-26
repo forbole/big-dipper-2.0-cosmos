@@ -24,6 +24,7 @@ const TransactionDetails = () => {
     overview,
     messages,
   } = state;
+
   return (
     <Layout navTitle={t('transactionDetails')} title={t('transactionDetails')}>
       <LoadAndExist
