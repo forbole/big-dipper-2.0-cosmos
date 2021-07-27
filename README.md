@@ -150,7 +150,7 @@ ex:
   content: COMPONENTS.SaveProfile,
   tagTheme: 'four',
   tagDisplay: 'txSaveProfileLabel',
-},
+}
 ```
 
 ## Docker
