@@ -14,9 +14,6 @@ on:
 jobs:
   Markdown-Link-Check:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./docs
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@master
@@ -49,4 +46,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: docs/.vuepress/dist
+          FOLDER: .vuepress/dist
