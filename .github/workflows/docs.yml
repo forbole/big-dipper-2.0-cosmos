@@ -38,6 +38,7 @@ jobs:
         run: |
           npm ci
           npm run docs:build
+          echo 'docs.desmos.network' > ./src/.vuepress/dist/CNAME
 
       - name: Deploy 🚀
         # if: github.ref == 'refs/heads/master'
