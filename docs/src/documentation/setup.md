@@ -1,9 +1,11 @@
 # Setup
 
 ## Setup the environment
+Git clone and check out our [tag releases](https://github.com/forbole/big-dipper-2.0-cosmos/tags) for the most stable version. If you're feeling frisky feel free to use the master branch.
 
 ```
 git clone https://github.com/forbole/big-dipper-2.0-cosmos.git
+git checkout <tag>
 npm ci
 ```
 
