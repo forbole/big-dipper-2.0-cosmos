@@ -39,10 +39,8 @@ jobs:
 
       - name: Build 🔧
         run: |
-          npm install
           npm ci
           npm run docs:build
-          echo 'docs.bigdipper.live' > docs/.vuepress/dist/CNAME
 
       - name: Deploy 🚀
         # if: github.ref == 'refs/heads/master'
