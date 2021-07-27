@@ -8,14 +8,18 @@ on:
     branches:
       - master
       - desmos
+    paths:
+      - docs/**
 
 jobs:
   Markdown-Link-Check:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./docs
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@master
-
       - name: Checking docs 🔍
         uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
@@ -24,6 +28,9 @@ jobs:
 
   Build-and-Deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./docs
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
