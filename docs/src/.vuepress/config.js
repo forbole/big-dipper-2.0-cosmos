@@ -14,11 +14,23 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/config/#head
    */
   head: [
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
-    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
-  ],
-
+    ['meta', {name: "theme-color", content: "#ffffff"}],
+    ['meta', {property: "og:title", content: "Big Dipper 2.0 Cosmos Documentation"}],
+    ['meta', {property: "og:url", content: " https://docs.bigdipper.live"}],
+    ['meta', {property: "og:description", content: "Official Documentation for Big Dipper 2.0 Cosmos [UI]"}],
+    ['meta', {property: "og:image", content: "https://docs.bigdipper.live/assets/logo.png"}],
+    ['meta', {roperty: "og:type", content: "website"}],
+    ['meta', {property: "og:locale", content: "en_US"}],
+    ['link', { rel: "apple-touch-icon", sizes: "180x180", href: "/assets/icons/apple-touch-icon.png"}],
+    ['link', { rel: "icon", type: "image/png", sizes: "32x32", href: "/assets/icons/favicon-32x32.png"}],
+    ['link', { rel: "icon", type: "image/png", sizes: "16x16", href: "/assets/icons/favicon-16x16.png"}],
+    ['link', { rel: "manifest", href: "/assets/icons/site.webmanifest"}],
+    ['link', { rel: "mask-icon", href: "/assets/icons/safari-pinned-tab.svg", color: "#3a0839"}],
+    ['link', { rel: "shortcut icon", href: "favicon.ico"}],
+    ['meta', { name: "msapplication-TileColor", content: "#3a0839"}],
+    ['meta', { name: "msapplication-config", content: "/assets/icons/browserconfig.xml"}],
+    ['meta', { name: "theme-color", content: "#ffffff"}],
+],
   /**
    * Theme configuration, here is the default theme configuration for VuePress.
    *
@@ -30,7 +42,7 @@ module.exports = {
     lastUpdated: true,
     logo: "/assets/logo.png",
     nav: [
-      {text: "Website", link: "https://desmos.network", target: "_blank"},
+      {text: "Website", link: "https://bigdipper.live", target: "_blank"},
   ],
     // sidebar: 'auto',
     sidebarDepth: 1,
