@@ -6,6 +6,8 @@ on:
     branches:
       - master
       - desmos
+    paths-ignore:
+      - 'docs/**'
 
 jobs:
   Build-and-Publish:
