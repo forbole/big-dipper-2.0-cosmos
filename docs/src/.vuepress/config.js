@@ -18,7 +18,7 @@ module.exports = {
     ['meta', {property: "og:title", content: "Big Dipper 2.0 Cosmos Documentation"}],
     ['meta', {property: "og:url", content: " https://docs.bigdipper.live"}],
     ['meta', {property: "og:description", content: "Official Documentation for Big Dipper 2.0 Cosmos [UI]"}],
-    ['meta', {property: "og:image", content: "https://docs.bigdipper.live/assets/logo.png"}],
+    ['meta', {property: "og:image", content: "https://docs.bigdipper.live/assets/cover.png"}],
     ['meta', {roperty: "og:type", content: "website"}],
     ['meta', {property: "og:locale", content: "en_US"}],
     ['link', { rel: "apple-touch-icon", sizes: "180x180", href: "/assets/icons/apple-touch-icon.png"}],
