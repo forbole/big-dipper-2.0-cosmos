@@ -41,8 +41,7 @@ jobs:
           echo 'docs.bigdipper.live' > ./src/.vuepress/dist/CNAME
 
       - name: Deploy 🚀
-        # if: github.ref == 'refs/heads/master'
-        # if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
