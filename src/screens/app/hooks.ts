@@ -1,5 +1,6 @@
 import {
-  useEffect, useState,
+  useEffect,
+  useState,
 } from 'react';
 import * as jdenticon from 'jdenticon';
 import useTranslation from 'next-translate/useTranslation';
