@@ -14,7 +14,8 @@ import {
 import Countdown from '@screens/countdown';
 import { InnerApp } from './components';
 import {
-  useApp, useGenesis,
+  useApp,
+  useGenesis,
 } from './hooks';
 
 function App(props: AppProps) {
