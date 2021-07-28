@@ -5,6 +5,8 @@ Big Dipper is an open-source block explorer and token management tool serving ov
 
 Visit [Big Dipper](https://bigdipper.live/) to see a complete list of chains.
 
+Official Documentation: [https://docs.bigdipper.live/](https://docs.bigdipper.live/)
+
 ## What's New
 While the original [Big Dipper](https://github.com/forbole/big-dipper) was a fullstack application, we have decided to break down the components and make it a view only explorer in **v2.0+**. This repo (**Big Dipper Interface ✨ Cosmos 2.0**) will primarily focus only on the frontend aspect.
 
@@ -150,7 +152,7 @@ ex:
   content: COMPONENTS.SaveProfile,
   tagTheme: 'four',
   tagDisplay: 'txSaveProfileLabel',
-},
+}
 ```
 
 ## Docker
