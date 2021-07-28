@@ -30,6 +30,7 @@ module.exports = {
     ['meta', { name: "msapplication-TileColor", content: "#3a0839"}],
     ['meta', { name: "msapplication-config", content: "/assets/icons/browserconfig.xml"}],
     ['meta', { name: "theme-color", content: "#ffffff"}],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
 ],
   /**
    * Theme configuration, here is the default theme configuration for VuePress.
