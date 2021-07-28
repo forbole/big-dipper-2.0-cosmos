@@ -12,23 +12,9 @@ import { useStyles } from './styles';
 const Layout = (props:LayoutProps) => {
   const { t } = useTranslation();
   const classes = useStyles();
-  // ============================
-  // Meta Tags
-  // ============================
-  let baseUrl = '';
-  let currentPath = '';
-
-  if (typeof window === 'object') {
-    baseUrl = window?.location?.origin || '';
-    currentPath = window?.location?.href || '';
-  }
 
   const {
-    description = t('common:description'),
     title = t('common:bigDipper'),
-    type = 'website',
-    // imageUrl = `${baseUrl}/icons/android-chrome-512x512.png`,
-    imageUrl = 'https://staging.bigdipper.live/images/big-dipper-social-media.png',
     children,
     navTitle,
     className,
@@ -43,36 +29,9 @@ const Layout = (props:LayoutProps) => {
     <>
       <NextSeo
         title={formattedTitle}
-        description={description}
         openGraph={{
-          type,
           title: formattedTitle,
-          site_name: 'Big Dipper',
-          url: currentPath,
-          description,
-          images: [
-            {
-              url: imageUrl,
-            },
-          ],
         }}
-        twitter={{
-          cardType: 'summary_large_image',
-        }}
-        additionalMetaTags={[
-          {
-            name: 'msapplication-TileColor',
-            content: '#da532c',
-          },
-          {
-            name: 'msapplication-config',
-            content: `${baseUrl}/icons/browserconfig.xml`,
-          },
-          {
-            name: 'theme-color',
-            content: '#ffffff',
-          },
-        ]}
       />
       {/* ========================== */}
       {/* body */}

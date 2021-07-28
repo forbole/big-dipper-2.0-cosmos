@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
+import useTranslation from 'next-translate/useTranslation';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { ToastContainer } from 'react-toastify';
@@ -26,6 +27,7 @@ function App(props: AppProps) {
     genesisStarted,
     startGenesis,
   } = useGenesis();
+  const { t } = useTranslation();
 
   return (
     <>
@@ -40,6 +42,15 @@ function App(props: AppProps) {
         <link rel="manifest" href="/icons/site.webmanifest" />
         <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5" />
         <link rel="shortcut icon" href="/icons/favicon.ico" />
+        <meta property="og:image" content="https://bigdipper.live/images/big-dipper-social-media.png" />
+        <meta property="og:description" content={t('common:description')} />
+        <meta property="description" content={t('common:description')} />
+        <meta property="og:site_name" content="Big Dipper" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="msapplication-config" content="/icons/browserconfig.xml" />
+        <meta name="theme-color" content="#ffffff" />
       </Head>
       <ApolloProvider
         client={apolloClient}

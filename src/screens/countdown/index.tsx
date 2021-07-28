@@ -1,7 +1,5 @@
 /* eslint-disable */
 import React, { useState } from 'react';
-import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 import { useInterval } from '@hooks';
 import dayjs from '@utils/dayjs';
@@ -12,7 +10,6 @@ import { Loading } from '@components';
 const Countdown: React.FC<{
   startGenesis: () => void;
 }> = ({ startGenesis }) => {
-  const { t } = useTranslation();
   const classes = useStyles();
   const genesisTime = dayjs.utc(chainConfig.genesis.time);
   const [state, setState] = useState({
@@ -47,53 +44,8 @@ const Countdown: React.FC<{
 
   useInterval(intervalCallback, state.interval);
 
-  // ============================
-  // Meta Tags
-  // ============================
-  let baseUrl = '';
-  let currentPath = '';
-
-  if (typeof window === 'object') {
-    baseUrl = window?.location?.origin || '';
-    currentPath = window?.location?.href || '';
-  }
-
-  const title = `${t('common:bigDipper')} | ${chainConfig.title}`
   return (
     <>
-    <NextSeo
-        title={title}
-        description={t('common:description')}
-        openGraph={{
-          type: 'website',
-          title,
-          site_name: 'Big Dipper',
-          url: currentPath,
-          description: t('common:description'),
-          images: [
-            {
-              url: 'https://staging.bigdipper.live/images/big-dipper-social-media.png',
-            },
-          ],
-        }}
-        twitter={{
-          cardType: 'summary_large_image',
-        }}
-        additionalMetaTags={[
-          {
-            name: 'msapplication-TileColor',
-            content: '#da532c',
-          },
-          {
-            name: 'msapplication-config',
-            content: `${baseUrl}/icons/browserconfig.xml`,
-          },
-          {
-            name: 'theme-color',
-            content: '#ffffff',
-          },
-        ]}
-      />
     <div className={classes.root}>
       <img src={chainConfig.logo} className={classes.logo} alt="logo" />
       <div className={classes.timeContainer}>
