@@ -2,10 +2,14 @@ name: Docker-Staging
 
 on:
   pull_request:
+    paths:
+      - '!docs/**'
   push:
     branches:
       - master
       - desmos
+    paths:
+      - '!docs/**'
 
 jobs:
   Build-and-Publish:
