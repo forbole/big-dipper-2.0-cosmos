@@ -47,7 +47,7 @@ export const formatSlashing = (data: Slashing, t: any) => {
     },
     {
       label: t('minSignedPerWindow'),
-      detail: data.minSignedPerWindow,
+      detail: `${data.minSignedPerWindow * 100}%`,
     },
     {
       label: t('signedBlockWindow'),
@@ -55,11 +55,11 @@ export const formatSlashing = (data: Slashing, t: any) => {
     },
     {
       label: t('slashFractionDoubleSign'),
-      detail: data.slashFractionDoubleSign,
+      detail: `${data.slashFractionDoubleSign * 100} / 100`,
     },
     {
       label: t('slashFractionDowntime'),
-      detail: data.slashFractionDowntime,
+      detail: `${data.slashFractionDowntime * 10000} / ${numeral(10000).format('0,0')}`,
     },
   ]);
 };
@@ -72,19 +72,19 @@ export const formatMinting = (data: Minting, t: any) => {
     },
     {
       label: t('goalBonded'),
-      detail: data.goalBonded,
+      detail: `${data.goalBonded * 100}%`,
     },
     {
       label: t('inflationMax'),
-      detail: data.inflationMax,
+      detail: `${data.inflationMax * 100}%`,
     },
     {
       label: t('inflationMin'),
-      detail: data.inflationMin,
+      detail: `${data.inflationMin * 100}%`,
     },
     {
       label: t('inflationRateChange'),
-      detail: data.inflationRateChange,
+      detail: `${data.inflationRateChange * 100}%`,
     },
     {
       label: t('mintDenom'),
@@ -97,15 +97,15 @@ export const formatDistribution = (data: Distribution, t: any) => {
   return ([
     {
       label: t('baseProposerReward'),
-      detail: data.baseProposerReward,
+      detail: `${data.baseProposerReward * 100}%`,
     },
     {
       label: t('bonusProposerReward'),
-      detail: data.bonusProposerReward,
+      detail: `${data.bonusProposerReward * 100}%`,
     },
     {
       label: t('communityTax'),
-      detail: data.communityTax,
+      detail: `${data.communityTax * 100}%`,
     },
     {
       label: t('withdrawAddressEnabled'),
@@ -128,15 +128,15 @@ export const formatGov = (data: Gov, t: any) => {
     },
     {
       label: t('quorum'),
-      detail: numeral(data.quorum).format('0.[00]'),
+      detail: `${data.quorum * 100}%`,
     },
     {
       label: t('threshold'),
-      detail: numeral(data.threshold).format('0.[00]'),
+      detail: `${data.threshold * 100}%`,
     },
     {
       label: t('vetoThreshold'),
-      detail: numeral(data.vetoThreshold).format('0.[00]'),
+      detail: `${data.vetoThreshold * 100}%`,
     },
     {
       label: t('votingPeriod'),

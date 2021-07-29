@@ -26,7 +26,12 @@ const TabsHeader: React.FC<{
 
   return (
     <div className={classnames(className, classes.root)}>
-      <Tabs value={tab} onChange={handleTabChange}>
+      <Tabs
+        variant="scrollable"
+        scrollButtons="off"
+        value={tab}
+        onChange={handleTabChange}
+      >
         {tabLabels.map((x, i) => (
           <Tab
             key={x}

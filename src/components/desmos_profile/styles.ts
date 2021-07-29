@@ -38,11 +38,13 @@ export const useStyles = () => {
         description: {
           flex: 1,
           textAlign: 'center',
+          marginTop: theme.spacing(1),
           '& .tag': {
             color: theme.palette.custom.fonts.fontFour,
           },
           [theme.breakpoints.up('md')]: {
             textAlign: 'left',
+            marginTop: 0,
             marginLeft: theme.spacing(2),
             display: 'flex',
             alignItems: 'flex-end',

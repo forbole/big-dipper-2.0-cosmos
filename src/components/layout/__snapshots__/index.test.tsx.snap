@@ -3,44 +3,13 @@
 exports[`component: Layout it renders 1`] = `
 Array [
   <div
-    additionalMetaTags={
-      Array [
-        Object {
-          "content": "#da532c",
-          "name": "msapplication-TileColor",
-        },
-        Object {
-          "content": "http://localhost/icons/browserconfig.xml",
-          "name": "msapplication-config",
-        },
-        Object {
-          "content": "#ffffff",
-          "name": "theme-color",
-        },
-      ]
-    }
-    description="common:description"
     id="NextSeo"
     openGraph={
       Object {
-        "description": "common:description",
-        "images": Array [
-          Object {
-            "url": "https://staging.bigdipper.live/images/big-dipper-social-media.png",
-          },
-        ],
-        "site_name": "Big Dipper",
         "title": "validators | Desmos Block Explorer",
-        "type": "website",
-        "url": "http://localhost/",
       }
     }
     title="validators | Desmos Block Explorer"
-    twitter={
-      Object {
-        "cardType": "summary_large_image",
-      }
-    }
   />,
   <div
     className="makeStyles-root"
