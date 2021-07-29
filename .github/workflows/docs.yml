@@ -4,6 +4,8 @@ name: Docs
 # The deployment of the docs is made only on each push on master.
 on:
   pull_request:
+    paths:
+      - docs/**
   push:
     branches:
       - master

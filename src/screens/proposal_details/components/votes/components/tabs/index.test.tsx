@@ -26,6 +26,7 @@ describe('screen: Validators/Tabs', () => {
               no: 4,
               abstain: 0,
               veto: 10,
+              notVoted: 0,
             },
           }}
         />

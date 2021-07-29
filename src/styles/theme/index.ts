@@ -152,6 +152,9 @@ export const common = {
     },
     MuiTabs: {
       root: {
+        // '& .MuiTabs-fixed': {
+        //   overflow: 'auto',
+        // },
         '&.MuiTabs-root, & .MuiTab-root': {
           minHeight: '40px',
         },

@@ -8,7 +8,19 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
     className="MuiTabs-root"
   >
     <div
-      className="MuiTabs-scroller MuiTabs-fixed"
+      className="MuiTabs-scrollable"
+      style={
+        Object {
+          "height": 99,
+          "overflow": "scroll",
+          "position": "absolute",
+          "top": -9999,
+          "width": 99,
+        }
+      }
+    />
+    <div
+      className="MuiTabs-scroller MuiTabs-scrollable"
       onScroll={[Function]}
       style={
         Object {
@@ -191,7 +203,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
           <span
             className="MuiTab-wrapper"
           >
-            proposals:didNotVote (undefined)
+            proposals:didNotVote (0)
           </span>
         </button>
       </div>

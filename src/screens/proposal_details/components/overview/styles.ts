@@ -27,11 +27,11 @@ export const useStyles = () => {
           display: 'grid',
           '& > *': {
             marginBottom: theme.spacing(1),
-            [theme.breakpoints.up('lg')]: {
+            [theme.breakpoints.up('md')]: {
               marginBottom: theme.spacing(2),
             },
           },
-          [theme.breakpoints.up('lg')]: {
+          [theme.breakpoints.up('md')]: {
             gridTemplateColumns: 'repeat(2, 1fr)',
           },
         },
