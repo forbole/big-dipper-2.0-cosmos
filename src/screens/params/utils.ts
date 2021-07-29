@@ -128,15 +128,15 @@ export const formatGov = (data: Gov, t: any) => {
     },
     {
       label: t('quorum'),
-      detail: `${numeral(numeral(data.quorum).format('0.[00]')).value() * 100}%`,
+      detail: `${data.quorum * 100}%`,
     },
     {
       label: t('threshold'),
-      detail: `${numeral(numeral(data.threshold).format('0.[00]')).value() * 100}%`,
+      detail: `${data.threshold * 100}%`,
     },
     {
       label: t('vetoThreshold'),
-      detail: `${numeral(numeral(data.vetoThreshold).format('0.[00]')).value() * 100}%`,
+      detail: `${data.vetoThreshold * 100}%`,
     },
     {
       label: t('votingPeriod'),

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import numeral from 'numeral';
 import * as R from 'ramda';
 import {
   useParamsQuery,
@@ -135,15 +136,16 @@ export const useParams = () => {
     const formatGov = () => {
       if (data.govParams.length) {
         const govParamsRaw = data.govParams[0];
+
         return {
           minDeposit: formatDenom(
             R.pathOr(0, ['min_deposit', 0, 'amount'], govParamsRaw.depositParams),
             R.pathOr(chainConfig.primaryTokenUnit, ['min_deposit', 0, 'denom'], govParamsRaw.depositParams),
           ),
           maxDepositPeriod: R.pathOr(0, ['max_deposit_period'], govParamsRaw.depositParams),
-          quorum: R.pathOr(0, ['quorum'], govParamsRaw.tallyParams),
-          threshold: R.pathOr(0, ['threshold'], govParamsRaw.tallyParams),
-          vetoThreshold: R.pathOr(0, ['veto_threshold'], govParamsRaw.tallyParams),
+          quorum: numeral(numeral(R.pathOr(0, ['quorum'], govParamsRaw.tallyParams)).format('0.[00]')).value(),
+          threshold: numeral(numeral(R.pathOr(0, ['threshold'], govParamsRaw.tallyParams)).format('0.[00]')).value(),
+          vetoThreshold: numeral(numeral(R.pathOr(0, ['veto_threshold'], govParamsRaw.tallyParams)).format('0.[00]')).value(),
           votingPeriod: R.pathOr(0, ['voting_period'], govParamsRaw.votingParams),
         };
       }
