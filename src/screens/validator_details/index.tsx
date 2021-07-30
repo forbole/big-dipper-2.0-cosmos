@@ -58,6 +58,7 @@ const ValidatorDetails = () => {
                 commission: overview.commission,
                 signedBlockWindow: overview.signedBlockWindow,
                 missedBlockCounter: overview.missedBlockCounter,
+                lastSeen: overview.lastSeen,
               }}
             />
           ) : (
@@ -74,6 +75,7 @@ const ValidatorDetails = () => {
               commission={overview.commission}
               signedBlockWindow={overview.signedBlockWindow}
               missedBlockCounter={overview.missedBlockCounter}
+              lastSeen={overview.lastSeen}
             />
           )}
           <VotingPower
