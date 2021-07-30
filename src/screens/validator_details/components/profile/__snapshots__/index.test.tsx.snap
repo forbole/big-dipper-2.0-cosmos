@@ -132,6 +132,20 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
         />
       </div>
     </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        validators:lastSeen
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        validators:na
+      </p>
+    </div>
   </div>
 </div>
 `;
