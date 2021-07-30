@@ -1,10 +1,12 @@
 import React from 'react';
 import numeral from 'numeral';
 import classnames from 'classnames';
+import dayjs, { formatDayJs } from '@utils/dayjs';
 import {
   Typography,
   Divider,
 } from '@material-ui/core';
+import { useSettingsContext } from '@contexts';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Box,
@@ -25,6 +27,7 @@ const Profile: React.FC<OverviewType & {
 }> = ({
   className, ...data
 }) => {
+  const { dateFormat } = useSettingsContext();
   const classes = useStyles();
   const { t } = useTranslation('validators');
 
@@ -56,6 +59,14 @@ const Profile: React.FC<OverviewType & {
         className="value"
       >
         {`${numeral(data.commission * 100).format('0.00')}%`}
+      </Typography>
+    ),
+    lastSeen: (
+      <Typography
+        variant="body1"
+        className="value"
+      >
+        {data.lastSeen ? formatDayJs(dayjs.utc(data.lastSeen), dateFormat) : t('na')}
       </Typography>
     ),
     condition: (
@@ -163,6 +174,12 @@ const Profile: React.FC<OverviewType & {
             />
           </Typography>
           {formattedItem.condition}
+        </div>
+        <div className={classes.item}>
+          <Typography variant="h4" className="label">
+            {t('lastSeen')}
+          </Typography>
+          {formattedItem.lastSeen}
         </div>
       </div>
     </Box>

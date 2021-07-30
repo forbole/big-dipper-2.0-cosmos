@@ -13,6 +13,7 @@ export type OverviewType = {
   commission: number;
   signedBlockWindow: number;
   missedBlockCounter: number;
+  lastSeen: string;
 }
 
 export type TransactionType = {

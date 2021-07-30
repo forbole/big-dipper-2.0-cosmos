@@ -16,6 +16,14 @@ subscription LastHundredBlocks($address: String) {
   }
 }
 
+subscription ValidatorLastSeenListener($address: String) {
+  preCommit: pre_commit(limit: 1, where: {validator: {validator_info: {operator_address: {_eq: $address}}}}, order_by: {height: desc}) {
+    height
+    timestamp
+  }
+}
+
+
 query ValidatorDetails($address: String, $utc: timestamp) {
   stakingParams: staking_params(limit: 1) {
     bondDenom: bond_denom
