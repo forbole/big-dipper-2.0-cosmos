@@ -8,3 +8,5 @@
 - Fix twitter crawler preview ([\#144](https://github.com/forbole/big-dipper-desmos/issues/144))
 - Update params visualisation ([\#152](https://github.com/forbole/big-dipper-desmos/issues/152))
 - Make mui tabs scrollable ([\#152](https://github.com/forbole/big-dipper-desmos/issues/153))
+- Moved documentation to own repo ([\#162](https://github.com/forbole/big-dipper-desmos/issues/162))
+- Add validator last seen active feature ([\#160](https://github.com/forbole/big-dipper-desmos/issues/160))

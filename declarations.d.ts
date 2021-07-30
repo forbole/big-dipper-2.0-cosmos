@@ -51,4 +51,5 @@ type ValidatorProfile = {
   commission: number;
   signedBlockWindow: number;
   missedBlockCounter: number;
+  lastSeen: string;
 }

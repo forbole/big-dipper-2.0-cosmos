@@ -84,6 +84,10 @@ export const useStyles = () => {
           display: 'grid',
           gridTemplateColumns: 'repeat(2, 1fr)',
           gridTemplateRows: 'auto',
+          gridGap: theme.spacing(2),
+          [theme.breakpoints.up('md')]: {
+            gridTemplateColumns: 'repeat(4, 1fr)',
+          },
         },
         item: {
           '& .label': {
@@ -115,6 +119,13 @@ export const useStyles = () => {
           },
           '& a': {
             color: theme.palette.custom.fonts.highlight,
+          },
+
+          '&.last-seen': {
+            gridColumn: '1/3',
+            [theme.breakpoints.up('md')]: {
+              gridColumn: '3/5',
+            },
           },
         },
       });

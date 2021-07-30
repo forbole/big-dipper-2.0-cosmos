@@ -11,6 +11,8 @@ import {
   ValidatorDetailsQuery,
   useGetMessagesByAddressQuery,
   GetMessagesByAddressQuery,
+  useValidatorLastSeenListenerSubscription,
+  ValidatorLastSeenListenerSubscription,
 } from '@graphql/types';
 import { useDesmosProfile } from '@hooks';
 import { useChainContext } from '@contexts';
@@ -44,6 +46,7 @@ export const useValidatorDetails = () => {
       commission: 0,
       missedBlockCounter: 0,
       signedBlockWindow: 0,
+      lastSeen: '',
     },
     votingPower: {
       height: 0,
@@ -122,6 +125,17 @@ export const useValidatorDetails = () => {
     },
   });
 
+  useValidatorLastSeenListenerSubscription({
+    variables: {
+      address: R.pathOr('', ['query', 'address'], router),
+    },
+    onSubscriptionData: (data) => {
+      handleSetState({
+        overview: formatLastSeen(data.subscriptionData.data),
+      });
+    },
+  });
+
   const transactionQuery = useGetMessagesByAddressQuery({
     variables: {
       limit: LIMIT + 1, // to check if more exist
@@ -187,6 +201,15 @@ export const useValidatorDetails = () => {
         timestamp: transaction.block.timestamp,
       });
     });
+  };
+
+  const formatLastSeen = (data: ValidatorLastSeenListenerSubscription) => {
+    if (data.preCommit.length) {
+      const preCommit = data.preCommit[0];
+      return ({
+        lastSeen: preCommit.timestamp,
+      });
+    }
   };
 
   const formatAccountQuery = (data: ValidatorDetailsQuery) => {

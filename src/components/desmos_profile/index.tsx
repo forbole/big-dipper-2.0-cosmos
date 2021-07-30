@@ -6,6 +6,8 @@ import {
   Typography,
   Divider,
 } from '@material-ui/core';
+import dayjs, { formatDayJs } from '@utils/dayjs';
+import { useSettingsContext } from '@contexts';
 import {
   Box,
   Avatar,
@@ -24,6 +26,7 @@ import {
 const DesmosProfile: React.FC<{
   className?: string;
 } & DesmosProfile> = (props) => {
+  const { dateFormat } = useSettingsContext();
   const { t } = useTranslation('accounts');
   const classes = useStyles();
   const {
@@ -146,6 +149,17 @@ const DesmosProfile: React.FC<{
                   {t(condition)}
                 </Typography>
               )}
+            </div>
+            <div className={classnames(classes.item, 'last-seen')}>
+              <Typography variant="h4" className="label">
+                {t('validators:lastSeen')}
+              </Typography>
+              <Typography
+                variant="body1"
+                className="value"
+              >
+                {validator.lastSeen ? formatDayJs(dayjs.utc(validator.lastSeen), dateFormat) : t('validators:na')}
+              </Typography>
             </div>
           </div>
         )}
