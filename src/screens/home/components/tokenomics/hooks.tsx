@@ -7,6 +7,7 @@ import {
 
 } from '@graphql/types';
 import { formatDenom } from '@utils/format_denom';
+import { chainConfig } from '@configs';
 
 export const useTokenomics = () => {
   const [state, setState] = useState<{
@@ -32,7 +33,7 @@ export const useTokenomics = () => {
   const formatTokenomics = (data: TokenomicsQuery) => {
     const results = { ...state };
 
-    results.denom = R.pathOr('', ['stakingParams', 0, 'bondDenom'], data);
+    results.denom = R.pathOr(chainConfig.primaryTokenUnit, ['stakingParams', 0, 'bondDenom'], data);
 
     const [total] = R.pathOr([], [
       'supply',
