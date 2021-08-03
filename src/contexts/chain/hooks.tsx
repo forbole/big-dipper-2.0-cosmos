@@ -86,45 +86,47 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
     // ===============================
 
     data?.validator?.forEach((x, i) => {
-      const validatorAddress = x.validatorInfo.operatorAddress;
-      const selfAddress = x.validatorInfo.selfDelegateAddress;
-      const { consensusAddress } = x.validatorInfo;
+      if (x.validatorInfo) {
+        const validatorAddress = x.validatorInfo.operatorAddress;
+        const selfAddress = x.validatorInfo.selfDelegateAddress;
+        const { consensusAddress } = x.validatorInfo;
 
-      const defaultMoniker = getMiddleEllipsis(validatorAddress, {
-        beginning: 6, ending: 10,
-      });
-      const defaultSelfDelegateMoniker = getMiddleEllipsis(selfAddress, {
-        beginning: 6, ending: 10,
-      });
+        const defaultMoniker = getMiddleEllipsis(validatorAddress, {
+          beginning: 6, ending: 10,
+        });
+        const defaultSelfDelegateMoniker = getMiddleEllipsis(selfAddress, {
+          beginning: 6, ending: 10,
+        });
 
-      const profile = R.pathOr(undefined, [i, 'value'], profiles);
+        const profile = R.pathOr(undefined, [i, 'value'], profiles);
 
-      // will use profile nicknamed => validator moniker => validator address priority
-      validators[validatorAddress] = {
-        moniker: (
-          R.pathOr(undefined, ['nickname'], profile)
-          || R.pathOr(defaultMoniker, ['validatorDescriptions', 0, 'moniker'], x)
-        ),
-      };
+        // will use profile nicknamed => validator moniker => validator address priority
+        validators[validatorAddress] = {
+          moniker: (
+            R.pathOr(undefined, ['nickname'], profile)
+            || R.pathOr(defaultMoniker, ['validatorDescriptions', 0, 'moniker'], x)
+          ),
+        };
 
-      selfDelegateAddresses[selfAddress] = validators[validatorAddress];
-      // edge case if validator has no moniker
-      // we need to display the self delegation address accordingly
-      if (validators[validatorAddress].moniker === defaultMoniker) {
-        selfDelegateAddresses[selfAddress] = R.clone(validators[validatorAddress]);
-        selfDelegateAddresses[selfAddress].moniker = defaultSelfDelegateMoniker;
-      }
+        selfDelegateAddresses[selfAddress] = validators[validatorAddress];
+        // edge case if validator has no moniker
+        // we need to display the self delegation address accordingly
+        if (validators[validatorAddress].moniker === defaultMoniker) {
+          selfDelegateAddresses[selfAddress] = R.clone(validators[validatorAddress]);
+          selfDelegateAddresses[selfAddress].moniker = defaultSelfDelegateMoniker;
+        }
 
-      consensusAddresses[consensusAddress] = validatorAddress;
+        consensusAddresses[consensusAddress] = validatorAddress;
 
-      if (
-        R.pathOr(undefined, ['imageUrl'], profile)
-        || R.pathOr(undefined, ['validatorDescriptions', 0, 'avatarUrl'], x)
-      ) {
-        validators[validatorAddress].imageUrl = (
+        if (
           R.pathOr(undefined, ['imageUrl'], profile)
           || R.pathOr(undefined, ['validatorDescriptions', 0, 'avatarUrl'], x)
-        );
+        ) {
+          validators[validatorAddress].imageUrl = (
+            R.pathOr(undefined, ['imageUrl'], profile)
+            || R.pathOr(undefined, ['validatorDescriptions', 0, 'avatarUrl'], x)
+          );
+        }
       }
     });
 
