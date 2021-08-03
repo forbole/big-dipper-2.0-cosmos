@@ -210,6 +210,8 @@ export const useValidatorDetails = () => {
         lastSeen: preCommit.timestamp,
       });
     }
+
+    return {};
   };
 
   const formatAccountQuery = (data: ValidatorDetailsQuery) => {
