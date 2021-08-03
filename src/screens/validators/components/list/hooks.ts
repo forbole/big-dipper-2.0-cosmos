@@ -52,7 +52,7 @@ export const useValidators = () => {
     ).value;
     const signedBlockWindow = R.pathOr(0, ['slashingParams', 0, 'signedBlockWindow'], data);
 
-    const formattedItems = data.validator.map((x) => {
+    const formattedItems = data.validator.filter((x) => x.validatorInfo).map((x) => {
       const validator = findAddress(x.validatorInfo.operatorAddress);
       const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
       const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();

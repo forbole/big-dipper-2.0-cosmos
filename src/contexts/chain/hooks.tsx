@@ -85,7 +85,7 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
     // Set up initial dictionary and axios calls
     // ===============================
 
-    data?.validator?.forEach((x, i) => {
+    data?.validator?.filter((x) => x.validatorInfo).forEach((x, i) => {
       const validatorAddress = x.validatorInfo.operatorAddress;
       const selfAddress = x.validatorInfo.selfDelegateAddress;
       const { consensusAddress } = x.validatorInfo;
