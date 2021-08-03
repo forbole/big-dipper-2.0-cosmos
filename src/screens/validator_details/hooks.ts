@@ -229,13 +229,14 @@ export const useValidatorDetails = () => {
       const missedBlockCounter = R.pathOr(0, ['validatorSigningInfos', 0, 'missedBlocksCounter'], data.validator[0]);
       const signedBlockWindow = data.slashingParams[0]?.signedBlockWindow ?? 0;
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
-      const { operatorAddress } = data.validator[0].validatorInfo;
+      const operatorAddress = R.pathOr('', ['validator', 0, 'validatorInfo', 'operatorAddress'], data);
+      const selfDelegateAddress = R.pathOr('', ['validator', 0, 'validatorInfo', 'selfDelegateAddress'], data);
       const validator = findAddress(operatorAddress);
 
       const profile = {
         validator,
         operatorAddress,
-        selfDelegateAddress: data.validator[0].validatorInfo.selfDelegateAddress,
+        selfDelegateAddress,
         description: R.pathOr('', ['validatorDescriptions', 0, 'details'], data.validator[0]),
         status: R.pathOr(3, ['validatorStatuses', 0, 'status'], data.validator[0]),
         jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], data.validator[0]),
