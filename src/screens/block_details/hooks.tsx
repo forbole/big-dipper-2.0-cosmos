@@ -93,7 +93,7 @@ export const useBlockDetails = () => {
     // Signatures
     // ==========================
     const formatSignatures = () => {
-      const signatures = data.preCommits.map((x) => {
+      const signatures = data.preCommits.filter((x) => x?.validator?.validatorInfo).map((x) => {
         const operator = findAddress(x.validator.validatorInfo.operatorAddress);
         return {
           address: x.validator.validatorInfo.operatorAddress,

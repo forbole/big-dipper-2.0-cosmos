@@ -8,7 +8,10 @@ import {
 import { formatDenom } from '@utils/format_denom';
 import { useChainContext } from '@contexts';
 import { getValidatorCondition } from '@utils/get_validator_condition';
-import { chainConfig } from '@src/configs';
+import {
+  StakingParams,
+  SlashingParams,
+} from '@models';
 import {
   ValidatorsState, ValidatorType,
 } from './types';
@@ -46,11 +49,14 @@ export const useValidators = () => {
   // Parse data
   // ==========================
   const formatValidators = (data: ValidatorsQuery) => {
+    const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
+    const slashingParams = SlashingParams.fromJson(R.pathOr({}, ['slashingParams', 0, 'params'], data));
     const votingPowerOverall = formatDenom(
       R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data),
-      R.pathOr(chainConfig.primaryTokenUnit, ['stakingParams', 0, 'bondDenom'], data),
+      stakingParams.bondDenom,
     ).value;
-    const signedBlockWindow = R.pathOr(0, ['slashingParams', 0, 'signedBlockWindow'], data);
+
+    const { signedBlockWindow } = slashingParams;
 
     const formattedItems = data.validator.filter((x) => x.validatorInfo).map((x) => {
       const validator = findAddress(x.validatorInfo.operatorAddress);

@@ -1,6 +1,6 @@
 query Account($address: String, $utc: timestamp) {
   stakingParams: staking_params(limit: 1) {
-    bondDenom: bond_denom
+    params
   }
   account(where: {address: {_eq: $address}}) {
     address

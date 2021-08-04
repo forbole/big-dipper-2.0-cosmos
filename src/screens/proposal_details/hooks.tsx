@@ -17,6 +17,10 @@ import {
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
 import { useChainContext } from '@contexts';
+import {
+  GovParams,
+  StakingParams,
+} from '@models';
 import { ProposalState } from './types';
 
 export const useProposalDetails = () => {
@@ -268,13 +272,16 @@ export const useProposalDetails = () => {
   };
 
   const formatTallyParams = (data: TallyParamsQuery) => {
-    const percent = numeral(numeral(R.pathOr(state.tally.quorum, ['govParams', 0, 'tallyParams', 'quorum'], data)).format('0.[00]')).value();
+    const govParams = GovParams.fromJson(R.pathOr({}, ['govParams', 0], data));
+    const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
+    const percent = numeral(numeral(govParams.tallyParams.quorum).format('0.[00]')).value();
+
     return ({
       denom: R.pathOr('', ['stakingParams', 0, 'bondDenom'], data),
       quorum: percent,
       bondedTokens: formatDenom(
         R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data),
-        R.pathOr('', ['stakingParams', 0, 'bondDenom'], data),
+        stakingParams.bondDenom,
       ).value,
     });
   };

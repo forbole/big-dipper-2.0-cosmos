@@ -18,6 +18,10 @@ import { useDesmosProfile } from '@hooks';
 import { useChainContext } from '@contexts';
 import { getValidatorCondition } from '@utils/get_validator_condition';
 import { chainConfig } from '@src/configs';
+import {
+  StakingParams,
+  SlashingParams,
+} from '@models';
 import { ValidatorDetailsState } from './types';
 
 export const useValidatorDetails = () => {
@@ -210,6 +214,8 @@ export const useValidatorDetails = () => {
         lastSeen: preCommit.timestamp,
       });
     }
+
+    return {};
   };
 
   const formatAccountQuery = (data: ValidatorDetailsQuery) => {
@@ -226,16 +232,18 @@ export const useValidatorDetails = () => {
     // overview
     // ============================
     const formatOverview = () => {
+      const slashingParams = SlashingParams.fromJson(R.pathOr({}, ['slashingParams', 0, 'params'], data));
       const missedBlockCounter = R.pathOr(0, ['validatorSigningInfos', 0, 'missedBlocksCounter'], data.validator[0]);
-      const signedBlockWindow = data.slashingParams[0]?.signedBlockWindow ?? 0;
+      const { signedBlockWindow } = slashingParams;
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
-      const { operatorAddress } = data.validator[0].validatorInfo;
+      const operatorAddress = R.pathOr('', ['validator', 0, 'validatorInfo', 'operatorAddress'], data);
+      const selfDelegateAddress = R.pathOr('', ['validator', 0, 'validatorInfo', 'selfDelegateAddress'], data);
       const validator = findAddress(operatorAddress);
 
       const profile = {
         validator,
         operatorAddress,
-        selfDelegateAddress: data.validator[0].validatorInfo.selfDelegateAddress,
+        selfDelegateAddress,
         description: R.pathOr('', ['validatorDescriptions', 0, 'details'], data.validator[0]),
         status: R.pathOr(3, ['validatorStatuses', 0, 'status'], data.validator[0]),
         jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], data.validator[0]),
@@ -270,13 +278,14 @@ export const useValidatorDetails = () => {
       );
       const selfDelegatePercent = (numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value() / totalDelegations) * 100;
 
+      const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
       const votingPower = {
         self,
         selfDelegate: selfDelegateAmount,
         selfDelegatePercent,
         overall: formatDenom(
           R.pathOr(0, ['stakingPool', 0, 'bonded'], data),
-          R.pathOr(chainConfig.primaryTokenUnit, ['stakingParams', 0, 'bondDenom'], data),
+          stakingParams.bondDenom,
         ),
         height: R.pathOr(0, ['validatorVotingPowers', 0, 'height'], data.validator[0]),
       };

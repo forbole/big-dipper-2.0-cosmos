@@ -36,7 +36,7 @@ const mockValidatorsDocument = jest.fn().mockResolvedValue({
   data: {
     stakingParams: [
       {
-        bondDenom: 'udenom',
+        params: {},
       },
     ],
     stakingPool: [
@@ -92,7 +92,9 @@ const mockValidatorsDocument = jest.fn().mockResolvedValue({
     ],
     slashingParams: [
       {
-        signedBlockWindow: 7200,
+        params: {
+
+        },
       },
     ],
   },

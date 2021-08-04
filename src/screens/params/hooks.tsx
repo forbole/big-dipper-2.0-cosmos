@@ -8,6 +8,13 @@ import {
 import { formatDenom } from '@utils/format_denom';
 import { chainConfig } from '@configs';
 import {
+  StakingParams,
+  SlashingParams,
+  MintParams,
+  DistributionParams,
+  GovParams,
+} from '@models';
+import {
   ParamsState,
 } from './types';
 
@@ -53,7 +60,7 @@ export const useParams = () => {
     // ================================
     const formatStaking = () => {
       if (data.stakingParams.length) {
-        const stakingParamsRaw = data.stakingParams[0];
+        const stakingParamsRaw = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
         return {
           bondDenom: stakingParamsRaw.bondDenom,
           unbondingTime: stakingParamsRaw.unbondingTime,
@@ -73,7 +80,7 @@ export const useParams = () => {
     // ================================
     const formatSlashing = () => {
       if (data.slashingParams.length) {
-        const slashingParamsRaw = data.slashingParams[0];
+        const slashingParamsRaw = SlashingParams.fromJson(R.pathOr({}, ['slashingParams', 0, 'params'], data));
         return {
           downtimeJailDuration: slashingParamsRaw.downtimeJailDuration,
           minSignedPerWindow: slashingParamsRaw.minSignedPerWindow,
@@ -82,7 +89,6 @@ export const useParams = () => {
           slashFractionDowntime: slashingParamsRaw.slashFractionDowntime,
         };
       }
-
       return null;
     };
 
@@ -93,7 +99,8 @@ export const useParams = () => {
     // ================================
     const formatMint = () => {
       if (data.mintParams.length) {
-        const mintParamsRaw = data.mintParams[0];
+        const mintParamsRaw = MintParams.fromJson(R.pathOr({}, ['mintParams', 0, 'params'], data));
+
         return {
           blocksPerYear: mintParamsRaw.blocksPerYear,
           goalBonded: mintParamsRaw.goalBonded,
@@ -115,7 +122,7 @@ export const useParams = () => {
 
     const formatDistribution = () => {
       if (data.distributionParams.length) {
-        const distributionParamsRaw = data.distributionParams[0];
+        const distributionParamsRaw = DistributionParams.fromJson(R.pathOr({}, ['distributionParams', 0, 'params'], data));
         return {
           baseProposerReward: distributionParamsRaw.baseProposerReward,
           bonusProposerReward: distributionParamsRaw.bonusProposerReward,
@@ -135,18 +142,17 @@ export const useParams = () => {
 
     const formatGov = () => {
       if (data.govParams.length) {
-        const govParamsRaw = data.govParams[0];
-
+        const govParamsRaw = GovParams.fromJson(R.pathOr({}, ['govParams', 0], data));
         return {
           minDeposit: formatDenom(
-            R.pathOr(0, ['min_deposit', 0, 'amount'], govParamsRaw.depositParams),
-            R.pathOr(chainConfig.primaryTokenUnit, ['min_deposit', 0, 'denom'], govParamsRaw.depositParams),
+            R.pathOr(0, [0, 'amount'], govParamsRaw.depositParams.minDeposit),
+            R.pathOr(chainConfig.primaryTokenUnit, [0, 'denom'], govParamsRaw.depositParams.minDeposit),
           ),
-          maxDepositPeriod: R.pathOr(0, ['max_deposit_period'], govParamsRaw.depositParams),
-          quorum: numeral(numeral(R.pathOr(0, ['quorum'], govParamsRaw.tallyParams)).format('0.[00]')).value(),
-          threshold: numeral(numeral(R.pathOr(0, ['threshold'], govParamsRaw.tallyParams)).format('0.[00]')).value(),
-          vetoThreshold: numeral(numeral(R.pathOr(0, ['veto_threshold'], govParamsRaw.tallyParams)).format('0.[00]')).value(),
-          votingPeriod: R.pathOr(0, ['voting_period'], govParamsRaw.votingParams),
+          maxDepositPeriod: govParamsRaw.depositParams.maxDepositPeriod,
+          quorum: numeral(numeral(govParamsRaw.tallyParams.quorum).format('0.[00]')).value(),
+          threshold: numeral(numeral(govParamsRaw.tallyParams.threshold).format('0.[00]')).value(),
+          vetoThreshold: numeral(numeral(govParamsRaw.tallyParams.vetoThreshold).format('0.[00]')).value(),
+          votingPeriod: govParamsRaw.votingParams.votingPeriod,
         };
       }
 
