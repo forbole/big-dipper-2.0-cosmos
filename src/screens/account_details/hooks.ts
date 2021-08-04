@@ -11,6 +11,7 @@ import {
   useGetMessagesByAddressQuery,
   GetMessagesByAddressQuery,
 } from '@graphql/types';
+import { StakingParams } from '@models';
 import { useChainContext } from '@contexts';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
@@ -222,7 +223,9 @@ export const useAccountDetails = () => {
         chainConfig.primaryTokenUnit,
       );
       const availableAmount = formatDenom(available.amount, chainConfig.primaryTokenUnit);
-      const stakingDenom = R.pathOr(chainConfig.primaryTokenUnit, ['stakingParams', 0, 'params', 'bond_denom'], data);
+      const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
+      const stakingDenom = stakingParams.bondDenom;
+
       const delegate = R.pathOr([], ['account', 0, 'delegations'], data).reduce((a, b) => {
         return a + numeral(b.amount.amount).value();
       }, 0);

@@ -3,6 +3,7 @@ import StakingParams from './staking_params';
 import SlashingParams from './slashing_params';
 import MintParams from './mint_params';
 import GovParams from './gov_params';
+import DistributionParams from './distribution_params';
 // ================================
 // Transaction Message Types
 // ================================
@@ -43,6 +44,7 @@ export {
   SlashingParams,
   MintParams,
   GovParams,
+  DistributionParams,
 };
 
 export {

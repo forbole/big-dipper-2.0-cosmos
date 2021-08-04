@@ -8,7 +8,7 @@ import {
   TotalVotingPowerListenerSubscription,
   useStakingParamsQuery,
 } from '@graphql/types';
-import { chainConfig } from '@configs';
+import { StakingParams } from '@models';
 
 const initialState: {
   height: number;
@@ -34,8 +34,9 @@ export const useOnlineVotingPower = () => {
   // ====================================
   useStakingParamsQuery({
     onCompleted: (data) => {
+      const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
       handleSetState({
-        denom: R.pathOr(chainConfig.primaryTokenUnit, ['stakingParams', 0, 'params', 'bond_denom'], data),
+        denom: stakingParams.bondDenom,
       });
     },
   });

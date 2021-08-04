@@ -8,6 +8,13 @@ import {
 import { formatDenom } from '@utils/format_denom';
 import { chainConfig } from '@configs';
 import {
+  StakingParams,
+  SlashingParams,
+  MintParams,
+  DistributionParams,
+  GovParams,
+} from '@models';
+import {
   ParamsState,
 } from './types';
 
@@ -53,30 +60,14 @@ export const useParams = () => {
     // ================================
     const formatStaking = () => {
       if (data.stakingParams.length) {
-        const formatRaw = (stakingParamsRaw: any) => {
-          return {
-            bondDenom: stakingParamsRaw?.bond_denom,
-            unbondingTime: stakingParamsRaw?.unbonding_time,
-            maxEntries: stakingParamsRaw?.max_entries,
-            historicalEntries: stakingParamsRaw?.historical_entries,
-            maxValidators: stakingParamsRaw?.max_validators,
-          };
+        const stakingParamsRaw = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
+        return {
+          bondDenom: stakingParamsRaw.bondDenom,
+          unbondingTime: stakingParamsRaw.unbondingTime,
+          maxEntries: stakingParamsRaw.maxEntries,
+          historicalEntries: stakingParamsRaw.historicalEntries,
+          maxValidators: stakingParamsRaw.maxValidators,
         };
-
-        let stakingParamsRaw = R.pathOr(null, ['stakingParams', 0, 'params'], data);
-
-        if (stakingParamsRaw) {
-          stakingParamsRaw = formatRaw(stakingParamsRaw);
-          return {
-            bondDenom: stakingParamsRaw.bondDenom,
-            unbondingTime: stakingParamsRaw.unbondingTime,
-            maxEntries: stakingParamsRaw.maxEntries,
-            historicalEntries: stakingParamsRaw.historicalEntries,
-            maxValidators: stakingParamsRaw.maxValidators,
-          };
-        }
-
-        return null;
       }
 
       return null;
@@ -89,32 +80,15 @@ export const useParams = () => {
     // ================================
     const formatSlashing = () => {
       if (data.slashingParams.length) {
-        const formatRaw = (slashingParamsRaw: any) => {
-          return {
-            downtimeJailDuration: slashingParamsRaw.downtime_jail_duration,
-            minSignedPerWindow: slashingParamsRaw.min_signed_per_window,
-            signedBlockWindow: slashingParamsRaw.signed_blocks_window,
-            slashFractionDoubleSign: slashingParamsRaw.slash_fraction_double_sign,
-            slashFractionDowntime: slashingParamsRaw.slash_fraction_downtime,
-          };
+        const slashingParamsRaw = SlashingParams.fromJson(R.pathOr({}, ['slashingParams', 0, 'params'], data));
+        return {
+          downtimeJailDuration: slashingParamsRaw.downtimeJailDuration,
+          minSignedPerWindow: slashingParamsRaw.minSignedPerWindow,
+          signedBlockWindow: slashingParamsRaw.signedBlockWindow,
+          slashFractionDoubleSign: slashingParamsRaw.slashFractionDoubleSign,
+          slashFractionDowntime: slashingParamsRaw.slashFractionDowntime,
         };
-
-        let slashingParamsRaw = R.pathOr(null, ['slashingParams', 0, 'params'], data);
-
-        if (slashingParamsRaw) {
-          slashingParamsRaw = formatRaw(slashingParamsRaw);
-          return {
-            downtimeJailDuration: slashingParamsRaw.downtimeJailDuration,
-            minSignedPerWindow: slashingParamsRaw.minSignedPerWindow,
-            signedBlockWindow: slashingParamsRaw.signedBlockWindow,
-            slashFractionDoubleSign: slashingParamsRaw.slashFractionDoubleSign,
-            slashFractionDowntime: slashingParamsRaw.slashFractionDowntime,
-          };
-        }
-
-        return null;
       }
-
       return null;
     };
 
@@ -125,17 +99,8 @@ export const useParams = () => {
     // ================================
     const formatMint = () => {
       if (data.mintParams.length) {
-        const formatRaw = (mintParamsRaw: any) => {
-          return {
-            blocksPerYear: mintParamsRaw.blocks_per_year,
-            goalBonded: mintParamsRaw.goal_bonded,
-            inflationMax: mintParamsRaw.inflation_max,
-            inflationMin: mintParamsRaw.inflation_min,
-            inflationRateChange: mintParamsRaw.inflation_rate_change,
-            mintDenom: mintParamsRaw.mint_denom,
-          };
-        };
-        const mintParamsRaw = data.mintParams[0];
+        const mintParamsRaw = MintParams.fromJson(R.pathOr({}, ['mintParams', 0, 'params'], data));
+
         return {
           blocksPerYear: mintParamsRaw.blocksPerYear,
           goalBonded: mintParamsRaw.goalBonded,
@@ -157,7 +122,7 @@ export const useParams = () => {
 
     const formatDistribution = () => {
       if (data.distributionParams.length) {
-        const distributionParamsRaw = data.distributionParams[0];
+        const distributionParamsRaw = DistributionParams.fromJson(R.pathOr({}, ['distributionParams', 0, 'params'], data));
         return {
           baseProposerReward: distributionParamsRaw.baseProposerReward,
           bonusProposerReward: distributionParamsRaw.bonusProposerReward,
@@ -177,18 +142,17 @@ export const useParams = () => {
 
     const formatGov = () => {
       if (data.govParams.length) {
-        const govParamsRaw = data.govParams[0];
-
+        const govParamsRaw = GovParams.fromJson(R.pathOr({}, ['govParams', 0, 'params'], data));
         return {
           minDeposit: formatDenom(
-            R.pathOr(0, ['min_deposit', 0, 'amount'], govParamsRaw.depositParams),
-            R.pathOr(chainConfig.primaryTokenUnit, ['min_deposit', 0, 'denom'], govParamsRaw.depositParams),
+            R.pathOr(0, [0, 'amount'], govParamsRaw.depositParams.minDeposit),
+            R.pathOr(chainConfig.primaryTokenUnit, [0, 'denom'], govParamsRaw.depositParams.minDeposit),
           ),
-          maxDepositPeriod: R.pathOr(0, ['max_deposit_period'], govParamsRaw.depositParams),
-          quorum: numeral(numeral(R.pathOr(0, ['quorum'], govParamsRaw.tallyParams)).format('0.[00]')).value(),
-          threshold: numeral(numeral(R.pathOr(0, ['threshold'], govParamsRaw.tallyParams)).format('0.[00]')).value(),
-          vetoThreshold: numeral(numeral(R.pathOr(0, ['veto_threshold'], govParamsRaw.tallyParams)).format('0.[00]')).value(),
-          votingPeriod: R.pathOr(0, ['voting_period'], govParamsRaw.votingParams),
+          maxDepositPeriod: govParamsRaw.depositParams.maxDepositPeriod,
+          quorum: numeral(numeral(govParamsRaw.tallyParams.quorum).format('0.[00]')).value(),
+          threshold: numeral(numeral(govParamsRaw.tallyParams.threshold).format('0.[00]')).value(),
+          vetoThreshold: numeral(numeral(govParamsRaw.tallyParams.vetoThreshold).format('0.[00]')).value(),
+          votingPeriod: govParamsRaw.votingParams.votingPeriod,
         };
       }
 
