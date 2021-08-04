@@ -4,10 +4,9 @@ import numeral from 'numeral';
 import {
   useTokenomicsQuery,
   TokenomicsQuery,
-
 } from '@graphql/types';
 import { formatDenom } from '@utils/format_denom';
-import { chainConfig } from '@configs';
+import { StakingParams } from '@models';
 
 export const useTokenomics = () => {
   const [state, setState] = useState<{
@@ -32,8 +31,8 @@ export const useTokenomics = () => {
 
   const formatTokenomics = (data: TokenomicsQuery) => {
     const results = { ...state };
-
-    results.denom = R.pathOr(chainConfig.primaryTokenUnit, ['stakingParams', 0, 'bondDenom'], data);
+    const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
+    results.denom = stakingParams.bondDenom;
 
     const [total] = R.pathOr([], [
       'supply',

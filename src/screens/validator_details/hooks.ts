@@ -18,6 +18,10 @@ import { useDesmosProfile } from '@hooks';
 import { useChainContext } from '@contexts';
 import { getValidatorCondition } from '@utils/get_validator_condition';
 import { chainConfig } from '@src/configs';
+import {
+  StakingParams,
+  SlashingParams,
+} from '@models';
 import { ValidatorDetailsState } from './types';
 
 export const useValidatorDetails = () => {
@@ -228,8 +232,9 @@ export const useValidatorDetails = () => {
     // overview
     // ============================
     const formatOverview = () => {
+      const slashingParams = SlashingParams.fromJson(R.pathOr({}, ['slashingParams', 0, 'params'], data));
       const missedBlockCounter = R.pathOr(0, ['validatorSigningInfos', 0, 'missedBlocksCounter'], data.validator[0]);
-      const signedBlockWindow = data.slashingParams[0]?.signedBlockWindow ?? 0;
+      const { signedBlockWindow } = slashingParams;
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
       const operatorAddress = R.pathOr('', ['validator', 0, 'validatorInfo', 'operatorAddress'], data);
       const selfDelegateAddress = R.pathOr('', ['validator', 0, 'validatorInfo', 'selfDelegateAddress'], data);
@@ -273,13 +278,14 @@ export const useValidatorDetails = () => {
       );
       const selfDelegatePercent = (numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value() / totalDelegations) * 100;
 
+      const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
       const votingPower = {
         self,
         selfDelegate: selfDelegateAmount,
         selfDelegatePercent,
         overall: formatDenom(
           R.pathOr(0, ['stakingPool', 0, 'bonded'], data),
-          R.pathOr(chainConfig.primaryTokenUnit, ['stakingParams', 0, 'bondDenom'], data),
+          stakingParams.bondDenom,
         ),
         height: R.pathOr(0, ['validatorVotingPowers', 0, 'height'], data.validator[0]),
       };
