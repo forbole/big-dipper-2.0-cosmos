@@ -274,7 +274,7 @@ export const useProposalDetails = () => {
   const formatTallyParams = (data: TallyParamsQuery) => {
     const govParams = GovParams.fromJson(R.pathOr({}, ['govParams', 0], data));
     const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
-    const percent = numeral(numeral(govParams.tallyParams.quorum)).format('0.[00]').value();
+    const percent = numeral(numeral(govParams.tallyParams.quorum).format('0.[00]')).value();
 
     return ({
       denom: R.pathOr('', ['stakingParams', 0, 'bondDenom'], data),

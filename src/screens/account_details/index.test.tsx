@@ -51,7 +51,7 @@ const mockAccount = jest.fn().mockResolvedValue({
   data: {
     stakingParams: [
       {
-        bondDenom: 'udaric',
+        params: {},
       },
     ],
     account: [
