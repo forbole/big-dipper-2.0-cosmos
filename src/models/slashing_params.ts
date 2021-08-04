@@ -1,28 +1,27 @@
 import * as R from 'ramda';
-import { chainConfig } from '@configs';
 
 class SlashingParams {
-  public bondDenom: string;
-  public unbondingTime: number;
-  public maxEntries: number;
-  public historicalEntries: number;
-  public maxValidators: number;
+  public downtimeJailDuration: number;
+  public minSignedPerWindow: number;
+  public signedBlockWindow: number;
+  public slashFractionDoubleSign: number;
+  public slashFractionDowntime: number;
 
   constructor(payload: any) {
-    this.bondDenom = payload.bondDenom;
-    this.unbondingTime = payload.unbondingTime;
-    this.maxEntries = payload.maxEntries;
-    this.historicalEntries = payload.historicalEntries;
-    this.maxEntries = payload.maxValidators;
+    this.downtimeJailDuration = payload.downtimeJailDuration;
+    this.minSignedPerWindow = payload.minSignedPerWindow;
+    this.signedBlockWindow = payload.signedBlockWindow;
+    this.slashFractionDoubleSign = payload.slashFractionDoubleSign;
+    this.slashFractionDowntime = payload.slashFractionDowntime;
   }
 
   static fromJson(data: any) {
     return new SlashingParams({
-      bondDenom: R.pathOr(chainConfig.primaryTokenUnit, ['bond_denom'], data),
-      unbondingTime: R.pathOr(0, ['unbonding_time'], data),
-      maxEntries: R.pathOr(0, ['max_entries'], data),
-      historicalEntries: R.pathOr(0, ['historical_entries'], data),
-      maxValidators: R.pathOr(0, ['max_validators'], data),
+      downtimeJailDuration: R.pathOr(0, ['downtime_jail_duration'], data),
+      minSignedPerWindow: R.pathOr(0, ['min_signed_per_window'], data),
+      signedBlockWindow: R.pathOr(0, ['signed_blocks_window'], data),
+      slashFractionDoubleSign: R.pathOr(0, ['slash_fraction_double_sign'], data),
+      slashFractionDowntime: R.pathOr(0, ['slash_fraction_downtime'], data),
     });
   }
 }
