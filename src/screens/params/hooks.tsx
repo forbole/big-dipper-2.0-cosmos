@@ -53,14 +53,30 @@ export const useParams = () => {
     // ================================
     const formatStaking = () => {
       if (data.stakingParams.length) {
-        const stakingParamsRaw = data.stakingParams[0];
-        return {
-          bondDenom: stakingParamsRaw.bondDenom,
-          unbondingTime: stakingParamsRaw.unbondingTime,
-          maxEntries: stakingParamsRaw.maxEntries,
-          historicalEntries: stakingParamsRaw.historicalEntries,
-          maxValidators: stakingParamsRaw.maxValidators,
+        const formatRaw = (stakingParamsRaw: any) => {
+          return {
+            bondDenom: stakingParamsRaw?.bond_denom,
+            unbondingTime: stakingParamsRaw?.unbonding_time,
+            maxEntries: stakingParamsRaw?.max_entries,
+            historicalEntries: stakingParamsRaw?.historical_entries,
+            maxValidators: stakingParamsRaw?.max_validators,
+          };
         };
+
+        let stakingParamsRaw = R.pathOr(null, ['stakingParams', 0, 'params'], data);
+
+        if (stakingParamsRaw) {
+          stakingParamsRaw = formatRaw(stakingParamsRaw);
+          return {
+            bondDenom: stakingParamsRaw.bondDenom,
+            unbondingTime: stakingParamsRaw.unbondingTime,
+            maxEntries: stakingParamsRaw.maxEntries,
+            historicalEntries: stakingParamsRaw.historicalEntries,
+            maxValidators: stakingParamsRaw.maxValidators,
+          };
+        }
+
+        return null;
       }
 
       return null;
@@ -73,14 +89,30 @@ export const useParams = () => {
     // ================================
     const formatSlashing = () => {
       if (data.slashingParams.length) {
-        const slashingParamsRaw = data.slashingParams[0];
-        return {
-          downtimeJailDuration: slashingParamsRaw.downtimeJailDuration,
-          minSignedPerWindow: slashingParamsRaw.minSignedPerWindow,
-          signedBlockWindow: slashingParamsRaw.signedBlockWindow,
-          slashFractionDoubleSign: slashingParamsRaw.slashFractionDoubleSign,
-          slashFractionDowntime: slashingParamsRaw.slashFractionDowntime,
+        const formatRaw = (slashingParamsRaw: any) => {
+          return {
+            downtimeJailDuration: slashingParamsRaw.downtime_jail_duration,
+            minSignedPerWindow: slashingParamsRaw.min_signed_per_window,
+            signedBlockWindow: slashingParamsRaw.signed_blocks_window,
+            slashFractionDoubleSign: slashingParamsRaw.slash_fraction_double_sign,
+            slashFractionDowntime: slashingParamsRaw.slash_fraction_downtime,
+          };
         };
+
+        let slashingParamsRaw = R.pathOr(null, ['slashingParams', 0, 'params'], data);
+
+        if (slashingParamsRaw) {
+          slashingParamsRaw = formatRaw(slashingParamsRaw);
+          return {
+            downtimeJailDuration: slashingParamsRaw.downtimeJailDuration,
+            minSignedPerWindow: slashingParamsRaw.minSignedPerWindow,
+            signedBlockWindow: slashingParamsRaw.signedBlockWindow,
+            slashFractionDoubleSign: slashingParamsRaw.slashFractionDoubleSign,
+            slashFractionDowntime: slashingParamsRaw.slashFractionDowntime,
+          };
+        }
+
+        return null;
       }
 
       return null;
@@ -93,6 +125,16 @@ export const useParams = () => {
     // ================================
     const formatMint = () => {
       if (data.mintParams.length) {
+        const formatRaw = (mintParamsRaw: any) => {
+          return {
+            blocksPerYear: mintParamsRaw.blocks_per_year,
+            goalBonded: mintParamsRaw.goal_bonded,
+            inflationMax: mintParamsRaw.inflation_max,
+            inflationMin: mintParamsRaw.inflation_min,
+            inflationRateChange: mintParamsRaw.inflation_rate_change,
+            mintDenom: mintParamsRaw.mint_denom,
+          };
+        };
         const mintParamsRaw = data.mintParams[0];
         return {
           blocksPerYear: mintParamsRaw.blocksPerYear,

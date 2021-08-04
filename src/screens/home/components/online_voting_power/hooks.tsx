@@ -35,7 +35,7 @@ export const useOnlineVotingPower = () => {
   useStakingParamsQuery({
     onCompleted: (data) => {
       handleSetState({
-        denom: R.pathOr(chainConfig.primaryTokenUnit, ['stakingParams', 0, 'bondDenom'], data),
+        denom: R.pathOr(chainConfig.primaryTokenUnit, ['stakingParams', 0, 'params', 'bond_denom'], data),
       });
     },
   });

@@ -1,4 +1,5 @@
 import BigDipperNetwork from './big_dipper_network';
+import SlashingParams from './slashing_params';
 // ================================
 // Transaction Message Types
 // ================================
@@ -35,6 +36,7 @@ import MsgUnblockUser from './msg/profiles/msg_unblock_user';
 
 export {
   BigDipperNetwork,
+  SlashingParams,
 };
 
 export {
