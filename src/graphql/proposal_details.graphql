@@ -39,7 +39,7 @@ query TallyParams($proposalId: Int) {
     tallyParams: tally_params
   }
   stakingParams: staking_params(limit: 1) {
-    bondDenom: bond_denom
+    params
   }
   stakingPool: proposal_staking_pool_snapshot(where: {proposal_id: {_eq: $proposalId}}) {
     bondedTokens: bonded_tokens

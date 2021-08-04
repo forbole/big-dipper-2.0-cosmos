@@ -21,6 +21,7 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
       >
         0
          
+        DARIC
       </h4>
       <span
         className="MuiTypography-root MuiTypography-caption"
@@ -36,6 +37,7 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
       >
         0
          
+        DARIC
       </h4>
       <span
         className="MuiTypography-root MuiTypography-caption"
