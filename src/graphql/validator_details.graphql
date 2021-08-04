@@ -26,7 +26,7 @@ subscription ValidatorLastSeenListener($address: String) {
 
 query ValidatorDetails($address: String, $utc: timestamp) {
   stakingParams: staking_params(limit: 1) {
-    bondDenom: bond_denom
+    params
   }
   stakingPool: staking_pool(order_by: {height: desc}, limit: 1, offset: 0) {
     height
@@ -81,7 +81,7 @@ query ValidatorDetails($address: String, $utc: timestamp) {
     }
   }
   slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
-    signedBlockWindow: signed_block_window
+    params
   }
 }
 
