@@ -17,6 +17,7 @@ import {
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
 import { useChainContext } from '@contexts';
+import { chainConfig } from '@configs';
 import {
   GovParams,
   StakingParams,
@@ -50,7 +51,7 @@ export const useProposalDetails = () => {
       total: 0,
       quorum: 0,
       bondedTokens: 0,
-      denom: '',
+      denom: chainConfig.primaryTokenUnit,
     },
     votes: {
       tab: 0,
@@ -277,7 +278,7 @@ export const useProposalDetails = () => {
     const percent = numeral(numeral(govParams.tallyParams.quorum).format('0.[00]')).value();
 
     return ({
-      denom: R.pathOr('', ['stakingParams', 0, 'bondDenom'], data),
+      denom: stakingParams.bondDenom,
       quorum: percent,
       bondedTokens: formatDenom(
         R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data),
