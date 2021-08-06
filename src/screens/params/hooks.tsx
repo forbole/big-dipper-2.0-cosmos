@@ -67,6 +67,7 @@ export const useParams = () => {
           maxEntries: stakingParamsRaw.maxEntries,
           historicalEntries: stakingParamsRaw.historicalEntries,
           maxValidators: stakingParamsRaw.maxValidators,
+          minCommissionRate: numeral(numeral(stakingParamsRaw.minCommissionRate).format('0.[00]')).value(),
         };
       }
 

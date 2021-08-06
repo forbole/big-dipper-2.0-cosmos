@@ -1,6 +1,6 @@
 import React from 'react';
 import { createMuiTheme } from '@material-ui/core/styles';
-import { lightTemplate } from '@styles';
+import { darkTemplate } from '@styles';
 import {
   useTheme, useDateFormat,
 } from './hooks';
@@ -13,7 +13,7 @@ import {
 const initialThemeState: ThemeState = {
   theme: 'light',
   themeSelection: 'device',
-  muiTheme: createMuiTheme(lightTemplate),
+  muiTheme: createMuiTheme(darkTemplate),
   themeList: [],
 };
 

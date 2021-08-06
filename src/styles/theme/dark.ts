@@ -1,51 +1,56 @@
-import Color from 'color';
+const backgroundDefault = '#0E0826';
+const surfaceOne = '#1B173A';
+const surfaceTwo = '#160F32';
+const fontOne = '#E6E6E6';
+const fontTwo = '#C4C4C4';
+const fontThree = '#818181';
 
-/** Custom theme overrides for dark mode */
+/** Custom theme overrides for light mode */
 export const darkThemeOverride = {
   mixins: {
     tableCell: {
-      background: '#131316', // surface one
+      background: surfaceOne, // surface one
       '&.odd': {
-        background: '#19191D', // surface two
+        background: surfaceTwo, // surface two
       },
     },
   },
   palette: {
     type: 'dark',
     primary: {
-      main: Color('#FD3B4C').alpha(0.7).string(),
+      main: '#DC7BFC',
       contrastText: '#fff',
     },
     background: {
-      default: '#0A0A0A',
-      paper: '#131316',
+      default: backgroundDefault,
+      paper: surfaceOne,
     },
-    divider: '#3D3D43',
+    divider: '#262058',
     text: {
       primary: '#E6E6E6',
-      secondary: '#AAAAAB',
+      secondary: '#C4C4C4',
     },
     custom: {
       general: {
-        background: '#0A0A0A', // same as background default
-        surfaceOne: '#131316', // same as background paper
-        surfaceTwo: '#19191D', // striped tables
+        background: backgroundDefault, // same as background default
+        surfaceOne, // same as background paper
+        surfaceTwo, // striped tables
       },
       fonts: {
-        fontOne: '#E6E6E6',
-        fontTwo: '#AAAAAB',
-        fontThree: '#818181',
+        fontOne,
+        fontTwo,
+        fontThree,
         fontFour: '#999999',
       },
       primaryData: {
-        one: '#af2929',
-        two: '#b44516',
-        three: '#b14237',
-        four: '#b16919',
+        one: '#9D35FF',
+        two: '#F372DB',
+        three: '#36B9AB',
+        four: '#4EABF0',
       },
       results: {
-        pass: '#198a65',
-        fail: '#b12a34',
+        pass: '#1EC490',
+        fail: '#FD3B4C',
       },
     },
   },
@@ -54,24 +59,24 @@ export const darkThemeOverride = {
       root: {
         '& .MuiTableRow-root': {
           '&:nth-child(odd)': {
-            backgroundColor: '#19191D', // surface two
+            backgroundColor: surfaceTwo, // surface two
           },
         },
         '& .MuiTableCell-root': {
-          color: '#AAAAAB', // font two
+          color: fontTwo, // font two
         },
       },
     },
     MuiTabs: {
       root: {
         '& .MuiTab-textColorInherit': {
-          color: '#818181', // font three
+          color: fontThree, // font three
         },
         '& .MuiTab-textColorInherit.Mui-selected': {
-          color: '#E6E6E6', // font one
+          color: fontOne, // font one
         },
         '& .MuiTabs-indicator': {
-          backgroundColor: '#E6E6E6', // font one (?)
+          backgroundColor: fontOne, // font one (?)
         },
       },
     },

@@ -34,6 +34,10 @@ export const formatStaking = (data: Staking, t: any) => {
       label: t('maxValidators'),
       detail: numeral(data.maxValidators).format('0,0'),
     },
+    {
+      label: t('minCommissionRate'),
+      detail: `${data.minCommissionRate * 100}%`,
+    },
   ]);
 };
 

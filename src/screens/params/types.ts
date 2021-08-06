@@ -4,6 +4,7 @@ export type Staking = {
   maxEntries: number;
   historicalEntries: number;
   maxValidators: number;
+  minCommissionRate: number;
 }
 
 export type Slashing = {
