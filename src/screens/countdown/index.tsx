@@ -1,17 +1,19 @@
 /* eslint-disable */
 import React, { useState } from 'react';
+import * as R from 'ramda';
 import { Typography } from '@material-ui/core';
 import { useInterval } from '@hooks';
 import dayjs from '@utils/dayjs';
 import { chainConfig } from '@configs';
 import { useStyles } from './styles';
 import { Loading } from '@components';
+import { useSettingsContext } from '@contexts';
 
 const Countdown: React.FC<{
   startGenesis: () => void;
 }> = ({ startGenesis }) => {
+  const { theme } = useSettingsContext();
   const classes = useStyles();
-  const genesisTime = dayjs.utc(chainConfig.genesis.time);
   const [state, setState] = useState({
     day: 0,
     hour: 0,
@@ -20,6 +22,9 @@ const Countdown: React.FC<{
     interval: 1000,
     loading: false,
   });
+
+  const genesisTime = dayjs.utc(chainConfig.genesis.time);
+  const logoUrl = R.pathOr(chainConfig.logo.default, ['logo', theme], chainConfig);
 
   const intervalCallback = () => {
     const timeNow = dayjs.utc();
@@ -44,10 +49,11 @@ const Countdown: React.FC<{
 
   useInterval(intervalCallback, state.interval);
 
+
   return (
     <>
     <div className={classes.root}>
-      <img src={chainConfig.logo} className={classes.logo} alt="logo" />
+      <img src={logoUrl} className={classes.logo} alt="logo" />
       <div className={classes.timeContainer}>
         <div className={classes.item}>
           <Typography variant="h1">
