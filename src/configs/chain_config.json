@@ -2,7 +2,9 @@
   "title": "Desmos Block Explorer",
   "network": "morpheus-apollo-2",
   "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
-  "logo": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true",
+  "logo": {
+    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
+  },
   "prefix": {
     "consensus": "desmosvalcons",
     "validator": "desmosvaloper",
