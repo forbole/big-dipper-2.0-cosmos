@@ -2257,40 +2257,18 @@ export type Block_Variance_Order_By = {
 /** columns and relationships of "chain_link" */
 export type Chain_Link = {
   __typename?: 'chain_link';
-  chain_config_id: Scalars['bigint'];
   /** An object relationship */
-  chain_link_chain_config: Chain_Link_Chain_Config;
-  /** An array relationship */
-  chain_link_proofs: Array<Chain_Link_Proof>;
-  /** An aggregate relationship */
-  chain_link_proofs_aggregate: Chain_Link_Proof_Aggregate;
+  chain_config: Chain_Link_Chain_Config;
+  chain_config_id: Scalars['bigint'];
   creation_time: Scalars['timestamp'];
   external_address: Scalars['String'];
   height: Scalars['bigint'];
   id: Scalars['Int'];
   /** An object relationship */
   profile: Profile;
+  /** An object relationship */
+  proof?: Maybe<Chain_Link_Proof>;
   user_address: Scalars['String'];
-};
-
-
-/** columns and relationships of "chain_link" */
-export type Chain_LinkChain_Link_ProofsArgs = {
-  distinct_on?: Maybe<Array<Chain_Link_Proof_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Chain_Link_Proof_Order_By>>;
-  where?: Maybe<Chain_Link_Proof_Bool_Exp>;
-};
-
-
-/** columns and relationships of "chain_link" */
-export type Chain_LinkChain_Link_Proofs_AggregateArgs = {
-  distinct_on?: Maybe<Array<Chain_Link_Proof_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Chain_Link_Proof_Order_By>>;
-  where?: Maybe<Chain_Link_Proof_Bool_Exp>;
 };
 
 /** aggregated selection of "chain_link" */
@@ -2358,14 +2336,14 @@ export type Chain_Link_Bool_Exp = {
   _and?: Maybe<Array<Chain_Link_Bool_Exp>>;
   _not?: Maybe<Chain_Link_Bool_Exp>;
   _or?: Maybe<Array<Chain_Link_Bool_Exp>>;
+  chain_config?: Maybe<Chain_Link_Chain_Config_Bool_Exp>;
   chain_config_id?: Maybe<Bigint_Comparison_Exp>;
-  chain_link_chain_config?: Maybe<Chain_Link_Chain_Config_Bool_Exp>;
-  chain_link_proofs?: Maybe<Chain_Link_Proof_Bool_Exp>;
   creation_time?: Maybe<Timestamp_Comparison_Exp>;
   external_address?: Maybe<String_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
   id?: Maybe<Int_Comparison_Exp>;
   profile?: Maybe<Profile_Bool_Exp>;
+  proof?: Maybe<Chain_Link_Proof_Bool_Exp>;
   user_address?: Maybe<String_Comparison_Exp>;
 };
 
@@ -2561,14 +2539,14 @@ export type Chain_Link_Min_Order_By = {
 
 /** Ordering options when selecting data from "chain_link". */
 export type Chain_Link_Order_By = {
+  chain_config?: Maybe<Chain_Link_Chain_Config_Order_By>;
   chain_config_id?: Maybe<Order_By>;
-  chain_link_chain_config?: Maybe<Chain_Link_Chain_Config_Order_By>;
-  chain_link_proofs_aggregate?: Maybe<Chain_Link_Proof_Aggregate_Order_By>;
   creation_time?: Maybe<Order_By>;
   external_address?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
   profile?: Maybe<Profile_Order_By>;
+  proof?: Maybe<Chain_Link_Proof_Order_By>;
   user_address?: Maybe<Order_By>;
 };
 
@@ -2621,34 +2599,12 @@ export type Chain_Link_Proof_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "chain_link_proof" */
-export type Chain_Link_Proof_Aggregate_Order_By = {
-  avg?: Maybe<Chain_Link_Proof_Avg_Order_By>;
-  count?: Maybe<Order_By>;
-  max?: Maybe<Chain_Link_Proof_Max_Order_By>;
-  min?: Maybe<Chain_Link_Proof_Min_Order_By>;
-  stddev?: Maybe<Chain_Link_Proof_Stddev_Order_By>;
-  stddev_pop?: Maybe<Chain_Link_Proof_Stddev_Pop_Order_By>;
-  stddev_samp?: Maybe<Chain_Link_Proof_Stddev_Samp_Order_By>;
-  sum?: Maybe<Chain_Link_Proof_Sum_Order_By>;
-  var_pop?: Maybe<Chain_Link_Proof_Var_Pop_Order_By>;
-  var_samp?: Maybe<Chain_Link_Proof_Var_Samp_Order_By>;
-  variance?: Maybe<Chain_Link_Proof_Variance_Order_By>;
-};
-
 /** aggregate avg on columns */
 export type Chain_Link_Proof_Avg_Fields = {
   __typename?: 'chain_link_proof_avg_fields';
   chain_link_id?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
-};
-
-/** order by avg() on columns of table "chain_link_proof" */
-export type Chain_Link_Proof_Avg_Order_By = {
-  chain_link_id?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  id?: Maybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "chain_link_proof". All fields are combined with a logical 'AND'. */
@@ -2675,15 +2631,6 @@ export type Chain_Link_Proof_Max_Fields = {
   signature?: Maybe<Scalars['String']>;
 };
 
-/** order by max() on columns of table "chain_link_proof" */
-export type Chain_Link_Proof_Max_Order_By = {
-  chain_link_id?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  id?: Maybe<Order_By>;
-  plain_text?: Maybe<Order_By>;
-  signature?: Maybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Chain_Link_Proof_Min_Fields = {
   __typename?: 'chain_link_proof_min_fields';
@@ -2692,15 +2639,6 @@ export type Chain_Link_Proof_Min_Fields = {
   id?: Maybe<Scalars['Int']>;
   plain_text?: Maybe<Scalars['String']>;
   signature?: Maybe<Scalars['String']>;
-};
-
-/** order by min() on columns of table "chain_link_proof" */
-export type Chain_Link_Proof_Min_Order_By = {
-  chain_link_id?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  id?: Maybe<Order_By>;
-  plain_text?: Maybe<Order_By>;
-  signature?: Maybe<Order_By>;
 };
 
 /** Ordering options when selecting data from "chain_link_proof". */
@@ -2738,26 +2676,12 @@ export type Chain_Link_Proof_Stddev_Fields = {
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "chain_link_proof" */
-export type Chain_Link_Proof_Stddev_Order_By = {
-  chain_link_id?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  id?: Maybe<Order_By>;
-};
-
 /** aggregate stddev_pop on columns */
 export type Chain_Link_Proof_Stddev_Pop_Fields = {
   __typename?: 'chain_link_proof_stddev_pop_fields';
   chain_link_id?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "chain_link_proof" */
-export type Chain_Link_Proof_Stddev_Pop_Order_By = {
-  chain_link_id?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  id?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -2768,26 +2692,12 @@ export type Chain_Link_Proof_Stddev_Samp_Fields = {
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "chain_link_proof" */
-export type Chain_Link_Proof_Stddev_Samp_Order_By = {
-  chain_link_id?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  id?: Maybe<Order_By>;
-};
-
 /** aggregate sum on columns */
 export type Chain_Link_Proof_Sum_Fields = {
   __typename?: 'chain_link_proof_sum_fields';
   chain_link_id?: Maybe<Scalars['bigint']>;
   height?: Maybe<Scalars['bigint']>;
   id?: Maybe<Scalars['Int']>;
-};
-
-/** order by sum() on columns of table "chain_link_proof" */
-export type Chain_Link_Proof_Sum_Order_By = {
-  chain_link_id?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  id?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -2798,13 +2708,6 @@ export type Chain_Link_Proof_Var_Pop_Fields = {
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "chain_link_proof" */
-export type Chain_Link_Proof_Var_Pop_Order_By = {
-  chain_link_id?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  id?: Maybe<Order_By>;
-};
-
 /** aggregate var_samp on columns */
 export type Chain_Link_Proof_Var_Samp_Fields = {
   __typename?: 'chain_link_proof_var_samp_fields';
@@ -2813,26 +2716,12 @@ export type Chain_Link_Proof_Var_Samp_Fields = {
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "chain_link_proof" */
-export type Chain_Link_Proof_Var_Samp_Order_By = {
-  chain_link_id?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  id?: Maybe<Order_By>;
-};
-
 /** aggregate variance on columns */
 export type Chain_Link_Proof_Variance_Fields = {
   __typename?: 'chain_link_proof_variance_fields';
   chain_link_id?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
-};
-
-/** order by variance() on columns of table "chain_link_proof" */
-export type Chain_Link_Proof_Variance_Order_By = {
-  chain_link_id?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  id?: Maybe<Order_By>;
 };
 
 /** select columns of table "chain_link" */
@@ -18264,7 +18153,11 @@ export type DesmosProfileQuery = { profile: Array<(
     & { profilePic: Profile['profile_pic'] }
     & { chainLinks: Array<(
       { __typename?: 'chain_link' }
-      & { creationTime: Chain_Link['creation_time'], externalAddress: Chain_Link['external_address'], chainConfigId: Chain_Link['chain_config_id'] }
+      & { creationTime: Chain_Link['creation_time'], externalAddress: Chain_Link['external_address'] }
+      & { chainConfig: (
+        { __typename?: 'chain_link_chain_config' }
+        & Pick<Chain_Link_Chain_Config, 'name' | 'id'>
+      ) }
     )>, applicationLinks: Array<(
       { __typename?: 'application_link' }
       & Pick<Application_Link, 'username' | 'application'>
@@ -18283,7 +18176,11 @@ export type DesmosProfileLinkQuery = { profile: Array<(
     & { profilePic: Profile['profile_pic'] }
     & { chainLinks: Array<(
       { __typename?: 'chain_link' }
-      & { creationTime: Chain_Link['creation_time'], externalAddress: Chain_Link['external_address'], chainConfigId: Chain_Link['chain_config_id'] }
+      & { creationTime: Chain_Link['creation_time'], externalAddress: Chain_Link['external_address'] }
+      & { chainConfig: (
+        { __typename?: 'chain_link_chain_config' }
+        & Pick<Chain_Link_Chain_Config, 'name' | 'id'>
+      ) }
     )>, applicationLinks: Array<(
       { __typename?: 'application_link' }
       & Pick<Application_Link, 'username' | 'application'>
