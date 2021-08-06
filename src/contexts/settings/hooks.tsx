@@ -4,7 +4,6 @@ import {
 } from 'react';
 import { createMuiTheme } from '@material-ui/core/styles';
 import {
-  lightTemplate,
   darkTemplate,
   deuteranopiaTemplate,
   tritanopiaTemplate,
@@ -25,32 +24,24 @@ export const useTheme = (initialState:ThemeState) => {
   const [themeSelection, setThemeSelection] = usePersistedState('themeSelection', initialState.themeSelection);
 
   const themeList = [
-    'light',
     'dark',
     'deuteranopia',
     'tritanopia',
   ];
 
   const themeDictionary = {
-    light: lightTemplate,
     dark: darkTemplate,
     deuteranopia: deuteranopiaTemplate,
     tritanopia: tritanopiaTemplate,
   };
 
   useEffect(() => {
-    const isClient = typeof window === 'object';
     if (themeSelection === 'device') {
-      if (
-        isClient
-        && window?.matchMedia('(prefers-color-scheme: dark)')?.matches
-      ) {
-        setTheme('dark');
-      }
+      setTheme('dark');
     } else if (themeDictionary[themeSelection]) {
       setTheme(themeSelection as Theme);
     } else {
-      setTheme('light');
+      setTheme('dark');
     }
   }, [themeSelection]);
 
@@ -62,7 +53,7 @@ export const useTheme = (initialState:ThemeState) => {
 
   return {
     theme,
-    muiTheme: createMuiTheme(themeDictionary[theme] || lightTemplate),
+    muiTheme: createMuiTheme(themeDictionary[theme] || darkTemplate),
     themeSelection,
     themeList,
     themeDictionary,

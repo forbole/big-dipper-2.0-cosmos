@@ -6,6 +6,7 @@ on:
     branches:
       - master
       - desmos
+      - osmosis
 
 jobs:
   Build-and-Publish:

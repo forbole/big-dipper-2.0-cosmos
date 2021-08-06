@@ -7,6 +7,7 @@ class StakingParams {
   public maxEntries: number;
   public historicalEntries: number;
   public maxValidators: number;
+  public minCommissionRate: string;
 
   constructor(payload: any) {
     this.bondDenom = payload.bondDenom;
@@ -14,6 +15,7 @@ class StakingParams {
     this.maxEntries = payload.maxEntries;
     this.historicalEntries = payload.historicalEntries;
     this.maxEntries = payload.maxValidators;
+    this.minCommissionRate = payload.minCommissionRate;
   }
 
   static fromJson(data: any) {
@@ -23,6 +25,7 @@ class StakingParams {
       maxEntries: R.pathOr(0, ['max_entries'], data),
       historicalEntries: R.pathOr(0, ['historical_entries'], data),
       maxValidators: R.pathOr(0, ['max_validators'], data),
+      minCommissionRate: R.pathOr(0, ['min_commission_rate'], data),
     });
   }
 }

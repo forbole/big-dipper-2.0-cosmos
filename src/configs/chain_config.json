@@ -1,28 +1,28 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "morpheus-apollo-2",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
+  "title": "Osmosis Block Explorer",
+  "network": "osmosis-1",
+  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/osmosis/icon.svg?sanitize=true",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
+    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/osmosis/logo.svg?sanitize=true"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "osmovalcons",
+    "validator": "osmovaloper",
+    "account": "osmo"
   },
   "genesis": {
     "time": "2021-07-13T08:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udaric",
+  "primaryTokenUnit": "uosmo",
   "tokenUnits": {
-    "udaric": {
-      "display": "daric",
+    "uosmo": {
+      "display": "osmo",
       "exponent": 6
     }
   },
   "extra": {
-    "desmosProfile": true,
+    "desmosProfile": false,
     "forboleX": false
   }
 }

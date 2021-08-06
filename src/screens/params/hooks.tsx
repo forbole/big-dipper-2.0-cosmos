@@ -67,6 +67,7 @@ export const useParams = () => {
           maxEntries: stakingParamsRaw.maxEntries,
           historicalEntries: stakingParamsRaw.historicalEntries,
           maxValidators: stakingParamsRaw.maxValidators,
+          minCommissionRate: numeral(numeral(stakingParamsRaw.minCommissionRate).format('0.[00]')).value(),
         };
       }
 
@@ -102,12 +103,13 @@ export const useParams = () => {
         const mintParamsRaw = MintParams.fromJson(R.pathOr({}, ['mintParams', 0, 'params'], data));
 
         return {
-          blocksPerYear: mintParamsRaw.blocksPerYear,
-          goalBonded: mintParamsRaw.goalBonded,
-          inflationMax: mintParamsRaw.inflationMax,
-          inflationMin: mintParamsRaw.inflationMin,
-          inflationRateChange: mintParamsRaw.inflationRateChange,
           mintDenom: mintParamsRaw.mintDenom,
+          epochIdentifier: mintParamsRaw.epochIdentifier,
+          reductionFactor: numeral(numeral(mintParamsRaw.reductionFactor).format('0.[00]')).value(),
+          stakingDistribution: numeral(numeral(mintParamsRaw.distributionProportions.staking).format('0.[00]')).value(),
+          communityPoolDistribution: numeral(numeral(mintParamsRaw.distributionProportions.communityPool).format('0.[00]')).value(),
+          poolIncentiveDistribution: numeral(numeral(mintParamsRaw.distributionProportions.poolIncentives).format('0.[00]')).value(),
+          developerRewardsDistribution: numeral(numeral(mintParamsRaw.distributionProportions.developerRewards).format('0.[00]')).value(),
         };
       }
 

@@ -32,5 +32,12 @@
   "quorum": "Quorum",
   "threshold": "Threshold",
   "vetoThreshold": "Veto Threshold",
-  "votingPeriod": "Voting Period"
+  "votingPeriod": "Voting Period",
+  "minCommissionRate": "Min Commission Rate",
+  "epochIdentifier": "Epoch Identifier",
+  "reductionFactor": "Reduction Factor",
+  "stakingDistribution": "Staking Distribution",
+  "communityPoolDistribution": "Community Distribution",
+  "poolIncentiveDistribution": "Pool Distribution",
+  "developerRewardsDistribution": "Developer Rewards Distribution"
 }
