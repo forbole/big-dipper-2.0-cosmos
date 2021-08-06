@@ -90,7 +90,7 @@ export const useDesmosProfile = (options: Options) => {
 
     const chains = profile.chainLinks.map((x) => {
       return ({
-        network: x.chainConfigId,
+        network: x.chainConfig.name,
         identifier: x.externalAddress,
         creationTime: x.creationTime,
       });
