@@ -2,7 +2,9 @@
   "title": "Osmosis Block Explorer",
   "network": "osmosis-1",
   "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/osmosis/icon.svg?sanitize=true",
-  "logo": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/osmosis/logo.svg?sanitize=true",
+  "logo": {
+    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/osmosis/logo.svg?sanitize=true"
+  },
   "prefix": {
     "consensus": "osmovalcons",
     "validator": "osmovaloper",

@@ -16,12 +16,13 @@ export type Slashing = {
 }
 
 export type Minting = {
-  blocksPerYear: number;
-  goalBonded: number;
-  inflationMax: number;
-  inflationMin: number;
-  inflationRateChange: number;
   mintDenom: string;
+  epochIdentifier: string;
+  reductionFactor: number;
+  stakingDistribution: number;
+  communityPoolDistribution: number;
+  poolIncentiveDistribution: number;
+  developerRewardsDistribution: number;
 }
 
 export type Distribution = {

@@ -70,29 +70,53 @@ export const formatSlashing = (data: Slashing, t: any) => {
 
 export const formatMinting = (data: Minting, t: any) => {
   return ([
-    {
-      label: t('blocksPerYear'),
-      detail: numeral(data.blocksPerYear).format('0,0'),
-    },
-    {
-      label: t('goalBonded'),
-      detail: `${data.goalBonded * 100}%`,
-    },
-    {
-      label: t('inflationMax'),
-      detail: `${data.inflationMax * 100}%`,
-    },
-    {
-      label: t('inflationMin'),
-      detail: `${data.inflationMin * 100}%`,
-    },
-    {
-      label: t('inflationRateChange'),
-      detail: `${data.inflationRateChange * 100}%`,
-    },
+    // {
+    //   label: t('blocksPerYear'),
+    //   detail: numeral(data.blocksPerYear).format('0,0'),
+    // },
+    // {
+    //   label: t('goalBonded'),
+    //   detail: `${data.goalBonded * 100}%`,
+    // },
+    // {
+    //   label: t('inflationMax'),
+    //   detail: `${data.inflationMax * 100}%`,
+    // },
+    // {
+    //   label: t('inflationMin'),
+    //   detail: `${data.inflationMin * 100}%`,
+    // },
+    // {
+    //   label: t('inflationRateChange'),
+    //   detail: `${data.inflationRateChange * 100}%`,
+    // },
     {
       label: t('mintDenom'),
       detail: data.mintDenom,
+    },
+    {
+      label: t('epochIdentifier'),
+      detail: `${data.epochIdentifier}`.toUpperCase(),
+    },
+    {
+      label: t('reductionFactor'),
+      detail: `${data.reductionFactor * 100}%`,
+    },
+    {
+      label: t('stakingDistribution'),
+      detail: `${data.stakingDistribution * 100}%`,
+    },
+    {
+      label: t('communityPoolDistribution'),
+      detail: `${data.communityPoolDistribution * 100}%`,
+    },
+    {
+      label: t('poolIncentiveDistribution'),
+      detail: `${data.poolIncentiveDistribution * 100}%`,
+    },
+    {
+      label: t('developerRewardsDistribution'),
+      detail: `${data.developerRewardsDistribution * 100}%`,
     },
   ]);
 };
