@@ -9,7 +9,10 @@ query DesmosProfile($address: String) {
     chainLinks: chain_links {
       creationTime: creation_time
       externalAddress: external_address
-      chainConfigId: chain_config_id
+      chainConfig: chain_config {
+        name
+        id
+      }
     }
     applicationLinks: application_links (where: {state: {_eq: "APPLICATION_LINK_STATE_VERIFICATION_SUCCESS"}}){
       username
@@ -32,7 +35,10 @@ query DesmosProfileLink($address: String) {
     chainLinks: chain_links {
       creationTime: creation_time
       externalAddress: external_address
-      chainConfigId: chain_config_id
+      chainConfig: chain_config {
+        name
+        id
+      }
     }
     applicationLinks: application_links (where: {state: {_eq: "APPLICATION_LINK_STATE_VERIFICATION_SUCCESS"}}){
       username
