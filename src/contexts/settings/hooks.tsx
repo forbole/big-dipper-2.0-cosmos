@@ -4,7 +4,6 @@ import {
 } from 'react';
 import { createMuiTheme } from '@material-ui/core/styles';
 import {
-  lightTemplate,
   darkTemplate,
   deuteranopiaTemplate,
   tritanopiaTemplate,

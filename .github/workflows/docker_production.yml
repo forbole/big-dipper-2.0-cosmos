@@ -5,6 +5,7 @@ on:
     tags:
       - cosmos*
       - desmos*
+      - osmosis*
 
 jobs:
   Build-and-Publish:
