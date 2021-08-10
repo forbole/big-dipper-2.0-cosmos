@@ -7,7 +7,7 @@ import { HOME } from '@utils/go_to_page';
 import {
   Typography,
 } from '@material-ui/core';
-import { githubConfig } from '@configs';
+import { generalConfig } from '@configs';
 import { useStyles } from './styles';
 
 const Error = () => {
@@ -26,10 +26,10 @@ const Error = () => {
               i18nKey="common:errorDetails"
               components={[
                 // eslint-disable-next-line
-                <a target="_blank" rel="noreferrer" href={githubConfig.reportIssue} />,
+                <a target="_blank" rel="noreferrer" href={generalConfig.github.reportIssue} />,
               ]}
               values={{
-                issue: githubConfig.reportIssue,
+                issue: generalConfig.github.reportIssue,
               }}
             />
           </Typography>

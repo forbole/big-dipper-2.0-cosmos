@@ -122,6 +122,11 @@ export const common = {
         two: '#FF961B',
         three: '#FC6A8A',
       },
+      tokenomics: {
+        one: '#1EC490',
+        two: '#497BFF',
+        three: '#9F46EC',
+      },
       charts: {
         zero: '#E8E8E8',
         one: '#EB3AA4',
