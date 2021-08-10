@@ -79,6 +79,11 @@ export const tritanopiaThemeOverride = {
         two: '#2068A6',
         three: '#FF6E3A',
       },
+      tokenomics: {
+        one: '#009FFA',
+        two: '#F60239',
+        three: '#FF92FD',
+      },
       charts: {
         zero: '#6D6D6C',
         one: '#FFDF01',
