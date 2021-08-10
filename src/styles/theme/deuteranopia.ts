@@ -79,6 +79,11 @@ export const deuteranopiaThemeOverride = {
         two: '#FFAC3B',
         three: '#0079FA',
       },
+      tokenomics: {
+        one: '#009FFA',
+        two: '#F60239',
+        three: '#FF92FD',
+      },
       charts: {
         zero: '#6D6D6C',
         one: '#FFDF01',

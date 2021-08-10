@@ -48,6 +48,12 @@ declare module '@material-ui/core/styles/createPalette' {
             two: string;
             three: string;
         },
+        tokenomics: {
+            zero: string;
+            one: string;
+            two: string;
+            three: string;
+        },
         results: {
             pass: string;
             fail: string;
