@@ -113,7 +113,7 @@ export const common = {
       },
       fonts: {
         fontFive: '#FFFFFF',
-        highlight: '#1D86FF', // links
+        highlight: '#4092CD', // links
         // highlight: '#56B4E9', // links
       },
       condition: {
