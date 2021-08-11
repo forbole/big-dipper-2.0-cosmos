@@ -190,6 +190,118 @@ const getDataByType = (type: string) => {
       tagTheme: 'four',
       tagDisplay: 'txUnblockUserLabel',
     },
+
+    // ========================
+    // osmosis
+    // ========================
+    '/osmosis.gamm.v1beta1.Pool': {
+      model: MODELS.OsmosisPool,
+      content: COMPONENTS.OsmosisPool,
+      tagTheme: 'four',
+      tagDisplay: 'txOsmosisPoolLabel',
+    },
+    '/osmosis.gamm.v1beta1.MsgCreatePool': {
+      model: MODELS.OsmosisMsgCreatePool,
+      content: COMPONENTS.OsmosisCreatePool,
+      tagTheme: 'four',
+      tagDisplay: 'txOsmosisCreatePoolLabel',
+    },
+    '/osmosis.gamm.v1beta1.MsgJoinPool': {
+      model: MODELS.OsmosisMsgJoinPool,
+      content: COMPONENTS.OsmosisJoinPool,
+      tagTheme: 'four',
+      tagDisplay: 'txOsmosisJoinPoolLabel',
+    },
+    '/osmosis.gamm.v1beta1.MsgExitPool': {
+      model: MODELS.OsmosisMsgExitPool,
+      content: COMPONENTS.OsmosisExitPool,
+      tagTheme: 'four',
+      tagDisplay: 'txOsmosisExitPoolLabel',
+    },
+    '/osmosis.gamm.v1beta1.MsgSwapExactAmountIn': {
+      model: MODELS.OsmosisMsgSwapExactAmountIn,
+      content: COMPONENTS.OsmosisSwapExactAmountIn,
+      tagTheme: 'four',
+      tagDisplay: 'txOsmosisSwapExactAmountInLabel',
+    },
+    '/osmosis.gamm.v1beta1.MsgSwapExactAmountOut': {
+      model: MODELS.OsmosisMsgSwapExactAmountOut,
+      content: COMPONENTS.OsmosisSwapExactAmountOut,
+      tagTheme: 'four',
+      tagDisplay: 'txOsmosisSwapExactAmountOutLabel',
+    },
+    '/osmosis.gamm.v1beta1.MsgJoinSwapExternAmountIn': {
+      model: MODELS.OsmosisMsgJoinSwapExternAmountIn,
+      content: COMPONENTS.OsmosisJoinSwapExternAmountIn,
+      tagTheme: 'four',
+      tagDisplay: 'txOsmosisJoinSwapExternAmountInLabel',
+    },
+    '/osmosis.gamm.v1beta1.MsgJoinSwapShareAmountOut': {
+      model: MODELS.OsmosisMsgJoinSwapShareAmountOut,
+      content: COMPONENTS.OsmosisJoinSwapShareAmountOut,
+      tagTheme: 'four',
+      tagDisplay: 'txOsmosisJoinSwapShareAmountOutLabel',
+    },
+    '/osmosis.gamm.v1beta1.MsgExitSwapShareAmountIn': {
+      model: MODELS.OsmosisMsgExitSwapShareAmountIn,
+      content: COMPONENTS.OsmosisExitSwapShareAmountIn,
+      tagTheme: 'four',
+      tagDisplay: 'txOsmosisExitSwapShareAmountInLabel',
+    },
+    '/osmosis.gamm.v1beta1.MsgExitSwapExternAmountOut': {
+      model: MODELS.OsmosisMsgExitSwapExternAmountOut,
+      content: COMPONENTS.OsmosisExitSwapExternAmountOut,
+      tagTheme: 'four',
+      tagDisplay: 'txOsmosisExitSwapExternAmountOutLabel',
+    },
+    '/osmosis.incentives.MsgCreateGauge': {
+      model: MODELS.OsmosisMsgCreateGauge,
+      content: COMPONENTS.OsmosisCreateGauge,
+      tagTheme: 'four',
+      tagDisplay: 'txOsmosisCreateGaugeLabel',
+    },
+    '/osmosis.incentives.MsgAddToGauge': {
+      model: MODELS.OsmosisMsgAddToGauge,
+      content: COMPONENTS.OsmosisAddToGauge,
+      tagTheme: 'four',
+      tagDisplay: 'txOsmosisAddToGaugeLabel',
+    },
+    '/osmosis.lockup.MsgLockTokens': {
+      model: MODELS.OsmosisMsgLockTokens,
+      content: COMPONENTS.OsmosisLockTokens,
+      tagTheme: 'four',
+      tagDisplay: 'txOsmosisLockTokensLabel',
+    },
+    '/osmosis.lockup.MsgBeginUnlockingAll': {
+      model: MODELS.OsmosisMsgBeginUnlockingAll,
+      content: COMPONENTS.OsmosisBeginUnlockingAll,
+      tagTheme: 'four',
+      tagDisplay: 'txOsmosisBeginUnlockingAllLabel',
+    },
+    '/osmosis.lockup.MsgUnlockTokens': {
+      model: MODELS.OsmosisMsgUnlockTokens,
+      content: COMPONENTS.OsmosisUnlockTokens,
+      tagTheme: 'four',
+      tagDisplay: 'txOsmosisUnlockTokensLabel',
+    },
+    '/osmosis.lockup.MsgBeginUnlocking': {
+      model: MODELS.OsmosisMsgBeginUnlocking,
+      content: COMPONENTS.OsmosisBeginUnlocking,
+      tagTheme: 'four',
+      tagDisplay: 'txOsmosisBeginUnlockingLabel',
+    },
+    '/osmosis.lockup.MsgUnlockPeriodLock': {
+      model: MODELS.OsmosisMsgUnlockPeriodLock,
+      content: COMPONENTS.OsmosisUnlockPeriodLock,
+      tagTheme: 'four',
+      tagDisplay: 'txOsmosisUnlockPeriodLockLabel',
+    },
+    '/osmosis.poolincentives.v1beta1.UpdatePoolIncentivesProposal': {
+      model: MODELS.OsmosisUpdatePoolIncentivesProposal,
+      content: COMPONENTS.OsmosisUpdatePoolIncentivesProposal,
+      tagTheme: 'four',
+      tagDisplay: 'txOsmosisUpdatePoolIncentivesProposalLabel',
+    }
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];
