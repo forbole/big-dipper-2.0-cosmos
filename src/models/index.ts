@@ -37,6 +37,20 @@ import MsgDtagRefuseTransfer from './msg/profiles/msg_dtag_refuse_transfer';
 import MsgDtagTransferRequest from './msg/profiles/msg_dtag_transfer_request';
 import MsgSaveProfile from './msg/profiles/msg_save_profile';
 import MsgUnblockUser from './msg/profiles/msg_unblock_user';
+import MsgCreatePool from './msg/osmosis/gamm/v1beta1/msg_create_pool';
+import MsgExitPool from './msg/osmosis/gamm/v1beta1/msg_exit_pool';
+import MsgExitSwapExternAmountOut from './msg/osmosis/gamm/v1beta1/msg_exit_swap_extern_amount_out';
+import MsgExitSwapShareAmountIn from './msg/osmosis/gamm/v1beta1/msg_exit_swap_share_amount_in';
+import MsgJoinPool from './msg/osmosis/gamm/v1beta1/msg_join_pool';
+import MsgJoinSwapExternAmountIn from './msg/osmosis/gamm/v1beta1/msg_join_swap_extern_amount_in';
+import MsgJoinSwapShareAmountOut from './msg/osmosis/gamm/v1beta1/msg_join_swap_share_amount_out';
+import MsgSwapExactAmountIn from './msg/osmosis/gamm/v1beta1/msg_swap_exact_amount_in';
+import MsgSwapExactAmountOut from './msg/osmosis/gamm/v1beta1/msg_swap_exact_amount_out';
+import MsgCreateGauge from './msg/osmosis/incentives/msg_create_gauge'
+import MsgAddToGauge from './msg/osmosis/incentives/msg_add_to_gauge';
+import MsgBeginUnlocking from './msg/osmosis/lockup/msg_begin_unlocking';
+import MsgBeginUnlockingAll from './msg/osmosis/lockup/msg_begin_unlocking_all';
+import MsgLockTokens from './msg/osmosis/lockup/msg_lock_tokens';
 
 export {
   BigDipperNetwork,
@@ -78,4 +92,18 @@ export {
   MsgDeleteProfile,
   MsgCreateRelationship,
   MsgBlockUser,
+  MsgCreatePool,
+  MsgExitPool,
+  MsgExitSwapExternAmountOut,
+  MsgExitSwapShareAmountIn,
+  MsgJoinPool,
+  MsgJoinSwapExternAmountIn,
+  MsgJoinSwapShareAmountOut,
+  MsgSwapExactAmountIn,
+  MsgSwapExactAmountOut,
+  MsgCreateGauge,
+  MsgAddToGauge,
+  MsgBeginUnlocking,
+  MsgBeginUnlockingAll,
+  MsgLockTokens
 };
