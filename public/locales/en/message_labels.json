@@ -24,5 +24,19 @@
   "txCancelDTagTransferLabel": "Cancel DTag Transfer",
   "txRefuseDTagTransferLabel": "Refuse DTag Transfer",
   "txBlockUserLabel": "Block User",
-  "txUnblockUserLabel": "Unblock User"
+  "txUnblockUserLabel": "Unblock User",
+  "txCreatePoolLabel": "Create Pool",
+  "txJoinPoolLabel": "Join Pool",
+  "txExitPoolLabel": "Exit Pool",
+  "txSwapExactAmountInLabel": "Swap Exact Amount In",
+  "txSwapExactAmountOutLabel": "Swap Exact Amount Out",
+  "txJoinSwapExternAmountInLabel": "Join Swap Extern Amount In",
+  "txJoinSwapShareAmountOutLabel": "Join Swap Share Amount Out",
+  "txExitSwapShareAmountInLabel": "Exit Swap Share Amount In",
+  "txExitSwapExternAmountOutLabel": "Exit Swap Extern Amount Out",
+  "txCreateGaugeLabel": "Create Gauge",
+  "txAddToGaugeLabel": "Add To Gauge",
+  "txLockTokensLabel": "Lock Tokens",
+  "txBeginUnlockingAllLabel": "Begin Unlocking All",
+  "txBeginUnlockingLabel": "Begin Unlocking"
 }
