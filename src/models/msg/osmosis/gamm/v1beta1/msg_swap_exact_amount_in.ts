@@ -1,6 +1,6 @@
 import { Categories } from '../../../types';
 
-class OsmosisSwapExactAmountIn {
+class MsgSwapExactAmountIn {
     public category: Categories;
     public type: string;
     public routes: any;
@@ -18,7 +18,7 @@ class OsmosisSwapExactAmountIn {
     }
 
     static fromJson(json: any) {
-        return new OsmosisSwapExactAmountIn({
+        return new MsgSwapExactAmountIn({
             type: json['@type'],
             routes: json.routes,
             sender: json.sender,
@@ -28,4 +28,4 @@ class OsmosisSwapExactAmountIn {
     }
 }
 
-export default OsmosisSwapExactAmountIn;
+export default MsgSwapExactAmountIn;

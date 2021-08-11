@@ -1,6 +1,6 @@
 import { Categories } from '../../../types';
 
-class OsmosisMsgExitPool {
+class MsgExitPool {
     public category: Categories;
     public type: string;
     public poolId: string;
@@ -18,7 +18,7 @@ class OsmosisMsgExitPool {
     }
 
     static fromJson(json: any) {
-        return new OsmosisMsgExitPool({
+        return new MsgExitPool({
             type: json['@type'],
             poolId: json.poolId,
             sender: json.sender,
@@ -28,4 +28,4 @@ class OsmosisMsgExitPool {
     }
 }
 
-export default OsmosisMsgExitPool;
+export default MsgExitPool;

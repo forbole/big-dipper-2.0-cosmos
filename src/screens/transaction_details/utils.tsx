@@ -194,114 +194,108 @@ const getDataByType = (type: string) => {
     // ========================
     // osmosis
     // ========================
-    '/osmosis.gamm.v1beta1.Pool': {
-      model: MODELS.OsmosisPool,
-      content: COMPONENTS.OsmosisPool,
-      tagTheme: 'four',
-      tagDisplay: 'txOsmosisPoolLabel',
-    },
     '/osmosis.gamm.v1beta1.MsgCreatePool': {
-      model: MODELS.OsmosisMsgCreatePool,
+      model: MODELS.MsgCreatePool,
       content: COMPONENTS.OsmosisCreatePool,
       tagTheme: 'four',
       tagDisplay: 'txOsmosisCreatePoolLabel',
     },
     '/osmosis.gamm.v1beta1.MsgJoinPool': {
-      model: MODELS.OsmosisMsgJoinPool,
+      model: MODELS.MsgJoinPool,
       content: COMPONENTS.OsmosisJoinPool,
       tagTheme: 'four',
       tagDisplay: 'txOsmosisJoinPoolLabel',
     },
     '/osmosis.gamm.v1beta1.MsgExitPool': {
-      model: MODELS.OsmosisMsgExitPool,
+      model: MODELS.MsgExitPool,
       content: COMPONENTS.OsmosisExitPool,
       tagTheme: 'four',
       tagDisplay: 'txOsmosisExitPoolLabel',
     },
     '/osmosis.gamm.v1beta1.MsgSwapExactAmountIn': {
-      model: MODELS.OsmosisMsgSwapExactAmountIn,
+      model: MODELS.MsgSwapExactAmountIn,
       content: COMPONENTS.OsmosisSwapExactAmountIn,
       tagTheme: 'four',
       tagDisplay: 'txOsmosisSwapExactAmountInLabel',
     },
     '/osmosis.gamm.v1beta1.MsgSwapExactAmountOut': {
-      model: MODELS.OsmosisMsgSwapExactAmountOut,
+      model: MODELS.MsgSwapExactAmountOut,
       content: COMPONENTS.OsmosisSwapExactAmountOut,
       tagTheme: 'four',
       tagDisplay: 'txOsmosisSwapExactAmountOutLabel',
     },
     '/osmosis.gamm.v1beta1.MsgJoinSwapExternAmountIn': {
-      model: MODELS.OsmosisMsgJoinSwapExternAmountIn,
+      model: MODELS.MsgJoinSwapExternAmountIn,
       content: COMPONENTS.OsmosisJoinSwapExternAmountIn,
       tagTheme: 'four',
       tagDisplay: 'txOsmosisJoinSwapExternAmountInLabel',
     },
     '/osmosis.gamm.v1beta1.MsgJoinSwapShareAmountOut': {
-      model: MODELS.OsmosisMsgJoinSwapShareAmountOut,
+      model: MODELS.MsgJoinSwapShareAmountOut,
       content: COMPONENTS.OsmosisJoinSwapShareAmountOut,
       tagTheme: 'four',
       tagDisplay: 'txOsmosisJoinSwapShareAmountOutLabel',
     },
     '/osmosis.gamm.v1beta1.MsgExitSwapShareAmountIn': {
-      model: MODELS.OsmosisMsgExitSwapShareAmountIn,
+      model: MODELS.MsgExitSwapShareAmountIn,
       content: COMPONENTS.OsmosisExitSwapShareAmountIn,
       tagTheme: 'four',
       tagDisplay: 'txOsmosisExitSwapShareAmountInLabel',
     },
     '/osmosis.gamm.v1beta1.MsgExitSwapExternAmountOut': {
-      model: MODELS.OsmosisMsgExitSwapExternAmountOut,
+      model: MODELS.MsgExitSwapExternAmountOut,
       content: COMPONENTS.OsmosisExitSwapExternAmountOut,
       tagTheme: 'four',
       tagDisplay: 'txOsmosisExitSwapExternAmountOutLabel',
     },
     '/osmosis.incentives.MsgCreateGauge': {
-      model: MODELS.OsmosisMsgCreateGauge,
+      model: MODELS.MsgCreateGauge,
       content: COMPONENTS.OsmosisCreateGauge,
       tagTheme: 'four',
       tagDisplay: 'txOsmosisCreateGaugeLabel',
     },
     '/osmosis.incentives.MsgAddToGauge': {
-      model: MODELS.OsmosisMsgAddToGauge,
+      model: MODELS.MsgAddToGauge,
       content: COMPONENTS.OsmosisAddToGauge,
       tagTheme: 'four',
       tagDisplay: 'txOsmosisAddToGaugeLabel',
     },
     '/osmosis.lockup.MsgLockTokens': {
-      model: MODELS.OsmosisMsgLockTokens,
+      model: MODELS.MsgLockTokens,
       content: COMPONENTS.OsmosisLockTokens,
       tagTheme: 'four',
       tagDisplay: 'txOsmosisLockTokensLabel',
     },
     '/osmosis.lockup.MsgBeginUnlockingAll': {
-      model: MODELS.OsmosisMsgBeginUnlockingAll,
+      model: MODELS.MsgBeginUnlockingAll,
       content: COMPONENTS.OsmosisBeginUnlockingAll,
       tagTheme: 'four',
       tagDisplay: 'txOsmosisBeginUnlockingAllLabel',
     },
-    '/osmosis.lockup.MsgUnlockTokens': {
-      model: MODELS.OsmosisMsgUnlockTokens,
-      content: COMPONENTS.OsmosisUnlockTokens,
-      tagTheme: 'four',
-      tagDisplay: 'txOsmosisUnlockTokensLabel',
-    },
+    // '/osmosis.lockup.MsgUnlockTokens': {
+    //   model: MODELS.OsmosisMsgUnlockTokens,
+    //   content: COMPONENTS.OsmosisUnlockTokens,
+    //   tagTheme: 'four',
+    //   tagDisplay: 'txOsmosisUnlockTokensLabel',
+    // },
     '/osmosis.lockup.MsgBeginUnlocking': {
-      model: MODELS.OsmosisMsgBeginUnlocking,
+      model: MODELS.MsgBeginUnlocking,
       content: COMPONENTS.OsmosisBeginUnlocking,
       tagTheme: 'four',
       tagDisplay: 'txOsmosisBeginUnlockingLabel',
     },
-    '/osmosis.lockup.MsgUnlockPeriodLock': {
-      model: MODELS.OsmosisMsgUnlockPeriodLock,
-      content: COMPONENTS.OsmosisUnlockPeriodLock,
-      tagTheme: 'four',
-      tagDisplay: 'txOsmosisUnlockPeriodLockLabel',
-    },
-    '/osmosis.poolincentives.v1beta1.UpdatePoolIncentivesProposal': {
-      model: MODELS.OsmosisUpdatePoolIncentivesProposal,
-      content: COMPONENTS.OsmosisUpdatePoolIncentivesProposal,
-      tagTheme: 'four',
-      tagDisplay: 'txOsmosisUpdatePoolIncentivesProposalLabel',
-    }
+    // '/osmosis.lockup.MsgUnlockPeriodLock': {
+    //   model: MODELS.OsmosisMsgUnlockPeriodLock,
+    //   content: COMPONENTS.OsmosisUnlockPeriodLock,
+    //   tagTheme: 'four',
+    //   tagDisplay: 'txOsmosisUnlockPeriodLockLabel',
+    // },
+    // '/osmosis.poolincentives.v1beta1.UpdatePoolIncentivesProposal': {
+    //   model: MODELS.OsmosisUpdatePoolIncentivesProposal,
+    //   content: COMPONENTS.OsmosisUpdatePoolIncentivesProposal,
+    //   tagTheme: 'four',
+    //   tagDisplay: 'txOsmosisUpdatePoolIncentivesProposalLabel',
+    // }
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];

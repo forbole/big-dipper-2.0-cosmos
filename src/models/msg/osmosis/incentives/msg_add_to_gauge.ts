@@ -1,6 +1,6 @@
 import { Categories } from '../../types';
 
-class OsmosisAddToGauge {
+class MsgAddToGauge {
     public category: Categories;
     public type: string;
     public owner: string;
@@ -17,7 +17,7 @@ class OsmosisAddToGauge {
     }
 
     static fromJson(json: any) {
-        return new OsmosisAddToGauge({
+        return new MsgAddToGauge({
             type: json['@type'],
             owner: json.owner,
             gaugeId: json.gauge_id,
@@ -26,4 +26,4 @@ class OsmosisAddToGauge {
     }
 }
 
-export default OsmosisAddToGauge;
+export default MsgAddToGauge;

@@ -1,6 +1,6 @@
 import { Categories } from '../../../types';
 
-class OsmosisJoinSwapExternAmountIn {
+class MsgJoinSwapExternAmountIn {
     public category: Categories;
     public type: string;
     public poolId: string;
@@ -18,7 +18,7 @@ class OsmosisJoinSwapExternAmountIn {
     }
 
     static fromJson(json: any) {
-        return new OsmosisJoinSwapExternAmountIn({
+        return new MsgJoinSwapExternAmountIn({
             type: json['@type'],
             poolId: json.poolId,
             sender: json.sender,
@@ -28,4 +28,4 @@ class OsmosisJoinSwapExternAmountIn {
     }
 }
 
-export default OsmosisJoinSwapExternAmountIn;
+export default MsgJoinSwapExternAmountIn;

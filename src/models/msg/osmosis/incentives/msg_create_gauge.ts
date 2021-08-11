@@ -1,6 +1,6 @@
 import { Categories } from '../../types';
 
-class OsmosisCreateGauge {
+class MsgCreateGauge {
     public category: Categories;
     public type: string;
     public isPerpetual: boolean;
@@ -34,4 +34,4 @@ class OsmosisCreateGauge {
     }
 }
 
-export default OsmosisCreateGauge;
+export default MsgCreateGauge;

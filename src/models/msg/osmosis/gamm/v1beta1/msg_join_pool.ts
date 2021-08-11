@@ -1,6 +1,6 @@
 import { Categories } from '../../../types';
 
-class OsmosisMsgJoinPool {
+class MsgJoinPool {
     public category: Categories;
     public type: string;
     public poolId: string;
@@ -18,7 +18,7 @@ class OsmosisMsgJoinPool {
     }
 
     static fromJson(json: any) {
-        return new OsmosisMsgJoinPool({
+        return new MsgJoinPool({
             type: json['@type'],
             poolId: json.poolId,
             sender: json.sender,
@@ -28,4 +28,4 @@ class OsmosisMsgJoinPool {
     }
 }
 
-export default OsmosisMsgJoinPool;
+export default MsgJoinPool;

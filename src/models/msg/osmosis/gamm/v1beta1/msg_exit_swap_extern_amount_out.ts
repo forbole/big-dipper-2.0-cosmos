@@ -1,6 +1,6 @@
 import { Categories } from '../../../types';
 
-class OsmosisExitSwapExternAmountOut {
+class MsgSwapExactAmountOut {
     public category: Categories;
     public type: string;
     public poolId: string;
@@ -18,7 +18,7 @@ class OsmosisExitSwapExternAmountOut {
     }
 
     static fromJson(json: any) {
-        return new OsmosisExitSwapExternAmountOut({
+        return new MsgSwapExactAmountOut({
             type: json['@type'],
             poolId: json.poolId,
             sender: json.sender,
@@ -28,4 +28,4 @@ class OsmosisExitSwapExternAmountOut {
     }
 }
 
-export default OsmosisExitSwapExternAmountOut;
+export default MsgSwapExactAmountOut;
