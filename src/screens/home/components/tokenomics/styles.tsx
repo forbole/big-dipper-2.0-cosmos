@@ -47,13 +47,13 @@ export const useStyles = () => {
               marginRight: '5px',
             },
             '&:first-child:before': {
-              background: theme.palette.custom.charts.four,
+              background: theme.palette.custom.tokenomics.one,
             },
             '&:nth-child(2):before': {
-              background: theme.palette.custom.charts.two,
+              background: theme.palette.custom.tokenomics.two,
             },
             '&:last-child:before': {
-              background: theme.palette.custom.charts.five,
+              background: theme.palette.custom.tokenomics.three,
             },
             '& .caption__percent': {
               color: theme.palette.custom.fonts.fontThree,
