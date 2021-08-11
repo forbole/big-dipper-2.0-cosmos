@@ -25,6 +25,8 @@ ENV NEXT_PUBLIC_URL https://osmosis.bigdipper.live
 ENV NEXT_PUBLIC_WS_CHAIN_URL wss://ws.osmosis.bigdipper.live
 ENV NODE_ENV production
 ENV PORT 3000
+ENV NEXT_PUBLIC_MATOMO_URL https://analytics.bigdipper.live
+ENV NEXT_PUBLIC_MATOMO_SITE_ID 7
 
 # Building app
 RUN npm run build
