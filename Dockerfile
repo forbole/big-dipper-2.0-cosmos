@@ -25,6 +25,8 @@ ENV NEXT_PUBLIC_URL https://morpheus.desmos.network
 ENV NEXT_PUBLIC_WS_CHAIN_URL wss://rpc.morpheus.desmos.network/websocket
 ENV NODE_ENV production
 ENV PORT 3000
+ENV NEXT_PUBLIC_MATOMO_URL https://analytics.desmos.network
+ENV NEXT_PUBLIC_MATOMO_SITE_ID 8
 
 # Building app
 RUN npm run build
