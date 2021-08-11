@@ -1,9 +1,11 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import FooterLogo from '@assets/big-dipper-white.svg';
+import FooterLogoLight from '@assets/big-dipper-red.svg';
+import FooterLogoDark from '@assets/big-dipper-white.svg';
 import { Button } from '@material-ui/core';
 import { chainConfig } from '@src/configs';
+import { useSettingsContext } from '@contexts';
 import { SocialMedia } from './components';
 import {
   footerLinks, donateLink,
@@ -13,6 +15,7 @@ import { useStyles } from './styles';
 const Footer: React.FC<{className?: string}> = ({ className }) => {
   const { t } = useTranslation();
   const classes = useStyles();
+  const { theme } = useSettingsContext();
 
   // ============================
   // Footer
@@ -25,7 +28,11 @@ const Footer: React.FC<{className?: string}> = ({ className }) => {
       {/* logo */}
       {/* ============================= */}
       <div className="footer__logo--container">
-        <FooterLogo className="footer__logo" />
+        {theme === 'light' ? (
+          <FooterLogoLight className="footer__logo" />
+        ) : (
+          <FooterLogoDark className="footer__logo" />
+        )}
         <p className="footer__slogan">{chainConfig.title}</p>
         <p className="footer__copyright">
           {t('common:copyright')}
