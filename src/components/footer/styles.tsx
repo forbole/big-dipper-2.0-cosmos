@@ -6,10 +6,16 @@ export const useStyles = () => {
     (theme) => {
       return ({
         root: {
-          '&.footer': {
-            background: theme.palette.background.paper,
-            padding: '3rem 1.5rem 4rem',
-            color: theme.palette.custom.fonts.fontOne,
+          background: theme.palette.background.paper,
+          padding: theme.spacing(6, 3, 6),
+          color: theme.palette.custom.fonts.fontOne,
+          '& .footer__closing--container': {
+            '& a': {
+              color: theme.palette.custom.fonts.highlight,
+            },
+          },
+          '& .MuiDivider-root': {
+            margin: theme.spacing(4, 0),
           },
           '& p': {
             marginTop: theme.spacing(2),
@@ -24,7 +30,7 @@ export const useStyles = () => {
           '& .footer__logo': {
             width: '180px',
           },
-          '& .footer__copyright': {
+          '& .footer__closing--text': {
             color: theme.palette.custom.fonts.fontThree,
           },
           '& .footer__links': {
@@ -45,7 +51,7 @@ export const useStyles = () => {
               color: 'inherit',
               textDecoration: 'none',
               paddingBottom: '1rem',
-              borderBottom: 'solid 1px #3c3c3c',
+              borderBottom: `solid 1px ${theme.palette.custom.fonts.fontFour}`,
               transition: '0.2s',
               width: '100%',
               '&:hover': {
@@ -72,9 +78,23 @@ export const useStyles = () => {
               },
             },
           },
+          [theme.breakpoints.up('md')]: {
+            paddingBottom: 0,
+            '& .MuiDivider-root': {
+              marginBottom: 0,
+            },
+            '& .footer__closing--container': {
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: theme.spacing(1, 0),
+            },
+          },
           [theme.breakpoints.up('lg')]: {
-            '&.footer': {
-              padding: '3rem 2rem 5rem',
+            '& .MuiDivider-root': {
+              marginTop: theme.spacing(5),
+            },
+            '& .footer': {
               display: 'grid',
               gridTemplateColumns: 'repeat(4, 1fr)',
             },

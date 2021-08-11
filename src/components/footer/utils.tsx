@@ -47,7 +47,6 @@ export const footerLinks = [
         key: 'privacyPolicy',
         url: `${BIG_DIPPER_URL}/privacy-policy`,
       },
-      donateLink,
     ],
   },
 ];
