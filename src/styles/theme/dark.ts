@@ -41,22 +41,28 @@ export const darkThemeOverride = {
         fontTwo,
         fontThree,
         fontFour: '#999999',
+        highlight: '#4092CD', // links
       },
       primaryData: {
-        one: '#F87255',
-        two: '#FA9147',
+        one: '#FA9147',
+        two: '#F87255',
         three: '#43BE7C',
         four: '#43A1BE',
       },
       results: {
-        pass: '#198a65',
-        fail: '#b12a34',
+        pass: '#1EC490',
+        fail: '#FD3B4C',
       },
       condition: {
         zero: '#E6E6E6',
         one: '#1EC490',
         two: '#FF9338',
         three: '#FF608A',
+      },
+      tokenomics: {
+        one: '#43A1BE',
+        two: '#E3BB55',
+        three: '#20D292',
       },
       charts: {
         zero: '#E6E6E6',
