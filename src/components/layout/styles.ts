@@ -20,7 +20,7 @@ export const useStyles = () => {
         footer: {
           [theme.breakpoints.up('lg')]: {
             position: 'relative',
-            zIndex: 5000,
+            zIndex: 1299,
           },
         },
         appBarPlaceholder: {

@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import Color from 'color';
 
 export const useStyles = () => {
   const styles = makeStyles(
@@ -6,9 +7,9 @@ export const useStyles = () => {
       return ({
         root: {
           '&.footer': {
-            background: theme.palette.type === 'light' ? '#131316' : theme.palette.background.paper,
+            background: theme.palette.background.paper,
             padding: '3rem 1.5rem 4rem',
-            color: 'white',
+            color: theme.palette.custom.fonts.fontOne,
           },
           '& p': {
             marginTop: theme.spacing(2),
@@ -24,13 +25,13 @@ export const useStyles = () => {
             width: '180px',
           },
           '& .footer__copyright': {
-            color: '#C4C4C4',
+            color: theme.palette.custom.fonts.fontThree,
           },
           '& .footer__links': {
             marginTop: '1rem',
           },
           '& h3': {
-            color: 'rgba(153, 153, 153, 1)',
+            color: theme.palette.custom.fonts.fontThree,
             fontWeight: 500,
             marginBottom: theme.spacing(2),
             marginTop: theme.spacing(2),
@@ -48,7 +49,7 @@ export const useStyles = () => {
               transition: '0.2s',
               width: '100%',
               '&:hover': {
-                color: 'rgba(255,255,255, 0.3)',
+                color: Color(theme.palette.custom.fonts.fontOne).alpha(0.6).string(),
               },
             },
             '&.forbole': {
