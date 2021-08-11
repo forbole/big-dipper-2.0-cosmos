@@ -1,11 +1,11 @@
-import {
-  makeStyles,
-} from '@material-ui/styles';
+import Color from 'color';
+import { makeStyles } from '@material-ui/core/styles';
 
-export const useGetStyles = () => {
-  const useStyles = makeStyles(() => {
-    return (
-      {
+export const useStyles = () => {
+  const styles = makeStyles(
+    (theme) => {
+      const iconFill = theme.palette.type === 'light' ? theme.palette.custom.fonts.fontTwo : theme.palette.custom.general.icon;
+      return ({
         root: {
           '& .media': {
             margin: '0 0.5rem',
@@ -17,18 +17,18 @@ export const useGetStyles = () => {
             },
             '& path': {
               transition: 'all 0.3s ease',
-              fill: 'rgba(153, 153, 153, 1)',
+              fill: iconFill,
             },
             '&:hover': {
               '& path': {
-                fill: 'rgba(153, 153, 153, 0.2)',
+                fill: Color(iconFill).alpha(0.6).string(),
               },
             },
           },
         },
       });
-  });
-  return {
-    classes: useStyles(),
-  };
+    },
+  )();
+
+  return styles;
 };

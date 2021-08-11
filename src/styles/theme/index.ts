@@ -47,6 +47,9 @@ export const common = {
     MuiSvgIcon: {
       htmlColor: '#999999', // same as custom /general /icons
     },
+    MuiButton: {
+      disableElevation: true,
+    },
   },
   typography: {
     fontFamily: '"Hind Madurai", sans-serif',
