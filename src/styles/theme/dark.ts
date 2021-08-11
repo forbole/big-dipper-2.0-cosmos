@@ -5,7 +5,7 @@ const fontOne = '#E6E6E6';
 const fontTwo = '#C4C4C4';
 const fontThree = '#818181';
 
-/** Custom theme overrides for light mode */
+/** Custom theme overrides for dark mode */
 export const darkThemeOverride = {
   mixins: {
     tableCell: {

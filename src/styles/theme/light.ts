@@ -1,10 +1,17 @@
+const backgroundDefault = '#F8F8F8';
+const surfaceOne = '#FFFFFF';
+const surfaceTwo = '#F8F8F8';
+const fontOne = '#000000';
+const fontTwo = '#414141';
+const fontThree = '#777777';
+
 /** Custom theme overrides for light mode */
 export const lightThemeOverride = {
   mixins: {
     tableCell: {
-      background: '#FFFFFF',
+      background: surfaceOne, // surface one
       '&.odd': {
-        background: '#F8F8F8',
+        background: surfaceTwo, // surface two
       },
     },
   },
@@ -15,8 +22,8 @@ export const lightThemeOverride = {
       contrastText: '#fff',
     },
     background: {
-      default: '#F8F8F8',
-      paper: '#FFFFFF',
+      default: backgroundDefault,
+      paper: surfaceOne,
     },
     divider: '#E8E8E8',
     text: {
@@ -25,14 +32,14 @@ export const lightThemeOverride = {
     },
     custom: {
       general: {
-        background: '#F8F8F8', // same as background default
-        surfaceOne: '#FFFFFF', // same as background paper
-        surfaceTwo: '#F8F8F8', // striped tables
+        background: backgroundDefault, // same as background default
+        surfaceOne, // same as background paper
+        surfaceTwo, // striped tables
       },
       fonts: {
-        fontOne: '#000000',
-        fontTwo: '#414141',
-        fontThree: '#777777',
+        fontOne,
+        fontTwo,
+        fontThree,
         fontFour: '#999999',
       },
       primaryData: {
@@ -52,24 +59,24 @@ export const lightThemeOverride = {
       root: {
         '& .MuiTableRow-root': {
           '&:nth-child(odd)': {
-            backgroundColor: '#F8F8F8', // surface two
+            backgroundColor: surfaceTwo, // surface two
           },
         },
         '& .MuiTableCell-root': {
-          color: '#414141', // font two
+          color: fontTwo, // font two
         },
       },
     },
     MuiTabs: {
       root: {
         '& .MuiTab-textColorInherit': {
-          color: '#777777', // font three
+          color: fontThree, // font three
         },
         '& .MuiTab-textColorInherit.Mui-selected': {
-          color: '#000000', // font one
+          color: fontOne, // font one
         },
         '& .MuiTabs-indicator': {
-          backgroundColor: '#000000', // font one (?)
+          backgroundColor: fontOne, // font one (?)
         },
       },
     },

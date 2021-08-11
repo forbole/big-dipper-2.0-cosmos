@@ -1,4 +1,13 @@
-# Unreleased
+# base-v1.0.2
+## Changes
+- Update the structure layout of themes
+- Update footer light and dark theme
+
+# base-v1.0.1
+## Bug fixes
+- Fixed tokenomics legend to use the correct colors
+
+# base-v1.0.0
 ## Changes
 - Created initial boilerplate base
 - Updated proposal details to display results using snapshots instead of realtime data ([\#116](https://github.com/forbole/big-dipper-desmos/issues/116))

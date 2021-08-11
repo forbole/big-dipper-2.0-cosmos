@@ -2,14 +2,14 @@
 
 exports[`component: layout/footer matches snapshot 1`] = `
 <div
-  className="makeStyles-root-1 footer"
+  className="makeStyles-root footer"
 >
   <div
     className="footer__logo--container"
   >
     <svg
       className="footer__logo"
-      data-file-name="SvgBigDipperWhite"
+      data-file-name="SvgBigDipperRed"
     />
     <p
       className="footer__slogan"
@@ -111,7 +111,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
         common:community
       </h3>
       <div
-        className=" makeStyles-root-2 social-media"
+        className=" makeStyles-root social-media"
       >
         <a
           className="media telegram"

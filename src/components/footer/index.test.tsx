@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { MockTheme } from '@tests/utils';
 import Footer from '.';
 
 // ==================================
@@ -13,7 +14,9 @@ describe('component: layout/footer', () => {
       .mockImplementation(() => mockDate as any);
 
     const component = renderer.create(
-      <Footer />,
+      <MockTheme>
+        <Footer />
+      </MockTheme>,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
