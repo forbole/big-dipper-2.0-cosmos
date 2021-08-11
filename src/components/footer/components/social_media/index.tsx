@@ -1,11 +1,11 @@
 import React from 'react';
 import { socialMediaLinks } from './utils';
-import { useGetStyles } from './styles';
+import { useStyles } from './styles';
 import { Props } from './types';
 
 const SocialMedia = (props: Props) => {
   const { className = '' } = props;
-  const { classes } = useGetStyles();
+  const classes = useStyles();
   return (
     <div className={`${className} ${classes.root} social-media`}>
       {socialMediaLinks.map((x) => {

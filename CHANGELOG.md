@@ -2,6 +2,7 @@
 ## Changes
 - Update the structure layout of themes
 - Update footer light and dark theme
+- Add maintainer section in footer
 
 # base-v1.0.1
 ## Bug fixes

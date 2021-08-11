@@ -63,4 +63,13 @@ jest.mock('@configs', () => ({
       "forboleX": false
     }
   },
+  generalConfig: {
+    "maintainer": {
+      "name": "Forbole",
+      "url": "https://forbole.com"
+    },
+    "github": {
+      "reportIssue": "https://github.com/forbole/big-dipper-2.0-cosmos/issues"
+    }
+  }
 }));

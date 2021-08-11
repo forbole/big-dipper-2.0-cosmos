@@ -20,9 +20,6 @@ describe('component: layout/footer', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
-    expect(component.root.findAllByProps({
-      className: 'footer__copyright',
-    })[0].children).toEqual(['common:copyright', ' ', '2017']);
   });
 
   afterEach(() => {
