@@ -1,10 +1,8 @@
-import Color from 'color';
-
-const backgroundDefault = '#0A0A0A';
+const backgroundDefault = '#000000';
 const surfaceOne = '#131316';
-const surfaceTwo = '#19191D';
+const surfaceTwo = '#212123';
 const fontOne = '#E6E6E6';
-const fontTwo = '#AAAAAB';
+const fontTwo = '#C4C4C4';
 const fontThree = '#818181';
 
 /** Custom theme overrides for dark mode */
@@ -20,17 +18,17 @@ export const darkThemeOverride = {
   palette: {
     type: 'dark',
     primary: {
-      main: Color('#FD3B4C').alpha(0.7).string(),
+      main: '#FA9147',
       contrastText: '#fff',
     },
     background: {
       default: backgroundDefault,
       paper: surfaceOne,
     },
-    divider: '#3D3D43',
+    divider: '#282828',
     text: {
       primary: '#E6E6E6',
-      secondary: '#AAAAAB',
+      secondary: '#C4C4C4',
     },
     custom: {
       general: {
@@ -43,16 +41,36 @@ export const darkThemeOverride = {
         fontTwo,
         fontThree,
         fontFour: '#999999',
+        highlight: '#4092CD', // links
       },
       primaryData: {
-        one: '#af2929',
-        two: '#b44516',
-        three: '#b14237',
-        four: '#b16919',
+        one: '#FA9147',
+        two: '#F87255',
+        three: '#43BE7C',
+        four: '#43A1BE',
       },
       results: {
-        pass: '#198a65',
-        fail: '#b12a34',
+        pass: '#1EC490',
+        fail: '#FD3B4C',
+      },
+      condition: {
+        zero: '#E6E6E6',
+        one: '#1EC490',
+        two: '#FF9338',
+        three: '#FF608A',
+      },
+      tokenomics: {
+        one: '#43A1BE',
+        two: '#E3BB55',
+        three: '#20D292',
+      },
+      charts: {
+        zero: '#E6E6E6',
+        one: '#F87255',
+        two: '#FA9147',
+        three: '#43BE7C',
+        four: '#43A1BE',
+        five: '#C25396',
       },
     },
   },
