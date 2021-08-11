@@ -19,13 +19,6 @@ exports[`component: layout/footer matches snapshot 1`] = `
       >
         Desmos Block Explorer
       </p>
-      <p
-        className="footer__copyright"
-      >
-        common:copyright
-         
-        2017
-      </p>
     </div>
     <div
       className="footer__links"
