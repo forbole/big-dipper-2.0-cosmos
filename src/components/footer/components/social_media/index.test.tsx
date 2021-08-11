@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { MockTheme } from '@tests/utils';
 import SocialMedia from '.';
 
 // ==================================
@@ -8,7 +9,9 @@ import SocialMedia from '.';
 describe('component: layout/footer', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
-      <SocialMedia />,
+      <MockTheme>
+        <SocialMedia />
+      </MockTheme>,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

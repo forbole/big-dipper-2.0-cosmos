@@ -52,6 +52,19 @@ export const darkThemeOverride = {
         pass: '#1EC490',
         fail: '#FD3B4C',
       },
+      tokenomics: {
+        one: '#2E9CED',
+        two: '#E3AB55',
+        three: '#5ACF78',
+      },
+      charts: {
+        zero: '#E6E6E6',
+        one: '#5E94FF',
+        two: '#497BFF',
+        three: '#5ACF78',
+        four: '#E3AB55',
+        five: '#C25396',
+      },
     },
   },
   overrides: {

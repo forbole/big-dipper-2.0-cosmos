@@ -47,6 +47,9 @@ export const common = {
     MuiSvgIcon: {
       htmlColor: '#999999', // same as custom /general /icons
     },
+    MuiButton: {
+      disableElevation: true,
+    },
   },
   typography: {
     fontFamily: '"Hind Madurai", sans-serif',
@@ -113,14 +116,14 @@ export const common = {
       },
       fonts: {
         fontFive: '#FFFFFF',
-        highlight: '#1D86FF', // links
+        highlight: '#56B4E9', // links
         // highlight: '#56B4E9', // links
       },
       condition: {
-        zero: '#E8E8E8',
+        zero: '#E6E6E6',
         one: '#1EC490',
-        two: '#FF961B',
-        three: '#FC6A8A',
+        two: '#FF9338',
+        three: '#FF608A',
       },
       tokenomics: {
         one: '#1EC490',
