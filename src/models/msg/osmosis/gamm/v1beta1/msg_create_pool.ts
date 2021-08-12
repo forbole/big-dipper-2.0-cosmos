@@ -9,22 +9,22 @@ class MsgCreatePool {
     public futurePoolGovernor: string;
 
     constructor(payload: any) {
-        this.category = 'osmosis';
-        this.type = payload.type;
-        this.sender = payload.sender;
-        this.poolParams = payload.poolParams;
-        this.poolAssets = payload.poolAssets;
-        this.futurePoolGovernor = payload.futurePoolGovernor;
+      this.category = 'osmosis';
+      this.type = payload.type;
+      this.sender = payload.sender;
+      this.poolParams = payload.poolParams;
+      this.poolAssets = payload.poolAssets;
+      this.futurePoolGovernor = payload.futurePoolGovernor;
     }
 
     static fromJson(json: any) {
-        return new MsgCreatePool({
-            type: json['@type'],
-            sender: json.sender,
-            poolParams: json.poolParams,
-            poolAssets: json.poolAssets,
-            futurePoolGovernor: json.future_pool_governor
-        });
+      return new MsgCreatePool({
+        type: json['@type'],
+        sender: json.sender,
+        poolParams: json.poolParams,
+        poolAssets: json.poolAssets,
+        futurePoolGovernor: json.future_pool_governor,
+      });
     }
 }
 

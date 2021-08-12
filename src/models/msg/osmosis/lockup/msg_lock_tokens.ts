@@ -8,20 +8,20 @@ class MsgLockTokens {
     public coins: any;
 
     constructor(payload: any) {
-        this.category = 'osmosis';
-        this.type = payload.type;
-        this.owner = payload.owner;
-        this.duration = payload.duration;
-        this.coins = payload.coins;
+      this.category = 'osmosis';
+      this.type = payload.type;
+      this.owner = payload.owner;
+      this.duration = payload.duration;
+      this.coins = payload.coins;
     }
 
     static fromJson(json: any) {
-        return new MsgLockTokens({
-            type: json['@type'],
-            owner: json.owner,
-            duration: json.duration,
-            coins: json.coins
-        });
+      return new MsgLockTokens({
+        type: json['@type'],
+        owner: json.owner,
+        duration: json.duration,
+        coins: json.coins,
+      });
     }
 }
 

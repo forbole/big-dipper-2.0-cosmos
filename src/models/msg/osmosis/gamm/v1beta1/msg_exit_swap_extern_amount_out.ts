@@ -9,22 +9,22 @@ class MsgSwapExactAmountOut {
     public shareInMaxAmount: any;
 
     constructor(payload: any) {
-        this.category = 'osmosis';
-        this.type = payload.type;
-        this.poolId = payload.poolId;
-        this.sender = payload.sender;
-        this.tokenOut = payload.tokenOut;
-        this.shareInMaxAmount = payload.shareInMaxAmount;
+      this.category = 'osmosis';
+      this.type = payload.type;
+      this.poolId = payload.poolId;
+      this.sender = payload.sender;
+      this.tokenOut = payload.tokenOut;
+      this.shareInMaxAmount = payload.shareInMaxAmount;
     }
 
     static fromJson(json: any) {
-        return new MsgSwapExactAmountOut({
-            type: json['@type'],
-            poolId: json.poolId,
-            sender: json.sender,
-            tokenOut: json.tokenOut,
-            shareInMaxAmount: json.shareInMaxAmount
-        });
+      return new MsgSwapExactAmountOut({
+        type: json['@type'],
+        poolId: json.poolId,
+        sender: json.sender,
+        tokenOut: json.tokenOut,
+        shareInMaxAmount: json.shareInMaxAmount,
+      });
     }
 }
 

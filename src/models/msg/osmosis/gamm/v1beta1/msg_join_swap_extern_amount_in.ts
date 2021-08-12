@@ -9,22 +9,22 @@ class MsgJoinSwapExternAmountIn {
     public shareOutMinAmount: any;
 
     constructor(payload: any) {
-        this.category = 'osmosis';
-        this.type = payload.type;
-        this.poolId = payload.poolId;
-        this.sender = payload.sender;
-        this.tokenIn = payload.tokenIn;
-        this.shareOutMinAmount = payload.shareOutMinAmount;
+      this.category = 'osmosis';
+      this.type = payload.type;
+      this.poolId = payload.poolId;
+      this.sender = payload.sender;
+      this.tokenIn = payload.tokenIn;
+      this.shareOutMinAmount = payload.shareOutMinAmount;
     }
 
     static fromJson(json: any) {
-        return new MsgJoinSwapExternAmountIn({
-            type: json['@type'],
-            poolId: json.poolId,
-            sender: json.sender,
-            tokenIn: json.tokenIn,
-            shareOutMinAmount: json.shareOutMinAmount
-        });
+      return new MsgJoinSwapExternAmountIn({
+        type: json['@type'],
+        poolId: json.poolId,
+        sender: json.sender,
+        tokenIn: json.tokenIn,
+        shareOutMinAmount: json.shareOutMinAmount,
+      });
     }
 }
 

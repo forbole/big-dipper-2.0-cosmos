@@ -10,24 +10,24 @@ class MsgJoinSwapShareAmountOut {
     public tokenInMaxAmount: any;
 
     constructor(payload: any) {
-        this.category = 'osmosis';
-        this.type = payload.type;
-        this.poolId = payload.poolId;
-        this.sender = payload.sender;
-        this.tokenInDenom = payload.tokenInDenom;
-        this.shareOutAmount = payload.shareOutAmount;
-        this.tokenInMaxAmount = payload.tokenInMaxAmount;
+      this.category = 'osmosis';
+      this.type = payload.type;
+      this.poolId = payload.poolId;
+      this.sender = payload.sender;
+      this.tokenInDenom = payload.tokenInDenom;
+      this.shareOutAmount = payload.shareOutAmount;
+      this.tokenInMaxAmount = payload.tokenInMaxAmount;
     }
 
     static fromJson(json: any) {
-        return new MsgJoinSwapShareAmountOut({
-            type: json['@type'],
-            poolId: json.poolId,
-            sender: json.sender,
-            tokenInDenom: json.tokenInDenom,
-            shareOutAmount: json.shareOutAmount,
-            tokenInMaxAmount: json.tokenInMaxAmount
-        });
+      return new MsgJoinSwapShareAmountOut({
+        type: json['@type'],
+        poolId: json.poolId,
+        sender: json.sender,
+        tokenInDenom: json.tokenInDenom,
+        shareOutAmount: json.shareOutAmount,
+        tokenInMaxAmount: json.tokenInMaxAmount,
+      });
     }
 }
 

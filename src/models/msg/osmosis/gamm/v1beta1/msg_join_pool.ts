@@ -9,22 +9,22 @@ class MsgJoinPool {
     public shareOutAmount: string;
 
     constructor(payload: any) {
-        this.category = 'osmosis';
-        this.type = payload.type;
-        this.poolId = payload.poolId;
-        this.sender = payload.sender;
-        this.tokenInMaxs = payload.tokenInMaxs;
-        this.shareOutAmount = payload.shareOutAmount;
+      this.category = 'osmosis';
+      this.type = payload.type;
+      this.poolId = payload.poolId;
+      this.sender = payload.sender;
+      this.tokenInMaxs = payload.tokenInMaxs;
+      this.shareOutAmount = payload.shareOutAmount;
     }
 
     static fromJson(json: any) {
-        return new MsgJoinPool({
-            type: json['@type'],
-            poolId: json.poolId,
-            sender: json.sender,
-            tokenInMaxs: json.tokenInMaxs,
-            shareOutAmount: json.shareOutAmount
-        });
+      return new MsgJoinPool({
+        type: json['@type'],
+        poolId: json.poolId,
+        sender: json.sender,
+        tokenInMaxs: json.tokenInMaxs,
+        shareOutAmount: json.shareOutAmount,
+      });
     }
 }
 
