@@ -24,5 +24,11 @@
   "txCancelDTagTransferContent": "<0>{{sender}}</0> canceled a Dtag transfer request to <1>{{receiver}}</1>",
   "txRefuseDTagTransferContent": "<0>{{receiver}}</0> refused a Dtag transfer request from <1>{{sender}}</1>",
   "txBlockUserContent": "<0>{{blocker}}</0> blocked <1>{{blocked}}</1> inside the subspace <2>{{subspace}}</2>",
-  "txUnblockUserContent": "<0>{{blocker}}</0> unblocked <1>{{blocked}}</1> inside the subspace <2>{{subspace}}</2>"
+  "txUnblockUserContent": "<0>{{blocker}}</0> unblocked <1>{{blocked}}</1> inside the subspace <2>{{subspace}}</2>",
+  "txJoinPoolContent": "<0>{{sender}}</0> join pool with ID <1>{{poolId}}</1>, deposit <2>{{amountIn}}</2> and take out <3>{{amountOut}}</3>",
+  "txExitPoolContent": "<0>{{sender}}</0> exit pool with ID <1>{{poolId}}</1>, deposit <2>{{amountIn}}</2> and take out <3>{{amountOut}}</3>",
+  "txSwapExactAmountInContent": "<0>{{sender}}</0> swap in <1>{{amountIn}}</1> for <2>{{amountOut}}</2> in pool with ID <3>{{poolIds}}</3>",
+  "txSwapExactAmountOutContent": "<0>{{sender}}</0> swap out <1>{{amountIn}}</1> for <2>{{amountOut}}</2> in pool with ID <3>{{poolIds}}</3>",
+  "txLockTokensContent": "<0>{{owner}}</0> locked <1>{{amount}}</1> for <2>{{duration}}</2>",
+  "txBeginUnlockingContent": "<0>{{owner}}</0> begin unlocking with ID <1>{{ID}}</1>"
 }
