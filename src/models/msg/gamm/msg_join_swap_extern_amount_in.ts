@@ -1,31 +1,31 @@
-import { Categories } from '../../../types';
+import { Categories } from '../types';
 
-class MsgSwapExactAmountOut {
+class MsgJoinSwapExternAmountIn {
     public category: Categories;
     public type: string;
     public poolId: string;
     public sender: string;
-    public tokenOut: any;
-    public shareInMaxAmount: any;
+    public tokenIn: any;
+    public shareOutMinAmount: any;
 
     constructor(payload: any) {
       this.category = 'osmosis';
       this.type = payload.type;
       this.poolId = payload.poolId;
       this.sender = payload.sender;
-      this.tokenOut = payload.tokenOut;
-      this.shareInMaxAmount = payload.shareInMaxAmount;
+      this.tokenIn = payload.tokenIn;
+      this.shareOutMinAmount = payload.shareOutMinAmount;
     }
 
     static fromJson(json: any) {
-      return new MsgSwapExactAmountOut({
+      return new MsgJoinSwapExternAmountIn({
         type: json['@type'],
         poolId: json.poolId,
         sender: json.sender,
-        tokenOut: json.tokenOut,
-        shareInMaxAmount: json.shareInMaxAmount,
+        tokenIn: json.tokenIn,
+        shareOutMinAmount: json.shareOutMinAmount,
       });
     }
 }
 
-export default MsgSwapExactAmountOut;
+export default MsgJoinSwapExternAmountIn;

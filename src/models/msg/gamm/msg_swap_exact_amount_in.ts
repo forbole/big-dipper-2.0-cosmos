@@ -1,31 +1,31 @@
-import { Categories } from '../../../types';
+import { Categories } from '../types';
 
-class MsgSwapExactAmountOut {
+class MsgSwapExactAmountIn {
     public category: Categories;
     public type: string;
     public routes: any;
     public sender: string;
-    public tokenOut: any;
-    public tokenInMaxAmount: any;
+    public tokenIn: any;
+    public tokenOutMinAmount: string;
 
     constructor(payload: any) {
       this.category = 'osmosis';
       this.type = payload.type;
       this.routes = payload.routes;
       this.sender = payload.sender;
-      this.tokenOut = payload.tokenOut;
-      this.tokenInMaxAmount = payload.tokenInMaxAmount;
+      this.tokenIn = payload.tokenIn;
+      this.tokenOutMinAmount = payload.tokenOutMinAmount;
     }
 
     static fromJson(json: any) {
-      return new MsgSwapExactAmountOut({
+      return new MsgSwapExactAmountIn({
         type: json['@type'],
         routes: json.routes,
         sender: json.sender,
-        tokenOut: json.tokenOut,
-        tokenInMaxAmount: json.tokenInMaxAmount,
+        tokenIn: json.tokenIn,
+        tokenOutMinAmount: json.tokenOutMinAmount,
       });
     }
 }
 
-export default MsgSwapExactAmountOut;
+export default MsgSwapExactAmountIn;

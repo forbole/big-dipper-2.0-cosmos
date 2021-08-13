@@ -1,28 +1,25 @@
-import { Categories } from '../../types';
+import { Categories } from '../types';
 
-class MsgAddToGauge {
+class MsgBeginUnlocking {
     public category: Categories;
     public type: string;
     public owner: string;
-    public gaugeId: any;
-    public rewards: any;
+    public ID: number | string;
 
     constructor(payload: any) {
       this.category = 'osmosis';
       this.type = payload.type;
       this.owner = payload.owner;
-      this.gaugeId = payload.gaugeId;
-      this.rewards = payload.rewards;
+      this.ID = payload.ID;
     }
 
     static fromJson(json: any) {
-      return new MsgAddToGauge({
+      return new MsgBeginUnlocking({
         type: json['@type'],
         owner: json.owner,
-        gaugeId: json.gauge_id,
-        rewards: json.rewards,
+        ID: json.ID,
       });
     }
 }
 
-export default MsgAddToGauge;
+export default MsgBeginUnlocking;

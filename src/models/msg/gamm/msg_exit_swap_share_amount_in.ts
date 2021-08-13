@@ -1,4 +1,4 @@
-import { Categories } from '../../../types';
+import { Categories } from '../types';
 
 class MsgExitSwapShareAmountIn {
     public category: Categories;

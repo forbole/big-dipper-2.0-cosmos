@@ -1,25 +1,28 @@
-import { Categories } from '../../types';
+import { Categories } from '../types';
 
-class MsgBeginUnlocking {
+class MsgLockTokens {
     public category: Categories;
     public type: string;
     public owner: string;
-    public ID: number | string;
+    public duration: any;
+    public coins: any;
 
     constructor(payload: any) {
       this.category = 'osmosis';
       this.type = payload.type;
       this.owner = payload.owner;
-      this.ID = payload.ID;
+      this.duration = payload.duration;
+      this.coins = payload.coins;
     }
 
     static fromJson(json: any) {
-      return new MsgBeginUnlocking({
+      return new MsgLockTokens({
         type: json['@type'],
         owner: json.owner,
-        ID: json.ID,
+        duration: json.duration,
+        coins: json.coins,
       });
     }
 }
 
-export default MsgBeginUnlocking;
+export default MsgLockTokens;
