@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
@@ -6,14 +7,26 @@ import { MsgExitPool } from '@models';
 import { useChainContext } from '@contexts';
 import numeral from 'numeral';
 import { chainConfig } from '@configs';
+import { formatDenom } from '@utils/format_denom';
+import useTranslation from 'next-translate/useTranslation';
 
 const ExitPool = (props: {
     message: MsgExitPool;
 }) => {
   const { findAddress } = useChainContext();
+  const { t } = useTranslation('transactions');
   const { message } = props;
+
   const sender = findAddress(message.sender);
   const senderMoniker = sender ? sender?.moniker : message.sender;
+  const amountOut = message.tokenOutMins.map((x) => {
+    const amount = formatDenom(x.amount, x.denom);
+    return `${numeral(amount.value).format('0,0.[0000]')} ${amount.denom.toUpperCase()}`;
+  }).reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
+
+  const amountInFormatDenom = formatDenom(message.shareInAmount, chainConfig?.primaryTokenUnit);
+  const amountIn = `${numeral(amountInFormatDenom.value).format('0,0.[0000]')} ${amountInFormatDenom.denom.toUpperCase()}`;
+
   return (
     <Typography>
       <Trans
@@ -27,10 +40,8 @@ const ExitPool = (props: {
           ),
         ]}
         values={{
-          amountIn: `${numeral(parseFloat(message.shareInAmount) / (10 ** chainConfig.tokenUnits[chainConfig?.primaryTokenUnit]?.exponent)).format('0,0.[0000]')} ${chainConfig.tokenUnits[chainConfig?.primaryTokenUnit]?.display?.toUpperCase()}`,
-          amountOut: message.tokenOutMins.map((x) => {
-            return `${numeral(parseFloat(x?.amount) / 10 ** chainConfig.tokenUnits[x?.denom]?.exponent).format('0,0.[0000]')} ${chainConfig.tokenUnits[x?.denom]?.display?.toUpperCase()}`;
-          }),
+          amountIn,
+          amountOut,
           poolId: message.poolId,
         }}
       />

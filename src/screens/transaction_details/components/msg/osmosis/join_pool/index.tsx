@@ -6,14 +6,26 @@ import { MsgJoinPool } from '@models';
 import { useChainContext } from '@contexts';
 import numeral from 'numeral';
 import { chainConfig } from '@configs';
+import { formatDenom } from '@utils/format_denom';
+import useTranslation from 'next-translate/useTranslation';
 
 const JoinPool = (props: {
     message: MsgJoinPool;
 }) => {
   const { findAddress } = useChainContext();
+  const { t } = useTranslation('transactions');
   const { message } = props;
+
   const sender = findAddress(message.sender);
   const senderMoniker = sender ? sender?.moniker : message.sender;
+  const amountIn = message.tokenInMaxs.map((x) => {
+    const amount = formatDenom(x.amount, x.denom);
+    return `${numeral(amount.value).format('0,0.[0000]')} ${amount.denom.toUpperCase()}`;
+  }).reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
+
+  const amountOutFormatDenom = formatDenom(message.shareOutAmount, chainConfig?.primaryTokenUnit);
+  const amountOut = `${numeral(amountOutFormatDenom.value).format('0,0.[0000]')} ${amountOutFormatDenom.denom.toUpperCase()}`;
+
   return (
     <Typography>
       <Trans
@@ -27,10 +39,8 @@ const JoinPool = (props: {
           ),
         ]}
         values={{
-          amountOut: `${numeral(parseFloat(message.shareOutAmount) / (10 ** chainConfig.tokenUnits[chainConfig?.primaryTokenUnit]?.exponent)).format('0,0.[0000]')} ${chainConfig.tokenUnits[chainConfig?.primaryTokenUnit]?.display?.toUpperCase()}`,
-          amountIn: message.tokenInMaxs.map((x) => {
-            return `${numeral(parseFloat(x?.amount) / 10 ** chainConfig.tokenUnits[x?.denom]?.exponent).format('0,0.[0000]')} ${chainConfig.tokenUnits[x?.denom]?.display?.toUpperCase()}`;
-          }),
+          amountOut,
+          amountIn,
           poolId: message.poolId,
         }}
       />

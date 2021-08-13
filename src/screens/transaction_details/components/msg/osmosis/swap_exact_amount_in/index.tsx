@@ -5,16 +5,25 @@ import { Name } from '@components';
 import { MsgSwapExactAmountIn } from '@models';
 import { useChainContext } from '@contexts';
 import numeral from 'numeral';
-import { chainConfig } from '@configs';
+import { formatDenom } from '@utils/format_denom';
+import useTranslation from 'next-translate/useTranslation';
 
 const SwapExactAmountIn = (props: {
     message: MsgSwapExactAmountIn;
 }) => {
   const { findAddress } = useChainContext();
+  const { t } = useTranslation('transactions');
   const { message } = props;
 
   const sender = findAddress(message.sender);
   const senderMoniker = sender ? sender?.moniker : message.sender;
+  const amountOut = message.routes.map((x) => {
+    const amount = formatDenom(message.tokenOutMinAmount, x?.tokenOutDenom);
+    return `${numeral(amount.value).format('0,0.[0000]')} ${amount.denom.toUpperCase()}`;
+  }).reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
+  const amountInFormatDenom = formatDenom(message.tokenIn?.amount, message.tokenIn?.denom);
+  const amountIn = `${numeral(amountInFormatDenom.value).format('0,0.[0000]')} ${amountInFormatDenom.denom.toUpperCase()}`;
+
   return (
     <Typography>
       <Trans
@@ -28,10 +37,8 @@ const SwapExactAmountIn = (props: {
           ),
         ]}
         values={{
-          amountIn: `${numeral(message.tokenIn?.amount / 10 ** chainConfig.tokenUnits[message.tokenIn?.denom]?.exponent).format('0,0.[0000]')} ${chainConfig.tokenUnits[message.tokenIn?.denom]?.display?.toUpperCase()}`,
-          amountOut: message.routes.map((x) => {
-            return `${numeral(parseFloat(message.tokenOutMinAmount) / 10 ** chainConfig.tokenUnits[x?.tokenOutDenom]?.exponent).format('0,0.[0000]')} ${chainConfig.tokenUnits[x?.tokenOutDenom]?.display?.toUpperCase()}`;
-          }),
+          amountIn,
+          amountOut,
           poolIds: message.routes.map((x) => {
             return x?.poolId;
           }),
