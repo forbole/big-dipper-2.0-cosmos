@@ -1,3 +1,9 @@
+# base-v1.0.3
+
+## Changes
+- Bump next 10 to next 11
+- Bump react v16.x.x to v17.x.x
+- Update logo to have max height of 55px
 # base-v1.0.2
 ## Changes
 - Update the structure layout of themes
