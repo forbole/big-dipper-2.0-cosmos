@@ -190,6 +190,174 @@ const getDataByType = (type: string) => {
       tagTheme: 'four',
       tagDisplay: 'txUnblockUserLabel',
     },
+    // ========================
+    // ibc client
+    // ========================
+    '/ibc.core.client.v1.MsgCreateClient': {
+      model: MODELS.MsgCreateClient,
+      content: COMPONENTS.CreateClient,
+      tagTheme: 'eleven',
+      tagDisplay: 'txCreateClientLabel',
+    },
+    '/ibc.core.client.v1.MsgUpdateClient': {
+      model: MODELS.MsgUpdateClient,
+      content: COMPONENTS.UpdateClient,
+      tagTheme: 'eleven',
+      tagDisplay: 'txUpdateClientLabel',
+    },
+    '/ibc.core.client.v1.MsgUpgradeClient': {
+      model: MODELS.MsgUpgradeClient,
+      content: COMPONENTS.UpgradeClient,
+      tagTheme: 'eleven',
+      tagDisplay: 'txUpgradeClientLabel',
+    },
+    '/ibc.core.client.v1.MsgSubmitMisbehaviour': {
+      model: MODELS.MsgSubmitMisbehaviour,
+      content: COMPONENTS.SubmitMisbehaviour,
+      tagTheme: 'eleven',
+      tagDisplay: 'txSubmitMisbehaviourLabel',
+    },
+    '/ibc.core.client.v1.Height': {
+      model: MODELS.Height,
+      content: COMPONENTS.Height,
+      tagTheme: 'eleven',
+      tagDisplay: 'txHeightLabel',
+    },
+    // ========================
+    // ibc channel
+    // ========================
+    '/ibc.core.channel.v1.MsgRecvPacket': {
+      model: MODELS.MsgRecvPacket,
+      content: COMPONENTS.RecvPacket,
+      tagTheme: 'eleven',
+      tagDisplay: 'txRecvPacketLabel',
+    },
+    '/ibc.core.channel.v1.Channel': {
+      model: MODELS.Channel,
+      content: COMPONENTS.Channel,
+      tagTheme: 'eleven',
+      tagDisplay: 'txChannelLabel',
+    },
+    '/ibc.core.channel.v1.Counterparty': {
+      model: MODELS.Counterparty,
+      content: COMPONENTS.Counterparty,
+      tagTheme: 'eleven',
+      tagDisplay: 'txCounterpartyLabel',
+    },
+    '/ibc.core.channel.v1.Packet': {
+      model: MODELS.Packet,
+      content: COMPONENTS.Packet,
+      tagTheme: 'eleven',
+      tagDisplay: 'txPacketLabel',
+    },
+    '/ibc.core.channel.v1.MsgAcknowledgement': {
+      model: MODELS.MsgAcknowledgement,
+      content: COMPONENTS.Acknowledgement,
+      tagTheme: 'eleven',
+      tagDisplay: 'txAcknowledgementLabel',
+    },
+    '/ibc.core.channel.v1.MsgChannelCloseConfirm': {
+      model: MODELS.MsgChannelCloseConfirm,
+      content: COMPONENTS.ChannelCloseConfirm,
+      tagTheme: 'eleven',
+      tagDisplay: 'txChannelCloseConfirmLabel',
+    },
+    '/ibc.core.channel.v1.MsgChannelCloseInit': {
+      model: MODELS.MsgChannelCloseInit,
+      content: COMPONENTS.ChannelCloseInit,
+      tagTheme: 'eleven',
+      tagDisplay: 'txChannelCloseInitLabel',
+    },
+    '/ibc.core.channel.v1.MsgChannelOpenAck': {
+      model: MODELS.MsgChannelOpenAck,
+      content: COMPONENTS.ChannelOpenAck,
+      tagTheme: 'eleven',
+      tagDisplay: 'txChannelOpenAckLabel',
+    },
+    '/ibc.core.channel.v1.MsgChannelOpenConfirm': {
+      model: MODELS.MsgChannelOpenConfirm,
+      content: COMPONENTS.ChannelOpenConfirm,
+      tagTheme: 'eleven',
+      tagDisplay: 'txChannelOpenConfirmLabel',
+    },
+    '/ibc.core.channel.v1.MsgChannelOpenInit': {
+      model: MODELS.MsgChannelOpenInit,
+      content: COMPONENTS.ChannelOpenInit,
+      tagTheme: 'eleven',
+      tagDisplay: 'txChannelOpenInitLabel',
+    },
+    '/ibc.core.channel.v1.MsgChannelOpenTry': {
+      model: MODELS.MsgChannelOpenTry,
+      content: COMPONENTS.ChannelOpenTry,
+      tagTheme: 'eleven',
+      tagDisplay: 'txChannelOpenTryLabel',
+    },
+    '/ibc.core.channel.v1.MsgTimeout': {
+      model: MODELS.MsgTimeout,
+      content: COMPONENTS.Timeout,
+      tagTheme: 'eleven',
+      tagDisplay: 'txTimeoutLabel',
+    },
+    '/ibc.core.channel.v1.MsgTimeoutOnClose': {
+      model: MODELS.MsgTimeoutOnClose,
+      content: COMPONENTS.TimeoutOnClose,
+      tagTheme: 'eleven',
+      tagDisplay: 'txTimeoutOnCloseLabel',
+    },
+    // ========================
+    // ibc connection
+    // ========================
+    '/ibc.core.connection.v1.MsgConnectionOpenAck': {
+      model: MODELS.MsgConnectionOpenAck,
+      content: COMPONENTS.ConnectionOpenAck,
+      tagTheme: 'twelve',
+      tagDisplay: 'txConnectionOpenAckLabel',
+    },
+    '/ibc.core.connection.v1.MsgConnectionOpenConfirm': {
+      model: MODELS.MsgConnectionOpenConfirm,
+      content: COMPONENTS.ConnectionOpenConfirm,
+      tagTheme: 'twelve',
+      tagDisplay: 'txConnectionOpenConfirmLabel',
+    },
+    '/ibc.core.connection.v1.MsgConnectionOpenInit': {
+      model: MODELS.MsgConnectionOpenInit,
+      content: COMPONENTS.ConnectionOpenInit,
+      tagTheme: 'twelve',
+      tagDisplay: 'txConnectionOpenInitLabel',
+    },
+    '/ibc.core.connection.v1.MsgConnectionOpenTry': {
+      model: MODELS.MsgConnectionOpenTry,
+      content: COMPONENTS.ConnectionOpenTry,
+      tagTheme: 'twelve',
+      tagDisplay: 'txConnectionOpenTryLabel',
+    },
+    '/ibc.core.connection.v1.ConnectionEnd': {
+      model: MODELS.ConnectionEnd,
+      content: COMPONENTS.ConnectionEnd,
+      tagTheme: 'twelve',
+      tagDisplay: 'txConnectionEndLabel',
+    },
+    '/ibc.core.connection.v1.Counterparty': {
+      model: MODELS.Counterparty,
+      content: COMPONENTS.Counterparty,
+      tagTheme: 'twelve',
+      tagDisplay: 'txCounterpartyLabel',
+    },
+    '/ibc.core.connection.v1.Version': {
+      model: MODELS.Version,
+      content: COMPONENTS.Version,
+      tagTheme: 'twelve',
+      tagDisplay: 'txVersionLabel',
+    },
+    // ========================
+    // ibc transfer
+    // ========================
+    '/ibc.applications.transfer.v1.MsgTransfer': {
+      model: MODELS.MsgTransfer,
+      content: COMPONENTS.Transfer,
+      tagTheme: 'eleven',
+      tagDisplay: 'txTransferLabel',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];
