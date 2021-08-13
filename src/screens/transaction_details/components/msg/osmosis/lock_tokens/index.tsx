@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
@@ -6,7 +7,7 @@ import { MsgLockTokens } from '@models';
 import { useChainContext } from '@contexts';
 import numeral from 'numeral';
 import { chainConfig } from '@configs';
-import { msToTime } from '@utils/dayjs';
+import { secondsToDays } from '@utils/time';
 
 const LockTokens = (props: {
     message: MsgLockTokens;
@@ -31,7 +32,7 @@ const LockTokens = (props: {
           amount: message?.coins?.map((x) => {
             return `${numeral(parseFloat(x?.amount) / 10 ** chainConfig.tokenUnits[x?.denom]?.exponent).format('0,0.[0000]')} ${chainConfig.tokenUnits[x?.denom]?.display?.toUpperCase()}`;
           }),
-          duration: msToTime(message?.duration.substring(0, message?.duration.length - 1) * 1000)
+          duration: secondsToDays(parseFloat(message?.duration.substring(0, message?.duration.length - 1))).toFixed(0),
         }}
       />
     </Typography>

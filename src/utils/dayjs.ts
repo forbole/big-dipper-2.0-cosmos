@@ -44,14 +44,3 @@ export const formatDayJs = (time: dayjs.Dayjs, mode: 'locale' | 'utc' = 'locale'
 
   return time.local().format('MMMM DD, YYYY hh:mm:ss A (z)');
 };
-
-export function msToTime(ms) {
-  const seconds = (ms / 1000).toFixed(0);
-  const minutes = (ms / (1000 * 60)).toFixed(0);
-  const hours = (ms / (1000 * 60 * 60)).toFixed(0);
-  const days = (ms / (1000 * 60 * 60 * 24)).toFixed(0);
-  if (seconds < 60) return `${seconds} Sec`;
-  if (minutes < 60) return `${minutes} Min`;
-  if (hours < 24) return `${hours} Hrs`;
-  return `${days} Days`;
-}
