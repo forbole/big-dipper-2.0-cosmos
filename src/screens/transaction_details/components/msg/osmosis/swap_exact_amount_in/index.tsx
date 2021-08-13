@@ -28,12 +28,12 @@ const SwapExactAmountIn = (props: {
           ),
         ]}
         values={{
-          amountIn: `${numeral(message?.tokenIn?.amount / 10 ** chainConfig.tokenUnits[message?.tokenIn?.denom]?.exponent).format('0,0.[0000]')} ${chainConfig.tokenUnits[message?.tokenIn?.denom]?.display?.toUpperCase()}`,
-          amountOut: message?.routes?.map((x) => {
-            return `${numeral(parseFloat(message?.tokenOutMinAmount) / 10 ** chainConfig.tokenUnits[x?.tokenOutDenom]?.exponent).format('0,0.[0000]')} ${chainConfig.tokenUnits[x?.tokenOutDenom]?.display?.toUpperCase()}`;
+          amountIn: `${numeral(message.tokenIn?.amount / 10 ** chainConfig.tokenUnits[message.tokenIn?.denom]?.exponent).format('0,0.[0000]')} ${chainConfig.tokenUnits[message.tokenIn?.denom]?.display?.toUpperCase()}`,
+          amountOut: message.routes.map((x) => {
+            return `${numeral(parseFloat(message.tokenOutMinAmount) / 10 ** chainConfig.tokenUnits[x?.tokenOutDenom]?.exponent).format('0,0.[0000]')} ${chainConfig.tokenUnits[x?.tokenOutDenom]?.display?.toUpperCase()}`;
           }),
-          poolIds: message?.routes?.map((x) => {
-            return x.poolId;
+          poolIds: message.routes.map((x) => {
+            return x?.poolId;
           }),
         }}
       />

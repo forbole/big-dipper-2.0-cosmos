@@ -29,10 +29,10 @@ const LockTokens = (props: {
           ),
         ]}
         values={{
-          amount: message?.coins?.map((x) => {
+          amount: message.coins.map((x) => {
             return `${numeral(parseFloat(x?.amount) / 10 ** chainConfig.tokenUnits[x?.denom]?.exponent).format('0,0.[0000]')} ${chainConfig.tokenUnits[x?.denom]?.display?.toUpperCase()}`;
           }),
-          duration: secondsToDays(parseFloat(message?.duration.substring(0, message?.duration.length - 1))).toFixed(0),
+          duration: secondsToDays(parseFloat(message.duration.substring(0, message.duration.length - 1))).toFixed(0),
         }}
       />
     </Typography>

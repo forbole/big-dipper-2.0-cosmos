@@ -27,11 +27,11 @@ const ExitPool = (props: {
           ),
         ]}
         values={{
-          amountIn: `${numeral(parseFloat(message?.shareInAmount) / (10 ** chainConfig.tokenUnits[chainConfig?.primaryTokenUnit]?.exponent)).format('0,0.[0000]')} ${chainConfig.tokenUnits[chainConfig?.primaryTokenUnit]?.display?.toUpperCase()}`,
-          amountOut: message?.tokenOutMins?.map((x) => {
+          amountIn: `${numeral(parseFloat(message.shareInAmount) / (10 ** chainConfig.tokenUnits[chainConfig?.primaryTokenUnit]?.exponent)).format('0,0.[0000]')} ${chainConfig.tokenUnits[chainConfig?.primaryTokenUnit]?.display?.toUpperCase()}`,
+          amountOut: message.tokenOutMins.map((x) => {
             return `${numeral(parseFloat(x?.amount) / 10 ** chainConfig.tokenUnits[x?.denom]?.exponent).format('0,0.[0000]')} ${chainConfig.tokenUnits[x?.denom]?.display?.toUpperCase()}`;
           }),
-          poolId: message?.poolId,
+          poolId: message.poolId,
         }}
       />
     </Typography>
