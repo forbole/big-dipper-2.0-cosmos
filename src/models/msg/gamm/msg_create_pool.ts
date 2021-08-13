@@ -9,7 +9,7 @@ class MsgCreatePool {
     public futurePoolGovernor: string;
 
     constructor(payload: any) {
-      this.category = 'osmosis';
+      this.category = 'gamm';
       this.type = payload.type;
       this.sender = payload.sender;
       this.poolParams = payload.poolParams;

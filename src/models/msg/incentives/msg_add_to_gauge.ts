@@ -8,7 +8,7 @@ class MsgAddToGauge {
     public rewards: any;
 
     constructor(payload: any) {
-      this.category = 'osmosis';
+      this.category = 'incentives';
       this.type = payload.type;
       this.owner = payload.owner;
       this.gaugeId = payload.gaugeId;

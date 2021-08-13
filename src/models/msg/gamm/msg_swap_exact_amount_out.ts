@@ -9,7 +9,7 @@ class MsgSwapExactAmountOut {
     public tokenInMaxAmount: any;
 
     constructor(payload: any) {
-      this.category = 'osmosis';
+      this.category = 'gamm';
       this.type = payload.type;
       this.routes = payload.routes;
       this.sender = payload.sender;

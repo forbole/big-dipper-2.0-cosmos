@@ -8,7 +8,7 @@ class MsgLockTokens {
     public coins: any;
 
     constructor(payload: any) {
-      this.category = 'osmosis';
+      this.category = 'lockup';
       this.type = payload.type;
       this.owner = payload.owner;
       this.duration = payload.duration;

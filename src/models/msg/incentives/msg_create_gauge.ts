@@ -11,7 +11,7 @@ class MsgCreateGauge {
     public numEpochsPaidOver: number;
 
     constructor(payload: any) {
-      this.category = 'osmosis';
+      this.category = 'incentives';
       this.type = payload.type;
       this.isPerpetual = payload.isPerpetual;
       this.owner = payload.owner;

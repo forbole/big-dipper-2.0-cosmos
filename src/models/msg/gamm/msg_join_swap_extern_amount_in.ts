@@ -9,7 +9,7 @@ class MsgJoinSwapExternAmountIn {
     public shareOutMinAmount: any;
 
     constructor(payload: any) {
-      this.category = 'osmosis';
+      this.category = 'gamm';
       this.type = payload.type;
       this.poolId = payload.poolId;
       this.sender = payload.sender;

@@ -1,1 +1,1 @@
-export type Categories = 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking' | 'profiles' | 'osmosis' | 'others';
+export type Categories = 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking' | 'profiles' | 'gamm' | 'incentives' | 'lockup' | 'others';
