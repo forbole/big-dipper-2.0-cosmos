@@ -1,3 +1,7 @@
+# osmosis-v1.0.1
+## Changes
+- Added Osmosis Custom Tx Messages ([\#194](https://github.com/forbole/big-dipper-2.0-cosmos/issues/194))
+
 # base-v1.0.3
 
 ## Changes
