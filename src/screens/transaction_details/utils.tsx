@@ -284,6 +284,12 @@ const getDataByType = (type: string) => {
       tagTheme: 'nine',
       tagDisplay: 'txBeginUnlockingLabel',
     },
+    '/osmosis.lockup.MsgUnlockPeriodLock': {
+      model: MODELS.MsgUnlockPeriodLock,
+      content: COMPONENTS.UnlockPeriodLock,
+      tagTheme: 'nine',
+      tagDisplay: 'txUnlockPeriodLockLabel',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];

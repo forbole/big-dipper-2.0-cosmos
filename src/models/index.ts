@@ -51,6 +51,7 @@ import MsgAddToGauge from './msg/incentives/msg_add_to_gauge';
 import MsgBeginUnlocking from './msg/lockup/msg_begin_unlocking';
 import MsgBeginUnlockingAll from './msg/lockup/msg_begin_unlocking_all';
 import MsgLockTokens from './msg/lockup/msg_lock_tokens';
+import MsgUnlockPeriodLock from './msg/lockup/msg_unlock_period_lock';
 
 export {
   BigDipperNetwork,
@@ -105,5 +106,6 @@ export {
   MsgAddToGauge,
   MsgBeginUnlocking,
   MsgBeginUnlockingAll,
+  MsgUnlockPeriodLock,
   MsgLockTokens,
 };
