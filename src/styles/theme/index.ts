@@ -22,6 +22,7 @@ export const common = {
     toolbar: {
       '@media (min-width: 1280px)': {
         height: '160px',
+        overflow: 'hidden',
       },
     },
     layout: {
