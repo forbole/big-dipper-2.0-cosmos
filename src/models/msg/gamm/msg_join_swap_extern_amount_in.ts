@@ -6,7 +6,7 @@ class MsgJoinSwapExternAmountIn {
     public poolId: string;
     public sender: string;
     public tokenIn: any;
-    public shareOutMinAmount: any;
+    public shareOutMinAmount: string;
 
     constructor(payload: any) {
       this.category = 'gamm';

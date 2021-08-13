@@ -4,7 +4,7 @@ class MsgAddToGauge {
     public category: Categories;
     public type: string;
     public owner: string;
-    public gaugeId: any;
+    public gaugeId: number | string;
     public rewards: any;
 
     constructor(payload: any) {

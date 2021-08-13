@@ -7,7 +7,7 @@ class MsgJoinSwapShareAmountOut {
     public sender: string;
     public tokenInDenom: string;
     public shareOutAmount: any;
-    public tokenInMaxAmount: any;
+    public tokenInMaxAmount: string;
 
     constructor(payload: any) {
       this.category = 'gamm';

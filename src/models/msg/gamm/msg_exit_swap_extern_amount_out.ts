@@ -1,12 +1,12 @@
 import { Categories } from '../types';
 
-class MsgSwapExactAmountOut {
+class MsgExitSwapExternAmountOut {
     public category: Categories;
     public type: string;
     public poolId: string;
     public sender: string;
     public tokenOut: any;
-    public shareInMaxAmount: any;
+    public shareInMaxAmount: string;
 
     constructor(payload: any) {
       this.category = 'gamm';
@@ -18,7 +18,7 @@ class MsgSwapExactAmountOut {
     }
 
     static fromJson(json: any) {
-      return new MsgSwapExactAmountOut({
+      return new MsgExitSwapExternAmountOut({
         type: json['@type'],
         poolId: json.poolId,
         sender: json.sender,
@@ -28,4 +28,4 @@ class MsgSwapExactAmountOut {
     }
 }
 
-export default MsgSwapExactAmountOut;
+export default MsgExitSwapExternAmountOut;

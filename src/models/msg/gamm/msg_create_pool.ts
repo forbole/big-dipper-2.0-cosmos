@@ -5,7 +5,7 @@ class MsgCreatePool {
     public type: string;
     public sender: string;
     public poolParams: any;
-    public poolAssets: boolean;
+    public poolAssets: any;
     public futurePoolGovernor: string;
 
     constructor(payload: any) {
