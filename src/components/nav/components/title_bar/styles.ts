@@ -23,7 +23,8 @@ export const useStyles = () => {
           },
         },
         logo: {
-          width: '225px',
+          height: '56px',
+          // width: '225px',
         },
         content: {
           width: '100%',
