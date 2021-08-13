@@ -35,7 +35,7 @@
     "jdenticon": "^3.1.0",
     "markdown-to-jsx": "^7.1.2",
     "mock-apollo-client": "^1.1.0",
-    "next": "^10.0.7",
+    "next": "^11.1.0",
     "next-seo": "^4.20.0",
     "next-translate": "^1.0.3",
     "npm": "^7.6.1",
