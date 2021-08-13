@@ -114,6 +114,8 @@ export const common = {
         six: '#497BFF',
         seven: '#FF7549',
         eight: '#EB3AA4',
+        nine: '#03465E',
+        ten: '#446DB2',
       },
       fonts: {
         fontFive: '#FFFFFF',

@@ -192,96 +192,96 @@ const getDataByType = (type: string) => {
     },
 
     // ========================
-    // osmosis gamm/v1beta1
+    // gamm
     // ========================
     '/osmosis.gamm.v1beta1.MsgCreatePool': {
       model: MODELS.MsgCreatePool,
       content: COMPONENTS.CreatePool,
-      tagTheme: 'four',
+      tagTheme: 'eight',
       tagDisplay: 'txCreatePoolLabel',
     },
     '/osmosis.gamm.v1beta1.MsgJoinPool': {
       model: MODELS.MsgJoinPool,
       content: COMPONENTS.JoinPool,
-      tagTheme: 'four',
+      tagTheme: 'eight',
       tagDisplay: 'txJoinPoolLabel',
     },
     '/osmosis.gamm.v1beta1.MsgExitPool': {
       model: MODELS.MsgExitPool,
       content: COMPONENTS.ExitPool,
-      tagTheme: 'four',
+      tagTheme: 'eight',
       tagDisplay: 'txExitPoolLabel',
     },
     '/osmosis.gamm.v1beta1.MsgSwapExactAmountIn': {
       model: MODELS.MsgSwapExactAmountIn,
       content: COMPONENTS.SwapExactAmountIn,
-      tagTheme: 'four',
+      tagTheme: 'eight',
       tagDisplay: 'txSwapExactAmountInLabel',
     },
     '/osmosis.gamm.v1beta1.MsgSwapExactAmountOut': {
       model: MODELS.MsgSwapExactAmountOut,
       content: COMPONENTS.SwapExactAmountOut,
-      tagTheme: 'four',
+      tagTheme: 'eight',
       tagDisplay: 'txSwapExactAmountOutLabel',
     },
     '/osmosis.gamm.v1beta1.MsgJoinSwapExternAmountIn': {
       model: MODELS.MsgJoinSwapExternAmountIn,
       content: COMPONENTS.JoinSwapExternAmountIn,
-      tagTheme: 'four',
+      tagTheme: 'eight',
       tagDisplay: 'txJoinSwapExternAmountInLabel',
     },
     '/osmosis.gamm.v1beta1.MsgJoinSwapShareAmountOut': {
       model: MODELS.MsgJoinSwapShareAmountOut,
       content: COMPONENTS.JoinSwapShareAmountOut,
-      tagTheme: 'four',
+      tagTheme: 'eight',
       tagDisplay: 'txJoinSwapShareAmountOutLabel',
     },
     '/osmosis.gamm.v1beta1.MsgExitSwapShareAmountIn': {
       model: MODELS.MsgExitSwapShareAmountIn,
       content: COMPONENTS.ExitSwapShareAmountIn,
-      tagTheme: 'four',
+      tagTheme: 'eight',
       tagDisplay: 'txExitSwapShareAmountInLabel',
     },
     '/osmosis.gamm.v1beta1.MsgExitSwapExternAmountOut': {
       model: MODELS.MsgExitSwapExternAmountOut,
       content: COMPONENTS.ExitSwapExternAmountOut,
-      tagTheme: 'four',
+      tagTheme: 'eight',
       tagDisplay: 'txExitSwapExternAmountOutLabel',
     },
     // ========================
-    // osmosis incentives
+    // incentives
     // ========================
     '/osmosis.incentives.MsgCreateGauge': {
       model: MODELS.MsgCreateGauge,
       content: COMPONENTS.CreateGauge,
-      tagTheme: 'four',
+      tagTheme: 'ten',
       tagDisplay: 'txCreateGaugeLabel',
     },
     '/osmosis.incentives.MsgAddToGauge': {
       model: MODELS.MsgAddToGauge,
       content: COMPONENTS.AddToGauge,
-      tagTheme: 'four',
+      tagTheme: 'ten',
       tagDisplay: 'txAddToGaugeLabel',
     },
     // ========================
-    // osmosis lockup
+    // lockup
     // ========================
     '/osmosis.lockup.MsgLockTokens': {
       model: MODELS.MsgLockTokens,
       content: COMPONENTS.LockTokens,
-      tagTheme: 'four',
+      tagTheme: 'nine',
       tagDisplay: 'txLockTokensLabel',
     },
     '/osmosis.lockup.MsgBeginUnlockingAll': {
       model: MODELS.MsgBeginUnlockingAll,
       content: COMPONENTS.BeginUnlockingAll,
-      tagTheme: 'four',
+      tagTheme: 'nine',
       tagDisplay: 'txBeginUnlockingAllLabel',
     },
     '/osmosis.lockup.MsgBeginUnlocking': {
       model: MODELS.MsgBeginUnlocking,
       content: COMPONENTS.BeginUnlocking,
-      tagTheme: 'four',
+      tagTheme: 'nine',
       tagDisplay: 'txBeginUnlockingLabel',
     },
   };
@@ -313,7 +313,7 @@ export const getMessageByType = (message: MessageType, viewRaw: boolean, t:any) 
   let results: {
     content: MessageComponentType;
     tagDisplay: string;
-    tagTheme?: 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven' | 'eight' | 'zero';
+    tagTheme?: 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven' | 'eight' | 'nine' | 'ten' | 'zero';
     unknown?: boolean;
   } = {
     content: COMPONENTS.Unknown,
