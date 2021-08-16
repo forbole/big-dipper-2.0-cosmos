@@ -1,3 +1,6 @@
+/* eslint-disable max-len */
+import * as R from 'ramda';
+import numeral from 'numeral';
 import { Categories } from '../types';
 
 class MsgCreatePool {
@@ -5,16 +8,16 @@ class MsgCreatePool {
     public type: string;
     public sender: string;
     public poolParams: {
-      exitFee: string;
-      swapFee: string;
-      smoothWeightChangeParams: string | number;
+      exitFee: number;
+      swapFee: number;
+      smoothWeightChangeParams: number;
     }[];
     public poolAssets: {
       token: {
         denom: string;
-        amount: string | number;
+        amount: number;
       };
-      weight: string | number;
+      weight: number;
     }[];
     public futurePoolGovernor: string;
     public json: any;
@@ -34,8 +37,20 @@ class MsgCreatePool {
         json,
         type: json['@type'],
         sender: json.sender,
-        poolParams: json.poolParams,
-        poolAssets: json.poolAssets,
+        poolParams: json?.poolParams.map((x) => {
+          return ({
+            exitFee: numeral(R.pathOr(0, [x.exitFee], json)).value(),
+            swapFee: numeral(R.pathOr(0, [x.swapFee], json)).value(),
+            smoothWeightChangeParams: numeral(R.pathOr(0, [x.smoothWeightChangeParams], json)).value(),
+          });
+        }),
+        poolAssets: json?.poolAssets.map((x) => {
+          return ({
+            denom: R.pathOr('', ['token', 'denom'], x),
+            amount: numeral(R.pathOr('0', ['token', 'amount'], x)).value(),
+            weight: numeral(R.pathOr(0, [x.weight], json)).value(),
+          });
+        }),
         futurePoolGovernor: json.future_pool_governor,
       });
     }

@@ -1,3 +1,5 @@
+import * as R from 'ramda';
+import numeral from 'numeral';
 import { Categories } from '../types';
 
 class MsgLockTokens {
@@ -7,7 +9,7 @@ class MsgLockTokens {
     public duration: string;
     public coins: {
       denom: string;
-      amount: string | number;
+      amount: number;
     }[];
     public json: any;
 
@@ -26,7 +28,12 @@ class MsgLockTokens {
         type: json['@type'],
         owner: json.owner,
         duration: json.duration,
-        coins: json.coins,
+        coins: json?.coins.map((x) => {
+          return ({
+            denom: R.pathOr('', ['coins', 'denom'], x),
+            amount: numeral(R.pathOr('0', ['coins', 'amount'], x)).value(),
+          });
+        }),
       });
     }
 }

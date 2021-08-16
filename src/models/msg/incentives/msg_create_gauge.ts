@@ -1,3 +1,5 @@
+import * as R from 'ramda';
+import numeral from 'numeral';
 import { Categories } from '../types';
 
 class MsgCreateGauge {
@@ -8,13 +10,13 @@ class MsgCreateGauge {
     public distributeTo: {
       lockQueryType: any;
       denom: string;
-      duration: string | number;
+      duration: string;
     };
     public coins: {
       denom: string;
-      amount: string | number;
+      amount: number;
     }[];
-    public startTime: string | number;
+    public startTime: string;
     public numEpochsPaidOver: number;
     public json: any;
 
@@ -36,9 +38,14 @@ class MsgCreateGauge {
         isPerpetual: json.is_perpetual,
         owner: json.owner,
         distributeTo: json.distribute_to,
-        coins: json.coins,
+        coins: json?.coins.map((x) => {
+          return ({
+            denom: R.pathOr('', ['coins', 'denom'], x),
+            amount: numeral(R.pathOr('0', ['coins', 'amount'], x)).value(),
+          });
+        }),
         startTime: json.start_time,
-        numEpochsPaidOver: json.num_epochs_paid_over,
+        numEpochsPaidOver: numeral(json.num_epochs_paid_over).value(),
       });
     }
 }

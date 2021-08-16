@@ -1,10 +1,11 @@
 import { Categories } from '../types';
+import numeral from 'numeral';
 
 class MsgUnlockPeriodLock {
     public category: Categories;
     public type: string;
     public owner: string;
-    public ID: string | number;
+    public ID: number;
     public json: any;
 
     constructor(payload: any) {
@@ -20,7 +21,7 @@ class MsgUnlockPeriodLock {
         json,
         type: json['@type'],
         owner: json.owner,
-        ID: json.ID,
+        ID: numeral(json.ID).value(),
       });
     }
 }

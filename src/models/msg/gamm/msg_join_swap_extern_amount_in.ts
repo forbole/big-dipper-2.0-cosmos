@@ -1,15 +1,17 @@
+import * as R from 'ramda';
+import numeral from 'numeral';
 import { Categories } from '../types';
 
 class MsgJoinSwapExternAmountIn {
     public category: Categories;
     public type: string;
-    public poolId: string | number;
+    public poolId: number;
     public sender: string;
     public tokenIn: {
       denom: string;
-      amount: string | number;
+      amount: number;
     }[];
-    public shareOutMinAmount: string | number;
+    public shareOutMinAmount: number;
     public json: any;
 
     constructor(payload: any) {
@@ -26,10 +28,15 @@ class MsgJoinSwapExternAmountIn {
       return new MsgJoinSwapExternAmountIn({
         json,
         type: json['@type'],
-        poolId: json.poolId,
+        poolId: numeral(json.poolId).value(),
         sender: json.sender,
-        tokenIn: json.tokenIn,
-        shareOutMinAmount: json.shareOutMinAmount,
+        tokenIn: json?.tokenIn.map((x) => {
+          return ({
+            denom: R.pathOr('', ['tokenIn', 'denom'], x),
+            amount: numeral(R.pathOr('0', ['tokenIn', 'amount'], x)).value(),
+          });
+        }),
+        shareOutMinAmount: numeral(json.shareOutMinAmount).value(),
       });
     }
 }

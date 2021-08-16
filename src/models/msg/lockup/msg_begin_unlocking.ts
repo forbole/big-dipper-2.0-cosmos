@@ -1,10 +1,11 @@
+import numeral from 'numeral';
 import { Categories } from '../types';
 
 class MsgBeginUnlocking {
     public category: Categories;
     public type: string;
     public owner: string;
-    public ID: number | string;
+    public ID: number;
     public json: any;
 
     constructor(payload: any) {
@@ -20,7 +21,7 @@ class MsgBeginUnlocking {
         json,
         type: json['@type'],
         owner: json.owner,
-        ID: json.ID,
+        ID: numeral(json.ID).value(),
       });
     }
 }

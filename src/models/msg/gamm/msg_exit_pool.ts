@@ -1,15 +1,17 @@
+import * as R from 'ramda';
+import numeral from 'numeral';
 import { Categories } from '../types';
 
 class MsgExitPool {
     public category: Categories;
     public type: string;
-    public poolId: string | number;
+    public poolId: number;
     public sender: string;
     public tokenOutMins: {
       denom: string;
-      amount: string | number;
+      amount: number;
     }[];
-    public shareInAmount: string | number;
+    public shareInAmount: number;
     public json: any;
 
     constructor(payload: any) {
@@ -26,10 +28,15 @@ class MsgExitPool {
       return new MsgExitPool({
         json,
         type: json['@type'],
-        poolId: json.poolId,
+        poolId: numeral(json.poolId).value(),
         sender: json.sender,
-        tokenOutMins: json.tokenOutMins,
-        shareInAmount: json.shareInAmount,
+        tokenOutMins: json?.tokenOutMins.map((x) => {
+          return ({
+            denom: R.pathOr('', ['tokenOutMins', 'denom'], x),
+            amount: numeral(R.pathOr('0', ['tokenOutMins', 'amount'], x)).value(),
+          });
+        }),
+        shareInAmount: numeral(json.shareInAmount).value(),
       });
     }
 }

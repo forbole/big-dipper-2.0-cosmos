@@ -1,13 +1,15 @@
+import * as R from 'ramda';
+import numeral from 'numeral';
 import { Categories } from '../types';
 
 class MsgAddToGauge {
     public category: Categories;
     public type: string;
     public owner: string;
-    public gaugeId: number | string;
+    public gaugeId: number;
     public rewards: {
       denom: string;
-      amount: string | number;
+      amount: number;
     }[];
     public json: any;
 
@@ -25,8 +27,13 @@ class MsgAddToGauge {
         json,
         type: json['@type'],
         owner: json.owner,
-        gaugeId: json.gauge_id,
-        rewards: json.rewards,
+        gaugeId: numeral(json.gauge_id).value(),
+        rewards: json?.rewards.map((x) => {
+          return ({
+            denom: R.pathOr('', ['rewards', 'denom'], x),
+            amount: numeral(R.pathOr('0', ['rewards', 'amount'], x)).value(),
+          });
+        }),
       });
     }
 }

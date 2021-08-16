@@ -1,13 +1,14 @@
+import numeral from 'numeral';
 import { Categories } from '../types';
 
 class MsgJoinSwapShareAmountOut {
     public category: Categories;
     public type: string;
-    public poolId: string | number;
+    public poolId: number;
     public sender: string;
     public tokenInDenom: string;
-    public shareOutAmount: string | number;
-    public tokenInMaxAmount: string | number;
+    public shareOutAmount: number;
+    public tokenInMaxAmount: number;
     public json: any;
 
     constructor(payload: any) {
@@ -25,11 +26,11 @@ class MsgJoinSwapShareAmountOut {
       return new MsgJoinSwapShareAmountOut({
         json,
         type: json['@type'],
-        poolId: json.poolId,
+        poolId: numeral(json.poolId).value(),
         sender: json.sender,
-        tokenInDenom: json.tokenInDenom,
-        shareOutAmount: json.shareOutAmount,
-        tokenInMaxAmount: json.tokenInMaxAmount,
+        tokenInDenom: numeral(json.tokenInDenom).value(),
+        shareOutAmount: numeral(json.shareOutAmount).value(),
+        tokenInMaxAmount: numeral(json.tokenInMaxAmount).value(),
       });
     }
 }

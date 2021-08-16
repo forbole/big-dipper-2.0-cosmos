@@ -1,15 +1,17 @@
+import * as R from 'ramda';
+import numeral from 'numeral';
 import { Categories } from '../types';
 
 class MsgJoinPool {
     public category: Categories;
     public type: string;
-    public poolId: string | number;
+    public poolId: number;
     public sender: string;
     public tokenInMaxs: {
       denom: string;
-      amount: string | number;
+      amount: number;
     }[];
-    public shareOutAmount: string | number;
+    public shareOutAmount: number;
     public json: any;
 
     constructor(payload: any) {
@@ -26,10 +28,15 @@ class MsgJoinPool {
       return new MsgJoinPool({
         json,
         type: json['@type'],
-        poolId: json.poolId,
+        poolId: numeral(json.poolId).value(),
         sender: json.sender,
-        tokenInMaxs: json.tokenInMaxs,
-        shareOutAmount: json.shareOutAmount,
+        tokenInMaxs: json?.tokenInMaxs.map((x) => {
+          return ({
+            denom: R.pathOr('', ['tokenInMaxs', 'denom'], x),
+            amount: numeral(R.pathOr('0', ['tokenInMaxs', 'amount'], x)).value(),
+          });
+        }),
+        shareOutAmount: numeral(json.shareOutAmount).value(),
       });
     }
 }

@@ -6,21 +6,17 @@ import { MsgSwapExactAmountOut } from '@models';
 import { useChainContext } from '@contexts';
 import numeral from 'numeral';
 import { formatDenom } from '@utils/format_denom';
-import useTranslation from 'next-translate/useTranslation';
 
 const SwapExactAmountOut = (props: {
     message: MsgSwapExactAmountOut;
 }) => {
   const { findAddress } = useChainContext();
-  const { t } = useTranslation('transactions');
   const { message } = props;
 
   const sender = findAddress(message.sender);
   const senderMoniker = sender ? sender?.moniker : message.sender;
-  const amountIn = message.routes.map((x) => {
-    const amount = formatDenom(message.tokenInMaxAmount, x.tokenOutDenom);
-    return `${numeral(amount.value).format('0,0.[0000]')} ${amount.denom.toUpperCase()}`;
-  }).reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
+  const amountInFormatDenom = formatDenom(message.tokenInMaxAmount, message.routes?.tokenInDenom);
+  const amountIn = `${numeral(amountInFormatDenom.value).format('0,0.[0000]')} ${amountInFormatDenom.denom.toUpperCase()}`;
   const amountOutFormatDenom = formatDenom(message.tokenOut?.amount, message.tokenOut?.denom);
   const amountOut = `${numeral(amountOutFormatDenom.value).format('0,0.[0000]')} ${amountOutFormatDenom.denom.toUpperCase()}`;
 
@@ -39,9 +35,7 @@ const SwapExactAmountOut = (props: {
         values={{
           amountOut,
           amountIn,
-          poolIds: message.routes.map((x) => {
-            return x?.poolId;
-          }),
+          poolIds: message.routes?.poolId,
         }}
       />
     </Typography>
