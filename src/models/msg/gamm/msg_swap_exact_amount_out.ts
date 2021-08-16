@@ -7,10 +7,12 @@ class MsgSwapExactAmountOut {
     public sender: string;
     public tokenOut: any;
     public tokenInMaxAmount: any;
+    public json: any;
 
     constructor(payload: any) {
       this.category = 'gamm';
       this.type = payload.type;
+      this.json = payload.json;
       this.routes = payload.routes;
       this.sender = payload.sender;
       this.tokenOut = payload.tokenOut;
@@ -19,6 +21,7 @@ class MsgSwapExactAmountOut {
 
     static fromJson(json: any) {
       return new MsgSwapExactAmountOut({
+        json,
         type: json['@type'],
         routes: json.routes,
         sender: json.sender,

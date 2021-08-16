@@ -7,10 +7,12 @@ class MsgJoinSwapExternAmountIn {
     public sender: string;
     public tokenIn: any;
     public shareOutMinAmount: string;
+    public json: any;
 
     constructor(payload: any) {
       this.category = 'gamm';
       this.type = payload.type;
+      this.json = payload.json;
       this.poolId = payload.poolId;
       this.sender = payload.sender;
       this.tokenIn = payload.tokenIn;
@@ -19,6 +21,7 @@ class MsgJoinSwapExternAmountIn {
 
     static fromJson(json: any) {
       return new MsgJoinSwapExternAmountIn({
+        json,
         type: json['@type'],
         poolId: json.poolId,
         sender: json.sender,

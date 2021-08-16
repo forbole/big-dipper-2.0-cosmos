@@ -8,10 +8,12 @@ class MsgExitSwapShareAmountIn {
     public tokenOutDenom: string;
     public shareInAmount: any;
     public tokenOutMinAmount: any;
+    public json: any;
 
     constructor(payload: any) {
       this.category = 'gamm';
       this.type = payload.type;
+      this.json = payload.json;
       this.poolId = payload.poolId;
       this.sender = payload.sender;
       this.tokenOutDenom = payload.tokenOutDenom;
@@ -21,6 +23,7 @@ class MsgExitSwapShareAmountIn {
 
     static fromJson(json: any) {
       return new MsgExitSwapShareAmountIn({
+        json,
         type: json['@type'],
         poolId: json.poolId,
         sender: json.sender,

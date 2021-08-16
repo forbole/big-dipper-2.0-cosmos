@@ -9,10 +9,12 @@ class MsgCreateGauge {
     public coins: any;
     public startTime: any;
     public numEpochsPaidOver: number;
+    public json: any;
 
     constructor(payload: any) {
       this.category = 'incentives';
       this.type = payload.type;
+      this.json = payload.json;
       this.isPerpetual = payload.isPerpetual;
       this.owner = payload.owner;
       this.distributeTo = payload.distributeTo;
@@ -22,6 +24,7 @@ class MsgCreateGauge {
 
     static fromJson(json: any) {
       return new MsgCreateGauge({
+        json,
         type: json['@type'],
         isPerpetual: json.is_perpetual,
         owner: json.owner,

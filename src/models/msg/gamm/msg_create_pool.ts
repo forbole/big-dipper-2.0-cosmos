@@ -7,10 +7,12 @@ class MsgCreatePool {
     public poolParams: any;
     public poolAssets: any;
     public futurePoolGovernor: string;
+    public json: any;
 
     constructor(payload: any) {
       this.category = 'gamm';
       this.type = payload.type;
+      this.json = payload.json;
       this.sender = payload.sender;
       this.poolParams = payload.poolParams;
       this.poolAssets = payload.poolAssets;
@@ -19,6 +21,7 @@ class MsgCreatePool {
 
     static fromJson(json: any) {
       return new MsgCreatePool({
+        json,
         type: json['@type'],
         sender: json.sender,
         poolParams: json.poolParams,

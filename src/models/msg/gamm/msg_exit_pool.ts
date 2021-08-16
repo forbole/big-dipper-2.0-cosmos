@@ -7,10 +7,12 @@ class MsgExitPool {
     public sender: string;
     public tokenOutMins: any;
     public shareInAmount: string;
+    public json: any;
 
     constructor(payload: any) {
       this.category = 'gamm';
       this.type = payload.type;
+      this.json = payload.json;
       this.poolId = payload.poolId;
       this.sender = payload.sender;
       this.tokenOutMins = payload.tokenOutMins;
@@ -19,6 +21,7 @@ class MsgExitPool {
 
     static fromJson(json: any) {
       return new MsgExitPool({
+        json,
         type: json['@type'],
         poolId: json.poolId,
         sender: json.sender,
