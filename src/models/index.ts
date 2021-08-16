@@ -37,6 +37,11 @@ import MsgDtagRefuseTransfer from './msg/profiles/msg_dtag_refuse_transfer';
 import MsgDtagTransferRequest from './msg/profiles/msg_dtag_transfer_request';
 import MsgSaveProfile from './msg/profiles/msg_save_profile';
 import MsgUnblockUser from './msg/profiles/msg_unblock_user';
+import MsgCreateClient from './msg/client/msg_create_client';
+import MsgUpdateClient from './msg/client/msg_update_client';
+import MsgUpgradeClient from './msg/client/msg_upgrade_client';
+import MsgSubmitMisbehaviour from './msg/client/msg_submit_misbehaviour';
+import MsgHeight from './msg/client/msg_height';
 
 export {
   BigDipperNetwork,
@@ -78,4 +83,9 @@ export {
   MsgDeleteProfile,
   MsgCreateRelationship,
   MsgBlockUser,
+  MsgCreateClient,
+  MsgUpdateClient,
+  MsgUpgradeClient,
+  MsgSubmitMisbehaviour,
+  MsgHeight,
 };

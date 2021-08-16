@@ -218,7 +218,7 @@ const getDataByType = (type: string) => {
       tagDisplay: 'txSubmitMisbehaviourLabel',
     },
     '/ibc.core.client.v1.Height': {
-      model: MODELS.Height,
+      model: MODELS.MsgHeight,
       content: COMPONENTS.Height,
       tagTheme: 'eleven',
       tagDisplay: 'txHeightLabel',
