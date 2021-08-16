@@ -219,6 +219,10 @@ export const useMarket = (initalState: ChainState) => {
       ).amount).value(),
       chainConfig.primaryTokenUnit,
     );
+
+    // developer vesting refer to issue 190
+    supply.value -= 225000000;
+
     if (communityPoolCoin) {
       communityPool = formatDenom(communityPoolCoin.amount, communityPoolCoin.denom);
     }
