@@ -5,9 +5,16 @@ class MsgCreateGauge {
     public type: string;
     public isPerpetual: boolean;
     public owner: string;
-    public distributeTo: any;
-    public coins: any;
-    public startTime: any;
+    public distributeTo: {
+      lockQueryType: any;
+      denom: string;
+      duration: string | number;
+    };
+    public coins: {
+      denom: string;
+      amount: string | number;
+    }[];
+    public startTime: string | number;
     public numEpochsPaidOver: number;
     public json: any;
 

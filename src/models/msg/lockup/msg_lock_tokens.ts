@@ -4,8 +4,11 @@ class MsgLockTokens {
     public category: Categories;
     public type: string;
     public owner: string;
-    public duration: any;
-    public coins: any;
+    public duration: string;
+    public coins: {
+      denom: string;
+      amount: string | number;
+    }[];
     public json: any;
 
     constructor(payload: any) {

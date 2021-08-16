@@ -3,10 +3,13 @@ import { Categories } from '../types';
 class MsgExitPool {
     public category: Categories;
     public type: string;
-    public poolId: string;
+    public poolId: string | number;
     public sender: string;
-    public tokenOutMins: any;
-    public shareInAmount: string;
+    public tokenOutMins: {
+      denom: string;
+      amount: string | number;
+    }[];
+    public shareInAmount: string | number;
     public json: any;
 
     constructor(payload: any) {

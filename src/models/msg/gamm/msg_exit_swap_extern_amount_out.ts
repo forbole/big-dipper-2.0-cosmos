@@ -3,10 +3,13 @@ import { Categories } from '../types';
 class MsgExitSwapExternAmountOut {
     public category: Categories;
     public type: string;
-    public poolId: string;
+    public poolId: string | number;
     public sender: string;
-    public tokenOut: any;
-    public shareInMaxAmount: string;
+    public tokenOut: {
+      amount: string;
+      denom: string;
+    };
+    public shareInMaxAmount: string | number;
     public json: any;
 
     constructor(payload: any) {

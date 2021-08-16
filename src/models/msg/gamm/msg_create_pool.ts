@@ -4,8 +4,18 @@ class MsgCreatePool {
     public category: Categories;
     public type: string;
     public sender: string;
-    public poolParams: any;
-    public poolAssets: any;
+    public poolParams: {
+      exitFee: string;
+      swapFee: string;
+      smoothWeightChangeParams: string | number;
+    }[];
+    public poolAssets: {
+      token: {
+        denom: string;
+        amount: string | number;
+      };
+      weight: string | number;
+    }[];
     public futurePoolGovernor: string;
     public json: any;
 

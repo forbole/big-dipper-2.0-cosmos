@@ -4,7 +4,7 @@ class MsgUnlockPeriodLock {
     public category: Categories;
     public type: string;
     public owner: string;
-    public ID: number;
+    public ID: string | number;
     public json: any;
 
     constructor(payload: any) {

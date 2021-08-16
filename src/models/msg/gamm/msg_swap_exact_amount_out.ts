@@ -3,10 +3,16 @@ import { Categories } from '../types';
 class MsgSwapExactAmountOut {
     public category: Categories;
     public type: string;
-    public routes: any;
+    public routes: {
+      poolId: string | number;
+      tokenInDenom: string
+    }[];
     public sender: string;
-    public tokenOut: any;
-    public tokenInMaxAmount: any;
+    public tokenOut: {
+      amount: string;
+      denom: string;
+    };
+    public tokenInMaxAmount: string | number;
     public json: any;
 
     constructor(payload: any) {

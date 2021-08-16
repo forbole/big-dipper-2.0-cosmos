@@ -5,7 +5,10 @@ class MsgAddToGauge {
     public type: string;
     public owner: string;
     public gaugeId: number | string;
-    public rewards: any;
+    public rewards: {
+      denom: string;
+      amount: string | number;
+    }[];
     public json: any;
 
     constructor(payload: any) {

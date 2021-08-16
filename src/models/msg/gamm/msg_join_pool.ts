@@ -3,10 +3,13 @@ import { Categories } from '../types';
 class MsgJoinPool {
     public category: Categories;
     public type: string;
-    public poolId: string;
+    public poolId: string | number;
     public sender: string;
-    public tokenInMaxs: any;
-    public shareOutAmount: string;
+    public tokenInMaxs: {
+      denom: string;
+      amount: string | number;
+    }[];
+    public shareOutAmount: string | number;
     public json: any;
 
     constructor(payload: any) {

@@ -6,21 +6,19 @@ import { MsgExitSwapShareAmountIn } from '@models';
 import { useChainContext } from '@contexts';
 import numeral from 'numeral';
 import { formatDenom } from '@utils/format_denom';
-import useTranslation from 'next-translate/useTranslation';
+import { chainConfig } from '@configs';
 
 const ExitSwapShareAmountIn = (props: {
     message: MsgExitSwapShareAmountIn;
 }) => {
   const { findAddress } = useChainContext();
-  const { t } = useTranslation('transactions');
   const { message } = props;
 
   const sender = findAddress(message.sender);
   const senderMoniker = sender ? sender?.moniker : message.sender;
-  const amountIn = message.shareInAmount.map((x) => {
-    const amount = formatDenom(x.amount, x.denom);
-    return `${numeral(amount.value).format('0,0.[0000]')} ${amount.denom.toUpperCase()}`;
-  }).reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
+  const amountInFormatDenom = formatDenom(message.shareInAmount, chainConfig.primaryTokenUnit);
+  const amountIn = `${numeral(amountInFormatDenom.value).format('0,0.[0000]')} ${amountInFormatDenom.denom.toUpperCase()}`;
+
   const amountOutFormatDenom = formatDenom(message.tokenOutMinAmount, message.tokenOutDenom);
   const amountOut = `${numeral(amountOutFormatDenom.value).format('0,0.[0000]')} ${amountOutFormatDenom.denom.toUpperCase()}`;
 
