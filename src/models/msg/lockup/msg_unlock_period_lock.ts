@@ -1,5 +1,5 @@
-import { Categories } from '../types';
 import numeral from 'numeral';
+import { Categories } from '../types';
 
 class MsgUnlockPeriodLock {
     public category: Categories;
