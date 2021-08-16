@@ -9,6 +9,7 @@ export const useStyles = () => {
           display: 'flex',
           justifyContent: 'center',
           flexDirection: 'column',
+          alignItems: 'flex-start',
           [theme.breakpoints.up('lg')]: {
             padding: theme.spacing(1, 3),
             display: 'flex',
