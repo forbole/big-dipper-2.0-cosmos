@@ -42,6 +42,27 @@ import MsgUpdateClient from './msg/client/msg_update_client';
 import MsgUpgradeClient from './msg/client/msg_upgrade_client';
 import MsgSubmitMisbehaviour from './msg/client/msg_submit_misbehaviour';
 import MsgHeight from './msg/client/msg_height';
+import MsgAcknowledgement from './msg/channel/msg_acknowledgement';
+import MsgChannelCloseConfirm from './msg/channel/msg_channel_close_confirm';
+import MsgChannelCloseInit from './msg/channel/msg_channel_close_init';
+import MsgChannelOpenAck from './msg/channel/msg_channel_open_ack';
+import MsgChannelOpenConfirm from './msg/channel/msg_channel_open_confirm';
+import MsgChannelOpenInit from './msg/channel/msg_channel_open_init';
+import MsgChannelOpenTry from './msg/channel/msg_channel_open_try';
+import MsgChannel from './msg/channel/msg_channel';
+import MsgCounterpartyChannel from './msg/channel/msg_counterparty';
+import MsgPacket from './msg/channel/msg_packet';
+import MsgReceivePacket from './msg/channel/msg_receive_packet';
+import MsgTimeout from './msg/channel/msg_timeout';
+import MsgTimeoutOnClose from './msg/channel/msg_timeout_on_close';
+import MsgConnectionEnd from './msg/connection/msg_connection_end';
+import MsgConnectionOpenAck from './msg/connection/msg_connection_open_ack';
+import MsgConnectionOpenConfirm from './msg/connection/msg_connection_open_confirm';
+import MsgConnectionOpenInit from './msg/connection/msg_connection_open_init';
+import MsgConnectionOpenTry from './msg/connection/msg_connection_open_try';
+import MsgCounterpartyConnection from './msg/connection/msg_counterparty';
+import MsgVersion from './msg/connection/msg_version';
+import MsgTransfer from './msg/transfer/msg_transfer';
 
 export {
   BigDipperNetwork,
@@ -88,4 +109,25 @@ export {
   MsgUpgradeClient,
   MsgSubmitMisbehaviour,
   MsgHeight,
+  MsgAcknowledgement,
+  MsgChannelCloseConfirm,
+  MsgChannelCloseInit,
+  MsgChannelOpenAck,
+  MsgChannelOpenConfirm,
+  MsgChannelOpenInit,
+  MsgChannelOpenTry,
+  MsgChannel,
+  MsgCounterpartyChannel,
+  MsgPacket,
+  MsgReceivePacket,
+  MsgTimeout,
+  MsgTimeoutOnClose,
+  MsgConnectionEnd,
+  MsgConnectionOpenAck,
+  MsgConnectionOpenConfirm,
+  MsgConnectionOpenInit,
+  MsgConnectionOpenTry,
+  MsgCounterpartyConnection,
+  MsgVersion,
+  MsgTransfer,
 };
