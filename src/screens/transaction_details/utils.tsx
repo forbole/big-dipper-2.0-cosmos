@@ -227,25 +227,25 @@ const getDataByType = (type: string) => {
     // ibc channel
     // ========================
     '/ibc.core.channel.v1.MsgRecvPacket': {
-      model: MODELS.MsgRecvPacket,
-      content: COMPONENTS.RecvPacket,
+      model: MODELS.MsgReceivePacket,
+      content: COMPONENTS.ReceivePacket,
       tagTheme: 'nine',
       tagDisplay: 'txRecvPacketLabel',
     },
     '/ibc.core.channel.v1.Channel': {
-      model: MODELS.Channel,
+      model: MODELS.MsgChannel,
       content: COMPONENTS.Channel,
       tagTheme: 'nine',
       tagDisplay: 'txChannelLabel',
     },
     '/ibc.core.channel.v1.Counterparty': {
-      model: MODELS.Counterparty,
-      content: COMPONENTS.Counterparty,
+      model: MODELS.MsgCounterpartyChannel,
+      content: COMPONENTS.CounterpartyChannel,
       tagTheme: 'nine',
       tagDisplay: 'txCounterpartyLabel',
     },
     '/ibc.core.channel.v1.Packet': {
-      model: MODELS.Packet,
+      model: MODELS.MsgPacket,
       content: COMPONENTS.Packet,
       tagTheme: 'nine',
       tagDisplay: 'txPacketLabel',
@@ -332,19 +332,19 @@ const getDataByType = (type: string) => {
       tagDisplay: 'txConnectionOpenTryLabel',
     },
     '/ibc.core.connection.v1.ConnectionEnd': {
-      model: MODELS.ConnectionEnd,
+      model: MODELS.MsgConnectionEnd,
       content: COMPONENTS.ConnectionEnd,
       tagTheme: 'ten',
       tagDisplay: 'txConnectionEndLabel',
     },
     '/ibc.core.connection.v1.Counterparty': {
-      model: MODELS.Counterparty,
-      content: COMPONENTS.Counterparty,
+      model: MODELS.MsgCounterpartyConnection,
+      content: COMPONENTS.CounterpartyConnection,
       tagTheme: 'ten',
       tagDisplay: 'txCounterpartyLabel',
     },
     '/ibc.core.connection.v1.Version': {
-      model: MODELS.Version,
+      model: MODELS.MsgVersion,
       content: COMPONENTS.Version,
       tagTheme: 'ten',
       tagDisplay: 'txVersionLabel',
