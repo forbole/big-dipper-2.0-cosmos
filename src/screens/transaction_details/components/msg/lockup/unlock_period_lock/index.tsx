@@ -27,7 +27,7 @@ const UnlockPeriodLock = (props: {
           ),
         ]}
         values={{
-          ID: message.ID,
+          id: message.id,
         }}
       />
     </Typography>

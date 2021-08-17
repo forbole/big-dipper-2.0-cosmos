@@ -5,7 +5,7 @@ class MsgUnlockPeriodLock {
     public category: Categories;
     public type: string;
     public owner: string;
-    public ID: number;
+    public id: number;
     public json: any;
 
     constructor(payload: any) {
@@ -13,7 +13,7 @@ class MsgUnlockPeriodLock {
       this.type = payload.type;
       this.json = payload.json;
       this.owner = payload.owner;
-      this.ID = payload.ID;
+      this.id = payload.id;
     }
 
     static fromJson(json: any) {
@@ -21,7 +21,7 @@ class MsgUnlockPeriodLock {
         json,
         type: json['@type'],
         owner: json.owner,
-        ID: numeral(json.ID).value(),
+        id: numeral(json.ID).value(),
       });
     }
 }
