@@ -10,7 +10,7 @@ class MsgCreateClient {
     constructor(payload: any) {
       this.category = 'client';
       this.type = payload.type;
-      this.signer = payload.owner;
+      this.signer = payload.signer;
       this.chainId = payload.chainId;
       this.json = payload.json;
     }

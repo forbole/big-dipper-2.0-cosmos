@@ -29,7 +29,6 @@ const SubmitMisbehaviour = (props: {
         ]}
         values={{
           clientId: message.clientId,
-          misbehaviour: message.misbehaviour,
         }}
       />
     </Typography>

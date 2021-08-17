@@ -5,15 +5,13 @@ class MsgSubmitMisbehaviour {
     public type: string;
     public signer: string;
     public clientId: string;
-    public misbehaviour: string;
     public json: any;
 
     constructor(payload: any) {
       this.category = 'client';
       this.type = payload.type;
-      this.signer = payload.owner;
+      this.signer = payload.signer;
       this.clientId = payload.clientId;
-      this.misbehaviour = payload.misbehaviour;
       this.json = payload.json;
     }
 
@@ -23,7 +21,6 @@ class MsgSubmitMisbehaviour {
         type: json['@type'],
         signer: json.signer,
         clientId: json.client_id,
-        misbehaviour: json.misbehaviour,
       });
     }
 }
