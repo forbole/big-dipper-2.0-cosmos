@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
@@ -16,7 +15,8 @@ const SwapExactAmountIn = (props: {
 
   const sender = findAddress(message.sender);
   const senderMoniker = sender ? sender?.moniker : message.sender;
-  const amountOutFormatDenom = formatDenom(message.tokenOutMinAmount, message.routes?.tokenOutDenom);
+  const amountOutFormatDenom = formatDenom(message.tokenOutMinAmount,
+    message.routes?.tokenOutDenom);
   const amountOut = `${numeral(amountOutFormatDenom.value).format('0,0.[0000]')} ${amountOutFormatDenom.denom.toUpperCase()}`;
   const amountInFormatDenom = formatDenom(message.tokenIn?.amount, message.tokenIn?.denom);
   const amountIn = `${numeral(amountInFormatDenom.value).format('0,0.[0000]')} ${amountInFormatDenom.denom.toUpperCase()}`;

@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import * as R from 'ramda';
 import numeral from 'numeral';
 import { Categories } from '../types';
@@ -41,7 +40,8 @@ class MsgCreatePool {
           return ({
             exitFee: numeral(R.pathOr(0, [x.exitFee], json)).value(),
             swapFee: numeral(R.pathOr(0, [x.swapFee], json)).value(),
-            smoothWeightChangeParams: numeral(R.pathOr(0, [x.smoothWeightChangeParams], json)).value(),
+            smoothWeightChangeParams: numeral(R.pathOr(0, [x.smoothWeightChangeParams], json))
+              .value(),
           });
         }),
         poolAssets: json?.poolAssets.map((x) => {

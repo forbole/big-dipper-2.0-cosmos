@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';

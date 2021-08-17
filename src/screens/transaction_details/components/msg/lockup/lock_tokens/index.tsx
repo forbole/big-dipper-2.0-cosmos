@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
@@ -38,7 +37,9 @@ const LockTokens = (props: {
         ]}
         values={{
           amount: lockAmount,
-          duration: secondsToDays(parseFloat(message.duration.substring(0, message.duration.length - 1))).toFixed(0),
+          duration: secondsToDays(parseFloat(
+            message.duration.substring(0, message.duration.length - 1),
+          )).toFixed(0),
         }}
       />
     </Typography>
