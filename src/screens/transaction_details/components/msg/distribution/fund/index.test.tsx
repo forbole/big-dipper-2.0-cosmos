@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgVerifyInvariant } from '@models';
-import VerifyInvariant from '.';
+import { MsgFundCommunityPool } from '@models';
+import Fund from '.';
 
 // ==================================
 // mocks
@@ -23,18 +23,22 @@ jest.mock('@components', () => ({
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/MsgVerifyInvariant', () => {
+describe('screen: TransactionDetails/Fund', () => {
   it('matches snapshot', () => {
-    const message = new MsgVerifyInvariant({
-      category: 'crisis',
-      type: 'MsgVerifyInvariant',
-      sender: 'sender',
-      invariantModuleName: 'invariantModuleName',
-      invariantRoute: 'invariantRoute',
+    const message = new MsgFundCommunityPool({
+      category: 'distribution',
+      type: 'MsgFundCommunityPool',
+      depositor: 'depositor',
+      amount: [
+        {
+          denom: 'udaric',
+          amount: '2000000',
+        },
+      ],
     });
     const component = renderer.create(
       <MockTheme>
-        <VerifyInvariant
+        <Fund
           message={message}
         />
       </MockTheme>,

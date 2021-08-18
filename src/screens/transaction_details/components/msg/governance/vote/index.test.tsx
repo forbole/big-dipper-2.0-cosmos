@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgVerifyInvariant } from '@models';
-import VerifyInvariant from '.';
+import { MsgVote } from '@models';
+import Vote from '.';
 
 // ==================================
 // mocks
@@ -23,18 +23,18 @@ jest.mock('@components', () => ({
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/MsgVerifyInvariant', () => {
+describe('screen: TransactionDetails/MsgVote', () => {
   it('matches snapshot', () => {
-    const message = new MsgVerifyInvariant({
-      category: 'crisis',
-      type: 'MsgVerifyInvariant',
-      sender: 'sender',
-      invariantModuleName: 'invariantModuleName',
-      invariantRoute: 'invariantRoute',
+    const message = new MsgVote({
+      category: 'governance',
+      type: 'MsgVote',
+      proposalId: 10,
+      voter: 'voter',
+      option: 'VOTE_OPTION_NO',
     });
     const component = renderer.create(
       <MockTheme>
-        <VerifyInvariant
+        <Vote
           message={message}
         />
       </MockTheme>,

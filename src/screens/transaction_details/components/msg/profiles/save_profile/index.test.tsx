@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgVerifyInvariant } from '@models';
-import VerifyInvariant from '.';
+import { MsgSaveProfile } from '@models';
+import SaveProfile from '.';
 
 // ==================================
 // mocks
@@ -23,18 +23,16 @@ jest.mock('@components', () => ({
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/MsgVerifyInvariant', () => {
+describe('screen: TransactionDetails/SaveProfile', () => {
   it('matches snapshot', () => {
-    const message = new MsgVerifyInvariant({
-      category: 'crisis',
-      type: 'MsgVerifyInvariant',
-      sender: 'sender',
-      invariantModuleName: 'invariantModuleName',
-      invariantRoute: 'invariantRoute',
+    const message = new MsgSaveProfile({
+      category: 'profiles',
+      type: 'MsgSaveProfile',
+      creator: 'creator',
     });
     const component = renderer.create(
       <MockTheme>
-        <VerifyInvariant
+        <SaveProfile
           message={message}
         />
       </MockTheme>,

@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgVerifyInvariant } from '@models';
-import VerifyInvariant from '.';
+import { MsgBlockUser } from '@models';
+import BlockUser from '.';
 
 // ==================================
 // mocks
@@ -23,18 +23,18 @@ jest.mock('@components', () => ({
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/MsgVerifyInvariant', () => {
+describe('screen: TransactionDetails/BlockUser', () => {
   it('matches snapshot', () => {
-    const message = new MsgVerifyInvariant({
-      category: 'crisis',
-      type: 'MsgVerifyInvariant',
-      sender: 'sender',
-      invariantModuleName: 'invariantModuleName',
-      invariantRoute: 'invariantRoute',
+    const message = new MsgBlockUser({
+      category: 'profiles',
+      type: 'MsgBlockUser',
+      blocked: 'blocked',
+      blocker: 'blocker',
+      subspace: 'subspace',
     });
     const component = renderer.create(
       <MockTheme>
-        <VerifyInvariant
+        <BlockUser
           message={message}
         />
       </MockTheme>,

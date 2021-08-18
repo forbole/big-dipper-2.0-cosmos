@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgVerifyInvariant } from '@models';
-import VerifyInvariant from '.';
+import { MsgSetWithdrawAddress } from '@models';
+import SetWithdrawalAddress from '.';
 
 // ==================================
 // mocks
@@ -23,18 +23,17 @@ jest.mock('@components', () => ({
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/MsgVerifyInvariant', () => {
+describe('screen: TransactionDetails/SetWithdrawalAddress', () => {
   it('matches snapshot', () => {
-    const message = new MsgVerifyInvariant({
-      category: 'crisis',
-      type: 'MsgVerifyInvariant',
-      sender: 'sender',
-      invariantModuleName: 'invariantModuleName',
-      invariantRoute: 'invariantRoute',
+    const message = new MsgSetWithdrawAddress({
+      category: 'distribution',
+      type: 'MsgSetWithdrawAddress',
+      delegatorAddress: 'delegatorAddress',
+      withdrawalAddress: 'withdrawalAddress',
     });
     const component = renderer.create(
       <MockTheme>
-        <VerifyInvariant
+        <SetWithdrawalAddress
           message={message}
         />
       </MockTheme>,

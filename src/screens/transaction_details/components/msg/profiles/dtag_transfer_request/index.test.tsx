@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgVerifyInvariant } from '@models';
-import VerifyInvariant from '.';
+import { MsgDtagTransferRequest } from '@models';
+import DtagTransferRequest from '.';
 
 // ==================================
 // mocks
@@ -23,18 +23,17 @@ jest.mock('@components', () => ({
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/MsgVerifyInvariant', () => {
+describe('screen: TransactionDetails/DtagTransferRequest', () => {
   it('matches snapshot', () => {
-    const message = new MsgVerifyInvariant({
-      category: 'crisis',
-      type: 'MsgVerifyInvariant',
+    const message = new MsgDtagTransferRequest({
+      category: 'profiles',
+      type: 'MsgDtagCancelTransfer',
       sender: 'sender',
-      invariantModuleName: 'invariantModuleName',
-      invariantRoute: 'invariantRoute',
+      receiver: 'receiver',
     });
     const component = renderer.create(
       <MockTheme>
-        <VerifyInvariant
+        <DtagTransferRequest
           message={message}
         />
       </MockTheme>,

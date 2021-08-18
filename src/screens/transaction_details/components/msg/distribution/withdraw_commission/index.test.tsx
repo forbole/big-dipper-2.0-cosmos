@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgVerifyInvariant } from '@models';
-import VerifyInvariant from '.';
+import { MsgWithdrawValidatorCommission } from '@models';
+import WithdrawCommission from '.';
 
 // ==================================
 // mocks
@@ -23,18 +23,22 @@ jest.mock('@components', () => ({
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/MsgVerifyInvariant', () => {
+describe('screen: TransactionDetails/WithdrawCommission', () => {
   it('matches snapshot', () => {
-    const message = new MsgVerifyInvariant({
-      category: 'crisis',
-      type: 'MsgVerifyInvariant',
-      sender: 'sender',
-      invariantModuleName: 'invariantModuleName',
-      invariantRoute: 'invariantRoute',
+    const message = new MsgWithdrawValidatorCommission({
+      category: 'distribution',
+      type: 'MsgWithdrawValidatorCommission',
+      validatorAddress: 'validatorAddress',
+      amounts: [
+        {
+          denom: 'udaric',
+          value: 3000000,
+        },
+      ],
     });
     const component = renderer.create(
       <MockTheme>
-        <VerifyInvariant
+        <WithdrawCommission
           message={message}
         />
       </MockTheme>,

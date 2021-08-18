@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgVerifyInvariant } from '@models';
-import VerifyInvariant from '.';
+import { MsgCreateRelationship } from '@models';
+import CreateRelationship from '.';
 
 // ==================================
 // mocks
@@ -23,18 +23,18 @@ jest.mock('@components', () => ({
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/MsgVerifyInvariant', () => {
+describe('screen: TransactionDetails/CreateRelationship', () => {
   it('matches snapshot', () => {
-    const message = new MsgVerifyInvariant({
-      category: 'crisis',
-      type: 'MsgVerifyInvariant',
+    const message = new MsgCreateRelationship({
+      category: 'profiles',
+      type: 'MsgCreateRelationship',
       sender: 'sender',
-      invariantModuleName: 'invariantModuleName',
-      invariantRoute: 'invariantRoute',
+      receiver: 'receiver',
+      subspace: 'subspace',
     });
     const component = renderer.create(
       <MockTheme>
-        <VerifyInvariant
+        <CreateRelationship
           message={message}
         />
       </MockTheme>,
