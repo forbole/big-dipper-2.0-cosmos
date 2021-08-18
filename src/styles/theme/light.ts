@@ -41,6 +41,7 @@ export const lightThemeOverride = {
         fontTwo,
         fontThree,
         fontFour: '#999999',
+        highlight: '#0075FF',
       },
       primaryData: {
         one: '#488D98',
