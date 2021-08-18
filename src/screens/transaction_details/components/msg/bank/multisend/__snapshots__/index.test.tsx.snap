@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TransactionDetails/MsgSend matches snapshot 1`] = `
+<div>
+  <p
+    className="MuiTypography-root MuiTypography-body1"
+  >
+    message_contents:txMultisendContentOne
+  </p>
+  <div
+    className="makeStyles-multisend"
+  >
+    <p
+      className="MuiTypography-root MuiTypography-body1"
+    >
+      message_contents:txMultisendContentTwo
+    </p>
+    <p
+      className="MuiTypography-root MuiTypography-body1"
+    >
+      message_contents:txMultisendContentTwo
+    </p>
+  </div>
+</div>
+`;
