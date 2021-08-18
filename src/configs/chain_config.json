@@ -1,24 +1,24 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "morpheus-apollo-2",
+  "title": "LikeCoin Block Explorer",
+  "network": "likecoin-mainnet-2",
   "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/3fd238e83788a5b80693fc7985be610cdce5a7e6/likecoin/icon.svg?sanitize=true",
   "logo": {
     "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/3fd238e83788a5b80693fc7985be610cdce5a7e6/likecoin/logo.svg?sanitize=true"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "cosmosvalcons",
+    "validator": "cosmosvaloper",
+    "account": "cosmos"
   },
   "genesis": {
     "time": "2021-07-13T08:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udaric",
+  "primaryTokenUnit": "ulike",
   "tokenUnits": {
     "udaric": {
-      "display": "daric",
-      "exponent": 6
+      "display": "like",
+      "exponent": 9
     }
   },
   "extra": {
