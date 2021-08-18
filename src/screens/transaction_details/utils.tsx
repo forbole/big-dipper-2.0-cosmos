@@ -219,7 +219,7 @@ export const getMessageByType = (message: MessageType, viewRaw: boolean, t:any) 
   let results: {
     content: MessageComponentType;
     tagDisplay: string;
-    tagTheme?: 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven' | 'eight' | 'zero';
+    tagTheme?: TagTheme;
     unknown?: boolean;
   } = {
     content: COMPONENTS.Unknown,
