@@ -9,7 +9,7 @@ class MsgChannelOpenConfirm {
     public json: any;
 
     constructor(payload: any) {
-      this.category = 'channel';
+      this.category = 'ibc';
       this.type = payload.type;
       this.signer = payload.signer;
       this.channelId = payload.channelId;

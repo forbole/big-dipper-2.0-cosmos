@@ -1,20 +1,20 @@
 import { Categories } from '../types';
 
-class MsgHeight {
+class MsgCounterpartyConnection {
     public category: Categories;
     public type: string;
     public signer: string;
     public json: any;
 
     constructor(payload: any) {
-      this.category = 'client';
+      this.category = 'ibc';
       this.type = payload.type;
       this.signer = payload.signer;
       this.json = payload.json;
     }
 
     static fromJson(json: any) {
-      return new MsgHeight({
+      return new MsgCounterpartyConnection({
         json,
         type: json['@type'],
         signer: json.signer,
@@ -22,4 +22,4 @@ class MsgHeight {
     }
 }
 
-export default MsgHeight;
+export default MsgCounterpartyConnection;

@@ -1,28 +1,28 @@
 import { Categories } from '../types';
 
-class MsgCreateClient {
+class MsgUpgradeClient {
     public category: Categories;
     public type: string;
     public signer: string;
-    public chainId: string;
+    public clientId: string;
     public json: any;
 
     constructor(payload: any) {
-      this.category = 'client';
+      this.category = 'ibc';
       this.type = payload.type;
       this.signer = payload.signer;
-      this.chainId = payload.chainId;
+      this.clientId = payload.clientId;
       this.json = payload.json;
     }
 
     static fromJson(json: any) {
-      return new MsgCreateClient({
+      return new MsgUpgradeClient({
         json,
         type: json['@type'],
         signer: json.signer,
-        chainId: json.client_state?.chain_id,
+        clientId: json.client_id,
       });
     }
 }
 
-export default MsgCreateClient;
+export default MsgUpgradeClient;

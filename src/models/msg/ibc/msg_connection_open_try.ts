@@ -11,7 +11,7 @@ class MsgConnectionOpenTry {
     public json: any;
 
     constructor(payload: any) {
-      this.category = 'connection';
+      this.category = 'ibc';
       this.type = payload.type;
       this.signer = payload.signer;
       this.chainId = payload.chainId;

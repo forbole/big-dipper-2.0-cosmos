@@ -1,6 +1,6 @@
 import { Categories } from '../types';
 
-class MsgUpgradeClient {
+class MsgSubmitMisbehaviour {
     public category: Categories;
     public type: string;
     public signer: string;
@@ -8,7 +8,7 @@ class MsgUpgradeClient {
     public json: any;
 
     constructor(payload: any) {
-      this.category = 'client';
+      this.category = 'ibc';
       this.type = payload.type;
       this.signer = payload.signer;
       this.clientId = payload.clientId;
@@ -16,7 +16,7 @@ class MsgUpgradeClient {
     }
 
     static fromJson(json: any) {
-      return new MsgUpgradeClient({
+      return new MsgSubmitMisbehaviour({
         json,
         type: json['@type'],
         signer: json.signer,
@@ -25,4 +25,4 @@ class MsgUpgradeClient {
     }
 }
 
-export default MsgUpgradeClient;
+export default MsgSubmitMisbehaviour;

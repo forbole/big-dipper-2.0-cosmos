@@ -1,20 +1,20 @@
 import { Categories } from '../types';
 
-class MsgVersion {
+class MsgPacket {
     public category: Categories;
     public type: string;
     public signer: string;
     public json: any;
 
     constructor(payload: any) {
-      this.category = 'connection';
+      this.category = 'ibc';
       this.type = payload.type;
       this.signer = payload.signer;
       this.json = payload.json;
     }
 
     static fromJson(json: any) {
-      return new MsgVersion({
+      return new MsgPacket({
         json,
         type: json['@type'],
         signer: json.signer,
@@ -22,4 +22,4 @@ class MsgVersion {
     }
 }
 
-export default MsgVersion;
+export default MsgPacket;

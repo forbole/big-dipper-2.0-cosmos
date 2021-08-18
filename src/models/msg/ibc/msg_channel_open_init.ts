@@ -1,28 +1,31 @@
 import { Categories } from '../types';
 
-class MsgAcknowledgement {
+class MsgChannelOpenInit {
     public category: Categories;
     public type: string;
     public signer: string;
-    public sourceChannel: string;
+    public channel: string;
+    public portId: string;
     public json: any;
 
     constructor(payload: any) {
-      this.category = 'channel';
+      this.category = 'ibc';
       this.type = payload.type;
       this.signer = payload.signer;
-      this.sourceChannel = payload.sourceChannel;
+      this.channel = payload.channel;
+      this.portId = payload.portId;
       this.json = payload.json;
     }
 
     static fromJson(json: any) {
-      return new MsgAcknowledgement({
+      return new MsgChannelOpenInit({
         json,
         type: json['@type'],
         signer: json.signer,
-        sourceChannel: json.packet?.source_channel,
+        channel: json.channel,
+        portId: json.port_id,
       });
     }
 }
 
-export default MsgAcknowledgement;
+export default MsgChannelOpenInit;

@@ -1,20 +1,20 @@
 import { Categories } from '../types';
 
-class MsgTimeout {
+class MsgConnectionEnd {
     public category: Categories;
     public type: string;
     public signer: string;
     public json: any;
 
     constructor(payload: any) {
-      this.category = 'channel';
+      this.category = 'ibc';
       this.type = payload.type;
       this.signer = payload.signer;
       this.json = payload.json;
     }
 
     static fromJson(json: any) {
-      return new MsgTimeout({
+      return new MsgConnectionEnd({
         json,
         type: json['@type'],
         signer: json.signer,
@@ -22,4 +22,4 @@ class MsgTimeout {
     }
 }
 
-export default MsgTimeout;
+export default MsgConnectionEnd;

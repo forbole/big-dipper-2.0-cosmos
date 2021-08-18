@@ -1,20 +1,20 @@
 import { Categories } from '../types';
 
-class MsgCounterpartyChannel {
+class MsgTransfer {
     public category: Categories;
     public type: string;
     public signer: string;
     public json: any;
 
     constructor(payload: any) {
-      this.category = 'channel';
+      this.category = 'ibc-transfer';
       this.type = payload.type;
       this.signer = payload.signer;
       this.json = payload.json;
     }
 
     static fromJson(json: any) {
-      return new MsgCounterpartyChannel({
+      return new MsgTransfer({
         json,
         type: json['@type'],
         signer: json.signer,
@@ -22,4 +22,4 @@ class MsgCounterpartyChannel {
     }
 }
 
-export default MsgCounterpartyChannel;
+export default MsgTransfer;
