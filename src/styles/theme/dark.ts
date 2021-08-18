@@ -18,7 +18,7 @@ export const darkThemeOverride = {
   palette: {
     type: 'dark',
     primary: {
-      main: '#FA9147',
+      main: '#FF835B',
       contrastText: '#fff',
     },
     background: {
@@ -44,8 +44,8 @@ export const darkThemeOverride = {
         highlight: '#4092CD', // links
       },
       primaryData: {
-        one: '#FA9147',
-        two: '#F87255',
+        one: '#F87255',
+        two: '#FA9147',
         three: '#43BE7C',
         four: '#43A1BE',
       },
