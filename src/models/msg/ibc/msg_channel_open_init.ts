@@ -4,7 +4,7 @@ class MsgChannelOpenInit {
     public category: Categories;
     public type: string;
     public signer: string;
-    public channel: string;
+    public channelId: string;
     public portId: string;
     public json: any;
 
@@ -12,7 +12,7 @@ class MsgChannelOpenInit {
       this.category = 'ibc';
       this.type = payload.type;
       this.signer = payload.signer;
-      this.channel = payload.channel;
+      this.channelId = payload.channelId;
       this.portId = payload.portId;
       this.json = payload.json;
     }
@@ -22,7 +22,7 @@ class MsgChannelOpenInit {
         json,
         type: json['@type'],
         signer: json.signer,
-        channel: json.channel,
+        channelId: json.channel?.counterparty?.channel_id,
         portId: json.port_id,
       });
     }

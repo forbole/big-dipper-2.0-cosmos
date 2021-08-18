@@ -28,7 +28,7 @@ const ChannelOpenInit = (props: {
           <b />,
         ]}
         values={{
-          channel: message.channel,
+          channelId: message.channelId,
           portId: message.portId,
         }}
       />

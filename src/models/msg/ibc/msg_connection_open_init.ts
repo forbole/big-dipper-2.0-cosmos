@@ -23,7 +23,7 @@ class MsgConnectionOpenInit {
         type: json['@type'],
         signer: json.signer,
         clientId: json.client_id,
-        counterparty: json.counterparty,
+        counterparty: json.counterparty?.client_id,
       });
     }
 }
