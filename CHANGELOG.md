@@ -1,6 +1,7 @@
 # Unreleased
 ## Changes
 - Change logo placement in nav mobile ([\#202](https://github.com/forbole/big-dipper-2.0-cosmos/issues/202))
+- Increased tag colors ([\#207](https://github.com/forbole/big-dipper-2.0-cosmos/issues/207))
 
 # base-v1.0.3
 
