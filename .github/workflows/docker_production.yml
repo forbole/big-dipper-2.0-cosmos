@@ -5,6 +5,7 @@ on:
     tags:
       - cosmos*
       - desmos*
+      - likecoin*
 
 jobs:
   Build-and-Publish:

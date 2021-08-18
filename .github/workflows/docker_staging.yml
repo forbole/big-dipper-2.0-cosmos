@@ -6,6 +6,7 @@ on:
     branches:
       - master
       - desmos
+      - likecoin
 
 jobs:
   Build-and-Publish:
