@@ -1,5 +1,7 @@
 # Unreleased
 
+## Changes
+- Updated models msg types ([\#225](https://github.com/forbole/big-dipper-2.0-cosmos/issues/225))
 ## Bug fixes
 - Fix staking param details displaying incorrect `Max Validators`
 
