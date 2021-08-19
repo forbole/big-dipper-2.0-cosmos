@@ -14,9 +14,9 @@
     "time": "2021-07-13T08:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "ulike",
+  "primaryTokenUnit": "nanolike",
   "tokenUnits": {
-    "udaric": {
+    "nanolike": {
       "display": "like",
       "exponent": 9
     }
