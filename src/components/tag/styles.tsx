@@ -54,6 +54,54 @@ export const useStyles = () => {
           color: theme.palette.custom.tags.eight,
           background: Color(theme.palette.custom.tags.eight).alpha(0.2).string(),
         },
+        nine: {
+          color: theme.palette.custom.tags.nine,
+          background: Color(theme.palette.custom.tags.nine).alpha(0.2).string(),
+        },
+        ten: {
+          color: theme.palette.custom.tags.ten,
+          background: Color(theme.palette.custom.tags.ten).alpha(0.2).string(),
+        },
+        eleven: {
+          color: theme.palette.custom.tags.eleven,
+          background: Color(theme.palette.custom.tags.eleven).alpha(0.2).string(),
+        },
+        twelve: {
+          color: theme.palette.custom.tags.twelve,
+          background: Color(theme.palette.custom.tags.twelve).alpha(0.2).string(),
+        },
+        thirteen: {
+          color: theme.palette.custom.tags.thirteen,
+          background: Color(theme.palette.custom.tags.thirteen).alpha(0.2).string(),
+        },
+        fourteen: {
+          color: theme.palette.custom.tags.fourteen,
+          background: Color(theme.palette.custom.tags.fourteen).alpha(0.2).string(),
+        },
+        fifteen: {
+          color: theme.palette.custom.tags.fifteen,
+          background: Color(theme.palette.custom.tags.fifteen).alpha(0.2).string(),
+        },
+        sixteen: {
+          color: theme.palette.custom.tags.sixteen,
+          background: Color(theme.palette.custom.tags.sixteen).alpha(0.2).string(),
+        },
+        seventeen: {
+          color: theme.palette.custom.tags.seventeen,
+          background: Color(theme.palette.custom.tags.seventeen).alpha(0.2).string(),
+        },
+        eighteen: {
+          color: theme.palette.custom.tags.eighteen,
+          background: Color(theme.palette.custom.tags.eighteen).alpha(0.2).string(),
+        },
+        nineteen: {
+          color: theme.palette.custom.tags.nineteen,
+          background: Color(theme.palette.custom.tags.nineteen).alpha(0.2).string(),
+        },
+        twenty: {
+          color: theme.palette.custom.tags.twenty,
+          background: Color(theme.palette.custom.tags.twenty).alpha(0.2).string(),
+        },
       });
     },
   )();
