@@ -6,7 +6,7 @@ import { useStyles } from './styles';
 const Tag:React.FC<{
   className?: string;
   value: string;
-  theme?: 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven' | 'eight' | 'zero' // refer to styles for color reference
+  theme?: TagTheme;
 }> = ({
   className, value, theme,
 }) => {
