@@ -1,7 +1,8 @@
-# Unreleased
+# base-v1.0.4 - 2021-08-19
 ## Changes
 - Change logo placement in nav mobile ([\#202](https://github.com/forbole/big-dipper-2.0-cosmos/issues/202))
 - Increased tag colors ([\#207](https://github.com/forbole/big-dipper-2.0-cosmos/issues/207))
+- Add IBC messages ([\#192](https://github.com/forbole/big-dipper-2.0-cosmos/issues/192))
 
 # base-v1.0.3
 
