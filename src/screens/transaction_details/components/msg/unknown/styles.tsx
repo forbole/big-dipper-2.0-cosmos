@@ -9,6 +9,7 @@ export const useGetStyles = () => {
       padding: '1rem',
       margin: '0',
       background: theme.palette.background.default,
+      flex: 1,
       '& code': {
         whiteSpace: 'pre-wrap',
       },

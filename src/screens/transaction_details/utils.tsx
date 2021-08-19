@@ -10,7 +10,8 @@ import * as COMPONENTS from './components';
 const getDataByType = (type: string) => {
   // =====================================
   // DO NOT UPDATE IF THIS IS A FORK.
-  // Please use `customTypeToModel` below
+  // ONLY COSMOS SDK DEFAULT MESSAGES HERE.
+  // Please use `customTypeToModel` below for custom message types
   // =====================================
   const defaultTypeToModel = {
     // ========================
@@ -127,6 +128,174 @@ const getDataByType = (type: string) => {
       tagTheme: 'seven',
       tagDisplay: 'txSubmitProposalLabel',
     },
+    // ========================
+    // ibc client
+    // ========================
+    '/ibc.core.client.v1.MsgCreateClient': {
+      model: MODELS.MsgCreateClient,
+      content: COMPONENTS.CreateClient,
+      tagTheme: 'nine',
+      tagDisplay: 'txCreateClientLabel',
+    },
+    '/ibc.core.client.v1.MsgUpdateClient': {
+      model: MODELS.MsgUpdateClient,
+      content: COMPONENTS.UpdateClient,
+      tagTheme: 'nine',
+      tagDisplay: 'txUpdateClientLabel',
+    },
+    '/ibc.core.client.v1.MsgUpgradeClient': {
+      model: MODELS.MsgUpgradeClient,
+      content: COMPONENTS.UpgradeClient,
+      tagTheme: 'nine',
+      tagDisplay: 'txUpgradeClientLabel',
+    },
+    '/ibc.core.client.v1.MsgSubmitMisbehaviour': {
+      model: MODELS.MsgSubmitMisbehaviour,
+      content: COMPONENTS.SubmitMisbehaviour,
+      tagTheme: 'nine',
+      tagDisplay: 'txSubmitMisbehaviourLabel',
+    },
+    '/ibc.core.client.v1.Height': {
+      model: MODELS.MsgHeight,
+      content: COMPONENTS.Height,
+      tagTheme: 'nine',
+      tagDisplay: 'txHeightLabel',
+    },
+    // ========================
+    // ibc channel
+    // ========================
+    '/ibc.core.channel.v1.MsgRecvPacket': {
+      model: MODELS.MsgReceivePacket,
+      content: COMPONENTS.ReceivePacket,
+      tagTheme: 'nine',
+      tagDisplay: 'txRecvPacketLabel',
+    },
+    '/ibc.core.channel.v1.Channel': {
+      model: MODELS.MsgChannel,
+      content: COMPONENTS.Channel,
+      tagTheme: 'nine',
+      tagDisplay: 'txChannelLabel',
+    },
+    '/ibc.core.channel.v1.Counterparty': {
+      model: MODELS.MsgCounterpartyChannel,
+      content: COMPONENTS.CounterpartyChannel,
+      tagTheme: 'nine',
+      tagDisplay: 'txCounterpartyLabel',
+    },
+    '/ibc.core.channel.v1.Packet': {
+      model: MODELS.MsgPacket,
+      content: COMPONENTS.Packet,
+      tagTheme: 'nine',
+      tagDisplay: 'txPacketLabel',
+    },
+    '/ibc.core.channel.v1.MsgAcknowledgement': {
+      model: MODELS.MsgAcknowledgement,
+      content: COMPONENTS.Acknowledgement,
+      tagTheme: 'nine',
+      tagDisplay: 'txAcknowledgementLabel',
+    },
+    '/ibc.core.channel.v1.MsgChannelCloseConfirm': {
+      model: MODELS.MsgChannelCloseConfirm,
+      content: COMPONENTS.ChannelCloseConfirm,
+      tagTheme: 'nine',
+      tagDisplay: 'txChannelCloseConfirmLabel',
+    },
+    '/ibc.core.channel.v1.MsgChannelCloseInit': {
+      model: MODELS.MsgChannelCloseInit,
+      content: COMPONENTS.ChannelCloseInit,
+      tagTheme: 'nine',
+      tagDisplay: 'txChannelCloseInitLabel',
+    },
+    '/ibc.core.channel.v1.MsgChannelOpenAck': {
+      model: MODELS.MsgChannelOpenAck,
+      content: COMPONENTS.ChannelOpenAck,
+      tagTheme: 'nine',
+      tagDisplay: 'txChannelOpenAckLabel',
+    },
+    '/ibc.core.channel.v1.MsgChannelOpenConfirm': {
+      model: MODELS.MsgChannelOpenConfirm,
+      content: COMPONENTS.ChannelOpenConfirm,
+      tagTheme: 'nine',
+      tagDisplay: 'txChannelOpenConfirmLabel',
+    },
+    '/ibc.core.channel.v1.MsgChannelOpenInit': {
+      model: MODELS.MsgChannelOpenInit,
+      content: COMPONENTS.ChannelOpenInit,
+      tagTheme: 'nine',
+      tagDisplay: 'txChannelOpenInitLabel',
+    },
+    '/ibc.core.channel.v1.MsgChannelOpenTry': {
+      model: MODELS.MsgChannelOpenTry,
+      content: COMPONENTS.ChannelOpenTry,
+      tagTheme: 'nine',
+      tagDisplay: 'txChannelOpenTryLabel',
+    },
+    '/ibc.core.channel.v1.MsgTimeout': {
+      model: MODELS.MsgTimeout,
+      content: COMPONENTS.Timeout,
+      tagTheme: 'nine',
+      tagDisplay: 'txTimeoutLabel',
+    },
+    '/ibc.core.channel.v1.MsgTimeoutOnClose': {
+      model: MODELS.MsgTimeoutOnClose,
+      content: COMPONENTS.TimeoutOnClose,
+      tagTheme: 'nine',
+      tagDisplay: 'txTimeoutOnCloseLabel',
+    },
+    // ========================
+    // ibc connection
+    // ========================
+    '/ibc.core.connection.v1.MsgConnectionOpenAck': {
+      model: MODELS.MsgConnectionOpenAck,
+      content: COMPONENTS.ConnectionOpenAck,
+      tagTheme: 'nine',
+      tagDisplay: 'txConnectionOpenAckLabel',
+    },
+    '/ibc.core.connection.v1.MsgConnectionOpenConfirm': {
+      model: MODELS.MsgConnectionOpenConfirm,
+      content: COMPONENTS.ConnectionOpenConfirm,
+      tagTheme: 'nine',
+      tagDisplay: 'txConnectionOpenConfirmLabel',
+    },
+    '/ibc.core.connection.v1.MsgConnectionOpenInit': {
+      model: MODELS.MsgConnectionOpenInit,
+      content: COMPONENTS.ConnectionOpenInit,
+      tagTheme: 'nine',
+      tagDisplay: 'txConnectionOpenInitLabel',
+    },
+    '/ibc.core.connection.v1.MsgConnectionOpenTry': {
+      model: MODELS.MsgConnectionOpenTry,
+      content: COMPONENTS.ConnectionOpenTry,
+      tagTheme: 'nine',
+      tagDisplay: 'txConnectionOpenTryLabel',
+    },
+    '/ibc.core.connection.v1.ConnectionEnd': {
+      model: MODELS.MsgConnectionEnd,
+      content: COMPONENTS.ConnectionEnd,
+      tagTheme: 'nine',
+      tagDisplay: 'txConnectionEndLabel',
+    },
+    '/ibc.core.connection.v1.Counterparty': {
+      model: MODELS.MsgCounterpartyConnection,
+      content: COMPONENTS.CounterpartyConnection,
+      tagTheme: 'nine',
+      tagDisplay: 'txCounterpartyLabel',
+    },
+    '/ibc.core.connection.v1.Version': {
+      model: MODELS.MsgVersion,
+      content: COMPONENTS.Version,
+      tagTheme: 'nine',
+      tagDisplay: 'txVersionLabel',
+    },
+    // ========================
+    // ibc transfer
+    // ========================
+    '/ibc.applications.transfer.v1.MsgTransfer': {
+      model: MODELS.MsgTransfer,
+      content: COMPONENTS.Transfer,
+      tagTheme: 'ten',
+      tagDisplay: 'txTransferLabel',
+    },
   };
 
   // =====================================
@@ -190,6 +359,7 @@ const getDataByType = (type: string) => {
       tagTheme: 'four',
       tagDisplay: 'txUnblockUserLabel',
     },
+
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];
