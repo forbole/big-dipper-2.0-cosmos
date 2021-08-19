@@ -19,10 +19,10 @@ RUN npm ci
 COPY . .
 
 # Generate env file
-ENV NEXT_PUBLIC_GRAPHQL_URL https://gql-testnet.likecoin.forbole.com/v1/graphql
-ENV NEXT_PUBLIC_GRAPHQL_WS wss://gql-ws-testnet.likecoin.forbole.com/v1/graphql
-ENV NEXT_PUBLIC_URL https://testnet.likecoin.bigdipper.live
-ENV NEXT_PUBLIC_WS_CHAIN_URL wss://ws-testnet.likecoin.forbole.com/websocket
+ENV NEXT_PUBLIC_GRAPHQL_URL https://gql.likecoin.forbole.com/v1/graphql
+ENV NEXT_PUBLIC_GRAPHQL_WS wss://gql-ws.likecoin.forbole.com/v1/graphql
+ENV NEXT_PUBLIC_URL https://likecoin.bigdipper.live
+ENV NEXT_PUBLIC_WS_CHAIN_URL wss://ws.likecoin.forbole.com/websocket
 ENV NODE_ENV production
 ENV PORT 3000
 
