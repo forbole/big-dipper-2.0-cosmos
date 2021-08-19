@@ -9,7 +9,7 @@ import {
   useStakingParamsQuery,
 } from '@graphql/types';
 import { StakingParams } from '@models';
-import { chainConfig } from '@src/configs';
+// import { chainConfig } from '@src/configs';
 
 const initialState: {
   height: number;

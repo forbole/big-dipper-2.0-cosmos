@@ -20,7 +20,7 @@ import { useChainContext } from '@contexts';
 import { chainConfig } from '@configs';
 import {
   GovParams,
-  StakingParams,
+  // StakingParams,
 } from '@models';
 import { ProposalState } from './types';
 

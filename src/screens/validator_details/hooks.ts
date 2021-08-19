@@ -19,7 +19,7 @@ import { useChainContext } from '@contexts';
 import { getValidatorCondition } from '@utils/get_validator_condition';
 import { chainConfig } from '@src/configs';
 import {
-  StakingParams,
+  // StakingParams,
   SlashingParams,
 } from '@models';
 import { ValidatorDetailsState } from './types';
