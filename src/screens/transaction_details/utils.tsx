@@ -10,7 +10,8 @@ import * as COMPONENTS from './components';
 const getDataByType = (type: string) => {
   // =====================================
   // DO NOT UPDATE IF THIS IS A FORK.
-  // Please use `customTypeToModel` below
+  // ONLY COSMOS SDK DEFAULT MESSAGES HERE.
+  // Please use `customTypeToModel` below for custom message types
   // =====================================
   const defaultTypeToModel = {
     // ========================
@@ -126,69 +127,6 @@ const getDataByType = (type: string) => {
       content: COMPONENTS.SubmitProposal,
       tagTheme: 'seven',
       tagDisplay: 'txSubmitProposalLabel',
-    },
-  };
-
-  // =====================================
-  // Update your chain's message types here
-  // =====================================
-  const customTypeToModel = {
-    // ========================
-    // profiles
-    // ========================
-    '/desmos.profiles.v1beta1.MsgSaveProfile': {
-      model: MODELS.MsgSaveProfile,
-      content: COMPONENTS.SaveProfile,
-      tagTheme: 'four',
-      tagDisplay: 'txSaveProfileLabel',
-    },
-    '/desmos.profiles.v1beta1.MsgDeleteProfile': {
-      model: MODELS.MsgDeleteProfile,
-      content: COMPONENTS.DeleteProfile,
-      tagTheme: 'four',
-      tagDisplay: 'txDeleteProfileLabel',
-    },
-    '/desmos.profiles.v1beta1.MsgCreateRelationship': {
-      model: MODELS.MsgCreateRelationship,
-      content: COMPONENTS.CreateRelationship,
-      tagTheme: 'four',
-      tagDisplay: 'txCreateRelationshipLabel',
-    },
-    '/desmos.profiles.v1beta1.MsgRequestDTagTransfer': {
-      model: MODELS.MsgDtagTransferRequest,
-      content: COMPONENTS.DtagTransferRequest,
-      tagTheme: 'four',
-      tagDisplay: 'txRequestDTagTransferLabel',
-    },
-    '/desmos.profiles.v1beta1.MsgAcceptDTagTransfer': {
-      model: MODELS.MsgDtagAcceptTransfer,
-      content: COMPONENTS.DtagAcceptTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txAcceptDTagTransferLabel',
-    },
-    '/desmos.profiles.v1beta1.MsgCancelDTagTransfer': {
-      model: MODELS.MsgDtagCancelTransfer,
-      content: COMPONENTS.DtagCancelTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txCancelDTagTransferLabel',
-    },
-    '/desmos.profiles.v1beta1.MsgRefuseDTagTransfer': {
-      model: MODELS.MsgDtagRefuseTransfer,
-      content: COMPONENTS.DtagRefuseTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txRefuseDTagTransferLabel',
-    },
-    '/desmos.profiles.v1beta1.MsgBlockUser': {
-      model: MODELS.MsgBlockUser,
-      content: COMPONENTS.BlockUser,
-      tagTheme: 'four',
-      tagDisplay: 'txBlockUserLabel',
-    },
-    '/desmos.profiles.v1beta1.MsgUnblockUser': {
-      model: MODELS.MsgUnblockUser,
-      content: COMPONENTS.UnBlockUser,
-      tagTheme: 'four',
-      tagDisplay: 'txUnblockUserLabel',
     },
     // ========================
     // ibc client
@@ -310,43 +248,43 @@ const getDataByType = (type: string) => {
     '/ibc.core.connection.v1.MsgConnectionOpenAck': {
       model: MODELS.MsgConnectionOpenAck,
       content: COMPONENTS.ConnectionOpenAck,
-      tagTheme: 'ten',
+      tagTheme: 'nine',
       tagDisplay: 'txConnectionOpenAckLabel',
     },
     '/ibc.core.connection.v1.MsgConnectionOpenConfirm': {
       model: MODELS.MsgConnectionOpenConfirm,
       content: COMPONENTS.ConnectionOpenConfirm,
-      tagTheme: 'ten',
+      tagTheme: 'nine',
       tagDisplay: 'txConnectionOpenConfirmLabel',
     },
     '/ibc.core.connection.v1.MsgConnectionOpenInit': {
       model: MODELS.MsgConnectionOpenInit,
       content: COMPONENTS.ConnectionOpenInit,
-      tagTheme: 'ten',
+      tagTheme: 'nine',
       tagDisplay: 'txConnectionOpenInitLabel',
     },
     '/ibc.core.connection.v1.MsgConnectionOpenTry': {
       model: MODELS.MsgConnectionOpenTry,
       content: COMPONENTS.ConnectionOpenTry,
-      tagTheme: 'ten',
+      tagTheme: 'nine',
       tagDisplay: 'txConnectionOpenTryLabel',
     },
     '/ibc.core.connection.v1.ConnectionEnd': {
       model: MODELS.MsgConnectionEnd,
       content: COMPONENTS.ConnectionEnd,
-      tagTheme: 'ten',
+      tagTheme: 'nine',
       tagDisplay: 'txConnectionEndLabel',
     },
     '/ibc.core.connection.v1.Counterparty': {
       model: MODELS.MsgCounterpartyConnection,
       content: COMPONENTS.CounterpartyConnection,
-      tagTheme: 'ten',
+      tagTheme: 'nine',
       tagDisplay: 'txCounterpartyLabel',
     },
     '/ibc.core.connection.v1.Version': {
       model: MODELS.MsgVersion,
       content: COMPONENTS.Version,
-      tagTheme: 'ten',
+      tagTheme: 'nine',
       tagDisplay: 'txVersionLabel',
     },
     // ========================
@@ -355,9 +293,73 @@ const getDataByType = (type: string) => {
     '/ibc.applications.transfer.v1.MsgTransfer': {
       model: MODELS.MsgTransfer,
       content: COMPONENTS.Transfer,
-      tagTheme: 'nine',
+      tagTheme: 'ten',
       tagDisplay: 'txTransferLabel',
     },
+  };
+
+  // =====================================
+  // Update your chain's message types here
+  // =====================================
+  const customTypeToModel = {
+    // ========================
+    // profiles
+    // ========================
+    '/desmos.profiles.v1beta1.MsgSaveProfile': {
+      model: MODELS.MsgSaveProfile,
+      content: COMPONENTS.SaveProfile,
+      tagTheme: 'four',
+      tagDisplay: 'txSaveProfileLabel',
+    },
+    '/desmos.profiles.v1beta1.MsgDeleteProfile': {
+      model: MODELS.MsgDeleteProfile,
+      content: COMPONENTS.DeleteProfile,
+      tagTheme: 'four',
+      tagDisplay: 'txDeleteProfileLabel',
+    },
+    '/desmos.profiles.v1beta1.MsgCreateRelationship': {
+      model: MODELS.MsgCreateRelationship,
+      content: COMPONENTS.CreateRelationship,
+      tagTheme: 'four',
+      tagDisplay: 'txCreateRelationshipLabel',
+    },
+    '/desmos.profiles.v1beta1.MsgRequestDTagTransfer': {
+      model: MODELS.MsgDtagTransferRequest,
+      content: COMPONENTS.DtagTransferRequest,
+      tagTheme: 'four',
+      tagDisplay: 'txRequestDTagTransferLabel',
+    },
+    '/desmos.profiles.v1beta1.MsgAcceptDTagTransfer': {
+      model: MODELS.MsgDtagAcceptTransfer,
+      content: COMPONENTS.DtagAcceptTransfer,
+      tagTheme: 'four',
+      tagDisplay: 'txAcceptDTagTransferLabel',
+    },
+    '/desmos.profiles.v1beta1.MsgCancelDTagTransfer': {
+      model: MODELS.MsgDtagCancelTransfer,
+      content: COMPONENTS.DtagCancelTransfer,
+      tagTheme: 'four',
+      tagDisplay: 'txCancelDTagTransferLabel',
+    },
+    '/desmos.profiles.v1beta1.MsgRefuseDTagTransfer': {
+      model: MODELS.MsgDtagRefuseTransfer,
+      content: COMPONENTS.DtagRefuseTransfer,
+      tagTheme: 'four',
+      tagDisplay: 'txRefuseDTagTransferLabel',
+    },
+    '/desmos.profiles.v1beta1.MsgBlockUser': {
+      model: MODELS.MsgBlockUser,
+      content: COMPONENTS.BlockUser,
+      tagTheme: 'four',
+      tagDisplay: 'txBlockUserLabel',
+    },
+    '/desmos.profiles.v1beta1.MsgUnblockUser': {
+      model: MODELS.MsgUnblockUser,
+      content: COMPONENTS.UnBlockUser,
+      tagTheme: 'four',
+      tagDisplay: 'txUnblockUserLabel',
+    },
+
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];
