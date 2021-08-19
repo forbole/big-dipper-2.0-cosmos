@@ -359,7 +359,27 @@ const getDataByType = (type: string) => {
       tagTheme: 'four',
       tagDisplay: 'txUnblockUserLabel',
     },
-
+    // ========================
+    // iscn
+    // ========================
+    '/likechain.iscn.MsgCreateIscnRecord': {
+      model: MODELS.MsgCreateIscnRecord,
+      content: COMPONENTS.CreateIscnRecord,
+      tagTheme: 'eight',
+      tagDisplay: 'txCreateIscnRecordLabel',
+    },
+    '/likechain.iscn.MsgUpdateIscnRecord': {
+      model: MODELS.MsgUpdateIscnRecord,
+      content: COMPONENTS.UpdateIscnRecord,
+      tagTheme: 'eight',
+      tagDisplay: 'txUpdateIscnRecordLabel',
+    },
+    '/likechain.iscn.MsgChangeIscnRecordOwnership': {
+      model: MODELS.MsgChangeIscnRecordOwnership,
+      content: COMPONENTS.IscnChangeOwnership,
+      tagTheme: 'eight',
+      tagDisplay: 'txChangeIscnRecordOwnershipLabel',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];
