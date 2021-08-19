@@ -9,6 +9,7 @@ import {
   useStakingParamsQuery,
 } from '@graphql/types';
 import { StakingParams } from '@models';
+import { chainConfig } from '@src/configs';
 
 const initialState: {
   height: number;
@@ -82,7 +83,8 @@ export const useOnlineVotingPower = () => {
       0,
       'bonded',
     ], data);
-    bonded = formatDenom(bonded, state.denom).value;
+    // likecoin edge case
+    bonded = formatDenom(bonded, 'ulike').value;
     return bonded;
   };
 
