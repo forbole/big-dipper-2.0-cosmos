@@ -63,6 +63,9 @@ import MsgConnectionOpenTry from './msg/ibc/msg_connection_open_try';
 import MsgCounterpartyConnection from './msg/ibc/msg_connection_counterparty';
 import MsgVersion from './msg/ibc/msg_connection_version';
 import MsgTransfer from './msg/ibc_transfer/msg_transfer';
+import MsgChangeIscnRecordOwnership from './msg/iscn/msg_change_iscn_record_ownership';
+import MsgUpdateIscnRecord from './msg/iscn/msg_update_iscn_record';
+import MsgCreateIscnRecord from './msg/iscn/msg_create_iscn_record';
 
 export {
   BigDipperNetwork,
@@ -130,4 +133,7 @@ export {
   MsgCounterpartyConnection,
   MsgVersion,
   MsgTransfer,
+  MsgCreateIscnRecord,
+  MsgUpdateIscnRecord,
+  MsgChangeIscnRecordOwnership,
 };
