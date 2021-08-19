@@ -18,12 +18,11 @@ import {
   TransactionMessagesFilter,
 } from '@components';
 import { useStyles } from './styles';
-import { MessageType } from '../../types';
 import { getMessageByType } from '../../utils';
 
 const Messages: React.FC<{
   className?: string;
-  messages: MessageType[];
+  messages: any[];
   viewRaw: boolean;
   toggleMessageDisplay: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onMessageFilterCallback: (value: string) => void;
