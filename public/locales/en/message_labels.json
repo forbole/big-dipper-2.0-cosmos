@@ -48,5 +48,8 @@
   "txConnectionOpenTryLabel": "IBC Connection Open Try",
   "txConnectionEndLabel": "IBC Connection End",
   "txVersionLabel": "IBC Version",
-  "txTransferLabel": "IBC Transfer"
+  "txTransferLabel": "IBC Transfer",
+  "txCreateIscnRecordLabel": "ISCN Record Create",
+  "txUpdateIscnRecordLabel": "ISCN Record Update",
+  "txChangeIscnRecordOwnershipLabel": "ISCN Record Change Owndership"
 }

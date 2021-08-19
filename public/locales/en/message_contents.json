@@ -49,5 +49,8 @@
   "txVersionContent": "<0>{{signer}}</0> submitted IBC version",
   "txTransferContent": "<0>{{sender}}</0> sent <2>{{token}}</2> via IBC transfer from source channel <2>{{sourceChannel}}</2> to <1>{{receiver}}</1>",
   "txTimeoutContent": "<0>{{signer}}</0> IBC timeout",
-  "txTimeoutOnCloseContent": "<0>{{signer}}</0> IBC timeout on close"
+  "txTimeoutOnCloseContent": "<0>{{signer}}</0> IBC timeout on close",
+  "txCreateIscnRecordContent": "<0>{{from}}</0> created a new iscn record",
+  "txUpdateIscnRecordContent": "<0>{{from}}</0> updated iscn record <1>{{iscnId}}</1>",
+  "txChangeIscnRecordOwnershipContent": "<0>{{from}}</0> transferred iscn record <1>{{iscnId}}</1> ownership to <2>{{newOwner}}</2>"
 }
