@@ -52,6 +52,9 @@ import ConnectionOpenTry from './msg/ibc/connection_open_try';
 import CounterpartyConnection from './msg/ibc/connection_counterparty';
 import Version from './msg/ibc/connection_version';
 import Transfer from './msg/ibc_transfer/transfer';
+import CreateIscnRecord from './msg/iscn/create_iscn_record';
+import IscnChangeOwnership from './msg/iscn/iscn_change_ownership';
+import UpdateIscnRecord from './msg/iscn/update_iscn_record';
 
 export {
   Overview,
@@ -112,4 +115,7 @@ export {
   CounterpartyConnection,
   Version,
   Transfer,
+  UpdateIscnRecord,
+  IscnChangeOwnership,
+  CreateIscnRecord,
 };

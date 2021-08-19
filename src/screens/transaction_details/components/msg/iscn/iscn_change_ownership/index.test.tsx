@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgCreateIscnRecord } from '@models';
-import CreateIscnRecord from '.';
+import { MsgChangeIscnRecordOwnership } from '@models';
+import IscnChangeOwnership from '.';
 
 // ==================================
 // mocks
@@ -23,22 +23,18 @@ jest.mock('@components', () => ({
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/CreateIscnRecord', () => {
+describe('screen: TransactionDetails/IscnChangeOwnership', () => {
   it('matches snapshot', () => {
-    const message = new MsgCreateIscnRecord({
+    const message = new MsgChangeIscnRecordOwnership({
       category: 'iscn',
-      type: 'MsgCreateIscnRecord',
+      type: 'MsgChangeIscnRecordOwnership',
       from: 'from',
-      record: {
-        recordNotes: 'recordNotes',
-        contentFingerprints: ['contentFingerprints'],
-        stakeholders: [],
-        contentMetadata: '{}',
-      },
+      iscnId: '300',
+      newOwner: 'newOwner',
     });
     const component = renderer.create(
       <MockTheme>
-        <CreateIscnRecord
+        <IscnChangeOwnership
           message={message}
         />
       </MockTheme>,
