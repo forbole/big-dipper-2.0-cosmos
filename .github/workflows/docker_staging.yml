@@ -19,7 +19,7 @@ jobs:
           if [[ $GITHUB_REF == refs/heads/chains/likecoin ]]; then
             BRANCH="likecoin"
           elif [[ $GITHUB_REF == refs/pull/* ]]; then
-            BRANCH="build-test"
+            BRANCH="likecoin"
           fi
           echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
           echo ::set-output name=branch::${BRANCH}
