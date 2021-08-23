@@ -19,7 +19,7 @@ jobs:
           echo "here"
           echo ${BRANCH}
           if [[ $GITHUB_REF == refs/heads/chains/desmos ]]; then
-            BRANCH="desmos"
+            BRANCH="desmos-test"
           fi
           echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
           echo ::set-output name=branch::${BRANCH}
@@ -40,12 +40,12 @@ jobs:
           echo ::set-output name=PORT::${PORT}
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      # - name: Login to DockerHub
-      #   if: github.event_name != 'pull_request'
-      #   uses: docker/login-action@v1
-      #   with:
-      #     username: ${{ secrets.DOCKER_USERNAME }}
-      #     password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Login to DockerHub
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
