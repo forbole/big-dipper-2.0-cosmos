@@ -26,10 +26,10 @@ jobs:
       - name: Prepare docker build env
         id: dockerPrep
         run: |
-          NEXT_PUBLIC_GRAPHQL_URL="https://gql-testnet.likecoin.forbole.com/v1/graphql"
-          NEXT_PUBLIC_GRAPHQL_WS="wss://gql-ws-testnet.likecoin.forbole.com/v1/graphql"
-          NEXT_PUBLIC_URL="https://testnet.likecoin.bigdipper.live"
-          NEXT_PUBLIC_WS_CHAIN_URL="wss://ws-testnet.likecoin.forbole.com"
+          NEXT_PUBLIC_GRAPHQL_URL="https://gql.likecoin.forbole.com/v1/graphql"
+          NEXT_PUBLIC_GRAPHQL_WS="wss://gql-ws.likecoin.forbole.com/v1/graphql"
+          NEXT_PUBLIC_URL="https://likecoin.bigdipper.live"
+          NEXT_PUBLIC_WS_CHAIN_URL="wss://ws.likecoin.forbole.com"
           NODE_ENV="production"
           PORT=3000
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
@@ -51,7 +51,7 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          push: ${{ github.event_name != 'pull_request' }}
+          push: ${{ github.event_name == 'pull_request' }}
           build-args: |
             "NEXT_PUBLIC_GRAPHQL_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_URL }}"
             "NEXT_PUBLIC_GRAPHQL_WS=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_WS }}"
