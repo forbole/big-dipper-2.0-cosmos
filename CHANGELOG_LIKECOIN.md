@@ -4,3 +4,4 @@
 - Setup CICD ([\#216](https://github.com/forbole/big-dipper-2.0-cosmos/issues/216))
 - Merge `base-v1.0.4`
 - Add iscn custom messages ([\#204](https://github.com/forbole/big-dipper-2.0-cosmos/issues/204))
+- Merge `base-v1.0.5`
