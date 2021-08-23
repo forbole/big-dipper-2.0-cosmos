@@ -25,20 +25,22 @@ RUN --mount=type=secret,id=NEXT_PUBLIC_GRAPHQL_URL \
   --mount=type=secret,id=NEXT_PUBLIC_WS_CHAIN_URL \
   --mount=type=secret,id=NODE_ENV \
   --mount=type=secret,id=PORT \
-  ENV NEXT_PUBLIC_GRAPHQL_URL=$(cat /run/secrets/NEXT_PUBLIC_GRAPHQL_URL) && \
-  ENV NEXT_PUBLIC_GRAPHQL_WS=$(cat /run/secrets/NEXT_PUBLIC_GRAPHQL_WS) && \
-  ENV NEXT_PUBLIC_URL=$(cat /run/secrets/NEXT_PUBLIC_URL) && \
-  ENV NEXT_PUBLIC_WS_CHAIN_URL=$(cat /run/secrets/NEXT_PUBLIC_WS_CHAIN_URL) && \
-  ENV NODE_ENV=$(cat /run/secrets/NODE_ENV) && \
-  ENV PORT=$(cat /run/secrets/PORT)
+  export NEXT_PUBLIC_GRAPHQL_URL=$(cat /run/secrets/NEXT_PUBLIC_GRAPHQL_URL) && \
+  export NEXT_PUBLIC_GRAPHQL_WS=$(cat /run/secrets/NEXT_PUBLIC_GRAPHQL_WS) && \
+  export NEXT_PUBLIC_URL=$(cat /run/secrets/NEXT_PUBLIC_URL) && \
+  export NEXT_PUBLIC_WS_CHAIN_URL=$(cat /run/secrets/NEXT_PUBLIC_WS_CHAIN_URL) && \
+  export NODE_ENV=$(cat /run/secrets/NODE_ENV) && \
+  export PORT=$(cat /run/secrets/PORT) \
+  echo HERE \
+  echo ${NEXT_PUBLIC_GRAPHQL_URL}
 
 # Generate env file
-# ENV NEXT_PUBLIC_GRAPHQL_URL https://gql.morpheus.desmos.network/v1/graphql
-# ENV NEXT_PUBLIC_GRAPHQL_WS wss://gql.morpheus.desmos.network/v1/graphql
-# ENV NEXT_PUBLIC_URL https://morpheus.desmos.network
-# ENV NEXT_PUBLIC_WS_CHAIN_URL wss://rpc.morpheus.desmos.network/websocket
-# ENV NODE_ENV production
-# ENV PORT 3000
+ENV NEXT_PUBLIC_GRAPHQL_URL ${NEXT_PUBLIC_GRAPHQL_URL}
+ENV NEXT_PUBLIC_GRAPHQL_WS ${NEXT_PUBLIC_GRAPHQL_WS}
+ENV NEXT_PUBLIC_URL ${NEXT_PUBLIC_URL}
+ENV NEXT_PUBLIC_WS_CHAIN_URL ${NEXT_PUBLIC_WS_CHAIN_URL}
+ENV NODE_ENV ${NODE_ENV}
+ENV PORT ${PORT}
 
 # Building app
 RUN npm run build
