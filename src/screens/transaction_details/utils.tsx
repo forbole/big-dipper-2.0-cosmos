@@ -2,9 +2,6 @@ import * as MODELS from '@models';
 import {
   Tag,
 } from '@components';
-import {
-  MessageType, MessageComponentType,
-} from './types';
 import * as COMPONENTS from './components';
 
 const getDataByType = (type: string) => {
@@ -384,10 +381,10 @@ export const getMessageModelByType = (type: string) => {
  * Helper function to correctly display the correct UI
  * @param type Model type
  */
-export const getMessageByType = (message: MessageType, viewRaw: boolean, t:any) => {
+export const getMessageByType = (message: any, viewRaw: boolean, t:any) => {
   const { type } = message;
   let results: {
-    content: MessageComponentType;
+    content: any;
     tagDisplay: string;
     tagTheme?: TagTheme;
     unknown?: boolean;
