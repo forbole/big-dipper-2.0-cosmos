@@ -14,7 +14,7 @@ class StakingParams {
     this.unbondingTime = payload.unbondingTime;
     this.maxEntries = payload.maxEntries;
     this.historicalEntries = payload.historicalEntries;
-    this.maxEntries = payload.maxValidators;
+    this.maxValidators = payload.maxValidators;
     this.minCommissionRate = payload.minCommissionRate;
   }
 
