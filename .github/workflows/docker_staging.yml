@@ -17,9 +17,7 @@ jobs:
         run: |
           BRANCH=${GITHUB_REF#refs/heads/}
           if [[ $GITHUB_REF == refs/heads/chains/desmos ]]; then
-            BRANCH="desmos-test"
-          elif [[ $GITHUB_REF == refs/heads/update/cicd ]]; then
-            BRANCH="desmos-test-cicd"
+            BRANCH="desmos"
           elif [[ $GITHUB_REF == refs/pull/* ]]; then
             BRANCH="build-test"
           fi

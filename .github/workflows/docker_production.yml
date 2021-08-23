@@ -83,7 +83,6 @@ jobs:
               WEBHOOK_URL=$DESMOS_AKASH_WEBHOOK_URL
               WEBHOOK_SECRET=$DESMOS_AKASH_WEBHOOK_SECRET
             fi
-              echo 'done'
-              # curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k $WEBHOOK_URL -u "deploy:$WEBHOOK_SECRET"
+              curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k $WEBHOOK_URL -u "deploy:$WEBHOOK_SECRET"
 
 
