@@ -13,7 +13,7 @@ import {
 } from '@models';
 import { formatDenom } from '@utils/format_denom';
 import {
-  TransactionState, MessageType,
+  TransactionState,
 } from './types';
 import { getMessageModelByType } from './utils';
 
@@ -142,7 +142,7 @@ export const useTransactionDetails = () => {
     });
   };
 
-  const filterMessages = (messages: MessageType[]) => {
+  const filterMessages = (messages: any[]) => {
     return messages.filter((x) => {
       if (state.messages.filterBy !== 'none') {
         return x.category === state.messages.filterBy;

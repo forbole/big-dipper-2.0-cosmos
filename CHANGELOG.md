@@ -1,3 +1,11 @@
+# base-v1.0.5 - 2021-08-23
+
+## Changes
+- Updated models msg types ([\#225](https://github.com/forbole/big-dipper-2.0-cosmos/issues/225))
+- Update github actions CI/CD
+## Bug fixes
+- Fix staking param details displaying incorrect `Max Validators`
+
 # base-v1.0.4 - 2021-08-19
 ## Changes
 - Change logo placement in nav mobile ([\#202](https://github.com/forbole/big-dipper-2.0-cosmos/issues/202))
