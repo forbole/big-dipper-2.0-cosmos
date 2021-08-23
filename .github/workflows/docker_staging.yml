@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     branches:
-      - desmos
+      - chains/desmos
 
 jobs:
   Build-and-Publish:
@@ -12,14 +12,18 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Extract branch name
+          shell: bash
+          run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+          id: extract_branch
       - name: Prepare tags
         id: prep
         run: |
           BRANCH=${GITHUB_REF#refs/heads/}
+          echo "here"
+          echo ${BRANCH}
           if [[ $GITHUB_REF == refs/heads/master ]]; then
             BRANCH="cosmos"
-          elif [[ $GITHUB_REF == refs/pull/* ]]; then
-            BRANCH="build-test"
           fi
           echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
           echo ::set-output name=branch::${BRANCH}

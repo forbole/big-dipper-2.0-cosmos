@@ -43,7 +43,8 @@ export const lightThemeOverride = {
         fontFour: '#999999',
       },
       primaryData: {
-        one: '#FA3A39',
+        one: 'green', // ryuash
+        // one: '#FA3A39',
         two: '#FD5E1F',
         three: '#FD5D4E',
         four: '#FD9526',
