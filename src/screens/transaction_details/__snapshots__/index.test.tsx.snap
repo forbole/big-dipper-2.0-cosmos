@@ -4,7 +4,6 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
 <div
   id="Layout"
   navTitle="transactionDetails"
-  title="transactionDetails"
 >
   <div
     exists={true}

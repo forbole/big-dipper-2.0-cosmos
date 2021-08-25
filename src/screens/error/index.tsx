@@ -15,32 +15,30 @@ const Error = () => {
   const { t } = useTranslation();
 
   return (
-    <>
-      <div className={classes.root}>
-        <div className="container">
-          <Typography variant="h2">
-            {t('common:errorTitle')}
-          </Typography>
-          <Typography className="details">
-            <Trans
-              i18nKey="common:errorDetails"
-              components={[
+    <div className={classes.root}>
+      <div className="container">
+        <Typography variant="h2">
+          {t('common:errorTitle')}
+        </Typography>
+        <Typography className="details">
+          <Trans
+            i18nKey="common:errorDetails"
+            components={[
                 // eslint-disable-next-line
                 <a target="_blank" rel="noreferrer" href={generalConfig.github.reportIssue} />,
-              ]}
-              values={{
-                issue: generalConfig.github.reportIssue,
-              }}
-            />
+            ]}
+            values={{
+              issue: generalConfig.github.reportIssue,
+            }}
+          />
+        </Typography>
+        <Link href={HOME} passHref>
+          <Typography component="a">
+            {t('common:errorHome')}
           </Typography>
-          <Link href={HOME} passHref>
-            <Typography component="a">
-              {t('common:errorHome')}
-            </Typography>
-          </Link>
-        </div>
+        </Link>
       </div>
-    </>
+    </div>
   );
 };
 
