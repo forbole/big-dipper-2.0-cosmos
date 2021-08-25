@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
+import { DefaultSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -13,6 +14,7 @@ import {
   ChainProvider,
 } from '@contexts';
 import Countdown from '@screens/countdown';
+import { chainConfig } from '@configs';
 import { InnerApp } from './components';
 import {
   useApp,
@@ -32,26 +34,99 @@ function App(props: AppProps) {
   return (
     <>
       <Head>
-        <meta
+        {/* <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
-        />
-        <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
-        <link rel="manifest" href="/icons/site.webmanifest" />
-        <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5" />
-        <link rel="shortcut icon" href="/icons/favicon.ico" />
-        <meta property="og:image" content="https://bigdipper.live/images/big-dipper-social-media.png" />
-        <meta property="og:description" content={t('common:description')} />
-        <meta property="description" content={t('common:description')} />
-        <meta property="og:site_name" content="Big Dipper" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="msapplication-config" content="/icons/browserconfig.xml" />
-        <meta name="theme-color" content="#ffffff" />
+        /> */}
+        {/* <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" /> */}
+        {/* <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" /> */}
+        {/* <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" /> */}
+        {/* <link rel="manifest" href="/icons/site.webmanifest" /> */}
+        {/* <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5" /> */}
+        {/* <link rel="shortcut icon" href="/icons/favicon.ico" /> */}
+        {/* <meta property="og:image" content="https://bigdipper.live/images/big-dipper-social-media.png" /> */}
+        {/* <meta property="og:description" content={t('common:description')} /> */}
+        {/* <meta property="description" content={t('common:description')} /> */}
+        {/* <meta property="og:site_name" content="Big Dipper" /> */}
+        {/* <meta property="og:type" content="website" /> */}
+        {/* <meta name="twitter:card" content="summary_large_image" /> */}
+        {/* <meta name="msapplication-TileColor" content="#da532c" /> */}
+        {/* <meta name="msapplication-config" content="/icons/browserconfig.xml" /> */}
+        {/* <meta name="theme-color" content="#ffffff" /> */}
       </Head>
+      <DefaultSeo
+        titleTemplate={`%s | ${chainConfig.title}`}
+        title={t('common:bigDipper')}
+        description={t('common:description')}
+        openGraph={{
+          title: `${t('common:bigDipper')} | ${chainConfig.title}`,
+          type: 'website',
+          site_name: 'Big Dipper',
+          url: process.env.NEXT_PUBLIC_URL,
+          description: t('common:description'),
+          images: [
+            {
+              url: 'https://bigdipper.live/images/big-dipper-social-media.png',
+              width: 800,
+              height: 600,
+              alt: 'Preview Photo',
+            },
+          ],
+        }}
+        twitter={{
+          cardType: 'summary_large_image',
+        }}
+        additionalLinkTags={[
+          {
+            rel: 'apple-touch-icon',
+            href: '/icons/apple-touch-icon.png',
+            sizes: '180x180',
+          },
+          {
+            rel: 'icon',
+            type: 'image/png',
+            href: '/icons/favicon-32x32.png',
+            sizes: '32x32',
+          },
+          {
+            rel: 'icon',
+            type: 'image/png',
+            href: '/icons/favicon-16x16.png',
+            sizes: '16x16',
+          },
+          {
+            rel: 'manifest',
+            href: '/icons/site.webmanifest',
+          },
+          {
+            rel: 'mask-icon',
+            href: '/icons/safari-pinned-tab.svg',
+            color: '#5bbad5',
+          },
+          {
+            rel: 'shortcut icon',
+            href: '/icons/favicon.ico',
+          },
+        ]}
+        additionalMetaTags={[
+          {
+            property: 'viewport',
+            content: 'minimum-scale=1, initial-scale=1, width=device-width',
+          },
+          {
+            property: 'msapplication-TileColor',
+            content: '#da532c',
+          },
+          {
+            name: 'msapplication-config',
+            content: '/icons/browserconfig.xml',
+          },
+          {
+            name: 'theme-color',
+            content: '#ffffff',
+          },
+        ]}
+      />
       <ApolloProvider
         client={apolloClient}
       >

@@ -1,38 +1,39 @@
+// wingman
 import React from 'react';
 import classnames from 'classnames';
-import useTranslation from 'next-translate/useTranslation';
-import { NextSeo } from 'next-seo';
+// import useTranslation from 'next-translate/useTranslation';
+// import { NextSeo } from 'next-seo';
 import {
   Nav, Footer,
 } from '@components';
-import { chainConfig } from '@configs';
+// import { chainConfig } from '@configs';
 import { LayoutProps } from './types';
 import { useStyles } from './styles';
 
 const Layout = (props:LayoutProps) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const classes = useStyles();
 
   const {
-    title = t('common:bigDipper'),
+    // title = t('common:bigDipper'),
     children,
     navTitle,
     className,
   } = props;
 
-  // ============================
-  // ui
-  // ============================
-  const formattedTitle = `${title} | ${chainConfig.title}`;
+  // // ============================
+  // // ui
+  // // ============================
+  // const formattedTitle = `${title} | ${chainConfig.title}`;
 
   return (
     <>
-      <NextSeo
+      {/* <NextSeo
         title={formattedTitle}
         openGraph={{
           title: formattedTitle,
         }}
-      />
+      /> */}
       {/* ========================== */}
       {/* body */}
       {/* ========================== */}
