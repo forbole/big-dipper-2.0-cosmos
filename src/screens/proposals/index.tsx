@@ -1,5 +1,6 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
+import { NextSeo } from 'next-seo';
 import {
   Layout,
 } from '@components';
@@ -18,19 +19,26 @@ const Proposals = () => {
   } = useProposals();
 
   return (
-    <Layout
-      title={t('proposals')}
-      navTitle={t('proposals')}
-      className={classes.root}
-    >
-      <List
-        items={state.items}
-        rawDataTotal={state.rawDataTotal}
-        isItemLoaded={isItemLoaded}
-        itemCount={itemCount}
-        loadMoreItems={loadMoreItems}
+    <>
+      <NextSeo
+        title={t('proposals')}
+        openGraph={{
+          title: t('proposals'),
+        }}
       />
-    </Layout>
+      <Layout
+        navTitle={t('proposals')}
+        className={classes.root}
+      >
+        <List
+          items={state.items}
+          rawDataTotal={state.rawDataTotal}
+          isItemLoaded={isItemLoaded}
+          itemCount={itemCount}
+          loadMoreItems={loadMoreItems}
+        />
+      </Layout>
+    </>
   );
 };
 
