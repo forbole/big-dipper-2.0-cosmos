@@ -1,5 +1,6 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
+import { NextSeo } from 'next-seo';
 import {
   Layout,
   LoadAndExist,
@@ -29,34 +30,40 @@ const ProposalDetails = () => {
   } = state;
 
   return (
-    <Layout
-      title={t('proposalDetails')}
-      navTitle={t('proposalDetails')}
-    >
-      <LoadAndExist
-        exists={state.exists}
-        loading={state.loading}
+    <>
+      <NextSeo
+        title={t('proposalDetails')}
+        openGraph={{
+          title: t('proposalDetails'),
+        }}
+      />
+      <Layout
+        navTitle={t('proposalDetails')}
       >
-        <span className={classes.root}>
-          <Overview
-            className={classes.overview}
-            title={overview.title}
-            id={overview.id}
-            description={overview.description}
-            status={overview.status}
-            submitTime={overview.submitTime}
-            depositEndTime={overview.depositEndTime}
-            votingStartTime={overview.votingStartTime}
-            votingEndTime={overview.votingEndTime}
-            content={content}
-          />
-          {shouldShowData(overview.status) && (
+        <LoadAndExist
+          exists={state.exists}
+          loading={state.loading}
+        >
+          <span className={classes.root}>
+            <Overview
+              className={classes.overview}
+              title={overview.title}
+              id={overview.id}
+              description={overview.description}
+              status={overview.status}
+              submitTime={overview.submitTime}
+              depositEndTime={overview.depositEndTime}
+              votingStartTime={overview.votingStartTime}
+              votingEndTime={overview.votingEndTime}
+              content={content}
+            />
+            {shouldShowData(overview.status) && (
             <VotesGraph
               className={classes.votesGraph}
               data={tally}
             />
-          )}
-          {shouldShowData(overview.status) && (
+            )}
+            {shouldShowData(overview.status) && (
             <Votes
               className={classes.votes}
               data={votes.data}
@@ -70,14 +77,15 @@ const ProposalDetails = () => {
               notVotedData={votes.notVotedData}
               notVoted={votes.notVoted}
             />
-          )}
-          <Deposits
-            className={classes.deposits}
-            data={deposits}
-          />
-        </span>
-      </LoadAndExist>
-    </Layout>
+            )}
+            <Deposits
+              className={classes.deposits}
+              data={deposits}
+            />
+          </span>
+        </LoadAndExist>
+      </Layout>
+    </>
   );
 };
 
