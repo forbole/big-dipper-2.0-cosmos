@@ -1,5 +1,6 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
+import { NextSeo } from 'next-seo';
 import {
   Layout,
   LoadAndExist,
@@ -46,35 +47,42 @@ const Params = () => {
   } : null;
 
   return (
-    <Layout
-      title={t('params')}
-      navTitle={t('params')}
-    >
-      <LoadAndExist
-        loading={state.loading}
-        exists={state.exists}
+    <>
+      <NextSeo
+        title={t('params')}
+        openGraph={{
+          title: t('params'),
+        }}
+      />
+      <Layout
+        navTitle={t('params')}
       >
-        <span className={classes.root}>
-          {staking && (
+        <LoadAndExist
+          loading={state.loading}
+          exists={state.exists}
+        >
+          <span className={classes.root}>
+            {staking && (
             <BoxDetails {...staking} />
-          )}
-          {
+            )}
+            {
             slashing && (
               <BoxDetails {...slashing} />
             )
           }
-          {minting && (
+            {minting && (
             <BoxDetails {...minting} />
-          )}
-          {distribution && (
+            )}
+            {distribution && (
             <BoxDetails {...distribution} />
-          )}
-          {gov && (
+            )}
+            {gov && (
             <BoxDetails {...gov} />
-          )}
-        </span>
-      </LoadAndExist>
-    </Layout>
+            )}
+          </span>
+        </LoadAndExist>
+      </Layout>
+    </>
   );
 };
 
