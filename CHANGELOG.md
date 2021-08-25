@@ -1,3 +1,8 @@
+# base-v1.0.6 - 2021-08-25
+
+## Changes
+- Updated SEO structure
+
 # base-v1.0.5 - 2021-08-23
 
 ## Changes
