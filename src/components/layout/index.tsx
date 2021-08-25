@@ -16,23 +16,18 @@ const Layout = (props:LayoutProps) => {
   } = props;
 
   return (
-    <>
-      {/* ========================== */}
-      {/* body */}
-      {/* ========================== */}
-      <div className={classes.root}>
-        <div className={classnames(classes.contentWrapper)}>
-          <Nav title={navTitle} />
-          <div className={classes.children}>
-            <div className={classes.appBarPlaceholder} />
-            <div className={classnames(className, 'main-content')}>
-              {children}
-            </div>
+    <div className={classes.root}>
+      <div className={classnames(classes.contentWrapper)}>
+        <Nav title={navTitle} />
+        <div className={classes.children}>
+          <div className={classes.appBarPlaceholder} />
+          <div className={classnames(className, 'main-content')}>
+            {children}
           </div>
         </div>
-        <Footer className={classes.footer} />
       </div>
-    </>
+      <Footer className={classes.footer} />
+    </div>
   );
 };
 
