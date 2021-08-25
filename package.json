@@ -36,7 +36,7 @@
     "markdown-to-jsx": "^7.1.2",
     "mock-apollo-client": "^1.1.0",
     "next": "^11.1.0",
-    "next-seo": "^4.20.0",
+    "next-seo": "^4.26.0",
     "next-translate": "^1.0.3",
     "npm": "^7.20.6",
     "numeral": "2.0.4",

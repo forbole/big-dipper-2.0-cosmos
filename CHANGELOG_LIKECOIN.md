@@ -1,3 +1,7 @@
+# likecoin-v1.0.1 - 2021-08-25
+## Changes
+- Merge `base-v1.0.6`
+
 # likecoin-v1.0.0 - 2021-08-24
 ## Changes
 - Initial Setup ([\#215](https://github.com/forbole/big-dipper-2.0-cosmos/issues/215))

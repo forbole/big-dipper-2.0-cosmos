@@ -1,5 +1,6 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
+import { NextSeo } from 'next-seo';
 import {
   Layout,
 } from '@components';
@@ -10,13 +11,20 @@ const Validators = () => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
   return (
-    <Layout
-      title={t('validators')}
-      navTitle={t('validators')}
-      className={classes.root}
-    >
-      <List />
-    </Layout>
+    <>
+      <NextSeo
+        title={t('validators')}
+        openGraph={{
+          title: t('validators'),
+        }}
+      />
+      <Layout
+        navTitle={t('validators')}
+        className={classes.root}
+      >
+        <List />
+      </Layout>
+    </>
   );
 };
 
