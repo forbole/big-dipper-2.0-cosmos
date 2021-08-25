@@ -1,6 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import useTranslation from 'next-translate/useTranslation';
+import { NextSeo } from 'next-seo';
 import {
   Layout,
   Box,
@@ -26,40 +27,47 @@ const Blocks = () => {
   } = useBlocks();
 
   return (
-    <Layout
-      title={t('blocks')}
-      navTitle={t('blocks')}
-      className={classes.root}
-    >
-      <LoadAndExist
-        loading={state.loading}
-        exists={state.exists}
+    <>
+      <NextSeo
+        title={t('blocks')}
+        openGraph={{
+          title: t('blocks'),
+        }}
+      />
+      <Layout
+        navTitle={t('blocks')}
+        className={classes.root}
       >
-        <Box className={classes.box}>
-          {!state.items.length ? (
-            <NoData />
-          ) : (
-            <>
-              {isDesktop ? (
-                <Desktop
-                  items={state.items}
-                  itemCount={itemCount}
-                  loadMoreItems={loadMoreItems}
-                  isItemLoaded={isItemLoaded}
-                />
-              ) : (
-                <Mobile
-                  items={state.items}
-                  itemCount={itemCount}
-                  loadMoreItems={loadMoreItems}
-                  isItemLoaded={isItemLoaded}
-                />
-              )}
-            </>
-          )}
-        </Box>
-      </LoadAndExist>
-    </Layout>
+        <LoadAndExist
+          loading={state.loading}
+          exists={state.exists}
+        >
+          <Box className={classes.box}>
+            {!state.items.length ? (
+              <NoData />
+            ) : (
+              <>
+                {isDesktop ? (
+                  <Desktop
+                    items={state.items}
+                    itemCount={itemCount}
+                    loadMoreItems={loadMoreItems}
+                    isItemLoaded={isItemLoaded}
+                  />
+                ) : (
+                  <Mobile
+                    items={state.items}
+                    itemCount={itemCount}
+                    loadMoreItems={loadMoreItems}
+                    isItemLoaded={isItemLoaded}
+                  />
+                )}
+              </>
+            )}
+          </Box>
+        </LoadAndExist>
+      </Layout>
+    </>
   );
 };
 
