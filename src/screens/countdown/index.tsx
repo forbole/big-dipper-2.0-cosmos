@@ -51,7 +51,6 @@ const Countdown: React.FC<{
 
 
   return (
-    <>
     <div className={classes.root}>
       <img src={logoUrl} className={classes.logo} alt="logo" />
       <div className={classes.timeContainer}>
@@ -93,7 +92,6 @@ const Countdown: React.FC<{
       </Typography>
       {state.loading && <Loading />}
     </div>
-    </>
   );
 };
 
