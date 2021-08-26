@@ -129,7 +129,7 @@ export const common = {
       },
       fonts: {
         fontFive: '#FFFFFF',
-        highlight: '#379AFE', // links // Fonts / 5
+        highlight: '#379AFE', // links
         // highlight: '#56B4E9', // links
       },
       condition: {
