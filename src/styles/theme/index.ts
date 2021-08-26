@@ -139,9 +139,9 @@ export const common = {
         three: '#FC6A8A',
       },
       tokenomics: {
-        one: '#1EC490',
-        two: '#497BFF',
-        three: '#9F46EC',
+        one: '#1EC490', // '#E46245'
+        two: '#497BFF', // '#E3BB55'
+        three: '#9F46EC', // '#20D292'
       },
       charts: {
         zero: '#E8E8E8',

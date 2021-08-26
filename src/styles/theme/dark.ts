@@ -21,7 +21,7 @@ export const darkThemeOverride = {
     type: 'dark',
     primary: {
       main: Color('#FF6557').alpha(1).string(), // Primary / 1
-      contrastText: '#fff', // Primary / 2
+      contrastText: '#FFFFFF', // Primary / 2
     },
     background: {
       default: backgroundDefault,
