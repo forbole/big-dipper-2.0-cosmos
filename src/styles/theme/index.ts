@@ -129,7 +129,7 @@ export const common = {
       },
       fonts: {
         fontFive: '#FFFFFF',
-        highlight: '#1D86FF', // links
+        highlight: '#379AFE', // links // Fonts / 5
         // highlight: '#56B4E9', // links
       },
       condition: {
@@ -139,9 +139,9 @@ export const common = {
         three: '#FC6A8A',
       },
       tokenomics: {
-        one: '#1EC490', // '#E46245'
-        two: '#497BFF', // '#E3BB55'
-        three: '#9F46EC', // '#20D292'
+        one: '#E46245',
+        two: '#E3BB55',
+        three: '#20D292',
       },
       charts: {
         zero: '#E8E8E8',
