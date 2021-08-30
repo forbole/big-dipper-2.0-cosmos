@@ -51,7 +51,7 @@ jobs:
             NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.mainnet.desmos.network/websocket"
             NEXT_PUBLIC_MATOMO_URL="https://analytics.desmos.network"
             NEXT_PUBLIC_MATOMO_SITE_ID=8
-            NEXT_PUBLIC_CHAIN_STATUS="testnet"
+            NEXT_PUBLIC_CHAIN_STATUS="mainnet"
           fi
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_WS::${NEXT_PUBLIC_GRAPHQL_WS}
