@@ -1,3 +1,7 @@
+# Unreleased
+
+## Changes
+- Added testnet and mainnet configs for easier deployment of the same chain in different stages
 # base-v1.0.6 - 2021-08-25
 
 ## Changes
