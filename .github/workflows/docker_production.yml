@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - desmos-morpheus-apollo-2-v*
+      - desmos-mainnet-1-v*
 
 jobs:
   Build-and-Publish:
