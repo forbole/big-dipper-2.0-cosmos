@@ -1,4 +1,4 @@
-# desmos-v1.0.10 - 2021-08-30
+# UNRELEASED
 
 ## Changes
 - Update cicd to handle testnet and mainnet deployments
