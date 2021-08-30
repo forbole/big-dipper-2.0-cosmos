@@ -3,11 +3,7 @@ name: Docker-Production
 on:
   push:
     tags:
-<<<<<<< HEAD
       - desmos-morpheus-apollo-2-v*
-=======
-      - desmos-morpheus-apollo-1-v*
->>>>>>> base
 
 jobs:
   Build-and-Publish:
