@@ -1,7 +1,8 @@
-# Unreleased
+# base-v1.0.7 - 2021-08-31
 
 ## Changes
 - Added testnet and mainnet configs for easier deployment of the same chain in different stages
+- Update akash webhook CICD
 # base-v1.0.6 - 2021-08-25
 
 ## Changes
