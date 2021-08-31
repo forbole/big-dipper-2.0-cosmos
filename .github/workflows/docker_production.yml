@@ -78,15 +78,14 @@ jobs:
         env:
           DESMOS_AKASH_WEBHOOK_URL: ${{ secrets.DESMOS_AKASH_WEBHOOK_URL }}
           DESMOS_AKASH_WEBHOOK_SECRET: ${{ secrets.DESMOS_AKASH_WEBHOOK_SECRET }}
+          AKASH_WEBHOOK_SECRET: ${{ secrets.AKASH_WEBHOOK_SECRET }}
         run: |
             BRANCH=${GITHUB_REF}
             WEBHOOK_URL=''
-            WEBHOOK_SECRET=''
             if [[ $GITHUB_REF == refs/tags/desmos-morpheus-apollo-1* ]]; then
               echo 'Deploying to Desmos morpheus-apollo-1'
               WEBHOOK_URL=$DESMOS_AKASH_WEBHOOK_URL
-              WEBHOOK_SECRET=$DESMOS_AKASH_WEBHOOK_SECRET
             fi
-              curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k $WEBHOOK_URL -u "deploy:$WEBHOOK_SECRET"
+              curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k $WEBHOOK_URL -u "deploy:$AKASH_WEBHOOK_SECRET"
 
 

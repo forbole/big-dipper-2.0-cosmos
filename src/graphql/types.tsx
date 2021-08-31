@@ -483,6 +483,7 @@ export type Account_Balance_Bool_Exp = {
   block?: Maybe<Block_Bool_Exp>;
   coins?: Maybe<_Coin_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
+  tokens_prices?: Maybe<Token_Price_Bool_Exp>;
 };
 
 /** columns and relationships of "account_balance_history" */
@@ -554,6 +555,7 @@ export type Account_Balance_History_Bool_Exp = {
   redelegating?: Maybe<_Coin_Comparison_Exp>;
   reward?: Maybe<_Dec_Coin_Comparison_Exp>;
   timestamp?: Maybe<Timestamp_Comparison_Exp>;
+  token_prices_history?: Maybe<Token_Price_History_Bool_Exp>;
   unbonding?: Maybe<_Coin_Comparison_Exp>;
 };
 
@@ -2982,143 +2984,6 @@ export type Community_Pool_Variance_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-/** columns and relationships of "consensus" */
-export type Consensus = {
-  __typename?: 'consensus';
-  height: Scalars['bigint'];
-  round: Scalars['Int'];
-  step: Scalars['String'];
-};
-
-/** aggregated selection of "consensus" */
-export type Consensus_Aggregate = {
-  __typename?: 'consensus_aggregate';
-  aggregate?: Maybe<Consensus_Aggregate_Fields>;
-  nodes: Array<Consensus>;
-};
-
-/** aggregate fields of "consensus" */
-export type Consensus_Aggregate_Fields = {
-  __typename?: 'consensus_aggregate_fields';
-  avg?: Maybe<Consensus_Avg_Fields>;
-  count: Scalars['Int'];
-  max?: Maybe<Consensus_Max_Fields>;
-  min?: Maybe<Consensus_Min_Fields>;
-  stddev?: Maybe<Consensus_Stddev_Fields>;
-  stddev_pop?: Maybe<Consensus_Stddev_Pop_Fields>;
-  stddev_samp?: Maybe<Consensus_Stddev_Samp_Fields>;
-  sum?: Maybe<Consensus_Sum_Fields>;
-  var_pop?: Maybe<Consensus_Var_Pop_Fields>;
-  var_samp?: Maybe<Consensus_Var_Samp_Fields>;
-  variance?: Maybe<Consensus_Variance_Fields>;
-};
-
-
-/** aggregate fields of "consensus" */
-export type Consensus_Aggregate_FieldsCountArgs = {
-  columns?: Maybe<Array<Consensus_Select_Column>>;
-  distinct?: Maybe<Scalars['Boolean']>;
-};
-
-/** aggregate avg on columns */
-export type Consensus_Avg_Fields = {
-  __typename?: 'consensus_avg_fields';
-  height?: Maybe<Scalars['Float']>;
-  round?: Maybe<Scalars['Float']>;
-};
-
-/** Boolean expression to filter rows from the table "consensus". All fields are combined with a logical 'AND'. */
-export type Consensus_Bool_Exp = {
-  _and?: Maybe<Array<Consensus_Bool_Exp>>;
-  _not?: Maybe<Consensus_Bool_Exp>;
-  _or?: Maybe<Array<Consensus_Bool_Exp>>;
-  height?: Maybe<Bigint_Comparison_Exp>;
-  round?: Maybe<Int_Comparison_Exp>;
-  step?: Maybe<String_Comparison_Exp>;
-};
-
-/** aggregate max on columns */
-export type Consensus_Max_Fields = {
-  __typename?: 'consensus_max_fields';
-  height?: Maybe<Scalars['bigint']>;
-  round?: Maybe<Scalars['Int']>;
-  step?: Maybe<Scalars['String']>;
-};
-
-/** aggregate min on columns */
-export type Consensus_Min_Fields = {
-  __typename?: 'consensus_min_fields';
-  height?: Maybe<Scalars['bigint']>;
-  round?: Maybe<Scalars['Int']>;
-  step?: Maybe<Scalars['String']>;
-};
-
-/** Ordering options when selecting data from "consensus". */
-export type Consensus_Order_By = {
-  height?: Maybe<Order_By>;
-  round?: Maybe<Order_By>;
-  step?: Maybe<Order_By>;
-};
-
-/** select columns of table "consensus" */
-export enum Consensus_Select_Column {
-  /** column name */
-  Height = 'height',
-  /** column name */
-  Round = 'round',
-  /** column name */
-  Step = 'step'
-}
-
-/** aggregate stddev on columns */
-export type Consensus_Stddev_Fields = {
-  __typename?: 'consensus_stddev_fields';
-  height?: Maybe<Scalars['Float']>;
-  round?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate stddev_pop on columns */
-export type Consensus_Stddev_Pop_Fields = {
-  __typename?: 'consensus_stddev_pop_fields';
-  height?: Maybe<Scalars['Float']>;
-  round?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate stddev_samp on columns */
-export type Consensus_Stddev_Samp_Fields = {
-  __typename?: 'consensus_stddev_samp_fields';
-  height?: Maybe<Scalars['Float']>;
-  round?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate sum on columns */
-export type Consensus_Sum_Fields = {
-  __typename?: 'consensus_sum_fields';
-  height?: Maybe<Scalars['bigint']>;
-  round?: Maybe<Scalars['Int']>;
-};
-
-/** aggregate var_pop on columns */
-export type Consensus_Var_Pop_Fields = {
-  __typename?: 'consensus_var_pop_fields';
-  height?: Maybe<Scalars['Float']>;
-  round?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate var_samp on columns */
-export type Consensus_Var_Samp_Fields = {
-  __typename?: 'consensus_var_samp_fields';
-  height?: Maybe<Scalars['Float']>;
-  round?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate variance on columns */
-export type Consensus_Variance_Fields = {
-  __typename?: 'consensus_variance_fields';
-  height?: Maybe<Scalars['Float']>;
-  round?: Maybe<Scalars['Float']>;
-};
-
 /** columns and relationships of "delegation" */
 export type Delegation = {
   __typename?: 'delegation';
@@ -3203,6 +3068,7 @@ export type Delegation_Bool_Exp = {
   delegator_address?: Maybe<String_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
   id?: Maybe<Int_Comparison_Exp>;
+  is_self_delegate?: Maybe<Boolean_Comparison_Exp>;
   validator?: Maybe<Validator_Bool_Exp>;
   validator_address?: Maybe<String_Comparison_Exp>;
 };
@@ -7208,7 +7074,7 @@ export type Post_Variance_Order_By = {
 export type Pre_Commit = {
   __typename?: 'pre_commit';
   height: Scalars['bigint'];
-  proposer_priority: Scalars['Int'];
+  proposer_priority: Scalars['bigint'];
   timestamp: Scalars['timestamp'];
   /** An object relationship */
   validator: Validator;
@@ -7282,7 +7148,7 @@ export type Pre_Commit_Bool_Exp = {
   _not?: Maybe<Pre_Commit_Bool_Exp>;
   _or?: Maybe<Array<Pre_Commit_Bool_Exp>>;
   height?: Maybe<Bigint_Comparison_Exp>;
-  proposer_priority?: Maybe<Int_Comparison_Exp>;
+  proposer_priority?: Maybe<Bigint_Comparison_Exp>;
   timestamp?: Maybe<Timestamp_Comparison_Exp>;
   validator?: Maybe<Validator_Bool_Exp>;
   validator_address?: Maybe<String_Comparison_Exp>;
@@ -7293,7 +7159,7 @@ export type Pre_Commit_Bool_Exp = {
 export type Pre_Commit_Max_Fields = {
   __typename?: 'pre_commit_max_fields';
   height?: Maybe<Scalars['bigint']>;
-  proposer_priority?: Maybe<Scalars['Int']>;
+  proposer_priority?: Maybe<Scalars['bigint']>;
   timestamp?: Maybe<Scalars['timestamp']>;
   validator_address?: Maybe<Scalars['String']>;
   voting_power?: Maybe<Scalars['bigint']>;
@@ -7312,7 +7178,7 @@ export type Pre_Commit_Max_Order_By = {
 export type Pre_Commit_Min_Fields = {
   __typename?: 'pre_commit_min_fields';
   height?: Maybe<Scalars['bigint']>;
-  proposer_priority?: Maybe<Scalars['Int']>;
+  proposer_priority?: Maybe<Scalars['bigint']>;
   timestamp?: Maybe<Scalars['timestamp']>;
   validator_address?: Maybe<Scalars['String']>;
   voting_power?: Maybe<Scalars['bigint']>;
@@ -7400,7 +7266,7 @@ export type Pre_Commit_Stddev_Samp_Order_By = {
 export type Pre_Commit_Sum_Fields = {
   __typename?: 'pre_commit_sum_fields';
   height?: Maybe<Scalars['bigint']>;
-  proposer_priority?: Maybe<Scalars['Int']>;
+  proposer_priority?: Maybe<Scalars['bigint']>;
   voting_power?: Maybe<Scalars['bigint']>;
 };
 
@@ -8411,11 +8277,9 @@ export type Proposal_Deposit = {
   __typename?: 'proposal_deposit';
   amount?: Maybe<Scalars['_coin']>;
   /** An object relationship */
-  block: Block;
-  /** An object relationship */
-  depositor: Account;
-  depositor_address: Scalars['String'];
-  height: Scalars['bigint'];
+  depositor?: Maybe<Account>;
+  depositor_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
   /** An object relationship */
   proposal: Proposal;
   proposal_id: Scalars['Int'];
@@ -8485,7 +8349,6 @@ export type Proposal_Deposit_Bool_Exp = {
   _not?: Maybe<Proposal_Deposit_Bool_Exp>;
   _or?: Maybe<Array<Proposal_Deposit_Bool_Exp>>;
   amount?: Maybe<_Coin_Comparison_Exp>;
-  block?: Maybe<Block_Bool_Exp>;
   depositor?: Maybe<Account_Bool_Exp>;
   depositor_address?: Maybe<String_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
@@ -8526,7 +8389,6 @@ export type Proposal_Deposit_Min_Order_By = {
 /** Ordering options when selecting data from "proposal_deposit". */
 export type Proposal_Deposit_Order_By = {
   amount?: Maybe<Order_By>;
-  block?: Maybe<Block_Order_By>;
   depositor?: Maybe<Account_Order_By>;
   depositor_address?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
@@ -9607,8 +9469,6 @@ export type Proposal_Vote = {
   __typename?: 'proposal_vote';
   /** An object relationship */
   account: Account;
-  /** An object relationship */
-  block: Block;
   height: Scalars['bigint'];
   option: Scalars['String'];
   /** An object relationship */
@@ -9681,7 +9541,6 @@ export type Proposal_Vote_Bool_Exp = {
   _not?: Maybe<Proposal_Vote_Bool_Exp>;
   _or?: Maybe<Array<Proposal_Vote_Bool_Exp>>;
   account?: Maybe<Account_Bool_Exp>;
-  block?: Maybe<Block_Bool_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
   option?: Maybe<String_Comparison_Exp>;
   proposal?: Maybe<Proposal_Bool_Exp>;
@@ -9726,7 +9585,6 @@ export type Proposal_Vote_Min_Order_By = {
 /** Ordering options when selecting data from "proposal_vote". */
 export type Proposal_Vote_Order_By = {
   account?: Maybe<Account_Order_By>;
-  block?: Maybe<Block_Order_By>;
   height?: Maybe<Order_By>;
   option?: Maybe<Order_By>;
   proposal?: Maybe<Proposal_Order_By>;
@@ -9909,10 +9767,6 @@ export type Query_Root = {
   community_pool: Array<Community_Pool>;
   /** fetch aggregated fields from the table: "community_pool" */
   community_pool_aggregate: Community_Pool_Aggregate;
-  /** fetch data from the table: "consensus" */
-  consensus: Array<Consensus>;
-  /** fetch aggregated fields from the table: "consensus" */
-  consensus_aggregate: Consensus_Aggregate;
   /** fetch data from the table: "delegation" */
   delegation: Array<Delegation>;
   /** fetch aggregated fields from the table: "delegation" */
@@ -10039,8 +9893,6 @@ export type Query_Root = {
   proposal_deposit: Array<Proposal_Deposit>;
   /** fetch aggregated fields from the table: "proposal_deposit" */
   proposal_deposit_aggregate: Proposal_Deposit_Aggregate;
-  /** fetch data from the table: "proposal_deposit" using primary key columns */
-  proposal_deposit_by_pk?: Maybe<Proposal_Deposit>;
   /** fetch data from the table: "proposal_staking_pool_snapshot" */
   proposal_staking_pool_snapshot: Array<Proposal_Staking_Pool_Snapshot>;
   /** fetch aggregated fields from the table: "proposal_staking_pool_snapshot" */
@@ -10462,24 +10314,6 @@ export type Query_RootCommunity_Pool_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Community_Pool_Order_By>>;
   where?: Maybe<Community_Pool_Bool_Exp>;
-};
-
-
-export type Query_RootConsensusArgs = {
-  distinct_on?: Maybe<Array<Consensus_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Consensus_Order_By>>;
-  where?: Maybe<Consensus_Bool_Exp>;
-};
-
-
-export type Query_RootConsensus_AggregateArgs = {
-  distinct_on?: Maybe<Array<Consensus_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Consensus_Order_By>>;
-  where?: Maybe<Consensus_Bool_Exp>;
 };
 
 
@@ -11008,13 +10842,6 @@ export type Query_RootProposal_Deposit_AggregateArgs = {
 };
 
 
-export type Query_RootProposal_Deposit_By_PkArgs = {
-  depositor_address: Scalars['String'];
-  height: Scalars['bigint'];
-  proposal_id: Scalars['Int'];
-};
-
-
 export type Query_RootProposal_Staking_Pool_SnapshotArgs = {
   distinct_on?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11057,7 +10884,6 @@ export type Query_RootProposal_Tally_Result_AggregateArgs = {
 
 
 export type Query_RootProposal_Tally_Result_By_PkArgs = {
-  height: Scalars['bigint'];
   proposal_id: Scalars['Int'];
 };
 
@@ -12504,10 +12330,6 @@ export type Subscription_Root = {
   community_pool: Array<Community_Pool>;
   /** fetch aggregated fields from the table: "community_pool" */
   community_pool_aggregate: Community_Pool_Aggregate;
-  /** fetch data from the table: "consensus" */
-  consensus: Array<Consensus>;
-  /** fetch aggregated fields from the table: "consensus" */
-  consensus_aggregate: Consensus_Aggregate;
   /** fetch data from the table: "delegation" */
   delegation: Array<Delegation>;
   /** fetch aggregated fields from the table: "delegation" */
@@ -12634,8 +12456,6 @@ export type Subscription_Root = {
   proposal_deposit: Array<Proposal_Deposit>;
   /** fetch aggregated fields from the table: "proposal_deposit" */
   proposal_deposit_aggregate: Proposal_Deposit_Aggregate;
-  /** fetch data from the table: "proposal_deposit" using primary key columns */
-  proposal_deposit_by_pk?: Maybe<Proposal_Deposit>;
   /** fetch data from the table: "proposal_staking_pool_snapshot" */
   proposal_staking_pool_snapshot: Array<Proposal_Staking_Pool_Snapshot>;
   /** fetch aggregated fields from the table: "proposal_staking_pool_snapshot" */
@@ -13057,24 +12877,6 @@ export type Subscription_RootCommunity_Pool_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Community_Pool_Order_By>>;
   where?: Maybe<Community_Pool_Bool_Exp>;
-};
-
-
-export type Subscription_RootConsensusArgs = {
-  distinct_on?: Maybe<Array<Consensus_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Consensus_Order_By>>;
-  where?: Maybe<Consensus_Bool_Exp>;
-};
-
-
-export type Subscription_RootConsensus_AggregateArgs = {
-  distinct_on?: Maybe<Array<Consensus_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Consensus_Order_By>>;
-  where?: Maybe<Consensus_Bool_Exp>;
 };
 
 
@@ -13603,13 +13405,6 @@ export type Subscription_RootProposal_Deposit_AggregateArgs = {
 };
 
 
-export type Subscription_RootProposal_Deposit_By_PkArgs = {
-  depositor_address: Scalars['String'];
-  height: Scalars['bigint'];
-  proposal_id: Scalars['Int'];
-};
-
-
 export type Subscription_RootProposal_Staking_Pool_SnapshotArgs = {
   distinct_on?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13652,7 +13447,6 @@ export type Subscription_RootProposal_Tally_Result_AggregateArgs = {
 
 
 export type Subscription_RootProposal_Tally_Result_By_PkArgs = {
-  height: Scalars['bigint'];
   proposal_id: Scalars['Int'];
 };
 
@@ -16563,6 +16357,7 @@ export type Validator_Bool_Exp = {
   pre_commits?: Maybe<Pre_Commit_Bool_Exp>;
   redelegationsByDstValidatorAddress?: Maybe<Redelegation_Bool_Exp>;
   redelegationsBySrcValidatorAddress?: Maybe<Redelegation_Bool_Exp>;
+  self_delegations?: Maybe<Delegation_Bool_Exp>;
   unbonding_delegations?: Maybe<Unbonding_Delegation_Bool_Exp>;
   validator_commission_amounts?: Maybe<Validator_Commission_Amount_Bool_Exp>;
   validator_commissions?: Maybe<Validator_Commission_Bool_Exp>;

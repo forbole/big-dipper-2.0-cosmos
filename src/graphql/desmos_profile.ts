@@ -7205,7 +7205,7 @@ export type Post_Variance_Order_By = {
 export type Pre_Commit = {
   __typename?: 'pre_commit';
   height: Scalars['bigint'];
-  proposer_priority: Scalars['Int'];
+  proposer_priority: Scalars['bigint'];
   timestamp: Scalars['timestamp'];
   /** An object relationship */
   validator: Validator;
@@ -7279,7 +7279,7 @@ export type Pre_Commit_Bool_Exp = {
   _not?: Maybe<Pre_Commit_Bool_Exp>;
   _or?: Maybe<Array<Pre_Commit_Bool_Exp>>;
   height?: Maybe<Bigint_Comparison_Exp>;
-  proposer_priority?: Maybe<Int_Comparison_Exp>;
+  proposer_priority?: Maybe<Bigint_Comparison_Exp>;
   timestamp?: Maybe<Timestamp_Comparison_Exp>;
   validator?: Maybe<Validator_Bool_Exp>;
   validator_address?: Maybe<String_Comparison_Exp>;
@@ -7290,7 +7290,7 @@ export type Pre_Commit_Bool_Exp = {
 export type Pre_Commit_Max_Fields = {
   __typename?: 'pre_commit_max_fields';
   height?: Maybe<Scalars['bigint']>;
-  proposer_priority?: Maybe<Scalars['Int']>;
+  proposer_priority?: Maybe<Scalars['bigint']>;
   timestamp?: Maybe<Scalars['timestamp']>;
   validator_address?: Maybe<Scalars['String']>;
   voting_power?: Maybe<Scalars['bigint']>;
@@ -7309,7 +7309,7 @@ export type Pre_Commit_Max_Order_By = {
 export type Pre_Commit_Min_Fields = {
   __typename?: 'pre_commit_min_fields';
   height?: Maybe<Scalars['bigint']>;
-  proposer_priority?: Maybe<Scalars['Int']>;
+  proposer_priority?: Maybe<Scalars['bigint']>;
   timestamp?: Maybe<Scalars['timestamp']>;
   validator_address?: Maybe<Scalars['String']>;
   voting_power?: Maybe<Scalars['bigint']>;
@@ -7397,7 +7397,7 @@ export type Pre_Commit_Stddev_Samp_Order_By = {
 export type Pre_Commit_Sum_Fields = {
   __typename?: 'pre_commit_sum_fields';
   height?: Maybe<Scalars['bigint']>;
-  proposer_priority?: Maybe<Scalars['Int']>;
+  proposer_priority?: Maybe<Scalars['bigint']>;
   voting_power?: Maybe<Scalars['bigint']>;
 };
 
