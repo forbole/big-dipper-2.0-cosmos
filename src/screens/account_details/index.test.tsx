@@ -165,7 +165,7 @@ const mockAccountMessages = jest.fn().mockResolvedValue({
 describe('screen: BlockDetails', () => {
   it('matches snapshot', async () => {
     const mockAxios = new MockAdapter(axios);
-    mockAxios.onPost('https://gql.morpheus.desmos.network/v1/graphql').reply(200, {
+    mockAxios.onPost('https://gql.mainnet.desmos.network/v1/graphql').reply(200, {
       data: {
         profile: [
           {
