@@ -16,7 +16,7 @@
   },
   "primaryTokenUnit": "udsm",
   "tokenUnits": {
-    "udaric": {
+    "udsm": {
       "display": "dsm",
       "exponent": 6
     }
