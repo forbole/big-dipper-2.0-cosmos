@@ -35,16 +35,19 @@ jobs:
           PORT=3000
           NEXT_PUBLIC_MATOMO_URL="https://analytics.bigdipper.live"
           NEXT_PUBLIC_MATOMO_SITE_ID=9
+          NEXT_PUBLIC_CHAIN_STATUS=
           if [[ $GITHUB_REF == refs/tags/likecoin-mainnet-2-v* ]]; then
             NEXT_PUBLIC_GRAPHQL_URL="https://gql.likecoin.forbole.com/v1/graphql"
             NEXT_PUBLIC_GRAPHQL_WS="wss://gql-ws.likecoin.forbole.com/v1/graphql"
             NEXT_PUBLIC_URL="https://likecoin.bigdipper.live"
             NEXT_PUBLIC_WS_CHAIN_URL="wss://ws.likecoin.forbole.com"
+            NEXT_PUBLIC_CHAIN_STATUS="mainnet"
           elif [[ $GITHUB_REF == refs/tags/likecoin-public-testnet-3-v* ]]; then
             NEXT_PUBLIC_GRAPHQL_URL="https://gql-testnet.likecoin.forbole.com/v1/graphql"
             NEXT_PUBLIC_GRAPHQL_WS="wss://gql-ws-testnet.likecoin.forbole.com/v1/graphql"
             NEXT_PUBLIC_URL="https://testnet.likecoin.bigdipper.live"
             NEXT_PUBLIC_WS_CHAIN_URL="wss://ws-testnet.likecoin.forbole.com"
+            NEXT_PUBLIC_CHAIN_STATUS="testnet"
           fi
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_WS::${NEXT_PUBLIC_GRAPHQL_WS}
@@ -54,6 +57,7 @@ jobs:
           echo ::set-output name=PORT::${PORT}
           echo ::set-output name=NEXT_PUBLIC_MATOMO_URL::${NEXT_PUBLIC_MATOMO_URL}
           echo ::set-output name=NEXT_PUBLIC_MATOMO_SITE_ID::${NEXT_PUBLIC_MATOMO_SITE_ID}
+          echo ::set-output name=NEXT_PUBLIC_CHAIN_STATUS::${NEXT_PUBLIC_CHAIN_STATUS}
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       - name: Login to DockerHub
@@ -78,6 +82,7 @@ jobs:
             "PORT=${{ steps.dockerPrep.outputs.PORT }}"
             "NEXT_PUBLIC_MATOMO_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_MATOMO_URL }}"
             "NEXT_PUBLIC_MATOMO_SITE_ID=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_MATOMO_SITE_ID }}"
+            "NEXT_PUBLIC_CHAIN_STATUS=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_CHAIN_STATUS }}"
           labels: |
             org.opencontainers.image.source=${{ github.event.repository.html_url }}
             org.opencontainers.image.created=${{ steps.prep.outputs.created }}
@@ -90,7 +95,6 @@ jobs:
         run: |
             BRANCH=${GITHUB_REF}
             WEBHOOK_URL=''
-            WEBHOOK_SECRET=$AKASH_WEBHOOK_SECRET
             if [[ $GITHUB_REF == refs/tags/likecoin-mainnet-2-v* ]]; then
               echo 'Deploying to likecoin-mainnet-2-v*'
               WEBHOOK_URL=$LIKECOIN_MAINNET_2_URL
@@ -98,6 +102,6 @@ jobs:
               echo 'Deploying to likecoin-public-testnet-3-v*'
               WEBHOOK_URL=$LIKECOIN_PUBLIC_TESTNET_3_URL
             fi
-              curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k $WEBHOOK_URL -u "deploy:$WEBHOOK_SECRET"
+              curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k $WEBHOOK_URL -u "deploy:$AKASH_WEBHOOK_SECRET"
 
 
