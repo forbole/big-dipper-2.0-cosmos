@@ -1,0 +1,32 @@
+{
+  "title": "LikeCoin Block Explorer",
+  "network": "likecoin-public-testnet-3",
+  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/likecoin/icon.svg?sanitize=true",
+  "logo": {
+    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/likecoin/logo.svg?sanitize=true"
+  },
+  "prefix": {
+    "consensus": "cosmosvalcons",
+    "validator": "cosmosvaloper",
+    "account": "cosmos"
+  },
+  "genesis": {
+    "time": "2021-07-13T08:00:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "nanoekil",
+  "tokenUnits": {
+    "nanoekil": {
+      "display": "ekil",
+      "exponent": 9
+    },
+    "ulike": {
+      "display": "ekil",
+      "exponent": 6
+    }
+  },
+  "extra": {
+    "desmosProfile": true,
+    "forboleX": false
+  }
+}
