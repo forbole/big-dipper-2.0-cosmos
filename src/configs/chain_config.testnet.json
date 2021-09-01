@@ -1,6 +1,6 @@
 {
   "title": "LikeCoin Block Explorer",
-  "network": "likecoin-mainnet-2",
+  "network": "likecoin-public-testnet-3",
   "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/likecoin/icon.svg?sanitize=true",
   "logo": {
     "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/likecoin/logo.svg?sanitize=true"
@@ -14,14 +14,14 @@
     "time": "2021-07-13T08:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "nanolike",
+  "primaryTokenUnit": "nanoekil",
   "tokenUnits": {
-    "nanolike": {
-      "display": "like",
+    "nanoekil": {
+      "display": "ekil",
       "exponent": 9
     },
     "ulike": {
-      "display": "like",
+      "display": "ekil",
       "exponent": 6
     }
   },
