@@ -1,3 +1,8 @@
+# desmos-v1.0.11 - 2021-09-01
+
+## Changes
+- Change price display if 0 ([\#268](https://github.com/forbole/big-dipper-2.0-cosmos/issues/268))
+
 # desmos-v1.0.10 - 2021-08-30
 
 ## Changes

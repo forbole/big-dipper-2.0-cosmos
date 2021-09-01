@@ -1,6 +1,6 @@
 {
   "title": "Desmos Block Explorer",
-  "network": "desmos-mainnet-1",
+  "network": "desmos-mainnet",
   "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
   "logo": {
     "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
