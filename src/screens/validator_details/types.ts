@@ -6,9 +6,19 @@ export type OverviewType = {
   operatorAddress: string;
   selfDelegateAddress: string;
   description: string;
+  // status: number;
+  // jailed: boolean;
+  website: string;
+  // condition: number;
+  // commission: number;
+  // signedBlockWindow: number;
+  // missedBlockCounter: number;
+  // lastSeen: string;
+}
+
+export type StatusType = {
   status: number;
   jailed: boolean;
-  website: string;
   condition: number;
   commission: number;
   signedBlockWindow: number;
@@ -56,6 +66,7 @@ export type ValidatorDetailsState = {
   exists: boolean;
   desmosProfile: DesmosProfile | null;
   overview: OverviewType;
+  status: StatusType;
   votingPower: VotingPowerType;
   delegations: {
     data: DelegationType[];

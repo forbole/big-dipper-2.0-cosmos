@@ -31,6 +31,7 @@ const ValidatorDetails = () => {
     redelegations,
     undelegations,
     desmosProfile,
+    status,
   } = state;
 
   return (
@@ -52,8 +53,17 @@ const ValidatorDetails = () => {
               operatorAddress={overview.operatorAddress}
               selfDelegateAddress={overview.selfDelegateAddress}
             />
-            <Status className={classes.status} />
-            {desmosProfile ? (
+            <Status
+              className={classes.status}
+              status={status.status}
+              jailed={status.jailed}
+              condition={status.condition}
+              commission={status.commission}
+              signedBlockWindow={status.signedBlockWindow}
+              missedBlockCounter={status.missedBlockCounter}
+              lastSeen={status.lastSeen}
+            />
+            {/* {desmosProfile ? (
               <DesmosProfile
                 className={classes.profile}
                 dtag={desmosProfile.dtag}
@@ -79,16 +89,16 @@ const ValidatorDetails = () => {
                 operatorAddress={overview.operatorAddress}
                 selfDelegateAddress={overview.selfDelegateAddress}
                 description={overview.description}
-                status={overview.status}
-                jailed={overview.jailed}
+                // status={overview.status}
+                // jailed={overview.jailed}
                 website={overview.website}
-                condition={overview.condition}
-                commission={overview.commission}
-                signedBlockWindow={overview.signedBlockWindow}
-                missedBlockCounter={overview.missedBlockCounter}
-                lastSeen={overview.lastSeen}
+                // condition={overview.condition}
+                // commission={overview.commission}
+                // signedBlockWindow={overview.signedBlockWindow}
+                // missedBlockCounter={overview.missedBlockCounter}
+                // lastSeen={overview.lastSeen}
               />
-            )}
+            )} */}
             <VotingPower
               className={classes.votingPower}
               data={state.votingPower}
