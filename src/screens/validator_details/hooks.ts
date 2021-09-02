@@ -43,14 +43,7 @@ export const useValidatorDetails = () => {
       operatorAddress: '',
       selfDelegateAddress: '',
       description: '',
-      // status: 0,
-      // jailed: false,
       website: '',
-      // condition: 0,
-      // commission: 0,
-      // missedBlockCounter: 0,
-      // signedBlockWindow: 0,
-      // lastSeen: '',
     },
     status: {
       status: 0,
@@ -241,10 +234,6 @@ export const useValidatorDetails = () => {
     // overview
     // ============================
     const formatOverview = () => {
-      // const slashingParams = SlashingParams.fromJson(R.pathOr({}, ['slashingParams', 0, 'params'], data));
-      // const missedBlockCounter = R.pathOr(0, ['validatorSigningInfos', 0, 'missedBlocksCounter'], data.validator[0]);
-      // const { signedBlockWindow } = slashingParams;
-      // const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
       const operatorAddress = R.pathOr('', ['validator', 0, 'validatorInfo', 'operatorAddress'], data);
       const selfDelegateAddress = R.pathOr('', ['validator', 0, 'validatorInfo', 'selfDelegateAddress'], data);
       const validator = findAddress(operatorAddress);
@@ -254,13 +243,7 @@ export const useValidatorDetails = () => {
         operatorAddress,
         selfDelegateAddress,
         description: R.pathOr('', ['validatorDescriptions', 0, 'details'], data.validator[0]),
-        // status: R.pathOr(3, ['validatorStatuses', 0, 'status'], data.validator[0]),
-        // jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], data.validator[0]),
         website: R.pathOr('', ['validatorDescriptions', 0, 'website'], data.validator[0]),
-        // commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], data.validator[0]),
-        // condition,
-        // missedBlockCounter,
-        // signedBlockWindow,
       };
 
       return profile;

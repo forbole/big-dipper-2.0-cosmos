@@ -63,7 +63,7 @@ const ValidatorDetails = () => {
               missedBlockCounter={status.missedBlockCounter}
               lastSeen={status.lastSeen}
             />
-            {/* {desmosProfile ? (
+            {desmosProfile ? (
               <DesmosProfile
                 className={classes.profile}
                 dtag={desmosProfile.dtag}
@@ -72,15 +72,6 @@ const ValidatorDetails = () => {
                 coverUrl={desmosProfile.coverUrl}
                 bio={desmosProfile.bio}
                 connections={desmosProfile.connections}
-                validator={{
-                  status: overview.status,
-                  jailed: overview.jailed,
-                  condition: overview.condition,
-                  commission: overview.commission,
-                  signedBlockWindow: overview.signedBlockWindow,
-                  missedBlockCounter: overview.missedBlockCounter,
-                  lastSeen: overview.lastSeen,
-                }}
               />
             ) : (
               <Profile
@@ -98,7 +89,7 @@ const ValidatorDetails = () => {
                 // missedBlockCounter={overview.missedBlockCounter}
                 // lastSeen={overview.lastSeen}
               />
-            )} */}
+            )}
             <VotingPower
               className={classes.votingPower}
               data={state.votingPower}
