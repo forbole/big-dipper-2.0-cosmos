@@ -49,9 +49,8 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
       >
         <div
           id="Markdown"
-        >
-          description
-        </div>
+          markdown="description"
+        />
       </div>
     </div>
   </div>

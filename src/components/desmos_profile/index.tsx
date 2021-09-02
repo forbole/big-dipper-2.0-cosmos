@@ -164,11 +164,9 @@ const DesmosProfile: React.FC<{
           </div>
         )}
         {props.bio && (
-          <>
-            <Markdown>
-              {props.bio}
-            </Markdown>
-          </>
+          <div>
+            <Markdown markdown={props.bio} />
+          </div>
         )}
       </Box>
       <Connections

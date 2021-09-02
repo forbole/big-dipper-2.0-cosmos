@@ -1,3 +1,8 @@
+# Unreleased
+
+## Changes
+- Change how markdown is displayed ([\#274](https://github.com/forbole/big-dipper-2.0-cosmos/issues/274))
+
 # base-v1.0.7 - 2021-08-31
 
 ## Changes
