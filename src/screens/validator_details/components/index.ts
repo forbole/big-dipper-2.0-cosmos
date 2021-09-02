@@ -4,6 +4,7 @@ import Transactions from './transactions';
 import Staking from './staking';
 import Blocks from './blocks';
 import Address from './address';
+import Status from './status';
 
 export {
   Profile,
@@ -12,4 +13,5 @@ export {
   Staking,
   Blocks,
   Address,
+  Status,
 };

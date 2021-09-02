@@ -14,6 +14,7 @@ import {
   Staking,
   Blocks,
   Address,
+  Status,
 } from './components';
 import { useValidatorDetails } from './hooks';
 
@@ -51,6 +52,7 @@ const ValidatorDetails = () => {
               operatorAddress={overview.operatorAddress}
               selfDelegateAddress={overview.selfDelegateAddress}
             />
+            <Status className={classes.status} />
             {desmosProfile ? (
               <DesmosProfile
                 className={classes.profile}
