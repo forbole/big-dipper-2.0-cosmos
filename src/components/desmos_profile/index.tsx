@@ -41,18 +41,42 @@ const DesmosProfile: React.FC<{
   const condition = validator ? getCondition(validator.condition, validator.status) : null;
   console.log(props.coverUrl, 'props');
   return (
-    <Box className={classnames(props.className, classes.root)}>
-      <div className={classes.cover} />
-      <Avatar
-        address={props.dtag}
-        imageUrl={props.imageUrl}
-        className={classes.avatar}
-      />
+    <>
+      <Box className={classnames(props.className, classes.root)}>
+        <div className={classes.cover} />
 
-      <div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac ligula ipsum. Pellentesque vestibulum iaculis velit eu rutrum. Mauris eget ultricies enim, congue eleifend magna. Donec vel ex viverra tortor scelerisque mattis non id sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut fermentum leo, quis pellentesque risus. Nam dapibus, odio in dapibus ullamcorper, nibh risus pharetra justo, eget pellentesque felis velit ut quam. Maecenas aliquam nisi ornare orci dignissim venenatis.
-      </div>
-    </Box>
+        <div className={classes.avatarContainer}>
+          <Avatar
+            address={props.dtag}
+            imageUrl={props.imageUrl}
+            className={classes.avatar}
+          />
+          {
+            !!props.connections.length && (
+            <Typography
+              variant="body1"
+              className={classes.link}
+              onClick={handleConnectionsOpen}
+              role="button"
+            >
+              {t('connections', {
+                connections: numeral(props.connections.length).format('0,0'),
+              })}
+            </Typography>
+            )
+          }
+        </div>
+
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac ligula ipsum. Pellentesque vestibulum iaculis velit eu rutrum. Mauris eget ultricies enim, congue eleifend magna. Donec vel ex viverra tortor scelerisque mattis non id sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut fermentum leo, quis pellentesque risus. Nam dapibus, odio in dapibus ullamcorper, nibh risus pharetra justo, eget pellentesque felis velit ut quam. Maecenas aliquam nisi ornare orci dignissim venenatis.
+        </div>
+      </Box>
+      <Connections
+        open={connectionsOpen}
+        handleClose={handleConnectionsClose}
+        data={props.connections}
+      />
+    </>
   );
 
   // return (
@@ -184,11 +208,11 @@ const DesmosProfile: React.FC<{
   //         </div>
   //       )}
   //     </Box>
-  //     <Connections
-  //       open={connectionsOpen}
-  //       handleClose={handleConnectionsClose}
-  //       data={props.connections}
-  //     />
+  // <Connections
+  //   open={connectionsOpen}
+  //   handleClose={handleConnectionsClose}
+  //   data={props.connections}
+  // />
   //   </>
   // );
 };

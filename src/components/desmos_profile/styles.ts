@@ -6,6 +6,7 @@ export const useStyles = (coverUrl?: string) => {
       return ({
         root: {
           overflow: 'hidden',
+          // position: 'relative',
         },
         cover: {
           height: '125px',
@@ -14,16 +15,15 @@ export const useStyles = (coverUrl?: string) => {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center center',
           backgroundSize: 'cover',
-          // background: 'pink',
           margin: theme.spacing(-2, -2, 0, -2),
           overflow: 'hidden',
+        },
+        avatarContainer: {
           // position: 'relative',
-          '& img': {
-            width: '100%',
-            height: '200px',
-            objectFit: 'cover',
-
-          },
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
         },
         avatar: {
           // position: 'absolute',
@@ -33,15 +33,16 @@ export const useStyles = (coverUrl?: string) => {
           minWidth: '75px',
           marginTop: theme.spacing(-3),
           border: `solid 3px ${theme.palette.background.paper}`,
-
+          // top: 0,
+          // left: 0,
           // zIndex: 1000,
         },
-        // link: {
-        //   color: theme.palette.custom.fonts.highlight,
-        //   '&:hover': {
-        //     cursor: 'pointer',
-        //   },
-        // },
+        link: {
+          color: theme.palette.custom.fonts.highlight,
+          '&:hover': {
+            cursor: 'pointer',
+          },
+        },
         // profile: {
         //   display: 'flex',
         //   alignItems: 'center',
