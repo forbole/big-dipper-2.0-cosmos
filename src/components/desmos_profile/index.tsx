@@ -66,9 +66,72 @@ const DesmosProfile: React.FC<{
             )
           }
         </div>
-
+        <div className={classes.nicknameWrapper}>
+          <Typography variant="h2">
+            {props.nickname}
+          </Typography>
+          <Typography variant="body2" className="tag">
+            @
+            {props.dtag}
+          </Typography>
+        </div>
+        {props.bio && (
+          <div>
+            <Markdown markdown={props.bio} />
+          </div>
+        )}
         <div>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac ligula ipsum. Pellentesque vestibulum iaculis velit eu rutrum. Mauris eget ultricies enim, congue eleifend magna. Donec vel ex viverra tortor scelerisque mattis non id sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut fermentum leo, quis pellentesque risus. Nam dapibus, odio in dapibus ullamcorper, nibh risus pharetra justo, eget pellentesque felis velit ut quam. Maecenas aliquam nisi ornare orci dignissim venenatis.
+          <Divider className={classes.divider} />
+          {validator && (
+          <Tag
+            value={t(`validators:${statusTheme.status}`)}
+            theme={statusTheme.theme as any}
+            className={classnames(classes.tag)}
+          />
+          )}
+          <div className={classes.item}>
+            <Typography variant="h4" className="label condition">
+              {t('validators:condition')}
+              <InfoPopover
+                content={<ConditionExplanation />}
+              />
+            </Typography>
+            {validator.status === 3 ? (
+              <div className="condition__body">
+                <InfoPopover
+                  content={(
+                    <>
+                      <Typography variant="body1">
+                        {t('validators:missedBlockCounter', {
+                          amount: numeral(validator.missedBlockCounter).format('0,0'),
+                        })}
+                      </Typography>
+                      <Typography variant="body1">
+                        {t('validators:signedBlockWindow', {
+                          amount: numeral(validator.signedBlockWindow).format('0,0'),
+                        })}
+                      </Typography>
+                    </>
+                    )}
+                  display={(
+                    <Typography
+                      variant="body1"
+                      className={classnames('value', condition)}
+                    >
+                      {t(`validators:${condition}`)}
+                    </Typography>
+                    )}
+                />
+              </div>
+            ) : (
+              <Typography
+                variant="body1"
+                className={classnames('value', 'condition', condition)}
+              >
+                {t(condition)}
+              </Typography>
+            )}
+          </div>
         </div>
       </Box>
       <Connections

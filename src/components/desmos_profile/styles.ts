@@ -19,22 +19,23 @@ export const useStyles = (coverUrl?: string) => {
           overflow: 'hidden',
         },
         avatarContainer: {
-          // position: 'relative',
+          position: 'relative',
           width: '100%',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between',
+          justifyContent: 'flex-end',
+          padding: theme.spacing(1.5, 0),
         },
         avatar: {
-          // position: 'absolute',
+          position: 'absolute',
           width: '75px',
           height: '75px',
           minHeight: '75px',
           minWidth: '75px',
-          marginTop: theme.spacing(-3),
+          // marginTop: theme.spacing(-3),
           border: `solid 3px ${theme.palette.background.paper}`,
-          // top: 0,
-          // left: 0,
+          top: theme.spacing(-3),
+          left: 0,
           // zIndex: 1000,
         },
         link: {
@@ -43,6 +44,79 @@ export const useStyles = (coverUrl?: string) => {
             cursor: 'pointer',
           },
         },
+        nicknameWrapper: {
+          margin: theme.spacing(1, 0),
+          '& .tag': {
+            color: theme.palette.custom.fonts.fontFour,
+          },
+        },
+        validatorDetails: {
+
+        },
+        divider: {
+          margin: theme.spacing(2, 0),
+        },
+        tag: {
+          // alignSelf: 'flex-end',
+          '&:not(:last-child)': {
+            marginRight: 0,
+          },
+          // '&.tablet': {
+          //   marginLeft: theme.spacing(2),
+          // },
+        },
+        item: {
+          '& .label': {
+            marginBottom: theme.spacing(1),
+            color: theme.palette.custom.fonts.fontThree,
+            '&.condition': {
+              display: 'flex',
+              alignItems: 'center',
+            },
+          },
+          '& .condition__body': {
+            justifySelf: 'flex-start',
+          },
+          '& p.value': {
+            color: theme.palette.custom.fonts.fontTwo,
+            display: 'inline-block',
+            '&.good': {
+              color: theme.palette.custom.condition.one,
+            },
+            '&.moderate': {
+              color: theme.palette.custom.condition.two,
+            },
+            '&.bad': {
+              color: theme.palette.custom.condition.three,
+            },
+            '&.condition': {
+              color: theme.palette.custom.condition.zero,
+            },
+          },
+          '& a': {
+            color: theme.palette.custom.fonts.highlight,
+          },
+
+          '&.last-seen': {
+            gridColumn: '1/3',
+            [theme.breakpoints.up('md')]: {
+              gridColumn: '3/5',
+            },
+          },
+        },
+        // validatorStatus: {
+        //   '&.mobile': {
+        //     [theme.breakpoints.up('md')]: {
+        //       display: 'none',
+        //     },
+        //   },
+        //   '&.tablet': {
+        //     display: 'none',
+        //     [theme.breakpoints.up('md')]: {
+        //       display: 'block',
+        //     },
+        //   },
+        // },
         // profile: {
         //   display: 'flex',
         //   alignItems: 'center',
@@ -51,15 +125,6 @@ export const useStyles = (coverUrl?: string) => {
         //   [theme.breakpoints.up('md')]: {
         //     flexDirection: 'row',
         //     justifyContent: 'flex-start',
-        //   },
-        // },
-        // tag: {
-        //   alignSelf: 'flex-end',
-        //   '&:not(:last-child)': {
-        //     marginRight: 0,
-        //   },
-        //   '&.tablet': {
-        //     marginLeft: theme.spacing(2),
         //   },
         // },
         // avatar: {
