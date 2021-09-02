@@ -57,7 +57,8 @@ const ValidatorDetails = () => {
                 dtag={desmosProfile.dtag}
                 nickname={desmosProfile.nickname}
                 imageUrl={desmosProfile.imageUrl}
-                bio={desmosProfile.bio}
+                // bio={desmosProfile.bio}
+                bio="trust this cat <br/> hello world"
                 connections={desmosProfile.connections}
                 validator={{
                   status: overview.status,
