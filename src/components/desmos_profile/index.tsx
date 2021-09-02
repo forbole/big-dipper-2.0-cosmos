@@ -28,7 +28,7 @@ const DesmosProfile: React.FC<{
 } & DesmosProfile> = (props) => {
   const { dateFormat } = useSettingsContext();
   const { t } = useTranslation('accounts');
-  const classes = useStyles();
+  const classes = useStyles(props.coverUrl);
   const {
     connectionsOpen,
     handleConnectionsClose,
@@ -42,16 +42,12 @@ const DesmosProfile: React.FC<{
   console.log(props.coverUrl, 'props');
   return (
     <Box className={classnames(props.className, classes.root)}>
-      <div>
-        <div className={classes.cover}>
-          {/* <img src={props.coverUrl} alt="cover" /> */}
-        </div>
-        <Avatar
-          address={props.dtag}
-          imageUrl={props.imageUrl}
-          className={classes.avatar}
-        />
-      </div>
+      <div className={classes.cover} />
+      <Avatar
+        address={props.dtag}
+        imageUrl={props.imageUrl}
+        className={classes.avatar}
+      />
 
       <div>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac ligula ipsum. Pellentesque vestibulum iaculis velit eu rutrum. Mauris eget ultricies enim, congue eleifend magna. Donec vel ex viverra tortor scelerisque mattis non id sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut fermentum leo, quis pellentesque risus. Nam dapibus, odio in dapibus ullamcorper, nibh risus pharetra justo, eget pellentesque felis velit ut quam. Maecenas aliquam nisi ornare orci dignissim venenatis.

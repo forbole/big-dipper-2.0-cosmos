@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const useStyles = () => {
+export const useStyles = (coverUrl?: string) => {
   const styles = makeStyles(
     (theme) => {
       return ({
@@ -8,9 +8,13 @@ export const useStyles = () => {
           overflow: 'hidden',
         },
         cover: {
-          height: '200px',
-          // background: theme.palette.background.paper,
-          background: 'pink',
+          height: '125px',
+          background: theme.palette.custom.tags.zero,
+          backgroundImage: `url(${coverUrl})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center center',
+          backgroundSize: 'cover',
+          // background: 'pink',
           margin: theme.spacing(-2, -2, 0, -2),
           overflow: 'hidden',
           // position: 'relative',
@@ -23,11 +27,13 @@ export const useStyles = () => {
         },
         avatar: {
           // position: 'absolute',
-          width: '70px',
-          height: '70px',
-          minHeight: '70px',
-          minWidth: '70px',
-          marginTop: theme.spacing(-4),
+          width: '75px',
+          height: '75px',
+          minHeight: '75px',
+          minWidth: '75px',
+          marginTop: theme.spacing(-3),
+          border: `solid 3px ${theme.palette.background.paper}`,
+
           // zIndex: 1000,
         },
         // link: {
