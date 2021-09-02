@@ -11,8 +11,8 @@ type Options = {
   address?: string;
   onComplete: (data: DesmosProfileQuery) => void;
 }
-
-const PROFILE_API = 'https://gql.mainnet.desmos.network/v1/graphql';
+// ryuash
+const PROFILE_API = 'https://gql.morpheus.desmos.network/v1/graphql';
 
 export const useDesmosProfile = (options: Options) => {
   const [loading, setLoading] = useState(false);
@@ -100,6 +100,7 @@ export const useDesmosProfile = (options: Options) => {
       dtag: profile.dtag,
       nickname: profile.nickname,
       imageUrl: profile.profilePic,
+      coverUrl: profile.coverPic,
       bio: profile.bio,
       connections: [...applications, ...chains].sort((a, b) => (
         (a.network.toLowerCase() > b.network.toLowerCase()) ? 1 : -1
