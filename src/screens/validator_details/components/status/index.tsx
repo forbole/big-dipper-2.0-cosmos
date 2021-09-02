@@ -5,10 +5,8 @@ import dayjs, { formatDayJs } from '@utils/dayjs';
 import { useSettingsContext } from '@contexts';
 import {
   Box,
-  Avatar,
   Tag,
   InfoPopover,
-  Markdown,
   ConditionExplanation,
 } from '@components';
 import {
@@ -19,6 +17,7 @@ import {
   getStatusTheme, getCondition,
 } from './utils';
 import { StatusType } from '../../types';
+import { useStyles } from './styles';
 
 const Status: React.FC<StatusType &{
   className?: string;
@@ -26,26 +25,27 @@ const Status: React.FC<StatusType &{
   className,
   ...data
 }) => {
+  const classes = useStyles();
   const { t } = useTranslation('validators');
   const { dateFormat } = useSettingsContext();
   const statusTheme = getStatusTheme(data.status, data.jailed);
   const condition = getCondition(data.condition, data.status);
 
   const items = [
-    {
-      key: (
-        <Typography variant="h4" className="label">
-          {t('status')}
-        </Typography>
-      ),
-      value: (
-        <Tag
-          value={t(statusTheme.status)}
-          theme={statusTheme.theme as any}
-          // className={classes.tag}
-        />
-      ),
-    },
+    // {
+    //   key: (
+    //     <Typography variant="h4" className="label">
+    //       {t('status')}
+    //     </Typography>
+    //   ),
+    //   value: (
+    //     <Tag
+    //       value={t(statusTheme.status)}
+    //       theme={statusTheme.theme as any}
+    //       className={classes.tag}
+    //     />
+    //   ),
+    // },
     {
       key: (
         <Typography variant="h4" className="label">
