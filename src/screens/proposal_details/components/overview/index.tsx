@@ -94,9 +94,7 @@ const Overview: React.FC<{
         <Typography variant="body1" className="label">
           {t('description')}
         </Typography>
-        <Markdown>
-          {props.description}
-        </Markdown>
+        <Markdown markdown={props.description} />
         {extra}
       </div>
       <div className={classes.time}>
