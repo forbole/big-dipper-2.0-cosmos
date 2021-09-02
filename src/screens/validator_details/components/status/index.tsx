@@ -32,20 +32,20 @@ const Status: React.FC<StatusType &{
   const condition = getCondition(data.condition, data.status);
 
   const items = [
-    // {
-    //   key: (
-    //     <Typography variant="h4" className="label">
-    //       {t('status')}
-    //     </Typography>
-    //   ),
-    //   value: (
-    //     <Tag
-    //       value={t(statusTheme.status)}
-    //       theme={statusTheme.theme as any}
-    //       className={classes.tag}
-    //     />
-    //   ),
-    // },
+    {
+      key: (
+        <Typography variant="h4" className="label">
+          {t('status')}
+        </Typography>
+      ),
+      value: (
+        <Tag
+          value={t(statusTheme.status)}
+          theme={statusTheme.theme as any}
+          className={classes.tag}
+        />
+      ),
+    },
     {
       key: (
         <Typography variant="h4" className="label">
@@ -125,11 +125,11 @@ const Status: React.FC<StatusType &{
     },
   ];
   return (
-    <Box className={classnames(className)}>
+    <Box className={classnames(className, classes.root)}>
       {
-        items.map((x) => {
+        items.map((x, i) => {
           return (
-            <div>
+            <div className={classes.item} key={`status-item-${i}`}>
               {x.key}
               {x.value}
             </div>

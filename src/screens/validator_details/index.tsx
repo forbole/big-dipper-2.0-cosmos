@@ -53,7 +53,7 @@ const ValidatorDetails = () => {
               operatorAddress={overview.operatorAddress}
               selfDelegateAddress={overview.selfDelegateAddress}
             />
-            {/* <Status
+            <Status
               className={classes.status}
               status={status.status}
               jailed={status.jailed}
@@ -62,7 +62,7 @@ const ValidatorDetails = () => {
               signedBlockWindow={status.signedBlockWindow}
               missedBlockCounter={status.missedBlockCounter}
               lastSeen={status.lastSeen}
-            /> */}
+            />
             {/* {desmosProfile ? (
               <DesmosProfile
                 className={classes.profile}

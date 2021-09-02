@@ -4,24 +4,30 @@ export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
       return ({
+        root: {
+          display: 'grid',
+          gridTemplateColumns: 'repeat(1, 1fr)',
+          gridGap: theme.spacing(2),
+          [theme.breakpoints.up('md')]: {
+            gridTemplateColumns: 'repeat(2, 1fr)',
+          },
+          [theme.breakpoints.up('lg')]: {
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+          },
+        },
         tag: {
           '& .MuiTypography-body1': {
             lineHeight: 1,
           },
         },
         item: {
-          '&:not(:last-child)': {
-            marginBottom: theme.spacing(2),
-          },
           '& .label': {
             marginBottom: theme.spacing(1),
             color: theme.palette.custom.fonts.fontThree,
             '&.condition': {
               display: 'flex',
               alignItems: 'center',
-            },
-            [theme.breakpoints.up('lg')]: {
-              marginBottom: 0,
             },
           },
           '& .condition__body': {
@@ -44,13 +50,6 @@ export const useStyles = () => {
           },
           '& a': {
             color: theme.palette.custom.fonts.highlight,
-          },
-
-          [theme.breakpoints.up('lg')]: {
-            display: 'grid',
-            gridTemplateColumns: '200px auto',
-            gridGap: theme.spacing(2),
-            alignItems: 'center',
           },
         },
         copyText: {

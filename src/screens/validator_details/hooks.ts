@@ -144,7 +144,7 @@ export const useValidatorDetails = () => {
     },
     onSubscriptionData: (data) => {
       handleSetState({
-        overview: formatLastSeen(data.subscriptionData.data),
+        status: formatLastSeen(data.subscriptionData.data),
       });
     },
   });
