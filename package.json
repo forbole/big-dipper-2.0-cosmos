@@ -39,7 +39,6 @@
     "next": "^11.1.0",
     "next-seo": "^4.26.0",
     "next-translate": "^1.0.3",
-    "npm": "^7.21.1",
     "numeral": "2.0.4",
     "qrcode.react": "^1.0.1",
     "ramda": "^0.27.1",
