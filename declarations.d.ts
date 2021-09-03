@@ -33,6 +33,7 @@ type DesmosProfile = {
   dtag: string;
   nickname: string;
   imageUrl: string;
+  coverUrl: string;
   bio: string;
   connections: ConnectionType[];
   validator?: ValidatorProfile;

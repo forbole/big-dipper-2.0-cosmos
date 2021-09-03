@@ -361,7 +361,7 @@ export const useAccountDetails = () => {
           amount: formatDenom(x.amount.amount, x.amount.denom),
           commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
         });
-      }).sort((a, b) => ((a.validator.name > b.validator.name) ? 1 : -1));
+      }).sort((a, b) => ((a.amount.value < b.amount.value) ? 1 : -1));
 
       return {
         data: delegations,
@@ -395,7 +395,7 @@ export const useAccountDetails = () => {
             R.pathOr(0, ['amount', 'denom'], x),
           ),
         });
-      }).sort((a, b) => ((a.to.name > b.to.name) ? 1 : -1));
+      }).sort((a, b) => ((a.amount.value < b.amount.value) ? 1 : -1));
       return {
         data: redelegations,
         count: redelegations.length,
@@ -424,7 +424,7 @@ export const useAccountDetails = () => {
           linkedUntil: x.completionTimestamp,
           commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
         });
-      }).sort((a, b) => ((a.validator.name > b.validator.name) ? 1 : -1));
+      }).sort((a, b) => ((a.amount.value < b.amount.value) ? 1 : -1));
       return {
         data: unbondings,
         count: unbondings.length,
