@@ -14,7 +14,7 @@ export const useStyles = (percentage: number) => {
           display: 'flex',
           alignItems: 'flex-end',
           '& .primary__data': {
-            color: theme.palette.custom.tags.one,
+            color: theme.palette.primary.main,
             marginRight: theme.spacing(2),
             fontSize: '2.5rem',
           },
@@ -23,13 +23,13 @@ export const useStyles = (percentage: number) => {
           display: 'flex',
           height: '8px',
           borderRadius: theme.shape.borderRadius,
-          background: Color(theme.palette.custom.tags.one).alpha(0.2).string(),
+          background: Color(theme.palette.primary.main).alpha(0.2).string(),
           overflow: 'hidden',
           margin: theme.spacing(2, 0),
         },
         active: {
           width: `${percentage}%`,
-          background: theme.palette.custom.tags.one,
+          background: theme.palette.primary.main,
           transition: '0.3s',
         },
         item: {
