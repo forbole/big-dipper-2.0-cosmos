@@ -37,6 +37,9 @@ export const useStyles = (coverUrl?: string) => {
           alignItems: 'center',
           justifyContent: 'flex-end',
           padding: theme.spacing(1.5, 0),
+          '& .hide': {
+            visibility: 'hidden',
+          },
           [theme.breakpoints.up('md')]: {
             paddingBottom: theme.spacing(2),
           },

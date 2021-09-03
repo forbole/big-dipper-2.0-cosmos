@@ -1,3 +1,8 @@
+# base-v1.0.9 - 2021-09-03
+
+## Bug fixes
+- Fixed desmos profile edge case display
+
 # base-v1.0.8 - 2021-09-03
 
 ## Changes

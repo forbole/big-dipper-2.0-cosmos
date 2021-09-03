@@ -23,6 +23,8 @@ const DesmosProfile: React.FC<{
     handleConnectionsOpen,
   } = useDesmosProfile();
 
+  const displayConnections = props.connections.length ? '' : 'hide';
+
   return (
     <>
       <Box className={classnames(props.className, classes.root)}>
@@ -36,20 +38,16 @@ const DesmosProfile: React.FC<{
             imageUrl={props.imageUrl}
             className={classes.avatar}
           />
-          {
-            !!props.connections.length && (
-            <Typography
-              variant="body1"
-              className={classes.link}
-              onClick={handleConnectionsOpen}
-              role="button"
-            >
-              {t('connections', {
-                connections: numeral(props.connections.length).format('0,0'),
-              })}
-            </Typography>
-            )
-          }
+          <Typography
+            variant="body1"
+            className={classnames(classes.link, displayConnections)}
+            onClick={handleConnectionsOpen}
+            role="button"
+          >
+            {t('connections', {
+              connections: numeral(props.connections.length).format('0,0'),
+            })}
+          </Typography>
         </div>
         <div className={classes.nicknameWrapper}>
           <Typography variant="h2">
