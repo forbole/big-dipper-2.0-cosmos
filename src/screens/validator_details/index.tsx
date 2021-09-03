@@ -80,14 +80,7 @@ const ValidatorDetails = () => {
                 operatorAddress={overview.operatorAddress}
                 selfDelegateAddress={overview.selfDelegateAddress}
                 description={overview.description}
-                // status={overview.status}
-                // jailed={overview.jailed}
                 website={overview.website}
-                // condition={overview.condition}
-                // commission={overview.commission}
-                // signedBlockWindow={overview.signedBlockWindow}
-                // missedBlockCounter={overview.missedBlockCounter}
-                // lastSeen={overview.lastSeen}
               />
             )}
             <VotingPower
