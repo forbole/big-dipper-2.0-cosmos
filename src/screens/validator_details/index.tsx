@@ -52,9 +52,6 @@ const ValidatorDetails = () => {
               className={classes.address}
               operatorAddress={overview.operatorAddress}
               selfDelegateAddress={overview.selfDelegateAddress}
-            />
-            <Status
-              className={classes.status}
               status={status.status}
               jailed={status.jailed}
               condition={status.condition}
@@ -63,6 +60,16 @@ const ValidatorDetails = () => {
               missedBlockCounter={status.missedBlockCounter}
               lastSeen={status.lastSeen}
             />
+            {/* <Status
+              className={classes.status}
+              status={status.status}
+              jailed={status.jailed}
+              condition={status.condition}
+              commission={status.commission}
+              signedBlockWindow={status.signedBlockWindow}
+              missedBlockCounter={status.missedBlockCounter}
+              lastSeen={status.lastSeen}
+            /> */}
             {desmosProfile ? (
               <DesmosProfile
                 className={classes.profile}
