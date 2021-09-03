@@ -18150,7 +18150,7 @@ export type DesmosProfileQueryVariables = Exact<{
 export type DesmosProfileQuery = { profile: Array<(
     { __typename?: 'profile' }
     & Pick<Profile, 'address' | 'bio' | 'dtag' | 'nickname'>
-    & { profilePic: Profile['profile_pic'] }
+    & { profilePic: Profile['profile_pic'], coverPic: Profile['cover_pic'] }
     & { chainLinks: Array<(
       { __typename?: 'chain_link' }
       & { creationTime: Chain_Link['creation_time'], externalAddress: Chain_Link['external_address'] }
@@ -18173,7 +18173,7 @@ export type DesmosProfileLinkQueryVariables = Exact<{
 export type DesmosProfileLinkQuery = { profile: Array<(
     { __typename?: 'profile' }
     & Pick<Profile, 'address' | 'bio' | 'dtag' | 'nickname'>
-    & { profilePic: Profile['profile_pic'] }
+    & { profilePic: Profile['profile_pic'], coverPic: Profile['cover_pic'] }
     & { chainLinks: Array<(
       { __typename?: 'chain_link' }
       & { creationTime: Chain_Link['creation_time'], externalAddress: Chain_Link['external_address'] }

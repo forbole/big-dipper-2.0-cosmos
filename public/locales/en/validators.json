@@ -53,5 +53,6 @@
   "delegators": "Delegators",
   "missedBlockCounter": "Missed Block Counter: {{amount}}",
   "signedBlockWindow": "Signed Block Window: {{amount}}",
-  "lastSeen": "Last Seen"
+  "lastSeen": "Last Seen",
+  "status": "Status"
 }

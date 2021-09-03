@@ -84,6 +84,7 @@
     "tests/utils/mock_apollo_provider.tss"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "cypress"
   ]
 }
