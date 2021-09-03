@@ -1,3 +1,14 @@
+# base-v1.0.8 - 2021-09-03
+
+## Changes
+- Change how markdown is displayed ([\#274](https://github.com/forbole/big-dipper-2.0-cosmos/issues/274))
+- Update desmos profile component ([\#273](https://github.com/forbole/big-dipper-2.0-cosmos/issues/273)) ([\#140](https://github.com/forbole/big-dipper-2.0-cosmos/issues/140))
+- Fixed account detail balance ([\#271](https://github.com/forbole/big-dipper-2.0-cosmos/issues/271))
+- Update account/ validator details staking component sorting order ([\#266](https://github.com/forbole/big-dipper-2.0-cosmos/issues/266))
+
+## Bug fixes
+- Fix withdraw rewards display error if not enough gas
+
 # base-v1.0.7 - 2021-08-31
 
 ## Changes

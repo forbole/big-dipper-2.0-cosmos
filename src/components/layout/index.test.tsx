@@ -35,7 +35,7 @@ describe('component: Layout', () => {
   beforeEach(() => {
     component = renderer.create(
       <MockTheme>
-        <Layout title="validators">
+        <Layout>
           <div>hello world</div>
         </Layout>
       </MockTheme>,

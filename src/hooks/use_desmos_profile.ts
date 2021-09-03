@@ -100,6 +100,7 @@ export const useDesmosProfile = (options: Options) => {
       dtag: profile.dtag,
       nickname: profile.nickname,
       imageUrl: profile.profilePic,
+      coverUrl: profile.coverPic,
       bio: profile.bio,
       connections: [...applications, ...chains].sort((a, b) => (
         (a.network.toLowerCase() > b.network.toLowerCase()) ? 1 : -1

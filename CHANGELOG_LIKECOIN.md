@@ -1,6 +1,7 @@
-# unreleased
+# likecoin-v1.0.2 - 2021-09-03
 ## Changes
 - Merge `base-v1.0.7`
+- Merge `base-v1.0.8`
 
 # likecoin-v1.0.1 - 2021-08-25
 ## Changes
