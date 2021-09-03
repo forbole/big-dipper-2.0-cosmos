@@ -26,7 +26,7 @@ import {
 import { StatusType } from '../../types';
 import { useAddress } from './hooks';
 
-const Address: React.FC<StatusType &{
+const ValidatorOverview: React.FC<StatusType &{
   className?: string;
   operatorAddress: string;
   selfDelegateAddress: string;
@@ -209,4 +209,4 @@ const Address: React.FC<StatusType &{
   );
 };
 
-export default Address;
+export default ValidatorOverview;

@@ -35,12 +35,6 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
             >
               moniker
             </h2>
-            <div
-              className="makeStyles-tag"
-              id="Tag"
-              theme="one"
-              value="validators:active"
-            />
           </div>
         </div>
       </div>
@@ -74,76 +68,6 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
       >
         
       </a>
-    </div>
-    <div
-      className="makeStyles-item"
-    >
-      <h4
-        className="MuiTypography-root label MuiTypography-h4"
-      >
-        validators:commission
-      </h4>
-      <p
-        className="MuiTypography-root value MuiTypography-body1"
-      >
-        1000.00%
-      </p>
-    </div>
-    <div
-      className="makeStyles-item"
-    >
-      <h4
-        className="MuiTypography-root label condition MuiTypography-h4"
-      >
-        validators:condition
-        <div
-          content={<ConditionExplanation />}
-          id="InfoPopover"
-        />
-      </h4>
-      <div
-        className="condition__body"
-      >
-        <div
-          content={
-            <React.Fragment>
-              <WithStyles(ForwardRef(Typography))
-                variant="body1"
-              >
-                validators:missedBlockCounter
-              </WithStyles(ForwardRef(Typography))>
-              <WithStyles(ForwardRef(Typography))
-                variant="body1"
-              >
-                validators:signedBlockWindow
-              </WithStyles(ForwardRef(Typography))>
-            </React.Fragment>
-          }
-          display={
-            <WithStyles(ForwardRef(Typography))
-              className="value bad"
-              variant="body1"
-            >
-              validators:bad
-            </WithStyles(ForwardRef(Typography))>
-          }
-          id="InfoPopover"
-        />
-      </div>
-    </div>
-    <div
-      className="makeStyles-item"
-    >
-      <h4
-        className="MuiTypography-root label MuiTypography-h4"
-      >
-        validators:lastSeen
-      </h4>
-      <p
-        className="MuiTypography-root value MuiTypography-body1"
-      >
-        validators:na
-      </p>
     </div>
   </div>
 </div>

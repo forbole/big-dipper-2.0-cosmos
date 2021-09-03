@@ -10,6 +10,7 @@ export const useStyles = (coverUrl?: string) => {
         cover: {
           height: '125px',
           background: theme.palette.custom.fonts.fontFour,
+          // background: theme.palette.background.paper,
           backgroundImage: 'url("/images/default_cover_pattern.png")',
           backgroundRepeat: 'repeat',
           backgroundPosition: 'center center',
@@ -67,6 +68,7 @@ export const useStyles = (coverUrl?: string) => {
             minHeight: '150px',
             minWidth: '150px',
             top: theme.spacing(-11),
+            borderWidth: '5px',
           },
         },
         link: {
