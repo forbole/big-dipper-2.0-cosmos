@@ -6,14 +6,7 @@ export type OverviewType = {
   operatorAddress: string;
   selfDelegateAddress: string;
   description: string;
-  // status: number;
-  // jailed: boolean;
   website: string;
-  // condition: number;
-  // commission: number;
-  // signedBlockWindow: number;
-  // missedBlockCounter: number;
-  // lastSeen: string;
 }
 
 export type StatusType = {
