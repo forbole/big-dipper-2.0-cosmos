@@ -3,6 +3,7 @@
 ## Changes
 - Change how markdown is displayed ([\#274](https://github.com/forbole/big-dipper-2.0-cosmos/issues/274))
 - Update desmos profile component ([\#273](https://github.com/forbole/big-dipper-2.0-cosmos/issues/273)) ([\#140](https://github.com/forbole/big-dipper-2.0-cosmos/issues/140))
+- Fixed account detail balance ([\#271](https://github.com/forbole/big-dipper-2.0-cosmos/issues/271))
 
 ## Bug fixes
 - Fix withdraw rewards display error if not enough gas
