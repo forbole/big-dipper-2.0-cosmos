@@ -13,7 +13,7 @@ import {
   Transactions,
   Staking,
   Blocks,
-  Address,
+  ValidatorOverview,
 } from './components';
 import { useValidatorDetails } from './hooks';
 
@@ -30,6 +30,7 @@ const ValidatorDetails = () => {
     redelegations,
     undelegations,
     desmosProfile,
+    status,
   } = state;
 
   return (
@@ -46,10 +47,17 @@ const ValidatorDetails = () => {
           loading={state.loading}
         >
           <span className={classes.root}>
-            <Address
+            <ValidatorOverview
               className={classes.address}
               operatorAddress={overview.operatorAddress}
               selfDelegateAddress={overview.selfDelegateAddress}
+              status={status.status}
+              jailed={status.jailed}
+              condition={status.condition}
+              commission={status.commission}
+              signedBlockWindow={status.signedBlockWindow}
+              missedBlockCounter={status.missedBlockCounter}
+              lastSeen={status.lastSeen}
             />
             {desmosProfile ? (
               <DesmosProfile
@@ -57,17 +65,9 @@ const ValidatorDetails = () => {
                 dtag={desmosProfile.dtag}
                 nickname={desmosProfile.nickname}
                 imageUrl={desmosProfile.imageUrl}
+                coverUrl={desmosProfile.coverUrl}
                 bio={desmosProfile.bio}
                 connections={desmosProfile.connections}
-                validator={{
-                  status: overview.status,
-                  jailed: overview.jailed,
-                  condition: overview.condition,
-                  commission: overview.commission,
-                  signedBlockWindow: overview.signedBlockWindow,
-                  missedBlockCounter: overview.missedBlockCounter,
-                  lastSeen: overview.lastSeen,
-                }}
               />
             ) : (
               <Profile
@@ -76,14 +76,7 @@ const ValidatorDetails = () => {
                 operatorAddress={overview.operatorAddress}
                 selfDelegateAddress={overview.selfDelegateAddress}
                 description={overview.description}
-                status={overview.status}
-                jailed={overview.jailed}
                 website={overview.website}
-                condition={overview.condition}
-                commission={overview.commission}
-                signedBlockWindow={overview.signedBlockWindow}
-                missedBlockCounter={overview.missedBlockCounter}
-                lastSeen={overview.lastSeen}
               />
             )}
             <VotingPower
