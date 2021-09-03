@@ -26,7 +26,9 @@ const DesmosProfile: React.FC<{
   return (
     <>
       <Box className={classnames(props.className, classes.root)}>
-        <div className={classes.cover} />
+        <div className={classes.cover}>
+          <div className="cover" />
+        </div>
 
         <div className={classes.avatarContainer}>
           <Avatar

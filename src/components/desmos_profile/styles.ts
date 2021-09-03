@@ -9,18 +9,25 @@ export const useStyles = (coverUrl?: string) => {
         },
         cover: {
           height: '125px',
-          background: theme.palette.custom.tags.zero,
-          backgroundImage: `url(${coverUrl})`,
-          backgroundRepeat: 'no-repeat',
+          background: theme.palette.custom.fonts.fontFour,
+          backgroundImage: 'url("/images/default_cover_pattern.png")',
+          backgroundRepeat: 'repeat',
           backgroundPosition: 'center center',
-          backgroundSize: 'cover',
           margin: theme.spacing(-2, -2, 0, -2),
           overflow: 'hidden',
-          [theme.breakpoints.up('md')]: {
-            height: '150px',
+          backgroundSize: 'contain',
+          '& .cover': {
+            width: '100%',
+            height: '100%',
+            backgroundImage: `url(${coverUrl})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
           },
           [theme.breakpoints.up('md')]: {
-            height: '225px',
+            height: '200px',
+          },
+          [theme.breakpoints.up('lg')]: {
+            height: '250px',
           },
         },
         avatarContainer: {
@@ -30,6 +37,12 @@ export const useStyles = (coverUrl?: string) => {
           alignItems: 'center',
           justifyContent: 'flex-end',
           padding: theme.spacing(1.5, 0),
+          [theme.breakpoints.up('md')]: {
+            paddingBottom: theme.spacing(2),
+          },
+          [theme.breakpoints.up('lg')]: {
+            paddingBottom: theme.spacing(3.5),
+          },
         },
         avatar: {
           position: 'absolute',
@@ -41,11 +54,19 @@ export const useStyles = (coverUrl?: string) => {
           top: theme.spacing(-3),
           left: 0,
           [theme.breakpoints.up('md')]: {
-            width: '100px',
-            height: '100px',
-            minHeight: '100px',
-            minWidth: '100px',
-            top: theme.spacing(-6.5),
+            width: '115px',
+            height: '115px',
+            minHeight: '115px',
+            minWidth: '115px',
+            top: theme.spacing(-8),
+            borderWidth: '4px',
+          },
+          [theme.breakpoints.up('lg')]: {
+            width: '150px',
+            height: '150px',
+            minHeight: '150px',
+            minWidth: '150px',
+            top: theme.spacing(-11),
           },
         },
         link: {
