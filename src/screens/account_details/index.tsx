@@ -49,6 +49,7 @@ const AccountDetails = () => {
               imageUrl={state.desmosProfile.imageUrl}
               bio={state.desmosProfile.bio}
               connections={state.desmosProfile.connections}
+              coverUrl={state.desmosProfile.coverUrl}
             />
             )}
             <Balance

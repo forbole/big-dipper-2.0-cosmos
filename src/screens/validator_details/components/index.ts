@@ -3,7 +3,7 @@ import VotingPower from './voting_power';
 import Transactions from './transactions';
 import Staking from './staking';
 import Blocks from './blocks';
-import Address from './address';
+import ValidatorOverview from './validator_overview';
 
 export {
   Profile,
@@ -11,5 +11,5 @@ export {
   Transactions,
   Staking,
   Blocks,
-  Address,
+  ValidatorOverview,
 };
