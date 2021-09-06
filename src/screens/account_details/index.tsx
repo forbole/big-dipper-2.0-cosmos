@@ -37,11 +37,6 @@ const AccountDetails = () => {
           exists={state.exists}
         >
           <span className={classes.root}>
-            <Overview
-              className={classes.overview}
-              withdrawalAddress={state.overview.withdrawalAddress}
-              address={state.overview.address}
-            />
             {!!state.desmosProfile && (
             <DesmosProfile
               dtag={state.desmosProfile.dtag}
@@ -52,6 +47,11 @@ const AccountDetails = () => {
               coverUrl={state.desmosProfile.coverUrl}
             />
             )}
+            <Overview
+              className={classes.overview}
+              withdrawalAddress={state.overview.withdrawalAddress}
+              address={state.overview.address}
+            />
             <Balance
               className={classes.balance}
               available={state.balance.available}
