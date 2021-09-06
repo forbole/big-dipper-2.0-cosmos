@@ -23,6 +23,11 @@ export const useStyles = () => {
             gridColumn: '1 / 4',
           },
         },
+        status: {
+          [theme.breakpoints.up('lg')]: {
+            gridColumn: '1 / 4',
+          },
+        },
         profile: {
           [theme.breakpoints.up('lg')]: {
             gridColumn: '1 / 4',

@@ -1,0 +1,28 @@
+{
+  "title": "Osmosis Block Explorer",
+  "network": "osmosis-1",
+  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/osmosis/icon.svg?sanitize=true",
+  "logo": {
+    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/osmosis/logo.svg?sanitize=true"
+  },
+  "prefix": {
+    "consensus": "osmovalcons",
+    "validator": "osmovaloper",
+    "account": "osmo"
+  },
+  "genesis": {
+    "time": "2021-07-13T08:00:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "uosmo",
+  "tokenUnits": {
+    "uosmo": {
+      "display": "osmo",
+      "exponent": 6
+    }
+  },
+  "extra": {
+    "desmosProfile": true,
+    "forboleX": false
+  }
+}

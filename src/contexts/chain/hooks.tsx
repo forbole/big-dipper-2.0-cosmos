@@ -182,7 +182,7 @@ export const useMarket = (initalState: ChainState) => {
   useMarketDataQuery(
     {
       variables: {
-        denom: chainConfig.primaryTokenUnit,
+        denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
       },
       onError: () => {
         setState((prevState) => ({
@@ -207,7 +207,11 @@ export const useMarket = (initalState: ChainState) => {
     let { communityPool } = initalState.market;
 
     // formats
-    const price = data.tokenPrice[0]?.price ?? state.price;
+    let { price } = state;
+    if (data?.tokenPrice[0]?.price) {
+      price = numeral(numeral(data?.tokenPrice[0]?.price).format('0.[00]', Math.floor)).value();
+    }
+
     const marketCap = data.tokenPrice[0]?.marketCap ?? state.marketCap;
     const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter((x) => x.denom === chainConfig.primaryTokenUnit);
     const inflation = R.pathOr(0, ['inflation', 0, 'value'], data);
@@ -219,6 +223,10 @@ export const useMarket = (initalState: ChainState) => {
       ).amount).value(),
       chainConfig.primaryTokenUnit,
     );
+
+    // developer vesting refer to issue 190
+    supply.value -= 225000000;
+
     if (communityPoolCoin) {
       communityPool = formatDenom(communityPoolCoin.amount, communityPoolCoin.denom);
     }

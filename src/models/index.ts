@@ -52,6 +52,32 @@ import MsgBeginUnlocking from './msg/lockup/msg_begin_unlocking';
 import MsgBeginUnlockingAll from './msg/lockup/msg_begin_unlocking_all';
 import MsgLockTokens from './msg/lockup/msg_lock_tokens';
 import MsgUnlockPeriodLock from './msg/lockup/msg_unlock_period_lock';
+import MsgCreateClient from './msg/ibc/msg_client_create_client';
+import MsgUpdateClient from './msg/ibc/msg_client_update_client';
+import MsgUpgradeClient from './msg/ibc/msg_client_upgrade_client';
+import MsgSubmitMisbehaviour from './msg/ibc/msg_client_submit_misbehaviour';
+import MsgHeight from './msg/ibc/msg_client_height';
+import MsgAcknowledgement from './msg/ibc/msg_channel_acknowledgement';
+import MsgChannelCloseConfirm from './msg/ibc/msg_channel_close_confirm';
+import MsgChannelCloseInit from './msg/ibc/msg_channel_close_init';
+import MsgChannelOpenAck from './msg/ibc/msg_channel_open_ack';
+import MsgChannelOpenConfirm from './msg/ibc/msg_channel_open_confirm';
+import MsgChannelOpenInit from './msg/ibc/msg_channel_open_init';
+import MsgChannelOpenTry from './msg/ibc/msg_channel_open_try';
+import MsgChannel from './msg/ibc/msg_channel';
+import MsgCounterpartyChannel from './msg/ibc/msg_channel_counterparty';
+import MsgPacket from './msg/ibc/msg_channel_packet';
+import MsgReceivePacket from './msg/ibc/msg_channel_receive_packet';
+import MsgTimeout from './msg/ibc/msg_channel_timeout';
+import MsgTimeoutOnClose from './msg/ibc/msg_channel_timeout_on_close';
+import MsgConnectionEnd from './msg/ibc/msg_connection_end';
+import MsgConnectionOpenAck from './msg/ibc/msg_connection_open_ack';
+import MsgConnectionOpenConfirm from './msg/ibc/msg_connection_open_confirm';
+import MsgConnectionOpenInit from './msg/ibc/msg_connection_open_init';
+import MsgConnectionOpenTry from './msg/ibc/msg_connection_open_try';
+import MsgCounterpartyConnection from './msg/ibc/msg_connection_counterparty';
+import MsgVersion from './msg/ibc/msg_connection_version';
+import MsgTransfer from './msg/ibc_transfer/msg_transfer';
 
 export {
   BigDipperNetwork,
@@ -108,4 +134,30 @@ export {
   MsgBeginUnlockingAll,
   MsgUnlockPeriodLock,
   MsgLockTokens,
+  MsgCreateClient,
+  MsgUpdateClient,
+  MsgUpgradeClient,
+  MsgSubmitMisbehaviour,
+  MsgHeight,
+  MsgAcknowledgement,
+  MsgChannelCloseConfirm,
+  MsgChannelCloseInit,
+  MsgChannelOpenAck,
+  MsgChannelOpenConfirm,
+  MsgChannelOpenInit,
+  MsgChannelOpenTry,
+  MsgChannel,
+  MsgCounterpartyChannel,
+  MsgPacket,
+  MsgReceivePacket,
+  MsgTimeout,
+  MsgTimeoutOnClose,
+  MsgConnectionEnd,
+  MsgConnectionOpenAck,
+  MsgConnectionOpenConfirm,
+  MsgConnectionOpenInit,
+  MsgConnectionOpenTry,
+  MsgCounterpartyConnection,
+  MsgVersion,
+  MsgTransfer,
 };
