@@ -14,18 +14,18 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
       className="makeStyles-root"
     >
       <div
-        address="desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr"
-        className="makeStyles-overview"
-        id="Overview"
-        withdrawalAddress="desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr"
-      />
-      <div
         bio=""
         connections={Array []}
         dtag="RiccardoMontagnin"
         id="DesmosProfile"
         imageUrl=""
         nickname=""
+      />
+      <div
+        address="desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr"
+        className="makeStyles-overview"
+        id="Overview"
+        withdrawalAddress="desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr"
       />
       <div
         available={
