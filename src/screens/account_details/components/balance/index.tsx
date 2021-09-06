@@ -130,7 +130,7 @@ const Balance: React.FC<{
           <div className="total__secondary--container total__single--container">
             <Typography variant="body1" className="label">
               $
-              {numeral(market.price).format('0,0.[00]')}
+              {numeral(market.price).format('0,0.[00]', Math.floor)}
               {' '}
               /
               {' '}

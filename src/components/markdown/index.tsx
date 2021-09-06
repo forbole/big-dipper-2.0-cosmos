@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'markdown-to-jsx';
+import DOMPurify from 'dompurify';
 // import { withStyles } from '@material-ui/core/styles';
 import {
   Typography,
@@ -13,7 +14,7 @@ import {
 // });
 
 const options = {
-  disableParsingRawHTML: true,
+  // disableParsingRawHTML: true,
   forceBlock: true,
   overrides: {
     h1: {
@@ -83,11 +84,15 @@ const options = {
   },
 };
 
-export default function Markdown(props) {
+export default function Markdown(props: {
+  markdown: string
+}) {
+  const clean = DOMPurify.sanitize(props.markdown);
   return (
     <ReactMarkdown
       options={options}
-      {...props}
-    />
+    >
+      {clean}
+    </ReactMarkdown>
   );
 }

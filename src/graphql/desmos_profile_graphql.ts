@@ -6,6 +6,7 @@ query DesmosProfile($address: String) {
     dtag
     nickname
     profilePic: profile_pic
+    coverPic: cover_pic
     chainLinks: chain_links {
       creationTime: creation_time
       externalAddress: external_address
@@ -32,6 +33,7 @@ query DesmosProfileLink($address: String) {
     dtag
     nickname
     profilePic: profile_pic
+    coverPic: cover_pic
     chainLinks: chain_links {
       creationTime: creation_time
       externalAddress: external_address
