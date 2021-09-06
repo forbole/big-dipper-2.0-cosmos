@@ -1,3 +1,8 @@
+# desmos-v1.0.13 - 2021-09-06
+
+## Changes
+- Merged `base` at `2691d272df3600fd922bc8a478560375bb47574a`
+
 # desmos-v1.0.12 - 2021-09-03
 
 ## Changes
