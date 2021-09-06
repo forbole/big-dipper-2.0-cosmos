@@ -47,18 +47,6 @@ const ValidatorDetails = () => {
           loading={state.loading}
         >
           <span className={classes.root}>
-            <ValidatorOverview
-              className={classes.address}
-              operatorAddress={overview.operatorAddress}
-              selfDelegateAddress={overview.selfDelegateAddress}
-              status={status.status}
-              jailed={status.jailed}
-              condition={status.condition}
-              commission={status.commission}
-              signedBlockWindow={status.signedBlockWindow}
-              missedBlockCounter={status.missedBlockCounter}
-              lastSeen={status.lastSeen}
-            />
             {desmosProfile ? (
               <DesmosProfile
                 className={classes.profile}
@@ -79,6 +67,18 @@ const ValidatorDetails = () => {
                 website={overview.website}
               />
             )}
+            <ValidatorOverview
+              className={classes.address}
+              operatorAddress={overview.operatorAddress}
+              selfDelegateAddress={overview.selfDelegateAddress}
+              status={status.status}
+              jailed={status.jailed}
+              condition={status.condition}
+              commission={status.commission}
+              signedBlockWindow={status.signedBlockWindow}
+              missedBlockCounter={status.missedBlockCounter}
+              lastSeen={status.lastSeen}
+            />
             <VotingPower
               className={classes.votingPower}
               data={state.votingPower}
