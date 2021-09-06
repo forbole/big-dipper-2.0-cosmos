@@ -22,6 +22,7 @@ export const useStyles = (coverUrl?: string) => {
             backgroundImage: `url(${coverUrl})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
+            backgroundPosition: 'center center',
           },
           [theme.breakpoints.up('md')]: {
             height: '200px',
