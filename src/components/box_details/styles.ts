@@ -6,9 +6,6 @@ export const useStyles = () => {
       return ({
         root: {
           overflow: 'hidden',
-          [theme.breakpoints.up('lg')]: {
-
-          },
         },
         header: {
 

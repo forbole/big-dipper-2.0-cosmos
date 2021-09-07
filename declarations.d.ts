@@ -33,6 +33,7 @@ type DesmosProfile = {
   dtag: string;
   nickname: string;
   imageUrl: string;
+  coverUrl: string;
   bio: string;
   connections: ConnectionType[];
   validator?: ValidatorProfile;
@@ -53,3 +54,25 @@ type ValidatorProfile = {
   missedBlockCounter: number;
   lastSeen: string;
 }
+
+type TagTheme = 'zero' |
+'one' |
+'two' |
+'three' |
+'four' |
+'five' |
+'six' |
+'seven' |
+'eight' |
+'nine' |
+'ten' |
+'eleven' |
+'twelve' |
+'thirteen' |
+'fourteen' |
+'fifteen' |
+'sixteen' |
+'seventeen' |
+'eighteen' |
+'nineteen' |
+'twenty'

@@ -1,5 +1,6 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
+import { NextSeo } from 'next-seo';
 import {
   Layout,
   LoadAndExist,
@@ -23,29 +24,37 @@ const BlockDetails = () => {
   } = state;
 
   return (
-    <Layout navTitle={t('blockDetails')} title={t('blockDetails')}>
-      <LoadAndExist
-        loading={state.loading}
-        exists={state.exists}
-      >
-        <span className={classes.root}>
-          <Overview
-            height={overview.height}
-            hash={overview.hash}
-            proposer={overview.proposer}
-            timestamp={overview.timestamp}
-            txs={overview.txs}
-          />
-          <Signatures
-            className={classes.signatures}
-            signatures={signatures}
-          />
-          <Transactions
-            transactions={transactions}
-          />
-        </span>
-      </LoadAndExist>
-    </Layout>
+    <>
+      <NextSeo
+        title={t('blockDetails')}
+        openGraph={{
+          title: t('blockDetails'),
+        }}
+      />
+      <Layout navTitle={t('blockDetails')}>
+        <LoadAndExist
+          loading={state.loading}
+          exists={state.exists}
+        >
+          <span className={classes.root}>
+            <Overview
+              height={overview.height}
+              hash={overview.hash}
+              proposer={overview.proposer}
+              timestamp={overview.timestamp}
+              txs={overview.txs}
+            />
+            <Signatures
+              className={classes.signatures}
+              signatures={signatures}
+            />
+            <Transactions
+              transactions={transactions}
+            />
+          </span>
+        </LoadAndExist>
+      </Layout>
+    </>
   );
 };
 
