@@ -9,7 +9,6 @@ class MsgCreatePool {
     public poolParams: {
       exitFee: number;
       swapFee: number;
-      smoothWeightChangeParams: number;
     }[];
     public poolAssets: {
       token: {
@@ -38,20 +37,20 @@ class MsgCreatePool {
         sender: json.sender,
         poolParams: json?.poolParams.map((x) => {
           return ({
-            exitFee: numeral(R.pathOr(0, [x.exitFee], json)).value(),
-            swapFee: numeral(R.pathOr(0, [x.swapFee], json)).value(),
-            smoothWeightChangeParams: numeral(R.pathOr(0, [x.smoothWeightChangeParams], json))
-              .value(),
+            exitFee: numeral(R.pathOr(0, ['exitFee'], x)).value(),
+            swapFee: numeral(R.pathOr(0, ['swapFee'], x)).value(),
           });
         }),
         poolAssets: json?.poolAssets.map((x) => {
           return ({
-            denom: R.pathOr('', ['token', 'denom'], x),
-            amount: numeral(R.pathOr('0', ['token', 'amount'], x)).value(),
-            weight: numeral(R.pathOr(0, [x.weight], json)).value(),
+            token: {
+              denom: R.pathOr('', ['token', 'denom'], x),
+              amount: numeral(R.pathOr('0', ['token', 'amount'], x)).value(),
+            },
+            weight: numeral(R.pathOr(0, ['weight'], x)).value(),
           });
         }),
-        futurePoolGovernor: json.future_pool_governor,
+        futurePoolGovernor: R.pathOr('', ['future_pool_governor'], json),
       });
     }
 }
