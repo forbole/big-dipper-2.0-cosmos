@@ -33,6 +33,18 @@ export const getFilterLabels = () => {
       display: 'profiles',
     },
     {
+      key: 'gamm',
+      display: 'gamm',
+    },
+    {
+      key: 'incentives',
+      display: 'incentives',
+    },
+    {
+      key: 'lockup',
+      display: 'lockup',
+    },
+    {
       key: 'others',
       display: 'others',
     },

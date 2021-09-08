@@ -8,7 +8,6 @@ class MsgCreateGauge {
     public isPerpetual: boolean;
     public owner: string;
     public distributeTo: {
-      lockQueryType: any;
       denom: string;
       duration: string;
     };

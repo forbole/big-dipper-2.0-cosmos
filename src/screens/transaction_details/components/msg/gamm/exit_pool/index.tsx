@@ -5,7 +5,6 @@ import { Name } from '@components';
 import { MsgExitPool } from '@models';
 import { useChainContext } from '@contexts';
 import numeral from 'numeral';
-import { chainConfig } from '@configs';
 import { formatDenom } from '@utils/format_denom';
 import useTranslation from 'next-translate/useTranslation';
 
@@ -23,9 +22,6 @@ const ExitPool = (props: {
     return `${numeral(amount.value).format('0,0.[0000]')} ${amount.denom.toUpperCase()}`;
   }).reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
 
-  const amountInFormatDenom = formatDenom(message.shareInAmount, chainConfig?.primaryTokenUnit);
-  const amountIn = `${numeral(amountInFormatDenom.value).format('0,0.[0000]')} ${amountInFormatDenom.denom.toUpperCase()}`;
-
   return (
     <Typography>
       <Trans
@@ -39,7 +35,6 @@ const ExitPool = (props: {
           ),
         ]}
         values={{
-          amountIn,
           amountOut,
           poolId: message.poolId,
         }}

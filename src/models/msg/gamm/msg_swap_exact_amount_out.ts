@@ -31,12 +31,10 @@ class MsgSwapExactAmountOut {
       return new MsgSwapExactAmountOut({
         json,
         type: json['@type'],
-        routes: json?.routes.map((x) => {
-          return ({
-            poolId: numeral(R.pathOr(0, [x.poolId], json)).value(),
-            tokenInDenom: x.tokenInDenom,
-          });
-        }),
+        routes: {
+          poolId: numeral(R.pathOr(0, ['routes', 0, 'poolId'], json)).value(),
+          tokenInDenom: R.pathOr('', ['routes', 0, 'tokenInDenom'], json),
+        },
         sender: json.sender,
         tokenOut: {
           denom: R.pathOr('', ['tokenOut', 'denom'], json),

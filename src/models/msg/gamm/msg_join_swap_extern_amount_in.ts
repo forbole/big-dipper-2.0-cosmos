@@ -10,7 +10,7 @@ class MsgJoinSwapExternAmountIn {
     public tokenIn: {
       denom: string;
       amount: number;
-    }[];
+    };
     public shareOutMinAmount: number;
     public json: any;
 
@@ -30,12 +30,10 @@ class MsgJoinSwapExternAmountIn {
         type: json['@type'],
         poolId: numeral(json.poolId).value(),
         sender: json.sender,
-        tokenIn: json?.tokenIn.map((x) => {
-          return ({
-            denom: R.pathOr('', ['tokenIn', 'denom'], x),
-            amount: numeral(R.pathOr('0', ['tokenIn', 'amount'], x)).value(),
-          });
-        }),
+        tokenIn: {
+          denom: R.pathOr('', ['tokenIn', 'denom'], json),
+          amount: numeral(R.pathOr('0', ['tokenIn', 'amount'], json)).value(),
+        },
         shareOutMinAmount: numeral(json.shareOutMinAmount).value(),
       });
     }
