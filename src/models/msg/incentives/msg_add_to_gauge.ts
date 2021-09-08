@@ -28,7 +28,7 @@ class MsgAddToGauge {
         type: json['@type'],
         owner: json.owner,
         gaugeId: numeral(json.gauge_id).value(),
-        rewards: json?.rewards.map((x) => {
+        rewards: R.pathOr([], ['rewards'], json).map((x) => {
           return ({
             denom: R.pathOr('', ['rewards', 'denom'], x),
             amount: numeral(R.pathOr('0', ['rewards', 'amount'], x)).value(),
