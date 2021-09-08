@@ -357,6 +357,105 @@ const getDataByType = (type: string) => {
       tagDisplay: 'txUnblockUserLabel',
     },
 
+    // ========================
+    // gamm
+    // ========================
+    '/osmosis.gamm.v1beta1.MsgCreatePool': {
+      model: MODELS.MsgCreatePool,
+      content: COMPONENTS.CreatePool,
+      tagTheme: 'eleven',
+      tagDisplay: 'txCreatePoolLabel',
+    },
+    '/osmosis.gamm.v1beta1.MsgJoinPool': {
+      model: MODELS.MsgJoinPool,
+      content: COMPONENTS.JoinPool,
+      tagTheme: 'eleven',
+      tagDisplay: 'txJoinPoolLabel',
+    },
+    '/osmosis.gamm.v1beta1.MsgExitPool': {
+      model: MODELS.MsgExitPool,
+      content: COMPONENTS.ExitPool,
+      tagTheme: 'eleven',
+      tagDisplay: 'txExitPoolLabel',
+    },
+    '/osmosis.gamm.v1beta1.MsgSwapExactAmountIn': {
+      model: MODELS.MsgSwapExactAmountIn,
+      content: COMPONENTS.SwapExactAmountIn,
+      tagTheme: 'eleven',
+      tagDisplay: 'txSwapExactAmountInLabel',
+    },
+    '/osmosis.gamm.v1beta1.MsgSwapExactAmountOut': {
+      model: MODELS.MsgSwapExactAmountOut,
+      content: COMPONENTS.SwapExactAmountOut,
+      tagTheme: 'eleven',
+      tagDisplay: 'txSwapExactAmountOutLabel',
+    },
+    '/osmosis.gamm.v1beta1.MsgJoinSwapExternAmountIn': {
+      model: MODELS.MsgJoinSwapExternAmountIn,
+      content: COMPONENTS.JoinSwapExternAmountIn,
+      tagTheme: 'eleven',
+      tagDisplay: 'txJoinSwapExternAmountInLabel',
+    },
+    '/osmosis.gamm.v1beta1.MsgJoinSwapShareAmountOut': {
+      model: MODELS.MsgJoinSwapShareAmountOut,
+      content: COMPONENTS.JoinSwapShareAmountOut,
+      tagTheme: 'eleven',
+      tagDisplay: 'txJoinSwapShareAmountOutLabel',
+    },
+    '/osmosis.gamm.v1beta1.MsgExitSwapShareAmountIn': {
+      model: MODELS.MsgExitSwapShareAmountIn,
+      content: COMPONENTS.ExitSwapShareAmountIn,
+      tagTheme: 'eleven',
+      tagDisplay: 'txExitSwapShareAmountInLabel',
+    },
+    '/osmosis.gamm.v1beta1.MsgExitSwapExternAmountOut': {
+      model: MODELS.MsgExitSwapExternAmountOut,
+      content: COMPONENTS.ExitSwapExternAmountOut,
+      tagTheme: 'eleven',
+      tagDisplay: 'txExitSwapExternAmountOutLabel',
+    },
+    // ========================
+    // incentives
+    // ========================
+    '/osmosis.incentives.MsgCreateGauge': {
+      model: MODELS.MsgCreateGauge,
+      content: COMPONENTS.CreateGauge,
+      tagTheme: 'twelve',
+      tagDisplay: 'txCreateGaugeLabel',
+    },
+    '/osmosis.incentives.MsgAddToGauge': {
+      model: MODELS.MsgAddToGauge,
+      content: COMPONENTS.AddToGauge,
+      tagTheme: 'twelve',
+      tagDisplay: 'txAddToGaugeLabel',
+    },
+    // ========================
+    // lockup
+    // ========================
+    '/osmosis.lockup.MsgLockTokens': {
+      model: MODELS.MsgLockTokens,
+      content: COMPONENTS.LockTokens,
+      tagTheme: 'thirteen',
+      tagDisplay: 'txLockTokensLabel',
+    },
+    '/osmosis.lockup.MsgBeginUnlockingAll': {
+      model: MODELS.MsgBeginUnlockingAll,
+      content: COMPONENTS.BeginUnlockingAll,
+      tagTheme: 'thirteen',
+      tagDisplay: 'txBeginUnlockingAllLabel',
+    },
+    '/osmosis.lockup.MsgBeginUnlocking': {
+      model: MODELS.MsgBeginUnlocking,
+      content: COMPONENTS.BeginUnlocking,
+      tagTheme: 'thirteen',
+      tagDisplay: 'txBeginUnlockingLabel',
+    },
+    '/osmosis.lockup.MsgUnlockPeriodLock': {
+      model: MODELS.MsgUnlockPeriodLock,
+      content: COMPONENTS.UnlockPeriodLock,
+      tagTheme: 'thirteen',
+      tagDisplay: 'txUnlockPeriodLockLabel',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];

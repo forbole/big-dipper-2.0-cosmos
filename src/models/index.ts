@@ -37,6 +37,21 @@ import MsgDtagRefuseTransfer from './msg/profiles/msg_dtag_refuse_transfer';
 import MsgDtagTransferRequest from './msg/profiles/msg_dtag_transfer_request';
 import MsgSaveProfile from './msg/profiles/msg_save_profile';
 import MsgUnblockUser from './msg/profiles/msg_unblock_user';
+import MsgCreatePool from './msg/gamm/msg_create_pool';
+import MsgExitPool from './msg/gamm/msg_exit_pool';
+import MsgExitSwapExternAmountOut from './msg/gamm/msg_exit_swap_extern_amount_out';
+import MsgExitSwapShareAmountIn from './msg/gamm/msg_exit_swap_share_amount_in';
+import MsgJoinPool from './msg/gamm/msg_join_pool';
+import MsgJoinSwapExternAmountIn from './msg/gamm/msg_join_swap_extern_amount_in';
+import MsgJoinSwapShareAmountOut from './msg/gamm/msg_join_swap_share_amount_out';
+import MsgSwapExactAmountIn from './msg/gamm/msg_swap_exact_amount_in';
+import MsgSwapExactAmountOut from './msg/gamm/msg_swap_exact_amount_out';
+import MsgCreateGauge from './msg/incentives/msg_create_gauge';
+import MsgAddToGauge from './msg/incentives/msg_add_to_gauge';
+import MsgBeginUnlocking from './msg/lockup/msg_begin_unlocking';
+import MsgBeginUnlockingAll from './msg/lockup/msg_begin_unlocking_all';
+import MsgLockTokens from './msg/lockup/msg_lock_tokens';
+import MsgUnlockPeriodLock from './msg/lockup/msg_unlock_period_lock';
 import MsgCreateClient from './msg/ibc/msg_client_create_client';
 import MsgUpdateClient from './msg/ibc/msg_client_update_client';
 import MsgUpgradeClient from './msg/ibc/msg_client_upgrade_client';
@@ -104,6 +119,21 @@ export {
   MsgDeleteProfile,
   MsgCreateRelationship,
   MsgBlockUser,
+  MsgCreatePool,
+  MsgExitPool,
+  MsgExitSwapExternAmountOut,
+  MsgExitSwapShareAmountIn,
+  MsgJoinPool,
+  MsgJoinSwapExternAmountIn,
+  MsgJoinSwapShareAmountOut,
+  MsgSwapExactAmountIn,
+  MsgSwapExactAmountOut,
+  MsgCreateGauge,
+  MsgAddToGauge,
+  MsgBeginUnlocking,
+  MsgBeginUnlockingAll,
+  MsgUnlockPeriodLock,
+  MsgLockTokens,
   MsgCreateClient,
   MsgUpdateClient,
   MsgUpgradeClient,

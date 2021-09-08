@@ -26,6 +26,21 @@ import DtagCancelTransfer from './msg/profiles/dtag_cancel_transfer';
 import DtagRefuseTransfer from './msg/profiles/dtag_refuse_transfer';
 import BlockUser from './msg/profiles/block_user';
 import UnBlockUser from './msg/profiles/unblock_user';
+import CreatePool from './msg/gamm/create_pool';
+import JoinPool from './msg/gamm/join_pool';
+import ExitPool from './msg/gamm/exit_pool';
+import SwapExactAmountIn from './msg/gamm/swap_exact_amount_in';
+import SwapExactAmountOut from './msg/gamm/swap_exact_amount_out';
+import JoinSwapExternAmountIn from './msg/gamm/join_swap_extern_amount_in';
+import JoinSwapShareAmountOut from './msg/gamm/join_swap_share_amount_out';
+import ExitSwapShareAmountIn from './msg/gamm/exit_swap_share_amount_in';
+import ExitSwapExternAmountOut from './msg/gamm/exit_swap_extern_amount_out';
+import CreateGauge from './msg/incentives/create_gauge';
+import AddToGauge from './msg/incentives/add_to_gauge';
+import LockTokens from './msg/lockup/lock_tokens';
+import BeginUnlockingAll from './msg/lockup/begin_unlocking_all';
+import BeginUnlocking from './msg/lockup/begin_unlocking';
+import UnlockPeriodLock from './msg/lockup/unlock_period_lock';
 import CreateClient from './msg/ibc/client_create_client';
 import UpdateClient from './msg/ibc/client_update_client';
 import UpgradeClient from './msg/ibc/client_upgrade_client';
@@ -86,6 +101,21 @@ export {
   DtagRefuseTransfer,
   BlockUser,
   UnBlockUser,
+  CreatePool,
+  JoinPool,
+  ExitPool,
+  SwapExactAmountIn,
+  SwapExactAmountOut,
+  JoinSwapExternAmountIn,
+  JoinSwapShareAmountOut,
+  ExitSwapShareAmountIn,
+  ExitSwapExternAmountOut,
+  CreateGauge,
+  AddToGauge,
+  LockTokens,
+  BeginUnlockingAll,
+  BeginUnlocking,
+  UnlockPeriodLock,
   CreateClient,
   UpdateClient,
   UpgradeClient,
