@@ -32,8 +32,8 @@ class MsgJoinPool {
         sender: json.sender,
         tokenInMaxs: json?.tokenInMaxs.map((x) => {
           return ({
-            denom: R.pathOr('', ['tokenInMaxs', 'denom'], x),
-            amount: numeral(R.pathOr('0', ['tokenInMaxs', 'amount'], x)).value(),
+            denom: R.pathOr('', ['denom'], x),
+            amount: numeral(R.pathOr('0', ['amount'], x)).value(),
           });
         }),
         shareOutAmount: numeral(json.shareOutAmount).value(),
