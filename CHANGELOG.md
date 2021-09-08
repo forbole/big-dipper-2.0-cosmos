@@ -4,6 +4,7 @@
 - Centered desmos profile cover photo ([\#285](https://github.com/forbole/big-dipper-2.0-cosmos/issues/285))
 - Add License to footer ([\#287](https://github.com/forbole/big-dipper-2.0-cosmos/issues/287))
 - Changed position of desmos profile
+- Fix avatar images not loading correctly ([\#296](https://github.com/forbole/big-dipper-2.0-cosmos/issues/296))
 
 # base-v1.0.9 - 2021-09-03
 

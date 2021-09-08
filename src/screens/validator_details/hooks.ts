@@ -237,9 +237,11 @@ export const useValidatorDetails = () => {
       const operatorAddress = R.pathOr('', ['validator', 0, 'validatorInfo', 'operatorAddress'], data);
       const selfDelegateAddress = R.pathOr('', ['validator', 0, 'validatorInfo', 'selfDelegateAddress'], data);
       const validator = findAddress(operatorAddress);
-
       const profile = {
-        validator,
+        validator: {
+          moniker: validator.moniker,
+          imageUrl: R.pathOr('', ['imageUrl'], validator),
+        },
         operatorAddress,
         selfDelegateAddress,
         description: R.pathOr('', ['validatorDescriptions', 0, 'details'], data.validator[0]),
