@@ -9,7 +9,7 @@ class MsgCreatePool {
     public poolParams: {
       exitFee: number;
       swapFee: number;
-    }[];
+    };
     public poolAssets: {
       token: {
         denom: string;
@@ -35,12 +35,10 @@ class MsgCreatePool {
         json,
         type: json['@type'],
         sender: json.sender,
-        poolParams: json?.poolParams.map((x) => {
-          return ({
-            exitFee: numeral(R.pathOr(0, ['exitFee'], x)).value(),
-            swapFee: numeral(R.pathOr(0, ['swapFee'], x)).value(),
-          });
-        }),
+        poolParams: {
+          exitFee: numeral(R.pathOr(0, ['poolParams', 'exitFee'], json)).value(),
+          swapFee: numeral(R.pathOr(0, ['poolParams', 'swapFee'], json)).value(),
+        },
         poolAssets: json?.poolAssets.map((x) => {
           return ({
             token: {

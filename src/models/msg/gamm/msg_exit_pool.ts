@@ -30,10 +30,10 @@ class MsgExitPool {
         type: json['@type'],
         poolId: numeral(json.poolId).value(),
         sender: json.sender,
-        tokenOutMins: json?.tokenOutMins.map((x) => {
+        tokenOutMins: json?.tokenOutMins?.map((x) => {
           return ({
-            denom: R.pathOr('', ['tokenOutMins', 'denom'], x),
-            amount: numeral(R.pathOr('0', ['tokenOutMins', 'amount'], x)).value(),
+            denom: R.pathOr('', ['denom'], x),
+            amount: numeral(R.pathOr('0', ['amount'], x)).value(),
           });
         }),
         shareInAmount: numeral(json.shareInAmount).value(),
