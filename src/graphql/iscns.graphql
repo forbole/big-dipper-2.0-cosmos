@@ -1,0 +1,12 @@
+query Iscns ($limit: Int = 7, $offset: Int = 0) {
+  iscnRecord: iscn_record(limit: $limit, offset: $offset, order_by: {height: desc}) {
+    iscnId: iscn_id
+    owner_address
+    iscnData: iscn_data
+  }
+  total: iscn_record_aggregate {
+    aggregate {
+      count
+    }
+  }
+}

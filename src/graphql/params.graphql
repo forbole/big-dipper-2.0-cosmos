@@ -16,4 +16,7 @@ query Params {
     tallyParams: tally_params
     votingParams: voting_params
   }
+  iscnParams: iscn_params (limit: 1, order_by: {height: desc}) {
+    params
+	}
 }
