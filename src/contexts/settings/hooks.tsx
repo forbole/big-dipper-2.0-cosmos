@@ -50,7 +50,7 @@ export const useTheme = (initialState:ThemeState) => {
     } else if (themeDictionary[themeSelection]) {
       setTheme(themeSelection as Theme);
     } else {
-      // setTheme('light');
+      setTheme('dark');
     }
   }, [themeSelection]);
 
