@@ -24,6 +24,62 @@ import {
 } from '@models';
 import { ValidatorDetailsState } from './types';
 
+const initialState = {
+  loading: true,
+  exists: true,
+  desmosProfile: null,
+  overview: {
+    validator: {
+      imageUrl: '',
+      moniker: '',
+    },
+    operatorAddress: '',
+    selfDelegateAddress: '',
+    description: '',
+    website: '',
+  },
+  status: {
+    status: 0,
+    jailed: false,
+    condition: 0,
+    commission: 0,
+    missedBlockCounter: 0,
+    signedBlockWindow: 0,
+    lastSeen: '',
+  },
+  votingPower: {
+    height: 0,
+    overall: {
+      value: 0,
+      denom: '',
+    },
+    self: 0,
+    selfDelegatePercent: 0,
+    selfDelegate: {
+      value: 0,
+      denom: '',
+    },
+  },
+  delegations: {
+    count: 0,
+    data: [],
+  },
+  redelegations: {
+    count: 0,
+    data: [],
+  },
+  undelegations: {
+    count: 0,
+    data: [],
+  },
+  transactions: {
+    data: [],
+    hasNextPage: false,
+    isNextPageLoading: false,
+    offsetCount: 0,
+  },
+};
+
 export const useValidatorDetails = () => {
   const router = useRouter();
   const {
@@ -31,61 +87,7 @@ export const useValidatorDetails = () => {
     findOperator,
     validatorToDelegatorAddress,
   } = useChainContext();
-  const [state, setState] = useState<ValidatorDetailsState>({
-    loading: true,
-    exists: true,
-    desmosProfile: null,
-    overview: {
-      validator: {
-        imageUrl: '',
-        moniker: '',
-      },
-      operatorAddress: '',
-      selfDelegateAddress: '',
-      description: '',
-      website: '',
-    },
-    status: {
-      status: 0,
-      jailed: false,
-      condition: 0,
-      commission: 0,
-      missedBlockCounter: 0,
-      signedBlockWindow: 0,
-      lastSeen: '',
-    },
-    votingPower: {
-      height: 0,
-      overall: {
-        value: 0,
-        denom: '',
-      },
-      self: 0,
-      selfDelegatePercent: 0,
-      selfDelegate: {
-        value: 0,
-        denom: '',
-      },
-    },
-    delegations: {
-      count: 0,
-      data: [],
-    },
-    redelegations: {
-      count: 0,
-      data: [],
-    },
-    undelegations: {
-      count: 0,
-      data: [],
-    },
-    transactions: {
-      data: [],
-      hasNextPage: false,
-      isNextPageLoading: false,
-      offsetCount: 0,
-    },
-  });
+  const [state, setState] = useState<ValidatorDetailsState>(initialState);
 
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
@@ -105,10 +107,7 @@ export const useValidatorDetails = () => {
   });
 
   useEffect(() => {
-    handleSetState({
-      loading: true,
-      exists: true,
-    });
+    handleSetState(initialState);
     if (chainConfig.extra.desmosProfile) {
       const address = validatorToDelegatorAddress(R.pathOr('', ['query', 'address'], router));
 
