@@ -1,14 +1,14 @@
 {
-  "title": "Desmos Block Explorer",
+  "title": "eMoney Block Explorer",
   "network": "morpheus-apollo-2",
   "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/eMoney/icon.png?sanitize=true",
   "logo": {
     "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/eMoney/logo.svg?sanitize=true"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "emoneyvalcons",
+    "validator": "emoneyvaloper",
+    "account": "emoney"
   },
   "genesis": {
     "time": "2021-07-13T08:00:00",
