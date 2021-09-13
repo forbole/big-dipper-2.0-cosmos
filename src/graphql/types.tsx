@@ -17966,6 +17966,9 @@ export type AccountQuery = { stakingParams: Array<(
         )>, validatorCommissions: Array<(
           { __typename?: 'validator_commission' }
           & Pick<Validator_Commission, 'commission'>
+        )>, validatorStatuses: Array<(
+          { __typename?: 'validator_status' }
+          & Pick<Validator_Status, 'status' | 'jailed'>
         )> }
       ) }
     )>, unbonding: Array<(
@@ -18573,6 +18576,10 @@ export const AccountDocument = gql`
         }
         validatorCommissions: validator_commissions(limit: 1, order_by: {height: desc}) {
           commission
+        }
+        validatorStatuses: validator_statuses(limit: 1, order_by: {height: desc}) {
+          status
+          jailed
         }
       }
     }

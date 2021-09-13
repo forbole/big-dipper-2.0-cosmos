@@ -354,6 +354,10 @@ export const useAccountDetails = () => {
             imageUrl: validator.imageUrl,
             name: validator.moniker,
           },
+          validatorStatus: {
+            status: R.pathOr(3, ['validator', 'validatorStatuses', 0, 'status'], x),
+            jailed: R.pathOr(false, ['validator', 'validatorStatuses', 0, 'jailed'], x),
+          },
           reward: rewardsDict[validatorAddress],
           amount: formatDenom(x.amount.amount, x.amount.denom),
           commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
