@@ -31,5 +31,6 @@
   "network": "Network",
   "identifier": "Identifier",
   "creationTime": "Creation Time",
-  "bio": "Bio"
+  "bio": "Bio",
+  "status": "Status"
 }

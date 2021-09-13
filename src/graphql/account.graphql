@@ -16,6 +16,10 @@ query Account($address: String, $utc: timestamp) {
         validatorCommissions: validator_commissions(limit: 1, order_by: {height: desc}) {
           commission
         }
+        validatorStatuses: validator_statuses (limit: 1, order_by: {height: desc}) {
+          status
+          jailed
+        }
       }
     }
     unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}}) {
