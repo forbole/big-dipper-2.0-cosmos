@@ -6,6 +6,7 @@
 - Changed position of desmos profile
 - Fix avatar images not loading correctly ([\#296](https://github.com/forbole/big-dipper-2.0-cosmos/issues/296))
 - Fix rendering issue on account and validtor details page ([\#297](https://github.com/forbole/big-dipper-2.0-cosmos/issues/297))
+- Add validator status to account delegation component ([\#307](https://github.com/forbole/big-dipper-2.0-cosmos/issues/307))
 
 # base-v1.0.9 - 2021-09-03
 
