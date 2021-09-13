@@ -124,6 +124,10 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
                   "imageUrl": null,
                   "name": "moniker",
                 },
+                "validatorStatus": Object {
+                  "jailed": false,
+                  "status": 3,
+                },
               },
             ],
           }

@@ -29,6 +29,10 @@ export type TransactionType = {
 
 export type DelegationType = {
   validator: AvatarName;
+  validatorStatus: {
+    status: number;
+    jailed: boolean;
+  }
   commission: number;
   amount: TokenUnit;
   reward: TokenUnit;
