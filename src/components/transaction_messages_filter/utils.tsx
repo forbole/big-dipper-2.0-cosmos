@@ -33,6 +33,10 @@ export const getFilterLabels = () => {
       display: 'profiles',
     },
     {
+      key: 'authority',
+      display: 'authority',
+    },
+    {
       key: 'others',
       display: 'others',
     },
