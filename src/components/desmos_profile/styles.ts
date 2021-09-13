@@ -8,7 +8,7 @@ export const useStyles = (coverUrl?: string) => {
           overflow: 'hidden',
         },
         cover: {
-          height: '125px',
+          height: '150px',
           background: theme.palette.custom.fonts.fontFour,
           backgroundImage: 'url("/images/default_cover_pattern.png")',
           backgroundRepeat: 'repeat',
@@ -22,12 +22,16 @@ export const useStyles = (coverUrl?: string) => {
             backgroundImage: `url(${coverUrl})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
+            backgroundPosition: 'center center',
           },
-          [theme.breakpoints.up('md')]: {
+          [theme.breakpoints.up('sm')]: {
             height: '200px',
           },
+          [theme.breakpoints.up('md')]: {
+            height: '300px',
+          },
           [theme.breakpoints.up('lg')]: {
-            height: '250px',
+            height: '360px',
           },
         },
         avatarContainer: {
@@ -36,7 +40,7 @@ export const useStyles = (coverUrl?: string) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'flex-end',
-          padding: theme.spacing(1.5, 0),
+          padding: theme.spacing(1, 0),
           '& .hide': {
             visibility: 'hidden',
           },
@@ -54,7 +58,7 @@ export const useStyles = (coverUrl?: string) => {
           minHeight: '75px',
           minWidth: '75px',
           border: `solid 3px ${theme.palette.background.paper}`,
-          top: theme.spacing(-3),
+          top: theme.spacing(-4),
           left: 0,
           [theme.breakpoints.up('md')]: {
             width: '115px',
