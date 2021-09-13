@@ -18,11 +18,9 @@ import {
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { useSettingsContext } from '@contexts';
+import { getValidatorStatus } from '@utils/get_validator_status';
 import { useStyles } from './styles';
-import {
-  getStatusTheme,
-  getCondition,
-} from './utils';
+import { getCondition } from './utils';
 import { StatusType } from '../../types';
 import { useAddress } from './hooks';
 
@@ -42,7 +40,7 @@ const ValidatorOverview: React.FC<StatusType &{
   const { handleCopyToClipboard } = useAddress(t);
 
   const { dateFormat } = useSettingsContext();
-  const statusTheme = getStatusTheme(data.status, data.jailed);
+  const statusTheme = getValidatorStatus(data.status, data.jailed);
   const condition = getCondition(data.condition, data.status);
 
   const statusItems = [
