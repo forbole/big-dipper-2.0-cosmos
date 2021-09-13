@@ -1,4 +1,4 @@
-# Unreleased
+# base-v1.1.0 - 2021-09-13
 
 ## Changes
 - Centered desmos profile cover photo ([\#285](https://github.com/forbole/big-dipper-2.0-cosmos/issues/285))
