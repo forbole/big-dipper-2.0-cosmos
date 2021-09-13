@@ -9,7 +9,7 @@ export const columns:{
   },
   {
     key: 'status',
-    width: 20,
+    width: 15,
   },
   {
     key: 'commission',
