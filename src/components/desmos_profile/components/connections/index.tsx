@@ -22,7 +22,7 @@ const Mobile = dynamic(() => import('./components/mobile'));
 const Connections: React.FC<{
   handleClose: () => void;
   open: boolean;
-  data: ConnectionType[];
+  data: ProfileConnectionType[];
 }> = ({
   handleClose,
   open,

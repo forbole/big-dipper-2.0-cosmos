@@ -18,16 +18,17 @@ const Avatar: React.FC<{
   const [error, setError] = useState<boolean>(false);
   useEffect(() => {
     jdenticon.update(icon.current, address);
-  }, [address, error]);
+  }, [address, error, imageUrl]);
 
   const handleError = () => {
     setError(true);
   };
 
   const classes = useStyles();
+
   return (
     <div className={classnames(className, classes.root)}>
-      {imageUrl && !error ? (
+      {(imageUrl && !error) ? (
         <img
           src={imageUrl}
           alt="address avatar"

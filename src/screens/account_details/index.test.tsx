@@ -86,6 +86,12 @@ const mockAccount = jest.fn().mockResolvedValue({
                   commission: 0.0999,
                 },
               ],
+              validatorStatuses: [
+                {
+                  status: 3,
+                  jailed: false,
+                },
+              ],
             },
           },
         ],
