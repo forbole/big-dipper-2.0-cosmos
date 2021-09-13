@@ -35,11 +35,11 @@ type DesmosProfile = {
   imageUrl: string;
   coverUrl: string;
   bio: string;
-  connections: ConnectionType[];
+  connections: ProfileConnectionType[];
   validator?: ValidatorProfile;
 }
 
-type ConnectionType = {
+type ProfileConnectionType = {
   network: string;
   identifier: string;
   creationTime: string;
