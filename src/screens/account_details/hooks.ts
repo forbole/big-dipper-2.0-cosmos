@@ -356,7 +356,7 @@ export const useAccountDetails = () => {
           },
           validatorStatus: {
             status: R.pathOr(3, ['validator', 'validatorStatuses', 0, 'status'], x),
-            jailed: R.pathOr(3, ['validator', 'validatorStatuses', 0, 'jailed'], x),
+            jailed: R.pathOr(false, ['validator', 'validatorStatuses', 0, 'jailed'], x),
           },
           reward: rewardsDict[validatorAddress],
           amount: formatDenom(x.amount.amount, x.amount.denom),

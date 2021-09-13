@@ -6,9 +6,8 @@ import {
   Divider,
   Typography,
 } from '@material-ui/core';
-import {
-  AvatarName,
-} from '@components';
+import { getValidatorStatus } from '@utils/get_validator_status';
+import { AvatarName } from '@components';
 import { DelegationType } from '@src/screens/account_details/types';
 import { useStyles } from './styles';
 
@@ -24,6 +23,7 @@ const Mobile: React.FC<{
   return (
     <div className={classnames(className)}>
       {items.map((x, i) => {
+        const statusTheme = getValidatorStatus(x.validatorStatus.status, x.validatorStatus.jailed);
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
@@ -36,6 +36,14 @@ const Mobile: React.FC<{
                   address={x.validator.address}
                   imageUrl={x.validator.imageUrl}
                 />
+              </div>
+              <div className={classes.item}>
+                <Typography variant="h4" className="label">
+                  {t('validators:status')}
+                </Typography>
+                <Typography variant="body1" className={classnames('value', statusTheme.status)}>
+                  {t(`validators:${statusTheme.status}`)}
+                </Typography>
               </div>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
