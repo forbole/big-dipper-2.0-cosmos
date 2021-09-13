@@ -14,7 +14,7 @@ import { columns } from './utils';
 
 const Desktop: React.FC<{
   className?: string;
-  items?: ConnectionType[];
+  items?: ProfileConnectionType[];
 }> = ({
   className,
   items,
