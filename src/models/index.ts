@@ -63,6 +63,7 @@ import MsgConnectionOpenTry from './msg/ibc/msg_connection_open_try';
 import MsgCounterpartyConnection from './msg/ibc/msg_connection_counterparty';
 import MsgVersion from './msg/ibc/msg_connection_version';
 import MsgTransfer from './msg/ibc_transfer/msg_transfer';
+import MsgCreateIssuer from './msg/authority/msg_create_issuer';
 
 export {
   BigDipperNetwork,
@@ -130,4 +131,5 @@ export {
   MsgCounterpartyConnection,
   MsgVersion,
   MsgTransfer,
+  MsgCreateIssuer,
 };

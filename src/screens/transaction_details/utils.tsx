@@ -356,7 +356,12 @@ const getDataByType = (type: string) => {
       tagTheme: 'four',
       tagDisplay: 'txUnblockUserLabel',
     },
-
+    '/em.authority.v1.MsgCreateIssuer': {
+      model: MODELS.MsgCreateIssuer,
+      content: COMPONENTS.CreateIssuer,
+      tagTheme: 'thirteen',
+      tagDisplay: 'txUnblockUserLabel',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];
