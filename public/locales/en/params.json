@@ -13,7 +13,7 @@
   "minSignedPerWindow": "Min Signed Per Window",
   "signedBlockWindow": "Signed Block Window",
   "slashFractionDoubleSign": "Slash Fraction Double Sign",
-  "slashFractionDowntime": "Slash Traction Downtime",
+  "slashFractionDowntime": "Slash Fraction Downtime",
   "minting": "Minting",
   "blocksPerYear": "Blocks Per Year",
   "goalBonded": "Goal Bonded",
