@@ -90,7 +90,7 @@ jobs:
       - name: Deploy to Akash 🌐
         env:
           AKASH_WEBHOOK_SECRET: ${{ secrets.AKASH_WEBHOOK_SECRET }}
-          LIKECOIN_MAINNET_2_URL: ${{ secrets.LIKECOIN_PUBLIC_TESTNET_3_URL }}
+          LIKECOIN_MAINNET_2_URL: ${{ secrets.LIKECOIN_MAINNET_2_URL }}
           LIKECOIN_PUBLIC_TESTNET_3_URL: ${{ secrets.LIKECOIN_PUBLIC_TESTNET_3_URL }}
         run: |
             BRANCH=${GITHUB_REF}
