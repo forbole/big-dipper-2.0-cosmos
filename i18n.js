@@ -11,6 +11,7 @@ module.exports = {
     'rgx:^/validators': ['validators', 'transactions', 'accounts'],
     'rgx:^/accounts': ['accounts', 'transactions', 'validators'],
     'rgx:^/params': ['params'],
+    'rgx:^/iscns': ['iscns'],
   },
   loadLocaleFrom: (lang, ns) => import(`./public/locales/${lang}/${ns}.json`).then((m) => m.default),
 };
