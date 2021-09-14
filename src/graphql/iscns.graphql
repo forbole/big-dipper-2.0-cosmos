@@ -1,8 +1,10 @@
 query Iscns ($limit: Int = 7, $offset: Int = 0) {
   iscnRecord: iscn_record(limit: $limit, offset: $offset, order_by: {height: desc}) {
     iscnId: iscn_id
-    owner_address
+    ipld
+    ownerAddress: owner_address
     iscnData: iscn_data
+    height
   }
   total: iscn_record_aggregate {
     aggregate {

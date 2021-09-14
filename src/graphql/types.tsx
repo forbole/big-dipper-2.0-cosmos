@@ -12880,8 +12880,8 @@ export type IscnsQueryVariables = Exact<{
 
 export type IscnsQuery = { iscnRecord: Array<(
     { __typename?: 'iscn_record' }
-    & Pick<Iscn_Record, 'owner_address'>
-    & { iscnId: Iscn_Record['iscn_id'], iscnData: Iscn_Record['iscn_data'] }
+    & Pick<Iscn_Record, 'ipld' | 'height'>
+    & { iscnId: Iscn_Record['iscn_id'], ownerAddress: Iscn_Record['owner_address'], iscnData: Iscn_Record['iscn_data'] }
   )>, total: (
     { __typename?: 'iscn_record_aggregate' }
     & { aggregate?: Maybe<(
@@ -13739,8 +13739,10 @@ export const IscnsDocument = gql`
     order_by: {height: desc}
   ) {
     iscnId: iscn_id
-    owner_address
+    ipld
+    ownerAddress: owner_address
     iscnData: iscn_data
+    height
   }
   total: iscn_record_aggregate {
     aggregate {
