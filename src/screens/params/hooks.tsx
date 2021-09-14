@@ -13,6 +13,7 @@ import {
   MintParams,
   DistributionParams,
   GovParams,
+  IscnParams,
 } from '@models';
 import {
   ParamsState,
@@ -26,6 +27,7 @@ const initialState = {
   minting: null,
   distribution: null,
   gov: null,
+  iscn: null,
 };
 
 export const useParams = () => {
@@ -160,6 +162,27 @@ export const useParams = () => {
     };
 
     results.gov = formatGov();
+
+    // ================================
+    // iscn
+    // ================================
+
+    const formatIscn = () => {
+      if (data.iscnParams.length) {
+        const iscnParamsRaw = IscnParams.fromJson(R.pathOr({}, ['iscnParams', 0, 'params'], data));
+        return {
+          registryName: iscnParamsRaw.registryName,
+          feePerByte: formatDenom(
+            iscnParamsRaw.feePerByte.amount,
+            iscnParamsRaw.feePerByte.denom,
+          ),
+        };
+      }
+
+      return null;
+    };
+
+    results.iscn = formatIscn();
 
     return results;
   };

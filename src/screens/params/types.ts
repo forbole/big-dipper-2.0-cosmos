@@ -39,6 +39,11 @@ export type Gov = {
   votingPeriod: number;
 }
 
+export type Iscn = {
+  registryName: string;
+  feePerByte: TokenUnit;
+}
+
 export type ParamsState = {
   loading: boolean;
   exists: boolean;
@@ -47,4 +52,5 @@ export type ParamsState = {
   minting: Minting | null;
   distribution: Distribution | null;
   gov: Gov | null;
+  iscn: Iscn | null;
 }
