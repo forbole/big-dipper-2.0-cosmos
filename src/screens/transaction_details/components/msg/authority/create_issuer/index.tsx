@@ -11,26 +11,26 @@ const CreateIssuer = (props: {
   const { findAddress } = useChainContext();
   const { message } = props;
 
-  const owner = findAddress(message.owner);
-  const ownerMoniker = owner ? owner?.moniker : message.owner;
+  const issuer = findAddress(message.issuer);
+  const issuerMoniker = issuer ? issuer?.moniker : message.issuer;
 
-  const id = message.clientOrderId;
+  const denom = message.denominations.join(',');
 
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txAddLimitOrderContent"
+        i18nKey="message_contents:txCreateIssuerContent"
         components={[
           (
             <Name
-              address={message.owner}
-              name={ownerMoniker}
+              address={message.issuer}
+              name={issuerMoniker}
             />
           ),
           <b />,
         ]}
         values={{
-          id,
+          denom,
         }}
       />
     </Typography>
