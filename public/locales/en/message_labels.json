@@ -49,5 +49,5 @@
   "txConnectionEndLabel": "IBC Connection End",
   "txVersionLabel": "IBC Version",
   "txTransferLabel": "IBC Transfer",
-  "txCreateIssuerLabel": "IBC Create Issuer"
+  "txCreateIssuerLabel": "Create Issuer"
 }
