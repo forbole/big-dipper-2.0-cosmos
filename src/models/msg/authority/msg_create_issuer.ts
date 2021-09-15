@@ -25,7 +25,7 @@ class MsgCreateIssuer {
         type: json['@type'],
         authority: json.authority,
         issuer: R.pathOr('', ['issuer'], json),
-        denominations: R.pathOr(0, ['denominations'], json),
+        denominations: R.pathOr([], ['denominations'], json),
       });
     }
 }
