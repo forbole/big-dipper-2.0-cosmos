@@ -1,3 +1,8 @@
+# Unreleased
+
+## Bug fixes
+- Fix account and validator details redelegation linking consensus address ([\#323](https://github.com/forbole/big-dipper-2.0-cosmos/issues/323))
+
 # base-v1.1.0 - 2021-09-13
 
 ## Changes
