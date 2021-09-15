@@ -7,12 +7,12 @@ import { ChainState } from './types';
 const initialState: ChainState = {
   market: {
     loading: true,
-    price: 0,
+    price: null,
     supply: {
       value: 0,
       denom: '',
     },
-    marketCap: 0,
+    marketCap: null,
     inflation: 0,
     communityPool: {
       value: 0,
