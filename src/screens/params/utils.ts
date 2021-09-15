@@ -8,6 +8,7 @@ import {
   Minting,
   Distribution,
   Gov,
+  Iscn,
 } from './types';
 
 export const formatStaking = (data: Staking, t: any) => {
@@ -80,7 +81,7 @@ export const formatMinting = (data: Minting, t: any) => {
     },
     {
       label: t('inflationMin'),
-      detail: `${data.inflationMin * 100}%`,
+      detail: `${numeral(data.inflationMin * 100).format('0')}%`,
     },
     {
       label: t('inflationRateChange'),
@@ -143,6 +144,19 @@ export const formatGov = (data: Gov, t: any) => {
       detail: t('days', {
         day: secondsToDays(nanoToSeconds(data.votingPeriod)),
       }),
+    },
+  ]);
+};
+
+export const formatIscn = (data: Iscn, t: any) => {
+  return ([
+    {
+      label: t('registryName'),
+      detail: data.registryName,
+    },
+    {
+      label: t('feePerByte'),
+      detail: `${data.feePerByte.value} ${data.feePerByte.denom.toUpperCase()}`,
     },
   ]);
 };

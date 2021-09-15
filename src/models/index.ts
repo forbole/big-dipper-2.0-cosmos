@@ -4,6 +4,7 @@ import SlashingParams from './slashing_params';
 import MintParams from './mint_params';
 import GovParams from './gov_params';
 import DistributionParams from './distribution_params';
+import IscnParams from './iscn_params';
 // ================================
 // Transaction Message Types
 // ================================
@@ -74,6 +75,7 @@ export {
   MintParams,
   GovParams,
   DistributionParams,
+  IscnParams,
 };
 
 export {

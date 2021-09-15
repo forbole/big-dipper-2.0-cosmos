@@ -1,0 +1,8 @@
+{
+  "iscns": "Iscns",
+  "name": "Name",
+  "publisher": "Publisher",
+  "ipld": "Ipld",
+  "height": "Height",
+  "totalIscns": "A total of {{amount}} Iscns found"
+}

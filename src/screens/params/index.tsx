@@ -14,6 +14,7 @@ import {
   formatMinting,
   formatDistribution,
   formatGov,
+  formatIscn,
 } from './utils';
 
 const Params = () => {
@@ -44,6 +45,11 @@ const Params = () => {
   const gov = state.gov ? {
     title: t('gov'),
     details: formatGov(state.gov, t),
+  } : null;
+
+  const iscn = state.iscn ? {
+    title: t('iscn'),
+    details: formatIscn(state.iscn, t),
   } : null;
 
   return (
@@ -78,6 +84,9 @@ const Params = () => {
             )}
             {gov && (
             <BoxDetails {...gov} />
+            )}
+            {iscn && (
+            <BoxDetails {...iscn} />
             )}
           </span>
         </LoadAndExist>

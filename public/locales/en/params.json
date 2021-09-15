@@ -32,5 +32,8 @@
   "quorum": "Quorum",
   "threshold": "Threshold",
   "vetoThreshold": "Veto Threshold",
-  "votingPeriod": "Voting Period"
+  "votingPeriod": "Voting Period",
+  "feePerByte": "Fee Per Byte",
+  "registryName": "Registry Name",
+  "iscn": "Iscn"
 }
