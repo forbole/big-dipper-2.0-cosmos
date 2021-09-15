@@ -18,7 +18,8 @@ const CreateIssuer = (props: {
   const issuer = findAddress(message.issuer);
   const issuerMoniker = issuer ? issuer?.moniker : message.issuer;
 
-  const denom = message.denominations.join(',');
+  const denom = message.denominations;
+  const parsedDenom = denom.reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ' and ') + value);
 
   return (
     <Typography>
@@ -39,7 +40,7 @@ const CreateIssuer = (props: {
           ),
         ]}
         values={{
-          denom,
+          parsedDenom,
         }}
       />
     </Typography>
