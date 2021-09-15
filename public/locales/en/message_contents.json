@@ -50,5 +50,5 @@
   "txTransferContent": "<0>{{sender}}</0> sent <2>{{token}}</2> via IBC transfer from source channel <2>{{sourceChannel}}</2> to <1>{{receiver}}</1>",
   "txTimeoutContent": "<0>{{signer}}</0> IBC timeout",
   "txTimeoutOnCloseContent": "<0>{{signer}}</0> IBC timeout on close",
-  "txCreateIssuer": "<0>{{owner}}</0> created a limit order with client order id <1>{{id}}</1>"
+  "txCreateIssuerContent": "<0>{{owner}}</0> created a limit order with client order id <1>{{id}}</1>"
 }
