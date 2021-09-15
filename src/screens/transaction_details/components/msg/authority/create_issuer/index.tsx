@@ -11,6 +11,10 @@ const CreateIssuer = (props: {
   const { findAddress } = useChainContext();
   const { message } = props;
 
+  const authority = findAddress(message.authority);
+  const authorityMoniker = authority ? authority?.moniker : message
+    .authority;
+
   const issuer = findAddress(message.issuer);
   const issuerMoniker = issuer ? issuer?.moniker : message.issuer;
 
@@ -23,11 +27,22 @@ const CreateIssuer = (props: {
         components={[
           (
             <Name
+              address={message.authority}
+              name={authorityMoniker}
+            />
+          ),
+          (
+            <Name
               address={message.issuer}
               name={issuerMoniker}
             />
           ),
-          <b />,
+          (
+            <Name
+              address={message.issuer}
+              name={issuerMoniker}
+            />
+          ),
         ]}
         values={{
           denom,
