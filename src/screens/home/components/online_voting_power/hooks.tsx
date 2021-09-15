@@ -61,7 +61,7 @@ export const useOnlineVotingPower = () => {
     ], data);
     return {
       height: R.pathOr(initialState.height, ['block', 0, 'height'], data),
-      votingPower,
+      votingPower: formatDenom(votingPower, state.denom).value,
     };
   };
 
