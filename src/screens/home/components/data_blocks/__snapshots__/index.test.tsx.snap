@@ -20,7 +20,7 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
     className="makeStyles-price"
     id="SingleBlock"
     label="price"
-    value="$0.00"
+    value="N/A"
   />
   <div
     className="makeStyles-validators"
