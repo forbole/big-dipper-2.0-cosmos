@@ -37,12 +37,6 @@ const CreateIssuer = (props: {
               name={issuerMoniker}
             />
           ),
-          (
-            <Name
-              address={message.issuer}
-              name={issuerMoniker}
-            />
-          ),
         ]}
         values={{
           denom,
