@@ -4,9 +4,9 @@ export interface ChainState {
   loading?: boolean;
   market: {
     loading: boolean;
-    price: number;
+    price: number | null;
     supply: TokenUnit;
-    marketCap: number;
+    marketCap: number | null;
     inflation: number;
     communityPool: TokenUnit;
   }
