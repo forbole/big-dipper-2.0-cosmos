@@ -1,6 +1,6 @@
 {
   "title": "eMoney Block Explorer",
-  "network": "morpheus-apollo-2",
+  "network": "lilmermaid-15",
   "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/eMoney/icon.png?sanitize=true",
   "logo": {
     "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/eMoney/logo.svg?sanitize=true"
@@ -11,13 +11,33 @@
     "account": "emoney"
   },
   "genesis": {
-    "time": "2021-07-13T08:00:00",
+    "time": "2020-11-04T13:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udaric",
+  "primaryTokenUnit": "ungm",
   "tokenUnits": {
-    "udaric": {
-      "display": "daric",
+    "ungm": {
+      "display": "ngm",
+      "exponent": 6
+    },
+    "echf": {
+      "display": "echf",
+      "exponent": 6
+    },
+    "edkk": {
+      "display": "edkk",
+      "exponent": 6
+    },
+    "eeur": {
+      "display": "eeur",
+      "exponent": 6
+    },
+    "enok": {
+      "display": "enok",
+      "exponent": 6
+    },
+    "esek": {
+      "display": "esek",
       "exponent": 6
     }
   },
