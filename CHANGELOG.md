@@ -1,5 +1,7 @@
 # Unreleased
 
+## Changes
+- Update price and market cap display ([\#322](https://github.com/forbole/big-dipper-2.0-cosmos/issues/322))
 ## Bug fixes
 - Fix account and validator details redelegation linking consensus address ([\#323](https://github.com/forbole/big-dipper-2.0-cosmos/issues/323))
 
