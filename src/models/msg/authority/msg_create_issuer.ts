@@ -8,7 +8,7 @@ class MsgCreateIssuer {
 
     public authority: string;
     public issuer: string;
-    public denominations: Array<string>;
+    public denominations: string[];
 
     constructor(payload: any) {
       this.category = 'authority';
