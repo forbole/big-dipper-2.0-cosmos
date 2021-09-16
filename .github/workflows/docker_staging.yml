@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     branches:
-      - chains/desmos
+      - chains/terra
 
 jobs:
   Build-and-Publish:
@@ -26,11 +26,11 @@ jobs:
       - name: Prepare docker build env
         id: dockerPrep
         run: |
-          NEXT_PUBLIC_GRAPHQL_URL="https://gql.morpheus.desmos.network/v1/graphql"
-          NEXT_PUBLIC_GRAPHQL_WS="wss://gql.morpheus.desmos.network/v1/graphql"
-          NEXT_PUBLIC_URL="https://morpheus.desmos.network"
-          NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.morpheus.desmos.network/websocket"
-          NEXT_PUBLIC_CHAIN_STATUS="mainnet"
+          NEXT_PUBLIC_GRAPHQL_URL="https://gql-testnet.terra.forbole.com/v1/graphql"
+          NEXT_PUBLIC_GRAPHQL_WS="wss://gql-testnet.terra.forbole.com/v1/graphql"
+          NEXT_PUBLIC_URL="https://terrastaging.bigdipper.live"
+          NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc-testnet.terra.forbole.com/websocket"
+          NEXT_PUBLIC_CHAIN_STATUS="testnet"
           NODE_ENV="production"
           PORT=3000
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
