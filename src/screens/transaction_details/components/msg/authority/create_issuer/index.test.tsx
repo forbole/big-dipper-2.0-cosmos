@@ -28,6 +28,9 @@ describe('screen: TransactionDetails/MsgCreateIssuer', () => {
     const message = new MsgCreateIssuer({
       category: 'authority',
       type: 'MsgCreateIssuer',
+      authority: 'authority',
+      issuer: 'issuer',
+      denominations: 'denominations',
     });
     const component = renderer.create(
       <MockTheme>
