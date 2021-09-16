@@ -40,7 +40,7 @@ const CreateIssuer = (props: {
           ),
         ]}
         values={{
-          parsedDenom,
+          denominations: parsedDenom,
         }}
       />
     </Typography>
