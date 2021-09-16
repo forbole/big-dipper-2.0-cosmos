@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgMultiSend } from '@models';
-import Multisend from '.';
+import { MsgCreateIssuer } from '@models';
+import CreateIssuer from '.';
 
 // ==================================
 // mocks
@@ -23,46 +23,15 @@ jest.mock('@components', () => ({
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/MsgMultiSend', () => {
+describe('screen: TransactionDetails/MsgCreateIssuer', () => {
   it('matches snapshot', () => {
-    const message = new MsgMultiSend({
-      category: 'bank',
-      type: 'MsgMultiSend',
-      inputs: [
-        {
-          address: 'address',
-          coins: [
-            {
-              denom: 'udaric',
-              amount: '20000000',
-            },
-          ],
-        },
-      ],
-      outputs: [
-        {
-          address: 'output1',
-          coins: [
-            {
-              denom: 'udaric',
-              amount: '19000000',
-            },
-          ],
-        },
-        {
-          address: 'output2',
-          coins: [
-            {
-              denom: 'udaric',
-              amount: '1000000',
-            },
-          ],
-        },
-      ],
+    const message = new MsgCreateIssuer({
+      category: 'authority',
+      type: 'MsgCreateIssuer',
     });
     const component = renderer.create(
       <MockTheme>
-        <Multisend
+        <CreateIssuer
           message={message}
         />
       </MockTheme>,
