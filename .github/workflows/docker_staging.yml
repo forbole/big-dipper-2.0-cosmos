@@ -29,7 +29,7 @@ jobs:
           NEXT_PUBLIC_GRAPHQL_URL="https://gql-testnet.terra.forbole.com/v1/graphql"
           NEXT_PUBLIC_GRAPHQL_WS="wss://gql-testnet.terra.forbole.com/v1/graphql"
           NEXT_PUBLIC_URL="https://terrastaging.bigdipper.live"
-          NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc-testnet.terra.forbole.com/websocket"
+          NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc-bombay.terra.forbole.com/websocket"
           NEXT_PUBLIC_CHAIN_STATUS="testnet"
           NODE_ENV="production"
           PORT=3000
