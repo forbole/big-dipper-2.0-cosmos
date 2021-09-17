@@ -63,6 +63,7 @@ import MsgConnectionOpenTry from './msg/ibc/msg_connection_open_try';
 import MsgCounterpartyConnection from './msg/ibc/msg_connection_counterparty';
 import MsgVersion from './msg/ibc/msg_connection_version';
 import MsgTransfer from './msg/ibc_transfer/msg_transfer';
+import MsgCreateIssuer from './msg/authority/msg_create_issuer';
 import MsgAddLimitOrder from './msg/market/msg_add_limit_order';
 import MsgAddMarketOrder from './msg/market/msg_add_market_order';
 import MsgCancelOrder from './msg/market/msg_cancel_order';
@@ -135,6 +136,7 @@ export {
   MsgCounterpartyConnection,
   MsgVersion,
   MsgTransfer,
+  MsgCreateIssuer,
   MsgAddLimitOrder,
   MsgAddMarketOrder,
   MsgCancelOrder,

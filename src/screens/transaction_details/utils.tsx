@@ -357,6 +357,15 @@ const getDataByType = (type: string) => {
       tagDisplay: 'txUnblockUserLabel',
     },
     // ========================
+    // authority
+    // ========================
+    '/em.authority.v1.MsgCreateIssuer': {
+      model: MODELS.MsgCreateIssuer,
+      content: COMPONENTS.CreateIssuer,
+      tagTheme: 'thirteen',
+      tagDisplay: 'txUnblockUserLabel',
+    },
+    // ========================
     // market
     // ========================
     '/em.market.v1.MsgAddLimitOrder': {
