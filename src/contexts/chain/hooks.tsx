@@ -207,12 +207,14 @@ export const useMarket = (initalState: ChainState) => {
     let { communityPool } = initalState.market;
 
     // formats
-    let { price } = state;
-    if (data?.tokenPrice[0]?.price) {
+    let {
+      price, marketCap,
+    } = state;
+    if (data?.tokenPrice?.length) {
       price = numeral(numeral(data?.tokenPrice[0]?.price).format('0.[00]', Math.floor)).value();
+      marketCap = data.tokenPrice[0]?.marketCap;
     }
 
-    const marketCap = data.tokenPrice[0]?.marketCap ?? state.marketCap;
     const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter((x) => x.denom === chainConfig.primaryTokenUnit);
     const inflation = R.pathOr(0, ['inflation', 0, 'value'], data);
 
