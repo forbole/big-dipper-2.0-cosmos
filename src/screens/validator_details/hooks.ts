@@ -280,7 +280,6 @@ export const useValidatorDetails = () => {
     // ============================
     const formatVotingPower = () => {
       const self = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], data.validator[0]);
-
       const totalDelegations = data.validator[0].delegations.reduce((a, b) => {
         return a + numeral(R.pathOr(0, ['amount', 'amount'], b)).value();
       }, 0);
@@ -296,7 +295,10 @@ export const useValidatorDetails = () => {
 
       const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
       const votingPower = {
-        self,
+        self: formatDenom(
+          self,
+          stakingParams.bondDenom,
+        ).value,
         selfDelegate: selfDelegateAmount,
         selfDelegatePercent,
         overall: formatDenom(
