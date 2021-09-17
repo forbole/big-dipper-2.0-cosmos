@@ -1,3 +1,8 @@
+# desmos-v1.1.1 - 2021-09-17
+
+# Changes
+- Merged hotfix 84c5f83d045dd0708ed1af907b559c2c899387c0
+
 # desmos-v1.1.0 - 2021-09-13
 
 ## Changes
