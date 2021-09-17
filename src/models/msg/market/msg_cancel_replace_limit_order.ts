@@ -9,7 +9,7 @@ class MsgCancelReplaceLimitOrder {
   public originalClientOrderId: string;
   public newClientOrderId: string;
   public timeInForce: 'Unspecified' | 'GoodTillCancel' | 'ImmediateOrCancel' | 'FillOrKill';
-  public source: string;
+  public source: MsgCoin;
   public destination: MsgCoin;
 
   constructor(payload: any) {
@@ -32,10 +32,13 @@ class MsgCancelReplaceLimitOrder {
       originalClientOrderId: R.pathOr('', ['original_client_order_id'], json),
       newClientOrderId: R.pathOr('', ['new_client_order_id'], json),
       timeInForce: R.pathOr('Unspecified', ['time_in_force'], json),
-      source: R.pathOr('', ['source'], json),
-      destination: {
+      source: {
         denom: R.pathOr('', ['source', 'denom'], json),
         amount: R.pathOr('', ['source', 'amount'], json),
+      },
+      destination: {
+        denom: R.pathOr('', ['destination', 'denom'], json),
+        amount: R.pathOr('', ['destination', 'amount'], json),
       },
     });
   }

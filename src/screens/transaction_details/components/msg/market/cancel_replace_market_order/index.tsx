@@ -4,22 +4,21 @@ import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { formatDenom } from '@utils/format_denom';
-import { MsgAddMarketOrder } from '@models';
+import { MsgCancelReplaceMarketOrder } from '@models';
 import { useChainContext } from '@contexts';
 
-const AddMarketOrder = (props: {
-  message: MsgAddMarketOrder;
+const CancelReplaceMarketOrder = (props: {
+  message: MsgCancelReplaceMarketOrder;
 }) => {
   const { findAddress } = useChainContext();
   const { message } = props;
   const owner = findAddress(message.owner);
   const ownerMoniker = owner ? owner?.moniker : message.owner;
   const destination = formatDenom(message.destination.amount, message.destination.denom);
-
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txAddMarketOrderContent"
+        i18nKey="message_contents:txCancelReplaceMarketOrderContent"
         components={[
           (
             <Name
@@ -32,7 +31,7 @@ const AddMarketOrder = (props: {
           <b />,
         ]}
         values={{
-          clientOrderId: message.clientOrderId,
+          clientOrderId: message.originalClientOrderId,
           source: message.source,
           destination: `${numeral(destination.value).format('0,0.[000000]')} ${destination.denom.toUpperCase()}`,
         }}
@@ -41,4 +40,4 @@ const AddMarketOrder = (props: {
   );
 };
 
-export default AddMarketOrder;
+export default CancelReplaceMarketOrder;

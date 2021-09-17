@@ -4,6 +4,6 @@ exports[`screen: TransactionDetails/AddLimitOrder matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1"
 >
-  message_contents:txAddLimitOrderContent
+  message_contents:txAddMarketOrderContent
 </p>
 `;
