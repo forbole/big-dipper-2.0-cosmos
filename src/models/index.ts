@@ -63,6 +63,11 @@ import MsgConnectionOpenTry from './msg/ibc/msg_connection_open_try';
 import MsgCounterpartyConnection from './msg/ibc/msg_connection_counterparty';
 import MsgVersion from './msg/ibc/msg_connection_version';
 import MsgTransfer from './msg/ibc_transfer/msg_transfer';
+import MsgAddLimitOrder from './msg/market/msg_add_limit_order';
+import MsgAddMarketOrder from './msg/market/msg_add_market_order';
+import MsgCancelOrder from './msg/market/msg_cancel_order';
+import MsgCancelReplaceLimitOrder from './msg/market/msg_cancel_replace_limit_order';
+import MsgCancelReplaceMarketOrder from './msg/market/msg_cancel_replace_market_order';
 
 export {
   BigDipperNetwork,
@@ -130,4 +135,9 @@ export {
   MsgCounterpartyConnection,
   MsgVersion,
   MsgTransfer,
+  MsgAddLimitOrder,
+  MsgAddMarketOrder,
+  MsgCancelOrder,
+  MsgCancelReplaceLimitOrder,
+  MsgCancelReplaceMarketOrder,
 };

@@ -356,7 +356,39 @@ const getDataByType = (type: string) => {
       tagTheme: 'four',
       tagDisplay: 'txUnblockUserLabel',
     },
-
+    // ========================
+    // market
+    // ========================
+    '/em.market.v1.MsgAddLimitOrder': {
+      model: MODELS.MsgAddLimitOrder,
+      content: COMPONENTS.AddLimitOrder,
+      tagTheme: 'fourteen',
+      tagDisplay: 'txAddLimitOrderLabel',
+    },
+    '/em.market.v1.MsgAddMarketOrder': {
+      model: MODELS.MsgAddMarketOrder,
+      content: COMPONENTS.AddMarketOrder,
+      tagTheme: 'fourteen',
+      tagDisplay: 'txAddMarketOrderLabel',
+    },
+    '/em.market.v1.MsgCancelOrder': {
+      model: MODELS.MsgCancelOrder,
+      content: COMPONENTS.CancelOrder,
+      tagTheme: 'fourteen',
+      tagDisplay: 'txCancelOrderLabel',
+    },
+    '/em.market.v1.MsgCancelReplaceLimitOrder': {
+      model: MODELS.MsgCancelReplaceLimitOrder,
+      content: COMPONENTS.CancelReplaceLimitOrder,
+      tagTheme: 'fourteen',
+      tagDisplay: 'txCancelReplaceLimitOrderLabel',
+    },
+    '/em.market.v1.MsgCancelReplaceMarketOrder': {
+      model: MODELS.MsgCancelReplaceMarketOrder,
+      content: COMPONENTS.CancelReplaceMarketOrder,
+      tagTheme: 'fourteen',
+      tagDisplay: 'txCancelReplaceMarketOrderLabel',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];

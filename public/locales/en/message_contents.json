@@ -49,5 +49,10 @@
   "txVersionContent": "<0>{{signer}}</0> submitted IBC version",
   "txTransferContent": "<0>{{sender}}</0> sent <2>{{token}}</2> via IBC transfer from source channel <2>{{sourceChannel}}</2> to <1>{{receiver}}</1>",
   "txTimeoutContent": "<0>{{signer}}</0> IBC timeout",
-  "txTimeoutOnCloseContent": "<0>{{signer}}</0> IBC timeout on close"
+  "txTimeoutOnCloseContent": "<0>{{signer}}</0> IBC timeout on close",
+  "txAddLimitOrderContent": "<0>{{owner}}</0> created limit order <1>{{clientOrderId}}</1> for <2>{{source}}</2> with <3>{{destination}}</3>",
+  "txAddMarketOrderContent": "<0>{{owner}}</0> created market order <1>{{clientOrderId}}</1> for <2>{{source}}</2> with <3>{{destination}}</3>",
+  "txCancelOrderContent": "<0>{{owner}}</0> cancelled order <1>{{clientOrderId}}</1>",
+  "txCancelReplaceLimitOrderContent": "<0>{{owner}}</0> replaced limit order <1>{{clientOrderId}}</1> with a new order for <2>{{source}}</2> with <3>{{destination}}</3>",
+  "txCancelReplaceMarketOrderContent": "<0>{{owner}}</0> replaced market order <1>{{clientOrderId}}</1> with a new order for <2>{{source}}</2> with <3>{{destination}}</3>"
 }
