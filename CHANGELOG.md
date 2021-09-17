@@ -1,3 +1,8 @@
+# base-v1.1.1 - 2021-09-17
+
+## Hotfix
+- Fixed display error with previous delegation rewards also adding to total rewards balance
+
 # base-v1.1.0 - 2021-09-13
 
 ## Changes
