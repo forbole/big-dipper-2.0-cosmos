@@ -1,6 +1,6 @@
 {
-  "title": "eMoney Block Explorer",
-  "network": "morpheus-apollo-2",
+  "title": "e-Money Block Explorer",
+  "network": "lilmermaid-16",
   "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/eMoney/icon.png?sanitize=true",
   "logo": {
     "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/eMoney/logo.svg?sanitize=true"
@@ -11,7 +11,7 @@
     "account": "emoney"
   },
   "genesis": {
-    "time": "2021-07-13T08:00:00",
+    "time": "2020-11-04T13:00:00",
     "height": 1
   },
   "primaryTokenUnit": "ungm",

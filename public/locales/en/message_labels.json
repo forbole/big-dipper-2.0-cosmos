@@ -49,5 +49,10 @@
   "txConnectionEndLabel": "IBC Connection End",
   "txVersionLabel": "IBC Version",
   "txTransferLabel": "IBC Transfer",
-  "txCreateIssuerLabel": "Create Issuer"
+  "txCreateIssuerLabel": "Create Issuer",
+  "txAddLimitOrderLabel": "Add Limit Order",
+  "txAddMarketOrderLabel": "Add Market Order",
+  "txCancelOrderLabel": "Cancel Order",
+  "txCancelReplaceLimitOrderLabel": "Cancel Replace Limit Order",
+  "txCancelReplaceMarketOrderLabel": "Cancel Replace Market Order"
 }
