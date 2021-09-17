@@ -21,9 +21,6 @@ const CreateIssuer = (props: {
   const issuerMoniker = issuer ? issuer?.moniker : message.issuer;
 
   const denom = message.denominations;
-  console.log(message);
-  console.log(message.denominations);
-  // console.log(fromJSON(message));
   const parsedDenom = denom.reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t(' and ')} `) + value);
 
   return (
