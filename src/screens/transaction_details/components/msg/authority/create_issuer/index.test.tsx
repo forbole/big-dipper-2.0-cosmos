@@ -30,7 +30,7 @@ describe('screen: TransactionDetails/MsgCreateIssuer', () => {
       type: 'MsgCreateIssuer',
       authority: 'authority',
       issuer: 'issuer',
-      denominations: 'denominations',
+      denominations: ['donom 1', 'denom 2'],
     });
     const component = renderer.create(
       <MockTheme>
@@ -39,6 +39,7 @@ describe('screen: TransactionDetails/MsgCreateIssuer', () => {
         />
       </MockTheme>,
     );
+
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });

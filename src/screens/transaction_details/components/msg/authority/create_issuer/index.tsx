@@ -1,10 +1,10 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
+import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgCreateIssuer } from '@models';
 import { useChainContext } from '@contexts';
-import useTranslation from 'next-translate/useTranslation';
 
 const CreateIssuer = (props: {
   message: MsgCreateIssuer;
@@ -21,6 +21,9 @@ const CreateIssuer = (props: {
   const issuerMoniker = issuer ? issuer?.moniker : message.issuer;
 
   const denom = message.denominations;
+  console.log(message);
+  console.log(message.denominations);
+  // console.log(fromJSON(message));
   const parsedDenom = denom.reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t(' and ')} `) + value);
 
   return (
