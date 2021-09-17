@@ -6,7 +6,7 @@ class MsgCancelReplaceLimitOrder {
   public type: string;
   public json: any;
   public owner: string;
-  public clientOrderId: string;
+  public originalClientOrderId: string;
   public newClientOrderId: string;
   public timeInForce: 'Unspecified' | 'GoodTillCancel' | 'ImmediateOrCancel' | 'FillOrKill';
   public source: string;
@@ -17,7 +17,7 @@ class MsgCancelReplaceLimitOrder {
     this.type = payload.type;
     this.json = payload.json;
     this.owner = payload.owner;
-    this.clientOrderId = payload.clientOrderId;
+    this.originalClientOrderId = payload.originalClientOrderId;
     this.newClientOrderId = payload.newClientOrderId;
     this.timeInForce = payload.timeInForce;
     this.source = payload.source;
@@ -29,7 +29,7 @@ class MsgCancelReplaceLimitOrder {
       json,
       type: json['@type'],
       owner: json.owner,
-      clientOrderId: R.pathOr('', ['client_order_id'], json),
+      originalClientOrderId: R.pathOr('', ['original_client_order_id'], json),
       newClientOrderId: R.pathOr('', ['new_client_order_id'], json),
       timeInForce: R.pathOr('Unspecified', ['time_in_force'], json),
       source: R.pathOr('', ['source'], json),
