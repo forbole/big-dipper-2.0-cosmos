@@ -51,8 +51,8 @@
   "txTimeoutContent": "<0>{{signer}}</0> IBC timeout",
   "txTimeoutOnCloseContent": "<0>{{signer}}</0> IBC timeout on close",
   "txAddLimitOrderContent": "<0>{{owner}}</0> created limit order <1>{{clientOrderId}}</1> for <2>{{source}}</2> to <3>{{destination}}</3>",
-  "txAddMarketOrderContent": "<0>{{owner}}</0> created market order <1>{{clientOrderId}}</1> for <2>{{source}}</2> to <3>{{destination}}</3>",
+  "txAddMarketOrderContent": "<0>{{owner}}</0> created market order <1>{{clientOrderId}}</1> for <2>{{source}}</2> with <3>{{destination}}</3>",
   "txCancelOrderContent": "<0>{{owner}}</0> canceled order <1>{{clientOrderId}}</1>",
   "txCancelReplaceLimitOrderContent": "<0>{{owner}}</0> replaced limit order <1>{{clientOrderId}}</1> with a new order for <2>{{source}}</2> to <3>{{destination}}</3>",
-  "txCancelReplaceMarketOrderContent": "<0>{{owner}}</0> replaced market order <1>{{clientOrderId}}</1> with a new order for <2>{{source}}</2> to <3>{{destination}}</3>"
+  "txCancelReplaceMarketOrderContent": "<0>{{owner}}</0> replaced market order <1>{{clientOrderId}}</1> with a new order for <2>{{source}}</2> with <3>{{destination}}</3>"
 }
