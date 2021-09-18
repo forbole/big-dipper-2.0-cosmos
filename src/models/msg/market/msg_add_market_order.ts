@@ -33,8 +33,8 @@ class MsgAddMarketOrder {
       timeInForce: R.pathOr('Unspecified', ['time_in_force'], json),
       source: R.pathOr('', ['source'], json),
       destination: {
-        denom: R.pathOr('', ['source', 'denom'], json),
-        amount: R.pathOr('', ['source', 'amount'], json),
+        denom: R.pathOr('', ['destinationsource', 'denom'], json),
+        amount: R.pathOr('', ['destination', 'amount'], json),
       },
       maximumSlippage: R.pathOr('', ['maximum_slippage'], json),
     });

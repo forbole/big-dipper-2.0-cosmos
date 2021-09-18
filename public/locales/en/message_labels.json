@@ -53,6 +53,6 @@
   "txAddLimitOrderLabel": "Add Limit Order",
   "txAddMarketOrderLabel": "Add Market Order",
   "txCancelOrderLabel": "Cancel Order",
-  "txCancelReplaceLimitOrderLabel": "Cancel Replace Limit Order",
-  "txCancelReplaceMarketOrderLabel": "Cancel Replace Market Order"
+  "txCancelReplaceLimitOrderLabel": "Replace Limit Order",
+  "txCancelReplaceMarketOrderLabel": "Replace Market Order"
 }
