@@ -47,7 +47,13 @@
   "txConnectionOpenTryContent": "<0>{{signer}}</0> tried to open IBC connection with chain ID <1>{{chainId}}</1>, client ID <1>{{clientId}}</1>, counterparty client ID <3>{{counterpartyClientId}}</3> and counterparty connection ID <4>{{counterpartyConnectionId}}</4>",
   "txConnectionEndContent": "<0>{{signer}}</0> end IBC connection",
   "txVersionContent": "<0>{{signer}}</0> submitted IBC version",
-  "txTransferContent": "<0>{{sender}}</0> sent <2>{{token}}</2> via IBC transfer from source channel <2>{{sourceChannel}}</2> to <1>{{receiver}}</1>",
+  "txTransferContent": "<0>{{sender}}</0> sent <1>{{token}}</1> via IBC transfer from source channel <1>{{sourceChannel}}</1> to <1>{{receiver}}</1>",
   "txTimeoutContent": "<0>{{signer}}</0> IBC timeout",
-  "txTimeoutOnCloseContent": "<0>{{signer}}</0> IBC timeout on close"
+  "txTimeoutOnCloseContent": "<0>{{signer}}</0> IBC timeout on close",
+  "txCreateIssuerContent": "<0>{{authority}}</0> created an issuer <1>{{issuer}}</1> for <2>{{denominations}}</2>",
+  "txAddLimitOrderContent": "<0>{{owner}}</0> created limit order ID <1>{{clientOrderId}}</1> for <2>{{destination}}</2> with <3>{{source}}</3>",
+  "txAddMarketOrderContent": "<0>{{owner}}</0> created market order ID <1>{{clientOrderId}}</1> for <2>{{destination}}</2> with <3>{{source}}</3>",
+  "txCancelOrderContent": "<0>{{owner}}</0> cancelled order ID <1>{{clientOrderId}}</1>",
+  "txCancelReplaceLimitOrderContent": "<0>{{owner}}</0> replaced limit order ID <1>{{clientOrderId}}</1> with a new order for <2>{{destination}}</2> with <3>{{source}}</3>",
+  "txCancelReplaceMarketOrderContent": "<0>{{owner}}</0> replaced market order ID <1>{{clientOrderId}}</1> with a new order for <2>{{destination}}</2> with <3>{{source}}</3>"
 }

@@ -76,3 +76,8 @@ type TagTheme = 'zero' |
 'eighteen' |
 'nineteen' |
 'twenty'
+
+type MsgCoin = {
+  denom: string;
+  amount: string | number;
+}

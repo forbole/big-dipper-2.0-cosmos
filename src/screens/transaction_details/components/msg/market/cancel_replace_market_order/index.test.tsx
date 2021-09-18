@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgMultiSend } from '@models';
-import Multisend from '.';
+import { MsgCancelReplaceMarketOrder } from '@models';
+import CancelReplaceMarketOrder from '.';
 
 // ==================================
 // mocks
@@ -23,46 +23,24 @@ jest.mock('@components', () => ({
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/MsgMultiSend', () => {
+describe('screen: TransactionDetails/CancelReplaceMarketOrder', () => {
   it('matches snapshot', () => {
-    const message = new MsgMultiSend({
-      category: 'bank',
-      type: 'MsgMultiSend',
-      inputs: [
-        {
-          address: 'address',
-          coins: [
-            {
-              denom: 'udaric',
-              amount: '20000000',
-            },
-          ],
-        },
-      ],
-      outputs: [
-        {
-          address: 'output1',
-          coins: [
-            {
-              denom: 'udaric',
-              amount: '19000000',
-            },
-          ],
-        },
-        {
-          address: 'output2',
-          coins: [
-            {
-              denom: 'udaric',
-              amount: '1000000',
-            },
-          ],
-        },
-      ],
+    const message = new MsgCancelReplaceMarketOrder({
+      category: 'market',
+      type: 'MsgCancelReplaceMarketOrder',
+      owner: 'owner',
+      originalClientOrderId: 'originalClientOrderId',
+      newClientOrderId: 'newClientOrderId',
+      timeInForce: 'Unspecified',
+      source: 'source',
+      destination: {
+        denom: 'udarics',
+        amount: 500000,
+      },
     });
     const component = renderer.create(
       <MockTheme>
-        <Multisend
+        <CancelReplaceMarketOrder
           message={message}
         />
       </MockTheme>,
