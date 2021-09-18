@@ -31,15 +31,10 @@ const Transfer = (props: {
               name={senderMoniker}
             />
           ),
-          (
-            <Name
-              address={message.receiver}
-              name={receiverMoniker}
-            />
-          ),
           <b />,
         ]}
         values={{
+          receiver: receiverMoniker,
           token,
           sourceChannel: message.sourceChannel,
         }}

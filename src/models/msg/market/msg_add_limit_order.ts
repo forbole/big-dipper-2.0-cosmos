@@ -34,8 +34,8 @@ class MsgAddLimitOrder {
         amount: R.pathOr('', ['source', 'amount'], json),
       },
       destination: {
-        denom: R.pathOr('', ['source', 'denom'], json),
-        amount: R.pathOr(0, ['source', 'amount'], json),
+        denom: R.pathOr('', ['destination', 'denom'], json),
+        amount: R.pathOr(0, ['destination', 'amount'], json),
       },
     });
   }
