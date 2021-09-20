@@ -1,6 +1,7 @@
-# Unreleased
+# likecoin-v1.2.0 - 2021-09-20
 ## Changes
 - Add iscn params and page ([\#301](https://github.com/forbole/big-dipper-2.0-cosmos/issues/301))
+- Merge `base-v1.2.0`
 
 # likecoin-v1.1.0 - 2021-09-13
 ## Changes
