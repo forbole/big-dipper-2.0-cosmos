@@ -65,6 +65,13 @@ import MsgVersion from './msg/ibc/msg_connection_version';
 import MsgTransfer from './msg/ibc_transfer/msg_transfer';
 import MsgSwap from './msg/market/msg_swap';
 import MsgSwapSend from './msg/market/msg_swap_send';
+import MsgStoreCode from './msg/wasm/msg_store_code';
+import MsgMigrateCode from './msg/wasm/msg_migrate_code';
+import MsgInstantiateContract from './msg/wasm/msg_instantiate_contract';
+import MsgExecuteContract from './msg/wasm/msg_execute_contract';
+import MsgMigrateContract from './msg/wasm/msg_migrate_contract';
+import MsgUpdateContractAdmin from './msg/wasm/msg_update_contract_admin';
+import MsgClearContractAdmin from './msg/wasm/msg_clear_contract_admin';
 
 export {
   BigDipperNetwork,
@@ -134,4 +141,11 @@ export {
   MsgTransfer,
   MsgSwap,
   MsgSwapSend,
+  MsgStoreCode,
+  MsgMigrateCode,
+  MsgInstantiateContract,
+  MsgExecuteContract,
+  MsgMigrateContract,
+  MsgUpdateContractAdmin,
+  MsgClearContractAdmin,
 };
