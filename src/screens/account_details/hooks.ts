@@ -382,16 +382,18 @@ export const useAccountDetails = () => {
     // ============================
     const formatRedelegations = () => {
       const redelegations = data.account[0].redelegations.map((x) => {
-        const to = findAddress(findOperator(x.to));
-        const from = findAddress(findOperator(x.from));
+        const toValidator = findOperator(x.to);
+        const to = findAddress(toValidator);
+        const fromValidator = findOperator(x.from);
+        const from = findAddress(fromValidator);
         return ({
           to: {
-            address: x.to,
+            address: toValidator,
             imageUrl: to.imageUrl,
             name: to.moniker,
           },
           from: {
-            address: x.from,
+            address: fromValidator,
             imageUrl: from.imageUrl,
             name: from.moniker,
           },

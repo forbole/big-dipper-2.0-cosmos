@@ -27,7 +27,7 @@ const DataBlocks: React.FC<{
     },
     {
       key: t('price'),
-      value: state.price > 0 ? `$${numeral(state.price).format('0.00')}` : 'N/A',
+      value: state.price !== null ? `$${numeral(state.price).format('0.00')}` : 'N/A',
       className: classes.price,
     },
     {
