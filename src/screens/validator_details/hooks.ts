@@ -337,18 +337,20 @@ export const useValidatorDetails = () => {
     const formatRedelegations = () => {
       const redelegations = [
         ...data.validator[0].redelegationsByDstValidatorAddress.map((x) => {
-          const to = findAddress(findOperator(x.to));
-          const from = findAddress(findOperator(x.from));
+          const toValidator = findOperator(x.to);
+          const to = findAddress(toValidator);
+          const fromValidator = findOperator(x.from);
+          const from = findAddress(fromValidator);
           const delegator = findAddress(x.delegatorAddress);
 
           return ({
             to: {
-              address: x.to,
+              address: toValidator,
               imageUrl: to.imageUrl,
               name: to.moniker,
             },
             from: {
-              address: x.from,
+              address: fromValidator,
               imageUrl: from.imageUrl,
               name: from.moniker,
             },
@@ -362,17 +364,19 @@ export const useValidatorDetails = () => {
           });
         }),
         ...data.validator[0].redelegationsBySrcValidatorAddress.map((x) => {
-          const to = findAddress(findOperator(x.to));
-          const from = findAddress(findOperator(x.from));
+          const toValidator = findOperator(x.to);
+          const to = findAddress(toValidator);
+          const fromValidator = findOperator(x.from);
+          const from = findAddress(fromValidator);
           const delegator = findAddress(x.delegatorAddress);
           return ({
             to: {
-              address: x.to,
+              address: toValidator,
               imageUrl: to.imageUrl,
               name: to.moniker,
             },
             from: {
-              address: x.from,
+              address: fromValidator,
               imageUrl: from.imageUrl,
               name: from.moniker,
             },
