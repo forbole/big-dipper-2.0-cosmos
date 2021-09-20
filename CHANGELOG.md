@@ -1,9 +1,14 @@
-# Unreleased
+# base-v1.2.0 - 2021-09-20
 
 ## Changes
 - Update price and market cap display ([\#322](https://github.com/forbole/big-dipper-2.0-cosmos/issues/322))
 ## Bug fixes
 - Fix account and validator details redelegation linking consensus address ([\#323](https://github.com/forbole/big-dipper-2.0-cosmos/issues/323))
+
+# base-v1.1.1 - 2021-09-17
+
+## Hotfix
+- Fixed display error with previous delegation rewards also adding to total rewards balance
 
 # base-v1.1.0 - 2021-09-13
 
