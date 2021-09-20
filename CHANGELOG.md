@@ -1,4 +1,4 @@
-# Unreleased
+# base-v1.2.0 - 2021-09-20
 
 ## Changes
 - Update price and market cap display ([\#322](https://github.com/forbole/big-dipper-2.0-cosmos/issues/322))
