@@ -1,11 +1,12 @@
 import * as R from 'ramda';
 import { Categories } from '../types';
 
-class MsgSwap {
+class MsgSwapSend {
   public category: Categories;
   public type: string;
   public json: any;
-  public trader: string;
+  public fromAddress: string;
+  public toAddress: string;
   public offerCoin: MsgCoin;
   public askDenom: string;
 
@@ -13,16 +14,18 @@ class MsgSwap {
     this.category = 'market';
     this.type = payload.type;
     this.json = payload.json;
-    this.trader = payload.trader;
+    this.fromAddress = payload.fromAddress;
+    this.toAddress = payload.toAddress;
     this.offerCoin = payload.offerCoin;
     this.askDenom = payload.askDenom;
   }
 
   static fromJson(json: any) {
-    return new MsgSwap({
+    return new MsgSwapSend({
       json,
       type: json['@type'],
-      trader: json.trader,
+      fromAddress: R.pathOr('', ['from_address'], json),
+      toAddress: R.pathOr('', ['to_address'], json),
       offerCoin: {
         denom: R.pathOr('', ['offer_coin', 'denom'], json),
         amount: R.pathOr(0, ['offer_coin', 'amount'], json),
@@ -32,4 +35,4 @@ class MsgSwap {
   }
 }
 
-export default MsgSwap;
+export default MsgSwapSend;
