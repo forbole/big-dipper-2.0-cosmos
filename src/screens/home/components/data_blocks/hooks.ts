@@ -16,7 +16,7 @@ export const useDataBlocks = () => {
   const [state, setState] = useState<{
     blockHeight: number;
     blockTime: number;
-    price: number;
+    price: number | null;
     validators: {
       active: number;
       total: number;
@@ -24,7 +24,7 @@ export const useDataBlocks = () => {
   }>({
     blockHeight: 0,
     blockTime: 0,
-    price: 0,
+    price: null,
     validators: {
       active: 0,
       total: 0,

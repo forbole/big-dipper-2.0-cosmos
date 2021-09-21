@@ -6,10 +6,11 @@ export const formatMarket = (data: {
   supply: TokenUnit;
   inflation: number;
 }) => {
+  const marketCap = data.marketCap !== null ? `$${numeral(data.marketCap).format('0,0.[00]')}` : 'N/A';
   return ([
     {
       key: 'marketCap',
-      data: `$${numeral(data.marketCap).format('0,0.[00]')}`,
+      data: marketCap,
     },
     {
       key: 'inflation',
