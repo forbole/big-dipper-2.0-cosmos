@@ -72,6 +72,9 @@ import MsgExecuteContract from './msg/wasm/msg_execute_contract';
 import MsgMigrateContract from './msg/wasm/msg_migrate_contract';
 import MsgUpdateContractAdmin from './msg/wasm/msg_update_contract_admin';
 import MsgClearContractAdmin from './msg/wasm/msg_clear_contract_admin';
+import MsgAggregateExchangeRateVote from './msg/oracle/msg_aggregate_exchange_rate_vote';
+import MsgAggregateExchangeRatePrevote from './msg/oracle/msg_aggregate_exchange_rate_prevote';
+import MsgDelegateFeedConsent from './msg/oracle/msg_delegate_feed_consent';
 
 export {
   BigDipperNetwork,
@@ -148,4 +151,7 @@ export {
   MsgMigrateContract,
   MsgUpdateContractAdmin,
   MsgClearContractAdmin,
+  MsgAggregateExchangeRateVote,
+  MsgAggregateExchangeRatePrevote,
+  MsgDelegateFeedConsent,
 };
