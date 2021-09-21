@@ -34,10 +34,10 @@ jobs:
           NODE_ENV="production"
           PORT=3000
           if [[ $GITHUB_REF == refs/tags/emoney-3-v* ]]; then
-            NEXT_PUBLIC_GRAPHQL_URL="https://gql.morpheus.desmos.network/v1/graphql"
-            NEXT_PUBLIC_GRAPHQL_WS="wss://gql.morpheus.desmos.network/v1/graphql"
-            NEXT_PUBLIC_URL="https://morpheus.desmos.network"
-            NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.morpheus.desmos.network/websocket"
+            NEXT_PUBLIC_GRAPHQL_URL="https://gql.emoney.forbole.com/v1/graphql"
+            NEXT_PUBLIC_GRAPHQL_WS="wss://gql.emoney.forbole.com/v1/graphql"
+            NEXT_PUBLIC_URL="https://emoney.bigdipper.live"
+            NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.emoney.forbole.com/websocket"
             NEXT_PUBLIC_CHAIN_STATUS="mainnet"
           fi
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
