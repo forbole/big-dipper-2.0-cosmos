@@ -1,6 +1,6 @@
 {
   "title": "Band Protocol Block Explorer",
-  "network": "desmos-mainnet-1",
+  "network": "laozi-mainnet",
   "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/band/icon.svg?sanitize=true",
   "logo": {
     "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/band/logo.svg?sanitize=true"
