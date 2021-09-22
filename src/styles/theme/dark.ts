@@ -1,6 +1,6 @@
-const backgroundDefault = '#000000';
-const surfaceOne = '#131316';
-const surfaceTwo = '#212123';
+const backgroundDefault = '#13141D';
+const surfaceOne = '#1A202B';
+const surfaceTwo = '#222A39';
 const fontOne = '#E6E6E6';
 const fontTwo = '#C4C4C4';
 const fontThree = '#818181';
@@ -41,6 +41,7 @@ export const darkThemeOverride = {
         fontTwo,
         fontThree,
         fontFour: '#999999',
+        highlight: '#3BA8F7',
       },
       primaryData: {
         one: '#4AA6AE',
