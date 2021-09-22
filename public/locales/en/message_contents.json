@@ -49,5 +49,12 @@
   "txVersionContent": "<0>{{signer}}</0> submitted IBC version",
   "txTransferContent": "<0>{{sender}}</0> sent <2>{{token}}</2> via IBC transfer from source channel <2>{{sourceChannel}}</2> to <1>{{receiver}}</1>",
   "txTimeoutContent": "<0>{{signer}}</0> IBC timeout",
-  "txTimeoutOnCloseContent": "<0>{{signer}}</0> IBC timeout on close"
+  "txTimeoutOnCloseContent": "<0>{{signer}}</0> IBC timeout on close",
+  "txRequestData": "<0>{{sender}}</0> requested data on <1>{{oracleScriptId}}</1>",
+  "txReportData": "<0>{{validator}}</0> requested report on <1>{{reportId}}</1>",
+  "txCreateDataSource": "<0>{{sender}}</0> created data report <1>{{name}}</1>",
+  "txEditDataSource": "<0>{{sender}}</0> edited data report <1>{{name}}</1>",
+  "txCreateOracleScript": "<0>{{sender}}</0> created oracle script <1>{{name}}</1>",
+  "txEditOracleScript": "<0>{{sender}}</0> edited oracle script <1>{{name}}</1>",
+  "txActivate": "<0>{{validator}}</0> activated as an oracle provider"
 }

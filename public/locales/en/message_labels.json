@@ -49,11 +49,11 @@
   "txConnectionEndLabel": "IBC Connection End",
   "txVersionLabel": "IBC Version",
   "txTransferLabel": "IBC Transfer",
-  "txRequestDataLabel": "Request Data",
-  "txReportDataLabel": "Report Data",
-  "txCreateDataSourceLabel": "Create Data Source",
-  "txEditDataSourceLabel": "Edit Data Source",
-  "txCreateOracleScriptLabel": "Create Oracle Script",
-  "txEditOracleScriptLabel": "Edit Oracle Script",
-  "txActivateLabel": "Activate"
+  "txRequestData": "Request Data",
+  "txReportData": "Report Data",
+  "txCreateDataSource": "Create Data Source",
+  "txEditDataSource": "Edit Data Source",
+  "txCreateOracleScript": "Create Oracle Script",
+  "txEditOracleScript": "Edit Oracle Script",
+  "txActivate": "Activate"
 }
