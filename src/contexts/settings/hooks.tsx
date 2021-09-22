@@ -25,14 +25,14 @@ export const useTheme = (initialState:ThemeState) => {
   const [themeSelection, setThemeSelection] = usePersistedState('themeSelection', initialState.themeSelection);
 
   const themeList = [
-    'light',
+    // 'light',
     'dark',
     'deuteranopia',
     'tritanopia',
   ];
 
   const themeDictionary = {
-    light: lightTemplate,
+    // light: lightTemplate,
     dark: darkTemplate,
     deuteranopia: deuteranopiaTemplate,
     tritanopia: tritanopiaTemplate,
@@ -50,7 +50,7 @@ export const useTheme = (initialState:ThemeState) => {
     } else if (themeDictionary[themeSelection]) {
       setTheme(themeSelection as Theme);
     } else {
-      setTheme('light');
+      setTheme('dark');
     }
   }, [themeSelection]);
 

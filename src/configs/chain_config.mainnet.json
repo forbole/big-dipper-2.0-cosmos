@@ -1,23 +1,23 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "desmos-mainnet-1",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
+  "title": "Band Protocol Block Explorer",
+  "network": "laozi-mainnet",
+  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/band/icon.svg?sanitize=true",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
+    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/band/logo.svg?sanitize=true"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "bandvalcons",
+    "validator": "bandvaloper",
+    "account": "band"
   },
   "genesis": {
     "time": "2021-07-13T08:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udsm",
+  "primaryTokenUnit": "uband",
   "tokenUnits": {
-    "udsm": {
-      "display": "dsm",
+    "uband": {
+      "display": "band",
       "exponent": 6
     }
   },
