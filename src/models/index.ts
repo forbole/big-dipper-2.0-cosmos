@@ -63,6 +63,13 @@ import MsgConnectionOpenTry from './msg/ibc/msg_connection_open_try';
 import MsgCounterpartyConnection from './msg/ibc/msg_connection_counterparty';
 import MsgVersion from './msg/ibc/msg_connection_version';
 import MsgTransfer from './msg/ibc_transfer/msg_transfer';
+import MsgRequestData from './msg/oracle/msg_request_data';
+import MsgReportData from './msg/oracle/msg_report_data';
+import MsgCreateDataSource from './msg/oracle/msg_create_data_source';
+import MsgEditDataSource from './msg/oracle/msg_edit_data_source';
+import MsgCreateOracleScript from './msg/oracle/msg_create_oracle_script';
+import MsgEditOracleScript from './msg/oracle/msg_edit_oracle_script';
+import MsgActivate from './msg/oracle/msg_activate';
 
 export {
   BigDipperNetwork,
@@ -130,4 +137,11 @@ export {
   MsgCounterpartyConnection,
   MsgVersion,
   MsgTransfer,
+  MsgRequestData,
+  MsgReportData,
+  MsgCreateDataSource,
+  MsgEditDataSource,
+  MsgCreateOracleScript,
+  MsgEditOracleScript,
+  MsgActivate,
 };
