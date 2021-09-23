@@ -21,9 +21,17 @@ class MsgBurnTokens {
         json,
         type: json['@type'],
         liquidityProvider: json.liquidityProvider,
+        // amount: R.pathOr([], [{
+        //   denom: R.pathOr('', ['destination', 'denom'], json),
+        //   amount: R.pathOr('', ['destination', 'amount'], json),
+        // }], json),
+        // amount: [[], [{
+        //   denom: R.pathOr('', ['destination', 'denom'], json),
+        //   amount: R.pathOr('', ['destination', 'amount'], json),
+        // }], json],
         amount: R.pathOr([], [{
-          denom: R.pathOr('', ['destination', 'denom'], json),
-          amount: R.pathOr('', ['destination', 'amount'], json),
+          denom: ['destination', 'denom'],
+          amount: ['destination', 'amount'],
         }], json),
       });
     }
