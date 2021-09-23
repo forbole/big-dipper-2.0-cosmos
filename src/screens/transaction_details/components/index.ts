@@ -52,6 +52,9 @@ import ConnectionOpenTry from './msg/ibc/connection_open_try';
 import CounterpartyConnection from './msg/ibc/connection_counterparty';
 import Version from './msg/ibc/connection_version';
 import Transfer from './msg/ibc_transfer/transfer';
+import RequestData from './msg/oracle/request_data';
+import ReportData from './msg/oracle/report_data';
+import CreateDataSource from './msg/oracle/create_data_source';
 
 export {
   Overview,
@@ -112,4 +115,7 @@ export {
   CounterpartyConnection,
   Version,
   Transfer,
+  RequestData,
+  ReportData,
+  CreateDataSource,
 };
