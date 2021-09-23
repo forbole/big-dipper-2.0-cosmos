@@ -16,31 +16,37 @@ const MintTokens = (props: {
   const liquidityProvider = findAddress(message.liquidityProvider);
   const liqdPvdMoniker = liquidityProvider ? liquidityProvider?.moniker : message.liquidityProvider;
 
-  const amount = message.amount;
-  const amount = formatDenom(message.amount.amount, message.amount.denom);
-  const denom = message.denominations;
-  const parsedDenom = denom.reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t(' and ')} `) + value);
+  const amountBeforeParse = message.amount;
+  const parsedAmount = amountBeforeParse.map((x) => {
+    const eachAmount = formatDenom(x.amount, x.denom);
+    return `${numeral(eachAmount.value).format('0,0.[000000]')} ${eachAmount.denom.toUpperCase()}`;
+  });
 
   return (
     <Typography>
-      <Trans
-        i18nKey="message_contents:txMintTokens"
-        components={[
-          (
-            <Name
-              address={message.liquidityProvider}
-              name={liqdPvdMoniker}
+      {
+        parsedAmount.map((x) => {
+          return (
+            <Trans
+              i18nKey="message_contents:txMintTokens"
+              components={[
+                (
+                  <Name
+                    address={message.liquidityProvider}
+                    name={liqdPvdMoniker}
+                  />
+                ),
+                <b />,
+                <b />,
+                <b />,
+              ]}
+              values={{
+                amount: x,
+              }}
             />
-          ),
-          <b />,
-          <b />,
-          <b />,
-        ]}
-        values={{
-        //   amount: message.amount,
-          amount: `${numeral(amount.value).format('0,0.[000000]')} ${amount.denom.toUpperCase()}`,
-        }}
-      />
+          );
+        })
+      }
     </Typography>
   );
 };
