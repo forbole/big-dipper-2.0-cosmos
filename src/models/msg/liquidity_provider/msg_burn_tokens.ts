@@ -21,7 +21,7 @@ class MsgBurnTokens {
         json,
         type: json['@type'],
         liquidityProvider: json.liquidityProvider,
-        issuer: R.pathOr('', ['issuer'], json),
+        amount: R.pathOr('', ['issuer'], json),
       });
     }
 }

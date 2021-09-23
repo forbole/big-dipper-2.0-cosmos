@@ -6,7 +6,7 @@ class MsgMintTokens {
     public type: string;
     public json: any;
     public liquidityProvider: string;
-    public amount: string;
+    public amount: MsgCoin;
 
     constructor(payload: any) {
       this.category = 'liquidityProvider';
@@ -21,7 +21,10 @@ class MsgMintTokens {
         json,
         type: json['@type'],
         liquidityProvider: json.liquidityProvider,
-        issuer: R.pathOr('', ['issuer'], json),
+        amount: {
+          denom: R.pathOr('', ['destination', 'denom'], json),
+          amount: R.pathOr('', ['destination', 'amount'], json),
+        },
       });
     }
 }
