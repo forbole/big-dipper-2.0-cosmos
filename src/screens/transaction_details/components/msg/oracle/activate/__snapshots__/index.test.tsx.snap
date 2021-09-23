@@ -4,6 +4,6 @@ exports[`screen: TransactionDetails/Activate matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1"
 >
-  message_contents:txCreateDataSource
+  message_contents:txActivate
 </p>
 `;

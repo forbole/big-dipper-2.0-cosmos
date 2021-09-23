@@ -18,7 +18,7 @@ const Activate = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txCreateDataSource"
+        i18nKey="message_contents:txActivate"
         components={[
           (
             <Name
