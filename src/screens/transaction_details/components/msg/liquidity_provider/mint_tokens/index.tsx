@@ -4,11 +4,11 @@ import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { formatDenom } from '@utils/format_denom';
-import { MsgBurnTokens } from '@models';
+import { MsgMintTokens } from '@models';
 import { useChainContext } from '@contexts';
 
-const BurnTokens = (props: {
-  message: MsgBurnTokens;
+const MintTokens = (props: {
+  message: MsgMintTokens;
 }) => {
   const { findAddress } = useChainContext();
   const { message } = props;
@@ -19,7 +19,7 @@ const BurnTokens = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txBurnTokens"
+        i18nKey="message_contents:txMintTokens"
         components={[
           (
             <Name
@@ -32,12 +32,12 @@ const BurnTokens = (props: {
           <b />,
         ]}
         values={{
-          amount: message.amount,
-          // amount: `${numeral(amount.value).format('0,0.[000000]')} ${amount.denom.toUpperCase()}`,
+        //   amount: message.amount,
+          amount: `${numeral(amount.value).format('0,0.[000000]')} ${amount.denom.toUpperCase()}`,
         }}
       />
     </Typography>
   );
 };
 
-export default BurnTokens;
+export default MintTokens;

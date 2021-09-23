@@ -6,7 +6,7 @@ class MsgBurnTokens {
     public type: string;
     public json: any;
     public liquidityProvider: string;
-    public amount: string;
+    public amount: MsgCoin[];
 
     constructor(payload: any) {
       this.category = 'liquidityProvider';
@@ -21,7 +21,10 @@ class MsgBurnTokens {
         json,
         type: json['@type'],
         liquidityProvider: json.liquidityProvider,
-        amount: R.pathOr('', ['issuer'], json),
+        amount: R.pathOr([], [{
+          denom: R.pathOr('', ['destination', 'denom'], json),
+          amount: R.pathOr('', ['destination', 'amount'], json),
+        }], json),
       });
     }
 }
