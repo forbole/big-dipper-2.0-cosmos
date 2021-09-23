@@ -300,63 +300,50 @@ const getDataByType = (type: string) => {
   // =====================================
   const customTypeToModel = {
     // ========================
-    // profiles
+    // oracle
     // ========================
-    '/desmos.profiles.v1beta1.MsgSaveProfile': {
-      model: MODELS.MsgSaveProfile,
-      content: COMPONENTS.SaveProfile,
+    '/oracle.v1.MsgRequestData': {
+      model: MODELS.MsgRequestData,
+      content: COMPONENTS.RequestData,
       tagTheme: 'four',
-      tagDisplay: 'txSaveProfileLabel',
+      tagDisplay: 'txRequestData',
     },
-    '/desmos.profiles.v1beta1.MsgDeleteProfile': {
-      model: MODELS.MsgDeleteProfile,
-      content: COMPONENTS.DeleteProfile,
+    '/oracle.v1.MsgReportData': {
+      model: MODELS.MsgReportData,
+      content: COMPONENTS.ReportData,
       tagTheme: 'four',
-      tagDisplay: 'txDeleteProfileLabel',
+      tagDisplay: 'txReportData',
     },
-    '/desmos.profiles.v1beta1.MsgCreateRelationship': {
-      model: MODELS.MsgCreateRelationship,
-      content: COMPONENTS.CreateRelationship,
+    '/oracle.v1.MsgCreateDataSource': {
+      model: MODELS.MsgCreateDataSource,
+      content: COMPONENTS.CreateDataSource,
       tagTheme: 'four',
-      tagDisplay: 'txCreateRelationshipLabel',
+      tagDisplay: 'txCreateDataSource',
     },
-    '/desmos.profiles.v1beta1.MsgRequestDTagTransfer': {
-      model: MODELS.MsgDtagTransferRequest,
-      content: COMPONENTS.DtagTransferRequest,
+    '/oracle.v1.MsgEditDataSource': {
+      model: MODELS.MsgEditDataSource,
+      content: COMPONENTS.EditDataSource,
       tagTheme: 'four',
-      tagDisplay: 'txRequestDTagTransferLabel',
+      tagDisplay: 'txEditDataSource',
     },
-    '/desmos.profiles.v1beta1.MsgAcceptDTagTransfer': {
-      model: MODELS.MsgDtagAcceptTransfer,
-      content: COMPONENTS.DtagAcceptTransfer,
+    '/oracle.v1.MsgCreateOracleScript': {
+      model: MODELS.MsgCreateOracleScript,
+      content: COMPONENTS.CreateOracleScript,
       tagTheme: 'four',
-      tagDisplay: 'txAcceptDTagTransferLabel',
+      tagDisplay: 'txCreateOracleScript',
     },
-    '/desmos.profiles.v1beta1.MsgCancelDTagTransfer': {
-      model: MODELS.MsgDtagCancelTransfer,
-      content: COMPONENTS.DtagCancelTransfer,
+    '/oracle.v1.MsgEditOracleScript': {
+      model: MODELS.MsgEditOracleScript,
+      content: COMPONENTS.EditOracleScript,
       tagTheme: 'four',
-      tagDisplay: 'txCancelDTagTransferLabel',
+      tagDisplay: 'txEditOracleScript',
     },
-    '/desmos.profiles.v1beta1.MsgRefuseDTagTransfer': {
-      model: MODELS.MsgDtagRefuseTransfer,
-      content: COMPONENTS.DtagRefuseTransfer,
+    '/oracle.v1.MsgActivate': {
+      model: MODELS.MsgActivate,
+      content: COMPONENTS.Activate,
       tagTheme: 'four',
-      tagDisplay: 'txRefuseDTagTransferLabel',
+      tagDisplay: 'txActivate',
     },
-    '/desmos.profiles.v1beta1.MsgBlockUser': {
-      model: MODELS.MsgBlockUser,
-      content: COMPONENTS.BlockUser,
-      tagTheme: 'four',
-      tagDisplay: 'txBlockUserLabel',
-    },
-    '/desmos.profiles.v1beta1.MsgUnblockUser': {
-      model: MODELS.MsgUnblockUser,
-      content: COMPONENTS.UnBlockUser,
-      tagTheme: 'four',
-      tagDisplay: 'txUnblockUserLabel',
-    },
-
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];
