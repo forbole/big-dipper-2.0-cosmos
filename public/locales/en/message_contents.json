@@ -55,5 +55,7 @@
   "txAddMarketOrderContent": "<0>{{owner}}</0> created market order ID <1>{{clientOrderId}}</1> for <2>{{destination}}</2> with <3>{{source}}</3>",
   "txCancelOrderContent": "<0>{{owner}}</0> cancelled order ID <1>{{clientOrderId}}</1>",
   "txCancelReplaceLimitOrderContent": "<0>{{owner}}</0> replaced limit order ID <1>{{clientOrderId}}</1> with a new order for <2>{{destination}}</2> with <3>{{source}}</3>",
-  "txCancelReplaceMarketOrderContent": "<0>{{owner}}</0> replaced market order ID <1>{{clientOrderId}}</1> with a new order for <2>{{destination}}</2> with <3>{{source}}</3>"
+  "txCancelReplaceMarketOrderContent": "<0>{{owner}}</0> replaced market order ID <1>{{clientOrderId}}</1> with a new order for <2>{{destination}}</2> with <3>{{source}}</3>",
+  "txMintTokens": "<0>{{liquidityProvider}}</0> Mint <1>{{amount}}</1>",
+  "txBurnTokens": "<0>{{liquidityProvider}}</0> Burn <1>{{amount}}</1>"
 }
