@@ -2,11 +2,11 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
-import { MsgCreateDataSource } from '@models';
+import { MsgEditDataSource } from '@models';
 import { useChainContext } from '@contexts';
 
-const CreateDataSource = (props: {
-  message: MsgCreateDataSource;
+const EditDataSource = (props: {
+  message: MsgEditDataSource;
 }) => {
   const { findAddress } = useChainContext();
   const { message } = props;
@@ -18,7 +18,7 @@ const CreateDataSource = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txCreateDataSource"
+        i18nKey="message_contents:txEditDataSource"
         components={[
           (
             <Name
@@ -38,4 +38,4 @@ const CreateDataSource = (props: {
   );
 };
 
-export default CreateDataSource;
+export default EditDataSource;
