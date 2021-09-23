@@ -398,6 +398,21 @@ const getDataByType = (type: string) => {
       tagTheme: 'fourteen',
       tagDisplay: 'txCancelReplaceMarketOrderLabel',
     },
+    // ========================
+    // liquidity provider
+    // ========================
+    '/em.liquidityprovider.v1.MsgMintTokens': {
+      model: MODELS.MsgMintTokens,
+      content: COMPONENTS.MintTokens,
+      tagTheme: 'fifteen',
+      tagDisplay: 'txMintTokens',
+    },
+    '/em.liquidityprovider.v1.MsgBurnTokens': {
+      model: MODELS.MsgBurnTokens,
+      content: COMPONENTS.BurnTokens,
+      tagTheme: 'fifteen',
+      tagDisplay: 'txBurnTokens',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];
