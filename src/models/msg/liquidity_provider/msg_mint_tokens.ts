@@ -21,10 +21,12 @@ class MsgMintTokens {
         json,
         type: json['@type'],
         liquidityProvider: json.liquidityProvider,
-        amount: R.pathOr([], [{
-          denom: R.pathOr('', ['destination', 'denom'], json),
-          amount: R.pathOr('', ['destination', 'amount'], json),
-        }], json),
+        amount: R.pathOr([], ['amount'], json).map((x) => {
+          return ({
+            denom: R.pathOr('', ['denom'], x),
+            amount: R.pathOr('0', ['amount'], x),
+          });
+        }),
       });
     }
 }

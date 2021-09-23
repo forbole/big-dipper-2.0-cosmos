@@ -12,9 +12,14 @@ const MintTokens = (props: {
 }) => {
   const { findAddress } = useChainContext();
   const { message } = props;
+
   const liquidityProvider = findAddress(message.liquidityProvider);
   const liqdPvdMoniker = liquidityProvider ? liquidityProvider?.moniker : message.liquidityProvider;
+
+  const amount = message.amount;
   const amount = formatDenom(message.amount.amount, message.amount.denom);
+  const denom = message.denominations;
+  const parsedDenom = denom.reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t(' and ')} `) + value);
 
   return (
     <Typography>
