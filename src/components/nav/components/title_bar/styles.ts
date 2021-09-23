@@ -24,7 +24,10 @@ export const useStyles = () => {
           },
         },
         logo: {
-          height: '56px',
+          height: '40px',
+          [theme.breakpoints.up('md')]: {
+            height: '46px',
+          },
           // width: '225px',
         },
         content: {
