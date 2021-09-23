@@ -54,5 +54,7 @@
   "txAddMarketOrderLabel": "Add Market Order",
   "txCancelOrderLabel": "Cancel Order",
   "txCancelReplaceLimitOrderLabel": "Replace Limit Order",
-  "txCancelReplaceMarketOrderLabel": "Replace Market Order"
+  "txCancelReplaceMarketOrderLabel": "Replace Market Order",
+  "txMintTokens": "Mint Tokens",
+  "txButnTokens": "Butn Tokens"
 }
