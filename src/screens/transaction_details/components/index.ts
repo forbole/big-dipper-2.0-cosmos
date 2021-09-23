@@ -55,6 +55,9 @@ import Transfer from './msg/ibc_transfer/transfer';
 import RequestData from './msg/oracle/request_data';
 import ReportData from './msg/oracle/report_data';
 import CreateDataSource from './msg/oracle/create_data_source';
+import CreateOracleScript from './msg/oracle/create_oracle_script';
+import EditOracleScript from './msg/oracle/edit_oracle_script';
+import Activate from './msg/oracle/activate';
 
 export {
   Overview,
@@ -118,4 +121,7 @@ export {
   RequestData,
   ReportData,
   CreateDataSource,
+  CreateOracleScript,
+  EditOracleScript,
+  Activate,
 };
