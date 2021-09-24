@@ -37,6 +37,14 @@ export const getFilterLabels = () => {
       display: 'authority',
     },
     {
+      key: 'market',
+      display: 'market',
+    },
+    {
+      key: 'liquidityProvider',
+      display: 'liquidityProvider',
+    },
+    {
       key: 'others',
       display: 'others',
     },
