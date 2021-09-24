@@ -31,5 +31,5 @@
   "raw": "Raw",
   "authority": "Authority",
   "market": "Market",
-  "liquidProvider": "Liquid Provider"
+  "liquidityProvider": "Liquidity Provider"
 }
