@@ -37,8 +37,6 @@ const MintTokens = (props: {
             />
           ),
           <b />,
-          <b />,
-          <b />,
         ]}
         values={{
           amount: finalData,

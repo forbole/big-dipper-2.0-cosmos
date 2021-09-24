@@ -37,8 +37,6 @@ const BurnTokens = (props: {
             />
           ),
           <b />,
-          <b />,
-          <b />,
         ]}
         values={{
           amount: finalData,
