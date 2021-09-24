@@ -69,6 +69,8 @@ import MsgAddMarketOrder from './msg/market/msg_add_market_order';
 import MsgCancelOrder from './msg/market/msg_cancel_order';
 import MsgCancelReplaceLimitOrder from './msg/market/msg_cancel_replace_limit_order';
 import MsgCancelReplaceMarketOrder from './msg/market/msg_cancel_replace_market_order';
+import MsgMintTokens from './msg/liquidity_provider/msg_mint_tokens';
+import MsgBurnTokens from './msg/liquidity_provider/msg_burn_tokens';
 
 export {
   BigDipperNetwork,
@@ -142,4 +144,6 @@ export {
   MsgCancelOrder,
   MsgCancelReplaceLimitOrder,
   MsgCancelReplaceMarketOrder,
+  MsgMintTokens,
+  MsgBurnTokens,
 };

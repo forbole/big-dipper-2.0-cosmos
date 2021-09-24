@@ -58,6 +58,8 @@ import AddMarketOrder from './msg/market/add_market_order';
 import CancelOrder from './msg/market/cancel_order';
 import CancelReplaceLimitOrder from './msg/market/cancel_replace_limit_order';
 import CancelReplaceMarketOrder from './msg/market/cancel_replace_market_order';
+import MintTokens from './msg/liquidity_provider/mint_tokens';
+import BurnTokens from './msg/liquidity_provider/burn_tokens';
 
 export {
   Overview,
@@ -124,4 +126,6 @@ export {
   CancelOrder,
   CancelReplaceLimitOrder,
   CancelReplaceMarketOrder,
+  MintTokens,
+  BurnTokens,
 };

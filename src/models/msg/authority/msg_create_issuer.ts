@@ -5,7 +5,6 @@ class MsgCreateIssuer {
     public category: Categories;
     public type: string;
     public json: any;
-
     public authority: string;
     public issuer: string;
     public denominations: string[];
