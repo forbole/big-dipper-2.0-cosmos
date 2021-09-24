@@ -12,7 +12,7 @@ class MsgMintTokens {
       this.category = 'liquidityProvider';
       this.type = payload.type;
       this.json = payload.json;
-      this.liquidityProvider = payload.liquidity_provider;
+      this.liquidityProvider = payload.liquidityProvider;
       this.amount = payload.amount;
     }
 

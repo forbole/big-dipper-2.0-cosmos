@@ -20,7 +20,7 @@ class MsgBurnTokens {
       return new MsgBurnTokens({
         json,
         type: json['@type'],
-        liquidityProvider: json.liquidityProvider,
+        liquidityProvider: json.liquidity_provider,
         amount: R.pathOr([], ['amount'], json).map((x) => {
           return ({
             denom: R.pathOr('', ['denom'], x),
