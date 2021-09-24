@@ -4,6 +4,6 @@ exports[`screen: TransactionDetails/Swap matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1"
 >
-  message_contents:txBlockUserContent
+  message_contents:txSwap
 </p>
 `;

@@ -57,6 +57,6 @@
   "txInstantiateContract": "<0>{{sender}}</0> initiated contract with code ID <1>{{codeId}}</1>",
   "txExecuteContract": "<0>{{sender}}</0> executed contract <1>{{contract}}</1>",
   "txMigrateContract": "<0>{{admin}}</0> migrated contract <1>{{contract}}</1> to <1>{{newCodeId}}</1>",
-  "txUpdateContractAdmin": "<0>{{admin}}</0> updated contract admin to <1>{{newAdmin}}</1>",
+  "txUpdateContractAdmin": "<0>{{admin}}</0> updated contract <1>{{contract}}</1> admin to <2>{{newAdmin}}</2>",
   "txClearContractAdmin": "<0>{{admin}}</0> cleared admin on contract <1>{{contract}}</1>"
 }
