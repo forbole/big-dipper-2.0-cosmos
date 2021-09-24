@@ -52,6 +52,9 @@ import ConnectionOpenTry from './msg/ibc/connection_open_try';
 import CounterpartyConnection from './msg/ibc/connection_counterparty';
 import Version from './msg/ibc/connection_version';
 import Transfer from './msg/ibc_transfer/transfer';
+import Swap from './msg/market/swap';
+import SwapSend from './msg/market/swap_send';
+import StoreCode from './msg/wasm/store_code';
 
 export {
   Overview,
@@ -112,4 +115,7 @@ export {
   CounterpartyConnection,
   Version,
   Transfer,
+  Swap,
+  SwapSend,
+  StoreCode,
 };
