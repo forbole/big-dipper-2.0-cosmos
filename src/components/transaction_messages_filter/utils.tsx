@@ -29,8 +29,12 @@ export const getFilterLabels = () => {
       display: 'staking',
     },
     {
-      key: 'profiles',
-      display: 'profiles',
+      key: 'market',
+      display: 'market',
+    },
+    {
+      key: 'wasm',
+      display: 'wasm',
     },
     {
       key: 'others',
