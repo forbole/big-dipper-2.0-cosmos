@@ -1,5 +1,6 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
+import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
@@ -12,6 +13,7 @@ const BurnTokens = (props: {
 }) => {
   const { findAddress } = useChainContext();
   const { message } = props;
+  const { t } = useTranslation('transactions');
 
   const liquidityProvider = findAddress(message.liquidityProvider);
   const liqdPvdMoniker = liquidityProvider ? liquidityProvider?.moniker : message.liquidityProvider;
@@ -21,32 +23,27 @@ const BurnTokens = (props: {
     const eachAmount = formatDenom(x.amount, x.denom);
     return `${numeral(eachAmount.value).format('0,0.[000000]')} ${eachAmount.denom.toUpperCase()}`;
   });
+  const finalData = parsedAmount.reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t(' and ')} `) + value);
 
   return (
     <Typography>
-      {
-        parsedAmount.map((x) => {
-          return (
-            <Trans
-              i18nKey="message_contents:txBurnTokens"
-              components={[
-                (
-                  <Name
-                    address={message.liquidityProvider}
-                    name={liqdPvdMoniker}
-                  />
-                ),
-                <b />,
-                <b />,
-                <b />,
-              ]}
-              values={{
-                amount: x,
-              }}
+      <Trans
+        i18nKey="message_contents:txBurnTokens"
+        components={[
+          (
+            <Name
+              address={message.liquidityProvider}
+              name={liqdPvdMoniker}
             />
-          );
-        })
-      }
+          ),
+          <b />,
+          <b />,
+          <b />,
+        ]}
+        values={{
+          amount: finalData,
+        }}
+      />
     </Typography>
   );
 };
