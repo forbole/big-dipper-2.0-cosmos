@@ -26,11 +26,11 @@ jobs:
       - name: Prepare docker build env
         id: dockerPrep
         run: |
-          NEXT_PUBLIC_GRAPHQL_URL="https://gql-testnet.emoney.forbole.com/v1/graphql"
-          NEXT_PUBLIC_GRAPHQL_WS="wss://gql-testnet.emoney.forbole.com/v1/graphql"
-          NEXT_PUBLIC_URL="https://emoneystaging.bigdipper.live"
-          NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc-testnet.emoney.forbole.com/websocket"
-          NEXT_PUBLIC_CHAIN_STATUS="testnet"
+          NEXT_PUBLIC_GRAPHQL_URL="https://gql.emoney.forbole.com/v1/graphql"
+          NEXT_PUBLIC_GRAPHQL_WS="wss://gql.emoney.forbole.com/v1/graphql"
+          NEXT_PUBLIC_URL="https://emoney.bigdipper.live"
+          NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.emoney.forbole.com/websocket"
+          NEXT_PUBLIC_CHAIN_STATUS="mainnet"
           NODE_ENV="production"
           PORT=3000
           NEXT_PUBLIC_MATOMO_URL="https://analytics.bigdipper.live"
