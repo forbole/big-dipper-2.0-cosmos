@@ -300,63 +300,65 @@ const getDataByType = (type: string) => {
   // =====================================
   const customTypeToModel = {
     // ========================
-    // profiles
+    // market
     // ========================
-    '/desmos.profiles.v1beta1.MsgSaveProfile': {
-      model: MODELS.MsgSaveProfile,
-      content: COMPONENTS.SaveProfile,
+    '/terra.market.v1beta1.MsgSwap': {
+      model: MODELS.MsgSwap,
+      content: COMPONENTS.Swap,
       tagTheme: 'four',
-      tagDisplay: 'txSaveProfileLabel',
+      tagDisplay: 'txSwap',
     },
-    '/desmos.profiles.v1beta1.MsgDeleteProfile': {
-      model: MODELS.MsgDeleteProfile,
-      content: COMPONENTS.DeleteProfile,
+    '/terra.market.v1beta1.MsgSwapSend': {
+      model: MODELS.MsgSwapSend,
+      content: COMPONENTS.SwapSend,
       tagTheme: 'four',
-      tagDisplay: 'txDeleteProfileLabel',
+      tagDisplay: 'txSwapSend',
     },
-    '/desmos.profiles.v1beta1.MsgCreateRelationship': {
-      model: MODELS.MsgCreateRelationship,
-      content: COMPONENTS.CreateRelationship,
-      tagTheme: 'four',
-      tagDisplay: 'txCreateRelationshipLabel',
+    // ========================
+    // wasm
+    // ========================
+    '/terra.wasm.v1beta1.MsgStoreCode': {
+      model: MODELS.MsgStoreCode,
+      content: COMPONENTS.StoreCode,
+      tagTheme: 'eleven',
+      tagDisplay: 'txStoreCode',
     },
-    '/desmos.profiles.v1beta1.MsgRequestDTagTransfer': {
-      model: MODELS.MsgDtagTransferRequest,
-      content: COMPONENTS.DtagTransferRequest,
-      tagTheme: 'four',
-      tagDisplay: 'txRequestDTagTransferLabel',
+    '/terra.wasm.v1beta1.MsgMigrateCode': {
+      model: MODELS.MsgMigrateCode,
+      content: COMPONENTS.MigrateCode,
+      tagTheme: 'eleven',
+      tagDisplay: 'txMigrateCode',
     },
-    '/desmos.profiles.v1beta1.MsgAcceptDTagTransfer': {
-      model: MODELS.MsgDtagAcceptTransfer,
-      content: COMPONENTS.DtagAcceptTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txAcceptDTagTransferLabel',
+    '/terra.wasm.v1beta1.MsgInstantiateContract': {
+      model: MODELS.MsgInstantiateContract,
+      content: COMPONENTS.InstantiateContract,
+      tagTheme: 'eleven',
+      tagDisplay: 'txInstantiateContract',
     },
-    '/desmos.profiles.v1beta1.MsgCancelDTagTransfer': {
-      model: MODELS.MsgDtagCancelTransfer,
-      content: COMPONENTS.DtagCancelTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txCancelDTagTransferLabel',
+    '/terra.wasm.v1beta1.MsgExecuteContract': {
+      model: MODELS.MsgExecuteContract,
+      content: COMPONENTS.ExecuteContract,
+      tagTheme: 'eleven',
+      tagDisplay: 'txExecuteContract',
     },
-    '/desmos.profiles.v1beta1.MsgRefuseDTagTransfer': {
-      model: MODELS.MsgDtagRefuseTransfer,
-      content: COMPONENTS.DtagRefuseTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txRefuseDTagTransferLabel',
+    '/terra.wasm.v1beta1.MsgMigrateContract': {
+      model: MODELS.MsgMigrateContract,
+      content: COMPONENTS.MigrateContract,
+      tagTheme: 'eleven',
+      tagDisplay: 'txMigrateContract',
     },
-    '/desmos.profiles.v1beta1.MsgBlockUser': {
-      model: MODELS.MsgBlockUser,
-      content: COMPONENTS.BlockUser,
-      tagTheme: 'four',
-      tagDisplay: 'txBlockUserLabel',
+    '/terra.wasm.v1beta1.MsgUpdateContractAdmin': {
+      model: MODELS.MsgUpdateContractAdmin,
+      content: COMPONENTS.UpdateContractAdmin,
+      tagTheme: 'eleven',
+      tagDisplay: 'txUpdateContractAdmin',
     },
-    '/desmos.profiles.v1beta1.MsgUnblockUser': {
-      model: MODELS.MsgUnblockUser,
-      content: COMPONENTS.UnBlockUser,
-      tagTheme: 'four',
-      tagDisplay: 'txUnblockUserLabel',
+    '/terra.wasm.v1beta1.MsgClearContractAdmin': {
+      model: MODELS.MsgClearContractAdmin,
+      content: COMPONENTS.ClearContractAdmin,
+      tagTheme: 'eleven',
+      tagDisplay: 'txClearContractAdmin',
     },
-
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];
