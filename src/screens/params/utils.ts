@@ -165,7 +165,7 @@ export const formatGasPrice = (data: GasPrice, t: any) => {
     },
     {
       label: t('amount'),
-      detail: numeral(data.amount).format('0,0'),
+      detail: numeral(data.amount).format('0.00'),
     },
   ]);
 };
