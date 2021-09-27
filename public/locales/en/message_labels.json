@@ -48,5 +48,16 @@
   "txConnectionOpenTryLabel": "IBC Connection Open Try",
   "txConnectionEndLabel": "IBC Connection End",
   "txVersionLabel": "IBC Version",
-  "txTransferLabel": "IBC Transfer"
+  "txTransferLabel": "IBC Transfer",
+  "txSwap": "Swap",
+  "txSwapSend": "Swap Send",
+  "txStoreCode": "Store Code",
+  "txMigrateCode": "Migrate Code",
+  "txInstantiateContract": "Instantiate Contract",
+  "txExecuteContract": "Execute Contract",
+  "txMigrateContract": "Migrate Contract",
+  "txUpdateContractAdmin": "Update Contract Admin",
+  "txClearContractAdmin": "Clear Contract Admin",
+  "txAggregateExchangeRatePrevote": "Aggr. Exchange Rate Prevote",
+  "txAggregateExchangeRateVote": "Aggr. Exchange Rate Vote"
 }

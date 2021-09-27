@@ -52,6 +52,17 @@ import ConnectionOpenTry from './msg/ibc/connection_open_try';
 import CounterpartyConnection from './msg/ibc/connection_counterparty';
 import Version from './msg/ibc/connection_version';
 import Transfer from './msg/ibc_transfer/transfer';
+import Swap from './msg/market/swap';
+import SwapSend from './msg/market/swap_send';
+import StoreCode from './msg/wasm/store_code';
+import MigrateCode from './msg/wasm/migrate_code';
+import InstantiateContract from './msg/wasm/instantiate_contract';
+import ExecuteContract from './msg/wasm/execute_contract';
+import MigrateContract from './msg/wasm/migrate_contract';
+import UpdateContractAdmin from './msg/wasm/update_contract_admin';
+import ClearContractAdmin from './msg/wasm/clear_contract_admin';
+import AggregateExchangeRatePrevote from './msg/oracle/aggregate_exchange_rate_prevote';
+import AggregateExchangeRateVote from './msg/oracle/aggregate_exchange_rate_vote';
 
 export {
   Overview,
@@ -112,4 +123,15 @@ export {
   CounterpartyConnection,
   Version,
   Transfer,
+  Swap,
+  SwapSend,
+  StoreCode,
+  MigrateCode,
+  InstantiateContract,
+  ExecuteContract,
+  MigrateContract,
+  UpdateContractAdmin,
+  ClearContractAdmin,
+  AggregateExchangeRatePrevote,
+  AggregateExchangeRateVote,
 };

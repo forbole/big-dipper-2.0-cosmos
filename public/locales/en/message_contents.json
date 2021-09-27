@@ -49,5 +49,16 @@
   "txVersionContent": "<0>{{signer}}</0> submitted IBC version",
   "txTransferContent": "<0>{{sender}}</0> sent <2>{{token}}</2> via IBC transfer from source channel <2>{{sourceChannel}}</2> to <1>{{receiver}}</1>",
   "txTimeoutContent": "<0>{{signer}}</0> IBC timeout",
-  "txTimeoutOnCloseContent": "<0>{{signer}}</0> IBC timeout on close"
+  "txTimeoutOnCloseContent": "<0>{{signer}}</0> IBC timeout on close",
+  "txSwap": "<0>{{trader}}</0> swapped <1>{{offerCoin}}</1> for <1>{{askDenom}}</1>",
+  "txSwapSend": "<0>{{fromAddress}}</0> swapped <1>{{offerCoin}}</1> for <1>{{askDenom}}</1> with <2>{{toAddress}}</2>",
+  "txStoreCode": "<0>{{sender}}</0> stored code",
+  "txMigrateCode": "<0>{{sender}}</0> migrated code <1>{{codeId}}</1>",
+  "txInstantiateContract": "<0>{{sender}}</0> initiated contract with code ID <1>{{codeId}}</1>",
+  "txExecuteContract": "<0>{{sender}}</0> executed contract <1>{{contract}}</1>",
+  "txMigrateContract": "<0>{{admin}}</0> migrated contract <1>{{contract}}</1> to <1>{{newCodeId}}</1>",
+  "txUpdateContractAdmin": "<0>{{admin}}</0> updated contract <1>{{contract}}</1> admin to <2>{{newAdmin}}</2>",
+  "txClearContractAdmin": "<0>{{admin}}</0> cleared admin on contract <1>{{contract}}</1>",
+  "txAggregateExchangeRatePrevote": "<0>{{validator}}</0> prevoted on aggregate exchange rate with hash <1>{{hash}}</1>",
+  "txAggregateExchangeRateVote": "<0>{{validator}}</0> voted on aggregate exchange rate"
 }

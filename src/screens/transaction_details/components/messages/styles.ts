@@ -64,6 +64,9 @@ export const useStyles = () => {
         },
         tags: {
           marginBottom: theme.spacing(2),
+          [theme.breakpoints.up('md')]: {
+            marginRight: theme.spacing(2),
+          },
           [theme.breakpoints.up('lg')]: {
             minWidth: '200px',
             marginBottom: 0,
