@@ -4,6 +4,6 @@ exports[`screen: TransactionDetails/AggregateExchangeRateVote matches snapshot 1
 <p
   className="MuiTypography-root MuiTypography-body1"
 >
-  message_contents:txAggregateExchangeRatePrevote
+  message_contents:txAggregateExchangeRateVote
 </p>
 `;
