@@ -1,8 +1,11 @@
 # Unreleased
 
+## Changes
+- Hides delegators in account details if amount is 0 ([\#369](https://github.com/forbole/big-dipper-2.0-cosmos/issues/369))
 ## Bug fixes
 - Fixed tx msg label padding typo ([\#382](https://github.com/forbole/big-dipper-2.0-cosmos/issues/382))
 - Added default config value for online voting power ([\#378](https://github.com/forbole/big-dipper-2.0-cosmos/issues/378))
+
 
 # base-v1.2.0 - 2021-09-20
 
