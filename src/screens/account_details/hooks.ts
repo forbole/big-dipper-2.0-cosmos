@@ -350,7 +350,9 @@ export const useAccountDetails = () => {
     // delegations
     // ============================
     const formatDelegations = () => {
-      const delegations = data.account[0].delegations.map((x) => {
+      const delegations = data.account[0].delegations.filter((x) => {
+        return numeral(x.amount.amount).value() !== 0;
+      }).map((x) => {
         const validatorAddress = x.validator.validatorInfo.operatorAddress;
         const validator = findAddress(validatorAddress);
         return ({
