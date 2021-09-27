@@ -49,8 +49,8 @@ jobs:
           echo ::set-output name=NEXT_PUBLIC_CHAIN_STATUS::${NEXT_PUBLIC_CHAIN_STATUS}
           echo ::set-output name=NODE_ENV::${NODE_ENV}
           echo ::set-output name=PORT::${PORT}
-          echo ::set-output name=PORT::${NEXT_PUBLIC_MATOMO_URL}
-          echo ::set-output name=PORT::${NEXT_PUBLIC_MATOMO_SITE_ID}
+          echo ::set-output name=NEXT_PUBLIC_MATOMO_URL::${NEXT_PUBLIC_MATOMO_URL}
+          echo ::set-output name=NEXT_PUBLIC_MATOMO_SITE_ID::${NEXT_PUBLIC_MATOMO_SITE_ID}
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       - name: Login to DockerHub
