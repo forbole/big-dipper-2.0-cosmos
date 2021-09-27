@@ -59,7 +59,6 @@ export const useProposalDetails = () => {
       notVotedData: [],
     },
     deposits: [],
-    validators: [],
   });
 
   const handleSetState = (stateChange: any) => {
@@ -74,13 +73,11 @@ export const useProposalDetails = () => {
       proposalId: R.pathOr('', ['query', 'id'], router),
     },
     onCompleted: (data) => {
-      const getVotesAndValidators = formatProposalVotes(data);
       handleSetState({
-        validators: getVotesAndValidators.validators,
-        votes: getVotesAndValidators.votes,
+        votes: formatProposalVotes(data),
         tally: formatProposalTally(data),
+        ...formatProposalQuery(data),
       });
-      handleSetState(formatProposalQuery(data));
     },
   });
 
@@ -208,17 +205,14 @@ export const useProposalDetails = () => {
     }).sort((a, b) => ((a.user.name.toLowerCase() > b.user.name.toLowerCase()) ? 1 : -1));
 
     return {
-      votes: {
-        data: votes,
-        yes,
-        no,
-        abstain,
-        veto,
-        total: veto + abstain + no + yes,
-        notVotedData: validatorsNotVoted,
-        notVoted: validatorsNotVoted.length,
-      },
-      validators,
+      data: votes,
+      yes,
+      no,
+      abstain,
+      veto,
+      total: veto + abstain + no + yes,
+      notVotedData: validatorsNotVoted,
+      notVoted: validatorsNotVoted.length,
     };
   };
 
