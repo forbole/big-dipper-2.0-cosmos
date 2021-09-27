@@ -14,27 +14,16 @@ query ProposalDetails($proposalId: Int) {
       depositorAddress: depositor_address
     }
   }
-}
-
-
-subscription ProposalVotesListener ($proposalId: Int) {
   proposalVote: proposal_vote(where: {proposal_id: {_eq: $proposalId}}) {
     option
     voterAddress: voter_address
   }
-}
-
-subscription ProposalTallyListener($proposalId: Int) {
   proposalTallyResult: proposal_tally_result(where: {proposal_id: {_eq: $proposalId}}) {
     yes
     no
     noWithVeto: no_with_veto
     abstain
   }
-}
-
-
-query TallyParams($proposalId: Int) {
   govParams: gov_params {
     tallyParams: tally_params
   }
@@ -44,9 +33,6 @@ query TallyParams($proposalId: Int) {
   stakingPool: proposal_staking_pool_snapshot(where: {proposal_id: {_eq: $proposalId}}) {
     bondedTokens: bonded_tokens
   }
-}
-
-query ProposalValidatorSnapshot($proposalId: Int) {
   validatorStatuses: proposal_validator_status_snapshot(where: {proposal_id: {_eq: $proposalId}, status: {_eq: 3}}) {
     validatorAddress: validator_address
     status

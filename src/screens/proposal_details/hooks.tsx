@@ -1,18 +1,12 @@
-import { useState } from 'react';
+import {
+  useState,
+} from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
 import { useRouter } from 'next/router';
 import {
   useProposalDetailsQuery,
   ProposalDetailsQuery,
-  useProposalVotesListenerSubscription,
-  ProposalVotesListenerSubscription,
-  useProposalTallyListenerSubscription,
-  ProposalTallyListenerSubscription,
-  useTallyParamsQuery,
-  TallyParamsQuery,
-  useProposalValidatorSnapshotQuery,
-  ProposalValidatorSnapshotQuery,
 } from '@graphql/types';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
@@ -80,51 +74,12 @@ export const useProposalDetails = () => {
       proposalId: R.pathOr('', ['query', 'id'], router),
     },
     onCompleted: (data) => {
-      handleSetState(formatProposalQuery(data));
-    },
-  });
-
-  useProposalValidatorSnapshotQuery({
-    variables: {
-      proposalId: R.pathOr('', ['query', 'id'], router),
-    },
-    onCompleted: (data) => {
       handleSetState({
         validators: formatProposalValidatorSnapshotQuery(data),
+        votes: formatProposalVotes(data),
+        tally: formatProposalTally(data),
       });
-    },
-  });
-
-  useProposalVotesListenerSubscription({
-    variables: {
-      proposalId: R.pathOr('', ['query', 'id'], router),
-    },
-    onSubscriptionData: (data) => {
-      handleSetState({
-        votes: formatProposalVotes(data.subscriptionData.data),
-      });
-    },
-  });
-
-  useProposalTallyListenerSubscription({
-    variables: {
-      proposalId: R.pathOr('', ['query', 'id'], router),
-    },
-    onSubscriptionData: (data) => {
-      handleSetState({
-        tally: formatProposalTally(data.subscriptionData.data),
-      });
-    },
-  });
-
-  useTallyParamsQuery({
-    variables: {
-      proposalId: R.pathOr('', ['query', 'id'], router),
-    },
-    onCompleted: (data) => {
-      handleSetState({
-        tally: formatTallyParams(data),
-      });
+      handleSetState(formatProposalQuery(data));
     },
   });
 
@@ -191,7 +146,7 @@ export const useProposalDetails = () => {
     return stateChange;
   };
 
-  const formatProposalVotes = (data: ProposalVotesListenerSubscription) => {
+  const formatProposalVotes = (data: ProposalDetailsQuery) => {
     let yes = 0;
     let no = 0;
     let abstain = 0;
@@ -252,7 +207,7 @@ export const useProposalDetails = () => {
     };
   };
 
-  const formatProposalTally = (data: ProposalTallyListenerSubscription) => {
+  const formatProposalTally = (data: ProposalDetailsQuery) => {
     if (!data) {
       return state.tally;
     }
@@ -263,21 +218,16 @@ export const useProposalDetails = () => {
     const veto = formatDenom(R.pathOr(0, ['proposalTallyResult', 0, 'noWithVeto'], data), denom).value;
     const abstain = formatDenom(R.pathOr(0, ['proposalTallyResult', 0, 'abstain'], data), denom).value;
 
+    const govParams = GovParams.fromJson(R.pathOr({}, ['govParams', 0], data));
+    const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
+    const percent = numeral(numeral(govParams.tallyParams.quorum).format('0.[00]')).value();
+
     return ({
       yes,
       no,
       abstain,
       veto,
       total: yes + no + abstain + veto,
-    });
-  };
-
-  const formatTallyParams = (data: TallyParamsQuery) => {
-    const govParams = GovParams.fromJson(R.pathOr({}, ['govParams', 0], data));
-    const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
-    const percent = numeral(numeral(govParams.tallyParams.quorum).format('0.[00]')).value();
-
-    return ({
       denom: stakingParams.bondDenom,
       quorum: percent,
       bondedTokens: formatDenom(
@@ -287,7 +237,7 @@ export const useProposalDetails = () => {
     });
   };
 
-  const formatProposalValidatorSnapshotQuery = (data: ProposalValidatorSnapshotQuery) => {
+  const formatProposalValidatorSnapshotQuery = (data: ProposalDetailsQuery) => {
     return data.validatorStatuses.map((x) => {
       const selfDelegateAddress = R.pathOr('', ['validator', 'validatorInfo', 'selfDelegateAddress'], x);
       const operatorAddress = findOperator(x.validatorAddress);
