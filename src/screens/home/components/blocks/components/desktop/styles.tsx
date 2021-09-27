@@ -16,7 +16,6 @@ export const useStyles = () => {
           '& .MuiTableBody-root': {
             '& .MuiTableCell-root': {
               whiteSpace: 'nowrap',
-              overflow: 'hidden',
             },
           },
         },
