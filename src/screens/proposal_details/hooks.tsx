@@ -74,9 +74,10 @@ export const useProposalDetails = () => {
       proposalId: R.pathOr('', ['query', 'id'], router),
     },
     onCompleted: (data) => {
+      const getVotesAndValidators = formatProposalVotes(data);
       handleSetState({
-        validators: formatProposalValidatorSnapshotQuery(data),
-        votes: formatProposalVotes(data),
+        validators: getVotesAndValidators.validators,
+        votes: getVotesAndValidators.votes,
         tally: formatProposalTally(data),
       });
       handleSetState(formatProposalQuery(data));
@@ -151,6 +152,17 @@ export const useProposalDetails = () => {
     let no = 0;
     let abstain = 0;
     let veto = 0;
+
+    const validators = data.validatorStatuses.map((x) => {
+      const selfDelegateAddress = R.pathOr('', ['validator', 'validatorInfo', 'selfDelegateAddress'], x);
+      const operatorAddress = findOperator(x.validatorAddress);
+
+      return ({
+        selfDelegateAddress,
+        operatorAddress,
+      });
+    });
+
     const votedUserDictionary = {};
     const votes = data.proposalVote.map((x) => {
       if (x.option === 'VOTE_OPTION_YES') {
@@ -181,7 +193,7 @@ export const useProposalDetails = () => {
     // =====================================
     // Get data for active validators that did not vote
     // =====================================
-    const validatorsNotVoted = state.validators.filter((x) => (
+    const validatorsNotVoted = validators.filter((x) => (
       !votedUserDictionary[x.selfDelegateAddress]
     )).map((y) => {
       const validator = findAddress(y.selfDelegateAddress);
@@ -196,14 +208,17 @@ export const useProposalDetails = () => {
     }).sort((a, b) => ((a.user.name.toLowerCase() > b.user.name.toLowerCase()) ? 1 : -1));
 
     return {
-      data: votes,
-      yes,
-      no,
-      abstain,
-      veto,
-      total: veto + abstain + no + yes,
-      notVotedData: validatorsNotVoted,
-      notVoted: validatorsNotVoted.length,
+      votes: {
+        data: votes,
+        yes,
+        no,
+        abstain,
+        veto,
+        total: veto + abstain + no + yes,
+        notVotedData: validatorsNotVoted,
+        notVoted: validatorsNotVoted.length,
+      },
+      validators,
     };
   };
 
@@ -234,18 +249,6 @@ export const useProposalDetails = () => {
         R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data),
         stakingParams.bondDenom,
       ).value,
-    });
-  };
-
-  const formatProposalValidatorSnapshotQuery = (data: ProposalDetailsQuery) => {
-    return data.validatorStatuses.map((x) => {
-      const selfDelegateAddress = R.pathOr('', ['validator', 'validatorInfo', 'selfDelegateAddress'], x);
-      const operatorAddress = findOperator(x.validatorAddress);
-
-      return ({
-        selfDelegateAddress,
-        operatorAddress,
-      });
     });
   };
 
