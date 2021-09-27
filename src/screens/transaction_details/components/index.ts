@@ -61,6 +61,8 @@ import ExecuteContract from './msg/wasm/execute_contract';
 import MigrateContract from './msg/wasm/migrate_contract';
 import UpdateContractAdmin from './msg/wasm/update_contract_admin';
 import ClearContractAdmin from './msg/wasm/clear_contract_admin';
+import AggregateExchangeRatePrevote from './msg/oracle/aggregate_exchange_rate_prevote';
+import AggregateExchangeRateVote from './msg/oracle/aggregate_exchange_rate_vote';
 
 export {
   Overview,
@@ -130,4 +132,6 @@ export {
   MigrateContract,
   UpdateContractAdmin,
   ClearContractAdmin,
+  AggregateExchangeRatePrevote,
+  AggregateExchangeRateVote,
 };

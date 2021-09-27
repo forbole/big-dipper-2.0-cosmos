@@ -359,6 +359,21 @@ const getDataByType = (type: string) => {
       tagTheme: 'eleven',
       tagDisplay: 'txClearContractAdmin',
     },
+    // ========================
+    // oracle
+    // ========================
+    '/terra.oracle.v1beta1.MsgAggregateExchangeRatePrevote': {
+      model: MODELS.MsgAggregateExchangeRatePrevote,
+      content: COMPONENTS.AggregateExchangeRatePrevote,
+      tagTheme: 'twelve',
+      tagDisplay: 'txAggregateExchangeRatePrevote',
+    },
+    '/terra.oracle.v1beta1.MsgAggregateExchangeRateVote': {
+      model: MODELS.MsgAggregateExchangeRateVote,
+      content: COMPONENTS.AggregateExchangeRateVote,
+      tagTheme: 'twelve',
+      tagDisplay: 'txAggregateExchangeRateVote',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];

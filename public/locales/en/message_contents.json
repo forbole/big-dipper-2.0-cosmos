@@ -60,5 +60,5 @@
   "txUpdateContractAdmin": "<0>{{admin}}</0> updated contract <1>{{contract}}</1> admin to <2>{{newAdmin}}</2>",
   "txClearContractAdmin": "<0>{{admin}}</0> cleared admin on contract <1>{{contract}}</1>",
   "txAggregateExchangeRatePrevote": "<0>{{validator}}</0> prevoted on aggregate exchange rate with hash <1>{{hash}}</1>",
-  "txAggregateExchangeRateVote": "<0>{{validator}}</0> voted on aggregate exchange rate</1>"
+  "txAggregateExchangeRateVote": "<0>{{validator}}</0> voted on aggregate exchange rate"
 }
