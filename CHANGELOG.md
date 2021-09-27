@@ -6,6 +6,7 @@
 ## Bug fixes
 - Fixed tx msg label padding typo ([\#382](https://github.com/forbole/big-dipper-2.0-cosmos/issues/382))
 - Added default config value for online voting power ([\#378](https://github.com/forbole/big-dipper-2.0-cosmos/issues/378))
+- Fixes how queries are called so data matches on ui ([\#371](https://github.com/forbole/big-dipper-2.0-cosmos/issues/371))
 
 
 # base-v1.2.0 - 2021-09-20
