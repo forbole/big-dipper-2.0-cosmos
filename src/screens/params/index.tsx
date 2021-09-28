@@ -49,7 +49,7 @@ const Params = () => {
 
   const inflationRate = state.inflationRate ? {
     title: t('inflationRate'),
-    details: formatInflationRate(state.inflationRate, t),
+    details: formatInflationRate(state.inflationRate),
   } : null;
 
   return (
