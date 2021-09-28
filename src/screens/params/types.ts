@@ -42,7 +42,6 @@ export type Gov = {
 export type InflationRate = {
   denom: string;
   inflation: string;
-  accum: string;
 }[]
 
 export type ParamsState = {
