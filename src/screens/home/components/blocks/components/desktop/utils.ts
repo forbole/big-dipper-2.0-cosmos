@@ -13,6 +13,7 @@ export const columns:{
   },
   {
     key: 'txs',
+    align: 'right',
   },
   {
     key: 'time',

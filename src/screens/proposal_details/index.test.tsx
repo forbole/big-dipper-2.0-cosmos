@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import {
-  createMockClient, createMockSubscription,
+  createMockClient,
 } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
 import {
@@ -9,10 +9,6 @@ import {
 } from '@tests/utils';
 import {
   ProposalDetailsDocument,
-  ProposalVotesListenerDocument,
-  ProposalTallyListenerDocument,
-  TallyParamsDocument,
-  ProposalValidatorSnapshotDocument,
 } from '@graphql/types';
 import ProposalDetails from '.';
 
@@ -33,6 +29,7 @@ jest.mock('@contexts', () => ({
       moniker: 'moniker',
       imageUrl: null,
     })),
+    findOperator: jest.fn(() => 'address'),
   }),
 }));
 
@@ -48,46 +45,57 @@ jest.mock('./components', () => ({
   VotesGraph: (props) => <div id="VotesGraph" {...props} />,
 }));
 
-const mockProposalVotesListenerDocument = {
+const mockProposalDetailsDocument = jest.fn().mockResolvedValue({
   data: {
+    proposal: [
+      {
+        title: 'Desmos v1.0.4 upgrade',
+        description: 'This proposal aims at upgrading the chain software to version v1.0.4, alligning _Morpheus Apollo_ to the same Desmos version of our mainnet. This will allow us to test future mainnet on-chain upgrades here before they go live on our official chain. By voting YES to this proposal you will signal that you are ready for the upgrade. If this proposal passes, the upgrade will be scheduled to happen at height 2.121.236 which will be around Friday September 24th 2021 07:00 UTC.',
+        status: 'PROPOSAL_STATUS_PASSED',
+        content: {
+          plan: {
+            info: 'https://raw.githubusercontent.com/desmos-labs/morpheus/master/morpheus-apollo-2/upgrades/v1.0.4.json?checksum=sha256:fbfb8eda3337b392cb9b2d712a7b575d6f6d19a3a7aa6f2c84bac4307ecdd880',
+            name: 'v1.0.4',
+            time: '0001-01-01T00:00:00Z',
+            height: '2121236',
+            upgraded_client_state: null,
+          },
+          '@type': '/cosmos.upgrade.v1beta1.SoftwareUpgradeProposal',
+          title: 'Desmos v1.0.4 upgrade',
+          description: 'This proposal aims at upgrading the chain software to version v1.0.4, alligning _Morpheus Apollo_ to the same Desmos version of our mainnet. This will allow us to test future mainnet on-chain upgrades here before they go live on our official chain. By voting YES to this proposal you will signal that you are ready for the upgrade. If this proposal passes, the upgrade will be scheduled to happen at height 2.121.236 which will be around Friday September 24th 2021 07:00 UTC.',
+        },
+        proposalId: 22,
+        submitTime: '2021-09-21T10:00:30.107709',
+        depositEndTime: '2021-09-23T10:00:30.107709',
+        votingStartTime: '2021-09-21T10:01:10.657743',
+        votingEndTime: '2021-09-23T10:01:10.657743',
+        proposalDeposits: [
+          {
+            amount: [
+              {
+                denom: 'udaric',
+                amount: '100000000',
+              },
+            ],
+            depositorAddress: 'desmos1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w',
+          },
+        ],
+      },
+    ],
     proposalVote: [
       {
         option: 'VOTE_OPTION_YES',
-        voterAddress: 'desmos124xa66ghhq5hrgv28slhmszgvcqa0skcfwphh3',
-      },
-      {
-        option: 'VOTE_OPTION_NO',
-        voterAddress: 'desmos1c2zkjtg5rhtux0x4gd0nq6q7x79uwnh96r8a4s',
-      },
-      {
-        option: 'VOTE_OPTION_ABSTAIN',
-        voterAddress: 'desmos15g8dfvn3m4lg9pdtpwp4gkygvwpfxywf2rzxly',
+        voterAddress: 'desmos1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w',
       },
     ],
-  },
-};
-
-const mockProposalTallyListenerDocument = {
-  data: {
     proposalTallyResult: [
       {
-        yes: 170003125372,
+        yes: 18099851525752,
         no: 0,
         noWithVeto: 0,
         abstain: 0,
       },
     ],
-  },
-};
-
-const mockProposalValidatorSnapshotDocument = jest.fn().mockResolvedValue({
-  data: {
-    validatorStatuses: [],
-  },
-});
-
-const mockTallyParamsDocument = jest.fn().mockResolvedValue({
-  data: {
     govParams: [
       {
         tallyParams: {
@@ -97,49 +105,32 @@ const mockTallyParamsDocument = jest.fn().mockResolvedValue({
         },
       },
     ],
-    stakingPool: [
+    stakingParams: [
       {
-        bondedTokens: 3893835180066,
+        params: {
+          bond_denom: 'udaric',
+          max_entries: 7,
+          max_validators: 200,
+          unbonding_time: 259200000000000,
+          historical_entries: 10000,
+        },
       },
     ],
-  },
-});
-
-const mockProposalDetailsDocument = jest.fn().mockResolvedValue({
-  data: {
-    proposal: [
+    stakingPool: [
       {
-        title: 'Staking Param Change Part Two',
-        description: 'Update max validators',
-        status: 'PROPOSAL_STATUS_REJECTED',
-        content: {
-          '@type': '/cosmos.params.v1beta1.ParameterChangeProposal',
-          title: 'Staking Param Change Part Two',
-          changes: [
-            {
-              key: 'MaxValidators',
-              value: '105',
-              subspace: 'staking',
-            },
-          ],
-          description: 'Update max validators',
-        },
-        proposalId: 7,
-        submitTime: '2021-05-17T05:15:17.990588',
-        depositEndTime: '2021-05-19T05:15:17.990588',
-        votingStartTime: '2021-05-17T05:15:17.990588',
-        votingEndTime: '2021-05-19T05:15:17.990588',
-        proposalDeposits: [
-          {
-            amount: [
-              {
-                denom: 'udaric',
-                amount: '10000000',
-              },
-            ],
-            depositorAddress: 'desmos124xa66ghhq5hrgv28slhmszgvcqa0skcfwphh3',
+        bondedTokens: 30959846018678,
+      },
+    ],
+    validatorStatuses: [
+      {
+        validatorAddress: 'desmosvalcons1c29eyczh5lw4npe0a9n40nm5g299fq8nt5lerw',
+        status: 3,
+        votingPower: 598178,
+        validator: {
+          validatorInfo: {
+            selfDelegateAddress: 'desmos1txdthvutrrfzzf9htelcnfz655afu4yh30lhfc',
           },
-        ],
+        },
       },
     ],
   },
@@ -151,32 +142,10 @@ const mockProposalDetailsDocument = jest.fn().mockResolvedValue({
 describe('screen: ProposalDetails', () => {
   it('matches snapshot', async () => {
     const mockClient = createMockClient();
-    const mockSubscription = createMockSubscription();
-    const mockSubscriptionTwo = createMockSubscription();
-
-    mockClient.setRequestHandler(
-      ProposalVotesListenerDocument,
-      () => mockSubscription,
-    );
-
-    mockClient.setRequestHandler(
-      ProposalTallyListenerDocument,
-      () => mockSubscriptionTwo,
-    );
 
     mockClient.setRequestHandler(
       ProposalDetailsDocument,
       mockProposalDetailsDocument,
-    );
-
-    mockClient.setRequestHandler(
-      TallyParamsDocument,
-      mockTallyParamsDocument,
-    );
-
-    mockClient.setRequestHandler(
-      ProposalValidatorSnapshotDocument,
-      mockProposalValidatorSnapshotDocument,
     );
 
     let component;
@@ -191,10 +160,6 @@ describe('screen: ProposalDetails', () => {
       );
     });
     await wait();
-    renderer.act(() => {
-      mockSubscription.next(mockProposalVotesListenerDocument);
-      mockSubscriptionTwo.next(mockProposalTallyListenerDocument);
-    });
 
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
