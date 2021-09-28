@@ -152,7 +152,7 @@ export const formatInflationRate = (data: InflationRate) => {
   return data.map((item) => {
     return ({
       label: item.denom,
-      detail: numeral(item.inflation).format('0.00'),
+      detail: numeral(item.inflation).format('0.0%'),
     });
   });
 };
