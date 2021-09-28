@@ -43,13 +43,13 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
         data={
           Object {
             "abstain": 0,
-            "bondedTokens": 30959846.018678,
-            "denom": "udaric",
+            "bondedTokens": 30959846018678,
+            "denom": "ulike",
             "no": 0,
             "quorum": 0.33,
-            "total": 18099851.525752,
+            "total": 18099851525752,
             "veto": 0,
-            "yes": 18099851.525752,
+            "yes": 18099851525752,
           }
         }
         id="VotesGraph"
