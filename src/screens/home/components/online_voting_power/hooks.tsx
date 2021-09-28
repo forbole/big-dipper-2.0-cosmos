@@ -9,7 +9,6 @@ import {
   useStakingParamsQuery,
 } from '@graphql/types';
 import { StakingParams } from '@models';
-// import { chainConfig } from '@src/configs';
 
 const initialState: {
   height: number;
@@ -20,7 +19,7 @@ const initialState: {
   height: 0,
   votingPower: 0,
   totalVotingPower: 0,
-  denom: '',
+  denom: 'ulike',
 };
 
 export const useOnlineVotingPower = () => {

@@ -1,26 +1,18 @@
-import { useState } from 'react';
+import {
+  useState,
+} from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
 import { useRouter } from 'next/router';
 import {
   useProposalDetailsQuery,
   ProposalDetailsQuery,
-  useProposalVotesListenerSubscription,
-  ProposalVotesListenerSubscription,
-  useProposalTallyListenerSubscription,
-  ProposalTallyListenerSubscription,
-  useTallyParamsQuery,
-  TallyParamsQuery,
-  useProposalValidatorSnapshotQuery,
-  ProposalValidatorSnapshotQuery,
 } from '@graphql/types';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
 import { useChainContext } from '@contexts';
-import { chainConfig } from '@configs';
 import {
   GovParams,
-  // StakingParams,
 } from '@models';
 import { ProposalState } from './types';
 
@@ -51,7 +43,7 @@ export const useProposalDetails = () => {
       total: 0,
       quorum: 0,
       bondedTokens: 0,
-      denom: chainConfig.primaryTokenUnit,
+      denom: 'ulike',
     },
     votes: {
       tab: 0,
@@ -65,7 +57,6 @@ export const useProposalDetails = () => {
       notVotedData: [],
     },
     deposits: [],
-    validators: [],
   });
 
   const handleSetState = (stateChange: any) => {
@@ -80,50 +71,10 @@ export const useProposalDetails = () => {
       proposalId: R.pathOr('', ['query', 'id'], router),
     },
     onCompleted: (data) => {
-      handleSetState(formatProposalQuery(data));
-    },
-  });
-
-  useProposalValidatorSnapshotQuery({
-    variables: {
-      proposalId: R.pathOr('', ['query', 'id'], router),
-    },
-    onCompleted: (data) => {
       handleSetState({
-        validators: formatProposalValidatorSnapshotQuery(data),
-      });
-    },
-  });
-
-  useProposalVotesListenerSubscription({
-    variables: {
-      proposalId: R.pathOr('', ['query', 'id'], router),
-    },
-    onSubscriptionData: (data) => {
-      handleSetState({
-        votes: formatProposalVotes(data.subscriptionData.data),
-      });
-    },
-  });
-
-  useProposalTallyListenerSubscription({
-    variables: {
-      proposalId: R.pathOr('', ['query', 'id'], router),
-    },
-    onSubscriptionData: (data) => {
-      handleSetState({
-        tally: formatProposalTally(data.subscriptionData.data),
-      });
-    },
-  });
-
-  useTallyParamsQuery({
-    variables: {
-      proposalId: R.pathOr('', ['query', 'id'], router),
-    },
-    onCompleted: (data) => {
-      handleSetState({
-        tally: formatTallyParams(data),
+        votes: formatProposalVotes(data),
+        tally: formatProposalTally(data),
+        ...formatProposalQuery(data),
       });
     },
   });
@@ -191,11 +142,22 @@ export const useProposalDetails = () => {
     return stateChange;
   };
 
-  const formatProposalVotes = (data: ProposalVotesListenerSubscription) => {
+  const formatProposalVotes = (data: ProposalDetailsQuery) => {
     let yes = 0;
     let no = 0;
     let abstain = 0;
     let veto = 0;
+
+    const validators = data.validatorStatuses.map((x) => {
+      const selfDelegateAddress = R.pathOr('', ['validator', 'validatorInfo', 'selfDelegateAddress'], x);
+      const operatorAddress = findOperator(x.validatorAddress);
+
+      return ({
+        selfDelegateAddress,
+        operatorAddress,
+      });
+    });
+
     const votedUserDictionary = {};
     const votes = data.proposalVote.map((x) => {
       if (x.option === 'VOTE_OPTION_YES') {
@@ -226,7 +188,7 @@ export const useProposalDetails = () => {
     // =====================================
     // Get data for active validators that did not vote
     // =====================================
-    const validatorsNotVoted = state.validators.filter((x) => (
+    const validatorsNotVoted = validators.filter((x) => (
       !votedUserDictionary[x.selfDelegateAddress]
     )).map((y) => {
       const validator = findAddress(y.selfDelegateAddress);
@@ -252,7 +214,7 @@ export const useProposalDetails = () => {
     };
   };
 
-  const formatProposalTally = (data: ProposalTallyListenerSubscription) => {
+  const formatProposalTally = (data: ProposalDetailsQuery) => {
     if (!data) {
       return state.tally;
     }
@@ -263,41 +225,21 @@ export const useProposalDetails = () => {
     const veto = formatDenom(R.pathOr(0, ['proposalTallyResult', 0, 'noWithVeto'], data), denom).value;
     const abstain = formatDenom(R.pathOr(0, ['proposalTallyResult', 0, 'abstain'], data), denom).value;
 
+    const govParams = GovParams.fromJson(R.pathOr({}, ['govParams', 0], data));
+    const percent = numeral(numeral(govParams.tallyParams.quorum).format('0.[00]')).value();
+
     return ({
       yes,
       no,
       abstain,
       veto,
       total: yes + no + abstain + veto,
-    });
-  };
-
-  const formatTallyParams = (data: TallyParamsQuery) => {
-    const govParams = GovParams.fromJson(R.pathOr({}, ['govParams', 0], data));
-    // eslint-disable-next-line
-    // const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
-    const percent = numeral(numeral(govParams.tallyParams.quorum).format('0.[00]')).value();
-
-    return ({
-      denom: 'ulike', // likecoin edge case
+      denom: 'ulike',
       quorum: percent,
       bondedTokens: formatDenom(
         R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data),
-        // stakingParams.bondDenom,
-        'ulike', // likecoin edge case
+        'ulike',
       ).value,
-    });
-  };
-
-  const formatProposalValidatorSnapshotQuery = (data: ProposalValidatorSnapshotQuery) => {
-    return data.validatorStatuses.map((x) => {
-      const selfDelegateAddress = R.pathOr('', ['validator', 'validatorInfo', 'selfDelegateAddress'], x);
-      const operatorAddress = findOperator(x.validatorAddress);
-
-      return ({
-        selfDelegateAddress,
-        operatorAddress,
-      });
     });
   };
 
