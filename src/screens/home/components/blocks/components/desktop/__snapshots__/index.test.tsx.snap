@@ -39,7 +39,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </th>
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"
           scope="col"
         >
           txs
@@ -93,7 +93,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </td>
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
         >
           12
         </td>
