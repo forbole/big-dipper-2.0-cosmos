@@ -18,7 +18,7 @@ import {
   ParamsState,
 } from './types';
 
-const initialState = {
+const initialState: ParamsState = {
   loading: true,
   exists: true,
   staking: null,
@@ -30,32 +30,26 @@ const initialState = {
     {
       denom: 'echf',
       inflation: '0.005000000000000000',
-      accum: '5563415906541010.530000000000000000',
     },
     {
       denom: 'edkk',
       inflation: '0.005000000000000000',
-      accum: '5939037999185398.235000000000000000',
     },
     {
       denom: 'eeur',
       inflation: '0.00500000000000000',
-      accum: '19126046366914853.825000000000000000',
     },
     {
       denom: 'enok',
       inflation: '0.005000000000000000',
-      accum: '10261182878049890.425000000000000000',
     },
     {
       denom: 'esek',
       inflation: '0.005000000000000000',
-      accum: '4290757791365332.300000000000000000',
     },
     {
       denom: 'ungm',
       inflation: '0.100000000000000000',
-      accum: '21141822330728953.400000000000000000',
     },
   ],
 };
