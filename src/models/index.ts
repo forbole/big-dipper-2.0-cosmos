@@ -78,8 +78,9 @@ export {
   StakingParams,
   SlashingParams,
   MintParams,
-  GovParams,
   DistributionParams,
+  GovParams,
+  InflationRateParams,
 };
 
 export {
