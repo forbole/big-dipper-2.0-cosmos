@@ -2989,6 +2989,159 @@ export type Double_Sign_Vote_Variance_Order_By = {
   validator_index?: Maybe<Order_By>;
 };
 
+/** columns and relationships of "emoney_inflation" */
+export type Emoney_Inflation = {
+  __typename?: 'emoney_inflation';
+  height: Scalars['bigint'];
+  inflation: Scalars['jsonb'];
+  last_applied_height: Scalars['bigint'];
+  last_applied_time: Scalars['timestamp'];
+  one_row_id: Scalars['Boolean'];
+};
+
+
+/** columns and relationships of "emoney_inflation" */
+export type Emoney_InflationInflationArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+/** aggregated selection of "emoney_inflation" */
+export type Emoney_Inflation_Aggregate = {
+  __typename?: 'emoney_inflation_aggregate';
+  aggregate?: Maybe<Emoney_Inflation_Aggregate_Fields>;
+  nodes: Array<Emoney_Inflation>;
+};
+
+/** aggregate fields of "emoney_inflation" */
+export type Emoney_Inflation_Aggregate_Fields = {
+  __typename?: 'emoney_inflation_aggregate_fields';
+  avg?: Maybe<Emoney_Inflation_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Emoney_Inflation_Max_Fields>;
+  min?: Maybe<Emoney_Inflation_Min_Fields>;
+  stddev?: Maybe<Emoney_Inflation_Stddev_Fields>;
+  stddev_pop?: Maybe<Emoney_Inflation_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Emoney_Inflation_Stddev_Samp_Fields>;
+  sum?: Maybe<Emoney_Inflation_Sum_Fields>;
+  var_pop?: Maybe<Emoney_Inflation_Var_Pop_Fields>;
+  var_samp?: Maybe<Emoney_Inflation_Var_Samp_Fields>;
+  variance?: Maybe<Emoney_Inflation_Variance_Fields>;
+};
+
+
+/** aggregate fields of "emoney_inflation" */
+export type Emoney_Inflation_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Emoney_Inflation_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Emoney_Inflation_Avg_Fields = {
+  __typename?: 'emoney_inflation_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+  last_applied_height?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "emoney_inflation". All fields are combined with a logical 'AND'. */
+export type Emoney_Inflation_Bool_Exp = {
+  _and?: Maybe<Array<Emoney_Inflation_Bool_Exp>>;
+  _not?: Maybe<Emoney_Inflation_Bool_Exp>;
+  _or?: Maybe<Array<Emoney_Inflation_Bool_Exp>>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  inflation?: Maybe<Jsonb_Comparison_Exp>;
+  last_applied_height?: Maybe<Bigint_Comparison_Exp>;
+  last_applied_time?: Maybe<Timestamp_Comparison_Exp>;
+  one_row_id?: Maybe<Boolean_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Emoney_Inflation_Max_Fields = {
+  __typename?: 'emoney_inflation_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+  last_applied_height?: Maybe<Scalars['bigint']>;
+  last_applied_time?: Maybe<Scalars['timestamp']>;
+};
+
+/** aggregate min on columns */
+export type Emoney_Inflation_Min_Fields = {
+  __typename?: 'emoney_inflation_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+  last_applied_height?: Maybe<Scalars['bigint']>;
+  last_applied_time?: Maybe<Scalars['timestamp']>;
+};
+
+/** Ordering options when selecting data from "emoney_inflation". */
+export type Emoney_Inflation_Order_By = {
+  height?: Maybe<Order_By>;
+  inflation?: Maybe<Order_By>;
+  last_applied_height?: Maybe<Order_By>;
+  last_applied_time?: Maybe<Order_By>;
+  one_row_id?: Maybe<Order_By>;
+};
+
+/** select columns of table "emoney_inflation" */
+export enum Emoney_Inflation_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Inflation = 'inflation',
+  /** column name */
+  LastAppliedHeight = 'last_applied_height',
+  /** column name */
+  LastAppliedTime = 'last_applied_time',
+  /** column name */
+  OneRowId = 'one_row_id'
+}
+
+/** aggregate stddev on columns */
+export type Emoney_Inflation_Stddev_Fields = {
+  __typename?: 'emoney_inflation_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+  last_applied_height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Emoney_Inflation_Stddev_Pop_Fields = {
+  __typename?: 'emoney_inflation_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  last_applied_height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Emoney_Inflation_Stddev_Samp_Fields = {
+  __typename?: 'emoney_inflation_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  last_applied_height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Emoney_Inflation_Sum_Fields = {
+  __typename?: 'emoney_inflation_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+  last_applied_height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Emoney_Inflation_Var_Pop_Fields = {
+  __typename?: 'emoney_inflation_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  last_applied_height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Emoney_Inflation_Var_Samp_Fields = {
+  __typename?: 'emoney_inflation_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  last_applied_height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Emoney_Inflation_Variance_Fields = {
+  __typename?: 'emoney_inflation_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+  last_applied_height?: Maybe<Scalars['Float']>;
+};
+
 /** columns and relationships of "genesis" */
 export type Genesis = {
   __typename?: 'genesis';
@@ -5822,6 +5975,12 @@ export type Query_Root = {
   double_sign_vote_aggregate: Double_Sign_Vote_Aggregate;
   /** fetch data from the table: "double_sign_vote" using primary key columns */
   double_sign_vote_by_pk?: Maybe<Double_Sign_Vote>;
+  /** fetch data from the table: "emoney_inflation" */
+  emoney_inflation: Array<Emoney_Inflation>;
+  /** fetch aggregated fields from the table: "emoney_inflation" */
+  emoney_inflation_aggregate: Emoney_Inflation_Aggregate;
+  /** fetch data from the table: "emoney_inflation" using primary key columns */
+  emoney_inflation_by_pk?: Maybe<Emoney_Inflation>;
   /** fetch data from the table: "genesis" */
   genesis: Array<Genesis>;
   /** fetch aggregated fields from the table: "genesis" */
@@ -6274,6 +6433,29 @@ export type Query_RootDouble_Sign_Vote_AggregateArgs = {
 
 export type Query_RootDouble_Sign_Vote_By_PkArgs = {
   id: Scalars['Int'];
+};
+
+
+export type Query_RootEmoney_InflationArgs = {
+  distinct_on?: Maybe<Array<Emoney_Inflation_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Emoney_Inflation_Order_By>>;
+  where?: Maybe<Emoney_Inflation_Bool_Exp>;
+};
+
+
+export type Query_RootEmoney_Inflation_AggregateArgs = {
+  distinct_on?: Maybe<Array<Emoney_Inflation_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Emoney_Inflation_Order_By>>;
+  where?: Maybe<Emoney_Inflation_Bool_Exp>;
+};
+
+
+export type Query_RootEmoney_Inflation_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
 };
 
 
@@ -7691,6 +7873,12 @@ export type Subscription_Root = {
   double_sign_vote_aggregate: Double_Sign_Vote_Aggregate;
   /** fetch data from the table: "double_sign_vote" using primary key columns */
   double_sign_vote_by_pk?: Maybe<Double_Sign_Vote>;
+  /** fetch data from the table: "emoney_inflation" */
+  emoney_inflation: Array<Emoney_Inflation>;
+  /** fetch aggregated fields from the table: "emoney_inflation" */
+  emoney_inflation_aggregate: Emoney_Inflation_Aggregate;
+  /** fetch data from the table: "emoney_inflation" using primary key columns */
+  emoney_inflation_by_pk?: Maybe<Emoney_Inflation>;
   /** fetch data from the table: "genesis" */
   genesis: Array<Genesis>;
   /** fetch aggregated fields from the table: "genesis" */
@@ -8143,6 +8331,29 @@ export type Subscription_RootDouble_Sign_Vote_AggregateArgs = {
 
 export type Subscription_RootDouble_Sign_Vote_By_PkArgs = {
   id: Scalars['Int'];
+};
+
+
+export type Subscription_RootEmoney_InflationArgs = {
+  distinct_on?: Maybe<Array<Emoney_Inflation_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Emoney_Inflation_Order_By>>;
+  where?: Maybe<Emoney_Inflation_Bool_Exp>;
+};
+
+
+export type Subscription_RootEmoney_Inflation_AggregateArgs = {
+  distinct_on?: Maybe<Array<Emoney_Inflation_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Emoney_Inflation_Order_By>>;
+  where?: Maybe<Emoney_Inflation_Bool_Exp>;
+};
+
+
+export type Subscription_RootEmoney_Inflation_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
 };
 
 
@@ -12667,6 +12878,9 @@ export type ParamsQuery = { stakingParams: Array<(
   )>, govParams: Array<(
     { __typename?: 'gov_params' }
     & { depositParams: Gov_Params['deposit_params'], tallyParams: Gov_Params['tally_params'], votingParams: Gov_Params['voting_params'] }
+  )>, inflationRateParams: Array<(
+    { __typename?: 'emoney_inflation' }
+    & Pick<Emoney_Inflation, 'inflation'>
   )> };
 
 export type ProposalDetailsQueryVariables = Exact<{
@@ -13624,6 +13838,9 @@ export const ParamsDocument = gql`
     depositParams: deposit_params
     tallyParams: tally_params
     votingParams: voting_params
+  }
+  inflationRateParams: emoney_inflation(limit: 1, order_by: {height: desc}) {
+    inflation
   }
 }
     `;

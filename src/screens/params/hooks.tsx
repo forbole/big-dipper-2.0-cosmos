@@ -82,7 +82,6 @@ export const useParams = () => {
 
   const formatParam = (data: ParamsQuery) => {
     const results: any = {};
-    console.log(data);
 
     // ================================
     // staking
@@ -195,10 +194,13 @@ export const useParams = () => {
     // ================================
     const formatInflationRate = () => {
       if (data.inflationRateParams.length) {
+        console.log(data)
+        console.log(data.inflationRateParams)
         const inflationRateParamsRaw = InflationRateParams.fromJson(R.pathOr({}, ['inflationRateParams', 0, 'params'], data));
+        console.log(inflationRateParamsRaw)
         return {
-          denom: inflationRateParamsRaw.denom,
-          inflationRate: inflationRateParamsRaw.inflation,
+          denom: inflationRateParamsRaw[0].denom,
+          inflationRate: inflationRateParamsRaw[0].inflation,
         };
       }
 

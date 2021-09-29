@@ -20,6 +20,6 @@ query Params {
     votingParams: voting_params
   }
   inflationRateParams: emoney_inflation(limit: 1, order_by: { height: desc }) {
-    params
+    inflation
   }
 }
