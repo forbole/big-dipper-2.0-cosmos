@@ -160,7 +160,9 @@ export const formatOracle = (data: Oracle, t: any) => {
     },
     {
       label: t('maxCalldataSize'),
-      detail: numeral(data.maxCalldataSize).format('0,0'),
+      detail: t('bytes', {
+        bytes: numeral(data.maxCalldataSize).format('0,0'),
+      }),
     },
     {
       label: t('samplingTryCount'),
@@ -168,7 +170,9 @@ export const formatOracle = (data: Oracle, t: any) => {
     },
     {
       label: t('maxReportDataSize'),
-      detail: numeral(data.maxReportDataSize).format('0,0'),
+      detail: t('bytes', {
+        bytes: numeral(data.maxReportDataSize).format('0,0'),
+      }),
     },
     {
       label: t('maxRawRequestCount'),

@@ -43,5 +43,6 @@
   "expirationBlockCount": "Expiration Block Count",
   "oracleRewardPercentage": "Oracle Reward Percentage",
   "inactivePenaltyDuration": "Inactive Penalty Duration",
-  "perValidatorRequestGas": "Per Validator Request Gas"
+  "perValidatorRequestGas": "Per Validator Request Gas",
+  "bytes": "{{bytes}} BYTE(S)"
 }
