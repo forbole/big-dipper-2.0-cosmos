@@ -16,4 +16,7 @@ query Params {
     tallyParams: tally_params
     votingParams: voting_params
   }
+  oracleParams: oracle_params (limit: 1, order_by: {height: desc}) {
+    params
+  }
 }

@@ -32,5 +32,16 @@
   "quorum": "Quorum",
   "threshold": "Threshold",
   "vetoThreshold": "Veto Threshold",
-  "votingPeriod": "Voting Period"
+  "votingPeriod": "Voting Period",
+  "oracle": "Oracle",
+  "maxAskCount": "Max Ask Count",
+  "baseOwsmGas": "Base Owsm Gas",
+  "maxCalldataSize": "Max Calldata Size",
+  "samplingTryCount": "Sampling Try Count",
+  "maxReportDataSize": "Max Report Data Size",
+  "maxRawRequestCount": "Max Raw Request Count",
+  "expirationBlockCount": "Expiration Block Count",
+  "oracleRewardPercentage": "Oracle Reward Percentage",
+  "inactivePenaltyDuration": "Inactive Penalty Duration",
+  "perValidatorRequestGas": "Per Validator Request Gas"
 }
