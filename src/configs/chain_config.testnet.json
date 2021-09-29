@@ -1,6 +1,6 @@
 {
   "title": "Terra Block Explorer",
-  "network": "bombay-10",
+  "network": "bombay-12",
   "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/terra/icon.png?sanitize=true",
   "logo": {
     "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/terra/logo.png?sanitize=true"
@@ -12,7 +12,7 @@
   },
   "genesis": {
     "time": "2021-08-20T06:00:40",
-    "height": 5330001
+    "height": 1
   },
   "primaryTokenUnit": "uluna",
   "tokenUnits": {
