@@ -149,12 +149,12 @@ export const formatGov = (data: Gov, t: any) => {
 };
 
 export const formatInflationRate = (data: InflationRate) => {
-  console.log("2")
-  console.log(data)
   return data.map((item) => {
     return ({
       label: item.denom,
-      detail: numeral(item.inflation).format('0.0%'),
+      detail: item.inflation,
+      // label: item.denom,
+      // detail: numeral(item.inflation).format('0.[0]%'),
     });
   });
 };

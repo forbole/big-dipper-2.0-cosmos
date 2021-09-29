@@ -168,20 +168,24 @@ export const useParams = () => {
     // ================================
     const formatInflationRate = () => {
       if (data.inflationRateParams.length) {
-        console.log('data begin')
-        console.log(data.inflationRateParams[0].inflation)
-        console.log('data end')
+        console.log('data begin');
+        console.log(data.inflationRateParams[0].inflation);
+        console.log('data end');
         const inflationRateParamsRaw = InflationRateParams.fromJson(R.pathOr({}, ['inflationRateParams', 0, 'inflation'], data));
-        console.log(inflationRateParamsRaw)
+        console.log(InflationRateParams);
+        console.log(inflationRateParamsRaw);
         // return {
         //   denom: inflationRateParamsRaw.denom,
         //   inflationRate: inflationRateParamsRaw.inflation,
         // };
 
-        return inflationRateParamsRaw.map((item) => {
+        const array = R.pathOr({}, ['inflationRateParams', 0, 'inflation'], data);
+        console.log(array);
+
+        return array.map((item) => {
           return ({
-            label: item.denom,
-            detail: numeral(item.inflation).format('0.0%'),
+            denom: item.denom,
+            inflation: numeral(item.inflation).format('0.[0]%'),
           });
         });
       }
