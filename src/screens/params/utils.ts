@@ -153,8 +153,6 @@ export const formatInflationRate = (data: InflationRate) => {
     return ({
       label: item.denom,
       detail: item.inflation,
-      // label: item.denom,
-      // detail: numeral(item.inflation).format('0.[0]%'),
     });
   });
 };

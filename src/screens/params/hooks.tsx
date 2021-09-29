@@ -63,6 +63,8 @@ export const useParams = () => {
     const formatStaking = () => {
       if (data.stakingParams.length) {
         const stakingParamsRaw = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
+        console.log(StakingParams)
+        console.log(stakingParamsRaw)
         return {
           bondDenom: stakingParamsRaw.bondDenom,
           unbondingTime: stakingParamsRaw.unbondingTime,
@@ -168,19 +170,9 @@ export const useParams = () => {
     // ================================
     const formatInflationRate = () => {
       if (data.inflationRateParams.length) {
-        console.log('data begin');
-        console.log(data.inflationRateParams[0].inflation);
-        console.log('data end');
         const inflationRateParamsRaw = InflationRateParams.fromJson(R.pathOr({}, ['inflationRateParams', 0, 'inflation'], data));
-        console.log(InflationRateParams);
-        console.log(inflationRateParamsRaw);
-        // return {
-        //   denom: inflationRateParamsRaw.denom,
-        //   inflationRate: inflationRateParamsRaw.inflation,
-        // };
 
         const array = R.pathOr({}, ['inflationRateParams', 0, 'inflation'], data);
-        console.log(array);
 
         return array.map((item) => {
           return ({
