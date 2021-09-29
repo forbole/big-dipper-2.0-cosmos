@@ -13,6 +13,7 @@ import {
   MintParams,
   DistributionParams,
   GovParams,
+  InflationRateParams,
 } from '@models';
 import {
   ParamsState,
@@ -26,32 +27,33 @@ const initialState: ParamsState = {
   minting: null,
   distribution: null,
   gov: null,
-  inflationRate: [
-    {
-      denom: 'echf',
-      inflation: '0.005000000000000000',
-    },
-    {
-      denom: 'edkk',
-      inflation: '0.005000000000000000',
-    },
-    {
-      denom: 'eeur',
-      inflation: '0.00500000000000000',
-    },
-    {
-      denom: 'enok',
-      inflation: '0.005000000000000000',
-    },
-    {
-      denom: 'esek',
-      inflation: '0.005000000000000000',
-    },
-    {
-      denom: 'ungm',
-      inflation: '0.100000000000000000',
-    },
-  ],
+  inflationRate: null,
+  // inflationRate: [
+  //   {
+  //     denom: 'echf',
+  //     inflation: '0.005000000000000000',
+  //   },
+  //   {
+  //     denom: 'edkk',
+  //     inflation: '0.005000000000000000',
+  //   },
+  //   {
+  //     denom: 'eeur',
+  //     inflation: '0.00500000000000000',
+  //   },
+  //   {
+  //     denom: 'enok',
+  //     inflation: '0.005000000000000000',
+  //   },
+  //   {
+  //     denom: 'esek',
+  //     inflation: '0.005000000000000000',
+  //   },
+  //   {
+  //     denom: 'ungm',
+  //     inflation: '0.100000000000000000',
+  //   },
+  // ],
 };
 
 export const useParams = () => {
@@ -80,6 +82,7 @@ export const useParams = () => {
 
   const formatParam = (data: ParamsQuery) => {
     const results: any = {};
+    console.log(data);
 
     // ================================
     // staking
@@ -186,6 +189,23 @@ export const useParams = () => {
     };
 
     results.gov = formatGov();
+
+    // ================================
+    // inflation rate
+    // ================================
+    const formatInflationRate = () => {
+      if (data.inflationRateParams.length) {
+        const inflationRateParamsRaw = InflationRateParams.fromJson(R.pathOr({}, ['inflationRateParams', 0, 'params'], data));
+        return {
+          denom: inflationRateParamsRaw.denom,
+          inflationRate: inflationRateParamsRaw.inflation,
+        };
+      }
+
+      return null;
+    };
+
+    results.inflationRate = formatInflationRate();
 
     return results;
   };
