@@ -1,3 +1,5 @@
+import { OracleParams } from '@models';
+
 export type Staking = {
   bondDenom: string;
   unbondingTime: number;
@@ -39,6 +41,8 @@ export type Gov = {
   votingPeriod: number;
 }
 
+export type Oracle = OracleParams;
+
 export type ParamsState = {
   loading: boolean;
   exists: boolean;
@@ -47,4 +51,5 @@ export type ParamsState = {
   minting: Minting | null;
   distribution: Distribution | null;
   gov: Gov | null;
+  oracle: Oracle | null;
 }

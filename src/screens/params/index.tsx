@@ -14,6 +14,7 @@ import {
   formatMinting,
   formatDistribution,
   formatGov,
+  formatOracle,
 } from './utils';
 
 const Params = () => {
@@ -44,6 +45,11 @@ const Params = () => {
   const gov = state.gov ? {
     title: t('gov'),
     details: formatGov(state.gov, t),
+  } : null;
+
+  const oracle = state.oracle ? {
+    title: t('oracle'),
+    details: formatOracle(state.oracle, t),
   } : null;
 
   return (
@@ -78,6 +84,9 @@ const Params = () => {
             )}
             {gov && (
             <BoxDetails {...gov} />
+            )}
+            {oracle && (
+            <BoxDetails {...oracle} />
             )}
           </span>
         </LoadAndExist>

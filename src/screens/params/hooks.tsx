@@ -13,6 +13,7 @@ import {
   MintParams,
   DistributionParams,
   GovParams,
+  OracleParams,
 } from '@models';
 import {
   ParamsState,
@@ -26,6 +27,7 @@ const initialState = {
   minting: null,
   distribution: null,
   gov: null,
+  oracle: null,
 };
 
 export const useParams = () => {
@@ -137,7 +139,7 @@ export const useParams = () => {
     results.distribution = formatDistribution();
 
     // ================================
-    // distribution
+    // gov
     // ================================
 
     const formatGov = () => {
@@ -160,6 +162,18 @@ export const useParams = () => {
     };
 
     results.gov = formatGov();
+
+    // ================================
+    // oracle
+    // ================================
+    const formatOracle = () => {
+      if (data.oracleParams.length) {
+        return OracleParams.fromJson(R.pathOr({}, ['oracleParams', 0, 'params'], data));
+      }
+
+      return null;
+    };
+    results.oracle = formatOracle();
 
     return results;
   };

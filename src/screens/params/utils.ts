@@ -8,6 +8,7 @@ import {
   Minting,
   Distribution,
   Gov,
+  Oracle,
 } from './types';
 
 export const formatStaking = (data: Staking, t: any) => {
@@ -143,6 +144,51 @@ export const formatGov = (data: Gov, t: any) => {
       detail: t('days', {
         day: secondsToDays(nanoToSeconds(data.votingPeriod)),
       }),
+    },
+  ]);
+};
+
+export const formatOracle = (data: Oracle, t: any) => {
+  return ([
+    {
+      label: t('maxAskCount'),
+      detail: numeral(data.maxAskCount).format('0,0'),
+    },
+    {
+      label: t('baseOwsmGas'),
+      detail: numeral(data.baseOwsmGas).format('0,0'),
+    },
+    {
+      label: t('maxCalldataSize'),
+      detail: numeral(data.maxCalldataSize).format('0,0'),
+    },
+    {
+      label: t('samplingTryCount'),
+      detail: numeral(data.samplingTryCount).format('0,0'),
+    },
+    {
+      label: t('maxReportDataSize'),
+      detail: numeral(data.maxReportDataSize).format('0,0'),
+    },
+    {
+      label: t('maxRawRequestCount'),
+      detail: numeral(data.maxRawRequestCount).format('0,0'),
+    },
+    {
+      label: t('expirationBlockCount'),
+      detail: numeral(data.expirationBlockCount).format('0,0'),
+    },
+    {
+      label: t('oracleRewardPercentage'),
+      detail: numeral(data.oracleRewardPercentage).format('0,0'),
+    },
+    {
+      label: t('inactivePenaltyDuration'),
+      detail: numeral(data.inactivePenaltyDuration).format('0,0'),
+    },
+    {
+      label: t('perValidatorRequestGas'),
+      detail: numeral(data.perValidatorRequestGas).format('0,0'),
     },
   ]);
 };

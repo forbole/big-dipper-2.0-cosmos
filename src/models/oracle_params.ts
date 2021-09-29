@@ -26,6 +26,7 @@ class OracleParams {
   }
 
   static fromJson(data: any) {
+    console.log(data, 'data');
     return new OracleParams({
       maxAskCount: R.pathOr(0, ['max_ask_count'], data),
       baseOwsmGas: R.pathOr(0, ['base_owasm_gas'], data),
