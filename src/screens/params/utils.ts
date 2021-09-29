@@ -149,6 +149,8 @@ export const formatGov = (data: Gov, t: any) => {
 };
 
 export const formatInflationRate = (data: InflationRate) => {
+  console.log("2")
+  console.log(data)
   return data.map((item) => {
     return ({
       label: item.denom,

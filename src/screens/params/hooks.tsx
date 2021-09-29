@@ -28,32 +28,6 @@ const initialState: ParamsState = {
   distribution: null,
   gov: null,
   inflationRate: null,
-  // inflationRate: [
-  //   {
-  //     denom: 'echf',
-  //     inflation: '0.005000000000000000',
-  //   },
-  //   {
-  //     denom: 'edkk',
-  //     inflation: '0.005000000000000000',
-  //   },
-  //   {
-  //     denom: 'eeur',
-  //     inflation: '0.00500000000000000',
-  //   },
-  //   {
-  //     denom: 'enok',
-  //     inflation: '0.005000000000000000',
-  //   },
-  //   {
-  //     denom: 'esek',
-  //     inflation: '0.005000000000000000',
-  //   },
-  //   {
-  //     denom: 'ungm',
-  //     inflation: '0.100000000000000000',
-  //   },
-  // ],
 };
 
 export const useParams = () => {
@@ -194,14 +168,22 @@ export const useParams = () => {
     // ================================
     const formatInflationRate = () => {
       if (data.inflationRateParams.length) {
-        console.log(data)
-        console.log(data.inflationRateParams)
-        const inflationRateParamsRaw = InflationRateParams.fromJson(R.pathOr({}, ['inflationRateParams', 0, 'params'], data));
+        console.log('data begin')
+        console.log(data.inflationRateParams[0].inflation)
+        console.log('data end')
+        const inflationRateParamsRaw = InflationRateParams.fromJson(R.pathOr({}, ['inflationRateParams', 0, 'inflation'], data));
         console.log(inflationRateParamsRaw)
-        return {
-          denom: inflationRateParamsRaw[0].denom,
-          inflationRate: inflationRateParamsRaw[0].inflation,
-        };
+        // return {
+        //   denom: inflationRateParamsRaw.denom,
+        //   inflationRate: inflationRateParamsRaw.inflation,
+        // };
+
+        return inflationRateParamsRaw.map((item) => {
+          return ({
+            label: item.denom,
+            detail: numeral(item.inflation).format('0.0%'),
+          });
+        });
       }
 
       return null;
