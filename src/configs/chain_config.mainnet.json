@@ -1,23 +1,75 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "desmos-mainnet-1",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
+  "title": "Terra Block Explorer",
+  "network": "columbus-5",
+  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/terra/icon.png?sanitize=true",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
+    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/terra/logo.png?sanitize=true"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "terravalcons",
+    "validator": "terravaloper",
+    "account": "terra"
   },
   "genesis": {
-    "time": "2021-07-13T08:00:00",
+    "time": "2021-08-20T06:00:40",
     "height": 1
   },
-  "primaryTokenUnit": "udsm",
+  "primaryTokenUnit": "uluna",
   "tokenUnits": {
-    "udsm": {
-      "display": "dsm",
+    "uluna": {
+      "display": "luna",
+      "exponent": 6
+    },
+    "ukrw": {
+      "display": "krw",
+      "exponent": 6
+    },
+    "uusd": {
+      "display": "ust",
+      "exponent": 6
+    },
+    "usdr": {
+      "display": "sdt",
+      "exponent": 6
+    },
+    "ugbp": {
+      "display": "gbt",
+      "exponent": 6
+    },
+    "ueur": {
+      "display": "eut",
+      "exponent": 6
+    },
+    "ujpy": {
+      "display": "jpt",
+      "exponent": 6
+    },
+    "ucny": {
+      "display": "cnt",
+      "exponent": 6
+    },
+    "umnt": {
+      "display": "mnt",
+      "exponent": 6
+    },
+    "uinr": {
+      "display": "int",
+      "exponent": 6
+    },
+    "ucad": {
+      "display": "cat",
+      "exponent": 6
+    },
+    "uchf": {
+      "display": "cht",
+      "exponent": 6
+    },
+    "uhkd": {
+      "display": "hkt",
+      "exponent": 6
+    },
+    "uaud": {
+      "display": "aut",
       "exponent": 6
     }
   },
