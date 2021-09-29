@@ -160,7 +160,9 @@ export const formatOracle = (data: Oracle, t: any) => {
     },
     {
       label: t('maxCalldataSize'),
-      detail: numeral(data.maxCalldataSize).format('0,0'),
+      detail: t('bytes', {
+        bytes: numeral(data.maxCalldataSize).format('0,0'),
+      }),
     },
     {
       label: t('samplingTryCount'),
@@ -168,7 +170,9 @@ export const formatOracle = (data: Oracle, t: any) => {
     },
     {
       label: t('maxReportDataSize'),
-      detail: numeral(data.maxReportDataSize).format('0,0'),
+      detail: t('bytes', {
+        bytes: numeral(data.maxReportDataSize).format('0,0'),
+      }),
     },
     {
       label: t('maxRawRequestCount'),
@@ -180,11 +184,13 @@ export const formatOracle = (data: Oracle, t: any) => {
     },
     {
       label: t('oracleRewardPercentage'),
-      detail: numeral(data.oracleRewardPercentage).format('0,0'),
+      detail: `${numeral(data.oracleRewardPercentage).format('0.[00]')}%`,
     },
     {
       label: t('inactivePenaltyDuration'),
-      detail: numeral(data.inactivePenaltyDuration).format('0,0'),
+      detail: t('seconds', {
+        second: numeral(nanoToSeconds(data.inactivePenaltyDuration)).format('0,0'),
+      }),
     },
     {
       label: t('perValidatorRequestGas'),
