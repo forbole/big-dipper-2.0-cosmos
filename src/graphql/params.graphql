@@ -19,10 +19,7 @@ query Params {
     tallyParams: tally_params
     votingParams: voting_params
   }
-  inflationRateParams: inflation_rate_params(
-    limit: 1
-    order_by: { height: desc }
-  ) {
+  inflationRateParams: emoney_inflation(limit: 1, order_by: { height: desc }) {
     params
   }
 }
