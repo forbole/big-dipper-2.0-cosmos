@@ -216,8 +216,11 @@ export const useMarket = (initalState: ChainState) => {
     }
 
     const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter((x) => x.denom === chainConfig.primaryTokenUnit);
-    console.log('inflation data =>', data)
-    const inflation = R.pathOr(0, ['inflation', 0, 'value'], data);
+    const inflationRates = R.pathOr(0, ['inflation', 0, 'inflation'], data);
+    const ungmInflation = inflationRates.find((inflationRates) => {
+      return inflationRates.denom === 'ungm';
+    });
+    const inflation = ungmInflation.inflation;
 
     const supply = formatDenom(
       numeral(getDenom(
