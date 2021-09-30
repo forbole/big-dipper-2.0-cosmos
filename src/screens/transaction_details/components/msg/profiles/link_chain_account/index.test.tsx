@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgCreateRelationship } from '@models';
-import CreateRelationship from '.';
+import { MsgLinkChainAccount } from '@models';
+import LinkChainAccount from '.';
 
 // ==================================
 // mocks
@@ -23,18 +23,19 @@ jest.mock('@components', () => ({
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/CreateRelationship', () => {
+describe('screen: TransactionDetails/LinkChainAccount', () => {
   it('matches snapshot', () => {
-    const message = new MsgCreateRelationship({
+    const message = new MsgLinkChainAccount({
       category: 'profiles',
       type: 'MsgCreateRelationship',
-      sender: 'sender',
-      receiver: 'receiver',
-      subspace: 'subspace',
+      signer: 'signer',
+      chainConfig: {
+        name: 'emoney',
+      },
     });
     const component = renderer.create(
       <MockTheme>
-        <CreateRelationship
+        <LinkChainAccount
           message={message}
         />
       </MockTheme>,
