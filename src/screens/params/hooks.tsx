@@ -170,12 +170,7 @@ export const useParams = () => {
       if (data.inflationRateParams.length) {
         const inflationRateParamsRaw = InflationRateParams.fromJson(R.pathOr([], ['inflationRateParams', 0, 'inflation'], data));
         const inflationRateParamsData = inflationRateParamsRaw.inflation;
-        return inflationRateParamsData.map((item) => {
-          return ({
-            denom: item.denom,
-            inflation: item.inflation,
-          });
-        });
+        return inflationRateParamsData;
       }
 
       return null;
