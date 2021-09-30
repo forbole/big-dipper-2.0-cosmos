@@ -14,7 +14,7 @@ export const formatMarket = (data: {
     },
     {
       key: 'inflation',
-      data: `${numeral(data.inflation * 100).format('0.[0')}%`,
+      data: `${numeral(data.inflation * 100).format('0.[0]')}%`,
     },
     {
       key: 'supply',
