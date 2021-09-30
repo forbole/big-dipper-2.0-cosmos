@@ -12795,8 +12795,8 @@ export type MarketDataQuery = { communityPool: Array<(
     { __typename?: 'community_pool' }
     & Pick<Community_Pool, 'coins'>
   )>, inflation: Array<(
-    { __typename?: 'inflation' }
-    & Pick<Inflation, 'value'>
+    { __typename?: 'emoney_inflation' }
+    & Pick<Emoney_Inflation, 'inflation'>
   )>, tokenPrice: Array<(
     { __typename?: 'token_price' }
     & Pick<Token_Price, 'price'>
@@ -13632,8 +13632,8 @@ export const MarketDataDocument = gql`
   communityPool: community_pool(order_by: {height: desc}, limit: 1) {
     coins
   }
-  inflation: inflation(order_by: {height: desc}, limit: 1) {
-    value
+  inflation: emoney_inflation(order_by: {height: desc}, limit: 1) {
+    inflation
   }
   tokenPrice: token_price(where: {unit_name: {_eq: $denom}}) {
     marketCap: market_cap
