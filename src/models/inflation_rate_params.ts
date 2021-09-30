@@ -14,7 +14,7 @@ class InflationRateParams {
     return new InflationRateParams({
       inflation: data.map((x) => {
         return ({
-          denom: R.pathOr(0, ['denom'], x),
+          denom: R.pathOr('', ['denom'], x),
           inflation: R.pathOr(0, ['inflation'], x),
         });
       }),
