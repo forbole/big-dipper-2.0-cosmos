@@ -144,7 +144,7 @@ export const useParams = () => {
 
     const formatGov = () => {
       if (data.govParams.length) {
-        const govParamsRaw = GovParams.fromJson(R.pathOr([], ['govParams', 0], data));
+        const govParamsRaw = GovParams.fromJson(R.pathOr({}, ['govParams', 0], data));
         return {
           minDeposit: formatDenom(
             R.pathOr(0, [0, 'amount'], govParamsRaw.depositParams.minDeposit),
@@ -168,12 +168,12 @@ export const useParams = () => {
     // ================================
     const formatInflationRate = () => {
       if (data.inflationRateParams.length) {
-        const inflationRateParamsRaw = InflationRateParams.fromJson(R.pathOr({}, ['inflationRateParams', 0, 'inflation'], data));
+        const inflationRateParamsRaw = InflationRateParams.fromJson(R.pathOr([], ['inflationRateParams', 0, 'inflation'], data));
         const inflationRateParamsData = inflationRateParamsRaw.inflation;
         return inflationRateParamsData.map((item) => {
           return ({
             denom: item.denom,
-            inflation: numeral(item.inflation).format('0.[0]%'),
+            inflation: item.inflation,
           });
         });
       }
