@@ -356,7 +356,12 @@ const getDataByType = (type: string) => {
       tagTheme: 'four',
       tagDisplay: 'txUnblockUserLabel',
     },
-
+    '/desmos.profiles.v1beta1.MsgLinkChainAccount': {
+      model: MODELS.MsgLinkChainAccount,
+      content: COMPONENTS.LinkChainAccount,
+      tagTheme: 'four',
+      tagDisplay: 'txLinkChainAccount',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];
