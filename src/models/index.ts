@@ -2,8 +2,9 @@ import BigDipperNetwork from './big_dipper_network';
 import StakingParams from './staking_params';
 import SlashingParams from './slashing_params';
 import MintParams from './mint_params';
-import GovParams from './gov_params';
 import DistributionParams from './distribution_params';
+import GovParams from './gov_params';
+import InflationRateParams from './inflation_rate_params';
 // ================================
 // Transaction Message Types
 // ================================
@@ -77,8 +78,9 @@ export {
   StakingParams,
   SlashingParams,
   MintParams,
-  GovParams,
   DistributionParams,
+  GovParams,
+  InflationRateParams,
 };
 
 export {

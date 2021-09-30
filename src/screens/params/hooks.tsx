@@ -13,12 +13,13 @@ import {
   MintParams,
   DistributionParams,
   GovParams,
+  InflationRateParams,
 } from '@models';
 import {
   ParamsState,
 } from './types';
 
-const initialState = {
+const initialState: ParamsState = {
   loading: true,
   exists: true,
   staking: null,
@@ -26,6 +27,7 @@ const initialState = {
   minting: null,
   distribution: null,
   gov: null,
+  inflationRate: null,
 };
 
 export const useParams = () => {
@@ -160,6 +162,21 @@ export const useParams = () => {
     };
 
     results.gov = formatGov();
+
+    // ================================
+    // inflation rate
+    // ================================
+    const formatInflationRate = () => {
+      if (data.inflationRateParams.length) {
+        const inflationRateParamsRaw = InflationRateParams.fromJson(R.pathOr([], ['inflationRateParams', 0, 'inflation'], data));
+        const inflationRateParamsData = inflationRateParamsRaw.inflation;
+        return inflationRateParamsData;
+      }
+
+      return null;
+    };
+
+    results.inflationRate = formatInflationRate();
 
     return results;
   };

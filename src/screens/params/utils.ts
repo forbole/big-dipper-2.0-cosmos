@@ -8,6 +8,7 @@ import {
   Minting,
   Distribution,
   Gov,
+  InflationRate,
 } from './types';
 
 export const formatStaking = (data: Staking, t: any) => {
@@ -145,4 +146,13 @@ export const formatGov = (data: Gov, t: any) => {
       }),
     },
   ]);
+};
+
+export const formatInflationRate = (data: InflationRate) => {
+  return data.map((item) => {
+    return ({
+      label: item.denom,
+      detail: numeral(item.inflation).format('0.[0]%'),
+    });
+  });
 };

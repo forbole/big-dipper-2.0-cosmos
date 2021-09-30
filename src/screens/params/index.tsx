@@ -14,6 +14,7 @@ import {
   formatMinting,
   formatDistribution,
   formatGov,
+  formatInflationRate,
 } from './utils';
 
 const Params = () => {
@@ -44,6 +45,11 @@ const Params = () => {
   const gov = state.gov ? {
     title: t('gov'),
     details: formatGov(state.gov, t),
+  } : null;
+
+  const inflationRate = state.inflationRate ? {
+    title: t('inflationRate'),
+    details: formatInflationRate(state.inflationRate),
   } : null;
 
   return (
@@ -78,6 +84,9 @@ const Params = () => {
             )}
             {gov && (
             <BoxDetails {...gov} />
+            )}
+            {inflationRate && (
+            <BoxDetails {...inflationRate} />
             )}
           </span>
         </LoadAndExist>

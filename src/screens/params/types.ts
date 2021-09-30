@@ -39,6 +39,11 @@ export type Gov = {
   votingPeriod: number;
 }
 
+export type InflationRate = {
+  denom: string;
+  inflation: string;
+}[]
+
 export type ParamsState = {
   loading: boolean;
   exists: boolean;
@@ -47,4 +52,5 @@ export type ParamsState = {
   minting: Minting | null;
   distribution: Distribution | null;
   gov: Gov | null;
+  inflationRate: InflationRate | null;
 }
