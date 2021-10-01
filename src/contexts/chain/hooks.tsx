@@ -228,9 +228,6 @@ export const useMarket = (initalState: ChainState) => {
       communityPool = formatDenom(communityPoolCoin.amount, communityPoolCoin.denom);
     }
 
-    // ================================
-    // inflation
-    // ================================
     let { inflation } = initalState.market;
     const inflationRates = InflationRateParams.fromJson(R.pathOr([], ['inflation', 0, 'inflation'], data));
     const primaryTokenInflation = inflationRates.inflation.find((item) => {
@@ -239,13 +236,6 @@ export const useMarket = (initalState: ChainState) => {
     if (primaryTokenInflation) {
       inflation = numeral(primaryTokenInflation.inflation).value();
     }
-
-    // const inflationRates = InflationRateParams.fromJson(R.pathOr([], ['inflation', 0, 'inflation'], data)).inflation;
-    // const primaryTokenInflation = inflationRates.find((item) => {
-    //   return item.denom === chainConfig.primaryTokenUnit;
-    // });
-    // const { inflation } = primaryTokenInflation;
-    // console.log({ inflation });
 
     return ({
       price,
