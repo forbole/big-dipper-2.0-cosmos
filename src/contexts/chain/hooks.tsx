@@ -217,13 +217,6 @@ export const useMarket = (initalState: ChainState) => {
     }
 
     const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter((x) => x.denom === chainConfig.primaryTokenUnit);
-    const inflationRates = InflationRateParams.fromJson(R.pathOr([], ['inflation', 0, 'inflation'], data)).inflation;
-    const primaryTokenInflation = inflationRates.find((item) => {
-      return item.denom === chainConfig.primaryTokenUnit;
-    });
-    const { inflation } = primaryTokenInflation;
-    console.log({ inflation });
-
     const supply = formatDenom(
       numeral(getDenom(
         R.pathOr([], ['supply', 0, 'coins'], data),
@@ -234,6 +227,25 @@ export const useMarket = (initalState: ChainState) => {
     if (communityPoolCoin) {
       communityPool = formatDenom(communityPoolCoin.amount, communityPoolCoin.denom);
     }
+
+    // ================================
+    // inflation
+    // ================================
+    let { inflation } = initalState.market;
+    const inflationRates = InflationRateParams.fromJson(R.pathOr([], ['inflation', 0, 'inflation'], data));
+    const primaryTokenInflation = inflationRates.inflation.find((item) => {
+      return item.denom === chainConfig.primaryTokenUnit;
+    });
+    if (primaryTokenInflation) {
+      inflation = numeral(primaryTokenInflation.inflation).value();
+    }
+
+    // const inflationRates = InflationRateParams.fromJson(R.pathOr([], ['inflation', 0, 'inflation'], data)).inflation;
+    // const primaryTokenInflation = inflationRates.find((item) => {
+    //   return item.denom === chainConfig.primaryTokenUnit;
+    // });
+    // const { inflation } = primaryTokenInflation;
+    // console.log({ inflation });
 
     return ({
       price,
