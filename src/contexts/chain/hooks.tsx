@@ -13,6 +13,7 @@ import { formatDenom } from '@utils/format_denom';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { getDenom } from '@utils/get_denom';
 import { useDesmosProfile } from '@hooks';
+import { InflationRateParams } from '@models';
 import { ChainState } from './types';
 
 export const useValidatorsAddress = (initialstate:ChainState) => {
@@ -216,8 +217,6 @@ export const useMarket = (initalState: ChainState) => {
     }
 
     const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter((x) => x.denom === chainConfig.primaryTokenUnit);
-    const inflation = R.pathOr(0, ['inflation', 0, 'value'], data);
-
     const supply = formatDenom(
       numeral(getDenom(
         R.pathOr([], ['supply', 0, 'coins'], data),
@@ -227,6 +226,15 @@ export const useMarket = (initalState: ChainState) => {
     );
     if (communityPoolCoin) {
       communityPool = formatDenom(communityPoolCoin.amount, communityPoolCoin.denom);
+    }
+
+    let { inflation } = initalState.market;
+    const inflationRates = InflationRateParams.fromJson(R.pathOr([], ['inflation', 0, 'inflation'], data));
+    const primaryTokenInflation = inflationRates.inflation.find((item) => {
+      return item.denom === chainConfig.primaryTokenUnit;
+    });
+    if (primaryTokenInflation) {
+      inflation = numeral(primaryTokenInflation.inflation).value();
     }
 
     return ({
