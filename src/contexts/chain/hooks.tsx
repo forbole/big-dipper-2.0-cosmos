@@ -220,7 +220,8 @@ export const useMarket = (initalState: ChainState) => {
     const ungmInflation = inflationRates.find((item) => {
       return item.denom === 'ungm';
     });
-    const inflation = ungmInflation.inflation;
+    const inflationValue = ungmInflation.inflation;
+    const inflation = inflationValue;
 
     const supply = formatDenom(
       numeral(getDenom(
