@@ -7,7 +7,7 @@ export interface ChainState {
     price: number | null;
     supply: TokenUnit;
     marketCap: number | null;
-    inflation: number;
+    inflation: string;
     communityPool: TokenUnit;
   }
   validatorsAddresses: {
