@@ -13,7 +13,7 @@ const initialState: ChainState = {
       denom: '',
     },
     marketCap: null,
-    inflation: null,
+    inflation: 0,
     communityPool: {
       value: 0,
       denom: '',
