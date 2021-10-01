@@ -222,6 +222,7 @@ export const useMarket = (initalState: ChainState) => {
       return item.denom === chainConfig.primaryTokenUnit;
     });
     const { inflation } = primaryTokenInflation;
+    console.log({ inflation });
 
     const supply = formatDenom(
       numeral(getDenom(

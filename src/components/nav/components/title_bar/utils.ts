@@ -1,11 +1,10 @@
 import numeral from 'numeral';
-import { InflationRateParams } from '@models';
 
 export const formatMarket = (data: {
   marketCap: number;
   communityPool: TokenUnit;
   supply: TokenUnit;
-  inflation: InflationRateParams;
+  inflation: number;
 }) => {
   const marketCap = data.marketCap !== null ? `$${numeral(data.marketCap).format('0,0.[00]')}` : 'N/A';
   return ([
