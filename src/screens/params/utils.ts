@@ -156,7 +156,8 @@ export const formatInflationRate = (data: InflationRate) => {
       detail: numeral(item.inflation).format('0.[0]%'),
     });
   });
-  
+};
+
 export const formatGasPrice = (data: GasPrice, t: any) => {
   return ([
     {

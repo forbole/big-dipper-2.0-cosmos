@@ -58,4 +58,5 @@ export type ParamsState = {
   distribution: Distribution | null;
   gov: Gov | null;
   inflationRate: InflationRate | null;
+  gasPrice: GasPrice | null;
 }

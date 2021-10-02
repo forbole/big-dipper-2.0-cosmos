@@ -15,6 +15,7 @@ import {
   formatDistribution,
   formatGov,
   formatInflationRate,
+  formatGasPrice,
 } from './utils';
 
 const Params = () => {
@@ -52,6 +53,11 @@ const Params = () => {
     details: formatInflationRate(state.inflationRate),
   } : null;
 
+  const gasPrice = state.gasPrice ? {
+    title: t('gasPrice'),
+    details: formatGasPrice(state.gasPrice, t),
+  } : null;
+
   return (
     <>
       <NextSeo
@@ -87,6 +93,9 @@ const Params = () => {
             )}
             {inflationRate && (
             <BoxDetails {...inflationRate} />
+            )}
+            {gasPrice && (
+            <BoxDetails {...gasPrice} />
             )}
           </span>
         </LoadAndExist>
