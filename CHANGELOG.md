@@ -2,6 +2,10 @@
 
 ## Changes
 - Updated markdown to handle `\n`
+
+## Bug fixes
+- Fixed rewards dict inside account details ([\#412](https://github.com/forbole/big-dipper-2.0-cosmos/issues/412))
+
 # base-v1.3.0 - 2021-09-27
 
 ## Changes
