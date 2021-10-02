@@ -28,6 +28,7 @@ const initialState: ParamsState = {
   distribution: null,
   gov: null,
   inflationRate: null,
+  gasPrice: null,
 };
 
 export const useParams = () => {
