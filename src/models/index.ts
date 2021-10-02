@@ -3,8 +3,12 @@ import StakingParams from './staking_params';
 import SlashingParams from './slashing_params';
 import MintParams from './mint_params';
 import DistributionParams from './distribution_params';
+<<<<<<< HEAD
 import GovParams from './gov_params';
 import InflationRateParams from './inflation_rate_params';
+=======
+import GasPriceParams from './gasPrice_params';
+>>>>>>> 6f472e7 (update models index)
 // ================================
 // Transaction Message Types
 // ================================
@@ -79,8 +83,12 @@ export {
   SlashingParams,
   MintParams,
   DistributionParams,
+<<<<<<< HEAD
   GovParams,
   InflationRateParams,
+=======
+  GasPriceParams,
+>>>>>>> 6f472e7 (update models index)
 };
 
 export {
