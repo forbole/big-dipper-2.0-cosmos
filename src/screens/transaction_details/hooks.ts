@@ -29,6 +29,7 @@ export const useTransactionDetails = () => {
       fee: {
         value: 0,
         denom: '',
+        format: '',
       },
       gasUsed: 0,
       gasWanted: 0,

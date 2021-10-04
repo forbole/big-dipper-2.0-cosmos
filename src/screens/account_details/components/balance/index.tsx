@@ -26,7 +26,7 @@ const Balance: React.FC<{
   unbonding: TokenUnit;
   reward: TokenUnit;
   commission?: TokenUnit;
-  total: number;
+  total: TokenUnit;
 }> = (props) => {
   const { t } = useTranslation('accounts');
   const {
@@ -59,7 +59,7 @@ const Balance: React.FC<{
 
   const dataCount = formatData.filter((x) => x.value > 0).length;
   const data = notEmpty ? formatData : [...formatData, empty];
-  const totalAmount = `$${numeral(market.price * props.total).format('0,0.00')}`;
+  const totalAmount = `$${numeral(market.price * props.total.value).format('0,0.00')}`;
 
   return (
     <Box className={classnames(props.className, classes.root)}>
@@ -120,11 +120,11 @@ const Balance: React.FC<{
           <div className="total__single--container">
             <Typography variant="h3" className="label">
               {t('total', {
-                unit: R.pathOr('', ['tokenUnits', chainConfig.primaryTokenUnit, 'display'], chainConfig).toUpperCase(),
+                unit: props.total.denom.toUpperCase(),
               })}
             </Typography>
             <Typography variant="h3">
-              {numeral(props.total).format('0,0.[000000]')}
+              {numeral(props.total.value).format(props.total.format)}
             </Typography>
           </div>
           <div className="total__secondary--container total__single--container">

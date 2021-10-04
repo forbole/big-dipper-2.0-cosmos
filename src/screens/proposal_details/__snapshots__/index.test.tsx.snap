@@ -17,67 +17,51 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
         className="makeStyles-overview"
         content={
           Object {
-            "@type": "/cosmos.params.v1beta1.ParameterChangeProposal",
-            "changes": Array [
-              Object {
-                "key": "MaxValidators",
-                "subspace": "staking",
-                "value": "105",
-              },
-            ],
-            "description": "Update max validators",
-            "title": "Staking Param Change Part Two",
+            "@type": "/cosmos.upgrade.v1beta1.SoftwareUpgradeProposal",
+            "description": "This proposal aims at upgrading the chain software to version v1.0.4, alligning _Morpheus Apollo_ to the same Desmos version of our mainnet. This will allow us to test future mainnet on-chain upgrades here before they go live on our official chain. By voting YES to this proposal you will signal that you are ready for the upgrade. If this proposal passes, the upgrade will be scheduled to happen at height 2.121.236 which will be around Friday September 24th 2021 07:00 UTC.",
+            "plan": Object {
+              "height": "2121236",
+              "info": "https://raw.githubusercontent.com/desmos-labs/morpheus/master/morpheus-apollo-2/upgrades/v1.0.4.json?checksum=sha256:fbfb8eda3337b392cb9b2d712a7b575d6f6d19a3a7aa6f2c84bac4307ecdd880",
+              "name": "v1.0.4",
+              "time": "0001-01-01T00:00:00Z",
+              "upgraded_client_state": null,
+            },
+            "title": "Desmos v1.0.4 upgrade",
           }
         }
-        depositEndTime="2021-05-19T05:15:17.990588"
-        description="Update max validators"
-        id={7}
-        status="PROPOSAL_STATUS_REJECTED"
-        submitTime="2021-05-17T05:15:17.990588"
-        title="Staking Param Change Part Two"
-        votingEndTime="2021-05-19T05:15:17.990588"
-        votingStartTime="2021-05-17T05:15:17.990588"
+        depositEndTime="2021-09-23T10:00:30.107709"
+        description="This proposal aims at upgrading the chain software to version v1.0.4, alligning _Morpheus Apollo_ to the same Desmos version of our mainnet. This will allow us to test future mainnet on-chain upgrades here before they go live on our official chain. By voting YES to this proposal you will signal that you are ready for the upgrade. If this proposal passes, the upgrade will be scheduled to happen at height 2.121.236 which will be around Friday September 24th 2021 07:00 UTC."
+        id={22}
+        status="PROPOSAL_STATUS_PASSED"
+        submitTime="2021-09-21T10:00:30.107709"
+        title="Desmos v1.0.4 upgrade"
+        votingEndTime="2021-09-23T10:01:10.657743"
+        votingStartTime="2021-09-21T10:01:10.657743"
       />
       <div
         className="makeStyles-votesGraph"
         data={
           Object {
             "abstain": 0,
-            "bondedTokens": 0,
+            "bondedTokens": 30959846.018678,
             "denom": "udaric",
             "no": 0,
-            "quorum": 0,
-            "total": 170003.125372,
+            "quorum": 0.33,
+            "total": 18099851.525752,
             "veto": 0,
-            "yes": 170003.125372,
+            "yes": 18099851.525752,
           }
         }
         id="VotesGraph"
       />
       <div
-        abstain={1}
+        abstain={0}
         className="makeStyles-votes"
         data={
           Array [
             Object {
               "user": Object {
-                "address": "desmos15g8dfvn3m4lg9pdtpwp4gkygvwpfxywf2rzxly",
-                "imageUrl": null,
-                "name": "moniker",
-              },
-              "vote": "VOTE_OPTION_ABSTAIN",
-            },
-            Object {
-              "user": Object {
-                "address": "desmos1c2zkjtg5rhtux0x4gd0nq6q7x79uwnh96r8a4s",
-                "imageUrl": null,
-                "name": "moniker",
-              },
-              "vote": "VOTE_OPTION_NO",
-            },
-            Object {
-              "user": Object {
-                "address": "desmos124xa66ghhq5hrgv28slhmszgvcqa0skcfwphh3",
+                "address": "desmos1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w",
                 "imageUrl": null,
                 "name": "moniker",
               },
@@ -87,11 +71,22 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
         }
         handleTabChange={[Function]}
         id="Votes"
-        no={1}
-        notVoted={0}
-        notVotedData={Array []}
+        no={0}
+        notVoted={1}
+        notVotedData={
+          Array [
+            Object {
+              "user": Object {
+                "address": "address",
+                "imageUrl": null,
+                "name": "moniker",
+              },
+              "vote": "NOT_VOTED",
+            },
+          ]
+        }
         tab={0}
-        total={3}
+        total={1}
         veto={0}
         yes={1}
       />
@@ -102,10 +97,11 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
             Object {
               "amount": Object {
                 "denom": "daric",
-                "value": 10,
+                "format": "0,0.[000000]",
+                "value": 100,
               },
               "user": Object {
-                "address": "desmos124xa66ghhq5hrgv28slhmszgvcqa0skcfwphh3",
+                "address": "desmos1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w",
                 "imageUrl": null,
                 "name": "moniker",
               },
