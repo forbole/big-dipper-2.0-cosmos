@@ -174,6 +174,8 @@ export const useParams = () => {
         const inflationRateParamsData = inflationRateParamsRaw.inflation;
         return inflationRateParamsData;
       }
+
+      return null;
     };
 
     results.inflationRate = formatInflationRate();
@@ -187,6 +189,8 @@ export const useParams = () => {
         const gasPriceParamsData = gasPriceParamsRaw.gasPrice;
         return gasPriceParamsData;
       }
+
+      return null;
     };
 
     results.gasPrice = formatGasPrice();
