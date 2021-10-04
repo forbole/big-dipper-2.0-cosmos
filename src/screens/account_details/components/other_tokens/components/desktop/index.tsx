@@ -24,9 +24,9 @@ const Desktop: React.FC<{
   const formattedItems = items.map((x) => {
     return ({
       token: x.denom.toUpperCase(),
-      commission: `${numeral(x.commission.value).format('0,0.[0000]')}`,
-      available: `${numeral(x.available.value).format('0,0.[0000]')}`,
-      reward: `${numeral(x.reward.value).format('0,0.[0000]')}`,
+      commission: `${numeral(x.commission.value).format(x.commission.format)}`,
+      available: `${numeral(x.available.value).format(x.available.format)}`,
+      reward: `${numeral(x.reward.value).format(x.reward.format)}`,
     });
   });
 
