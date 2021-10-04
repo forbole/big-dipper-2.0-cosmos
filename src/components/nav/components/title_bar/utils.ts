@@ -18,11 +18,11 @@ export const formatMarket = (data: {
     },
     {
       key: 'supply',
-      data: `${numeral(data.supply.value).format('0,0.[00]')} ${data.supply.denom.toUpperCase()}`,
+      data: `${numeral(data.supply.value).format(data.supply.format)} ${data.supply.denom.toUpperCase()}`,
     },
     {
       key: 'communityPool',
-      data: `${numeral(data.communityPool.value).format('0,0.00')} ${data.communityPool.denom.toUpperCase()}`,
+      data: `${numeral(data.communityPool.value).format(data.communityPool.format)} ${data.communityPool.denom.toUpperCase()}`,
     },
   ]);
 };
