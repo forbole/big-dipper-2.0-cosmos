@@ -3,7 +3,7 @@ import * as R from 'ramda';
 class GasPriceParams {
   public gasPrice: {
     denom: string;
-    price: string;
+    amount: string;
   }[];
 
   constructor(payload: any) {
@@ -15,7 +15,7 @@ class GasPriceParams {
       gasPrice: data.map((x) => {
         return ({
           denom: R.pathOr('', ['denom'], x),
-          price: R.pathOr('0', ['price'], x),
+          amount: R.pathOr('0', ['amount'], x),
         });
       }),
     });
