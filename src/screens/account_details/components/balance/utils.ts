@@ -6,7 +6,7 @@ export const formatBalanceData = (data: {
   unbonding: TokenUnit;
   reward: TokenUnit;
   commission?: TokenUnit;
-  total?: number;
+  total?: TokenUnit;
 }) => {
   const balanceChart = [
     {
