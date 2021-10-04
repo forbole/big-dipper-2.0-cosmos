@@ -4612,6 +4612,8 @@ export type Proposal_Deposit = {
   __typename?: 'proposal_deposit';
   amount?: Maybe<Scalars['_coin']>;
   /** An object relationship */
+  block?: Maybe<Block>;
+  /** An object relationship */
   depositor?: Maybe<Account>;
   depositor_address?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
@@ -4684,6 +4686,7 @@ export type Proposal_Deposit_Bool_Exp = {
   _not?: Maybe<Proposal_Deposit_Bool_Exp>;
   _or?: Maybe<Array<Proposal_Deposit_Bool_Exp>>;
   amount?: Maybe<_Coin_Comparison_Exp>;
+  block?: Maybe<Block_Bool_Exp>;
   depositor?: Maybe<Account_Bool_Exp>;
   depositor_address?: Maybe<String_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
@@ -4724,6 +4727,7 @@ export type Proposal_Deposit_Min_Order_By = {
 /** Ordering options when selecting data from "proposal_deposit". */
 export type Proposal_Deposit_Order_By = {
   amount?: Maybe<Order_By>;
+  block?: Maybe<Block_Order_By>;
   depositor?: Maybe<Account_Order_By>;
   depositor_address?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
@@ -9934,6 +9938,7 @@ export type Token_Unit = {
   aliases?: Maybe<Scalars['_text']>;
   denom: Scalars['String'];
   exponent: Scalars['Int'];
+  price_id?: Maybe<Scalars['String']>;
   /** An object relationship */
   token: Token;
   token_name: Scalars['String'];
@@ -10053,6 +10058,7 @@ export type Token_Unit_Bool_Exp = {
   aliases?: Maybe<_Text_Comparison_Exp>;
   denom?: Maybe<String_Comparison_Exp>;
   exponent?: Maybe<Int_Comparison_Exp>;
+  price_id?: Maybe<String_Comparison_Exp>;
   token?: Maybe<Token_Bool_Exp>;
   token_name?: Maybe<String_Comparison_Exp>;
   token_price?: Maybe<Token_Price_Bool_Exp>;
@@ -10065,6 +10071,7 @@ export type Token_Unit_Max_Fields = {
   __typename?: 'token_unit_max_fields';
   denom?: Maybe<Scalars['String']>;
   exponent?: Maybe<Scalars['Int']>;
+  price_id?: Maybe<Scalars['String']>;
   token_name?: Maybe<Scalars['String']>;
 };
 
@@ -10072,6 +10079,7 @@ export type Token_Unit_Max_Fields = {
 export type Token_Unit_Max_Order_By = {
   denom?: Maybe<Order_By>;
   exponent?: Maybe<Order_By>;
+  price_id?: Maybe<Order_By>;
   token_name?: Maybe<Order_By>;
 };
 
@@ -10080,6 +10088,7 @@ export type Token_Unit_Min_Fields = {
   __typename?: 'token_unit_min_fields';
   denom?: Maybe<Scalars['String']>;
   exponent?: Maybe<Scalars['Int']>;
+  price_id?: Maybe<Scalars['String']>;
   token_name?: Maybe<Scalars['String']>;
 };
 
@@ -10087,6 +10096,7 @@ export type Token_Unit_Min_Fields = {
 export type Token_Unit_Min_Order_By = {
   denom?: Maybe<Order_By>;
   exponent?: Maybe<Order_By>;
+  price_id?: Maybe<Order_By>;
   token_name?: Maybe<Order_By>;
 };
 
@@ -10095,6 +10105,7 @@ export type Token_Unit_Order_By = {
   aliases?: Maybe<Order_By>;
   denom?: Maybe<Order_By>;
   exponent?: Maybe<Order_By>;
+  price_id?: Maybe<Order_By>;
   token?: Maybe<Token_Order_By>;
   token_name?: Maybe<Order_By>;
   token_price?: Maybe<Token_Price_Order_By>;
@@ -10110,6 +10121,8 @@ export enum Token_Unit_Select_Column {
   Denom = 'denom',
   /** column name */
   Exponent = 'exponent',
+  /** column name */
+  PriceId = 'price_id',
   /** column name */
   TokenName = 'token_name'
 }
@@ -13083,36 +13096,15 @@ export type ProposalDetailsQuery = { proposal: Array<(
       & Pick<Proposal_Deposit, 'amount'>
       & { depositorAddress: Proposal_Deposit['depositor_address'] }
     )> }
-  )> };
-
-export type ProposalVotesListenerSubscriptionVariables = Exact<{
-  proposalId?: Maybe<Scalars['Int']>;
-}>;
-
-
-export type ProposalVotesListenerSubscription = { proposalVote: Array<(
+  )>, proposalVote: Array<(
     { __typename?: 'proposal_vote' }
     & Pick<Proposal_Vote, 'option'>
     & { voterAddress: Proposal_Vote['voter_address'] }
-  )> };
-
-export type ProposalTallyListenerSubscriptionVariables = Exact<{
-  proposalId?: Maybe<Scalars['Int']>;
-}>;
-
-
-export type ProposalTallyListenerSubscription = { proposalTallyResult: Array<(
+  )>, proposalTallyResult: Array<(
     { __typename?: 'proposal_tally_result' }
     & Pick<Proposal_Tally_Result, 'yes' | 'no' | 'abstain'>
     & { noWithVeto: Proposal_Tally_Result['no_with_veto'] }
-  )> };
-
-export type TallyParamsQueryVariables = Exact<{
-  proposalId?: Maybe<Scalars['Int']>;
-}>;
-
-
-export type TallyParamsQuery = { govParams: Array<(
+  )>, govParams: Array<(
     { __typename?: 'gov_params' }
     & { tallyParams: Gov_Params['tally_params'] }
   )>, stakingParams: Array<(
@@ -13121,14 +13113,7 @@ export type TallyParamsQuery = { govParams: Array<(
   )>, stakingPool: Array<(
     { __typename?: 'proposal_staking_pool_snapshot' }
     & { bondedTokens: Proposal_Staking_Pool_Snapshot['bonded_tokens'] }
-  )> };
-
-export type ProposalValidatorSnapshotQueryVariables = Exact<{
-  proposalId?: Maybe<Scalars['Int']>;
-}>;
-
-
-export type ProposalValidatorSnapshotQuery = { validatorStatuses: Array<(
+  )>, validatorStatuses: Array<(
     { __typename?: 'proposal_validator_status_snapshot' }
     & Pick<Proposal_Validator_Status_Snapshot, 'status'>
     & { validatorAddress: Proposal_Validator_Status_Snapshot['validator_address'], votingPower: Proposal_Validator_Status_Snapshot['voting_power'] }
@@ -14077,6 +14062,41 @@ export const ProposalDetailsDocument = gql`
       depositorAddress: depositor_address
     }
   }
+  proposalVote: proposal_vote(where: {proposal_id: {_eq: $proposalId}}) {
+    option
+    voterAddress: voter_address
+  }
+  proposalTallyResult: proposal_tally_result(
+    where: {proposal_id: {_eq: $proposalId}}
+  ) {
+    yes
+    no
+    noWithVeto: no_with_veto
+    abstain
+  }
+  govParams: gov_params {
+    tallyParams: tally_params
+  }
+  stakingParams: staking_params(limit: 1) {
+    params
+  }
+  stakingPool: proposal_staking_pool_snapshot(
+    where: {proposal_id: {_eq: $proposalId}}
+  ) {
+    bondedTokens: bonded_tokens
+  }
+  validatorStatuses: proposal_validator_status_snapshot(
+    where: {proposal_id: {_eq: $proposalId}, status: {_eq: 3}}
+  ) {
+    validatorAddress: validator_address
+    status
+    votingPower: voting_power
+    validator {
+      validatorInfo: validator_info {
+        selfDelegateAddress: self_delegate_address
+      }
+    }
+  }
 }
     `;
 
@@ -14107,159 +14127,6 @@ export function useProposalDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOp
 export type ProposalDetailsQueryHookResult = ReturnType<typeof useProposalDetailsQuery>;
 export type ProposalDetailsLazyQueryHookResult = ReturnType<typeof useProposalDetailsLazyQuery>;
 export type ProposalDetailsQueryResult = Apollo.QueryResult<ProposalDetailsQuery, ProposalDetailsQueryVariables>;
-export const ProposalVotesListenerDocument = gql`
-    subscription ProposalVotesListener($proposalId: Int) {
-  proposalVote: proposal_vote(where: {proposal_id: {_eq: $proposalId}}) {
-    option
-    voterAddress: voter_address
-  }
-}
-    `;
-
-/**
- * __useProposalVotesListenerSubscription__
- *
- * To run a query within a React component, call `useProposalVotesListenerSubscription` and pass it any options that fit your needs.
- * When your component renders, `useProposalVotesListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useProposalVotesListenerSubscription({
- *   variables: {
- *      proposalId: // value for 'proposalId'
- *   },
- * });
- */
-export function useProposalVotesListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<ProposalVotesListenerSubscription, ProposalVotesListenerSubscriptionVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useSubscription<ProposalVotesListenerSubscription, ProposalVotesListenerSubscriptionVariables>(ProposalVotesListenerDocument, options);
-      }
-export type ProposalVotesListenerSubscriptionHookResult = ReturnType<typeof useProposalVotesListenerSubscription>;
-export type ProposalVotesListenerSubscriptionResult = Apollo.SubscriptionResult<ProposalVotesListenerSubscription>;
-export const ProposalTallyListenerDocument = gql`
-    subscription ProposalTallyListener($proposalId: Int) {
-  proposalTallyResult: proposal_tally_result(
-    where: {proposal_id: {_eq: $proposalId}}
-  ) {
-    yes
-    no
-    noWithVeto: no_with_veto
-    abstain
-  }
-}
-    `;
-
-/**
- * __useProposalTallyListenerSubscription__
- *
- * To run a query within a React component, call `useProposalTallyListenerSubscription` and pass it any options that fit your needs.
- * When your component renders, `useProposalTallyListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useProposalTallyListenerSubscription({
- *   variables: {
- *      proposalId: // value for 'proposalId'
- *   },
- * });
- */
-export function useProposalTallyListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<ProposalTallyListenerSubscription, ProposalTallyListenerSubscriptionVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useSubscription<ProposalTallyListenerSubscription, ProposalTallyListenerSubscriptionVariables>(ProposalTallyListenerDocument, options);
-      }
-export type ProposalTallyListenerSubscriptionHookResult = ReturnType<typeof useProposalTallyListenerSubscription>;
-export type ProposalTallyListenerSubscriptionResult = Apollo.SubscriptionResult<ProposalTallyListenerSubscription>;
-export const TallyParamsDocument = gql`
-    query TallyParams($proposalId: Int) {
-  govParams: gov_params {
-    tallyParams: tally_params
-  }
-  stakingParams: staking_params(limit: 1) {
-    params
-  }
-  stakingPool: proposal_staking_pool_snapshot(
-    where: {proposal_id: {_eq: $proposalId}}
-  ) {
-    bondedTokens: bonded_tokens
-  }
-}
-    `;
-
-/**
- * __useTallyParamsQuery__
- *
- * To run a query within a React component, call `useTallyParamsQuery` and pass it any options that fit your needs.
- * When your component renders, `useTallyParamsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useTallyParamsQuery({
- *   variables: {
- *      proposalId: // value for 'proposalId'
- *   },
- * });
- */
-export function useTallyParamsQuery(baseOptions?: Apollo.QueryHookOptions<TallyParamsQuery, TallyParamsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<TallyParamsQuery, TallyParamsQueryVariables>(TallyParamsDocument, options);
-      }
-export function useTallyParamsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TallyParamsQuery, TallyParamsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<TallyParamsQuery, TallyParamsQueryVariables>(TallyParamsDocument, options);
-        }
-export type TallyParamsQueryHookResult = ReturnType<typeof useTallyParamsQuery>;
-export type TallyParamsLazyQueryHookResult = ReturnType<typeof useTallyParamsLazyQuery>;
-export type TallyParamsQueryResult = Apollo.QueryResult<TallyParamsQuery, TallyParamsQueryVariables>;
-export const ProposalValidatorSnapshotDocument = gql`
-    query ProposalValidatorSnapshot($proposalId: Int) {
-  validatorStatuses: proposal_validator_status_snapshot(
-    where: {proposal_id: {_eq: $proposalId}, status: {_eq: 3}}
-  ) {
-    validatorAddress: validator_address
-    status
-    votingPower: voting_power
-    validator {
-      validatorInfo: validator_info {
-        selfDelegateAddress: self_delegate_address
-      }
-    }
-  }
-}
-    `;
-
-/**
- * __useProposalValidatorSnapshotQuery__
- *
- * To run a query within a React component, call `useProposalValidatorSnapshotQuery` and pass it any options that fit your needs.
- * When your component renders, `useProposalValidatorSnapshotQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useProposalValidatorSnapshotQuery({
- *   variables: {
- *      proposalId: // value for 'proposalId'
- *   },
- * });
- */
-export function useProposalValidatorSnapshotQuery(baseOptions?: Apollo.QueryHookOptions<ProposalValidatorSnapshotQuery, ProposalValidatorSnapshotQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<ProposalValidatorSnapshotQuery, ProposalValidatorSnapshotQueryVariables>(ProposalValidatorSnapshotDocument, options);
-      }
-export function useProposalValidatorSnapshotLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProposalValidatorSnapshotQuery, ProposalValidatorSnapshotQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<ProposalValidatorSnapshotQuery, ProposalValidatorSnapshotQueryVariables>(ProposalValidatorSnapshotDocument, options);
-        }
-export type ProposalValidatorSnapshotQueryHookResult = ReturnType<typeof useProposalValidatorSnapshotQuery>;
-export type ProposalValidatorSnapshotLazyQueryHookResult = ReturnType<typeof useProposalValidatorSnapshotLazyQuery>;
-export type ProposalValidatorSnapshotQueryResult = Apollo.QueryResult<ProposalValidatorSnapshotQuery, ProposalValidatorSnapshotQueryVariables>;
 export const ProposalsDocument = gql`
     query Proposals($limit: Int = 7, $offset: Int = 0) {
   proposals: proposal(limit: $limit, offset: $offset, order_by: {id: desc}) {

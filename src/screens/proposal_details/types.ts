@@ -53,5 +53,4 @@ export type ProposalState = {
     notVotedData: VoteType[];
   };
   deposits: DepositType[];
-  validators: ValidatorType[];
 }

@@ -30,7 +30,7 @@ const Desktop: React.FC<{
           name={x.user.name}
         />
       ),
-      amount: `${numeral(x.amount.value).format('0,0.[000000]')} ${x.amount.denom.toUpperCase()}`,
+      amount: `${numeral(x.amount.value).format(x.amount.format)} ${x.amount.denom.toUpperCase()}`,
     });
   });
 
