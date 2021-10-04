@@ -19,6 +19,12 @@ import { chainConfig } from '@src/configs';
 import { useDesmosProfile } from '@hooks';
 import { AccountDetailState } from './types';
 
+const defaultTokenUnit = {
+  value: 0,
+  denom: '',
+  format: '',
+};
+
 const initialState: AccountDetailState = {
   loading: true,
   exists: true,
@@ -32,27 +38,12 @@ const initialState: AccountDetailState = {
     data: [],
   },
   balance: {
-    available: {
-      value: 0,
-      denom: '',
-    },
-    delegate: {
-      value: 0,
-      denom: '',
-    },
-    unbonding: {
-      value: 0,
-      denom: '',
-    },
-    reward: {
-      value: 0,
-      denom: '',
-    },
-    commission: {
-      value: 0,
-      denom: '',
-    },
-    total: 0,
+    available: defaultTokenUnit,
+    delegate: defaultTokenUnit,
+    unbonding: defaultTokenUnit,
+    reward: defaultTokenUnit,
+    commission: defaultTokenUnit,
+    total: defaultTokenUnit,
   },
   delegations: {
     data: [],
@@ -282,7 +273,11 @@ export const useAccountDetails = () => {
         unbonding: unbondingAmount,
         reward: rewardAmount,
         commission: commissionAmount,
-        total,
+        total: {
+          value: total,
+          denom: availableAmount.denom,
+          format: availableAmount.format,
+        },
       };
 
       return balance;
