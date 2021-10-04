@@ -13,8 +13,11 @@ import {
   MintParams,
   DistributionParams,
   GovParams,
+<<<<<<< HEAD
   InflationRateParams,
   GasPriceParams,
+=======
+>>>>>>> 23ec8e2 (complete data detail UI)
 } from '@models';
 import {
   ParamsState,
@@ -194,19 +197,20 @@ export const useParams = () => {
     // ================================
     // gas price
     // ================================
-    const formatGasPrice = () => {
-      if (data.gasPriceParams.length) {
-        const gasPriceParamsRaw = GasPriceParams.fromJson(R.pathOr({}, ['gasPriceParams', 0, 'params'], data));
-        return {
-          denom: gasPriceParamsRaw.denom,
-          amount: gasPriceParamsRaw.amount,
-        };
-      }
+    // const formatGasPrice = () => {
+    //   if (data.gasPriceParams.length) {
+    //     const gasPriceParamsRaw =
+    // GasPriceParams.fromJson(R.pathOr({}, ['gasPriceParams', 0, 'params'], data));
+    //     return {
+    //       denom: gasPriceParamsRaw.denom,
+    //       amount: gasPriceParamsRaw.amount,
+    //     };
+    //   }
 
-      return null;
-    };
+    //   return null;
+    // };
 
-    results.gasPrice = formatGasPrice();
+    // results.gasPrice = formatGasPrice();
 
     return results;
   };

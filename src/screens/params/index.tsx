@@ -54,8 +54,8 @@ const Params = () => {
   } : null;
 
   const gasPrice = state.gasPrice ? {
-    title: t('gasPrice'),
-    details: formatGasPrice(state.gasPrice, t),
+    title: t('Gas Price'),
+    details: formatGasPrice(state.gasPrice),
   } : null;
 
   return (

@@ -46,7 +46,7 @@ export type InflationRate = {
 
 export type GasPrice = {
   denom: string;
-  amount: number;
+  amount: string;
 }[]
 
 export type ParamsState = {

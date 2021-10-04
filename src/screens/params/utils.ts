@@ -149,6 +149,7 @@ export const formatGov = (data: Gov, t: any) => {
   ]);
 };
 
+<<<<<<< HEAD
 export const formatInflationRate = (data: InflationRate) => {
   return data.map((item) => {
     return ({
@@ -169,4 +170,13 @@ export const formatGasPrice = (data: GasPrice, t: any) => {
       detail: numeral(data.amount).format('0.00'),
     },
   ]);
+=======
+export const formatGasPrice = (data: GasPrice) => {
+  return data.map((x) => {
+    return ({
+      label: x.denom,
+      detail: numeral(x.amount).format('0.00'),
+    });
+  });
+>>>>>>> 23ec8e2 (complete data detail UI)
 };
