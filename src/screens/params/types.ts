@@ -57,6 +57,10 @@ export type ParamsState = {
   minting: Minting | null;
   distribution: Distribution | null;
   gov: Gov | null;
+<<<<<<< HEAD
   inflationRate: InflationRate | null;
   gasPrice: GasPrice | null;
+=======
+  gasPrice: GasPrice | null [];
+>>>>>>> 2b76b47 (remove change for params index)
 }

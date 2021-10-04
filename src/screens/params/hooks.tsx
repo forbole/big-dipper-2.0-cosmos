@@ -28,8 +28,21 @@ const initialState: ParamsState = {
   minting: null,
   distribution: null,
   gov: null,
+<<<<<<< HEAD
   inflationRate: null,
   gasPrice: null,
+=======
+  gasPrice: [
+    {
+      denom: 'echf',
+      amount: '0.530000000000000000',
+    },
+    {
+      denom: 'edkk',
+      amount: '3.700000000000000000',
+    },
+  ],
+>>>>>>> 2b76b47 (remove change for params index)
 };
 
 export const useParams = () => {
