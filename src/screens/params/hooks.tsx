@@ -14,6 +14,7 @@ import {
   DistributionParams,
   GovParams,
   InflationRateParams,
+  GasPriceParams,
 } from '@models';
 import {
   ParamsState,
@@ -28,16 +29,17 @@ const initialState: ParamsState = {
   distribution: null,
   gov: null,
   inflationRate: null,
-  gasPrice: [
-    {
-      denom: 'echf',
-      amount: '0.530000000000000000',
-    },
-    {
-      denom: 'edkk',
-      amount: '3.700000000000000000',
-    },
-  ],
+  gasPrice: null,
+  // gasPrice: [
+  //   {
+  //     denom: 'echf',
+  //     amount: '0.530000000000000000',
+  //   },
+  //   {
+  //     denom: 'edkk',
+  //     amount: '3.700000000000000000',
+  //   },
+  // ],
 };
 
 export const useParams = () => {
@@ -189,20 +191,15 @@ export const useParams = () => {
     // ================================
     // gas price
     // ================================
-    // const formatGasPrice = () => {
-    //   if (data.gasPriceParams.length) {
-    //     const gasPriceParamsRaw =
-    // GasPriceParams.fromJson(R.pathOr({}, ['gasPriceParams', 0, 'params'], data));
-    //     return {
-    //       denom: gasPriceParamsRaw.denom,
-    //       amount: gasPriceParamsRaw.amount,
-    //     };
-    //   }
+    const formatGasPrice = () => {
+      if (data.gasPriceParams.length) {
+        const gasPriceParamsRaw = GasPriceParams.fromJson(R.pathOr([], ['gasPriceParams', 0, 'gasPrice'], data));
+        const gasPriceParamsData = gasPriceParamsRaw.inflation;
+        return gasPriceParamsData;
+      }
+    };
 
-    //   return null;
-    // };
-
-    // results.gasPrice = formatGasPrice();
+    results.gasPrice = formatGasPrice();
 
     return results;
   };

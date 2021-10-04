@@ -22,4 +22,7 @@ query Params {
   inflationRateParams: emoney_inflation(limit: 1, order_by: { height: desc }) {
     inflation
   }
+  gasPriceParams: emoney_inflation(limit: 1, order_by: { height: desc }) {
+    inflation
+  }
 }
