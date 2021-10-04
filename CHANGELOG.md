@@ -1,4 +1,4 @@
-# Unreleased
+# base-v1.4.0 - 2021-10-04
 
 ## Changes
 - Updated markdown to handle `\n`
