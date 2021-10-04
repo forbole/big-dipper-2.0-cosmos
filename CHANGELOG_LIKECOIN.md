@@ -1,3 +1,7 @@
+# likecoin-v1.4.0 - 2021-10-04
+## Changes
+- Merge `base-v1.4.0`
+
 # likecoin-v1.3.0 - 2021-09-28
 ## Changes
 - Merge `base-v1.3.0`
