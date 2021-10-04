@@ -33,5 +33,6 @@
   "threshold": "Threshold",
   "vetoThreshold": "Veto Threshold",
   "votingPeriod": "Voting Period",
-  "inflationRate": "Inflation Rate"
+  "inflationRate": "Inflation Rate",
+  "gasPrice": "Gas Price"
 }
