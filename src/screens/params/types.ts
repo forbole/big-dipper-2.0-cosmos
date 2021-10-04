@@ -47,7 +47,7 @@ export type InflationRate = {
 export type GasPrice = {
   denom: string;
   amount: number;
-}
+}[]
 
 export type ParamsState = {
   loading: boolean;
@@ -58,9 +58,13 @@ export type ParamsState = {
   distribution: Distribution | null;
   gov: Gov | null;
 <<<<<<< HEAD
+<<<<<<< HEAD
   inflationRate: InflationRate | null;
   gasPrice: GasPrice | null;
 =======
   gasPrice: GasPrice | null [];
 >>>>>>> 2b76b47 (remove change for params index)
+=======
+  gasPrice: GasPrice | null;
+>>>>>>> ab3e535 (delete gasPrice_params.ts)
 }
