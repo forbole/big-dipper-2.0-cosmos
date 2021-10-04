@@ -13065,8 +13065,8 @@ export type ParamsQuery = { stakingParams: Array<(
     { __typename?: 'emoney_inflation' }
     & Pick<Emoney_Inflation, 'inflation'>
   )>, gasPriceParams: Array<(
-    { __typename?: 'emoney_inflation' }
-    & Pick<Emoney_Inflation, 'inflation'>
+    { __typename?: 'emoney_gas_prices' }
+    & Pick<Emoney_Gas_Prices, 'gas_prices'>
   )> };
 
 export type ProposalDetailsQueryVariables = Exact<{
@@ -14028,8 +14028,8 @@ export const ParamsDocument = gql`
   inflationRateParams: emoney_inflation(limit: 1, order_by: {height: desc}) {
     inflation
   }
-  gasPriceParams: emoney_inflation(limit: 1, order_by: {height: desc}) {
-    inflation
+  gasPriceParams: emoney_gas_prices(limit: 1, order_by: {height: desc}) {
+    gas_prices
   }
 }
     `;
