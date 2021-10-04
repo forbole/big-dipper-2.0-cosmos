@@ -9,6 +9,7 @@ import { chainConfig } from '@configs';
 export const formatDenom = (value: number | string, denom = ''): {
   value: number;
   denom: string;
+  format: string;
 } => {
   const selectedDenom = chainConfig.tokenUnits[denom];
 
@@ -23,6 +24,7 @@ export const formatDenom = (value: number | string, denom = ''): {
   const results = {
     value,
     denom,
+    format: '0,0.[000000]',
   };
 
   if (!selectedDenom) {
@@ -37,6 +39,6 @@ export const formatDenom = (value: number | string, denom = ''): {
   const ratio = 10 ** selectedDenom.exponent;
   results.value = value / ratio;
   results.denom = selectedDenom.display;
-
+  results.format = `0,0${selectedDenom.exponent ? `.[${'0'.repeat(selectedDenom.exponent)}]` : ''}`;
   return results;
 };
