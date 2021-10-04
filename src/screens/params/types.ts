@@ -44,6 +44,11 @@ export type InflationRate = {
   inflation: string;
 }[]
 
+export type GasPrice = {
+  denom: string;
+  amount: string;
+}[]
+
 export type ParamsState = {
   loading: boolean;
   exists: boolean;
@@ -53,4 +58,5 @@ export type ParamsState = {
   distribution: Distribution | null;
   gov: Gov | null;
   inflationRate: InflationRate | null;
+  gasPrice: GasPrice | null;
 }

@@ -5,6 +5,8 @@ import MintParams from './mint_params';
 import DistributionParams from './distribution_params';
 import GovParams from './gov_params';
 import InflationRateParams from './inflation_rate_params';
+import GasPriceParams from './gas_price_params';
+
 // ================================
 // Transaction Message Types
 // ================================
@@ -81,6 +83,7 @@ export {
   DistributionParams,
   GovParams,
   InflationRateParams,
+  GasPriceParams,
 };
 
 export {

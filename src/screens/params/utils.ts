@@ -9,6 +9,7 @@ import {
   Distribution,
   Gov,
   InflationRate,
+  GasPrice,
 } from './types';
 
 export const formatStaking = (data: Staking, t: any) => {
@@ -153,6 +154,15 @@ export const formatInflationRate = (data: InflationRate) => {
     return ({
       label: item.denom,
       detail: numeral(item.inflation).format('0.[0]%'),
+    });
+  });
+};
+
+export const formatGasPrice = (data: GasPrice) => {
+  return data.map((item) => {
+    return ({
+      label: item.denom,
+      detail: numeral(item.amount).format('0.00'),
     });
   });
 };

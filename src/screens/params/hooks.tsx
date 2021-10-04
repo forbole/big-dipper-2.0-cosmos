@@ -14,6 +14,7 @@ import {
   DistributionParams,
   GovParams,
   InflationRateParams,
+  GasPriceParams,
 } from '@models';
 import {
   ParamsState,
@@ -28,6 +29,7 @@ const initialState: ParamsState = {
   distribution: null,
   gov: null,
   inflationRate: null,
+  gasPrice: null,
 };
 
 export const useParams = () => {
@@ -139,7 +141,7 @@ export const useParams = () => {
     results.distribution = formatDistribution();
 
     // ================================
-    // distribution
+    // gov
     // ================================
 
     const formatGov = () => {
@@ -177,6 +179,21 @@ export const useParams = () => {
     };
 
     results.inflationRate = formatInflationRate();
+
+    // ================================
+    // gas price
+    // ================================
+    const formatGasPrice = () => {
+      if (data.gasPriceParams.length) {
+        const gasPriceParamsRaw = GasPriceParams.fromJson(R.pathOr([], ['gasPriceParams', 0, 'gas_prices'], data));
+        const gasPriceParamsData = gasPriceParamsRaw.gasPrice;
+        return gasPriceParamsData;
+      }
+
+      return null;
+    };
+
+    results.gasPrice = formatGasPrice();
 
     return results;
   };
