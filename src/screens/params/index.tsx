@@ -22,6 +22,7 @@ const Params = () => {
   const { t } = useTranslation('params');
   const classes = useStyles();
   const { state } = useParams();
+  console.log(state);
 
   const staking = state.staking ? {
     title: t('staking'),
