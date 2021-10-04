@@ -30,16 +30,6 @@ const initialState: ParamsState = {
   gov: null,
   inflationRate: null,
   gasPrice: null,
-  // gasPrice: [
-  //   {
-  //     denom: 'echf',
-  //     amount: '0.530000000000000000',
-  //   },
-  //   {
-  //     denom: 'edkk',
-  //     amount: '3.700000000000000000',
-  //   },
-  // ],
 };
 
 export const useParams = () => {
