@@ -37,7 +37,7 @@ const Mobile: React.FC<{
                   {t('available')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {numeral(x.available.value).format('0,0.[0000]')}
+                  {numeral(x.available.value).format(x.available.format)}
                 </Typography>
               </div>
               <div className={classes.item}>
@@ -45,7 +45,7 @@ const Mobile: React.FC<{
                   {t('reward')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {numeral(x.reward.value).format('0,0.[0000]')}
+                  {numeral(x.reward.value).format(x.reward.format)}
                 </Typography>
               </div>
               <div className={classes.item}>
@@ -53,7 +53,7 @@ const Mobile: React.FC<{
                   {t('commission')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {numeral(x.commission.value).format('0,0.[0000]')}
+                  {numeral(x.commission.value).format(x.commission.format)}
                 </Typography>
               </div>
             </div>

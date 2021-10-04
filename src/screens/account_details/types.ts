@@ -9,7 +9,7 @@ export type BalanceType = {
   unbonding: TokenUnit;
   reward: TokenUnit;
   commission?: TokenUnit;
-  total: number;
+  total: TokenUnit;
 }
 
 export type OtherTokenType = {
