@@ -97,6 +97,7 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
             Object {
               "amount": Object {
                 "denom": "daric",
+                "format": "0,0.[000000]",
                 "value": 100,
               },
               "user": Object {

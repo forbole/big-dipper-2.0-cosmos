@@ -1,3 +1,13 @@
+# base-v1.4.0 - 2021-10-04
+
+## Changes
+- Updated markdown to handle `\n`
+- Changed validator list tab orders ([\#411](https://github.com/forbole/big-dipper-2.0-cosmos/issues/411))
+- Update numeral formats based on denom exponent ([\#409](https://github.com/forbole/big-dipper-2.0-cosmos/issues/409))
+
+## Bug fixes
+- Fixed rewards dict inside account details ([\#412](https://github.com/forbole/big-dipper-2.0-cosmos/issues/412))
+
 # base-v1.3.0 - 2021-09-27
 
 ## Changes
