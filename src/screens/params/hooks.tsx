@@ -13,11 +13,7 @@ import {
   MintParams,
   DistributionParams,
   GovParams,
-<<<<<<< HEAD
   InflationRateParams,
-  GasPriceParams,
-=======
->>>>>>> 23ec8e2 (complete data detail UI)
 } from '@models';
 import {
   ParamsState,
@@ -31,10 +27,7 @@ const initialState: ParamsState = {
   minting: null,
   distribution: null,
   gov: null,
-<<<<<<< HEAD
   inflationRate: null,
-  gasPrice: null,
-=======
   gasPrice: [
     {
       denom: 'echf',
@@ -45,7 +38,6 @@ const initialState: ParamsState = {
       amount: '3.700000000000000000',
     },
   ],
->>>>>>> 2b76b47 (remove change for params index)
 };
 
 export const useParams = () => {
