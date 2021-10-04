@@ -194,7 +194,7 @@ export const useParams = () => {
     const formatGasPrice = () => {
       if (data.gasPriceParams.length) {
         const gasPriceParamsRaw = GasPriceParams.fromJson(R.pathOr([], ['gasPriceParams', 0, 'gasPrice'], data));
-        const gasPriceParamsData = gasPriceParamsRaw.inflation;
+        const gasPriceParamsData = gasPriceParamsRaw.gasPrice;
         return gasPriceParamsData;
       }
     };

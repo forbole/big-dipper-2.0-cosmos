@@ -2989,6 +2989,131 @@ export type Double_Sign_Vote_Variance_Order_By = {
   validator_index?: Maybe<Order_By>;
 };
 
+/** columns and relationships of "emoney_gas_prices" */
+export type Emoney_Gas_Prices = {
+  __typename?: 'emoney_gas_prices';
+  gas_prices: Scalars['_dec_coin'];
+  height: Scalars['bigint'];
+  one_row_id: Scalars['Boolean'];
+};
+
+/** aggregated selection of "emoney_gas_prices" */
+export type Emoney_Gas_Prices_Aggregate = {
+  __typename?: 'emoney_gas_prices_aggregate';
+  aggregate?: Maybe<Emoney_Gas_Prices_Aggregate_Fields>;
+  nodes: Array<Emoney_Gas_Prices>;
+};
+
+/** aggregate fields of "emoney_gas_prices" */
+export type Emoney_Gas_Prices_Aggregate_Fields = {
+  __typename?: 'emoney_gas_prices_aggregate_fields';
+  avg?: Maybe<Emoney_Gas_Prices_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Emoney_Gas_Prices_Max_Fields>;
+  min?: Maybe<Emoney_Gas_Prices_Min_Fields>;
+  stddev?: Maybe<Emoney_Gas_Prices_Stddev_Fields>;
+  stddev_pop?: Maybe<Emoney_Gas_Prices_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Emoney_Gas_Prices_Stddev_Samp_Fields>;
+  sum?: Maybe<Emoney_Gas_Prices_Sum_Fields>;
+  var_pop?: Maybe<Emoney_Gas_Prices_Var_Pop_Fields>;
+  var_samp?: Maybe<Emoney_Gas_Prices_Var_Samp_Fields>;
+  variance?: Maybe<Emoney_Gas_Prices_Variance_Fields>;
+};
+
+
+/** aggregate fields of "emoney_gas_prices" */
+export type Emoney_Gas_Prices_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Emoney_Gas_Prices_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Emoney_Gas_Prices_Avg_Fields = {
+  __typename?: 'emoney_gas_prices_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "emoney_gas_prices". All fields are combined with a logical 'AND'. */
+export type Emoney_Gas_Prices_Bool_Exp = {
+  _and?: Maybe<Array<Emoney_Gas_Prices_Bool_Exp>>;
+  _not?: Maybe<Emoney_Gas_Prices_Bool_Exp>;
+  _or?: Maybe<Array<Emoney_Gas_Prices_Bool_Exp>>;
+  gas_prices?: Maybe<_Dec_Coin_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  one_row_id?: Maybe<Boolean_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Emoney_Gas_Prices_Max_Fields = {
+  __typename?: 'emoney_gas_prices_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate min on columns */
+export type Emoney_Gas_Prices_Min_Fields = {
+  __typename?: 'emoney_gas_prices_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** Ordering options when selecting data from "emoney_gas_prices". */
+export type Emoney_Gas_Prices_Order_By = {
+  gas_prices?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  one_row_id?: Maybe<Order_By>;
+};
+
+/** select columns of table "emoney_gas_prices" */
+export enum Emoney_Gas_Prices_Select_Column {
+  /** column name */
+  GasPrices = 'gas_prices',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  OneRowId = 'one_row_id'
+}
+
+/** aggregate stddev on columns */
+export type Emoney_Gas_Prices_Stddev_Fields = {
+  __typename?: 'emoney_gas_prices_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Emoney_Gas_Prices_Stddev_Pop_Fields = {
+  __typename?: 'emoney_gas_prices_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Emoney_Gas_Prices_Stddev_Samp_Fields = {
+  __typename?: 'emoney_gas_prices_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Emoney_Gas_Prices_Sum_Fields = {
+  __typename?: 'emoney_gas_prices_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Emoney_Gas_Prices_Var_Pop_Fields = {
+  __typename?: 'emoney_gas_prices_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Emoney_Gas_Prices_Var_Samp_Fields = {
+  __typename?: 'emoney_gas_prices_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Emoney_Gas_Prices_Variance_Fields = {
+  __typename?: 'emoney_gas_prices_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
 /** columns and relationships of "emoney_inflation" */
 export type Emoney_Inflation = {
   __typename?: 'emoney_inflation';
@@ -5975,6 +6100,12 @@ export type Query_Root = {
   double_sign_vote_aggregate: Double_Sign_Vote_Aggregate;
   /** fetch data from the table: "double_sign_vote" using primary key columns */
   double_sign_vote_by_pk?: Maybe<Double_Sign_Vote>;
+  /** fetch data from the table: "emoney_gas_prices" */
+  emoney_gas_prices: Array<Emoney_Gas_Prices>;
+  /** fetch aggregated fields from the table: "emoney_gas_prices" */
+  emoney_gas_prices_aggregate: Emoney_Gas_Prices_Aggregate;
+  /** fetch data from the table: "emoney_gas_prices" using primary key columns */
+  emoney_gas_prices_by_pk?: Maybe<Emoney_Gas_Prices>;
   /** fetch data from the table: "emoney_inflation" */
   emoney_inflation: Array<Emoney_Inflation>;
   /** fetch aggregated fields from the table: "emoney_inflation" */
@@ -6433,6 +6564,29 @@ export type Query_RootDouble_Sign_Vote_AggregateArgs = {
 
 export type Query_RootDouble_Sign_Vote_By_PkArgs = {
   id: Scalars['Int'];
+};
+
+
+export type Query_RootEmoney_Gas_PricesArgs = {
+  distinct_on?: Maybe<Array<Emoney_Gas_Prices_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Emoney_Gas_Prices_Order_By>>;
+  where?: Maybe<Emoney_Gas_Prices_Bool_Exp>;
+};
+
+
+export type Query_RootEmoney_Gas_Prices_AggregateArgs = {
+  distinct_on?: Maybe<Array<Emoney_Gas_Prices_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Emoney_Gas_Prices_Order_By>>;
+  where?: Maybe<Emoney_Gas_Prices_Bool_Exp>;
+};
+
+
+export type Query_RootEmoney_Gas_Prices_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
 };
 
 
@@ -7873,6 +8027,12 @@ export type Subscription_Root = {
   double_sign_vote_aggregate: Double_Sign_Vote_Aggregate;
   /** fetch data from the table: "double_sign_vote" using primary key columns */
   double_sign_vote_by_pk?: Maybe<Double_Sign_Vote>;
+  /** fetch data from the table: "emoney_gas_prices" */
+  emoney_gas_prices: Array<Emoney_Gas_Prices>;
+  /** fetch aggregated fields from the table: "emoney_gas_prices" */
+  emoney_gas_prices_aggregate: Emoney_Gas_Prices_Aggregate;
+  /** fetch data from the table: "emoney_gas_prices" using primary key columns */
+  emoney_gas_prices_by_pk?: Maybe<Emoney_Gas_Prices>;
   /** fetch data from the table: "emoney_inflation" */
   emoney_inflation: Array<Emoney_Inflation>;
   /** fetch aggregated fields from the table: "emoney_inflation" */
@@ -8331,6 +8491,29 @@ export type Subscription_RootDouble_Sign_Vote_AggregateArgs = {
 
 export type Subscription_RootDouble_Sign_Vote_By_PkArgs = {
   id: Scalars['Int'];
+};
+
+
+export type Subscription_RootEmoney_Gas_PricesArgs = {
+  distinct_on?: Maybe<Array<Emoney_Gas_Prices_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Emoney_Gas_Prices_Order_By>>;
+  where?: Maybe<Emoney_Gas_Prices_Bool_Exp>;
+};
+
+
+export type Subscription_RootEmoney_Gas_Prices_AggregateArgs = {
+  distinct_on?: Maybe<Array<Emoney_Gas_Prices_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Emoney_Gas_Prices_Order_By>>;
+  where?: Maybe<Emoney_Gas_Prices_Bool_Exp>;
+};
+
+
+export type Subscription_RootEmoney_Gas_Prices_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
 };
 
 
@@ -12881,6 +13064,9 @@ export type ParamsQuery = { stakingParams: Array<(
   )>, inflationRateParams: Array<(
     { __typename?: 'emoney_inflation' }
     & Pick<Emoney_Inflation, 'inflation'>
+  )>, gasPriceParams: Array<(
+    { __typename?: 'emoney_inflation' }
+    & Pick<Emoney_Inflation, 'inflation'>
   )> };
 
 export type ProposalDetailsQueryVariables = Exact<{
@@ -13840,6 +14026,9 @@ export const ParamsDocument = gql`
     votingParams: voting_params
   }
   inflationRateParams: emoney_inflation(limit: 1, order_by: {height: desc}) {
+    inflation
+  }
+  gasPriceParams: emoney_inflation(limit: 1, order_by: {height: desc}) {
     inflation
   }
 }
