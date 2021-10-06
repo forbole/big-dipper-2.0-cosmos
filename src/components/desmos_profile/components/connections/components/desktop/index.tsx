@@ -58,28 +58,6 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
-            <TableCell
-              key={`holders-row-${-1}-network`}
-              style={{ width: `${columns[0].width}%` }}
-            >
-              Native
-            </TableCell>
-            <TableCell
-              key={`holders-row-${-1}-identifier`}
-              align={columns[1].align}
-              style={{ width: `${columns[1].width}%` }}
-            >
-              Native
-            </TableCell>
-            <TableCell
-              key={`holders-row-${-1}-creationTime`}
-              align={columns[2].align}
-              style={{ width: `${columns[2].width}%` }}
-            >
-              Native
-            </TableCell>
-          </TableRow>
           {formattedItems.map((row, i) => (
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => {
