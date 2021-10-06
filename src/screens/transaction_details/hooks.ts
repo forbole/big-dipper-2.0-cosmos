@@ -12,10 +12,10 @@ import {
   MsgWithdrawValidatorCommission,
 } from '@models';
 import { formatDenom } from '@utils/format_denom';
+import { getMessageModelByType } from '@msg';
 import {
   TransactionState,
 } from './types';
-import { getMessageModelByType } from './utils';
 
 export const useTransactionDetails = () => {
   const router = useRouter();
