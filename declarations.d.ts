@@ -27,6 +27,7 @@ type Transactions = {
 type TokenUnit = {
   value: number;
   denom: string;
+  format: string;
 }
 
 type DesmosProfile = {

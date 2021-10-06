@@ -19,6 +19,12 @@ import { chainConfig } from '@src/configs';
 import { useDesmosProfile } from '@hooks';
 import { AccountDetailState } from './types';
 
+const defaultTokenUnit = {
+  value: 0,
+  denom: '',
+  format: '',
+};
+
 const initialState: AccountDetailState = {
   loading: true,
   exists: true,
@@ -32,27 +38,12 @@ const initialState: AccountDetailState = {
     data: [],
   },
   balance: {
-    available: {
-      value: 0,
-      denom: '',
-    },
-    delegate: {
-      value: 0,
-      denom: '',
-    },
-    unbonding: {
-      value: 0,
-      denom: '',
-    },
-    reward: {
-      value: 0,
-      denom: '',
-    },
-    commission: {
-      value: 0,
-      denom: '',
-    },
-    total: 0,
+    available: defaultTokenUnit,
+    delegate: defaultTokenUnit,
+    unbonding: defaultTokenUnit,
+    reward: defaultTokenUnit,
+    commission: defaultTokenUnit,
+    total: defaultTokenUnit,
   },
   delegations: {
     data: [],
@@ -199,10 +190,18 @@ export const useAccountDetails = () => {
     }
 
     const rewardsDict = {};
+    // log all the rewards
     data.account[0].delegationRewards.forEach((x) => {
       const denomAmount = getDenom(x.amount, chainConfig.primaryTokenUnit);
       const denomFormat = formatDenom(denomAmount.amount, chainConfig.primaryTokenUnit);
       rewardsDict[x.validator.validatorInfo.operatorAddress] = denomFormat;
+    });
+    // set default rewards for delegations without parsed rewards
+    data.account[0].delegations.forEach((x) => {
+      const validatorAddress = x.validator.validatorInfo.operatorAddress;
+      if (!rewardsDict[validatorAddress]) {
+        rewardsDict[validatorAddress] = formatDenom(0, chainConfig.primaryTokenUnit);
+      }
     });
 
     // ============================
@@ -274,7 +273,11 @@ export const useAccountDetails = () => {
         unbonding: unbondingAmount,
         reward: rewardAmount,
         commission: commissionAmount,
-        total,
+        total: {
+          value: total,
+          denom: availableAmount.denom,
+          format: availableAmount.format,
+        },
       };
 
       return balance;

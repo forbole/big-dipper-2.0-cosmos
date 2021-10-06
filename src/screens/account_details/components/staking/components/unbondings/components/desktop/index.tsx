@@ -36,7 +36,7 @@ const Desktop: React.FC<{
       ),
       commission: `${numeral(x.commission * 100).format('0.00')}%`,
       linkedUntil: formatDayJs(dayjs.utc(x.linkedUntil), dateFormat),
-      amount: `${numeral(x.amount.value).format('0,0.[0000]')} ${x.amount.denom.toUpperCase()}`,
+      amount: `${numeral(x.amount.value).format(x.amount.format)} ${x.amount.denom.toUpperCase()}`,
     });
   });
 

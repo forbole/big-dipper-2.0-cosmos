@@ -39,7 +39,7 @@ const Mobile: React.FC<{
                   {t('amount')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {`${numeral(x.amount.value).format('0,0.[0000]')} ${x.amount.denom.toUpperCase()}`}
+                  {`${numeral(x.amount.value).format(x.amount.format)} ${x.amount.denom.toUpperCase()}`}
                 </Typography>
               </div>
             </div>

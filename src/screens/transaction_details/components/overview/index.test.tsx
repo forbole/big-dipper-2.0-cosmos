@@ -27,6 +27,7 @@ describe('screen: BlockDetails/Overview', () => {
             fee: {
               denom: 'daric',
               value: 5000,
+              format: '',
             },
             gasUsed: 0,
             gasWanted: 0,
