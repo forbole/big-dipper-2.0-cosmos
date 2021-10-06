@@ -9,7 +9,6 @@ import {
   TableCell,
   TableBody,
 } from '@material-ui/core';
-import { DesmosProfileQuery } from '@graphql/desmos_profile';
 import dayjs, { formatDayJs } from '@utils/dayjs';
 import { columns } from './utils';
 
