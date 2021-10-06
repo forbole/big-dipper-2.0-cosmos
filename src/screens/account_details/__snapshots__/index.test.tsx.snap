@@ -31,6 +31,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
         available={
           Object {
             "denom": "daric",
+            "format": "0,0.[000000]",
             "value": 21.280246,
           }
         }
@@ -38,12 +39,14 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
         commission={
           Object {
             "denom": "daric",
+            "format": "0,0.[000000]",
             "value": 0.725602207464032,
           }
         }
         delegate={
           Object {
             "denom": "daric",
+            "format": "0,0.[000000]",
             "value": 1632425.218854,
           }
         }
@@ -51,13 +54,21 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
         reward={
           Object {
             "denom": "daric",
+            "format": "",
             "value": 58219.06133827526,
           }
         }
-        total={1690666.2860404828}
+        total={
+          Object {
+            "denom": "daric",
+            "format": "0,0.[000000]",
+            "value": 1690666.2860404828,
+          }
+        }
         unbonding={
           Object {
             "denom": "daric",
+            "format": "0,0.[000000]",
             "value": 0,
           }
         }
@@ -72,30 +83,36 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
               Object {
                 "available": Object {
                   "denom": "someotherbalance",
+                  "format": "0,0.[000000]",
                   "value": 21280246,
                 },
                 "commission": Object {
                   "denom": "someotherbalance",
+                  "format": "0,0.[000000]",
                   "value": 0,
                 },
                 "denom": "someotherbalance",
                 "reward": Object {
                   "denom": "someotherbalance",
+                  "format": "0,0.[000000]",
                   "value": 0,
                 },
               },
               Object {
                 "available": Object {
                   "denom": "ufootoken",
+                  "format": "0,0.[000000]",
                   "value": 0,
                 },
                 "commission": Object {
                   "denom": "ufootoken",
+                  "format": "0,0.[000000]",
                   "value": 0,
                 },
                 "denom": "ufootoken",
                 "reward": Object {
                   "denom": "ufootoken",
+                  "format": "0,0.[000000]",
                   "value": 58219061338,
                 },
               },
@@ -112,11 +129,13 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
               Object {
                 "amount": Object {
                   "denom": "daric",
+                  "format": "0,0.[000000]",
                   "value": 1632425.218854,
                 },
                 "commission": 0.0999,
                 "reward": Object {
                   "denom": "daric",
+                  "format": "0,0.[000000]",
                   "value": 58219.06133827526,
                 },
                 "validator": Object {

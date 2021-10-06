@@ -2,13 +2,12 @@ import React from 'react';
 import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
-import { formatDenom } from '@utils/format_denom';
 import { Name } from '@components';
-import { MsgDelegate } from '@models';
+import { MsgWithdrawDelegatorReward } from '@models';
 import { useChainContext } from '@contexts';
 
-const Delegate = (props: {
-  message: MsgDelegate;
+const WithdrawReward = (props: {
+  message: MsgWithdrawDelegatorReward;
 }) => {
   const { findAddress } = useChainContext();
   const { message } = props;
@@ -18,14 +17,15 @@ const Delegate = (props: {
   const validator = findAddress(message.validatorAddress);
   const validatorMoniker = validator ? validator?.moniker : message
     .validatorAddress;
-  const amount = formatDenom(message.amount.amount, message.amount.denom);
 
-  const parsedAmount = `${numeral(amount.value).format('0,0.[0000]')} ${amount.denom.toUpperCase()}`;
+  const parsedAmount = message.amounts.map((x) => {
+    return `${numeral(x.value).format(x.format)} ${x.denom.toUpperCase()}`;
+  }).join(', ');
 
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txDelegateContent"
+        i18nKey="message_contents:txWithdrawRewardContent"
         components={[
           (
             <Name
@@ -49,4 +49,4 @@ const Delegate = (props: {
   );
 };
 
-export default Delegate;
+export default WithdrawReward;
