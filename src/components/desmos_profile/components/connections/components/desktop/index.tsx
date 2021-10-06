@@ -15,11 +15,9 @@ import { columns } from './utils';
 const Desktop: React.FC<{
   className?: string;
   items?: ProfileConnectionType[];
-  native?: DesmosProfile;
 }> = ({
   className,
   items,
-  native,
 }) => {
   const {
     dateFormat,
@@ -34,10 +32,7 @@ const Desktop: React.FC<{
     });
   });
 
-  console.log('formattedItems', formattedItems);
-  console.log('native', native);
   console.log('items', items);
-  console.log('className', className);
 
   return (
     <div className={classnames(className)}>
