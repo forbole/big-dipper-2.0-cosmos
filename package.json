@@ -1,7 +1,7 @@
 {
-  "name": "big-dipper-desmos",
-  "version": "0.1.0",
-  "private": true,
+  "name": "big-dipper-2.0-cosmos",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
   "scripts": {
     "dev": "nodemon",
     "build": "npm run build:next && npm run build:server",
