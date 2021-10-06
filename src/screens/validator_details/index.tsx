@@ -33,7 +33,7 @@ const ValidatorDetails = () => {
     status,
   } = state;
 
-  console.log(state);
+  console.log('state', state);
 
   return (
     <>
