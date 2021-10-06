@@ -12,6 +12,10 @@ jest.mock('@configs', () => ({
         display: 'potic',
         exponent: 0,
       },
+      ubar: {
+        display: 'bar',
+        exponent: 3,
+      },
     },
   },
 }));
@@ -24,18 +28,28 @@ describe('utils: formatDenom', () => {
     const results = formatDenom('1000000', 'udaric');
     expect(results.value).toBe(1);
     expect(results.denom).toBe('daric');
+    expect(results.format).toBe('0,0.[000000]');
   });
 
   it('formats correctly 2', async () => {
     const results = formatDenom('1000000', 'upotic');
     expect(results.value).toBe(1000000);
     expect(results.denom).toBe('potic');
+    expect(results.format).toBe('0,0');
+  });
+
+  it('formats correctly 3', async () => {
+    const results = formatDenom('1000000', 'ubar');
+    expect(results.value).toBe(1000);
+    expect(results.denom).toBe('bar');
+    expect(results.format).toBe('0,0.[000]');
   });
 
   it('when token unit is unknown', async () => {
     const results = formatDenom('1000000', 'unknown');
     expect(results.value).toBe(1000000);
     expect(results.denom).toBe('unknown');
+    expect(results.format).toBe('0,0.[000000]');
   });
 
   it('when unit is less than 1', async () => {

@@ -19,7 +19,7 @@ const WithdrawReward = (props: {
     .validatorAddress;
 
   const parsedAmount = message.amounts.map((x) => {
-    return `${numeral(x.value).format('0,0.[0000]')} ${x.denom.toUpperCase()}`;
+    return `${numeral(x.value).format(x.format)} ${x.denom.toUpperCase()}`;
   }).join(', ');
 
   return (

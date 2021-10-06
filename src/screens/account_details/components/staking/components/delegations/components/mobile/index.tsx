@@ -59,7 +59,7 @@ const Mobile: React.FC<{
                   {t('amount')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {numeral(x.amount.value).format('0,0.[0000]')}
+                  {numeral(x.amount.value).format(x.amount.format)}
                   {' '}
                   {x.amount.denom.toUpperCase()}
                 </Typography>
@@ -69,7 +69,7 @@ const Mobile: React.FC<{
                   {t('reward')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {numeral(x.reward.value).format('0,0.[0000]')}
+                  {numeral(x.reward.value).format(x.reward.format)}
                   {' '}
                   {x.reward.denom.toUpperCase()}
                 </Typography>
