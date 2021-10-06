@@ -32,6 +32,8 @@ const Desktop: React.FC<{
     });
   });
 
+  console.log('formattedItems', formattedItems);
+
   return (
     <div className={classnames(className)}>
       <Table>
@@ -51,9 +53,15 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
+          <TableRow>
+            <TableCell>
+              Native
+            </TableCell>
+          </TableRow>
           {formattedItems.map((row, i) => (
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => {
+                console.log('columns', columns);
                 return (
                   <TableCell
                     key={`holders-row-${i}-${column.key}`}
