@@ -18,7 +18,7 @@ const Transfer = (props: {
   const receiver = findAddress(message.receiver);
   const receiverMoniker = receiver ? receiver?.moniker : message.receiver;
   const tokenFormatDenom = formatDenom(message.token?.amount, message.token?.denom);
-  const token = `${numeral(tokenFormatDenom.value).format('0,0.[0000]')} ${tokenFormatDenom.denom.toUpperCase()}`;
+  const token = `${numeral(tokenFormatDenom.value).format(tokenFormatDenom.format)} ${tokenFormatDenom.denom.toUpperCase()}`;
 
   return (
     <Typography>

@@ -13,7 +13,7 @@ const Undelegate = (props: {
   const { findAddress } = useChainContext();
   const { message } = props;
   const amount = formatDenom(message.amount.amount, message.amount.denom);
-  const parsedAmount = `${numeral(amount.value).format('0,0.[0000]')} ${amount.denom.toUpperCase()}`;
+  const parsedAmount = `${numeral(amount.value).format(amount.format)} ${amount.denom.toUpperCase()}`;
 
   const delegator = findAddress(message.delegatorAddress);
   const delegatorMoniker = delegator ? delegator?.moniker : message

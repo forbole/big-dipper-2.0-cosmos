@@ -7,10 +7,7 @@ class MsgWithdrawValidatorCommission {
   public category: Categories;
   public type: string;
   public validatorAddress: string;
-  public amounts: {
-    denom: string;
-    value: number;
-  }[];
+  public amounts: TokenUnit[];
   public json: any;
 
   constructor(payload: any) {
