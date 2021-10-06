@@ -58,6 +58,8 @@ const ValidatorDetails = () => {
                 coverUrl={desmosProfile.coverUrl}
                 bio={desmosProfile.bio}
                 connections={desmosProfile.connections}
+                address={desmosProfile.address}
+                creationTime={desmosProfile.creationTime}
               />
             ) : (
               <Profile
