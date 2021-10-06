@@ -80,6 +80,8 @@ export const useDesmosProfile = (options: Options) => {
 
     const profile = data.profile[0];
 
+    console.log('profile', profile);
+
     const applications = profile.applicationLinks.map((x) => {
       return ({
         network: x.application,
@@ -105,6 +107,8 @@ export const useDesmosProfile = (options: Options) => {
       connections: [...applications, ...chains].sort((a, b) => (
         (a.network.toLowerCase() > b.network.toLowerCase()) ? 1 : -1
       )),
+      address: profile.address,
+      creationTime: profile.creationTime,
     });
   };
 
