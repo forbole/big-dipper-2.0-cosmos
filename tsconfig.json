@@ -26,6 +26,9 @@
       "@components": [
         "src/components"
       ],
+      "@msg": [
+        "src/components/msg"
+      ],
       "@icons": [
         "src/components/icons"
       ],
