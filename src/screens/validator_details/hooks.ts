@@ -24,7 +24,13 @@ import {
 } from '@models';
 import { ValidatorDetailsState } from './types';
 
-const initialState = {
+const initialTokenDenom = {
+  value: 0,
+  denom: '',
+  format: '',
+};
+
+const initialState: ValidatorDetailsState = {
   loading: true,
   exists: true,
   desmosProfile: null,
@@ -49,16 +55,10 @@ const initialState = {
   },
   votingPower: {
     height: 0,
-    overall: {
-      value: 0,
-      denom: '',
-    },
+    overall: initialTokenDenom,
     self: 0,
     selfDelegatePercent: 0,
-    selfDelegate: {
-      value: 0,
-      denom: '',
-    },
+    selfDelegate: initialTokenDenom,
   },
   delegations: {
     count: 0,

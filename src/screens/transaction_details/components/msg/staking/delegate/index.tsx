@@ -20,7 +20,7 @@ const Delegate = (props: {
     .validatorAddress;
   const amount = formatDenom(message.amount.amount, message.amount.denom);
 
-  const parsedAmount = `${numeral(amount.value).format('0,0.[0000]')} ${amount.denom.toUpperCase()}`;
+  const parsedAmount = `${numeral(amount.value).format(amount.format)} ${amount.denom.toUpperCase()}`;
 
   return (
     <Typography>
