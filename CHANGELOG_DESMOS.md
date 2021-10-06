@@ -1,7 +1,8 @@
-# Unrelease
+# desmos-v1.4.0 - 2021-10-06
 
 # Changes
 - Add MsgLinkChainAccount ([\#404](https://github.com/forbole/big-dipper-2.0-cosmos/issues/404))
+- Merged `base-v1.4.0`
 # desmos-v1.3.0 - 2021-09-28
 
 # Changes
