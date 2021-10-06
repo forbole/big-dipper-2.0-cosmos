@@ -8,10 +8,7 @@ class MsgWithdrawDelegatorReward {
   public type: string;
   public delegatorAddress: string;
   public validatorAddress: string;
-  public amounts: {
-    denom: string;
-    value: number;
-  }[];
+  public amounts: TokenUnit[];
   public json: any;
 
   constructor(payload: any) {

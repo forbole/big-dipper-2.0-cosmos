@@ -23,13 +23,13 @@ const Multisend = (props: {
   }, ['inputs', 0], message);
   const senderAmount = sender?.coins?.map((x) => {
     const amount = formatDenom(x.amount, x.denom);
-    return `${numeral(amount.value).format('0,0.[0000]')} ${amount.denom.toUpperCase()}`;
+    return `${numeral(amount.value).format(amount.format)} ${amount.denom.toUpperCase()}`;
   }).reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
 
   const receivers = message?.outputs?.map((output) => {
     const parsedAmount = output?.coins?.map((x) => {
       const amount = formatDenom(x.amount, x.denom);
-      return `${numeral(amount.value).format('0,0.[0000]')} ${amount.denom.toUpperCase()}`;
+      return `${numeral(amount.value).format(amount.format)} ${amount.denom.toUpperCase()}`;
     }).reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
 
     return {

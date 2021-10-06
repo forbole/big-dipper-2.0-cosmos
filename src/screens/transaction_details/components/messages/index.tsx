@@ -17,8 +17,8 @@ import {
   Box,
   TransactionMessagesFilter,
 } from '@components';
+import { getMessageByType } from '@msg';
 import { useStyles } from './styles';
-import { getMessageByType } from '../../utils';
 
 const Messages: React.FC<{
   className?: string;

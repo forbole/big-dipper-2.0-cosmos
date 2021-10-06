@@ -2,7 +2,7 @@ import * as MODELS from '@models';
 import {
   Tag,
 } from '@components';
-import * as COMPONENTS from './components';
+import * as COMPONENTS from '@msg';
 
 const getDataByType = (type: string) => {
   // =====================================
