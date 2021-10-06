@@ -56,21 +56,21 @@ const Desktop: React.FC<{
           <TableRow>
             <TableCell
               key={`holders-row-${-1}-network`}
-              style={{ width: `${25}%` }}
+              style={{ width: '25%' }}
             >
               Native
             </TableCell>
             <TableCell
               key={`holders-row-${-1}-identifier`}
               align="right"
-              style={{ width: `${50}%` }}
+              style={{ width: '50%' }}
             >
               Native
             </TableCell>
             <TableCell
               key={`holders-row-${-1}-creationTime`}
               align="right"
-              style={{ width: `${25}%` }}
+              style={{ width: '25%' }}
             >
               Native
             </TableCell>
