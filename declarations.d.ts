@@ -38,8 +38,6 @@ type DesmosProfile = {
   bio: string;
   connections: ProfileConnectionType[];
   validator?: ValidatorProfile;
-  address: string;
-  creationTime: string;
 }
 
 type ProfileConnectionType = {
