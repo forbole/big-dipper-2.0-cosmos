@@ -24,7 +24,7 @@ import LinearLoading from './linear_loading';
 import Name from './name';
 import Markdown from './markdown';
 import ConditionExplanation from './condition_explanation';
-import TransactionsList from './transactions_list_new';
+import TransactionsList from './transactions_list';
 import LoadAndExist from './load_and_exist';
 import DesmosProfile from './desmos_profile';
 import TransactionDetails from './transaction_details';
