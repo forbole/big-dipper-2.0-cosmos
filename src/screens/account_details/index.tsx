@@ -71,13 +71,14 @@ const AccountDetails = () => {
               delegations={state.delegations}
               unbondings={state.unbondings}
             />
-            <Transactions
+            <Transactions />
+            {/* <Transactions
               className={classes.transactions}
               loadNextPage={loadNextPage}
               data={state.transactions.data}
               hasNextPage={state.transactions.hasNextPage}
               isNextPageLoading={state.transactions.isNextPageLoading}
-            />
+            /> */}
           </span>
         </LoadAndExist>
       </Layout>
