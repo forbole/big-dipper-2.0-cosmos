@@ -24,6 +24,16 @@ type Transactions = {
   messages: number;
 }
 
+type TransactionsDetails = {
+  height: number;
+  hash: string;
+  success: boolean;
+  timestamp: string;
+  messages: {
+    items: any[];
+  };
+}
+
 type TokenUnit = {
   value: number;
   denom: string;

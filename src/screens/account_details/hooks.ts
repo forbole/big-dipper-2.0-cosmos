@@ -182,7 +182,7 @@ export const useAccountDetails = () => {
       const messages = transaction.messages.map((msg, i) => {
         const model = getMessageModelByType(msg?.['@type']);
         if (model === MsgWithdrawDelegatorReward || model === MsgWithdrawValidatorCommission) {
-          const log = R.pathOr(null, ['logs', i], data.transaction[0]);
+          const log = R.pathOr(null, ['logs', i], transaction);
           return model.fromJson(x, log);
         }
         return model.fromJson(x);
@@ -191,7 +191,9 @@ export const useAccountDetails = () => {
       return ({
         height: transaction.height,
         hash: transaction.hash,
-        messages: transaction.messages.length,
+        messages: {
+          items: messages,
+        },
         success: transaction.success,
         timestamp: transaction.block.timestamp,
       });

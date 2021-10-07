@@ -26,9 +26,9 @@ import {
 } from '@hooks';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { useStyles } from './styles';
-import { TransactionsListState } from '../../types';
+import { TransactionsListDetailsState } from '../../types';
 
-const TransactionList: React.FC<TransactionsListState> = ({
+const TransactionList: React.FC<TransactionsListDetailsState> = ({
   className,
   itemCount,
   loadMoreItems,
@@ -64,7 +64,7 @@ const TransactionList: React.FC<TransactionsListState> = ({
       <Result success={x.success} />
     ),
     time: dayjs.utc(x.timestamp).fromNow(),
-    messages: numeral(x.messages).format('0,0'),
+    messages: numeral(x.messages.items.length).format('0,0'),
   }));
 
   return (

@@ -19,19 +19,6 @@ export type OtherTokenType = {
   commission: TokenUnit;
 }
 
-export type TransactionType = {
-  height: number;
-  hash: string;
-  success: boolean;
-  timestamp: string;
-  // messages: number;
-  messages: {
-    // filterBy: string;
-    // viewRaw: boolean;
-    items: any[];
-  }
-}
-
 export type DelegationType = {
   validator: AvatarName;
   validatorStatus: {
@@ -83,6 +70,6 @@ export type AccountDetailState = {
     hasNextPage: boolean;
     isNextPageLoading: boolean;
     offsetCount: number;
-    data: TransactionType[];
+    data: TransactionsDetails[];
   };
 }

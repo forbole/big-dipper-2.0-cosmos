@@ -1,4 +1,4 @@
-export type TransactionsListState = {
+export type TransactionsListDestailsState = {
   className?: string;
   hasNextPage?: boolean;
   isNextPageLoading?: boolean;
@@ -6,5 +6,5 @@ export type TransactionsListState = {
   loadMoreItems?: (any) => void;
   isItemLoaded?: (index: number) => boolean;
   itemCount: number;
-  transactions: Transactions[];
+  transactions: TransactionsDetails[];
 }
