@@ -11,7 +11,12 @@ import {
   useGetMessagesByAddressQuery,
   GetMessagesByAddressQuery,
 } from '@graphql/types';
-import { StakingParams } from '@models';
+import { getMessageModelByType } from '@msg';
+import {
+  MsgWithdrawDelegatorReward,
+  MsgWithdrawValidatorCommission,
+  StakingParams,
+} from '@models';
 import { useChainContext } from '@contexts';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
@@ -162,6 +167,7 @@ export const useAccountDetails = () => {
   // ==========================
   // Format Data
   // ==========================
+
   const formatTransactions = (data: GetMessagesByAddressQuery) => {
     let formattedData = data.messagesByAddress;
     if (data.messagesByAddress.length === 51) {
@@ -169,6 +175,19 @@ export const useAccountDetails = () => {
     }
     return formattedData.map((x) => {
       const { transaction } = x;
+
+      // =============================
+      // messages
+      // =============================
+      const messages = transaction.messages.map((msg, i) => {
+        const model = getMessageModelByType(msg?.['@type']);
+        if (model === MsgWithdrawDelegatorReward || model === MsgWithdrawValidatorCommission) {
+          const log = R.pathOr(null, ['logs', i], data.transaction[0]);
+          return model.fromJson(x, log);
+        }
+        return model.fromJson(x);
+      });
+
       return ({
         height: transaction.height,
         hash: transaction.hash,

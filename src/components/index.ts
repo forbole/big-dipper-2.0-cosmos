@@ -27,7 +27,7 @@ import ConditionExplanation from './condition_explanation';
 import TransactionsList from './transactions_list';
 import LoadAndExist from './load_and_exist';
 import DesmosProfile from './desmos_profile';
-import TransactionDetails from './transaction_details';
+import TransactionListDetails from './transactions_list_details';
 
 export {
   Layout,
@@ -59,5 +59,5 @@ export {
   ConditionExplanation,
   LoadAndExist,
   DesmosProfile,
-  TransactionDetails,
+  TransactionListDetails,
 };

@@ -24,7 +24,12 @@ export type TransactionType = {
   hash: string;
   success: boolean;
   timestamp: string;
-  messages: number;
+  // messages: number;
+  messages: {
+    // filterBy: string;
+    // viewRaw: boolean;
+    items: any[];
+  }
 }
 
 export type DelegationType = {

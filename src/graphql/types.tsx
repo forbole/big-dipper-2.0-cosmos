@@ -18202,7 +18202,7 @@ export type GetMessagesByAddressQuery = { messagesByAddress: Array<(
     { __typename?: 'message' }
     & { transaction: (
       { __typename?: 'transaction' }
-      & Pick<Transaction, 'height' | 'hash' | 'success' | 'messages'>
+      & Pick<Transaction, 'height' | 'hash' | 'success' | 'messages' | 'logs'>
       & { block: (
         { __typename?: 'block' }
         & Pick<Block, 'height' | 'timestamp'>
@@ -19035,6 +19035,7 @@ export const GetMessagesByAddressDocument = gql`
       hash
       success
       messages
+      logs
       block {
         height
         timestamp

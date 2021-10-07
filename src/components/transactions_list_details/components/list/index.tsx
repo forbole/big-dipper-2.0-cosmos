@@ -28,7 +28,7 @@ import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { useStyles } from './styles';
 import { TransactionsListState } from '../../types';
 
-const List: React.FC<TransactionsListState> = ({
+const TransactionList: React.FC<TransactionsListState> = ({
   className,
   itemCount,
   loadMoreItems,
@@ -124,4 +124,4 @@ const List: React.FC<TransactionsListState> = ({
   );
 };
 
-export default List;
+export default TransactionList;
