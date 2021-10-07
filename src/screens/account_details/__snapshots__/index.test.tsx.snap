@@ -16,7 +16,15 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
       <div
         address="desmos1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w"
         bio=""
-        connections={Array []}
+        connections={
+          Array [
+            Object {
+              "creationTime": undefined,
+              "identifier": "desmos1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w",
+              "network": "native",
+            },
+          ]
+        }
         dtag="RiccardoMontagnin"
         id="DesmosProfile"
         imageUrl=""
