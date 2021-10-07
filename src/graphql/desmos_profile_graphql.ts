@@ -20,6 +20,7 @@ query DesmosProfile($address: String) {
       creationTime: creation_time
       application
     }
+    creationTime: creation_time
   }
 }
 `;
@@ -47,6 +48,7 @@ query DesmosProfileLink($address: String) {
       creationTime: creation_time
       application
     }
+    creationTime: creation_time
   }
 }
 `;
