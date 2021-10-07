@@ -8,8 +8,9 @@ import {
   BLOCK_DETAILS,
 } from '@utils/go_to_page';
 import {
-  Typography, Divider,
+  Typography,
 } from '@material-ui/core';
+import useTranslation from 'next-translate/useTranslation';
 import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
@@ -24,6 +25,7 @@ import {
   useListRow,
 } from '@hooks';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { getMessageByType } from '@msg';
 import { useStyles } from './styles';
 import { TransactionsListDetailsState } from '../../types';
 import { SingleTransaction } from './components';
@@ -35,8 +37,8 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
   isItemLoaded,
   transactions,
 }) => {
+  const { t } = useTranslation('transactions');
   const classes = useStyles();
-
   const {
     dateFormat,
   } = useSettingsContext();
@@ -46,7 +48,7 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
     getRowHeight,
     setRowHeight,
   } = useList();
-  console.log(transactions, 'wow');
+
   const items = transactions.map((x) => ({
     block: (
       <Link href={BLOCK_DETAILS(x.height)} passHref>
@@ -68,7 +70,10 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
       <Result success={x.success} />
     ),
     time: formatDayJs(dayjs.utc(x.timestamp), dateFormat),
-    messages: numeral(x.messages.items.length).format('0,0'),
+    messageCount: numeral(x.messages.items.length).format('0,0'),
+    messages: x.messages.items.map((message) => {
+      return getMessageByType(message, false, t);
+    }),
   }));
 
   return (
@@ -113,7 +118,6 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
                       <div style={style}>
                         <div ref={rowRef}>
                           <SingleTransaction {...item} />
-                          {index !== itemCount - 1 && <Divider />}
                         </div>
                       </div>
                     );

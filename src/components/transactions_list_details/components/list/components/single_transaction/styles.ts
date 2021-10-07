@@ -11,6 +11,7 @@ export const useStyles = () => {
         timeContainer: {
           background: theme.palette.custom.general.surfaceTwo,
           padding: theme.spacing(1, 2),
+          color: theme.palette.custom.fonts.fontTwo,
         },
         itemContainer: {
           padding: theme.spacing(2),
@@ -34,6 +35,22 @@ export const useStyles = () => {
           justifyContent: 'flex-start',
           '& > div': {
             width: '50%',
+          },
+        },
+        msgContainer: {
+          margin: theme.spacing(2, 0),
+          [theme.breakpoints.up('lg')]: {
+            display: 'flex',
+            // padding: theme.spacing(0, 2),
+          },
+        },
+        tags: {
+          marginBottom: theme.spacing(2),
+          [theme.breakpoints.up('lg')]: {
+            minWidth: '200px',
+            marginBottom: 0,
+            paddingRight: theme.spacing(2),
+            alignSelf: 'flex-start',
           },
         },
       });

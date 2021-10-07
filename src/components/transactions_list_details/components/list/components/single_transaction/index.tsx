@@ -11,10 +11,11 @@ const SingleTransaction:React.FC<{
   block: React.ReactNode;
   hash: React.ReactNode;
   time: string;
-  messages: string;
+  messageCount: string;
+  messages: any[];
   result?: React.ReactNode;
 }> = ({
-  className, block, hash, time, messages, result,
+  className, block, hash, time, messages, result, messageCount,
 }) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
@@ -23,7 +24,7 @@ const SingleTransaction:React.FC<{
     <div className={classnames(className, classes.root)}>
       <div className={classes.timeContainer}>
         <Typography variant="body1" className="value">
-          {time}
+          {hash}
         </Typography>
       </div>
       <div className={classes.itemContainer}>
@@ -33,41 +34,46 @@ const SingleTransaction:React.FC<{
           </Typography>
           {block}
         </div>
-      </div>
-      {/* <div className={classes.item}>
-        <Typography variant="h4" className="label">
-          {t('hash')}
-        </Typography>
-        <Typography variant="body1" className="value">
-          {hash}
-        </Typography>
-      </div> */}
-      {/* <div className={classes.flex}>
-        {!!messages && (
         <div className={classes.item}>
           <Typography variant="h4" className="label">
-            {t('messages')}
+            {t('time')}
           </Typography>
           <Typography variant="body1" className="value">
-            {messages}
+            {time}
           </Typography>
         </div>
-        )}
+        <div className={classes.flex}>
+          {!!messageCount && (
+          <div className={classes.item}>
+            <Typography variant="h4" className="label">
+              {t('messages')}
+            </Typography>
+            <Typography variant="body1" className="value">
+              {messageCount}
+            </Typography>
+          </div>
+          )}
+          <div className={classes.item}>
+            <Typography variant="h4" className="label">
+              {t('result')}
+            </Typography>
+            {result}
+          </div>
+        </div>
         <div className={classes.item}>
           <Typography variant="h4" className="label">
-            {t('result')}
+            {t('details')}
           </Typography>
-          {result}
+          {messages.map((x) => (
+            <div className={classes.msgContainer}>
+              <div className={classes.tags}>
+                {x.type}
+              </div>
+              {x.message}
+            </div>
+          ))}
         </div>
-      </div> */}
-      {/* <div className={classes.item}>
-        <Typography variant="h4" className="label">
-          {t('time')}
-        </Typography>
-        <Typography variant="body1" className="value">
-          {time}
-        </Typography>
-      </div> */}
+      </div>
     </div>
   );
 };
