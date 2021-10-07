@@ -183,9 +183,9 @@ export const useAccountDetails = () => {
         const model = getMessageModelByType(msg?.['@type']);
         if (model === MsgWithdrawDelegatorReward || model === MsgWithdrawValidatorCommission) {
           const log = R.pathOr(null, ['logs', i], transaction);
-          return model.fromJson(x, log);
+          return model.fromJson(msg, log);
         }
-        return model.fromJson(x);
+        return model.fromJson(msg);
       });
 
       return ({

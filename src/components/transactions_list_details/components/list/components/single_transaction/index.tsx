@@ -64,8 +64,8 @@ const SingleTransaction:React.FC<{
           <Typography variant="h4" className="label">
             {t('details')}
           </Typography>
-          {messages.map((x) => (
-            <div className={classes.msgContainer}>
+          {messages.map((x, i) => (
+            <div className={classes.msgContainer} key={`${x.type}-${i}`}>
               <div className={classes.tags}>
                 {x.type}
               </div>
