@@ -182,6 +182,7 @@ describe('screen: BlockDetails', () => {
             profilePic: '',
             chainLinks: [],
             applicationLinks: [],
+            creationTime: '2021-10-06T00:10:45.761731',
           },
         ],
       },

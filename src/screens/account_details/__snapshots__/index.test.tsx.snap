@@ -18,7 +18,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
         connections={
           Array [
             Object {
-              "creationTime": undefined,
+              "creationTime": "2021-10-06T00:10:45.761731",
               "identifier": "desmos1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w",
               "network": "native",
             },
