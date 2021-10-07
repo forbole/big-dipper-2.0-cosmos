@@ -113,8 +113,6 @@ export const useDesmosProfile = (options: Options) => {
       coverUrl: profile.coverPic,
       bio: profile.bio,
       connections: [nativeData, ...connectionsWithoutNativeSorted],
-      address: profile.address,
-      creationTime: profile.creationTime,
     });
   };
 
