@@ -80,7 +80,11 @@ export const useDesmosProfile = (options: Options) => {
 
     const profile = data.profile[0];
 
-    console.log('profile', profile);
+    const nativeData = {
+      network: 'native',
+      identifier: profile.address,
+      creationTime: profile.creationTime,
+    };
 
     const applications = profile.applicationLinks.map((x) => {
       return ({
@@ -98,15 +102,17 @@ export const useDesmosProfile = (options: Options) => {
       });
     });
 
+    const connectionsWithoutNativeSorted = [...applications, ...chains].sort((a, b) => (
+      (a.network.toLowerCase() > b.network.toLowerCase()) ? 1 : -1
+    ));
+
     return ({
       dtag: profile.dtag,
       nickname: profile.nickname,
       imageUrl: profile.profilePic,
       coverUrl: profile.coverPic,
       bio: profile.bio,
-      connections: [...applications, ...chains].sort((a, b) => (
-        (a.network.toLowerCase() > b.network.toLowerCase()) ? 1 : -1
-      )),
+      connections: [nativeData, ...connectionsWithoutNativeSorted],
       address: profile.address,
       creationTime: profile.creationTime,
     });
