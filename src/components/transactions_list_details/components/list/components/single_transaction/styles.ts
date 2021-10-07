@@ -14,7 +14,7 @@ export const useStyles = () => {
           color: theme.palette.custom.fonts.fontTwo,
         },
         itemContainer: {
-          padding: theme.spacing(2),
+          padding: theme.spacing(2, 2, 1),
         },
         item: {
           marginBottom: theme.spacing(2),
@@ -37,21 +37,14 @@ export const useStyles = () => {
             width: '50%',
           },
         },
-        msgContainer: {
+        divider: {
           margin: theme.spacing(2, 0),
-          [theme.breakpoints.up('lg')]: {
-            display: 'flex',
-            // padding: theme.spacing(0, 2),
-          },
+        },
+        msgListContainer: {
+          marginTop: theme.spacing(2),
         },
         tags: {
           marginBottom: theme.spacing(2),
-          [theme.breakpoints.up('lg')]: {
-            minWidth: '200px',
-            marginBottom: 0,
-            paddingRight: theme.spacing(2),
-            alignSelf: 'flex-start',
-          },
         },
       });
     },

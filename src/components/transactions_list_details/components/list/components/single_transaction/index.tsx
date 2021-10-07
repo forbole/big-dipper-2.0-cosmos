@@ -2,6 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import {
   Typography,
+  Divider,
 } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import { useStyles } from './styles';
@@ -64,14 +65,19 @@ const SingleTransaction:React.FC<{
           <Typography variant="h4" className="label">
             {t('details')}
           </Typography>
-          {messages.map((x, i) => (
-            <div className={classes.msgContainer} key={`${x.type}-${i}`}>
-              <div className={classes.tags}>
-                {x.type}
-              </div>
-              {x.message}
-            </div>
-          ))}
+          <div className={classes.msgListContainer}>
+            {messages.map((x, i) => (
+              <>
+                <div key={`${x.type}-${i}`}>
+                  <div className={classes.tags}>
+                    {x.type}
+                  </div>
+                  {x.message}
+                </div>
+                {i !== messages.length - 1 && <Divider className={classes.divider} />}
+              </>
+            ))}
+          </div>
         </div>
       </div>
     </div>
