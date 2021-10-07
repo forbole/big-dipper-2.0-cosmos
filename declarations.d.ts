@@ -24,6 +24,7 @@ type Transactions = {
   messages: number;
 }
 
+// transaction lists with msg displayed
 type TransactionsDetails = {
   height: number;
   hash: string;

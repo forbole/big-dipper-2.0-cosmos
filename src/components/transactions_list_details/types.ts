@@ -1,4 +1,4 @@
-export type TransactionsListDestailsState = {
+export type TransactionsListDetailsState = {
   className?: string;
   hasNextPage?: boolean;
   isNextPageLoading?: boolean;

@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
-import dayjs from '@utils/dayjs';
+import dayjs, { formatDayJs } from '@utils/dayjs';
 import Link from 'next/link';
 import {
   TRANSACTION_DETAILS,
@@ -13,10 +13,9 @@ import {
 import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
-
+import { useSettingsContext } from '@contexts';
 import { mergeRefs } from '@utils/merge_refs';
 import {
-  SingleTransactionMobile,
   Loading,
   Result,
 } from '@components';
@@ -27,6 +26,7 @@ import {
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { useStyles } from './styles';
 import { TransactionsListDetailsState } from '../../types';
+import { SingleTransaction } from './components';
 
 const TransactionList: React.FC<TransactionsListDetailsState> = ({
   className,
@@ -38,11 +38,15 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
   const classes = useStyles();
 
   const {
+    dateFormat,
+  } = useSettingsContext();
+
+  const {
     listRef,
     getRowHeight,
     setRowHeight,
   } = useList();
-
+  console.log(transactions, 'wow');
   const items = transactions.map((x) => ({
     block: (
       <Link href={BLOCK_DETAILS(x.height)} passHref>
@@ -63,7 +67,7 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
     result: (
       <Result success={x.success} />
     ),
-    time: dayjs.utc(x.timestamp).fromNow(),
+    time: formatDayJs(dayjs.utc(x.timestamp), dateFormat),
     messages: numeral(x.messages.items.length).format('0,0'),
   }));
 
@@ -108,7 +112,7 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
                     return (
                       <div style={style}>
                         <div ref={rowRef}>
-                          <SingleTransactionMobile {...item} />
+                          <SingleTransaction {...item} />
                           {index !== itemCount - 1 && <Divider />}
                         </div>
                       </div>
