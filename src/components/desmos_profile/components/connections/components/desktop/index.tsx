@@ -32,9 +32,6 @@ const Desktop: React.FC<{
     });
   });
 
-  console.log('items', items);
-  console.log('formattedItems', formattedItems);
-
   return (
     <div className={classnames(className)}>
       <Table>

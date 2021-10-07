@@ -33,8 +33,6 @@ const ValidatorDetails = () => {
     status,
   } = state;
 
-  console.log('state', state);
-
   return (
     <>
       <NextSeo
