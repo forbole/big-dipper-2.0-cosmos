@@ -29,36 +29,38 @@ const SingleTransaction:React.FC<{
         </Typography>
       </div>
       <div className={classes.itemContainer}>
-        <div className={classes.item}>
-          <Typography variant="h4" className="label">
-            {t('block')}
-          </Typography>
-          {block}
-        </div>
-        <div className={classes.item}>
-          <Typography variant="h4" className="label">
-            {t('time')}
-          </Typography>
-          <Typography variant="body1" className="value">
-            {time}
-          </Typography>
-        </div>
-        <div className={classes.flex}>
-          {!!messageCount && (
+        <div className={classes.itemPrimaryDetailsContainer}>
           <div className={classes.item}>
             <Typography variant="h4" className="label">
-              {t('messages')}
+              {t('block')}
+            </Typography>
+            {block}
+          </div>
+          <div className={classes.item}>
+            <Typography variant="h4" className="label">
+              {t('time')}
             </Typography>
             <Typography variant="body1" className="value">
-              {messageCount}
+              {time}
             </Typography>
           </div>
-          )}
-          <div className={classes.item}>
-            <Typography variant="h4" className="label">
-              {t('result')}
-            </Typography>
-            {result}
+          <div className={classes.flex}>
+            {!!messageCount && (
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('messages')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {messageCount}
+              </Typography>
+            </div>
+            )}
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('result')}
+              </Typography>
+              {result}
+            </div>
           </div>
         </div>
         <div className={classes.item}>

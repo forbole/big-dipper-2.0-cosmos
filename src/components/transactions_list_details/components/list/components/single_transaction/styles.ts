@@ -16,6 +16,9 @@ export const useStyles = () => {
         itemContainer: {
           padding: theme.spacing(2, 2, 1),
         },
+        itemPrimaryDetailsContainer: {
+          background: 'green',
+        },
         item: {
           marginBottom: theme.spacing(2),
           '& .label': {
