@@ -17,7 +17,7 @@ exports[`screen: Transactions matches snapshot 1`] = `
     >
       <div
         hasNextPage={true}
-        id="TransactionListDetails"
+        id="TransactionsList"
         isItemLoaded={[Function]}
         isNextPageLoading={false}
         itemCount={3}
