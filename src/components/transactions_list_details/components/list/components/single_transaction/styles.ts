@@ -17,10 +17,18 @@ export const useStyles = () => {
           padding: theme.spacing(2, 2, 1),
         },
         itemPrimaryDetailsContainer: {
-          background: 'green',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          [theme.breakpoints.up('lg')]: {
+            gridTemplateColumns: 'repeat(4, 1fr)',
+          },
         },
         item: {
+          gridColumn: '1/3',
           marginBottom: theme.spacing(2),
+          '&.messages, &.result': {
+            gridColumn: 'auto / span 1',
+          },
           '& .label': {
             marginBottom: theme.spacing(1),
             color: theme.palette.custom.fonts.fontThree,
@@ -31,20 +39,22 @@ export const useStyles = () => {
           '& a': {
             color: theme.palette.custom.fonts.highlight,
           },
-        },
-        flex: {
-          display: 'flex',
-          alignItems: 'flex-start',
-          justifyContent: 'flex-start',
-          '& > div': {
-            width: '50%',
+          [theme.breakpoints.up('md')]: {
+            '&.block, &.time': {
+              gridColumn: 'auto / span 1',
+            },
+          },
+          [theme.breakpoints.up('md')]: {
+            gridColumn: 'auto / span 1',
           },
         },
-        divider: {
-          margin: theme.spacing(2, 0),
-        },
         msgListContainer: {
-          marginTop: theme.spacing(2),
+          marginTop: theme.spacing(3),
+        },
+        msg: {
+          '&:not(:last-child)': {
+            marginBottom: theme.spacing(4),
+          },
         },
         tags: {
           marginBottom: theme.spacing(2),

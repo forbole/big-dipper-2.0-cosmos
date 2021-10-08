@@ -30,13 +30,13 @@ const SingleTransaction:React.FC<{
       </div>
       <div className={classes.itemContainer}>
         <div className={classes.itemPrimaryDetailsContainer}>
-          <div className={classes.item}>
+          <div className={classnames(classes.item, 'block')}>
             <Typography variant="h4" className="label">
               {t('block')}
             </Typography>
             {block}
           </div>
-          <div className={classes.item}>
+          <div className={classnames(classes.item, 'time')}>
             <Typography variant="h4" className="label">
               {t('time')}
             </Typography>
@@ -44,40 +44,31 @@ const SingleTransaction:React.FC<{
               {time}
             </Typography>
           </div>
-          <div className={classes.flex}>
-            {!!messageCount && (
-            <div className={classes.item}>
-              <Typography variant="h4" className="label">
-                {t('messages')}
-              </Typography>
-              <Typography variant="body1" className="value">
-                {messageCount}
-              </Typography>
-            </div>
-            )}
-            <div className={classes.item}>
-              <Typography variant="h4" className="label">
-                {t('result')}
-              </Typography>
-              {result}
-            </div>
+          <div className={classnames(classes.item, 'messages')}>
+            <Typography variant="h4" className="label">
+              {t('messages')}
+            </Typography>
+            <Typography variant="body1" className="value">
+              {messageCount}
+            </Typography>
+          </div>
+          <div className={classnames(classes.item, 'result')}>
+            <Typography variant="h4" className="label">
+              {t('result')}
+            </Typography>
+            {result}
           </div>
         </div>
+        <Divider />
         <div className={classes.item}>
-          <Typography variant="h4" className="label">
-            {t('details')}
-          </Typography>
           <div className={classes.msgListContainer}>
             {messages.map((x, i) => (
-              <>
-                <div key={`${x.type}-${i}`}>
-                  <div className={classes.tags}>
-                    {x.type}
-                  </div>
-                  {x.message}
+              <div className={classes.msg} key={`${x.type}-${i}`}>
+                <div className={classes.tags}>
+                  {x.type}
                 </div>
-                {i !== messages.length - 1 && <Divider className={classes.divider} />}
-              </>
+                {x.message}
+              </div>
             ))}
           </div>
         </div>
