@@ -22,6 +22,7 @@ type Transactions = {
   success: boolean;
   timestamp: string;
   messages: {
+    count: number;
     items: any[];
   };
 }

@@ -94,7 +94,10 @@ export const useTransactions = () => {
       return ({
         height: x.height,
         hash: x.hash,
-        messages: x.messages.length,
+        messages: {
+          count: x.messages.length,
+          items: [],
+        },
         success: x.success,
         timestamp: x.block.timestamp,
       });

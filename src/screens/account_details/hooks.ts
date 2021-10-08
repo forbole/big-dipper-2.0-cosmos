@@ -192,6 +192,7 @@ export const useAccountDetails = () => {
         height: transaction.height,
         hash: transaction.hash,
         messages: {
+          count: messages.length,
           items: messages,
         },
         success: transaction.success,

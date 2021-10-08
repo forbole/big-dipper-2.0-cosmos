@@ -218,6 +218,7 @@ export const useValidatorDetails = () => {
         height: transaction.height,
         hash: transaction.hash,
         messages: {
+          count: messages.count,
           items: messages,
         },
         success: transaction.success,

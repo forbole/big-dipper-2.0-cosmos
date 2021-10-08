@@ -61,7 +61,7 @@ const Desktop: React.FC<TransactionsListState> = ({
       <Result success={x.success} />
     ),
     time: dayjs.utc(x.timestamp).fromNow(),
-    messages: numeral(x.messages.items.length).format('0,0'),
+    messages: numeral(x.messages.count).format('0,0'),
   }));
   return (
     <div className={classnames(className, classes.root)}>

@@ -31,6 +31,7 @@ describe('screen: Transactions/List', () => {
                 success: true,
                 timestamp: '',
                 messages: {
+                  count: 4,
                   items: [],
                 },
               },
