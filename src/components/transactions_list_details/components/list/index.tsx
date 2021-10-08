@@ -23,6 +23,7 @@ import {
 import {
   useList,
   useListRow,
+  useScreenSize,
 } from '@hooks';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { getMessageByType } from '@msg';
@@ -37,6 +38,9 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
   isItemLoaded,
   transactions,
 }) => {
+  const {
+    isDesktop, isMobile,
+  } = useScreenSize();
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   const {
@@ -60,9 +64,13 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
     hash: (
       <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
         <Typography variant="body1" component="a">
-          {getMiddleEllipsis(x.hash, {
-            beginning: 15, ending: 5,
-          })}
+          {isMobile ? (
+            getMiddleEllipsis(x.hash, {
+              beginning: 15, ending: 5,
+            })
+          ) : (
+            x.hash
+          )}
         </Typography>
       </Link>
     ),
