@@ -2,12 +2,15 @@ import React from 'react';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { lightTemplate } from '@styles';
 import {
-  useTheme, useDateFormat,
+  useTheme,
+  useDateFormat,
+  useTxListFormat,
 } from './hooks';
 import {
   SettingsState,
   ThemeState,
   DateFormatState,
+  TxListFormatState,
 } from './types';
 
 const initialThemeState: ThemeState = {
@@ -22,9 +25,15 @@ const initialDateState: DateFormatState = {
   dateFormatList: [],
 };
 
+const initialTxListState: TxListFormatState = {
+  txListFormat: 'compact',
+  txListFormatList: [],
+};
+
 const SettingsContext = React.createContext<SettingsState>({
   ...initialThemeState,
   ...initialDateState,
+  ...initialTxListState,
 });
 
 const SettingsProvider: React.FC = (props: {children: ({
@@ -46,6 +55,12 @@ const SettingsProvider: React.FC = (props: {children: ({
     dateFormatList,
   } = useDateFormat(initialDateState);
 
+  const {
+    txListFormat,
+    changeTxListFormat,
+    txListFormatList,
+  } = useTxListFormat(initialTxListState);
+
   return (
     <SettingsContext.Provider
       value={{
@@ -57,6 +72,9 @@ const SettingsProvider: React.FC = (props: {children: ({
         dateFormat,
         changeDateFormat,
         dateFormatList,
+        txListFormat,
+        changeTxListFormat,
+        txListFormatList,
       }}
     >
       {children({ muiTheme })}

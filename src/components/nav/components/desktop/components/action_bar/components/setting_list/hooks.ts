@@ -8,12 +8,15 @@ export const useSettingList = ({
   lang,
   dateFormat,
   changeDateFormat,
+  txListFormat,
+  changeTxListFormat,
 }) => {
   const [open, setOpen] = useState(false);
   const [state, setState] = useState({
     lang,
     theme,
     dateFormat,
+    txListFormat,
   });
 
   const resetSettings = () => {
@@ -59,6 +62,10 @@ export const useSettingList = ({
 
     if (state.dateFormat !== dateFormat) {
       changeDateFormat(state.dateFormat);
+    }
+
+    if (state.txListFormat !== txListFormat) {
+      changeTxListFormat(state.txListFormat);
     }
 
     handleClose();
