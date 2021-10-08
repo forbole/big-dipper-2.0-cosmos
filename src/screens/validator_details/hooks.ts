@@ -6,9 +6,7 @@ import { useRouter } from 'next/router';
 import { formatDenom } from '@utils/format_denom';
 import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
-import {
-  getMessageModelByType, convertMsgsToModels,
-} from '@msg';
+import { convertMsgsToModels } from '@msg';
 import {
   useValidatorDetailsQuery,
   ValidatorDetailsQuery,
@@ -24,8 +22,6 @@ import { chainConfig } from '@src/configs';
 import {
   StakingParams,
   SlashingParams,
-  MsgWithdrawDelegatorReward,
-  MsgWithdrawValidatorCommission,
 } from '@models';
 import { ValidatorDetailsState } from './types';
 

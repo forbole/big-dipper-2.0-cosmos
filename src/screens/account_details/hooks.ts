@@ -11,7 +11,7 @@ import {
   useGetMessagesByAddressQuery,
   GetMessagesByAddressQuery,
 } from '@graphql/types';
-import { getMessageModelByType } from '@msg';
+import { convertMsgsToModels } from '@msg';
 import {
   MsgWithdrawDelegatorReward,
   MsgWithdrawValidatorCommission,
@@ -179,14 +179,7 @@ export const useAccountDetails = () => {
       // =============================
       // messages
       // =============================
-      const messages = transaction.messages.map((msg, i) => {
-        const model = getMessageModelByType(msg?.['@type']);
-        if (model === MsgWithdrawDelegatorReward || model === MsgWithdrawValidatorCommission) {
-          const log = R.pathOr(null, ['logs', i], transaction);
-          return model.fromJson(msg, log);
-        }
-        return model.fromJson(msg);
-      });
+      const messages = convertMsgsToModels(transaction);
 
       return ({
         height: transaction.height,

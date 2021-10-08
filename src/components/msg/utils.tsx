@@ -1,6 +1,5 @@
 import * as MODELS from '@models';
 import * as R from 'ramda';
-import { Transaction } from '@graphql/types';
 import {
   Tag,
 } from '@components';
@@ -420,8 +419,8 @@ export const getMessageByType = (message: any, viewRaw: boolean, t:any) => {
   };
 };
 
-export const convertMsgsToModels = (transaction: Transaction) => {
-  const messages = transaction.messages.map((msg, i) => {
+export const convertMsgsToModels = (transaction: any) => {
+  const messages = R.pathOr([], ['messages'], transaction).map((msg, i) => {
     const model = getMessageModelByType(msg?.['@type']);
     if (model === MODELS.MsgWithdrawDelegatorReward
       || model === MODELS.MsgWithdrawValidatorCommission) {
