@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { formatDenom } from '@utils/format_denom';
 import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
+import { getMessageModelByType } from '@msg';
 import {
   useValidatorDetailsQuery,
   ValidatorDetailsQuery,
@@ -21,6 +22,8 @@ import { chainConfig } from '@src/configs';
 import {
   StakingParams,
   SlashingParams,
+  MsgWithdrawDelegatorReward,
+  MsgWithdrawValidatorCommission,
 } from '@models';
 import { ValidatorDetailsState } from './types';
 
@@ -198,10 +201,25 @@ export const useValidatorDetails = () => {
     }
     return formattedData.map((x) => {
       const { transaction } = x;
+
+      // =============================
+      // messages
+      // =============================
+      const messages = transaction.messages.map((msg, i) => {
+        const model = getMessageModelByType(msg?.['@type']);
+        if (model === MsgWithdrawDelegatorReward || model === MsgWithdrawValidatorCommission) {
+          const log = R.pathOr(null, ['logs', i], transaction);
+          return model.fromJson(msg, log);
+        }
+        return model.fromJson(msg);
+      });
+
       return ({
         height: transaction.height,
         hash: transaction.hash,
-        messages: transaction.messages.length,
+        messages: {
+          items: messages,
+        },
         success: transaction.success,
         timestamp: transaction.block.timestamp,
       });

@@ -6,5 +6,5 @@ export type TransactionsListDetailsState = {
   loadMoreItems?: (any) => void;
   isItemLoaded?: (index: number) => boolean;
   itemCount: number;
-  transactions: TransactionsDetails[];
+  transactions: Transactions[];
 }

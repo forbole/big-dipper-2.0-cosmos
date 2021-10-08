@@ -21,15 +21,6 @@ type Transactions = {
   hash: string;
   success: boolean;
   timestamp: string;
-  messages: number;
-}
-
-// transaction lists with msg displayed
-type TransactionsDetails = {
-  height: number;
-  hash: string;
-  success: boolean;
-  timestamp: string;
   messages: {
     items: any[];
   };

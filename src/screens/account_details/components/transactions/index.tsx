@@ -4,17 +4,20 @@ import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import {
   TransactionListDetails,
+  TransactionsList,
   Box,
 } from '@components';
+import { useSettingsContext } from '@contexts';
 import { useStyles } from './styles';
 
 const Transactions: React.FC<{
   className?: string;
-  data: TransactionsDetails[];
+  data: Transactions[];
   loadNextPage: () => void;
   hasNextPage: boolean;
   isNextPageLoading: boolean;
 }> = (props) => {
+  const { txListFormat } = useSettingsContext();
   const classes = useStyles();
   const { t } = useTranslation('accounts');
   const loadMoreItems = props.isNextPageLoading ? () => null : props.loadNextPage;
@@ -27,15 +30,27 @@ const Transactions: React.FC<{
         {t('transactions')}
       </Typography>
       <div className={classes.list}>
-        <TransactionListDetails
-          transactions={props.data}
-          itemCount={itemCount}
-          hasNextPage={props.hasNextPage}
-          isNextPageLoading={props.isNextPageLoading}
-          loadNextPage={props.loadNextPage}
-          loadMoreItems={loadMoreItems}
-          isItemLoaded={isItemLoaded}
-        />
+        {txListFormat === 'compact' ? (
+          <TransactionsList
+            transactions={props.data}
+            itemCount={itemCount}
+            hasNextPage={props.hasNextPage}
+            isNextPageLoading={props.isNextPageLoading}
+            loadNextPage={props.loadNextPage}
+            loadMoreItems={loadMoreItems}
+            isItemLoaded={isItemLoaded}
+          />
+        ) : (
+          <TransactionListDetails
+            transactions={props.data}
+            itemCount={itemCount}
+            hasNextPage={props.hasNextPage}
+            isNextPageLoading={props.isNextPageLoading}
+            loadNextPage={props.loadNextPage}
+            loadMoreItems={loadMoreItems}
+            isItemLoaded={isItemLoaded}
+          />
+        )}
       </div>
     </Box>
   );

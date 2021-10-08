@@ -19,14 +19,6 @@ export type StatusType = {
   lastSeen: string;
 }
 
-export type TransactionType = {
-  height: number;
-  hash: string;
-  success: boolean;
-  timestamp: string;
-  messages: number;
-}
-
 export type VotingPowerType = {
   height: number;
   overall: TokenUnit;
@@ -77,6 +69,6 @@ export type ValidatorDetailsState = {
     hasNextPage: boolean;
     isNextPageLoading: boolean;
     offsetCount: number;
-    data: TransactionType[];
+    data: Transactions[];
   };
 }

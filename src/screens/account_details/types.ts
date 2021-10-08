@@ -70,6 +70,6 @@ export type AccountDetailState = {
     hasNextPage: boolean;
     isNextPageLoading: boolean;
     offsetCount: number;
-    data: TransactionsDetails[];
+    data: Transactions[];
   };
 }
