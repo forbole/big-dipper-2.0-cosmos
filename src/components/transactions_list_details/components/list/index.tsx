@@ -39,7 +39,7 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
   transactions,
 }) => {
   const {
-    isDesktop, isMobile,
+    isMobile,
   } = useScreenSize();
   const { t } = useTranslation('transactions');
   const classes = useStyles();

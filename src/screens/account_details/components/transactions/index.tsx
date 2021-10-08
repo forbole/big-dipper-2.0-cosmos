@@ -7,11 +7,10 @@ import {
   Box,
 } from '@components';
 import { useStyles } from './styles';
-import { TransactionType } from '../../types';
 
 const Transactions: React.FC<{
   className?: string;
-  data: TransactionType[];
+  data: TransactionsDetails[];
   loadNextPage: () => void;
   hasNextPage: boolean;
   isNextPageLoading: boolean;
