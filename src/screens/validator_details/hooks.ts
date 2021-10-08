@@ -6,7 +6,9 @@ import { useRouter } from 'next/router';
 import { formatDenom } from '@utils/format_denom';
 import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
-import { getMessageModelByType } from '@msg';
+import {
+  getMessageModelByType, convertMsgsToModels,
+} from '@msg';
 import {
   useValidatorDetailsQuery,
   ValidatorDetailsQuery,
@@ -205,14 +207,7 @@ export const useValidatorDetails = () => {
       // =============================
       // messages
       // =============================
-      const messages = transaction.messages.map((msg, i) => {
-        const model = getMessageModelByType(msg?.['@type']);
-        if (model === MsgWithdrawDelegatorReward || model === MsgWithdrawValidatorCommission) {
-          const log = R.pathOr(null, ['logs', i], transaction);
-          return model.fromJson(msg, log);
-        }
-        return model.fromJson(msg);
-      });
+      const messages = convertMsgsToModels(transaction);
 
       return ({
         height: transaction.height,

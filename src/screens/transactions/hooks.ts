@@ -5,6 +5,11 @@ import {
   useTransactionsListenerSubscription,
   TransactionsListenerSubscription,
 } from '@graphql/types';
+import { getMessageModelByType } from '@msg';
+import {
+  MsgWithdrawDelegatorReward,
+  MsgWithdrawValidatorCommission,
+} from '@models';
 import { TransactionsState } from './types';
 
 export const useTransactions = () => {

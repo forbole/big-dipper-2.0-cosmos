@@ -6,11 +6,14 @@ import {
   TransactionsList,
   Box,
   LoadAndExist,
+  TransactionListDetails,
 } from '@components';
+import { useSettingsContext } from '@contexts';
 import { useStyles } from './styles';
 import { useTransactions } from './hooks';
 
 const Transactions = () => {
+  const { txListFormat } = useSettingsContext();
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   const {
@@ -37,7 +40,28 @@ const Transactions = () => {
           loading={state.loading}
         >
           <Box className={classes.box}>
-            <TransactionsList
+            {txListFormat === 'compact' ? (
+              <TransactionsList
+                transactions={state.items}
+                itemCount={itemCount}
+                hasNextPage={state.hasNextPage}
+                isNextPageLoading={state.isNextPageLoading}
+                loadNextPage={loadNextPage}
+                loadMoreItems={loadMoreItems}
+                isItemLoaded={isItemLoaded}
+              />
+            ) : (
+              <TransactionListDetails
+                transactions={state.items}
+                itemCount={itemCount}
+                hasNextPage={state.hasNextPage}
+                isNextPageLoading={state.isNextPageLoading}
+                loadNextPage={loadNextPage}
+                loadMoreItems={loadMoreItems}
+                isItemLoaded={isItemLoaded}
+              />
+            )}
+            {/* <TransactionsList
               transactions={state.items}
               itemCount={itemCount}
               hasNextPage={state.hasNextPage}
@@ -45,7 +69,7 @@ const Transactions = () => {
               loadNextPage={loadNextPage}
               loadMoreItems={loadMoreItems}
               isItemLoaded={isItemLoaded}
-            />
+            /> */}
           </Box>
         </LoadAndExist>
       </Layout>
