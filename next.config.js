@@ -10,3 +10,15 @@ module.exports = nextTranslate({
     return config;
   },
 });
+
+module.exports = {
+  async redirects() {
+    return [
+      {
+        source: '/blocks',
+        destination: '/validators',
+        permanent: false,
+      },
+    ];
+  },
+};
