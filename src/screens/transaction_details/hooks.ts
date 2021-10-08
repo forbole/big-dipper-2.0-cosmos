@@ -7,10 +7,6 @@ import {
   useTransactionDetailsQuery,
   TransactionDetailsQuery,
 } from '@graphql/types';
-import {
-  MsgWithdrawDelegatorReward,
-  MsgWithdrawValidatorCommission,
-} from '@models';
 import { formatDenom } from '@utils/format_denom';
 import { convertMsgsToModels } from '@msg';
 import {

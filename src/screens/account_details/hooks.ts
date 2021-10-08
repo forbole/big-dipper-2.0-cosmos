@@ -13,8 +13,6 @@ import {
 } from '@graphql/types';
 import { convertMsgsToModels } from '@msg';
 import {
-  MsgWithdrawDelegatorReward,
-  MsgWithdrawValidatorCommission,
   StakingParams,
 } from '@models';
 import { useChainContext } from '@contexts';
