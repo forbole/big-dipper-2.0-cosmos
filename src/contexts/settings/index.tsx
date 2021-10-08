@@ -26,7 +26,7 @@ const initialDateState: DateFormatState = {
 };
 
 const initialTxListState: TxListFormatState = {
-  txListFormat: 'detailed',
+  txListFormat: 'compact',
   txListFormatList: [],
 };
 

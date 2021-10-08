@@ -5,7 +5,7 @@ module.exports = {
   pages: {
     '*': ['common'],
     '/': ['home', 'blocks', 'transactions'],
-    'rgx:^/blocks': ['blocks', 'transactions'],
+    'rgx:^/blocks': ['blocks', 'transactions', 'message_labels', 'message_contents'],
     'rgx:^/transactions': ['transactions', 'message_labels', 'message_contents'],
     'rgx:^/proposals': ['proposals'],
     'rgx:^/validators': ['validators', 'transactions', 'accounts', 'message_labels', 'message_contents'],
