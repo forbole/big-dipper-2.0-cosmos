@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { formatDenom } from '@utils/format_denom';
 import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
+import { convertMsgsToModels } from '@msg';
 import {
   useValidatorDetailsQuery,
   ValidatorDetailsQuery,
@@ -198,10 +199,19 @@ export const useValidatorDetails = () => {
     }
     return formattedData.map((x) => {
       const { transaction } = x;
+
+      // =============================
+      // messages
+      // =============================
+      const messages = convertMsgsToModels(transaction);
+
       return ({
         height: transaction.height,
         hash: transaction.hash,
-        messages: transaction.messages.length,
+        messages: {
+          count: messages.count,
+          items: messages,
+        },
         success: transaction.success,
         timestamp: transaction.block.timestamp,
       });

@@ -180,7 +180,45 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
             Object {
               "hash": "6BC372069E41B5493B785002FD795746384A07C3F373FF6E2CAD6ABDE29860BA",
               "height": 793314,
-              "messages": 2,
+              "messages": Object {
+                "count": 2,
+                "items": Array [
+                  MsgWithdrawDelegatorReward {
+                    "amounts": Array [
+                      Object {
+                        "denom": "daric",
+                        "format": "0,0.[000000]",
+                        "value": 0,
+                      },
+                    ],
+                    "category": "distribution",
+                    "delegatorAddress": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                    "json": Object {
+                      "@type": "/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward",
+                      "delegator_address": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                      "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+                    },
+                    "type": "/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward",
+                    "validatorAddress": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+                  },
+                  MsgWithdrawValidatorCommission {
+                    "amounts": Array [
+                      Object {
+                        "denom": "daric",
+                        "format": "0,0.[000000]",
+                        "value": 0,
+                      },
+                    ],
+                    "category": "distribution",
+                    "json": Object {
+                      "@type": "/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission",
+                      "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+                    },
+                    "type": "/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission",
+                    "validatorAddress": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+                  },
+                ],
+              },
               "success": true,
               "timestamp": "2021-06-22T03:40:33.804715",
             },

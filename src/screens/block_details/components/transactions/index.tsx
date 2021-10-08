@@ -3,17 +3,19 @@ import classnames from 'classnames';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import {
+  TransactionListDetails,
   TransactionsList,
   Box,
 } from '@components';
+import { useSettingsContext } from '@contexts';
 import { useStyles } from './styles';
-import { TransactionType } from '../../types';
 
 const Transactions: React.FC<ComponentDefault & {
-  transactions: TransactionType[];
+  transactions: Transactions[];
 }> = ({
   className, transactions,
 }) => {
+  const { txListFormat } = useSettingsContext();
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   return (
@@ -21,16 +23,29 @@ const Transactions: React.FC<ComponentDefault & {
       <div className={classes.header}>
         <Typography variant="h2">{t('transactions')}</Typography>
       </div>
-      <TransactionsList
-        transactions={transactions}
-        itemCount={transactions.length}
-        className={classes.list}
-        hasNextPage={false}
-        isNextPageLoading={false}
-        loadNextPage={() => null}
-        loadMoreItems={() => null}
-        isItemLoaded={() => true}
-      />
+      {txListFormat === 'compact' ? (
+        <TransactionsList
+          transactions={transactions}
+          itemCount={transactions.length}
+          className={classes.list}
+          hasNextPage={false}
+          isNextPageLoading={false}
+          loadNextPage={() => null}
+          loadMoreItems={() => null}
+          isItemLoaded={() => true}
+        />
+      ) : (
+        <TransactionListDetails
+          transactions={transactions}
+          itemCount={transactions.length}
+          className={classes.list}
+          hasNextPage={false}
+          isNextPageLoading={false}
+          loadNextPage={() => null}
+          loadMoreItems={() => null}
+          isItemLoaded={() => true}
+        />
+      )}
     </Box>
 
   );

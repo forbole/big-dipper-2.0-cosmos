@@ -8,6 +8,7 @@ import {
   useBlockDetailsQuery,
   BlockDetailsQuery,
 } from '@graphql/types';
+import { convertMsgsToModels } from '@msg';
 import { useChainContext } from '@contexts';
 import { BlockDetailState } from './types';
 
@@ -110,12 +111,16 @@ export const useBlockDetails = () => {
     // ==========================
     const formatTransactions = () => {
       const transactions = data.transaction.map((x) => {
+        const messages = convertMsgsToModels(x);
         return ({
           height: x.height,
           hash: x.hash,
           success: x.success,
           timestamp: stateChange.overview.timestamp,
-          messages: x.messages.length,
+          messages: {
+            count: x.messages.length,
+            items: messages,
+          },
         });
       });
 
