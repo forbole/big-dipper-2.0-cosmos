@@ -61,15 +61,6 @@ const Transactions = () => {
                 isItemLoaded={isItemLoaded}
               />
             )}
-            {/* <TransactionsList
-              transactions={state.items}
-              itemCount={itemCount}
-              hasNextPage={state.hasNextPage}
-              isNextPageLoading={state.isNextPageLoading}
-              loadNextPage={loadNextPage}
-              loadMoreItems={loadMoreItems}
-              isItemLoaded={isItemLoaded}
-            /> */}
           </Box>
         </LoadAndExist>
       </Layout>

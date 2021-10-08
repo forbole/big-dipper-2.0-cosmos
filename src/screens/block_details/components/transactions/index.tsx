@@ -46,16 +46,6 @@ const Transactions: React.FC<ComponentDefault & {
           isItemLoaded={() => true}
         />
       )}
-      {/* <TransactionsList
-        transactions={transactions}
-        itemCount={transactions.length}
-        className={classes.list}
-        hasNextPage={false}
-        isNextPageLoading={false}
-        loadNextPage={() => null}
-        loadMoreItems={() => null}
-        isItemLoaded={() => true}
-      /> */}
     </Box>
 
   );
