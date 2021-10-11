@@ -104,7 +104,9 @@ const Messages: React.FC<{
                           <div className={classes.tags}>
                             {selectedItem.type}
                           </div>
-                          {selectedItem.message}
+                          <span className="msg">
+                            {selectedItem.message}
+                          </span>
                         </div>
                         {index !== props.messages.length - 1 && <Divider />}
                       </div>
