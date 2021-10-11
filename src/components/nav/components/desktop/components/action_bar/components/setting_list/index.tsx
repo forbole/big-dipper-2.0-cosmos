@@ -31,6 +31,9 @@ const Settings: React.FC<{
     dateFormat,
     changeDateFormat,
     dateFormatList,
+    txListFormat,
+    changeTxListFormat,
+    txListFormatList,
   } = useSettingsContext();
   const {
     t, lang,
@@ -48,6 +51,8 @@ const Settings: React.FC<{
     lang,
     dateFormat,
     changeDateFormat,
+    txListFormat,
+    changeTxListFormat,
   });
 
   return (
@@ -137,6 +142,30 @@ const Settings: React.FC<{
                 } }}
               >
                 {dateFormatList
+                  .map((l) => (
+                    <MenuItem
+                      key={l}
+                      value={l}
+                    >
+                      {t(l)}
+                    </MenuItem>
+                  ))}
+              </Select>
+            </div>
+
+            <div className={classes.formItem}>
+              <Typography className="form-item--label">
+                {t('txListFormat')}
+              </Typography>
+              <Select
+                variant="outlined"
+                value={state.txListFormat}
+                onChange={(e) => handleChange('txListFormat', e?.target?.value)}
+                MenuProps={{ MenuListProps: {
+                  disablePadding: true,
+                } }}
+              >
+                {txListFormatList
                   .map((l) => (
                     <MenuItem
                       key={l}

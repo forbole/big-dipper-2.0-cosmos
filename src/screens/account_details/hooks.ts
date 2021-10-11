@@ -11,7 +11,10 @@ import {
   useGetMessagesByAddressQuery,
   GetMessagesByAddressQuery,
 } from '@graphql/types';
-import { StakingParams } from '@models';
+import { convertMsgsToModels } from '@msg';
+import {
+  StakingParams,
+} from '@models';
 import { useChainContext } from '@contexts';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
@@ -91,7 +94,7 @@ export const useAccountDetails = () => {
 
   useEffect(() => {
     handleSetState(initialState);
-    if (chainConfig.extra.desmosProfile) {
+    if (chainConfig.extra.profile) {
       fetchDesmosProfile(R.pathOr('', ['query', 'address'], router));
     }
   },
@@ -162,6 +165,7 @@ export const useAccountDetails = () => {
   // ==========================
   // Format Data
   // ==========================
+
   const formatTransactions = (data: GetMessagesByAddressQuery) => {
     let formattedData = data.messagesByAddress;
     if (data.messagesByAddress.length === 51) {
@@ -169,10 +173,19 @@ export const useAccountDetails = () => {
     }
     return formattedData.map((x) => {
       const { transaction } = x;
+
+      // =============================
+      // messages
+      // =============================
+      const messages = convertMsgsToModels(transaction);
+
       return ({
         height: transaction.height,
         hash: transaction.hash,
-        messages: transaction.messages.length,
+        messages: {
+          count: messages.length,
+          items: messages,
+        },
         success: transaction.success,
         timestamp: transaction.block.timestamp,
       });

@@ -14,4 +14,12 @@ export interface DateFormatState {
   dateFormatList: string[];
 }
 
-export type SettingsState = ThemeState & DateFormatState;
+export interface TxListFormatState {
+  txListFormat: 'compact' | 'detailed';
+  changeTxListFormat?: (value: string) => void;
+  txListFormatList: string[];
+}
+
+export type SettingsState = ThemeState
+& DateFormatState
+& TxListFormatState;

@@ -4,6 +4,7 @@
 import {
   getMessageModelByType,
   getMessageByType,
+  convertMsgsToModels,
 } from './utils';
 
 // =========================
@@ -68,6 +69,7 @@ import UpdateIscnRecord from './iscn/update_iscn_record';
 export {
   getMessageModelByType,
   getMessageByType,
+  convertMsgsToModels,
 };
 
 export {
