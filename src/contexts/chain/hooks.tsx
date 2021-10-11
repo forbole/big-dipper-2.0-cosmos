@@ -73,7 +73,7 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
     } = {};
 
     let profiles = [];
-    if (chainConfig.extra.desmosProfile) {
+    if (chainConfig.extra.profile) {
       data?.validator?.filter((x) => x.validatorInfo).forEach((x) => {
         profiles.push(fetchDesmosProfile(x.validatorInfo.selfDelegateAddress));
       });

@@ -26,7 +26,10 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
           Object {
             "hash": "hash1",
             "height": 300,
-            "messages": 10,
+            "messages": Object {
+              "count": 10,
+              "items": Array [],
+            },
             "success": true,
             "timestamp": "",
           },

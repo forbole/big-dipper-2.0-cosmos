@@ -59,8 +59,7 @@ jest.mock('@configs', () => ({
       }
     },
     "extra": {
-      "desmosProfile": true,
-      "forboleX": false
+      "profile": true
     }
   },
   generalConfig: {
