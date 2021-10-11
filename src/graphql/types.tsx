@@ -12768,7 +12768,7 @@ export type BlockDetailsQueryVariables = Exact<{
 
 export type BlockDetailsQuery = { transaction: Array<(
     { __typename?: 'transaction' }
-    & Pick<Transaction, 'height' | 'hash' | 'messages' | 'success'>
+    & Pick<Transaction, 'height' | 'hash' | 'messages' | 'success' | 'logs'>
   )>, block: Array<(
     { __typename?: 'block' }
     & Pick<Block, 'height' | 'hash' | 'timestamp'>
@@ -12935,7 +12935,7 @@ export type GetMessagesByAddressQuery = { messagesByAddress: Array<(
     { __typename?: 'message' }
     & { transaction: (
       { __typename?: 'transaction' }
-      & Pick<Transaction, 'height' | 'hash' | 'success' | 'messages'>
+      & Pick<Transaction, 'height' | 'hash' | 'success' | 'messages' | 'logs'>
       & { block: (
         { __typename?: 'block' }
         & Pick<Block, 'height' | 'timestamp'>
@@ -13110,7 +13110,7 @@ export type TransactionsListenerSubscriptionVariables = Exact<{
 
 export type TransactionsListenerSubscription = { transactions: Array<(
     { __typename?: 'transaction' }
-    & Pick<Transaction, 'height' | 'hash' | 'success' | 'messages'>
+    & Pick<Transaction, 'height' | 'hash' | 'success' | 'messages' | 'logs'>
     & { block: (
       { __typename?: 'block' }
       & Pick<Block, 'timestamp'>
@@ -13125,7 +13125,7 @@ export type TransactionsQueryVariables = Exact<{
 
 export type TransactionsQuery = { transactions: Array<(
     { __typename?: 'transaction' }
-    & Pick<Transaction, 'height' | 'hash' | 'success' | 'messages'>
+    & Pick<Transaction, 'height' | 'hash' | 'success' | 'messages' | 'logs'>
     & { block: (
       { __typename?: 'block' }
       & Pick<Block, 'timestamp'>
@@ -13424,6 +13424,7 @@ export const BlockDetailsDocument = gql`
     hash
     messages
     success
+    logs
   }
   block(limit: 1, where: {height: {_eq: $height}}) {
     height
@@ -13820,6 +13821,7 @@ export const GetMessagesByAddressDocument = gql`
       hash
       success
       messages
+      logs
       block {
         height
         timestamp
@@ -14271,6 +14273,7 @@ export const TransactionsListenerDocument = gql`
       timestamp
     }
     messages
+    logs
   }
 }
     `;
@@ -14312,6 +14315,7 @@ export const TransactionsDocument = gql`
       timestamp
     }
     messages
+    logs
   }
   total: transaction_aggregate {
     aggregate {
