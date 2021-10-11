@@ -94,7 +94,7 @@ export const useAccountDetails = () => {
 
   useEffect(() => {
     handleSetState(initialState);
-    if (chainConfig.extra.desmosProfile) {
+    if (chainConfig.extra.profile) {
       fetchDesmosProfile(R.pathOr('', ['query', 'address'], router));
     }
   },

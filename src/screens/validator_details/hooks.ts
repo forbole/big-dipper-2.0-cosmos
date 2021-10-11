@@ -109,7 +109,7 @@ export const useValidatorDetails = () => {
 
   useEffect(() => {
     handleSetState(initialState);
-    if (chainConfig.extra.desmosProfile) {
+    if (chainConfig.extra.profile) {
       const address = validatorToDelegatorAddress(R.pathOr('', ['query', 'address'], router));
 
       fetchDesmosProfile(address);
