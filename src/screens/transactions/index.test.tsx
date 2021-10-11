@@ -19,6 +19,7 @@ import Transactions from '.';
 jest.mock('@components', () => ({
   Layout: (props) => <div id="Layout" {...props} />,
   TransactionsList: (props) => <div id="TransactionsList" {...props} />,
+  TransactionListDetails: (props) => <div id="TransactionListDetails" {...props} />,
   Box: (props) => <div id="Box" {...props} />,
   LoadAndExist: (props) => <div id="LoadAndExist" {...props} />,
 }));
@@ -33,6 +34,7 @@ const mockTransactionsListenerDocument = {
         block: {
           timestamp: '2021-05-28T00:08:33.700487',
         },
+        logs: [],
         messages: [
           {
             '@type': '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward',
@@ -59,6 +61,7 @@ const mockTransactionsDocument = jest.fn().mockResolvedValue({
         block: {
           timestamp: '2021-05-28T00:08:33.700487',
         },
+        logs: [],
         messages: [
           {
             '@type': '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward',

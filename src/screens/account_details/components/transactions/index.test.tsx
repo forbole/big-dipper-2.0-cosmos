@@ -10,6 +10,7 @@ import Transactions from '.';
 // ==================================
 jest.mock('@components', () => ({
   Box: (props) => <div id="Box" {...props} />,
+  TransactionListDetails: (props) => <div id="TransactionListDetails" {...props} />,
   TransactionsList: (props) => <div id="TransactionsList" {...props} />,
 }));
 
@@ -30,7 +31,10 @@ describe('screen: Transactions/List', () => {
                 hash: 'hash1',
                 success: true,
                 timestamp: '',
-                messages: 10,
+                messages: {
+                  count: 4,
+                  items: [],
+                },
               },
             ]}
             loadNextPage={jest.fn()}
