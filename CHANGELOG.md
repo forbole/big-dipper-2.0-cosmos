@@ -1,3 +1,9 @@
+# base-v1.5.1 - 2021-10-11
+
+## Changes
+
+- Fixed `detailed` transaction list not showing correct msg count
+
 # base-v1.5.0 - 2021-10-11
 
 ## Changes
