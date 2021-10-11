@@ -144,6 +144,7 @@ const mockAccountMessages = jest.fn().mockResolvedValue({
           height: 793314,
           hash: '6BC372069E41B5493B785002FD795746384A07C3F373FF6E2CAD6ABDE29860BA',
           success: true,
+          logs: [],
           messages: [
             {
               '@type': '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward',
@@ -182,6 +183,7 @@ describe('screen: BlockDetails', () => {
             profilePic: '',
             chainLinks: [],
             applicationLinks: [],
+            creationTime: '2021-10-06T00:10:45.761731',
           },
         ],
       },

@@ -4,6 +4,7 @@ query BlockDetails($height: bigint, $signatureHeight: bigint) {
     hash
     messages
     success
+    logs
   }
   block(limit: 1, where: {height: {_eq: $height}}) {
     height

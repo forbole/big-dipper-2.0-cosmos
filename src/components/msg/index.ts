@@ -4,6 +4,7 @@
 import {
   getMessageModelByType,
   getMessageByType,
+  convertMsgsToModels,
 } from './utils';
 
 // =========================
@@ -66,6 +67,7 @@ import LinkChainAccount from './profiles/link_chain_account';
 export {
   getMessageModelByType,
   getMessageByType,
+  convertMsgsToModels,
 };
 
 export {
