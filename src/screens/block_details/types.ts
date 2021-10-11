@@ -7,18 +7,10 @@ export type OverviewType = {
   // votingPower: number;
 }
 
-export type TransactionType = {
-  height: number;
-  hash: string;
-  success: boolean;
-  timestamp: string;
-  messages: number;
-}
-
 export type BlockDetailState = {
   loading: boolean;
   exists: boolean;
   overview: OverviewType;
   signatures: AvatarName[];
-  transactions: TransactionType[];
+  transactions: Transactions[];
 }

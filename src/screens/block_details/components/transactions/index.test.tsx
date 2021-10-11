@@ -25,14 +25,20 @@ describe('screen: BlockDetails/Transactions', () => {
               hash: 'hash',
               success: false,
               timestamp: '',
-              messages: 3,
+              messages: {
+                count: 3,
+                items: [],
+              },
             },
             {
               height: 300,
               hash: 'hash1',
               success: true,
               timestamp: '',
-              messages: 10,
+              messages: {
+                count: 13,
+                items: [],
+              },
             },
           ]}
         />

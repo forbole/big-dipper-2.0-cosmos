@@ -47,7 +47,30 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
             Object {
               "hash": "393310C681CB39E09CD3AC16C600DBFDACB2DF5085277DA81E52698620C06136",
               "height": 999,
-              "messages": 1,
+              "messages": Object {
+                "count": 1,
+                "items": Array [
+                  MsgDelegate {
+                    "amount": Object {
+                      "amount": 27466368,
+                      "denom": "udaric",
+                    },
+                    "category": "staking",
+                    "delegatorAddress": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                    "json": Object {
+                      "@type": "/cosmos.staking.v1beta1.MsgDelegate",
+                      "amount": Object {
+                        "amount": "27466368",
+                        "denom": "udaric",
+                      },
+                      "delegator_address": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                      "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+                    },
+                    "type": "/cosmos.staking.v1beta1.MsgDelegate",
+                    "validatorAddress": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+                  },
+                ],
+              },
               "success": true,
               "timestamp": "2021-04-27T16:27:34.331769",
             },

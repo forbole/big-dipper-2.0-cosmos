@@ -4,6 +4,7 @@
 import {
   getMessageModelByType,
   getMessageByType,
+  convertMsgsToModels,
 } from './utils';
 
 // =========================
@@ -73,6 +74,7 @@ import BurnTokens from './liquidity_provider/burn_tokens';
 export {
   getMessageModelByType,
   getMessageByType,
+  convertMsgsToModels,
 };
 
 export {

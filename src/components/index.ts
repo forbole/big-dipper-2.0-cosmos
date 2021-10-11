@@ -9,7 +9,6 @@ import Result from './result';
 import SingleTransactionMobile from './single_transaction_mobile';
 import Box from './box';
 import Loading from './loading';
-import TransactionsListOld from './transactions_list_old';
 import TransactionMessagesFilter from './transaction_messages_filter';
 import BoxDetails from './box_details';
 import Pagination from './pagination';
@@ -25,9 +24,10 @@ import LinearLoading from './linear_loading';
 import Name from './name';
 import Markdown from './markdown';
 import ConditionExplanation from './condition_explanation';
-import TransactionsList from './transactions_list_new';
+import TransactionsList from './transactions_list';
 import LoadAndExist from './load_and_exist';
 import DesmosProfile from './desmos_profile';
+import TransactionListDetails from './transactions_list_details';
 
 export {
   Layout,
@@ -57,7 +57,7 @@ export {
   Name,
   Markdown,
   ConditionExplanation,
-  TransactionsListOld,
   LoadAndExist,
   DesmosProfile,
+  TransactionListDetails,
 };
