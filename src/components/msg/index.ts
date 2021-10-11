@@ -4,6 +4,7 @@
 import {
   getMessageModelByType,
   getMessageByType,
+  convertMsgsToModels,
 } from './utils';
 
 // =========================
@@ -72,6 +73,7 @@ import Activate from './oracle/activate';
 export {
   getMessageModelByType,
   getMessageByType,
+  convertMsgsToModels,
 };
 
 export {

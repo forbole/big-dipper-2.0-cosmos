@@ -47,6 +47,7 @@ const mockAverageBlockTime = jest.fn().mockResolvedValue({
       {
         height: 999,
         hash: '393310C681CB39E09CD3AC16C600DBFDACB2DF5085277DA81E52698620C06136',
+        logs: [],
         messages: [
           {
             '@type': '/cosmos.staking.v1beta1.MsgDelegate',
