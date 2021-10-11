@@ -1,9 +1,10 @@
-# Unreleased
+# base-v1.5.0 - 2021-10-11
 
 ## Changes
 
 - Displayed desmos profile native address in connections ([\#420](https://github.com/forbole/big-dipper-2.0-cosmos/issues/420))
 - Create `compact` and `detailed` transaction list views for users with different needs ([\#391](https://github.com/forbole/big-dipper-2.0-cosmos/issues/391))
+- Updated `chain_config`
 
 # base-v1.4.0 - 2021-10-04
 
