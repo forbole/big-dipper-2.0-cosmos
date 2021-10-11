@@ -5,6 +5,7 @@ query GetMessagesByAddress($address: _text, $limit: bigint = 50, $offset: bigint
       hash
       success
       messages
+      logs
       block {
         height
         timestamp

@@ -4,6 +4,7 @@
 import {
   getMessageModelByType,
   getMessageByType,
+  convertMsgsToModels,
 } from './utils';
 
 // =========================
@@ -76,6 +77,7 @@ import AggregateExchangeRateVote from './oracle/aggregate_exchange_rate_vote';
 export {
   getMessageModelByType,
   getMessageByType,
+  convertMsgsToModels,
 };
 
 export {

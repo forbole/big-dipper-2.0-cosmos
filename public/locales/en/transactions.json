@@ -30,5 +30,6 @@
   "error": "Error",
   "raw": "Raw",
   "market": "Market",
-  "wasm": "Wasm"
+  "wasm": "Wasm",
+  "details": "Details"
 }

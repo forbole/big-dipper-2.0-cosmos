@@ -74,7 +74,6 @@
     }
   },
   "extra": {
-    "desmosProfile": true,
-    "forboleX": false
+    "profile": true
   }
 }
