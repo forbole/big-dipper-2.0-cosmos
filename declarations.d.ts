@@ -21,7 +21,10 @@ type Transactions = {
   hash: string;
   success: boolean;
   timestamp: string;
-  messages: number;
+  messages: {
+    count: number;
+    items: any[];
+  };
 }
 
 type TokenUnit = {

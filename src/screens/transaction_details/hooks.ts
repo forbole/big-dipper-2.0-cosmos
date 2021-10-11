@@ -7,12 +7,8 @@ import {
   useTransactionDetailsQuery,
   TransactionDetailsQuery,
 } from '@graphql/types';
-import {
-  MsgWithdrawDelegatorReward,
-  MsgWithdrawValidatorCommission,
-} from '@models';
 import { formatDenom } from '@utils/format_denom';
-import { getMessageModelByType } from '@msg';
+import { convertMsgsToModels } from '@msg';
 import {
   TransactionState,
 } from './types';
@@ -110,15 +106,7 @@ export const useTransactionDetails = () => {
     // messages
     // =============================
     const formatMessages = () => {
-      const messages = data.transaction[0].messages.map((x, i) => {
-        const model = getMessageModelByType(x?.['@type']);
-        if (model === MsgWithdrawDelegatorReward || model === MsgWithdrawValidatorCommission) {
-          const log = R.pathOr(null, ['logs', i], data.transaction[0]);
-          return model.fromJson(x, log);
-        }
-        return model.fromJson(x);
-      });
-
+      const messages = convertMsgsToModels(data.transaction[0]);
       return {
         items: messages,
       };
