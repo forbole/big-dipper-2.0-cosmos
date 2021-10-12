@@ -9,13 +9,4 @@ module.exports = nextTranslate({
     });
     return config;
   },
-  async redirects() {
-    return [
-      {
-        source: '/blocks',
-        destination: '/validators',
-        permanent: false,
-      },
-    ];
-  },
 });
