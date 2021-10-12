@@ -9,9 +9,6 @@ module.exports = nextTranslate({
     });
     return config;
   },
-});
-
-module.exports = {
   async redirects() {
     return [
       {
@@ -21,4 +18,4 @@ module.exports = {
       },
     ];
   },
-};
+});
