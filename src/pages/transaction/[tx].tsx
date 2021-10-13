@@ -1,4 +1,3 @@
-import TransactionDetails from '@src/screens/transaction_details';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
@@ -10,7 +9,7 @@ const TransactionDetailsPage = () => {
   }, []);
 
   return (
-    <TransactionDetails />
+    <></>
   );
 };
 

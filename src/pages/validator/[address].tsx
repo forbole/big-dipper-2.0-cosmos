@@ -1,4 +1,3 @@
-import ValidatorDetails from '@screens/validator_details';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
@@ -10,7 +9,7 @@ const ValidatorDetailsPage = () => {
   }, []);
 
   return (
-    <ValidatorDetails />
+    <></>
   );
 };
 
