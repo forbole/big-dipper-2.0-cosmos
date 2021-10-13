@@ -8,9 +8,7 @@ const TransactionDetailsPage = () => {
     router.replace(`/transactions/${router.query.tx}`);
   }, []);
 
-  return (
-    <></>
-  );
+  return null;
 };
 
 export default TransactionDetailsPage;

@@ -8,9 +8,7 @@ const AccountDetailsPage = () => {
     router.replace(`/accounts/${router.query.address}`);
   }, []);
 
-  return (
-    <></>
-  );
+  return null;
 };
 
 export default AccountDetailsPage;

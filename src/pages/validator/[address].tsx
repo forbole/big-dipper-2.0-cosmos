@@ -8,9 +8,7 @@ const ValidatorDetailsPage = () => {
     router.replace(`/validators/${router.query.address}`);
   }, []);
 
-  return (
-    <></>
-  );
+  return null;
 };
 
 export default ValidatorDetailsPage;
