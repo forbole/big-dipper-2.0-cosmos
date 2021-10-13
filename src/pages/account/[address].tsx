@@ -5,8 +5,6 @@ import { useRouter } from 'next/router';
 const AccountDetailsPage = () => {
   const router = useRouter();
 
-  console.log('router=>', router);
-
   useEffect(() => {
     router.replace(`/accounts/${router.query.address}`);
   }, []);
