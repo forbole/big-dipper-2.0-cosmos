@@ -357,6 +357,15 @@ const getDataByType = (type: string) => {
       tagTheme: 'four',
       tagDisplay: 'txUnblockUserLabel',
     },
+    // ========================
+    // nft
+    // ========================
+    '/bitsong.nft.v1beta1.MsgIssueDenom': {
+      model: MODELS.MsgIssueDenom,
+      content: COMPONENTS.IssueDenom,
+      tagTheme: 'five',
+      tagDisplay: 'txIssueDenomLabel',
+    },
 
   };
 
