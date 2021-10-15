@@ -49,9 +49,9 @@
   "txConnectionEndLabel": "IBC Connection End",
   "txVersionLabel": "IBC Version",
   "txTransferLabel": "IBC Transfer",
-  "txIssueDenom": "Issue Denom",
-  "txMintNFT": "Mint NFT",
-  "txEditNFT": "Edit NFT",
-  "txTransferNFT": "Transfer NFT",
-  "txBurnNFT": "Burn NFT"
+  "txIssueDenomLabel": "Issue Denom",
+  "txMintNFTLabel": "Mint NFT",
+  "txEditNFTLabel": "Edit NFT",
+  "txTransferNFTLabel": "Transfer NFT",
+  "txBurnNFTLabel": "Burn NFT"
 }
