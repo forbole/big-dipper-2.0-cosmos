@@ -33,6 +33,10 @@ export const getFilterLabels = () => {
       display: 'profiles',
     },
     {
+      key: 'nft',
+      display: 'nft',
+    },
+    {
       key: 'others',
       display: 'others',
     },
