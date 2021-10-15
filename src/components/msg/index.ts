@@ -62,6 +62,7 @@ import ConnectionOpenTry from './ibc/connection_open_try';
 import CounterpartyConnection from './ibc/connection_counterparty';
 import Version from './ibc/connection_version';
 import Transfer from './ibc_transfer/transfer';
+import IssueDenom from './nft/issue_denom';
 
 export {
   getMessageModelByType,
@@ -122,4 +123,5 @@ export {
   CounterpartyConnection,
   Version,
   Transfer,
+  IssueDenom,
 };

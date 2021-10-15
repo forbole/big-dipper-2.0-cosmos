@@ -5,11 +5,11 @@ import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { formatDenom } from '@utils/format_denom';
-import { MsgMintTokens } from '@models';
+import { MsgIssueDenom } from '@models';
 import { useChainContext } from '@contexts';
 
-const MintTokens = (props: {
-  message: MsgMintTokens;
+const IssueDenom = (props: {
+  message: MsgIssueDenom ;
 }) => {
   const { findAddress } = useChainContext();
   const { message } = props;
@@ -28,7 +28,7 @@ const MintTokens = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txMintTokens"
+        i18nKey="message_contents:txIssueDenom"
         components={[
           (
             <Name
@@ -46,4 +46,4 @@ const MintTokens = (props: {
   );
 };
 
-export default MintTokens;
+export default IssueDenom;
