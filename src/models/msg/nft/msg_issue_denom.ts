@@ -30,7 +30,7 @@ class MsgIssueDenom {
       type: json['@type'],
       id: json.id,
       name: json.name,
-      creators: R.pathOr([], ['client_order_id'], json),
+      creators: R.pathOr([], ['creators'], json),
       splitShares: {
         denom: R.pathOr('', ['source', 'denom'], json),
         amount: R.pathOr('', ['source', 'amount'], json),
