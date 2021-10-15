@@ -23,13 +23,13 @@ export const getTheme = selector({
     const state = get(atomState);
     return state.theme;
   },
-  // set: ({
-  //   get, set,
-  // }, newTheme) => {
-  //   const prevState = get(atomState);
-  //   const newState = mergeStateChange(prevState, {
-  //     theme: newTheme,
-  //   });
-  //   return set(atomState, newState);
-  // },
+  set: ({
+    get, set,
+  }, newTheme) => {
+    const prevState = get(atomState);
+    const newState = mergeStateChange(prevState, {
+      theme: newTheme,
+    });
+    set(atomState, newState);
+  },
 });

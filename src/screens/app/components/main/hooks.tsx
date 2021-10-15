@@ -8,11 +8,12 @@ import { usePersistedState } from '@hooks';
 import {
   getTheme,
   THEME_DICTIONARY,
+  AtomState,
 } from '@recoil/settings';
 
 export const useMain = () => {
-  const theme = useRecoilValue(getTheme);
-  // const [savedTheme, setSavedTheme] = usePersistedState('themeSelection', theme);
+  const [theme, setTheme] = useRecoilState<AtomState['theme']>(getTheme);
+  const [savedTheme, setSavedTheme] = usePersistedState('themeSelection', theme);
 
   useEffect(() => {
     const isClient = typeof window === 'object';

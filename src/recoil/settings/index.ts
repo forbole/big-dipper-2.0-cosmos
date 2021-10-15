@@ -11,7 +11,7 @@ import {
 } from './utils';
 
 import {
-  Theme,
+  AtomState,
 } from './types';
 
 export {
@@ -21,5 +21,5 @@ export {
   TX_LIST,
   atomState,
   getTheme,
-  Theme,
+  AtomState,
 };
