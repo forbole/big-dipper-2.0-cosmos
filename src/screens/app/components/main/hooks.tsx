@@ -1,5 +1,5 @@
 import {
-  useEffect, useState,
+  useEffect,
 } from 'react';
 import {
   useRecoilValue, useRecoilState,
@@ -11,9 +11,8 @@ import {
 } from '@recoil/settings';
 
 export const useMain = () => {
-  const [theme, setTheme] = useRecoilState(getTheme);
-  const themeTwo = useRecoilValue(getTheme);
-  const [savedTheme, setSavedTheme] = usePersistedState('themeSelection', theme);
+  const theme = useRecoilValue(getTheme);
+  // const [savedTheme, setSavedTheme] = usePersistedState('themeSelection', theme);
 
   useEffect(() => {
     const isClient = typeof window === 'object';

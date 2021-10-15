@@ -12,18 +12,10 @@ const initialState: AtomState = {
   txListFormat: 'compact',
 };
 
-export const atomState = atom({
+export const atomState = atom<AtomState>({
   key: 'settings',
   default: initialState,
 });
-
-// export const getState = selector({
-//   key: 'settingsGetState',
-//   get: ({ get }) => {
-//     const state = get(atomState);
-//     return state;
-//   },
-// });
 
 export const getTheme = selector({
   key: 'settingsGetTheme',
@@ -31,13 +23,13 @@ export const getTheme = selector({
     const state = get(atomState);
     return state.theme;
   },
-  set: ({
-    get, set,
-  }, newTheme) => {
-    const prevState = get(atomState);
-    const newState = mergeStateChange(prevState, {
-      theme: newTheme,
-    });
-    return set(atomState, newState);
-  },
+  // set: ({
+  //   get, set,
+  // }, newTheme) => {
+  //   const prevState = get(atomState);
+  //   const newState = mergeStateChange(prevState, {
+  //     theme: newTheme,
+  //   });
+  //   return set(atomState, newState);
+  // },
 });
