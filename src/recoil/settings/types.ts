@@ -1,10 +1,4 @@
 export type Theme = 'light' | 'dark' | 'device' | 'deuteranopia' | 'tritanopia' | 'achromatopsia';
-
-export type theme = {
-  theme: Theme;
-  themeSelection: Theme;
-}
-
 export interface AtomState {
   theme: Theme;
   dateFormat: 'locale' | 'utc';

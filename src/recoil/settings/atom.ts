@@ -1,22 +1,10 @@
-import { atom } from 'recoil';
-import { AtomState } from './types';
-
-export const THEME_LIST = [
-  'light',
-  'dark',
-  'deuteranopia',
-  'tritanopia',
-];
-
-export const DATE_LIST = [
-  'locale',
-  'utc',
-];
-
-export const TX_LIST = [
-  'compact',
-  'detailed',
-];
+import {
+  atom, selector,
+} from 'recoil';
+import { mergeStateChange } from '@utils/merge_state_change';
+import {
+  AtomState, Theme,
+} from './types';
 
 const initialState: AtomState = {
   theme: 'light',
@@ -24,7 +12,32 @@ const initialState: AtomState = {
   txListFormat: 'compact',
 };
 
-export const settingsAtom = atom({
-  key: 'settingsAtom',
+export const atomState = atom({
+  key: 'settings',
   default: initialState,
+});
+
+// export const getState = selector({
+//   key: 'settingsGetState',
+//   get: ({ get }) => {
+//     const state = get(atomState);
+//     return state;
+//   },
+// });
+
+export const getTheme = selector({
+  key: 'settingsGetTheme',
+  get: ({ get }): Theme => {
+    const state = get(atomState);
+    return state.theme;
+  },
+  set: ({
+    get, set,
+  }, newTheme) => {
+    const prevState = get(atomState);
+    const newState = mergeStateChange(prevState, {
+      theme: newTheme,
+    });
+    return set(atomState, newState);
+  },
 });
