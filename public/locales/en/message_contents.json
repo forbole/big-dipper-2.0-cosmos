@@ -50,7 +50,7 @@
   "txTransferContent": "<0>{{sender}}</0> sent <2>{{token}}</2> via IBC transfer from source channel <2>{{sourceChannel}}</2> to <1>{{receiver}}</1>",
   "txTimeoutContent": "<0>{{signer}}</0> IBC timeout",
   "txTimeoutOnCloseContent": "<0>{{signer}}</0> IBC timeout on close",
-  "txIssueDenomContent": "<0>{{creators}}</0> issued NFT <1>{{name}}</1> for <2>{{split_shares}}</2>",
+  "txIssueDenomContent": "<0>{{creators}}</0> issued denom for split shares <1>{{split_shares}}</1> and royalty share <2>{{royalty_share}}</2>",
   "txMintNFTContent": "<0>{{sender}}</0> minted NFT <1>{{name}}</1>",
   "txEditNFTContent": "<0>{{sender}}</0> edited NFT <1>{{name}}</1>",
   "txTransferNFTContent": "<0>{{sender}}</0> sent NFT <1>{{id}}</1> to <2>{{recipient}}</2>",
