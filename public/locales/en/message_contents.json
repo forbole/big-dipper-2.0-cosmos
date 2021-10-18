@@ -51,5 +51,6 @@
   "txTimeoutContent": "<0>{{signer}}</0> IBC timeout",
   "txTimeoutOnCloseContent": "<0>{{signer}}</0> IBC timeout on close",
   "txMsgOpenAuction": "<0>{{owner}}</0> created an auction for <1>{{nftId}}</1>",
-  "txMsgEditAuction": "<0>{{owner}}</0> edited auction <1>{{id}}</1>"
+  "txMsgEditAuction": "<0>{{owner}}</0> edited auction <1>{{id}}</1>",
+  "txMsgCancelAuction": "<0>{{owner}}</0> cancelled auction <1>{{id}}</1>"
 }

@@ -50,5 +50,6 @@
   "txVersionLabel": "IBC Version",
   "txTransferLabel": "IBC Transfer",
   "txMsgOpenAuction": "Open Auction",
-  "txMsgEditAuction": "Edit Auction"
+  "txMsgEditAuction": "Edit Auction",
+  "txMsgCancelAuction": "Cancel Auction"
 }
