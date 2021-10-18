@@ -17,17 +17,22 @@ const IssueDenom = (props: {
 
   const { creators } = message;
   const creator = creators.map((x) => {
-    return x.toUpperCase();
+    return x;
   });
-  const creatorsResult = creator.reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t(' and ')} `) + value);
-  
+  const creatorsAddressResult = creator.reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t(' and ')} `) + value);
+
+  const creatorsMoniker = creators.map((y) => {
+    const creatorMoniker = findAddress(y);
+    const creatorMonikerResult = creatorMoniker ? creatorMoniker?.moniker : message.creators;
+    return creatorMonikerResult;
+  });
+  const creatorsMonikerResult = creatorsMoniker.reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t(' and ')} `) + value);
+
   const { splitShares } = message;
   const splitShare = splitShares.map((y) => {
     return numeral(y);
   });
   const splitShareResult = splitShare.reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t(' and ')} `) + value);
-
-  const royaltyShare = findAddress(message.royaltyShare);
 
   return (
     <Typography>
@@ -36,15 +41,15 @@ const IssueDenom = (props: {
         components={[
           (
             <Name
-              address={message.liquidityProvider}
-              name={liqdPvdMoniker}
+              address={creatorsAddressResult}
+              name={creatorsMonikerResult}
             />
           ),
           <b />,
         ]}
         values={{
           splitShares: splitShareResult,
-          royaltyShare: 
+          royaltyShare: message.royaltyShare,
         }}
       />
     </Typography>
