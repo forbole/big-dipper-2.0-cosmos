@@ -68,6 +68,11 @@ import CancelAuction from './auction/cancel_auction';
 import OpenBid from './auction/open_bid';
 import CancelBid from './auction/cancel_bid';
 import Withdraw from './auction/withdraw';
+import IssueFanToken from './fantoken/issue_fan_token';
+import EditFanToken from './fantoken/edit_fan_token';
+import MintFanToken from './fantoken/mint_fan_token';
+import BurnFanToken from './fantoken/burn_fan_token';
+import TransferFanToken from './fantoken/transfer_fan_token';
 
 export {
   getMessageModelByType,
@@ -134,4 +139,9 @@ export {
   OpenBid,
   CancelBid,
   Withdraw,
+  IssueFanToken,
+  EditFanToken,
+  MintFanToken,
+  BurnFanToken,
+  TransferFanToken,
 };
