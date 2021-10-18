@@ -6,7 +6,7 @@ class MsgWithdraw {
   public type: string;
   public json: any;
   public recipient: string;
-  public auctionId: string;
+  public auctionId: number;
 
   constructor(payload: any) {
     this.category = 'auction';

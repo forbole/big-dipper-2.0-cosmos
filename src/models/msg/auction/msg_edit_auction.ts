@@ -1,4 +1,3 @@
-import * as R from 'ramda';
 import { Categories } from '../types';
 
 class MsgEditAuction {
@@ -6,7 +5,7 @@ class MsgEditAuction {
   public type: string;
   public json: any;
   public owner: string;
-  public id: string;
+  public id: number;
 
   constructor(payload: any) {
     this.category = 'auction';
@@ -21,7 +20,7 @@ class MsgEditAuction {
       json,
       type: json['@type'],
       owner: json.owner,
-      id: R.pathOr('', ['id'], json),
+      id: json.id,
     });
   }
 }

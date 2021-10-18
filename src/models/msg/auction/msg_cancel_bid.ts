@@ -7,7 +7,6 @@ class MsgCancelBid {
   public json: any;
   public auctionId: number;
   public bidder: string;
-  public bidAmount: MsgCoin;
 
   constructor(payload: any) {
     this.category = 'auction';
