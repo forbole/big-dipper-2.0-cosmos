@@ -49,5 +49,6 @@
   "txConnectionEndLabel": "IBC Connection End",
   "txVersionLabel": "IBC Version",
   "txTransferLabel": "IBC Transfer",
-  "txMsgOpenAuction": "Open Auction"
+  "txMsgOpenAuction": "Open Auction",
+  "txMsgEditAuction": "Edit Auction"
 }

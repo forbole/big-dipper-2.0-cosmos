@@ -63,7 +63,8 @@ import MsgConnectionOpenTry from './msg/ibc/msg_connection_open_try';
 import MsgCounterpartyConnection from './msg/ibc/msg_connection_counterparty';
 import MsgVersion from './msg/ibc/msg_connection_version';
 import MsgTransfer from './msg/ibc_transfer/msg_transfer';
-import MsgOpenAuction from './msg/auction';
+import MsgOpenAuction from './msg/auction/msg_open_auction';
+import MsgEditAuction from './msg/auction/msg_edit_auction';
 
 export {
   BigDipperNetwork,
@@ -132,4 +133,5 @@ export {
   MsgVersion,
   MsgTransfer,
   MsgOpenAuction,
+  MsgEditAuction,
 };
