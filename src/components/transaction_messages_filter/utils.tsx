@@ -33,6 +33,10 @@ export const getFilterLabels = () => {
       display: 'auction',
     },
     {
+      key: 'fantoken',
+      display: 'fantoken',
+    },
+    {
       key: 'others',
       display: 'others',
     },
