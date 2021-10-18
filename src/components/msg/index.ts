@@ -62,9 +62,7 @@ import ConnectionOpenTry from './ibc/connection_open_try';
 import CounterpartyConnection from './ibc/connection_counterparty';
 import Version from './ibc/connection_version';
 import Transfer from './ibc_transfer/transfer';
-<<<<<<< HEAD
 import IssueDenom from './nft/issue_denom';
-=======
 import OpenAuction from './auction/open_auction';
 import EditAuction from './auction/edit_auction';
 import CancelAuction from './auction/cancel_auction';
@@ -76,7 +74,6 @@ import EditFanToken from './fantoken/edit_fan_token';
 import MintFanToken from './fantoken/mint_fan_token';
 import BurnFanToken from './fantoken/burn_fan_token';
 import TransferFanToken from './fantoken/transfer_fan_token';
->>>>>>> chains/bitsong
 
 export {
   getMessageModelByType,

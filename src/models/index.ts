@@ -63,9 +63,7 @@ import MsgConnectionOpenTry from './msg/ibc/msg_connection_open_try';
 import MsgCounterpartyConnection from './msg/ibc/msg_connection_counterparty';
 import MsgVersion from './msg/ibc/msg_connection_version';
 import MsgTransfer from './msg/ibc_transfer/msg_transfer';
-<<<<<<< HEAD
 import MsgIssueDenom from './msg/nft/msg_issue_denom';
-=======
 import MsgOpenAuction from './msg/auction/msg_open_auction';
 import MsgEditAuction from './msg/auction/msg_edit_auction';
 import MsgCancelAuction from './msg/auction/msg_cancel_auction';
@@ -77,7 +75,6 @@ import MsgEditFanToken from './msg/fantoken/msg_edit_fan_token';
 import MsgMintFanToken from './msg/fantoken/msg_mint_fan_token';
 import MsgBurnFanToken from './msg/fantoken/msg_burn_fan_token';
 import MsgTransferFanTokenOwner from './msg/fantoken/msg_transfer_fan_token';
->>>>>>> chains/bitsong
 
 export {
   BigDipperNetwork,
