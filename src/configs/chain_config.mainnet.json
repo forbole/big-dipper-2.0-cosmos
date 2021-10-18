@@ -1,9 +1,9 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "desmos-mainnet-1",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
+  "title": "Bitsong Block Explorer",
+  "network": "bitsong-2",
+  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/bitsong/icon.svg?sanitize=true",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
+    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/bitsong/logo.svg?sanitize=true"
   },
   "prefix": {
     "consensus": "desmosvalcons",
