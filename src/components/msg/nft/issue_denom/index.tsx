@@ -16,10 +16,7 @@ const IssueDenom = (props: {
   const { t } = useTranslation('transactions');
 
   const { creators } = message;
-  const creator = creators.map((x) => {
-    return x;
-  });
-  const creatorsAddressResult = creator.reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t(' and ')} `) + value);
+  const creatorsAddressResult = creators.reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t(' and ')} `) + value);
 
   const creatorsMoniker = creators.map((y) => {
     const creatorMoniker = findAddress(y);
