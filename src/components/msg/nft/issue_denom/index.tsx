@@ -18,7 +18,7 @@ const IssueDenom = (props: {
 
   const creatorsMoniker = creators.map((x) => {
     const creatorMoniker = findAddress(x);
-    const creatorMonikerResult = creatorMoniker ? creatorMoniker?.moniker : message.creators;
+    const creatorMonikerResult = creatorMoniker ? creatorMoniker?.moniker : x;
     return creatorMonikerResult;
   });
   const creatorsMonikerResult = creatorsMoniker.reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t(' and ')} `) + value);
