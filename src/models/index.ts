@@ -70,6 +70,7 @@ import MsgOpenBid from './msg/auction/msg_open_bid';
 import MsgCancelBid from './msg/auction/msg_cancel_bid';
 import MsgWithdraw from './msg/auction/msg_withdraw';
 import MsgIssueFanToken from './msg/fantoken/msg_issue_fan_token';
+import MsgEditFanToken from './msg/fantoken/msg_edit_fan_token';
 
 export {
   BigDipperNetwork,
@@ -144,4 +145,5 @@ export {
   MsgCancelBid,
   MsgWithdraw,
   MsgIssueFanToken,
+  MsgEditFanToken,
 };
