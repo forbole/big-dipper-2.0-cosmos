@@ -54,5 +54,6 @@
   "txMsgCancelAuction": "Cancel Auction",
   "txMsgOpenBid": "Open Bid",
   "txMsgCancelBid": "Cancel Bid",
-  "txMsgWithdraw": "Withdraw"
+  "txMsgWithdraw": "Withdraw",
+  "txMsgIssueFanToken": "Issue Fan Token"
 }
