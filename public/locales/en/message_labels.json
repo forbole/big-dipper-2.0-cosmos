@@ -53,5 +53,11 @@
   "txMintNFTLabel": "Mint NFT",
   "txEditNFTLabel": "Edit NFT",
   "txTransferNFTLabel": "Transfer NFT",
-  "txBurnNFTLabel": "Burn NFT"
+  "txBurnNFTLabel": "Burn NFT",
+  "txMsgOpenAuction": "Open Auction",
+  "txMsgEditAuction": "Edit Auction",
+  "txMsgCancelAuction": "Cancel Auction",
+  "txMsgOpenBid": "Open Bid",
+  "txMsgCancelBid": "Cancel Bid",
+  "txMsgWithdraw": "Withdraw"
 }
