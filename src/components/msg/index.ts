@@ -62,6 +62,12 @@ import ConnectionOpenTry from './ibc/connection_open_try';
 import CounterpartyConnection from './ibc/connection_counterparty';
 import Version from './ibc/connection_version';
 import Transfer from './ibc_transfer/transfer';
+import OpenAuction from './auction/open_auction';
+import EditAuction from './auction/edit_auction';
+import CancelAuction from './auction/cancel_auction';
+import OpenBid from './auction/open_bid';
+import CancelBid from './auction/cancel_bid';
+import Withdraw from './auction/withdraw';
 
 export {
   getMessageModelByType,
@@ -122,4 +128,10 @@ export {
   CounterpartyConnection,
   Version,
   Transfer,
+  OpenAuction,
+  EditAuction,
+  CancelAuction,
+  OpenBid,
+  CancelBid,
+  Withdraw,
 };
