@@ -1,25 +1,25 @@
 import { Categories } from '../types';
 
-class MsgEditFanToken {
+class MsgBurnFanToken {
   public category: Categories;
   public type: string;
   public json: any;
-  public owner: string;
+  public sender: string;
 
   constructor(payload: any) {
     this.category = 'fantoken';
     this.type = payload.type;
     this.json = payload.json;
-    this.owner = payload.owner;
+    this.sender = payload.sender;
   }
 
   static fromJson(json: any) {
-    return new MsgEditFanToken({
+    return new MsgBurnFanToken({
       json,
       type: json['@type'],
-      owner: json.owner,
+      sender: json.sender,
     });
   }
 }
 
-export default MsgEditFanToken;
+export default MsgBurnFanToken;

@@ -7,7 +7,7 @@ class MsgMintFanToken {
   public recipient: string;
 
   constructor(payload: any) {
-    this.category = 'auction';
+    this.category = 'fantoken';
     this.type = payload.type;
     this.json = payload.json;
     this.recipient = payload.recipient;

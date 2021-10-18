@@ -10,7 +10,7 @@ class MsgIssueFanToken {
   public maxSupply: string;
 
   constructor(payload: any) {
-    this.category = 'auction';
+    this.category = 'fantoken';
     this.type = payload.type;
     this.json = payload.json;
     this.owner = payload.owner;
