@@ -339,6 +339,39 @@ const getDataByType = (type: string) => {
       tagTheme: 'ten',
       tagDisplay: 'txMsgWithdraw',
     },
+    // ========================
+    // fantoken
+    // ========================
+    '/bitsong.fantoken.v1beta1.MsgIssueFanToken': {
+      model: MODELS.MsgIssueFanToken,
+      content: COMPONENTS.IssueFanToken,
+      tagTheme: 'thirteen',
+      tagDisplay: 'txMsgIssueFanToken',
+    },
+    '/bitsong.fantoken.v1beta1.MsgEditFanToken': {
+      model: MODELS.MsgEditFanToken,
+      content: COMPONENTS.EditFanToken,
+      tagTheme: 'thirteen',
+      tagDisplay: 'txMsgEditFanToken',
+    },
+    '/bitsong.fantoken.v1beta1.MsgMintFanToken': {
+      model: MODELS.MsgMintFanToken,
+      content: COMPONENTS.MintFanToken,
+      tagTheme: 'thirteen',
+      tagDisplay: 'txMsgMintFanToken',
+    },
+    '/bitsong.fantoken.v1beta1.MsgBurnFanToken': {
+      model: MODELS.MsgBurnFanToken,
+      content: COMPONENTS.BurnFanToken,
+      tagTheme: 'thirteen',
+      tagDisplay: 'txMsgBurnFanToken',
+    },
+    '/bitsong.fantoken.v1beta1.MsgTransferFanTokenOwner': {
+      model: MODELS.MsgTransferFanTokenOwner,
+      content: COMPONENTS.TransferFanToken,
+      tagTheme: 'thirteen',
+      tagDisplay: 'txMsgTransferFanTokenOwner',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];
