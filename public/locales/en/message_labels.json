@@ -58,5 +58,6 @@
   "txMsgIssueFanToken": "Issue Fan Token",
   "txMsgEditFanToken": "Edit Fan Token",
   "txMsgMintFanToken": "Mint Fan Token",
-  "txMsgBurnFanToken": "Burn Fan Token"
+  "txMsgBurnFanToken": "Burn Fan Token",
+  "txMsgTransferFanTokenOwner": "Transfer Fan Token"
 }
