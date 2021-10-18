@@ -1,4 +1,3 @@
-import * as R from 'ramda';
 import { Categories } from '../types';
 
 class MsgCancelAuction {
