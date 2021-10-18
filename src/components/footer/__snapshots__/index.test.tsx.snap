@@ -12,7 +12,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
     >
       <svg
         className="footer__logo"
-        data-file-name="SvgBigDipperRed"
+        data-file-name="SvgBigDipperWhite"
       />
       <p
         className="footer__slogan"

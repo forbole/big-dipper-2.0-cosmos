@@ -10,7 +10,6 @@ import {
   useSettingsContext,
 } from '@contexts';
 import {
-  lightTemplate,
   darkTemplate,
 } from '@styles';
 
@@ -48,21 +47,20 @@ describe('context: SettingsContext', () => {
     const { result } = renderHook(() => useSettingsContext(), {
       wrapper,
     });
-    const lightTheme = JSON.stringify(createMuiTheme(lightTemplate));
     const darkTheme = JSON.stringify(createMuiTheme(darkTemplate));
 
-    expect(result.current.theme).toBe('light');
-    expect(JSON.stringify(result.current.muiTheme)).toEqual(lightTheme);
+    expect(result.current.theme).toBe('dark');
+    expect(JSON.stringify(result.current.muiTheme)).toEqual(darkTheme);
     await act(async () => {
       await result.current.changeTheme('dark');
     });
     expect(result.current.theme).toBe('dark');
     expect(JSON.stringify(result.current.muiTheme)).toBe(darkTheme);
     await act(async () => {
-      await result.current.changeTheme('light');
+      await result.current.changeTheme('dark');
     });
-    expect(result.current.theme).toBe('light');
-    expect(JSON.stringify(result.current.muiTheme)).toBe(lightTheme);
+    expect(result.current.theme).toBe('dark');
+    expect(JSON.stringify(result.current.muiTheme)).toBe(darkTheme);
   });
 });
 
