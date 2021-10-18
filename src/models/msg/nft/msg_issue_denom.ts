@@ -8,8 +8,8 @@ class MsgIssueDenom {
   public id: string;
   public name: string;
   public creators: string[];
-  public splitShares: MsgCoin;
-  public royaltyShare: MsgCoin;
+  public splitShares: string[];
+  public royaltyShare: string;
   public sender: string;
 
   constructor(payload: any) {
@@ -31,14 +31,8 @@ class MsgIssueDenom {
       id: json.id,
       name: json.name,
       creators: R.pathOr([], ['creators'], json),
-      splitShares: {
-        denom: R.pathOr('', ['source', 'denom'], json),
-        amount: R.pathOr('', ['source', 'amount'], json),
-      },
-      royaltyShare: {
-        denom: R.pathOr('', ['source', 'denom'], json),
-        amount: R.pathOr(0, ['source', 'amount'], json),
-      },
+      splitShares: R.pathOr([], ['splitShares'], json),
+      royaltyShare: json.royaltyShare,
       sender: json.sender,
     });
   }
