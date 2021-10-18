@@ -52,5 +52,6 @@
   "txMsgOpenAuction": "Open Auction",
   "txMsgEditAuction": "Edit Auction",
   "txMsgCancelAuction": "Cancel Auction",
-  "txMsgOpenBid": "Open Bid"
+  "txMsgOpenBid": "Open Bid",
+  "txMsgCancelBid": "Cancel Bid"
 }

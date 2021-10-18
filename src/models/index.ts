@@ -66,6 +66,8 @@ import MsgTransfer from './msg/ibc_transfer/msg_transfer';
 import MsgOpenAuction from './msg/auction/msg_open_auction';
 import MsgEditAuction from './msg/auction/msg_edit_auction';
 import MsgCancelAuction from './msg/auction/msg_cancel_auction';
+import MsgOpenBid from './msg/auction/msg_open_bid';
+import MsgCancelBid from './msg/auction/msg_cancel_bid';
 
 export {
   BigDipperNetwork,
@@ -136,4 +138,6 @@ export {
   MsgOpenAuction,
   MsgEditAuction,
   MsgCancelAuction,
+  MsgOpenBid,
+  MsgCancelBid,
 };
