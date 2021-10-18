@@ -15,24 +15,19 @@ const IssueDenom = (props: {
   const { message } = props;
   const { t } = useTranslation('transactions');
 
-  const id = findAddress(message.id);
-  const idMoniker = id ? id?.moniker : message.id;
-  const name = findAddress(message.name);
-  const royaltyShare = findAddress(message.royaltyShare);
-  const sender = findAddress(message.sender);
-  const creators = findAddress(message.creators);
+  const { creators } = message;
   const creator = creators.map((x) => {
-    return x;
+    return x.toUpperCase();
   });
-  const splitShares = findAddress(message.splitShares);
-  const splitShare = splitShares.map((x) => { return x; });
+  const creatorsResult = creator.reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t(' and ')} `) + value);
+  
+  const { splitShares } = message;
+  const splitShare = splitShares.map((y) => {
+    return numeral(y);
+  });
+  const splitShareResult = splitShare.reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t(' and ')} `) + value);
 
-  const amountBeforeParse = message.amount;
-  const parsedAmount = amountBeforeParse.map((x) => {
-    const eachAmount = formatDenom(x.amount, x.denom);
-    return `${numeral(eachAmount.value).format('0,0.[000000]')} ${eachAmount.denom.toUpperCase()}`;
-  });
-  const finalData = parsedAmount.reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t(' and ')} `) + value);
+  const royaltyShare = findAddress(message.royaltyShare);
 
   return (
     <Typography>
@@ -48,7 +43,8 @@ const IssueDenom = (props: {
           <b />,
         ]}
         values={{
-          amount: finalData,
+          splitShares: splitShareResult,
+          royaltyShare: 
         }}
       />
     </Typography>
