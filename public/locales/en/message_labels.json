@@ -51,5 +51,6 @@
   "txTransferLabel": "IBC Transfer",
   "txMsgOpenAuction": "Open Auction",
   "txMsgEditAuction": "Edit Auction",
-  "txMsgCancelAuction": "Cancel Auction"
+  "txMsgCancelAuction": "Cancel Auction",
+  "txMsgOpenBid": "Open Bid"
 }
