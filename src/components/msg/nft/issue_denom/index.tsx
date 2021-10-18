@@ -15,8 +15,17 @@ const IssueDenom = (props: {
   const { message } = props;
   const { t } = useTranslation('transactions');
 
-  const liquidityProvider = findAddress(message.liquidityProvider);
-  const liqdPvdMoniker = liquidityProvider ? liquidityProvider?.moniker : message.liquidityProvider;
+  const id = findAddress(message.id);
+  const idMoniker = id ? id?.moniker : message.id;
+  const name = findAddress(message.name);
+  const royaltyShare = findAddress(message.royaltyShare);
+  const sender = findAddress(message.sender);
+  const creators = findAddress(message.creators);
+  const creator = creators.map((x) => {
+    return x;
+  });
+  const splitShares = findAddress(message.splitShares);
+  const splitShare = splitShares.map((x) => { return x; });
 
   const amountBeforeParse = message.amount;
   const parsedAmount = amountBeforeParse.map((x) => {
