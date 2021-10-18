@@ -57,5 +57,6 @@
   "txMsgCancelBid": "<0>{{bidder}}</0> cancelled bid for <1>{{id}}</1>",
   "txMsgWithdraw": "<0>{{recipient}}</0> withdraw <1>{{id}}</1>",
   "txMsgIssueFanToken": "<0>{{owner}}</0> issued a new fan token <1>{{name}}</1> with max supply of <1>{{maxSupply}}</1>",
-  "txMsgEditFanToken": "<0>{{owner}}</0> edited a fan token"
+  "txMsgEditFanToken": "<0>{{owner}}</0> edited a fan token",
+  "txMsgMintFanToken": "<0>{{recipient}}</0> minted a fan token"
 }
