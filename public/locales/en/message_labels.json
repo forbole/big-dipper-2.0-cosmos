@@ -53,5 +53,16 @@
   "txMintNFTLabel": "Mint NFT",
   "txEditNFTLabel": "Edit NFT",
   "txTransferNFTLabel": "Transfer NFT",
-  "txBurnNFTLabel": "Burn NFT"
+  "txBurnNFTLabel": "Burn NFT",
+  "txMsgOpenAuction": "Open Auction",
+  "txMsgEditAuction": "Edit Auction",
+  "txMsgCancelAuction": "Cancel Auction",
+  "txMsgOpenBid": "Open Bid",
+  "txMsgCancelBid": "Cancel Bid",
+  "txMsgWithdraw": "Withdraw",
+  "txMsgIssueFanToken": "Issue Fan Token",
+  "txMsgEditFanToken": "Edit Fan Token",
+  "txMsgMintFanToken": "Mint Fan Token",
+  "txMsgBurnFanToken": "Burn Fan Token",
+  "txMsgTransferFanTokenOwner": "Transfer Fan Token"
 }

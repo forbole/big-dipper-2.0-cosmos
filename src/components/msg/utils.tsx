@@ -301,62 +301,78 @@ const getDataByType = (type: string) => {
   // =====================================
   const customTypeToModel = {
     // ========================
-    // profiles
+    // auction
     // ========================
-    '/desmos.profiles.v1beta1.MsgSaveProfile': {
-      model: MODELS.MsgSaveProfile,
-      content: COMPONENTS.SaveProfile,
-      tagTheme: 'four',
-      tagDisplay: 'txSaveProfileLabel',
+    '/bitsong.auction.v1beta1.MsgOpenAuction': {
+      model: MODELS.MsgOpenAuction,
+      content: COMPONENTS.OpenAuction,
+      tagTheme: 'ten',
+      tagDisplay: 'txMsgOpenAuction',
     },
-    '/desmos.profiles.v1beta1.MsgDeleteProfile': {
-      model: MODELS.MsgDeleteProfile,
-      content: COMPONENTS.DeleteProfile,
-      tagTheme: 'four',
-      tagDisplay: 'txDeleteProfileLabel',
+    '/bitsong.auction.v1beta1.MsgEditAuction': {
+      model: MODELS.MsgEditAuction,
+      content: COMPONENTS.EditAuction,
+      tagTheme: 'ten',
+      tagDisplay: 'txMsgEditAuction',
     },
-    '/desmos.profiles.v1beta1.MsgCreateRelationship': {
-      model: MODELS.MsgCreateRelationship,
-      content: COMPONENTS.CreateRelationship,
-      tagTheme: 'four',
-      tagDisplay: 'txCreateRelationshipLabel',
+    '/bitsong.auction.v1beta1.MsgCancelAuction': {
+      model: MODELS.MsgCancelAuction,
+      content: COMPONENTS.CancelAuction,
+      tagTheme: 'ten',
+      tagDisplay: 'txMsgCancelAuction',
     },
-    '/desmos.profiles.v1beta1.MsgRequestDTagTransfer': {
-      model: MODELS.MsgDtagTransferRequest,
-      content: COMPONENTS.DtagTransferRequest,
-      tagTheme: 'four',
-      tagDisplay: 'txRequestDTagTransferLabel',
+    '/bitsong.auction.v1beta1.MsgOpenBid': {
+      model: MODELS.MsgOpenBid,
+      content: COMPONENTS.OpenBid,
+      tagTheme: 'ten',
+      tagDisplay: 'txMsgOpenBid',
     },
-    '/desmos.profiles.v1beta1.MsgAcceptDTagTransfer': {
-      model: MODELS.MsgDtagAcceptTransfer,
-      content: COMPONENTS.DtagAcceptTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txAcceptDTagTransferLabel',
+    '/bitsong.auction.v1beta1.MsgCancelBid': {
+      model: MODELS.MsgCancelBid,
+      content: COMPONENTS.CancelBid,
+      tagTheme: 'ten',
+      tagDisplay: 'txMsgCancelBid',
     },
-    '/desmos.profiles.v1beta1.MsgCancelDTagTransfer': {
-      model: MODELS.MsgDtagCancelTransfer,
-      content: COMPONENTS.DtagCancelTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txCancelDTagTransferLabel',
+    '/bitsong.auction.v1beta1.MsgWithdraw': {
+      model: MODELS.MsgWithdraw,
+      content: COMPONENTS.Withdraw,
+      tagTheme: 'ten',
+      tagDisplay: 'txMsgWithdraw',
     },
-    '/desmos.profiles.v1beta1.MsgRefuseDTagTransfer': {
-      model: MODELS.MsgDtagRefuseTransfer,
-      content: COMPONENTS.DtagRefuseTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txRefuseDTagTransferLabel',
+    // ========================
+    // fantoken
+    // ========================
+    '/bitsong.fantoken.v1beta1.MsgIssueFanToken': {
+      model: MODELS.MsgIssueFanToken,
+      content: COMPONENTS.IssueFanToken,
+      tagTheme: 'thirteen',
+      tagDisplay: 'txMsgIssueFanToken',
     },
-    '/desmos.profiles.v1beta1.MsgBlockUser': {
-      model: MODELS.MsgBlockUser,
-      content: COMPONENTS.BlockUser,
-      tagTheme: 'four',
-      tagDisplay: 'txBlockUserLabel',
+    '/bitsong.fantoken.v1beta1.MsgEditFanToken': {
+      model: MODELS.MsgEditFanToken,
+      content: COMPONENTS.EditFanToken,
+      tagTheme: 'thirteen',
+      tagDisplay: 'txMsgEditFanToken',
     },
-    '/desmos.profiles.v1beta1.MsgUnblockUser': {
-      model: MODELS.MsgUnblockUser,
-      content: COMPONENTS.UnBlockUser,
-      tagTheme: 'four',
-      tagDisplay: 'txUnblockUserLabel',
+    '/bitsong.fantoken.v1beta1.MsgMintFanToken': {
+      model: MODELS.MsgMintFanToken,
+      content: COMPONENTS.MintFanToken,
+      tagTheme: 'thirteen',
+      tagDisplay: 'txMsgMintFanToken',
     },
+    '/bitsong.fantoken.v1beta1.MsgBurnFanToken': {
+      model: MODELS.MsgBurnFanToken,
+      content: COMPONENTS.BurnFanToken,
+      tagTheme: 'thirteen',
+      tagDisplay: 'txMsgBurnFanToken',
+    },
+    '/bitsong.fantoken.v1beta1.MsgTransferFanTokenOwner': {
+      model: MODELS.MsgTransferFanTokenOwner,
+      content: COMPONENTS.TransferFanToken,
+      tagTheme: 'thirteen',
+      tagDisplay: 'txMsgTransferFanTokenOwner',
+    },
+
     // ========================
     // nft
     // ========================

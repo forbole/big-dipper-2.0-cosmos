@@ -29,8 +29,12 @@ export const getFilterLabels = () => {
       display: 'staking',
     },
     {
-      key: 'profiles',
-      display: 'profiles',
+      key: 'auction',
+      display: 'auction',
+    },
+    {
+      key: 'fantoken',
+      display: 'fantoken',
     },
     {
       key: 'nft',
