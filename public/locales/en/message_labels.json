@@ -48,5 +48,11 @@
   "txConnectionOpenTryLabel": "IBC Connection Open Try",
   "txConnectionEndLabel": "IBC Connection End",
   "txVersionLabel": "IBC Version",
-  "txTransferLabel": "IBC Transfer"
+  "txTransferLabel": "IBC Transfer",
+  "txMsgOpenAuction": "Open Auction",
+  "txMsgEditAuction": "Edit Auction",
+  "txMsgCancelAuction": "Cancel Auction",
+  "txMsgOpenBid": "Open Bid",
+  "txMsgCancelBid": "Cancel Bid",
+  "txMsgWithdraw": "Withdraw"
 }
