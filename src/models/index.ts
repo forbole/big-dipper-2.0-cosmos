@@ -68,6 +68,7 @@ import MsgEditAuction from './msg/auction/msg_edit_auction';
 import MsgCancelAuction from './msg/auction/msg_cancel_auction';
 import MsgOpenBid from './msg/auction/msg_open_bid';
 import MsgCancelBid from './msg/auction/msg_cancel_bid';
+import MsgWithdraw from './msg/auction/msg_withdraw';
 
 export {
   BigDipperNetwork,
@@ -140,4 +141,5 @@ export {
   MsgCancelAuction,
   MsgOpenBid,
   MsgCancelBid,
+  MsgWithdraw,
 };
