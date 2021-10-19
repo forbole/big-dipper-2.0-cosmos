@@ -36,9 +36,7 @@ const SettingsContext = React.createContext<SettingsState>({
   ...initialTxListState,
 });
 
-const SettingsProvider: React.FC = (props: {children: ({
-  muiTheme: any,
-}) => React.ReactNode }) => {
+const SettingsProvider: React.FC = (props: { children: React.ReactNode }) => {
   const { children } = props;
 
   const {
@@ -77,7 +75,7 @@ const SettingsProvider: React.FC = (props: {children: ({
         txListFormatList,
       }}
     >
-      {children({ muiTheme })}
+      {children}
     </SettingsContext.Provider>
   );
 };

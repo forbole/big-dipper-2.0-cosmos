@@ -4,7 +4,7 @@ import { atomState } from './atom';
 import { Theme } from './types';
 
 export const writeTheme = selector({
-  key: 'settingsGetTheme',
+  key: 'settingsWriteTheme',
   get: ({ get }): Theme => {
     const state = get(atomState);
     return state.theme;
@@ -17,5 +17,13 @@ export const writeTheme = selector({
       theme: newTheme,
     });
     set(atomState, newState);
+  },
+});
+
+export const readTheme = selector({
+  key: 'settingsReadTheme',
+  get: ({ get }): Theme => {
+    const state = get(atomState);
+    return state.theme;
   },
 });

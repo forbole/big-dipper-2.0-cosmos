@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import { AppProps } from 'next/app';
 import Countdown from '@screens/countdown';
 import {
+  SettingsProvider,
   NetworksProvider,
   ChainProvider,
 } from '@contexts';
@@ -37,11 +38,13 @@ const Main = (props: AppProps) => {
       />
       {
         genesisStarted ? (
-          <NetworksProvider>
-            <ChainProvider>
-              <InnerApp {...props} />
-            </ChainProvider>
-          </NetworksProvider>
+          <SettingsProvider>
+            <NetworksProvider>
+              <ChainProvider>
+                <InnerApp {...props} />
+              </ChainProvider>
+            </NetworksProvider>
+          </SettingsProvider>
         ) : (
           <Countdown startGenesis={startGenesis} />
         )

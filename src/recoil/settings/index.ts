@@ -4,6 +4,7 @@ import {
 
 import {
   writeTheme,
+  readTheme,
 } from './selectors';
 
 import {
@@ -22,4 +23,5 @@ export {
   atomState,
   writeTheme,
   getThemeTemplate,
+  readTheme,
 };
