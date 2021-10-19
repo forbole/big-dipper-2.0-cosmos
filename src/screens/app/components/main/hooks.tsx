@@ -1,5 +1,6 @@
 import {
   useEffect,
+  useState,
 } from 'react';
 import {
   useRecoilState, SetterOrUpdater,
@@ -14,8 +15,10 @@ import {
 import {
   Theme,
 } from '@recoil/settings/types';
+import { chainConfig } from '@configs';
+import dayjs from '@utils/dayjs';
 
-export const useMain = () => {
+export const useTheme = () => {
   const [theme, setTheme] = useRecoilState(writeTheme) as [Theme, SetterOrUpdater<Theme>];
   const [savedTheme] = usePersistedState('themeSelection', theme);
   // const [savedTheme, setSavedTheme] = usePersistedState('themeSelection', theme);
@@ -45,4 +48,20 @@ export const useMain = () => {
   return ({
     muiTheme: createMuiTheme(getThemeTemplate(theme)),
   });
+};
+
+export const useGenesis = () => {
+  const utcTimeNow = dayjs.utc().format('YYYY-MM-DDTHH:mm:ss');
+  const [genesisStarted, setGenesis] = useState(chainConfig.genesis.time < utcTimeNow);
+
+  const startGenesis = () => {
+    setTimeout(() => {
+      setGenesis(true);
+    }, 10000);
+  };
+
+  return {
+    genesisStarted,
+    startGenesis,
+  };
 };

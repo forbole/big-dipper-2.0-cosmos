@@ -1,15 +1,51 @@
 import React from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { ToastContainer } from 'react-toastify';
 import { AppProps } from 'next/app';
-import { useMain } from './hooks';
+import Countdown from '@screens/countdown';
+import {
+  NetworksProvider,
+  ChainProvider,
+} from '@contexts';
+import { InnerApp } from '..';
+import {
+  useTheme,
+  useGenesis,
+} from './hooks';
 
 const Main = (props: AppProps) => {
-  const { muiTheme } = useMain();
+  const { muiTheme } = useTheme();
+  const {
+    genesisStarted,
+    startGenesis,
+  } = useGenesis();
+
   return (
     <ThemeProvider theme={muiTheme}>
       <CssBaseline />
-      <div>hello</div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        hideProgressBar
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      {
+        genesisStarted ? (
+          <NetworksProvider>
+            <ChainProvider>
+              <InnerApp {...props} />
+            </ChainProvider>
+          </NetworksProvider>
+        ) : (
+          <Countdown startGenesis={startGenesis} />
+        )
+    }
     </ThemeProvider>
   );
 };
