@@ -17,10 +17,11 @@ import {
 } from '@recoil/settings/types';
 import { chainConfig } from '@configs';
 import dayjs from '@utils/dayjs';
+import { getItem } from '@utils/localstorage';
 
 export const useTheme = () => {
   const [theme, setTheme] = useRecoilState(writeTheme) as [Theme, SetterOrUpdater<Theme>];
-  const [savedTheme] = usePersistedState('themeSelection', theme);
+  const savedTheme = getItem('themeSelection', theme);
 
   useEffect(() => {
     const isClient = typeof window === 'object';

@@ -64,7 +64,7 @@ export const useSettingList = ({
   const changeTheme = (value: Theme) => {
     if (THEME_DICTIONARY[value]) {
       console.log('im in here');
-      setSavedTheme(value);
+      // setSavedTheme(value);
     }
   };
 
