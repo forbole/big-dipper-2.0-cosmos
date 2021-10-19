@@ -1,10 +1,5 @@
-import {
-  atom, selector,
-} from 'recoil';
-import { mergeStateChange } from '@utils/merge_state_change';
-import {
-  AtomState, Theme,
-} from './types';
+import { atom } from 'recoil';
+import { AtomState } from './types';
 
 const initialState: AtomState = {
   theme: 'light',
@@ -15,21 +10,4 @@ const initialState: AtomState = {
 export const atomState = atom<AtomState>({
   key: 'settings',
   default: initialState,
-});
-
-export const getTheme = selector({
-  key: 'settingsGetTheme',
-  get: ({ get }): Theme => {
-    const state = get(atomState);
-    return state.theme;
-  },
-  set: ({
-    get, set,
-  }, newTheme) => {
-    const prevState = get(atomState);
-    const newState = mergeStateChange(prevState, {
-      theme: newTheme,
-    });
-    set(atomState, newState);
-  },
 });

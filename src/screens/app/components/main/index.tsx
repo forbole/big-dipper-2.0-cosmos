@@ -4,6 +4,7 @@ import { useMain } from './hooks';
 const Main = ({
   Component, pageProps,
 }) => {
+  useMain();
   return (
     <div>main</div>
   );

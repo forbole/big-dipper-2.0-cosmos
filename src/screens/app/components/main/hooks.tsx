@@ -2,17 +2,21 @@ import {
   useEffect,
 } from 'react';
 import {
-  useRecoilValue, useRecoilState,
+  useRecoilState, SetterOrUpdater,
 } from 'recoil';
 import { usePersistedState } from '@hooks';
+import { createMuiTheme } from '@material-ui/core/styles';
 import {
-  getTheme,
+  writeTheme,
+  getThemeTemplate,
   THEME_DICTIONARY,
-  AtomState,
 } from '@recoil/settings';
+import {
+  Theme,
+} from '@recoil/settings/types';
 
 export const useMain = () => {
-  const [theme, setTheme] = useRecoilState<AtomState['theme']>(getTheme);
+  const [theme, setTheme] = useRecoilState(writeTheme) as [Theme, SetterOrUpdater<Theme>];
   const [savedTheme, setSavedTheme] = usePersistedState('themeSelection', theme);
 
   useEffect(() => {
@@ -30,4 +34,16 @@ export const useMain = () => {
       setTheme('light');
     }
   }, [savedTheme]);
+
+  const changeTheme = (value: Theme) => {
+    if (THEME_DICTIONARY[value]) {
+      setSavedTheme(value);
+    }
+  };
+
+  return ({
+    theme,
+    muiTheme: createMuiTheme(getThemeTemplate(theme)),
+    changeTheme,
+  });
 };
