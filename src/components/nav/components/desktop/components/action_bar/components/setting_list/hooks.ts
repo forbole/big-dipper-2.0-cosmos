@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import setLanguage from 'next-translate/setLanguage';
-import { usePersistedState } from '@hooks';
 import {
-  useRecoilValue, SetterOrUpdater,
+  useRecoilState, SetterOrUpdater,
 } from 'recoil';
 import {
   Theme,
 } from '@recoil/settings/types';
 import {
-  readTheme,
+  writeTheme,
   THEME_DICTIONARY,
 } from '@recoil/settings';
 import * as R from 'ramda';
@@ -20,8 +19,7 @@ export const useSettingList = ({
   txListFormat,
   changeTxListFormat,
 }) => {
-  const theme = useRecoilValue(readTheme);
-  const [_, setSavedTheme] = usePersistedState('themeSelection', theme);
+  const [theme, setTheme] = useRecoilState(writeTheme) as [Theme, SetterOrUpdater<Theme>];
   const [open, setOpen] = useState(false);
   const [state, setState] = useState({
     lang,
@@ -63,8 +61,7 @@ export const useSettingList = ({
 
   const changeTheme = (value: Theme) => {
     if (THEME_DICTIONARY[value]) {
-      console.log('im in here');
-      // setSavedTheme(value);
+      setTheme(value);
     }
   };
 

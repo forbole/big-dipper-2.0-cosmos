@@ -17,26 +17,32 @@ import {
 } from '@recoil/settings/types';
 import { chainConfig } from '@configs';
 import dayjs from '@utils/dayjs';
-import { getItem } from '@utils/localstorage';
 
 export const useTheme = () => {
   const [theme, setTheme] = useRecoilState(writeTheme) as [Theme, SetterOrUpdater<Theme>];
-  const savedTheme = getItem('themeSelection', theme);
+  const [savedTheme, setSavedTheme] = usePersistedState('themeSelection', 'device');
+
+  // atom start with initial theme
+  // then update atom theme
 
   useEffect(() => {
     const isClient = typeof window === 'object';
+    let currentTheme: Theme = 'light';
+
     if (savedTheme === 'device') {
       if (
         isClient
         && window?.matchMedia('(prefers-color-scheme: dark)')?.matches
       ) {
-        setTheme('dark');
+        currentTheme = 'dark';
       }
     } else if (THEME_DICTIONARY[savedTheme]) {
-      setTheme(savedTheme);
+      currentTheme = savedTheme;
     } else {
-      setTheme('light');
+      currentTheme = 'light';
     }
+    setTheme(currentTheme);
+    setSavedTheme(currentTheme);
   }, [savedTheme]);
 
   return ({

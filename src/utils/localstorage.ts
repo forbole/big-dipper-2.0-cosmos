@@ -1,12 +1,8 @@
-export const getItem = <P>(key: string, defaultValue: P): P => {
+export const getItem = <P>(key: string, value: P): P => {
   const persistedString = localStorage.getItem(key);
   if (persistedString === null) {
-    return defaultValue;
+    return value;
   }
-  return JSON.parse(persistedString);
-};
-
-export const setItem = <P>(key: string, value: P) => {
-  localStorage.setItem(key, JSON.stringify(value));
-  return true;
+  const persistedValue = JSON.parse(persistedString);
+  return persistedValue;
 };
