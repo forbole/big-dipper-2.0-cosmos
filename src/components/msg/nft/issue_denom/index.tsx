@@ -9,21 +9,15 @@ import { useChainContext } from '@contexts';
 const IssueDenom = (props: {
   message: MsgIssueDenom ;
 }) => {
-  console.log('MsgIssueDenom', MsgIssueDenom);
   console.log('props', props);
-  console.log('props.message', props.message);
 
   const { findAddress } = useChainContext();
   const { message } = props;
   const { t } = useTranslation('transactions');
-
-  console.log('message', message);
-
   const { creators } = message;
   const creatorsAddressResult = creators.reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t(' and ')}`) + value);
 
-  console.log('creators', creators);
-  console.log('creatorsAddressResult', creatorsAddressResult);
+  console.log('creatorsAddressResult => ', creatorsAddressResult);
 
   const creatorsMoniker = creators.map((x) => {
     const creatorMoniker = findAddress(x);
@@ -32,12 +26,12 @@ const IssueDenom = (props: {
   });
   const creatorsMonikerResult = creatorsMoniker.reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t(' and ')} `) + value);
 
-  console.log('creatorsMonikerResult', creatorsMonikerResult);
+  console.log('creatorsMonikerResult => ', creatorsMonikerResult);
 
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txIssueDenom"
+        i18nKey="message_contents:txIssueDenomContent"
         components={[
           (
             <Name
