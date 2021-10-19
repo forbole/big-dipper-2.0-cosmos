@@ -17,7 +17,8 @@ import {
 
 export const useMain = () => {
   const [theme, setTheme] = useRecoilState(writeTheme) as [Theme, SetterOrUpdater<Theme>];
-  const [savedTheme, setSavedTheme] = usePersistedState('themeSelection', theme);
+  const [savedTheme] = usePersistedState('themeSelection', theme);
+  // const [savedTheme, setSavedTheme] = usePersistedState('themeSelection', theme);
 
   useEffect(() => {
     const isClient = typeof window === 'object';
@@ -35,15 +36,13 @@ export const useMain = () => {
     }
   }, [savedTheme]);
 
-  const changeTheme = (value: Theme) => {
-    if (THEME_DICTIONARY[value]) {
-      setSavedTheme(value);
-    }
-  };
+  // const changeTheme = (value: Theme) => {
+  //   if (THEME_DICTIONARY[value]) {
+  //     setSavedTheme(value);
+  //   }
+  // };
 
   return ({
-    theme,
     muiTheme: createMuiTheme(getThemeTemplate(theme)),
-    changeTheme,
   });
 };
