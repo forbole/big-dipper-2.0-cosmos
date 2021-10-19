@@ -16,6 +16,7 @@ import {
 } from '@material-ui/core';
 import { Close as CloseIcon } from '@material-ui/icons';
 import { useSettingsContext } from '@contexts';
+import { THEME_LIST } from '@recoil/settings';
 import { useSettingList } from './hooks';
 import { useStyles } from './styles';
 
@@ -25,9 +26,6 @@ const Settings: React.FC<{
   const classes = useStyles();
   const router = useRouter();
   const {
-    themeList,
-    theme,
-    changeTheme,
     dateFormat,
     changeDateFormat,
     dateFormatList,
@@ -46,8 +44,6 @@ const Settings: React.FC<{
     handleFormSubmit,
     handleCancel,
   } = useSettingList({
-    theme,
-    changeTheme,
     lang,
     dateFormat,
     changeDateFormat,
@@ -93,7 +89,7 @@ const Settings: React.FC<{
                   disablePadding: true,
                 } }}
               >
-                {themeList
+                {THEME_LIST
                   .map((l) => (
                     <MenuItem
                       key={l}

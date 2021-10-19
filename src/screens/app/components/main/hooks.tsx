@@ -21,7 +21,6 @@ import dayjs from '@utils/dayjs';
 export const useTheme = () => {
   const [theme, setTheme] = useRecoilState(writeTheme) as [Theme, SetterOrUpdater<Theme>];
   const [savedTheme] = usePersistedState('themeSelection', theme);
-  // const [savedTheme, setSavedTheme] = usePersistedState('themeSelection', theme);
 
   useEffect(() => {
     const isClient = typeof window === 'object';
@@ -38,12 +37,6 @@ export const useTheme = () => {
       setTheme('light');
     }
   }, [savedTheme]);
-
-  // const changeTheme = (value: Theme) => {
-  //   if (THEME_DICTIONARY[value]) {
-  //     setSavedTheme(value);
-  //   }
-  // };
 
   return ({
     muiTheme: createMuiTheme(getThemeTemplate(theme)),
