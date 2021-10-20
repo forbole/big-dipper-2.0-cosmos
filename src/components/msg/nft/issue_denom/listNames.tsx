@@ -20,6 +20,10 @@ const ListNames = (props: {
     };
   });
 
+  console.log('listNames 2 methods');
+
+  // method 1
+  /// / step1: return UI, step 2: .reduce()
   const NamesUI = dataArray.map((x) => {
     return (
       <>
@@ -34,8 +38,12 @@ const ListNames = (props: {
 
   const NamesSentenceUI = NamesUI.reduce((element, value, i, array) => element + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
 
+  // method 2
+  /// / step1: .reduce(), step 2: return UI
+  const sentence = dataArray.map((name) => { return name.eachAddress; }).reduce((element, value, i, array) => element + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
+
   return (
-    <>Hii</>
+    NamesUI
   );
 };
 

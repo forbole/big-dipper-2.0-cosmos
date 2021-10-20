@@ -38,8 +38,13 @@ const IssueDenom = (props: {
           ),
           <b />,
         ]}
+        // components={
+        //   (
+        //     <ListNames />
+        //   )
+        // }
       />
-      <ListNames />
+      <ListNames message={message} />
     </Typography>
   );
 };
