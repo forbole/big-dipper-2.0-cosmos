@@ -18,19 +18,8 @@ const ListNames = (props: {
     };
   });
 
-  // create ui based on this data
-  const NamesUI = dataArray.map((x) => {
-    return (
-      <Name
-        key={x.eachAddress}
-        address={x.eachAddress}
-        name={x.creatorMonikerResult}
-      />
-    );
-  });
-
   return (
-    <div>
+    <>
       {dataArray.map((x, i) => {
         let suffix = '';
 
@@ -50,7 +39,7 @@ const ListNames = (props: {
           </React.Fragment>
         );
       })}
-    </div>
+    </>
   );
 };
 
