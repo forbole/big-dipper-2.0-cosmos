@@ -5,14 +5,14 @@ class MsgMintNFT {
   public type: string;
   public json: any;
   public sender: string;
-  public name: string;
+  public id: string;
 
   constructor(payload: any) {
     this.category = 'nft';
     this.type = payload.type;
     this.json = payload.json;
     this.sender = payload.sender;
-    this.name = payload.name;
+    this.id = payload.id;
   }
 
   static fromJson(json: any) {
@@ -20,7 +20,7 @@ class MsgMintNFT {
       json,
       type: json['@type'],
       sender: json?.sender,
-      name: json?.name,
+      name: json?.id,
     });
   }
 }
