@@ -67,6 +67,7 @@ import MsgIssueDenom from './msg/nft/msg_issue_denom';
 import MsgMintNFT from './msg/nft/msg_mint_nft';
 import MsgEditNFT from './msg/nft/msg_edit_nft';
 import MsgBurnNFT from './msg/nft/msg_burn_nft';
+import MsgTransferNFT from './msg/nft/msg_tranfer_nft';
 import MsgOpenAuction from './msg/auction/msg_open_auction';
 import MsgEditAuction from './msg/auction/msg_edit_auction';
 import MsgCancelAuction from './msg/auction/msg_cancel_auction';
@@ -149,6 +150,7 @@ export {
   MsgMintNFT,
   MsgEditNFT,
   MsgBurnNFT,
+  MsgTransferNFT,
   MsgOpenAuction,
   MsgEditAuction,
   MsgCancelAuction,
