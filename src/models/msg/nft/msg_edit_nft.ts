@@ -20,7 +20,7 @@ class MsgEditNFT {
       json,
       type: json['@type'],
       sender: json?.sender,
-      name: json?.id,
+      id: json?.id,
     });
   }
 }

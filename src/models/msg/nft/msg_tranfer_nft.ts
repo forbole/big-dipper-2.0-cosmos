@@ -1,11 +1,12 @@
 import { Categories } from '../types';
 
-class MsgMintNFT {
+class MsgTransferNFT {
   public category: Categories;
   public type: string;
   public json: any;
   public sender: string;
   public id: string;
+  public recipient: string;
 
   constructor(payload: any) {
     this.category = 'nft';
@@ -13,16 +14,18 @@ class MsgMintNFT {
     this.json = payload.json;
     this.sender = payload.sender;
     this.id = payload.id;
+    this.recipient = payload.recipient;
   }
 
   static fromJson(json: any) {
-    return new MsgMintNFT({
+    return new MsgTransferNFT({
       json,
       type: json['@type'],
       sender: json?.sender,
       id: json?.id,
+      recipient: json?.recipient,
     });
   }
 }
 
-export default MsgMintNFT;
+export default MsgTransferNFT;
