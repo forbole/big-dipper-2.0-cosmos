@@ -2,18 +2,18 @@ import React from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
 import { ExpandMore } from '@material-ui/icons';
-import {
-  useSettingsContext, useNetworksContext,
-} from '@contexts';
+import { useNetworksContext } from '@contexts';
+import { useRecoilValue } from 'recoil';
 import BigDipperLogoWhite from '@assets/big-dipper-white.svg';
 import BigDipperLogoRed from '@assets/big-dipper-red.svg';
 import { HOME } from '@utils/go_to_page';
+import { readTheme } from '@recoil/settings';
 import { useStyles } from './styles';
 import { NavbarProps } from './types';
 
 const Navbar = (props:NavbarProps) => {
   const classes = useStyles();
-  const { theme } = useSettingsContext();
+  const theme = useRecoilValue(readTheme);
   const { selected } = useNetworksContext();
   const {
     isOpen,

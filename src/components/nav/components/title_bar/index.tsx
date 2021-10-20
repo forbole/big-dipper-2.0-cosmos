@@ -1,12 +1,12 @@
 import React from 'react';
 import * as R from 'ramda';
 import classnames from 'classnames';
-import {
-  useChainContext, useSettingsContext,
-} from '@contexts';
+import { useRecoilValue } from 'recoil';
+import { useChainContext } from '@contexts';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 import { chainConfig } from '@configs';
+import { readTheme } from '@recoil/settings';
 import { useStyles } from './styles';
 import { formatMarket } from './utils';
 
@@ -16,7 +16,7 @@ const TitleBar:React.FC<{
 }> = ({
   className, title,
 }) => {
-  const { theme } = useSettingsContext();
+  const theme = useRecoilValue(readTheme);
   const { t } = useTranslation('common');
   const classes = useStyles();
   const { market: marketContext } = useChainContext();
