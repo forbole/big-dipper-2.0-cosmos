@@ -2,11 +2,11 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
-import { MsgMintNFT } from '@models';
+import { MsgEditNFT } from '@models';
 import { useChainContext } from '@contexts';
 
-const MintNFT = (props: {
-  message: MsgMintNFT;
+const EditNFT = (props: {
+  message: MsgEditNFT;
 }) => {
   const { findAddress } = useChainContext();
   const { message } = props;
@@ -17,7 +17,7 @@ const MintNFT = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txMsgMintNFT"
+        i18nKey="message_contents:txMsgEditNFT"
         components={[
           (
             <Name
@@ -35,4 +35,4 @@ const MintNFT = (props: {
   );
 };
 
-export default MintNFT;
+export default EditNFT;
