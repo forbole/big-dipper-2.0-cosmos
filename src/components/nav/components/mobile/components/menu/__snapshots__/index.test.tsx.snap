@@ -34,6 +34,9 @@ Array [
           tabIndex={-1}
         >
           zh
+          <span
+            className="MuiTouchRipple-root"
+          />
         </a>
       </div>
     </div>
@@ -47,7 +50,83 @@ Array [
   >
     <div
       className="content"
-    />
+    >
+      <div>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="menuitem"
+          tabIndex={-1}
+        >
+          dark
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </a>
+      </div>
+      <div>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="menuitem"
+          tabIndex={-1}
+        >
+          deuteranopia
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </a>
+      </div>
+      <div>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="menuitem"
+          tabIndex={-1}
+        >
+          tritanopia
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </a>
+      </div>
+    </div>
   </div>,
   <div
     className="makeStyles-root"
@@ -95,6 +174,9 @@ Array [
               overview
             </span>
           </div>
+          <span
+            className="MuiTouchRipple-root"
+          />
         </a>
         <a
           aria-disabled={false}
@@ -133,6 +215,9 @@ Array [
               blocks
             </span>
           </div>
+          <span
+            className="MuiTouchRipple-root"
+          />
         </a>
         <a
           aria-disabled={false}
@@ -171,6 +256,9 @@ Array [
               validators
             </span>
           </div>
+          <span
+            className="MuiTouchRipple-root"
+          />
         </a>
         <a
           aria-disabled={false}
@@ -209,6 +297,9 @@ Array [
               transactions
             </span>
           </div>
+          <span
+            className="MuiTouchRipple-root"
+          />
         </a>
         <a
           aria-disabled={false}
@@ -247,6 +338,9 @@ Array [
               proposals
             </span>
           </div>
+          <span
+            className="MuiTouchRipple-root"
+          />
         </a>
         <a
           aria-disabled={false}
@@ -285,6 +379,9 @@ Array [
               params
             </span>
           </div>
+          <span
+            className="MuiTouchRipple-root"
+          />
         </a>
       </ul>
     </div>
