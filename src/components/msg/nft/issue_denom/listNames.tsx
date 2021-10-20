@@ -1,15 +1,12 @@
 import React from 'react';
-import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
-import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgIssueDenom } from '@models';
 import { useChainContext } from '@contexts';
-import ListNames from './listNames';
 
-const IssueDenom = (props: {
-  message: MsgIssueDenom ;
-}) => {
+const ListNames = (props: {
+    message: MsgIssueDenom ;
+  }) => {
   const { findAddress } = useChainContext();
   const { message } = props;
   const { t } = useTranslation('transactions');
@@ -23,25 +20,23 @@ const IssueDenom = (props: {
     };
   });
 
-  console.log('dataArray => ', dataArray);
+  const NamesUI = dataArray.map((x) => {
+    return (
+      <>
+        <Name
+          address={x.eachAddress}
+          name={x.creatorMonikerResult}
+        />
+        <b />
+      </>
+    );
+  });
+
+  const NamesSentenceUI = NamesUI.reduce((element, value, i, array) => element + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
 
   return (
-    <Typography>
-      <Trans
-        i18nKey="message_contents:txIssueDenomContent"
-        components={[
-          (
-            <Name
-              address={dataArray[2].eachAddress}
-              name={dataArray[2].creatorMonikerResult}
-            />
-          ),
-          <b />,
-        ]}
-      />
-      <ListNames />
-    </Typography>
+    <>Hii</>
   );
 };
 
-export default IssueDenom;
+export default ListNames;
