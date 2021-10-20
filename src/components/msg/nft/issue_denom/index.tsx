@@ -5,7 +5,8 @@ import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgIssueDenom } from '@models';
 import { useChainContext } from '@contexts';
-import ListNames from './listNames';
+import { ListNames } from './components';
+// import ListNames from './listNames';
 
 const IssueDenom = (props: {
   message: MsgIssueDenom ;
@@ -44,7 +45,8 @@ const IssueDenom = (props: {
         //   )
         // }
       />
-      <ListNames message={message} />
+      <ListNames creators={creators} />
+      {/* <ListNames message={message} /> */}
     </Typography>
   );
 };
