@@ -33,8 +33,8 @@ const IssueDenom = (props: {
         components={[
           (
             <Name
-              address={dataArray[2].eachAddress}
-              name={dataArray[2].creatorMonikerResult}
+              address={dataArray[0].eachAddress}
+              name={dataArray[0].creatorMonikerResult}
             />
           ),
           <b />,
