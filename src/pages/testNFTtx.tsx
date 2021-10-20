@@ -1,8 +1,8 @@
-import { TransferNFT } from '@msg';
-import { MsgTransferNFT } from '@src/models';
+import { BurnNFT } from '@msg';
+import { MsgBurnNFT } from '@src/models';
 
 const TestNFTtx = () => {
-  const message = new MsgTransferNFT({
+  const message = new MsgBurnNFT({
     category: 'nft',
     type: 'nnfftt',
     // creators: [
@@ -13,10 +13,10 @@ const TestNFTtx = () => {
     // ],
     sender: 'a monkey a day',
     id: 'goodGoodDayDay',
-    recipient: 'the penguin in north pole',
+    // recipient: 'the penguin in north pole',
   });
   return (
-    <TransferNFT message={message} />
+    <BurnNFT message={message} />
   );
 };
 

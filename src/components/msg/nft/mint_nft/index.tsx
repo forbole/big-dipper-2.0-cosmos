@@ -17,7 +17,7 @@ const MintNFT = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txMsgMintNFT"
+        i18nKey="message_contents:txMintNFTContent"
         components={[
           (
             <Name

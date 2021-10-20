@@ -17,7 +17,7 @@ const EditNFT = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txMsgEditNFT"
+        i18nKey="message_contents:txEditNFTContent"
         components={[
           (
             <Name

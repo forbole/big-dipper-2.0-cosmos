@@ -17,7 +17,7 @@ const BurnNFT = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txMsgBurnNFT"
+        i18nKey="message_contents:txBurnNFTContent"
         components={[
           (
             <Name
