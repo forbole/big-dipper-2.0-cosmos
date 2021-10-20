@@ -20,7 +20,7 @@ const TransferNFT = (props: {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txMsgTransferNFT"
+        i18nKey="message_contents:txTransferNFTContent"
         components={[
           (
             <Name
@@ -28,13 +28,13 @@ const TransferNFT = (props: {
               name={senderMoniker}
             />
           ),
+          <b />,
           (
             <Name
               address={message.recipient}
               name={recipientMoniker}
             />
           ),
-          <b />,
           <b />,
         ]}
         values={{
