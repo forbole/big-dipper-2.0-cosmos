@@ -18,3 +18,5 @@ export const setItem = <P>(key: string, value: P) => {
     localStorage.setItem(key, JSON.stringify(value));
   }
 };
+
+export const THEME_KEY = 'themeSelection';
