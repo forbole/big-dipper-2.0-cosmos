@@ -1,7 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { RecoilRoot } from 'recoil';
 import {
-  MockTheme,
+  MockTheme, wait,
 } from '@tests/utils';
 import Navbar from '.';
 
@@ -33,16 +34,19 @@ const toggleNavMenus = jest.fn();
 // unit tests
 // ==================================
 describe('screen: Nav/mobile/navbar', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     component = renderer.create(
-      <MockTheme>
-        <Navbar
-          isOpen={false}
-          openNetwork={openNetwork}
-          toggleNavMenus={toggleNavMenus}
-        />
-      </MockTheme>,
+      <RecoilRoot>
+        <MockTheme>
+          <Navbar
+            isOpen={false}
+            openNetwork={openNetwork}
+            toggleNavMenus={toggleNavMenus}
+          />
+        </MockTheme>
+      </RecoilRoot>,
     );
+    await wait();
   });
 
   it('it renders', () => {
