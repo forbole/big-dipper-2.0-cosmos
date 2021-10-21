@@ -5,6 +5,8 @@ import {
 import {
   writeTheme,
   readTheme,
+  writeDate,
+  readDate,
 } from './selectors';
 
 import {
@@ -24,4 +26,6 @@ export {
   writeTheme,
   getThemeTemplate,
   readTheme,
+  writeDate,
+  readDate,
 };

@@ -1,5 +1,5 @@
 export type Theme = 'light' | 'dark' | 'device' | 'deuteranopia' | 'tritanopia' | 'achromatopsia';
-export type Date = 'local' | 'utc';
+export type Date = 'locale' | 'utc';
 export type Tx = 'compact' | 'detailed';
 
 export type AtomState = {

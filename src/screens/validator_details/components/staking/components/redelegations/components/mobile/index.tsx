@@ -7,7 +7,8 @@ import {
   Divider, Typography,
 } from '@material-ui/core';
 import { AvatarName } from '@components';
-import { useSettingsContext } from '@contexts';
+import { useRecoilValue } from 'recoil';
+import { readDate } from '@recoil/settings';
 import { useStyles } from './styles';
 import { RedelegationType } from '../../../../../../types';
 
@@ -17,9 +18,7 @@ const Mobile: React.FC<{
 }> = ({
   className, items,
 }) => {
-  const {
-    dateFormat,
-  } = useSettingsContext();
+  const dateFormat = useRecoilValue(readDate);
   const classes = useStyles();
   const { t } = useTranslation('validators');
 

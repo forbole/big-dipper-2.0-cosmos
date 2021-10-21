@@ -6,7 +6,8 @@ import numeral from 'numeral';
 import {
   Divider, Typography,
 } from '@material-ui/core';
-import { useSettingsContext } from '@contexts';
+import { useRecoilValue } from 'recoil';
+import { readDate } from '@recoil/settings';
 import { AvatarName } from '@components';
 import { RedelegationType } from '@src/screens/account_details/types';
 import { useStyles } from './styles';
@@ -19,9 +20,7 @@ const Mobile: React.FC<{
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('accounts');
-  const {
-    dateFormat,
-  } = useSettingsContext();
+  const dateFormat = useRecoilValue(readDate);
   const formattedItems = items.map((x) => {
     return ({
       to: (

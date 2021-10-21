@@ -38,6 +38,7 @@ export const readTheme = selector({
 
 // =============================================
 // =============================================
+
 const getDate = ({ get }): Date => {
   const state = get(atomState);
   return state.dateFormat;

@@ -11,7 +11,8 @@ import {
   TableBody,
 } from '@material-ui/core';
 import { AvatarName } from '@components';
-import { useSettingsContext } from '@contexts';
+import { useRecoilValue } from 'recoil';
+import { readDate } from '@recoil/settings';
 import { RedelegationType } from '@src/screens/account_details/types';
 import { columns } from './utils';
 
@@ -22,9 +23,7 @@ const Desktop: React.FC<{
   className, items,
 }) => {
   const { t } = useTranslation('accounts');
-  const {
-    dateFormat,
-  } = useSettingsContext();
+  const dateFormat = useRecoilValue(readDate);
   const formattedItems = items.map((x) => {
     return ({
       to: (
