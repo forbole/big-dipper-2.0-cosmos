@@ -1,8 +1,11 @@
 export type Theme = 'light' | 'dark' | 'device' | 'deuteranopia' | 'tritanopia' | 'achromatopsia';
+export type Date = 'local' | 'utc';
+export type Tx = 'compact' | 'detailed';
+
 export type AtomState = {
   theme: Theme;
-  dateFormat: 'locale' | 'utc';
-  txListFormat: 'compact' | 'detailed';
+  dateFormat: Date;
+  txListFormat: Tx;
 }
 
 // export interface ThemeState {
