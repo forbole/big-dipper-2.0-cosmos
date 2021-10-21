@@ -96,6 +96,13 @@ const Footer: React.FC<{className?: string}> = ({ className }) => {
       <Divider />
       <div className="footer__closing--container">
         <Typography className="footer__closing--text">
+          {/* ============================= */}
+          {/*
+            WARNING: WE ARE USING APACHE 2.0 LICENSE
+            DO YOUR RESEARCH BEFORE TRYING TO REMOVE THE FOLLOWING LINE(S)
+            WE WILL HOLD YOU ACCOUNTABLE
+          */}
+          {/* ============================= */}
           <Trans
             i18nKey="common:copyright"
             components={[
