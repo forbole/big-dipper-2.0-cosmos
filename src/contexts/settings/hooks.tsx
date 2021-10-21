@@ -26,7 +26,6 @@ export const useTheme = (initialState:ThemeState) => {
   const [themeSelection, setThemeSelection] = usePersistedState('themeSelection', initialState.themeSelection);
 
   const themeList = [
-    'light',
     'dark',
     'deuteranopia',
     'tritanopia',
@@ -51,7 +50,7 @@ export const useTheme = (initialState:ThemeState) => {
     } else if (themeDictionary[themeSelection]) {
       setTheme(themeSelection as Theme);
     } else {
-      setTheme('light');
+      setTheme('dark');
     }
   }, [themeSelection]);
 

@@ -30,6 +30,7 @@
   "error": "Error",
   "raw": "Raw",
   "details": "Details",
+  "nft": "NFT",
   "auction": "Auction",
   "fantoken": "Fan Token"
 }
