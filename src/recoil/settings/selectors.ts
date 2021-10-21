@@ -60,6 +60,6 @@ export const writeDate = selector({
 });
 
 export const readDate = selector({
-  key: 'settingsWriteDate',
+  key: 'settingsReadDate',
   get: getDate,
 });

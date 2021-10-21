@@ -26,8 +26,6 @@ const Settings: React.FC<{
   const classes = useStyles();
   const router = useRouter();
   const {
-    dateFormat,
-    changeDateFormat,
     dateFormatList,
     txListFormat,
     changeTxListFormat,
@@ -45,8 +43,6 @@ const Settings: React.FC<{
     handleCancel,
   } = useSettingList({
     lang,
-    dateFormat,
-    changeDateFormat,
     txListFormat,
     changeTxListFormat,
   });
