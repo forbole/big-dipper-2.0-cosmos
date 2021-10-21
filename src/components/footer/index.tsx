@@ -99,8 +99,8 @@ const Footer: React.FC<{className?: string}> = ({ className }) => {
           {/* ============================= */}
           {/*
             WARNING: WE ARE USING APACHE 2.0 LICENSE
-            DO YOUR RESEARCH BEFORE TRYING TO REMOVE THE FOLLOWING LINE(S)
-            WE WILL HOLD YOU ACCOUNTABLE
+            DO YOUR RESEARCH BEFORE TRYING TO REMOVE/ EDIT THE FOLLOWING LINE(S)
+            RESPECT OPEN SOURCE!!
           */}
           {/* ============================= */}
           <Trans
