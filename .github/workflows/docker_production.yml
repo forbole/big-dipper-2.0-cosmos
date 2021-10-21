@@ -3,7 +3,7 @@ name: Docker-Production
 on:
   push:
     tags:
-      - desmos-morpheus-apollo-1-v*
+      - bitsong-2-v*
 
 jobs:
   Build-and-Publish:
@@ -33,12 +33,12 @@ jobs:
           NEXT_PUBLIC_CHAIN_STATUS=
           NODE_ENV="production"
           PORT=3000
-          if [[ $GITHUB_REF == refs/tags/desmos-morpheus-apollo-1* ]]; then
-            NEXT_PUBLIC_GRAPHQL_URL="https://gql.morpheus.desmos.network/v1/graphql"
-            NEXT_PUBLIC_GRAPHQL_WS="wss://gql.morpheus.desmos.network/v1/graphql"
-            NEXT_PUBLIC_URL="https://morpheus.desmos.network"
-            NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.morpheus.desmos.network/websocket"
-            NEXT_PUBLIC_CHAIN_STATUS="testnet"
+          if [[ $GITHUB_REF == refs/tags/bitsong-2-v* ]]; then
+            NEXT_PUBLIC_GRAPHQL_URL="https://gql.bitsong.forbole.com/v1/graphql"
+            NEXT_PUBLIC_GRAPHQL_WS="wss://gql.bitsong.forbole.com/v1/graphql"
+            NEXT_PUBLIC_URL="https://bitsong.bigdipper.live"
+            NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.bitsong.forbole.com/websocket"
+            NEXT_PUBLIC_CHAIN_STATUS="mainnet"
           fi
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_WS::${NEXT_PUBLIC_GRAPHQL_WS}

@@ -2,5 +2,5 @@
 
 ## Changes
 
-- Add Auction TX
-- Add Fan Token TX
+- Add Custom TX
+- Add Theme
