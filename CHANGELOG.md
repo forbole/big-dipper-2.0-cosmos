@@ -1,9 +1,3 @@
-# update - 2021-10-21
-
-## Changes
-
-- Added Bitsong NFT tx ([\#460](https://github.com/forbole/big-dipper-2.0-cosmos/issues/460))
-
 # base-v1.5.1 - 2021-10-11
 
 ## Changes
