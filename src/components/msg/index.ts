@@ -62,6 +62,11 @@ import ConnectionOpenTry from './ibc/connection_open_try';
 import CounterpartyConnection from './ibc/connection_counterparty';
 import Version from './ibc/connection_version';
 import Transfer from './ibc_transfer/transfer';
+import IssueDenom from './nft/issue_denom';
+import MintNFT from './nft/mint_nft';
+import EditNFT from './nft/edit_nft';
+import TransferNFT from './nft/transfer_nft';
+import BurnNFT from './nft/burn_nft';
 import OpenAuction from './auction/open_auction';
 import EditAuction from './auction/edit_auction';
 import CancelAuction from './auction/cancel_auction';
@@ -133,6 +138,11 @@ export {
   CounterpartyConnection,
   Version,
   Transfer,
+  IssueDenom,
+  MintNFT,
+  EditNFT,
+  TransferNFT,
+  BurnNFT,
   OpenAuction,
   EditAuction,
   CancelAuction,
