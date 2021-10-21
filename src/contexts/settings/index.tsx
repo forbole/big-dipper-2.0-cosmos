@@ -14,7 +14,7 @@ import {
 } from './types';
 
 const initialThemeState: ThemeState = {
-  theme: 'light',
+  theme: 'dark',
   themeSelection: 'device',
   muiTheme: createMuiTheme(lightTemplate),
   themeList: [],

@@ -329,7 +329,7 @@ Array [
         <span
           className="MuiTypography-root MuiTypography-caption"
         >
-          light
+          dark
         </span>
       </div>
     </div>
