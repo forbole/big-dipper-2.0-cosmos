@@ -6,9 +6,9 @@
     "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/bitsong/logo.svg?sanitize=true"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "bitsongvalcons",
+    "validator": "bitsongvaloper",
+    "account": "bitsong"
   },
   "genesis": {
     "time": "2021-07-13T08:00:00",
