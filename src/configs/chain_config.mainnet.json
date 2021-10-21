@@ -14,10 +14,10 @@
     "time": "2021-07-13T08:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udsm",
+  "primaryTokenUnit": "ubtsg",
   "tokenUnits": {
-    "udsm": {
-      "display": "dsm",
+    "ubtsg": {
+      "display": "btsg",
       "exponent": 6
     }
   },
