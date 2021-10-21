@@ -35,7 +35,6 @@ const TransferNFT = (props: {
               name={recipientMoniker}
             />
           ),
-          <b />,
         ]}
         values={{
           id: message.id,
