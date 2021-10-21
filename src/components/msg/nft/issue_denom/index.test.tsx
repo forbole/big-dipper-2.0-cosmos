@@ -3,7 +3,6 @@ import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgIssueDenom } from '@models';
 import IssueDenom from '.';
-import { ListNames } from './components/index';
 
 // ==================================
 // mocks
@@ -38,9 +37,7 @@ describe('screen: TransactionDetails/IssueDenom', () => {
     });
     const component = renderer.create(
       <MockTheme>
-        <IssueDenom message={message}>
-          <ListNames creators={message.creators} />
-        </IssueDenom>
+        <IssueDenom message={message} />
       </MockTheme>,
     );
     const tree = component.toJSON();
