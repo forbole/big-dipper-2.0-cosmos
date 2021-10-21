@@ -382,6 +382,30 @@ const getDataByType = (type: string) => {
       tagTheme: 'five',
       tagDisplay: 'txIssueDenomLabel',
     },
+    '/bitsong.nft.v1beta1.MsgMintNFT': {
+      model: MODELS.MsgMintNFT,
+      content: COMPONENTS.MintNFT,
+      tagTheme: 'five',
+      tagDisplay: 'txMintNFTLabel',
+    },
+    '/bitsong.nft.v1beta1.MsgEditNFT': {
+      model: MODELS.MsgEditNFT,
+      content: COMPONENTS.EditNFT,
+      tagTheme: 'five',
+      tagDisplay: 'txEditNFTLabel',
+    },
+    '/bitsong.nft.v1beta1.MsgTransferNFT': {
+      model: MODELS.MsgTransferNFT,
+      content: COMPONENTS.TransferNFT,
+      tagTheme: 'five',
+      tagDisplay: 'txTransferNFTLabel',
+    },
+    '/bitsong.nft.v1beta1.MsgBurnNFT': {
+      model: MODELS.MsgBurnNFT,
+      content: COMPONENTS.BurnNFT,
+      tagTheme: 'five',
+      tagDisplay: 'txBurnNFTLabel',
+    },
 
   };
 
