@@ -17,11 +17,16 @@ import {
   getThemeTemplate,
 } from './utils';
 
+import {
+  useSettingsRecoil,
+} from './hooks';
+
 export {
   THEME_LIST,
   THEME_DICTIONARY,
   DATE_LIST,
   TX_LIST,
+  useSettingsRecoil,
   atomState,
   writeTheme,
   getThemeTemplate,

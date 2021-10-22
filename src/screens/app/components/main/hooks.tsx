@@ -1,43 +1,15 @@
-import {
-  useEffect,
-  useState,
-} from 'react';
-import {
-  useRecoilState, SetterOrUpdater,
-} from 'recoil';
+import { useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import { createMuiTheme } from '@material-ui/core/styles';
 import {
-  writeTheme,
+  readTheme,
   getThemeTemplate,
-  THEME_DICTIONARY,
 } from '@recoil/settings';
-import {
-  Theme,
-} from '@recoil/settings/types';
 import { chainConfig } from '@configs';
 import dayjs from '@utils/dayjs';
-import {
-  getItem, THEME_KEY,
-} from '@utils/localstorage';
 
 export const useTheme = () => {
-  const [theme, setTheme] = useRecoilState(writeTheme) as [Theme, SetterOrUpdater<Theme>];
-
-  useEffect(() => {
-    const isClient = typeof window === 'object';
-    let currentTheme: Theme = theme;
-    if (isClient) {
-      const savedTheme = getItem(THEME_KEY, 'device');
-      if (savedTheme === 'device') {
-        if (window?.matchMedia('(prefers-color-scheme: dark)')?.matches) {
-          currentTheme = 'dark';
-        }
-      } else if (THEME_DICTIONARY[savedTheme]) {
-        currentTheme = savedTheme;
-      }
-    }
-    setTheme(currentTheme);
-  }, [theme]);
+  const theme = useRecoilValue(readTheme);
 
   return ({
     muiTheme: createMuiTheme(getThemeTemplate(theme)),

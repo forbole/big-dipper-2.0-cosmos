@@ -4,6 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { ToastContainer } from 'react-toastify';
 import { AppProps } from 'next/app';
 import Countdown from '@screens/countdown';
+import { useSettingsRecoil } from '@recoil/settings/hooks';
 import {
   SettingsProvider,
   NetworksProvider,
@@ -16,6 +17,7 @@ import {
 } from './hooks';
 
 const Main = (props: AppProps) => {
+  useSettingsRecoil();
   const { muiTheme } = useTheme();
   const {
     genesisStarted,

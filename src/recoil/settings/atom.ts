@@ -3,6 +3,7 @@ import { AtomState } from './types';
 
 const initialState: AtomState = {
   theme: 'light',
+  // theme: 'device',
   dateFormat: 'locale',
   txListFormat: 'compact',
 };
