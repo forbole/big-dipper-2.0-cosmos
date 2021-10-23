@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import Network from '.';
@@ -19,11 +20,13 @@ const mockToggleNetwork = jest.fn();
 describe('screen: Nav/Network', () => {
   beforeEach(() => {
     component = renderer.create(
-      <MockTheme>
-        <Network
-          toggleNetwork={mockToggleNetwork}
-        />
-      </MockTheme>,
+      <RecoilRoot>
+        <MockTheme>
+          <Network
+            toggleNetwork={mockToggleNetwork}
+          />
+        </MockTheme>
+      </RecoilRoot>,
     );
   });
 
