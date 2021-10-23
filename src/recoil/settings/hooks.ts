@@ -11,6 +11,7 @@ import {
   getItem,
   THEME_KEY,
   DATE_KEY,
+  TX_KEY,
 } from '@utils/localstorage';
 
 export const useSettingsRecoil = () => {
@@ -19,7 +20,6 @@ export const useSettingsRecoil = () => {
   useEffect(() => {
     const isClient = typeof window === 'object';
     if (isClient) {
-      // defaults to device if not found
       const savedTheme = getItem(THEME_KEY, 'device');
       let currentTheme: Theme = settings.theme;
       if (savedTheme === 'device') {
@@ -31,11 +31,12 @@ export const useSettingsRecoil = () => {
       }
 
       const savedDate = getItem(DATE_KEY, settings.dateFormat);
+      const savedTx = getItem(TX_KEY, settings.txListFormat);
 
       const initSettings: AtomState = {
         theme: currentTheme,
         dateFormat: savedDate,
-        txListFormat: 'compact',
+        txListFormat: savedTx,
       };
       setSettings(initSettings);
     }

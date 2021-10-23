@@ -28,12 +28,6 @@ const SettingsProvider: React.FC = (props: { children: React.ReactNode }) => {
   const { children } = props;
 
   const {
-    dateFormat,
-    changeDateFormat,
-    dateFormatList,
-  } = useDateFormat(initialDateState);
-
-  const {
     txListFormat,
     changeTxListFormat,
     txListFormatList,
@@ -42,9 +36,6 @@ const SettingsProvider: React.FC = (props: { children: React.ReactNode }) => {
   return (
     <SettingsContext.Provider
       value={{
-        dateFormat,
-        changeDateFormat,
-        dateFormatList,
         txListFormat,
         changeTxListFormat,
         txListFormatList,

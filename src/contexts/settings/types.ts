@@ -20,5 +20,4 @@ export interface TxListFormatState {
   txListFormatList: string[];
 }
 
-export type SettingsState = DateFormatState
-& TxListFormatState;
+export type SettingsState = TxListFormatState;

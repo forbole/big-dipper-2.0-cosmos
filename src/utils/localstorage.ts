@@ -21,3 +21,4 @@ export const setItem = <P>(key: string, value: P) => {
 
 export const THEME_KEY = 'themeSelection';
 export const DATE_KEY = 'dateFormatSelection';
+export const TX_KEY = 'txListFormatSelection';

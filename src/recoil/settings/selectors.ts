@@ -3,12 +3,14 @@ import { mergeStateChange } from '@utils/merge_state_change';
 import {
   THEME_KEY,
   DATE_KEY,
+  TX_KEY,
   setItem,
 } from '@utils/localstorage';
 import { atomState } from './atom';
 import {
   Theme,
   Date,
+  Tx,
 } from './types';
 
 const getTheme = ({ get }): Theme => {
@@ -61,5 +63,33 @@ export const writeDate = selector({
 
 export const readDate = selector({
   key: 'settingsReadDate',
+  get: getDate,
+});
+
+// =============================================
+// =============================================
+
+const getTx = ({ get }): Date => {
+  const state = get(atomState);
+  return state.txListFormat;
+};
+
+export const writeTx = selector({
+  key: 'settingsWriteTx',
+  get: getTx,
+  set: ({
+    get, set,
+  }, newTx: Tx) => {
+    setItem(TX_KEY, newTx);
+    const prevState = get(atomState);
+    const newState = mergeStateChange(prevState, {
+      txListFormat: newTx,
+    });
+    set(atomState, newState);
+  },
+});
+
+export const readTx = selector({
+  key: 'settingsReadTx',
   get: getDate,
 });

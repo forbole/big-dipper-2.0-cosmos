@@ -6,28 +6,27 @@ import {
 import {
   Theme,
   Date,
+  Tx,
 } from '@recoil/settings/types';
 import {
   writeTheme,
   writeDate,
+  writeTx,
   THEME_DICTIONARY,
 } from '@recoil/settings';
 import * as R from 'ramda';
 
-export const useSettingList = ({
-  lang,
-  txListFormat,
-  changeTxListFormat,
-}) => {
+export const useSettingList = ({ lang }) => {
   const [theme, setTheme] = useRecoilState(writeTheme) as [Theme, SetterOrUpdater<Theme>];
   const [date, setDate] = useRecoilState(writeDate) as [Date, SetterOrUpdater<Date>];
+  const [tx, setTx] = useRecoilState(writeTx) as [Tx, SetterOrUpdater<Tx>];
 
   const [open, setOpen] = useState(false);
   const [state, setState] = useState({
     lang,
     theme,
     dateFormat: date,
-    txListFormat,
+    txListFormat: tx,
   });
 
   const resetSettings = () => {
@@ -81,8 +80,8 @@ export const useSettingList = ({
       setDate(state.dateFormat);
     }
 
-    if (state.txListFormat !== txListFormat) {
-      changeTxListFormat(state.txListFormat);
+    if (state.txListFormat !== tx) {
+      setTx(state.txListFormat);
     }
 
     handleClose();

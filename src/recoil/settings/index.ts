@@ -7,6 +7,8 @@ import {
   readTheme,
   writeDate,
   readDate,
+  writeTx,
+  readTx,
 } from './selectors';
 
 import {
@@ -33,4 +35,6 @@ export {
   readTheme,
   writeDate,
   readDate,
+  writeTx,
+  readTx,
 };
