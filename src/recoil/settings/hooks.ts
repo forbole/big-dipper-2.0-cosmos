@@ -32,7 +32,6 @@ export const useSettingsRecoil = () => {
 
       const savedDate = getItem(DATE_KEY, settings.dateFormat);
       const savedTx = getItem(TX_KEY, settings.txListFormat);
-
       const initSettings: AtomState = {
         theme: currentTheme,
         dateFormat: savedDate,

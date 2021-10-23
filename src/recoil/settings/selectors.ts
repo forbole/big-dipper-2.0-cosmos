@@ -91,5 +91,5 @@ export const writeTx = selector({
 
 export const readTx = selector({
   key: 'settingsReadTx',
-  get: getDate,
+  get: getTx,
 });
