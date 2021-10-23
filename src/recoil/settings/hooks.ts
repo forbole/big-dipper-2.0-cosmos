@@ -29,7 +29,6 @@ export const useSettingsRecoil = () => {
       } else if (THEME_DICTIONARY[savedTheme]) {
         currentTheme = savedTheme;
       }
-      console.log(currentTheme, 'at the end');
 
       const savedDate = getItem(DATE_KEY, settings.dateFormat);
 

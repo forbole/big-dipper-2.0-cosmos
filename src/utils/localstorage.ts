@@ -1,9 +1,7 @@
 export const getItem = <P>(key: string, value: P): P => {
   const isClient = typeof window === 'object';
   if (isClient) {
-    console.log('inside client');
     const persistedString = localStorage.getItem(key);
-    console.log(persistedString, 'what is happening');
     if (persistedString === null) {
       return value;
     }
@@ -11,7 +9,6 @@ export const getItem = <P>(key: string, value: P): P => {
     const persistedValue = JSON.parse(persistedString);
     return persistedValue;
   }
-
   return value;
 };
 
