@@ -3,7 +3,6 @@ import { AppProps } from 'next/app';
 import InitialLoad from '@screens/initial_load';
 import {
   useChainContext,
-  useNetworksContext,
 } from '@contexts';
 import { useChainHealthCheck } from './hooks';
 
@@ -11,9 +10,8 @@ function InnerApp({
   Component, pageProps,
 }: AppProps) {
   useChainHealthCheck();
-  const networksContext = useNetworksContext();
   const chainContext = useChainContext();
-  const isLoading = chainContext.loading || networksContext.loading;
+  const isLoading = chainContext.loading;
 
   return (
     <>

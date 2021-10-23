@@ -9,26 +9,6 @@ import Networks from '.';
 let component:renderer.ReactTestRenderer;
 
 // ==================================
-// mocks
-// ==================================
-jest.mock('@src/contexts/networks', () => ({
-  useNetworksContext: () => ({
-    networks: [{
-      logo: 'logo',
-      name: 'name',
-      mainnet: [{
-        chainId: 'chain id',
-        url: 'url',
-        name: 'name',
-      }],
-      testnet: [],
-      retired: [],
-      other: [],
-    }],
-  }),
-}));
-
-// ==================================
 // unit tests
 // ==================================
 describe('screen: Nav/Networks', () => {

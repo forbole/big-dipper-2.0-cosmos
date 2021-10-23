@@ -9,12 +9,6 @@ import Navbar from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@src/contexts', () => ({
-  useNetworksContext: () => ({
-    selected: 'selected',
-  }),
-}));
-
 jest.mock('@assets/big-dipper-white.svg', () => (props) => <div id="WHITE" {...props} />);
 jest.mock('@assets/big-dipper-red.svg', () => (props) => <div id="RED" {...props} />);
 // ==================================
