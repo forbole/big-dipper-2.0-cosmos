@@ -6,7 +6,6 @@ import { AppProps } from 'next/app';
 import Countdown from '@screens/countdown';
 import { useSettingsRecoil } from '@recoil/settings/hooks';
 import {
-  SettingsProvider,
   NetworksProvider,
   ChainProvider,
 } from '@contexts';
@@ -40,13 +39,11 @@ const Main = (props: AppProps) => {
       />
       {
         genesisStarted ? (
-          <SettingsProvider>
-            <NetworksProvider>
-              <ChainProvider>
-                <InnerApp {...props} />
-              </ChainProvider>
-            </NetworksProvider>
-          </SettingsProvider>
+          <NetworksProvider>
+            <ChainProvider>
+              <InnerApp {...props} />
+            </ChainProvider>
+          </NetworksProvider>
         ) : (
           <Countdown startGenesis={startGenesis} />
         )

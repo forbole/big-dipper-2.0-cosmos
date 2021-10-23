@@ -69,7 +69,7 @@ export const readDate = selector({
 // =============================================
 // =============================================
 
-const getTx = ({ get }): Date => {
+const getTx = ({ get }): Tx => {
   const state = get(atomState);
   return state.txListFormat;
 };

@@ -1,10 +1,4 @@
 import {
-  SettingsProvider,
-  useSettingsContext,
-  SettingsContext,
-} from './settings';
-
-import {
   useNetworksContext,
   NetworksContext,
   NetworksProvider,
@@ -17,9 +11,6 @@ import {
 } from './chain';
 
 export {
-  SettingsProvider,
-  useSettingsContext,
-  SettingsContext,
   useNetworksContext,
   NetworksContext,
   NetworksProvider,

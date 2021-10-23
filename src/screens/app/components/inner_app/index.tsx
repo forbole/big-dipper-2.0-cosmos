@@ -7,7 +7,6 @@ import {
 } from '@contexts';
 import { useChainHealthCheck } from './hooks';
 
-// Separated to use our useSettingsContext hook
 function InnerApp({
   Component, pageProps,
 }: AppProps) {

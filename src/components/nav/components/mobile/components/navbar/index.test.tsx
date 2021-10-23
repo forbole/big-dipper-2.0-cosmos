@@ -13,9 +13,6 @@ jest.mock('@src/contexts', () => ({
   useNetworksContext: () => ({
     selected: 'selected',
   }),
-  useSettingsContext: () => ({
-    theme: 'light',
-  }),
 }));
 
 jest.mock('@assets/big-dipper-white.svg', () => (props) => <div id="WHITE" {...props} />);

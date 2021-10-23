@@ -15,9 +15,8 @@ import {
   Select,
 } from '@material-ui/core';
 import { Close as CloseIcon } from '@material-ui/icons';
-import { useSettingsContext } from '@contexts';
 import {
-  THEME_LIST, DATE_LIST,
+  THEME_LIST, DATE_LIST, TX_LIST,
 } from '@recoil/settings';
 import { useSettingList } from './hooks';
 import { useStyles } from './styles';
@@ -149,7 +148,7 @@ const Settings: React.FC<{
                   disablePadding: true,
                 } }}
               >
-                {txListFormatList
+                {TX_LIST
                   .map((l) => (
                     <MenuItem
                       key={l}
@@ -166,7 +165,6 @@ const Settings: React.FC<{
           <Button
             onClick={handleFormSubmit}
             color="primary"
-            // variant="contained"
           >
             Save
           </Button>
