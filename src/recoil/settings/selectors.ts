@@ -19,7 +19,7 @@ const getTheme = ({ get }): Theme => {
 };
 
 export const writeTheme = selector({
-  key: 'settingsWriteTheme',
+  key: 'settings.write.theme',
   get: getTheme,
   set: ({
     get, set,
@@ -34,7 +34,7 @@ export const writeTheme = selector({
 });
 
 export const readTheme = selector({
-  key: 'settingsReadTheme',
+  key: 'settings.read.theme',
   get: getTheme,
 });
 
@@ -47,7 +47,7 @@ const getDate = ({ get }): Date => {
 };
 
 export const writeDate = selector({
-  key: 'settingsWriteDate',
+  key: 'settings.write.date',
   get: getDate,
   set: ({
     get, set,
@@ -62,7 +62,7 @@ export const writeDate = selector({
 });
 
 export const readDate = selector({
-  key: 'settingsReadDate',
+  key: 'settings.read.date',
   get: getDate,
 });
 
@@ -75,7 +75,7 @@ const getTx = ({ get }): Tx => {
 };
 
 export const writeTx = selector({
-  key: 'settingsWriteTx',
+  key: 'settings.write.tx',
   get: getTx,
   set: ({
     get, set,
@@ -90,6 +90,6 @@ export const writeTx = selector({
 });
 
 export const readTx = selector({
-  key: 'settingsReadTx',
+  key: 'settings.read.tx',
   get: getTx,
 });

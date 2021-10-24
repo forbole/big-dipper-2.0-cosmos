@@ -176,69 +176,69 @@ export const useValidatorsAddress = (initialstate:ChainState) => {
   };
 };
 
-export const useMarket = (initalState: ChainState) => {
-  const [state, setState] = useState(initalState.market);
+// export const useMarket = (initalState: ChainState) => {
+//   const [state, setState] = useState(initalState.market);
 
-  useMarketDataQuery(
-    {
-      variables: {
-        denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
-      },
-      onError: () => {
-        setState((prevState) => ({
-          ...prevState,
-          loading: false,
-        }));
-      },
-      onCompleted: (data) => {
-        if (data) {
-          setState((prevState) => ({
-            ...prevState,
-            ...formatUseChainIdQuery(data),
-            loading: false,
-          }));
-        }
-      },
-    },
-  );
+//   useMarketDataQuery(
+//     {
+//       variables: {
+//         denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
+//       },
+//       onError: () => {
+//         setState((prevState) => ({
+//           ...prevState,
+//           loading: false,
+//         }));
+//       },
+//       onCompleted: (data) => {
+//         if (data) {
+//           setState((prevState) => ({
+//             ...prevState,
+//             ...formatUseChainIdQuery(data),
+//             loading: false,
+//           }));
+//         }
+//       },
+//     },
+//   );
 
-  const formatUseChainIdQuery = (data: MarketDataQuery) => {
-    // initial
-    let { communityPool } = initalState.market;
+//   const formatUseChainIdQuery = (data: MarketDataQuery) => {
+//     // initial
+//     let { communityPool } = initalState.market;
 
-    // formats
-    let {
-      price, marketCap,
-    } = state;
-    if (data?.tokenPrice?.length) {
-      price = numeral(numeral(data?.tokenPrice[0]?.price).format('0.[00]', Math.floor)).value();
-      marketCap = data.tokenPrice[0]?.marketCap;
-    }
+//     // formats
+//     let {
+//       price, marketCap,
+//     } = state;
+//     if (data?.tokenPrice?.length) {
+//       price = numeral(numeral(data?.tokenPrice[0]?.price).format('0.[00]', Math.floor)).value();
+//       marketCap = data.tokenPrice[0]?.marketCap;
+//     }
 
-    const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter((x) => x.denom === chainConfig.primaryTokenUnit);
-    const inflation = R.pathOr(0, ['inflation', 0, 'value'], data);
+//     const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter((x) => x.denom === chainConfig.primaryTokenUnit);
+//     const inflation = R.pathOr(0, ['inflation', 0, 'value'], data);
 
-    const supply = formatDenom(
-      numeral(getDenom(
-        R.pathOr([], ['supply', 0, 'coins'], data),
-        chainConfig.primaryTokenUnit,
-      ).amount).value(),
-      chainConfig.primaryTokenUnit,
-    );
-    if (communityPoolCoin) {
-      communityPool = formatDenom(communityPoolCoin.amount, communityPoolCoin.denom);
-    }
+//     const supply = formatDenom(
+//       numeral(getDenom(
+//         R.pathOr([], ['supply', 0, 'coins'], data),
+//         chainConfig.primaryTokenUnit,
+//       ).amount).value(),
+//       chainConfig.primaryTokenUnit,
+//     );
+//     if (communityPoolCoin) {
+//       communityPool = formatDenom(communityPoolCoin.amount, communityPoolCoin.denom);
+//     }
 
-    return ({
-      price,
-      supply,
-      marketCap,
-      inflation,
-      communityPool,
-    });
-  };
+//     return ({
+//       price,
+//       supply,
+//       marketCap,
+//       inflation,
+//       communityPool,
+//     });
+//   };
 
-  return {
-    state,
-  };
-};
+//   return {
+//     state,
+//   };
+// };

@@ -6,6 +6,7 @@ import { AppProps } from 'next/app';
 import Countdown from '@screens/countdown';
 import { useSettingsRecoil } from '@recoil/settings';
 import { useBigDipperNetworksRecoil } from '@recoil/big_dipper_networks';
+import { useMarketRecoil } from '@recoil/market';
 import {
   ChainProvider,
 } from '@contexts';
@@ -16,8 +17,16 @@ import {
 } from './hooks';
 
 const Main = (props: AppProps) => {
+  // =====================================
+  // init recoil values
+  // =====================================
   useSettingsRecoil();
   useBigDipperNetworksRecoil();
+  useMarketRecoil();
+
+  // =====================================
+  // general setup
+  // =====================================
   const { muiTheme } = useTheme();
   const {
     genesisStarted,

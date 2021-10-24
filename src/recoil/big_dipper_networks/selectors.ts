@@ -26,7 +26,7 @@ export const writeNetworks = selector({
 });
 
 export const readNetworks = selector({
-  key: 'bigDipperNetworksReadNetwork',
+  key: 'bigDipperNetworks.read.network',
   get: getNetworks,
 });
 
@@ -36,7 +36,7 @@ const getSelectedNetworks = ({ get }): Selected => {
 };
 
 export const writeSelectedNetwork = selector({
-  key: 'bigDipperNetworksWriteSelectedNetwork',
+  key: 'bigDipperNetworks.write.selectedNetwork',
   get: getSelectedNetworks,
   set: ({
     get, set,
@@ -50,6 +50,6 @@ export const writeSelectedNetwork = selector({
 });
 
 export const readSelectedNetwork = selector({
-  key: 'bigDipperNetworksReadSelectedNetwork',
+  key: 'bigDipperNetworks.read.selectedNetwork',
   get: getSelectedNetworks,
 });

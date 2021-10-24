@@ -1,24 +1,18 @@
 import React from 'react';
 import {
-  useValidatorsAddress, useMarket,
+  useValidatorsAddress,
 } from './hooks';
 import { ChainState } from './types';
 
-const initialTokenUnit = {
-  value: 0,
-  denom: '',
-  format: '',
-};
-
 const initialState: ChainState = {
-  market: {
-    loading: true,
-    price: null,
-    supply: initialTokenUnit,
-    marketCap: null,
-    inflation: 0,
-    communityPool: initialTokenUnit,
-  },
+  // market: {
+  //   loading: true,
+  //   price: null,
+  //   supply: initialTokenUnit,
+  //   marketCap: null,
+  //   inflation: 0,
+  //   communityPool: initialTokenUnit,
+  // },
   validatorsAddresses: {
     loading: true,
     validators: {},
@@ -40,10 +34,6 @@ const ChainProvider: React.FC = (props: {children: React.ReactNode }) => {
     validatorToDelegatorAddress,
   } = useValidatorsAddress(initialState);
 
-  const {
-    state: marketState,
-  } = useMarket(initialState);
-
   return (
     <ChainContext.Provider
       value={{
@@ -51,10 +41,10 @@ const ChainProvider: React.FC = (props: {children: React.ReactNode }) => {
         findAddress,
         findOperator,
         validatorToDelegatorAddress,
-        loading: addressLoading || marketState.loading,
-        market: {
-          ...marketState,
-        },
+        loading: addressLoading,
+        // market: {
+        //   ...marketState,
+        // },
       }}
     >
       {children}

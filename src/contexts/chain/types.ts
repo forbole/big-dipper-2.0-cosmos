@@ -2,14 +2,14 @@ export type Theme = 'light' | 'dark' | 'device';
 
 export interface ChainState {
   loading?: boolean;
-  market: {
-    loading: boolean;
-    price: number | null;
-    supply: TokenUnit;
-    marketCap: number | null;
-    inflation: number;
-    communityPool: TokenUnit;
-  }
+  // market: {
+  //   loading: boolean;
+  //   price: number | null;
+  //   supply: TokenUnit;
+  //   marketCap: number | null;
+  //   inflation: number;
+  //   communityPool: TokenUnit;
+  // }
   validatorsAddresses: {
     loading: boolean;
     validators: {

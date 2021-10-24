@@ -2,7 +2,7 @@ import React from 'react';
 import * as R from 'ramda';
 import classnames from 'classnames';
 import { useRecoilValue } from 'recoil';
-import { useChainContext } from '@contexts';
+import { readMarket } from '@recoil/market';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 import { chainConfig } from '@configs';
@@ -19,9 +19,9 @@ const TitleBar:React.FC<{
   const theme = useRecoilValue(readTheme);
   const { t } = useTranslation('common');
   const classes = useStyles();
-  const { market: marketContext } = useChainContext();
+  const marketState = useRecoilValue(readMarket);
 
-  const market = formatMarket(marketContext);
+  const market = formatMarket(marketState);
 
   const logoUrl = R.pathOr(chainConfig.logo.default, ['logo', theme], chainConfig);
 
