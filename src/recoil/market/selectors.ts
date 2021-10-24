@@ -21,6 +21,6 @@ export const writeMarket = selector({
 });
 
 export const readMarket = selector({
-  key: 'market.read.Market',
+  key: 'market.read.market',
   get: getMarket,
 });
