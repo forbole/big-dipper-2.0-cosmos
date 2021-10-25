@@ -72,10 +72,10 @@ export const useValidatorRecoil = () => {
         || R.pathOr('', ['validatorDescriptions', 0, 'avatarUrl'], x)
       );
       // ryuash
-      if (x.validatorInfo.operatorAddress === 'desmosvaloper195rzr58csup9jgkfr2zwtxr4xc6skdlc26mdrt') {
-        console.log(moniker, 'what is your moniker');
-        console.log(x.validatorInfo.selfDelegateAddress, 'delegator address');
-      }
+      // if (x.validatorInfo.operatorAddress === 'desmosvaloper195rzr58csup9jgkfr2zwtxr4xc6skdlc26mdrt') {
+      //   console.log(moniker, 'what is your moniker');
+      //   console.log(x.validatorInfo.selfDelegateAddress, 'delegator address');
+      // }
       set(writeProfile(delegatorAddress), {
         moniker,
         imageUrl,
