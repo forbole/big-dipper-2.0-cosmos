@@ -7,6 +7,7 @@ import Countdown from '@screens/countdown';
 import { useSettingsRecoil } from '@recoil/settings';
 import { useBigDipperNetworksRecoil } from '@recoil/big_dipper_networks';
 import { useMarketRecoil } from '@recoil/market';
+import { useValidatorRecoil } from '@recoil/validators';
 import {
   ChainProvider,
 } from '@contexts';
@@ -23,6 +24,7 @@ const Main = (props: AppProps) => {
   useSettingsRecoil();
   useBigDipperNetworksRecoil();
   useMarketRecoil();
+  useValidatorRecoil();
 
   // =====================================
   // general setup

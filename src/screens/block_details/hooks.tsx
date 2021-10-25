@@ -8,12 +8,13 @@ import {
   useBlockDetailsQuery,
   BlockDetailsQuery,
 } from '@graphql/types';
+import { useProfileRecoil } from '@recoil/profiles';
 import { convertMsgsToModels } from '@msg';
-import { useChainContext } from '@contexts';
+// import { useChainContext } from '@contexts';
 import { BlockDetailState } from './types';
 
 export const useBlockDetails = () => {
-  const { findAddress } = useChainContext();
+  // const { findAddress } = useChainContext();
   const router = useRouter();
   const [state, setState] = useState<BlockDetailState>({
     loading: true,
