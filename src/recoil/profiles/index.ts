@@ -9,6 +9,7 @@ import {
 import {
   readProfile,
   writeProfile,
+  readDelegatorAddress,
 } from './selectors';
 
 export {
@@ -16,4 +17,5 @@ export {
   useProfileRecoil,
   readProfile,
   writeProfile,
+  readDelegatorAddress,
 };

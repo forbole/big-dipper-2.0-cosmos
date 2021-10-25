@@ -1,18 +1,15 @@
-import { selectorFamily } from 'recoil';
+import {
+  selectorFamily, GetRecoilValue,
+} from 'recoil';
 import { bech32 } from 'bech32';
 import { chainConfig } from '@configs';
 import { readValidator } from '@recoil/validators';
 import { atomFamilyState } from './atom';
 import { AtomState } from './types';
 
-/**
- * Takes a delegator address and returns the profile
- * Returns null if no record found
- * ex - cosmosvalcon1... returns cosmosvaloper1...
- * @param address string
- * @returns string | null
- */
-const getProfile = (address: string) => ({ get }): AtomState => {
+const getDelegatorAddress = ({
+  address, get,
+}: {address: string, get: GetRecoilValue}): string => {
   const consensusRegex = `^(${chainConfig.prefix.consensus})`;
   const validatorRegex = `^(${chainConfig.prefix.validator})`;
   const delegatorRegex = `^(${chainConfig.prefix.account})`;
@@ -31,12 +28,26 @@ const getProfile = (address: string) => ({ get }): AtomState => {
     // address given is a delegator
     selectedAddress = address;
   }
-  const state = get(atomFamilyState(selectedAddress));
+  return selectedAddress;
+};
+
+/**
+ * Takes a delegator address and returns the profile
+ * Returns null if no record found
+ * ex - cosmosvalcon1... returns cosmosvaloper1...
+ * @param address string
+ * @returns string | null
+ */
+const getProfile = (address: string) => ({ get }): AtomState => {
+  const delegatorAddress = getDelegatorAddress({
+    address, get,
+  });
+  const state = get(atomFamilyState(delegatorAddress));
   return state;
 };
 
 export const writeProfile = selectorFamily<AtomState, string>({
-  key: 'profile.write.validator',
+  key: 'profile.write.profile',
   get: getProfile,
   set: (address: string) => ({ set }, profile) => {
     set(atomFamilyState(address), profile);
@@ -44,6 +55,15 @@ export const writeProfile = selectorFamily<AtomState, string>({
 });
 
 export const readProfile = selectorFamily({
-  key: 'profile.read.validator',
+  key: 'profile.read.profile',
   get: getProfile,
+});
+
+export const readDelegatorAddress = selectorFamily({
+  key: 'profile.read.delegatorAddress',
+  get: (address:string) => ({ get }): string => {
+    return getDelegatorAddress({
+      address, get,
+    });
+  },
 });
