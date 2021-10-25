@@ -35,7 +35,7 @@ export const useProfileRecoil = (address: string) => {
     },
   });
 
-  const blah = useRecoilCallback(({
+  const callback = useRecoilCallback(({
     set, snapshot,
   }) => async () => {
     const consensusRegex = `^(${chainConfig.prefix.consensus})`;
@@ -70,7 +70,7 @@ export const useProfileRecoil = (address: string) => {
   });
 
   useEffect(() => {
-    blah();
+    callback();
   }, [address]);
 
   return ({
