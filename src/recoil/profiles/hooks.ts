@@ -3,7 +3,6 @@ import {
   useState, useEffect,
 } from 'react';
 import {
-  useRecoilState,
   useRecoilValue,
   useRecoilCallback,
 } from 'recoil';
@@ -12,7 +11,7 @@ import { useDesmosProfile } from '@hooks';
 import { bech32 } from 'bech32';
 
 import {
-  writeProfile,
+  readProfile,
   atomFamilyState as profileAtomState,
 } from '@recoil/profiles';
 import {
@@ -24,25 +23,15 @@ import {
  * @param address
  */
 export const useProfileRecoil = (address: string) => {
-  // const validator = useRecoilValue(readValidator(address));
-  // const [selectedAddress, setSelectedAddress] = useState('');
-  // const [profile, setProfile] = useState(null);
-  // const [profile, setProfile] = useRecoilState(writeProfile(selectedAddress));
+  const [profileAddress, setProfileAddress] = useState('');
+  const profile = useRecoilValue(readProfile(profileAddress));
+
   const {
     fetchDesmosProfile,
     formatDesmosProfile,
   } = useDesmosProfile({
     onComplete: (data): DesmosProfile => {
       return formatDesmosProfile(data);
-      // const formatted = formatDesmosProfile(data);
-      // if (formatted === null) {
-      //   setProfile(false);
-      // } else {
-      //   setProfile({
-      // moniker: formatted.nickname,
-      // imageUrl: formatted.imageUrl,
-      //   });
-      // }
     },
   });
 
@@ -66,6 +55,8 @@ export const useProfileRecoil = (address: string) => {
       selectedAddress = address;
     }
 
+    setProfileAddress(selectedAddress);
+
     const fetchedProfile: DesmosProfile = await fetchDesmosProfile(selectedAddress);
 
     if (fetchedProfile === null) {
@@ -79,27 +70,8 @@ export const useProfileRecoil = (address: string) => {
   });
 
   useEffect(() => {
-    // const consensusRegex = `^(${chainConfig.prefix.consensus})`;
-    // const validatorRegex = `^(${chainConfig.prefix.validator})`;
-    // const delegatorRegex = `^(${chainConfig.prefix.account})`;
-    // if (new RegExp(consensusRegex).test(address) && validator) {
-    //   // address given is a consensus
-    //   setSelectedAddress(validator.delegator);
-    // } else if (new RegExp(validatorRegex).test(address)) {
-    //   // address given is a validator
-    //   const decode = bech32.decode(address).words;
-    //   setSelectedAddress(bech32.encode(chainConfig.prefix.account, decode));
-    // } else if (new RegExp(delegatorRegex).test(address)) {
-    //   // address given is a delegator
-    //   setSelectedAddress(address);
-    // }
+    blah();
   }, [address]);
-
-  // useEffect(() => {
-  //   if (chainConfig.extra.profile && profile === null && address) {
-  //     fetchDesmosProfile(selectedAddress);
-  //   }
-  // }, [address]);
 
   return ({
     profile: profile ?? ({
@@ -107,56 +79,3 @@ export const useProfileRecoil = (address: string) => {
     }),
   });
 };
-
-// export const useProfileRecoil = (address: string) => {
-//   // const validator = useRecoilValue(readValidator(address));
-//   // const [selectedAddress, setSelectedAddress] = useState('');
-//   const [profile, setProfile] = useState(null);
-//   // const [profile, setProfile] = useRecoilState(writeProfile(selectedAddress));
-
-//   const {
-//     fetchDesmosProfile,
-//     formatDesmosProfile,
-//   } = useDesmosProfile({
-//     onComplete: (data) => {
-//       const formatted = formatDesmosProfile(data);
-//       if (formatted === null) {
-//         setProfile(false);
-//       } else {
-//         setProfile({
-//           moniker: formatted.nickname,
-//           imageUrl: formatted.imageUrl,
-//         });
-//       }
-//     },
-//   });
-
-//   useEffect(() => {
-//     const consensusRegex = `^(${chainConfig.prefix.consensus})`;
-//     const validatorRegex = `^(${chainConfig.prefix.validator})`;
-//     const delegatorRegex = `^(${chainConfig.prefix.account})`;
-//     if (new RegExp(consensusRegex).test(address) && validator) {
-//       // address given is a consensus
-//       setSelectedAddress(validator.delegator);
-//     } else if (new RegExp(validatorRegex).test(address)) {
-//       // address given is a validator
-//       const decode = bech32.decode(address).words;
-//       setSelectedAddress(bech32.encode(chainConfig.prefix.account, decode));
-//     } else if (new RegExp(delegatorRegex).test(address)) {
-//       // address given is a delegator
-//       setSelectedAddress(address);
-//     }
-//   }, [address]);
-
-//   useEffect(() => {
-//     if (chainConfig.extra.profile && profile === null && address) {
-//       fetchDesmosProfile(selectedAddress);
-//     }
-//   }, [address]);
-
-//   return ({
-//     profile: profile ?? ({
-//       moniker: address,
-//     }),
-//   });
-// };
