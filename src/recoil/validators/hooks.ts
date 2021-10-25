@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import {
   useRecoilCallback,
 } from 'recoil';
@@ -13,6 +14,7 @@ import {
 } from '@recoil/validators';
 import {
   atomFamilyState as profileAtomState,
+  writeProfile,
 } from '@recoil/profiles';
 
 export const useValidatorRecoil = () => {
@@ -30,8 +32,8 @@ export const useValidatorRecoil = () => {
       console.error(error.message);
     },
     onCompleted: async (data) => {
-      formatValidatorsAddressList(data);
-      setProfiles(data);
+      await formatValidatorsAddressList(data);
+      await setProfiles(data);
     },
   });
 
@@ -58,26 +60,26 @@ export const useValidatorRecoil = () => {
     }
 
     profiles = await Promise.allSettled(profiles);
-
     data?.validator?.filter((x) => x.validatorInfo).forEach((x, i) => {
       const delegatorAddress = x.validatorInfo.selfDelegateAddress;
       const profile = R.pathOr(undefined, [i, 'value'], profiles);
 
-      if (profile) {
-        // sets profile priority
-        const moniker = R.pathOr(undefined, ['nickname'], profile)
-          || R.pathOr('', ['validatorDescriptions', 0, 'moniker'], x);
-        const imageUrl = (
-          R.pathOr('', ['imageUrl'], profile)
-            || R.pathOr('', ['validatorDescriptions', 0, 'avatarUrl'], x)
-        );
-        set(profileAtomState(delegatorAddress), {
-          moniker,
-          imageUrl,
-        });
-      } else {
-        set(profileAtomState(delegatorAddress), false);
+      // sets profile priority
+      const moniker = R.pathOr(undefined, ['nickname'], profile)
+      || R.pathOr('', ['validatorDescriptions', 0, 'moniker'], x);
+      const imageUrl = (
+        R.pathOr('', ['imageUrl'], profile)
+        || R.pathOr('', ['validatorDescriptions', 0, 'avatarUrl'], x)
+      );
+      // ryuash
+      if (x.validatorInfo.operatorAddress === 'desmosvaloper195rzr58csup9jgkfr2zwtxr4xc6skdlc26mdrt') {
+        console.log(moniker, 'what is your moniker');
+        console.log(x.validatorInfo.selfDelegateAddress, 'delegator address');
       }
+      set(writeProfile(delegatorAddress), {
+        moniker,
+        imageUrl,
+      });
     });
   });
-
+};

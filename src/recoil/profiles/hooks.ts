@@ -10,14 +10,16 @@ import {
   writeProfile,
   readDelegatorAddress,
 } from '@recoil/profiles';
-import { AtomState } from '@recoil/profiles/types';
+import {
+  Profile, AtomState,
+} from '@recoil/profiles/types';
 import { getProfile } from './utils';
 
 /**
  * Accepts a delegator address and returns the appropriate profile
  * @param address
  */
-export const useProfileRecoil = (address: string) => {
+export const useProfileRecoil = (address: string): Profile => {
   const delegatorAddress = useRecoilValue(readDelegatorAddress(address));
   const [profile, setProfile] = useRecoilState(writeProfile(delegatorAddress)) as [AtomState, SetterOrUpdater<AtomState>];
 
@@ -41,9 +43,7 @@ export const useProfileRecoil = (address: string) => {
     }
   }, [address]);
 
-  return ({
-    profile: profile ?? ({
-      moniker: address,
-    }),
+  return profile || ({
+    moniker: address,
   });
 };

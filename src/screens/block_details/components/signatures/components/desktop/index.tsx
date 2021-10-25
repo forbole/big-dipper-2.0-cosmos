@@ -12,7 +12,7 @@ import { useStyles } from './styles';
 
 const Desktop: React.FC<{
   className?: string;
-  signatures: AvatarName[];
+  signatures: string[];
 }> = ({
   className, signatures,
 }) => {

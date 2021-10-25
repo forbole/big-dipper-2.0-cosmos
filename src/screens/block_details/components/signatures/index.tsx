@@ -13,7 +13,7 @@ const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
 
 const Signatures: React.FC<ComponentDefault & {
-  signatures: AvatarName[];
+  signatures: string[];
 }> = ({
   className, signatures,
 }) => {
@@ -31,12 +31,14 @@ const Signatures: React.FC<ComponentDefault & {
           {isDesktop ? (
             <Desktop
               className={classes.desktop}
-              signatures={signatures}
+              signatures={[]}
+              // signatures={signatures}
             />
           ) : (
             <Mobile
               className={classes.mobile}
-              signatures={signatures}
+              // signatures={signatures}
+              signatures={[]}
             />
           )}
         </div>

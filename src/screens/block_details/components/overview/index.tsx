@@ -4,6 +4,7 @@ import dayjs, { formatDayJs } from '@utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 import { useRecoilValue } from 'recoil';
+import { useProfileRecoil } from '@recoil/profiles';
 import { readDate } from '@recoil/settings';
 import {
   BoxDetails, AvatarName,
@@ -11,6 +12,7 @@ import {
 import { OverviewType } from '../../types';
 
 const Overview: React.FC<OverviewType & ComponentDefault> = (props, { className }) => {
+  const proposer = useProfileRecoil(props.proposer);
   const { t } = useTranslation('blocks');
   const dateFormat = useRecoilValue(readDate);
 
@@ -35,9 +37,9 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props, { className 
           label: t('proposer'),
           detail: (
             <AvatarName
-              address={props.proposer.address}
-              imageUrl={props.proposer.imageUrl}
-              name={props.proposer.name}
+              address={props.proposer}
+              imageUrl={proposer.imageUrl}
+              name={proposer.moniker}
             />
           ),
         },
