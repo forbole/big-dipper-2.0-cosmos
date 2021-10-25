@@ -11,10 +11,11 @@ import {
 import { chainConfig } from '@configs';
 import { useDesmosProfile } from '@hooks';
 import {
-  writeValidator,
-  atomFamilyState,
+  atomFamilyState as validatorAtomState,
 } from '@recoil/validators';
-import { writeProfile } from '@recoil/profiles';
+import {
+  atomFamilyState as profileAtomState,
+} from '@recoil/profiles';
 
 export const useValidatorRecoil = () => {
   const {
@@ -32,80 +33,89 @@ export const useValidatorRecoil = () => {
     },
     onCompleted: async (data) => {
       formatValidatorsAddressList(data);
-      // setProfiles(data);
+      setProfiles(data);
     },
   });
 
-  const formatValidatorsAddressList = useRecoilCallback(({
-    snapshot, set,
-  }) => async (data: ValidatorAddressesQuery) => {
+  const formatValidatorsAddressList = useRecoilCallback(({ set }) => async (data: ValidatorAddressesQuery) => {
     data?.validator?.filter((x) => x.validatorInfo).forEach((x) => {
       const validatorAddress = x.validatorInfo.operatorAddress;
       const delegatorAddress = x.validatorInfo.selfDelegateAddress;
       const { consensusAddress } = x.validatorInfo;
-      snapshot.getPromise(writeValidator(consensusAddress)).then((test) => {
-        console.log(test, 'num of cars');
-      });
 
-      set(atomFamilyState(consensusAddress), {
+      set(validatorAtomState(consensusAddress), {
         delegator: delegatorAddress,
         validator: validatorAddress,
       });
     });
   });
 
-  const xformatValidatorsAddressList = async (data: ValidatorAddressesQuery) => {
-    // set initial consensus address dictionary
-    data?.validator?.filter((x) => x.validatorInfo).forEach((x) => {
-      const validatorAddress = x.validatorInfo.operatorAddress;
-      const delegatorAddress = x.validatorInfo.selfDelegateAddress;
-      const { consensusAddress } = x.validatorInfo;
-      useRecoilCallback(({
-        snapshot, set,
-      }) => async () => {
-        const numItemsInCart = await snapshot.getPromise(writeValidator(consensusAddress));
-        console.log(numItemsInCart, 'wow wahts this');
-        set(atomFamilyState(consensusAddress), {
-          delegator: delegatorAddress,
-          validator: validatorAddress,
-        });
+  const setProfiles = useRecoilCallback(({ set }) => async (data: ValidatorAddressesQuery) => {
+    let profiles = [];
+    if (chainConfig.extra.profile) {
+      data?.validator?.filter((x) => x.validatorInfo).forEach((x) => {
+        const delegatorAddress = x.validatorInfo.selfDelegateAddress;
+        profiles.push(fetchDesmosProfile(delegatorAddress));
       });
+    }
+
+    profiles = await Promise.allSettled(profiles);
+
+    data?.validator?.filter((x) => x.validatorInfo).forEach((x, i) => {
+      const delegatorAddress = x.validatorInfo.selfDelegateAddress;
+      const profile = R.pathOr(undefined, [i, 'value'], profiles);
+
+      if (profile) {
+        // sets profile priority
+        const moniker = R.pathOr(undefined, ['nickname'], profile)
+          || R.pathOr('', ['validatorDescriptions', 0, 'moniker'], x);
+        const imageUrl = (
+          R.pathOr('', ['imageUrl'], profile)
+            || R.pathOr('', ['validatorDescriptions', 0, 'avatarUrl'], x)
+        );
+        set(profileAtomState(delegatorAddress), {
+          moniker,
+          imageUrl,
+        });
+      } else {
+        set(profileAtomState(delegatorAddress), false);
+      }
     });
+  });
+
+  const xsetProfiles = async (data: ValidatorAddressesQuery) => {
+    if (chainConfig.extra.profile) {
+      let profiles = [];
+      data?.validator?.filter((x) => x.validatorInfo).forEach((x) => {
+        const delegatorAddress = x.validatorInfo.selfDelegateAddress;
+        profiles.push(fetchDesmosProfile(delegatorAddress));
+      });
+
+      profiles = await Promise.allSettled(profiles);
+
+      data?.validator?.filter((x) => x.validatorInfo).forEach((x, i) => {
+        const delegatorAddress = x.validatorInfo.selfDelegateAddress;
+        // const [_, setProfile] = useRecoilState(writeProfile(delegatorAddress));
+
+        const profile = R.pathOr(undefined, [i, 'value'], profiles);
+
+        if (profile) {
+          // sets profile priority
+          const moniker = R.pathOr(undefined, ['nickname'], profile)
+          || R.pathOr('', ['validatorDescriptions', 0, 'moniker'], x);
+          const imageUrl = (
+            R.pathOr('', ['imageUrl'], profile)
+            || R.pathOr('', ['validatorDescriptions', 0, 'avatarUrl'], x)
+          );
+
+          setProfile({
+            moniker,
+            imageUrl,
+          });
+        } else {
+          setProfile(false);
+        }
+      });
+    }
   };
-
-  // const setProfiles = async (data: ValidatorAddressesQuery) => {
-  //   if (chainConfig.extra.profile) {
-  //     let profiles = [];
-  //     data?.validator?.filter((x) => x.validatorInfo).forEach((x) => {
-  //       const delegatorAddress = x.validatorInfo.selfDelegateAddress;
-  //       profiles.push(fetchDesmosProfile(delegatorAddress));
-  //     });
-
-  //     profiles = await Promise.allSettled(profiles);
-
-  //     data?.validator?.filter((x) => x.validatorInfo).forEach((x, i) => {
-  //       const delegatorAddress = x.validatorInfo.selfDelegateAddress;
-  //       const [_, setProfile] = useRecoilState(writeProfile(delegatorAddress));
-
-  //       const profile = R.pathOr(undefined, [i, 'value'], profiles);
-
-  //       if (profile) {
-  //         // sets profile priority
-  //         const moniker = R.pathOr(undefined, ['nickname'], profile)
-  //         || R.pathOr('', ['validatorDescriptions', 0, 'moniker'], x);
-  //         const imageUrl = (
-  //           R.pathOr('', ['imageUrl'], profile)
-  //           || R.pathOr('', ['validatorDescriptions', 0, 'avatarUrl'], x)
-  //         );
-
-  //         setProfile({
-  //           moniker,
-  //           imageUrl,
-  //         });
-  //       } else {
-  //         setProfile(false);
-  //       }
-  //     });
-  //   }
-  // };
 };
