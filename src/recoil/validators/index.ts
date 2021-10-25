@@ -1,5 +1,5 @@
 import {
-  atomState,
+  atomFamilyState,
 } from './atom';
 
 import {
@@ -7,13 +7,13 @@ import {
 } from './hooks';
 
 import {
-  readMarket,
-  writeMarket,
+  readValidator,
+  writeValidator,
 } from './selectors';
 
 export {
-  atomState,
+  atomFamilyState,
   useMarketRecoil,
-  readMarket,
-  writeMarket,
+  readValidator,
+  writeValidator,
 };

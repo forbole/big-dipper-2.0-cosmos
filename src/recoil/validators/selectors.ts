@@ -1,26 +1,27 @@
 import { selectorFamily } from 'recoil';
-import { mergeStateChange } from '@utils/merge_state_change';
 import { atomFamilyState } from './atom';
 import { AtomState } from './types';
 
+/**
+ * Takes a consensus address and returns the delegator and validator
+ * address if we have a record of it.
+ * Returns null if no record found
+ * ex - cosmosvalcon1... returns cosmosvaloper1...
+ * @param address string
+ * @returns string | null
+ */
 const getValidator = (address: string) => ({ get }): AtomState => {
-  // get desmos profile first
-  // get validator profile after
   const state = get(atomFamilyState(address));
   return state;
 };
 
-// export const writeMarket = selector({
-//   key: 'market.write.market',
-//   get: getMarket,
-//   set: ({
-//     get, set,
-//   }, value: AtomState) => {
-//     const prevState = get(atomState);
-//     const newState = mergeStateChange(prevState, value);
-//     set(atomState, newState);
-//   },
-// });
+export const writeValidator = selectorFamily<AtomState, string>({
+  key: 'validator.write.validator',
+  get: getValidator,
+  set: (address: string) => ({ set }, validator) => {
+    set(atomFamilyState(address), validator);
+  },
+});
 
 export const readValidator = selectorFamily({
   key: 'validator.read.validator',

@@ -1,4 +1,4 @@
 export type AtomState = {
-  moniker: string;
-  imageUrl: string | null;
-}
+  delegator: string;
+  validator: string;
+} | null;
