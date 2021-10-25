@@ -3,17 +3,17 @@ import {
 } from './atom';
 
 import {
-  useMarketRecoil,
+  useProfileRecoil,
 } from './hooks';
 
 import {
-  readValidator,
-  writeValidator,
+  readProfile,
+  writeProfile,
 } from './selectors';
 
 export {
   atomFamilyState,
-  useMarketRecoil,
-  readValidator,
-  writeValidator,
+  useProfileRecoil,
+  readProfile,
+  writeProfile,
 };

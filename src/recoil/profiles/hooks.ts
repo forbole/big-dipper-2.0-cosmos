@@ -1,36 +1,73 @@
 /* eslint-disable max-len */
-import { useRecoilState } from 'recoil';
 import {
-  useValidatorAddressesQuery,
-  ValidatorAddressesQuery,
-} from '@graphql/types';
+  useState, useEffect,
+} from 'react';
+import {
+  useRecoilState, useRecoilValue,
+} from 'recoil';
+import { chainConfig } from '@configs';
+import { useDesmosProfile } from '@hooks';
+import { bech32 } from 'bech32';
 
 import {
-  writeValidator,
+  writeProfile,
+} from '@recoil/profiles';
+import {
+  readValidator,
 } from '@recoil/validators';
 
-export const useValidatorRecoil = () => {
-  useValidatorAddressesQuery({
-    onError: (error) => {
-      console.error(error.message);
-    },
-    onCompleted: async (data) => {
-      formatValidatorsAddressList(data);
+/**
+ * Accepts a delegator address and returns the appropriate profile
+ * @param address
+ */
+export const useProfileRecoil = (address: string) => {
+  const validator = useRecoilValue(readValidator(address));
+  const [selectedAddress, setSelectedAddress] = useState('');
+  const [profile, setProfile] = useRecoilState(writeProfile(selectedAddress));
+
+  const {
+    fetchDesmosProfile,
+    formatDesmosProfile,
+  } = useDesmosProfile({
+    onComplete: (data) => {
+      const formatted = formatDesmosProfile(data);
+      if (formatted === null) {
+        setProfile(false);
+      } else {
+        setProfile({
+          moniker: formatted.nickname,
+          imageUrl: formatted.imageUrl,
+        });
+      }
     },
   });
 
-  const formatValidatorsAddressList = async (data: ValidatorAddressesQuery) => {
-    // set initial consensus address dictionary
-    data?.validator?.filter((x) => x.validatorInfo).forEach((x) => {
-      const validatorAddress = x.validatorInfo.operatorAddress;
-      const delegatorAddress = x.validatorInfo.selfDelegateAddress;
-      const { consensusAddress } = x.validatorInfo;
-      const [_, setValidator] = useRecoilState(writeValidator(consensusAddress));
+  useEffect(() => {
+    const consensusRegex = `^(${chainConfig.prefix.consensus})`;
+    const validatorRegex = `^(${chainConfig.prefix.validator})`;
+    const delegatorRegex = `^(${chainConfig.prefix.account})`;
+    if (new RegExp(consensusRegex).test(address) && validator) {
+      // address given is a consensus
+      setSelectedAddress(validator.delegator);
+    } else if (new RegExp(validatorRegex).test(address)) {
+      // address given is a validator
+      const decode = bech32.decode(address).words;
+      setSelectedAddress(bech32.encode(chainConfig.prefix.account, decode));
+    } else if (new RegExp(delegatorRegex).test(address)) {
+      // address given is a delegator
+      setSelectedAddress(address);
+    }
+  }, [address]);
 
-      setValidator({
-        delegator: delegatorAddress,
-        validator: validatorAddress,
-      });
-    });
-  };
+  useEffect(() => {
+    if (chainConfig.extra.profile && profile === null && address) {
+      fetchDesmosProfile(selectedAddress);
+    }
+  }, [address]);
+
+  return ({
+    profile: profile ?? ({
+      moniker: address,
+    }),
+  });
 };
