@@ -1,1 +1,4 @@
-export type AtomState = string | null;
+export type AtomState = {
+  moniker: string;
+  imageUrl?: string;
+} | null;

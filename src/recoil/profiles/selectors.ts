@@ -3,27 +3,26 @@ import { atomFamilyState } from './atom';
 import { AtomState } from './types';
 
 /**
- * Takes a consensus address and returns the delegator and validator
- * address if we have a record of it.
+ * Takes a delegator address and returns the profile
  * Returns null if no record found
  * ex - cosmosvalcon1... returns cosmosvaloper1...
  * @param address string
  * @returns string | null
  */
-const getValidator = (address: string) => ({ get }): AtomState => {
+const getProfile = (address: string) => ({ get }): AtomState => {
   const state = get(atomFamilyState(address));
   return state;
 };
 
-export const writeValidator = selectorFamily<AtomState, string>({
-  key: 'validator.write.validator',
-  get: getValidator,
-  set: (address: string) => ({ set }, validator) => {
-    set(atomFamilyState(address), validator);
+export const writeProfile = selectorFamily<AtomState, string>({
+  key: 'profile.write.validator',
+  get: getProfile,
+  set: (address: string) => ({ set }, profile) => {
+    set(atomFamilyState(address), profile);
   },
 });
 
-export const readValidator = selectorFamily({
-  key: 'validator.read.validator',
-  get: getValidator,
+export const readProfile = selectorFamily({
+  key: 'profile.read.validator',
+  get: getProfile,
 });
