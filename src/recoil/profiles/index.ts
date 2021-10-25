@@ -3,7 +3,7 @@ import {
 } from './atom';
 
 import {
-  useValidatorRecoil,
+  useMarketRecoil,
 } from './hooks';
 
 import {
@@ -13,7 +13,7 @@ import {
 
 export {
   atomFamilyState,
-  useValidatorRecoil,
+  useMarketRecoil,
   readValidator,
   writeValidator,
 };

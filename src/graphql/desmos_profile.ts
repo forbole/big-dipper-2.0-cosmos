@@ -166,6 +166,8 @@ export type Account = {
   validator_infos: Array<Validator_Info>;
   /** An aggregate relationship */
   validator_infos_aggregate: Validator_Info_Aggregate;
+  /** An object relationship */
+  vesting_account?: Maybe<Vesting_Account>;
 };
 
 
@@ -751,6 +753,7 @@ export type Account_Bool_Exp = {
   redelegations?: Maybe<Redelegation_Bool_Exp>;
   unbonding_delegations?: Maybe<Unbonding_Delegation_Bool_Exp>;
   validator_infos?: Maybe<Validator_Info_Bool_Exp>;
+  vesting_account?: Maybe<Vesting_Account_Bool_Exp>;
 };
 
 /** aggregate max on columns */
@@ -778,6 +781,7 @@ export type Account_Order_By = {
   redelegations_aggregate?: Maybe<Redelegation_Aggregate_Order_By>;
   unbonding_delegations_aggregate?: Maybe<Unbonding_Delegation_Aggregate_Order_By>;
   validator_infos_aggregate?: Maybe<Validator_Info_Aggregate_Order_By>;
+  vesting_account?: Maybe<Vesting_Account_Order_By>;
 };
 
 /** select columns of table "account" */
@@ -2977,143 +2981,6 @@ export type Community_Pool_Var_Samp_Fields = {
 export type Community_Pool_Variance_Fields = {
   __typename?: 'community_pool_variance_fields';
   height?: Maybe<Scalars['Float']>;
-};
-
-/** columns and relationships of "consensus" */
-export type Consensus = {
-  __typename?: 'consensus';
-  height: Scalars['bigint'];
-  round: Scalars['Int'];
-  step: Scalars['String'];
-};
-
-/** aggregated selection of "consensus" */
-export type Consensus_Aggregate = {
-  __typename?: 'consensus_aggregate';
-  aggregate?: Maybe<Consensus_Aggregate_Fields>;
-  nodes: Array<Consensus>;
-};
-
-/** aggregate fields of "consensus" */
-export type Consensus_Aggregate_Fields = {
-  __typename?: 'consensus_aggregate_fields';
-  avg?: Maybe<Consensus_Avg_Fields>;
-  count: Scalars['Int'];
-  max?: Maybe<Consensus_Max_Fields>;
-  min?: Maybe<Consensus_Min_Fields>;
-  stddev?: Maybe<Consensus_Stddev_Fields>;
-  stddev_pop?: Maybe<Consensus_Stddev_Pop_Fields>;
-  stddev_samp?: Maybe<Consensus_Stddev_Samp_Fields>;
-  sum?: Maybe<Consensus_Sum_Fields>;
-  var_pop?: Maybe<Consensus_Var_Pop_Fields>;
-  var_samp?: Maybe<Consensus_Var_Samp_Fields>;
-  variance?: Maybe<Consensus_Variance_Fields>;
-};
-
-
-/** aggregate fields of "consensus" */
-export type Consensus_Aggregate_FieldsCountArgs = {
-  columns?: Maybe<Array<Consensus_Select_Column>>;
-  distinct?: Maybe<Scalars['Boolean']>;
-};
-
-/** aggregate avg on columns */
-export type Consensus_Avg_Fields = {
-  __typename?: 'consensus_avg_fields';
-  height?: Maybe<Scalars['Float']>;
-  round?: Maybe<Scalars['Float']>;
-};
-
-/** Boolean expression to filter rows from the table "consensus". All fields are combined with a logical 'AND'. */
-export type Consensus_Bool_Exp = {
-  _and?: Maybe<Array<Consensus_Bool_Exp>>;
-  _not?: Maybe<Consensus_Bool_Exp>;
-  _or?: Maybe<Array<Consensus_Bool_Exp>>;
-  height?: Maybe<Bigint_Comparison_Exp>;
-  round?: Maybe<Int_Comparison_Exp>;
-  step?: Maybe<String_Comparison_Exp>;
-};
-
-/** aggregate max on columns */
-export type Consensus_Max_Fields = {
-  __typename?: 'consensus_max_fields';
-  height?: Maybe<Scalars['bigint']>;
-  round?: Maybe<Scalars['Int']>;
-  step?: Maybe<Scalars['String']>;
-};
-
-/** aggregate min on columns */
-export type Consensus_Min_Fields = {
-  __typename?: 'consensus_min_fields';
-  height?: Maybe<Scalars['bigint']>;
-  round?: Maybe<Scalars['Int']>;
-  step?: Maybe<Scalars['String']>;
-};
-
-/** Ordering options when selecting data from "consensus". */
-export type Consensus_Order_By = {
-  height?: Maybe<Order_By>;
-  round?: Maybe<Order_By>;
-  step?: Maybe<Order_By>;
-};
-
-/** select columns of table "consensus" */
-export enum Consensus_Select_Column {
-  /** column name */
-  Height = 'height',
-  /** column name */
-  Round = 'round',
-  /** column name */
-  Step = 'step'
-}
-
-/** aggregate stddev on columns */
-export type Consensus_Stddev_Fields = {
-  __typename?: 'consensus_stddev_fields';
-  height?: Maybe<Scalars['Float']>;
-  round?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate stddev_pop on columns */
-export type Consensus_Stddev_Pop_Fields = {
-  __typename?: 'consensus_stddev_pop_fields';
-  height?: Maybe<Scalars['Float']>;
-  round?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate stddev_samp on columns */
-export type Consensus_Stddev_Samp_Fields = {
-  __typename?: 'consensus_stddev_samp_fields';
-  height?: Maybe<Scalars['Float']>;
-  round?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate sum on columns */
-export type Consensus_Sum_Fields = {
-  __typename?: 'consensus_sum_fields';
-  height?: Maybe<Scalars['bigint']>;
-  round?: Maybe<Scalars['Int']>;
-};
-
-/** aggregate var_pop on columns */
-export type Consensus_Var_Pop_Fields = {
-  __typename?: 'consensus_var_pop_fields';
-  height?: Maybe<Scalars['Float']>;
-  round?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate var_samp on columns */
-export type Consensus_Var_Samp_Fields = {
-  __typename?: 'consensus_var_samp_fields';
-  height?: Maybe<Scalars['Float']>;
-  round?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate variance on columns */
-export type Consensus_Variance_Fields = {
-  __typename?: 'consensus_variance_fields';
-  height?: Maybe<Scalars['Float']>;
-  round?: Maybe<Scalars['Float']>;
 };
 
 /** columns and relationships of "delegation" */
@@ -8408,7 +8275,7 @@ export type Proposal_Deposit = {
   __typename?: 'proposal_deposit';
   amount?: Maybe<Scalars['_coin']>;
   /** An object relationship */
-  block: Block;
+  block?: Maybe<Block>;
   /** An object relationship */
   depositor: Account;
   depositor_address: Scalars['String'];
@@ -9604,8 +9471,6 @@ export type Proposal_Vote = {
   __typename?: 'proposal_vote';
   /** An object relationship */
   account: Account;
-  /** An object relationship */
-  block: Block;
   height: Scalars['bigint'];
   option: Scalars['String'];
   /** An object relationship */
@@ -9678,7 +9543,6 @@ export type Proposal_Vote_Bool_Exp = {
   _not?: Maybe<Proposal_Vote_Bool_Exp>;
   _or?: Maybe<Array<Proposal_Vote_Bool_Exp>>;
   account?: Maybe<Account_Bool_Exp>;
-  block?: Maybe<Block_Bool_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
   option?: Maybe<String_Comparison_Exp>;
   proposal?: Maybe<Proposal_Bool_Exp>;
@@ -9723,7 +9587,6 @@ export type Proposal_Vote_Min_Order_By = {
 /** Ordering options when selecting data from "proposal_vote". */
 export type Proposal_Vote_Order_By = {
   account?: Maybe<Account_Order_By>;
-  block?: Maybe<Block_Order_By>;
   height?: Maybe<Order_By>;
   option?: Maybe<Order_By>;
   proposal?: Maybe<Proposal_Order_By>;
@@ -9906,10 +9769,6 @@ export type Query_Root = {
   community_pool: Array<Community_Pool>;
   /** fetch aggregated fields from the table: "community_pool" */
   community_pool_aggregate: Community_Pool_Aggregate;
-  /** fetch data from the table: "consensus" */
-  consensus: Array<Consensus>;
-  /** fetch aggregated fields from the table: "consensus" */
-  consensus_aggregate: Consensus_Aggregate;
   /** fetch data from the table: "delegation" */
   delegation: Array<Delegation>;
   /** fetch aggregated fields from the table: "delegation" */
@@ -10172,6 +10031,16 @@ export type Query_Root = {
   validator_voting_power_aggregate: Validator_Voting_Power_Aggregate;
   /** fetch data from the table: "validator_voting_power" using primary key columns */
   validator_voting_power_by_pk?: Maybe<Validator_Voting_Power>;
+  /** fetch data from the table: "vesting_account" */
+  vesting_account: Array<Vesting_Account>;
+  /** fetch aggregated fields from the table: "vesting_account" */
+  vesting_account_aggregate: Vesting_Account_Aggregate;
+  /** fetch data from the table: "vesting_account" using primary key columns */
+  vesting_account_by_pk?: Maybe<Vesting_Account>;
+  /** fetch data from the table: "vesting_period" */
+  vesting_period: Array<Vesting_Period>;
+  /** fetch aggregated fields from the table: "vesting_period" */
+  vesting_period_aggregate: Vesting_Period_Aggregate;
 };
 
 
@@ -10459,24 +10328,6 @@ export type Query_RootCommunity_Pool_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Community_Pool_Order_By>>;
   where?: Maybe<Community_Pool_Bool_Exp>;
-};
-
-
-export type Query_RootConsensusArgs = {
-  distinct_on?: Maybe<Array<Consensus_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Consensus_Order_By>>;
-  where?: Maybe<Consensus_Bool_Exp>;
-};
-
-
-export type Query_RootConsensus_AggregateArgs = {
-  distinct_on?: Maybe<Array<Consensus_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Consensus_Order_By>>;
-  where?: Maybe<Consensus_Bool_Exp>;
 };
 
 
@@ -11555,6 +11406,47 @@ export type Query_RootValidator_Voting_Power_By_PkArgs = {
   validator_address: Scalars['String'];
 };
 
+
+export type Query_RootVesting_AccountArgs = {
+  distinct_on?: Maybe<Array<Vesting_Account_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Vesting_Account_Order_By>>;
+  where?: Maybe<Vesting_Account_Bool_Exp>;
+};
+
+
+export type Query_RootVesting_Account_AggregateArgs = {
+  distinct_on?: Maybe<Array<Vesting_Account_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Vesting_Account_Order_By>>;
+  where?: Maybe<Vesting_Account_Bool_Exp>;
+};
+
+
+export type Query_RootVesting_Account_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Query_RootVesting_PeriodArgs = {
+  distinct_on?: Maybe<Array<Vesting_Period_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Vesting_Period_Order_By>>;
+  where?: Maybe<Vesting_Period_Bool_Exp>;
+};
+
+
+export type Query_RootVesting_Period_AggregateArgs = {
+  distinct_on?: Maybe<Array<Vesting_Period_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Vesting_Period_Order_By>>;
+  where?: Maybe<Vesting_Period_Bool_Exp>;
+};
+
 /** columns and relationships of "redelegation" */
 export type Redelegation = {
   __typename?: 'redelegation';
@@ -12501,10 +12393,6 @@ export type Subscription_Root = {
   community_pool: Array<Community_Pool>;
   /** fetch aggregated fields from the table: "community_pool" */
   community_pool_aggregate: Community_Pool_Aggregate;
-  /** fetch data from the table: "consensus" */
-  consensus: Array<Consensus>;
-  /** fetch aggregated fields from the table: "consensus" */
-  consensus_aggregate: Consensus_Aggregate;
   /** fetch data from the table: "delegation" */
   delegation: Array<Delegation>;
   /** fetch aggregated fields from the table: "delegation" */
@@ -12767,6 +12655,16 @@ export type Subscription_Root = {
   validator_voting_power_aggregate: Validator_Voting_Power_Aggregate;
   /** fetch data from the table: "validator_voting_power" using primary key columns */
   validator_voting_power_by_pk?: Maybe<Validator_Voting_Power>;
+  /** fetch data from the table: "vesting_account" */
+  vesting_account: Array<Vesting_Account>;
+  /** fetch aggregated fields from the table: "vesting_account" */
+  vesting_account_aggregate: Vesting_Account_Aggregate;
+  /** fetch data from the table: "vesting_account" using primary key columns */
+  vesting_account_by_pk?: Maybe<Vesting_Account>;
+  /** fetch data from the table: "vesting_period" */
+  vesting_period: Array<Vesting_Period>;
+  /** fetch aggregated fields from the table: "vesting_period" */
+  vesting_period_aggregate: Vesting_Period_Aggregate;
 };
 
 
@@ -13054,24 +12952,6 @@ export type Subscription_RootCommunity_Pool_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Community_Pool_Order_By>>;
   where?: Maybe<Community_Pool_Bool_Exp>;
-};
-
-
-export type Subscription_RootConsensusArgs = {
-  distinct_on?: Maybe<Array<Consensus_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Consensus_Order_By>>;
-  where?: Maybe<Consensus_Bool_Exp>;
-};
-
-
-export type Subscription_RootConsensus_AggregateArgs = {
-  distinct_on?: Maybe<Array<Consensus_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Consensus_Order_By>>;
-  where?: Maybe<Consensus_Bool_Exp>;
 };
 
 
@@ -14150,6 +14030,47 @@ export type Subscription_RootValidator_Voting_Power_By_PkArgs = {
   validator_address: Scalars['String'];
 };
 
+
+export type Subscription_RootVesting_AccountArgs = {
+  distinct_on?: Maybe<Array<Vesting_Account_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Vesting_Account_Order_By>>;
+  where?: Maybe<Vesting_Account_Bool_Exp>;
+};
+
+
+export type Subscription_RootVesting_Account_AggregateArgs = {
+  distinct_on?: Maybe<Array<Vesting_Account_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Vesting_Account_Order_By>>;
+  where?: Maybe<Vesting_Account_Bool_Exp>;
+};
+
+
+export type Subscription_RootVesting_Account_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Subscription_RootVesting_PeriodArgs = {
+  distinct_on?: Maybe<Array<Vesting_Period_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Vesting_Period_Order_By>>;
+  where?: Maybe<Vesting_Period_Bool_Exp>;
+};
+
+
+export type Subscription_RootVesting_Period_AggregateArgs = {
+  distinct_on?: Maybe<Array<Vesting_Period_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Vesting_Period_Order_By>>;
+  where?: Maybe<Vesting_Period_Bool_Exp>;
+};
+
 /** columns and relationships of "supply" */
 export type Supply = {
   __typename?: 'supply';
@@ -14854,6 +14775,7 @@ export type Token_Unit = {
   aliases?: Maybe<Scalars['_text']>;
   denom: Scalars['String'];
   exponent: Scalars['Int'];
+  price_id?: Maybe<Scalars['String']>;
   /** An object relationship */
   token: Token;
   token_name: Scalars['String'];
@@ -14973,6 +14895,7 @@ export type Token_Unit_Bool_Exp = {
   aliases?: Maybe<_Text_Comparison_Exp>;
   denom?: Maybe<String_Comparison_Exp>;
   exponent?: Maybe<Int_Comparison_Exp>;
+  price_id?: Maybe<String_Comparison_Exp>;
   token?: Maybe<Token_Bool_Exp>;
   token_name?: Maybe<String_Comparison_Exp>;
   token_price?: Maybe<Token_Price_Bool_Exp>;
@@ -14985,6 +14908,7 @@ export type Token_Unit_Max_Fields = {
   __typename?: 'token_unit_max_fields';
   denom?: Maybe<Scalars['String']>;
   exponent?: Maybe<Scalars['Int']>;
+  price_id?: Maybe<Scalars['String']>;
   token_name?: Maybe<Scalars['String']>;
 };
 
@@ -14992,6 +14916,7 @@ export type Token_Unit_Max_Fields = {
 export type Token_Unit_Max_Order_By = {
   denom?: Maybe<Order_By>;
   exponent?: Maybe<Order_By>;
+  price_id?: Maybe<Order_By>;
   token_name?: Maybe<Order_By>;
 };
 
@@ -15000,6 +14925,7 @@ export type Token_Unit_Min_Fields = {
   __typename?: 'token_unit_min_fields';
   denom?: Maybe<Scalars['String']>;
   exponent?: Maybe<Scalars['Int']>;
+  price_id?: Maybe<Scalars['String']>;
   token_name?: Maybe<Scalars['String']>;
 };
 
@@ -15007,6 +14933,7 @@ export type Token_Unit_Min_Fields = {
 export type Token_Unit_Min_Order_By = {
   denom?: Maybe<Order_By>;
   exponent?: Maybe<Order_By>;
+  price_id?: Maybe<Order_By>;
   token_name?: Maybe<Order_By>;
 };
 
@@ -15015,6 +14942,7 @@ export type Token_Unit_Order_By = {
   aliases?: Maybe<Order_By>;
   denom?: Maybe<Order_By>;
   exponent?: Maybe<Order_By>;
+  price_id?: Maybe<Order_By>;
   token?: Maybe<Token_Order_By>;
   token_name?: Maybe<Order_By>;
   token_price?: Maybe<Token_Price_Order_By>;
@@ -15030,6 +14958,8 @@ export enum Token_Unit_Select_Column {
   Denom = 'denom',
   /** column name */
   Exponent = 'exponent',
+  /** column name */
+  PriceId = 'price_id',
   /** column name */
   TokenName = 'token_name'
 }
@@ -18140,6 +18070,423 @@ export type Validator_Voting_Power_Variance_Fields = {
 export type Validator_Voting_Power_Variance_Order_By = {
   height?: Maybe<Order_By>;
   voting_power?: Maybe<Order_By>;
+};
+
+/** columns and relationships of "vesting_account" */
+export type Vesting_Account = {
+  __typename?: 'vesting_account';
+  /** An object relationship */
+  account: Account;
+  address: Scalars['String'];
+  end_time: Scalars['timestamp'];
+  id: Scalars['Int'];
+  original_vesting: Scalars['_coin'];
+  start_time?: Maybe<Scalars['timestamp']>;
+  type: Scalars['String'];
+  /** An array relationship */
+  vesting_periods: Array<Vesting_Period>;
+  /** An aggregate relationship */
+  vesting_periods_aggregate: Vesting_Period_Aggregate;
+};
+
+
+/** columns and relationships of "vesting_account" */
+export type Vesting_AccountVesting_PeriodsArgs = {
+  distinct_on?: Maybe<Array<Vesting_Period_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Vesting_Period_Order_By>>;
+  where?: Maybe<Vesting_Period_Bool_Exp>;
+};
+
+
+/** columns and relationships of "vesting_account" */
+export type Vesting_AccountVesting_Periods_AggregateArgs = {
+  distinct_on?: Maybe<Array<Vesting_Period_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Vesting_Period_Order_By>>;
+  where?: Maybe<Vesting_Period_Bool_Exp>;
+};
+
+/** aggregated selection of "vesting_account" */
+export type Vesting_Account_Aggregate = {
+  __typename?: 'vesting_account_aggregate';
+  aggregate?: Maybe<Vesting_Account_Aggregate_Fields>;
+  nodes: Array<Vesting_Account>;
+};
+
+/** aggregate fields of "vesting_account" */
+export type Vesting_Account_Aggregate_Fields = {
+  __typename?: 'vesting_account_aggregate_fields';
+  avg?: Maybe<Vesting_Account_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Vesting_Account_Max_Fields>;
+  min?: Maybe<Vesting_Account_Min_Fields>;
+  stddev?: Maybe<Vesting_Account_Stddev_Fields>;
+  stddev_pop?: Maybe<Vesting_Account_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Vesting_Account_Stddev_Samp_Fields>;
+  sum?: Maybe<Vesting_Account_Sum_Fields>;
+  var_pop?: Maybe<Vesting_Account_Var_Pop_Fields>;
+  var_samp?: Maybe<Vesting_Account_Var_Samp_Fields>;
+  variance?: Maybe<Vesting_Account_Variance_Fields>;
+};
+
+
+/** aggregate fields of "vesting_account" */
+export type Vesting_Account_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Vesting_Account_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Vesting_Account_Avg_Fields = {
+  __typename?: 'vesting_account_avg_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "vesting_account". All fields are combined with a logical 'AND'. */
+export type Vesting_Account_Bool_Exp = {
+  _and?: Maybe<Array<Vesting_Account_Bool_Exp>>;
+  _not?: Maybe<Vesting_Account_Bool_Exp>;
+  _or?: Maybe<Array<Vesting_Account_Bool_Exp>>;
+  account?: Maybe<Account_Bool_Exp>;
+  address?: Maybe<String_Comparison_Exp>;
+  end_time?: Maybe<Timestamp_Comparison_Exp>;
+  id?: Maybe<Int_Comparison_Exp>;
+  original_vesting?: Maybe<_Coin_Comparison_Exp>;
+  start_time?: Maybe<Timestamp_Comparison_Exp>;
+  type?: Maybe<String_Comparison_Exp>;
+  vesting_periods?: Maybe<Vesting_Period_Bool_Exp>;
+};
+
+/** aggregate max on columns */
+export type Vesting_Account_Max_Fields = {
+  __typename?: 'vesting_account_max_fields';
+  address?: Maybe<Scalars['String']>;
+  end_time?: Maybe<Scalars['timestamp']>;
+  id?: Maybe<Scalars['Int']>;
+  start_time?: Maybe<Scalars['timestamp']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Vesting_Account_Min_Fields = {
+  __typename?: 'vesting_account_min_fields';
+  address?: Maybe<Scalars['String']>;
+  end_time?: Maybe<Scalars['timestamp']>;
+  id?: Maybe<Scalars['Int']>;
+  start_time?: Maybe<Scalars['timestamp']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "vesting_account". */
+export type Vesting_Account_Order_By = {
+  account?: Maybe<Account_Order_By>;
+  address?: Maybe<Order_By>;
+  end_time?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  original_vesting?: Maybe<Order_By>;
+  start_time?: Maybe<Order_By>;
+  type?: Maybe<Order_By>;
+  vesting_periods_aggregate?: Maybe<Vesting_Period_Aggregate_Order_By>;
+};
+
+/** select columns of table "vesting_account" */
+export enum Vesting_Account_Select_Column {
+  /** column name */
+  Address = 'address',
+  /** column name */
+  EndTime = 'end_time',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  OriginalVesting = 'original_vesting',
+  /** column name */
+  StartTime = 'start_time',
+  /** column name */
+  Type = 'type'
+}
+
+/** aggregate stddev on columns */
+export type Vesting_Account_Stddev_Fields = {
+  __typename?: 'vesting_account_stddev_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Vesting_Account_Stddev_Pop_Fields = {
+  __typename?: 'vesting_account_stddev_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Vesting_Account_Stddev_Samp_Fields = {
+  __typename?: 'vesting_account_stddev_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Vesting_Account_Sum_Fields = {
+  __typename?: 'vesting_account_sum_fields';
+  id?: Maybe<Scalars['Int']>;
+};
+
+/** aggregate var_pop on columns */
+export type Vesting_Account_Var_Pop_Fields = {
+  __typename?: 'vesting_account_var_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Vesting_Account_Var_Samp_Fields = {
+  __typename?: 'vesting_account_var_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Vesting_Account_Variance_Fields = {
+  __typename?: 'vesting_account_variance_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** columns and relationships of "vesting_period" */
+export type Vesting_Period = {
+  __typename?: 'vesting_period';
+  amount: Scalars['_coin'];
+  length: Scalars['bigint'];
+  period_order: Scalars['bigint'];
+  /** An object relationship */
+  vesting_account: Vesting_Account;
+  vesting_account_id: Scalars['bigint'];
+};
+
+/** aggregated selection of "vesting_period" */
+export type Vesting_Period_Aggregate = {
+  __typename?: 'vesting_period_aggregate';
+  aggregate?: Maybe<Vesting_Period_Aggregate_Fields>;
+  nodes: Array<Vesting_Period>;
+};
+
+/** aggregate fields of "vesting_period" */
+export type Vesting_Period_Aggregate_Fields = {
+  __typename?: 'vesting_period_aggregate_fields';
+  avg?: Maybe<Vesting_Period_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Vesting_Period_Max_Fields>;
+  min?: Maybe<Vesting_Period_Min_Fields>;
+  stddev?: Maybe<Vesting_Period_Stddev_Fields>;
+  stddev_pop?: Maybe<Vesting_Period_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Vesting_Period_Stddev_Samp_Fields>;
+  sum?: Maybe<Vesting_Period_Sum_Fields>;
+  var_pop?: Maybe<Vesting_Period_Var_Pop_Fields>;
+  var_samp?: Maybe<Vesting_Period_Var_Samp_Fields>;
+  variance?: Maybe<Vesting_Period_Variance_Fields>;
+};
+
+
+/** aggregate fields of "vesting_period" */
+export type Vesting_Period_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Vesting_Period_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "vesting_period" */
+export type Vesting_Period_Aggregate_Order_By = {
+  avg?: Maybe<Vesting_Period_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Vesting_Period_Max_Order_By>;
+  min?: Maybe<Vesting_Period_Min_Order_By>;
+  stddev?: Maybe<Vesting_Period_Stddev_Order_By>;
+  stddev_pop?: Maybe<Vesting_Period_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Vesting_Period_Stddev_Samp_Order_By>;
+  sum?: Maybe<Vesting_Period_Sum_Order_By>;
+  var_pop?: Maybe<Vesting_Period_Var_Pop_Order_By>;
+  var_samp?: Maybe<Vesting_Period_Var_Samp_Order_By>;
+  variance?: Maybe<Vesting_Period_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Vesting_Period_Avg_Fields = {
+  __typename?: 'vesting_period_avg_fields';
+  length?: Maybe<Scalars['Float']>;
+  period_order?: Maybe<Scalars['Float']>;
+  vesting_account_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "vesting_period" */
+export type Vesting_Period_Avg_Order_By = {
+  length?: Maybe<Order_By>;
+  period_order?: Maybe<Order_By>;
+  vesting_account_id?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "vesting_period". All fields are combined with a logical 'AND'. */
+export type Vesting_Period_Bool_Exp = {
+  _and?: Maybe<Array<Vesting_Period_Bool_Exp>>;
+  _not?: Maybe<Vesting_Period_Bool_Exp>;
+  _or?: Maybe<Array<Vesting_Period_Bool_Exp>>;
+  amount?: Maybe<_Coin_Comparison_Exp>;
+  length?: Maybe<Bigint_Comparison_Exp>;
+  period_order?: Maybe<Bigint_Comparison_Exp>;
+  vesting_account?: Maybe<Vesting_Account_Bool_Exp>;
+  vesting_account_id?: Maybe<Bigint_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Vesting_Period_Max_Fields = {
+  __typename?: 'vesting_period_max_fields';
+  length?: Maybe<Scalars['bigint']>;
+  period_order?: Maybe<Scalars['bigint']>;
+  vesting_account_id?: Maybe<Scalars['bigint']>;
+};
+
+/** order by max() on columns of table "vesting_period" */
+export type Vesting_Period_Max_Order_By = {
+  length?: Maybe<Order_By>;
+  period_order?: Maybe<Order_By>;
+  vesting_account_id?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Vesting_Period_Min_Fields = {
+  __typename?: 'vesting_period_min_fields';
+  length?: Maybe<Scalars['bigint']>;
+  period_order?: Maybe<Scalars['bigint']>;
+  vesting_account_id?: Maybe<Scalars['bigint']>;
+};
+
+/** order by min() on columns of table "vesting_period" */
+export type Vesting_Period_Min_Order_By = {
+  length?: Maybe<Order_By>;
+  period_order?: Maybe<Order_By>;
+  vesting_account_id?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "vesting_period". */
+export type Vesting_Period_Order_By = {
+  amount?: Maybe<Order_By>;
+  length?: Maybe<Order_By>;
+  period_order?: Maybe<Order_By>;
+  vesting_account?: Maybe<Vesting_Account_Order_By>;
+  vesting_account_id?: Maybe<Order_By>;
+};
+
+/** select columns of table "vesting_period" */
+export enum Vesting_Period_Select_Column {
+  /** column name */
+  Amount = 'amount',
+  /** column name */
+  Length = 'length',
+  /** column name */
+  PeriodOrder = 'period_order',
+  /** column name */
+  VestingAccountId = 'vesting_account_id'
+}
+
+/** aggregate stddev on columns */
+export type Vesting_Period_Stddev_Fields = {
+  __typename?: 'vesting_period_stddev_fields';
+  length?: Maybe<Scalars['Float']>;
+  period_order?: Maybe<Scalars['Float']>;
+  vesting_account_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "vesting_period" */
+export type Vesting_Period_Stddev_Order_By = {
+  length?: Maybe<Order_By>;
+  period_order?: Maybe<Order_By>;
+  vesting_account_id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Vesting_Period_Stddev_Pop_Fields = {
+  __typename?: 'vesting_period_stddev_pop_fields';
+  length?: Maybe<Scalars['Float']>;
+  period_order?: Maybe<Scalars['Float']>;
+  vesting_account_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "vesting_period" */
+export type Vesting_Period_Stddev_Pop_Order_By = {
+  length?: Maybe<Order_By>;
+  period_order?: Maybe<Order_By>;
+  vesting_account_id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Vesting_Period_Stddev_Samp_Fields = {
+  __typename?: 'vesting_period_stddev_samp_fields';
+  length?: Maybe<Scalars['Float']>;
+  period_order?: Maybe<Scalars['Float']>;
+  vesting_account_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "vesting_period" */
+export type Vesting_Period_Stddev_Samp_Order_By = {
+  length?: Maybe<Order_By>;
+  period_order?: Maybe<Order_By>;
+  vesting_account_id?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Vesting_Period_Sum_Fields = {
+  __typename?: 'vesting_period_sum_fields';
+  length?: Maybe<Scalars['bigint']>;
+  period_order?: Maybe<Scalars['bigint']>;
+  vesting_account_id?: Maybe<Scalars['bigint']>;
+};
+
+/** order by sum() on columns of table "vesting_period" */
+export type Vesting_Period_Sum_Order_By = {
+  length?: Maybe<Order_By>;
+  period_order?: Maybe<Order_By>;
+  vesting_account_id?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Vesting_Period_Var_Pop_Fields = {
+  __typename?: 'vesting_period_var_pop_fields';
+  length?: Maybe<Scalars['Float']>;
+  period_order?: Maybe<Scalars['Float']>;
+  vesting_account_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "vesting_period" */
+export type Vesting_Period_Var_Pop_Order_By = {
+  length?: Maybe<Order_By>;
+  period_order?: Maybe<Order_By>;
+  vesting_account_id?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Vesting_Period_Var_Samp_Fields = {
+  __typename?: 'vesting_period_var_samp_fields';
+  length?: Maybe<Scalars['Float']>;
+  period_order?: Maybe<Scalars['Float']>;
+  vesting_account_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "vesting_period" */
+export type Vesting_Period_Var_Samp_Order_By = {
+  length?: Maybe<Order_By>;
+  period_order?: Maybe<Order_By>;
+  vesting_account_id?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Vesting_Period_Variance_Fields = {
+  __typename?: 'vesting_period_variance_fields';
+  length?: Maybe<Scalars['Float']>;
+  period_order?: Maybe<Scalars['Float']>;
+  vesting_account_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "vesting_period" */
+export type Vesting_Period_Variance_Order_By = {
+  length?: Maybe<Order_By>;
+  period_order?: Maybe<Order_By>;
+  vesting_account_id?: Maybe<Order_By>;
 };
 
 export type DesmosProfileQueryVariables = Exact<{
