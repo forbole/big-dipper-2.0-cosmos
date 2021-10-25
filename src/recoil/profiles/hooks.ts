@@ -9,7 +9,6 @@ import {
 import { chainConfig } from '@configs';
 import { useDesmosProfile } from '@hooks';
 import { bech32 } from 'bech32';
-
 import {
   readProfile,
   atomFamilyState as profileAtomState,
@@ -38,14 +37,16 @@ export const useProfileRecoil = (address: string) => {
   const callback = useRecoilCallback(({
     set, snapshot,
   }) => async () => {
-    const consensusRegex = `^(${chainConfig.prefix.consensus})`;
-    const validatorRegex = `^(${chainConfig.prefix.validator})`;
-    const delegatorRegex = `^(${chainConfig.prefix.account})`;
+    // const consensusRegex = `^(${chainConfig.prefix.consensus})`;
+    // const validatorRegex = `^(${chainConfig.prefix.validator})`;
+    // const delegatorRegex = `^(${chainConfig.prefix.account})`;
     let selectedAddress = '';
     if (new RegExp(consensusRegex).test(address)) {
       // address given is a consensus
       const validator = await snapshot.getPromise(readValidator(address));
-      selectedAddress = validator.delegator;
+      if (validator) {
+        selectedAddress = validator.delegator;
+      }
     } else if (new RegExp(validatorRegex).test(address)) {
       // address given is a validator
       const decode = bech32.decode(address).words;
@@ -71,7 +72,7 @@ export const useProfileRecoil = (address: string) => {
 
   useEffect(() => {
     callback();
-  }, [address]);
+  }, [address, profileAddress]);
 
   return ({
     profile: profile ?? ({
