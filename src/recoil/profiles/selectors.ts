@@ -67,3 +67,17 @@ export const readDelegatorAddress = selectorFamily({
     });
   },
 });
+
+export const readProfiles = selectorFamily({
+  key: 'profile.read.profiles',
+  get: (addresses:string[]) => ({ get }): AtomState[] => {
+    const profiles = addresses.map((x) => {
+      const delegatorAddress = getDelegatorAddress({
+        address: x, get,
+      });
+      const state = get(atomFamilyState(delegatorAddress));
+      return state;
+    });
+    return profiles;
+  },
+});
