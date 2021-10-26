@@ -153,3 +153,27 @@ export const readDelegatorAddresses = selectorFamily({
     });
   },
 });
+
+export const readProfileExist = selectorFamily({
+  key: 'profile.read.profileExist',
+  get: (address: string) => ({ get }) => {
+    const delegatorAddress = getDelegatorAddress({
+      address, get,
+    });
+    const state = get(atomFamilyState(delegatorAddress));
+    return state;
+  },
+});
+
+export const readProfilesExist = selectorFamily({
+  key: 'profile.read.profilesExist',
+  get: (addresses: string[]) => ({ get }) => {
+    return addresses.map((x) => {
+      const delegatorAddress = getDelegatorAddress({
+        address: x, get,
+      });
+      const state = get(atomFamilyState(delegatorAddress));
+      return state;
+    });
+  },
+});

@@ -13,6 +13,7 @@ import {
   writeProfiles,
   readDelegatorAddress,
   readDelegatorAddresses,
+  readProfileExist,
 } from './selectors';
 
 export {
@@ -24,4 +25,5 @@ export {
   writeProfiles,
   readDelegatorAddress,
   readDelegatorAddresses,
+  readProfileExist,
 };

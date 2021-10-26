@@ -4,11 +4,14 @@ import {
   useRecoilState,
   useRecoilValue,
   SetterOrUpdater,
+  useRecoilCallback,
 } from 'recoil';
 import { chainConfig } from '@configs';
 import {
   writeProfile,
   writeProfiles,
+  readProfileExist,
+  readProfile,
   readDelegatorAddress,
   readDelegatorAddresses,
 } from '@recoil/profiles';
@@ -20,25 +23,27 @@ import { getProfile } from './utils';
  */
 export const useProfileRecoil = (address: string): AvatarName => {
   const delegatorAddress = useRecoilValue(readDelegatorAddress(address));
-  const [profile, setProfile] = useRecoilState(writeProfile(address)) as [AvatarName, SetterOrUpdater<AvatarName>];
+  const rawProfile = useRecoilValue(readProfileExist(address));
+  const profile = useRecoilValue(readProfile(address));
+
+  const fetchProfile = useRecoilCallback(({ set }) => async () => {
+    const fetchedProfile = await getProfile(delegatorAddress);
+    if (fetchedProfile === null) {
+      set(writeProfile(delegatorAddress), null);
+    } else {
+      set(writeProfile(delegatorAddress), {
+        address: delegatorAddress,
+        name: fetchedProfile.nickname,
+        imageUrl: fetchedProfile.imageUrl,
+      });
+    }
+    // }
+  });
 
   useEffect(() => {
-    const fetchProfile = async () => {
-      const fetchedProfile = await getProfile(delegatorAddress);
-      if (fetchedProfile === null) {
-        setProfile(null);
-      } else {
-        setProfile({
-          address: delegatorAddress,
-          name: fetchedProfile.nickname,
-          imageUrl: fetchedProfile.imageUrl,
-        });
-      }
-    };
-
     if (chainConfig.extra.profile
       && delegatorAddress
-      && profile === null) {
+      && rawProfile === null) {
       fetchProfile();
     }
   }, []);
