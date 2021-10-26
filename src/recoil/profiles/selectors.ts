@@ -6,6 +6,7 @@ import * as R from 'ramda';
 import { bech32 } from 'bech32';
 import { chainConfig } from '@configs';
 import { readValidator } from '@recoil/validators';
+import { AtomState as ProfileAtomState } from '@recoil/profiles/types';
 import { atomFamilyState } from './atom';
 
 // ======================================================================
@@ -156,7 +157,7 @@ export const readDelegatorAddresses = selectorFamily({
 
 export const readProfileExist = selectorFamily({
   key: 'profile.read.profileExist',
-  get: (address: string) => ({ get }) => {
+  get: (address: string) => ({ get }): ProfileAtomState => {
     const delegatorAddress = getDelegatorAddress({
       address, get,
     });
@@ -168,12 +169,13 @@ export const readProfileExist = selectorFamily({
 export const readProfilesExist = selectorFamily({
   key: 'profile.read.profilesExist',
   get: (addresses: string[]) => ({ get }) => {
-    return addresses.map((x) => {
+    const profiles: ProfileAtomState[] = addresses.map((x) => {
       const delegatorAddress = getDelegatorAddress({
         address: x, get,
       });
       const state = get(atomFamilyState(delegatorAddress));
       return state;
     });
+    return profiles;
   },
 });

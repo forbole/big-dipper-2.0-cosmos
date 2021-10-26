@@ -10,11 +10,14 @@ import { chainConfig } from '@configs';
 import {
   writeProfile,
   writeProfiles,
+  readProfilesExist,
   readProfileExist,
   readProfile,
+  readProfiles,
   readDelegatorAddress,
   readDelegatorAddresses,
 } from '@recoil/profiles';
+import { AtomState as ProfileAtomState } from '@recoil/profiles/types';
 import { getProfile } from './utils';
 
 /**
@@ -57,40 +60,59 @@ export const useProfileRecoil = (address: string): AvatarName => {
  */
 export const useProfilesRecoil = (addresses: string[]): AvatarName => {
   const delegatorAddresses = useRecoilValue(readDelegatorAddresses(addresses));
-  const [profiles, setProfiles] = useRecoilState(writeProfiles(delegatorAddresses)) as [AvatarName[], SetterOrUpdater<AvatarName[]>];
+  const rawProfiles: ProfileAtomState[] = useRecoilValue(readProfilesExist(addresses));
+  const profiles = useRecoilValue(readProfiles(addresses));
+  // const [profiles, setProfiles] = useRecoilState(writeProfiles(delegatorAddresses)) as [AvatarName[], SetterOrUpdater<AvatarName[]>];
 
-  const results: number[] = await Promise.all(arr.map(async (item): Promise<number> => {
-    await callAsynchronousOperation(item);
-    return item + 1;
-  }));
+  // const results: number[] = await Promise.all(arr.map(async (item): Promise<number> => {
+  //   await callAsynchronousOperation(item);
+  //   return item + 1;
+  // }));
+
+  const fetchProfiles = useRecoilCallback(({ set }) => async () => {
+    const fetchedProfile = await getProfile(delegatorAddress);
+    if (fetchedProfile === null) {
+      set(writeProfile(delegatorAddress), null);
+    } else {
+      set(writeProfile(delegatorAddress), {
+        address: delegatorAddress,
+        name: fetchedProfile.nickname,
+        imageUrl: fetchedProfile.imageUrl,
+      });
+    }
+    // }
+  });
 
   useEffect(() => {
     const fetchProfile = async () => {
-      const fetchedProfiles = await Promise.all(profiles.map(async (x) => {
-        // loop over the profiles
-        // if (x === null) {
-
-        // }
-        // const fetchedProfile = await getProfile(x);
-        // await callAsynchronousOperation(item);
-        // return item + 1;
+      const fetchedProfiles = await Promise.all(rawProfiles.map(async (x, i) => {
+        if (delegatorAddresses[i] && x === null) {
+          const fetchedProfile = await getProfile(delegatorAddresses[i]);
+          if (fetchedProfile === null) {
+            set(writeProfile(delegatorAddress), null);
+          } else {
+            set(writeProfile(delegatorAddress), {
+              address: delegatorAddress,
+              name: fetchedProfile.nickname,
+              imageUrl: fetchedProfile.imageUrl,
+            });
+          }
+        }
       }));
 
-      const fetchedProfile = await getProfile(delegatorAddress);
-      if (fetchedProfile === null) {
-        setProfile(null);
-      } else {
-        setProfile({
-          address: delegatorAddress,
-          name: fetchedProfile.nickname,
-          imageUrl: fetchedProfile.imageUrl,
-        });
-      }
+      // const fetchedProfile = await getProfile(delegatorAddress);
+      // if (fetchedProfile === null) {
+      //   setProfile(null);
+      // } else {
+      //   setProfile({
+      //     address: delegatorAddress,
+      //     name: fetchedProfile.nickname,
+      //     imageUrl: fetchedProfile.imageUrl,
+      //   });
+      // }
     };
 
-    if (chainConfig.extra.profile
-      && delegatorAddress
-      && profile === null) {
+    if (chainConfig.extra.profile) {
       fetchProfile();
     }
   }, []);
