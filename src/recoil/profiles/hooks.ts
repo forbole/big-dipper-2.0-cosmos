@@ -7,7 +7,10 @@ import {
 } from 'recoil';
 import { chainConfig } from '@configs';
 import {
-  writeProfile, readDelegatorAddress,
+  writeProfile,
+  writeProfiles,
+  readDelegatorAddress,
+  readDelegatorAddresses,
 } from '@recoil/profiles';
 import { getProfile } from './utils';
 
@@ -18,6 +21,38 @@ import { getProfile } from './utils';
 export const useProfileRecoil = (address: string): AvatarName => {
   const delegatorAddress = useRecoilValue(readDelegatorAddress(address));
   const [profile, setProfile] = useRecoilState(writeProfile(address)) as [AvatarName, SetterOrUpdater<AvatarName>];
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const fetchedProfile = await getProfile(delegatorAddress);
+      if (fetchedProfile === null) {
+        setProfile(null);
+      } else {
+        setProfile({
+          address: delegatorAddress,
+          name: fetchedProfile.nickname,
+          imageUrl: fetchedProfile.imageUrl,
+        });
+      }
+    };
+
+    if (chainConfig.extra.profile
+      && delegatorAddress
+      && profile === null) {
+      fetchProfile();
+    }
+  }, []);
+
+  return profile;
+};
+
+/**
+ * Accepts a list of addresses and returns the appropriate profiles
+ * @param address
+ */
+export const useProfilesRecoil = (addresses: string[]): AvatarName => {
+  const delegatorAddresses = useRecoilValue(readDelegatorAddresses(addresses));
+  const [profiles, setProfiles] = useRecoilState(writeProfiles(delegatorAddresses)) as [AvatarName[], SetterOrUpdater<AvatarName[]>];
 
   useEffect(() => {
     const fetchProfile = async () => {

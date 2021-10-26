@@ -7,10 +7,9 @@ import { bech32 } from 'bech32';
 import { chainConfig } from '@configs';
 import { readValidator } from '@recoil/validators';
 import { atomFamilyState } from './atom';
-import { AtomState } from './types';
 
 // ======================================================================
-// utils
+// selector utils
 // ======================================================================
 
 const getDelegatorAddress = ({
@@ -58,6 +57,23 @@ const getProfile = (address: string) => ({ get }): AvatarName => {
   });
 };
 
+const getProfiles = (addresses: string[]) => ({ get }): AvatarName[] => {
+  const profiles = addresses.map((x) => {
+    const delegatorAddress = getDelegatorAddress({
+      address: x, get,
+    });
+    const state = get(atomFamilyState(delegatorAddress));
+    const name = R.pathOr(x, ['moniker'], state);
+    const imageUrl = R.pathOr('', ['imageUrl'], state);
+    return ({
+      address: x,
+      name,
+      imageUrl,
+    });
+  });
+  return profiles;
+};
+
 // ======================================================================
 // selectors
 // ======================================================================
@@ -83,6 +99,31 @@ export const writeProfile = selectorFamily<AvatarName, string>({
   },
 });
 
+export const writeProfiles = selectorFamily({
+  key: 'profile.read.profiles',
+  get: getProfiles,
+  set: (addresses: string[]) => ({
+    set, get,
+  }, profiles: AvatarName[]) => {
+    const delegatorAddresses = addresses.map((x) => getDelegatorAddress({
+      address: x, get,
+    }));
+
+    delegatorAddresses.forEach((x, i) => {
+      if (x) {
+        if (profiles[i] === null) {
+          set(atomFamilyState(x), false);
+        } else {
+          set(atomFamilyState(x), {
+            moniker: R.pathOr('', [i, 'name'], profiles),
+            imageUrl: R.pathOr('', [i, 'imageUrl'], profiles),
+          });
+        }
+      }
+    });
+  },
+});
+
 export const readProfile = selectorFamily({
   key: 'profile.read.profile',
   get: getProfile,
@@ -90,16 +131,7 @@ export const readProfile = selectorFamily({
 
 export const readProfiles = selectorFamily({
   key: 'profile.read.profiles',
-  get: (addresses:string[]) => ({ get }): AtomState[] => {
-    const profiles = addresses.map((x) => {
-      const delegatorAddress = getDelegatorAddress({
-        address: x, get,
-      });
-      const state = get(atomFamilyState(delegatorAddress));
-      return state;
-    });
-    return profiles;
-  },
+  get: getProfiles,
 });
 
 export const readDelegatorAddress = selectorFamily({
@@ -112,7 +144,7 @@ export const readDelegatorAddress = selectorFamily({
 });
 
 export const readDelegatorAddresses = selectorFamily({
-  key: 'profile.read.delegatorAddress',
+  key: 'profile.read.delegatorAddresses',
   get: (addresses:string[]) => ({ get }): string[] => {
     return addresses.map((x) => {
       return getDelegatorAddress({
