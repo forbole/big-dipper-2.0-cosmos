@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import { useEffect } from 'react';
-import * as R from 'ramda';
 import {
   useRecoilState,
   useRecoilValue,
@@ -18,7 +17,7 @@ import { getProfile } from './utils';
  */
 export const useProfileRecoil = (address: string): AvatarName => {
   const delegatorAddress = useRecoilValue(readDelegatorAddress(address));
-  const [profile, setProfile] = useRecoilState(writeProfile(delegatorAddress)) as [AvatarName, SetterOrUpdater<AvatarName>];
+  const [profile, setProfile] = useRecoilState(writeProfile(address)) as [AvatarName, SetterOrUpdater<AvatarName>];
 
   useEffect(() => {
     const fetchProfile = async () => {

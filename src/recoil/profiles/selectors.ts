@@ -50,7 +50,7 @@ const getProfile = (address: string) => ({ get }): AvatarName => {
   });
   const state = get(atomFamilyState(delegatorAddress));
   const name = R.pathOr(address, ['moniker'], state);
-  const imageUrl = R.pathOr('', ['imageUrl', state]);
+  const imageUrl = R.pathOr('', ['imageUrl'], state);
   return ({
     address,
     name,

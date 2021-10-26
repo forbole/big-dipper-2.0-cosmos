@@ -71,6 +71,11 @@ export const useValidatorRecoil = () => {
         || R.pathOr('', ['validatorDescriptions', 0, 'avatarUrl'], x)
       );
 
+      if (x.validatorInfo.operatorAddress === 'desmosvaloper15frwdukqwlenk0sn69haacnce3kcnyjqywnvcn') {
+        console.log(moniker, 'moniker');
+        console.log(imageUrl, 'imageurl');
+      }
+
       set(profileAtomFamilyState(delegatorAddress), {
         moniker,
         imageUrl,
