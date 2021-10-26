@@ -54,8 +54,23 @@ export const useProfilesRecoil = (addresses: string[]): AvatarName => {
   const delegatorAddresses = useRecoilValue(readDelegatorAddresses(addresses));
   const [profiles, setProfiles] = useRecoilState(writeProfiles(delegatorAddresses)) as [AvatarName[], SetterOrUpdater<AvatarName[]>];
 
+  const results: number[] = await Promise.all(arr.map(async (item): Promise<number> => {
+    await callAsynchronousOperation(item);
+    return item + 1;
+  }));
+
   useEffect(() => {
     const fetchProfile = async () => {
+      const fetchedProfiles = await Promise.all(profiles.map(async (x) => {
+        // loop over the profiles
+        // if (x === null) {
+
+        // }
+        // const fetchedProfile = await getProfile(x);
+        // await callAsynchronousOperation(item);
+        // return item + 1;
+      }));
+
       const fetchedProfile = await getProfile(delegatorAddress);
       if (fetchedProfile === null) {
         setProfile(null);
