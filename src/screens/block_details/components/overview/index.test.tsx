@@ -23,10 +23,7 @@ describe('screen: BlockDetails/Overview', () => {
           <Overview
             height={300}
             hash="hash"
-            proposer={{
-              address: 'address',
-              name: 'name',
-            }}
+            proposer="proposer"
             txs={0}
             timestamp=""
           />

@@ -44,7 +44,7 @@ function App(props: AppProps) {
         client={apolloClient}
       >
         <RecoilRoot>
-          <DebugObserver />
+          {/* <DebugObserver /> */}
           <Main {...props} />
         </RecoilRoot>
       </ApolloProvider>

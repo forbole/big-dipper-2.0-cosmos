@@ -8,7 +8,6 @@ import { chainConfig } from '@configs';
 import { readValidator } from '@recoil/validators';
 import { atomFamilyState } from './atom';
 import { AtomState } from './types';
-import { getProfile as fetchProfile } from './utils';
 
 // ======================================================================
 // utils
@@ -62,31 +61,25 @@ const getProfile = (address: string) => ({ get }): AvatarName => {
 // ======================================================================
 // selectors
 // ======================================================================
-export const writeProfile = selectorFamily({
+export const writeProfile = selectorFamily<AvatarName, string>({
   key: 'profile.write.profile',
   get: getProfile,
-  set: (address: string) => async ({
+  set: (address: string) => ({
     set, get,
-  }) => {
+  }, profile: AvatarName) => {
     const delegatorAddress = getDelegatorAddress({
       address, get,
     });
-    const profile = get(atomFamilyState(delegatorAddress));
-
-    if (chainConfig.extra.profile
-      && delegatorAddress
-      && profile === null) {
-      const fetchedProfile = await fetchProfile(address);
-      if (fetchedProfile === null) {
+    if (delegatorAddress) {
+      if (profile === null) {
         set(atomFamilyState(delegatorAddress), false);
       } else {
         set(atomFamilyState(delegatorAddress), {
-          moniker: fetchedProfile.nickname,
-          imageUrl: fetchedProfile.imageUrl,
+          moniker: profile.name,
+          imageUrl: profile.imageUrl,
         });
       }
     }
-    set(atomFamilyState(address), profile);
   },
 });
 

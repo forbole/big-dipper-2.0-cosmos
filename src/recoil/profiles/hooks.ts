@@ -8,13 +8,8 @@ import {
 } from 'recoil';
 import { chainConfig } from '@configs';
 import {
-  writeProfile,
-  readDelegatorAddress,
-  readDelegatorAddresses,
+  writeProfile, readDelegatorAddress,
 } from '@recoil/profiles';
-import {
-  Profile, AtomState,
-} from '@recoil/profiles/types';
 import { getProfile } from './utils';
 
 /**
@@ -23,16 +18,17 @@ import { getProfile } from './utils';
  */
 export const useProfileRecoil = (address: string): AvatarName => {
   const delegatorAddress = useRecoilValue(readDelegatorAddress(address));
-  const [profile, setProfile] = useRecoilState(writeProfile(delegatorAddress)) as [AtomState, SetterOrUpdater<AtomState>];
+  const [profile, setProfile] = useRecoilState(writeProfile(delegatorAddress)) as [AvatarName, SetterOrUpdater<AvatarName>];
 
   useEffect(() => {
-    const getProfileEffect = async () => {
-      const fetchedProfile: DesmosProfile = await getProfile(delegatorAddress);
+    const fetchProfile = async () => {
+      const fetchedProfile = await getProfile(delegatorAddress);
       if (fetchedProfile === null) {
-        setProfile(false);
+        setProfile(null);
       } else {
         setProfile({
-          moniker: fetchedProfile.nickname,
+          address: delegatorAddress,
+          name: fetchedProfile.nickname,
           imageUrl: fetchedProfile.imageUrl,
         });
       }
@@ -41,49 +37,9 @@ export const useProfileRecoil = (address: string): AvatarName => {
     if (chainConfig.extra.profile
       && delegatorAddress
       && profile === null) {
-      getProfileEffect();
+      fetchProfile();
     }
-  }, [address]);
+  }, []);
 
-  const name = R.pathOr(address, ['moniker'], profile) as string;
-  const imageUrl = R.pathOr('', ['imageUrl'], profile);
-
-  return ({
-    name,
-    address,
-    imageUrl,
-  });
-};
-
-/**
- * Accepts a list of address and returns the appropriate profile
- * @param address
- */
-export const useProfilesRecoil = (addresses: string[]): Profile => {
-  const delegatorAddress = useRecoilValue(readDelegatorAddresses(addresses));
-  const [profile, setProfile] = useRecoilState(writeProfile(delegatorAddress)) as [AtomState, SetterOrUpdater<AtomState>];
-
-  useEffect(() => {
-    const getProfileEffect = async () => {
-      const fetchedProfile: DesmosProfile = await getProfile(delegatorAddress);
-      if (fetchedProfile === null) {
-        setProfile(false);
-      } else {
-        setProfile({
-          moniker: fetchedProfile.nickname,
-          imageUrl: fetchedProfile.imageUrl,
-        });
-      }
-    };
-
-    if (chainConfig.extra.profile
-      && delegatorAddress
-      && profile === null) {
-      getProfileEffect();
-    }
-  }, [address]);
-
-  return profile || ({
-    moniker: address,
-  });
+  return profile;
 };
