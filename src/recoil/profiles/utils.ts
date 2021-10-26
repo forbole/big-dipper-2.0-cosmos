@@ -47,7 +47,7 @@ const fetchDesmosProfile = async (address: string) => {
   }
 };
 
-const formatDesmosProfile = (data:DesmosProfileQuery): DesmosProfile => {
+const formatDesmosProfile = (data:DesmosProfileQuery) => {
   if (!data.profile.length) {
     return null;
   }
@@ -90,7 +90,7 @@ const formatDesmosProfile = (data:DesmosProfileQuery): DesmosProfile => {
   });
 };
 
-export const getProfile = async (delegatorAddress: string) => {
+export const getProfile = async (delegatorAddress: string): Promise<DesmosProfile | null> => {
   const profile = await fetchDesmosProfile(delegatorAddress);
   return profile;
 };

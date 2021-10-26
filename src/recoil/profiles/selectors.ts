@@ -1,11 +1,14 @@
 import {
-  selectorFamily, GetRecoilValue,
+  selectorFamily,
+  GetRecoilValue,
 } from 'recoil';
+import * as R from 'ramda';
 import { bech32 } from 'bech32';
 import { chainConfig } from '@configs';
 import { readValidator } from '@recoil/validators';
 import { atomFamilyState } from './atom';
 import { AtomState } from './types';
+import { getProfile as fetchProfile } from './utils';
 
 // ======================================================================
 // utils
@@ -42,22 +45,47 @@ const getDelegatorAddress = ({
  * @param address string
  * @returns string | null
  */
-const getProfile = (address: string) => ({ get }): AtomState => {
+const getProfile = (address: string) => ({ get }): AvatarName => {
   const delegatorAddress = getDelegatorAddress({
     address, get,
   });
   const state = get(atomFamilyState(delegatorAddress));
-  return state;
+  const name = R.pathOr(address, ['moniker'], state);
+  const imageUrl = R.pathOr('', ['imageUrl', state]);
+  return ({
+    address,
+    name,
+    imageUrl,
+  });
 };
 
 // ======================================================================
 // selectors
 // ======================================================================
-
-export const writeProfile = selectorFamily<AtomState, string>({
+export const writeProfile = selectorFamily({
   key: 'profile.write.profile',
   get: getProfile,
-  set: (address: string) => ({ set }, profile) => {
+  set: (address: string) => async ({
+    set, get,
+  }) => {
+    const delegatorAddress = getDelegatorAddress({
+      address, get,
+    });
+    const profile = get(atomFamilyState(delegatorAddress));
+
+    if (chainConfig.extra.profile
+      && delegatorAddress
+      && profile === null) {
+      const fetchedProfile = await fetchProfile(address);
+      if (fetchedProfile === null) {
+        set(atomFamilyState(delegatorAddress), false);
+      } else {
+        set(atomFamilyState(delegatorAddress), {
+          moniker: fetchedProfile.nickname,
+          imageUrl: fetchedProfile.imageUrl,
+        });
+      }
+    }
     set(atomFamilyState(address), profile);
   },
 });

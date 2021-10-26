@@ -13,8 +13,7 @@ import {
   atomFamilyState as validatorAtomState,
 } from '@recoil/validators';
 import {
-  atomFamilyState as profileAtomState,
-  writeProfile,
+  atomFamilyState as profileAtomFamilyState,
 } from '@recoil/profiles';
 
 export const useValidatorRecoil = () => {
@@ -71,12 +70,8 @@ export const useValidatorRecoil = () => {
         R.pathOr('', ['imageUrl'], profile)
         || R.pathOr('', ['validatorDescriptions', 0, 'avatarUrl'], x)
       );
-      // ryuash
-      // if (x.validatorInfo.operatorAddress === 'desmosvaloper195rzr58csup9jgkfr2zwtxr4xc6skdlc26mdrt') {
-      //   console.log(moniker, 'what is your moniker');
-      //   console.log(x.validatorInfo.selfDelegateAddress, 'delegator address');
-      // }
-      set(writeProfile(delegatorAddress), {
+
+      set(profileAtomFamilyState(delegatorAddress), {
         moniker,
         imageUrl,
       });
