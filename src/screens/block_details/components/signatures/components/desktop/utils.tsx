@@ -1,5 +1,5 @@
 import { AvatarName } from '@components';
-import { useProfileRecoil } from '@recoil/profiles';
+import { Signatures } from '../../types';
 
 export const columns:{
   key: string;
@@ -12,19 +12,15 @@ export const columns:{
   },
 ];
 
-export const formatRows = (data: string[]) => {
+export const formatRows = (data: Signatures[]) => {
   return data.map((x) => {
-    // const signature = useProfileRecoil(x);
-
     return (
       {
         validator: (
           <AvatarName
-            address={x}
-            imageUrl=""
-            name=""
-            // imageUrl={signature.imageUrl}
-            // name={signature.moniker}
+            address={x.address}
+            imageUrl={x.imageUrl}
+            name={x.moniker}
           />
         ),
       }

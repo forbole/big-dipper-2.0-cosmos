@@ -11,6 +11,7 @@ import {
   readProfiles,
   writeProfile,
   readDelegatorAddress,
+  readDelegatorAddresses,
 } from './selectors';
 
 export {
@@ -20,4 +21,5 @@ export {
   readProfiles,
   writeProfile,
   readDelegatorAddress,
+  readDelegatorAddresses,
 };

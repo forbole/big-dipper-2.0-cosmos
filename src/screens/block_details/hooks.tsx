@@ -9,11 +9,9 @@ import {
   BlockDetailsQuery,
 } from '@graphql/types';
 import { convertMsgsToModels } from '@msg';
-import { useChainContext } from '@contexts';
 import { BlockDetailState } from './types';
 
 export const useBlockDetails = () => {
-  const { findAddress } = useChainContext();
   const router = useRouter();
   const [state, setState] = useState<BlockDetailState>({
     loading: true,

@@ -7,6 +7,10 @@ import { readValidator } from '@recoil/validators';
 import { atomFamilyState } from './atom';
 import { AtomState } from './types';
 
+// ======================================================================
+// utils
+// ======================================================================
+
 const getDelegatorAddress = ({
   address, get,
 }: {address: string, get: GetRecoilValue}): string => {
@@ -46,6 +50,10 @@ const getProfile = (address: string) => ({ get }): AtomState => {
   return state;
 };
 
+// ======================================================================
+// selectors
+// ======================================================================
+
 export const writeProfile = selectorFamily<AtomState, string>({
   key: 'profile.write.profile',
   get: getProfile,
@@ -59,15 +67,6 @@ export const readProfile = selectorFamily({
   get: getProfile,
 });
 
-export const readDelegatorAddress = selectorFamily({
-  key: 'profile.read.delegatorAddress',
-  get: (address:string) => ({ get }): string => {
-    return getDelegatorAddress({
-      address, get,
-    });
-  },
-});
-
 export const readProfiles = selectorFamily({
   key: 'profile.read.profiles',
   get: (addresses:string[]) => ({ get }): AtomState[] => {
@@ -79,5 +78,25 @@ export const readProfiles = selectorFamily({
       return state;
     });
     return profiles;
+  },
+});
+
+export const readDelegatorAddress = selectorFamily({
+  key: 'profile.read.delegatorAddress',
+  get: (address:string) => ({ get }): string => {
+    return getDelegatorAddress({
+      address, get,
+    });
+  },
+});
+
+export const readDelegatorAddresses = selectorFamily({
+  key: 'profile.read.delegatorAddress',
+  get: (addresses:string[]) => ({ get }): string[] => {
+    return addresses.map((x) => {
+      return getDelegatorAddress({
+        address: x, get,
+      });
+    });
   },
 });
