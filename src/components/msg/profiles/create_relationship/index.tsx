@@ -3,20 +3,19 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgCreateRelationship } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const CreateRelationship = (props: {
   message: MsgCreateRelationship;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
 
-  const sender = findAddress(message.sender);
-  const senderMoniker = sender ? sender?.moniker : message
+  const sender = useProfileRecoil(message.sender);
+  const senderMoniker = sender ? sender?.name : message
     .sender;
 
-  const receiver = findAddress(message.receiver);
-  const receiverMoniker = receiver ? receiver?.moniker : message
+  const receiver = useProfileRecoil(message.receiver);
+  const receiverMoniker = receiver ? receiver?.name : message
     .receiver;
 
   return (
