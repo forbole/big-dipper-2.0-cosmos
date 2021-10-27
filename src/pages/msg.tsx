@@ -1,22 +1,17 @@
 import React from 'react';
-import { Fund } from '@msg';
-import { MsgFundCommunityPool } from '@models';
+import { SetWithdrawalAddress } from '@msg';
+import { MsgSetWithdrawAddress } from '@models';
 
 const Msg = () => {
-  const message = new MsgFundCommunityPool({
+  const message = new MsgSetWithdrawAddress({
     category: 'distribution',
-    type: 'MsgFundCommunityPool',
-    depositor: 'desmos134zrg6jn3a5l5jjpzv9eucdlw3nl2qelgz330c',
-    amount: [
-      {
-        denom: 'udsm',
-        amount: '2000000',
-      },
-    ],
+    type: 'MsgSetWithdrawAddress',
+    delegatorAddress: 'desmos134zrg6jn3a5l5jjpzv9eucdlw3nl2qelgz330c',
+    withdrawalAddress: 'desmos10zge65rt7xyvn9fp5xfuje94td55fn3fepnav0',
   });
 
   return (
-    <Fund
+    <SetWithdrawalAddress
       message={message}
     />
   );
