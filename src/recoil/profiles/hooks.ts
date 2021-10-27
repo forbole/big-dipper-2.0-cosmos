@@ -1,15 +1,12 @@
 /* eslint-disable max-len */
 import { useEffect } from 'react';
 import {
-  useRecoilState,
   useRecoilValue,
-  SetterOrUpdater,
   useRecoilCallback,
 } from 'recoil';
 import { chainConfig } from '@configs';
 import {
   writeProfile,
-  writeProfiles,
   readProfilesExist,
   readProfileExist,
   readProfile,
@@ -40,7 +37,6 @@ export const useProfileRecoil = (address: string): AvatarName => {
         imageUrl: fetchedProfile.imageUrl,
       });
     }
-    // }
   });
 
   useEffect(() => {

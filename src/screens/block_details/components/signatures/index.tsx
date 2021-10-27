@@ -6,6 +6,7 @@ import { Typography } from '@material-ui/core';
 import {
   Box, NoData,
 } from '@components';
+import { useProfilesRecoil } from '@recoil/profiles';
 import { useScreenSize } from '@hooks';
 import { useStyles } from './styles';
 
@@ -16,30 +17,29 @@ const Signatures: React.FC<ComponentDefault & {
   signatures: string[];
 }> = ({
   className,
-  ...props
+  signatures,
 }) => {
   const { isDesktop } = useScreenSize();
   const { t } = useTranslation('blocks');
   const classes = useStyles();
+  const formattedSignatures = useProfilesRecoil(signatures);
 
   return (
     <Box className={classnames(className, classes.root)}>
       <Typography className={classes.title} variant="h2">{t('signatures')}</Typography>
-      {!props.signatures.length ? (
+      {!signatures.length ? (
         <NoData />
       ) : (
         <div className={classes.wrapper}>
           {isDesktop ? (
             <Desktop
               className={classes.desktop}
-              signatures={[]}
-              // signatures={formattedSignatures}
+              signatures={formattedSignatures}
             />
           ) : (
             <Mobile
               className={classes.mobile}
-              signatures={[]}
-              // signatures={signatures}
+              signatures={formattedSignatures}
             />
           )}
         </div>

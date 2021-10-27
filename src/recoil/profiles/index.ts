@@ -4,26 +4,28 @@ import {
 
 import {
   useProfileRecoil,
+  useProfilesRecoil,
 } from './hooks';
 
 import {
   readProfile,
   readProfiles,
   writeProfile,
-  writeProfiles,
   readDelegatorAddress,
   readDelegatorAddresses,
   readProfileExist,
+  readProfilesExist,
 } from './selectors';
 
 export {
   atomFamilyState,
   useProfileRecoil,
+  useProfilesRecoil,
   readProfile,
   readProfiles,
   writeProfile,
-  writeProfiles,
   readDelegatorAddress,
   readDelegatorAddresses,
   readProfileExist,
+  readProfilesExist,
 };

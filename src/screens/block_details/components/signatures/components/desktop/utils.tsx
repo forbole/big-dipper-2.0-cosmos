@@ -1,5 +1,4 @@
 import { AvatarName } from '@components';
-import { Signatures } from '../../types';
 
 export const columns:{
   key: string;
@@ -12,7 +11,7 @@ export const columns:{
   },
 ];
 
-export const formatRows = (data: Signatures[]) => {
+export const formatRows = (data: AvatarName[]) => {
   return data.map((x) => {
     return (
       {
@@ -20,7 +19,7 @@ export const formatRows = (data: Signatures[]) => {
           <AvatarName
             address={x.address}
             imageUrl={x.imageUrl}
-            name={x.moniker}
+            name={x.name}
           />
         ),
       }

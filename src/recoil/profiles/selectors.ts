@@ -100,31 +100,6 @@ export const writeProfile = selectorFamily<AvatarName, string>({
   },
 });
 
-export const writeProfiles = selectorFamily({
-  key: 'profile.read.profiles',
-  get: getProfiles,
-  set: (addresses: string[]) => ({
-    set, get,
-  }, profiles: AvatarName[]) => {
-    const delegatorAddresses = addresses.map((x) => getDelegatorAddress({
-      address: x, get,
-    }));
-
-    delegatorAddresses.forEach((x, i) => {
-      if (x) {
-        if (profiles[i] === null) {
-          set(atomFamilyState(x), false);
-        } else {
-          set(atomFamilyState(x), {
-            moniker: R.pathOr('', [i, 'name'], profiles),
-            imageUrl: R.pathOr('', [i, 'imageUrl'], profiles),
-          });
-        }
-      }
-    });
-  },
-});
-
 export const readProfile = selectorFamily({
   key: 'profile.read.profile',
   get: getProfile,
