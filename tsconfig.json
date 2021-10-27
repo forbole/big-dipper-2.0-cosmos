@@ -54,6 +54,9 @@
       "@utils/*": [
         "src/utils/*"
       ],
+      "@contexts": [
+        "src/contexts"
+      ],
       "@recoil/*": [
         "src/recoil/*"
       ],
