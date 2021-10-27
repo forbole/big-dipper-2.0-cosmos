@@ -34,7 +34,8 @@ export const useProfileRecoil = (address: string): AvatarName | null => {
     } else {
       set(writeProfile(delegatorAddress), {
         address: delegatorAddress,
-        name: fetchedProfile.nickname || address,
+        // name: fetchedProfile.nickname || address,
+        name: `@${fetchedProfile.dtag}` || address,
         imageUrl: fetchedProfile.imageUrl,
       });
     }
@@ -70,7 +71,8 @@ export const useProfilesRecoil = (addresses: string[]): AvatarName[] => {
         } else {
           set(writeProfile(delegatorAddress), {
             address: delegatorAddress,
-            name: fetchedProfile.nickname || addresses[i],
+            // name: fetchedProfile.nickname || addresses[i],
+            name: `@${fetchedProfile.dtag}` || addresses[i],
             imageUrl: fetchedProfile.imageUrl,
           });
         }
