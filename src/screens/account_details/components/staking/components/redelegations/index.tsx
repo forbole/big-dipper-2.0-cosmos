@@ -7,6 +7,9 @@ import {
 import {
   NoData, Pagination,
 } from '@components';
+import {
+  useProfilesRecoil,
+} from '@recoil/profiles';
 import { useStyles } from './styles';
 import { RedelegationType } from '../../../../types';
 
@@ -31,7 +34,8 @@ const Redelegations: React.FC<{
     handleChangeRowsPerPage,
     sliceItems,
   } = usePagination({});
-
+  const fromProfiles = useProfilesRecoil(data.map((x) => x.from));
+  const toProfiles = useProfilesRecoil(data.map((x) => x.to));
   const items = sliceItems(data);
 
   return (
@@ -39,7 +43,11 @@ const Redelegations: React.FC<{
       {items.length ? (
         <>
           {isDesktop ? (
-            <Desktop className={classes.desktop} items={items} />
+            <Desktop
+              className={classes.desktop}
+              items={items}
+              toProfiles={toProfiles}
+            />
           ) : (
             <Mobile className={classes.mobile} items={items} />
           )}
