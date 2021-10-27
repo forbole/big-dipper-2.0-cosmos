@@ -8,15 +8,14 @@ import {
 } from '@material-ui/core';
 import { getValidatorStatus } from '@utils/get_validator_status';
 import { AvatarName } from '@components';
-import { DelegationType } from '@src/screens/account_details/types';
 import { useStyles } from './styles';
+import { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;
-  items?: DelegationType[];
-  profiles?: AvatarName[];
+  items?: ItemType[];
 }> = ({
-  className, items, profiles,
+  className, items,
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('accounts');
@@ -25,7 +24,6 @@ const Mobile: React.FC<{
     <div className={classnames(className)}>
       {items.map((x, i) => {
         const statusTheme = getValidatorStatus(x.validatorStatus.status, x.validatorStatus.jailed);
-        const profile = profiles[i];
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
@@ -34,9 +32,9 @@ const Mobile: React.FC<{
                   {t('validator')}
                 </Typography>
                 <AvatarName
-                  name={profile.name}
-                  address={x.validator}
-                  imageUrl={profile.imageUrl}
+                  name={x.validator.name}
+                  address={x.validator.address}
+                  imageUrl={x.validator.imageUrl}
                 />
               </div>
               <div className={classes.item}>

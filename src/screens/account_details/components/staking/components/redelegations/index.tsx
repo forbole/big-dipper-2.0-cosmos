@@ -47,6 +47,7 @@ const Redelegations: React.FC<{
               className={classes.desktop}
               items={items}
               toProfiles={toProfiles}
+              fromProfiles={fromProfiles}
             />
           ) : (
             <Mobile className={classes.mobile} items={items} />

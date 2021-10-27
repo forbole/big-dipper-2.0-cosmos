@@ -12,31 +12,28 @@ import {
 import {
   AvatarName,
 } from '@components';
-import { DelegationType } from '@src/screens/account_details/types';
 import { getValidatorStatus } from '@utils/get_validator_status';
 import { useStyles } from './styles';
 import { columns } from './utils';
+import { ItemType } from '../../types';
 
 const Desktop: React.FC<{
   className?: string;
-  items?: DelegationType[];
-  profiles?: AvatarName[];
+  items?: ItemType[];
 }> = ({
   className,
   items,
-  profiles,
 }) => {
   const { t } = useTranslation('accounts');
   const classes = useStyles();
   const formattedItems = items.map((x, i) => {
     const statusTheme = getValidatorStatus(x.validatorStatus.status, x.validatorStatus.jailed);
-    const profile = profiles[i];
     return ({
       validator: (
         <AvatarName
-          name={profile.name}
-          address={x.validator}
-          imageUrl={profile.imageUrl}
+          name={x.validator.name}
+          address={x.validator.address}
+          imageUrl={x.validator.imageUrl}
         />
       ),
       status: (
