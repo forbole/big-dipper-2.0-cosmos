@@ -21,19 +21,20 @@ import { getProfile } from './utils';
  * Accepts a delegator address and returns the appropriate profile
  * @param address
  */
-export const useProfileRecoil = (address: string): AvatarName => {
+export const useProfileRecoil = (address: string): AvatarName | null => {
   const delegatorAddress = useRecoilValue(readDelegatorAddress(address));
   const rawProfile = useRecoilValue(readProfileExist(address));
   const profile = useRecoilValue(readProfile(address));
 
   const fetchProfile = useRecoilCallback(({ set }) => async () => {
     const fetchedProfile = await getProfile(delegatorAddress);
+
     if (fetchedProfile === null) {
       set(writeProfile(delegatorAddress), null);
     } else {
       set(writeProfile(delegatorAddress), {
         address: delegatorAddress,
-        name: fetchedProfile.nickname,
+        name: fetchedProfile.nickname || address,
         imageUrl: fetchedProfile.imageUrl,
       });
     }
@@ -45,7 +46,7 @@ export const useProfileRecoil = (address: string): AvatarName => {
       && rawProfile === null) {
       fetchProfile();
     }
-  }, []);
+  }, [address]);
 
   return profile;
 };
@@ -69,7 +70,7 @@ export const useProfilesRecoil = (addresses: string[]): AvatarName[] => {
         } else {
           set(writeProfile(delegatorAddress), {
             address: delegatorAddress,
-            name: fetchedProfile.nickname,
+            name: fetchedProfile.nickname || addresses[i],
             imageUrl: fetchedProfile.imageUrl,
           });
         }
