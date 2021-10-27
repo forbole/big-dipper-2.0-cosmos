@@ -7,15 +7,6 @@ import Messages from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@contexts', () => ({
-  useChainContext: () => ({
-    findAddress: jest.fn(() => ({
-      moniker: 'moniker',
-      imageUrl: null,
-    })),
-  }),
-}));
-
 jest.mock('@components', () => ({
   Box: (props) => <div id="Box" {...props} />,
   Tag: (props) => <div id="Tag" {...props} />,

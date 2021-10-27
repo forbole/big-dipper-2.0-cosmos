@@ -16,15 +16,6 @@ import Blocks from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@contexts', () => ({
-  useChainContext: () => ({
-    findAddress: jest.fn(() => ({
-      moniker: 'moniker',
-      imageUrl: null,
-    })),
-  }),
-}));
-
 jest.mock('@components', () => ({
   Layout: (props) => <div id="Layout" {...props} />,
   Box: (props) => <div id="Box" {...props} />,

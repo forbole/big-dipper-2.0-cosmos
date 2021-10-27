@@ -8,6 +8,9 @@ import {
 import {
   Pagination, NoData,
 } from '@components';
+import {
+  useProfilesRecoil,
+} from '@recoil/profiles';
 import { useStyles } from './styles';
 import { DelegationType } from '../../../../types';
 
@@ -33,6 +36,9 @@ const Delegations: React.FC<{
     sliceItems,
   } = usePagination({});
 
+  const formattedItems = useProfilesRecoil(data.map((x) => x.validator));
+  // ryuash
+  console.log(formattedItems, 'formatted items');
   const items = sliceItems(data);
 
   return (

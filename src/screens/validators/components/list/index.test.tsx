@@ -11,15 +11,6 @@ import List from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@contexts', () => ({
-  useChainContext: () => ({
-    findAddress: jest.fn(() => ({
-      moniker: 'moniker',
-      imageUrl: null,
-    })),
-  }),
-}));
-
 jest.mock('./components', () => ({
   Mobile: (props) => <div id="Mobile" {...props} />,
   Desktop: (props) => <div id="Desktop" {...props} />,
