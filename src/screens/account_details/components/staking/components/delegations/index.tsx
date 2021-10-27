@@ -37,17 +37,23 @@ const Delegations: React.FC<{
   } = usePagination({});
 
   const dataProfiles = useProfilesRecoil(data.map((x) => x.validator));
-  const items = sliceItems(data);
-  const profiles = sliceItems(dataProfiles);
+  const mergedDataWithProfiles = data.map((x, i) => {
+    return ({
+      ...x,
+      validator: dataProfiles[i],
+    });
+  });
+
+  const items = sliceItems(mergedDataWithProfiles);
 
   return (
     <div className={classnames(className)}>
       {items.length ? (
         <>
           {isDesktop ? (
-            <Desktop className={classes.desktop} items={items} profiles={profiles} />
+            <Desktop className={classes.desktop} items={items} />
           ) : (
-            <Mobile className={classes.mobile} items={items} profiles={profiles} />
+            <Mobile className={classes.mobile} items={items} />
           )}
         </>
       ) : (

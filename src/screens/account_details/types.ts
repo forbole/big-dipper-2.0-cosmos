@@ -31,14 +31,14 @@ export type DelegationType = {
 }
 
 export type RedelegationType = {
-  to: string;
-  from: string;
+  to: AvatarName;
+  from: AvatarName;
   linkedUntil: string;
   amount: TokenUnit;
 }
 
 export type UnbondingType = {
-  validator: string;
+  validator: AvatarName;
   commission: number;
   amount: TokenUnit;
   linkedUntil: string;

@@ -34,8 +34,8 @@ const Redelegations: React.FC<{
     handleChangeRowsPerPage,
     sliceItems,
   } = usePagination({});
-  const fromProfiles = useProfilesRecoil(data.map((x) => x.from));
-  const toProfiles = useProfilesRecoil(data.map((x) => x.to));
+  // const fromProfiles = useProfilesRecoil(data.map((x) => x.from));
+  // const toProfiles = useProfilesRecoil(data.map((x) => x.to));
   const items = sliceItems(data);
 
   return (
@@ -46,8 +46,6 @@ const Redelegations: React.FC<{
             <Desktop
               className={classes.desktop}
               items={items}
-              toProfiles={toProfiles}
-              fromProfiles={fromProfiles}
             />
           ) : (
             <Mobile className={classes.mobile} items={items} />
