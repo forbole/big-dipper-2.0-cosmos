@@ -4,6 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { ToastContainer } from 'react-toastify';
 import { AppProps } from 'next/app';
 import Countdown from '@screens/countdown';
+import InitialLoad from '@screens/initial_load';
 import { useSettingsRecoil } from '@recoil/settings';
 import { useBigDipperNetworksRecoil } from '@recoil/big_dipper_networks';
 import { useMarketRecoil } from '@recoil/market';
@@ -24,7 +25,7 @@ const Main = (props: AppProps) => {
   useSettingsRecoil();
   useBigDipperNetworksRecoil();
   useMarketRecoil();
-  useValidatorRecoil();
+  const { loading } = useValidatorRecoil();
 
   // =====================================
   // general setup
@@ -34,6 +35,22 @@ const Main = (props: AppProps) => {
     genesisStarted,
     startGenesis,
   } = useGenesis();
+
+  let Component = null;
+
+  if (!genesisStarted) {
+    Component = (
+      <Countdown startGenesis={startGenesis} />
+    );
+  } else if (loading) {
+    Component = <InitialLoad {...props.pageProps} />;
+  } else {
+    Component = (
+      <ChainProvider>
+        <InnerApp {...props} />
+      </ChainProvider>
+    );
+  }
 
   return (
     <ThemeProvider theme={muiTheme}>
@@ -49,15 +66,7 @@ const Main = (props: AppProps) => {
         draggable
         pauseOnHover
       />
-      {
-        genesisStarted ? (
-          <ChainProvider>
-            <InnerApp {...props} />
-          </ChainProvider>
-        ) : (
-          <Countdown startGenesis={startGenesis} />
-        )
-    }
+      {Component}
     </ThemeProvider>
   );
 };

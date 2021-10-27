@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+import { useState } from 'react';
 import {
   useRecoilCallback,
 } from 'recoil';
@@ -17,6 +18,8 @@ import {
 } from '@recoil/profiles';
 
 export const useValidatorRecoil = () => {
+  const [loading, setLoading] = useState(true);
+
   const {
     fetchDesmosProfile,
     formatDesmosProfile,
@@ -29,10 +32,12 @@ export const useValidatorRecoil = () => {
   useValidatorAddressesQuery({
     onError: (error) => {
       console.error(error.message);
+      setLoading(false);
     },
     onCompleted: async (data) => {
       await formatValidatorsAddressList(data);
       await setProfiles(data);
+      setLoading(false);
     },
   });
 
@@ -77,4 +82,8 @@ export const useValidatorRecoil = () => {
       });
     });
   });
+
+  return {
+    loading,
+  };
 };
