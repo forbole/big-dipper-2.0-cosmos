@@ -20,20 +20,23 @@ import { columns } from './utils';
 const Desktop: React.FC<{
   className?: string;
   items?: DelegationType[];
+  profiles?: AvatarName[];
 }> = ({
   className,
   items,
+  profiles,
 }) => {
   const { t } = useTranslation('accounts');
   const classes = useStyles();
-  const formattedItems = items.map((x) => {
+  const formattedItems = items.map((x, i) => {
     const statusTheme = getValidatorStatus(x.validatorStatus.status, x.validatorStatus.jailed);
+    const profile = profiles[i];
     return ({
       validator: (
         <AvatarName
-          name={x.validator.name}
-          address={x.validator.address}
-          imageUrl={x.validator.imageUrl}
+          name={profile.name}
+          address={x.validator}
+          imageUrl={profile.imageUrl}
         />
       ),
       status: (

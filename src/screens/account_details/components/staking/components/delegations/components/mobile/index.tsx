@@ -14,8 +14,9 @@ import { useStyles } from './styles';
 const Mobile: React.FC<{
   className?: string;
   items?: DelegationType[];
+  profiles?: AvatarName[];
 }> = ({
-  className, items,
+  className, items, profiles,
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('accounts');
@@ -24,6 +25,7 @@ const Mobile: React.FC<{
     <div className={classnames(className)}>
       {items.map((x, i) => {
         const statusTheme = getValidatorStatus(x.validatorStatus.status, x.validatorStatus.jailed);
+        const profile = profiles[i];
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
@@ -32,9 +34,9 @@ const Mobile: React.FC<{
                   {t('validator')}
                 </Typography>
                 <AvatarName
-                  name={x.validator.name}
-                  address={x.validator.address}
-                  imageUrl={x.validator.imageUrl}
+                  name={profile.name}
+                  address={x.validator}
+                  imageUrl={profile.imageUrl}
                 />
               </div>
               <div className={classes.item}>

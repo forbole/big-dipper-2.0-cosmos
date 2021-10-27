@@ -36,19 +36,18 @@ const Delegations: React.FC<{
     sliceItems,
   } = usePagination({});
 
-  const formattedItems = useProfilesRecoil(data.map((x) => x.validator));
-  // ryuash
-  console.log(formattedItems, 'formatted items');
+  const dataProfiles = useProfilesRecoil(data.map((x) => x.validator));
   const items = sliceItems(data);
+  const profiles = sliceItems(dataProfiles);
 
   return (
     <div className={classnames(className)}>
       {items.length ? (
         <>
           {isDesktop ? (
-            <Desktop className={classes.desktop} items={items} />
+            <Desktop className={classes.desktop} items={items} profiles={profiles} />
           ) : (
-            <Mobile className={classes.mobile} items={items} />
+            <Mobile className={classes.mobile} items={items} profiles={profiles} />
           )}
         </>
       ) : (
