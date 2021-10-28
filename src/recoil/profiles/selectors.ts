@@ -13,7 +13,7 @@ import { atomFamilyState } from './atom';
 // selector utils
 // ======================================================================
 
-const getDelegatorAddress = ({
+export const getDelegatorAddress = ({
   address, get,
 }: {address: string, get: GetRecoilValue}): string => {
   const consensusRegex = `^(${chainConfig.prefix.consensus})`;
