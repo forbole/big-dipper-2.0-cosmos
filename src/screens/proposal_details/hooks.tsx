@@ -10,7 +10,6 @@ import {
 } from '@graphql/types';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
-import { useChainContext } from '@contexts';
 import { chainConfig } from '@configs';
 import {
   GovParams,
@@ -20,9 +19,6 @@ import { ProposalState } from './types';
 
 export const useProposalDetails = () => {
   const router = useRouter();
-  // const {
-  //   findAddress, findOperator,
-  // } = useChainContext();
   const [state, setState] = useState<ProposalState>({
     loading: true,
     exists: true,
@@ -174,7 +170,6 @@ export const useProposalDetails = () => {
         vote: x.option,
       });
     });
-    // .sort((a, b) => ((a.user.toLowerCase() > b.user.name.toLowerCase()) ? 1 : -1));
 
     // =====================================
     // Get data for active validators that did not vote
@@ -187,8 +182,6 @@ export const useProposalDetails = () => {
         vote: 'NOT_VOTED',
       });
     });
-
-    // .sort((a, b) => ((a.user.name.toLowerCase() > b.user.name.toLowerCase()) ? 1 : -1));
 
     return {
       data: votes,
