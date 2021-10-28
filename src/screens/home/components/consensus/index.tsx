@@ -13,6 +13,9 @@ import {
   RadialBar,
   Tooltip,
 } from 'recharts';
+import {
+  useProfileRecoil,
+} from '@recoil/profiles';
 import { useStyles } from './styles';
 import { useConsensus } from './hooks';
 
@@ -33,6 +36,7 @@ const Consensus: React.FC<{
   ];
 
   const circleSize = 200;
+  const proposerProfile = useProfileRecoil(state.proposer);
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -52,11 +56,11 @@ const Consensus: React.FC<{
           <Typography variant="h4">
             {numeral(state.height).format('0,0')}
           </Typography>
-          {state.proposer.address ? (
+          {state.proposer ? (
             <AvatarName
-              address={state.proposer.address}
-              imageUrl={state.proposer.imageUrl}
-              name={state.proposer.name}
+              address={proposerProfile.address}
+              imageUrl={proposerProfile.imageUrl}
+              name={proposerProfile.name}
             />
           ) : (
             '-'

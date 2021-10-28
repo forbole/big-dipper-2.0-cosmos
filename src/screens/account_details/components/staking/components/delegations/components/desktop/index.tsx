@@ -26,7 +26,7 @@ const Desktop: React.FC<{
 }) => {
   const { t } = useTranslation('accounts');
   const classes = useStyles();
-  const formattedItems = items.map((x, i) => {
+  const formattedItems = items.map((x) => {
     const statusTheme = getValidatorStatus(x.validatorStatus.status, x.validatorStatus.jailed);
     return ({
       validator: (

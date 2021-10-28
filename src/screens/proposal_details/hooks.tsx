@@ -126,19 +126,13 @@ export const useProposalDetails = () => {
     const formatDeposits = () => {
       const deposits = data.proposal[0].proposalDeposits.map((x) => {
         const depositAmount = getDenom(x.amount);
-        const user = findAddress(x.depositorAddress);
         return ({
-          user: {
-            address: x.depositorAddress,
-            imageUrl: user.imageUrl,
-            name: user.moniker,
-          },
+          user: x.depositorAddress,
           amount: formatDenom(depositAmount.amount, depositAmount.denom),
         });
       });
       return deposits;
     };
-
     stateChange.deposits = formatDeposits();
 
     return stateChange;
