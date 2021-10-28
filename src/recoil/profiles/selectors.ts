@@ -13,7 +13,7 @@ import { atomFamilyState } from './atom';
 // selector utils
 // ======================================================================
 
-export const getDelegatorAddress = ({
+const getDelegatorAddress = ({
   address, get,
 }: {address: string, get: GetRecoilValue}): string => {
   const consensusRegex = `^(${chainConfig.prefix.consensus})`;
@@ -35,6 +35,11 @@ export const getDelegatorAddress = ({
     selectedAddress = address;
   }
   return selectedAddress;
+};
+
+export const validatorToDelegatorAddress = (address: string) => {
+  const decode = bech32.decode(address).words;
+  return bech32.encode(chainConfig.prefix.account, decode);
 };
 
 /**

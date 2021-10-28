@@ -15,11 +15,11 @@ import {
   readDelegatorAddresses,
   readProfileExist,
   readProfilesExist,
-  getDelegatorAddress,
+  validatorToDelegatorAddress,
 } from './selectors';
 
 export {
-  getDelegatorAddress,
+  validatorToDelegatorAddress,
   atomFamilyState,
   useProfileRecoil,
   useProfilesRecoil,

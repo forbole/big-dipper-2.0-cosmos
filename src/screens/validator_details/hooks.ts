@@ -9,7 +9,7 @@ import numeral from 'numeral';
 import { useRecoilCallback } from 'recoil';
 import {
   readProfile,
-  getDelegatorAddress,
+  validatorToDelegatorAddress,
 } from '@recoil/profiles';
 import dayjs from '@utils/dayjs';
 import { convertMsgsToModels } from '@msg';
@@ -111,7 +111,7 @@ export const useValidatorDetails = () => {
   useEffect(() => {
     handleSetState(initialState);
     if (chainConfig.extra.profile) {
-      const address = getDelegatorAddress(R.pathOr('', ['query', 'address'], router));
+      const address = validatorToDelegatorAddress(R.pathOr('', ['query', 'address'], router));
       fetchDesmosProfile(address);
     }
   }, [R.pathOr('', ['query', 'address'], router)]);
