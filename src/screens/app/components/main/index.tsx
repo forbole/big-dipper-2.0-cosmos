@@ -9,6 +9,9 @@ import { useSettingsRecoil } from '@recoil/settings';
 import { useBigDipperNetworksRecoil } from '@recoil/big_dipper_networks';
 import { useMarketRecoil } from '@recoil/market';
 import { useValidatorRecoil } from '@recoil/validators';
+import {
+  ChainProvider,
+} from '@contexts';
 import { InnerApp } from '..';
 import {
   useTheme,
@@ -43,7 +46,9 @@ const Main = (props: AppProps) => {
     Component = <InitialLoad {...props.pageProps} />;
   } else {
     Component = (
-      <InnerApp {...props} />
+      <ChainProvider>
+        <InnerApp {...props} />
+      </ChainProvider>
     );
   }
 

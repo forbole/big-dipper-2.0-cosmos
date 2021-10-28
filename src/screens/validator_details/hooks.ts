@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import {
   useState, useEffect,
 } from 'react';
@@ -6,11 +5,6 @@ import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import { formatDenom } from '@utils/format_denom';
 import numeral from 'numeral';
-import { useRecoilCallback } from 'recoil';
-import {
-  readProfile,
-  validatorToDelegatorAddress,
-} from '@recoil/profiles';
 import dayjs from '@utils/dayjs';
 import { convertMsgsToModels } from '@msg';
 import {
@@ -22,7 +16,7 @@ import {
   ValidatorLastSeenListenerSubscription,
 } from '@graphql/types';
 import { useDesmosProfile } from '@hooks';
-
+import { useChainContext } from '@contexts';
 import { getValidatorCondition } from '@utils/get_validator_condition';
 import { chainConfig } from '@src/configs';
 import {
@@ -89,6 +83,11 @@ const initialState: ValidatorDetailsState = {
 
 export const useValidatorDetails = () => {
   const router = useRouter();
+  const {
+    findAddress,
+    findOperator,
+    validatorToDelegatorAddress,
+  } = useChainContext();
   const [state, setState] = useState<ValidatorDetailsState>(initialState);
 
   const handleSetState = (stateChange: any) => {
@@ -112,6 +111,7 @@ export const useValidatorDetails = () => {
     handleSetState(initialState);
     if (chainConfig.extra.profile) {
       const address = validatorToDelegatorAddress(R.pathOr('', ['query', 'address'], router));
+
       fetchDesmosProfile(address);
     }
   }, [R.pathOr('', ['query', 'address'], router)]);
@@ -126,8 +126,8 @@ export const useValidatorDetails = () => {
       address: R.pathOr('', ['query', 'address'], router),
       utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
     },
-    onCompleted: async (data) => {
-      handleSetState(await formatAccountQuery(data));
+    onCompleted: (data) => {
+      handleSetState(formatAccountQuery(data));
     },
   });
 
@@ -192,7 +192,44 @@ export const useValidatorDetails = () => {
   // ==========================
   // Parse Data
   // ==========================
-  const formatAccountQuery = useRecoilCallback(({ snapshot }) => async (data: ValidatorDetailsQuery) => {
+  const formatTransactions = (data: GetMessagesByAddressQuery) => {
+    let formattedData = data.messagesByAddress;
+    if (data.messagesByAddress.length === 51) {
+      formattedData = data.messagesByAddress.slice(0, 51);
+    }
+    return formattedData.map((x) => {
+      const { transaction } = x;
+
+      // =============================
+      // messages
+      // =============================
+      const messages = convertMsgsToModels(transaction);
+
+      return ({
+        height: transaction.height,
+        hash: transaction.hash,
+        messages: {
+          count: messages.length,
+          items: messages,
+        },
+        success: transaction.success,
+        timestamp: transaction.block.timestamp,
+      });
+    });
+  };
+
+  const formatLastSeen = (data: ValidatorLastSeenListenerSubscription) => {
+    if (data.preCommit.length) {
+      const preCommit = data.preCommit[0];
+      return ({
+        lastSeen: preCommit.timestamp,
+      });
+    }
+
+    return {};
+  };
+
+  const formatAccountQuery = (data: ValidatorDetailsQuery) => {
     const stateChange: any = {
       loading: false,
     };
@@ -205,14 +242,13 @@ export const useValidatorDetails = () => {
     // ============================
     // overview
     // ============================
-    const formatOverview = async () => {
+    const formatOverview = () => {
       const operatorAddress = R.pathOr('', ['validator', 0, 'validatorInfo', 'operatorAddress'], data);
       const selfDelegateAddress = R.pathOr('', ['validator', 0, 'validatorInfo', 'selfDelegateAddress'], data);
-      const validator: AvatarName = await snapshot.getPromise(readProfile(operatorAddress));
-
+      const validator = findAddress(operatorAddress);
       const profile = {
         validator: {
-          moniker: validator.name,
+          moniker: validator.moniker,
           imageUrl: R.pathOr('', ['imageUrl'], validator),
         },
         operatorAddress,
@@ -224,7 +260,7 @@ export const useValidatorDetails = () => {
       return profile;
     };
 
-    stateChange.overview = await formatOverview();
+    stateChange.overview = formatOverview();
 
     // ============================
     // status
@@ -286,87 +322,83 @@ export const useValidatorDetails = () => {
     // ============================
     // delegations
     // ============================
-    const formatDelegations = async () => {
-      let delegations = await Promise.all(data.validator[0].delegations.map(async (x) => {
-        const delegator: AvatarName = await snapshot.getPromise(readProfile(x.delegatorAddress));
+    const formatDelegations = () => {
+      const delegations = data.validator[0].delegations.map((x) => {
+        const delegator = findAddress(x.delegatorAddress);
         return ({
           amount: formatDenom(x.amount.amount, x.amount.denom),
           delegator: {
             address: x.delegatorAddress,
             imageUrl: delegator.imageUrl,
-            name: delegator.name,
+            name: delegator.moniker,
           },
         });
-      }));
-
-      delegations = delegations.sort((a, b) => (a.amount.value < b.amount.value ? 1 : -1));
-
+      }).sort((a, b) => (a.amount.value < b.amount.value ? 1 : -1));
       return {
         data: delegations,
         count: delegations.length,
       };
     };
-    stateChange.delegations = await formatDelegations();
+    stateChange.delegations = formatDelegations();
 
     // ============================
     // redelegations
     // ============================
-    const formatRedelegations = async () => {
-      const dst = await Promise.all(data.validator[0].redelegationsByDstValidatorAddress.map(async (x) => {
-        const to: AvatarName = await snapshot.getPromise(readProfile(x.to));
-        const from: AvatarName = await snapshot.getPromise(readProfile(x.from));
-        const delegator: AvatarName = await snapshot.getPromise(readProfile(x.delegatorAddress));
-
-        return ({
-          to: {
-            address: to.address,
-            imageUrl: to.imageUrl,
-            name: to.name,
-          },
-          from: {
-            address: from.address,
-            imageUrl: from.imageUrl,
-            name: from.name,
-          },
-          linkedUntil: x.completionTime,
-          amount: formatDenom(x.amount.amount, x.amount.denom),
-          delegator: {
-            address: x.delegatorAddress,
-            imageUrl: delegator.imageUrl,
-            name: delegator.name,
-          },
-        });
-      }));
-
-      const src = await Promise.all(data.validator[0].redelegationsBySrcValidatorAddress.map(async (x) => {
-        const to: AvatarName = await snapshot.getPromise(readProfile(x.to));
-        const from: AvatarName = await snapshot.getPromise(readProfile(x.from));
-        const delegator: AvatarName = await snapshot.getPromise(readProfile(x.delegatorAddress));
-
-        return ({
-          to: {
-            address: to.address,
-            imageUrl: to.imageUrl,
-            name: to.name,
-          },
-          from: {
-            address: from.address,
-            imageUrl: from.imageUrl,
-            name: from.name,
-          },
-          linkedUntil: x.completionTime,
-          amount: formatDenom(x.amount.amount, x.amount.denom),
-          delegator: {
-            address: x.delegatorAddress,
-            imageUrl: delegator.imageUrl,
-            name: delegator.name,
-          },
-        });
-      }));
-
+    const formatRedelegations = () => {
       const redelegations = [
-        ...dst,
-        ...src,
+        ...data.validator[0].redelegationsByDstValidatorAddress.map((x) => {
+          const toValidator = findOperator(x.to);
+          const to = findAddress(toValidator);
+          const fromValidator = findOperator(x.from);
+          const from = findAddress(fromValidator);
+          const delegator = findAddress(x.delegatorAddress);
+
+          return ({
+            to: {
+              address: toValidator,
+              imageUrl: to.imageUrl,
+              name: to.moniker,
+            },
+            from: {
+              address: fromValidator,
+              imageUrl: from.imageUrl,
+              name: from.moniker,
+            },
+            linkedUntil: x.completionTime,
+            amount: formatDenom(x.amount.amount, x.amount.denom),
+            delegator: {
+              address: x.delegatorAddress,
+              imageUrl: delegator.imageUrl,
+              name: delegator.moniker,
+            },
+          });
+        }),
+        ...data.validator[0].redelegationsBySrcValidatorAddress.map((x) => {
+          const toValidator = findOperator(x.to);
+          const to = findAddress(toValidator);
+          const fromValidator = findOperator(x.from);
+          const from = findAddress(fromValidator);
+          const delegator = findAddress(x.delegatorAddress);
+          return ({
+            to: {
+              address: toValidator,
+              imageUrl: to.imageUrl,
+              name: to.moniker,
+            },
+            from: {
+              address: fromValidator,
+              imageUrl: from.imageUrl,
+              name: from.moniker,
+            },
+            linkedUntil: x.completionTime,
+            amount: formatDenom(x.amount.amount, x.amount.denom),
+            delegator: {
+              address: x.delegatorAddress,
+              imageUrl: delegator.imageUrl,
+              name: delegator.moniker,
+            },
+          });
+        }),
       ].sort((a, b) => (a.amount.value < b.amount.value ? 1 : -1));
 
       return {
@@ -374,27 +406,25 @@ export const useValidatorDetails = () => {
         count: redelegations.length,
       };
     };
-    state.redelegations = await formatRedelegations();
+    state.redelegations = formatRedelegations();
 
     // ============================
     // unbondings
     // ============================
-    const formatUndelegations = async () => {
-      let undelegations = await Promise.all(data.validator[0].unbonding.map(async (x) => {
-        const delegator: AvatarName = await snapshot.getPromise(readProfile(x.delegatorAddress));
+    const formatUndelegations = () => {
+      const undelegations = data.validator[0].unbonding.map((x) => {
+        const delegator = findAddress(x.delegatorAddress);
         return ({
           delegator: {
             address: x.delegatorAddress,
             imageUrl: delegator.imageUrl,
-            name: delegator.name,
+            name: delegator.moniker,
           },
           amount: formatDenom(x.amount.amount, x.amount.denom),
           linkedUntil: x.completionTimestamp,
           commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
         });
-      }));
-
-      undelegations = undelegations.sort((a, b) => (a.amount.value < b.amount.value ? 1 : -1));
+      }).sort((a, b) => (a.amount.value < b.amount.value ? 1 : -1));
 
       return {
         data: undelegations,
@@ -402,46 +432,9 @@ export const useValidatorDetails = () => {
       };
     };
 
-    state.undelegations = await formatUndelegations();
+    state.undelegations = formatUndelegations();
 
     return stateChange;
-  });
-
-  const formatTransactions = (data: GetMessagesByAddressQuery) => {
-    let formattedData = data.messagesByAddress;
-    if (data.messagesByAddress.length === 51) {
-      formattedData = data.messagesByAddress.slice(0, 51);
-    }
-    return formattedData.map((x) => {
-      const { transaction } = x;
-
-      // =============================
-      // messages
-      // =============================
-      const messages = convertMsgsToModels(transaction);
-
-      return ({
-        height: transaction.height,
-        hash: transaction.hash,
-        messages: {
-          count: messages.length,
-          items: messages,
-        },
-        success: transaction.success,
-        timestamp: transaction.block.timestamp,
-      });
-    });
-  };
-
-  const formatLastSeen = (data: ValidatorLastSeenListenerSubscription) => {
-    if (data.preCommit.length) {
-      const preCommit = data.preCommit[0];
-      return ({
-        lastSeen: preCommit.timestamp,
-      });
-    }
-
-    return {};
   };
 
   return {
