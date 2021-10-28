@@ -89,11 +89,6 @@ const initialState: ValidatorDetailsState = {
 
 export const useValidatorDetails = () => {
   const router = useRouter();
-  // const {
-  //   findAddress,
-  //   findOperator,
-  //   validatorToDelegatorAddress,
-  // } = useChainContext();
   const [state, setState] = useState<ValidatorDetailsState>(initialState);
 
   const handleSetState = (stateChange: any) => {
