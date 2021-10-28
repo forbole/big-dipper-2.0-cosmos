@@ -8,13 +8,16 @@ import {
   usePagination,
   useScreenSize,
 } from '@hooks';
-
+import {
+  useProfilesRecoil,
+} from '@recoil/profiles';
 import { useStyles } from './styles';
 import {
   Tabs,
   Paginate,
 } from './components';
 import { VoteType } from '../../types';
+import { ItemType } from './types';
 
 const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
@@ -46,11 +49,11 @@ const Votes: React.FC<{
   });
 
   const classes = useStyles();
-  const formatItems = () => {
+  const formatItems = (mergedData: ItemType[]) => {
     if (props.tab === 5) {
-      return props.notVotedData;
+      return mergedNotVotedWithProfiles;
     }
-    return props.data.filter((x) => {
+    return mergedData.filter((x) => {
       if (props.tab === 1) {
         return x.vote === 'VOTE_OPTION_YES';
       }
@@ -71,7 +74,26 @@ const Votes: React.FC<{
     });
   };
 
-  const items = formatItems();
+  // not voted validators
+  const notVoteProfiles = useProfilesRecoil(props.notVotedData.map((x) => x.user));
+  const mergedNotVotedWithProfiles = props.notVotedData.map((x, i) => {
+    return ({
+      ...x,
+      user: notVoteProfiles[i],
+    });
+  }).sort((a, b) => (
+    (a.user.name.toLowerCase() > b.user.name.toLowerCase()) ? 1 : -1));
+
+  // voted
+  const userProfiles = useProfilesRecoil(props.data.map((x) => x.user));
+  const mergedDataWithProfiles = props.data.map((x, i) => {
+    return ({
+      ...x,
+      user: userProfiles[i],
+    });
+  }).sort((a, b) => (
+    (a.user.name.toLowerCase() > b.user.name.toLowerCase()) ? 1 : -1));
+  const items = formatItems(mergedDataWithProfiles);
   const itemsPaginated = sliceItems(items);
 
   const tabChangeParentHelper = (_event: any, newValue: number) => {

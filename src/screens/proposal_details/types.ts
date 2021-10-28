@@ -22,7 +22,7 @@ export type TallyType = {
 
 export type VoteType = {
   vote: string;
-  user: AvatarName;
+  user: string;
 }
 
 export type DepositType = {

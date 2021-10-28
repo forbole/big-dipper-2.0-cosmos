@@ -20,9 +20,9 @@ import { ProposalState } from './types';
 
 export const useProposalDetails = () => {
   const router = useRouter();
-  const {
-    findAddress, findOperator,
-  } = useChainContext();
+  // const {
+  //   findAddress, findOperator,
+  // } = useChainContext();
   const [state, setState] = useState<ProposalState>({
     loading: true,
     exists: true,
@@ -146,11 +146,10 @@ export const useProposalDetails = () => {
 
     const validators = data.validatorStatuses.map((x) => {
       const selfDelegateAddress = R.pathOr('', ['validator', 'validatorInfo', 'selfDelegateAddress'], x);
-      const operatorAddress = findOperator(x.validatorAddress);
 
       return ({
         selfDelegateAddress,
-        operatorAddress,
+        operatorAddress: x.validatorAddress,
       });
     });
 
@@ -169,17 +168,13 @@ export const useProposalDetails = () => {
         veto += 1;
       }
 
-      const user = findAddress(x.voterAddress);
       votedUserDictionary[x.voterAddress] = true;
       return ({
-        user: {
-          address: x.voterAddress,
-          imageUrl: user.imageUrl,
-          name: user.moniker,
-        },
+        user: x.voterAddress,
         vote: x.option,
       });
-    }).sort((a, b) => ((a.user.name.toLowerCase() > b.user.name.toLowerCase()) ? 1 : -1));
+    });
+    // .sort((a, b) => ((a.user.toLowerCase() > b.user.name.toLowerCase()) ? 1 : -1));
 
     // =====================================
     // Get data for active validators that did not vote
@@ -187,16 +182,13 @@ export const useProposalDetails = () => {
     const validatorsNotVoted = validators.filter((x) => (
       !votedUserDictionary[x.selfDelegateAddress]
     )).map((y) => {
-      const validator = findAddress(y.selfDelegateAddress);
       return ({
-        user: {
-          address: y.operatorAddress,
-          imageUrl: validator.imageUrl,
-          name: validator.moniker,
-        },
+        user: y.operatorAddress,
         vote: 'NOT_VOTED',
       });
-    }).sort((a, b) => ((a.user.name.toLowerCase() > b.user.name.toLowerCase()) ? 1 : -1));
+    });
+
+    // .sort((a, b) => ((a.user.name.toLowerCase() > b.user.name.toLowerCase()) ? 1 : -1));
 
     return {
       data: votes,
