@@ -13,12 +13,12 @@ import {
 import { AvatarName } from '@components';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
-import { RedelegationType } from '@src/screens/account_details/types';
 import { columns } from './utils';
+import { ItemType } from '../../types';
 
 const Desktop: React.FC<{
   className?: string;
-  items: RedelegationType[];
+  items: ItemType[];
 }> = ({
   className, items,
 }) => {

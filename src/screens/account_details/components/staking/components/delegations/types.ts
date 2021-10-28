@@ -1,3 +1,3 @@
-import { DelegationType as Delegation } from '../../../../types';
+import { DelegationType } from '../../../../types';
 
-export type ItemType = Override<Delegation, { validator: AvatarName }>
+export type ItemType = Override<DelegationType, { validator: AvatarName }>

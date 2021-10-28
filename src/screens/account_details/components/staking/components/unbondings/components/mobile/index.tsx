@@ -9,12 +9,12 @@ import {
 import { AvatarName } from '@components';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
-import { UnbondingType } from '@src/screens/account_details/types';
 import { useStyles } from './styles';
+import { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;
-  items: UnbondingType[];
+  items: ItemType[];
 }> = ({
   className, items,
 }) => {

@@ -9,12 +9,12 @@ import {
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
 import { AvatarName } from '@components';
-import { RedelegationType } from '@src/screens/account_details/types';
 import { useStyles } from './styles';
+import { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;
-  items?: RedelegationType[];
+  items?: ItemType[];
 }> = ({
   className, items,
 }) => {

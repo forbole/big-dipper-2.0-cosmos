@@ -38,6 +38,25 @@ const getDelegatorAddress = ({
 };
 
 /**
+ * Returns a validator address if the given address is a consensus address.
+ * Returns address otherwise
+ */
+const getReturnAddress = ({
+  address, get,
+}: {address: string, get: GetRecoilValue}): string => {
+  const consensusRegex = `^(${chainConfig.prefix.consensus})`;
+  let selectedAddress = address;
+  if (new RegExp(consensusRegex).test(address)) {
+    // address given is a consensus
+    const validator = get(readValidator(address));
+    if (validator) {
+      selectedAddress = validator.validator;
+    }
+  }
+  return selectedAddress;
+};
+
+/**
  * Takes a delegator address and returns the profile
  * Returns null if no record found
  * ex - cosmosvalcon1... returns cosmosvaloper1...
@@ -45,6 +64,9 @@ const getDelegatorAddress = ({
  * @returns string | null
  */
 const getProfile = (address: string) => ({ get }): AvatarName => {
+  const returnAddress = getReturnAddress({
+    address, get,
+  });
   const delegatorAddress = getDelegatorAddress({
     address, get,
   });
@@ -52,7 +74,7 @@ const getProfile = (address: string) => ({ get }): AvatarName => {
   const name = R.pathOr(address, ['moniker'], state);
   const imageUrl = R.pathOr('', ['imageUrl'], state);
   return ({
-    address,
+    address: returnAddress,
     name,
     imageUrl,
   });
@@ -60,6 +82,9 @@ const getProfile = (address: string) => ({ get }): AvatarName => {
 
 const getProfiles = (addresses: string[]) => ({ get }): AvatarName[] => {
   const profiles = addresses.map((x) => {
+    const returnAddress = getReturnAddress({
+      address: x, get,
+    });
     const delegatorAddress = getDelegatorAddress({
       address: x, get,
     });
@@ -67,7 +92,7 @@ const getProfiles = (addresses: string[]) => ({ get }): AvatarName[] => {
     const name = R.pathOr(x, ['moniker'], state);
     const imageUrl = R.pathOr('', ['imageUrl'], state);
     return ({
-      address: x,
+      address: returnAddress,
       name,
       imageUrl,
     });
