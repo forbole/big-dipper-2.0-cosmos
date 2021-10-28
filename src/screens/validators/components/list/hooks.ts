@@ -1,12 +1,14 @@
+/* eslint-disable max-len */
 import { useState } from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
+import { useRecoilCallback } from 'recoil';
 import {
   useValidatorsQuery,
   ValidatorsQuery,
 } from '@graphql/types';
 import { formatDenom } from '@utils/format_denom';
-import { useChainContext } from '@contexts';
+import { readProfile } from '@recoil/profiles';
 import { getValidatorCondition } from '@utils/get_validator_condition';
 import {
   StakingParams,
@@ -17,7 +19,6 @@ import {
 } from './types';
 
 export const useValidators = () => {
-  const { findAddress } = useChainContext();
   const [search, setSearch] = useState('');
   const [state, setState] = useState<ValidatorsState>({
     loading: true,
@@ -37,10 +38,11 @@ export const useValidators = () => {
   // Fetch Data
   // ==========================
   useValidatorsQuery({
-    onCompleted: (data) => {
+    onCompleted: async (data) => {
+      const formattedData = await formatValidators(data);
       handleSetState({
         loading: false,
-        ...formatValidators(data),
+        ...formattedData,
       });
     },
   });
@@ -48,7 +50,8 @@ export const useValidators = () => {
   // ==========================
   // Parse data
   // ==========================
-  const formatValidators = (data: ValidatorsQuery) => {
+
+  const formatValidators = useRecoilCallback(({ snapshot }) => async (data: ValidatorsQuery) => {
     const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
     const slashingParams = SlashingParams.fromJson(R.pathOr({}, ['slashingParams', 0, 'params'], data));
     const votingPowerOverall = formatDenom(
@@ -58,8 +61,8 @@ export const useValidators = () => {
 
     const { signedBlockWindow } = slashingParams;
 
-    const formattedItems = data.validator.filter((x) => x.validatorInfo).map((x) => {
-      const validator = findAddress(x.validatorInfo.operatorAddress);
+    const formattedItems = await Promise.all(data.validator.filter((x) => x.validatorInfo).map(async (x) => {
+      const validator: AvatarName = await snapshot.getPromise(readProfile(x.validatorInfo.operatorAddress));
       const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
       const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
       const totalDelegations = x.delegations.reduce((a, b) => {
@@ -81,7 +84,7 @@ export const useValidators = () => {
         validator: {
           address: x.validatorInfo.operatorAddress,
           imageUrl: validator.imageUrl,
-          name: validator.moniker,
+          name: validator.name,
         },
         votingPower,
         votingPowerPercent,
@@ -93,13 +96,13 @@ export const useValidators = () => {
         jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], x),
         delegators: x.delegations.length,
       });
-    });
+    }));
 
     return {
       votingPowerOverall,
       items: formattedItems,
     };
-  };
+  });
 
   const handleTabChange = (_event: any, newValue: number) => {
     setState((prevState) => ({

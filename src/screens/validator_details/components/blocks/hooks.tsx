@@ -31,14 +31,14 @@ export const useBlocks = () => {
   const formatLastHundredBlocks = useRecoilCallback(({ snapshot }) => async (data: LastHundredBlocksSubscription) => {
     const fetchedProfiles = await Promise.all(data.block.map(async (x) => {
       const proposer = x.validator.validatorInfo.operatorAddress;
-      const numItemsInCart: AvatarName = await snapshot.getPromise(readProfile(proposer));
+      const profile: AvatarName = await snapshot.getPromise(readProfile(proposer));
       return {
         height: x.height,
         txs: x.transactions.length,
         proposer: {
-          address: numItemsInCart.address,
-          name: numItemsInCart.name,
-          imageUrl: numItemsInCart.imageUrl,
+          address: profile.address,
+          name: profile.name,
+          imageUrl: profile.imageUrl,
         },
         signed: x.precommits.length === 1,
       };
