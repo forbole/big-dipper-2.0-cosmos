@@ -15,11 +15,11 @@ import { readDate } from '@recoil/settings';
 import { AvatarName } from '@components';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { columns } from './utils';
-import { RedelegationType } from '../../../../../../types';
+import { ItemType } from '../../types';
 
 const Desktop: React.FC<{
   className?: string;
-  items: RedelegationType[];
+  items: ItemType[];
 }> = ({
   className, items,
 }) => {

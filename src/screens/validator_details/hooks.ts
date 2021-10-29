@@ -16,7 +16,6 @@ import {
   ValidatorLastSeenListenerSubscription,
 } from '@graphql/types';
 import { useDesmosProfile } from '@hooks';
-import { useChainContext } from '@contexts';
 import { validatorToDelegatorAddress } from '@recoil/profiles';
 import { getValidatorCondition } from '@utils/get_validator_condition';
 import { chainConfig } from '@src/configs';
@@ -37,10 +36,7 @@ const initialState: ValidatorDetailsState = {
   exists: true,
   desmosProfile: null,
   overview: {
-    validator: {
-      imageUrl: '',
-      moniker: '',
-    },
+    validator: '',
     operatorAddress: '',
     selfDelegateAddress: '',
     description: '',
@@ -84,10 +80,6 @@ const initialState: ValidatorDetailsState = {
 
 export const useValidatorDetails = () => {
   const router = useRouter();
-  const {
-    findAddress,
-    findOperator,
-  } = useChainContext();
   const [state, setState] = useState<ValidatorDetailsState>(initialState);
 
   const handleSetState = (stateChange: any) => {
@@ -338,56 +330,21 @@ export const useValidatorDetails = () => {
     const formatRedelegations = () => {
       const redelegations = [
         ...data.validator[0].redelegationsByDstValidatorAddress.map((x) => {
-          const toValidator = findOperator(x.to);
-          const to = findAddress(toValidator);
-          const fromValidator = findOperator(x.from);
-          const from = findAddress(fromValidator);
-          const delegator = findAddress(x.delegatorAddress);
-
           return ({
-            to: {
-              address: toValidator,
-              imageUrl: to.imageUrl,
-              name: to.moniker,
-            },
-            from: {
-              address: fromValidator,
-              imageUrl: from.imageUrl,
-              name: from.moniker,
-            },
+            to: x.to,
+            from: x.from,
             linkedUntil: x.completionTime,
             amount: formatDenom(x.amount.amount, x.amount.denom),
-            delegator: {
-              address: x.delegatorAddress,
-              imageUrl: delegator.imageUrl,
-              name: delegator.moniker,
-            },
+            delegator: x.delegatorAddress,
           });
         }),
         ...data.validator[0].redelegationsBySrcValidatorAddress.map((x) => {
-          const toValidator = findOperator(x.to);
-          const to = findAddress(toValidator);
-          const fromValidator = findOperator(x.from);
-          const from = findAddress(fromValidator);
-          const delegator = findAddress(x.delegatorAddress);
           return ({
-            to: {
-              address: toValidator,
-              imageUrl: to.imageUrl,
-              name: to.moniker,
-            },
-            from: {
-              address: fromValidator,
-              imageUrl: from.imageUrl,
-              name: from.moniker,
-            },
+            to: x.to,
+            from: x.from,
             linkedUntil: x.completionTime,
             amount: formatDenom(x.amount.amount, x.amount.denom),
-            delegator: {
-              address: x.delegatorAddress,
-              imageUrl: delegator.imageUrl,
-              name: delegator.moniker,
-            },
+            delegator: x.delegatorAddress,
           });
         }),
       ].sort((a, b) => (a.amount.value < b.amount.value ? 1 : -1));
@@ -404,13 +361,8 @@ export const useValidatorDetails = () => {
     // ============================
     const formatUndelegations = () => {
       const undelegations = data.validator[0].unbonding.map((x) => {
-        const delegator = findAddress(x.delegatorAddress);
         return ({
-          delegator: {
-            address: x.delegatorAddress,
-            imageUrl: delegator.imageUrl,
-            name: delegator.moniker,
-          },
+          delegator: x.delegatorAddress,
           amount: formatDenom(x.amount.amount, x.amount.denom),
           linkedUntil: x.completionTimestamp,
           commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),

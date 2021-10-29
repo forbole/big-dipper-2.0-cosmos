@@ -38,7 +38,7 @@ const Delegations: React.FC<{
   const mergedDataWithProfiles = data.map((x, i) => {
     return ({
       ...x,
-      validator: dataProfiles[i],
+      delegator: dataProfiles[i],
     });
   });
 

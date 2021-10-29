@@ -30,15 +30,15 @@ export type DelegationType = {
 }
 
 export type RedelegationType = {
-  to: AvatarName;
-  from: AvatarName;
-  delegator: AvatarName;
+  to: string;
+  from: string;
+  delegator: string;
   linkedUntil: string;
   amount: TokenUnit;
 }
 
 export type UndelegationType = {
-  delegator: AvatarName;
+  delegator: string;
   amount: TokenUnit;
   linkedUntil: string;
 }

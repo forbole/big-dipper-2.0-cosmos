@@ -10,11 +10,11 @@ import {
   Divider, Typography,
 } from '@material-ui/core';
 import { useStyles } from './styles';
-import { UndelegationType } from '../../../../../../types';
+import { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;
-  items: UndelegationType[];
+  items: ItemType[];
 }> = ({
   className, items,
 }) => {
