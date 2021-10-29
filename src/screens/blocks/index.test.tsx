@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import {
   createMockClient, createMockSubscription,
 } from 'mock-apollo-client';
@@ -93,11 +94,13 @@ describe('screen: Blocks', () => {
 
     renderer.act(() => {
       component = renderer.create(
-        <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <Blocks />
-          </MockTheme>
-        </ApolloProvider>,
+        <RecoilRoot>
+          <ApolloProvider client={mockClient}>
+            <MockTheme>
+              <Blocks />
+            </MockTheme>
+          </ApolloProvider>
+        </RecoilRoot>,
       );
     });
     await wait();

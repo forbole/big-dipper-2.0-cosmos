@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgDeleteProfile } from '@models';
@@ -23,11 +24,13 @@ describe('screen: TransactionDetails/DeleteProfile', () => {
       creator: 'creator',
     });
     const component = renderer.create(
-      <MockTheme>
-        <DeleteProfile
-          message={message}
-        />
-      </MockTheme>,
+      <RecoilRoot>
+        <MockTheme>
+          <DeleteProfile
+            message={message}
+          />
+        </MockTheme>
+      </RecoilRoot>,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
