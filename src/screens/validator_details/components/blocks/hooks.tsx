@@ -5,18 +5,16 @@ import {
   useLastHundredBlocksSubscription,
   LastHundredBlocksSubscription,
 } from '@graphql/types';
-import { useChainContext } from '@contexts';
 
 export const useBlocks = () => {
   const [state, setState] = useState<{
     height: number;
     txs: number;
-    proposer: AvatarName;
+    proposer: string;
     signed: boolean;
   }[]>([]);
 
   const router = useRouter();
-  const { findAddress } = useChainContext();
 
   useLastHundredBlocksSubscription({
     variables: {
@@ -29,15 +27,10 @@ export const useBlocks = () => {
 
   const formatLastHundredBlocks = (data: LastHundredBlocksSubscription) => {
     return data.block.map((x) => {
-      const proposer = findAddress(x.validator.validatorInfo.operatorAddress);
       return {
         height: x.height,
         txs: x.transactions.length,
-        proposer: {
-          address: x.validator.validatorInfo.operatorAddress,
-          name: proposer.moniker,
-          imageUrl: proposer.imageUrl,
-        },
+        proposer: x.validator.validatorInfo.operatorAddress,
         signed: x.precommits.length === 1,
       };
     });

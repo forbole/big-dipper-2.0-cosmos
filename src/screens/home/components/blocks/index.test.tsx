@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import {
   MockTheme, wait,
@@ -64,11 +65,13 @@ describe('screen: Home/Blocks/Mobile', () => {
 
     renderer.act(() => {
       component = renderer.create(
-        <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <Blocks />
-          </MockTheme>
-        </ApolloProvider>,
+        <RecoilRoot>
+          <ApolloProvider client={mockClient}>
+            <MockTheme>
+              <Blocks />
+            </MockTheme>
+          </ApolloProvider>
+        </RecoilRoot>,
       );
     });
 

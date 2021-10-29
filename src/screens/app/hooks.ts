@@ -1,12 +1,7 @@
-import {
-  useEffect,
-  useState,
-} from 'react';
+import { useEffect } from 'react';
 import { init } from '@socialgouv/matomo-next';
 import * as jdenticon from 'jdenticon';
 import useTranslation from 'next-translate/useTranslation';
-import { chainConfig } from '@configs';
-import dayjs from '@utils/dayjs';
 
 export const useApp = () => {
   // ==========================
@@ -51,20 +46,4 @@ export const useApp = () => {
       jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
-};
-
-export const useGenesis = () => {
-  const utcTimeNow = dayjs.utc().format('YYYY-MM-DDTHH:mm:ss');
-  const [genesisStarted, setGenesis] = useState(chainConfig.genesis.time < utcTimeNow);
-
-  const startGenesis = () => {
-    setTimeout(() => {
-      setGenesis(true);
-    }, 10000);
-  };
-
-  return {
-    genesisStarted,
-    startGenesis,
-  };
 };

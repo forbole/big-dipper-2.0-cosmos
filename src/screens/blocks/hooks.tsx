@@ -5,13 +5,11 @@ import {
   useBlocksQuery,
   BlocksListenerSubscription,
 } from '@graphql/types';
-import { useChainContext } from '@contexts';
 import {
   BlocksState, BlockType,
 } from './types';
 
 export const useBlocks = () => {
-  const { findAddress } = useChainContext();
   const [state, setState] = useState<BlocksState>({
     loading: true,
     exists: true,
@@ -97,17 +95,12 @@ export const useBlocks = () => {
   const formatBlocks = (data: BlocksListenerSubscription): BlockType[] => {
     return data.blocks.map((x) => {
       const proposerAddress = R.pathOr('', ['validator', 'validatorInfo', 'operatorAddress'], x);
-      const proposer = findAddress(proposerAddress);
       return ({
         height: x.height,
         txs: x.txs,
         hash: x.hash,
         timestamp: x.timestamp,
-        proposer: {
-          address: proposerAddress,
-          imageUrl: proposer.imageUrl,
-          name: proposer.moniker,
-        },
+        proposer: proposerAddress,
       });
     });
   };

@@ -33,7 +33,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
             <h2
               className="MuiTypography-root MuiTypography-h2"
             >
-              moniker
+              validator
             </h2>
           </div>
         </div>
