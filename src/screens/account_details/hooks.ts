@@ -25,7 +25,7 @@ import { AccountDetailState } from './types';
 const defaultTokenUnit = {
   value: 0,
   denom: '',
-  format: '',
+  format: '0, 0.[000000]',
 };
 
 const initialState: AccountDetailState = {
