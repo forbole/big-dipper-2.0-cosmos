@@ -159,8 +159,7 @@ Array [
           <div
             className="MuiListItemIcon-root"
           >
-            <svg
-              data-file-name="SvgIconHome"
+            <
               height={24}
               width={24}
             />
@@ -200,8 +199,7 @@ Array [
           <div
             className="MuiListItemIcon-root"
           >
-            <svg
-              data-file-name="SvgIconBlock"
+            <
               height={24}
               width={24}
             />
@@ -241,8 +239,7 @@ Array [
           <div
             className="MuiListItemIcon-root"
           >
-            <svg
-              data-file-name="SvgIconUser"
+            <
               height={24}
               width={24}
             />
@@ -282,8 +279,7 @@ Array [
           <div
             className="MuiListItemIcon-root"
           >
-            <svg
-              data-file-name="SvgIconTransaction"
+            <
               height={24}
               width={24}
             />
@@ -323,8 +319,7 @@ Array [
           <div
             className="MuiListItemIcon-root"
           >
-            <svg
-              data-file-name="SvgIconProposals"
+            <
               height={24}
               width={24}
             />
@@ -364,8 +359,7 @@ Array [
           <div
             className="MuiListItemIcon-root"
           >
-            <svg
-              data-file-name="SvgIconParam"
+            <
               height={24}
               width={24}
             />
@@ -393,9 +387,7 @@ Array [
         onClick={[Function]}
         role="button"
       >
-        <svg
-          data-file-name="SvgIconLanguage"
-        />
+        < />
         <span
           className="MuiTypography-root MuiTypography-caption"
         />
@@ -419,9 +411,7 @@ Array [
         <span
           role="button"
         >
-          <svg
-            data-file-name="SvgIconTheme"
-          />
+          < />
         </span>
         <span
           className="MuiTypography-root MuiTypography-caption"
