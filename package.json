@@ -79,13 +79,13 @@
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
     "jest": "^27.3.1",
-    "jest-localstorage-mock": "^2.4.7",
+    "jest-localstorage-mock": "^2.4.18",
     "jest-svg-transformer": "^1.0.0",
     "jest-watch-typeahead": "^0.6.1",
     "nodemon": "^2.0.4",
     "react-test-renderer": "^17.0.1",
     "ts-jest": "^27.0.7",
-    "ts-node": "^9.0.0",
+    "ts-node": "^10.4.0",
     "typescript": "^4.3.5"
   }
 }
