@@ -17,6 +17,7 @@ import {
 } from '@graphql/types';
 import { useDesmosProfile } from '@hooks';
 import { useChainContext } from '@contexts';
+import { validatorToDelegatorAddress } from '@recoil/profiles';
 import { getValidatorCondition } from '@utils/get_validator_condition';
 import { chainConfig } from '@src/configs';
 import {
@@ -245,12 +246,8 @@ export const useValidatorDetails = () => {
     const formatOverview = () => {
       const operatorAddress = R.pathOr('', ['validator', 0, 'validatorInfo', 'operatorAddress'], data);
       const selfDelegateAddress = R.pathOr('', ['validator', 0, 'validatorInfo', 'selfDelegateAddress'], data);
-      const validator = findAddress(operatorAddress);
       const profile = {
-        validator: {
-          moniker: validator.moniker,
-          imageUrl: R.pathOr('', ['imageUrl'], validator),
-        },
+        validator: operatorAddress,
         operatorAddress,
         selfDelegateAddress,
         description: R.pathOr('', ['validatorDescriptions', 0, 'details'], data.validator[0]),

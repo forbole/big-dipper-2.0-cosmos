@@ -1,8 +1,5 @@
 export type OverviewType = {
-  validator: {
-    imageUrl: string;
-    moniker: string;
-  };
+  validator: string;
   operatorAddress: string;
   selfDelegateAddress: string;
   description: string;
