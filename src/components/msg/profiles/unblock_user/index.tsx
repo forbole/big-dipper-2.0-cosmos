@@ -3,20 +3,19 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgUnblockUser } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const UnBlockUser = (props: {
   message: MsgUnblockUser;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
 
-  const blocker = findAddress(message.blocker);
-  const blockerMoniker = blocker ? blocker?.moniker : message
+  const blocker = useProfileRecoil(message.blocker);
+  const blockerMoniker = blocker ? blocker?.name : message
     .blocker;
 
-  const blocked = findAddress(message.blocked);
-  const blockedMoniker = blocked ? blocked?.moniker : message
+  const blocked = useProfileRecoil(message.blocked);
+  const blockedMoniker = blocked ? blocked?.name : message
     .blocked;
 
   return (

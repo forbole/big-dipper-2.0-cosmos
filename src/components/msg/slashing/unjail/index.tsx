@@ -3,15 +3,14 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgUnjail } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const Unjail = (props: {
   message: MsgUnjail;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
-  const validator = findAddress(message.validatorAddress);
-  const validatorMoniker = validator ? validator?.moniker : message.validatorAddress;
+  const validator = useProfileRecoil(message.validatorAddress);
+  const validatorMoniker = validator ? validator?.name : message.validatorAddress;
 
   return (
     <Typography>

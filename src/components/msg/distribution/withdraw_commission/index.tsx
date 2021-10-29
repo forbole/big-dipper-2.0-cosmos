@@ -4,15 +4,14 @@ import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import numeral from 'numeral';
 import { MsgWithdrawValidatorCommission } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const WithdrawCommission = (props: {
   message: MsgWithdrawValidatorCommission;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
-  const validator = findAddress(message.validatorAddress);
-  const validatorMoniker = validator ? validator?.moniker : message
+  const validator = useProfileRecoil(message.validatorAddress);
+  const validatorMoniker = validator ? validator?.name : message
     .validatorAddress;
   const parsedAmount = message.amounts.map((x) => {
     return `${numeral(x.value).format(x.format)} ${x.denom.toUpperCase()}`;

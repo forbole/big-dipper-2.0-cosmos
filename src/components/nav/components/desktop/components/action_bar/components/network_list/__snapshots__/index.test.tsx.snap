@@ -11,9 +11,7 @@ exports[`screen: Nav/NetworkList it renders 1`] = `
       }
     }
   >
-    <svg
-      data-file-name="SvgBigDipperRed"
-    />
+    < />
   </div>
   <Networks
     className="makeStyles-content"

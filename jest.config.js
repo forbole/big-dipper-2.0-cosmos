@@ -2,6 +2,7 @@ const { pathsToModuleNameMapper } = require('ts-jest/utils');
 const { compilerOptions } = require('./tsconfig.json');
 
 module.exports = {
+  testEnvironment: 'jsdom',
   preset: 'ts-jest',
   roots: ['<rootDir>'],
   moduleDirectories: [
@@ -12,8 +13,8 @@ module.exports = {
   testPathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|.next|cypress)[/\\\\]'],
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(ts|tsx)$'],
   transform: {
+    '.+\\.(svg|css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
     '^.+\\.(ts|tsx)$': 'babel-jest',
-    '^.+\\.svg$': '<rootDir>/node_modules/jest-svg-transformer',
   },
   watchPlugins: [
     'jest-watch-typeahead/filename',

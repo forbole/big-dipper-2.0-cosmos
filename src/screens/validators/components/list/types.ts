@@ -1,5 +1,5 @@
 export type ValidatorType = {
-  validator: AvatarName;
+  validator: string;
   votingPower: number;
   votingPowerPercent: number;
   commission: number;
@@ -19,3 +19,5 @@ export type ValidatorsState = {
   votingPowerOverall: number;
   items: ValidatorType[];
 }
+
+export type ItemType = Override<ValidatorType, { validator: AvatarName }>;

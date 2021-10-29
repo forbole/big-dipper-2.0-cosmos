@@ -1,15 +1,14 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import { useNetworksContext } from '@src/contexts';
+import { useRecoilValue } from 'recoil';
+import { readNetworks } from '@recoil/big_dipper_networks';
 import { useStyles } from './styles';
 import { SingleNetwork } from './components';
 
 const Networks:React.FC<{
   className?: string;
 }> = ({ className }) => {
-  const {
-    networks,
-  } = useNetworksContext();
+  const networks = useRecoilValue(readNetworks);
   const classes = useStyles();
 
   return (
