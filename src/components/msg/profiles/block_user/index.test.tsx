@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgBlockUser } from '@models';
@@ -24,11 +25,13 @@ describe('screen: TransactionDetails/BlockUser', () => {
       subspace: 'subspace',
     });
     const component = renderer.create(
-      <MockTheme>
-        <BlockUser
-          message={message}
-        />
-      </MockTheme>,
+      <RecoilRoot>
+        <MockTheme>
+          <BlockUser
+            message={message}
+          />
+        </MockTheme>
+      </RecoilRoot>,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

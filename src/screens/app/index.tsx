@@ -16,7 +16,6 @@ import {
   ADDITIONAL_LINK_TAGS_SEO,
   ADDITIONAL_META_TAGS,
 } from './utils';
-import DebugObserver from './components/recoil_debugger';
 
 function App(props: AppProps) {
   useApp();
@@ -44,7 +43,6 @@ function App(props: AppProps) {
         client={apolloClient}
       >
         <RecoilRoot>
-          {/* <DebugObserver /> */}
           <Main {...props} />
         </RecoilRoot>
       </ApolloProvider>

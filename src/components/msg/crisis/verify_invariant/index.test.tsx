@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgVerifyInvariant } from '@models';
@@ -25,11 +26,13 @@ describe('screen: TransactionDetails/MsgVerifyInvariant', () => {
       invariantRoute: 'invariantRoute',
     });
     const component = renderer.create(
-      <MockTheme>
-        <VerifyInvariant
-          message={message}
-        />
-      </MockTheme>,
+      <RecoilRoot>
+        <MockTheme>
+          <VerifyInvariant
+            message={message}
+          />
+        </MockTheme>
+      </RecoilRoot>,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

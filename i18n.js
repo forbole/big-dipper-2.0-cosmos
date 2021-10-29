@@ -3,7 +3,7 @@ module.exports = {
   locales: ['en'],
   defaultLocale: 'en',
   pages: {
-    '*': ['common', 'transactions', 'message_labels', 'message_contents'],
+    '*': ['common'],
     '/': ['home', 'blocks', 'transactions'],
     'rgx:^/blocks': ['blocks', 'transactions', 'message_labels', 'message_contents'],
     'rgx:^/transactions': ['transactions', 'message_labels', 'message_contents'],

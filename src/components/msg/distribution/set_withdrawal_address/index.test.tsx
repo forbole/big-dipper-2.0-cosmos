@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgSetWithdrawAddress } from '@models';
@@ -23,11 +24,13 @@ describe('screen: TransactionDetails/SetWithdrawalAddress', () => {
       withdrawalAddress: 'withdrawalAddress',
     });
     const component = renderer.create(
-      <MockTheme>
-        <SetWithdrawalAddress
-          message={message}
-        />
-      </MockTheme>,
+      <RecoilRoot>
+        <MockTheme>
+          <SetWithdrawalAddress
+            message={message}
+          />
+        </MockTheme>
+      </RecoilRoot>,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

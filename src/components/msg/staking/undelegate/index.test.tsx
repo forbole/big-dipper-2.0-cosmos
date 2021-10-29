@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgUndelegate } from '@models';
@@ -27,11 +28,13 @@ describe('screen: TransactionDetails/Undelegate', () => {
       },
     });
     const component = renderer.create(
-      <MockTheme>
-        <Undelegate
-          message={message}
-        />
-      </MockTheme>,
+      <RecoilRoot>
+        <MockTheme>
+          <Undelegate
+            message={message}
+          />
+        </MockTheme>
+      </RecoilRoot>,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

@@ -9,11 +9,10 @@ import {
   columns, formatRows,
 } from './utils';
 import { useStyles } from './styles';
-import { Signatures } from '../../types';
 
 const Desktop: React.FC<{
   className?: string;
-  signatures: Signatures[];
+  signatures: AvatarName[];
 }> = ({
   className, signatures,
 }) => {
