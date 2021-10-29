@@ -87,7 +87,6 @@ export const useValidatorDetails = () => {
   const {
     findAddress,
     findOperator,
-    validatorToDelegatorAddress,
   } = useChainContext();
   const [state, setState] = useState<ValidatorDetailsState>(initialState);
 
@@ -321,14 +320,9 @@ export const useValidatorDetails = () => {
     // ============================
     const formatDelegations = () => {
       const delegations = data.validator[0].delegations.map((x) => {
-        const delegator = findAddress(x.delegatorAddress);
         return ({
           amount: formatDenom(x.amount.amount, x.amount.denom),
-          delegator: {
-            address: x.delegatorAddress,
-            imageUrl: delegator.imageUrl,
-            name: delegator.moniker,
-          },
+          delegator: x.delegatorAddress,
         });
       }).sort((a, b) => (a.amount.value < b.amount.value ? 1 : -1));
       return {

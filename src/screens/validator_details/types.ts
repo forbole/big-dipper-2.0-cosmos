@@ -25,7 +25,7 @@ export type VotingPowerType = {
 }
 
 export type DelegationType = {
-  delegator: AvatarName;
+  delegator: string;
   amount: TokenUnit;
 }
 
