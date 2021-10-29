@@ -62,7 +62,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
         reward={
           Object {
             "denom": "daric",
-            "format": "",
+            "format": "0, 0.[000000]",
             "value": 58219.06133827526,
           }
         }
