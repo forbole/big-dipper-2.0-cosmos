@@ -35,6 +35,20 @@ export const formatDenom = (value: number | string, denom = ''): TokenUnit => {
   const ratio = 10 ** selectedDenom.exponent;
   results.value = value / ratio;
   results.denom = selectedDenom.display;
-  results.format = `0,0${selectedDenom.exponent ? `.[${'0'.repeat(selectedDenom.exponent)}]` : ''}`;
+  results.format = getNumeralDenomFormat(denom);
   return results;
+};
+
+/**
+ * Helper function that returns the correct numeral format for displaying denoms
+ * @param denom
+ * @returns
+ */
+export const getNumeralDenomFormat = (denom: string) => {
+  const selectedDenom = chainConfig.tokenUnits[denom];
+  if (!selectedDenom) {
+    return '0,0';
+  }
+
+  return `0,0${selectedDenom.exponent ? `.[${'0'.repeat(selectedDenom.exponent)}]` : ''}`;
 };
