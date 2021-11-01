@@ -50,5 +50,8 @@
   "txTransferContent": "<0>{{sender}}</0> sent <2>{{token}}</2> via IBC transfer from source channel <2>{{sourceChannel}}</2> to <1>{{receiver}}</1>",
   "txTimeoutContent": "<0>{{signer}}</0> IBC timeout",
   "txTimeoutOnCloseContent": "<0>{{signer}}</0> IBC timeout on close",
-  "txLinkChainAccount": "<0>{{signer}}</0> linked a chain account from <1>{{name}}</1>"
+  "txLinkChainAccount": "<0>{{signer}}</0> linked a chain account from <1>{{name}}</1>",
+  "txMsgLinkApplication": "<0>{{sender}}</0> linked <1>{{username}}<1/> from <1>{{application}}</1>",
+  "txMsgUnlinkApplication": "<0>{{signer}}</0> unlinked <1>{{username}}</1> from <1>{{application}}</1>",
+  "txMsgUnlinkChainAccount": "<0>{{owner}}</0> unlinked a chain account from <1>{{chainName}}</1>"
 }

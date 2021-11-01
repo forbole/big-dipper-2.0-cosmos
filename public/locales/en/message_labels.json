@@ -49,5 +49,8 @@
   "txConnectionEndLabel": "IBC Connection End",
   "txVersionLabel": "IBC Version",
   "txTransferLabel": "IBC Transfer",
-  "txLinkChainAccount": "Link Chain Account"
+  "txLinkChainAccount": "Link Chain Account",
+  "txMsgLinkApplication": "Link Application",
+  "txMsgUnlinkApplication": "Unlink Application",
+  "txMsgUnlinkChainAccount": "Unlink Chain Account"
 }
