@@ -26,8 +26,7 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
     <div
       className="MuiListItemIcon-root"
     >
-      <svg
-        data-file-name="SvgIconHome"
+      <
         height={24}
         width={24}
       />
@@ -64,8 +63,7 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
     <div
       className="MuiListItemIcon-root"
     >
-      <svg
-        data-file-name="SvgIconBlock"
+      <
         height={24}
         width={24}
       />
@@ -102,8 +100,7 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
     <div
       className="MuiListItemIcon-root"
     >
-      <svg
-        data-file-name="SvgIconUser"
+      <
         height={24}
         width={24}
       />
@@ -140,8 +137,7 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
     <div
       className="MuiListItemIcon-root"
     >
-      <svg
-        data-file-name="SvgIconTransaction"
+      <
         height={24}
         width={24}
       />
@@ -178,8 +174,7 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
     <div
       className="MuiListItemIcon-root"
     >
-      <svg
-        data-file-name="SvgIconProposals"
+      <
         height={24}
         width={24}
       />
@@ -216,8 +211,7 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
     <div
       className="MuiListItemIcon-root"
     >
-      <svg
-        data-file-name="SvgIconParam"
+      <
         height={24}
         width={24}
       />

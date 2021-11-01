@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import Network from '.';
@@ -13,23 +14,19 @@ let component:renderer.ReactTestRenderer;
 // ==================================
 const mockToggleNetwork = jest.fn();
 
-jest.mock('@src/contexts', () => ({
-  useNetworksContext: () => ({
-    selected: 'selected',
-  }),
-}));
-
 // ==================================
 // unit tests
 // ==================================
 describe('screen: Nav/Network', () => {
   beforeEach(() => {
     component = renderer.create(
-      <MockTheme>
-        <Network
-          toggleNetwork={mockToggleNetwork}
-        />
-      </MockTheme>,
+      <RecoilRoot>
+        <MockTheme>
+          <Network
+            toggleNetwork={mockToggleNetwork}
+          />
+        </MockTheme>
+      </RecoilRoot>,
     );
   });
 

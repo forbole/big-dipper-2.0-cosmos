@@ -25,9 +25,8 @@ exports[`screen: Nav/Desktop hook toggles correctly 1`] = `
     <div
       className="MuiPaper-root MuiDrawer-paper open makeStyles-drawerOpen MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
     >
-      <svg
+      <
         className="makeStyles-logo"
-        data-file-name="SvgBigDipperRed"
         onClick={[Function]}
         role="button"
       />
@@ -64,9 +63,8 @@ exports[`screen: Nav/Desktop it renders 1`] = `
     <div
       className="MuiPaper-root MuiDrawer-paper closed makeStyles-drawerClose MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
     >
-      <svg
+      <
         className="makeStyles-logo"
-        data-file-name="SvgBigDipperRed"
         onClick={[Function]}
         role="button"
       />

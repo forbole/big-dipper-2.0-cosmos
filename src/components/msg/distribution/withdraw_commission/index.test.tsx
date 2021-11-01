@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgWithdrawValidatorCommission } from '@models';
@@ -7,14 +8,6 @@ import WithdrawCommission from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@contexts', () => ({
-  useChainContext: () => ({
-    findAddress: jest.fn(() => ({
-      moniker: 'moniker',
-      imageUrl: null,
-    })),
-  }),
-}));
 
 jest.mock('@components', () => ({
   Name: (props) => <div id="Name" {...props} />,
@@ -37,11 +30,13 @@ describe('screen: TransactionDetails/WithdrawCommission', () => {
       ],
     });
     const component = renderer.create(
-      <MockTheme>
-        <WithdrawCommission
-          message={message}
-        />
-      </MockTheme>,
+      <RecoilRoot>
+        <MockTheme>
+          <WithdrawCommission
+            message={message}
+          />
+        </MockTheme>
+      </RecoilRoot>,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

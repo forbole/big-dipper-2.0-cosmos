@@ -5,19 +5,18 @@ import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgVote } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 import { PROPOSAL_DETAILS } from '@utils/go_to_page';
 
 const Vote = (props: {
   message: MsgVote;
 }) => {
-  const { findAddress } = useChainContext();
   const { t } = useTranslation('transactions');
   const { message } = props;
   const vote = t(message.getOptionTranslationKey());
 
-  const voter = findAddress(message.voter);
-  const voterMoniker = voter ? voter?.moniker : message.voter;
+  const voter = useProfileRecoil(message.voter);
+  const voterMoniker = voter ? voter?.name : message.voter;
 
   const Proposal = () => {
     return (
