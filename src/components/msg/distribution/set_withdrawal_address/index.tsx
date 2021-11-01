@@ -3,20 +3,19 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgSetWithdrawAddress } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const SetWithdrawalAddress = (props: {
   message: MsgSetWithdrawAddress;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
 
-  const delegator = findAddress(message.delegatorAddress);
-  const delegatorMoniker = delegator ? delegator?.moniker : message
+  const delegator = useProfileRecoil(message.delegatorAddress);
+  const delegatorMoniker = delegator ? delegator?.name : message
     .delegatorAddress;
 
-  const withdrawal = findAddress(message.withdrawalAddress);
-  const withdrawalMoniker = withdrawal ? withdrawal?.moniker : message.withdrawalAddress;
+  const withdrawal = useProfileRecoil(message.withdrawalAddress);
+  const withdrawalMoniker = withdrawal ? withdrawal?.name : message.withdrawalAddress;
 
   return (
     <Typography>

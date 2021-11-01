@@ -7,13 +7,12 @@ import numeral from 'numeral';
 import { Name } from '@components';
 import { MsgDeposit } from '@models';
 import { formatDenom } from '@utils/format_denom';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 import { PROPOSAL_DETAILS } from '@utils/go_to_page';
 
 const DepositProposal = (props: {
   message: MsgDeposit;
 }) => {
-  const { findAddress } = useChainContext();
   const { t } = useTranslation('transactions');
   const { message } = props;
 
@@ -22,8 +21,8 @@ const DepositProposal = (props: {
     return `${numeral(amount.value).format(amount.format)} ${amount.denom.toUpperCase()}`;
   }).reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
 
-  const depositor = findAddress(message.depositor);
-  const depositorMoniker = depositor ? depositor?.moniker : message.depositor;
+  const depositor = useProfileRecoil(message.depositor);
+  const depositorMoniker = depositor ? depositor?.name : message.depositor;
 
   const Proposal = () => {
     return (

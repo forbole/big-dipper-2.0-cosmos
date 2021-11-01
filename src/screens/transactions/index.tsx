@@ -8,12 +8,13 @@ import {
   LoadAndExist,
   TransactionListDetails,
 } from '@components';
-import { useSettingsContext } from '@contexts';
+import { useRecoilValue } from 'recoil';
+import { readTx } from '@recoil/settings';
 import { useStyles } from './styles';
 import { useTransactions } from './hooks';
 
 const Transactions = () => {
-  const { txListFormat } = useSettingsContext();
+  const txListFormat = useRecoilValue(readTx);
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   const {

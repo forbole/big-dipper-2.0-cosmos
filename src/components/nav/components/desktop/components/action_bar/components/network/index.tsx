@@ -2,7 +2,8 @@ import React from 'react';
 import classnames from 'classnames';
 import { ExpandMore } from '@material-ui/icons';
 import { Typography } from '@material-ui/core';
-import { useNetworksContext } from '@src/contexts';
+import { useRecoilValue } from 'recoil';
+import { readSelectedNetwork } from '@recoil/big_dipper_networks';
 import { chainConfig } from '@configs';
 import { useStyles } from './styles';
 
@@ -13,9 +14,8 @@ const Network:React.FC<{
   className, toggleNetwork,
 }) => {
   const classes = useStyles();
-  const {
-    selected,
-  } = useNetworksContext();
+  const selected = useRecoilValue(readSelectedNetwork);
+
   return (
     <div
       className={classnames(className, classes.root)}

@@ -22,11 +22,11 @@ import {
   useListRow,
 } from '@hooks';
 import { useStyles } from './styles';
-import { BlockType } from '../../types';
+import { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;
-  items: BlockType[];
+  items: ItemType[];
   itemCount: number;
   loadMoreItems: (any) => void;
   isItemLoaded?: (index: number) => boolean;

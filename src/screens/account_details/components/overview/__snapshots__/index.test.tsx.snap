@@ -16,14 +16,12 @@ exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
     <div
       className="detail"
     >
-      <svg
+      <
         className="makeStyles-actionIcons"
-        data-file-name="SvgIconCopy"
         onClick={[Function]}
       />
-      <svg
+      <
         className="makeStyles-actionIcons"
-        data-file-name="SvgIconShare"
         onClick={[Function]}
       />
       <p
@@ -44,9 +42,8 @@ exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
     <div
       className="detail"
     >
-      <svg
+      <
         className="makeStyles-actionIcons"
-        data-file-name="SvgIconCopy"
         onClick={[Function]}
       />
       <p
