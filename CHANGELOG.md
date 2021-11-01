@@ -1,4 +1,4 @@
-# Unreleased
+# base-v1.6.0 - 2021-11-01
 
 ## Changes
 
@@ -7,6 +7,9 @@
 - Add license comment ([\#474](https://github.com/forbole/big-dipper-2.0-cosmos/issues/474))
 - Add redirect for old big dipper urls ([\#427](https://github.com/forbole/big-dipper-2.0-cosmos/issues/427))
 - Fix desmos profile alignment ([\#435](https://github.com/forbole/big-dipper-2.0-cosmos/issues/435))
+
+## Migration
+- [v1.x.x to v1.6.0](https://docs.bigdipper.live/cosmos-based/frontend/migrations/v1.x.x-to-v1.6.0)
 
 # base-v1.5.1 - 2021-10-11
 
