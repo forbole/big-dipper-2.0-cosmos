@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: TransactionDetails/LinkChainAccount matches snapshot 1`] = `
+exports[`screen: TransactionDetails/MsgUnlinkApplication matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1"
 >
-  message_contents:txLinkChainAccount
+  message_contents:txMsgUnlinkApplication
 </p>
 `;
