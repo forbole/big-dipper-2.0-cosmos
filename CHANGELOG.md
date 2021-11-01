@@ -2,7 +2,7 @@
 
 ## Changes
 
-- Fix Account details denom display ([\#478](https://github.com/forbole/big-dipper-2.0-cosmos/issues/478))
+- Fix account details denom display ([\#478](https://github.com/forbole/big-dipper-2.0-cosmos/issues/478))
 
 # base-v1.6.0 - 2021-11-01
 
