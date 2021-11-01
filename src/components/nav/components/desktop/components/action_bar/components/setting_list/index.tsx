@@ -15,7 +15,9 @@ import {
   Select,
 } from '@material-ui/core';
 import { Close as CloseIcon } from '@material-ui/icons';
-import { useSettingsContext } from '@contexts';
+import {
+  THEME_LIST, DATE_LIST, TX_LIST,
+} from '@recoil/settings';
 import { useSettingList } from './hooks';
 import { useStyles } from './styles';
 
@@ -24,17 +26,6 @@ const Settings: React.FC<{
 }> = (props) => {
   const classes = useStyles();
   const router = useRouter();
-  const {
-    themeList,
-    theme,
-    changeTheme,
-    dateFormat,
-    changeDateFormat,
-    dateFormatList,
-    txListFormat,
-    changeTxListFormat,
-    txListFormatList,
-  } = useSettingsContext();
   const {
     t, lang,
   } = useTranslation('common');
@@ -45,15 +36,7 @@ const Settings: React.FC<{
     handleChange,
     handleFormSubmit,
     handleCancel,
-  } = useSettingList({
-    theme,
-    changeTheme,
-    lang,
-    dateFormat,
-    changeDateFormat,
-    txListFormat,
-    changeTxListFormat,
-  });
+  } = useSettingList({ lang });
 
   return (
     <div>
@@ -93,7 +76,7 @@ const Settings: React.FC<{
                   disablePadding: true,
                 } }}
               >
-                {themeList
+                {THEME_LIST
                   .map((l) => (
                     <MenuItem
                       key={l}
@@ -141,7 +124,7 @@ const Settings: React.FC<{
                   disablePadding: true,
                 } }}
               >
-                {dateFormatList
+                {DATE_LIST
                   .map((l) => (
                     <MenuItem
                       key={l}
@@ -165,7 +148,7 @@ const Settings: React.FC<{
                   disablePadding: true,
                 } }}
               >
-                {txListFormatList
+                {TX_LIST
                   .map((l) => (
                     <MenuItem
                       key={l}
@@ -182,7 +165,6 @@ const Settings: React.FC<{
           <Button
             onClick={handleFormSubmit}
             color="primary"
-            // variant="contained"
           >
             Save
           </Button>

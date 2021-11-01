@@ -7,13 +7,14 @@ import { Typography } from '@material-ui/core';
 import { formatDenom } from '@utils/format_denom';
 import { Name } from '@components';
 import { MsgMultiSend } from '@models';
-import { useChainContext } from '@contexts';
+import {
+  useProfileRecoil, useProfilesRecoil,
+} from '@recoil/profiles';
 import { useStyles } from './styles';
 
 const Multisend = (props: {
   message: MsgMultiSend;
 }) => {
-  const { findAddress } = useChainContext();
   const { t } = useTranslation('transactions');
   const classes = useStyles();
 
@@ -25,6 +26,9 @@ const Multisend = (props: {
     const amount = formatDenom(x.amount, x.denom);
     return `${numeral(amount.value).format(amount.format)} ${amount.denom.toUpperCase()}`;
   }).reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
+
+  const userSend = useProfileRecoil(sender?.address);
+  const validatorMoniker = userSend ? userSend?.name : sender?.address;
 
   const receivers = message?.outputs?.map((output) => {
     const parsedAmount = output?.coins?.map((x) => {
@@ -38,8 +42,7 @@ const Multisend = (props: {
     };
   });
 
-  const userSend = findAddress(sender?.address);
-  const validatorMoniker = userSend ? userSend?.moniker : sender?.address;
+  const receiverProfiles = useProfilesRecoil(receivers.map((x) => x.address));
 
   return (
     <div>
@@ -63,8 +66,8 @@ const Multisend = (props: {
       <div className={classes.multisend}>
         {
         receivers?.map((x, i) => {
-          const recieverUser = findAddress(x?.address);
-          const recieverMoniker = recieverUser ? recieverUser?.moniker : x?.address;
+          const recieverUser = receiverProfiles[i];
+          const recieverMoniker = recieverUser ? recieverUser?.name : x?.address;
           return (
             <Typography key={`${x.address}-${i}`}>
               <Trans

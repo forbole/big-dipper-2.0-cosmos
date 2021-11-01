@@ -4,24 +4,23 @@ import numeral from 'numeral';
 import dayjs, { formatDayJs } from '@utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import { AvatarName } from '@components';
-import { useSettingsContext } from '@contexts';
+import { useRecoilValue } from 'recoil';
+import { readDate } from '@recoil/settings';
 import {
   Divider, Typography,
 } from '@material-ui/core';
 import { useStyles } from './styles';
-import { UndelegationType } from '../../../../../../types';
+import { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;
-  items: UndelegationType[];
+  items: ItemType[];
 }> = ({
   className, items,
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('validators');
-  const {
-    dateFormat,
-  } = useSettingsContext();
+  const dateFormat = useRecoilValue(readDate);
   return (
     <div className={classnames(className)}>
       {items.map((x, i) => {

@@ -3,16 +3,15 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgTimeoutOnClose } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const TimeoutOnClose = (props: {
   message: MsgTimeoutOnClose;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
 
-  const signer = findAddress(message.signer);
-  const signerMoniker = signer ? signer?.moniker : message.signer;
+  const signer = useProfileRecoil(message.signer);
+  const signerMoniker = signer ? signer?.name : message.signer;
 
   return (
     <Typography>

@@ -1,3 +1,8 @@
+# desmos-v1.5.1 - 2021-11-01
+
+# Changes
+- Merged `base-v1.6.0`
+
 # desmos-v1.5.1 - 2021-10-11
 
 # Changes

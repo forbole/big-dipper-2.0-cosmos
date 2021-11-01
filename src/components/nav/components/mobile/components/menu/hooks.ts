@@ -1,6 +1,13 @@
 import {
   useState, useEffect,
 } from 'react';
+import {
+  useRecoilState, SetterOrUpdater,
+} from 'recoil';
+import {
+  Theme,
+} from '@recoil/settings/types';
+import { writeTheme } from '@recoil/settings';
 
 export const useLanguageDrawer = (lang: string, toggleNavMenus: () => void) => {
   const [currentLang, setLang] = useState(lang);
@@ -24,15 +31,17 @@ export const useLanguageDrawer = (lang: string, toggleNavMenus: () => void) => {
   };
 };
 
-export const useThemeDrawer = (theme: string, toggleNavMenus: () => void) => {
-  const [currentTheme, setTheme] = useState(theme);
+export const useThemeDrawer = (toggleNavMenus: () => void) => {
+  const [theme, setTheme] = useRecoilState(writeTheme) as [Theme, SetterOrUpdater<Theme>];
+
+  const [currentTheme, setCurrentTheme] = useState(theme);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   useEffect(() => {
     if (theme !== currentTheme) {
       setDrawerOpen(false);
       toggleNavMenus();
-      setTheme(theme);
+      setCurrentTheme(theme);
     }
   }, [theme]);
 
@@ -40,8 +49,14 @@ export const useThemeDrawer = (theme: string, toggleNavMenus: () => void) => {
     setDrawerOpen(!drawerOpen);
   };
 
+  const handleChangeTheme = (newTheme: Theme) => {
+    setTheme(newTheme);
+  };
+
   return {
     toggleDrawer,
     drawerOpen,
+    theme,
+    handleChangeTheme,
   };
 };
