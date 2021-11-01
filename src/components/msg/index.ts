@@ -63,6 +63,9 @@ import CounterpartyConnection from './ibc/connection_counterparty';
 import Version from './ibc/connection_version';
 import Transfer from './ibc_transfer/transfer';
 import LinkChainAccount from './profiles/link_chain_account';
+import UnlinkChainAccount from './profiles/unlink_chain_account';
+import LinkApplication from './profiles/link_application';
+import UnlinkApplication from './profiles/unlink_application';
 
 export {
   getMessageModelByType,
@@ -124,4 +127,7 @@ export {
   Version,
   Transfer,
   LinkChainAccount,
+  UnlinkChainAccount,
+  LinkApplication,
+  UnlinkApplication,
 };
