@@ -35,6 +35,15 @@ export const formatDenom = (value: number | string, denom = ''): TokenUnit => {
   const ratio = 10 ** selectedDenom.exponent;
   results.value = value / ratio;
   results.denom = selectedDenom.display;
-  results.format = `0,0${selectedDenom.exponent ? `.[${'0'.repeat(selectedDenom.exponent)}]` : ''}`;
+  // results.format = `0,0${selectedDenom.exponent ? `.[${'0'.repeat(selectedDenom.exponent)}]` : ''}`;
+  results.format = getDenomFormat(denom);
   return results;
+};
+
+export const getDenomFormat = (denom: string) => {
+  const selectedDenom = chainConfig.tokenUnits[denom];
+  if (!selectedDenom) {
+    return '0.0';
+  }
+  return `0,0${selectedDenom.exponent ? `.[${'0'.repeat(selectedDenom.exponent)}]` : ''}`;
 };

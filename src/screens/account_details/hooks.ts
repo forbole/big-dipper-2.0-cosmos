@@ -16,7 +16,9 @@ import {
   StakingParams,
 } from '@models';
 import { getDenom } from '@utils/get_denom';
-import { formatDenom } from '@utils/format_denom';
+import {
+  formatDenom, getDenomFormat,
+} from '@utils/format_denom';
 import { chainConfig } from '@src/configs';
 import { useDesmosProfile } from '@hooks';
 import { AccountDetailState } from './types';
@@ -260,6 +262,7 @@ export const useAccountDetails = () => {
       const rewardAmount = {
         value: reward,
         denom: chainConfig.tokenUnits[stakingDenom].display,
+        format: getDenomFormat(stakingDenom),
       };
 
       const commission = getDenom(
