@@ -65,6 +65,9 @@ import MsgVersion from './msg/ibc/msg_connection_version';
 import MsgTransfer from './msg/ibc_transfer/msg_transfer';
 import MsgDeleteRelationship from './msg/profiles/msg_delete_relationship';
 import MsgLinkChainAccount from './msg/profiles/msg_link_chain_account';
+import MsgLinkApplication from './msg/profiles/msg_link_application';
+import MsgUnlinkApplication from './msg/profiles/msg_unlink_application';
+import MsgUnlinkChainAccount from './msg/profiles/msg_unlink_chain_account';
 
 export {
   BigDipperNetwork,
@@ -134,4 +137,7 @@ export {
   MsgTransfer,
   MsgDeleteRelationship,
   MsgLinkChainAccount,
+  MsgLinkApplication,
+  MsgUnlinkApplication,
+  MsgUnlinkChainAccount,
 };

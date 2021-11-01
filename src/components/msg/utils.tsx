@@ -363,6 +363,24 @@ const getDataByType = (type: string) => {
       tagTheme: 'four',
       tagDisplay: 'txLinkChainAccount',
     },
+    '/desmos.profiles.v1beta1.MsgUnlinkChainAccount': {
+      model: MODELS.MsgUnlinkChainAccount,
+      content: COMPONENTS.UnlinkChainAccount,
+      tagTheme: 'four',
+      tagDisplay: 'txMsgUnlinkChainAccount',
+    },
+    '/desmos.profiles.v1beta1.MsgLinkApplication': {
+      model: MODELS.MsgLinkApplication,
+      content: COMPONENTS.LinkApplication,
+      tagTheme: 'four',
+      tagDisplay: 'txMsgLinkApplication',
+    },
+    '/desmos.profiles.v1beta1.MsgUnlinkApplication': {
+      model: MODELS.MsgUnlinkApplication,
+      content: COMPONENTS.UnlinkApplication,
+      tagTheme: 'four',
+      tagDisplay: 'txMsgUnlinkApplication',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];
