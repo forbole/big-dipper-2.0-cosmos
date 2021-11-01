@@ -22,8 +22,16 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
       seeMore
     </a>
   </div>
-  <div
-    id="NoData"
+  <hr
+    className="MuiDivider-root makeStyles-mobile"
   />
+  <a
+    className="MuiTypography-root makeStyles-seeMoreFooter makeStyles-mobile button MuiTypography-h4"
+    href="/blocks"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+  >
+    seeMore
+  </a>
 </div>
 `;

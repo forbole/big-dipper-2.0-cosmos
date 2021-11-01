@@ -7,21 +7,20 @@ import {
   Divider, Typography,
 } from '@material-ui/core';
 import { AvatarName } from '@components';
-import { useSettingsContext } from '@contexts';
-import { UnbondingType } from '@src/screens/account_details/types';
+import { useRecoilValue } from 'recoil';
+import { readDate } from '@recoil/settings';
 import { useStyles } from './styles';
+import { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;
-  items: UnbondingType[];
+  items: ItemType[];
 }> = ({
   className, items,
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('accounts');
-  const {
-    dateFormat,
-  } = useSettingsContext();
+  const dateFormat = useRecoilValue(readDate);
   const formattedItems = items.map((x) => {
     return ({
       validator: (

@@ -10,6 +10,7 @@ import {
   Avatar,
   Markdown,
 } from '@components';
+import { useProfileRecoil } from '@recoil/profiles';
 import { useStyles } from './styles';
 import { OverviewType } from '../../types';
 
@@ -20,6 +21,7 @@ const Profile: React.FC<OverviewType & {
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('validators');
+  const validator = useProfileRecoil(data.validator);
 
   const pattern = /^((http|https|ftp):\/\/)/;
   let { website } = data;
@@ -48,7 +50,7 @@ const Profile: React.FC<OverviewType & {
       <div className={classes.bio}>
         <Avatar
           address={data.operatorAddress}
-          imageUrl={data.validator.imageUrl}
+          imageUrl={validator.imageUrl}
           className={classnames(classes.avatar, classes.desktopAvatar)}
         />
         <div>
@@ -59,12 +61,12 @@ const Profile: React.FC<OverviewType & {
             <div className={classes.header}>
               <Avatar
                 address={data.operatorAddress}
-                imageUrl={data.validator.imageUrl}
+                imageUrl={validator.imageUrl}
                 className={classnames(classes.avatar, classes.mobile)}
               />
               <div className="header__content">
                 <Typography variant="h2">
-                  {data.validator.moniker}
+                  {validator.name}
                 </Typography>
               </div>
             </div>

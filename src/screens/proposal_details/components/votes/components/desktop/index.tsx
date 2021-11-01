@@ -10,12 +10,12 @@ import {
 } from '@material-ui/core';
 import { AvatarName } from '@components';
 import { columns } from './utils';
-import { VoteType } from '../../../../types';
 import { getVoteKey } from '../../utils';
+import { ItemType } from '../../types';
 
 const Desktop: React.FC<{
   className?: string;
-  items?: VoteType[];
+  items?: ItemType[];
 }> = ({
   className, items,
 }) => {

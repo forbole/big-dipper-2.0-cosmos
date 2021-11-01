@@ -174,11 +174,15 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
                   value="message_labels:txSendLabel"
                 />
               </div>
-              <p
-                className="MuiTypography-root MuiTypography-body1"
+              <span
+                className="msg"
               >
-                message_contents:txSendContent
-              </p>
+                <p
+                  className="MuiTypography-root MuiTypography-body1"
+                >
+                  message_contents:txSendContent
+                </p>
+              </span>
             </div>
           </div>
         </div>

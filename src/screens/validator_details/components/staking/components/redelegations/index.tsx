@@ -8,6 +8,7 @@ import {
 import {
   Pagination, NoData,
 } from '@components';
+import { useProfilesRecoil } from '@recoil/profiles';
 import { useStyles } from './styles';
 import { RedelegationType } from '../../../../types';
 
@@ -33,7 +34,18 @@ const Redelegations: React.FC<{
     sliceItems,
   } = usePagination({});
 
-  const items = sliceItems(data);
+  const fromProfiles = useProfilesRecoil(data.map((x) => x.from));
+  const toProfiles = useProfilesRecoil(data.map((x) => x.to));
+  const delegator = useProfilesRecoil(data.map((x) => x.delegator));
+  const mergedDataWithProfiles = data.map((x, i) => {
+    return ({
+      ...x,
+      from: fromProfiles[i],
+      to: toProfiles[i],
+      delegator: delegator[i],
+    });
+  });
+  const items = sliceItems(mergedDataWithProfiles);
 
   return (
     <div className={classnames(className)}>

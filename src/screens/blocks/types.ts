@@ -2,7 +2,7 @@ export type BlockType = {
   height: number;
   txs: number;
   timestamp: string;
-  proposer: AvatarName;
+  proposer: string;
   hash: string;
 }
 
@@ -14,3 +14,5 @@ export type BlocksState = {
   rawDataTotal: number;
   items: BlockType[];
 }
+
+export type ItemType = Override<BlockType, { proposer: AvatarName }>

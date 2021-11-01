@@ -20,7 +20,7 @@ export type OtherTokenType = {
 }
 
 export type DelegationType = {
-  validator: AvatarName;
+  validator: string;
   validatorStatus: {
     status: number;
     jailed: boolean;
@@ -31,14 +31,14 @@ export type DelegationType = {
 }
 
 export type RedelegationType = {
-  to: AvatarName;
-  from: AvatarName;
+  to: string;
+  from: string;
   linkedUntil: string;
   amount: TokenUnit;
 }
 
 export type UnbondingType = {
-  validator: AvatarName;
+  validator: string;
   commission: number;
   amount: TokenUnit;
   linkedUntil: string;
