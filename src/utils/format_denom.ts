@@ -46,13 +46,9 @@ export const formatDenom = (value: number | string, denom = ''): TokenUnit => {
  */
 export const getDenomFormat = (denom: string) => {
   const selectedDenom = chainConfig.tokenUnits[denom];
-  console.log('chainConfig.tokenUnits', chainConfig.tokenUnits);
-  console.log('selectedDenom', selectedDenom);
   if (!selectedDenom) {
     return '0,0';
   }
 
-  console.log(`0,0${selectedDenom.exponent ? `.[${'0'.repeat(selectedDenom.exponent)}]` : ''}`);
-  console.log(`0.[${'0'.repeat(8)}]`);
   return `0,0${selectedDenom.exponent ? `.[${'0'.repeat(selectedDenom.exponent)}]` : ''}`;
 };
