@@ -50,16 +50,46 @@ const Deposits: React.FC<{
       <Typography className={classes.title} variant="h2">{t('deposits')}</Typography>
       <div className={classes.list}>
         {isDesktop ? (
-          <Desktop
-            className={classes.desktop}
-            items={items}
-          />
+          <>
+            {isDesktop ? (
+              <Desktop
+                className={classes.desktop}
+                items={items}
+              />
+            ) : (
+              <div>-</div>
+            )}
+          </>
         ) : (
-          <Mobile
-            className={classes.mobile}
-            items={items}
-          />
+          <>
+            <Mobile
+              className={classes.mobile}
+              items={items}
+            />
+          </>
         )}
+
+        {classes ? classes.desktop : items}
+        {console.log('test')}
+        {console.log(!classes ? classes.desktop : items)}
+
+        {/* {
+        if (address) {
+          return (
+            <Link href={href(address)}>
+              <a>
+                <div className={classnames(className, classes.root)}>
+                  <Avatar address={address} imageUrl={imageUrl} />
+                  <Typography variant="body1">
+                    {name}
+                  </Typography>
+                </div>
+              </a>
+            </Link>
+          );
+        }
+        return <div>-</div>;
+        } */}
       </div>
       <Paginate
         total={data.length}
