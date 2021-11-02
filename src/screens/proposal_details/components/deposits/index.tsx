@@ -34,6 +34,7 @@ const Deposits: React.FC<{
   } = usePagination({});
 
   const classes = useStyles();
+  console.log('classes', classes);
 
   const dataProfiles = useProfilesRecoil(data.map((x) => x.user));
   const mergedDataWithProfiles = data.map((x, i) => {
@@ -44,6 +45,7 @@ const Deposits: React.FC<{
   });
 
   const items = sliceItems(mergedDataWithProfiles);
+  console.log('items', items);
 
   return (
     <Box className={classnames(className, classes.root)}>

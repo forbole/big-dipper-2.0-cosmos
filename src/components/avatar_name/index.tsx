@@ -10,19 +10,23 @@ const AvatarName: React.FC<AvatarName> = ({
   className, address, name, imageUrl, href = PROFILE_DETAILS,
 }) => {
   const classes = useStyles();
+  console.log('classes', classes, 'address', address, className, address, name, imageUrl, href = PROFILE_DETAILS);
 
-  return (
-    <Link href={href(address)}>
-      <a>
-        <div className={classnames(className, classes.root)}>
-          <Avatar address={address} imageUrl={imageUrl} />
-          <Typography variant="body1">
-            {name}
-          </Typography>
-        </div>
-      </a>
-    </Link>
-  );
+  if (address) {
+    return (
+      <Link href={href(address)}>
+        <a>
+          <div className={classnames(className, classes.root)}>
+            <Avatar address={address} imageUrl={imageUrl} />
+            <Typography variant="body1">
+              {name}
+            </Typography>
+          </div>
+        </a>
+      </Link>
+    );
+  }
+  return <div>-</div>;
 };
 
 export default AvatarName;
