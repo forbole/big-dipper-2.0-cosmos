@@ -10,7 +10,6 @@ const AvatarName: React.FC<AvatarName> = ({
   className, address, name, imageUrl, href = PROFILE_DETAILS,
 }) => {
   const classes = useStyles();
-  console.log('classes', classes, 'address', address, className, address, name, imageUrl, href = PROFILE_DETAILS);
 
   if (address) {
     return (
