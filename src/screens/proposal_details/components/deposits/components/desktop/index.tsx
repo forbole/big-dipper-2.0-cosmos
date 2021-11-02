@@ -32,11 +32,8 @@ const Desktop: React.FC<{
               name={x.user.name}
             />
           ) : (
-            <>
-              -
-            </>
+            <>-</>
           )}
-
         </>
       ),
       amount: `${numeral(x.amount.value).format(x.amount.format)} ${x.amount.denom.toUpperCase()}`,
