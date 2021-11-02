@@ -1,8 +1,8 @@
-import TokenDetails from '@src/screens/proposal_details';
+import ProposalDetails from '@src/screens/proposal_details';
 
 const TokenDetailsPage = () => {
   return (
-    <TokenDetails />
+    <ProposalDetails />
   );
 };
 
