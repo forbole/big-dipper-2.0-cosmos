@@ -21,11 +21,17 @@ const Mobile: React.FC<{
   const formattedItems = items.map((x) => {
     return ({
       depositor: (
-        <AvatarName
-          address={x.user.address}
-          imageUrl={x.user.imageUrl}
-          name={x.user.name}
-        />
+        <>
+          {x.user.address ? (
+            <AvatarName
+              address={x.user.address}
+              imageUrl={x.user.imageUrl}
+              name={x.user.name}
+            />
+          ) : (
+            <>-</>
+          )}
+        </>
       ),
       amount: `${numeral(x.amount.value).format(x.amount.format)} ${x.amount.denom.toUpperCase()}`,
     });
