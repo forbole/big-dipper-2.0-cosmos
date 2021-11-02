@@ -44,34 +44,21 @@ const Deposits: React.FC<{
   });
 
   const items = sliceItems(mergedDataWithProfiles);
-  const address = data[0].user;
 
   return (
     <Box className={classnames(className, classes.root)}>
       <Typography className={classes.title} variant="h2">{t('deposits')}</Typography>
       <div className={classes.list}>
         {isDesktop ? (
-          <>
-            {address ? (
-              <Desktop
-                className={classes.desktop}
-                items={items}
-              />
-            ) : (
-              <>-</>
-            )}
-          </>
+          <Desktop
+            className={classes.desktop}
+            items={items}
+          />
         ) : (
-          <>
-            {address ? (
-              <Mobile
-                className={classes.mobile}
-                items={items}
-              />
-            ) : (
-              <>-</>
-            )}
-          </>
+          <Mobile
+            className={classes.mobile}
+            items={items}
+          />
         )}
       </div>
       <Paginate
