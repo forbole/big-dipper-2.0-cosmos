@@ -14,7 +14,6 @@ import useTranslation from 'next-translate/useTranslation';
 import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
-import { useSettingsContext } from '@contexts';
 import { mergeRefs } from '@utils/merge_refs';
 import {
   Loading,
@@ -27,6 +26,8 @@ import {
 } from '@hooks';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { getMessageByType } from '@msg';
+import { useRecoilValue } from 'recoil';
+import { readDate } from '@recoil/settings';
 import { useStyles } from './styles';
 import { TransactionsListDetailsState } from '../../types';
 import { SingleTransaction } from './components';
@@ -43,9 +44,7 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
   } = useScreenSize();
   const { t } = useTranslation('transactions');
   const classes = useStyles();
-  const {
-    dateFormat,
-  } = useSettingsContext();
+  const dateFormat = useRecoilValue(readDate);
 
   const {
     listRef,

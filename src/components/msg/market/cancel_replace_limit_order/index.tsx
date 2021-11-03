@@ -5,15 +5,14 @@ import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { formatDenom } from '@utils/format_denom';
 import { MsgCancelReplaceLimitOrder } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const CancelReplaceLimitOrder = (props: {
   message: MsgCancelReplaceLimitOrder;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
-  const owner = findAddress(message.owner);
-  const ownerMoniker = owner ? owner?.moniker : message.owner;
+  const owner = useProfileRecoil(message.owner);
+  const ownerMoniker = owner ? owner?.name : message.owner;
   const source = formatDenom(message.source.amount, message.source.denom);
   const destination = formatDenom(message.destination.amount, message.destination.denom);
   return (

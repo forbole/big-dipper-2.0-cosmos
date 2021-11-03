@@ -12,7 +12,7 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
   >
     <div
       className="makeStyles-logo"
-      id="RED"
+      id="WHITE"
     />
   </a>
   <div
@@ -26,7 +26,7 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
       <p
         className="text"
       >
-        selected
+        morpheus-apollo-1
       </p>
       <svg
         aria-hidden={true}
@@ -65,7 +65,7 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
   >
     <div
       className="makeStyles-logo"
-      id="RED"
+      id="WHITE"
     />
   </a>
   <div
@@ -79,7 +79,7 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
       <p
         className="text"
       >
-        selected
+        morpheus-apollo-1
       </p>
       <svg
         aria-hidden={true}

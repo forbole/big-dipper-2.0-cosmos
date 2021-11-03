@@ -17,13 +17,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
         hash="E568ACFE5717F79A44979563410FF7F6C3043A07307E541EF21E15FC478C3DF0"
         height={999}
         id="Overview"
-        proposer={
-          Object {
-            "address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
-            "imageUrl": null,
-            "name": "moniker",
-          }
-        }
+        proposer="desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3"
         timestamp="2021-04-27T16:27:34.331769"
         txs={1}
       />
@@ -32,11 +26,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
         id="Signatures"
         signatures={
           Array [
-            Object {
-              "address": "desmosvaloper1qlh47ty9ah2d5e0xq6gsvqjvfulljl9602k7f9",
-              "imageUrl": null,
-              "name": "moniker",
-            },
+            "desmosvaloper1qlh47ty9ah2d5e0xq6gsvqjvfulljl9602k7f9",
           ]
         }
       />

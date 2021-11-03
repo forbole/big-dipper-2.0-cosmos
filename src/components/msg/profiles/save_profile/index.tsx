@@ -3,16 +3,15 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgSaveProfile } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const SaveProfile = (props: {
   message: MsgSaveProfile;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
 
-  const creator = findAddress(message.creator);
-  const creatorMoniker = creator ? creator?.moniker : message
+  const creator = useProfileRecoil(message.creator);
+  const creatorMoniker = creator ? creator?.name : message
     .creator;
 
   return (

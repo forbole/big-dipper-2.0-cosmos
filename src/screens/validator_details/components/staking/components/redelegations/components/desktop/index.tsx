@@ -2,7 +2,6 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import { useSettingsContext } from '@contexts';
 import dayjs, { formatDayJs } from '@utils/dayjs';
 import {
   Table,
@@ -11,20 +10,20 @@ import {
   TableCell,
   TableBody,
 } from '@material-ui/core';
+import { useRecoilValue } from 'recoil';
+import { readDate } from '@recoil/settings';
 import { AvatarName } from '@components';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { columns } from './utils';
-import { RedelegationType } from '../../../../../../types';
+import { ItemType } from '../../types';
 
 const Desktop: React.FC<{
   className?: string;
-  items: RedelegationType[];
+  items: ItemType[];
 }> = ({
   className, items,
 }) => {
-  const {
-    dateFormat,
-  } = useSettingsContext();
+  const dateFormat = useRecoilValue(readDate);
   const { t } = useTranslation('validators');
 
   const formattedItems = items.map((x) => {

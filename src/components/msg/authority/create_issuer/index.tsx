@@ -4,21 +4,20 @@ import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgCreateIssuer } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const CreateIssuer = (props: {
   message: MsgCreateIssuer;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
   const { t } = useTranslation('transactions');
 
-  const authority = findAddress(message.authority);
-  const authorityMoniker = authority ? authority?.moniker : message
+  const authority = useProfileRecoil(message.authority);
+  const authorityMoniker = authority ? authority?.name : message
     .authority;
 
-  const issuer = findAddress(message.issuer);
-  const issuerMoniker = issuer ? issuer?.moniker : message.issuer;
+  const issuer = useProfileRecoil(message.issuer);
+  const issuerMoniker = issuer ? issuer?.name : message.issuer;
 
   const denom = message.denominations;
   const parsedDenom = denom.reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t(' and ')} `) + value);

@@ -1,6 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { RecoilRoot } from 'recoil';
+import {
+  MockTheme, wait,
+} from '@tests/utils';
 import Mobile from '.';
 // ==================================
 // global setup
@@ -12,7 +15,7 @@ let component:renderer.ReactTestRenderer;
 // ==================================
 jest.mock('./components', () => ({
   Menu: (props) => <div id="menu" {...props} />,
-  Network: (props) => <div id="network" {...props} />,
+  // Network: (props) => <div id="network" {...props} />,
   Navbar: (props) => <div id="navbar" {...props} />,
   SearchBar: (props) => <div id="searchBar" {...props} />,
 }));
@@ -21,15 +24,18 @@ jest.mock('./components', () => ({
 // unit tests
 // ==================================
 describe('screen: Nav/Mobile', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     component = renderer.create(
-      <MockTheme>
-        <Mobile title="hello world" />
-      </MockTheme>,
+      <RecoilRoot>
+        <MockTheme>
+          <Mobile title="hello world" />
+        </MockTheme>
+      </RecoilRoot>,
     );
+    await wait();
   });
 
-  it('it renders', () => {
+  it('it renders', async () => {
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });

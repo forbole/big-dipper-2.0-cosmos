@@ -146,11 +146,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
                   "format": "0,0.[000000]",
                   "value": 58219.06133827526,
                 },
-                "validator": Object {
-                  "address": "desmosvaloper1u0dae8r8hay6r2gvccegg2fz6ryftf2wfnj5ft",
-                  "imageUrl": null,
-                  "name": "moniker",
-                },
+                "validator": "desmosvaloper1u0dae8r8hay6r2gvccegg2fz6ryftf2wfnj5ft",
                 "validatorStatus": Object {
                   "jailed": false,
                   "status": 3,
