@@ -4,19 +4,18 @@ import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgChangeIscnRecordOwnership } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const IscnChangeOwnership = (props: {
   message: MsgChangeIscnRecordOwnership;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
 
-  const from = findAddress(message.from);
-  const fromMoniker = from ? from?.moniker : message.from;
+  const from = useProfileRecoil(message.from);
+  const fromMoniker = from ? from?.name : message.from;
 
-  const to = findAddress(message.newOwner);
-  const toMoniker = to ? to?.moniker : message.newOwner;
+  const to = useProfileRecoil(message.newOwner);
+  const toMoniker = to ? to?.name : message.newOwner;
 
   return (
     <Typography>

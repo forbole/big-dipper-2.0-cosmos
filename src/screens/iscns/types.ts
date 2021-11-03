@@ -2,7 +2,7 @@ export type IscnType = {
   iscnId: string;
   ipld: string;
   height: number;
-  owner: AvatarName;
+  owner: string;
   iscnData: {
     name: string;
     publisher: string;
@@ -18,3 +18,5 @@ export type IscnsState = {
   rawDataTotal: number;
   items: IscnType[];
 }
+
+export type ItemType = Override<IscnType, { owner: AvatarName }>

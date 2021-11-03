@@ -174,8 +174,7 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
     <div
       className="MuiListItemIcon-root"
     >
-      <svg
-        data-file-name="SvgIconMemo"
+      <
         height={24}
         width={24}
       />
