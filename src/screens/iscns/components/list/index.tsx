@@ -6,7 +6,9 @@ import { Divider } from '@material-ui/core';
 import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
-
+import {
+  useProfilesRecoil,
+} from '@recoil/profiles';
 import {
   useList,
   useListRow,
@@ -45,7 +47,13 @@ const ProposalsList: React.FC<{
     setRowHeight,
   } = useList();
 
-  const formattedItems = items;
+  const proposerProfiles = useProfilesRecoil(items.map((x) => x.owner));
+  const formattedItems = items.map((x, i) => {
+    return ({
+      ...x,
+      owner: proposerProfiles[i],
+    });
+  });
 
   return (
     <Box className={classnames(className, classes.root)}>

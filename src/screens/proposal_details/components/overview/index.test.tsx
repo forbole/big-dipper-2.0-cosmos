@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import Overview from '.';
@@ -20,19 +21,21 @@ jest.mock('@components', () => ({
 describe('screen: BlockDetails/Overview', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
-      <MockTheme>
-        <Overview
-          title="title"
-          id={10}
-          description="description"
-          status="status"
-          submitTime=""
-          depositEndTime=""
-          votingEndTime={null}
-          votingStartTime={null}
-          content=""
-        />
-      </MockTheme>,
+      <RecoilRoot>
+        <MockTheme>
+          <Overview
+            title="title"
+            id={10}
+            description="description"
+            status="status"
+            submitTime=""
+            depositEndTime=""
+            votingEndTime={null}
+            votingStartTime={null}
+            content=""
+          />
+        </MockTheme>
+      </RecoilRoot>,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

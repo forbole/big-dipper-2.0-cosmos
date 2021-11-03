@@ -14,11 +14,11 @@ import { SingleValidator } from './component';
 import {
   Condition, VotingPower,
 } from '..';
-import { ValidatorType } from '../../types';
+import { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;
-  items: ValidatorType[];
+  items: ItemType[];
 }> = ({
   className, items,
 }) => {

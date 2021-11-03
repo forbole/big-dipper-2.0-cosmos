@@ -8,10 +8,11 @@ import {
 import { AvatarName } from '@components';
 import { useStyles } from './styles';
 import { getVoteKey } from '../../utils';
+import { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;
-  items?: any[];
+  items?: ItemType[];
 }> = ({
   className, items,
 }) => {

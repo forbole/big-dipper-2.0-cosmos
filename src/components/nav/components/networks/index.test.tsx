@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import Networks from '.';
@@ -9,34 +10,16 @@ import Networks from '.';
 let component:renderer.ReactTestRenderer;
 
 // ==================================
-// mocks
-// ==================================
-jest.mock('@src/contexts/networks', () => ({
-  useNetworksContext: () => ({
-    networks: [{
-      logo: 'logo',
-      name: 'name',
-      mainnet: [{
-        chainId: 'chain id',
-        url: 'url',
-        name: 'name',
-      }],
-      testnet: [],
-      retired: [],
-      other: [],
-    }],
-  }),
-}));
-
-// ==================================
 // unit tests
 // ==================================
 describe('screen: Nav/Networks', () => {
   beforeEach(() => {
     component = renderer.create(
-      <MockTheme>
-        <Networks />
-      </MockTheme>,
+      <RecoilRoot>
+        <MockTheme>
+          <Networks />
+        </MockTheme>
+      </RecoilRoot>,
     );
   });
 

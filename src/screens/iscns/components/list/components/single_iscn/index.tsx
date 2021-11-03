@@ -1,9 +1,9 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import { IscnType } from '../../../../types';
+import { ItemType } from '../../../../types';
 import { useStyles } from './styles';
 
-const SingleIscn = (props:IscnType) => {
+const SingleIscn = (props:ItemType) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>

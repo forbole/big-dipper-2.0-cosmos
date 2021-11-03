@@ -4,7 +4,8 @@ import numeral from 'numeral';
 import classnames from 'classnames';
 import dayjs, { formatDayJs } from '@utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
-import { useSettingsContext } from '@contexts';
+import { useRecoilValue } from 'recoil';
+import { readDate } from '@recoil/settings';
 import {
   Typography,
   Divider,
@@ -35,9 +36,7 @@ const Overview: React.FC<{
 }> = ({
   className, ...props
 }) => {
-  const {
-    dateFormat,
-  } = useSettingsContext();
+  const dateFormat = useRecoilValue(readDate);
   const classes = useStyles();
   const { t } = useTranslation('proposals');
 

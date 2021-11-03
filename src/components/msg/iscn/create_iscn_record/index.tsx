@@ -3,16 +3,15 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgCreateIscnRecord } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const CreateIscnRecord = (props: {
   message: MsgCreateIscnRecord;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
 
-  const from = findAddress(message.from);
-  const fromMoniker = from ? from?.moniker : message.from;
+  const from = useProfileRecoil(message.from);
+  const fromMoniker = from ? from?.name : message.from;
 
   return (
     <Typography>

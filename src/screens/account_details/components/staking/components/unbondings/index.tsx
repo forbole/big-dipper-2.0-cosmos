@@ -7,6 +7,9 @@ import {
 import {
   Pagination, NoData,
 } from '@components';
+import {
+  useProfilesRecoil,
+} from '@recoil/profiles';
 import { useStyles } from './styles';
 import { UnbondingType } from '../../../../types';
 
@@ -31,7 +34,15 @@ const Unbondings: React.FC<{
     sliceItems,
   } = usePagination({});
   const { isDesktop } = useScreenSize();
-  const items = sliceItems(data);
+  const dataProfiles = useProfilesRecoil(data.map((x) => x.validator));
+  const mergedDataWithProfiles = data.map((x, i) => {
+    return ({
+      ...x,
+      validator: dataProfiles[i],
+    });
+  });
+
+  const items = sliceItems(mergedDataWithProfiles);
 
   return (
     <div className={classnames(className)}>

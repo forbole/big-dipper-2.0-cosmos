@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import Profile from '.';
@@ -21,18 +22,17 @@ jest.mock('@components', () => ({
 describe('screen: ValidatorDetails/Profile', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
-      <MockTheme>
-        <Profile
-          validator={{
-            moniker: 'moniker',
-            imageUrl: '',
-          }}
-          operatorAddress="operatorAddress"
-          selfDelegateAddress="selfDelegateAddress"
-          description="description"
-          website=""
-        />
-      </MockTheme>,
+      <RecoilRoot>
+        <MockTheme>
+          <Profile
+            validator="validator"
+            operatorAddress="operatorAddress"
+            selfDelegateAddress="selfDelegateAddress"
+            description="description"
+            website=""
+          />
+        </MockTheme>
+      </RecoilRoot>,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

@@ -10,7 +10,7 @@ export const columns:{
   {
     key: 'identifier',
     width: 50,
-    align: 'right',
+    align: 'left',
   },
   {
     key: 'creationTime',
