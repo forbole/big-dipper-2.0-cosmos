@@ -12,13 +12,17 @@ export const columns:{
 ];
 
 export const formatRows = (data: AvatarName[]) => {
-  return data.map((x) => ({
-    validator: (
-      <AvatarName
-        address={x.address}
-        imageUrl={x.imageUrl}
-        name={x.name}
-      />
-    ),
-  }));
+  return data.map((x) => {
+    return (
+      {
+        validator: (
+          <AvatarName
+            address={x.address}
+            imageUrl={x.imageUrl}
+            name={x.name}
+          />
+        ),
+      }
+    );
+  });
 };

@@ -1,22 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { RecoilRoot } from 'recoil';
 import {
-  MockTheme,
+  MockTheme, wait,
 } from '@tests/utils';
 import Navbar from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@src/contexts', () => ({
-  useNetworksContext: () => ({
-    selected: 'selected',
-  }),
-  useSettingsContext: () => ({
-    theme: 'light',
-  }),
-}));
-
 jest.mock('@assets/big-dipper-white.svg', () => (props) => <div id="WHITE" {...props} />);
 jest.mock('@assets/big-dipper-red.svg', () => (props) => <div id="RED" {...props} />);
 // ==================================
@@ -33,16 +25,19 @@ const toggleNavMenus = jest.fn();
 // unit tests
 // ==================================
 describe('screen: Nav/mobile/navbar', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     component = renderer.create(
-      <MockTheme>
-        <Navbar
-          isOpen={false}
-          openNetwork={openNetwork}
-          toggleNavMenus={toggleNavMenus}
-        />
-      </MockTheme>,
+      <RecoilRoot>
+        <MockTheme>
+          <Navbar
+            isOpen={false}
+            openNetwork={openNetwork}
+            toggleNavMenus={toggleNavMenus}
+          />
+        </MockTheme>
+      </RecoilRoot>,
     );
+    await wait();
   });
 
   it('it renders', () => {

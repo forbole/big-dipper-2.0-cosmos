@@ -3,16 +3,17 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgVerifyInvariant } from '@models';
-import { useChainContext } from '@contexts';
+import {
+  useProfileRecoil,
+} from '@recoil/profiles';
 
 const VerifyInvariant = (props: {
   message: MsgVerifyInvariant;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
 
-  const user = findAddress(message.sender);
-  const userMoniker = user ? user?.moniker : message.sender;
+  const user = useProfileRecoil(message.sender);
+  const userMoniker = user ? user?.name : message.sender;
 
   return (
     <Typography>

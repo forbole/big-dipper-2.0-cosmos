@@ -6,6 +6,7 @@ import { Typography } from '@material-ui/core';
 import {
   Box, NoData,
 } from '@components';
+import { useProfilesRecoil } from '@recoil/profiles';
 import { useScreenSize } from '@hooks';
 import { useStyles } from './styles';
 
@@ -13,13 +14,15 @@ const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
 
 const Signatures: React.FC<ComponentDefault & {
-  signatures: AvatarName[];
+  signatures: string[];
 }> = ({
-  className, signatures,
+  className,
+  signatures,
 }) => {
   const { isDesktop } = useScreenSize();
   const { t } = useTranslation('blocks');
   const classes = useStyles();
+  const formattedSignatures = useProfilesRecoil(signatures);
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -31,12 +34,12 @@ const Signatures: React.FC<ComponentDefault & {
           {isDesktop ? (
             <Desktop
               className={classes.desktop}
-              signatures={signatures}
+              signatures={formattedSignatures}
             />
           ) : (
             <Mobile
               className={classes.mobile}
-              signatures={signatures}
+              signatures={formattedSignatures}
             />
           )}
         </div>

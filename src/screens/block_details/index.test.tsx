@@ -21,15 +21,6 @@ jest.mock('next/router', () => ({
   }),
 }));
 
-jest.mock('@contexts', () => ({
-  useChainContext: () => ({
-    findAddress: jest.fn(() => ({
-      moniker: 'moniker',
-      imageUrl: null,
-    })),
-  }),
-}));
-
 jest.mock('@components', () => ({
   Layout: (props) => <div id="Layout" {...props} />,
   LoadAndExist: (props) => <div id="LoadAndExist" {...props} />,

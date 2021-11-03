@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import Footer from '.';
@@ -14,9 +15,11 @@ describe('component: layout/footer', () => {
       .mockImplementation(() => mockDate as any);
 
     const component = renderer.create(
-      <MockTheme>
-        <Footer />
-      </MockTheme>,
+      <RecoilRoot>
+        <MockTheme>
+          <Footer />
+        </MockTheme>
+      </RecoilRoot>,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

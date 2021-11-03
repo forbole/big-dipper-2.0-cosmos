@@ -8,12 +8,12 @@ import {
 } from '@material-ui/core';
 import { getValidatorStatus } from '@utils/get_validator_status';
 import { AvatarName } from '@components';
-import { DelegationType } from '@src/screens/account_details/types';
 import { useStyles } from './styles';
+import { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;
-  items?: DelegationType[];
+  items?: ItemType[];
 }> = ({
   className, items,
 }) => {
