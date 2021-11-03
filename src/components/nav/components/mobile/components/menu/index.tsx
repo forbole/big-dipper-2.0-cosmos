@@ -8,9 +8,9 @@ import {
 } from '@material-ui/core';
 import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
-import { useSettingsContext } from '@contexts';
 import Language from '@assets/icon-language.svg';
 import ThemeIcon from '@assets/icon-theme.svg';
+import { THEME_LIST } from '@recoil/settings';
 import {
   ExpandMoreOutlined,
 } from '@material-ui/icons';
@@ -27,20 +27,16 @@ const Menu = (props: MenuProps) => {
     t,
     lang,
   } = useTranslation('common');
-  const {
-    theme,
-    themeList,
-    changeTheme,
-  } = useSettingsContext();
 
   const {
     toggleNavMenus,
     className,
   } = props;
+
   const classes = useStyles();
   const languageOptions = useLanguageDrawer(lang, toggleNavMenus);
 
-  const themeOptions = useThemeDrawer(theme, toggleNavMenus);
+  const themeOptions = useThemeDrawer(toggleNavMenus);
   return (
     <>
       {/* ================================== */}
@@ -86,11 +82,11 @@ const Menu = (props: MenuProps) => {
       >
         <div className={classnames('content')}>
           {
-            themeList
-              .filter((l) => l !== theme)
+            THEME_LIST
+              .filter((l) => l !== themeOptions.theme)
               .map((l) => (
                 <div key={l}>
-                  <MenuItem button component="a" onClick={() => changeTheme(l)}>
+                  <MenuItem button component="a" onClick={() => themeOptions.handleChangeTheme(l)}>
                     {t(l)}
                   </MenuItem>
                 </div>
@@ -126,7 +122,7 @@ const Menu = (props: MenuProps) => {
             <span role="button">
               <ThemeIcon />
             </span>
-            <Typography variant="caption">{t(theme)}</Typography>
+            <Typography variant="caption">{t(themeOptions.theme)}</Typography>
           </div>
         </div>
       </div>

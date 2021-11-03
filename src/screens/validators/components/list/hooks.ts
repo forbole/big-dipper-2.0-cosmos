@@ -6,18 +6,16 @@ import {
   ValidatorsQuery,
 } from '@graphql/types';
 import { formatDenom } from '@utils/format_denom';
-import { useChainContext } from '@contexts';
 import { getValidatorCondition } from '@utils/get_validator_condition';
 import {
   StakingParams,
   SlashingParams,
 } from '@models';
 import {
-  ValidatorsState, ValidatorType,
+  ValidatorsState, ItemType,
 } from './types';
 
 export const useValidators = () => {
-  const { findAddress } = useChainContext();
   const [search, setSearch] = useState('');
   const [state, setState] = useState<ValidatorsState>({
     loading: true,
@@ -59,11 +57,7 @@ export const useValidators = () => {
     const { signedBlockWindow } = slashingParams;
 
     const formattedItems = data.validator.filter((x) => x.validatorInfo).map((x) => {
-      const validator = findAddress(x.validatorInfo.operatorAddress);
-      const votingPower = formatDenom(
-        R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x),
-        stakingParams.bondDenom,
-      ).value;
+      const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
       const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
       const totalDelegations = x.delegations.reduce((a, b) => {
         return a + numeral(R.pathOr(0, ['amount', 'amount'], b)).value();
@@ -81,11 +75,7 @@ export const useValidators = () => {
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
 
       return ({
-        validator: {
-          address: x.validatorInfo.operatorAddress,
-          imageUrl: validator.imageUrl,
-          name: validator.moniker,
-        },
+        validator: x.validatorInfo.operatorAddress,
         votingPower,
         votingPowerPercent,
         commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], x) * 100,
@@ -126,8 +116,8 @@ export const useValidators = () => {
     }
   };
 
-  const sortItems = (items: ValidatorType[]) => {
-    let sorted: ValidatorType[] = R.clone(items);
+  const sortItems = (items: ItemType[]) => {
+    let sorted: ItemType[] = R.clone(items);
 
     if (state.tab === 0) {
       sorted = sorted.filter((x) => x.status === 3);

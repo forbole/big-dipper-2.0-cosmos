@@ -3,20 +3,19 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgTransfer } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 import numeral from 'numeral';
 import { formatDenom } from '@utils/format_denom';
 
 const Transfer = (props: {
   message: MsgTransfer;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
 
-  const sender = findAddress(message.sender);
-  const senderMoniker = sender ? sender?.moniker : message.sender;
-  const receiver = findAddress(message.receiver);
-  const receiverMoniker = receiver ? receiver?.moniker : message.receiver;
+  const sender = useProfileRecoil(message.sender);
+  const senderMoniker = sender ? sender?.name : message.sender;
+  const receiver = useProfileRecoil(message.receiver);
+  const receiverMoniker = receiver ? receiver?.name : message.receiver;
   const tokenFormatDenom = formatDenom(message.token?.amount, message.token?.denom);
   const token = `${numeral(tokenFormatDenom.value).format(tokenFormatDenom.format)} ${tokenFormatDenom.denom.toUpperCase()}`;
 

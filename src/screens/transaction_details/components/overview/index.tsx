@@ -4,9 +4,10 @@ import numeral from 'numeral';
 import Link from 'next/link';
 import dayjs, { formatDayJs } from '@utils/dayjs';
 import { Typography } from '@material-ui/core';
+import { useRecoilValue } from 'recoil';
+import { readDate } from '@recoil/settings';
 import useTranslation from 'next-translate/useTranslation';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
-import { useSettingsContext } from '@contexts';
 import {
   BoxDetails, Result,
 } from '@components';
@@ -21,9 +22,7 @@ const Overview: React.FC<{
 }) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
-  const {
-    dateFormat,
-  } = useSettingsContext();
+  const dateFormat = useRecoilValue(readDate);
 
   const details = [
     {

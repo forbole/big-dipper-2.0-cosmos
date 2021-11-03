@@ -7,11 +7,11 @@ import {
 import numeral from 'numeral';
 import { AvatarName } from '@components';
 import { useStyles } from './styles';
-import { DepositType } from '../../../../types';
+import { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;
-  items?: DepositType[];
+  items?: ItemType[];
 }> = ({
   className, items,
 }) => {

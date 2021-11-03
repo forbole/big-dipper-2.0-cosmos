@@ -10,9 +10,8 @@ exports[`component: layout/footer matches snapshot 1`] = `
     <div
       className="footer__logo--container"
     >
-      <svg
+      <
         className="footer__logo"
-        data-file-name="SvgBigDipperWhite"
       />
       <p
         className="footer__slogan"
@@ -249,7 +248,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
       className="MuiTypography-root footer__closing--text MuiTypography-body1"
     >
       common:copyright
-       
+
       2017
     </p>
     <p

@@ -2,6 +2,8 @@ import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import * as R from 'ramda';
+import { useRecoilValue } from 'recoil';
+import { readMarket } from '@recoil/market';
 import {
   Typography,
   Divider,
@@ -15,7 +17,6 @@ import {
 import useTranslation from 'next-translate/useTranslation';
 import { Box } from '@components';
 import { chainConfig } from '@configs';
-import { useChainContext } from '@contexts';
 import { useStyles } from './styles';
 import { formatBalanceData } from './utils';
 
@@ -32,7 +33,7 @@ const Balance: React.FC<{
   const {
     classes, theme,
   } = useStyles();
-  const { market } = useChainContext();
+  const market = useRecoilValue(readMarket);
   const formattedChartData = formatBalanceData(props);
 
   const empty = {
