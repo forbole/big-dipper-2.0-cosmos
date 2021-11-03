@@ -3,16 +3,15 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgEditDataSource } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const EditDataSource = (props: {
   message: MsgEditDataSource;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
 
-  const sender = findAddress(message.sender);
-  const senderMoniker = sender ? sender?.moniker : message
+  const sender = useProfileRecoil(message.sender);
+  const senderMoniker = sender ? sender?.name : message
     .sender;
 
   return (

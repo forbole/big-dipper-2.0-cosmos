@@ -3,16 +3,15 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgActivate } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const Activate = (props: {
   message: MsgActivate;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
 
-  const validator = findAddress(message.validator);
-  const validatorMoniker = validator ? validator?.moniker : message
+  const validator = useProfileRecoil(message.validator);
+  const validatorMoniker = validator ? validator?.name : message
     .validator;
 
   return (

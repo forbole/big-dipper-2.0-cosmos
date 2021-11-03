@@ -1,6 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { RecoilRoot } from 'recoil';
+import {
+  MockTheme, wait,
+} from '@tests/utils';
 import Menu from '.';
 // ==================================
 // globals
@@ -30,14 +33,19 @@ jest.mock('next/router', () => ({
 // unit tests
 // ==================================
 describe('screen: Nav/Menu', () => {
-  beforeEach(() => {
-    component = renderer.create(
-      <MockTheme>
-        <Menu
-          toggleNavMenus={toggleNavMenus}
-        />
-      </MockTheme>,
-    );
+  beforeEach(async () => {
+    renderer.act(() => {
+      component = renderer.create(
+        <RecoilRoot>
+          <MockTheme>
+            <Menu
+              toggleNavMenus={toggleNavMenus}
+            />
+          </MockTheme>
+        </RecoilRoot>,
+      );
+    });
+    await wait();
   });
 
   it('it renders', () => {
@@ -45,18 +53,20 @@ describe('screen: Nav/Menu', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('toggleDrawer is not called in first render', () => {
+  it('toggleDrawer is not called in first render', async () => {
     expect(toggleNavMenus).toBeCalledTimes(0);
 
     mockI18n.lang = 'zht';
     component.update(
-      <MockTheme>
-        <Menu
-          toggleNavMenus={toggleNavMenus}
-        />
-      </MockTheme>,
+      <RecoilRoot>
+        <MockTheme>
+          <Menu
+            toggleNavMenus={toggleNavMenus}
+          />
+        </MockTheme>
+      </RecoilRoot>,
     );
-
+    await wait();
     expect(toggleNavMenus).toBeCalledTimes(1);
   });
 

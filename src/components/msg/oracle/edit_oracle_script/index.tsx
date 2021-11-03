@@ -3,16 +3,15 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgEditOracleScript } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const EditOracleScript = (props: {
   message: MsgEditOracleScript;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
 
-  const sender = findAddress(message.sender);
-  const senderMoniker = sender ? sender?.moniker : message
+  const sender = useProfileRecoil(message.sender);
+  const senderMoniker = sender ? sender?.name : message
     .sender;
 
   return (

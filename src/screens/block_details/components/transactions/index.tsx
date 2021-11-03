@@ -7,7 +7,8 @@ import {
   TransactionsList,
   Box,
 } from '@components';
-import { useSettingsContext } from '@contexts';
+import { useRecoilValue } from 'recoil';
+import { readTx } from '@recoil/settings';
 import { useStyles } from './styles';
 
 const Transactions: React.FC<ComponentDefault & {
@@ -15,7 +16,7 @@ const Transactions: React.FC<ComponentDefault & {
 }> = ({
   className, transactions,
 }) => {
-  const { txListFormat } = useSettingsContext();
+  const txListFormat = useRecoilValue(readTx);
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   return (

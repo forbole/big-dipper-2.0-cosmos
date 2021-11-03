@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgEditValidator } from '@models';
@@ -7,15 +8,6 @@ import EditValidator from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@contexts', () => ({
-  useChainContext: () => ({
-    findAddress: jest.fn(() => ({
-      moniker: 'moniker',
-      imageUrl: null,
-    })),
-  }),
-}));
-
 jest.mock('@components', () => ({
   Name: (props) => <div id="Name" {...props} />,
 }));
@@ -40,11 +32,13 @@ describe('screen: TransactionDetails/EditValidator', () => {
       minSelfDelegation: '0.1',
     });
     const component = renderer.create(
-      <MockTheme>
-        <EditValidator
-          message={message}
-        />
-      </MockTheme>,
+      <RecoilRoot>
+        <MockTheme>
+          <EditValidator
+            message={message}
+          />
+        </MockTheme>
+      </RecoilRoot>,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

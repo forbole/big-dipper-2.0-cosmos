@@ -7,6 +7,9 @@ import {
   Tooltip,
 } from '@material-ui/core';
 import {
+  useProfilesRecoil,
+} from '@recoil/profiles';
+import {
   Box,
   AvatarName,
   Result,
@@ -21,6 +24,13 @@ const Blocks: React.FC<{
 }) => {
   const { t } = useTranslation('validators');
   const { state } = useBlocks();
+  const dataProfiles = useProfilesRecoil(state.map((x) => x.proposer));
+  const mergedDataWithProfiles = state.map((x, i) => {
+    return ({
+      ...x,
+      proposer: dataProfiles[i],
+    });
+  });
 
   const classes = useStyles();
   return (
@@ -29,7 +39,7 @@ const Blocks: React.FC<{
         {t('lastBlocks')}
       </Typography>
       <div className={classes.blocks}>
-        {state.map((x, i) => {
+        {mergedDataWithProfiles.map((x, i) => {
           return (
             <Tooltip
               key={`blocks-tooltip-${i}`}

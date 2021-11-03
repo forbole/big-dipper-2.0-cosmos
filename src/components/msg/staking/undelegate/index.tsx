@@ -5,22 +5,21 @@ import { Typography } from '@material-ui/core';
 import { formatDenom } from '@utils/format_denom';
 import { Name } from '@components';
 import { MsgUndelegate } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const Undelegate = (props: {
   message: MsgUndelegate;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
   const amount = formatDenom(message.amount.amount, message.amount.denom);
   const parsedAmount = `${numeral(amount.value).format(amount.format)} ${amount.denom.toUpperCase()}`;
 
-  const delegator = findAddress(message.delegatorAddress);
-  const delegatorMoniker = delegator ? delegator?.moniker : message
+  const delegator = useProfileRecoil(message.delegatorAddress);
+  const delegatorMoniker = delegator ? delegator?.name : message
     .delegatorAddress;
 
-  const validator = findAddress(message.validatorAddress);
-  const validatorMoniker = validator ? validator?.moniker : message
+  const validator = useProfileRecoil(message.validatorAddress);
+  const validatorMoniker = validator ? validator?.name : message
     .validatorAddress;
 
   return (

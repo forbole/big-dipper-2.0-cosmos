@@ -82,15 +82,14 @@ jobs:
             org.opencontainers.image.revision=${{ github.sha }}
       - name: Deploy to Akash 🌐
         env:
-          DESMOS_AKASH_WEBHOOK_URL: ${{ secrets.DESMOS_AKASH_WEBHOOK_URL }}
-          DESMOS_AKASH_WEBHOOK_SECRET: ${{ secrets.DESMOS_AKASH_WEBHOOK_SECRET }}
+          LAOZI_MAINNET: ${{ secrets.LAOZI_MAINNET }}
           AKASH_WEBHOOK_SECRET: ${{ secrets.AKASH_WEBHOOK_SECRET }}
         run: |
             BRANCH=${GITHUB_REF}
             WEBHOOK_URL=''
-            if [[ $GITHUB_REF == refs/tags/desmos-morpheus-apollo-1* ]]; then
-              echo 'Deploying to Desmos morpheus-apollo-1'
-              WEBHOOK_URL=$DESMOS_AKASH_WEBHOOK_URL
+            if [[ $GITHUB_REF == refs/tags/laozi-mainnet-v* ]]; then
+              echo 'Deploying to laozi-mainnet'
+              WEBHOOK_URL=$LAOZI_MAINNET
             fi
               curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k $WEBHOOK_URL -u "deploy:$AKASH_WEBHOOK_SECRET"
 
