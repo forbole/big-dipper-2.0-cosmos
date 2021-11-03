@@ -80,10 +80,11 @@ jest.mock('@recoil/profiles', () => {
       name: address,
       imageUrl: ''
     })),
-    useProfilesRecoil: jest.fn((address) => ({
-      address,
-      name: address,
-      imageUrl: ''
-    })),
-  });
-});
+    useProfilesRecoil: jest.fn((addresses) => {
+      return addresses.map((address) => ({
+        address,
+        name: address,
+        imageUrl: ''
+      }));
+    }),
+})});

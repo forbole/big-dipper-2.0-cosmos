@@ -248,7 +248,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
       className="MuiTypography-root footer__closing--text MuiTypography-body1"
     >
       common:copyright
-
+       
       2017
     </p>
     <p
