@@ -14,7 +14,6 @@ const DataBlocks: React.FC<{
   const { t } = useTranslation('home');
   const classes = useStyles();
   const { state } = useDataBlocks();
-  console.log('state.blockTime', state.blockTime);
   const data = [
     {
       key: t('latestBlock'),
