@@ -60,11 +60,7 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
         data={
           Array [
             Object {
-              "user": Object {
-                "address": "desmos1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w",
-                "imageUrl": null,
-                "name": "moniker",
-              },
+              "user": "desmos1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w",
               "vote": "VOTE_OPTION_YES",
             },
           ]
@@ -76,11 +72,7 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
         notVotedData={
           Array [
             Object {
-              "user": Object {
-                "address": "address",
-                "imageUrl": null,
-                "name": "moniker",
-              },
+              "user": "desmosvalcons1c29eyczh5lw4npe0a9n40nm5g299fq8nt5lerw",
               "vote": "NOT_VOTED",
             },
           ]
@@ -100,11 +92,7 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
                 "format": "0,0.[000000]",
                 "value": 100,
               },
-              "user": Object {
-                "address": "desmos1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w",
-                "imageUrl": null,
-                "name": "moniker",
-              },
+              "user": "desmos1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w",
             },
           ]
         }

@@ -3,19 +3,18 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgTransferNFT } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const TransferNFT = (props: {
   message: MsgTransferNFT;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
 
-  const sender = findAddress(message.sender);
-  const senderMoniker = sender ? sender?.moniker : message.sender;
+  const sender = useProfileRecoil(message.sender);
+  const senderMoniker = sender ? sender?.name : message.sender;
 
-  const recipient = findAddress(message.recipient);
-  const recipientMoniker = recipient ? recipient?.moniker : message.recipient;
+  const recipient = useProfileRecoil(message.recipient);
+  const recipientMoniker = recipient ? recipient?.name : message.recipient;
 
   return (
     <Typography>

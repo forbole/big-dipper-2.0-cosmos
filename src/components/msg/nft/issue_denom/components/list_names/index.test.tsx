@@ -5,42 +5,17 @@ import ListNames from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@contexts', () => ({
-  useChainContext: () => ({
-    findAddress: jest.fn((address) => {
-      if (address === 'desmos1hfhkduejung7g29wv863x369rndf3hu5xj4g93') {
-        return ({
-          moniker: 'Validator',
-          imageUrl: 'https://raw.githubusercontent.com/forbole/big-dipper-assets/master/bitsong/logo.svg?sanitize=true',
-        });
-      }
-      if (address === 'desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7') {
-        return ({
-          moniker: 'AC Validator 🦦',
-          imageUrl: '',
-        });
-      }
-      if (address === 'desmosvaloper1jh753mzjy358jf86cfqqzkrrtqqefhjxctcre4') {
-        return ({
-          moniker: 'coolex',
-          imageUrl: '',
-        });
-      }
-      if (address === 'desmosvaloper1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467') {
-        return ({
-          moniker: 'Cat Boss',
-          imageUrl: 'https://raw.githubusercontent.com/forbole/big-dipper-assets/master/bitsong/logo.svg?sanitize=true',
-        });
-      }
-      return (
-        {
-          moniker: 'moniker',
-          imageUrl: null,
-        }
-      );
+jest.mock('@recoil/profiles', () => {
+  return ({
+    useProfilesRecoil: jest.fn((addresses) => {
+      return addresses.map((address) => ({
+        address,
+        name: address === 'desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7' ? 'AC Validator 🦦' : address,
+        imageUrl: '',
+      }));
     }),
-  }),
-}));
+  });
+});
 
 jest.mock('@components', () => ({
   Name: (props) => <div id={props.address} {...props} />,

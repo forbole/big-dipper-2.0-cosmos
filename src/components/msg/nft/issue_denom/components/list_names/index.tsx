@@ -1,5 +1,5 @@
 import React from 'react';
-import { useChainContext } from '@contexts';
+import { useProfilesRecoil } from '@recoil/profiles';
 import { Name } from '@components';
 import useTranslation from 'next-translate/useTranslation';
 
@@ -7,16 +7,9 @@ const ListNames = (props: {
   creators: string[];
 }) => {
   const { creators } = props;
-  const { findAddress } = useChainContext();
-  const { t } = useTranslation('transactions');
 
-  const dataArray = creators.map((eachAddress) => {
-    const creatorMoniker = findAddress(eachAddress);
-    const creatorMonikerResult = creatorMoniker ? creatorMoniker?.moniker : eachAddress;
-    return {
-      eachAddress, creatorMonikerResult,
-    };
-  });
+  const { t } = useTranslation('transactions');
+  const dataArray = useProfilesRecoil(creators);
 
   return (
     <>
@@ -30,10 +23,10 @@ const ListNames = (props: {
         }
 
         return (
-          <React.Fragment key={x.eachAddress}>
+          <React.Fragment key={x.address}>
             <Name
-              address={x.eachAddress}
-              name={x.creatorMonikerResult}
+              address={x.address}
+              name={x.name}
             />
             {suffix}
           </React.Fragment>

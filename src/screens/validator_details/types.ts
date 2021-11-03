@@ -1,8 +1,5 @@
 export type OverviewType = {
-  validator: {
-    imageUrl: string;
-    moniker: string;
-  };
+  validator: string;
   operatorAddress: string;
   selfDelegateAddress: string;
   description: string;
@@ -28,20 +25,20 @@ export type VotingPowerType = {
 }
 
 export type DelegationType = {
-  delegator: AvatarName;
+  delegator: string;
   amount: TokenUnit;
 }
 
 export type RedelegationType = {
-  to: AvatarName;
-  from: AvatarName;
-  delegator: AvatarName;
+  to: string;
+  from: string;
+  delegator: string;
   linkedUntil: string;
   amount: TokenUnit;
 }
 
 export type UndelegationType = {
-  delegator: AvatarName;
+  delegator: string;
   amount: TokenUnit;
   linkedUntil: string;
 }

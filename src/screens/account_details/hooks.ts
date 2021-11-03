@@ -15,7 +15,6 @@ import { convertMsgsToModels } from '@msg';
 import {
   StakingParams,
 } from '@models';
-import { useChainContext } from '@contexts';
 import { getDenom } from '@utils/get_denom';
 import { formatDenom } from '@utils/format_denom';
 import { chainConfig } from '@src/configs';
@@ -69,9 +68,6 @@ const initialState: AccountDetailState = {
 };
 
 export const useAccountDetails = () => {
-  const {
-    findAddress, findOperator,
-  } = useChainContext();
   const router = useRouter();
   const [state, setState] = useState<AccountDetailState>(initialState);
 
@@ -370,13 +366,8 @@ export const useAccountDetails = () => {
         return numeral(x.amount.amount).value() !== 0;
       }).map((x) => {
         const validatorAddress = x.validator.validatorInfo.operatorAddress;
-        const validator = findAddress(validatorAddress);
         return ({
-          validator: {
-            address: validatorAddress,
-            imageUrl: validator.imageUrl,
-            name: validator.moniker,
-          },
+          validator: validatorAddress,
           validatorStatus: {
             status: R.pathOr(3, ['validator', 'validatorStatuses', 0, 'status'], x),
             jailed: R.pathOr(false, ['validator', 'validatorStatuses', 0, 'jailed'], x),
@@ -400,21 +391,9 @@ export const useAccountDetails = () => {
     // ============================
     const formatRedelegations = () => {
       const redelegations = data.account[0].redelegations.map((x) => {
-        const toValidator = findOperator(x.to);
-        const to = findAddress(toValidator);
-        const fromValidator = findOperator(x.from);
-        const from = findAddress(fromValidator);
         return ({
-          to: {
-            address: toValidator,
-            imageUrl: to.imageUrl,
-            name: to.moniker,
-          },
-          from: {
-            address: fromValidator,
-            imageUrl: from.imageUrl,
-            name: from.moniker,
-          },
+          to: x.to,
+          from: x.from,
           linkedUntil: x.completionTime,
           amount: formatDenom(
             R.pathOr(0, ['amount', 'amount'], x),
@@ -436,13 +415,8 @@ export const useAccountDetails = () => {
     const formatUnbondings = () => {
       const unbondings = data.account[0].unbonding.map((x) => {
         const validatorAddress = x.validator.validatorInfo.operatorAddress;
-        const validator = findAddress(validatorAddress);
         return ({
-          validator: {
-            address: validatorAddress,
-            imageUrl: validator.imageUrl,
-            name: validator.moniker,
-          },
+          validator: validatorAddress,
           amount: formatDenom(
             R.pathOr(0, ['amount', 'amount'], x),
             R.pathOr(0, ['amount', 'denom'], x),

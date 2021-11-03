@@ -3,7 +3,7 @@ export type OverviewType = {
   hash: string;
   txs: number;
   timestamp: string;
-  proposer: AvatarName;
+  proposer: string;
   // votingPower: number;
 }
 
@@ -11,6 +11,6 @@ export type BlockDetailState = {
   loading: boolean;
   exists: boolean;
   overview: OverviewType;
-  signatures: AvatarName[];
+  signatures: string[];
   transactions: Transactions[];
 }

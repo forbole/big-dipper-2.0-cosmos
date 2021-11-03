@@ -17,11 +17,11 @@ import { useGrid } from '@hooks';
 import { mergeRefs } from '@src/utils/merge_refs';
 import { useStyles } from './styles';
 import { columns } from './utils';
-import { BlockType } from '../../types';
+import { ItemType } from '../../types';
 
 const Desktop: React.FC<{
   className?: string;
-  items: BlockType[];
+  items: ItemType[];
   itemCount: number;
   loadMoreItems: (any) => void;
   isItemLoaded?: (index: number) => boolean;
