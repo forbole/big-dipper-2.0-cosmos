@@ -3,15 +3,14 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgCancelOrder } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const CancelOrder = (props: {
   message: MsgCancelOrder;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
-  const owner = findAddress(message.owner);
-  const ownerMoniker = owner ? owner?.moniker : message.owner;
+  const owner = useProfileRecoil(message.owner);
+  const ownerMoniker = owner ? owner?.name : message.owner;
 
   return (
     <Typography>

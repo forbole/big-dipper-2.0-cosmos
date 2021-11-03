@@ -6,17 +6,16 @@ import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { formatDenom } from '@utils/format_denom';
 import { MsgMintTokens } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const MintTokens = (props: {
   message: MsgMintTokens;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
   const { t } = useTranslation('transactions');
 
-  const liquidityProvider = findAddress(message.liquidityProvider);
-  const liqdPvdMoniker = liquidityProvider ? liquidityProvider?.moniker : message.liquidityProvider;
+  const liquidityProvider = useProfileRecoil(message.liquidityProvider);
+  const liqdPvdMoniker = liquidityProvider ? liquidityProvider?.name : message.liquidityProvider;
 
   const amountBeforeParse = message.amount;
   const parsedAmount = amountBeforeParse.map((x) => {

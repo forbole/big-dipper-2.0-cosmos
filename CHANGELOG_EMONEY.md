@@ -1,4 +1,4 @@
-# Unreleased
+# emoney-v1.1.0 - 2021-11-03
 
 ## Changes
 - Update latest block displayed error to 2 minutes ([\#356](https://github.com/forbole/big-dipper-2.0-cosmos/issues/356))
@@ -7,6 +7,7 @@
 - Change average block time to date ([\#393](https://github.com/forbole/big-dipper-2.0-cosmos/issues/393))
 - Merge `base-v1.4.0`
 - Merge `base-v1.5.1`
+- Merge `base-v1.6.0`
 
 # emoney-v1.0.0 - 2021-09-21
 
