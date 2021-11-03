@@ -57,6 +57,7 @@ export const useDataBlocks = () => {
   });
 
   const formatAverageBlockTime = (data: AverageBlockTimeQuery) => {
+    console.log('data', data);
     return data.averageBlockTime[0]?.averageTime ?? state.blockTime;
   };
 
