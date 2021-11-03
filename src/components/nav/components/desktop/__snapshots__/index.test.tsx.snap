@@ -65,10 +65,6 @@ exports[`screen: Nav/Desktop it renders 1`] = `
     >
       <
         className="makeStyles-logo"
-<<<<<<< HEAD
-        data-file-name="SvgBigDipperWhite"
-=======
->>>>>>> base-v1.6.0
         onClick={[Function]}
         role="button"
       />

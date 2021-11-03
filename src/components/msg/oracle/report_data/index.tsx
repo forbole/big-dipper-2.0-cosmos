@@ -4,16 +4,15 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgReportData } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const ReportData = (props: {
   message: MsgReportData;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
 
-  const validator = findAddress(message.validator);
-  const validatorMoniker = validator ? validator?.moniker : message
+  const validator = useProfileRecoil(message.validator);
+  const validatorMoniker = validator ? validator?.name : message
     .validator;
 
   return (
