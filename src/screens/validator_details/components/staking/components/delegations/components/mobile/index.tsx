@@ -7,11 +7,11 @@ import {
 } from '@material-ui/core';
 import { AvatarName } from '@components';
 import { useStyles } from './styles';
-import { DelegationType } from '../../../../../../types';
+import { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;
-  items?: DelegationType[];
+  items?: ItemType[];
 }> = ({
   className, items,
 }) => {

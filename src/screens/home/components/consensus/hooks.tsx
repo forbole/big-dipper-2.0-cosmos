@@ -3,34 +3,25 @@ import {
 } from 'react';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { AvatarName } from '@components';
-import { useChainContext } from '@contexts';
 import { hexToBech32 } from '@utils/hex_to_bech32';
 import { chainConfig } from '@configs';
 import WebSocket from 'isomorphic-ws';
 
 export const useConsensus = () => {
-  const {
-    findAddress, findOperator,
-  } = useChainContext();
   const [state, setState] = useState<{
     height: number;
     round: number;
     step: number;
     totalSteps: number;
     roundCompletion: number;
-    proposer: AvatarName;
+    proposer: string;
   }>({
     height: 0,
     round: 0,
     step: 0,
     totalSteps: 5,
     roundCompletion: 0,
-    proposer: {
-      name: '',
-      address: '',
-      imageUrl: '',
-    },
+    proposer: '',
   });
 
   useEffect(() => {
@@ -83,17 +74,10 @@ export const useConsensus = () => {
     const proposerHex = R.pathOr('', ['result', 'data', 'value', 'proposer', 'address'], data);
     const consensusAddress = hexToBech32(proposerHex, chainConfig.prefix.consensus);
 
-    const operatorAddress = findOperator(consensusAddress);
-    const proposer = findAddress(operatorAddress);
-
     setState((prevState) => ({
       ...prevState,
       height,
-      proposer: {
-        address: operatorAddress,
-        imageUrl: proposer.imageUrl,
-        name: proposer.moniker,
-      },
+      proposer: consensusAddress,
     }));
   };
 

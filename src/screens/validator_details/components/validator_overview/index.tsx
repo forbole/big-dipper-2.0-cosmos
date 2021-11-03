@@ -17,7 +17,8 @@ import {
 } from '@components';
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
-import { useSettingsContext } from '@contexts';
+import { useRecoilValue } from 'recoil';
+import { readDate } from '@recoil/settings';
 import { getValidatorStatus } from '@utils/get_validator_status';
 import { useStyles } from './styles';
 import { getCondition } from './utils';
@@ -39,7 +40,7 @@ const ValidatorOverview: React.FC<StatusType &{
   const { t } = useTranslation('validators');
   const { handleCopyToClipboard } = useAddress(t);
 
-  const { dateFormat } = useSettingsContext();
+  const dateFormat = useRecoilValue(readDate);
   const statusTheme = getValidatorStatus(data.status, data.jailed);
   const condition = getCondition(data.condition, data.status);
 

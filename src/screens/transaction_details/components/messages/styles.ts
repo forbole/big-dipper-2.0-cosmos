@@ -60,6 +60,9 @@ export const useStyles = () => {
           [theme.breakpoints.up('lg')]: {
             display: 'flex',
             padding: theme.spacing(0, 2),
+            '& .msg': {
+              marginTop: theme.spacing(0.5),
+            },
           },
         },
         tags: {
