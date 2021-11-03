@@ -4,15 +4,16 @@ import * as R from 'ramda';
 import { Typography } from '@material-ui/core';
 import { useInterval } from '@hooks';
 import dayjs from '@utils/dayjs';
+import { useRecoilValue } from 'recoil';
 import { chainConfig } from '@configs';
+import { readTheme } from '@recoil/settings';
 import { useStyles } from './styles';
 import { Loading } from '@components';
-import { useSettingsContext } from '@contexts';
 
 const Countdown: React.FC<{
   startGenesis: () => void;
 }> = ({ startGenesis }) => {
-  const { theme } = useSettingsContext();
+  const theme = useRecoilValue(readTheme);
   const classes = useStyles();
   const [state, setState] = useState({
     day: 0,

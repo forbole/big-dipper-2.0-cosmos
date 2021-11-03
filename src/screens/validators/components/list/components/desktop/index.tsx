@@ -13,7 +13,7 @@ import {
 import { getValidatorConditionClass } from '@utils/get_validator_condition';
 import { useStyles } from './styles';
 import { fetchColumns } from './utils';
-import { ValidatorType } from '../../types';
+import { ItemType } from '../../types';
 import {
   Condition, VotingPower,
 } from '..';
@@ -23,7 +23,7 @@ const Desktop: React.FC<{
   sortDirection: 'desc' | 'asc';
   sortKey: string;
   handleSort: (key: string) => void;
-  items: ValidatorType[];
+  items: ItemType[];
 }> = (props) => {
   const { t } = useTranslation('validators');
   const classes = useStyles();

@@ -7,17 +7,16 @@ import { BLOCK_DETAILS } from '@utils/go_to_page';
 import {
   Typography, Divider,
 } from '@material-ui/core';
-
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import {
   SingleBlockMobile,
   AvatarName,
 } from '@components';
-import { BlockType } from '../../types';
+import { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;
-  items: BlockType[];
+  items: ItemType[];
 }> = ({
   className, items,
 }) => {

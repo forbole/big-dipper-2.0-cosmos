@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import {
   MockTheme, wait,
@@ -23,25 +24,27 @@ describe('screen: Transactions/List', () => {
 
     renderer.act(() => {
       component = renderer.create(
-        <MockTheme>
-          <Transactions
-            data={[
-              {
-                height: 300,
-                hash: 'hash1',
-                success: true,
-                timestamp: '',
-                messages: {
-                  count: 4,
-                  items: [],
+        <RecoilRoot>
+          <MockTheme>
+            <Transactions
+              data={[
+                {
+                  height: 300,
+                  hash: 'hash1',
+                  success: true,
+                  timestamp: '',
+                  messages: {
+                    count: 4,
+                    items: [],
+                  },
                 },
-              },
-            ]}
-            loadNextPage={jest.fn()}
-            hasNextPage={false}
-            isNextPageLoading={false}
-          />
-        </MockTheme>,
+              ]}
+              loadNextPage={jest.fn()}
+              hasNextPage={false}
+              isNextPageLoading={false}
+            />
+          </MockTheme>
+        </RecoilRoot>,
       );
     });
     await wait();

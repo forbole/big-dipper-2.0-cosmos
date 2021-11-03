@@ -3,16 +3,15 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgSubmitProposal } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const SubmitProposal = (props: {
   message: MsgSubmitProposal;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
 
-  const proposer = findAddress(message.proposer);
-  const proposerMoniker = proposer ? proposer?.moniker : message.proposer;
+  const proposer = useProfileRecoil(message.proposer);
+  const proposerMoniker = proposer ? proposer?.name : message.proposer;
 
   return (
     <Typography>

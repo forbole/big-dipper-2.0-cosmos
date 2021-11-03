@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import Trans from 'next-translate/Trans';
+import { useRecoilValue } from 'recoil';
 import useTranslation from 'next-translate/useTranslation';
 import FooterLogoLight from '@assets/big-dipper-red.svg';
 import FooterLogoDark from '@assets/big-dipper-white.svg';
@@ -12,7 +13,7 @@ import {
 import {
   chainConfig, generalConfig,
 } from '@src/configs';
-import { useSettingsContext } from '@contexts';
+import { readTheme } from '@recoil/settings/selectors';
 import { SocialMedia } from './components';
 import {
   footerLinks, donateLink,
@@ -22,7 +23,7 @@ import { useStyles } from './styles';
 const Footer: React.FC<{className?: string}> = ({ className }) => {
   const { t } = useTranslation();
   const classes = useStyles();
-  const { theme } = useSettingsContext();
+  const theme = useRecoilValue(readTheme);
 
   // ============================
   // Footer
@@ -96,6 +97,13 @@ const Footer: React.FC<{className?: string}> = ({ className }) => {
       <Divider />
       <div className="footer__closing--container">
         <Typography className="footer__closing--text">
+          {/* ============================= */}
+          {/*
+            WARNING: WE ARE USING APACHE 2.0 LICENSE
+            DO YOUR RESEARCH BEFORE TRYING TO REMOVE/ EDIT THE FOLLOWING LINE(S)
+            RESPECT OPEN SOURCE!!
+          */}
+          {/* ============================= */}
           <Trans
             i18nKey="common:copyright"
             components={[

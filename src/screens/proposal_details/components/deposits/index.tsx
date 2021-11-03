@@ -7,6 +7,9 @@ import { Box } from '@components';
 import {
   usePagination, useScreenSize,
 } from '@hooks';
+import {
+  useProfilesRecoil,
+} from '@recoil/profiles';
 import { useStyles } from './styles';
 import { Paginate } from './components';
 import { DepositType } from '../../types';
@@ -31,7 +34,16 @@ const Deposits: React.FC<{
   } = usePagination({});
 
   const classes = useStyles();
-  const items = sliceItems(data);
+
+  const dataProfiles = useProfilesRecoil(data.map((x) => x.user));
+  const mergedDataWithProfiles = data.map((x, i) => {
+    return ({
+      ...x,
+      user: dataProfiles[i],
+    });
+  });
+
+  const items = sliceItems(mergedDataWithProfiles);
 
   return (
     <Box className={classnames(className, classes.root)}>
