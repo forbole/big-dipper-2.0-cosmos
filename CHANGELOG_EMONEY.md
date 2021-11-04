@@ -1,3 +1,7 @@
+# emoney-v1.1.1 - 2021-11-04
+
+## Changes
+- Fix E-money edge cases
 # emoney-v1.1.0 - 2021-11-03
 
 ## Changes
