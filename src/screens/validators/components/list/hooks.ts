@@ -57,7 +57,10 @@ export const useValidators = () => {
     const { signedBlockWindow } = slashingParams;
 
     const formattedItems = data.validator.filter((x) => x.validatorInfo).map((x) => {
-      const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
+      const votingPower = formatDenom(
+        R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x),
+        stakingParams.bondDenom,
+      ).value;
       const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
       const totalDelegations = x.delegations.reduce((a, b) => {
         return a + numeral(R.pathOr(0, ['amount', 'amount'], b)).value();
