@@ -4,7 +4,7 @@ import ValidatorDetails from '@screens/validator_details';
 
 const ProfilePage = () => {
   const router = useRouter();
-  console.log('router', router);
+  // console.log('router', router);
 
   useEffect(() => {
     const regex = /^\/@/;
