@@ -7,15 +7,16 @@ const ProfilePage = () => {
   console.log('router', router);
 
   useEffect(() => {
-    const regex = /^@\//;
+    const regex = /^\/@/;
     const regexCheck = regex.exec(router.route);
-    if (regexCheck) {
+    if (!regexCheck) {
       router.replace('/');
     }
   }, []);
 
   return (
-    <ValidatorDetails />
+    // <ValidatorDetails />
+    <>hiii</>
   );
 };
 
