@@ -7,7 +7,7 @@ const ProfilePage = () => {
   console.log('router', router);
 
   useEffect(() => {
-    const regex = /@\//;
+    const regex = /^@\//;
     const regexCheck = regex.exec(router.route);
     if (regexCheck) {
       router.replace('/');
