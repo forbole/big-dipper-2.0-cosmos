@@ -8,7 +8,11 @@ const ProfilePage = () => {
 
   useEffect(() => {
     const regex = /^\/@/;
-    const regexCheck = regex.exec(router.route);
+    const regexCheck = regex.test(router.route);
+    // const regexCheck = regex.exec(router.route); //null
+    // const regexCheck = router.route.match(regex);
+    // console.log('regexCheck', regexCheck);
+
     if (!regexCheck) {
       router.replace('/');
     }
