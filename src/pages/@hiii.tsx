@@ -1,17 +1,15 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import ValidatorDetails from '@screens/validator_details';
 
 const ProfilePage = () => {
   const router = useRouter();
-  // console.log('router', router);
+  console.log('router', router);
 
   useEffect(() => {
     const regex = /^\/@/;
     const regexCheck = regex.test(router.route);
-    // const regexCheck = regex.exec(router.route); //null
-    // const regexCheck = router.route.match(regex);
-    // console.log('regexCheck', regexCheck);
+    // const regexCheck = regex.test(router.query.dtag);
+    console.log(router);
 
     if (!regexCheck) {
       router.replace('/');
@@ -19,7 +17,6 @@ const ProfilePage = () => {
   }, []);
 
   return (
-    // <ValidatorDetails />
     <>hiii</>
   );
 };
