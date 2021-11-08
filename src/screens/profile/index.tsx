@@ -8,18 +8,7 @@ import {
   DesmosProfile,
 } from '@components';
 import { useStyles } from './styles';
-import {
-  Profile,
-} from '../validator_details/components';
-// import { useProfileDetails } from './hooks';
-import {
-  Overview,
-  Balance,
-  Staking,
-  Transactions,
-  OtherTokens,
-} from '../account_details/components';
-import { useAccountDetails } from '../account_details/hooks';
+import { useProfileDetails } from './hooks';
 
 const ProfileDetails = () => {
   const router = useRouter();
@@ -36,22 +25,22 @@ const ProfileDetails = () => {
   const {
     state,
     loadNextPage,
-  } = useAccountDetails();
+  } = useProfileDetails();
   const {
     overview,
     desmosProfile,
   } = state;
 
-  // useEffect(() => {
-  //   const regex = /^\/@/;
-  //   const regexCheck = regex.test(router.route);
-  //   // const regexCheck = regex.test(router.query.dtag);
-  //   console.log(router);
+  useEffect(() => {
+    const regex = /^\/@/;
+    const regexCheck = regex.test(router.route);
+    // const regexCheck = regex.test(router.query.dtag);
 
-  //   if (!regexCheck) {
-  //     router.replace('/');
-  //   }
-  // }, []);
+    if (!regexCheck) {
+      router.replace('/');
+    }
+  }, []);
+
   console.log('state => ', state);
   console.log('classes => ', classes);
   console.log('overview', overview);

@@ -3,24 +3,14 @@ import {
 } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
-import { formatDenom } from '@utils/format_denom';
-import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
-import { convertMsgsToModels } from '@msg';
 import {
   AccountQuery,
   useAccountQuery,
 } from '@graphql/types';
-import { getDenom } from '@utils/get_denom';
 import { useDesmosProfile } from '@hooks';
 import { chainConfig } from '@src/configs';
 import { ProfileDetailState } from './types';
-
-// const defaultTokenUnit = {
-//   value: 0,
-//   denom: '',
-//   format: '',
-// };
 
 const initialState: ProfileDetailState = {
   loading: true,
@@ -60,7 +50,6 @@ export const useProfileDetails = () => {
   // ==========================
   // Fetch Data
   // ==========================
-  const LIMIT = 50;
 
   useAccountQuery({
     variables: {
@@ -80,12 +69,10 @@ export const useProfileDetails = () => {
     const stateChange: any = {
       loading: false,
     };
-
     if (!data.account.length) {
       stateChange.exists = false;
       return stateChange;
     }
-
     return stateChange;
   };
 
