@@ -105,18 +105,6 @@ const ProfileDetails = () => {
                 />
               </>
             )}
-            <Overview
-              className={classes.overview}
-              withdrawalAddress={state.overview.withdrawalAddress}
-              address={state.overview.address}
-            />
-            <Transactions
-              className={classes.transactions}
-              loadNextPage={loadNextPage}
-              data={state.transactions.data}
-              hasNextPage={state.transactions.hasNextPage}
-              isNextPageLoading={state.transactions.isNextPageLoading}
-            />
           </span>
         </LoadAndExist>
       </Layout>
