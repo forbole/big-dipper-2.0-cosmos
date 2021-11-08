@@ -7,11 +7,19 @@ import {
   LoadAndExist,
   DesmosProfile,
 } from '@components';
-import { useStyles } from '../validator_details/styles';
+import { useStyles } from './styles';
 import {
   Profile,
 } from '../validator_details/components';
 // import { useProfileDetails } from './hooks';
+import {
+  Overview,
+  Balance,
+  Staking,
+  Transactions,
+  OtherTokens,
+} from '../account_details/components';
+import { useAccountDetails } from '../account_details/hooks';
 
 const ProfileDetails = () => {
   const router = useRouter();
@@ -25,6 +33,14 @@ const ProfileDetails = () => {
   //   overview,
   //   desmosProfile,
   // } = state;
+  const {
+    state,
+    loadNextPage,
+  } = useAccountDetails();
+  const {
+    overview,
+    desmosProfile,
+  } = state;
 
   // useEffect(() => {
   //   const regex = /^\/@/;
@@ -36,6 +52,9 @@ const ProfileDetails = () => {
   //     router.replace('/');
   //   }
   // }, []);
+  console.log('state => ', state);
+  console.log('classes => ', classes);
+  console.log('overview', overview);
 
   return (
     <>
@@ -46,12 +65,12 @@ const ProfileDetails = () => {
         }}
       />
       <Layout navTitle={t('profileDetails')}>
-        {/* <LoadAndExist
+        <LoadAndExist
           exists={state.exists}
           loading={state.loading}
-        > */}
-        {/* <span className={classes.root}>
-            {desmosProfile ? (
+        >
+          <span className={classes.root}>
+            {/* {desmosProfile ? (
               <DesmosProfile
                 className={classes.profile}
                 dtag={desmosProfile.dtag}
@@ -70,9 +89,22 @@ const ProfileDetails = () => {
                 description={overview.description}
                 website={overview.website}
               />
+            )} */}
+            {!!state.desmosProfile && (
+              <>
+                <DesmosProfile
+                  dtag={state.desmosProfile.dtag}
+                  nickname={state.desmosProfile.nickname}
+                  imageUrl={state.desmosProfile.imageUrl}
+                  bio={state.desmosProfile.bio}
+                  connections={state.desmosProfile.connections}
+                  coverUrl={state.desmosProfile.coverUrl}
+                />
+                <>connections</>
+              </>
             )}
-          </span> */}
-        {/* </LoadAndExist> */}
+          </span>
+        </LoadAndExist>
       </Layout>
     </>
   );
