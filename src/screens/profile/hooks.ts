@@ -86,21 +86,6 @@ export const useProfileDetails = () => {
       return stateChange;
     }
 
-    const rewardsDict = {};
-    // log all the rewards
-    data.account[0].delegationRewards.forEach((x) => {
-      const denomAmount = getDenom(x.amount, chainConfig.primaryTokenUnit);
-      const denomFormat = formatDenom(denomAmount.amount, chainConfig.primaryTokenUnit);
-      rewardsDict[x.validator.validatorInfo.operatorAddress] = denomFormat;
-    });
-    // set default rewards for delegations without parsed rewards
-    data.account[0].delegations.forEach((x) => {
-      const validatorAddress = x.validator.validatorInfo.operatorAddress;
-      if (!rewardsDict[validatorAddress]) {
-        rewardsDict[validatorAddress] = formatDenom(0, chainConfig.primaryTokenUnit);
-      }
-    });
-
     return stateChange;
   };
 
