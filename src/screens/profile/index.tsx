@@ -11,20 +11,20 @@ import { useStyles } from '../validator_details/styles';
 import {
   Profile,
 } from '../validator_details/components';
-import { useProfileDetails } from './hooks';
+// import { useProfileDetails } from './hooks';
 
 const ProfileDetails = () => {
   const router = useRouter();
   console.log('router', router);
   const { t } = useTranslation('profiles');
   const classes = useStyles();
-  const {
-    state,
-  } = useProfileDetails();
-  const {
-    overview,
-    desmosProfile,
-  } = state;
+  // const {
+  //   state,
+  // } = useProfileDetails();
+  // const {
+  //   overview,
+  //   desmosProfile,
+  // } = state;
 
   // useEffect(() => {
   //   const regex = /^\/@/;
@@ -46,11 +46,11 @@ const ProfileDetails = () => {
         }}
       />
       <Layout navTitle={t('profileDetails')}>
-        <LoadAndExist
+        {/* <LoadAndExist
           exists={state.exists}
           loading={state.loading}
-        >
-          {/* <span className={classes.root}>
+        > */}
+        {/* <span className={classes.root}>
             {desmosProfile ? (
               <DesmosProfile
                 className={classes.profile}
@@ -72,7 +72,7 @@ const ProfileDetails = () => {
               />
             )}
           </span> */}
-        </LoadAndExist>
+        {/* </LoadAndExist> */}
       </Layout>
     </>
   );
