@@ -20,8 +20,13 @@ const ProfileDetails = () => {
 
   useEffect(() => {
     const regex = /^\/@/;
-    const regexCheck = regex.test(router.route);
+    const regexCheck = regex.test(router.asPath);
+
+    // if using query.dtag
+    // const regex = /^@/;
     // const regexCheck = regex.test(router.query.dtag);
+    // const regexCheck = router.query.dtag.match(regex);
+    // const regexCheck = regex.exec(router.query.dtag);
 
     if (!regexCheck) {
       router.replace('/');
