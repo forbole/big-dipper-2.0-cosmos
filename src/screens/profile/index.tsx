@@ -12,24 +12,11 @@ import { useProfileDetails } from './hooks';
 
 const ProfileDetails = () => {
   const router = useRouter();
-  console.log('router', router);
   const { t } = useTranslation('profiles');
   const classes = useStyles();
-  // const {
-  //   state,
-  // } = useProfileDetails();
-  // const {
-  //   overview,
-  //   desmosProfile,
-  // } = state;
   const {
     state,
-    loadNextPage,
   } = useProfileDetails();
-  const {
-    overview,
-    desmosProfile,
-  } = state;
 
   useEffect(() => {
     const regex = /^\/@/;
@@ -41,9 +28,9 @@ const ProfileDetails = () => {
     }
   }, []);
 
+  console.log('router', router);
   console.log('state => ', state);
   console.log('classes => ', classes);
-  console.log('overview', overview);
 
   return (
     <>
@@ -59,26 +46,6 @@ const ProfileDetails = () => {
           loading={state.loading}
         >
           <span className={classes.root}>
-            {/* {desmosProfile ? (
-              <DesmosProfile
-                className={classes.profile}
-                dtag={desmosProfile.dtag}
-                nickname={desmosProfile.nickname}
-                imageUrl={desmosProfile.imageUrl}
-                coverUrl={desmosProfile.coverUrl}
-                bio={desmosProfile.bio}
-                connections={desmosProfile.connections}
-              />
-            ) : (
-              <Profile
-                className={classes.profile}
-                validator={overview.validator}
-                operatorAddress={overview.operatorAddress}
-                selfDelegateAddress={overview.selfDelegateAddress}
-                description={overview.description}
-                website={overview.website}
-              />
-            )} */}
             {!!state.desmosProfile && (
               <>
                 <DesmosProfile
@@ -89,9 +56,9 @@ const ProfileDetails = () => {
                   connections={state.desmosProfile.connections}
                   coverUrl={state.desmosProfile.coverUrl}
                 />
-                <Connections
+                {/* <Connections
                   data={props.connections}
-                />
+                /> */}
               </>
             )}
           </span>
