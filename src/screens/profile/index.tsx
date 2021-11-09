@@ -45,7 +45,22 @@ const ProfileDetails = () => {
           exists={state.exists}
           loading={state.loading}
         >
+          {/* <div>Why the ui doesnt show</div> */}
           <span className={classes.root}>
+            {/* <div>HIIIIIII</div> */}
+            <DesmosProfile
+              dtag="hiii"
+              nickname="good"
+              imageUrl="www.www"
+              bio="a dophoe"
+              connections={[
+                {
+                  network: 'native',
+                  identifier: 'desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv',
+                  creationTime: '2021-08-31T17:02:28.575104',
+                }]}
+              coverUrl="url"
+            />
             {!!state.desmosProfile && (
               <>
                 <DesmosProfile
