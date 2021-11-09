@@ -4,8 +4,10 @@ import useTranslation from 'next-translate/useTranslation';
 import {
   Layout,
   LoadAndExist,
+  DesmosProfile,
 } from '@components';
 import { useStyles } from './styles';
+import { Connections } from './components';
 
 const ProfileDetails = () => {
   const { t } = useTranslation('accounts');
@@ -26,7 +28,27 @@ const ProfileDetails = () => {
           // exists={state.exists}
         >
           <span className={classes.root}>
-            <div>hello world again</div>
+            <DesmosProfile
+              dtag="hiii"
+              nickname="good"
+              imageUrl="www.www"
+              bio="a dophoe"
+              connections={[]}
+              coverUrl="url"
+            />
+            <Connections
+              data={[
+                {
+                  network: 'native',
+                  identifier: 'desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv',
+                  creationTime: '2021-08-31T17:02:28.575104',
+                },
+                {
+                  network: 'native',
+                  identifier: 'desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv',
+                  creationTime: '2021-08-31T17:02:28.575104',
+                }]}
+            />
           </span>
         </LoadAndExist>
       </Layout>
