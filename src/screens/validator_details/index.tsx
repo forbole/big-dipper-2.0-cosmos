@@ -32,7 +32,6 @@ const ValidatorDetails = () => {
     desmosProfile,
     status,
   } = state;
-  console.log(desmosProfile);
 
   return (
     <>
