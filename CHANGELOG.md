@@ -4,6 +4,8 @@
 
 - Fix account details denom display ([\#478](https://github.com/forbole/big-dipper-2.0-cosmos/issues/478))
 - Replace average block time with average since last hour ([\#480](https://github.com/forbole/big-dipper-2.0-cosmos/issues/480))
+- Renamed `PROFILE_DETAILS` to `ADDRESS_DETAILS` ([\#503](https://github.com/forbole/big-dipper-2.0-cosmos/issues/503))
+- Update handling of block height in searchbar ([\#501](https://github.com/forbole/big-dipper-2.0-cosmos/issues/501))
 
 # base-v1.6.0 - 2021-11-01
 
