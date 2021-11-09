@@ -28,7 +28,7 @@ const Desktop: React.FC<{
   const { t } = useTranslation('accounts');
 
   const formattedItems = items.map((x) => {
-    let identity = x.identifier;
+    let identity: string | React.ReactNode = x.identifier;
     if (new RegExp(`^(${chainConfig.prefix.account})`).test(x.identifier)) {
       identity = (
         <Link href={ACCOUNT_DETAILS(x.identifier)} passHref>

@@ -47,7 +47,7 @@ type DesmosProfile = {
 
 type ProfileConnectionType = {
   network: string;
-  identifier: string | React.ReactNode;
+  identifier: string;
   creationTime: string;
 }
 

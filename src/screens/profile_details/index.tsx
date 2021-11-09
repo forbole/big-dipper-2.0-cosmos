@@ -44,8 +44,8 @@ const ProfileDetails = () => {
                   creationTime: '2021-08-31T17:02:28.575104',
                 },
                 {
-                  network: 'native',
-                  identifier: 'desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv',
+                  network: 'emoney',
+                  identifier: 'emoney1wke3ev9ja6rxsngld75r3vppcpet94xxnh63ry',
                   creationTime: '2021-08-31T17:02:28.575104',
                 }]}
             />
