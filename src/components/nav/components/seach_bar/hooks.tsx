@@ -5,6 +5,7 @@ import {
   ACCOUNT_DETAILS,
   BLOCK_DETAILS,
   TRANSACTION_DETAILS,
+  DTAG_DETAILS,
 } from '@utils/go_to_page';
 import {
   useRecoilCallback,
@@ -35,6 +36,8 @@ export const useSearchBar = (t) => {
         router.push(ACCOUNT_DETAILS(value));
       } else if (/^-?\d+$/.test(value)) {
         router.push(BLOCK_DETAILS(value));
+      } else if (/^@/.test(value)) {
+        router.push(DTAG_DETAILS(value));
       } else {
         router.push(TRANSACTION_DETAILS(value));
       }
