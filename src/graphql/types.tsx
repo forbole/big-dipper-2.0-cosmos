@@ -18787,6 +18787,17 @@ export type ParamsQuery = { stakingParams: Array<(
     & { depositParams: Gov_Params['deposit_params'], tallyParams: Gov_Params['tally_params'], votingParams: Gov_Params['voting_params'] }
   )> };
 
+export type ProfileDetailsQueryVariables = Exact<{
+  dtag?: Maybe<Scalars['String']>;
+  utc?: Maybe<Scalars['timestamp']>;
+}>;
+
+
+export type ProfileDetailsQuery = { stakingParams: Array<(
+    { __typename?: 'staking_params' }
+    & Pick<Staking_Params, 'params'>
+  )> };
+
 export type ProposalDetailsQueryVariables = Exact<{
   proposalId?: Maybe<Scalars['Int']>;
 }>;
@@ -19761,6 +19772,42 @@ export function useParamsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Par
 export type ParamsQueryHookResult = ReturnType<typeof useParamsQuery>;
 export type ParamsLazyQueryHookResult = ReturnType<typeof useParamsLazyQuery>;
 export type ParamsQueryResult = Apollo.QueryResult<ParamsQuery, ParamsQueryVariables>;
+export const ProfileDetailsDocument = gql`
+    query ProfileDetails($dtag: String, $utc: timestamp) {
+  stakingParams: staking_params(limit: 1) {
+    params
+  }
+}
+    `;
+
+/**
+ * __useProfileDetailsQuery__
+ *
+ * To run a query within a React component, call `useProfileDetailsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useProfileDetailsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useProfileDetailsQuery({
+ *   variables: {
+ *      dtag: // value for 'dtag'
+ *      utc: // value for 'utc'
+ *   },
+ * });
+ */
+export function useProfileDetailsQuery(baseOptions?: Apollo.QueryHookOptions<ProfileDetailsQuery, ProfileDetailsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ProfileDetailsQuery, ProfileDetailsQueryVariables>(ProfileDetailsDocument, options);
+      }
+export function useProfileDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProfileDetailsQuery, ProfileDetailsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ProfileDetailsQuery, ProfileDetailsQueryVariables>(ProfileDetailsDocument, options);
+        }
+export type ProfileDetailsQueryHookResult = ReturnType<typeof useProfileDetailsQuery>;
+export type ProfileDetailsLazyQueryHookResult = ReturnType<typeof useProfileDetailsLazyQuery>;
+export type ProfileDetailsQueryResult = Apollo.QueryResult<ProfileDetailsQuery, ProfileDetailsQueryVariables>;
 export const ProposalDetailsDocument = gql`
     query ProposalDetails($proposalId: Int) {
   proposal(where: {id: {_eq: $proposalId}}) {
