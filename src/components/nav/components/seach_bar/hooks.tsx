@@ -1,3 +1,4 @@
+import numeral from 'numeral';
 import { chainConfig } from '@configs';
 import { useRouter } from 'next/router';
 import {
@@ -34,10 +35,15 @@ export const useSearchBar = (t) => {
         router.push(VALIDATOR_DETAILS(value));
       } else if (new RegExp(userRegex).test(value)) {
         router.push(ACCOUNT_DETAILS(value));
+<<<<<<< HEAD
       } else if (/^-?\d+$/.test(value)) {
         router.push(BLOCK_DETAILS(value));
       } else if (/^@/.test(value)) {
         router.push(DTAG_DETAILS(value));
+=======
+      } else if (/^-?\d+$/.test(numeral(value).value())) {
+        router.push(BLOCK_DETAILS(numeral(value).value()));
+>>>>>>> ellie/428
       } else {
         router.push(TRANSACTION_DETAILS(value));
       }
