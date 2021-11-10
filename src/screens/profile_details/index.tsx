@@ -8,6 +8,7 @@ import {
 } from '@components';
 import { useStyles } from './styles';
 import { Connections } from './components';
+import {} from '@graphql/types';
 
 const ProfileDetails = () => {
   const { t } = useTranslation('accounts');
