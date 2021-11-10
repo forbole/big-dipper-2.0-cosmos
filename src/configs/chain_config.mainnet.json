@@ -1,9 +1,9 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "desmos-mainnet-1",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
+  "title": "Sifchain Block Explorer",
+  "network": "sifchain-1",
+  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/sifchain/icon.png?sanitize=true",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
+    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/sifchain/logo.png?sanitize=true"
   },
   "prefix": {
     "consensus": "desmosvalcons",
