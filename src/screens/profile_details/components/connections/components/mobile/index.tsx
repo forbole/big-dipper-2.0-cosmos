@@ -26,19 +26,6 @@ const Mobile: React.FC<{
   return (
     <div className={classnames(className)}>
       {items.map((x, i) => {
-        // let identity: string | React.ReactNode = x.identifier;
-        // if (new RegExp(`^(${chainConfig.prefix.account})`).test(x.identifier)) {
-        //   identity = (
-        //     <Link href={ACCOUNT_DETAILS(x.identifier)} passHref>
-        //       <Typography variant="body1" className="value" component="a">
-        //         {x.identifier}
-        //       </Typography>
-        //     </Link>
-
-        //   );
-        //   return x.identifier;
-        // }
-
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
@@ -62,7 +49,7 @@ const Mobile: React.FC<{
                     </Typography>
                   </Link>
                   )}
-                  {x.identifier}
+                  {new RegExp(`^(${chainConfig.prefix.account})`).test(x.identifier) === false && x.identifier}
                 </Typography>
               </div>
               <div className={classes.item}>
