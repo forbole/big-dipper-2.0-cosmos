@@ -63,6 +63,11 @@ import MsgConnectionOpenTry from './msg/ibc/msg_connection_open_try';
 import MsgCounterpartyConnection from './msg/ibc/msg_connection_counterparty';
 import MsgVersion from './msg/ibc/msg_connection_version';
 import MsgTransfer from './msg/ibc_transfer/msg_transfer';
+import MsgRemoveLiquidity from './msg/clp/msg_remove_liquidity';
+import MsgCreatePool from './msg/clp/msg_create_pool';
+import MsgAddLiquidity from './msg/clp/msg_add_liquidity';
+import MsgSwap from './msg/clp/msg_swap';
+import MsgDecommissionPool from './msg/clp/msg_decommission_pool';
 
 export {
   BigDipperNetwork,
@@ -130,4 +135,9 @@ export {
   MsgCounterpartyConnection,
   MsgVersion,
   MsgTransfer,
+  MsgCreatePool,
+  MsgRemoveLiquidity,
+  MsgAddLiquidity,
+  MsgSwap,
+  MsgDecommissionPool,
 };
