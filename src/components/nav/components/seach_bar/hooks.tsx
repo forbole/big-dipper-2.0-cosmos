@@ -6,7 +6,7 @@ import {
   ACCOUNT_DETAILS,
   BLOCK_DETAILS,
   TRANSACTION_DETAILS,
-  DTAG_DETAILS,
+  PROFILE_DETAILS,
 } from '@utils/go_to_page';
 import {
   useRecoilCallback,
@@ -35,15 +35,10 @@ export const useSearchBar = (t) => {
         router.push(VALIDATOR_DETAILS(value));
       } else if (new RegExp(userRegex).test(value)) {
         router.push(ACCOUNT_DETAILS(value));
-<<<<<<< HEAD
-      } else if (/^-?\d+$/.test(value)) {
-        router.push(BLOCK_DETAILS(value));
-      } else if (/^@/.test(value)) {
-        router.push(DTAG_DETAILS(value));
-=======
       } else if (/^-?\d+$/.test(numeral(value).value())) {
         router.push(BLOCK_DETAILS(numeral(value).value()));
->>>>>>> ellie/428
+      } else if (/^@/.test(value)) {
+        router.push(PROFILE_DETAILS(value));
       } else {
         router.push(TRANSACTION_DETAILS(value));
       }
