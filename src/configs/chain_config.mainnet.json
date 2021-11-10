@@ -1,9 +1,9 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "desmos-mainnet-1",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
+  "title": "Agoric Block Explorer",
+  "network": "agoric-3",
+  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/agoric/icon.png?sanitize=true",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
+    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/agoric/logo.png?sanitize=true"
   },
   "prefix": {
     "consensus": "desmosvalcons",
