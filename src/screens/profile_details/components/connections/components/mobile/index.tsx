@@ -8,6 +8,9 @@ import {
   Divider,
   Typography,
 } from '@material-ui/core';
+import { chainConfig } from '@src/configs';
+import Link from 'next/link';
+import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
 
 const Mobile: React.FC<{
@@ -23,6 +26,19 @@ const Mobile: React.FC<{
   return (
     <div className={classnames(className)}>
       {items.map((x, i) => {
+        // let identity: string | React.ReactNode = x.identifier;
+        // if (new RegExp(`^(${chainConfig.prefix.account})`).test(x.identifier)) {
+        //   identity = (
+        //     <Link href={ACCOUNT_DETAILS(x.identifier)} passHref>
+        //       <Typography variant="body1" className="value" component="a">
+        //         {x.identifier}
+        //       </Typography>
+        //     </Link>
+
+        //   );
+        //   return x.identifier;
+        // }
+
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
@@ -39,6 +55,13 @@ const Mobile: React.FC<{
                   {t('identifier')}
                 </Typography>
                 <Typography variant="body1" className="value">
+                  {new RegExp(`^(${chainConfig.prefix.account})`).test(x.identifier) && (
+                  <Link href={ACCOUNT_DETAILS(x.identifier)} passHref>
+                    <Typography variant="body1" className="value" component="a">
+                      {x.identifier}
+                    </Typography>
+                  </Link>
+                  )}
                   {x.identifier}
                 </Typography>
               </div>
