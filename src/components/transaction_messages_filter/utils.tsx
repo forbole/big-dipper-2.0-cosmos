@@ -29,8 +29,8 @@ export const getFilterLabels = () => {
       display: 'staking',
     },
     {
-      key: 'profiles',
-      display: 'profiles',
+      key: 'clp',
+      display: 'clp',
     },
     {
       key: 'others',
