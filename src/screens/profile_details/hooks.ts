@@ -21,21 +21,17 @@ import {
 } from '@utils/format_denom';
 import { chainConfig } from '@src/configs';
 import { useDesmosProfile } from '@hooks';
-import { AccountDetailState } from './types';
+import { ProfileDetailState } from './types';
 
 const initialState: ProfileDetailState = {
   loading: true,
   exists: true,
   desmosProfile: null,
-  overview: {
-    address: '',
-    withdrawalAddress: '',
-  },
 };
 
-export const useAccountDetails = () => {
+export const useProfileDetails = () => {
   const router = useRouter();
-  const [state, setState] = useState<AccountDetailState>(initialState);
+  const [state, setState] = useState<ProfileDetailState>(initialState);
 
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
