@@ -57,6 +57,19 @@ const fetchDesmosProfile = async (address: string) => {
   }
 };
 
+const fetchDesmosProfileDtag = async (dtag: string) => {
+  let data: DesmosProfileQuery = {
+    profile: [],
+  };
+  try {
+    data = await fetchDesmosDtag(dtag);
+    const formattedData = formatDesmosProfile(data);
+    return formattedData;
+  } catch (error) {
+    return null;
+  }
+};
+
 const formatDesmosProfile = (data:DesmosProfileQuery): DesmosProfile => {
   if (!data.profile.length) {
     return null;
@@ -102,5 +115,10 @@ const formatDesmosProfile = (data:DesmosProfileQuery): DesmosProfile => {
 
 export const getProfile = async (delegatorAddress: string) => {
   const profile = await fetchDesmosProfile(delegatorAddress);
+  return profile;
+};
+
+export const getDtagProfile = async (dtag: string) => {
+  const profile = await fetchDesmosProfileDtag(dtag);
   return profile;
 };
