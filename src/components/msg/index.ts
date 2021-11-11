@@ -62,6 +62,11 @@ import ConnectionOpenTry from './ibc/connection_open_try';
 import CounterpartyConnection from './ibc/connection_counterparty';
 import Version from './ibc/connection_version';
 import Transfer from './ibc_transfer/transfer';
+import AddLiquidity from './clp/add_liquidity';
+import CreatePool from './clp/create_pool';
+import DecommissionPool from './clp/decommission_pool';
+import RemoveLiquidity from './clp/remove_liquidity';
+import Swap from './clp/swap';
 
 export {
   getMessageModelByType,
@@ -122,4 +127,9 @@ export {
   CounterpartyConnection,
   Version,
   Transfer,
+  AddLiquidity,
+  CreatePool,
+  DecommissionPool,
+  RemoveLiquidity,
+  Swap,
 };

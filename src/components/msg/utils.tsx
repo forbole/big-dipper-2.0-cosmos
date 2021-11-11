@@ -301,63 +301,38 @@ const getDataByType = (type: string) => {
   // =====================================
   const customTypeToModel = {
     // ========================
-    // profiles
+    // clp
     // ========================
-    '/desmos.profiles.v1beta1.MsgSaveProfile': {
-      model: MODELS.MsgSaveProfile,
-      content: COMPONENTS.SaveProfile,
+    '/sifnode.clp.v1.MsgRemoveLiquidity': {
+      model: MODELS.MsgRemoveLiquidity,
+      content: COMPONENTS.RemoveLiquidity,
       tagTheme: 'four',
-      tagDisplay: 'txSaveProfileLabel',
+      tagDisplay: 'MsgRemoveLiquidity',
     },
-    '/desmos.profiles.v1beta1.MsgDeleteProfile': {
-      model: MODELS.MsgDeleteProfile,
-      content: COMPONENTS.DeleteProfile,
+    '/sifnode.clp.v1.MsgCreatePool': {
+      model: MODELS.MsgCreatePool,
+      content: COMPONENTS.CreatePool,
       tagTheme: 'four',
-      tagDisplay: 'txDeleteProfileLabel',
+      tagDisplay: 'MsgCreatePool',
     },
-    '/desmos.profiles.v1beta1.MsgCreateRelationship': {
-      model: MODELS.MsgCreateRelationship,
-      content: COMPONENTS.CreateRelationship,
+    '/sifnode.clp.v1.MsgAddLiquidity': {
+      model: MODELS.MsgAddLiquidity,
+      content: COMPONENTS.AddLiquidity,
       tagTheme: 'four',
-      tagDisplay: 'txCreateRelationshipLabel',
+      tagDisplay: 'MsgAddLiquidity',
     },
-    '/desmos.profiles.v1beta1.MsgRequestDTagTransfer': {
-      model: MODELS.MsgDtagTransferRequest,
-      content: COMPONENTS.DtagTransferRequest,
+    '/sifnode.clp.v1.MsgSwap': {
+      model: MODELS.MsgSwap,
+      content: COMPONENTS.Swap,
       tagTheme: 'four',
-      tagDisplay: 'txRequestDTagTransferLabel',
+      tagDisplay: 'MsgSwap',
     },
-    '/desmos.profiles.v1beta1.MsgAcceptDTagTransfer': {
-      model: MODELS.MsgDtagAcceptTransfer,
-      content: COMPONENTS.DtagAcceptTransfer,
+    '/sifnode.clp.v1.MsgDecommissionPool': {
+      model: MODELS.MsgDecommissionPool,
+      content: COMPONENTS.DecommissionPool,
       tagTheme: 'four',
-      tagDisplay: 'txAcceptDTagTransferLabel',
+      tagDisplay: 'MsgDecommissionPool',
     },
-    '/desmos.profiles.v1beta1.MsgCancelDTagTransfer': {
-      model: MODELS.MsgDtagCancelTransfer,
-      content: COMPONENTS.DtagCancelTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txCancelDTagTransferLabel',
-    },
-    '/desmos.profiles.v1beta1.MsgRefuseDTagTransfer': {
-      model: MODELS.MsgDtagRefuseTransfer,
-      content: COMPONENTS.DtagRefuseTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txRefuseDTagTransferLabel',
-    },
-    '/desmos.profiles.v1beta1.MsgBlockUser': {
-      model: MODELS.MsgBlockUser,
-      content: COMPONENTS.BlockUser,
-      tagTheme: 'four',
-      tagDisplay: 'txBlockUserLabel',
-    },
-    '/desmos.profiles.v1beta1.MsgUnblockUser': {
-      model: MODELS.MsgUnblockUser,
-      content: COMPONENTS.UnBlockUser,
-      tagTheme: 'four',
-      tagDisplay: 'txUnblockUserLabel',
-    },
-
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];
