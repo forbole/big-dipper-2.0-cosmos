@@ -26,6 +26,16 @@ const fetchLink = async (address: string) => {
   return data.data;
 };
 
+const fetchDesmosDtag = async (dtag: string) => {
+  const { data } = await axios.post(PROFILE_API, {
+    variables: {
+      dtag,
+    },
+    query: DesmosProfileDocumentDtag,
+  });
+  return data.data;
+};
+
 const fetchDesmosProfile = async (address: string) => {
   let data: DesmosProfileQuery = {
     profile: [],
