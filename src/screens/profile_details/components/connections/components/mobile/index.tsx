@@ -26,6 +26,7 @@ const Mobile: React.FC<{
   return (
     <div className={classnames(className)}>
       {items.map((x, i) => {
+        const checkIdentifier = new RegExp(`^(${chainConfig.prefix.account})`).test(x.identifier);
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
@@ -42,7 +43,7 @@ const Mobile: React.FC<{
                   {t('identifier')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {new RegExp(`^(${chainConfig.prefix.account})`).test(x.identifier) && (
+                  {checkIdentifier && (
                   <Link href={ACCOUNT_DETAILS(x.identifier)} passHref>
                     <Typography variant="body1" className="value" component="a">
                       {x.identifier}
