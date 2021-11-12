@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { DesmosProfileQuery } from '@graphql/desmos_profile';
 import {
-  DesmosProfileDocument, DesmosProfileLinkDocument, DesmosProfileDocumentDtag,
+  DesmosProfileDocument, DesmosProfileLinkDocument, DesmosProfileDtagDocument,
 } from '@graphql/desmos_profile_graphql';
 
 const PROFILE_API = 'https://gql.mainnet.desmos.network/v1/graphql';
@@ -31,7 +31,7 @@ const fetchDesmosDtag = async (dtag: string) => {
     variables: {
       dtag,
     },
-    query: DesmosProfileDocumentDtag,
+    query: DesmosProfileDtagDocument,
   });
   return data.data;
 };
