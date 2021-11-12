@@ -3,9 +3,9 @@ module.exports = {
   locales: ['en'],
   defaultLocale: 'en',
   pages: {
-    '*': ['common', 'profiles'],
+    '*': ['common'],
     '/': ['home', 'blocks', 'transactions'],
-    'rgx:^/@*': ['accounts'],
+    'rgx:^/@*': ['accounts', 'profiles'],
     'rgx:^/blocks': ['blocks', 'transactions', 'message_labels', 'message_contents'],
     'rgx:^/transactions': ['transactions', 'message_labels', 'message_contents'],
     'rgx:^/proposals': ['proposals'],
