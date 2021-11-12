@@ -25,8 +25,6 @@ const ProfileDetails = () => {
         <LoadAndExist
           loading={false}
           exists
-          // loading={state.loading}
-          // exists={state.exists}
         >
           <span className={classes.root}>
             <DesmosProfile
