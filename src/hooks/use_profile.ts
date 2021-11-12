@@ -26,7 +26,7 @@ const fetchLink = async (address: string) => {
   return data.data;
 };
 
-const fetchDesmosDtag = async (dtag: string) => {
+const fetchDtag = async (dtag: string) => {
   const { data } = await axios.post(PROFILE_API, {
     variables: {
       dtag,
@@ -62,7 +62,7 @@ const fetchDesmosProfileDtag = async (dtag: string) => {
     profile: [],
   };
   try {
-    data = await fetchDesmosDtag(dtag);
+    data = await fetchDtag(dtag);
     const formattedData = formatDesmosProfile(data);
     return formattedData;
   } catch (error) {
