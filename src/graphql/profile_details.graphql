@@ -1,5 +1,0 @@
-query ProfileDetails($dtag: String, $utc: timestamp) {
-  stakingParams: staking_params(limit: 1) {
-    params
-  }
-}
