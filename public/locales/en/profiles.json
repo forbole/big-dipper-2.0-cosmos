@@ -1,3 +1,10 @@
 {
-    "profileDetails": "Profile Details"
-}
+    "profileDetails": "Profile Details",
+    "bio": "Bio",
+    "connections": "{{connections}} Connection(s)",
+    "connectionsTitle": "Connections",
+    "network": "Network",
+    "identifier": "Identifier",
+    "creationTime": "Creation Time",
+    "status": "Status"
+  }

@@ -9,10 +9,16 @@ import {
 import { useStyles } from './styles';
 import { Connections } from './components';
 import {} from '@graphql/types';
+import { useProfileDetails } from './hooks';
 
 const ProfileDetails = () => {
   const { t } = useTranslation('accounts');
   const classes = useStyles();
+  const {
+    state,
+  } = useProfileDetails();
+  console.log('state => ', state);
+
   return (
     <>
       <NextSeo
