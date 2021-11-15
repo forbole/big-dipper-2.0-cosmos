@@ -2,16 +2,11 @@ import {
   useState, useEffect,
 } from 'react';
 import * as R from 'ramda';
-import dayjs from '@utils/dayjs';
 import { useRouter } from 'next/router';
-import {
-  AccountQuery,
-  useAccountQuery,
-} from '@graphql/types';
-import { convertMsgsToModels } from '@msg';
-import {
-  StakingParams,
-} from '@models';
+// import {
+//   AccountQuery,
+//   useAccountQuery,
+// } from '@graphql/types';
 import { chainConfig } from '@src/configs';
 import { useDesmosProfile } from '@hooks';
 import { ProfileDetailState } from './types';
@@ -50,35 +45,6 @@ export const useProfileDetails = () => {
     }
   },
   [R.pathOr('', ['query', 'dtag'], router)]);
-
-  // ==========================
-  // Fetch Data
-  // ==========================
-
-  useAccountQuery({
-    variables: {
-      address: R.pathOr('', ['query', 'address'], router),
-      utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
-    },
-    onCompleted: (data) => {
-      handleSetState(formatAccountQuery(data));
-    },
-  });
-
-  // ==========================
-  // Format Data
-  // ==========================
-
-  const formatAccountQuery = (data: AccountQuery) => {
-    const stateChange: any = {
-      loading: false,
-    };
-    if (!data.account.length) {
-      stateChange.exists = false;
-      return stateChange;
-    }
-    return stateChange;
-  };
 
   return {
     state,
