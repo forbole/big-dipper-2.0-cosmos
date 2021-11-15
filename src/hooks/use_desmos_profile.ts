@@ -52,13 +52,17 @@ export const useDesmosProfile = (options: Options) => {
   };
 
   const fetchDtag = async (dtag: string) => {
-    const { data } = await axios.post(PROFILE_API, {
-      variables: {
-        dtag,
-      },
-      query: DesmosProfileDtagDocument,
-    });
-    return data.data;
+    try {
+      const { data } = await axios.post(PROFILE_API, {
+        variables: {
+          dtag,
+        },
+        query: DesmosProfileDtagDocument,
+      });
+      return data.data;
+    } catch (error) {
+      return null;
+    }
   };
 
   const fetchDesmosProfile = async (address: string) => {
