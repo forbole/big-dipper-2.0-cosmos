@@ -3,10 +3,6 @@ import {
 } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
-// import {
-//   AccountQuery,
-//   useAccountQuery,
-// } from '@graphql/types';
 import { chainConfig } from '@src/configs';
 import { useDesmosProfile } from '@hooks';
 import { ProfileDetailState } from './types';
