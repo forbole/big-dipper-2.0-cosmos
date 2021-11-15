@@ -23,7 +23,6 @@ const AccountDetails = () => {
     state,
     loadNextPage,
   } = useAccountDetails();
-  console.log(state);
 
   return (
     <>
