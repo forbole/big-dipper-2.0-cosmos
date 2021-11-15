@@ -36,33 +36,26 @@ const fetchDtag = async (dtag: string) => {
   return data.data;
 };
 
-const fetchDesmosProfile = async (address: string) => {
+const fetchDesmosProfile = async (input: string) => {
   let data: DesmosProfileQuery = {
     profile: [],
   };
   try {
-    if (address.includes('desmos')) {
-      data = await fetchDesmos(address);
+    // if input is dtag
+    if (input.startsWith('@')) {
+      data = await fetchDtag(input);
+    }
+
+    // if input is address
+    if (input.includes('desmos')) {
+      data = await fetchDesmos(input);
     }
 
     // if the address is a link instead
     if (!data.profile.length) {
-      data = await fetchLink(address);
+      data = await fetchLink(input);
     }
 
-    const formattedData = formatDesmosProfile(data);
-    return formattedData;
-  } catch (error) {
-    return null;
-  }
-};
-
-const fetchDesmosProfileDtag = async (dtag: string) => {
-  let data: DesmosProfileQuery = {
-    profile: [],
-  };
-  try {
-    data = await fetchDtag(dtag);
     const formattedData = formatDesmosProfile(data);
     return formattedData;
   } catch (error) {
@@ -115,10 +108,5 @@ const formatDesmosProfile = (data:DesmosProfileQuery): DesmosProfile => {
 
 export const getProfile = async (delegatorAddress: string) => {
   const profile = await fetchDesmosProfile(delegatorAddress);
-  return profile;
-};
-
-export const getDtagProfile = async (dtag: string) => {
-  const profile = await fetchDesmosProfileDtag(dtag);
   return profile;
 };
