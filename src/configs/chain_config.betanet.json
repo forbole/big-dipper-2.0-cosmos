@@ -1,0 +1,27 @@
+{
+  "title": "Sifchain Block Explorer",
+  "network": "sifchain-1",
+  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/sifchain/icon.png?sanitize=true",
+  "logo": {
+    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/sifchain/logo.png?sanitize=true"
+  },
+  "prefix": {
+    "consensus": "desmosvalcons",
+    "validator": "desmosvaloper",
+    "account": "desmos"
+  },
+  "genesis": {
+    "time": "2021-07-13T08:00:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "udsm",
+  "tokenUnits": {
+    "udsm": {
+      "display": "dsm",
+      "exponent": 6
+    }
+  },
+  "extra": {
+    "profile": true
+  }
+}
