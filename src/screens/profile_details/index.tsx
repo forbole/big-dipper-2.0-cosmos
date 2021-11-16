@@ -17,7 +17,6 @@ const ProfileDetails = () => {
   const {
     state,
   } = useProfileDetails();
-  console.log('state => ', state);
 
   return (
     <>
@@ -43,26 +42,8 @@ const ProfileDetails = () => {
               connections={[]}
               coverUrl={state.desmosProfile.coverUrl}
             />
-            {/* <DesmosProfile
-              dtag="hiii"
-              nickname="good"
-              imageUrl="www.www"
-              bio="a dophoe"
-              connections={[]}
-              coverUrl="url"
-            /> */}
             <Connections
-              data={[
-                {
-                  network: 'native',
-                  identifier: 'desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv',
-                  creationTime: '2021-08-31T17:02:28.575104',
-                },
-                {
-                  network: 'emoney',
-                  identifier: 'emoney1wke3ev9ja6rxsngld75r3vppcpet94xxnh63ry',
-                  creationTime: '2021-08-31T17:02:28.575104',
-                }]}
+              data={state.desmosProfile.connections}
             />
           </span>
           )}
