@@ -1,7 +1,5 @@
 {
     "profileDetails": "Profile Details",
-    "accountDetails": "Account Details",
-    "address": "Address",
     "bio": "Bio",
     "connections": "{{connections}} Connection(s)",
     "connectionsTitle": "Connections",
