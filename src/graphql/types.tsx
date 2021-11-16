@@ -3447,6 +3447,128 @@ export type Delegation_Variance_Order_By = {
   id?: Maybe<Order_By>;
 };
 
+/** columns and relationships of "delegators_to_refresh" */
+export type Delegators_To_Refresh = {
+  __typename?: 'delegators_to_refresh';
+  address: Scalars['String'];
+  height: Scalars['bigint'];
+};
+
+/** aggregated selection of "delegators_to_refresh" */
+export type Delegators_To_Refresh_Aggregate = {
+  __typename?: 'delegators_to_refresh_aggregate';
+  aggregate?: Maybe<Delegators_To_Refresh_Aggregate_Fields>;
+  nodes: Array<Delegators_To_Refresh>;
+};
+
+/** aggregate fields of "delegators_to_refresh" */
+export type Delegators_To_Refresh_Aggregate_Fields = {
+  __typename?: 'delegators_to_refresh_aggregate_fields';
+  avg?: Maybe<Delegators_To_Refresh_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Delegators_To_Refresh_Max_Fields>;
+  min?: Maybe<Delegators_To_Refresh_Min_Fields>;
+  stddev?: Maybe<Delegators_To_Refresh_Stddev_Fields>;
+  stddev_pop?: Maybe<Delegators_To_Refresh_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Delegators_To_Refresh_Stddev_Samp_Fields>;
+  sum?: Maybe<Delegators_To_Refresh_Sum_Fields>;
+  var_pop?: Maybe<Delegators_To_Refresh_Var_Pop_Fields>;
+  var_samp?: Maybe<Delegators_To_Refresh_Var_Samp_Fields>;
+  variance?: Maybe<Delegators_To_Refresh_Variance_Fields>;
+};
+
+
+/** aggregate fields of "delegators_to_refresh" */
+export type Delegators_To_Refresh_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Delegators_To_Refresh_Avg_Fields = {
+  __typename?: 'delegators_to_refresh_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "delegators_to_refresh". All fields are combined with a logical 'AND'. */
+export type Delegators_To_Refresh_Bool_Exp = {
+  _and?: Maybe<Array<Delegators_To_Refresh_Bool_Exp>>;
+  _not?: Maybe<Delegators_To_Refresh_Bool_Exp>;
+  _or?: Maybe<Array<Delegators_To_Refresh_Bool_Exp>>;
+  address?: Maybe<String_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Delegators_To_Refresh_Max_Fields = {
+  __typename?: 'delegators_to_refresh_max_fields';
+  address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate min on columns */
+export type Delegators_To_Refresh_Min_Fields = {
+  __typename?: 'delegators_to_refresh_min_fields';
+  address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** Ordering options when selecting data from "delegators_to_refresh". */
+export type Delegators_To_Refresh_Order_By = {
+  address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+};
+
+/** select columns of table "delegators_to_refresh" */
+export enum Delegators_To_Refresh_Select_Column {
+  /** column name */
+  Address = 'address',
+  /** column name */
+  Height = 'height'
+}
+
+/** aggregate stddev on columns */
+export type Delegators_To_Refresh_Stddev_Fields = {
+  __typename?: 'delegators_to_refresh_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Delegators_To_Refresh_Stddev_Pop_Fields = {
+  __typename?: 'delegators_to_refresh_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Delegators_To_Refresh_Stddev_Samp_Fields = {
+  __typename?: 'delegators_to_refresh_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Delegators_To_Refresh_Sum_Fields = {
+  __typename?: 'delegators_to_refresh_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Delegators_To_Refresh_Var_Pop_Fields = {
+  __typename?: 'delegators_to_refresh_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Delegators_To_Refresh_Var_Samp_Fields = {
+  __typename?: 'delegators_to_refresh_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Delegators_To_Refresh_Variance_Fields = {
+  __typename?: 'delegators_to_refresh_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
 /** columns and relationships of "distribution_params" */
 export type Distribution_Params = {
   __typename?: 'distribution_params';
@@ -8069,6 +8191,42 @@ export type Profile_Variance_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
+/** columns and relationships of "profiles_params" */
+export type Profiles_Params = {
+  __typename?: 'profiles_params';
+  height: Scalars['bigint'];
+  params: Scalars['jsonb'];
+};
+
+
+/** columns and relationships of "profiles_params" */
+export type Profiles_ParamsParamsArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+/** Boolean expression to filter rows from the table "profiles_params". All fields are combined with a logical 'AND'. */
+export type Profiles_Params_Bool_Exp = {
+  _and?: Maybe<Array<Profiles_Params_Bool_Exp>>;
+  _not?: Maybe<Profiles_Params_Bool_Exp>;
+  _or?: Maybe<Array<Profiles_Params_Bool_Exp>>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  params?: Maybe<Jsonb_Comparison_Exp>;
+};
+
+/** Ordering options when selecting data from "profiles_params". */
+export type Profiles_Params_Order_By = {
+  height?: Maybe<Order_By>;
+  params?: Maybe<Order_By>;
+};
+
+/** select columns of table "profiles_params" */
+export enum Profiles_Params_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Params = 'params'
+}
+
 /** columns and relationships of "proposal" */
 export type Proposal = {
   __typename?: 'proposal';
@@ -9785,6 +9943,10 @@ export type Query_Root = {
   delegation_reward: Array<Delegation_Reward>;
   /** fetch aggregated fields from the table: "delegation_reward" */
   delegation_reward_aggregate: Delegation_Reward_Aggregate;
+  /** fetch data from the table: "delegators_to_refresh" */
+  delegators_to_refresh: Array<Delegators_To_Refresh>;
+  /** fetch aggregated fields from the table: "delegators_to_refresh" */
+  delegators_to_refresh_aggregate: Delegators_To_Refresh_Aggregate;
   /** fetch data from the table: "distribution_params" */
   distribution_params: Array<Distribution_Params>;
   /** fetch aggregated fields from the table: "distribution_params" */
@@ -9891,6 +10053,8 @@ export type Query_Root = {
   profile_relationship: Array<Profile_Relationship>;
   /** fetch aggregated fields from the table: "profile_relationship" */
   profile_relationship_aggregate: Profile_Relationship_Aggregate;
+  /** fetch data from the table: "profiles_params" */
+  profiles_params: Array<Profiles_Params>;
   /** fetch data from the table: "proposal" */
   proposal: Array<Proposal>;
   /** fetch aggregated fields from the table: "proposal" */
@@ -10376,6 +10540,24 @@ export type Query_RootDelegation_Reward_AggregateArgs = {
 };
 
 
+export type Query_RootDelegators_To_RefreshArgs = {
+  distinct_on?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Delegators_To_Refresh_Order_By>>;
+  where?: Maybe<Delegators_To_Refresh_Bool_Exp>;
+};
+
+
+export type Query_RootDelegators_To_Refresh_AggregateArgs = {
+  distinct_on?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Delegators_To_Refresh_Order_By>>;
+  where?: Maybe<Delegators_To_Refresh_Bool_Exp>;
+};
+
+
 export type Query_RootDistribution_ParamsArgs = {
   distinct_on?: Maybe<Array<Distribution_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10816,6 +10998,15 @@ export type Query_RootProfile_Relationship_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Profile_Relationship_Order_By>>;
   where?: Maybe<Profile_Relationship_Bool_Exp>;
+};
+
+
+export type Query_RootProfiles_ParamsArgs = {
+  distinct_on?: Maybe<Array<Profiles_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Profiles_Params_Order_By>>;
+  where?: Maybe<Profiles_Params_Bool_Exp>;
 };
 
 
@@ -12399,6 +12590,10 @@ export type Subscription_Root = {
   delegation_reward: Array<Delegation_Reward>;
   /** fetch aggregated fields from the table: "delegation_reward" */
   delegation_reward_aggregate: Delegation_Reward_Aggregate;
+  /** fetch data from the table: "delegators_to_refresh" */
+  delegators_to_refresh: Array<Delegators_To_Refresh>;
+  /** fetch aggregated fields from the table: "delegators_to_refresh" */
+  delegators_to_refresh_aggregate: Delegators_To_Refresh_Aggregate;
   /** fetch data from the table: "distribution_params" */
   distribution_params: Array<Distribution_Params>;
   /** fetch aggregated fields from the table: "distribution_params" */
@@ -12505,6 +12700,8 @@ export type Subscription_Root = {
   profile_relationship: Array<Profile_Relationship>;
   /** fetch aggregated fields from the table: "profile_relationship" */
   profile_relationship_aggregate: Profile_Relationship_Aggregate;
+  /** fetch data from the table: "profiles_params" */
+  profiles_params: Array<Profiles_Params>;
   /** fetch data from the table: "proposal" */
   proposal: Array<Proposal>;
   /** fetch aggregated fields from the table: "proposal" */
@@ -12990,6 +13187,24 @@ export type Subscription_RootDelegation_Reward_AggregateArgs = {
 };
 
 
+export type Subscription_RootDelegators_To_RefreshArgs = {
+  distinct_on?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Delegators_To_Refresh_Order_By>>;
+  where?: Maybe<Delegators_To_Refresh_Bool_Exp>;
+};
+
+
+export type Subscription_RootDelegators_To_Refresh_AggregateArgs = {
+  distinct_on?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Delegators_To_Refresh_Order_By>>;
+  where?: Maybe<Delegators_To_Refresh_Bool_Exp>;
+};
+
+
 export type Subscription_RootDistribution_ParamsArgs = {
   distinct_on?: Maybe<Array<Distribution_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13430,6 +13645,15 @@ export type Subscription_RootProfile_Relationship_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Profile_Relationship_Order_By>>;
   where?: Maybe<Profile_Relationship_Bool_Exp>;
+};
+
+
+export type Subscription_RootProfiles_ParamsArgs = {
+  distinct_on?: Maybe<Array<Profiles_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Profiles_Params_Order_By>>;
+  where?: Maybe<Profiles_Params_Bool_Exp>;
 };
 
 
@@ -18787,17 +19011,6 @@ export type ParamsQuery = { stakingParams: Array<(
     & { depositParams: Gov_Params['deposit_params'], tallyParams: Gov_Params['tally_params'], votingParams: Gov_Params['voting_params'] }
   )> };
 
-export type ProfileDetailsQueryVariables = Exact<{
-  dtag?: Maybe<Scalars['String']>;
-  utc?: Maybe<Scalars['timestamp']>;
-}>;
-
-
-export type ProfileDetailsQuery = { stakingParams: Array<(
-    { __typename?: 'staking_params' }
-    & Pick<Staking_Params, 'params'>
-  )> };
-
 export type ProposalDetailsQueryVariables = Exact<{
   proposalId?: Maybe<Scalars['Int']>;
 }>;
@@ -19772,42 +19985,6 @@ export function useParamsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Par
 export type ParamsQueryHookResult = ReturnType<typeof useParamsQuery>;
 export type ParamsLazyQueryHookResult = ReturnType<typeof useParamsLazyQuery>;
 export type ParamsQueryResult = Apollo.QueryResult<ParamsQuery, ParamsQueryVariables>;
-export const ProfileDetailsDocument = gql`
-    query ProfileDetails($dtag: String, $utc: timestamp) {
-  stakingParams: staking_params(limit: 1) {
-    params
-  }
-}
-    `;
-
-/**
- * __useProfileDetailsQuery__
- *
- * To run a query within a React component, call `useProfileDetailsQuery` and pass it any options that fit your needs.
- * When your component renders, `useProfileDetailsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useProfileDetailsQuery({
- *   variables: {
- *      dtag: // value for 'dtag'
- *      utc: // value for 'utc'
- *   },
- * });
- */
-export function useProfileDetailsQuery(baseOptions?: Apollo.QueryHookOptions<ProfileDetailsQuery, ProfileDetailsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<ProfileDetailsQuery, ProfileDetailsQueryVariables>(ProfileDetailsDocument, options);
-      }
-export function useProfileDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProfileDetailsQuery, ProfileDetailsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<ProfileDetailsQuery, ProfileDetailsQueryVariables>(ProfileDetailsDocument, options);
-        }
-export type ProfileDetailsQueryHookResult = ReturnType<typeof useProfileDetailsQuery>;
-export type ProfileDetailsLazyQueryHookResult = ReturnType<typeof useProfileDetailsLazyQuery>;
-export type ProfileDetailsQueryResult = Apollo.QueryResult<ProfileDetailsQuery, ProfileDetailsQueryVariables>;
 export const ProposalDetailsDocument = gql`
     query ProposalDetails($proposalId: Int) {
   proposal(where: {id: {_eq: $proposalId}}) {

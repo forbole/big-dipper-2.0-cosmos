@@ -59,33 +59,37 @@ export const useDesmosProfile = (options: Options) => {
         },
         query: DesmosProfileDtagDocument,
       });
+      console.log('dtag in fetchDtag => ', dtag);
+      console.log('data.data from fetchDtag => ', data.data);
       return data.data;
     } catch (error) {
       return null;
     }
   };
 
-  const fetchDesmosProfile = async (address: string) => {
+  const fetchDesmosProfile = async (input: string) => {
     let data:DesmosProfileQuery = {
       profile: [],
     };
-    console.log('address =>', address);
+    console.log('input =>', input);
 
     try {
       setLoading(true);
-      if (address.startsWith('@')) {
-        data = await fetchDtag(address);
+      if (input.startsWith('@')) {
+        data = await fetchDtag(input.substr(1));
         console.log('option 1');
+        console.log('data from option 1 => ', data);
       }
 
-      if (address.includes('desmos')) {
-        data = await fetchDesmos(address);
+      if (input.includes('desmos')) {
+        data = await fetchDesmos(input);
         console.log('option 2');
+        console.log('data from option 2 => ', data);
       }
 
       // if the address is a link instead
       if (!data.profile.length) {
-        data = await fetchLink(address);
+        data = await fetchLink(input);
         console.log('option 3');
       }
       setLoading(false);
