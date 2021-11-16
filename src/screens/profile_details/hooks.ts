@@ -16,8 +16,6 @@ const initialState: ProfileDetailState = {
 export const useProfileDetails = () => {
   const router = useRouter();
   const [state, setState] = useState<ProfileDetailState>(initialState);
-  console.log('profile state => ', state);
-
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };

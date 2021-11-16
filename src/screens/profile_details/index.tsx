@@ -32,15 +32,25 @@ const ProfileDetails = () => {
           loading={false}
           exists
         >
+          {state.desmosProfile
+          && (
           <span className={classes.root}>
             <DesmosProfile
+              dtag={state.desmosProfile.dtag}
+              nickname={state.desmosProfile.nickname}
+              imageUrl={state.desmosProfile.imageUrl}
+              bio={state.desmosProfile.bio}
+              connections={[]}
+              coverUrl={state.desmosProfile.coverUrl}
+            />
+            {/* <DesmosProfile
               dtag="hiii"
               nickname="good"
               imageUrl="www.www"
               bio="a dophoe"
               connections={[]}
               coverUrl="url"
-            />
+            /> */}
             <Connections
               data={[
                 {
@@ -55,6 +65,7 @@ const ProfileDetails = () => {
                 }]}
             />
           </span>
+          )}
         </LoadAndExist>
       </Layout>
     </>

@@ -32,6 +32,7 @@ const Connections: React.FC<{
     sliceItems,
   } = usePagination({});
   const items = sliceItems(data);
+
   return (
     <Box>
       <Typography variant="h2">
