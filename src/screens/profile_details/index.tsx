@@ -12,7 +12,8 @@ import {} from '@graphql/types';
 import { useProfileDetails } from './hooks';
 
 const ProfileDetails = () => {
-  const { t } = useTranslation('accounts');
+  const { t } = useTranslation('profiles');
+  // const { t } = useTranslation('accounts');
   const classes = useStyles();
   const {
     state,
@@ -21,12 +22,12 @@ const ProfileDetails = () => {
   return (
     <>
       <NextSeo
-        title={t('accountDetails')}
+        title={t('profileDetails')}
         openGraph={{
-          title: t('accountDetails'),
+          title: t('profileDetails'),
         }}
       />
-      <Layout navTitle={t('accountDetails')}>
+      <Layout navTitle={t('profileDetails')}>
         <LoadAndExist
           loading={false}
           exists
