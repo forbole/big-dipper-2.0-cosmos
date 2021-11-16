@@ -25,7 +25,7 @@ const Desktop: React.FC<{
   items,
 }) => {
   const dateFormat = useRecoilValue(readDate);
-  const { t } = useTranslation('profile');
+  const { t } = useTranslation('profiles');
 
   const formattedItems = items.map((x) => {
     let identity: string | React.ReactNode = x.identifier;
