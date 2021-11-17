@@ -9,7 +9,6 @@ import {
 } from '@components';
 import { useStyles } from './styles';
 import { Connections } from './components';
-import {} from '@graphql/types';
 import { useProfileDetails } from './hooks';
 
 const ProfileDetails = () => {
