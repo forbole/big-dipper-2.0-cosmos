@@ -37,6 +37,10 @@ export const getFilterLabels = () => {
       display: 'dispensation',
     },
     {
+      key: 'ethbridge',
+      display: 'ethbridge',
+    },
+    {
       key: 'others',
       display: 'others',
     },

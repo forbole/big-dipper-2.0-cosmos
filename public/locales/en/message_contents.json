@@ -57,5 +57,11 @@
   "MsgDecommissionPool": "<0>{{signer}}</0> decommissioned <1>{{symbol}}</1>",
   "MsgCreateDistribution": "<0>{{distributor}}</0> created a <1>{{distributionType}}</1> distribution",
   "MsgCreateUserClaim": "<0>{{userClaimAddress}}</0> created a user claim for <1>{{userClaimType}}</1>",
-  "MsgRunDistribution": "<0>{{authorizedRunner}}</0> ran distribution type <1>{{distributionType}}</1>"
+  "MsgRunDistribution": "<0>{{authorizedRunner}}</0> ran distribution type <1>{{distributionType}}</1>",
+  "MsgLock": "<0>{{cosmosSender}}</0> locked tokens",
+  "MsgBurn": "<0>{{cosmosSender}}</0> burned tokens",
+  "MsgCreateEthBridgeClaim": "<0>{{cosmosreceiver}}</0> claimed <1>{{claimType}}</1>",
+  "MsgUpdateWhiteListValidator": "<0>{{cosmosSender}}</0> updated validator whitelist",
+  "MsgUpdateCethReceiverAccount": "<0>{{cosmosSender}}</0> updated ceth receiver account to <1>{{cethReceiverAccount}}</1>",
+  "MsgRescueCeth": "<0>{{cosmosSender}}</0> rescued ceth"
 }

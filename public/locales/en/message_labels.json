@@ -56,5 +56,11 @@
   "MsgDecommissionPool": "Decommission Pool",
   "MsgCreateDistribution": "Create Distribution",
   "MsgCreateUserClaim": "Create User Claim",
-  "MsgRunDistribution": "Run Distribution"
+  "MsgRunDistribution": "Run Distribution",
+  "MsgLock": "Lock",
+  "MsgBurn": "Burn",
+  "MsgCreateEthBridgeClaim": "Create Eth Bridge Claim",
+  "MsgUpdateWhiteListValidator": "Update White List Validator",
+  "MsgUpdateCethReceiverAccount": "Update Ceth Receiver Account",
+  "MsgRescueCeth": "Rescue Ceth"
 }

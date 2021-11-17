@@ -71,6 +71,12 @@ import MsgDecommissionPool from './msg/clp/msg_decommission_pool';
 import MsgCreateDistribution from './msg/dispensation/msg_create_distribution';
 import MsgCreateUserClaim from './msg/dispensation/msg_create_user_claim';
 import MsgRunDistribution from './msg/dispensation/msg_run_distribution';
+import MsgLock from './msg/ethbridge/msg_lock';
+import MsgBurn from './msg/ethbridge/msg_burn';
+import MsgCreateEthBridgeClaim from './msg/ethbridge/msg_create_eth_bridge_claim';
+import MsgUpdateWhiteListValidator from './msg/ethbridge/msg_update_whitelist_validator';
+import MsgUpdateCethReceiverAccount from './msg/ethbridge/msg_update_ceth_receiver_account';
+import MsgRescueCeth from './msg/ethbridge/msg_rescue_ceth';
 
 export {
   BigDipperNetwork,
@@ -146,4 +152,10 @@ export {
   MsgCreateDistribution,
   MsgCreateUserClaim,
   MsgRunDistribution,
+  MsgLock,
+  MsgBurn,
+  MsgCreateEthBridgeClaim,
+  MsgUpdateWhiteListValidator,
+  MsgUpdateCethReceiverAccount,
+  MsgRescueCeth,
 };
