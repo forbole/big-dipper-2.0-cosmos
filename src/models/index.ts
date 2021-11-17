@@ -68,6 +68,7 @@ import MsgCreatePool from './msg/clp/msg_create_pool';
 import MsgAddLiquidity from './msg/clp/msg_add_liquidity';
 import MsgSwap from './msg/clp/msg_swap';
 import MsgDecommissionPool from './msg/clp/msg_decommission_pool';
+import MsgCreateDistribution from './msg/dispensation/msg_create_distribution';
 
 export {
   BigDipperNetwork,
@@ -140,4 +141,5 @@ export {
   MsgAddLiquidity,
   MsgSwap,
   MsgDecommissionPool,
+  MsgCreateDistribution,
 };

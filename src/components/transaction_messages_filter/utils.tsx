@@ -33,6 +33,10 @@ export const getFilterLabels = () => {
       display: 'clp',
     },
     {
+      key: 'dispensation',
+      display: 'dispensation',
+    },
+    {
       key: 'others',
       display: 'others',
     },
