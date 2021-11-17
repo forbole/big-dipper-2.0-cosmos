@@ -60,7 +60,7 @@
   "MsgRunDistribution": "<0>{{authorizedRunner}}</0> ran distribution type <1>{{distributionType}}</1>",
   "MsgLock": "<0>{{cosmosSender}}</0> locked tokens",
   "MsgBurn": "<0>{{cosmosSender}}</0> burned tokens",
-  "MsgCreateEthBridgeClaim": "<0>{{cosmosreceiver}}</0> claimed <1>{{claimType}}</1>",
+  "MsgCreateEthBridgeClaim": "<0>{{cosmosreceiver}}</0> created eth bridge claim for <1>{{claimType}}</1>",
   "MsgUpdateWhiteListValidator": "<0>{{cosmosSender}}</0> updated validator whitelist",
   "MsgUpdateCethReceiverAccount": "<0>{{cosmosSender}}</0> updated ceth receiver account to <1>{{cethReceiverAccount}}</1>",
   "MsgRescueCeth": "<0>{{cosmosSender}}</0> rescued ceth",

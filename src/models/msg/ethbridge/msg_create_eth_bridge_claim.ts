@@ -7,6 +7,7 @@ class MsgCreateEthBridgeClaim {
   public json: any;
   public ethBridgeClaim: {
     cosmosreceiver: string;
+    claimType: 'CLAIM_TYPE_UNSPECIFIED' | 'CLAIM_TYPE_BURN' | 'CLAIM_TYPE_LOCK';
   }
 
   constructor(payload: any) {
@@ -22,6 +23,7 @@ class MsgCreateEthBridgeClaim {
       type: json['@type'],
       ethBridgeClaim: {
         cosmosreceiver: R.pathOr('', ['eth_bridge_claim', 'cosmos_receiver'], json),
+        claimType: R.pathOr('CLAIM_TYPE_UNSPECIFIED', ['eth_bridge_claim', 'claim_type'], json),
       },
     });
   }

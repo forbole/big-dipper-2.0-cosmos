@@ -27,7 +27,11 @@ const CreateEthBridgeClaim = (props: {
               name={cosmosreceiverMoniker}
             />
           ),
+          <b />,
         ]}
+        values={{
+          claimType: message.ethBridgeClaim.claimType,
+        }}
       />
     </Typography>
   );

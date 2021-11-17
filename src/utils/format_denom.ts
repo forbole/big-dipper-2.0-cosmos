@@ -1,4 +1,5 @@
 import numeral from 'numeral';
+import * as R from 'ramda';
 import { chainConfig } from '@configs';
 
 /**
@@ -33,9 +34,15 @@ export const formatDenom = (value: number | string, denom = ''): TokenUnit => {
   }
 
   const ratio = 10 ** selectedDenom.exponent;
-  results.value = value / ratio;
+  const parsedNum = (value / ratio).toString().split('.');
+  const fullNumLength = R.pathOr('', [0], parsedNum).length;
+  const rawNumString = value.toString();
+
+  // results.value = value / ratio;
+  results.value = numeral(`${rawNumString.substring(0, fullNumLength + 1)}.${rawNumString.substring(fullNumLength)}`).value();
   results.denom = selectedDenom.display;
   results.format = getNumeralDenomFormat(denom);
+
   return results;
 };
 

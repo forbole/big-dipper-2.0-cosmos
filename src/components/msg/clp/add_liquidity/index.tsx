@@ -19,6 +19,7 @@ const AddLiquidity = (props: {
   const signerMoniker = signer ? signer?.name : message.signer;
 
   const nativeAmount = formatDenom(message.nativeAssetAmount, chainConfig.primaryTokenUnit);
+
   const parsedNativeAmount = `${numeral(nativeAmount.value).format(nativeAmount.format)} ${nativeAmount.denom.toUpperCase()}`;
 
   const externalAmount = formatDenom(message.externalAssetAmount, message.externalAsset.symbol);
