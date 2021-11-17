@@ -20,8 +20,8 @@ const Swap = (props: {
   const sentAmount = formatDenom(message.sentAmount, message.sentAsset.symbol);
   const parsedSentAmount = `${numeral(sentAmount.value).format(sentAmount.format)} ${sentAmount.denom.toUpperCase()}`;
 
-  const minReceivingAmount = formatDenom(message.minReceivingAmount, message.receivedAsset.symbol);
-  const parsedMinReceivingAmount = `${numeral(minReceivingAmount.value).format(minReceivingAmount.format)} ${minReceivingAmount.denom.toUpperCase()}`;
+  const receivedAmount = formatDenom(message.receivedAmount, message.receivedAsset.symbol);
+  const parsedReceivedAmount = `${numeral(receivedAmount.value).format(receivedAmount.format)} ${receivedAmount.denom.toUpperCase()}`;
 
   return (
     <Typography>
@@ -38,7 +38,7 @@ const Swap = (props: {
         ]}
         values={{
           sentAmount: parsedSentAmount,
-          externalAssetAmount: parsedMinReceivingAmount,
+          receivedAmount: parsedReceivedAmount,
         }}
       />
     </Typography>
