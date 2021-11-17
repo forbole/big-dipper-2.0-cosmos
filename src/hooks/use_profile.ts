@@ -30,7 +30,6 @@ const fetchDesmosProfile = async (address: string) => {
   let data: DesmosProfileQuery = {
     profile: [],
   };
-
   try {
     if (address.includes('desmos')) {
       data = await fetchDesmos(address);
