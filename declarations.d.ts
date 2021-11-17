@@ -29,10 +29,16 @@ type Transactions = {
   };
 }
 
+// type TokenUnit = {
+//   value: number;
+//   denom: string;
+//   format: string;
+// }
+
 type TokenUnit = {
-  value: number;
   denom: string;
-  format: string;
+  value: string;
+  // format: string;
 }
 
 type DesmosProfile = {
