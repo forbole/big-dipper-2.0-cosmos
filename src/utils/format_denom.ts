@@ -35,11 +35,15 @@ export const formatDenom = (value: number | string, denom = ''): TokenUnit => {
 
   const ratio = 10 ** selectedDenom.exponent;
   const parsedNum = (value / ratio).toString().split('.');
-  const fullNumLength = R.pathOr('', [0], parsedNum).length;
-  const rawNumString = value.toString();
 
-  // results.value = value / ratio;
-  results.value = numeral(`${rawNumString.substring(0, fullNumLength + 1)}.${rawNumString.substring(fullNumLength)}`).value();
+  if (parsedNum.length > 1) {
+    const fullNumLength = R.pathOr('', [0], parsedNum).length;
+    const rawNumString = value.toString();
+    results.value = numeral(`${rawNumString.substring(0, fullNumLength)}.${rawNumString.substring(fullNumLength)}`).value();
+  } else {
+    results.value = value / ratio;
+  }
+
   results.denom = selectedDenom.display;
   results.format = getNumeralDenomFormat(denom);
 

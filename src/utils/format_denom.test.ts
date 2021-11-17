@@ -16,6 +16,10 @@ jest.mock('@configs', () => ({
         display: 'bar',
         exponent: 3,
       },
+      rowan: {
+        display: 'rowan',
+        exponent: 18,
+      },
     },
   },
 }));
@@ -52,15 +56,9 @@ describe('utils: formatDenom', () => {
     expect(results.format).toBe('0,0.[000000]');
   });
 
-  it('when unit is less than 1', async () => {
-    const results = formatDenom('0.1', 'udaric');
-    expect(results.value).toBe(0);
-    expect(results.denom).toBe('daric');
-  });
-
   it('bdjuno testcase: 1', async () => {
-    const results = formatDenom('3591842519.561197300000000000', 'udaric');
-    expect(results.value).toBe(3591.842519561197);
+    const results = formatDenom('3591842519', 'udaric');
+    expect(results.value).toBe(3591.842519);
     expect(results.denom).toBe('daric');
   });
 
@@ -83,9 +81,15 @@ describe('utils: formatDenom', () => {
   });
 
   it('bdjuno testcase: 5', async () => {
-    const results = formatDenom('3259217548.864862539902764586', 'udaric');
-    expect(results.value).toBeLessThan(3259.217548864862539902764586);
+    const results = formatDenom('3259217548', 'udaric');
+    expect(results.value).toBe(3259.217548);
     expect(results.denom).toBe('daric');
+  });
+
+  it('bdjuno testcase: 6', async () => {
+    const results = formatDenom('163598180000000000000', 'rowan');
+    expect(results.value).toBe(163.59818);
+    expect(results.denom).toBe('rowan');
   });
 
   afterEach(() => {
