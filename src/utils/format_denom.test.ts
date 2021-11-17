@@ -20,6 +20,10 @@ jest.mock('@configs', () => ({
         display: 'rowan',
         exponent: 18,
       },
+      cpaid: {
+        display: 'paid',
+        exponent: 18,
+      },
     },
   },
 }));
@@ -90,6 +94,12 @@ describe('utils: formatDenom', () => {
     const results = formatDenom('163598180000000000000', 'rowan');
     expect(results.value).toBe(163.59818);
     expect(results.denom).toBe('rowan');
+  });
+
+  it('bdjuno testcase: 7', async () => {
+    const results = formatDenom('194312034488490519500', 'cpaid');
+    expect(results.value).toBe(194.312034488490519500);
+    expect(results.denom).toBe('paid');
   });
 
   afterEach(() => {

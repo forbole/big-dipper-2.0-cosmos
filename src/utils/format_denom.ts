@@ -40,6 +40,16 @@ export const formatDenom = (value: number | string, denom = ''): TokenUnit => {
     const fullNumLength = R.pathOr('', [0], parsedNum).length;
     const rawNumString = value.toString();
     results.value = numeral(`${rawNumString.substring(0, fullNumLength)}.${rawNumString.substring(fullNumLength)}`).value();
+
+    if (value == '194312034488490520000') {
+      // console.log('should be in here');
+      // console.log(rawNumString, 'original');
+      // console.log(rawNumString.substring(0, fullNumLength), 'first half');
+      // console.log(rawNumString.substring(fullNumLength), 'second half');
+      // console.log(`${rawNumString.substring(0, fullNumLength)}.${rawNumString.substring(fullNumLength)}`, 'whole thing');
+      console.log(Number(`${rawNumString.substring(0, fullNumLength)}.${rawNumString.substring(fullNumLength)}`), 'number');
+      console.log(numeral(`${rawNumString.substring(0, fullNumLength)}.${rawNumString.substring(fullNumLength)}`).format(getNumeralDenomFormat(denom)), 'numeral');
+    }
   } else {
     results.value = value / ratio;
   }
