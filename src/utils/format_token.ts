@@ -37,10 +37,39 @@ export const formatNumber = (tokenUnit: TokenUnit, toFixed = DEFAULT_EXPONENT): 
   const decimal = R.pathOr('', [1], split);
   const formatWholeNumber = numeral(wholeNumber).format('0,0');
   if (decimal) {
-    const formatDecimal = numeral(decimal.substring(0, toFixed)).value();
+    const substringDecimal = removeEndingZeros(decimal.substring(0, toFixed));
+    const formatDecimal = numeral(substringDecimal).value();
 
     return `${formatWholeNumber}.${formatDecimal}`;
   }
 
   return formatWholeNumber;
+};
+
+export const removeEndingZeros = (value: string) => {
+  // for (let i = cut.length - 1; i >= 0; i--) {
+  //   let current = cut[i];
+  //   if (i === cut.length -1 && current !== '0') {
+  //     end = cut.length;
+  //     break;
+  //   }
+  //   if (current === '0') {
+  //     end = end - 1;
+  //     i--;
+  //   } else {
+  //     break;
+  //   }
+  // }
+  let end = value.length - 1;
+  for (let i = value.length - 1; i >= 0; i -= 1) {
+    const current = value[i];
+    if (current === '0') {
+      end -= 1;
+      i -= 1;
+    } else {
+      break;
+    }
+  }
+
+  return value.substring(0, end);
 };
