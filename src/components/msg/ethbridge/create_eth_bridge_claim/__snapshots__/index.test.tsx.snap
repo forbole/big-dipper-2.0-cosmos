@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TransactionDetails/CreateEthBridgeClaim matches snapshot 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body1"
+>
+  <div
+    components={
+      Array [
+        <Name
+          address="cosmosreceiver"
+          name="cosmosreceiver"
+        />,
+        <b />,
+      ]
+    }
+    i18nKey="message_contents:MsgCreateEthBridgeClaim"
+    id="Trans"
+  />
+</p>
+`;

@@ -354,6 +354,45 @@ const getDataByType = (type: string) => {
       tagTheme: 'eleven',
       tagDisplay: 'MsgRunDistribution',
     },
+    // ========================
+    // ethbridge
+    // ========================
+    '/sifnode.ethbridge.v1.MsgLock': {
+      model: MODELS.MsgLock,
+      content: COMPONENTS.Lock,
+      tagTheme: 'twelve',
+      tagDisplay: 'MsgLock',
+    },
+    '/sifnode.ethbridge.v1.MsgBurn': {
+      model: MODELS.MsgBurn,
+      content: COMPONENTS.Burn,
+      tagTheme: 'twelve',
+      tagDisplay: 'MsgBurn',
+    },
+    '/sifnode.ethbridge.v1.MsgCreateEthBridgeClaim': {
+      model: MODELS.MsgCreateEthBridgeClaim,
+      content: COMPONENTS.CreateEthBridgeClaim,
+      tagTheme: 'twelve',
+      tagDisplay: 'MsgCreateEthBridgeClaim',
+    },
+    '/sifnode.ethbridge.v1.MsgUpdateWhiteListValidator': {
+      model: MODELS.MsgUpdateWhiteListValidator,
+      content: COMPONENTS.UpdateWhiteListValidator,
+      tagTheme: 'twelve',
+      tagDisplay: 'MsgUpdateWhiteListValidator',
+    },
+    '/sifnode.ethbridge.v1.MsgUpdateCethReceiverAccount': {
+      model: MODELS.MsgUpdateCethReceiverAccount,
+      content: COMPONENTS.UpdateCethReceiverAccount,
+      tagTheme: 'twelve',
+      tagDisplay: 'MsgUpdateCethReceiverAccount',
+    },
+    '/sifnode.ethbridge.v1.MsgRescueCeth': {
+      model: MODELS.MsgRescueCeth,
+      content: COMPONENTS.RescueCeth,
+      tagTheme: 'twelve',
+      tagDisplay: 'MsgRescueCeth',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];

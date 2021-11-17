@@ -70,6 +70,12 @@ import Swap from './clp/swap';
 import CreateDistribution from './dispensation/create_distribution';
 import CreateUserClaim from './dispensation/create_user_claim';
 import RunDistribution from './dispensation/run_distribution';
+import Lock from './ethbridge/lock';
+import Burn from './ethbridge/burn';
+import CreateEthBridgeClaim from './ethbridge/create_eth_bridge_claim';
+import UpdateWhiteListValidator from './ethbridge/update_whitelist_validator';
+import UpdateCethReceiverAccount from './ethbridge/update_ceth_receiver_account';
+import RescueCeth from './ethbridge/rescue_ceth';
 
 export {
   getMessageModelByType,
@@ -138,4 +144,10 @@ export {
   CreateDistribution,
   CreateUserClaim,
   RunDistribution,
+  Lock,
+  Burn,
+  CreateEthBridgeClaim,
+  UpdateWhiteListValidator,
+  UpdateCethReceiverAccount,
+  RescueCeth,
 };
