@@ -1,5 +1,6 @@
 import chainConfigTestnet from './chain_config.testnet.json';
 import chainConfigMainnet from './chain_config.mainnet.json';
+import chainConfigBetanet from './chain_config.betanet.json';
 import generalConfig from './general_config.json';
 
 /**
@@ -7,6 +8,9 @@ import generalConfig from './general_config.json';
  * @returns config
  */
 const getChainConfig = () => {
+  if (process.env.NEXT_PUBLIC_CHAIN_STATUS === 'betanet') {
+    return chainConfigBetanet;
+  }
   if (process.env.NEXT_PUBLIC_CHAIN_STATUS === 'mainnet') {
     return chainConfigMainnet;
   }
