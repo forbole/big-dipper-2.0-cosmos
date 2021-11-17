@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
@@ -20,34 +20,31 @@ const ProfileDetails = () => {
     state,
   } = useProfileDetails();
 
-  const profileIsNotEnabled = false;
-  const regex = /^@/;
+  useEffect(() => {
+    const regex = /^@/;
+    const profileDtag = router.query.dtag as string;
+    const regexCheck = regex.test(profileDtag);
+    const enabledProfile = state.desmosProfile;
 
-  const profileDtag = router.query.dtag as string;
-  const regexCheck = regex.test(profileDtag);
+    if (!regexCheck || enabledProfile == null) {
+      router.replace('/');
+    }
+  }, []);
 
-  console.log('dtag', profileDtag);
-  console.log('regexCheck', regexCheck);
-  console.log('profileIsNotEnabled', profileIsNotEnabled);
-
-  if (!regexCheck || !profileIsNotEnabled) {
-    console.log('one of them is false so return to homepage');
-    router.replace('/');
-  } else {
-    return (
-      <>
-        <NextSeo
-          title={t('profileDetails')}
-          openGraph={{
-            title: t('profileDetails'),
-          }}
-        />
-        <Layout navTitle={t('profileDetails')}>
-          <LoadAndExist
-            loading={false}
-            exists
-          >
-            {state.desmosProfile
+  return (
+    <>
+      <NextSeo
+        title={t('profileDetails')}
+        openGraph={{
+          title: t('profileDetails'),
+        }}
+      />
+      <Layout navTitle={t('profileDetails')}>
+        <LoadAndExist
+          loading={false}
+          exists
+        >
+          {state.desmosProfile
           && (
           <span className={classes.root}>
             <DesmosProfile
@@ -63,11 +60,10 @@ const ProfileDetails = () => {
             />
           </span>
           )}
-          </LoadAndExist>
-        </Layout>
-      </>
-    );
-  }
+        </LoadAndExist>
+      </Layout>
+    </>
+  );
 };
 
 export default ProfileDetails;
