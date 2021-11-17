@@ -55,5 +55,7 @@
   "MsgAddLiquidity": "<0>{{signer}}</0> added liquidity with <1>{{nativeAssetAmount}}</1> and <1>{{externalAssetAmount}}</1>",
   "MsgSwap": "<0>{{signer}}</0> swapped <1>{{sentAmount}}</1> for <1>{{minReceivingAmount}}</1>",
   "MsgDecommissionPool": "<0>{{signer}}</0> decommissioned <1>{{symbol}}</1>",
-  "MsgCreateDistribution": "<0>{{distributor}}</0> created a <1>{{distributionType}}</1> distribution"
+  "MsgCreateDistribution": "<0>{{distributor}}</0> created a <1>{{distributionType}}</1> distribution",
+  "MsgCreateUserClaim": "<0>{{userClaimAddress}}</0> created a user claim for <1>{{distributionType}}</1>",
+  "MsgRunDistribution": "<0>{{authorizedRunner}}</0> ran distribution type <1>{{distributionType}}</1>"
 }

@@ -54,5 +54,7 @@
   "MsgAddLiquidity": "Add Liquidity",
   "MsgSwap": "Swap",
   "MsgDecommissionPool": "Decommission Pool",
-  "MsgCreateDistribution": "Create Distribution"
+  "MsgCreateDistribution": "Create Distribution",
+  "MsgCreateUserClaim": "Create User Claim",
+  "MsgRunDistribution": "Run Distribution"
 }
