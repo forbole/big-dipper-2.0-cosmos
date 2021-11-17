@@ -21,7 +21,7 @@ const Mobile: React.FC<{
 }) => {
   const dateFormat = useRecoilValue(readDate);
   const classes = useStyles();
-  const { t } = useTranslation('profiles');
+  const { t } = useTranslation('accounts');
 
   return (
     <div className={classnames(className)}>

@@ -23,7 +23,7 @@ const Connections: React.FC<{
 }) => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
-  const { t } = useTranslation('profiles');
+  const { t } = useTranslation('accounts');
   const {
     page,
     rowsPerPage,
