@@ -61,7 +61,6 @@ const Mobile: React.FC<{
                   {formatDayJs(dayjs.utc(x.creationTime), dateFormat)}
                 </Typography>
               </div>
-
             </div>
             {i !== items.length - 1 && <Divider />}
           </React.Fragment>

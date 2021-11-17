@@ -13,7 +13,6 @@ import { useProfileDetails } from './hooks';
 
 const ProfileDetails = () => {
   const { t } = useTranslation('profiles');
-  // const { t } = useTranslation('accounts');
   const classes = useStyles();
   const {
     state,
