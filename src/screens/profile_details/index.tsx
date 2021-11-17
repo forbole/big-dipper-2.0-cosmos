@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
 import {
@@ -12,26 +13,41 @@ import {} from '@graphql/types';
 import { useProfileDetails } from './hooks';
 
 const ProfileDetails = () => {
+  const router = useRouter();
   const { t } = useTranslation('profiles');
   const classes = useStyles();
   const {
     state,
   } = useProfileDetails();
 
-  return (
-    <>
-      <NextSeo
-        title={t('profileDetails')}
-        openGraph={{
-          title: t('profileDetails'),
-        }}
-      />
-      <Layout navTitle={t('profileDetails')}>
-        <LoadAndExist
-          loading={false}
-          exists
-        >
-          {state.desmosProfile
+  const profileIsNotEnabled = false;
+  const regex = /^@/;
+
+  const profileDtag = router.query.dtag as string;
+  const regexCheck = regex.test(profileDtag);
+
+  console.log('dtag', profileDtag);
+  console.log('regexCheck', regexCheck);
+  console.log('profileIsNotEnabled', profileIsNotEnabled);
+
+  if (!regexCheck || !profileIsNotEnabled) {
+    console.log('one of them is false so return to homepage');
+    router.replace('/');
+  } else {
+    return (
+      <>
+        <NextSeo
+          title={t('profileDetails')}
+          openGraph={{
+            title: t('profileDetails'),
+          }}
+        />
+        <Layout navTitle={t('profileDetails')}>
+          <LoadAndExist
+            loading={false}
+            exists
+          >
+            {state.desmosProfile
           && (
           <span className={classes.root}>
             <DesmosProfile
@@ -47,11 +63,11 @@ const ProfileDetails = () => {
             />
           </span>
           )}
-        </LoadAndExist>
-      </Layout>
-    </>
-
-  );
+          </LoadAndExist>
+        </Layout>
+      </>
+    );
+  }
 };
 
 export default ProfileDetails;
