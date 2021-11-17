@@ -27,7 +27,6 @@ const CreateEthBridgeClaim = (props: {
               name={cosmosreceiverMoniker}
             />
           ),
-          <b />,
         ]}
       />
     </Typography>

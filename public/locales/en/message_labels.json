@@ -62,5 +62,8 @@
   "MsgCreateEthBridgeClaim": "Create Eth Bridge Claim",
   "MsgUpdateWhiteListValidator": "Update White List Validator",
   "MsgUpdateCethReceiverAccount": "Update Ceth Receiver Account",
-  "MsgRescueCeth": "Rescue Ceth"
+  "MsgRescueCeth": "Rescue Ceth",
+  "MsgRegister": "Register",
+  "MsgDeregister": "Deregister",
+  "MsgSetRegistry": "Set Registry"
 }

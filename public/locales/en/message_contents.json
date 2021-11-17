@@ -63,5 +63,8 @@
   "MsgCreateEthBridgeClaim": "<0>{{cosmosreceiver}}</0> claimed <1>{{claimType}}</1>",
   "MsgUpdateWhiteListValidator": "<0>{{cosmosSender}}</0> updated validator whitelist",
   "MsgUpdateCethReceiverAccount": "<0>{{cosmosSender}}</0> updated ceth receiver account to <1>{{cethReceiverAccount}}</1>",
-  "MsgRescueCeth": "<0>{{cosmosSender}}</0> rescued ceth"
+  "MsgRescueCeth": "<0>{{cosmosSender}}</0> rescued ceth",
+  "MsgRegister": "<0>{{from}}</0> registered <1>{{denom}}</1>",
+  "MsgDeregister": "<0>{{from}}</0> deregistered <1>{{denom}}</1>",
+  "MsgSetRegistry": "<0>{{from}}</0> set registry for <1>{{denoms}}</1>"
 }

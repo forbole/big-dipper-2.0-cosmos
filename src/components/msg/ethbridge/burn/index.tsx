@@ -26,7 +26,6 @@ const Burn = (props: {
               name={cosmosSenderMoniker}
             />
           ),
-          <b />,
         ]}
       />
     </Typography>

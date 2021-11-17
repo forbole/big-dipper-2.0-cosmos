@@ -11,7 +11,6 @@ exports[`screen: TransactionDetails/CreateEthBridgeClaim matches snapshot 1`] = 
           address="cosmosreceiver"
           name="cosmosreceiver"
         />,
-        <b />,
       ]
     }
     i18nKey="message_contents:MsgCreateEthBridgeClaim"

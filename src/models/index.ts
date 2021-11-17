@@ -77,6 +77,9 @@ import MsgCreateEthBridgeClaim from './msg/ethbridge/msg_create_eth_bridge_claim
 import MsgUpdateWhiteListValidator from './msg/ethbridge/msg_update_whitelist_validator';
 import MsgUpdateCethReceiverAccount from './msg/ethbridge/msg_update_ceth_receiver_account';
 import MsgRescueCeth from './msg/ethbridge/msg_rescue_ceth';
+import MsgRegister from './msg/tokenregistry/msg_register';
+import MsgDeregister from './msg/tokenregistry/msg_deregister';
+import MsgSetRegistry from './msg/tokenregistry/msg_set_registry';
 
 export {
   BigDipperNetwork,
@@ -158,4 +161,7 @@ export {
   MsgUpdateWhiteListValidator,
   MsgUpdateCethReceiverAccount,
   MsgRescueCeth,
+  MsgRegister,
+  MsgDeregister,
+  MsgSetRegistry,
 };

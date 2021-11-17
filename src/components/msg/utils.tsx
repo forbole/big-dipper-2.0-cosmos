@@ -393,6 +393,27 @@ const getDataByType = (type: string) => {
       tagTheme: 'twelve',
       tagDisplay: 'MsgRescueCeth',
     },
+    // ========================
+    // tokenregistry
+    // ========================
+    '/sifnode.tokenregistry.v1.MsgRegister': {
+      model: MODELS.MsgRegister,
+      content: COMPONENTS.Register,
+      tagTheme: 'thirteen',
+      tagDisplay: 'MsgRegister',
+    },
+    '/sifnode.tokenregistry.v1.MsgDeregister': {
+      model: MODELS.MsgDeregister,
+      content: COMPONENTS.Deregister,
+      tagTheme: 'thirteen',
+      tagDisplay: 'MsgDeregister',
+    },
+    '/sifnode.tokenregistry.v1.MsgSetRegistry': {
+      model: MODELS.MsgSetRegistry,
+      content: COMPONENTS.SetRegistry,
+      tagTheme: 'thirteen',
+      tagDisplay: 'MsgSetRegistry',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];

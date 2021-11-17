@@ -41,6 +41,10 @@ export const getFilterLabels = () => {
       display: 'ethbridge',
     },
     {
+      key: 'tokenregistry',
+      display: 'tokenregistry',
+    },
+    {
       key: 'others',
       display: 'others',
     },

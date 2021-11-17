@@ -76,6 +76,9 @@ import CreateEthBridgeClaim from './ethbridge/create_eth_bridge_claim';
 import UpdateWhiteListValidator from './ethbridge/update_whitelist_validator';
 import UpdateCethReceiverAccount from './ethbridge/update_ceth_receiver_account';
 import RescueCeth from './ethbridge/rescue_ceth';
+import Register from './tokenregistry/register';
+import Deregister from './tokenregistry/deregister';
+import SetRegistry from './tokenregistry/set_registry';
 
 export {
   getMessageModelByType,
@@ -150,4 +153,7 @@ export {
   UpdateWhiteListValidator,
   UpdateCethReceiverAccount,
   RescueCeth,
+  Register,
+  Deregister,
+  SetRegistry,
 };
