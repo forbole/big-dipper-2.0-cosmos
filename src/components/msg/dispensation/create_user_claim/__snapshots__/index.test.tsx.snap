@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TransactionDetails/CreateUserClaim matches snapshot 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body1"
+>
+  <div
+    components={
+      Array [
+        <Name
+          address="userClaimAddress"
+          name="userClaimAddress"
+        />,
+        <b />,
+      ]
+    }
+    i18nKey="message_contents:MsgCreateUserClaim"
+    id="Trans"
+    values={
+      Object {
+        "userClaimType": "DISTRIBUTION_TYPE_AIRDROP",
+      }
+    }
+  />
+</p>
+`;

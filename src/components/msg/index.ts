@@ -67,6 +67,9 @@ import CreatePool from './clp/create_pool';
 import DecommissionPool from './clp/decommission_pool';
 import RemoveLiquidity from './clp/remove_liquidity';
 import Swap from './clp/swap';
+import CreateDistribution from './dispensation/create_distribution';
+import CreateUserClaim from './dispensation/create_user_claim';
+import RunDistribution from './dispensation/run_distribution';
 
 export {
   getMessageModelByType,
@@ -132,4 +135,7 @@ export {
   DecommissionPool,
   RemoveLiquidity,
   Swap,
+  CreateDistribution,
+  CreateUserClaim,
+  RunDistribution,
 };

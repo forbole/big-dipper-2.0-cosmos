@@ -333,6 +333,27 @@ const getDataByType = (type: string) => {
       tagTheme: 'four',
       tagDisplay: 'MsgDecommissionPool',
     },
+    // ========================
+    // dispensation
+    // ========================
+    '/sifnode.dispensation.v1.MsgCreateDistribution': {
+      model: MODELS.MsgCreateDistribution,
+      content: COMPONENTS.CreateDistribution,
+      tagTheme: 'eleven',
+      tagDisplay: 'MsgCreateDistribution',
+    },
+    '/sifnode.dispensation.v1.MsgCreateUserClaim': {
+      model: MODELS.MsgCreateUserClaim,
+      content: COMPONENTS.CreateUserClaim,
+      tagTheme: 'eleven',
+      tagDisplay: 'MsgCreateUserClaim',
+    },
+    '/sifnode.dispensation.v1.MsgRunDistribution': {
+      model: MODELS.MsgRunDistribution,
+      content: COMPONENTS.RunDistribution,
+      tagTheme: 'eleven',
+      tagDisplay: 'MsgRunDistribution',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];
