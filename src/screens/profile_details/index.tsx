@@ -7,6 +7,7 @@ import {
   LoadAndExist,
   DesmosProfile,
 } from '@components';
+import { chainConfig } from '@src/configs';
 import { useStyles } from './styles';
 import { Connections } from './components';
 import { useProfileDetails } from './hooks';
@@ -19,13 +20,17 @@ const ProfileDetails = () => {
     state,
   } = useProfileDetails();
 
+  console.log('chainConfig', chainConfig);
+
   useEffect(() => {
     const regex = /^@/;
     const profileDtag = router.query.dtag as string;
     const regexCheck = regex.test(profileDtag);
-    const enabledProfile = state.desmosProfile;
+    const configProfile = chainConfig.extra.profile;
+    // const enabledProfile = state.desmosProfile;
+    // enabledProfile == null
 
-    if (!regexCheck || enabledProfile == null) {
+    if (!regexCheck || !configProfile) {
       router.replace('/');
     }
   }, []);
