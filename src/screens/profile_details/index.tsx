@@ -7,7 +7,7 @@ import {
   LoadAndExist,
   DesmosProfile,
 } from '@components';
-import { chainConfig } from '@src/configs';
+import { chainConfig } from '@configs';
 import { useStyles } from './styles';
 import { Connections } from './components';
 import { useProfileDetails } from './hooks';
