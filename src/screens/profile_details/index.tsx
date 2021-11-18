@@ -28,11 +28,8 @@ const ProfileDetails = () => {
     const profileDtag = router.query.dtag as string;
     const regexCheck = regex.test(profileDtag);
     const configProfile = chainConfig.extra.profile;
-    // const enabledProfile = state.desmosProfile;
-    // enabledProfile == null
 
     if (!regexCheck || !configProfile) {
-      console.log('return homepage');
       router.replace('/');
     }
   }, []);
