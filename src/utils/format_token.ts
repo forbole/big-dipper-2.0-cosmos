@@ -36,7 +36,7 @@ export const formatNumber = (tokenUnit: string, toFixed?: number): string => {
   const wholeNumber = R.pathOr('', [0], split);
   const decimal = R.pathOr('', [1], split);
   const formatWholeNumber = numeral(wholeNumber).format('0,0');
-  if (decimal) {
+  if (decimal && toFixed !== 0) {
     if (toFixed == null) {
       toFixed = decimal.length;
     }

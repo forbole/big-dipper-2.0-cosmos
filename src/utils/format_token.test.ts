@@ -103,6 +103,11 @@ describe('utils: formatNumber', () => {
     expect(results).toBe('123,456,789');
   });
 
+  it('format correctly #9', async () => {
+    const results = formatNumber('123456789.1', 0);
+    expect(results).toBe('123,456,789');
+  });
+
   afterEach(() => {
     jest.clearAllMocks();
   });
