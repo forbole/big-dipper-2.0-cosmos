@@ -20,9 +20,9 @@ const ProfileDetails = () => {
     state,
   } = useProfileDetails();
 
-  console.log('chainConfig', chainConfig);
   console.log('state', state);
 
+  // method 1
   useEffect(() => {
     const regex = /^@/;
     const profileDtag = router.query.dtag as string;
@@ -33,6 +33,15 @@ const ProfileDetails = () => {
       router.replace('/');
     }
   }, []);
+
+  // method 2
+  // const regex = /^@/;
+  // const profileDtag = router.query.dtag as string;
+  // const regexCheck = regex.test(profileDtag);
+  // const configProfile = chainConfig.extra.profile;
+  // if (!regexCheck || !configProfile) {
+  //   router.replace('/');
+  // }
 
   return (
     <>
