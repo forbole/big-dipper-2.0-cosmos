@@ -21,6 +21,7 @@ const ProfileDetails = () => {
   } = useProfileDetails();
 
   console.log('chainConfig', chainConfig);
+  console.log('state', state);
 
   useEffect(() => {
     const regex = /^@/;
@@ -31,6 +32,7 @@ const ProfileDetails = () => {
     // enabledProfile == null
 
     if (!regexCheck || !configProfile) {
+      console.log('return homepage');
       router.replace('/');
     }
   }, []);
@@ -46,9 +48,11 @@ const ProfileDetails = () => {
       <Layout navTitle={t('profileDetails')}>
         <LoadAndExist
           loading={false}
-          exists
+          // exists={false}
+          // loading={state.loading}
+          exists={state.exists}
         >
-          {state.desmosProfile
+          {!!state.desmosProfile
           && (
           <span className={classes.root}>
             <DesmosProfile
