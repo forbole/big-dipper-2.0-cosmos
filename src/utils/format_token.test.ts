@@ -142,6 +142,15 @@ describe('utils: formatToken', () => {
     expect(results.value).toBe('12.345678998765432132');
     expect(results.baseDenom).toBe('rowan');
     expect(results.displayDenom).toBe('rowan');
+    expect(results.exponent).toBe(18);
+  });
+
+  it('format correctly #6', async () => {
+    const results = formatToken('12345678998765432132', 'unknown');
+    expect(results.value).toBe('12345678998765432132');
+    expect(results.baseDenom).toBe('unknown');
+    expect(results.displayDenom).toBe('unknown');
+    expect(results.exponent).toBe(0);
   });
 
   afterEach(() => {
