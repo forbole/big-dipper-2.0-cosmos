@@ -243,14 +243,12 @@ export const useAccountDetails = () => {
       const stakingDenom = stakingParams.bondDenom;
 
       const delegate = R.pathOr([], ['account', 0, 'delegations'], data).reduce((a, b) => {
-        // return a + numeral(b.amount.amount).value();
         return Big(a).plus(b.amount.amount).toPrecision();
       }, 0);
       const delegateDenom = stakingDenom;
       const delegateAmount = formatToken(delegate, delegateDenom);
 
       const unbonding = R.pathOr([], ['account', 0, 'unbonding'], data).reduce((a, b) => {
-        // return a + numeral(b.amount.amount).value();
         return Big(a).plus(b.amount.amount).toPrecision();
       }, 0);
       const unbondingDenom = stakingDenom;
@@ -260,7 +258,7 @@ export const useAccountDetails = () => {
         const validatorAddress = x.validator.validatorInfo.operatorAddress;
         return rewardsDict[validatorAddress];
       }).reduce((a, b) => {
-        return a + b.value;
+        return Big(a).plus(b.value).toPrecision();
       }, 0);
 
       const rewardAmount: TokenUnit = {
@@ -275,6 +273,7 @@ export const useAccountDetails = () => {
         chainConfig.primaryTokenUnit,
       );
       const commissionAmount = formatToken(commission.amount, chainConfig.primaryTokenUnit);
+
       const total = Big(availableAmount.value)
         .plus(delegateAmount.value)
         .plus(unbondingAmount.value)
@@ -384,7 +383,7 @@ export const useAccountDetails = () => {
           amount: formatToken(x.amount.amount, x.amount.denom),
           commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
         });
-      }).sort((a, b) => ((a.amount.value < b.amount.value) ? 1 : -1));
+      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
 
       return {
         data: delegations,
@@ -408,7 +407,7 @@ export const useAccountDetails = () => {
             R.pathOr(0, ['amount', 'denom'], x),
           ),
         });
-      }).sort((a, b) => ((a.amount.value < b.amount.value) ? 1 : -1));
+      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
       return {
         data: redelegations,
         count: redelegations.length,
@@ -432,7 +431,7 @@ export const useAccountDetails = () => {
           linkedUntil: x.completionTimestamp,
           commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
         });
-      }).sort((a, b) => ((a.amount.value < b.amount.value) ? 1 : -1));
+      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
       return {
         data: unbondings,
         count: unbondings.length,

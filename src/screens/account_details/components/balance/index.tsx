@@ -55,6 +55,7 @@ const Balance: React.FC<{
 
   const formatData = formattedChartData.map((x, i) => ({
     ...x,
+    value: numeral(x.value).value(),
     background: backgrounds[i],
   }));
 
@@ -62,7 +63,7 @@ const Balance: React.FC<{
 
   const dataCount = formatData.filter((x) => Big(x.value).gt(0)).length;
   const data = notEmpty ? formatData : [...formatData, empty];
-  const totalAmount = `$${numeral(Big(market.price).times(props.total.value).toPrecision()).format('0,0.00')}`;
+  const totalAmount = `$${numeral(Big(market.price || 0).times(props.total.value).toPrecision()).format('0,0.00')}`;
 
   // format
   const totalDisplay = formatNumber(props.total.value, props.total.exponent);
