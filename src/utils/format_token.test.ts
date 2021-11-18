@@ -64,74 +64,42 @@ describe('utils: removeEndingZeros', () => {
 
 describe('utils: formatNumber', () => {
   it('format correctly #1', async () => {
-    const results = formatNumber({
-      baseDenom: 'udaric',
-      displayDenom: 'daric',
-      value: '51.000101',
-    });
+    const results = formatNumber('51.000101');
     expect(results).toBe('51.000101');
   });
 
   it('format correctly #2', async () => {
-    const results = formatNumber({
-      baseDenom: 'udaric',
-      displayDenom: 'daric',
-      value: '51000101',
-    }, 2);
+    const results = formatNumber('51000101', 2);
     expect(results).toBe('51,000,101');
   });
 
   it('format correctly #3', async () => {
-    const results = formatNumber({
-      baseDenom: 'udaric',
-      displayDenom: 'daric',
-      value: '0',
-    }, 2);
+    const results = formatNumber('0', 2);
     expect(results).toBe('0');
   });
 
   it('format correctly #4', async () => {
-    const results = formatNumber({
-      baseDenom: 'upotic',
-      displayDenom: 'daric',
-      value: '10654',
-    });
+    const results = formatNumber('10654');
     expect(results).toBe('10,654');
   });
 
   it('format correctly #5', async () => {
-    const results = formatNumber({
-      baseDenom: 'rowan',
-      displayDenom: 'rowan',
-      value: '10654.123456789123456789',
-    });
+    const results = formatNumber('10654.123456789123456789');
     expect(results).toBe('10,654.123456789123456789');
   });
 
   it('format correctly #6', async () => {
-    const results = formatNumber({
-      baseDenom: 'rowan',
-      displayDenom: 'rowan',
-      value: '10654.12345678000',
-    });
+    const results = formatNumber('10654.12345678000');
     expect(results).toBe('10,654.12345678');
   });
 
   it('format correctly #7', async () => {
-    const results = formatNumber({
-      baseDenom: 'rowan',
-      displayDenom: 'rowan',
-      value: '0.12345678000',
-    });
+    const results = formatNumber('0.12345678000');
     expect(results).toBe('0.12345678');
   });
 
   it('format correctly #8', async () => {
-    const results = formatNumber({
-      baseDenom: 'notexist',
-      displayDenom: 'rowan',
-      value: '123456789',
-    });
+    const results = formatNumber('123456789');
     expect(results).toBe('123,456,789');
   });
 

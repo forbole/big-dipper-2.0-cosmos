@@ -14,10 +14,11 @@ export const formatToken = (value: number | string, denom = ''): TokenUnit => {
     value = `${value}`;
   }
 
-  const results = {
+  const results: TokenUnit = {
     value,
     displayDenom: denom,
     baseDenom: denom,
+    exponent: R.pathOr(0, ['exponent'], selectedDenom),
   };
 
   if (!selectedDenom) {
@@ -30,20 +31,14 @@ export const formatToken = (value: number | string, denom = ''): TokenUnit => {
   return results;
 };
 
-const DEFAULT_EXPONENT = chainConfig.tokenUnits[chainConfig.primaryTokenUnit].exponent;
-
-export const formatNumber = (tokenUnit: TokenUnit, toFixed?: number): string => {
-  const split = `${tokenUnit.value}`.split('.');
+export const formatNumber = (tokenUnit: string, toFixed?: number): string => {
+  const split = `${tokenUnit}`.split('.');
   const wholeNumber = R.pathOr('', [0], split);
   const decimal = R.pathOr('', [1], split);
   const formatWholeNumber = numeral(wholeNumber).format('0,0');
   if (decimal) {
     if (toFixed == null) {
-      toFixed = R.pathOr(
-        DEFAULT_EXPONENT,
-        ['tokenUnits', tokenUnit.baseDenom, 'exponent'],
-        chainConfig,
-      );
+      toFixed = decimal.length;
     }
     const formatDecimal = removeEndingZeros(decimal.substring(0, toFixed));
     return `${formatWholeNumber}.${formatDecimal}`;
