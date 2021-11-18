@@ -36,7 +36,8 @@ type Transactions = {
 // }
 
 type TokenUnit = {
-  denom: string;
+  displayDenom: string;
+  baseDenom: string;
   value: string;
   // format: string;
 }
