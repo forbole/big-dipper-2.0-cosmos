@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Big from 'big.js';
+import numeral from 'numeral';
 import * as R from 'ramda';
 import {
   useTotalVotingPowerListenerSubscription,
@@ -84,7 +84,7 @@ export const useOnlineVotingPower = () => {
       0,
       'bonded',
     ], data);
-    bonded = Big(formatToken(bonded, state.denom).value).toNumber();
+    bonded = numeral(formatToken(bonded, state.denom).value).value();
     return bonded;
   };
 
