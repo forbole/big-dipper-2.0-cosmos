@@ -1,6 +1,5 @@
 import React from 'react';
 import classnames from 'classnames';
-import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Table,
@@ -11,6 +10,7 @@ import {
 } from '@material-ui/core';
 import { AvatarName } from '@components';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { formatNumber } from '@utils/format_token';
 import { columns } from './utils';
 import { ItemType } from '../../types';
 
@@ -24,6 +24,7 @@ const Desktop: React.FC<{
   const { t } = useTranslation('validators');
 
   const formattedData = items.map((x) => {
+    const amount = formatNumber(x.amount.value, x.amount.exponent);
     return ({
       address: (
         <AvatarName
@@ -34,7 +35,7 @@ const Desktop: React.FC<{
           }) : x.delegator.name}
         />
       ),
-      amount: `${numeral(x.amount.value).format(x.amount.format)} ${x.amount.denom.toUpperCase()}`,
+      amount: `${amount} ${x.amount.displayDenom.toUpperCase()}`,
     });
   });
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import classnames from 'classnames';
-import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Divider, Typography,
 } from '@material-ui/core';
 import { AvatarName } from '@components';
+import { formatNumber } from '@utils/format_token';
 import { useStyles } from './styles';
 import { ItemType } from '../../types';
 
@@ -21,6 +21,7 @@ const Mobile: React.FC<{
   return (
     <div className={classnames(className)}>
       {items.map((x, i) => {
+        const amount = formatNumber(x.amount.value, x.amount.exponent);
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
@@ -39,7 +40,7 @@ const Mobile: React.FC<{
                   {t('amount')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {`${numeral(x.amount.value).format(x.amount.format)} ${x.amount.denom.toUpperCase()}`}
+                  {`${amount} ${x.amount.displayDenom.toUpperCase()}`}
                 </Typography>
               </div>
             </div>
