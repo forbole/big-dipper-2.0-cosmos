@@ -1,6 +1,6 @@
 import { useState } from 'react';
+import Big from 'big.js';
 import * as R from 'ramda';
-import { formatDenom } from '@utils/format_denom';
 import {
   useTotalVotingPowerListenerSubscription,
   useOnlineVotingPowerListenerSubscription,
@@ -10,6 +10,7 @@ import {
 } from '@graphql/types';
 import { StakingParams } from '@models';
 import { chainConfig } from '@configs';
+import { formatToken } from '@utils/format_token';
 
 const initialState: {
   height: number;
@@ -83,7 +84,7 @@ export const useOnlineVotingPower = () => {
       0,
       'bonded',
     ], data);
-    bonded = formatDenom(bonded, state.denom).value;
+    bonded = Big(formatToken(bonded, state.denom).value).toNumber();
     return bonded;
   };
 
