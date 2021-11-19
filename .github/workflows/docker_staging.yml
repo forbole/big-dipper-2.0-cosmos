@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     branches:
-      - chains/desmos
+      - chains/sifchain
 
 jobs:
   Build-and-Publish:
@@ -17,7 +17,7 @@ jobs:
         run: |
           BRANCH=${GITHUB_REF#refs/heads/}
           if [[ $GITHUB_REF == refs/heads/chains/desmos ]]; then
-            BRANCH="desmos"
+            BRANCH="sifchain"
           elif [[ $GITHUB_REF == refs/pull/* ]]; then
             BRANCH="build-test"
           fi
@@ -26,11 +26,11 @@ jobs:
       - name: Prepare docker build env
         id: dockerPrep
         run: |
-          NEXT_PUBLIC_GRAPHQL_URL="https://gql.morpheus.desmos.network/v1/graphql"
-          NEXT_PUBLIC_GRAPHQL_WS="wss://gql.morpheus.desmos.network/v1/graphql"
-          NEXT_PUBLIC_URL="https://morpheus.desmos.network"
-          NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.morpheus.desmos.network/websocket"
-          NEXT_PUBLIC_CHAIN_STATUS="mainnet"
+          NEXT_PUBLIC_GRAPHQL_URL="https://gql.sifchain.forbole.com/v1/graphql"
+          NEXT_PUBLIC_GRAPHQL_WS="wss://gql.sifchain.forbole.com/v1/graphql"
+          NEXT_PUBLIC_URL="https://sifchain.bigdipper.live"
+          NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.sifchain.forbole.com/websocket"
+          NEXT_PUBLIC_CHAIN_STATUS="betanet"
           NODE_ENV="production"
           PORT=3000
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
