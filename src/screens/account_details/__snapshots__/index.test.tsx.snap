@@ -38,46 +38,52 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
       <div
         available={
           Object {
-            "denom": "daric",
-            "format": "0,0.[000000]",
-            "value": 21.280246,
+            "baseDenom": "udaric",
+            "displayDenom": "daric",
+            "exponent": 6,
+            "value": "21.280246",
           }
         }
         className="makeStyles-balance"
         commission={
           Object {
-            "denom": "daric",
-            "format": "0,0.[000000]",
-            "value": 0.725602207464032,
+            "baseDenom": "udaric",
+            "displayDenom": "daric",
+            "exponent": 6,
+            "value": "0.72560220746403193665",
           }
         }
         delegate={
           Object {
-            "denom": "daric",
-            "format": "0,0.[000000]",
-            "value": 1632425.218854,
+            "baseDenom": "udaric",
+            "displayDenom": "daric",
+            "exponent": 6,
+            "value": "1632425.218854",
           }
         }
         id="Balance"
         reward={
           Object {
-            "denom": "daric",
-            "format": "0,0.[000000]",
-            "value": 58219.06133827526,
+            "baseDenom": "udaric",
+            "displayDenom": "daric",
+            "exponent": 6,
+            "value": "58219.061338275262315",
           }
         }
         total={
           Object {
-            "denom": "daric",
-            "format": "0,0.[000000]",
-            "value": 1690666.2860404828,
+            "baseDenom": "udaric",
+            "displayDenom": "daric",
+            "exponent": 6,
+            "value": "1690666.28604048272634693665",
           }
         }
         unbonding={
           Object {
-            "denom": "daric",
-            "format": "0,0.[000000]",
-            "value": 0,
+            "baseDenom": "udaric",
+            "displayDenom": "daric",
+            "exponent": 6,
+            "value": "0",
           }
         }
       />
@@ -90,38 +96,44 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
             "data": Array [
               Object {
                 "available": Object {
-                  "denom": "someotherbalance",
-                  "format": "0,0.[000000]",
-                  "value": 21280246,
+                  "baseDenom": "someotherbalance",
+                  "displayDenom": "someotherbalance",
+                  "exponent": 0,
+                  "value": "21280246",
                 },
                 "commission": Object {
-                  "denom": "someotherbalance",
-                  "format": "0,0.[000000]",
-                  "value": 0,
+                  "baseDenom": "someotherbalance",
+                  "displayDenom": "someotherbalance",
+                  "exponent": 0,
+                  "value": "0",
                 },
                 "denom": "someotherbalance",
                 "reward": Object {
-                  "denom": "someotherbalance",
-                  "format": "0,0.[000000]",
-                  "value": 0,
+                  "baseDenom": "someotherbalance",
+                  "displayDenom": "someotherbalance",
+                  "exponent": 0,
+                  "value": "0",
                 },
               },
               Object {
                 "available": Object {
-                  "denom": "ufootoken",
-                  "format": "0,0.[000000]",
-                  "value": 0,
+                  "baseDenom": "ufootoken",
+                  "displayDenom": "ufootoken",
+                  "exponent": 0,
+                  "value": "0",
                 },
                 "commission": Object {
-                  "denom": "ufootoken",
-                  "format": "0,0.[000000]",
-                  "value": 0,
+                  "baseDenom": "ufootoken",
+                  "displayDenom": "ufootoken",
+                  "exponent": 0,
+                  "value": "0",
                 },
                 "denom": "ufootoken",
                 "reward": Object {
-                  "denom": "ufootoken",
-                  "format": "0,0.[000000]",
-                  "value": 58219061338,
+                  "baseDenom": "ufootoken",
+                  "displayDenom": "ufootoken",
+                  "exponent": 0,
+                  "value": "58219061338",
                 },
               },
             ],
@@ -136,15 +148,17 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
             "data": Array [
               Object {
                 "amount": Object {
-                  "denom": "daric",
-                  "format": "0,0.[000000]",
-                  "value": 1632425.218854,
+                  "baseDenom": "udaric",
+                  "displayDenom": "daric",
+                  "exponent": 6,
+                  "value": "1632425.218854",
                 },
                 "commission": 0.0999,
                 "reward": Object {
-                  "denom": "daric",
-                  "format": "0,0.[000000]",
-                  "value": 58219.06133827526,
+                  "baseDenom": "udaric",
+                  "displayDenom": "daric",
+                  "exponent": 6,
+                  "value": "58219.061338275262315",
                 },
                 "validator": "desmosvaloper1u0dae8r8hay6r2gvccegg2fz6ryftf2wfnj5ft",
                 "validatorStatus": Object {
@@ -182,9 +196,10 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
                   MsgWithdrawDelegatorReward {
                     "amounts": Array [
                       Object {
-                        "denom": "daric",
-                        "format": "0,0.[000000]",
-                        "value": 0,
+                        "baseDenom": "udaric",
+                        "displayDenom": "daric",
+                        "exponent": 6,
+                        "value": "0",
                       },
                     ],
                     "category": "distribution",
@@ -200,9 +215,10 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
                   MsgWithdrawValidatorCommission {
                     "amounts": Array [
                       Object {
-                        "denom": "daric",
-                        "format": "0,0.[000000]",
-                        "value": 0,
+                        "baseDenom": "udaric",
+                        "displayDenom": "daric",
+                        "exponent": 6,
+                        "value": "0",
                       },
                     ],
                     "category": "distribution",

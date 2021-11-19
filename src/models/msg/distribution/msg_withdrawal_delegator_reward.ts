@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { formatDenom } from '@utils/format_denom';
+import { formatToken } from '@utils/format_token';
 import { chainConfig } from '@configs';
 import { Categories } from '../types';
 
@@ -26,7 +26,7 @@ class MsgWithdrawDelegatorReward {
 
     const amounts = R.pathOr('0', [0, 'value'], withdrawAmounts).split(',').map((x) => {
       const [amount, denom = chainConfig.primaryTokenUnit] = x.match(/[a-z]+|[^a-z]+/gi);
-      return formatDenom(amount, denom);
+      return formatToken(amount, denom);
     });
 
     return amounts;

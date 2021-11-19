@@ -4,7 +4,6 @@ import Link from 'next/link';
 import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
-// import Trans from 'next-translate/Trans';
 import { Box } from '@components';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
@@ -77,28 +76,6 @@ const OnlineVotingPower: React.FC<{
             {numeral(state.totalVotingPower).format('0,0')}
           </Typography>
         </div>
-        {/* <div className={classes.item}>
-          <Typography variant="h4" className="label">
-            {t('lastVotingPowerChange')}
-          </Typography>
-          <Typography variant="body1" className="value">
-            <Trans
-              i18nKey="home:powerChange"
-              components={[
-                <span className="positive" />,
-              ]}
-              values={{
-                change: '+10',
-                block: '300,000',
-              }}
-            />
-            <Link href={BLOCK_DETAILS('123')} passHref>
-              <Typography variant="body1" className="value" component="a">
-                100,001
-              </Typography>
-            </Link>
-          </Typography>
-        </div> */}
       </div>
     </Box>
   );
