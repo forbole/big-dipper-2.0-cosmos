@@ -1,3 +1,7 @@
+# Unreleased
+## Changes
+- Removed dark theme ([\#523](https://github.com/forbole/big-dipper-2.0-cosmos/issues/523))
+
 # likecoin-v1.5.0 - 2021-10-11
 ## Changes
 - Merge `base-v1.5.0`
