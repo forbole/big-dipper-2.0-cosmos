@@ -63,6 +63,23 @@ import MsgConnectionOpenTry from './msg/ibc/msg_connection_open_try';
 import MsgCounterpartyConnection from './msg/ibc/msg_connection_counterparty';
 import MsgVersion from './msg/ibc/msg_connection_version';
 import MsgTransfer from './msg/ibc_transfer/msg_transfer';
+import MsgRemoveLiquidity from './msg/clp/msg_remove_liquidity';
+import MsgCreatePool from './msg/clp/msg_create_pool';
+import MsgAddLiquidity from './msg/clp/msg_add_liquidity';
+import MsgSwap from './msg/clp/msg_swap';
+import MsgDecommissionPool from './msg/clp/msg_decommission_pool';
+import MsgCreateDistribution from './msg/dispensation/msg_create_distribution';
+import MsgCreateUserClaim from './msg/dispensation/msg_create_user_claim';
+import MsgRunDistribution from './msg/dispensation/msg_run_distribution';
+import MsgLock from './msg/ethbridge/msg_lock';
+import MsgBurn from './msg/ethbridge/msg_burn';
+import MsgCreateEthBridgeClaim from './msg/ethbridge/msg_create_eth_bridge_claim';
+import MsgUpdateWhiteListValidator from './msg/ethbridge/msg_update_whitelist_validator';
+import MsgUpdateCethReceiverAccount from './msg/ethbridge/msg_update_ceth_receiver_account';
+import MsgRescueCeth from './msg/ethbridge/msg_rescue_ceth';
+import MsgRegister from './msg/tokenregistry/msg_register';
+import MsgDeregister from './msg/tokenregistry/msg_deregister';
+import MsgSetRegistry from './msg/tokenregistry/msg_set_registry';
 
 export {
   BigDipperNetwork,
@@ -130,4 +147,21 @@ export {
   MsgCounterpartyConnection,
   MsgVersion,
   MsgTransfer,
+  MsgCreatePool,
+  MsgRemoveLiquidity,
+  MsgAddLiquidity,
+  MsgSwap,
+  MsgDecommissionPool,
+  MsgCreateDistribution,
+  MsgCreateUserClaim,
+  MsgRunDistribution,
+  MsgLock,
+  MsgBurn,
+  MsgCreateEthBridgeClaim,
+  MsgUpdateWhiteListValidator,
+  MsgUpdateCethReceiverAccount,
+  MsgRescueCeth,
+  MsgRegister,
+  MsgDeregister,
+  MsgSetRegistry,
 };

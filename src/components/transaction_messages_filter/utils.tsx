@@ -29,8 +29,20 @@ export const getFilterLabels = () => {
       display: 'staking',
     },
     {
-      key: 'profiles',
-      display: 'profiles',
+      key: 'clp',
+      display: 'clp',
+    },
+    {
+      key: 'dispensation',
+      display: 'dispensation',
+    },
+    {
+      key: 'ethbridge',
+      display: 'ethbridge',
+    },
+    {
+      key: 'tokenregistry',
+      display: 'tokenregistry',
     },
     {
       key: 'others',

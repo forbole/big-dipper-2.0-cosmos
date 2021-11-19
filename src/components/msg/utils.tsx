@@ -301,63 +301,119 @@ const getDataByType = (type: string) => {
   // =====================================
   const customTypeToModel = {
     // ========================
-    // profiles
+    // clp
     // ========================
-    '/desmos.profiles.v1beta1.MsgSaveProfile': {
-      model: MODELS.MsgSaveProfile,
-      content: COMPONENTS.SaveProfile,
+    '/sifnode.clp.v1.MsgRemoveLiquidity': {
+      model: MODELS.MsgRemoveLiquidity,
+      content: COMPONENTS.RemoveLiquidity,
       tagTheme: 'four',
-      tagDisplay: 'txSaveProfileLabel',
+      tagDisplay: 'MsgRemoveLiquidity',
     },
-    '/desmos.profiles.v1beta1.MsgDeleteProfile': {
-      model: MODELS.MsgDeleteProfile,
-      content: COMPONENTS.DeleteProfile,
+    '/sifnode.clp.v1.MsgCreatePool': {
+      model: MODELS.MsgCreatePool,
+      content: COMPONENTS.CreatePool,
       tagTheme: 'four',
-      tagDisplay: 'txDeleteProfileLabel',
+      tagDisplay: 'MsgCreatePool',
     },
-    '/desmos.profiles.v1beta1.MsgCreateRelationship': {
-      model: MODELS.MsgCreateRelationship,
-      content: COMPONENTS.CreateRelationship,
+    '/sifnode.clp.v1.MsgAddLiquidity': {
+      model: MODELS.MsgAddLiquidity,
+      content: COMPONENTS.AddLiquidity,
       tagTheme: 'four',
-      tagDisplay: 'txCreateRelationshipLabel',
+      tagDisplay: 'MsgAddLiquidity',
     },
-    '/desmos.profiles.v1beta1.MsgRequestDTagTransfer': {
-      model: MODELS.MsgDtagTransferRequest,
-      content: COMPONENTS.DtagTransferRequest,
+    '/sifnode.clp.v1.MsgSwap': {
+      model: MODELS.MsgSwap,
+      content: COMPONENTS.Swap,
       tagTheme: 'four',
-      tagDisplay: 'txRequestDTagTransferLabel',
+      tagDisplay: 'MsgSwap',
     },
-    '/desmos.profiles.v1beta1.MsgAcceptDTagTransfer': {
-      model: MODELS.MsgDtagAcceptTransfer,
-      content: COMPONENTS.DtagAcceptTransfer,
+    '/sifnode.clp.v1.MsgDecommissionPool': {
+      model: MODELS.MsgDecommissionPool,
+      content: COMPONENTS.DecommissionPool,
       tagTheme: 'four',
-      tagDisplay: 'txAcceptDTagTransferLabel',
+      tagDisplay: 'MsgDecommissionPool',
     },
-    '/desmos.profiles.v1beta1.MsgCancelDTagTransfer': {
-      model: MODELS.MsgDtagCancelTransfer,
-      content: COMPONENTS.DtagCancelTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txCancelDTagTransferLabel',
+    // ========================
+    // dispensation
+    // ========================
+    '/sifnode.dispensation.v1.MsgCreateDistribution': {
+      model: MODELS.MsgCreateDistribution,
+      content: COMPONENTS.CreateDistribution,
+      tagTheme: 'eleven',
+      tagDisplay: 'MsgCreateDistribution',
     },
-    '/desmos.profiles.v1beta1.MsgRefuseDTagTransfer': {
-      model: MODELS.MsgDtagRefuseTransfer,
-      content: COMPONENTS.DtagRefuseTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txRefuseDTagTransferLabel',
+    '/sifnode.dispensation.v1.MsgCreateUserClaim': {
+      model: MODELS.MsgCreateUserClaim,
+      content: COMPONENTS.CreateUserClaim,
+      tagTheme: 'eleven',
+      tagDisplay: 'MsgCreateUserClaim',
     },
-    '/desmos.profiles.v1beta1.MsgBlockUser': {
-      model: MODELS.MsgBlockUser,
-      content: COMPONENTS.BlockUser,
-      tagTheme: 'four',
-      tagDisplay: 'txBlockUserLabel',
+    '/sifnode.dispensation.v1.MsgRunDistribution': {
+      model: MODELS.MsgRunDistribution,
+      content: COMPONENTS.RunDistribution,
+      tagTheme: 'eleven',
+      tagDisplay: 'MsgRunDistribution',
     },
-    '/desmos.profiles.v1beta1.MsgUnblockUser': {
-      model: MODELS.MsgUnblockUser,
-      content: COMPONENTS.UnBlockUser,
-      tagTheme: 'four',
-      tagDisplay: 'txUnblockUserLabel',
+    // ========================
+    // ethbridge
+    // ========================
+    '/sifnode.ethbridge.v1.MsgLock': {
+      model: MODELS.MsgLock,
+      content: COMPONENTS.Lock,
+      tagTheme: 'twelve',
+      tagDisplay: 'MsgLock',
     },
-
+    '/sifnode.ethbridge.v1.MsgBurn': {
+      model: MODELS.MsgBurn,
+      content: COMPONENTS.Burn,
+      tagTheme: 'twelve',
+      tagDisplay: 'MsgBurn',
+    },
+    '/sifnode.ethbridge.v1.MsgCreateEthBridgeClaim': {
+      model: MODELS.MsgCreateEthBridgeClaim,
+      content: COMPONENTS.CreateEthBridgeClaim,
+      tagTheme: 'twelve',
+      tagDisplay: 'MsgCreateEthBridgeClaim',
+    },
+    '/sifnode.ethbridge.v1.MsgUpdateWhiteListValidator': {
+      model: MODELS.MsgUpdateWhiteListValidator,
+      content: COMPONENTS.UpdateWhiteListValidator,
+      tagTheme: 'twelve',
+      tagDisplay: 'MsgUpdateWhiteListValidator',
+    },
+    '/sifnode.ethbridge.v1.MsgUpdateCethReceiverAccount': {
+      model: MODELS.MsgUpdateCethReceiverAccount,
+      content: COMPONENTS.UpdateCethReceiverAccount,
+      tagTheme: 'twelve',
+      tagDisplay: 'MsgUpdateCethReceiverAccount',
+    },
+    '/sifnode.ethbridge.v1.MsgRescueCeth': {
+      model: MODELS.MsgRescueCeth,
+      content: COMPONENTS.RescueCeth,
+      tagTheme: 'twelve',
+      tagDisplay: 'MsgRescueCeth',
+    },
+    // ========================
+    // tokenregistry
+    // ========================
+    '/sifnode.tokenregistry.v1.MsgRegister': {
+      model: MODELS.MsgRegister,
+      content: COMPONENTS.Register,
+      tagTheme: 'thirteen',
+      tagDisplay: 'MsgRegister',
+    },
+    '/sifnode.tokenregistry.v1.MsgDeregister': {
+      model: MODELS.MsgDeregister,
+      content: COMPONENTS.Deregister,
+      tagTheme: 'thirteen',
+      tagDisplay: 'MsgDeregister',
+    },
+    '/sifnode.tokenregistry.v1.MsgSetRegistry': {
+      model: MODELS.MsgSetRegistry,
+      content: COMPONENTS.SetRegistry,
+      tagTheme: 'thirteen',
+      tagDisplay: 'MsgSetRegistry',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];
@@ -422,8 +478,13 @@ export const getMessageByType = (message: any, viewRaw: boolean, t:any) => {
 export const convertMsgsToModels = (transaction: any) => {
   const messages = R.pathOr([], ['messages'], transaction).map((msg, i) => {
     const model = getMessageModelByType(msg?.['@type']);
-    if (model === MODELS.MsgWithdrawDelegatorReward
-      || model === MODELS.MsgWithdrawValidatorCommission) {
+    const logModels = [
+      MODELS.MsgWithdrawDelegatorReward,
+      MODELS.MsgWithdrawValidatorCommission,
+      MODELS.MsgSwap,
+    ];
+
+    if (logModels.includes(model)) {
       const log = R.pathOr(null, ['logs', i], transaction);
       return model.fromJson(msg, log);
     }

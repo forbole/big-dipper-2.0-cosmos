@@ -49,5 +49,22 @@
   "txVersionContent": "<0>{{signer}}</0> submitted IBC version",
   "txTransferContent": "<0>{{sender}}</0> sent <2>{{token}}</2> via IBC transfer from source channel <2>{{sourceChannel}}</2> to <1>{{receiver}}</1>",
   "txTimeoutContent": "<0>{{signer}}</0> IBC timeout",
-  "txTimeoutOnCloseContent": "<0>{{signer}}</0> IBC timeout on close"
+  "txTimeoutOnCloseContent": "<0>{{signer}}</0> IBC timeout on close",
+  "MsgRemoveLiquidity": "<0>{{signer}}</0> removed liquidity from <1>{{symbol}}</1>",
+  "MsgCreatePool": "<0>{{signer}}</0> created a pool with <1>{{nativeAssetAmount}}</1> and <1>{{externalAssetAmount}}</1>",
+  "MsgAddLiquidity": "<0>{{signer}}</0> added liquidity with <1>{{nativeAssetAmount}}</1> and <1>{{externalAssetAmount}}</1>",
+  "MsgSwap": "<0>{{signer}}</0> swapped <1>{{sentAmount}}</1> for <1>{{receivedAmount}}</1>",
+  "MsgDecommissionPool": "<0>{{signer}}</0> decommissioned <1>{{symbol}}</1>",
+  "MsgCreateDistribution": "<0>{{distributor}}</0> created a <1>{{distributionType}}</1> distribution",
+  "MsgCreateUserClaim": "<0>{{userClaimAddress}}</0> created a user claim for <1>{{userClaimType}}</1>",
+  "MsgRunDistribution": "<0>{{authorizedRunner}}</0> ran distribution type <1>{{distributionType}}</1>",
+  "MsgLock": "<0>{{cosmosSender}}</0> locked tokens",
+  "MsgBurn": "<0>{{cosmosSender}}</0> burned tokens",
+  "MsgCreateEthBridgeClaim": "<0>{{cosmosreceiver}}</0> created eth bridge claim for <1>{{claimType}}</1>",
+  "MsgUpdateWhiteListValidator": "<0>{{cosmosSender}}</0> updated validator whitelist",
+  "MsgUpdateCethReceiverAccount": "<0>{{cosmosSender}}</0> updated ceth receiver account to <1>{{cethReceiverAccount}}</1>",
+  "MsgRescueCeth": "<0>{{cosmosSender}}</0> rescued ceth",
+  "MsgRegister": "<0>{{from}}</0> registered <1>{{denom}}</1>",
+  "MsgDeregister": "<0>{{from}}</0> deregistered <1>{{denom}}</1>",
+  "MsgSetRegistry": "<0>{{from}}</0> set registry for <1>{{denoms}}</1>"
 }
