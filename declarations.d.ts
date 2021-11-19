@@ -29,12 +29,6 @@ type Transactions = {
   };
 }
 
-// type TokenUnit = {
-//   value: number;
-//   denom: string;
-//   format: string;
-// }
-
 type TokenUnit = {
   displayDenom: string;
   baseDenom: string;
@@ -92,5 +86,5 @@ type TagTheme = 'zero' |
 
 type MsgCoin = {
   denom: string;
-  amount: string | number;
+  amount: string;
 }

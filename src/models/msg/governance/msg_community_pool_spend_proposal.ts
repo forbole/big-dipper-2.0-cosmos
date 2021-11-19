@@ -1,14 +1,11 @@
-import numeral from 'numeral';
+import * as R from 'ramda';
 
 class MsgCommunityPoolSpendProposal {
   public type: string;
   public title: string;
   public description: string;
   public recipient: string;
-  public amount: {
-    denom: string;
-    amount: string | number;
-  }[];
+  public amount: MsgCoin[];
 
   constructor(payload: any) {
     this.type = payload.type;
@@ -27,7 +24,7 @@ class MsgCommunityPoolSpendProposal {
       amount: json?.amount.map((x) => {
         return ({
           denom: x?.denom,
-          amount: numeral(x?.amount).value(),
+          amount: R.pathOr('0', ['amount'], x),
         });
       }),
     });
