@@ -1,4 +1,4 @@
-import numeral from 'numeral';
+import * as R from 'ramda';
 import {
   MsgTextProposal,
   MsgSoftwareUpgradeProposal,
@@ -14,10 +14,7 @@ class MsgSubmitProposal {
   | MsgSoftwareUpgradeProposal
   | MsgParameterChangeProposal
   | MsgCommunityPoolSpendProposal;
-  public initialDeposit: {
-    denom: string;
-    amount: string | number;
-  }[]
+  public initialDeposit: MsgCoin[]
   public proposer: string;
   public json: any;
 
@@ -64,7 +61,7 @@ class MsgSubmitProposal {
       initialDeposit: json?.initial_deposit?.map((x) => {
         return ({
           denom: x?.denom,
-          amount: numeral(x?.amount).value(),
+          amount: R.pathOr('0', ['amount'], x),
         });
       }) ?? [],
       proposer: json.proposer,
