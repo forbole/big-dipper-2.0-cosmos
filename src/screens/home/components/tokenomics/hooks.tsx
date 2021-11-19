@@ -5,8 +5,8 @@ import {
   useTokenomicsQuery,
   TokenomicsQuery,
 } from '@graphql/types';
-import { formatDenom } from '@utils/format_denom';
 import { StakingParams } from '@models';
+import { formatToken } from '@utils/format_token';
 
 export const useTokenomics = () => {
   const [state, setState] = useState<{
@@ -41,7 +41,7 @@ export const useTokenomics = () => {
     ], data)
       .filter((x) => x.denom === results.denom);
     if (total) {
-      results.total = formatDenom(numeral(total.amount).value(), total.denom).value;
+      results.total = numeral(formatToken(total.amount, total.denom).value).value();
     }
 
     const bonded = R.pathOr(state.bonded, [
@@ -49,14 +49,14 @@ export const useTokenomics = () => {
       0,
       'bonded',
     ], data);
-    results.bonded = formatDenom(bonded, results.denom).value;
+    results.bonded = numeral(formatToken(bonded, results.denom).value).value();
 
     const unbonding = R.pathOr(state.bonded, [
       'stakingPool',
       0,
       'unbonded',
     ], data);
-    results.unbonding = formatDenom(unbonding, results.denom).value;
+    results.unbonding = numeral(formatToken(unbonding, results.denom).value).value();
 
     const unbonded = results.total - results.unbonding - results.bonded;
     results.unbonded = unbonded;
