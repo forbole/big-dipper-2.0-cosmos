@@ -17,8 +17,11 @@ const OnlineVotingPower: React.FC<{
   const { t } = useTranslation('home');
   const { state } = useOnlineVotingPower();
 
-  const votingPowerPercent = numeral((state.votingPower / state.totalVotingPower) * 100);
-
+  const votingPowerPercent = numeral(
+    (state.votingPower / state.totalVotingPower) * 100,
+  ).value() > 100
+    ? numeral(100)
+    : numeral((state.votingPower / state.totalVotingPower) * 100);
   const classes = useStyles(votingPowerPercent.format(0));
 
   return (

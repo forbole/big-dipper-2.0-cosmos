@@ -23,7 +23,7 @@ export const useMarketRecoil = () => {
   useMarketDataQuery(
     {
       variables: {
-        denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
+        denom: 'erowan',
       },
       onCompleted: (data) => {
         if (data) {
