@@ -1,8 +1,9 @@
 import React from 'react';
-import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
-import { formatDenom } from '@utils/format_denom';
+import {
+  formatToken, formatNumber,
+} from '@utils/format_token';
 import { Name } from '@components';
 import { MsgCreatePool } from '@models';
 import {
@@ -18,11 +19,11 @@ const CreatePool = (props: {
   const signer = useProfileRecoil(message.signer);
   const signerMoniker = signer ? signer?.name : message.signer;
 
-  const nativeAmount = formatDenom(message.nativeAssetAmount, chainConfig.primaryTokenUnit);
-  const parsedNativeAmount = `${numeral(nativeAmount.value).format(nativeAmount.format)} ${nativeAmount.denom.toUpperCase()}`;
+  const nativeAmount = formatToken(message.nativeAssetAmount, chainConfig.primaryTokenUnit);
+  const parsedNativeAmount = `${formatNumber(nativeAmount.value, nativeAmount.exponent)} ${nativeAmount.displayDenom.toUpperCase()}`;
 
-  const externalAmount = formatDenom(message.externalAssetAmount, message.externalAsset.symbol);
-  const parsedExternalAmount = `${numeral(externalAmount.value).format(externalAmount.format)} ${externalAmount.denom.toUpperCase()}`;
+  const externalAmount = formatToken(message.externalAssetAmount, message.externalAsset.symbol);
+  const parsedExternalAmount = `${formatNumber(externalAmount.value, externalAmount.exponent)} ${externalAmount.displayDenom.toUpperCase()}`;
 
   return (
     <Typography>
