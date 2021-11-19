@@ -28,9 +28,10 @@ export const useProfileDetails = () => {
   } = useDesmosProfile({
     onComplete: (data) => {
       handleSetState({
+        loading: false,
+        exists: !!data.profile.length,
         desmosProfile: formatDesmosProfile(data),
       });
-      handleSetState(formatProfileQuery(data));
     },
   });
 
@@ -41,24 +42,6 @@ export const useProfileDetails = () => {
     }
   },
   [R.pathOr('', ['query', 'dtag'], router)]);
-
-  // ==========================
-  // Fetch Data
-  // ==========================
-
-  const formatProfileQuery = (data: ProfileDetailState) => {
-    const stateChange: any = {
-      loading: false,
-    };
-    console.log('account data', data);
-    console.log('statechange.loading', stateChange.loading);
-
-    if (!data.desmosProfile) {
-      stateChange.exists = false;
-      return stateChange;
-    }
-    return stateChange;
-  };
 
   return {
     state,
