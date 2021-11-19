@@ -11,6 +11,7 @@ import { BLOCK_DETAILS } from '@utils/go_to_page';
 import {
   BoxDetails, Result,
 } from '@components';
+import { formatNumber } from '@utils/format_token';
 import { useStyles } from './styles';
 import { OverviewType } from '../../types';
 
@@ -45,7 +46,7 @@ const Overview: React.FC<{
     },
     {
       label: t('fee'),
-      detail: `${numeral(data.fee.value).format(data.fee.format)} ${data?.fee?.denom?.toUpperCase()}`,
+      detail: `${formatNumber(data.fee.value, data.fee.exponent)} ${data?.fee?.displayDenom?.toUpperCase()}`,
     },
     {
       label: t('gas'),

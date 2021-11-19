@@ -1,21 +1,16 @@
-import numeral from 'numeral';
+import * as R from 'ramda';
 import { Categories } from '../types';
-
-type Coins = {
-  denom: string;
-  amount: number | string;
-}
 
 class MsgMultiSend {
   public category: Categories;
   public type: string;
   public inputs: {
     address: string;
-    coins: Coins[],
+    coins: MsgCoin[],
   }[];
   public outputs: {
     address: string;
-    coins: Coins[],
+    coins: MsgCoin[],
   }[];
   public json: any;
 
@@ -37,7 +32,7 @@ class MsgMultiSend {
           coins: input?.coins?.map((coin) => {
             return ({
               denom: coin?.denom,
-              amount: numeral(coin?.amount).value(),
+              amount: R.pathOr('0', ['amount'], coin),
             });
           }),
         });
@@ -48,7 +43,7 @@ class MsgMultiSend {
           coins: output?.coins?.map((coin) => {
             return ({
               denom: coin?.denom,
-              amount: numeral(coin?.amount).value(),
+              amount: R.pathOr('0', ['amount'], coin),
             });
           }),
         });
