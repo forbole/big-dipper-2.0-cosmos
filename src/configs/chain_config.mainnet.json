@@ -6,18 +6,18 @@
     "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/agoric/logo.png?sanitize=true"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "agoricvalcons",
+    "validator": "agoricvaloper",
+    "account": "agoric"
   },
   "genesis": {
     "time": "2021-07-13T08:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udsm",
+  "primaryTokenUnit": "ubld",
   "tokenUnits": {
-    "udsm": {
-      "display": "dsm",
+    "ubld": {
+      "display": "bld",
       "exponent": 6
     }
   },
