@@ -1,4 +1,4 @@
-import numeral from 'numeral';
+import * as R from 'ramda';
 import { Categories } from '../types';
 
 class MsgUndelegate {
@@ -6,10 +6,7 @@ class MsgUndelegate {
   public type: string;
   public delegatorAddress: string;
   public validatorAddress: string;
-  public amount: {
-    denom: string;
-    amount: string | number;
-  }
+  public amount: MsgCoin;
   public json: any;
 
   constructor(payload: any) {
@@ -29,7 +26,7 @@ class MsgUndelegate {
       validatorAddress: json?.validator_address,
       amount: {
         denom: json?.amount?.denom,
-        amount: numeral(json?.amount?.amount).value(),
+        amount: R.pathOr('0', ['amount', 'amount'], json),
       },
     });
   }
