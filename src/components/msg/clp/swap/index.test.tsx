@@ -34,6 +34,7 @@ describe('screen: TransactionDetails/Swap', () => {
       },
       sentAmount: '4000000',
       minReceivingAmount: '51000000',
+      receivedAmount: '51000000',
     });
 
     const component = renderer.create(
@@ -49,7 +50,7 @@ describe('screen: TransactionDetails/Swap', () => {
     expect(tree).toMatchSnapshot();
 
     expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual('message_contents:MsgSwap');
-    expect(component.root.findByProps({ id: 'Trans' }).props.values.minReceivingAmount).toEqual('51 DARIC');
+    expect(component.root.findByProps({ id: 'Trans' }).props.values.receivedAmount).toEqual('51 DARIC');
   });
 
   afterEach(() => {

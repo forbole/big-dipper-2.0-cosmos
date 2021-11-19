@@ -18,7 +18,7 @@ exports[`screen: TransactionDetails/Swap matches snapshot 1`] = `
     id="Trans"
     values={
       Object {
-        "externalAssetAmount": "51 DARIC",
+        "receivedAmount": "51 DARIC",
         "sentAmount": "4 DARIC",
       }
     }
