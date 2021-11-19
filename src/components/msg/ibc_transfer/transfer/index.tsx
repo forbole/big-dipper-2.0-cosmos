@@ -4,8 +4,9 @@ import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgTransfer } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
-import numeral from 'numeral';
-import { formatDenom } from '@utils/format_denom';
+import {
+  formatToken, formatNumber,
+} from '@utils/format_token';
 
 const Transfer = (props: {
   message: MsgTransfer;
@@ -16,8 +17,8 @@ const Transfer = (props: {
   const senderMoniker = sender ? sender?.name : message.sender;
   const receiver = useProfileRecoil(message.receiver);
   const receiverMoniker = receiver ? receiver?.name : message.receiver;
-  const tokenFormatDenom = formatDenom(message.token?.amount, message.token?.denom);
-  const token = `${numeral(tokenFormatDenom.value).format(tokenFormatDenom.format)} ${tokenFormatDenom.denom.toUpperCase()}`;
+  const tokenFormatDenom = formatToken(message.token?.amount, message.token?.denom);
+  const token = `${formatNumber(tokenFormatDenom.value, tokenFormatDenom.exponent)} ${tokenFormatDenom.displayDenom.toUpperCase()}`;
 
   return (
     <Typography>
