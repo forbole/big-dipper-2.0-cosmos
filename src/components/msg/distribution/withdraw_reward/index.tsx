@@ -1,9 +1,9 @@
 import React from 'react';
-import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgWithdrawDelegatorReward } from '@models';
+import { formatNumber } from '@utils/format_token';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const WithdrawReward = (props: {
@@ -18,7 +18,7 @@ const WithdrawReward = (props: {
     .validatorAddress;
 
   const parsedAmount = message.amounts.map((x) => {
-    return `${numeral(x.value).format(x.format)} ${x.denom.toUpperCase()}`;
+    return `${formatNumber(x.value, x.exponent)} ${x.displayDenom.toUpperCase()}`;
   }).join(', ');
 
   return (

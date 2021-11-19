@@ -20,7 +20,7 @@ const VotingPower: React.FC<{
 }) => {
   const { t } = useTranslation('validators');
   const votingPowerPercent = numeral((
-    data.self / data.overall.value) * 100);
+    data.self / numeral(data.overall.value).value()) * 100);
 
   const classes = useStyles(votingPowerPercent.format(0, Math.floor));
 
