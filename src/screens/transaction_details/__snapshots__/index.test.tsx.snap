@@ -41,7 +41,7 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
           Array [
             MsgDelegate {
               "amount": Object {
-                "amount": 8371578,
+                "amount": "8371578",
                 "denom": "udaric",
               },
               "category": "staking",
