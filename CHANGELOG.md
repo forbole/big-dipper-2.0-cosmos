@@ -8,6 +8,7 @@
 - Update handling of block height in searchbar ([\#501](https://github.com/forbole/big-dipper-2.0-cosmos/issues/501))
 - Fix community pool spend proposal display ([\#520](https://github.com/forbole/big-dipper-2.0-cosmos/issues/520))
 - Update how tokens are formatted and display up to 18 decimal places ([\#524](https://github.com/forbole/big-dipper-2.0-cosmos/issues/524))
+- Auto display 0% if validator is not active ([\#541](https://github.com/forbole/big-dipper-2.0-cosmos/issues/541))
 
 # base-v1.6.0 - 2021-11-01
 
