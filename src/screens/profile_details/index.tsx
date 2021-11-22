@@ -20,8 +20,6 @@ const ProfileDetails = () => {
     state,
   } = useProfileDetails();
 
-  console.log('state', state);
-
   // method 1
   useEffect(() => {
     const regex = /^@/;

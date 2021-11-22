@@ -24,8 +24,6 @@ const AccountDetails = () => {
     loadNextPage,
   } = useAccountDetails();
 
-  console.log('state', state);
-
   return (
     <>
       <NextSeo
