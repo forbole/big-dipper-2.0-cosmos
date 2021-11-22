@@ -14,13 +14,15 @@ import { VotingPowerType } from '../../types';
 const VotingPower: React.FC<{
   className?: string;
   data: VotingPowerType;
+  status: number;
 }> = ({
   className,
   data,
+  status,
 }) => {
   const { t } = useTranslation('validators');
-  const votingPowerPercent = numeral((
-    data.self / numeral(data.overall.value).value()) * 100);
+  const votingPowerPercent = status === 3 ? numeral((
+    data.self / numeral(data.overall.value).value()) * 100) : numeral(0);
 
   const classes = useStyles(votingPowerPercent.format(0, Math.floor));
 
