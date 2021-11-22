@@ -13,9 +13,31 @@ import {
 } from 'recoil';
 import { readValidator } from '@recoil/validators';
 import { toast } from 'react-toastify';
+import { useDesmosProfile } from '@hooks';
 
 export const useSearchBar = (t) => {
   const router = useRouter();
+
+  // method 1: for react not show error
+  const {
+    fetchDtag, formatDesmosProfile,
+  } = useDesmosProfile({
+    onComplete: (data) => {
+      // return fetchDtag(data);
+      console.log('data ====> ', data);
+      return formatDesmosProfile(data);
+    },
+  });
+
+  // mothod 2: the way i think should be correct
+  // const {
+  //   fetchDtag,
+  // } = useDesmosProfile({
+  //   onComplete: (data) => {
+  //     console.log('data ====> ', data);
+  //     return fetchDtag(data);
+  //   },
+  // });
 
   const handleOnSubmit = useRecoilCallback(({ snapshot }) => (
     async (value: string, clear?: () => void) => {
@@ -38,7 +60,14 @@ export const useSearchBar = (t) => {
       } else if (/^-?\d+$/.test(numeral(value).value())) {
         router.push(BLOCK_DETAILS(numeral(value).value()));
       } else if (/^@/.test(value)) {
-        router.push(PROFILE_DETAILS(value));
+        const dtag = await fetchDtag(value);
+        console.log('dtag from searchBar hooks => ', dtag);
+
+        if (dtag) {
+          router.push(PROFILE_DETAILS(value));
+        } else {
+          toast(t('common:profilesNotEnabled'));
+        }
       } else {
         router.push(TRANSACTION_DETAILS(value));
       }

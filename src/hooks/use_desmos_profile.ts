@@ -140,5 +140,6 @@ export const useDesmosProfile = (options: Options) => {
     loading,
     fetchDesmosProfile,
     formatDesmosProfile,
+    fetchDtag,
   };
 };

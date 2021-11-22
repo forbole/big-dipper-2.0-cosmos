@@ -53,9 +53,7 @@ const ProfileDetails = () => {
       />
       <Layout navTitle={t('profileDetails')}>
         <LoadAndExist
-          loading={false}
-          // exists={false}
-          // loading={state.loading}
+          loading={state.loading}
           exists={state.exists}
         >
           {!!state.desmosProfile
