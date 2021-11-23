@@ -12,6 +12,10 @@ export const getProposalType = (proposalType: string) => {
     type = 'softwareUpgradeProposal';
   }
 
+  if (proposalType === '/cosmos.upgrade.v1beta1.CommunityPoolSpendProposal') {
+    type = 'communityPoolSpendProposal';
+  }
+
   return type;
 };
 

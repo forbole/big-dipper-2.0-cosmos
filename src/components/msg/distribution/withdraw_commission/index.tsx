@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
-import numeral from 'numeral';
+import { formatNumber } from '@utils/format_token';
 import { MsgWithdrawValidatorCommission } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
@@ -14,7 +14,7 @@ const WithdrawCommission = (props: {
   const validatorMoniker = validator ? validator?.name : message
     .validatorAddress;
   const parsedAmount = message.amounts.map((x) => {
-    return `${numeral(x.value).format(x.format)} ${x.denom.toUpperCase()}`;
+    return `${formatNumber(x.value, x.exponent)} ${x.displayDenom.toUpperCase()}`;
   }).join(', ');
 
   return (

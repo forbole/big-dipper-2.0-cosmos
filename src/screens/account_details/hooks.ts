@@ -2,6 +2,7 @@ import {
   useState, useEffect,
 } from 'react';
 import * as R from 'ramda';
+import Big from 'big.js';
 import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
 import { useRouter } from 'next/router';
@@ -16,15 +17,18 @@ import {
   StakingParams,
 } from '@models';
 import { getDenom } from '@utils/get_denom';
-import { formatDenom } from '@utils/format_denom';
+import {
+  formatToken,
+} from '@utils/format_token';
 import { chainConfig } from '@src/configs';
 import { useDesmosProfile } from '@hooks';
 import { AccountDetailState } from './types';
 
-const defaultTokenUnit = {
-  value: 0,
-  denom: '',
-  format: '',
+const defaultTokenUnit: TokenUnit = {
+  value: '0',
+  baseDenom: '',
+  displayDenom: '',
+  exponent: 0,
 };
 
 const initialState: AccountDetailState = {
@@ -202,14 +206,14 @@ export const useAccountDetails = () => {
     // log all the rewards
     data.account[0].delegationRewards.forEach((x) => {
       const denomAmount = getDenom(x.amount, chainConfig.primaryTokenUnit);
-      const denomFormat = formatDenom(denomAmount.amount, chainConfig.primaryTokenUnit);
+      const denomFormat = formatToken(denomAmount.amount, chainConfig.primaryTokenUnit);
       rewardsDict[x.validator.validatorInfo.operatorAddress] = denomFormat;
     });
     // set default rewards for delegations without parsed rewards
     data.account[0].delegations.forEach((x) => {
       const validatorAddress = x.validator.validatorInfo.operatorAddress;
       if (!rewardsDict[validatorAddress]) {
-        rewardsDict[validatorAddress] = formatDenom(0, chainConfig.primaryTokenUnit);
+        rewardsDict[validatorAddress] = formatToken(0, chainConfig.primaryTokenUnit);
       }
     });
 
@@ -234,47 +238,48 @@ export const useAccountDetails = () => {
         R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data),
         chainConfig.primaryTokenUnit,
       );
-      const availableAmount = formatDenom(available.amount, chainConfig.primaryTokenUnit);
+      const availableAmount = formatToken(available.amount, chainConfig.primaryTokenUnit);
       const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
       const stakingDenom = stakingParams.bondDenom;
 
       const delegate = R.pathOr([], ['account', 0, 'delegations'], data).reduce((a, b) => {
-        return a + numeral(b.amount.amount).value();
+        return Big(a).plus(b.amount.amount).toPrecision();
       }, 0);
       const delegateDenom = stakingDenom;
-      const delegateAmount = formatDenom(delegate, delegateDenom);
+      const delegateAmount = formatToken(delegate, delegateDenom);
 
       const unbonding = R.pathOr([], ['account', 0, 'unbonding'], data).reduce((a, b) => {
-        return a + numeral(b.amount.amount).value();
+        return Big(a).plus(b.amount.amount).toPrecision();
       }, 0);
       const unbondingDenom = stakingDenom;
-      const unbondingAmount = formatDenom(unbonding, unbondingDenom);
+      const unbondingAmount = formatToken(unbonding, unbondingDenom);
 
       const reward = data.account[0].delegations.map((x) => {
         const validatorAddress = x.validator.validatorInfo.operatorAddress;
         return rewardsDict[validatorAddress];
       }).reduce((a, b) => {
-        return a + b.value;
+        return Big(a).plus(b.value).toPrecision();
       }, 0);
 
-      const rewardAmount = {
+      const rewardAmount: TokenUnit = {
         value: reward,
-        denom: chainConfig.tokenUnits[stakingDenom].display,
+        displayDenom: chainConfig.tokenUnits[stakingDenom].display,
+        baseDenom: stakingDenom,
+        exponent: chainConfig.tokenUnits[stakingDenom].exponent,
       };
 
       const commission = getDenom(
         R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data),
         chainConfig.primaryTokenUnit,
       );
-      const commissionAmount = formatDenom(commission.amount, chainConfig.primaryTokenUnit);
+      const commissionAmount = formatToken(commission.amount, chainConfig.primaryTokenUnit);
 
-      const total = (
-        availableAmount.value
-        + delegateAmount.value
-        + unbondingAmount.value
-        + rewardAmount.value
-        + commissionAmount.value
-      );
+      const total = Big(availableAmount.value)
+        .plus(delegateAmount.value)
+        .plus(unbondingAmount.value)
+        .plus(rewardAmount.value)
+        .plus(commissionAmount.value)
+        .toPrecision();
 
       const balance = {
         available: availableAmount,
@@ -284,8 +289,9 @@ export const useAccountDetails = () => {
         commission: commissionAmount,
         total: {
           value: total,
-          denom: availableAmount.denom,
-          format: availableAmount.format,
+          displayDenom: availableAmount.displayDenom,
+          baseDenom: availableAmount.baseDenom,
+          exponent: availableAmount.exponent,
         },
       };
 
@@ -329,16 +335,17 @@ export const useAccountDetails = () => {
 
       otherTokenUnits.forEach((x: string) => {
         const availableRawAmount = getDenom(available, x);
-        const availableAmount = formatDenom(availableRawAmount.amount, x);
+        const availableAmount = formatToken(availableRawAmount.amount, x);
 
         const rewardsRawAmount = rewards.reduce((a, b) => {
           const denom = getDenom(b.amount, x);
-          return a + numeral(denom.amount).value();
+          // return a + numeral(denom.amount).value();
+          return Big(a).plus(denom.amount).toPrecision();
         }, 0);
-        const rewardAmount = formatDenom(rewardsRawAmount, x);
+        const rewardAmount = formatToken(rewardsRawAmount, x);
 
         const commissionRawAmount = getDenom(commission, x);
-        const commissionAmount = formatDenom(commissionRawAmount.amount, x);
+        const commissionAmount = formatToken(commissionRawAmount.amount, x);
 
         otherTokens.push({
           denom: R.pathOr(x, ['tokenUnits', x, 'display'], chainConfig),
@@ -373,10 +380,10 @@ export const useAccountDetails = () => {
             jailed: R.pathOr(false, ['validator', 'validatorStatuses', 0, 'jailed'], x),
           },
           reward: rewardsDict[validatorAddress],
-          amount: formatDenom(x.amount.amount, x.amount.denom),
+          amount: formatToken(x.amount.amount, x.amount.denom),
           commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
         });
-      }).sort((a, b) => ((a.amount.value < b.amount.value) ? 1 : -1));
+      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
 
       return {
         data: delegations,
@@ -395,12 +402,12 @@ export const useAccountDetails = () => {
           to: x.to,
           from: x.from,
           linkedUntil: x.completionTime,
-          amount: formatDenom(
+          amount: formatToken(
             R.pathOr(0, ['amount', 'amount'], x),
             R.pathOr(0, ['amount', 'denom'], x),
           ),
         });
-      }).sort((a, b) => ((a.amount.value < b.amount.value) ? 1 : -1));
+      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
       return {
         data: redelegations,
         count: redelegations.length,
@@ -417,14 +424,14 @@ export const useAccountDetails = () => {
         const validatorAddress = x.validator.validatorInfo.operatorAddress;
         return ({
           validator: validatorAddress,
-          amount: formatDenom(
+          amount: formatToken(
             R.pathOr(0, ['amount', 'amount'], x),
             R.pathOr(0, ['amount', 'denom'], x),
           ),
           linkedUntil: x.completionTimestamp,
           commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
         });
-      }).sort((a, b) => ((a.amount.value < b.amount.value) ? 1 : -1));
+      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
       return {
         data: unbondings,
         count: unbondings.length,
