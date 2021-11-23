@@ -1,4 +1,4 @@
-import numeral from 'numeral';
+import * as R from 'ramda';
 import { Categories } from '../types';
 
 class MsgSend {
@@ -6,10 +6,7 @@ class MsgSend {
   public type: string;
   public fromAddress: string;
   public toAddress: string;
-  public amount: {
-    denom: string;
-    amount: string | number;
-  }[];
+  public amount: MsgCoin[];
   public json: any;
 
   constructor(payload: any) {
@@ -30,7 +27,7 @@ class MsgSend {
       amount: json?.amount.map((x) => {
         return ({
           denom: x?.denom,
-          amount: numeral(x?.amount).value(),
+          amount: R.pathOr('0', ['amount'], x),
         });
       }),
     });

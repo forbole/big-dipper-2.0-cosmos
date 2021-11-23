@@ -8,6 +8,7 @@ import {
 } from '@material-ui/core';
 import { getValidatorStatus } from '@utils/get_validator_status';
 import { AvatarName } from '@components';
+import { formatNumber } from '@utils/format_token';
 import { useStyles } from './styles';
 import { ItemType } from '../../types';
 
@@ -59,9 +60,9 @@ const Mobile: React.FC<{
                   {t('amount')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {numeral(x.amount.value).format(x.amount.format)}
+                  {formatNumber(x.amount.value, x.amount.exponent)}
                   {' '}
-                  {x.amount.denom.toUpperCase()}
+                  {x.amount.displayDenom.toUpperCase()}
                 </Typography>
               </div>
               <div className={classes.item}>
@@ -69,9 +70,9 @@ const Mobile: React.FC<{
                   {t('reward')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {numeral(x.reward.value).format(x.reward.format)}
+                  {formatNumber(x.reward.value, x.reward.exponent)}
                   {' '}
-                  {x.reward.denom.toUpperCase()}
+                  {x.reward.displayDenom.toUpperCase()}
                 </Typography>
               </div>
             </div>

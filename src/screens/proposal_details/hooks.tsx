@@ -9,7 +9,7 @@ import {
   ProposalDetailsQuery,
 } from '@graphql/types';
 import { getDenom } from '@utils/get_denom';
-import { formatDenom } from '@utils/format_denom';
+import { formatToken } from '@utils/format_token';
 import { chainConfig } from '@configs';
 import {
   GovParams,
@@ -124,7 +124,7 @@ export const useProposalDetails = () => {
         const depositAmount = getDenom(x.amount);
         return ({
           user: x.depositorAddress,
-          amount: formatDenom(depositAmount.amount, depositAmount.denom),
+          amount: formatToken(depositAmount.amount, depositAmount.denom),
         });
       });
       return deposits;
@@ -201,10 +201,16 @@ export const useProposalDetails = () => {
     }
     const { denom } = state.tally;
 
-    const yes = formatDenom(R.pathOr(0, ['proposalTallyResult', 0, 'yes'], data), denom).value;
-    const no = formatDenom(R.pathOr(0, ['proposalTallyResult', 0, 'no'], data), denom).value;
-    const veto = formatDenom(R.pathOr(0, ['proposalTallyResult', 0, 'noWithVeto'], data), denom).value;
-    const abstain = formatDenom(R.pathOr(0, ['proposalTallyResult', 0, 'abstain'], data), denom).value;
+    const yes = numeral(formatToken(R.pathOr(0, ['proposalTallyResult', 0, 'yes'], data), denom).value).value();
+    const no = numeral(
+      formatToken(R.pathOr(0, ['proposalTallyResult', 0, 'no'], data), denom).value,
+    ).value();
+    const veto = numeral(
+      formatToken(R.pathOr(0, ['proposalTallyResult', 0, 'noWithVeto'], data), denom).value,
+    ).value();
+    const abstain = numeral(
+      formatToken(R.pathOr(0, ['proposalTallyResult', 0, 'abstain'], data), denom).value,
+    ).value();
 
     const govParams = GovParams.fromJson(R.pathOr({}, ['govParams', 0], data));
     const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
@@ -218,7 +224,7 @@ export const useProposalDetails = () => {
       total: yes + no + abstain + veto,
       denom: stakingParams.bondDenom,
       quorum: percent,
-      bondedTokens: formatDenom(
+      bondedTokens: formatToken(
         R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data),
         stakingParams.bondDenom,
       ).value,

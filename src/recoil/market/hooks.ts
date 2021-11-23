@@ -14,8 +14,8 @@ import {
   writeMarket,
 } from '@recoil/market';
 import { AtomState } from '@recoil/market/types';
-import { formatDenom } from '@utils/format_denom';
 import { getDenom } from '@utils/get_denom';
+import { formatToken } from '@utils/format_token';
 
 export const useMarketRecoil = () => {
   const [market, setMarket] = useRecoilState(writeMarket) as [AtomState, SetterOrUpdater<AtomState>];
@@ -46,15 +46,15 @@ export const useMarketRecoil = () => {
     const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter((x) => x.denom === chainConfig.primaryTokenUnit);
     const inflation = R.pathOr(0, ['inflation', 0, 'value'], data);
 
-    const supply = formatDenom(
-      numeral(getDenom(
+    const supply = formatToken(
+      getDenom(
         R.pathOr([], ['supply', 0, 'coins'], data),
         chainConfig.primaryTokenUnit,
-      ).amount).value(),
+      ).amount,
       chainConfig.primaryTokenUnit,
     );
     if (communityPoolCoin) {
-      communityPool = formatDenom(communityPoolCoin.amount, communityPoolCoin.denom);
+      communityPool = formatToken(communityPoolCoin.amount, communityPoolCoin.denom);
     }
 
     return ({
