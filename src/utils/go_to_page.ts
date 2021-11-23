@@ -18,5 +18,5 @@ export const ISCNS = '/iscns';
  * @param address
  * @returns
  */
-export const PROFILE_DETAILS = (address: string) => (address.includes(chainConfig.prefix.validator)
+export const ADDRESS_DETAILS = (address: string) => (address.includes(chainConfig.prefix.validator)
   ? VALIDATOR_DETAILS(address) : ACCOUNT_DETAILS(address));

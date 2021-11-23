@@ -9,6 +9,10 @@ jest.mock('@components', () => ({
   Name: (props) => <div id="Name" {...props} />,
 }));
 
+jest.mock('next-translate/Trans', () => (
+  (props) => <div id={props.i18nKey} {...props} />
+));
+
 // ==================================
 // unit tests
 // ==================================
@@ -60,6 +64,8 @@ describe('screen: TransactionDetails/MsgSend', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+    expect(component.root.findByProps({ id: 'message_contents:txMultisendContentOne' }).props.i18nKey).toEqual('message_contents:txMultisendContentOne');
+    expect(component.root.findByProps({ id: 'message_contents:txMultisendContentOne' }).props.values.amount).toEqual('20 DARIC');
   });
 
   afterEach(() => {
