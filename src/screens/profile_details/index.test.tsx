@@ -15,7 +15,7 @@ import ProfileDetails from '.';
 jest.mock('next/router', () => ({
   useRouter: () => ({
     query: {
-      dtag: 'dtag',
+      dtag: '@dtag',
     },
   }),
 }));

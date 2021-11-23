@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: ProfileDetails matches snapshot 1`] = `
+<div
+  id="Layout"
+  navTitle="profiles:profileDetails"
+>
+  <div
+    exists={true}
+    id="LoadAndExist"
+    loading={true}
+  />
+</div>
+`;
