@@ -19,6 +19,10 @@
     "ubld": {
       "display": "bld",
       "exponent": 6
+    },
+    "urun": {
+      "display": "run",
+      "exponent": 6
     }
   },
   "extra": {
