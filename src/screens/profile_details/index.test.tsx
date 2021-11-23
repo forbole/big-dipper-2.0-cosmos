@@ -57,11 +57,9 @@ describe('screen: ProfileDetails', () => {
         ],
       },
     });
+
     const mockClient = createMockClient();
-    mockClient.setRequestHandler(
-      LatestBlockTimestampDocument,
-      mockBlockTime,
-    );
+
     let component;
     renderer.act(() => {
       component = renderer.create(
