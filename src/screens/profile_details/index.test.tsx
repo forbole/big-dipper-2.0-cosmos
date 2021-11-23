@@ -36,29 +36,22 @@ describe('screen: ProfileDetails', () => {
       data: {
         profile: [
           {
+            address: 'desmos18tug2x5uwkgnh7qgadezvdntpwgjc88c98zuck',
             bio: 'hungry all the time',
-            coverUrl: 'https://ipfs.desmos.network/ipfs/Qmf48cpgi2zNiH24Vo1xtVsePUJx9665gtiRduVCvV5fFg',
             dtag: 'happieSa',
-            imageUrl: 'https://ipfs.desmos.network/ipfs/QmTvkdGrtBHHihjVajqqA2HAoHangeKR1oYbQWzasnPi7B',
             nickname: 'theHappySamoyed',
-            connections: [
-              {
-                network: 'native',
-                identifier: 'desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv',
-                creationTime: '2021-08-31T17:02:28.575104',
-              },
-              {
-                network: 'emoney',
-                identifier: 'emoney1wke3ev9ja6rxsngld75r3vppcpet94xxnh63ry',
-                creationTime: '2021-08-31T17:02:28.575104',
-              },
-            ],
+            chainLinks: [],
+            applicationLinks: [],
+            creationTime: '2021-10-06T00:10:45.761731',
+            coverPic: 'https://ipfs.desmos.network/ipfs/Qmf48cpgi2zNiH24Vo1xtVsePUJx9665gtiRduVCvV5fFg',
+            profilePic: 'https://ipfs.desmos.network/ipfs/QmTvkdGrtBHHihjVajqqA2HAoHangeKR1oYbQWzasnPi7B',
           },
         ],
       },
     });
 
     const mockClient = createMockClient();
+    console.log('mockClient', mockClient);
 
     let component;
     renderer.act(() => {
