@@ -1,4 +1,5 @@
-import numeral from 'numeral';
+import Big from 'big.js';
+import { formatNumber } from '@utils/format_token';
 
 export const formatMarket = (data: {
   marketCap: number;
@@ -6,7 +7,8 @@ export const formatMarket = (data: {
   supply: TokenUnit;
   inflation: number;
 }) => {
-  const marketCap = data.marketCap !== null ? `$${numeral(data.marketCap).format('0,0.[00]')}` : 'N/A';
+  const marketCap = data.marketCap !== null ? `$${formatNumber(data.marketCap.toString(), 2)}` : 'N/A';
+
   return ([
     {
       key: 'marketCap',
@@ -14,15 +16,15 @@ export const formatMarket = (data: {
     },
     {
       key: 'inflation',
-      data: `${numeral(data.inflation * 100).format('0.[0]')}%`,
+      data: `${formatNumber(Big(data.inflation).times(100).toPrecision(), 1)}%`,
     },
     {
       key: 'supply',
-      data: `${numeral(data.supply.value).format('0,0.[00]')} ${data.supply.denom.toUpperCase()}`,
+      data: `${formatNumber(data.supply.value, 2)} ${data.supply.displayDenom.toUpperCase()}`,
     },
     {
       key: 'communityPool',
-      data: `${numeral(data.communityPool.value).format('0,0.[00]')} ${data.communityPool.denom.toUpperCase()}`,
+      data: `${formatNumber(data.communityPool.value, 2)} ${data.communityPool.displayDenom.toUpperCase()}`,
     },
   ]);
 };

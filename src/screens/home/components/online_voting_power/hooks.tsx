@@ -1,6 +1,6 @@
 import { useState } from 'react';
+import numeral from 'numeral';
 import * as R from 'ramda';
-import { formatDenom } from '@utils/format_denom';
 import {
   useTotalVotingPowerListenerSubscription,
   useOnlineVotingPowerListenerSubscription,
@@ -10,6 +10,7 @@ import {
 } from '@graphql/types';
 import { StakingParams } from '@models';
 import { chainConfig } from '@configs';
+import { formatToken } from '@utils/format_token';
 
 const initialState: {
   height: number;
@@ -62,7 +63,7 @@ export const useOnlineVotingPower = () => {
     ], data);
     return {
       height: R.pathOr(initialState.height, ['block', 0, 'height'], data),
-      votingPower: formatDenom(votingPower, state.denom).value,
+      votingPower: formatToken(votingPower, state.denom).value,
     };
   };
 
@@ -83,7 +84,7 @@ export const useOnlineVotingPower = () => {
       0,
       'bonded',
     ], data);
-    bonded = formatDenom(bonded, state.denom).value;
+    bonded = numeral(formatToken(bonded, state.denom).value).value();
     return bonded;
   };
 

@@ -4,7 +4,6 @@ query AverageBlockTime {
   }
 }
 
-
 query LatestBlockTimestamp($offset: Int = 0) {
   block: block(order_by: {height: desc}, limit: 1, offset: $offset) {
     timestamp
