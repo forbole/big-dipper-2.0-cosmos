@@ -1,18 +1,20 @@
 import React from 'react';
-import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
-import { formatDenom } from '@utils/format_denom';
 import { MsgRedelegate } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
+import {
+  formatToken, formatNumber,
+} from '@utils/format_token';
 
 const Redelegate = (props: {
   message: MsgRedelegate;
 }) => {
   const { message } = props;
-  const amount = formatDenom(message.amount.amount, message.amount.denom);
-  const parsedAmount = `${numeral(amount.value).format(amount.format)} ${amount.denom.toUpperCase()}`;
+  const amount = formatToken(message.amount.amount, message.amount.denom);
+
+  const parsedAmount = `${formatNumber(amount.value, amount.exponent)} ${amount.displayDenom.toUpperCase()}`;
 
   const delegator = useProfileRecoil(message.delegatorAddress);
   const delegatorMoniker = delegator ? delegator?.name : message

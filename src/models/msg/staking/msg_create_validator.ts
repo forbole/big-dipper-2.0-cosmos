@@ -1,4 +1,5 @@
 import numeral from 'numeral';
+import * as R from 'ramda';
 import { Categories } from '../types';
 
 class MsgCreateValidator {
@@ -23,10 +24,7 @@ class MsgCreateValidator {
     type: string;
     key: string;
   }
-  public value: {
-    denom: string;
-    amount: string | number;
-  }
+  public value: MsgCoin
   public json: any;
 
   constructor(payload: any) {
@@ -67,7 +65,7 @@ class MsgCreateValidator {
       },
       value: {
         denom: json?.value?.denom,
-        amount: numeral(json?.value?.amount).value(),
+        amount: R.pathOr('0', ['value', 'amount'], json),
       },
     });
   }

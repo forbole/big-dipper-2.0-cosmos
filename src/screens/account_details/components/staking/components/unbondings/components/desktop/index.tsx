@@ -13,6 +13,7 @@ import {
 import { AvatarName } from '@components';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
+import { formatNumber } from '@src/utils/format_token';
 import { columns } from './utils';
 import { ItemType } from '../../types';
 
@@ -25,6 +26,7 @@ const Desktop: React.FC<{
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
   const formattedItems = items.map((x) => {
+    const amount = formatNumber(x.amount.value, x.amount.exponent);
     return ({
       validator: (
         <AvatarName
@@ -35,7 +37,7 @@ const Desktop: React.FC<{
       ),
       commission: `${numeral(x.commission * 100).format('0.00')}%`,
       linkedUntil: formatDayJs(dayjs.utc(x.linkedUntil), dateFormat),
-      amount: `${numeral(x.amount.value).format(x.amount.format)} ${x.amount.denom.toUpperCase()}`,
+      amount: `${amount} ${x.amount.displayDenom.toUpperCase()}`,
     });
   });
 

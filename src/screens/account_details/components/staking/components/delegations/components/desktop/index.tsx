@@ -13,6 +13,7 @@ import {
   AvatarName,
 } from '@components';
 import { getValidatorStatus } from '@utils/get_validator_status';
+import { formatNumber } from '@utils/format_token';
 import { useStyles } from './styles';
 import { columns } from './utils';
 import { ItemType } from '../../types';
@@ -27,6 +28,8 @@ const Desktop: React.FC<{
   const { t } = useTranslation('accounts');
   const classes = useStyles();
   const formattedItems = items.map((x) => {
+    const amount = formatNumber(x.amount.value, x.amount.exponent);
+    const reward = formatNumber(x.reward.value, x.reward.exponent);
     const statusTheme = getValidatorStatus(x.validatorStatus.status, x.validatorStatus.jailed);
     return ({
       validator: (
@@ -42,8 +45,8 @@ const Desktop: React.FC<{
         </span>
       ),
       commission: `${numeral(x.commission * 100).format('0.00')}%`,
-      amount: `${numeral(x.amount.value).format(x.amount.format)} ${x.amount.denom.toUpperCase()}`,
-      reward: `${numeral(x.reward.value).format(x.reward.format)} ${x.reward.denom.toUpperCase()}`,
+      amount: `${amount} ${x.amount.displayDenom.toUpperCase()}`,
+      reward: `${reward} ${x.reward.displayDenom.toUpperCase()}`,
     });
   });
 

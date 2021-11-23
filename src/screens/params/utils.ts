@@ -80,7 +80,7 @@ export const formatMinting = (data: Minting, t: any) => {
     },
     {
       label: t('inflationMin'),
-      detail: `${data.inflationMin * 100}%`,
+      detail: `${numeral(data.inflationMin * 100).format('0')}%`,
     },
     {
       label: t('inflationRateChange'),
@@ -118,7 +118,7 @@ export const formatGov = (data: Gov, t: any) => {
   return ([
     {
       label: t('minDeposit'),
-      detail: `${data.minDeposit.value} ${data.minDeposit.denom.toUpperCase()}`,
+      detail: `${data.minDeposit.value} ${data.minDeposit.displayDenom.toUpperCase()}`,
     },
     {
       label: t('maxDepositPeriod'),
