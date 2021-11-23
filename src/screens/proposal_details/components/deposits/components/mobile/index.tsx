@@ -4,7 +4,7 @@ import useTranslation from 'next-translate/useTranslation';
 import {
   Divider, Typography,
 } from '@material-ui/core';
-import numeral from 'numeral';
+import { formatNumber } from '@utils/format_token';
 import { AvatarName } from '@components';
 import { useStyles } from './styles';
 import { ItemType } from '../../types';
@@ -21,13 +21,19 @@ const Mobile: React.FC<{
   const formattedItems = items.map((x) => {
     return ({
       depositor: (
-        <AvatarName
-          address={x.user.address}
-          imageUrl={x.user.imageUrl}
-          name={x.user.name}
-        />
+        <>
+          {x.user.address ? (
+            <AvatarName
+              address={x.user.address}
+              imageUrl={x.user.imageUrl}
+              name={x.user.name}
+            />
+          ) : (
+            <>-</>
+          )}
+        </>
       ),
-      amount: `${numeral(x.amount.value).format(x.amount.format)} ${x.amount.denom.toUpperCase()}`,
+      amount: `${formatNumber(x.amount.value, x.amount.exponent)} ${x.amount.displayDenom.toUpperCase()}`,
     });
   });
 

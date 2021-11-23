@@ -5,8 +5,8 @@ import {
   useValidatorsQuery,
   ValidatorsQuery,
 } from '@graphql/types';
-import { formatDenom } from '@utils/format_denom';
 import { getValidatorCondition } from '@utils/get_validator_condition';
+import { formatToken } from '@utils/format_token';
 import {
   StakingParams,
   SlashingParams,
@@ -49,10 +49,10 @@ export const useValidators = () => {
   const formatValidators = (data: ValidatorsQuery) => {
     const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
     const slashingParams = SlashingParams.fromJson(R.pathOr({}, ['slashingParams', 0, 'params'], data));
-    const votingPowerOverall = formatDenom(
+    const votingPowerOverall = numeral(formatToken(
       R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data),
       stakingParams.bondDenom,
-    ).value;
+    ).value).value();
 
     const { signedBlockWindow } = slashingParams;
 

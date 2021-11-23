@@ -5,7 +5,24 @@ exports[`screen: TransactionDetails/MsgMultiSend matches snapshot 1`] = `
   <p
     className="MuiTypography-root MuiTypography-body1"
   >
-    message_contents:txMultisendContentOne
+    <div
+      components={
+        Array [
+          <Name
+            address="address"
+            name="address"
+          />,
+          <b />,
+        ]
+      }
+      i18nKey="message_contents:txMultisendContentOne"
+      id="message_contents:txMultisendContentOne"
+      values={
+        Object {
+          "amount": "20 DARIC",
+        }
+      }
+    />
   </p>
   <div
     className="makeStyles-multisend"
@@ -13,12 +30,46 @@ exports[`screen: TransactionDetails/MsgMultiSend matches snapshot 1`] = `
     <p
       className="MuiTypography-root MuiTypography-body1"
     >
-      message_contents:txMultisendContentTwo
+      <div
+        components={
+          Array [
+            <Name
+              address="output1"
+              name="output1"
+            />,
+            <b />,
+          ]
+        }
+        i18nKey="message_contents:txMultisendContentTwo"
+        id="message_contents:txMultisendContentTwo"
+        values={
+          Object {
+            "amount": "19 DARIC",
+          }
+        }
+      />
     </p>
     <p
       className="MuiTypography-root MuiTypography-body1"
     >
-      message_contents:txMultisendContentTwo
+      <div
+        components={
+          Array [
+            <Name
+              address="output2"
+              name="output2"
+            />,
+            <b />,
+          ]
+        }
+        i18nKey="message_contents:txMultisendContentTwo"
+        id="message_contents:txMultisendContentTwo"
+        values={
+          Object {
+            "amount": "1 DARIC",
+          }
+        }
+      />
     </p>
   </div>
 </div>

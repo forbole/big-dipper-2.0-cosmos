@@ -120,7 +120,7 @@ export const formatGov = (data: Gov, t: any) => {
   return ([
     {
       label: t('minDeposit'),
-      detail: `${data.minDeposit.value} ${data.minDeposit.denom.toUpperCase()}`,
+      detail: `${data.minDeposit.value} ${data.minDeposit.displayDenom.toUpperCase()}`,
     },
     {
       label: t('maxDepositPeriod'),
