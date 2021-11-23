@@ -43,7 +43,7 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
         data={
           Object {
             "abstain": 0,
-            "bondedTokens": 30959846.018678,
+            "bondedTokens": "30959846.018678",
             "denom": "udaric",
             "no": 0,
             "quorum": 0.33,
@@ -88,9 +88,10 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
           Array [
             Object {
               "amount": Object {
-                "denom": "daric",
-                "format": "0,0.[000000]",
-                "value": 100,
+                "baseDenom": "udaric",
+                "displayDenom": "daric",
+                "exponent": 6,
+                "value": "100",
               },
               "user": "desmos1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w",
             },
