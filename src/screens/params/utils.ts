@@ -156,7 +156,7 @@ export const formatIscn = (data: Iscn, t: any) => {
     },
     {
       label: t('feePerByte'),
-      detail: `${data.feePerByte.value} ${data.feePerByte.denom.toUpperCase()}`,
+      detail: `${data.feePerByte.value} ${data.feePerByte.displayDenom.toUpperCase()}`,
     },
   ]);
 };

@@ -172,7 +172,7 @@ export const useParams = () => {
         const iscnParamsRaw = IscnParams.fromJson(R.pathOr({}, ['iscnParams', 0, 'params'], data));
         return {
           registryName: iscnParamsRaw.registryName,
-          feePerByte: formatDenom(
+          feePerByte: formatToken(
             iscnParamsRaw.feePerByte.amount,
             iscnParamsRaw.feePerByte.denom,
           ),
