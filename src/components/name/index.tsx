@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
 import { Typography } from '@material-ui/core';
-import { PROFILE_DETAILS } from '@utils/go_to_page';
+import { ADDRESS_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
 
 const Name: React.FC<{
@@ -11,7 +11,7 @@ const Name: React.FC<{
   name: string;
   href?: (address: string) => string;
 }> = ({
-  className, address, name, href = PROFILE_DETAILS,
+  className, address, name, href = ADDRESS_DETAILS,
 }) => {
   const classes = useStyles();
 
