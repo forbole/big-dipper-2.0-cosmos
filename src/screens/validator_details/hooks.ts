@@ -294,7 +294,7 @@ export const useValidatorDetails = () => {
 
       const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
       const votingPower = {
-        self: formatDenom(
+        self: formatToken(
           self,
           stakingParams.bondDenom,
         ).value,

@@ -1,9 +1,10 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
-import { formatDenom } from '@utils/format_denom';
+import {
+  formatToken, formatNumber,
+} from '@utils/format_token';
 import { MsgAddLimitOrder } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
@@ -13,8 +14,8 @@ const AddLimitOrder = (props: {
   const { message } = props;
   const owner = useProfileRecoil(message.owner);
   const ownerMoniker = owner ? owner?.name : message.owner;
-  const source = formatDenom(message.source.amount, message.source.denom);
-  const destination = formatDenom(message.destination.amount, message.destination.denom);
+  const source = formatToken(message.source.amount, message.source.denom);
+  const destination = formatToken(message.destination.amount, message.destination.denom);
   return (
     <Typography>
       <Trans
@@ -32,8 +33,8 @@ const AddLimitOrder = (props: {
         ]}
         values={{
           clientOrderId: message.clientOrderId,
-          source: `${numeral(source.value).format('0,0.[000000]')} ${source.denom.toUpperCase()}`,
-          destination: `${numeral(destination.value).format('0,0.[000000]')} ${destination.denom.toUpperCase()}`,
+          source: `${formatNumber(source.value, source.exponent)} ${source.displayDenom.toUpperCase()}`,
+          destination: `${formatNumber(destination.value, destination.exponent)} ${destination.displayDenom.toUpperCase()}`,
         }}
       />
     </Typography>
