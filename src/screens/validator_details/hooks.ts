@@ -1,6 +1,7 @@
 import {
   useState, useEffect,
 } from 'react';
+import Big from 'big.js';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import { formatToken } from '@utils/format_token';
@@ -317,7 +318,7 @@ export const useValidatorDetails = () => {
           amount: formatToken(x.amount.amount, x.amount.denom),
           delegator: x.delegatorAddress,
         });
-      }).sort((a, b) => (a.amount.value < b.amount.value ? 1 : -1));
+      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
       return {
         data: delegations,
         count: delegations.length,
@@ -348,7 +349,7 @@ export const useValidatorDetails = () => {
             delegator: x.delegatorAddress,
           });
         }),
-      ].sort((a, b) => (a.amount.value < b.amount.value ? 1 : -1));
+      ].sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
 
       return {
         data: redelegations,
@@ -368,7 +369,7 @@ export const useValidatorDetails = () => {
           linkedUntil: x.completionTimestamp,
           commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
         });
-      }).sort((a, b) => (a.amount.value < b.amount.value ? 1 : -1));
+      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
 
       return {
         data: undelegations,

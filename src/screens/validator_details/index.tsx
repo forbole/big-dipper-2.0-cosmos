@@ -82,6 +82,7 @@ const ValidatorDetails = () => {
             <VotingPower
               className={classes.votingPower}
               data={state.votingPower}
+              status={status.status}
             />
             <Blocks className={classes.blocks} />
             <Staking
