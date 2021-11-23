@@ -1,4 +1,4 @@
-# Unreleased
+# base-v1.6.0 - 2021-11-23
 
 ## Changes
 
