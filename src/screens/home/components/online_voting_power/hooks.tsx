@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import numeral from 'numeral';
+import { formatToken } from '@utils/format_token';
 import * as R from 'ramda';
-import { formatDenom } from '@utils/format_denom';
 import {
   useTotalVotingPowerListenerSubscription,
   useOnlineVotingPowerListenerSubscription,
@@ -83,7 +84,7 @@ export const useOnlineVotingPower = () => {
       'bonded',
     ], data);
     // likecoin edge case
-    bonded = formatDenom(bonded, 'ulike').value;
+    bonded = numeral(formatToken(bonded, 'ulike').value).value();
     return bonded;
   };
 

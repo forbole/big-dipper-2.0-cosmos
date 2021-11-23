@@ -5,7 +5,7 @@ import {
   useParamsQuery,
   ParamsQuery,
 } from '@graphql/types';
-import { formatDenom } from '@utils/format_denom';
+import { formatToken } from '@utils/format_token';
 import { chainConfig } from '@configs';
 import {
   StakingParams,
@@ -146,7 +146,7 @@ export const useParams = () => {
       if (data.govParams.length) {
         const govParamsRaw = GovParams.fromJson(R.pathOr({}, ['govParams', 0], data));
         return {
-          minDeposit: formatDenom(
+          minDeposit: formatToken(
             R.pathOr(0, [0, 'amount'], govParamsRaw.depositParams.minDeposit),
             R.pathOr(chainConfig.primaryTokenUnit, [0, 'denom'], govParamsRaw.depositParams.minDeposit),
           ),
@@ -172,7 +172,7 @@ export const useParams = () => {
         const iscnParamsRaw = IscnParams.fromJson(R.pathOr({}, ['iscnParams', 0, 'params'], data));
         return {
           registryName: iscnParamsRaw.registryName,
-          feePerByte: formatDenom(
+          feePerByte: formatToken(
             iscnParamsRaw.feePerByte.amount,
             iscnParamsRaw.feePerByte.denom,
           ),

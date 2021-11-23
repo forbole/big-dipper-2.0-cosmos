@@ -1,7 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import numeral from 'numeral';
 import {
   Table,
   TableHead,
@@ -10,6 +9,7 @@ import {
   TableBody,
 } from '@material-ui/core';
 import { AvatarName } from '@components';
+import { formatNumber } from '@utils/format_token';
 import { columns } from './utils';
 import { ItemType } from '../../types';
 
@@ -24,13 +24,19 @@ const Desktop: React.FC<{
   const formattedItems = items.map((x) => {
     return ({
       depositor: (
-        <AvatarName
-          address={x.user.address}
-          imageUrl={x.user.imageUrl}
-          name={x.user.name}
-        />
+        <>
+          {x.user.address ? (
+            <AvatarName
+              address={x.user.address}
+              imageUrl={x.user.imageUrl}
+              name={x.user.name}
+            />
+          ) : (
+            <>-</>
+          )}
+        </>
       ),
-      amount: `${numeral(x.amount.value).format(x.amount.format)} ${x.amount.denom.toUpperCase()}`,
+      amount: `${formatNumber(x.amount.value, x.amount.exponent)} ${x.amount.displayDenom.toUpperCase()}`,
     });
   });
 

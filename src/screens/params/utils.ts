@@ -119,7 +119,7 @@ export const formatGov = (data: Gov, t: any) => {
   return ([
     {
       label: t('minDeposit'),
-      detail: `${data.minDeposit.value} ${data.minDeposit.denom.toUpperCase()}`,
+      detail: `${data.minDeposit.value} ${data.minDeposit.displayDenom.toUpperCase()}`,
     },
     {
       label: t('maxDepositPeriod'),
@@ -156,7 +156,7 @@ export const formatIscn = (data: Iscn, t: any) => {
     },
     {
       label: t('feePerByte'),
-      detail: `${data.feePerByte.value} ${data.feePerByte.denom.toUpperCase()}`,
+      detail: `${data.feePerByte.value} ${data.feePerByte.displayDenom.toUpperCase()}`,
     },
   ]);
 };
