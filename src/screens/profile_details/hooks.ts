@@ -36,6 +36,17 @@ export const useProfileDetails = () => {
   });
 
   useEffect(() => {
+    const regex = /^@/;
+    const profileDtag = router.query.dtag as string;
+    const regexCheck = regex.test(profileDtag);
+    const configProfile = chainConfig.extra.profile;
+
+    if (!regexCheck || !configProfile) {
+      router.replace('/');
+    }
+  }, []);
+
+  useEffect(() => {
     handleSetState(initialState);
     if (chainConfig.extra.profile) {
       fetchDesmosProfile(R.pathOr('', ['query', 'dtag'], router));
