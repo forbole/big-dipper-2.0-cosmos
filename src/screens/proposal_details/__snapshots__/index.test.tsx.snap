@@ -43,7 +43,7 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
         data={
           Object {
             "abstain": 0,
-            "bondedTokens": 30959846018678,
+            "bondedTokens": "30959846018678",
             "denom": "ulike",
             "no": 0,
             "quorum": 0.33,
