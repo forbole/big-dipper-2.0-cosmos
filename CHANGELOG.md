@@ -10,6 +10,10 @@
 - Update how tokens are formatted and display up to 18 decimal places ([\#524](https://github.com/forbole/big-dipper-2.0-cosmos/issues/524))
 - Auto display 0% if validator is not active ([\#541](https://github.com/forbole/big-dipper-2.0-cosmos/issues/541))
 
+## Migration
+
+- [v1.6.0 to v1.7.0](https://docs.bigdipper.live/cosmos-based/frontend/migrations/v1.6.0-to-v1.7.0)
+
 # base-v1.6.0 - 2021-11-01
 
 ## Changes
