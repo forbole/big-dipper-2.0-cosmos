@@ -1,7 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import numeral from 'numeral';
 import dayjs, { formatDayJs } from '@utils/dayjs';
 import {
   Table,
@@ -14,6 +13,7 @@ import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
 import { AvatarName } from '@components';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { formatNumber } from '@utils/format_token';
 import { columns } from './utils';
 import { ItemType } from '../../types';
 
@@ -27,6 +27,7 @@ const Desktop: React.FC<{
   const { t } = useTranslation('validators');
 
   const formattedItems = items.map((x) => {
+    const amount = formatNumber(x.amount.value, x.amount.exponent);
     return ({
       address: (
         <AvatarName
@@ -52,7 +53,7 @@ const Desktop: React.FC<{
         />
       ),
       linkedUntil: formatDayJs(dayjs.utc(x.linkedUntil), dateFormat),
-      amount: `${numeral(x.amount.value).format(x.amount.format)} ${x.amount.denom.toUpperCase()}`,
+      amount: `${amount} ${x.amount.displayDenom.toUpperCase()}`,
     });
   });
 

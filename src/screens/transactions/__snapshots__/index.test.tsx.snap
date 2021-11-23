@@ -34,9 +34,10 @@ exports[`screen: Transactions matches snapshot 1`] = `
                   MsgWithdrawDelegatorReward {
                     "amounts": Array [
                       Object {
-                        "denom": "daric",
-                        "format": "0,0.[000000]",
-                        "value": 0,
+                        "baseDenom": "udaric",
+                        "displayDenom": "daric",
+                        "exponent": 6,
+                        "value": "0",
                       },
                     ],
                     "category": "distribution",
@@ -52,9 +53,10 @@ exports[`screen: Transactions matches snapshot 1`] = `
                   MsgWithdrawValidatorCommission {
                     "amounts": Array [
                       Object {
-                        "denom": "daric",
-                        "format": "0,0.[000000]",
-                        "value": 0,
+                        "baseDenom": "udaric",
+                        "displayDenom": "daric",
+                        "exponent": 6,
+                        "value": "0",
                       },
                     ],
                     "category": "distribution",
@@ -79,9 +81,10 @@ exports[`screen: Transactions matches snapshot 1`] = `
                   MsgWithdrawDelegatorReward {
                     "amounts": Array [
                       Object {
-                        "denom": "daric",
-                        "format": "0,0.[000000]",
-                        "value": 0,
+                        "baseDenom": "udaric",
+                        "displayDenom": "daric",
+                        "exponent": 6,
+                        "value": "0",
                       },
                     ],
                     "category": "distribution",
@@ -97,9 +100,10 @@ exports[`screen: Transactions matches snapshot 1`] = `
                   MsgWithdrawValidatorCommission {
                     "amounts": Array [
                       Object {
-                        "denom": "daric",
-                        "format": "0,0.[000000]",
-                        "value": 0,
+                        "baseDenom": "udaric",
+                        "displayDenom": "daric",
+                        "exponent": 6,
+                        "value": "0",
                       },
                     ],
                     "category": "distribution",

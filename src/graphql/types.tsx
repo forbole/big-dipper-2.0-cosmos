@@ -18622,8 +18622,8 @@ export type AverageBlockTimeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type AverageBlockTimeQuery = { averageBlockTime: Array<(
-    { __typename?: 'average_block_time_from_genesis' }
-    & { averageTime: Average_Block_Time_From_Genesis['average_time'] }
+    { __typename?: 'average_block_time_per_hour' }
+    & { averageTime: Average_Block_Time_Per_Hour['average_time'] }
   )> };
 
 export type LatestBlockTimestampQueryVariables = Exact<{
@@ -19318,7 +19318,7 @@ export type LatestBlockHeightListenerSubscriptionHookResult = ReturnType<typeof 
 export type LatestBlockHeightListenerSubscriptionResult = Apollo.SubscriptionResult<LatestBlockHeightListenerSubscription>;
 export const AverageBlockTimeDocument = gql`
     query AverageBlockTime {
-  averageBlockTime: average_block_time_from_genesis(
+  averageBlockTime: average_block_time_per_hour(
     limit: 1
     order_by: {height: desc}
   ) {

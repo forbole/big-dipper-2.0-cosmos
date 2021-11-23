@@ -1,9 +1,10 @@
 import {
   useState, useEffect,
 } from 'react';
+import Big from 'big.js';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
-import { formatDenom } from '@utils/format_denom';
+import { formatToken } from '@utils/format_token';
 import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
 import { convertMsgsToModels } from '@msg';
@@ -25,10 +26,11 @@ import {
 } from '@models';
 import { ValidatorDetailsState } from './types';
 
-const initialTokenDenom = {
-  value: 0,
-  denom: '',
-  format: '',
+const initialTokenDenom: TokenUnit = {
+  value: '0',
+  displayDenom: '',
+  baseDenom: '',
+  exponent: 0,
 };
 
 const initialState: ValidatorDetailsState = {
@@ -285,7 +287,7 @@ export const useValidatorDetails = () => {
       const [selfDelegate] = data.validator[0].delegations.filter(
         (x) => x.delegatorAddress === data.validator[0].validatorInfo.selfDelegateAddress,
       );
-      const selfDelegateAmount = formatDenom(
+      const selfDelegateAmount = formatToken(
         numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value(),
         R.pathOr(0, ['amount', 'denom'], selfDelegate),
       );
@@ -296,7 +298,7 @@ export const useValidatorDetails = () => {
         self,
         selfDelegate: selfDelegateAmount,
         selfDelegatePercent,
-        overall: formatDenom(
+        overall: formatToken(
           R.pathOr(0, ['stakingPool', 0, 'bonded'], data),
           stakingParams.bondDenom,
         ),
@@ -313,10 +315,10 @@ export const useValidatorDetails = () => {
     const formatDelegations = () => {
       const delegations = data.validator[0].delegations.map((x) => {
         return ({
-          amount: formatDenom(x.amount.amount, x.amount.denom),
+          amount: formatToken(x.amount.amount, x.amount.denom),
           delegator: x.delegatorAddress,
         });
-      }).sort((a, b) => (a.amount.value < b.amount.value ? 1 : -1));
+      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
       return {
         data: delegations,
         count: delegations.length,
@@ -334,7 +336,7 @@ export const useValidatorDetails = () => {
             to: x.to,
             from: x.from,
             linkedUntil: x.completionTime,
-            amount: formatDenom(x.amount.amount, x.amount.denom),
+            amount: formatToken(x.amount.amount, x.amount.denom),
             delegator: x.delegatorAddress,
           });
         }),
@@ -343,11 +345,11 @@ export const useValidatorDetails = () => {
             to: x.to,
             from: x.from,
             linkedUntil: x.completionTime,
-            amount: formatDenom(x.amount.amount, x.amount.denom),
+            amount: formatToken(x.amount.amount, x.amount.denom),
             delegator: x.delegatorAddress,
           });
         }),
-      ].sort((a, b) => (a.amount.value < b.amount.value ? 1 : -1));
+      ].sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
 
       return {
         data: redelegations,
@@ -363,11 +365,11 @@ export const useValidatorDetails = () => {
       const undelegations = data.validator[0].unbonding.map((x) => {
         return ({
           delegator: x.delegatorAddress,
-          amount: formatDenom(x.amount.amount, x.amount.denom),
+          amount: formatToken(x.amount.amount, x.amount.denom),
           linkedUntil: x.completionTimestamp,
           commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
         });
-      }).sort((a, b) => (a.amount.value < b.amount.value ? 1 : -1));
+      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
 
       return {
         data: undelegations,

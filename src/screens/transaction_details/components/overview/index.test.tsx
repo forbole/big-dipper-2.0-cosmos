@@ -27,9 +27,10 @@ describe('screen: BlockDetails/Overview', () => {
             height: 0,
             timestamp: '',
             fee: {
-              denom: 'daric',
-              value: 5000,
-              format: '',
+              value: '5000',
+              baseDenom: 'udaric',
+              displayDenom: 'daric',
+              exponent: 6,
             },
             gasUsed: 0,
             gasWanted: 0,
