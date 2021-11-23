@@ -1,4 +1,4 @@
-# desmos-v1.6.0 - 2021-11-23
+# desmos-v1.7.0 - 2021-11-23
 
 # Changes
 - Add Desmos Profile Msgs ([\#482](https://github.com/forbole/big-dipper-2.0-cosmos/issues/482))
