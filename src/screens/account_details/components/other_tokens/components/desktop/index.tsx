@@ -1,6 +1,5 @@
 import React from 'react';
 import classnames from 'classnames';
-import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Table,
@@ -10,6 +9,7 @@ import {
   TableBody,
 } from '@material-ui/core';
 import { OtherTokenType } from '@src/screens/account_details/types';
+import { formatNumber } from '@utils/format_token';
 import { columns } from './utils';
 
 const Desktop: React.FC<{
@@ -24,9 +24,9 @@ const Desktop: React.FC<{
   const formattedItems = items.map((x) => {
     return ({
       token: x.denom.toUpperCase(),
-      commission: `${numeral(x.commission.value).format(x.commission.format)}`,
-      available: `${numeral(x.available.value).format(x.available.format)}`,
-      reward: `${numeral(x.reward.value).format(x.reward.format)}`,
+      commission: formatNumber(x.commission.value, x.commission.exponent),
+      available: formatNumber(x.available.value, x.available.exponent),
+      reward: formatNumber(x.reward.value, x.reward.exponent),
     });
   });
 

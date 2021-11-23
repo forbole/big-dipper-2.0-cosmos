@@ -24,8 +24,9 @@ describe('screen: TransactionDetails/WithdrawCommission', () => {
       validatorAddress: 'validatorAddress',
       amounts: [
         {
-          denom: 'udaric',
-          value: 3000000,
+          value: '3000000',
+          displayDenom: 'udaric',
+          exponent: 6,
         },
       ],
     });

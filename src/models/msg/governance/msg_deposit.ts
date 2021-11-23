@@ -1,4 +1,5 @@
 import numeral from 'numeral';
+import * as R from 'ramda';
 import { Categories } from '../types';
 
 class MsgDeposit {
@@ -6,10 +7,7 @@ class MsgDeposit {
   public type: string;
   public proposalId: number | string;
   public depositor: string;
-  public amount: {
-    denom: string;
-    amount: string | number;
-  }[];
+  public amount: MsgCoin[];
   public json: any;
 
   constructor(payload: any) {
@@ -30,7 +28,7 @@ class MsgDeposit {
       amount: json?.amount.map((x) => {
         return ({
           denom: x?.denom,
-          amount: numeral(x?.amount).value(),
+          amount: R.pathOr('0', ['amount'], x),
         });
       }),
     });

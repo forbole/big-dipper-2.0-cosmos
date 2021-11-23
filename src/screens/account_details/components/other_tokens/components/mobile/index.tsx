@@ -1,12 +1,12 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import numeral from 'numeral';
 import {
   Divider,
   Typography,
 } from '@material-ui/core';
 import { OtherTokenType } from '@src/screens/account_details/types';
+import { formatNumber } from '@utils/format_token';
 import { useStyles } from './styles';
 
 const Mobile: React.FC<{
@@ -17,10 +17,12 @@ const Mobile: React.FC<{
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('accounts');
-
   return (
     <div className={classnames(className)}>
       {items.map((x, i) => {
+        const available = formatNumber(x.available.value, x.available.exponent);
+        const reward = formatNumber(x.reward.value, x.reward.exponent);
+        const commission = formatNumber(x.commission.value, x.commission.exponent);
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
@@ -37,7 +39,7 @@ const Mobile: React.FC<{
                   {t('available')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {numeral(x.available.value).format(x.available.format)}
+                  {available}
                 </Typography>
               </div>
               <div className={classes.item}>
@@ -45,7 +47,7 @@ const Mobile: React.FC<{
                   {t('reward')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {numeral(x.reward.value).format(x.reward.format)}
+                  {reward}
                 </Typography>
               </div>
               <div className={classes.item}>
@@ -53,7 +55,7 @@ const Mobile: React.FC<{
                   {t('commission')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {numeral(x.commission.value).format(x.commission.format)}
+                  {commission}
                 </Typography>
               </div>
             </div>

@@ -1,5 +1,4 @@
 import * as R from 'ramda';
-import numeral from 'numeral';
 import { Categories } from '../types';
 
 class MsgTransfer {
@@ -7,10 +6,7 @@ class MsgTransfer {
     public type: string;
     public sender: string;
     public receiver: string;
-    public token: {
-      amount: number;
-      denom: string;
-    };
+    public token: MsgCoin;
     public sourceChannel: string;
     public json: any;
 
@@ -32,7 +28,7 @@ class MsgTransfer {
         receiver: json.receiver,
         token: {
           denom: R.pathOr('', ['token', 'denom'], json),
-          amount: numeral(R.pathOr('0', ['token', 'amount'], json)).value(),
+          amount: R.pathOr('0', ['token', 'amount'], json),
         },
         sourceChannel: json.source_channel,
       });
