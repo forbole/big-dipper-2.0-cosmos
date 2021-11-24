@@ -65,6 +65,8 @@ import MsgVersion from './msg/ibc/msg_connection_version';
 import MsgTransfer from './msg/ibc_transfer/msg_transfer';
 import MsgGrant from './msg/authz/msg_grant';
 import MsgRevoke from './msg/authz/msg_revoke';
+import MsgGrantAllowance from './msg/feegrant/msg_grant_allowance';
+import MsgRevokeAllowance from './msg/feegrant/msg_revoke_allowance';
 
 export {
   BigDipperNetwork,
@@ -134,4 +136,6 @@ export {
   MsgTransfer,
   MsgGrant,
   MsgRevoke,
+  MsgGrantAllowance,
+  MsgRevokeAllowance,
 };

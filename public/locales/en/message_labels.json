@@ -50,5 +50,7 @@
   "txVersionLabel": "IBC Version",
   "txTransferLabel": "IBC Transfer",
   "MsgGrant": "Grant",
-  "MsgRevoke": "Revoke"
+  "MsgRevoke": "Revoke",
+  "MsgGrantAllowance": "Grant Allowance",
+  "MsgRevokeAllowance": "Revoke Allowance"
 }
