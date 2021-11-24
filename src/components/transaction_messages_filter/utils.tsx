@@ -29,6 +29,14 @@ export const getFilterLabels = () => {
       display: 'staking',
     },
     {
+      key: 'authz',
+      display: 'authz',
+    },
+    {
+      key: 'feegrant',
+      display: 'feegrant',
+    },
+    {
       key: 'profiles',
       display: 'profiles',
     },

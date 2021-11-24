@@ -1,5 +1,7 @@
 # Unreleased
 
+## Changes
+- Add `feegrant` and `authz` messages ([\#481](https://github.com/forbole/big-dipper-2.0-cosmos/issues/481))
 ## Bug fixes
 - Fix validator searchbar ([\#540](https://github.com/forbole/big-dipper-2.0-cosmos/issues/540))
 
