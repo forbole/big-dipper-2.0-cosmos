@@ -324,6 +324,21 @@ const getDataByType = (type: string) => {
       tagTheme: 'fourteen',
       tagDisplay: 'MsgRevokeAllowance',
     },
+    // ========================
+    // vesting
+    // ========================
+    '/cosmos.vesting.v1beta1.MsgCreateVestingAccount': {
+      model: MODELS.MsgCreateVestingAccount,
+      content: COMPONENTS.CreateVestingAccount,
+      tagTheme: 'fifteen',
+      tagDisplay: 'MsgCreateVestingAccount',
+    },
+    '/cosmos.vesting.v1beta1.MsgCreatePeriodicVestingAccount': {
+      model: MODELS.MsgCreatePeriodicVestingAccount,
+      content: COMPONENTS.CreatePeriodicVestingAccount,
+      tagTheme: 'fifteen',
+      tagDisplay: 'MsgCreatePeriodicVestingAccount',
+    },
   };
 
   // =====================================

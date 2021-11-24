@@ -37,6 +37,10 @@ export const getFilterLabels = () => {
       display: 'feegrant',
     },
     {
+      key: 'vesting',
+      display: 'vesting',
+    },
+    {
       key: 'profiles',
       display: 'profiles',
     },

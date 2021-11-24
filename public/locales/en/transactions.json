@@ -31,5 +31,6 @@
   "raw": "Raw",
   "details": "Details",
   "authz": "Authz",
-  "feegrant": "Feegrant"
+  "feegrant": "Feegrant",
+  "vesting": "Vesting"
 }
