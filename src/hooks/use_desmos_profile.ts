@@ -77,7 +77,7 @@ export const useDesmosProfile = (options: Options) => {
         data = await fetchDtag(input.substr(1));
       }
 
-      if (input.includes('desmos')) {
+      if (input.startsWith('desmos')) {
         data = await fetchDesmos(input);
       }
 
