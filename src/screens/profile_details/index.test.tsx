@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import renderer from 'react-test-renderer';
 import MockAdapter from 'axios-mock-adapter';
 import { createMockClient } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
+import renderer from 'react-test-renderer';
 import {
   MockTheme, wait,
 } from '@tests/utils';
@@ -17,6 +17,8 @@ jest.mock('next/router', () => ({
     query: {
       dtag: '@dtag',
     },
+    // mock replace function
+    replace: '/',
   }),
 }));
 
@@ -51,7 +53,7 @@ describe('screen: ProfileDetails', () => {
     });
 
     const mockClient = createMockClient();
-    console.log('mockClient', mockClient);
+    // console.log('mockClient', mockClient);
 
     let component;
     renderer.act(() => {
@@ -62,10 +64,14 @@ describe('screen: ProfileDetails', () => {
           </MockTheme>
         </ApolloProvider>,
       );
+      console.log('component 1 =>', component);
+      console.log('tree 1 => ', component.toJSON());
     });
     await wait();
 
     const tree = component.toJSON();
+    // console.log('component  => ', component);
+    // console.log('tree => ', tree);
     expect(tree).toMatchSnapshot();
   });
 
