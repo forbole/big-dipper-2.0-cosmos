@@ -1,3 +1,8 @@
+# Unreleased
+
+## Bug fixes
+- Fix validator searchbar ([\#540](https://github.com/forbole/big-dipper-2.0-cosmos/issues/540))
+
 # base-v1.7.0 - 2021-11-23
 
 ## Changes

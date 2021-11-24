@@ -129,9 +129,10 @@ export const useValidators = () => {
 
     if (search) {
       sorted = sorted.filter((x) => {
+        const formattedSearch = search.toLowerCase().replace(/ /g, '');
         return (
-          x.validator.name.toLowerCase().replace(/ /g, '').includes(search.toLowerCase())
-          || x.validator.address.toLowerCase().includes(search.toLowerCase())
+          x.validator.name.toLowerCase().replace(/ /g, '').includes(formattedSearch)
+          || x.validator.address.toLowerCase().includes(formattedSearch)
         );
       });
     }
