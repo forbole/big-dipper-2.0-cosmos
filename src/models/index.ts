@@ -67,6 +67,8 @@ import MsgGrant from './msg/authz/msg_grant';
 import MsgRevoke from './msg/authz/msg_revoke';
 import MsgGrantAllowance from './msg/feegrant/msg_grant_allowance';
 import MsgRevokeAllowance from './msg/feegrant/msg_revoke_allowance';
+import MsgCreateVestingAccount from './msg/vesting/msg_create_vesting_account';
+import MsgCreatePeriodicVestingAccount from './msg/vesting/msg_create_periodic_vesting_account';
 
 export {
   BigDipperNetwork,
@@ -138,4 +140,6 @@ export {
   MsgRevoke,
   MsgGrantAllowance,
   MsgRevokeAllowance,
+  MsgCreateVestingAccount,
+  MsgCreatePeriodicVestingAccount,
 };

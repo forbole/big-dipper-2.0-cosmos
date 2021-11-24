@@ -66,6 +66,8 @@ import Grant from './authz/grant';
 import Revoke from './authz/revoke';
 import GrantAllowance from './feegrant/grant_allowance';
 import RevokeAllowance from './feegrant/revoke_allowance';
+import CreateVestingAccount from './vesting/create_vesting_account';
+import CreatePeriodicVestingAccount from './vesting/create_periodic_vesting_account';
 
 export {
   getMessageModelByType,
@@ -130,4 +132,6 @@ export {
   Revoke,
   GrantAllowance,
   RevokeAllowance,
+  CreateVestingAccount,
+  CreatePeriodicVestingAccount,
 };
