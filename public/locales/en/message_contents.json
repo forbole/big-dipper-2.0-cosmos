@@ -49,5 +49,9 @@
   "txVersionContent": "<0>{{signer}}</0> submitted IBC version",
   "txTransferContent": "<0>{{sender}}</0> sent <2>{{token}}</2> via IBC transfer from source channel <2>{{sourceChannel}}</2> to <1>{{receiver}}</1>",
   "txTimeoutContent": "<0>{{signer}}</0> IBC timeout",
-  "txTimeoutOnCloseContent": "<0>{{signer}}</0> IBC timeout on close"
+  "txTimeoutOnCloseContent": "<0>{{signer}}</0> IBC timeout on close",
+  "MsgGrant": "<0>{{granter}}</0> authorized a grant for <1>{{grantee}}</1>",
+  "MsgRevoke": "<0>{{granter}}</0> revoked a grant for <1>{{grantee}}</1>",
+  "MsgGrantAllowance": "<0>{{granter}}</0> granted allowance for <1>{{grantee}}</1>",
+  "MsgRevokeAllowance": "<0>{{granter}}</0> revoked allowance for <1>{{grantee}}</1>"
 }
