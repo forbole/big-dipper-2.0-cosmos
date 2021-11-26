@@ -42,7 +42,7 @@ const Desktop: React.FC<{
     const status = getValidatorStatus(x.status, x.jailed);
     const condition = x.status === 3 ? getValidatorConditionClass(x.condition) : undefined;
     const percentDisplay = x.status === 3 ? `${numeral(x.votingPowerPercent).format('0.[00]')}%` : '0%';
-    const votingPower = x.status === 3 ? numeral(x.votingPower).format('0,0') : '0';
+    const votingPower = numeral(x.votingPower).format('0,0');
     return ({
       idx: `#${i + 1}`,
       delegators: numeral(x.delegators).format('0,0'),
