@@ -100,10 +100,9 @@ export const useValidators = () => {
     let cumulativeVotingPower = Big(0);
     formattedItems.forEach((x) => {
       const totalVp = cumulativeVotingPower.add(x.votingPowerPercent);
-      if (totalVp.lt(0.34)) {
-        x.top = true;
+      if (totalVp.lt(34)) {
+        x.topVotingPower = true;
         cumulativeVotingPower = totalVp;
-        console.log(x, 'x');
       }
     });
 

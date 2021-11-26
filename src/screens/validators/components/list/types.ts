@@ -8,7 +8,7 @@ export type ValidatorType = {
   status: number;
   jailed: boolean;
   delegators: number;
-  top?: boolean; // top 34% VP
+  topVotingPower?: boolean; // top 34% VP
 }
 
 export type ValidatorsState = {
