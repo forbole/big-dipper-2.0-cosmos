@@ -23,6 +23,20 @@ export const useStyles = () => {
           '& a': {
             color: theme.palette.custom.fonts.highlight,
           },
+          '& .status': {
+            '&.one': {
+              color: theme.palette.custom.tags.one,
+            },
+            '&.two': {
+              color: theme.palette.custom.tags.two,
+            },
+            '&.three': {
+              color: theme.palette.custom.tags.three,
+            },
+            '&.zero': {
+              color: theme.palette.custom.tags.zero,
+            },
+          },
         },
         flex: {
           display: 'flex',
