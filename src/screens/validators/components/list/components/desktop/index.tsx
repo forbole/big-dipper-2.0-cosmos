@@ -9,6 +9,7 @@ import { useGrid } from '@hooks';
 import {
   SortArrows,
   AvatarName,
+  InfoPopover,
 } from '@components';
 import { getValidatorConditionClass } from '@utils/get_validator_condition';
 import { getValidatorStatus } from '@utils/get_validator_status';
@@ -16,7 +17,9 @@ import { useStyles } from './styles';
 import { fetchColumns } from './utils';
 import { ItemType } from '../../types';
 import {
-  Condition, VotingPower,
+  Condition,
+  VotingPower,
+  VotingPowerExplanation,
 } from '..';
 
 const Desktop: React.FC<{
@@ -104,6 +107,26 @@ const Desktop: React.FC<{
                     sortKey: sortingKey,
                   } = columns[columnIndex];
 
+                  let formattedComponent = component;
+
+                  if (key === 'votingPower') {
+                    formattedComponent = (
+                      <Typography variant="h4" className="label popover">
+                        {t('votingPower')}
+                        <InfoPopover
+                          content={<VotingPowerExplanation />}
+                        />
+                        {!!sort && (
+                          <SortArrows
+                            sort={props.sortKey === sortingKey
+                              ? props.sortDirection
+                              : undefined}
+                          />
+                        )}
+                      </Typography>
+                    );
+                  }
+
                   return (
                     <div
                       style={style}
@@ -118,7 +141,7 @@ const Desktop: React.FC<{
                       onClick={() => (sort ? props.handleSort(sortingKey) : null)}
                       role="button"
                     >
-                      {component || (
+                      {formattedComponent || (
                       <Typography
                         variant="h4"
                         align={align}
