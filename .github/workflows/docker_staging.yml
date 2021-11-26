@@ -17,17 +17,17 @@ jobs:
         run: |
           BRANCH=${GITHUB_REF#refs/heads/}
           if [[ $GITHUB_REF == refs/heads/chains/desmos ]]; then
-            BRANCH="desmos"
+            BRANCH="gqltesting"
           elif [[ $GITHUB_REF == refs/pull/* ]]; then
-            BRANCH="build-test"
+            BRANCH="gqltesting"
           fi
           echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
           echo ::set-output name=branch::${BRANCH}
       - name: Prepare docker build env
         id: dockerPrep
         run: |
-          NEXT_PUBLIC_GRAPHQL_URL="https://gql.mainnet.desmos.network/v1/graphql"
-          NEXT_PUBLIC_GRAPHQL_WS="wss://gql-ws.mainnet.desmos.network/v1/graphql"
+          NEXT_PUBLIC_GRAPHQL_URL="https://gqll.mainnet.desmos.network/v1/graphql"
+          NEXT_PUBLIC_GRAPHQL_WS="wss://gqll-ws.mainnet.desmos.network/v1/graphql"
           NEXT_PUBLIC_URL="https://explorer.desmos.network"
           NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.mainnet.desmos.network/websocket"
           NODE_ENV="production"
@@ -56,7 +56,7 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          push: ${{ github.event_name != 'pull_request' }}
+          # push: ${{ github.event_name != 'pull_request' }}
           build-args: |
             "NEXT_PUBLIC_GRAPHQL_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_URL }}"
             "NEXT_PUBLIC_GRAPHQL_WS=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_WS }}"
