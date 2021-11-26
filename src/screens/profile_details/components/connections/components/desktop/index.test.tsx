@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
+import { RecoilRoot } from 'recoil';
 import Desktop from '.';
 
 // ==================================
@@ -22,21 +23,23 @@ jest.mock('react-virtualized-auto-sizer', () => ({ children }: any) => children(
 describe('screen: ProfileDetails/Connections/Desktop', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
-      <MockTheme>
-        <Desktop
-          items={[
-            {
-              network: 'native',
-              identifier: 'desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv',
-              creationTime: '2021-08-31T17:02:28.575104',
-            },
-            {
-              network: 'emoney',
-              identifier: 'emoney1wke3ev9ja6rxsngld75r3vppcpet94xxnh63ry',
-              creationTime: '2021-08-31T17:02:28.575104',
-            }]}
-        />
-      </MockTheme>,
+      <RecoilRoot>
+        <MockTheme>
+          <Desktop
+            items={[
+              {
+                network: 'native',
+                identifier: 'desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv',
+                creationTime: '2021-08-31T17:02:28.575104',
+              },
+              {
+                network: 'emoney',
+                identifier: 'emoney1wke3ev9ja6rxsngld75r3vppcpet94xxnh63ry',
+                creationTime: '2021-08-31T17:02:28.575104',
+              }]}
+          />
+        </MockTheme>
+      </RecoilRoot>,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
