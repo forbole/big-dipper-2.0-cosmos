@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Big from 'big.js';
 import * as R from 'ramda';
 import numeral from 'numeral';
 import {
@@ -12,7 +13,9 @@ import {
   SlashingParams,
 } from '@models';
 import {
-  ValidatorsState, ItemType,
+  ValidatorsState,
+  ItemType,
+  ValidatorType,
 } from './types';
 
 export const useValidators = () => {
@@ -56,7 +59,7 @@ export const useValidators = () => {
 
     const { signedBlockWindow } = slashingParams;
 
-    const formattedItems = data.validator.filter((x) => x.validatorInfo).map((x) => {
+    let formattedItems: ValidatorType[] = data.validator.filter((x) => x.validatorInfo).map((x) => {
       const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
       const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
       const totalDelegations = x.delegations.reduce((a, b) => {
@@ -86,6 +89,22 @@ export const useValidators = () => {
         jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], x),
         delegators: x.delegations.length,
       });
+    });
+
+    // get the top 34% validators
+    formattedItems = formattedItems.sort((a, b) => {
+      return Big(a.votingPowerPercent).gt(b.votingPowerPercent) ? -1 : 1;
+    });
+
+    // add key to indicate they are part of top 34%
+    let cumulativeVotingPower = Big(0);
+    formattedItems.forEach((x) => {
+      const totalVp = cumulativeVotingPower.add(x.votingPowerPercent);
+      if (totalVp.lt(0.34)) {
+        x.top = true;
+        cumulativeVotingPower = totalVp;
+        console.log(x, 'x');
+      }
     });
 
     return {
