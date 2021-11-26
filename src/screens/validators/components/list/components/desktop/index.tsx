@@ -11,6 +11,7 @@ import {
   AvatarName,
 } from '@components';
 import { getValidatorConditionClass } from '@utils/get_validator_condition';
+import { getValidatorStatus } from '@utils/get_validator_status';
 import { useStyles } from './styles';
 import { fetchColumns } from './utils';
 import { ItemType } from '../../types';
@@ -38,6 +39,7 @@ const Desktop: React.FC<{
   } = useGrid(columns);
 
   const formattedItems = props.items.map((x, i) => {
+    const status = getValidatorStatus(x.status, x.jailed);
     const condition = x.status === 3 ? getValidatorConditionClass(x.condition) : undefined;
     const percentDisplay = x.status === 3 ? `${numeral(x.votingPowerPercent).format('0.[00]')}%` : '0%';
     const votingPower = x.status === 3 ? numeral(x.votingPower).format('0,0') : '0';
@@ -62,6 +64,11 @@ const Desktop: React.FC<{
           percentage={x.votingPowerPercent}
           content={votingPower}
         />
+      ),
+      status: (
+        <Typography variant="body1" className={classnames('status', status.theme)}>
+          {t(status.status)}
+        </Typography>
       ),
     });
   });
