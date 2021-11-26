@@ -4,6 +4,7 @@
 - Add `feegrant` and `authz` messages ([\#481](https://github.com/forbole/big-dipper-2.0-cosmos/issues/481))
 - Add `vesting` messages ([\#538](https://github.com/forbole/big-dipper-2.0-cosmos/issues/538))
 - Add status row in `/validators` ([\#556](https://github.com/forbole/big-dipper-2.0-cosmos/issues/556))
+- Show who the top 34% validators are ([\#506](https://github.com/forbole/big-dipper-2.0-cosmos/issues/506))
 ## Bug fixes
 - Fix validator searchbar ([\#540](https://github.com/forbole/big-dipper-2.0-cosmos/issues/540))
 

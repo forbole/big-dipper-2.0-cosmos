@@ -54,6 +54,7 @@ const Mobile: React.FC<{
           percentDisplay={percentDisplay}
           percentage={x.votingPowerPercent}
           content={votingPower}
+          topVotingPower={x.topVotingPower}
         />
       ),
       status,
