@@ -52,7 +52,7 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          push: ${{ github.event_name -= 'pull_request' }}
+          push: ${{ github.event_name == 'pull_request' }}
           build-args: |
             "NEXT_PUBLIC_GRAPHQL_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_URL }}"
             "NEXT_PUBLIC_GRAPHQL_WS=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_WS }}"
