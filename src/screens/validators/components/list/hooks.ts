@@ -92,36 +92,24 @@ export const useValidators = () => {
     });
 
     // get the top 34% validators
-    formattedItems = formattedItems.sort((a, b) => {
+    formattedItems = formattedItems.filter((x) => x.status === 3).sort((a, b) => {
       return a.votingPower > b.votingPower ? -1 : 1;
     });
 
     // add key to indicate they are part of top 34%
     let cumulativeVotingPower = Big(0);
     let reached = false;
-    // formattedItems.forEach((x) => {
-    //   const totalVp = cumulativeVotingPower.add(x.votingPowerPercent);
-    //   if (totalVp.lte(34) && !reached) {
-    //     x.topVotingPower = true;
-    //   } else {
-    //     reached = true;
-    //   }
-    //   cumulativeVotingPower = totalVp;
-    // });
-
-    formattedItems.slice(0, 11).forEach((x, i) => {
-      console.log(x.validator, 'validator');
+    formattedItems.forEach((x) => {
       const totalVp = cumulativeVotingPower.add(x.votingPowerPercent);
-      console.log(cumulativeVotingPower.toPrecision(), 'current');
-      console.log(x.votingPowerPercent, 'vp');
-      console.log(numeral(x.votingPowerPercent).format('0.[00]'), 'numeral percent');
-      console.log(totalVp.toPrecision(), 'after');
-      console.log(i, ' index');
       if (totalVp.lte(34) && !reached) {
         x.topVotingPower = true;
-      } else {
+      }
+
+      if (totalVp.gt(34) && !reached) {
+        x.topVotingPower = true;
         reached = true;
       }
+
       cumulativeVotingPower = totalVp;
     });
 
