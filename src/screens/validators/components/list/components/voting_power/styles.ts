@@ -7,7 +7,11 @@ export const useStyles = (percentage: number, topVotingPower:boolean) => {
       return ({
         root: {
           '& .MuiTypography-body1': {
-            color: theme.palette.custom.fonts.fontTwo,
+            color: (
+              topVotingPower
+                ? theme.palette.custom.fonts.fontFour
+                : theme.palette.custom.fonts.fontTwo
+            ),
           },
         },
         chart: {
@@ -16,7 +20,7 @@ export const useStyles = (percentage: number, topVotingPower:boolean) => {
           borderRadius: theme.shape.borderRadius,
           background: (
             topVotingPower
-              ? Color(theme.palette.custom.fonts.highlight).alpha(0.2).string()
+              ? Color(theme.palette.custom.fonts.fontFour).alpha(0.2).string()
               : Color(theme.palette.custom.primaryData.three).alpha(0.2).string()
           ),
           overflow: 'hidden',
@@ -25,7 +29,7 @@ export const useStyles = (percentage: number, topVotingPower:boolean) => {
           width: `${percentage}%`,
           background: (
             topVotingPower
-              ? theme.palette.custom.fonts.highlight
+              ? theme.palette.custom.fonts.fontFour
               : theme.palette.custom.primaryData.three
           ),
         },
@@ -37,7 +41,7 @@ export const useStyles = (percentage: number, topVotingPower:boolean) => {
           '& .percentage': {
             color: (
               topVotingPower
-                ? theme.palette.custom.fonts.highlight
+                ? theme.palette.custom.fonts.fontFour
                 : theme.palette.custom.primaryData.three
             ),
           },
