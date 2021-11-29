@@ -37,12 +37,12 @@ export const useSearchBar = (t) => {
         router.push(ACCOUNT_DETAILS(parsedValue));
       } else if (/^@/.test(parsedValue)) {
         const configProfile = chainConfig.extra.profile;
-        if (parsedValue === '@') {
-          toast(t('common:insertValidDtag'));
-        } else if (configProfile) {
-          router.push(PROFILE_DETAILS(parsedValue));
-        } else {
+        if (!configProfile) {
           toast(t('common:profilesNotEnabled'));
+        } else if (parsedValue === '@') {
+          toast(t('common:insertValidDtag'));
+        } else {
+          router.push(PROFILE_DETAILS(parsedValue));
         }
       } else if (/^-?\d+$/.test(numeral(parsedValue).value())) {
         router.push(BLOCK_DETAILS(numeral(parsedValue).value()));
