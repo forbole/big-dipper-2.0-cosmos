@@ -14,7 +14,6 @@ export const useStyles = () => {
           },
           [theme.breakpoints.up('lg')]: {
             gridGap: theme.spacing(2),
-            // gridTemplateColumns: 'repeat(2, 1fr)',
           },
         },
       });
