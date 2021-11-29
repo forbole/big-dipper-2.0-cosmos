@@ -56,5 +56,6 @@
   "txListFormat": "Transactions Format",
   "compact": "Compact",
   "detailed": "Detailed",
-  "profilesNotEnabled": "Profiles not enabled for this explorer."
+  "profilesNotEnabled": "Profiles not enabled for this explorer.",
+  "insertValidDtag": "Please insert a valid dtag."
 }

@@ -25,7 +25,9 @@ export const useSearchBar = (t) => {
       const parsedValue = value.replace(/\s+/g, '');
 
       // consensus
-      if (new RegExp(consensusRegex).test(parsedValue)) {
+      if (parsedValue === '@') {
+        toast(t('common:insertValidDtag'));
+      } else if (new RegExp(consensusRegex).test(parsedValue)) {
         const validatorAddress = await snapshot.getPromise(readValidator(parsedValue));
         if (validatorAddress) {
           router.push(VALIDATOR_DETAILS(validatorAddress.validator));
