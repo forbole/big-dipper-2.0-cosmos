@@ -24,10 +24,7 @@ export const useSearchBar = (t) => {
       const userRegex = `^(${chainConfig.prefix.account})`;
       const parsedValue = value.replace(/\s+/g, '');
 
-      // consensus
-      if (parsedValue === '@') {
-        toast(t('common:insertValidDtag'));
-      } else if (new RegExp(consensusRegex).test(parsedValue)) {
+      if (new RegExp(consensusRegex).test(parsedValue)) {
         const validatorAddress = await snapshot.getPromise(readValidator(parsedValue));
         if (validatorAddress) {
           router.push(VALIDATOR_DETAILS(validatorAddress.validator));
@@ -40,7 +37,9 @@ export const useSearchBar = (t) => {
         router.push(ACCOUNT_DETAILS(parsedValue));
       } else if (/^@/.test(parsedValue)) {
         const configProfile = chainConfig.extra.profile;
-        if (configProfile) {
+        if (parsedValue === '@') {
+          toast(t('common:insertValidDtag'));
+        } else if (configProfile) {
           router.push(PROFILE_DETAILS(parsedValue));
         } else {
           toast(t('common:profilesNotEnabled'));
