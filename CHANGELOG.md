@@ -1,12 +1,28 @@
 # Unreleased
 
 ## Changes
+- Add `feegrant` and `authz` messages ([\#481](https://github.com/forbole/big-dipper-2.0-cosmos/issues/481))
+- Add `vesting` messages ([\#538](https://github.com/forbole/big-dipper-2.0-cosmos/issues/538))
+- Add status row in `/validators` ([\#556](https://github.com/forbole/big-dipper-2.0-cosmos/issues/556))
+- Show who the top 34% validators are ([\#506](https://github.com/forbole/big-dipper-2.0-cosmos/issues/506))
+## Bug fixes
+- Fix validator searchbar ([\#540](https://github.com/forbole/big-dipper-2.0-cosmos/issues/540))
+
+# base-v1.7.0 - 2021-11-23
+
+## Changes
 
 - Fix account details denom display ([\#478](https://github.com/forbole/big-dipper-2.0-cosmos/issues/478))
 - Replace average block time with average since last hour ([\#480](https://github.com/forbole/big-dipper-2.0-cosmos/issues/480))
 - Renamed `PROFILE_DETAILS` to `ADDRESS_DETAILS` ([\#503](https://github.com/forbole/big-dipper-2.0-cosmos/issues/503))
 - Update handling of block height in searchbar ([\#501](https://github.com/forbole/big-dipper-2.0-cosmos/issues/501))
 - Fix community pool spend proposal display ([\#520](https://github.com/forbole/big-dipper-2.0-cosmos/issues/520))
+- Update how tokens are formatted and display up to 18 decimal places ([\#524](https://github.com/forbole/big-dipper-2.0-cosmos/issues/524))
+- Auto display 0% if validator is not active ([\#541](https://github.com/forbole/big-dipper-2.0-cosmos/issues/541))
+
+## Migration
+
+- [v1.6.0 to v1.7.0](https://docs.bigdipper.live/cosmos-based/frontend/migrations/v1.6.0-to-v1.7.0)
 
 # base-v1.6.0 - 2021-11-01
 

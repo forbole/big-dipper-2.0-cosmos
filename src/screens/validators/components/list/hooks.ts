@@ -1,18 +1,21 @@
 import { useState } from 'react';
+import Big from 'big.js';
 import * as R from 'ramda';
 import numeral from 'numeral';
 import {
   useValidatorsQuery,
   ValidatorsQuery,
 } from '@graphql/types';
-import { formatDenom } from '@utils/format_denom';
 import { getValidatorCondition } from '@utils/get_validator_condition';
+import { formatToken } from '@utils/format_token';
 import {
   StakingParams,
   SlashingParams,
 } from '@models';
 import {
-  ValidatorsState, ItemType,
+  ValidatorsState,
+  ItemType,
+  ValidatorType,
 } from './types';
 
 export const useValidators = () => {
@@ -49,14 +52,14 @@ export const useValidators = () => {
   const formatValidators = (data: ValidatorsQuery) => {
     const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
     const slashingParams = SlashingParams.fromJson(R.pathOr({}, ['slashingParams', 0, 'params'], data));
-    const votingPowerOverall = formatDenom(
+    const votingPowerOverall = numeral(formatToken(
       R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data),
       stakingParams.bondDenom,
-    ).value;
+    ).value).value();
 
     const { signedBlockWindow } = slashingParams;
 
-    const formattedItems = data.validator.filter((x) => x.validatorInfo).map((x) => {
+    let formattedItems: ValidatorType[] = data.validator.filter((x) => x.validatorInfo).map((x) => {
       const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
       const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
       const totalDelegations = x.delegations.reduce((a, b) => {
@@ -86,6 +89,28 @@ export const useValidators = () => {
         jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], x),
         delegators: x.delegations.length,
       });
+    });
+
+    // get the top 34% validators
+    formattedItems = formattedItems.filter((x) => x.status === 3).sort((a, b) => {
+      return a.votingPower > b.votingPower ? -1 : 1;
+    });
+
+    // add key to indicate they are part of top 34%
+    let cumulativeVotingPower = Big(0);
+    let reached = false;
+    formattedItems.forEach((x) => {
+      const totalVp = cumulativeVotingPower.add(x.votingPowerPercent);
+      if (totalVp.lte(34) && !reached) {
+        x.topVotingPower = true;
+      }
+
+      if (totalVp.gt(34) && !reached) {
+        x.topVotingPower = true;
+        reached = true;
+      }
+
+      cumulativeVotingPower = totalVp;
     });
 
     return {
@@ -129,9 +154,10 @@ export const useValidators = () => {
 
     if (search) {
       sorted = sorted.filter((x) => {
+        const formattedSearch = search.toLowerCase().replace(/ /g, '');
         return (
-          x.validator.name.toLowerCase().replace(/ /g, '').includes(search.toLowerCase())
-          || x.validator.address.toLowerCase().includes(search.toLowerCase())
+          x.validator.name.toLowerCase().replace(/ /g, '').includes(formattedSearch)
+          || x.validator.address.toLowerCase().includes(formattedSearch)
         );
       });
     }

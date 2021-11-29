@@ -48,5 +48,11 @@
   "txConnectionOpenTryLabel": "IBC Connection Open Try",
   "txConnectionEndLabel": "IBC Connection End",
   "txVersionLabel": "IBC Version",
-  "txTransferLabel": "IBC Transfer"
+  "txTransferLabel": "IBC Transfer",
+  "MsgGrant": "Grant",
+  "MsgRevoke": "Revoke",
+  "MsgGrantAllowance": "Grant Allowance",
+  "MsgRevokeAllowance": "Revoke Allowance",
+  "MsgCreateVestingAccount": "Create Vesting Account",
+  "MsgCreatePeriodicVestingAccount": "Create Periodic Vesting Account"
 }

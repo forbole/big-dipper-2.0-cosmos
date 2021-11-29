@@ -62,6 +62,12 @@ import ConnectionOpenTry from './ibc/connection_open_try';
 import CounterpartyConnection from './ibc/connection_counterparty';
 import Version from './ibc/connection_version';
 import Transfer from './ibc_transfer/transfer';
+import Grant from './authz/grant';
+import Revoke from './authz/revoke';
+import GrantAllowance from './feegrant/grant_allowance';
+import RevokeAllowance from './feegrant/revoke_allowance';
+import CreateVestingAccount from './vesting/create_vesting_account';
+import CreatePeriodicVestingAccount from './vesting/create_periodic_vesting_account';
 
 export {
   getMessageModelByType,
@@ -122,4 +128,10 @@ export {
   CounterpartyConnection,
   Version,
   Transfer,
+  Grant,
+  Revoke,
+  GrantAllowance,
+  RevokeAllowance,
+  CreateVestingAccount,
+  CreatePeriodicVestingAccount,
 };
