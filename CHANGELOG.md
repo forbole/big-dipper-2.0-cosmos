@@ -1,7 +1,7 @@
 # Unreleased
 
 ## Changes
-- Add /@dtag feature ([\#428](https://github.com/forbole/big-dipper-2.0-cosmos/issues/428))
+- Add `/@dtag` feature ([\#428](https://github.com/forbole/big-dipper-2.0-cosmos/issues/428))
 - Add `feegrant` and `authz` messages ([\#481](https://github.com/forbole/big-dipper-2.0-cosmos/issues/481))
 - Add `vesting` messages ([\#538](https://github.com/forbole/big-dipper-2.0-cosmos/issues/538))
 - Add status row in `/validators` ([\#556](https://github.com/forbole/big-dipper-2.0-cosmos/issues/556))
