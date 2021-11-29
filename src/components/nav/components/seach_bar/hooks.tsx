@@ -22,30 +22,31 @@ export const useSearchBar = (t) => {
       const consensusRegex = `^(${chainConfig.prefix.consensus})`;
       const validatorRegex = `^(${chainConfig.prefix.validator})`;
       const userRegex = `^(${chainConfig.prefix.account})`;
+      const parsedValue = value.replace(/\s+/g, '');
 
       // consensus
-      if (new RegExp(consensusRegex).test(value)) {
-        const validatorAddress = await snapshot.getPromise(readValidator(value));
+      if (new RegExp(consensusRegex).test(parsedValue)) {
+        const validatorAddress = await snapshot.getPromise(readValidator(parsedValue));
         if (validatorAddress) {
           router.push(VALIDATOR_DETAILS(validatorAddress.validator));
         } else {
           toast(t('common:useValidatorAddress'));
         }
-      } else if (new RegExp(validatorRegex).test(value)) {
-        router.push(VALIDATOR_DETAILS(value));
-      } else if (new RegExp(userRegex).test(value)) {
-        router.push(ACCOUNT_DETAILS(value));
-      } else if (/^@/.test(value)) {
+      } else if (new RegExp(validatorRegex).test(parsedValue)) {
+        router.push(VALIDATOR_DETAILS(parsedValue));
+      } else if (new RegExp(userRegex).test(parsedValue)) {
+        router.push(ACCOUNT_DETAILS(parsedValue));
+      } else if (/^@/.test(parsedValue)) {
         const configProfile = chainConfig.extra.profile;
         if (configProfile) {
-          router.push(PROFILE_DETAILS(value));
+          router.push(PROFILE_DETAILS(parsedValue));
         } else {
           toast(t('common:profilesNotEnabled'));
         }
-      } else if (/^-?\d+$/.test(numeral(value).value())) {
-        router.push(BLOCK_DETAILS(numeral(value).value()));
+      } else if (/^-?\d+$/.test(numeral(parsedValue).value())) {
+        router.push(BLOCK_DETAILS(numeral(parsedValue).value()));
       } else {
-        router.push(TRANSACTION_DETAILS(value));
+        router.push(TRANSACTION_DETAILS(parsedValue));
       }
 
       if (clear) {
