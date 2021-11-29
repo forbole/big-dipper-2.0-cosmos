@@ -35,8 +35,6 @@ export const useSearchBar = (t) => {
         router.push(VALIDATOR_DETAILS(value));
       } else if (new RegExp(userRegex).test(value)) {
         router.push(ACCOUNT_DETAILS(value));
-      } else if (/^-?\d+$/.test(numeral(value).value())) {
-        router.push(BLOCK_DETAILS(numeral(value).value()));
       } else if (/^@/.test(value)) {
         const configProfile = chainConfig.extra.profile;
         if (configProfile) {
@@ -44,6 +42,8 @@ export const useSearchBar = (t) => {
         } else {
           toast(t('common:profilesNotEnabled'));
         }
+      } else if (/^-?\d+$/.test(numeral(value).value())) {
+        router.push(BLOCK_DETAILS(numeral(value).value()));
       } else {
         router.push(TRANSACTION_DETAILS(value));
       }
