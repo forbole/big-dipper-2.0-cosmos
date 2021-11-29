@@ -1,3 +1,7 @@
+# desmos-v1.7.1 - 2021-11-28
+
+# Fixes
+- Fixed `UnlinkChainAccount` ([\#562](https://github.com/forbole/big-dipper-2.0-cosmos/issues/562))
 # desmos-v1.7.0 - 2021-11-23
 
 # Changes

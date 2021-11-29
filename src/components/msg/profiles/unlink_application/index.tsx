@@ -2,27 +2,27 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
-import { MsgUnlinkChainAccount } from '@models';
+import { MsgUnlinkApplication } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const UnlinkChainAccount = (props: {
-  message: MsgUnlinkChainAccount;
+const UnlinkApplication = (props: {
+  message: MsgUnlinkApplication;
 }) => {
   const { message } = props;
 
-  const owner = useProfileRecoil(message.owner);
-  const ownerMoniker = owner ? owner?.name : message
-    .owner;
+  const signer = useProfileRecoil(message.signer);
+  const signerMoniker = signer ? signer?.name : message
+    .signer;
 
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txMsgUnlinkChainAccount"
+        i18nKey="message_contents:txMsgUnlinkApplication"
         components={[
           (
             <Name
-              address={message.owner}
-              name={ownerMoniker}
+              address={message.signer}
+              name={signerMoniker}
             />
           ),
           (
@@ -30,11 +30,12 @@ const UnlinkChainAccount = (props: {
           ),
         ]}
         values={{
-          chainName: message.chainName,
+          application: message.application,
+          username: message.username,
         }}
       />
     </Typography>
   );
 };
 
-export default UnlinkChainAccount;
+export default UnlinkApplication;
