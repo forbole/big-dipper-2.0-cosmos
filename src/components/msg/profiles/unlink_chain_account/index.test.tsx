@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgUnlinkApplication } from '@models';
-import UnlinkApplication from '.';
+import { MsgUnlinkChainAccount } from '@models';
+import UnlinkChainAccount from '.';
 
 // ==================================
 // mocks
@@ -14,18 +14,17 @@ jest.mock('@components', () => ({
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/MsgUnlinkApplication', () => {
+describe('screen: TransactionDetails/UnlinkChainAccount', () => {
   it('matches snapshot', () => {
-    const message = new MsgUnlinkApplication({
+    const message = new MsgUnlinkChainAccount({
       category: 'profiles',
       type: 'MsgUnlinkChainAccount',
-      signer: 'signer',
-      application: 'application',
-      username: 'username',
+      owner: 'owner',
+      chainName: 'chainName',
     });
     const component = renderer.create(
       <MockTheme>
-        <UnlinkApplication
+        <UnlinkChainAccount
           message={message}
         />
       </MockTheme>,
