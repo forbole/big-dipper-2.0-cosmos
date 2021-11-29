@@ -55,5 +55,7 @@
   "maintainBy": "Maintained By <0>{{name}}</0>",
   "txListFormat": "Transactions Format",
   "compact": "Compact",
-  "detailed": "Detailed"
+  "detailed": "Detailed",
+  "profilesNotEnabled": "Profiles not enabled for this explorer",
+  "insertValidDtag": "Please insert a valid dtag"
 }
