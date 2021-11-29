@@ -4,7 +4,7 @@ import {
 import axios from 'axios';
 import { DesmosProfileQuery } from '@graphql/desmos_profile';
 import {
-  DesmosProfileDocument, DesmosProfileLinkDocument,
+  DesmosProfileDocument, DesmosProfileLinkDocument, DesmosProfileDtagDocument,
 } from '@graphql/desmos_profile_graphql';
 
 type Options = {
@@ -51,19 +51,39 @@ export const useDesmosProfile = (options: Options) => {
     }
   };
 
-  const fetchDesmosProfile = async (address: string) => {
+  const fetchDtag = async (dtag: string) => {
+    try {
+      const { data } = await axios.post(PROFILE_API, {
+        variables: {
+          dtag,
+        },
+        query: DesmosProfileDtagDocument,
+      });
+
+      return data.data;
+    } catch (error) {
+      return null;
+    }
+  };
+
+  const fetchDesmosProfile = async (input: string) => {
     let data:DesmosProfileQuery = {
       profile: [],
     };
+
     try {
       setLoading(true);
-      if (address.includes('desmos')) {
-        data = await fetchDesmos(address);
+      if (input.startsWith('@')) {
+        data = await fetchDtag(input.substr(1));
+      }
+
+      if (input.startsWith('desmos')) {
+        data = await fetchDesmos(input);
       }
 
       // if the address is a link instead
       if (!data.profile.length) {
-        data = await fetchLink(address);
+        data = await fetchLink(input);
       }
       setLoading(false);
       return options.onComplete(data);
