@@ -5,10 +5,17 @@ import { useSearchBar } from './hooks';
 
 const SearchBar: React.FC<{className?: string}> = ({ className }) => {
   const { t } = useTranslation('common');
-
+  const placeholderText;
   const {
     handleOnSubmit,
   } = useSearchBar(t);
+
+  if (){
+    placeholderText = t('searchBarPlaceholder');
+  }else{
+    placeholderText = t('searchBarPlaceholder');
+  }
+  
 
   return (
     <Search
