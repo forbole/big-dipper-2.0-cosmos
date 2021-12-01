@@ -6,6 +6,7 @@ export const formatMarket = (data: {
   communityPool: TokenUnit;
   supply: TokenUnit;
   inflation: number;
+  apr: number;
 }) => {
   const marketCap = data.marketCap !== null ? `$${formatNumber(data.marketCap.toString(), 2)}` : 'N/A';
 
@@ -17,6 +18,10 @@ export const formatMarket = (data: {
     {
       key: 'inflation',
       data: `${formatNumber(Big(data.inflation).times(100).toPrecision(), 0)}%`,
+    },
+    {
+      key: 'apr',
+      data: '%',
     },
     {
       key: 'supply',

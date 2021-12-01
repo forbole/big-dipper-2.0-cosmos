@@ -37,7 +37,6 @@ export const useMarketRecoil = () => {
     let {
       communityPool, price, marketCap,
     } = market;
-    const { apr } = market;
 
     if (data?.tokenPrice?.length) {
       price = numeral(numeral(data?.tokenPrice[0]?.price).format('0.[00]', Math.floor)).value();
@@ -57,6 +56,8 @@ export const useMarketRecoil = () => {
     if (communityPoolCoin) {
       communityPool = formatToken(communityPoolCoin.amount, communityPoolCoin.denom);
     }
+
+    const apr = supply * inflation;
 
     return ({
       price,
