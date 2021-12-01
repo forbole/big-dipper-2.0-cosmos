@@ -9,6 +9,7 @@ export const formatMarket = (data: {
   apr: number;
 }) => {
   const marketCap = data.marketCap !== null ? `$${formatNumber(data.marketCap.toString(), 2)}` : 'N/A';
+  const { apr } = data;
 
   return ([
     {
@@ -21,7 +22,7 @@ export const formatMarket = (data: {
     },
     {
       key: 'apr',
-      data: '%',
+      data: `${apr}%`,
     },
     {
       key: 'supply',
