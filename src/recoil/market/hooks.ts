@@ -38,6 +38,7 @@ export const useMarketRecoil = () => {
     let {
       communityPool, price, marketCap,
     } = market;
+
     console.log('data', data);
 
     if (data?.tokenPrice?.length) {
@@ -59,10 +60,12 @@ export const useMarketRecoil = () => {
       communityPool = formatToken(communityPoolCoin.amount, communityPoolCoin.denom);
     }
 
+    const bondedTokens = R.pathOr(0, ['bondedTokens', 0, 'bonded_tokens'], data);
+    console.log('bondedTokens  => ', bondedTokens);
     const aprSupply = R.pathOr(0, ['supply', 0, 'coins', 0, 'amount'], data);
     console.log('aprSupply', aprSupply); // supply.value
     console.log('supply =>', supply, 'inflation =>', inflation);
-    const apr = aprSupply * inflation;
+    const apr = (aprSupply * inflation) / bondedTokens;
     console.log('Big()', Big(1898989889920000499939 * 3040300293949), 1898989889920000499939 * 3040300293949);
 
     return ({
