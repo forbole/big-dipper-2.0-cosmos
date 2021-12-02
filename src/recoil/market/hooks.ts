@@ -16,7 +16,6 @@ import {
 import { AtomState } from '@recoil/market/types';
 import { getDenom } from '@utils/get_denom';
 import { formatToken } from '@utils/format_token';
-import Big from 'big.js';
 
 export const useMarketRecoil = () => {
   const [market, setMarket] = useRecoilState(writeMarket) as [AtomState, SetterOrUpdater<AtomState>];
@@ -63,7 +62,6 @@ export const useMarketRecoil = () => {
     const bondedTokens = R.pathOr(0, ['bondedTokens', 0, 'bonded_tokens'], data);
     const aprSupply = R.pathOr(0, ['supply', 0, 'coins', 0, 'amount'], data);
     const apr = (aprSupply * inflation) / bondedTokens;
-    console.log('Big()', Big(1898989889920000499939 * 3040300293949), 1898989889920000499939 * 3040300293949);
 
     return ({
       price,
