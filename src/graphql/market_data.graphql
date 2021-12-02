@@ -13,6 +13,6 @@ query MarketData ($denom: String) {
     coins
   }
   bondedTokens: staking_pool(order_by: {height: desc}, limit: 1) {
-    bonded: bonded_tokens
+    bonded_tokens
   }
 }
