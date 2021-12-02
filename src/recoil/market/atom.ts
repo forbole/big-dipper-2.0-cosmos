@@ -17,7 +17,7 @@ const initialState: AtomState = {
     baseDenom: '',
     exponent: 0,
   },
-  bondedTokens: 0,
+  apr: 0,
 };
 
 export const atomState = atom<AtomState>({

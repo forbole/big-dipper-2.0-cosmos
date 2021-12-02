@@ -4,5 +4,5 @@ export type AtomState = {
   marketCap: number | null;
   inflation: number;
   communityPool: TokenUnit;
-  bondedTokens: number;
+  apr: number;
 }

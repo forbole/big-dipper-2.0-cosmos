@@ -38,8 +38,6 @@ export const useMarketRecoil = () => {
       communityPool, price, marketCap,
     } = market;
 
-    console.log('data', data);
-
     if (data?.tokenPrice?.length) {
       price = numeral(numeral(data?.tokenPrice[0]?.price).format('0.[00]', Math.floor)).value();
       marketCap = data.tokenPrice[0]?.marketCap;
