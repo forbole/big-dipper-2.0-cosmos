@@ -27,6 +27,7 @@
   "communityPool": "Community Pool",
   "price": "Price",
   "inflation": "Inflation",
+  "apr": "APR",
   "success": "Success",
   "fail": "Fail",
   "filterBy": "Filter By...",
