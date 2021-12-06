@@ -1,3 +1,10 @@
+# base-v1.8.2 - 2021-12-06
+## Bug fixes
+- Fix APR to handle multiple supply coins
+
+# base-v1.8.1 - 2021-12-06
+## Bug fixes
+- Fix `formatNumber` display after cleaning up ending 0s
 # base-v1.8.0 - 2021-12-06
 
 ## Changes
