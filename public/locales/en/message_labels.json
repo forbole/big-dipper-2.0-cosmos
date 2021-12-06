@@ -65,5 +65,11 @@
   "MsgRescueCeth": "Rescue Ceth",
   "MsgRegister": "Register",
   "MsgDeregister": "Deregister",
-  "MsgSetRegistry": "Set Registry"
+  "MsgSetRegistry": "Set Registry",
+  "MsgGrant": "Grant",
+  "MsgRevoke": "Revoke",
+  "MsgGrantAllowance": "Grant Allowance",
+  "MsgRevokeAllowance": "Revoke Allowance",
+  "MsgCreateVestingAccount": "Create Vesting Account",
+  "MsgCreatePeriodicVestingAccount": "Create Periodic Vesting Account"
 }

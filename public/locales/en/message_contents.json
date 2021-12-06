@@ -66,5 +66,11 @@
   "MsgRescueCeth": "<0>{{cosmosSender}}</0> rescued ceth",
   "MsgRegister": "<0>{{from}}</0> registered <1>{{denom}}</1>",
   "MsgDeregister": "<0>{{from}}</0> deregistered <1>{{denom}}</1>",
-  "MsgSetRegistry": "<0>{{from}}</0> set registry for <1>{{denoms}}</1>"
+  "MsgSetRegistry": "<0>{{from}}</0> set registry for <1>{{denoms}}</1>",
+  "MsgGrant": "<0>{{granter}}</0> authorized a grant for <1>{{grantee}}</1>",
+  "MsgRevoke": "<0>{{granter}}</0> revoked a grant for <1>{{grantee}}</1>",
+  "MsgGrantAllowance": "<0>{{granter}}</0> granted allowance for <1>{{grantee}}</1>",
+  "MsgRevokeAllowance": "<0>{{granter}}</0> revoked allowance for <1>{{grantee}}</1>",
+  "MsgCreateVestingAccount": "Vesting account created for <0>{{toAddress}}</0>",
+  "MsgCreatePeriodicVestingAccount": "Periodic vesting account created for <0>{{toAddress}}</0>"
 }

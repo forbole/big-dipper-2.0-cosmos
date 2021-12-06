@@ -45,6 +45,18 @@ export const getFilterLabels = () => {
       display: 'tokenregistry',
     },
     {
+      key: 'authz',
+      display: 'authz',
+    },
+    {
+      key: 'feegrant',
+      display: 'feegrant',
+    },
+    {
+      key: 'vesting',
+      display: 'vesting',
+    },
+    {
       key: 'others',
       display: 'others',
     },

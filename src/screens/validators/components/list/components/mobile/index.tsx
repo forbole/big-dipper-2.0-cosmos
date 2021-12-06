@@ -10,6 +10,7 @@ import {
   useList,
   useListRow,
 } from '@hooks';
+import { getValidatorStatus } from '@utils/get_validator_status';
 import { SingleValidator } from './component';
 import {
   Condition, VotingPower,
@@ -29,7 +30,10 @@ const Mobile: React.FC<{
   } = useList();
 
   const formattedItems = items.map((x, i) => {
+    const status = getValidatorStatus(x.status, x.jailed);
     const condition = x.status === 3 ? getValidatorConditionClass(x.condition) : undefined;
+    const percentDisplay = x.status === 3 ? `${numeral(x.votingPowerPercent).format('0.[00]')}%` : '0%';
+    const votingPower = numeral(x.votingPower).format('0,0');
     return ({
       idx: `#${i + 1}`,
       delegators: numeral(x.delegators).format('0,0'),
@@ -47,11 +51,13 @@ const Mobile: React.FC<{
       ),
       votingPower: (
         <VotingPower
-          percentDisplay={`${numeral(x.votingPowerPercent).format('0.[00]')}%`}
+          percentDisplay={percentDisplay}
           percentage={x.votingPowerPercent}
-          content={numeral(x.votingPower).format('0,0')}
+          content={votingPower}
+          topVotingPower={x.topVotingPower}
         />
       ),
+      status,
     });
   });
 
