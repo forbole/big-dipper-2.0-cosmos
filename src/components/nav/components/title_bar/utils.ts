@@ -17,12 +17,12 @@ export const formatMarket = (data: {
       data: marketCap,
     },
     {
-      key: 'apr',
-      data: `${numeral(Big(data.apr).times(100).toPrecision()).format('0.00')}%`,
-    },
-    {
       key: 'inflation',
       data: `${formatNumber(Big(data.inflation).times(100).toPrecision(), 1)}%`,
+    },
+    {
+      key: 'apr',
+      data: `${formatNumber(Big(data.apr).times(100).toPrecision(), 2)}%`,
     },
     {
       key: 'supply',

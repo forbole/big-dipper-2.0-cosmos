@@ -32,12 +32,12 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
       <p
         className="MuiTypography-root label MuiTypography-body1"
       >
-        common:apr
+        common:inflation
       </p>
       <p
         className="MuiTypography-root MuiTypography-body1"
       >
-        0.00%
+        0%
       </p>
     </div>
     <div
@@ -46,7 +46,7 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
       <p
         className="MuiTypography-root label MuiTypography-body1"
       >
-        common:inflation
+        common:apr
       </p>
       <p
         className="MuiTypography-root MuiTypography-body1"
@@ -118,12 +118,12 @@ exports[`screen: Nav/TitleBar it renders 1`] = `
       <p
         className="MuiTypography-root label MuiTypography-body1"
       >
-        common:apr
+        common:inflation
       </p>
       <p
         className="MuiTypography-root MuiTypography-body1"
       >
-        0.00%
+        0%
       </p>
     </div>
     <div
@@ -132,7 +132,7 @@ exports[`screen: Nav/TitleBar it renders 1`] = `
       <p
         className="MuiTypography-root label MuiTypography-body1"
       >
-        common:inflation
+        common:apr
       </p>
       <p
         className="MuiTypography-root MuiTypography-body1"
