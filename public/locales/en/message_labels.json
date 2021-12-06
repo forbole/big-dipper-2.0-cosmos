@@ -56,5 +56,11 @@
   "txCancelReplaceLimitOrderLabel": "Replace Limit Order",
   "txCancelReplaceMarketOrderLabel": "Replace Market Order",
   "txMintTokens": "Mint Tokens",
-  "txBurnTokens": "Burn Tokens"
+  "txBurnTokens": "Burn Tokens",
+  "MsgGrant": "Grant",
+  "MsgRevoke": "Revoke",
+  "MsgGrantAllowance": "Grant Allowance",
+  "MsgRevokeAllowance": "Revoke Allowance",
+  "MsgCreateVestingAccount": "Create Vesting Account",
+  "MsgCreatePeriodicVestingAccount": "Create Periodic Vesting Account"
 }
