@@ -66,6 +66,12 @@ import LinkChainAccount from './profiles/link_chain_account';
 import UnlinkChainAccount from './profiles/unlink_chain_account';
 import LinkApplication from './profiles/link_application';
 import UnlinkApplication from './profiles/unlink_application';
+import Grant from './authz/grant';
+import Revoke from './authz/revoke';
+import GrantAllowance from './feegrant/grant_allowance';
+import RevokeAllowance from './feegrant/revoke_allowance';
+import CreateVestingAccount from './vesting/create_vesting_account';
+import CreatePeriodicVestingAccount from './vesting/create_periodic_vesting_account';
 
 export {
   getMessageModelByType,
@@ -130,4 +136,10 @@ export {
   UnlinkChainAccount,
   LinkApplication,
   UnlinkApplication,
+  Grant,
+  Revoke,
+  GrantAllowance,
+  RevokeAllowance,
+  CreateVestingAccount,
+  CreatePeriodicVestingAccount,
 };

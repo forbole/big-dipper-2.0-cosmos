@@ -8069,6 +8069,42 @@ export type Profile_Variance_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
+/** columns and relationships of "profiles_params" */
+export type Profiles_Params = {
+  __typename?: 'profiles_params';
+  height: Scalars['bigint'];
+  params: Scalars['jsonb'];
+};
+
+
+/** columns and relationships of "profiles_params" */
+export type Profiles_ParamsParamsArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+/** Boolean expression to filter rows from the table "profiles_params". All fields are combined with a logical 'AND'. */
+export type Profiles_Params_Bool_Exp = {
+  _and?: Maybe<Array<Profiles_Params_Bool_Exp>>;
+  _not?: Maybe<Profiles_Params_Bool_Exp>;
+  _or?: Maybe<Array<Profiles_Params_Bool_Exp>>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  params?: Maybe<Jsonb_Comparison_Exp>;
+};
+
+/** Ordering options when selecting data from "profiles_params". */
+export type Profiles_Params_Order_By = {
+  height?: Maybe<Order_By>;
+  params?: Maybe<Order_By>;
+};
+
+/** select columns of table "profiles_params" */
+export enum Profiles_Params_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Params = 'params'
+}
+
 /** columns and relationships of "proposal" */
 export type Proposal = {
   __typename?: 'proposal';
@@ -8831,14 +8867,14 @@ export type Proposal_Sum_Order_By = {
 /** columns and relationships of "proposal_tally_result" */
 export type Proposal_Tally_Result = {
   __typename?: 'proposal_tally_result';
-  abstain: Scalars['bigint'];
+  abstain: Scalars['String'];
   height: Scalars['bigint'];
-  no: Scalars['bigint'];
-  no_with_veto: Scalars['bigint'];
+  no: Scalars['String'];
+  no_with_veto: Scalars['String'];
   /** An object relationship */
   proposal: Proposal;
   proposal_id: Scalars['Int'];
-  yes: Scalars['bigint'];
+  yes: Scalars['String'];
 };
 
 /** aggregated selection of "proposal_tally_result" */
@@ -8889,22 +8925,14 @@ export type Proposal_Tally_Result_Aggregate_Order_By = {
 /** aggregate avg on columns */
 export type Proposal_Tally_Result_Avg_Fields = {
   __typename?: 'proposal_tally_result_avg_fields';
-  abstain?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  no?: Maybe<Scalars['Float']>;
-  no_with_veto?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
-  yes?: Maybe<Scalars['Float']>;
 };
 
 /** order by avg() on columns of table "proposal_tally_result" */
 export type Proposal_Tally_Result_Avg_Order_By = {
-  abstain?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-  no?: Maybe<Order_By>;
-  no_with_veto?: Maybe<Order_By>;
   proposal_id?: Maybe<Order_By>;
-  yes?: Maybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "proposal_tally_result". All fields are combined with a logical 'AND'. */
@@ -8912,24 +8940,24 @@ export type Proposal_Tally_Result_Bool_Exp = {
   _and?: Maybe<Array<Proposal_Tally_Result_Bool_Exp>>;
   _not?: Maybe<Proposal_Tally_Result_Bool_Exp>;
   _or?: Maybe<Array<Proposal_Tally_Result_Bool_Exp>>;
-  abstain?: Maybe<Bigint_Comparison_Exp>;
+  abstain?: Maybe<String_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
-  no?: Maybe<Bigint_Comparison_Exp>;
-  no_with_veto?: Maybe<Bigint_Comparison_Exp>;
+  no?: Maybe<String_Comparison_Exp>;
+  no_with_veto?: Maybe<String_Comparison_Exp>;
   proposal?: Maybe<Proposal_Bool_Exp>;
   proposal_id?: Maybe<Int_Comparison_Exp>;
-  yes?: Maybe<Bigint_Comparison_Exp>;
+  yes?: Maybe<String_Comparison_Exp>;
 };
 
 /** aggregate max on columns */
 export type Proposal_Tally_Result_Max_Fields = {
   __typename?: 'proposal_tally_result_max_fields';
-  abstain?: Maybe<Scalars['bigint']>;
+  abstain?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
-  no?: Maybe<Scalars['bigint']>;
-  no_with_veto?: Maybe<Scalars['bigint']>;
+  no?: Maybe<Scalars['String']>;
+  no_with_veto?: Maybe<Scalars['String']>;
   proposal_id?: Maybe<Scalars['Int']>;
-  yes?: Maybe<Scalars['bigint']>;
+  yes?: Maybe<Scalars['String']>;
 };
 
 /** order by max() on columns of table "proposal_tally_result" */
@@ -8945,12 +8973,12 @@ export type Proposal_Tally_Result_Max_Order_By = {
 /** aggregate min on columns */
 export type Proposal_Tally_Result_Min_Fields = {
   __typename?: 'proposal_tally_result_min_fields';
-  abstain?: Maybe<Scalars['bigint']>;
+  abstain?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
-  no?: Maybe<Scalars['bigint']>;
-  no_with_veto?: Maybe<Scalars['bigint']>;
+  no?: Maybe<Scalars['String']>;
+  no_with_veto?: Maybe<Scalars['String']>;
   proposal_id?: Maybe<Scalars['Int']>;
-  yes?: Maybe<Scalars['bigint']>;
+  yes?: Maybe<Scalars['String']>;
 };
 
 /** order by min() on columns of table "proposal_tally_result" */
@@ -8993,148 +9021,92 @@ export enum Proposal_Tally_Result_Select_Column {
 /** aggregate stddev on columns */
 export type Proposal_Tally_Result_Stddev_Fields = {
   __typename?: 'proposal_tally_result_stddev_fields';
-  abstain?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  no?: Maybe<Scalars['Float']>;
-  no_with_veto?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
-  yes?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev() on columns of table "proposal_tally_result" */
 export type Proposal_Tally_Result_Stddev_Order_By = {
-  abstain?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-  no?: Maybe<Order_By>;
-  no_with_veto?: Maybe<Order_By>;
   proposal_id?: Maybe<Order_By>;
-  yes?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Proposal_Tally_Result_Stddev_Pop_Fields = {
   __typename?: 'proposal_tally_result_stddev_pop_fields';
-  abstain?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  no?: Maybe<Scalars['Float']>;
-  no_with_veto?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
-  yes?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_pop() on columns of table "proposal_tally_result" */
 export type Proposal_Tally_Result_Stddev_Pop_Order_By = {
-  abstain?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-  no?: Maybe<Order_By>;
-  no_with_veto?: Maybe<Order_By>;
   proposal_id?: Maybe<Order_By>;
-  yes?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Proposal_Tally_Result_Stddev_Samp_Fields = {
   __typename?: 'proposal_tally_result_stddev_samp_fields';
-  abstain?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  no?: Maybe<Scalars['Float']>;
-  no_with_veto?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
-  yes?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_samp() on columns of table "proposal_tally_result" */
 export type Proposal_Tally_Result_Stddev_Samp_Order_By = {
-  abstain?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-  no?: Maybe<Order_By>;
-  no_with_veto?: Maybe<Order_By>;
   proposal_id?: Maybe<Order_By>;
-  yes?: Maybe<Order_By>;
 };
 
 /** aggregate sum on columns */
 export type Proposal_Tally_Result_Sum_Fields = {
   __typename?: 'proposal_tally_result_sum_fields';
-  abstain?: Maybe<Scalars['bigint']>;
   height?: Maybe<Scalars['bigint']>;
-  no?: Maybe<Scalars['bigint']>;
-  no_with_veto?: Maybe<Scalars['bigint']>;
   proposal_id?: Maybe<Scalars['Int']>;
-  yes?: Maybe<Scalars['bigint']>;
 };
 
 /** order by sum() on columns of table "proposal_tally_result" */
 export type Proposal_Tally_Result_Sum_Order_By = {
-  abstain?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-  no?: Maybe<Order_By>;
-  no_with_veto?: Maybe<Order_By>;
   proposal_id?: Maybe<Order_By>;
-  yes?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
 export type Proposal_Tally_Result_Var_Pop_Fields = {
   __typename?: 'proposal_tally_result_var_pop_fields';
-  abstain?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  no?: Maybe<Scalars['Float']>;
-  no_with_veto?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
-  yes?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_pop() on columns of table "proposal_tally_result" */
 export type Proposal_Tally_Result_Var_Pop_Order_By = {
-  abstain?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-  no?: Maybe<Order_By>;
-  no_with_veto?: Maybe<Order_By>;
   proposal_id?: Maybe<Order_By>;
-  yes?: Maybe<Order_By>;
 };
 
 /** aggregate var_samp on columns */
 export type Proposal_Tally_Result_Var_Samp_Fields = {
   __typename?: 'proposal_tally_result_var_samp_fields';
-  abstain?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  no?: Maybe<Scalars['Float']>;
-  no_with_veto?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
-  yes?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_samp() on columns of table "proposal_tally_result" */
 export type Proposal_Tally_Result_Var_Samp_Order_By = {
-  abstain?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-  no?: Maybe<Order_By>;
-  no_with_veto?: Maybe<Order_By>;
   proposal_id?: Maybe<Order_By>;
-  yes?: Maybe<Order_By>;
 };
 
 /** aggregate variance on columns */
 export type Proposal_Tally_Result_Variance_Fields = {
   __typename?: 'proposal_tally_result_variance_fields';
-  abstain?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  no?: Maybe<Scalars['Float']>;
-  no_with_veto?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
-  yes?: Maybe<Scalars['Float']>;
 };
 
 /** order by variance() on columns of table "proposal_tally_result" */
 export type Proposal_Tally_Result_Variance_Order_By = {
-  abstain?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-  no?: Maybe<Order_By>;
-  no_with_veto?: Maybe<Order_By>;
   proposal_id?: Maybe<Order_By>;
-  yes?: Maybe<Order_By>;
 };
 
 /** columns and relationships of "proposal_validator_status_snapshot" */
@@ -9891,6 +9863,8 @@ export type Query_Root = {
   profile_relationship: Array<Profile_Relationship>;
   /** fetch aggregated fields from the table: "profile_relationship" */
   profile_relationship_aggregate: Profile_Relationship_Aggregate;
+  /** fetch data from the table: "profiles_params" */
+  profiles_params: Array<Profiles_Params>;
   /** fetch data from the table: "proposal" */
   proposal: Array<Proposal>;
   /** fetch aggregated fields from the table: "proposal" */
@@ -10816,6 +10790,15 @@ export type Query_RootProfile_Relationship_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Profile_Relationship_Order_By>>;
   where?: Maybe<Profile_Relationship_Bool_Exp>;
+};
+
+
+export type Query_RootProfiles_ParamsArgs = {
+  distinct_on?: Maybe<Array<Profiles_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Profiles_Params_Order_By>>;
+  where?: Maybe<Profiles_Params_Bool_Exp>;
 };
 
 
@@ -12505,6 +12488,8 @@ export type Subscription_Root = {
   profile_relationship: Array<Profile_Relationship>;
   /** fetch aggregated fields from the table: "profile_relationship" */
   profile_relationship_aggregate: Profile_Relationship_Aggregate;
+  /** fetch data from the table: "profiles_params" */
+  profiles_params: Array<Profiles_Params>;
   /** fetch data from the table: "proposal" */
   proposal: Array<Proposal>;
   /** fetch aggregated fields from the table: "proposal" */
@@ -13430,6 +13415,15 @@ export type Subscription_RootProfile_Relationship_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Profile_Relationship_Order_By>>;
   where?: Maybe<Profile_Relationship_Bool_Exp>;
+};
+
+
+export type Subscription_RootProfiles_ParamsArgs = {
+  distinct_on?: Maybe<Array<Profiles_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Profiles_Params_Order_By>>;
+  where?: Maybe<Profiles_Params_Bool_Exp>;
 };
 
 
@@ -18711,6 +18705,9 @@ export type MarketDataQuery = { communityPool: Array<(
   )>, supply: Array<(
     { __typename?: 'supply' }
     & Pick<Supply, 'coins'>
+  )>, bondedTokens: Array<(
+    { __typename?: 'staking_pool' }
+    & Pick<Staking_Pool, 'bonded_tokens'>
   )> };
 
 export type GetMessagesByAddressQueryVariables = Exact<{
@@ -19533,6 +19530,9 @@ export const MarketDataDocument = gql`
   }
   supply {
     coins
+  }
+  bondedTokens: staking_pool(order_by: {height: desc}, limit: 1) {
+    bonded_tokens
   }
 }
     `;
