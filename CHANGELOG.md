@@ -1,7 +1,7 @@
-# Unreleased
+# base-v1.8.0 - 2021-12-06
 
 ## Changes
-- Display `APR` on title bar ([\#483](https://github.com/forbole/big-dipper-2.0-cosmos/issues/483)) 
+- Display `APR` on title bar ([\#483](https://github.com/forbole/big-dipper-2.0-cosmos/issues/483))
 - Add `@dtag` to search bar ([\#554](https://github.com/forbole/big-dipper-2.0-cosmos/issues/554))
 - Add `/@dtag` feature ([\#428](https://github.com/forbole/big-dipper-2.0-cosmos/issues/428))
 - Add `feegrant` and `authz` messages ([\#481](https://github.com/forbole/big-dipper-2.0-cosmos/issues/481))
