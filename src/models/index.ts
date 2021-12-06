@@ -66,6 +66,14 @@ import MsgConnectionOpenTry from './msg/ibc/msg_connection_open_try';
 import MsgCounterpartyConnection from './msg/ibc/msg_connection_counterparty';
 import MsgVersion from './msg/ibc/msg_connection_version';
 import MsgTransfer from './msg/ibc_transfer/msg_transfer';
+import MsgCreateIssuer from './msg/authority/msg_create_issuer';
+import MsgAddLimitOrder from './msg/market/msg_add_limit_order';
+import MsgAddMarketOrder from './msg/market/msg_add_market_order';
+import MsgCancelOrder from './msg/market/msg_cancel_order';
+import MsgCancelReplaceLimitOrder from './msg/market/msg_cancel_replace_limit_order';
+import MsgCancelReplaceMarketOrder from './msg/market/msg_cancel_replace_market_order';
+import MsgMintTokens from './msg/liquidity_provider/msg_mint_tokens';
+import MsgBurnTokens from './msg/liquidity_provider/msg_burn_tokens';
 import MsgGrant from './msg/authz/msg_grant';
 import MsgRevoke from './msg/authz/msg_revoke';
 import MsgGrantAllowance from './msg/feegrant/msg_grant_allowance';
@@ -141,6 +149,14 @@ export {
   MsgCounterpartyConnection,
   MsgVersion,
   MsgTransfer,
+  MsgCreateIssuer,
+  MsgAddLimitOrder,
+  MsgAddMarketOrder,
+  MsgCancelOrder,
+  MsgCancelReplaceLimitOrder,
+  MsgCancelReplaceMarketOrder,
+  MsgMintTokens,
+  MsgBurnTokens,
   MsgGrant,
   MsgRevoke,
   MsgGrantAllowance,

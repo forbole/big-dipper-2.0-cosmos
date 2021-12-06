@@ -37,7 +37,7 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
       <p
         className="MuiTypography-root MuiTypography-body1"
       >
-        0%
+        0.00%
       </p>
     </div>
     <div
@@ -79,7 +79,7 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
       <p
         className="MuiTypography-root MuiTypography-body1"
       >
-        0 
+        0.00 
       </p>
     </div>
   </div>
@@ -123,7 +123,7 @@ exports[`screen: Nav/TitleBar it renders 1`] = `
       <p
         className="MuiTypography-root MuiTypography-body1"
       >
-        0%
+        0.00%
       </p>
     </div>
     <div
@@ -165,7 +165,7 @@ exports[`screen: Nav/TitleBar it renders 1`] = `
       <p
         className="MuiTypography-root MuiTypography-body1"
       >
-        0 
+        0.00 
       </p>
     </div>
   </div>
