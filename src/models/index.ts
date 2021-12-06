@@ -68,6 +68,12 @@ import MsgLinkChainAccount from './msg/profiles/msg_link_chain_account';
 import MsgLinkApplication from './msg/profiles/msg_link_application';
 import MsgUnlinkApplication from './msg/profiles/msg_unlink_application';
 import MsgUnlinkChainAccount from './msg/profiles/msg_unlink_chain_account';
+import MsgGrant from './msg/authz/msg_grant';
+import MsgRevoke from './msg/authz/msg_revoke';
+import MsgGrantAllowance from './msg/feegrant/msg_grant_allowance';
+import MsgRevokeAllowance from './msg/feegrant/msg_revoke_allowance';
+import MsgCreateVestingAccount from './msg/vesting/msg_create_vesting_account';
+import MsgCreatePeriodicVestingAccount from './msg/vesting/msg_create_periodic_vesting_account';
 
 export {
   BigDipperNetwork,
@@ -140,4 +146,10 @@ export {
   MsgLinkApplication,
   MsgUnlinkApplication,
   MsgUnlinkChainAccount,
+  MsgGrant,
+  MsgRevoke,
+  MsgGrantAllowance,
+  MsgRevokeAllowance,
+  MsgCreateVestingAccount,
+  MsgCreatePeriodicVestingAccount,
 };
