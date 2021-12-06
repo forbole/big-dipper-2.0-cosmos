@@ -5,6 +5,7 @@ import {
   useRecoilState,
   SetterOrUpdater,
 } from 'recoil';
+import Big from 'big.js';
 import {
   useMarketDataQuery,
   MarketDataQuery,
@@ -46,20 +47,22 @@ export const useMarketRecoil = () => {
     const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter((x) => x.denom === chainConfig.primaryTokenUnit);
     const inflation = R.pathOr(0, ['inflation', 0, 'value'], data);
 
+    const rawSupplyAmount = getDenom(
+      R.pathOr([], ['supply', 0, 'coins'], data),
+      chainConfig.primaryTokenUnit,
+    ).amount;
     const supply = formatToken(
-      getDenom(
-        R.pathOr([], ['supply', 0, 'coins'], data),
-        chainConfig.primaryTokenUnit,
-      ).amount,
+      rawSupplyAmount,
       chainConfig.primaryTokenUnit,
     );
+
     if (communityPoolCoin) {
       communityPool = formatToken(communityPoolCoin.amount, communityPoolCoin.denom);
     }
 
     const bondedTokens = R.pathOr(0, ['bondedTokens', 0, 'bonded_tokens'], data);
-    const aprSupply = R.pathOr(0, ['supply', 0, 'coins', 0, 'amount'], data);
-    const apr = (aprSupply * inflation) / bondedTokens;
+
+    const apr = Big(rawSupplyAmount).times(inflation).div(bondedTokens).toNumber();
 
     return ({
       price,
