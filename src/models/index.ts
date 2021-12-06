@@ -74,6 +74,12 @@ import MsgCancelReplaceLimitOrder from './msg/market/msg_cancel_replace_limit_or
 import MsgCancelReplaceMarketOrder from './msg/market/msg_cancel_replace_market_order';
 import MsgMintTokens from './msg/liquidity_provider/msg_mint_tokens';
 import MsgBurnTokens from './msg/liquidity_provider/msg_burn_tokens';
+import MsgGrant from './msg/authz/msg_grant';
+import MsgRevoke from './msg/authz/msg_revoke';
+import MsgGrantAllowance from './msg/feegrant/msg_grant_allowance';
+import MsgRevokeAllowance from './msg/feegrant/msg_revoke_allowance';
+import MsgCreateVestingAccount from './msg/vesting/msg_create_vesting_account';
+import MsgCreatePeriodicVestingAccount from './msg/vesting/msg_create_periodic_vesting_account';
 
 export {
   BigDipperNetwork,
@@ -151,4 +157,10 @@ export {
   MsgCancelReplaceMarketOrder,
   MsgMintTokens,
   MsgBurnTokens,
+  MsgGrant,
+  MsgRevoke,
+  MsgGrantAllowance,
+  MsgRevokeAllowance,
+  MsgCreateVestingAccount,
+  MsgCreatePeriodicVestingAccount,
 };

@@ -32,5 +32,8 @@
   "authority": "Authority",
   "market": "Market",
   "liquidityProvider": "Liquidity Provider",
-  "details": "Details"
+  "details": "Details",
+  "authz": "Authz",
+  "feegrant": "Feegrant",
+  "vesting": "Vesting"
 }

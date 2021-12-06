@@ -41,7 +41,7 @@ export const formatNumber = (tokenUnit: string, toFixed?: number): string => {
       toFixed = decimal.length;
     }
     const formatDecimal = removeEndingZeros(decimal.substring(0, toFixed));
-    return `${formatWholeNumber}.${formatDecimal}`;
+    return `${formatWholeNumber}${formatDecimal.length ? '.' : ''}${formatDecimal}`;
   }
   return formatWholeNumber;
 };

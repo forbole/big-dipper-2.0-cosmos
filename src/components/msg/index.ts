@@ -70,6 +70,12 @@ import CancelReplaceLimitOrder from './market/cancel_replace_limit_order';
 import CancelReplaceMarketOrder from './market/cancel_replace_market_order';
 import MintTokens from './liquidity_provider/mint_tokens';
 import BurnTokens from './liquidity_provider/burn_tokens';
+import Grant from './authz/grant';
+import Revoke from './authz/revoke';
+import GrantAllowance from './feegrant/grant_allowance';
+import RevokeAllowance from './feegrant/revoke_allowance';
+import CreateVestingAccount from './vesting/create_vesting_account';
+import CreatePeriodicVestingAccount from './vesting/create_periodic_vesting_account';
 
 export {
   getMessageModelByType,
@@ -138,4 +144,10 @@ export {
   CancelReplaceMarketOrder,
   MintTokens,
   BurnTokens,
+  Grant,
+  Revoke,
+  GrantAllowance,
+  RevokeAllowance,
+  CreateVestingAccount,
+  CreatePeriodicVestingAccount,
 };

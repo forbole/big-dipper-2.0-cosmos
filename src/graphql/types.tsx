@@ -2261,6 +2261,128 @@ export type Delegation_Variance_Order_By = {
   id?: Maybe<Order_By>;
 };
 
+/** columns and relationships of "delegators_to_refresh" */
+export type Delegators_To_Refresh = {
+  __typename?: 'delegators_to_refresh';
+  address: Scalars['String'];
+  height: Scalars['bigint'];
+};
+
+/** aggregated selection of "delegators_to_refresh" */
+export type Delegators_To_Refresh_Aggregate = {
+  __typename?: 'delegators_to_refresh_aggregate';
+  aggregate?: Maybe<Delegators_To_Refresh_Aggregate_Fields>;
+  nodes: Array<Delegators_To_Refresh>;
+};
+
+/** aggregate fields of "delegators_to_refresh" */
+export type Delegators_To_Refresh_Aggregate_Fields = {
+  __typename?: 'delegators_to_refresh_aggregate_fields';
+  avg?: Maybe<Delegators_To_Refresh_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Delegators_To_Refresh_Max_Fields>;
+  min?: Maybe<Delegators_To_Refresh_Min_Fields>;
+  stddev?: Maybe<Delegators_To_Refresh_Stddev_Fields>;
+  stddev_pop?: Maybe<Delegators_To_Refresh_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Delegators_To_Refresh_Stddev_Samp_Fields>;
+  sum?: Maybe<Delegators_To_Refresh_Sum_Fields>;
+  var_pop?: Maybe<Delegators_To_Refresh_Var_Pop_Fields>;
+  var_samp?: Maybe<Delegators_To_Refresh_Var_Samp_Fields>;
+  variance?: Maybe<Delegators_To_Refresh_Variance_Fields>;
+};
+
+
+/** aggregate fields of "delegators_to_refresh" */
+export type Delegators_To_Refresh_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Delegators_To_Refresh_Avg_Fields = {
+  __typename?: 'delegators_to_refresh_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "delegators_to_refresh". All fields are combined with a logical 'AND'. */
+export type Delegators_To_Refresh_Bool_Exp = {
+  _and?: Maybe<Array<Delegators_To_Refresh_Bool_Exp>>;
+  _not?: Maybe<Delegators_To_Refresh_Bool_Exp>;
+  _or?: Maybe<Array<Delegators_To_Refresh_Bool_Exp>>;
+  address?: Maybe<String_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Delegators_To_Refresh_Max_Fields = {
+  __typename?: 'delegators_to_refresh_max_fields';
+  address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate min on columns */
+export type Delegators_To_Refresh_Min_Fields = {
+  __typename?: 'delegators_to_refresh_min_fields';
+  address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** Ordering options when selecting data from "delegators_to_refresh". */
+export type Delegators_To_Refresh_Order_By = {
+  address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+};
+
+/** select columns of table "delegators_to_refresh" */
+export enum Delegators_To_Refresh_Select_Column {
+  /** column name */
+  Address = 'address',
+  /** column name */
+  Height = 'height'
+}
+
+/** aggregate stddev on columns */
+export type Delegators_To_Refresh_Stddev_Fields = {
+  __typename?: 'delegators_to_refresh_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Delegators_To_Refresh_Stddev_Pop_Fields = {
+  __typename?: 'delegators_to_refresh_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Delegators_To_Refresh_Stddev_Samp_Fields = {
+  __typename?: 'delegators_to_refresh_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Delegators_To_Refresh_Sum_Fields = {
+  __typename?: 'delegators_to_refresh_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Delegators_To_Refresh_Var_Pop_Fields = {
+  __typename?: 'delegators_to_refresh_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Delegators_To_Refresh_Var_Samp_Fields = {
+  __typename?: 'delegators_to_refresh_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Delegators_To_Refresh_Variance_Fields = {
+  __typename?: 'delegators_to_refresh_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
 /** columns and relationships of "distribution_params" */
 export type Distribution_Params = {
   __typename?: 'distribution_params';
@@ -6038,6 +6160,121 @@ export type Proposal_Vote_Variance_Order_By = {
   proposal_id?: Maybe<Order_By>;
 };
 
+/** columns and relationships of "pruning" */
+export type Pruning = {
+  __typename?: 'pruning';
+  last_pruned_height: Scalars['bigint'];
+};
+
+/** aggregated selection of "pruning" */
+export type Pruning_Aggregate = {
+  __typename?: 'pruning_aggregate';
+  aggregate?: Maybe<Pruning_Aggregate_Fields>;
+  nodes: Array<Pruning>;
+};
+
+/** aggregate fields of "pruning" */
+export type Pruning_Aggregate_Fields = {
+  __typename?: 'pruning_aggregate_fields';
+  avg?: Maybe<Pruning_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Pruning_Max_Fields>;
+  min?: Maybe<Pruning_Min_Fields>;
+  stddev?: Maybe<Pruning_Stddev_Fields>;
+  stddev_pop?: Maybe<Pruning_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Pruning_Stddev_Samp_Fields>;
+  sum?: Maybe<Pruning_Sum_Fields>;
+  var_pop?: Maybe<Pruning_Var_Pop_Fields>;
+  var_samp?: Maybe<Pruning_Var_Samp_Fields>;
+  variance?: Maybe<Pruning_Variance_Fields>;
+};
+
+
+/** aggregate fields of "pruning" */
+export type Pruning_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Pruning_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Pruning_Avg_Fields = {
+  __typename?: 'pruning_avg_fields';
+  last_pruned_height?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "pruning". All fields are combined with a logical 'AND'. */
+export type Pruning_Bool_Exp = {
+  _and?: Maybe<Array<Pruning_Bool_Exp>>;
+  _not?: Maybe<Pruning_Bool_Exp>;
+  _or?: Maybe<Array<Pruning_Bool_Exp>>;
+  last_pruned_height?: Maybe<Bigint_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Pruning_Max_Fields = {
+  __typename?: 'pruning_max_fields';
+  last_pruned_height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate min on columns */
+export type Pruning_Min_Fields = {
+  __typename?: 'pruning_min_fields';
+  last_pruned_height?: Maybe<Scalars['bigint']>;
+};
+
+/** Ordering options when selecting data from "pruning". */
+export type Pruning_Order_By = {
+  last_pruned_height?: Maybe<Order_By>;
+};
+
+/** select columns of table "pruning" */
+export enum Pruning_Select_Column {
+  /** column name */
+  LastPrunedHeight = 'last_pruned_height'
+}
+
+/** aggregate stddev on columns */
+export type Pruning_Stddev_Fields = {
+  __typename?: 'pruning_stddev_fields';
+  last_pruned_height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Pruning_Stddev_Pop_Fields = {
+  __typename?: 'pruning_stddev_pop_fields';
+  last_pruned_height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Pruning_Stddev_Samp_Fields = {
+  __typename?: 'pruning_stddev_samp_fields';
+  last_pruned_height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Pruning_Sum_Fields = {
+  __typename?: 'pruning_sum_fields';
+  last_pruned_height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Pruning_Var_Pop_Fields = {
+  __typename?: 'pruning_var_pop_fields';
+  last_pruned_height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Pruning_Var_Samp_Fields = {
+  __typename?: 'pruning_var_samp_fields';
+  last_pruned_height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Pruning_Variance_Fields = {
+  __typename?: 'pruning_variance_fields';
+  last_pruned_height?: Maybe<Scalars['Float']>;
+};
+
 export type Query_Root = {
   __typename?: 'query_root';
   /** fetch data from the table: "account" */
@@ -6092,6 +6329,10 @@ export type Query_Root = {
   delegation_reward: Array<Delegation_Reward>;
   /** fetch aggregated fields from the table: "delegation_reward" */
   delegation_reward_aggregate: Delegation_Reward_Aggregate;
+  /** fetch data from the table: "delegators_to_refresh" */
+  delegators_to_refresh: Array<Delegators_To_Refresh>;
+  /** fetch aggregated fields from the table: "delegators_to_refresh" */
+  delegators_to_refresh_aggregate: Delegators_To_Refresh_Aggregate;
   /** fetch data from the table: "distribution_params" */
   distribution_params: Array<Distribution_Params>;
   /** fetch aggregated fields from the table: "distribution_params" */
@@ -6190,6 +6431,10 @@ export type Query_Root = {
   proposal_vote: Array<Proposal_Vote>;
   /** fetch aggregated fields from the table: "proposal_vote" */
   proposal_vote_aggregate: Proposal_Vote_Aggregate;
+  /** fetch data from the table: "pruning" */
+  pruning: Array<Pruning>;
+  /** fetch aggregated fields from the table: "pruning" */
+  pruning_aggregate: Pruning_Aggregate;
   /** fetch data from the table: "redelegation" */
   redelegation: Array<Redelegation>;
   /** fetch aggregated fields from the table: "redelegation" */
@@ -6518,6 +6763,24 @@ export type Query_RootDelegation_Reward_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Delegation_Reward_Order_By>>;
   where?: Maybe<Delegation_Reward_Bool_Exp>;
+};
+
+
+export type Query_RootDelegators_To_RefreshArgs = {
+  distinct_on?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Delegators_To_Refresh_Order_By>>;
+  where?: Maybe<Delegators_To_Refresh_Bool_Exp>;
+};
+
+
+export type Query_RootDelegators_To_Refresh_AggregateArgs = {
+  distinct_on?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Delegators_To_Refresh_Order_By>>;
+  where?: Maybe<Delegators_To_Refresh_Bool_Exp>;
 };
 
 
@@ -6917,6 +7180,24 @@ export type Query_RootProposal_Vote_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Proposal_Vote_Order_By>>;
   where?: Maybe<Proposal_Vote_Bool_Exp>;
+};
+
+
+export type Query_RootPruningArgs = {
+  distinct_on?: Maybe<Array<Pruning_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Pruning_Order_By>>;
+  where?: Maybe<Pruning_Bool_Exp>;
+};
+
+
+export type Query_RootPruning_AggregateArgs = {
+  distinct_on?: Maybe<Array<Pruning_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Pruning_Order_By>>;
+  where?: Maybe<Pruning_Bool_Exp>;
 };
 
 
@@ -8070,6 +8351,10 @@ export type Subscription_Root = {
   delegation_reward: Array<Delegation_Reward>;
   /** fetch aggregated fields from the table: "delegation_reward" */
   delegation_reward_aggregate: Delegation_Reward_Aggregate;
+  /** fetch data from the table: "delegators_to_refresh" */
+  delegators_to_refresh: Array<Delegators_To_Refresh>;
+  /** fetch aggregated fields from the table: "delegators_to_refresh" */
+  delegators_to_refresh_aggregate: Delegators_To_Refresh_Aggregate;
   /** fetch data from the table: "distribution_params" */
   distribution_params: Array<Distribution_Params>;
   /** fetch aggregated fields from the table: "distribution_params" */
@@ -8168,6 +8453,10 @@ export type Subscription_Root = {
   proposal_vote: Array<Proposal_Vote>;
   /** fetch aggregated fields from the table: "proposal_vote" */
   proposal_vote_aggregate: Proposal_Vote_Aggregate;
+  /** fetch data from the table: "pruning" */
+  pruning: Array<Pruning>;
+  /** fetch aggregated fields from the table: "pruning" */
+  pruning_aggregate: Pruning_Aggregate;
   /** fetch data from the table: "redelegation" */
   redelegation: Array<Redelegation>;
   /** fetch aggregated fields from the table: "redelegation" */
@@ -8496,6 +8785,24 @@ export type Subscription_RootDelegation_Reward_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Delegation_Reward_Order_By>>;
   where?: Maybe<Delegation_Reward_Bool_Exp>;
+};
+
+
+export type Subscription_RootDelegators_To_RefreshArgs = {
+  distinct_on?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Delegators_To_Refresh_Order_By>>;
+  where?: Maybe<Delegators_To_Refresh_Bool_Exp>;
+};
+
+
+export type Subscription_RootDelegators_To_Refresh_AggregateArgs = {
+  distinct_on?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Delegators_To_Refresh_Order_By>>;
+  where?: Maybe<Delegators_To_Refresh_Bool_Exp>;
 };
 
 
@@ -8895,6 +9202,24 @@ export type Subscription_RootProposal_Vote_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Proposal_Vote_Order_By>>;
   where?: Maybe<Proposal_Vote_Bool_Exp>;
+};
+
+
+export type Subscription_RootPruningArgs = {
+  distinct_on?: Maybe<Array<Pruning_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Pruning_Order_By>>;
+  where?: Maybe<Pruning_Bool_Exp>;
+};
+
+
+export type Subscription_RootPruning_AggregateArgs = {
+  distinct_on?: Maybe<Array<Pruning_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Pruning_Order_By>>;
+  where?: Maybe<Pruning_Bool_Exp>;
 };
 
 
@@ -13523,6 +13848,9 @@ export type MarketDataQuery = { communityPool: Array<(
   )>, supply: Array<(
     { __typename?: 'supply' }
     & Pick<Supply, 'coins'>
+  )>, bondedTokens: Array<(
+    { __typename?: 'staking_pool' }
+    & Pick<Staking_Pool, 'bonded_tokens'>
   )> };
 
 export type GetMessagesByAddressQueryVariables = Exact<{
@@ -14351,6 +14679,9 @@ export const MarketDataDocument = gql`
   }
   supply {
     coins
+  }
+  bondedTokens: staking_pool(order_by: {height: desc}, limit: 1) {
+    bonded_tokens
   }
 }
     `;
