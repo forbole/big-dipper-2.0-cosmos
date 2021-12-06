@@ -52,5 +52,11 @@
   "txLinkChainAccount": "Link Chain Account",
   "txMsgLinkApplication": "Link Application",
   "txMsgUnlinkApplication": "Unlink Application",
-  "txMsgUnlinkChainAccount": "Unlink Chain Account"
+  "txMsgUnlinkChainAccount": "Unlink Chain Account",
+  "MsgGrant": "Grant",
+  "MsgRevoke": "Revoke",
+  "MsgGrantAllowance": "Grant Allowance",
+  "MsgRevokeAllowance": "Revoke Allowance",
+  "MsgCreateVestingAccount": "Create Vesting Account",
+  "MsgCreatePeriodicVestingAccount": "Create Periodic Vesting Account"
 }

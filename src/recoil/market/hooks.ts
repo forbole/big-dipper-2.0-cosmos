@@ -57,12 +57,17 @@ export const useMarketRecoil = () => {
       communityPool = formatToken(communityPoolCoin.amount, communityPoolCoin.denom);
     }
 
+    const bondedTokens = R.pathOr(0, ['bondedTokens', 0, 'bonded_tokens'], data);
+    const aprSupply = R.pathOr(0, ['supply', 0, 'coins', 0, 'amount'], data);
+    const apr = (aprSupply * inflation) / bondedTokens;
+
     return ({
       price,
       supply,
       marketCap,
       inflation,
       communityPool,
+      apr,
     });
   };
 };
