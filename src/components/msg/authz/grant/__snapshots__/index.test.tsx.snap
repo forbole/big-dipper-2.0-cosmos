@@ -11,7 +11,6 @@ exports[`screen: TransactionDetails/Grant matches snapshot 1`] = `
           address="sponderbob"
           name="sponderbob"
         />,
-        <b />,
         <Name
           address="grantee"
           name="grantee"

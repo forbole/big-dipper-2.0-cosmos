@@ -1,3 +1,7 @@
+# base-v1.8.4 - 2021-12-08
+## Bug fixes
+- Fix `feegrant` and `authz` messages ([\#588](https://github.com/forbole/big-dipper-2.0-cosmos/issues/588))
+
 # base-v1.8.3 - 2021-12-07
 ## Bug fixes
 - Fix validators list not displaying inactive validators ([\#583](https://github.com/forbole/big-dipper-2.0-cosmos/issues/583))
