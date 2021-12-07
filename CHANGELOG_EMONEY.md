@@ -1,3 +1,8 @@
+# emoney-v1.3.2 - 2021-12-07
+
+## Changes
+- Merge `base-v1.8.3`
+
 # emoney-v1.3.1 - 2021-12-06
 
 ## Changes
