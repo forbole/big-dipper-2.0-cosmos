@@ -1,3 +1,7 @@
+# base-v1.8.3 - 2021-12-07
+## Bug fixes
+- Fix validators list not displaying inactive validators ([\#583](https://github.com/forbole/big-dipper-2.0-cosmos/issues/583))
+
 # base-v1.8.2 - 2021-12-06
 ## Bug fixes
 - Fix APR to handle multiple supply coins
