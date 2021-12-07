@@ -92,7 +92,7 @@ export const useValidators = () => {
     });
 
     // get the top 34% validators
-    formattedItems = formattedItems.filter((x) => x.status === 3).sort((a, b) => {
+    formattedItems = formattedItems.sort((a, b) => {
       return a.votingPower > b.votingPower ? -1 : 1;
     });
 
@@ -100,17 +100,19 @@ export const useValidators = () => {
     let cumulativeVotingPower = Big(0);
     let reached = false;
     formattedItems.forEach((x) => {
-      const totalVp = cumulativeVotingPower.add(x.votingPowerPercent);
-      if (totalVp.lte(34) && !reached) {
-        x.topVotingPower = true;
-      }
+      if (x.status === 3) {
+        const totalVp = cumulativeVotingPower.add(x.votingPowerPercent);
+        if (totalVp.lte(34) && !reached) {
+          x.topVotingPower = true;
+        }
 
-      if (totalVp.gt(34) && !reached) {
-        x.topVotingPower = true;
-        reached = true;
-      }
+        if (totalVp.gt(34) && !reached) {
+          x.topVotingPower = true;
+          reached = true;
+        }
 
-      cumulativeVotingPower = totalVp;
+        cumulativeVotingPower = totalVp;
+      }
     });
 
     return {
