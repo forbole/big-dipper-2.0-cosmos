@@ -29,7 +29,6 @@ const Revoke = (props: {
               name={granterMoniker}
             />
           ),
-          <b />,
           (
             <Name
               address={message.grantee}
