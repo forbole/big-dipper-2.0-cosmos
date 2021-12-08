@@ -9,6 +9,7 @@ import { useStyles } from './styles';
 import {
   Overview,
   Messages,
+  Logs,
 } from './components';
 import { useTransactionDetails } from './hooks';
 
@@ -43,6 +44,7 @@ const TransactionDetails = () => {
             <Overview
               data={overview}
             />
+            <Logs />
             <Messages
               className={classes.messages}
               messages={filterMessages(messages.items)}
