@@ -31,11 +31,12 @@ export const formatToken = (value: number | string, denom = ''): TokenUnit => {
   return results;
 };
 
-export const formatNumber = (tokenUnit: string, toFixed?: number): string => {
+export const formatNumber = (tokenUnit: string, toFixed: number = null): string => {
   const split = `${tokenUnit}`.split('.');
   const wholeNumber = R.pathOr('', [0], split);
   const decimal = R.pathOr('', [1], split);
   const formatWholeNumber = numeral(wholeNumber).format('0,0');
+
   if (decimal && toFixed !== 0) {
     if (toFixed == null) {
       toFixed = decimal.length;
