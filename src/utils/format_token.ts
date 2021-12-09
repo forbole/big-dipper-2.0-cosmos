@@ -49,14 +49,14 @@ export const formatNumber = (tokenUnit: string, toFixed: number = null): string 
   const formatWholeNumber = numeral(wholeNumber).format('0,0');
 
   // in the event that there is actually decimals and tofixed has not been set to 0
-  // we go inside here
+  // we will handle the decimal
   if (decimal && toFixed !== 0) {
-    // if toFixed is undefined then we basically want to return the whole decimal
+    // if toFixed is null then we want to return the whole decimal
     // otherwise we respect the toFixed input
     if (toFixed == null) {
       toFixed = decimal.length;
     }
-    // we remove any ending 0s because they are a waste of my space ex - 100 -> 1
+    // we remove any ending 0s ex - 100 -> 1
     const formatDecimal = removeEndingZeros(decimal.substring(0, toFixed));
     // merge the full number together and return it.
     // If for some insane reason after removing all the 0s we ended up with
@@ -64,7 +64,7 @@ export const formatNumber = (tokenUnit: string, toFixed: number = null): string 
     return `${formatWholeNumber}${formatDecimal.length ? '.' : ''}${formatDecimal}`;
   }
 
-  // else if there is only whole number then we just return whole number
+  // else we return whole number
   return formatWholeNumber;
 };
 
