@@ -3,6 +3,13 @@ import * as R from 'ramda';
 import Big from 'big.js';
 import { chainConfig } from '@configs';
 
+/**
+ * Util to help me correctly transform a base denom amount
+ * in to a display denom amount
+ * @param value the current amount
+ * @param denom the denom to convert the amount in to
+ * @returns TokenUnit
+ */
 export const formatToken = (value: number | string, denom = ''): TokenUnit => {
   const selectedDenom = chainConfig.tokenUnits[denom];
 
@@ -68,6 +75,12 @@ export const formatNumber = (tokenUnit: string, toFixed: number = null): string 
   return formatWholeNumber;
 };
 
+/**
+ * takes in a number string and removes any lingering 0s
+ * ex - 100 -> 1
+ * @param value number string
+ * @returns a string without lingering 0
+ */
 export const removeEndingZeros = (value: string) => {
   let end = value.length;
   for (let i = value.length; i > 0; i -= 1) {

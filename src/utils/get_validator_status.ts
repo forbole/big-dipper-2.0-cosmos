@@ -1,3 +1,9 @@
+/**
+ * Util to get the validator status and theme
+ * @param status 0-3
+ * @param jailed boolean
+ * @returns an object with status and theme
+ */
 export const getValidatorStatus = (status: number, jailed: boolean) => {
   const results = {
     status: 'na',
