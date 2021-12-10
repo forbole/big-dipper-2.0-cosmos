@@ -24,6 +24,7 @@ const TransactionDetails = () => {
   } = useTransactionDetails();
   const {
     overview,
+    logs,
     messages,
   } = state;
 
@@ -44,7 +45,6 @@ const TransactionDetails = () => {
             <Overview
               data={overview}
             />
-            <Logs />
             <Messages
               className={classes.messages}
               messages={filterMessages(messages.items)}
@@ -52,6 +52,7 @@ const TransactionDetails = () => {
               toggleMessageDisplay={toggleMessageDisplay}
               onMessageFilterCallback={onMessageFilterCallback}
             />
+            {!!logs && <Logs logs={logs} />}
           </span>
         </LoadAndExist>
       </Layout>
