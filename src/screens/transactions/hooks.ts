@@ -43,10 +43,12 @@ export const useTransactions = () => {
   // ================================
   // tx query
   // ================================
+  const LIMIT = 51;
   const transactionQuery = useTransactionsQuery({
     variables: {
-      limit: 50,
-      offset: 1,
+      limit: LIMIT,
+      // offset: 1,
+      offset: state.items.length,
     },
     onError: () => {
       handleSetState({
@@ -54,11 +56,11 @@ export const useTransactions = () => {
       });
     },
     onCompleted: (data) => {
+      const itemsLength = data.transactions.length;
       const newItems = R.uniq([...state.items, ...formatTransactions(data)]);
       handleSetState({
         items: newItems,
-        // ryuash
-        // hasNextPage: newItems.length < data.total.aggregate.count,
+        hasNextPage: itemsLength === 51,
         isNextPageLoading: false,
       });
     },
@@ -72,9 +74,10 @@ export const useTransactions = () => {
     await transactionQuery.fetchMore({
       variables: {
         offset: state.items.length,
-        limit: 50,
+        limit: LIMIT,
       },
     }).then(({ data }) => {
+      const itemsLength = data.transactions.length;
       const newItems = R.uniq([
         ...state.items,
         ...formatTransactions(data),
@@ -83,15 +86,18 @@ export const useTransactions = () => {
       handleSetState({
         items: newItems,
         isNextPageLoading: false,
-        // ryuash
-        // hasNextPage: newItems.length < data.total.aggregate.count,
-        // rawDataTotal: data.total.aggregate.count,
+        hasNextPage: itemsLength === 51,
       });
     });
   };
 
   const formatTransactions = (data: TransactionsListenerSubscription) => {
-    return data.transactions.map((x) => {
+    let formattedData = data.transactions;
+    if (data.transactions.length === 51) {
+      formattedData = data.transactions.slice(0, 51);
+    }
+
+    return formattedData.map((x) => {
       const messages = convertMsgsToModels(x);
       return ({
         height: x.height,

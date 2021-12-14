@@ -18917,13 +18917,7 @@ export type TransactionsQuery = { transactions: Array<(
       { __typename?: 'block' }
       & Pick<Block, 'timestamp'>
     ) }
-  )>, total: (
-    { __typename?: 'transaction_aggregate' }
-    & { aggregate?: Maybe<(
-      { __typename?: 'transaction_aggregate_fields' }
-      & Pick<Transaction_Aggregate_Fields, 'count'>
-    )> }
-  ) };
+  )> };
 
 export type LastHundredBlocksSubscriptionVariables = Exact<{
   address?: Maybe<Scalars['String']>;
@@ -20077,11 +20071,6 @@ export const TransactionsDocument = gql`
     }
     messages
     logs
-  }
-  total: transaction_aggregate {
-    aggregate {
-      count
-    }
   }
 }
     `;
