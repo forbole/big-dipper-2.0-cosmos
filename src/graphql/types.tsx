@@ -18499,6 +18499,9 @@ export type AccountQuery = { stakingParams: Array<(
         )>, validatorStatuses: Array<(
           { __typename?: 'validator_status' }
           & Pick<Validator_Status, 'status' | 'jailed'>
+        )>, validatorSigningInfos: Array<(
+          { __typename?: 'validator_signing_info' }
+          & Pick<Validator_Signing_Info, 'tombstoned'>
         )> }
       ) }
     )>, unbonding: Array<(
@@ -18978,6 +18981,7 @@ export type ValidatorDetailsQuery = { stakingParams: Array<(
       & Pick<Validator_Status, 'status' | 'jailed' | 'height'>
     )>, validatorSigningInfos: Array<(
       { __typename?: 'validator_signing_info' }
+      & Pick<Validator_Signing_Info, 'tombstoned'>
       & { missedBlocksCounter: Validator_Signing_Info['missed_blocks_counter'] }
     )>, validatorInfo?: Maybe<(
       { __typename?: 'validator_info' }
@@ -19027,6 +19031,7 @@ export type ValidatorsQuery = { stakingParams: Array<(
       & Pick<Validator_Status, 'status' | 'jailed' | 'height'>
     )>, validatorSigningInfos: Array<(
       { __typename?: 'validator_signing_info' }
+      & Pick<Validator_Signing_Info, 'tombstoned'>
       & { missedBlocksCounter: Validator_Signing_Info['missed_blocks_counter'] }
     )>, validatorInfo?: Maybe<(
       { __typename?: 'validator_info' }
@@ -19100,6 +19105,12 @@ export const AccountDocument = gql`
         validatorStatuses: validator_statuses(limit: 1, order_by: {height: desc}) {
           status
           jailed
+        }
+        validatorSigningInfos: validator_signing_infos(
+          order_by: {height: desc}
+          limit: 1
+        ) {
+          tombstoned
         }
       }
     }
@@ -20208,6 +20219,7 @@ export const ValidatorDetailsDocument = gql`
       limit: 1
     ) {
       missedBlocksCounter: missed_blocks_counter
+      tombstoned
     }
     validatorInfo: validator_info {
       operatorAddress: operator_address
@@ -20301,6 +20313,7 @@ export const ValidatorsDocument = gql`
       limit: 1
     ) {
       missedBlocksCounter: missed_blocks_counter
+      tombstoned
     }
     validatorInfo: validator_info {
       operatorAddress: operator_address

@@ -2,6 +2,8 @@
 
 ## Changes
 - Add logs in tx details ([\#515](https://github.com/forbole/big-dipper-2.0-cosmos/issues/515))
+- Add tombstoned status ([\#600](https://github.com/forbole/big-dipper-2.0-cosmos/issues/600))
+
 # base-v1.8.4 - 2021-12-08
 ## Bug fixes
 - Fix `feegrant` and `authz` messages ([\#588](https://github.com/forbole/big-dipper-2.0-cosmos/issues/588))

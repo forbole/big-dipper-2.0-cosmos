@@ -161,6 +161,9 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
                   "value": "58219.061338275262315",
                 },
                 "validator": "desmosvaloper1u0dae8r8hay6r2gvccegg2fz6ryftf2wfnj5ft",
+                "validatorSigningInfo": Object {
+                  "tombstoned": false,
+                },
                 "validatorStatus": Object {
                   "jailed": false,
                   "status": 3,
