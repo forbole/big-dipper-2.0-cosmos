@@ -14,7 +14,6 @@ export const useTransactions = () => {
     exists: true,
     hasNextPage: false,
     isNextPageLoading: false,
-    rawDataTotal: 0,
     items: [],
   });
 
@@ -58,9 +57,9 @@ export const useTransactions = () => {
       const newItems = R.uniq([...state.items, ...formatTransactions(data)]);
       handleSetState({
         items: newItems,
-        hasNextPage: newItems.length < data.total.aggregate.count,
+        // ryuash
+        // hasNextPage: newItems.length < data.total.aggregate.count,
         isNextPageLoading: false,
-        rawDataTotal: data.total.aggregate.count,
       });
     },
   });
@@ -84,8 +83,9 @@ export const useTransactions = () => {
       handleSetState({
         items: newItems,
         isNextPageLoading: false,
-        hasNextPage: newItems.length < data.total.aggregate.count,
-        rawDataTotal: data.total.aggregate.count,
+        // ryuash
+        // hasNextPage: newItems.length < data.total.aggregate.count,
+        // rawDataTotal: data.total.aggregate.count,
       });
     });
   };
