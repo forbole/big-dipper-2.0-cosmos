@@ -9,13 +9,17 @@ import { useGrid } from '@hooks';
 import {
   SortArrows,
   AvatarName,
+  InfoPopover,
 } from '@components';
 import { getValidatorConditionClass } from '@utils/get_validator_condition';
+import { getValidatorStatus } from '@utils/get_validator_status';
 import { useStyles } from './styles';
 import { fetchColumns } from './utils';
 import { ItemType } from '../../types';
 import {
-  Condition, VotingPower,
+  Condition,
+  VotingPower,
+  VotingPowerExplanation,
 } from '..';
 
 const Desktop: React.FC<{
@@ -38,7 +42,10 @@ const Desktop: React.FC<{
   } = useGrid(columns);
 
   const formattedItems = props.items.map((x, i) => {
+    const status = getValidatorStatus(x.status, x.jailed);
     const condition = x.status === 3 ? getValidatorConditionClass(x.condition) : undefined;
+    const percentDisplay = x.status === 3 ? `${numeral(x.votingPowerPercent).format('0.[00]')}%` : '0%';
+    const votingPower = numeral(x.votingPower).format('0,0');
     return ({
       idx: `#${i + 1}`,
       delegators: numeral(x.delegators).format('0,0'),
@@ -56,10 +63,16 @@ const Desktop: React.FC<{
       ),
       votingPower: (
         <VotingPower
-          percentDisplay={`${numeral(x.votingPowerPercent).format('0.[00]')}%`}
+          percentDisplay={percentDisplay}
           percentage={x.votingPowerPercent}
-          content={numeral(x.votingPower).format('0,0')}
+          content={votingPower}
+          topVotingPower={x.topVotingPower}
         />
+      ),
+      status: (
+        <Typography variant="body1" className={classnames('status', status.theme)}>
+          {t(status.status)}
+        </Typography>
       ),
     });
   });
@@ -95,6 +108,26 @@ const Desktop: React.FC<{
                     sortKey: sortingKey,
                   } = columns[columnIndex];
 
+                  let formattedComponent = component;
+
+                  if (key === 'votingPower') {
+                    formattedComponent = (
+                      <Typography variant="h4" className="label popover">
+                        {t('votingPower')}
+                        <InfoPopover
+                          content={<VotingPowerExplanation />}
+                        />
+                        {!!sort && (
+                          <SortArrows
+                            sort={props.sortKey === sortingKey
+                              ? props.sortDirection
+                              : undefined}
+                          />
+                        )}
+                      </Typography>
+                    );
+                  }
+
                   return (
                     <div
                       style={style}
@@ -109,7 +142,7 @@ const Desktop: React.FC<{
                       onClick={() => (sort ? props.handleSort(sortingKey) : null)}
                       role="button"
                     >
-                      {component || (
+                      {formattedComponent || (
                       <Typography
                         variant="h4"
                         align={align}

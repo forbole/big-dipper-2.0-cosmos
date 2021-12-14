@@ -294,6 +294,51 @@ const getDataByType = (type: string) => {
       tagTheme: 'ten',
       tagDisplay: 'txTransferLabel',
     },
+    // ========================
+    // authz
+    // ========================
+    '/cosmos.authz.v1beta1.MsgGrant': {
+      model: MODELS.MsgGrant,
+      content: COMPONENTS.Grant,
+      tagTheme: 'thirteen',
+      tagDisplay: 'MsgGrant',
+    },
+    '/cosmos.authz.v1beta1.MsgRevoke': {
+      model: MODELS.MsgRevoke,
+      content: COMPONENTS.Revoke,
+      tagTheme: 'thirteen',
+      tagDisplay: 'MsgRevoke',
+    },
+    // ========================
+    // feegrant
+    // ========================
+    '/cosmos.feegrant.v1beta1.MsgGrantAllowance': {
+      model: MODELS.MsgGrantAllowance,
+      content: COMPONENTS.GrantAllowance,
+      tagTheme: 'fourteen',
+      tagDisplay: 'MsgGrantAllowance',
+    },
+    '/cosmos.feegrant.v1beta1.MsgRevokeAllowance': {
+      model: MODELS.MsgRevokeAllowance,
+      content: COMPONENTS.RevokeAllowance,
+      tagTheme: 'fourteen',
+      tagDisplay: 'MsgRevokeAllowance',
+    },
+    // ========================
+    // vesting
+    // ========================
+    '/cosmos.vesting.v1beta1.MsgCreateVestingAccount': {
+      model: MODELS.MsgCreateVestingAccount,
+      content: COMPONENTS.CreateVestingAccount,
+      tagTheme: 'fifteen',
+      tagDisplay: 'MsgCreateVestingAccount',
+    },
+    '/cosmos.vesting.v1beta1.MsgCreatePeriodicVestingAccount': {
+      model: MODELS.MsgCreatePeriodicVestingAccount,
+      content: COMPONENTS.CreatePeriodicVestingAccount,
+      tagTheme: 'fifteen',
+      tagDisplay: 'MsgCreatePeriodicVestingAccount',
+    },
   };
 
   // =====================================

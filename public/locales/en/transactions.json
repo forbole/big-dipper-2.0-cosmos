@@ -33,5 +33,8 @@
   "clp": "CLP",
   "dispensation": "Dispensation",
   "ethbridge": "Eth Bridge",
-  "tokenregistry": "Token Registry"
+  "tokenregistry": "Token Registry",
+  "authz": "Authz",
+  "feegrant": "Feegrant",
+  "vesting": "Vesting"
 }

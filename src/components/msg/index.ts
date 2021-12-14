@@ -79,6 +79,12 @@ import RescueCeth from './ethbridge/rescue_ceth';
 import Register from './tokenregistry/register';
 import Deregister from './tokenregistry/deregister';
 import SetRegistry from './tokenregistry/set_registry';
+import Grant from './authz/grant';
+import Revoke from './authz/revoke';
+import GrantAllowance from './feegrant/grant_allowance';
+import RevokeAllowance from './feegrant/revoke_allowance';
+import CreateVestingAccount from './vesting/create_vesting_account';
+import CreatePeriodicVestingAccount from './vesting/create_periodic_vesting_account';
 
 export {
   getMessageModelByType,
@@ -156,4 +162,10 @@ export {
   Register,
   Deregister,
   SetRegistry,
+  Grant,
+  Revoke,
+  GrantAllowance,
+  RevokeAllowance,
+  CreateVestingAccount,
+  CreatePeriodicVestingAccount,
 };

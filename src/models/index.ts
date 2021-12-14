@@ -80,6 +80,12 @@ import MsgRescueCeth from './msg/ethbridge/msg_rescue_ceth';
 import MsgRegister from './msg/tokenregistry/msg_register';
 import MsgDeregister from './msg/tokenregistry/msg_deregister';
 import MsgSetRegistry from './msg/tokenregistry/msg_set_registry';
+import MsgGrant from './msg/authz/msg_grant';
+import MsgRevoke from './msg/authz/msg_revoke';
+import MsgGrantAllowance from './msg/feegrant/msg_grant_allowance';
+import MsgRevokeAllowance from './msg/feegrant/msg_revoke_allowance';
+import MsgCreateVestingAccount from './msg/vesting/msg_create_vesting_account';
+import MsgCreatePeriodicVestingAccount from './msg/vesting/msg_create_periodic_vesting_account';
 
 export {
   BigDipperNetwork,
@@ -164,4 +170,10 @@ export {
   MsgRegister,
   MsgDeregister,
   MsgSetRegistry,
+  MsgGrant,
+  MsgRevoke,
+  MsgGrantAllowance,
+  MsgRevokeAllowance,
+  MsgCreateVestingAccount,
+  MsgCreatePeriodicVestingAccount,
 };

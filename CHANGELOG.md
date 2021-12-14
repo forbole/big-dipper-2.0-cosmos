@@ -1,4 +1,32 @@
-# Unreleased
+# base-v1.8.4 - 2021-12-08
+## Bug fixes
+- Fix `feegrant` and `authz` messages ([\#588](https://github.com/forbole/big-dipper-2.0-cosmos/issues/588))
+
+# base-v1.8.3 - 2021-12-07
+## Bug fixes
+- Fix validators list not displaying inactive validators ([\#583](https://github.com/forbole/big-dipper-2.0-cosmos/issues/583))
+
+# base-v1.8.2 - 2021-12-06
+## Bug fixes
+- Fix APR to handle multiple supply coins
+
+# base-v1.8.1 - 2021-12-06
+## Bug fixes
+- Fix `formatNumber` display after cleaning up ending 0s
+# base-v1.8.0 - 2021-12-06
+
+## Changes
+- Display `APR` on title bar ([\#483](https://github.com/forbole/big-dipper-2.0-cosmos/issues/483))
+- Add `@dtag` to search bar ([\#554](https://github.com/forbole/big-dipper-2.0-cosmos/issues/554))
+- Add `/@dtag` feature ([\#428](https://github.com/forbole/big-dipper-2.0-cosmos/issues/428))
+- Add `feegrant` and `authz` messages ([\#481](https://github.com/forbole/big-dipper-2.0-cosmos/issues/481))
+- Add `vesting` messages ([\#538](https://github.com/forbole/big-dipper-2.0-cosmos/issues/538))
+- Add status row in `/validators` ([\#556](https://github.com/forbole/big-dipper-2.0-cosmos/issues/556))
+- Show who the top 34% validators are ([\#506](https://github.com/forbole/big-dipper-2.0-cosmos/issues/506))
+## Bug fixes
+- Fix validator searchbar ([\#540](https://github.com/forbole/big-dipper-2.0-cosmos/issues/540))
+
+# base-v1.7.0 - 2021-11-23
 
 ## Changes
 
@@ -8,6 +36,11 @@
 - Update handling of block height in searchbar ([\#501](https://github.com/forbole/big-dipper-2.0-cosmos/issues/501))
 - Fix community pool spend proposal display ([\#520](https://github.com/forbole/big-dipper-2.0-cosmos/issues/520))
 - Update how tokens are formatted and display up to 18 decimal places ([\#524](https://github.com/forbole/big-dipper-2.0-cosmos/issues/524))
+- Auto display 0% if validator is not active ([\#541](https://github.com/forbole/big-dipper-2.0-cosmos/issues/541))
+
+## Migration
+
+- [v1.6.0 to v1.7.0](https://docs.bigdipper.live/cosmos-based/frontend/migrations/v1.6.0-to-v1.7.0)
 
 # base-v1.6.0 - 2021-11-01
 
