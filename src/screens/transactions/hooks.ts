@@ -21,6 +21,17 @@ export const useTransactions = () => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
 
+  // This is a bandaid as it can get extremely
+  // expensive if there is too much data
+  /**
+   * Helps remove any possible duplication
+   * and sorts by height in case it bugs out
+   */
+  const uniqueAndSort = R.pipe(
+    R.uniqBy(R.prop('hash')),
+    R.sort(R.descend(R.prop('height'))),
+  );
+
   // ================================
   // tx subscription
   // ================================
@@ -30,12 +41,13 @@ export const useTransactions = () => {
       offset: 0,
     },
     onSubscriptionData: (data) => {
+      const newItems = uniqueAndSort([
+        ...formatTransactions(data.subscriptionData.data),
+        ...state.items,
+      ]);
       handleSetState({
         loading: false,
-        items: [
-          ...formatTransactions(data.subscriptionData.data),
-          ...state.items,
-        ],
+        items: newItems,
       });
     },
   });
@@ -47,8 +59,7 @@ export const useTransactions = () => {
   const transactionQuery = useTransactionsQuery({
     variables: {
       limit: LIMIT,
-      // offset: 1,
-      offset: state.items.length,
+      offset: 1,
     },
     onError: () => {
       handleSetState({
@@ -57,7 +68,10 @@ export const useTransactions = () => {
     },
     onCompleted: (data) => {
       const itemsLength = data.transactions.length;
-      const newItems = R.uniq([...state.items, ...formatTransactions(data)]);
+      const newItems = uniqueAndSort([
+        ...state.items,
+        ...formatTransactions(data),
+      ]);
       handleSetState({
         items: newItems,
         hasNextPage: itemsLength === 51,
@@ -78,7 +92,7 @@ export const useTransactions = () => {
       },
     }).then(({ data }) => {
       const itemsLength = data.transactions.length;
-      const newItems = R.uniq([
+      const newItems = uniqueAndSort([
         ...state.items,
         ...formatTransactions(data),
       ]);
