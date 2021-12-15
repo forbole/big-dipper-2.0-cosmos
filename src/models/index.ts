@@ -72,6 +72,12 @@ import MsgEditDataSource from './msg/oracle/msg_edit_data_source';
 import MsgCreateOracleScript from './msg/oracle/msg_create_oracle_script';
 import MsgEditOracleScript from './msg/oracle/msg_edit_oracle_script';
 import MsgActivate from './msg/oracle/msg_activate';
+import MsgGrant from './msg/authz/msg_grant';
+import MsgRevoke from './msg/authz/msg_revoke';
+import MsgGrantAllowance from './msg/feegrant/msg_grant_allowance';
+import MsgRevokeAllowance from './msg/feegrant/msg_revoke_allowance';
+import MsgCreateVestingAccount from './msg/vesting/msg_create_vesting_account';
+import MsgCreatePeriodicVestingAccount from './msg/vesting/msg_create_periodic_vesting_account';
 
 export {
   BigDipperNetwork,
@@ -147,4 +153,10 @@ export {
   MsgCreateOracleScript,
   MsgEditOracleScript,
   MsgActivate,
+  MsgGrant,
+  MsgRevoke,
+  MsgGrantAllowance,
+  MsgRevokeAllowance,
+  MsgCreateVestingAccount,
+  MsgCreatePeriodicVestingAccount,
 };

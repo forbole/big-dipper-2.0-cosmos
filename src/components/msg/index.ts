@@ -69,6 +69,12 @@ import EditDataSource from './oracle/edit_data_source';
 import CreateOracleScript from './oracle/create_oracle_script';
 import EditOracleScript from './oracle/edit_oracle_script';
 import Activate from './oracle/activate';
+import Grant from './authz/grant';
+import Revoke from './authz/revoke';
+import GrantAllowance from './feegrant/grant_allowance';
+import RevokeAllowance from './feegrant/revoke_allowance';
+import CreateVestingAccount from './vesting/create_vesting_account';
+import CreatePeriodicVestingAccount from './vesting/create_periodic_vesting_account';
 
 export {
   getMessageModelByType,
@@ -136,4 +142,10 @@ export {
   CreateOracleScript,
   EditOracleScript,
   Activate,
+  Grant,
+  Revoke,
+  GrantAllowance,
+  RevokeAllowance,
+  CreateVestingAccount,
+  CreatePeriodicVestingAccount,
 };
