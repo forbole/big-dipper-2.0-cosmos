@@ -73,6 +73,7 @@ export const useTransactions = () => {
         ...formatTransactions(data),
       ]);
       handleSetState({
+        loading: false,
         items: newItems,
         hasNextPage: itemsLength === 51,
         isNextPageLoading: false,

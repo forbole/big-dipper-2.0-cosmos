@@ -18673,13 +18673,7 @@ export type BlocksQuery = { blocks: Array<(
         & Pick<Validator_Description, 'moniker' | 'identity'>
       )> }
     )> }
-  )>, total: (
-    { __typename?: 'block_aggregate' }
-    & { aggregate?: Maybe<(
-      { __typename?: 'block_aggregate_fields' }
-      & Pick<Block_Aggregate_Fields, 'count'>
-    )> }
-  ) };
+  )> };
 
 export type ChainIdQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -19448,11 +19442,6 @@ export const BlocksDocument = gql`
         moniker
         identity
       }
-    }
-  }
-  total: block_aggregate {
-    aggregate {
-      count
     }
   }
 }
