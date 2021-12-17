@@ -19,6 +19,7 @@ export const useProfileDetails = () => {
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
+  const [dtag, setDtag] = useState('');
 
   // ==========================
   // Desmos Profile
@@ -32,6 +33,7 @@ export const useProfileDetails = () => {
         exists: !!data.profile.length,
         desmosProfile: formatDesmosProfile(data),
       });
+      setDtag(data.profile[0].dtag);
     },
   });
 
@@ -42,8 +44,18 @@ export const useProfileDetails = () => {
     const configProfile = chainConfig.extra.profile;
     handleSetState(initialState);
 
+    console.log(profileDtag, regexCheck, configProfile);
+    console.log('router', router);
+    console.log('dtag', dtag);
+
     if (!regexCheck || !configProfile) {
       router.replace('/');
+    }
+
+    if (dtag) {
+      if (dtag !== router.query.dtag) {
+        console.log('should go shallow path');
+      }
     }
 
     if (configProfile) {
