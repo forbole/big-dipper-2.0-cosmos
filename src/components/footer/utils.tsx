@@ -1,9 +1,9 @@
-const FORBOLE_URL = 'https://www.forbole.com';
-const BIG_DIPPER_URL = 'https://bigdipper.live';
+const FORBOLE_URL = 'https://skynet.paullovette.com';
+const BIG_DIPPER_URL = 'https://skynet.paullovette.com';
 
 export const donateLink = {
   key: 'donate',
-  url: `${BIG_DIPPER_URL}/donate`,
+  url: `${FORBOLE_URL}/donate`,
 };
 
 export const footerLinks = [
@@ -21,10 +21,6 @@ export const footerLinks = [
       {
         key: 'contact',
         url: `${FORBOLE_URL}/contact`,
-      },
-      {
-        key: 'blog',
-        url: `${FORBOLE_URL}/blog`,
       },
     ],
   },

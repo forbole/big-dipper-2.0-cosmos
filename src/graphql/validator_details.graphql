@@ -8,8 +8,8 @@ subscription LastHundredBlocks($address: String) {
       }
     }
     transactions {
-    	hash
-  	}
+        hash
+        }
     precommits: pre_commits(where: {validator: {validator_info: {operator_address: {_eq: $address}}}}) {
       validatorAddress: validator_address
     }
@@ -44,6 +44,7 @@ query ValidatorDetails($address: String, $utc: timestamp) {
     }
     validatorSigningInfos: validator_signing_infos(order_by: {height: desc}, limit: 1) {
       missedBlocksCounter: missed_blocks_counter
+      tombstoned
     }
     validatorInfo: validator_info {
       operatorAddress: operator_address
@@ -84,4 +85,3 @@ query ValidatorDetails($address: String, $utc: timestamp) {
     params
   }
 }
-

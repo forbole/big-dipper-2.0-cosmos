@@ -1,23 +1,23 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "morpheus-apollo-2",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
+  "title": "Gravity Bridge Explorer",
+  "network": "gravity-bridge-1",
+  "icon": "https://gravity-images.s3.filebase.com/gravitybridge-icon.svg?sanitize=true",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
+    "default": "https://raw.githubusercontent.com/lightiv/SkyNet/master/images/Gravity%20Bridge%20-%20Horizontal%20-%20Color.svg?sanitize=true"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "gravityvalcons",
+    "validator": "gravityvaloper",
+    "account": "gravity"
   },
   "genesis": {
-    "time": "2021-07-13T08:00:00",
+    "time": "2021-12-10T14:45:49.658958945Z",
     "height": 1
   },
-  "primaryTokenUnit": "udaric",
+  "primaryTokenUnit": "ugraviton",
   "tokenUnits": {
-    "udaric": {
-      "display": "daric",
+    "ugraviton": {
+      "display": "graviton",
       "exponent": 6
     }
   },

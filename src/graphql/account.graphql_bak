@@ -20,9 +20,6 @@ query Account($address: String, $utc: timestamp) {
           status
           jailed
         }
-        validatorSigningInfos: validator_signing_infos(order_by: {height: desc}, limit: 1) {
-          tombstoned
-        }
       }
     }
     unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}}) {
