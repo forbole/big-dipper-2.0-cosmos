@@ -64,3 +64,15 @@ Below are all the available themes we are currently using. If the default is not
     <img src="./agoric/light.png" width=350>
   </div>
 </div>
+
+## Band
+<div>
+  <p align="center">
+    <a href="./band/light.ts">
+      Dark
+    <a>
+  </p>
+  <div align="center">
+    <img src="./band/dark.png" width=350>
+  </div>
+</div>
