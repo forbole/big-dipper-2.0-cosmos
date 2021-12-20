@@ -51,14 +51,10 @@ export const useProfileDetails = () => {
     }
   }, [R.pathOr('', ['query', 'dtag'], router)]);
 
-  console.log('state 3', state);
   useEffect(() => {
-    console.log('useEffect 2');
-    console.log('state 4', state);
     if (state.desmosProfile) {
       const dtagInput = router.query.dtag as string;
       if (state.desmosProfile.dtag.toUpperCase() !== dtagInput.toUpperCase()) {
-        console.log('should go shallow path');
         router.push({ pathname: `/@${state.desmosProfile.dtag}` }, `/@${state.desmosProfile.dtag}`, { shallow: true });
       }
     }
