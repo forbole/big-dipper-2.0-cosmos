@@ -45,7 +45,7 @@ Below are all the available themes we are currently using. If the default is not
 <div>
   <p align="center">
     <a href="./desmos/dark.ts">
-      Light
+      Dark
     <a>
   </p>
   <div align="center">
