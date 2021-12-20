@@ -76,3 +76,27 @@ Below are all the available themes we are currently using. If the default is not
     <img src="./band/dark.png" width=350>
   </div>
 </div>
+
+## Bitsong
+<div>
+  <p align="center">
+    <a href="./bitsong/light.ts">
+      Dark
+    <a>
+  </p>
+  <div align="center">
+    <img src="./bitsong/dark.png" width=350>
+  </div>
+</div>
+
+## E-money
+<div>
+  <p align="center">
+    <a href="./emoney/light.ts">
+      Dark
+    <a>
+  </p>
+  <div align="center">
+    <img src="./emoney/dark.png" width=350>
+  </div>
+</div>
