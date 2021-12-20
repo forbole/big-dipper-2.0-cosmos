@@ -7,10 +7,18 @@ Below are all the available themes we are currently using. If the default is not
 
 ## Default
 
+<a href="https://github.com/forbole/big-dipper-2.0-cosmos/blob/base/.misc/themes/default/light.ts">
 Light
-<br>
-<img src="./images/default-light.png" width=500>
+<a>
 
-Dark
 <br>
-<img src="./images/default-dark.png" width=500>
+<img src="./images/default-light.png" width=400>
+
+<!-- <a href="https://github.com/forbole/big-dipper-2.0-cosmos/blob/base/.misc/themes/default/dark.ts">
+Dark
+<a> -->
+<a href="./default/dark.ts">
+Dark
+<a>
+<br>
+<img src="./images/default-dark.png" width=400>
