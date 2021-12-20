@@ -24,7 +24,7 @@ export const useStyles = () => {
           },
         },
         logo: {
-          height: '56px',
+          height: '50px',
           // width: '225px',
         },
         content: {
