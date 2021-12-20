@@ -5,7 +5,7 @@
 <br>
 
 # Themes
-Below are all the available themes we are currently using. If the default is not to your liking please feel free to make your own or use one of our alternatives
+If the default theme does not match your needs please feel free to make your own or use one of the alternatives.
 
 ## Default
 <div>
@@ -68,7 +68,7 @@ Below are all the available themes we are currently using. If the default is not
 ## Band
 <div>
   <p align="center">
-    <a href="./band/light.ts">
+    <a href="./band/dark.ts">
       Dark
     <a>
   </p>
@@ -80,7 +80,7 @@ Below are all the available themes we are currently using. If the default is not
 ## Bitsong
 <div>
   <p align="center">
-    <a href="./bitsong/light.ts">
+    <a href="./bitsong/dark.ts">
       Dark
     <a>
   </p>
@@ -92,11 +92,60 @@ Below are all the available themes we are currently using. If the default is not
 ## E-money
 <div>
   <p align="center">
-    <a href="./emoney/light.ts">
+    <a href="./emoney/dark.ts">
       Dark
     <a>
   </p>
   <div align="center">
     <img src="./emoney/dark.png" width=350>
+  </div>
+</div>
+
+## Likecoin
+<div>
+  <p align="center">
+    <a href="./likecoin/light.ts">
+      Light
+    <a>
+  </p>
+  <div align="center">
+    <img src="./likecoin/light.png" width=350>
+  </div>
+</div>
+
+
+## Sifchain
+<div>
+  <p align="center">
+    <a href="./sifchain/light.ts">
+      Light
+    <a>
+  </p>
+  <div align="center">
+    <img src="./sifchain/light.png" width=350>
+  </div>
+</div>
+
+## Terra
+<div>
+  <p align="center">
+    <a href="./terra/light.ts">
+      Light
+    <a>
+  </p>
+  <div align="center">
+    <img src="./terra/light.png" width=350>
+  </div>
+</div>
+
+## Osmosis
+<div>
+  <p align="center">
+    <a href="./osmosis/dark.ts">
+      Dark
+    <a>
+  </p>
+  <div align="center">
+    <img src="./osmosis/dark.png" width=350>
   </div>
 </div>
