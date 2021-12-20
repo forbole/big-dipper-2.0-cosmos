@@ -1,6 +1,6 @@
 <br><br>
 <div align="center">
-  <img src="./images/big-dipper-red.svg" width=300>
+  <img src="./big-dipper-red.svg" width=300>
 </div>
 <br>
 
@@ -15,7 +15,7 @@ Below are all the available themes we are currently using. If the default is not
     <a>
   </p>
   <div align="center">
-    <img src="./images/default-light.png" width=350>
+    <img src="./default/light.png" width=350>
   </div>
 </div>
 
@@ -26,7 +26,7 @@ Below are all the available themes we are currently using. If the default is not
     <a>
   </p>
   <div align="center">
-    <img src="./images/default-dark.png" width=350>
+    <img src="./default/dark.png" width=350>
   </div>
 </div>
 
@@ -38,7 +38,7 @@ Below are all the available themes we are currently using. If the default is not
     <a>
   </p>
   <div align="center">
-    <img src="./images/desmos-light.png" width=350>
+    <img src="./desmos/light.png" width=350>
   </div>
 </div>
 
@@ -49,6 +49,18 @@ Below are all the available themes we are currently using. If the default is not
     <a>
   </p>
   <div align="center">
-    <img src="./images/desmos-dark.png" width=350>
+    <img src="./desmos/dark.png" width=350>
+  </div>
+</div>
+
+## Agoric
+<div>
+  <p align="center">
+    <a href="./agoric/light.ts">
+      Light
+    <a>
+  </p>
+  <div align="center">
+    <img src="./agoric/light.png" width=350>
   </div>
 </div>
