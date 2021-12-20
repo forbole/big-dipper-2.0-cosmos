@@ -16,62 +16,15 @@ exports[`screen: Transactions matches snapshot 1`] = `
       id="Box"
     >
       <div
-        hasNextPage={true}
+        hasNextPage={false}
         id="TransactionsList"
         isItemLoaded={[Function]}
         isNextPageLoading={false}
-        itemCount={3}
+        itemCount={1}
         loadMoreItems={[Function]}
         loadNextPage={[Function]}
         transactions={
           Array [
-            Object {
-              "hash": "D223E2E4E4FD29868D1034EFE5FB162EAB78B4CCE1D53EFD4F34A40608FB6C4B",
-              "height": 432022,
-              "messages": Object {
-                "count": 2,
-                "items": Array [
-                  MsgWithdrawDelegatorReward {
-                    "amounts": Array [
-                      Object {
-                        "baseDenom": "udaric",
-                        "displayDenom": "daric",
-                        "exponent": 6,
-                        "value": "0",
-                      },
-                    ],
-                    "category": "distribution",
-                    "delegatorAddress": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
-                    "json": Object {
-                      "@type": "/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward",
-                      "delegator_address": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
-                      "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
-                    },
-                    "type": "/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward",
-                    "validatorAddress": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
-                  },
-                  MsgWithdrawValidatorCommission {
-                    "amounts": Array [
-                      Object {
-                        "baseDenom": "udaric",
-                        "displayDenom": "daric",
-                        "exponent": 6,
-                        "value": "0",
-                      },
-                    ],
-                    "category": "distribution",
-                    "json": Object {
-                      "@type": "/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission",
-                      "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
-                    },
-                    "type": "/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission",
-                    "validatorAddress": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
-                  },
-                ],
-              },
-              "success": true,
-              "timestamp": "2021-05-28T00:08:33.700487",
-            },
             Object {
               "hash": "D223E2E4E4FD29868D1034EFE5FB162EAB78B4CCE1D53EFD4F34A40608FB6C4B",
               "height": 432022,
