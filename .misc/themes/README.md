@@ -17,7 +17,7 @@ Light
 <!-- <a href="https://github.com/forbole/big-dipper-2.0-cosmos/blob/base/.misc/themes/default/dark.ts">
 Dark
 <a> -->
-<a href="./default/dark.ts">
+<a href="./default/dark.ts" target="_blank" rel="noopener">
 Dark
 <a>
 <br>
