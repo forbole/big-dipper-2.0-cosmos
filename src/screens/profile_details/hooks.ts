@@ -36,7 +36,6 @@ export const useProfileDetails = () => {
   });
 
   useEffect(() => {
-    console.log('useEffect 1');
     const regex = /^@/;
     const profileDtag = router.query.dtag as string;
     const regexCheck = regex.test(profileDtag);
