@@ -53,7 +53,7 @@ export const useProfileDetails = () => {
   useEffect(() => {
     if (state.desmosProfile) {
       const dtagInput = router.query.dtag as string;
-      if (state.desmosProfile.dtag.toUpperCase() !== dtagInput.toUpperCase()) {
+      if (`@${state.desmosProfile.dtag.toUpperCase()}` === dtagInput.toUpperCase()) {
         router.push({ pathname: `/@${state.desmosProfile.dtag}` }, `/@${state.desmosProfile.dtag}`, { shallow: true });
       }
     }
