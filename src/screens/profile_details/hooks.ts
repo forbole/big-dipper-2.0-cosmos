@@ -45,11 +45,19 @@ export const useProfileDetails = () => {
     if (!regexCheck || !configProfile) {
       router.replace('/');
     }
-
     if (configProfile) {
       fetchDesmosProfile(R.pathOr('', ['query', 'dtag'], router));
     }
   }, [R.pathOr('', ['query', 'dtag'], router)]);
+
+  useEffect(() => {
+    if (state.desmosProfile) {
+      const dtagInput = router.query.dtag as string;
+      if ((`@${state.desmosProfile.dtag}` !== dtagInput) && (`@${state.desmosProfile.dtag.toUpperCase()}` === dtagInput.toUpperCase())) {
+        router.push({ pathname: `/@${state.desmosProfile.dtag}` }, `/@${state.desmosProfile.dtag}`, { shallow: true });
+      }
+    }
+  }, [state.desmosProfile]);
 
   return {
     state,
