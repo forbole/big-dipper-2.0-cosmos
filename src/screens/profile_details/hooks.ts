@@ -59,6 +59,22 @@ export const useProfileDetails = () => {
     }
   }, [state.desmosProfile]);
 
+  useEffect(() => {
+    if (state.desmosProfile) {
+      const dtagConnections = state.desmosProfile.connections;
+      const dtagConnectionsNetwork = dtagConnections.map((x) => { return x.network; });
+      dtagConnectionsNetwork.push('desmos');
+      const chainPrefix = chainConfig.prefix.account;
+
+      const a = dtagConnectionsNetwork.includes(chainPrefix);
+      if (!a) {
+        console.log('go to 404');
+      } else {
+        console.log('show page');
+      }
+    }
+  }, []);
+
   return {
     state,
   };
