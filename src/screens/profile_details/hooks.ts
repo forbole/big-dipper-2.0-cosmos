@@ -65,9 +65,8 @@ export const useProfileDetails = () => {
       const dtagConnectionsNetwork = dtagConnections.map((x) => { return x.network; });
       dtagConnectionsNetwork.push('desmos');
       const chainPrefix = chainConfig.prefix.account;
-
-      const a = dtagConnectionsNetwork.includes(chainPrefix);
-      if (!a) {
+      const containNetwork = dtagConnectionsNetwork.includes(chainPrefix);
+      if (!containNetwork) {
         console.log('go to 404');
       } else {
         console.log('show page');
