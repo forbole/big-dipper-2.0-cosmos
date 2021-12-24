@@ -62,10 +62,14 @@ export const useProfileDetails = () => {
   useEffect(() => {
     if (state.desmosProfile) {
       const dtagConnections = state.desmosProfile.connections;
-      const dtagConnectionsNetwork = dtagConnections.map((x) => { return x.network; });
-      dtagConnectionsNetwork.push('desmos');
+      const dtagConnectionsNetwork = dtagConnections.map((x) => { return x.identifier; });
       const chainPrefix = chainConfig.prefix.account;
-      const containNetwork = dtagConnectionsNetwork.includes(chainPrefix);
+      let containNetwork = false;
+      dtagConnectionsNetwork.map((x) => {
+        if (x.startsWith(chainPrefix)) { containNetwork = true; }
+        return containNetwork;
+      });
+
       if (!containNetwork) {
         handleSetState({
           exists: false,
