@@ -66,15 +66,13 @@ export const useProfileDetails = () => {
       dtagConnectionsNetwork.push('desmos');
       const chainPrefix = chainConfig.prefix.account;
       const containNetwork = dtagConnectionsNetwork.includes(chainPrefix);
-      if (containNetwork) {
-        console.log('should show 404');
-        state.exists = false;
-        console.log(state.exists);
+      if (!containNetwork) {
+        handleSetState({
+          exists: false,
+        });
       }
     }
   }, [state.desmosProfile]);
-
-  console.log('state', state);
 
   return {
     state,
