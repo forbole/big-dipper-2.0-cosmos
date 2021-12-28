@@ -56,14 +56,8 @@ export const useProfileDetails = () => {
       const dtagConnectionsNetwork = dtagConnections.map((x) => { return x.identifier; });
       const chainPrefix = chainConfig.prefix.account;
       const containNetwork = dtagConnectionsNetwork.some((x) => x.startsWith(chainPrefix));
-      // let containNetwork = false;
-      // dtagConnectionsNetwork.map((x) => {
-      //   if (x.startsWith(chainPrefix)) { containNetwork = true; }
-      //   return containNetwork;
-      // });
 
       if (containNetwork) {
-        console.log('render ui');
         const dtagInput = router.query.dtag as string;
         if ((`@${state.desmosProfile.dtag}` !== dtagInput) && (`@${state.desmosProfile.dtag.toUpperCase()}` === dtagInput.toUpperCase())) {
           router.push({ pathname: `/@${state.desmosProfile.dtag}` }, `/@${state.desmosProfile.dtag}`, { shallow: true });
