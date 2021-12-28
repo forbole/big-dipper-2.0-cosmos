@@ -302,7 +302,7 @@ export const useValidatorDetails = () => {
         selfDelegatePercent,
         overall: formatToken(
           R.pathOr(0, ['stakingPool', 0, 'bonded'], data),
-          stakingParams.bondDenom,
+          'vp',
         ),
         height: R.pathOr(0, ['validatorVotingPowers', 0, 'height'], data.validator[0]),
       };

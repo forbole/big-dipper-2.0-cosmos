@@ -54,7 +54,8 @@ export const useValidators = () => {
     const slashingParams = SlashingParams.fromJson(R.pathOr({}, ['slashingParams', 0, 'params'], data));
     const votingPowerOverall = numeral(formatToken(
       R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data),
-      stakingParams.bondDenom,
+      // stakingParams.bondDenom,
+      'vp',
     ).value).value();
 
     const { signedBlockWindow } = slashingParams;
