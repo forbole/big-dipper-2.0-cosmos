@@ -57,5 +57,9 @@
   "MsgCreatePeriodicVestingAccount": "Create Periodic Vesting Account",
   "MsgAnchorDataRequest": "Anchor Data Request",
   "MsgSignDataRequest": "Sign Data Request",
-  "MsgStoreRawDataRequest": "Store Raw Data Request"
+  "MsgStoreRawDataRequest": "Store Raw Data Request",
+  "MsgCreateClassRequest": "Create Class Request",
+  "MsgCreateBatchRequest": "Create Batch Request",
+  "MsgSendRequest": "Send Request",
+  "MsgRetireRequest": "Retire Request"
 }

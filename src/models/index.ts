@@ -72,6 +72,9 @@ import MsgCreatePeriodicVestingAccount from './msg/vesting/msg_create_periodic_v
 import MsgAnchorDataRequest from './msg/data/msg_anchor_data_request';
 import MsgSignDataRequest from './msg/data/msg_sign_data_request';
 import MsgStoreRawDataRequest from './msg/data/msg_store_raw_data_request';
+import MsgCreateClassRequest from './msg/ecocredit/msg_create_class_request';
+import MsgCreateBatchRequest from './msg/ecocredit/msg_create_batch_request';
+import MsgSendRequest from './msg/ecocredit/msg_send_request';
 
 export {
   BigDipperNetwork,
@@ -148,4 +151,7 @@ export {
   MsgAnchorDataRequest,
   MsgSignDataRequest,
   MsgStoreRawDataRequest,
+  MsgCreateClassRequest,
+  MsgCreateBatchRequest,
+  MsgSendRequest,
 };

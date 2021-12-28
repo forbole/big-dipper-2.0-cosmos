@@ -58,5 +58,9 @@
   "MsgCreatePeriodicVestingAccount": "Periodic vesting account created for <0>{{toAddress}}</0>",
   "MsgAnchorDataRequest": "<0>{{sender}}</0> anchored a data request",
   "MsgSignDataRequest": "<0>{{signers}}</0> signed a data request",
-  "MsgStoreRawDataRequest": "<0>{{sender}}</0> stored a data request"
+  "MsgStoreRawDataRequest": "<0>{{sender}}</0> stored a data request",
+  "MsgCreateClassRequest": "<0>{{designer}}</0> created a class request",
+  "MsgCreateBatchRequest": "<0>{{issuer}}</0> created a batch request",
+  "MsgSendRequest": "<0>{{sender}}</0> sent credits to <1>{{recipient}}</1>",
+  "MsgRetireRequest": "<0>{{holder}}</0> retired credits"
 }
