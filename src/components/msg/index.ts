@@ -70,6 +70,7 @@ import CreateVestingAccount from './vesting/create_vesting_account';
 import CreatePeriodicVestingAccount from './vesting/create_periodic_vesting_account';
 import AnchorDataRequest from './data/anchor_data_request';
 import SignDataRequest from './data/sign_data_request';
+import StoreRawDataRequest from './data/store_raw_data_request';
 
 export {
   getMessageModelByType,
@@ -138,4 +139,5 @@ export {
   CreatePeriodicVestingAccount,
   AnchorDataRequest,
   SignDataRequest,
+  StoreRawDataRequest,
 };

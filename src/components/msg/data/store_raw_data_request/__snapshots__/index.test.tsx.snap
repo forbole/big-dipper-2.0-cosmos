@@ -13,7 +13,7 @@ exports[`screen: TransactionDetails/Grant matches snapshot 1`] = `
         />,
       ]
     }
-    i18nKey="message_contents:MsgAnchorDataRequest"
+    i18nKey="message_contents:MsgStoreRawDataRequest"
     id="Trans"
   />
 </p>

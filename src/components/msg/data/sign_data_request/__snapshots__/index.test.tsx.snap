@@ -7,17 +7,28 @@ exports[`screen: TransactionDetails/Grant matches snapshot 1`] = `
   <div
     components={
       Array [
-        <Name
-          address="sponderbob"
-          name="sponderbob"
-        />,
-        <Name
-          address="grantee"
-          name="grantee"
+        <Signers
+          signers={
+            Object {
+              "address": Array [
+                "desmos1hfhkduejung7g29wv863x369rndf3hu5xj4g93",
+                "desmos1hfhkduejung7g29wv863x369rndf3hu5xj4g93",
+                "desmos1hfhkduejung7g29wv863x369rndf3hu5xj4g93",
+                "desmos1hfhkduejung7g29wv863x369rndf3hu5xj4g93",
+              ],
+              "imageUrl": "",
+              "name": Array [
+                "desmos1hfhkduejung7g29wv863x369rndf3hu5xj4g93",
+                "desmos1hfhkduejung7g29wv863x369rndf3hu5xj4g93",
+                "desmos1hfhkduejung7g29wv863x369rndf3hu5xj4g93",
+                "desmos1hfhkduejung7g29wv863x369rndf3hu5xj4g93",
+              ],
+            }
+          }
         />,
       ]
     }
-    i18nKey="message_contents:MsgGrant"
+    i18nKey="message_contents:MsgSignDataRequest"
     id="Trans"
   />
 </p>
