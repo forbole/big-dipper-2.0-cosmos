@@ -52,25 +52,23 @@ export const useProfileDetails = () => {
 
   useEffect(() => {
     if (state.desmosProfile) {
-      const dtagInput = router.query.dtag as string;
-      if ((`@${state.desmosProfile.dtag}` !== dtagInput) && (`@${state.desmosProfile.dtag.toUpperCase()}` === dtagInput.toUpperCase())) {
-        router.push({ pathname: `/@${state.desmosProfile.dtag}` }, `/@${state.desmosProfile.dtag}`, { shallow: true });
-      }
-    }
-  }, [state.desmosProfile]);
-
-  useEffect(() => {
-    if (state.desmosProfile) {
       const dtagConnections = state.desmosProfile.connections;
       const dtagConnectionsNetwork = dtagConnections.map((x) => { return x.identifier; });
       const chainPrefix = chainConfig.prefix.account;
-      let containNetwork = false;
-      dtagConnectionsNetwork.map((x) => {
-        if (x.startsWith(chainPrefix)) { containNetwork = true; }
-        return containNetwork;
-      });
+      const containNetwork = dtagConnectionsNetwork.some((x) => x.startsWith(chainPrefix));
+      // let containNetwork = false;
+      // dtagConnectionsNetwork.map((x) => {
+      //   if (x.startsWith(chainPrefix)) { containNetwork = true; }
+      //   return containNetwork;
+      // });
 
-      if (!containNetwork) {
+      if (containNetwork) {
+        console.log('render ui');
+        const dtagInput = router.query.dtag as string;
+        if ((`@${state.desmosProfile.dtag}` !== dtagInput) && (`@${state.desmosProfile.dtag.toUpperCase()}` === dtagInput.toUpperCase())) {
+          router.push({ pathname: `/@${state.desmosProfile.dtag}` }, `/@${state.desmosProfile.dtag}`, { shallow: true });
+        }
+      } else {
         handleSetState({
           exists: false,
         });
