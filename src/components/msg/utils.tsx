@@ -366,6 +366,33 @@ const getDataByType = (type: string) => {
       tagTheme: 'four',
       tagDisplay: 'MsgStoreRawDataRequest',
     },
+    // ========================
+    // ecocredit
+    // ========================
+    '/regen.ecocredit.v1alpha1.MsgCreateClassRequest': {
+      model: MODELS.MsgCreateClassRequest,
+      content: COMPONENTS.CreateClassRequest,
+      tagTheme: 'five',
+      tagDisplay: 'MsgCreateClassRequest',
+    },
+    '/regen.ecocredit.v1alpha1.MsgCreateBatchRequest': {
+      model: MODELS.MsgCreateBatchRequest,
+      content: COMPONENTS.CreateBatchRequest,
+      tagTheme: 'five',
+      tagDisplay: 'MsgCreateBatchRequest',
+    },
+    '/regen.ecocredit.v1alpha1.MsgSendRequest': {
+      model: MODELS.MsgSendRequest,
+      content: COMPONENTS.SendRequest,
+      tagTheme: 'five',
+      tagDisplay: 'MsgSendRequest',
+    },
+    '/regen.ecocredit.v1alpha1.MsgRetireRequest': {
+      model: MODELS.MsgRetireRequest,
+      content: COMPONENTS.RetireRequest,
+      tagTheme: 'five',
+      tagDisplay: 'MsgRetireRequest',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];

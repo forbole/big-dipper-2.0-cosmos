@@ -71,6 +71,10 @@ import CreatePeriodicVestingAccount from './vesting/create_periodic_vesting_acco
 import AnchorDataRequest from './data/anchor_data_request';
 import SignDataRequest from './data/sign_data_request';
 import StoreRawDataRequest from './data/store_raw_data_request';
+import CreateClassRequest from './ecocredit/create_class_request';
+import CreateBatchRequest from './ecocredit/create_batch_request';
+import SendRequest from './ecocredit/send_request';
+import RetireRequest from './ecocredit/retire_request';
 
 export {
   getMessageModelByType,
@@ -140,4 +144,8 @@ export {
   AnchorDataRequest,
   SignDataRequest,
   StoreRawDataRequest,
+  CreateClassRequest,
+  CreateBatchRequest,
+  SendRequest,
+  RetireRequest,
 };

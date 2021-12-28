@@ -75,6 +75,7 @@ import MsgStoreRawDataRequest from './msg/data/msg_store_raw_data_request';
 import MsgCreateClassRequest from './msg/ecocredit/msg_create_class_request';
 import MsgCreateBatchRequest from './msg/ecocredit/msg_create_batch_request';
 import MsgSendRequest from './msg/ecocredit/msg_send_request';
+import MsgRetireRequest from './msg/ecocredit/msg_retire_request';
 
 export {
   BigDipperNetwork,
@@ -154,4 +155,5 @@ export {
   MsgCreateClassRequest,
   MsgCreateBatchRequest,
   MsgSendRequest,
+  MsgRetireRequest,
 };
