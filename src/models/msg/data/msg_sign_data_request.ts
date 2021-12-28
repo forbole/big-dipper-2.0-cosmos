@@ -11,7 +11,7 @@ class MsgSignDataRequest {
     this.category = 'data';
     this.json = payload.json;
     this.type = payload.type;
-    this.signers = payload.sender;
+    this.signers = payload.signers;
   }
 
   static fromJson(json: any) {

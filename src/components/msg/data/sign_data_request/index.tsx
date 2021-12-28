@@ -11,7 +11,6 @@ const SignDataRequest = (props: {
   message: MsgSignDataRequest;
 }) => {
   const { message } = props;
-
   const signersProfiles = useProfilesRecoil(message.signers);
 
   return (

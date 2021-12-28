@@ -11,7 +11,7 @@ const Signers = (props: {
     <>
       {signers.map((x, i) => {
         const signerMoniker = x ? x?.name : x?.address;
-        if (i !== signers.length - 1) {
+        if (signers.length === 1) {
           return (
             <Name
               address={x?.address}
@@ -19,13 +19,33 @@ const Signers = (props: {
             />
           );
         }
+
+        if (i === signers.length - 2) {
+          return (
+            <>
+              <Name
+                address={x?.address}
+                name={signerMoniker}
+              />
+              {' '}
+              {t('and')}
+              {' '}
+            </>
+          );
+        }
+
         return (
           <>
             <Name
               address={x?.address}
               name={signerMoniker}
             />
-            {t('and')}
+            {i !== signers.length - 1 && (
+              <>
+                ,
+                {' '}
+              </>
+            )}
           </>
         );
       })}
