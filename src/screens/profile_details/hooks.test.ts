@@ -7,59 +7,28 @@ import { useProfileDetails } from './hooks';
 
 describe('hook: useProfileDetails', () => {
     test('correctly toggles profile open', async () => {
-        const { result } = renderHook(() => useMobile());
+        const { result } = renderHook(() => useProfileDetails());
         // initial
-        expect(result.current.isMenu).toBe(false);
-        expect(result.current.isNetwork).toBe(false);
-        expect(result.current.isOpen).toBe(false);
+        expect(result.current.state.loading).toBe(true);
+        expect(result.current.state.exists).toBe(true);
+        expect(result.current.state.desmosProfile).toBe(null);
 
-        // opens menu if nothing is open
+        // render profile UI if shouldShowProfile returns true
         act(() => {
-            result.current.toggleNavMenus();
+            result.current.shouldShowProfile();
         });
-        expect(result.current.isMenu).toBe(true);
-        expect(result.current.isNetwork).toBe(false);
-        expect(result.current.isOpen).toBe(true);
+        expect(result.current.state.loading).toBe(false);
+        expect(result.current.state.exists).toBe(true);
+        expect(result.current.state.desmosProfile).toBe(null);
 
-        // turns off menu or network if something is opened
+        // don't render profile UI if shouldShowProfile returns false
         act(() => {
-            result.current.toggleNavMenus();
+            result.current.shouldShowProfile();
         });
-        expect(result.current.isMenu).toBe(false);
-        expect(result.current.isNetwork).toBe(false);
-        expect(result.current.isOpen).toBe(false);
+        expect(result.current.state.loading).toBe(true);
+        expect(result.current.state.exists).toBe(false);
+        expect(result.current.state.desmosProfile).toBe(null);
 
-        // only opens network
-        act(() => {
-            result.current.openNetwork();
-        });
-        expect(result.current.isMenu).toBe(false);
-        expect(result.current.isNetwork).toBe(true);
-        expect(result.current.isOpen).toBe(true);
-
-        // turns off menu or network if something is opened
-        act(() => {
-            result.current.toggleNavMenus();
-        });
-        expect(result.current.isMenu).toBe(false);
-        expect(result.current.isNetwork).toBe(false);
-        expect(result.current.isOpen).toBe(false);
-
-        // prep for next test - opens menu
-        act(() => {
-            result.current.toggleNavMenus();
-        });
-        expect(result.current.isMenu).toBe(true);
-        expect(result.current.isNetwork).toBe(false);
-        expect(result.current.isOpen).toBe(true);
-
-        // closes everything
-        act(() => {
-            result.current.closeAll();
-        });
-        expect(result.current.isMenu).toBe(false);
-        expect(result.current.isNetwork).toBe(false);
-        expect(result.current.isOpen).toBe(false);
     });
 });
 

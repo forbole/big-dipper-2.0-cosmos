@@ -79,5 +79,6 @@ export const useProfileDetails = () => {
 
   return {
     state,
+    shouldShowProfile,
   };
 };
