@@ -19,7 +19,7 @@ describe('hook: useProfileDetails', () => {
         });
         expect(result.current.state.loading).toBe(false);
         expect(result.current.state.exists).toBe(true);
-        expect(result.current.state.desmosProfile).toBe(null);
+        expect(result.current.state.desmosProfile).toBe(true);
 
         // don't render profile UI if shouldShowProfile returns false
         act(() => {
@@ -27,7 +27,7 @@ describe('hook: useProfileDetails', () => {
         });
         expect(result.current.state.loading).toBe(true);
         expect(result.current.state.exists).toBe(false);
-        expect(result.current.state.desmosProfile).toBe(null);
+        expect(result.current.state.desmosProfile).toBe(true);
 
     });
 });
