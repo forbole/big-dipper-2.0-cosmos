@@ -17,7 +17,10 @@ jest.mock('next/router', () => ({
 
 describe('hook: useProfileDetails', () => {
   test('correctly toggles profile open', async () => {
+    console.log('1');
     const { result } = renderHook(() => useProfileDetails());
+    console.log('result profile hook test', result);
+    console.log('result.current', result.current, result.current.state.loading, result.current.state.exists, result.current.state.desmosProfile);
     // initial state
     expect(result.current.state.loading).toBe(true);
     expect(result.current.state.exists).toBe(true);
@@ -25,6 +28,7 @@ describe('hook: useProfileDetails', () => {
 
     // render profile UI if shouldShowProfile returns true
     act(() => {
+      console.log('2');
       result.current.shouldShowProfile();
     });
     expect(result.current.state.loading).toBe(false);
@@ -33,6 +37,7 @@ describe('hook: useProfileDetails', () => {
 
     // update url if renders profile UI but dtag and input is same in case insensitive
     act(() => {
+      console.log('3');
       result.current.shouldShowProfile();
     });
     expect(jest.fn(() => ('/@dtag'))).toBeCalledWith('/@dtag');
@@ -42,6 +47,7 @@ describe('hook: useProfileDetails', () => {
 
     // don't render profile UI if shouldShowProfile returns false
     act(() => {
+      console.log('4');
       result.current.shouldShowProfile();
     });
     expect(result.current.state.loading).toBe(true);

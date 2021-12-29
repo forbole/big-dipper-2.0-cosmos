@@ -8,6 +8,7 @@ import { useMobile } from './hooks';
 describe('hook: useMobile', () => {
   test('correctly toggles menu open', async () => {
     const { result } = renderHook(() => useMobile());
+    console.log('result 1', result);
     // initial
     expect(result.current.isMenu).toBe(false);
     expect(result.current.isNetwork).toBe(false);
@@ -17,6 +18,7 @@ describe('hook: useMobile', () => {
     act(() => {
       result.current.toggleNavMenus();
     });
+    console.log('result 2', result);
     expect(result.current.isMenu).toBe(true);
     expect(result.current.isNetwork).toBe(false);
     expect(result.current.isOpen).toBe(true);

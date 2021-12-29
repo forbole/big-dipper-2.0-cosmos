@@ -36,6 +36,7 @@ export const useProfileDetails = () => {
   });
 
   const shouldShowProfile = () => {
+    console.log(state.desmosProfile);
     const dtagConnections = state.desmosProfile.connections;
     const dtagConnectionsNetwork = dtagConnections.map((x) => { return x.identifier; });
     const chainPrefix = chainConfig.prefix.account;
