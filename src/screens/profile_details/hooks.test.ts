@@ -5,6 +5,14 @@ import {
 } from '@testing-library/react-hooks';
 import { useProfileDetails } from './hooks';
 
+const mockPush = jest.fn();
+
+jest.mock('next/router', () => ({
+  useRouter: () => ({
+    push: mockPush,
+  }),
+}));
+
 describe('hook: useProfileDetails', () => {
     test('correctly toggles profile open', async () => {
         const { result } = renderHook(() => useProfileDetails());
