@@ -28,7 +28,8 @@ describe('hook: useProfileDetails', () => {
     expect(result.current.state.desmosProfile).toBe(null);
 
     // render profile UI if shouldShowProfile returns true
-    const result1 = renderHook(() => useDesmosProfile({
+    const profileResult = renderHook(() => useDesmosProfile({
+      address: 'desmos18tug2x5uwkgnh7qgadezvdntpwgjc88c98zuck',
       onComplete: (data) => {
         handleSetState({
           loading: false,
@@ -37,7 +38,7 @@ describe('hook: useProfileDetails', () => {
         });
       },
     })).result;
-    console.log(result1);
+    console.log(profileResult);
 
     act(() => {
       console.log('2');
