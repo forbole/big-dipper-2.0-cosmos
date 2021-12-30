@@ -3,6 +3,7 @@ import {
   act,
   cleanup,
 } from '@testing-library/react-hooks';
+import { useDesmosProfile } from '@src/hooks';
 import { useProfileDetails } from './hooks';
 
 jest.mock('next/router', () => ({
@@ -16,7 +17,7 @@ jest.mock('next/router', () => ({
 }));
 
 describe('hook: useProfileDetails', () => {
-  test('correctly toggles profile open', async () => {
+  it('correctly toggles profile open', async () => {
     console.log('1');
     const { result } = renderHook(() => useProfileDetails());
     console.log('result profile hook test', result);
@@ -27,6 +28,17 @@ describe('hook: useProfileDetails', () => {
     expect(result.current.state.desmosProfile).toBe(null);
 
     // render profile UI if shouldShowProfile returns true
+    const result1 = renderHook(() => useDesmosProfile({
+      onComplete: (data) => {
+        handleSetState({
+          loading: false,
+          exists: !!data.profile.length,
+          desmosProfile: formatDesmosProfile(data),
+        });
+      },
+    })).result;
+    console.log(result1);
+
     act(() => {
       console.log('2');
       result.current.shouldShowProfile();
@@ -56,11 +68,11 @@ describe('hook: useProfileDetails', () => {
   });
 
   it('correctly update url', () => {
-    // return to homepage if chainConfig profile is false
+  // return to homepage if chainConfig profile is false
 
     // return to homepage if url dtag is not start with @
 
-    // look up profile data in graphql if profile is true and dtag search is start with @
+  // look up profile data in graphql if profile is true and dtag search is start with @
   });
 });
 
