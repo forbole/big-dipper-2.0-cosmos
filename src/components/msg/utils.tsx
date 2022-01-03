@@ -346,63 +346,53 @@ const getDataByType = (type: string) => {
   // =====================================
   const customTypeToModel = {
     // ========================
-    // profiles
+    // data
     // ========================
-    '/desmos.profiles.v1beta1.MsgSaveProfile': {
-      model: MODELS.MsgSaveProfile,
-      content: COMPONENTS.SaveProfile,
+    '/regen.data.v1alpha1.MsgAnchorDataRequest': {
+      model: MODELS.MsgAnchorDataRequest,
+      content: COMPONENTS.AnchorDataRequest,
       tagTheme: 'four',
-      tagDisplay: 'txSaveProfileLabel',
+      tagDisplay: 'MsgAnchorDataRequest',
     },
-    '/desmos.profiles.v1beta1.MsgDeleteProfile': {
-      model: MODELS.MsgDeleteProfile,
-      content: COMPONENTS.DeleteProfile,
+    '/regen.data.v1alpha1.MsgSignDataRequest': {
+      model: MODELS.MsgSignDataRequest,
+      content: COMPONENTS.SignDataRequest,
       tagTheme: 'four',
-      tagDisplay: 'txDeleteProfileLabel',
+      tagDisplay: 'MsgSignDataRequest',
     },
-    '/desmos.profiles.v1beta1.MsgCreateRelationship': {
-      model: MODELS.MsgCreateRelationship,
-      content: COMPONENTS.CreateRelationship,
+    '/regen.data.v1alpha1.MsgStoreRawDataRequest': {
+      model: MODELS.MsgStoreRawDataRequest,
+      content: COMPONENTS.StoreRawDataRequest,
       tagTheme: 'four',
-      tagDisplay: 'txCreateRelationshipLabel',
+      tagDisplay: 'MsgStoreRawDataRequest',
     },
-    '/desmos.profiles.v1beta1.MsgRequestDTagTransfer': {
-      model: MODELS.MsgDtagTransferRequest,
-      content: COMPONENTS.DtagTransferRequest,
-      tagTheme: 'four',
-      tagDisplay: 'txRequestDTagTransferLabel',
+    // ========================
+    // ecocredit
+    // ========================
+    '/regen.ecocredit.v1alpha1.MsgCreateClassRequest': {
+      model: MODELS.MsgCreateClassRequest,
+      content: COMPONENTS.CreateClassRequest,
+      tagTheme: 'five',
+      tagDisplay: 'MsgCreateClassRequest',
     },
-    '/desmos.profiles.v1beta1.MsgAcceptDTagTransfer': {
-      model: MODELS.MsgDtagAcceptTransfer,
-      content: COMPONENTS.DtagAcceptTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txAcceptDTagTransferLabel',
+    '/regen.ecocredit.v1alpha1.MsgCreateBatchRequest': {
+      model: MODELS.MsgCreateBatchRequest,
+      content: COMPONENTS.CreateBatchRequest,
+      tagTheme: 'five',
+      tagDisplay: 'MsgCreateBatchRequest',
     },
-    '/desmos.profiles.v1beta1.MsgCancelDTagTransfer': {
-      model: MODELS.MsgDtagCancelTransfer,
-      content: COMPONENTS.DtagCancelTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txCancelDTagTransferLabel',
+    '/regen.ecocredit.v1alpha1.MsgSendRequest': {
+      model: MODELS.MsgSendRequest,
+      content: COMPONENTS.SendRequest,
+      tagTheme: 'five',
+      tagDisplay: 'MsgSendRequest',
     },
-    '/desmos.profiles.v1beta1.MsgRefuseDTagTransfer': {
-      model: MODELS.MsgDtagRefuseTransfer,
-      content: COMPONENTS.DtagRefuseTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txRefuseDTagTransferLabel',
+    '/regen.ecocredit.v1alpha1.MsgRetireRequest': {
+      model: MODELS.MsgRetireRequest,
+      content: COMPONENTS.RetireRequest,
+      tagTheme: 'five',
+      tagDisplay: 'MsgRetireRequest',
     },
-    '/desmos.profiles.v1beta1.MsgBlockUser': {
-      model: MODELS.MsgBlockUser,
-      content: COMPONENTS.BlockUser,
-      tagTheme: 'four',
-      tagDisplay: 'txBlockUserLabel',
-    },
-    '/desmos.profiles.v1beta1.MsgUnblockUser': {
-      model: MODELS.MsgUnblockUser,
-      content: COMPONENTS.UnBlockUser,
-      tagTheme: 'four',
-      tagDisplay: 'txUnblockUserLabel',
-    },
-
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];

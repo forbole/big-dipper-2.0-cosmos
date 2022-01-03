@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TransactionDetails/Grant matches snapshot 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body1"
+>
+  <div
+    components={
+      Array [
+        <Name
+          address="issuer"
+          name="issuer"
+        />,
+      ]
+    }
+    i18nKey="message_contents:MsgCreateBatchRequest"
+    id="Trans"
+  />
+</p>
+`;

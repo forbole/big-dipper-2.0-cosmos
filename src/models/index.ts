@@ -69,6 +69,13 @@ import MsgGrantAllowance from './msg/feegrant/msg_grant_allowance';
 import MsgRevokeAllowance from './msg/feegrant/msg_revoke_allowance';
 import MsgCreateVestingAccount from './msg/vesting/msg_create_vesting_account';
 import MsgCreatePeriodicVestingAccount from './msg/vesting/msg_create_periodic_vesting_account';
+import MsgAnchorDataRequest from './msg/data/msg_anchor_data_request';
+import MsgSignDataRequest from './msg/data/msg_sign_data_request';
+import MsgStoreRawDataRequest from './msg/data/msg_store_raw_data_request';
+import MsgCreateClassRequest from './msg/ecocredit/msg_create_class_request';
+import MsgCreateBatchRequest from './msg/ecocredit/msg_create_batch_request';
+import MsgSendRequest from './msg/ecocredit/msg_send_request';
+import MsgRetireRequest from './msg/ecocredit/msg_retire_request';
 
 export {
   BigDipperNetwork,
@@ -142,4 +149,11 @@ export {
   MsgRevokeAllowance,
   MsgCreateVestingAccount,
   MsgCreatePeriodicVestingAccount,
+  MsgAnchorDataRequest,
+  MsgSignDataRequest,
+  MsgStoreRawDataRequest,
+  MsgCreateClassRequest,
+  MsgCreateBatchRequest,
+  MsgSendRequest,
+  MsgRetireRequest,
 };
