@@ -84,7 +84,7 @@ export const useOnlineVotingPower = () => {
       0,
       'bonded',
     ], data);
-    bonded = numeral(formatToken(bonded, state.denom).value).value();
+    bonded = numeral(formatToken(bonded, 'vp').value).value();
     return bonded;
   };
 

@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     branches:
-      - chains/desmos
+      - chains/regen
 
 jobs:
   Build-and-Publish:
@@ -16,8 +16,8 @@ jobs:
         id: prep
         run: |
           BRANCH=${GITHUB_REF#refs/heads/}
-          if [[ $GITHUB_REF == refs/heads/chains/desmos ]]; then
-            BRANCH="desmos"
+          if [[ $GITHUB_REF == refs/heads/chains/regen ]]; then
+            BRANCH="regen"
           elif [[ $GITHUB_REF == refs/pull/* ]]; then
             BRANCH="build-test"
           fi
@@ -26,10 +26,10 @@ jobs:
       - name: Prepare docker build env
         id: dockerPrep
         run: |
-          NEXT_PUBLIC_GRAPHQL_URL="https://gql.morpheus.desmos.network/v1/graphql"
-          NEXT_PUBLIC_GRAPHQL_WS="wss://gql.morpheus.desmos.network/v1/graphql"
-          NEXT_PUBLIC_URL="https://morpheus.desmos.network"
-          NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.morpheus.desmos.network/websocket"
+          NEXT_PUBLIC_GRAPHQL_URL="https://gql.regen.forbole.com/v1/graphql"
+          NEXT_PUBLIC_GRAPHQL_WS="wss://gql.regen.forbole.com/v1/graphql"
+          NEXT_PUBLIC_URL="https://regen.bigdipper.live"
+          NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.regen.forbole.com/websocket"
           NEXT_PUBLIC_CHAIN_STATUS="mainnet"
           NODE_ENV="production"
           PORT=3000

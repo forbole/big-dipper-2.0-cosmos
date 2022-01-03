@@ -6,19 +6,23 @@
     "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/regen/logo.png?sanitize=true"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "regenvalcons",
+    "validator": "regenvaloper",
+    "account": "regen"
   },
   "genesis": {
     "time": "2021-07-13T08:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udsm",
+  "primaryTokenUnit": "uregen",
   "tokenUnits": {
-    "udsm": {
-      "display": "dsm",
+    "uregen": {
+      "display": "regen",
       "exponent": 6
+    },
+    "vp": {
+      "display": "regen",
+      "exponent": 2
     }
   },
   "extra": {
