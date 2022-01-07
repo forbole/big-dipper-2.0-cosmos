@@ -1,6 +1,6 @@
 import { Categories } from '../types';
 
-class MsgUpdateGroupAccounntAdminRequest {
+class MsgUpdateGroupAccountAdminRequest {
   public category: Categories;
   public type: string;
   public json: any;
@@ -16,7 +16,7 @@ class MsgUpdateGroupAccounntAdminRequest {
   }
 
   static fromJson(json: any) {
-    return new MsgUpdateGroupAccounntAdminRequest({
+    return new MsgUpdateGroupAccountAdminRequest({
       json,
       type: json['@type'],
       admin: json.admin,
@@ -25,4 +25,4 @@ class MsgUpdateGroupAccounntAdminRequest {
   }
 }
 
-export default MsgUpdateGroupAccounntAdminRequest;
+export default MsgUpdateGroupAccountAdminRequest;
