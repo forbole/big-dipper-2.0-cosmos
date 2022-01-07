@@ -62,5 +62,16 @@
   "MsgCreateClassRequest": "<0>{{designer}}</0> created a class request",
   "MsgCreateBatchRequest": "<0>{{issuer}}</0> created a batch request",
   "MsgSendRequest": "<0>{{sender}}</0> sent credits to <1>{{recipient}}</1>",
-  "MsgRetireRequest": "<0>{{holder}}</0> retired credits"
+  "MsgRetireRequest": "<0>{{holder}}</0> retired credits",
+  "MsgCreateGroupAccountRequest": "<0>{{admin}}</0> created a group account",
+  "MsgCreateGroupRequest": "<0>{{admin}}</0> created a group request",
+  "MsgCreateProposalRequest": "<0>{{address}}</0> created a proposal request",
+  "MsgExecRequest": "Execute Proposal",
+  "MsgUpdateGroupAccountAdminRequest": "Update Group Account Admin Request",
+  "MsgUpdateGroupAccountDecisionPolicyRequest": "Updte Group Account Decision Policy Request",
+  "MsgUpdateGroupAccountMetadataRequest": "Update Group Account Metadata Request",
+  "MsgUpdateGroupAdminRequest": "Update Group Admin Request",
+  "MsgUpdateGroupMembersRequest": "Update Group Members Request",
+  "MsgUpdateGroupMetadataRequest": "Update Group Metadata Request",
+  "MsgVoteRequest": "Vote Request"
 }
