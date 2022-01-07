@@ -7,7 +7,7 @@ class MsgCreateGroupAccountRequest {
   public admin: string;
 
   constructor(payload: any) {
-    this.category = 'ecocredit';
+    this.category = 'group';
     this.json = payload.json;
     this.type = payload.type;
     this.admin = payload.admin;

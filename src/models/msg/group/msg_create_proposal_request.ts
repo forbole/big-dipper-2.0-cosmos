@@ -7,7 +7,7 @@ class MsgCreateProposalRequest {
   public address: string;
 
   constructor(payload: any) {
-    this.category = 'ecocredit';
+    this.category = 'group';
     this.json = payload.json;
     this.type = payload.type;
     this.address = payload.address;
