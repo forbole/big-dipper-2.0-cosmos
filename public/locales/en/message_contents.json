@@ -73,5 +73,5 @@
   "MsgUpdateGroupAdminRequest": "<0>{{admin}}</0> updated group admin to <1>{{newAdmin}}</1>",
   "MsgUpdateGroupMembersRequest": "<0>{{admin}}</0> updated group members",
   "MsgUpdateGroupMetadataRequest": "<0>{{admin}}</0> updated group metadata",
-  "MsgVoteRequest": "Vote Request"
+  "MsgVoteRequest": "<0>{{voter}}</0> voted on a proposal"
 }
