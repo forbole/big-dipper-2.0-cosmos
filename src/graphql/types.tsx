@@ -18499,6 +18499,9 @@ export type AccountQuery = { stakingParams: Array<(
         )>, validatorStatuses: Array<(
           { __typename?: 'validator_status' }
           & Pick<Validator_Status, 'status' | 'jailed'>
+        )>, validatorSigningInfos: Array<(
+          { __typename?: 'validator_signing_info' }
+          & Pick<Validator_Signing_Info, 'tombstoned'>
         )> }
       ) }
     )>, unbonding: Array<(
@@ -18670,13 +18673,7 @@ export type BlocksQuery = { blocks: Array<(
         & Pick<Validator_Description, 'moniker' | 'identity'>
       )> }
     )> }
-  )>, total: (
-    { __typename?: 'block_aggregate' }
-    & { aggregate?: Maybe<(
-      { __typename?: 'block_aggregate_fields' }
-      & Pick<Block_Aggregate_Fields, 'count'>
-    )> }
-  ) };
+  )> };
 
 export type ChainIdQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -18914,13 +18911,7 @@ export type TransactionsQuery = { transactions: Array<(
       { __typename?: 'block' }
       & Pick<Block, 'timestamp'>
     ) }
-  )>, total: (
-    { __typename?: 'transaction_aggregate' }
-    & { aggregate?: Maybe<(
-      { __typename?: 'transaction_aggregate_fields' }
-      & Pick<Transaction_Aggregate_Fields, 'count'>
-    )> }
-  ) };
+  )> };
 
 export type LastHundredBlocksSubscriptionVariables = Exact<{
   address?: Maybe<Scalars['String']>;
@@ -18978,6 +18969,7 @@ export type ValidatorDetailsQuery = { stakingParams: Array<(
       & Pick<Validator_Status, 'status' | 'jailed' | 'height'>
     )>, validatorSigningInfos: Array<(
       { __typename?: 'validator_signing_info' }
+      & Pick<Validator_Signing_Info, 'tombstoned'>
       & { missedBlocksCounter: Validator_Signing_Info['missed_blocks_counter'] }
     )>, validatorInfo?: Maybe<(
       { __typename?: 'validator_info' }
@@ -19027,6 +19019,7 @@ export type ValidatorsQuery = { stakingParams: Array<(
       & Pick<Validator_Status, 'status' | 'jailed' | 'height'>
     )>, validatorSigningInfos: Array<(
       { __typename?: 'validator_signing_info' }
+      & Pick<Validator_Signing_Info, 'tombstoned'>
       & { missedBlocksCounter: Validator_Signing_Info['missed_blocks_counter'] }
     )>, validatorInfo?: Maybe<(
       { __typename?: 'validator_info' }
@@ -19100,6 +19093,12 @@ export const AccountDocument = gql`
         validatorStatuses: validator_statuses(limit: 1, order_by: {height: desc}) {
           status
           jailed
+        }
+        validatorSigningInfos: validator_signing_infos(
+          order_by: {height: desc}
+          limit: 1
+        ) {
+          tombstoned
         }
       }
     }
@@ -19443,11 +19442,6 @@ export const BlocksDocument = gql`
         moniker
         identity
       }
-    }
-  }
-  total: block_aggregate {
-    aggregate {
-      count
     }
   }
 }
@@ -20067,11 +20061,6 @@ export const TransactionsDocument = gql`
     messages
     logs
   }
-  total: transaction_aggregate {
-    aggregate {
-      count
-    }
-  }
 }
     `;
 
@@ -20208,6 +20197,7 @@ export const ValidatorDetailsDocument = gql`
       limit: 1
     ) {
       missedBlocksCounter: missed_blocks_counter
+      tombstoned
     }
     validatorInfo: validator_info {
       operatorAddress: operator_address
@@ -20301,6 +20291,7 @@ export const ValidatorsDocument = gql`
       limit: 1
     ) {
       missedBlocksCounter: missed_blocks_counter
+      tombstoned
     }
     validatorInfo: validator_info {
       operatorAddress: operator_address
