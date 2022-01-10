@@ -2261,6 +2261,128 @@ export type Delegation_Variance_Order_By = {
   id?: Maybe<Order_By>;
 };
 
+/** columns and relationships of "delegators_to_refresh" */
+export type Delegators_To_Refresh = {
+  __typename?: 'delegators_to_refresh';
+  address: Scalars['String'];
+  height: Scalars['bigint'];
+};
+
+/** aggregated selection of "delegators_to_refresh" */
+export type Delegators_To_Refresh_Aggregate = {
+  __typename?: 'delegators_to_refresh_aggregate';
+  aggregate?: Maybe<Delegators_To_Refresh_Aggregate_Fields>;
+  nodes: Array<Delegators_To_Refresh>;
+};
+
+/** aggregate fields of "delegators_to_refresh" */
+export type Delegators_To_Refresh_Aggregate_Fields = {
+  __typename?: 'delegators_to_refresh_aggregate_fields';
+  avg?: Maybe<Delegators_To_Refresh_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Delegators_To_Refresh_Max_Fields>;
+  min?: Maybe<Delegators_To_Refresh_Min_Fields>;
+  stddev?: Maybe<Delegators_To_Refresh_Stddev_Fields>;
+  stddev_pop?: Maybe<Delegators_To_Refresh_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Delegators_To_Refresh_Stddev_Samp_Fields>;
+  sum?: Maybe<Delegators_To_Refresh_Sum_Fields>;
+  var_pop?: Maybe<Delegators_To_Refresh_Var_Pop_Fields>;
+  var_samp?: Maybe<Delegators_To_Refresh_Var_Samp_Fields>;
+  variance?: Maybe<Delegators_To_Refresh_Variance_Fields>;
+};
+
+
+/** aggregate fields of "delegators_to_refresh" */
+export type Delegators_To_Refresh_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Delegators_To_Refresh_Avg_Fields = {
+  __typename?: 'delegators_to_refresh_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "delegators_to_refresh". All fields are combined with a logical 'AND'. */
+export type Delegators_To_Refresh_Bool_Exp = {
+  _and?: Maybe<Array<Delegators_To_Refresh_Bool_Exp>>;
+  _not?: Maybe<Delegators_To_Refresh_Bool_Exp>;
+  _or?: Maybe<Array<Delegators_To_Refresh_Bool_Exp>>;
+  address?: Maybe<String_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Delegators_To_Refresh_Max_Fields = {
+  __typename?: 'delegators_to_refresh_max_fields';
+  address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate min on columns */
+export type Delegators_To_Refresh_Min_Fields = {
+  __typename?: 'delegators_to_refresh_min_fields';
+  address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** Ordering options when selecting data from "delegators_to_refresh". */
+export type Delegators_To_Refresh_Order_By = {
+  address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+};
+
+/** select columns of table "delegators_to_refresh" */
+export enum Delegators_To_Refresh_Select_Column {
+  /** column name */
+  Address = 'address',
+  /** column name */
+  Height = 'height'
+}
+
+/** aggregate stddev on columns */
+export type Delegators_To_Refresh_Stddev_Fields = {
+  __typename?: 'delegators_to_refresh_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Delegators_To_Refresh_Stddev_Pop_Fields = {
+  __typename?: 'delegators_to_refresh_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Delegators_To_Refresh_Stddev_Samp_Fields = {
+  __typename?: 'delegators_to_refresh_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Delegators_To_Refresh_Sum_Fields = {
+  __typename?: 'delegators_to_refresh_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Delegators_To_Refresh_Var_Pop_Fields = {
+  __typename?: 'delegators_to_refresh_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Delegators_To_Refresh_Var_Samp_Fields = {
+  __typename?: 'delegators_to_refresh_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Delegators_To_Refresh_Variance_Fields = {
+  __typename?: 'delegators_to_refresh_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
 /** columns and relationships of "distribution_params" */
 export type Distribution_Params = {
   __typename?: 'distribution_params';
@@ -3419,6 +3541,42 @@ export type Iscn_ParamsParamsArgs = {
   path?: Maybe<Scalars['String']>;
 };
 
+/** aggregated selection of "iscn_params" */
+export type Iscn_Params_Aggregate = {
+  __typename?: 'iscn_params_aggregate';
+  aggregate?: Maybe<Iscn_Params_Aggregate_Fields>;
+  nodes: Array<Iscn_Params>;
+};
+
+/** aggregate fields of "iscn_params" */
+export type Iscn_Params_Aggregate_Fields = {
+  __typename?: 'iscn_params_aggregate_fields';
+  avg?: Maybe<Iscn_Params_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Iscn_Params_Max_Fields>;
+  min?: Maybe<Iscn_Params_Min_Fields>;
+  stddev?: Maybe<Iscn_Params_Stddev_Fields>;
+  stddev_pop?: Maybe<Iscn_Params_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Iscn_Params_Stddev_Samp_Fields>;
+  sum?: Maybe<Iscn_Params_Sum_Fields>;
+  var_pop?: Maybe<Iscn_Params_Var_Pop_Fields>;
+  var_samp?: Maybe<Iscn_Params_Var_Samp_Fields>;
+  variance?: Maybe<Iscn_Params_Variance_Fields>;
+};
+
+
+/** aggregate fields of "iscn_params" */
+export type Iscn_Params_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Iscn_Params_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Iscn_Params_Avg_Fields = {
+  __typename?: 'iscn_params_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
 /** Boolean expression to filter rows from the table "iscn_params". All fields are combined with a logical 'AND'. */
 export type Iscn_Params_Bool_Exp = {
   _and?: Maybe<Array<Iscn_Params_Bool_Exp>>;
@@ -3427,6 +3585,18 @@ export type Iscn_Params_Bool_Exp = {
   height?: Maybe<Bigint_Comparison_Exp>;
   one_row_id?: Maybe<Boolean_Comparison_Exp>;
   params?: Maybe<Jsonb_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Iscn_Params_Max_Fields = {
+  __typename?: 'iscn_params_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate min on columns */
+export type Iscn_Params_Min_Fields = {
+  __typename?: 'iscn_params_min_fields';
+  height?: Maybe<Scalars['bigint']>;
 };
 
 /** Ordering options when selecting data from "iscn_params". */
@@ -3445,6 +3615,48 @@ export enum Iscn_Params_Select_Column {
   /** column name */
   Params = 'params'
 }
+
+/** aggregate stddev on columns */
+export type Iscn_Params_Stddev_Fields = {
+  __typename?: 'iscn_params_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Iscn_Params_Stddev_Pop_Fields = {
+  __typename?: 'iscn_params_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Iscn_Params_Stddev_Samp_Fields = {
+  __typename?: 'iscn_params_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Iscn_Params_Sum_Fields = {
+  __typename?: 'iscn_params_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Iscn_Params_Var_Pop_Fields = {
+  __typename?: 'iscn_params_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Iscn_Params_Var_Samp_Fields = {
+  __typename?: 'iscn_params_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Iscn_Params_Variance_Fields = {
+  __typename?: 'iscn_params_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
 
 /** columns and relationships of "iscn_record" */
 export type Iscn_Record = {
@@ -5963,6 +6175,121 @@ export type Proposal_Vote_Variance_Order_By = {
   proposal_id?: Maybe<Order_By>;
 };
 
+/** columns and relationships of "pruning" */
+export type Pruning = {
+  __typename?: 'pruning';
+  last_pruned_height: Scalars['bigint'];
+};
+
+/** aggregated selection of "pruning" */
+export type Pruning_Aggregate = {
+  __typename?: 'pruning_aggregate';
+  aggregate?: Maybe<Pruning_Aggregate_Fields>;
+  nodes: Array<Pruning>;
+};
+
+/** aggregate fields of "pruning" */
+export type Pruning_Aggregate_Fields = {
+  __typename?: 'pruning_aggregate_fields';
+  avg?: Maybe<Pruning_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Pruning_Max_Fields>;
+  min?: Maybe<Pruning_Min_Fields>;
+  stddev?: Maybe<Pruning_Stddev_Fields>;
+  stddev_pop?: Maybe<Pruning_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Pruning_Stddev_Samp_Fields>;
+  sum?: Maybe<Pruning_Sum_Fields>;
+  var_pop?: Maybe<Pruning_Var_Pop_Fields>;
+  var_samp?: Maybe<Pruning_Var_Samp_Fields>;
+  variance?: Maybe<Pruning_Variance_Fields>;
+};
+
+
+/** aggregate fields of "pruning" */
+export type Pruning_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Pruning_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Pruning_Avg_Fields = {
+  __typename?: 'pruning_avg_fields';
+  last_pruned_height?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "pruning". All fields are combined with a logical 'AND'. */
+export type Pruning_Bool_Exp = {
+  _and?: Maybe<Array<Pruning_Bool_Exp>>;
+  _not?: Maybe<Pruning_Bool_Exp>;
+  _or?: Maybe<Array<Pruning_Bool_Exp>>;
+  last_pruned_height?: Maybe<Bigint_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Pruning_Max_Fields = {
+  __typename?: 'pruning_max_fields';
+  last_pruned_height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate min on columns */
+export type Pruning_Min_Fields = {
+  __typename?: 'pruning_min_fields';
+  last_pruned_height?: Maybe<Scalars['bigint']>;
+};
+
+/** Ordering options when selecting data from "pruning". */
+export type Pruning_Order_By = {
+  last_pruned_height?: Maybe<Order_By>;
+};
+
+/** select columns of table "pruning" */
+export enum Pruning_Select_Column {
+  /** column name */
+  LastPrunedHeight = 'last_pruned_height'
+}
+
+/** aggregate stddev on columns */
+export type Pruning_Stddev_Fields = {
+  __typename?: 'pruning_stddev_fields';
+  last_pruned_height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Pruning_Stddev_Pop_Fields = {
+  __typename?: 'pruning_stddev_pop_fields';
+  last_pruned_height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Pruning_Stddev_Samp_Fields = {
+  __typename?: 'pruning_stddev_samp_fields';
+  last_pruned_height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Pruning_Sum_Fields = {
+  __typename?: 'pruning_sum_fields';
+  last_pruned_height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Pruning_Var_Pop_Fields = {
+  __typename?: 'pruning_var_pop_fields';
+  last_pruned_height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Pruning_Var_Samp_Fields = {
+  __typename?: 'pruning_var_samp_fields';
+  last_pruned_height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Pruning_Variance_Fields = {
+  __typename?: 'pruning_variance_fields';
+  last_pruned_height?: Maybe<Scalars['Float']>;
+};
+
 export type Query_Root = {
   __typename?: 'query_root';
   /** fetch data from the table: "account" */
@@ -6017,6 +6344,10 @@ export type Query_Root = {
   delegation_reward: Array<Delegation_Reward>;
   /** fetch aggregated fields from the table: "delegation_reward" */
   delegation_reward_aggregate: Delegation_Reward_Aggregate;
+  /** fetch data from the table: "delegators_to_refresh" */
+  delegators_to_refresh: Array<Delegators_To_Refresh>;
+  /** fetch aggregated fields from the table: "delegators_to_refresh" */
+  delegators_to_refresh_aggregate: Delegators_To_Refresh_Aggregate;
   /** fetch data from the table: "distribution_params" */
   distribution_params: Array<Distribution_Params>;
   /** fetch aggregated fields from the table: "distribution_params" */
@@ -6049,6 +6380,8 @@ export type Query_Root = {
   inflation_aggregate: Inflation_Aggregate;
   /** fetch data from the table: "iscn_params" */
   iscn_params: Array<Iscn_Params>;
+  /** fetch aggregated fields from the table: "iscn_params" */
+  iscn_params_aggregate: Iscn_Params_Aggregate;
   /** fetch data from the table: "iscn_params" using primary key columns */
   iscn_params_by_pk?: Maybe<Iscn_Params>;
   /** fetch data from the table: "iscn_record" */
@@ -6113,6 +6446,10 @@ export type Query_Root = {
   proposal_vote: Array<Proposal_Vote>;
   /** fetch aggregated fields from the table: "proposal_vote" */
   proposal_vote_aggregate: Proposal_Vote_Aggregate;
+  /** fetch data from the table: "pruning" */
+  pruning: Array<Pruning>;
+  /** fetch aggregated fields from the table: "pruning" */
+  pruning_aggregate: Pruning_Aggregate;
   /** fetch data from the table: "redelegation" */
   redelegation: Array<Redelegation>;
   /** fetch aggregated fields from the table: "redelegation" */
@@ -6444,6 +6781,24 @@ export type Query_RootDelegation_Reward_AggregateArgs = {
 };
 
 
+export type Query_RootDelegators_To_RefreshArgs = {
+  distinct_on?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Delegators_To_Refresh_Order_By>>;
+  where?: Maybe<Delegators_To_Refresh_Bool_Exp>;
+};
+
+
+export type Query_RootDelegators_To_Refresh_AggregateArgs = {
+  distinct_on?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Delegators_To_Refresh_Order_By>>;
+  where?: Maybe<Delegators_To_Refresh_Bool_Exp>;
+};
+
+
 export type Query_RootDistribution_ParamsArgs = {
   distinct_on?: Maybe<Array<Distribution_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -6568,6 +6923,15 @@ export type Query_RootInflation_AggregateArgs = {
 
 
 export type Query_RootIscn_ParamsArgs = {
+  distinct_on?: Maybe<Array<Iscn_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Iscn_Params_Order_By>>;
+  where?: Maybe<Iscn_Params_Bool_Exp>;
+};
+
+
+export type Query_RootIscn_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Iscn_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
@@ -6831,6 +7195,24 @@ export type Query_RootProposal_Vote_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Proposal_Vote_Order_By>>;
   where?: Maybe<Proposal_Vote_Bool_Exp>;
+};
+
+
+export type Query_RootPruningArgs = {
+  distinct_on?: Maybe<Array<Pruning_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Pruning_Order_By>>;
+  where?: Maybe<Pruning_Bool_Exp>;
+};
+
+
+export type Query_RootPruning_AggregateArgs = {
+  distinct_on?: Maybe<Array<Pruning_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Pruning_Order_By>>;
+  where?: Maybe<Pruning_Bool_Exp>;
 };
 
 
@@ -7984,6 +8366,10 @@ export type Subscription_Root = {
   delegation_reward: Array<Delegation_Reward>;
   /** fetch aggregated fields from the table: "delegation_reward" */
   delegation_reward_aggregate: Delegation_Reward_Aggregate;
+  /** fetch data from the table: "delegators_to_refresh" */
+  delegators_to_refresh: Array<Delegators_To_Refresh>;
+  /** fetch aggregated fields from the table: "delegators_to_refresh" */
+  delegators_to_refresh_aggregate: Delegators_To_Refresh_Aggregate;
   /** fetch data from the table: "distribution_params" */
   distribution_params: Array<Distribution_Params>;
   /** fetch aggregated fields from the table: "distribution_params" */
@@ -8016,6 +8402,8 @@ export type Subscription_Root = {
   inflation_aggregate: Inflation_Aggregate;
   /** fetch data from the table: "iscn_params" */
   iscn_params: Array<Iscn_Params>;
+  /** fetch aggregated fields from the table: "iscn_params" */
+  iscn_params_aggregate: Iscn_Params_Aggregate;
   /** fetch data from the table: "iscn_params" using primary key columns */
   iscn_params_by_pk?: Maybe<Iscn_Params>;
   /** fetch data from the table: "iscn_record" */
@@ -8080,6 +8468,10 @@ export type Subscription_Root = {
   proposal_vote: Array<Proposal_Vote>;
   /** fetch aggregated fields from the table: "proposal_vote" */
   proposal_vote_aggregate: Proposal_Vote_Aggregate;
+  /** fetch data from the table: "pruning" */
+  pruning: Array<Pruning>;
+  /** fetch aggregated fields from the table: "pruning" */
+  pruning_aggregate: Pruning_Aggregate;
   /** fetch data from the table: "redelegation" */
   redelegation: Array<Redelegation>;
   /** fetch aggregated fields from the table: "redelegation" */
@@ -8411,6 +8803,24 @@ export type Subscription_RootDelegation_Reward_AggregateArgs = {
 };
 
 
+export type Subscription_RootDelegators_To_RefreshArgs = {
+  distinct_on?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Delegators_To_Refresh_Order_By>>;
+  where?: Maybe<Delegators_To_Refresh_Bool_Exp>;
+};
+
+
+export type Subscription_RootDelegators_To_Refresh_AggregateArgs = {
+  distinct_on?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Delegators_To_Refresh_Order_By>>;
+  where?: Maybe<Delegators_To_Refresh_Bool_Exp>;
+};
+
+
 export type Subscription_RootDistribution_ParamsArgs = {
   distinct_on?: Maybe<Array<Distribution_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8535,6 +8945,15 @@ export type Subscription_RootInflation_AggregateArgs = {
 
 
 export type Subscription_RootIscn_ParamsArgs = {
+  distinct_on?: Maybe<Array<Iscn_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Iscn_Params_Order_By>>;
+  where?: Maybe<Iscn_Params_Bool_Exp>;
+};
+
+
+export type Subscription_RootIscn_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Iscn_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
@@ -8798,6 +9217,24 @@ export type Subscription_RootProposal_Vote_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Proposal_Vote_Order_By>>;
   where?: Maybe<Proposal_Vote_Bool_Exp>;
+};
+
+
+export type Subscription_RootPruningArgs = {
+  distinct_on?: Maybe<Array<Pruning_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Pruning_Order_By>>;
+  where?: Maybe<Pruning_Bool_Exp>;
+};
+
+
+export type Subscription_RootPruning_AggregateArgs = {
+  distinct_on?: Maybe<Array<Pruning_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Pruning_Order_By>>;
+  where?: Maybe<Pruning_Bool_Exp>;
 };
 
 
@@ -13220,6 +13657,9 @@ export type AccountQuery = { stakingParams: Array<(
         )>, validatorStatuses: Array<(
           { __typename?: 'validator_status' }
           & Pick<Validator_Status, 'status' | 'jailed'>
+        )>, validatorSigningInfos: Array<(
+          { __typename?: 'validator_signing_info' }
+          & Pick<Validator_Signing_Info, 'tombstoned'>
         )> }
       ) }
     )>, unbonding: Array<(
@@ -13391,13 +13831,7 @@ export type BlocksQuery = { blocks: Array<(
         & Pick<Validator_Description, 'moniker' | 'identity'>
       )> }
     )> }
-  )>, total: (
-    { __typename?: 'block_aggregate' }
-    & { aggregate?: Maybe<(
-      { __typename?: 'block_aggregate_fields' }
-      & Pick<Block_Aggregate_Fields, 'count'>
-    )> }
-  ) };
+  )> };
 
 export type ChainIdQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -13444,6 +13878,9 @@ export type MarketDataQuery = { communityPool: Array<(
   )>, supply: Array<(
     { __typename?: 'supply' }
     & Pick<Supply, 'coins'>
+  )>, bondedTokens: Array<(
+    { __typename?: 'staking_pool' }
+    & Pick<Staking_Pool, 'bonded_tokens'>
   )> };
 
 export type GetMessagesByAddressQueryVariables = Exact<{
@@ -13653,13 +14090,7 @@ export type TransactionsQuery = { transactions: Array<(
       { __typename?: 'block' }
       & Pick<Block, 'timestamp'>
     ) }
-  )>, total: (
-    { __typename?: 'transaction_aggregate' }
-    & { aggregate?: Maybe<(
-      { __typename?: 'transaction_aggregate_fields' }
-      & Pick<Transaction_Aggregate_Fields, 'count'>
-    )> }
-  ) };
+  )> };
 
 export type LastHundredBlocksSubscriptionVariables = Exact<{
   address?: Maybe<Scalars['String']>;
@@ -13717,6 +14148,7 @@ export type ValidatorDetailsQuery = { stakingParams: Array<(
       & Pick<Validator_Status, 'status' | 'jailed' | 'height'>
     )>, validatorSigningInfos: Array<(
       { __typename?: 'validator_signing_info' }
+      & Pick<Validator_Signing_Info, 'tombstoned'>
       & { missedBlocksCounter: Validator_Signing_Info['missed_blocks_counter'] }
     )>, validatorInfo?: Maybe<(
       { __typename?: 'validator_info' }
@@ -13766,6 +14198,7 @@ export type ValidatorsQuery = { stakingParams: Array<(
       & Pick<Validator_Status, 'status' | 'jailed' | 'height'>
     )>, validatorSigningInfos: Array<(
       { __typename?: 'validator_signing_info' }
+      & Pick<Validator_Signing_Info, 'tombstoned'>
       & { missedBlocksCounter: Validator_Signing_Info['missed_blocks_counter'] }
     )>, validatorInfo?: Maybe<(
       { __typename?: 'validator_info' }
@@ -13839,6 +14272,12 @@ export const AccountDocument = gql`
         validatorStatuses: validator_statuses(limit: 1, order_by: {height: desc}) {
           status
           jailed
+        }
+        validatorSigningInfos: validator_signing_infos(
+          order_by: {height: desc}
+          limit: 1
+        ) {
+          tombstoned
         }
       }
     }
@@ -14184,11 +14623,6 @@ export const BlocksDocument = gql`
       }
     }
   }
-  total: block_aggregate {
-    aggregate {
-      count
-    }
-  }
 }
     `;
 
@@ -14318,6 +14752,9 @@ export const MarketDataDocument = gql`
   }
   supply {
     coins
+  }
+  bondedTokens: staking_pool(order_by: {height: desc}, limit: 1) {
+    bonded_tokens
   }
 }
     `;
@@ -14855,11 +15292,6 @@ export const TransactionsDocument = gql`
     messages
     logs
   }
-  total: transaction_aggregate {
-    aggregate {
-      count
-    }
-  }
 }
     `;
 
@@ -14996,6 +15428,7 @@ export const ValidatorDetailsDocument = gql`
       limit: 1
     ) {
       missedBlocksCounter: missed_blocks_counter
+      tombstoned
     }
     validatorInfo: validator_info {
       operatorAddress: operator_address
@@ -15089,6 +15522,7 @@ export const ValidatorsDocument = gql`
       limit: 1
     ) {
       missedBlocksCounter: missed_blocks_counter
+      tombstoned
     }
     validatorInfo: validator_info {
       operatorAddress: operator_address

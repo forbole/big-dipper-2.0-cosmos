@@ -23,6 +23,7 @@ const AccountDetails = () => {
     state,
     loadNextPage,
   } = useAccountDetails();
+
   return (
     <>
       <NextSeo

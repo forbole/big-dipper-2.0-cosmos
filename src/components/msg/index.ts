@@ -65,6 +65,12 @@ import Transfer from './ibc_transfer/transfer';
 import CreateIscnRecord from './iscn/create_iscn_record';
 import IscnChangeOwnership from './iscn/iscn_change_ownership';
 import UpdateIscnRecord from './iscn/update_iscn_record';
+import Grant from './authz/grant';
+import Revoke from './authz/revoke';
+import GrantAllowance from './feegrant/grant_allowance';
+import RevokeAllowance from './feegrant/revoke_allowance';
+import CreateVestingAccount from './vesting/create_vesting_account';
+import CreatePeriodicVestingAccount from './vesting/create_periodic_vesting_account';
 
 export {
   getMessageModelByType,
@@ -128,4 +134,10 @@ export {
   CreateIscnRecord,
   IscnChangeOwnership,
   UpdateIscnRecord,
+  Grant,
+  Revoke,
+  GrantAllowance,
+  RevokeAllowance,
+  CreateVestingAccount,
+  CreatePeriodicVestingAccount,
 };

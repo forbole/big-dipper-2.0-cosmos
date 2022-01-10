@@ -67,6 +67,12 @@ import MsgTransfer from './msg/ibc_transfer/msg_transfer';
 import MsgChangeIscnRecordOwnership from './msg/iscn/msg_change_iscn_record_ownership';
 import MsgUpdateIscnRecord from './msg/iscn/msg_update_iscn_record';
 import MsgCreateIscnRecord from './msg/iscn/msg_create_iscn_record';
+import MsgGrant from './msg/authz/msg_grant';
+import MsgRevoke from './msg/authz/msg_revoke';
+import MsgGrantAllowance from './msg/feegrant/msg_grant_allowance';
+import MsgRevokeAllowance from './msg/feegrant/msg_revoke_allowance';
+import MsgCreateVestingAccount from './msg/vesting/msg_create_vesting_account';
+import MsgCreatePeriodicVestingAccount from './msg/vesting/msg_create_periodic_vesting_account';
 
 export {
   BigDipperNetwork,
@@ -138,4 +144,10 @@ export {
   MsgCreateIscnRecord,
   MsgUpdateIscnRecord,
   MsgChangeIscnRecordOwnership,
+  MsgGrant,
+  MsgRevoke,
+  MsgGrantAllowance,
+  MsgRevokeAllowance,
+  MsgCreateVestingAccount,
+  MsgCreatePeriodicVestingAccount,
 };
