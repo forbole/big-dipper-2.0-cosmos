@@ -1,3 +1,8 @@
+# Unreleased
+
+## Changes
+- Optimized initial loading by setting basic details first then profiles after ([\#629](https://github.com/forbole/big-dipper-2.0-cosmos/issues/629))
+
 # base-v1.9.0 - 2021-01-10
 
 ## Changes
