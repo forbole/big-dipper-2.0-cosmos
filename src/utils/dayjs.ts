@@ -5,6 +5,9 @@ import updateLocal from 'dayjs/plugin/updateLocale';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import timezone from 'dayjs/plugin/timezone';
 
+// ============================================
+// Dayjs addons setup here
+// ============================================
 dayjs.extend(relativeTime);
 dayjs.extend(utc);
 dayjs.extend(updateLocal);
@@ -32,10 +35,10 @@ dayjs.updateLocale('en', {
 export default dayjs;
 
 /**
- *
- * @param time dayjs.Dayjs
- * @param isUtc
- * @returns
+ * Util to switch between UTC or locale time
+ * @param time current dayjs.Dayjs time
+ * @param mode utc or locale, defaults to locale
+ * @returns a string with to correct time
  */
 export const formatDayJs = (time: dayjs.Dayjs, mode: 'locale' | 'utc' = 'locale') => {
   if (mode === 'utc') {

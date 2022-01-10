@@ -25,6 +25,9 @@ export type DelegationType = {
     status: number;
     jailed: boolean;
   }
+  validatorSigningInfo: {
+    tombstoned: boolean;
+  }
   commission: number;
   amount: TokenUnit;
   reward: TokenUnit;

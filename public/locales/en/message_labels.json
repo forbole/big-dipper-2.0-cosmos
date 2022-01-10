@@ -51,5 +51,11 @@
   "txTransferLabel": "IBC Transfer",
   "txCreateIscnRecordLabel": "ISCN Record Create",
   "txUpdateIscnRecordLabel": "ISCN Record Update",
-  "txChangeIscnRecordOwnershipLabel": "ISCN Record Change Owndership"
+  "txChangeIscnRecordOwnershipLabel": "ISCN Record Change Owndership",
+  "MsgGrant": "Grant",
+  "MsgRevoke": "Revoke",
+  "MsgGrantAllowance": "Grant Allowance",
+  "MsgRevokeAllowance": "Revoke Allowance",
+  "MsgCreateVestingAccount": "Create Vesting Account",
+  "MsgCreatePeriodicVestingAccount": "Create Periodic Vesting Account"
 }

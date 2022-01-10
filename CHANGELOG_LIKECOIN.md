@@ -1,3 +1,7 @@
+# likecoin-v1.8.0 - 2021-01-10
+## Changes
+- Merge `base-v1.9.0`
+
 # likecoin-v1.7.0 - 2021-11-23
 ## Changes
 - Removed dark theme ([\#523](https://github.com/forbole/big-dipper-2.0-cosmos/issues/523))
