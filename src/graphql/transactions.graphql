@@ -22,9 +22,4 @@ query Transactions($limit: Int = 7, $offset: Int = 0) {
     messages
     logs
   }
-  total: transaction_aggregate {
-    aggregate {
-      count
-    }
-  }
 }

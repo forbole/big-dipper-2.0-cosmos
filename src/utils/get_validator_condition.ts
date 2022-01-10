@@ -1,7 +1,18 @@
+/**
+ * Util to get a validator's current condition
+ * @param signedBlockWindow the chain's
+ * @param missedBlockCounter
+ * @returns number out of 100
+ */
 export const getValidatorCondition = (signedBlockWindow: number, missedBlockCounter: number) => {
   return (1 - (missedBlockCounter / signedBlockWindow)) * 100;
 };
 
+/**
+ * Returns the css class based on the condition percentage out of 100
+ * @param condition the condition percentage
+ * @returns `green` | `yellow` | `red`
+ */
 export const getValidatorConditionClass = (condition: number) => {
   let conditionClass = '';
   if (condition > 90) {

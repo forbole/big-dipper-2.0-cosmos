@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Big from 'big.js';
 import * as R from 'ramda';
 import numeral from 'numeral';
 import {
@@ -12,7 +13,9 @@ import {
   SlashingParams,
 } from '@models';
 import {
-  ValidatorsState, ItemType,
+  ValidatorsState,
+  ItemType,
+  ValidatorType,
 } from './types';
 
 export const useValidators = () => {
@@ -56,7 +59,7 @@ export const useValidators = () => {
 
     const { signedBlockWindow } = slashingParams;
 
-    const formattedItems = data.validator.filter((x) => x.validatorInfo).map((x) => {
+    let formattedItems: ValidatorType[] = data.validator.filter((x) => x.validatorInfo).map((x) => {
       const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
       const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
       const totalDelegations = x.delegations.reduce((a, b) => {
@@ -84,8 +87,33 @@ export const useValidators = () => {
         condition,
         status: R.pathOr(0, ['validatorStatuses', 0, 'status'], x),
         jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], x),
+        tombstoned: R.pathOr(false, ['validatorSigningInfos', 0, 'tombstoned'], x),
         delegators: x.delegations.length,
       });
+    });
+
+    // get the top 34% validators
+    formattedItems = formattedItems.sort((a, b) => {
+      return a.votingPower > b.votingPower ? -1 : 1;
+    });
+
+    // add key to indicate they are part of top 34%
+    let cumulativeVotingPower = Big(0);
+    let reached = false;
+    formattedItems.forEach((x) => {
+      if (x.status === 3) {
+        const totalVp = cumulativeVotingPower.add(x.votingPowerPercent);
+        if (totalVp.lte(34) && !reached) {
+          x.topVotingPower = true;
+        }
+
+        if (totalVp.gt(34) && !reached) {
+          x.topVotingPower = true;
+          reached = true;
+        }
+
+        cumulativeVotingPower = totalVp;
+      }
     });
 
     return {
@@ -129,9 +157,10 @@ export const useValidators = () => {
 
     if (search) {
       sorted = sorted.filter((x) => {
+        const formattedSearch = search.toLowerCase().replace(/ /g, '');
         return (
-          x.validator.name.toLowerCase().replace(/ /g, '').includes(search.toLowerCase())
-          || x.validator.address.toLowerCase().includes(search.toLowerCase())
+          x.validator.name.toLowerCase().replace(/ /g, '').includes(formattedSearch)
+          || x.validator.address.toLowerCase().includes(formattedSearch)
         );
       });
     }

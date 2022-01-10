@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import SettingIcon from '@assets/icon-setting.svg';
+import { generalConfig } from '@configs';
 import {
   MenuItem,
   Typography,
@@ -54,7 +55,16 @@ const Settings: React.FC<{
         className={classes.dialog}
       >
         <DialogTitle disableTypography className={classes.header}>
-          <Typography variant="h2">{t('settings')}</Typography>
+          <div className={classes.title}>
+            <Typography variant="h2">
+              {t('settings')}
+            </Typography>
+            <Typography variant="body2" className={classes.version}>
+              (
+              {generalConfig.version}
+              )
+            </Typography>
+          </div>
           <IconButton
             aria-label="close"
             onClick={handleCancel}

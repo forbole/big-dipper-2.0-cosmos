@@ -4,6 +4,10 @@ export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
       return ({
+        root: {
+          display: 'flex',
+          alignItems: 'center',
+        },
         icon: {
           display: 'inline-block',
           fontSize: '1rem',

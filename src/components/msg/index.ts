@@ -78,6 +78,12 @@ import EditFanToken from './fantoken/edit_fan_token';
 import MintFanToken from './fantoken/mint_fan_token';
 import BurnFanToken from './fantoken/burn_fan_token';
 import TransferFanToken from './fantoken/transfer_fan_token';
+import Grant from './authz/grant';
+import Revoke from './authz/revoke';
+import GrantAllowance from './feegrant/grant_allowance';
+import RevokeAllowance from './feegrant/revoke_allowance';
+import CreateVestingAccount from './vesting/create_vesting_account';
+import CreatePeriodicVestingAccount from './vesting/create_periodic_vesting_account';
 
 export {
   getMessageModelByType,
@@ -154,4 +160,10 @@ export {
   MintFanToken,
   BurnFanToken,
   TransferFanToken,
+  Grant,
+  Revoke,
+  GrantAllowance,
+  RevokeAllowance,
+  CreateVestingAccount,
+  CreatePeriodicVestingAccount,
 };
