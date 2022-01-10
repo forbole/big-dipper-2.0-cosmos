@@ -64,6 +64,68 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
         toggleMessageDisplay={[Function]}
         viewRaw={false}
       />
+      <div
+        id="Logs"
+        logs={
+          Array [
+            Object {
+              "events": Array [
+                Object {
+                  "attributes": Array [
+                    Object {
+                      "key": "validator",
+                      "value": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+                    },
+                    Object {
+                      "key": "amount",
+                      "value": "8371578",
+                    },
+                  ],
+                  "type": "delegate",
+                },
+                Object {
+                  "attributes": Array [
+                    Object {
+                      "key": "action",
+                      "value": "delegate",
+                    },
+                    Object {
+                      "key": "sender",
+                      "value": "desmos1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8n8fv78",
+                    },
+                    Object {
+                      "key": "module",
+                      "value": "staking",
+                    },
+                    Object {
+                      "key": "sender",
+                      "value": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                    },
+                  ],
+                  "type": "message",
+                },
+                Object {
+                  "attributes": Array [
+                    Object {
+                      "key": "recipient",
+                      "value": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                    },
+                    Object {
+                      "key": "sender",
+                      "value": "desmos1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8n8fv78",
+                    },
+                    Object {
+                      "key": "amount",
+                      "value": "3094654udaric",
+                    },
+                  ],
+                  "type": "transfer",
+                },
+              ],
+            },
+          ]
+        }
+      />
     </span>
   </div>
 </div>

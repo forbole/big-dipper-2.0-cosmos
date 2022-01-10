@@ -32,6 +32,10 @@ export const useStyles = () => {
             padding: 0,
           },
         },
+        title: {
+          display: 'flex',
+          alignItems: 'center',
+        },
         dialog: {
           '& .MuiDialog-paper': {
             width: '500px',
@@ -45,6 +49,10 @@ export const useStyles = () => {
           '& .form-item--label': {
             marginBottom: theme.spacing(1),
           },
+        },
+        version: {
+          color: theme.palette.custom.fonts.fontFour,
+          marginLeft: theme.spacing(1),
         },
       });
     },
