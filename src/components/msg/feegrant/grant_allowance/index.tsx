@@ -29,7 +29,6 @@ const GrantAllowance = (props: {
               name={granterMoniker}
             />
           ),
-          <b />,
           (
             <Name
               address={message.grantee}

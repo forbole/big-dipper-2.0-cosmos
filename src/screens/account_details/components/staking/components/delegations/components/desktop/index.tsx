@@ -30,7 +30,11 @@ const Desktop: React.FC<{
   const formattedItems = items.map((x) => {
     const amount = formatNumber(x.amount.value, x.amount.exponent);
     const reward = formatNumber(x.reward.value, x.reward.exponent);
-    const statusTheme = getValidatorStatus(x.validatorStatus.status, x.validatorStatus.jailed);
+    const statusTheme = getValidatorStatus(
+      x.validatorStatus.status,
+      x.validatorStatus.jailed,
+      x.validatorSigningInfo.tombstoned,
+    );
     return ({
       validator: (
         <AvatarName

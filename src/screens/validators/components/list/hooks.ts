@@ -92,6 +92,7 @@ export const useValidators = () => {
         condition,
         status: R.pathOr(0, ['validatorStatuses', 0, 'status'], x),
         jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], x),
+        tombstoned: R.pathOr(false, ['validatorSigningInfos', 0, 'tombstoned'], x),
         delegators: x.delegations.length,
       });
     });
