@@ -33,6 +33,7 @@ const InfoPopover: React.FC<{
         aria-haspopup="true"
         onMouseEnter={handlePopoverOpen}
         onMouseLeave={handlePopoverClose}
+        className={classes.root}
       >
         {display || (
         <HelpOutline

@@ -56,5 +56,11 @@
   "txEditDataSource": "<0>{{sender}}</0> edited data report <1>{{name}}</1>",
   "txCreateOracleScript": "<0>{{sender}}</0> created oracle script <1>{{name}}</1>",
   "txEditOracleScript": "<0>{{sender}}</0> edited oracle script <1>{{name}}</1>",
-  "txActivate": "<0>{{validator}}</0> activated as an oracle provider"
+  "txActivate": "<0>{{validator}}</0> activated as an oracle provider",
+  "MsgGrant": "<0>{{granter}}</0> authorized a grant for <1>{{grantee}}</1>",
+  "MsgRevoke": "<0>{{granter}}</0> revoked a grant for <1>{{grantee}}</1>",
+  "MsgGrantAllowance": "<0>{{granter}}</0> granted allowance for <1>{{grantee}}</1>",
+  "MsgRevokeAllowance": "<0>{{granter}}</0> revoked allowance for <1>{{grantee}}</1>",
+  "MsgCreateVestingAccount": "Vesting account created for <0>{{toAddress}}</0>",
+  "MsgCreatePeriodicVestingAccount": "Periodic vesting account created for <0>{{toAddress}}</0>"
 }
