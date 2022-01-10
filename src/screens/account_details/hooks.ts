@@ -379,6 +379,9 @@ export const useAccountDetails = () => {
             status: R.pathOr(3, ['validator', 'validatorStatuses', 0, 'status'], x),
             jailed: R.pathOr(false, ['validator', 'validatorStatuses', 0, 'jailed'], x),
           },
+          validatorSigningInfo: {
+            tombstoned: R.pathOr(false, ['validator', 'validatorSigningInfos', 0, 'tombstoned'], x),
+          },
           reward: rewardsDict[validatorAddress],
           amount: formatToken(x.amount.amount, x.amount.denom),
           commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),

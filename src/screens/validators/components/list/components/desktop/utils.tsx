@@ -22,34 +22,34 @@ export const fetchColumns = (t): {
     {
       key: 'validator',
       sortKey: 'validator.name',
-      width: 20,
+      width: 19,
       sort: true,
     },
     {
       key: 'votingPower',
       sortKey: 'votingPower',
-      width: 20,
+      width: 19,
       sort: true,
     },
     {
       key: 'commission',
       sortKey: 'commission',
       align: 'right',
-      width: 15,
+      width: 11,
       sort: true,
     },
     {
       key: 'self',
       sortKey: 'selfPercent',
       align: 'right',
-      width: 10,
+      width: 11,
       sort: true,
     },
     {
       key: 'delegators',
       sortKey: 'delegators',
       align: 'right',
-      width: 15,
+      width: 11,
       sort: true,
     },
     {
@@ -64,6 +64,10 @@ export const fetchColumns = (t): {
           />
         </Typography>
       ),
+    },
+    {
+      key: 'status',
+      width: 10,
     },
   ]);
 };

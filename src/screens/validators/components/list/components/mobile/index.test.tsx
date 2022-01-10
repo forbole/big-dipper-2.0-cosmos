@@ -39,6 +39,7 @@ describe('screen: Validators/Tabs', () => {
               jailed: true,
               delegators: 4,
               status: 3,
+              tombstoned: false,
             },
           ]}
         />
