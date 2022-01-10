@@ -66,9 +66,9 @@ export const darkThemeOverride = {
       },
       charts: {
         zero: '#E6E6E6',
-        one: '#F87255',
+        one: '#43BE7C',
         two: '#FA9147',
-        three: '#43BE7C',
+        three: '#F44747',
         four: '#43A1BE',
         five: '#C25396',
       },

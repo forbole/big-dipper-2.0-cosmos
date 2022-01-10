@@ -66,9 +66,9 @@ export const lightThemeOverride = {
       },
       charts: {
         zero: '#E6E6E6',
-        one: '#FF5C39',
+        one: '#20D494',
         two: '#FF8732',
-        three: '#20D494',
+        three: '#F44747',
         four: '#2FB6E0',
         five: '#E95EB1',
       },
