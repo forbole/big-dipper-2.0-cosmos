@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: TransactionDetails/Grant matches snapshot 1`] = `
+exports[`screen: TransactionDetails/CreateBatchRequest matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1"
 >
