@@ -11,7 +11,6 @@ export type BlocksState = {
   exists: boolean;
   hasNextPage: boolean;
   isNextPageLoading: boolean;
-  rawDataTotal: number;
   items: BlockType[];
 }
 

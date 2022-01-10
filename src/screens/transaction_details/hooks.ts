@@ -34,6 +34,7 @@ export const useTransactionDetails = () => {
       memo: '',
       error: '',
     },
+    logs: null,
     messages: {
       filterBy: 'none',
       viewRaw: false,
@@ -102,6 +103,15 @@ export const useTransactionDetails = () => {
     };
 
     stateChange.overview = formatOverview();
+
+    // =============================
+    // logs
+    // =============================
+    const formatLogs = () => {
+      const { logs } = data.transaction[0];
+      return logs;
+    };
+    stateChange.logs = formatLogs();
 
     // =============================
     // messages

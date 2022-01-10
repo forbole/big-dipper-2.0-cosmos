@@ -73,6 +73,7 @@ const ValidatorDetails = () => {
               selfDelegateAddress={overview.selfDelegateAddress}
               status={status.status}
               jailed={status.jailed}
+              tombstoned={status.tombstoned}
               condition={status.condition}
               commission={status.commission}
               signedBlockWindow={status.signedBlockWindow}

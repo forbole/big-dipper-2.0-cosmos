@@ -7,6 +7,7 @@ export type ValidatorType = {
   condition: number;
   status: number;
   jailed: boolean;
+  tombstoned: boolean;
   delegators: number;
   topVotingPower?: boolean; // top 34% VP
 }

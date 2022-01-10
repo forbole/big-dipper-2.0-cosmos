@@ -14,6 +14,7 @@ export type TransactionState = {
   loading: boolean;
   exists: boolean;
   overview: OverviewType;
+  logs: null | [];
   messages: {
     filterBy: string;
     viewRaw: boolean;

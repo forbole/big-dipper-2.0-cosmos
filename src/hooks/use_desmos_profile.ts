@@ -78,7 +78,7 @@ export const useDesmosProfile = (options: Options) => {
     try {
       setLoading(true);
       if (input.startsWith('@')) {
-        data = await fetchDtag(input.substr(1));
+        data = await fetchDtag(input.substring(1));
       }
 
       if (input.startsWith('desmos')) {

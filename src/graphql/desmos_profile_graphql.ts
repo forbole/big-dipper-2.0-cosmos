@@ -56,7 +56,7 @@ query DesmosProfileLink($address: String) {
 // use this query if using dtag
 export const DesmosProfileDtagDocument = /* GraphQL */`
 query DesmosProfileDtag($dtag: String) {
-  profile(where: {dtag: {_eq: $dtag}}, limit: 1) {
+  profile(where: {dtag: {_ilike: $dtag}}, limit: 1) {
     address
     bio
     dtag
