@@ -13,12 +13,24 @@ export const getFilterLabels = () => {
       display: 'crisis',
     },
     {
+      key: 'data',
+      display: 'data',
+    },
+    {
       key: 'distribution',
       display: 'distribution',
     },
     {
+      key: 'ecocredit',
+      display: 'ecocredit',
+    },
+    {
       key: 'governance',
       display: 'governance',
+    },
+    {
+      key: 'group',
+      display: 'group',
     },
     {
       key: 'slashing',
