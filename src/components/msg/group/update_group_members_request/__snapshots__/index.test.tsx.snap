@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: TransactionDetails/CreateGroupAccountRequest matches snapshot 1`] = `
+exports[`screen: TransactionDetails/UpdateGroupMembersRequest matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1"
 >
@@ -13,7 +13,7 @@ exports[`screen: TransactionDetails/CreateGroupAccountRequest matches snapshot 1
         />,
       ]
     }
-    i18nKey="message_contents:MsgCreateGroupAccountRequest"
+    i18nKey="message_contents:MsgUpdateGroupMembersRequest"
     id="Trans"
   />
 </p>
