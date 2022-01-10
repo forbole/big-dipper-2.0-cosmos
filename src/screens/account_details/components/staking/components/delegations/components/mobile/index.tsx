@@ -24,7 +24,11 @@ const Mobile: React.FC<{
   return (
     <div className={classnames(className)}>
       {items.map((x, i) => {
-        const statusTheme = getValidatorStatus(x.validatorStatus.status, x.validatorStatus.jailed);
+        const statusTheme = getValidatorStatus(
+          x.validatorStatus.status,
+          x.validatorStatus.jailed,
+          x.validatorSigningInfo.tombstoned,
+        );
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>

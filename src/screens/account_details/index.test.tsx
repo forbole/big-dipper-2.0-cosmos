@@ -83,6 +83,11 @@ const mockAccount = jest.fn().mockResolvedValue({
                   jailed: false,
                 },
               ],
+              validatorSigningInfos: [
+                {
+                  tombstoned: false,
+                },
+              ],
             },
           },
         ],

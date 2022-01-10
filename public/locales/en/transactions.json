@@ -36,5 +36,6 @@
   "tokenregistry": "Token Registry",
   "authz": "Authz",
   "feegrant": "Feegrant",
-  "vesting": "Vesting"
+  "vesting": "Vesting",
+  "logs": "Logs"
 }
