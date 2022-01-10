@@ -13,6 +13,10 @@ const SingleValidator: React.FC<{
   commission: string;
   self: string;
   votingPower: React.ReactNode;
+  status: {
+    status: string;
+    theme: string;
+  };
 }> = ({
   className,
   validator,
@@ -20,6 +24,7 @@ const SingleValidator: React.FC<{
   commission,
   votingPower,
   idx,
+  status,
 }) => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
@@ -32,6 +37,14 @@ const SingleValidator: React.FC<{
           </Typography>
           <Typography variant="body1" className="value">
             {idx}
+          </Typography>
+        </div>
+        <div className={classes.item}>
+          <Typography variant="h4" className="label">
+            {t('status')}
+          </Typography>
+          <Typography variant="body1" className={classnames('value', 'status', status.theme)}>
+            {t(status.status)}
           </Typography>
         </div>
       </div>
