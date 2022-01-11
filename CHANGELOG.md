@@ -1,12 +1,15 @@
-# Unreleased
+# base-v1.9.0 - 2021-01-10
 
 ## Changes
 - Add logs in tx details ([\#515](https://github.com/forbole/big-dipper-2.0-cosmos/issues/515))
 - Add tombstoned status ([\#600](https://github.com/forbole/big-dipper-2.0-cosmos/issues/600))
 - Add manual versioning in ui ([\#605](https://github.com/forbole/big-dipper-2.0-cosmos/issues/605))
 - Optimized tx list for chains with heavy traffic ([\#602](https://github.com/forbole/big-dipper-2.0-cosmos/issues/602))
+- Setup case insensitive search in dtags ([\#592](https://github.com/forbole/big-dipper-2.0-cosmos/issues/592))
+- Fix profiles logic ([\#591](https://github.com/forbole/big-dipper-2.0-cosmos/issues/591))
 - Add AvatarNameListMsg for handling msgs with multiple users ([\#619](https://github.com/forbole/big-dipper-2.0-cosmos/issues/619))
 - Add Regen custom tx ([\#616](https://github.com/forbole/big-dipper-2.0-cosmos/issues/616))
+
 
 # base-v1.8.4 - 2021-12-08
 ## Bug fixes
