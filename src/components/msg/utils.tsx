@@ -393,6 +393,75 @@ const getDataByType = (type: string) => {
       tagTheme: 'five',
       tagDisplay: 'MsgRetireRequest',
     },
+    // ========================
+    // group
+    // ========================
+    '/regen.group.v1alpha1.MsgCreateGroupAccountRequest': {
+      model: MODELS.MsgCreateGroupAccountRequest,
+      content: COMPONENTS.CreateGroupAccountRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgCreateGroupAccountRequest',
+    },
+    '/regen.group.v1alpha1.MsgCreateGroupRequest': {
+      model: MODELS.MsgCreateClassRequest,
+      content: COMPONENTS.CreateClassRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgCreateClassRequest',
+    },
+    '/regen.group.v1alpha1.MsgCreateGroupRequest': {
+      model: MODELS.MsgCreateClassRequest,
+      content: COMPONENTS.CreateClassRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgCreateClassRequest',
+    },
+    '/regen.group.v1alpha1.MsgCreateGroupRequest': {
+      model: MODELS.MsgCreateClassRequest,
+      content: COMPONENTS.CreateClassRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgCreateClassRequest',
+    },
+    '/regen.group.v1alpha1.MsgCreateGroupRequest': {
+      model: MODELS.MsgCreateClassRequest,
+      content: COMPONENTS.CreateClassRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgCreateClassRequest',
+    },
+    '/regen.group.v1alpha1.MsgCreateGroupRequest': {
+      model: MODELS.MsgCreateClassRequest,
+      content: COMPONENTS.CreateClassRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgCreateClassRequest',
+    },
+    '/regen.group.v1alpha1.MsgCreateGroupRequest': {
+      model: MODELS.MsgCreateClassRequest,
+      content: COMPONENTS.CreateClassRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgCreateClassRequest',
+    },
+    '/regen.group.v1alpha1.MsgCreateGroupRequest': {
+      model: MODELS.MsgCreateClassRequest,
+      content: COMPONENTS.CreateClassRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgCreateClassRequest',
+    },
+    '/regen.group.v1alpha1.MsgCreateGroupRequest': {
+      model: MODELS.MsgCreateClassRequest,
+      content: COMPONENTS.CreateClassRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgCreateClassRequest',
+    },
+    '/regen.group.v1alpha1.MsgCreateGroupRequest': {
+      model: MODELS.MsgCreateClassRequest,
+      content: COMPONENTS.CreateClassRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgCreateClassRequest',
+    },
+    '/regen.group.v1alpha1.MsgCreateGroupRequest': {
+      model: MODELS.MsgCreateClassRequest,
+      content: COMPONENTS.CreateClassRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgCreateClassRequest',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];

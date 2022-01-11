@@ -75,6 +75,17 @@ import CreateClassRequest from './ecocredit/create_class_request';
 import CreateBatchRequest from './ecocredit/create_batch_request';
 import SendRequest from './ecocredit/send_request';
 import RetireRequest from './ecocredit/retire_request';
+import CreateGroupAccountRequest from './group/create_group_account_request';
+import CreateGroupRequest from './group/create_group_request';
+import CreateProposalRequest from './group/create_proposal_request';
+import ExecRequest from './group/exec_request';
+import UpdateGroupAccountAdminRequest from './group/update_group_account_admin_request';
+import UpdateGroupAccountDecisionPolicyRequest from './group/update_group_account_decision_policy_request';
+import UpdateGroupAccountMetadataRequest from './group/update_group_account_metadata_request';
+import UpdateGroupAdminRequest from './group/update_group_admin_request';
+import UpdateGroupMembersRequest from './group/update_group_members_request';
+import UpdateGroupMetadataRequest from './group/update_group_metadata_request';
+import VoteRequest from './group/vote_request';
 
 export {
   getMessageModelByType,
@@ -148,4 +159,15 @@ export {
   CreateBatchRequest,
   SendRequest,
   RetireRequest,
+  CreateGroupAccountRequest,
+  CreateGroupRequest,
+  CreateProposalRequest,
+  ExecRequest,
+  UpdateGroupAccountAdminRequest,
+  UpdateGroupAccountDecisionPolicyRequest,
+  UpdateGroupAccountMetadataRequest,
+  UpdateGroupAdminRequest,
+  UpdateGroupMembersRequest,
+  UpdateGroupMetadataRequest,
+  VoteRequest,
 };
