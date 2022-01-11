@@ -20,7 +20,7 @@ class MsgUpdateGroupAdminRequest {
       json,
       type: json['@type'],
       admin: json.admin,
-      newAdmin: json.newAdmin,
+      newAdmin: json.new_admin,
     });
   }
 }
