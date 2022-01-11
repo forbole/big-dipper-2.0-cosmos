@@ -8,6 +8,7 @@
 - Setup case insensitive search in dtags ([\#592](https://github.com/forbole/big-dipper-2.0-cosmos/issues/592))
 - Fix profiles logic ([\#591](https://github.com/forbole/big-dipper-2.0-cosmos/issues/591))
 - Add AvatarNameListMsg for handling msgs with multiple users ([\#619](https://github.com/forbole/big-dipper-2.0-cosmos/issues/619))
+- Add Regen custom tx ([\#616](https://github.com/forbole/big-dipper-2.0-cosmos/issues/616))
 
 
 # base-v1.8.4 - 2021-12-08

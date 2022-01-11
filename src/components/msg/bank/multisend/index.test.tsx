@@ -16,7 +16,7 @@ jest.mock('next-translate/Trans', () => (
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/MsgSend', () => {
+describe('screen: TransactionDetails/MsgMultiSend', () => {
   it('matches snapshot', () => {
     const message = new MsgMultiSend({
       category: 'bank',

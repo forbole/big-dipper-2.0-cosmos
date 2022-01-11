@@ -76,6 +76,17 @@ import MsgCreateClassRequest from './msg/ecocredit/msg_create_class_request';
 import MsgCreateBatchRequest from './msg/ecocredit/msg_create_batch_request';
 import MsgSendRequest from './msg/ecocredit/msg_send_request';
 import MsgRetireRequest from './msg/ecocredit/msg_retire_request';
+import MsgCreateGroupAccountRequest from './msg/group/msg_create_group_account_request';
+import MsgCreateGroupRequest from './msg/group/msg_create_group_request';
+import MsgCreateProposalRequest from './msg/group/msg_create_proposal_request';
+import MsgExecRequest from './msg/group/msg_exec_request';
+import MsgUpdateGroupAccountAdminRequest from './msg/group/msg_update_group_account_admin_request';
+import MsgUpdateGroupAccountDecisionPolicyRequest from './msg/group/msg_update_group_account_decision_policy_request';
+import MsgUpdateGroupAccountMetadataRequest from './msg/group/msg_update_group_account_metadata_request';
+import MsgUpdateGroupAdminRequest from './msg/group/msg_update_group_admin_request';
+import MsgUpdateGroupMembersRequest from './msg/group/msg_update_group_members_request';
+import MsgUpdateGroupMetadataRequest from './msg/group/msg_update_group_metadata_request';
+import MsgVoteRequest from './msg/group/msg_vote_request';
 
 export {
   BigDipperNetwork,
@@ -156,4 +167,15 @@ export {
   MsgCreateBatchRequest,
   MsgSendRequest,
   MsgRetireRequest,
+  MsgCreateGroupAccountRequest,
+  MsgCreateGroupRequest,
+  MsgCreateProposalRequest,
+  MsgExecRequest,
+  MsgUpdateGroupAccountAdminRequest,
+  MsgUpdateGroupAccountDecisionPolicyRequest,
+  MsgUpdateGroupAccountMetadataRequest,
+  MsgUpdateGroupAdminRequest,
+  MsgUpdateGroupMembersRequest,
+  MsgUpdateGroupMetadataRequest,
+  MsgVoteRequest,
 };

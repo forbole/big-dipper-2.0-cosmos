@@ -393,6 +393,75 @@ const getDataByType = (type: string) => {
       tagTheme: 'five',
       tagDisplay: 'MsgRetireRequest',
     },
+    // ========================
+    // group
+    // ========================
+    '/regen.group.v1alpha1.MsgCreateGroupAccountRequest': {
+      model: MODELS.MsgCreateGroupAccountRequest,
+      content: COMPONENTS.CreateGroupAccountRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgCreateGroupAccountRequest',
+    },
+    '/regen.group.v1alpha1.MsgCreateGroupRequest': {
+      model: MODELS.MsgCreateGroupRequest,
+      content: COMPONENTS.CreateGroupRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgCreateGroupRequest',
+    },
+    '/regen.group.v1alpha1.MsgCreateProposalRequest': {
+      model: MODELS.MsgCreateProposalRequest,
+      content: COMPONENTS.CreateProposalRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgCreateProposalRequest',
+    },
+    '/regen.group.v1alpha1.MsgExecRequest': {
+      model: MODELS.MsgExecRequest,
+      content: COMPONENTS.ExecRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgExecRequest',
+    },
+    '/regen.group.v1alpha1.MsgUpdateGroupAccountAdminRequest': {
+      model: MODELS.MsgUpdateGroupAccountAdminRequest,
+      content: COMPONENTS.UpdateGroupAccountAdminRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgUpdateGroupAccountAdminRequest',
+    },
+    '/regen.group.v1alpha1.MsgUpdateGroupAccountDecisionPolicyRequest': {
+      model: MODELS.MsgUpdateGroupAccountDecisionPolicyRequest,
+      content: COMPONENTS.UpdateGroupAccountDecisionPolicyRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgUpdateGroupAccountDecisionPolicyRequest',
+    },
+    '/regen.group.v1alpha1.MsgUpdateGroupAccountMetadataRequest': {
+      model: MODELS.MsgUpdateGroupAccountMetadataRequest,
+      content: COMPONENTS.UpdateGroupAccountMetadataRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgUpdateGroupAccountMetadataRequest',
+    },
+    '/regen.group.v1alpha1.MsgUpdateGroupAdminRequest': {
+      model: MODELS.MsgUpdateGroupAdminRequest,
+      content: COMPONENTS.UpdateGroupAdminRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgUpdateGroupAdminRequest',
+    },
+    '/regen.group.v1alpha1.MsgUpdateGroupMembersRequest': {
+      model: MODELS.MsgUpdateGroupMembersRequest,
+      content: COMPONENTS.UpdateGroupMembersRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgUpdateGroupMembersRequest',
+    },
+    '/regen.group.v1alpha1.MsgUpdateGroupMetadataRequest': {
+      model: MODELS.MsgUpdateGroupMetadataRequest,
+      content: COMPONENTS.UpdateGroupMetadataRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgUpdateGroupMetadataRequest',
+    },
+    '/regen.group.v1alpha1.MsgVoteRequest': {
+      model: MODELS.MsgVoteRequest,
+      content: COMPONENTS.VoteRequest,
+      tagTheme: 'eight',
+      tagDisplay: 'MsgVoteRequest',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];

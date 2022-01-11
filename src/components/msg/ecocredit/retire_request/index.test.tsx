@@ -20,7 +20,7 @@ jest.mock('next-translate/Trans', () => (
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/Grant', () => {
+describe('screen: TransactionDetails/RetireRequest', () => {
   it('matches snapshot', () => {
     const message = new MsgRetireRequest({
       category: 'ecocredit',
