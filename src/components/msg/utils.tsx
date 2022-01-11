@@ -403,64 +403,64 @@ const getDataByType = (type: string) => {
       tagDisplay: 'MsgCreateGroupAccountRequest',
     },
     '/regen.group.v1alpha1.MsgCreateGroupRequest': {
-      model: MODELS.MsgCreateClassRequest,
-      content: COMPONENTS.CreateClassRequest,
+      model: MODELS.MsgCreateGroupRequest,
+      content: COMPONENTS.CreateGroupRequest,
       tagTheme: 'eight',
-      tagDisplay: 'MsgCreateClassRequest',
+      tagDisplay: 'MsgCreateGroupRequest',
     },
-    '/regen.group.v1alpha1.MsgCreateGroupRequest': {
-      model: MODELS.MsgCreateClassRequest,
-      content: COMPONENTS.CreateClassRequest,
+    '/regen.group.v1alpha1.MsgCreateProposalRequest': {
+      model: MODELS.MsgCreateProposalRequest,
+      content: COMPONENTS.CreateProposalRequest,
       tagTheme: 'eight',
-      tagDisplay: 'MsgCreateClassRequest',
+      tagDisplay: 'MsgCreateProposalRequest',
     },
-    '/regen.group.v1alpha1.MsgCreateGroupRequest': {
-      model: MODELS.MsgCreateClassRequest,
-      content: COMPONENTS.CreateClassRequest,
+    '/regen.group.v1alpha1.MsgExecRequest': {
+      model: MODELS.MsgExecRequest,
+      content: COMPONENTS.ExecRequest,
       tagTheme: 'eight',
-      tagDisplay: 'MsgCreateClassRequest',
+      tagDisplay: 'MsgExecRequest',
     },
-    '/regen.group.v1alpha1.MsgCreateGroupRequest': {
-      model: MODELS.MsgCreateClassRequest,
-      content: COMPONENTS.CreateClassRequest,
+    '/regen.group.v1alpha1.MsgUpdateGroupAccountAdminRequest': {
+      model: MODELS.MsgUpdateGroupAccountAdminRequest,
+      content: COMPONENTS.UpdateGroupAccountAdminRequest,
       tagTheme: 'eight',
-      tagDisplay: 'MsgCreateClassRequest',
+      tagDisplay: 'MsgUpdateGroupAccountAdminRequest',
     },
-    '/regen.group.v1alpha1.MsgCreateGroupRequest': {
-      model: MODELS.MsgCreateClassRequest,
-      content: COMPONENTS.CreateClassRequest,
+    '/regen.group.v1alpha1.MsgUpdateGroupAccountDecisionPolicyRequest': {
+      model: MODELS.MsgUpdateGroupAccountDecisionPolicyRequest,
+      content: COMPONENTS.UpdateGroupAccountDecisionPolicyRequest,
       tagTheme: 'eight',
-      tagDisplay: 'MsgCreateClassRequest',
+      tagDisplay: 'MsgUpdateGroupAccountDecisionPolicyRequest',
     },
-    '/regen.group.v1alpha1.MsgCreateGroupRequest': {
-      model: MODELS.MsgCreateClassRequest,
-      content: COMPONENTS.CreateClassRequest,
+    '/regen.group.v1alpha1.MsgUpdateGroupAccountMetadataRequest': {
+      model: MODELS.MsgUpdateGroupAccountMetadataRequest,
+      content: COMPONENTS.UpdateGroupAccountMetadataRequest,
       tagTheme: 'eight',
-      tagDisplay: 'MsgCreateClassRequest',
+      tagDisplay: 'MsgUpdateGroupAccountMetadataRequest',
     },
-    '/regen.group.v1alpha1.MsgCreateGroupRequest': {
-      model: MODELS.MsgCreateClassRequest,
-      content: COMPONENTS.CreateClassRequest,
+    '/regen.group.v1alpha1.MsgUpdateGroupAdminRequest': {
+      model: MODELS.MsgUpdateGroupAdminRequest,
+      content: COMPONENTS.UpdateGroupAdminRequest,
       tagTheme: 'eight',
-      tagDisplay: 'MsgCreateClassRequest',
+      tagDisplay: 'MsgUpdateGroupAdminRequest',
     },
-    '/regen.group.v1alpha1.MsgCreateGroupRequest': {
-      model: MODELS.MsgCreateClassRequest,
-      content: COMPONENTS.CreateClassRequest,
+    '/regen.group.v1alpha1.MsgUpdateGroupMembersRequest': {
+      model: MODELS.MsgUpdateGroupMembersRequest,
+      content: COMPONENTS.UpdateGroupMembersRequest,
       tagTheme: 'eight',
-      tagDisplay: 'MsgCreateClassRequest',
+      tagDisplay: 'MsgUpdateGroupMembersRequest',
     },
-    '/regen.group.v1alpha1.MsgCreateGroupRequest': {
-      model: MODELS.MsgCreateClassRequest,
-      content: COMPONENTS.CreateClassRequest,
+    '/regen.group.v1alpha1.MsgUpdateGroupMetadataRequest': {
+      model: MODELS.MsgUpdateGroupMetadataRequest,
+      content: COMPONENTS.UpdateGroupMetadataRequest,
       tagTheme: 'eight',
-      tagDisplay: 'MsgCreateClassRequest',
+      tagDisplay: 'MsgUpdateGroupMetadataRequest',
     },
-    '/regen.group.v1alpha1.MsgCreateGroupRequest': {
-      model: MODELS.MsgCreateClassRequest,
-      content: COMPONENTS.CreateClassRequest,
+    '/regen.group.v1alpha1.MsgVoteRequest': {
+      model: MODELS.MsgVoteRequest,
+      content: COMPONENTS.VoteRequest,
       tagTheme: 'eight',
-      tagDisplay: 'MsgCreateClassRequest',
+      tagDisplay: 'MsgVoteRequest',
     },
   };
 
