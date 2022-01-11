@@ -3,6 +3,9 @@
 ## Changes
 - Optimized initial loading by setting basic details first then profiles after ([\#629](https://github.com/forbole/big-dipper-2.0-cosmos/issues/629))
 
+## Bug fixes
+- Fix home page validator image url not displaying correctly ([\#632](https://github.com/forbole/big-dipper-2.0-cosmos/issues/632))
+
 # base-v1.9.0 - 2021-01-10
 
 ## Changes
