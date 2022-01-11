@@ -29,28 +29,28 @@ exports[`component: layout/footer matches snapshot 1`] = `
           common:company
         </h3>
         <a
-          href="https://www.forbole.com"
+          href="https://www.cudos.org"
           rel="noreferrer"
           target="_blank"
         >
-          common:forbole
+          common:Cudos
         </a>
         <a
-          href="https://www.forbole.com/stake-now"
+          href="https://www.cudos.org/earn"
           rel="noreferrer"
           target="_blank"
         >
-          common:stakeNow
+          common:earn
         </a>
         <a
-          href="https://www.forbole.com/contact"
+          href="https://www.cudos.org/about"
           rel="noreferrer"
           target="_blank"
         >
-          common:contact
+          common:about
         </a>
         <a
-          href="https://www.forbole.com/blog"
+          href="https://www.cudos.org/blog"
           rel="noreferrer"
           target="_blank"
         >

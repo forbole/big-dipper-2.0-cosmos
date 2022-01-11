@@ -1,4 +1,4 @@
-const FORBOLE_URL = 'https://www.forbole.com';
+const CUDOS_URL = 'https://www.cudos.org';
 const BIG_DIPPER_URL = 'https://bigdipper.live';
 
 export const donateLink = {
@@ -11,20 +11,20 @@ export const footerLinks = [
     key: 'company',
     links: [
       {
-        key: 'forbole',
-        url: FORBOLE_URL,
+        key: 'cudos',
+        url: CUDOS_URL,
       },
       {
-        key: 'stakeNow',
-        url: `${FORBOLE_URL}/stake-now`,
-      },
-      {
-        key: 'contact',
-        url: `${FORBOLE_URL}/contact`,
+        key: 'earn',
+        url: `${CUDOS_URL}/earn`,
       },
       {
         key: 'blog',
-        url: `${FORBOLE_URL}/blog`,
+        url: `${CUDOS_URL}/blog`,
+      },
+      {
+        key: 'about',
+        url: `${CUDOS_URL}/about`,
       },
     ],
   },

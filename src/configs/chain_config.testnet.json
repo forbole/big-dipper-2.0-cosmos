@@ -1,24 +1,48 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "morpheus-apollo-2",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
+  "title": "Cudos Block Explorer",
+  "network": "cudos-artemis-testmet",
+  "icon": "https://wallet.cudos.org/img/logo-icon.cb505cad.svg?sanitize=true",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
+    "default": "https://wallet.cudos.org/img/logo-dark.e500e625.svg?sanitize=true"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "cudosvalcons",
+    "validator": "cudosvaloper",
+    "account": "cudos"
   },
   "genesis": {
     "time": "2021-07-13T08:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udaric",
+  "primaryTokenUnit": "acudos",
   "tokenUnits": {
-    "udaric": {
-      "display": "daric",
+    "acudos": {
+      "display": "CUDOS",
+      "exponent": 18
+    },
+    "fcudos": {
+      "display": "CUDOS",
+      "exponent": 15
+    },
+    "pcudos": {
+      "display": "CUDOS",
+      "exponent": 12
+    },
+    "ncudos": {
+      "display": "CUDOS",
+      "exponent": 9
+    },
+    "ucudos": {
+      "display": "CUDOS",
       "exponent": 6
+    },
+    "mcudos": {
+      "display": "CUDOS",
+      "exponent": 3
+    },
+    "cudos": {
+      "display": "CUDOS",
+      "exponent": 1
     }
   },
   "extra": {
