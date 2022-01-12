@@ -15,14 +15,10 @@
     "height": 1
   },
   "primaryTokenUnit": "udsm",
-  "votingPowerTokenUnit": "udsmx",
+  "votingPowerTokenUnit": "udsm",
   "tokenUnits": {
     "udsm": {
       "display": "dsm",
-      "exponent": 8
-    },
-    "udsmx": {
-      "display": "dsmx",
       "exponent": 6
     }
   },
