@@ -235,7 +235,7 @@ export const useAccountDetails = () => {
     // ============================
     const formatBalance = () => {
       const available = getDenom(
-        R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data),
+        R.pathOr([], ['accountBalances', 'coins'], data),
         chainConfig.primaryTokenUnit,
       );
       const availableAmount = formatToken(available.amount, chainConfig.primaryTokenUnit);

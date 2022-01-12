@@ -1,12 +1,12 @@
-query Account($address: String, $utc: timestamp) {
+query Account($address: String!, $utc: timestamp) {
   stakingParams: staking_params(limit: 1) {
     params
   }
+  accountBalances: action_account_balance(address: $address) {
+    coins
+  }
   account(where: {address: {_eq: $address}}) {
     address
-    accountBalances: account_balances(limit: 1, order_by: {height: desc}) {
-      coins
-    }
     delegations {
       amount
       validator {
