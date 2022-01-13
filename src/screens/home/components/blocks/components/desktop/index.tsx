@@ -71,7 +71,7 @@ const Desktop: React.FC<{
         </TableHead>
         <TableBody>
           {formattedData.map((row, i) => (
-            <TableRow key={`row-${i}`}>
+            <TableRow key={`${items[i].height}`}>
               {columns.map((column, index) => {
                 const {
                   key, align,
