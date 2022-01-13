@@ -15,6 +15,7 @@
     "height": 1
   },
   "primaryTokenUnit": "uregen",
+  "votingPowerTokenUnit": "vp",
   "tokenUnits": {
     "uregen": {
       "display": "regen",
