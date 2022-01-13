@@ -4385,6 +4385,161 @@ export type Dtag_Transfer_Requests_Variance_Order_By = {
   height?: Maybe<Order_By>;
 };
 
+/** columns and relationships of "fee_grant_allowance" */
+export type Fee_Grant_Allowance = {
+  __typename?: 'fee_grant_allowance';
+  allowance: Scalars['jsonb'];
+  grantee_address: Scalars['String'];
+  granter_address: Scalars['String'];
+  height: Scalars['bigint'];
+  id: Scalars['Int'];
+};
+
+
+/** columns and relationships of "fee_grant_allowance" */
+export type Fee_Grant_AllowanceAllowanceArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+/** aggregated selection of "fee_grant_allowance" */
+export type Fee_Grant_Allowance_Aggregate = {
+  __typename?: 'fee_grant_allowance_aggregate';
+  aggregate?: Maybe<Fee_Grant_Allowance_Aggregate_Fields>;
+  nodes: Array<Fee_Grant_Allowance>;
+};
+
+/** aggregate fields of "fee_grant_allowance" */
+export type Fee_Grant_Allowance_Aggregate_Fields = {
+  __typename?: 'fee_grant_allowance_aggregate_fields';
+  avg?: Maybe<Fee_Grant_Allowance_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Fee_Grant_Allowance_Max_Fields>;
+  min?: Maybe<Fee_Grant_Allowance_Min_Fields>;
+  stddev?: Maybe<Fee_Grant_Allowance_Stddev_Fields>;
+  stddev_pop?: Maybe<Fee_Grant_Allowance_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Fee_Grant_Allowance_Stddev_Samp_Fields>;
+  sum?: Maybe<Fee_Grant_Allowance_Sum_Fields>;
+  var_pop?: Maybe<Fee_Grant_Allowance_Var_Pop_Fields>;
+  var_samp?: Maybe<Fee_Grant_Allowance_Var_Samp_Fields>;
+  variance?: Maybe<Fee_Grant_Allowance_Variance_Fields>;
+};
+
+
+/** aggregate fields of "fee_grant_allowance" */
+export type Fee_Grant_Allowance_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Fee_Grant_Allowance_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Fee_Grant_Allowance_Avg_Fields = {
+  __typename?: 'fee_grant_allowance_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "fee_grant_allowance". All fields are combined with a logical 'AND'. */
+export type Fee_Grant_Allowance_Bool_Exp = {
+  _and?: Maybe<Array<Fee_Grant_Allowance_Bool_Exp>>;
+  _not?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
+  _or?: Maybe<Array<Fee_Grant_Allowance_Bool_Exp>>;
+  allowance?: Maybe<Jsonb_Comparison_Exp>;
+  grantee_address?: Maybe<String_Comparison_Exp>;
+  granter_address?: Maybe<String_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  id?: Maybe<Int_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Fee_Grant_Allowance_Max_Fields = {
+  __typename?: 'fee_grant_allowance_max_fields';
+  grantee_address?: Maybe<Scalars['String']>;
+  granter_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+};
+
+/** aggregate min on columns */
+export type Fee_Grant_Allowance_Min_Fields = {
+  __typename?: 'fee_grant_allowance_min_fields';
+  grantee_address?: Maybe<Scalars['String']>;
+  granter_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+};
+
+/** Ordering options when selecting data from "fee_grant_allowance". */
+export type Fee_Grant_Allowance_Order_By = {
+  allowance?: Maybe<Order_By>;
+  grantee_address?: Maybe<Order_By>;
+  granter_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** select columns of table "fee_grant_allowance" */
+export enum Fee_Grant_Allowance_Select_Column {
+  /** column name */
+  Allowance = 'allowance',
+  /** column name */
+  GranteeAddress = 'grantee_address',
+  /** column name */
+  GranterAddress = 'granter_address',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Id = 'id'
+}
+
+/** aggregate stddev on columns */
+export type Fee_Grant_Allowance_Stddev_Fields = {
+  __typename?: 'fee_grant_allowance_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Fee_Grant_Allowance_Stddev_Pop_Fields = {
+  __typename?: 'fee_grant_allowance_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Fee_Grant_Allowance_Stddev_Samp_Fields = {
+  __typename?: 'fee_grant_allowance_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Fee_Grant_Allowance_Sum_Fields = {
+  __typename?: 'fee_grant_allowance_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+};
+
+/** aggregate var_pop on columns */
+export type Fee_Grant_Allowance_Var_Pop_Fields = {
+  __typename?: 'fee_grant_allowance_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Fee_Grant_Allowance_Var_Samp_Fields = {
+  __typename?: 'fee_grant_allowance_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Fee_Grant_Allowance_Variance_Fields = {
+  __typename?: 'fee_grant_allowance_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
 /** columns and relationships of "genesis" */
 export type Genesis = {
   __typename?: 'genesis';
@@ -9777,6 +9932,12 @@ export type Query_Root = {
   dtag_transfer_requests: Array<Dtag_Transfer_Requests>;
   /** An aggregate relationship */
   dtag_transfer_requests_aggregate: Dtag_Transfer_Requests_Aggregate;
+  /** fetch data from the table: "fee_grant_allowance" */
+  fee_grant_allowance: Array<Fee_Grant_Allowance>;
+  /** fetch aggregated fields from the table: "fee_grant_allowance" */
+  fee_grant_allowance_aggregate: Fee_Grant_Allowance_Aggregate;
+  /** fetch data from the table: "fee_grant_allowance" using primary key columns */
+  fee_grant_allowance_by_pk?: Maybe<Fee_Grant_Allowance>;
   /** fetch data from the table: "genesis" */
   genesis: Array<Genesis>;
   /** fetch aggregated fields from the table: "genesis" */
@@ -10429,6 +10590,29 @@ export type Query_RootDtag_Transfer_Requests_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Dtag_Transfer_Requests_Order_By>>;
   where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
+};
+
+
+export type Query_RootFee_Grant_AllowanceArgs = {
+  distinct_on?: Maybe<Array<Fee_Grant_Allowance_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Fee_Grant_Allowance_Order_By>>;
+  where?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
+};
+
+
+export type Query_RootFee_Grant_Allowance_AggregateArgs = {
+  distinct_on?: Maybe<Array<Fee_Grant_Allowance_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Fee_Grant_Allowance_Order_By>>;
+  where?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
+};
+
+
+export type Query_RootFee_Grant_Allowance_By_PkArgs = {
+  id: Scalars['Int'];
 };
 
 
@@ -12402,6 +12586,12 @@ export type Subscription_Root = {
   dtag_transfer_requests: Array<Dtag_Transfer_Requests>;
   /** An aggregate relationship */
   dtag_transfer_requests_aggregate: Dtag_Transfer_Requests_Aggregate;
+  /** fetch data from the table: "fee_grant_allowance" */
+  fee_grant_allowance: Array<Fee_Grant_Allowance>;
+  /** fetch aggregated fields from the table: "fee_grant_allowance" */
+  fee_grant_allowance_aggregate: Fee_Grant_Allowance_Aggregate;
+  /** fetch data from the table: "fee_grant_allowance" using primary key columns */
+  fee_grant_allowance_by_pk?: Maybe<Fee_Grant_Allowance>;
   /** fetch data from the table: "genesis" */
   genesis: Array<Genesis>;
   /** fetch aggregated fields from the table: "genesis" */
@@ -13054,6 +13244,29 @@ export type Subscription_RootDtag_Transfer_Requests_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Dtag_Transfer_Requests_Order_By>>;
   where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
+};
+
+
+export type Subscription_RootFee_Grant_AllowanceArgs = {
+  distinct_on?: Maybe<Array<Fee_Grant_Allowance_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Fee_Grant_Allowance_Order_By>>;
+  where?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
+};
+
+
+export type Subscription_RootFee_Grant_Allowance_AggregateArgs = {
+  distinct_on?: Maybe<Array<Fee_Grant_Allowance_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Fee_Grant_Allowance_Order_By>>;
+  where?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
+};
+
+
+export type Subscription_RootFee_Grant_Allowance_By_PkArgs = {
+  id: Scalars['Int'];
 };
 
 
@@ -17176,6 +17389,7 @@ export type Validator_Info = {
   /** An object relationship */
   account?: Maybe<Account>;
   consensus_address: Scalars['String'];
+  height: Scalars['bigint'];
   max_change_rate: Scalars['String'];
   max_rate: Scalars['String'];
   operator_address: Scalars['String'];
@@ -17194,9 +17408,17 @@ export type Validator_Info_Aggregate = {
 /** aggregate fields of "validator_info" */
 export type Validator_Info_Aggregate_Fields = {
   __typename?: 'validator_info_aggregate_fields';
+  avg?: Maybe<Validator_Info_Avg_Fields>;
   count: Scalars['Int'];
   max?: Maybe<Validator_Info_Max_Fields>;
   min?: Maybe<Validator_Info_Min_Fields>;
+  stddev?: Maybe<Validator_Info_Stddev_Fields>;
+  stddev_pop?: Maybe<Validator_Info_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Validator_Info_Stddev_Samp_Fields>;
+  sum?: Maybe<Validator_Info_Sum_Fields>;
+  var_pop?: Maybe<Validator_Info_Var_Pop_Fields>;
+  var_samp?: Maybe<Validator_Info_Var_Samp_Fields>;
+  variance?: Maybe<Validator_Info_Variance_Fields>;
 };
 
 
@@ -17208,9 +17430,28 @@ export type Validator_Info_Aggregate_FieldsCountArgs = {
 
 /** order by aggregate values of table "validator_info" */
 export type Validator_Info_Aggregate_Order_By = {
+  avg?: Maybe<Validator_Info_Avg_Order_By>;
   count?: Maybe<Order_By>;
   max?: Maybe<Validator_Info_Max_Order_By>;
   min?: Maybe<Validator_Info_Min_Order_By>;
+  stddev?: Maybe<Validator_Info_Stddev_Order_By>;
+  stddev_pop?: Maybe<Validator_Info_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Validator_Info_Stddev_Samp_Order_By>;
+  sum?: Maybe<Validator_Info_Sum_Order_By>;
+  var_pop?: Maybe<Validator_Info_Var_Pop_Order_By>;
+  var_samp?: Maybe<Validator_Info_Var_Samp_Order_By>;
+  variance?: Maybe<Validator_Info_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Validator_Info_Avg_Fields = {
+  __typename?: 'validator_info_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "validator_info" */
+export type Validator_Info_Avg_Order_By = {
+  height?: Maybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "validator_info". All fields are combined with a logical 'AND'. */
@@ -17220,6 +17461,7 @@ export type Validator_Info_Bool_Exp = {
   _or?: Maybe<Array<Validator_Info_Bool_Exp>>;
   account?: Maybe<Account_Bool_Exp>;
   consensus_address?: Maybe<String_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
   max_change_rate?: Maybe<String_Comparison_Exp>;
   max_rate?: Maybe<String_Comparison_Exp>;
   operator_address?: Maybe<String_Comparison_Exp>;
@@ -17231,6 +17473,7 @@ export type Validator_Info_Bool_Exp = {
 export type Validator_Info_Max_Fields = {
   __typename?: 'validator_info_max_fields';
   consensus_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
   max_change_rate?: Maybe<Scalars['String']>;
   max_rate?: Maybe<Scalars['String']>;
   operator_address?: Maybe<Scalars['String']>;
@@ -17240,6 +17483,7 @@ export type Validator_Info_Max_Fields = {
 /** order by max() on columns of table "validator_info" */
 export type Validator_Info_Max_Order_By = {
   consensus_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
   max_change_rate?: Maybe<Order_By>;
   max_rate?: Maybe<Order_By>;
   operator_address?: Maybe<Order_By>;
@@ -17250,6 +17494,7 @@ export type Validator_Info_Max_Order_By = {
 export type Validator_Info_Min_Fields = {
   __typename?: 'validator_info_min_fields';
   consensus_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
   max_change_rate?: Maybe<Scalars['String']>;
   max_rate?: Maybe<Scalars['String']>;
   operator_address?: Maybe<Scalars['String']>;
@@ -17259,6 +17504,7 @@ export type Validator_Info_Min_Fields = {
 /** order by min() on columns of table "validator_info" */
 export type Validator_Info_Min_Order_By = {
   consensus_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
   max_change_rate?: Maybe<Order_By>;
   max_rate?: Maybe<Order_By>;
   operator_address?: Maybe<Order_By>;
@@ -17269,6 +17515,7 @@ export type Validator_Info_Min_Order_By = {
 export type Validator_Info_Order_By = {
   account?: Maybe<Account_Order_By>;
   consensus_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
   max_change_rate?: Maybe<Order_By>;
   max_rate?: Maybe<Order_By>;
   operator_address?: Maybe<Order_By>;
@@ -17281,6 +17528,8 @@ export enum Validator_Info_Select_Column {
   /** column name */
   ConsensusAddress = 'consensus_address',
   /** column name */
+  Height = 'height',
+  /** column name */
   MaxChangeRate = 'max_change_rate',
   /** column name */
   MaxRate = 'max_rate',
@@ -17289,6 +17538,83 @@ export enum Validator_Info_Select_Column {
   /** column name */
   SelfDelegateAddress = 'self_delegate_address'
 }
+
+/** aggregate stddev on columns */
+export type Validator_Info_Stddev_Fields = {
+  __typename?: 'validator_info_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "validator_info" */
+export type Validator_Info_Stddev_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Validator_Info_Stddev_Pop_Fields = {
+  __typename?: 'validator_info_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "validator_info" */
+export type Validator_Info_Stddev_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Validator_Info_Stddev_Samp_Fields = {
+  __typename?: 'validator_info_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "validator_info" */
+export type Validator_Info_Stddev_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Validator_Info_Sum_Fields = {
+  __typename?: 'validator_info_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** order by sum() on columns of table "validator_info" */
+export type Validator_Info_Sum_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Validator_Info_Var_Pop_Fields = {
+  __typename?: 'validator_info_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "validator_info" */
+export type Validator_Info_Var_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Validator_Info_Var_Samp_Fields = {
+  __typename?: 'validator_info_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "validator_info" */
+export type Validator_Info_Var_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Validator_Info_Variance_Fields = {
+  __typename?: 'validator_info_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "validator_info" */
+export type Validator_Info_Variance_Order_By = {
+  height?: Maybe<Order_By>;
+};
 
 /** aggregate max on columns */
 export type Validator_Max_Fields = {
@@ -17618,6 +17944,7 @@ export type Validator_Status = {
   height: Scalars['bigint'];
   jailed: Scalars['Boolean'];
   status: Scalars['Int'];
+  tombstoned: Scalars['Boolean'];
   /** An object relationship */
   validator: Validator;
   validator_address: Scalars['String'];
@@ -17689,6 +18016,7 @@ export type Validator_Status_Bool_Exp = {
   height?: Maybe<Bigint_Comparison_Exp>;
   jailed?: Maybe<Boolean_Comparison_Exp>;
   status?: Maybe<Int_Comparison_Exp>;
+  tombstoned?: Maybe<Boolean_Comparison_Exp>;
   validator?: Maybe<Validator_Bool_Exp>;
   validator_address?: Maybe<String_Comparison_Exp>;
 };
@@ -17728,6 +18056,7 @@ export type Validator_Status_Order_By = {
   height?: Maybe<Order_By>;
   jailed?: Maybe<Order_By>;
   status?: Maybe<Order_By>;
+  tombstoned?: Maybe<Order_By>;
   validator?: Maybe<Validator_Order_By>;
   validator_address?: Maybe<Order_By>;
 };
@@ -17740,6 +18069,8 @@ export enum Validator_Status_Select_Column {
   Jailed = 'jailed',
   /** column name */
   Status = 'status',
+  /** column name */
+  Tombstoned = 'tombstoned',
   /** column name */
   ValidatorAddress = 'validator_address'
 }
@@ -18952,10 +19283,7 @@ export type ValidatorDetailsQueryVariables = Exact<{
 }>;
 
 
-export type ValidatorDetailsQuery = { stakingParams: Array<(
-    { __typename?: 'staking_params' }
-    & Pick<Staking_Params, 'params'>
-  )>, stakingPool: Array<(
+export type ValidatorDetailsQuery = { stakingPool: Array<(
     { __typename?: 'staking_pool' }
     & Pick<Staking_Pool, 'height'>
     & { bonded: Staking_Pool['bonded_tokens'] }
@@ -19006,10 +19334,7 @@ export type ValidatorDetailsQuery = { stakingParams: Array<(
 export type ValidatorsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ValidatorsQuery = { stakingParams: Array<(
-    { __typename?: 'staking_params' }
-    & Pick<Staking_Params, 'params'>
-  )>, stakingPool: Array<(
+export type ValidatorsQuery = { stakingPool: Array<(
     { __typename?: 'staking_pool' }
     & { bondedTokens: Staking_Pool['bonded_tokens'] }
   )>, validator: Array<(
@@ -20172,9 +20497,6 @@ export type ValidatorLastSeenListenerSubscriptionHookResult = ReturnType<typeof 
 export type ValidatorLastSeenListenerSubscriptionResult = Apollo.SubscriptionResult<ValidatorLastSeenListenerSubscription>;
 export const ValidatorDetailsDocument = gql`
     query ValidatorDetails($address: String, $utc: timestamp) {
-  stakingParams: staking_params(limit: 1) {
-    params
-  }
   stakingPool: staking_pool(order_by: {height: desc}, limit: 1, offset: 0) {
     height
     bonded: bonded_tokens
@@ -20274,9 +20596,6 @@ export type ValidatorDetailsLazyQueryHookResult = ReturnType<typeof useValidator
 export type ValidatorDetailsQueryResult = Apollo.QueryResult<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>;
 export const ValidatorsDocument = gql`
     query Validators {
-  stakingParams: staking_params(limit: 1) {
-    params
-  }
   stakingPool: staking_pool(limit: 1, order_by: {height: desc}) {
     bondedTokens: bonded_tokens
   }
