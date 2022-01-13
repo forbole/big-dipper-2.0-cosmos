@@ -15,6 +15,7 @@
     "height": 1
   },
   "primaryTokenUnit": "uband",
+  "votingPowerTokenUnit": "uband",
   "tokenUnits": {
     "uband": {
       "display": "band",
