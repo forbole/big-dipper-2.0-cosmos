@@ -15,6 +15,7 @@
     "height": 1
   },
   "primaryTokenUnit": "nanoekil",
+  "votingPowerTokenUnit": "ulike",
   "tokenUnits": {
     "nanoekil": {
       "display": "ekil",

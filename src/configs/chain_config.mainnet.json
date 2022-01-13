@@ -15,6 +15,7 @@
     "height": 1
   },
   "primaryTokenUnit": "nanolike",
+  "votingPowerTokenUnit": "ulike",
   "tokenUnits": {
     "nanolike": {
       "display": "like",

@@ -7,20 +7,17 @@ import {
   useOnlineVotingPowerListenerSubscription,
   OnlineVotingPowerListenerSubscription,
   TotalVotingPowerListenerSubscription,
-  useStakingParamsQuery,
 } from '@graphql/types';
-import { StakingParams } from '@models';
+import { chainConfig } from '@configs';
 
 const initialState: {
   height: number;
   votingPower: number;
   totalVotingPower: number;
-  denom: string;
 } = {
   height: 0,
   votingPower: 0,
   totalVotingPower: 0,
-  denom: 'ulike',
 };
 
 export const useOnlineVotingPower = () => {
@@ -29,18 +26,6 @@ export const useOnlineVotingPower = () => {
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
-
-  // ====================================
-  // staking params
-  // ====================================
-  useStakingParamsQuery({
-    onCompleted: (data) => {
-      const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
-      handleSetState({
-        denom: stakingParams.bondDenom,
-      });
-    },
-  });
 
   // ====================================
   // block voting power
@@ -83,8 +68,7 @@ export const useOnlineVotingPower = () => {
       0,
       'bonded',
     ], data);
-    // likecoin edge case
-    bonded = numeral(formatToken(bonded, 'ulike').value).value();
+    bonded = numeral(formatToken(bonded, chainConfig.votingPowerTokenUnit).value).value();
     return bonded;
   };
 
