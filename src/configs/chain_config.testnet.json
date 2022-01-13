@@ -15,6 +15,7 @@
     "height": 1
   },
   "primaryTokenUnit": "udaric",
+  "votingPowerTokenUnit": "udaric",
   "tokenUnits": {
     "udaric": {
       "display": "daric",

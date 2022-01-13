@@ -15,6 +15,7 @@
     "height": 1
   },
   "primaryTokenUnit": "rowan",
+  "votingPowerTokenUnit": "rowan",
   "tokenUnits": {
     "rowan": {
       "display": "rowan",

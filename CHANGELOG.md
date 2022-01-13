@@ -1,3 +1,16 @@
+# Unreleased
+
+## Changes
+- Optimized initial loading by setting basic details first then profiles after ([\#629](https://github.com/forbole/big-dipper-2.0-cosmos/issues/629))
+- Add vp token unit in config ([\#645](https://github.com/forbole/big-dipper-2.0-cosmos/issues/645))
+
+## Bug fixes
+- Fix home page validator image url not displaying correctly ([\#632](https://github.com/forbole/big-dipper-2.0-cosmos/issues/632))
+
+## Migration
+
+- [v1.7.0 to v1.10.0](https://docs.bigdipper.live/cosmos-based/frontend/migrations/v1.7.0-to-v1.10.0)
+
 # base-v1.9.0 - 2021-01-10
 
 ## Changes
