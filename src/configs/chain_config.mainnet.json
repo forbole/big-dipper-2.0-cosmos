@@ -15,6 +15,7 @@
     "height": 1
   },
   "primaryTokenUnit": "ungm",
+  "votingPowerTokenUnit": "ungm",
   "tokenUnits": {
     "ungm": {
       "display": "ngm",
