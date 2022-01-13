@@ -5288,14 +5288,14 @@ export type Proposal_Sum_Order_By = {
 /** columns and relationships of "proposal_tally_result" */
 export type Proposal_Tally_Result = {
   __typename?: 'proposal_tally_result';
-  abstain: Scalars['bigint'];
+  abstain: Scalars['String'];
   height: Scalars['bigint'];
-  no: Scalars['bigint'];
-  no_with_veto: Scalars['bigint'];
+  no: Scalars['String'];
+  no_with_veto: Scalars['String'];
   /** An object relationship */
   proposal: Proposal;
   proposal_id: Scalars['Int'];
-  yes: Scalars['bigint'];
+  yes: Scalars['String'];
 };
 
 /** aggregated selection of "proposal_tally_result" */
@@ -5346,22 +5346,14 @@ export type Proposal_Tally_Result_Aggregate_Order_By = {
 /** aggregate avg on columns */
 export type Proposal_Tally_Result_Avg_Fields = {
   __typename?: 'proposal_tally_result_avg_fields';
-  abstain?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  no?: Maybe<Scalars['Float']>;
-  no_with_veto?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
-  yes?: Maybe<Scalars['Float']>;
 };
 
 /** order by avg() on columns of table "proposal_tally_result" */
 export type Proposal_Tally_Result_Avg_Order_By = {
-  abstain?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-  no?: Maybe<Order_By>;
-  no_with_veto?: Maybe<Order_By>;
   proposal_id?: Maybe<Order_By>;
-  yes?: Maybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "proposal_tally_result". All fields are combined with a logical 'AND'. */
@@ -5369,24 +5361,24 @@ export type Proposal_Tally_Result_Bool_Exp = {
   _and?: Maybe<Array<Proposal_Tally_Result_Bool_Exp>>;
   _not?: Maybe<Proposal_Tally_Result_Bool_Exp>;
   _or?: Maybe<Array<Proposal_Tally_Result_Bool_Exp>>;
-  abstain?: Maybe<Bigint_Comparison_Exp>;
+  abstain?: Maybe<String_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
-  no?: Maybe<Bigint_Comparison_Exp>;
-  no_with_veto?: Maybe<Bigint_Comparison_Exp>;
+  no?: Maybe<String_Comparison_Exp>;
+  no_with_veto?: Maybe<String_Comparison_Exp>;
   proposal?: Maybe<Proposal_Bool_Exp>;
   proposal_id?: Maybe<Int_Comparison_Exp>;
-  yes?: Maybe<Bigint_Comparison_Exp>;
+  yes?: Maybe<String_Comparison_Exp>;
 };
 
 /** aggregate max on columns */
 export type Proposal_Tally_Result_Max_Fields = {
   __typename?: 'proposal_tally_result_max_fields';
-  abstain?: Maybe<Scalars['bigint']>;
+  abstain?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
-  no?: Maybe<Scalars['bigint']>;
-  no_with_veto?: Maybe<Scalars['bigint']>;
+  no?: Maybe<Scalars['String']>;
+  no_with_veto?: Maybe<Scalars['String']>;
   proposal_id?: Maybe<Scalars['Int']>;
-  yes?: Maybe<Scalars['bigint']>;
+  yes?: Maybe<Scalars['String']>;
 };
 
 /** order by max() on columns of table "proposal_tally_result" */
@@ -5402,12 +5394,12 @@ export type Proposal_Tally_Result_Max_Order_By = {
 /** aggregate min on columns */
 export type Proposal_Tally_Result_Min_Fields = {
   __typename?: 'proposal_tally_result_min_fields';
-  abstain?: Maybe<Scalars['bigint']>;
+  abstain?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
-  no?: Maybe<Scalars['bigint']>;
-  no_with_veto?: Maybe<Scalars['bigint']>;
+  no?: Maybe<Scalars['String']>;
+  no_with_veto?: Maybe<Scalars['String']>;
   proposal_id?: Maybe<Scalars['Int']>;
-  yes?: Maybe<Scalars['bigint']>;
+  yes?: Maybe<Scalars['String']>;
 };
 
 /** order by min() on columns of table "proposal_tally_result" */
@@ -5450,148 +5442,92 @@ export enum Proposal_Tally_Result_Select_Column {
 /** aggregate stddev on columns */
 export type Proposal_Tally_Result_Stddev_Fields = {
   __typename?: 'proposal_tally_result_stddev_fields';
-  abstain?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  no?: Maybe<Scalars['Float']>;
-  no_with_veto?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
-  yes?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev() on columns of table "proposal_tally_result" */
 export type Proposal_Tally_Result_Stddev_Order_By = {
-  abstain?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-  no?: Maybe<Order_By>;
-  no_with_veto?: Maybe<Order_By>;
   proposal_id?: Maybe<Order_By>;
-  yes?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Proposal_Tally_Result_Stddev_Pop_Fields = {
   __typename?: 'proposal_tally_result_stddev_pop_fields';
-  abstain?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  no?: Maybe<Scalars['Float']>;
-  no_with_veto?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
-  yes?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_pop() on columns of table "proposal_tally_result" */
 export type Proposal_Tally_Result_Stddev_Pop_Order_By = {
-  abstain?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-  no?: Maybe<Order_By>;
-  no_with_veto?: Maybe<Order_By>;
   proposal_id?: Maybe<Order_By>;
-  yes?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Proposal_Tally_Result_Stddev_Samp_Fields = {
   __typename?: 'proposal_tally_result_stddev_samp_fields';
-  abstain?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  no?: Maybe<Scalars['Float']>;
-  no_with_veto?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
-  yes?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_samp() on columns of table "proposal_tally_result" */
 export type Proposal_Tally_Result_Stddev_Samp_Order_By = {
-  abstain?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-  no?: Maybe<Order_By>;
-  no_with_veto?: Maybe<Order_By>;
   proposal_id?: Maybe<Order_By>;
-  yes?: Maybe<Order_By>;
 };
 
 /** aggregate sum on columns */
 export type Proposal_Tally_Result_Sum_Fields = {
   __typename?: 'proposal_tally_result_sum_fields';
-  abstain?: Maybe<Scalars['bigint']>;
   height?: Maybe<Scalars['bigint']>;
-  no?: Maybe<Scalars['bigint']>;
-  no_with_veto?: Maybe<Scalars['bigint']>;
   proposal_id?: Maybe<Scalars['Int']>;
-  yes?: Maybe<Scalars['bigint']>;
 };
 
 /** order by sum() on columns of table "proposal_tally_result" */
 export type Proposal_Tally_Result_Sum_Order_By = {
-  abstain?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-  no?: Maybe<Order_By>;
-  no_with_veto?: Maybe<Order_By>;
   proposal_id?: Maybe<Order_By>;
-  yes?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
 export type Proposal_Tally_Result_Var_Pop_Fields = {
   __typename?: 'proposal_tally_result_var_pop_fields';
-  abstain?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  no?: Maybe<Scalars['Float']>;
-  no_with_veto?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
-  yes?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_pop() on columns of table "proposal_tally_result" */
 export type Proposal_Tally_Result_Var_Pop_Order_By = {
-  abstain?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-  no?: Maybe<Order_By>;
-  no_with_veto?: Maybe<Order_By>;
   proposal_id?: Maybe<Order_By>;
-  yes?: Maybe<Order_By>;
 };
 
 /** aggregate var_samp on columns */
 export type Proposal_Tally_Result_Var_Samp_Fields = {
   __typename?: 'proposal_tally_result_var_samp_fields';
-  abstain?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  no?: Maybe<Scalars['Float']>;
-  no_with_veto?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
-  yes?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_samp() on columns of table "proposal_tally_result" */
 export type Proposal_Tally_Result_Var_Samp_Order_By = {
-  abstain?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-  no?: Maybe<Order_By>;
-  no_with_veto?: Maybe<Order_By>;
   proposal_id?: Maybe<Order_By>;
-  yes?: Maybe<Order_By>;
 };
 
 /** aggregate variance on columns */
 export type Proposal_Tally_Result_Variance_Fields = {
   __typename?: 'proposal_tally_result_variance_fields';
-  abstain?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  no?: Maybe<Scalars['Float']>;
-  no_with_veto?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
-  yes?: Maybe<Scalars['Float']>;
 };
 
 /** order by variance() on columns of table "proposal_tally_result" */
 export type Proposal_Tally_Result_Variance_Order_By = {
-  abstain?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-  no?: Maybe<Order_By>;
-  no_with_veto?: Maybe<Order_By>;
   proposal_id?: Maybe<Order_By>;
-  yes?: Maybe<Order_By>;
 };
 
 /** columns and relationships of "proposal_validator_status_snapshot" */
@@ -12319,6 +12255,7 @@ export type Validator_Info = {
   /** An object relationship */
   account?: Maybe<Account>;
   consensus_address: Scalars['String'];
+  height: Scalars['bigint'];
   max_change_rate: Scalars['String'];
   max_rate: Scalars['String'];
   operator_address: Scalars['String'];
@@ -12337,9 +12274,17 @@ export type Validator_Info_Aggregate = {
 /** aggregate fields of "validator_info" */
 export type Validator_Info_Aggregate_Fields = {
   __typename?: 'validator_info_aggregate_fields';
+  avg?: Maybe<Validator_Info_Avg_Fields>;
   count: Scalars['Int'];
   max?: Maybe<Validator_Info_Max_Fields>;
   min?: Maybe<Validator_Info_Min_Fields>;
+  stddev?: Maybe<Validator_Info_Stddev_Fields>;
+  stddev_pop?: Maybe<Validator_Info_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Validator_Info_Stddev_Samp_Fields>;
+  sum?: Maybe<Validator_Info_Sum_Fields>;
+  var_pop?: Maybe<Validator_Info_Var_Pop_Fields>;
+  var_samp?: Maybe<Validator_Info_Var_Samp_Fields>;
+  variance?: Maybe<Validator_Info_Variance_Fields>;
 };
 
 
@@ -12351,9 +12296,28 @@ export type Validator_Info_Aggregate_FieldsCountArgs = {
 
 /** order by aggregate values of table "validator_info" */
 export type Validator_Info_Aggregate_Order_By = {
+  avg?: Maybe<Validator_Info_Avg_Order_By>;
   count?: Maybe<Order_By>;
   max?: Maybe<Validator_Info_Max_Order_By>;
   min?: Maybe<Validator_Info_Min_Order_By>;
+  stddev?: Maybe<Validator_Info_Stddev_Order_By>;
+  stddev_pop?: Maybe<Validator_Info_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Validator_Info_Stddev_Samp_Order_By>;
+  sum?: Maybe<Validator_Info_Sum_Order_By>;
+  var_pop?: Maybe<Validator_Info_Var_Pop_Order_By>;
+  var_samp?: Maybe<Validator_Info_Var_Samp_Order_By>;
+  variance?: Maybe<Validator_Info_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Validator_Info_Avg_Fields = {
+  __typename?: 'validator_info_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "validator_info" */
+export type Validator_Info_Avg_Order_By = {
+  height?: Maybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "validator_info". All fields are combined with a logical 'AND'. */
@@ -12363,6 +12327,7 @@ export type Validator_Info_Bool_Exp = {
   _or?: Maybe<Array<Validator_Info_Bool_Exp>>;
   account?: Maybe<Account_Bool_Exp>;
   consensus_address?: Maybe<String_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
   max_change_rate?: Maybe<String_Comparison_Exp>;
   max_rate?: Maybe<String_Comparison_Exp>;
   operator_address?: Maybe<String_Comparison_Exp>;
@@ -12374,6 +12339,7 @@ export type Validator_Info_Bool_Exp = {
 export type Validator_Info_Max_Fields = {
   __typename?: 'validator_info_max_fields';
   consensus_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
   max_change_rate?: Maybe<Scalars['String']>;
   max_rate?: Maybe<Scalars['String']>;
   operator_address?: Maybe<Scalars['String']>;
@@ -12383,6 +12349,7 @@ export type Validator_Info_Max_Fields = {
 /** order by max() on columns of table "validator_info" */
 export type Validator_Info_Max_Order_By = {
   consensus_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
   max_change_rate?: Maybe<Order_By>;
   max_rate?: Maybe<Order_By>;
   operator_address?: Maybe<Order_By>;
@@ -12393,6 +12360,7 @@ export type Validator_Info_Max_Order_By = {
 export type Validator_Info_Min_Fields = {
   __typename?: 'validator_info_min_fields';
   consensus_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
   max_change_rate?: Maybe<Scalars['String']>;
   max_rate?: Maybe<Scalars['String']>;
   operator_address?: Maybe<Scalars['String']>;
@@ -12402,6 +12370,7 @@ export type Validator_Info_Min_Fields = {
 /** order by min() on columns of table "validator_info" */
 export type Validator_Info_Min_Order_By = {
   consensus_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
   max_change_rate?: Maybe<Order_By>;
   max_rate?: Maybe<Order_By>;
   operator_address?: Maybe<Order_By>;
@@ -12412,6 +12381,7 @@ export type Validator_Info_Min_Order_By = {
 export type Validator_Info_Order_By = {
   account?: Maybe<Account_Order_By>;
   consensus_address?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
   max_change_rate?: Maybe<Order_By>;
   max_rate?: Maybe<Order_By>;
   operator_address?: Maybe<Order_By>;
@@ -12424,6 +12394,8 @@ export enum Validator_Info_Select_Column {
   /** column name */
   ConsensusAddress = 'consensus_address',
   /** column name */
+  Height = 'height',
+  /** column name */
   MaxChangeRate = 'max_change_rate',
   /** column name */
   MaxRate = 'max_rate',
@@ -12432,6 +12404,83 @@ export enum Validator_Info_Select_Column {
   /** column name */
   SelfDelegateAddress = 'self_delegate_address'
 }
+
+/** aggregate stddev on columns */
+export type Validator_Info_Stddev_Fields = {
+  __typename?: 'validator_info_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "validator_info" */
+export type Validator_Info_Stddev_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Validator_Info_Stddev_Pop_Fields = {
+  __typename?: 'validator_info_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "validator_info" */
+export type Validator_Info_Stddev_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Validator_Info_Stddev_Samp_Fields = {
+  __typename?: 'validator_info_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "validator_info" */
+export type Validator_Info_Stddev_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Validator_Info_Sum_Fields = {
+  __typename?: 'validator_info_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** order by sum() on columns of table "validator_info" */
+export type Validator_Info_Sum_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Validator_Info_Var_Pop_Fields = {
+  __typename?: 'validator_info_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "validator_info" */
+export type Validator_Info_Var_Pop_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Validator_Info_Var_Samp_Fields = {
+  __typename?: 'validator_info_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "validator_info" */
+export type Validator_Info_Var_Samp_Order_By = {
+  height?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Validator_Info_Variance_Fields = {
+  __typename?: 'validator_info_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "validator_info" */
+export type Validator_Info_Variance_Order_By = {
+  height?: Maybe<Order_By>;
+};
 
 /** aggregate max on columns */
 export type Validator_Max_Fields = {
@@ -12761,6 +12810,7 @@ export type Validator_Status = {
   height: Scalars['bigint'];
   jailed: Scalars['Boolean'];
   status: Scalars['Int'];
+  tombstoned: Scalars['Boolean'];
   /** An object relationship */
   validator: Validator;
   validator_address: Scalars['String'];
@@ -12832,6 +12882,7 @@ export type Validator_Status_Bool_Exp = {
   height?: Maybe<Bigint_Comparison_Exp>;
   jailed?: Maybe<Boolean_Comparison_Exp>;
   status?: Maybe<Int_Comparison_Exp>;
+  tombstoned?: Maybe<Boolean_Comparison_Exp>;
   validator?: Maybe<Validator_Bool_Exp>;
   validator_address?: Maybe<String_Comparison_Exp>;
 };
@@ -12871,6 +12922,7 @@ export type Validator_Status_Order_By = {
   height?: Maybe<Order_By>;
   jailed?: Maybe<Order_By>;
   status?: Maybe<Order_By>;
+  tombstoned?: Maybe<Order_By>;
   validator?: Maybe<Validator_Order_By>;
   validator_address?: Maybe<Order_By>;
 };
@@ -12883,6 +12935,8 @@ export enum Validator_Status_Select_Column {
   Jailed = 'jailed',
   /** column name */
   Status = 'status',
+  /** column name */
+  Tombstoned = 'tombstoned',
   /** column name */
   ValidatorAddress = 'validator_address'
 }
@@ -14101,10 +14155,7 @@ export type ValidatorDetailsQueryVariables = Exact<{
 }>;
 
 
-export type ValidatorDetailsQuery = { stakingParams: Array<(
-    { __typename?: 'staking_params' }
-    & Pick<Staking_Params, 'params'>
-  )>, stakingPool: Array<(
+export type ValidatorDetailsQuery = { stakingPool: Array<(
     { __typename?: 'staking_pool' }
     & Pick<Staking_Pool, 'height'>
     & { bonded: Staking_Pool['bonded_tokens'] }
@@ -14155,10 +14206,7 @@ export type ValidatorDetailsQuery = { stakingParams: Array<(
 export type ValidatorsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ValidatorsQuery = { stakingParams: Array<(
-    { __typename?: 'staking_params' }
-    & Pick<Staking_Params, 'params'>
-  )>, stakingPool: Array<(
+export type ValidatorsQuery = { stakingPool: Array<(
     { __typename?: 'staking_pool' }
     & { bondedTokens: Staking_Pool['bonded_tokens'] }
   )>, validator: Array<(
@@ -15327,9 +15375,6 @@ export type ValidatorLastSeenListenerSubscriptionHookResult = ReturnType<typeof 
 export type ValidatorLastSeenListenerSubscriptionResult = Apollo.SubscriptionResult<ValidatorLastSeenListenerSubscription>;
 export const ValidatorDetailsDocument = gql`
     query ValidatorDetails($address: String, $utc: timestamp) {
-  stakingParams: staking_params(limit: 1) {
-    params
-  }
   stakingPool: staking_pool(order_by: {height: desc}, limit: 1, offset: 0) {
     height
     bonded: bonded_tokens
@@ -15429,9 +15474,6 @@ export type ValidatorDetailsLazyQueryHookResult = ReturnType<typeof useValidator
 export type ValidatorDetailsQueryResult = Apollo.QueryResult<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>;
 export const ValidatorsDocument = gql`
     query Validators {
-  stakingParams: staking_params(limit: 1) {
-    params
-  }
   stakingPool: staking_pool(limit: 1, order_by: {height: desc}) {
     bondedTokens: bonded_tokens
   }

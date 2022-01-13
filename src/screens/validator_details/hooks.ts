@@ -21,7 +21,6 @@ import { validatorToDelegatorAddress } from '@recoil/profiles';
 import { getValidatorCondition } from '@utils/get_validator_condition';
 import { chainConfig } from '@src/configs';
 import {
-  StakingParams,
   SlashingParams,
 } from '@models';
 import { ValidatorDetailsState } from './types';
@@ -294,17 +293,16 @@ export const useValidatorDetails = () => {
       );
       const selfDelegatePercent = (numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value() / totalDelegations) * 100;
 
-      const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
       const votingPower = {
         self: formatToken(
           self,
-          stakingParams.bondDenom,
+          chainConfig.votingPowerTokenUnit,
         ).value,
         selfDelegate: selfDelegateAmount,
         selfDelegatePercent,
         overall: formatToken(
           R.pathOr(0, ['stakingPool', 0, 'bonded'], data),
-          stakingParams.bondDenom,
+          chainConfig.votingPowerTokenUnit,
         ),
         height: R.pathOr(0, ['validatorVotingPowers', 0, 'height'], data.validator[0]),
       };

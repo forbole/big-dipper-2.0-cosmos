@@ -8,10 +8,8 @@ import {
 } from '@graphql/types';
 import { getValidatorCondition } from '@utils/get_validator_condition';
 import { formatToken } from '@utils/format_token';
-import {
-  StakingParams,
-  SlashingParams,
-} from '@models';
+import { SlashingParams } from '@models';
+import { chainConfig } from '@src/configs';
 import {
   ValidatorsState,
   ItemType,
@@ -50,11 +48,10 @@ export const useValidators = () => {
   // Parse data
   // ==========================
   const formatValidators = (data: ValidatorsQuery) => {
-    const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
     const slashingParams = SlashingParams.fromJson(R.pathOr({}, ['slashingParams', 0, 'params'], data));
     const votingPowerOverall = numeral(formatToken(
       R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data),
-      stakingParams.bondDenom,
+      chainConfig.votingPowerTokenUnit,
     ).value).value();
 
     const { signedBlockWindow } = slashingParams;
@@ -64,7 +61,7 @@ export const useValidators = () => {
     ).map((x) => {
       const votingPower = numeral(formatToken(
         R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x),
-        stakingParams.bondDenom,
+        chainConfig.votingPowerTokenUnit,
       ).value).value();
       const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
       const totalDelegations = x.delegations.reduce((a, b) => {
