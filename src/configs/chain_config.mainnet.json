@@ -15,6 +15,7 @@
     "height": 1
   },
   "primaryTokenUnit": "ubtsg",
+  "votingPowerTokenUnit": "ubtsg",
   "tokenUnits": {
     "ubtsg": {
       "display": "btsg",
