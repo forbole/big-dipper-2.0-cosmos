@@ -14131,10 +14131,7 @@ export type ValidatorDetailsQueryVariables = Exact<{
 }>;
 
 
-export type ValidatorDetailsQuery = { stakingParams: Array<(
-    { __typename?: 'staking_params' }
-    & Pick<Staking_Params, 'params'>
-  )>, stakingPool: Array<(
+export type ValidatorDetailsQuery = { stakingPool: Array<(
     { __typename?: 'staking_pool' }
     & Pick<Staking_Pool, 'height'>
     & { bonded: Staking_Pool['bonded_tokens'] }
@@ -14185,10 +14182,7 @@ export type ValidatorDetailsQuery = { stakingParams: Array<(
 export type ValidatorsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ValidatorsQuery = { stakingParams: Array<(
-    { __typename?: 'staking_params' }
-    & Pick<Staking_Params, 'params'>
-  )>, stakingPool: Array<(
+export type ValidatorsQuery = { stakingPool: Array<(
     { __typename?: 'staking_pool' }
     & { bondedTokens: Staking_Pool['bonded_tokens'] }
   )>, validator: Array<(
@@ -15403,9 +15397,6 @@ export type ValidatorLastSeenListenerSubscriptionHookResult = ReturnType<typeof 
 export type ValidatorLastSeenListenerSubscriptionResult = Apollo.SubscriptionResult<ValidatorLastSeenListenerSubscription>;
 export const ValidatorDetailsDocument = gql`
     query ValidatorDetails($address: String, $utc: timestamp) {
-  stakingParams: staking_params(limit: 1) {
-    params
-  }
   stakingPool: staking_pool(order_by: {height: desc}, limit: 1, offset: 0) {
     height
     bonded: bonded_tokens
@@ -15505,9 +15496,6 @@ export type ValidatorDetailsLazyQueryHookResult = ReturnType<typeof useValidator
 export type ValidatorDetailsQueryResult = Apollo.QueryResult<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>;
 export const ValidatorsDocument = gql`
     query Validators {
-  stakingParams: staking_params(limit: 1) {
-    params
-  }
   stakingPool: staking_pool(limit: 1, order_by: {height: desc}) {
     bondedTokens: bonded_tokens
   }
