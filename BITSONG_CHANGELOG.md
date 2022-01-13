@@ -1,3 +1,8 @@
+# Unreleased
+
+## Changes
+- Merge `base`
+
 # bitsong-v1.2.0 - 2021-01-10
 
 ## Changes
