@@ -77,7 +77,7 @@ jobs:
       - name: Deploy to Akash 🌐
         env:
           AKASH_WEBHOOK_SECRET: ${{ secrets.AKASH_WEBHOOK_SECRET }}
-          REGEN_1: ${{ secrets.REGEN }}
+          REGEN_1: ${{ secrets.REGEN_1 }}
         run: |
             BRANCH=${GITHUB_REF}
             WEBHOOK_URL=''
