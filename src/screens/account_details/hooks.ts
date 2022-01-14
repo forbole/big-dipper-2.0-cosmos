@@ -204,11 +204,17 @@ export const useAccountDetails = () => {
 
     const rewardsDict = {};
     // log all the rewards
-    data.account[0].delegationRewards.forEach((x) => {
-      const denomAmount = getDenom(x.amount, chainConfig.primaryTokenUnit);
+    data.delegationRewards.forEach((x) => {
+      const denomAmount = getDenom(x.coins, chainConfig.primaryTokenUnit);
       const denomFormat = formatToken(denomAmount.amount, chainConfig.primaryTokenUnit);
-      rewardsDict[x.validator.validatorInfo.operatorAddress] = denomFormat;
+      rewardsDict[x.validatorAddress] = denomFormat;
     });
+    // ryuash
+    // data.account[0].delegationRewards.forEach((x) => {
+    //   const denomAmount = getDenom(x.amount, chainConfig.primaryTokenUnit);
+    //   const denomFormat = formatToken(denomAmount.amount, chainConfig.primaryTokenUnit);
+    //   rewardsDict[x.validator.validatorInfo.operatorAddress] = denomFormat;
+    // });
     // set default rewards for delegations without parsed rewards
     data.account[0].delegations.forEach((x) => {
       const validatorAddress = x.validator.validatorInfo.operatorAddress;
@@ -315,10 +321,10 @@ export const useAccountDetails = () => {
       });
 
       // rewards tokens
-      const rewards = R.pathOr([], ['account', 0, 'delegationRewards'], data);
+      const rewards = R.pathOr([], ['delegationRewards'], data);
 
       rewards.forEach((x) => {
-        x.amount.forEach((y) => {
+        x.coins.forEach((y) => {
           otherTokenUnits.add(y.denom);
         });
       });

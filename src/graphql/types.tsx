@@ -13000,6 +13000,9 @@ export type AccountQuery = { stakingParams: Array<(
   )>, accountBalances?: Maybe<(
     { __typename?: 'Coins' }
     & Pick<Coins, 'coins'>
+  )>, delegationRewards: Array<(
+    { __typename?: 'DelegatorRewards' }
+    & { validatorAddress: DelegatorRewards['validator_address'], coins: DelegatorRewards['dec_coins'] }
   )>, account: Array<(
     { __typename?: 'account' }
     & Pick<Account, 'address'>
@@ -13040,17 +13043,6 @@ export type AccountQuery = { stakingParams: Array<(
       { __typename?: 'redelegation' }
       & Pick<Redelegation, 'amount'>
       & { completionTime: Redelegation['completion_time'], from: Redelegation['src_validator_address'], to: Redelegation['dst_validator_address'] }
-    )>, delegationRewards: Array<(
-      { __typename?: 'delegation_reward' }
-      & Pick<Delegation_Reward, 'amount'>
-      & { withdrawAddress: Delegation_Reward['withdraw_address'] }
-      & { validator: (
-        { __typename?: 'validator' }
-        & { validatorInfo?: Maybe<(
-          { __typename?: 'validator_info' }
-          & { operatorAddress: Validator_Info['operator_address'] }
-        )> }
-      ) }
     )> }
   )>, validator: Array<(
     { __typename?: 'validator' }
@@ -13591,6 +13583,10 @@ export const AccountDocument = gql`
   accountBalances: action_account_balance(address: $address) {
     coins
   }
+  delegationRewards: action_delegator_rewards(address: $address) {
+    validatorAddress: validator_address
+    coins: dec_coins
+  }
   account(where: {address: {_eq: $address}}) {
     address
     delegations {
@@ -13631,15 +13627,6 @@ export const AccountDocument = gql`
       completionTime: completion_time
       from: src_validator_address
       to: dst_validator_address
-    }
-    delegationRewards: delegation_rewards {
-      amount
-      withdrawAddress: withdraw_address
-      validator {
-        validatorInfo: validator_info {
-          operatorAddress: operator_address
-        }
-      }
     }
   }
   validator: validator(
