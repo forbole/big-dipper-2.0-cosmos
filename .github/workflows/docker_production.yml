@@ -77,13 +77,13 @@ jobs:
       - name: Deploy to Akash 🌐
         env:
           AKASH_WEBHOOK_SECRET: ${{ secrets.AKASH_WEBHOOK_SECRET }}
-          REGEN: ${{ secrets.REGEN }}
+          REGEN_1: ${{ secrets.REGEN }}
         run: |
             BRANCH=${GITHUB_REF}
             WEBHOOK_URL=''
             if [[ $GITHUB_REF == refs/tags/regen-1* ]]; then
               echo 'Deploying to Regen regen-1'
-              WEBHOOK_URL=$REGEN
+              WEBHOOK_URL=$REGEN_1
             fi
               curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k $WEBHOOK_URL -u "deploy:$AKASH_WEBHOOK_SECRET"
 
