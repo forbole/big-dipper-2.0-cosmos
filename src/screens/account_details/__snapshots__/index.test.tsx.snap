@@ -41,7 +41,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
             "baseDenom": "udaric",
             "displayDenom": "daric",
             "exponent": 6,
-            "value": "21.280246",
+            "value": "0",
           }
         }
         className="makeStyles-balance"
@@ -67,7 +67,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
             "baseDenom": "udaric",
             "displayDenom": "daric",
             "exponent": 6,
-            "value": "58219.061338275262315",
+            "value": "4359.108323",
           }
         }
         total={
@@ -75,7 +75,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
             "baseDenom": "udaric",
             "displayDenom": "daric",
             "exponent": 6,
-            "value": "1690666.28604048272634693665",
+            "value": "1636785.05277920746403193665",
           }
         }
         unbonding={
@@ -92,51 +92,8 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
         id="OtherTokens"
         otherTokens={
           Object {
-            "count": 2,
-            "data": Array [
-              Object {
-                "available": Object {
-                  "baseDenom": "someotherbalance",
-                  "displayDenom": "someotherbalance",
-                  "exponent": 0,
-                  "value": "21280246",
-                },
-                "commission": Object {
-                  "baseDenom": "someotherbalance",
-                  "displayDenom": "someotherbalance",
-                  "exponent": 0,
-                  "value": "0",
-                },
-                "denom": "someotherbalance",
-                "reward": Object {
-                  "baseDenom": "someotherbalance",
-                  "displayDenom": "someotherbalance",
-                  "exponent": 0,
-                  "value": "0",
-                },
-              },
-              Object {
-                "available": Object {
-                  "baseDenom": "ufootoken",
-                  "displayDenom": "ufootoken",
-                  "exponent": 0,
-                  "value": "0",
-                },
-                "commission": Object {
-                  "baseDenom": "ufootoken",
-                  "displayDenom": "ufootoken",
-                  "exponent": 0,
-                  "value": "0",
-                },
-                "denom": "ufootoken",
-                "reward": Object {
-                  "baseDenom": "ufootoken",
-                  "displayDenom": "ufootoken",
-                  "exponent": 0,
-                  "value": "58219061338",
-                },
-              },
-            ],
+            "count": 0,
+            "data": Array [],
           }
         }
       />
@@ -158,7 +115,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
                   "baseDenom": "udaric",
                   "displayDenom": "daric",
                   "exponent": 6,
-                  "value": "58219.061338275262315",
+                  "value": "4359.108323",
                 },
                 "validator": "desmosvaloper1u0dae8r8hay6r2gvccegg2fz6ryftf2wfnj5ft",
                 "validatorSigningInfo": Object {

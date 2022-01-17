@@ -1,28 +1,472 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "desmos-mainnet-1",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
+  "title": "Sifchain Block Explorer",
+  "network": "sifchain-1",
+  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/sifchain/icon.png?sanitize=true",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
+    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/sifchain/logo.png?sanitize=true"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "sifvalcons",
+    "validator": "sifvaloper",
+    "account": "sif"
   },
   "genesis": {
     "time": "2021-07-13T08:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udsm",
-  "votingPowerTokenUnit": "udsm",
+  "primaryTokenUnit": "rowan",
+  "votingPowerTokenUnit": "rowan",
   "tokenUnits": {
-    "udsm": {
-      "display": "dsm",
+    "rowan": {
+      "display": "rowan",
+      "exponent": 18
+    },
+    "cusdt": {
+      "display": "usdt",
+      "exponent": 6
+    },
+    "ceth": {
+      "display": "eth",
+      "exponent": 18
+    },
+    "cbat": {
+      "display": "bat",
+      "exponent": 18
+    },
+    "cant": {
+      "display": "ant",
+      "exponent": 18
+    },
+    "cbnt": {
+      "display": "bnt",
+      "exponent": 18
+    },
+    "czrx": {
+      "display": "zrx",
+      "exponent": 18
+    },
+    "clink": {
+      "display": "link",
+      "exponent": 18
+    },
+    "cmana": {
+      "display": "mana",
+      "exponent": 18
+    },
+    "clrc": {
+      "display": "lrc",
+      "exponent": 18
+    },
+    "cenj": {
+      "display": "enj",
+      "exponent": 18
+    },
+    "csnx": {
+      "display": "snx",
+      "exponent": 18
+    },
+    "ctusd": {
+      "display": "tusd",
+      "exponent": 18
+    },
+    "cocean": {
+      "display": "ocean",
+      "exponent": 18
+    },
+    "cftm": {
+      "display": "ftm",
+      "exponent": 18
+    },
+    "csusd": {
+      "display": "susd",
+      "exponent": 18
+    },
+    "cusdc": {
+      "display": "usdc",
+      "exponent": 6
+    },
+    "csxp": {
+      "display": "sxp",
+      "exponent": 18
+    },
+    "cband": {
+      "display": "band",
+      "exponent": 18
+    },
+    "cdai": {
+      "display": "dai",
+      "exponent": 18
+    },
+    "ccomp": {
+      "display": "comp",
+      "exponent": 18
+    },
+    "cuma": {
+      "display": "uma",
+      "exponent": 18
+    },
+    "cbal": {
+      "display": "bal",
+      "exponent": 18
+    },
+    "cyfi": {
+      "display": "yfi",
+      "exponent": 18
+    },
+    "csrm": {
+      "display": "srm",
+      "exponent": 6
+    },
+    "ccream": {
+      "display": "cream",
+      "exponent": 18
+    },
+    "csand": {
+      "display": "sand",
+      "exponent": 18
+    },
+    "csushi": {
+      "display": "sushi",
+      "exponent": 18
+    },
+    "cesd": {
+      "display": "esd",
+      "exponent": 18
+    },
+    "cuni": {
+      "display": "uni",
+      "exponent": 18
+    },
+    "caave": {
+      "display": "aave",
+      "exponent": 18
+    },
+    "cbond": {
+      "display": "bond",
+      "exponent": 18
+    },
+    "cwfil": {
+      "display": "wfil",
+      "exponent": 18
+    },
+    "cgrt": {
+      "display": "grt",
+      "exponent": 18
+    },
+    "clon": {
+      "display": "lon",
+      "exponent": 18
+    },
+    "c1inch": {
+      "display": "1inch",
+      "exponent": 18
+    },
+    "crune": {
+      "display": "rune",
+      "exponent": 18
+    },
+    "cwscrt": {
+      "display": "wscrt",
+      "exponent": 6
+    },
+    "ciotx": {
+      "display": "iotx",
+      "exponent": 18
+    },
+    "creef": {
+      "display": "reef",
+      "exponent": 18
+    },
+    "ccocos": {
+      "display": "cocos",
+      "exponent": 18
+    },
+    "ckeep": {
+      "display": "keep",
+      "exponent": 18
+    },
+    "cogn": {
+      "display": "ogn",
+      "exponent": 18
+    },
+    "cdaofi": {
+      "display": "daofi",
+      "exponent": 18
+    },
+    "clina": {
+      "display": "lina",
+      "exponent": 18
+    },
+    "ctshp": {
+      "display": "tshp",
+      "exponent": 18
+    },
+    "cb20": {
+      "display": "b20",
+      "exponent": 18
+    },
+    "cakro": {
+      "display": "akro",
+      "exponent": 18
+    },
+    "crfuel": {
+      "display": "rfuel",
+      "exponent": 18
+    },
+    "crly": {
+      "display": "rly",
+      "exponent": 18
+    },
+    "cconv": {
+      "display": "conv",
+      "exponent": 18
+    },
+    "crndr": {
+      "display": "rndr",
+      "exponent": 18
+    },
+    "cpaid": {
+      "display": "paid",
+      "exponent": 18
+    },
+    "ctidal": {
+      "display": "tidal",
+      "exponent": 18
+    },
+    "cshib": {
+      "display": "shib",
+      "exponent": 18
+    },
+    "cleash": {
+      "display": "leash",
+      "exponent": 18
+    },
+    "uatom": {
+      "display": "atom",
+      "exponent": 6
+    },
+    "uakt": {
+      "display": "akt",
+      "exponent": 6
+    },
+    "udvpn": {
+      "display": "dvpn",
+      "exponent": 6
+    },
+    "uiris": {
+      "display": "iris",
+      "exponent": 6
+    },
+    "basecro": {
+      "display": "cro",
+      "exponent": 8
+    },
+    "uxprt": {
+      "display": "xprt",
+      "exponent": 6
+    },
+    "uregen": {
+      "display": "regen",
+      "exponent": 6
+    },
+    "uosmo": {
+      "display": "osmo",
+      "exponent": 6
+    },
+    "cust": {
+      "display": "ust",
+      "exponent": 18
+    },
+    "cfrax": {
+      "display": "frax",
+      "exponent": 18
+    },
+    "czcx": {
+      "display": "zcx",
+      "exponent": 18
+    },
+    "cdon": {
+      "display": "don",
+      "exponent": 18
+    },
+    "cmetis": {
+      "display": "metis",
+      "exponent": 18
+    },
+    "cfxs": {
+      "display": "fxs",
+      "exponent": 18
+    },
+    "ckft": {
+      "display": "kft",
+      "exponent": 18
+    },
+    "czcn": {
+      "display": "zcn",
+      "exponent": 10
+    },
+    "csaito": {
+      "display": "saito",
+      "exponent": 18
+    },
+    "cdfyn": {
+      "display": "dfyn",
+      "exponent": 18
+    },
+    "cdnxc": {
+      "display": "dnxc",
+      "exponent": 18
+    },
+    "cern": {
+      "display": "ern",
+      "exponent": 18
+    },
+    "cpols": {
+      "display": "pols",
+      "exponent": 18
+    },
+    "caxs": {
+      "display": "axs",
+      "exponent": 18
+    },
+    "cmatic": {
+      "display": "matic",
+      "exponent": 18
+    },
+    "ctoke": {
+      "display": "toke",
+      "exponent": 18
+    },
+    "uluna": {
+      "display": "luna",
+      "exponent": 6
+    },
+    "uusd": {
+      "display": "ust",
+      "exponent": 6
+    },
+    "cbtsg": {
+      "display": "btsg",
+      "exponent": 18
+    },
+    "cquick": {
+      "display": "quick",
+      "exponent": 18
+    },
+    "cldo": {
+      "display": "ldo",
+      "exponent": 18
+    },
+    "crail": {
+      "display": "rail",
+      "exponent": 18
+    },
+    "cpond": {
+      "display": "pond",
+      "exponent": 18
+    },
+    "cdino": {
+      "display": "dino",
+      "exponent": 18
+    },
+    "cufo": {
+      "display": "ufo",
+      "exponent": 18
+    },
+    "ujuno": {
+      "display": "juno",
+      "exponent": 6
+    },
+    "uixo": {
+      "display": "ixo",
+      "exponent": 6
+    },
+    "uband": {
+      "display": "band",
+      "exponent": 6
+    },
+    "nanolike": {
+      "display": "like",
+      "exponent": 9
+    },
+    "cratom": {
+      "display": "ratom",
+      "exponent": 18
+    },
+    "coh": {
+      "display": "oh",
+      "exponent": 18
+    },
+    "ungm": {
+      "display": "ngm",
+      "exponent": 6
+    },
+    "eeur": {
+      "display": "eeur",
+      "exponent": 6
+    },
+    "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2": {
+      "display": "atom",
+      "exponent": 6
+    },
+    "ibc/6D717BFF5537D129035BAB39F593D638BA258A9F8D86FB7ECCEAB05B6950CC3E": {
+      "display": "akt",
+      "exponent": 6
+    },
+    "ibc/21CB41565FCA19AB6613EE06B0D56E588E0DC3E53FF94BA499BB9635794A1A35": {
+      "display": "dvpn",
+      "exponent": 6
+    },
+    "ibc/D87BC708A791246AA683D514C273736F07579CBD56C9CA79B7823F9A01C16270": {
+      "display": "xprt",
+      "exponent": 6
+    },
+    "ibc/11DFDFADE34DCE439BA732EBA5CD8AA804A544BA1ECC0882856289FAF01FE53F": {
+      "display": "iris",
+      "exponent": 6
+    },
+    "ibc/B21954812E6E642ADC0B5ACB233E02A634BF137C572575BF80F7C0CC3DB2E74D": {
+      "display": "cro",
+      "exponent": 8
+    },
+    "ibc/2CC6F10253D563A7C238096BA63D060F7F356E37D5176E517034B8F730DB4AB6": {
+      "display": "regen",
+      "exponent": 6
+    },
+    "ibc/F279AB967042CAC10BFF70FAECB179DCE37AAAE4CD4C1BC4565C2BBC383BC0FA": {
+      "display": "juno",
+      "exponent": 6
+    },
+    "ibc/C5C8682EB9AA1313EF1B12C991ADCDA465B80C05733BFB2972E2005E01BCE459": {
+      "display": "ixo",
+      "exponent": 6
+    },
+    "ibc/B4314D0E670CB43C88A5DCA09F76E5E812BD831CC2FEC6E434C9E5A9D1F57953": {
+      "display": "osmo",
+      "exponent": 6
+    },
+    "ibc/17F5C77854734CFE1301E6067AA42CDF62DAF836E4467C635E6DB407853C6082": {
+      "display": "ust",
+      "exponent": 6
+    },
+    "ibc/F141935FF02B74BDC6B8A0BD6FE86A23EE25D10E89AA0CD9158B3D92B63FDF4D": {
+      "display": "luna",
+      "exponent": 6
+    },
+    "ibc/ACA7D0100794F39DF3FF0C5E31638B24737321C24F32C2C486A24C78DD8F2029": {
+      "display": "ngm",
+      "exponent": 6
+    },
+    "ibc/7B8A3357032F3DB000ACFF3B2C9F8E77B932F21004FC93B5A8F77DE24161A573": {
+      "display": "eeur",
+      "exponent": 6
+    },
+    "ibc/7876FB1D317D993F1F54185DF6E405C7FE070B71E3A53AE0CEA5A86AC878EB7A": {
+      "display": "bcna",
       "exponent": 6
     }
   },
   "extra": {
-    "profile": true
+    "profile": false
   }
 }

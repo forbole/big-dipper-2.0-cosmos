@@ -349,7 +349,6 @@ export const useAccountDetails = () => {
           return Big(a).plus(denom.amount).toPrecision();
         }, 0);
         const rewardAmount = formatToken(rewardsRawAmount, x);
-
         const commissionRawAmount = getDenom(commission, x);
         const commissionAmount = formatToken(commissionRawAmount.amount, x);
 

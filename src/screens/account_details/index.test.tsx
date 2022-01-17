@@ -45,23 +45,41 @@ const mockAccount = jest.fn().mockResolvedValue({
         params: {},
       },
     ],
+    delegationRewards: [
+      {
+        validatorAddress: 'desmosvaloper1u0dae8r8hay6r2gvccegg2fz6ryftf2wfnj5ft',
+        coins: [
+          {
+            amount: '41613110',
+            denom: 'udaric',
+          },
+        ],
+      },
+      {
+        validatorAddress: 'desmosvaloper1u0dae8r8hay6r2gvccegg2fz6ryftf2wfnj5ft',
+        coins: [
+          {
+            amount: '4359108323',
+            denom: 'udaric',
+          },
+        ],
+      },
+    ],
+    accountBalances: {
+      coins: [
+        {
+          amount: '0',
+          denom: 'ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2',
+        },
+        {
+          amount: '233619138152013026',
+          denom: 'rowan',
+        },
+      ],
+    },
     account: [
       {
         address: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
-        accountBalances: [
-          {
-            coins: [
-              {
-                denom: 'udaric',
-                amount: '21280246',
-              },
-              {
-                denom: 'someotherbalance',
-                amount: '21280246',
-              },
-            ],
-          },
-        ],
         delegations: [
           {
             amount: {
