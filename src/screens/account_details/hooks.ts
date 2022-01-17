@@ -72,6 +72,7 @@ const initialState: AccountDetailState = {
 };
 
 export const useAccountDetails = () => {
+  console.log('IM IN HEREEE LINE 75');
   const router = useRouter();
   const [state, setState] = useState<AccountDetailState>(initialState);
 
@@ -92,13 +93,13 @@ export const useAccountDetails = () => {
     },
   });
 
-  useEffect(() => {
-    handleSetState(initialState);
-    if (chainConfig.extra.profile) {
-      fetchDesmosProfile(R.pathOr('', ['query', 'address'], router));
-    }
-  },
-  [R.pathOr('', ['query', 'address'], router)]);
+  // useEffect(() => {
+  //   handleSetState(initialState);
+  //   if (chainConfig.extra.profile) {
+  //     fetchDesmosProfile(R.pathOr('', ['query', 'address'], router));
+  //   }
+  // },
+  // [R.pathOr('', ['query', 'address'], router)]);
 
   // ==========================
   // Fetch Data
@@ -110,8 +111,14 @@ export const useAccountDetails = () => {
       address: R.pathOr('', ['query', 'address'], router),
       utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
     },
+    onError: (error) => {
+      console.log(error.message, 'msg');
+    },
     onCompleted: (data) => {
-      handleSetState(formatAccountQuery(data));
+      console.log(data, 'data here');
+      const newState = formatAccountQuery(data);
+      console.log(newState, 'newState');
+      handleSetState(newState);
     },
   });
 
@@ -193,6 +200,7 @@ export const useAccountDetails = () => {
   };
 
   const formatAccountQuery = (data: AccountQuery) => {
+    console.log('im in format');
     const stateChange: any = {
       loading: false,
     };

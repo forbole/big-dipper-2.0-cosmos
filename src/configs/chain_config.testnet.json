@@ -1,28 +1,28 @@
 {
-  "title": "Desmos Block Explorer",
+  "title": "Evmos Block Explorer",
   "network": "morpheus-apollo-2",
   "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
   "logo": {
     "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "evmosvalcons",
+    "validator": "evmosvaloper",
+    "account": "evmos"
   },
   "genesis": {
     "time": "2021-07-13T08:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udaric",
-  "votingPowerTokenUnit": "udaric",
+  "primaryTokenUnit": "aphoton",
+  "votingPowerTokenUnit": "aphoton",
   "tokenUnits": {
-    "udaric": {
-      "display": "daric",
-      "exponent": 6
+    "aphoton": {
+      "display": "photon",
+      "exponent": 18
     }
   },
   "extra": {
-    "profile": true
+    "profile": false
   }
 }
