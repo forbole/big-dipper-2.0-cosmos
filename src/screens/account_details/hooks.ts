@@ -209,12 +209,7 @@ export const useAccountDetails = () => {
       const denomFormat = formatToken(denomAmount.amount, chainConfig.primaryTokenUnit);
       rewardsDict[x.validatorAddress] = denomFormat;
     });
-    // ryuash
-    // data.account[0].delegationRewards.forEach((x) => {
-    //   const denomAmount = getDenom(x.amount, chainConfig.primaryTokenUnit);
-    //   const denomFormat = formatToken(denomAmount.amount, chainConfig.primaryTokenUnit);
-    //   rewardsDict[x.validator.validatorInfo.operatorAddress] = denomFormat;
-    // });
+
     // set default rewards for delegations without parsed rewards
     data.account[0].delegations.forEach((x) => {
       const validatorAddress = x.validator.validatorInfo.operatorAddress;
