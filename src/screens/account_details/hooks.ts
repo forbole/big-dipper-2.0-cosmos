@@ -98,7 +98,7 @@ export const useAccountDetails = () => {
       fetchDesmosProfile(R.pathOr('', ['query', 'address'], router));
     }
   },
-  [R.pathOr('', ['query', 'address'], router)]);
+  [router.query.address]);
 
   // ==========================
   // Fetch Data
@@ -107,10 +107,14 @@ export const useAccountDetails = () => {
 
   useAccountQuery({
     variables: {
-      address: R.pathOr('', ['query', 'address'], router),
+      address: router.query.address as string,
       utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
     },
+    onError: (error) => {
+      console.log(error, 'error');
+    },
     onCompleted: (data) => {
+      console.log(data, 'data on complete');
       handleSetState(formatAccountQuery(data));
     },
   });
@@ -204,7 +208,7 @@ export const useAccountDetails = () => {
 
     const rewardsDict = {};
     // log all the rewards
-    data.delegationRewards.forEach((x) => {
+    data.delegationRewards.rewards.forEach((x) => {
       const denomAmount = getDenom(x.coins, chainConfig.primaryTokenUnit);
       const denomFormat = formatToken(denomAmount.amount, chainConfig.primaryTokenUnit);
       rewardsDict[x.validatorAddress] = denomFormat;
@@ -224,7 +228,7 @@ export const useAccountDetails = () => {
     const formatOverview = () => {
       const overview = {
         address: data.account[0].address,
-        withdrawalAddress: R.pathOr(data.account[0].address, ['account', 0, 'delegationRewards', 0, 'withdrawAddress'], data),
+        withdrawalAddress: data.delegationRewards.withdrawAddress,
       };
       return overview;
     };

@@ -14,6 +14,8 @@ export type Scalars = {
   Float: number;
   Coin: any;
   DecCoin: any;
+  DelegationReward: any;
+  Entry: any;
   _coin: any;
   _dec_coin: any;
   _text: any;
@@ -25,6 +27,11 @@ export type Scalars = {
   timestamp: any;
 };
 
+
+export type Balance = {
+  __typename?: 'Balance';
+  coins?: Maybe<Array<Maybe<Scalars['Coin']>>>;
+};
 
 /** Boolean expression to compare columns of type "Boolean". All fields are combined with logical 'AND'. */
 export type Boolean_Comparison_Exp = {
@@ -40,22 +47,21 @@ export type Boolean_Comparison_Exp = {
 };
 
 
-export type Coins = {
-  __typename?: 'Coins';
-  coins?: Maybe<Array<Maybe<Scalars['Coin']>>>;
+
+export type Delegation = {
+  __typename?: 'Delegation';
+  coin: Scalars['Coin'];
+  delegator_address: Scalars['String'];
+  validator_address: Scalars['String'];
 };
 
-
-export type DecCoins = {
-  __typename?: 'DecCoins';
-  dec_coins?: Maybe<Array<Maybe<Scalars['DecCoin']>>>;
-};
 
 export type DelegatorRewards = {
   __typename?: 'DelegatorRewards';
-  dec_coins: Array<Scalars['DecCoin']>;
-  validator_address: Scalars['String'];
+  rewards?: Maybe<Array<Maybe<Scalars['DelegationReward']>>>;
+  withdraw_address?: Maybe<Scalars['String']>;
 };
+
 
 /** Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'. */
 export type Int_Comparison_Exp = {
@@ -68,6 +74,14 @@ export type Int_Comparison_Exp = {
   _lte?: Maybe<Scalars['Int']>;
   _neq?: Maybe<Scalars['Int']>;
   _nin?: Maybe<Array<Scalars['Int']>>;
+};
+
+export type Redelegation = {
+  __typename?: 'Redelegation';
+  delegator_address: Scalars['String'];
+  entries?: Maybe<Array<Maybe<Scalars['Entry']>>>;
+  validator_dst_address: Scalars['String'];
+  validator_src_address: Scalars['String'];
 };
 
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
@@ -101,6 +115,19 @@ export type String_Comparison_Exp = {
   _regex?: Maybe<Scalars['String']>;
   /** does the column match the given SQL regular expression */
   _similar?: Maybe<Scalars['String']>;
+};
+
+export type UnbondingDelegation = {
+  __typename?: 'UnbondingDelegation';
+  delegator_address: Scalars['String'];
+  entries?: Maybe<Array<Maybe<Scalars['Entry']>>>;
+  validator_address: Scalars['String'];
+};
+
+export type ValidatorCommission = {
+  __typename?: 'ValidatorCommission';
+  dec_coin?: Maybe<Scalars['DecCoin']>;
+  validator_address: Scalars['String'];
 };
 
 
@@ -5734,10 +5761,12 @@ export type Query_Root = {
   account_balance_history_aggregate: Account_Balance_History_Aggregate;
   /** fetch data from the table: "account" using primary key columns */
   account_by_pk?: Maybe<Account>;
-  action_account_balance?: Maybe<Coins>;
-  action_delegator_rewards: Array<DelegatorRewards>;
-  action_total_supply?: Maybe<Coins>;
-  action_validator_commission?: Maybe<DecCoins>;
+  action_account_balance?: Maybe<Balance>;
+  action_delegation?: Maybe<Array<Maybe<Delegation>>>;
+  action_delegation_reward?: Maybe<DelegatorRewards>;
+  action_redelegation?: Maybe<Array<Maybe<Redelegation>>>;
+  action_unbonding_delegation?: Maybe<Array<Maybe<UnbondingDelegation>>>;
+  action_validator_commission?: Maybe<Array<Maybe<ValidatorCommission>>>;
   /** fetch data from the table: "average_block_time_from_genesis" */
   average_block_time_from_genesis: Array<Average_Block_Time_From_Genesis>;
   /** fetch aggregated fields from the table: "average_block_time_from_genesis" */
@@ -6043,7 +6072,22 @@ export type Query_RootAction_Account_BalanceArgs = {
 };
 
 
-export type Query_RootAction_Delegator_RewardsArgs = {
+export type Query_RootAction_DelegationArgs = {
+  address: Scalars['String'];
+};
+
+
+export type Query_RootAction_Delegation_RewardArgs = {
+  address: Scalars['String'];
+};
+
+
+export type Query_RootAction_RedelegationArgs = {
+  address: Scalars['String'];
+};
+
+
+export type Query_RootAction_Unbonding_DelegationArgs = {
   address: Scalars['String'];
 };
 
@@ -11576,7 +11620,6 @@ export type Validator_Info = {
   /** An object relationship */
   account?: Maybe<Account>;
   consensus_address: Scalars['String'];
-  height: Scalars['bigint'];
   max_change_rate: Scalars['String'];
   max_rate: Scalars['String'];
   operator_address: Scalars['String'];
@@ -11595,17 +11638,9 @@ export type Validator_Info_Aggregate = {
 /** aggregate fields of "validator_info" */
 export type Validator_Info_Aggregate_Fields = {
   __typename?: 'validator_info_aggregate_fields';
-  avg?: Maybe<Validator_Info_Avg_Fields>;
   count: Scalars['Int'];
   max?: Maybe<Validator_Info_Max_Fields>;
   min?: Maybe<Validator_Info_Min_Fields>;
-  stddev?: Maybe<Validator_Info_Stddev_Fields>;
-  stddev_pop?: Maybe<Validator_Info_Stddev_Pop_Fields>;
-  stddev_samp?: Maybe<Validator_Info_Stddev_Samp_Fields>;
-  sum?: Maybe<Validator_Info_Sum_Fields>;
-  var_pop?: Maybe<Validator_Info_Var_Pop_Fields>;
-  var_samp?: Maybe<Validator_Info_Var_Samp_Fields>;
-  variance?: Maybe<Validator_Info_Variance_Fields>;
 };
 
 
@@ -11617,28 +11652,9 @@ export type Validator_Info_Aggregate_FieldsCountArgs = {
 
 /** order by aggregate values of table "validator_info" */
 export type Validator_Info_Aggregate_Order_By = {
-  avg?: Maybe<Validator_Info_Avg_Order_By>;
   count?: Maybe<Order_By>;
   max?: Maybe<Validator_Info_Max_Order_By>;
   min?: Maybe<Validator_Info_Min_Order_By>;
-  stddev?: Maybe<Validator_Info_Stddev_Order_By>;
-  stddev_pop?: Maybe<Validator_Info_Stddev_Pop_Order_By>;
-  stddev_samp?: Maybe<Validator_Info_Stddev_Samp_Order_By>;
-  sum?: Maybe<Validator_Info_Sum_Order_By>;
-  var_pop?: Maybe<Validator_Info_Var_Pop_Order_By>;
-  var_samp?: Maybe<Validator_Info_Var_Samp_Order_By>;
-  variance?: Maybe<Validator_Info_Variance_Order_By>;
-};
-
-/** aggregate avg on columns */
-export type Validator_Info_Avg_Fields = {
-  __typename?: 'validator_info_avg_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** order by avg() on columns of table "validator_info" */
-export type Validator_Info_Avg_Order_By = {
-  height?: Maybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "validator_info". All fields are combined with a logical 'AND'. */
@@ -11648,7 +11664,6 @@ export type Validator_Info_Bool_Exp = {
   _or?: Maybe<Array<Validator_Info_Bool_Exp>>;
   account?: Maybe<Account_Bool_Exp>;
   consensus_address?: Maybe<String_Comparison_Exp>;
-  height?: Maybe<Bigint_Comparison_Exp>;
   max_change_rate?: Maybe<String_Comparison_Exp>;
   max_rate?: Maybe<String_Comparison_Exp>;
   operator_address?: Maybe<String_Comparison_Exp>;
@@ -11660,7 +11675,6 @@ export type Validator_Info_Bool_Exp = {
 export type Validator_Info_Max_Fields = {
   __typename?: 'validator_info_max_fields';
   consensus_address?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['bigint']>;
   max_change_rate?: Maybe<Scalars['String']>;
   max_rate?: Maybe<Scalars['String']>;
   operator_address?: Maybe<Scalars['String']>;
@@ -11670,7 +11684,6 @@ export type Validator_Info_Max_Fields = {
 /** order by max() on columns of table "validator_info" */
 export type Validator_Info_Max_Order_By = {
   consensus_address?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
   max_change_rate?: Maybe<Order_By>;
   max_rate?: Maybe<Order_By>;
   operator_address?: Maybe<Order_By>;
@@ -11681,7 +11694,6 @@ export type Validator_Info_Max_Order_By = {
 export type Validator_Info_Min_Fields = {
   __typename?: 'validator_info_min_fields';
   consensus_address?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['bigint']>;
   max_change_rate?: Maybe<Scalars['String']>;
   max_rate?: Maybe<Scalars['String']>;
   operator_address?: Maybe<Scalars['String']>;
@@ -11691,7 +11703,6 @@ export type Validator_Info_Min_Fields = {
 /** order by min() on columns of table "validator_info" */
 export type Validator_Info_Min_Order_By = {
   consensus_address?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
   max_change_rate?: Maybe<Order_By>;
   max_rate?: Maybe<Order_By>;
   operator_address?: Maybe<Order_By>;
@@ -11702,7 +11713,6 @@ export type Validator_Info_Min_Order_By = {
 export type Validator_Info_Order_By = {
   account?: Maybe<Account_Order_By>;
   consensus_address?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
   max_change_rate?: Maybe<Order_By>;
   max_rate?: Maybe<Order_By>;
   operator_address?: Maybe<Order_By>;
@@ -11715,8 +11725,6 @@ export enum Validator_Info_Select_Column {
   /** column name */
   ConsensusAddress = 'consensus_address',
   /** column name */
-  Height = 'height',
-  /** column name */
   MaxChangeRate = 'max_change_rate',
   /** column name */
   MaxRate = 'max_rate',
@@ -11725,83 +11733,6 @@ export enum Validator_Info_Select_Column {
   /** column name */
   SelfDelegateAddress = 'self_delegate_address'
 }
-
-/** aggregate stddev on columns */
-export type Validator_Info_Stddev_Fields = {
-  __typename?: 'validator_info_stddev_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev() on columns of table "validator_info" */
-export type Validator_Info_Stddev_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
-/** aggregate stddev_pop on columns */
-export type Validator_Info_Stddev_Pop_Fields = {
-  __typename?: 'validator_info_stddev_pop_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "validator_info" */
-export type Validator_Info_Stddev_Pop_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
-/** aggregate stddev_samp on columns */
-export type Validator_Info_Stddev_Samp_Fields = {
-  __typename?: 'validator_info_stddev_samp_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_samp() on columns of table "validator_info" */
-export type Validator_Info_Stddev_Samp_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
-/** aggregate sum on columns */
-export type Validator_Info_Sum_Fields = {
-  __typename?: 'validator_info_sum_fields';
-  height?: Maybe<Scalars['bigint']>;
-};
-
-/** order by sum() on columns of table "validator_info" */
-export type Validator_Info_Sum_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
-/** aggregate var_pop on columns */
-export type Validator_Info_Var_Pop_Fields = {
-  __typename?: 'validator_info_var_pop_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** order by var_pop() on columns of table "validator_info" */
-export type Validator_Info_Var_Pop_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
-/** aggregate var_samp on columns */
-export type Validator_Info_Var_Samp_Fields = {
-  __typename?: 'validator_info_var_samp_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** order by var_samp() on columns of table "validator_info" */
-export type Validator_Info_Var_Samp_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
-/** aggregate variance on columns */
-export type Validator_Info_Variance_Fields = {
-  __typename?: 'validator_info_variance_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** order by variance() on columns of table "validator_info" */
-export type Validator_Info_Variance_Order_By = {
-  height?: Maybe<Order_By>;
-};
 
 /** aggregate max on columns */
 export type Validator_Max_Fields = {
@@ -12998,11 +12929,12 @@ export type AccountQuery = { stakingParams: Array<(
     { __typename?: 'staking_params' }
     & Pick<Staking_Params, 'params'>
   )>, accountBalances?: Maybe<(
-    { __typename?: 'Coins' }
-    & Pick<Coins, 'coins'>
-  )>, delegationRewards: Array<(
+    { __typename?: 'Balance' }
+    & Pick<Balance, 'coins'>
+  )>, delegationRewards?: Maybe<(
     { __typename?: 'DelegatorRewards' }
-    & { validatorAddress: DelegatorRewards['validator_address'], coins: DelegatorRewards['dec_coins'] }
+    & Pick<DelegatorRewards, 'rewards'>
+    & { withdrawAddress: DelegatorRewards['withdraw_address'] }
   )>, account: Array<(
     { __typename?: 'account' }
     & Pick<Account, 'address'>
@@ -13583,9 +13515,9 @@ export const AccountDocument = gql`
   accountBalances: action_account_balance(address: $address) {
     coins
   }
-  delegationRewards: action_delegator_rewards(address: $address) {
-    validatorAddress: validator_address
-    coins: dec_coins
+  delegationRewards: action_delegation_reward(address: $address) {
+    withdrawAddress: withdraw_address
+    rewards
   }
   account(where: {address: {_eq: $address}}) {
     address

@@ -5,9 +5,9 @@ query Account($address: String!, $utc: timestamp) {
   accountBalances: action_account_balance(address: $address) {
     coins
   }
-  delegationRewards: action_delegator_rewards(address: $address) {
-    validatorAddress: validator_address
-    coins: dec_coins
+  delegationRewards: action_delegation_reward(address: $address) {
+    withdrawAddress: withdraw_address
+    rewards
   }
   account(where: {address: {_eq: $address}}) {
     address
@@ -20,7 +20,7 @@ query Account($address: String!, $utc: timestamp) {
         validatorCommissions: validator_commissions(limit: 1, order_by: {height: desc}) {
           commission
         }
-        validatorStatuses: validator_statuses (limit: 1, order_by: {height: desc}) {
+        validatorStatuses: validator_statuses(limit: 1, order_by: {height: desc}) {
           status
           jailed
         }
