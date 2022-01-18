@@ -67,7 +67,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
             "baseDenom": "udaric",
             "displayDenom": "daric",
             "exponent": 6,
-            "value": "4359.108323",
+            "value": "0",
           }
         }
         total={
@@ -75,7 +75,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
             "baseDenom": "udaric",
             "displayDenom": "daric",
             "exponent": 6,
-            "value": "1636785.05277920746403193665",
+            "value": "1632425.94445620746403193665",
           }
         }
         unbonding={
@@ -115,7 +115,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
                   "baseDenom": "udaric",
                   "displayDenom": "daric",
                   "exponent": 6,
-                  "value": "4359.108323",
+                  "value": "0",
                 },
                 "validator": "desmosvaloper1u0dae8r8hay6r2gvccegg2fz6ryftf2wfnj5ft",
                 "validatorSigningInfo": Object {
