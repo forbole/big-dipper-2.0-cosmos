@@ -71,6 +71,8 @@ const initialState: AccountDetailState = {
   },
 };
 
+const UTC_NOW = dayjs.utc().format('YYYY-MM-DDTHH:mm:ss');
+
 export const useAccountDetails = () => {
   const router = useRouter();
   const [state, setState] = useState<AccountDetailState>(initialState);
@@ -108,7 +110,7 @@ export const useAccountDetails = () => {
   useAccountQuery({
     variables: {
       address: R.pathOr('', ['query', 'address'], router),
-      utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
+      utc: UTC_NOW,
     },
     onCompleted: (data) => {
       handleSetState(formatAccountQuery(data));

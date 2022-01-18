@@ -80,6 +80,8 @@ const initialState: ValidatorDetailsState = {
   },
 };
 
+const UTC_NOW = dayjs.utc().format('YYYY-MM-DDTHH:mm:ss');
+
 export const useValidatorDetails = () => {
   const router = useRouter();
   const [state, setState] = useState<ValidatorDetailsState>(initialState);
@@ -118,7 +120,7 @@ export const useValidatorDetails = () => {
   useValidatorDetailsQuery({
     variables: {
       address: R.pathOr('', ['query', 'address'], router),
-      utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
+      utc: UTC_NOW,
     },
     onCompleted: (data) => {
       handleSetState(formatAccountQuery(data));
