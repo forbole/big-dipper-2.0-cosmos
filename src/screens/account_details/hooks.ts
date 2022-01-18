@@ -72,7 +72,6 @@ const initialState: AccountDetailState = {
 };
 
 export const useAccountDetails = () => {
-  console.log('IM IN HEREEE LINE 75');
   const router = useRouter();
   const [state, setState] = useState<AccountDetailState>(initialState);
 
@@ -93,13 +92,13 @@ export const useAccountDetails = () => {
     },
   });
 
-  // useEffect(() => {
-  //   handleSetState(initialState);
-  //   if (chainConfig.extra.profile) {
-  //     fetchDesmosProfile(R.pathOr('', ['query', 'address'], router));
-  //   }
-  // },
-  // [R.pathOr('', ['query', 'address'], router)]);
+  useEffect(() => {
+    handleSetState(initialState);
+    if (chainConfig.extra.profile) {
+      fetchDesmosProfile(R.pathOr('', ['query', 'address'], router));
+    }
+  },
+  [R.pathOr('', ['query', 'address'], router)]);
 
   // ==========================
   // Fetch Data
@@ -112,13 +111,11 @@ export const useAccountDetails = () => {
       utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
     },
     onError: (error) => {
-      console.log(error.message, 'msg');
+      console.log(error, 'error');
     },
     onCompleted: (data) => {
-      console.log(data, 'data here');
-      const newState = formatAccountQuery(data);
-      console.log(newState, 'newState');
-      handleSetState(newState);
+      console.log(data, 'data on return');
+      handleSetState(formatAccountQuery(data));
     },
   });
 
@@ -200,7 +197,6 @@ export const useAccountDetails = () => {
   };
 
   const formatAccountQuery = (data: AccountQuery) => {
-    console.log('im in format');
     const stateChange: any = {
       loading: false,
     };
@@ -212,11 +208,11 @@ export const useAccountDetails = () => {
 
     const rewardsDict = {};
     // log all the rewards
-    data.delegationRewards.forEach((x) => {
-      const denomAmount = getDenom(x.coins, chainConfig.primaryTokenUnit);
-      const denomFormat = formatToken(denomAmount.amount, chainConfig.primaryTokenUnit);
-      rewardsDict[x.validatorAddress] = denomFormat;
-    });
+    // data.delegationRewards.forEach((x) => {
+    //   const denomAmount = getDenom(x.coins, chainConfig.primaryTokenUnit);
+    //   const denomFormat = formatToken(denomAmount.amount, chainConfig.primaryTokenUnit);
+    //   rewardsDict[x.validatorAddress] = denomFormat;
+    // });
 
     // set default rewards for delegations without parsed rewards
     data.account[0].delegations.forEach((x) => {

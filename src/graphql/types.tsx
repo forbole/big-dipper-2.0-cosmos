@@ -47,11 +47,6 @@ export type Coins = {
 };
 
 
-export type DecCoins = {
-  __typename?: 'DecCoins';
-  dec_coins?: Maybe<Array<Maybe<Scalars['DecCoin']>>>;
-};
-
 export type DelegatorRewards = {
   __typename?: 'DelegatorRewards';
   dec_coins?: Maybe<Array<Scalars['DecCoin']>>;
@@ -102,6 +97,12 @@ export type String_Comparison_Exp = {
   _regex?: Maybe<Scalars['String']>;
   /** does the column match the given SQL regular expression */
   _similar?: Maybe<Scalars['String']>;
+};
+
+export type ValidatorCommission = {
+  __typename?: 'ValidatorCommission';
+  dec_coins?: Maybe<Array<Scalars['DecCoin']>>;
+  validator_address: Scalars['String'];
 };
 
 
@@ -5728,7 +5729,7 @@ export type Query_Root = {
   action_account_balance?: Maybe<Coins>;
   action_delegator_rewards: Array<DelegatorRewards>;
   action_total_supply?: Maybe<Coins>;
-  action_validator_commission?: Maybe<DecCoins>;
+  action_validator_commission: Array<ValidatorCommission>;
   action_validators_statuses?: Maybe<ValidatorsStatuses>;
   /** fetch data from the table: "average_block_time_from_genesis" */
   average_block_time_from_genesis: Array<Average_Block_Time_From_Genesis>;
