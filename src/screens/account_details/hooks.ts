@@ -17,6 +17,7 @@ import {
   StakingParams,
 } from '@models';
 import { getDenom } from '@utils/get_denom';
+import { toValidatorAddress } from '@utils/prefix_convert';
 import {
   formatToken,
 } from '@utils/format_token';
@@ -100,7 +101,7 @@ export const useAccountDetails = () => {
       fetchDesmosProfile(R.pathOr('', ['query', 'address'], router));
     }
   },
-  [R.pathOr('', ['query', 'address'], router)]);
+  [router.query.address]);
 
   // ==========================
   // Fetch Data
@@ -110,13 +111,10 @@ export const useAccountDetails = () => {
   useAccountQuery({
     variables: {
       address: R.pathOr('', ['query', 'address'], router),
+      validatorAddress: toValidatorAddress(router.query.address as string),
       utc: UTC_NOW,
     },
-    onError: (error) => {
-      console.log(error, 'error');
-    },
     onCompleted: (data) => {
-      console.log(data, 'data on return');
       handleSetState(formatAccountQuery(data));
     },
   });
@@ -210,11 +208,11 @@ export const useAccountDetails = () => {
 
     const rewardsDict = {};
     // log all the rewards
-    // data.delegationRewards.forEach((x) => {
-    //   const denomAmount = getDenom(x.coins, chainConfig.primaryTokenUnit);
-    //   const denomFormat = formatToken(denomAmount.amount, chainConfig.primaryTokenUnit);
-    //   rewardsDict[x.validatorAddress] = denomFormat;
-    // });
+    R.pathOr([], ['delegationRewards'], data).forEach((x) => {
+      const denomAmount = getDenom(x.coins, chainConfig.primaryTokenUnit);
+      const denomFormat = formatToken(denomAmount.amount, chainConfig.primaryTokenUnit);
+      rewardsDict[x.validatorAddress] = denomFormat;
+    });
 
     // set default rewards for delegations without parsed rewards
     data.account[0].delegations.forEach((x) => {
@@ -230,7 +228,11 @@ export const useAccountDetails = () => {
     const formatOverview = () => {
       const overview = {
         address: data.account[0].address,
-        withdrawalAddress: R.pathOr(data.account[0].address, ['account', 0, 'delegationRewards', 0, 'withdrawAddress'], data),
+        withdrawalAddress: R.pathOr(
+          data.account[0].address,
+          ['withdrawalAddress', 'address'],
+          data,
+        ),
       };
       return overview;
     };
@@ -276,7 +278,7 @@ export const useAccountDetails = () => {
       };
 
       const commission = getDenom(
-        R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data),
+        R.pathOr([], ['commission', 'coins'], data),
         chainConfig.primaryTokenUnit,
       );
       const commissionAmount = formatToken(commission.amount, chainConfig.primaryTokenUnit);
@@ -315,7 +317,7 @@ export const useAccountDetails = () => {
       const otherTokenUnits = new Set();
       const otherTokens = [];
       // available tokens
-      const available = R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data);
+      const available = R.pathOr([], ['accountBalances', 'coins'], data);
 
       available.forEach((x) => {
         otherTokenUnits.add(x.denom);
@@ -331,7 +333,7 @@ export const useAccountDetails = () => {
       });
 
       // commission tokens
-      const commission = R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data);
+      const commission = R.pathOr([], ['commission', 'coins'], data);
 
       commission.forEach((x) => {
         otherTokenUnits.add(x.denom);

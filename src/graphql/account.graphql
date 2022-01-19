@@ -1,13 +1,19 @@
-query Account($address: String!, $utc: timestamp) {
+query Account($address: String!, $validatorAddress: String!, $utc: timestamp) {
   stakingParams: staking_params(limit: 1) {
     params
+  }
+  commission: action_validator_commission_amount(address: $validatorAddress) {
+    coins
+  }
+  withdrawalAddress: action_delegator_withdraw_address(address: $address) {
+    address
   }
   accountBalances: action_account_balance(address: $address) {
     coins
   }
-  delegationRewards: action_delegator_rewards(address: $address) {
+  delegationRewards: action_delegation_reward(address: $address) {
     validatorAddress: validator_address
-    coins: dec_coins
+    coins
   }
   account(where: {address: {_eq: $address}}) {
     address
@@ -20,7 +26,7 @@ query Account($address: String!, $utc: timestamp) {
         validatorCommissions: validator_commissions(limit: 1, order_by: {height: desc}) {
           commission
         }
-        validatorStatuses: validator_statuses (limit: 1, order_by: {height: desc}) {
+        validatorStatuses: validator_statuses(limit: 1, order_by: {height: desc}) {
           status
           jailed
         }
@@ -46,11 +52,6 @@ query Account($address: String!, $utc: timestamp) {
       completionTime: completion_time
       from: src_validator_address
       to: dst_validator_address
-    }
-  }
-  validator: validator(limit: 1, where: {validator_info: {self_delegate_address: {_eq: $address}}}) {
-    commission: validator_commission_amounts(limit: 1, order_by: {height: desc}) {
-      amount
     }
   }
 }

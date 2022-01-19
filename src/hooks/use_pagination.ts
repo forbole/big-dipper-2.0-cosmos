@@ -23,7 +23,7 @@ export const usePagination = (options?:Options) => {
   ) => {
     setPage(newPage);
     if (pageChangeCallback) {
-      pageChangeCallback(page, rowsPerPage);
+      pageChangeCallback(newPage, rowsPerPage);
     }
   };
 

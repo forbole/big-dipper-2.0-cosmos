@@ -12,9 +12,8 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  Coin: any;
-  DecCoin: any;
-  ValidatorStatus: any;
+  ActionCoin: any;
+  ActionEntry: any;
   _coin: any;
   _dec_coin: any;
   _text: any;
@@ -27,6 +26,51 @@ export type Scalars = {
 };
 
 
+export type ActionAddress = {
+  __typename?: 'ActionAddress';
+  address: Scalars['String'];
+};
+
+export type ActionBalance = {
+  __typename?: 'ActionBalance';
+  coins?: Maybe<Array<Maybe<Scalars['ActionCoin']>>>;
+};
+
+
+export type ActionDelegation = {
+  __typename?: 'ActionDelegation';
+  coins: Scalars['ActionCoin'];
+  delegator_address: Scalars['String'];
+  validator_address: Scalars['String'];
+};
+
+export type ActionDelegationReward = {
+  __typename?: 'ActionDelegationReward';
+  coins?: Maybe<Array<Maybe<Scalars['ActionCoin']>>>;
+  validator_address: Scalars['String'];
+};
+
+
+export type ActionRedelegation = {
+  __typename?: 'ActionRedelegation';
+  delegator_address: Scalars['String'];
+  entries?: Maybe<Array<Maybe<Scalars['ActionEntry']>>>;
+  validator_dst_address: Scalars['String'];
+  validator_src_address: Scalars['String'];
+};
+
+export type ActionUnbondingDelegation = {
+  __typename?: 'ActionUnbondingDelegation';
+  delegator_address: Scalars['String'];
+  entries?: Maybe<Array<Maybe<Scalars['ActionEntry']>>>;
+  validator_address: Scalars['String'];
+};
+
+export type ActionValidatorCommissionAmount = {
+  __typename?: 'ActionValidatorCommissionAmount';
+  coins?: Maybe<Array<Maybe<Scalars['ActionCoin']>>>;
+};
+
 /** Boolean expression to compare columns of type "Boolean". All fields are combined with logical 'AND'. */
 export type Boolean_Comparison_Exp = {
   _eq?: Maybe<Scalars['Boolean']>;
@@ -38,19 +82,6 @@ export type Boolean_Comparison_Exp = {
   _lte?: Maybe<Scalars['Boolean']>;
   _neq?: Maybe<Scalars['Boolean']>;
   _nin?: Maybe<Array<Scalars['Boolean']>>;
-};
-
-
-export type Coins = {
-  __typename?: 'Coins';
-  coins?: Maybe<Array<Maybe<Scalars['Coin']>>>;
-};
-
-
-export type DelegatorRewards = {
-  __typename?: 'DelegatorRewards';
-  dec_coins?: Maybe<Array<Scalars['DecCoin']>>;
-  validator_address: Scalars['String'];
 };
 
 /** Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'. */
@@ -625,6 +656,7 @@ export type Account_Balance_History_Order_By = {
   redelegating?: Maybe<Order_By>;
   reward?: Maybe<Order_By>;
   timestamp?: Maybe<Order_By>;
+  token_prices_history_aggregate?: Maybe<Token_Price_History_Aggregate_Order_By>;
   unbonding?: Maybe<Order_By>;
 };
 
@@ -681,6 +713,7 @@ export type Account_Balance_Order_By = {
   block?: Maybe<Block_Order_By>;
   coins?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
+  tokens_prices_aggregate?: Maybe<Token_Price_Aggregate_Order_By>;
 };
 
 /** select columns of table "account_balance" */
@@ -1960,6 +1993,7 @@ export type Delegation_Order_By = {
   delegator_address?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
+  is_self_delegate?: Maybe<Order_By>;
   validator?: Maybe<Validator_Order_By>;
   validator_address?: Maybe<Order_By>;
 };
@@ -5726,11 +5760,13 @@ export type Query_Root = {
   account_balance_history_aggregate: Account_Balance_History_Aggregate;
   /** fetch data from the table: "account" using primary key columns */
   account_by_pk?: Maybe<Account>;
-  action_account_balance?: Maybe<Coins>;
-  action_delegator_rewards: Array<DelegatorRewards>;
-  action_total_supply?: Maybe<Coins>;
-  action_validator_commission: Array<ValidatorCommission>;
-  action_validators_statuses?: Maybe<ValidatorsStatuses>;
+  action_account_balance?: Maybe<ActionBalance>;
+  action_delegation?: Maybe<Array<Maybe<ActionDelegation>>>;
+  action_delegation_reward?: Maybe<Array<Maybe<ActionDelegationReward>>>;
+  action_delegator_withdraw_address: ActionAddress;
+  action_redelegation?: Maybe<Array<Maybe<ActionRedelegation>>>;
+  action_unbonding_delegation?: Maybe<Array<Maybe<ActionUnbondingDelegation>>>;
+  action_validator_commission_amount?: Maybe<ActionValidatorCommissionAmount>;
   /** fetch data from the table: "average_block_time_from_genesis" */
   average_block_time_from_genesis: Array<Average_Block_Time_From_Genesis>;
   /** fetch aggregated fields from the table: "average_block_time_from_genesis" */
@@ -6036,12 +6072,32 @@ export type Query_RootAction_Account_BalanceArgs = {
 };
 
 
-export type Query_RootAction_Delegator_RewardsArgs = {
+export type Query_RootAction_DelegationArgs = {
   address: Scalars['String'];
 };
 
 
-export type Query_RootAction_Validator_CommissionArgs = {
+export type Query_RootAction_Delegation_RewardArgs = {
+  address: Scalars['String'];
+};
+
+
+export type Query_RootAction_Delegator_Withdraw_AddressArgs = {
+  address: Scalars['String'];
+};
+
+
+export type Query_RootAction_RedelegationArgs = {
+  address: Scalars['String'];
+};
+
+
+export type Query_RootAction_Unbonding_DelegationArgs = {
+  address: Scalars['String'];
+};
+
+
+export type Query_RootAction_Validator_Commission_AmountArgs = {
   address: Scalars['String'];
 };
 
@@ -11698,6 +11754,7 @@ export type Validator_Order_By = {
   pre_commits_aggregate?: Maybe<Pre_Commit_Aggregate_Order_By>;
   redelegationsByDstValidatorAddress_aggregate?: Maybe<Redelegation_Aggregate_Order_By>;
   redelegationsBySrcValidatorAddress_aggregate?: Maybe<Redelegation_Aggregate_Order_By>;
+  self_delegations_aggregate?: Maybe<Delegation_Aggregate_Order_By>;
   unbonding_delegations_aggregate?: Maybe<Unbonding_Delegation_Aggregate_Order_By>;
   validator_commission_amounts_aggregate?: Maybe<Validator_Commission_Amount_Aggregate_Order_By>;
   validator_commissions_aggregate?: Maybe<Validator_Commission_Aggregate_Order_By>;
@@ -12860,6 +12917,7 @@ export type Vesting_Period_Variance_Order_By = {
 
 export type AccountQueryVariables = Exact<{
   address: Scalars['String'];
+  validatorAddress: Scalars['String'];
   utc?: Maybe<Scalars['timestamp']>;
 }>;
 
@@ -12867,13 +12925,20 @@ export type AccountQueryVariables = Exact<{
 export type AccountQuery = { stakingParams: Array<(
     { __typename?: 'staking_params' }
     & Pick<Staking_Params, 'params'>
-  )>, accountBalances?: Maybe<(
-    { __typename?: 'Coins' }
-    & Pick<Coins, 'coins'>
-  )>, delegationRewards: Array<(
-    { __typename?: 'DelegatorRewards' }
-    & { validatorAddress: DelegatorRewards['validator_address'], coins: DelegatorRewards['dec_coins'] }
-  )>, account: Array<(
+  )>, commission?: Maybe<(
+    { __typename?: 'ActionValidatorCommissionAmount' }
+    & Pick<ActionValidatorCommissionAmount, 'coins'>
+  )>, withdrawalAddress: (
+    { __typename?: 'ActionAddress' }
+    & Pick<ActionAddress, 'address'>
+  ), accountBalances?: Maybe<(
+    { __typename?: 'ActionBalance' }
+    & Pick<ActionBalance, 'coins'>
+  )>, delegationRewards?: Maybe<Array<Maybe<(
+    { __typename?: 'ActionDelegationReward' }
+    & Pick<ActionDelegationReward, 'coins'>
+    & { validatorAddress: ActionDelegationReward['validator_address'] }
+  )>>>, account: Array<(
     { __typename?: 'account' }
     & Pick<Account, 'address'>
     & { delegations: Array<(
@@ -12913,12 +12978,6 @@ export type AccountQuery = { stakingParams: Array<(
       { __typename?: 'redelegation' }
       & Pick<Redelegation, 'amount'>
       & { completionTime: Redelegation['completion_time'], from: Redelegation['src_validator_address'], to: Redelegation['dst_validator_address'] }
-    )> }
-  )>, validator: Array<(
-    { __typename?: 'validator' }
-    & { commission: Array<(
-      { __typename?: 'validator_commission_amount' }
-      & Pick<Validator_Commission_Amount, 'amount'>
     )> }
   )> };
 
@@ -13446,16 +13505,22 @@ export type ValidatorAddressesQuery = { validator: Array<(
 
 
 export const AccountDocument = gql`
-    query Account($address: String!, $utc: timestamp) {
+    query Account($address: String!, $validatorAddress: String!, $utc: timestamp) {
   stakingParams: staking_params(limit: 1) {
     params
+  }
+  commission: action_validator_commission_amount(address: $validatorAddress) {
+    coins
+  }
+  withdrawalAddress: action_delegator_withdraw_address(address: $address) {
+    address
   }
   accountBalances: action_account_balance(address: $address) {
     coins
   }
-  delegationRewards: action_delegator_rewards(address: $address) {
+  delegationRewards: action_delegation_reward(address: $address) {
     validatorAddress: validator_address
-    coins: dec_coins
+    coins
   }
   account(where: {address: {_eq: $address}}) {
     address
@@ -13499,14 +13564,6 @@ export const AccountDocument = gql`
       to: dst_validator_address
     }
   }
-  validator: validator(
-    limit: 1
-    where: {validator_info: {self_delegate_address: {_eq: $address}}}
-  ) {
-    commission: validator_commission_amounts(limit: 1, order_by: {height: desc}) {
-      amount
-    }
-  }
 }
     `;
 
@@ -13523,6 +13580,7 @@ export const AccountDocument = gql`
  * const { data, loading, error } = useAccountQuery({
  *   variables: {
  *      address: // value for 'address'
+ *      validatorAddress: // value for 'validatorAddress'
  *      utc: // value for 'utc'
  *   },
  * });
