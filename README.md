@@ -6,6 +6,10 @@ Big Dipper is an open-source block explorer and token management tool serving ov
 ## Documentation
 Read our official documentation at [http://docs.bigdipper.live/](http://docs.bigdipper.live/)
 
+## Local env via docker ( all three components - BDJuno, Hasura, Big Dipper 2 UI)
+1. Run a local instance of cudos-node on localhost
+2. Setup BDJuno - 
+
 ## Issue Reporting
 For UI related issues please report it here [https://github.com/forbole/big-dipper-2.0-cosmos/issues](https://github.com/forbole/big-dipper-2.0-cosmos/issues).
 
