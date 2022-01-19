@@ -1,0 +1,9 @@
+version: '3.6'
+services:
+  big-dipper-2:
+    build:
+      context: https://github.com/CudoVentures/big-dipper-2.0-cosmos.git#chains/base-cudos
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3000:3000"
