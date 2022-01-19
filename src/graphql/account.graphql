@@ -2,12 +2,15 @@ query Account($address: String!, $utc: timestamp) {
   stakingParams: staking_params(limit: 1) {
     params
   }
+  withdrawalAddress: action_delegator_withdraw_address(address: $address) {
+    address
+  }
   accountBalances: action_account_balance(address: $address) {
     coins
   }
   delegationRewards: action_delegation_reward(address: $address) {
-    withdrawAddress: withdraw_address
-    rewards
+    validatorAddress: validator_address
+    coins
   }
   account(where: {address: {_eq: $address}}) {
     address

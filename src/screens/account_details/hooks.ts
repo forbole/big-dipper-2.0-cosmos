@@ -206,7 +206,7 @@ export const useAccountDetails = () => {
 
     const rewardsDict = {};
     // log all the rewards
-    data.delegationRewards.rewards.forEach((x) => {
+    R.pathOr([], ['delegationRewards'], data).forEach((x) => {
       const denomAmount = getDenom(x.coins, chainConfig.primaryTokenUnit);
       const denomFormat = formatToken(denomAmount.amount, chainConfig.primaryTokenUnit);
       rewardsDict[x.validatorAddress] = denomFormat;
@@ -226,7 +226,11 @@ export const useAccountDetails = () => {
     const formatOverview = () => {
       const overview = {
         address: data.account[0].address,
-        withdrawalAddress: data.delegationRewards.withdrawAddress,
+        withdrawalAddress: R.pathOr(
+          data.account[0].address,
+          ['withdrawalAddress', 'address'],
+          data,
+        ),
       };
       return overview;
     };
@@ -311,7 +315,7 @@ export const useAccountDetails = () => {
       const otherTokenUnits = new Set();
       const otherTokens = [];
       // available tokens
-      const available = R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data);
+      const available = R.pathOr([], ['accountBalances', 'coins'], data);
 
       available.forEach((x) => {
         otherTokenUnits.add(x.denom);
