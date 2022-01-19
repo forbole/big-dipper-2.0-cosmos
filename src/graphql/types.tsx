@@ -130,18 +130,6 @@ export type String_Comparison_Exp = {
   _similar?: Maybe<Scalars['String']>;
 };
 
-export type ValidatorCommission = {
-  __typename?: 'ValidatorCommission';
-  dec_coins?: Maybe<Array<Scalars['DecCoin']>>;
-  validator_address: Scalars['String'];
-};
-
-
-export type ValidatorsStatuses = {
-  __typename?: 'ValidatorsStatuses';
-  validators_statuses?: Maybe<Array<Maybe<Scalars['ValidatorStatus']>>>;
-};
-
 
 /** Boolean expression to compare columns of type "_coin". All fields are combined with logical 'AND'. */
 export type _Coin_Comparison_Exp = {
@@ -656,7 +644,6 @@ export type Account_Balance_History_Order_By = {
   redelegating?: Maybe<Order_By>;
   reward?: Maybe<Order_By>;
   timestamp?: Maybe<Order_By>;
-  token_prices_history_aggregate?: Maybe<Token_Price_History_Aggregate_Order_By>;
   unbonding?: Maybe<Order_By>;
 };
 
@@ -713,7 +700,6 @@ export type Account_Balance_Order_By = {
   block?: Maybe<Block_Order_By>;
   coins?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
-  tokens_prices_aggregate?: Maybe<Token_Price_Aggregate_Order_By>;
 };
 
 /** select columns of table "account_balance" */
@@ -1993,7 +1979,6 @@ export type Delegation_Order_By = {
   delegator_address?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
-  is_self_delegate?: Maybe<Order_By>;
   validator?: Maybe<Validator_Order_By>;
   validator_address?: Maybe<Order_By>;
 };
@@ -6099,12 +6084,6 @@ export type Query_RootAction_Unbonding_DelegationArgs = {
 
 export type Query_RootAction_Validator_Commission_AmountArgs = {
   address: Scalars['String'];
-};
-
-
-export type Query_RootAction_Validators_StatusesArgs = {
-  height?: Maybe<Scalars['Int']>;
-  status?: Maybe<Scalars['Int']>;
 };
 
 
@@ -11754,7 +11733,6 @@ export type Validator_Order_By = {
   pre_commits_aggregate?: Maybe<Pre_Commit_Aggregate_Order_By>;
   redelegationsByDstValidatorAddress_aggregate?: Maybe<Redelegation_Aggregate_Order_By>;
   redelegationsBySrcValidatorAddress_aggregate?: Maybe<Redelegation_Aggregate_Order_By>;
-  self_delegations_aggregate?: Maybe<Delegation_Aggregate_Order_By>;
   unbonding_delegations_aggregate?: Maybe<Unbonding_Delegation_Aggregate_Order_By>;
   validator_commission_amounts_aggregate?: Maybe<Validator_Commission_Amount_Aggregate_Order_By>;
   validator_commissions_aggregate?: Maybe<Validator_Commission_Aggregate_Order_By>;
