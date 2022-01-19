@@ -1,6 +1,9 @@
-query Account($address: String!, $utc: timestamp) {
+query Account($address: String!, $validatorAddress: String!, $utc: timestamp) {
   stakingParams: staking_params(limit: 1) {
     params
+  }
+  commission: action_validator_commission_amount(address: $validatorAddress) {
+    coins
   }
   withdrawalAddress: action_delegator_withdraw_address(address: $address) {
     address
@@ -49,11 +52,6 @@ query Account($address: String!, $utc: timestamp) {
       completionTime: completion_time
       from: src_validator_address
       to: dst_validator_address
-    }
-  }
-  validator: validator(limit: 1, where: {validator_info: {self_delegate_address: {_eq: $address}}}) {
-    commission: validator_commission_amounts(limit: 1, order_by: {height: desc}) {
-      amount
     }
   }
 }

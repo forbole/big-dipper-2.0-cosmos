@@ -17,6 +17,7 @@ import {
   StakingParams,
 } from '@models';
 import { getDenom } from '@utils/get_denom';
+import { toValidatorAddress } from '@utils/prefix_convert';
 import {
   formatToken,
 } from '@utils/format_token';
@@ -110,6 +111,7 @@ export const useAccountDetails = () => {
   useAccountQuery({
     variables: {
       address: R.pathOr('', ['query', 'address'], router),
+      validatorAddress: toValidatorAddress(router.query.address as string),
       utc: UTC_NOW,
     },
     onCompleted: (data) => {
@@ -276,7 +278,7 @@ export const useAccountDetails = () => {
       };
 
       const commission = getDenom(
-        R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data),
+        R.pathOr([], ['commission', 'coins'], data),
         chainConfig.primaryTokenUnit,
       );
       const commissionAmount = formatToken(commission.amount, chainConfig.primaryTokenUnit);
@@ -331,7 +333,7 @@ export const useAccountDetails = () => {
       });
 
       // commission tokens
-      const commission = R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data);
+      const commission = R.pathOr([], ['commission', 'coins'], data);
 
       commission.forEach((x) => {
         otherTokenUnits.add(x.denom);
