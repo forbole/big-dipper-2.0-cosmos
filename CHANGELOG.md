@@ -8,6 +8,7 @@
 - Fix home page validator image url not displaying correctly ([\#632](https://github.com/forbole/big-dipper-2.0-cosmos/issues/632))
 - Fix validator anc account details possible infinite load due to dayjs in hook
 - Add description sanitization to proposals list ([\#666](https://github.com/forbole/big-dipper-2.0-cosmos/issues/666))
+- Fix pagination hook page callback ([\#667](https://github.com/forbole/big-dipper-2.0-cosmos/issues/667))
 
 ## Migration
 
