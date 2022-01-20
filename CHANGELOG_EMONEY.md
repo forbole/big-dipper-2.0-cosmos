@@ -1,7 +1,8 @@
-# Unreleased
+# emoney-v1.4.1 - 2021-01-20
 
 ## Changes
 - Merge `base`
+- Fix matomo docker build
 
 # emoney-v1.4.0 - 2021-01-10
 
