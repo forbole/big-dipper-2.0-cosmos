@@ -3,6 +3,5 @@ export type TransactionsState = {
   exists: boolean;
   hasNextPage: boolean;
   isNextPageLoading: boolean;
-  rawDataTotal: number;
   items: Transactions[];
 }

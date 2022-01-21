@@ -30,9 +30,4 @@ query Blocks($limit: Int = 7, $offset: Int = 0) {
       }
     }
   }
-  total: block_aggregate {
-    aggregate {
-      count
-    }
-  }
 }

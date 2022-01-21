@@ -71,6 +71,8 @@ const initialState: AccountDetailState = {
   },
 };
 
+const UTC_NOW = dayjs.utc().format('YYYY-MM-DDTHH:mm:ss');
+
 export const useAccountDetails = () => {
   const router = useRouter();
   const [state, setState] = useState<AccountDetailState>(initialState);
@@ -108,7 +110,7 @@ export const useAccountDetails = () => {
   useAccountQuery({
     variables: {
       address: R.pathOr('', ['query', 'address'], router),
-      utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
+      utc: UTC_NOW,
     },
     onCompleted: (data) => {
       handleSetState(formatAccountQuery(data));
@@ -378,6 +380,9 @@ export const useAccountDetails = () => {
           validatorStatus: {
             status: R.pathOr(3, ['validator', 'validatorStatuses', 0, 'status'], x),
             jailed: R.pathOr(false, ['validator', 'validatorStatuses', 0, 'jailed'], x),
+          },
+          validatorSigningInfo: {
+            tombstoned: R.pathOr(false, ['validator', 'validatorSigningInfos', 0, 'tombstoned'], x),
           },
           reward: rewardsDict[validatorAddress],
           amount: formatToken(x.amount.amount, x.amount.denom),
