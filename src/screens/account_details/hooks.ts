@@ -252,8 +252,8 @@ export const useAccountDetails = () => {
       const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
       const stakingDenom = stakingParams.bondDenom;
 
-      const delegate = R.pathOr([], ['account', 0, 'delegations'], data).reduce((a, b) => {
-        return Big(a).plus(b.amount.amount).toPrecision();
+      const delegate = R.pathOr([], ['delegations', 'delegations'], data).reduce((a, b) => {
+        return Big(a).plus(b.coins.amount).toPrecision();
       }, 0);
       const delegateDenom = stakingDenom;
       const delegateAmount = formatToken(delegate, delegateDenom);
@@ -328,7 +328,7 @@ export const useAccountDetails = () => {
       const rewards = R.pathOr([], ['delegationRewards'], data);
 
       rewards.forEach((x) => {
-        x.coins.forEach((y) => {
+        x.coins?.forEach((y) => {
           otherTokenUnits.add(y.denom);
         });
       });
@@ -386,7 +386,7 @@ export const useAccountDetails = () => {
         return ({
           validator: validatorAddress,
           reward: rewardsDict[validatorAddress],
-          amount: formatToken(x.amount.amount, x.amount.denom),
+          amount: formatToken(x.coins.amount, x.coins.denom),
         });
       }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
 
