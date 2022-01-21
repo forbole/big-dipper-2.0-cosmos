@@ -77,7 +77,7 @@ export const useDataBlocks = () => {
 
   const formatTokenPrice = (data: TokenPriceListenerSubscription) => {
     if (data?.tokenPrice[0]?.price) {
-      return numeral(numeral(data?.tokenPrice[0]?.price).format('0.[00]', Math.floor)).value();
+      return numeral(data?.tokenPrice[0]?.price).value();
     }
     return state.price;
   };
