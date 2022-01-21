@@ -21,14 +21,6 @@ export type OtherTokenType = {
 
 export type DelegationType = {
   validator: string;
-  validatorStatus: {
-    status: number;
-    jailed: boolean;
-  }
-  validatorSigningInfo: {
-    tombstoned: boolean;
-  }
-  commission: number;
   amount: TokenUnit;
   reward: TokenUnit;
 }

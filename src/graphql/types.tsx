@@ -13,7 +13,9 @@ export type Scalars = {
   Int: number;
   Float: number;
   ActionCoin: any;
+  ActionDelegation: any;
   ActionEntry: any;
+  ActionPagination: any;
   _coin: any;
   _dec_coin: any;
   _text: any;
@@ -37,11 +39,11 @@ export type ActionBalance = {
 };
 
 
-export type ActionDelegation = {
-  __typename?: 'ActionDelegation';
-  coins: Scalars['ActionCoin'];
-  delegator_address: Scalars['String'];
-  validator_address: Scalars['String'];
+
+export type ActionDelegationResponse = {
+  __typename?: 'ActionDelegationResponse';
+  delegations?: Maybe<Array<Maybe<Scalars['ActionDelegation']>>>;
+  pagination?: Maybe<Scalars['ActionPagination']>;
 };
 
 export type ActionDelegationReward = {
@@ -49,6 +51,7 @@ export type ActionDelegationReward = {
   coins?: Maybe<Array<Maybe<Scalars['ActionCoin']>>>;
   validator_address: Scalars['String'];
 };
+
 
 
 export type ActionRedelegation = {
@@ -5765,7 +5768,7 @@ export type Query_Root = {
   /** fetch data from the table: "account" using primary key columns */
   account_by_pk?: Maybe<Account>;
   action_account_balance?: Maybe<ActionBalance>;
-  action_delegation?: Maybe<Array<Maybe<ActionDelegation>>>;
+  action_delegation?: Maybe<ActionDelegationResponse>;
   action_delegation_reward?: Maybe<Array<Maybe<ActionDelegationReward>>>;
   action_delegator_withdraw_address: ActionAddress;
   action_redelegation?: Maybe<Array<Maybe<ActionRedelegation>>>;
@@ -6078,6 +6081,9 @@ export type Query_RootAction_Account_BalanceArgs = {
 
 export type Query_RootAction_DelegationArgs = {
   address: Scalars['String'];
+  count_total?: Maybe<Scalars['Boolean']>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
 };
 
 
@@ -12952,29 +12958,13 @@ export type AccountQuery = { stakingParams: Array<(
     { __typename?: 'ActionDelegationReward' }
     & Pick<ActionDelegationReward, 'coins'>
     & { validatorAddress: ActionDelegationReward['validator_address'] }
-  )>>>, account: Array<(
+  )>>>, delegations?: Maybe<(
+    { __typename?: 'ActionDelegationResponse' }
+    & Pick<ActionDelegationResponse, 'delegations'>
+  )>, account: Array<(
     { __typename?: 'account' }
     & Pick<Account, 'address'>
-    & { delegations: Array<(
-      { __typename?: 'delegation' }
-      & Pick<Delegation, 'amount'>
-      & { validator: (
-        { __typename?: 'validator' }
-        & { validatorInfo?: Maybe<(
-          { __typename?: 'validator_info' }
-          & { operatorAddress: Validator_Info['operator_address'] }
-        )>, validatorCommissions: Array<(
-          { __typename?: 'validator_commission' }
-          & Pick<Validator_Commission, 'commission'>
-        )>, validatorStatuses: Array<(
-          { __typename?: 'validator_status' }
-          & Pick<Validator_Status, 'status' | 'jailed'>
-        )>, validatorSigningInfos: Array<(
-          { __typename?: 'validator_signing_info' }
-          & Pick<Validator_Signing_Info, 'tombstoned'>
-        )> }
-      ) }
-    )>, unbonding: Array<(
+    & { unbonding: Array<(
       { __typename?: 'unbonding_delegation' }
       & Pick<Unbonding_Delegation, 'amount'>
       & { completionTimestamp: Unbonding_Delegation['completion_timestamp'] }
@@ -13536,29 +13526,11 @@ export const AccountDocument = gql`
     validatorAddress: validator_address
     coins
   }
+  delegations: action_delegation(address: $address) {
+    delegations
+  }
   account(where: {address: {_eq: $address}}) {
     address
-    delegations {
-      amount
-      validator {
-        validatorInfo: validator_info {
-          operatorAddress: operator_address
-        }
-        validatorCommissions: validator_commissions(limit: 1, order_by: {height: desc}) {
-          commission
-        }
-        validatorStatuses: validator_statuses(limit: 1, order_by: {height: desc}) {
-          status
-          jailed
-        }
-        validatorSigningInfos: validator_signing_infos(
-          order_by: {height: desc}
-          limit: 1
-        ) {
-          tombstoned
-        }
-      }
-    }
     unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}}) {
       amount
       completionTimestamp: completion_timestamp

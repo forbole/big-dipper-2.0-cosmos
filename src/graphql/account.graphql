@@ -15,26 +15,11 @@ query Account($address: String!, $validatorAddress: String!, $utc: timestamp) {
     validatorAddress: validator_address
     coins
   }
+  delegations: action_delegation(address: $address){
+    delegations
+  }
   account(where: {address: {_eq: $address}}) {
     address
-    delegations {
-      amount
-      validator {
-        validatorInfo: validator_info {
-          operatorAddress: operator_address
-        }
-        validatorCommissions: validator_commissions(limit: 1, order_by: {height: desc}) {
-          commission
-        }
-        validatorStatuses: validator_statuses(limit: 1, order_by: {height: desc}) {
-          status
-          jailed
-        }
-        validatorSigningInfos: validator_signing_infos(order_by: {height: desc}, limit: 1) {
-          tombstoned
-        }
-      }
-    }
     unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}}) {
       amount
       completionTimestamp: completion_timestamp

@@ -209,14 +209,15 @@ export const useAccountDetails = () => {
     const rewardsDict = {};
     // log all the rewards
     R.pathOr([], ['delegationRewards'], data).forEach((x) => {
-      const denomAmount = getDenom(x.coins, chainConfig.primaryTokenUnit);
+      const coins = R.pathOr([], ['coins'], x);
+      const denomAmount = getDenom(coins, chainConfig.primaryTokenUnit);
       const denomFormat = formatToken(denomAmount.amount, chainConfig.primaryTokenUnit);
       rewardsDict[x.validatorAddress] = denomFormat;
     });
 
     // set default rewards for delegations without parsed rewards
-    data.account[0].delegations.forEach((x) => {
-      const validatorAddress = x.validator.validatorInfo.operatorAddress;
+    R.pathOr([], ['delegations', 'delegations'], data).forEach((x) => {
+      const validatorAddress = R.pathOr('', ['validator_address'], x);
       if (!rewardsDict[validatorAddress]) {
         rewardsDict[validatorAddress] = formatToken(0, chainConfig.primaryTokenUnit);
       }
@@ -263,8 +264,8 @@ export const useAccountDetails = () => {
       const unbondingDenom = stakingDenom;
       const unbondingAmount = formatToken(unbonding, unbondingDenom);
 
-      const reward = data.account[0].delegations.map((x) => {
-        const validatorAddress = x.validator.validatorInfo.operatorAddress;
+      const reward = R.pathOr([], ['delegations', 'delegations'], data).map((x) => {
+        const validatorAddress = R.pathOr('', ['validator_address'], x);
         return rewardsDict[validatorAddress];
       }).reduce((a, b) => {
         return Big(a).plus(b.value).toPrecision();
@@ -377,22 +378,15 @@ export const useAccountDetails = () => {
     // delegations
     // ============================
     const formatDelegations = () => {
-      const delegations = data.account[0].delegations.filter((x) => {
-        return numeral(x.amount.amount).value() !== 0;
+      // ryuash
+      const delegations = data.delegations.delegations.filter((x) => {
+        return numeral(x.coins.amount).value() !== 0;
       }).map((x) => {
-        const validatorAddress = x.validator.validatorInfo.operatorAddress;
+        const validatorAddress = R.pathOr('', ['validator_address'], x);
         return ({
           validator: validatorAddress,
-          validatorStatus: {
-            status: R.pathOr(3, ['validator', 'validatorStatuses', 0, 'status'], x),
-            jailed: R.pathOr(false, ['validator', 'validatorStatuses', 0, 'jailed'], x),
-          },
-          validatorSigningInfo: {
-            tombstoned: R.pathOr(false, ['validator', 'validatorSigningInfos', 0, 'tombstoned'], x),
-          },
           reward: rewardsDict[validatorAddress],
           amount: formatToken(x.amount.amount, x.amount.denom),
-          commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
         });
       }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
 
