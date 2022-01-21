@@ -41,7 +41,7 @@ const ValidatorOverview: React.FC<StatusType &{
   const { handleCopyToClipboard } = useAddress(t);
 
   const dateFormat = useRecoilValue(readDate);
-  const statusTheme = getValidatorStatus(data.status, data.jailed);
+  const statusTheme = getValidatorStatus(data.status, data.jailed, data.tombstoned);
   const condition = getCondition(data.condition, data.status);
 
   const statusItems = [

@@ -48,6 +48,7 @@ const mockValidatorsDocument = jest.fn().mockResolvedValue({
         validatorSigningInfos: [
           {
             missedBlocksCounter: 1,
+            tombstoned: false,
           },
         ],
         validatorInfo: {

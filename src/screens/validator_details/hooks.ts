@@ -21,7 +21,6 @@ import { validatorToDelegatorAddress } from '@recoil/profiles';
 import { getValidatorCondition } from '@utils/get_validator_condition';
 import { chainConfig } from '@src/configs';
 import {
-  StakingParams,
   SlashingParams,
 } from '@models';
 import { ValidatorDetailsState } from './types';
@@ -47,6 +46,7 @@ const initialState: ValidatorDetailsState = {
   status: {
     status: 0,
     jailed: false,
+    tombstoned: false,
     condition: 0,
     commission: 0,
     missedBlockCounter: 0,
@@ -79,6 +79,8 @@ const initialState: ValidatorDetailsState = {
     offsetCount: 0,
   },
 };
+
+const UTC_NOW = dayjs.utc().format('YYYY-MM-DDTHH:mm:ss');
 
 export const useValidatorDetails = () => {
   const router = useRouter();
@@ -118,7 +120,7 @@ export const useValidatorDetails = () => {
   useValidatorDetailsQuery({
     variables: {
       address: R.pathOr('', ['query', 'address'], router),
-      utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
+      utc: UTC_NOW,
     },
     onCompleted: (data) => {
       handleSetState(formatAccountQuery(data));
@@ -264,6 +266,7 @@ export const useValidatorDetails = () => {
       const profile = {
         status: R.pathOr(3, ['validatorStatuses', 0, 'status'], data.validator[0]),
         jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], data.validator[0]),
+        tombstoned: R.pathOr(false, ['validatorSigningInfos', 0, 'tombstoned'], data.validator[0]),
         commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], data.validator[0]),
         condition,
         missedBlockCounter,
@@ -293,14 +296,13 @@ export const useValidatorDetails = () => {
       );
       const selfDelegatePercent = (numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value() / totalDelegations) * 100;
 
-      const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
       const votingPower = {
         self,
         selfDelegate: selfDelegateAmount,
         selfDelegatePercent,
         overall: formatToken(
           R.pathOr(0, ['stakingPool', 0, 'bonded'], data),
-          stakingParams.bondDenom,
+          chainConfig.votingPowerTokenUnit,
         ),
         height: R.pathOr(0, ['validatorVotingPowers', 0, 'height'], data.validator[0]),
       };
