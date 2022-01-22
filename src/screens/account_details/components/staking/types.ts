@@ -12,9 +12,9 @@ export type DelegationType = {
   reward: TokenUnit;
 }
 
-export type DelegationTypes = StakingType<DelegationType>;
+export type DelegationsType = StakingType<DelegationType>;
 
 export type StakingState = {
   tab: number;
-  delegations: DelegationTypes;
+  delegations: DelegationsType;
 }

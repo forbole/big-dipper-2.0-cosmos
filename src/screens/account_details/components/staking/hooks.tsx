@@ -9,10 +9,7 @@ import {
   formatToken,
 } from '@utils/format_token';
 import { StakingState } from './types';
-import {
-  RewardsType,
-  // RedelegationType, UnbondingType, DelegationType,
-} from '../../types';
+import { RewardsType } from '../../types';
 
 const stakingDefault = {
   data: [],
@@ -47,10 +44,14 @@ export const useStaking = (rewards: RewardsType) => {
     },
     onCompleted: (data) => {
       const formattedData = formatDelegations(data);
-      console.log(formattedData, 'results');
       handleSetState({
-        loading: false,
-        count: R.pathOr(0, ['delegations', 'pagination', 'total'], data),
+        delegations: {
+          loading: false,
+          count: R.pathOr(0, ['delegations', 'pagination', 'total'], data),
+          data: {
+            0: formattedData,
+          },
+        },
       });
 
       // const itemsLength = data.messagesByAddress.length;
@@ -84,11 +85,6 @@ export const useStaking = (rewards: RewardsType) => {
 
   const handleDelegationPageCallback = async (page: number, _rowsPerPage: number) => {
     console.log(page, 'page');
-    // handleSetState({
-    //   page,
-    //   loading: true,
-    // });
-    // await getBlocksByPage(page);
   };
 
   return {

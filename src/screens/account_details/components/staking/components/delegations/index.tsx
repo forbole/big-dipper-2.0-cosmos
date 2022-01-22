@@ -1,4 +1,5 @@
 import React from 'react';
+import * as R from 'ramda';
 import classnames from 'classnames';
 import dynamic from 'next/dynamic';
 import {
@@ -12,20 +13,15 @@ import {
   useProfilesRecoil,
 } from '@recoil/profiles';
 import { useStyles } from './styles';
-import { DelegationType } from '../../../../types';
+import { DelegationsType } from '../../types';
 
 const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
 
 const Delegations: React.FC<{
-  className?: string;
-  data: DelegationType[];
-  count: number;
-}> = ({
-  className,
-  data,
-  count,
-}) => {
+  delegations: DelegationsType,
+  handleDelegationPageCallback: (page: number, _rowsPerPage: number) => void;
+} & ComponentDefault> = (props) => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const {
@@ -33,11 +29,15 @@ const Delegations: React.FC<{
     rowsPerPage,
     handleChangePage,
     handleChangeRowsPerPage,
-    sliceItems,
-  } = usePagination({});
+  } = usePagination({
+    pageChangeCallback: props.handleDelegationPageCallback,
+  });
 
-  const dataProfiles = useProfilesRecoil(data.map((x) => x.validator));
-  const mergedDataWithProfiles = sliceItems(data).map((x, i) => {
+  const pageItems = R.pathOr([], ['delegations', 'data', page], props);
+
+  const dataProfiles = useProfilesRecoil(pageItems.map((x) => x.validator));
+
+  const mergedDataWithProfiles = pageItems.map((x, i) => {
     return ({
       ...x,
       validator: dataProfiles[i],
@@ -47,7 +47,7 @@ const Delegations: React.FC<{
   const items = mergedDataWithProfiles;
 
   return (
-    <div className={classnames(className)}>
+    <div className={classnames(props.className)}>
       {items.length ? (
         <>
           {isDesktop ? (
@@ -61,12 +61,12 @@ const Delegations: React.FC<{
       )}
       <Pagination
         className={classes.paginate}
-        total={count}
+        total={props.delegations.count}
         rowsPerPage={rowsPerPage}
         page={page}
         handleChangePage={handleChangePage}
         handleChangeRowsPerPage={handleChangeRowsPerPage}
-        rowsPerPageOptions={[10, 25, 50, 100]}
+        rowsPerPageOptions={[]}
       />
     </div>
   );
