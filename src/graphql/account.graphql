@@ -28,52 +28,16 @@ query AccountDelegations($address: String!, $offset: Int = 0, $limit: Int = 10) 
   }
 }
 
+query AccountRedelegations($address: String!, $offset: Int = 0, $limit: Int = 10) {
+  redelegations: action_redelegation(address: $address, limit: $limit, offset: $offset, count_total: true){
+    redelegations
+    pagination
+  }
+}
 
-# query Account($address: String!, $validatorAddress: String!, $utc: timestamp) {
-#   stakingParams: staking_params(limit: 1) {
-#     params
-#   }
-#   commission: action_validator_commission_amount(address: $validatorAddress) {
-#     coins
-#   }
-#   withdrawalAddress: action_delegator_withdraw_address(address: $address) {
-#     address
-#   }
-#   accountBalances: action_account_balance(address: $address) {
-#     coins
-#   }
-#   delegationBalance: action_delegation_total(address: $address) {
-#     coins
-#   }
-#   unbondingBalance: action_unbonding_delegation_total(address: $address) {
-#     coins
-#   }
-#   delegationRewards: action_delegation_reward(address: $address) {
-#     validatorAddress: validator_address
-#     coins
-#   }
-#   # delegations: action_delegation(address: $address){
-#   #   delegations
-#   # }
-#   # account(where: {address: {_eq: $address}}) {
-#     # address
-#     # unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}}) {
-#     #   amount
-#     #   completionTimestamp: completion_timestamp
-#     #   validator {
-#     #     validatorCommissions: validator_commissions(limit: 1, order_by: {height: desc}) {
-#     #       commission
-#     #     }
-#     #     validatorInfo: validator_info {
-#     #       operatorAddress: operator_address
-#     #     }
-#     #   }
-#     # }
-#     # redelegations(where: {completion_time: {_gt: $utc}}) {
-#     #   amount
-#     #   completionTime: completion_time
-#     #   from: src_validator_address
-#     #   to: dst_validator_address
-#     # }
-#   # }
-# }
+query AccountUndelegations($address: String!, $offset: Int = 0, $limit: Int = 10) {
+  undelegations: action_unbonding_delegation(address: $address, limit: $limit, offset: $offset, count_total: true){
+    undelegations: unbonding_delegations
+    pagination
+  }
+}

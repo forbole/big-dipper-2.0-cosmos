@@ -3,8 +3,6 @@ import {
 } from 'react';
 import * as R from 'ramda';
 import Big from 'big.js';
-import numeral from 'numeral';
-import dayjs from '@utils/dayjs';
 import { useRouter } from 'next/router';
 import {
   AccountQuery,
@@ -48,10 +46,6 @@ const initialState: AccountDetailState = {
     reward: defaultTokenUnit,
     commission: defaultTokenUnit,
     total: defaultTokenUnit,
-  },
-  delegations: {
-    data: [],
-    count: 0,
   },
   redelegations: {
     data: [],
@@ -372,30 +366,6 @@ export const useAccountDetails = () => {
     formatOtherTokens();
 
     stateChange.otherTokens = formatOtherTokens();
-
-    // ============================
-    // delegations
-    // ============================
-    // const formatDelegations = () => {
-    //   // ryuash
-    //   const delegations = data.delegations.delegations.filter((x) => {
-    //     return numeral(x.coins.amount).value() !== 0;
-    //   }).map((x) => {
-    //     const validatorAddress = R.pathOr('', ['validator_address'], x);
-    //     return ({
-    //       validator: validatorAddress,
-    //       reward: rewardsDict[validatorAddress],
-    //       amount: formatToken(x.coins.amount, x.coins.denom),
-    //     });
-    //   }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
-
-    //   return {
-    //     data: delegations,
-    //     count: delegations.length,
-    //   };
-    // };
-
-    // stateChange.delegations = formatDelegations();
 
     // ============================
     // redelegations

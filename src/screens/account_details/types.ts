@@ -19,12 +19,6 @@ export type OtherTokenType = {
   commission: TokenUnit;
 }
 
-export type DelegationType = {
-  validator: string;
-  amount: TokenUnit;
-  reward: TokenUnit;
-}
-
 export type RedelegationType = {
   to: string;
   from: string;
@@ -53,10 +47,6 @@ export type AccountDetailState = {
     data: OtherTokenType[];
     count: number;
   };
-  delegations: {
-    data: DelegationType[];
-    count: number;
-  }
   redelegations: {
     data: RedelegationType[];
     count: number;
