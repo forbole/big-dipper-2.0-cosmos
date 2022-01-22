@@ -11,11 +11,14 @@ query Account($address: String!, $validatorAddress: String!, $utc: timestamp) {
   accountBalances: action_account_balance(address: $address) {
     coins
   }
-  delegationRewards: action_delegation_reward(address: $address) {
-    validatorAddress: validator_address
+  delegationBalance: action_delegation_total(address: $address) {
     coins
   }
-  delegationBalance: action_delegation_total(address: $address) {
+  unbondingBalance: action_unbonding_delegation_total(address: $address) {
+    coins
+  }
+  delegationRewards: action_delegation_reward(address: $address) {
+    validatorAddress: validator_address
     coins
   }
   # delegations: action_delegation(address: $address){

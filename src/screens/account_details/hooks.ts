@@ -263,20 +263,20 @@ export const useAccountDetails = () => {
         chainConfig.primaryTokenUnit,
       );
       const availableAmount = formatToken(available.amount, chainConfig.primaryTokenUnit);
-      const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
-      const stakingDenom = stakingParams.bondDenom;
+      // const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
+      // const stakingDenom = stakingParams.bondDenom;
 
-      const delegate = R.pathOr([], ['delegations', 'delegations'], data).reduce((a, b) => {
-        return Big(a).plus(b.coins.amount).toPrecision();
-      }, 0);
-      const delegateDenom = stakingDenom;
-      const delegateAmount = formatToken(delegate, delegateDenom);
+      const delegate = getDenom(
+        R.pathOr([], ['delegationBalance', 'coins'], data),
+        chainConfig.primaryTokenUnit,
+      );
+      const delegateAmount = formatToken(delegate.amount, chainConfig.primaryTokenUnit);
 
-      const unbonding = R.pathOr([], ['account', 0, 'unbonding'], data).reduce((a, b) => {
-        return Big(a).plus(b.amount.amount).toPrecision();
-      }, 0);
-      const unbondingDenom = stakingDenom;
-      const unbondingAmount = formatToken(unbonding, unbondingDenom);
+      const unbonding = getDenom(
+        R.pathOr([], ['unbondingBalance', 'coins'], data),
+        chainConfig.primaryTokenUnit,
+      );
+      const unbondingAmount = formatToken(unbonding.amount, chainConfig.primaryTokenUnit);
 
       const reward = R.pathOr([], ['delegations', 'delegations'], data).map((x) => {
         const validatorAddress = R.pathOr('', ['validator_address'], x);

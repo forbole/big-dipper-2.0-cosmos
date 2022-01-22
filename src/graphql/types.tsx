@@ -12973,14 +12973,17 @@ export type AccountQuery = { stakingParams: Array<(
   ), accountBalances?: Maybe<(
     { __typename?: 'ActionBalance' }
     & Pick<ActionBalance, 'coins'>
+  )>, delegationBalance?: Maybe<(
+    { __typename?: 'ActionBalance' }
+    & Pick<ActionBalance, 'coins'>
+  )>, unbondingBalance?: Maybe<(
+    { __typename?: 'ActionBalance' }
+    & Pick<ActionBalance, 'coins'>
   )>, delegationRewards?: Maybe<Array<Maybe<(
     { __typename?: 'ActionDelegationReward' }
     & Pick<ActionDelegationReward, 'coins'>
     & { validatorAddress: ActionDelegationReward['validator_address'] }
-  )>>>, delegationBalance?: Maybe<(
-    { __typename?: 'ActionBalance' }
-    & Pick<ActionBalance, 'coins'>
-  )>, account: Array<(
+  )>>>, account: Array<(
     { __typename?: 'account' }
     & Pick<Account, 'address'>
     & { unbonding: Array<(
@@ -13541,11 +13544,14 @@ export const AccountDocument = gql`
   accountBalances: action_account_balance(address: $address) {
     coins
   }
-  delegationRewards: action_delegation_reward(address: $address) {
-    validatorAddress: validator_address
+  delegationBalance: action_delegation_total(address: $address) {
     coins
   }
-  delegationBalance: action_delegation_total(address: $address) {
+  unbondingBalance: action_unbonding_delegation_total(address: $address) {
+    coins
+  }
+  delegationRewards: action_delegation_reward(address: $address) {
+    validatorAddress: validator_address
     coins
   }
   account(where: {address: {_eq: $address}}) {
