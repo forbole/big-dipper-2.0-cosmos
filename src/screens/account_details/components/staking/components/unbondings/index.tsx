@@ -6,7 +6,7 @@ import {
   usePagination, useScreenSize,
 } from '@hooks';
 import {
-  Pagination, NoData,
+  Pagination, NoData, Loading,
 } from '@components';
 import {
   useProfilesRecoil,

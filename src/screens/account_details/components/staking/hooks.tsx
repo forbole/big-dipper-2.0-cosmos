@@ -25,7 +25,7 @@ const LIMIT = 10;
 export const useStaking = (rewards: RewardsType) => {
   const router = useRouter();
   const [state, setState] = useState<StakingState>({
-    tab: 0,
+    tab: 2,
     delegations: stakingDefault,
     unbondings: stakingDefault,
   });
