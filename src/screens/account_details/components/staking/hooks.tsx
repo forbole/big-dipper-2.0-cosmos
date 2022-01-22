@@ -12,10 +12,12 @@ import { StakingState } from './types';
 import { RewardsType } from '../../types';
 
 const stakingDefault = {
-  data: [],
+  data: {},
   count: 0,
   loading: true,
 };
+
+const LIMIT = 10;
 
 export const useStaking = (rewards: RewardsType) => {
   const router = useRouter();
@@ -41,6 +43,7 @@ export const useStaking = (rewards: RewardsType) => {
   const delegationsQuery = useAccountDelegationsQuery({
     variables: {
       address: R.pathOr('', ['query', 'address'], router),
+      limit: LIMIT,
     },
     onCompleted: (data) => {
       const formattedData = formatDelegations(data);
@@ -53,26 +56,12 @@ export const useStaking = (rewards: RewardsType) => {
           },
         },
       });
-
-      // const itemsLength = data.messagesByAddress.length;
-      // const newItems = R.uniq([...state.transactions.data, ...formatTransactions(data)]);
-      // const stateChange = {
-      //   transactions: {
-      //     data: newItems,
-      //     hasNextPage: itemsLength === 51,
-      //     isNextPageLoading: false,
-      //     offsetCount: state.transactions.offsetCount + LIMIT,
-      //   },
-      // };
-
-      // handleSetState(stateChange);
     },
   });
 
   const formatDelegations = (data: AccountDelegationsQuery) => {
     const delegations = R.pathOr([], ['delegations', 'delegations'], data);
     return delegations
-      .filter((x) => R.pathOr('0', ['coins', 'amount'], x) !== '0')
       .map((x) => {
         const validator = R.pathOr('', ['validator_address'], x);
         return ({
@@ -84,7 +73,29 @@ export const useStaking = (rewards: RewardsType) => {
   };
 
   const handleDelegationPageCallback = async (page: number, _rowsPerPage: number) => {
-    console.log(page, 'page');
+    if (!state.delegations.data[page]) {
+      handleSetState({
+        delegations: {
+          loading: true,
+        },
+      });
+
+      await delegationsQuery.fetchMore({
+        variables: {
+          offset: page * LIMIT,
+          limit: LIMIT,
+        },
+      }).then(({ data }) => {
+        handleSetState({
+          delegations: {
+            loading: false,
+            data: {
+              [page]: formatDelegations(data),
+            },
+          },
+        });
+      });
+    }
   };
 
   return {

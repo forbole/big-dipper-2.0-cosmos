@@ -7,7 +7,9 @@ import {
   useScreenSize,
 } from '@hooks';
 import {
-  Pagination, NoData,
+  Pagination,
+  NoData,
+  Loading,
 } from '@components';
 import {
   useProfilesRecoil,
@@ -46,19 +48,21 @@ const Delegations: React.FC<{
 
   const items = mergedDataWithProfiles;
 
+  let component = null;
+
+  if (props.delegations.loading) {
+    component = <Loading />;
+  } else if (!items.length) {
+    component = <NoData />;
+  } else if (isDesktop) {
+    component = <Desktop items={items} />;
+  } else {
+    component = <Mobile items={items} />;
+  }
+
   return (
     <div className={classnames(props.className)}>
-      {items.length ? (
-        <>
-          {isDesktop ? (
-            <Desktop className={classes.desktop} items={items} />
-          ) : (
-            <Mobile className={classes.mobile} items={items} />
-          )}
-        </>
-      ) : (
-        <NoData />
-      )}
+      {component}
       <Pagination
         className={classes.paginate}
         total={props.delegations.count}
@@ -66,7 +70,7 @@ const Delegations: React.FC<{
         page={page}
         handleChangePage={handleChangePage}
         handleChangeRowsPerPage={handleChangeRowsPerPage}
-        rowsPerPageOptions={[]}
+        // rowsPerPageOptions={[]}
       />
     </div>
   );

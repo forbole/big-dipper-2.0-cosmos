@@ -23,6 +23,7 @@ const Staking: React.FC<{rewards: RewardsType} & ComponentDefault> = (props) => 
     handleTabChange,
     handleDelegationPageCallback,
   } = useStaking(props.rewards);
+
   const tabs = [
     {
       id: 0,
