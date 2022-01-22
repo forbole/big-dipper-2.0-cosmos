@@ -12957,14 +12957,10 @@ export type Vesting_Period_Variance_Order_By = {
 export type AccountQueryVariables = Exact<{
   address: Scalars['String'];
   validatorAddress: Scalars['String'];
-  utc?: Maybe<Scalars['timestamp']>;
 }>;
 
 
-export type AccountQuery = { stakingParams: Array<(
-    { __typename?: 'staking_params' }
-    & Pick<Staking_Params, 'params'>
-  )>, commission?: Maybe<(
+export type AccountQuery = { commission?: Maybe<(
     { __typename?: 'ActionValidatorCommissionAmount' }
     & Pick<ActionValidatorCommissionAmount, 'coins'>
   )>, withdrawalAddress: (
@@ -12983,29 +12979,7 @@ export type AccountQuery = { stakingParams: Array<(
     { __typename?: 'ActionDelegationReward' }
     & Pick<ActionDelegationReward, 'coins'>
     & { validatorAddress: ActionDelegationReward['validator_address'] }
-  )>>>, account: Array<(
-    { __typename?: 'account' }
-    & Pick<Account, 'address'>
-    & { unbonding: Array<(
-      { __typename?: 'unbonding_delegation' }
-      & Pick<Unbonding_Delegation, 'amount'>
-      & { completionTimestamp: Unbonding_Delegation['completion_timestamp'] }
-      & { validator: (
-        { __typename?: 'validator' }
-        & { validatorCommissions: Array<(
-          { __typename?: 'validator_commission' }
-          & Pick<Validator_Commission, 'commission'>
-        )>, validatorInfo?: Maybe<(
-          { __typename?: 'validator_info' }
-          & { operatorAddress: Validator_Info['operator_address'] }
-        )> }
-      ) }
-    )>, redelegations: Array<(
-      { __typename?: 'redelegation' }
-      & Pick<Redelegation, 'amount'>
-      & { completionTime: Redelegation['completion_time'], from: Redelegation['src_validator_address'], to: Redelegation['dst_validator_address'] }
-    )> }
-  )> };
+  )>>> };
 
 export type ActiveValidatorCountQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -13531,10 +13505,7 @@ export type ValidatorAddressesQuery = { validator: Array<(
 
 
 export const AccountDocument = gql`
-    query Account($address: String!, $validatorAddress: String!, $utc: timestamp) {
-  stakingParams: staking_params(limit: 1) {
-    params
-  }
+    query Account($address: String!, $validatorAddress: String!) {
   commission: action_validator_commission_amount(address: $validatorAddress) {
     coins
   }
@@ -13554,27 +13525,6 @@ export const AccountDocument = gql`
     validatorAddress: validator_address
     coins
   }
-  account(where: {address: {_eq: $address}}) {
-    address
-    unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}}) {
-      amount
-      completionTimestamp: completion_timestamp
-      validator {
-        validatorCommissions: validator_commissions(limit: 1, order_by: {height: desc}) {
-          commission
-        }
-        validatorInfo: validator_info {
-          operatorAddress: operator_address
-        }
-      }
-    }
-    redelegations(where: {completion_time: {_gt: $utc}}) {
-      amount
-      completionTime: completion_time
-      from: src_validator_address
-      to: dst_validator_address
-    }
-  }
 }
     `;
 
@@ -13592,7 +13542,6 @@ export const AccountDocument = gql`
  *   variables: {
  *      address: // value for 'address'
  *      validatorAddress: // value for 'validatorAddress'
- *      utc: // value for 'utc'
  *   },
  * });
  */

@@ -13,9 +13,6 @@ import {
   GetMessagesByAddressQuery,
 } from '@graphql/types';
 import { convertMsgsToModels } from '@msg';
-import {
-  StakingParams,
-} from '@models';
 import { getDenom } from '@utils/get_denom';
 import { toValidatorAddress } from '@utils/prefix_convert';
 import {
@@ -73,8 +70,6 @@ const initialState: AccountDetailState = {
   },
 };
 
-const UTC_NOW = dayjs.utc().format('YYYY-MM-DDTHH:mm:ss');
-
 export const useAccountDetails = () => {
   const router = useRouter();
   const [state, setState] = useState<AccountDetailState>(initialState);
@@ -113,7 +108,6 @@ export const useAccountDetails = () => {
     variables: {
       address: R.pathOr('', ['query', 'address'], router),
       validatorAddress: toValidatorAddress(router.query.address as string),
-      utc: UTC_NOW,
     },
     onCompleted: (data) => {
       handleSetState(formatAccountQuery(data));
@@ -206,7 +200,7 @@ export const useAccountDetails = () => {
       loading: false,
     };
 
-    if (!data.account.length) {
+    if (!data.accountBalances.coins.length) {
       stateChange.exists = false;
       return stateChange;
     }
