@@ -39,6 +39,10 @@ export type UnbondingType = {
   linkedUntil: string;
 }
 
+export type RewardsType = {
+  [value:string]: TokenUnit[];
+}
+
 export type AccountDetailState = {
   loading: boolean;
   exists: boolean;
@@ -61,9 +65,7 @@ export type AccountDetailState = {
     data: UnbondingType[];
     count: number;
   }
-  rewards: {
-    [value:string]: TokenUnit[];
-  }
+  rewards: RewardsType;
   transactions: {
     hasNextPage: boolean;
     isNextPageLoading: boolean;

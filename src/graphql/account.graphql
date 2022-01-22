@@ -21,6 +21,13 @@ query Account($address: String!, $validatorAddress: String!) {
   }
 }
 
+query AccountDelegations($address: String!, $offset: Int = 0, $limit: Int = 10) {
+  delegations: action_delegation(address: $address, limit: $limit, offset: $offset, count_total: true){
+    delegations
+    pagination
+  }
+}
+
 
 # query Account($address: String!, $validatorAddress: String!, $utc: timestamp) {
 #   stakingParams: staking_params(limit: 1) {

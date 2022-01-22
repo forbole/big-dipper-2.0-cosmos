@@ -66,12 +66,13 @@ const AccountDetails = () => {
               className={classes.otherTokens}
               otherTokens={state.otherTokens}
             />
-            {/* <Staking
+            <Staking
               className={classes.staking}
-              redelegations={state.redelegations}
-              delegations={state.delegations}
-              unbondings={state.unbondings}
-            /> */}
+              rewards={state.rewards}
+              // redelegations={state.redelegations}
+              // delegations={state.delegations}
+              // unbondings={state.unbondings}
+            />
             {/* <Transactions
               className={classes.transactions}
               loadNextPage={loadNextPage}
