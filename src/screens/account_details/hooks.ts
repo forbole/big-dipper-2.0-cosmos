@@ -263,9 +263,6 @@ export const useAccountDetails = () => {
         chainConfig.primaryTokenUnit,
       );
       const availableAmount = formatToken(available.amount, chainConfig.primaryTokenUnit);
-      // const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
-      // const stakingDenom = stakingParams.bondDenom;
-
       const delegate = getDenom(
         R.pathOr([], ['delegationBalance', 'coins'], data),
         chainConfig.primaryTokenUnit,
@@ -278,19 +275,13 @@ export const useAccountDetails = () => {
       );
       const unbondingAmount = formatToken(unbonding.amount, chainConfig.primaryTokenUnit);
 
-      const reward = R.pathOr([], ['delegations', 'delegations'], data).map((x) => {
-        const validatorAddress = R.pathOr('', ['validator_address'], x);
-        return rewardsDict[validatorAddress];
-      }).reduce((a, b) => {
-        return Big(a).plus(b.value).toPrecision();
-      }, 0);
+      const rewards = data.delegationRewards.reduce((a, b) => {
+        const coins = R.pathOr([], ['coins'], b);
+        const dsmCoins = getDenom(coins, chainConfig.primaryTokenUnit);
 
-      const rewardAmount: TokenUnit = {
-        value: reward,
-        displayDenom: chainConfig.tokenUnits[stakingDenom].display,
-        baseDenom: stakingDenom,
-        exponent: chainConfig.tokenUnits[stakingDenom].exponent,
-      };
+        return Big(a).plus(dsmCoins.amount).toPrecision();
+      }, '0');
+      const rewardsAmount = formatToken(rewards, chainConfig.primaryTokenUnit);
 
       const commission = getDenom(
         R.pathOr([], ['commission', 'coins'], data),
@@ -301,7 +292,7 @@ export const useAccountDetails = () => {
       const total = Big(availableAmount.value)
         .plus(delegateAmount.value)
         .plus(unbondingAmount.value)
-        .plus(rewardAmount.value)
+        .plus(rewardsAmount.value)
         .plus(commissionAmount.value)
         .toPrecision();
 
@@ -309,7 +300,7 @@ export const useAccountDetails = () => {
         available: availableAmount,
         delegate: delegateAmount,
         unbonding: unbondingAmount,
-        reward: rewardAmount,
+        reward: rewardsAmount,
         commission: commissionAmount,
         total: {
           value: total,
