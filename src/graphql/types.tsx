@@ -14,8 +14,9 @@ export type Scalars = {
   Float: number;
   ActionCoin: any;
   ActionDelegation: any;
-  ActionEntry: any;
   ActionPagination: any;
+  ActionRedelegation: any;
+  ActionUnbondingDelegation: any;
   _coin: any;
   _dec_coin: any;
   _text: any;
@@ -54,19 +55,17 @@ export type ActionDelegationReward = {
 
 
 
-export type ActionRedelegation = {
-  __typename?: 'ActionRedelegation';
-  delegator_address: Scalars['String'];
-  entries?: Maybe<Array<Maybe<Scalars['ActionEntry']>>>;
-  validator_dst_address: Scalars['String'];
-  validator_src_address: Scalars['String'];
+export type ActionRedelegationResponse = {
+  __typename?: 'ActionRedelegationResponse';
+  pagination?: Maybe<Scalars['ActionPagination']>;
+  redelegations?: Maybe<Array<Maybe<Scalars['ActionRedelegation']>>>;
 };
 
-export type ActionUnbondingDelegation = {
-  __typename?: 'ActionUnbondingDelegation';
-  delegator_address: Scalars['String'];
-  entries?: Maybe<Array<Maybe<Scalars['ActionEntry']>>>;
-  validator_address: Scalars['String'];
+
+export type ActionUnbondingDelegationResponse = {
+  __typename?: 'ActionUnbondingDelegationResponse';
+  pagination?: Maybe<Scalars['ActionPagination']>;
+  unbonding_delegations?: Maybe<Array<Maybe<Scalars['ActionUnbondingDelegation']>>>;
 };
 
 export type ActionValidatorCommissionAmount = {
@@ -5770,9 +5769,11 @@ export type Query_Root = {
   action_account_balance?: Maybe<ActionBalance>;
   action_delegation?: Maybe<ActionDelegationResponse>;
   action_delegation_reward?: Maybe<Array<Maybe<ActionDelegationReward>>>;
+  action_delegation_total?: Maybe<ActionBalance>;
   action_delegator_withdraw_address: ActionAddress;
-  action_redelegation?: Maybe<Array<Maybe<ActionRedelegation>>>;
-  action_unbonding_delegation?: Maybe<Array<Maybe<ActionUnbondingDelegation>>>;
+  action_redelegation?: Maybe<ActionRedelegationResponse>;
+  action_unbonding_delegation?: Maybe<ActionUnbondingDelegationResponse>;
+  action_unbonding_delegation_total?: Maybe<ActionBalance>;
   action_validator_commission_amount?: Maybe<ActionValidatorCommissionAmount>;
   /** fetch data from the table: "average_block_time_from_genesis" */
   average_block_time_from_genesis: Array<Average_Block_Time_From_Genesis>;
@@ -6092,6 +6093,12 @@ export type Query_RootAction_Delegation_RewardArgs = {
 };
 
 
+export type Query_RootAction_Delegation_TotalArgs = {
+  address: Scalars['String'];
+  height?: Maybe<Scalars['Int']>;
+};
+
+
 export type Query_RootAction_Delegator_Withdraw_AddressArgs = {
   address: Scalars['String'];
 };
@@ -6099,11 +6106,23 @@ export type Query_RootAction_Delegator_Withdraw_AddressArgs = {
 
 export type Query_RootAction_RedelegationArgs = {
   address: Scalars['String'];
+  count_total?: Maybe<Scalars['Boolean']>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
 };
 
 
 export type Query_RootAction_Unbonding_DelegationArgs = {
   address: Scalars['String'];
+  count_total?: Maybe<Scalars['Boolean']>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+};
+
+
+export type Query_RootAction_Unbonding_Delegation_TotalArgs = {
+  address: Scalars['String'];
+  height?: Maybe<Scalars['Int']>;
 };
 
 
@@ -12958,9 +12977,9 @@ export type AccountQuery = { stakingParams: Array<(
     { __typename?: 'ActionDelegationReward' }
     & Pick<ActionDelegationReward, 'coins'>
     & { validatorAddress: ActionDelegationReward['validator_address'] }
-  )>>>, delegations?: Maybe<(
-    { __typename?: 'ActionDelegationResponse' }
-    & Pick<ActionDelegationResponse, 'delegations'>
+  )>>>, delegationBalance?: Maybe<(
+    { __typename?: 'ActionBalance' }
+    & Pick<ActionBalance, 'coins'>
   )>, account: Array<(
     { __typename?: 'account' }
     & Pick<Account, 'address'>
@@ -13526,8 +13545,8 @@ export const AccountDocument = gql`
     validatorAddress: validator_address
     coins
   }
-  delegations: action_delegation(address: $address) {
-    delegations
+  delegationBalance: action_delegation_total(address: $address) {
+    coins
   }
   account(where: {address: {_eq: $address}}) {
     address

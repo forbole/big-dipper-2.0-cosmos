@@ -15,9 +15,12 @@ query Account($address: String!, $validatorAddress: String!, $utc: timestamp) {
     validatorAddress: validator_address
     coins
   }
-  delegations: action_delegation(address: $address){
-    delegations
+  delegationBalance: action_delegation_total(address: $address) {
+    coins
   }
+  # delegations: action_delegation(address: $address){
+  #   delegations
+  # }
   account(where: {address: {_eq: $address}}) {
     address
     unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}}) {

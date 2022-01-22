@@ -64,6 +64,7 @@ const initialState: AccountDetailState = {
     data: [],
     count: 0,
   },
+  rewards: {},
   transactions: {
     data: [],
     hasNextPage: false,
@@ -167,7 +168,7 @@ export const useAccountDetails = () => {
   };
 
   // ==========================
-  // Format Data
+  // Format TX
   // ==========================
 
   const formatTransactions = (data: GetMessagesByAddressQuery) => {
@@ -196,6 +197,10 @@ export const useAccountDetails = () => {
     });
   };
 
+  // ==========================
+  // Format Account
+  // ==========================
+
   const formatAccountQuery = (data: AccountQuery) => {
     const stateChange: any = {
       loading: false,
@@ -206,31 +211,40 @@ export const useAccountDetails = () => {
       return stateChange;
     }
 
-    const rewardsDict = {};
-    // log all the rewards
-    R.pathOr([], ['delegationRewards'], data).forEach((x) => {
-      const coins = R.pathOr([], ['coins'], x);
-      const denomAmount = getDenom(coins, chainConfig.primaryTokenUnit);
-      const denomFormat = formatToken(denomAmount.amount, chainConfig.primaryTokenUnit);
-      rewardsDict[x.validatorAddress] = denomFormat;
-    });
+    // ============================
+    // rewards
+    // ============================
+    const formatRewards = () => {
+      const rewardsDict = {};
+      // log all the rewards
+      R.pathOr([], ['delegationRewards'], data).forEach((x) => {
+        const coins = R.pathOr([], ['coins'], x);
+        const denomAmount = getDenom(coins, chainConfig.primaryTokenUnit);
+        const denomFormat = formatToken(denomAmount.amount, chainConfig.primaryTokenUnit);
+        rewardsDict[x.validatorAddress] = denomFormat;
+      });
+      return rewardsDict;
+    };
 
-    // set default rewards for delegations without parsed rewards
-    R.pathOr([], ['delegations', 'delegations'], data).forEach((x) => {
-      const validatorAddress = R.pathOr('', ['validator_address'], x);
-      if (!rewardsDict[validatorAddress]) {
-        rewardsDict[validatorAddress] = formatToken(0, chainConfig.primaryTokenUnit);
-      }
-    });
+    stateChange.rewards = formatRewards();
+
+    // // set default rewards for delegations without parsed rewards
+    // R.pathOr([], ['delegations', 'delegations'], data).forEach((x) => {
+    //   const validatorAddress = R.pathOr('', ['validator_address'], x);
+    //   if (!rewardsDict[validatorAddress]) {
+    //     rewardsDict[validatorAddress] = formatToken(0, chainConfig.primaryTokenUnit);
+    //   }
+    // });
 
     // ============================
     // overview
     // ============================
     const formatOverview = () => {
+      const address = R.pathOr('', ['query', 'address'], router);
       const overview = {
-        address: data.account[0].address,
+        address,
         withdrawalAddress: R.pathOr(
-          data.account[0].address,
+          address,
           ['withdrawalAddress', 'address'],
           data,
         ),
@@ -377,73 +391,74 @@ export const useAccountDetails = () => {
     // ============================
     // delegations
     // ============================
-    const formatDelegations = () => {
-      // ryuash
-      const delegations = data.delegations.delegations.filter((x) => {
-        return numeral(x.coins.amount).value() !== 0;
-      }).map((x) => {
-        const validatorAddress = R.pathOr('', ['validator_address'], x);
-        return ({
-          validator: validatorAddress,
-          reward: rewardsDict[validatorAddress],
-          amount: formatToken(x.coins.amount, x.coins.denom),
-        });
-      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
+    // const formatDelegations = () => {
+    //   // ryuash
+    //   const delegations = data.delegations.delegations.filter((x) => {
+    //     return numeral(x.coins.amount).value() !== 0;
+    //   }).map((x) => {
+    //     const validatorAddress = R.pathOr('', ['validator_address'], x);
+    //     return ({
+    //       validator: validatorAddress,
+    //       reward: rewardsDict[validatorAddress],
+    //       amount: formatToken(x.coins.amount, x.coins.denom),
+    //     });
+    //   }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
 
-      return {
-        data: delegations,
-        count: delegations.length,
-      };
-    };
+    //   return {
+    //     data: delegations,
+    //     count: delegations.length,
+    //   };
+    // };
 
-    stateChange.delegations = formatDelegations();
+    // stateChange.delegations = formatDelegations();
 
     // ============================
     // redelegations
     // ============================
-    const formatRedelegations = () => {
-      const redelegations = data.account[0].redelegations.map((x) => {
-        return ({
-          to: x.to,
-          from: x.from,
-          linkedUntil: x.completionTime,
-          amount: formatToken(
-            R.pathOr(0, ['amount', 'amount'], x),
-            R.pathOr(0, ['amount', 'denom'], x),
-          ),
-        });
-      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
-      return {
-        data: redelegations,
-        count: redelegations.length,
-      };
-    };
+    // const formatRedelegations = () => {
+    //   const redelegations = data.account[0].redelegations.map((x) => {
+    //     return ({
+    //       to: x.to,
+    //       from: x.from,
+    //       linkedUntil: x.completionTime,
+    //       amount: formatToken(
+    //         R.pathOr(0, ['amount', 'amount'], x),
+    //         R.pathOr(0, ['amount', 'denom'], x),
+    //       ),
+    //     });
+    //   }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
+    //   return {
+    //     data: redelegations,
+    //     count: redelegations.length,
+    //   };
+    // };
 
-    stateChange.redelegations = formatRedelegations();
+    // stateChange.redelegations = formatRedelegations();
 
     // ============================
     // unbondings
     // ============================
-    const formatUnbondings = () => {
-      const unbondings = data.account[0].unbonding.map((x) => {
-        const validatorAddress = x.validator.validatorInfo.operatorAddress;
-        return ({
-          validator: validatorAddress,
-          amount: formatToken(
-            R.pathOr(0, ['amount', 'amount'], x),
-            R.pathOr(0, ['amount', 'denom'], x),
-          ),
-          linkedUntil: x.completionTimestamp,
-          commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
-        });
-      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
-      return {
-        data: unbondings,
-        count: unbondings.length,
-      };
-    };
+    // const formatUnbondings = () => {
+    //   const unbondings = data.account[0].unbonding.map((x) => {
+    //     const validatorAddress = x.validator.validatorInfo.operatorAddress;
+    //     return ({
+    //       validator: validatorAddress,
+    //       amount: formatToken(
+    //         R.pathOr(0, ['amount', 'amount'], x),
+    //         R.pathOr(0, ['amount', 'denom'], x),
+    //       ),
+    //       linkedUntil: x.completionTimestamp,
+    //       commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
+    //     });
+    //   }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
+    //   return {
+    //     data: unbondings,
+    //     count: unbondings.length,
+    //   };
+    // };
 
-    stateChange.unbondings = formatUnbondings();
+    // stateChange.unbondings = formatUnbondings();
+
     return stateChange;
   };
 

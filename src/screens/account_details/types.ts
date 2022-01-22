@@ -61,6 +61,9 @@ export type AccountDetailState = {
     data: UnbondingType[];
     count: number;
   }
+  rewards: {
+    [value:string]: TokenUnit[];
+  }
   transactions: {
     hasNextPage: boolean;
     isNextPageLoading: boolean;

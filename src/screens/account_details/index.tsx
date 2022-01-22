@@ -66,19 +66,19 @@ const AccountDetails = () => {
               className={classes.otherTokens}
               otherTokens={state.otherTokens}
             />
-            <Staking
+            {/* <Staking
               className={classes.staking}
               redelegations={state.redelegations}
               delegations={state.delegations}
               unbondings={state.unbondings}
-            />
-            <Transactions
+            /> */}
+            {/* <Transactions
               className={classes.transactions}
               loadNextPage={loadNextPage}
               data={state.transactions.data}
               hasNextPage={state.transactions.hasNextPage}
               isNextPageLoading={state.transactions.isNextPageLoading}
-            />
+            /> */}
           </span>
         </LoadAndExist>
       </Layout>
