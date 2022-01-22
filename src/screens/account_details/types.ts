@@ -26,13 +26,6 @@ export type RedelegationType = {
   amount: TokenUnit;
 }
 
-export type UnbondingType = {
-  validator: string;
-  commission: number;
-  amount: TokenUnit;
-  linkedUntil: string;
-}
-
 export type RewardsType = {
   [value:string]: TokenUnit[];
 }
@@ -49,10 +42,6 @@ export type AccountDetailState = {
   };
   redelegations: {
     data: RedelegationType[];
-    count: number;
-  }
-  unbondings: {
-    data: UnbondingType[];
     count: number;
   }
   rewards: RewardsType;

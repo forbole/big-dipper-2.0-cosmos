@@ -51,10 +51,6 @@ const initialState: AccountDetailState = {
     data: [],
     count: 0,
   },
-  unbondings: {
-    data: [],
-    count: 0,
-  },
   rewards: {},
   transactions: {
     data: [],
