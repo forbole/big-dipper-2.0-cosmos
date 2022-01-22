@@ -12,9 +12,19 @@ export type DelegationType = {
   reward: TokenUnit;
 }
 
+export type UnbondingType = {
+  validator: string;
+  entries: {
+    amount: TokenUnit;
+    completionTime: string;
+  }[];
+}
+
 export type DelegationsType = StakingType<DelegationType>;
+export type UnbondingsType = StakingType<UnbondingType>;
 
 export type StakingState = {
   tab: number;
   delegations: DelegationsType;
+  unbondings: UnbondingsType;
 }

@@ -12993,6 +12993,31 @@ export type AccountDelegationsQuery = { delegations?: Maybe<(
     & Pick<ActionDelegationResponse, 'delegations' | 'pagination'>
   )> };
 
+export type AccountRedelegationsQueryVariables = Exact<{
+  address: Scalars['String'];
+  offset?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type AccountRedelegationsQuery = { redelegations?: Maybe<(
+    { __typename?: 'ActionRedelegationResponse' }
+    & Pick<ActionRedelegationResponse, 'redelegations' | 'pagination'>
+  )> };
+
+export type AccountUndelegationsQueryVariables = Exact<{
+  address: Scalars['String'];
+  offset?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type AccountUndelegationsQuery = { undelegations?: Maybe<(
+    { __typename?: 'ActionUnbondingDelegationResponse' }
+    & Pick<ActionUnbondingDelegationResponse, 'pagination'>
+    & { undelegations: ActionUnbondingDelegationResponse['unbonding_delegations'] }
+  )> };
+
 export type ActiveValidatorCountQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -13611,6 +13636,92 @@ export function useAccountDelegationsLazyQuery(baseOptions?: Apollo.LazyQueryHoo
 export type AccountDelegationsQueryHookResult = ReturnType<typeof useAccountDelegationsQuery>;
 export type AccountDelegationsLazyQueryHookResult = ReturnType<typeof useAccountDelegationsLazyQuery>;
 export type AccountDelegationsQueryResult = Apollo.QueryResult<AccountDelegationsQuery, AccountDelegationsQueryVariables>;
+export const AccountRedelegationsDocument = gql`
+    query AccountRedelegations($address: String!, $offset: Int = 0, $limit: Int = 10) {
+  redelegations: action_redelegation(
+    address: $address
+    limit: $limit
+    offset: $offset
+    count_total: true
+  ) {
+    redelegations
+    pagination
+  }
+}
+    `;
+
+/**
+ * __useAccountRedelegationsQuery__
+ *
+ * To run a query within a React component, call `useAccountRedelegationsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountRedelegationsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountRedelegationsQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *      offset: // value for 'offset'
+ *      limit: // value for 'limit'
+ *   },
+ * });
+ */
+export function useAccountRedelegationsQuery(baseOptions: Apollo.QueryHookOptions<AccountRedelegationsQuery, AccountRedelegationsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountRedelegationsQuery, AccountRedelegationsQueryVariables>(AccountRedelegationsDocument, options);
+      }
+export function useAccountRedelegationsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountRedelegationsQuery, AccountRedelegationsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountRedelegationsQuery, AccountRedelegationsQueryVariables>(AccountRedelegationsDocument, options);
+        }
+export type AccountRedelegationsQueryHookResult = ReturnType<typeof useAccountRedelegationsQuery>;
+export type AccountRedelegationsLazyQueryHookResult = ReturnType<typeof useAccountRedelegationsLazyQuery>;
+export type AccountRedelegationsQueryResult = Apollo.QueryResult<AccountRedelegationsQuery, AccountRedelegationsQueryVariables>;
+export const AccountUndelegationsDocument = gql`
+    query AccountUndelegations($address: String!, $offset: Int = 0, $limit: Int = 10) {
+  undelegations: action_unbonding_delegation(
+    address: $address
+    limit: $limit
+    offset: $offset
+    count_total: true
+  ) {
+    undelegations: unbonding_delegations
+    pagination
+  }
+}
+    `;
+
+/**
+ * __useAccountUndelegationsQuery__
+ *
+ * To run a query within a React component, call `useAccountUndelegationsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountUndelegationsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountUndelegationsQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *      offset: // value for 'offset'
+ *      limit: // value for 'limit'
+ *   },
+ * });
+ */
+export function useAccountUndelegationsQuery(baseOptions: Apollo.QueryHookOptions<AccountUndelegationsQuery, AccountUndelegationsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountUndelegationsQuery, AccountUndelegationsQueryVariables>(AccountUndelegationsDocument, options);
+      }
+export function useAccountUndelegationsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountUndelegationsQuery, AccountUndelegationsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountUndelegationsQuery, AccountUndelegationsQueryVariables>(AccountUndelegationsDocument, options);
+        }
+export type AccountUndelegationsQueryHookResult = ReturnType<typeof useAccountUndelegationsQuery>;
+export type AccountUndelegationsLazyQueryHookResult = ReturnType<typeof useAccountUndelegationsLazyQuery>;
+export type AccountUndelegationsQueryResult = Apollo.QueryResult<AccountUndelegationsQuery, AccountUndelegationsQueryVariables>;
 export const ActiveValidatorCountDocument = gql`
     query ActiveValidatorCount {
   activeTotal: validator_status_aggregate(where: {status: {_eq: 3}}) {
