@@ -1,9 +1,0 @@
-version: '3.6'
-services:
-  big-dipper-2:
-    build:
-      context: .
-      dockerfile: Dockerfile-local
-    restart: always
-    ports:
-      - "3000:3000"

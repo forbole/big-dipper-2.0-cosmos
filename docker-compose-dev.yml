@@ -3,7 +3,7 @@ services:
   big-dipper-2:
     build:
       context: .
-      dockerfile: Dockerfile-prod
+      dockerfile: Dockerfile-dev
       args:
         NEXT_PUBLIC_GRAPHQL_URL: ${NEXT_PUBLIC_GRAPHQL_URL}
         NEXT_PUBLIC_GRAPHQL_WS: ${NEXT_PUBLIC_GRAPHQL_WS}
