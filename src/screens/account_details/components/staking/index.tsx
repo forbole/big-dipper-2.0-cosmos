@@ -9,7 +9,6 @@ import { useStaking } from './hooks';
 import { useStyles } from './styles';
 import {
   RewardsType,
-  // RedelegationType, UnbondingType, DelegationType,
 } from '../../types';
 
 const Delegations = dynamic(() => import('./components/delegations'));
@@ -23,6 +22,7 @@ const Staking: React.FC<{rewards: RewardsType} & ComponentDefault> = (props) => 
     handleTabChange,
     handleDelegationPageCallback,
     handleUnbondingPageCallback,
+    handleRedelegationPageCallback,
   } = useStaking(props.rewards);
 
   const tabs = [
@@ -42,16 +42,11 @@ const Staking: React.FC<{rewards: RewardsType} & ComponentDefault> = (props) => 
       key: 'redelegations',
       component: (
         <Redelgations
-          data={[]}
-          count={0}
-          // data={props.redelegations.data}
-          // count={props.redelegations.count}
+          redelegations={state.redelegations}
+          handlePageCallback={handleRedelegationPageCallback}
         />
       ),
-      count: 0,
-      data: [],
-      // data: props.redelegations,
-      // count: props.redelegations.count,
+      count: state.redelegations.count,
     },
     {
       id: 2,

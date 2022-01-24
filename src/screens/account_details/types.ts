@@ -19,13 +19,6 @@ export type OtherTokenType = {
   commission: TokenUnit;
 }
 
-export type RedelegationType = {
-  to: string;
-  from: string;
-  linkedUntil: string;
-  amount: TokenUnit;
-}
-
 export type RewardsType = {
   [value:string]: TokenUnit[];
 }
@@ -40,10 +33,6 @@ export type AccountDetailState = {
     data: OtherTokenType[];
     count: number;
   };
-  redelegations: {
-    data: RedelegationType[];
-    count: number;
-  }
   rewards: RewardsType;
   transactions: {
     hasNextPage: boolean;

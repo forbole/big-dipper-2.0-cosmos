@@ -27,8 +27,9 @@ const LIMIT = 10;
 export const useStaking = (rewards: RewardsType) => {
   const router = useRouter();
   const [state, setState] = useState<StakingState>({
-    tab: 2,
+    tab: 0,
     delegations: stakingDefault,
+    redelegations: stakingDefault,
     unbondings: stakingDefault,
   });
 
@@ -107,6 +108,69 @@ export const useStaking = (rewards: RewardsType) => {
   // =====================================
   // redelegations
   // =====================================
+  const redelegationsQuery = useAccountRedelegationsQuery({
+    variables: {
+      address: R.pathOr('', ['query', 'address'], router),
+      limit: LIMIT,
+    },
+    onCompleted: (data) => {
+      const formattedData = formatRedelegations(data);
+      handleSetState({
+        redelegations: {
+          loading: false,
+          count: R.pathOr(0, ['redelegations', 'pagination', 'total'], data),
+          data: {
+            0: formattedData,
+          },
+        },
+      });
+    },
+  });
+
+  const formatRedelegations = (data: AccountRedelegationsQuery) => {
+    const redelegations = R.pathOr([], ['redelegations', 'redelegations'], data);
+    return redelegations
+      .map((x) => {
+        const from = R.pathOr('', ['validator_src_address'], x);
+        const to = R.pathOr('', ['validator_dst_address'], x);
+        const entries = R.pathOr([], ['entries'], x).map((y) => ({
+          amount: formatToken(y.balance, chainConfig.primaryTokenUnit),
+          completionTime: R.pathOr('', ['completion_time'], y),
+        }));
+
+        return ({
+          from,
+          to,
+          entries,
+        });
+      });
+  };
+
+  const handleRedelegationPageCallback = async (page: number, _rowsPerPage: number) => {
+    if (!state.unbondings.data[page]) {
+      handleSetState({
+        unbondings: {
+          loading: true,
+        },
+      });
+
+      await redelegationsQuery.fetchMore({
+        variables: {
+          offset: page * LIMIT,
+          limit: LIMIT,
+        },
+      }).then(({ data }) => {
+        handleSetState({
+          unbondings: {
+            loading: false,
+            data: {
+              [page]: formatRedelegations(data),
+            },
+          },
+        });
+      });
+    }
+  };
 
   // =====================================
   // unbondings
@@ -178,5 +242,6 @@ export const useStaking = (rewards: RewardsType) => {
     handleTabChange,
     handleDelegationPageCallback,
     handleUnbondingPageCallback,
+    handleRedelegationPageCallback,
   };
 };
