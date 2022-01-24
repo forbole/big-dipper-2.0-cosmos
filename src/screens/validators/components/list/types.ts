@@ -3,12 +3,12 @@ export type ValidatorType = {
   votingPower: number;
   votingPowerPercent: number;
   commission: number;
-  selfPercent: number;
+  // selfPercent: number;
   condition: number;
   status: number;
   jailed: boolean;
   tombstoned: boolean;
-  delegators: number;
+  // delegators: number;
   topVotingPower?: boolean; // top 34% VP
 }
 

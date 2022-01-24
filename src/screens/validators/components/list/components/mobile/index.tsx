@@ -36,7 +36,7 @@ const Mobile: React.FC<{
     const votingPower = numeral(x.votingPower).format('0,0');
     return ({
       idx: `#${i + 1}`,
-      delegators: numeral(x.delegators).format('0,0'),
+      // delegators: numeral(x.delegators).format('0,0'),
       validator: (
         <AvatarName
           address={x.validator.address}
@@ -45,7 +45,7 @@ const Mobile: React.FC<{
         />
       ),
       commission: `${numeral(x.commission).format('0.[00]')}%`,
-      self: `${numeral(x.selfPercent).format('0.[00]')}%`,
+      // self: `${numeral(x.selfPercent).format('0.[00]')}%`,
       condition: (
         <Condition className={condition} />
       ),
