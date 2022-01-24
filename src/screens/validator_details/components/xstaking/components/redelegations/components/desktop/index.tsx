@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
+import dayjs, { formatDayJs } from '@utils/dayjs';
 import {
   Table,
   TableHead,
@@ -8,34 +9,51 @@ import {
   TableCell,
   TableBody,
 } from '@material-ui/core';
-import {
-  AvatarName,
-} from '@components';
+import { useRecoilValue } from 'recoil';
+import { readDate } from '@recoil/settings';
+import { AvatarName } from '@components';
+import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { formatNumber } from '@utils/format_token';
 import { columns } from './utils';
 import { ItemType } from '../../types';
 
 const Desktop: React.FC<{
   className?: string;
-  items?: ItemType[];
+  items: ItemType[];
 }> = ({
-  className,
-  items,
+  className, items,
 }) => {
-  const { t } = useTranslation('accounts');
+  const dateFormat = useRecoilValue(readDate);
+  const { t } = useTranslation('validators');
+
   const formattedItems = items.map((x) => {
     const amount = formatNumber(x.amount.value, x.amount.exponent);
-    const reward = formatNumber(x.reward.value, x.reward.exponent);
     return ({
-      validator: (
+      address: (
         <AvatarName
-          name={x.validator.name}
-          address={x.validator.address}
-          imageUrl={x.validator.imageUrl}
+          address={x.delegator.address}
+          imageUrl={x.delegator.imageUrl}
+          name={x.delegator.name.length > 20 ? getMiddleEllipsis(x.delegator.name, {
+            beginning: 12, ending: 10,
+          }) : x.delegator.name}
         />
       ),
+      to: (
+        <AvatarName
+          address={x.to.address}
+          imageUrl={x.to.imageUrl}
+          name={x.to.name}
+        />
+      ),
+      from: (
+        <AvatarName
+          address={x.from.address}
+          imageUrl={x.from.imageUrl}
+          name={x.from.name}
+        />
+      ),
+      linkedUntil: formatDayJs(dayjs.utc(x.linkedUntil), dateFormat),
       amount: `${amount} ${x.amount.displayDenom.toUpperCase()}`,
-      reward: `${reward} ${x.reward.displayDenom.toUpperCase()}`,
     });
   });
 

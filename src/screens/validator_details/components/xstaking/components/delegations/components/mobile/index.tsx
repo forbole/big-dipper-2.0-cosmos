@@ -2,8 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import {
-  Divider,
-  Typography,
+  Divider, Typography,
 } from '@material-ui/core';
 import { AvatarName } from '@components';
 import { formatNumber } from '@utils/format_token';
@@ -17,22 +16,23 @@ const Mobile: React.FC<{
   className, items,
 }) => {
   const classes = useStyles();
-  const { t } = useTranslation('accounts');
+  const { t } = useTranslation('validators');
 
   return (
     <div className={classnames(className)}>
       {items.map((x, i) => {
+        const amount = formatNumber(x.amount.value, x.amount.exponent);
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
-                  {t('validator')}
+                  {t('address')}
                 </Typography>
                 <AvatarName
-                  name={x.validator.name}
-                  address={x.validator.address}
-                  imageUrl={x.validator.imageUrl}
+                  address={x.delegator.address}
+                  imageUrl={x.delegator.imageUrl}
+                  name={x.delegator.name}
                 />
               </div>
               <div className={classes.item}>
@@ -40,19 +40,7 @@ const Mobile: React.FC<{
                   {t('amount')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {formatNumber(x.amount.value, x.amount.exponent)}
-                  {' '}
-                  {x.amount.displayDenom.toUpperCase()}
-                </Typography>
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('reward')}
-                </Typography>
-                <Typography variant="body1" className="value">
-                  {formatNumber(x.reward.value, x.reward.exponent)}
-                  {' '}
-                  {x.reward.displayDenom.toUpperCase()}
+                  {`${amount} ${x.amount.displayDenom.toUpperCase()}`}
                 </Typography>
               </div>
             </div>

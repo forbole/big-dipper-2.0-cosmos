@@ -26,7 +26,7 @@ const TabsHeader: React.FC<{
   tabs,
 }) => {
   const classes = useStyles();
-  const { t } = useTranslation('accounts');
+  const { t } = useTranslation('validators');
 
   return (
     <div className={classnames(className, classes.root)}>

@@ -4,16 +4,11 @@ export const columns:{
   width: number;
 }[] = [
   {
-    key: 'validator',
-    width: 25,
+    key: 'address',
+    width: 75,
   },
   {
     key: 'amount',
-    width: 25,
-    align: 'right',
-  },
-  {
-    key: 'reward',
     width: 25,
     align: 'right',
   },

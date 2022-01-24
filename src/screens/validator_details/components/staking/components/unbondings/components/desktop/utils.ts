@@ -5,16 +5,16 @@ export const columns:{
 }[] = [
   {
     key: 'validator',
-    width: 25,
+    width: 40,
   },
   {
     key: 'amount',
-    width: 25,
     align: 'right',
+    width: 30,
   },
   {
-    key: 'reward',
-    width: 25,
+    key: 'completionTime',
     align: 'right',
+    width: 30,
   },
 ];

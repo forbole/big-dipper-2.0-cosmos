@@ -8,34 +8,34 @@ import {
   TableCell,
   TableBody,
 } from '@material-ui/core';
-import {
-  AvatarName,
-} from '@components';
+import { AvatarName } from '@components';
+import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { formatNumber } from '@utils/format_token';
 import { columns } from './utils';
 import { ItemType } from '../../types';
 
 const Desktop: React.FC<{
   className?: string;
-  items?: ItemType[];
+  items: ItemType[];
 }> = ({
   className,
   items,
 }) => {
-  const { t } = useTranslation('accounts');
-  const formattedItems = items.map((x) => {
+  const { t } = useTranslation('validators');
+
+  const formattedData = items.map((x) => {
     const amount = formatNumber(x.amount.value, x.amount.exponent);
-    const reward = formatNumber(x.reward.value, x.reward.exponent);
     return ({
-      validator: (
+      address: (
         <AvatarName
-          name={x.validator.name}
-          address={x.validator.address}
-          imageUrl={x.validator.imageUrl}
+          address={x.delegator.address}
+          imageUrl={x.delegator.imageUrl}
+          name={x.delegator.name.length > 20 ? getMiddleEllipsis(x.delegator.name, {
+            beginning: 12, ending: 10,
+          }) : x.delegator.name}
         />
       ),
       amount: `${amount} ${x.amount.displayDenom.toUpperCase()}`,
-      reward: `${reward} ${x.reward.displayDenom.toUpperCase()}`,
     });
   });
 
@@ -58,7 +58,7 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems.map((row, i) => (
+          {formattedData.map((row, i) => (
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => {
                 return (

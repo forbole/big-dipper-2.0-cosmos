@@ -8,22 +8,33 @@ import { Tabs } from './components';
 import { useStaking } from './hooks';
 import { useStyles } from './styles';
 import {
-  RewardsType,
+  RedelegationType, UndelegationType, DelegationType,
 } from '../../types';
 
 const Delegations = dynamic(() => import('./components/delegations'));
 const Redelgations = dynamic(() => import('./components/redelegations'));
-const Unbondings = dynamic(() => import('./components/unbondings'));
+const Undelegations = dynamic(() => import('./components/undelegations'));
 
-const Staking: React.FC<{rewards: RewardsType} & ComponentDefault> = (props) => {
+const Staking: React.FC<{
+  className?: string;
+  delegations: {
+    data: DelegationType[];
+    count: number;
+  }
+  redelegations: {
+    data: RedelegationType[];
+    count: number;
+  }
+  undelegations: {
+    data: UndelegationType[];
+    count: number;
+  }
+}> = (props) => {
   const classes = useStyles();
   const {
     state,
     handleTabChange,
-    handleDelegationPageCallback,
-    handleUnbondingPageCallback,
-    handleRedelegationPageCallback,
-  } = useStaking(props.rewards);
+  } = useStaking();
 
   const tabs = [
     {
@@ -31,33 +42,34 @@ const Staking: React.FC<{rewards: RewardsType} & ComponentDefault> = (props) => 
       key: 'delegations',
       component: (
         <Delegations
-          delegations={state.delegations}
-          handlePageCallback={handleDelegationPageCallback}
+          data={props.delegations.data}
+          count={props.delegations.count}
         />
       ),
-      count: state.delegations.count,
+      count: props.delegations.count,
     },
     {
       id: 1,
       key: 'redelegations',
       component: (
         <Redelgations
-          redelegations={state.redelegations}
-          handlePageCallback={handleRedelegationPageCallback}
+          data={props.redelegations.data}
+          count={props.redelegations.count}
         />
       ),
-      count: state.redelegations.count,
+      data: props.redelegations,
+      count: props.redelegations.count,
     },
     {
       id: 2,
-      key: 'unbondings',
+      key: 'undelegations',
       component: (
-        <Unbondings
-          unbondings={state.unbondings}
-          handlePageCallback={handleUnbondingPageCallback}
+        <Undelegations
+          data={props.undelegations.data}
+          count={props.undelegations.count}
         />
       ),
-      count: state.unbondings.count,
+      count: props.undelegations.count,
     },
   ];
 

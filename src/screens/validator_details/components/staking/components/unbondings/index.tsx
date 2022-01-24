@@ -1,30 +1,26 @@
 import React from 'react';
 import * as R from 'ramda';
-import classnames from 'classnames';
 import dynamic from 'next/dynamic';
+import classnames from 'classnames';
 import {
-  usePagination,
-  useScreenSize,
+  usePagination, useScreenSize,
 } from '@hooks';
 import {
-  Pagination,
-  NoData,
-  Loading,
+  Pagination, NoData, Loading,
 } from '@components';
 import {
   useProfilesRecoil,
 } from '@recoil/profiles';
 import { useStyles } from './styles';
-import { DelegationsType } from '../../types';
+import { UnbondingsType } from '../../types';
 
 const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
 
-const Delegations: React.FC<{
-  delegations: DelegationsType,
+const Unbondings: React.FC<{
+  unbondings: UnbondingsType,
   handlePageCallback: (page: number, _rowsPerPage: number) => void;
 } & ComponentDefault> = (props) => {
-  const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const {
     page,
@@ -34,11 +30,10 @@ const Delegations: React.FC<{
   } = usePagination({
     pageChangeCallback: props.handlePageCallback,
   });
+  const { isDesktop } = useScreenSize();
 
-  const pageItems = R.pathOr([], ['delegations', 'data', page], props);
-
+  const pageItems = R.pathOr([], ['unbondings', 'data', page], props);
   const dataProfiles = useProfilesRecoil(pageItems.map((x) => x.validator));
-
   const mergedDataWithProfiles = pageItems.map((x, i) => {
     return ({
       ...x,
@@ -50,7 +45,7 @@ const Delegations: React.FC<{
 
   let component = null;
 
-  if (props.delegations.loading) {
+  if (props.unbondings.loading) {
     component = <Loading />;
   } else if (!items.length) {
     component = <NoData />;
@@ -65,7 +60,7 @@ const Delegations: React.FC<{
       {component}
       <Pagination
         className={classes.paginate}
-        total={props.delegations.count}
+        total={props.unbondings.count}
         rowsPerPage={rowsPerPage}
         page={page}
         handleChangePage={handleChangePage}
@@ -75,4 +70,4 @@ const Delegations: React.FC<{
   );
 };
 
-export default Delegations;
+export default Unbondings;

@@ -5,16 +5,16 @@ import dayjs, { formatDayJs } from '@utils/dayjs';
 import {
   Divider, Typography,
 } from '@material-ui/core';
+import { AvatarName } from '@components';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
-import { AvatarName } from '@components';
 import { formatNumber } from '@utils/format_token';
 import { useStyles } from './styles';
 import { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;
-  items?: ItemType[];
+  items: ItemType[];
 }> = ({
   className, items,
 }) => {
@@ -27,18 +27,11 @@ const Mobile: React.FC<{
       completionTime: formatDayJs(dayjs.utc(y.completionTime), dateFormat),
     }));
     return ({
-      to: (
+      validator: (
         <AvatarName
-          address={x.to.address}
-          imageUrl={x.to.imageUrl}
-          name={x.to.name}
-        />
-      ),
-      from: (
-        <AvatarName
-          address={x.from.address}
-          imageUrl={x.from.imageUrl}
-          name={x.from.name}
+          address={x.validator.address}
+          imageUrl={x.validator.imageUrl}
+          name={x.validator.name}
         />
       ),
       entries,
@@ -51,19 +44,11 @@ const Mobile: React.FC<{
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
-              <div className={classes.flex}>
-                <div className={classes.item}>
-                  <Typography variant="h4" className="label">
-                    {t('from')}
-                  </Typography>
-                  {x.from}
-                </div>
-                <div className={classes.item}>
-                  <Typography variant="h4" className="label">
-                    {t('to')}
-                  </Typography>
-                  {x.to}
-                </div>
+              <div className={classes.item}>
+                <Typography variant="h4" className="label">
+                  {t('validator')}
+                </Typography>
+                {x.validator}
               </div>
               {
                 x.entries.map((y, index) => {

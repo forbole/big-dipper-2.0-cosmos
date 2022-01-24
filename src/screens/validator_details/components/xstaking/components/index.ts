@@ -1,11 +1,11 @@
 import Tabs from './tabs';
-import Unbondings from './unbondings';
+import Undelegations from './undelegations';
 import Redelgations from './redelegations';
 import Delegations from './delegations';
 
 export {
   Tabs,
-  Unbondings,
+  Undelegations,
   Redelgations,
   Delegations,
 };

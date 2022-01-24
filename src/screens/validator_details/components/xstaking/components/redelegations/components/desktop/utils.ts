@@ -4,17 +4,25 @@ export const columns:{
   width: number;
 }[] = [
   {
-    key: 'validator',
-    width: 25,
+    key: 'address',
+    width: 20,
+  },
+  {
+    key: 'from',
+    width: 20,
+  },
+  {
+    key: 'to',
+    width: 20,
   },
   {
     key: 'amount',
-    width: 25,
+    width: 20,
     align: 'right',
   },
   {
-    key: 'reward',
-    width: 25,
+    key: 'linkedUntil',
+    width: 20,
     align: 'right',
   },
 ];

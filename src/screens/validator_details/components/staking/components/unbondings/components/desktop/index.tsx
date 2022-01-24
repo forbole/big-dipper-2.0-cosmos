@@ -13,7 +13,7 @@ import {
 import { AvatarName } from '@components';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
-import { formatNumber } from '@utils/format_token';
+import { formatNumber } from '@src/utils/format_token';
 import { columns } from './utils';
 import { ItemType } from '../../types';
 import { useStyles } from './styles';
@@ -33,18 +33,11 @@ const Desktop: React.FC<{
       completionTime: formatDayJs(dayjs.utc(y.completionTime), dateFormat),
     }));
     return ({
-      to: (
+      validator: (
         <AvatarName
-          address={x.to.address}
-          imageUrl={x.to.imageUrl}
-          name={x.to.name}
-        />
-      ),
-      from: (
-        <AvatarName
-          address={x.from.address}
-          imageUrl={x.from.imageUrl}
-          name={x.from.name}
+          address={x.validator.address}
+          imageUrl={x.validator.imageUrl}
+          name={x.validator.name}
         />
       ),
       entries,
@@ -73,6 +66,7 @@ const Desktop: React.FC<{
           {formattedItems.map((row, i) => (
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => {
+                const selected = row[column.key];
                 if (column.key === 'amount') {
                   return (
                     <TableCell
@@ -121,7 +115,7 @@ const Desktop: React.FC<{
                     align={column.align}
                     style={{ width: `${column.width}%` }}
                   >
-                    {row[column.key]}
+                    {selected}
                   </TableCell>
                 );
               })}
