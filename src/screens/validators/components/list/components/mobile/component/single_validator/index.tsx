@@ -11,7 +11,7 @@ const SingleValidator: React.FC<{
   idx: string;
   validator: React.ReactNode;
   commission: string;
-  self: string;
+  // self: string;
   votingPower: React.ReactNode;
   status: {
     status: string;
@@ -20,7 +20,7 @@ const SingleValidator: React.FC<{
 }> = ({
   className,
   validator,
-  self,
+  // self,
   commission,
   votingPower,
   idx,
@@ -61,14 +61,14 @@ const SingleValidator: React.FC<{
         {votingPower}
       </div>
       <div className={classes.flex}>
-        <div className={classes.item}>
+        {/* <div className={classes.item}>
           <Typography variant="h4" className="label">
             {t('self')}
           </Typography>
           <Typography variant="body1" className="value">
             {self}
           </Typography>
-        </div>
+        </div> */}
         <div className={classes.item}>
           <Typography variant="h4" className="label">
             {t('commission')}

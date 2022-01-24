@@ -13957,10 +13957,6 @@ export type ValidatorsQuery = { stakingPool: Array<(
     )>, validatorCommissions: Array<(
       { __typename?: 'validator_commission' }
       & Pick<Validator_Commission, 'commission'>
-    )>, delegations: Array<(
-      { __typename?: 'delegation' }
-      & Pick<Delegation, 'amount'>
-      & { delegatorAddress: Delegation['delegator_address'] }
     )> }
   )>, slashingParams: Array<(
     { __typename?: 'slashing_params' }
@@ -15415,10 +15411,6 @@ export const ValidatorsDocument = gql`
     }
     validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
       commission
-    }
-    delegations {
-      amount
-      delegatorAddress: delegator_address
     }
     validatorSigningInfos: validator_signing_infos(
       order_by: {height: desc}
