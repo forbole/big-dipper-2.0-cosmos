@@ -7,15 +7,12 @@ import {
 import { Tabs } from './components';
 import { useStaking } from './hooks';
 import { useStyles } from './styles';
-import {
-  RewardsType,
-} from '../../types';
 
 const Delegations = dynamic(() => import('./components/delegations'));
 const Redelgations = dynamic(() => import('./components/redelegations'));
 const Unbondings = dynamic(() => import('./components/unbondings'));
 
-const Staking: React.FC<{rewards: RewardsType} & ComponentDefault> = (props) => {
+const Staking: React.FC<ComponentDefault> = (props) => {
   const classes = useStyles();
   const {
     state,
@@ -23,7 +20,7 @@ const Staking: React.FC<{rewards: RewardsType} & ComponentDefault> = (props) => 
     handleDelegationPageCallback,
     handleUnbondingPageCallback,
     handleRedelegationPageCallback,
-  } = useStaking(props.rewards);
+  } = useStaking();
 
   const tabs = [
     {

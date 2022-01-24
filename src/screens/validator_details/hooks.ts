@@ -1,7 +1,6 @@
 import {
   useState, useEffect,
 } from 'react';
-import Big from 'big.js';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import { formatToken } from '@utils/format_token';
@@ -59,18 +58,6 @@ const initialState: ValidatorDetailsState = {
     self: 0,
     selfDelegatePercent: 0,
     selfDelegate: initialTokenDenom,
-  },
-  delegations: {
-    count: 0,
-    data: [],
-  },
-  redelegations: {
-    count: 0,
-    data: [],
-  },
-  undelegations: {
-    count: 0,
-    data: [],
   },
   transactions: {
     data: [],
@@ -310,76 +297,6 @@ export const useValidatorDetails = () => {
       return votingPower;
     };
     stateChange.votingPower = formatVotingPower();
-
-    // ============================
-    // delegations
-    // ============================
-    const formatDelegations = () => {
-      const delegations = data.validator[0].delegations.map((x) => {
-        return ({
-          amount: formatToken(x.amount.amount, x.amount.denom),
-          delegator: x.delegatorAddress,
-        });
-      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
-      return {
-        data: delegations,
-        count: delegations.length,
-      };
-    };
-    stateChange.delegations = formatDelegations();
-
-    // ============================
-    // redelegations
-    // ============================
-    const formatRedelegations = () => {
-      const redelegations = [
-        ...data.validator[0].redelegationsByDstValidatorAddress.map((x) => {
-          return ({
-            to: x.to,
-            from: x.from,
-            linkedUntil: x.completionTime,
-            amount: formatToken(x.amount.amount, x.amount.denom),
-            delegator: x.delegatorAddress,
-          });
-        }),
-        ...data.validator[0].redelegationsBySrcValidatorAddress.map((x) => {
-          return ({
-            to: x.to,
-            from: x.from,
-            linkedUntil: x.completionTime,
-            amount: formatToken(x.amount.amount, x.amount.denom),
-            delegator: x.delegatorAddress,
-          });
-        }),
-      ].sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
-
-      return {
-        data: redelegations,
-        count: redelegations.length,
-      };
-    };
-    state.redelegations = formatRedelegations();
-
-    // ============================
-    // unbondings
-    // ============================
-    const formatUndelegations = () => {
-      const undelegations = data.validator[0].unbonding.map((x) => {
-        return ({
-          delegator: x.delegatorAddress,
-          amount: formatToken(x.amount.amount, x.amount.denom),
-          linkedUntil: x.completionTimestamp,
-          commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
-        });
-      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
-
-      return {
-        data: undelegations,
-        count: undelegations.length,
-      };
-    };
-
-    state.undelegations = formatUndelegations();
 
     return stateChange;
   };
