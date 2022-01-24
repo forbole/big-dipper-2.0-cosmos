@@ -21,8 +21,8 @@ export type VotingPowerType = {
   height: number;
   overall: TokenUnit;
   self: number;
-  selfDelegatePercent: number;
-  selfDelegate: TokenUnit;
+  // selfDelegatePercent: number;
+  // selfDelegate: TokenUnit;
 }
 
 export type ValidatorDetailsState = {

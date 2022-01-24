@@ -24,18 +24,15 @@ const Desktop: React.FC<{
 }) => {
   const { t } = useTranslation('accounts');
   const formattedItems = items.map((x) => {
-    const amount = formatNumber(x.amount.value, x.amount.exponent);
-    const reward = formatNumber(x.reward.value, x.reward.exponent);
     return ({
-      validator: (
+      address: (
         <AvatarName
-          name={x.validator.name}
-          address={x.validator.address}
-          imageUrl={x.validator.imageUrl}
+          name={x.address.name}
+          address={x.address.address}
+          imageUrl={x.address.imageUrl}
         />
       ),
-      amount: `${amount} ${x.amount.displayDenom.toUpperCase()}`,
-      reward: `${reward} ${x.reward.displayDenom.toUpperCase()}`,
+      amount: `${formatNumber(x.amount.value, x.amount.exponent)} ${x.amount.displayDenom.toUpperCase()}`,
     });
   });
 

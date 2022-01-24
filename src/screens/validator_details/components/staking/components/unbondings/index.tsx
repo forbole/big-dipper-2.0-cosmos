@@ -33,7 +33,7 @@ const Unbondings: React.FC<{
   const { isDesktop } = useScreenSize();
 
   const pageItems = R.pathOr([], ['unbondings', 'data', page], props);
-  const dataProfiles = useProfilesRecoil(pageItems.map((x) => x.validator));
+  const dataProfiles = useProfilesRecoil(pageItems.map((x) => x.address));
   const mergedDataWithProfiles = pageItems.map((x, i) => {
     return ({
       ...x,

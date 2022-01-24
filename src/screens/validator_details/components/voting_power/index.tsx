@@ -27,8 +27,8 @@ const VotingPower: React.FC<{
   const classes = useStyles(votingPowerPercent.format(0, Math.floor));
 
   const votingPower = status === 3 ? numeral(data.self).format('0,0') : '0';
-  const selfDelegatedAmount = status === 3 ? numeral(data.selfDelegate.value).format('0,0') : '0';
-  const selfDelegatePercent = status === 3 ? `${numeral(data.selfDelegatePercent).format('0.[00]')}%` : '0%';
+  // const selfDelegatedAmount = status === 3 ? numeral(data.selfDelegate.value).format('0,0') : '0';
+  // const selfDelegatePercent = status === 3 ? `${numeral(data.selfDelegatePercent).format('0.[00]')}%` : '0%';
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -70,14 +70,10 @@ const VotingPower: React.FC<{
       </div>
       <div className={classes.item}>
         <Typography variant="h4" className="label">
-          {t('selfDelegatedTokens')}
+          {t('votingPowerPercent')}
         </Typography>
         <Typography variant="body1" className="value">
-          {selfDelegatedAmount}
-          {' '}
-          (
-          {selfDelegatePercent}
-          )
+          {`${votingPowerPercent.format('0,0.00')}%`}
         </Typography>
       </div>
     </Box>

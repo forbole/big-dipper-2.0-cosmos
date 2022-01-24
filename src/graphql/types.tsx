@@ -13861,7 +13861,6 @@ export type ValidatorLastSeenListenerSubscription = { preCommit: Array<(
 
 export type ValidatorDetailsQueryVariables = Exact<{
   address?: Maybe<Scalars['String']>;
-  utc?: Maybe<Scalars['timestamp']>;
 }>;
 
 
@@ -13891,22 +13890,6 @@ export type ValidatorDetailsQuery = { stakingPool: Array<(
       { __typename?: 'validator_voting_power' }
       & Pick<Validator_Voting_Power, 'height'>
       & { votingPower: Validator_Voting_Power['voting_power'] }
-    )>, delegations: Array<(
-      { __typename?: 'delegation' }
-      & Pick<Delegation, 'amount'>
-      & { delegatorAddress: Delegation['delegator_address'] }
-    )>, redelegationsByDstValidatorAddress: Array<(
-      { __typename?: 'redelegation' }
-      & Pick<Redelegation, 'amount'>
-      & { completionTime: Redelegation['completion_time'], from: Redelegation['src_validator_address'], to: Redelegation['dst_validator_address'], delegatorAddress: Redelegation['delegator_address'] }
-    )>, redelegationsBySrcValidatorAddress: Array<(
-      { __typename?: 'redelegation' }
-      & Pick<Redelegation, 'amount'>
-      & { completionTime: Redelegation['completion_time'], from: Redelegation['src_validator_address'], to: Redelegation['dst_validator_address'], delegatorAddress: Redelegation['delegator_address'] }
-    )>, unbonding: Array<(
-      { __typename?: 'unbonding_delegation' }
-      & Pick<Unbonding_Delegation, 'amount'>
-      & { completionTimestamp: Unbonding_Delegation['completion_timestamp'], delegatorAddress: Unbonding_Delegation['delegator_address'] }
     )> }
   )>, slashingParams: Array<(
     { __typename?: 'slashing_params' }
@@ -15198,7 +15181,7 @@ export function useValidatorLastSeenListenerSubscription(baseOptions?: Apollo.Su
 export type ValidatorLastSeenListenerSubscriptionHookResult = ReturnType<typeof useValidatorLastSeenListenerSubscription>;
 export type ValidatorLastSeenListenerSubscriptionResult = Apollo.SubscriptionResult<ValidatorLastSeenListenerSubscription>;
 export const ValidatorDetailsDocument = gql`
-    query ValidatorDetails($address: String, $utc: timestamp) {
+    query ValidatorDetails($address: String) {
   stakingPool: staking_pool(order_by: {height: desc}, limit: 1, offset: 0) {
     height
     bonded: bonded_tokens
@@ -15238,29 +15221,6 @@ export const ValidatorDetailsDocument = gql`
       height
       votingPower: voting_power
     }
-    delegations {
-      amount
-      delegatorAddress: delegator_address
-    }
-    redelegationsByDstValidatorAddress(where: {completion_time: {_gt: $utc}}) {
-      amount
-      completionTime: completion_time
-      from: src_validator_address
-      to: dst_validator_address
-      delegatorAddress: delegator_address
-    }
-    redelegationsBySrcValidatorAddress(where: {completion_time: {_gt: $utc}}) {
-      amount
-      completionTime: completion_time
-      from: src_validator_address
-      to: dst_validator_address
-      delegatorAddress: delegator_address
-    }
-    unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}}) {
-      amount
-      completionTimestamp: completion_timestamp
-      delegatorAddress: delegator_address
-    }
   }
   slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
     params
@@ -15281,7 +15241,6 @@ export const ValidatorDetailsDocument = gql`
  * const { data, loading, error } = useValidatorDetailsQuery({
  *   variables: {
  *      address: // value for 'address'
- *      utc: // value for 'utc'
  *   },
  * });
  */
