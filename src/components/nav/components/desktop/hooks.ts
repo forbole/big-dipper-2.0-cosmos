@@ -12,6 +12,8 @@ export const useDesktop = () => {
     // if window size shrinks to tablet/mobile we will close any open tabs
     if (!isDesktop) {
       turnOffAll();
+    } else {
+      setMenu(true);
     }
   }, [isDesktop]);
 
