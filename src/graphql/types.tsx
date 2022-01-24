@@ -6066,11 +6066,12 @@ export type Query_Root = {
   action_delegation_total?: Maybe<ActionBalance>;
   action_delegator_withdraw_address: ActionAddress;
   action_redelegation?: Maybe<ActionRedelegationResponse>;
-  action_redelegation_from_validator?: Maybe<ActionRedelegationResponse>;
   action_unbonding_delegation?: Maybe<ActionUnbondingDelegationResponse>;
   action_unbonding_delegation_total?: Maybe<ActionBalance>;
   action_validator_commission_amount?: Maybe<ActionValidatorCommissionAmount>;
-  action_validator_delegation?: Maybe<ActionDelegationResponse>;
+  action_validator_delegations?: Maybe<ActionDelegationResponse>;
+  action_validator_redelegations_from?: Maybe<ActionRedelegationResponse>;
+  action_validator_unbonding_delegations?: Maybe<ActionUnbondingDelegationResponse>;
   /** fetch data from the table: "average_block_time_from_genesis" */
   average_block_time_from_genesis: Array<Average_Block_Time_From_Genesis>;
   /** fetch aggregated fields from the table: "average_block_time_from_genesis" */
@@ -6420,14 +6421,6 @@ export type Query_RootAction_RedelegationArgs = {
 };
 
 
-export type Query_RootAction_Redelegation_From_ValidatorArgs = {
-  address: Scalars['String'];
-  count_total?: Maybe<Scalars['Boolean']>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-};
-
-
 export type Query_RootAction_Unbonding_DelegationArgs = {
   address: Scalars['String'];
   count_total?: Maybe<Scalars['Boolean']>;
@@ -6447,7 +6440,23 @@ export type Query_RootAction_Validator_Commission_AmountArgs = {
 };
 
 
-export type Query_RootAction_Validator_DelegationArgs = {
+export type Query_RootAction_Validator_DelegationsArgs = {
+  address: Scalars['String'];
+  count_total?: Maybe<Scalars['Boolean']>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+};
+
+
+export type Query_RootAction_Validator_Redelegations_FromArgs = {
+  address: Scalars['String'];
+  count_total?: Maybe<Scalars['Boolean']>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+};
+
+
+export type Query_RootAction_Validator_Unbonding_DelegationsArgs = {
   address: Scalars['String'];
   count_total?: Maybe<Scalars['Boolean']>;
   limit?: Maybe<Scalars['Int']>;
@@ -13928,6 +13937,19 @@ export type ValidatorRedelegationsQuery = { redelegations?: Maybe<(
     & Pick<ActionRedelegationResponse, 'redelegations' | 'pagination'>
   )> };
 
+export type ValidatorUndelegationsQueryVariables = Exact<{
+  validatorAddress: Scalars['String'];
+  offset?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type ValidatorUndelegationsQuery = { undelegations?: Maybe<(
+    { __typename?: 'ActionUnbondingDelegationResponse' }
+    & Pick<ActionUnbondingDelegationResponse, 'pagination'>
+    & { undelegations: ActionUnbondingDelegationResponse['unbonding_delegations'] }
+  )> };
+
 export type ValidatorsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -15276,7 +15298,7 @@ export type ValidatorDetailsLazyQueryHookResult = ReturnType<typeof useValidator
 export type ValidatorDetailsQueryResult = Apollo.QueryResult<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>;
 export const ValidatorDelegationsDocument = gql`
     query ValidatorDelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10) {
-  delegations: action_validator_delegation(
+  delegations: action_validator_delegations(
     address: $validatorAddress
     limit: $limit
     offset: $offset
@@ -15319,7 +15341,7 @@ export type ValidatorDelegationsLazyQueryHookResult = ReturnType<typeof useValid
 export type ValidatorDelegationsQueryResult = Apollo.QueryResult<ValidatorDelegationsQuery, ValidatorDelegationsQueryVariables>;
 export const ValidatorRedelegationsDocument = gql`
     query ValidatorRedelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10) {
-  redelegations: action_redelegation_from_validator(
+  redelegations: action_validator_redelegations_from(
     address: $validatorAddress
     limit: $limit
     offset: $offset
@@ -15360,6 +15382,49 @@ export function useValidatorRedelegationsLazyQuery(baseOptions?: Apollo.LazyQuer
 export type ValidatorRedelegationsQueryHookResult = ReturnType<typeof useValidatorRedelegationsQuery>;
 export type ValidatorRedelegationsLazyQueryHookResult = ReturnType<typeof useValidatorRedelegationsLazyQuery>;
 export type ValidatorRedelegationsQueryResult = Apollo.QueryResult<ValidatorRedelegationsQuery, ValidatorRedelegationsQueryVariables>;
+export const ValidatorUndelegationsDocument = gql`
+    query ValidatorUndelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10) {
+  undelegations: action_validator_unbonding_delegations(
+    address: $validatorAddress
+    limit: $limit
+    offset: $offset
+    count_total: true
+  ) {
+    undelegations: unbonding_delegations
+    pagination
+  }
+}
+    `;
+
+/**
+ * __useValidatorUndelegationsQuery__
+ *
+ * To run a query within a React component, call `useValidatorUndelegationsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorUndelegationsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useValidatorUndelegationsQuery({
+ *   variables: {
+ *      validatorAddress: // value for 'validatorAddress'
+ *      offset: // value for 'offset'
+ *      limit: // value for 'limit'
+ *   },
+ * });
+ */
+export function useValidatorUndelegationsQuery(baseOptions: Apollo.QueryHookOptions<ValidatorUndelegationsQuery, ValidatorUndelegationsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorUndelegationsQuery, ValidatorUndelegationsQueryVariables>(ValidatorUndelegationsDocument, options);
+      }
+export function useValidatorUndelegationsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorUndelegationsQuery, ValidatorUndelegationsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorUndelegationsQuery, ValidatorUndelegationsQueryVariables>(ValidatorUndelegationsDocument, options);
+        }
+export type ValidatorUndelegationsQueryHookResult = ReturnType<typeof useValidatorUndelegationsQuery>;
+export type ValidatorUndelegationsLazyQueryHookResult = ReturnType<typeof useValidatorUndelegationsLazyQuery>;
+export type ValidatorUndelegationsQueryResult = Apollo.QueryResult<ValidatorUndelegationsQuery, ValidatorUndelegationsQueryVariables>;
 export const ValidatorsDocument = gql`
     query Validators {
   stakingPool: staking_pool(limit: 1, order_by: {height: desc}) {
