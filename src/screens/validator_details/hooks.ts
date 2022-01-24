@@ -276,6 +276,7 @@ export const useValidatorDetails = () => {
       //   numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value(),
       //   R.pathOr(0, ['amount', 'denom'], selfDelegate),
       // );
+      // eslint-disable-next-line
       // const selfDelegatePercent = (numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value() / totalDelegations) * 100;
 
       const votingPower = {

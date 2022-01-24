@@ -27,7 +27,9 @@ const VotingPower: React.FC<{
   const classes = useStyles(votingPowerPercent.format(0, Math.floor));
 
   const votingPower = status === 3 ? numeral(data.self).format('0,0') : '0';
+  // eslint-disable-next-line
   // const selfDelegatedAmount = status === 3 ? numeral(data.selfDelegate.value).format('0,0') : '0';
+  // eslint-disable-next-line
   // const selfDelegatePercent = status === 3 ? `${numeral(data.selfDelegatePercent).format('0.[00]')}%` : '0%';
 
   return (
