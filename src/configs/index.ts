@@ -1,5 +1,6 @@
 import chainConfigTestnet from './chain_config.testnet.json';
 import chainConfigMainnet from './chain_config.mainnet.json';
+import chainConfigTemp from './chain_config_temp.json';
 import generalConfig from './general_config.json';
 
 /**
@@ -18,4 +19,5 @@ const chainConfig = getChainConfig();
 export {
   chainConfig,
   generalConfig,
+  chainConfigTemp,
 };
