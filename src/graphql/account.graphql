@@ -1,7 +1,5 @@
-query Account($address: String!, $validatorAddress: String!, $utc: timestamp) {
-  stakingParams: staking_params(limit: 1) {
-    params
-  }
+
+query Account($address: String!, $validatorAddress: String!) {
   commission: action_validator_commission_amount(address: $validatorAddress) {
     coins
   }
@@ -11,47 +9,35 @@ query Account($address: String!, $validatorAddress: String!, $utc: timestamp) {
   accountBalances: action_account_balance(address: $address) {
     coins
   }
+  delegationBalance: action_delegation_total(address: $address) {
+    coins
+  }
+  unbondingBalance: action_unbonding_delegation_total(address: $address) {
+    coins
+  }
   delegationRewards: action_delegation_reward(address: $address) {
     validatorAddress: validator_address
     coins
   }
-  account(where: {address: {_eq: $address}}) {
-    address
-    delegations {
-      amount
-      validator {
-        validatorInfo: validator_info {
-          operatorAddress: operator_address
-        }
-        validatorCommissions: validator_commissions(limit: 1, order_by: {height: desc}) {
-          commission
-        }
-        validatorStatuses: validator_statuses(limit: 1, order_by: {height: desc}) {
-          status
-          jailed
-        }
-        validatorSigningInfos: validator_signing_infos(order_by: {height: desc}, limit: 1) {
-          tombstoned
-        }
-      }
-    }
-    unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}}) {
-      amount
-      completionTimestamp: completion_timestamp
-      validator {
-        validatorCommissions: validator_commissions(limit: 1, order_by: {height: desc}) {
-          commission
-        }
-        validatorInfo: validator_info {
-          operatorAddress: operator_address
-        }
-      }
-    }
-    redelegations(where: {completion_time: {_gt: $utc}}) {
-      amount
-      completionTime: completion_time
-      from: src_validator_address
-      to: dst_validator_address
-    }
+}
+
+query AccountDelegations($address: String!, $offset: Int = 0, $limit: Int = 10) {
+  delegations: action_delegation(address: $address, limit: $limit, offset: $offset, count_total: true){
+    delegations
+    pagination
+  }
+}
+
+query AccountRedelegations($address: String!, $offset: Int = 0, $limit: Int = 10) {
+  redelegations: action_redelegation(address: $address, limit: $limit, offset: $offset, count_total: true){
+    redelegations
+    pagination
+  }
+}
+
+query AccountUndelegations($address: String!, $offset: Int = 0, $limit: Int = 10) {
+  undelegations: action_unbonding_delegation(address: $address, limit: $limit, offset: $offset, count_total: true){
+    undelegations: unbonding_delegations
+    pagination
   }
 }

@@ -30,10 +30,10 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
         nickname=""
       />
       <div
-        address="desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr"
+        address="desmos1ltpgdupjgtpqzsznltcptmfh6gfu5d8uehxggj"
         className="makeStyles-overview"
         id="Overview"
-        withdrawalAddress="desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr"
+        withdrawalAddress="desmos1ltpgdupjgtpqzsznltcptmfh6gfu5d8uehxggj"
       />
       <div
         available={
@@ -50,7 +50,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
             "baseDenom": "udaric",
             "displayDenom": "daric",
             "exponent": 6,
-            "value": "0.72560220746403193665",
+            "value": "0",
           }
         }
         delegate={
@@ -58,7 +58,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
             "baseDenom": "udaric",
             "displayDenom": "daric",
             "exponent": 6,
-            "value": "1632425.218854",
+            "value": "0",
           }
         }
         id="Balance"
@@ -75,7 +75,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
             "baseDenom": "udaric",
             "displayDenom": "daric",
             "exponent": 6,
-            "value": "1632425.94445620746403193665",
+            "value": "0",
           }
         }
         unbonding={
@@ -92,54 +92,50 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
         id="OtherTokens"
         otherTokens={
           Object {
-            "count": 0,
-            "data": Array [],
-          }
-        }
-      />
-      <div
-        className="makeStyles-staking"
-        delegations={
-          Object {
             "count": 1,
             "data": Array [
               Object {
-                "amount": Object {
-                  "baseDenom": "udaric",
-                  "displayDenom": "daric",
-                  "exponent": 6,
-                  "value": "1632425.218854",
+                "available": Object {
+                  "baseDenom": "udsm",
+                  "displayDenom": "udsm",
+                  "exponent": 0,
+                  "value": "116306",
                 },
-                "commission": 0.0999,
+                "commission": Object {
+                  "baseDenom": "udsm",
+                  "displayDenom": "udsm",
+                  "exponent": 0,
+                  "value": "935371507.295045102561007305",
+                },
+                "denom": "udsm",
                 "reward": Object {
-                  "baseDenom": "udaric",
-                  "displayDenom": "daric",
-                  "exponent": 6,
-                  "value": "0",
-                },
-                "validator": "desmosvaloper1u0dae8r8hay6r2gvccegg2fz6ryftf2wfnj5ft",
-                "validatorSigningInfo": Object {
-                  "tombstoned": false,
-                },
-                "validatorStatus": Object {
-                  "jailed": false,
-                  "status": 3,
+                  "baseDenom": "udsm",
+                  "displayDenom": "udsm",
+                  "exponent": 0,
+                  "value": "3012571.97979500724",
                 },
               },
             ],
           }
         }
+      />
+      <div
+        className="makeStyles-staking"
         id="Staking"
-        redelegations={
+        rewards={
           Object {
-            "count": 0,
-            "data": Array [],
-          }
-        }
-        unbondings={
-          Object {
-            "count": 0,
-            "data": Array [],
+            "desmosvaloper1gwr9l765vfxv4l4zz8glsxwkkphj2084xjwc68": Object {
+              "baseDenom": "udaric",
+              "displayDenom": "daric",
+              "exponent": 6,
+              "value": "0",
+            },
+            "desmosvaloper1mqfr567kvp659z0zjvpqudw3wx7hh3s7u9a8g9": Object {
+              "baseDenom": "udaric",
+              "displayDenom": "daric",
+              "exponent": 6,
+              "value": "0",
+            },
           }
         }
       />

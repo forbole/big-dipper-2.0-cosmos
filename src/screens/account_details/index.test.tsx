@@ -19,7 +19,7 @@ import AccountDetails from '.';
 jest.mock('next/router', () => ({
   useRouter: () => ({
     query: {
-      address: 'address',
+      address: 'desmos1ltpgdupjgtpqzsznltcptmfh6gfu5d8uehxggj',
     },
   }),
 }));
@@ -40,109 +40,57 @@ jest.mock('./components', () => ({
 
 const mockAccount = jest.fn().mockResolvedValue({
   data: {
-    stakingParams: [
-      {
-        params: {},
-      },
-    ],
-    delegationRewards: [
-      {
-        validatorAddress: 'desmosvaloper1u0dae8r8hay6r2gvccegg2fz6ryftf2wfnj5ft',
-        coins: [
-          {
-            amount: '41613110',
-            denom: 'udaric',
-          },
-        ],
-      },
-      {
-        validatorAddress: 'desmosvaloper1u0dae8r8hay6r2gvccegg2fz6ryftf2wfnj5ft',
-        coins: [
-          {
-            amount: '4359108323',
-            denom: 'udaric',
-          },
-        ],
-      },
-    ],
-    accountBalances: {
+    commission: {
       coins: [
         {
-          amount: '0',
-          denom: 'ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2',
-        },
-        {
-          amount: '233619138152013026',
-          denom: 'rowan',
+          amount: '935371507.295045102561007305',
+          denom: 'udsm',
         },
       ],
     },
-    account: [
+    withdrawalAddress: {
+      address: 'desmos1ltpgdupjgtpqzsznltcptmfh6gfu5d8uehxggj',
+    },
+    accountBalances: {
+      coins: [
+        {
+          amount: '116306',
+          denom: 'udsm',
+        },
+      ],
+    },
+    delegationBalance: {
+      coins: [
+        {
+          amount: '1530000000',
+          denom: 'udsm',
+        },
+      ],
+    },
+    unbondingBalance: {
+      coins: [
+        {
+          amount: '0',
+          denom: 'udsm',
+        },
+      ],
+    },
+    delegationRewards: [
       {
-        address: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
-        delegations: [
+        validatorAddress: 'desmosvaloper1gwr9l765vfxv4l4zz8glsxwkkphj2084xjwc68',
+        coins: [
           {
-            amount: {
-              denom: 'udaric',
-              amount: '1632425218854',
-            },
-            validator: {
-              validatorInfo: {
-                operatorAddress: 'desmosvaloper1u0dae8r8hay6r2gvccegg2fz6ryftf2wfnj5ft',
-              },
-              validatorCommissions: [
-                {
-                  commission: 0.0999,
-                },
-              ],
-              validatorStatuses: [
-                {
-                  status: 3,
-                  jailed: false,
-                },
-              ],
-              validatorSigningInfos: [
-                {
-                  tombstoned: false,
-                },
-              ],
-            },
-          },
-        ],
-        unbonding: [],
-        redelegations: [],
-        delegationRewards: [
-          {
-            amount: [
-              {
-                denom: 'udaric',
-                amount: '58219061338.275262315000000000',
-              },
-              {
-                denom: 'ufootoken',
-                amount: '58219061338',
-              },
-            ],
-            withdrawAddress: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
-            validator: {
-              validatorInfo: {
-                operatorAddress: 'desmosvaloper1u0dae8r8hay6r2gvccegg2fz6ryftf2wfnj5ft',
-              },
-            },
+            amount: '1983411.761512021000000000',
+            denom: 'udsm',
           },
         ],
       },
-    ],
-    validator: [
       {
-        commission: [
+        validatorAddress: 'desmosvaloper1mqfr567kvp659z0zjvpqudw3wx7hh3s7u9a8g9',
+        coins: [
           {
-            amount: [
-              {
-                denom: 'udaric',
-                amount: '725602.207464031936652132',
-              },
-            ],
+            amount: '1029160.218282986240000000',
+            denom: 'udsm',
           },
         ],
       },
