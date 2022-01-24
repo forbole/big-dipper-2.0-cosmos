@@ -6,6 +6,8 @@ import {
   AccountDelegationsQuery,
   useAccountUndelegationsQuery,
   AccountUndelegationsQuery,
+  useAccountRedelegationsQuery,
+  AccountRedelegationsQuery,
 } from '@graphql/types';
 import {
   formatToken,
@@ -101,6 +103,10 @@ export const useStaking = (rewards: RewardsType) => {
       });
     }
   };
+
+  // =====================================
+  // redelegations
+  // =====================================
 
   // =====================================
   // unbondings
