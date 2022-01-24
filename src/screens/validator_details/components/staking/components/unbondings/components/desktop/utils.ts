@@ -4,7 +4,7 @@ export const columns:{
   width: number;
 }[] = [
   {
-    key: 'validator',
+    key: 'address',
     width: 40,
   },
   {

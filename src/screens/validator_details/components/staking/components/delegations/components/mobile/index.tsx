@@ -27,12 +27,12 @@ const Mobile: React.FC<{
             <div className={classes.list}>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
-                  {t('validator')}
+                  {t('address')}
                 </Typography>
                 <AvatarName
-                  name={x.validator.name}
-                  address={x.validator.address}
-                  imageUrl={x.validator.imageUrl}
+                  name={x.address.name}
+                  address={x.address.address}
+                  imageUrl={x.address.imageUrl}
                 />
               </div>
               <div className={classes.item}>
@@ -43,16 +43,6 @@ const Mobile: React.FC<{
                   {formatNumber(x.amount.value, x.amount.exponent)}
                   {' '}
                   {x.amount.displayDenom.toUpperCase()}
-                </Typography>
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('reward')}
-                </Typography>
-                <Typography variant="body1" className="value">
-                  {formatNumber(x.reward.value, x.reward.exponent)}
-                  {' '}
-                  {x.reward.displayDenom.toUpperCase()}
                 </Typography>
               </div>
             </div>

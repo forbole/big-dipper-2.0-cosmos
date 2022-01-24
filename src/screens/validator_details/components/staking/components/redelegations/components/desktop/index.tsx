@@ -40,13 +40,6 @@ const Desktop: React.FC<{
           name={x.to.name}
         />
       ),
-      from: (
-        <AvatarName
-          address={x.from.address}
-          imageUrl={x.from.imageUrl}
-          name={x.from.name}
-        />
-      ),
       entries,
     });
   });

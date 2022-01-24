@@ -33,11 +33,11 @@ const Desktop: React.FC<{
       completionTime: formatDayJs(dayjs.utc(y.completionTime), dateFormat),
     }));
     return ({
-      validator: (
+      address: (
         <AvatarName
-          address={x.validator.address}
-          imageUrl={x.validator.imageUrl}
-          name={x.validator.name}
+          address={x.address.address}
+          imageUrl={x.address.imageUrl}
+          name={x.address.name}
         />
       ),
       entries,

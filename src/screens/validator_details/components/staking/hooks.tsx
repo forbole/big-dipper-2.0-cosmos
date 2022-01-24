@@ -2,19 +2,18 @@ import { useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import {
-  useAccountDelegationsQuery,
-  AccountDelegationsQuery,
-  useAccountUndelegationsQuery,
-  AccountUndelegationsQuery,
-  useAccountRedelegationsQuery,
-  AccountRedelegationsQuery,
+  useValidatorDelegationsQuery,
+  ValidatorDelegationsQuery,
+  useValidatorRedelegationsQuery,
+  ValidatorRedelegationsQuery,
+  useValidatorUndelegationsQuery,
+  ValidatorUndelegationsQuery,
 } from '@graphql/types';
 import {
   formatToken,
 } from '@utils/format_token';
 import { chainConfig } from '@configs';
 import { StakingState } from './types';
-import { RewardsType } from '../../types';
 
 const stakingDefault = {
   data: {},
@@ -24,7 +23,7 @@ const stakingDefault = {
 
 const LIMIT = 10;
 
-export const useStaking = (rewards: RewardsType) => {
+export const useStaking = () => {
   const router = useRouter();
   const [state, setState] = useState<StakingState>({
     tab: 0,
@@ -47,9 +46,9 @@ export const useStaking = (rewards: RewardsType) => {
   // =====================================
   // delegations
   // =====================================
-  const delegationsQuery = useAccountDelegationsQuery({
+  const delegationsQuery = useValidatorDelegationsQuery({
     variables: {
-      address: R.pathOr('', ['query', 'address'], router),
+      validatorAddress: R.pathOr('', ['query', 'address'], router),
       limit: LIMIT,
     },
     onCompleted: (data) => {
@@ -66,15 +65,14 @@ export const useStaking = (rewards: RewardsType) => {
     },
   });
 
-  const formatDelegations = (data: AccountDelegationsQuery) => {
+  const formatDelegations = (data: ValidatorDelegationsQuery) => {
     const delegations = R.pathOr([], ['delegations', 'delegations'], data);
     return delegations
       .map((x) => {
-        const validator = R.pathOr('', ['validator_address'], x);
+        const address = R.pathOr('', ['delegator_address'], x);
         return ({
-          validator,
+          address,
           amount: formatToken(x.coins.amount, x.coins.denom),
-          reward: rewards[validator],
         });
       });
   };
@@ -108,9 +106,9 @@ export const useStaking = (rewards: RewardsType) => {
   // =====================================
   // redelegations
   // =====================================
-  const redelegationsQuery = useAccountRedelegationsQuery({
+  const redelegationsQuery = useValidatorRedelegationsQuery({
     variables: {
-      address: R.pathOr('', ['query', 'address'], router),
+      validatorAddress: R.pathOr('', ['query', 'address'], router),
       limit: LIMIT,
     },
     onCompleted: (data) => {
@@ -127,11 +125,10 @@ export const useStaking = (rewards: RewardsType) => {
     },
   });
 
-  const formatRedelegations = (data: AccountRedelegationsQuery) => {
+  const formatRedelegations = (data: ValidatorRedelegationsQuery) => {
     const redelegations = R.pathOr([], ['redelegations', 'redelegations'], data);
     return redelegations
       .map((x) => {
-        const from = R.pathOr('', ['validator_src_address'], x);
         const to = R.pathOr('', ['validator_dst_address'], x);
         const entries = R.pathOr([], ['entries'], x).map((y) => ({
           amount: formatToken(y.balance, chainConfig.primaryTokenUnit),
@@ -139,7 +136,6 @@ export const useStaking = (rewards: RewardsType) => {
         }));
 
         return ({
-          from,
           to,
           entries,
         });
@@ -175,9 +171,9 @@ export const useStaking = (rewards: RewardsType) => {
   // =====================================
   // unbondings
   // =====================================
-  const unbondingsQuery = useAccountUndelegationsQuery({
+  const unbondingsQuery = useValidatorUndelegationsQuery({
     variables: {
-      address: R.pathOr('', ['query', 'address'], router),
+      validatorAddress: R.pathOr('', ['query', 'address'], router),
       limit: LIMIT,
     },
     onCompleted: (data) => {
@@ -194,18 +190,18 @@ export const useStaking = (rewards: RewardsType) => {
     },
   });
 
-  const formatUnbondings = (data: AccountUndelegationsQuery) => {
+  const formatUnbondings = (data: ValidatorUndelegationsQuery) => {
     const unbondings = R.pathOr([], ['undelegations', 'undelegations'], data);
     return unbondings
       .map((x) => {
-        const validator = R.pathOr('', ['validator_address'], x);
+        const address = R.pathOr('', ['delegator_address'], x);
         const entries = R.pathOr([], ['entries'], x).map((y) => ({
           amount: formatToken(y.balance, chainConfig.primaryTokenUnit),
           completionTime: R.pathOr('', ['completion_time'], y),
         }));
 
         return ({
-          validator,
+          address,
           entries,
         });
       });

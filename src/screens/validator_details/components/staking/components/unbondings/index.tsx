@@ -37,7 +37,7 @@ const Unbondings: React.FC<{
   const mergedDataWithProfiles = pageItems.map((x, i) => {
     return ({
       ...x,
-      validator: dataProfiles[i],
+      address: dataProfiles[i],
     });
   });
 

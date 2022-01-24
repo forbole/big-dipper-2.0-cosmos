@@ -34,13 +34,6 @@ const Mobile: React.FC<{
           name={x.to.name}
         />
       ),
-      from: (
-        <AvatarName
-          address={x.from.address}
-          imageUrl={x.from.imageUrl}
-          name={x.from.name}
-        />
-      ),
       entries,
     });
   });
@@ -51,19 +44,11 @@ const Mobile: React.FC<{
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
-              <div className={classes.flex}>
-                <div className={classes.item}>
-                  <Typography variant="h4" className="label">
-                    {t('from')}
-                  </Typography>
-                  {x.from}
-                </div>
-                <div className={classes.item}>
-                  <Typography variant="h4" className="label">
-                    {t('to')}
-                  </Typography>
-                  {x.to}
-                </div>
+              <div className={classes.item}>
+                <Typography variant="h4" className="label">
+                  {t('to')}
+                </Typography>
+                {x.to}
               </div>
               {
                 x.entries.map((y, index) => {
