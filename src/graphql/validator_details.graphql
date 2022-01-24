@@ -83,3 +83,16 @@ query ValidatorDetails($address: String, $utc: timestamp) {
   }
 }
 
+query ValidatorDelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10) {
+  delegations: action_validator_delegation(address: $validatorAddress, limit: $limit, offset: $offset, count_total: true){
+    delegations
+    pagination
+  }
+}
+
+query ValidatorRedelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10) {
+  redelegations: action_redelegation_from_validator(address: $validatorAddress, limit: $limit, offset: $offset, count_total: true){
+    redelegations
+    pagination
+  }
+}
