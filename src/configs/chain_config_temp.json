@@ -1,0 +1,12 @@
+{
+    "name": "Cudos",
+    "logo": "https://wallet.cudos.org/img/logo-icon.cb505cad.svg?sanitize=true",
+    "cover": "https://wallet.cudos.org/img/logo-dark.e500e625.svg?sanitize=true",
+    "links": [
+        {
+            "name": "Testnet",
+            "chain_id": "cudos-artemis-testnet",
+            "url": "http://localhost:3000"
+        }
+    ]
+}

@@ -23,9 +23,17 @@ export const useStyles = () => {
             },
           },
         },
+        logoContainer: {
+          display: 'flex',
+          alignItems: 'center',
+          gap: '10px',
+        },
+        icon: {
+          height: '56px',
+        },
         logo: {
           height: '56px',
-          // width: '225px',
+          filter: theme.palette.type === 'light' ? null : 'invert(1)',
         },
         content: {
           width: '100%',

@@ -19,6 +19,9 @@ import {
   Networks,
   Selected,
 } from '@recoil/big_dipper_networks/types';
+import {
+  chainConfigTemp,
+} from '@src/configs';
 
 const NETWORK_LIST_API = 'https://raw.githubusercontent.com/forbole/big-dipper-networks/main/networks.json';
 
@@ -31,7 +34,7 @@ export const useBigDipperNetworksRecoil = () => {
       let data = [];
       try {
         const results = await axios.get(NETWORK_LIST_API);
-        data = results?.data ?? [];
+        data = [...results?.data, chainConfigTemp] ?? [];
       } catch (error) {
         console.error(error);
       }
