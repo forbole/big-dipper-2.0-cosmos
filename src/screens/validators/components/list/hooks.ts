@@ -61,6 +61,11 @@ export const useValidators = () => {
         R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x),
         chainConfig.votingPowerTokenUnit,
       ).value).value();
+      // R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
+      // numeral(formatToken(
+      //   R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x),
+      //   chainConfig.votingPowerTokenUnit,
+      // ).value).value();
 
       const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
       // const totalDelegations = x.delegations.reduce((a, b) => {
@@ -77,13 +82,6 @@ export const useValidators = () => {
 
       const missedBlockCounter = R.pathOr(0, ['validatorSigningInfos', 0, 'missedBlocksCounter'], x);
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
-
-      if (x.validatorInfo.operatorAddress === 'evmosvaloper1jkn3w5rm7lp0pn07qxc4d3rxdxre7h23xty2v9') {
-        console.log(R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data), 'bonded');
-        console.log(votingPowerOverall, 'vp overall');
-        console.log(votingPower, 'self vp now');
-        console.log(x, 'data');
-      }
 
       return ({
         validator: x.validatorInfo.operatorAddress,
