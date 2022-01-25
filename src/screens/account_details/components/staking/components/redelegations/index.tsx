@@ -28,7 +28,9 @@ const Redelegations: React.FC<{
     rowsPerPage,
     handleChangePage,
     handleChangeRowsPerPage,
-  } = usePagination({});
+  } = usePagination({
+    pageChangeCallback: props.handlePageCallback,
+  });
 
   const pageItems = R.pathOr([], ['redelegations', 'data', page], props);
 

@@ -63,6 +63,13 @@ export const useStaking = () => {
         },
       });
     },
+    onError: () => {
+      handleSetState({
+        delegations: {
+          loading: false,
+        },
+      });
+    },
   });
 
   const formatDelegations = (data: ValidatorDelegationsQuery) => {
@@ -123,6 +130,13 @@ export const useStaking = () => {
         },
       });
     },
+    onError: () => {
+      handleSetState({
+        redelegations: {
+          loading: false,
+        },
+      });
+    },
   });
 
   const formatRedelegations = (data: ValidatorRedelegationsQuery) => {
@@ -130,12 +144,14 @@ export const useStaking = () => {
     return redelegations
       .map((x) => {
         const to = R.pathOr('', ['validator_dst_address'], x);
+        const address = R.pathOr('', ['delegator_address'], x);
         const entries = R.pathOr([], ['entries'], x).map((y) => ({
           amount: formatToken(y.balance, chainConfig.primaryTokenUnit),
           completionTime: R.pathOr('', ['completion_time'], y),
         }));
 
         return ({
+          address,
           to,
           entries,
         });
@@ -145,7 +161,7 @@ export const useStaking = () => {
   const handleRedelegationPageCallback = async (page: number, _rowsPerPage: number) => {
     if (!state.unbondings.data[page]) {
       handleSetState({
-        unbondings: {
+        redelegations: {
           loading: true,
         },
       });
@@ -157,7 +173,7 @@ export const useStaking = () => {
         },
       }).then(({ data }) => {
         handleSetState({
-          unbondings: {
+          redelegations: {
             loading: false,
             data: {
               [page]: formatRedelegations(data),
@@ -185,6 +201,13 @@ export const useStaking = () => {
           data: {
             0: formattedData,
           },
+        },
+      });
+    },
+    onError: () => {
+      handleSetState({
+        unbondings: {
+          loading: false,
         },
       });
     },

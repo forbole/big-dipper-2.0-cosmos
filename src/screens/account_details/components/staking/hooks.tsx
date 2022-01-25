@@ -64,6 +64,13 @@ export const useStaking = (rewards: RewardsType) => {
         },
       });
     },
+    onError: () => {
+      handleSetState({
+        delegations: {
+          loading: false,
+        },
+      });
+    },
   });
 
   const formatDelegations = (data: AccountDelegationsQuery) => {
@@ -125,6 +132,13 @@ export const useStaking = (rewards: RewardsType) => {
         },
       });
     },
+    onError: () => {
+      handleSetState({
+        redelegations: {
+          loading: false,
+        },
+      });
+    },
   });
 
   const formatRedelegations = (data: AccountRedelegationsQuery) => {
@@ -149,7 +163,7 @@ export const useStaking = (rewards: RewardsType) => {
   const handleRedelegationPageCallback = async (page: number, _rowsPerPage: number) => {
     if (!state.unbondings.data[page]) {
       handleSetState({
-        unbondings: {
+        redelegations: {
           loading: true,
         },
       });
@@ -161,7 +175,7 @@ export const useStaking = (rewards: RewardsType) => {
         },
       }).then(({ data }) => {
         handleSetState({
-          unbondings: {
+          redelegations: {
             loading: false,
             data: {
               [page]: formatRedelegations(data),
@@ -189,6 +203,13 @@ export const useStaking = (rewards: RewardsType) => {
           data: {
             0: formattedData,
           },
+        },
+      });
+    },
+    onError: () => {
+      handleSetState({
+        unbondings: {
+          loading: false,
         },
       });
     },
