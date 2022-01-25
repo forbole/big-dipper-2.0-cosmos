@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classnames from 'classnames';
 import {
   TableRow,
@@ -8,6 +8,7 @@ import {
   TableBody,
   Typography,
 } from '@material-ui/core';
+import copy from 'copy-to-clipboard';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
@@ -15,9 +16,41 @@ import Link from 'next/link';
 import { AvatarName } from '@components';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { ContentCopyRounded } from '@mui/icons-material';
 import { useStyles } from './styles';
 import { columns } from './utils';
 import { ItemType } from '../../types';
+
+const CopyHash: React.FC<{ hash: string }> = ({ hash }) => {
+  const [isCopied, setIsCopied] = useState<boolean>(false);
+  const classes = useStyles();
+
+  const copyToClipboard = () => {
+    copy(hash);
+    setIsCopied(true);
+
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 3000);
+  };
+
+  return (
+    <div
+      className={classes.copyContainer}
+      onClick={copyToClipboard}
+      role="button"
+    >
+      {getMiddleEllipsis(hash, {
+        beginning: 6,
+        ending: 5,
+      })}
+      <div className={`${classes.copyPopup} ${isCopied && classes.copySuccess}`}>
+        <ContentCopyRounded />
+        <span style={{ opacity: isCopied ? 1 : 0 }}>Copied</span>
+      </div>
+    </div>
+  );
+};
 
 const Desktop: React.FC<{
   className?: string;
@@ -46,9 +79,7 @@ const Desktop: React.FC<{
           name={x.proposer.name}
         />
       ),
-      hash: getMiddleEllipsis(x.hash, {
-        beginning: 6, ending: 5,
-      }),
+      hash: x.hash,
     });
   });
 
@@ -79,7 +110,7 @@ const Desktop: React.FC<{
                 const item = row[key];
                 return (
                   <TableCell align={align} key={`${key}-${index}`}>
-                    {item}
+                    {key !== 'hash' ? item : <CopyHash hash={item} />}
                   </TableCell>
                 );
               })}
