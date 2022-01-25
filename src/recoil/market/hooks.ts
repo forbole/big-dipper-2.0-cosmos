@@ -24,7 +24,7 @@ export const useMarketRecoil = () => {
   useMarketDataQuery(
     {
       variables: {
-        denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
+        denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display.toLowerCase(),
       },
       onCompleted: (data) => {
         if (data) {
