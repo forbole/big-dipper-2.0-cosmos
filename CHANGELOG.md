@@ -1,4 +1,4 @@
-# Unreleased
+# base-v1.10.0 - 2021-01-25
 
 ## Changes
 - Optimized initial loading by setting basic details first then profiles after ([\#629](https://github.com/forbole/big-dipper-2.0-cosmos/issues/629))
@@ -9,6 +9,7 @@
 - Fix validator anc account details possible infinite load due to dayjs in hook
 - Add description sanitization to proposals list ([\#666](https://github.com/forbole/big-dipper-2.0-cosmos/issues/666))
 - Fix pagination hook page callback ([\#667](https://github.com/forbole/big-dipper-2.0-cosmos/issues/667))
+- Show address if name or moniker is empty ([\#668](https://github.com/forbole/big-dipper-2.0-cosmos/issues/668))
 
 ## Migration
 
