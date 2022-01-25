@@ -17,12 +17,12 @@ export const fetchColumns = (t): {
   return ([
     {
       key: 'idx',
-      width: 10,
+      width: 5,
     },
     {
       key: 'validator',
       sortKey: 'validator.name',
-      width: 25,
+      width: 20,
       sort: true,
     },
     {
@@ -35,7 +35,7 @@ export const fetchColumns = (t): {
       key: 'commission',
       sortKey: 'commission',
       align: 'right',
-      width: 10,
+      width: 15,
       sort: true,
     },
     // {
@@ -55,7 +55,7 @@ export const fetchColumns = (t): {
     {
       key: 'condition',
       align: 'center',
-      width: 13,
+      width: 15,
       component: (
         <Typography variant="h4" className="label popover">
           {t('condition')}
@@ -67,7 +67,7 @@ export const fetchColumns = (t): {
     },
     {
       key: 'status',
-      width: 12,
+      width: 15,
     },
   ]);
 };

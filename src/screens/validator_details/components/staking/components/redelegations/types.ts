@@ -1,3 +1,3 @@
 import { RedelegationType } from '../../types';
 
-export type ItemType = Override<RedelegationType, { to: AvatarName }>
+export type ItemType = Override<RedelegationType, { to: AvatarName, address: AvatarName }>

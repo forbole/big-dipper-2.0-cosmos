@@ -28,15 +28,19 @@ const Redelegations: React.FC<{
     rowsPerPage,
     handleChangePage,
     handleChangeRowsPerPage,
-  } = usePagination({});
+  } = usePagination({
+    pageChangeCallback: props.handlePageCallback,
+  });
 
   const pageItems = R.pathOr([], ['redelegations', 'data', page], props);
 
   const toProfiles = useProfilesRecoil(pageItems.map((x) => x.to));
+  const addressProfiles = useProfilesRecoil(pageItems.map((x) => x.address));
   const mergedDataWithProfiles = pageItems.map((x, i) => {
     return ({
       ...x,
       to: toProfiles[i],
+      address: addressProfiles[i],
     });
   });
 

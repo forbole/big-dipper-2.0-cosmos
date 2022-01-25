@@ -4,13 +4,17 @@ export const columns:{
   width: number;
 }[] = [
   {
+    key: 'address',
+    width: 25,
+  },
+  {
     key: 'to',
-    width: 40,
+    width: 25,
   },
   {
     key: 'amount',
     align: 'right',
-    width: 30,
+    width: 20,
   },
   {
     key: 'completionTime',

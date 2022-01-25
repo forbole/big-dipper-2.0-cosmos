@@ -33,6 +33,13 @@ const Desktop: React.FC<{
       completionTime: formatDayJs(dayjs.utc(y.completionTime), dateFormat),
     }));
     return ({
+      address: (
+        <AvatarName
+          address={x.address.address}
+          imageUrl={x.address.imageUrl}
+          name={x.address.name}
+        />
+      ),
       to: (
         <AvatarName
           address={x.to.address}

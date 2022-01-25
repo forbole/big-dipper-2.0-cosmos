@@ -27,6 +27,13 @@ const Mobile: React.FC<{
       completionTime: formatDayJs(dayjs.utc(y.completionTime), dateFormat),
     }));
     return ({
+      address: (
+        <AvatarName
+          address={x.address.address}
+          imageUrl={x.address.imageUrl}
+          name={x.address.name}
+        />
+      ),
       to: (
         <AvatarName
           address={x.to.address}
@@ -44,6 +51,12 @@ const Mobile: React.FC<{
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
+              <div className={classes.item}>
+                <Typography variant="h4" className="label">
+                  {t('address')}
+                </Typography>
+                {x.address}
+              </div>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
                   {t('to')}
