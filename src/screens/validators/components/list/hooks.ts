@@ -51,13 +51,17 @@ export const useValidators = () => {
     const slashingParams = SlashingParams.fromJson(R.pathOr({}, ['slashingParams', 0, 'params'], data));
     const votingPowerOverall = numeral(formatToken(
       R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data),
-      chainConfig.votingPowerTokenUnit,
+      chainConfig.primaryTokenUnit,
     ).value).value();
 
     const { signedBlockWindow } = slashingParams;
 
     let formattedItems: ValidatorType[] = data.validator.filter((x) => x.validatorInfo).map((x) => {
-      const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
+      const votingPower = numeral(formatToken(
+        R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x),
+        chainConfig.votingPowerTokenUnit,
+      ).value).value();
+
       const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
       // const totalDelegations = x.delegations.reduce((a, b) => {
       //   return a + numeral(R.pathOr(0, ['amount', 'amount'], b)).value();
@@ -73,6 +77,13 @@ export const useValidators = () => {
 
       const missedBlockCounter = R.pathOr(0, ['validatorSigningInfos', 0, 'missedBlocksCounter'], x);
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
+
+      if (x.validatorInfo.operatorAddress === 'evmosvaloper1jkn3w5rm7lp0pn07qxc4d3rxdxre7h23xty2v9') {
+        console.log(R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data), 'bonded');
+        console.log(votingPowerOverall, 'vp overall');
+        console.log(votingPower, 'self vp now');
+        console.log(x, 'data');
+      }
 
       return ({
         validator: x.validatorInfo.operatorAddress,

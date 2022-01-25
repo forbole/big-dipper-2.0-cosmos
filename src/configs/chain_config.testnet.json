@@ -20,6 +20,10 @@
     "aphoton": {
       "display": "photon",
       "exponent": 18
+    },
+    "vp": {
+      "display": "photon",
+      "exponent": 11
     }
   },
   "extra": {
