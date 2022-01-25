@@ -1,4 +1,5 @@
 FROM node:14.5.0-alpine
+USER root
 
 ENV PORT 3000
 
