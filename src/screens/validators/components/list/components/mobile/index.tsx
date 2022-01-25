@@ -45,7 +45,6 @@ const Mobile: React.FC<{
         />
       ),
       commission: `${numeral(x.commission).format('0.[00]')}%`,
-      // self: `${numeral(x.selfPercent).format('0.[00]')}%`,
       condition: (
         <Condition className={condition} />
       ),
