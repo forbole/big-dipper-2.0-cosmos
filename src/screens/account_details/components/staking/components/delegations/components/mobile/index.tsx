@@ -35,25 +35,27 @@ const Mobile: React.FC<{
                   imageUrl={x.validator.imageUrl}
                 />
               </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('amount')}
-                </Typography>
-                <Typography variant="body1" className="value">
-                  {formatNumber(x.amount.value, x.amount.exponent)}
-                  {' '}
-                  {x.amount.displayDenom.toUpperCase()}
-                </Typography>
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('reward')}
-                </Typography>
-                <Typography variant="body1" className="value">
-                  {formatNumber(x.reward.value, x.reward.exponent)}
-                  {' '}
-                  {x.reward.displayDenom.toUpperCase()}
-                </Typography>
+              <div className={classes.flex}>
+                <div className={classes.item}>
+                  <Typography variant="h4" className="label">
+                    {t('amount')}
+                  </Typography>
+                  <Typography variant="body1" className="value">
+                    {formatNumber(x.amount.value, x.amount.exponent)}
+                    {' '}
+                    {x.amount.displayDenom.toUpperCase()}
+                  </Typography>
+                </div>
+                <div className={classes.item}>
+                  <Typography variant="h4" className="label">
+                    {t('reward')}
+                  </Typography>
+                  <Typography variant="body1" className="value">
+                    {formatNumber(x.reward.value, x.reward.exponent)}
+                    {' '}
+                    {x.reward.displayDenom.toUpperCase()}
+                  </Typography>
+                </div>
               </div>
             </div>
             {i !== items.length - 1 && <Divider />}
