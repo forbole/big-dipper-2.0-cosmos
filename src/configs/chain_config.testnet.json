@@ -15,7 +15,7 @@
     "height": 1
   },
   "primaryTokenUnit": "aphoton",
-  "votingPowerTokenUnit": "vp",
+  "votingPowerTokenUnit": "aphoton",
   "tokenUnits": {
     "aphoton": {
       "display": "photon",

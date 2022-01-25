@@ -51,7 +51,7 @@ export const useValidators = () => {
     const slashingParams = SlashingParams.fromJson(R.pathOr({}, ['slashingParams', 0, 'params'], data));
     const votingPowerOverall = numeral(formatToken(
       R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data),
-      chainConfig.primaryTokenUnit,
+      chainConfig.votingPowerTokenUnit,
     ).value).value();
 
     const { signedBlockWindow } = slashingParams;
@@ -59,7 +59,7 @@ export const useValidators = () => {
     let formattedItems: ValidatorType[] = data.validator.filter((x) => x.validatorInfo).map((x) => {
       const votingPower = numeral(formatToken(
         R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x),
-        chainConfig.votingPowerTokenUnit,
+        'vp',
       ).value).value();
       // R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
       // numeral(formatToken(
