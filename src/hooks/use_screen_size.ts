@@ -14,9 +14,9 @@ export const useScreenSize = () => {
   }
 
   const [windowSize, setWindowSize] = useState<{width: number; height: number;}>(getSize());
-  const [isDesktop, setIsDesktop] = useState<boolean>(false);
+  const [isDesktop, setIsDesktop] = useState<boolean>(true);
   const [isTablet, setIsTablet] = useState<boolean>(false);
-  const [isMobile, setIsMobile] = useState<boolean>(true);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   const theme:any = useTheme();
 
