@@ -24,6 +24,7 @@ export const useStyles = () => {
           [theme.breakpoints.up('sm')]: {
             width: '300px',
           },
+          filter: theme.palette.type === 'light' ? null : 'invert(1)',
         },
         divider: {
           margin: theme.spacing(2, 0),
