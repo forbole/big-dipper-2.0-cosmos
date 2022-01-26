@@ -62,7 +62,7 @@ export const useMarketRecoil = () => {
 
     const bondedTokens = R.pathOr(0, ['bondedTokens', 0, 'bonded_tokens'], data);
 
-    const apr = Big(rawSupplyAmount).times(inflation).div(bondedTokens).toNumber();
+    const apr = Big(rawSupplyAmount).times(inflation).div(bondedTokens || 1).toNumber();
 
     return ({
       price,

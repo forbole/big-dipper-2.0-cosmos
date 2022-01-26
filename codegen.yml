@@ -7,7 +7,7 @@ generates:
     documents:
       - './src/**/*.graphql'
       - '!./src/**/desmos_profile.graphql'
-    schema: https://gql-dev.mainnet.desmos.network/v1/graphql
+    schema: https://gql.osmosis.forbole.com/v1/graphql
     plugins:
       - "typescript"
       - "typescript-operations"
