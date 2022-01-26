@@ -1,6 +1,6 @@
 {
   "title": "Cudos Block Explorer",
-  "network": "cudos-artemis-testmet",
+  "network": "cudos-testnet-public-2",
   "icon": "https://wallet.cudos.org/img/logo-icon.cb505cad.svg?sanitize=true",
   "logo": {
     "default": "https://wallet.cudos.org/img/logo-dark.e500e625.svg?sanitize=true"

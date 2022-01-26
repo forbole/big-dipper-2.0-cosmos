@@ -5,8 +5,8 @@
     "links": [
         {
             "name": "Testnet",
-            "chain_id": "cudos-artemis-testnet",
-            "url": "http://localhost:3000"
+            "chain_id": "cudos-testnet-public-2",
+            "url": "https://explorer-v2.cudos.org/"
         }
     ]
 }
