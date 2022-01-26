@@ -26,8 +26,8 @@ export const useValidators = () => {
     items: [],
     votingPowerOverall: 0,
     tab: 0,
-    sortKey: 'validator.name',
-    sortDirection: 'asc',
+    sortKey: 'votingPower',
+    sortDirection: 'desc',
   });
 
   const handleSetState = (stateChange: any) => {
