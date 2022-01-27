@@ -80,7 +80,7 @@ const Tokenomics:React.FC<{
           cy={100}
         >
           <Pie
-            // stroke="none"
+            stroke="none"
             // cornerRadius={40}
             cy={90}
             data={data}
@@ -91,7 +91,7 @@ const Tokenomics:React.FC<{
             fill="#8884d8"
             // paddingAngle={-10}
             dataKey="rawValue"
-            stroke={theme.palette.divider}
+            // stroke={theme.palette.divider}
             isAnimationActive={false}
           >
             {data.map((entry) => {
