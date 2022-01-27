@@ -1,0 +1,102 @@
+version: '3'
+
+services:
+  4-big-dipper-app:
+    build:
+      context: ../../big-dipper
+      dockerfile: Dockerfile
+    ports:
+      - '3080:3080'
+#    depends_on:
+    #- 3-hasura
+    #- 2-bdjuno
+    #- postgres
+    env_file:
+      - .env.big-dipper
+    networks:
+      - big-dipper-network
+
+  postgres:
+    image: postgres:14.1
+    restart: always
+    env_file:
+      - .env.postgresql
+    volumes:
+#      - ./init/pgsql/initdb.d/postgresql.conf:/var/lib/postgresql/data/postgresql.conf
+#      - ../bdjuno/database/schema:/docker-entrypoint-initdb.d/schema
+      - ./init/pgsql/initdb.d/:/docker-entrypoint-initdb.d/
+      - data:/var/lib/postgresql/data
+    ports:
+      - "5533:5533"
+#    user: "${UID}:${GID}"
+    networks:
+      - big-dipper-network
+
+  3-hasura:
+    image: hasura/graphql-engine:v1.3.3
+    ports:
+     - "8081:8080"
+    depends_on:
+     - postgres
+    restart: always
+    env_file:
+     - .env.hasura   
+    networks:
+     - big-dipper-network
+
+  3-1-hasura-cli-docker:
+    image: dvasdekis/hasura-cli-docker:latest
+    command: "metadata apply --endpoint http://3-hasura:8080 --dry-run --project big-dipper-app"
+    tty: true
+    #    depends_on:
+    # - 3-hasura
+    restart: on-failure
+    networks:
+     - big-dipper-network
+    volumes:
+     - hasura:/hasuracli:rw
+     - ./.env.hasura:/hasuracli/.env
+
+  2-bdjuno:
+    build:
+      context: ../../bdjuno
+      dockerfile: Dockerfile
+    depends_on:
+     - postgres
+    restart: always
+    command: bdjuno parse --home /bdjuno/.bdjuno
+    volumes:
+     - bdjuno:/bdjuno:rw
+     - planet:/home/.planet:rw
+    networks:
+     - big-dipper-network
+
+volumes:
+  data:
+          driver: local
+          driver_opts:
+                  type: 'none'
+                  o: 'bind'
+                  device: '/home/node3/docker/volumes/data'
+  bdjuno:
+          driver: local
+          driver_opts:
+                  type: 'none'
+                  o: 'bind'
+                  device: '/home/node3/docker/volumes/bdjuno'
+  planet:
+          driver: local
+          driver_opts:
+                  type: 'none'
+                  o: 'bind'
+                  device: '/home/node3/.planet'                  
+  hasura:
+          driver: local
+          driver_opts:
+                  type: 'none'
+                  o: 'bind'
+                  device: '/home/node3/docker/volumes/hasura'
+
+networks:
+  big-dipper-network:
+    driver: bridge

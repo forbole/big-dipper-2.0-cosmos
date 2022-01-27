@@ -1,9 +1,9 @@
 {
   "title": "Desmos Block Explorer",
-  "network": "morpheus-apollo-2",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
+  "network": "Millicent-testnet",
+  "icon": "https://millicent.finance/favicon.ico",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
+    "default": "https://ci6.googleusercontent.com/proxy/mBbLlyede28EtA874Iv8MQ2lQRlMBGcomA9qsELehYErV4LwzsbgNsRTdTnZ-51n6c_rW--jpK7BnsbWYBHqb0QWZHmj9qGV9jwLQldq7Snxbb_X7gYXsH1gjQDY3jnpTwW_jKPfIMXqF_MlMBimTO1YQCO3lGUqwME913gFUIzh9mgSKIQasiaO6_av2diLb_ikVPRe0naWEfzlgQ=s0-d-e1-ft#https://docs.google.com/uc?export=download&id=1NO3VjPDw8tZyaC789JoeN-Ke3oAJ-TXd&revid=0B34C8OcoaEZ1RWlHK3FRaGs3cVF6RjNvRllpRWttNVErQUxvPQ"
   },
   "prefix": {
     "consensus": "desmosvalcons",
@@ -14,11 +14,10 @@
     "time": "2021-07-13T08:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udaric",
-  "votingPowerTokenUnit": "udaric",
+  "primaryTokenUnit": "millicoin",
   "tokenUnits": {
-    "udaric": {
-      "display": "daric",
+    "millicoin": {
+      "display": "millicoin",
       "exponent": 6
     }
   },
