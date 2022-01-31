@@ -1,25 +1,25 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "morpheus-apollo-2",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
+  "title": "cheqd Testnet Block Explorer",
+  "network": "cheqd-testnet-4",
+  "icon": "https://avatars.githubusercontent.com/u/79901197?s=200&v=4",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
+    "default": "https://avatars.githubusercontent.com/u/79901197?s=200&v=4"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "cheqdvalcons",
+    "validator": "cheqdvaloper",
+    "account": "cheqd"
   },
   "genesis": {
     "time": "2021-07-13T08:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udaric",
-  "votingPowerTokenUnit": "udaric",
+  "primaryTokenUnit": "ncheq",
+  "votingPowerTokenUnit": "ncheq",
   "tokenUnits": {
-    "udaric": {
-      "display": "daric",
-      "exponent": 6
+    "ncheq": {
+      "display": "CHEQ",
+      "exponent": 9
     }
   },
   "extra": {
