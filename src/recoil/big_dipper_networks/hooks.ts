@@ -20,7 +20,7 @@ import {
   Selected,
 } from '@recoil/big_dipper_networks/types';
 
-const NETWORK_LIST_API = 'https://raw.githubusercontent.com/forbole/big-dipper-networks/main/networks.json';
+const NETWORK_LIST_API = 'https://raw.githubusercontent.com/cheqd/big-dipper-networks/main/cheqd-networks.json';
 
 export const useBigDipperNetworksRecoil = () => {
   const [_, setNetworks] = useRecoilState(writeNetworks) as [Networks, SetterOrUpdater<Networks>];
