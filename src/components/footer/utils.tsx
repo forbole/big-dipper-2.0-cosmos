@@ -1,5 +1,6 @@
 const CUDOS_URL = 'https://www.cudos.org';
 const BIG_DIPPER_URL = 'https://bigdipper.live';
+const CUDO_VENTURES_URL = 'https://www.cudoventures.com'
 
 export const donateLink = {
   key: 'donate',
@@ -29,23 +30,19 @@ export const footerLinks = [
     ],
   },
   {
-    key: 'bigDipper',
+    key: 'policies',
     links: [
       {
-        key: 'about',
-        url: `${BIG_DIPPER_URL}/#about`,
+        key: 'privacyPolicy',
+        url: `${CUDOS_URL}/privacy-policy`,
       },
       {
-        key: 'faq',
-        url: `${BIG_DIPPER_URL}/faq`,
+        key: 'cookiesPolicy',
+        url: `${CUDO_VENTURES_URL}/cookie-policy/`,
       },
       {
         key: 'termsAndConditions',
-        url: `${BIG_DIPPER_URL}/terms-and-conditions`,
-      },
-      {
-        key: 'privacyPolicy',
-        url: `${BIG_DIPPER_URL}/privacy-policy`,
+        url: `${CUDOS_URL}/terms-and-conditions`,
       },
     ],
   },
