@@ -22,11 +22,11 @@ const VotingPower: React.FC<{
 }) => {
   const { t } = useTranslation('validators');
   const votingPowerPercent = status === 3 ? numeral((
-    data.self / numeral(data.overall.value).value()) * 100) : numeral(0);
+    (data.self / 1000) / numeral(data.overall.value).value()) * 100) : numeral(0);
 
   const classes = useStyles(votingPowerPercent.format(0, Math.floor));
 
-  const votingPower = status === 3 ? numeral(data.self).format('0,0') : '0';
+  const votingPower = status === 3 ? numeral(data.self / 1000).format('0,0') : '0';
   const selfDelegatedAmount = status === 3 ? numeral(data.selfDelegate.value).format('0,0') : '0';
   const selfDelegatePercent = status === 3 ? `${numeral(data.selfDelegatePercent).format('0.[00]')}%` : '0%';
 
