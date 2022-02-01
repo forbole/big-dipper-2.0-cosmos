@@ -84,7 +84,7 @@ export const formatMinting = (data: Minting, t: any) => {
     },
     {
       label: t('inflationRateChange'),
-      detail: `${data.inflationRateChange * 100}%`,
+      detail: `${(data.inflationRateChange * 100).toFixed(20).replace(/\.?0+$/,"")}%`,
     },
     {
       label: t('mintDenom'),
@@ -115,10 +115,11 @@ export const formatDistribution = (data: Distribution, t: any) => {
 };
 
 export const formatGov = (data: Gov, t: any) => {
+
   return ([
     {
       label: t('minDeposit'),
-      detail: `${data.minDeposit.value} ${data.minDeposit.displayDenom.toUpperCase()}`,
+      detail: `${parseFloat(data.minDeposit.value).toFixed(20).replace(/\.?0+$/,"")} ${data.minDeposit.displayDenom.toUpperCase()}`,
     },
     {
       label: t('maxDepositPeriod'),
