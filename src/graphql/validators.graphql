@@ -22,10 +22,6 @@ query Validators {
     validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
       commission
     }
-    delegations {
-      amount
-      delegatorAddress: delegator_address
-    }
     validatorSigningInfos: validator_signing_infos(order_by: {height: desc}, limit: 1) {
       missedBlocksCounter: missed_blocks_counter
     }

@@ -80,7 +80,7 @@ const getProfile = (address: string) => ({ get }): AvatarName => {
   const imageUrl = R.pathOr('', ['imageUrl'], state);
   return ({
     address: returnAddress,
-    name,
+    name: name.length ? name : address,
     imageUrl,
   });
 };
@@ -98,7 +98,7 @@ const getProfiles = (addresses: string[]) => ({ get }): AvatarName[] => {
     const imageUrl = R.pathOr('', ['imageUrl'], state);
     return ({
       address: returnAddress,
-      name,
+      name: name.length ? name : x,
       imageUrl,
     });
   });
