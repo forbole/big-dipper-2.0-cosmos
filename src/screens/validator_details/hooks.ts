@@ -54,8 +54,6 @@ const initialState: ValidatorDetailsState = {
     height: 0,
     overall: initialTokenDenom,
     self: 0,
-    // selfDelegatePercent: 0,
-    // selfDelegate: initialTokenDenom,
   },
   transactions: {
     data: [],
@@ -265,26 +263,8 @@ export const useValidatorDetails = () => {
     const formatVotingPower = () => {
       const selfVotingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], data.validator[0]);
 
-      // const totalDelegations = data.validator[0].delegations.reduce((a, b) => {
-      //   return a + numeral(R.pathOr(0, ['amount', 'amount'], b)).value();
-      // }, 0);
-
-      // const [selfDelegate] = data.validator[0].delegations.filter(
-      //   (x) => x.delegatorAddress === data.validator[0].validatorInfo.selfDelegateAddress,
-      // );
-      // const selfDelegateAmount = formatToken(
-      //   numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value(),
-      //   R.pathOr(0, ['amount', 'denom'], selfDelegate),
-      // );
-      // eslint-disable-next-line
-      // const selfDelegatePercent = (numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value() / totalDelegations) * 100;
-
       const votingPower = {
         self: selfVotingPower,
-        // selfDelegate: selfDelegateAmount,
-        // selfDelegate: 0,
-        // selfDelegatePercent,
-        // selfDelegatePercent: 0,
         overall: formatToken(
           R.pathOr(0, ['stakingPool', 0, 'bonded'], data),
           chainConfig.votingPowerTokenUnit,

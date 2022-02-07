@@ -38,20 +38,6 @@ export const fetchColumns = (t): {
       width: 15,
       sort: true,
     },
-    // {
-    //   key: 'self',
-    //   sortKey: 'selfPercent',
-    //   align: 'right',
-    //   width: 11,
-    //   sort: true,
-    // },
-    // {
-    //   key: 'delegators',
-    //   sortKey: 'delegators',
-    //   align: 'right',
-    //   width: 11,
-    //   sort: true,
-    // },
     {
       key: 'condition',
       align: 'center',

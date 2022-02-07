@@ -36,7 +36,6 @@ const Mobile: React.FC<{
     const votingPower = numeral(x.votingPower).format('0,0');
     return ({
       idx: `#${i + 1}`,
-      // delegators: numeral(x.delegators).format('0,0'),
       validator: (
         <AvatarName
           address={x.validator.address}
