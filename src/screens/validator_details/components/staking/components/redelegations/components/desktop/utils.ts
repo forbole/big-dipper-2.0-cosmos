@@ -5,24 +5,20 @@ export const columns:{
 }[] = [
   {
     key: 'address',
-    width: 20,
-  },
-  {
-    key: 'from',
-    width: 20,
+    width: 25,
   },
   {
     key: 'to',
-    width: 20,
+    width: 25,
   },
   {
     key: 'amount',
-    width: 20,
     align: 'right',
+    width: 20,
   },
   {
-    key: 'linkedUntil',
-    width: 20,
+    key: 'completionTime',
     align: 'right',
+    width: 30,
   },
 ];
