@@ -1,12 +1,9 @@
 import {
   useState, useEffect,
 } from 'react';
-import Big from 'big.js';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import { formatToken } from '@utils/format_token';
-import numeral from 'numeral';
-import dayjs from '@utils/dayjs';
 import { convertMsgsToModels } from '@msg';
 import {
   useValidatorDetailsQuery,
@@ -57,20 +54,6 @@ const initialState: ValidatorDetailsState = {
     height: 0,
     overall: initialTokenDenom,
     self: 0,
-    selfDelegatePercent: 0,
-    selfDelegate: initialTokenDenom,
-  },
-  delegations: {
-    count: 0,
-    data: [],
-  },
-  redelegations: {
-    count: 0,
-    data: [],
-  },
-  undelegations: {
-    count: 0,
-    data: [],
   },
   transactions: {
     data: [],
@@ -79,8 +62,6 @@ const initialState: ValidatorDetailsState = {
     offsetCount: 0,
   },
 };
-
-const UTC_NOW = dayjs.utc().format('YYYY-MM-DDTHH:mm:ss');
 
 export const useValidatorDetails = () => {
   const router = useRouter();
@@ -120,7 +101,6 @@ export const useValidatorDetails = () => {
   useValidatorDetailsQuery({
     variables: {
       address: R.pathOr('', ['query', 'address'], router),
-      utc: UTC_NOW,
     },
     onCompleted: (data) => {
       handleSetState(formatAccountQuery(data));
@@ -281,25 +261,10 @@ export const useValidatorDetails = () => {
     // votingPower
     // ============================
     const formatVotingPower = () => {
-      const self = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], data.validator[0]);
-
-      const totalDelegations = data.validator[0].delegations.reduce((a, b) => {
-        return a + numeral(R.pathOr(0, ['amount', 'amount'], b)).value();
-      }, 0);
-
-      const [selfDelegate] = data.validator[0].delegations.filter(
-        (x) => x.delegatorAddress === data.validator[0].validatorInfo.selfDelegateAddress,
-      );
-      const selfDelegateAmount = formatToken(
-        numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value(),
-        R.pathOr(0, ['amount', 'denom'], selfDelegate),
-      );
-      const selfDelegatePercent = (numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value() / totalDelegations) * 100;
+      const selfVotingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], data.validator[0]);
 
       const votingPower = {
-        self,
-        selfDelegate: selfDelegateAmount,
-        selfDelegatePercent,
+        self: selfVotingPower,
         overall: formatToken(
           R.pathOr(0, ['stakingPool', 0, 'bonded'], data),
           chainConfig.votingPowerTokenUnit,
@@ -310,76 +275,6 @@ export const useValidatorDetails = () => {
       return votingPower;
     };
     stateChange.votingPower = formatVotingPower();
-
-    // ============================
-    // delegations
-    // ============================
-    const formatDelegations = () => {
-      const delegations = data.validator[0].delegations.map((x) => {
-        return ({
-          amount: formatToken(x.amount.amount, x.amount.denom),
-          delegator: x.delegatorAddress,
-        });
-      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
-      return {
-        data: delegations,
-        count: delegations.length,
-      };
-    };
-    stateChange.delegations = formatDelegations();
-
-    // ============================
-    // redelegations
-    // ============================
-    const formatRedelegations = () => {
-      const redelegations = [
-        ...data.validator[0].redelegationsByDstValidatorAddress.map((x) => {
-          return ({
-            to: x.to,
-            from: x.from,
-            linkedUntil: x.completionTime,
-            amount: formatToken(x.amount.amount, x.amount.denom),
-            delegator: x.delegatorAddress,
-          });
-        }),
-        ...data.validator[0].redelegationsBySrcValidatorAddress.map((x) => {
-          return ({
-            to: x.to,
-            from: x.from,
-            linkedUntil: x.completionTime,
-            amount: formatToken(x.amount.amount, x.amount.denom),
-            delegator: x.delegatorAddress,
-          });
-        }),
-      ].sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
-
-      return {
-        data: redelegations,
-        count: redelegations.length,
-      };
-    };
-    state.redelegations = formatRedelegations();
-
-    // ============================
-    // unbondings
-    // ============================
-    const formatUndelegations = () => {
-      const undelegations = data.validator[0].unbonding.map((x) => {
-        return ({
-          delegator: x.delegatorAddress,
-          amount: formatToken(x.amount.amount, x.amount.denom),
-          linkedUntil: x.completionTimestamp,
-          commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
-        });
-      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
-
-      return {
-        data: undelegations,
-        count: undelegations.length,
-      };
-    };
-
-    state.undelegations = formatUndelegations();
 
     return stateChange;
   };
