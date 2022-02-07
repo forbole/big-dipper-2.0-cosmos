@@ -18,15 +18,15 @@
   "tokenUnits": {
     "acudos": {
       "display": "CUDOS",
-      "exponent": 18
+      "exponent": 1
     },
     "fcudos": {
       "display": "CUDOS",
-      "exponent": 15
+      "exponent": 3
     },
     "pcudos": {
       "display": "CUDOS",
-      "exponent": 12
+      "exponent": 6
     },
     "ncudos": {
       "display": "CUDOS",
@@ -34,15 +34,15 @@
     },
     "ucudos": {
       "display": "CUDOS",
-      "exponent": 6
+      "exponent": 12
     },
     "mcudos": {
       "display": "CUDOS",
-      "exponent": 3
+      "exponent": 15
     },
     "cudos": {
       "display": "CUDOS",
-      "exponent": 1
+      "exponent": 18
     }
   },
   "extra": {
