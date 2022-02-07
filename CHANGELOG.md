@@ -1,3 +1,12 @@
+# base-v2.0.0 - 2021-02-07
+
+## Changes
+- Updated Hasura Actions
+
+## Migration
+
+- Will add formal migration docs later but do not use this tag if your [bdjuno](https://github.com/forbole/bdjuno) is not at least `v1.0.0`
+
 # base-v1.10.0 - 2021-01-25
 
 ## Changes
