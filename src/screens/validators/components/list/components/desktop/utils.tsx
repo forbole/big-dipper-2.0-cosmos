@@ -22,7 +22,7 @@ export const fetchColumns = (t): {
     {
       key: 'validator',
       sortKey: 'validator.name',
-      width: 20,
+      width: 25,
       sort: true,
     },
     {
@@ -53,7 +53,7 @@ export const fetchColumns = (t): {
     },
     {
       key: 'status',
-      width: 15,
+      width: 10,
     },
   ]);
 };
