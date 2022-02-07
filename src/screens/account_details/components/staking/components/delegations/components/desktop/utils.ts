@@ -8,15 +8,6 @@ export const columns:{
     width: 25,
   },
   {
-    key: 'status',
-    width: 15,
-  },
-  {
-    key: 'commission',
-    width: 10,
-    align: 'right',
-  },
-  {
     key: 'amount',
     width: 25,
     align: 'right',

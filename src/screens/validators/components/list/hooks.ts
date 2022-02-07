@@ -64,17 +64,6 @@ export const useValidators = () => {
         chainConfig.votingPowerTokenUnit,
       ).value).value();
       const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
-      const totalDelegations = x.delegations.reduce((a, b) => {
-        return a + numeral(R.pathOr(0, ['amount', 'amount'], b)).value();
-      }, 0);
-
-      const [selfDelegation] = x.delegations.filter(
-        (y) => {
-          return y.delegatorAddress === x.validatorInfo.selfDelegateAddress;
-        },
-      );
-      const self = numeral(R.pathOr(0, ['amount', 'amount'], selfDelegation)).value();
-      const selfPercent = (self / (totalDelegations || 1)) * 100;
 
       const missedBlockCounter = R.pathOr(0, ['validatorSigningInfos', 0, 'missedBlocksCounter'], x);
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
@@ -84,13 +73,10 @@ export const useValidators = () => {
         votingPower,
         votingPowerPercent,
         commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], x) * 100,
-        self,
-        selfPercent,
         condition,
         status: R.pathOr(0, ['validatorStatuses', 0, 'status'], x),
         jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], x),
         tombstoned: R.pathOr(false, ['validatorSigningInfos', 0, 'tombstoned'], x),
-        delegators: x.delegations.length,
       });
     });
 
