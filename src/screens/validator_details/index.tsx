@@ -26,9 +26,6 @@ const ValidatorDetails = () => {
   } = useValidatorDetails();
   const {
     overview,
-    delegations,
-    redelegations,
-    undelegations,
     desmosProfile,
     status,
   } = state;
@@ -88,9 +85,6 @@ const ValidatorDetails = () => {
             <Blocks className={classes.blocks} />
             <Staking
               className={classes.staking}
-              delegations={delegations}
-              redelegations={redelegations}
-              undelegations={undelegations}
             />
             <Transactions
               className={classes.transactions}

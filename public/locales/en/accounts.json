@@ -32,5 +32,6 @@
   "identifier": "Identifier",
   "creationTime": "Creation Time",
   "bio": "Bio",
-  "status": "Status"
+  "status": "Status",
+  "completionTime": "Completion Time"
 }
