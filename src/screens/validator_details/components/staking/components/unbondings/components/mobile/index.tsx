@@ -27,11 +27,11 @@ const Mobile: React.FC<{
       completionTime: formatDayJs(dayjs.utc(y.completionTime), dateFormat),
     }));
     return ({
-      validator: (
+      address: (
         <AvatarName
-          address={x.validator.address}
-          imageUrl={x.validator.imageUrl}
-          name={x.validator.name}
+          address={x.address.address}
+          imageUrl={x.address.imageUrl}
+          name={x.address.name}
         />
       ),
       entries,
@@ -46,9 +46,9 @@ const Mobile: React.FC<{
             <div className={classes.list}>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
-                  {t('validator')}
+                  {t('address')}
                 </Typography>
-                {x.validator}
+                {x.address}
               </div>
               {
                 x.entries.map((y, index) => {
