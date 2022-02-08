@@ -11,7 +11,6 @@ const SingleValidator: React.FC<{
   idx: string;
   validator: React.ReactNode;
   commission: string;
-  self: string;
   votingPower: React.ReactNode;
   status: {
     status: string;
@@ -20,34 +19,14 @@ const SingleValidator: React.FC<{
 }> = ({
   className,
   validator,
-  self,
   commission,
   votingPower,
-  idx,
   status,
 }) => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
   return (
     <div className={classnames(className, classes.root)}>
-      <div className={classes.flex}>
-        <div className={classes.item}>
-          <Typography variant="h4" className="label">
-            {t('idx')}
-          </Typography>
-          <Typography variant="body1" className="value">
-            {idx}
-          </Typography>
-        </div>
-        <div className={classes.item}>
-          <Typography variant="h4" className="label">
-            {t('status')}
-          </Typography>
-          <Typography variant="body1" className={classnames('value', 'status', status.theme)}>
-            {t(status.status)}
-          </Typography>
-        </div>
-      </div>
       <div className={classes.item}>
         <Typography variant="h4" className="label">
           {t('validator')}
@@ -63,10 +42,10 @@ const SingleValidator: React.FC<{
       <div className={classes.flex}>
         <div className={classes.item}>
           <Typography variant="h4" className="label">
-            {t('self')}
+            {t('status')}
           </Typography>
-          <Typography variant="body1" className="value">
-            {self}
+          <Typography variant="body1" className={classnames('value', 'status', status.theme)}>
+            {t(status.status)}
           </Typography>
         </div>
         <div className={classes.item}>
