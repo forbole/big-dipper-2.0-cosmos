@@ -46,7 +46,7 @@ const Overview: React.FC<{
     },
     {
       label: t('fee'),
-      detail: `${formatNumber(data.fee.value, data.fee.exponent)} ${data?.fee?.displayDenom?.toUpperCase()}`,
+      detail: `${(Number(data.fee.value)).toFixed(data.fee.exponent).replace(/\.?0+$/, '')} ${data?.fee?.displayDenom?.toUpperCase()}`,
     },
     {
       label: t('gas'),

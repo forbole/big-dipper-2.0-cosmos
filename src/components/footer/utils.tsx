@@ -1,6 +1,6 @@
 const CUDOS_URL = 'https://www.cudos.org';
 const BIG_DIPPER_URL = 'https://bigdipper.live';
-const CUDO_VENTURES_URL = 'https://www.cudoventures.com'
+const CUDO_VENTURES_URL = 'https://www.cudoventures.com';
 
 export const donateLink = {
   key: 'donate',
