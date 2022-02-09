@@ -13,12 +13,12 @@ export const columns:{
   },
   {
     key: 'amount',
-    width: 25,
     align: 'right',
+    width: 25,
   },
   {
-    key: 'linkedUntil',
-    width: 25,
+    key: 'completionTime',
     align: 'right',
+    width: 25,
   },
 ];

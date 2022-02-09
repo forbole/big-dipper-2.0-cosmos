@@ -1,4 +1,13 @@
-# Unreleased
+# base-v2.0.0 - 2021-02-07
+
+## Changes
+- Updated Hasura Actions
+
+## Migration
+
+- Will add formal migration docs later but do not use this tag if your [bdjuno](https://github.com/forbole/bdjuno) is not at least `v1.0.0`
+
+# base-v1.10.0 - 2021-01-25
 
 ## Changes
 - Optimized initial loading by setting basic details first then profiles after ([\#629](https://github.com/forbole/big-dipper-2.0-cosmos/issues/629))
@@ -6,6 +15,10 @@
 
 ## Bug fixes
 - Fix home page validator image url not displaying correctly ([\#632](https://github.com/forbole/big-dipper-2.0-cosmos/issues/632))
+- Fix validator anc account details possible infinite load due to dayjs in hook
+- Add description sanitization to proposals list ([\#666](https://github.com/forbole/big-dipper-2.0-cosmos/issues/666))
+- Fix pagination hook page callback ([\#667](https://github.com/forbole/big-dipper-2.0-cosmos/issues/667))
+- Show address if name or moniker is empty ([\#668](https://github.com/forbole/big-dipper-2.0-cosmos/issues/668))
 
 ## Migration
 
