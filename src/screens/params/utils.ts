@@ -80,7 +80,7 @@ export const formatMinting = (data: Minting, t: any) => {
     },
     {
       label: t('inflationMin'),
-      detail: `${data.inflationMin * 100}%`,
+      detail: `${numeral(data.inflationMin * 100).format('0')}%`,
     },
     {
       label: t('inflationRateChange'),
