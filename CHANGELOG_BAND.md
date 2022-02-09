@@ -1,6 +1,6 @@
-# Unreleased
+# band-v2.0.0 - 2021-02-09
 ## Changes
-- Merged `base`
+- Merged `base-v2.0.0`
 
 # band-v1.2.0 - 2021-01-10
 ## Changes
