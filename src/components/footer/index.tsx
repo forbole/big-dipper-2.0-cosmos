@@ -19,6 +19,7 @@ import {
   footerLinks, donateLink,
 } from './utils';
 import { useStyles } from './styles';
+import CookieConsent from 'react-cookie-consent';
 
 const Footer: React.FC<{className?: string}> = ({ className }) => {
   const { t } = useTranslation();
@@ -91,6 +92,21 @@ const Footer: React.FC<{className?: string}> = ({ className }) => {
                 </Button>
               </a>
             </div>
+          </div>
+          {/* ============================= */}
+          {/* cookie consent */}
+          {/* ============================= */}
+          <div className="cookie__consent">
+            <CookieConsent
+              location="bottom"
+              buttonText="I understand"
+              contentClasses="text-capitalize"
+              style={{ margin: "0% 32.5%", width: "35%", background: "#fd3b4cb3" }}
+              buttonStyle={{ color: "#ffffff", background: "#6a1d27"}}
+              expires={150}
+            >
+              We use cookies to enhance the user experience. Read our <a href="https://www.cudos.org/privacy-policy/">Privacy Policy</a>
+            </CookieConsent>  
           </div>
         </div>
       </div>
