@@ -261,7 +261,10 @@ export const useValidatorDetails = () => {
     // votingPower
     // ============================
     const formatVotingPower = () => {
-      const selfVotingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], data.validator[0]);
+      const selfVotingPower = formatToken(
+        R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], data.validator[0]),
+        chainConfig.votingPowerTokenUnit,
+      ).value;
 
       const votingPower = {
         self: selfVotingPower,

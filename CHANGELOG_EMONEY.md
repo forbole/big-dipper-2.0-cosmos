@@ -1,3 +1,8 @@
+# emoney-v2.0.1 - 2021-02-09
+
+## Bug fixes
+- Fix validator details voting power display
+
 # emoney-v2.0.0 - 2021-02-07
 
 ## Changes
