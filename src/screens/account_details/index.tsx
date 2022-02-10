@@ -68,9 +68,7 @@ const AccountDetails = () => {
             />
             <Staking
               className={classes.staking}
-              redelegations={state.redelegations}
-              delegations={state.delegations}
-              unbondings={state.unbondings}
+              rewards={state.rewards}
             />
             <Transactions
               className={classes.transactions}

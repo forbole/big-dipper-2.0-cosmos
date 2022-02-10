@@ -7,33 +7,19 @@ import {
 import { Tabs } from './components';
 import { useStaking } from './hooks';
 import { useStyles } from './styles';
-import {
-  RedelegationType, UndelegationType, DelegationType,
-} from '../../types';
 
 const Delegations = dynamic(() => import('./components/delegations'));
 const Redelgations = dynamic(() => import('./components/redelegations'));
-const Undelegations = dynamic(() => import('./components/undelegations'));
+const Unbondings = dynamic(() => import('./components/unbondings'));
 
-const Staking: React.FC<{
-  className?: string;
-  delegations: {
-    data: DelegationType[];
-    count: number;
-  }
-  redelegations: {
-    data: RedelegationType[];
-    count: number;
-  }
-  undelegations: {
-    data: UndelegationType[];
-    count: number;
-  }
-}> = (props) => {
+const Staking: React.FC<ComponentDefault> = (props) => {
   const classes = useStyles();
   const {
     state,
     handleTabChange,
+    handleDelegationPageCallback,
+    handleUnbondingPageCallback,
+    handleRedelegationPageCallback,
   } = useStaking();
 
   const tabs = [
@@ -42,34 +28,33 @@ const Staking: React.FC<{
       key: 'delegations',
       component: (
         <Delegations
-          data={props.delegations.data}
-          count={props.delegations.count}
+          delegations={state.delegations}
+          handlePageCallback={handleDelegationPageCallback}
         />
       ),
-      count: props.delegations.count,
+      count: state.delegations.count,
     },
     {
       id: 1,
       key: 'redelegations',
       component: (
         <Redelgations
-          data={props.redelegations.data}
-          count={props.redelegations.count}
+          redelegations={state.redelegations}
+          handlePageCallback={handleRedelegationPageCallback}
         />
       ),
-      data: props.redelegations,
-      count: props.redelegations.count,
+      count: state.redelegations.count,
     },
     {
       id: 2,
-      key: 'undelegations',
+      key: 'unbondings',
       component: (
-        <Undelegations
-          data={props.undelegations.data}
-          count={props.undelegations.count}
+        <Unbondings
+          unbondings={state.unbondings}
+          handlePageCallback={handleUnbondingPageCallback}
         />
       ),
-      count: props.undelegations.count,
+      count: state.unbondings.count,
     },
   ];
 

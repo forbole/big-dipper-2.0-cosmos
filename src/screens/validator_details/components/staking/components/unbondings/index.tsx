@@ -6,22 +6,21 @@ import {
   usePagination, useScreenSize,
 } from '@hooks';
 import {
-  NoData, Pagination, Loading,
+  Pagination, NoData, Loading,
 } from '@components';
 import {
   useProfilesRecoil,
 } from '@recoil/profiles';
 import { useStyles } from './styles';
-import { RedelegationsType } from '../../types';
+import { UnbondingsType } from '../../types';
 
 const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
 
-const Redelegations: React.FC<{
-  redelegations: RedelegationsType,
+const Unbondings: React.FC<{
+  unbondings: UnbondingsType,
   handlePageCallback: (page: number, _rowsPerPage: number) => void;
 } & ComponentDefault> = (props) => {
-  const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const {
     page,
@@ -31,16 +30,14 @@ const Redelegations: React.FC<{
   } = usePagination({
     pageChangeCallback: props.handlePageCallback,
   });
+  const { isDesktop } = useScreenSize();
 
-  const pageItems = R.pathOr([], ['redelegations', 'data', page], props);
-
-  const fromProfiles = useProfilesRecoil(pageItems.map((x) => x.from));
-  const toProfiles = useProfilesRecoil(pageItems.map((x) => x.to));
+  const pageItems = R.pathOr([], ['unbondings', 'data', page], props);
+  const dataProfiles = useProfilesRecoil(pageItems.map((x) => x.address));
   const mergedDataWithProfiles = pageItems.map((x, i) => {
     return ({
       ...x,
-      from: fromProfiles[i],
-      to: toProfiles[i],
+      address: dataProfiles[i],
     });
   });
 
@@ -48,7 +45,7 @@ const Redelegations: React.FC<{
 
   let component = null;
 
-  if (props.redelegations.loading) {
+  if (props.unbondings.loading) {
     component = <Loading />;
   } else if (!items.length) {
     component = <NoData />;
@@ -63,15 +60,14 @@ const Redelegations: React.FC<{
       {component}
       <Pagination
         className={classes.paginate}
-        total={props.redelegations.count}
+        total={props.unbondings.count}
         rowsPerPage={rowsPerPage}
         page={page}
         handleChangePage={handleChangePage}
         handleChangeRowsPerPage={handleChangeRowsPerPage}
-        rowsPerPageOptions={[10, 25, 50, 100]}
       />
     </div>
   );
 };
 
-export default Redelegations;
+export default Unbondings;
