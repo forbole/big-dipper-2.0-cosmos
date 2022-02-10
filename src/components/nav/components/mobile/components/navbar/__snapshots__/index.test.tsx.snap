@@ -12,7 +12,7 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
   >
     <div
       className="makeStyles-logo"
-      id="RED"
+      id="WHITE"
     />
   </a>
   <div
@@ -65,7 +65,7 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
   >
     <div
       className="makeStyles-logo"
-      id="RED"
+      id="WHITE"
     />
   </a>
   <div
