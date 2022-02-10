@@ -1,7 +1,7 @@
-# Unreleased
+# desmos-v2.0.0 - 2021-02-10
 
 # Changes
-- Merged `base`
+- Merged `base-v2.0.0`
 
 # desmos-v1.9.0 - 2021-01-10
 
