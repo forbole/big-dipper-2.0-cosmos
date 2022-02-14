@@ -8,7 +8,8 @@ export const formatMarket = (data: {
   inflation: number;
   apr: number;
 }) => {
-  const marketCap = data.marketCap !== null ? `$${formatNumber(data.marketCap.toString(), 2)}` : 'N/A';
+  const exludedItems = [null, 0];
+  const marketCap = exludedItems.includes(data.marketCap) ? 'N/A' : `$${formatNumber(data.marketCap.toString(), 2)}`;
 
   return ([
     {
