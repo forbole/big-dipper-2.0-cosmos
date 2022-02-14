@@ -1,4 +1,9 @@
-# base-v2.0.0 - 2021-02-07
+# Unreleased
+
+## Changes
+- Updated market cap display ([\#698](https://github.com/forbole/big-dipper-2.0-cosmos/issues/698))
+
+# base-v2.0.0-rc1 - 2021-02-07
 
 ## Changes
 - Updated Hasura Actions
