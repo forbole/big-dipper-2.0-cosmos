@@ -7,10 +7,7 @@ import { useRouter } from 'next/router';
 import {
   AccountQuery,
   useAccountQuery,
-  // useGetMessagesByAddressQuery,
-  // GetMessagesByAddressQuery,
 } from '@graphql/types';
-import { convertMsgsToModels } from '@msg';
 import { getDenom } from '@utils/get_denom';
 import { toValidatorAddress } from '@utils/prefix_convert';
 import {
@@ -82,8 +79,6 @@ export const useAccountDetails = () => {
   // ==========================
   // Fetch Data
   // ==========================
-  const LIMIT = 50;
-
   useAccountQuery({
     variables: {
       address: R.pathOr('', ['query', 'address'], router),

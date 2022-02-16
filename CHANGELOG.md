@@ -2,6 +2,7 @@
 
 ## Changes
 - Updated market cap display ([\#698](https://github.com/forbole/big-dipper-2.0-cosmos/issues/698))
+- Optimised validator details and account details to prevent random polling behavior ([\#703](https://github.com/forbole/big-dipper-2.0-cosmos/issues/703))
 
 # base-v2.0.0-rc1 - 2021-02-07
 
