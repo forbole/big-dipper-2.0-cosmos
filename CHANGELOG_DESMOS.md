@@ -1,3 +1,8 @@
+# desmos-v2.0.1 - 2021-02-16
+
+# Changes
+- Update gql apis for release
+
 # desmos-v2.0.0 - 2021-02-10
 
 # Changes
