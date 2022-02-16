@@ -56,11 +56,7 @@ const ValidatorDetails = () => {
             ) : (
               <Profile
                 className={classes.profile}
-                validator={overview.validator}
-                operatorAddress={overview.operatorAddress}
-                selfDelegateAddress={overview.selfDelegateAddress}
-                description={overview.description}
-                website={overview.website}
+                profile={state.overview}
               />
             )}
             <ValidatorOverview
