@@ -1,6 +1,4 @@
-import {
-  useState, useEffect,
-} from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { convertMsgsToModels } from '@msg';
 import * as R from 'ramda';
@@ -21,10 +19,6 @@ export const useTransactions = () => {
     offsetCount: 0,
   });
 
-  // useEffect(() => {
-
-  // }, [router.query.address])
-
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
@@ -39,12 +33,10 @@ export const useTransactions = () => {
       const itemsLength = data.messagesByAddress.length;
       const newItems = R.uniq([...state.data, ...formatTransactions(data)]);
       const stateChange = {
-        transactions: {
-          data: newItems,
-          hasNextPage: itemsLength === 51,
-          isNextPageLoading: false,
-          offsetCount: state.offsetCount + LIMIT,
-        },
+        data: newItems,
+        hasNextPage: itemsLength === 51,
+        isNextPageLoading: false,
+        offsetCount: state.offsetCount + LIMIT,
       };
 
       handleSetState(stateChange);
@@ -65,12 +57,10 @@ export const useTransactions = () => {
       const itemsLength = data.messagesByAddress.length;
       const newItems = R.uniq([...state.data, ...formatTransactions(data)]);
       const stateChange = {
-        transactions: {
-          data: newItems,
-          hasNextPage: itemsLength === 51,
-          isNextPageLoading: false,
-          offsetCount: state.offsetCount + LIMIT,
-        },
+        data: newItems,
+        hasNextPage: itemsLength === 51,
+        isNextPageLoading: false,
+        offsetCount: state.offsetCount + LIMIT,
       };
       handleSetState(stateChange);
     });

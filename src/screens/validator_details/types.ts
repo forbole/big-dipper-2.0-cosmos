@@ -14,7 +14,7 @@ export type StatusType = {
   commission: number;
   signedBlockWindow: number;
   missedBlockCounter: number;
-  lastSeen: string;
+  maxRate: string;
 }
 
 export type VotingPowerType = {

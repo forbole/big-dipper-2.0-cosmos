@@ -7,8 +7,8 @@ import { formatToken } from '@utils/format_token';
 import {
   useValidatorDetailsQuery,
   ValidatorDetailsQuery,
-  useValidatorLastSeenListenerSubscription,
-  ValidatorLastSeenListenerSubscription,
+  // useValidatorLastSeenListenerSubscription,
+  // ValidatorLastSeenListenerSubscription,
 } from '@graphql/types';
 import { useDesmosProfile } from '@hooks';
 import { validatorToDelegatorAddress } from '@recoil/profiles';
@@ -45,7 +45,7 @@ const initialState: ValidatorDetailsState = {
     commission: 0,
     missedBlockCounter: 0,
     signedBlockWindow: 0,
-    lastSeen: '',
+    maxRate: '0',
   },
   votingPower: {
     height: 0,
@@ -98,31 +98,31 @@ export const useValidatorDetails = () => {
     },
   });
 
-  useValidatorLastSeenListenerSubscription({
-    variables: {
-      address: router.query.address as string,
-    },
-    onSubscriptionData: (data) => {
-      handleSetState({
-        status: formatLastSeen(data.subscriptionData.data),
-      });
-    },
-  });
+  // useValidatorLastSeenListenerSubscription({
+  //   variables: {
+  //     address: router.query.address as string,
+  //   },
+  //   onSubscriptionData: (data) => {
+  //     handleSetState({
+  //       status: formatLastSeen(data.subscriptionData.data),
+  //     });
+  //   },
+  // });
 
   // ==========================
   // Parse Data
   // ==========================
 
-  const formatLastSeen = (data: ValidatorLastSeenListenerSubscription) => {
-    if (data.preCommit.length) {
-      const preCommit = data.preCommit[0];
-      return ({
-        lastSeen: preCommit.timestamp,
-      });
-    }
+  // const formatLastSeen = (data: ValidatorLastSeenListenerSubscription) => {
+  //   if (data.preCommit.length) {
+  //     const preCommit = data.preCommit[0];
+  //     return ({
+  //       lastSeen: preCommit.timestamp,
+  //     });
+  //   }
 
-    return {};
-  };
+  //   return {};
+  // };
 
   const formatAccountQuery = (data: ValidatorDetailsQuery) => {
     const stateChange: any = {
@@ -170,6 +170,7 @@ export const useValidatorDetails = () => {
         condition,
         missedBlockCounter,
         signedBlockWindow,
+        maxRate: R.pathOr('0', ['validator', 0, 'validatorInfo', 'maxRate'], data),
       };
 
       return profile;

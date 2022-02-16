@@ -24,7 +24,6 @@ const ValidatorDetails = () => {
     state,
   } = useValidatorDetails();
   const {
-    overview,
     desmosProfile,
     status,
   } = state;
@@ -46,12 +45,7 @@ const ValidatorDetails = () => {
             {desmosProfile ? (
               <DesmosProfile
                 className={classes.profile}
-                dtag={desmosProfile.dtag}
-                nickname={desmosProfile.nickname}
-                imageUrl={desmosProfile.imageUrl}
-                coverUrl={desmosProfile.coverUrl}
-                bio={desmosProfile.bio}
-                connections={desmosProfile.connections}
+                {...desmosProfile}
               />
             ) : (
               <Profile
@@ -61,16 +55,8 @@ const ValidatorDetails = () => {
             )}
             <ValidatorOverview
               className={classes.address}
-              operatorAddress={overview.operatorAddress}
-              selfDelegateAddress={overview.selfDelegateAddress}
-              status={status.status}
-              jailed={status.jailed}
-              tombstoned={status.tombstoned}
-              condition={status.condition}
-              commission={status.commission}
-              signedBlockWindow={status.signedBlockWindow}
-              missedBlockCounter={status.missedBlockCounter}
-              lastSeen={status.lastSeen}
+              overview={state.overview}
+              status={state.status}
             />
             <VotingPower
               className={classes.votingPower}
