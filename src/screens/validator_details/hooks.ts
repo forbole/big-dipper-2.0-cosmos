@@ -76,22 +76,22 @@ export const useValidatorDetails = () => {
   });
 
   useEffect(() => {
+    // ryuash
+    // why did i do this again
     handleSetState(initialState);
     if (chainConfig.extra.profile) {
-      const address = validatorToDelegatorAddress(R.pathOr('', ['query', 'address'], router));
+      const address = validatorToDelegatorAddress(router.query.address as string);
 
       fetchDesmosProfile(address);
     }
-  }, [R.pathOr('', ['query', 'address'], router)]);
+  }, [router.query.address]);
 
   // ==========================
   // Fetch Data
   // ==========================
-  // const LIMIT = 50;
-
   useValidatorDetailsQuery({
     variables: {
-      address: R.pathOr('', ['query', 'address'], router),
+      address: router.query.address as string,
     },
     onCompleted: (data) => {
       handleSetState(formatAccountQuery(data));
@@ -100,7 +100,7 @@ export const useValidatorDetails = () => {
 
   useValidatorLastSeenListenerSubscription({
     variables: {
-      address: R.pathOr('', ['query', 'address'], router),
+      address: router.query.address as string,
     },
     onSubscriptionData: (data) => {
       handleSetState({
