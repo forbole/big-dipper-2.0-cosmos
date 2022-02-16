@@ -22,7 +22,6 @@ const ValidatorDetails = () => {
   const classes = useStyles();
   const {
     state,
-    loadNextPage,
   } = useValidatorDetails();
   const {
     overview,
@@ -88,10 +87,6 @@ const ValidatorDetails = () => {
             />
             <Transactions
               className={classes.transactions}
-              loadNextPage={loadNextPage}
-              data={state.transactions.data}
-              hasNextPage={state.transactions.hasNextPage}
-              isNextPageLoading={state.transactions.isNextPageLoading}
             />
           </span>
         </LoadAndExist>

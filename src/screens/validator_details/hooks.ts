@@ -4,12 +4,9 @@ import {
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import { formatToken } from '@utils/format_token';
-import { convertMsgsToModels } from '@msg';
 import {
   useValidatorDetailsQuery,
   ValidatorDetailsQuery,
-  useGetMessagesByAddressQuery,
-  GetMessagesByAddressQuery,
   useValidatorLastSeenListenerSubscription,
   ValidatorLastSeenListenerSubscription,
 } from '@graphql/types';
@@ -55,12 +52,6 @@ const initialState: ValidatorDetailsState = {
     overall: initialTokenDenom,
     self: 0,
   },
-  transactions: {
-    data: [],
-    hasNextPage: false,
-    isNextPageLoading: false,
-    offsetCount: 0,
-  },
 };
 
 export const useValidatorDetails = () => {
@@ -96,7 +87,7 @@ export const useValidatorDetails = () => {
   // ==========================
   // Fetch Data
   // ==========================
-  const LIMIT = 50;
+  // const LIMIT = 50;
 
   useValidatorDetailsQuery({
     variables: {
@@ -118,81 +109,9 @@ export const useValidatorDetails = () => {
     },
   });
 
-  const transactionQuery = useGetMessagesByAddressQuery({
-    variables: {
-      limit: LIMIT + 1, // to check if more exist
-      offset: 0,
-      address: `{${R.pathOr('', ['query', 'address'], router)}}`,
-    },
-    onCompleted: (data) => {
-      const itemsLength = data.messagesByAddress.length;
-      const newItems = R.uniq([...state.transactions.data, ...formatTransactions(data)]);
-      const stateChange = {
-        transactions: {
-          data: newItems,
-          hasNextPage: itemsLength === 51,
-          isNextPageLoading: false,
-          offsetCount: state.transactions.offsetCount + LIMIT,
-        },
-      };
-
-      handleSetState(stateChange);
-    },
-  });
-
-  const loadNextPage = async () => {
-    handleSetState({
-      isNextPageLoading: true,
-    });
-    // refetch query
-    await transactionQuery.fetchMore({
-      variables: {
-        offset: state.transactions.offsetCount,
-        limit: LIMIT + 1,
-      },
-    }).then(({ data }) => {
-      const itemsLength = data.messagesByAddress.length;
-      const newItems = R.uniq([...state.transactions.data, ...formatTransactions(data)]);
-      const stateChange = {
-        transactions: {
-          data: newItems,
-          hasNextPage: itemsLength === 51,
-          isNextPageLoading: false,
-          offsetCount: state.transactions.offsetCount + LIMIT,
-        },
-      };
-      handleSetState(stateChange);
-    });
-  };
-
   // ==========================
   // Parse Data
   // ==========================
-  const formatTransactions = (data: GetMessagesByAddressQuery) => {
-    let formattedData = data.messagesByAddress;
-    if (data.messagesByAddress.length === 51) {
-      formattedData = data.messagesByAddress.slice(0, 51);
-    }
-    return formattedData.map((x) => {
-      const { transaction } = x;
-
-      // =============================
-      // messages
-      // =============================
-      const messages = convertMsgsToModels(transaction);
-
-      return ({
-        height: transaction.height,
-        hash: transaction.hash,
-        messages: {
-          count: messages.length,
-          items: messages,
-        },
-        success: transaction.success,
-        timestamp: transaction.block.timestamp,
-      });
-    });
-  };
 
   const formatLastSeen = (data: ValidatorLastSeenListenerSubscription) => {
     if (data.preCommit.length) {
@@ -281,6 +200,5 @@ export const useValidatorDetails = () => {
 
   return {
     state,
-    loadNextPage,
   };
 };

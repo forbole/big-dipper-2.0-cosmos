@@ -30,10 +30,4 @@ export type ValidatorDetailsState = {
   overview: OverviewType;
   status: StatusType;
   votingPower: VotingPowerType;
-  transactions: {
-    hasNextPage: boolean;
-    isNextPageLoading: boolean;
-    offsetCount: number;
-    data: Transactions[];
-  };
 }
