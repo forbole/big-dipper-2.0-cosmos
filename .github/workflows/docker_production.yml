@@ -37,18 +37,18 @@ jobs:
           NEXT_PUBLIC_MATOMO_SITE_ID=
           NEXT_PUBLIC_CHAIN_STATUS=
           if [[ $GITHUB_REF == refs/tags/desmos-morpheus-apollo-2* ]]; then
-            NEXT_PUBLIC_GRAPHQL_URL="https://gql.morpheus.desmos.network/v1/graphql"
-            NEXT_PUBLIC_GRAPHQL_WS="wss://gql.morpheus.desmos.network/v1/graphql"
+            NEXT_PUBLIC_GRAPHQL_URL="https://gql-morpheus.desmos.forbole.com/v1/graphql"
+            NEXT_PUBLIC_GRAPHQL_WS="wss://gql-morpheus.desmos.forbole.com/v1/graphql"
             NEXT_PUBLIC_URL="https://morpheus.desmos.network"
-            NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.morpheus.desmos.network/websocket"
+            NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc-morpheus.desmos.forbole.com/websocket"
             NEXT_PUBLIC_MATOMO_URL="https://analytics.desmos.network"
             NEXT_PUBLIC_MATOMO_SITE_ID=8
             NEXT_PUBLIC_CHAIN_STATUS="testnet"
           elif [[ $GITHUB_REF == refs/tags/desmos-mainnet-1-v* ]]; then
-            NEXT_PUBLIC_GRAPHQL_URL="https://gql.mainnet.desmos.network/v1/graphql"
-            NEXT_PUBLIC_GRAPHQL_WS="wss://gql-ws.mainnet.desmos.network/v1/graphql"
+            NEXT_PUBLIC_GRAPHQL_URL="https://gql.desmos.forbole.com/v1/graphql"
+            NEXT_PUBLIC_GRAPHQL_WS="wss://gql.desmos.forbole.com/v1/graphql"
             NEXT_PUBLIC_URL="https://explorer.desmos.network"
-            NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.mainnet.desmos.network/websocket"
+            NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.desmos.forbole.com/websocket"
             NEXT_PUBLIC_MATOMO_URL="https://analytics.desmos.network"
             NEXT_PUBLIC_MATOMO_SITE_ID=8
             NEXT_PUBLIC_CHAIN_STATUS="mainnet"
@@ -107,5 +107,4 @@ jobs:
               WEBHOOK_URL=$DESMOS_AKASH_WEBHOOK_MAINNET_URL
             fi
               curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k $WEBHOOK_URL -u "deploy:$AKASH_WEBHOOK_SECRET"
-
 

@@ -26,10 +26,10 @@ jobs:
       - name: Prepare docker build env
         id: dockerPrep
         run: |
-          NEXT_PUBLIC_GRAPHQL_URL="https://gql.mainnet.desmos.network/v1/graphql"
-          NEXT_PUBLIC_GRAPHQL_WS="wss://gql-ws.mainnet.desmos.network/v1/graphql"
+          NEXT_PUBLIC_GRAPHQL_URL="https://gql.desmos.forbole.com/v1/graphql"
+          NEXT_PUBLIC_GRAPHQL_WS="wss://gql.desmos.forbole.com/v1/graphql"
           NEXT_PUBLIC_URL="https://explorer.desmos.network"
-          NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.mainnet.desmos.network/websocket"
+          NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.desmos.forbole.com/websocket"
           NODE_ENV="production"
           PORT=3000
           NEXT_PUBLIC_MATOMO_URL="https://analytics.desmos.network"
