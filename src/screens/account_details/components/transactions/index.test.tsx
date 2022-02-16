@@ -11,8 +11,8 @@ import Transactions from '.';
 // ==================================
 jest.mock('@components', () => ({
   Box: (props) => <div id="Box" {...props} />,
-  TransactionListDetails: (props) => <div id="TransactionListDetails" {...props} />,
   TransactionsList: (props) => <div id="TransactionsList" {...props} />,
+  TransactionListDetails: (props) => <div id="TransactionListDetails" {...props} />,
 }));
 
 // ==================================
@@ -34,7 +34,7 @@ describe('screen: Transactions/List', () => {
                   success: true,
                   timestamp: '',
                   messages: {
-                    count: 4,
+                    count: 10,
                     items: [],
                   },
                 },

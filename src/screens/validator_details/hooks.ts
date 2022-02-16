@@ -7,8 +7,6 @@ import { formatToken } from '@utils/format_token';
 import {
   useValidatorDetailsQuery,
   ValidatorDetailsQuery,
-  // useValidatorLastSeenListenerSubscription,
-  // ValidatorLastSeenListenerSubscription,
 } from '@graphql/types';
 import { useDesmosProfile } from '@hooks';
 import { validatorToDelegatorAddress } from '@recoil/profiles';
@@ -97,32 +95,6 @@ export const useValidatorDetails = () => {
       handleSetState(formatAccountQuery(data));
     },
   });
-
-  // useValidatorLastSeenListenerSubscription({
-  //   variables: {
-  //     address: router.query.address as string,
-  //   },
-  //   onSubscriptionData: (data) => {
-  //     handleSetState({
-  //       status: formatLastSeen(data.subscriptionData.data),
-  //     });
-  //   },
-  // });
-
-  // ==========================
-  // Parse Data
-  // ==========================
-
-  // const formatLastSeen = (data: ValidatorLastSeenListenerSubscription) => {
-  //   if (data.preCommit.length) {
-  //     const preCommit = data.preCommit[0];
-  //     return ({
-  //       lastSeen: preCommit.timestamp,
-  //     });
-  //   }
-
-  //   return {};
-  // };
 
   const formatAccountQuery = (data: ValidatorDetailsQuery) => {
     const stateChange: any = {
