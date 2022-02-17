@@ -14,7 +14,7 @@ export type StatusType = {
   commission: number;
   signedBlockWindow: number;
   missedBlockCounter: number;
-  lastSeen: string;
+  maxRate: string;
 }
 
 export type VotingPowerType = {
@@ -30,10 +30,4 @@ export type ValidatorDetailsState = {
   overview: OverviewType;
   status: StatusType;
   votingPower: VotingPowerType;
-  transactions: {
-    hasNextPage: boolean;
-    isNextPageLoading: boolean;
-    offsetCount: number;
-    data: Transactions[];
-  };
 }
