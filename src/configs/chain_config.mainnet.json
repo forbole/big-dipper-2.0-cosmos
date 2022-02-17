@@ -1,9 +1,9 @@
 {
   "title": "LikeCoin Block Explorer",
   "network": "likecoin-mainnet-2",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/likecoin/icon.svg?sanitize=true",
+  "icon": "/images/icon.svg",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/likecoin/logo.svg?sanitize=true"
+    "default": "/images/logo.svg"
   },
   "prefix": {
     "consensus": "cosmosvalcons",
