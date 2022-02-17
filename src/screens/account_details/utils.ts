@@ -29,7 +29,7 @@ export const fetchCommission = async (address: string) => {
   }
 };
 
-export const fetchWithdrawalAddress = async (address: string) => {
+export const fetchAccountWithdrawalAddress = async (address: string) => {
   const defaultReturnValue = {
     withdrawalAddress: {
       address,
@@ -48,7 +48,7 @@ export const fetchWithdrawalAddress = async (address: string) => {
   }
 };
 
-export const fetchBalances = async (address: string) => {
+export const fetchAvailableBalances = async (address: string) => {
   const defaultReturnValue = {
     accountBalances: {
       coins: [],
