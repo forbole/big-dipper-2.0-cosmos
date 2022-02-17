@@ -7,10 +7,7 @@ import { useRouter } from 'next/router';
 import {
   AccountQuery,
   useAccountQuery,
-  useGetMessagesByAddressQuery,
-  GetMessagesByAddressQuery,
 } from '@graphql/types';
-import { convertMsgsToModels } from '@msg';
 import { getDenom } from '@utils/get_denom';
 import { toValidatorAddress } from '@utils/prefix_convert';
 import {
@@ -48,12 +45,6 @@ const initialState: AccountDetailState = {
     total: defaultTokenUnit,
   },
   rewards: {},
-  transactions: {
-    data: [],
-    hasNextPage: false,
-    isNextPageLoading: false,
-    offsetCount: 0,
-  },
 };
 
 export const useAccountDetails = () => {
@@ -80,7 +71,7 @@ export const useAccountDetails = () => {
   useEffect(() => {
     handleSetState(initialState);
     if (chainConfig.extra.profile) {
-      fetchDesmosProfile(R.pathOr('', ['query', 'address'], router));
+      fetchDesmosProfile(router.query.address as string);
     }
   },
   [router.query.address]);
@@ -88,8 +79,6 @@ export const useAccountDetails = () => {
   // ==========================
   // Fetch Data
   // ==========================
-  const LIMIT = 50;
-
   useAccountQuery({
     variables: {
       address: R.pathOr('', ['query', 'address'], router),
@@ -99,83 +88,6 @@ export const useAccountDetails = () => {
       handleSetState(formatAccountQuery(data));
     },
   });
-
-  const transactionQuery = useGetMessagesByAddressQuery({
-    variables: {
-      limit: LIMIT + 1, // to check if more exist
-      offset: 0,
-      address: `{${R.pathOr('', ['query', 'address'], router)}}`,
-    },
-    onCompleted: (data) => {
-      const itemsLength = data.messagesByAddress.length;
-      const newItems = R.uniq([...state.transactions.data, ...formatTransactions(data)]);
-      const stateChange = {
-        transactions: {
-          data: newItems,
-          hasNextPage: itemsLength === 51,
-          isNextPageLoading: false,
-          offsetCount: state.transactions.offsetCount + LIMIT,
-        },
-      };
-
-      handleSetState(stateChange);
-    },
-  });
-
-  const loadNextPage = async () => {
-    handleSetState({
-      isNextPageLoading: true,
-    });
-    // refetch query
-    await transactionQuery.fetchMore({
-      variables: {
-        offset: state.transactions.offsetCount,
-        limit: LIMIT + 1,
-      },
-    }).then(({ data }) => {
-      const itemsLength = data.messagesByAddress.length;
-      const newItems = R.uniq([...state.transactions.data, ...formatTransactions(data)]);
-      const stateChange = {
-        transactions: {
-          data: newItems,
-          hasNextPage: itemsLength === 51,
-          isNextPageLoading: false,
-          offsetCount: state.transactions.offsetCount + LIMIT,
-        },
-      };
-      handleSetState(stateChange);
-    });
-  };
-
-  // ==========================
-  // Format TX
-  // ==========================
-
-  const formatTransactions = (data: GetMessagesByAddressQuery) => {
-    let formattedData = data.messagesByAddress;
-    if (data.messagesByAddress.length === 51) {
-      formattedData = data.messagesByAddress.slice(0, 51);
-    }
-    return formattedData.map((x) => {
-      const { transaction } = x;
-
-      // =============================
-      // messages
-      // =============================
-      const messages = convertMsgsToModels(transaction);
-
-      return ({
-        height: transaction.height,
-        hash: transaction.hash,
-        messages: {
-          count: messages.length,
-          items: messages,
-        },
-        success: transaction.success,
-        timestamp: transaction.block.timestamp,
-      });
-    });
-  };
 
   // ==========================
   // Format Account
@@ -355,6 +267,5 @@ export const useAccountDetails = () => {
 
   return {
     state,
-    loadNextPage,
   };
 };

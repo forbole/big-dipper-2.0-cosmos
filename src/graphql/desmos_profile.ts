@@ -143,10 +143,6 @@ export type Account = {
   /** An aggregate relationship */
   delegations_aggregate: Delegation_Aggregate;
   /** An array relationship */
-  delegators_to_refreshes: Array<Delegators_To_Refresh>;
-  /** An aggregate relationship */
-  delegators_to_refreshes_aggregate: Delegators_To_Refresh_Aggregate;
-  /** An array relationship */
   feeGrantAllowancesByGranterAddress: Array<Fee_Grant_Allowance>;
   /** An aggregate relationship */
   feeGrantAllowancesByGranterAddress_aggregate: Fee_Grant_Allowance_Aggregate;
@@ -264,26 +260,6 @@ export type AccountDelegations_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Delegation_Order_By>>;
   where?: Maybe<Delegation_Bool_Exp>;
-};
-
-
-/** columns and relationships of "account" */
-export type AccountDelegators_To_RefreshesArgs = {
-  distinct_on?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Delegators_To_Refresh_Order_By>>;
-  where?: Maybe<Delegators_To_Refresh_Bool_Exp>;
-};
-
-
-/** columns and relationships of "account" */
-export type AccountDelegators_To_Refreshes_AggregateArgs = {
-  distinct_on?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Delegators_To_Refresh_Order_By>>;
-  where?: Maybe<Delegators_To_Refresh_Bool_Exp>;
 };
 
 
@@ -843,7 +819,6 @@ export type Account_Bool_Exp = {
   address?: Maybe<String_Comparison_Exp>;
   delegation_rewards?: Maybe<Delegation_Reward_Bool_Exp>;
   delegations?: Maybe<Delegation_Bool_Exp>;
-  delegators_to_refreshes?: Maybe<Delegators_To_Refresh_Bool_Exp>;
   feeGrantAllowancesByGranterAddress?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
   fee_grant_allowances?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
   proposal_deposits?: Maybe<Proposal_Deposit_Bool_Exp>;
@@ -875,7 +850,6 @@ export type Account_Order_By = {
   address?: Maybe<Order_By>;
   delegation_rewards_aggregate?: Maybe<Delegation_Reward_Aggregate_Order_By>;
   delegations_aggregate?: Maybe<Delegation_Aggregate_Order_By>;
-  delegators_to_refreshes_aggregate?: Maybe<Delegators_To_Refresh_Aggregate_Order_By>;
   feeGrantAllowancesByGranterAddress_aggregate?: Maybe<Fee_Grant_Allowance_Aggregate_Order_By>;
   fee_grant_allowances_aggregate?: Maybe<Fee_Grant_Allowance_Aggregate_Order_By>;
   proposal_deposits_aggregate?: Maybe<Proposal_Deposit_Aggregate_Order_By>;
@@ -3732,199 +3706,6 @@ export type Delegation_Variance_Fields = {
 export type Delegation_Variance_Order_By = {
   height?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
-};
-
-/** columns and relationships of "delegators_to_refresh" */
-export type Delegators_To_Refresh = {
-  __typename?: 'delegators_to_refresh';
-  /** An object relationship */
-  account: Account;
-  address: Scalars['String'];
-  height: Scalars['bigint'];
-};
-
-/** aggregated selection of "delegators_to_refresh" */
-export type Delegators_To_Refresh_Aggregate = {
-  __typename?: 'delegators_to_refresh_aggregate';
-  aggregate?: Maybe<Delegators_To_Refresh_Aggregate_Fields>;
-  nodes: Array<Delegators_To_Refresh>;
-};
-
-/** aggregate fields of "delegators_to_refresh" */
-export type Delegators_To_Refresh_Aggregate_Fields = {
-  __typename?: 'delegators_to_refresh_aggregate_fields';
-  avg?: Maybe<Delegators_To_Refresh_Avg_Fields>;
-  count: Scalars['Int'];
-  max?: Maybe<Delegators_To_Refresh_Max_Fields>;
-  min?: Maybe<Delegators_To_Refresh_Min_Fields>;
-  stddev?: Maybe<Delegators_To_Refresh_Stddev_Fields>;
-  stddev_pop?: Maybe<Delegators_To_Refresh_Stddev_Pop_Fields>;
-  stddev_samp?: Maybe<Delegators_To_Refresh_Stddev_Samp_Fields>;
-  sum?: Maybe<Delegators_To_Refresh_Sum_Fields>;
-  var_pop?: Maybe<Delegators_To_Refresh_Var_Pop_Fields>;
-  var_samp?: Maybe<Delegators_To_Refresh_Var_Samp_Fields>;
-  variance?: Maybe<Delegators_To_Refresh_Variance_Fields>;
-};
-
-
-/** aggregate fields of "delegators_to_refresh" */
-export type Delegators_To_Refresh_Aggregate_FieldsCountArgs = {
-  columns?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
-  distinct?: Maybe<Scalars['Boolean']>;
-};
-
-/** order by aggregate values of table "delegators_to_refresh" */
-export type Delegators_To_Refresh_Aggregate_Order_By = {
-  avg?: Maybe<Delegators_To_Refresh_Avg_Order_By>;
-  count?: Maybe<Order_By>;
-  max?: Maybe<Delegators_To_Refresh_Max_Order_By>;
-  min?: Maybe<Delegators_To_Refresh_Min_Order_By>;
-  stddev?: Maybe<Delegators_To_Refresh_Stddev_Order_By>;
-  stddev_pop?: Maybe<Delegators_To_Refresh_Stddev_Pop_Order_By>;
-  stddev_samp?: Maybe<Delegators_To_Refresh_Stddev_Samp_Order_By>;
-  sum?: Maybe<Delegators_To_Refresh_Sum_Order_By>;
-  var_pop?: Maybe<Delegators_To_Refresh_Var_Pop_Order_By>;
-  var_samp?: Maybe<Delegators_To_Refresh_Var_Samp_Order_By>;
-  variance?: Maybe<Delegators_To_Refresh_Variance_Order_By>;
-};
-
-/** aggregate avg on columns */
-export type Delegators_To_Refresh_Avg_Fields = {
-  __typename?: 'delegators_to_refresh_avg_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** order by avg() on columns of table "delegators_to_refresh" */
-export type Delegators_To_Refresh_Avg_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
-/** Boolean expression to filter rows from the table "delegators_to_refresh". All fields are combined with a logical 'AND'. */
-export type Delegators_To_Refresh_Bool_Exp = {
-  _and?: Maybe<Array<Delegators_To_Refresh_Bool_Exp>>;
-  _not?: Maybe<Delegators_To_Refresh_Bool_Exp>;
-  _or?: Maybe<Array<Delegators_To_Refresh_Bool_Exp>>;
-  account?: Maybe<Account_Bool_Exp>;
-  address?: Maybe<String_Comparison_Exp>;
-  height?: Maybe<Bigint_Comparison_Exp>;
-};
-
-/** aggregate max on columns */
-export type Delegators_To_Refresh_Max_Fields = {
-  __typename?: 'delegators_to_refresh_max_fields';
-  address?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['bigint']>;
-};
-
-/** order by max() on columns of table "delegators_to_refresh" */
-export type Delegators_To_Refresh_Max_Order_By = {
-  address?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
-/** aggregate min on columns */
-export type Delegators_To_Refresh_Min_Fields = {
-  __typename?: 'delegators_to_refresh_min_fields';
-  address?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['bigint']>;
-};
-
-/** order by min() on columns of table "delegators_to_refresh" */
-export type Delegators_To_Refresh_Min_Order_By = {
-  address?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
-/** Ordering options when selecting data from "delegators_to_refresh". */
-export type Delegators_To_Refresh_Order_By = {
-  account?: Maybe<Account_Order_By>;
-  address?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-};
-
-/** select columns of table "delegators_to_refresh" */
-export enum Delegators_To_Refresh_Select_Column {
-  /** column name */
-  Address = 'address',
-  /** column name */
-  Height = 'height'
-}
-
-/** aggregate stddev on columns */
-export type Delegators_To_Refresh_Stddev_Fields = {
-  __typename?: 'delegators_to_refresh_stddev_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev() on columns of table "delegators_to_refresh" */
-export type Delegators_To_Refresh_Stddev_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
-/** aggregate stddev_pop on columns */
-export type Delegators_To_Refresh_Stddev_Pop_Fields = {
-  __typename?: 'delegators_to_refresh_stddev_pop_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "delegators_to_refresh" */
-export type Delegators_To_Refresh_Stddev_Pop_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
-/** aggregate stddev_samp on columns */
-export type Delegators_To_Refresh_Stddev_Samp_Fields = {
-  __typename?: 'delegators_to_refresh_stddev_samp_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_samp() on columns of table "delegators_to_refresh" */
-export type Delegators_To_Refresh_Stddev_Samp_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
-/** aggregate sum on columns */
-export type Delegators_To_Refresh_Sum_Fields = {
-  __typename?: 'delegators_to_refresh_sum_fields';
-  height?: Maybe<Scalars['bigint']>;
-};
-
-/** order by sum() on columns of table "delegators_to_refresh" */
-export type Delegators_To_Refresh_Sum_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
-/** aggregate var_pop on columns */
-export type Delegators_To_Refresh_Var_Pop_Fields = {
-  __typename?: 'delegators_to_refresh_var_pop_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** order by var_pop() on columns of table "delegators_to_refresh" */
-export type Delegators_To_Refresh_Var_Pop_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
-/** aggregate var_samp on columns */
-export type Delegators_To_Refresh_Var_Samp_Fields = {
-  __typename?: 'delegators_to_refresh_var_samp_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** order by var_samp() on columns of table "delegators_to_refresh" */
-export type Delegators_To_Refresh_Var_Samp_Order_By = {
-  height?: Maybe<Order_By>;
-};
-
-/** aggregate variance on columns */
-export type Delegators_To_Refresh_Variance_Fields = {
-  __typename?: 'delegators_to_refresh_variance_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** order by variance() on columns of table "delegators_to_refresh" */
-export type Delegators_To_Refresh_Variance_Order_By = {
-  height?: Maybe<Order_By>;
 };
 
 /** columns and relationships of "distribution_params" */
@@ -10487,10 +10268,6 @@ export type Query_Root = {
   delegation_reward: Array<Delegation_Reward>;
   /** fetch aggregated fields from the table: "delegation_reward" */
   delegation_reward_aggregate: Delegation_Reward_Aggregate;
-  /** fetch data from the table: "delegators_to_refresh" */
-  delegators_to_refresh: Array<Delegators_To_Refresh>;
-  /** fetch aggregated fields from the table: "delegators_to_refresh" */
-  delegators_to_refresh_aggregate: Delegators_To_Refresh_Aggregate;
   /** fetch data from the table: "distribution_params" */
   distribution_params: Array<Distribution_Params>;
   /** fetch aggregated fields from the table: "distribution_params" */
@@ -11107,24 +10884,6 @@ export type Query_RootDelegation_Reward_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Delegation_Reward_Order_By>>;
   where?: Maybe<Delegation_Reward_Bool_Exp>;
-};
-
-
-export type Query_RootDelegators_To_RefreshArgs = {
-  distinct_on?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Delegators_To_Refresh_Order_By>>;
-  where?: Maybe<Delegators_To_Refresh_Bool_Exp>;
-};
-
-
-export type Query_RootDelegators_To_Refresh_AggregateArgs = {
-  distinct_on?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Delegators_To_Refresh_Order_By>>;
-  where?: Maybe<Delegators_To_Refresh_Bool_Exp>;
 };
 
 
@@ -13195,10 +12954,6 @@ export type Subscription_Root = {
   delegation_reward: Array<Delegation_Reward>;
   /** fetch aggregated fields from the table: "delegation_reward" */
   delegation_reward_aggregate: Delegation_Reward_Aggregate;
-  /** fetch data from the table: "delegators_to_refresh" */
-  delegators_to_refresh: Array<Delegators_To_Refresh>;
-  /** fetch aggregated fields from the table: "delegators_to_refresh" */
-  delegators_to_refresh_aggregate: Delegators_To_Refresh_Aggregate;
   /** fetch data from the table: "distribution_params" */
   distribution_params: Array<Distribution_Params>;
   /** fetch aggregated fields from the table: "distribution_params" */
@@ -13815,24 +13570,6 @@ export type Subscription_RootDelegation_Reward_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Delegation_Reward_Order_By>>;
   where?: Maybe<Delegation_Reward_Bool_Exp>;
-};
-
-
-export type Subscription_RootDelegators_To_RefreshArgs = {
-  distinct_on?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Delegators_To_Refresh_Order_By>>;
-  where?: Maybe<Delegators_To_Refresh_Bool_Exp>;
-};
-
-
-export type Subscription_RootDelegators_To_Refresh_AggregateArgs = {
-  distinct_on?: Maybe<Array<Delegators_To_Refresh_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Delegators_To_Refresh_Order_By>>;
-  where?: Maybe<Delegators_To_Refresh_Bool_Exp>;
 };
 
 
