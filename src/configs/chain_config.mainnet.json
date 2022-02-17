@@ -1,9 +1,9 @@
 {
   "title": "Regen Block Explorer",
   "network": "regen-1",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/regen/icon.png?sanitize=true",
+  "icon": "/images/icon.png",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/regen/logo.png?sanitize=true"
+    "default": "/images/logo.png"
   },
   "prefix": {
     "consensus": "regenvalcons",

@@ -6,6 +6,7 @@ generates:
   ./src/graphql/types.tsx:
     documents:
       - './src/**/*.graphql'
+      - './src/**/*_actions.ts'
       - '!./src/**/desmos_profile.graphql'
     schema: https://gql.regen.forbole.com/v1/graphql
     plugins:
@@ -13,7 +14,7 @@ generates:
       - "typescript-operations"
       - "typescript-react-apollo" # To generate custom hooks per query
   ./src/graphql/desmos_profile.ts:
-    schema: https://gql.morpheus.desmos.network/v1/graphql
+    schema: https://gql.mainnet.desmos.network/v1/graphql
     documents:
       - 'src/graphql/desmos_profile_graphql.ts'
     plugins:
