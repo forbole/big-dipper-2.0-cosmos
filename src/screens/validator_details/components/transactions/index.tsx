@@ -10,20 +10,21 @@ import {
 import { useRecoilValue } from 'recoil';
 import { readTx } from '@recoil/settings';
 import { useStyles } from './styles';
+import { useTransactions } from './hooks';
 
-const Transactions: React.FC<{
-  className?: string;
-  data: Transactions[];
-  loadNextPage: () => void;
-  hasNextPage: boolean;
-  isNextPageLoading: boolean;
-}> = (props) => {
+const Transactions: React.FC<ComponentDefault> = (props) => {
   const txListFormat = useRecoilValue(readTx);
   const classes = useStyles();
   const { t } = useTranslation('validators');
-  const loadMoreItems = props.isNextPageLoading ? () => null : props.loadNextPage;
-  const isItemLoaded = (index) => !props.hasNextPage || index < props.data.length;
-  const itemCount = props.hasNextPage ? props.data.length + 1 : props.data.length;
+
+  const {
+    state,
+    loadNextPage,
+  } = useTransactions();
+
+  const loadMoreItems = state.isNextPageLoading ? () => null : loadNextPage;
+  const isItemLoaded = (index) => !state.hasNextPage || index < state.data.length;
+  const itemCount = state.hasNextPage ? state.data.length + 1 : state.data.length;
 
   return (
     <Box className={classnames(props.className, classes.root)}>
@@ -33,21 +34,21 @@ const Transactions: React.FC<{
       <div className={classes.list}>
         {txListFormat === 'compact' ? (
           <TransactionsList
-            transactions={props.data}
+            transactions={state.data}
             itemCount={itemCount}
-            hasNextPage={props.hasNextPage}
-            isNextPageLoading={props.isNextPageLoading}
-            loadNextPage={props.loadNextPage}
+            hasNextPage={state.hasNextPage}
+            isNextPageLoading={state.isNextPageLoading}
+            loadNextPage={loadNextPage}
             loadMoreItems={loadMoreItems}
             isItemLoaded={isItemLoaded}
           />
         ) : (
           <TransactionListDetails
-            transactions={props.data}
+            transactions={state.data}
             itemCount={itemCount}
-            hasNextPage={props.hasNextPage}
-            isNextPageLoading={props.isNextPageLoading}
-            loadNextPage={props.loadNextPage}
+            hasNextPage={state.hasNextPage}
+            isNextPageLoading={state.isNextPageLoading}
+            loadNextPage={loadNextPage}
             loadMoreItems={loadMoreItems}
             isItemLoaded={isItemLoaded}
           />
