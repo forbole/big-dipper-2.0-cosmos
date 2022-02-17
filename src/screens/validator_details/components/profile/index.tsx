@@ -14,20 +14,18 @@ import { useProfileRecoil } from '@recoil/profiles';
 import { useStyles } from './styles';
 import { OverviewType } from '../../types';
 
-const Profile: React.FC<OverviewType & {
-  className?: string;
-}> = ({
-  className, ...data
+const Profile: React.FC<{profile: OverviewType} & ComponentDefault> = ({
+  className, profile,
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('validators');
-  const validator = useProfileRecoil(data.validator);
+  const validator = useProfileRecoil(profile.validator);
 
   const pattern = /^((http|https|ftp):\/\/)/;
-  let { website } = data;
+  let { website } = profile;
 
-  if (!pattern.test(data.website)) {
-    website = `//${data.website}`;
+  if (!pattern.test(profile.website)) {
+    website = `//${profile.website}`;
   }
 
   const formattedItem = {
@@ -40,7 +38,7 @@ const Profile: React.FC<OverviewType & {
         target="_blank"
         rel="noreferrer"
       >
-        {data.website}
+        {profile.website}
       </Typography>
     ),
   };
@@ -49,7 +47,7 @@ const Profile: React.FC<OverviewType & {
     <Box className={classnames(className)}>
       <div className={classes.bio}>
         <Avatar
-          address={data.operatorAddress}
+          address={profile.operatorAddress}
           imageUrl={validator.imageUrl}
           className={classnames(classes.avatar, classes.desktopAvatar)}
         />
@@ -60,7 +58,7 @@ const Profile: React.FC<OverviewType & {
             {/* ======================== */}
             <div className={classes.header}>
               <Avatar
-                address={data.operatorAddress}
+                address={profile.operatorAddress}
                 imageUrl={validator.imageUrl}
                 className={classnames(classes.avatar, classes.mobile)}
               />
@@ -74,9 +72,9 @@ const Profile: React.FC<OverviewType & {
           {/* ======================== */}
           {/* bio */}
           {/* ======================== */}
-          {data.description && (
+          {profile.description && (
             <div className="bio__content">
-              <Markdown markdown={data.description} />
+              <Markdown markdown={profile.description} />
             </div>
           )}
         </div>
