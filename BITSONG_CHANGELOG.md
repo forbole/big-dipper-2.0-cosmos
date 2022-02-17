@@ -1,3 +1,8 @@
+# bitsong-v2.0.1 - 2021-02-17
+
+## Changes
+- Logos
+
 # bitsong-v2.0.0 - 2021-02-08
 
 ## Changes

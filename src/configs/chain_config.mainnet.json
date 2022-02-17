@@ -1,9 +1,9 @@
 {
   "title": "Bitsong Block Explorer",
   "network": "bitsong-2",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/bitsong/icon.svg?sanitize=true",
+  "icon": "/images/icon.svg",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/bitsong/logo.svg?sanitize=true"
+    "default": "/images/logo.svg"
   },
   "prefix": {
     "consensus": "bitsongvalcons",
