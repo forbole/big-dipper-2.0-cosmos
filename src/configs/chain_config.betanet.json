@@ -1,9 +1,9 @@
 {
   "title": "Sifchain Block Explorer",
   "network": "sifchain-1",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/sifchain/icon.png?sanitize=true",
+  "icon": "/images/icon.png",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/sifchain/logo.png?sanitize=true"
+    "default": "/images/logo.png"
   },
   "prefix": {
     "consensus": "sifvalcons",

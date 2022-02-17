@@ -8,3 +8,4 @@
 - Merge `base-v1.8.4`
 - Merge `base-v1.9.0`
 - Merge `base-v2.0.0`
+- Moved logos to local
