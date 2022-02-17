@@ -1,3 +1,8 @@
+# likecoin-v2.0.1 - 2021-02-17
+## Changes
+- Merge `base`
+- Made icons local
+
 # likecoin-v2.0.0 - 2021-02-07
 ## Changes
 - Merge `base`
