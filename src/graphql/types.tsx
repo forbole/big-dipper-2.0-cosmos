@@ -11516,33 +11516,6 @@ export type Vesting_Period_Variance_Order_By = {
   vesting_account_id?: Maybe<Order_By>;
 };
 
-export type AccountQueryVariables = Exact<{
-  address: Scalars['String'];
-  validatorAddress: Scalars['String'];
-}>;
-
-
-export type AccountQuery = { commission?: Maybe<(
-    { __typename?: 'ActionValidatorCommissionAmount' }
-    & Pick<ActionValidatorCommissionAmount, 'coins'>
-  )>, withdrawalAddress: (
-    { __typename?: 'ActionAddress' }
-    & Pick<ActionAddress, 'address'>
-  ), accountBalances?: Maybe<(
-    { __typename?: 'ActionBalance' }
-    & Pick<ActionBalance, 'coins'>
-  )>, delegationBalance?: Maybe<(
-    { __typename?: 'ActionBalance' }
-    & Pick<ActionBalance, 'coins'>
-  )>, unbondingBalance?: Maybe<(
-    { __typename?: 'ActionBalance' }
-    & Pick<ActionBalance, 'coins'>
-  )>, delegationRewards?: Maybe<Array<Maybe<(
-    { __typename?: 'ActionDelegationReward' }
-    & Pick<ActionDelegationReward, 'coins'>
-    & { validatorAddress: ActionDelegationReward['validator_address'] }
-  )>>> };
-
 export type AccountCommissionQueryVariables = Exact<{
   validatorAddress: Scalars['String'];
 }>;
@@ -12180,58 +12153,6 @@ export type ValidatorAddressesQuery = { validator: Array<(
   )> };
 
 
-export const AccountDocument = gql`
-    query Account($address: String!, $validatorAddress: String!) {
-  commission: action_validator_commission_amount(address: $validatorAddress) {
-    coins
-  }
-  withdrawalAddress: action_delegator_withdraw_address(address: $address) {
-    address
-  }
-  accountBalances: action_account_balance(address: $address) {
-    coins
-  }
-  delegationBalance: action_delegation_total(address: $address) {
-    coins
-  }
-  unbondingBalance: action_unbonding_delegation_total(address: $address) {
-    coins
-  }
-  delegationRewards: action_delegation_reward(address: $address) {
-    validatorAddress: validator_address
-    coins
-  }
-}
-    `;
-
-/**
- * __useAccountQuery__
- *
- * To run a query within a React component, call `useAccountQuery` and pass it any options that fit your needs.
- * When your component renders, `useAccountQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useAccountQuery({
- *   variables: {
- *      address: // value for 'address'
- *      validatorAddress: // value for 'validatorAddress'
- *   },
- * });
- */
-export function useAccountQuery(baseOptions: Apollo.QueryHookOptions<AccountQuery, AccountQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<AccountQuery, AccountQueryVariables>(AccountDocument, options);
-      }
-export function useAccountLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountQuery, AccountQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<AccountQuery, AccountQueryVariables>(AccountDocument, options);
-        }
-export type AccountQueryHookResult = ReturnType<typeof useAccountQuery>;
-export type AccountLazyQueryHookResult = ReturnType<typeof useAccountLazyQuery>;
-export type AccountQueryResult = Apollo.QueryResult<AccountQuery, AccountQueryVariables>;
 export const AccountCommissionDocument = gql`
     query AccountCommission($validatorAddress: String!) {
   commission: action_validator_commission_amount(address: $validatorAddress) {
