@@ -3,6 +3,8 @@
 ## Changes
 - Updated market cap display ([\#698](https://github.com/forbole/big-dipper-2.0-cosmos/issues/698))
 - Optimised validator details and account details to prevent random polling behavior ([\#703](https://github.com/forbole/big-dipper-2.0-cosmos/issues/703))
+- Add hasura actions error handling in account details ([\#713](https://github.com/forbole/big-dipper-2.0-cosmos/issues/713))
+- Display accounts even if balance is 0 and does not exist ([\#692](https://github.com/forbole/big-dipper-2.0-cosmos/issues/692))
 
 # base-v2.0.0-rc1 - 2021-02-07
 
