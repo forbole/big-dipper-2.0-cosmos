@@ -4,18 +4,21 @@ import {
 import * as R from 'ramda';
 import Big from 'big.js';
 import { useRouter } from 'next/router';
-import {
-  AccountQuery,
-  useAccountQuery,
-} from '@graphql/types';
 import { getDenom } from '@utils/get_denom';
-import { toValidatorAddress } from '@utils/prefix_convert';
 import {
   formatToken,
 } from '@utils/format_token';
 import { chainConfig } from '@src/configs';
 import { useDesmosProfile } from '@hooks';
 import { AccountDetailState } from './types';
+import {
+  fetchAccountWithdrawalAddress,
+  fetchAvailableBalances,
+  fetchCommission,
+  fetchDelegationBalance,
+  fetchRewards,
+  fetchUnbondingBalance,
+} from './utils';
 
 const defaultTokenUnit: TokenUnit = {
   value: '0',
@@ -76,32 +79,58 @@ export const useAccountDetails = () => {
   },
   [router.query.address]);
 
+  useEffect(() => {
+    fetchWithdrawalAddress();
+    fetchBalance();
+  }, [router.query.address]);
+
   // ==========================
   // Fetch Data
   // ==========================
-  useAccountQuery({
-    variables: {
-      address: R.pathOr('', ['query', 'address'], router),
-      validatorAddress: toValidatorAddress(router.query.address as string),
-    },
-    onCompleted: (data) => {
-      handleSetState(formatAccountQuery(data));
-    },
-  });
+  const fetchWithdrawalAddress = async () => {
+    const data = await fetchAccountWithdrawalAddress(router.query.address as string);
+    handleSetState({
+      overview: {
+        address: router.query.address,
+        withdrawalAddress: R.pathOr('', ['withdrawalAddress', 'address'], data),
+      },
+    });
+  };
+
+  const fetchBalance = async () => {
+    const address = router.query.address as string;
+    const promises = [
+      fetchCommission(address),
+      fetchAvailableBalances(address),
+      fetchDelegationBalance(address),
+      fetchUnbondingBalance(address),
+      fetchRewards(address),
+    ];
+    const [
+      commission,
+      available,
+      delegation,
+      unbonding,
+      rewards,
+    ] = await Promise.allSettled(promises);
+
+    const formattedRawData: any = {};
+    formattedRawData.commission = R.pathOr([], ['value', 'commission'], commission);
+    formattedRawData.accountBalances = R.pathOr([], ['value', 'accountBalances'], available);
+    formattedRawData.delegationBalance = R.pathOr([], ['value', 'delegationBalance'], delegation);
+    formattedRawData.unbondingBalance = R.pathOr([], ['value', 'unbondingBalance'], unbonding);
+    formattedRawData.delegationRewards = R.pathOr([], ['value', 'delegationRewards'], rewards);
+
+    handleSetState(formatAllBalance(formattedRawData));
+  };
 
   // ==========================
-  // Format Account
+  // Format Data
   // ==========================
-
-  const formatAccountQuery = (data: AccountQuery) => {
+  const formatAllBalance = (data: any) => {
     const stateChange: any = {
       loading: false,
     };
-
-    if (!data.accountBalances.coins.length) {
-      stateChange.exists = false;
-      return stateChange;
-    }
 
     // ============================
     // rewards
@@ -119,24 +148,6 @@ export const useAccountDetails = () => {
     };
 
     stateChange.rewards = formatRewards();
-
-    // ============================
-    // overview
-    // ============================
-    const formatOverview = () => {
-      const address = R.pathOr('', ['query', 'address'], router);
-      const overview = {
-        address,
-        withdrawalAddress: R.pathOr(
-          address,
-          ['withdrawalAddress', 'address'],
-          data,
-        ),
-      };
-      return overview;
-    };
-
-    stateChange.overview = formatOverview();
 
     // ============================
     // balance

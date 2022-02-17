@@ -6,6 +6,7 @@ generates:
   ./src/graphql/types.tsx:
     documents:
       - './src/**/*.graphql'
+      - './src/**/*_actions.ts'
       - '!./src/**/desmos_profile.graphql'
     schema: https://gql.desmos.forbole.com/v1/graphql
     plugins:

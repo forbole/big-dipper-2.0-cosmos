@@ -195,6 +195,10 @@ export type Account = {
   validator_infos_aggregate: Validator_Info_Aggregate;
   /** An object relationship */
   vesting_account?: Maybe<Vesting_Account>;
+  /** An array relationship */
+  vesting_accounts: Array<Vesting_Account>;
+  /** An aggregate relationship */
+  vesting_accounts_aggregate: Vesting_Account_Aggregate;
 };
 
 
@@ -277,6 +281,26 @@ export type AccountValidator_Infos_AggregateArgs = {
   where?: Maybe<Validator_Info_Bool_Exp>;
 };
 
+
+/** columns and relationships of "account" */
+export type AccountVesting_AccountsArgs = {
+  distinct_on?: Maybe<Array<Vesting_Account_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Vesting_Account_Order_By>>;
+  where?: Maybe<Vesting_Account_Bool_Exp>;
+};
+
+
+/** columns and relationships of "account" */
+export type AccountVesting_Accounts_AggregateArgs = {
+  distinct_on?: Maybe<Array<Vesting_Account_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Vesting_Account_Order_By>>;
+  where?: Maybe<Vesting_Account_Bool_Exp>;
+};
+
 /** aggregated selection of "account" */
 export type Account_Aggregate = {
   __typename?: 'account_aggregate';
@@ -310,6 +334,7 @@ export type Account_Bool_Exp = {
   proposals?: Maybe<Proposal_Bool_Exp>;
   validator_infos?: Maybe<Validator_Info_Bool_Exp>;
   vesting_account?: Maybe<Vesting_Account_Bool_Exp>;
+  vesting_accounts?: Maybe<Vesting_Account_Bool_Exp>;
 };
 
 /** aggregate max on columns */
@@ -332,6 +357,7 @@ export type Account_Order_By = {
   proposals_aggregate?: Maybe<Proposal_Aggregate_Order_By>;
   validator_infos_aggregate?: Maybe<Validator_Info_Aggregate_Order_By>;
   vesting_account?: Maybe<Vesting_Account_Order_By>;
+  vesting_accounts_aggregate?: Maybe<Vesting_Account_Aggregate_Order_By>;
 };
 
 /** select columns of table "account" */
@@ -2065,169 +2091,6 @@ export type Double_Sign_Vote_Variance_Order_By = {
   validator_index?: Maybe<Order_By>;
 };
 
-/** columns and relationships of "fee_grant_allowance" */
-export type Fee_Grant_Allowance = {
-  __typename?: 'fee_grant_allowance';
-  allowance: Scalars['jsonb'];
-  /** An object relationship */
-  grantee: Account;
-  grantee_address: Scalars['String'];
-  /** An object relationship */
-  granter: Account;
-  granter_address: Scalars['String'];
-  height: Scalars['bigint'];
-  id: Scalars['Int'];
-};
-
-
-/** columns and relationships of "fee_grant_allowance" */
-export type Fee_Grant_AllowanceAllowanceArgs = {
-  path?: Maybe<Scalars['String']>;
-};
-
-/** aggregated selection of "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Aggregate = {
-  __typename?: 'fee_grant_allowance_aggregate';
-  aggregate?: Maybe<Fee_Grant_Allowance_Aggregate_Fields>;
-  nodes: Array<Fee_Grant_Allowance>;
-};
-
-/** aggregate fields of "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Aggregate_Fields = {
-  __typename?: 'fee_grant_allowance_aggregate_fields';
-  avg?: Maybe<Fee_Grant_Allowance_Avg_Fields>;
-  count: Scalars['Int'];
-  max?: Maybe<Fee_Grant_Allowance_Max_Fields>;
-  min?: Maybe<Fee_Grant_Allowance_Min_Fields>;
-  stddev?: Maybe<Fee_Grant_Allowance_Stddev_Fields>;
-  stddev_pop?: Maybe<Fee_Grant_Allowance_Stddev_Pop_Fields>;
-  stddev_samp?: Maybe<Fee_Grant_Allowance_Stddev_Samp_Fields>;
-  sum?: Maybe<Fee_Grant_Allowance_Sum_Fields>;
-  var_pop?: Maybe<Fee_Grant_Allowance_Var_Pop_Fields>;
-  var_samp?: Maybe<Fee_Grant_Allowance_Var_Samp_Fields>;
-  variance?: Maybe<Fee_Grant_Allowance_Variance_Fields>;
-};
-
-
-/** aggregate fields of "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Aggregate_FieldsCountArgs = {
-  columns?: Maybe<Array<Fee_Grant_Allowance_Select_Column>>;
-  distinct?: Maybe<Scalars['Boolean']>;
-};
-
-/** aggregate avg on columns */
-export type Fee_Grant_Allowance_Avg_Fields = {
-  __typename?: 'fee_grant_allowance_avg_fields';
-  height?: Maybe<Scalars['Float']>;
-  id?: Maybe<Scalars['Float']>;
-};
-
-/** Boolean expression to filter rows from the table "fee_grant_allowance". All fields are combined with a logical 'AND'. */
-export type Fee_Grant_Allowance_Bool_Exp = {
-  _and?: Maybe<Array<Fee_Grant_Allowance_Bool_Exp>>;
-  _not?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
-  _or?: Maybe<Array<Fee_Grant_Allowance_Bool_Exp>>;
-  allowance?: Maybe<Jsonb_Comparison_Exp>;
-  grantee?: Maybe<Account_Bool_Exp>;
-  grantee_address?: Maybe<String_Comparison_Exp>;
-  granter?: Maybe<Account_Bool_Exp>;
-  granter_address?: Maybe<String_Comparison_Exp>;
-  height?: Maybe<Bigint_Comparison_Exp>;
-  id?: Maybe<Int_Comparison_Exp>;
-};
-
-/** aggregate max on columns */
-export type Fee_Grant_Allowance_Max_Fields = {
-  __typename?: 'fee_grant_allowance_max_fields';
-  grantee_address?: Maybe<Scalars['String']>;
-  granter_address?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['bigint']>;
-  id?: Maybe<Scalars['Int']>;
-};
-
-/** aggregate min on columns */
-export type Fee_Grant_Allowance_Min_Fields = {
-  __typename?: 'fee_grant_allowance_min_fields';
-  grantee_address?: Maybe<Scalars['String']>;
-  granter_address?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['bigint']>;
-  id?: Maybe<Scalars['Int']>;
-};
-
-/** Ordering options when selecting data from "fee_grant_allowance". */
-export type Fee_Grant_Allowance_Order_By = {
-  allowance?: Maybe<Order_By>;
-  grantee?: Maybe<Account_Order_By>;
-  grantee_address?: Maybe<Order_By>;
-  granter?: Maybe<Account_Order_By>;
-  granter_address?: Maybe<Order_By>;
-  height?: Maybe<Order_By>;
-  id?: Maybe<Order_By>;
-};
-
-/** select columns of table "fee_grant_allowance" */
-export enum Fee_Grant_Allowance_Select_Column {
-  /** column name */
-  Allowance = 'allowance',
-  /** column name */
-  GranteeAddress = 'grantee_address',
-  /** column name */
-  GranterAddress = 'granter_address',
-  /** column name */
-  Height = 'height',
-  /** column name */
-  Id = 'id'
-}
-
-/** aggregate stddev on columns */
-export type Fee_Grant_Allowance_Stddev_Fields = {
-  __typename?: 'fee_grant_allowance_stddev_fields';
-  height?: Maybe<Scalars['Float']>;
-  id?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate stddev_pop on columns */
-export type Fee_Grant_Allowance_Stddev_Pop_Fields = {
-  __typename?: 'fee_grant_allowance_stddev_pop_fields';
-  height?: Maybe<Scalars['Float']>;
-  id?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate stddev_samp on columns */
-export type Fee_Grant_Allowance_Stddev_Samp_Fields = {
-  __typename?: 'fee_grant_allowance_stddev_samp_fields';
-  height?: Maybe<Scalars['Float']>;
-  id?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate sum on columns */
-export type Fee_Grant_Allowance_Sum_Fields = {
-  __typename?: 'fee_grant_allowance_sum_fields';
-  height?: Maybe<Scalars['bigint']>;
-  id?: Maybe<Scalars['Int']>;
-};
-
-/** aggregate var_pop on columns */
-export type Fee_Grant_Allowance_Var_Pop_Fields = {
-  __typename?: 'fee_grant_allowance_var_pop_fields';
-  height?: Maybe<Scalars['Float']>;
-  id?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate var_samp on columns */
-export type Fee_Grant_Allowance_Var_Samp_Fields = {
-  __typename?: 'fee_grant_allowance_var_samp_fields';
-  height?: Maybe<Scalars['Float']>;
-  id?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate variance on columns */
-export type Fee_Grant_Allowance_Variance_Fields = {
-  __typename?: 'fee_grant_allowance_variance_fields';
-  height?: Maybe<Scalars['Float']>;
-  id?: Maybe<Scalars['Float']>;
-};
-
 /** columns and relationships of "genesis" */
 export type Genesis = {
   __typename?: 'genesis';
@@ -2668,9 +2531,10 @@ export type Jsonb_Comparison_Exp = {
 export type Message = {
   __typename?: 'message';
   index: Scalars['bigint'];
-  involved_accounts_addresses?: Maybe<Scalars['_text']>;
+  involved_accounts_addresses: Scalars['_text'];
+  partition_id?: Maybe<Scalars['bigint']>;
   /** An object relationship */
-  transaction: Transaction;
+  transaction?: Maybe<Transaction>;
   transaction_hash: Scalars['String'];
   type: Scalars['String'];
   value: Scalars['jsonb'];
@@ -2731,11 +2595,13 @@ export type Message_Aggregate_Order_By = {
 export type Message_Avg_Fields = {
   __typename?: 'message_avg_fields';
   index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by avg() on columns of table "message" */
 export type Message_Avg_Order_By = {
   index?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "message". All fields are combined with a logical 'AND'. */
@@ -2745,6 +2611,7 @@ export type Message_Bool_Exp = {
   _or?: Maybe<Array<Message_Bool_Exp>>;
   index?: Maybe<Bigint_Comparison_Exp>;
   involved_accounts_addresses?: Maybe<_Text_Comparison_Exp>;
+  partition_id?: Maybe<Bigint_Comparison_Exp>;
   transaction?: Maybe<Transaction_Bool_Exp>;
   transaction_hash?: Maybe<String_Comparison_Exp>;
   type?: Maybe<String_Comparison_Exp>;
@@ -2755,6 +2622,7 @@ export type Message_Bool_Exp = {
 export type Message_Max_Fields = {
   __typename?: 'message_max_fields';
   index?: Maybe<Scalars['bigint']>;
+  partition_id?: Maybe<Scalars['bigint']>;
   transaction_hash?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
 };
@@ -2762,6 +2630,7 @@ export type Message_Max_Fields = {
 /** order by max() on columns of table "message" */
 export type Message_Max_Order_By = {
   index?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
   transaction_hash?: Maybe<Order_By>;
   type?: Maybe<Order_By>;
 };
@@ -2770,6 +2639,7 @@ export type Message_Max_Order_By = {
 export type Message_Min_Fields = {
   __typename?: 'message_min_fields';
   index?: Maybe<Scalars['bigint']>;
+  partition_id?: Maybe<Scalars['bigint']>;
   transaction_hash?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
 };
@@ -2777,14 +2647,191 @@ export type Message_Min_Fields = {
 /** order by min() on columns of table "message" */
 export type Message_Min_Order_By = {
   index?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
   transaction_hash?: Maybe<Order_By>;
   type?: Maybe<Order_By>;
+};
+
+/** columns and relationships of "message_new" */
+export type Message_New = {
+  __typename?: 'message_new';
+  height: Scalars['bigint'];
+  index: Scalars['bigint'];
+  involved_accounts_addresses: Scalars['_text'];
+  partition_id: Scalars['bigint'];
+  transaction_hash: Scalars['String'];
+  type: Scalars['String'];
+  value: Scalars['jsonb'];
+};
+
+
+/** columns and relationships of "message_new" */
+export type Message_NewValueArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+/** aggregated selection of "message_new" */
+export type Message_New_Aggregate = {
+  __typename?: 'message_new_aggregate';
+  aggregate?: Maybe<Message_New_Aggregate_Fields>;
+  nodes: Array<Message_New>;
+};
+
+/** aggregate fields of "message_new" */
+export type Message_New_Aggregate_Fields = {
+  __typename?: 'message_new_aggregate_fields';
+  avg?: Maybe<Message_New_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Message_New_Max_Fields>;
+  min?: Maybe<Message_New_Min_Fields>;
+  stddev?: Maybe<Message_New_Stddev_Fields>;
+  stddev_pop?: Maybe<Message_New_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Message_New_Stddev_Samp_Fields>;
+  sum?: Maybe<Message_New_Sum_Fields>;
+  var_pop?: Maybe<Message_New_Var_Pop_Fields>;
+  var_samp?: Maybe<Message_New_Var_Samp_Fields>;
+  variance?: Maybe<Message_New_Variance_Fields>;
+};
+
+
+/** aggregate fields of "message_new" */
+export type Message_New_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Message_New_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Message_New_Avg_Fields = {
+  __typename?: 'message_new_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+  index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "message_new". All fields are combined with a logical 'AND'. */
+export type Message_New_Bool_Exp = {
+  _and?: Maybe<Array<Message_New_Bool_Exp>>;
+  _not?: Maybe<Message_New_Bool_Exp>;
+  _or?: Maybe<Array<Message_New_Bool_Exp>>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  index?: Maybe<Bigint_Comparison_Exp>;
+  involved_accounts_addresses?: Maybe<_Text_Comparison_Exp>;
+  partition_id?: Maybe<Bigint_Comparison_Exp>;
+  transaction_hash?: Maybe<String_Comparison_Exp>;
+  type?: Maybe<String_Comparison_Exp>;
+  value?: Maybe<Jsonb_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Message_New_Max_Fields = {
+  __typename?: 'message_new_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+  index?: Maybe<Scalars['bigint']>;
+  partition_id?: Maybe<Scalars['bigint']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Message_New_Min_Fields = {
+  __typename?: 'message_new_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+  index?: Maybe<Scalars['bigint']>;
+  partition_id?: Maybe<Scalars['bigint']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "message_new". */
+export type Message_New_Order_By = {
+  height?: Maybe<Order_By>;
+  index?: Maybe<Order_By>;
+  involved_accounts_addresses?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
+  transaction_hash?: Maybe<Order_By>;
+  type?: Maybe<Order_By>;
+  value?: Maybe<Order_By>;
+};
+
+/** select columns of table "message_new" */
+export enum Message_New_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Index = 'index',
+  /** column name */
+  InvolvedAccountsAddresses = 'involved_accounts_addresses',
+  /** column name */
+  PartitionId = 'partition_id',
+  /** column name */
+  TransactionHash = 'transaction_hash',
+  /** column name */
+  Type = 'type',
+  /** column name */
+  Value = 'value'
+}
+
+/** aggregate stddev on columns */
+export type Message_New_Stddev_Fields = {
+  __typename?: 'message_new_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+  index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Message_New_Stddev_Pop_Fields = {
+  __typename?: 'message_new_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Message_New_Stddev_Samp_Fields = {
+  __typename?: 'message_new_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Message_New_Sum_Fields = {
+  __typename?: 'message_new_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+  index?: Maybe<Scalars['bigint']>;
+  partition_id?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Message_New_Var_Pop_Fields = {
+  __typename?: 'message_new_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Message_New_Var_Samp_Fields = {
+  __typename?: 'message_new_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Message_New_Variance_Fields = {
+  __typename?: 'message_new_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+  index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** Ordering options when selecting data from "message". */
 export type Message_Order_By = {
   index?: Maybe<Order_By>;
   involved_accounts_addresses?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
   transaction?: Maybe<Transaction_Order_By>;
   transaction_hash?: Maybe<Order_By>;
   type?: Maybe<Order_By>;
@@ -2798,6 +2845,8 @@ export enum Message_Select_Column {
   /** column name */
   InvolvedAccountsAddresses = 'involved_accounts_addresses',
   /** column name */
+  PartitionId = 'partition_id',
+  /** column name */
   TransactionHash = 'transaction_hash',
   /** column name */
   Type = 'type',
@@ -2809,77 +2858,91 @@ export enum Message_Select_Column {
 export type Message_Stddev_Fields = {
   __typename?: 'message_stddev_fields';
   index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev() on columns of table "message" */
 export type Message_Stddev_Order_By = {
   index?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Message_Stddev_Pop_Fields = {
   __typename?: 'message_stddev_pop_fields';
   index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_pop() on columns of table "message" */
 export type Message_Stddev_Pop_Order_By = {
   index?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Message_Stddev_Samp_Fields = {
   __typename?: 'message_stddev_samp_fields';
   index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_samp() on columns of table "message" */
 export type Message_Stddev_Samp_Order_By = {
   index?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate sum on columns */
 export type Message_Sum_Fields = {
   __typename?: 'message_sum_fields';
   index?: Maybe<Scalars['bigint']>;
+  partition_id?: Maybe<Scalars['bigint']>;
 };
 
 /** order by sum() on columns of table "message" */
 export type Message_Sum_Order_By = {
   index?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
 export type Message_Var_Pop_Fields = {
   __typename?: 'message_var_pop_fields';
   index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_pop() on columns of table "message" */
 export type Message_Var_Pop_Order_By = {
   index?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate var_samp on columns */
 export type Message_Var_Samp_Fields = {
   __typename?: 'message_var_samp_fields';
   index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_samp() on columns of table "message" */
 export type Message_Var_Samp_Order_By = {
   index?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate variance on columns */
 export type Message_Variance_Fields = {
   __typename?: 'message_variance_fields';
   index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by variance() on columns of table "message" */
 export type Message_Variance_Order_By = {
   index?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 export type Messages_By_Address_Args = {
@@ -3359,137 +3422,6 @@ export type Pre_Commit_Variance_Order_By = {
   height?: Maybe<Order_By>;
   proposer_priority?: Maybe<Order_By>;
   voting_power?: Maybe<Order_By>;
-};
-
-/** columns and relationships of "profiles_params" */
-export type Profiles_Params = {
-  __typename?: 'profiles_params';
-  height: Scalars['bigint'];
-  one_row_id: Scalars['Boolean'];
-  params: Scalars['jsonb'];
-};
-
-
-/** columns and relationships of "profiles_params" */
-export type Profiles_ParamsParamsArgs = {
-  path?: Maybe<Scalars['String']>;
-};
-
-/** aggregated selection of "profiles_params" */
-export type Profiles_Params_Aggregate = {
-  __typename?: 'profiles_params_aggregate';
-  aggregate?: Maybe<Profiles_Params_Aggregate_Fields>;
-  nodes: Array<Profiles_Params>;
-};
-
-/** aggregate fields of "profiles_params" */
-export type Profiles_Params_Aggregate_Fields = {
-  __typename?: 'profiles_params_aggregate_fields';
-  avg?: Maybe<Profiles_Params_Avg_Fields>;
-  count: Scalars['Int'];
-  max?: Maybe<Profiles_Params_Max_Fields>;
-  min?: Maybe<Profiles_Params_Min_Fields>;
-  stddev?: Maybe<Profiles_Params_Stddev_Fields>;
-  stddev_pop?: Maybe<Profiles_Params_Stddev_Pop_Fields>;
-  stddev_samp?: Maybe<Profiles_Params_Stddev_Samp_Fields>;
-  sum?: Maybe<Profiles_Params_Sum_Fields>;
-  var_pop?: Maybe<Profiles_Params_Var_Pop_Fields>;
-  var_samp?: Maybe<Profiles_Params_Var_Samp_Fields>;
-  variance?: Maybe<Profiles_Params_Variance_Fields>;
-};
-
-
-/** aggregate fields of "profiles_params" */
-export type Profiles_Params_Aggregate_FieldsCountArgs = {
-  columns?: Maybe<Array<Profiles_Params_Select_Column>>;
-  distinct?: Maybe<Scalars['Boolean']>;
-};
-
-/** aggregate avg on columns */
-export type Profiles_Params_Avg_Fields = {
-  __typename?: 'profiles_params_avg_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** Boolean expression to filter rows from the table "profiles_params". All fields are combined with a logical 'AND'. */
-export type Profiles_Params_Bool_Exp = {
-  _and?: Maybe<Array<Profiles_Params_Bool_Exp>>;
-  _not?: Maybe<Profiles_Params_Bool_Exp>;
-  _or?: Maybe<Array<Profiles_Params_Bool_Exp>>;
-  height?: Maybe<Bigint_Comparison_Exp>;
-  one_row_id?: Maybe<Boolean_Comparison_Exp>;
-  params?: Maybe<Jsonb_Comparison_Exp>;
-};
-
-/** aggregate max on columns */
-export type Profiles_Params_Max_Fields = {
-  __typename?: 'profiles_params_max_fields';
-  height?: Maybe<Scalars['bigint']>;
-};
-
-/** aggregate min on columns */
-export type Profiles_Params_Min_Fields = {
-  __typename?: 'profiles_params_min_fields';
-  height?: Maybe<Scalars['bigint']>;
-};
-
-/** Ordering options when selecting data from "profiles_params". */
-export type Profiles_Params_Order_By = {
-  height?: Maybe<Order_By>;
-  one_row_id?: Maybe<Order_By>;
-  params?: Maybe<Order_By>;
-};
-
-/** select columns of table "profiles_params" */
-export enum Profiles_Params_Select_Column {
-  /** column name */
-  Height = 'height',
-  /** column name */
-  OneRowId = 'one_row_id',
-  /** column name */
-  Params = 'params'
-}
-
-/** aggregate stddev on columns */
-export type Profiles_Params_Stddev_Fields = {
-  __typename?: 'profiles_params_stddev_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate stddev_pop on columns */
-export type Profiles_Params_Stddev_Pop_Fields = {
-  __typename?: 'profiles_params_stddev_pop_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate stddev_samp on columns */
-export type Profiles_Params_Stddev_Samp_Fields = {
-  __typename?: 'profiles_params_stddev_samp_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate sum on columns */
-export type Profiles_Params_Sum_Fields = {
-  __typename?: 'profiles_params_sum_fields';
-  height?: Maybe<Scalars['bigint']>;
-};
-
-/** aggregate var_pop on columns */
-export type Profiles_Params_Var_Pop_Fields = {
-  __typename?: 'profiles_params_var_pop_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate var_samp on columns */
-export type Profiles_Params_Var_Samp_Fields = {
-  __typename?: 'profiles_params_var_samp_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate variance on columns */
-export type Profiles_Params_Variance_Fields = {
-  __typename?: 'profiles_params_variance_fields';
-  height?: Maybe<Scalars['Float']>;
 };
 
 /** columns and relationships of "proposal" */
@@ -4046,9 +3978,9 @@ export enum Proposal_Select_Column {
 /** columns and relationships of "proposal_staking_pool_snapshot" */
 export type Proposal_Staking_Pool_Snapshot = {
   __typename?: 'proposal_staking_pool_snapshot';
-  bonded_tokens: Scalars['bigint'];
+  bonded_tokens: Scalars['String'];
   height: Scalars['bigint'];
-  not_bonded_tokens: Scalars['bigint'];
+  not_bonded_tokens: Scalars['String'];
   /** An object relationship */
   proposal: Proposal;
   proposal_id: Scalars['Int'];
@@ -4087,9 +4019,7 @@ export type Proposal_Staking_Pool_Snapshot_Aggregate_FieldsCountArgs = {
 /** aggregate avg on columns */
 export type Proposal_Staking_Pool_Snapshot_Avg_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_avg_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
@@ -4098,9 +4028,9 @@ export type Proposal_Staking_Pool_Snapshot_Bool_Exp = {
   _and?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Bool_Exp>>;
   _not?: Maybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>;
   _or?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Bool_Exp>>;
-  bonded_tokens?: Maybe<Bigint_Comparison_Exp>;
+  bonded_tokens?: Maybe<String_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
-  not_bonded_tokens?: Maybe<Bigint_Comparison_Exp>;
+  not_bonded_tokens?: Maybe<String_Comparison_Exp>;
   proposal?: Maybe<Proposal_Bool_Exp>;
   proposal_id?: Maybe<Int_Comparison_Exp>;
 };
@@ -4108,18 +4038,18 @@ export type Proposal_Staking_Pool_Snapshot_Bool_Exp = {
 /** aggregate max on columns */
 export type Proposal_Staking_Pool_Snapshot_Max_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_max_fields';
-  bonded_tokens?: Maybe<Scalars['bigint']>;
+  bonded_tokens?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
-  not_bonded_tokens?: Maybe<Scalars['bigint']>;
+  not_bonded_tokens?: Maybe<Scalars['String']>;
   proposal_id?: Maybe<Scalars['Int']>;
 };
 
 /** aggregate min on columns */
 export type Proposal_Staking_Pool_Snapshot_Min_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_min_fields';
-  bonded_tokens?: Maybe<Scalars['bigint']>;
+  bonded_tokens?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
-  not_bonded_tokens?: Maybe<Scalars['bigint']>;
+  not_bonded_tokens?: Maybe<Scalars['String']>;
   proposal_id?: Maybe<Scalars['Int']>;
 };
 
@@ -4147,63 +4077,49 @@ export enum Proposal_Staking_Pool_Snapshot_Select_Column {
 /** aggregate stddev on columns */
 export type Proposal_Staking_Pool_Snapshot_Stddev_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_stddev_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Proposal_Staking_Pool_Snapshot_Stddev_Pop_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_stddev_pop_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Proposal_Staking_Pool_Snapshot_Stddev_Samp_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_stddev_samp_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate sum on columns */
 export type Proposal_Staking_Pool_Snapshot_Sum_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_sum_fields';
-  bonded_tokens?: Maybe<Scalars['bigint']>;
   height?: Maybe<Scalars['bigint']>;
-  not_bonded_tokens?: Maybe<Scalars['bigint']>;
   proposal_id?: Maybe<Scalars['Int']>;
 };
 
 /** aggregate var_pop on columns */
 export type Proposal_Staking_Pool_Snapshot_Var_Pop_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_var_pop_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate var_samp on columns */
 export type Proposal_Staking_Pool_Snapshot_Var_Samp_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_var_samp_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate variance on columns */
 export type Proposal_Staking_Pool_Snapshot_Variance_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_variance_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
@@ -5124,12 +5040,6 @@ export type Query_Root = {
   double_sign_vote_aggregate: Double_Sign_Vote_Aggregate;
   /** fetch data from the table: "double_sign_vote" using primary key columns */
   double_sign_vote_by_pk?: Maybe<Double_Sign_Vote>;
-  /** fetch data from the table: "fee_grant_allowance" */
-  fee_grant_allowance: Array<Fee_Grant_Allowance>;
-  /** fetch aggregated fields from the table: "fee_grant_allowance" */
-  fee_grant_allowance_aggregate: Fee_Grant_Allowance_Aggregate;
-  /** fetch data from the table: "fee_grant_allowance" using primary key columns */
-  fee_grant_allowance_by_pk?: Maybe<Fee_Grant_Allowance>;
   /** fetch data from the table: "genesis" */
   genesis: Array<Genesis>;
   /** fetch aggregated fields from the table: "genesis" */
@@ -5148,6 +5058,12 @@ export type Query_Root = {
   message: Array<Message>;
   /** fetch aggregated fields from the table: "message" */
   message_aggregate: Message_Aggregate;
+  /** fetch data from the table: "message_new" */
+  message_new: Array<Message_New>;
+  /** fetch aggregated fields from the table: "message_new" */
+  message_new_aggregate: Message_New_Aggregate;
+  /** fetch data from the table: "message_new" using primary key columns */
+  message_new_by_pk?: Maybe<Message_New>;
   /** execute function "messages_by_address" which returns "message" */
   messages_by_address: Array<Message>;
   /** execute function "messages_by_address" and query aggregates on result of table type "message" */
@@ -5168,12 +5084,6 @@ export type Query_Root = {
   pre_commit: Array<Pre_Commit>;
   /** fetch aggregated fields from the table: "pre_commit" */
   pre_commit_aggregate: Pre_Commit_Aggregate;
-  /** fetch data from the table: "profiles_params" */
-  profiles_params: Array<Profiles_Params>;
-  /** fetch aggregated fields from the table: "profiles_params" */
-  profiles_params_aggregate: Profiles_Params_Aggregate;
-  /** fetch data from the table: "profiles_params" using primary key columns */
-  profiles_params_by_pk?: Maybe<Profiles_Params>;
   /** fetch data from the table: "proposal" */
   proposal: Array<Proposal>;
   /** fetch aggregated fields from the table: "proposal" */
@@ -5250,6 +5160,12 @@ export type Query_Root = {
   transaction_aggregate: Transaction_Aggregate;
   /** fetch data from the table: "transaction" using primary key columns */
   transaction_by_pk?: Maybe<Transaction>;
+  /** fetch data from the table: "transaction_new" */
+  transaction_new: Array<Transaction_New>;
+  /** fetch aggregated fields from the table: "transaction_new" */
+  transaction_new_aggregate: Transaction_New_Aggregate;
+  /** fetch data from the table: "transaction_new" using primary key columns */
+  transaction_new_by_pk?: Maybe<Transaction_New>;
   /** fetch data from the table: "validator" */
   validator: Array<Validator>;
   /** fetch aggregated fields from the table: "validator" */
@@ -5591,29 +5507,6 @@ export type Query_RootDouble_Sign_Vote_By_PkArgs = {
 };
 
 
-export type Query_RootFee_Grant_AllowanceArgs = {
-  distinct_on?: Maybe<Array<Fee_Grant_Allowance_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Fee_Grant_Allowance_Order_By>>;
-  where?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
-};
-
-
-export type Query_RootFee_Grant_Allowance_AggregateArgs = {
-  distinct_on?: Maybe<Array<Fee_Grant_Allowance_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Fee_Grant_Allowance_Order_By>>;
-  where?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
-};
-
-
-export type Query_RootFee_Grant_Allowance_By_PkArgs = {
-  id: Scalars['Int'];
-};
-
-
 export type Query_RootGenesisArgs = {
   distinct_on?: Maybe<Array<Genesis_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -5688,6 +5581,32 @@ export type Query_RootMessage_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Message_Order_By>>;
   where?: Maybe<Message_Bool_Exp>;
+};
+
+
+export type Query_RootMessage_NewArgs = {
+  distinct_on?: Maybe<Array<Message_New_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Message_New_Order_By>>;
+  where?: Maybe<Message_New_Bool_Exp>;
+};
+
+
+export type Query_RootMessage_New_AggregateArgs = {
+  distinct_on?: Maybe<Array<Message_New_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Message_New_Order_By>>;
+  where?: Maybe<Message_New_Bool_Exp>;
+};
+
+
+export type Query_RootMessage_New_By_PkArgs = {
+  height: Scalars['bigint'];
+  index: Scalars['bigint'];
+  partition_id: Scalars['bigint'];
+  transaction_hash: Scalars['String'];
 };
 
 
@@ -5772,29 +5691,6 @@ export type Query_RootPre_Commit_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pre_Commit_Order_By>>;
   where?: Maybe<Pre_Commit_Bool_Exp>;
-};
-
-
-export type Query_RootProfiles_ParamsArgs = {
-  distinct_on?: Maybe<Array<Profiles_Params_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Profiles_Params_Order_By>>;
-  where?: Maybe<Profiles_Params_Bool_Exp>;
-};
-
-
-export type Query_RootProfiles_Params_AggregateArgs = {
-  distinct_on?: Maybe<Array<Profiles_Params_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Profiles_Params_Order_By>>;
-  where?: Maybe<Profiles_Params_Bool_Exp>;
-};
-
-
-export type Query_RootProfiles_Params_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
 };
 
 
@@ -6104,7 +6000,31 @@ export type Query_RootTransaction_AggregateArgs = {
 
 
 export type Query_RootTransaction_By_PkArgs = {
+  partition_id: Scalars['bigint'];
+};
+
+
+export type Query_RootTransaction_NewArgs = {
+  distinct_on?: Maybe<Array<Transaction_New_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Transaction_New_Order_By>>;
+  where?: Maybe<Transaction_New_Bool_Exp>;
+};
+
+
+export type Query_RootTransaction_New_AggregateArgs = {
+  distinct_on?: Maybe<Array<Transaction_New_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Transaction_New_Order_By>>;
+  where?: Maybe<Transaction_New_Bool_Exp>;
+};
+
+
+export type Query_RootTransaction_New_By_PkArgs = {
   hash: Scalars['String'];
+  partition_id: Scalars['bigint'];
 };
 
 
@@ -6588,9 +6508,9 @@ export type Staking_Params_Variance_Fields = {
 /** columns and relationships of "staking_pool" */
 export type Staking_Pool = {
   __typename?: 'staking_pool';
-  bonded_tokens: Scalars['bigint'];
+  bonded_tokens: Scalars['String'];
   height: Scalars['bigint'];
-  not_bonded_tokens: Scalars['bigint'];
+  not_bonded_tokens: Scalars['String'];
 };
 
 /** aggregated selection of "staking_pool" */
@@ -6626,9 +6546,7 @@ export type Staking_Pool_Aggregate_FieldsCountArgs = {
 /** aggregate avg on columns */
 export type Staking_Pool_Avg_Fields = {
   __typename?: 'staking_pool_avg_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
 };
 
 /** Boolean expression to filter rows from the table "staking_pool". All fields are combined with a logical 'AND'. */
@@ -6636,25 +6554,25 @@ export type Staking_Pool_Bool_Exp = {
   _and?: Maybe<Array<Staking_Pool_Bool_Exp>>;
   _not?: Maybe<Staking_Pool_Bool_Exp>;
   _or?: Maybe<Array<Staking_Pool_Bool_Exp>>;
-  bonded_tokens?: Maybe<Bigint_Comparison_Exp>;
+  bonded_tokens?: Maybe<String_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
-  not_bonded_tokens?: Maybe<Bigint_Comparison_Exp>;
+  not_bonded_tokens?: Maybe<String_Comparison_Exp>;
 };
 
 /** aggregate max on columns */
 export type Staking_Pool_Max_Fields = {
   __typename?: 'staking_pool_max_fields';
-  bonded_tokens?: Maybe<Scalars['bigint']>;
+  bonded_tokens?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
-  not_bonded_tokens?: Maybe<Scalars['bigint']>;
+  not_bonded_tokens?: Maybe<Scalars['String']>;
 };
 
 /** aggregate min on columns */
 export type Staking_Pool_Min_Fields = {
   __typename?: 'staking_pool_min_fields';
-  bonded_tokens?: Maybe<Scalars['bigint']>;
+  bonded_tokens?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
-  not_bonded_tokens?: Maybe<Scalars['bigint']>;
+  not_bonded_tokens?: Maybe<Scalars['String']>;
 };
 
 /** Ordering options when selecting data from "staking_pool". */
@@ -6677,57 +6595,43 @@ export enum Staking_Pool_Select_Column {
 /** aggregate stddev on columns */
 export type Staking_Pool_Stddev_Fields = {
   __typename?: 'staking_pool_stddev_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Staking_Pool_Stddev_Pop_Fields = {
   __typename?: 'staking_pool_stddev_pop_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Staking_Pool_Stddev_Samp_Fields = {
   __typename?: 'staking_pool_stddev_samp_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate sum on columns */
 export type Staking_Pool_Sum_Fields = {
   __typename?: 'staking_pool_sum_fields';
-  bonded_tokens?: Maybe<Scalars['bigint']>;
   height?: Maybe<Scalars['bigint']>;
-  not_bonded_tokens?: Maybe<Scalars['bigint']>;
 };
 
 /** aggregate var_pop on columns */
 export type Staking_Pool_Var_Pop_Fields = {
   __typename?: 'staking_pool_var_pop_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate var_samp on columns */
 export type Staking_Pool_Var_Samp_Fields = {
   __typename?: 'staking_pool_var_samp_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate variance on columns */
 export type Staking_Pool_Variance_Fields = {
   __typename?: 'staking_pool_variance_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
 };
 
 export type Subscription_Root = {
@@ -6780,12 +6684,6 @@ export type Subscription_Root = {
   double_sign_vote_aggregate: Double_Sign_Vote_Aggregate;
   /** fetch data from the table: "double_sign_vote" using primary key columns */
   double_sign_vote_by_pk?: Maybe<Double_Sign_Vote>;
-  /** fetch data from the table: "fee_grant_allowance" */
-  fee_grant_allowance: Array<Fee_Grant_Allowance>;
-  /** fetch aggregated fields from the table: "fee_grant_allowance" */
-  fee_grant_allowance_aggregate: Fee_Grant_Allowance_Aggregate;
-  /** fetch data from the table: "fee_grant_allowance" using primary key columns */
-  fee_grant_allowance_by_pk?: Maybe<Fee_Grant_Allowance>;
   /** fetch data from the table: "genesis" */
   genesis: Array<Genesis>;
   /** fetch aggregated fields from the table: "genesis" */
@@ -6804,6 +6702,12 @@ export type Subscription_Root = {
   message: Array<Message>;
   /** fetch aggregated fields from the table: "message" */
   message_aggregate: Message_Aggregate;
+  /** fetch data from the table: "message_new" */
+  message_new: Array<Message_New>;
+  /** fetch aggregated fields from the table: "message_new" */
+  message_new_aggregate: Message_New_Aggregate;
+  /** fetch data from the table: "message_new" using primary key columns */
+  message_new_by_pk?: Maybe<Message_New>;
   /** execute function "messages_by_address" which returns "message" */
   messages_by_address: Array<Message>;
   /** execute function "messages_by_address" and query aggregates on result of table type "message" */
@@ -6824,12 +6728,6 @@ export type Subscription_Root = {
   pre_commit: Array<Pre_Commit>;
   /** fetch aggregated fields from the table: "pre_commit" */
   pre_commit_aggregate: Pre_Commit_Aggregate;
-  /** fetch data from the table: "profiles_params" */
-  profiles_params: Array<Profiles_Params>;
-  /** fetch aggregated fields from the table: "profiles_params" */
-  profiles_params_aggregate: Profiles_Params_Aggregate;
-  /** fetch data from the table: "profiles_params" using primary key columns */
-  profiles_params_by_pk?: Maybe<Profiles_Params>;
   /** fetch data from the table: "proposal" */
   proposal: Array<Proposal>;
   /** fetch aggregated fields from the table: "proposal" */
@@ -6906,6 +6804,12 @@ export type Subscription_Root = {
   transaction_aggregate: Transaction_Aggregate;
   /** fetch data from the table: "transaction" using primary key columns */
   transaction_by_pk?: Maybe<Transaction>;
+  /** fetch data from the table: "transaction_new" */
+  transaction_new: Array<Transaction_New>;
+  /** fetch aggregated fields from the table: "transaction_new" */
+  transaction_new_aggregate: Transaction_New_Aggregate;
+  /** fetch data from the table: "transaction_new" using primary key columns */
+  transaction_new_by_pk?: Maybe<Transaction_New>;
   /** fetch data from the table: "validator" */
   validator: Array<Validator>;
   /** fetch aggregated fields from the table: "validator" */
@@ -7161,29 +7065,6 @@ export type Subscription_RootDouble_Sign_Vote_By_PkArgs = {
 };
 
 
-export type Subscription_RootFee_Grant_AllowanceArgs = {
-  distinct_on?: Maybe<Array<Fee_Grant_Allowance_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Fee_Grant_Allowance_Order_By>>;
-  where?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
-};
-
-
-export type Subscription_RootFee_Grant_Allowance_AggregateArgs = {
-  distinct_on?: Maybe<Array<Fee_Grant_Allowance_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Fee_Grant_Allowance_Order_By>>;
-  where?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
-};
-
-
-export type Subscription_RootFee_Grant_Allowance_By_PkArgs = {
-  id: Scalars['Int'];
-};
-
-
 export type Subscription_RootGenesisArgs = {
   distinct_on?: Maybe<Array<Genesis_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -7258,6 +7139,32 @@ export type Subscription_RootMessage_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Message_Order_By>>;
   where?: Maybe<Message_Bool_Exp>;
+};
+
+
+export type Subscription_RootMessage_NewArgs = {
+  distinct_on?: Maybe<Array<Message_New_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Message_New_Order_By>>;
+  where?: Maybe<Message_New_Bool_Exp>;
+};
+
+
+export type Subscription_RootMessage_New_AggregateArgs = {
+  distinct_on?: Maybe<Array<Message_New_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Message_New_Order_By>>;
+  where?: Maybe<Message_New_Bool_Exp>;
+};
+
+
+export type Subscription_RootMessage_New_By_PkArgs = {
+  height: Scalars['bigint'];
+  index: Scalars['bigint'];
+  partition_id: Scalars['bigint'];
+  transaction_hash: Scalars['String'];
 };
 
 
@@ -7342,29 +7249,6 @@ export type Subscription_RootPre_Commit_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pre_Commit_Order_By>>;
   where?: Maybe<Pre_Commit_Bool_Exp>;
-};
-
-
-export type Subscription_RootProfiles_ParamsArgs = {
-  distinct_on?: Maybe<Array<Profiles_Params_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Profiles_Params_Order_By>>;
-  where?: Maybe<Profiles_Params_Bool_Exp>;
-};
-
-
-export type Subscription_RootProfiles_Params_AggregateArgs = {
-  distinct_on?: Maybe<Array<Profiles_Params_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Profiles_Params_Order_By>>;
-  where?: Maybe<Profiles_Params_Bool_Exp>;
-};
-
-
-export type Subscription_RootProfiles_Params_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
 };
 
 
@@ -7674,7 +7558,31 @@ export type Subscription_RootTransaction_AggregateArgs = {
 
 
 export type Subscription_RootTransaction_By_PkArgs = {
+  partition_id: Scalars['bigint'];
+};
+
+
+export type Subscription_RootTransaction_NewArgs = {
+  distinct_on?: Maybe<Array<Transaction_New_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Transaction_New_Order_By>>;
+  where?: Maybe<Transaction_New_Bool_Exp>;
+};
+
+
+export type Subscription_RootTransaction_New_AggregateArgs = {
+  distinct_on?: Maybe<Array<Transaction_New_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Transaction_New_Order_By>>;
+  where?: Maybe<Transaction_New_Bool_Exp>;
+};
+
+
+export type Subscription_RootTransaction_New_By_PkArgs = {
   hash: Scalars['String'];
+  partition_id: Scalars['bigint'];
 };
 
 
@@ -8866,6 +8774,7 @@ export type Transaction = {
   messagesByTransactionHash: Array<Message>;
   /** An aggregate relationship */
   messagesByTransactionHash_aggregate: Message_Aggregate;
+  partition_id: Scalars['bigint'];
   raw_log?: Maybe<Scalars['String']>;
   signatures: Scalars['_text'];
   signer_infos: Scalars['jsonb'];
@@ -8967,6 +8876,7 @@ export type Transaction_Avg_Fields = {
   gas_used?: Maybe<Scalars['Float']>;
   gas_wanted?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by avg() on columns of table "transaction" */
@@ -8974,6 +8884,7 @@ export type Transaction_Avg_Order_By = {
   gas_used?: Maybe<Order_By>;
   gas_wanted?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "transaction". All fields are combined with a logical 'AND'. */
@@ -8991,6 +8902,7 @@ export type Transaction_Bool_Exp = {
   memo?: Maybe<String_Comparison_Exp>;
   messages?: Maybe<Jsonb_Comparison_Exp>;
   messagesByTransactionHash?: Maybe<Message_Bool_Exp>;
+  partition_id?: Maybe<Bigint_Comparison_Exp>;
   raw_log?: Maybe<String_Comparison_Exp>;
   signatures?: Maybe<_Text_Comparison_Exp>;
   signer_infos?: Maybe<Jsonb_Comparison_Exp>;
@@ -9005,6 +8917,7 @@ export type Transaction_Max_Fields = {
   hash?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
   memo?: Maybe<Scalars['String']>;
+  partition_id?: Maybe<Scalars['bigint']>;
   raw_log?: Maybe<Scalars['String']>;
 };
 
@@ -9015,6 +8928,7 @@ export type Transaction_Max_Order_By = {
   hash?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
   memo?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
   raw_log?: Maybe<Order_By>;
 };
 
@@ -9026,6 +8940,7 @@ export type Transaction_Min_Fields = {
   hash?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
   memo?: Maybe<Scalars['String']>;
+  partition_id?: Maybe<Scalars['bigint']>;
   raw_log?: Maybe<Scalars['String']>;
 };
 
@@ -9036,7 +8951,243 @@ export type Transaction_Min_Order_By = {
   hash?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
   memo?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
   raw_log?: Maybe<Order_By>;
+};
+
+/** columns and relationships of "transaction_new" */
+export type Transaction_New = {
+  __typename?: 'transaction_new';
+  fee: Scalars['jsonb'];
+  gas_used?: Maybe<Scalars['bigint']>;
+  gas_wanted?: Maybe<Scalars['bigint']>;
+  hash: Scalars['String'];
+  height: Scalars['bigint'];
+  logs?: Maybe<Scalars['jsonb']>;
+  memo?: Maybe<Scalars['String']>;
+  messages: Scalars['jsonb'];
+  partition_id: Scalars['bigint'];
+  raw_log?: Maybe<Scalars['String']>;
+  signatures: Scalars['_text'];
+  signer_infos: Scalars['jsonb'];
+  success: Scalars['Boolean'];
+};
+
+
+/** columns and relationships of "transaction_new" */
+export type Transaction_NewFeeArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+
+/** columns and relationships of "transaction_new" */
+export type Transaction_NewLogsArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+
+/** columns and relationships of "transaction_new" */
+export type Transaction_NewMessagesArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+
+/** columns and relationships of "transaction_new" */
+export type Transaction_NewSigner_InfosArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+/** aggregated selection of "transaction_new" */
+export type Transaction_New_Aggregate = {
+  __typename?: 'transaction_new_aggregate';
+  aggregate?: Maybe<Transaction_New_Aggregate_Fields>;
+  nodes: Array<Transaction_New>;
+};
+
+/** aggregate fields of "transaction_new" */
+export type Transaction_New_Aggregate_Fields = {
+  __typename?: 'transaction_new_aggregate_fields';
+  avg?: Maybe<Transaction_New_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Transaction_New_Max_Fields>;
+  min?: Maybe<Transaction_New_Min_Fields>;
+  stddev?: Maybe<Transaction_New_Stddev_Fields>;
+  stddev_pop?: Maybe<Transaction_New_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Transaction_New_Stddev_Samp_Fields>;
+  sum?: Maybe<Transaction_New_Sum_Fields>;
+  var_pop?: Maybe<Transaction_New_Var_Pop_Fields>;
+  var_samp?: Maybe<Transaction_New_Var_Samp_Fields>;
+  variance?: Maybe<Transaction_New_Variance_Fields>;
+};
+
+
+/** aggregate fields of "transaction_new" */
+export type Transaction_New_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Transaction_New_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Transaction_New_Avg_Fields = {
+  __typename?: 'transaction_new_avg_fields';
+  gas_used?: Maybe<Scalars['Float']>;
+  gas_wanted?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "transaction_new". All fields are combined with a logical 'AND'. */
+export type Transaction_New_Bool_Exp = {
+  _and?: Maybe<Array<Transaction_New_Bool_Exp>>;
+  _not?: Maybe<Transaction_New_Bool_Exp>;
+  _or?: Maybe<Array<Transaction_New_Bool_Exp>>;
+  fee?: Maybe<Jsonb_Comparison_Exp>;
+  gas_used?: Maybe<Bigint_Comparison_Exp>;
+  gas_wanted?: Maybe<Bigint_Comparison_Exp>;
+  hash?: Maybe<String_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  logs?: Maybe<Jsonb_Comparison_Exp>;
+  memo?: Maybe<String_Comparison_Exp>;
+  messages?: Maybe<Jsonb_Comparison_Exp>;
+  partition_id?: Maybe<Bigint_Comparison_Exp>;
+  raw_log?: Maybe<String_Comparison_Exp>;
+  signatures?: Maybe<_Text_Comparison_Exp>;
+  signer_infos?: Maybe<Jsonb_Comparison_Exp>;
+  success?: Maybe<Boolean_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Transaction_New_Max_Fields = {
+  __typename?: 'transaction_new_max_fields';
+  gas_used?: Maybe<Scalars['bigint']>;
+  gas_wanted?: Maybe<Scalars['bigint']>;
+  hash?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  memo?: Maybe<Scalars['String']>;
+  partition_id?: Maybe<Scalars['bigint']>;
+  raw_log?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Transaction_New_Min_Fields = {
+  __typename?: 'transaction_new_min_fields';
+  gas_used?: Maybe<Scalars['bigint']>;
+  gas_wanted?: Maybe<Scalars['bigint']>;
+  hash?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  memo?: Maybe<Scalars['String']>;
+  partition_id?: Maybe<Scalars['bigint']>;
+  raw_log?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "transaction_new". */
+export type Transaction_New_Order_By = {
+  fee?: Maybe<Order_By>;
+  gas_used?: Maybe<Order_By>;
+  gas_wanted?: Maybe<Order_By>;
+  hash?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  logs?: Maybe<Order_By>;
+  memo?: Maybe<Order_By>;
+  messages?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
+  raw_log?: Maybe<Order_By>;
+  signatures?: Maybe<Order_By>;
+  signer_infos?: Maybe<Order_By>;
+  success?: Maybe<Order_By>;
+};
+
+/** select columns of table "transaction_new" */
+export enum Transaction_New_Select_Column {
+  /** column name */
+  Fee = 'fee',
+  /** column name */
+  GasUsed = 'gas_used',
+  /** column name */
+  GasWanted = 'gas_wanted',
+  /** column name */
+  Hash = 'hash',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Logs = 'logs',
+  /** column name */
+  Memo = 'memo',
+  /** column name */
+  Messages = 'messages',
+  /** column name */
+  PartitionId = 'partition_id',
+  /** column name */
+  RawLog = 'raw_log',
+  /** column name */
+  Signatures = 'signatures',
+  /** column name */
+  SignerInfos = 'signer_infos',
+  /** column name */
+  Success = 'success'
+}
+
+/** aggregate stddev on columns */
+export type Transaction_New_Stddev_Fields = {
+  __typename?: 'transaction_new_stddev_fields';
+  gas_used?: Maybe<Scalars['Float']>;
+  gas_wanted?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Transaction_New_Stddev_Pop_Fields = {
+  __typename?: 'transaction_new_stddev_pop_fields';
+  gas_used?: Maybe<Scalars['Float']>;
+  gas_wanted?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Transaction_New_Stddev_Samp_Fields = {
+  __typename?: 'transaction_new_stddev_samp_fields';
+  gas_used?: Maybe<Scalars['Float']>;
+  gas_wanted?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Transaction_New_Sum_Fields = {
+  __typename?: 'transaction_new_sum_fields';
+  gas_used?: Maybe<Scalars['bigint']>;
+  gas_wanted?: Maybe<Scalars['bigint']>;
+  height?: Maybe<Scalars['bigint']>;
+  partition_id?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Transaction_New_Var_Pop_Fields = {
+  __typename?: 'transaction_new_var_pop_fields';
+  gas_used?: Maybe<Scalars['Float']>;
+  gas_wanted?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Transaction_New_Var_Samp_Fields = {
+  __typename?: 'transaction_new_var_samp_fields';
+  gas_used?: Maybe<Scalars['Float']>;
+  gas_wanted?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Transaction_New_Variance_Fields = {
+  __typename?: 'transaction_new_variance_fields';
+  gas_used?: Maybe<Scalars['Float']>;
+  gas_wanted?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** Ordering options when selecting data from "transaction". */
@@ -9051,6 +9202,7 @@ export type Transaction_Order_By = {
   memo?: Maybe<Order_By>;
   messages?: Maybe<Order_By>;
   messagesByTransactionHash_aggregate?: Maybe<Message_Aggregate_Order_By>;
+  partition_id?: Maybe<Order_By>;
   raw_log?: Maybe<Order_By>;
   signatures?: Maybe<Order_By>;
   signer_infos?: Maybe<Order_By>;
@@ -9076,6 +9228,8 @@ export enum Transaction_Select_Column {
   /** column name */
   Messages = 'messages',
   /** column name */
+  PartitionId = 'partition_id',
+  /** column name */
   RawLog = 'raw_log',
   /** column name */
   Signatures = 'signatures',
@@ -9091,6 +9245,7 @@ export type Transaction_Stddev_Fields = {
   gas_used?: Maybe<Scalars['Float']>;
   gas_wanted?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev() on columns of table "transaction" */
@@ -9098,6 +9253,7 @@ export type Transaction_Stddev_Order_By = {
   gas_used?: Maybe<Order_By>;
   gas_wanted?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_pop on columns */
@@ -9106,6 +9262,7 @@ export type Transaction_Stddev_Pop_Fields = {
   gas_used?: Maybe<Scalars['Float']>;
   gas_wanted?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_pop() on columns of table "transaction" */
@@ -9113,6 +9270,7 @@ export type Transaction_Stddev_Pop_Order_By = {
   gas_used?: Maybe<Order_By>;
   gas_wanted?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -9121,6 +9279,7 @@ export type Transaction_Stddev_Samp_Fields = {
   gas_used?: Maybe<Scalars['Float']>;
   gas_wanted?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_samp() on columns of table "transaction" */
@@ -9128,6 +9287,7 @@ export type Transaction_Stddev_Samp_Order_By = {
   gas_used?: Maybe<Order_By>;
   gas_wanted?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate sum on columns */
@@ -9136,6 +9296,7 @@ export type Transaction_Sum_Fields = {
   gas_used?: Maybe<Scalars['bigint']>;
   gas_wanted?: Maybe<Scalars['bigint']>;
   height?: Maybe<Scalars['bigint']>;
+  partition_id?: Maybe<Scalars['bigint']>;
 };
 
 /** order by sum() on columns of table "transaction" */
@@ -9143,6 +9304,7 @@ export type Transaction_Sum_Order_By = {
   gas_used?: Maybe<Order_By>;
   gas_wanted?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -9151,6 +9313,7 @@ export type Transaction_Var_Pop_Fields = {
   gas_used?: Maybe<Scalars['Float']>;
   gas_wanted?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_pop() on columns of table "transaction" */
@@ -9158,6 +9321,7 @@ export type Transaction_Var_Pop_Order_By = {
   gas_used?: Maybe<Order_By>;
   gas_wanted?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate var_samp on columns */
@@ -9166,6 +9330,7 @@ export type Transaction_Var_Samp_Fields = {
   gas_used?: Maybe<Scalars['Float']>;
   gas_wanted?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_samp() on columns of table "transaction" */
@@ -9173,6 +9338,7 @@ export type Transaction_Var_Samp_Order_By = {
   gas_used?: Maybe<Order_By>;
   gas_wanted?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate variance on columns */
@@ -9181,6 +9347,7 @@ export type Transaction_Variance_Fields = {
   gas_used?: Maybe<Scalars['Float']>;
   gas_wanted?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by variance() on columns of table "transaction" */
@@ -9188,6 +9355,7 @@ export type Transaction_Variance_Order_By = {
   gas_used?: Maybe<Order_By>;
   gas_wanted?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** columns and relationships of "validator" */
@@ -9207,6 +9375,10 @@ export type Validator = {
   pre_commits: Array<Pre_Commit>;
   /** An aggregate relationship */
   pre_commits_aggregate: Pre_Commit_Aggregate;
+  /** An array relationship */
+  proposal_validator_status_snapshots: Array<Proposal_Validator_Status_Snapshot>;
+  /** An aggregate relationship */
+  proposal_validator_status_snapshots_aggregate: Proposal_Validator_Status_Snapshot_Aggregate;
   /** An array relationship */
   validator_commissions: Array<Validator_Commission>;
   /** An aggregate relationship */
@@ -9293,6 +9465,26 @@ export type ValidatorPre_Commits_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pre_Commit_Order_By>>;
   where?: Maybe<Pre_Commit_Bool_Exp>;
+};
+
+
+/** columns and relationships of "validator" */
+export type ValidatorProposal_Validator_Status_SnapshotsArgs = {
+  distinct_on?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Proposal_Validator_Status_Snapshot_Order_By>>;
+  where?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
+};
+
+
+/** columns and relationships of "validator" */
+export type ValidatorProposal_Validator_Status_Snapshots_AggregateArgs = {
+  distinct_on?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Proposal_Validator_Status_Snapshot_Order_By>>;
+  where?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
 };
 
 
@@ -9447,6 +9639,7 @@ export type Validator_Bool_Exp = {
   consensus_pubkey?: Maybe<String_Comparison_Exp>;
   double_sign_votes?: Maybe<Double_Sign_Vote_Bool_Exp>;
   pre_commits?: Maybe<Pre_Commit_Bool_Exp>;
+  proposal_validator_status_snapshots?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
   validator_commissions?: Maybe<Validator_Commission_Bool_Exp>;
   validator_descriptions?: Maybe<Validator_Description_Bool_Exp>;
   validator_info?: Maybe<Validator_Info_Bool_Exp>;
@@ -10087,6 +10280,7 @@ export type Validator_Order_By = {
   consensus_pubkey?: Maybe<Order_By>;
   double_sign_votes_aggregate?: Maybe<Double_Sign_Vote_Aggregate_Order_By>;
   pre_commits_aggregate?: Maybe<Pre_Commit_Aggregate_Order_By>;
+  proposal_validator_status_snapshots_aggregate?: Maybe<Proposal_Validator_Status_Snapshot_Aggregate_Order_By>;
   validator_commissions_aggregate?: Maybe<Validator_Commission_Aggregate_Order_By>;
   validator_descriptions_aggregate?: Maybe<Validator_Description_Aggregate_Order_By>;
   validator_info?: Maybe<Validator_Info_Order_By>;
@@ -10613,6 +10807,8 @@ export type Validator_Status_Variance_Order_By = {
 /** columns and relationships of "validator_voting_power" */
 export type Validator_Voting_Power = {
   __typename?: 'validator_voting_power';
+  /** An object relationship */
+  block: Block;
   height: Scalars['bigint'];
   /** An object relationship */
   validator: Validator;
@@ -10683,6 +10879,7 @@ export type Validator_Voting_Power_Bool_Exp = {
   _and?: Maybe<Array<Validator_Voting_Power_Bool_Exp>>;
   _not?: Maybe<Validator_Voting_Power_Bool_Exp>;
   _or?: Maybe<Array<Validator_Voting_Power_Bool_Exp>>;
+  block?: Maybe<Block_Bool_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
   validator?: Maybe<Validator_Bool_Exp>;
   validator_address?: Maybe<String_Comparison_Exp>;
@@ -10721,6 +10918,7 @@ export type Validator_Voting_Power_Min_Order_By = {
 
 /** Ordering options when selecting data from "validator_voting_power". */
 export type Validator_Voting_Power_Order_By = {
+  block?: Maybe<Block_Order_By>;
   height?: Maybe<Order_By>;
   validator?: Maybe<Validator_Order_By>;
   validator_address?: Maybe<Order_By>;
@@ -10895,10 +11093,30 @@ export type Vesting_Account_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
+/** order by aggregate values of table "vesting_account" */
+export type Vesting_Account_Aggregate_Order_By = {
+  avg?: Maybe<Vesting_Account_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Vesting_Account_Max_Order_By>;
+  min?: Maybe<Vesting_Account_Min_Order_By>;
+  stddev?: Maybe<Vesting_Account_Stddev_Order_By>;
+  stddev_pop?: Maybe<Vesting_Account_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Vesting_Account_Stddev_Samp_Order_By>;
+  sum?: Maybe<Vesting_Account_Sum_Order_By>;
+  var_pop?: Maybe<Vesting_Account_Var_Pop_Order_By>;
+  var_samp?: Maybe<Vesting_Account_Var_Samp_Order_By>;
+  variance?: Maybe<Vesting_Account_Variance_Order_By>;
+};
+
 /** aggregate avg on columns */
 export type Vesting_Account_Avg_Fields = {
   __typename?: 'vesting_account_avg_fields';
   id?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "vesting_account" */
+export type Vesting_Account_Avg_Order_By = {
+  id?: Maybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "vesting_account". All fields are combined with a logical 'AND'. */
@@ -10926,6 +11144,15 @@ export type Vesting_Account_Max_Fields = {
   type?: Maybe<Scalars['String']>;
 };
 
+/** order by max() on columns of table "vesting_account" */
+export type Vesting_Account_Max_Order_By = {
+  address?: Maybe<Order_By>;
+  end_time?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  start_time?: Maybe<Order_By>;
+  type?: Maybe<Order_By>;
+};
+
 /** aggregate min on columns */
 export type Vesting_Account_Min_Fields = {
   __typename?: 'vesting_account_min_fields';
@@ -10934,6 +11161,15 @@ export type Vesting_Account_Min_Fields = {
   id?: Maybe<Scalars['Int']>;
   start_time?: Maybe<Scalars['timestamp']>;
   type?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "vesting_account" */
+export type Vesting_Account_Min_Order_By = {
+  address?: Maybe<Order_By>;
+  end_time?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  start_time?: Maybe<Order_By>;
+  type?: Maybe<Order_By>;
 };
 
 /** Ordering options when selecting data from "vesting_account". */
@@ -10970,10 +11206,20 @@ export type Vesting_Account_Stddev_Fields = {
   id?: Maybe<Scalars['Float']>;
 };
 
+/** order by stddev() on columns of table "vesting_account" */
+export type Vesting_Account_Stddev_Order_By = {
+  id?: Maybe<Order_By>;
+};
+
 /** aggregate stddev_pop on columns */
 export type Vesting_Account_Stddev_Pop_Fields = {
   __typename?: 'vesting_account_stddev_pop_fields';
   id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "vesting_account" */
+export type Vesting_Account_Stddev_Pop_Order_By = {
+  id?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -10982,10 +11228,20 @@ export type Vesting_Account_Stddev_Samp_Fields = {
   id?: Maybe<Scalars['Float']>;
 };
 
+/** order by stddev_samp() on columns of table "vesting_account" */
+export type Vesting_Account_Stddev_Samp_Order_By = {
+  id?: Maybe<Order_By>;
+};
+
 /** aggregate sum on columns */
 export type Vesting_Account_Sum_Fields = {
   __typename?: 'vesting_account_sum_fields';
   id?: Maybe<Scalars['Int']>;
+};
+
+/** order by sum() on columns of table "vesting_account" */
+export type Vesting_Account_Sum_Order_By = {
+  id?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -10994,16 +11250,31 @@ export type Vesting_Account_Var_Pop_Fields = {
   id?: Maybe<Scalars['Float']>;
 };
 
+/** order by var_pop() on columns of table "vesting_account" */
+export type Vesting_Account_Var_Pop_Order_By = {
+  id?: Maybe<Order_By>;
+};
+
 /** aggregate var_samp on columns */
 export type Vesting_Account_Var_Samp_Fields = {
   __typename?: 'vesting_account_var_samp_fields';
   id?: Maybe<Scalars['Float']>;
 };
 
+/** order by var_samp() on columns of table "vesting_account" */
+export type Vesting_Account_Var_Samp_Order_By = {
+  id?: Maybe<Order_By>;
+};
+
 /** aggregate variance on columns */
 export type Vesting_Account_Variance_Fields = {
   __typename?: 'vesting_account_variance_fields';
   id?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "vesting_account" */
+export type Vesting_Account_Variance_Order_By = {
+  id?: Maybe<Order_By>;
 };
 
 /** columns and relationships of "vesting_period" */
@@ -11245,28 +11516,62 @@ export type Vesting_Period_Variance_Order_By = {
   vesting_account_id?: Maybe<Order_By>;
 };
 
-export type AccountQueryVariables = Exact<{
-  address: Scalars['String'];
+export type AccountCommissionQueryVariables = Exact<{
   validatorAddress: Scalars['String'];
 }>;
 
 
-export type AccountQuery = { commission?: Maybe<(
+export type AccountCommissionQuery = { commission?: Maybe<(
     { __typename?: 'ActionValidatorCommissionAmount' }
     & Pick<ActionValidatorCommissionAmount, 'coins'>
-  )>, withdrawalAddress: (
+  )> };
+
+export type AccountWithdrawalAddressQueryVariables = Exact<{
+  address: Scalars['String'];
+}>;
+
+
+export type AccountWithdrawalAddressQuery = { withdrawalAddress: (
     { __typename?: 'ActionAddress' }
     & Pick<ActionAddress, 'address'>
-  ), accountBalances?: Maybe<(
+  ) };
+
+export type AccountBalancesQueryVariables = Exact<{
+  address: Scalars['String'];
+}>;
+
+
+export type AccountBalancesQuery = { accountBalances?: Maybe<(
     { __typename?: 'ActionBalance' }
     & Pick<ActionBalance, 'coins'>
-  )>, delegationBalance?: Maybe<(
+  )> };
+
+export type AccountDelegationBalanceQueryVariables = Exact<{
+  address: Scalars['String'];
+}>;
+
+
+export type AccountDelegationBalanceQuery = { delegationBalance?: Maybe<(
     { __typename?: 'ActionBalance' }
     & Pick<ActionBalance, 'coins'>
-  )>, unbondingBalance?: Maybe<(
+  )> };
+
+export type AccountUnbondingBalanceQueryVariables = Exact<{
+  address: Scalars['String'];
+}>;
+
+
+export type AccountUnbondingBalanceQuery = { unbondingBalance?: Maybe<(
     { __typename?: 'ActionBalance' }
     & Pick<ActionBalance, 'coins'>
-  )>, delegationRewards?: Maybe<Array<Maybe<(
+  )> };
+
+export type AccountDelegationRewardsQueryVariables = Exact<{
+  address: Scalars['String'];
+}>;
+
+
+export type AccountDelegationRewardsQuery = { delegationRewards?: Maybe<Array<Maybe<(
     { __typename?: 'ActionDelegationReward' }
     & Pick<ActionDelegationReward, 'coins'>
     & { validatorAddress: ActionDelegationReward['validator_address'] }
@@ -11484,14 +11789,14 @@ export type GetMessagesByAddressQueryVariables = Exact<{
 
 export type GetMessagesByAddressQuery = { messagesByAddress: Array<(
     { __typename?: 'message' }
-    & { transaction: (
+    & { transaction?: Maybe<(
       { __typename?: 'transaction' }
       & Pick<Transaction, 'height' | 'hash' | 'success' | 'messages' | 'logs'>
       & { block: (
         { __typename?: 'block' }
         & Pick<Block, 'height' | 'timestamp'>
       ) }
-    ) }
+    )> }
   )> };
 
 export type OnlineVotingPowerListenerSubscriptionVariables = Exact<{ [key: string]: never; }>;
@@ -11848,23 +12153,183 @@ export type ValidatorAddressesQuery = { validator: Array<(
   )> };
 
 
-export const AccountDocument = gql`
-    query Account($address: String!, $validatorAddress: String!) {
+export const AccountCommissionDocument = gql`
+    query AccountCommission($validatorAddress: String!) {
   commission: action_validator_commission_amount(address: $validatorAddress) {
     coins
   }
+}
+    `;
+
+/**
+ * __useAccountCommissionQuery__
+ *
+ * To run a query within a React component, call `useAccountCommissionQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountCommissionQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountCommissionQuery({
+ *   variables: {
+ *      validatorAddress: // value for 'validatorAddress'
+ *   },
+ * });
+ */
+export function useAccountCommissionQuery(baseOptions: Apollo.QueryHookOptions<AccountCommissionQuery, AccountCommissionQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountCommissionQuery, AccountCommissionQueryVariables>(AccountCommissionDocument, options);
+      }
+export function useAccountCommissionLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountCommissionQuery, AccountCommissionQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountCommissionQuery, AccountCommissionQueryVariables>(AccountCommissionDocument, options);
+        }
+export type AccountCommissionQueryHookResult = ReturnType<typeof useAccountCommissionQuery>;
+export type AccountCommissionLazyQueryHookResult = ReturnType<typeof useAccountCommissionLazyQuery>;
+export type AccountCommissionQueryResult = Apollo.QueryResult<AccountCommissionQuery, AccountCommissionQueryVariables>;
+export const AccountWithdrawalAddressDocument = gql`
+    query AccountWithdrawalAddress($address: String!) {
   withdrawalAddress: action_delegator_withdraw_address(address: $address) {
     address
   }
+}
+    `;
+
+/**
+ * __useAccountWithdrawalAddressQuery__
+ *
+ * To run a query within a React component, call `useAccountWithdrawalAddressQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountWithdrawalAddressQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountWithdrawalAddressQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useAccountWithdrawalAddressQuery(baseOptions: Apollo.QueryHookOptions<AccountWithdrawalAddressQuery, AccountWithdrawalAddressQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountWithdrawalAddressQuery, AccountWithdrawalAddressQueryVariables>(AccountWithdrawalAddressDocument, options);
+      }
+export function useAccountWithdrawalAddressLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountWithdrawalAddressQuery, AccountWithdrawalAddressQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountWithdrawalAddressQuery, AccountWithdrawalAddressQueryVariables>(AccountWithdrawalAddressDocument, options);
+        }
+export type AccountWithdrawalAddressQueryHookResult = ReturnType<typeof useAccountWithdrawalAddressQuery>;
+export type AccountWithdrawalAddressLazyQueryHookResult = ReturnType<typeof useAccountWithdrawalAddressLazyQuery>;
+export type AccountWithdrawalAddressQueryResult = Apollo.QueryResult<AccountWithdrawalAddressQuery, AccountWithdrawalAddressQueryVariables>;
+export const AccountBalancesDocument = gql`
+    query AccountBalances($address: String!) {
   accountBalances: action_account_balance(address: $address) {
     coins
   }
+}
+    `;
+
+/**
+ * __useAccountBalancesQuery__
+ *
+ * To run a query within a React component, call `useAccountBalancesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountBalancesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountBalancesQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useAccountBalancesQuery(baseOptions: Apollo.QueryHookOptions<AccountBalancesQuery, AccountBalancesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountBalancesQuery, AccountBalancesQueryVariables>(AccountBalancesDocument, options);
+      }
+export function useAccountBalancesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountBalancesQuery, AccountBalancesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountBalancesQuery, AccountBalancesQueryVariables>(AccountBalancesDocument, options);
+        }
+export type AccountBalancesQueryHookResult = ReturnType<typeof useAccountBalancesQuery>;
+export type AccountBalancesLazyQueryHookResult = ReturnType<typeof useAccountBalancesLazyQuery>;
+export type AccountBalancesQueryResult = Apollo.QueryResult<AccountBalancesQuery, AccountBalancesQueryVariables>;
+export const AccountDelegationBalanceDocument = gql`
+    query AccountDelegationBalance($address: String!) {
   delegationBalance: action_delegation_total(address: $address) {
     coins
   }
+}
+    `;
+
+/**
+ * __useAccountDelegationBalanceQuery__
+ *
+ * To run a query within a React component, call `useAccountDelegationBalanceQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountDelegationBalanceQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountDelegationBalanceQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useAccountDelegationBalanceQuery(baseOptions: Apollo.QueryHookOptions<AccountDelegationBalanceQuery, AccountDelegationBalanceQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountDelegationBalanceQuery, AccountDelegationBalanceQueryVariables>(AccountDelegationBalanceDocument, options);
+      }
+export function useAccountDelegationBalanceLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountDelegationBalanceQuery, AccountDelegationBalanceQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountDelegationBalanceQuery, AccountDelegationBalanceQueryVariables>(AccountDelegationBalanceDocument, options);
+        }
+export type AccountDelegationBalanceQueryHookResult = ReturnType<typeof useAccountDelegationBalanceQuery>;
+export type AccountDelegationBalanceLazyQueryHookResult = ReturnType<typeof useAccountDelegationBalanceLazyQuery>;
+export type AccountDelegationBalanceQueryResult = Apollo.QueryResult<AccountDelegationBalanceQuery, AccountDelegationBalanceQueryVariables>;
+export const AccountUnbondingBalanceDocument = gql`
+    query AccountUnbondingBalance($address: String!) {
   unbondingBalance: action_unbonding_delegation_total(address: $address) {
     coins
   }
+}
+    `;
+
+/**
+ * __useAccountUnbondingBalanceQuery__
+ *
+ * To run a query within a React component, call `useAccountUnbondingBalanceQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountUnbondingBalanceQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountUnbondingBalanceQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useAccountUnbondingBalanceQuery(baseOptions: Apollo.QueryHookOptions<AccountUnbondingBalanceQuery, AccountUnbondingBalanceQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountUnbondingBalanceQuery, AccountUnbondingBalanceQueryVariables>(AccountUnbondingBalanceDocument, options);
+      }
+export function useAccountUnbondingBalanceLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountUnbondingBalanceQuery, AccountUnbondingBalanceQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountUnbondingBalanceQuery, AccountUnbondingBalanceQueryVariables>(AccountUnbondingBalanceDocument, options);
+        }
+export type AccountUnbondingBalanceQueryHookResult = ReturnType<typeof useAccountUnbondingBalanceQuery>;
+export type AccountUnbondingBalanceLazyQueryHookResult = ReturnType<typeof useAccountUnbondingBalanceLazyQuery>;
+export type AccountUnbondingBalanceQueryResult = Apollo.QueryResult<AccountUnbondingBalanceQuery, AccountUnbondingBalanceQueryVariables>;
+export const AccountDelegationRewardsDocument = gql`
+    query AccountDelegationRewards($address: String!) {
   delegationRewards: action_delegation_reward(address: $address) {
     validatorAddress: validator_address
     coins
@@ -11873,33 +12338,32 @@ export const AccountDocument = gql`
     `;
 
 /**
- * __useAccountQuery__
+ * __useAccountDelegationRewardsQuery__
  *
- * To run a query within a React component, call `useAccountQuery` and pass it any options that fit your needs.
- * When your component renders, `useAccountQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useAccountDelegationRewardsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountDelegationRewardsQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useAccountQuery({
+ * const { data, loading, error } = useAccountDelegationRewardsQuery({
  *   variables: {
  *      address: // value for 'address'
- *      validatorAddress: // value for 'validatorAddress'
  *   },
  * });
  */
-export function useAccountQuery(baseOptions: Apollo.QueryHookOptions<AccountQuery, AccountQueryVariables>) {
+export function useAccountDelegationRewardsQuery(baseOptions: Apollo.QueryHookOptions<AccountDelegationRewardsQuery, AccountDelegationRewardsQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<AccountQuery, AccountQueryVariables>(AccountDocument, options);
+        return Apollo.useQuery<AccountDelegationRewardsQuery, AccountDelegationRewardsQueryVariables>(AccountDelegationRewardsDocument, options);
       }
-export function useAccountLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountQuery, AccountQueryVariables>) {
+export function useAccountDelegationRewardsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountDelegationRewardsQuery, AccountDelegationRewardsQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<AccountQuery, AccountQueryVariables>(AccountDocument, options);
+          return Apollo.useLazyQuery<AccountDelegationRewardsQuery, AccountDelegationRewardsQueryVariables>(AccountDelegationRewardsDocument, options);
         }
-export type AccountQueryHookResult = ReturnType<typeof useAccountQuery>;
-export type AccountLazyQueryHookResult = ReturnType<typeof useAccountLazyQuery>;
-export type AccountQueryResult = Apollo.QueryResult<AccountQuery, AccountQueryVariables>;
+export type AccountDelegationRewardsQueryHookResult = ReturnType<typeof useAccountDelegationRewardsQuery>;
+export type AccountDelegationRewardsLazyQueryHookResult = ReturnType<typeof useAccountDelegationRewardsLazyQuery>;
+export type AccountDelegationRewardsQueryResult = Apollo.QueryResult<AccountDelegationRewardsQuery, AccountDelegationRewardsQueryVariables>;
 export const AccountDelegationsDocument = gql`
     query AccountDelegations($address: String!, $offset: Int = 0, $limit: Int = 10) {
   delegations: action_delegation(
