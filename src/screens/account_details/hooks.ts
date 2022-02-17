@@ -1,12 +1,15 @@
 import {
   useState, useEffect,
 } from 'react';
+import axios from 'axios';
 import * as R from 'ramda';
 import Big from 'big.js';
 import { useRouter } from 'next/router';
 import {
   AccountQuery,
   useAccountQuery,
+  AccountCommissionDocument,
+  useAccountCommissionQuery,
 } from '@graphql/types';
 import { getDenom } from '@utils/get_denom';
 import { toValidatorAddress } from '@utils/prefix_convert';
@@ -89,9 +92,26 @@ export const useAccountDetails = () => {
     },
   });
 
+  useAccountCommissionQuery({
+    variables: {
+      validatorAddress: toValidatorAddress(router.query.address as string),
+    },
+    onCompleted: (data) => {
+      handleSetState(formatAccountQuery(data));
+    },
+  });
+
+  const fetchBalances = () => {
+
+  };
+
   // ==========================
   // Format Account
   // ==========================
+
+  const formatAccountCommission = (data: AccountCommissionQuery) => {
+
+  };
 
   const formatAccountQuery = (data: AccountQuery) => {
     const stateChange: any = {
