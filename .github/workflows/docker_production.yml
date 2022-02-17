@@ -3,7 +3,7 @@ name: Docker-Production
 on:
   push:
     tags:
-      - desmos-morpheus-apollo-1-v*
+      - rizon-titan-1-v*
 
 jobs:
   Build-and-Publish:
@@ -33,12 +33,12 @@ jobs:
           NEXT_PUBLIC_CHAIN_STATUS=
           NODE_ENV="production"
           PORT=3000
-          if [[ $GITHUB_REF == refs/tags/desmos-morpheus-apollo-1* ]]; then
-            NEXT_PUBLIC_GRAPHQL_URL="https://gql.morpheus.desmos.network/v1/graphql"
-            NEXT_PUBLIC_GRAPHQL_WS="wss://gql.morpheus.desmos.network/v1/graphql"
-            NEXT_PUBLIC_URL="https://morpheus.desmos.network"
-            NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.morpheus.desmos.network/websocket"
-            NEXT_PUBLIC_CHAIN_STATUS="testnet"
+          if [[ $GITHUB_REF == refs/tags/rizon-titan-1-v* ]]; then
+            NEXT_PUBLIC_GRAPHQL_URL="https://gql.rizon.forbole.com/v1/graphql"
+            NEXT_PUBLIC_GRAPHQL_WS="wss://gql.rizon.forbole.com/v1/graphql"
+            NEXT_PUBLIC_URL="https://rizon.bigdipper.live"
+            NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.rizon.forbole.com/websocket"
+            NEXT_PUBLIC_CHAIN_STATUS="mainnet"
           fi
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_WS::${NEXT_PUBLIC_GRAPHQL_WS}
@@ -76,14 +76,14 @@ jobs:
             org.opencontainers.image.revision=${{ github.sha }}
       - name: Deploy to Akash 🌐
         env:
-          DESMOS_AKASH_WEBHOOK_URL: ${{ secrets.DESMOS_AKASH_WEBHOOK_URL }}
+          RIZON_TITAN_1: ${{ secrets.RIZON_TITAN_1 }}
           AKASH_WEBHOOK_SECRET: ${{ secrets.AKASH_WEBHOOK_SECRET }}
         run: |
             BRANCH=${GITHUB_REF}
             WEBHOOK_URL=''
-            if [[ $GITHUB_REF == refs/tags/desmos-morpheus-apollo-1* ]]; then
-              echo 'Deploying to Desmos morpheus-apollo-1'
-              WEBHOOK_URL=$DESMOS_AKASH_WEBHOOK_URL
+            if [[ $GITHUB_REF == refs/tags/rizon-titan-1-v** ]]; then
+              echo 'Deploying to rizon-titan-1-v*'
+              WEBHOOK_URL=$RIZON_TITAN_1
             fi
               curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k $WEBHOOK_URL -u "deploy:$AKASH_WEBHOOK_SECRET"
 
