@@ -1,9 +1,9 @@
 {
   "title": "Band Protocol Block Explorer",
   "network": "laozi-mainnet",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/band/icon.svg?sanitize=true",
+  "icon": "/images/icon.svg",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/band/logo.svg?sanitize=true"
+    "default": "/images/logo.svg"
   },
   "prefix": {
     "consensus": "bandvalcons",
