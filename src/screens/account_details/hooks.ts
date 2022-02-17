@@ -120,7 +120,7 @@ export const useAccountDetails = () => {
     formattedRawData.unbondingBalance = R.pathOr([], ['value', 'unbondingBalance'], unbonding);
     formattedRawData.delegationRewards = R.pathOr([], ['value', 'delegationRewards'], rewards);
 
-    formatAllBalance(formattedRawData);
+    handleSetState(formatAllBalance(formattedRawData));
   };
 
   // ==========================
