@@ -11452,24 +11452,6 @@ export type ChainIdQuery = { genesis: Array<(
     & { chainId: Genesis['chain_id'] }
   )> };
 
-export type IscnsQueryVariables = Exact<{
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-}>;
-
-
-export type IscnsQuery = { iscnRecord: Array<(
-    { __typename?: 'iscn_record' }
-    & Pick<Iscn_Record, 'ipld' | 'height'>
-    & { iscnId: Iscn_Record['iscn_id'], ownerAddress: Iscn_Record['owner_address'], iscnData: Iscn_Record['iscn_data'] }
-  )>, total: (
-    { __typename?: 'iscn_record_aggregate' }
-    & { aggregate?: Maybe<(
-      { __typename?: 'iscn_record_aggregate_fields' }
-      & Pick<Iscn_Record_Aggregate_Fields, 'count'>
-    )> }
-  ) };
-
 export type MarketDataQueryVariables = Exact<{
   denom?: Maybe<Scalars['String']>;
 }>;
@@ -12551,55 +12533,6 @@ export function useChainIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Ch
 export type ChainIdQueryHookResult = ReturnType<typeof useChainIdQuery>;
 export type ChainIdLazyQueryHookResult = ReturnType<typeof useChainIdLazyQuery>;
 export type ChainIdQueryResult = Apollo.QueryResult<ChainIdQuery, ChainIdQueryVariables>;
-export const IscnsDocument = gql`
-    query Iscns($limit: Int = 7, $offset: Int = 0) {
-  iscnRecord: iscn_record(
-    limit: $limit
-    offset: $offset
-    order_by: {height: desc}
-  ) {
-    iscnId: iscn_id
-    ipld
-    ownerAddress: owner_address
-    iscnData: iscn_data
-    height
-  }
-  total: iscn_record_aggregate {
-    aggregate {
-      count
-    }
-  }
-}
-    `;
-
-/**
- * __useIscnsQuery__
- *
- * To run a query within a React component, call `useIscnsQuery` and pass it any options that fit your needs.
- * When your component renders, `useIscnsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useIscnsQuery({
- *   variables: {
- *      limit: // value for 'limit'
- *      offset: // value for 'offset'
- *   },
- * });
- */
-export function useIscnsQuery(baseOptions?: Apollo.QueryHookOptions<IscnsQuery, IscnsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<IscnsQuery, IscnsQueryVariables>(IscnsDocument, options);
-      }
-export function useIscnsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<IscnsQuery, IscnsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<IscnsQuery, IscnsQueryVariables>(IscnsDocument, options);
-        }
-export type IscnsQueryHookResult = ReturnType<typeof useIscnsQuery>;
-export type IscnsLazyQueryHookResult = ReturnType<typeof useIscnsLazyQuery>;
-export type IscnsQueryResult = Apollo.QueryResult<IscnsQuery, IscnsQueryVariables>;
 export const MarketDataDocument = gql`
     query MarketData($denom: String) {
   communityPool: community_pool(order_by: {height: desc}, limit: 1) {

@@ -1,3 +1,7 @@
+# Unreleased
+## Changes
+- Removed ISCN ([\#712](https://github.com/forbole/big-dipper-2.0-cosmos/issues/712))
+
 # likecoin-v2.0.1 - 2021-02-17
 ## Changes
 - Merge `base`
