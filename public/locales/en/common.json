@@ -55,7 +55,6 @@
   "errorDetails": "If you have time please report it to our github at <0>{{issue}}</0> with the url that caused the error.",
   "errorHome": "Click here to go back home",
   "maintainBy": "Maintained By <0>{{name}}</0>",
-  "iscns": "Iscns",
   "txListFormat": "Transactions Format",
   "compact": "Compact",
   "detailed": "Detailed",
