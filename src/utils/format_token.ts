@@ -33,7 +33,7 @@ export const formatToken = (value: number | string, denom = ''): TokenUnit => {
   }
 
   const ratio = 10 ** selectedDenom.exponent;
-  results.value = Big(value).div(ratio).toPrecision();
+  results.value = Big(value).div(ratio).toFixed(selectedDenom.exponent);
   results.displayDenom = selectedDenom.display;
   return results;
 };
