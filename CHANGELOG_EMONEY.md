@@ -1,3 +1,8 @@
+# emoney-v2.0.2 - 2021-02-17
+
+## Changes
+- Moved logos to local
+
 # emoney-v2.0.1 - 2021-02-09
 
 ## Bug fixes

@@ -1,9 +1,9 @@
 {
   "title": "e-Money Block Explorer",
   "network": "emoney-3",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/eMoney/icon.png?sanitize=true",
+  "icon": "/images/icon.png",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/eMoney/logo.svg?sanitize=true"
+    "default": "/images/logo.svg"
   },
   "prefix": {
     "consensus": "emoneyvalcons",
