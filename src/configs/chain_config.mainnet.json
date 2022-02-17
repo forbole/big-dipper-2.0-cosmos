@@ -1,9 +1,9 @@
 {
   "title": "Agoric Block Explorer",
   "network": "agoric-3",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/agoric/icon.png?sanitize=true",
+  "icon": "/images/icon.png",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/agoric/logo.png?sanitize=true"
+    "default": "/images/logo.png"
   },
   "prefix": {
     "consensus": "agoricvalcons",
