@@ -34,10 +34,4 @@ export type AccountDetailState = {
     count: number;
   };
   rewards: RewardsType;
-  transactions: {
-    hasNextPage: boolean;
-    isNextPageLoading: boolean;
-    offsetCount: number;
-    data: Transactions[];
-  };
 }
