@@ -91,7 +91,7 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
                 "baseDenom": "udaric",
                 "displayDenom": "daric",
                 "exponent": 6,
-                "value": "100",
+                "value": "100.000000",
               },
               "user": "desmos1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w",
             },
