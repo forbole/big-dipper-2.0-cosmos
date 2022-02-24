@@ -1,4 +1,4 @@
-# Unreleased
+# base-v2.0.0-rc2 - 2021-02-24
 
 ## Changes
 - Updated market cap display ([\#698](https://github.com/forbole/big-dipper-2.0-cosmos/issues/698))
@@ -9,6 +9,7 @@
 
 ## Bug fixes
 - Add better handling of get denom return types ([\#735](https://github.com/forbole/big-dipper-2.0-cosmos/issues/735))
+- Update ui to match the improved hasura actions return types
 
 # base-v2.0.0-rc1 - 2021-02-07
 
