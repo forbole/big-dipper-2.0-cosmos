@@ -7,6 +7,9 @@
 - Display accounts even if balance is 0 and does not exist ([\#692](https://github.com/forbole/big-dipper-2.0-cosmos/issues/692))
 - Update handling of 18 decimal places denoms ([\#724](https://github.com/forbole/big-dipper-2.0-cosmos/issues/724))
 
+## Bug fixes
+- Add better handling of get denom return types ([\#735](https://github.com/forbole/big-dipper-2.0-cosmos/issues/735))
+
 # base-v2.0.0-rc1 - 2021-02-07
 
 ## Changes
