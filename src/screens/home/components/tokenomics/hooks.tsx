@@ -49,6 +49,7 @@ export const useTokenomics = () => {
       0,
       'bonded',
     ], data);
+
     results.bonded = numeral(formatToken(bonded, results.denom).value).value();
 
     const unbonding = R.pathOr(state.bonded, [
@@ -60,7 +61,7 @@ export const useTokenomics = () => {
 
     const unbonded = results.total - results.unbonding - results.bonded;
     results.unbonded = unbonded;
-
+    console.log(results, 'results');
     return results;
   };
 
