@@ -1,6 +1,6 @@
 import {
   lightTemplate,
-  darkTemplate,
+  // darkTemplate,
   deuteranopiaTemplate,
   tritanopiaTemplate,
 } from '@styles';
@@ -14,14 +14,14 @@ import {
 
 export const THEME_LIST: Theme[] = [
   'light',
-  'dark',
+  // 'dark',
   'deuteranopia',
   'tritanopia',
 ];
 
 export const THEME_DICTIONARY = {
   light: lightTemplate,
-  dark: darkTemplate,
+  // dark: darkTemplate,
   deuteranopia: deuteranopiaTemplate,
   tritanopia: tritanopiaTemplate,
 };
