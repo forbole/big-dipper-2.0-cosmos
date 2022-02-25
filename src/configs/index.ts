@@ -8,11 +8,12 @@ import generalConfig from './general_config.json';
  * @returns config
  */
 const getChainConfig = () => {
-  if (process.env.NEXT_PUBLIC_CHAIN_STATUS === 'betanet') {
-    return chainConfigBetanet;
-  }
-  if (process.env.NEXT_PUBLIC_CHAIN_STATUS === 'mainnet') {
+  const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE || process.env.NEXT_PUBLIC_CHAIN_STATUS;
+  if (chainType === 'mainnet') {
     return chainConfigMainnet;
+  }
+  if (chainType === 'betanet') {
+    return chainConfigBetanet;
   }
   return chainConfigTestnet;
 };
