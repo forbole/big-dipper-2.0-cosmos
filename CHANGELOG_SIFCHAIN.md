@@ -1,9 +1,4 @@
-# sifchain-v1.0.1 - 2021-02-25
-
-## Changes
-- Merge `base-v2.0.0-rc3`
-# sifchain-v1.0.0 - 2021-02-07
-
+# Unreleased
 ## Changes
 
 - Update theme ([\#507](https://github.com/forbole/big-dipper-2.0-cosmos/issues/507))
@@ -13,3 +8,4 @@
 - Merge `base-v1.9.0`
 - Merge `base-v2.0.0-rc1`
 - Moved logos to local
+- Merge `base-v2.0.0-rc3`
