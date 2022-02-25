@@ -1,3 +1,9 @@
+# agoric-v2.0.2 - 2021-02-25
+
+## Changes
+
+- Merge `base-v2.0.0-rc3`
+
 # agoric-v2.0.1 - 2021-02-17
 
 ## Changes
