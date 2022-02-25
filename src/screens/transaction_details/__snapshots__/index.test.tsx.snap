@@ -21,7 +21,7 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
               "baseDenom": "udaric",
               "displayDenom": "daric",
               "exponent": 6,
-              "value": "0.00005",
+              "value": "0.000050",
             },
             "gasUsed": 149488,
             "gasWanted": 200000,
