@@ -1,3 +1,8 @@
+# bitsong-v2.0.2 - 2021-02-25
+
+## Changes
+- Merge `base-v2.0.0-rc3`
+
 # bitsong-v2.0.1 - 2021-02-17
 
 ## Changes
@@ -6,7 +11,7 @@
 # bitsong-v2.0.0 - 2021-02-08
 
 ## Changes
-- Merge `base-v2.0.0`
+- Merge `base-v2.0.0-rc1`
 
 # bitsong-v1.2.0 - 2021-01-10
 
