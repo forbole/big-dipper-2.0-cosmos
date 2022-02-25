@@ -29,15 +29,15 @@ jobs:
           NEXT_PUBLIC_GRAPHQL_URL="https://gql.morpheus.desmos.network/v1/graphql"
           NEXT_PUBLIC_GRAPHQL_WS="wss://gql.morpheus.desmos.network/v1/graphql"
           NEXT_PUBLIC_URL="https://morpheus.desmos.network"
-          NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.morpheus.desmos.network/websocket"
-          NEXT_PUBLIC_CHAIN_STATUS="mainnet"
+          NEXT_PUBLIC_RPC_WEBSOCKET="wss://rpc.morpheus.desmos.network/websocket"
+          NEXT_PUBLIC_CHAIN_TYPE="mainnet"
           NODE_ENV="production"
           PORT=3000
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_WS::${NEXT_PUBLIC_GRAPHQL_WS}
           echo ::set-output name=NEXT_PUBLIC_URL::${NEXT_PUBLIC_URL}
-          echo ::set-output name=NEXT_PUBLIC_WS_CHAIN_URL::${NEXT_PUBLIC_WS_CHAIN_URL}
-          echo ::set-output name=NEXT_PUBLIC_CHAIN_STATUS::${NEXT_PUBLIC_CHAIN_STATUS}
+          echo ::set-output name=NEXT_PUBLIC_RPC_WEBSOCKET::${NEXT_PUBLIC_RPC_WEBSOCKET}
+          echo ::set-output name=NEXT_PUBLIC_CHAIN_TYPE::${NEXT_PUBLIC_CHAIN_TYPE}
           echo ::set-output name=NODE_ENV::${NODE_ENV}
           echo ::set-output name=PORT::${PORT}
       - name: Set up Docker Buildx
@@ -58,8 +58,8 @@ jobs:
             "NEXT_PUBLIC_GRAPHQL_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_URL }}"
             "NEXT_PUBLIC_GRAPHQL_WS=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_WS }}"
             "NEXT_PUBLIC_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_URL }}"
-            "NEXT_PUBLIC_WS_CHAIN_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_WS_CHAIN_URL }}"
-            "NEXT_PUBLIC_CHAIN_STATUS=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_CHAIN_STATUS }}"
+            "NEXT_PUBLIC_RPC_WEBSOCKET=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_RPC_WEBSOCKET }}"
+            "NEXT_PUBLIC_CHAIN_TYPE=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_CHAIN_TYPE }}"
             "NODE_ENV=${{ steps.dockerPrep.outputs.NODE_ENV }}"
             "PORT=${{ steps.dockerPrep.outputs.PORT }}"
           tags: "forbole/big-dipper-2.0-cosmos:${{ steps.prep.outputs.branch }}-staging"
