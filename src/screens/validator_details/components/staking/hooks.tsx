@@ -9,9 +9,8 @@ import {
   useValidatorUndelegationsQuery,
   ValidatorUndelegationsQuery,
 } from '@graphql/types';
-import {
-  formatToken,
-} from '@utils/format_token';
+import { formatToken } from '@utils/format_token';
+import { getDenom } from '@utils/get_denom';
 import { chainConfig } from '@configs';
 import { StakingState } from './types';
 
@@ -77,9 +76,10 @@ export const useStaking = () => {
     return delegations
       .map((x) => {
         const address = R.pathOr('', ['delegator_address'], x);
+        const delegation = getDenom(x.coins, chainConfig.primaryTokenUnit);
         return ({
           address,
-          amount: formatToken(x.coins.amount, x.coins.denom),
+          amount: formatToken(delegation.amount, delegation.denom),
         });
       });
   };
