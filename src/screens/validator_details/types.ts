@@ -14,15 +14,13 @@ export type StatusType = {
   commission: number;
   signedBlockWindow: number;
   missedBlockCounter: number;
-  lastSeen: string;
+  maxRate: string;
 }
 
 export type VotingPowerType = {
   height: number;
   overall: TokenUnit;
   self: number;
-  // selfDelegatePercent: number;
-  // selfDelegate: TokenUnit;
 }
 
 export type ValidatorDetailsState = {
@@ -32,10 +30,4 @@ export type ValidatorDetailsState = {
   overview: OverviewType;
   status: StatusType;
   votingPower: VotingPowerType;
-  transactions: {
-    hasNextPage: boolean;
-    isNextPageLoading: boolean;
-    offsetCount: number;
-    data: Transactions[];
-  };
 }

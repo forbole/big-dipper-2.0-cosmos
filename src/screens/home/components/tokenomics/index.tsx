@@ -91,7 +91,8 @@ const Tokenomics:React.FC<{
             fill="#8884d8"
             // paddingAngle={-10}
             dataKey="rawValue"
-            // stroke={theme.palette.divider}
+            // stroke={theme.palette.background.paper}
+            // strokeWidth={3}
             isAnimationActive={false}
           >
             {data.map((entry) => {

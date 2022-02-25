@@ -2351,7 +2351,7 @@ export type Gov_Params_Variance_Fields = {
 export type Inflation = {
   __typename?: 'inflation';
   height: Scalars['bigint'];
-  value: Scalars['numeric'];
+  value: Scalars['String'];
 };
 
 /** aggregated selection of "inflation" */
@@ -2388,7 +2388,6 @@ export type Inflation_Aggregate_FieldsCountArgs = {
 export type Inflation_Avg_Fields = {
   __typename?: 'inflation_avg_fields';
   height?: Maybe<Scalars['Float']>;
-  value?: Maybe<Scalars['Float']>;
 };
 
 /** Boolean expression to filter rows from the table "inflation". All fields are combined with a logical 'AND'. */
@@ -2397,21 +2396,21 @@ export type Inflation_Bool_Exp = {
   _not?: Maybe<Inflation_Bool_Exp>;
   _or?: Maybe<Array<Inflation_Bool_Exp>>;
   height?: Maybe<Bigint_Comparison_Exp>;
-  value?: Maybe<Numeric_Comparison_Exp>;
+  value?: Maybe<String_Comparison_Exp>;
 };
 
 /** aggregate max on columns */
 export type Inflation_Max_Fields = {
   __typename?: 'inflation_max_fields';
   height?: Maybe<Scalars['bigint']>;
-  value?: Maybe<Scalars['numeric']>;
+  value?: Maybe<Scalars['String']>;
 };
 
 /** aggregate min on columns */
 export type Inflation_Min_Fields = {
   __typename?: 'inflation_min_fields';
   height?: Maybe<Scalars['bigint']>;
-  value?: Maybe<Scalars['numeric']>;
+  value?: Maybe<Scalars['String']>;
 };
 
 /** Ordering options when selecting data from "inflation". */
@@ -2432,49 +2431,42 @@ export enum Inflation_Select_Column {
 export type Inflation_Stddev_Fields = {
   __typename?: 'inflation_stddev_fields';
   height?: Maybe<Scalars['Float']>;
-  value?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Inflation_Stddev_Pop_Fields = {
   __typename?: 'inflation_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
-  value?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Inflation_Stddev_Samp_Fields = {
   __typename?: 'inflation_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
-  value?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate sum on columns */
 export type Inflation_Sum_Fields = {
   __typename?: 'inflation_sum_fields';
   height?: Maybe<Scalars['bigint']>;
-  value?: Maybe<Scalars['numeric']>;
 };
 
 /** aggregate var_pop on columns */
 export type Inflation_Var_Pop_Fields = {
   __typename?: 'inflation_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
-  value?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate var_samp on columns */
 export type Inflation_Var_Samp_Fields = {
   __typename?: 'inflation_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
-  value?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate variance on columns */
 export type Inflation_Variance_Fields = {
   __typename?: 'inflation_variance_fields';
   height?: Maybe<Scalars['Float']>;
-  value?: Maybe<Scalars['Float']>;
 };
 
 
@@ -10867,6 +10859,67 @@ export type AccountUndelegationsQuery = { undelegations?: Maybe<(
     & { undelegations: ActionUnbondingDelegationResponse['unbonding_delegations'] }
   )> };
 
+export type AccountCommissionQueryVariables = Exact<{
+  validatorAddress: Scalars['String'];
+}>;
+
+
+export type AccountCommissionQuery = { commission?: Maybe<(
+    { __typename?: 'ActionValidatorCommissionAmount' }
+    & Pick<ActionValidatorCommissionAmount, 'coins'>
+  )> };
+
+export type AccountWithdrawalAddressQueryVariables = Exact<{
+  address: Scalars['String'];
+}>;
+
+
+export type AccountWithdrawalAddressQuery = { withdrawalAddress: (
+    { __typename?: 'ActionAddress' }
+    & Pick<ActionAddress, 'address'>
+  ) };
+
+export type AccountBalancesQueryVariables = Exact<{
+  address: Scalars['String'];
+}>;
+
+
+export type AccountBalancesQuery = { accountBalances?: Maybe<(
+    { __typename?: 'ActionBalance' }
+    & Pick<ActionBalance, 'coins'>
+  )> };
+
+export type AccountDelegationBalanceQueryVariables = Exact<{
+  address: Scalars['String'];
+}>;
+
+
+export type AccountDelegationBalanceQuery = { delegationBalance?: Maybe<(
+    { __typename?: 'ActionBalance' }
+    & Pick<ActionBalance, 'coins'>
+  )> };
+
+export type AccountUnbondingBalanceQueryVariables = Exact<{
+  address: Scalars['String'];
+}>;
+
+
+export type AccountUnbondingBalanceQuery = { unbondingBalance?: Maybe<(
+    { __typename?: 'ActionBalance' }
+    & Pick<ActionBalance, 'coins'>
+  )> };
+
+export type AccountDelegationRewardsQueryVariables = Exact<{
+  address: Scalars['String'];
+}>;
+
+
+export type AccountDelegationRewardsQuery = { delegationRewards?: Maybe<Array<Maybe<(
+    { __typename?: 'ActionDelegationReward' }
+    & Pick<ActionDelegationReward, 'coins'>
+    & { validatorAddress: ActionDelegationReward['validator_address'] }
+  )>>> };
+
 export type ActiveValidatorCountQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -11294,7 +11347,7 @@ export type ValidatorDetailsQuery = { stakingPool: Array<(
       & { missedBlocksCounter: Validator_Signing_Info['missed_blocks_counter'] }
     )>, validatorInfo?: Maybe<(
       { __typename?: 'validator_info' }
-      & { operatorAddress: Validator_Info['operator_address'], selfDelegateAddress: Validator_Info['self_delegate_address'] }
+      & { operatorAddress: Validator_Info['operator_address'], selfDelegateAddress: Validator_Info['self_delegate_address'], maxRate: Validator_Info['max_rate'] }
     )>, validatorCommissions: Array<(
       { __typename?: 'validator_commission' }
       & Pick<Validator_Commission, 'commission'>
@@ -11587,6 +11640,217 @@ export function useAccountUndelegationsLazyQuery(baseOptions?: Apollo.LazyQueryH
 export type AccountUndelegationsQueryHookResult = ReturnType<typeof useAccountUndelegationsQuery>;
 export type AccountUndelegationsLazyQueryHookResult = ReturnType<typeof useAccountUndelegationsLazyQuery>;
 export type AccountUndelegationsQueryResult = Apollo.QueryResult<AccountUndelegationsQuery, AccountUndelegationsQueryVariables>;
+export const AccountCommissionDocument = gql`
+    query AccountCommission($validatorAddress: String!) {
+  commission: action_validator_commission_amount(address: $validatorAddress) {
+    coins
+  }
+}
+    `;
+
+/**
+ * __useAccountCommissionQuery__
+ *
+ * To run a query within a React component, call `useAccountCommissionQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountCommissionQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountCommissionQuery({
+ *   variables: {
+ *      validatorAddress: // value for 'validatorAddress'
+ *   },
+ * });
+ */
+export function useAccountCommissionQuery(baseOptions: Apollo.QueryHookOptions<AccountCommissionQuery, AccountCommissionQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountCommissionQuery, AccountCommissionQueryVariables>(AccountCommissionDocument, options);
+      }
+export function useAccountCommissionLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountCommissionQuery, AccountCommissionQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountCommissionQuery, AccountCommissionQueryVariables>(AccountCommissionDocument, options);
+        }
+export type AccountCommissionQueryHookResult = ReturnType<typeof useAccountCommissionQuery>;
+export type AccountCommissionLazyQueryHookResult = ReturnType<typeof useAccountCommissionLazyQuery>;
+export type AccountCommissionQueryResult = Apollo.QueryResult<AccountCommissionQuery, AccountCommissionQueryVariables>;
+export const AccountWithdrawalAddressDocument = gql`
+    query AccountWithdrawalAddress($address: String!) {
+  withdrawalAddress: action_delegator_withdraw_address(address: $address) {
+    address
+  }
+}
+    `;
+
+/**
+ * __useAccountWithdrawalAddressQuery__
+ *
+ * To run a query within a React component, call `useAccountWithdrawalAddressQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountWithdrawalAddressQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountWithdrawalAddressQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useAccountWithdrawalAddressQuery(baseOptions: Apollo.QueryHookOptions<AccountWithdrawalAddressQuery, AccountWithdrawalAddressQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountWithdrawalAddressQuery, AccountWithdrawalAddressQueryVariables>(AccountWithdrawalAddressDocument, options);
+      }
+export function useAccountWithdrawalAddressLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountWithdrawalAddressQuery, AccountWithdrawalAddressQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountWithdrawalAddressQuery, AccountWithdrawalAddressQueryVariables>(AccountWithdrawalAddressDocument, options);
+        }
+export type AccountWithdrawalAddressQueryHookResult = ReturnType<typeof useAccountWithdrawalAddressQuery>;
+export type AccountWithdrawalAddressLazyQueryHookResult = ReturnType<typeof useAccountWithdrawalAddressLazyQuery>;
+export type AccountWithdrawalAddressQueryResult = Apollo.QueryResult<AccountWithdrawalAddressQuery, AccountWithdrawalAddressQueryVariables>;
+export const AccountBalancesDocument = gql`
+    query AccountBalances($address: String!) {
+  accountBalances: action_account_balance(address: $address) {
+    coins
+  }
+}
+    `;
+
+/**
+ * __useAccountBalancesQuery__
+ *
+ * To run a query within a React component, call `useAccountBalancesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountBalancesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountBalancesQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useAccountBalancesQuery(baseOptions: Apollo.QueryHookOptions<AccountBalancesQuery, AccountBalancesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountBalancesQuery, AccountBalancesQueryVariables>(AccountBalancesDocument, options);
+      }
+export function useAccountBalancesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountBalancesQuery, AccountBalancesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountBalancesQuery, AccountBalancesQueryVariables>(AccountBalancesDocument, options);
+        }
+export type AccountBalancesQueryHookResult = ReturnType<typeof useAccountBalancesQuery>;
+export type AccountBalancesLazyQueryHookResult = ReturnType<typeof useAccountBalancesLazyQuery>;
+export type AccountBalancesQueryResult = Apollo.QueryResult<AccountBalancesQuery, AccountBalancesQueryVariables>;
+export const AccountDelegationBalanceDocument = gql`
+    query AccountDelegationBalance($address: String!) {
+  delegationBalance: action_delegation_total(address: $address) {
+    coins
+  }
+}
+    `;
+
+/**
+ * __useAccountDelegationBalanceQuery__
+ *
+ * To run a query within a React component, call `useAccountDelegationBalanceQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountDelegationBalanceQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountDelegationBalanceQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useAccountDelegationBalanceQuery(baseOptions: Apollo.QueryHookOptions<AccountDelegationBalanceQuery, AccountDelegationBalanceQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountDelegationBalanceQuery, AccountDelegationBalanceQueryVariables>(AccountDelegationBalanceDocument, options);
+      }
+export function useAccountDelegationBalanceLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountDelegationBalanceQuery, AccountDelegationBalanceQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountDelegationBalanceQuery, AccountDelegationBalanceQueryVariables>(AccountDelegationBalanceDocument, options);
+        }
+export type AccountDelegationBalanceQueryHookResult = ReturnType<typeof useAccountDelegationBalanceQuery>;
+export type AccountDelegationBalanceLazyQueryHookResult = ReturnType<typeof useAccountDelegationBalanceLazyQuery>;
+export type AccountDelegationBalanceQueryResult = Apollo.QueryResult<AccountDelegationBalanceQuery, AccountDelegationBalanceQueryVariables>;
+export const AccountUnbondingBalanceDocument = gql`
+    query AccountUnbondingBalance($address: String!) {
+  unbondingBalance: action_unbonding_delegation_total(address: $address) {
+    coins
+  }
+}
+    `;
+
+/**
+ * __useAccountUnbondingBalanceQuery__
+ *
+ * To run a query within a React component, call `useAccountUnbondingBalanceQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountUnbondingBalanceQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountUnbondingBalanceQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useAccountUnbondingBalanceQuery(baseOptions: Apollo.QueryHookOptions<AccountUnbondingBalanceQuery, AccountUnbondingBalanceQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountUnbondingBalanceQuery, AccountUnbondingBalanceQueryVariables>(AccountUnbondingBalanceDocument, options);
+      }
+export function useAccountUnbondingBalanceLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountUnbondingBalanceQuery, AccountUnbondingBalanceQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountUnbondingBalanceQuery, AccountUnbondingBalanceQueryVariables>(AccountUnbondingBalanceDocument, options);
+        }
+export type AccountUnbondingBalanceQueryHookResult = ReturnType<typeof useAccountUnbondingBalanceQuery>;
+export type AccountUnbondingBalanceLazyQueryHookResult = ReturnType<typeof useAccountUnbondingBalanceLazyQuery>;
+export type AccountUnbondingBalanceQueryResult = Apollo.QueryResult<AccountUnbondingBalanceQuery, AccountUnbondingBalanceQueryVariables>;
+export const AccountDelegationRewardsDocument = gql`
+    query AccountDelegationRewards($address: String!) {
+  delegationRewards: action_delegation_reward(address: $address) {
+    validatorAddress: validator_address
+    coins
+  }
+}
+    `;
+
+/**
+ * __useAccountDelegationRewardsQuery__
+ *
+ * To run a query within a React component, call `useAccountDelegationRewardsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountDelegationRewardsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountDelegationRewardsQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useAccountDelegationRewardsQuery(baseOptions: Apollo.QueryHookOptions<AccountDelegationRewardsQuery, AccountDelegationRewardsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountDelegationRewardsQuery, AccountDelegationRewardsQueryVariables>(AccountDelegationRewardsDocument, options);
+      }
+export function useAccountDelegationRewardsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountDelegationRewardsQuery, AccountDelegationRewardsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountDelegationRewardsQuery, AccountDelegationRewardsQueryVariables>(AccountDelegationRewardsDocument, options);
+        }
+export type AccountDelegationRewardsQueryHookResult = ReturnType<typeof useAccountDelegationRewardsQuery>;
+export type AccountDelegationRewardsLazyQueryHookResult = ReturnType<typeof useAccountDelegationRewardsLazyQuery>;
+export type AccountDelegationRewardsQueryResult = Apollo.QueryResult<AccountDelegationRewardsQuery, AccountDelegationRewardsQueryVariables>;
 export const ActiveValidatorCountDocument = gql`
     query ActiveValidatorCount {
   activeTotal: validator_status_aggregate(where: {status: {_eq: 3}}) {
@@ -12617,6 +12881,7 @@ export const ValidatorDetailsDocument = gql`
     validatorInfo: validator_info {
       operatorAddress: operator_address
       selfDelegateAddress: self_delegate_address
+      maxRate: max_rate
     }
     validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
       commission

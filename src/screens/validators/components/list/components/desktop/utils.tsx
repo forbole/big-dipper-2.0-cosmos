@@ -22,7 +22,7 @@ export const fetchColumns = (t): {
     {
       key: 'validator',
       sortKey: 'validator.name',
-      width: 20,
+      width: 25,
       sort: true,
     },
     {
