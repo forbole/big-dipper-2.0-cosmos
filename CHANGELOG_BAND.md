@@ -1,10 +1,14 @@
+# band-v2.0.2 - 2021-02-25
+## Changes
+- Merged `base-v2.0.0-rc3`
+
 # band-v2.0.1 - 2021-02-17
 ## Changes
 - Logos
 
 # band-v2.0.0 - 2021-02-09
 ## Changes
-- Merged `base-v2.0.0`
+- Merged `base-v2.0.0-rc1`
 
 # band-v1.2.0 - 2021-01-10
 ## Changes
