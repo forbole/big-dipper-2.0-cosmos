@@ -1,3 +1,13 @@
+# base-v2.0.0-rc3 - 2021-02-25
+
+## Changes
+- Changed `NEXT_PUBLIC_WS_CHAIN_URL` to `NEXT_PUBLIC_RPC_WEBSOCKET` for clarification
+- Changed `NEXT_PUBLIC_CHAIN_STATUS` to `NEXT_PUBLIC_CHAIN_TYPE` for clarification
+
+## Migration
+- Change env `NEXT_PUBLIC_WS_CHAIN_URL` to `NEXT_PUBLIC_RPC_WEBSOCKET` or don't. It's backwards compatible
+- Change env `NEXT_PUBLIC_CHAIN_STATUS` to `NEXT_PUBLIC_CHAIN_TYPE` or don't. It's backwards compatible
+
 # base-v2.0.0-rc2 - 2021-02-24
 
 ## Changes
