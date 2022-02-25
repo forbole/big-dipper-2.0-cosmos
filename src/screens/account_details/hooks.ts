@@ -189,7 +189,7 @@ export const useAccountDetails = () => {
         .plus(unbondingAmount.value)
         .plus(rewardsAmount.value)
         .plus(commissionAmount.value)
-        .toPrecision();
+        .toFixed(chainConfig.tokenUnits[chainConfig.primaryTokenUnit].exponent);
 
       const balance = {
         available: availableAmount,
