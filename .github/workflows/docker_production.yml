@@ -29,8 +29,8 @@ jobs:
           NEXT_PUBLIC_GRAPHQL_URL=
           NEXT_PUBLIC_GRAPHQL_WS=
           NEXT_PUBLIC_URL=
-          NEXT_PUBLIC_WS_CHAIN_URL=
-          NEXT_PUBLIC_CHAIN_STATUS=
+          NEXT_PUBLIC_RPC_WEBSOCKET=
+          NEXT_PUBLIC_CHAIN_TYPE=
           NODE_ENV="production"
           PORT=3000
           NEXT_PUBLIC_MATOMO_URL="https://analytics.bigdipper.live"
@@ -39,14 +39,14 @@ jobs:
             NEXT_PUBLIC_GRAPHQL_URL="https://gql.band.forbole.com/v1/graphql"
             NEXT_PUBLIC_GRAPHQL_WS="wss://gql.band.forbole.com/v1/graphql"
             NEXT_PUBLIC_URL="https://band.bigdipper.live"
-            NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.band.forbole.com/websocket"
-            NEXT_PUBLIC_CHAIN_STATUS="mainnet"
+            NEXT_PUBLIC_RPC_WEBSOCKET="wss://rpc.band.forbole.com/websocket"
+            NEXT_PUBLIC_CHAIN_TYPE="mainnet"
           fi
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_WS::${NEXT_PUBLIC_GRAPHQL_WS}
           echo ::set-output name=NEXT_PUBLIC_URL::${NEXT_PUBLIC_URL}
-          echo ::set-output name=NEXT_PUBLIC_WS_CHAIN_URL::${NEXT_PUBLIC_WS_CHAIN_URL}
-          echo ::set-output name=NEXT_PUBLIC_CHAIN_STATUS::${NEXT_PUBLIC_CHAIN_STATUS}
+          echo ::set-output name=NEXT_PUBLIC_RPC_WEBSOCKET::${NEXT_PUBLIC_RPC_WEBSOCKET}
+          echo ::set-output name=NEXT_PUBLIC_CHAIN_TYPE::${NEXT_PUBLIC_CHAIN_TYPE}
           echo ::set-output name=NODE_ENV::${NODE_ENV}
           echo ::set-output name=PORT::${PORT}
           echo ::set-output name=NEXT_PUBLIC_MATOMO_URL::${NEXT_PUBLIC_MATOMO_URL}
@@ -70,8 +70,8 @@ jobs:
             "NEXT_PUBLIC_GRAPHQL_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_URL }}"
             "NEXT_PUBLIC_GRAPHQL_WS=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_WS }}"
             "NEXT_PUBLIC_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_URL }}"
-            "NEXT_PUBLIC_WS_CHAIN_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_WS_CHAIN_URL }}"
-            "NEXT_PUBLIC_CHAIN_STATUS=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_CHAIN_STATUS }}"
+            "NEXT_PUBLIC_RPC_WEBSOCKET=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_RPC_WEBSOCKET }}"
+            "NEXT_PUBLIC_CHAIN_TYPE=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_CHAIN_TYPE }}"
             "NODE_ENV=${{ steps.dockerPrep.outputs.NODE_ENV }}"
             "PORT=${{ steps.dockerPrep.outputs.PORT }}"
             "NEXT_PUBLIC_MATOMO_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_MATOMO_URL }}"
