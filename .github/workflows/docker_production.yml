@@ -3,7 +3,8 @@ name: Docker-Production
 on:
   push:
     tags:
-      - desmos-morpheus-apollo-1-v*
+      - evmos-testnet-9000-3-v*
+      - evmos-mainnet-9001-1-v*
 
 jobs:
   Build-and-Publish:
@@ -35,12 +36,18 @@ jobs:
           PORT=3000
           NEXT_PUBLIC_MATOMO_URL=https://analytics.bigdipper.live
           NEXT_PUBLIC_MATOMO_SITE_ID=19
-          if [[ $GITHUB_REF == refs/tags/desmos-morpheus-apollo-1* ]]; then
-            NEXT_PUBLIC_GRAPHQL_URL="https://gql.morpheus.desmos.network/v1/graphql"
-            NEXT_PUBLIC_GRAPHQL_WS="wss://gql.morpheus.desmos.network/v1/graphql"
-            NEXT_PUBLIC_URL="https://morpheus.desmos.network"
-            NEXT_PUBLIC_RPC_WEBSOCKET="wss://rpc.morpheus.desmos.network/websocket"
+          if [[ $GITHUB_REF == refs/tags/evmos-testnet-9000-3-v* ]]; then
+            NEXT_PUBLIC_GRAPHQL_URL="https://gql-testnet.evmos.forbole.com/v1/graphql"
+            NEXT_PUBLIC_GRAPHQL_WS="wss://gql-testnet.evmos.forbole.com/v1/graphql"
+            NEXT_PUBLIC_URL="https://testnet.evmos.bigdipper.live"
+            NEXT_PUBLIC_RPC_WEBSOCKET="wss://evmos-archive-testnet.api.bdnodes.net:26657/websocket"
             NEXT_PUBLIC_CHAIN_TYPE="testnet"
+          elif [[ $GITHUB_REF == refs/tags/evmos-mainnet-9001-1-v* ]]; then
+            NEXT_PUBLIC_GRAPHQL_URL="https://gql.evmos.forbole.com/v1/graphql"
+            NEXT_PUBLIC_GRAPHQL_WS="wss://gql.evmos.forbole.com/v1/graphql"
+            NEXT_PUBLIC_URL="https://evmos.bigdipper.live"
+            NEXT_PUBLIC_RPC_WEBSOCKET="wss://rpc.evmos.forbole.com/websocket"
+            NEXT_PUBLIC_CHAIN_TYPE="mainnet"
           fi
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_WS::${NEXT_PUBLIC_GRAPHQL_WS}
@@ -82,14 +89,18 @@ jobs:
             org.opencontainers.image.revision=${{ github.sha }}
       - name: Deploy to Akash 🌐
         env:
-          DESMOS_AKASH_WEBHOOK_URL: ${{ secrets.DESMOS_AKASH_WEBHOOK_URL }}
+          EVMOS_TESTNET: ${{ secrets.EVMOS_TESTNET }}
+          EVMOS_MAINNET: ${{ secrets.EVMOS_MAINNET }}
           AKASH_WEBHOOK_SECRET: ${{ secrets.AKASH_WEBHOOK_SECRET }}
         run: |
             BRANCH=${GITHUB_REF}
             WEBHOOK_URL=''
-            if [[ $GITHUB_REF == refs/tags/desmos-morpheus-apollo-1* ]]; then
-              echo 'Deploying to Desmos morpheus-apollo-1'
-              WEBHOOK_URL=$DESMOS_AKASH_WEBHOOK_URL
+            if [[ $GITHUB_REF == refs/tags/evmos-testnet-9000-3-v* ]]; then
+              echo 'Deploying to Evmos evmos-testnet-9000-3-v*'
+              WEBHOOK_URL=$EVMOS_TESTNET
+            elif [[ $GITHUB_REF == refs/tags/evmos-mainnet-9001-1-v* ]]; then
+              echo 'Deploying to Evmos evmos-mainnet-9001-1-v*'
+              WEBHOOK_URL=$EVMOS_MAINNET
             fi
               curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k $WEBHOOK_URL -u "deploy:$AKASH_WEBHOOK_SECRET"
 
