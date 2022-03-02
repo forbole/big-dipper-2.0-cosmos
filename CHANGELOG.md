@@ -1,3 +1,8 @@
+# Unreleased
+
+## Bug fixes
+- Fixed Apr error if bonded tokens is 0 ([\#758](https://github.com/forbole/big-dipper-2.0-cosmos/issues/758))
+
 # base-v2.0.0-rc3 - 2021-02-25
 
 ## Changes
