@@ -1,28 +1,28 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "desmos-mainnet-1",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
+  "title": "Evmos Block Explorer",
+  "network": "evmos_9001-1",
+  "icon": "/images/icon.png",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
+    "default": "/images/logo.svg"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "evmosvalcons",
+    "validator": "evmosvaloper",
+    "account": "evmos"
   },
   "genesis": {
     "time": "2021-07-13T08:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udsm",
-  "votingPowerTokenUnit": "udsm",
+  "primaryTokenUnit": "aevmos",
+  "votingPowerTokenUnit": "aevmos",
   "tokenUnits": {
-    "udsm": {
-      "display": "dsm",
-      "exponent": 6
+    "atevmos": {
+      "display": "evmos",
+      "exponent": 18
     }
   },
   "extra": {
-    "profile": true
+    "profile": false
   }
 }
