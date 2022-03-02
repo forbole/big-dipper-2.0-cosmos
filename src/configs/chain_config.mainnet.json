@@ -17,7 +17,7 @@
   "primaryTokenUnit": "aevmos",
   "votingPowerTokenUnit": "aevmos",
   "tokenUnits": {
-    "atevmos": {
+    "aevmos": {
       "display": "evmos",
       "exponent": 18
     }
