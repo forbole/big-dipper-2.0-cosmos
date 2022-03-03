@@ -61,7 +61,6 @@ export const useTokenomics = () => {
 
     const unbonded = results.total - results.unbonding - results.bonded;
     results.unbonded = unbonded;
-    console.log(results, 'results');
     return results;
   };
 
