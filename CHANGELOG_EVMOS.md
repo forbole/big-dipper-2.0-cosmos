@@ -1,3 +1,8 @@
+# Unreleased
+
+## Fixes
+- Removed console.log
+
 # evmos-v1.1.0 - 2021-03-03
 
 ## Changes
