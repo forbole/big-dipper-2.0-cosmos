@@ -1,7 +1,7 @@
 {
   "title": "Evmos Block Explorer",
   "network": "evmos_9000-3",
-  "icon": "/images/icon.png",
+  "icon": "/images/icon.svg",
   "logo": {
     "default": "/images/logo.svg"
   },
