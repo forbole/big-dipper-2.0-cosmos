@@ -1,7 +1,8 @@
-# Unreleased
+# evmos-v1.1.1 - 2021-03-03
 
 ## Fixes
 - Removed console.log
+- Update evmos icon
 
 # evmos-v1.1.0 - 2021-03-03
 
