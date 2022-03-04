@@ -47,11 +47,11 @@ Array [
         >
           validators
         </h4>
-        <a
+        <p
           className="MuiTypography-root value MuiTypography-body1"
         >
           109
-        </a>
+        </p>
       </div>
       <div
         className="makeStyles-item"
@@ -148,11 +148,11 @@ Array [
         >
           validators
         </h4>
-        <a
+        <p
           className="MuiTypography-root value MuiTypography-body1"
         >
           109
-        </a>
+        </p>
       </div>
       <div
         className="makeStyles-item"
