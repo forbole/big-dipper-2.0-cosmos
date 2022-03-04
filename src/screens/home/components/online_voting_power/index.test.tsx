@@ -1,14 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { ApolloProvider } from '@apollo/client';
-import {
-  createMockClient, createMockSubscription,
-} from 'mock-apollo-client';
-import {
-  OnlineVotingPowerListenerDocument,
-  TotalVotingPowerListenerDocument,
-  StakingParamsDocument,
-} from '@graphql/types';
+import { createMockClient } from 'mock-apollo-client';
+import { OnlineVotingPowerDocument } from '@graphql/types';
 import {
   MockTheme, wait,
 } from '@tests/utils';
@@ -26,38 +20,34 @@ jest.mock('@components', () => ({
   Box: (props) => <div id="box" {...props} />,
 }));
 
-const mockOnlineVotingPower = {
+const mockOnlineVotingPower = jest.fn().mockResolvedValue({
   data: {
-    block: [
-      {
-        height: 1143207,
-        preCommitsAggregate: {
-          aggregate: {
-            sum: {
-              votingPower: 257518,
-            },
-          },
+    activeTotal: {
+      aggregate: {
+        count: 109,
+      },
+    },
+    validatorVotingPowerAggregate: {
+      aggregate: {
+        sum: {
+          votingPower: 76341043,
         },
       },
-    ],
-  },
-};
-
-const mockTotalVotingPower = {
-  data: {
+    },
     stakingPool: [
       {
-        bonded: 254578529800,
+        bonded: 76341095840626,
       },
     ],
-  },
-};
-
-const mockStakingParams = jest.fn().mockResolvedValue({
-  data: {
     stakingParams: [
       {
-        bondDenom: 'utoken',
+        params: {
+          bond_denom: 'udsm',
+          max_entries: 7,
+          max_validators: 125,
+          unbonding_time: 1209600000000000,
+          historical_entries: 10000,
+        },
       },
     ],
   },
@@ -69,22 +59,10 @@ const mockStakingParams = jest.fn().mockResolvedValue({
 describe('screen: Home/OnlineVotingPower', () => {
   it('matches snapshot', async () => {
     const mockClient = createMockClient();
-    const mockSubscription = createMockSubscription();
-    const mockSubscription2 = createMockSubscription();
 
     mockClient.setRequestHandler(
-      StakingParamsDocument,
-      mockStakingParams,
-    );
-
-    mockClient.setRequestHandler(
-      OnlineVotingPowerListenerDocument,
-      () => mockSubscription,
-    );
-
-    mockClient.setRequestHandler(
-      TotalVotingPowerListenerDocument,
-      () => mockSubscription2,
+      OnlineVotingPowerDocument,
+      mockOnlineVotingPower,
     );
 
     let component;
@@ -103,12 +81,6 @@ describe('screen: Home/OnlineVotingPower', () => {
 
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
-
-    renderer.act(() => {
-      mockSubscription.next(mockOnlineVotingPower);
-      mockSubscription2.next(mockTotalVotingPower);
-    });
-    await wait();
 
     tree = component.toJSON();
     expect(tree).toMatchSnapshot();

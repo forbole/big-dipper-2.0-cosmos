@@ -1,5 +1,7 @@
 # Unreleased
 
+## Changes
+- Changed online voting power to be a query instead of a subscription ([\#638](https://github.com/forbole/big-dipper-2.0-cosmos/issues/638))
 ## Bug fixes
 - Fixed Apr error if bonded tokens is 0 ([\#758](https://github.com/forbole/big-dipper-2.0-cosmos/issues/758))
 
