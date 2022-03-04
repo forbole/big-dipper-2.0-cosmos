@@ -44,7 +44,7 @@ const OnlineVotingPower: React.FC<{
           <Typography variant="h4" className="label">
             {t('validators')}
           </Typography>
-          <Typography variant="body1" className="value" component="a">
+          <Typography variant="body1" className="value">
             {numeral(state.activeValidators).format('0,0')}
           </Typography>
         </div>
