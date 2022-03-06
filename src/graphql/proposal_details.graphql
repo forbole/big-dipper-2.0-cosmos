@@ -58,3 +58,12 @@ query ProposalDetails($proposalId: Int) {
     votingEndTime: voting_end_time
   }
 }
+
+query ProposalDetailsTally($proposalId: Int) {
+	proposalTallyResult: proposal_tally_result(where: {proposal_id: {_eq: $proposalId}}) {
+    yes
+    no
+    noWithVeto: no_with_veto
+    abstain
+  }
+}

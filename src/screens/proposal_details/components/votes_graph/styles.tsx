@@ -52,12 +52,12 @@ export const useStyles = () => {
           },
           '&.yes': {
             '&::before': {
-              background: theme.palette.custom.charts.one,
+              background: theme.palette.custom.charts.four,
             },
           },
           '&.no': {
             '&::before': {
-              background: theme.palette.custom.charts.two,
+              background: theme.palette.custom.charts.one,
             },
           },
           '&.veto': {
@@ -67,7 +67,7 @@ export const useStyles = () => {
           },
           '&.abstain': {
             '&::before': {
-              background: theme.palette.custom.charts.four,
+              background: theme.palette.custom.charts.two,
             },
           },
         },

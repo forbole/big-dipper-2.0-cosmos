@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import numeral from 'numeral';
+// import numeral from 'numeral';
 import { Box } from '@components';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
@@ -9,40 +9,36 @@ import {
   Pie,
   Cell,
 } from 'recharts';
-import { replaceNaN } from '@utils/replace_nan';
+// import { replaceNaN } from '@utils/replace_nan';
 import { useStyles } from './styles';
 import { formatGraphData } from './utils';
-import { TallyType } from '../../types';
+import { useVotesGraph } from './hooks';
 
-const VotesGraph: React.FC<{
-  className?: string;
-  data: TallyType;
-}> = ({
-  className, data,
-}) => {
+const VotesGraph: React.FC<ComponentDefault> = (props) => {
   const {
     classes, theme,
   } = useStyles();
   const { t } = useTranslation('proposals');
-  let formattedData = formatGraphData(data, theme);
+  const { state } = useVotesGraph();
+  const formattedData = formatGraphData(state, theme);
 
-  const empty = {
-    name: 'empty',
-    value: 2400,
-    color: theme.palette.custom.charts.zero,
-    percentage: '0%',
-    display: '',
-  };
-  const notEmpty = formattedData.some((x) => x.value > 0);
-  formattedData = notEmpty ? formattedData : [...formattedData, empty];
+  // const empty = {
+  //   name: 'empty',
+  //   value: 2400,
+  //   color: theme.palette.custom.charts.zero,
+  //   percentage: '0%',
+  //   display: '',
+  // };
+  // const notEmpty = formattedData.some((x) => x.value > 0);
+  // formattedData = notEmpty ? formattedData : [...formattedData, empty];
 
-  const quorumPercent = `${numeral(data.quorum * 100).value()}%`; // correct
-  const votePercent = replaceNaN(`${numeral((data.total / data.bondedTokens) * 100).format('0.[00]')}%`);
-  const voteAmount = numeral(data.total).format('0,0.[00]');
-  const quorumAmount = numeral((data.bondedTokens * (data.quorum * 100)) / 100).format('0,0.[00]');
+  // const quorumPercent = `${numeral(data.quorum * 100).value()}%`; // correct
+  // const votePercent = replaceNaN(`${numeral((data.total / data.bondedTokens) * 100).format('0.[00]')}%`);
+  // const voteAmount = numeral(data.total).format('0,0.[00]');
+  // const quorumAmount = numeral((data.bondedTokens * (data.quorum * 100)) / 100).format('0,0.[00]');
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={classnames(props.className, classes.root)}>
       <div className={classes.pie}>
         <PieChart
           width={250}
@@ -70,7 +66,7 @@ const VotesGraph: React.FC<{
         </PieChart>
       </div>
       <div className={classes.legend}>
-        <div className={classes.total}>
+        {/* <div className={classes.total}>
           <Typography variant="caption">
             Voted / Quorum (
             {votePercent}
@@ -87,7 +83,7 @@ const VotesGraph: React.FC<{
             {' '}
             {quorumAmount}
           </Typography>
-        </div>
+        </div> */}
         {formattedData.filter((x) => x.name !== 'empty').map((x) => {
           return (
             <div key={x.name} className={classnames(classes.voteItem, x.name)}>
