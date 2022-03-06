@@ -14,12 +14,12 @@ import {
   chainConfig, generalConfig,
 } from '@src/configs';
 import { readTheme } from '@recoil/settings/selectors';
+import CookieConsent from 'react-cookie-consent';
 import { SocialMedia } from './components';
 import {
   footerLinks, donateLink,
 } from './utils';
 import { useStyles } from './styles';
-import CookieConsent from 'react-cookie-consent';
 
 const Footer: React.FC<{className?: string}> = ({ className }) => {
   const { t } = useTranslation();
@@ -101,12 +101,18 @@ const Footer: React.FC<{className?: string}> = ({ className }) => {
               location="bottom"
               buttonText="I understand"
               contentClasses="text-capitalize"
-              style={{ margin: "0% 32.5%", width: "35%", background: "#fd3b4cb3" }}
-              buttonStyle={{ color: "#ffffff", background: "#6a1d27"}}
+              style={{
+                margin: '0% 32.5%', width: '35%', background: '#fd3b4cb3', minWidth: '350px',
+              }}
+              buttonStyle={{
+                color: '#ffffff', background: '#6a1d27',
+              }}
               expires={150}
             >
-              We use cookies to enhance the user experience. Read our <a href="https://www.cudos.org/privacy-policy/">Privacy Policy</a>
-            </CookieConsent>  
+              We use cookies to enhance the user experience. Read our
+              {' '}
+              <a href="https://www.cudos.org/privacy-policy/">Privacy Policy</a>
+            </CookieConsent>
           </div>
         </div>
       </div>
