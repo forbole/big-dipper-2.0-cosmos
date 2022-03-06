@@ -8,25 +8,26 @@ import {
 import { useStyles } from './styles';
 import {
   Overview,
-  Votes,
-  Deposits,
-  VotesGraph,
+  // Votes,
+  // Deposits,
+  // VotesGraph,
 } from './components';
 import { useProposalDetails } from './hooks';
-import { shouldShowData } from './utils';
+// import { shouldShowData } from './utils';
 
 const ProposalDetails = () => {
   const { t } = useTranslation('proposals');
   const classes = useStyles();
   const {
-    state, handleTabChange,
+    state,
+    // handleTabChange,
   } = useProposalDetails();
   const {
     overview,
-    content,
-    tally,
-    votes,
-    deposits,
+    // content,
+    // tally,
+    // votes,
+    // deposits,
   } = state;
 
   return (
@@ -47,23 +48,15 @@ const ProposalDetails = () => {
           <span className={classes.root}>
             <Overview
               className={classes.overview}
-              title={overview.title}
-              id={overview.id}
-              description={overview.description}
-              status={overview.status}
-              submitTime={overview.submitTime}
-              depositEndTime={overview.depositEndTime}
-              votingStartTime={overview.votingStartTime}
-              votingEndTime={overview.votingEndTime}
-              content={content}
+              overview={overview}
             />
-            {shouldShowData(overview.status) && (
+            {/* {shouldShowData(overview.status) && (
             <VotesGraph
               className={classes.votesGraph}
               data={tally}
             />
-            )}
-            {shouldShowData(overview.status) && (
+            )} */}
+            {/* {shouldShowData(overview.status) && (
             <Votes
               className={classes.votes}
               data={votes.data}
@@ -77,11 +70,11 @@ const ProposalDetails = () => {
               notVotedData={votes.notVotedData}
               notVoted={votes.notVoted}
             />
-            )}
-            <Deposits
+            )} */}
+            {/* <Deposits
               className={classes.deposits}
               data={deposits}
-            />
+            /> */}
           </span>
         </LoadAndExist>
       </Layout>

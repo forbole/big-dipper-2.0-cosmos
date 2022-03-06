@@ -1,4 +1,4 @@
-query ProposalDetails($proposalId: Int) {
+query xProposalDetails($proposalId: Int) {
   proposal(where: {id: {_eq: $proposalId}}) {
     title
     description
@@ -42,5 +42,19 @@ query ProposalDetails($proposalId: Int) {
         selfDelegateAddress: self_delegate_address
       }
     }
+  }
+}
+
+query ProposalDetails($proposalId: Int) {
+  proposal(where: {id: {_eq: $proposalId}}) {
+    title
+    description
+    status
+    content
+    proposalId: id
+    submitTime: submit_time
+    depositEndTime: deposit_end_time
+    votingStartTime: voting_start_time
+    votingEndTime: voting_end_time
   }
 }

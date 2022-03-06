@@ -19822,12 +19822,12 @@ export type ParamsQuery = { stakingParams: Array<(
     & { depositParams: Gov_Params['deposit_params'], tallyParams: Gov_Params['tally_params'], votingParams: Gov_Params['voting_params'] }
   )> };
 
-export type ProposalDetailsQueryVariables = Exact<{
+export type XProposalDetailsQueryVariables = Exact<{
   proposalId?: Maybe<Scalars['Int']>;
 }>;
 
 
-export type ProposalDetailsQuery = { proposal: Array<(
+export type XProposalDetailsQuery = { proposal: Array<(
     { __typename?: 'proposal' }
     & Pick<Proposal, 'title' | 'description' | 'status' | 'content'>
     & { proposalId: Proposal['id'], submitTime: Proposal['submit_time'], depositEndTime: Proposal['deposit_end_time'], votingStartTime: Proposal['voting_start_time'], votingEndTime: Proposal['voting_end_time'] }
@@ -19864,6 +19864,17 @@ export type ProposalDetailsQuery = { proposal: Array<(
         & { selfDelegateAddress: Validator_Info['self_delegate_address'] }
       )> }
     ) }
+  )> };
+
+export type ProposalDetailsQueryVariables = Exact<{
+  proposalId?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type ProposalDetailsQuery = { proposal: Array<(
+    { __typename?: 'proposal' }
+    & Pick<Proposal, 'title' | 'description' | 'status' | 'content'>
+    & { proposalId: Proposal['id'], submitTime: Proposal['submit_time'], depositEndTime: Proposal['deposit_end_time'], votingStartTime: Proposal['voting_start_time'], votingEndTime: Proposal['voting_end_time'] }
   )> };
 
 export type ProposalsQueryVariables = Exact<{
@@ -20998,8 +21009,8 @@ export function useParamsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Par
 export type ParamsQueryHookResult = ReturnType<typeof useParamsQuery>;
 export type ParamsLazyQueryHookResult = ReturnType<typeof useParamsLazyQuery>;
 export type ParamsQueryResult = Apollo.QueryResult<ParamsQuery, ParamsQueryVariables>;
-export const ProposalDetailsDocument = gql`
-    query ProposalDetails($proposalId: Int) {
+export const XProposalDetailsDocument = gql`
+    query xProposalDetails($proposalId: Int) {
   proposal(where: {id: {_eq: $proposalId}}) {
     title
     description
@@ -21049,6 +21060,49 @@ export const ProposalDetailsDocument = gql`
         selfDelegateAddress: self_delegate_address
       }
     }
+  }
+}
+    `;
+
+/**
+ * __useXProposalDetailsQuery__
+ *
+ * To run a query within a React component, call `useXProposalDetailsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useXProposalDetailsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useXProposalDetailsQuery({
+ *   variables: {
+ *      proposalId: // value for 'proposalId'
+ *   },
+ * });
+ */
+export function useXProposalDetailsQuery(baseOptions?: Apollo.QueryHookOptions<XProposalDetailsQuery, XProposalDetailsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<XProposalDetailsQuery, XProposalDetailsQueryVariables>(XProposalDetailsDocument, options);
+      }
+export function useXProposalDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<XProposalDetailsQuery, XProposalDetailsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<XProposalDetailsQuery, XProposalDetailsQueryVariables>(XProposalDetailsDocument, options);
+        }
+export type XProposalDetailsQueryHookResult = ReturnType<typeof useXProposalDetailsQuery>;
+export type XProposalDetailsLazyQueryHookResult = ReturnType<typeof useXProposalDetailsLazyQuery>;
+export type XProposalDetailsQueryResult = Apollo.QueryResult<XProposalDetailsQuery, XProposalDetailsQueryVariables>;
+export const ProposalDetailsDocument = gql`
+    query ProposalDetails($proposalId: Int) {
+  proposal(where: {id: {_eq: $proposalId}}) {
+    title
+    description
+    status
+    content
+    proposalId: id
+    submitTime: submit_time
+    depositEndTime: deposit_end_time
+    votingStartTime: voting_start_time
+    votingEndTime: voting_end_time
   }
 }
     `;
