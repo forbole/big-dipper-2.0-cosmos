@@ -7,7 +7,7 @@ import {
 import { toValidatorAddress } from '@utils/prefix_convert';
 import { VoteState } from './types';
 
-export const useVotes = () => {
+export const useVotes = (resetPagination:any) => {
   const router = useRouter();
   const [state, setState] = useState<VoteState>({
     data: [],
@@ -19,10 +19,20 @@ export const useVotes = () => {
       veto: 0,
       didNotVote: 0,
     },
+    tab: 0,
   });
 
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  };
+
+  const handleTabChange = (_event: any, newValue: number) => {
+    if (resetPagination) {
+      resetPagination();
+    }
+    handleSetState({
+      tab: newValue,
+    });
   };
 
   useProposalDetailsVotesQuery({
@@ -97,5 +107,6 @@ export const useVotes = () => {
 
   return {
     state,
+    handleTabChange,
   };
 };

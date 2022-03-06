@@ -14,6 +14,7 @@ export type VoteState = {
   data: VoteType[];
   voteCount: VoteCount;
   validatorsNotvoted: VoteType[];
+  tab: number;
 };
 
 export type ItemType = Override<VoteType, { user: AvatarName }>
