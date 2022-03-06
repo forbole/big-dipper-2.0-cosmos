@@ -13,7 +13,7 @@ export type VoteCount = {
 export type VoteState = {
   data: VoteType[];
   voteCount: VoteCount;
-  validatorsNotvoted: VoteType[];
+  validatorsNotVoted: VoteType[];
   tab: number;
 };
 

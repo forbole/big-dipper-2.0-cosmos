@@ -36,11 +36,10 @@ const Votes: React.FC<ComponentDefault> = (props) => {
   const {
     state, handleTabChange,
   } = useVotes(resetPagination);
-
   const filteredItems = filterDataByTab({
     tab: state.tab,
     data: state.data,
-    notVoted: state.validatorsNotvoted,
+    notVoted: state.validatorsNotVoted,
   });
 
   const slicedItems = sliceItems(filteredItems);

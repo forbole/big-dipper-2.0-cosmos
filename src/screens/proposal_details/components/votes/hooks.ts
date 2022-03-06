@@ -11,7 +11,7 @@ export const useVotes = (resetPagination:any) => {
   const router = useRouter();
   const [state, setState] = useState<VoteState>({
     data: [],
-    validatorsNotvoted: [],
+    validatorsNotVoted: [],
     voteCount: {
       yes: 0,
       no: 0,
@@ -95,6 +95,7 @@ export const useVotes = (resetPagination:any) => {
 
     return ({
       data: votes,
+      validatorsNotVoted,
       voteCount: {
         yes,
         no,
