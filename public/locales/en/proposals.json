@@ -43,5 +43,6 @@
   "height": "Height",
   "info": "Info",
   "didNotVote": "Did not vote",
-  "notVoted": "Not Voted"
+  "notVoted": "Not Voted",
+  "votedTotalCaption": "Voted / Total ({{totalVotedPercent}})"
 }
