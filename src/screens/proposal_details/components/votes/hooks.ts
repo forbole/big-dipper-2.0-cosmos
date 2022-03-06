@@ -45,19 +45,18 @@ export const useVotes = (resetPagination:any) => {
   });
 
   const formatVotes = (data: ProposalDetailsVotesQuery) => {
+    const validatorDict = {};
     const validators = data.validatorStatuses.map((x) => {
       const selfDelegateAddress = R.pathOr('', ['validator', 'validatorInfo', 'selfDelegateAddress'], x);
-
-      return ({
-        selfDelegateAddress,
-      });
+      validatorDict[selfDelegateAddress] = false;
+      return selfDelegateAddress;
     });
 
-    const votedUserDictionary = {};
     let yes = 0;
     let no = 0;
     let abstain = 0;
     let veto = 0;
+
     const votes = data.proposalVote.map((x) => {
       if (x.option === 'VOTE_OPTION_YES') {
         yes += 1;
@@ -71,10 +70,10 @@ export const useVotes = (resetPagination:any) => {
       if (x.option === 'VOTE_OPTION_NO_WITH_VETO') {
         veto += 1;
       }
-
-      if (votedUserDictionary[x.voterAddress]) {
-        votedUserDictionary[x.voterAddress] = true;
+      if (validatorDict[x.voterAddress] === false) {
+        validatorDict[x.voterAddress] = true;
       }
+
       return ({
         user: x.voterAddress,
         vote: x.option,
@@ -84,11 +83,11 @@ export const useVotes = (resetPagination:any) => {
     // =====================================
     // Get data for active validators that did not vote
     // =====================================
-    const validatorsNotVoted = validators.filter((x) => (
-      !votedUserDictionary[x.selfDelegateAddress]
-    )).map((y) => {
+    const validatorsNotVoted = validators.filter((x) => {
+      return validatorDict[x] === false;
+    }).map((address) => {
       return ({
-        user: toValidatorAddress(y.selfDelegateAddress),
+        user: toValidatorAddress(address),
         vote: 'NOT_VOTED',
       });
     });
