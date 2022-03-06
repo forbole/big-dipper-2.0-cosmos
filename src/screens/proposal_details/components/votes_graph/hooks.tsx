@@ -18,10 +18,13 @@ const defaultTokenUnit: TokenUnit = {
 export const useVotesGraph = () => {
   const router = useRouter();
   const [state, setState] = useState<VotesGraphState>({
-    yes: defaultTokenUnit,
-    no: defaultTokenUnit,
-    abstain: defaultTokenUnit,
-    veto: defaultTokenUnit,
+    votes: {
+      yes: defaultTokenUnit,
+      no: defaultTokenUnit,
+      abstain: defaultTokenUnit,
+      veto: defaultTokenUnit,
+    },
+    bonded: defaultTokenUnit,
   });
 
   const handleSetState = (stateChange: any) => {
@@ -39,20 +42,26 @@ export const useVotesGraph = () => {
 
   const foramtProposalTally = (data: ProposalDetailsTallyQuery) => {
     return ({
-      yes: formatToken(
-        R.pathOr('0', ['proposalTallyResult', 0, 'yes'], data),
-        chainConfig.votingPowerTokenUnit,
-      ),
-      no: formatToken(
-        R.pathOr('0', ['proposalTallyResult', 0, 'no'], data),
-        chainConfig.votingPowerTokenUnit,
-      ),
-      veto: formatToken(
-        R.pathOr('0', ['proposalTallyResult', 0, 'noWithVeto'], data),
-        chainConfig.votingPowerTokenUnit,
-      ),
-      abstain: formatToken(
-        R.pathOr('0', ['proposalTallyResult', 0, 'abstain'], data),
+      votes: {
+        yes: formatToken(
+          R.pathOr('0', ['proposalTallyResult', 0, 'yes'], data),
+          chainConfig.votingPowerTokenUnit,
+        ),
+        no: formatToken(
+          R.pathOr('0', ['proposalTallyResult', 0, 'no'], data),
+          chainConfig.votingPowerTokenUnit,
+        ),
+        veto: formatToken(
+          R.pathOr('0', ['proposalTallyResult', 0, 'noWithVeto'], data),
+          chainConfig.votingPowerTokenUnit,
+        ),
+        abstain: formatToken(
+          R.pathOr('0', ['proposalTallyResult', 0, 'abstain'], data),
+          chainConfig.votingPowerTokenUnit,
+        ),
+      },
+      bonded: formatToken(
+        R.pathOr('0', ['stakingPool', 0, 'bondedTokens'], data),
         chainConfig.votingPowerTokenUnit,
       ),
     });

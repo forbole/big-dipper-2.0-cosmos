@@ -26,7 +26,6 @@ export const useStyles = () => {
             gridTemplateColumns: 'repeat(2, 1fr)',
           },
           [theme.breakpoints.up('lg')]: {
-            gridTemplateColumns: 'repeat(2, 1fr)',
             flex: 1,
             marginLeft: theme.spacing(4),
           },

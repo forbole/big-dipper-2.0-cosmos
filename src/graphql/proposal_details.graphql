@@ -66,4 +66,7 @@ query ProposalDetailsTally($proposalId: Int) {
     noWithVeto: no_with_veto
     abstain
   }
+  stakingPool: proposal_staking_pool_snapshot(where: {proposal_id: {_eq: $proposalId}}) {
+    bondedTokens: bonded_tokens
+  }
 }

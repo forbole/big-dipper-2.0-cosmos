@@ -19886,6 +19886,9 @@ export type ProposalDetailsTallyQuery = { proposalTallyResult: Array<(
     { __typename?: 'proposal_tally_result' }
     & Pick<Proposal_Tally_Result, 'yes' | 'no' | 'abstain'>
     & { noWithVeto: Proposal_Tally_Result['no_with_veto'] }
+  )>, stakingPool: Array<(
+    { __typename?: 'proposal_staking_pool_snapshot' }
+    & { bondedTokens: Proposal_Staking_Pool_Snapshot['bonded_tokens'] }
   )> };
 
 export type ProposalsQueryVariables = Exact<{
@@ -21154,6 +21157,11 @@ export const ProposalDetailsTallyDocument = gql`
     no
     noWithVeto: no_with_veto
     abstain
+  }
+  stakingPool: proposal_staking_pool_snapshot(
+    where: {proposal_id: {_eq: $proposalId}}
+  ) {
+    bondedTokens: bonded_tokens
   }
 }
     `;

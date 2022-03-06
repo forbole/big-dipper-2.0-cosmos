@@ -2,14 +2,16 @@ import * as R from 'ramda';
 import Big from 'big.js';
 import { formatNumber } from '@utils/format_token';
 import { ThemeOptions } from '@material-ui/core/styles';
-import { VotesGraphState } from './types';
+import { VotesType } from './types';
 
-export const formatGraphData = (data:VotesGraphState, theme:ThemeOptions) => {
-  const total = Big(data.yes.value)
-    .plus(data.no.value)
-    .plus(data.veto.value)
-    .plus(data.abstain.value);
-
+type FormatGraphType = {
+  data:VotesType;
+  theme:ThemeOptions;
+  total: Big;
+}
+export const formatGraphData = ({
+  data, theme, total,
+}: FormatGraphType) => {
   const keys = R.keys(data);
   const color = {
     0: theme.palette.custom.charts.four,
@@ -24,7 +26,9 @@ export const formatGraphData = (data:VotesGraphState, theme:ThemeOptions) => {
       name: x,
       value: Big(selectedData.value).toNumber(),
       display: formatNumber(selectedData.value, selectedData.exponent),
-      percentage: `${Big(selectedData.value).div(total.toString()).times(100).toPrecision(2)}%`,
+      percentage: total.gt(0) ? (
+        `${Big(selectedData.value).div(total.toString()).times(100).toPrecision(2)}%`
+      ) : '0%',
       color: color[i],
     });
   });

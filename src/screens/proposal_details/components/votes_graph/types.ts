@@ -1,17 +1,10 @@
-// export type TallyType = {
-//   yes: number;
-//   no: number;
-//   abstain: number;
-//   veto: number;
-//   total: number;
-//   quorum: number;
-//   bondedTokens: number;
-//   denom: string;
-// }
-
-export type VotesGraphState = {
+export type VotesType = {
   yes: TokenUnit;
   no: TokenUnit;
   abstain: TokenUnit;
   veto: TokenUnit;
+}
+export type VotesGraphState = {
+  votes: VotesType;
+  bonded: TokenUnit;
 }
