@@ -19874,7 +19874,7 @@ export type ProposalDetailsQueryVariables = Exact<{
 export type ProposalDetailsQuery = { proposal: Array<(
     { __typename?: 'proposal' }
     & Pick<Proposal, 'title' | 'description' | 'status' | 'content'>
-    & { proposalId: Proposal['id'], submitTime: Proposal['submit_time'], depositEndTime: Proposal['deposit_end_time'], votingStartTime: Proposal['voting_start_time'], votingEndTime: Proposal['voting_end_time'] }
+    & { proposer: Proposal['proposer_address'], proposalId: Proposal['id'], submitTime: Proposal['submit_time'], depositEndTime: Proposal['deposit_end_time'], votingStartTime: Proposal['voting_start_time'], votingEndTime: Proposal['voting_end_time'] }
   )> };
 
 export type ProposalDetailsTallyQueryVariables = Exact<{
@@ -21108,6 +21108,7 @@ export type XProposalDetailsQueryResult = Apollo.QueryResult<XProposalDetailsQue
 export const ProposalDetailsDocument = gql`
     query ProposalDetails($proposalId: Int) {
   proposal(where: {id: {_eq: $proposalId}}) {
+    proposer: proposer_address
     title
     description
     status

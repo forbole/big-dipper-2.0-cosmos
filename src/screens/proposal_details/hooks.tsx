@@ -23,6 +23,7 @@ export const useProposalDetails = () => {
     loading: true,
     exists: true,
     overview: {
+      proposer: '',
       content: '',
       title: '',
       id: 0,
@@ -98,6 +99,7 @@ export const useProposalDetails = () => {
       votingEndTime = votingEndTime === DEFAULT_TIME ? null : votingEndTime;
 
       const overview = {
+        proposer: R.pathOr('', ['proposal', 0, 'proposer'], data),
         content: R.pathOr('', ['proposal', 0, 'content'], data),
         title: R.pathOr('', ['proposal', 0, 'title'], data),
         id: R.pathOr('', ['proposal', 0, 'proposalId'], data),

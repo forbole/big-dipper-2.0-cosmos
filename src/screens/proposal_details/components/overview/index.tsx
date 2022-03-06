@@ -14,7 +14,9 @@ import {
   SingleProposal,
   Box,
   Markdown,
+  Name,
 } from '@components';
+import { useProfileRecoil } from '@recoil/profiles';
 import {
   ParamsChange,
   SoftwareUpgrade,
@@ -31,6 +33,9 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
   const { t } = useTranslation('proposals');
 
   const type = getProposalType(R.pathOr('', ['@type'], overview.content));
+
+  const proposer = useProfileRecoil(overview.proposer);
+  const proposerMoniker = proposer ? proposer?.name : overview.proposer;
 
   const getExtraDetails = () => {
     let extraDetails = null;
@@ -80,6 +85,13 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
         <Typography variant="body1" className="value">
           {t(type)}
         </Typography>
+        <Typography variant="body1" className="label">
+          {t('proposer')}
+        </Typography>
+        <Name
+          name={proposerMoniker}
+          address={proposer.address}
+        />
         {
           !!overview.submitTime && (
             <>

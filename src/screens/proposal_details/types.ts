@@ -1,6 +1,7 @@
 export type OverviewType = {
   title: string;
   id: number;
+  proposer: string;
   description: string;
   status: string;
   submitTime: string;

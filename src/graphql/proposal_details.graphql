@@ -47,6 +47,7 @@ query xProposalDetails($proposalId: Int) {
 
 query ProposalDetails($proposalId: Int) {
   proposal(where: {id: {_eq: $proposalId}}) {
+    proposer: proposer_address
     title
     description
     status
