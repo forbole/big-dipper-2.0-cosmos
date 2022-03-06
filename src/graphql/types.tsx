@@ -19822,50 +19822,6 @@ export type ParamsQuery = { stakingParams: Array<(
     & { depositParams: Gov_Params['deposit_params'], tallyParams: Gov_Params['tally_params'], votingParams: Gov_Params['voting_params'] }
   )> };
 
-export type XProposalDetailsQueryVariables = Exact<{
-  proposalId?: Maybe<Scalars['Int']>;
-}>;
-
-
-export type XProposalDetailsQuery = { proposal: Array<(
-    { __typename?: 'proposal' }
-    & Pick<Proposal, 'title' | 'description' | 'status' | 'content'>
-    & { proposalId: Proposal['id'], submitTime: Proposal['submit_time'], depositEndTime: Proposal['deposit_end_time'], votingStartTime: Proposal['voting_start_time'], votingEndTime: Proposal['voting_end_time'] }
-    & { proposalDeposits: Array<(
-      { __typename?: 'proposal_deposit' }
-      & Pick<Proposal_Deposit, 'amount'>
-      & { depositorAddress: Proposal_Deposit['depositor_address'] }
-    )> }
-  )>, proposalVote: Array<(
-    { __typename?: 'proposal_vote' }
-    & Pick<Proposal_Vote, 'option'>
-    & { voterAddress: Proposal_Vote['voter_address'] }
-  )>, proposalTallyResult: Array<(
-    { __typename?: 'proposal_tally_result' }
-    & Pick<Proposal_Tally_Result, 'yes' | 'no' | 'abstain'>
-    & { noWithVeto: Proposal_Tally_Result['no_with_veto'] }
-  )>, govParams: Array<(
-    { __typename?: 'gov_params' }
-    & { tallyParams: Gov_Params['tally_params'] }
-  )>, stakingParams: Array<(
-    { __typename?: 'staking_params' }
-    & Pick<Staking_Params, 'params'>
-  )>, stakingPool: Array<(
-    { __typename?: 'proposal_staking_pool_snapshot' }
-    & { bondedTokens: Proposal_Staking_Pool_Snapshot['bonded_tokens'] }
-  )>, validatorStatuses: Array<(
-    { __typename?: 'proposal_validator_status_snapshot' }
-    & Pick<Proposal_Validator_Status_Snapshot, 'status'>
-    & { validatorAddress: Proposal_Validator_Status_Snapshot['validator_address'], votingPower: Proposal_Validator_Status_Snapshot['voting_power'] }
-    & { validator: (
-      { __typename?: 'validator' }
-      & { validatorInfo?: Maybe<(
-        { __typename?: 'validator_info' }
-        & { selfDelegateAddress: Validator_Info['self_delegate_address'] }
-      )> }
-    ) }
-  )> };
-
 export type ProposalDetailsQueryVariables = Exact<{
   proposalId?: Maybe<Scalars['Int']>;
 }>;
@@ -21058,88 +21014,6 @@ export function useParamsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Par
 export type ParamsQueryHookResult = ReturnType<typeof useParamsQuery>;
 export type ParamsLazyQueryHookResult = ReturnType<typeof useParamsLazyQuery>;
 export type ParamsQueryResult = Apollo.QueryResult<ParamsQuery, ParamsQueryVariables>;
-export const XProposalDetailsDocument = gql`
-    query xProposalDetails($proposalId: Int) {
-  proposal(where: {id: {_eq: $proposalId}}) {
-    title
-    description
-    status
-    content
-    proposalId: id
-    submitTime: submit_time
-    depositEndTime: deposit_end_time
-    votingStartTime: voting_start_time
-    votingEndTime: voting_end_time
-    proposalDeposits: proposal_deposits {
-      amount
-      depositorAddress: depositor_address
-    }
-  }
-  proposalVote: proposal_vote(where: {proposal_id: {_eq: $proposalId}}) {
-    option
-    voterAddress: voter_address
-  }
-  proposalTallyResult: proposal_tally_result(
-    where: {proposal_id: {_eq: $proposalId}}
-  ) {
-    yes
-    no
-    noWithVeto: no_with_veto
-    abstain
-  }
-  govParams: gov_params {
-    tallyParams: tally_params
-  }
-  stakingParams: staking_params(limit: 1) {
-    params
-  }
-  stakingPool: proposal_staking_pool_snapshot(
-    where: {proposal_id: {_eq: $proposalId}}
-  ) {
-    bondedTokens: bonded_tokens
-  }
-  validatorStatuses: proposal_validator_status_snapshot(
-    where: {proposal_id: {_eq: $proposalId}, status: {_eq: 3}}
-  ) {
-    validatorAddress: validator_address
-    status
-    votingPower: voting_power
-    validator {
-      validatorInfo: validator_info {
-        selfDelegateAddress: self_delegate_address
-      }
-    }
-  }
-}
-    `;
-
-/**
- * __useXProposalDetailsQuery__
- *
- * To run a query within a React component, call `useXProposalDetailsQuery` and pass it any options that fit your needs.
- * When your component renders, `useXProposalDetailsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useXProposalDetailsQuery({
- *   variables: {
- *      proposalId: // value for 'proposalId'
- *   },
- * });
- */
-export function useXProposalDetailsQuery(baseOptions?: Apollo.QueryHookOptions<XProposalDetailsQuery, XProposalDetailsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<XProposalDetailsQuery, XProposalDetailsQueryVariables>(XProposalDetailsDocument, options);
-      }
-export function useXProposalDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<XProposalDetailsQuery, XProposalDetailsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<XProposalDetailsQuery, XProposalDetailsQueryVariables>(XProposalDetailsDocument, options);
-        }
-export type XProposalDetailsQueryHookResult = ReturnType<typeof useXProposalDetailsQuery>;
-export type XProposalDetailsLazyQueryHookResult = ReturnType<typeof useXProposalDetailsLazyQuery>;
-export type XProposalDetailsQueryResult = Apollo.QueryResult<XProposalDetailsQuery, XProposalDetailsQueryVariables>;
 export const ProposalDetailsDocument = gql`
     query ProposalDetails($proposalId: Int) {
   proposal(where: {id: {_eq: $proposalId}}) {

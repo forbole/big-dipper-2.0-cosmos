@@ -1,4 +1,3 @@
-import { NotificationsActiveOutlined } from '@material-ui/icons';
 import { VoteType } from './types';
 
 export const getVoteKey = (vote: string) => {

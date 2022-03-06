@@ -20,14 +20,9 @@ const ProposalDetails = () => {
   const classes = useStyles();
   const {
     state,
-    // handleTabChange,
   } = useProposalDetails();
   const {
     overview,
-    // content,
-    // tally,
-    // votes,
-    // deposits,
   } = state;
 
   return (

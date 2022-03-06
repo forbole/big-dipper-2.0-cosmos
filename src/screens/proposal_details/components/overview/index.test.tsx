@@ -9,10 +9,14 @@ import Overview from '.';
 // ==================================
 jest.mock('@components', () => ({
   SingleProposal: (props) => <div id="SingleProposal" {...props} />,
-  AvatarName: (props) => <div id="AvatarName" {...props} />,
+  Name: (props) => <div id="Name" {...props} />,
   Box: (props) => <div id="Box" {...props} />,
-  Tag: (props) => <div id="Tag" {...props} />,
   Markdown: (props) => <div id="Markdown" {...props} />,
+}));
+
+jest.mock('./components', () => ({
+  ParamsChange: (props) => <div id="ParamsChange" {...props} />,
+  SoftwareUpgrade: (props) => <div id="SoftwareUpgrade" {...props} />,
 }));
 
 // ==================================
@@ -24,15 +28,18 @@ describe('screen: BlockDetails/Overview', () => {
       <RecoilRoot>
         <MockTheme>
           <Overview
-            title="title"
-            id={10}
-            description="description"
-            status="status"
-            submitTime=""
-            depositEndTime=""
-            votingEndTime={null}
-            votingStartTime={null}
-            content=""
+            overview={{
+              content: '',
+              proposer: '',
+              title: 'title',
+              id: 10,
+              description: 'description',
+              status: 'status',
+              submitTime: 'submitTime',
+              depositEndTime: 'depositEndTime',
+              votingEndTime: null,
+              votingStartTime: null,
+            }}
           />
         </MockTheme>
       </RecoilRoot>,
