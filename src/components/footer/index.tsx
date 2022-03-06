@@ -102,7 +102,7 @@ const Footer: React.FC<{className?: string}> = ({ className }) => {
               buttonText="I understand"
               contentClasses="text-capitalize"
               style={{
-                margin: '0% 32.5%', width: '35%', background: '#fd3b4cb3',
+                margin: '0% 32.5%', width: '35%', background: '#fd3b4cb3', minWidth: '350px',
               }}
               buttonStyle={{
                 color: '#ffffff', background: '#6a1d27',
