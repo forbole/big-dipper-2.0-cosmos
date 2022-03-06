@@ -16,27 +16,13 @@ import {
   Tabs,
   Paginate,
 } from './components';
-import { VoteType } from '../../types';
+// import { VoteType } from '../../types';
 import { ItemType } from './types';
 
 const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
 
-const Votes: React.FC<{
-  className?: string;
-  data: VoteType[];
-  notVotedData: VoteType[];
-  tab: number;
-  yes: number;
-  no: number;
-  abstain: number;
-  veto: number;
-  total: number;
-  notVoted: number;
-  handleTabChange: (e, val) => void;
-}> = ({
-  className, ...props
-}) => {
+const Votes: React.FC<ComponentDefault> = (props) => {
   const { isDesktop } = useScreenSize();
   const {
     page,
@@ -49,61 +35,61 @@ const Votes: React.FC<{
   });
 
   const classes = useStyles();
-  const formatItems = (mergedData: ItemType[]) => {
-    if (props.tab === 5) {
-      return mergedNotVotedWithProfiles;
-    }
-    return mergedData.filter((x) => {
-      if (props.tab === 1) {
-        return x.vote === 'VOTE_OPTION_YES';
-      }
+  // const formatItems = (mergedData: ItemType[]) => {
+  //   if (props.tab === 5) {
+  //     return mergedNotVotedWithProfiles;
+  //   }
+  //   return mergedData.filter((x) => {
+  //     if (props.tab === 1) {
+  //       return x.vote === 'VOTE_OPTION_YES';
+  //     }
 
-      if (props.tab === 2) {
-        return x.vote === 'VOTE_OPTION_NO';
-      }
+  //     if (props.tab === 2) {
+  //       return x.vote === 'VOTE_OPTION_NO';
+  //     }
 
-      if (props.tab === 3) {
-        return x.vote === 'VOTE_OPTION_NO_WITH_VETO';
-      }
+  //     if (props.tab === 3) {
+  //       return x.vote === 'VOTE_OPTION_NO_WITH_VETO';
+  //     }
 
-      if (props.tab === 4) {
-        return x.vote === 'VOTE_OPTION_ABSTAIN';
-      }
+  //     if (props.tab === 4) {
+  //       return x.vote === 'VOTE_OPTION_ABSTAIN';
+  //     }
 
-      return true;
-    });
-  };
+  //     return true;
+  //   });
+  // };
 
   // not voted validators
-  const notVoteProfiles = useProfilesRecoil(props.notVotedData.map((x) => x.user));
-  const mergedNotVotedWithProfiles = props.notVotedData.map((x, i) => {
-    return ({
-      ...x,
-      user: notVoteProfiles[i],
-    });
-  }).sort((a, b) => (
-    (a.user.name.toLowerCase() > b.user.name.toLowerCase()) ? 1 : -1));
+  // const notVoteProfiles = useProfilesRecoil(props.notVotedData.map((x) => x.user));
+  // const mergedNotVotedWithProfiles = props.notVotedData.map((x, i) => {
+  //   return ({
+  //     ...x,
+  //     user: notVoteProfiles[i],
+  //   });
+  // }).sort((a, b) => (
+  //   (a.user.name.toLowerCase() > b.user.name.toLowerCase()) ? 1 : -1));
 
-  // voted
-  const userProfiles = useProfilesRecoil(props.data.map((x) => x.user));
-  const mergedDataWithProfiles = props.data.map((x, i) => {
-    return ({
-      ...x,
-      user: userProfiles[i],
-    });
-  }).sort((a, b) => (
-    (a.user.name.toLowerCase() > b.user.name.toLowerCase()) ? 1 : -1));
-  const items = formatItems(mergedDataWithProfiles);
-  const itemsPaginated = sliceItems(items);
+  // // voted
+  // const userProfiles = useProfilesRecoil(props.data.map((x) => x.user));
+  // const mergedDataWithProfiles = props.data.map((x, i) => {
+  //   return ({
+  //     ...x,
+  //     user: userProfiles[i],
+  //   });
+  // }).sort((a, b) => (
+  //   (a.user.name.toLowerCase() > b.user.name.toLowerCase()) ? 1 : -1));
+  // const items = formatItems(mergedDataWithProfiles);
+  // const itemsPaginated = sliceItems(items);
 
-  const tabChangeParentHelper = (_event: any, newValue: number) => {
-    resetPagination();
-    props.handleTabChange(_event, newValue);
-  };
+  // const tabChangeParentHelper = (_event: any, newValue: number) => {
+  //   resetPagination();
+  //   props.handleTabChange(_event, newValue);
+  // };
 
   return (
-    <Box className={classnames(className, classes.root)}>
-      <Tabs
+    <Box className={classnames(props.className, classes.root)}>
+      {/* <Tabs
         data={{
           yes: props.yes,
           no: props.no,
@@ -113,8 +99,8 @@ const Votes: React.FC<{
         }}
         tab={props.tab}
         handleTabChange={tabChangeParentHelper}
-      />
-      <div className={classes.list}>
+      /> */}
+      {/* <div className={classes.list}>
         {items.length ? (
           <>
             {isDesktop ? (
@@ -132,14 +118,14 @@ const Votes: React.FC<{
         ) : (
           <NoData />
         )}
-      </div>
-      <Paginate
+      </div> */}
+      {/* <Paginate
         total={items.length}
         page={page}
         rowsPerPage={rowsPerPage}
         handleChangePage={handleChangePage}
         handleChangeRowsPerPage={handleChangeRowsPerPage}
-      />
+      /> */}
     </Box>
   );
 };

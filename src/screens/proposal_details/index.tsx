@@ -8,7 +8,7 @@ import {
 import { useStyles } from './styles';
 import {
   Overview,
-  // Votes,
+  Votes,
   Deposits,
   VotesGraph,
 } from './components';
@@ -53,21 +53,9 @@ const ProposalDetails = () => {
             {shouldShowData(overview.status) && (
             <VotesGraph className={classes.votesGraph} />
             )}
-            {/* {shouldShowData(overview.status) && (
-            <Votes
-              className={classes.votes}
-              data={votes.data}
-              tab={votes.tab}
-              yes={votes.yes}
-              no={votes.no}
-              abstain={votes.abstain}
-              veto={votes.veto}
-              total={votes.total}
-              handleTabChange={handleTabChange}
-              notVotedData={votes.notVotedData}
-              notVoted={votes.notVoted}
-            />
-            )} */}
+            {shouldShowData(overview.status) && (
+            <Votes className={classes.votes} />
+            )}
             <Deposits
               className={classes.deposits}
             />

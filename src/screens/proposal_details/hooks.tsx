@@ -135,53 +135,53 @@ export const useProposalDetails = () => {
   };
 
   // const formatProposalVotes = (data: ProposalDetailsQuery) => {
-  //   let yes = 0;
-  //   let no = 0;
-  //   let abstain = 0;
-  //   let veto = 0;
+  // let yes = 0;
+  // let no = 0;
+  // let abstain = 0;
+  // let veto = 0;
 
-  //   const validators = data.validatorStatuses.map((x) => {
-  //     const selfDelegateAddress = R.pathOr('', ['validator', 'validatorInfo', 'selfDelegateAddress'], x);
+  // const validators = data.validatorStatuses.map((x) => {
+  //   const selfDelegateAddress = R.pathOr('', ['validator', 'validatorInfo', 'selfDelegateAddress'], x);
 
-  //     return ({
-  //       selfDelegateAddress,
-  //       operatorAddress: x.validatorAddress,
-  //     });
+  //   return ({
+  //     selfDelegateAddress,
+  //     operatorAddress: x.validatorAddress,
   //   });
+  // });
 
-  //   const votedUserDictionary = {};
-  //   const votes = data.proposalVote.map((x) => {
-  //     if (x.option === 'VOTE_OPTION_YES') {
-  //       yes += 1;
-  //     }
-  //     if (x.option === 'VOTE_OPTION_ABSTAIN') {
-  //       abstain += 1;
-  //     }
-  //     if (x.option === 'VOTE_OPTION_NO') {
-  //       no += 1;
-  //     }
-  //     if (x.option === 'VOTE_OPTION_NO_WITH_VETO') {
-  //       veto += 1;
-  //     }
+  // const votedUserDictionary = {};
+  // const votes = data.proposalVote.map((x) => {
+  //   if (x.option === 'VOTE_OPTION_YES') {
+  //     yes += 1;
+  //   }
+  //   if (x.option === 'VOTE_OPTION_ABSTAIN') {
+  //     abstain += 1;
+  //   }
+  //   if (x.option === 'VOTE_OPTION_NO') {
+  //     no += 1;
+  //   }
+  //   if (x.option === 'VOTE_OPTION_NO_WITH_VETO') {
+  //     veto += 1;
+  //   }
 
-  //     votedUserDictionary[x.voterAddress] = true;
-  //     return ({
-  //       user: x.voterAddress,
-  //       vote: x.option,
-  //     });
+  //   votedUserDictionary[x.voterAddress] = true;
+  //   return ({
+  //     user: x.voterAddress,
+  //     vote: x.option,
   //   });
+  // });
 
-  //   // =====================================
-  //   // Get data for active validators that did not vote
-  //   // =====================================
-  //   const validatorsNotVoted = validators.filter((x) => (
-  //     !votedUserDictionary[x.selfDelegateAddress]
-  //   )).map((y) => {
-  //     return ({
-  //       user: y.operatorAddress,
-  //       vote: 'NOT_VOTED',
-  //     });
+  // // =====================================
+  // // Get data for active validators that did not vote
+  // // =====================================
+  // const validatorsNotVoted = validators.filter((x) => (
+  //   !votedUserDictionary[x.selfDelegateAddress]
+  // )).map((y) => {
+  //   return ({
+  //     user: y.operatorAddress,
+  //     vote: 'NOT_VOTED',
   //   });
+  // });
 
   //   return {
   //     data: votes,

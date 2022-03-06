@@ -23,8 +23,8 @@ export type OverviewType = {
 // }
 
 // export type VoteType = {
-//   vote: string;
-//   user: string;
+// vote: string;
+// user: string;
 // }
 
 // export type DepositType = {
