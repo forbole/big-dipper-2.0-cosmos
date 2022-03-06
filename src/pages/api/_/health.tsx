@@ -1,4 +1,4 @@
-const block_height = fetch(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
+const blockHeight = fetch(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
   method: 'POST',
   body: JSON.stringify({
     query: `
@@ -11,9 +11,9 @@ const block_height = fetch(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
   }),
 })
   .then((response) => response.json())
-    .then((r) => {
-      return r.data.block[0].height;
+  .then((r) => {
+    return r.data.block[0].height;
   });
 export default async function handler(req, res) {
-  res.end(JSON.stringify(await block_height));
+  res.end(JSON.stringify(await blockHeight));
 }
