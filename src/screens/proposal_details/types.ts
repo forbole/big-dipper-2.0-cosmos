@@ -28,8 +28,8 @@ export type OverviewType = {
 // }
 
 // export type DepositType = {
-//   amount: TokenUnit;
-//   user: string;
+// amount: TokenUnit;
+// user: string;
 // }
 
 // export type ValidatorType = {

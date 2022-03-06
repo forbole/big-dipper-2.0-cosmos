@@ -9,7 +9,7 @@ import { useStyles } from './styles';
 import {
   Overview,
   // Votes,
-  // Deposits,
+  Deposits,
   VotesGraph,
 } from './components';
 import { useProposalDetails } from './hooks';
@@ -68,10 +68,9 @@ const ProposalDetails = () => {
               notVoted={votes.notVoted}
             />
             )} */}
-            {/* <Deposits
+            <Deposits
               className={classes.deposits}
-              data={deposits}
-            /> */}
+            />
           </span>
         </LoadAndExist>
       </Layout>

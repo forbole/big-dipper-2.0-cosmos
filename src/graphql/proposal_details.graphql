@@ -71,3 +71,13 @@ query ProposalDetailsTally($proposalId: Int) {
     bondedTokens: bonded_tokens
   }
 }
+
+query ProposalDetailsDeposits($proposalId: Int) {
+  proposalDeposit: proposal_deposit(where: {proposal_id: {_eq: $proposalId}}, order_by: {height: desc}) {
+    amount
+    depositorAddress: depositor_address
+    block {
+      timestamp
+    }
+  }
+}
