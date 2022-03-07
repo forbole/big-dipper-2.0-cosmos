@@ -90,3 +90,44 @@ export const useProfilesRecoil = (addresses: string[]): AvatarName[] => {
 
   return profiles;
 };
+
+/**
+ * Accepts a list of addresses and returns the appropriate profiles
+ * Defaults to given fallback
+ * @param address
+ */
+export const useProfilesWithDefaultsRecoil = (inputs: AvatarName[]): AvatarName[] => {
+  const addresses = inputs.map((x) => x.address);
+
+  const delegatorAddresses = useRecoilValue(readDelegatorAddresses(addresses));
+  const rawProfiles: ProfileAtomState[] = useRecoilValue(readProfilesExist(addresses));
+  const profiles = useRecoilValue(readProfiles(addresses));
+
+  const fetchProfiles = useRecoilCallback(({ set }) => async () => {
+    const fetchedProfiles = await Promise.all(rawProfiles.map(async (x, i) => {
+      const delegatorAddress = delegatorAddresses[i];
+      if (delegatorAddresses[i] && x === null) {
+        const fetchedProfile = await getProfile(delegatorAddresses[i]);
+        if (fetchedProfile === null) {
+          set(writeProfile(delegatorAddress), null);
+        } else {
+          set(writeProfile(delegatorAddress), {
+            address: delegatorAddress,
+            name: `@${fetchedProfile.dtag}` || inputs[i].name,
+            imageUrl: fetchedProfile.imageUrl || inputs[i].imageUrl,
+          });
+        }
+      }
+    }));
+
+    return fetchedProfiles;
+  });
+
+  useEffect(() => {
+    if (chainConfig.extra.profile) {
+      fetchProfiles();
+    }
+  }, []);
+
+  return profiles;
+};

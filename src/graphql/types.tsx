@@ -19697,6 +19697,10 @@ export type BlocksListenerSubscription = { blocks: Array<(
       & { validatorInfo?: Maybe<(
         { __typename?: 'validator_info' }
         & { operatorAddress: Validator_Info['operator_address'] }
+      )>, validatorDescriptions: Array<(
+        { __typename?: 'validator_description' }
+        & Pick<Validator_Description, 'moniker'>
+        & { avatarUrl: Validator_Description['avatar_url'] }
       )> }
     )> }
   )> };
@@ -19715,11 +19719,11 @@ export type BlocksQuery = { blocks: Array<(
       { __typename?: 'validator' }
       & { validatorInfo?: Maybe<(
         { __typename?: 'validator_info' }
-        & Pick<Validator_Info, 'self_delegate_address'>
         & { operatorAddress: Validator_Info['operator_address'] }
       )>, validatorDescriptions: Array<(
         { __typename?: 'validator_description' }
-        & Pick<Validator_Description, 'moniker' | 'identity'>
+        & Pick<Validator_Description, 'moniker'>
+        & { avatarUrl: Validator_Description['avatar_url'] }
       )> }
     )> }
   )> };
@@ -20704,6 +20708,13 @@ export const BlocksListenerDocument = gql`
       validatorInfo: validator_info {
         operatorAddress: operator_address
       }
+      validatorDescriptions: validator_descriptions(
+        limit: 1
+        order_by: {height: desc}
+      ) {
+        moniker
+        avatarUrl: avatar_url
+      }
     }
   }
 }
@@ -20742,14 +20753,13 @@ export const BlocksDocument = gql`
     validator {
       validatorInfo: validator_info {
         operatorAddress: operator_address
-        self_delegate_address
       }
       validatorDescriptions: validator_descriptions(
         limit: 1
         order_by: {height: desc}
       ) {
         moniker
-        identity
+        avatarUrl: avatar_url
       }
     }
   }

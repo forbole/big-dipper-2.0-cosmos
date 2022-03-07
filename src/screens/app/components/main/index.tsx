@@ -4,7 +4,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { ToastContainer } from 'react-toastify';
 import { AppProps } from 'next/app';
 import Countdown from '@screens/countdown';
-import InitialLoad from '@screens/initial_load';
+// ryuash
+// import InitialLoad from '@screens/initial_load';
 import { useSettingsRecoil } from '@recoil/settings';
 import { useBigDipperNetworksRecoil } from '@recoil/big_dipper_networks';
 import { useMarketRecoil } from '@recoil/market';
@@ -22,7 +23,7 @@ const Main = (props: AppProps) => {
   useSettingsRecoil();
   useBigDipperNetworksRecoil();
   useMarketRecoil();
-  const { loading } = useValidatorRecoil();
+  useValidatorRecoil();
 
   // =====================================
   // general setup
@@ -39,13 +40,19 @@ const Main = (props: AppProps) => {
     Component = (
       <Countdown startGenesis={startGenesis} />
     );
-  } else if (loading) {
-    Component = <InitialLoad {...props.pageProps} />;
   } else {
     Component = (
       <InnerApp {...props} />
     );
   }
+  // ryuash
+  // else if (loading) {
+  //   Component = <InitialLoad {...props.pageProps} />;
+  // } else {
+  //   Component = (
+  //     <InnerApp {...props} />
+  //   );
+  // }
 
   return (
     <ThemeProvider theme={muiTheme}>

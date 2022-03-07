@@ -5,6 +5,7 @@ import {
 import {
   useProfileRecoil,
   useProfilesRecoil,
+  useProfilesWithDefaultsRecoil,
 } from './hooks';
 
 import {
@@ -23,6 +24,7 @@ export {
   atomFamilyState,
   useProfileRecoil,
   useProfilesRecoil,
+  useProfilesWithDefaultsRecoil,
   readProfile,
   readProfiles,
   writeProfile,

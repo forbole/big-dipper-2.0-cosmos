@@ -12,7 +12,7 @@ import {
 } from '@components';
 import { useScreenSize } from '@hooks';
 import {
-  useProfilesRecoil,
+  useProfilesWithDefaultsRecoil,
 } from '@recoil/profiles';
 import { useStyles } from './styles';
 import { useBlocks } from './hooks';
@@ -28,7 +28,7 @@ const Blocks:React.FC<{
   const classes = useStyles();
   const { state } = useBlocks();
 
-  const proposerProfiles = useProfilesRecoil(state.items.map((x) => x.proposer));
+  const proposerProfiles = useProfilesWithDefaultsRecoil(state.items.map((x) => x.proposer));
   const mergedDataWithProfiles = state.items.map((x, i) => {
     return ({
       ...x,

@@ -120,7 +120,11 @@ export const useBlocks = () => {
         txs: x.txs,
         hash: x.hash,
         timestamp: x.timestamp,
-        proposer: proposerAddress,
+        proposer: {
+          imageUrl: R.pathOr('', ['validator', 'validatorDescriptions', 0, 'avatarUrl'], x),
+          address: proposerAddress,
+          name: R.pathOr(proposerAddress, ['validator', 'validatorDescriptions', 0, 'moniker'], x),
+        },
       });
     });
   };

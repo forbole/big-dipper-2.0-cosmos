@@ -8,6 +8,10 @@ subscription BlocksListener($limit: Int = 7, $offset: Int = 0) {
       validatorInfo: validator_info {
         operatorAddress: operator_address
       }
+      validatorDescriptions: validator_descriptions(limit: 1, order_by: {height: desc}) {
+        moniker
+        avatarUrl: avatar_url
+      }
     }
   }
 }
@@ -22,11 +26,10 @@ query Blocks($limit: Int = 7, $offset: Int = 0) {
     validator {
       validatorInfo: validator_info {
         operatorAddress: operator_address
-        self_delegate_address
       }
       validatorDescriptions: validator_descriptions(limit: 1, order_by: {height: desc}) {
         moniker
-        identity
+        avatarUrl: avatar_url
       }
     }
   }
