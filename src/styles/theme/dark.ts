@@ -1,5 +1,3 @@
-import Color from 'color';
-
 const backgroundDefault = '#000000';
 const surfaceOne = '#171717';
 const surfaceTwo = '#242424';
