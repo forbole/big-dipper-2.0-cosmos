@@ -1,4 +1,5 @@
 import React from 'react';
+import Big from 'big.js';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
@@ -15,9 +16,10 @@ const OnlineVotingPower: React.FC<{
   const { t } = useTranslation('home');
   const { state } = useOnlineVotingPower();
 
-  const votingPowerPercent = numeral((state.votingPower / state.totalVotingPower) * 100);
+  const votingPowerPercent = Big(state.votingPower)
+    .div(state.totalVotingPower || 1).times(100);
 
-  const classes = useStyles(votingPowerPercent.format(0));
+  const classes = useStyles(votingPowerPercent.toString());
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -26,7 +28,8 @@ const OnlineVotingPower: React.FC<{
       </Typography>
       <div className={classes.data}>
         <Typography variant="h3" className="primary__data">
-          {`${votingPowerPercent.format('0,0.00', (n) => ~~n)}%`}
+          {votingPowerPercent.toFixed(2)}
+          %
         </Typography>
         <Typography variant="body1">
           {numeral(state.votingPower).format('0,0')}
@@ -53,7 +56,8 @@ const OnlineVotingPower: React.FC<{
             {t('votingPowerPercent')}
           </Typography>
           <Typography variant="body1" className="value">
-            {`${votingPowerPercent.format('0,0.00', (n) => ~~n)}%`}
+            {votingPowerPercent.toFixed(2)}
+            %
           </Typography>
         </div>
         <div className={classes.item}>
