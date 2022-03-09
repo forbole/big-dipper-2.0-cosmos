@@ -3,7 +3,7 @@
   "network": "edgenet-1",
   "icon": "/images/icon.png",
   "logo": {
-    "default": "/images/logo.png"
+    "default": "/images/logo.svg"
   },
   "prefix": {
     "consensus": "akashvalcons",
