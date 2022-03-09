@@ -28,14 +28,20 @@ const mockBlocksListenerDocument = {
   data: {
     blocks: [
       {
-        height: 379643,
-        txs: 2,
-        hash: 'D0243447726B8BD7AE94BF4F98E536A647959194E870AB8566CB833A3CC847F6',
-        timestamp: '2021-05-24T05:28:05.839448',
+        height: 4564072,
+        txs: 0,
+        hash: '8C2B2AA3DDB5B205FCA6F113F967B7F82D88B6D1DDA4D825F3718BC85F4496D6',
+        timestamp: '2022-03-09T09:57:29.899729',
         validator: {
           validatorInfo: {
-            operatorAddress: 'desmosvaloper1h5f3dywec65v9qulxkmcv3e6yujyh3zm0ghhl3',
+            operatorAddress: 'desmosvaloper164kcy3s0pqfall3r837n82l24alc6l36gfuw4l',
           },
+          validatorDescriptions: [
+            {
+              moniker: 'EZStaking.io',
+              avatarUrl: 'https://s3.amazonaws.com/keybase_processed_uploads/653fb34325e4437fe3cc6f7ecb93e905_360_360.jpg',
+            },
+          ],
         },
       },
     ],
@@ -46,29 +52,23 @@ const mockBlocksDocument = jest.fn().mockResolvedValue({
   data: {
     blocks: [
       {
-        height: 379634,
-        txs: 2,
-        hash: '017E26F5C11E4C140AA1836E40315C00253EDBC9D69A475A4ABEDDD1FF0FE967',
-        timestamp: '2021-05-24T05:27:11.092332',
+        height: 4564071,
+        txs: 0,
+        hash: '8C2B2AA3DDB5B205FCA6F113F967B7F82D88B6D1DDA4D825F3718BC85F4496D6',
+        timestamp: '2022-03-09T09:57:29.899729',
         validator: {
           validatorInfo: {
-            operatorAddress: 'desmosvaloper1zm3l7p8n5dxqeadsfxy3rd0j3c2knnx3chg77a',
-            self_delegate_address: 'desmos1zm3l7p8n5dxqeadsfxy3rd0j3c2knnx3x6q250',
+            operatorAddress: 'desmosvaloper164kcy3s0pqfall3r837n82l24alc6l36gfuw4l',
           },
           validatorDescriptions: [
             {
-              moniker: 'Simply Staking',
-              identity: null,
+              moniker: 'EZStaking.io',
+              avatarUrl: 'https://s3.amazonaws.com/keybase_processed_uploads/653fb34325e4437fe3cc6f7ecb93e905_360_360.jpg',
             },
           ],
         },
       },
     ],
-    total: {
-      aggregate: {
-        count: 379619,
-      },
-    },
   },
 });
 
@@ -103,8 +103,8 @@ describe('screen: Blocks', () => {
         </RecoilRoot>,
       );
     });
-    await wait();
 
+    await wait();
     renderer.act(() => {
       mockSubscription.next(mockBlocksListenerDocument);
     });

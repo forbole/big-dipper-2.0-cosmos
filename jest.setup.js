@@ -85,5 +85,10 @@ jest.mock('@recoil/profiles', () => {
       name: address,
       imageUrl: ''
     })),
+    useProfilesWithDefaultsRecoil: jest.fn((address) => ({
+      address,
+      name: address,
+      imageUrl: ''
+    })),
   });
 });
