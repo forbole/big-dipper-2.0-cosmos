@@ -3,6 +3,7 @@
 ## Changes
 - Changed online voting power to be a query instead of a subscription ([\#638](https://github.com/forbole/big-dipper-2.0-cosmos/issues/638))
 - Optimised rendering of Proposal Details page ([\#763](https://github.com/forbole/big-dipper-2.0-cosmos/issues/763))
+- Update online voting power display ([\#776](https://github.com/forbole/big-dipper-2.0-cosmos/issues/776))
 ## Bug fixes
 - Fixed Apr error if bonded tokens is 0 ([\#758](https://github.com/forbole/big-dipper-2.0-cosmos/issues/758))
 
