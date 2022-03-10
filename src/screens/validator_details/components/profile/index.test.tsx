@@ -25,11 +25,15 @@ describe('screen: ValidatorDetails/Profile', () => {
       <RecoilRoot>
         <MockTheme>
           <Profile
-            validator="validator"
-            operatorAddress="operatorAddress"
-            selfDelegateAddress="selfDelegateAddress"
-            description="description"
-            website=""
+            profile={
+              {
+                validator: 'validator',
+                operatorAddress: 'operatorAddress',
+                selfDelegateAddress: 'selfDelegateAddress',
+                description: 'description',
+                website: '',
+              }
+            }
           />
         </MockTheme>
       </RecoilRoot>,

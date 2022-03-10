@@ -28,5 +28,6 @@
   "votingPower": "Voting Power",
   "totalVotingPower": "Total Voting Power",
   "lastVotingPowerChange": "Last Voting Power Change",
-  "powerChange": "<0>{{change}}</0> at block "
+  "powerChange": "<0>{{change}}</0> at block ",
+  "validators": "Validators"
 }
