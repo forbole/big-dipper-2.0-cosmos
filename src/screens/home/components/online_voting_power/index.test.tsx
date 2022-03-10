@@ -36,7 +36,7 @@ const mockOnlineVotingPower = jest.fn().mockResolvedValue({
     },
     stakingPool: [
       {
-        bonded: 76341095840626,
+        bonded: 76341043,
       },
     ],
     stakingParams: [
