@@ -18,7 +18,7 @@ const OnlineVotingPower: React.FC<{
   const votingPowerPercent = state.totalVotingPower === 0
     ? numeral(0) : numeral((state.votingPower / state.totalVotingPower) * 100);
 
-  const classes = useStyles(votingPowerPercent.value());
+  const classes = useStyles(votingPowerPercent.format(0));
 
   return (
     <Box className={classnames(className, classes.root)}>
