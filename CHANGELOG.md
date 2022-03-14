@@ -1,3 +1,8 @@
+# Unreleased
+
+## Changes
+- Updated not found and 404 logo ([\#792](https://github.com/forbole/big-dipper-2.0-cosmos/issues/792))
+
 # base-v2.0.0 - 2021-03-10
 
 ## Changes
