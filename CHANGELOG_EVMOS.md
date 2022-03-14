@@ -2,6 +2,8 @@
 
 ## Changes
 - Add ibc osmos to token
+- Merged `base-v2.0.0`
+
 # evmos-v1.1.1 - 2021-03-03
 
 ## Fixes
