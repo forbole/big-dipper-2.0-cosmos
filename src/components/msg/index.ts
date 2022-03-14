@@ -68,6 +68,8 @@ import GrantAllowance from './feegrant/grant_allowance';
 import RevokeAllowance from './feegrant/revoke_allowance';
 import CreateVestingAccount from './vesting/create_vesting_account';
 import CreatePeriodicVestingAccount from './vesting/create_periodic_vesting_account';
+import ConvertCoin from './erc20/convert_coin';
+import ConvertErc20 from './erc20/convert_erc20';
 
 export {
   getMessageModelByType,
@@ -134,4 +136,6 @@ export {
   RevokeAllowance,
   CreateVestingAccount,
   CreatePeriodicVestingAccount,
+  ConvertCoin,
+  ConvertErc20,
 };

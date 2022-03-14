@@ -54,5 +54,7 @@
   "MsgGrantAllowance": "Grant Allowance",
   "MsgRevokeAllowance": "Revoke Allowance",
   "MsgCreateVestingAccount": "Create Vesting Account",
-  "MsgCreatePeriodicVestingAccount": "Create Periodic Vesting Account"
+  "MsgCreatePeriodicVestingAccount": "Create Periodic Vesting Account",
+  "MsgConvertCoin": "Convert Coin",
+  "MsgConvertErc20": "Convert ERC20"
 }
