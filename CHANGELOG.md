@@ -8,6 +8,9 @@
 ## Bug fixes
 - Fixed Apr error if bonded tokens is 0 ([\#758](https://github.com/forbole/big-dipper-2.0-cosmos/issues/758))
 
+## Breaking
+- [Bdjuno](https://github.com/forbole/bdjuno) must be on `v2.0.0`
+
 # base-v2.0.0-rc3 - 2021-02-25
 
 ## Changes
@@ -19,8 +22,7 @@
 - Change env `NEXT_PUBLIC_CHAIN_STATUS` to `NEXT_PUBLIC_CHAIN_TYPE` or don't. It's backwards compatible
 
 ## Breaking
-
-- [Bdjuno](https://github.com/forbole/bdjuno) must be on `v1.1.0+`
+- [Bdjuno](https://github.com/forbole/bdjuno) must be on `v2.0.0`
 
 # base-v2.0.0-rc2 - 2021-02-24
 
