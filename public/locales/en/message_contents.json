@@ -57,5 +57,7 @@
   "MsgCreateVestingAccount": "Vesting account created for <0>{{toAddress}}</0>",
   "MsgCreatePeriodicVestingAccount": "Periodic vesting account created for <0>{{toAddress}}</0>",
   "MsgConvertCoin": "<0>{{receiver}}</0> received <0>{{coin}}</0> from <1>{{sender}}</1>",
-  "MsgConvertErc20": "<0>{{receiver}}</0> received <1>{{amount}}</1> from <1>{{sender}}</1>"
+  "MsgConvertErc20": "<0>{{receiver}}</0> received <1>{{amount}}</1> from <1>{{sender}}</1>",
+  "MsgCreateClawbackVestingAccount": "<0>{{fromAddress}}</0> created a clawback vesting account for <1>{{toAddress}}</1>",
+  "MsgClawback": "<0>{{accountAddress}}</0> unvested tokens has been clawbacked to <1>{{destAddress}}</1>"
 }

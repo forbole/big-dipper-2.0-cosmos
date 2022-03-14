@@ -56,5 +56,7 @@
   "MsgCreateVestingAccount": "Create Vesting Account",
   "MsgCreatePeriodicVestingAccount": "Create Periodic Vesting Account",
   "MsgConvertCoin": "Convert Coin",
-  "MsgConvertErc20": "Convert ERC20"
+  "MsgConvertErc20": "Convert ERC20",
+  "MsgCreateClawbackVestingAccount": "Create Clawback Vesting Account",
+  "MsgClawback": "Clawback"
 }

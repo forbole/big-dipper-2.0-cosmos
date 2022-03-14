@@ -360,6 +360,21 @@ const getDataByType = (type: string) => {
       tagTheme: 'four',
       tagDisplay: 'MsgConvertErc20',
     },
+    // ========================
+    // vesting
+    // ========================
+    '/evmos/vesting/v1/MsgCreateClawbackVestingAccount': {
+      model: MODELS.MsgCreateClawbackVestingAccount,
+      content: COMPONENTS.CreateClawbackVestingAccount,
+      tagTheme: 'fifteen',
+      tagDisplay: 'MsgCreateClawbackVestingAccount',
+    },
+    '/evmos/vesting/v1/MsgClawback': {
+      model: MODELS.MsgClawback,
+      content: COMPONENTS.Clawback,
+      tagTheme: 'fifteen',
+      tagDisplay: 'MsgClawback',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];

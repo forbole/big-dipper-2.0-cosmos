@@ -70,6 +70,8 @@ import CreateVestingAccount from './vesting/create_vesting_account';
 import CreatePeriodicVestingAccount from './vesting/create_periodic_vesting_account';
 import ConvertCoin from './erc20/convert_coin';
 import ConvertErc20 from './erc20/convert_erc20';
+import CreateClawbackVestingAccount from './vesting/create_clawback_vesting_account';
+import Clawback from './vesting/clawback';
 
 export {
   getMessageModelByType,
@@ -138,4 +140,6 @@ export {
   CreatePeriodicVestingAccount,
   ConvertCoin,
   ConvertErc20,
+  CreateClawbackVestingAccount,
+  Clawback,
 };
