@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TransactionDetails/Clawback matches snapshot 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body1"
+>
+  <div
+    components={
+      Array [
+        <Name
+          address="accountAddress"
+          name="accountAddress"
+        />,
+        <Name
+          address="destAddress"
+          name="destAddress"
+        />,
+      ]
+    }
+    i18nKey="message_contents:MsgClawback"
+    id="Trans"
+  />
+</p>
+`;

@@ -346,63 +346,35 @@ const getDataByType = (type: string) => {
   // =====================================
   const customTypeToModel = {
     // ========================
-    // profiles
+    // erc20
     // ========================
-    '/desmos.profiles.v1beta1.MsgSaveProfile': {
-      model: MODELS.MsgSaveProfile,
-      content: COMPONENTS.SaveProfile,
+    '/evmos.erc20.v1.MsgConvertCoin': {
+      model: MODELS.MsgConvertCoin,
+      content: COMPONENTS.ConvertCoin,
       tagTheme: 'four',
-      tagDisplay: 'txSaveProfileLabel',
+      tagDisplay: 'MsgConvertCoin',
     },
-    '/desmos.profiles.v1beta1.MsgDeleteProfile': {
-      model: MODELS.MsgDeleteProfile,
-      content: COMPONENTS.DeleteProfile,
+    '/evmos.erc20.v1.MsgConvertERC20': {
+      model: MODELS.MsgConvertErc20,
+      content: COMPONENTS.ConvertErc20,
       tagTheme: 'four',
-      tagDisplay: 'txDeleteProfileLabel',
+      tagDisplay: 'MsgConvertErc20',
     },
-    '/desmos.profiles.v1beta1.MsgCreateRelationship': {
-      model: MODELS.MsgCreateRelationship,
-      content: COMPONENTS.CreateRelationship,
-      tagTheme: 'four',
-      tagDisplay: 'txCreateRelationshipLabel',
+    // ========================
+    // vesting
+    // ========================
+    '/evmos/vesting/v1/MsgCreateClawbackVestingAccount': {
+      model: MODELS.MsgCreateClawbackVestingAccount,
+      content: COMPONENTS.CreateClawbackVestingAccount,
+      tagTheme: 'fifteen',
+      tagDisplay: 'MsgCreateClawbackVestingAccount',
     },
-    '/desmos.profiles.v1beta1.MsgRequestDTagTransfer': {
-      model: MODELS.MsgDtagTransferRequest,
-      content: COMPONENTS.DtagTransferRequest,
-      tagTheme: 'four',
-      tagDisplay: 'txRequestDTagTransferLabel',
+    '/evmos/vesting/v1/MsgClawback': {
+      model: MODELS.MsgClawback,
+      content: COMPONENTS.Clawback,
+      tagTheme: 'fifteen',
+      tagDisplay: 'MsgClawback',
     },
-    '/desmos.profiles.v1beta1.MsgAcceptDTagTransfer': {
-      model: MODELS.MsgDtagAcceptTransfer,
-      content: COMPONENTS.DtagAcceptTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txAcceptDTagTransferLabel',
-    },
-    '/desmos.profiles.v1beta1.MsgCancelDTagTransfer': {
-      model: MODELS.MsgDtagCancelTransfer,
-      content: COMPONENTS.DtagCancelTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txCancelDTagTransferLabel',
-    },
-    '/desmos.profiles.v1beta1.MsgRefuseDTagTransfer': {
-      model: MODELS.MsgDtagRefuseTransfer,
-      content: COMPONENTS.DtagRefuseTransfer,
-      tagTheme: 'four',
-      tagDisplay: 'txRefuseDTagTransferLabel',
-    },
-    '/desmos.profiles.v1beta1.MsgBlockUser': {
-      model: MODELS.MsgBlockUser,
-      content: COMPONENTS.BlockUser,
-      tagTheme: 'four',
-      tagDisplay: 'txBlockUserLabel',
-    },
-    '/desmos.profiles.v1beta1.MsgUnblockUser': {
-      model: MODELS.MsgUnblockUser,
-      content: COMPONENTS.UnBlockUser,
-      tagTheme: 'four',
-      tagDisplay: 'txUnblockUserLabel',
-    },
-
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];
