@@ -2,6 +2,7 @@
 
 ## Changes
 - Updated not found and 404 logo ([\#792](https://github.com/forbole/big-dipper-2.0-cosmos/issues/792))
+- Fixed params % display ([\#795](https://github.com/forbole/big-dipper-2.0-cosmos/issues/795))
 
 ## Fixes
 - Fixed commission being displayed for non validator accounts ([\#787](https://github.com/forbole/big-dipper-2.0-cosmos/issues/787))
