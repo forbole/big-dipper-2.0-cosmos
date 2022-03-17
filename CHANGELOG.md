@@ -1,3 +1,7 @@
+# base-v2.0.1 - 2021-03-17
+
+## Bug fixes
+- Fixed online voting power total ([\#800](https://github.com/forbole/big-dipper-2.0-cosmos/issues/800))
 # base-v2.0.0 - 2021-03-10
 
 ## Changes
