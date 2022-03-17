@@ -1,3 +1,28 @@
+# Unreleased
+
+## Changes
+- Updated not found and 404 logo ([\#792](https://github.com/forbole/big-dipper-2.0-cosmos/issues/792))
+- Fixed params % display ([\#795](https://github.com/forbole/big-dipper-2.0-cosmos/issues/795))
+## Fixes
+- Fixed commission being displayed for non validator accounts ([\#787](https://github.com/forbole/big-dipper-2.0-cosmos/issues/787))
+
+# base-v2.0.1 - 2021-03-17
+## Bug fixes
+- Fixed online voting power total ([\#800](https://github.com/forbole/big-dipper-2.0-cosmos/issues/800))
+
+# base-v2.0.0 - 2021-03-10
+
+## Changes
+- Changed online voting power to be a query instead of a subscription ([\#638](https://github.com/forbole/big-dipper-2.0-cosmos/issues/638))
+- Optimised rendering of Proposal Details page ([\#763](https://github.com/forbole/big-dipper-2.0-cosmos/issues/763))
+- Update online voting power display ([\#776](https://github.com/forbole/big-dipper-2.0-cosmos/issues/776))
+- Improved initial loading speed by asyncing top level functions ([\#773](https://github.com/forbole/big-dipper-2.0-cosmos/issues/773))
+## Bug fixes
+- Fixed Apr error if bonded tokens is 0 ([\#758](https://github.com/forbole/big-dipper-2.0-cosmos/issues/758))
+
+## Breaking
+- [Bdjuno](https://github.com/forbole/bdjuno) must be on `v2.0.0`
+
 # base-v2.0.0-rc3 - 2021-02-25
 
 ## Changes
@@ -7,6 +32,9 @@
 ## Migration
 - Change env `NEXT_PUBLIC_WS_CHAIN_URL` to `NEXT_PUBLIC_RPC_WEBSOCKET` or don't. It's backwards compatible
 - Change env `NEXT_PUBLIC_CHAIN_STATUS` to `NEXT_PUBLIC_CHAIN_TYPE` or don't. It's backwards compatible
+
+## Breaking
+- [Bdjuno](https://github.com/forbole/bdjuno) must be on `v2.0.0`
 
 # base-v2.0.0-rc2 - 2021-02-24
 
@@ -26,9 +54,9 @@
 ## Changes
 - Updated Hasura Actions
 
-## Migration
+## Breaking
 
-- Will add formal migration docs later but do not use this tag if your [bdjuno](https://github.com/forbole/bdjuno) is not at least `v1.0.0`
+- [Bdjuno](https://github.com/forbole/bdjuno) must be on `v1.0.0`
 
 # base-v1.10.0 - 2021-01-25
 
@@ -45,7 +73,7 @@
 
 ## Migration
 
-- [v1.7.0 to v1.10.0](https://docs.bigdipper.live/cosmos-based/frontend/migrations/v1.7.0-to-v1.10.0)
+- [v1.9.0 to v1.10.0](https://docs.bigdipper.live/cosmos-based/frontend/migrations/v1.9.0-to-v1.10.0)
 
 # base-v1.9.0 - 2021-01-10
 

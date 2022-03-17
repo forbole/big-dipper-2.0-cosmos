@@ -2,22 +2,20 @@ import { useState } from 'react';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import {
-  useTotalVotingPowerListenerSubscription,
-  useOnlineVotingPowerListenerSubscription,
-  OnlineVotingPowerListenerSubscription,
-  TotalVotingPowerListenerSubscription,
+  useOnlineVotingPowerQuery,
+  OnlineVotingPowerQuery,
 } from '@graphql/types';
 import { chainConfig } from '@configs';
 import { formatToken } from '@utils/format_token';
 
 const initialState: {
-  height: number;
   votingPower: number;
   totalVotingPower: number;
+  activeValidators: number;
 } = {
-  height: 0,
   votingPower: 0,
   totalVotingPower: 0,
+  activeValidators: 0,
 };
 
 export const useOnlineVotingPower = () => {
@@ -27,49 +25,37 @@ export const useOnlineVotingPower = () => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
 
-  // ====================================
-  // block voting power
-  // ====================================
-
-  useOnlineVotingPowerListenerSubscription({
-    onSubscriptionData: (data) => {
-      const currentVotingPower = formatOnlineVotingPower(data.subscriptionData.data);
-
-      handleSetState({
-        ...currentVotingPower,
-      });
+  useOnlineVotingPowerQuery({
+    onCompleted: (data) => {
+      handleSetState(formatOnlineVotingPower(data));
     },
   });
 
-  const formatOnlineVotingPower = (data: OnlineVotingPowerListenerSubscription) => {
-    const votingPower = R.pathOr(state.votingPower, [
-      'block', 0, 'validatorVotingPowersAggregate', 'aggregate', 'sum', 'votingPower',
+  const formatOnlineVotingPower = (data: OnlineVotingPowerQuery) => {
+    const votingPower = R.pathOr(0, [
+      'validatorVotingPowerAggregate',
+      'aggregate',
+      'sum',
+      'votingPower',
     ], data);
-    return {
-      height: R.pathOr(initialState.height, ['block', 0, 'height'], data),
-      votingPower,
-    };
-  };
-
-  // ====================================
-  // total voting power
-  // ====================================
-  useTotalVotingPowerListenerSubscription({
-    onSubscriptionData: (data) => {
-      handleSetState({
-        totalVotingPower: formatTotalVotingPower(data.subscriptionData.data),
-      });
-    },
-  });
-
-  const formatTotalVotingPower = (data: TotalVotingPowerListenerSubscription) => {
-    let bonded = R.pathOr(initialState.totalVotingPower, [
+    const bonded = R.pathOr(0, [
       'stakingPool',
       0,
       'bonded',
     ], data);
-    bonded = numeral(formatToken(bonded, chainConfig.votingPowerTokenUnit).value).value();
-    return bonded;
+    const activeValidators = R.pathOr(0, [
+      'activeTotal',
+      'aggregate',
+      'count',
+    ], data);
+
+    return {
+      activeValidators,
+      votingPower,
+      totalVotingPower: numeral(
+        formatToken(bonded, chainConfig.votingPowerTokenUnit).value,
+      ).value(),
+    };
   };
 
   return {

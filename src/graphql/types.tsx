@@ -195,10 +195,6 @@ export type Account = {
   validator_infos_aggregate: Validator_Info_Aggregate;
   /** An object relationship */
   vesting_account?: Maybe<Vesting_Account>;
-  /** An array relationship */
-  vesting_accounts: Array<Vesting_Account>;
-  /** An aggregate relationship */
-  vesting_accounts_aggregate: Vesting_Account_Aggregate;
 };
 
 
@@ -281,26 +277,6 @@ export type AccountValidator_Infos_AggregateArgs = {
   where?: Maybe<Validator_Info_Bool_Exp>;
 };
 
-
-/** columns and relationships of "account" */
-export type AccountVesting_AccountsArgs = {
-  distinct_on?: Maybe<Array<Vesting_Account_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Vesting_Account_Order_By>>;
-  where?: Maybe<Vesting_Account_Bool_Exp>;
-};
-
-
-/** columns and relationships of "account" */
-export type AccountVesting_Accounts_AggregateArgs = {
-  distinct_on?: Maybe<Array<Vesting_Account_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Vesting_Account_Order_By>>;
-  where?: Maybe<Vesting_Account_Bool_Exp>;
-};
-
 /** aggregated selection of "account" */
 export type Account_Aggregate = {
   __typename?: 'account_aggregate';
@@ -334,7 +310,6 @@ export type Account_Bool_Exp = {
   proposals?: Maybe<Proposal_Bool_Exp>;
   validator_infos?: Maybe<Validator_Info_Bool_Exp>;
   vesting_account?: Maybe<Vesting_Account_Bool_Exp>;
-  vesting_accounts?: Maybe<Vesting_Account_Bool_Exp>;
 };
 
 /** aggregate max on columns */
@@ -357,7 +332,6 @@ export type Account_Order_By = {
   proposals_aggregate?: Maybe<Proposal_Aggregate_Order_By>;
   validator_infos_aggregate?: Maybe<Validator_Info_Aggregate_Order_By>;
   vesting_account?: Maybe<Vesting_Account_Order_By>;
-  vesting_accounts_aggregate?: Maybe<Vesting_Account_Aggregate_Order_By>;
 };
 
 /** select columns of table "account" */
@@ -2530,10 +2504,12 @@ export type Jsonb_Comparison_Exp = {
 /** columns and relationships of "message" */
 export type Message = {
   __typename?: 'message';
+  height: Scalars['bigint'];
   index: Scalars['bigint'];
-  involved_accounts_addresses?: Maybe<Scalars['_text']>;
+  involved_accounts_addresses: Scalars['_text'];
+  partition_id: Scalars['bigint'];
   /** An object relationship */
-  transaction: Transaction;
+  transaction?: Maybe<Transaction>;
   transaction_hash: Scalars['String'];
   type: Scalars['String'];
   value: Scalars['jsonb'];
@@ -2593,12 +2569,16 @@ export type Message_Aggregate_Order_By = {
 /** aggregate avg on columns */
 export type Message_Avg_Fields = {
   __typename?: 'message_avg_fields';
+  height?: Maybe<Scalars['Float']>;
   index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by avg() on columns of table "message" */
 export type Message_Avg_Order_By = {
+  height?: Maybe<Order_By>;
   index?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "message". All fields are combined with a logical 'AND'. */
@@ -2606,8 +2586,10 @@ export type Message_Bool_Exp = {
   _and?: Maybe<Array<Message_Bool_Exp>>;
   _not?: Maybe<Message_Bool_Exp>;
   _or?: Maybe<Array<Message_Bool_Exp>>;
+  height?: Maybe<Bigint_Comparison_Exp>;
   index?: Maybe<Bigint_Comparison_Exp>;
   involved_accounts_addresses?: Maybe<_Text_Comparison_Exp>;
+  partition_id?: Maybe<Bigint_Comparison_Exp>;
   transaction?: Maybe<Transaction_Bool_Exp>;
   transaction_hash?: Maybe<String_Comparison_Exp>;
   type?: Maybe<String_Comparison_Exp>;
@@ -2617,14 +2599,18 @@ export type Message_Bool_Exp = {
 /** aggregate max on columns */
 export type Message_Max_Fields = {
   __typename?: 'message_max_fields';
+  height?: Maybe<Scalars['bigint']>;
   index?: Maybe<Scalars['bigint']>;
+  partition_id?: Maybe<Scalars['bigint']>;
   transaction_hash?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
 };
 
 /** order by max() on columns of table "message" */
 export type Message_Max_Order_By = {
+  height?: Maybe<Order_By>;
   index?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
   transaction_hash?: Maybe<Order_By>;
   type?: Maybe<Order_By>;
 };
@@ -2632,30 +2618,151 @@ export type Message_Max_Order_By = {
 /** aggregate min on columns */
 export type Message_Min_Fields = {
   __typename?: 'message_min_fields';
+  height?: Maybe<Scalars['bigint']>;
   index?: Maybe<Scalars['bigint']>;
+  partition_id?: Maybe<Scalars['bigint']>;
   transaction_hash?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
 };
 
 /** order by min() on columns of table "message" */
 export type Message_Min_Order_By = {
+  height?: Maybe<Order_By>;
+  index?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
+  transaction_hash?: Maybe<Order_By>;
+  type?: Maybe<Order_By>;
+};
+
+/** columns and relationships of "message_old" */
+export type Message_Old = {
+  __typename?: 'message_old';
+  index: Scalars['bigint'];
+  involved_accounts_addresses?: Maybe<Scalars['_text']>;
+  transaction_hash: Scalars['String'];
+  /** An object relationship */
+  transaction_old: Transaction_Old;
+  type: Scalars['String'];
+  value: Scalars['jsonb'];
+};
+
+
+/** columns and relationships of "message_old" */
+export type Message_OldValueArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+/** aggregated selection of "message_old" */
+export type Message_Old_Aggregate = {
+  __typename?: 'message_old_aggregate';
+  aggregate?: Maybe<Message_Old_Aggregate_Fields>;
+  nodes: Array<Message_Old>;
+};
+
+/** aggregate fields of "message_old" */
+export type Message_Old_Aggregate_Fields = {
+  __typename?: 'message_old_aggregate_fields';
+  avg?: Maybe<Message_Old_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Message_Old_Max_Fields>;
+  min?: Maybe<Message_Old_Min_Fields>;
+  stddev?: Maybe<Message_Old_Stddev_Fields>;
+  stddev_pop?: Maybe<Message_Old_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Message_Old_Stddev_Samp_Fields>;
+  sum?: Maybe<Message_Old_Sum_Fields>;
+  var_pop?: Maybe<Message_Old_Var_Pop_Fields>;
+  var_samp?: Maybe<Message_Old_Var_Samp_Fields>;
+  variance?: Maybe<Message_Old_Variance_Fields>;
+};
+
+
+/** aggregate fields of "message_old" */
+export type Message_Old_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Message_Old_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "message_old" */
+export type Message_Old_Aggregate_Order_By = {
+  avg?: Maybe<Message_Old_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Message_Old_Max_Order_By>;
+  min?: Maybe<Message_Old_Min_Order_By>;
+  stddev?: Maybe<Message_Old_Stddev_Order_By>;
+  stddev_pop?: Maybe<Message_Old_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Message_Old_Stddev_Samp_Order_By>;
+  sum?: Maybe<Message_Old_Sum_Order_By>;
+  var_pop?: Maybe<Message_Old_Var_Pop_Order_By>;
+  var_samp?: Maybe<Message_Old_Var_Samp_Order_By>;
+  variance?: Maybe<Message_Old_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Message_Old_Avg_Fields = {
+  __typename?: 'message_old_avg_fields';
+  index?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "message_old" */
+export type Message_Old_Avg_Order_By = {
+  index?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "message_old". All fields are combined with a logical 'AND'. */
+export type Message_Old_Bool_Exp = {
+  _and?: Maybe<Array<Message_Old_Bool_Exp>>;
+  _not?: Maybe<Message_Old_Bool_Exp>;
+  _or?: Maybe<Array<Message_Old_Bool_Exp>>;
+  index?: Maybe<Bigint_Comparison_Exp>;
+  involved_accounts_addresses?: Maybe<_Text_Comparison_Exp>;
+  transaction_hash?: Maybe<String_Comparison_Exp>;
+  transaction_old?: Maybe<Transaction_Old_Bool_Exp>;
+  type?: Maybe<String_Comparison_Exp>;
+  value?: Maybe<Jsonb_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Message_Old_Max_Fields = {
+  __typename?: 'message_old_max_fields';
+  index?: Maybe<Scalars['bigint']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "message_old" */
+export type Message_Old_Max_Order_By = {
   index?: Maybe<Order_By>;
   transaction_hash?: Maybe<Order_By>;
   type?: Maybe<Order_By>;
 };
 
-/** Ordering options when selecting data from "message". */
-export type Message_Order_By = {
+/** aggregate min on columns */
+export type Message_Old_Min_Fields = {
+  __typename?: 'message_old_min_fields';
+  index?: Maybe<Scalars['bigint']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "message_old" */
+export type Message_Old_Min_Order_By = {
+  index?: Maybe<Order_By>;
+  transaction_hash?: Maybe<Order_By>;
+  type?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "message_old". */
+export type Message_Old_Order_By = {
   index?: Maybe<Order_By>;
   involved_accounts_addresses?: Maybe<Order_By>;
-  transaction?: Maybe<Transaction_Order_By>;
   transaction_hash?: Maybe<Order_By>;
+  transaction_old?: Maybe<Transaction_Old_Order_By>;
   type?: Maybe<Order_By>;
   value?: Maybe<Order_By>;
 };
 
-/** select columns of table "message" */
-export enum Message_Select_Column {
+/** select columns of table "message_old" */
+export enum Message_Old_Select_Column {
   /** column name */
   Index = 'index',
   /** column name */
@@ -2669,80 +2776,215 @@ export enum Message_Select_Column {
 }
 
 /** aggregate stddev on columns */
+export type Message_Old_Stddev_Fields = {
+  __typename?: 'message_old_stddev_fields';
+  index?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "message_old" */
+export type Message_Old_Stddev_Order_By = {
+  index?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Message_Old_Stddev_Pop_Fields = {
+  __typename?: 'message_old_stddev_pop_fields';
+  index?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "message_old" */
+export type Message_Old_Stddev_Pop_Order_By = {
+  index?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Message_Old_Stddev_Samp_Fields = {
+  __typename?: 'message_old_stddev_samp_fields';
+  index?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "message_old" */
+export type Message_Old_Stddev_Samp_Order_By = {
+  index?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Message_Old_Sum_Fields = {
+  __typename?: 'message_old_sum_fields';
+  index?: Maybe<Scalars['bigint']>;
+};
+
+/** order by sum() on columns of table "message_old" */
+export type Message_Old_Sum_Order_By = {
+  index?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Message_Old_Var_Pop_Fields = {
+  __typename?: 'message_old_var_pop_fields';
+  index?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "message_old" */
+export type Message_Old_Var_Pop_Order_By = {
+  index?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Message_Old_Var_Samp_Fields = {
+  __typename?: 'message_old_var_samp_fields';
+  index?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "message_old" */
+export type Message_Old_Var_Samp_Order_By = {
+  index?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Message_Old_Variance_Fields = {
+  __typename?: 'message_old_variance_fields';
+  index?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "message_old" */
+export type Message_Old_Variance_Order_By = {
+  index?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "message". */
+export type Message_Order_By = {
+  height?: Maybe<Order_By>;
+  index?: Maybe<Order_By>;
+  involved_accounts_addresses?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
+  transaction?: Maybe<Transaction_Order_By>;
+  transaction_hash?: Maybe<Order_By>;
+  type?: Maybe<Order_By>;
+  value?: Maybe<Order_By>;
+};
+
+/** select columns of table "message" */
+export enum Message_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Index = 'index',
+  /** column name */
+  InvolvedAccountsAddresses = 'involved_accounts_addresses',
+  /** column name */
+  PartitionId = 'partition_id',
+  /** column name */
+  TransactionHash = 'transaction_hash',
+  /** column name */
+  Type = 'type',
+  /** column name */
+  Value = 'value'
+}
+
+/** aggregate stddev on columns */
 export type Message_Stddev_Fields = {
   __typename?: 'message_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
   index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev() on columns of table "message" */
 export type Message_Stddev_Order_By = {
+  height?: Maybe<Order_By>;
   index?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Message_Stddev_Pop_Fields = {
   __typename?: 'message_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
   index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_pop() on columns of table "message" */
 export type Message_Stddev_Pop_Order_By = {
+  height?: Maybe<Order_By>;
   index?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Message_Stddev_Samp_Fields = {
   __typename?: 'message_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
   index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_samp() on columns of table "message" */
 export type Message_Stddev_Samp_Order_By = {
+  height?: Maybe<Order_By>;
   index?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate sum on columns */
 export type Message_Sum_Fields = {
   __typename?: 'message_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
   index?: Maybe<Scalars['bigint']>;
+  partition_id?: Maybe<Scalars['bigint']>;
 };
 
 /** order by sum() on columns of table "message" */
 export type Message_Sum_Order_By = {
+  height?: Maybe<Order_By>;
   index?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
 export type Message_Var_Pop_Fields = {
   __typename?: 'message_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
   index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_pop() on columns of table "message" */
 export type Message_Var_Pop_Order_By = {
+  height?: Maybe<Order_By>;
   index?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate var_samp on columns */
 export type Message_Var_Samp_Fields = {
   __typename?: 'message_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
   index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_samp() on columns of table "message" */
 export type Message_Var_Samp_Order_By = {
+  height?: Maybe<Order_By>;
   index?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate variance on columns */
 export type Message_Variance_Fields = {
   __typename?: 'message_variance_fields';
+  height?: Maybe<Scalars['Float']>;
   index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by variance() on columns of table "message" */
 export type Message_Variance_Order_By = {
+  height?: Maybe<Order_By>;
   index?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 export type Messages_By_Address_Args = {
@@ -4874,6 +5116,10 @@ export type Query_Root = {
   message: Array<Message>;
   /** fetch aggregated fields from the table: "message" */
   message_aggregate: Message_Aggregate;
+  /** fetch data from the table: "message_old" */
+  message_old: Array<Message_Old>;
+  /** fetch aggregated fields from the table: "message_old" */
+  message_old_aggregate: Message_Old_Aggregate;
   /** execute function "messages_by_address" which returns "message" */
   messages_by_address: Array<Message>;
   /** execute function "messages_by_address" and query aggregates on result of table type "message" */
@@ -4968,8 +5214,12 @@ export type Query_Root = {
   transaction: Array<Transaction>;
   /** fetch aggregated fields from the table: "transaction" */
   transaction_aggregate: Transaction_Aggregate;
-  /** fetch data from the table: "transaction" using primary key columns */
-  transaction_by_pk?: Maybe<Transaction>;
+  /** fetch data from the table: "transaction_old" */
+  transaction_old: Array<Transaction_Old>;
+  /** fetch aggregated fields from the table: "transaction_old" */
+  transaction_old_aggregate: Transaction_Old_Aggregate;
+  /** fetch data from the table: "transaction_old" using primary key columns */
+  transaction_old_by_pk?: Maybe<Transaction_Old>;
   /** fetch data from the table: "validator" */
   validator: Array<Validator>;
   /** fetch aggregated fields from the table: "validator" */
@@ -5388,6 +5638,24 @@ export type Query_RootMessage_AggregateArgs = {
 };
 
 
+export type Query_RootMessage_OldArgs = {
+  distinct_on?: Maybe<Array<Message_Old_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Message_Old_Order_By>>;
+  where?: Maybe<Message_Old_Bool_Exp>;
+};
+
+
+export type Query_RootMessage_Old_AggregateArgs = {
+  distinct_on?: Maybe<Array<Message_Old_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Message_Old_Order_By>>;
+  where?: Maybe<Message_Old_Bool_Exp>;
+};
+
+
 export type Query_RootMessages_By_AddressArgs = {
   args: Messages_By_Address_Args;
   distinct_on?: Maybe<Array<Message_Select_Column>>;
@@ -5777,7 +6045,25 @@ export type Query_RootTransaction_AggregateArgs = {
 };
 
 
-export type Query_RootTransaction_By_PkArgs = {
+export type Query_RootTransaction_OldArgs = {
+  distinct_on?: Maybe<Array<Transaction_Old_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Transaction_Old_Order_By>>;
+  where?: Maybe<Transaction_Old_Bool_Exp>;
+};
+
+
+export type Query_RootTransaction_Old_AggregateArgs = {
+  distinct_on?: Maybe<Array<Transaction_Old_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Transaction_Old_Order_By>>;
+  where?: Maybe<Transaction_Old_Bool_Exp>;
+};
+
+
+export type Query_RootTransaction_Old_By_PkArgs = {
   hash: Scalars['String'];
 };
 
@@ -6472,6 +6758,10 @@ export type Subscription_Root = {
   message: Array<Message>;
   /** fetch aggregated fields from the table: "message" */
   message_aggregate: Message_Aggregate;
+  /** fetch data from the table: "message_old" */
+  message_old: Array<Message_Old>;
+  /** fetch aggregated fields from the table: "message_old" */
+  message_old_aggregate: Message_Old_Aggregate;
   /** execute function "messages_by_address" which returns "message" */
   messages_by_address: Array<Message>;
   /** execute function "messages_by_address" and query aggregates on result of table type "message" */
@@ -6566,8 +6856,12 @@ export type Subscription_Root = {
   transaction: Array<Transaction>;
   /** fetch aggregated fields from the table: "transaction" */
   transaction_aggregate: Transaction_Aggregate;
-  /** fetch data from the table: "transaction" using primary key columns */
-  transaction_by_pk?: Maybe<Transaction>;
+  /** fetch data from the table: "transaction_old" */
+  transaction_old: Array<Transaction_Old>;
+  /** fetch aggregated fields from the table: "transaction_old" */
+  transaction_old_aggregate: Transaction_Old_Aggregate;
+  /** fetch data from the table: "transaction_old" using primary key columns */
+  transaction_old_by_pk?: Maybe<Transaction_Old>;
   /** fetch data from the table: "validator" */
   validator: Array<Validator>;
   /** fetch aggregated fields from the table: "validator" */
@@ -6897,6 +7191,24 @@ export type Subscription_RootMessage_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Message_Order_By>>;
   where?: Maybe<Message_Bool_Exp>;
+};
+
+
+export type Subscription_RootMessage_OldArgs = {
+  distinct_on?: Maybe<Array<Message_Old_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Message_Old_Order_By>>;
+  where?: Maybe<Message_Old_Bool_Exp>;
+};
+
+
+export type Subscription_RootMessage_Old_AggregateArgs = {
+  distinct_on?: Maybe<Array<Message_Old_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Message_Old_Order_By>>;
+  where?: Maybe<Message_Old_Bool_Exp>;
 };
 
 
@@ -7289,7 +7601,25 @@ export type Subscription_RootTransaction_AggregateArgs = {
 };
 
 
-export type Subscription_RootTransaction_By_PkArgs = {
+export type Subscription_RootTransaction_OldArgs = {
+  distinct_on?: Maybe<Array<Transaction_Old_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Transaction_Old_Order_By>>;
+  where?: Maybe<Transaction_Old_Bool_Exp>;
+};
+
+
+export type Subscription_RootTransaction_Old_AggregateArgs = {
+  distinct_on?: Maybe<Array<Transaction_Old_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Transaction_Old_Order_By>>;
+  where?: Maybe<Transaction_Old_Bool_Exp>;
+};
+
+
+export type Subscription_RootTransaction_Old_By_PkArgs = {
   hash: Scalars['String'];
 };
 
@@ -8482,6 +8812,7 @@ export type Transaction = {
   messagesByTransactionHash: Array<Message>;
   /** An aggregate relationship */
   messagesByTransactionHash_aggregate: Message_Aggregate;
+  partition_id: Scalars['bigint'];
   raw_log?: Maybe<Scalars['String']>;
   signatures: Scalars['_text'];
   signer_infos: Scalars['jsonb'];
@@ -8583,6 +8914,7 @@ export type Transaction_Avg_Fields = {
   gas_used?: Maybe<Scalars['Float']>;
   gas_wanted?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by avg() on columns of table "transaction" */
@@ -8590,6 +8922,7 @@ export type Transaction_Avg_Order_By = {
   gas_used?: Maybe<Order_By>;
   gas_wanted?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "transaction". All fields are combined with a logical 'AND'. */
@@ -8607,6 +8940,7 @@ export type Transaction_Bool_Exp = {
   memo?: Maybe<String_Comparison_Exp>;
   messages?: Maybe<Jsonb_Comparison_Exp>;
   messagesByTransactionHash?: Maybe<Message_Bool_Exp>;
+  partition_id?: Maybe<Bigint_Comparison_Exp>;
   raw_log?: Maybe<String_Comparison_Exp>;
   signatures?: Maybe<_Text_Comparison_Exp>;
   signer_infos?: Maybe<Jsonb_Comparison_Exp>;
@@ -8621,6 +8955,7 @@ export type Transaction_Max_Fields = {
   hash?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
   memo?: Maybe<Scalars['String']>;
+  partition_id?: Maybe<Scalars['bigint']>;
   raw_log?: Maybe<Scalars['String']>;
 };
 
@@ -8631,6 +8966,7 @@ export type Transaction_Max_Order_By = {
   hash?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
   memo?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
   raw_log?: Maybe<Order_By>;
 };
 
@@ -8642,6 +8978,7 @@ export type Transaction_Min_Fields = {
   hash?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
   memo?: Maybe<Scalars['String']>;
+  partition_id?: Maybe<Scalars['bigint']>;
   raw_log?: Maybe<Scalars['String']>;
 };
 
@@ -8652,11 +8989,160 @@ export type Transaction_Min_Order_By = {
   hash?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
   memo?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
   raw_log?: Maybe<Order_By>;
 };
 
-/** Ordering options when selecting data from "transaction". */
-export type Transaction_Order_By = {
+/** columns and relationships of "transaction_old" */
+export type Transaction_Old = {
+  __typename?: 'transaction_old';
+  /** An object relationship */
+  block: Block;
+  fee: Scalars['jsonb'];
+  gas_used?: Maybe<Scalars['bigint']>;
+  gas_wanted?: Maybe<Scalars['bigint']>;
+  hash: Scalars['String'];
+  height: Scalars['bigint'];
+  logs?: Maybe<Scalars['jsonb']>;
+  memo?: Maybe<Scalars['String']>;
+  messages: Scalars['jsonb'];
+  /** An array relationship */
+  messagesByTransactionHashOld: Array<Message_Old>;
+  /** An aggregate relationship */
+  messagesByTransactionHashOld_aggregate: Message_Old_Aggregate;
+  raw_log?: Maybe<Scalars['String']>;
+  signatures: Scalars['_text'];
+  signer_infos: Scalars['jsonb'];
+  success: Scalars['Boolean'];
+};
+
+
+/** columns and relationships of "transaction_old" */
+export type Transaction_OldFeeArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+
+/** columns and relationships of "transaction_old" */
+export type Transaction_OldLogsArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+
+/** columns and relationships of "transaction_old" */
+export type Transaction_OldMessagesArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+
+/** columns and relationships of "transaction_old" */
+export type Transaction_OldMessagesByTransactionHashOldArgs = {
+  distinct_on?: Maybe<Array<Message_Old_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Message_Old_Order_By>>;
+  where?: Maybe<Message_Old_Bool_Exp>;
+};
+
+
+/** columns and relationships of "transaction_old" */
+export type Transaction_OldMessagesByTransactionHashOld_AggregateArgs = {
+  distinct_on?: Maybe<Array<Message_Old_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Message_Old_Order_By>>;
+  where?: Maybe<Message_Old_Bool_Exp>;
+};
+
+
+/** columns and relationships of "transaction_old" */
+export type Transaction_OldSigner_InfosArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+/** aggregated selection of "transaction_old" */
+export type Transaction_Old_Aggregate = {
+  __typename?: 'transaction_old_aggregate';
+  aggregate?: Maybe<Transaction_Old_Aggregate_Fields>;
+  nodes: Array<Transaction_Old>;
+};
+
+/** aggregate fields of "transaction_old" */
+export type Transaction_Old_Aggregate_Fields = {
+  __typename?: 'transaction_old_aggregate_fields';
+  avg?: Maybe<Transaction_Old_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Transaction_Old_Max_Fields>;
+  min?: Maybe<Transaction_Old_Min_Fields>;
+  stddev?: Maybe<Transaction_Old_Stddev_Fields>;
+  stddev_pop?: Maybe<Transaction_Old_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Transaction_Old_Stddev_Samp_Fields>;
+  sum?: Maybe<Transaction_Old_Sum_Fields>;
+  var_pop?: Maybe<Transaction_Old_Var_Pop_Fields>;
+  var_samp?: Maybe<Transaction_Old_Var_Samp_Fields>;
+  variance?: Maybe<Transaction_Old_Variance_Fields>;
+};
+
+
+/** aggregate fields of "transaction_old" */
+export type Transaction_Old_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Transaction_Old_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Transaction_Old_Avg_Fields = {
+  __typename?: 'transaction_old_avg_fields';
+  gas_used?: Maybe<Scalars['Float']>;
+  gas_wanted?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "transaction_old". All fields are combined with a logical 'AND'. */
+export type Transaction_Old_Bool_Exp = {
+  _and?: Maybe<Array<Transaction_Old_Bool_Exp>>;
+  _not?: Maybe<Transaction_Old_Bool_Exp>;
+  _or?: Maybe<Array<Transaction_Old_Bool_Exp>>;
+  block?: Maybe<Block_Bool_Exp>;
+  fee?: Maybe<Jsonb_Comparison_Exp>;
+  gas_used?: Maybe<Bigint_Comparison_Exp>;
+  gas_wanted?: Maybe<Bigint_Comparison_Exp>;
+  hash?: Maybe<String_Comparison_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  logs?: Maybe<Jsonb_Comparison_Exp>;
+  memo?: Maybe<String_Comparison_Exp>;
+  messages?: Maybe<Jsonb_Comparison_Exp>;
+  messagesByTransactionHashOld?: Maybe<Message_Old_Bool_Exp>;
+  raw_log?: Maybe<String_Comparison_Exp>;
+  signatures?: Maybe<_Text_Comparison_Exp>;
+  signer_infos?: Maybe<Jsonb_Comparison_Exp>;
+  success?: Maybe<Boolean_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Transaction_Old_Max_Fields = {
+  __typename?: 'transaction_old_max_fields';
+  gas_used?: Maybe<Scalars['bigint']>;
+  gas_wanted?: Maybe<Scalars['bigint']>;
+  hash?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  memo?: Maybe<Scalars['String']>;
+  raw_log?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Transaction_Old_Min_Fields = {
+  __typename?: 'transaction_old_min_fields';
+  gas_used?: Maybe<Scalars['bigint']>;
+  gas_wanted?: Maybe<Scalars['bigint']>;
+  hash?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  memo?: Maybe<Scalars['String']>;
+  raw_log?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "transaction_old". */
+export type Transaction_Old_Order_By = {
   block?: Maybe<Block_Order_By>;
   fee?: Maybe<Order_By>;
   gas_used?: Maybe<Order_By>;
@@ -8666,15 +9152,15 @@ export type Transaction_Order_By = {
   logs?: Maybe<Order_By>;
   memo?: Maybe<Order_By>;
   messages?: Maybe<Order_By>;
-  messagesByTransactionHash_aggregate?: Maybe<Message_Aggregate_Order_By>;
+  messagesByTransactionHashOld_aggregate?: Maybe<Message_Old_Aggregate_Order_By>;
   raw_log?: Maybe<Order_By>;
   signatures?: Maybe<Order_By>;
   signer_infos?: Maybe<Order_By>;
   success?: Maybe<Order_By>;
 };
 
-/** select columns of table "transaction" */
-export enum Transaction_Select_Column {
+/** select columns of table "transaction_old" */
+export enum Transaction_Old_Select_Column {
   /** column name */
   Fee = 'fee',
   /** column name */
@@ -8702,11 +9188,117 @@ export enum Transaction_Select_Column {
 }
 
 /** aggregate stddev on columns */
+export type Transaction_Old_Stddev_Fields = {
+  __typename?: 'transaction_old_stddev_fields';
+  gas_used?: Maybe<Scalars['Float']>;
+  gas_wanted?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Transaction_Old_Stddev_Pop_Fields = {
+  __typename?: 'transaction_old_stddev_pop_fields';
+  gas_used?: Maybe<Scalars['Float']>;
+  gas_wanted?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Transaction_Old_Stddev_Samp_Fields = {
+  __typename?: 'transaction_old_stddev_samp_fields';
+  gas_used?: Maybe<Scalars['Float']>;
+  gas_wanted?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Transaction_Old_Sum_Fields = {
+  __typename?: 'transaction_old_sum_fields';
+  gas_used?: Maybe<Scalars['bigint']>;
+  gas_wanted?: Maybe<Scalars['bigint']>;
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Transaction_Old_Var_Pop_Fields = {
+  __typename?: 'transaction_old_var_pop_fields';
+  gas_used?: Maybe<Scalars['Float']>;
+  gas_wanted?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Transaction_Old_Var_Samp_Fields = {
+  __typename?: 'transaction_old_var_samp_fields';
+  gas_used?: Maybe<Scalars['Float']>;
+  gas_wanted?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Transaction_Old_Variance_Fields = {
+  __typename?: 'transaction_old_variance_fields';
+  gas_used?: Maybe<Scalars['Float']>;
+  gas_wanted?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** Ordering options when selecting data from "transaction". */
+export type Transaction_Order_By = {
+  block?: Maybe<Block_Order_By>;
+  fee?: Maybe<Order_By>;
+  gas_used?: Maybe<Order_By>;
+  gas_wanted?: Maybe<Order_By>;
+  hash?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  logs?: Maybe<Order_By>;
+  memo?: Maybe<Order_By>;
+  messages?: Maybe<Order_By>;
+  messagesByTransactionHash_aggregate?: Maybe<Message_Aggregate_Order_By>;
+  partition_id?: Maybe<Order_By>;
+  raw_log?: Maybe<Order_By>;
+  signatures?: Maybe<Order_By>;
+  signer_infos?: Maybe<Order_By>;
+  success?: Maybe<Order_By>;
+};
+
+/** select columns of table "transaction" */
+export enum Transaction_Select_Column {
+  /** column name */
+  Fee = 'fee',
+  /** column name */
+  GasUsed = 'gas_used',
+  /** column name */
+  GasWanted = 'gas_wanted',
+  /** column name */
+  Hash = 'hash',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Logs = 'logs',
+  /** column name */
+  Memo = 'memo',
+  /** column name */
+  Messages = 'messages',
+  /** column name */
+  PartitionId = 'partition_id',
+  /** column name */
+  RawLog = 'raw_log',
+  /** column name */
+  Signatures = 'signatures',
+  /** column name */
+  SignerInfos = 'signer_infos',
+  /** column name */
+  Success = 'success'
+}
+
+/** aggregate stddev on columns */
 export type Transaction_Stddev_Fields = {
   __typename?: 'transaction_stddev_fields';
   gas_used?: Maybe<Scalars['Float']>;
   gas_wanted?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev() on columns of table "transaction" */
@@ -8714,6 +9306,7 @@ export type Transaction_Stddev_Order_By = {
   gas_used?: Maybe<Order_By>;
   gas_wanted?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_pop on columns */
@@ -8722,6 +9315,7 @@ export type Transaction_Stddev_Pop_Fields = {
   gas_used?: Maybe<Scalars['Float']>;
   gas_wanted?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_pop() on columns of table "transaction" */
@@ -8729,6 +9323,7 @@ export type Transaction_Stddev_Pop_Order_By = {
   gas_used?: Maybe<Order_By>;
   gas_wanted?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -8737,6 +9332,7 @@ export type Transaction_Stddev_Samp_Fields = {
   gas_used?: Maybe<Scalars['Float']>;
   gas_wanted?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_samp() on columns of table "transaction" */
@@ -8744,6 +9340,7 @@ export type Transaction_Stddev_Samp_Order_By = {
   gas_used?: Maybe<Order_By>;
   gas_wanted?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate sum on columns */
@@ -8752,6 +9349,7 @@ export type Transaction_Sum_Fields = {
   gas_used?: Maybe<Scalars['bigint']>;
   gas_wanted?: Maybe<Scalars['bigint']>;
   height?: Maybe<Scalars['bigint']>;
+  partition_id?: Maybe<Scalars['bigint']>;
 };
 
 /** order by sum() on columns of table "transaction" */
@@ -8759,6 +9357,7 @@ export type Transaction_Sum_Order_By = {
   gas_used?: Maybe<Order_By>;
   gas_wanted?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -8767,6 +9366,7 @@ export type Transaction_Var_Pop_Fields = {
   gas_used?: Maybe<Scalars['Float']>;
   gas_wanted?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_pop() on columns of table "transaction" */
@@ -8774,6 +9374,7 @@ export type Transaction_Var_Pop_Order_By = {
   gas_used?: Maybe<Order_By>;
   gas_wanted?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate var_samp on columns */
@@ -8782,6 +9383,7 @@ export type Transaction_Var_Samp_Fields = {
   gas_used?: Maybe<Scalars['Float']>;
   gas_wanted?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_samp() on columns of table "transaction" */
@@ -8789,6 +9391,7 @@ export type Transaction_Var_Samp_Order_By = {
   gas_used?: Maybe<Order_By>;
   gas_wanted?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** aggregate variance on columns */
@@ -8797,6 +9400,7 @@ export type Transaction_Variance_Fields = {
   gas_used?: Maybe<Scalars['Float']>;
   gas_wanted?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by variance() on columns of table "transaction" */
@@ -8804,6 +9408,7 @@ export type Transaction_Variance_Order_By = {
   gas_used?: Maybe<Order_By>;
   gas_wanted?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
+  partition_id?: Maybe<Order_By>;
 };
 
 /** columns and relationships of "validator" */
@@ -8823,10 +9428,8 @@ export type Validator = {
   pre_commits: Array<Pre_Commit>;
   /** An aggregate relationship */
   pre_commits_aggregate: Pre_Commit_Aggregate;
-  /** An array relationship */
-  proposal_validator_status_snapshots: Array<Proposal_Validator_Status_Snapshot>;
-  /** An aggregate relationship */
-  proposal_validator_status_snapshots_aggregate: Proposal_Validator_Status_Snapshot_Aggregate;
+  /** An object relationship */
+  proposal_validator_status_snapshot?: Maybe<Proposal_Validator_Status_Snapshot>;
   /** An array relationship */
   validator_commissions: Array<Validator_Commission>;
   /** An aggregate relationship */
@@ -8913,26 +9516,6 @@ export type ValidatorPre_Commits_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pre_Commit_Order_By>>;
   where?: Maybe<Pre_Commit_Bool_Exp>;
-};
-
-
-/** columns and relationships of "validator" */
-export type ValidatorProposal_Validator_Status_SnapshotsArgs = {
-  distinct_on?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Proposal_Validator_Status_Snapshot_Order_By>>;
-  where?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
-};
-
-
-/** columns and relationships of "validator" */
-export type ValidatorProposal_Validator_Status_Snapshots_AggregateArgs = {
-  distinct_on?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Proposal_Validator_Status_Snapshot_Order_By>>;
-  where?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
 };
 
 
@@ -9087,7 +9670,7 @@ export type Validator_Bool_Exp = {
   consensus_pubkey?: Maybe<String_Comparison_Exp>;
   double_sign_votes?: Maybe<Double_Sign_Vote_Bool_Exp>;
   pre_commits?: Maybe<Pre_Commit_Bool_Exp>;
-  proposal_validator_status_snapshots?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
+  proposal_validator_status_snapshot?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
   validator_commissions?: Maybe<Validator_Commission_Bool_Exp>;
   validator_descriptions?: Maybe<Validator_Description_Bool_Exp>;
   validator_info?: Maybe<Validator_Info_Bool_Exp>;
@@ -9728,7 +10311,7 @@ export type Validator_Order_By = {
   consensus_pubkey?: Maybe<Order_By>;
   double_sign_votes_aggregate?: Maybe<Double_Sign_Vote_Aggregate_Order_By>;
   pre_commits_aggregate?: Maybe<Pre_Commit_Aggregate_Order_By>;
-  proposal_validator_status_snapshots_aggregate?: Maybe<Proposal_Validator_Status_Snapshot_Aggregate_Order_By>;
+  proposal_validator_status_snapshot?: Maybe<Proposal_Validator_Status_Snapshot_Order_By>;
   validator_commissions_aggregate?: Maybe<Validator_Commission_Aggregate_Order_By>;
   validator_descriptions_aggregate?: Maybe<Validator_Description_Aggregate_Order_By>;
   validator_info?: Maybe<Validator_Info_Order_By>;
@@ -10255,8 +10838,6 @@ export type Validator_Status_Variance_Order_By = {
 /** columns and relationships of "validator_voting_power" */
 export type Validator_Voting_Power = {
   __typename?: 'validator_voting_power';
-  /** An object relationship */
-  block: Block;
   height: Scalars['bigint'];
   /** An object relationship */
   validator: Validator;
@@ -10327,7 +10908,6 @@ export type Validator_Voting_Power_Bool_Exp = {
   _and?: Maybe<Array<Validator_Voting_Power_Bool_Exp>>;
   _not?: Maybe<Validator_Voting_Power_Bool_Exp>;
   _or?: Maybe<Array<Validator_Voting_Power_Bool_Exp>>;
-  block?: Maybe<Block_Bool_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
   validator?: Maybe<Validator_Bool_Exp>;
   validator_address?: Maybe<String_Comparison_Exp>;
@@ -10366,7 +10946,6 @@ export type Validator_Voting_Power_Min_Order_By = {
 
 /** Ordering options when selecting data from "validator_voting_power". */
 export type Validator_Voting_Power_Order_By = {
-  block?: Maybe<Block_Order_By>;
   height?: Maybe<Order_By>;
   validator?: Maybe<Validator_Order_By>;
   validator_address?: Maybe<Order_By>;
@@ -10541,30 +11120,10 @@ export type Vesting_Account_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "vesting_account" */
-export type Vesting_Account_Aggregate_Order_By = {
-  avg?: Maybe<Vesting_Account_Avg_Order_By>;
-  count?: Maybe<Order_By>;
-  max?: Maybe<Vesting_Account_Max_Order_By>;
-  min?: Maybe<Vesting_Account_Min_Order_By>;
-  stddev?: Maybe<Vesting_Account_Stddev_Order_By>;
-  stddev_pop?: Maybe<Vesting_Account_Stddev_Pop_Order_By>;
-  stddev_samp?: Maybe<Vesting_Account_Stddev_Samp_Order_By>;
-  sum?: Maybe<Vesting_Account_Sum_Order_By>;
-  var_pop?: Maybe<Vesting_Account_Var_Pop_Order_By>;
-  var_samp?: Maybe<Vesting_Account_Var_Samp_Order_By>;
-  variance?: Maybe<Vesting_Account_Variance_Order_By>;
-};
-
 /** aggregate avg on columns */
 export type Vesting_Account_Avg_Fields = {
   __typename?: 'vesting_account_avg_fields';
   id?: Maybe<Scalars['Float']>;
-};
-
-/** order by avg() on columns of table "vesting_account" */
-export type Vesting_Account_Avg_Order_By = {
-  id?: Maybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "vesting_account". All fields are combined with a logical 'AND'. */
@@ -10592,15 +11151,6 @@ export type Vesting_Account_Max_Fields = {
   type?: Maybe<Scalars['String']>;
 };
 
-/** order by max() on columns of table "vesting_account" */
-export type Vesting_Account_Max_Order_By = {
-  address?: Maybe<Order_By>;
-  end_time?: Maybe<Order_By>;
-  id?: Maybe<Order_By>;
-  start_time?: Maybe<Order_By>;
-  type?: Maybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Vesting_Account_Min_Fields = {
   __typename?: 'vesting_account_min_fields';
@@ -10609,15 +11159,6 @@ export type Vesting_Account_Min_Fields = {
   id?: Maybe<Scalars['Int']>;
   start_time?: Maybe<Scalars['timestamp']>;
   type?: Maybe<Scalars['String']>;
-};
-
-/** order by min() on columns of table "vesting_account" */
-export type Vesting_Account_Min_Order_By = {
-  address?: Maybe<Order_By>;
-  end_time?: Maybe<Order_By>;
-  id?: Maybe<Order_By>;
-  start_time?: Maybe<Order_By>;
-  type?: Maybe<Order_By>;
 };
 
 /** Ordering options when selecting data from "vesting_account". */
@@ -10654,20 +11195,10 @@ export type Vesting_Account_Stddev_Fields = {
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "vesting_account" */
-export type Vesting_Account_Stddev_Order_By = {
-  id?: Maybe<Order_By>;
-};
-
 /** aggregate stddev_pop on columns */
 export type Vesting_Account_Stddev_Pop_Fields = {
   __typename?: 'vesting_account_stddev_pop_fields';
   id?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "vesting_account" */
-export type Vesting_Account_Stddev_Pop_Order_By = {
-  id?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -10676,20 +11207,10 @@ export type Vesting_Account_Stddev_Samp_Fields = {
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "vesting_account" */
-export type Vesting_Account_Stddev_Samp_Order_By = {
-  id?: Maybe<Order_By>;
-};
-
 /** aggregate sum on columns */
 export type Vesting_Account_Sum_Fields = {
   __typename?: 'vesting_account_sum_fields';
   id?: Maybe<Scalars['Int']>;
-};
-
-/** order by sum() on columns of table "vesting_account" */
-export type Vesting_Account_Sum_Order_By = {
-  id?: Maybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -10698,31 +11219,16 @@ export type Vesting_Account_Var_Pop_Fields = {
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "vesting_account" */
-export type Vesting_Account_Var_Pop_Order_By = {
-  id?: Maybe<Order_By>;
-};
-
 /** aggregate var_samp on columns */
 export type Vesting_Account_Var_Samp_Fields = {
   __typename?: 'vesting_account_var_samp_fields';
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "vesting_account" */
-export type Vesting_Account_Var_Samp_Order_By = {
-  id?: Maybe<Order_By>;
-};
-
 /** aggregate variance on columns */
 export type Vesting_Account_Variance_Fields = {
   __typename?: 'vesting_account_variance_fields';
   id?: Maybe<Scalars['Float']>;
-};
-
-/** order by variance() on columns of table "vesting_account" */
-export type Vesting_Account_Variance_Order_By = {
-  id?: Maybe<Order_By>;
 };
 
 /** columns and relationships of "vesting_period" */
@@ -11237,46 +11743,38 @@ export type GetMessagesByAddressQueryVariables = Exact<{
 
 export type GetMessagesByAddressQuery = { messagesByAddress: Array<(
     { __typename?: 'message' }
-    & { transaction: (
+    & { transaction?: Maybe<(
       { __typename?: 'transaction' }
       & Pick<Transaction, 'height' | 'hash' | 'success' | 'messages' | 'logs'>
       & { block: (
         { __typename?: 'block' }
         & Pick<Block, 'height' | 'timestamp'>
       ) }
-    ) }
+    )> }
   )> };
 
-export type OnlineVotingPowerListenerSubscriptionVariables = Exact<{ [key: string]: never; }>;
+export type OnlineVotingPowerQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type OnlineVotingPowerListenerSubscription = { block: Array<(
-    { __typename?: 'block' }
-    & Pick<Block, 'height'>
-    & { validatorVotingPowersAggregate: (
-      { __typename?: 'validator_voting_power_aggregate' }
-      & { aggregate?: Maybe<(
-        { __typename?: 'validator_voting_power_aggregate_fields' }
-        & { sum?: Maybe<(
-          { __typename?: 'validator_voting_power_sum_fields' }
-          & { votingPower: Validator_Voting_Power_Sum_Fields['voting_power'] }
-        )> }
+export type OnlineVotingPowerQuery = { activeTotal: (
+    { __typename?: 'validator_status_aggregate' }
+    & { aggregate?: Maybe<(
+      { __typename?: 'validator_status_aggregate_fields' }
+      & Pick<Validator_Status_Aggregate_Fields, 'count'>
+    )> }
+  ), validatorVotingPowerAggregate: (
+    { __typename?: 'validator_voting_power_aggregate' }
+    & { aggregate?: Maybe<(
+      { __typename?: 'validator_voting_power_aggregate_fields' }
+      & { sum?: Maybe<(
+        { __typename?: 'validator_voting_power_sum_fields' }
+        & { votingPower: Validator_Voting_Power_Sum_Fields['voting_power'] }
       )> }
-    ) }
-  )> };
-
-export type TotalVotingPowerListenerSubscriptionVariables = Exact<{ [key: string]: never; }>;
-
-
-export type TotalVotingPowerListenerSubscription = { stakingPool: Array<(
+    )> }
+  ), stakingPool: Array<(
     { __typename?: 'staking_pool' }
     & { bonded: Staking_Pool['bonded_tokens'] }
-  )> };
-
-export type StakingParamsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type StakingParamsQuery = { stakingParams: Array<(
+  )>, stakingParams: Array<(
     { __typename?: 'staking_params' }
     & Pick<Staking_Params, 'params'>
   )> };
@@ -11309,33 +11807,49 @@ export type ProposalDetailsQueryVariables = Exact<{
 export type ProposalDetailsQuery = { proposal: Array<(
     { __typename?: 'proposal' }
     & Pick<Proposal, 'title' | 'description' | 'status' | 'content'>
-    & { proposalId: Proposal['id'], submitTime: Proposal['submit_time'], depositEndTime: Proposal['deposit_end_time'], votingStartTime: Proposal['voting_start_time'], votingEndTime: Proposal['voting_end_time'] }
-    & { proposalDeposits: Array<(
-      { __typename?: 'proposal_deposit' }
-      & Pick<Proposal_Deposit, 'amount'>
-      & { depositorAddress: Proposal_Deposit['depositor_address'] }
-    )> }
-  )>, proposalVote: Array<(
-    { __typename?: 'proposal_vote' }
-    & Pick<Proposal_Vote, 'option'>
-    & { voterAddress: Proposal_Vote['voter_address'] }
-  )>, proposalTallyResult: Array<(
+    & { proposer: Proposal['proposer_address'], proposalId: Proposal['id'], submitTime: Proposal['submit_time'], depositEndTime: Proposal['deposit_end_time'], votingStartTime: Proposal['voting_start_time'], votingEndTime: Proposal['voting_end_time'] }
+  )> };
+
+export type ProposalDetailsTallyQueryVariables = Exact<{
+  proposalId?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type ProposalDetailsTallyQuery = { proposalTallyResult: Array<(
     { __typename?: 'proposal_tally_result' }
     & Pick<Proposal_Tally_Result, 'yes' | 'no' | 'abstain'>
     & { noWithVeto: Proposal_Tally_Result['no_with_veto'] }
-  )>, govParams: Array<(
-    { __typename?: 'gov_params' }
-    & { tallyParams: Gov_Params['tally_params'] }
-  )>, stakingParams: Array<(
-    { __typename?: 'staking_params' }
-    & Pick<Staking_Params, 'params'>
   )>, stakingPool: Array<(
     { __typename?: 'proposal_staking_pool_snapshot' }
     & { bondedTokens: Proposal_Staking_Pool_Snapshot['bonded_tokens'] }
+  )> };
+
+export type ProposalDetailsDepositsQueryVariables = Exact<{
+  proposalId?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type ProposalDetailsDepositsQuery = { proposalDeposit: Array<(
+    { __typename?: 'proposal_deposit' }
+    & Pick<Proposal_Deposit, 'amount'>
+    & { depositorAddress: Proposal_Deposit['depositor_address'] }
+    & { block?: Maybe<(
+      { __typename?: 'block' }
+      & Pick<Block, 'timestamp'>
+    )> }
+  )> };
+
+export type ProposalDetailsVotesQueryVariables = Exact<{
+  proposalId?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type ProposalDetailsVotesQuery = { proposalVote: Array<(
+    { __typename?: 'proposal_vote' }
+    & Pick<Proposal_Vote, 'option'>
+    & { voterAddress: Proposal_Vote['voter_address'] }
   )>, validatorStatuses: Array<(
     { __typename?: 'proposal_validator_status_snapshot' }
-    & Pick<Proposal_Validator_Status_Snapshot, 'status'>
-    & { validatorAddress: Proposal_Validator_Status_Snapshot['validator_address'], votingPower: Proposal_Validator_Status_Snapshot['voting_power'] }
     & { validator: (
       { __typename?: 'validator' }
       & { validatorInfo?: Maybe<(
@@ -12380,73 +12894,25 @@ export function useGetMessagesByAddressLazyQuery(baseOptions?: Apollo.LazyQueryH
 export type GetMessagesByAddressQueryHookResult = ReturnType<typeof useGetMessagesByAddressQuery>;
 export type GetMessagesByAddressLazyQueryHookResult = ReturnType<typeof useGetMessagesByAddressLazyQuery>;
 export type GetMessagesByAddressQueryResult = Apollo.QueryResult<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>;
-export const OnlineVotingPowerListenerDocument = gql`
-    subscription OnlineVotingPowerListener {
-  block(offset: 0, limit: 1, order_by: {height: desc}) {
-    height
-    validatorVotingPowersAggregate: validator_voting_powers_aggregate {
-      aggregate {
-        sum {
-          votingPower: voting_power
-        }
+export const OnlineVotingPowerDocument = gql`
+    query OnlineVotingPower {
+  activeTotal: validator_status_aggregate(where: {status: {_eq: 3}}) {
+    aggregate {
+      count
+    }
+  }
+  validatorVotingPowerAggregate: validator_voting_power_aggregate(
+    where: {validator: {validator_statuses: {status: {_eq: 3}}}}
+  ) {
+    aggregate {
+      sum {
+        votingPower: voting_power
       }
     }
   }
-}
-    `;
-
-/**
- * __useOnlineVotingPowerListenerSubscription__
- *
- * To run a query within a React component, call `useOnlineVotingPowerListenerSubscription` and pass it any options that fit your needs.
- * When your component renders, `useOnlineVotingPowerListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useOnlineVotingPowerListenerSubscription({
- *   variables: {
- *   },
- * });
- */
-export function useOnlineVotingPowerListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<OnlineVotingPowerListenerSubscription, OnlineVotingPowerListenerSubscriptionVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useSubscription<OnlineVotingPowerListenerSubscription, OnlineVotingPowerListenerSubscriptionVariables>(OnlineVotingPowerListenerDocument, options);
-      }
-export type OnlineVotingPowerListenerSubscriptionHookResult = ReturnType<typeof useOnlineVotingPowerListenerSubscription>;
-export type OnlineVotingPowerListenerSubscriptionResult = Apollo.SubscriptionResult<OnlineVotingPowerListenerSubscription>;
-export const TotalVotingPowerListenerDocument = gql`
-    subscription TotalVotingPowerListener {
   stakingPool: staking_pool(order_by: {height: desc}, limit: 1) {
     bonded: bonded_tokens
   }
-}
-    `;
-
-/**
- * __useTotalVotingPowerListenerSubscription__
- *
- * To run a query within a React component, call `useTotalVotingPowerListenerSubscription` and pass it any options that fit your needs.
- * When your component renders, `useTotalVotingPowerListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useTotalVotingPowerListenerSubscription({
- *   variables: {
- *   },
- * });
- */
-export function useTotalVotingPowerListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<TotalVotingPowerListenerSubscription, TotalVotingPowerListenerSubscriptionVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useSubscription<TotalVotingPowerListenerSubscription, TotalVotingPowerListenerSubscriptionVariables>(TotalVotingPowerListenerDocument, options);
-      }
-export type TotalVotingPowerListenerSubscriptionHookResult = ReturnType<typeof useTotalVotingPowerListenerSubscription>;
-export type TotalVotingPowerListenerSubscriptionResult = Apollo.SubscriptionResult<TotalVotingPowerListenerSubscription>;
-export const StakingParamsDocument = gql`
-    query StakingParams {
   stakingParams: staking_params(limit: 1) {
     params
   }
@@ -12454,31 +12920,31 @@ export const StakingParamsDocument = gql`
     `;
 
 /**
- * __useStakingParamsQuery__
+ * __useOnlineVotingPowerQuery__
  *
- * To run a query within a React component, call `useStakingParamsQuery` and pass it any options that fit your needs.
- * When your component renders, `useStakingParamsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useOnlineVotingPowerQuery` and pass it any options that fit your needs.
+ * When your component renders, `useOnlineVotingPowerQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useStakingParamsQuery({
+ * const { data, loading, error } = useOnlineVotingPowerQuery({
  *   variables: {
  *   },
  * });
  */
-export function useStakingParamsQuery(baseOptions?: Apollo.QueryHookOptions<StakingParamsQuery, StakingParamsQueryVariables>) {
+export function useOnlineVotingPowerQuery(baseOptions?: Apollo.QueryHookOptions<OnlineVotingPowerQuery, OnlineVotingPowerQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<StakingParamsQuery, StakingParamsQueryVariables>(StakingParamsDocument, options);
+        return Apollo.useQuery<OnlineVotingPowerQuery, OnlineVotingPowerQueryVariables>(OnlineVotingPowerDocument, options);
       }
-export function useStakingParamsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<StakingParamsQuery, StakingParamsQueryVariables>) {
+export function useOnlineVotingPowerLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<OnlineVotingPowerQuery, OnlineVotingPowerQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<StakingParamsQuery, StakingParamsQueryVariables>(StakingParamsDocument, options);
+          return Apollo.useLazyQuery<OnlineVotingPowerQuery, OnlineVotingPowerQueryVariables>(OnlineVotingPowerDocument, options);
         }
-export type StakingParamsQueryHookResult = ReturnType<typeof useStakingParamsQuery>;
-export type StakingParamsLazyQueryHookResult = ReturnType<typeof useStakingParamsLazyQuery>;
-export type StakingParamsQueryResult = Apollo.QueryResult<StakingParamsQuery, StakingParamsQueryVariables>;
+export type OnlineVotingPowerQueryHookResult = ReturnType<typeof useOnlineVotingPowerQuery>;
+export type OnlineVotingPowerLazyQueryHookResult = ReturnType<typeof useOnlineVotingPowerLazyQuery>;
+export type OnlineVotingPowerQueryResult = Apollo.QueryResult<OnlineVotingPowerQuery, OnlineVotingPowerQueryVariables>;
 export const ParamsDocument = gql`
     query Params {
   stakingParams: staking_params(limit: 1, order_by: {height: desc}) {
@@ -12530,6 +12996,7 @@ export type ParamsQueryResult = Apollo.QueryResult<ParamsQuery, ParamsQueryVaria
 export const ProposalDetailsDocument = gql`
     query ProposalDetails($proposalId: Int) {
   proposal(where: {id: {_eq: $proposalId}}) {
+    proposer: proposer_address
     title
     description
     status
@@ -12539,45 +13006,6 @@ export const ProposalDetailsDocument = gql`
     depositEndTime: deposit_end_time
     votingStartTime: voting_start_time
     votingEndTime: voting_end_time
-    proposalDeposits: proposal_deposits {
-      amount
-      depositorAddress: depositor_address
-    }
-  }
-  proposalVote: proposal_vote(where: {proposal_id: {_eq: $proposalId}}) {
-    option
-    voterAddress: voter_address
-  }
-  proposalTallyResult: proposal_tally_result(
-    where: {proposal_id: {_eq: $proposalId}}
-  ) {
-    yes
-    no
-    noWithVeto: no_with_veto
-    abstain
-  }
-  govParams: gov_params {
-    tallyParams: tally_params
-  }
-  stakingParams: staking_params(limit: 1) {
-    params
-  }
-  stakingPool: proposal_staking_pool_snapshot(
-    where: {proposal_id: {_eq: $proposalId}}
-  ) {
-    bondedTokens: bonded_tokens
-  }
-  validatorStatuses: proposal_validator_status_snapshot(
-    where: {proposal_id: {_eq: $proposalId}, status: {_eq: 3}}
-  ) {
-    validatorAddress: validator_address
-    status
-    votingPower: voting_power
-    validator {
-      validatorInfo: validator_info {
-        selfDelegateAddress: self_delegate_address
-      }
-    }
   }
 }
     `;
@@ -12609,6 +13037,141 @@ export function useProposalDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOp
 export type ProposalDetailsQueryHookResult = ReturnType<typeof useProposalDetailsQuery>;
 export type ProposalDetailsLazyQueryHookResult = ReturnType<typeof useProposalDetailsLazyQuery>;
 export type ProposalDetailsQueryResult = Apollo.QueryResult<ProposalDetailsQuery, ProposalDetailsQueryVariables>;
+export const ProposalDetailsTallyDocument = gql`
+    query ProposalDetailsTally($proposalId: Int) {
+  proposalTallyResult: proposal_tally_result(
+    where: {proposal_id: {_eq: $proposalId}}
+  ) {
+    yes
+    no
+    noWithVeto: no_with_veto
+    abstain
+  }
+  stakingPool: proposal_staking_pool_snapshot(
+    where: {proposal_id: {_eq: $proposalId}}
+  ) {
+    bondedTokens: bonded_tokens
+  }
+}
+    `;
+
+/**
+ * __useProposalDetailsTallyQuery__
+ *
+ * To run a query within a React component, call `useProposalDetailsTallyQuery` and pass it any options that fit your needs.
+ * When your component renders, `useProposalDetailsTallyQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useProposalDetailsTallyQuery({
+ *   variables: {
+ *      proposalId: // value for 'proposalId'
+ *   },
+ * });
+ */
+export function useProposalDetailsTallyQuery(baseOptions?: Apollo.QueryHookOptions<ProposalDetailsTallyQuery, ProposalDetailsTallyQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ProposalDetailsTallyQuery, ProposalDetailsTallyQueryVariables>(ProposalDetailsTallyDocument, options);
+      }
+export function useProposalDetailsTallyLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProposalDetailsTallyQuery, ProposalDetailsTallyQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ProposalDetailsTallyQuery, ProposalDetailsTallyQueryVariables>(ProposalDetailsTallyDocument, options);
+        }
+export type ProposalDetailsTallyQueryHookResult = ReturnType<typeof useProposalDetailsTallyQuery>;
+export type ProposalDetailsTallyLazyQueryHookResult = ReturnType<typeof useProposalDetailsTallyLazyQuery>;
+export type ProposalDetailsTallyQueryResult = Apollo.QueryResult<ProposalDetailsTallyQuery, ProposalDetailsTallyQueryVariables>;
+export const ProposalDetailsDepositsDocument = gql`
+    query ProposalDetailsDeposits($proposalId: Int) {
+  proposalDeposit: proposal_deposit(
+    where: {proposal_id: {_eq: $proposalId}}
+    order_by: {height: desc}
+  ) {
+    amount
+    depositorAddress: depositor_address
+    block {
+      timestamp
+    }
+  }
+}
+    `;
+
+/**
+ * __useProposalDetailsDepositsQuery__
+ *
+ * To run a query within a React component, call `useProposalDetailsDepositsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useProposalDetailsDepositsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useProposalDetailsDepositsQuery({
+ *   variables: {
+ *      proposalId: // value for 'proposalId'
+ *   },
+ * });
+ */
+export function useProposalDetailsDepositsQuery(baseOptions?: Apollo.QueryHookOptions<ProposalDetailsDepositsQuery, ProposalDetailsDepositsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ProposalDetailsDepositsQuery, ProposalDetailsDepositsQueryVariables>(ProposalDetailsDepositsDocument, options);
+      }
+export function useProposalDetailsDepositsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProposalDetailsDepositsQuery, ProposalDetailsDepositsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ProposalDetailsDepositsQuery, ProposalDetailsDepositsQueryVariables>(ProposalDetailsDepositsDocument, options);
+        }
+export type ProposalDetailsDepositsQueryHookResult = ReturnType<typeof useProposalDetailsDepositsQuery>;
+export type ProposalDetailsDepositsLazyQueryHookResult = ReturnType<typeof useProposalDetailsDepositsLazyQuery>;
+export type ProposalDetailsDepositsQueryResult = Apollo.QueryResult<ProposalDetailsDepositsQuery, ProposalDetailsDepositsQueryVariables>;
+export const ProposalDetailsVotesDocument = gql`
+    query ProposalDetailsVotes($proposalId: Int) {
+  proposalVote: proposal_vote(
+    where: {proposal_id: {_eq: $proposalId}}
+    order_by: {height: desc}
+  ) {
+    option
+    voterAddress: voter_address
+  }
+  validatorStatuses: proposal_validator_status_snapshot(
+    where: {proposal_id: {_eq: $proposalId}, status: {_eq: 3}}
+  ) {
+    validator {
+      validatorInfo: validator_info {
+        selfDelegateAddress: self_delegate_address
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useProposalDetailsVotesQuery__
+ *
+ * To run a query within a React component, call `useProposalDetailsVotesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useProposalDetailsVotesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useProposalDetailsVotesQuery({
+ *   variables: {
+ *      proposalId: // value for 'proposalId'
+ *   },
+ * });
+ */
+export function useProposalDetailsVotesQuery(baseOptions?: Apollo.QueryHookOptions<ProposalDetailsVotesQuery, ProposalDetailsVotesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ProposalDetailsVotesQuery, ProposalDetailsVotesQueryVariables>(ProposalDetailsVotesDocument, options);
+      }
+export function useProposalDetailsVotesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProposalDetailsVotesQuery, ProposalDetailsVotesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ProposalDetailsVotesQuery, ProposalDetailsVotesQueryVariables>(ProposalDetailsVotesDocument, options);
+        }
+export type ProposalDetailsVotesQueryHookResult = ReturnType<typeof useProposalDetailsVotesQuery>;
+export type ProposalDetailsVotesLazyQueryHookResult = ReturnType<typeof useProposalDetailsVotesLazyQuery>;
+export type ProposalDetailsVotesQueryResult = Apollo.QueryResult<ProposalDetailsVotesQuery, ProposalDetailsVotesQueryVariables>;
 export const ProposalsDocument = gql`
     query Proposals($limit: Int = 7, $offset: Int = 0) {
   proposals: proposal(limit: $limit, offset: $offset, order_by: {id: desc}) {

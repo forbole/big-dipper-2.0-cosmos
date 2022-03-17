@@ -26,7 +26,6 @@ export const useStyles = () => {
             gridTemplateColumns: 'repeat(2, 1fr)',
           },
           [theme.breakpoints.up('lg')]: {
-            gridTemplateColumns: 'repeat(2, 1fr)',
             flex: 1,
             marginLeft: theme.spacing(4),
           },
@@ -52,12 +51,12 @@ export const useStyles = () => {
           },
           '&.yes': {
             '&::before': {
-              background: theme.palette.custom.charts.one,
+              background: theme.palette.custom.charts.four,
             },
           },
           '&.no': {
             '&::before': {
-              background: theme.palette.custom.charts.two,
+              background: theme.palette.custom.charts.one,
             },
           },
           '&.veto': {
@@ -67,7 +66,7 @@ export const useStyles = () => {
           },
           '&.abstain': {
             '&::before': {
-              background: theme.palette.custom.charts.four,
+              background: theme.palette.custom.charts.two,
             },
           },
         },

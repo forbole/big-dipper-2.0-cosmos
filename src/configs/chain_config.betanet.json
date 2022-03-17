@@ -121,6 +121,10 @@
       "display": "cream",
       "exponent": 18
     },
+    "clgcy": {
+      "display": "lgcy",
+      "exponent": 18
+    },
     "csand": {
       "display": "sand",
       "exponent": 18
