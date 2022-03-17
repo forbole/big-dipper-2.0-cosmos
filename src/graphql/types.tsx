@@ -12901,7 +12901,9 @@ export const OnlineVotingPowerDocument = gql`
       count
     }
   }
-  validatorVotingPowerAggregate: validator_voting_power_aggregate {
+  validatorVotingPowerAggregate: validator_voting_power_aggregate(
+    where: {validator: {validator_statuses: {status: {_eq: 3}}}}
+  ) {
     aggregate {
       sum {
         votingPower: voting_power
