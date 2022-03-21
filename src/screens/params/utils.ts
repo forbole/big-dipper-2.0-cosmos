@@ -18,7 +18,7 @@ export const formatStaking = (data: Staking, t: any) => {
     },
     {
       label: t('unbondingTime'),
-      detail: data.unbondingTime > 1000 * 60 * 60 * 24
+      detail: data.unbondingTime > 1000000000 * 60 * 60 * 24 // nanoseconds of one day
         ? t('days', {
           day: secondsToDays(nanoToSeconds(data.unbondingTime)),
         })
