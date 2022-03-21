@@ -126,9 +126,13 @@ export const formatGov = (data: Gov, t: any) => {
     },
     {
       label: t('maxDepositPeriod'),
-      detail: t('days', {
-        day: secondsToDays(nanoToSeconds(data.maxDepositPeriod)),
-      }),
+      detail: data.maxDepositPeriod > 1000000000 * 60 * 60 * 24 // nanoseconds of one day
+        ? t('days', {
+          day: secondsToDays(nanoToSeconds(data.maxDepositPeriod)),
+        })
+        : t('seconds', {
+          second: secondsToDays(nanoToSeconds(data.maxDepositPeriod)),
+        }),
     },
     {
       label: t('quorum'),
@@ -144,9 +148,13 @@ export const formatGov = (data: Gov, t: any) => {
     },
     {
       label: t('votingPeriod'),
-      detail: t('days', {
-        day: secondsToDays(nanoToSeconds(data.votingPeriod)),
-      }),
+      detail: data.votingPeriod > 1000000000 * 60 * 60 * 24 // nanoseconds of one day
+        ? t('days', {
+          day: secondsToDays(nanoToSeconds(data.votingPeriod)),
+        })
+        : t('seconds', {
+          second: secondsToDays(nanoToSeconds(data.votingPeriod)),
+        }),
     },
   ]);
 };
