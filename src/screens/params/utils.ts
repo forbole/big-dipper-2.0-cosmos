@@ -18,9 +18,13 @@ export const formatStaking = (data: Staking, t: any) => {
     },
     {
       label: t('unbondingTime'),
-      detail: t('days', {
-        day: secondsToDays(nanoToSeconds(data.unbondingTime)),
-      }),
+      detail: data.unbondingTime > 1000 * 60 * 60 * 24
+        ? t('days', {
+          day: secondsToDays(nanoToSeconds(data.unbondingTime)),
+        })
+        : t('seconds', {
+          second: secondsToDays(nanoToSeconds(data.unbondingTime)),
+        }),
     },
     {
       label: t('maxEntries'),
