@@ -13,8 +13,5 @@ export const nanoToSeconds = (nano: number) => {
  * @returns days
  */
 export const secondsToDays = (seconds: number) => {
-  if ((seconds / (3600 * 24)) < 1) {
-    return seconds;
-  }
   return seconds / (3600 * 24);
 };
