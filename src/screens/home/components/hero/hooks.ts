@@ -23,17 +23,18 @@ export const useHero = () => {
       denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
     },
     onCompleted: (data) => {
+      const newState: any = {
+        loading: false,
+      };
       if (data.tokenPrice.length === 10) {
-        handleSetState({
-          loading: false,
-          tokenPriceHistory: data.tokenPrice.reverse().map((x) => {
-            return ({
-              time: x.timestamp,
-              value: x.price,
-            });
-          }),
+        newState.tokenPriceHistory = data.tokenPrice.reverse().map((x) => {
+          return ({
+            time: x.timestamp,
+            value: x.price,
+          });
         });
       }
+      handleSetState(newState);
     },
     onError: (() => {
       handleSetState({
