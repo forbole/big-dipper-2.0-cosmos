@@ -5,7 +5,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { useStyles } from './styles';
 import { useOnlineVotingPower } from './hooks';
 
-const OnlineVotingPower: React.FC<ComponentDefault> = (props) => {
+const OnlineVotingPower: React.FC<ComponentDefault> = () => {
   const { t } = useTranslation('home');
   const { state } = useOnlineVotingPower();
 
@@ -15,7 +15,6 @@ const OnlineVotingPower: React.FC<ComponentDefault> = (props) => {
   const classes = useStyles(votingPowerPercent.format(0));
 
   return (
-    // <Box className={classnames(className, classes.root)}>
     <div className={classes.root}>
       <Typography variant="h2">
         {t('onlineVotingPower')}
@@ -70,7 +69,6 @@ const OnlineVotingPower: React.FC<ComponentDefault> = (props) => {
         </div>
       </div>
     </div>
-  // </Box>
   );
 };
 
