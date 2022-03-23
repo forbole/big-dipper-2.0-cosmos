@@ -1,14 +1,20 @@
-import { useState } from 'react';
+import {
+  useState, useEffect,
+} from 'react';
 import * as R from 'ramda';
+import Big from 'big.js';
 import { useRouter } from 'next/router';
 import {
-  useAccountDelegationsQuery,
-  AccountDelegationsQuery,
+  // useAccountDelegationsQuery,
+  // ActionDelegationResponse,
+  // AccountDelegationsQuery,
   useAccountUndelegationsQuery,
   AccountUndelegationsQuery,
   useAccountRedelegationsQuery,
   AccountRedelegationsQuery,
 } from '@graphql/types';
+import axios from 'axios';
+import { AccountDelegationsDocument } from '@graphql/account_actions';
 import { formatToken } from '@utils/format_token';
 import { getDenom } from '@utils/get_denom';
 import { chainConfig } from '@configs';
@@ -22,6 +28,8 @@ const stakingDefault = {
 };
 
 const LIMIT = 10;
+const PAGE_LIMIT = 10;
+const TEST_LIMIT = 10;
 
 export const useStaking = (rewards: RewardsType) => {
   const router = useRouter();
@@ -46,35 +54,101 @@ export const useStaking = (rewards: RewardsType) => {
   // =====================================
   // delegations
   // =====================================
-  const delegationsQuery = useAccountDelegationsQuery({
-    variables: {
-      address: R.pathOr('', ['query', 'address'], router),
-      limit: LIMIT,
-    },
-    onCompleted: (data) => {
-      const formattedData = formatDelegations(data);
-      handleSetState({
-        delegations: {
-          loading: false,
-          count: R.pathOr(0, ['delegations', 'pagination', 'total'], data),
-          data: {
-            0: formattedData,
-          },
-        },
-      });
-    },
-    onError: () => {
-      handleSetState({
-        delegations: {
-          loading: false,
-        },
-      });
-    },
-  });
+  // const delegationsQuery = useAccountDelegationsQuery({
+  //   variables: {
+  //     address: R.pathOr('', ['query', 'address'], router),
+  //     limit: TEST_LIMIT,
+  //   },
+  //   onCompleted: (data) => {
+  //     const formattedData = formatDelegations(data);
+  // const pages = {};
+  // formattedData.forEach((x, i) => {
+  //   const selectedKey = Math.floor(i / PAGE_LIMIT);
+  //   pages[selectedKey] = pages[selectedKey] || [];
+  //   pages[selectedKey].push(x);
+  // });
+  //     handleSetState({
+  //       delegations: {
+  //         loading: false,
+  //         count: R.pathOr(0, ['delegations', 'pagination', 'total'], data),
+  //         data: pages,
+  //       },
+  //     });
+  //   },
+  //   onError: () => {
+  //     handleSetState({
+  //       delegations: {
+  //         loading: false,
+  //       },
+  //     });
+  //   },
+  // });
 
-  const formatDelegations = (data: AccountDelegationsQuery) => {
-    const delegations = R.pathOr([], ['delegations', 'delegations'], data);
-    return delegations
+  useEffect(() => {
+    getAllDelegations();
+  }, [router.query.address]);
+
+  const getAllDelegations = async () => {
+    try {
+      const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
+        variables: {
+          address: R.pathOr('', ['query', 'address'], router),
+          limit: TEST_LIMIT,
+        },
+        query: AccountDelegationsDocument,
+      });
+      const count = R.pathOr(0, ['data', 'delegations', 'pagination', 'total'], data);
+      const allDelegations = R.pathOr([], ['data', 'delegations', 'delegations'], data);
+      // if there are more than the default 100, grab the remaining delegations
+      if (count > TEST_LIMIT) {
+        const remainingFetchCount = Math.ceil(count / TEST_LIMIT) - 1;
+        const remainingDelegationsPromises = [];
+        for (let i = 0; i < remainingFetchCount; i += 1) {
+          remainingDelegationsPromises.push(getDelegationsByPage(i + 1));
+        }
+        const remainingDelegations = await Promise.allSettled(remainingDelegationsPromises);
+        remainingDelegations
+          .filter((x) => x.status === 'fulfilled')
+          .forEach((x) => {
+            const delegations = R.pathOr([], ['value', 'data', 'delegations', 'delegations'], x);
+            allDelegations.push(...delegations);
+          });
+      }
+
+      const formattedDelegations = formatDelegations(allDelegations);
+      const paginatedDelegations = createPagination(formattedDelegations);
+
+      handleSetState({
+        delegations: {
+          loading: false,
+          count,
+          data: paginatedDelegations,
+        },
+      });
+    } catch (error) {
+      handleSetState({
+        delegations: {
+          loading: false,
+        },
+      });
+    }
+  };
+
+  const getDelegationsByPage = async (page) => {
+    const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
+      variables: {
+        address: R.pathOr('', ['query', 'address'], router),
+        offset: page * TEST_LIMIT,
+        limit: TEST_LIMIT,
+        pagination: false,
+      },
+      query: AccountDelegationsDocument,
+    });
+    return data;
+  };
+
+  const formatDelegations = (data: any[]) => {
+    return data
       .map((x) => {
         const validator = R.pathOr('', ['validator_address'], x);
         const delegation = getDenom(x.coins, chainConfig.primaryTokenUnit);
@@ -83,34 +157,47 @@ export const useStaking = (rewards: RewardsType) => {
           amount: formatToken(delegation.amount, delegation.denom),
           reward: rewards[validator],
         });
+      })
+      .sort((a, b) => {
+        return Big(a.amount.value).gt(b.amount.value) ? -1 : 1;
       });
   };
 
-  const handleDelegationPageCallback = async (page: number, _rowsPerPage: number) => {
-    if (!state.delegations.data[page]) {
-      handleSetState({
-        delegations: {
-          loading: true,
-        },
-      });
-
-      await delegationsQuery.fetchMore({
-        variables: {
-          offset: page * LIMIT,
-          limit: LIMIT,
-        },
-      }).then(({ data }) => {
-        handleSetState({
-          delegations: {
-            loading: false,
-            data: {
-              [page]: formatDelegations(data),
-            },
-          },
-        });
-      });
-    }
+  const createPagination = (data: any[]) => {
+    const pages = {};
+    data.forEach((x, i) => {
+      const selectedKey = Math.floor(i / PAGE_LIMIT);
+      pages[selectedKey] = pages[selectedKey] || [];
+      pages[selectedKey].push(x);
+    });
+    return pages;
   };
+
+  // const handleDelegationPageCallback = async (page: number, _rowsPerPage: number) => {
+  //   if (!state.delegations.data[page]) {
+  //     handleSetState({
+  //       delegations: {
+  //         loading: true,
+  //       },
+  //     });
+
+  //     // await delegationsQuery.fetchMore({
+  //     //   variables: {
+  //     //     offset: page * LIMIT,
+  //     //     limit: LIMIT,
+  //     //   },
+  //     // }).then(({ data }) => {
+  //     //   handleSetState({
+  //     //     delegations: {
+  //     //       loading: false,
+  //     //       data: {
+  //     //         [page]: formatDelegations(data),
+  //     //       },
+  //     //     },
+  //     //   });
+  //     // });
+  //   }
+  // };
 
   // =====================================
   // redelegations
@@ -261,7 +348,7 @@ export const useStaking = (rewards: RewardsType) => {
   return {
     state,
     handleTabChange,
-    handleDelegationPageCallback,
+    // handleDelegationPageCallback,
     handleUnbondingPageCallback,
     handleRedelegationPageCallback,
   };

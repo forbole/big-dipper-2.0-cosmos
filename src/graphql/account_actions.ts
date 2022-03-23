@@ -48,8 +48,8 @@ query AccountDelegationRewards($address: String!) {
 `;
 
 export const AccountDelegationsDocument = /* GraphQL */`
-query AccountDelegations($address: String!, $offset: Int = 0, $limit: Int = 10) {
-  delegations: action_delegation(address: $address, limit: $limit, offset: $offset, count_total: true){
+query AccountDelegations($address: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
+  delegations: action_delegation(address: $address, limit: $limit, offset: $offset, count_total: $pagination){
     delegations
     pagination
   }
