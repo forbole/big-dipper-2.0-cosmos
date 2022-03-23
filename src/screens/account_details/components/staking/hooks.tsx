@@ -26,7 +26,7 @@ const stakingDefault = {
 
 const LIMIT = 10;
 const PAGE_LIMIT = 10;
-const TEST_LIMIT = 10;
+const TEST_LIMIT = 100;
 
 export const useStaking = (rewards: RewardsType) => {
   const router = useRouter();
