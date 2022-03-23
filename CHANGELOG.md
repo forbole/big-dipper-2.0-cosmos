@@ -1,3 +1,8 @@
+# base-v2.0.2 - 2021-03-23
+
+## Bug fixes
+- Fixed proposal details chart percentage display
+
 # base-v2.0.1 - 2021-03-17
 
 ## Bug fixes
