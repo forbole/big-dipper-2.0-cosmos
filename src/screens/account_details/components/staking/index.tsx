@@ -21,7 +21,6 @@ const Staking: React.FC<{rewards: RewardsType} & ComponentDefault> = (props) => 
     state,
     handleTabChange,
     handleUnbondingPageCallback,
-    handleRedelegationPageCallback,
   } = useStaking(props.rewards);
 
   const tabs = [
@@ -41,7 +40,6 @@ const Staking: React.FC<{rewards: RewardsType} & ComponentDefault> = (props) => 
       component: (
         <Redelgations
           redelegations={state.redelegations}
-          handlePageCallback={handleRedelegationPageCallback}
         />
       ),
       count: state.redelegations.count,
