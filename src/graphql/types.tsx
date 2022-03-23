@@ -19558,6 +19558,7 @@ export type AccountDelegationsQueryVariables = Exact<{
   address: Scalars['String'];
   offset?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
+  pagination?: Scalars['Boolean'];
 }>;
 
 
@@ -19570,6 +19571,7 @@ export type AccountRedelegationsQueryVariables = Exact<{
   address: Scalars['String'];
   offset?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
+  pagination?: Scalars['Boolean'];
 }>;
 
 
@@ -19582,6 +19584,7 @@ export type AccountUndelegationsQueryVariables = Exact<{
   address: Scalars['String'];
   offset?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
+  pagination?: Scalars['Boolean'];
 }>;
 
 
@@ -20361,12 +20364,12 @@ export type AccountDelegationRewardsQueryHookResult = ReturnType<typeof useAccou
 export type AccountDelegationRewardsLazyQueryHookResult = ReturnType<typeof useAccountDelegationRewardsLazyQuery>;
 export type AccountDelegationRewardsQueryResult = Apollo.QueryResult<AccountDelegationRewardsQuery, AccountDelegationRewardsQueryVariables>;
 export const AccountDelegationsDocument = gql`
-    query AccountDelegations($address: String!, $offset: Int = 0, $limit: Int = 10) {
+    query AccountDelegations($address: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
   delegations: action_delegation(
     address: $address
     limit: $limit
     offset: $offset
-    count_total: true
+    count_total: $pagination
   ) {
     delegations
     pagination
@@ -20389,6 +20392,7 @@ export const AccountDelegationsDocument = gql`
  *      address: // value for 'address'
  *      offset: // value for 'offset'
  *      limit: // value for 'limit'
+ *      pagination: // value for 'pagination'
  *   },
  * });
  */
@@ -20404,12 +20408,12 @@ export type AccountDelegationsQueryHookResult = ReturnType<typeof useAccountDele
 export type AccountDelegationsLazyQueryHookResult = ReturnType<typeof useAccountDelegationsLazyQuery>;
 export type AccountDelegationsQueryResult = Apollo.QueryResult<AccountDelegationsQuery, AccountDelegationsQueryVariables>;
 export const AccountRedelegationsDocument = gql`
-    query AccountRedelegations($address: String!, $offset: Int = 0, $limit: Int = 10) {
+    query AccountRedelegations($address: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
   redelegations: action_redelegation(
     address: $address
     limit: $limit
     offset: $offset
-    count_total: true
+    count_total: $pagination
   ) {
     redelegations
     pagination
@@ -20432,6 +20436,7 @@ export const AccountRedelegationsDocument = gql`
  *      address: // value for 'address'
  *      offset: // value for 'offset'
  *      limit: // value for 'limit'
+ *      pagination: // value for 'pagination'
  *   },
  * });
  */
@@ -20447,12 +20452,12 @@ export type AccountRedelegationsQueryHookResult = ReturnType<typeof useAccountRe
 export type AccountRedelegationsLazyQueryHookResult = ReturnType<typeof useAccountRedelegationsLazyQuery>;
 export type AccountRedelegationsQueryResult = Apollo.QueryResult<AccountRedelegationsQuery, AccountRedelegationsQueryVariables>;
 export const AccountUndelegationsDocument = gql`
-    query AccountUndelegations($address: String!, $offset: Int = 0, $limit: Int = 10) {
+    query AccountUndelegations($address: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
   undelegations: action_unbonding_delegation(
     address: $address
     limit: $limit
     offset: $offset
-    count_total: true
+    count_total: $pagination
   ) {
     undelegations: unbonding_delegations
     pagination
@@ -20475,6 +20480,7 @@ export const AccountUndelegationsDocument = gql`
  *      address: // value for 'address'
  *      offset: // value for 'offset'
  *      limit: // value for 'limit'
+ *      pagination: // value for 'pagination'
  *   },
  * });
  */
