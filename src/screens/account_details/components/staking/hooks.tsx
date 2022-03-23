@@ -5,9 +5,6 @@ import * as R from 'ramda';
 import Big from 'big.js';
 import { useRouter } from 'next/router';
 import {
-  // useAccountDelegationsQuery,
-  // ActionDelegationResponse,
-  // AccountDelegationsQuery,
   useAccountUndelegationsQuery,
   AccountUndelegationsQuery,
   useAccountRedelegationsQuery,
@@ -51,39 +48,19 @@ export const useStaking = (rewards: RewardsType) => {
     }));
   };
 
+  const createPagination = (data: any[]) => {
+    const pages = {};
+    data.forEach((x, i) => {
+      const selectedKey = Math.floor(i / PAGE_LIMIT);
+      pages[selectedKey] = pages[selectedKey] || [];
+      pages[selectedKey].push(x);
+    });
+    return pages;
+  };
+
   // =====================================
   // delegations
   // =====================================
-  // const delegationsQuery = useAccountDelegationsQuery({
-  //   variables: {
-  //     address: R.pathOr('', ['query', 'address'], router),
-  //     limit: TEST_LIMIT,
-  //   },
-  //   onCompleted: (data) => {
-  //     const formattedData = formatDelegations(data);
-  // const pages = {};
-  // formattedData.forEach((x, i) => {
-  //   const selectedKey = Math.floor(i / PAGE_LIMIT);
-  //   pages[selectedKey] = pages[selectedKey] || [];
-  //   pages[selectedKey].push(x);
-  // });
-  //     handleSetState({
-  //       delegations: {
-  //         loading: false,
-  //         count: R.pathOr(0, ['delegations', 'pagination', 'total'], data),
-  //         data: pages,
-  //       },
-  //     });
-  //   },
-  //   onError: () => {
-  //     handleSetState({
-  //       delegations: {
-  //         loading: false,
-  //       },
-  //     });
-  //   },
-  // });
-
   useEffect(() => {
     getAllDelegations();
   }, [router.query.address]);
@@ -162,42 +139,6 @@ export const useStaking = (rewards: RewardsType) => {
         return Big(a.amount.value).gt(b.amount.value) ? -1 : 1;
       });
   };
-
-  const createPagination = (data: any[]) => {
-    const pages = {};
-    data.forEach((x, i) => {
-      const selectedKey = Math.floor(i / PAGE_LIMIT);
-      pages[selectedKey] = pages[selectedKey] || [];
-      pages[selectedKey].push(x);
-    });
-    return pages;
-  };
-
-  // const handleDelegationPageCallback = async (page: number, _rowsPerPage: number) => {
-  //   if (!state.delegations.data[page]) {
-  //     handleSetState({
-  //       delegations: {
-  //         loading: true,
-  //       },
-  //     });
-
-  //     // await delegationsQuery.fetchMore({
-  //     //   variables: {
-  //     //     offset: page * LIMIT,
-  //     //     limit: LIMIT,
-  //     //   },
-  //     // }).then(({ data }) => {
-  //     //   handleSetState({
-  //     //     delegations: {
-  //     //       loading: false,
-  //     //       data: {
-  //     //         [page]: formatDelegations(data),
-  //     //       },
-  //     //     },
-  //     //   });
-  //     // });
-  //   }
-  // };
 
   // =====================================
   // redelegations
@@ -348,7 +289,6 @@ export const useStaking = (rewards: RewardsType) => {
   return {
     state,
     handleTabChange,
-    // handleDelegationPageCallback,
     handleUnbondingPageCallback,
     handleRedelegationPageCallback,
   };

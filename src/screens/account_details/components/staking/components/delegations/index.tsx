@@ -22,7 +22,6 @@ const Mobile = dynamic(() => import('./components/mobile'));
 
 const Delegations: React.FC<{
   delegations: DelegationsType,
-  // handlePageCallback: (page: number, _rowsPerPage: number) => void;
 } & ComponentDefault> = (props) => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
@@ -31,9 +30,7 @@ const Delegations: React.FC<{
     rowsPerPage,
     handleChangePage,
     handleChangeRowsPerPage,
-  } = usePagination({
-    // pageChangeCallback: props.handlePageCallback,
-  });
+  } = usePagination({});
 
   const pageItems = R.pathOr([], ['delegations', 'data', page], props);
 

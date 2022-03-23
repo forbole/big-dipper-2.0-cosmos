@@ -20,7 +20,6 @@ const Staking: React.FC<{rewards: RewardsType} & ComponentDefault> = (props) => 
   const {
     state,
     handleTabChange,
-    // handleDelegationPageCallback,
     handleUnbondingPageCallback,
     handleRedelegationPageCallback,
   } = useStaking(props.rewards);
@@ -32,7 +31,6 @@ const Staking: React.FC<{rewards: RewardsType} & ComponentDefault> = (props) => 
       component: (
         <Delegations
           delegations={state.delegations}
-          // handlePageCallback={handleDelegationPageCallback}
         />
       ),
       count: state.delegations.count,
