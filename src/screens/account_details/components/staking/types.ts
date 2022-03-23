@@ -21,10 +21,8 @@ export type RedelegationType = {
 
 export type UnbondingType = {
   validator: string;
-  entries: {
-    amount: TokenUnit;
-    completionTime: string;
-  }[];
+  amount: TokenUnit;
+  completionTime: string;
 }
 
 export type DelegationsType = StakingType<DelegationType>;

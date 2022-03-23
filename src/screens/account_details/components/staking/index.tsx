@@ -20,7 +20,6 @@ const Staking: React.FC<{rewards: RewardsType} & ComponentDefault> = (props) => 
   const {
     state,
     handleTabChange,
-    handleUnbondingPageCallback,
   } = useStaking(props.rewards);
 
   const tabs = [
@@ -50,7 +49,6 @@ const Staking: React.FC<{rewards: RewardsType} & ComponentDefault> = (props) => 
       component: (
         <Unbondings
           unbondings={state.unbondings}
-          handlePageCallback={handleUnbondingPageCallback}
         />
       ),
       count: state.unbondings.count,
