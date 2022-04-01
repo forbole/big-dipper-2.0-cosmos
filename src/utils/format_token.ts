@@ -33,8 +33,29 @@ export const formatToken = (value: number | string, denom = ''): TokenUnit => {
   }
 
   const ratio = 10 ** selectedDenom.exponent;
-  results.value = Big(value).div(ratio).toPrecision();
+  results.value = Big(value).div(ratio).toFixed(selectedDenom.exponent);
   results.displayDenom = selectedDenom.display;
+  return results;
+};
+
+/**
+ * Util to help me correctly transform a base denom amount
+ * in to a display denom amount
+ * @param value the current amount
+ * @param exponent the exponent to div by
+ * @returns string value of formatted
+ */
+export const formatTokenByExponent = (value: number | string, exponent = 0): string => {
+  if (typeof value !== 'string' && typeof value !== 'number') {
+    value = '0';
+  }
+
+  if (typeof value === 'number') {
+    value = `${value}`;
+  }
+
+  const ratio = 10 ** exponent;
+  const results = Big(value).div(ratio).toFixed(exponent);
   return results;
 };
 

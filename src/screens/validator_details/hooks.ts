@@ -1,27 +1,18 @@
 import {
   useState, useEffect,
 } from 'react';
-import Big from 'big.js';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import { formatToken } from '@utils/format_token';
-import numeral from 'numeral';
-import dayjs from '@utils/dayjs';
-import { convertMsgsToModels } from '@msg';
 import {
   useValidatorDetailsQuery,
   ValidatorDetailsQuery,
-  useGetMessagesByAddressQuery,
-  GetMessagesByAddressQuery,
-  useValidatorLastSeenListenerSubscription,
-  ValidatorLastSeenListenerSubscription,
 } from '@graphql/types';
 import { useDesmosProfile } from '@hooks';
 import { validatorToDelegatorAddress } from '@recoil/profiles';
 import { getValidatorCondition } from '@utils/get_validator_condition';
 import { chainConfig } from '@src/configs';
 import {
-  StakingParams,
   SlashingParams,
 } from '@models';
 import { ValidatorDetailsState } from './types';
@@ -52,32 +43,12 @@ const initialState: ValidatorDetailsState = {
     commission: 0,
     missedBlockCounter: 0,
     signedBlockWindow: 0,
-    lastSeen: '',
+    maxRate: '0',
   },
   votingPower: {
     height: 0,
     overall: initialTokenDenom,
     self: 0,
-    selfDelegatePercent: 0,
-    selfDelegate: initialTokenDenom,
-  },
-  delegations: {
-    count: 0,
-    data: [],
-  },
-  redelegations: {
-    count: 0,
-    data: [],
-  },
-  undelegations: {
-    count: 0,
-    data: [],
-  },
-  transactions: {
-    data: [],
-    hasNextPage: false,
-    isNextPageLoading: false,
-    offsetCount: 0,
   },
 };
 
@@ -103,126 +74,27 @@ export const useValidatorDetails = () => {
   });
 
   useEffect(() => {
+    // ryuash
+    // why did i do this again
     handleSetState(initialState);
     if (chainConfig.extra.profile) {
-      const address = validatorToDelegatorAddress(R.pathOr('', ['query', 'address'], router));
+      const address = validatorToDelegatorAddress(router.query.address as string);
 
       fetchDesmosProfile(address);
     }
-  }, [R.pathOr('', ['query', 'address'], router)]);
+  }, [router.query.address]);
 
   // ==========================
   // Fetch Data
   // ==========================
-  const LIMIT = 50;
-
   useValidatorDetailsQuery({
     variables: {
-      address: R.pathOr('', ['query', 'address'], router),
-      utc: dayjs.utc().format('YYYY-MM-DDTHH:mm:ss'),
+      address: router.query.address as string,
     },
     onCompleted: (data) => {
       handleSetState(formatAccountQuery(data));
     },
   });
-
-  useValidatorLastSeenListenerSubscription({
-    variables: {
-      address: R.pathOr('', ['query', 'address'], router),
-    },
-    onSubscriptionData: (data) => {
-      handleSetState({
-        status: formatLastSeen(data.subscriptionData.data),
-      });
-    },
-  });
-
-  const transactionQuery = useGetMessagesByAddressQuery({
-    variables: {
-      limit: LIMIT + 1, // to check if more exist
-      offset: 0,
-      address: `{${R.pathOr('', ['query', 'address'], router)}}`,
-    },
-    onCompleted: (data) => {
-      const itemsLength = data.messagesByAddress.length;
-      const newItems = R.uniq([...state.transactions.data, ...formatTransactions(data)]);
-      const stateChange = {
-        transactions: {
-          data: newItems,
-          hasNextPage: itemsLength === 51,
-          isNextPageLoading: false,
-          offsetCount: state.transactions.offsetCount + LIMIT,
-        },
-      };
-
-      handleSetState(stateChange);
-    },
-  });
-
-  const loadNextPage = async () => {
-    handleSetState({
-      isNextPageLoading: true,
-    });
-    // refetch query
-    await transactionQuery.fetchMore({
-      variables: {
-        offset: state.transactions.offsetCount,
-        limit: LIMIT + 1,
-      },
-    }).then(({ data }) => {
-      const itemsLength = data.messagesByAddress.length;
-      const newItems = R.uniq([...state.transactions.data, ...formatTransactions(data)]);
-      const stateChange = {
-        transactions: {
-          data: newItems,
-          hasNextPage: itemsLength === 51,
-          isNextPageLoading: false,
-          offsetCount: state.transactions.offsetCount + LIMIT,
-        },
-      };
-      handleSetState(stateChange);
-    });
-  };
-
-  // ==========================
-  // Parse Data
-  // ==========================
-  const formatTransactions = (data: GetMessagesByAddressQuery) => {
-    let formattedData = data.messagesByAddress;
-    if (data.messagesByAddress.length === 51) {
-      formattedData = data.messagesByAddress.slice(0, 51);
-    }
-    return formattedData.map((x) => {
-      const { transaction } = x;
-
-      // =============================
-      // messages
-      // =============================
-      const messages = convertMsgsToModels(transaction);
-
-      return ({
-        height: transaction.height,
-        hash: transaction.hash,
-        messages: {
-          count: messages.length,
-          items: messages,
-        },
-        success: transaction.success,
-        timestamp: transaction.block.timestamp,
-      });
-    });
-  };
-
-  const formatLastSeen = (data: ValidatorLastSeenListenerSubscription) => {
-    if (data.preCommit.length) {
-      const preCommit = data.preCommit[0];
-      return ({
-        lastSeen: preCommit.timestamp,
-      });
-    }
-
-    return {};
-  };
 
   const formatAccountQuery = (data: ValidatorDetailsQuery) => {
     const stateChange: any = {
@@ -270,6 +142,7 @@ export const useValidatorDetails = () => {
         condition,
         missedBlockCounter,
         signedBlockWindow,
+        maxRate: R.pathOr('0', ['validator', 0, 'validatorInfo', 'maxRate'], data),
       };
 
       return profile;
@@ -280,29 +153,13 @@ export const useValidatorDetails = () => {
     // votingPower
     // ============================
     const formatVotingPower = () => {
-      const self = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], data.validator[0]);
+      const selfVotingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], data.validator[0]);
 
-      const totalDelegations = data.validator[0].delegations.reduce((a, b) => {
-        return a + numeral(R.pathOr(0, ['amount', 'amount'], b)).value();
-      }, 0);
-
-      const [selfDelegate] = data.validator[0].delegations.filter(
-        (x) => x.delegatorAddress === data.validator[0].validatorInfo.selfDelegateAddress,
-      );
-      const selfDelegateAmount = formatToken(
-        numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value(),
-        R.pathOr(0, ['amount', 'denom'], selfDelegate),
-      );
-      const selfDelegatePercent = (numeral(R.pathOr(0, ['amount', 'amount'], selfDelegate)).value() / totalDelegations) * 100;
-
-      const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
       const votingPower = {
-        self,
-        selfDelegate: selfDelegateAmount,
-        selfDelegatePercent,
+        self: selfVotingPower,
         overall: formatToken(
           R.pathOr(0, ['stakingPool', 0, 'bonded'], data),
-          stakingParams.bondDenom,
+          chainConfig.votingPowerTokenUnit,
         ),
         height: R.pathOr(0, ['validatorVotingPowers', 0, 'height'], data.validator[0]),
       };
@@ -311,81 +168,10 @@ export const useValidatorDetails = () => {
     };
     stateChange.votingPower = formatVotingPower();
 
-    // ============================
-    // delegations
-    // ============================
-    const formatDelegations = () => {
-      const delegations = data.validator[0].delegations.map((x) => {
-        return ({
-          amount: formatToken(x.amount.amount, x.amount.denom),
-          delegator: x.delegatorAddress,
-        });
-      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
-      return {
-        data: delegations,
-        count: delegations.length,
-      };
-    };
-    stateChange.delegations = formatDelegations();
-
-    // ============================
-    // redelegations
-    // ============================
-    const formatRedelegations = () => {
-      const redelegations = [
-        ...data.validator[0].redelegationsByDstValidatorAddress.map((x) => {
-          return ({
-            to: x.to,
-            from: x.from,
-            linkedUntil: x.completionTime,
-            amount: formatToken(x.amount.amount, x.amount.denom),
-            delegator: x.delegatorAddress,
-          });
-        }),
-        ...data.validator[0].redelegationsBySrcValidatorAddress.map((x) => {
-          return ({
-            to: x.to,
-            from: x.from,
-            linkedUntil: x.completionTime,
-            amount: formatToken(x.amount.amount, x.amount.denom),
-            delegator: x.delegatorAddress,
-          });
-        }),
-      ].sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
-
-      return {
-        data: redelegations,
-        count: redelegations.length,
-      };
-    };
-    state.redelegations = formatRedelegations();
-
-    // ============================
-    // unbondings
-    // ============================
-    const formatUndelegations = () => {
-      const undelegations = data.validator[0].unbonding.map((x) => {
-        return ({
-          delegator: x.delegatorAddress,
-          amount: formatToken(x.amount.amount, x.amount.denom),
-          linkedUntil: x.completionTimestamp,
-          commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
-        });
-      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
-
-      return {
-        data: undelegations,
-        count: undelegations.length,
-      };
-    };
-
-    state.undelegations = formatUndelegations();
-
     return stateChange;
   };
 
   return {
     state,
-    loadNextPage,
   };
 };

@@ -15,6 +15,7 @@
     "height": 1
   },
   "primaryTokenUnit": "acudos",
+  "votingPowerTokenUnit": "acudos",
   "tokenUnits": {
     "acudos": {
       "display": "CUDOS",

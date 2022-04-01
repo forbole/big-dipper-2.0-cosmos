@@ -1,3 +1,4 @@
+import * as R from 'ramda';
 import { chainConfig } from '@configs';
 
 /**
@@ -6,7 +7,7 @@ import { chainConfig } from '@configs';
  * @param value The value in base denom value
  */
 export const getDenom = (
-  list: {denom: string, amount: string | number}[],
+  list: {denom: string, amount: string | number}[] = [],
   denom = chainConfig.primaryTokenUnit,
 ): {
   denom: string;
@@ -21,7 +22,10 @@ export const getDenom = (
     amount: '0',
   };
   if (selectedDenom) {
-    results = selectedDenom;
+    results = {
+      denom: R.pathOr('', ['denom'], selectedDenom),
+      amount: R.pathOr('0', ['amount'], selectedDenom),
+    };
   }
   return results;
 };
