@@ -16,9 +16,7 @@ import {
   SingleProposal,
   Box,
   Markdown,
-  Name,
 } from '@components';
-import { useProfileRecoil } from '@recoil/profiles';
 import {
   ParamsChange,
   SoftwareUpgrade,
@@ -27,19 +25,26 @@ import {
 } from './components';
 import { useStyles } from './styles';
 import { getProposalType } from '../../utils';
-import { OverviewType } from '../../types';
 
-const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
-  className, overview,
+const Overview: React.FC<{
+  className?: string;
+  title: string;
+  id: number;
+  description: string;
+  status: string;
+  submitTime: string;
+  depositEndTime: string;
+  votingStartTime: string | null;
+  votingEndTime: string | null;
+  content: string;
+}> = ({
+  className, ...props
 }) => {
   const dateFormat = useRecoilValue(readDate);
   const classes = useStyles();
   const { t } = useTranslation('proposals');
 
-  const type = getProposalType(R.pathOr('', ['@type'], overview.content));
-
-  const proposer = useProfileRecoil(overview.proposer);
-  const proposerMoniker = proposer ? proposer?.name : overview.proposer;
+  const type = getProposalType(R.pathOr('', ['@type'], props.content));
 
   const getExtraDetails = () => {
     let extraDetails = null;
@@ -50,7 +55,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
             {t('changes')}
           </Typography>
           <ParamsChange
-            changes={R.pathOr([], ['changes'], overview.content)}
+            changes={R.pathOr([], ['changes'], props.content)}
           />
         </>
       );
@@ -61,9 +66,9 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
             {t('plan')}
           </Typography>
           <SoftwareUpgrade
-            height={R.pathOr('0', ['plan', 'height'], overview.content)}
-            info={R.pathOr('', ['plan', 'info'], overview.content)}
-            name={R.pathOr('', ['plan', 'name'], overview.content)}
+            height={R.pathOr('0', ['plan', 'height'], props.content)}
+            info={R.pathOr('', ['plan', 'info'], props.content)}
+            name={R.pathOr('', ['plan', 'name'], props.content)}
           />
         </>
       );
@@ -106,9 +111,9 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
   return (
     <Box className={classnames(className, classes.root)}>
       <SingleProposal
-        id={`#${numeral(overview.id).format('0,0')}`}
-        title={overview.title}
-        status={overview.status}
+        id={`#${numeral(props.id).format('0,0')}`}
+        title={props.title}
+        status={props.status}
       />
       <Divider />
       <div className={classes.content}>
@@ -119,65 +124,60 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
           {t(type)}
         </Typography>
         <Typography variant="body1" className="label">
-          {t('proposer')}
+          {t('description')}
         </Typography>
-        <Name
-          name={proposerMoniker}
-          address={proposer.address}
-        />
+        <Markdown markdown={props.description} />
+        {extra}
+      </div>
+      <div className={classes.time}>
         {
-          !!overview.submitTime && (
-            <>
+          !!props.submitTime && (
+            <div>
               <Typography variant="body1" className="label">
                 {t('submitTime')}
               </Typography>
               <Typography variant="body1" className="value">
-                {formatDayJs(dayjs.utc(overview.submitTime), dateFormat)}
+                {formatDayJs(dayjs.utc(props.submitTime), dateFormat)}
               </Typography>
-            </>
+            </div>
           )
         }
         {
-          !!overview.depositEndTime && (
-            <>
+          !!props.depositEndTime && (
+            <div>
               <Typography variant="body1" className="label">
                 {t('depositEndTime')}
               </Typography>
               <Typography variant="body1" className="value">
-                {formatDayJs(dayjs.utc(overview.depositEndTime), dateFormat)}
+                {formatDayJs(dayjs.utc(props.depositEndTime), dateFormat)}
               </Typography>
-            </>
+            </div>
           )
         }
         {
-          !!overview.votingStartTime && (
-            <>
+          !!props.votingStartTime && (
+            <div>
               <Typography variant="body1" className="label">
                 {t('votingStartTime')}
               </Typography>
               <Typography variant="body1" className="value">
-                {formatDayJs(dayjs.utc(overview.votingStartTime), dateFormat)}
+                {formatDayJs(dayjs.utc(props.votingStartTime), dateFormat)}
               </Typography>
-            </>
+            </div>
           )
         }
         {
-          !!overview.votingEndTime && (
-            <>
+          !!props.votingEndTime && (
+            <div>
               <Typography variant="body1" className="label">
                 {t('votingEndTime')}
               </Typography>
               <Typography variant="body1" className="value">
-                {formatDayJs(dayjs.utc(overview.votingEndTime), dateFormat)}
+                {formatDayJs(dayjs.utc(props.votingEndTime), dateFormat)}
               </Typography>
-            </>
+            </div>
           )
         }
-        <Typography variant="body1" className="label">
-          {t('description')}
-        </Typography>
-        <Markdown markdown={overview.description} />
-        {extra}
       </div>
     </Box>
   );
