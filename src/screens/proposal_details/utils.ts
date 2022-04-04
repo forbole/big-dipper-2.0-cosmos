@@ -4,6 +4,18 @@ export const getProposalType = (proposalType: string) => {
     type = 'textProposal';
   }
 
+  if (proposalType === '/ibc.core.client.v1.UpgradeProposal') {
+    type = 'IbcUpgradeProposal';
+  }
+
+  if (proposalType === '/cosmos.distribution.v1beta1.CommunityPoolSpendProposal') {
+    type = 'communityPoolSpendProposal';
+  }
+
+  if (proposalType == '/ibc.core.client.v1.ClientUpdateProposal') {
+    type = 'IbcClientUpdateProposal';
+  }
+
   if (proposalType === '/cosmos.params.v1beta1.ParameterChangeProposal') {
     type = 'parameterChangeProposal';
   }
