@@ -28,6 +28,8 @@
   "parameterChangeProposal": "Parameter Change Proposal",
   "communityPoolSpendProposal": "Community Pool Spend Proposal",
   "softwareUpgradeProposal": "Software Upgrade Proposal",
+  "IbcUpgradeProposal": "IBC Upgrade Proposal",
+  "IbcClientUpdateProposal": "IBC Client Update Proposal",
   "changes": "Changes",
   "subspace": "Subspace",
   "key": "Key",
@@ -39,9 +41,12 @@
   "rejected": "Rejected",
   "failed": "Failed",
   "plan": "Plan",
+  "details": "Details",
+  "recipient": "Recipient",
   "name": "Name",
-  "height": "Height",
+  "height": "Execution height",
   "info": "Info",
   "didNotVote": "Did not vote",
-  "notVoted": "Not Voted"
+  "notVoted": "Not Voted",
+  "upgradedClientState": "Upgraded Client State"
 }
