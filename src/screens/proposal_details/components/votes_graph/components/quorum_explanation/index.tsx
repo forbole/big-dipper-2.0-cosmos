@@ -5,7 +5,7 @@ import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 
 const QuorumExplanation = () => {
-  const { t } = useTranslation('validators');
+  const { t } = useTranslation('proposals');
   const classes = useStyles();
 
   const conditions = [
@@ -29,7 +29,7 @@ const QuorumExplanation = () => {
   return (
     <div className={classes.root}>
       <Typography>
-        {t('conditionExplanation')}
+        {t('quorumExplanation')}
       </Typography>
       <div className={classes.itemWrapper}>
         {conditions.map((x) => {

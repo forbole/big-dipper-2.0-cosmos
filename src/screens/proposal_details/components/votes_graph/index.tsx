@@ -5,7 +5,6 @@ import Big from 'big.js';
 import {
   Box,
   InfoPopover,
-  ConditionExplanation,
 } from '@components';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
@@ -17,6 +16,7 @@ import {
 import { useStyles } from './styles';
 import { formatGraphData } from './utils';
 import { useVotesGraph } from './hooks';
+import { QuorumExplanation } from './components';
 
 const VotesGraph: React.FC<ComponentDefault> = (props) => {
   const {
@@ -44,7 +44,7 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
   return (
     <Box className={classnames(props.className, classes.root)}>
       <InfoPopover
-        content={<ConditionExplanation />}
+        content={<QuorumExplanation />}
       />
       <div className={classes.pie}>
         <PieChart
