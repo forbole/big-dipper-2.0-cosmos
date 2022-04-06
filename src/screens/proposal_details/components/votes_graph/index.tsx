@@ -2,7 +2,11 @@ import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import Big from 'big.js';
-import { Box } from '@components';
+import {
+  Box,
+  InfoPopover,
+  ConditionExplanation,
+} from '@components';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 import {
@@ -39,6 +43,9 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
 
   return (
     <Box className={classnames(props.className, classes.root)}>
+      <InfoPopover
+        content={<ConditionExplanation />}
+      />
       <div className={classes.pie}>
         <PieChart
           width={250}
