@@ -404,7 +404,7 @@ const getDataByType = (type: string) => {
     },
     '/gravity.v1.MsgSetMinFeeTransferToEth': {
       model: MODELS.MsgUnknown,
-      content: COMPONENTS.UnBlockUser,
+      content: COMPONENTS.Unknown,
       tagTheme: 'four',
       tagDisplay: 'txMsgSetMinFeeTransferToEth',
     },
