@@ -68,6 +68,7 @@ import GrantAllowance from './feegrant/grant_allowance';
 import RevokeAllowance from './feegrant/revoke_allowance';
 import CreateVestingAccount from './vesting/create_vesting_account';
 import CreatePeriodicVestingAccount from './vesting/create_periodic_vesting_account';
+import ExecuteContract from './cosmwasm/execute_contract';
 
 export {
   getMessageModelByType,
@@ -134,4 +135,5 @@ export {
   RevokeAllowance,
   CreateVestingAccount,
   CreatePeriodicVestingAccount,
+  ExecuteContract,
 };

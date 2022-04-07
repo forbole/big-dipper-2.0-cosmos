@@ -55,5 +55,6 @@
   "MsgGrantAllowance": "<0>{{granter}}</0> granted allowance for <1>{{grantee}}</1>",
   "MsgRevokeAllowance": "<0>{{granter}}</0> revoked allowance for <1>{{grantee}}</1>",
   "MsgCreateVestingAccount": "Vesting account created for <0>{{toAddress}}</0>",
-  "MsgCreatePeriodicVestingAccount": "Periodic vesting account created for <0>{{toAddress}}</0>"
+  "MsgCreatePeriodicVestingAccount": "Periodic vesting account created for <0>{{toAddress}}</0>",
+  "txExecuteContract": "<0>{{user}}</0> executed <1>{{method}}</1> on <2>{{address}}</2>"
 }

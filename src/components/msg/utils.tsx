@@ -402,7 +402,15 @@ const getDataByType = (type: string) => {
       tagTheme: 'four',
       tagDisplay: 'txUnblockUserLabel',
     },
-
+    // ========================
+    // CosmWasm
+    // ========================
+    '/cosmwasm.wasm.v1.MsgExecuteContract': {
+      model: MODELS.MsgExecuteContract,
+      content: COMPONENTS.ExecuteContract,
+      tagTheme: 'four',
+      tagDisplay: 'txExecuteContract',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];

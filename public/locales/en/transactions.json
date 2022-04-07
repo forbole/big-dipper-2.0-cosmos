@@ -33,5 +33,6 @@
   "authz": "Authz",
   "feegrant": "Feegrant",
   "vesting": "Vesting",
-  "logs": "Logs"
+  "logs": "Logs",
+  "arguments": "Arguments"
 }
