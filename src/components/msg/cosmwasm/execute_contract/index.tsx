@@ -4,9 +4,7 @@ import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import Arguments from './arguments'
 import { MsgExecuteContract } from '@models';
-import {
-  useProfileRecoil,
-} from '@recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const ExecuteContract = (props: {
     message: MsgExecuteContract;
