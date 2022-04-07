@@ -40,10 +40,19 @@ const ProposalDetails = () => {
           exists={state.exists}
           loading={state.loading}
         >
+
           <span className={classes.root}>
             <Overview
               className={classes.overview}
-              overview={overview}
+              title={overview.title}
+              id={overview.id}
+              description={overview.description}
+              status={overview.status}
+              submitTime={overview.submitTime}
+              depositEndTime={overview.depositEndTime}
+              votingStartTime={overview.votingStartTime}
+              votingEndTime={overview.votingEndTime}
+              content={overview.content}
             />
             {shouldShowData(overview.status) && (
             <VotesGraph className={classes.votesGraph} />

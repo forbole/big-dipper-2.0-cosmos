@@ -2,7 +2,7 @@ import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 import { Box } from '@components';
-import { useGetStyles } from './styles'
+import { useGetStyles } from './styles';
 
 const Arguments: React.FC<{
   args: string;

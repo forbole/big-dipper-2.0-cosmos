@@ -145,5 +145,5 @@ export {
   ExecuteContract,
   MigrateContract,
   UpdateContractAdmin,
-  ClearContractAdmin
+  ClearContractAdmin,
 };

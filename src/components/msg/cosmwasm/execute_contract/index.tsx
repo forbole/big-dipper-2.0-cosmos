@@ -2,9 +2,9 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
-import Arguments from './arguments'
 import { MsgExecuteContract } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
+import Arguments from './arguments';
 
 const ExecuteContract = (props: {
     message: MsgExecuteContract;

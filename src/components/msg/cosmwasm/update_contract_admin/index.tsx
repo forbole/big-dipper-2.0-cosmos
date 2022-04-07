@@ -11,7 +11,7 @@ const UpdateContractAdmin = (props: {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);
-  const senderMoniker = sender ? sender?.name : message.sender; 
+  const senderMoniker = sender ? sender?.name : message.sender;
 
   const newAdmin = useProfileRecoil(message.newAdmin);
   const newAdminMoniker = newAdmin ? newAdmin?.name : message.newAdmin;
