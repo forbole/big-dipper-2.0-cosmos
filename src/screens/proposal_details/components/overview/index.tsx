@@ -6,6 +6,8 @@ import dayjs, { formatDayJs } from '@utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
+import JSONPretty from 'react-json-pretty';
+var JSONPrettyMon = require('react-json-pretty/dist/monikai');
 import {
   Typography,
   Divider,
@@ -20,6 +22,8 @@ import { useProfileRecoil } from '@recoil/profiles';
 import {
   ParamsChange,
   SoftwareUpgrade,
+  IbcUpgrade,
+  CommunitySpend,
 } from './components';
 import { useStyles } from './styles';
 import { getProposalType } from '../../utils';
@@ -61,6 +65,35 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
             info={R.pathOr('', ['plan', 'info'], overview.content)}
             name={R.pathOr('', ['plan', 'name'], overview.content)}
           />
+        </>
+      );
+    } else if (type === 'communityPoolSpendProposal') {
+      extraDetails = (
+        <>
+          <Typography variant="body1" className="label">
+            {t('details')}
+          </Typography>
+          <CommunitySpend
+            recipient={R.pathOr('', ['recipient'], props.content)}
+            amount={R.pathOr('', ['amount', '0', 'amount'], props.content) + " " + R.pathOr('', ['amount', '0', 'denom'], props.content)}
+          />
+        </>
+      );
+    } else if (type === 'IbcUpgradeProposal') {
+      extraDetails = (
+        <>
+          <Typography variant="body1" className="label">
+            {t('details')}
+          </Typography>
+          <IbcUpgrade
+            height={R.pathOr('0', ['plan', 'height'], props.content)}
+            info={R.pathOr('', ['plan', 'info'], props.content)}
+            name={R.pathOr('', ['plan', 'name'], props.content)}
+          />
+          <Typography variant="body1" className="label">
+            {t('upgradedClientState')}
+          </Typography>
+          <JSONPretty id="json-pretty" data={JSON.stringify(R.pathOr('', ['upgraded_client_state'], props.content), null, 2)} theme={JSONPrettyMon}></JSONPretty>
         </>
       );
     }

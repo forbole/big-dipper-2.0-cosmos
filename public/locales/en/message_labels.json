@@ -14,6 +14,7 @@
   "txVoteLabel": "Vote",
   "txSubmitProposalLabel": "Submit Proposal",
   "txUnjailLabel": "Unjail",
+  "txMsgSetMinFeeTransferToEth": "Set Minimum Bridge Transfer Fee",
   "txUnknownLabel": "Unknown",
   "txWithdrawCommissionLabel": "Withdraw Commission",
   "txSaveProfileLabel": "Save Profile",

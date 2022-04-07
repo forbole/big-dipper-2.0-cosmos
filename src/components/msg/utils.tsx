@@ -441,6 +441,15 @@ const getDataByType = (type: string) => {
       tagTheme: 'eleven',
       tagDisplay: 'txClearContractAdmin',
     },
+    // ========================
+    // Gravity
+    // ========================
+    '/gravity.v1.MsgSetMinFeeTransferToEth': {
+      model: MODELS.MsgUnknown,
+      content: COMPONENTS.Unknown,
+      tagTheme: 'four',
+      tagDisplay: 'txMsgSetMinFeeTransferToEth',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];
