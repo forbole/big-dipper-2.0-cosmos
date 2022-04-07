@@ -43,9 +43,6 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
 
   return (
     <Box className={classnames(props.className, classes.root)}>
-      <InfoPopover
-        content={<QuorumExplanation />}
-      />
       <div className={classes.pie}>
         <PieChart
           width={250}
@@ -105,6 +102,9 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
           );
         })}
       </div>
+      <InfoPopover
+        content={<QuorumExplanation />}
+      />
     </Box>
   );
 };
