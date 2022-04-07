@@ -5,6 +5,7 @@ import { darkThemeOverride } from './dark';
 import { lightThemeOverride } from './light';
 import { deuteranopiaThemeOverride } from './deuteranopia';
 import { tritanopiaThemeOverride } from './tritanopia';
+import { cudosThemeOverride } from './cudos';
 
 /** Common themes that don't change across light and dark theme */
 export const common = {
@@ -139,9 +140,9 @@ export const common = {
         three: '#FC6A8A',
       },
       tokenomics: {
-        one: '#1EC490',
-        two: '#497BFF',
-        three: '#9F46EC',
+        one: '#2E3368',
+        two: '#1ab0c5',
+        three: '#21c391',
       },
       charts: {
         zero: '#E8E8E8',
@@ -193,6 +194,7 @@ export const lightTemplate:ThemeOptions = R.mergeDeepLeft(lightThemeOverride, co
 export const darkTemplate:ThemeOptions = R.mergeDeepLeft(darkThemeOverride, common);
 export const deuteranopiaTemplate:ThemeOptions = R.mergeDeepLeft(deuteranopiaThemeOverride, common);
 export const tritanopiaTemplate:ThemeOptions = R.mergeDeepLeft(tritanopiaThemeOverride, common);
+export const cudosTemplate:ThemeOptions = R.mergeDeepLeft(cudosThemeOverride, common);
 
 // export const lightTheme = createMuiTheme(lightTemplate);
 // export const darkTheme = createMuiTheme(darkTemplate);
