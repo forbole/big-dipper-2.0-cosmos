@@ -14,6 +14,12 @@ const QuorumExplanation = () => {
           components={[
             <b />,
           ]}
+          values={{
+            quorum: '2000',
+          }}
+          // {t('votedTotalCaption', {
+          //   totalVotedPercent,
+          // })}
         />
       </Typography>
     </div>
