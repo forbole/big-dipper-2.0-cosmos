@@ -37,6 +37,7 @@ export const useStyles = () => {
         },
         popOver: {
           marginTop: theme.spacing(2),
+          float: 'right',
           [theme.breakpoints.up('lg')]: {
             height: '100%',
             marginTop: theme.spacing(1),
