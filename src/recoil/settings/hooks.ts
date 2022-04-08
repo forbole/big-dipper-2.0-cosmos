@@ -24,7 +24,7 @@ export const useSettingsRecoil = () => {
       let currentTheme: Theme = settings.theme;
       if (savedTheme === 'device') {
         if (window?.matchMedia('(prefers-color-scheme: dark)')?.matches) {
-          currentTheme = 'dark';
+          currentTheme = 'cudos';
         }
       } else if (THEME_DICTIONARY[savedTheme]) {
         currentTheme = savedTheme;
