@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import numeral from 'numeral';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import {
@@ -41,6 +42,8 @@ export const useVotesGraph = () => {
   });
 
   const foramtProposalTally = (data: ProposalDetailsTallyQuery) => {
+    const quorumRaw = R.pathOr('0', [0, 'tallyParams', 'quorum'], data.quorum);
+
     return ({
       votes: {
         yes: formatToken(
@@ -64,6 +67,7 @@ export const useVotesGraph = () => {
         R.pathOr('0', ['stakingPool', 0, 'bondedTokens'], data),
         chainConfig.votingPowerTokenUnit,
       ),
+      quorum: numeral(numeral(quorumRaw).format('0.[00]')).value(),
     });
   };
 

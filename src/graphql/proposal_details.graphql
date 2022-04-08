@@ -23,6 +23,9 @@ query ProposalDetailsTally($proposalId: Int) {
   stakingPool: proposal_staking_pool_snapshot(where: {proposal_id: {_eq: $proposalId}}) {
     bondedTokens: bonded_tokens
   }
+  quorum: gov_params (limit: 1, order_by: {height: desc}) {
+    tallyParams: tally_params 
+  }
 }
 
 query ProposalDetailsDeposits($proposalId: Int) {

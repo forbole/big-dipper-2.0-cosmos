@@ -19848,6 +19848,9 @@ export type ProposalDetailsTallyQuery = { proposalTallyResult: Array<(
   )>, stakingPool: Array<(
     { __typename?: 'proposal_staking_pool_snapshot' }
     & { bondedTokens: Proposal_Staking_Pool_Snapshot['bonded_tokens'] }
+  )>, quorum: Array<(
+    { __typename?: 'gov_params' }
+    & { tallyParams: Gov_Params['tally_params'] }
   )> };
 
 export type ProposalDetailsDepositsQueryVariables = Exact<{
@@ -21091,6 +21094,9 @@ export const ProposalDetailsTallyDocument = gql`
     where: {proposal_id: {_eq: $proposalId}}
   ) {
     bondedTokens: bonded_tokens
+  }
+  quorum: gov_params(limit: 1, order_by: {height: desc}) {
+    tallyParams: tally_params
   }
 }
     `;
