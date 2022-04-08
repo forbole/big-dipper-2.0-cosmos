@@ -35,6 +35,9 @@ export const useStyles = () => {
             gridColumn: '1/3',
           },
         },
+        popOver: {
+          height: '100%',
+        },
         voteItem: {
           position: 'relative',
           paddingLeft: '10px',

@@ -102,9 +102,11 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
           );
         })}
       </div>
-      <InfoPopover
-        content={<QuorumExplanation />}
-      />
+      <div className={classes.popOver}>
+        <InfoPopover
+          content={<QuorumExplanation />}
+        />
+      </div>
     </Box>
   );
 };
