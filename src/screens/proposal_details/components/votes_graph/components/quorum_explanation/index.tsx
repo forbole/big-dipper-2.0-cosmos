@@ -3,7 +3,7 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 
-const QuorumExplanation = () => {
+const QuorumExplanation = (props) => {
   const classes = useStyles();
 
   return (
@@ -15,11 +15,8 @@ const QuorumExplanation = () => {
             <b />,
           ]}
           values={{
-            quorum: '2000',
+            quorum: props.quorum,
           }}
-          // {t('votedTotalCaption', {
-          //   totalVotedPercent,
-          // })}
         />
       </Typography>
     </div>

@@ -25,6 +25,7 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('proposals');
   const { state } = useVotesGraph();
   const { votes } = state;
+  const { quorum } = state;
 
   const total = Big(votes.yes.value)
     .plus(votes.no.value)
@@ -104,7 +105,7 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
       </div>
       <div className={classes.popOver}>
         <InfoPopover
-          content={<QuorumExplanation />}
+          content={<QuorumExplanation quorum={quorum} />}
         />
       </div>
     </Box>

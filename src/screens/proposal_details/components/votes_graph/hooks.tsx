@@ -26,6 +26,7 @@ export const useVotesGraph = () => {
       veto: defaultTokenUnit,
     },
     bonded: defaultTokenUnit,
+    quorum: 0,
   });
 
   const handleSetState = (stateChange: any) => {
@@ -67,7 +68,7 @@ export const useVotesGraph = () => {
         R.pathOr('0', ['stakingPool', 0, 'bondedTokens'], data),
         chainConfig.votingPowerTokenUnit,
       ),
-      quorum: numeral(numeral(quorumRaw).format('0.[00]')).value(),
+      quorum: numeral(numeral(quorumRaw).format('0.[00]')).value() * 100,
     });
   };
 
