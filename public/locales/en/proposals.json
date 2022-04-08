@@ -45,5 +45,5 @@
   "didNotVote": "Did not vote",
   "notVoted": "Not Voted",
   "votedTotalCaption": "Voted / Total ({{totalVotedPercent}})",
-  "quorumExplanation": "For a proposal to be considered valid, voting must reach at least xx% quorum"
+  "quorumExplanation": "For a proposal to be considered valid, voting must reach at least <0>{{quorum}}%</0> quorum"
 }
