@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import numeral from 'numeral';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import {
@@ -7,6 +6,7 @@ import {
 } from '@graphql/types';
 import { formatToken } from '@utils/format_token';
 import { chainConfig } from '@configs';
+import Big from 'big.js';
 import { VotesGraphState } from './types';
 
 const defaultTokenUnit: TokenUnit = {
@@ -68,7 +68,7 @@ export const useVotesGraph = () => {
         R.pathOr('0', ['stakingPool', 0, 'bondedTokens'], data),
         chainConfig.votingPowerTokenUnit,
       ),
-      quorum: numeral(numeral(quorumRaw).format('0.[00]')).value() * 100,
+      quorum: Big(quorumRaw).times(100).toFixed(2),
     });
   };
 

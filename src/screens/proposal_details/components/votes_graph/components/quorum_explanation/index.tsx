@@ -3,7 +3,7 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 
-const QuorumExplanation = (props) => {
+const QuorumExplanation = (props:{quorum:number}) => {
   const classes = useStyles();
 
   return (
