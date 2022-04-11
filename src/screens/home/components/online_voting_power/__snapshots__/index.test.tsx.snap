@@ -17,16 +17,16 @@ Array [
       <h3
         className="MuiTypography-root primary__data MuiTypography-h3"
       >
-        0.00%
+        100.00%
       </h3>
       <p
         className="MuiTypography-root MuiTypography-body1"
       >
-        0
+        76,341,043
          
         /
          
-        0
+        76,341,043
       </p>
     </div>
     <div
@@ -45,16 +45,13 @@ Array [
         <h4
           className="MuiTypography-root label MuiTypography-h4"
         >
-          block
+          validators
         </h4>
-        <a
+        <p
           className="MuiTypography-root value MuiTypography-body1"
-          href="/blocks/0"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
         >
-          0
-        </a>
+          109
+        </p>
       </div>
       <div
         className="makeStyles-item"
@@ -67,7 +64,7 @@ Array [
         <p
           className="MuiTypography-root value MuiTypography-body1"
         >
-          0.00%
+          100.00%
         </p>
       </div>
       <div
@@ -81,7 +78,7 @@ Array [
         <p
           className="MuiTypography-root value MuiTypography-body1"
         >
-          0
+          76,341,043
         </p>
       </div>
       <div
@@ -95,7 +92,7 @@ Array [
         <p
           className="MuiTypography-root value MuiTypography-body1"
         >
-          0
+          76,341,043
         </p>
       </div>
     </div>
@@ -121,16 +118,16 @@ Array [
       <h3
         className="MuiTypography-root primary__data MuiTypography-h3"
       >
-        0.00%
+        100.00%
       </h3>
       <p
         className="MuiTypography-root MuiTypography-body1"
       >
-        0
+        76,341,043
          
         /
          
-        254,579
+        76,341,043
       </p>
     </div>
     <div
@@ -149,16 +146,13 @@ Array [
         <h4
           className="MuiTypography-root label MuiTypography-h4"
         >
-          block
+          validators
         </h4>
-        <a
+        <p
           className="MuiTypography-root value MuiTypography-body1"
-          href="/blocks/1143207"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
         >
-          1,143,207
-        </a>
+          109
+        </p>
       </div>
       <div
         className="makeStyles-item"
@@ -171,7 +165,7 @@ Array [
         <p
           className="MuiTypography-root value MuiTypography-body1"
         >
-          0.00%
+          100.00%
         </p>
       </div>
       <div
@@ -185,7 +179,7 @@ Array [
         <p
           className="MuiTypography-root value MuiTypography-body1"
         >
-          0
+          76,341,043
         </p>
       </div>
       <div
@@ -199,7 +193,7 @@ Array [
         <p
           className="MuiTypography-root value MuiTypography-body1"
         >
-          254,579
+          76,341,043
         </p>
       </div>
     </div>

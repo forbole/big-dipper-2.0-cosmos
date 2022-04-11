@@ -402,13 +402,54 @@ const getDataByType = (type: string) => {
       tagTheme: 'four',
       tagDisplay: 'txUnblockUserLabel',
     },
+    // ========================
+    // CosmWasm
+    // ========================
+    '/cosmwasm.wasm.v1.MsgStoreCode': {
+      model: MODELS.MsgStoreCode,
+      content: COMPONENTS.StoreCode,
+      tagTheme: 'eleven',
+      tagDisplay: 'txStoreCode',
+    },
+    '/cosmwasm.wasm.v1.MsgInstantiateContract': {
+      model: MODELS.MsgInstantiateContract,
+      content: COMPONENTS.InstantiateContract,
+      tagTheme: 'eleven',
+      tagDisplay: 'txInstantiateContract',
+    },
+    '/cosmwasm.wasm.v1.MsgExecuteContract': {
+      model: MODELS.MsgExecuteContract,
+      content: COMPONENTS.ExecuteContract,
+      tagTheme: 'eleven',
+      tagDisplay: 'txExecuteContract',
+    },
+    '/cosmwasm.wasm.v1.MsgMigrateContract': {
+      model: MODELS.MsgMigrateContract,
+      content: COMPONENTS.MigrateContract,
+      tagTheme: 'eleven',
+      tagDisplay: 'txMigrateContract',
+    },
+    '/cosmwasm.wasm.v1.MsgUpdateAdmin': {
+      model: MODELS.MsgUpdateContractAdmin,
+      content: COMPONENTS.UpdateContractAdmin,
+      tagTheme: 'eleven',
+      tagDisplay: 'txUpdateContractAdmin',
+    },
+    '/cosmwasm.wasm.v1.MsgClearAdmin': {
+      model: MODELS.MsgClearContractAdmin,
+      content: COMPONENTS.ClearContractAdmin,
+      tagTheme: 'eleven',
+      tagDisplay: 'txClearContractAdmin',
+    },
+    // ========================
+    // Gravity
+    // ========================
     '/gravity.v1.MsgSetMinFeeTransferToEth': {
       model: MODELS.MsgUnknown,
       content: COMPONENTS.Unknown,
       tagTheme: 'four',
       tagDisplay: 'txMsgSetMinFeeTransferToEth',
     },
-
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];

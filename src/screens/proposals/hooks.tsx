@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as R from 'ramda';
+import DOMPurify from 'dompurify';
 import {
   useProposalsQuery,
   ProposalsQuery,
@@ -67,10 +68,11 @@ export const useProposals = () => {
 
   const formatProposals = (data: ProposalsQuery) => {
     return data.proposals.map((x) => {
+      const description = DOMPurify.sanitize(x.description);
       return ({
+        description,
         id: x.proposalId,
         title: x.title,
-        description: x.description,
         status: x.status,
       });
     });

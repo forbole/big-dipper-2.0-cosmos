@@ -23,11 +23,7 @@ subscription ValidatorLastSeenListener($address: String) {
   }
 }
 
-
-query ValidatorDetails($address: String, $utc: timestamp) {
-  stakingParams: staking_params(limit: 1) {
-    params
-  }
+query ValidatorDetails($address: String) {
   stakingPool: staking_pool(order_by: {height: desc}, limit: 1, offset: 0) {
     height
     bonded: bonded_tokens
@@ -49,6 +45,7 @@ query ValidatorDetails($address: String, $utc: timestamp) {
     validatorInfo: validator_info {
       operatorAddress: operator_address
       selfDelegateAddress: self_delegate_address
+      maxRate: max_rate
     }
     validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
       commission
@@ -57,32 +54,29 @@ query ValidatorDetails($address: String, $utc: timestamp) {
       height
       votingPower: voting_power
     }
-    delegations {
-      amount
-      delegatorAddress: delegator_address
-    }
-    redelegationsByDstValidatorAddress(where: {completion_time: {_gt: $utc}}) {
-      amount
-      completionTime: completion_time
-      from: src_validator_address
-      to: dst_validator_address
-      delegatorAddress: delegator_address
-    }
-    redelegationsBySrcValidatorAddress(where: {completion_time: {_gt: $utc}}) {
-      amount
-      completionTime: completion_time
-      from: src_validator_address
-      to: dst_validator_address
-      delegatorAddress: delegator_address
-    }
-    unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}}) {
-      amount
-      completionTimestamp: completion_timestamp
-      delegatorAddress: delegator_address
-    }
   }
   slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
     params
   }
 }
 
+query ValidatorDelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10) {
+  delegations: action_validator_delegations(address: $validatorAddress, limit: $limit, offset: $offset, count_total: true){
+    delegations
+    pagination
+  }
+}
+
+query ValidatorRedelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10) {
+  redelegations: action_validator_redelegations_from(address: $validatorAddress, limit: $limit, offset: $offset, count_total: true){
+    redelegations
+    pagination
+  }
+}
+
+query ValidatorUndelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10) {
+  undelegations: action_validator_unbonding_delegations(address: $validatorAddress, limit: $limit, offset: $offset, count_total: true){
+    undelegations: unbonding_delegations
+    pagination
+  }
+}

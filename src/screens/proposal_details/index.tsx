@@ -19,14 +19,10 @@ const ProposalDetails = () => {
   const { t } = useTranslation('proposals');
   const classes = useStyles();
   const {
-    state, handleTabChange,
+    state,
   } = useProposalDetails();
   const {
     overview,
-    content,
-    tally,
-    votes,
-    deposits,
   } = state;
 
   return (
@@ -44,6 +40,7 @@ const ProposalDetails = () => {
           exists={state.exists}
           loading={state.loading}
         >
+
           <span className={classes.root}>
             <Overview
               className={classes.overview}
@@ -55,32 +52,16 @@ const ProposalDetails = () => {
               depositEndTime={overview.depositEndTime}
               votingStartTime={overview.votingStartTime}
               votingEndTime={overview.votingEndTime}
-              content={content}
+              content={overview.content}
             />
             {shouldShowData(overview.status) && (
-            <VotesGraph
-              className={classes.votesGraph}
-              data={tally}
-            />
+            <VotesGraph className={classes.votesGraph} />
             )}
             {shouldShowData(overview.status) && (
-            <Votes
-              className={classes.votes}
-              data={votes.data}
-              tab={votes.tab}
-              yes={votes.yes}
-              no={votes.no}
-              abstain={votes.abstain}
-              veto={votes.veto}
-              total={votes.total}
-              handleTabChange={handleTabChange}
-              notVotedData={votes.notVotedData}
-              notVoted={votes.notVoted}
-            />
+            <Votes className={classes.votes} />
             )}
             <Deposits
               className={classes.deposits}
-              data={deposits}
             />
           </span>
         </LoadAndExist>

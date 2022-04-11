@@ -45,6 +45,10 @@ export const getFilterLabels = () => {
       display: 'profiles',
     },
     {
+      key: 'cosmwasm',
+      display: 'cosmwasm',
+    },
+    {
       key: 'others',
       display: 'others',
     },

@@ -2,7 +2,6 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import dayjs, { formatDayJs } from '@utils/dayjs';
-import numeral from 'numeral';
 import {
   Divider, Typography,
 } from '@material-ui/core';
@@ -23,7 +22,10 @@ const Mobile: React.FC<{
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
   const formattedItems = items.map((x) => {
-    const amount = formatNumber(x.amount.value, x.amount.exponent);
+    const entries = x.entries.map((y) => ({
+      amount: `${formatNumber(y.amount.value, y.amount.exponent)} ${y.amount.displayDenom.toUpperCase()}`,
+      completionTime: formatDayJs(dayjs.utc(y.completionTime), dateFormat),
+    }));
     return ({
       validator: (
         <AvatarName
@@ -32,9 +34,7 @@ const Mobile: React.FC<{
           name={x.validator.name}
         />
       ),
-      commission: `${numeral(x.commission * 100).format('0.00')}%`,
-      linkedUntil: formatDayJs(dayjs.utc(x.linkedUntil), dateFormat),
-      amount: `${amount} ${x.amount.displayDenom.toUpperCase()}`,
+      entries,
     });
   });
 
@@ -50,30 +50,20 @@ const Mobile: React.FC<{
                 </Typography>
                 {x.validator}
               </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('commission')}
-                </Typography>
-                <Typography variant="body1" className="value">
-                  {x.commission}
-                </Typography>
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('amount')}
-                </Typography>
-                <Typography variant="body1" className="value">
-                  {x.amount}
-                </Typography>
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('linkedUntil')}
-                </Typography>
-                <Typography variant="body1" className="value">
-                  {x.linkedUntil}
-                </Typography>
-              </div>
+              {
+                x.entries.map((y, index) => {
+                  return (
+                    <div className={classes.item} key={`mobile-entries-${y.completionTime}-${index}`}>
+                      <Typography variant="h4" className="label">
+                        {y.completionTime}
+                      </Typography>
+                      <Typography variant="body1" className="value">
+                        {y.amount}
+                      </Typography>
+                    </div>
+                  );
+                })
+              }
             </div>
             {i !== items.length - 1 && <Divider />}
           </React.Fragment>

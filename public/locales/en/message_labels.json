@@ -55,5 +55,12 @@
   "MsgGrantAllowance": "Grant Allowance",
   "MsgRevokeAllowance": "Revoke Allowance",
   "MsgCreateVestingAccount": "Create Vesting Account",
-  "MsgCreatePeriodicVestingAccount": "Create Periodic Vesting Account"
+  "MsgCreatePeriodicVestingAccount": "Create Periodic Vesting Account",
+  "txStoreCode": "Store Code",
+  "txMigrateCode": "Migrate Code",
+  "txInstantiateContract": "Instantiate Contract",
+  "txExecuteContract": "Execute Contract",
+  "txMigrateContract": "Migrate Contract",
+  "txUpdateContractAdmin": "Update Contract Admin",
+  "txClearContractAdmin": "Clear Contract Admin"
 }
