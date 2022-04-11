@@ -2,7 +2,10 @@ import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import Big from 'big.js';
-import { Box } from '@components';
+import {
+  Box,
+  InfoPopover,
+} from '@components';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 import {
@@ -13,6 +16,7 @@ import {
 import { useStyles } from './styles';
 import { formatGraphData } from './utils';
 import { useVotesGraph } from './hooks';
+import { QuorumExplanation } from './components';
 
 const VotesGraph: React.FC<ComponentDefault> = (props) => {
   const {
@@ -21,6 +25,7 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('proposals');
   const { state } = useVotesGraph();
   const { votes } = state;
+  const { quorum } = state;
 
   const total = Big(votes.yes.value)
     .plus(votes.no.value)
@@ -97,6 +102,11 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
             </div>
           );
         })}
+      </div>
+      <div className={classes.popOver}>
+        <InfoPopover
+          content={<QuorumExplanation quorum={quorum} />}
+        />
       </div>
     </Box>
   );
