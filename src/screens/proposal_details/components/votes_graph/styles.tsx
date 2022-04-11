@@ -40,9 +40,6 @@ export const useStyles = () => {
           position: 'absolute',
           top: theme.spacing(1.5),
           right: theme.spacing(1),
-          [theme.breakpoints.up('lg')]: {
-            height: '100%',
-          },
         },
         voteItem: {
           position: 'relative',
