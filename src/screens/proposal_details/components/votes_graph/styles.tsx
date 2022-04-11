@@ -38,8 +38,8 @@ export const useStyles = () => {
         },
         popOver: {
           position: 'absolute',
-          top: theme.spacing(1.5),
-          right: theme.spacing(1),
+          top: theme.spacing(2),
+          right: theme.spacing(2),
         },
         voteItem: {
           position: 'relative',
