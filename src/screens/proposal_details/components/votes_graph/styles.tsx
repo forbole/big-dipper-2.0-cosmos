@@ -53,7 +53,6 @@ export const useStyles = () => {
             position: 'absolute',
             borderRadius: theme.shape.borderRadius,
             left: 0,
-
           },
           '&.yes': {
             '&::before': {
