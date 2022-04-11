@@ -37,13 +37,11 @@ export const useStyles = () => {
           },
         },
         popOver: {
-          marginTop: theme.spacing(2),
           position: 'absolute',
-          top: 0,
+          top: theme.spacing(1.5),
           right: theme.spacing(1),
           [theme.breakpoints.up('lg')]: {
             height: '100%',
-            marginTop: theme.spacing(1.5),
           },
         },
         voteItem: {
