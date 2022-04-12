@@ -10,6 +10,10 @@ import {
   AccountDelegationRewardsDocument,
 } from '@graphql/account_actions';
 
+import {
+  CosmWasmInstantiateDocument,
+} from '@graphql/cosmwasm';
+
 export const fetchCommission = async (address: string) => {
   const defaultReturnValue = {
     commission: {
@@ -117,6 +121,28 @@ export const fetchRewards = async (address: string) => {
       query: AccountDelegationRewardsDocument,
     });
     return R.pathOr(defaultReturnValue, ['data'], data);
+  } catch (error) {
+    return defaultReturnValue;
+  }
+};
+
+export const fetchCosmWasmInstantiation = async (address: string) => {
+  const defaultReturnValue = {
+    admin: '',
+    code_id: '',
+    label: '',
+    result_contract_address: '',
+    sender: '',
+    success: true,
+  };
+  try {
+    const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
+      variables: {
+        address,
+      },
+      query: CosmWasmInstantiateDocument,
+    });
+    return R.pathOr(defaultReturnValue, ['data', 'cosmwasm_instantiate', 0], data);
   } catch (error) {
     return defaultReturnValue;
   }

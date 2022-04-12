@@ -1,7 +1,7 @@
 import * as R from 'ramda';
- import { Categories } from '../types';
+import { Categories } from '../types';
 
- class MsgInstantiateContract {
+class MsgInstantiateContract {
    public category: Categories;
    public type: string;
    public json: any;
@@ -36,6 +36,6 @@ import * as R from 'ramda';
        })),
      });
    }
- }
+}
 
- export default MsgInstantiateContract;
+export default MsgInstantiateContract;

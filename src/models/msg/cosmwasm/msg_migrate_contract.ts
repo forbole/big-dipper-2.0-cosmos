@@ -1,7 +1,7 @@
 import * as R from 'ramda';
- import { Categories } from '../types';
+import { Categories } from '../types';
 
- class MsgMigrateContract {
+class MsgMigrateContract {
    public category: Categories;
    public type: string;
    public json: any;
@@ -30,6 +30,6 @@ import * as R from 'ramda';
        migrateMsg: R.pathOr('', ['migrate_msg'], json),
      });
    }
- }
+}
 
- export default MsgMigrateContract;
+export default MsgMigrateContract;

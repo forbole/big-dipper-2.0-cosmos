@@ -1,7 +1,7 @@
 import * as R from 'ramda';
- import { Categories } from '../types';
+import { Categories } from '../types';
 
- class MsgClearContractAdmin {
+class MsgClearContractAdmin {
    public category: Categories;
    public type: string;
    public json: any;
@@ -9,7 +9,6 @@ import * as R from 'ramda';
    public contract: string;
 
    constructor(payload: any) {
-       console.log("MsgClearContractAdmin payload ", payload);
      this.category = 'cosmwasm';
      this.type = payload.type;
      this.json = payload.json;
@@ -18,7 +17,6 @@ import * as R from 'ramda';
    }
 
    static fromJson(json: any) {
-       console.log("MsgClearContractAdmin json ", json);
      return new MsgClearContractAdmin({
        json,
        type: json['@type'],
@@ -26,6 +24,6 @@ import * as R from 'ramda';
        contract: R.pathOr('', ['contract'], json),
      });
    }
- }
+}
 
- export default MsgClearContractAdmin;
+export default MsgClearContractAdmin;
