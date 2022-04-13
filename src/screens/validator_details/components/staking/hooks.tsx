@@ -2,13 +2,10 @@ import { useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import {
-  useValidatorDelegationsQuery,
-  ValidatorDelegationsQuery,
-  useValidatorRedelegationsQuery,
-  ValidatorRedelegationsQuery,
-  useValidatorUndelegationsQuery,
-  ValidatorUndelegationsQuery,
-} from '@graphql/types';
+  ValidatorDelegationsDocument,
+  ValidatorRedelegationsDocument,
+  ValidatorUndelegationsDocument,
+} from '@graphql/validator_details_documents';
 import { formatToken } from '@utils/format_token';
 import { getDenom } from '@utils/get_denom';
 import { chainConfig } from '@configs';

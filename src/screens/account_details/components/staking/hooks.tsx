@@ -9,7 +9,7 @@ import {
   AccountDelegationsDocument,
   AccountRedelegationsDocument,
   AccountUndelegationsDocument,
-} from '@graphql/account_actions';
+} from '@src/graphql/account_details_documents';
 import { formatToken } from '@utils/format_token';
 import { getDenom } from '@utils/get_denom';
 import { chainConfig } from '@configs';
