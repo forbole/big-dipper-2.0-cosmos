@@ -101,7 +101,7 @@ const ContractOverview: React.FC<{
 
         <div className={classnames(classes.item)}>
           <Typography variant="body1" className="label">
-            {`${t('block')}: `}
+            {`${t('instaBlock')}: `}
             {
                 !isDesktop ? (
                   getMiddleEllipsis(block, {
