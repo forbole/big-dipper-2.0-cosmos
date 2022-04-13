@@ -1,6 +1,7 @@
 import {
   useState, useEffect,
 } from 'react';
+import Big from 'big.js';
 import * as R from 'ramda';
 import axios from 'axios';
 import { useRouter } from 'next/router';
@@ -35,7 +36,7 @@ export const useStaking = () => {
   useEffect(() => {
     getDelegations();
     getRedelegations();
-    getUnbondings();
+    // getUnbondings();
   }, [router.query.address]);
 
   const handleSetState = (stateChange: any) => {
@@ -64,7 +65,7 @@ export const useStaking = () => {
   const getStakeByPage = async (page: number, query: string) => {
     const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
       variables: {
-        address: R.pathOr('', ['query', 'address'], router),
+        validatorAddress: R.pathOr('', ['query', 'address'], router),
         offset: page * LIMIT,
         limit: LIMIT,
         pagination: false,
@@ -81,7 +82,7 @@ export const useStaking = () => {
     try {
       const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
         variables: {
-          address: R.pathOr('', ['query', 'address'], router),
+          validatorAddress: R.pathOr('', ['query', 'address'], router),
           limit: LIMIT,
         },
         query: ValidatorDelegationsDocument,
@@ -125,20 +126,17 @@ export const useStaking = () => {
   };
 
   const formatDelegations = (data: any[]) => {
-    const results = [];
-
-    data.forEach((x) => {
-
-    });
-    // return delegations
-    //   .map((x) => {
-    //     const address = R.pathOr('', ['delegator_address'], x);
-    //     const delegation = getDenom(x.coins, chainConfig.primaryTokenUnit);
-    //     return ({
-    //       address,
-    //       amount: formatToken(delegation.amount, delegation.denom),
-    //     });
-    //   });
+    return data
+      .map((x) => {
+        const address = R.pathOr('', ['delegator_address'], x);
+        const delegation = getDenom(x.coins, chainConfig.primaryTokenUnit);
+        return ({
+          address,
+          amount: formatToken(delegation.amount, delegation.denom),
+        });
+      }).sort((a, b) => {
+        return Big(a.amount.value).gt(b.amount.value) ? -1 : 1;
+      });
   };
 
   // =====================================
@@ -148,7 +146,7 @@ export const useStaking = () => {
     try {
       const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
         variables: {
-          address: R.pathOr('', ['query', 'address'], router),
+          validatorAddress: R.pathOr('', ['query', 'address'], router),
           limit: LIMIT,
         },
         query: ValidatorRedelegationsDocument,
@@ -193,8 +191,7 @@ export const useStaking = () => {
   };
 
   const formatRedelegations = (data: any) => {
-    const redelegations = R.pathOr([], ['redelegations', 'redelegations'], data);
-    return redelegations
+    return data
       .map((x) => {
         const to = R.pathOr('', ['validator_dst_address'], x);
         const address = R.pathOr('', ['delegator_address'], x);
@@ -208,6 +205,8 @@ export const useStaking = () => {
           to,
           entries,
         });
+      }).sort((a, b) => {
+        return a.completionTime > b.completionTime ? -1 : 1;
       });
   };
 
@@ -218,7 +217,7 @@ export const useStaking = () => {
     try {
       const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
         variables: {
-          address: R.pathOr('', ['query', 'address'], router),
+          validatorAddress: R.pathOr('', ['query', 'address'], router),
           limit: LIMIT,
         },
         query: ValidatorUndelegationsDocument,
