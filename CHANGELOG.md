@@ -7,6 +7,7 @@
 - Add token price history component ([\#784](https://github.com/forbole/big-dipper-2.0-cosmos/issues/784))
 - Update Account details hasura actions to default call 100 items instead of 10 for better performance
 - Add back proposal details quorum % ([\#788](https://github.com/forbole/big-dipper-2.0-cosmos/issues/788))
+- Update validator details hasura actions performances ([\#812](https://github.com/forbole/big-dipper-2.0-cosmos/issues/812))
 
 ## Fixes
 - Fixed commission being displayed for non validator accounts ([\#787](https://github.com/forbole/big-dipper-2.0-cosmos/issues/787))

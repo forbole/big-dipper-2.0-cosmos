@@ -9,7 +9,7 @@ import {
   AccountDelegationsDocument,
   AccountRedelegationsDocument,
   AccountUndelegationsDocument,
-} from '@graphql/account_actions';
+} from '@src/graphql/account_details_documents';
 import { formatToken } from '@utils/format_token';
 import { getDenom } from '@utils/get_denom';
 import { chainConfig } from '@configs';
@@ -208,7 +208,7 @@ export const useStaking = (rewards: RewardsType) => {
       });
 
     results.sort((a, b) => {
-      return a.completionTime > b.completionTime ? -1 : 1;
+      return a.completionTime < b.completionTime ? -1 : 1;
     });
 
     return results;
@@ -278,7 +278,7 @@ export const useStaking = (rewards: RewardsType) => {
     });
 
     results.sort((a, b) => {
-      return a.completionTime > b.completionTime ? -1 : 1;
+      return a.completionTime < b.completionTime ? -1 : 1;
     });
 
     return results;
