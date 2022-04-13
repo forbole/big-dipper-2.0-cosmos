@@ -10,6 +10,7 @@
 
 ## Fixes
 - Fixed commission being displayed for non validator accounts ([\#787](https://github.com/forbole/big-dipper-2.0-cosmos/issues/787))
+- Add community tax in to apr calculation ([\#810](https://github.com/forbole/big-dipper-2.0-cosmos/issues/810))
 
 # base-v2.0.2 - 2021-03-23
 
