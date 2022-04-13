@@ -208,7 +208,7 @@ export const useStaking = (rewards: RewardsType) => {
       });
 
     results.sort((a, b) => {
-      return a.completionTime > b.completionTime ? -1 : 1;
+      return a.completionTime < b.completionTime ? -1 : 1;
     });
 
     return results;
@@ -278,7 +278,7 @@ export const useStaking = (rewards: RewardsType) => {
     });
 
     results.sort((a, b) => {
-      return a.completionTime > b.completionTime ? -1 : 1;
+      return a.completionTime < b.completionTime ? -1 : 1;
     });
 
     return results;

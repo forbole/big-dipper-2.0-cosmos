@@ -36,7 +36,7 @@ export const useStaking = () => {
   useEffect(() => {
     getDelegations();
     getRedelegations();
-    // getUnbondings();
+    getUnbondings();
   }, [router.query.address]);
 
   const handleSetState = (stateChange: any) => {
@@ -191,23 +191,23 @@ export const useStaking = () => {
   };
 
   const formatRedelegations = (data: any) => {
-    return data
-      .map((x) => {
-        const to = R.pathOr('', ['validator_dst_address'], x);
-        const address = R.pathOr('', ['delegator_address'], x);
-        const entries = R.pathOr([], ['entries'], x).map((y) => ({
-          amount: formatToken(y.balance, chainConfig.primaryTokenUnit),
-          completionTime: R.pathOr('', ['completion_time'], y),
-        }));
-
-        return ({
-          address,
-          to,
-          entries,
+    const results = [];
+    data
+      .forEach((x) => {
+        R.pathOr([], ['entries'], x).forEach((y) => {
+          results.push({
+            address: R.pathOr('', ['delegator_address'], x),
+            to: R.pathOr('', ['validator_dst_address'], x),
+            amount: formatToken(y.balance, chainConfig.primaryTokenUnit),
+            completionTime: R.pathOr('', ['completion_time'], y),
+          });
         });
-      }).sort((a, b) => {
-        return a.completionTime > b.completionTime ? -1 : 1;
       });
+    results.sort((a, b) => {
+      return a.completionTime < b.completionTime ? -1 : 1;
+    });
+
+    return results;
   };
 
   // =====================================
@@ -262,20 +262,22 @@ export const useStaking = () => {
   };
 
   const formatUnbondings = (data: any) => {
-    const unbondings = R.pathOr([], ['undelegations', 'undelegations'], data);
-    return unbondings
-      .map((x) => {
-        const address = R.pathOr('', ['delegator_address'], x);
-        const entries = R.pathOr([], ['entries'], x).map((y) => ({
+    const results = [];
+    data.forEach((x) => {
+      R.pathOr([], ['entries'], x).forEach((y) => {
+        results.push({
+          address: R.pathOr('', ['delegator_address'], x),
           amount: formatToken(y.balance, chainConfig.primaryTokenUnit),
           completionTime: R.pathOr('', ['completion_time'], y),
-        }));
-
-        return ({
-          address,
-          entries,
         });
       });
+    });
+
+    results.sort((a, b) => {
+      return a.completionTime < b.completionTime ? -1 : 1;
+    });
+
+    return results;
   };
 
   return {
