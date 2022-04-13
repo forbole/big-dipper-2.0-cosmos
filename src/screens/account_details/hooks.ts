@@ -18,6 +18,7 @@ import {
   fetchDelegationBalance,
   fetchRewards,
   fetchUnbondingBalance,
+  fetchCosmWasmInstantiation,
 } from './utils';
 
 const defaultTokenUnit: TokenUnit = {
@@ -48,6 +49,19 @@ const initialState: AccountDetailState = {
     total: defaultTokenUnit,
   },
   rewards: {},
+  cosmwasm: {
+    admin: '',
+    code_id: '',
+    label: '',
+    result_contract_address: '',
+    sender: '',
+    success: false,
+    transaction: {
+      block: {
+        height: 0,
+      },
+    },
+  },
 };
 
 export const useAccountDetails = () => {
@@ -105,6 +119,7 @@ export const useAccountDetails = () => {
       fetchDelegationBalance(address),
       fetchUnbondingBalance(address),
       fetchRewards(address),
+      fetchCosmWasmInstantiation(address),
     ];
     const [
       commission,
@@ -112,6 +127,7 @@ export const useAccountDetails = () => {
       delegation,
       unbonding,
       rewards,
+      cosmWasmInstantiation,
     ] = await Promise.allSettled(promises);
 
     const formattedRawData: any = {};
@@ -120,8 +136,11 @@ export const useAccountDetails = () => {
     formattedRawData.delegationBalance = R.pathOr([], ['value', 'delegationBalance'], delegation);
     formattedRawData.unbondingBalance = R.pathOr([], ['value', 'unbondingBalance'], unbonding);
     formattedRawData.delegationRewards = R.pathOr([], ['value', 'delegationRewards'], rewards);
-
     handleSetState(formatAllBalance(formattedRawData));
+
+    const rawData: any = {};
+    rawData.cosmwasm = R.pathOr([], ['value'], cosmWasmInstantiation);
+    handleSetState(rawData);
   };
 
   // ==========================

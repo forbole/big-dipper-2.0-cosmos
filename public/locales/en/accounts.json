@@ -33,5 +33,10 @@
   "creationTime": "Creation Time",
   "bio": "Bio",
   "status": "Status",
-  "completionTime": "Completion Time"
+  "completionTime": "Completion Time",
+  "smartContractDetails": "Smart Contract Details",
+  "deployer": "Deployer",
+  "label": "Label",
+  "codeId": "Code Id",
+  "instaBlock": "Instantiated At Block"
 }

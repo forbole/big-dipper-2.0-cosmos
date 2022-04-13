@@ -1,7 +1,7 @@
 import * as R from 'ramda';
- import { Categories } from '../types';
+import { Categories } from '../types';
 
- class MsgUpdateContractAdmin {
+class MsgUpdateContractAdmin {
    public category: Categories;
    public type: string;
    public json: any;
@@ -27,6 +27,6 @@ import * as R from 'ramda';
        contract: R.pathOr('', ['contract'], json),
      });
    }
- }
+}
 
- export default MsgUpdateContractAdmin;
+export default MsgUpdateContractAdmin;

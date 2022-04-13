@@ -7,7 +7,6 @@ import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
 import JSONPretty from 'react-json-pretty';
-var JSONPrettyMon = require('react-json-pretty/dist/monikai');
 import {
   Typography,
   Divider,
@@ -25,6 +24,8 @@ import {
 } from './components';
 import { useStyles } from './styles';
 import { getProposalType } from '../../utils';
+
+const JSONPrettyMon = require('react-json-pretty/dist/monikai');
 
 const Overview: React.FC<{
   className?: string;
@@ -80,7 +81,7 @@ const Overview: React.FC<{
           </Typography>
           <CommunitySpend
             recipient={R.pathOr('', ['recipient'], props.content)}
-            amount={R.pathOr('', ['amount', '0', 'amount'], props.content) + " " + R.pathOr('', ['amount', '0', 'denom'], props.content)}
+            amount={`${R.pathOr('', ['amount', '0', 'amount'], props.content)} ${R.pathOr('', ['amount', '0', 'denom'], props.content)}`}
           />
         </>
       );
@@ -98,7 +99,7 @@ const Overview: React.FC<{
           <Typography variant="body1" className="label">
             {t('upgradedClientState')}
           </Typography>
-          <JSONPretty id="json-pretty" data={JSON.stringify(R.pathOr('', ['upgraded_client_state'], props.content), null, 2)} theme={JSONPrettyMon}></JSONPretty>
+          <JSONPretty id="json-pretty" data={JSON.stringify(R.pathOr('', ['upgraded_client_state'], props.content), null, 2)} theme={JSONPrettyMon} />
         </>
       );
     }

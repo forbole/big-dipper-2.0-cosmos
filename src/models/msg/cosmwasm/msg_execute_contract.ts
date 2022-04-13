@@ -21,13 +21,13 @@ class MsgExecuteContract {
   }
 
   static fromJson(json: any) {
-    json["msg_decoded"] = atob(json["msg"])
+    json.msg_decoded = atob(json.msg);
     return new MsgExecuteContract({
-        contract: json.contract,
-        msg: json.msg,
-        sender: json.sender,
-        type: json["@type"],
-        json: json,
+      contract: json.contract,
+      msg: json.msg,
+      sender: json.sender,
+      type: json['@type'],
+      json,
     });
   }
 

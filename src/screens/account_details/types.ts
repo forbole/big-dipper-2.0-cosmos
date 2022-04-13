@@ -23,6 +23,16 @@ export type RewardsType = {
   [value:string]: TokenUnit[];
 }
 
+export type CosmwasmType = {
+  admin: string;
+  code_id: string,
+  label: string,
+  result_contract_address: string,
+  sender: string,
+  success: boolean,
+  transaction: any
+}
+
 export type AccountDetailState = {
   loading: boolean;
   exists: boolean;
@@ -34,4 +44,5 @@ export type AccountDetailState = {
     count: number;
   };
   rewards: RewardsType;
+  cosmwasm: CosmwasmType;
 }

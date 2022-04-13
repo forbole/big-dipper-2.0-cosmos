@@ -1,7 +1,7 @@
 import * as R from 'ramda';
- import { Categories } from '../types';
+import { Categories } from '../types';
 
- class MsgStoreCode {
+class MsgStoreCode {
    public category: Categories;
    public type: string;
    public json: any;
@@ -24,6 +24,6 @@ import * as R from 'ramda';
        wasmByteCode: R.pathOr('', ['wasm_byte_code'], json),
      });
    }
- }
+}
 
- export default MsgStoreCode;
+export default MsgStoreCode;

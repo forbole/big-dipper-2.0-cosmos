@@ -88,3 +88,11 @@ type MsgCoin = {
   denom: string;
   amount: string;
 }
+
+type ContractMessage = {
+  method: string;
+  success: boolean;
+  transaction_hash: string;
+  timestamp: string;
+  height: number;
+}

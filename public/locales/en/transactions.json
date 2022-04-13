@@ -34,5 +34,6 @@
   "feegrant": "Feegrant",
   "vesting": "Vesting",
   "logs": "Logs",
-  "arguments": "Arguments"
+  "arguments": "Arguments",
+  "method": "Method"
 }
