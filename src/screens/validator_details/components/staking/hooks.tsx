@@ -1,5 +1,8 @@
-import { useState } from 'react';
+import {
+  useState, useEffect,
+} from 'react';
 import * as R from 'ramda';
+import axios from 'axios';
 import { useRouter } from 'next/router';
 import {
   ValidatorDelegationsDocument,
@@ -17,7 +20,8 @@ const stakingDefault = {
   loading: true,
 };
 
-const LIMIT = 10;
+const LIMIT = 100;
+const PAGE_LIMIT = 10;
 
 export const useStaking = () => {
   const router = useRouter();
@@ -27,6 +31,12 @@ export const useStaking = () => {
     redelegations: stakingDefault,
     unbondings: stakingDefault,
   });
+
+  useEffect(() => {
+    getDelegations();
+    getRedelegations();
+    getUnbondings();
+  }, [router.query.address]);
 
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
@@ -39,104 +49,150 @@ export const useStaking = () => {
     }));
   };
 
+  const createPagination = (data: any[]) => {
+    const pages = {};
+    data.forEach((x, i) => {
+      const selectedKey = Math.floor(i / PAGE_LIMIT);
+      pages[selectedKey] = pages[selectedKey] || [];
+      pages[selectedKey].push(x);
+    });
+    return pages;
+  };
+
+  // helper function to get rest of the staking items
+  // if it is over the default limit
+  const getStakeByPage = async (page: number, query: string) => {
+    const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
+      variables: {
+        address: R.pathOr('', ['query', 'address'], router),
+        offset: page * LIMIT,
+        limit: LIMIT,
+        pagination: false,
+      },
+      query,
+    });
+    return data;
+  };
+
   // =====================================
   // delegations
   // =====================================
-  const delegationsQuery = useValidatorDelegationsQuery({
-    variables: {
-      validatorAddress: R.pathOr('', ['query', 'address'], router),
-      limit: LIMIT,
-    },
-    onCompleted: (data) => {
-      const formattedData = formatDelegations(data);
-      handleSetState({
-        delegations: {
-          loading: false,
-          count: R.pathOr(0, ['delegations', 'pagination', 'total'], data),
-          data: {
-            0: formattedData,
-          },
-        },
-      });
-    },
-    onError: () => {
-      handleSetState({
-        delegations: {
-          loading: false,
-        },
-      });
-    },
-  });
-
-  const formatDelegations = (data: ValidatorDelegationsQuery) => {
-    const delegations = R.pathOr([], ['delegations', 'delegations'], data);
-    return delegations
-      .map((x) => {
-        const address = R.pathOr('', ['delegator_address'], x);
-        const delegation = getDenom(x.coins, chainConfig.primaryTokenUnit);
-        return ({
-          address,
-          amount: formatToken(delegation.amount, delegation.denom),
-        });
-      });
-  };
-
-  const handleDelegationPageCallback = async (page: number, _rowsPerPage: number) => {
-    if (!state.delegations.data[page]) {
-      handleSetState({
-        delegations: {
-          loading: true,
-        },
-      });
-
-      await delegationsQuery.fetchMore({
+  const getDelegations = async () => {
+    try {
+      const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
         variables: {
-          offset: page * LIMIT,
+          address: R.pathOr('', ['query', 'address'], router),
           limit: LIMIT,
         },
-      }).then(({ data }) => {
-        handleSetState({
-          delegations: {
-            loading: false,
-            data: {
-              [page]: formatDelegations(data),
-            },
-          },
-        });
+        query: ValidatorDelegationsDocument,
+      });
+      const count = R.pathOr(0, ['data', 'delegations', 'pagination', 'total'], data);
+      const allDelegations = R.pathOr([], ['data', 'delegations', 'delegations'], data);
+      // if there are more than the default 100, grab the remaining delegations
+      if (count > LIMIT) {
+        const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
+        const remainingDelegationsPromises = [];
+        for (let i = 0; i < remainingFetchCount; i += 1) {
+          remainingDelegationsPromises.push(getStakeByPage(
+            i + 1, ValidatorDelegationsDocument,
+          ));
+        }
+        const remainingDelegations = await Promise.allSettled(remainingDelegationsPromises);
+        remainingDelegations
+          .filter((x) => x.status === 'fulfilled')
+          .forEach((x) => {
+            const delegations = R.pathOr([], ['value', 'data', 'delegations', 'delegations'], x);
+            allDelegations.push(...delegations);
+          });
+      }
+
+      handleSetState({
+        delegations: {
+          loading: false,
+          count,
+          data: createPagination(
+            formatDelegations(allDelegations),
+          ),
+        },
+      });
+    } catch (error) {
+      handleSetState({
+        delegations: {
+          loading: false,
+        },
       });
     }
+  };
+
+  const formatDelegations = (data: any[]) => {
+    const results = [];
+
+    data.forEach((x) => {
+
+    });
+    // return delegations
+    //   .map((x) => {
+    //     const address = R.pathOr('', ['delegator_address'], x);
+    //     const delegation = getDenom(x.coins, chainConfig.primaryTokenUnit);
+    //     return ({
+    //       address,
+    //       amount: formatToken(delegation.amount, delegation.denom),
+    //     });
+    //   });
   };
 
   // =====================================
   // redelegations
   // =====================================
-  const redelegationsQuery = useValidatorRedelegationsQuery({
-    variables: {
-      validatorAddress: R.pathOr('', ['query', 'address'], router),
-      limit: LIMIT,
-    },
-    onCompleted: (data) => {
-      const formattedData = formatRedelegations(data);
-      handleSetState({
-        redelegations: {
-          loading: false,
-          count: R.pathOr(0, ['redelegations', 'pagination', 'total'], data),
-          data: {
-            0: formattedData,
-          },
+  const getRedelegations = async () => {
+    try {
+      const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
+        variables: {
+          address: R.pathOr('', ['query', 'address'], router),
+          limit: LIMIT,
         },
+        query: ValidatorRedelegationsDocument,
       });
-    },
-    onError: () => {
-      handleSetState({
-        redelegations: {
-          loading: false,
-        },
-      });
-    },
-  });
+      const count = R.pathOr(0, ['data', 'redelegations', 'pagination', 'total'], data);
+      const allData = R.pathOr([], ['data', 'redelegations', 'redelegations'], data);
 
-  const formatRedelegations = (data: ValidatorRedelegationsQuery) => {
+      // if there are more than the default 100, grab the remaining delegations
+      if (count > LIMIT) {
+        const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
+        const remainingPromises = [];
+        for (let i = 0; i < remainingFetchCount; i += 1) {
+          remainingPromises.push(getStakeByPage(
+            i + 1, ValidatorRedelegationsDocument,
+          ));
+        }
+        const remainingData = await Promise.allSettled(remainingPromises);
+        remainingData
+          .filter((x) => x.status === 'fulfilled')
+          .forEach((x) => {
+            const fullfilledData = R.pathOr([], ['value', 'data', 'redelegations', 'redelegations'], x);
+            allData.push(...fullfilledData);
+          });
+      }
+
+      const formattedData = formatRedelegations(allData);
+
+      handleSetState({
+        redelegations: {
+          loading: false,
+          count: formattedData.length,
+          data: createPagination(formattedData),
+        },
+      });
+    } catch (error) {
+      handleSetState({
+        redelegations: {
+          loading: false,
+        },
+      });
+    }
+  };
+
+  const formatRedelegations = (data: any) => {
     const redelegations = R.pathOr([], ['redelegations', 'redelegations'], data);
     return redelegations
       .map((x) => {
@@ -155,62 +211,58 @@ export const useStaking = () => {
       });
   };
 
-  const handleRedelegationPageCallback = async (page: number, _rowsPerPage: number) => {
-    if (!state.unbondings.data[page]) {
-      handleSetState({
-        redelegations: {
-          loading: true,
-        },
-      });
-
-      await redelegationsQuery.fetchMore({
+  // =====================================
+  // unbondings
+  // =====================================
+  const getUnbondings = async () => {
+    try {
+      const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
         variables: {
-          offset: page * LIMIT,
+          address: R.pathOr('', ['query', 'address'], router),
           limit: LIMIT,
         },
-      }).then(({ data }) => {
-        handleSetState({
-          redelegations: {
-            loading: false,
-            data: {
-              [page]: formatRedelegations(data),
-            },
-          },
-        });
+        query: ValidatorUndelegationsDocument,
+      });
+      const count = R.pathOr(0, ['data', 'undelegations', 'pagination', 'total'], data);
+      const allData = R.pathOr([], ['data', 'undelegations', 'undelegations'], data);
+
+      // if there are more than the default 100, grab the remaining delegations
+      if (count > LIMIT) {
+        const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
+        const remainingPromises = [];
+        for (let i = 0; i < remainingFetchCount; i += 1) {
+          remainingPromises.push(getStakeByPage(
+            i + 1, ValidatorUndelegationsDocument,
+          ));
+        }
+        const remainingData = await Promise.allSettled(remainingPromises);
+        remainingData
+          .filter((x) => x.status === 'fulfilled')
+          .forEach((x) => {
+            const fullfilledData = R.pathOr([], ['value', 'data', 'undelegations', 'undelegations'], x);
+            allData.push(...fullfilledData);
+          });
+      }
+
+      const formattedData = formatUnbondings(allData);
+
+      handleSetState({
+        unbondings: {
+          loading: false,
+          count: formattedData.length,
+          data: createPagination(formattedData),
+        },
+      });
+    } catch (error) {
+      handleSetState({
+        unbondings: {
+          loading: false,
+        },
       });
     }
   };
 
-  // =====================================
-  // unbondings
-  // =====================================
-  const unbondingsQuery = useValidatorUndelegationsQuery({
-    variables: {
-      validatorAddress: R.pathOr('', ['query', 'address'], router),
-      limit: LIMIT,
-    },
-    onCompleted: (data) => {
-      const formattedData = formatUnbondings(data);
-      handleSetState({
-        unbondings: {
-          loading: false,
-          count: R.pathOr(0, ['undelegations', 'pagination', 'total'], data),
-          data: {
-            0: formattedData,
-          },
-        },
-      });
-    },
-    onError: () => {
-      handleSetState({
-        unbondings: {
-          loading: false,
-        },
-      });
-    },
-  });
-
-  const formatUnbondings = (data: ValidatorUndelegationsQuery) => {
+  const formatUnbondings = (data: any) => {
     const unbondings = R.pathOr([], ['undelegations', 'undelegations'], data);
     return unbondings
       .map((x) => {
@@ -227,37 +279,8 @@ export const useStaking = () => {
       });
   };
 
-  const handleUnbondingPageCallback = async (page: number, _rowsPerPage: number) => {
-    if (!state.unbondings.data[page]) {
-      handleSetState({
-        unbondings: {
-          loading: true,
-        },
-      });
-
-      await unbondingsQuery.fetchMore({
-        variables: {
-          offset: page * LIMIT,
-          limit: LIMIT,
-        },
-      }).then(({ data }) => {
-        handleSetState({
-          unbondings: {
-            loading: false,
-            data: {
-              [page]: formatUnbondings(data),
-            },
-          },
-        });
-      });
-    }
-  };
-
   return {
     state,
     handleTabChange,
-    handleDelegationPageCallback,
-    handleUnbondingPageCallback,
-    handleRedelegationPageCallback,
   };
 };

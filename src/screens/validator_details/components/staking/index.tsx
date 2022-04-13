@@ -17,9 +17,6 @@ const Staking: React.FC<ComponentDefault> = (props) => {
   const {
     state,
     handleTabChange,
-    handleDelegationPageCallback,
-    handleUnbondingPageCallback,
-    handleRedelegationPageCallback,
   } = useStaking();
 
   const tabs = [
@@ -29,33 +26,32 @@ const Staking: React.FC<ComponentDefault> = (props) => {
       component: (
         <Delegations
           delegations={state.delegations}
-          handlePageCallback={handleDelegationPageCallback}
         />
       ),
       count: state.delegations.count,
     },
-    {
-      id: 1,
-      key: 'redelegations',
-      component: (
-        <Redelgations
-          redelegations={state.redelegations}
-          handlePageCallback={handleRedelegationPageCallback}
-        />
-      ),
-      count: state.redelegations.count,
-    },
-    {
-      id: 2,
-      key: 'unbondings',
-      component: (
-        <Unbondings
-          unbondings={state.unbondings}
-          handlePageCallback={handleUnbondingPageCallback}
-        />
-      ),
-      count: state.unbondings.count,
-    },
+    // {
+    //   id: 1,
+    //   key: 'redelegations',
+    //   component: (
+    //     <Redelgations
+    //       redelegations={state.redelegations}
+    //       handlePageCallback={handleRedelegationPageCallback}
+    //     />
+    //   ),
+    //   count: state.redelegations.count,
+    // },
+    // {
+    //   id: 2,
+    //   key: 'unbondings',
+    //   component: (
+    //     <Unbondings
+    //       unbondings={state.unbondings}
+    //       handlePageCallback={handleUnbondingPageCallback}
+    //     />
+    //   ),
+    //   count: state.unbondings.count,
+    // },
   ];
 
   return (

@@ -21677,7 +21677,7 @@ export const ValidatorDelegationsDocument = gql`
     address: $validatorAddress
     limit: $limit
     offset: $offset
-    count_total: true
+    count_total: $pagination
   ) {
     delegations
     pagination
@@ -21721,7 +21721,7 @@ export const ValidatorRedelegationsDocument = gql`
     address: $validatorAddress
     limit: $limit
     offset: $offset
-    count_total: true
+    count_total: $pagination
   ) {
     redelegations
     pagination
@@ -21765,7 +21765,7 @@ export const ValidatorUndelegationsDocument = gql`
     address: $validatorAddress
     limit: $limit
     offset: $offset
-    count_total: true
+    count_total: $pagination
   ) {
     undelegations: unbonding_delegations
     pagination
