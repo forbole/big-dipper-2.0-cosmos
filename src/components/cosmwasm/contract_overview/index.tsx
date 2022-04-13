@@ -15,12 +15,14 @@ const ContractOverview: React.FC<{
   deployerAddress: string;
   label: string;
   codeId: string;
+  block: string;
 }> = ({
   className,
   address,
   deployerAddress,
   label,
   codeId,
+  block,
 }) => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
@@ -92,6 +94,21 @@ const ContractOverview: React.FC<{
                   })
                 ) : (
                   codeId
+                )
+            }
+          </Typography>
+        </div>
+
+        <div className={classnames(classes.item)}>
+          <Typography variant="body1" className="label">
+            {`${t('block')}: `}
+            {
+                !isDesktop ? (
+                  getMiddleEllipsis(block, {
+                    beginning: 15, ending: 5,
+                  })
+                ) : (
+                  block
                 )
             }
           </Typography>

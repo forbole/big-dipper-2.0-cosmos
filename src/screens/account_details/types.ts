@@ -29,7 +29,8 @@ export type CosmwasmType = {
   label: string,
   result_contract_address: string,
   sender: string,
-  success: boolean
+  success: boolean,
+  transaction: any
 }
 
 export type AccountDetailState = {

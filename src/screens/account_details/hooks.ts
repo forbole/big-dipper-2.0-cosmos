@@ -56,6 +56,11 @@ const initialState: AccountDetailState = {
     result_contract_address: '',
     sender: '',
     success: false,
+    transaction: {
+      block: {
+        height: 0,
+      },
+    },
   },
 };
 

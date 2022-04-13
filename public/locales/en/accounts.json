@@ -37,5 +37,6 @@
   "smartContractDetails": "Smart Contract Details",
   "deployer": "Deployer",
   "label": "Label",
-  "codeId": "Code Id"
+  "codeId": "Code Id",
+  "instaBlock": "Instantiated At Block"
 }

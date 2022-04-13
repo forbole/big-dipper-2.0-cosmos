@@ -7,6 +7,11 @@ query CosmWasmInstantiate($address: String!) {
         sender
         success
         code_id
+        transaction {
+            block {
+                height
+            }
+        }
     }
 }
 `;

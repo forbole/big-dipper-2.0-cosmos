@@ -60,6 +60,7 @@ const AccountDetails = () => {
                   deployerAddress={state.cosmwasm.sender}
                   label={state.cosmwasm.label}
                   codeId={state.cosmwasm.code_id}
+                  block={state.cosmwasm.transaction.block.height}
                 />
               )
               : (
