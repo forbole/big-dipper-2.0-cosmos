@@ -19757,6 +19757,9 @@ export type MarketDataQuery = { communityPool: Array<(
   )>, bondedTokens: Array<(
     { __typename?: 'staking_pool' }
     & Pick<Staking_Pool, 'bonded_tokens'>
+  )>, distributionParams: Array<(
+    { __typename?: 'distribution_params' }
+    & Pick<Distribution_Params, 'params'>
   )> };
 
 export type GetMessagesByAddressQueryVariables = Exact<{
@@ -20859,6 +20862,9 @@ export const MarketDataDocument = gql`
   }
   bondedTokens: staking_pool(order_by: {height: desc}, limit: 1) {
     bonded_tokens
+  }
+  distributionParams: distribution_params {
+    params
   }
 }
     `;
