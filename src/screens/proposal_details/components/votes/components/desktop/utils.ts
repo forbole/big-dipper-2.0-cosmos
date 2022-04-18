@@ -6,7 +6,7 @@ export const columns:{
   {
     key: 'voter',
     // width: 34,
-    width: 50,
+    width: 33,
   },
   // {
   //   key: 'votingPower',
@@ -16,7 +16,12 @@ export const columns:{
   {
     key: 'vote',
     // width: 33,
-    width: 50,
+    width: 33,
     align: 'right',
   },
+  {
+    key: 'weight',
+    width: 33,
+    align: 'right',
+  }
 ];

@@ -31,6 +31,7 @@ const Desktop: React.FC<{
         />
       ),
       vote: t(getVoteKey(x.vote)),
+      weight: x.weight,
     });
   });
 
