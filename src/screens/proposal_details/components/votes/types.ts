@@ -1,6 +1,7 @@
 export type VoteType = {
   vote: string;
   user: string;
+  weight: string;
 }
 
 export type VoteCount = {

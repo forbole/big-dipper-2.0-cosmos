@@ -49,5 +49,6 @@
   "didNotVote": "Did not vote",
   "notVoted": "Not Voted",
   "upgradedClientState": "Upgraded Client State",
-  "votedTotalCaption": "Voted / Total ({{totalVotedPercent}})"
+  "votedTotalCaption": "Voted / Total ({{totalVotedPercent}})",
+  "weight": "Weight"
 }
