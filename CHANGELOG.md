@@ -1,12 +1,27 @@
+# base-v2.1.0 - 2021-04-19
+
+## Changes
+- Updated not found and 404 logo ([\#792](https://github.com/forbole/big-dipper-2.0-cosmos/issues/792))
+- Fixed params % display ([\#795](https://github.com/forbole/big-dipper-2.0-cosmos/issues/795))
+- Updated params page if time period less than 1 day then show seconds ([\#797](https://github.com/forbole/big-dipper-2.0-cosmos/issues/797))
+- Add token price history component ([\#784](https://github.com/forbole/big-dipper-2.0-cosmos/issues/784))
+- Update Account details hasura actions to default call 100 items instead of 10 for better performance
+- Add back proposal details quorum % ([\#788](https://github.com/forbole/big-dipper-2.0-cosmos/issues/788))
+- Update validator details hasura actions performances ([\#812](https://github.com/forbole/big-dipper-2.0-cosmos/issues/812))
+
+## Fixes
+- Fixed commission being displayed for non validator accounts ([\#787](https://github.com/forbole/big-dipper-2.0-cosmos/issues/787))
+- Add community tax in to apr calculation ([\#810](https://github.com/forbole/big-dipper-2.0-cosmos/issues/810))
+
 # base-v2.0.2 - 2021-03-23
 
 ## Bug fixes
 - Fixed proposal details chart percentage display
 
 # base-v2.0.1 - 2021-03-17
-
 ## Bug fixes
 - Fixed online voting power total ([\#800](https://github.com/forbole/big-dipper-2.0-cosmos/issues/800))
+
 # base-v2.0.0 - 2021-03-10
 
 ## Changes
@@ -16,6 +31,9 @@
 - Improved initial loading speed by asyncing top level functions ([\#773](https://github.com/forbole/big-dipper-2.0-cosmos/issues/773))
 ## Bug fixes
 - Fixed Apr error if bonded tokens is 0 ([\#758](https://github.com/forbole/big-dipper-2.0-cosmos/issues/758))
+
+## Breaking
+- [Bdjuno](https://github.com/forbole/bdjuno) must be on `v2.0.0`
 
 # base-v2.0.0-rc3 - 2021-02-25
 
@@ -28,8 +46,7 @@
 - Change env `NEXT_PUBLIC_CHAIN_STATUS` to `NEXT_PUBLIC_CHAIN_TYPE` or don't. It's backwards compatible
 
 ## Breaking
-
-- [Bdjuno](https://github.com/forbole/bdjuno) must be on `v1.1.0+`
+- [Bdjuno](https://github.com/forbole/bdjuno) must be on `v2.0.0`
 
 # base-v2.0.0-rc2 - 2021-02-24
 

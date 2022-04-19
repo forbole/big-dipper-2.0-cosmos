@@ -7,4 +7,5 @@ export type VotesType = {
 export type VotesGraphState = {
   votes: VotesType;
   bonded: TokenUnit;
+  quorum: number;
 }
