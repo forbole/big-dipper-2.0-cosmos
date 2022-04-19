@@ -3,7 +3,6 @@ import * as R from 'ramda';
 import {
   useTokenPriceHistoryQuery,
 } from '@graphql/types';
-import { chainConfig } from '@configs';
 import { HeroState } from './types';
 
 export const useHero = () => {
@@ -20,7 +19,7 @@ export const useHero = () => {
   useTokenPriceHistoryQuery({
     variables: {
       limit: 10,
-      denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
+      denom: 'erowan',
     },
     onCompleted: (data) => {
       const newState: any = {
