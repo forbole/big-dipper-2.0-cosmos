@@ -19,7 +19,6 @@ const Mobile = dynamic(() => import('./components/mobile'));
 
 const Redelegations: React.FC<{
   redelegations: RedelegationsType,
-  handlePageCallback: (page: number, _rowsPerPage: number) => void;
 } & ComponentDefault> = (props) => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
@@ -28,9 +27,7 @@ const Redelegations: React.FC<{
     rowsPerPage,
     handleChangePage,
     handleChangeRowsPerPage,
-  } = usePagination({
-    pageChangeCallback: props.handlePageCallback,
-  });
+  } = usePagination({});
 
   const pageItems = R.pathOr([], ['redelegations', 'data', page], props);
 
