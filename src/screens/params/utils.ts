@@ -10,6 +10,21 @@ import {
   Gov,
 } from './types';
 
+const convertBySeconds = (seconds: number, t: any) => {
+  const SECONDS_IN_DAY = 86400;
+  return (
+    seconds >= SECONDS_IN_DAY ? (
+      t('days', {
+        day: secondsToDays(seconds),
+      })
+    ) : (
+      t('seconds', {
+        second: seconds,
+      })
+    )
+  );
+};
+
 export const formatStaking = (data: Staking, t: any) => {
   return ([
     {
@@ -18,9 +33,7 @@ export const formatStaking = (data: Staking, t: any) => {
     },
     {
       label: t('unbondingTime'),
-      detail: t('days', {
-        day: secondsToDays(nanoToSeconds(data.unbondingTime)),
-      }),
+      detail: convertBySeconds(nanoToSeconds(data.unbondingTime), t),
     },
     {
       label: t('maxEntries'),
@@ -122,9 +135,7 @@ export const formatGov = (data: Gov, t: any) => {
     },
     {
       label: t('maxDepositPeriod'),
-      detail: t('days', {
-        day: secondsToDays(nanoToSeconds(data.maxDepositPeriod)),
-      }),
+      detail: convertBySeconds(nanoToSeconds(data.maxDepositPeriod), t),
     },
     {
       label: t('quorum'),
@@ -140,9 +151,7 @@ export const formatGov = (data: Gov, t: any) => {
     },
     {
       label: t('votingPeriod'),
-      detail: t('days', {
-        day: secondsToDays(nanoToSeconds(data.votingPeriod)),
-      }),
+      detail: convertBySeconds(nanoToSeconds(data.votingPeriod), t),
     },
   ]);
 };

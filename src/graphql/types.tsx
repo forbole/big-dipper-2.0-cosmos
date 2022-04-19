@@ -11535,6 +11535,7 @@ export type AccountDelegationsQueryVariables = Exact<{
   address: Scalars['String'];
   offset?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
+  pagination?: Scalars['Boolean'];
 }>;
 
 
@@ -11547,6 +11548,7 @@ export type AccountRedelegationsQueryVariables = Exact<{
   address: Scalars['String'];
   offset?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
+  pagination?: Scalars['Boolean'];
 }>;
 
 
@@ -11559,6 +11561,7 @@ export type AccountUndelegationsQueryVariables = Exact<{
   address: Scalars['String'];
   offset?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
+  pagination?: Scalars['Boolean'];
 }>;
 
 
@@ -11731,6 +11734,9 @@ export type MarketDataQuery = { communityPool: Array<(
   )>, bondedTokens: Array<(
     { __typename?: 'staking_pool' }
     & Pick<Staking_Pool, 'bonded_tokens'>
+  )>, distributionParams: Array<(
+    { __typename?: 'distribution_params' }
+    & Pick<Distribution_Params, 'params'>
   )> };
 
 export type GetMessagesByAddressQueryVariables = Exact<{
@@ -11822,6 +11828,9 @@ export type ProposalDetailsTallyQuery = { proposalTallyResult: Array<(
   )>, stakingPool: Array<(
     { __typename?: 'proposal_staking_pool_snapshot' }
     & { bondedTokens: Proposal_Staking_Pool_Snapshot['bonded_tokens'] }
+  )>, quorum: Array<(
+    { __typename?: 'gov_params' }
+    & { tallyParams: Gov_Params['tally_params'] }
   )> };
 
 export type ProposalDetailsDepositsQueryVariables = Exact<{
@@ -11886,6 +11895,17 @@ export type TokenPriceListenerSubscription = { tokenPrice: Array<(
     { __typename?: 'token_price' }
     & Pick<Token_Price, 'id' | 'price' | 'timestamp'>
     & { marketCap: Token_Price['market_cap'], unitName: Token_Price['unit_name'] }
+  )> };
+
+export type TokenPriceHistoryQueryVariables = Exact<{
+  denom?: Maybe<Scalars['String']>;
+  limit?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type TokenPriceHistoryQuery = { tokenPrice: Array<(
+    { __typename?: 'token_price_history' }
+    & Pick<Token_Price_History, 'price' | 'timestamp'>
   )> };
 
 export type TokenomicsQueryVariables = Exact<{ [key: string]: never; }>;
@@ -12021,6 +12041,7 @@ export type ValidatorDelegationsQueryVariables = Exact<{
   validatorAddress: Scalars['String'];
   offset?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
+  pagination?: Scalars['Boolean'];
 }>;
 
 
@@ -12033,6 +12054,7 @@ export type ValidatorRedelegationsQueryVariables = Exact<{
   validatorAddress: Scalars['String'];
   offset?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
+  pagination?: Scalars['Boolean'];
 }>;
 
 
@@ -12045,6 +12067,7 @@ export type ValidatorUndelegationsQueryVariables = Exact<{
   validatorAddress: Scalars['String'];
   offset?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
+  pagination?: Scalars['Boolean'];
 }>;
 
 
@@ -12327,12 +12350,12 @@ export type AccountDelegationRewardsQueryHookResult = ReturnType<typeof useAccou
 export type AccountDelegationRewardsLazyQueryHookResult = ReturnType<typeof useAccountDelegationRewardsLazyQuery>;
 export type AccountDelegationRewardsQueryResult = Apollo.QueryResult<AccountDelegationRewardsQuery, AccountDelegationRewardsQueryVariables>;
 export const AccountDelegationsDocument = gql`
-    query AccountDelegations($address: String!, $offset: Int = 0, $limit: Int = 10) {
+    query AccountDelegations($address: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
   delegations: action_delegation(
     address: $address
     limit: $limit
     offset: $offset
-    count_total: true
+    count_total: $pagination
   ) {
     delegations
     pagination
@@ -12355,6 +12378,7 @@ export const AccountDelegationsDocument = gql`
  *      address: // value for 'address'
  *      offset: // value for 'offset'
  *      limit: // value for 'limit'
+ *      pagination: // value for 'pagination'
  *   },
  * });
  */
@@ -12370,12 +12394,12 @@ export type AccountDelegationsQueryHookResult = ReturnType<typeof useAccountDele
 export type AccountDelegationsLazyQueryHookResult = ReturnType<typeof useAccountDelegationsLazyQuery>;
 export type AccountDelegationsQueryResult = Apollo.QueryResult<AccountDelegationsQuery, AccountDelegationsQueryVariables>;
 export const AccountRedelegationsDocument = gql`
-    query AccountRedelegations($address: String!, $offset: Int = 0, $limit: Int = 10) {
+    query AccountRedelegations($address: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
   redelegations: action_redelegation(
     address: $address
     limit: $limit
     offset: $offset
-    count_total: true
+    count_total: $pagination
   ) {
     redelegations
     pagination
@@ -12398,6 +12422,7 @@ export const AccountRedelegationsDocument = gql`
  *      address: // value for 'address'
  *      offset: // value for 'offset'
  *      limit: // value for 'limit'
+ *      pagination: // value for 'pagination'
  *   },
  * });
  */
@@ -12413,12 +12438,12 @@ export type AccountRedelegationsQueryHookResult = ReturnType<typeof useAccountRe
 export type AccountRedelegationsLazyQueryHookResult = ReturnType<typeof useAccountRedelegationsLazyQuery>;
 export type AccountRedelegationsQueryResult = Apollo.QueryResult<AccountRedelegationsQuery, AccountRedelegationsQueryVariables>;
 export const AccountUndelegationsDocument = gql`
-    query AccountUndelegations($address: String!, $offset: Int = 0, $limit: Int = 10) {
+    query AccountUndelegations($address: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
   undelegations: action_unbonding_delegation(
     address: $address
     limit: $limit
     offset: $offset
-    count_total: true
+    count_total: $pagination
   ) {
     undelegations: unbonding_delegations
     pagination
@@ -12441,6 +12466,7 @@ export const AccountUndelegationsDocument = gql`
  *      address: // value for 'address'
  *      offset: // value for 'offset'
  *      limit: // value for 'limit'
+ *      pagination: // value for 'pagination'
  *   },
  * });
  */
@@ -12814,6 +12840,9 @@ export const MarketDataDocument = gql`
   bondedTokens: staking_pool(order_by: {height: desc}, limit: 1) {
     bonded_tokens
   }
+  distributionParams: distribution_params {
+    params
+  }
 }
     `;
 
@@ -13052,6 +13081,9 @@ export const ProposalDetailsTallyDocument = gql`
   ) {
     bondedTokens: bonded_tokens
   }
+  quorum: gov_params(limit: 1, order_by: {height: desc}) {
+    tallyParams: tally_params
+  }
 }
     `;
 
@@ -13250,6 +13282,47 @@ export function useTokenPriceListenerSubscription(baseOptions?: Apollo.Subscript
       }
 export type TokenPriceListenerSubscriptionHookResult = ReturnType<typeof useTokenPriceListenerSubscription>;
 export type TokenPriceListenerSubscriptionResult = Apollo.SubscriptionResult<TokenPriceListenerSubscription>;
+export const TokenPriceHistoryDocument = gql`
+    query TokenPriceHistory($denom: String, $limit: Int = 10) {
+  tokenPrice: token_price_history(
+    where: {unit_name: {_eq: $denom}}
+    limit: $limit
+    order_by: {timestamp: desc}
+  ) {
+    price
+    timestamp
+  }
+}
+    `;
+
+/**
+ * __useTokenPriceHistoryQuery__
+ *
+ * To run a query within a React component, call `useTokenPriceHistoryQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTokenPriceHistoryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTokenPriceHistoryQuery({
+ *   variables: {
+ *      denom: // value for 'denom'
+ *      limit: // value for 'limit'
+ *   },
+ * });
+ */
+export function useTokenPriceHistoryQuery(baseOptions?: Apollo.QueryHookOptions<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>(TokenPriceHistoryDocument, options);
+      }
+export function useTokenPriceHistoryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>(TokenPriceHistoryDocument, options);
+        }
+export type TokenPriceHistoryQueryHookResult = ReturnType<typeof useTokenPriceHistoryQuery>;
+export type TokenPriceHistoryLazyQueryHookResult = ReturnType<typeof useTokenPriceHistoryLazyQuery>;
+export type TokenPriceHistoryQueryResult = Apollo.QueryResult<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>;
 export const TokenomicsDocument = gql`
     query Tokenomics {
   stakingParams: staking_params(limit: 1) {
@@ -13582,12 +13655,12 @@ export type ValidatorDetailsQueryHookResult = ReturnType<typeof useValidatorDeta
 export type ValidatorDetailsLazyQueryHookResult = ReturnType<typeof useValidatorDetailsLazyQuery>;
 export type ValidatorDetailsQueryResult = Apollo.QueryResult<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>;
 export const ValidatorDelegationsDocument = gql`
-    query ValidatorDelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10) {
+    query ValidatorDelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
   delegations: action_validator_delegations(
     address: $validatorAddress
     limit: $limit
     offset: $offset
-    count_total: true
+    count_total: $pagination
   ) {
     delegations
     pagination
@@ -13610,6 +13683,7 @@ export const ValidatorDelegationsDocument = gql`
  *      validatorAddress: // value for 'validatorAddress'
  *      offset: // value for 'offset'
  *      limit: // value for 'limit'
+ *      pagination: // value for 'pagination'
  *   },
  * });
  */
@@ -13625,12 +13699,12 @@ export type ValidatorDelegationsQueryHookResult = ReturnType<typeof useValidator
 export type ValidatorDelegationsLazyQueryHookResult = ReturnType<typeof useValidatorDelegationsLazyQuery>;
 export type ValidatorDelegationsQueryResult = Apollo.QueryResult<ValidatorDelegationsQuery, ValidatorDelegationsQueryVariables>;
 export const ValidatorRedelegationsDocument = gql`
-    query ValidatorRedelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10) {
+    query ValidatorRedelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
   redelegations: action_validator_redelegations_from(
     address: $validatorAddress
     limit: $limit
     offset: $offset
-    count_total: true
+    count_total: $pagination
   ) {
     redelegations
     pagination
@@ -13653,6 +13727,7 @@ export const ValidatorRedelegationsDocument = gql`
  *      validatorAddress: // value for 'validatorAddress'
  *      offset: // value for 'offset'
  *      limit: // value for 'limit'
+ *      pagination: // value for 'pagination'
  *   },
  * });
  */
@@ -13668,12 +13743,12 @@ export type ValidatorRedelegationsQueryHookResult = ReturnType<typeof useValidat
 export type ValidatorRedelegationsLazyQueryHookResult = ReturnType<typeof useValidatorRedelegationsLazyQuery>;
 export type ValidatorRedelegationsQueryResult = Apollo.QueryResult<ValidatorRedelegationsQuery, ValidatorRedelegationsQueryVariables>;
 export const ValidatorUndelegationsDocument = gql`
-    query ValidatorUndelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10) {
+    query ValidatorUndelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
   undelegations: action_validator_unbonding_delegations(
     address: $validatorAddress
     limit: $limit
     offset: $offset
-    count_total: true
+    count_total: $pagination
   ) {
     undelegations: unbonding_delegations
     pagination
@@ -13696,6 +13771,7 @@ export const ValidatorUndelegationsDocument = gql`
  *      validatorAddress: // value for 'validatorAddress'
  *      offset: // value for 'offset'
  *      limit: // value for 'limit'
+ *      pagination: // value for 'pagination'
  *   },
  * });
  */
