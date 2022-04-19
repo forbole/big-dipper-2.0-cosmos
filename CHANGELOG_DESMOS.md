@@ -1,3 +1,8 @@
+# desmos-v2.2.0 - 2021-04-19
+
+# Changes
+- Merged `base-v2.1.0`
+
 # desmos-v2.1.1 - 2021-03-23
 
 # Changes
