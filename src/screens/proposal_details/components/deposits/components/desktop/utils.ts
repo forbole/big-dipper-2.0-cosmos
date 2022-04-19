@@ -5,11 +5,16 @@ export const columns:{
 }[] = [
   {
     key: 'depositor',
-    width: 50,
+    width: 40,
   },
   {
     key: 'amount',
-    width: 50,
+    width: 30,
+    align: 'right',
+  },
+  {
+    key: 'time',
+    width: 30,
     align: 'right',
   },
 ];
