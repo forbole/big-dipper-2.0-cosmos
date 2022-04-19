@@ -6,21 +6,12 @@ export const useStyles = () => {
   const styles = makeStyles(
     () => {
       return ({
-        root: {
-
-        },
-        label: {
-          // marginBottom: theme.spacing(2),
-        },
         chart: {
-          height: '290px',
+          height: '285px',
           width: '100%',
           '& .yAxis .recharts-cartesian-axis-tick:first-child': {
             display: 'none',
           },
-          // '& .recharts-cartesian-grid-horizontal line:first-child': {
-          //   strokeOpacity: 0,
-          // },
         },
       });
     }, { index: 1 },
