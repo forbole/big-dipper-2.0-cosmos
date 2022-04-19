@@ -1,4 +1,5 @@
 import { formatNumber } from '@utils/format_token';
+import Big from 'big.js';
 
 export const formatBalanceData = (data: {
   available: TokenUnit;
@@ -31,7 +32,7 @@ export const formatBalanceData = (data: {
     },
   ];
 
-  if (data.commission && data.commission.value !== '0') {
+  if (data.commission && Big(data.commission.value).gt(0)) {
     balanceChart.push({
       key: 'balanceCommission',
       display: `${formatNumber(data.commission.value, data.commission.exponent)} ${data.commission.displayDenom.toUpperCase()}`,
