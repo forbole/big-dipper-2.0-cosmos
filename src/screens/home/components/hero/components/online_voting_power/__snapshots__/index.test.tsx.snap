@@ -4,7 +4,6 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
 Array [
   <div
     className="makeStyles-root"
-    id="box"
   >
     <h2
       className="MuiTypography-root MuiTypography-h2"
@@ -105,7 +104,6 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
 Array [
   <div
     className="makeStyles-root"
-    id="box"
   >
     <h2
       className="MuiTypography-root MuiTypography-h2"
