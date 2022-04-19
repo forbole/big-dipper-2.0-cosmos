@@ -27,7 +27,7 @@ export const formatGraphData = ({
       value: Big(selectedData.value).toNumber(),
       display: formatNumber(selectedData.value, selectedData.exponent),
       percentage: total.gt(0) ? (
-        `${Big(selectedData.value).div(total.toString()).times(100).toPrecision(2)}%`
+        `${Big(selectedData.value).div(total.toString()).times(100).toFixed(2)}%`
       ) : '0%',
       color: color[i],
     });
