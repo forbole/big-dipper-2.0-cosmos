@@ -60,9 +60,11 @@ export const useMarketRecoil = () => {
       communityPool = formatToken(communityPoolCoin.amount, communityPoolCoin.denom);
     }
 
-    const bondedTokens = R.pathOr(0, ['bondedTokens', 0, 'bonded_tokens'], data);
+    const bondedTokens = R.pathOr(1, ['bondedTokens', 0, 'bonded_tokens'], data);
+    const communityTax = R.pathOr('0', ['distributionParams', 0, 'params', 'community_tax'], data);
 
-    const apr = Big(rawSupplyAmount).times(inflation).div(bondedTokens).toNumber();
+    const inflationWithCommunityTax = Big(1).minus(communityTax).times(inflation).toPrecision(2);
+    const apr = Big(rawSupplyAmount).times(inflationWithCommunityTax).div(bondedTokens).toNumber();
 
     return ({
       price,

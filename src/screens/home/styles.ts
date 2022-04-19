@@ -29,7 +29,7 @@ export const useStyles = () => {
             gridColumn: '1 / 5',
           },
         },
-        onlineVotingPower: {
+        hero: {
           [theme.breakpoints.up('md')]: {
             gridColumn: '1 / 3',
           },

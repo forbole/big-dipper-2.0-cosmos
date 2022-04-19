@@ -1,3 +1,7 @@
+# band-v2.1.0 - 2021-04-19
+## Changes
+- Merged `base-v2.1.0`
+
 # band-v2.0.2 - 2021-02-25
 ## Changes
 - Merged `base-v2.0.0-rc3`
