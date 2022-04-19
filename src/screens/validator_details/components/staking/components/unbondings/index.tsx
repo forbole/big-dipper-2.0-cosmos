@@ -19,7 +19,6 @@ const Mobile = dynamic(() => import('./components/mobile'));
 
 const Unbondings: React.FC<{
   unbondings: UnbondingsType,
-  handlePageCallback: (page: number, _rowsPerPage: number) => void;
 } & ComponentDefault> = (props) => {
   const classes = useStyles();
   const {
@@ -27,9 +26,7 @@ const Unbondings: React.FC<{
     rowsPerPage,
     handleChangePage,
     handleChangeRowsPerPage,
-  } = usePagination({
-    pageChangeCallback: props.handlePageCallback,
-  });
+  } = usePagination({});
   const { isDesktop } = useScreenSize();
 
   const pageItems = R.pathOr([], ['unbondings', 'data', page], props);
