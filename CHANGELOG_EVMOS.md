@@ -1,4 +1,4 @@
-# Unreleased
+# evmos-v1.2.0 - 2021-04-19
 
 ## Changes
 - Add ibc osmos to token
