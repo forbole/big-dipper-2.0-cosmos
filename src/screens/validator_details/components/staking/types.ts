@@ -14,18 +14,14 @@ export type DelegationType = {
 export type RedelegationType = {
   address: string;
   to: string;
-  entries: {
-    amount: TokenUnit;
-    completionTime: string;
-  }[];
+  amount: TokenUnit;
+  completionTime: string;
 }
 
 export type UnbondingType = {
   address: string;
-  entries: {
-    amount: TokenUnit;
-    completionTime: string;
-  }[];
+  amount: TokenUnit;
+  completionTime: string;
 }
 
 export type DelegationsType = StakingType<DelegationType>;

@@ -3,8 +3,20 @@
 ## Changes
 - Updated not found and 404 logo ([\#792](https://github.com/forbole/big-dipper-2.0-cosmos/issues/792))
 - Fixed params % display ([\#795](https://github.com/forbole/big-dipper-2.0-cosmos/issues/795))
+- Updated params page if time period less than 1 day then show seconds ([\#797](https://github.com/forbole/big-dipper-2.0-cosmos/issues/797))
+- Add token price history component ([\#784](https://github.com/forbole/big-dipper-2.0-cosmos/issues/784))
+- Update Account details hasura actions to default call 100 items instead of 10 for better performance
+- Add back proposal details quorum % ([\#788](https://github.com/forbole/big-dipper-2.0-cosmos/issues/788))
+- Update validator details hasura actions performances ([\#812](https://github.com/forbole/big-dipper-2.0-cosmos/issues/812))
+
 ## Fixes
 - Fixed commission being displayed for non validator accounts ([\#787](https://github.com/forbole/big-dipper-2.0-cosmos/issues/787))
+- Add community tax in to apr calculation ([\#810](https://github.com/forbole/big-dipper-2.0-cosmos/issues/810))
+
+# base-v2.0.2 - 2021-03-23
+
+## Bug fixes
+- Fixed proposal details chart percentage display
 
 # base-v2.0.1 - 2021-03-17
 ## Bug fixes

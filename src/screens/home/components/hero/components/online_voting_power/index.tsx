@@ -1,17 +1,11 @@
 import React from 'react';
-import classnames from 'classnames';
 import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
-import { Box } from '@components';
 import { useStyles } from './styles';
 import { useOnlineVotingPower } from './hooks';
 
-const OnlineVotingPower: React.FC<{
-  className?: string;
-}> = ({
-  className,
-}) => {
+const OnlineVotingPower: React.FC<ComponentDefault> = () => {
   const { t } = useTranslation('home');
   const { state } = useOnlineVotingPower();
 
@@ -21,7 +15,7 @@ const OnlineVotingPower: React.FC<{
   const classes = useStyles(votingPowerPercent.format(0));
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <div className={classes.root}>
       <Typography variant="h2">
         {t('onlineVotingPower')}
       </Typography>
@@ -74,7 +68,7 @@ const OnlineVotingPower: React.FC<{
           </Typography>
         </div>
       </div>
-    </Box>
+    </div>
   );
 };
 
