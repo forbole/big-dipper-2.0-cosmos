@@ -38,8 +38,8 @@ const TokenPrice: React.FC<{items: TokenPriceType[]} & ComponentDefault> = (prop
     });
   });
   return (
-    <div className={classes.root}>
-      <Typography variant="h2" className={classes.label}>
+    <div>
+      <Typography variant="h2">
         {t('priceHistory')}
       </Typography>
       <div className={classes.chart}>
