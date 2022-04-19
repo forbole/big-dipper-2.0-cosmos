@@ -3,6 +3,7 @@
 ## Changes
 - Add ibc osmos to token
 - Merged `base-v2.0.0`
+- Merged `base-v2.1.0`
 
 ## Added
 - Evmos custom txs ([\#767](https://github.com/forbole/big-dipper-2.0-cosmos/issues/767))
