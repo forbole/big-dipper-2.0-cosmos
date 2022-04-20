@@ -9,13 +9,11 @@ export const useStyles = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          minHeight: '150px',
+          minHeight: '400px',
           height: '100%',
           '& .MuiTypography-body1': {
-            color: theme.palette.divider,
-          },
-          '& .MuiSvgIcon-root': {
-            color: theme.palette.divider,
+            marginTop: theme.spacing(2),
+            color: theme.palette.custom.fonts.fontFour,
           },
         },
         content: {

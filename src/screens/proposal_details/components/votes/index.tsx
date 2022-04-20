@@ -16,27 +16,13 @@ import {
   Tabs,
   Paginate,
 } from './components';
-import { VoteType } from '../../types';
-import { ItemType } from './types';
+import { filterDataByTab } from './utils';
+import { useVotes } from './hooks';
 
 const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
 
-const Votes: React.FC<{
-  className?: string;
-  data: VoteType[];
-  notVotedData: VoteType[];
-  tab: number;
-  yes: number;
-  no: number;
-  abstain: number;
-  veto: number;
-  total: number;
-  notVoted: number;
-  handleTabChange: (e, val) => void;
-}> = ({
-  className, ...props
-}) => {
+const Votes: React.FC<ComponentDefault> = (props) => {
   const { isDesktop } = useScreenSize();
   const {
     page,
@@ -45,74 +31,39 @@ const Votes: React.FC<{
     handleChangeRowsPerPage,
     sliceItems,
     resetPagination,
-  } = usePagination({
+  } = usePagination({});
+  const classes = useStyles();
+  const {
+    state, handleTabChange,
+  } = useVotes(resetPagination);
+  const filteredItems = filterDataByTab({
+    tab: state.tab,
+    data: state.data,
+    notVoted: state.validatorsNotVoted,
   });
 
-  const classes = useStyles();
-  const formatItems = (mergedData: ItemType[]) => {
-    if (props.tab === 5) {
-      return mergedNotVotedWithProfiles;
-    }
-    return mergedData.filter((x) => {
-      if (props.tab === 1) {
-        return x.vote === 'VOTE_OPTION_YES';
-      }
+  const slicedItems = sliceItems(filteredItems);
 
-      if (props.tab === 2) {
-        return x.vote === 'VOTE_OPTION_NO';
-      }
-
-      if (props.tab === 3) {
-        return x.vote === 'VOTE_OPTION_NO_WITH_VETO';
-      }
-
-      if (props.tab === 4) {
-        return x.vote === 'VOTE_OPTION_ABSTAIN';
-      }
-
-      return true;
-    });
-  };
-
-  // not voted validators
-  const notVoteProfiles = useProfilesRecoil(props.notVotedData.map((x) => x.user));
-  const mergedNotVotedWithProfiles = props.notVotedData.map((x, i) => {
-    return ({
-      ...x,
-      user: notVoteProfiles[i],
-    });
-  }).sort((a, b) => (
-    (a.user.name.toLowerCase() > b.user.name.toLowerCase()) ? 1 : -1));
-
-  // voted
-  const userProfiles = useProfilesRecoil(props.data.map((x) => x.user));
-  const mergedDataWithProfiles = props.data.map((x, i) => {
+  const userProfiles = useProfilesRecoil(slicedItems.map((x) => x.user));
+  const items = slicedItems.map((x, i) => {
     return ({
       ...x,
       user: userProfiles[i],
     });
-  }).sort((a, b) => (
-    (a.user.name.toLowerCase() > b.user.name.toLowerCase()) ? 1 : -1));
-  const items = formatItems(mergedDataWithProfiles);
-  const itemsPaginated = sliceItems(items);
-
-  const tabChangeParentHelper = (_event: any, newValue: number) => {
-    resetPagination();
-    props.handleTabChange(_event, newValue);
-  };
+  });
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={classnames(props.className, classes.root)}>
       <Tabs
         data={{
-          yes: props.yes,
-          no: props.no,
-          abstain: props.abstain,
-          veto: props.veto,
-          notVoted: props.notVoted,
+          yes: state.voteCount.yes,
+          no: state.voteCount.no,
+          abstain: state.voteCount.abstain,
+          veto: state.voteCount.veto,
+          notVoted: state.voteCount.didNotVote,
         }}
-        tab={props.tab}
-        handleTabChange={tabChangeParentHelper}
+        tab={state.tab}
+        handleTabChange={handleTabChange}
       />
       <div className={classes.list}>
         {items.length ? (
@@ -120,12 +71,12 @@ const Votes: React.FC<{
             {isDesktop ? (
               <Desktop
                 className={classes.desktop}
-                items={itemsPaginated}
+                items={items}
               />
             ) : (
               <Mobile
                 className={classes.mobile}
-                items={itemsPaginated}
+                items={items}
               />
             )}
           </>
@@ -134,7 +85,7 @@ const Votes: React.FC<{
         )}
       </div>
       <Paginate
-        total={items.length}
+        total={filteredItems.length}
         page={page}
         rowsPerPage={rowsPerPage}
         handleChangePage={handleChangePage}

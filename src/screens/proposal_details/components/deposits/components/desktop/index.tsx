@@ -10,6 +10,9 @@ import {
 } from '@material-ui/core';
 import { AvatarName } from '@components';
 import { formatNumber } from '@utils/format_token';
+import { useRecoilValue } from 'recoil';
+import { readDate } from '@recoil/settings';
+import dayjs, { formatDayJs } from '@utils/dayjs';
 import { columns } from './utils';
 import { ItemType } from '../../types';
 
@@ -20,6 +23,7 @@ const Desktop: React.FC<{
   className, items,
 }) => {
   const { t } = useTranslation('proposals');
+  const dateFormat = useRecoilValue(readDate);
 
   const formattedItems = items.map((x) => {
     return ({
@@ -37,6 +41,7 @@ const Desktop: React.FC<{
         </>
       ),
       amount: `${formatNumber(x.amount.value, x.amount.exponent)} ${x.amount.displayDenom.toUpperCase()}`,
+      time: formatDayJs(dayjs.utc(x.timestamp), dateFormat),
     });
   });
 
