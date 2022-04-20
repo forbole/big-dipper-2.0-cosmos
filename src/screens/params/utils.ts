@@ -10,6 +10,21 @@ import {
   Gov,
 } from './types';
 
+const convertBySeconds = (seconds: number, t: any) => {
+  const SECONDS_IN_DAY = 86400;
+  return (
+    seconds >= SECONDS_IN_DAY ? (
+      t('days', {
+        day: secondsToDays(seconds),
+      })
+    ) : (
+      t('seconds', {
+        second: seconds,
+      })
+    )
+  );
+};
+
 export const formatStaking = (data: Staking, t: any) => {
   return ([
     {
@@ -18,9 +33,7 @@ export const formatStaking = (data: Staking, t: any) => {
     },
     {
       label: t('unbondingTime'),
-      detail: t('days', {
-        day: secondsToDays(nanoToSeconds(data.unbondingTime)),
-      }),
+      detail: convertBySeconds(nanoToSeconds(data.unbondingTime), t),
     },
     {
       label: t('maxEntries'),
@@ -47,7 +60,7 @@ export const formatSlashing = (data: Slashing, t: any) => {
     },
     {
       label: t('minSignedPerWindow'),
-      detail: `${data.minSignedPerWindow * 100}%`,
+      detail: `${numeral(data.minSignedPerWindow * 100).format('0.[00]')}%`,
     },
     {
       label: t('signedBlockWindow'),
@@ -72,19 +85,19 @@ export const formatMinting = (data: Minting, t: any) => {
     },
     {
       label: t('goalBonded'),
-      detail: `${data.goalBonded * 100}%`,
+      detail: `${numeral(data.goalBonded * 100).format('0.[00]')}%`,
     },
     {
       label: t('inflationMax'),
-      detail: `${data.inflationMax * 100}%`,
+      detail: `${numeral(data.inflationMax * 100).format('0.[00]')}%`,
     },
     {
       label: t('inflationMin'),
-      detail: `${data.inflationMin * 100}%`,
+      detail: `${numeral(data.inflationMin * 100).format('0.[00]')}%`,
     },
     {
       label: t('inflationRateChange'),
-      detail: `${data.inflationRateChange * 100}%`,
+      detail: `${numeral(data.inflationRateChange * 100).format('0.[00]')}%`,
     },
     {
       label: t('mintDenom'),
@@ -97,15 +110,15 @@ export const formatDistribution = (data: Distribution, t: any) => {
   return ([
     {
       label: t('baseProposerReward'),
-      detail: `${data.baseProposerReward * 100}%`,
+      detail: `${numeral(data.baseProposerReward * 100).format('0.[00]')}%`,
     },
     {
       label: t('bonusProposerReward'),
-      detail: `${data.bonusProposerReward * 100}%`,
+      detail: `${numeral(data.bonusProposerReward * 100).format('0.[00]')}%`,
     },
     {
       label: t('communityTax'),
-      detail: `${data.communityTax * 100}%`,
+      detail: `${numeral(data.communityTax * 100).format('0.[00]')}%`,
     },
     {
       label: t('withdrawAddressEnabled'),
@@ -122,27 +135,23 @@ export const formatGov = (data: Gov, t: any) => {
     },
     {
       label: t('maxDepositPeriod'),
-      detail: t('days', {
-        day: secondsToDays(nanoToSeconds(data.maxDepositPeriod)),
-      }),
+      detail: convertBySeconds(nanoToSeconds(data.maxDepositPeriod), t),
     },
     {
       label: t('quorum'),
-      detail: `${data.quorum * 100}%`,
+      detail: `${numeral(data.quorum * 100).format('0.[00]')}%`,
     },
     {
       label: t('threshold'),
-      detail: `${data.threshold * 100}%`,
+      detail: `${numeral(data.threshold * 100).format('0.[00]')}%`,
     },
     {
       label: t('vetoThreshold'),
-      detail: `${data.vetoThreshold * 100}%`,
+      detail: `${numeral(data.vetoThreshold * 100).format('0.[00]')}%`,
     },
     {
       label: t('votingPeriod'),
-      detail: t('days', {
-        day: secondsToDays(nanoToSeconds(data.votingPeriod)),
-      }),
+      detail: convertBySeconds(nanoToSeconds(data.votingPeriod), t),
     },
   ]);
 };
