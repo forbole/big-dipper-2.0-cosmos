@@ -19,7 +19,7 @@ export const useStyles = () => {
             },
           },
           [theme.breakpoints.up('lg')]: {
-            gridTemplateColumns: '150px auto',
+            gridTemplateColumns: '200px auto',
           },
         },
         time: {
