@@ -5,7 +5,10 @@ import {
   Divider, Typography,
 } from '@material-ui/core';
 import { formatNumber } from '@utils/format_token';
+import dayjs, { formatDayJs } from '@utils/dayjs';
 import { AvatarName } from '@components';
+import { useRecoilValue } from 'recoil';
+import { readDate } from '@recoil/settings';
 import { useStyles } from './styles';
 import { ItemType } from '../../types';
 
@@ -17,6 +20,7 @@ const Mobile: React.FC<{
 }) => {
   const { t } = useTranslation('proposals');
   const classes = useStyles();
+  const dateFormat = useRecoilValue(readDate);
 
   const formattedItems = items.map((x) => {
     return ({
@@ -34,6 +38,7 @@ const Mobile: React.FC<{
         </>
       ),
       amount: `${formatNumber(x.amount.value, x.amount.exponent)} ${x.amount.displayDenom.toUpperCase()}`,
+      time: formatDayJs(dayjs.utc(x.timestamp), dateFormat),
     });
   });
 
@@ -55,6 +60,14 @@ const Mobile: React.FC<{
                 </Typography>
                 <Typography variant="body1" className="value">
                   {x.amount}
+                </Typography>
+              </div>
+              <div className={classes.item}>
+                <Typography variant="h4" className="label">
+                  {t('time')}
+                </Typography>
+                <Typography variant="body1" className="value">
+                  {x.time}
                 </Typography>
               </div>
             </div>

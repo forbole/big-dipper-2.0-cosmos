@@ -15,88 +15,36 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
     >
       <div
         className="makeStyles-overview"
-        content={
+        id="Overview"
+        overview={
           Object {
-            "@type": "/cosmos.upgrade.v1beta1.SoftwareUpgradeProposal",
-            "description": "This proposal aims at upgrading the chain software to version v1.0.4, alligning _Morpheus Apollo_ to the same Desmos version of our mainnet. This will allow us to test future mainnet on-chain upgrades here before they go live on our official chain. By voting YES to this proposal you will signal that you are ready for the upgrade. If this proposal passes, the upgrade will be scheduled to happen at height 2.121.236 which will be around Friday September 24th 2021 07:00 UTC.",
-            "plan": Object {
-              "height": "2121236",
-              "info": "https://raw.githubusercontent.com/desmos-labs/morpheus/master/morpheus-apollo-2/upgrades/v1.0.4.json?checksum=sha256:fbfb8eda3337b392cb9b2d712a7b575d6f6d19a3a7aa6f2c84bac4307ecdd880",
-              "name": "v1.0.4",
-              "time": "0001-01-01T00:00:00Z",
-              "upgraded_client_state": null,
+            "content": Object {
+              "@type": "/cosmos.gov.v1beta1.TextProposal",
+              "description": "Set the minimum commission to 5%. This will help ensure network stability. It also ensures that validators earn enough to support secure and stable validation. We must create a healthier network. If this proposal is accepted, it will mean that the blockchain needs to be updated so that the fee of all validators can be changed automatically.",
+              "title": "Increase minimum commission rate to 5%",
             },
-            "title": "Desmos v1.0.4 upgrade",
+            "depositEndTime": "2022-02-22T19:03:14.969688",
+            "description": "Set the minimum commission to 5%. This will help ensure network stability. It also ensures that validators earn enough to support secure and stable validation. We must create a healthier network. If this proposal is accepted, it will mean that the blockchain needs to be updated so that the fee of all validators can be changed automatically.",
+            "id": 14,
+            "proposer": "desmos1e4g9807ephy5t7zzt6vu0kw7tryqh9k39w3gc2",
+            "status": "PROPOSAL_STATUS_PASSED",
+            "submitTime": "2022-02-19T19:03:14.969688",
+            "title": "Increase minimum commission rate to 5%",
+            "votingEndTime": "2022-02-26T19:03:14.969688",
+            "votingStartTime": "2022-02-19T19:03:14.969688",
           }
         }
-        depositEndTime="2021-09-23T10:00:30.107709"
-        description="This proposal aims at upgrading the chain software to version v1.0.4, alligning _Morpheus Apollo_ to the same Desmos version of our mainnet. This will allow us to test future mainnet on-chain upgrades here before they go live on our official chain. By voting YES to this proposal you will signal that you are ready for the upgrade. If this proposal passes, the upgrade will be scheduled to happen at height 2.121.236 which will be around Friday September 24th 2021 07:00 UTC."
-        id={22}
-        status="PROPOSAL_STATUS_PASSED"
-        submitTime="2021-09-21T10:00:30.107709"
-        title="Desmos v1.0.4 upgrade"
-        votingEndTime="2021-09-23T10:01:10.657743"
-        votingStartTime="2021-09-21T10:01:10.657743"
       />
       <div
         className="makeStyles-votesGraph"
-        data={
-          Object {
-            "abstain": 0,
-            "bondedTokens": "30959846018678",
-            "denom": "ulike",
-            "no": 0,
-            "quorum": 0.33,
-            "total": 18099851525752,
-            "veto": 0,
-            "yes": 18099851525752,
-          }
-        }
         id="VotesGraph"
       />
       <div
-        abstain={0}
         className="makeStyles-votes"
-        data={
-          Array [
-            Object {
-              "user": "desmos1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w",
-              "vote": "VOTE_OPTION_YES",
-            },
-          ]
-        }
-        handleTabChange={[Function]}
         id="Votes"
-        no={0}
-        notVoted={1}
-        notVotedData={
-          Array [
-            Object {
-              "user": "desmosvalcons1c29eyczh5lw4npe0a9n40nm5g299fq8nt5lerw",
-              "vote": "NOT_VOTED",
-            },
-          ]
-        }
-        tab={0}
-        total={1}
-        veto={0}
-        yes={1}
       />
       <div
         className="makeStyles-deposits"
-        data={
-          Array [
-            Object {
-              "amount": Object {
-                "baseDenom": "udaric",
-                "displayDenom": "daric",
-                "exponent": 6,
-                "value": "100.000000",
-              },
-              "user": "desmos1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w",
-            },
-          ]
-        }
         id="Deposits"
       />
     </span>
