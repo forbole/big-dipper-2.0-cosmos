@@ -72,12 +72,6 @@
       "@graphql/types": [
         "src/graphql/types"
       ],
-      "@graphql/queries": [
-        "src/graphql/queries"
-      ],
-      "@graphql/mutations": [
-        "src/graphql/mutations"
-      ],
       "@tests/utils": [
         "tests/utils"
       ]
