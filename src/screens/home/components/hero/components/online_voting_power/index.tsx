@@ -1,28 +1,21 @@
 import React from 'react';
-import classnames from 'classnames';
-import Link from 'next/link';
 import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
-import { Box } from '@components';
-import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
 import { useOnlineVotingPower } from './hooks';
 
-const OnlineVotingPower: React.FC<{
-  className?: string;
-}> = ({
-  className,
-}) => {
+const OnlineVotingPower: React.FC<ComponentDefault> = () => {
   const { t } = useTranslation('home');
   const { state } = useOnlineVotingPower();
 
-  const votingPowerPercent = numeral((state.votingPower / state.totalVotingPower) * 100);
+  const votingPowerPercent = state.totalVotingPower === 0
+    ? numeral(0) : numeral((state.votingPower / state.totalVotingPower) * 100);
 
   const classes = useStyles(votingPowerPercent.format(0));
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <div className={classes.root}>
       <Typography variant="h2">
         {t('onlineVotingPower')}
       </Typography>
@@ -44,13 +37,11 @@ const OnlineVotingPower: React.FC<{
       <div className={classes.itemsContainer}>
         <div className={classes.item}>
           <Typography variant="h4" className="label">
-            {t('block')}
+            {t('validators')}
           </Typography>
-          <Link href={BLOCK_DETAILS(state.height)} passHref>
-            <Typography variant="body1" className="value" component="a">
-              {numeral(state.height).format('0,0')}
-            </Typography>
-          </Link>
+          <Typography variant="body1" className="value">
+            {numeral(state.activeValidators).format('0,0')}
+          </Typography>
         </div>
         <div className={classes.item}>
           <Typography variant="h4" className="label">
@@ -77,7 +68,7 @@ const OnlineVotingPower: React.FC<{
           </Typography>
         </div>
       </div>
-    </Box>
+    </div>
   );
 };
 

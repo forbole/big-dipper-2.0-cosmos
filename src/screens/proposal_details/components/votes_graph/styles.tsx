@@ -12,6 +12,7 @@ export const useStyles = () => {
             display: 'flex',
             alignItems: 'center',
           },
+          position: 'relative',
         },
         pie: {
           display: 'flex',
@@ -26,7 +27,6 @@ export const useStyles = () => {
             gridTemplateColumns: 'repeat(2, 1fr)',
           },
           [theme.breakpoints.up('lg')]: {
-            gridTemplateColumns: 'repeat(2, 1fr)',
             flex: 1,
             marginLeft: theme.spacing(4),
           },
@@ -35,6 +35,11 @@ export const useStyles = () => {
           [theme.breakpoints.up('md')]: {
             gridColumn: '1/3',
           },
+        },
+        popOver: {
+          position: 'absolute',
+          top: theme.spacing(2),
+          right: theme.spacing(2),
         },
         voteItem: {
           position: 'relative',
@@ -48,16 +53,15 @@ export const useStyles = () => {
             position: 'absolute',
             borderRadius: theme.shape.borderRadius,
             left: 0,
-
           },
           '&.yes': {
             '&::before': {
-              background: theme.palette.custom.charts.one,
+              background: theme.palette.custom.charts.four,
             },
           },
           '&.no': {
             '&::before': {
-              background: theme.palette.custom.charts.two,
+              background: theme.palette.custom.charts.one,
             },
           },
           '&.veto': {
@@ -67,7 +71,7 @@ export const useStyles = () => {
           },
           '&.abstain': {
             '&::before': {
-              background: theme.palette.custom.charts.four,
+              background: theme.palette.custom.charts.two,
             },
           },
         },
