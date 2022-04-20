@@ -12,6 +12,7 @@ export const useStyles = () => {
             display: 'flex',
             alignItems: 'center',
           },
+          position: 'relative',
         },
         pie: {
           display: 'flex',
@@ -35,6 +36,11 @@ export const useStyles = () => {
             gridColumn: '1/3',
           },
         },
+        popOver: {
+          position: 'absolute',
+          top: theme.spacing(2),
+          right: theme.spacing(2),
+        },
         voteItem: {
           position: 'relative',
           paddingLeft: '10px',
@@ -47,7 +53,6 @@ export const useStyles = () => {
             position: 'absolute',
             borderRadius: theme.shape.borderRadius,
             left: 0,
-
           },
           '&.yes': {
             '&::before': {

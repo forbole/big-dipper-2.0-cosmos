@@ -1,3 +1,8 @@
+# akash-v1.2.0 - 2021-04-19
+
+## Changes
+- merged `base-v2.1.0`
+
 # akash-v1.1.0 - 2021-03-11
 
 ## Changes
