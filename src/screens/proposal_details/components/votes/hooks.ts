@@ -3,8 +3,11 @@ import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import axios from 'axios';
 import {
-  useProposalDetailsVotesQuery, ProposalDetailsVotesWeightedDocument
+  useProposalDetailsVotesQuery
 } from '@graphql/types';
+import {
+  ProposalDetailsVotesWeightedDocument
+} from '@graphql/proposal_details_votes_weighted';
 import { toValidatorAddress } from '@utils/prefix_convert';
 import { VoteState } from './types';
 
