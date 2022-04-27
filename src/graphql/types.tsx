@@ -21,6 +21,7 @@ export type Scalars = {
   _dec_coin: any;
   _text: any;
   bigint: any;
+  coin: any;
   json: any;
   jsonb: any;
   numeric: any;
@@ -1214,6 +1215,20 @@ export type Block_Variance_Order_By = {
   total_gas?: Maybe<Order_By>;
 };
 
+
+/** Boolean expression to compare columns of type "coin". All fields are combined with logical 'AND'. */
+export type Coin_Comparison_Exp = {
+  _eq?: Maybe<Scalars['coin']>;
+  _gt?: Maybe<Scalars['coin']>;
+  _gte?: Maybe<Scalars['coin']>;
+  _in?: Maybe<Array<Scalars['coin']>>;
+  _is_null?: Maybe<Scalars['Boolean']>;
+  _lt?: Maybe<Scalars['coin']>;
+  _lte?: Maybe<Scalars['coin']>;
+  _neq?: Maybe<Scalars['coin']>;
+  _nin?: Maybe<Array<Scalars['coin']>>;
+};
+
 /** columns and relationships of "community_pool" */
 export type Community_Pool = {
   __typename?: 'community_pool';
@@ -2300,6 +2315,104 @@ export type Cosmwasm_Update_Admin_Variance_Fields = {
   __typename?: 'cosmwasm_update_admin_variance_fields';
   index?: Maybe<Scalars['Float']>;
 };
+
+/** columns and relationships of "delegation" */
+export type Delegation = {
+  __typename?: 'delegation';
+  /** An object relationship */
+  account: Account;
+  amount: Scalars['coin'];
+  delegator_address: Scalars['String'];
+  validator_address: Scalars['String'];
+  /** An object relationship */
+  validator_info: Validator_Info;
+};
+
+/** aggregated selection of "delegation" */
+export type Delegation_Aggregate = {
+  __typename?: 'delegation_aggregate';
+  aggregate?: Maybe<Delegation_Aggregate_Fields>;
+  nodes: Array<Delegation>;
+};
+
+/** aggregate fields of "delegation" */
+export type Delegation_Aggregate_Fields = {
+  __typename?: 'delegation_aggregate_fields';
+  count: Scalars['Int'];
+  max?: Maybe<Delegation_Max_Fields>;
+  min?: Maybe<Delegation_Min_Fields>;
+};
+
+
+/** aggregate fields of "delegation" */
+export type Delegation_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Delegation_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "delegation" */
+export type Delegation_Aggregate_Order_By = {
+  count?: Maybe<Order_By>;
+  max?: Maybe<Delegation_Max_Order_By>;
+  min?: Maybe<Delegation_Min_Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "delegation". All fields are combined with a logical 'AND'. */
+export type Delegation_Bool_Exp = {
+  _and?: Maybe<Array<Delegation_Bool_Exp>>;
+  _not?: Maybe<Delegation_Bool_Exp>;
+  _or?: Maybe<Array<Delegation_Bool_Exp>>;
+  account?: Maybe<Account_Bool_Exp>;
+  amount?: Maybe<Coin_Comparison_Exp>;
+  delegator_address?: Maybe<String_Comparison_Exp>;
+  validator_address?: Maybe<String_Comparison_Exp>;
+  validator_info?: Maybe<Validator_Info_Bool_Exp>;
+};
+
+/** aggregate max on columns */
+export type Delegation_Max_Fields = {
+  __typename?: 'delegation_max_fields';
+  delegator_address?: Maybe<Scalars['String']>;
+  validator_address?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "delegation" */
+export type Delegation_Max_Order_By = {
+  delegator_address?: Maybe<Order_By>;
+  validator_address?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Delegation_Min_Fields = {
+  __typename?: 'delegation_min_fields';
+  delegator_address?: Maybe<Scalars['String']>;
+  validator_address?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "delegation" */
+export type Delegation_Min_Order_By = {
+  delegator_address?: Maybe<Order_By>;
+  validator_address?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "delegation". */
+export type Delegation_Order_By = {
+  account?: Maybe<Account_Order_By>;
+  amount?: Maybe<Order_By>;
+  delegator_address?: Maybe<Order_By>;
+  validator_address?: Maybe<Order_By>;
+  validator_info?: Maybe<Validator_Info_Order_By>;
+};
+
+/** select columns of table "delegation" */
+export enum Delegation_Select_Column {
+  /** column name */
+  Amount = 'amount',
+  /** column name */
+  DelegatorAddress = 'delegator_address',
+  /** column name */
+  ValidatorAddress = 'validator_address'
+}
 
 /** columns and relationships of "distribution_params" */
 export type Distribution_Params = {
@@ -4551,7 +4664,7 @@ export type Proposal_Deposit = {
   /** An object relationship */
   depositor?: Maybe<Account>;
   depositor_address?: Maybe<Scalars['String']>;
-  height: Scalars['bigint'];
+  height?: Maybe<Scalars['bigint']>;
   /** An object relationship */
   proposal: Proposal;
   proposal_id: Scalars['Int'];
@@ -5905,6 +6018,165 @@ export type Proposal_Vote_Variance_Order_By = {
   proposal_id?: Maybe<Order_By>;
 };
 
+/** columns and relationships of "proposal_vote_weighted" */
+export type Proposal_Vote_Weighted = {
+  __typename?: 'proposal_vote_weighted';
+  /** An object relationship */
+  account: Account;
+  height: Scalars['bigint'];
+  option: Scalars['String'];
+  /** An object relationship */
+  proposal: Proposal;
+  proposal_id: Scalars['Int'];
+  voter_address: Scalars['String'];
+  weight: Scalars['String'];
+};
+
+/** aggregated selection of "proposal_vote_weighted" */
+export type Proposal_Vote_Weighted_Aggregate = {
+  __typename?: 'proposal_vote_weighted_aggregate';
+  aggregate?: Maybe<Proposal_Vote_Weighted_Aggregate_Fields>;
+  nodes: Array<Proposal_Vote_Weighted>;
+};
+
+/** aggregate fields of "proposal_vote_weighted" */
+export type Proposal_Vote_Weighted_Aggregate_Fields = {
+  __typename?: 'proposal_vote_weighted_aggregate_fields';
+  avg?: Maybe<Proposal_Vote_Weighted_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Proposal_Vote_Weighted_Max_Fields>;
+  min?: Maybe<Proposal_Vote_Weighted_Min_Fields>;
+  stddev?: Maybe<Proposal_Vote_Weighted_Stddev_Fields>;
+  stddev_pop?: Maybe<Proposal_Vote_Weighted_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Proposal_Vote_Weighted_Stddev_Samp_Fields>;
+  sum?: Maybe<Proposal_Vote_Weighted_Sum_Fields>;
+  var_pop?: Maybe<Proposal_Vote_Weighted_Var_Pop_Fields>;
+  var_samp?: Maybe<Proposal_Vote_Weighted_Var_Samp_Fields>;
+  variance?: Maybe<Proposal_Vote_Weighted_Variance_Fields>;
+};
+
+
+/** aggregate fields of "proposal_vote_weighted" */
+export type Proposal_Vote_Weighted_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Proposal_Vote_Weighted_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Proposal_Vote_Weighted_Avg_Fields = {
+  __typename?: 'proposal_vote_weighted_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "proposal_vote_weighted". All fields are combined with a logical 'AND'. */
+export type Proposal_Vote_Weighted_Bool_Exp = {
+  _and?: Maybe<Array<Proposal_Vote_Weighted_Bool_Exp>>;
+  _not?: Maybe<Proposal_Vote_Weighted_Bool_Exp>;
+  _or?: Maybe<Array<Proposal_Vote_Weighted_Bool_Exp>>;
+  account?: Maybe<Account_Bool_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  option?: Maybe<String_Comparison_Exp>;
+  proposal?: Maybe<Proposal_Bool_Exp>;
+  proposal_id?: Maybe<Int_Comparison_Exp>;
+  voter_address?: Maybe<String_Comparison_Exp>;
+  weight?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Proposal_Vote_Weighted_Max_Fields = {
+  __typename?: 'proposal_vote_weighted_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+  option?: Maybe<Scalars['String']>;
+  proposal_id?: Maybe<Scalars['Int']>;
+  voter_address?: Maybe<Scalars['String']>;
+  weight?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Proposal_Vote_Weighted_Min_Fields = {
+  __typename?: 'proposal_vote_weighted_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+  option?: Maybe<Scalars['String']>;
+  proposal_id?: Maybe<Scalars['Int']>;
+  voter_address?: Maybe<Scalars['String']>;
+  weight?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "proposal_vote_weighted". */
+export type Proposal_Vote_Weighted_Order_By = {
+  account?: Maybe<Account_Order_By>;
+  height?: Maybe<Order_By>;
+  option?: Maybe<Order_By>;
+  proposal?: Maybe<Proposal_Order_By>;
+  proposal_id?: Maybe<Order_By>;
+  voter_address?: Maybe<Order_By>;
+  weight?: Maybe<Order_By>;
+};
+
+/** select columns of table "proposal_vote_weighted" */
+export enum Proposal_Vote_Weighted_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Option = 'option',
+  /** column name */
+  ProposalId = 'proposal_id',
+  /** column name */
+  VoterAddress = 'voter_address',
+  /** column name */
+  Weight = 'weight'
+}
+
+/** aggregate stddev on columns */
+export type Proposal_Vote_Weighted_Stddev_Fields = {
+  __typename?: 'proposal_vote_weighted_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Proposal_Vote_Weighted_Stddev_Pop_Fields = {
+  __typename?: 'proposal_vote_weighted_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Proposal_Vote_Weighted_Stddev_Samp_Fields = {
+  __typename?: 'proposal_vote_weighted_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Proposal_Vote_Weighted_Sum_Fields = {
+  __typename?: 'proposal_vote_weighted_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+  proposal_id?: Maybe<Scalars['Int']>;
+};
+
+/** aggregate var_pop on columns */
+export type Proposal_Vote_Weighted_Var_Pop_Fields = {
+  __typename?: 'proposal_vote_weighted_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Proposal_Vote_Weighted_Var_Samp_Fields = {
+  __typename?: 'proposal_vote_weighted_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Proposal_Vote_Weighted_Variance_Fields = {
+  __typename?: 'proposal_vote_weighted_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+};
+
 export type Query_Root = {
   __typename?: 'query_root';
   /** fetch data from the table: "account" */
@@ -5987,6 +6259,12 @@ export type Query_Root = {
   cosmwasm_update_admin_aggregate: Cosmwasm_Update_Admin_Aggregate;
   /** fetch data from the table: "cosmwasm_update_admin" using primary key columns */
   cosmwasm_update_admin_by_pk?: Maybe<Cosmwasm_Update_Admin>;
+  /** fetch data from the table: "delegation" */
+  delegation: Array<Delegation>;
+  /** fetch aggregated fields from the table: "delegation" */
+  delegation_aggregate: Delegation_Aggregate;
+  /** fetch data from the table: "delegation" using primary key columns */
+  delegation_by_pk?: Maybe<Delegation>;
   /** fetch data from the table: "distribution_params" */
   distribution_params: Array<Distribution_Params>;
   /** fetch aggregated fields from the table: "distribution_params" */
@@ -6079,6 +6357,10 @@ export type Query_Root = {
   proposal_vote: Array<Proposal_Vote>;
   /** fetch aggregated fields from the table: "proposal_vote" */
   proposal_vote_aggregate: Proposal_Vote_Aggregate;
+  /** fetch data from the table: "proposal_vote_weighted" */
+  proposal_vote_weighted: Array<Proposal_Vote_Weighted>;
+  /** fetch aggregated fields from the table: "proposal_vote_weighted" */
+  proposal_vote_weighted_aggregate: Proposal_Vote_Weighted_Aggregate;
   /** fetch data from the table: "slashing_params" */
   slashing_params: Array<Slashing_Params>;
   /** fetch aggregated fields from the table: "slashing_params" */
@@ -6544,6 +6826,30 @@ export type Query_RootCosmwasm_Update_Admin_By_PkArgs = {
 };
 
 
+export type Query_RootDelegationArgs = {
+  distinct_on?: Maybe<Array<Delegation_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Delegation_Order_By>>;
+  where?: Maybe<Delegation_Bool_Exp>;
+};
+
+
+export type Query_RootDelegation_AggregateArgs = {
+  distinct_on?: Maybe<Array<Delegation_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Delegation_Order_By>>;
+  where?: Maybe<Delegation_Bool_Exp>;
+};
+
+
+export type Query_RootDelegation_By_PkArgs = {
+  delegator_address: Scalars['String'];
+  validator_address: Scalars['String'];
+};
+
+
 export type Query_RootDistribution_ParamsArgs = {
   distinct_on?: Maybe<Array<Distribution_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -6917,6 +7223,24 @@ export type Query_RootProposal_Vote_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Proposal_Vote_Order_By>>;
   where?: Maybe<Proposal_Vote_Bool_Exp>;
+};
+
+
+export type Query_RootProposal_Vote_WeightedArgs = {
+  distinct_on?: Maybe<Array<Proposal_Vote_Weighted_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Proposal_Vote_Weighted_Order_By>>;
+  where?: Maybe<Proposal_Vote_Weighted_Bool_Exp>;
+};
+
+
+export type Query_RootProposal_Vote_Weighted_AggregateArgs = {
+  distinct_on?: Maybe<Array<Proposal_Vote_Weighted_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Proposal_Vote_Weighted_Order_By>>;
+  where?: Maybe<Proposal_Vote_Weighted_Bool_Exp>;
 };
 
 
@@ -7794,6 +8118,12 @@ export type Subscription_Root = {
   cosmwasm_update_admin_aggregate: Cosmwasm_Update_Admin_Aggregate;
   /** fetch data from the table: "cosmwasm_update_admin" using primary key columns */
   cosmwasm_update_admin_by_pk?: Maybe<Cosmwasm_Update_Admin>;
+  /** fetch data from the table: "delegation" */
+  delegation: Array<Delegation>;
+  /** fetch aggregated fields from the table: "delegation" */
+  delegation_aggregate: Delegation_Aggregate;
+  /** fetch data from the table: "delegation" using primary key columns */
+  delegation_by_pk?: Maybe<Delegation>;
   /** fetch data from the table: "distribution_params" */
   distribution_params: Array<Distribution_Params>;
   /** fetch aggregated fields from the table: "distribution_params" */
@@ -7886,6 +8216,10 @@ export type Subscription_Root = {
   proposal_vote: Array<Proposal_Vote>;
   /** fetch aggregated fields from the table: "proposal_vote" */
   proposal_vote_aggregate: Proposal_Vote_Aggregate;
+  /** fetch data from the table: "proposal_vote_weighted" */
+  proposal_vote_weighted: Array<Proposal_Vote_Weighted>;
+  /** fetch aggregated fields from the table: "proposal_vote_weighted" */
+  proposal_vote_weighted_aggregate: Proposal_Vote_Weighted_Aggregate;
   /** fetch data from the table: "slashing_params" */
   slashing_params: Array<Slashing_Params>;
   /** fetch aggregated fields from the table: "slashing_params" */
@@ -8265,6 +8599,30 @@ export type Subscription_RootCosmwasm_Update_Admin_By_PkArgs = {
 };
 
 
+export type Subscription_RootDelegationArgs = {
+  distinct_on?: Maybe<Array<Delegation_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Delegation_Order_By>>;
+  where?: Maybe<Delegation_Bool_Exp>;
+};
+
+
+export type Subscription_RootDelegation_AggregateArgs = {
+  distinct_on?: Maybe<Array<Delegation_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Delegation_Order_By>>;
+  where?: Maybe<Delegation_Bool_Exp>;
+};
+
+
+export type Subscription_RootDelegation_By_PkArgs = {
+  delegator_address: Scalars['String'];
+  validator_address: Scalars['String'];
+};
+
+
 export type Subscription_RootDistribution_ParamsArgs = {
   distinct_on?: Maybe<Array<Distribution_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -8638,6 +8996,24 @@ export type Subscription_RootProposal_Vote_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Proposal_Vote_Order_By>>;
   where?: Maybe<Proposal_Vote_Bool_Exp>;
+};
+
+
+export type Subscription_RootProposal_Vote_WeightedArgs = {
+  distinct_on?: Maybe<Array<Proposal_Vote_Weighted_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Proposal_Vote_Weighted_Order_By>>;
+  where?: Maybe<Proposal_Vote_Weighted_Bool_Exp>;
+};
+
+
+export type Subscription_RootProposal_Vote_Weighted_AggregateArgs = {
+  distinct_on?: Maybe<Array<Proposal_Vote_Weighted_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Proposal_Vote_Weighted_Order_By>>;
+  where?: Maybe<Proposal_Vote_Weighted_Bool_Exp>;
 };
 
 
@@ -11097,12 +11473,36 @@ export type Validator_Info = {
   /** An object relationship */
   account?: Maybe<Account>;
   consensus_address: Scalars['String'];
+  /** An array relationship */
+  delegations: Array<Delegation>;
+  /** An aggregate relationship */
+  delegations_aggregate: Delegation_Aggregate;
   max_change_rate: Scalars['String'];
   max_rate: Scalars['String'];
   operator_address: Scalars['String'];
   self_delegate_address?: Maybe<Scalars['String']>;
   /** An object relationship */
   validator: Validator;
+};
+
+
+/** columns and relationships of "validator_info" */
+export type Validator_InfoDelegationsArgs = {
+  distinct_on?: Maybe<Array<Delegation_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Delegation_Order_By>>;
+  where?: Maybe<Delegation_Bool_Exp>;
+};
+
+
+/** columns and relationships of "validator_info" */
+export type Validator_InfoDelegations_AggregateArgs = {
+  distinct_on?: Maybe<Array<Delegation_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Delegation_Order_By>>;
+  where?: Maybe<Delegation_Bool_Exp>;
 };
 
 /** aggregated selection of "validator_info" */
@@ -11141,6 +11541,7 @@ export type Validator_Info_Bool_Exp = {
   _or?: Maybe<Array<Validator_Info_Bool_Exp>>;
   account?: Maybe<Account_Bool_Exp>;
   consensus_address?: Maybe<String_Comparison_Exp>;
+  delegations?: Maybe<Delegation_Bool_Exp>;
   max_change_rate?: Maybe<String_Comparison_Exp>;
   max_rate?: Maybe<String_Comparison_Exp>;
   operator_address?: Maybe<String_Comparison_Exp>;
@@ -11190,6 +11591,7 @@ export type Validator_Info_Min_Order_By = {
 export type Validator_Info_Order_By = {
   account?: Maybe<Account_Order_By>;
   consensus_address?: Maybe<Order_By>;
+  delegations_aggregate?: Maybe<Delegation_Aggregate_Order_By>;
   max_change_rate?: Maybe<Order_By>;
   max_rate?: Maybe<Order_By>;
   operator_address?: Maybe<Order_By>;
@@ -14064,23 +14466,6 @@ export const ProposalDetailsVotesDocument = gql`
   }
 }
     `;
-
-export const ProposalDetailsVotesWeightedDocument = /* GraphQL */`
-query ProposalDetailsVotesWeighted($proposalId: Int) {
-  proposalVoteWeighted: proposal_vote_weighted(where: {proposal_id: {_eq: $proposalId}} order_by: {height: desc}) {
-    option
-    weight
-    voterAddress: voter_address
-  }
-  validatorStatuses: proposal_validator_status_snapshot(where: {proposal_id: {_eq: $proposalId}, status: {_eq: 3}}) {
-    validator {
-      validatorInfo: validator_info {
-        selfDelegateAddress: self_delegate_address
-      }
-    }
-  }
-}
-`; 
 
 /**
  * __useProposalDetailsVotesQuery__
