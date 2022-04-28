@@ -62,5 +62,6 @@
   "txExecuteContract": "Execute Contract",
   "txMigrateContract": "Migrate Contract",
   "txUpdateContractAdmin": "Update Contract Admin",
-  "txClearContractAdmin": "Clear Contract Admin"
+  "txClearContractAdmin": "Clear Contract Admin",
+  "MsgSendToCosmosClaim": "Gravity Bridge - Ethereum to Cosmos"
 }

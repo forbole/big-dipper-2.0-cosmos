@@ -38,5 +38,6 @@
   "deployer": "Deployer",
   "label": "Label",
   "codeId": "Code Id",
-  "instaBlock": "Instantiated At Block"
+  "instaBlock": "Instantiated At Block",
+  "collateralTransactions": "Collateral Transactions"
 }

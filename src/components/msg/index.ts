@@ -74,6 +74,7 @@ import ExecuteContract from './cosmwasm/execute_contract';
 import MigrateContract from './cosmwasm/migrate_contract';
 import UpdateContractAdmin from './cosmwasm/update_contract_admin';
 import ClearContractAdmin from './cosmwasm/clear_contract_admin';
+import SendToCosmos from './gravity/send_to_cosmos';
 
 export {
   getMessageModelByType,
@@ -146,4 +147,5 @@ export {
   MigrateContract,
   UpdateContractAdmin,
   ClearContractAdmin,
+  SendToCosmos,
 };

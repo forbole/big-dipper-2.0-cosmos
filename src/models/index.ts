@@ -75,6 +75,7 @@ import MsgExecuteContract from './msg/cosmwasm/msg_execute_contract';
 import MsgMigrateContract from './msg/cosmwasm/msg_migrate_contract';
 import MsgUpdateContractAdmin from './msg/cosmwasm/msg_update_contract_admin';
 import MsgClearContractAdmin from './msg/cosmwasm/msg_clear_contract_admin';
+import MsgSendToCosmosClaim from './msg/gravity/msg_send_to_cosmos_claim';
 
 export {
   BigDipperNetwork,
@@ -154,4 +155,5 @@ export {
   MsgMigrateContract,
   MsgUpdateContractAdmin,
   MsgClearContractAdmin,
+  MsgSendToCosmosClaim,
 };

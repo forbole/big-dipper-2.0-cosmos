@@ -3,10 +3,10 @@ import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import axios from 'axios';
 import {
-  useProposalDetailsVotesQuery
+  useProposalDetailsVotesQuery,
 } from '@graphql/types';
 import {
-  ProposalDetailsVotesWeightedDocument
+  ProposalDetailsVotesWeightedDocument,
 } from '@graphql/proposal_details_votes_weighted';
 import { toValidatorAddress } from '@utils/prefix_convert';
 import { VoteState } from './types';
@@ -51,22 +51,22 @@ export const useVotes = (resetPagination:any) => {
   const mergeRegularVotesWithWeighted = (votesData: any, votesWeightedData: any) => {
     const mergedVotesData = {
       validatorStatuses: votesData.validatorStatuses,
-      proposalVote: R.pathOr([], ['data', 'data', 'proposalVoteWeighted'], votesWeightedData)
-     }
-     
-     const proposalVote = R.pathOr([], ['proposalVote'], votesData);
-     
-     proposalVote.map((x: any) => {
-       x.weight = '100.00%';
-     });
-     
-     mergedVotesData.proposalVote.map((x: any) => {
-       x.weight = (parseFloat(x.weight) * 100.0).toFixed(2) + '%';
-     });
+      proposalVote: R.pathOr([], ['data', 'data', 'proposalVoteWeighted'], votesWeightedData),
+    };
 
-     mergedVotesData.proposalVote = [...proposalVote, ...mergedVotesData.proposalVote];
-     
-     return mergedVotesData;
+    const proposalVote = R.pathOr([], ['proposalVote'], votesData);
+
+    proposalVote.map((x: any) => {
+      x.weight = '100.00%';
+    });
+
+    mergedVotesData.proposalVote.map((x: any) => {
+      x.weight = `${(parseFloat(x.weight) * 100.0).toFixed(2)}%`;
+    });
+
+    mergedVotesData.proposalVote = [...proposalVote, ...mergedVotesData.proposalVote];
+
+    return mergedVotesData;
   };
 
   useProposalDetailsVotesQuery({
@@ -75,7 +75,7 @@ export const useVotes = (resetPagination:any) => {
     },
     onCompleted: (votesData) => {
       fetchWeightedVotes().then((votesWeightedData) => {
-        const mergedVotesData = mergeRegularVotesWithWeighted(votesData, votesWeightedData);    
+        const mergedVotesData = mergeRegularVotesWithWeighted(votesData, votesWeightedData);
         handleSetState(formatVotes(mergedVotesData));
       });
     },

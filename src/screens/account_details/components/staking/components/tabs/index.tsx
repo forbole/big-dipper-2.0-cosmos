@@ -16,7 +16,7 @@ const TabsHeader: React.FC<{
   tabs: {
     id: number;
     key: string;
-    count: number;
+    count?: number;
     component?: React.ReactNode;
   }[]
 }> = ({

@@ -13,4 +13,4 @@ query ProposalDetailsVotesWeighted($proposalId: Int) {
     }
   }
 }
-`; 
+`;

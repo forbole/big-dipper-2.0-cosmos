@@ -61,5 +61,6 @@
   "txExecuteContract": "<0>{{user}}</0> executed <1>{{method}}</1> on <2>{{address}}</2>",
   "txMigrateContract": "<0>{{admin}}</0> migrated contract <1>{{contract}}</1> to <1>{{newCodeId}}</1>",
   "txUpdateContractAdmin": "<0>{{admin}}</0> updated contract <1>{{contract}}</1> admin to <2>{{newAdmin}}</2>",
-  "txClearContractAdmin": "<0>{{admin}}</0> cleared admin on contract <1>{{contract}}</1>"
+  "txClearContractAdmin": "<0>{{admin}}</0> cleared admin on contract <1>{{contract}}</1>",
+  "MsgSendToCosmosClaim": "<0>{{ethSender}}</0> sent <1>{{amount}}</1> to <2>{{receiver}}</2>"
 }

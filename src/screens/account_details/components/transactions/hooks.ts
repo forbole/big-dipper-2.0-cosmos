@@ -5,12 +5,13 @@ import * as R from 'ramda';
 import {
   useGetMessagesByAddressQuery,
   GetMessagesByAddressQuery,
+  useGetGravityMessagesByAddressQuery,
 } from '@graphql/types';
 import { TransactionState } from './types';
 
 const LIMIT = 50;
 
-export const useTransactions = () => {
+export const useTransactions = (collateralTransactions: boolean) => {
   const router = useRouter();
   const [state, setState] = useState<TransactionState>({
     data: [],
@@ -23,11 +24,11 @@ export const useTransactions = () => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
 
-  const transactionQuery = useGetMessagesByAddressQuery({
+  const queryOptions = {
     variables: {
       limit: LIMIT + 1, // to check if more exist
       offset: 0,
-      address: `{${R.pathOr('', ['query', 'address'], router)}}`,
+      address: collateralTransactions ? `${R.pathOr('', ['query', 'address'], router)}` : `{${R.pathOr('', ['query', 'address'], router)}}`,
     },
     onCompleted: (data) => {
       const itemsLength = data.messagesByAddress.length;
@@ -41,7 +42,15 @@ export const useTransactions = () => {
 
       handleSetState(stateChange);
     },
-  });
+  };
+
+  let transactionQuery;
+
+  if (collateralTransactions) {
+    transactionQuery = useGetGravityMessagesByAddressQuery(queryOptions);
+  } else {
+    transactionQuery = useGetMessagesByAddressQuery(queryOptions);
+  }
 
   const loadNextPage = async () => {
     handleSetState({
