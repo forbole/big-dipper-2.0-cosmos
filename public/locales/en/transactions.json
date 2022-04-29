@@ -35,5 +35,6 @@
   "vesting": "Vesting",
   "logs": "Logs",
   "arguments": "Arguments",
-  "method": "Method"
+  "method": "Method",
+  "collateralTransactions": "Collateral Transactions"
 }

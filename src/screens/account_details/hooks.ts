@@ -62,6 +62,7 @@ const initialState: AccountDetailState = {
       },
     },
   },
+  tab: 0,
 };
 
 export const useAccountDetails = () => {
@@ -70,6 +71,13 @@ export const useAccountDetails = () => {
 
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  };
+
+  const handleTabChange = (_event: any, newValue: number) => {
+    setState((prevState) => ({
+      ...prevState,
+      tab: newValue,
+    }));
   };
 
   // ==========================
@@ -297,5 +305,6 @@ export const useAccountDetails = () => {
 
   return {
     state,
+    handleTabChange,
   };
 };

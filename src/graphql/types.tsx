@@ -3583,6 +3583,12 @@ export type Gov_Params_Variance_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
+export type Gravity_Messages_By_Address_Args = {
+  limit?: Maybe<Scalars['bigint']>;
+  offset?: Maybe<Scalars['bigint']>;
+  receiver?: Maybe<Scalars['String']>;
+};
+
 /** columns and relationships of "inflation" */
 export type Inflation = {
   __typename?: 'inflation';
@@ -6297,6 +6303,10 @@ export type Query_Root = {
   gov_params_aggregate: Gov_Params_Aggregate;
   /** fetch data from the table: "gov_params" using primary key columns */
   gov_params_by_pk?: Maybe<Gov_Params>;
+  /** execute function "gravity_messages_by_address" which returns "message" */
+  gravity_messages_by_address: Array<Message>;
+  /** execute function "gravity_messages_by_address" and query aggregates on result of table type "message" */
+  gravity_messages_by_address_aggregate: Message_Aggregate;
   /** fetch data from the table: "inflation" */
   inflation: Array<Inflation>;
   /** fetch aggregated fields from the table: "inflation" */
@@ -6975,6 +6985,26 @@ export type Query_RootGov_Params_AggregateArgs = {
 
 export type Query_RootGov_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
+};
+
+
+export type Query_RootGravity_Messages_By_AddressArgs = {
+  args: Gravity_Messages_By_Address_Args;
+  distinct_on?: Maybe<Array<Message_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Message_Order_By>>;
+  where?: Maybe<Message_Bool_Exp>;
+};
+
+
+export type Query_RootGravity_Messages_By_Address_AggregateArgs = {
+  args: Gravity_Messages_By_Address_Args;
+  distinct_on?: Maybe<Array<Message_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Message_Order_By>>;
+  where?: Maybe<Message_Bool_Exp>;
 };
 
 
@@ -8156,6 +8186,10 @@ export type Subscription_Root = {
   gov_params_aggregate: Gov_Params_Aggregate;
   /** fetch data from the table: "gov_params" using primary key columns */
   gov_params_by_pk?: Maybe<Gov_Params>;
+  /** execute function "gravity_messages_by_address" which returns "message" */
+  gravity_messages_by_address: Array<Message>;
+  /** execute function "gravity_messages_by_address" and query aggregates on result of table type "message" */
+  gravity_messages_by_address_aggregate: Message_Aggregate;
   /** fetch data from the table: "inflation" */
   inflation: Array<Inflation>;
   /** fetch aggregated fields from the table: "inflation" */
@@ -8748,6 +8782,26 @@ export type Subscription_RootGov_Params_AggregateArgs = {
 
 export type Subscription_RootGov_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
+};
+
+
+export type Subscription_RootGravity_Messages_By_AddressArgs = {
+  args: Gravity_Messages_By_Address_Args;
+  distinct_on?: Maybe<Array<Message_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Message_Order_By>>;
+  where?: Maybe<Message_Bool_Exp>;
+};
+
+
+export type Subscription_RootGravity_Messages_By_Address_AggregateArgs = {
+  args: Gravity_Messages_By_Address_Args;
+  distinct_on?: Maybe<Array<Message_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Message_Order_By>>;
+  where?: Maybe<Message_Bool_Exp>;
 };
 
 
@@ -13032,6 +13086,25 @@ export type ChainIdQuery = { genesis: Array<(
     & { chainId: Genesis['chain_id'] }
   )> };
 
+export type GetGravityMessagesByAddressQueryVariables = Exact<{
+  address?: Maybe<Scalars['String']>;
+  limit?: Maybe<Scalars['bigint']>;
+  offset?: Maybe<Scalars['bigint']>;
+}>;
+
+
+export type GetGravityMessagesByAddressQuery = { messagesByAddress: Array<(
+    { __typename?: 'message' }
+    & { transaction: (
+      { __typename?: 'transaction' }
+      & Pick<Transaction, 'height' | 'hash' | 'success' | 'messages' | 'logs'>
+      & { block: (
+        { __typename?: 'block' }
+        & Pick<Block, 'height' | 'timestamp'>
+      ) }
+    ) }
+  )> };
+
 export type MarketDataQueryVariables = Exact<{
   denom?: Maybe<Scalars['String']>;
 }>;
@@ -14118,6 +14191,55 @@ export function useChainIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Ch
 export type ChainIdQueryHookResult = ReturnType<typeof useChainIdQuery>;
 export type ChainIdLazyQueryHookResult = ReturnType<typeof useChainIdLazyQuery>;
 export type ChainIdQueryResult = Apollo.QueryResult<ChainIdQuery, ChainIdQueryVariables>;
+export const GetGravityMessagesByAddressDocument = gql`
+    query GetGravityMessagesByAddress($address: String, $limit: bigint = 50, $offset: bigint = 0) {
+  messagesByAddress: gravity_messages_by_address(
+    args: {receiver: $address, limit: $limit, offset: $offset}
+  ) {
+    transaction {
+      height
+      hash
+      success
+      messages
+      logs
+      block {
+        height
+        timestamp
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetGravityMessagesByAddressQuery__
+ *
+ * To run a query within a React component, call `useGetGravityMessagesByAddressQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetGravityMessagesByAddressQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetGravityMessagesByAddressQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
+ *   },
+ * });
+ */
+export function useGetGravityMessagesByAddressQuery(baseOptions?: Apollo.QueryHookOptions<GetGravityMessagesByAddressQuery, GetGravityMessagesByAddressQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetGravityMessagesByAddressQuery, GetGravityMessagesByAddressQueryVariables>(GetGravityMessagesByAddressDocument, options);
+      }
+export function useGetGravityMessagesByAddressLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetGravityMessagesByAddressQuery, GetGravityMessagesByAddressQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetGravityMessagesByAddressQuery, GetGravityMessagesByAddressQueryVariables>(GetGravityMessagesByAddressDocument, options);
+        }
+export type GetGravityMessagesByAddressQueryHookResult = ReturnType<typeof useGetGravityMessagesByAddressQuery>;
+export type GetGravityMessagesByAddressLazyQueryHookResult = ReturnType<typeof useGetGravityMessagesByAddressLazyQuery>;
+export type GetGravityMessagesByAddressQueryResult = Apollo.QueryResult<GetGravityMessagesByAddressQuery, GetGravityMessagesByAddressQueryVariables>;
 export const MarketDataDocument = gql`
     query MarketData($denom: String) {
   communityPool: community_pool(order_by: {height: desc}, limit: 1) {

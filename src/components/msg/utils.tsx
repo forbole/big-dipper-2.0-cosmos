@@ -450,6 +450,12 @@ const getDataByType = (type: string) => {
       tagTheme: 'four',
       tagDisplay: 'txMsgSetMinFeeTransferToEth',
     },
+    '/gravity.v1.MsgSendToCosmosClaim': {
+      model: MODELS.MsgSendToCosmosClaim,
+      content: COMPONENTS.SendToCosmos,
+      tagTheme: 'four',
+      tagDisplay: 'MsgSendToCosmosClaim',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];

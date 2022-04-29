@@ -1,0 +1,15 @@
+query GetGravityMessagesByAddress($address: String, $limit: bigint = 50, $offset: bigint = 0) {
+  messagesByAddress: gravity_messages_by_address(args: {receiver: $address, limit: $limit, offset: $offset}) {
+    transaction {
+      height
+      hash
+      success
+      messages
+      logs
+      block {
+        height
+        timestamp
+      }
+    }
+  }
+}

@@ -6,8 +6,12 @@ import {
   DesmosProfile,
   ContractOverview,
   ContractMessages,
+  TabPanel,
 } from '@components';
 import { NextSeo } from 'next-seo';
+import {
+  Tabs,
+} from './components/staking/components';
 import { useStyles } from './styles';
 import {
   Overview,
@@ -24,9 +28,33 @@ const AccountDetails = () => {
   const classes = useStyles();
   const {
     state,
+    handleTabChange,
   } = useAccountDetails();
 
   const isSmartContract = state.cosmwasm.result_contract_address === state.overview.address;
+
+  const tabs = [
+    {
+      id: 0,
+      key: 'transactions',
+      component: (
+        <Transactions
+          className={classes.transactions}
+          collateralTransactions={false}
+        />
+      ),
+    },
+    {
+      id: 1,
+      key: 'collateralTransactions',
+      component: (
+        <Transactions
+          className={classes.transactions}
+          collateralTransactions
+        />
+      ),
+    },
+  ];
 
   return (
     <>
@@ -102,9 +130,24 @@ const AccountDetails = () => {
                 />
               )
               : (
-                <Transactions
-                  className={classes.transactions}
-                />
+                <>
+                  <Tabs
+                    tab={state.tab}
+                    handleTabChange={handleTabChange}
+                    tabs={tabs}
+                  />
+                  {tabs.map((x) => {
+                    return (
+                      <TabPanel
+                        key={x.id}
+                        index={x.id}
+                        value={state.tab}
+                      >
+                        {x.component}
+                      </TabPanel>
+                    );
+                  })}
+                </>
               )}
           </span>
         </LoadAndExist>

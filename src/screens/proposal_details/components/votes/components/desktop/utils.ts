@@ -23,5 +23,5 @@ export const columns:{
     key: 'weight',
     width: 33,
     align: 'right',
-  }
+  },
 ];
