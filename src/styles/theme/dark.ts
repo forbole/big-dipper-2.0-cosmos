@@ -5,7 +5,6 @@ const fontOne = '#E6E6E6';
 const fontTwo = '#C4C4C4';
 const fontThree = '#818181';
 
-// #181d39
 /** Custom theme overrides for dark mode */
 export const darkThemeOverride = {
   mixins: {
