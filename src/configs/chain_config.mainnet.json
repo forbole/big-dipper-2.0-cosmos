@@ -1,24 +1,24 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "desmos-mainnet-1",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
+  "title": "Comdex Block Explorer",
+  "network": "comdex-1",
+  "icon": "/images/icon.svg",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
+    "default": "/images/logo.svg"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "comdexvalcons",
+    "validator": "comdexvaloper",
+    "account": "comdex"
   },
   "genesis": {
     "time": "2021-07-13T08:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udsm",
-  "votingPowerTokenUnit": "udsm",
+  "primaryTokenUnit": "ucmdx",
+  "votingPowerTokenUnit": "ucmdx",
   "tokenUnits": {
-    "udsm": {
-      "display": "dsm",
+    "ucmdx": {
+      "display": "cmdx",
       "exponent": 6
     }
   },
