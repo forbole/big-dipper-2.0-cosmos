@@ -131,10 +131,14 @@ export const useValidators = () => {
     let sorted: ItemType[] = R.clone(items);
 
     if (state.tab === 0) {
-      sorted = sorted.filter((x) => x.status === 3);
+      sorted = sorted.filter((x) => x.status === 3 && x.jailed === false);
     }
 
     if (state.tab === 1) {
+      sorted = sorted.filter((x) => x.status === 3 && x.jailed === true);
+    }
+
+    if (state.tab == 2) {
       sorted = sorted.filter((x) => x.status !== 3);
     }
 
