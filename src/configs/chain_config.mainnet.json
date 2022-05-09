@@ -7,8 +7,8 @@
   },
   "prefix": {
     "consensus": "cosmosvalcons",
-    "validator": "cosmosvaloper",
-    "account": "cosmos"
+    "validator": "likevaloper",
+    "account": "like"
   },
   "genesis": {
     "time": "2021-07-13T08:00:00",

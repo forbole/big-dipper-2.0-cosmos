@@ -22,6 +22,7 @@ export const useSearchBar = (t) => {
       const consensusRegex = `^(${chainConfig.prefix.consensus})`;
       const validatorRegex = `^(${chainConfig.prefix.validator})`;
       const userRegex = `^(${chainConfig.prefix.account})`;
+      const cosmosUserRegex = '^(cosmos)';
       const parsedValue = value.replace(/\s+/g, '');
 
       if (new RegExp(consensusRegex).test(parsedValue)) {
@@ -33,7 +34,8 @@ export const useSearchBar = (t) => {
         }
       } else if (new RegExp(validatorRegex).test(parsedValue)) {
         router.push(VALIDATOR_DETAILS(parsedValue));
-      } else if (new RegExp(userRegex).test(parsedValue)) {
+      } else if (new RegExp(userRegex).test(parsedValue)
+      || new RegExp(cosmosUserRegex).test(parsedValue)) {
         router.push(ACCOUNT_DETAILS(parsedValue));
       } else if (/^@/.test(parsedValue)) {
         const configProfile = chainConfig.extra.profile;

@@ -1,3 +1,7 @@
+# likecoin-v2.2.1 - 2021-05-09
+## Fixes
+- Likecoin prefix change
+
 # likecoin-v2.2.0 - 2021-04-19
 ## Changes
 - Merge `base-v2.1.0`
