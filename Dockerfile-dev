@@ -37,7 +37,7 @@ ENV PORT ${PORT}
 
 #
 # Update schema
-RUN npm run graphql:codegen
+# RUN npm run graphql:codegen
 
 # Building app
 EXPOSE 3000
