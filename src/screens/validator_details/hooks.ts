@@ -15,6 +15,7 @@ import { chainConfig } from '@src/configs';
 import {
   SlashingParams,
 } from '@models';
+import { isValidAddress } from '@utils/prefix_convert';
 import { ValidatorDetailsState } from './types';
 
 const initialTokenDenom: TokenUnit = {
@@ -74,12 +75,13 @@ export const useValidatorDetails = () => {
   });
 
   useEffect(() => {
-    // ryuash
-    // why did i do this again
-    handleSetState(initialState);
-    if (chainConfig.extra.profile) {
+    if (!isValidAddress(router.query.address as string)) {
+      handleSetState({
+        loading: false,
+        exist: false,
+      });
+    } else if (chainConfig.extra.profile) {
       const address = validatorToDelegatorAddress(router.query.address as string);
-
       fetchDesmosProfile(address);
     }
   }, [router.query.address]);
