@@ -13,6 +13,7 @@ import {
 } from 'recoil';
 import { readValidator } from '@recoil/validators';
 import { toast } from 'react-toastify';
+import { isValidAddress } from '@utils/prefix_convert';
 
 export const useSearchBar = (t) => {
   const router = useRouter();
@@ -32,9 +33,17 @@ export const useSearchBar = (t) => {
           toast(t('common:useValidatorAddress'));
         }
       } else if (new RegExp(validatorRegex).test(parsedValue)) {
-        router.push(VALIDATOR_DETAILS(parsedValue));
+        if (isValidAddress(parsedValue)) {
+          router.push(VALIDATOR_DETAILS(parsedValue));
+        } else {
+          toast(t('common:invalidAddress'));
+        }
       } else if (new RegExp(userRegex).test(parsedValue)) {
-        router.push(ACCOUNT_DETAILS(parsedValue));
+        if (isValidAddress(parsedValue)) {
+          router.push(ACCOUNT_DETAILS(parsedValue));
+        } else {
+          toast(t('common:invalidAddress'));
+        }
       } else if (/^@/.test(parsedValue)) {
         const configProfile = chainConfig.extra.profile;
         if (!configProfile) {

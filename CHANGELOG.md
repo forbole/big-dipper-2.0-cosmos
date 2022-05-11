@@ -1,3 +1,8 @@
+# Unreleased
+
+## Changes
+- Update validator and account details to not be found if bech32 is invalid
+
 # base-v2.1.0 - 2021-04-19
 
 ## Changes
