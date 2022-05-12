@@ -25,7 +25,6 @@ const Desktop: React.FC<{
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
   const formattedItems = items.map((x) => {
-    const amount = formatNumber(x.amount.value, x.amount.exponent);
     return ({
       to: (
         <AvatarName
@@ -41,8 +40,8 @@ const Desktop: React.FC<{
           name={x.from.name}
         />
       ),
-      linkedUntil: formatDayJs(dayjs.utc(x.linkedUntil), dateFormat),
-      amount: `${amount} ${x.amount.displayDenom.toUpperCase()}`,
+      amount: `${formatNumber(x.amount.value, x.amount.exponent)} ${x.amount.displayDenom.toUpperCase()}`,
+      completionTime: formatDayJs(dayjs.utc(x.completionTime), dateFormat),
     });
   });
 

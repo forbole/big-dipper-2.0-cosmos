@@ -9,10 +9,9 @@ import {
   TableCell,
   TableBody,
 } from '@material-ui/core';
+import { AvatarName } from '@components';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
-import { AvatarName } from '@components';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { formatNumber } from '@utils/format_token';
 import { columns } from './utils';
 import { ItemType } from '../../types';
@@ -23,19 +22,15 @@ const Desktop: React.FC<{
 }> = ({
   className, items,
 }) => {
+  const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
-  const { t } = useTranslation('validators');
-
   const formattedItems = items.map((x) => {
-    const amount = formatNumber(x.amount.value, x.amount.exponent);
     return ({
       address: (
         <AvatarName
-          address={x.delegator.address}
-          imageUrl={x.delegator.imageUrl}
-          name={x.delegator.name.length > 20 ? getMiddleEllipsis(x.delegator.name, {
-            beginning: 12, ending: 10,
-          }) : x.delegator.name}
+          address={x.address.address}
+          imageUrl={x.address.imageUrl}
+          name={x.address.name}
         />
       ),
       to: (
@@ -45,15 +40,8 @@ const Desktop: React.FC<{
           name={x.to.name}
         />
       ),
-      from: (
-        <AvatarName
-          address={x.from.address}
-          imageUrl={x.from.imageUrl}
-          name={x.from.name}
-        />
-      ),
-      linkedUntil: formatDayJs(dayjs.utc(x.linkedUntil), dateFormat),
-      amount: `${amount} ${x.amount.displayDenom.toUpperCase()}`,
+      amount: `${formatNumber(x.amount.value, x.amount.exponent)} ${x.amount.displayDenom.toUpperCase()}`,
+      completionTime: formatDayJs(dayjs.utc(x.completionTime), dateFormat),
     });
   });
 

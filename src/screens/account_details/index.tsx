@@ -21,7 +21,6 @@ const AccountDetails = () => {
   const classes = useStyles();
   const {
     state,
-    loadNextPage,
   } = useAccountDetails();
 
   return (
@@ -68,16 +67,10 @@ const AccountDetails = () => {
             />
             <Staking
               className={classes.staking}
-              redelegations={state.redelegations}
-              delegations={state.delegations}
-              unbondings={state.unbondings}
+              rewards={state.rewards}
             />
             <Transactions
               className={classes.transactions}
-              loadNextPage={loadNextPage}
-              data={state.transactions.data}
-              hasNextPage={state.transactions.hasNextPage}
-              isNextPageLoading={state.transactions.isNextPageLoading}
             />
           </span>
         </LoadAndExist>

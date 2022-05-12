@@ -2,7 +2,6 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import dayjs, { formatDayJs } from '@utils/dayjs';
-import numeral from 'numeral';
 import {
   Divider, Typography,
 } from '@material-ui/core';
@@ -23,7 +22,6 @@ const Mobile: React.FC<{
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
   const formattedItems = items.map((x) => {
-    const amount = formatNumber(x.amount.value, x.amount.exponent);
     return ({
       validator: (
         <AvatarName
@@ -32,9 +30,8 @@ const Mobile: React.FC<{
           name={x.validator.name}
         />
       ),
-      commission: `${numeral(x.commission * 100).format('0.00')}%`,
-      linkedUntil: formatDayJs(dayjs.utc(x.linkedUntil), dateFormat),
-      amount: `${amount} ${x.amount.displayDenom.toUpperCase()}`,
+      amount: `${formatNumber(x.amount.value, x.amount.exponent)} ${x.amount.displayDenom.toUpperCase()}`,
+      completionTime: formatDayJs(dayjs.utc(x.completionTime), dateFormat),
     });
   });
 
@@ -52,27 +49,15 @@ const Mobile: React.FC<{
               </div>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
-                  {t('commission')}
+                  {t('completionTime')}
                 </Typography>
-                <Typography variant="body1" className="value">
-                  {x.commission}
-                </Typography>
+                {x.completionTime}
               </div>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
                   {t('amount')}
                 </Typography>
-                <Typography variant="body1" className="value">
-                  {x.amount}
-                </Typography>
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('linkedUntil')}
-                </Typography>
-                <Typography variant="body1" className="value">
-                  {x.linkedUntil}
-                </Typography>
+                {x.amount}
               </div>
             </div>
             {i !== items.length - 1 && <Divider />}

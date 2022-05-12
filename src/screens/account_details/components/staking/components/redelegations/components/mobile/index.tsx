@@ -22,7 +22,6 @@ const Mobile: React.FC<{
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
   const formattedItems = items.map((x) => {
-    const amount = formatNumber(x.amount.value, x.amount.exponent);
     return ({
       to: (
         <AvatarName
@@ -38,8 +37,8 @@ const Mobile: React.FC<{
           name={x.from.name}
         />
       ),
-      linkedUntil: formatDayJs(dayjs.utc(x.linkedUntil), dateFormat),
-      amount: `${amount} ${x.amount.displayDenom.toUpperCase()}`,
+      amount: `${formatNumber(x.amount.value, x.amount.exponent)} ${x.amount.displayDenom.toUpperCase()}`,
+      completionTime: formatDayJs(dayjs.utc(x.completionTime), dateFormat),
     });
   });
 
@@ -63,19 +62,15 @@ const Mobile: React.FC<{
               </div>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
-                  {t('amount')}
+                  {t('completionTime')}
                 </Typography>
-                <Typography variant="body1" className="value">
-                  {x.amount}
-                </Typography>
+                {x.completionTime}
               </div>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
-                  {t('linkedUntil')}
+                  {t('amount')}
                 </Typography>
-                <Typography variant="body1" className="value">
-                  {x.linkedUntil}
-                </Typography>
+                {x.amount}
               </div>
             </div>
             {i !== items.length - 1 && <Divider />}

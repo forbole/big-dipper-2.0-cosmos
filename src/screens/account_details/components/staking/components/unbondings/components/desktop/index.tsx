@@ -2,7 +2,6 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import dayjs, { formatDayJs } from '@utils/dayjs';
-import numeral from 'numeral';
 import {
   Table,
   TableHead,
@@ -26,7 +25,6 @@ const Desktop: React.FC<{
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
   const formattedItems = items.map((x) => {
-    const amount = formatNumber(x.amount.value, x.amount.exponent);
     return ({
       validator: (
         <AvatarName
@@ -35,9 +33,8 @@ const Desktop: React.FC<{
           name={x.validator.name}
         />
       ),
-      commission: `${numeral(x.commission * 100).format('0.00')}%`,
-      linkedUntil: formatDayJs(dayjs.utc(x.linkedUntil), dateFormat),
-      amount: `${amount} ${x.amount.displayDenom.toUpperCase()}`,
+      amount: `${formatNumber(x.amount.value, x.amount.exponent)} ${x.amount.displayDenom.toUpperCase()}`,
+      completionTime: formatDayJs(dayjs.utc(x.completionTime), dateFormat),
     });
   });
 
@@ -63,13 +60,14 @@ const Desktop: React.FC<{
           {formattedItems.map((row, i) => (
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => {
+                const selected = row[column.key];
                 return (
                   <TableCell
                     key={`holders-row-${i}-${column.key}`}
                     align={column.align}
                     style={{ width: `${column.width}%` }}
                   >
-                    {row[column.key]}
+                    {selected}
                   </TableCell>
                 );
               })}

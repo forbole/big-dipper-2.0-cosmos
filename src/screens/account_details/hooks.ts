@@ -3,26 +3,23 @@ import {
 } from 'react';
 import * as R from 'ramda';
 import Big from 'big.js';
-import numeral from 'numeral';
-import dayjs from '@utils/dayjs';
 import { useRouter } from 'next/router';
-import {
-  AccountQuery,
-  useAccountQuery,
-  useGetMessagesByAddressQuery,
-  GetMessagesByAddressQuery,
-} from '@graphql/types';
-import { convertMsgsToModels } from '@msg';
-import {
-  StakingParams,
-} from '@models';
 import { getDenom } from '@utils/get_denom';
 import {
   formatToken,
 } from '@utils/format_token';
 import { chainConfig } from '@src/configs';
+import { isValidAddress } from '@utils/prefix_convert';
 import { useDesmosProfile } from '@hooks';
 import { AccountDetailState } from './types';
+import {
+  fetchAccountWithdrawalAddress,
+  fetchAvailableBalances,
+  fetchCommission,
+  fetchDelegationBalance,
+  fetchRewards,
+  fetchUnbondingBalance,
+} from './utils';
 
 const defaultTokenUnit: TokenUnit = {
   value: '0',
@@ -51,27 +48,8 @@ const initialState: AccountDetailState = {
     commission: defaultTokenUnit,
     total: defaultTokenUnit,
   },
-  delegations: {
-    data: [],
-    count: 0,
-  },
-  redelegations: {
-    data: [],
-    count: 0,
-  },
-  unbondings: {
-    data: [],
-    count: 0,
-  },
-  transactions: {
-    data: [],
-    hasNextPage: false,
-    isNextPageLoading: false,
-    offsetCount: 0,
-  },
+  rewards: {},
 };
-
-const UTC_NOW = dayjs.utc().format('YYYY-MM-DDTHH:mm:ss');
 
 export const useAccountDetails = () => {
   const router = useRouter();
@@ -95,183 +73,118 @@ export const useAccountDetails = () => {
   });
 
   useEffect(() => {
-    handleSetState(initialState);
-    if (chainConfig.extra.profile) {
-      fetchDesmosProfile(R.pathOr('', ['query', 'address'], router));
+    if (!isValidAddress(router.query.address as string)) {
+      handleSetState({
+        loading: false,
+        exists: false,
+      });
+    } else if (chainConfig.extra.profile) {
+      fetchDesmosProfile(router.query.address as string);
     }
   },
-  [R.pathOr('', ['query', 'address'], router)]);
+  [router.query.address]);
+
+  useEffect(() => {
+    fetchWithdrawalAddress();
+    fetchBalance();
+  }, [router.query.address]);
 
   // ==========================
   // Fetch Data
   // ==========================
-  const LIMIT = 50;
-
-  useAccountQuery({
-    variables: {
-      address: R.pathOr('', ['query', 'address'], router),
-      utc: UTC_NOW,
-    },
-    onCompleted: (data) => {
-      handleSetState(formatAccountQuery(data));
-    },
-  });
-
-  const transactionQuery = useGetMessagesByAddressQuery({
-    variables: {
-      limit: LIMIT + 1, // to check if more exist
-      offset: 0,
-      address: `{${R.pathOr('', ['query', 'address'], router)}}`,
-    },
-    onCompleted: (data) => {
-      const itemsLength = data.messagesByAddress.length;
-      const newItems = R.uniq([...state.transactions.data, ...formatTransactions(data)]);
-      const stateChange = {
-        transactions: {
-          data: newItems,
-          hasNextPage: itemsLength === 51,
-          isNextPageLoading: false,
-          offsetCount: state.transactions.offsetCount + LIMIT,
-        },
-      };
-
-      handleSetState(stateChange);
-    },
-  });
-
-  const loadNextPage = async () => {
+  const fetchWithdrawalAddress = async () => {
+    const data = await fetchAccountWithdrawalAddress(router.query.address as string);
     handleSetState({
-      isNextPageLoading: true,
-    });
-    // refetch query
-    await transactionQuery.fetchMore({
-      variables: {
-        offset: state.transactions.offsetCount,
-        limit: LIMIT + 1,
+      overview: {
+        address: router.query.address,
+        withdrawalAddress: R.pathOr('', ['withdrawalAddress', 'address'], data),
       },
-    }).then(({ data }) => {
-      const itemsLength = data.messagesByAddress.length;
-      const newItems = R.uniq([...state.transactions.data, ...formatTransactions(data)]);
-      const stateChange = {
-        transactions: {
-          data: newItems,
-          hasNextPage: itemsLength === 51,
-          isNextPageLoading: false,
-          offsetCount: state.transactions.offsetCount + LIMIT,
-        },
-      };
-      handleSetState(stateChange);
     });
+  };
+
+  const fetchBalance = async () => {
+    const address = router.query.address as string;
+    const promises = [
+      fetchCommission(address),
+      fetchAvailableBalances(address),
+      fetchDelegationBalance(address),
+      fetchUnbondingBalance(address),
+      fetchRewards(address),
+    ];
+    const [
+      commission,
+      available,
+      delegation,
+      unbonding,
+      rewards,
+    ] = await Promise.allSettled(promises);
+
+    const formattedRawData: any = {};
+    formattedRawData.commission = R.pathOr([], ['value', 'commission'], commission);
+    formattedRawData.accountBalances = R.pathOr([], ['value', 'accountBalances'], available);
+    formattedRawData.delegationBalance = R.pathOr([], ['value', 'delegationBalance'], delegation);
+    formattedRawData.unbondingBalance = R.pathOr([], ['value', 'unbondingBalance'], unbonding);
+    formattedRawData.delegationRewards = R.pathOr([], ['value', 'delegationRewards'], rewards);
+
+    handleSetState(formatAllBalance(formattedRawData));
   };
 
   // ==========================
   // Format Data
   // ==========================
-
-  const formatTransactions = (data: GetMessagesByAddressQuery) => {
-    let formattedData = data.messagesByAddress;
-    if (data.messagesByAddress.length === 51) {
-      formattedData = data.messagesByAddress.slice(0, 51);
-    }
-    return formattedData.map((x) => {
-      const { transaction } = x;
-
-      // =============================
-      // messages
-      // =============================
-      const messages = convertMsgsToModels(transaction);
-
-      return ({
-        height: transaction.height,
-        hash: transaction.hash,
-        messages: {
-          count: messages.length,
-          items: messages,
-        },
-        success: transaction.success,
-        timestamp: transaction.block.timestamp,
-      });
-    });
-  };
-
-  const formatAccountQuery = (data: AccountQuery) => {
+  const formatAllBalance = (data: any) => {
     const stateChange: any = {
       loading: false,
     };
 
-    if (!data.account.length) {
-      stateChange.exists = false;
-      return stateChange;
-    }
-
-    const rewardsDict = {};
-    // log all the rewards
-    data.account[0].delegationRewards.forEach((x) => {
-      const denomAmount = getDenom(x.amount, chainConfig.primaryTokenUnit);
-      const denomFormat = formatToken(denomAmount.amount, chainConfig.primaryTokenUnit);
-      rewardsDict[x.validator.validatorInfo.operatorAddress] = denomFormat;
-    });
-    // set default rewards for delegations without parsed rewards
-    data.account[0].delegations.forEach((x) => {
-      const validatorAddress = x.validator.validatorInfo.operatorAddress;
-      if (!rewardsDict[validatorAddress]) {
-        rewardsDict[validatorAddress] = formatToken(0, chainConfig.primaryTokenUnit);
-      }
-    });
-
     // ============================
-    // overview
+    // rewards
     // ============================
-    const formatOverview = () => {
-      const overview = {
-        address: data.account[0].address,
-        withdrawalAddress: R.pathOr(data.account[0].address, ['account', 0, 'delegationRewards', 0, 'withdrawAddress'], data),
-      };
-      return overview;
+    const formatRewards = () => {
+      const rewardsDict = {};
+      // log all the rewards
+      R.pathOr([], ['delegationRewards'], data).forEach((x) => {
+        const coins = R.pathOr([], ['coins'], x);
+        const denomAmount = getDenom(coins, chainConfig.primaryTokenUnit);
+        const denomFormat = formatToken(denomAmount.amount, chainConfig.primaryTokenUnit);
+        rewardsDict[x.validatorAddress] = denomFormat;
+      });
+      return rewardsDict;
     };
 
-    stateChange.overview = formatOverview();
+    stateChange.rewards = formatRewards();
 
     // ============================
     // balance
     // ============================
     const formatBalance = () => {
       const available = getDenom(
-        R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data),
+        R.pathOr([], ['accountBalances', 'coins'], data),
         chainConfig.primaryTokenUnit,
       );
       const availableAmount = formatToken(available.amount, chainConfig.primaryTokenUnit);
-      const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
-      const stakingDenom = stakingParams.bondDenom;
+      const delegate = getDenom(
+        R.pathOr([], ['delegationBalance', 'coins'], data),
+        chainConfig.primaryTokenUnit,
+      );
+      const delegateAmount = formatToken(delegate.amount, chainConfig.primaryTokenUnit);
 
-      const delegate = R.pathOr([], ['account', 0, 'delegations'], data).reduce((a, b) => {
-        return Big(a).plus(b.amount.amount).toPrecision();
-      }, 0);
-      const delegateDenom = stakingDenom;
-      const delegateAmount = formatToken(delegate, delegateDenom);
+      const unbonding = getDenom(
+        R.pathOr([], ['unbondingBalance', 'coins'], data),
+        chainConfig.primaryTokenUnit,
+      );
+      const unbondingAmount = formatToken(unbonding.amount, chainConfig.primaryTokenUnit);
 
-      const unbonding = R.pathOr([], ['account', 0, 'unbonding'], data).reduce((a, b) => {
-        return Big(a).plus(b.amount.amount).toPrecision();
-      }, 0);
-      const unbondingDenom = stakingDenom;
-      const unbondingAmount = formatToken(unbonding, unbondingDenom);
+      const rewards = data.delegationRewards.reduce((a, b) => {
+        const coins = R.pathOr([], ['coins'], b);
+        const dsmCoins = getDenom(coins, chainConfig.primaryTokenUnit);
 
-      const reward = data.account[0].delegations.map((x) => {
-        const validatorAddress = x.validator.validatorInfo.operatorAddress;
-        return rewardsDict[validatorAddress];
-      }).reduce((a, b) => {
-        return Big(a).plus(b.value).toPrecision();
-      }, 0);
-
-      const rewardAmount: TokenUnit = {
-        value: reward,
-        displayDenom: chainConfig.tokenUnits[stakingDenom].display,
-        baseDenom: stakingDenom,
-        exponent: chainConfig.tokenUnits[stakingDenom].exponent,
-      };
+        return Big(a).plus(dsmCoins.amount).toPrecision();
+      }, '0');
+      const rewardsAmount = formatToken(rewards, chainConfig.primaryTokenUnit);
 
       const commission = getDenom(
-        R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data),
+        R.pathOr([], ['commission', 'coins'], data),
         chainConfig.primaryTokenUnit,
       );
       const commissionAmount = formatToken(commission.amount, chainConfig.primaryTokenUnit);
@@ -279,15 +192,15 @@ export const useAccountDetails = () => {
       const total = Big(availableAmount.value)
         .plus(delegateAmount.value)
         .plus(unbondingAmount.value)
-        .plus(rewardAmount.value)
+        .plus(rewardsAmount.value)
         .plus(commissionAmount.value)
-        .toPrecision();
+        .toFixed(chainConfig.tokenUnits[chainConfig.primaryTokenUnit].exponent);
 
       const balance = {
         available: availableAmount,
         delegate: delegateAmount,
         unbonding: unbondingAmount,
-        reward: rewardAmount,
+        reward: rewardsAmount,
         commission: commissionAmount,
         total: {
           value: total,
@@ -310,23 +223,23 @@ export const useAccountDetails = () => {
       const otherTokenUnits = new Set();
       const otherTokens = [];
       // available tokens
-      const available = R.pathOr([], ['account', 0, 'accountBalances', 0, 'coins'], data);
+      const available = R.pathOr([], ['accountBalances', 'coins'], data);
 
       available.forEach((x) => {
         otherTokenUnits.add(x.denom);
       });
 
       // rewards tokens
-      const rewards = R.pathOr([], ['account', 0, 'delegationRewards'], data);
+      const rewards = R.pathOr([], ['delegationRewards'], data);
 
       rewards.forEach((x) => {
-        x.amount.forEach((y) => {
+        x.coins?.forEach((y) => {
           otherTokenUnits.add(y.denom);
         });
       });
 
       // commission tokens
-      const commission = R.pathOr([], ['validator', 0, 'commission', 0, 'amount'], data);
+      const commission = R.pathOr([], ['commission', 'coins'], data);
 
       commission.forEach((x) => {
         otherTokenUnits.add(x.denom);
@@ -338,14 +251,12 @@ export const useAccountDetails = () => {
       otherTokenUnits.forEach((x: string) => {
         const availableRawAmount = getDenom(available, x);
         const availableAmount = formatToken(availableRawAmount.amount, x);
-
         const rewardsRawAmount = rewards.reduce((a, b) => {
-          const denom = getDenom(b.amount, x);
-          // return a + numeral(denom.amount).value();
+          const coins = R.pathOr([], ['coins'], b);
+          const denom = getDenom(coins, x);
           return Big(a).plus(denom.amount).toPrecision();
         }, 0);
         const rewardAmount = formatToken(rewardsRawAmount, x);
-
         const commissionRawAmount = getDenom(commission, x);
         const commissionAmount = formatToken(commissionRawAmount.amount, x);
 
@@ -367,88 +278,10 @@ export const useAccountDetails = () => {
 
     stateChange.otherTokens = formatOtherTokens();
 
-    // ============================
-    // delegations
-    // ============================
-    const formatDelegations = () => {
-      const delegations = data.account[0].delegations.filter((x) => {
-        return numeral(x.amount.amount).value() !== 0;
-      }).map((x) => {
-        const validatorAddress = x.validator.validatorInfo.operatorAddress;
-        return ({
-          validator: validatorAddress,
-          validatorStatus: {
-            status: R.pathOr(3, ['validator', 'validatorStatuses', 0, 'status'], x),
-            jailed: R.pathOr(false, ['validator', 'validatorStatuses', 0, 'jailed'], x),
-          },
-          validatorSigningInfo: {
-            tombstoned: R.pathOr(false, ['validator', 'validatorSigningInfos', 0, 'tombstoned'], x),
-          },
-          reward: rewardsDict[validatorAddress],
-          amount: formatToken(x.amount.amount, x.amount.denom),
-          commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
-        });
-      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
-
-      return {
-        data: delegations,
-        count: delegations.length,
-      };
-    };
-
-    stateChange.delegations = formatDelegations();
-
-    // ============================
-    // redelegations
-    // ============================
-    const formatRedelegations = () => {
-      const redelegations = data.account[0].redelegations.map((x) => {
-        return ({
-          to: x.to,
-          from: x.from,
-          linkedUntil: x.completionTime,
-          amount: formatToken(
-            R.pathOr(0, ['amount', 'amount'], x),
-            R.pathOr(0, ['amount', 'denom'], x),
-          ),
-        });
-      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
-      return {
-        data: redelegations,
-        count: redelegations.length,
-      };
-    };
-
-    stateChange.redelegations = formatRedelegations();
-
-    // ============================
-    // unbondings
-    // ============================
-    const formatUnbondings = () => {
-      const unbondings = data.account[0].unbonding.map((x) => {
-        const validatorAddress = x.validator.validatorInfo.operatorAddress;
-        return ({
-          validator: validatorAddress,
-          amount: formatToken(
-            R.pathOr(0, ['amount', 'amount'], x),
-            R.pathOr(0, ['amount', 'denom'], x),
-          ),
-          linkedUntil: x.completionTimestamp,
-          commission: R.pathOr(0, ['validator', 'validatorCommissions', 0, 'commission'], x),
-        });
-      }).sort((a, b) => (Big(a.amount.value).lt(b.amount.value) ? 1 : -1));
-      return {
-        data: unbondings,
-        count: unbondings.length,
-      };
-    };
-
-    stateChange.unbondings = formatUnbondings();
     return stateChange;
   };
 
   return {
     state,
-    loadNextPage,
   };
 };
