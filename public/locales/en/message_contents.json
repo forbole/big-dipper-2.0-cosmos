@@ -8,7 +8,7 @@
   "txSendContent": "<0>{{user}}</0> sent <1>{{amount}}</1> to <2>{{address}}</2>",
   "txMultisendContentOne": "<0>{{user}}</0> sent <1>{{amount}}</1> to the following recipients:",
   "txMultisendContentTwo": "<0>{{user}}</0> received <1>{{amount}}</1>",
-  "txVerifyInvariantContent": "<0>{{user}}</0> verified invariant",
+  "txVerifyInvariantContent": "<0>{{user}}</0> verified invariant for <1>{{invariantModuleName}}</1> module with <2>{{invariantRoute}}</2> route",
   "txFundContent": "<0>{{user}}</0> funded <1>{{amount}}</1> to the community pool",
   "txsetRewardAddressContent": "<0>{{user}}</0> set reward address <1>{{address}}</1>",
   "txWithdrawRewardContent": "<0>{{user}}</0> withdrew <1>{{amount}}</1> reward from <2>{{validator}}</2>",
