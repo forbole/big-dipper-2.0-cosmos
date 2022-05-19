@@ -22,6 +22,7 @@ import CustomToolTip from './custom_tool_tip';
 import NotFound from './not_found';
 import LinearLoading from './linear_loading';
 import Name from './name';
+import InvariantHolder from './invariant_holder';
 import Markdown from './markdown';
 import ConditionExplanation from './condition_explanation';
 import TransactionsList from './transactions_list';
@@ -59,6 +60,7 @@ export {
   NotFound,
   LinearLoading,
   Name,
+  InvariantHolder,
   Markdown,
   ConditionExplanation,
   LoadAndExist,

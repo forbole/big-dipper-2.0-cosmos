@@ -1,7 +1,10 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
-import { Name } from '@components';
+import {
+  Name,
+  InvariantHolder,
+} from '@components';
 import { MsgVerifyInvariant } from '@models';
 import {
   useProfileRecoil,
@@ -24,6 +27,16 @@ const VerifyInvariant = (props: {
             <Name
               address={message.sender}
               name={userMoniker}
+            />
+          ),
+          (
+            <InvariantHolder
+              name={message.invariantModuleName.toUpperCase()}
+            />
+          ),
+          (
+            <InvariantHolder
+              name={message.invariantRoute.toUpperCase()}
             />
           ),
         ]}
