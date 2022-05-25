@@ -22,10 +22,6 @@ const Mobile: React.FC<{
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
   const formattedItems = items.map((x) => {
-    const entries = x.entries.map((y) => ({
-      amount: `${formatNumber(y.amount.value, y.amount.exponent)} ${y.amount.displayDenom.toUpperCase()}`,
-      completionTime: formatDayJs(dayjs.utc(y.completionTime), dateFormat),
-    }));
     return ({
       to: (
         <AvatarName
@@ -41,7 +37,8 @@ const Mobile: React.FC<{
           name={x.from.name}
         />
       ),
-      entries,
+      amount: `${formatNumber(x.amount.value, x.amount.exponent)} ${x.amount.displayDenom.toUpperCase()}`,
+      completionTime: formatDayJs(dayjs.utc(x.completionTime), dateFormat),
     });
   });
 
@@ -51,34 +48,30 @@ const Mobile: React.FC<{
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
-              <div className={classes.flex}>
-                <div className={classes.item}>
-                  <Typography variant="h4" className="label">
-                    {t('from')}
-                  </Typography>
-                  {x.from}
-                </div>
-                <div className={classes.item}>
-                  <Typography variant="h4" className="label">
-                    {t('to')}
-                  </Typography>
-                  {x.to}
-                </div>
+              <div className={classes.item}>
+                <Typography variant="h4" className="label">
+                  {t('from')}
+                </Typography>
+                {x.from}
               </div>
-              {
-                x.entries.map((y, index) => {
-                  return (
-                    <div className={classes.item} key={`mobile-entries-${y.completionTime}-${index}`}>
-                      <Typography variant="h4" className="label">
-                        {y.completionTime}
-                      </Typography>
-                      <Typography variant="body1" className="value">
-                        {y.amount}
-                      </Typography>
-                    </div>
-                  );
-                })
-              }
+              <div className={classes.item}>
+                <Typography variant="h4" className="label">
+                  {t('to')}
+                </Typography>
+                {x.to}
+              </div>
+              <div className={classes.item}>
+                <Typography variant="h4" className="label">
+                  {t('completionTime')}
+                </Typography>
+                {x.completionTime}
+              </div>
+              <div className={classes.item}>
+                <Typography variant="h4" className="label">
+                  {t('amount')}
+                </Typography>
+                {x.amount}
+              </div>
             </div>
             {i !== items.length - 1 && <Divider />}
           </React.Fragment>

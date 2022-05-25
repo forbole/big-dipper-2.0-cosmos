@@ -12,6 +12,7 @@ export const useStyles = () => {
           display: 'flex',
           justifyContent: 'center',
           flexDirection: 'column',
+          overflow: 'auto',
         },
         content: {
           flex: 1,
