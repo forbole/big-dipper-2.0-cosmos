@@ -16,7 +16,7 @@ jobs:
         id: prep
         run: |
           BRANCH=${GITHUB_REF#refs/heads/}
-          if [[ $GITHUB_REF == refs/heads/chains/desmos ]]; then
+          if [[ $GITHUB_REF == refs/heads/chains/crescent ]]; then
             BRANCH="crescent"
           elif [[ $GITHUB_REF == refs/pull/* ]]; then
             BRANCH="build-test"
