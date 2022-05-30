@@ -7,7 +7,7 @@ import {
   useProfileRecoil,
 } from '@recoil/profiles';
 import {
-  formatToken, formatTokenByExponent,
+  formatTokenByExponent,
 } from '@utils/format_token';
 
 const SendToCosmos = (props: {
@@ -18,8 +18,7 @@ const SendToCosmos = (props: {
   const receiver = useProfileRecoil(message.receiver);
   const receiverMoniker = receiver ? receiver?.name : message.receiver;
 
-  const amount = formatToken(message.amount, 'acudos');
-  const displayAmount = `${formatTokenByExponent(amount.value, 25)} ${amount.displayDenom.toUpperCase()}`;
+  const displayAmount = `${formatTokenByExponent(message.amount, 25)} CUDOS`;
 
   return (
     <>
