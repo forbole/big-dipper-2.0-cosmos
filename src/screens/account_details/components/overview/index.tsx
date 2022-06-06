@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core';
 import QRCode from 'qrcode.react';
 import {
-  useScreenSize, useWindowUrl,
+  useScreenSize, useWindowOrigin,
 } from '@hooks';
 import {
   FacebookShareButton,
@@ -38,7 +38,7 @@ const Overview: React.FC<{
   withdrawalAddress,
 }) => {
   const { isDesktop } = useScreenSize();
-  const { url: windowUrl } = useWindowUrl();
+  const { location } = useWindowOrigin();
   const classes = useStyles();
   const { t } = useTranslation('accounts');
   const {
@@ -48,7 +48,7 @@ const Overview: React.FC<{
     handleCopyToClipboard,
   } = useOverview(t);
 
-  const url = `${windowUrl}/accounts/${address}`;
+  const url = `${location}/accounts/${address}`;
   const hashTags = ['bigdipperexplorer', 'bigdipper'];
   return (
     <>

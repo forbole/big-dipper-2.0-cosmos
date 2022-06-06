@@ -2,18 +2,14 @@ import {
   useState, useEffect,
 } from 'react';
 
-export const useWindowUrl = () => {
+export const useWindowOrigin = () => {
   const isClient = typeof window === 'object';
-  const [url, setUrl] = useState('');
+  const [location, setLocation] = useState<string>('');
 
-  useEffect((): any => {
-    if (!isClient) {
-      return false;
-    }
-    setUrl(window.location.href);
+  useEffect(() => {
+    if (!isClient) return;
+    setLocation(window.location.origin);
   }, []);
 
-  return {
-    url,
-  };
+  return { location };
 };
