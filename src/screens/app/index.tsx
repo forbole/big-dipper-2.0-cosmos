@@ -6,6 +6,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { ApolloProvider } from '@apollo/client';
 import { useApollo } from '@src/graphql/client';
 import { chainConfig } from '@configs';
+import { useWindowUrl } from '@hooks';
 import { Main } from './components';
 import {
   useApp,
@@ -22,6 +23,7 @@ function App(props: AppProps) {
   const { pageProps } = props;
   const apolloClient = useApollo(pageProps.initialApolloState);
   const { t } = useTranslation();
+  const { url } = useWindowUrl();
 
   return (
     <>
@@ -31,8 +33,8 @@ function App(props: AppProps) {
         description={t('common:description')}
         openGraph={{
           title: `${t('common:bigDipper')} | ${chainConfig.title}`,
-          url: process.env.NEXT_PUBLIC_URL,
           description: t('common:description'),
+          url,
           ...OPEN_GRAPH_SEO,
         }}
         twitter={TWITTER_SEO}

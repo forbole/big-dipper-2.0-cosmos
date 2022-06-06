@@ -6,7 +6,9 @@ import {
   Dialog,
 } from '@material-ui/core';
 import QRCode from 'qrcode.react';
-import { useScreenSize } from '@hooks';
+import {
+  useScreenSize, useWindowUrl,
+} from '@hooks';
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -36,6 +38,7 @@ const Overview: React.FC<{
   withdrawalAddress,
 }) => {
   const { isDesktop } = useScreenSize();
+  const { url: windowUrl } = useWindowUrl();
   const classes = useStyles();
   const { t } = useTranslation('accounts');
   const {
@@ -45,7 +48,7 @@ const Overview: React.FC<{
     handleCopyToClipboard,
   } = useOverview(t);
 
-  const url = `${process.env.NEXT_PUBLIC_URL}/accounts/${address}`;
+  const url = `${windowUrl}/accounts/${address}`;
   const hashTags = ['bigdipperexplorer', 'bigdipper'];
   return (
     <>
