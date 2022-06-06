@@ -3586,7 +3586,7 @@ export type Gov_Params_Variance_Fields = {
 export type Gravity_Messages_By_Address_Args = {
   limit?: Maybe<Scalars['bigint']>;
   offset?: Maybe<Scalars['bigint']>;
-  receiver?: Maybe<Scalars['String']>;
+  receiver_addr?: Maybe<Scalars['String']>;
 };
 
 /** columns and relationships of "inflation" */
@@ -6269,8 +6269,6 @@ export type Query_Root = {
   delegation: Array<Delegation>;
   /** fetch aggregated fields from the table: "delegation" */
   delegation_aggregate: Delegation_Aggregate;
-  /** fetch data from the table: "delegation" using primary key columns */
-  delegation_by_pk?: Maybe<Delegation>;
   /** fetch data from the table: "distribution_params" */
   distribution_params: Array<Distribution_Params>;
   /** fetch aggregated fields from the table: "distribution_params" */
@@ -6851,12 +6849,6 @@ export type Query_RootDelegation_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Delegation_Order_By>>;
   where?: Maybe<Delegation_Bool_Exp>;
-};
-
-
-export type Query_RootDelegation_By_PkArgs = {
-  delegator_address: Scalars['String'];
-  validator_address: Scalars['String'];
 };
 
 
@@ -8152,8 +8144,6 @@ export type Subscription_Root = {
   delegation: Array<Delegation>;
   /** fetch aggregated fields from the table: "delegation" */
   delegation_aggregate: Delegation_Aggregate;
-  /** fetch data from the table: "delegation" using primary key columns */
-  delegation_by_pk?: Maybe<Delegation>;
   /** fetch data from the table: "distribution_params" */
   distribution_params: Array<Distribution_Params>;
   /** fetch aggregated fields from the table: "distribution_params" */
@@ -8648,12 +8638,6 @@ export type Subscription_RootDelegation_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Delegation_Order_By>>;
   where?: Maybe<Delegation_Bool_Exp>;
-};
-
-
-export type Subscription_RootDelegation_By_PkArgs = {
-  delegator_address: Scalars['String'];
-  validator_address: Scalars['String'];
 };
 
 
@@ -14194,7 +14178,7 @@ export type ChainIdQueryResult = Apollo.QueryResult<ChainIdQuery, ChainIdQueryVa
 export const GetGravityMessagesByAddressDocument = gql`
     query GetGravityMessagesByAddress($address: String, $limit: bigint = 50, $offset: bigint = 0) {
   messagesByAddress: gravity_messages_by_address(
-    args: {receiver: $address, limit: $limit, offset: $offset}
+    args: {receiver_addr: $address, limit: $limit, offset: $offset}
   ) {
     transaction {
       height
