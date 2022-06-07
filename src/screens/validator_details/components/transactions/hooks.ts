@@ -5,7 +5,7 @@ import * as R from 'ramda';
 import {
   useGetMessagesByAddressQuery,
   GetMessagesByAddressQuery,
-} from '@graphql/types';
+} from '@graphql/types/types';
 import { TransactionState } from './types';
 
 const LIMIT = 50;
