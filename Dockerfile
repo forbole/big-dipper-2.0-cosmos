@@ -1,4 +1,4 @@
-FROM node:14.15.0-alpine3.12 AS build
+FROM node:16-alpine AS build
 WORKDIR /app
 
 ENV NODE_ENV production
@@ -10,9 +10,6 @@ RUN npm ci
 
 # Copying source files
 COPY . .
-
-# Add PM2
-RUN npm install pm2 -g
 
 # Get env from secrets
 ARG NEXT_PUBLIC_GRAPHQL_URL
@@ -48,12 +45,18 @@ RUN npm run build
 RUN npm prune --production
 
 # Start from scratch and include only relevant files
-FROM node:14.15.0-alpine3.12 AS distribution
+FROM node:16-alpine AS distribution
 WORKDIR /app
 
 COPY --from=build /app/node_modules node_modules
 COPY --from=build /app/dist dist
 COPY --from=build /app/.next .next
+
+# Add PM2
+RUN npm install pm2 -g
+
+# args
+ARG PORT
 
 # Expose port and run application
 EXPOSE ${PORT}
@@ -93,7 +96,7 @@ CMD ["pm2-runtime", "dist/index.js"]
 
 # ENV NODE_ENV production
 # # Uncomment the following line in case you want to disable telemetry during runtime.
-ENV NEXT_TELEMETRY_DISABLED 1
+# ENV NEXT_TELEMETRY_DISABLED 1
 
 # RUN addgroup --system --gid 1001 nodejs
 # RUN adduser --system --uid 1001 nextjs
@@ -150,7 +153,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 # # ENV PORT 3000
 
 # # # Install git for ui and internal packages
-# # RUN apk add --no-cache git
+# RUN apk add --no-cache git
 
 # # # Set app directory
 # # WORKDIR /app
