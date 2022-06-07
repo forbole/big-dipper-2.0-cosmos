@@ -29,7 +29,6 @@ jobs:
         run: |
           NEXT_PUBLIC_GRAPHQL_URL=
           NEXT_PUBLIC_GRAPHQL_WS=
-          NEXT_PUBLIC_URL=
           NEXT_PUBLIC_RPC_WEBSOCKET=
           NODE_ENV="production"
           PORT=3000
@@ -39,7 +38,6 @@ jobs:
           if [[ $GITHUB_REF == refs/tags/likecoin-mainnet-2-v* ]]; then
             NEXT_PUBLIC_GRAPHQL_URL="https://gql.likecoin.forbole.com/v1/graphql"
             NEXT_PUBLIC_GRAPHQL_WS="wss://gql-ws.likecoin.forbole.com/v1/graphql"
-            NEXT_PUBLIC_URL="https://likecoin.bigdipper.live"
             NEXT_PUBLIC_RPC_WEBSOCKET="wss://ws.likecoin.forbole.com"
             NEXT_PUBLIC_CHAIN_TYPE="mainnet"
           elif [[ $GITHUB_REF == refs/tags/likecoin-public-testnet-3-v* ]]; then
@@ -51,7 +49,6 @@ jobs:
           fi
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_WS::${NEXT_PUBLIC_GRAPHQL_WS}
-          echo ::set-output name=NEXT_PUBLIC_URL::${NEXT_PUBLIC_URL}
           echo ::set-output name=NEXT_PUBLIC_RPC_WEBSOCKET::${NEXT_PUBLIC_RPC_WEBSOCKET}
           echo ::set-output name=NODE_ENV::${NODE_ENV}
           echo ::set-output name=PORT::${PORT}
@@ -76,7 +73,6 @@ jobs:
           build-args: |
             "NEXT_PUBLIC_GRAPHQL_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_URL }}"
             "NEXT_PUBLIC_GRAPHQL_WS=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_WS }}"
-            "NEXT_PUBLIC_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_URL }}"
             "NEXT_PUBLIC_RPC_WEBSOCKET=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_RPC_WEBSOCKET }}"
             "NODE_ENV=${{ steps.dockerPrep.outputs.NODE_ENV }}"
             "PORT=${{ steps.dockerPrep.outputs.PORT }}"
