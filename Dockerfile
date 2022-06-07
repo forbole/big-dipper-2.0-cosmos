@@ -44,7 +44,7 @@ ENV NEXT_PUBLIC_MATOMO_SITE_ID ${NEXT_PUBLIC_MATOMO_SITE_ID}
 
 # Building app
 RUN npm run build
-EXPOSE 3000
+EXPOSE ${PORT}
 
 # Running the app
 CMD ["pm2-runtime", "dist/index.js"]
