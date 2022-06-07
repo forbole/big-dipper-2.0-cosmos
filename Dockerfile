@@ -1,66 +1,64 @@
-FROM node:16-alpine AS build
-WORKDIR /app
+# FROM node:16-alpine AS build
+# WORKDIR /usr/src
 
-ENV NODE_ENV production
-ENV NEXT_TELEMETRY_DISABLED 1
+# # Installing dependencies
+# COPY package*.json ./
+# RUN npm ci
 
-# Installing dependencies
-COPY package*.json ./
-RUN npm ci
+# # Get env from secrets
+# ARG NEXT_PUBLIC_GRAPHQL_URL
+# ARG NEXT_PUBLIC_GRAPHQL_WS
+# ARG NEXT_PUBLIC_WS_CHAIN_URL
+# ARG NEXT_PUBLIC_RPC_WEBSOCKET
+# ARG NEXT_PUBLIC_CHAIN_STATUS
+# ARG NEXT_PUBLIC_CHAIN_TYPE
+# ARG NODE_ENV
+# ARG PORT
+# # Matomo
+# ARG NEXT_PUBLIC_MATOMO_URL
+# ARG NEXT_PUBLIC_MATOMO_SITE_ID
 
-# Copying source files
-COPY . .
+# # Generate env file
+# ENV NEXT_TELEMETRY_DISABLED 1
+# ENV NEXT_PUBLIC_GRAPHQL_URL ${NEXT_PUBLIC_GRAPHQL_URL}
+# ENV NEXT_PUBLIC_GRAPHQL_WS ${NEXT_PUBLIC_GRAPHQL_WS}
+# ENV NEXT_PUBLIC_WS_CHAIN_URL ${NEXT_PUBLIC_WS_CHAIN_URL}
+# ENV NEXT_PUBLIC_RPC_WEBSOCKET ${NEXT_PUBLIC_RPC_WEBSOCKET}
+# ENV NEXT_PUBLIC_CHAIN_STATUS ${NEXT_PUBLIC_CHAIN_STATUS}
+# ENV NEXT_PUBLIC_CHAIN_TYPE ${NEXT_PUBLIC_CHAIN_TYPE}
+# ENV NODE_ENV ${NODE_ENV}
+# ENV PORT ${PORT}
+# # Matomo
+# ENV NEXT_PUBLIC_MATOMO_URL ${NEXT_PUBLIC_MATOMO_URL}
+# ENV NEXT_PUBLIC_MATOMO_SITE_ID ${NEXT_PUBLIC_MATOMO_SITE_ID}
 
-# Get env from secrets
-ARG NEXT_PUBLIC_GRAPHQL_URL
-ARG NEXT_PUBLIC_GRAPHQL_WS
-ARG NEXT_PUBLIC_WS_CHAIN_URL
-ARG NEXT_PUBLIC_RPC_WEBSOCKET
-ARG NEXT_PUBLIC_CHAIN_STATUS
-ARG NEXT_PUBLIC_CHAIN_TYPE
-ARG NODE_ENV
-ARG PORT
-# Matomo
-ARG NEXT_PUBLIC_MATOMO_URL
-ARG NEXT_PUBLIC_MATOMO_SITE_ID
+# # Copying source files
+# COPY . .
 
-# Generate env file
-ENV NEXT_TELEMETRY_DISABLED 1
-ENV NEXT_PUBLIC_GRAPHQL_URL ${NEXT_PUBLIC_GRAPHQL_URL}
-ENV NEXT_PUBLIC_GRAPHQL_WS ${NEXT_PUBLIC_GRAPHQL_WS}
-ENV NEXT_PUBLIC_WS_CHAIN_URL ${NEXT_PUBLIC_WS_CHAIN_URL}
-ENV NEXT_PUBLIC_RPC_WEBSOCKET ${NEXT_PUBLIC_RPC_WEBSOCKET}
-ENV NEXT_PUBLIC_CHAIN_STATUS ${NEXT_PUBLIC_CHAIN_STATUS}
-ENV NEXT_PUBLIC_CHAIN_TYPE ${NEXT_PUBLIC_CHAIN_TYPE}
-ENV NODE_ENV ${NODE_ENV}
-ENV PORT ${PORT}
-# Matomo
-ENV NEXT_PUBLIC_MATOMO_URL ${NEXT_PUBLIC_MATOMO_URL}
-ENV NEXT_PUBLIC_MATOMO_SITE_ID ${NEXT_PUBLIC_MATOMO_SITE_ID}
+# # Building app
+# ENV NEXT_TELEMETRY_DISABLED 1
+# RUN npm run build
 
-# Building app
-RUN npm run build
+# # get rid of development dependencies.
+# RUN npm prune --production
 
-# get rid of development dependencies.
-RUN npm prune --production
+# # Start from scratch and include only relevant files
+# FROM node:16-alpine AS distribution
+# WORKDIR /app
 
-# Start from scratch and include only relevant files
-FROM node:16-alpine AS distribution
-WORKDIR /app
+# COPY --from=build /app/node_modules node_modules
+# COPY --from=build /app/dist dist
+# COPY --from=build /app/.next .next
 
-COPY --from=build /app/node_modules node_modules
-COPY --from=build /app/dist dist
-COPY --from=build /app/.next .next
+# # Add PM2
+# RUN npm install pm2 -g
 
-# Add PM2
-RUN npm install pm2 -g
+# # args
+# ARG PORT
 
-# args
-ARG PORT
-
-# Expose port and run application
-EXPOSE ${PORT}
-CMD ["pm2-runtime", "dist/index.js"]
+# # Expose port and run application
+# EXPOSE ${PORT}
+# CMD ["pm2-runtime", "dist/index.js"]
 
 
 
@@ -148,49 +146,75 @@ CMD ["pm2-runtime", "dist/index.js"]
 # CMD ["pm2-runtime", "dist/index.js"]
 
 
-# # FROM node:14.5.0-alpine
+FROM node:14.5.0-alpine AS builder
 
-# # ENV PORT 3000
+ENV PORT 3000
 
-# # # Install git for ui and internal packages
-# RUN apk add --no-cache git
+# Install git for ui and internal packages
+RUN apk add --no-cache git
 
-# # # Set app directory
-# # WORKDIR /app
+# Set app directory
+WORKDIR /app
 
-# # # Add PM2
-# # RUN npm install pm2 -g
+# Add PM2
+RUN npm install pm2 -g
 
-# # Installing dependencies
-# # COPY package*.json ./
-# # RUN npm ci
+# Installing dependencies
+COPY package*.json ./
+RUN npm ci
 
-# # Copying source files
-# # COPY . .
+# Copying source files
+COPY . .
 
-# # # Get env from secrets
-# # ARG NEXT_PUBLIC_GRAPHQL_URL
-# # ARG NEXT_PUBLIC_GRAPHQL_WS
-# # ARG NEXT_PUBLIC_WS_CHAIN_URL
-# # ARG NEXT_PUBLIC_RPC_WEBSOCKET
-# # ARG NEXT_PUBLIC_CHAIN_STATUS
-# # ARG NEXT_PUBLIC_CHAIN_TYPE
-# # ARG NODE_ENV
-# # ARG PORT
+# Get env from secrets
+ARG NEXT_PUBLIC_GRAPHQL_URL
+ARG NEXT_PUBLIC_GRAPHQL_WS
+ARG NEXT_PUBLIC_WS_CHAIN_URL
+ARG NEXT_PUBLIC_RPC_WEBSOCKET
+ARG NEXT_PUBLIC_CHAIN_STATUS
+ARG NEXT_PUBLIC_CHAIN_TYPE
+ARG NODE_ENV
+ARG PORT
+# Matomo
+ARG NEXT_PUBLIC_MATOMO_URL
+ARG NEXT_PUBLIC_MATOMO_SITE_ID
 
-# # # Generate env file
-# # ENV NEXT_PUBLIC_GRAPHQL_URL ${NEXT_PUBLIC_GRAPHQL_URL}
-# # ENV NEXT_PUBLIC_GRAPHQL_WS ${NEXT_PUBLIC_GRAPHQL_WS}
-# # ENV NEXT_PUBLIC_WS_CHAIN_URL ${NEXT_PUBLIC_WS_CHAIN_URL}
-# # ENV NEXT_PUBLIC_RPC_WEBSOCKET ${NEXT_PUBLIC_RPC_WEBSOCKET}
-# # ENV NEXT_PUBLIC_CHAIN_STATUS ${NEXT_PUBLIC_CHAIN_STATUS}
-# # ENV NEXT_PUBLIC_CHAIN_TYPE ${NEXT_PUBLIC_CHAIN_TYPE}
-# # ENV NODE_ENV ${NODE_ENV}
-# # ENV PORT ${PORT}
+# Generate env file
+ENV NEXT_PUBLIC_GRAPHQL_URL ${NEXT_PUBLIC_GRAPHQL_URL}
+ENV NEXT_PUBLIC_GRAPHQL_WS ${NEXT_PUBLIC_GRAPHQL_WS}
+ENV NEXT_PUBLIC_WS_CHAIN_URL ${NEXT_PUBLIC_WS_CHAIN_URL}
+ENV NEXT_PUBLIC_RPC_WEBSOCKET ${NEXT_PUBLIC_RPC_WEBSOCKET}
+ENV NEXT_PUBLIC_CHAIN_STATUS ${NEXT_PUBLIC_CHAIN_STATUS}
+ENV NEXT_PUBLIC_CHAIN_TYPE ${NEXT_PUBLIC_CHAIN_TYPE}
+ENV NODE_ENV ${NODE_ENV}
+ENV PORT ${PORT}
+# Matomo
+ENV NEXT_PUBLIC_MATOMO_URL ${NEXT_PUBLIC_MATOMO_URL}
+ENV NEXT_PUBLIC_MATOMO_SITE_ID ${NEXT_PUBLIC_MATOMO_SITE_ID}
+# Next
+ENV NEXT_TELEMETRY_DISABLED 1
 
-# # Building app
-# # RUN npm run build
-# # EXPOSE 3000
+# Building app
+RUN npm run build
 
-# # # Running the app
-# # CMD ["pm2-runtime", "dist/index.js"]
+# get rid of development dependencies.
+RUN npm prune --production
+
+FROM node:14.5.0-alpine AS distribution
+
+WORKDIR /app
+
+COPY --from=build /app/node_modules node_modules
+COPY --from=build /app/dist dist
+COPY --from=build /app/.next .next
+
+ARG NODE_ENV
+ARG PORT
+
+ENV NODE_ENV ${NODE_ENV}
+ENV PORT ${PORT}
+
+EXPOSE ${PORT}
+
+# Running the app
+CMD ["pm2-runtime", "dist/index.js"]
