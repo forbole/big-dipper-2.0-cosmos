@@ -197,24 +197,24 @@ RUN npm run build
 # get rid of development dependencies.
 RUN npm prune --production
 
-FROM node:14.5.0-alpine AS distribution
+# FROM node:14.5.0-alpine AS distribution
 
-WORKDIR /app
+# WORKDIR /app
 
-COPY --from=builder /app/next.config.js ./
-COPY --from=builder /app/i18n.js ./
-COPY --from=builder /app/node_modules node_modules
-COPY --from=builder /app/dist dist
-COPY --from=builder /app/.next .next
+# COPY --from=builder /app/next.config.js ./
+# COPY --from=builder /app/i18n.js ./
+# COPY --from=builder /app/node_modules node_modules
+# COPY --from=builder /app/dist dist
+# COPY --from=builder /app/.next .next
 
 # Add PM2
 RUN npm install pm2 -g
 
-ARG NODE_ENV
-ARG PORT
+# ARG NODE_ENV
+# ARG PORT
 
-ENV NODE_ENV ${NODE_ENV}
-ENV PORT ${PORT}
+# ENV NODE_ENV ${NODE_ENV}
+# ENV PORT ${PORT}
 
 EXPOSE ${PORT}
 
