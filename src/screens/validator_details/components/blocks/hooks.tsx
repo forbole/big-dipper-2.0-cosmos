@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import {
   useLastHundredBlocksSubscription,
   LastHundredBlocksSubscription,
-} from '@graphql/types';
+} from '@graphql/types/types';
 
 export const useBlocks = () => {
   const [state, setState] = useState<{

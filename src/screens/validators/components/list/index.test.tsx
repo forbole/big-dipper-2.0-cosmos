@@ -6,7 +6,7 @@ import {
 } from '@tests/utils';
 import { createMockClient } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
-import { ValidatorsDocument } from '@graphql/types';
+import { ValidatorsDocument } from '@graphql/types/types';
 import List from '.';
 
 // ==================================
