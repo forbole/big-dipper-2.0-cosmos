@@ -11,7 +11,7 @@ import {
 import {
   BlocksListenerDocument,
   BlocksDocument,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import Blocks from '.';
 
 // ==================================

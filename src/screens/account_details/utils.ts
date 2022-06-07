@@ -8,7 +8,7 @@ import {
   AccountDelegationBalanceDocument,
   AccountUnbondingBalanceDocument,
   AccountDelegationRewardsDocument,
-} from '@src/graphql/account_details_documents';
+} from '@src/graphql/general/account_details_documents';
 
 export const fetchCommission = async (address: string) => {
   const defaultReturnValue = {
