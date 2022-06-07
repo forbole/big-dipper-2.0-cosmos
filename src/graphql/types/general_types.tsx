@@ -2723,7 +2723,7 @@ export type Gov_Params_Variance_Fields = {
 export type Inflation = {
   __typename?: 'inflation';
   height: Scalars['bigint'];
-  value: Scalars['numeric'];
+  value: Scalars['String'];
 };
 
 /** aggregated selection of "inflation" */
@@ -2760,7 +2760,6 @@ export type Inflation_Aggregate_FieldsCountArgs = {
 export type Inflation_Avg_Fields = {
   __typename?: 'inflation_avg_fields';
   height?: Maybe<Scalars['Float']>;
-  value?: Maybe<Scalars['Float']>;
 };
 
 /** Boolean expression to filter rows from the table "inflation". All fields are combined with a logical 'AND'. */
@@ -2769,21 +2768,21 @@ export type Inflation_Bool_Exp = {
   _not?: Maybe<Inflation_Bool_Exp>;
   _or?: Maybe<Array<Inflation_Bool_Exp>>;
   height?: Maybe<Bigint_Comparison_Exp>;
-  value?: Maybe<Numeric_Comparison_Exp>;
+  value?: Maybe<String_Comparison_Exp>;
 };
 
 /** aggregate max on columns */
 export type Inflation_Max_Fields = {
   __typename?: 'inflation_max_fields';
   height?: Maybe<Scalars['bigint']>;
-  value?: Maybe<Scalars['numeric']>;
+  value?: Maybe<Scalars['String']>;
 };
 
 /** aggregate min on columns */
 export type Inflation_Min_Fields = {
   __typename?: 'inflation_min_fields';
   height?: Maybe<Scalars['bigint']>;
-  value?: Maybe<Scalars['numeric']>;
+  value?: Maybe<Scalars['String']>;
 };
 
 /** Ordering options when selecting data from "inflation". */
@@ -2804,49 +2803,42 @@ export enum Inflation_Select_Column {
 export type Inflation_Stddev_Fields = {
   __typename?: 'inflation_stddev_fields';
   height?: Maybe<Scalars['Float']>;
-  value?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Inflation_Stddev_Pop_Fields = {
   __typename?: 'inflation_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
-  value?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Inflation_Stddev_Samp_Fields = {
   __typename?: 'inflation_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
-  value?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate sum on columns */
 export type Inflation_Sum_Fields = {
   __typename?: 'inflation_sum_fields';
   height?: Maybe<Scalars['bigint']>;
-  value?: Maybe<Scalars['numeric']>;
 };
 
 /** aggregate var_pop on columns */
 export type Inflation_Var_Pop_Fields = {
   __typename?: 'inflation_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
-  value?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate var_samp on columns */
 export type Inflation_Var_Samp_Fields = {
   __typename?: 'inflation_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
-  value?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate variance on columns */
 export type Inflation_Variance_Fields = {
   __typename?: 'inflation_variance_fields';
   height?: Maybe<Scalars['Float']>;
-  value?: Maybe<Scalars['Float']>;
 };
 
 
@@ -3840,7 +3832,7 @@ export type Proposal_Deposit = {
   /** An object relationship */
   depositor?: Maybe<Account>;
   depositor_address?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['bigint']>;
+  height: Scalars['bigint'];
   /** An object relationship */
   proposal: Proposal;
   proposal_id: Scalars['Int'];
@@ -4178,9 +4170,9 @@ export enum Proposal_Select_Column {
 /** columns and relationships of "proposal_staking_pool_snapshot" */
 export type Proposal_Staking_Pool_Snapshot = {
   __typename?: 'proposal_staking_pool_snapshot';
-  bonded_tokens: Scalars['bigint'];
+  bonded_tokens: Scalars['String'];
   height: Scalars['bigint'];
-  not_bonded_tokens: Scalars['bigint'];
+  not_bonded_tokens: Scalars['String'];
   /** An object relationship */
   proposal: Proposal;
   proposal_id: Scalars['Int'];
@@ -4219,9 +4211,7 @@ export type Proposal_Staking_Pool_Snapshot_Aggregate_FieldsCountArgs = {
 /** aggregate avg on columns */
 export type Proposal_Staking_Pool_Snapshot_Avg_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_avg_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
@@ -4230,9 +4220,9 @@ export type Proposal_Staking_Pool_Snapshot_Bool_Exp = {
   _and?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Bool_Exp>>;
   _not?: Maybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>;
   _or?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Bool_Exp>>;
-  bonded_tokens?: Maybe<Bigint_Comparison_Exp>;
+  bonded_tokens?: Maybe<String_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
-  not_bonded_tokens?: Maybe<Bigint_Comparison_Exp>;
+  not_bonded_tokens?: Maybe<String_Comparison_Exp>;
   proposal?: Maybe<Proposal_Bool_Exp>;
   proposal_id?: Maybe<Int_Comparison_Exp>;
 };
@@ -4240,18 +4230,18 @@ export type Proposal_Staking_Pool_Snapshot_Bool_Exp = {
 /** aggregate max on columns */
 export type Proposal_Staking_Pool_Snapshot_Max_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_max_fields';
-  bonded_tokens?: Maybe<Scalars['bigint']>;
+  bonded_tokens?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
-  not_bonded_tokens?: Maybe<Scalars['bigint']>;
+  not_bonded_tokens?: Maybe<Scalars['String']>;
   proposal_id?: Maybe<Scalars['Int']>;
 };
 
 /** aggregate min on columns */
 export type Proposal_Staking_Pool_Snapshot_Min_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_min_fields';
-  bonded_tokens?: Maybe<Scalars['bigint']>;
+  bonded_tokens?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
-  not_bonded_tokens?: Maybe<Scalars['bigint']>;
+  not_bonded_tokens?: Maybe<Scalars['String']>;
   proposal_id?: Maybe<Scalars['Int']>;
 };
 
@@ -4279,63 +4269,49 @@ export enum Proposal_Staking_Pool_Snapshot_Select_Column {
 /** aggregate stddev on columns */
 export type Proposal_Staking_Pool_Snapshot_Stddev_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_stddev_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Proposal_Staking_Pool_Snapshot_Stddev_Pop_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_stddev_pop_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Proposal_Staking_Pool_Snapshot_Stddev_Samp_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_stddev_samp_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate sum on columns */
 export type Proposal_Staking_Pool_Snapshot_Sum_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_sum_fields';
-  bonded_tokens?: Maybe<Scalars['bigint']>;
   height?: Maybe<Scalars['bigint']>;
-  not_bonded_tokens?: Maybe<Scalars['bigint']>;
   proposal_id?: Maybe<Scalars['Int']>;
 };
 
 /** aggregate var_pop on columns */
 export type Proposal_Staking_Pool_Snapshot_Var_Pop_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_var_pop_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate var_samp on columns */
 export type Proposal_Staking_Pool_Snapshot_Var_Samp_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_var_samp_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate variance on columns */
 export type Proposal_Staking_Pool_Snapshot_Variance_Fields = {
   __typename?: 'proposal_staking_pool_snapshot_variance_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
@@ -4968,6 +4944,8 @@ export type Proposal_Vote = {
   __typename?: 'proposal_vote';
   /** An object relationship */
   account: Account;
+  /** An object relationship */
+  block: Block;
   height: Scalars['bigint'];
   option: Scalars['String'];
   /** An object relationship */
@@ -5040,6 +5018,7 @@ export type Proposal_Vote_Bool_Exp = {
   _not?: Maybe<Proposal_Vote_Bool_Exp>;
   _or?: Maybe<Array<Proposal_Vote_Bool_Exp>>;
   account?: Maybe<Account_Bool_Exp>;
+  block?: Maybe<Block_Bool_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
   option?: Maybe<String_Comparison_Exp>;
   proposal?: Maybe<Proposal_Bool_Exp>;
@@ -5084,6 +5063,7 @@ export type Proposal_Vote_Min_Order_By = {
 /** Ordering options when selecting data from "proposal_vote". */
 export type Proposal_Vote_Order_By = {
   account?: Maybe<Account_Order_By>;
+  block?: Maybe<Block_Order_By>;
   height?: Maybe<Order_By>;
   option?: Maybe<Order_By>;
   proposal?: Maybe<Proposal_Order_By>;
@@ -6684,9 +6664,9 @@ export type Staking_Params_Variance_Fields = {
 /** columns and relationships of "staking_pool" */
 export type Staking_Pool = {
   __typename?: 'staking_pool';
-  bonded_tokens: Scalars['bigint'];
+  bonded_tokens: Scalars['String'];
   height: Scalars['bigint'];
-  not_bonded_tokens: Scalars['bigint'];
+  not_bonded_tokens: Scalars['String'];
 };
 
 /** aggregated selection of "staking_pool" */
@@ -6722,9 +6702,7 @@ export type Staking_Pool_Aggregate_FieldsCountArgs = {
 /** aggregate avg on columns */
 export type Staking_Pool_Avg_Fields = {
   __typename?: 'staking_pool_avg_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
 };
 
 /** Boolean expression to filter rows from the table "staking_pool". All fields are combined with a logical 'AND'. */
@@ -6732,25 +6710,25 @@ export type Staking_Pool_Bool_Exp = {
   _and?: Maybe<Array<Staking_Pool_Bool_Exp>>;
   _not?: Maybe<Staking_Pool_Bool_Exp>;
   _or?: Maybe<Array<Staking_Pool_Bool_Exp>>;
-  bonded_tokens?: Maybe<Bigint_Comparison_Exp>;
+  bonded_tokens?: Maybe<String_Comparison_Exp>;
   height?: Maybe<Bigint_Comparison_Exp>;
-  not_bonded_tokens?: Maybe<Bigint_Comparison_Exp>;
+  not_bonded_tokens?: Maybe<String_Comparison_Exp>;
 };
 
 /** aggregate max on columns */
 export type Staking_Pool_Max_Fields = {
   __typename?: 'staking_pool_max_fields';
-  bonded_tokens?: Maybe<Scalars['bigint']>;
+  bonded_tokens?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
-  not_bonded_tokens?: Maybe<Scalars['bigint']>;
+  not_bonded_tokens?: Maybe<Scalars['String']>;
 };
 
 /** aggregate min on columns */
 export type Staking_Pool_Min_Fields = {
   __typename?: 'staking_pool_min_fields';
-  bonded_tokens?: Maybe<Scalars['bigint']>;
+  bonded_tokens?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
-  not_bonded_tokens?: Maybe<Scalars['bigint']>;
+  not_bonded_tokens?: Maybe<Scalars['String']>;
 };
 
 /** Ordering options when selecting data from "staking_pool". */
@@ -6773,57 +6751,43 @@ export enum Staking_Pool_Select_Column {
 /** aggregate stddev on columns */
 export type Staking_Pool_Stddev_Fields = {
   __typename?: 'staking_pool_stddev_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Staking_Pool_Stddev_Pop_Fields = {
   __typename?: 'staking_pool_stddev_pop_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Staking_Pool_Stddev_Samp_Fields = {
   __typename?: 'staking_pool_stddev_samp_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate sum on columns */
 export type Staking_Pool_Sum_Fields = {
   __typename?: 'staking_pool_sum_fields';
-  bonded_tokens?: Maybe<Scalars['bigint']>;
   height?: Maybe<Scalars['bigint']>;
-  not_bonded_tokens?: Maybe<Scalars['bigint']>;
 };
 
 /** aggregate var_pop on columns */
 export type Staking_Pool_Var_Pop_Fields = {
   __typename?: 'staking_pool_var_pop_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate var_samp on columns */
 export type Staking_Pool_Var_Samp_Fields = {
   __typename?: 'staking_pool_var_samp_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate variance on columns */
 export type Staking_Pool_Variance_Fields = {
   __typename?: 'staking_pool_variance_fields';
-  bonded_tokens?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  not_bonded_tokens?: Maybe<Scalars['Float']>;
 };
 
 export type Subscription_Root = {
@@ -8923,9 +8887,9 @@ export type Transaction = {
   memo?: Maybe<Scalars['String']>;
   messages: Scalars['jsonb'];
   /** An array relationship */
-  messagesByTransactionHashPartitionId: Array<Message>;
+  messagesByPartitionIdTransactionHash: Array<Message>;
   /** An aggregate relationship */
-  messagesByTransactionHashPartitionId_aggregate: Message_Aggregate;
+  messagesByPartitionIdTransactionHash_aggregate: Message_Aggregate;
   partition_id: Scalars['bigint'];
   raw_log?: Maybe<Scalars['String']>;
   signatures: Scalars['_text'];
@@ -8953,7 +8917,7 @@ export type TransactionMessagesArgs = {
 
 
 /** columns and relationships of "transaction" */
-export type TransactionMessagesByTransactionHashPartitionIdArgs = {
+export type TransactionMessagesByPartitionIdTransactionHashArgs = {
   distinct_on?: Maybe<Array<Message_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
@@ -8963,7 +8927,7 @@ export type TransactionMessagesByTransactionHashPartitionIdArgs = {
 
 
 /** columns and relationships of "transaction" */
-export type TransactionMessagesByTransactionHashPartitionId_AggregateArgs = {
+export type TransactionMessagesByPartitionIdTransactionHash_AggregateArgs = {
   distinct_on?: Maybe<Array<Message_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
@@ -9053,7 +9017,7 @@ export type Transaction_Bool_Exp = {
   logs?: Maybe<Jsonb_Comparison_Exp>;
   memo?: Maybe<String_Comparison_Exp>;
   messages?: Maybe<Jsonb_Comparison_Exp>;
-  messagesByTransactionHashPartitionId?: Maybe<Message_Bool_Exp>;
+  messagesByPartitionIdTransactionHash?: Maybe<Message_Bool_Exp>;
   partition_id?: Maybe<Bigint_Comparison_Exp>;
   raw_log?: Maybe<String_Comparison_Exp>;
   signatures?: Maybe<_Text_Comparison_Exp>;
@@ -9118,7 +9082,7 @@ export type Transaction_Order_By = {
   logs?: Maybe<Order_By>;
   memo?: Maybe<Order_By>;
   messages?: Maybe<Order_By>;
-  messagesByTransactionHashPartitionId_aggregate?: Maybe<Message_Aggregate_Order_By>;
+  messagesByPartitionIdTransactionHash_aggregate?: Maybe<Message_Aggregate_Order_By>;
   partition_id?: Maybe<Order_By>;
   raw_log?: Maybe<Order_By>;
   signatures?: Maybe<Order_By>;
