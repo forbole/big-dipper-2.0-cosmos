@@ -5,7 +5,7 @@ import numeral from 'numeral';
 import {
   useValidatorsQuery,
   ValidatorsQuery,
-} from '@graphql/types';
+} from '@graphql/types/types';
 import { getValidatorCondition } from '@utils/get_validator_condition';
 import { formatToken } from '@utils/format_token';
 import { SlashingParams } from '@models';
