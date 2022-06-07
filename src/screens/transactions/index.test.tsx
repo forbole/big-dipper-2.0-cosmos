@@ -11,7 +11,7 @@ import {
 import {
   TransactionsListenerDocument,
   TransactionsDocument,
-} from '@graphql/types/types';
+} from '@graphql/types/general_types';
 import Transactions from '.';
 
 // ==================================
