@@ -156,9 +156,6 @@ RUN apk add --no-cache git
 # Set app directory
 WORKDIR /app
 
-# Add PM2
-RUN npm install pm2 -g
-
 # Installing dependencies
 COPY package*.json ./
 RUN npm ci
@@ -208,6 +205,9 @@ COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/node_modules node_modules
 COPY --from=builder /app/dist dist
 COPY --from=builder /app/.next .next
+
+# Add PM2
+RUN npm install pm2 -g
 
 ARG NODE_ENV
 ARG PORT
