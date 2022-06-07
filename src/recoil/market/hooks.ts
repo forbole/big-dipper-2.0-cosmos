@@ -9,7 +9,7 @@ import Big from 'big.js';
 import {
   useMarketDataQuery,
   MarketDataQuery,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import { chainConfig } from '@configs';
 import {
   writeMarket,

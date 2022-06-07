@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import {
   useBlockDetailsQuery,
   BlockDetailsQuery,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import { convertMsgsToModels } from '@msg';
 import { BlockDetailState } from './types';
 
