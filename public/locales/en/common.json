@@ -59,5 +59,6 @@
   "compact": "Compact",
   "detailed": "Detailed",
   "profilesNotEnabled": "Profiles not enabled for this explorer",
-  "insertValidDtag": "Please insert a valid dtag"
+  "insertValidDtag": "Please insert a valid dtag",
+  "invalidAddress": "Invalid Address"
 }
