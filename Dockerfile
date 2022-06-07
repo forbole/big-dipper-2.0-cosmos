@@ -202,6 +202,7 @@ FROM node:14.5.0-alpine AS distribution
 WORKDIR /app
 
 COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/i18n.js ./
 COPY --from=builder /app/node_modules node_modules
 COPY --from=builder /app/dist dist
 COPY --from=builder /app/.next .next
