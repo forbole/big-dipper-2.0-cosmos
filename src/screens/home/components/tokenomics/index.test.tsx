@@ -7,7 +7,7 @@ import { ApolloProvider } from '@apollo/client';
 import { createMockClient } from 'mock-apollo-client';
 import {
   TokenomicsDocument,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import Tokenomics from '.';
 
 // ==================================

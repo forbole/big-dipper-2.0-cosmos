@@ -14,7 +14,7 @@ import {
 import {
   useChainIdQuery,
   ChainIdQuery,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import {
   Networks,
   Selected,
