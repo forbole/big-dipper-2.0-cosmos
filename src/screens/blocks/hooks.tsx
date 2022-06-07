@@ -4,7 +4,7 @@ import {
   useBlocksListenerSubscription,
   useBlocksQuery,
   BlocksListenerSubscription,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import {
   BlocksState, BlockType,
 } from './types';
