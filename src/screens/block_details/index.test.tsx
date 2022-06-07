@@ -7,7 +7,7 @@ import {
 } from '@tests/utils';
 import {
   BlockDetailsDocument,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import BlockDetails from '.';
 
 // ==================================

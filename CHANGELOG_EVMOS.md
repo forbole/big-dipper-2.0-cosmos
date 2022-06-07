@@ -1,3 +1,8 @@
+# Unreleased
+
+## Changes
+- Merged base
+
 # evmos-v1.2.0 - 2021-04-19
 
 ## Changes

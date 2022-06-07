@@ -4,7 +4,7 @@ import numeral from 'numeral';
 import {
   useTokenomicsQuery,
   TokenomicsQuery,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import { StakingParams } from '@models';
 import { formatToken } from '@utils/format_token';
 

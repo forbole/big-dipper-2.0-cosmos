@@ -29,7 +29,6 @@ jobs:
         run: |
           NEXT_PUBLIC_GRAPHQL_URL=
           NEXT_PUBLIC_GRAPHQL_WS=
-          NEXT_PUBLIC_URL=
           NEXT_PUBLIC_RPC_WEBSOCKET=
           NEXT_PUBLIC_CHAIN_TYPE=
           NODE_ENV="production"
@@ -39,7 +38,6 @@ jobs:
           if [[ $GITHUB_REF == refs/tags/evmos-testnet-9000-3-v* ]]; then
             NEXT_PUBLIC_GRAPHQL_URL="https://gql-testnet.evmos.forbole.com/v1/graphql"
             NEXT_PUBLIC_GRAPHQL_WS="wss://gql-testnet.evmos.forbole.com/v1/graphql"
-            NEXT_PUBLIC_URL="https://testnet.evmos.bigdipper.live"
             NEXT_PUBLIC_RPC_WEBSOCKET="wss://evmos-archive-testnet.api.bdnodes.net:26657/websocket"
             NEXT_PUBLIC_CHAIN_TYPE="testnet"
           elif [[ $GITHUB_REF == refs/tags/evmos-mainnet-9001-1-v* ]]; then
@@ -51,7 +49,6 @@ jobs:
           fi
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_WS::${NEXT_PUBLIC_GRAPHQL_WS}
-          echo ::set-output name=NEXT_PUBLIC_URL::${NEXT_PUBLIC_URL}
           echo ::set-output name=NEXT_PUBLIC_RPC_WEBSOCKET::${NEXT_PUBLIC_RPC_WEBSOCKET}
           echo ::set-output name=NEXT_PUBLIC_CHAIN_TYPE::${NEXT_PUBLIC_CHAIN_TYPE}
           echo ::set-output name=NODE_ENV::${NODE_ENV}
@@ -76,7 +73,6 @@ jobs:
           build-args: |
             "NEXT_PUBLIC_GRAPHQL_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_URL }}"
             "NEXT_PUBLIC_GRAPHQL_WS=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_WS }}"
-            "NEXT_PUBLIC_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_URL }}"
             "NEXT_PUBLIC_RPC_WEBSOCKET=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_RPC_WEBSOCKET }}"
             "NEXT_PUBLIC_CHAIN_TYPE=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_CHAIN_TYPE }}"
             "NODE_ENV=${{ steps.dockerPrep.outputs.NODE_ENV }}"
