@@ -6,7 +6,7 @@ import useTranslation from 'next-translate/useTranslation';
 import dayjs from '@utils/dayjs';
 import { toast } from 'react-toastify';
 import * as R from 'ramda';
-import { useLatestBlockTimestampLazyQuery } from '@graphql/types';
+import { useLatestBlockTimestampLazyQuery } from '@graphql/types/general_types';
 
 export const useChainHealthCheck = () => {
   const { t } = useTranslation('common');
