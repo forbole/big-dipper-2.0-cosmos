@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { ApolloProvider } from '@apollo/client';
 import { createMockClient } from 'mock-apollo-client';
-import { OnlineVotingPowerDocument } from '@graphql/types';
+import { OnlineVotingPowerDocument } from '@graphql/types/general_types';
 import {
   MockTheme, wait,
 } from '@tests/utils';

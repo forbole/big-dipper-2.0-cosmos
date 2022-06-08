@@ -7,7 +7,7 @@ import { createMockClient } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
 import {
   LatestBlockTimestampDocument,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import Home from '.';
 
 // ==================================
