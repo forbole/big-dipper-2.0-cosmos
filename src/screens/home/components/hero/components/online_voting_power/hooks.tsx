@@ -4,7 +4,7 @@ import * as R from 'ramda';
 import {
   useOnlineVotingPowerQuery,
   OnlineVotingPowerQuery,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import { chainConfig } from '@configs';
 import { formatToken } from '@utils/format_token';
 
