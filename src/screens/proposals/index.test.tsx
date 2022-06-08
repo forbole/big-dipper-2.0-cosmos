@@ -8,7 +8,7 @@ import { ApolloProvider } from '@apollo/client';
 import { createMockClient } from 'mock-apollo-client';
 import {
   ProposalsDocument,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import Proposals from '.';
 
 // ==================================
