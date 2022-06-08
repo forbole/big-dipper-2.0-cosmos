@@ -3,7 +3,7 @@ import * as R from 'ramda';
 import {
   useBlocksListenerSubscription,
   BlocksListenerSubscription,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import { BlocksState } from './types';
 
 export const useBlocks = () => {

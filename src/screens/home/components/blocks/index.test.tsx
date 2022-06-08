@@ -10,7 +10,7 @@ import {
 import { ApolloProvider } from '@apollo/client';
 import {
   BlocksListenerDocument,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import Blocks from '.';
 
 // ==================================

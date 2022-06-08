@@ -9,7 +9,7 @@ import {
 } from '@tests/utils';
 import {
   ProposalDetailsDocument,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import ProposalDetails from '.';
 
 // ==================================
