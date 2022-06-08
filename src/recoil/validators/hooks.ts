@@ -7,7 +7,7 @@ import * as R from 'ramda';
 import {
   useValidatorAddressesQuery,
   ValidatorAddressesQuery,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import { chainConfig } from '@configs';
 import { useDesmosProfile } from '@hooks';
 import {

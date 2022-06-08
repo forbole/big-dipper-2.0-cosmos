@@ -3,7 +3,7 @@ name: Docker-Production
 on:
   push:
     tags:
-      - desmos-morpheus-apollo-1-v*
+      - sifchain-1-v*
 
 jobs:
   Build-and-Publish:
@@ -28,23 +28,20 @@ jobs:
         run: |
           NEXT_PUBLIC_GRAPHQL_URL=
           NEXT_PUBLIC_GRAPHQL_WS=
-          NEXT_PUBLIC_URL=
           NEXT_PUBLIC_RPC_WEBSOCKET=
           NEXT_PUBLIC_CHAIN_TYPE=
           NODE_ENV="production"
           PORT=3000
           NEXT_PUBLIC_MATOMO_URL=https://analytics.bigdipper.live
           NEXT_PUBLIC_MATOMO_SITE_ID=21
-          if [[ $GITHUB_REF == refs/tags/desmos-morpheus-apollo-1* ]]; then
-            NEXT_PUBLIC_GRAPHQL_URL="https://gql.morpheus.desmos.network/v1/graphql"
-            NEXT_PUBLIC_GRAPHQL_WS="wss://gql.morpheus.desmos.network/v1/graphql"
-            NEXT_PUBLIC_URL="https://morpheus.desmos.network"
-            NEXT_PUBLIC_RPC_WEBSOCKET="wss://rpc.morpheus.desmos.network/websocket"
-            NEXT_PUBLIC_CHAIN_TYPE="testnet"
+          if [[ $GITHUB_REF == refs/tags/sifchain-1* ]]; then
+            NEXT_PUBLIC_GRAPHQL_URL="https://gql.sifchain.forbole.com/v1/graphql"
+            NEXT_PUBLIC_GRAPHQL_WS="wss://gql.sifchain.forbole.com/v1/graphql"
+            NEXT_PUBLIC_RPC_WEBSOCKET="wss://rpc.sifchain.forbole.com/websocket"
+            NEXT_PUBLIC_CHAIN_TYPE="betanet"
           fi
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_WS::${NEXT_PUBLIC_GRAPHQL_WS}
-          echo ::set-output name=NEXT_PUBLIC_URL::${NEXT_PUBLIC_URL}
           echo ::set-output name=NEXT_PUBLIC_RPC_WEBSOCKET::${NEXT_PUBLIC_RPC_WEBSOCKET}
           echo ::set-output name=NEXT_PUBLIC_CHAIN_TYPE::${NEXT_PUBLIC_CHAIN_TYPE}
           echo ::set-output name=NODE_ENV::${NODE_ENV}
@@ -69,7 +66,6 @@ jobs:
           build-args: |
             "NEXT_PUBLIC_GRAPHQL_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_URL }}"
             "NEXT_PUBLIC_GRAPHQL_WS=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_WS }}"
-            "NEXT_PUBLIC_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_URL }}"
             "NEXT_PUBLIC_RPC_WEBSOCKET=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_RPC_WEBSOCKET }}"
             "NEXT_PUBLIC_CHAIN_TYPE=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_CHAIN_TYPE }}"
             "NODE_ENV=${{ steps.dockerPrep.outputs.NODE_ENV }}"
@@ -82,14 +78,14 @@ jobs:
             org.opencontainers.image.revision=${{ github.sha }}
       - name: Deploy to Akash 🌐
         env:
-          DESMOS_AKASH_WEBHOOK_URL: ${{ secrets.DESMOS_AKASH_WEBHOOK_URL }}
+          SIFCHAIN_1: ${{ secrets.SIFCHAIN_1 }}
           AKASH_WEBHOOK_SECRET: ${{ secrets.AKASH_WEBHOOK_SECRET }}
         run: |
             BRANCH=${GITHUB_REF}
             WEBHOOK_URL=''
-            if [[ $GITHUB_REF == refs/tags/desmos-morpheus-apollo-1* ]]; then
-              echo 'Deploying to Desmos morpheus-apollo-1'
-              WEBHOOK_URL=$DESMOS_AKASH_WEBHOOK_URL
+            if [[ $GITHUB_REF == refs/tags/sifchain-1-v* ]]; then
+              echo 'Deploying to Sifchain'
+              WEBHOOK_URL=$SIFCHAIN_1
             fi
               curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k $WEBHOOK_URL -u "deploy:$AKASH_WEBHOOK_SECRET"
 
