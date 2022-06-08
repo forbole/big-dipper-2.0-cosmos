@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import {
   useProposalDetailsDepositsQuery,
   ProposalDetailsDepositsQuery,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import { chainConfig } from '@configs';
 import { formatToken } from '@utils/format_token';
 import { DepositState } from './types';
