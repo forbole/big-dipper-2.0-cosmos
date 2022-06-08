@@ -7,7 +7,7 @@ import {
 } from '@tests/utils';
 import {
   TransactionDetailsDocument,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import TransactionDetails from '.';
 
 // ==================================

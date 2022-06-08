@@ -4,7 +4,7 @@ import DOMPurify from 'dompurify';
 import {
   useProposalsQuery,
   ProposalsQuery,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import { ProposalsState } from './types';
 
 export const useProposals = () => {
