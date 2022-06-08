@@ -6,7 +6,7 @@ import * as R from 'ramda';
 import {
   useTransactionDetailsQuery,
   TransactionDetailsQuery,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import { formatToken } from '@utils/format_token';
 import { convertMsgsToModels } from '@msg';
 import {

@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import {
   useProposalDetailsQuery,
   ProposalDetailsQuery,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import { ProposalState } from './types';
 
 export const useProposalDetails = () => {

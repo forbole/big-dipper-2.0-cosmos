@@ -9,7 +9,7 @@ import {
 import { ApolloProvider } from '@apollo/client';
 import {
   TransactionsListenerDocument,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import Transactions from '.';
 
 // ==================================
