@@ -28,7 +28,6 @@ jobs:
         run: |
           NEXT_PUBLIC_GRAPHQL_URL=
           NEXT_PUBLIC_GRAPHQL_WS=
-          NEXT_PUBLIC_URL=
           NEXT_PUBLIC_RPC_WEBSOCKET=
           NEXT_PUBLIC_CHAIN_TYPE=
           NODE_ENV="production"
@@ -38,13 +37,11 @@ jobs:
           if [[ $GITHUB_REF == refs/tags/bitsong-2-v* ]]; then
             NEXT_PUBLIC_GRAPHQL_URL="https://gql.bitsong.forbole.com/v1/graphql"
             NEXT_PUBLIC_GRAPHQL_WS="wss://gql.bitsong.forbole.com/v1/graphql"
-            NEXT_PUBLIC_URL="https://bitsong.bigdipper.live"
             NEXT_PUBLIC_RPC_WEBSOCKET="wss://rpc.bitsong.forbole.com/websocket"
             NEXT_PUBLIC_CHAIN_TYPE="mainnet"
           fi
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_WS::${NEXT_PUBLIC_GRAPHQL_WS}
-          echo ::set-output name=NEXT_PUBLIC_URL::${NEXT_PUBLIC_URL}
           echo ::set-output name=NEXT_PUBLIC_RPC_WEBSOCKET::${NEXT_PUBLIC_RPC_WEBSOCKET}
           echo ::set-output name=NEXT_PUBLIC_CHAIN_TYPE::${NEXT_PUBLIC_CHAIN_TYPE}
           echo ::set-output name=NODE_ENV::${NODE_ENV}
@@ -69,7 +66,6 @@ jobs:
           build-args: |
             "NEXT_PUBLIC_GRAPHQL_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_URL }}"
             "NEXT_PUBLIC_GRAPHQL_WS=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_WS }}"
-            "NEXT_PUBLIC_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_URL }}"
             "NEXT_PUBLIC_RPC_WEBSOCKET=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_RPC_WEBSOCKET }}"
             "NEXT_PUBLIC_CHAIN_TYPE=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_CHAIN_TYPE }}"
             "NODE_ENV=${{ steps.dockerPrep.outputs.NODE_ENV }}"
