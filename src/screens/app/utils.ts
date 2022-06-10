@@ -1,9 +1,11 @@
+import { generalConfig } from '@configs';
+
 export const OPEN_GRAPH_SEO = {
   type: 'website',
   site_name: 'Big Dipper',
   images: [
     {
-      url: 'https://s3.bigdipper.live/cosmoshub.png',
+      url: generalConfig.previewImage,
       width: 800,
       height: 600,
       alt: 'Preview Photo',
