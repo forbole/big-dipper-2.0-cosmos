@@ -1,9 +1,11 @@
+import { generalConfig } from '@configs';
+
 export const OPEN_GRAPH_SEO = {
   type: 'website',
   site_name: 'Big Dipper',
   images: [
     {
-      url: 'https://bigdipper.live/images/big-dipper-social-media.png',
+      url: generalConfig.previewImage,
       width: 800,
       height: 600,
       alt: 'Preview Photo',
