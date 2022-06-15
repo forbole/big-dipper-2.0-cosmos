@@ -2,6 +2,7 @@
 
 ## Changes
 - Add ibc osmos to token
+- Add preview image
 # evmos-v1.1.1 - 2021-03-03
 
 ## Fixes
