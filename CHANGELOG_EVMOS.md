@@ -2,6 +2,7 @@
 
 ## Changes
 - Merged base
+- Add preview image
 
 # evmos-v1.2.0 - 2021-04-19
 
