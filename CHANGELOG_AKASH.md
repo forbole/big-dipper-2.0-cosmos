@@ -2,6 +2,7 @@
 
 ## Changes
 - merged base
+- updated preview image
 
 # akash-v1.2.0 - 2021-04-19
 
