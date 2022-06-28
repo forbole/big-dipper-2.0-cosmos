@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install modules
-      run: npm ci
+      run: npm ci --legacy-peer-deps
     - name: Run tests
       run: npm test -- --coverage
     # - name: Upload coverage 📤
@@ -28,7 +28,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install modules
-      run: npm ci
+      run: npm ci --legacy-peer-deps
     - name: Run build check
       run: npm run build
       env:
