@@ -46,11 +46,10 @@ export const useMarketRecoil = () => {
 
     const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter((x) => x.denom === chainConfig.primaryTokenUnit);
     const inflation = R.pathOr(0, ['inflation', 0, 'value'], data);
+    const apr = R.pathOr(0, ['apr', 0, 'value'], data);
 
-    const rawSupplyAmount = getDenom(
-      R.pathOr([], ['supply', 0, 'coins'], data),
-      chainConfig.primaryTokenUnit,
-    ).amount;
+    const rawSupplyAmount = R.pathOr(0, ['adjustedSupply', 0, 'value'], data);
+
     const supply = formatToken(
       rawSupplyAmount,
       chainConfig.primaryTokenUnit,
@@ -59,10 +58,6 @@ export const useMarketRecoil = () => {
     if (communityPoolCoin) {
       communityPool = formatToken(communityPoolCoin.amount, communityPoolCoin.denom);
     }
-
-    const bondedTokens = R.pathOr(1, ['bondedTokens', 0, 'bonded_tokens'], data);
-
-    const apr = Big(rawSupplyAmount).times(inflation).div(bondedTokens).toNumber();
 
     return ({
       price,
