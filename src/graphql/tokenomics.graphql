@@ -9,4 +9,7 @@ query Tokenomics{
   supply: supply(order_by: {height: desc}, limit: 1) {
     coins
   }
+  adjustedSupply: adjusted_supply(order_by: {height: desc}, limit: 1) {
+    value
+  }
 }

@@ -5,6 +5,7 @@ import {
   useTokenomicsQuery,
   TokenomicsQuery,
 } from '@graphql/types';
+import { chainConfig } from '@configs';
 import { StakingParams } from '@models';
 import { formatToken } from '@utils/format_token';
 
@@ -43,6 +44,10 @@ export const useTokenomics = () => {
     if (total) {
       results.total = numeral(formatToken(total.amount, total.denom).value).value();
     }
+
+    const rawSupplyAmount = R.pathOr(0, ['adjustedSupply', 0, 'value'], data);
+
+    results.total = numeral(formatToken(rawSupplyAmount, chainConfig.primaryTokenUnit).value).value();
 
     const bonded = R.pathOr(state.bonded, [
       'stakingPool',

@@ -342,6 +342,266 @@ export enum Account_Select_Column {
   Address = 'address'
 }
 
+/** columns and relationships of "adjusted_supply" */
+export type Adjusted_Supply = {
+  __typename?: 'adjusted_supply';
+  height: Scalars['bigint'];
+  value: Scalars['numeric'];
+};
+
+/** aggregated selection of "adjusted_supply" */
+export type Adjusted_Supply_Aggregate = {
+  __typename?: 'adjusted_supply_aggregate';
+  aggregate?: Maybe<Adjusted_Supply_Aggregate_Fields>;
+  nodes: Array<Adjusted_Supply>;
+};
+
+/** aggregate fields of "adjusted_supply" */
+export type Adjusted_Supply_Aggregate_Fields = {
+  __typename?: 'adjusted_supply_aggregate_fields';
+  avg?: Maybe<Adjusted_Supply_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Adjusted_Supply_Max_Fields>;
+  min?: Maybe<Adjusted_Supply_Min_Fields>;
+  stddev?: Maybe<Adjusted_Supply_Stddev_Fields>;
+  stddev_pop?: Maybe<Adjusted_Supply_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Adjusted_Supply_Stddev_Samp_Fields>;
+  sum?: Maybe<Adjusted_Supply_Sum_Fields>;
+  var_pop?: Maybe<Adjusted_Supply_Var_Pop_Fields>;
+  var_samp?: Maybe<Adjusted_Supply_Var_Samp_Fields>;
+  variance?: Maybe<Adjusted_Supply_Variance_Fields>;
+};
+
+
+/** aggregate fields of "adjusted_supply" */
+export type Adjusted_Supply_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Adjusted_Supply_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Adjusted_Supply_Avg_Fields = {
+  __typename?: 'adjusted_supply_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+  value?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "adjusted_supply". All fields are combined with a logical 'AND'. */
+export type Adjusted_Supply_Bool_Exp = {
+  _and?: Maybe<Array<Adjusted_Supply_Bool_Exp>>;
+  _not?: Maybe<Adjusted_Supply_Bool_Exp>;
+  _or?: Maybe<Array<Adjusted_Supply_Bool_Exp>>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  value?: Maybe<Numeric_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Adjusted_Supply_Max_Fields = {
+  __typename?: 'adjusted_supply_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+  value?: Maybe<Scalars['numeric']>;
+};
+
+/** aggregate min on columns */
+export type Adjusted_Supply_Min_Fields = {
+  __typename?: 'adjusted_supply_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+  value?: Maybe<Scalars['numeric']>;
+};
+
+/** Ordering options when selecting data from "adjusted_supply". */
+export type Adjusted_Supply_Order_By = {
+  height?: Maybe<Order_By>;
+  value?: Maybe<Order_By>;
+};
+
+/** select columns of table "adjusted_supply" */
+export enum Adjusted_Supply_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Value = 'value'
+}
+
+/** aggregate stddev on columns */
+export type Adjusted_Supply_Stddev_Fields = {
+  __typename?: 'adjusted_supply_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+  value?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Adjusted_Supply_Stddev_Pop_Fields = {
+  __typename?: 'adjusted_supply_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  value?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Adjusted_Supply_Stddev_Samp_Fields = {
+  __typename?: 'adjusted_supply_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  value?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Adjusted_Supply_Sum_Fields = {
+  __typename?: 'adjusted_supply_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+  value?: Maybe<Scalars['numeric']>;
+};
+
+/** aggregate var_pop on columns */
+export type Adjusted_Supply_Var_Pop_Fields = {
+  __typename?: 'adjusted_supply_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  value?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Adjusted_Supply_Var_Samp_Fields = {
+  __typename?: 'adjusted_supply_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  value?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Adjusted_Supply_Variance_Fields = {
+  __typename?: 'adjusted_supply_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+  value?: Maybe<Scalars['Float']>;
+};
+
+/** columns and relationships of "apr" */
+export type Apr = {
+  __typename?: 'apr';
+  height: Scalars['bigint'];
+  value: Scalars['numeric'];
+};
+
+/** aggregated selection of "apr" */
+export type Apr_Aggregate = {
+  __typename?: 'apr_aggregate';
+  aggregate?: Maybe<Apr_Aggregate_Fields>;
+  nodes: Array<Apr>;
+};
+
+/** aggregate fields of "apr" */
+export type Apr_Aggregate_Fields = {
+  __typename?: 'apr_aggregate_fields';
+  avg?: Maybe<Apr_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Apr_Max_Fields>;
+  min?: Maybe<Apr_Min_Fields>;
+  stddev?: Maybe<Apr_Stddev_Fields>;
+  stddev_pop?: Maybe<Apr_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Apr_Stddev_Samp_Fields>;
+  sum?: Maybe<Apr_Sum_Fields>;
+  var_pop?: Maybe<Apr_Var_Pop_Fields>;
+  var_samp?: Maybe<Apr_Var_Samp_Fields>;
+  variance?: Maybe<Apr_Variance_Fields>;
+};
+
+
+/** aggregate fields of "apr" */
+export type Apr_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Apr_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Apr_Avg_Fields = {
+  __typename?: 'apr_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+  value?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "apr". All fields are combined with a logical 'AND'. */
+export type Apr_Bool_Exp = {
+  _and?: Maybe<Array<Apr_Bool_Exp>>;
+  _not?: Maybe<Apr_Bool_Exp>;
+  _or?: Maybe<Array<Apr_Bool_Exp>>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  value?: Maybe<Numeric_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Apr_Max_Fields = {
+  __typename?: 'apr_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+  value?: Maybe<Scalars['numeric']>;
+};
+
+/** aggregate min on columns */
+export type Apr_Min_Fields = {
+  __typename?: 'apr_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+  value?: Maybe<Scalars['numeric']>;
+};
+
+/** Ordering options when selecting data from "apr". */
+export type Apr_Order_By = {
+  height?: Maybe<Order_By>;
+  value?: Maybe<Order_By>;
+};
+
+/** select columns of table "apr" */
+export enum Apr_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Value = 'value'
+}
+
+/** aggregate stddev on columns */
+export type Apr_Stddev_Fields = {
+  __typename?: 'apr_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+  value?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Apr_Stddev_Pop_Fields = {
+  __typename?: 'apr_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  value?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Apr_Stddev_Samp_Fields = {
+  __typename?: 'apr_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  value?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Apr_Sum_Fields = {
+  __typename?: 'apr_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+  value?: Maybe<Scalars['numeric']>;
+};
+
+/** aggregate var_pop on columns */
+export type Apr_Var_Pop_Fields = {
+  __typename?: 'apr_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  value?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Apr_Var_Samp_Fields = {
+  __typename?: 'apr_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  value?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Apr_Variance_Fields = {
+  __typename?: 'apr_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+  value?: Maybe<Scalars['Float']>;
+};
+
 /** columns and relationships of "average_block_time_from_genesis" */
 export type Average_Block_Time_From_Genesis = {
   __typename?: 'average_block_time_from_genesis';
@@ -6203,6 +6463,14 @@ export type Query_Root = {
   action_validator_delegations?: Maybe<ActionDelegationResponse>;
   action_validator_redelegations_from?: Maybe<ActionRedelegationResponse>;
   action_validator_unbonding_delegations?: Maybe<ActionUnbondingDelegationResponse>;
+  /** fetch data from the table: "adjusted_supply" */
+  adjusted_supply: Array<Adjusted_Supply>;
+  /** fetch aggregated fields from the table: "adjusted_supply" */
+  adjusted_supply_aggregate: Adjusted_Supply_Aggregate;
+  /** fetch data from the table: "apr" */
+  apr: Array<Apr>;
+  /** fetch aggregated fields from the table: "apr" */
+  apr_aggregate: Apr_Aggregate;
   /** fetch data from the table: "average_block_time_from_genesis" */
   average_block_time_from_genesis: Array<Average_Block_Time_From_Genesis>;
   /** fetch aggregated fields from the table: "average_block_time_from_genesis" */
@@ -6574,6 +6842,42 @@ export type Query_RootAction_Validator_Unbonding_DelegationsArgs = {
   count_total?: Maybe<Scalars['Boolean']>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
+};
+
+
+export type Query_RootAdjusted_SupplyArgs = {
+  distinct_on?: Maybe<Array<Adjusted_Supply_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Adjusted_Supply_Order_By>>;
+  where?: Maybe<Adjusted_Supply_Bool_Exp>;
+};
+
+
+export type Query_RootAdjusted_Supply_AggregateArgs = {
+  distinct_on?: Maybe<Array<Adjusted_Supply_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Adjusted_Supply_Order_By>>;
+  where?: Maybe<Adjusted_Supply_Bool_Exp>;
+};
+
+
+export type Query_RootAprArgs = {
+  distinct_on?: Maybe<Array<Apr_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Apr_Order_By>>;
+  where?: Maybe<Apr_Bool_Exp>;
+};
+
+
+export type Query_RootApr_AggregateArgs = {
+  distinct_on?: Maybe<Array<Apr_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Apr_Order_By>>;
+  where?: Maybe<Apr_Bool_Exp>;
 };
 
 
@@ -8078,6 +8382,14 @@ export type Subscription_Root = {
   account_aggregate: Account_Aggregate;
   /** fetch data from the table: "account" using primary key columns */
   account_by_pk?: Maybe<Account>;
+  /** fetch data from the table: "adjusted_supply" */
+  adjusted_supply: Array<Adjusted_Supply>;
+  /** fetch aggregated fields from the table: "adjusted_supply" */
+  adjusted_supply_aggregate: Adjusted_Supply_Aggregate;
+  /** fetch data from the table: "apr" */
+  apr: Array<Apr>;
+  /** fetch aggregated fields from the table: "apr" */
+  apr_aggregate: Apr_Aggregate;
   /** fetch data from the table: "average_block_time_from_genesis" */
   average_block_time_from_genesis: Array<Average_Block_Time_From_Genesis>;
   /** fetch aggregated fields from the table: "average_block_time_from_genesis" */
@@ -8363,6 +8675,42 @@ export type Subscription_RootAccount_AggregateArgs = {
 
 export type Subscription_RootAccount_By_PkArgs = {
   address: Scalars['String'];
+};
+
+
+export type Subscription_RootAdjusted_SupplyArgs = {
+  distinct_on?: Maybe<Array<Adjusted_Supply_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Adjusted_Supply_Order_By>>;
+  where?: Maybe<Adjusted_Supply_Bool_Exp>;
+};
+
+
+export type Subscription_RootAdjusted_Supply_AggregateArgs = {
+  distinct_on?: Maybe<Array<Adjusted_Supply_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Adjusted_Supply_Order_By>>;
+  where?: Maybe<Adjusted_Supply_Bool_Exp>;
+};
+
+
+export type Subscription_RootAprArgs = {
+  distinct_on?: Maybe<Array<Apr_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Apr_Order_By>>;
+  where?: Maybe<Apr_Bool_Exp>;
+};
+
+
+export type Subscription_RootApr_AggregateArgs = {
+  distinct_on?: Maybe<Array<Apr_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Apr_Order_By>>;
+  where?: Maybe<Apr_Bool_Exp>;
 };
 
 
@@ -13107,6 +13455,12 @@ export type MarketDataQuery = { communityPool: Array<(
   )>, supply: Array<(
     { __typename?: 'supply' }
     & Pick<Supply, 'coins'>
+  )>, adjustedSupply: Array<(
+    { __typename?: 'adjusted_supply' }
+    & Pick<Adjusted_Supply, 'value'>
+  )>, apr: Array<(
+    { __typename?: 'apr' }
+    & Pick<Apr, 'value'>
   )>, bondedTokens: Array<(
     { __typename?: 'staking_pool' }
     & Pick<Staking_Pool, 'bonded_tokens'>
@@ -13279,6 +13633,9 @@ export type TokenomicsQuery = { stakingParams: Array<(
   )>, supply: Array<(
     { __typename?: 'supply' }
     & Pick<Supply, 'coins'>
+  )>, adjustedSupply: Array<(
+    { __typename?: 'adjusted_supply' }
+    & Pick<Adjusted_Supply, 'value'>
   )> };
 
 export type TransactionDetailsQueryVariables = Exact<{
@@ -14239,6 +14596,12 @@ export const MarketDataDocument = gql`
   supply {
     coins
   }
+  adjustedSupply: adjusted_supply(order_by: {height: desc}, limit: 1) {
+    value
+  }
+  apr: apr(order_by: {height: desc}, limit: 1) {
+    value
+  }
   bondedTokens: staking_pool(order_by: {height: desc}, limit: 1) {
     bonded_tokens
   }
@@ -14689,6 +15052,9 @@ export const TokenomicsDocument = gql`
   }
   supply: supply(order_by: {height: desc}, limit: 1) {
     coins
+  }
+  adjustedSupply: adjusted_supply(order_by: {height: desc}, limit: 1) {
+    value
   }
 }
     `;
