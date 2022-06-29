@@ -6,6 +6,7 @@
   "github": {
     "reportIssue": "https://github.com/forbole/big-dipper-2.0-cosmos/issues"
   },
+  "basePath": "sifchain",
   "previewImage": "https://s3.bigdipper.live/sifchain.png",
   "version": "base-v2.1.0"
 }
