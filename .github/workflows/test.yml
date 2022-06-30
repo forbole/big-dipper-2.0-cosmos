@@ -7,7 +7,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install modules
-      run: npm install --legacy-peer-deps
+      run: npm install
     - name: Run lint check
       run: npm run lint
   Unit-tests:
@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install modules
-      run: npm ci --legacy-peer-deps
+      run: npm ci
     - name: Run tests
       run: npm test -- --coverage
     # - name: Upload coverage 📤
@@ -28,7 +28,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install modules
-      run: npm ci --legacy-peer-deps
+      run: npm ci
     - name: Run build check
       run: npm run build
       env:
