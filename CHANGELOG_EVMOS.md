@@ -1,6 +1,9 @@
 # Unreleased
 
 ## Changes
+
+
+# evmos-mainnet-9001-1-v1.2.1 - 2022-06-17
 - Merged base
 - Add preview image
 
