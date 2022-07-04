@@ -2,6 +2,9 @@
 
 ## Changes
 - Update validator and account details to not be found if bech32 is invalid
+- Removed the use of NEXT_PUBLIC_URL
+- Update graphql types generation structure (in preparation for third party modules)
+- Update preview image location
 
 # base-v2.1.0 - 2021-04-19
 

@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import {
   useProposalDetailsVotesQuery, ProposalDetailsVotesQuery,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import { toValidatorAddress } from '@utils/prefix_convert';
 import { VoteState } from './types';
 

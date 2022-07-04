@@ -12,7 +12,7 @@ import {
   AverageBlockTimeDocument,
   TokenPriceListenerDocument,
   ActiveValidatorCountDocument,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import DataBlocks from '.';
 
 // ==================================
