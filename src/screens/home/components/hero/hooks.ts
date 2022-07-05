@@ -2,7 +2,7 @@ import { useState } from 'react';
 import * as R from 'ramda';
 import {
   useTokenPriceHistoryQuery,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import { chainConfig } from '@configs';
 import { HeroState } from './types';
 
