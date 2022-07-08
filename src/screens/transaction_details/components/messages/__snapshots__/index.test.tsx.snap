@@ -14,7 +14,7 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
       <h2
         className="MuiTypography-root MuiTypography-h2"
       >
-        messages
+        transactions:messages
       </h2>
       <label
         className="MuiFormControlLabel-root"
@@ -59,7 +59,7 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
         <span
           className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
         >
-          raw
+          transactions:raw
         </span>
       </label>
     </div>
@@ -109,7 +109,7 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
         <span
           className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
         >
-          raw
+          transactions:raw
         </span>
       </label>
       <div

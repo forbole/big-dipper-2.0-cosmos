@@ -31,14 +31,14 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
           </svg>
         </div>
         <input
-          aria-label="searchBarPlaceholderDtag"
+          aria-label="common:searchBarPlaceholderDtag"
           className="MuiInputBase-input MuiInputBase-inputAdornedStart"
           onAnimationStart={[Function]}
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
-          placeholder="searchBarPlaceholderDtag"
+          placeholder="common:searchBarPlaceholderDtag"
           type="text"
           value=""
         />
@@ -92,14 +92,14 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
           </svg>
         </div>
         <input
-          aria-label="searchBarPlaceholderDtag"
+          aria-label="common:searchBarPlaceholderDtag"
           className="MuiInputBase-input MuiInputBase-inputAdornedStart"
           onAnimationStart={[Function]}
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
-          placeholder="searchBarPlaceholderDtag"
+          placeholder="common:searchBarPlaceholderDtag"
           type="text"
           value=""
         />

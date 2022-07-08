@@ -59,7 +59,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
           <span
             className="MuiTab-wrapper"
           >
-            active
+            validators:active
           </span>
           <span
             className="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
@@ -91,7 +91,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
           <span
             className="MuiTab-wrapper"
           >
-            inactive
+            validators:inactive
           </span>
         </button>
         <button
@@ -119,7 +119,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
           <span
             className="MuiTab-wrapper"
           >
-            allValidators
+            validators:allValidators
           </span>
         </button>
       </div>
@@ -129,7 +129,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
     callback={[MockFunction]}
     className="makeStyles-searchBar"
     id="Search"
-    placeholder="searchValidator"
+    placeholder="validators:searchValidator"
   />
 </div>
 `;

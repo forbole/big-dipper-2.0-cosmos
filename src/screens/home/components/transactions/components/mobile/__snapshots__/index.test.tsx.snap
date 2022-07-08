@@ -6,7 +6,7 @@ exports[`screen: Home/Transactions/Mobile matches snapshot 1`] = `
 >
   <div
     block={
-      <ForwardRef(LinkComponent)
+      <Link
         href="/blocks/2000"
         passHref={true}
       >
@@ -16,10 +16,10 @@ exports[`screen: Home/Transactions/Mobile matches snapshot 1`] = `
         >
           2,000
         </WithStyles(ForwardRef(Typography))>
-      </ForwardRef(LinkComponent)>
+      </Link>
     }
     hash={
-      <ForwardRef(LinkComponent)
+      <Link
         href="/transactions/76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857"
         passHref={true}
       >
@@ -29,7 +29,7 @@ exports[`screen: Home/Transactions/Mobile matches snapshot 1`] = `
         >
           76nwV8zz8tLz97S...hQ857
         </WithStyles(ForwardRef(Typography))>
-      </ForwardRef(LinkComponent)>
+      </Link>
     }
     id="SingleTransactionMobile"
     messages="12"

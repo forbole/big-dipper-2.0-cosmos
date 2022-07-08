@@ -19,17 +19,17 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
     <p
       className="MuiTypography-root label MuiTypography-body1"
     >
-      type
+      proposals:type
     </p>
     <p
       className="MuiTypography-root value MuiTypography-body1"
     >
-      
+      proposals:
     </p>
     <p
       className="MuiTypography-root label MuiTypography-body1"
     >
-      proposer
+      proposals:proposer
     </p>
     <div
       address=""
@@ -39,7 +39,7 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
     <p
       className="MuiTypography-root label MuiTypography-body1"
     >
-      submitTime
+      proposals:submitTime
     </p>
     <p
       className="MuiTypography-root value MuiTypography-body1"
@@ -49,7 +49,7 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
     <p
       className="MuiTypography-root label MuiTypography-body1"
     >
-      depositEndTime
+      proposals:depositEndTime
     </p>
     <p
       className="MuiTypography-root value MuiTypography-body1"
@@ -59,7 +59,7 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
     <p
       className="MuiTypography-root label MuiTypography-body1"
     >
-      description
+      proposals:description
     </p>
     <div
       id="Markdown"

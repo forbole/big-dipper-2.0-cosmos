@@ -58,7 +58,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
       <h4
         className="MuiTypography-root label MuiTypography-h4"
       >
-        website
+        validators:website
       </h4>
       <a
         className="MuiTypography-root value MuiTypography-body1"

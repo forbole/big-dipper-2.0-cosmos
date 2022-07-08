@@ -13,7 +13,7 @@ exports[`components: Pagination matches snapshot 1`] = `
     <p
       className="MuiTypography-root MuiTablePagination-caption MuiTypography-body2 MuiTypography-colorInherit"
     >
-      paginationLabelOne
+      common:paginationLabelOne
     </p>
     <div
       backIconButtonProps={

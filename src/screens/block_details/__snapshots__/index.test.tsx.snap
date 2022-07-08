@@ -3,7 +3,7 @@
 exports[`screen: BlockDetails matches snapshot 1`] = `
 <div
   id="Layout"
-  navTitle="blockDetails"
+  navTitle="blocks:blockDetails"
 >
   <div
     exists={true}

@@ -52,7 +52,7 @@ exports[`screen: Nav/Mobile it renders 1`] = `
         <p
           className="MuiTypography-root label MuiTypography-body1"
         >
-          marketCap
+          common:marketCap
         </p>
         <p
           className="MuiTypography-root MuiTypography-body1"
@@ -66,7 +66,7 @@ exports[`screen: Nav/Mobile it renders 1`] = `
         <p
           className="MuiTypography-root label MuiTypography-body1"
         >
-          inflation
+          common:inflation
         </p>
         <p
           className="MuiTypography-root MuiTypography-body1"
@@ -80,7 +80,7 @@ exports[`screen: Nav/Mobile it renders 1`] = `
         <p
           className="MuiTypography-root label MuiTypography-body1"
         >
-          apr
+          common:apr
         </p>
         <p
           className="MuiTypography-root MuiTypography-body1"
@@ -94,7 +94,7 @@ exports[`screen: Nav/Mobile it renders 1`] = `
         <p
           className="MuiTypography-root label MuiTypography-body1"
         >
-          supply
+          common:supply
         </p>
         <p
           className="MuiTypography-root MuiTypography-body1"
@@ -108,7 +108,7 @@ exports[`screen: Nav/Mobile it renders 1`] = `
         <p
           className="MuiTypography-root label MuiTypography-body1"
         >
-          communityPool
+          common:communityPool
         </p>
         <p
           className="MuiTypography-root MuiTypography-body1"
