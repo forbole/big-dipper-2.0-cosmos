@@ -19,7 +19,7 @@ jobs:
     # - name: Update tests
     #   run: npm test -- -u
     - name: Run tests
-      run: npm test -- --coverage
+      run: npm test -- -u --coverage
     # - name: Upload coverage 📤
     #   uses: codecov/codecov-action@v1
     #   with:
