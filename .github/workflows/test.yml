@@ -16,6 +16,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install modules
       run: npm ci
+    - name: Update tests
+      run: npm test -- -u
     - name: Run tests
       run: npm test -- --coverage
     # - name: Upload coverage 📤
