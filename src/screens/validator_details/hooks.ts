@@ -7,7 +7,7 @@ import { formatToken } from '@utils/format_token';
 import {
   useValidatorDetailsQuery,
   ValidatorDetailsQuery,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import { useDesmosProfile } from '@hooks';
 import { validatorToDelegatorAddress } from '@recoil/profiles';
 import { getValidatorCondition } from '@utils/get_validator_condition';
