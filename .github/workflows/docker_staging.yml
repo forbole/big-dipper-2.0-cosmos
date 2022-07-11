@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     branches:
-      - chains/desmos
+      - chains/osmosis
 
 jobs:
   Build-and-Publish:

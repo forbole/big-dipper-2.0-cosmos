@@ -72,7 +72,7 @@ jobs:
             org.opencontainers.image.revision=${{ github.sha }}
       - name: Deploy to Akash 🌐
         env:
-          DESMOS_AKASH_WEBHOOK_URL: ${{ secrets.DESMOS_AKASH_WEBHOOK_URL }}
+          OSMOSIS_AKASH_WEBHOOK_URL: ${{ secrets.OSMOSIS_AKASH_WEBHOOK_URL }}
           AKASH_WEBHOOK_SECRET: ${{ secrets.AKASH_WEBHOOK_SECRET }}
         run: |
             BRANCH=${GITHUB_REF}
