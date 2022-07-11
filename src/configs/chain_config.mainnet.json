@@ -95,6 +95,6 @@
     }
   },
   "extra": {
-    "profile": false
+    "profile": true
   }
 }
