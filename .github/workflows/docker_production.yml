@@ -3,7 +3,7 @@ name: Docker-Production
 on:
   push:
     tags:
-      - desmos-morpheus-apollo-1-v*
+      - osmosis-mainnet-v*
 
 jobs:
   Build-and-Publish:
