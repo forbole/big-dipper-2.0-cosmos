@@ -10,8 +10,8 @@ exports[`screen: Home matches snapshot 1`] = `
     id="DataBlocks"
   />
   <div
-    className="makeStyles-onlineVotingPower"
-    id="OnlineVotingPower"
+    className="makeStyles-hero"
+    id="hero"
   />
   <div
     className="makeStyles-tokenomics"
