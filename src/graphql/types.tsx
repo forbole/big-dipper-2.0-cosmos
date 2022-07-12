@@ -4432,6 +4432,139 @@ export enum Modules_Select_Column {
   ModuleName = 'module_name'
 }
 
+/** columns and relationships of "nft_mint" */
+export type Nft_Mint = {
+  __typename?: 'nft_mint';
+  denom_id: Scalars['String'];
+  token_id: Scalars['bigint'];
+  /** An object relationship */
+  transaction: Transaction;
+  transaction_hash: Scalars['String'];
+};
+
+/** aggregated selection of "nft_mint" */
+export type Nft_Mint_Aggregate = {
+  __typename?: 'nft_mint_aggregate';
+  aggregate?: Maybe<Nft_Mint_Aggregate_Fields>;
+  nodes: Array<Nft_Mint>;
+};
+
+/** aggregate fields of "nft_mint" */
+export type Nft_Mint_Aggregate_Fields = {
+  __typename?: 'nft_mint_aggregate_fields';
+  avg?: Maybe<Nft_Mint_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Nft_Mint_Max_Fields>;
+  min?: Maybe<Nft_Mint_Min_Fields>;
+  stddev?: Maybe<Nft_Mint_Stddev_Fields>;
+  stddev_pop?: Maybe<Nft_Mint_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Nft_Mint_Stddev_Samp_Fields>;
+  sum?: Maybe<Nft_Mint_Sum_Fields>;
+  var_pop?: Maybe<Nft_Mint_Var_Pop_Fields>;
+  var_samp?: Maybe<Nft_Mint_Var_Samp_Fields>;
+  variance?: Maybe<Nft_Mint_Variance_Fields>;
+};
+
+
+/** aggregate fields of "nft_mint" */
+export type Nft_Mint_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Nft_Mint_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Nft_Mint_Avg_Fields = {
+  __typename?: 'nft_mint_avg_fields';
+  token_id?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "nft_mint". All fields are combined with a logical 'AND'. */
+export type Nft_Mint_Bool_Exp = {
+  _and?: Maybe<Array<Nft_Mint_Bool_Exp>>;
+  _not?: Maybe<Nft_Mint_Bool_Exp>;
+  _or?: Maybe<Array<Nft_Mint_Bool_Exp>>;
+  denom_id?: Maybe<String_Comparison_Exp>;
+  token_id?: Maybe<Bigint_Comparison_Exp>;
+  transaction?: Maybe<Transaction_Bool_Exp>;
+  transaction_hash?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Nft_Mint_Max_Fields = {
+  __typename?: 'nft_mint_max_fields';
+  denom_id?: Maybe<Scalars['String']>;
+  token_id?: Maybe<Scalars['bigint']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Nft_Mint_Min_Fields = {
+  __typename?: 'nft_mint_min_fields';
+  denom_id?: Maybe<Scalars['String']>;
+  token_id?: Maybe<Scalars['bigint']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "nft_mint". */
+export type Nft_Mint_Order_By = {
+  denom_id?: Maybe<Order_By>;
+  token_id?: Maybe<Order_By>;
+  transaction?: Maybe<Transaction_Order_By>;
+  transaction_hash?: Maybe<Order_By>;
+};
+
+/** select columns of table "nft_mint" */
+export enum Nft_Mint_Select_Column {
+  /** column name */
+  DenomId = 'denom_id',
+  /** column name */
+  TokenId = 'token_id',
+  /** column name */
+  TransactionHash = 'transaction_hash'
+}
+
+/** aggregate stddev on columns */
+export type Nft_Mint_Stddev_Fields = {
+  __typename?: 'nft_mint_stddev_fields';
+  token_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Nft_Mint_Stddev_Pop_Fields = {
+  __typename?: 'nft_mint_stddev_pop_fields';
+  token_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Nft_Mint_Stddev_Samp_Fields = {
+  __typename?: 'nft_mint_stddev_samp_fields';
+  token_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Nft_Mint_Sum_Fields = {
+  __typename?: 'nft_mint_sum_fields';
+  token_id?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Nft_Mint_Var_Pop_Fields = {
+  __typename?: 'nft_mint_var_pop_fields';
+  token_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Nft_Mint_Var_Samp_Fields = {
+  __typename?: 'nft_mint_var_samp_fields';
+  token_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Nft_Mint_Variance_Fields = {
+  __typename?: 'nft_mint_variance_fields';
+  token_id?: Maybe<Scalars['Float']>;
+};
+
 
 /** Boolean expression to compare columns of type "numeric". All fields are combined with logical 'AND'. */
 export type Numeric_Comparison_Exp = {
@@ -6537,6 +6670,8 @@ export type Query_Root = {
   delegation: Array<Delegation>;
   /** fetch aggregated fields from the table: "delegation" */
   delegation_aggregate: Delegation_Aggregate;
+  /** fetch data from the table: "delegation" using primary key columns */
+  delegation_by_pk?: Maybe<Delegation>;
   /** fetch data from the table: "distribution_params" */
   distribution_params: Array<Distribution_Params>;
   /** fetch aggregated fields from the table: "distribution_params" */
@@ -6597,6 +6732,12 @@ export type Query_Root = {
   modules_aggregate: Modules_Aggregate;
   /** fetch data from the table: "modules" using primary key columns */
   modules_by_pk?: Maybe<Modules>;
+  /** fetch data from the table: "nft_mint" */
+  nft_mint: Array<Nft_Mint>;
+  /** fetch aggregated fields from the table: "nft_mint" */
+  nft_mint_aggregate: Nft_Mint_Aggregate;
+  /** fetch data from the table: "nft_mint" using primary key columns */
+  nft_mint_by_pk?: Maybe<Nft_Mint>;
   /** fetch data from the table: "pre_commit" */
   pre_commit: Array<Pre_Commit>;
   /** fetch aggregated fields from the table: "pre_commit" */
@@ -7156,6 +7297,12 @@ export type Query_RootDelegation_AggregateArgs = {
 };
 
 
+export type Query_RootDelegation_By_PkArgs = {
+  delegator_address: Scalars['String'];
+  validator_address: Scalars['String'];
+};
+
+
 export type Query_RootDistribution_ParamsArgs = {
   distinct_on?: Maybe<Array<Distribution_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -7403,6 +7550,30 @@ export type Query_RootModules_AggregateArgs = {
 
 export type Query_RootModules_By_PkArgs = {
   module_name: Scalars['String'];
+};
+
+
+export type Query_RootNft_MintArgs = {
+  distinct_on?: Maybe<Array<Nft_Mint_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Mint_Order_By>>;
+  where?: Maybe<Nft_Mint_Bool_Exp>;
+};
+
+
+export type Query_RootNft_Mint_AggregateArgs = {
+  distinct_on?: Maybe<Array<Nft_Mint_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Mint_Order_By>>;
+  where?: Maybe<Nft_Mint_Bool_Exp>;
+};
+
+
+export type Query_RootNft_Mint_By_PkArgs = {
+  denom_id: Scalars['String'];
+  token_id: Scalars['bigint'];
 };
 
 
@@ -8456,6 +8627,8 @@ export type Subscription_Root = {
   delegation: Array<Delegation>;
   /** fetch aggregated fields from the table: "delegation" */
   delegation_aggregate: Delegation_Aggregate;
+  /** fetch data from the table: "delegation" using primary key columns */
+  delegation_by_pk?: Maybe<Delegation>;
   /** fetch data from the table: "distribution_params" */
   distribution_params: Array<Distribution_Params>;
   /** fetch aggregated fields from the table: "distribution_params" */
@@ -8516,6 +8689,12 @@ export type Subscription_Root = {
   modules_aggregate: Modules_Aggregate;
   /** fetch data from the table: "modules" using primary key columns */
   modules_by_pk?: Maybe<Modules>;
+  /** fetch data from the table: "nft_mint" */
+  nft_mint: Array<Nft_Mint>;
+  /** fetch aggregated fields from the table: "nft_mint" */
+  nft_mint_aggregate: Nft_Mint_Aggregate;
+  /** fetch data from the table: "nft_mint" using primary key columns */
+  nft_mint_by_pk?: Maybe<Nft_Mint>;
   /** fetch data from the table: "pre_commit" */
   pre_commit: Array<Pre_Commit>;
   /** fetch aggregated fields from the table: "pre_commit" */
@@ -8989,6 +9168,12 @@ export type Subscription_RootDelegation_AggregateArgs = {
 };
 
 
+export type Subscription_RootDelegation_By_PkArgs = {
+  delegator_address: Scalars['String'];
+  validator_address: Scalars['String'];
+};
+
+
 export type Subscription_RootDistribution_ParamsArgs = {
   distinct_on?: Maybe<Array<Distribution_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9236,6 +9421,30 @@ export type Subscription_RootModules_AggregateArgs = {
 
 export type Subscription_RootModules_By_PkArgs = {
   module_name: Scalars['String'];
+};
+
+
+export type Subscription_RootNft_MintArgs = {
+  distinct_on?: Maybe<Array<Nft_Mint_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Mint_Order_By>>;
+  where?: Maybe<Nft_Mint_Bool_Exp>;
+};
+
+
+export type Subscription_RootNft_Mint_AggregateArgs = {
+  distinct_on?: Maybe<Array<Nft_Mint_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Mint_Order_By>>;
+  where?: Maybe<Nft_Mint_Bool_Exp>;
+};
+
+
+export type Subscription_RootNft_Mint_By_PkArgs = {
+  denom_id: Scalars['String'];
+  token_id: Scalars['bigint'];
 };
 
 
@@ -13621,6 +13830,17 @@ export type TokenPriceListenerSubscription = { tokenPrice: Array<(
     & { marketCap: Token_Price['market_cap'], unitName: Token_Price['unit_name'] }
   )> };
 
+export type TokenPriceHistoryQueryVariables = Exact<{
+  denom?: Maybe<Scalars['String']>;
+  limit?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type TokenPriceHistoryQuery = { tokenPrice: Array<(
+    { __typename?: 'token_price_history' }
+    & Pick<Token_Price_History, 'price' | 'timestamp'>
+  )> };
+
 export type TokenomicsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -15041,6 +15261,47 @@ export function useTokenPriceListenerSubscription(baseOptions?: Apollo.Subscript
       }
 export type TokenPriceListenerSubscriptionHookResult = ReturnType<typeof useTokenPriceListenerSubscription>;
 export type TokenPriceListenerSubscriptionResult = Apollo.SubscriptionResult<TokenPriceListenerSubscription>;
+export const TokenPriceHistoryDocument = gql`
+    query TokenPriceHistory($denom: String, $limit: Int = 10) {
+  tokenPrice: token_price_history(
+    where: {unit_name: {_eq: $denom}}
+    limit: $limit
+    order_by: {timestamp: desc}
+  ) {
+    price
+    timestamp
+  }
+}
+    `;
+
+/**
+ * __useTokenPriceHistoryQuery__
+ *
+ * To run a query within a React component, call `useTokenPriceHistoryQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTokenPriceHistoryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTokenPriceHistoryQuery({
+ *   variables: {
+ *      denom: // value for 'denom'
+ *      limit: // value for 'limit'
+ *   },
+ * });
+ */
+export function useTokenPriceHistoryQuery(baseOptions?: Apollo.QueryHookOptions<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>(TokenPriceHistoryDocument, options);
+      }
+export function useTokenPriceHistoryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>(TokenPriceHistoryDocument, options);
+        }
+export type TokenPriceHistoryQueryHookResult = ReturnType<typeof useTokenPriceHistoryQuery>;
+export type TokenPriceHistoryLazyQueryHookResult = ReturnType<typeof useTokenPriceHistoryLazyQuery>;
+export type TokenPriceHistoryQueryResult = Apollo.QueryResult<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>;
 export const TokenomicsDocument = gql`
     query Tokenomics {
   stakingParams: staking_params(limit: 1) {
