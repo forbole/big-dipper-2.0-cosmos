@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     branches:
-      - chains/desmos
+      - chains/osmosis
 
 jobs:
   Build-and-Publish:
@@ -16,10 +16,10 @@ jobs:
         id: prep
         run: |
           BRANCH=${GITHUB_REF#refs/heads/}
-          if [[ $GITHUB_REF == refs/heads/chains/desmos ]]; then
-            BRANCH="desmos"
+          if [[ $GITHUB_REF == refs/heads/chains/osmosis ]]; then
+            BRANCH="osmosis"
           elif [[ $GITHUB_REF == refs/pull/* ]]; then
-            BRANCH="osmosis-test"
+            BRANCH="build-test"
           fi
           echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
           echo ::set-output name=branch::${BRANCH}
