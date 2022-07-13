@@ -7,6 +7,7 @@
   "self": "Self",
   "commission": "Commission",
   "votingPower": "Voting Power",
+  "liquidStaking": "Liquid Staking",
   "condition": "Condition",
   "conditionExplanation": "The overall health of a validator within the current signed block window",
   "searchValidator": "Search Validator",
