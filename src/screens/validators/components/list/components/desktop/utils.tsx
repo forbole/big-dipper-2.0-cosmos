@@ -34,7 +34,7 @@ export const fetchColumns = (t): {
     {
       key: 'liquidStaking',
       sortKey: 'liquidStaking',
-      align: 'right',
+      align: 'center',
       width: 15,
       sort: true,
     },
