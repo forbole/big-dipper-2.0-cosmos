@@ -1,5 +1,8 @@
 # Unreleased
 
+## Fixes
+- Add missing dependency of `useEffect` in `useProfilesRecoil` to avoid desmos profile from not being loaded
+
 ## Changes
 - Update validator and account details to not be found if bech32 is invalid
 - Removed the use of NEXT_PUBLIC_URL
