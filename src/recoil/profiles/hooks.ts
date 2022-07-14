@@ -86,7 +86,7 @@ export const useProfilesRecoil = (addresses: string[]): AvatarName[] => {
     if (chainConfig.extra.profile) {
       fetchProfiles();
     }
-  }, []);
+  }, [delegatorAddresses]);
 
   return profiles;
 };
