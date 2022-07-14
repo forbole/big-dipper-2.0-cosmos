@@ -64,8 +64,8 @@ export const useProfilesRecoil = (addresses: string[]): AvatarName[] => {
   const fetchProfiles = useRecoilCallback(({ set }) => async () => {
     const fetchedProfiles = await Promise.all(rawProfiles.map(async (x, i) => {
       const delegatorAddress = delegatorAddresses[i];
-      if (delegatorAddresses[i] && x === null) {
-        const fetchedProfile = await getProfile(delegatorAddresses[i]);
+      if (delegatorAddress && x === null) {
+        const fetchedProfile = await getProfile(delegatorAddress);
         if (fetchedProfile === null) {
           set(writeProfile(delegatorAddress), null);
         } else {
