@@ -1,9 +1,9 @@
 {
   "title": "Sifchain Block Explorer",
   "network": "sifchain-1",
-  "icon": "/images/icon.png",
+  "icon": "/sifchain/images/icon.png",
   "logo": {
-    "default": "/images/logo.png"
+    "default": "/sifchain/images/logo.png"
   },
   "prefix": {
     "consensus": "sifvalcons",
