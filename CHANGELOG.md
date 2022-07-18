@@ -1,10 +1,13 @@
 # Unreleased
 
 ## Changes
-- Update validator and account details to not be found if bech32 is invalid
+- Updated validator and account details to not be found if bech32 is invalid
 - Removed the use of NEXT_PUBLIC_URL
-- Update graphql types generation structure (in preparation for third party modules)
-- Update preview image location
+- Updated graphql types generation structure (in preparation for third party modules)
+- Updated preview image location
+
+## Fixes
+- Take distribution proportion into account for APR calculation ([\#909](https://github.com/forbole/big-dipper-2.0-cosmos/pull/909))
 
 # base-v2.1.0 - 2021-04-19
 
