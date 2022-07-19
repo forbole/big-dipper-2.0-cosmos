@@ -1,4 +1,10 @@
 # Unreleased
+
+## Changes
+- 
+
+# sifchain-1-v1.0.2 - 2022-07-19
+
 ## Changes
 - Fixed sifchain price display format to solve price display 0 problem ([\#916](https://github.com/forbole/big-dipper-2.0-cosmos/issues/916)) 
 
@@ -11,7 +17,6 @@
 - Updated both changelog files ([\#889](https://github.com/forbole/big-dipper-2.0-cosmos/issues/889)) 
 - Updated font path ([\#896](https://github.com/forbole/big-dipper-2.0-cosmos/issues/896)) 
 - Fixed logo and icon not showing correctly problem ([\#905](https://github.com/forbole/big-dipper-2.0-cosmos/issues/905)) 
-
 
 
 # sifchain-1-v1.0.0 - 2022-06-16
