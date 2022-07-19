@@ -1,6 +1,10 @@
 # Unreleased
 
 ## Changes
+- 
+
+# likecoin-v2.2.3 - 2022-07-19
+## Changes
 - Fixed price display 0 problem ([\#919](https://github.com/forbole/big-dipper-2.0-cosmos/issues/919))
 - Updated all files to change url ([\#920](https://github.com/forbole/big-dipper-2.0-cosmos/issues/920))
 
