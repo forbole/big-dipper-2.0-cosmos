@@ -1,6 +1,10 @@
 # unreleased
 - update preview image (2022/07/12) (pr #900)
 - quick changelog update (2022/07/12) (pr #900)
+## Fixes
+- take distribution proportion into account for APR calculation (pr #909)
+
+
 
 # osmosis-mainnet-v1.0.0 - 2022-07-12
 ## Changes
