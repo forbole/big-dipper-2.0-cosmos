@@ -1,24 +1,24 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "desmos-mainnet-1",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
+  "title": "AssetMantle Block Explorer",
+  "network": "assetmantle-mainnet-mantle-1",
+  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/assetmantle/icon.svg?sanitize=true",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
+    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/assetmantle/desmos/logo.svg?sanitize=true"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "mantlevalcons",
+    "validator": "mantlevaloper",
+    "account": "mantle"
   },
   "genesis": {
     "time": "2021-07-13T08:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udsm",
-  "votingPowerTokenUnit": "udsm",
+  "primaryTokenUnit": "umntl",
+  "votingPowerTokenUnit": "umntl",
   "tokenUnits": {
-    "udsm": {
-      "display": "dsm",
+    "umntl": {
+      "display": "mntl",
       "exponent": 6
     }
   },
