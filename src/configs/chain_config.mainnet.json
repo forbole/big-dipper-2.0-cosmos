@@ -1,9 +1,9 @@
 {
   "title": "Bitsong Block Explorer",
   "network": "bitsong-2",
-  "icon": "/images/icon.svg",
+  "icon": "/bitsong/images/icon.svg",
   "logo": {
-    "default": "/images/logo.svg"
+    "default": "/bitsong/images/logo.svg"
   },
   "prefix": {
     "consensus": "bitsongvalcons",
