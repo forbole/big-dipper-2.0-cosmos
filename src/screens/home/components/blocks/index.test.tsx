@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import {
   MockTheme, wait,
@@ -9,7 +10,7 @@ import {
 import { ApolloProvider } from '@apollo/client';
 import {
   BlocksListenerDocument,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import Blocks from '.';
 
 // ==================================
@@ -64,11 +65,13 @@ describe('screen: Home/Blocks/Mobile', () => {
 
     renderer.act(() => {
       component = renderer.create(
-        <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <Blocks />
-          </MockTheme>
-        </ApolloProvider>,
+        <RecoilRoot>
+          <ApolloProvider client={mockClient}>
+            <MockTheme>
+              <Blocks />
+            </MockTheme>
+          </ApolloProvider>
+        </RecoilRoot>,
       );
     });
 

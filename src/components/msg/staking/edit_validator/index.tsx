@@ -4,16 +4,15 @@ import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgEditValidator } from '@models';
 import { VALIDATOR_DETAILS } from '@utils/go_to_page';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const EditValidator = (props: {
   message: MsgEditValidator;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
 
-  const validator = findAddress(message.validatorAddress);
-  const validatorMoniker = validator ? validator?.moniker : message
+  const validator = useProfileRecoil(message.validatorAddress);
+  const validatorMoniker = validator ? validator?.name : message
     .validatorAddress;
 
   return (

@@ -1,7 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
+import Big from 'big.js';
 import numeral from 'numeral';
 import * as R from 'ramda';
+import { useRecoilValue } from 'recoil';
+import { readMarket } from '@recoil/market';
 import {
   Typography,
   Divider,
@@ -15,7 +18,7 @@ import {
 import useTranslation from 'next-translate/useTranslation';
 import { Box } from '@components';
 import { chainConfig } from '@configs';
-import { useChainContext } from '@contexts';
+import { formatNumber } from '@utils/format_token';
 import { useStyles } from './styles';
 import { formatBalanceData } from './utils';
 
@@ -32,7 +35,7 @@ const Balance: React.FC<{
   const {
     classes, theme,
   } = useStyles();
-  const { market } = useChainContext();
+  const market = useRecoilValue(readMarket);
   const formattedChartData = formatBalanceData(props);
 
   const empty = {
@@ -52,14 +55,18 @@ const Balance: React.FC<{
 
   const formatData = formattedChartData.map((x, i) => ({
     ...x,
+    value: numeral(x.value).value(),
     background: backgrounds[i],
   }));
 
-  const notEmpty = formatData.some((x) => x.value > 0);
+  const notEmpty = formatData.some((x) => Big(x.value).gt(0));
 
-  const dataCount = formatData.filter((x) => x.value > 0).length;
+  const dataCount = formatData.filter((x) => Big(x.value).gt(0)).length;
   const data = notEmpty ? formatData : [...formatData, empty];
-  const totalAmount = `$${numeral(market.price * props.total.value).format('0,0.00')}`;
+  const totalAmount = `$${numeral(Big(market.price || 0).times(props.total.value).toPrecision()).format('0,0.00')}`;
+
+  // format
+  const totalDisplay = formatNumber(props.total.value, props.total.exponent);
 
   return (
     <Box className={classnames(props.className, classes.root)}>
@@ -120,11 +127,11 @@ const Balance: React.FC<{
           <div className="total__single--container">
             <Typography variant="h3" className="label">
               {t('total', {
-                unit: props.total.denom.toUpperCase(),
+                unit: props.total.displayDenom.toUpperCase(),
               })}
             </Typography>
             <Typography variant="h3">
-              {numeral(props.total.value).format(props.total.format)}
+              {totalDisplay}
             </Typography>
           </div>
           <div className="total__secondary--container total__single--container">

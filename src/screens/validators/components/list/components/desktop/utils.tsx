@@ -22,13 +22,13 @@ export const fetchColumns = (t): {
     {
       key: 'validator',
       sortKey: 'validator.name',
-      width: 20,
+      width: 25,
       sort: true,
     },
     {
       key: 'votingPower',
       sortKey: 'votingPower',
-      width: 20,
+      width: 30,
       sort: true,
     },
     {
@@ -39,23 +39,9 @@ export const fetchColumns = (t): {
       sort: true,
     },
     {
-      key: 'self',
-      sortKey: 'selfPercent',
-      align: 'right',
-      width: 10,
-      sort: true,
-    },
-    {
-      key: 'delegators',
-      sortKey: 'delegators',
-      align: 'right',
-      width: 15,
-      sort: true,
-    },
-    {
       key: 'condition',
       align: 'center',
-      width: 14,
+      width: 15,
       component: (
         <Typography variant="h4" className="label popover">
           {t('condition')}
@@ -64,6 +50,10 @@ export const fetchColumns = (t): {
           />
         </Typography>
       ),
+    },
+    {
+      key: 'status',
+      width: 10,
     },
   ]);
 };

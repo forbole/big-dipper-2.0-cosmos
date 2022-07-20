@@ -4,26 +4,34 @@ import {
   useBlocksListenerSubscription,
   useBlocksQuery,
   BlocksListenerSubscription,
-} from '@graphql/types';
-import { useChainContext } from '@contexts';
+} from '@graphql/types/general_types';
 import {
   BlocksState, BlockType,
 } from './types';
 
 export const useBlocks = () => {
-  const { findAddress } = useChainContext();
   const [state, setState] = useState<BlocksState>({
     loading: true,
     exists: true,
     items: [],
     hasNextPage: false,
     isNextPageLoading: false,
-    rawDataTotal: 0,
   });
 
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
+
+  // This is a bandaid as it can get extremely
+  // expensive if there is too much data
+  /**
+   * Helps remove any possible duplication
+   * and sorts by height in case it bugs out
+   */
+  const uniqueAndSort = R.pipe(
+    R.uniqBy(R.prop('height')),
+    R.sort(R.descend(R.prop('height'))),
+  );
 
   // ================================
   // block subscription
@@ -34,12 +42,13 @@ export const useBlocks = () => {
       offset: 0,
     },
     onSubscriptionData: (data) => {
+      const newItems = uniqueAndSort([
+        ...formatBlocks(data.subscriptionData.data),
+        ...state.items,
+      ]);
       handleSetState({
         loading: false,
-        items: [
-          ...formatBlocks(data.subscriptionData.data),
-          ...state.items,
-        ],
+        items: newItems,
       });
     },
   });
@@ -47,9 +56,10 @@ export const useBlocks = () => {
   // ================================
   // block query
   // ================================
+  const LIMIT = 51;
   const blockQuery = useBlocksQuery({
     variables: {
-      limit: 50,
+      limit: LIMIT,
       offset: 1,
     },
     onError: () => {
@@ -58,13 +68,16 @@ export const useBlocks = () => {
       });
     },
     onCompleted: (data) => {
-      const newItems = R.uniq([...state.items, ...formatBlocks(data)]);
+      const itemsLength = data.blocks.length;
+      const newItems = uniqueAndSort([
+        ...state.items,
+        ...formatBlocks(data),
+      ]);
       handleSetState({
         loading: false,
         items: newItems,
-        hasNextPage: newItems.length < data.total.aggregate.count,
+        hasNextPage: itemsLength === 51,
         isNextPageLoading: false,
-        rawDataTotal: data.total.aggregate.count,
       });
     },
   });
@@ -77,37 +90,37 @@ export const useBlocks = () => {
     await blockQuery.fetchMore({
       variables: {
         offset: state.items.length,
-        limit: 50,
+        limit: LIMIT,
       },
     }).then(({ data }) => {
-      const newItems = R.uniq([
+      const itemsLength = data.blocks.length;
+      const newItems = uniqueAndSort([
         ...state.items,
         ...formatBlocks(data),
       ]);
+
       // set new state
       handleSetState({
         items: newItems,
         isNextPageLoading: false,
-        hasNextPage: newItems.length < data.total.aggregate.count,
-        rawDataTotal: data.total.aggregate.count,
+        hasNextPage: itemsLength === 51,
       });
     });
   };
 
   const formatBlocks = (data: BlocksListenerSubscription): BlockType[] => {
-    return data.blocks.map((x) => {
+    let formattedData = data.blocks;
+    if (data.blocks.length === 51) {
+      formattedData = data.blocks.slice(0, 51);
+    }
+    return formattedData.map((x) => {
       const proposerAddress = R.pathOr('', ['validator', 'validatorInfo', 'operatorAddress'], x);
-      const proposer = findAddress(proposerAddress);
       return ({
         height: x.height,
         txs: x.txs,
         hash: x.hash,
         timestamp: x.timestamp,
-        proposer: {
-          address: proposerAddress,
-          imageUrl: proposer.imageUrl,
-          name: proposer.moniker,
-        },
+        proposer: proposerAddress,
       });
     });
   };

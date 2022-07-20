@@ -64,5 +64,11 @@
   "txMsgEditFanToken": "Edit Fan Token",
   "txMsgMintFanToken": "Mint Fan Token",
   "txMsgBurnFanToken": "Burn Fan Token",
-  "txMsgTransferFanTokenOwner": "Transfer Fan Token"
+  "txMsgTransferFanTokenOwner": "Transfer Fan Token",
+  "MsgGrant": "Grant",
+  "MsgRevoke": "Revoke",
+  "MsgGrantAllowance": "Grant Allowance",
+  "MsgRevokeAllowance": "Revoke Allowance",
+  "MsgCreateVestingAccount": "Create Vesting Account",
+  "MsgCreatePeriodicVestingAccount": "Create Periodic Vesting Account"
 }

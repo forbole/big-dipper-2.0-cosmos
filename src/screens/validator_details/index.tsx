@@ -22,13 +22,8 @@ const ValidatorDetails = () => {
   const classes = useStyles();
   const {
     state,
-    loadNextPage,
   } = useValidatorDetails();
   const {
-    overview,
-    delegations,
-    redelegations,
-    undelegations,
     desmosProfile,
     status,
   } = state;
@@ -50,52 +45,30 @@ const ValidatorDetails = () => {
             {desmosProfile ? (
               <DesmosProfile
                 className={classes.profile}
-                dtag={desmosProfile.dtag}
-                nickname={desmosProfile.nickname}
-                imageUrl={desmosProfile.imageUrl}
-                coverUrl={desmosProfile.coverUrl}
-                bio={desmosProfile.bio}
-                connections={desmosProfile.connections}
+                {...desmosProfile}
               />
             ) : (
               <Profile
                 className={classes.profile}
-                validator={overview.validator}
-                operatorAddress={overview.operatorAddress}
-                selfDelegateAddress={overview.selfDelegateAddress}
-                description={overview.description}
-                website={overview.website}
+                profile={state.overview}
               />
             )}
             <ValidatorOverview
               className={classes.address}
-              operatorAddress={overview.operatorAddress}
-              selfDelegateAddress={overview.selfDelegateAddress}
-              status={status.status}
-              jailed={status.jailed}
-              condition={status.condition}
-              commission={status.commission}
-              signedBlockWindow={status.signedBlockWindow}
-              missedBlockCounter={status.missedBlockCounter}
-              lastSeen={status.lastSeen}
+              overview={state.overview}
+              status={state.status}
             />
             <VotingPower
               className={classes.votingPower}
               data={state.votingPower}
+              status={status.status}
             />
             <Blocks className={classes.blocks} />
             <Staking
               className={classes.staking}
-              delegations={delegations}
-              redelegations={redelegations}
-              undelegations={undelegations}
             />
             <Transactions
               className={classes.transactions}
-              loadNextPage={loadNextPage}
-              data={state.transactions.data}
-              hasNextPage={state.transactions.hasNextPage}
-              isNextPageLoading={state.transactions.isNextPageLoading}
             />
           </span>
         </LoadAndExist>

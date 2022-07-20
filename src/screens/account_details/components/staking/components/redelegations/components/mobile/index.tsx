@@ -2,26 +2,25 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import dayjs, { formatDayJs } from '@utils/dayjs';
-import numeral from 'numeral';
 import {
   Divider, Typography,
 } from '@material-ui/core';
-import { useSettingsContext } from '@contexts';
+import { useRecoilValue } from 'recoil';
+import { readDate } from '@recoil/settings';
 import { AvatarName } from '@components';
-import { RedelegationType } from '@src/screens/account_details/types';
+import { formatNumber } from '@utils/format_token';
 import { useStyles } from './styles';
+import { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;
-  items?: RedelegationType[];
+  items?: ItemType[];
 }> = ({
   className, items,
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('accounts');
-  const {
-    dateFormat,
-  } = useSettingsContext();
+  const dateFormat = useRecoilValue(readDate);
   const formattedItems = items.map((x) => {
     return ({
       to: (
@@ -38,8 +37,8 @@ const Mobile: React.FC<{
           name={x.from.name}
         />
       ),
-      linkedUntil: formatDayJs(dayjs.utc(x.linkedUntil), dateFormat),
-      amount: `${numeral(x.amount.value).format(x.amount.format)} ${x.amount.denom.toUpperCase()}`,
+      amount: `${formatNumber(x.amount.value, x.amount.exponent)} ${x.amount.displayDenom.toUpperCase()}`,
+      completionTime: formatDayJs(dayjs.utc(x.completionTime), dateFormat),
     });
   });
 
@@ -63,19 +62,15 @@ const Mobile: React.FC<{
               </div>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
-                  {t('amount')}
+                  {t('completionTime')}
                 </Typography>
-                <Typography variant="body1" className="value">
-                  {x.amount}
-                </Typography>
+                {x.completionTime}
               </div>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
-                  {t('linkedUntil')}
+                  {t('amount')}
                 </Typography>
-                <Typography variant="body1" className="value">
-                  {x.linkedUntil}
-                </Typography>
+                {x.amount}
               </div>
             </div>
             {i !== items.length - 1 && <Divider />}

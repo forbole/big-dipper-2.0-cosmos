@@ -79,6 +79,12 @@ import MsgEditFanToken from './msg/fantoken/msg_edit_fan_token';
 import MsgMintFanToken from './msg/fantoken/msg_mint_fan_token';
 import MsgBurnFanToken from './msg/fantoken/msg_burn_fan_token';
 import MsgTransferFanTokenOwner from './msg/fantoken/msg_transfer_fan_token';
+import MsgGrant from './msg/authz/msg_grant';
+import MsgRevoke from './msg/authz/msg_revoke';
+import MsgGrantAllowance from './msg/feegrant/msg_grant_allowance';
+import MsgRevokeAllowance from './msg/feegrant/msg_revoke_allowance';
+import MsgCreateVestingAccount from './msg/vesting/msg_create_vesting_account';
+import MsgCreatePeriodicVestingAccount from './msg/vesting/msg_create_periodic_vesting_account';
 
 export {
   BigDipperNetwork,
@@ -162,4 +168,10 @@ export {
   MsgMintFanToken,
   MsgBurnFanToken,
   MsgTransferFanTokenOwner,
+  MsgGrant,
+  MsgRevoke,
+  MsgGrantAllowance,
+  MsgRevokeAllowance,
+  MsgCreateVestingAccount,
+  MsgCreatePeriodicVestingAccount,
 };

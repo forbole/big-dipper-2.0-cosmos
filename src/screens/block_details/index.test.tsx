@@ -7,7 +7,7 @@ import {
 } from '@tests/utils';
 import {
   BlockDetailsDocument,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import BlockDetails from '.';
 
 // ==================================
@@ -18,15 +18,6 @@ jest.mock('next/router', () => ({
     query: {
       height: 300,
     },
-  }),
-}));
-
-jest.mock('@contexts', () => ({
-  useChainContext: () => ({
-    findAddress: jest.fn(() => ({
-      moniker: 'moniker',
-      imageUrl: null,
-    })),
   }),
 }));
 

@@ -4,7 +4,7 @@ import {
   useTransactionsQuery,
   useTransactionsListenerSubscription,
   TransactionsListenerSubscription,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import { convertMsgsToModels } from '@msg';
 import { TransactionsState } from './types';
 
@@ -14,13 +14,23 @@ export const useTransactions = () => {
     exists: true,
     hasNextPage: false,
     isNextPageLoading: false,
-    rawDataTotal: 0,
     items: [],
   });
 
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
+
+  // This is a bandaid as it can get extremely
+  // expensive if there is too much data
+  /**
+   * Helps remove any possible duplication
+   * and sorts by height in case it bugs out
+   */
+  const uniqueAndSort = R.pipe(
+    R.uniqBy(R.prop('hash')),
+    R.sort(R.descend(R.prop('height'))),
+  );
 
   // ================================
   // tx subscription
@@ -31,12 +41,13 @@ export const useTransactions = () => {
       offset: 0,
     },
     onSubscriptionData: (data) => {
+      const newItems = uniqueAndSort([
+        ...formatTransactions(data.subscriptionData.data),
+        ...state.items,
+      ]);
       handleSetState({
         loading: false,
-        items: [
-          ...formatTransactions(data.subscriptionData.data),
-          ...state.items,
-        ],
+        items: newItems,
       });
     },
   });
@@ -44,9 +55,10 @@ export const useTransactions = () => {
   // ================================
   // tx query
   // ================================
+  const LIMIT = 51;
   const transactionQuery = useTransactionsQuery({
     variables: {
-      limit: 50,
+      limit: LIMIT,
       offset: 1,
     },
     onError: () => {
@@ -55,12 +67,16 @@ export const useTransactions = () => {
       });
     },
     onCompleted: (data) => {
-      const newItems = R.uniq([...state.items, ...formatTransactions(data)]);
+      const itemsLength = data.transactions.length;
+      const newItems = uniqueAndSort([
+        ...state.items,
+        ...formatTransactions(data),
+      ]);
       handleSetState({
+        loading: false,
         items: newItems,
-        hasNextPage: newItems.length < data.total.aggregate.count,
+        hasNextPage: itemsLength === 51,
         isNextPageLoading: false,
-        rawDataTotal: data.total.aggregate.count,
       });
     },
   });
@@ -73,10 +89,11 @@ export const useTransactions = () => {
     await transactionQuery.fetchMore({
       variables: {
         offset: state.items.length,
-        limit: 50,
+        limit: LIMIT,
       },
     }).then(({ data }) => {
-      const newItems = R.uniq([
+      const itemsLength = data.transactions.length;
+      const newItems = uniqueAndSort([
         ...state.items,
         ...formatTransactions(data),
       ]);
@@ -84,14 +101,18 @@ export const useTransactions = () => {
       handleSetState({
         items: newItems,
         isNextPageLoading: false,
-        hasNextPage: newItems.length < data.total.aggregate.count,
-        rawDataTotal: data.total.aggregate.count,
+        hasNextPage: itemsLength === 51,
       });
     });
   };
 
   const formatTransactions = (data: TransactionsListenerSubscription) => {
-    return data.transactions.map((x) => {
+    let formattedData = data.transactions;
+    if (data.transactions.length === 51) {
+      formattedData = data.transactions.slice(0, 51);
+    }
+
+    return formattedData.map((x) => {
       const messages = convertMsgsToModels(x);
       return ({
         height: x.height,

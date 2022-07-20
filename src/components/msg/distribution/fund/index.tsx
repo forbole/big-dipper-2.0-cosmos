@@ -1,27 +1,27 @@
 import React from 'react';
-import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
-import { formatDenom } from '@utils/format_denom';
+import {
+  formatToken, formatNumber,
+} from '@utils/format_token';
 import { Name } from '@components';
 import { MsgFundCommunityPool } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const Fund = (props: {
   message : MsgFundCommunityPool;
 }) => {
   const { t } = useTranslation('transactions');
-  const { findAddress } = useChainContext();
   const { message } = props;
 
   const parsedAmount = message?.amount?.map((x) => {
-    const amount = formatDenom(x.amount, x.denom);
-    return `${numeral(amount.value).format(amount.format)} ${amount.denom.toUpperCase()}`;
+    const amount = formatToken(x.amount, x.denom);
+    return `${formatNumber(amount.value, amount.exponent)} ${amount.displayDenom.toUpperCase()}`;
   }).reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
 
-  const depositor = findAddress(message.depositor);
-  const depositorMoniker = depositor ? depositor?.moniker : message.depositor;
+  const depositor = useProfileRecoil(message.depositor);
+  const depositorMoniker = depositor ? depositor?.name : message.depositor;
 
   return (
     <Typography>

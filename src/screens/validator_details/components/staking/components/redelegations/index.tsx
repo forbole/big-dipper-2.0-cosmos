@@ -1,28 +1,25 @@
 import React from 'react';
+import * as R from 'ramda';
 import dynamic from 'next/dynamic';
 import classnames from 'classnames';
 import {
-  usePagination,
-  useScreenSize,
+  usePagination, useScreenSize,
 } from '@hooks';
 import {
-  Pagination, NoData,
+  NoData, Pagination, Loading,
 } from '@components';
+import {
+  useProfilesRecoil,
+} from '@recoil/profiles';
 import { useStyles } from './styles';
-import { RedelegationType } from '../../../../types';
+import { RedelegationsType } from '../../types';
 
 const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
 
 const Redelegations: React.FC<{
-  className?: string;
-  data: RedelegationType[];
-  count: number;
-}> = ({
-  className,
-  data,
-  count,
-}) => {
+  redelegations: RedelegationsType,
+} & ComponentDefault> = (props) => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const {
@@ -30,27 +27,40 @@ const Redelegations: React.FC<{
     rowsPerPage,
     handleChangePage,
     handleChangeRowsPerPage,
-    sliceItems,
   } = usePagination({});
 
-  const items = sliceItems(data);
+  const pageItems = R.pathOr([], ['redelegations', 'data', page], props);
+
+  const toProfiles = useProfilesRecoil(pageItems.map((x) => x.to));
+  const addressProfiles = useProfilesRecoil(pageItems.map((x) => x.address));
+  const mergedDataWithProfiles = pageItems.map((x, i) => {
+    return ({
+      ...x,
+      to: toProfiles[i],
+      address: addressProfiles[i],
+    });
+  });
+
+  const items = mergedDataWithProfiles;
+
+  let component = null;
+
+  if (props.redelegations.loading) {
+    component = <Loading />;
+  } else if (!items.length) {
+    component = <NoData />;
+  } else if (isDesktop) {
+    component = <Desktop items={items} />;
+  } else {
+    component = <Mobile items={items} />;
+  }
 
   return (
-    <div className={classnames(className)}>
-      {items.length ? (
-        <>
-          {isDesktop ? (
-            <Desktop className={classes.desktop} items={items} />
-          ) : (
-            <Mobile className={classes.mobile} items={items} />
-          )}
-        </>
-      ) : (
-        <NoData />
-      )}
+    <div className={classnames(props.className)}>
+      {component}
       <Pagination
         className={classes.paginate}
-        total={count}
+        total={props.redelegations.count}
         rowsPerPage={rowsPerPage}
         page={page}
         handleChangePage={handleChangePage}

@@ -7,7 +7,7 @@ import {
 } from '@tests/utils';
 import {
   TransactionDetailsDocument,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import TransactionDetails from '.';
 
 // ==================================
@@ -34,6 +34,7 @@ jest.mock('@components', () => ({
 jest.mock('./components', () => ({
   Overview: (props) => <div id="Overview" {...props} />,
   Messages: (props) => <div id="Messages" {...props} />,
+  Logs: (props) => <div id="Logs" {...props} />,
 }));
 
 const mockTransactionDetailsDocument = jest.fn().mockResolvedValue({

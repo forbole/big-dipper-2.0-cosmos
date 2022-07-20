@@ -3,27 +3,27 @@ import Link from 'next/link';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
-import numeral from 'numeral';
 import { Name } from '@components';
 import { MsgDeposit } from '@models';
-import { formatDenom } from '@utils/format_denom';
-import { useChainContext } from '@contexts';
+import {
+  formatToken, formatNumber,
+} from '@utils/format_token';
+import { useProfileRecoil } from '@recoil/profiles';
 import { PROPOSAL_DETAILS } from '@utils/go_to_page';
 
 const DepositProposal = (props: {
   message: MsgDeposit;
 }) => {
-  const { findAddress } = useChainContext();
   const { t } = useTranslation('transactions');
   const { message } = props;
 
   const parsedAmount = message?.amount?.map((x) => {
-    const amount = formatDenom(x.amount, x.denom);
-    return `${numeral(amount.value).format(amount.format)} ${amount.denom.toUpperCase()}`;
+    const amount = formatToken(x.amount, x.denom);
+    return `${formatNumber(amount.value, amount.exponent)} ${amount.displayDenom.toUpperCase()}`;
   }).reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
 
-  const depositor = findAddress(message.depositor);
-  const depositorMoniker = depositor ? depositor?.moniker : message.depositor;
+  const depositor = useProfileRecoil(message.depositor);
+  const depositorMoniker = depositor ? depositor?.name : message.depositor;
 
   const Proposal = () => {
     return (

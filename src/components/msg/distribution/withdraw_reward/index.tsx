@@ -1,25 +1,24 @@
 import React from 'react';
-import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgWithdrawDelegatorReward } from '@models';
-import { useChainContext } from '@contexts';
+import { formatNumber } from '@utils/format_token';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const WithdrawReward = (props: {
   message: MsgWithdrawDelegatorReward;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
-  const delegator = findAddress(message.delegatorAddress);
-  const delegatorMoniker = delegator ? delegator?.moniker : message.delegatorAddress;
+  const delegator = useProfileRecoil(message.delegatorAddress);
+  const delegatorMoniker = delegator ? delegator?.name : message.delegatorAddress;
 
-  const validator = findAddress(message.validatorAddress);
-  const validatorMoniker = validator ? validator?.moniker : message
+  const validator = useProfileRecoil(message.validatorAddress);
+  const validatorMoniker = validator ? validator?.name : message
     .validatorAddress;
 
   const parsedAmount = message.amounts.map((x) => {
-    return `${numeral(x.value).format(x.format)} ${x.denom.toUpperCase()}`;
+    return `${formatNumber(x.value, x.exponent)} ${x.displayDenom.toUpperCase()}`;
   }).join(', ');
 
   return (

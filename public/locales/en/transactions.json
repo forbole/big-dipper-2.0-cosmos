@@ -32,5 +32,9 @@
   "details": "Details",
   "nft": "NFT",
   "auction": "Auction",
-  "fantoken": "Fan Token"
+  "fantoken": "Fan Token",
+  "authz": "Authz",
+  "feegrant": "Feegrant",
+  "vesting": "Vesting",
+  "logs": "Logs"
 }

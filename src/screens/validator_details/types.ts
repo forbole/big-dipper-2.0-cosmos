@@ -1,8 +1,5 @@
 export type OverviewType = {
-  validator: {
-    imageUrl: string;
-    moniker: string;
-  };
+  validator: string;
   operatorAddress: string;
   selfDelegateAddress: string;
   description: string;
@@ -12,38 +9,18 @@ export type OverviewType = {
 export type StatusType = {
   status: number;
   jailed: boolean;
+  tombstoned: boolean;
   condition: number;
   commission: number;
   signedBlockWindow: number;
   missedBlockCounter: number;
-  lastSeen: string;
+  maxRate: string;
 }
 
 export type VotingPowerType = {
   height: number;
   overall: TokenUnit;
   self: number;
-  selfDelegatePercent: number;
-  selfDelegate: TokenUnit;
-}
-
-export type DelegationType = {
-  delegator: AvatarName;
-  amount: TokenUnit;
-}
-
-export type RedelegationType = {
-  to: AvatarName;
-  from: AvatarName;
-  delegator: AvatarName;
-  linkedUntil: string;
-  amount: TokenUnit;
-}
-
-export type UndelegationType = {
-  delegator: AvatarName;
-  amount: TokenUnit;
-  linkedUntil: string;
 }
 
 export type ValidatorDetailsState = {
@@ -53,22 +30,4 @@ export type ValidatorDetailsState = {
   overview: OverviewType;
   status: StatusType;
   votingPower: VotingPowerType;
-  delegations: {
-    data: DelegationType[];
-    count: number;
-  }
-  redelegations: {
-    data: RedelegationType[];
-    count: number;
-  }
-  undelegations: {
-    data: UndelegationType[];
-    count: number;
-  }
-  transactions: {
-    hasNextPage: boolean;
-    isNextPageLoading: boolean;
-    offsetCount: number;
-    data: Transactions[];
-  };
 }

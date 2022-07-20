@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import Overview from '.';
@@ -8,10 +9,14 @@ import Overview from '.';
 // ==================================
 jest.mock('@components', () => ({
   SingleProposal: (props) => <div id="SingleProposal" {...props} />,
-  AvatarName: (props) => <div id="AvatarName" {...props} />,
+  Name: (props) => <div id="Name" {...props} />,
   Box: (props) => <div id="Box" {...props} />,
-  Tag: (props) => <div id="Tag" {...props} />,
   Markdown: (props) => <div id="Markdown" {...props} />,
+}));
+
+jest.mock('./components', () => ({
+  ParamsChange: (props) => <div id="ParamsChange" {...props} />,
+  SoftwareUpgrade: (props) => <div id="SoftwareUpgrade" {...props} />,
 }));
 
 // ==================================
@@ -20,19 +25,24 @@ jest.mock('@components', () => ({
 describe('screen: BlockDetails/Overview', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
-      <MockTheme>
-        <Overview
-          title="title"
-          id={10}
-          description="description"
-          status="status"
-          submitTime=""
-          depositEndTime=""
-          votingEndTime={null}
-          votingStartTime={null}
-          content=""
-        />
-      </MockTheme>,
+      <RecoilRoot>
+        <MockTheme>
+          <Overview
+            overview={{
+              content: '',
+              proposer: '',
+              title: 'title',
+              id: 10,
+              description: 'description',
+              status: 'status',
+              submitTime: 'submitTime',
+              depositEndTime: 'depositEndTime',
+              votingEndTime: null,
+              votingStartTime: null,
+            }}
+          />
+        </MockTheme>
+      </RecoilRoot>,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

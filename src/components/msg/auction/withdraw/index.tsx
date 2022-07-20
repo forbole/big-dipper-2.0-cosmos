@@ -4,16 +4,15 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgWithdraw } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const Withdraw = (props: {
   message: MsgWithdraw;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
 
-  const recipient = findAddress(message.recipient);
-  const recipientMoniker = recipient ? recipient?.moniker : message.recipient;
+  const recipient = useProfileRecoil(message.recipient);
+  const recipientMoniker = recipient ? recipient?.name : message.recipient;
 
   return (
     <Typography>

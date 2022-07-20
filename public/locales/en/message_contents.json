@@ -65,5 +65,11 @@
   "txMsgEditFanToken": "<0>{{owner}}</0> edited a fan token",
   "txMsgMintFanToken": "<0>{{recipient}}</0> minted a fan token",
   "txMsgBurnFanToken": "<0>{{sender}}</0> burned a fan token",
-  "txMsgTransferFanTokenOwner": "<0>{{srcOwner}}</0> transfered <1>{{symbol}}</1> to <2>{{dstOwner}}</2>"
+  "txMsgTransferFanTokenOwner": "<0>{{srcOwner}}</0> transfered <1>{{symbol}}</1> to <2>{{dstOwner}}</2>",
+  "MsgGrant": "<0>{{granter}}</0> authorized a grant for <1>{{grantee}}</1>",
+  "MsgRevoke": "<0>{{granter}}</0> revoked a grant for <1>{{grantee}}</1>",
+  "MsgGrantAllowance": "<0>{{granter}}</0> granted allowance for <1>{{grantee}}</1>",
+  "MsgRevokeAllowance": "<0>{{granter}}</0> revoked allowance for <1>{{grantee}}</1>",
+  "MsgCreateVestingAccount": "Vesting account created for <0>{{toAddress}}</0>",
+  "MsgCreatePeriodicVestingAccount": "Periodic vesting account created for <0>{{toAddress}}</0>"
 }

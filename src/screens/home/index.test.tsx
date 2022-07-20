@@ -7,7 +7,7 @@ import { createMockClient } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
 import {
   LatestBlockTimestampDocument,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import Home from '.';
 
 // ==================================
@@ -19,7 +19,7 @@ jest.mock('@components', () => ({
 
 jest.mock('./components', () => ({
   DataBlocks: (props) => <div id="DataBlocks" {...props} />,
-  OnlineVotingPower: (props) => <div id="OnlineVotingPower" {...props} />,
+  Hero: (props) => <div id="Hero" {...props} />,
   Consensus: (props) => <div id="Consensus" {...props} />,
   Tokenomics: (props) => <div id="Tokenomics" {...props} />,
   Blocks: (props) => <div id="Blocks" {...props} />,

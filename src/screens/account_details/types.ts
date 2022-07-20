@@ -19,29 +19,8 @@ export type OtherTokenType = {
   commission: TokenUnit;
 }
 
-export type DelegationType = {
-  validator: AvatarName;
-  validatorStatus: {
-    status: number;
-    jailed: boolean;
-  }
-  commission: number;
-  amount: TokenUnit;
-  reward: TokenUnit;
-}
-
-export type RedelegationType = {
-  to: AvatarName;
-  from: AvatarName;
-  linkedUntil: string;
-  amount: TokenUnit;
-}
-
-export type UnbondingType = {
-  validator: AvatarName;
-  commission: number;
-  amount: TokenUnit;
-  linkedUntil: string;
+export type RewardsType = {
+  [value:string]: TokenUnit[];
 }
 
 export type AccountDetailState = {
@@ -54,22 +33,5 @@ export type AccountDetailState = {
     data: OtherTokenType[];
     count: number;
   };
-  delegations: {
-    data: DelegationType[];
-    count: number;
-  }
-  redelegations: {
-    data: RedelegationType[];
-    count: number;
-  }
-  unbondings: {
-    data: UnbondingType[];
-    count: number;
-  }
-  transactions: {
-    hasNextPage: boolean;
-    isNextPageLoading: boolean;
-    offsetCount: number;
-    data: Transactions[];
-  };
+  rewards: RewardsType;
 }

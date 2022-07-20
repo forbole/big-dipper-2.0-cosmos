@@ -1,31 +1,32 @@
 import React from 'react';
-import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
+import {
+  formatToken, formatNumber,
+} from '@utils/format_token';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
-import { formatDenom } from '@utils/format_denom';
 import { Name } from '@components';
 import { MsgSend } from '@models';
-import { useChainContext } from '@contexts';
+import {
+  useProfileRecoil,
+} from '@recoil/profiles';
 
 const Send = (props: {
   message: MsgSend;
 }) => {
   const { t } = useTranslation('transactions');
-  const { findAddress } = useChainContext();
   const { message } = props;
 
   const parsedAmount = message?.amount?.map((x) => {
-    const amount = formatDenom(x.amount, x.denom);
-
-    return `${numeral(amount.value).format(amount.format)} ${amount.denom.toUpperCase()}`;
+    const amount = formatToken(x.amount, x.denom);
+    return `${formatNumber(amount.value, amount.exponent)} ${amount.displayDenom.toUpperCase()}`;
   }).reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
 
-  const from = findAddress(message.fromAddress);
-  const fromMoniker = from ? from?.moniker : message.fromAddress;
+  const from = useProfileRecoil(message.fromAddress);
+  const fromMoniker = from ? from?.name : message.fromAddress;
 
-  const to = findAddress(message.toAddress);
-  const toMoniker = to ? to?.moniker : message.toAddress;
+  const to = useProfileRecoil(message.toAddress);
+  const toMoniker = to ? to?.name : message.toAddress;
 
   return (
     <Typography>

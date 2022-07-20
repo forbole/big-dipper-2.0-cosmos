@@ -4,12 +4,14 @@ import numeral from 'numeral';
 import Link from 'next/link';
 import dayjs, { formatDayJs } from '@utils/dayjs';
 import { Typography } from '@material-ui/core';
+import { useRecoilValue } from 'recoil';
+import { readDate } from '@recoil/settings';
 import useTranslation from 'next-translate/useTranslation';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
-import { useSettingsContext } from '@contexts';
 import {
   BoxDetails, Result,
 } from '@components';
+import { formatNumber } from '@utils/format_token';
 import { useStyles } from './styles';
 import { OverviewType } from '../../types';
 
@@ -21,9 +23,7 @@ const Overview: React.FC<{
 }) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
-  const {
-    dateFormat,
-  } = useSettingsContext();
+  const dateFormat = useRecoilValue(readDate);
 
   const details = [
     {
@@ -46,7 +46,7 @@ const Overview: React.FC<{
     },
     {
       label: t('fee'),
-      detail: `${numeral(data.fee.value).format(data.fee.format)} ${data?.fee?.denom?.toUpperCase()}`,
+      detail: `${formatNumber(data.fee.value, data.fee.exponent)} ${data?.fee?.displayDenom?.toUpperCase()}`,
     },
     {
       label: t('gas'),

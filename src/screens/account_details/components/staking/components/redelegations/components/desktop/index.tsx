@@ -2,7 +2,6 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import dayjs, { formatDayJs } from '@utils/dayjs';
-import numeral from 'numeral';
 import {
   Table,
   TableHead,
@@ -11,20 +10,20 @@ import {
   TableBody,
 } from '@material-ui/core';
 import { AvatarName } from '@components';
-import { useSettingsContext } from '@contexts';
-import { RedelegationType } from '@src/screens/account_details/types';
+import { useRecoilValue } from 'recoil';
+import { readDate } from '@recoil/settings';
+import { formatNumber } from '@utils/format_token';
 import { columns } from './utils';
+import { ItemType } from '../../types';
 
 const Desktop: React.FC<{
   className?: string;
-  items: RedelegationType[];
+  items: ItemType[];
 }> = ({
   className, items,
 }) => {
   const { t } = useTranslation('accounts');
-  const {
-    dateFormat,
-  } = useSettingsContext();
+  const dateFormat = useRecoilValue(readDate);
   const formattedItems = items.map((x) => {
     return ({
       to: (
@@ -41,8 +40,8 @@ const Desktop: React.FC<{
           name={x.from.name}
         />
       ),
-      linkedUntil: formatDayJs(dayjs.utc(x.linkedUntil), dateFormat),
-      amount: `${numeral(x.amount.value).format(x.amount.format)} ${x.amount.denom.toUpperCase()}`,
+      amount: `${formatNumber(x.amount.value, x.amount.exponent)} ${x.amount.displayDenom.toUpperCase()}`,
+      completionTime: formatDayJs(dayjs.utc(x.completionTime), dateFormat),
     });
   });
 

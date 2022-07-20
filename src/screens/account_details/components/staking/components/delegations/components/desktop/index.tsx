@@ -1,6 +1,5 @@
 import React from 'react';
 import classnames from 'classnames';
-import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import {
   Table,
@@ -12,22 +11,21 @@ import {
 import {
   AvatarName,
 } from '@components';
-import { DelegationType } from '@src/screens/account_details/types';
-import { getValidatorStatus } from '@utils/get_validator_status';
-import { useStyles } from './styles';
+import { formatNumber } from '@utils/format_token';
 import { columns } from './utils';
+import { ItemType } from '../../types';
 
 const Desktop: React.FC<{
   className?: string;
-  items?: DelegationType[];
+  items?: ItemType[];
 }> = ({
   className,
   items,
 }) => {
   const { t } = useTranslation('accounts');
-  const classes = useStyles();
   const formattedItems = items.map((x) => {
-    const statusTheme = getValidatorStatus(x.validatorStatus.status, x.validatorStatus.jailed);
+    const amount = formatNumber(x.amount.value, x.amount.exponent);
+    const reward = formatNumber(x.reward.value, x.reward.exponent);
     return ({
       validator: (
         <AvatarName
@@ -36,14 +34,8 @@ const Desktop: React.FC<{
           imageUrl={x.validator.imageUrl}
         />
       ),
-      status: (
-        <span className={classnames(classes.status, statusTheme.status)}>
-          {t(`validators:${statusTheme.status}`)}
-        </span>
-      ),
-      commission: `${numeral(x.commission * 100).format('0.00')}%`,
-      amount: `${numeral(x.amount.value).format(x.amount.format)} ${x.amount.denom.toUpperCase()}`,
-      reward: `${numeral(x.reward.value).format(x.reward.format)} ${x.reward.denom.toUpperCase()}`,
+      amount: `${amount} ${x.amount.displayDenom.toUpperCase()}`,
+      reward: `${reward} ${x.reward.displayDenom.toUpperCase()}`,
     });
   });
 

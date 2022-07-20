@@ -4,16 +4,15 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { Name } from '@components';
 import { MsgCancelBid } from '@models';
-import { useChainContext } from '@contexts';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const CancelBid = (props: {
   message: MsgCancelBid;
 }) => {
-  const { findAddress } = useChainContext();
   const { message } = props;
 
-  const bidder = findAddress(message.bidder);
-  const bidderMoniker = bidder ? bidder?.moniker : message.bidder;
+  const bidder = useProfileRecoil(message.bidder);
+  const bidderMoniker = bidder ? bidder?.name : message.bidder;
 
   return (
     <Typography>

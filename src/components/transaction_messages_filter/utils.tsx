@@ -41,6 +41,22 @@ export const getFilterLabels = () => {
       display: 'nft',
     },
     {
+      key: 'authz',
+      display: 'authz',
+    },
+    {
+      key: 'feegrant',
+      display: 'feegrant',
+    },
+    {
+      key: 'vesting',
+      display: 'vesting',
+    },
+    {
+      key: 'profiles',
+      display: 'profiles',
+    },
+    {
       key: 'others',
       display: 'others',
     },

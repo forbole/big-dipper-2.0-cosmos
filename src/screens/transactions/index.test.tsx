@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import {
   createMockClient, createMockSubscription,
@@ -10,7 +11,7 @@ import {
 import {
   TransactionsListenerDocument,
   TransactionsDocument,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import Transactions from '.';
 
 // ==================================
@@ -105,11 +106,13 @@ describe('screen: Transactions', () => {
 
     renderer.act(() => {
       component = renderer.create(
-        <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <Transactions />
-          </MockTheme>
-        </ApolloProvider>,
+        <RecoilRoot>
+          <ApolloProvider client={mockClient}>
+            <MockTheme>
+              <Transactions />
+            </MockTheme>
+          </ApolloProvider>
+        </RecoilRoot>,
       );
     });
     await wait();

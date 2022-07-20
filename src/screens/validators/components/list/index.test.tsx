@@ -1,25 +1,17 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import {
   MockTheme, wait,
 } from '@tests/utils';
 import { createMockClient } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
-import { ValidatorsDocument } from '@graphql/types';
+import { ValidatorsDocument } from '@graphql/types/general_types';
 import List from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@contexts', () => ({
-  useChainContext: () => ({
-    findAddress: jest.fn(() => ({
-      moniker: 'moniker',
-      imageUrl: null,
-    })),
-  }),
-}));
-
 jest.mock('./components', () => ({
   Mobile: (props) => <div id="Mobile" {...props} />,
   Desktop: (props) => <div id="Desktop" {...props} />,
@@ -56,6 +48,7 @@ const mockValidatorsDocument = jest.fn().mockResolvedValue({
         validatorSigningInfos: [
           {
             missedBlocksCounter: 1,
+            tombstoned: false,
           },
         ],
         validatorInfo: {
@@ -115,11 +108,13 @@ describe('screen: Validators/List', () => {
 
     renderer.act(() => {
       component = renderer.create(
-        <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <List />
-          </MockTheme>
-        </ApolloProvider>,
+        <RecoilRoot>
+          <ApolloProvider client={mockClient}>
+            <MockTheme>
+              <List />
+            </MockTheme>
+          </ApolloProvider>
+        </RecoilRoot>,
       );
     });
     await wait();

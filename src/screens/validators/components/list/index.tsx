@@ -7,6 +7,9 @@ import {
   LoadAndExist,
 } from '@components';
 import { useScreenSize } from '@hooks';
+import {
+  useProfilesRecoil,
+} from '@recoil/profiles';
 import { Tabs } from './components';
 import { useStyles } from './styles';
 import { useValidators } from './hooks';
@@ -26,8 +29,14 @@ const List: React.FC<{
     handleSort,
     sortItems,
   } = useValidators();
-
-  const items = sortItems(state.items);
+  const dataProfiles = useProfilesRecoil(state.items.map((x) => x.validator));
+  const mergedDataWithProfiles = state.items.map((x, i) => {
+    return ({
+      ...x,
+      validator: dataProfiles[i],
+    });
+  });
+  const items = sortItems(mergedDataWithProfiles);
 
   return (
     <LoadAndExist

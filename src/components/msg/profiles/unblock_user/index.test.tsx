@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgUnblockUser } from '@models';
@@ -7,15 +8,6 @@ import UnBlockUser from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@contexts', () => ({
-  useChainContext: () => ({
-    findAddress: jest.fn(() => ({
-      moniker: 'moniker',
-      imageUrl: null,
-    })),
-  }),
-}));
-
 jest.mock('@components', () => ({
   Name: (props) => <div id="Name" {...props} />,
 }));
@@ -34,11 +26,13 @@ describe('screen: TransactionDetails/UnBlockUser', () => {
       subspace: 'subspace',
     });
     const component = renderer.create(
-      <MockTheme>
-        <UnBlockUser
-          message={message}
-        />
-      </MockTheme>,
+      <RecoilRoot>
+        <MockTheme>
+          <UnBlockUser
+            message={message}
+          />
+        </MockTheme>
+      </RecoilRoot>,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

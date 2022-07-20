@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import {
   createMockClient, createMockSubscription,
 } from 'mock-apollo-client';
@@ -10,21 +11,12 @@ import {
 import {
   BlocksListenerDocument,
   BlocksDocument,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import Blocks from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@contexts', () => ({
-  useChainContext: () => ({
-    findAddress: jest.fn(() => ({
-      moniker: 'moniker',
-      imageUrl: null,
-    })),
-  }),
-}));
-
 jest.mock('@components', () => ({
   Layout: (props) => <div id="Layout" {...props} />,
   Box: (props) => <div id="Box" {...props} />,
@@ -102,11 +94,13 @@ describe('screen: Blocks', () => {
 
     renderer.act(() => {
       component = renderer.create(
-        <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <Blocks />
-          </MockTheme>
-        </ApolloProvider>,
+        <RecoilRoot>
+          <ApolloProvider client={mockClient}>
+            <MockTheme>
+              <Blocks />
+            </MockTheme>
+          </ApolloProvider>
+        </RecoilRoot>,
       );
     });
     await wait();

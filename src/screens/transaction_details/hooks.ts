@@ -6,8 +6,8 @@ import * as R from 'ramda';
 import {
   useTransactionDetailsQuery,
   TransactionDetailsQuery,
-} from '@graphql/types';
-import { formatDenom } from '@utils/format_denom';
+} from '@graphql/types/general_types';
+import { formatToken } from '@utils/format_token';
 import { convertMsgsToModels } from '@msg';
 import {
   TransactionState,
@@ -23,9 +23,10 @@ export const useTransactionDetails = () => {
       height: 0,
       timestamp: '',
       fee: {
-        value: 0,
-        denom: '',
-        format: '',
+        value: '0',
+        displayDenom: '',
+        baseDenom: '',
+        exponent: 0,
       },
       gasUsed: 0,
       gasWanted: 0,
@@ -33,6 +34,7 @@ export const useTransactionDetails = () => {
       memo: '',
       error: '',
     },
+    logs: null,
     messages: {
       filterBy: 'none',
       viewRaw: false,
@@ -90,7 +92,7 @@ export const useTransactionDetails = () => {
         hash: data.transaction[0].hash,
         height: data.transaction[0].height,
         timestamp: data.transaction[0].block.timestamp,
-        fee: formatDenom(feeAmount.amount, feeAmount.denom),
+        fee: formatToken(feeAmount.amount, feeAmount.denom),
         gasUsed: data.transaction[0].gasUsed,
         gasWanted: data.transaction[0].gasWanted,
         success,
@@ -101,6 +103,15 @@ export const useTransactionDetails = () => {
     };
 
     stateChange.overview = formatOverview();
+
+    // =============================
+    // logs
+    // =============================
+    const formatLogs = () => {
+      const { logs } = data.transaction[0];
+      return logs;
+    };
+    stateChange.logs = formatLogs();
 
     // =============================
     // messages
