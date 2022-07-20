@@ -1,9 +1,9 @@
 {
   "title": "Rizon Block Explorer",
   "network": "titan-1",
-  "icon": "/images/icon.png",
+  "icon": "/rizon/images/icon.png",
   "logo": {
-    "default": "/images/logo.svg"
+    "default": "/rizon/images/logo.svg"
   },
   "prefix": {
     "consensus": "rizonvalcons",
