@@ -2,6 +2,7 @@ export type ValidatorType = {
   validator: string;
   votingPower: number;
   votingPowerPercent: number;
+  liquidStaking: string;
   commission: number;
   condition: number;
   status: number;

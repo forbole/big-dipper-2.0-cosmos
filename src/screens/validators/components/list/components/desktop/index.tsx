@@ -73,7 +73,7 @@ const Desktop: React.FC<{
           {t(status.status)}
         </Typography>
       ),
-      liquidStaking: 'Y',
+      liquidStaking: x.liquidStaking,
     });
   });
 

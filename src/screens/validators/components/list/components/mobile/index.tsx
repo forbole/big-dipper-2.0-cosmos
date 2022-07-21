@@ -56,7 +56,7 @@ const Mobile: React.FC<{
         />
       ),
       status,
-      liquidStaking: 'Y',
+      liquidStaking: x.liquidStaking,
     });
   });
 

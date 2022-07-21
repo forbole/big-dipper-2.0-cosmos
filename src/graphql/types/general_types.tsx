@@ -11981,9 +11981,9 @@ export type ValidatorsQuery = { stakingPool: Array<(
     )>, validatorVotingPowers: Array<(
       { __typename?: 'validator_voting_power' }
       & { votingPower: Validator_Voting_Power['voting_power'] }
-    )>, liquidStaking: Array<(
+    )>, validatorLiquidStaking: Array<(
       { __typename?: 'validator_status' }
-      & { status: Validator_Status['liquid_validator'] }
+      & { liquidStaking: Validator_Status['liquid_validator'] }
     )>, validatorCommissions: Array<(
       { __typename?: 'validator_commission' }
       & Pick<Validator_Commission, 'commission'>
@@ -13701,8 +13701,8 @@ export const ValidatorsDocument = gql`
     ) {
       votingPower: voting_power
     }
-    liquidStaking: validator_statuses(order_by: {height: desc}, limit: 1) {
-      status: liquid_validator
+    validatorLiquidStaking: validator_statuses(order_by: {height: desc}, limit: 1) {
+      liquidStaking: liquid_validator
     }
     validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
       commission
