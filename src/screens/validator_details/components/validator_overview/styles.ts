@@ -75,7 +75,7 @@ export const useStyles = () => {
           },
           [theme.breakpoints.up('lg')]: {
             display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
+            gridTemplateColumns: 'repeat(5, 1fr)',
           },
         },
         statusItem: {

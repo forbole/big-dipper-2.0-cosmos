@@ -60,6 +60,11 @@ const mockValidatorsDocument = jest.fn().mockResolvedValue({
             votingPower: 22,
           },
         ],
+        validatorLiquidStaking: [
+          {
+            liquidStaking: 'Y',
+          },
+        ],
         validatorCommissions: [
           {
             commission: 0.1,

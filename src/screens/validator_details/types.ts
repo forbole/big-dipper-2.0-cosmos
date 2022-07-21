@@ -11,6 +11,7 @@ export type StatusType = {
   jailed: boolean;
   tombstoned: boolean;
   condition: number;
+  liquidStaking: string;
   commission: number;
   signedBlockWindow: number;
   missedBlockCounter: number;

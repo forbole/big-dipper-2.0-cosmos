@@ -63,10 +63,21 @@ export const useValidators = () => {
       const missedBlockCounter = R.pathOr(0, ['validatorSigningInfos', 0, 'missedBlocksCounter'], x);
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
 
+      const liquidStakingReturn = R.pathOr('N/A', ['validatorLiquidStaking', 0, 'liquidStaking'], x);
+      let liquidStaking = liquidStakingReturn;
+      if (liquidStakingReturn !== 'N/A') {
+        if (liquidStakingReturn) {
+          liquidStaking = 'Y';
+        } else {
+          liquidStaking = 'N';
+        }
+      }
+
       return ({
         validator: x.validatorInfo.operatorAddress,
         votingPower,
         votingPowerPercent,
+        liquidStaking,
         commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], x) * 100,
         condition,
         status: R.pathOr(0, ['validatorStatuses', 0, 'status'], x),

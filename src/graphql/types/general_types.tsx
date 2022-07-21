@@ -2742,6 +2742,137 @@ export type Jsonb_Comparison_Exp = {
   _nin?: Maybe<Array<Scalars['jsonb']>>;
 };
 
+/** columns and relationships of "liquid_staking_params" */
+export type Liquid_Staking_Params = {
+  __typename?: 'liquid_staking_params';
+  height: Scalars['bigint'];
+  one_row_id: Scalars['Boolean'];
+  params: Scalars['jsonb'];
+};
+
+
+/** columns and relationships of "liquid_staking_params" */
+export type Liquid_Staking_ParamsParamsArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+/** aggregated selection of "liquid_staking_params" */
+export type Liquid_Staking_Params_Aggregate = {
+  __typename?: 'liquid_staking_params_aggregate';
+  aggregate?: Maybe<Liquid_Staking_Params_Aggregate_Fields>;
+  nodes: Array<Liquid_Staking_Params>;
+};
+
+/** aggregate fields of "liquid_staking_params" */
+export type Liquid_Staking_Params_Aggregate_Fields = {
+  __typename?: 'liquid_staking_params_aggregate_fields';
+  avg?: Maybe<Liquid_Staking_Params_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Liquid_Staking_Params_Max_Fields>;
+  min?: Maybe<Liquid_Staking_Params_Min_Fields>;
+  stddev?: Maybe<Liquid_Staking_Params_Stddev_Fields>;
+  stddev_pop?: Maybe<Liquid_Staking_Params_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Liquid_Staking_Params_Stddev_Samp_Fields>;
+  sum?: Maybe<Liquid_Staking_Params_Sum_Fields>;
+  var_pop?: Maybe<Liquid_Staking_Params_Var_Pop_Fields>;
+  var_samp?: Maybe<Liquid_Staking_Params_Var_Samp_Fields>;
+  variance?: Maybe<Liquid_Staking_Params_Variance_Fields>;
+};
+
+
+/** aggregate fields of "liquid_staking_params" */
+export type Liquid_Staking_Params_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Liquid_Staking_Params_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Liquid_Staking_Params_Avg_Fields = {
+  __typename?: 'liquid_staking_params_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "liquid_staking_params". All fields are combined with a logical 'AND'. */
+export type Liquid_Staking_Params_Bool_Exp = {
+  _and?: Maybe<Array<Liquid_Staking_Params_Bool_Exp>>;
+  _not?: Maybe<Liquid_Staking_Params_Bool_Exp>;
+  _or?: Maybe<Array<Liquid_Staking_Params_Bool_Exp>>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  one_row_id?: Maybe<Boolean_Comparison_Exp>;
+  params?: Maybe<Jsonb_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Liquid_Staking_Params_Max_Fields = {
+  __typename?: 'liquid_staking_params_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate min on columns */
+export type Liquid_Staking_Params_Min_Fields = {
+  __typename?: 'liquid_staking_params_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** Ordering options when selecting data from "liquid_staking_params". */
+export type Liquid_Staking_Params_Order_By = {
+  height?: Maybe<Order_By>;
+  one_row_id?: Maybe<Order_By>;
+  params?: Maybe<Order_By>;
+};
+
+/** select columns of table "liquid_staking_params" */
+export enum Liquid_Staking_Params_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  OneRowId = 'one_row_id',
+  /** column name */
+  Params = 'params'
+}
+
+/** aggregate stddev on columns */
+export type Liquid_Staking_Params_Stddev_Fields = {
+  __typename?: 'liquid_staking_params_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Liquid_Staking_Params_Stddev_Pop_Fields = {
+  __typename?: 'liquid_staking_params_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Liquid_Staking_Params_Stddev_Samp_Fields = {
+  __typename?: 'liquid_staking_params_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Liquid_Staking_Params_Sum_Fields = {
+  __typename?: 'liquid_staking_params_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Liquid_Staking_Params_Var_Pop_Fields = {
+  __typename?: 'liquid_staking_params_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Liquid_Staking_Params_Var_Samp_Fields = {
+  __typename?: 'liquid_staking_params_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Liquid_Staking_Params_Variance_Fields = {
+  __typename?: 'liquid_staking_params_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
 /** columns and relationships of "message" */
 export type Message = {
   __typename?: 'message';
@@ -5040,6 +5171,12 @@ export type Query_Root = {
   inflation: Array<Inflation>;
   /** fetch aggregated fields from the table: "inflation" */
   inflation_aggregate: Inflation_Aggregate;
+  /** fetch data from the table: "liquid_staking_params" */
+  liquid_staking_params: Array<Liquid_Staking_Params>;
+  /** fetch aggregated fields from the table: "liquid_staking_params" */
+  liquid_staking_params_aggregate: Liquid_Staking_Params_Aggregate;
+  /** fetch data from the table: "liquid_staking_params" using primary key columns */
+  liquid_staking_params_by_pk?: Maybe<Liquid_Staking_Params>;
   /** fetch data from the table: "message" */
   message: Array<Message>;
   /** fetch aggregated fields from the table: "message" */
@@ -5558,6 +5695,29 @@ export type Query_RootInflation_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Inflation_Order_By>>;
   where?: Maybe<Inflation_Bool_Exp>;
+};
+
+
+export type Query_RootLiquid_Staking_ParamsArgs = {
+  distinct_on?: Maybe<Array<Liquid_Staking_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Liquid_Staking_Params_Order_By>>;
+  where?: Maybe<Liquid_Staking_Params_Bool_Exp>;
+};
+
+
+export type Query_RootLiquid_Staking_Params_AggregateArgs = {
+  distinct_on?: Maybe<Array<Liquid_Staking_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Liquid_Staking_Params_Order_By>>;
+  where?: Maybe<Liquid_Staking_Params_Bool_Exp>;
+};
+
+
+export type Query_RootLiquid_Staking_Params_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
 };
 
 
@@ -6644,6 +6804,12 @@ export type Subscription_Root = {
   inflation: Array<Inflation>;
   /** fetch aggregated fields from the table: "inflation" */
   inflation_aggregate: Inflation_Aggregate;
+  /** fetch data from the table: "liquid_staking_params" */
+  liquid_staking_params: Array<Liquid_Staking_Params>;
+  /** fetch aggregated fields from the table: "liquid_staking_params" */
+  liquid_staking_params_aggregate: Liquid_Staking_Params_Aggregate;
+  /** fetch data from the table: "liquid_staking_params" using primary key columns */
+  liquid_staking_params_by_pk?: Maybe<Liquid_Staking_Params>;
   /** fetch data from the table: "message" */
   message: Array<Message>;
   /** fetch aggregated fields from the table: "message" */
@@ -7076,6 +7242,29 @@ export type Subscription_RootInflation_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Inflation_Order_By>>;
   where?: Maybe<Inflation_Bool_Exp>;
+};
+
+
+export type Subscription_RootLiquid_Staking_ParamsArgs = {
+  distinct_on?: Maybe<Array<Liquid_Staking_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Liquid_Staking_Params_Order_By>>;
+  where?: Maybe<Liquid_Staking_Params_Bool_Exp>;
+};
+
+
+export type Subscription_RootLiquid_Staking_Params_AggregateArgs = {
+  distinct_on?: Maybe<Array<Liquid_Staking_Params_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Liquid_Staking_Params_Order_By>>;
+  where?: Maybe<Liquid_Staking_Params_Bool_Exp>;
+};
+
+
+export type Subscription_RootLiquid_Staking_Params_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
 };
 
 
@@ -10224,6 +10413,7 @@ export type Validator_Status = {
   __typename?: 'validator_status';
   height: Scalars['bigint'];
   jailed: Scalars['Boolean'];
+  liquid_validator: Scalars['Boolean'];
   status: Scalars['Int'];
   tombstoned: Scalars['Boolean'];
   /** An object relationship */
@@ -10296,6 +10486,7 @@ export type Validator_Status_Bool_Exp = {
   _or?: Maybe<Array<Validator_Status_Bool_Exp>>;
   height?: Maybe<Bigint_Comparison_Exp>;
   jailed?: Maybe<Boolean_Comparison_Exp>;
+  liquid_validator?: Maybe<Boolean_Comparison_Exp>;
   status?: Maybe<Int_Comparison_Exp>;
   tombstoned?: Maybe<Boolean_Comparison_Exp>;
   validator?: Maybe<Validator_Bool_Exp>;
@@ -10336,6 +10527,7 @@ export type Validator_Status_Min_Order_By = {
 export type Validator_Status_Order_By = {
   height?: Maybe<Order_By>;
   jailed?: Maybe<Order_By>;
+  liquid_validator?: Maybe<Order_By>;
   status?: Maybe<Order_By>;
   tombstoned?: Maybe<Order_By>;
   validator?: Maybe<Validator_Order_By>;
@@ -10348,6 +10540,8 @@ export enum Validator_Status_Select_Column {
   Height = 'height',
   /** column name */
   Jailed = 'jailed',
+  /** column name */
+  LiquidValidator = 'liquid_validator',
   /** column name */
   Status = 'status',
   /** column name */
@@ -11713,6 +11907,9 @@ export type ValidatorDetailsQuery = { stakingPool: Array<(
     )>, validatorInfo?: Maybe<(
       { __typename?: 'validator_info' }
       & { operatorAddress: Validator_Info['operator_address'], selfDelegateAddress: Validator_Info['self_delegate_address'], maxRate: Validator_Info['max_rate'] }
+    )>, validatorLiquidStaking: Array<(
+      { __typename?: 'validator_status' }
+      & { liquidStaking: Validator_Status['liquid_validator'] }
     )>, validatorCommissions: Array<(
       { __typename?: 'validator_commission' }
       & Pick<Validator_Commission, 'commission'>
@@ -11787,6 +11984,9 @@ export type ValidatorsQuery = { stakingPool: Array<(
     )>, validatorVotingPowers: Array<(
       { __typename?: 'validator_voting_power' }
       & { votingPower: Validator_Voting_Power['voting_power'] }
+    )>, validatorLiquidStaking: Array<(
+      { __typename?: 'validator_status' }
+      & { liquidStaking: Validator_Status['liquid_validator'] }
     )>, validatorCommissions: Array<(
       { __typename?: 'validator_commission' }
       & Pick<Validator_Commission, 'commission'>
@@ -13298,6 +13498,9 @@ export const ValidatorDetailsDocument = gql`
       selfDelegateAddress: self_delegate_address
       maxRate: max_rate
     }
+    validatorLiquidStaking: validator_statuses(order_by: {height: desc}, limit: 1) {
+      liquidStaking: liquid_validator
+    }
     validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
       commission
     }
@@ -13503,6 +13706,9 @@ export const ValidatorsDocument = gql`
       order_by: {height: desc}
     ) {
       votingPower: voting_power
+    }
+    validatorLiquidStaking: validator_statuses(order_by: {height: desc}, limit: 1) {
+      liquidStaking: liquid_validator
     }
     validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
       commission
