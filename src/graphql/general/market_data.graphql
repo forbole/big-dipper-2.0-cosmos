@@ -18,4 +18,7 @@ query MarketData ($denom: String) {
   distributionParams: distribution_params {
     params
   }
+  liquidStakingState: liquid_staking_state {
+    state
+  }
 }
