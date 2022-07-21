@@ -60,11 +60,12 @@ export const useMarketRecoil = () => {
       communityPool = formatToken(communityPoolCoin.amount, communityPoolCoin.denom);
     }
 
-    const bondedTokens = R.pathOr(1, ['bondedTokens', 0, 'bonded_tokens'], data);
-    const communityTax = R.pathOr('0', ['distributionParams', 0, 'params', 'community_tax'], data);
+    const totalLiquidTokens = R.pathOr(1, ['liquidStakingState', 0, 'state', 'total_liquid_tokens'], data);
+    const bondedTokenRatio = Big(totalLiquidTokens).div(rawSupplyAmount);
+    // 0.05 is the staking distribution according to crescent doc
+    const inflationWithStakingDistribution = Big(inflation).times(0.05).toPrecision(5);
 
-    const inflationWithCommunityTax = Big(1).minus(communityTax).times(inflation).toPrecision(2);
-    const apr = Big(rawSupplyAmount).times(inflationWithCommunityTax).div(bondedTokens).toNumber();
+    const apr = Big(1).times(inflationWithStakingDistribution).div(bondedTokenRatio).toNumber();
 
     return ({
       price,
