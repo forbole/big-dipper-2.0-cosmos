@@ -38,7 +38,7 @@ const ValidatorOverview: React.FC<{
 
     const statusTheme = getValidatorStatus(status.status, status.jailed, status.tombstoned);
     const condition = getCondition(status.condition, status.status);
-    const liquidStaking = 'Y';
+    const { liquidStaking } = status;
 
     const statusItems = [
       {
