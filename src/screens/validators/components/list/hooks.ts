@@ -64,10 +64,14 @@ export const useValidators = () => {
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
 
       const liquidStakingReturn = R.pathOr('N/A', ['validatorLiquidStaking', 0, 'liquidStaking'], x);
-      // if (liquidStakingReturn !== 'N/A') {
-      //   return liquidStakingReturn ? 'Y' : 'N';
-      // }
-      const liquidStaking = liquidStakingReturn ? 'Y' : 'N';
+      let liquidStaking = liquidStakingReturn;
+      if (liquidStakingReturn !== 'N/A') {
+        if (liquidStakingReturn) {
+          liquidStaking = 'Y';
+        } else {
+          liquidStaking = 'N';
+        }
+      }
 
       return ({
         validator: x.validatorInfo.operatorAddress,
