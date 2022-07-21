@@ -41,6 +41,7 @@ const initialState: ValidatorDetailsState = {
     jailed: false,
     tombstoned: false,
     condition: 0,
+    liquidStaking: 'N/A',
     commission: 0,
     missedBlockCounter: 0,
     signedBlockWindow: 0,
@@ -136,10 +137,14 @@ export const useValidatorDetails = () => {
       const { signedBlockWindow } = slashingParams;
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
 
+      const liquidStakingReturn = R.pathOr('N/A', ['validatorLiquidStaking', 0, 'liquidStaking'], data.validator[0]);
+      const liquidStaking = liquidStakingReturn ? 'Y' : 'N';
+
       const profile = {
         status: R.pathOr(3, ['validatorStatuses', 0, 'status'], data.validator[0]),
         jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], data.validator[0]),
         tombstoned: R.pathOr(false, ['validatorSigningInfos', 0, 'tombstoned'], data.validator[0]),
+        liquidStaking,
         commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], data.validator[0]),
         condition,
         missedBlockCounter,
