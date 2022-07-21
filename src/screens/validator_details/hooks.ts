@@ -138,7 +138,14 @@ export const useValidatorDetails = () => {
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
 
       const liquidStakingReturn = R.pathOr('N/A', ['validatorLiquidStaking', 0, 'liquidStaking'], data.validator[0]);
-      const liquidStaking = liquidStakingReturn ? 'Y' : 'N';
+      let liquidStaking = liquidStakingReturn;
+      if (liquidStakingReturn !== 'N/A') {
+        if (liquidStakingReturn) {
+          liquidStaking = 'Y';
+        } else {
+          liquidStaking = 'N';
+        }
+      }
 
       const profile = {
         status: R.pathOr(3, ['validatorStatuses', 0, 'status'], data.validator[0]),
