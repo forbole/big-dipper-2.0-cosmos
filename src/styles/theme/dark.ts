@@ -1,6 +1,6 @@
 const backgroundDefault = '#000000';
 const surfaceOne = '#1F1F1F';
-const surfaceTwo = '#19191D'; // ?
+const surfaceTwo = '#2C2C2C'; // figma General 3
 const fontOne = '#E6E6E6';
 const fontTwo = '#C4C4C4';
 const fontThree = '#818181';
