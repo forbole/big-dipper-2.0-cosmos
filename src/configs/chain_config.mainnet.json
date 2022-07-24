@@ -1,9 +1,9 @@
 {
   "title": "AssetMantle Block Explorer",
   "network": "assetmantle-mainnet-mantle-1",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/assetmantle/icon.svg?sanitize=true",
+  "icon": "/images/icon.svg",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/assetmantle/desmos/logo.svg?sanitize=true"
+    "default": "/images/logo.svg"
   },
   "prefix": {
     "consensus": "mantlevalcons",
