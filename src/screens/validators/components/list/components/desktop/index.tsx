@@ -20,6 +20,7 @@ import {
   Condition,
   VotingPower,
   VotingPowerExplanation,
+  LiquidStakingExplanation,
 } from '..';
 
 const Desktop: React.FC<{
@@ -72,6 +73,7 @@ const Desktop: React.FC<{
           {t(status.status)}
         </Typography>
       ),
+      liquidStaking: x.liquidStaking,
     });
   });
 
@@ -114,6 +116,24 @@ const Desktop: React.FC<{
                         {t('votingPower')}
                         <InfoPopover
                           content={<VotingPowerExplanation />}
+                        />
+                        {!!sort && (
+                          <SortArrows
+                            sort={props.sortKey === sortingKey
+                              ? props.sortDirection
+                              : undefined}
+                          />
+                        )}
+                      </Typography>
+                    );
+                  }
+
+                  if (key === 'liquidStaking') {
+                    formattedComponent = (
+                      <Typography variant="h4" className="label popover">
+                        {t('liquidStaking')}
+                        <InfoPopover
+                          content={<LiquidStakingExplanation />}
                         />
                         {!!sort && (
                           <SortArrows

@@ -16,15 +16,18 @@ const SingleValidator: React.FC<{
     status: string;
     theme: string;
   };
+  liquidStaking: string;
 }> = ({
   className,
   validator,
   commission,
   votingPower,
   status,
+  liquidStaking,
 }) => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
+
   return (
     <div className={classnames(className, classes.root)}>
       <div className={classes.item}>
@@ -46,6 +49,14 @@ const SingleValidator: React.FC<{
           </Typography>
           <Typography variant="body1" className={classnames('value', 'status', status.theme)}>
             {t(status.status)}
+          </Typography>
+        </div>
+        <div className={classes.item}>
+          <Typography variant="h4" className="label">
+            {t('liquidStaking')}
+          </Typography>
+          <Typography variant="body1" className="value">
+            {liquidStaking}
           </Typography>
         </div>
         <div className={classes.item}>

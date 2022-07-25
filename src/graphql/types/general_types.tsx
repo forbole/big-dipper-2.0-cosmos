@@ -12099,6 +12099,9 @@ export type ValidatorDetailsQuery = { stakingPool: Array<(
     )>, validatorInfo?: Maybe<(
       { __typename?: 'validator_info' }
       & { operatorAddress: Validator_Info['operator_address'], selfDelegateAddress: Validator_Info['self_delegate_address'], maxRate: Validator_Info['max_rate'] }
+    )>, validatorLiquidStaking: Array<(
+      { __typename?: 'validator_status' }
+      & { liquidStaking: Validator_Status['liquid_validator'] }
     )>, validatorCommissions: Array<(
       { __typename?: 'validator_commission' }
       & Pick<Validator_Commission, 'commission'>
@@ -12173,6 +12176,9 @@ export type ValidatorsQuery = { stakingPool: Array<(
     )>, validatorVotingPowers: Array<(
       { __typename?: 'validator_voting_power' }
       & { votingPower: Validator_Voting_Power['voting_power'] }
+    )>, validatorLiquidStaking: Array<(
+      { __typename?: 'validator_status' }
+      & { liquidStaking: Validator_Status['liquid_validator'] }
     )>, validatorCommissions: Array<(
       { __typename?: 'validator_commission' }
       & Pick<Validator_Commission, 'commission'>
@@ -13687,6 +13693,9 @@ export const ValidatorDetailsDocument = gql`
       selfDelegateAddress: self_delegate_address
       maxRate: max_rate
     }
+    validatorLiquidStaking: validator_statuses(order_by: {height: desc}, limit: 1) {
+      liquidStaking: liquid_validator
+    }
     validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
       commission
     }
@@ -13892,6 +13901,9 @@ export const ValidatorsDocument = gql`
       order_by: {height: desc}
     ) {
       votingPower: voting_power
+    }
+    validatorLiquidStaking: validator_statuses(order_by: {height: desc}, limit: 1) {
+      liquidStaking: liquid_validator
     }
     validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
       commission

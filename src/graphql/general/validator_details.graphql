@@ -47,6 +47,9 @@ query ValidatorDetails($address: String) {
       selfDelegateAddress: self_delegate_address
       maxRate: max_rate
     }
+    validatorLiquidStaking: validator_statuses(order_by: {height: desc}, limit: 1) {
+      liquidStaking: liquid_validator
+    }
     validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
       commission
     }

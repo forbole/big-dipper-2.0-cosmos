@@ -38,6 +38,7 @@ const ValidatorOverview: React.FC<{
 
     const statusTheme = getValidatorStatus(status.status, status.jailed, status.tombstoned);
     const condition = getCondition(status.condition, status.status);
+    const { liquidStaking } = status;
 
     const statusItems = [
       {
@@ -52,6 +53,21 @@ const ValidatorOverview: React.FC<{
             theme={statusTheme.theme as any}
             className={classes.statusTag}
           />
+        ),
+      },
+      {
+        key: (
+          <Typography variant="h4" className="label">
+            {t('liquidStaking')}
+          </Typography>
+        ),
+        value: (
+          <Typography
+            variant="body1"
+            className="value"
+          >
+            {liquidStaking}
+          </Typography>
         ),
       },
       {
