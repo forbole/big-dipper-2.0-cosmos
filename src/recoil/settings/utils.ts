@@ -1,5 +1,5 @@
 import {
-  lightTemplate,
+  // lightTemplate,
   darkTemplate,
   deuteranopiaTemplate,
   tritanopiaTemplate,
@@ -13,14 +13,14 @@ import {
 // ================================
 
 export const THEME_LIST: Theme[] = [
-  'light',
+  // 'light',
   'dark',
   'deuteranopia',
   'tritanopia',
 ];
 
 export const THEME_DICTIONARY = {
-  light: lightTemplate,
+  // light: lightTemplate,
   dark: darkTemplate,
   deuteranopia: deuteranopiaTemplate,
   tritanopia: tritanopiaTemplate,
@@ -30,7 +30,7 @@ export const getThemeTemplate = (theme: Theme) => {
   if (THEME_DICTIONARY[theme]) {
     return THEME_DICTIONARY[theme];
   }
-  return lightTemplate;
+  return darkTemplate;
 };
 
 export const DATE_LIST = [
