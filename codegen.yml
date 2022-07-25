@@ -6,7 +6,7 @@ generates:
   ./src/graphql/types/general_types.tsx:
     documents:
       - 'src/graphql/general/*'
-    schema: http://172.104.98.121:8080/v1/graphql
+    schema: https://gql.crescent.forbole.com/v1/graphql
     plugins:
       - "typescript"
       - "typescript-operations"
