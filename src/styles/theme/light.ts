@@ -18,8 +18,8 @@ export const lightThemeOverride = {
   palette: {
     type: 'light',
     primary: {
-      main: '#FD3B4C',
-      contrastText: '#fff',
+      main: '#E1AB4C',
+      contrastText: '#FFFFFF',
     },
     background: {
       default: backgroundDefault,
@@ -43,10 +43,10 @@ export const lightThemeOverride = {
         fontFour: '#999999',
       },
       primaryData: {
-        one: '#FA3A39',
-        two: '#FD5E1F',
-        three: '#FD5D4E',
-        four: '#FD9526',
+        one: '#E1AB4C',
+        two: '#E7BD74',
+        three: '#EC674C',
+        four: '#F05328',
       },
       results: {
         pass: '#1EC490',
