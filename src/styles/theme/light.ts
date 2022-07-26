@@ -45,8 +45,8 @@ export const lightThemeOverride = {
       primaryData: {
         one: '#E1AB4C',
         two: '#E7BD74',
-        three: '#EC674C',
-        four: '#F05328',
+        three: '#4D6380',
+        four: '#354559',
       },
       results: {
         pass: '#1EC490',

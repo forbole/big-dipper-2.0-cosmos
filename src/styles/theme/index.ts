@@ -128,7 +128,7 @@ export const common = {
         twenty: '#D9C788',
       },
       fonts: {
-        fontFive: '#0075FF',
+        fontFive: '#FFFFFF',
         highlight: '#1D86FF', // links
         // highlight: '#56B4E9', // links
       },
