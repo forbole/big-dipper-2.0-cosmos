@@ -1,6 +1,6 @@
 const backgroundDefault = '#F8F8F8';
 const surfaceOne = '#FFFFFF';
-const surfaceTwo = '#F8F8F8';
+const surfaceTwo = '#F9F9F9';
 const fontOne = '#000000';
 const fontTwo = '#414141';
 const fontThree = '#777777';
@@ -18,8 +18,8 @@ export const lightThemeOverride = {
   palette: {
     type: 'light',
     primary: {
-      main: '#FD3B4C',
-      contrastText: '#fff',
+      main: '#E1AB4C',
+      contrastText: '#FFFFFF',
     },
     background: {
       default: backgroundDefault,
@@ -43,10 +43,10 @@ export const lightThemeOverride = {
         fontFour: '#999999',
       },
       primaryData: {
-        one: '#FA3A39',
-        two: '#FD5E1F',
-        three: '#FD5D4E',
-        four: '#FD9526',
+        one: '#E1AB4C',
+        two: '#E7BD74',
+        three: '#4D6380',
+        four: '#354559',
       },
       results: {
         pass: '#1EC490',
