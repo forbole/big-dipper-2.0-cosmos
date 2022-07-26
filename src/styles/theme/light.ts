@@ -1,6 +1,6 @@
 const backgroundDefault = '#F8F8F8';
 const surfaceOne = '#FFFFFF';
-const surfaceTwo = '#F8F8F8';
+const surfaceTwo = '#F9F9F9';
 const fontOne = '#000000';
 const fontTwo = '#414141';
 const fontThree = '#777777';
