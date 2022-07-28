@@ -4,7 +4,7 @@ import {
   useTransactionsQuery,
   useTransactionsListenerSubscription,
   TransactionsListenerSubscription,
-} from '@graphql/types';
+} from '@graphql/types/general_types';
 import { convertMsgsToModels } from '@msg';
 import { TransactionsState } from './types';
 
