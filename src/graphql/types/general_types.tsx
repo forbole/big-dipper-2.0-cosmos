@@ -11668,6 +11668,9 @@ export type MarketDataQuery = { communityPool: Array<(
   )>, distributionParams: Array<(
     { __typename?: 'distribution_params' }
     & Pick<Distribution_Params, 'params'>
+  )>, mintParams: Array<(
+    { __typename?: 'mint_params' }
+    & Pick<Mint_Params, 'params'>
   )> };
 
 export type GetMessagesByAddressQueryVariables = Exact<{
@@ -12772,6 +12775,9 @@ export const MarketDataDocument = gql`
     bonded_tokens
   }
   distributionParams: distribution_params {
+    params
+  }
+  mintParams: mint_params {
     params
   }
 }
