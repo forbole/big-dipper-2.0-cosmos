@@ -61,12 +61,10 @@ export const useMarketRecoil = () => {
     }
 
     const bondedTokens = R.pathOr(1, ['bondedTokens', 0, 'bonded_tokens'], data);
-    const communityTax = R.pathOr('0', ['distributionParams', 0, 'params', 'community_tax'], data);
     const distributionProportions = R.pathOr('0', ['mintParams', 0, 'params', 'distribution_proportions'], data);
 
-    const inflationWithCommunityTax = Big(1).minus(communityTax).times(inflation).toPrecision(2);
-    const annualProvisions = Big(rawSupplyAmount).times(inflationWithCommunityTax).div(bondedTokens).toNumber();
-    const apr = Big(annualProvisions).times(distributionProportions.staking).toNumber();
+    const bondedTokenRatio = Big(rawSupplyAmount).times(inflation).div(bondedTokens).toNumber();
+    const apr = Big(bondedTokenRatio).times(distributionProportions.staking).toNumber();
 
     return ({
       price,
