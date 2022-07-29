@@ -63,8 +63,8 @@ export const useMarketRecoil = () => {
     const bondedTokens = R.pathOr(1, ['bondedTokens', 0, 'bonded_tokens'], data);
     const distributionProportions = R.pathOr('0', ['mintParams', 0, 'params', 'distribution_proportions'], data);
 
-    const annualProvistions = Big(rawSupplyAmount).times(inflation).div(bondedTokens).toNumber();
-    const apr = Big(annualProvistions).times(distributionProportions.staking).toNumber();
+    const annualProvisions = Big(rawSupplyAmount).times(inflation).div(bondedTokens).toNumber();
+    const apr = Big(annualProvisions).times(distributionProportions.staking).toNumber();
 
     return ({
       price,
