@@ -3,7 +3,7 @@ name: Docker-Production
 on:
   push:
     tags:
-      - mantle-1-v*
+      - assetmantle-mantle-1-v*
 
 jobs:
   Build-and-Publish:
@@ -32,7 +32,7 @@ jobs:
           NEXT_PUBLIC_CHAIN_TYPE=
           NODE_ENV="production"
           PORT=3000
-          if [[ $GITHUB_REF == refs/tags/mantle-1* ]]; then
+          if [[ $GITHUB_REF == refs/tags/assetmantle-mantle-1* ]]; then
             NEXT_PUBLIC_GRAPHQL_URL="https://gql.assetmantle.forbole.com/v1/graphql"
             NEXT_PUBLIC_GRAPHQL_WS="wss://gql.assetmantle.forbole.com/v1/graphql"
             NEXT_PUBLIC_RPC_WEBSOCKET="wss://rpc.assetmantle.forbole.com/websocket"
@@ -77,7 +77,7 @@ jobs:
         run: |
             BRANCH=${GITHUB_REF}
             WEBHOOK_URL=''
-            if [[ $GITHUB_REF == refs/tags/mantle-1* ]]; then
+            if [[ $GITHUB_REF == refs/tags/assetmantle-mantle-1* ]]; then
               echo 'Deploying to Assetmantle mantle-1'
               WEBHOOK_URL=$ASSETMANTLE_AKASH_WEBHOOK_URL
             fi
