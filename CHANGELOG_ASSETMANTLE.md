@@ -9,3 +9,4 @@
 - Set up UI [\#929](https://github.com/forbole/big-dipper-2.0-cosmos/issues/929))
 - Updated docker production file [\#938](https://github.com/forbole/big-dipper-2.0-cosmos/issues/938))
 - Updated preview image [\#943](https://github.com/forbole/big-dipper-2.0-cosmos/issues/943))
+- Changed URL [\#943](https://github.com/forbole/big-dipper-2.0-cosmos/issues/943))
