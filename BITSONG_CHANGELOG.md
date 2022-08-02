@@ -1,7 +1,13 @@
 # Unreleased
 
 ## Changes
-- Updated preview image
+- 
+
+# bitsong-v2.1.2 - 2022-08-02
+
+## Changes
+
+- Updated preview image ([\#947](https://github.com/forbole/big-dipper-2.0-cosmos/issues/947))
 
 # bitsong-v2.1.1 - 2022-07-20
 
