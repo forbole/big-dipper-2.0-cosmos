@@ -1,7 +1,7 @@
 # Unreleased
 
 ## Changes
-- 
+- Updated preview image
 
 # bitsong-v2.1.1 - 2022-07-20
 
