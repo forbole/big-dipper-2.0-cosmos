@@ -78,14 +78,14 @@ jobs:
             org.opencontainers.image.revision=${{ github.sha }}
       - name: Deploy to Akash 🌐
         env:
-          CRESCENT_1: ${{ secrets.CRESCENT_1 }}
+          CRESCENT_AKASH_WEBHOOK_URL: ${{ secrets.CRESCENT_AKASH_WEBHOOK_URL }}
           AKASH_WEBHOOK_SECRET: ${{ secrets.AKASH_WEBHOOK_SECRET }}
         run: |
             BRANCH=${GITHUB_REF}
             WEBHOOK_URL=''
             if [[ $GITHUB_REF == refs/tags/crescent-1-v* ]]; then
               echo 'Deploying to Crescent'
-              WEBHOOK_URL=$CRESCENT_1
+              WEBHOOK_URL=$CRESCENT_AKASH_WEBHOOK_URL
             fi
               curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k $WEBHOOK_URL -u "deploy:$AKASH_WEBHOOK_SECRET"
 

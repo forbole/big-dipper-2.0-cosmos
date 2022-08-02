@@ -1,9 +1,9 @@
 {
   "title": "Crescent Block Explorer",
   "network": "crescent-1",
-  "icon": "/images/icon.svg",
+  "icon": "/crescent/images/icon.svg",
   "logo": {
-    "default": "/images/logo.svg"
+    "default": "/crescent/images/logo.svg"
   },
   "prefix": {
     "consensus": "crevalcons",
