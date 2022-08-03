@@ -60,5 +60,5 @@
   "tombstoned": "Tombstoned",
   "votingPowerPercent": "Voting Power %",
   "maxRate": "Max Commission Rate",
-  "liquidStakingExplanation": "Liquid Stakers allow you to stake CRE to receive bCRE. bCRE can then be deposited into liquidity pools to earn further rewards."
+  "liquidStakingExplanation": "Liquid Staking Validators allow you to stake CRE to receive bCRE. bCRE can then be deposited into liquidity pools to earn further rewards."
 }
