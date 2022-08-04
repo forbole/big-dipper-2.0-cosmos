@@ -3,7 +3,7 @@ name: Docker-Production
 on:
   push:
     tags:
-      - desmos-morpheus-apollo-1-v*
+      - provenance-pio-mainnet-1-v*
 
 jobs:
   Build-and-Publish:
@@ -32,11 +32,11 @@ jobs:
           NEXT_PUBLIC_CHAIN_TYPE=
           NODE_ENV="production"
           PORT=3000
-          if [[ $GITHUB_REF == refs/tags/desmos-morpheus-apollo-1* ]]; then
-            NEXT_PUBLIC_GRAPHQL_URL="https://gql.morpheus.desmos.network/v1/graphql"
-            NEXT_PUBLIC_GRAPHQL_WS="wss://gql.morpheus.desmos.network/v1/graphql"
+          if [[ $GITHUB_REF == refs/tags/provenance-pio-mainnet-1* ]]; then
+            NEXT_PUBLIC_GRAPHQL_URL="https://gql.provenance.forbole.com/v1/graphql"
+            NEXT_PUBLIC_GRAPHQL_WS="wss://gql.provenance.forbole.com/v1/graphql"
             NEXT_PUBLIC_RPC_WEBSOCKET="wss://rpc.morpheus.desmos.network/websocket"
-            NEXT_PUBLIC_CHAIN_TYPE="testnet"
+            NEXT_PUBLIC_CHAIN_TYPE="mainnet"
           fi
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_WS::${NEXT_PUBLIC_GRAPHQL_WS}
