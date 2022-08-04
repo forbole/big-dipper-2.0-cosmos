@@ -14,11 +14,11 @@
     "time": "2021-04-20T16:20:00",
     "height": 1
   },
-  "primaryTokenUnit": "udsm",
-  "votingPowerTokenUnit": "udsm",
+  "primaryTokenUnit": "nhash",
+  "votingPowerTokenUnit": "nhash",
   "tokenUnits": {
-    "udsm": {
-      "display": "dsm",
+    "nhash": {
+      "display": "hash",
       "exponent": 6
     }
   },
