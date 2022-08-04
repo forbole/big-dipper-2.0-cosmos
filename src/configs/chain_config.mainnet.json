@@ -1,17 +1,17 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "desmos-mainnet-1",
+  "title": "Provenance Block Explorer",
+  "network": "pio-mainnet-1",
   "icon": "/images/icon.svg",
   "logo": {
     "default": "/images/logo.svg"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "pbvalcons",
+    "validator": "pbvaloper",
+    "account": "pb"
   },
   "genesis": {
-    "time": "2021-07-13T08:00:00",
+    "time": "2021-04-20T16:20:00",
     "height": 1
   },
   "primaryTokenUnit": "udsm",
