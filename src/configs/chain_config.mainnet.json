@@ -1,9 +1,9 @@
 {
   "title": "Provenance Block Explorer",
   "network": "pio-mainnet-1",
-  "icon": "/images/icon.svg",
+  "icon": "/provenance/images/icon.svg",
   "logo": {
-    "default": "/images/logo.svg"
+    "default": "/provenance/images/logo.svg"
   },
   "prefix": {
     "consensus": "pbvalcons",
