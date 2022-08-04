@@ -35,7 +35,7 @@ jobs:
           if [[ $GITHUB_REF == refs/tags/provenance-pio-mainnet-1* ]]; then
             NEXT_PUBLIC_GRAPHQL_URL="https://gql.provenance.forbole.com/v1/graphql"
             NEXT_PUBLIC_GRAPHQL_WS="wss://gql.provenance.forbole.com/v1/graphql"
-            NEXT_PUBLIC_RPC_WEBSOCKET="wss://rpc.morpheus.desmos.network/websocket"
+            NEXT_PUBLIC_RPC_WEBSOCKET="wss://rpc.provenance.forbole.com/websocket"
             NEXT_PUBLIC_CHAIN_TYPE="mainnet"
           fi
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
@@ -72,14 +72,14 @@ jobs:
             org.opencontainers.image.revision=${{ github.sha }}
       - name: Deploy to Akash 🌐
         env:
-          DESMOS_AKASH_WEBHOOK_URL: ${{ secrets.DESMOS_AKASH_WEBHOOK_URL }}
+          PROVENANCE_AKASH_WEBHOOK_URL: ${{ secrets.PROVENANCE_AKASH_WEBHOOK_URL }}
           AKASH_WEBHOOK_SECRET: ${{ secrets.AKASH_WEBHOOK_SECRET }}
         run: |
             BRANCH=${GITHUB_REF}
             WEBHOOK_URL=''
-            if [[ $GITHUB_REF == refs/tags/desmos-morpheus-apollo-1* ]]; then
-              echo 'Deploying to Desmos morpheus-apollo-1'
-              WEBHOOK_URL=$DESMOS_AKASH_WEBHOOK_URL
+            if [[ $GITHUB_REF == refs/tags/provenance-pio-mainnet-1* ]]; then
+              echo 'Deploying to Provenance pio-mainnet-1'
+              WEBHOOK_URL=$PROVENANCE_AKASH_WEBHOOK_URL
             fi
               curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k $WEBHOOK_URL -u "deploy:$AKASH_WEBHOOK_SECRET"
 
