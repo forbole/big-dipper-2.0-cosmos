@@ -19,7 +19,7 @@
   "tokenUnits": {
     "nhash": {
       "display": "hash",
-      "exponent": 6
+      "exponent": 9
     }
   },
   "extra": {
