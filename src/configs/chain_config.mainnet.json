@@ -1,24 +1,24 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "desmos-mainnet-1",
+  "title": "Shentu Explorer",
+  "network": "shentu-2.2",
   "icon": "/images/icon.svg",
   "logo": {
     "default": "/images/logo.svg"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "certikvalcons",
+    "validator": "certikvaloper",
+    "account": "certik"
   },
   "genesis": {
-    "time": "2021-07-13T08:00:00",
+    "time": "2020-10-24T14:24:00",
     "height": 1
   },
-  "primaryTokenUnit": "udsm",
-  "votingPowerTokenUnit": "udsm",
+  "primaryTokenUnit": "uctk",
+  "votingPowerTokenUnit": "uctk",
   "tokenUnits": {
-    "udsm": {
-      "display": "dsm",
+    "uctk": {
+      "display": "ctk",
       "exponent": 6
     }
   },
