@@ -26,10 +26,10 @@ jobs:
       - name: Prepare docker build env
         id: dockerPrep
         run: |
-          NEXT_PUBLIC_GRAPHQL_URL="https://gql.provenance.forbole.com/v1/graphql"
-          NEXT_PUBLIC_GRAPHQL_WS="wss://gql.provenance.forbole.com/v1/graphql"
-          NEXT_PUBLIC_URL="https://provenance.bigdipper.live"
-          NEXT_PUBLIC_RPC_WEBSOCKET="wss://rpc.provenance.forbole.com/websocket"
+          NEXT_PUBLIC_GRAPHQL_URL="https://gql.certik.forbole.com/v1/graphql"
+          NEXT_PUBLIC_GRAPHQL_WS="wss://gql.certik.forbole.com/v1/graphql"
+          NEXT_PUBLIC_URL="https://shentu.bigdipper.live"
+          NEXT_PUBLIC_RPC_WEBSOCKET="wss://rpc.certik.forbole.com/websocket"
           NEXT_PUBLIC_CHAIN_TYPE="mainnet"
           NODE_ENV="production"
           PORT=3000
