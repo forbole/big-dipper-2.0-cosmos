@@ -17,6 +17,7 @@ const app = next({
 const handle = app.getRequestHandler();
 
 const port = process.env.PORT || 3000;
+const host = process.env.HOST || "::";
 
 (async () => {
   try {
@@ -29,12 +30,13 @@ const port = process.env.PORT || 3000;
     server.all('*', (req: Request, res: Response) => {
       return handle(req, res);
     });
-    server.listen(port, (err?: any) => {
+    server.listen(port, host, (err?: any) => {
       if (err) throw err;
       console.log('> Blast Off Ready On:');
       console.log(`> URL: http://localhost:${port}`);
       console.log(`> ENV: ${process.env.NODE_ENV || 'development'}`);
       console.log(`> PORT: ${port}`);
+      console.log(`> HOST: ${host}`);
     });
   } catch (e) {
     console.error(e);
