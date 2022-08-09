@@ -8,7 +8,10 @@ import {
   TransactionDetailsQuery,
 } from '@graphql/types';
 import { formatToken } from '@utils/format_token';
-import { convertMsgsToModels } from '@msg';
+import {
+  convertMsgsToModels, mutateMessages,
+} from '@msg';
+
 import {
   TransactionState,
 } from './types';
@@ -112,6 +115,10 @@ export const useTransactionDetails = () => {
       return logs;
     };
     stateChange.logs = formatLogs();
+
+    const [mutatedMessages, logs] = mutateMessages(data.transaction[0]);
+    data.transaction[0].messages = mutatedMessages;
+    data.transaction[0].logs = logs;
 
     // =============================
     // messages

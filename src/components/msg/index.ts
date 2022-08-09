@@ -7,6 +7,10 @@ import {
   convertMsgsToModels,
 } from './utils';
 
+import {
+  mutateMessages,
+} from './mutate';
+
 // =========================
 // msg components
 // =========================
@@ -80,6 +84,7 @@ export {
   getMessageModelByType,
   getMessageByType,
   convertMsgsToModels,
+  mutateMessages,
 };
 
 export {
