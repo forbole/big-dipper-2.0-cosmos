@@ -8,6 +8,7 @@
 - Removed the use of NEXT_PUBLIC_URL
 - Update graphql types generation structure (in preparation for third party modules)
 - Update preview image location
+- Added `HOST` env var
 
 # base-v2.1.0 - 2021-04-19
 
