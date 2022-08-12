@@ -18,4 +18,11 @@ query MarketData ($denom: String) {
   distributionParams: distribution_params {
     params
   }
+  evmosInflationData: evmos_inflation_data {
+    circulating_supply
+    inflation_rate
+  }
+  evmosInflationParams: evmos_inflation_params {
+    params
+  }
 }

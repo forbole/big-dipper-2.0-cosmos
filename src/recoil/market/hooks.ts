@@ -45,7 +45,6 @@ export const useMarketRecoil = () => {
     }
 
     const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter((x) => x.denom === chainConfig.primaryTokenUnit);
-    const inflation = R.pathOr(0, ['inflation', 0, 'value'], data);
 
     const rawSupplyAmount = getDenom(
       R.pathOr([], ['supply', 0, 'coins'], data),
@@ -60,11 +59,19 @@ export const useMarketRecoil = () => {
       communityPool = formatToken(communityPoolCoin.amount, communityPoolCoin.denom);
     }
 
-    const bondedTokens = R.pathOr(1, ['bondedTokens', 0, 'bonded_tokens'], data);
-    const communityTax = R.pathOr('0', ['distributionParams', 0, 'params', 'community_tax'], data);
+    // Get Evmos inflation rate
+    const inflation = R.pathOr(0, ['evmosInflationData', 0, 'inflation_rate'], data);
 
-    const inflationWithCommunityTax = Big(1).minus(communityTax).times(inflation).toPrecision(2);
-    const apr = Big(rawSupplyAmount).times(inflationWithCommunityTax).div(bondedTokens).toNumber();
+    // Get Bonded token ratio: bonded tokens/ circulating supply
+    const bondedTokens = R.pathOr(1, ['bondedTokens', 0, 'bonded_tokens'], data);
+    const circulatingSupply = R.pathOr(1, ['evmosInflationData', 0, 'circulating_supply', 0, 'amount'], data);
+    const bondedTokenRatio = Big(bondedTokens).div(circulatingSupply);
+
+    // Get inflation distributed to staking rewards
+    const stakingDistribution = R.pathOr(1, ['evmosInflationParams', 0, 'params', 'inflation_distribution', 'staking_rewards'], data);
+
+    const inflationWithStakingDistribution = Big(inflation).times(stakingDistribution).toPrecision(5);
+    const apr = Big(inflationWithStakingDistribution).div(bondedTokenRatio).toNumber();
 
     return ({
       price,
