@@ -13,6 +13,9 @@ import {
 } from '@components';
 import { getValidatorConditionClass } from '@utils/get_validator_condition';
 import { getValidatorStatus } from '@utils/get_validator_status';
+import LiquidStakingTrueIcon from '@assets/liquid-staking-true.svg';
+import LiquidStakingFalseIcon from '@assets/liquid-staking-false.svg';
+import LiquidStakingTitleIcon from '@assets/liquid-staking-title.svg';
 import { useStyles } from './styles';
 import { fetchColumns } from './utils';
 import { ItemType } from '../../types';
@@ -56,10 +59,6 @@ const Desktop: React.FC<{
           name={x.validator.name}
         />
       ),
-      commission: `${numeral(x.commission).format('0.[00]')}%`,
-      condition: (
-        <Condition className={condition} />
-      ),
       votingPower: (
         <VotingPower
           percentDisplay={percentDisplay}
@@ -68,12 +67,16 @@ const Desktop: React.FC<{
           topVotingPower={x.topVotingPower}
         />
       ),
+      commission: `${numeral(x.commission).format('0.[00]')}%`,
       status: (
         <Typography variant="body1" className={classnames('status', status.theme)}>
           {t(status.status)}
         </Typography>
       ),
-      liquidStaking: x.liquidStaking,
+      condition: (
+        <Condition className={condition} />
+      ),
+      liquidStaking: x.liquidStaking === 'Yes' ? <LiquidStakingTrueIcon /> : <LiquidStakingFalseIcon />,
     });
   });
 
@@ -131,7 +134,7 @@ const Desktop: React.FC<{
                   if (key === 'liquidStaking') {
                     formattedComponent = (
                       <Typography variant="h4" className="label popover">
-                        {t('liquidStaking')}
+                        <LiquidStakingTitleIcon />
                         <InfoPopover
                           content={<LiquidStakingExplanation />}
                         />
