@@ -56,10 +56,6 @@ const Desktop: React.FC<{
           name={x.validator.name}
         />
       ),
-      commission: `${numeral(x.commission).format('0.[00]')}%`,
-      condition: (
-        <Condition className={condition} />
-      ),
       votingPower: (
         <VotingPower
           percentDisplay={percentDisplay}
@@ -68,10 +64,14 @@ const Desktop: React.FC<{
           topVotingPower={x.topVotingPower}
         />
       ),
+      commission: `${numeral(x.commission).format('0.[00]')}%`,
       status: (
         <Typography variant="body1" className={classnames('status', status.theme)}>
           {t(status.status)}
         </Typography>
+      ),
+      condition: (
+        <Condition className={condition} />
       ),
       liquidStaking: x.liquidStaking,
     });
