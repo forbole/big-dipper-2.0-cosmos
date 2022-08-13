@@ -15,6 +15,7 @@ import { getValidatorConditionClass } from '@utils/get_validator_condition';
 import { getValidatorStatus } from '@utils/get_validator_status';
 import LiquidStakingTrueIcon from '@assets/liquid-staking-true.svg';
 import LiquidStakingFalseIcon from '@assets/liquid-staking-false.svg';
+import LiquidStakingTitleIcon from '@assets/liquid-staking-title.svg';
 import { useStyles } from './styles';
 import { fetchColumns } from './utils';
 import { ItemType } from '../../types';
@@ -133,7 +134,7 @@ const Desktop: React.FC<{
                   if (key === 'liquidStaking') {
                     formattedComponent = (
                       <Typography variant="h4" className="label popover">
-                        {t('liquidStaking')}
+                        <LiquidStakingTitleIcon />
                         <InfoPopover
                           content={<LiquidStakingExplanation />}
                         />

@@ -5,7 +5,6 @@ import {
 import {
   InfoPopover, ConditionExplanation,
 } from '@components';
-// import LiquidStakingTitleIcon from '@assets/liquid-staking-title.svg';
 
 export const fetchColumns = (t): {
   key: string;
@@ -36,11 +35,12 @@ export const fetchColumns = (t): {
       key: 'commission',
       sortKey: 'commission',
       align: 'right',
-      width: 10,
+      width: 15,
       sort: true,
     },
     {
       key: 'status',
+      align: 'center',
       width: 10,
     },
     {
@@ -57,11 +57,10 @@ export const fetchColumns = (t): {
       ),
     },
     {
-      // key: <LiquidStakingTitleIcon />,
       key: 'liquidStaking',
       sortKey: 'liquidStaking',
-      align: 'center',
-      width: 15,
+      align: 'left',
+      width: 10,
       sort: true,
     },
   ]);
