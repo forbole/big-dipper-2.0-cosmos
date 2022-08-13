@@ -4,6 +4,8 @@ import useTranslation from 'next-translate/useTranslation';
 import {
   Typography,
 } from '@material-ui/core';
+import LiquidStakingTrueIcon from '@assets/liquid-staking-true.svg';
+import LiquidStakingFalseIcon from '@assets/liquid-staking-false.svg';
 import { useStyles } from './styles';
 
 const SingleValidator: React.FC<{
@@ -56,7 +58,7 @@ const SingleValidator: React.FC<{
             {t('liquidStaking')}
           </Typography>
           <Typography variant="body1" className="value">
-            {liquidStaking}
+            {liquidStaking === 'Yes' ? <LiquidStakingTrueIcon /> : <LiquidStakingFalseIcon />}
           </Typography>
         </div>
         <div className={classes.item}>
