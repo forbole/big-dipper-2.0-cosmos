@@ -13,6 +13,8 @@ import {
 } from '@components';
 import { getValidatorConditionClass } from '@utils/get_validator_condition';
 import { getValidatorStatus } from '@utils/get_validator_status';
+import LiquidStakingTrueIcon from '@assets/liquid-staking-true.svg';
+import LiquidStakingFalseIcon from '@assets/liquid-staking-false.svg';
 import { useStyles } from './styles';
 import { fetchColumns } from './utils';
 import { ItemType } from '../../types';
@@ -73,7 +75,7 @@ const Desktop: React.FC<{
       condition: (
         <Condition className={condition} />
       ),
-      liquidStaking: x.liquidStaking,
+      liquidStaking: x.liquidStaking === 'Yes' ? <LiquidStakingTrueIcon /> : <LiquidStakingFalseIcon />,
     });
   });
 
