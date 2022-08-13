@@ -18,6 +18,8 @@ import {
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { getValidatorStatus } from '@utils/get_validator_status';
+import LiquidStakingTrueIcon from '@assets/liquid-staking-true.svg';
+import LiquidStakingFalseIcon from '@assets/liquid-staking-false.svg';
 import { useStyles } from './styles';
 import { getCondition } from './utils';
 import {
@@ -66,7 +68,7 @@ const ValidatorOverview: React.FC<{
             variant="body1"
             className="value"
           >
-            {liquidStaking}
+            {liquidStaking === 'Yes' ? <LiquidStakingTrueIcon /> : <LiquidStakingFalseIcon />}
           </Typography>
         ),
       },
