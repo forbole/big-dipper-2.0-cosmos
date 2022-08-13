@@ -1,7 +1,7 @@
 # Unreleased
 
 ## Changes
-- 
+- Updated liquid staking to icon display ([\#962](https://github.com/forbole/big-dipper-2.0-cosmos/issues/962))
 
 # crescent-v1.0.0 - 2022-08-02
 
