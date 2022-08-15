@@ -41,7 +41,7 @@ export const fetchColumns = (t): {
     {
       key: 'status',
       align: 'center',
-      width: 10,
+      width: 12,
     },
     {
       key: 'condition',
@@ -60,7 +60,7 @@ export const fetchColumns = (t): {
       key: 'liquidStaking',
       sortKey: 'liquidStaking',
       align: 'left',
-      width: 10,
+      width: 8,
       sort: true,
     },
   ]);
