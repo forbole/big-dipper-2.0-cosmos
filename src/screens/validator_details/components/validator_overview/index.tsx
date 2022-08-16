@@ -14,6 +14,7 @@ import {
   Tag,
   InfoPopover,
   ConditionExplanation,
+  LiquidStakingExplanation,
 } from '@components';
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
@@ -59,8 +60,11 @@ const ValidatorOverview: React.FC<{
       },
       {
         key: (
-          <Typography variant="h4" className="label">
+          <Typography variant="h4" className="label liquidStaking">
             {t('liquidStaking')}
+            <InfoPopover
+              content={<LiquidStakingExplanation />}
+            />
           </Typography>
         ),
         value: (

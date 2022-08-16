@@ -86,6 +86,10 @@ export const useStyles = () => {
               display: 'flex',
               alignItems: 'center',
             },
+            '&.liquidStaking': {
+              display: 'flex',
+              alignItems: 'center',
+            },
           },
           '& .condition__body': {
             justifySelf: 'flex-start',
