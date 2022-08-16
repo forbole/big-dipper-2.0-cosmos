@@ -29,6 +29,7 @@ import LoadAndExist from './load_and_exist';
 import DesmosProfile from './desmos_profile';
 import TransactionListDetails from './transactions_list_details';
 import AvatarNameListMsg from './avatar_name_list_msg';
+import LiquidStakingExplanation from './liquid_staking_explanation';
 
 export {
   Layout,
@@ -62,4 +63,5 @@ export {
   DesmosProfile,
   TransactionListDetails,
   AvatarNameListMsg,
+  LiquidStakingExplanation,
 };
