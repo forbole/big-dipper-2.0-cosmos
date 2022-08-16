@@ -10,6 +10,7 @@ import {
   SortArrows,
   AvatarName,
   InfoPopover,
+  LiquidStakingExplanation,
 } from '@components';
 import { getValidatorConditionClass } from '@utils/get_validator_condition';
 import { getValidatorStatus } from '@utils/get_validator_status';
@@ -23,7 +24,6 @@ import {
   Condition,
   VotingPower,
   VotingPowerExplanation,
-  LiquidStakingExplanation,
 } from '..';
 
 const Desktop: React.FC<{
