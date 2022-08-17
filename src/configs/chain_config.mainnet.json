@@ -15,11 +15,15 @@
     "height": 1
   },
   "primaryTokenUnit": "nhash",
-  "votingPowerTokenUnit": "nhash",
+  "votingPowerTokenUnit": "uhash",
   "tokenUnits": {
     "nhash": {
       "display": "hash",
       "exponent": 9
+    },
+    "uhash": {
+      "display": "hash",
+      "exponent": 6
     }
   },
   "extra": {
