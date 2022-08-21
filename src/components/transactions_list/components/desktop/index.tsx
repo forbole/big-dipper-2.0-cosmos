@@ -52,7 +52,7 @@ const Desktop: React.FC<TransactionsListState> = ({
       <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
         <Typography variant="body1" component="a">
           {getMiddleEllipsis(x.hash, {
-            beginning: 20, ending: 15,
+            beginning: 4, ending: 4,
           })}
         </Typography>
       </Link>
