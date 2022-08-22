@@ -14,7 +14,7 @@ import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import { mergeRefs } from '@utils/merge_refs';
 import {
-  Loading, Result,
+  Loading, Result, Tag,
 } from '@components';
 import { useGrid } from '@hooks';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
@@ -57,6 +57,12 @@ const Desktop: React.FC<TransactionsListState> = ({
         </Typography>
       </Link>
     ),
+    type: <Tag
+      // value={t(`message_labels:${results.tagDisplay}`)}
+      // theme={results.tagTheme}
+      value={t(`message_labels:${'txDelegateLabel'}`)}
+      theme="six"
+    />,
     result: (
       <Result success={x.success} />
     ),
