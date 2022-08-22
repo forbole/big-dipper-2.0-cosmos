@@ -57,12 +57,18 @@ const Desktop: React.FC<TransactionsListState> = ({
         </Typography>
       </Link>
     ),
-    type: <Tag
-      // value={t(`message_labels:${results.tagDisplay}`)}
-      // theme={results.tagTheme}
-      value={t(`message_labels:${'txDelegateLabel'}`)}
-      theme="six"
-    />,
+    // type: <Tag
+    //   value={t(`message_labels:${results.tagDisplay}`)}
+    //   theme={results.tagTheme}
+    // />,
+    type: (
+      <div>
+        <Tag
+          value={t(`message_labels:${'txDelegateLabel'}`)}
+          theme="six"
+        />
+        {(x.messages.count > 1) && (' +')}
+      </div>),
     result: (
       <Result success={x.success} />
     ),

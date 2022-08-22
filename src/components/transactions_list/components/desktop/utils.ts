@@ -13,7 +13,6 @@ export const columns:{
   },
   {
     key: 'type',
-    align: 'center',
     width: 15,
   },
   {
