@@ -2873,6 +2873,137 @@ export type Liquid_Staking_Params_Variance_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
+/** columns and relationships of "liquid_staking_state" */
+export type Liquid_Staking_State = {
+  __typename?: 'liquid_staking_state';
+  height: Scalars['bigint'];
+  one_row_id: Scalars['Boolean'];
+  state: Scalars['jsonb'];
+};
+
+
+/** columns and relationships of "liquid_staking_state" */
+export type Liquid_Staking_StateStateArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+/** aggregated selection of "liquid_staking_state" */
+export type Liquid_Staking_State_Aggregate = {
+  __typename?: 'liquid_staking_state_aggregate';
+  aggregate?: Maybe<Liquid_Staking_State_Aggregate_Fields>;
+  nodes: Array<Liquid_Staking_State>;
+};
+
+/** aggregate fields of "liquid_staking_state" */
+export type Liquid_Staking_State_Aggregate_Fields = {
+  __typename?: 'liquid_staking_state_aggregate_fields';
+  avg?: Maybe<Liquid_Staking_State_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Liquid_Staking_State_Max_Fields>;
+  min?: Maybe<Liquid_Staking_State_Min_Fields>;
+  stddev?: Maybe<Liquid_Staking_State_Stddev_Fields>;
+  stddev_pop?: Maybe<Liquid_Staking_State_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Liquid_Staking_State_Stddev_Samp_Fields>;
+  sum?: Maybe<Liquid_Staking_State_Sum_Fields>;
+  var_pop?: Maybe<Liquid_Staking_State_Var_Pop_Fields>;
+  var_samp?: Maybe<Liquid_Staking_State_Var_Samp_Fields>;
+  variance?: Maybe<Liquid_Staking_State_Variance_Fields>;
+};
+
+
+/** aggregate fields of "liquid_staking_state" */
+export type Liquid_Staking_State_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Liquid_Staking_State_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Liquid_Staking_State_Avg_Fields = {
+  __typename?: 'liquid_staking_state_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "liquid_staking_state". All fields are combined with a logical 'AND'. */
+export type Liquid_Staking_State_Bool_Exp = {
+  _and?: Maybe<Array<Liquid_Staking_State_Bool_Exp>>;
+  _not?: Maybe<Liquid_Staking_State_Bool_Exp>;
+  _or?: Maybe<Array<Liquid_Staking_State_Bool_Exp>>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  one_row_id?: Maybe<Boolean_Comparison_Exp>;
+  state?: Maybe<Jsonb_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Liquid_Staking_State_Max_Fields = {
+  __typename?: 'liquid_staking_state_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate min on columns */
+export type Liquid_Staking_State_Min_Fields = {
+  __typename?: 'liquid_staking_state_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** Ordering options when selecting data from "liquid_staking_state". */
+export type Liquid_Staking_State_Order_By = {
+  height?: Maybe<Order_By>;
+  one_row_id?: Maybe<Order_By>;
+  state?: Maybe<Order_By>;
+};
+
+/** select columns of table "liquid_staking_state" */
+export enum Liquid_Staking_State_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  OneRowId = 'one_row_id',
+  /** column name */
+  State = 'state'
+}
+
+/** aggregate stddev on columns */
+export type Liquid_Staking_State_Stddev_Fields = {
+  __typename?: 'liquid_staking_state_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Liquid_Staking_State_Stddev_Pop_Fields = {
+  __typename?: 'liquid_staking_state_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Liquid_Staking_State_Stddev_Samp_Fields = {
+  __typename?: 'liquid_staking_state_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Liquid_Staking_State_Sum_Fields = {
+  __typename?: 'liquid_staking_state_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Liquid_Staking_State_Var_Pop_Fields = {
+  __typename?: 'liquid_staking_state_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Liquid_Staking_State_Var_Samp_Fields = {
+  __typename?: 'liquid_staking_state_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Liquid_Staking_State_Variance_Fields = {
+  __typename?: 'liquid_staking_state_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
 /** columns and relationships of "message" */
 export type Message = {
   __typename?: 'message';
@@ -5177,6 +5308,12 @@ export type Query_Root = {
   liquid_staking_params_aggregate: Liquid_Staking_Params_Aggregate;
   /** fetch data from the table: "liquid_staking_params" using primary key columns */
   liquid_staking_params_by_pk?: Maybe<Liquid_Staking_Params>;
+  /** fetch data from the table: "liquid_staking_state" */
+  liquid_staking_state: Array<Liquid_Staking_State>;
+  /** fetch aggregated fields from the table: "liquid_staking_state" */
+  liquid_staking_state_aggregate: Liquid_Staking_State_Aggregate;
+  /** fetch data from the table: "liquid_staking_state" using primary key columns */
+  liquid_staking_state_by_pk?: Maybe<Liquid_Staking_State>;
   /** fetch data from the table: "message" */
   message: Array<Message>;
   /** fetch aggregated fields from the table: "message" */
@@ -5717,6 +5854,29 @@ export type Query_RootLiquid_Staking_Params_AggregateArgs = {
 
 
 export type Query_RootLiquid_Staking_Params_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
+};
+
+
+export type Query_RootLiquid_Staking_StateArgs = {
+  distinct_on?: Maybe<Array<Liquid_Staking_State_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Liquid_Staking_State_Order_By>>;
+  where?: Maybe<Liquid_Staking_State_Bool_Exp>;
+};
+
+
+export type Query_RootLiquid_Staking_State_AggregateArgs = {
+  distinct_on?: Maybe<Array<Liquid_Staking_State_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Liquid_Staking_State_Order_By>>;
+  where?: Maybe<Liquid_Staking_State_Bool_Exp>;
+};
+
+
+export type Query_RootLiquid_Staking_State_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
 
@@ -6810,6 +6970,12 @@ export type Subscription_Root = {
   liquid_staking_params_aggregate: Liquid_Staking_Params_Aggregate;
   /** fetch data from the table: "liquid_staking_params" using primary key columns */
   liquid_staking_params_by_pk?: Maybe<Liquid_Staking_Params>;
+  /** fetch data from the table: "liquid_staking_state" */
+  liquid_staking_state: Array<Liquid_Staking_State>;
+  /** fetch aggregated fields from the table: "liquid_staking_state" */
+  liquid_staking_state_aggregate: Liquid_Staking_State_Aggregate;
+  /** fetch data from the table: "liquid_staking_state" using primary key columns */
+  liquid_staking_state_by_pk?: Maybe<Liquid_Staking_State>;
   /** fetch data from the table: "message" */
   message: Array<Message>;
   /** fetch aggregated fields from the table: "message" */
@@ -7264,6 +7430,29 @@ export type Subscription_RootLiquid_Staking_Params_AggregateArgs = {
 
 
 export type Subscription_RootLiquid_Staking_Params_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
+};
+
+
+export type Subscription_RootLiquid_Staking_StateArgs = {
+  distinct_on?: Maybe<Array<Liquid_Staking_State_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Liquid_Staking_State_Order_By>>;
+  where?: Maybe<Liquid_Staking_State_Bool_Exp>;
+};
+
+
+export type Subscription_RootLiquid_Staking_State_AggregateArgs = {
+  distinct_on?: Maybe<Array<Liquid_Staking_State_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Liquid_Staking_State_Order_By>>;
+  where?: Maybe<Liquid_Staking_State_Bool_Exp>;
+};
+
+
+export type Subscription_RootLiquid_Staking_State_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
 
@@ -11620,6 +11809,9 @@ export type MarketDataQuery = { communityPool: Array<(
   )>, distributionParams: Array<(
     { __typename?: 'distribution_params' }
     & Pick<Distribution_Params, 'params'>
+  )>, mintParams: Array<(
+    { __typename?: 'mint_params' }
+    & Pick<Mint_Params, 'params'>
   )> };
 
 export type GetMessagesByAddressQueryVariables = Exact<{
@@ -12730,6 +12922,9 @@ export const MarketDataDocument = gql`
     bonded_tokens
   }
   distributionParams: distribution_params {
+    params
+  }
+  mintParams: mint_params {
     params
   }
 }

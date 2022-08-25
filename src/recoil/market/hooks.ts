@@ -16,6 +16,7 @@ import {
 } from '@recoil/market';
 import { AtomState } from '@recoil/market/types';
 import { getDenom } from '@utils/get_denom';
+import { getCurrentInflationAmount } from '@utils/get_current_inflation';
 import { formatToken } from '@utils/format_token';
 
 export const useMarketRecoil = () => {
@@ -60,11 +61,16 @@ export const useMarketRecoil = () => {
       communityPool = formatToken(communityPoolCoin.amount, communityPoolCoin.denom);
     }
 
-    const bondedTokens = R.pathOr(1, ['bondedTokens', 0, 'bonded_tokens'], data);
-    const communityTax = R.pathOr('0', ['distributionParams', 0, 'params', 'community_tax'], data);
+    // Get the annual inflation amount of current inflation shedule
+    const inflationSchedules = R.pathOr([], ['mintParams', 0, 'params', 'inflation_schedules'], data);
+    const inflationAmount = getCurrentInflationAmount(inflationSchedules);
 
-    const inflationWithCommunityTax = Big(1).minus(communityTax).times(inflation).toPrecision(2);
-    const apr = Big(rawSupplyAmount).times(inflationWithCommunityTax).div(bondedTokens).toNumber();
+    const bondedTokens = R.pathOr(1, ['bondedTokens', 0, 'bonded_tokens'], data);
+
+    // The annual token provision distributed to staking is 6.25% => this number is obtained from cummunity telegram
+    const stakingDistribution = 0.0625;
+
+    const apr = Big(inflationAmount).times(stakingDistribution).div(bondedTokens).toNumber();
 
     return ({
       price,

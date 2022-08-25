@@ -18,4 +18,7 @@ query MarketData ($denom: String) {
   distributionParams: distribution_params {
     params
   }
+  mintParams: mint_params {
+    params
+  } 
 }
