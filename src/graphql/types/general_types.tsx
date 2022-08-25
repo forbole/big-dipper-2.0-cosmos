@@ -11809,9 +11809,9 @@ export type MarketDataQuery = { communityPool: Array<(
   )>, distributionParams: Array<(
     { __typename?: 'distribution_params' }
     & Pick<Distribution_Params, 'params'>
-  )>, liquidStakingState: Array<(
-    { __typename?: 'liquid_staking_state' }
-    & Pick<Liquid_Staking_State, 'state'>
+  )>, mintParams: Array<(
+    { __typename?: 'mint_params' }
+    & Pick<Mint_Params, 'params'>
   )> };
 
 export type GetMessagesByAddressQueryVariables = Exact<{
@@ -12924,8 +12924,8 @@ export const MarketDataDocument = gql`
   distributionParams: distribution_params {
     params
   }
-  liquidStakingState: liquid_staking_state {
-    state
+  mintParams: mint_params {
+    params
   }
 }
     `;
