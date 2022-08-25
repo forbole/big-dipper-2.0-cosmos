@@ -1,6 +1,7 @@
 # Unreleased
 ## Changes
 - Merged base
+- Update preview image ([\#968](https://github.com/forbole/big-dipper-2.0-cosmos/issues/968))
 
 # band-v2.1.0 - 2021-04-19
 ## Changes
