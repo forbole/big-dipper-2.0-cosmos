@@ -67,9 +67,9 @@ export const useValidators = () => {
       let liquidStaking = liquidStakingReturn;
       if (liquidStakingReturn !== 'N/A') {
         if (liquidStakingReturn) {
-          liquidStaking = 'Y';
+          liquidStaking = 'Yes';
         } else {
-          liquidStaking = 'N';
+          liquidStaking = 'No';
         }
       }
 

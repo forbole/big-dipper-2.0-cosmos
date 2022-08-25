@@ -32,18 +32,16 @@ export const fetchColumns = (t): {
       sort: true,
     },
     {
-      key: 'liquidStaking',
-      sortKey: 'liquidStaking',
-      align: 'center',
+      key: 'commission',
+      sortKey: 'commission',
+      align: 'right',
       width: 15,
       sort: true,
     },
     {
-      key: 'commission',
-      sortKey: 'commission',
-      align: 'right',
-      width: 10,
-      sort: true,
+      key: 'status',
+      align: 'center',
+      width: 12,
     },
     {
       key: 'condition',
@@ -59,8 +57,11 @@ export const fetchColumns = (t): {
       ),
     },
     {
-      key: 'status',
-      width: 10,
+      key: 'liquidStaking',
+      sortKey: 'liquidStaking',
+      align: 'left',
+      width: 8,
+      sort: true,
     },
   ]);
 };
