@@ -1,29 +1,30 @@
 # Unreleased
 
 ## Changes
-- merge base
+- Merged base
+- Updated preview image ([\#969](https://github.com/forbole/big-dipper-2.0-cosmos/issues/969))
 
 # regen-v2.1.0 - 2021-04-19
 
 ## Changes
-- merge `base-v2.1.0`
+- Merged `base-v2.1.0`
 
 # regen-v2.0.2 - 2021-02-25
 
 ## Changes
-- merge `base-v2.0.0-rc3`
+- Merged `base-v2.0.0-rc3`
 
 # regen-v2.0.1 - 2021-02-17
 
 ## Changes
-- logos
+- Logos
 
 # regen-v2.0.0 - 2021-02-09
 
 ## Changes
-- merge `base-v2.0.0-rc1`
+- Merged `base-v2.0.0-rc1`
 # regen-v1.0.0 - 2021-01-14
 
 ## Changes
-- initial release
+- Initial release
 
