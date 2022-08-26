@@ -1,9 +1,9 @@
 {
   "title": "Desmos Block Explorer",
   "network": "desmos-mainnet-1",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
+  "icon": "/desmos/images/icon.svg",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
+    "default": "/desmos/images/logo.svg"
   },
   "prefix": {
     "consensus": "desmosvalcons",
