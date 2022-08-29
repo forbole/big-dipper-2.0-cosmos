@@ -20,33 +20,33 @@ export const TWITTER_SEO = {
 export const ADDITIONAL_LINK_TAGS_SEO = [
   {
     rel: 'apple-touch-icon',
-    href: '/icons/apple-touch-icon.png',
+    href: `${generalConfig.basePath}/icons/apple-touch-icon.png`,
     sizes: '180x180',
   },
   {
     rel: 'icon',
     type: 'image/png',
-    href: '/icons/favicon-32x32.png',
+    href: `${generalConfig.basePath}/icons/favicon-32x32.png`,
     sizes: '32x32',
   },
   {
     rel: 'icon',
     type: 'image/png',
-    href: '/icons/favicon-16x16.png',
+    href: `${generalConfig.basePath}/icons/favicon-16x16.png`,
     sizes: '16x16',
   },
   {
     rel: 'manifest',
-    href: '/icons/site.webmanifest',
+    href: `${generalConfig.basePath}/icons/site.webmanifest`,
   },
   {
     rel: 'mask-icon',
-    href: '/icons/safari-pinned-tab.svg',
+    href: `${generalConfig.basePath}/icons/safari-pinned-tab.svg`,
     color: '#5bbad5',
   },
   {
     rel: 'shortcut icon',
-    href: '/icons/favicon.ico',
+    href: `${generalConfig.basePath}/icons/favicon.ico`,
   },
 ];
 
