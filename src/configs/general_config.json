@@ -6,6 +6,7 @@
   "github": {
     "reportIssue": "https://github.com/forbole/big-dipper-2.0-cosmos/issues"
   },
+  "basePath": "/desmos",
   "previewImage": "https://bigdipper.live/images/big-dipper-social-media.png",
-  "version": "base-v2.1.0"
+  "version": "base-v2.1.1"
 }
