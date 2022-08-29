@@ -2,8 +2,8 @@
 
 ## Changes
 
-- Merged base
 - Updated preview image ([\#970](https://github.com/forbole/big-dipper-2.0-cosmos/issues/970))
+- Merged `base-v2.1.1` ([\#973](https://github.com/forbole/big-dipper-2.0-cosmos/issues/973))
 
 # agoric-v2.1.0 - 2021-04-19
 
