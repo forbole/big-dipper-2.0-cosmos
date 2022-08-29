@@ -1,9 +1,9 @@
 {
   "title": "Agoric Block Explorer",
   "network": "agoric-3",
-  "icon": "/images/icon.png",
+  "icon": "/agoric/images/icon.svg",
   "logo": {
-    "default": "/images/logo.png"
+    "default": "/agoric/images/logo.svg"
   },
   "prefix": {
     "consensus": "agoricvalcons",
