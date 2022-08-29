@@ -14,6 +14,7 @@
 - Update graphql types generation structure (in preparation for third party modules)
 - Update preview image location
 - Update change url files ([\#972](https://github.com/forbole/big-dipper-2.0-cosmos/issues/972))
+- Add `NEXT_PUBLIC_MATOMO_URL` and `NEXT_PUBLIC_MATOMO_SITE_ID` to github workflow production ([\#972](https://github.com/forbole/big-dipper-2.0-cosmos/issues/972))
 
 # base-v2.1.0 - 2022-04-19
 
