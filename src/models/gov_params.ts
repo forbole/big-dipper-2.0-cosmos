@@ -9,9 +9,21 @@ class GovParams {
     maxDepositPeriod: number;
   };
   public tallyParams: {
-    quorum: string;
-    threshold: string;
-    vetoThreshold: string;
+    default: {
+      quorum: string;
+      threshold: string;
+      vetoThreshold: string;
+    };
+    certifierStakeVote: {
+      quorum: string;
+      threshold: string;
+      vetoThreshold: string;
+    };
+    certifierSecurityVote: {
+      quorum: string;
+      threshold: string;
+      vetoThreshold: string;
+    };
   };
   public votingParams: {
     votingPeriod: number;
