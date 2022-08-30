@@ -32,5 +32,8 @@
   "quorum": "Quorum",
   "threshold": "Threshold",
   "vetoThreshold": "Veto Threshold",
-  "votingPeriod": "Voting Period"
+  "votingPeriod": "Voting Period",
+  "default": "Default",
+  "certifierStakeVote": "Certifier Stake Vote",
+  "certifierSecurityVote": "Certifier Security Vote"
 }

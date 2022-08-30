@@ -138,20 +138,53 @@ export const formatGov = (data: Gov, t: any) => {
       detail: convertBySeconds(nanoToSeconds(data.maxDepositPeriod), t),
     },
     {
+      label: t('votingPeriod'),
+      detail: convertBySeconds(nanoToSeconds(data.votingPeriod), t),
+    },
+    {
+      label: t('default'),
+    },
+    {
       label: t('quorum'),
-      detail: `${numeral(data.quorum * 100).format('0.[00]')}%`,
+      detail: `${numeral(data.default.quorum * 100).format('0.[00]')}%`,
     },
     {
       label: t('threshold'),
-      detail: `${numeral(data.threshold * 100).format('0.[00]')}%`,
+      detail: `${numeral(data.default.threshold * 100).format('0.[00]')}%`,
     },
     {
       label: t('vetoThreshold'),
-      detail: `${numeral(data.vetoThreshold * 100).format('0.[00]')}%`,
+      detail: `${numeral(data.default.vetoThreshold * 100).format('0.[00]')}%`,
     },
     {
-      label: t('votingPeriod'),
-      detail: convertBySeconds(nanoToSeconds(data.votingPeriod), t),
+      label: t('certifierStakeVote'),
+    },
+    {
+      label: t('quorum'),
+      detail: `${numeral(data.certifierStakeVote.quorum * 100).format('0.[00]')}%`,
+    },
+    {
+      label: t('threshold'),
+      detail: `${numeral(data.certifierStakeVote.threshold * 100).format('0.[00]')}%`,
+    },
+    {
+      label: t('vetoThreshold'),
+      detail: `${numeral(data.certifierStakeVote.vetoThreshold * 100).format('0.[00]')}%`,
+    },
+    {
+      label: t('certifierSecurityVote'),
+    },
+    {
+      label: t('quorum'),
+      detail: `${numeral(data.certifierSecurityVote.quorum * 100).format('0.[00]')}%`,
+    },
+    {
+      label: t('threshold'),
+      detail: `${numeral(data.certifierSecurityVote.threshold * 100).format('0.[00]')}%`,
+    },
+    {
+      label: t('vetoThreshold'),
+      detail: `${numeral(data.certifierSecurityVote.vetoThreshold * 100).format('0.[00]')}%`,
     },
   ]);
 };

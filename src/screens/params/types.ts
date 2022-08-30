@@ -33,9 +33,21 @@ export type Distribution = {
 export type Gov = {
   minDeposit: TokenUnit;
   maxDepositPeriod: number;
-  quorum: number;
-  threshold: number;
-  vetoThreshold: number;
+  default: {
+    quorum: number;
+    threshold: number;
+    vetoThreshold: number;
+  };
+  certifierStakeVote: {
+    quorum: number;
+    threshold: number;
+    vetoThreshold: number;
+  };
+  certifierSecurityVote: {
+    quorum: number;
+    threshold: number;
+    vetoThreshold: number;
+  };
   votingPeriod: number;
 }
 

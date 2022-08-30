@@ -10,7 +10,7 @@ const BoxDetails: React.FC<{
   titleAction?: React.ReactNode;
   details: {
     label: string | number | React.ReactNode;
-    detail: string | number | React.ReactNode;
+    detail?: string | number | React.ReactNode;
     className?: string;
   }[];
 }> = ({
