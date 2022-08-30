@@ -142,7 +142,7 @@ export const formatGov = (data: Gov, t: any) => {
       detail: convertBySeconds(nanoToSeconds(data.votingPeriod), t),
     },
     {
-      label: 'Default',
+      label: t('default'),
     },
     {
       label: t('quorum'),
@@ -157,7 +157,7 @@ export const formatGov = (data: Gov, t: any) => {
       detail: `${numeral(data.default.vetoThreshold * 100).format('0.[00]')}%`,
     },
     {
-      label: 'Certifier Stake Vote',
+      label: t('certifierStakeVote'),
     },
     {
       label: t('quorum'),
@@ -172,7 +172,7 @@ export const formatGov = (data: Gov, t: any) => {
       detail: `${numeral(data.certifierStakeVote.vetoThreshold * 100).format('0.[00]')}%`,
     },
     {
-      label: 'Certifier Security Vote',
+      label: t('certifierSecurityVote'),
     },
     {
       label: t('quorum'),
