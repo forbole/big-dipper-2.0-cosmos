@@ -143,15 +143,28 @@ export const useParams = () => {
     const formatGov = () => {
       if (data.govParams.length) {
         const govParamsRaw = GovParams.fromJson(R.pathOr({}, ['govParams', 0], data));
+
         return {
           minDeposit: formatToken(
             R.pathOr(0, [0, 'amount'], govParamsRaw.depositParams.minDeposit),
             R.pathOr(chainConfig.primaryTokenUnit, [0, 'denom'], govParamsRaw.depositParams.minDeposit),
           ),
           maxDepositPeriod: govParamsRaw.depositParams.maxDepositPeriod,
-          quorum: numeral(numeral(govParamsRaw.tallyParams.quorum).format('0.[00]')).value(),
-          threshold: numeral(numeral(govParamsRaw.tallyParams.threshold).format('0.[00]')).value(),
-          vetoThreshold: numeral(numeral(govParamsRaw.tallyParams.vetoThreshold).format('0.[00]')).value(),
+          default: {
+            quorum: numeral(numeral(govParamsRaw.tallyParams.default.quorum).format('0.[00]')).value(),
+            threshold: numeral(numeral(govParamsRaw.tallyParams.default.threshold).format('0.[00]')).value(),
+            vetoThreshold: numeral(numeral(govParamsRaw.tallyParams.default.vetoThreshold).format('0.[00]')).value(),
+          },
+          certifierStakeVote: {
+            quorum: numeral(numeral(govParamsRaw.tallyParams.certifierStakeVote.quorum).format('0.[00]')).value(),
+            threshold: numeral(numeral(govParamsRaw.tallyParams.certifierStakeVote.threshold).format('0.[00]')).value(),
+            vetoThreshold: numeral(numeral(govParamsRaw.tallyParams.certifierStakeVote.vetoThreshold).format('0.[00]')).value(),
+          },
+          certifierSecurityVote: {
+            quorum: numeral(numeral(govParamsRaw.tallyParams.certifierSecurityVote.quorum).format('0.[00]')).value(),
+            threshold: numeral(numeral(govParamsRaw.tallyParams.certifierSecurityVote.threshold).format('0.[00]')).value(),
+            vetoThreshold: numeral(numeral(govParamsRaw.tallyParams.certifierSecurityVote.vetoThreshold).format('0.[00]')).value(),
+          },
           votingPeriod: govParamsRaw.votingParams.votingPeriod,
         };
       }
