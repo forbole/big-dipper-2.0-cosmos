@@ -6,7 +6,7 @@
 # shentu-v1.0.1
 
 ## Changes
-- Fixed APR ([\#933](https://github.com/forbole/big-dipper-2.0-cosmos/issues/933))
+- Fixed APR ([\#978](https://github.com/forbole/big-dipper-2.0-cosmos/issues/978))
 
 # shentu-v1.0.0
 
