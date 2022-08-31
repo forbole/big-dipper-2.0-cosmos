@@ -3,6 +3,12 @@
 ## Changes
 - 
 
+# shentu-v1.0.2
+
+## Changes
+- Merged `base-v2.1.1` ([\#979](https://github.com/forbole/big-dipper-2.0-cosmos/issues/979))
+- Changed URL ([\#979](https://github.com/forbole/big-dipper-2.0-cosmos/issues/979))
+
 # shentu-v1.0.1
 
 ## Changes
