@@ -1,6 +1,11 @@
 # Unreleased
 
 ## Changes
+- 
+
+# shentu-v1.0.0
+
+## Changes
 - Setup UI ([\#933](https://github.com/forbole/big-dipper-2.0-cosmos/issues/933))
 - Updated chain data ([\#958](https://github.com/forbole/big-dipper-2.0-cosmos/issues/958))
 - Fixed params gov data ([\#975](https://github.com/forbole/big-dipper-2.0-cosmos/issues/975))
