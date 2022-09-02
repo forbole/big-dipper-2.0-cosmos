@@ -1,6 +1,11 @@
 # Unreleased
 
 ## Changes
+- 
+
+# emoney-v2.1.2 - 2022-09-02
+
+## Changes
 - Updated preview image ([\#971](https://github.com/forbole/big-dipper-2.0-cosmos/issues/971))
 
 # emoney-v2.1.1 - 2022-07-22
