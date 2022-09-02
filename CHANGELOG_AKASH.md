@@ -1,21 +1,22 @@
 # Unreleased
 
 ## Changes
-- merged base
-- updated preview image
+- Merged base
+- Updated preview image
+- Added mainnet ([\981](https://github.com/forbole/big-dipper-2.0-cosmos/issues/981))
 
-# akash-v1.2.0 - 2021-04-19
-
-## Changes
-- merged `base-v2.1.0`
-
-# akash-v1.1.0 - 2021-03-11
+# akash-v1.2.0 - 2022-04-19
 
 ## Changes
-- merged `base-v2.0.0`
+- Merged `base-v2.1.0`
 
-# akash-v1.0.0 - 2021-03-09
+# akash-v1.1.0 - 2022-03-11
 
 ## Changes
-- merged based
-- fix blurry logo
+- Merged `base-v2.0.0`
+
+# akash-v1.0.0 - 2022-03-09
+
+## Changes
+- Merged based
+- Fixed blurry logo
