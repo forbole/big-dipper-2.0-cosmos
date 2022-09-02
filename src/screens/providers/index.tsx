@@ -15,7 +15,7 @@ import { useTransactions } from './hooks';
 
 const Providers = () => {
   const txListFormat = useRecoilValue(readTx);
-  const { t } = useTranslation('transactions');
+  const { t } = useTranslation('providers');
   const classes = useStyles();
   const {
     state,
@@ -27,13 +27,13 @@ const Providers = () => {
   return (
     <>
       <NextSeo
-        title={t('transactions')}
+        title={t('providers')}
         openGraph={{
-          title: t('transactions'),
+          title: t('providers'),
         }}
       />
       <Layout
-        navTitle={t('transactions')}
+        navTitle={t('providers')}
         className={classes.root}
       >
         <LoadAndExist
