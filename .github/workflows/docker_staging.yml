@@ -34,7 +34,7 @@ jobs:
           NODE_ENV="production"
           PORT=3000
           NEXT_PUBLIC_MATOMO_URL="https://analytics.bigdipper.live"
-          NEXT_PUBLIC_MATOMO_SITE_ID=29
+          NEXT_PUBLIC_MATOMO_SITE_ID=30
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_WS::${NEXT_PUBLIC_GRAPHQL_WS}
           echo ::set-output name=NEXT_PUBLIC_URL::${NEXT_PUBLIC_URL}
