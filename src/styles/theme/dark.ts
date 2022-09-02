@@ -1,10 +1,8 @@
-import Color from 'color';
-
-const backgroundDefault = '#0A0A0A';
-const surfaceOne = '#131316';
-const surfaceTwo = '#19191D';
+const backgroundDefault = '#000000';
+const surfaceOne = '#1F1F1F';
+const surfaceTwo = '#363636'; // Figma general 3
 const fontOne = '#E6E6E6';
-const fontTwo = '#AAAAAB';
+const fontTwo = '#C4C4C4';
 const fontThree = '#818181';
 
 /** Custom theme overrides for dark mode */
@@ -20,17 +18,17 @@ export const darkThemeOverride = {
   palette: {
     type: 'dark',
     primary: {
-      main: Color('#FD3B4C').alpha(0.7).string(),
-      contrastText: '#fff',
+      main: '#FF3D47',
+      contrastText: '#FFFFFF',
     },
     background: {
       default: backgroundDefault,
       paper: surfaceOne,
     },
-    divider: '#3D3D43',
+    divider: '#504949',
     text: {
       primary: '#E6E6E6',
-      secondary: '#AAAAAB',
+      secondary: '#C4C4C4',
     },
     custom: {
       general: {
@@ -45,14 +43,33 @@ export const darkThemeOverride = {
         fontFour: '#999999',
       },
       primaryData: {
-        one: '#af2929',
-        two: '#b44516',
-        three: '#b14237',
-        four: '#b16919',
+        one: '#FF3D47',
+        two: '#CD4A49',
+        three: '#883434',
+        four: '#451918',
+      },
+      tokenomics: {
+        one: '#FF3D47',
+        two: '#3DC8FF',
+        three: '#A8FF3D',
       },
       results: {
-        pass: '#198a65',
-        fail: '#b12a34',
+        pass: '#1EC490',
+        fail: '#FD3B4C',
+      },
+      condition: {
+        zero: '#E8E8E8',
+        one: '#1EC490',
+        two: '#FF9338',
+        three: '#FF608A',
+      },
+      charts: {
+        zero: '#E8E8E8',
+        one: '#31F6AB',
+        two: '#FF5D00',
+        three: '#313BF6',
+        four: '#F6ED31',
+        five: '#F631BF',
       },
     },
   },

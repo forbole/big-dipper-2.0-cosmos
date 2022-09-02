@@ -1,14 +1,14 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "desmos-mainnet-1",
-  "icon": "/desmos/images/icon.svg",
+  "title": "Persistence Block Explorer",
+  "network": "persistence-mainnet-1",
+  "icon": "/persistence/images/icon.svg",
   "logo": {
-    "default": "/desmos/images/logo.svg"
+    "default": "/persistence/images/logo.svg"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "persistencevalcons",
+    "validator": "persistencevaloper",
+    "account": "persistence"
   },
   "genesis": {
     "time": "2021-07-13T08:00:00",
@@ -17,8 +17,8 @@
   "primaryTokenUnit": "udsm",
   "votingPowerTokenUnit": "udsm",
   "tokenUnits": {
-    "udsm": {
-      "display": "dsm",
+    "xprt": {
+      "display": "xprt",
       "exponent": 6
     }
   },
