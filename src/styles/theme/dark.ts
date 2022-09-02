@@ -1,5 +1,3 @@
-import Color from 'color';
-
 const backgroundDefault = '#000000';
 const surfaceOne = '#1F1F1F';
 const surfaceTwo = '#363636'; // Figma general 3
