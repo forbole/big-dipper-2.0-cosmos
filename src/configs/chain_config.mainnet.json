@@ -1,24 +1,24 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "desmos-mainnet-1",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
+  "title": "Akash Block Explorer",
+  "network": "akashnet-2",
+  "icon": "/images/icon.png",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
+    "default": "/images/logo.svg"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "akashvalcons",
+    "validator": "akashvaloper",
+    "account": "akash"
   },
   "genesis": {
-    "time": "2021-07-13T08:00:00",
+    "time": "2021-03-08T15:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udsm",
-  "votingPowerTokenUnit": "udsm",
+  "primaryTokenUnit": "uakt",
+  "votingPowerTokenUnit": "uakt",
   "tokenUnits": {
-    "udsm": {
-      "display": "dsm",
+    "uakt": {
+      "display": "akt",
       "exponent": 6
     }
   },
