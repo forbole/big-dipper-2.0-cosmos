@@ -1,12 +1,22 @@
 # Unreleased
 
 ## Changes
+- 
+
+# base-v2.1.1 - 2022-08-29
+
+## Fixes
+- Add missing dependency of `useEffect` in `useProfilesRecoil` to avoid desmos profile from not being loaded ([\#904](https://github.com/forbole/big-dipper-2.0-cosmos/issues/904))
+
+## Changes
 - Update validator and account details to not be found if bech32 is invalid
 - Removed the use of NEXT_PUBLIC_URL
 - Update graphql types generation structure (in preparation for third party modules)
 - Update preview image location
+- Update change url files ([\#972](https://github.com/forbole/big-dipper-2.0-cosmos/issues/972))
+- Add `NEXT_PUBLIC_MATOMO_URL` and `NEXT_PUBLIC_MATOMO_SITE_ID` to github workflow production ([\#972](https://github.com/forbole/big-dipper-2.0-cosmos/issues/972))
 
-# base-v2.1.0 - 2021-04-19
+# base-v2.1.0 - 2022-04-19
 
 ## Changes
 - Updated not found and 404 logo ([\#792](https://github.com/forbole/big-dipper-2.0-cosmos/issues/792))
@@ -21,16 +31,16 @@
 - Fixed commission being displayed for non validator accounts ([\#787](https://github.com/forbole/big-dipper-2.0-cosmos/issues/787))
 - Add community tax in to apr calculation ([\#810](https://github.com/forbole/big-dipper-2.0-cosmos/issues/810))
 
-# base-v2.0.2 - 2021-03-23
+# base-v2.0.2 - 2022-03-23
 
 ## Bug fixes
 - Fixed proposal details chart percentage display
 
-# base-v2.0.1 - 2021-03-17
+# base-v2.0.1 - 2022-03-17
 ## Bug fixes
 - Fixed online voting power total ([\#800](https://github.com/forbole/big-dipper-2.0-cosmos/issues/800))
 
-# base-v2.0.0 - 2021-03-10
+# base-v2.0.0 - 2022-03-10
 
 ## Changes
 - Changed online voting power to be a query instead of a subscription ([\#638](https://github.com/forbole/big-dipper-2.0-cosmos/issues/638))
@@ -43,7 +53,7 @@
 ## Breaking
 - [Bdjuno](https://github.com/forbole/bdjuno) must be on `v2.0.0`
 
-# base-v2.0.0-rc3 - 2021-02-25
+# base-v2.0.0-rc3 - 2022-02-25
 
 ## Changes
 - Changed `NEXT_PUBLIC_WS_CHAIN_URL` to `NEXT_PUBLIC_RPC_WEBSOCKET` for clarification
@@ -56,7 +66,7 @@
 ## Breaking
 - [Bdjuno](https://github.com/forbole/bdjuno) must be on `v2.0.0`
 
-# base-v2.0.0-rc2 - 2021-02-24
+# base-v2.0.0-rc2 - 2022-02-24
 
 ## Changes
 - Updated market cap display ([\#698](https://github.com/forbole/big-dipper-2.0-cosmos/issues/698))
@@ -69,7 +79,7 @@
 - Add better handling of get denom return types ([\#735](https://github.com/forbole/big-dipper-2.0-cosmos/issues/735))
 - Update ui to match the improved hasura actions return types
 
-# base-v2.0.0-rc1 - 2021-02-07
+# base-v2.0.0-rc1 - 2022-02-07
 
 ## Changes
 - Updated Hasura Actions
@@ -78,7 +88,7 @@
 
 - [Bdjuno](https://github.com/forbole/bdjuno) must be on `v1.0.0`
 
-# base-v1.10.0 - 2021-01-25
+# base-v1.10.0 - 2022-01-25
 
 ## Changes
 - Optimized initial loading by setting basic details first then profiles after ([\#629](https://github.com/forbole/big-dipper-2.0-cosmos/issues/629))
@@ -95,7 +105,7 @@
 
 - [v1.9.0 to v1.10.0](https://docs.bigdipper.live/cosmos-based/frontend/migrations/v1.9.0-to-v1.10.0)
 
-# base-v1.9.0 - 2021-01-10
+# base-v1.9.0 - 2022-01-10
 
 ## Changes
 - Add logs in tx details ([\#515](https://github.com/forbole/big-dipper-2.0-cosmos/issues/515))
