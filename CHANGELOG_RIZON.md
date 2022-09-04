@@ -1,6 +1,11 @@
 # Unreleased
 
 ## Changes
+- 
+
+# rizon-v1.1.2 - 2022-09-04
+
+## Changes
 - Fixed ADDITIONAL_LINK_TAGS_SEO href ([\#924](https://github.com/forbole/big-dipper-2.0-cosmos/issues/924))
 - Updated favicon and preview image ([\#923](https://github.com/forbole/big-dipper-2.0-cosmos/issues/923))
 
