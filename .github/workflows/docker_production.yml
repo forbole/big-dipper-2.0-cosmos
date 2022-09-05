@@ -33,19 +33,11 @@ jobs:
           NODE_ENV="production"
           PORT=3000
           NEXT_PUBLIC_MATOMO_URL="https://analytics.bigdipper.live"
-<<<<<<< HEAD
           NEXT_PUBLIC_MATOMO_SITE_ID=13
           if [[ $GITHUB_REF == refs/tags/laozi-mainnet* ]]; then
             NEXT_PUBLIC_GRAPHQL_URL="https://gql.band.forbole.com/v1/graphql"
             NEXT_PUBLIC_GRAPHQL_WS="wss://gql.band.forbole.com/v1/graphql"
             NEXT_PUBLIC_RPC_WEBSOCKET="wss://rpc.band.forbole.com/websocket"
-=======
-          NEXT_PUBLIC_MATOMO_SITE_ID=8
-          if [[ $GITHUB_REF == refs/tags/desmos-morpheus-apollo-1* ]]; then
-            NEXT_PUBLIC_GRAPHQL_URL="https://gql.morpheus.desmos.network/v1/graphql"
-            NEXT_PUBLIC_GRAPHQL_WS="wss://gql.morpheus.desmos.network/v1/graphql"
-            NEXT_PUBLIC_RPC_WEBSOCKET="wss://rpc.morpheus.desmos.network/websocket"
->>>>>>> base-v2.1.1
             NEXT_PUBLIC_CHAIN_TYPE="mainnet"
           fi
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
