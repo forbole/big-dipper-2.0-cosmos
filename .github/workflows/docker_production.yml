@@ -3,7 +3,7 @@ name: Docker-Production
 on:
   push:
     tags:
-      - persistence-1-v*
+      - persistence-core-1-v*
 
 jobs:
   Build-and-Publish:
@@ -34,7 +34,7 @@ jobs:
           PORT=3000
           NEXT_PUBLIC_MATOMO_URL="https://analytics.bigdipper.live"
           NEXT_PUBLIC_MATOMO_SITE_ID=30
-          if [[ $GITHUB_REF == refs/tags/persistence-1* ]]; then
+          if [[ $GITHUB_REF == refs/tags/persistence-core-1* ]]; then
             NEXT_PUBLIC_GRAPHQL_URL="https://gql.persistence.forbole.com/v1/graphql"
             NEXT_PUBLIC_GRAPHQL_WS="wss://gql.persistence.forbole.com/v1/graphql"
             NEXT_PUBLIC_RPC_WEBSOCKET="wss://rpc.persistence.forbole.com/websocket"
@@ -79,8 +79,8 @@ jobs:
         run: |
             BRANCH=${GITHUB_REF}
             WEBHOOK_URL=''
-            if [[ $GITHUB_REF == refs/tags/persistence-1* ]]; then
-              echo 'Deploying to Persistence persistence-1'
+            if [[ $GITHUB_REF == refs/tags/persistence-core-1* ]]; then
+              echo 'Deploying to Persistence persistence-core-1'
               WEBHOOK_URL=$PERSISTENCE_AKASH_WEBHOOK_URL
             fi
               curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k $WEBHOOK_URL -u "deploy:$AKASH_WEBHOOK_SECRET"
