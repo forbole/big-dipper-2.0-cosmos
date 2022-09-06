@@ -80,7 +80,7 @@ jobs:
             BRANCH=${GITHUB_REF}
             WEBHOOK_URL=''
             if [[ $GITHUB_REF == refs/tags/persistence-core-1* ]]; then
-              echo 'Deploying to Persistence persistence-core-1'
+              echo 'Deploying to Persistence core-1'
               WEBHOOK_URL=$PERSISTENCE_AKASH_WEBHOOK_URL
             fi
               curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k $WEBHOOK_URL -u "deploy:$AKASH_WEBHOOK_SECRET"
