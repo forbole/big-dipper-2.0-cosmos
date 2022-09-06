@@ -26,10 +26,10 @@ jobs:
       - name: Prepare docker build env
         id: dockerPrep
         run: |
-          NEXT_PUBLIC_GRAPHQL_URL="https://gql.morpheus.persistence.network/v1/graphql"
-          NEXT_PUBLIC_GRAPHQL_WS="wss://gql.morpheus.persistence.network/v1/graphql"
+          NEXT_PUBLIC_GRAPHQL_URL="https://gql.assetmantle.forbole.com/v1/graphql"
+          NEXT_PUBLIC_GRAPHQL_WS="wss://gql.assetmantle.forbole.com/v1/graphql"
           NEXT_PUBLIC_URL="https://persistence.bigdipper.live"
-          NEXT_PUBLIC_RPC_WEBSOCKET="wss://rpc.morpheus.persistence.network/websocket"
+          NEXT_PUBLIC_RPC_WEBSOCKET="wss://rpc.assetmantle.forbole.com/websocket"
           NEXT_PUBLIC_CHAIN_TYPE="mainnet"
           NODE_ENV="production"
           PORT=3000
