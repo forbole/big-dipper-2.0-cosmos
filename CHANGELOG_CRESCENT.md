@@ -1,7 +1,8 @@
 # Unreleased
 
 ## Changes
-- - Recalculated APR ([\#926](https://github.com/forbole/big-dipper-2.0-cosmos/issues/926))
+- Recalculated APR ([\#926](https://github.com/forbole/big-dipper-2.0-cosmos/issues/926))
+- Merged `base-v2.1.1` ([\#994](https://github.com/forbole/big-dipper-2.0-cosmos/issues/994))
 
 # crescent-v1.0.1 - 2022-08-16
 
