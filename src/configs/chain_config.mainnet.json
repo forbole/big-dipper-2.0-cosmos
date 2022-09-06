@@ -11,7 +11,7 @@
     "account": "persistence"
   },
   "genesis": {
-    "time": "2021-07-13T08:00:00",
+    "time": "2021-03-30T12:08:46",
     "height": 1
   },
   "primaryTokenUnit": "uxprt",
