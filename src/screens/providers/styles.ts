@@ -39,7 +39,7 @@ export const useStyles = () => {
             height: '100%',
           },
         },
-        storage: {
+        compute: {
           height: '375px',
           [theme.breakpoints.up('md')]: {
             gridColumn: '3 / 4',
@@ -49,7 +49,7 @@ export const useStyles = () => {
             height: '100%',
           },
         },
-        compute: {
+        storage: {
           height: '375px',
           [theme.breakpoints.up('md')]: {
             gridColumn: '4 / 5',
