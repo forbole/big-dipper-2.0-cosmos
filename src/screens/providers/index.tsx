@@ -12,6 +12,12 @@ import { useRecoilValue } from 'recoil';
 import { readTx } from '@recoil/settings';
 import { useStyles } from './styles';
 import { useTransactions } from './hooks';
+import {
+  Title,
+  Memory,
+  Storage,
+  Compute,
+} from './components';
 
 const Providers = () => {
   const txListFormat = useRecoilValue(readTx);
@@ -40,8 +46,12 @@ const Providers = () => {
           exists={state.exists}
           loading={state.loading}
         >
-          <Box className={classes.box}>
-            {/* {txListFormat === 'compact' ? (
+          <Memory className={classes.memory} />
+          <Storage className={classes.storage} />
+          {/* <Title className={classes.title} /> */}
+          <Compute className={classes.compute} />
+          {/* <Box className={classes.box}>
+            {txListFormat === 'compact' ? (
               <TransactionsList
                 transactions={state.items}
                 itemCount={itemCount}
@@ -61,8 +71,8 @@ const Providers = () => {
                 loadMoreItems={loadMoreItems}
                 isItemLoaded={isItemLoaded}
               />
-            )} */}
-          </Box>
+            )}
+          </Box> */}
         </LoadAndExist>
       </Layout>
     </>

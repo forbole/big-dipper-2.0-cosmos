@@ -16,10 +16,10 @@ import { chainConfig } from '@configs';
 import { useStyles } from './styles';
 import { useTokenomics } from './hooks';
 
-const Tokenomics:React.FC<{
+const Memory:React.FC<{
   className?: string;
 }> = ({ className }) => {
-  const { t } = useTranslation('home');
+  const { t } = useTranslation('providers');
   const {
     classes, theme,
   } = useStyles();
@@ -54,7 +54,7 @@ const Tokenomics:React.FC<{
   return (
     <Box className={classnames(className, classes.root)}>
       <Typography variant="h2" className={classes.label}>
-        {t('tokenomics')}
+        {t('memory')}
       </Typography>
       <div className={classes.data}>
         {data.slice(0, 2).map((x) => (
@@ -143,4 +143,4 @@ const Tokenomics:React.FC<{
   );
 };
 
-export default Tokenomics;
+export default Memory;

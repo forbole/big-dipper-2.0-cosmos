@@ -15,7 +15,7 @@ import { useTransactions } from './hooks';
 const Transactions: React.FC<ComponentDefault> = (props) => {
   const txListFormat = useRecoilValue(readTx);
   const classes = useStyles();
-  const { t } = useTranslation('validators');
+  const { t } = useTranslation('providers');
 
   const {
     state,
@@ -29,7 +29,7 @@ const Transactions: React.FC<ComponentDefault> = (props) => {
   return (
     <Box className={classnames(props.className, classes.root)}>
       <Typography variant="h2">
-        {t('transactions')}
+        {t('title')}
       </Typography>
       <div className={classes.list}>
         {txListFormat === 'compact' ? (
