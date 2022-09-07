@@ -13,10 +13,10 @@ import { readTx } from '@recoil/settings';
 import { useStyles } from './styles';
 import { useTransactions } from './hooks';
 import {
-  Title,
   Memory,
-  Storage,
   Compute,
+  Storage,
+  Title,
 } from './components';
 
 const Providers = () => {
@@ -42,15 +42,15 @@ const Providers = () => {
         navTitle={t('providers')}
         className={classes.root}
       >
-        <LoadAndExist
+        <Memory className={classes.memory} />
+        <Compute className={classes.compute} />
+        <Storage className={classes.storage} />
+        {/* <Title className={classes.title} /> */}
+        {/* <LoadAndExist
           exists={state.exists}
           loading={state.loading}
         >
-          <Memory className={classes.memory} />
-          <Storage className={classes.storage} />
-          {/* <Title className={classes.title} /> */}
-          <Compute className={classes.compute} />
-          {/* <Box className={classes.box}>
+          <Box className={classes.box}>
             {txListFormat === 'compact' ? (
               <TransactionsList
                 transactions={state.items}
@@ -72,8 +72,8 @@ const Providers = () => {
                 isItemLoaded={isItemLoaded}
               />
             )}
-          </Box> */}
-        </LoadAndExist>
+          </Box>
+        </LoadAndExist> */}
       </Layout>
     </>
   );

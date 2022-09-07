@@ -35,7 +35,7 @@ export const useStyles = () => {
             gridColumn: '2 / 3',
           },
           [theme.breakpoints.up('lg')]: {
-            gridColumn: '3 / 4',
+            gridColumn: '2 / 3',
             height: '100%',
           },
         },
@@ -55,7 +55,7 @@ export const useStyles = () => {
             gridColumn: '4 / 5',
           },
           [theme.breakpoints.up('lg')]: {
-            gridColumn: '3 / 4',
+            gridColumn: '4 / 5',
             height: '100%',
           },
         },
