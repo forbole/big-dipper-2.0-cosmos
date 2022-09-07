@@ -41,7 +41,7 @@ const Providers = () => {
           loading={state.loading}
         >
           <Box className={classes.box}>
-            {txListFormat === 'compact' ? (
+            {/* {txListFormat === 'compact' ? (
               <TransactionsList
                 transactions={state.items}
                 itemCount={itemCount}
@@ -61,7 +61,7 @@ const Providers = () => {
                 loadMoreItems={loadMoreItems}
                 isItemLoaded={isItemLoaded}
               />
-            )}
+            )} */}
           </Box>
         </LoadAndExist>
       </Layout>

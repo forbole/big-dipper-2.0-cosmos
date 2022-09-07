@@ -1,0 +1,186 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Home/Tokenomics matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="box"
+>
+  <h2
+    className="MuiTypography-root makeStyles-label MuiTypography-h2"
+  >
+    tokenomics
+  </h2>
+  <div
+    className="makeStyles-data"
+  >
+    <div
+      className="data__item"
+    >
+      <h4
+        className="MuiTypography-root MuiTypography-h4"
+      >
+        0
+         
+        DARIC
+      </h4>
+      <span
+        className="MuiTypography-root MuiTypography-caption"
+      >
+        bondedPercent
+      </span>
+    </div>
+    <div
+      className="data__item"
+    >
+      <h4
+        className="MuiTypography-root MuiTypography-h4"
+      >
+        0
+         
+        DARIC
+      </h4>
+      <span
+        className="MuiTypography-root MuiTypography-caption"
+      >
+        unbondedPercent
+      </span>
+    </div>
+  </div>
+  <div
+    className="makeStyles-content"
+  >
+    <div
+      className="recharts-wrapper"
+      style={
+        Object {
+          "cursor": "default",
+          "height": 100,
+          "position": "relative",
+          "width": 200,
+        }
+      }
+    >
+      <svg
+        className="recharts-surface"
+        cx="50%"
+        cy={100}
+        height={100}
+        version="1.1"
+        viewBox="0 0 200 100"
+        width={200}
+      >
+        <defs>
+          <clipPath
+            id="recharts1-clip"
+          >
+            <rect
+              height={90}
+              width={190}
+              x={5}
+              y={5}
+            />
+          </clipPath>
+        </defs>
+      </svg>
+      <div
+        className="recharts-tooltip-wrapper"
+        style={
+          Object {
+            "MozTransform": "translate(undefinedpx, undefinedpx)",
+            "OTransform": "translate(undefinedpx, undefinedpx)",
+            "WebkitTransform": "translate(undefinedpx, undefinedpx)",
+            "left": 0,
+            "msTransform": "translate(undefinedpx, undefinedpx)",
+            "pointerEvents": "none",
+            "position": "absolute",
+            "top": 0,
+            "transform": "translate(undefinedpx, undefinedpx)",
+            "visibility": "hidden",
+          }
+        }
+      >
+        <div
+          active={false}
+          allowEscapeViewBox={
+            Object {
+              "x": false,
+              "y": false,
+            }
+          }
+          animationDuration={400}
+          animationEasing="ease"
+          content={
+            <CustomToolTip>
+              [Function]
+            </CustomToolTip>
+          }
+          contentStyle={Object {}}
+          coordinate={
+            Object {
+              "x": 0,
+              "y": 0,
+            }
+          }
+          cursor={true}
+          cursorStyle={Object {}}
+          filterNull={true}
+          id="CustomToolTip"
+          isAnimationActive={true}
+          itemStyle={Object {}}
+          labelStyle={Object {}}
+          offset={10}
+          payload={Array []}
+          separator=" : "
+          trigger="hover"
+          useTranslate3d={false}
+          viewBox={
+            Object {
+              "bottom": 5,
+              "brushBottom": 5,
+              "height": 90,
+              "left": 5,
+              "right": 5,
+              "top": 5,
+              "width": 190,
+              "x": 5,
+              "y": 5,
+            }
+          }
+          wrapperStyle={Object {}}
+        />
+      </div>
+    </div>
+    <div
+      className="makeStyles-legends"
+    >
+      <div
+        className="legends__item"
+      >
+        <span
+          className="MuiTypography-root MuiTypography-caption"
+        >
+          bonded
+        </span>
+      </div>
+      <div
+        className="legends__item"
+      >
+        <span
+          className="MuiTypography-root MuiTypography-caption"
+        >
+          unbonded
+        </span>
+      </div>
+      <div
+        className="legends__item"
+      >
+        <span
+          className="MuiTypography-root MuiTypography-caption"
+        >
+          unbonding
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
