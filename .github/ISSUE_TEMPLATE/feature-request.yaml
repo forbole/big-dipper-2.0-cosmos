@@ -1,0 +1,27 @@
+name: Feature Request
+description: Request a new feature
+title: "[feature]: "
+labels: ["feature-request"]
+body:
+  - type: textarea
+    id: feature-info
+    attributes:
+      label: What is the feature you'd like to see?
+      description: Also tell what prompted this idea?
+      placeholder: I would like to see...
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: Are there any examples of where similar features are available?
+      description: Feel free to provide any links, screenshots, mockups etc that would help illustrate this idea better.
+      placeholder: An example of this feature is...
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/cheqd/.github/blob/main/CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
