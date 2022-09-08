@@ -1,6 +1,11 @@
 name: "CodeQL"
 on:
-  workflow_call:
+  push:
+    branches:
+      - chains/cheqd/**
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 defaults:
   run:
     shell: bash
@@ -12,28 +17,23 @@ jobs:
     name: "CodeQL Analysis"
     runs-on: ubuntu-latest
     permissions:
-      actions: read
-      contents: read
       security-events: write
 
-    steps:             
-      - name: Setup CodeQL
-        uses: github/codeql-action/init@v2
-        with:
-          languages: 'go'
-          queries: security-and-quality
-      
-      - uses: actions/setup-go@v3
-        with:
-          go-version: 1.17
-
+    steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0 # Required to fetch version
-      
+          fetch-depth: 0
+
+      - name: Initialise CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: 'javascript'
+          queries: security-and-quality
+
       - name: Build
         run: |
           npm ci
           npm run build
+
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
