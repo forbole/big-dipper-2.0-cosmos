@@ -1,0 +1,17 @@
+# Set threshold level (error | warning | info | style | ignore | none)
+failure-threshold: warning
+
+# List of ignored rules
+# See list for reference: https://github.com/hadolint/hadolint#rules
+ignored:
+
+# Override default levels for specific rules
+override:
+  error:
+  warning:
+  info:
+    - DL3007
+    - DL3008
+    - DL3018
+    - DL3027
+  style:

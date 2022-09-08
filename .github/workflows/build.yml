@@ -1,0 +1,87 @@
+name: "Build Docker Image"
+on:
+  workflow_call:
+defaults:
+  run:
+    shell: bash
+
+
+jobs:
+
+  build-big-dipper-testnet:
+    name: "Big Dipper Testnet Docker Image"
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_IMAGE: bigdipper:testnet-${{ github.sha }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        id: buildx
+        with:
+          install: true
+          version: latest
+
+      - name: Build image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: Dockerfile
+          platforms: linux/amd64
+          load: true
+          tags: ${{ env.DOCKER_IMAGE }}
+          outputs: type=docker,dest=/tmp/bigdipper-testnet-latest.tar
+          build-args: |
+            "NEXT_PUBLIC_GRAPHQL_URL=https://testnet-explorer-gql.cheqd.io/v1/graphql"
+            "NEXT_PUBLIC_GRAPHQL_WS=wss://testnet-explorer-gql.cheqd.io/v1/graphql"
+            "NEXT_PUBLIC_URL=https://testnet-explorer.cheqd.io/"
+            "NEXT_PUBLIC_WS_CHAIN_URL=wss://rpc.cheqd.network:443/websocket"
+            "NEXT_PUBLIC_CHAIN_TYPE=testnet"
+            "NODE_ENV=production"
+
+      - name: Upload Docker image
+        uses: actions/upload-artifact@v3
+        with:
+          name: bigdipper-testnet-latest.tar
+          path: /tmp/bigdipper-testnet-latest.tar
+  
+  build-big-dipper-mainnet:
+    name: "Big Dipper Mainnet Docker Image"
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_IMAGE: bigdipper:mainnet-${{ github.sha }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        id: buildx
+        with:
+          install: true
+          version: latest
+
+      - name: Build image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: Dockerfile
+          platforms: linux/amd64
+          load: true
+          tags: ${{ env.DOCKER_IMAGE }}
+          outputs: type=docker,dest=/tmp/bigdipper-mainnet-latest.tar
+          build-args: |
+            "NEXT_PUBLIC_GRAPHQL_URL=https://explorer-gql.cheqd.io/v1/graphql"
+            "NEXT_PUBLIC_GRAPHQL_WS=wss://explorer-gql.cheqd.io/v1/graphql"
+            "NEXT_PUBLIC_URL=https://explorer.cheqd.io/"
+            "NEXT_PUBLIC_WS_CHAIN_URL=wss://rpc.cheqd.network:443/websocket"
+            "NEXT_PUBLIC_CHAIN_TYPE=mainnet"
+            "NODE_ENV=production"
+
+      - name: Upload Docker image
+        uses: actions/upload-artifact@v3
+        with:
+          name: bigdipper-mainnet-latest.tar
+          path: /tmp/bigdipper-mainnet-latest.tar  

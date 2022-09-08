@@ -1,0 +1,31 @@
+name: "Workflow Dispatch"
+on: push
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+
+jobs:
+
+  call-lint:
+    name: "Lint"
+    uses: ./.github/workflows/lint.yml
+  
+  call-build:
+    name: "Build & Test"
+    needs: call-lint
+    uses: ./.github/workflows/build.yml
+
+  call-release:
+    name: "Release"
+    needs: call-build
+    if: ${{ github.ref_protected == true }}
+    uses: ./.github/workflows/release.yml
+    secrets: inherit
+
+  call-codeql:
+    name: "CodeQL"
+    needs: call-release
+    if: ${{ github.ref_protected == true }}
+    uses: ./.github/workflows/codeql.yml
+    secrets: inherit

@@ -1,0 +1,47 @@
+name: "Lint"
+on:
+  workflow_call:
+defaults:
+  run:
+    shell: bash
+
+
+jobs:
+
+  sh-euox-pipefail-check:
+    name: "Shell pipefail check"
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run 'set -euox pipefail' check
+        run: bash ./.github/scripts/ensure_set_euox_pipefail.sh
+
+  super-lint:
+    name: "Super Linter"
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0 # Required to fetch version
+    
+    - name: Run Super Linter
+      uses: github/super-linter/slim@v4
+      env:
+        IGNORE_GITIGNORED_FILES: true
+        DEFAULT_BRANCH: "chains/cheqd/mainnet"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        LOG_LEVEL: WARN
+        VALIDATE_ALL_CODEBASE: true
+        MULTI_STATUS: true
+
+        VALIDATE_BASH: true
+        VALIDATE_DOCKERFILE_HADOLINT: true
+        DOCKERFILE_HADOLINT_FILE_NAME: '../linters/.hadolint.yml'
+        VALIDATE_GITHUB_ACTIONS: true
+        VALIDATE_OPENAPI: true
+        VALIDATE_PYTHON_PYLINT: true
+        VALIDATE_XML: true
+        VALIDATE_YAML: true
