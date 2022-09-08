@@ -1,4 +1,6 @@
 # Unreleased
+## Bug fixes
+- Fixed divide by zero error on market recoil state
 
 ## Changes
 
