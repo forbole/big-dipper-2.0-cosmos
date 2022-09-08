@@ -64,7 +64,7 @@ export const useMarketRecoil = () => {
     const communityTax = R.pathOr('0', ['distributionParams', 0, 'params', 'community_tax'], data);
 
     const inflationWithCommunityTax = Big(1).minus(communityTax).times(inflation).toPrecision(2);
-    const apr = Big(rawSupplyAmount).times(inflationWithCommunityTax).div(bondedTokens).toNumber();
+    const apr = !bondedTokens ? 0 : Big(rawSupplyAmount).times(inflationWithCommunityTax).div(bondedTokens).toNumber();
 
     return ({
       price,
