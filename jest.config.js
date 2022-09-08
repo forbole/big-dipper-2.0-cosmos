@@ -4,6 +4,7 @@ const { compilerOptions } = require('./tsconfig.json');
 module.exports = {
   testEnvironment: 'jsdom',
   preset: 'ts-jest',
+  rootDir: '.',
   roots: ['<rootDir>'],
   moduleDirectories: [
     'node_modules',
