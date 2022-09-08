@@ -6,27 +6,21 @@ export const useStyles = () => {
       return ({
         root: {
           display: 'grid',
-          gridGap: theme.spacing(1),
-          gridTemplateRows: 'auto',
+          // gridGap: theme.spacing(1),
+          // gridTemplateRows: 'auto',
           [theme.breakpoints.up('sm')]: {
             gridTemplateColumns: 'repeat(2, 1fr)',
           },
           [theme.breakpoints.up('lg')]: {
-            gridGap: theme.spacing(2),
-            gridTemplateColumns: 'repeat(4, 1fr)',
+            // gridGap: theme.spacing(2),
+            gridTemplateColumns: 'repeat(1, 1fr)',
           },
         },
-        blockHeight: {
+        activeProviders: {
           background: theme.palette.custom.primaryData.one,
         },
-        blockTime: {
-          background: theme.palette.custom.primaryData.two,
-        },
-        price: {
+        activeLeases: {
           background: theme.palette.custom.primaryData.three,
-        },
-        validators: {
-          background: theme.palette.custom.primaryData.four,
         },
       });
     }, { index: 1 },

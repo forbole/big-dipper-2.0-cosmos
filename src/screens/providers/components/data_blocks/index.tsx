@@ -11,19 +11,19 @@ const DataBlocks: React.FC<{
 }> = ({
   className,
 }) => {
-  const { t } = useTranslation('home');
+  const { t } = useTranslation('providers');
   const classes = useStyles();
   const { state } = useDataBlocks();
   const data = [
     {
       key: t('activeProviders'),
       value: numeral(state.blockHeight).format('0,0'),
-      className: classes.blockHeight,
+      className: classes.activeProviders,
     },
     {
       key: t('activeLeases'),
       value: state.price !== null ? `$${numeral(state.price).format('0.00')}` : 'N/A',
-      className: classes.price,
+      className: classes.activeLeases,
     },
   ];
 
