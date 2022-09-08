@@ -34,7 +34,6 @@ const DataBlocks: React.FC<{
           key={x.key}
           label={x.key}
           value={x.value}
-          description={x.description}
           className={x.className}
         />
       ))}
