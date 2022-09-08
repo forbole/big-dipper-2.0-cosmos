@@ -12,7 +12,7 @@ import { readTx } from '@recoil/settings';
 import { useStyles } from './styles';
 import { useTransactions } from './hooks';
 
-const Transactions: React.FC<ComponentDefault> = (props) => {
+const Title: React.FC<ComponentDefault> = (props) => {
   const txListFormat = useRecoilValue(readTx);
   const classes = useStyles();
   const { t } = useTranslation('providers');
@@ -58,4 +58,4 @@ const Transactions: React.FC<ComponentDefault> = (props) => {
   );
 };
 
-export default Transactions;
+export default Title;
