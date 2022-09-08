@@ -59,7 +59,7 @@
     "react-window-infinite-loader": "^1.0.7",
     "recharts": "^2.0.8",
     "recoil": "^0.4.1",
-    "subscriptions-transport-ws": "^0.10.0"
+    "subscriptions-transport-ws": "^0.11.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.6.1",
