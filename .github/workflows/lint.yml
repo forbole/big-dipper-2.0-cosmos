@@ -40,6 +40,8 @@ jobs:
           VALIDATE_ALL_CODEBASE: true
           MULTI_STATUS: true
 
+          VALIDATE_BASH: true
+          VALIDATE_DOCKERFILE_HADOLINT: true
           VALIDATE_GITHUB_ACTIONS: true
           VALIDATE_JAVASCRIPT_ES: true
           VALIDATE_JSONC: true
