@@ -1,28 +1,28 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "desmos-mainnet-1",
-  "icon": "/desmos/images/icon.svg",
+  "title": "cheqd Mainnet Block Explorer",
+  "network": "cheqd-mainnet-1",
+  "icon": "https://raw.githubusercontent.com/cheqd/big-dipper-assets/cheqd/cheqd/icon.svg",
   "logo": {
-    "default": "/desmos/images/logo.svg"
+    "default": "https://raw.githubusercontent.com/cheqd/big-dipper-assets/cheqd/cheqd/logo.png"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "cheqdvalcons",
+    "validator": "cheqdvaloper",
+    "account": "cheqd"
   },
   "genesis": {
     "time": "2021-07-13T08:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udsm",
-  "votingPowerTokenUnit": "udsm",
+  "primaryTokenUnit": "ncheq",
+  "votingPowerTokenUnit": "ncheq",
   "tokenUnits": {
-    "udsm": {
-      "display": "dsm",
-      "exponent": 6
+    "ncheq": {
+      "display": "cheq",
+      "exponent": 9
     }
   },
   "extra": {
-    "profile": true
+    "profile": false
   }
 }
