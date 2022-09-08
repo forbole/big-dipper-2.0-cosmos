@@ -13,6 +13,7 @@ import { readTx } from '@recoil/settings';
 import { useStyles } from './styles';
 import { useTransactions } from './hooks';
 import {
+  DataBlocks,
   Memory,
   Compute,
   Storage,
@@ -42,6 +43,7 @@ const Providers = () => {
         navTitle={t('providers')}
         className={classes.root}
       >
+        <DataBlocks />
         <Memory className={classes.memory} />
         <Compute className={classes.compute} />
         <Storage className={classes.storage} />

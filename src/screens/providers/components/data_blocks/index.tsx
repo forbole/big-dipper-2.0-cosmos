@@ -6,7 +6,7 @@ import { SingleBlock } from './components';
 import { useStyles } from './styles';
 import { useDataBlocks } from './hooks';
 
-const Blocks: React.FC<{
+const DataBlocks: React.FC<{
   className?: string;
 }> = ({
   className,
@@ -16,27 +16,14 @@ const Blocks: React.FC<{
   const { state } = useDataBlocks();
   const data = [
     {
-      key: t('latestBlock'),
+      key: t('activeProviders'),
       value: numeral(state.blockHeight).format('0,0'),
       className: classes.blockHeight,
     },
     {
-      key: t('averageBlockTime'),
-      value: `${numeral(state.blockTime).format('0.00')} s`,
-      className: classes.blockTime,
-    },
-    {
-      key: t('price'),
+      key: t('activeLeases'),
       value: state.price !== null ? `$${numeral(state.price).format('0.00')}` : 'N/A',
       className: classes.price,
-    },
-    {
-      key: t('activeValidators'),
-      value: numeral(state.validators.active).format('0,0'),
-      description: t('outOfValidators', {
-        count: numeral(state.validators.total).format('0,0'),
-      }),
-      className: classes.validators,
     },
   ];
 
@@ -55,4 +42,4 @@ const Blocks: React.FC<{
   );
 };
 
-export default Blocks;
+export default DataBlocks;
