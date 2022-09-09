@@ -1,0 +1,143 @@
+name: "Release"
+on:
+  workflow_call:
+defaults:
+  run:
+    shell: bash
+
+
+jobs:
+
+  release-bigdipper-testnet:
+    name: "Big Dipper Testnet Docker Image"
+    if: github_ref == 'chains/cheqd/testnet'
+    runs-on: ubuntu-latest
+    env:
+      IMAGE_NAME: "bigdipper"
+      COMMIT_SHA: ${{ github.sha }}
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set network name
+        id: set-network
+        run: |
+          NETWORK_NAME=${GITHUB_REF##*/}
+          echo ::set-output name=NETWORK_NAME::"$NETWORK_NAME"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        id: buildx
+        with:
+          install: true
+          version: latest
+
+      - name: Install DigitalOcean CLI
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+      - name: Login to DigitalOcean Container Registry
+        run: doctl registry login --expiry-seconds 600
+
+      - name: Configure Docker image metadata
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: registry.digitalocean.com/${{ env.IMAGE_NAME }}
+          tags: |
+            ${{ steps.set-network.outputs.NETWORK_NAME }}-latest
+          labels: |
+            org.opencontainers.image.vendor="Cheqd Foundation Limited"
+            org.opencontainers.image.created={{date 'dddd, MMMM Do YYYY, h:mm:ss a'}}
+            org.opencontainers.image.documentation="https://docs.cheqd.io/node"
+      
+      - name: Build Big Dipper image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: Dockerfile
+          platforms: linux/amd64
+          load: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            "NEXT_PUBLIC_GRAPHQL_URL=https://testnet-explorer-gql.cheqd.io/v1/graphql"
+            "NEXT_PUBLIC_GRAPHQL_WS=wss://testnet-explorer-gql.cheqd.io/v1/graphql"
+            "NEXT_PUBLIC_URL=https://testnet-explorer.cheqd.io/"
+            "NEXT_PUBLIC_WS_CHAIN_URL=wss://rpc.cheqd.network:443/websocket"
+            "NEXT_PUBLIC_CHAIN_TYPE=testnet"
+            "NODE_ENV=production"
+
+      - name: Push Big Dipper image
+        run: |
+          docker push registry.digitalocean.com/${{ env.IMAGE_NAME }}:${{ steps.set-network.outputs.NETWORK_NAME }}-latest
+  
+  release-bigdipper-mainnet:
+    name: "Big Dipper Mainnet Docker Image"
+    if: github_ref == 'chains/cheqd/mainnet'
+    runs-on: ubuntu-latest
+    env:
+      IMAGE_NAME: "bigdipper"
+      COMMIT_SHA: ${{ github.sha }}
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set network name
+        id: set-network
+        run: |
+          NETWORK_NAME=${GITHUB_REF##*/}
+          echo ::set-output name=NETWORK_NAME::"$NETWORK_NAME"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        id: buildx
+        with:
+          install: true
+          version: latest
+
+      - name: Install DigitalOcean CLI
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+      - name: Login to DigitalOcean Container Registry
+        run: doctl registry login --expiry-seconds 600
+
+      - name: Configure Docker image metadata
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: registry.digitalocean.com/${{ env.IMAGE_NAME }}
+          tags: |
+            ${{ steps.set-network.outputs.NETWORK_NAME }}-latest
+          labels: |
+            org.opencontainers.image.vendor="Cheqd Foundation Limited"
+            org.opencontainers.image.created={{date 'dddd, MMMM Do YYYY, h:mm:ss a'}}
+            org.opencontainers.image.documentation="https://docs.cheqd.io/node"
+      
+      - name: Build Big Dipper image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: Dockerfile
+          platforms: linux/amd64
+          load: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            "NEXT_PUBLIC_GRAPHQL_URL=https://explorer-gql.cheqd.io/v1/graphql"
+            "NEXT_PUBLIC_GRAPHQL_WS=wss://explorer-gql.cheqd.io/v1/graphql"
+            "NEXT_PUBLIC_URL=https://explorer.cheqd.io/"
+            "NEXT_PUBLIC_WS_CHAIN_URL=wss://rpc.cheqd.network:443/websocket"
+            "NEXT_PUBLIC_CHAIN_TYPE=mainnet"
+            "NODE_ENV=production"
+
+      - name: Push Big Dipper image
+        run: |
+          docker push registry.digitalocean.com/${{ env.IMAGE_NAME }}:${{ steps.set-network.outputs.NETWORK_NAME }}-latest

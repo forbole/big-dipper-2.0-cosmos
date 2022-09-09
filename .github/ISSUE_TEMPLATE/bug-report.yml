@@ -1,0 +1,74 @@
+name: Bug Report
+description: File a bug report
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What went wrong?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us more about this potential bug.
+    validations:
+      required: true
+      body:
+  - type: textarea
+    id: repro
+    attributes:
+      label: How can we reproduce this bug?
+      description: "How do you trigger this bug? Please walk us through it step-by-step."
+      value: |
+        1.
+        2.
+        3.
+        ...
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      description: What environment does this bug affect?
+      options:
+        - Mainnet
+        - Testnet
+        - Both mainnet/testnet
+        - Not applicable
+    validations:
+      required: true
+  - type: input
+    id: prevalence
+    attributes:
+      label: Bug prevalence
+      description: "How often do you or others encounter this bug?"
+      placeholder: "Whenever I visit the user account page (1-2 times a week)"
+  - type: dropdown
+    id: app-clients
+    attributes:
+      label: Which browser/client application did you encounter the bug in? (if applicable)
+      description: "Tell us what app/client you found the bug in. You can select multiple options if necessary."
+      multiple: true
+      options:
+        - Chrome / Chromium
+        - Brave
+        - Safari
+        - Microsoft Edge
+        - Mozilla Firefox
+        - API (RPC/REST/gRPC)
+        - Keplr/other wallet app
+        - Other
+        - Not applicable
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy-paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/cheqd/.github/blob/main/CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
