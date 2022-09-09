@@ -36,11 +36,12 @@ jobs:
           IGNORE_GITIGNORED_FILES: true
           DEFAULT_BRANCH: "chains/cheqd/testnet"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LINTER_RULES_PATH: '.github/linters'
           LOG_LEVEL: WARN
           VALIDATE_ALL_CODEBASE: true
           MULTI_STATUS: true
-          JAVASCRIPT_ES_CONFIG_FILE: "./eslintrc.json"
-          TYPESCRIPT_ES_CONFIG_FILE: "./eslintrc.json"
+          JAVASCRIPT_ES_CONFIG_FILE: "./.eslintrc.json"
+          TYPESCRIPT_ES_CONFIG_FILE: "./.eslintrc.json"
 
           VALIDATE_DOCKERFILE_HADOLINT: true
           VALIDATE_GITHUB_ACTIONS: true
