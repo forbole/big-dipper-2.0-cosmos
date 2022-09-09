@@ -9,12 +9,11 @@ defaults:
 jobs:
 
   build:
+    name: "Build "
     runs-on: ubuntu-latest
     
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       
       - uses: actions/setup-node@v3
         with:
@@ -28,4 +27,4 @@ jobs:
           npm run build
       
       - name: "Execute tests"
-        run: npm test
+        run: npm run test
