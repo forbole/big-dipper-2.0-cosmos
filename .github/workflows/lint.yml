@@ -39,6 +39,8 @@ jobs:
           LOG_LEVEL: WARN
           VALIDATE_ALL_CODEBASE: true
           MULTI_STATUS: true
+          JAVASCRIPT_ES_CONFIG_FILE: "./eslintrc.json"
+          TYPESCRIPT_ES_CONFIG_FILE: "./eslintrc.json"
 
           VALIDATE_DOCKERFILE_HADOLINT: true
           VALIDATE_GITHUB_ACTIONS: true
