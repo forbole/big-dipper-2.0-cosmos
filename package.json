@@ -16,7 +16,7 @@
     "build:next": "next build",
     "start": "NODE_ENV=production node dist/index.js",
     "type-check": "tsc",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint": "eslint --config .github/linters/.eslintrc.json . --ext .ts,.tsx,.js,.jsx",
     "test": "NODE_ENV=test jest",
     "e2e": "cypress open",
     "graphql:codegen": "graphql-codegen"
