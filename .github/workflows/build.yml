@@ -9,12 +9,11 @@ defaults:
 jobs:
 
   build:
+    name: "Build BigDipper frontend"
     runs-on: ubuntu-latest
     
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       
       - uses: actions/setup-node@v3
         with:
@@ -24,8 +23,8 @@ jobs:
 
       - name: "Execute build"
         run: |
-          npm ci
+          npm install
           npm run build
       
       - name: "Execute tests"
-        run: npm test
+        run: npm run test

@@ -1,10 +1,10 @@
 {
   "maintainer": {
-    "name": "Forbole",
-    "url": "https://forbole.com"
+    "name": "Cheqd",
+    "url": "https://cheqd.io"
   },
   "github": {
-    "reportIssue": "https://github.com/forbole/big-dipper-2.0-cosmos/issues"
+    "reportIssue": "https://github.com/cheqd/big-dipper-2.0-cosmos/issues"
   },
   "basePath": "/desmos",
   "previewImage": "https://bigdipper.live/images/big-dipper-social-media.png",

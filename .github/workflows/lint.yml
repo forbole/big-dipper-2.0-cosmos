@@ -19,7 +19,28 @@ jobs:
         with:
           config-file: '.github/linters/mlc_config.json'
           use-quiet-mode: 'yes'
-          use-verbose-mode: 'yes'
+
+  lint-javascript:
+    name: "Lint JavaScript"
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+
+      - name: "Install dependencies"
+        run: npm install
+      
+      - name: "Execute JS/TS/TSX/JSX linters"
+        run: |
+          npm run type-check
+          npm run lint
+
 
   super-lint:
     name: "Super Linter"
@@ -36,19 +57,12 @@ jobs:
           IGNORE_GITIGNORED_FILES: true
           DEFAULT_BRANCH: "chains/cheqd/testnet"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LINTER_RULES_PATH: '.github/linters'
           LOG_LEVEL: WARN
           VALIDATE_ALL_CODEBASE: true
           MULTI_STATUS: true
 
-          VALIDATE_BASH: true
           VALIDATE_DOCKERFILE_HADOLINT: true
           VALIDATE_GITHUB_ACTIONS: true
-          VALIDATE_JAVASCRIPT_ES: true
-          VALIDATE_JSONC: true
-          VALIDATE_JSX: true
-          VALIDATE_MARKDOWN: true
-          VALIDATE_OPENAPI: true
-          VALIDATE_TSX: true
-          VALIDATE_TYPESCRIPT_ES: true
           VALIDATE_XML: true
           VALIDATE_YAML: true

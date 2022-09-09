@@ -16,7 +16,7 @@
     "build:next": "next build",
     "start": "NODE_ENV=production node dist/index.js",
     "type-check": "tsc",
-    "lint": "eslint --config .github/linters/.eslintrc.json . --ext .ts,.tsx,.js,.jsx",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "test": "NODE_ENV=test jest",
     "e2e": "cypress open",
     "graphql:codegen": "graphql-codegen"
@@ -59,7 +59,7 @@
     "react-window-infinite-loader": "^1.0.7",
     "recharts": "^2.0.8",
     "recoil": "^0.4.1",
-    "subscriptions-transport-ws": "^0.11.0"
+    "subscriptions-transport-ws": "^0.10.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.6.1",
@@ -67,8 +67,6 @@
     "@graphql-codegen/typescript": "^1.21.0",
     "@graphql-codegen/typescript-operations": "^1.17.14",
     "@graphql-codegen/typescript-react-apollo": "^2.2.1",
-    "@semantic-release/commit-analyzer": "^9.0.2",
-    "@semantic-release/git": "^10.0.1",
     "@svgr/webpack": "^5.5.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.0.2",
@@ -76,13 +74,12 @@
     "@types/big.js": "^6.1.2",
     "@types/jest": "^26.0.13",
     "@types/node": "^14.6.4",
-    "@types/react": "^16.14.31",
+    "@types/react": "^16.9.49",
     "@types/testing-library__react": "^10.2.0",
     "@typescript-eslint/eslint-plugin": "^4.1.0",
     "@typescript-eslint/parser": "^4.1.0",
     "axios-mock-adapter": "^1.19.0",
     "babel-jest": "^27.3.1",
-    "conventional-changelog-conventionalcommits": "^5.0.0",
     "eslint": "^7.8.1",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-import-resolver-typescript": "^2.3.0",

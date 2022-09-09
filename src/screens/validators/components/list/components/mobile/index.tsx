@@ -32,7 +32,7 @@ const Mobile: React.FC<{
   const formattedItems = items.map((x, i) => {
     const status = getValidatorStatus(x.status, x.jailed, x.tombstoned);
     const condition = x.status === 3 ? getValidatorConditionClass(x.condition) : undefined;
-    const percentDisplay = x.status === 3 ? `${numeral(x.votingPowerPercent).format('0.[00]')}%` : '0%';
+    const percentDisplay = x.status === 3 ? `${numeral(x.votingPowerPercent / 1000).format('0.[00]')}%` : '0%';
     const votingPower = numeral(x.votingPower).format('0,0');
     return ({
       idx: `#${i + 1}`,
