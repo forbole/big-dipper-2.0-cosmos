@@ -10,5 +10,6 @@
   "region": "Region",
   "organization": "Organization",
   "email": "Email",
-  "website": "Website"
+  "website": "Website",
+  "title": "Title"
 }

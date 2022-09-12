@@ -6,9 +6,14 @@ import {
   TransactionListDetails,
   TransactionsList,
   Box,
+  Pagination,
 } from '@components';
 import { useRecoilValue } from 'recoil';
 import { readTx } from '@recoil/settings';
+import {
+  usePagination,
+  // useScreenSize,
+} from '@hooks';
 import { useStyles } from './styles';
 import { useTransactions } from './hooks';
 
@@ -16,6 +21,12 @@ const Title: React.FC<ComponentDefault> = (props) => {
   const txListFormat = useRecoilValue(readTx);
   const classes = useStyles();
   const { t } = useTranslation('providers');
+  const {
+    // page,
+    // rowsPerPage,
+    handleChangePage,
+    handleChangeRowsPerPage,
+  } = usePagination({});
 
   const {
     state,
@@ -32,7 +43,7 @@ const Title: React.FC<ComponentDefault> = (props) => {
         {t('title')}
       </Typography>
       <div className={classes.list}>
-        {txListFormat === 'compact' ? (
+        {/* {txListFormat === 'compact' ? (
           <TransactionsList
             transactions={state.data}
             itemCount={itemCount}
@@ -52,7 +63,15 @@ const Title: React.FC<ComponentDefault> = (props) => {
             loadMoreItems={loadMoreItems}
             isItemLoaded={isItemLoaded}
           />
-        )}
+        )} */}
+        <Pagination
+          className={classes.paginate}
+          total={30}
+          rowsPerPage={10}
+          page={0}
+          handleChangePage={handleChangePage}
+          handleChangeRowsPerPage={handleChangeRowsPerPage}
+        />
       </div>
     </Box>
   );

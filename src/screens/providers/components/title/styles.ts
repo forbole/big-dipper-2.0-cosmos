@@ -16,6 +16,9 @@ export const useStyles = () => {
             minHeight: '65vh',
           },
         },
+        paginate: {
+          marginTop: theme.spacing(3),
+        },
       });
     },
   )();
