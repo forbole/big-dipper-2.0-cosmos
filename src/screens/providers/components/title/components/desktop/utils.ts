@@ -4,25 +4,30 @@ export const columns:{
   width: number;
 }[] = [
   {
-    key: 'block',
+    key: 'ownerAddress',
     width: 15,
   },
   {
-    key: 'hash',
+    key: 'hostUri',
     width: 30,
   },
   {
-    key: 'messages',
+    key: 'region',
     align: 'right',
     width: 15,
   },
   {
-    key: 'result',
+    key: 'organization',
     align: 'right',
-    width: 20,
+    width: 15,
   },
   {
-    key: 'time',
+    key: 'email',
+    align: 'right',
+    width: 5,
+  },
+  {
+    key: 'website',
     align: 'right',
     width: 20,
   },
