@@ -3,6 +3,10 @@
 ## Changes
 - 
 
+# likecoin-v2.2.4 - 2022-09-13
+## Fixes
+- Fixed testnet logo and icon not showing ([\#1002](https://github.com/forbole/big-dipper-2.0-cosmos/issues/1002))
+
 # likecoin-v2.2.3 - 2022-07-19
 ## Changes
 - Fixed price display 0 problem ([\#919](https://github.com/forbole/big-dipper-2.0-cosmos/issues/919))
