@@ -3,6 +3,7 @@
 ## Bug fixes
 
 - Fixed divide by zero error on market recoil state
+Closes #1003 
 
 ## Changes
 
