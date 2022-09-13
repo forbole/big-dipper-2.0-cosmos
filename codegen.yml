@@ -6,13 +6,13 @@ generates:
   ./src/graphql/types/general_types.tsx:
     documents:
       - 'src/graphql/general/*'
-    schema: https://testnet-gql.cheqd.net/v1/graphql
+    schema: https://testnet-gql.cheqd.io/v1/graphql
     plugins:
       - "typescript"
       - "typescript-operations"
       - "typescript-react-apollo" # To generate custom hooks per query
   ./src/graphql/types/profile_types.ts:
-    schema: https://testnet-gql.cheqd.net/v1/graphql
+    schema: https://gql.mainnet.desmos.network/v1/graphql
     documents:
       - 'src/graphql/profiles/*'
     plugins:

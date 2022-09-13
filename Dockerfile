@@ -31,6 +31,8 @@ ENV NODE_ENV ${NODE_ENV}
 ENV PORT 3000
 
 # Building app
+RUN sed -i 's|<NEXT_PUBLIC_GRAPHQL_URL>|'"$NEXT_PUBLIC_GRAPHQL_URL"'|' codegen.yml
+RUN npm run graphql:codegen
 RUN npm run build
 EXPOSE ${PORT}
 
