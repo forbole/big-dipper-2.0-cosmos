@@ -1,8 +1,9 @@
 # Skip unncecessary folders
 .github/**
-node_modules/**
-.misc/**
+.next/**
+dist/**
 cypress/**
+node_modules/**
 tests/**
 
 # Skip unnecessary files

@@ -1,12 +1,12 @@
 @font-face {
   font-family: 'Hind Madurai';
-  src: url("/desmos/fonts/HindMadurai-Regular.ttf");
+  src: url("/public/fonts/HindMadurai-Regular.ttf") format("truetype");
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'Hind Madurai';
-  src: url("/desmos/HindMadurai-Regular.ttf");
+  src: url("/public/fonts/HindMadurai-Regular.ttf") format("truetype");
   font-weight: 500;
 }
 

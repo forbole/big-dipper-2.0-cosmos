@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  bigdipper:
+    image: bigdipper:local
+    user: node
+    working_dir: /home/node/app
+    ports:
+      - target: 8080
+        published: 3000
+        protocol: tcp
+        mode: host
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_GRAPHQL_URL=https://testnet-gql.cheqd.io/v1/graphql
+      - NEXT_PUBLIC_GRAPHQL_WS_URL=wss://testnet-gql.cheqd.io/v1/graphql
+      - NEXT_PUBLIC_URL=http://localhost:3000
+      - NEXT_PUBLIC_RPC_WEBSOCKET=wss://api.cheqd.network/websocket
+      - NEXT_PUBLIC_CHAIN_TYPE=testnet
+    command: [ "npm start" ]

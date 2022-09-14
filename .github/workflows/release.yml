@@ -1,0 +1,99 @@
+name: "Release"
+on:
+  workflow_call:
+defaults:
+  run:
+    shell: bash
+
+
+jobs:
+  release-docker:
+    name: "BigDipper Docker image"
+    runs-on: ubuntu-latest
+    env:
+      IMAGE_NAME: ${{ github.repository }}
+    
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+      
+      - name: "Obtain Github App token"
+        id: app-token
+        uses: getsentry/action-github-app-token@v1.0.6
+        with:
+          app_id: ${{ secrets.BOT_APP_ID }}
+          private_key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
+
+      - name: "Clean install dependencies"
+        run: npm ci
+
+      - name: "Execute Semantic Release"
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Set version number
+        id: set-version
+        run: |
+          VERSION=$( git describe --tags ${{ github.sha }})
+          echo ::set-output name=VERSION::"$VERSION"
+
+      - name: Set network name
+        id: set-network
+        run: |
+          NETWORK_NAME=${GITHUB_REF##*/}
+          echo ::set-output name=NETWORK_NAME::"$NETWORK_NAME"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        id: buildx
+        with:
+          install: true
+          version: latest
+
+      - name: Install DigitalOcean CLI
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+      - name: Login to DigitalOcean Container Registry
+        run: doctl registry login --expiry-seconds 600
+
+      - name: Configure Docker image metadata
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: registry.digitalocean.com/${{ env.IMAGE_NAME }}
+          flavor: |
+            latest=auto
+            prefix=${{ steps.set-network.outputs.NETWORK_NAME }}-,onlatest=true
+          tags: |
+            type=semver,pattern={{version}},value=${{ steps.set-version.outputs.VERSION }}
+          labels: |
+            org.opencontainers.image.description="BigDipper block explorer for cheqd network"
+            org.opencontainers.image.source="https://github.com/cheqd/big-dipper-2.0-cosmos"
+            org.opencontainers.image.vendor="Cheqd Foundation Limited"
+            org.opencontainers.image.created={{date 'dddd, MMMM Do YYYY, h:mm:ss a'}}
+            org.opencontainers.image.documentation="https://product.cheqd.io/"
+
+      - name: Build BDJuno image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: Dockerfile
+          platforms: linux/amd64
+          load: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Push BDJuno image
+        run: docker image push --all-tags registry.digitalocean.com/${{ env.IMAGE_NAME }}
