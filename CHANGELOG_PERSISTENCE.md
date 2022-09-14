@@ -2,8 +2,7 @@
 
 ## Bug fixes
 
-- Fixed divide by zero error on market recoil state
-Closes #1003 
+- Fixed divide by zero error on market recoil state [\#1003](https://github.com/forbole/big-dipper-2.0-cosmos/issues/1003)
 
 ## Changes
 
