@@ -9,7 +9,7 @@ defaults:
 jobs:
 
   build:
-    name: "Build BigDipper frontend"
+    name: "BigDipper frontend"
     runs-on: ubuntu-latest
     
     steps:
