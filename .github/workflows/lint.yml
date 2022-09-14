@@ -34,13 +34,12 @@ jobs:
           cache-dependency-path: '**/package-lock.json'
 
       - name: "Install dependencies"
-        run: npm install
+        run: npm ci
       
       - name: "Execute JS/TS/TSX/JSX linters"
         run: |
           npm run type-check
           npm run lint
-
 
   super-lint:
     name: "Super Linter"
