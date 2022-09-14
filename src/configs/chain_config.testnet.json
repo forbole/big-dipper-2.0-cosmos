@@ -18,7 +18,7 @@
   "votingPowerTokenUnit": "ncheq",
   "tokenUnits": {
     "ncheq": {
-      "display": "CHEQ",
+      "display": "cheq",
       "exponent": 9
     }
   },

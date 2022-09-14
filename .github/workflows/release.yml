@@ -18,34 +18,6 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: 'npm'
-          cache-dependency-path: '**/package-lock.json'
-      
-      - name: "Obtain Github App token"
-        id: app-token
-        uses: getsentry/action-github-app-token@v1.0.6
-        with:
-          app_id: ${{ secrets.BOT_APP_ID }}
-          private_key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
-
-      - name: "Clean install dependencies"
-        run: npm ci
-
-      - name: "Execute Semantic Release"
-        run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Set version number
-        id: set-version
-        run: |
-          VERSION=$( git describe --tags ${{ github.sha }})
-          echo ::set-output name=VERSION::"$VERSION"
 
       - name: Set network name
         id: set-network
@@ -73,11 +45,9 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: registry.digitalocean.com/${{ env.IMAGE_NAME }}
-          flavor: |
-            latest=auto
-            prefix=${{ steps.set-network.outputs.NETWORK_NAME }}-,onlatest=true
           tags: |
-            type=semver,pattern={{version}},value=${{ steps.set-version.outputs.VERSION }}
+            type=raw,value=${{ steps.set-network.outputs.NETWORK_NAME }}-latest
+            type=sha,format=long
           labels: |
             org.opencontainers.image.description="BigDipper block explorer for cheqd network"
             org.opencontainers.image.source="https://github.com/cheqd/big-dipper-2.0-cosmos"

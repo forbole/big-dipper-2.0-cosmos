@@ -6,7 +6,7 @@
   "github": {
     "reportIssue": "https://github.com/cheqd/big-dipper-2.0-cosmos/issues"
   },
-  "basePath": "/desmos",
+  "basePath": "",
   "previewImage": "https://bigdipper.live/images/big-dipper-social-media.png",
   "version": "base-v2.1.1"
 }
