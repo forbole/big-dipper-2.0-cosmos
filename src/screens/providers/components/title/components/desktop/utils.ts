@@ -5,21 +5,21 @@ export const columns:{
 }[] = [
   {
     key: 'ownerAddress',
-    width: 15,
+    width: 25,
   },
   {
     key: 'hostUri',
-    width: 30,
+    width: 20,
   },
   {
     key: 'region',
     align: 'right',
-    width: 15,
+    width: 10,
   },
   {
     key: 'organization',
     align: 'right',
-    width: 15,
+    width: 20,
   },
   {
     key: 'email',
