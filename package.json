@@ -58,7 +58,7 @@
     "react-window": "^1.8.6",
     "react-window-infinite-loader": "^1.0.7",
     "recharts": "^2.0.8",
-    "recoil": "^0.4.1",
+    "recoil": "^0.7.5",
     "subscriptions-transport-ws": "^0.10.0"
   },
   "devDependencies": {
