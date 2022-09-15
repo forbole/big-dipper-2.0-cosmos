@@ -16,12 +16,12 @@ jobs:
     needs: call-lint
     uses: ./.github/workflows/build.yml
 
-  call-release:
-    name: "Release"
-    needs: call-build
-    if: ${{ github.ref_protected == true }}
-    uses: ./.github/workflows/release.yml
-    secrets: inherit
+  # call-release:
+  #   name: "Release"
+  #   needs: call-build
+  #   if: ${{ github.ref_protected == true }}
+  #   uses: ./.github/workflows/release.yml
+  #   secrets: inherit
 
   call-codeql:
     name: "CodeQL"
