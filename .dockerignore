@@ -1,10 +1,10 @@
 # Skip unncecessary folders
-.github/**
-.next/**
-dist/**
-cypress/**
-node_modules/**
-tests/**
+.github
+.next
+dist
+cypress
+node_modules
+tests
 
 # Skip unnecessary files
 **/*.md
