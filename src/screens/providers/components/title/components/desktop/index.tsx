@@ -20,12 +20,6 @@ import { TransactionsListState } from '../../types';
 import { columns } from './utils';
 import { useStyles } from './styles';
 
-// const Desktop = () => {
-//   return (
-//     <>Desktop</>
-//   );
-// };
-
 const Desktop: React.FC<TransactionsListState> = ({
   className,
   itemCount,
@@ -45,26 +39,6 @@ const Desktop: React.FC<TransactionsListState> = ({
   const { t } = useTranslation('providers');
 
   // const items = transactions.map((x) => ({
-  //   block: (
-  //     <Link href={BLOCK_DETAILS(x.height)} passHref>
-  //       <Typography variant="body1" component="a">
-  //         {numeral(x.height).format('0,0')}
-  //       </Typography>
-  //     </Link>
-  //   ),
-  //   hash: (
-  //     <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
-  //       <Typography variant="body1" component="a">
-  //         {getMiddleEllipsis(x.hash, {
-  //           beginning: 20, ending: 15,
-  //         })}
-  //       </Typography>
-  //     </Link>
-  //   ),
-  //   result: (
-  //     <Result success={x.success} />
-  //   ),
-  //   time: dayjs.utc(x.timestamp).fromNow(),
   //   messages: numeral(x.messages.count).format('0,0'),
   // }));
 
@@ -93,6 +67,7 @@ const Desktop: React.FC<TransactionsListState> = ({
     webAdress: 'Forbole.com',
   },
   ];
+
   const itemsNew = itemsNewProviders.map((x) => ({
     ownerAddress: (
       <Typography variant="body1" component="a">
@@ -179,14 +154,24 @@ const Desktop: React.FC<TransactionsListState> = ({
               {/* ======================================= */}
               {/* Table Body */}
               {/* ======================================= */}
+              {`columns=${JSON.stringify(columns)}`}
+              <hr />
+              {`width=${JSON.stringify(width)}`}
+              <hr />
+              {`getColumnWidth(width,0)=${JSON.stringify(getColumnWidth(width, 0))}`}
+              <hr />
               <Grid
                 columnCount={columns.length}
-                columnWidth={(index) => getColumnWidth(width, index)}
-                height={50}
-                rowCount={itemCount}
+                // columnWidth={(index) => getColumnWidth(width, index)}
+                columnWidth={() => 50}
+                // height={height - 50}
+                height={500}
+                // rowCount={itemCount}
+                rowCount={0}
+                // rowHeight={getRowHeight}
                 rowHeight={() => 50}
                 width={width}
-                className="scrollbar"
+                // className="scrollbar"
               >
                 {({
                   columnIndex, rowIndex, style,

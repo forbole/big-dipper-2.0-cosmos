@@ -11,5 +11,10 @@
   "organization": "Organization",
   "email": "Email",
   "website": "Website",
-  "title": "Title"
+  "title": "Title",
+  "bondedPercent": "bondedPercent",
+  "unbondedPercent": "unbondedPercent",
+  "bonded":"bonded",
+  "unbonded": "unbonded",
+  "unbonding":"unbonding"
 }
