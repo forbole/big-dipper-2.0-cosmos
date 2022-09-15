@@ -23,7 +23,7 @@ export const columns:{
   },
   {
     key: 'email',
-    align: 'right',
+    align: 'center',
     width: 5,
   },
   {

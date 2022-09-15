@@ -2,7 +2,6 @@ import React from 'react';
 import classnames from 'classnames';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import numeral from 'numeral';
-import dayjs from '@utils/dayjs';
 import Link from 'next/link';
 import {
   TRANSACTION_DETAILS,
@@ -13,7 +12,7 @@ import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import { mergeRefs } from '@utils/merge_refs';
 import {
-  Loading, Result,
+  Loading,
 } from '@components';
 import { useGrid } from '@hooks';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
@@ -125,11 +124,13 @@ const Desktop: React.FC<TransactionsListState> = ({
       </Typography>
     ),
     website: (
-      <Typography variant="body1" component="a">
-        {getMiddleEllipsis(x.webAdress, {
-          beginning: 20, ending: 15,
-        })}
-      </Typography>
+      <Link href={TRANSACTION_DETAILS(x.webAdress)} passHref>
+        <Typography variant="body1" component="a">
+          {getMiddleEllipsis(x.webAdress, {
+            beginning: 20, ending: 15,
+          })}
+        </Typography>
+      </Link>
     ),
   }));
 
@@ -178,79 +179,57 @@ const Desktop: React.FC<TransactionsListState> = ({
               {/* ======================================= */}
               {/* Table Body */}
               {/* ======================================= */}
+              <Grid
+                columnCount={columns.length}
+                columnWidth={(index) => getColumnWidth(width, index)}
+                height={50}
+                rowCount={itemCount}
+                rowHeight={() => 50}
+                width={width}
+                className="scrollbar"
+              >
+                {({
+                  columnIndex, rowIndex, style,
+                }) => {
+                  if (!isItemLoaded(rowIndex) && columnIndex === 0) {
+                    return (
+                      <div
+                        style={{
+                          ...style,
+                          width,
+                        }}
+                      >
+                        <Loading />
+                      </div>
+                    );
+                  }
 
-              {({
-                onItemsRendered, ref,
-              }) => {
-                return (
-                  <Grid
-                    onItemsRendered={({
-                      visibleRowStartIndex,
-                      visibleRowStopIndex,
-                      overscanRowStopIndex,
-                      overscanRowStartIndex,
-                    }) => {
-                      onItemsRendered({
-                        overscanStartIndex: overscanRowStartIndex,
-                        overscanStopIndex: overscanRowStopIndex,
-                        visibleStartIndex: visibleRowStartIndex,
-                        visibleStopIndex: visibleRowStopIndex,
-                      });
-                    }}
-                    ref={mergeRefs(gridRef, ref)}
-                    columnCount={columns.length}
-                    columnWidth={(index) => getColumnWidth(width, index)}
-                    height={height - 50}
-                    rowCount={itemCount}
-                    rowHeight={getRowHeight}
-                    width={width}
-                    className="scrollbar"
-                  >
-                    {({
-                      columnIndex, rowIndex, style,
-                    }) => {
-                      if (!isItemLoaded(rowIndex) && columnIndex === 0) {
-                        return (
-                          <div
-                            style={{
-                              ...style,
-                              width,
-                            }}
-                          >
-                            <Loading />
-                          </div>
-                        );
-                      }
+                  if (!isItemLoaded(rowIndex)) {
+                    return null;
+                  }
 
-                      if (!isItemLoaded(rowIndex)) {
-                        return null;
-                      }
-
-                      const {
-                        key, align,
-                      } = columns[columnIndex];
-                      const item = itemsNew[rowIndex][key];
-                      return (
-                        <div
-                          style={style}
-                          className={classnames(classes.cell, classes.body, {
-                            odd: !(rowIndex % 2),
-                          })}
-                        >
-                          <Typography
-                            variant="body1"
-                            align={align}
-                            component="div"
-                          >
-                            {item}
-                          </Typography>
-                        </div>
-                      );
-                    }}
-                  </Grid>
-                );
-              }}
-
+                  const {
+                    key, align,
+                  } = columns[columnIndex];
+                  const item = itemsNew[rowIndex][key];
+                  return (
+                    <div
+                      style={style}
+                      className={classnames(classes.cell, classes.body, {
+                        odd: !(rowIndex % 2),
+                      })}
+                    >
+                      <Typography
+                        variant="body1"
+                        align={align}
+                        component="div"
+                      >
+                        {item}
+                      </Typography>
+                    </div>
+                  );
+                }}
+              </Grid>
             </>
           );
         }}

@@ -28,7 +28,7 @@ const Title: React.FC<ComponentDefault> = (props) => {
     handleChangeRowsPerPage,
   } = usePagination({});
 
-  let component = null;
+  const component = null;
   // if (props.loading) {
   //   component = <Loading />;
   // } else if (!items.length) {
@@ -39,11 +39,11 @@ const Title: React.FC<ComponentDefault> = (props) => {
   //   component = <Mobile items={items} />;
   // }
 
-  if (isDesktop) {
-    component = <Desktop />;
-  } else {
-    component = <Mobile />;
-  }
+  // if (isDesktop) {
+  //   component = <Desktop />;
+  // } else {
+  //   component = <Mobile />;
+  // }
 
   return (
     <Box className={classnames(props.className, classes.root)}>
@@ -51,7 +51,8 @@ const Title: React.FC<ComponentDefault> = (props) => {
         {t('title')}
       </Typography>
       <div className={classes.list}>
-        {component}
+        {/* {component} */}
+        <Desktop />
         <Pagination
           className={classes.paginate}
           total={30}
