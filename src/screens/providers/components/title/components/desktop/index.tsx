@@ -16,16 +16,17 @@ import {
 } from '@components';
 import { useGrid } from '@hooks';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import EmailIcon from '@assets/icon-email.svg';
 import { TransactionsListState } from '../../types';
 import { columns } from './utils';
 import { useStyles } from './styles';
 
 const Desktop: React.FC<TransactionsListState> = ({
-  className,
-  itemCount,
-  loadMoreItems,
-  isItemLoaded,
-  transactions,
+  // className,
+  // itemCount,
+  // loadMoreItems,
+  // isItemLoaded,
+  // transactions,
 }) => {
   const {
     gridRef,
@@ -45,7 +46,7 @@ const Desktop: React.FC<TransactionsListState> = ({
   const itemsNewProviders = [{
     adress: 'fghjkl,mnbhgfyui',
     uri: 'fghjkl,mnbhgfyui',
-    region: 'asia',
+    region: 'null',
     organizationName: 'Forbole',
     email: 'forbole@gmail.com',
     webAdress: 'Forbole.com',
@@ -53,20 +54,25 @@ const Desktop: React.FC<TransactionsListState> = ({
   {
     adress: 'fghjkl,mnbhgfyui',
     uri: 'fghjkl,mnbhgfyui',
-    region: 'asia',
+    region: 'U.S.',
     organizationName: 'Forbole',
-    email: 'forbole@gmail.com',
+    email: 'forboleUS@gmail.com',
     webAdress: 'Forbole.com',
   },
   {
     adress: 'fghjkl,mnbhgfyui',
     uri: 'fghjkl,mnbhgfyui',
-    region: 'asia',
+    region: 'Null',
     organizationName: 'Forbole',
     email: 'forbole@gmail.com',
     webAdress: 'Forbole.com',
   },
   ];
+
+  const className = '';
+  const itemCount = itemsNewProviders.length;
+  const loadMoreItems = (...args) => { console.log('args', JSON.stringify(args)); };
+  const isItemLoaded = (index) => index >= 0 && index < itemCount;
 
   const itemsNew = itemsNewProviders.map((x) => ({
     ownerAddress: (
@@ -94,9 +100,9 @@ const Desktop: React.FC<TransactionsListState> = ({
       </Typography>
     ),
     email: (
-      <Typography variant="body1" component="a">
-        {x.organizationName}
-      </Typography>
+      <a href={`mailto:${x.email}`}>
+        <EmailIcon />
+      </a>
     ),
     website: (
       <Link href={TRANSACTION_DETAILS(x.webAdress)} passHref>
@@ -154,22 +160,13 @@ const Desktop: React.FC<TransactionsListState> = ({
               {/* ======================================= */}
               {/* Table Body */}
               {/* ======================================= */}
-              {`columns=${JSON.stringify(columns)}`}
-              <hr />
-              {`width=${JSON.stringify(width)}`}
-              <hr />
-              {`getColumnWidth(width,0)=${JSON.stringify(getColumnWidth(width, 0))}`}
-              <hr />
+
               <Grid
                 columnCount={columns.length}
-                // columnWidth={(index) => getColumnWidth(width, index)}
-                columnWidth={() => 50}
-                // height={height - 50}
-                height={500}
-                // rowCount={itemCount}
-                rowCount={0}
-                // rowHeight={getRowHeight}
-                rowHeight={() => 50}
+                columnWidth={(index) => getColumnWidth(width, index)}
+                height={height - 50}
+                rowCount={itemCount}
+                rowHeight={getRowHeight}
                 width={width}
                 // className="scrollbar"
               >
