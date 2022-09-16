@@ -7,10 +7,11 @@ defaults:
 
 
 jobs:
-  release-docker:
+  release-docker-testnet:
     name: "BigDipper Docker image"
     runs-on: ubuntu-latest
-    environment: ${GITHUB_REF##*/}
+    if: ${{ ${GITHUB_REF##*/} == 'testnet' }}
+    environment: testnet
     env:
       IMAGE_NAME: ${{ github.repository }}
 
