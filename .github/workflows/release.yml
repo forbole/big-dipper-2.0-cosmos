@@ -65,11 +65,11 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
-            NEXT_PUBLIC_GRAPHQL_URL={{ secrets.NEXT_PUBLIC_GRAPHQL_URL }}
-            NEXT_PUBLIC_GRAPHQL_WS={{ secrets.NEXT_PUBLIC_GRAPHQL_WS }}
-            NEXT_PUBLIC_RPC_WEBSOCKET={{ secrets.NEXT_PUBLIC_RPC_WEBSOCKET }}
-            NEXT_PUBLIC_CHAIN_TYPE={{ secrets.NEXT_PUBLIC_CHAIN_TYPE }}
-            NPM_CONFIG_LOGLEVEL={{ secrets.NPM_CONFIG_LOGLEVEL }}
+            NEXT_PUBLIC_GRAPHQL_URL=${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }}
+            NEXT_PUBLIC_GRAPHQL_WS=${{ secrets.NEXT_PUBLIC_GRAPHQL_WS }}
+            NEXT_PUBLIC_RPC_WEBSOCKET=${{ secrets.NEXT_PUBLIC_RPC_WEBSOCKET }}
+            NEXT_PUBLIC_CHAIN_TYPE=${{ secrets.NEXT_PUBLIC_CHAIN_TYPE }}
+            NPM_CONFIG_LOGLEVEL=${{ secrets.NPM_CONFIG_LOGLEVEL }}
 
       - name: Push BigDipper image
         run: docker image push --all-tags registry.digitalocean.com/${{ env.IMAGE_NAME }}
