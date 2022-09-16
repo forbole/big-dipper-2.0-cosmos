@@ -5,7 +5,6 @@ import {
   useProvidersListenerSubscription,
   ProvidersListenerSubscription,
 } from '@graphql/types/general_types';
-import { convertMsgsToModels } from '@msg';
 import { ProvidersState } from './types';
 
 export const useProviders = () => {
@@ -56,7 +55,7 @@ export const useProviders = () => {
   // tx query
   // ================================
   const LIMIT = 51;
-  const transactionQuery = useProvidersQuery({
+  const providersQuery = useProvidersQuery({
     variables: {
       limit: LIMIT,
       offset: 1,
@@ -86,7 +85,7 @@ export const useProviders = () => {
       isNextPageLoading: true,
     });
     // refetch query
-    await transactionQuery.fetchMore({
+    await providersQuery.fetchMore({
       variables: {
         offset: state.items.length,
         limit: LIMIT,
@@ -107,17 +106,38 @@ export const useProviders = () => {
   };
 
   const formatProviders = (data: ProvidersListenerSubscription) => {
-    let formattedData = data.transactions;
+    let formattedData = data.providers;
     if (data.providers.length === 51) {
       formattedData = data.providers.slice(0, 51);
     }
 
     return formattedData.map((x) => {
       return ({
-        height: x.height,
-        hash: x.hash,
-        success: x.success,
-        timestamp: x.block.timestamp,
+        dataBlocks: {
+          activeProviders: x.dataBlocks.activeProviders,
+          activeLeases: x.dataBlocks.activeLeases,
+        },
+        memory: {
+          used: x.memory.used,
+          available: x.memory.available,
+        },
+        compute: {
+          used: x.compute.used,
+          available: x.compute.available,
+        },
+        storage: {
+          used: x.storage.used,
+          available: x.storage.available,
+          pending: x.storage.pending,
+        },
+        title: {
+          ownerAdress: x.title.ownerAdress,
+          hostUri: x.title.hostUri,
+          region: x.region,
+          organization: x.organization,
+          email: x.email,
+          website: x.website,
+        },
       });
     });
   };
