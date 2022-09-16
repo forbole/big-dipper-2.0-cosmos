@@ -8,9 +8,9 @@ defaults:
 
 jobs:
   release-docker-testnet:
-    name: "BigDipper Docker image"
+    name: "BigDipper Docker image - Testnet"
     runs-on: ubuntu-latest
-    if: ${{ GITHUB_REF##*/ }} == 'testnet'
+    if: ${{ ( github.ref_name == 'main' ) }}
     environment: testnet
     env:
       IMAGE_NAME: ${{ github.repository }}
