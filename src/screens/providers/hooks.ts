@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import * as R from 'ramda';
 import {
-  useTransactionsQuery,
-  useTransactionsListenerSubscription,
-  TransactionsListenerSubscription,
+  useProvidersQuery,
+  useProvidersListenerSubscription,
+  ProvidersListenerSubscription,
 } from '@graphql/types/general_types';
 import { convertMsgsToModels } from '@msg';
-import { TransactionsState } from './types';
+import { ProvidersState } from './types';
 
-export const useTransactions = () => {
-  const [state, setState] = useState<TransactionsState>({
+export const useProviders = () => {
+  const [state, setState] = useState<ProvidersState>({
     loading: true,
     exists: true,
     hasNextPage: false,
@@ -35,14 +35,14 @@ export const useTransactions = () => {
   // ================================
   // tx subscription
   // ================================
-  useTransactionsListenerSubscription({
+  useProvidersListenerSubscription({
     variables: {
       limit: 1,
       offset: 0,
     },
     onSubscriptionData: (data) => {
       const newItems = uniqueAndSort([
-        ...formatTransactions(data.subscriptionData.data),
+        ...formatProviders(data.subscriptionData.data),
         ...state.items,
       ]);
       handleSetState({
@@ -56,7 +56,7 @@ export const useTransactions = () => {
   // tx query
   // ================================
   const LIMIT = 51;
-  const transactionQuery = useTransactionsQuery({
+  const transactionQuery = useProvidersQuery({
     variables: {
       limit: LIMIT,
       offset: 1,
@@ -67,10 +67,10 @@ export const useTransactions = () => {
       });
     },
     onCompleted: (data) => {
-      const itemsLength = data.transactions.length;
+      const itemsLength = data.providers.length;
       const newItems = uniqueAndSort([
         ...state.items,
-        ...formatTransactions(data),
+        ...formatProviders(data),
       ]);
       handleSetState({
         loading: false,
@@ -92,10 +92,10 @@ export const useTransactions = () => {
         limit: LIMIT,
       },
     }).then(({ data }) => {
-      const itemsLength = data.transactions.length;
+      const itemsLength = data.providers.length;
       const newItems = uniqueAndSort([
         ...state.items,
-        ...formatTransactions(data),
+        ...formatProviders(data),
       ]);
       // set new state
       handleSetState({
@@ -106,21 +106,16 @@ export const useTransactions = () => {
     });
   };
 
-  const formatTransactions = (data: TransactionsListenerSubscription) => {
+  const formatProviders = (data: ProvidersListenerSubscription) => {
     let formattedData = data.transactions;
-    if (data.transactions.length === 51) {
-      formattedData = data.transactions.slice(0, 51);
+    if (data.providers.length === 51) {
+      formattedData = data.providers.slice(0, 51);
     }
 
     return formattedData.map((x) => {
-      const messages = convertMsgsToModels(x);
       return ({
         height: x.height,
         hash: x.hash,
-        messages: {
-          count: x.messages.length,
-          items: messages,
-        },
         success: x.success,
         timestamp: x.block.timestamp,
       });

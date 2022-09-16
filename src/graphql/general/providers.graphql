@@ -14,7 +14,7 @@ subscription ProvidersListener($limit: Int = 7, $offset: Int = 0) {
 }
 
 query Providers($limit: Int = 7, $offset: Int = 0) {
-    providers: akash_provider_inventory(where: {active: {_eq: true}}, limit: 2) {
+  providers: akash_provider_inventory(where: {active: {_eq: true}}, limit: 2) {
     provider_address
     active
     active_inventory_sum

@@ -1,4 +1,4 @@
-export type TransactionsState = {
+export type ProvidersState = {
   loading: boolean;
   exists: boolean;
   hasNextPage: boolean;
