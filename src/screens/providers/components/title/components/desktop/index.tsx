@@ -17,6 +17,8 @@ import {
 import { useGrid } from '@hooks';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import EmailIcon from '@assets/icon-email.svg';
+import CopyIcon from '@assets/icon-copy.svg';
+import { useAddress } from '@utils/copy_to_clipboard';
 import { TransactionsListState } from '../../types';
 import { columns } from './utils';
 import { useStyles } from './styles';
@@ -38,6 +40,7 @@ const Desktop: React.FC<TransactionsListState> = ({
 
   const classes = useStyles();
   const { t } = useTranslation('providers');
+  const { handleCopyToClipboard } = useAddress(t);
 
   // const items = transactions.map((x) => ({
   //   messages: numeral(x.messages.count).format('0,0'),
@@ -76,11 +79,19 @@ const Desktop: React.FC<TransactionsListState> = ({
 
   const itemsNew = itemsNewProviders.map((x) => ({
     ownerAddress: (
-      <Typography variant="body1" component="a">
-        {getMiddleEllipsis(x.adress, {
-          beginning: 20, ending: 15,
-        })}
-      </Typography>
+      <>
+        <Typography variant="body1" component="a">
+          {getMiddleEllipsis(x.adress, {
+            beginning: 20, ending: 15,
+          })}
+        </Typography>
+
+        <CopyIcon
+          onClick={() => handleCopyToClipboard(x.adress)}
+          className={classes.actionIcons}
+        />
+      </>
+
     ),
     hostUri: (
       <Typography variant="body1" component="a">

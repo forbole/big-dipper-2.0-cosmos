@@ -13,6 +13,13 @@ export const useStyles = () => {
         body: {
           color: theme.palette.custom.fonts.fontTwo,
         },
+        actionIcons: {
+          '&:hover': {
+            cursor: 'pointer',
+          },
+          width: '1rem',
+          marginLeft: theme.spacing(1),
+        },
       });
     },
   )();
