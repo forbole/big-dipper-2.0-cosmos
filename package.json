@@ -70,7 +70,7 @@
     "@svgr/webpack": "^5.5.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^11.0.2",
-    "@testing-library/react-hooks": "^3.7.0",
+    "@testing-library/react-hooks": "^8.0.1",
     "@types/big.js": "^6.1.2",
     "@types/jest": "^26.0.13",
     "@types/node": "^18.7.18",
