@@ -85,20 +85,24 @@ const Desktop: React.FC<TransactionsListState> = ({
             beginning: 20, ending: 15,
           })}
         </Typography>
-
         <CopyIcon
           onClick={() => handleCopyToClipboard(x.adress)}
           className={classes.actionIcons}
         />
       </>
-
     ),
     hostUri: (
-      <Typography variant="body1" component="a">
-        {getMiddleEllipsis(x.uri, {
-          beginning: 20, ending: 15,
-        })}
-      </Typography>
+      <>
+        <Typography variant="body1" component="a">
+          {getMiddleEllipsis(x.uri, {
+            beginning: 20, ending: 15,
+          })}
+        </Typography>
+        <CopyIcon
+          onClick={() => handleCopyToClipboard(x.uri)}
+          className={classes.actionIcons}
+        />
+      </>
     ),
     region: (
       <Typography variant="body1" component="a">
