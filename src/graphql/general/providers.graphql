@@ -1,0 +1,29 @@
+subscription ProvidersListener($limit: Int = 7, $offset: Int = 0) {
+  providers: akash_provider_inventory(where: {active: {_eq: true}}, limit: 2) {
+    provider_address
+    active
+    active_inventory_sum
+    available_inventory_sum
+    pending_inventory_sum
+    lease_count
+    bidengine_order_count
+    manifest_deployment_count
+    cluster_public_hostname
+    inventory_status_raw
+  }
+}
+
+query Providers($limit: Int = 7, $offset: Int = 0) {
+    providers: akash_provider_inventory(where: {active: {_eq: true}}, limit: 2) {
+    provider_address
+    active
+    active_inventory_sum
+    available_inventory_sum
+    pending_inventory_sum
+    lease_count
+    bidengine_order_count
+    manifest_deployment_count
+    cluster_public_hostname
+    inventory_status_raw
+  }
+}
