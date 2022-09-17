@@ -12681,26 +12681,60 @@ export type ProposalsQuery = { proposals: Array<(
     )> }
   ) };
 
-export type ProvidersListenerSubscriptionVariables = Exact<{
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-}>;
+export type ActiveProvidersListenerSubscriptionVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ProvidersListenerSubscription = { providers: Array<(
+export type ActiveProvidersListenerSubscription = { activeProviders: (
+    { __typename?: 'akash_provider_inventory_aggregate' }
+    & { aggregate?: Maybe<(
+      { __typename?: 'akash_provider_inventory_aggregate_fields' }
+      & Pick<Akash_Provider_Inventory_Aggregate_Fields, 'count'>
+    )> }
+  ) };
+
+export type ActiveLeasesListenerSubscriptionVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ActiveLeasesListenerSubscription = { activeLeases: (
+    { __typename?: 'akash_provider_inventory_aggregate' }
+    & { aggregate?: Maybe<(
+      { __typename?: 'akash_provider_inventory_aggregate_fields' }
+      & { sum?: Maybe<(
+        { __typename?: 'akash_provider_inventory_sum_fields' }
+        & Pick<Akash_Provider_Inventory_Sum_Fields, 'lease_count'>
+      )> }
+    )> }
+  ) };
+
+export type CircledGraphsListenerSubscriptionVariables = Exact<{ [key: string]: never; }>;
+
+
+export type CircledGraphsListenerSubscription = { circledGraphs: Array<(
     { __typename?: 'akash_provider_inventory' }
-    & Pick<Akash_Provider_Inventory, 'provider_address' | 'active' | 'active_inventory_sum' | 'available_inventory_sum' | 'pending_inventory_sum' | 'lease_count' | 'bidengine_order_count' | 'manifest_deployment_count' | 'cluster_public_hostname' | 'inventory_status_raw'>
+    & { activeInventorySum: Akash_Provider_Inventory['active_inventory_sum'], availableInventorySum: Akash_Provider_Inventory['available_inventory_sum'], pendingInventorySum: Akash_Provider_Inventory['pending_inventory_sum'] }
   )> };
 
-export type ProvidersQueryVariables = Exact<{
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-}>;
+export type ProvidersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ProvidersQuery = { providers: Array<(
+export type ProvidersQuery = { activeProviders: (
+    { __typename?: 'akash_provider_inventory_aggregate' }
+    & { aggregate?: Maybe<(
+      { __typename?: 'akash_provider_inventory_aggregate_fields' }
+      & Pick<Akash_Provider_Inventory_Aggregate_Fields, 'count'>
+    )> }
+  ), activeLeases: (
+    { __typename?: 'akash_provider_inventory_aggregate' }
+    & { aggregate?: Maybe<(
+      { __typename?: 'akash_provider_inventory_aggregate_fields' }
+      & { sum?: Maybe<(
+        { __typename?: 'akash_provider_inventory_sum_fields' }
+        & Pick<Akash_Provider_Inventory_Sum_Fields, 'lease_count'>
+      )> }
+    )> }
+  ), circledGraphs: Array<(
     { __typename?: 'akash_provider_inventory' }
-    & Pick<Akash_Provider_Inventory, 'provider_address' | 'active' | 'active_inventory_sum' | 'available_inventory_sum' | 'pending_inventory_sum' | 'lease_count' | 'bidengine_order_count' | 'manifest_deployment_count' | 'cluster_public_hostname' | 'inventory_status_raw'>
+    & { activeInventorySum: Akash_Provider_Inventory['active_inventory_sum'], availableInventorySum: Akash_Provider_Inventory['available_inventory_sum'], pendingInventorySum: Akash_Provider_Inventory['pending_inventory_sum'] }
   )> };
 
 export type TokenPriceListenerSubscriptionVariables = Exact<{
@@ -14065,59 +14099,123 @@ export function useProposalsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<
 export type ProposalsQueryHookResult = ReturnType<typeof useProposalsQuery>;
 export type ProposalsLazyQueryHookResult = ReturnType<typeof useProposalsLazyQuery>;
 export type ProposalsQueryResult = Apollo.QueryResult<ProposalsQuery, ProposalsQueryVariables>;
-export const ProvidersListenerDocument = gql`
-    subscription ProvidersListener($limit: Int = 7, $offset: Int = 0) {
-  providers: akash_provider_inventory(where: {active: {_eq: true}}, limit: 2) {
-    provider_address
-    active
-    active_inventory_sum
-    available_inventory_sum
-    pending_inventory_sum
-    lease_count
-    bidengine_order_count
-    manifest_deployment_count
-    cluster_public_hostname
-    inventory_status_raw
+export const ActiveProvidersListenerDocument = gql`
+    subscription ActiveProvidersListener {
+  activeProviders: akash_provider_inventory_aggregate(
+    where: {active: {_eq: true}}
+  ) {
+    aggregate {
+      count
+    }
   }
 }
     `;
 
 /**
- * __useProvidersListenerSubscription__
+ * __useActiveProvidersListenerSubscription__
  *
- * To run a query within a React component, call `useProvidersListenerSubscription` and pass it any options that fit your needs.
- * When your component renders, `useProvidersListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useActiveProvidersListenerSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useActiveProvidersListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useProvidersListenerSubscription({
+ * const { data, loading, error } = useActiveProvidersListenerSubscription({
  *   variables: {
- *      limit: // value for 'limit'
- *      offset: // value for 'offset'
  *   },
  * });
  */
-export function useProvidersListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<ProvidersListenerSubscription, ProvidersListenerSubscriptionVariables>) {
+export function useActiveProvidersListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<ActiveProvidersListenerSubscription, ActiveProvidersListenerSubscriptionVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useSubscription<ProvidersListenerSubscription, ProvidersListenerSubscriptionVariables>(ProvidersListenerDocument, options);
+        return Apollo.useSubscription<ActiveProvidersListenerSubscription, ActiveProvidersListenerSubscriptionVariables>(ActiveProvidersListenerDocument, options);
       }
-export type ProvidersListenerSubscriptionHookResult = ReturnType<typeof useProvidersListenerSubscription>;
-export type ProvidersListenerSubscriptionResult = Apollo.SubscriptionResult<ProvidersListenerSubscription>;
+export type ActiveProvidersListenerSubscriptionHookResult = ReturnType<typeof useActiveProvidersListenerSubscription>;
+export type ActiveProvidersListenerSubscriptionResult = Apollo.SubscriptionResult<ActiveProvidersListenerSubscription>;
+export const ActiveLeasesListenerDocument = gql`
+    subscription ActiveLeasesListener {
+  activeLeases: akash_provider_inventory_aggregate(where: {active: {_eq: true}}) {
+    aggregate {
+      sum {
+        lease_count
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useActiveLeasesListenerSubscription__
+ *
+ * To run a query within a React component, call `useActiveLeasesListenerSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useActiveLeasesListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useActiveLeasesListenerSubscription({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useActiveLeasesListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<ActiveLeasesListenerSubscription, ActiveLeasesListenerSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<ActiveLeasesListenerSubscription, ActiveLeasesListenerSubscriptionVariables>(ActiveLeasesListenerDocument, options);
+      }
+export type ActiveLeasesListenerSubscriptionHookResult = ReturnType<typeof useActiveLeasesListenerSubscription>;
+export type ActiveLeasesListenerSubscriptionResult = Apollo.SubscriptionResult<ActiveLeasesListenerSubscription>;
+export const CircledGraphsListenerDocument = gql`
+    subscription CircledGraphsListener {
+  circledGraphs: akash_provider_inventory(where: {active: {_eq: true}}) {
+    activeInventorySum: active_inventory_sum
+    availableInventorySum: available_inventory_sum
+    pendingInventorySum: pending_inventory_sum
+  }
+}
+    `;
+
+/**
+ * __useCircledGraphsListenerSubscription__
+ *
+ * To run a query within a React component, call `useCircledGraphsListenerSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useCircledGraphsListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useCircledGraphsListenerSubscription({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useCircledGraphsListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<CircledGraphsListenerSubscription, CircledGraphsListenerSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<CircledGraphsListenerSubscription, CircledGraphsListenerSubscriptionVariables>(CircledGraphsListenerDocument, options);
+      }
+export type CircledGraphsListenerSubscriptionHookResult = ReturnType<typeof useCircledGraphsListenerSubscription>;
+export type CircledGraphsListenerSubscriptionResult = Apollo.SubscriptionResult<CircledGraphsListenerSubscription>;
 export const ProvidersDocument = gql`
-    query Providers($limit: Int = 7, $offset: Int = 0) {
-  providers: akash_provider_inventory(where: {active: {_eq: true}}, limit: 2) {
-    provider_address
-    active
-    active_inventory_sum
-    available_inventory_sum
-    pending_inventory_sum
-    lease_count
-    bidengine_order_count
-    manifest_deployment_count
-    cluster_public_hostname
-    inventory_status_raw
+    query Providers {
+  activeProviders: akash_provider_inventory_aggregate(
+    where: {active: {_eq: true}}
+  ) {
+    aggregate {
+      count
+    }
+  }
+  activeLeases: akash_provider_inventory_aggregate(where: {active: {_eq: true}}) {
+    aggregate {
+      sum {
+        lease_count
+      }
+    }
+  }
+  circledGraphs: akash_provider_inventory(where: {active: {_eq: true}}) {
+    activeInventorySum: active_inventory_sum
+    availableInventorySum: available_inventory_sum
+    pendingInventorySum: pending_inventory_sum
   }
 }
     `;
@@ -14134,8 +14232,6 @@ export const ProvidersDocument = gql`
  * @example
  * const { data, loading, error } = useProvidersQuery({
  *   variables: {
- *      limit: // value for 'limit'
- *      offset: // value for 'offset'
  *   },
  * });
  */

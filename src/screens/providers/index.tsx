@@ -12,12 +12,13 @@ import {
   Compute,
   Storage,
   Title,
-
 } from './components';
+import { useProviders } from './hooks';
 
 const Providers = () => {
   const { t } = useTranslation('providers');
   const classes = useStyles();
+  const { state } = useProviders();
 
   return (
     <>
