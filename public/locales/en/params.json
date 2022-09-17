@@ -32,5 +32,21 @@
   "quorum": "Quorum",
   "threshold": "Threshold",
   "vetoThreshold": "Veto Threshold",
-  "votingPeriod": "Voting Period"
+  "votingPeriod": "Voting Period",
+  "stakeibc": "Stake IBC",
+  "bufferSize": "Buffer Size",
+  "depositInterval": "Deposit Interval",
+  "rewardsInterval": "Rewards Interval",
+  "delegateInterval": "Delegate Interval",
+  "icaTimeoutNanos": "Ica Timeout Nanos",
+  "reinvestInterval": "Reinvest Interval",
+  "strideCommission": "Stride Commission",
+  "ibcTimeoutBlocks": "IBC Timeout Blocks",
+  "redemptionRateInterval": "Redemption Rate Interval",
+  "feeTransferTimeoutNanos": "Fee Transfer Timeout Nanos",
+  "ibcTransferTimeoutNanos": "IBC Transfer Timeout Nanos",
+  "maxStakeIcaCallsPerEpoch": "Max Stake Ica Calls per Epoch",
+  "validatorRebalancingThreshold": "Validator Rebalancing Threshold",
+  "safetyMaxRedemptionRateThreshold": "Safety Max Redemption rate threshold",
+  "safetyMinRedemptionRateThreshold": "Safety Min Redemption Rate Threshold"
 }

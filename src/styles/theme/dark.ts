@@ -1,10 +1,10 @@
 import Color from 'color';
 
-const backgroundDefault = '#0A0A0A';
-const surfaceOne = '#131316';
-const surfaceTwo = '#19191D';
+const backgroundDefault = '#141617';
+const surfaceOne = '#232829';
+const surfaceTwo = '#333333'; // Figma general 3
 const fontOne = '#E6E6E6';
-const fontTwo = '#AAAAAB';
+const fontTwo = '#C4C4C4';
 const fontThree = '#818181';
 
 /** Custom theme overrides for dark mode */
@@ -20,17 +20,17 @@ export const darkThemeOverride = {
   palette: {
     type: 'dark',
     primary: {
-      main: Color('#FD3B4C').alpha(0.7).string(),
-      contrastText: '#fff',
+      main: Color('#E91179').alpha(0.7).string(),
+      contrastText: '#FFFFFF',
     },
     background: {
       default: backgroundDefault,
       paper: surfaceOne,
     },
-    divider: '#3D3D43',
+    divider: '#525252',
     text: {
       primary: '#E6E6E6',
-      secondary: '#AAAAAB',
+      secondary: '#C4C4C4',
     },
     custom: {
       general: {
@@ -45,14 +45,28 @@ export const darkThemeOverride = {
         fontFour: '#999999',
       },
       primaryData: {
-        one: '#af2929',
-        two: '#b44516',
-        three: '#b14237',
-        four: '#b16919',
+        one: '#E91179',
+        two: '#F14196',
+        three: '#45B1C4',
+        four: '#378D9B',
       },
       results: {
-        pass: '#198a65',
-        fail: '#b12a34',
+        pass: '#1EC490',
+        fail: '#FD3B4C',
+      },
+      condition: {
+        zero: '#E8E8E8', // Condition/1
+        one: '#1EC490', // Condition/2
+        two: '#FF9338', // Condition/3
+        three: '#FF608A', // Condition/4
+      },
+      charts: {
+        zero: '#E8E8E8',
+        one: '#55F28C',
+        two: '#1A88FF',
+        three: '#DD1AFF',
+        four: '#FFDC19',
+        five: '#E91179',
       },
     },
   },

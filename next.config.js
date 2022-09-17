@@ -1,8 +1,9 @@
 const nextTranslate = require('next-translate');
+const { basePath } = require('./src/configs/general_config.json');
 
 module.exports = nextTranslate({
   poweredByHeader: false,
-  basePath: '/desmos',
+  basePath,
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,

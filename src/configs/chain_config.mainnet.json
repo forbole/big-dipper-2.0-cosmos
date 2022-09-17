@@ -1,24 +1,20 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "desmos-mainnet-1",
-  "icon": "/desmos/images/icon.svg",
-  "logo": {
-    "default": "/desmos/images/logo.svg"
-  },
+  "title": "Stride Block Explorer",
+  "network": "stride-mainnet-1",
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "stridevalcons",
+    "validator": "stridevaloper",
+    "account": "stride"
   },
   "genesis": {
-    "time": "2021-07-13T08:00:00",
+    "time": "2022-09-04T19:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udsm",
-  "votingPowerTokenUnit": "udsm",
+  "primaryTokenUnit": "ustrd",
+  "votingPowerTokenUnit": "ustrd",
   "tokenUnits": {
-    "udsm": {
-      "display": "dsm",
+    "ustrd": {
+      "display": "strd",
       "exponent": 6
     }
   },

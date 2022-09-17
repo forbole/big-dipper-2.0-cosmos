@@ -33,7 +33,7 @@ export const formatToken = (value: number | string, denom = ''): TokenUnit => {
   }
 
   const ratio = 10 ** selectedDenom.exponent;
-  results.value = Big(value).div(ratio).toFixed(selectedDenom.exponent);
+  results.value = ratio ? Big(value).div(ratio).toFixed(selectedDenom.exponent) : '';
   results.displayDenom = selectedDenom.display;
   return results;
 };
@@ -55,7 +55,7 @@ export const formatTokenByExponent = (value: number | string, exponent = 0): str
   }
 
   const ratio = 10 ** exponent;
-  const results = Big(value).div(ratio).toFixed(exponent);
+  const results = ratio ? Big(value).div(ratio).toFixed(exponent) : '';
   return results;
 };
 

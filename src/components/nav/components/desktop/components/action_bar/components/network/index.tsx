@@ -1,10 +1,10 @@
-import React from 'react';
-import classnames from 'classnames';
-import { ExpandMore } from '@material-ui/icons';
+import Icon from '@assets/icon';
 import { Typography } from '@material-ui/core';
-import { useRecoilValue } from 'recoil';
+import { ExpandMore } from '@material-ui/icons';
 import { readSelectedNetwork } from '@recoil/big_dipper_networks';
-import { chainConfig } from '@configs';
+import classnames from 'classnames';
+import React from 'react';
+import { useRecoilValue } from 'recoil';
 import { useStyles } from './styles';
 
 const Network:React.FC<{
@@ -22,7 +22,8 @@ const Network:React.FC<{
       onClick={toggleNetwork}
       role="button"
     >
-      <img src={chainConfig.icon} className={classes.icon} alt="icon" />
+
+      <Icon className={classes.icon} />
       <Typography variant="body1">
         {selected}
       </Typography>

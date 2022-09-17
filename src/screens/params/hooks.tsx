@@ -13,6 +13,7 @@ import {
   MintParams,
   DistributionParams,
   GovParams,
+  StakeibcParams,
 } from '@models';
 import {
   ParamsState,
@@ -26,6 +27,7 @@ const initialState = {
   minting: null,
   distribution: null,
   gov: null,
+  stakeibc: null,
 };
 
 export const useParams = () => {
@@ -160,6 +162,21 @@ export const useParams = () => {
     };
 
     results.gov = formatGov();
+
+    // ================================
+    // distribution
+    // ================================
+
+    const formatStakeibc = () => {
+      if (data.stakeibcParams.length) {
+        const stakeibcParamsRaw = StakeibcParams(data?.stakeibcParams?.[0]?.params);
+        return stakeibcParamsRaw;
+      }
+
+      return null;
+    };
+
+    results.stakeibc = formatStakeibc();
 
     return results;
   };

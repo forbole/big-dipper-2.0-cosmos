@@ -39,6 +39,24 @@ export type Gov = {
   votingPeriod: number;
 }
 
+export type Stakeibc = {
+  bufferSize: number;
+  depositInterval: number;
+  rewardsInterval: number;
+  delegateInterval: number;
+  icaTimeoutNanos: number;
+  reinvestInterval: number;
+  strideCommission: number;
+  ibcTimeoutBlocks: number;
+  redemptionRateInterval: number;
+  feeTransferTimeoutNanos: number;
+  ibcTransferTimeoutNanos: number;
+  maxStakeIcaCallsPerEpoch: number;
+  validatorRebalancingThreshold: number;
+  safetyMaxRedemptionRateThreshold: number;
+  safetyMinRedemptionRateThreshold: number;
+}
+
 export type ParamsState = {
   loading: boolean;
   exists: boolean;
@@ -47,4 +65,5 @@ export type ParamsState = {
   minting: Minting | null;
   distribution: Distribution | null;
   gov: Gov | null;
+  stakeibc: Stakeibc | null;
 }

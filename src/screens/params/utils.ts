@@ -8,6 +8,7 @@ import {
   Minting,
   Distribution,
   Gov,
+  Stakeibc,
 } from './types';
 
 const convertBySeconds = (seconds: number, t: any) => {
@@ -152,6 +153,71 @@ export const formatGov = (data: Gov, t: any) => {
     {
       label: t('votingPeriod'),
       detail: convertBySeconds(nanoToSeconds(data.votingPeriod), t),
+    },
+  ]);
+};
+
+export const formatStakeibc = (data: Stakeibc, t: any) => {
+  return ([
+    {
+      label: t('bufferSize'),
+      detail: data.bufferSize,
+    },
+    {
+      label: t('depositInterval'),
+      detail: data.depositInterval,
+    },
+    {
+      label: t('rewardsInterval'),
+      detail: data.rewardsInterval,
+    },
+    {
+      label: t('delegateInterval'),
+      detail: data.delegateInterval,
+    },
+    {
+      label: t('icaTimeoutNanos'),
+      detail: convertBySeconds(nanoToSeconds(data.icaTimeoutNanos), t),
+    },
+    {
+      label: t('reinvestInterval'),
+      detail: data.reinvestInterval,
+    },
+    {
+      label: t('strideCommission'),
+      detail: data.strideCommission,
+    },
+    {
+      label: t('ibcTimeoutBlocks'),
+      detail: data.ibcTimeoutBlocks,
+    },
+    {
+      label: t('redemptionRateInterval'),
+      detail: data.redemptionRateInterval,
+    },
+    {
+      label: t('feeTransferTimeoutNanos'),
+      detail: convertBySeconds(nanoToSeconds(data.feeTransferTimeoutNanos), t),
+    },
+    {
+      label: t('ibcTransferTimeoutNanos'),
+      detail: convertBySeconds(nanoToSeconds(data.ibcTransferTimeoutNanos), t),
+    },
+    {
+      label: t('maxStakeIcaCallsPerEpoch'),
+      detail: data.maxStakeIcaCallsPerEpoch,
+    },
+    {
+      label: t('validatorRebalancingThreshold'),
+      detail: `${numeral(data.safetyMaxRedemptionRateThreshold * 100).format('0.[00]')}%`,
+    },
+    {
+      label: t('safetyMaxRedemptionRateThreshold'),
+      detail: `${numeral(data.safetyMaxRedemptionRateThreshold * 100).format('0.[00]')}%`,
+    },
+    {
+      label: t('safetyMinRedemptionRateThreshold'),
+      detail: `${numeral(data.safetyMinRedemptionRateThreshold * 100).format('0.[00]')}%`,
     },
   ]);
 };
