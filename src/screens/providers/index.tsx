@@ -11,7 +11,7 @@ import {
   Memory,
   Compute,
   Storage,
-  Providers,
+  ProvidersList,
 } from './components';
 import { useProviders } from './hooks';
 
@@ -37,7 +37,7 @@ const Providers = () => {
         <Memory className={classes.memory} />
         <Compute className={classes.compute} />
         <Storage className={classes.storage} />
-        <Providers className={classes.providers} />
+        <ProvidersList className={classes.providersList} />
       </Layout>
     </>
   );
