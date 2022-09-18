@@ -17,16 +17,15 @@ import { useStyles } from './styles';
 const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
 
-const ProvidersList: React.FC<ComponentDefault> = (props) => {
+export type ProvidersListProps = ComponentDefault & {
+  handleChangePage: () => void,
+  handleChangeRowsPerPage: (page: number) => void,
+}
+
+const ProvidersList: React.FC<ProvidersListProps> = (props) => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const { t } = useTranslation('providers');
-  const {
-    // page,
-    // rowsPerPage,
-    handleChangePage,
-    handleChangeRowsPerPage,
-  } = usePagination({});
 
   const component = null;
   // if (props.loading) {
@@ -57,9 +56,9 @@ const ProvidersList: React.FC<ComponentDefault> = (props) => {
           className={classes.paginate}
           total={30}
           rowsPerPage={10}
-          page={0}
-          handleChangePage={handleChangePage}
-          handleChangeRowsPerPage={handleChangeRowsPerPage}
+          page={0} // use state.providers.pagination.currentPage + 1
+          handleChangePage={props.handleChangePage}
+          handleChangeRowsPerPage={props.handleChangeRowsPerPage}
         />
       </div>
     </Box>

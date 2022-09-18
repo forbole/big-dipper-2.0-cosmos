@@ -4,11 +4,9 @@ import {
   useProvidersQuery,
   ProvidersQuery,
   useActiveProvidersListenerSubscription,
-  ActiveProvidersListenerSubscription,
   useActiveLeasesListenerSubscription,
-  ActiveLeasesListenerSubscription,
-  useCircledGraphsListenerSubscription,
-  CircledGraphsListenerSubscription,
+  useCpuMemoryStorageListenerSubscription,
+  CpuMemoryStorageListenerSubscription,
 } from '@graphql/types/general_types';
 import { ProvidersState } from './types';
 
@@ -16,9 +14,30 @@ export const useProviders = () => {
   const [state, setState] = useState<ProvidersState>({
     loading: true,
     exists: true,
-    hasNextPage: false,
-    isNextPageLoading: false,
-    items: [],
+    activeProvidersCount: 0,
+    activeLeasesCount: 0,
+    cpu: {
+      used: 0,
+      available: 0,
+    },
+    memory: {
+      used: 0,
+      available: 0,
+    },
+    storage: {
+      used: 0,
+      available: 0,
+      pending: 0,
+    },
+    providers: {
+      isNextPageLoading: false,
+      items: [],
+      pagination: {
+        itemsPerPage: 10,
+        currentPage: 0,
+        totalCount: 0,
+      },
+    },
   });
 
   const handleSetState = (stateChange: any) => {
@@ -32,160 +51,176 @@ export const useProviders = () => {
    * and sorts by height in case it bugs out
    */
   const uniqueAndSort = R.pipe(
-    R.uniqBy(R.prop('hash')),
-    R.sort(R.descend(R.prop('height'))),
+    R.uniqBy(R.prop('ownerAddress')),
+    R.sort(R.ascend(R.prop('ownerAddress'))),
   );
 
   // ================================
   // tx subscription
   // ================================
-  // useActiveProvidersListenerSubscription({
-  //   variables: {
-  //     limit: 1,
-  //     offset: 0,
-  //   },
-  //   onSubscriptionData: (data) => {
-  //     const newItems = uniqueAndSort([
-  //       ...formatActiveProviders(data.subscriptionData.data),
-  //       ...state.items,
-  //     ]);
-  //     handleSetState({
-  //       loading: false,
-  //       items: newItems,
-  //     });
-  //   },
-  // });
+  useActiveProvidersListenerSubscription({
+    onSubscriptionData: (data) => {
+      handleSetState({
+        activeProvidersCount: data.subscriptionData.data.activeProviders,
+      });
+    },
+  });
 
-  // useActiveLeasesListenerSubscription({
-  //   variables: {
-  //     limit: 1,
-  //     offset: 0,
-  //   },
-  //   onSubscriptionData: (data) => {
-  //     const newItems = uniqueAndSort([
-  //       ...formatActiveLeases(data.subscriptionData.data),
-  //       ...state.items,
-  //     ]);
-  //     handleSetState({
-  //       loading: false,
-  //       items: newItems,
-  //     });
-  //   },
-  // });
+  useActiveLeasesListenerSubscription({
+    onSubscriptionData: (data) => {
+      handleSetState({
+        activeLeasesCount: data.subscriptionData.data.activeLeases,
+      });
+    },
+  });
 
-  // useCircledGraphsListenerSubscription({
-  //   variables: {
-  //     limit: 1,
-  //     offset: 0,
-  //   },
-  //   onSubscriptionData: (data) => {
-  //     const newItems = uniqueAndSort([
-  //       ...formatCircledGraphs(data.subscriptionData.data),
-  //       ...state.items,
-  //     ]);
-  //     handleSetState({
-  //       loading: false,
-  //       items: newItems,
-  //     });
-  //   },
-  // });
+  useCpuMemoryStorageListenerSubscription({
+    onSubscriptionData: (data) => {
+      const activeData = formatCPUMemoryStorageData(data.subscriptionData.data);
+      handleSetState({
+        cpu: activeData.cpu,
+        memory: activeData.memory,
+        storage: activeData.storage,
+      });
+    },
+  });
+
+  const formatCPUMemoryStorageData = (data: CpuMemoryStorageListenerSubscription) => {
+    const mappedData = data.specs.map((item) => {
+      return {
+        memory: {
+          available: item.available.memory,
+          used: item.active.memory,
+        },
+        cpu: {
+          available: item.available.cpu,
+          used: item.active.cpu,
+        },
+        storage: {
+          available: item.available.storage_ephemeral,
+          used: item.active.storage_ephemeral,
+          pending: item.pending.storage_ephemeral,
+        },
+      };
+    });
+
+    return mappedData.reduce((total, row) => {
+      return {
+        memory: {
+          available: total.memory.available + row.memory.available,
+          used: total.memory.used + row.memory.used,
+        },
+        cpu: {
+          available: total.cpu.available + row.cpu.available,
+          used: total.cpu.used + row.cpu.used,
+        },
+        storage: {
+          available: total.storage.available + row.storage.available,
+          used: total.storage.used + row.storage.used,
+          pending: total.storage.pending + row.storage.pending,
+        },
+      };
+    }, {
+      memory: {
+        available: 0,
+        used: 0,
+      },
+      cpu: {
+        available: 0,
+        used: 0,
+      },
+      storage: {
+        available: 0,
+        used: 0,
+        pending: 0,
+      },
+    });
+  };
 
   // ================================
   // tx query
   // ================================
-  const LIMIT = 51;
+
   const providersQuery = useProvidersQuery({
-    // variables: {
-    //   limit: LIMIT,
-    //   offset: 1,
-    // },
+    variables: {
+      limit: state.providers.pagination.itemsPerPage,
+      offset: state.providers.pagination.currentPage * state.providers.pagination.itemsPerPage,
+    },
     onError: () => {
       handleSetState({
         loading: false,
       });
     },
     onCompleted: (data) => {
-      // const itemsLength = data.providers.length;
-      const itemsLength = 51;
       const newItems = uniqueAndSort([
-        ...state.items,
+        ...state.providers.items,
         ...formatProviders(data),
       ]);
       handleSetState({
         loading: false,
-        items: newItems,
-        hasNextPage: itemsLength === 51,
-        isNextPageLoading: false,
+        providers: {
+          items: newItems,
+          isNextPageLoading: false,
+        },
       });
     },
   });
 
   const loadNextPage = async () => {
     handleSetState({
-      isNextPageLoading: true,
+      providers: {
+        isNextPageLoading: true,
+      },
     });
-    // refetch query
     await providersQuery.fetchMore({
       variables: {
-        offset: state.items.length,
-        limit: LIMIT,
+        offset: (state.providers.pagination.currentPage + 1)
+          * state.providers.pagination.itemsPerPage,
+        limit: state.providers.pagination.itemsPerPage,
       },
     }).then(({ data }) => {
-      // const itemsLength = data.providers.length;
-      const itemsLength = 51;
       const newItems = uniqueAndSort([
-        ...state.items,
+        ...state.providers.items,
         ...formatProviders(data),
       ]);
-      // set new state
       handleSetState({
-        items: newItems,
-        isNextPageLoading: false,
-        hasNextPage: itemsLength === 51,
+        loading: false,
+        providers: {
+          items: newItems,
+          isNextPageLoading: false,
+        },
       });
     });
   };
 
   const formatProviders = (data: ProvidersQuery) => {
-    console.log('data => ', data);
-    // let formattedData = data.providers;
-    // if (data.providers.length === 51) {
-    //   formattedData = data.providers.slice(0, 51);
-    // }
+    return data.list.map((item) => {
+      const organization = item.attributes.find((attribute) => attribute.key === 'organization')?.value;
+      const region = item.attributes.find((attribute) => attribute.key === 'region')?.value;
+      return ({
+        ownerAddress: item.ownerAddress,
+        hostURI: item.hostUri,
+        region,
+        organization,
+        emailAddress: item.info.email,
+        website: item.info.website,
+      });
+    });
+  };
 
-    // return formattedData.map((x) => {
-    //   return ({
-    //     dataBlocks: {
-    //       activeProviders: x.dataBlocks.activeProviders,
-    //       activeLeases: x.dataBlocks.activeLeases,
-    //     },
-    //     memory: {
-    //       used: x.memory.used,
-    //       available: x.memory.available,
-    //     },
-    //     compute: {
-    //       used: x.compute.used,
-    //       available: x.compute.available,
-    //     },
-    //     storage: {
-    //       used: x.storage.used,
-    //       available: x.storage.available,
-    //       pending: x.storage.pending,
-    //     },
-    //     title: {
-    //       ownerAdress: x.title.ownerAdress,
-    //       hostUri: x.title.hostUri,
-    //       region: x.region,
-    //       organization: x.organization,
-    //       email: x.email,
-    //       website: x.website,
-    //     },
-    //   });
-    // });
+  const setItemsPerPage = (itemsPerPage: number) => {
+    handleSetState({
+      providers: {
+        pagination: {
+          itemsPerPage,
+        },
+      },
+    });
   };
 
   return {
     state,
     loadNextPage,
+    setItemsPerPage,
   };
 };

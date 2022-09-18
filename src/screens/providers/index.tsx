@@ -18,8 +18,10 @@ import { useProviders } from './hooks';
 const Providers = () => {
   const { t } = useTranslation('providers');
   const classes = useStyles();
-  const { state } = useProviders();
-  console.log('state => ', state);
+  const {
+    state, setItemsPerPage, loadNextPage,
+  } = useProviders();
+  console.log(state);
 
   return (
     <>
@@ -37,7 +39,11 @@ const Providers = () => {
         <Memory className={classes.memory} />
         <Compute className={classes.compute} />
         <Storage className={classes.storage} />
-        <ProvidersList className={classes.providersList} />
+        <ProvidersList
+          handleChangePage={loadNextPage}
+          handleChangeRowsPerPage={setItemsPerPage}
+          className={classes.providersList}
+        />
       </Layout>
     </>
   );
