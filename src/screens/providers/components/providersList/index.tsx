@@ -11,13 +11,14 @@ import {
   usePagination,
   useScreenSize,
 } from '@hooks';
-
 import { useStyles } from './styles';
+import { ProvidersListState } from '../../types';
 
 const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
 
 export type ProvidersListProps = ComponentDefault & {
+  list: ProvidersListState,
   handleChangePage: () => void,
   handleChangeRowsPerPage: (page: number) => void,
 }
@@ -26,6 +27,8 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const { t } = useTranslation('providers');
+
+  console.log('props in providers list => ', props);
 
   const component = null;
   // if (props.loading) {
@@ -55,7 +58,8 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
         <Pagination
           className={classes.paginate}
           total={30}
-          rowsPerPage={10}
+          // rowsPerPage={10}
+          rowsPerPage={props.list.pagination.itemsPerPage}
           page={0} // use state.providers.pagination.currentPage + 1
           handleChangePage={props.handleChangePage}
           handleChangeRowsPerPage={props.handleChangeRowsPerPage}

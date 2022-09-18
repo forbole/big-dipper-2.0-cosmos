@@ -35,14 +35,27 @@ const Providers = () => {
         navTitle={t('providers')}
         className={classes.root}
       >
-        <DataBlocks />
-        <Memory className={classes.memory} />
-        <Compute className={classes.compute} />
-        <Storage className={classes.storage} />
+        <DataBlocks
+          providers={state.activeProvidersCount}
+          leases={state.activeLeasesCount}
+        />
+        <Memory
+          className={classes.memory}
+          memory={state.memory}
+        />
+        <Compute
+          className={classes.compute}
+          compute={state.cpu}
+        />
+        <Storage
+          className={classes.storage}
+          storage={state.storage}
+        />
         <ProvidersList
           handleChangePage={loadNextPage}
           handleChangeRowsPerPage={setItemsPerPage}
           className={classes.providersList}
+          list={state.providers}
         />
       </Layout>
     </>
