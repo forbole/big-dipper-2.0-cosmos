@@ -11,7 +11,7 @@ import {
   Memory,
   Compute,
   Storage,
-  Title,
+  Providers,
 } from './components';
 import { useProviders } from './hooks';
 
@@ -19,6 +19,7 @@ const Providers = () => {
   const { t } = useTranslation('providers');
   const classes = useStyles();
   const { state } = useProviders();
+  console.log('state => ', state);
 
   return (
     <>
@@ -36,7 +37,7 @@ const Providers = () => {
         <Memory className={classes.memory} />
         <Compute className={classes.compute} />
         <Storage className={classes.storage} />
-        <Title className={classes.title} />
+        <Providers className={classes.providers} />
       </Layout>
     </>
   );

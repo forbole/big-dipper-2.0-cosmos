@@ -59,7 +59,7 @@ export const useStyles = () => {
             height: '100%',
           },
         },
-        title: {
+        providers: {
           background: '#31326f',
           [theme.breakpoints.up('lg')]: {
             gridColumn: '1 /5',

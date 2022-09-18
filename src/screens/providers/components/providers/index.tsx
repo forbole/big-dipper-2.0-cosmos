@@ -17,7 +17,7 @@ import { useStyles } from './styles';
 const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
 
-const Title: React.FC<ComponentDefault> = (props) => {
+const Providers: React.FC<ComponentDefault> = (props) => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const { t } = useTranslation('providers');
@@ -66,4 +66,4 @@ const Title: React.FC<ComponentDefault> = (props) => {
   );
 };
 
-export default Title;
+export default Providers;
