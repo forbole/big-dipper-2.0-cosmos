@@ -4,7 +4,6 @@ import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import { SingleBlock } from './components';
 import { useStyles } from './styles';
-import { useDataBlocks } from './hooks';
 
 const DataBlocks: React.FC<{
   className?: string;
@@ -17,23 +16,18 @@ const DataBlocks: React.FC<{
 }) => {
   const { t } = useTranslation('providers');
   const classes = useStyles();
-  const { state } = useDataBlocks();
   const data = [
     {
       key: t('activeProviders'),
-      value: numeral(state.blockHeight).format('0,0'),
-      // value: numeral(providers).format('0,0'),
+      value: numeral(providers).format('0,0'),
       className: classes.activeProviders,
     },
     {
       key: t('activeLeases'),
-      value: state.price !== null ? `$${numeral(state.price).format('0.00')}` : 'N/A',
-      // value: numeral(leases).format('0,0'),
+      value: numeral(leases).format('0,0'),
       className: classes.activeLeases,
     },
   ];
-
-  console.log('data blocks', providers, leases);
 
   return (
     <div className={classnames(classes.root, className)}>

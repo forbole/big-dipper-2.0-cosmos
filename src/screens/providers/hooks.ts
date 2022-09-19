@@ -61,7 +61,7 @@ export const useProviders = () => {
   useActiveProvidersListenerSubscription({
     onSubscriptionData: (data) => {
       handleSetState({
-        activeProvidersCount: data.subscriptionData.data.activeProviders,
+        activeProvidersCount: data.subscriptionData.data.activeProviders.aggregate.count,
       });
     },
   });
@@ -69,7 +69,7 @@ export const useProviders = () => {
   useActiveLeasesListenerSubscription({
     onSubscriptionData: (data) => {
       handleSetState({
-        activeLeasesCount: data.subscriptionData.data.activeLeases,
+        activeLeasesCount: data.subscriptionData.data.activeLeases.aggregate.sum.lease_count,
       });
     },
   });
