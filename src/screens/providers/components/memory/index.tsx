@@ -35,14 +35,6 @@ const Memory:React.FC<{
 
   const data = [
     {
-      legendKey: 'available',
-      percentKey: 'availablePercent',
-      value: numeral(memory.available).format('0,0'),
-      rawValue: memory.available,
-      percent: `${numeral((memory.available * 100) / total).format('0.00')}%`,
-      fill: theme.palette.custom.tokenomics.one,
-    },
-    {
       legendKey: 'used',
       percentKey: 'usedPercent',
       value: numeral(memory.used).format('0,0'),
@@ -50,6 +42,14 @@ const Memory:React.FC<{
       percent: `${numeral((memory.used * 100) / total).format('0.00')}%`,
       // percent: `${100 - (numeral((memory.available * 100) / total).format('0.00'))}%`,
       fill: theme.palette.custom.tokenomics.two,
+    },
+    {
+      legendKey: 'available',
+      percentKey: 'availablePercent',
+      value: numeral(memory.available).format('0,0'),
+      rawValue: memory.available,
+      percent: `${numeral((memory.available * 100) / total).format('0.00')}%`,
+      fill: theme.palette.custom.tokenomics.one,
     },
   ];
 
@@ -66,12 +66,10 @@ const Memory:React.FC<{
             <Typography variant="h4">
               {x.value}
               {' '}
-              {chainConfig.tokenUnits[state.denom]?.display?.toUpperCase()}
+              TB
             </Typography>
             <Typography variant="caption">
-              {t(x.percentKey, {
-                percent: x.percent,
-              })}
+              {x.percent}
             </Typography>
           </div>
         ))}
@@ -136,6 +134,12 @@ const Memory:React.FC<{
                 <div className="legends__item" key={x.legendKey}>
                   <Typography variant="caption">
                     {t(x.legendKey)}
+                    {' '}
+                    {x.value}
+                    {' '}
+                    TB
+                    {' '}
+                    {x.percent}
                   </Typography>
                 </div>
               );
