@@ -27,23 +27,24 @@ const Storage:React.FC<{
 
   const data = [
     {
-      legendKey: 'bonded',
-      percentKey: 'bondedPercent',
+      legendKey: 'available',
+      percentKey: 'availablePercent',
       value: numeral(state.bonded).format('0,0'),
       rawValue: state.bonded,
       percent: `${numeral((state.bonded * 100) / state.total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.one,
     },
     {
-      legendKey: 'unbonded',
-      percentKey: 'unbondedPercent',
+      legendKey: 'used',
+      percentKey: 'usedPercent',
       value: numeral(state.unbonded).format('0,0'),
       rawValue: state.unbonded,
       percent: `${numeral((state.unbonded * 100) / state.total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.two,
     },
     {
-      legendKey: 'unbonding',
+      legendKey: 'pending',
+      percentKey: 'pendingPercent',
       value: numeral(state.unbonding).format('0,0'),
       rawValue: state.unbonding,
       percent: `${numeral((state.unbonding * 100) / state.total).format('0.00')}%`,

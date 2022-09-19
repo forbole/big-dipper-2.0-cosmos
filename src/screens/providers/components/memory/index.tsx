@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
@@ -18,36 +18,38 @@ import { useTokenomics } from './hooks';
 
 const Memory:React.FC<{
   className?: string;
-}> = ({ className }) => {
+  memory: {
+    available: number;
+    used: number;
+  };
+}> = ({
+  className, memory,
+}) => {
   const { t } = useTranslation('providers');
   const {
     classes, theme,
   } = useStyles();
   const { state } = useTokenomics();
 
+  const total = memory.available + memory.used;
+
   const data = [
     {
-      legendKey: 'bonded',
-      percentKey: 'bondedPercent',
-      value: numeral(state.bonded).format('0,0'),
-      rawValue: state.bonded,
-      percent: `${numeral((state.bonded * 100) / state.total).format('0.00')}%`,
+      legendKey: 'available',
+      percentKey: 'availablePercent',
+      value: numeral(memory.available).format('0,0'),
+      rawValue: memory.available,
+      percent: `${numeral((memory.available * 100) / total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.one,
     },
     {
-      legendKey: 'unbonded',
-      percentKey: 'unbondedPercent',
-      value: numeral(state.unbonded).format('0,0'),
-      rawValue: state.unbonded,
-      percent: `${numeral((state.unbonded * 100) / state.total).format('0.00')}%`,
+      legendKey: 'used',
+      percentKey: 'usedPercent',
+      value: numeral(memory.used).format('0,0'),
+      rawValue: memory.used,
+      // percent: `${numeral((memory.used * 100) / state.total).format('0.00')}%`,
+      percent: `${100 - (numeral((memory.available * 100) / state.total).format('0.00'))}%`,
       fill: theme.palette.custom.tokenomics.two,
-    },
-    {
-      legendKey: 'unbonding',
-      value: numeral(state.unbonding).format('0,0'),
-      rawValue: state.unbonding,
-      percent: `${numeral((state.unbonding * 100) / state.total).format('0.00')}%`,
-      fill: theme.palette.custom.tokenomics.three,
     },
   ];
 

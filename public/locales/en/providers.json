@@ -12,9 +12,10 @@
   "email": "Email",
   "website": "Website",
   "title": "Title",
-  "bondedPercent": "bondedPercent",
-  "unbondedPercent": "unbondedPercent",
-  "bonded":"bonded",
-  "unbonded": "unbonded",
-  "unbonding":"unbonding"
+  "available":"Available",
+  "used": "Used",
+  "pending":"Pending",
+  "availablePercent": "Available Percent",
+  "usedPercent": "Used Percent",
+  "pendingPercent": "Pending Percent"
 }
