@@ -72,6 +72,7 @@ jobs:
             "PORT=${{ steps.dockerPrep.outputs.PORT }}"
             "NEXT_PUBLIC_MATOMO_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_MATOMO_URL }}"
             "NEXT_PUBLIC_MATOMO_SITE_ID=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_MATOMO_SITE_ID }}"
+            "SENTRY_DSN: ${{ secrets.SENTRY_DSN }}"
           labels: |
             org.opencontainers.image.source=${{ github.event.repository.html_url }}
             org.opencontainers.image.created=${{ steps.prep.outputs.created }}
