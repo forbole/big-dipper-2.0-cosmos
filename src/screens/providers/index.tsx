@@ -21,7 +21,6 @@ const Providers = () => {
   const {
     state, setItemsPerPage, loadNextPage,
   } = useProviders();
-  console.log(state);
 
   return (
     <>

@@ -28,7 +28,7 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
   const classes = useStyles();
   const { t } = useTranslation('providers');
 
-  console.log('props in providers list => ', props);
+  // console.log('props in providers list => ', props);
 
   const component = null;
   // if (props.loading) {

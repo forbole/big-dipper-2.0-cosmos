@@ -53,8 +53,6 @@ const Memory:React.FC<{
     },
   ];
 
-  console.log('data', data);
-
   return (
     <Box className={classnames(className, classes.root)}>
       <Typography variant="h2" className={classes.label}>
