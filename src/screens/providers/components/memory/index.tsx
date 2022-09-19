@@ -135,7 +135,7 @@ const Memory:React.FC<{
                     {' '}
                     {x.value}
                     {' '}
-                    TB
+                    Bytes
                     {' '}
                     {x.percent}
                   </Typography>

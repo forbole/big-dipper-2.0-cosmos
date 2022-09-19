@@ -145,7 +145,7 @@ const Storage:React.FC<{
                     {' '}
                     {x.value}
                     {' '}
-                    TB
+                    Bytes
                     {' '}
                     {x.percent}
                   </Typography>
