@@ -18,36 +18,45 @@ import { useTokenomics } from './hooks';
 
 const Storage:React.FC<{
   className?: string;
-}> = ({ className }) => {
+  storage: {
+    available: number;
+    used: number;
+    pending: number;
+  };
+}> = ({
+  className, storage,
+}) => {
   const { t } = useTranslation('providers');
   const {
     classes, theme,
   } = useStyles();
   const { state } = useTokenomics();
 
+  const total = storage.available + storage.used + storage.pending;
+
   const data = [
-    {
-      legendKey: 'available',
-      percentKey: 'availablePercent',
-      value: numeral(state.bonded).format('0,0'),
-      rawValue: state.bonded,
-      percent: `${numeral((state.bonded * 100) / state.total).format('0.00')}%`,
-      fill: theme.palette.custom.tokenomics.one,
-    },
     {
       legendKey: 'used',
       percentKey: 'usedPercent',
-      value: numeral(state.unbonded).format('0,0'),
-      rawValue: state.unbonded,
-      percent: `${numeral((state.unbonded * 100) / state.total).format('0.00')}%`,
+      value: numeral(storage.used).format('0,0'),
+      rawValue: storage.used,
+      percent: `${numeral((storage.used * 100) / state.total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.two,
+    },
+    {
+      legendKey: 'available',
+      percentKey: 'availablePercent',
+      value: numeral(storage.available).format('0,0'),
+      rawValue: storage.available,
+      percent: `${numeral((storage.available * 100) / total).format('0.00')}%`,
+      fill: theme.palette.custom.tokenomics.one,
     },
     {
       legendKey: 'pending',
       percentKey: 'pendingPercent',
-      value: numeral(state.unbonding).format('0,0'),
-      rawValue: state.unbonding,
-      percent: `${numeral((state.unbonding * 100) / state.total).format('0.00')}%`,
+      value: numeral(storage.pending).format('0,0'),
+      rawValue: storage.pending,
+      percent: `${numeral((storage.pending * 100) / total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.three,
     },
   ];
@@ -57,7 +66,7 @@ const Storage:React.FC<{
       <Typography variant="h2" className={classes.label}>
         {t('storage')}
       </Typography>
-      <div className={classes.data}>
+      {/* <div className={classes.data}>
         {data.slice(0, 2).map((x) => (
           <div className="data__item" key={x.percentKey}>
             <Typography variant="h4">
@@ -72,7 +81,7 @@ const Storage:React.FC<{
             </Typography>
           </div>
         ))}
-      </div>
+      </div> */}
       <div className={classes.content}>
 
         <PieChart
@@ -133,6 +142,12 @@ const Storage:React.FC<{
                 <div className="legends__item" key={x.legendKey}>
                   <Typography variant="caption">
                     {t(x.legendKey)}
+                    {' '}
+                    {x.value}
+                    {' '}
+                    TB
+                    {' '}
+                    {x.percent}
                   </Typography>
                 </div>
               );
