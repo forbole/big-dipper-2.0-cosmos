@@ -8,8 +8,12 @@ import { useDataBlocks } from './hooks';
 
 const DataBlocks: React.FC<{
   className?: string;
+  providers: number;
+  leases: number;
 }> = ({
   className,
+  providers,
+  leases,
 }) => {
   const { t } = useTranslation('providers');
   const classes = useStyles();
@@ -18,14 +22,18 @@ const DataBlocks: React.FC<{
     {
       key: t('activeProviders'),
       value: numeral(state.blockHeight).format('0,0'),
+      // value: numeral(providers).format('0,0'),
       className: classes.activeProviders,
     },
     {
       key: t('activeLeases'),
       value: state.price !== null ? `$${numeral(state.price).format('0.00')}` : 'N/A',
+      // value: numeral(leases).format('0,0'),
       className: classes.activeLeases,
     },
   ];
+
+  console.log('data blocks', providers, leases);
 
   return (
     <div className={classnames(classes.root, className)}>

@@ -54,7 +54,7 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
       </Typography>
       <div className={classes.list}>
         {/* {component} */}
-        <Desktop list={props.list} />
+        <Desktop list={props.list.items} />
         <Pagination
           className={classes.paginate}
           // total={props.list.pagination.totalCount}

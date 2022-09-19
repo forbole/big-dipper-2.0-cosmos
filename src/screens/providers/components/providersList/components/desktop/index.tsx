@@ -19,18 +19,10 @@ import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import EmailIcon from '@assets/icon-email.svg';
 import CopyIcon from '@assets/icon-copy.svg';
 import { useAddress } from '@utils/copy_to_clipboard';
-import { TransactionsListState } from '../../types';
 import { columns } from './utils';
 import { useStyles } from './styles';
 
-const Desktop: React.FC<TransactionsListState> = ({
-  // className,
-  // itemCount,
-  // loadMoreItems,
-  // isItemLoaded,
-  // transactions,
-  props,
-}) => {
+const Desktop: React.FC = (list) => {
   const {
     gridRef,
     columnRef,
@@ -43,7 +35,9 @@ const Desktop: React.FC<TransactionsListState> = ({
   const { t } = useTranslation('providers');
   const { handleCopyToClipboard } = useAddress(t);
 
-  console.log('lists in desktop => ', props);
+  console.log('lists in desktop => ', list);
+  console.log('list.list', list.list);
+  const itemsList = list.list;
 
   // const items = transactions.map((x) => ({
   //   messages: numeral(x.messages.count).format('0,0'),
