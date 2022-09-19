@@ -60,7 +60,7 @@ const Memory:React.FC<{
       <Typography variant="h2" className={classes.label}>
         {t('memory')}
       </Typography>
-      <div className={classes.data}>
+      {/* <div className={classes.data}>
         {data.slice(0, 2).map((x) => (
           <div className="data__item" key={x.percentKey}>
             <Typography variant="h4">
@@ -73,7 +73,7 @@ const Memory:React.FC<{
             </Typography>
           </div>
         ))}
-      </div>
+      </div> */}
       <div className={classes.content}>
 
         <PieChart

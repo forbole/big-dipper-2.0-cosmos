@@ -29,7 +29,7 @@ export const useStyles = () => {
           },
         },
         legends: {
-          display: 'flex',
+          // display: 'flex',
           alignItems: 'flex-start',
           justifyContent: 'flex-start',
           flexWrap: 'wrap',
@@ -38,7 +38,7 @@ export const useStyles = () => {
             color: theme.palette.custom.fonts.fontThree,
           },
           '& .legends__item': {
-            width: '50%',
+            // width: '50%',
             '&:before': {
               content: '""',
               display: 'inline-block',
