@@ -54,13 +54,13 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
       </Typography>
       <div className={classes.list}>
         {/* {component} */}
-        <Desktop />
+        <Desktop list={props.list} />
         <Pagination
           className={classes.paginate}
-          total={30}
-          // rowsPerPage={10}
+          // total={props.list.pagination.totalCount}
+          total={447}
           rowsPerPage={props.list.pagination.itemsPerPage}
-          page={0} // use state.providers.pagination.currentPage + 1
+          page={props.list.pagination.currentPage} // use state.providers.pagination.currentPage + 1
           handleChangePage={props.handleChangePage}
           handleChangeRowsPerPage={props.handleChangeRowsPerPage}
         />

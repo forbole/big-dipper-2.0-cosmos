@@ -29,6 +29,7 @@ const Desktop: React.FC<TransactionsListState> = ({
   // loadMoreItems,
   // isItemLoaded,
   // transactions,
+  props,
 }) => {
   const {
     gridRef,
@@ -41,6 +42,8 @@ const Desktop: React.FC<TransactionsListState> = ({
   const classes = useStyles();
   const { t } = useTranslation('providers');
   const { handleCopyToClipboard } = useAddress(t);
+
+  console.log('lists in desktop => ', props);
 
   // const items = transactions.map((x) => ({
   //   messages: numeral(x.messages.count).format('0,0'),
