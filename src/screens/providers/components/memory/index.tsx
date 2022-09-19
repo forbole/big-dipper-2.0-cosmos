@@ -47,11 +47,13 @@ const Memory:React.FC<{
       percentKey: 'usedPercent',
       value: numeral(memory.used).format('0,0'),
       rawValue: memory.used,
-      // percent: `${numeral((memory.used * 100) / state.total).format('0.00')}%`,
-      percent: `${100 - (numeral((memory.available * 100) / state.total).format('0.00'))}%`,
+      percent: `${numeral((memory.used * 100) / total).format('0.00')}%`,
+      // percent: `${100 - (numeral((memory.available * 100) / total).format('0.00'))}%`,
       fill: theme.palette.custom.tokenomics.two,
     },
   ];
+
+  console.log('data', data);
 
   return (
     <Box className={classnames(className, classes.root)}>
