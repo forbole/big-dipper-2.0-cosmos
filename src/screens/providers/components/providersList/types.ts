@@ -1,4 +1,4 @@
-export type TitleList = {
+export type TitleListType = {
   ownerAddress: string;
   hostUri: string;
   region: string;
@@ -11,5 +11,5 @@ export type TitleListState = {
   hasNextPage: boolean;
   isNextPageLoading: boolean;
   offsetCount: number;
-  data: TitleList[];
+  data: TitleListType[];
 }

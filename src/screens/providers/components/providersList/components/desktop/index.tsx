@@ -21,8 +21,9 @@ import CopyIcon from '@assets/icon-copy.svg';
 import { useAddress } from '@utils/copy_to_clipboard';
 import { columns } from './utils';
 import { useStyles } from './styles';
+import { ProviderInfo } from '../../../../types';
 
-const Desktop: React.FC = (list) => {
+const Desktop: React.FC<{list: ProviderInfo[]}> = (list) => {
   const {
     gridRef,
     columnRef,
@@ -35,55 +36,22 @@ const Desktop: React.FC = (list) => {
   const { t } = useTranslation('providers');
   const { handleCopyToClipboard } = useAddress(t);
 
-  console.log('lists in desktop => ', list);
-  console.log('list.list', list.list);
-  const itemsList = list.list;
-
-  // const items = transactions.map((x) => ({
-  //   messages: numeral(x.messages.count).format('0,0'),
-  // }));
-
-  const itemsNewProviders = [{
-    adress: 'fghjkl,mnbhgfyui',
-    uri: 'fghjkl,mnbhgfyui',
-    region: 'null',
-    organizationName: 'Forbole',
-    email: 'forbole@gmail.com',
-    webAdress: 'Forbole.com',
-  },
-  {
-    adress: 'fghjkl,mnbhgfyui',
-    uri: 'fghjkl,mnbhgfyui',
-    region: 'U.S.',
-    organizationName: 'Forbole',
-    email: 'forboleUS@gmail.com',
-    webAdress: 'Forbole.com',
-  },
-  {
-    adress: 'fghjkl,mnbhgfyui',
-    uri: 'fghjkl,mnbhgfyui',
-    region: 'Null',
-    organizationName: 'Forbole',
-    email: 'forbole@gmail.com',
-    webAdress: 'Forbole.com',
-  },
-  ];
-
   const className = '';
-  const itemCount = itemsNewProviders.length;
+  // const itemCount = itemsNewProviders.length;
+  const itemCount = list.list.length; // to be fixed
   const loadMoreItems = (...args) => { console.log('args', JSON.stringify(args)); };
   const isItemLoaded = (index) => index >= 0 && index < itemCount;
 
-  const itemsNew = itemsNewProviders.map((x) => ({
+  const itemsNew = list.list.map((eachProvider) => ({
     ownerAddress: (
       <>
         <Typography variant="body1" component="a">
-          {getMiddleEllipsis(x.adress, {
+          {getMiddleEllipsis(eachProvider.ownerAddress, {
             beginning: 20, ending: 15,
           })}
         </Typography>
         <CopyIcon
-          onClick={() => handleCopyToClipboard(x.adress)}
+          onClick={() => handleCopyToClipboard(eachProvider.ownerAddress)}
           className={classes.actionIcons}
         />
       </>
@@ -91,40 +59,52 @@ const Desktop: React.FC = (list) => {
     hostUri: (
       <>
         <Typography variant="body1" component="a">
-          {getMiddleEllipsis(x.uri, {
+          {getMiddleEllipsis(eachProvider.hostURI, {
             beginning: 20, ending: 15,
           })}
         </Typography>
         <CopyIcon
-          onClick={() => handleCopyToClipboard(x.uri)}
+          onClick={() => handleCopyToClipboard(eachProvider.hostURI)}
           className={classes.actionIcons}
         />
       </>
     ),
-    region: (
-      <Typography variant="body1" component="a">
-        {x.region}
-      </Typography>
-    ),
-    organization: (
-      <Typography variant="body1" component="a">
-        {x.organizationName}
-      </Typography>
-    ),
-    email: (
-      <a href={`mailto:${x.email}`}>
-        <EmailIcon />
-      </a>
-    ),
-    website: (
-      <Link href={TRANSACTION_DETAILS(x.webAdress)} passHref>
+    region: eachProvider.region
+      ? (
         <Typography variant="body1" component="a">
-          {getMiddleEllipsis(x.webAdress, {
-            beginning: 20, ending: 15,
-          })}
+          {eachProvider.region}
         </Typography>
-      </Link>
-    ),
+      ) : (
+        'null'
+      ),
+    organization: eachProvider.organization
+      ? (
+        <Typography variant="body1" component="a">
+          {eachProvider.organization}
+        </Typography>
+      ) : (
+        'null'
+      ),
+    email: eachProvider.emailAddress
+      ? (
+        <a href={`mailto:${eachProvider.emailAddress}`}>
+          <EmailIcon />
+        </a>
+      ) : (
+        'null'
+      ),
+    website: eachProvider.website
+      ? (
+        <Link href={TRANSACTION_DETAILS(eachProvider.website)} passHref>
+          <Typography variant="body1" component="a">
+            {getMiddleEllipsis(eachProvider.website, {
+              beginning: 20, ending: 15,
+            })}
+          </Typography>
+        </Link>
+      ) : (
+        'null'
+      ),
   }));
 
   return (
@@ -205,6 +185,10 @@ const Desktop: React.FC = (list) => {
                   const {
                     key, align,
                   } = columns[columnIndex];
+                  console.log('key', key);
+                  console.log('rowIndex', rowIndex);
+                  console.log('itemNew', itemsNew);
+                  console.log('itemsNew[rowIndex]', itemsNew[rowIndex]);
                   const item = itemsNew[rowIndex][key];
                   return (
                     <div
