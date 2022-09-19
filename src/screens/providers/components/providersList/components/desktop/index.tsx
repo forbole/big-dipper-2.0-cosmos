@@ -17,6 +17,7 @@ import {
 import { useGrid } from '@hooks';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import EmailIcon from '@assets/icon-email.svg';
+import WebArrowIcon from '@assets/icon-web-arrow.svg';
 import CopyIcon from '@assets/icon-copy.svg';
 import { useAddress } from '@utils/copy_to_clipboard';
 import { columns } from './utils';
@@ -47,7 +48,7 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = (list) => {
       <>
         <Typography variant="body1" component="a">
           {getMiddleEllipsis(eachProvider.ownerAddress, {
-            beginning: 20, ending: 15,
+            beginning: 9, ending: 8,
           })}
         </Typography>
         <CopyIcon
@@ -60,7 +61,7 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = (list) => {
       <>
         <Typography variant="body1" component="a">
           {getMiddleEllipsis(eachProvider.hostURI, {
-            beginning: 20, ending: 15,
+            beginning: 8, ending: 8,
           })}
         </Typography>
         <CopyIcon
@@ -75,7 +76,7 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = (list) => {
           {eachProvider.region}
         </Typography>
       ) : (
-        'null'
+        'Null'
       ),
     organization: eachProvider.organization
       ? (
@@ -83,7 +84,7 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = (list) => {
           {eachProvider.organization}
         </Typography>
       ) : (
-        'null'
+        'Null'
       ),
     email: eachProvider.emailAddress
       ? (
@@ -91,19 +92,20 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = (list) => {
           <EmailIcon />
         </a>
       ) : (
-        'null'
+        'Null'
       ),
     website: eachProvider.website
       ? (
         <Link href={TRANSACTION_DETAILS(eachProvider.website)} passHref>
           <Typography variant="body1" component="a">
             {getMiddleEllipsis(eachProvider.website, {
-              beginning: 20, ending: 15,
+              beginning: 13, ending: 0,
             })}
           </Typography>
+          <WebArrowIcon />
         </Link>
       ) : (
-        'null'
+        'Null'
       ),
   }));
 
@@ -185,10 +187,6 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = (list) => {
                   const {
                     key, align,
                   } = columns[columnIndex];
-                  console.log('key', key);
-                  console.log('rowIndex', rowIndex);
-                  console.log('itemNew', itemsNew);
-                  console.log('itemsNew[rowIndex]', itemsNew[rowIndex]);
                   const item = itemsNew[rowIndex][key];
                   return (
                     <div
