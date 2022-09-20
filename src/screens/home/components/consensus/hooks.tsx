@@ -25,7 +25,7 @@ export const useConsensus = () => {
   });
 
   const websocketUrl = (
-    process.env.NEXT_PUBLIC_RPC_WEBSOCKET || process.env.NEXT_PUBLIC_WS_CHAIN_URL);
+    chainConfig.endpoints.publicRpcWebsocket || process.env.NEXT_PUBLIC_WS_CHAIN_URL);
 
   useEffect(() => {
     const client = new WebSocket(websocketUrl);
