@@ -1,0 +1,33 @@
+{
+  "title": "Akash Block Explorer",
+  "network": "akashnet-2",
+  "icon": "/images/icon.png",
+  "logo": {
+    "default": "/images/logo.svg"
+  },
+  "prefix": {
+    "consensus": "akashvalcons",
+    "validator": "akashvaloper",
+    "account": "akash"
+  },
+  "genesis": {
+    "time": "2021-03-08T15:00:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "uakt",
+  "votingPowerTokenUnit": "uakt",
+  "tokenUnits": {
+    "uakt": {
+      "display": "akt",
+      "exponent": 6
+    }
+  },
+  "extra": {
+    "profile": true
+  },
+  "endpoints": {
+    "graphql":"https://gql.akash.forbole.com/v1/graphql",
+    "graphqlWebsocket":"wss://gql.akash.forbole.com/v1/graphql",
+    "publicRpcWebsocket":"wss://rpc.akash.forbole.com/websocket"
+  }
+}

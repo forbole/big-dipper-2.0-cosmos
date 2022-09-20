@@ -1,0 +1,37 @@
+{
+  "title": "Regen Block Explorer",
+  "network": "regen-1",
+  "icon": "/regen/images/icon.png",
+  "logo": {
+    "default": "/regen/images/logo.png"
+  },
+  "prefix": {
+    "consensus": "regenvalcons",
+    "validator": "regenvaloper",
+    "account": "regen"
+  },
+  "genesis": {
+    "time": "2021-07-13T08:00:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "uregen",
+  "votingPowerTokenUnit": "vp",
+  "tokenUnits": {
+    "uregen": {
+      "display": "regen",
+      "exponent": 6
+    },
+    "vp": {
+      "display": "regen",
+      "exponent": 2
+    }
+  },
+  "extra": {
+    "profile": true
+  },
+  "endpoints": {
+    "graphql":"https://gql.regen.forbole.com/v1/graphql",
+    "graphqlWebsocket":"wss://gql.regen.forbole.com/v1/graphql",
+    "publicRpcWebsocket":"wss://rpc.regen.forbole.com/websocket"
+  }
+}

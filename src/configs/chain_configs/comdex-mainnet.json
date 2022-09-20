@@ -1,0 +1,33 @@
+{
+  "title": "Comdex Block Explorer",
+  "network": "comdex-1",
+  "icon": "/images/icon.svg",
+  "logo": {
+    "default": "/images/logo.svg"
+  },
+  "prefix": {
+    "consensus": "comdexvalcons",
+    "validator": "comdexvaloper",
+    "account": "comdex"
+  },
+  "genesis": {
+    "time": "2021-07-13T08:00:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "ucmdx",
+  "votingPowerTokenUnit": "ucmdx",
+  "tokenUnits": {
+    "ucmdx": {
+      "display": "cmdx",
+      "exponent": 6
+    }
+  },
+  "extra": {
+    "profile": true
+  },
+  "endpoints": {
+    "graphql":"https://gql.comdex.forbole.com/v1/graphql",
+    "graphqlWebsocket":"wss://gql.comdex.forbole.com/v1/graphql",
+    "publicRpcWebsocket":"wss://rpc.comdex.forbole.com/websocket"
+  }
+}

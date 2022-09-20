@@ -24,5 +24,10 @@
   },
   "extra": {
     "profile": true
+  },
+  "endpoints": {
+    "graphql":"https://gql-morpheus.desmos.forbole.com/v1/graphql",
+    "graphqlWebsocket":"wss://gql-morpheus.desmos.forbole.com/v1/graphql",
+    "publicRpcWebsocket":"wss://rpc-morpheus.desmos.forbole.com/websocket"
   }
 }

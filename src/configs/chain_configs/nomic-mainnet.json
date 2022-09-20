@@ -1,9 +1,9 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "desmos-mainnet-1",
-  "icon": "/desmos/images/icon.svg",
+  "title": "Nomic Block Explorer",
+  "network": "nomic-stakenet-2",
+  "icon": "/images/icon.svg",
   "logo": {
-    "default": "/desmos/images/logo.svg"
+    "default": "/images/logo.svg"
   },
   "prefix": {
     "consensus": "desmosvalcons",
@@ -24,5 +24,10 @@
   },
   "extra": {
     "profile": true
+  },
+  "endpoints": {
+    "graphql":"https://gql.nomic.forbole.com/v1/graphql",
+    "graphqlWebsocket":"wss://gql.nomic.forbole.com/v1/graphql",
+    "publicRpcWebsocket":"wss://rpc.nomic.forbole.com/websocket"
   }
 }

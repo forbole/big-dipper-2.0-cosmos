@@ -1,0 +1,33 @@
+{
+  "title": "Evmos Block Explorer",
+  "network": "evmos_9000-3",
+  "icon": "/images/icon.svg",
+  "logo": {
+    "default": "/images/logo.svg"
+  },
+  "prefix": {
+    "consensus": "evmosvalcons",
+    "validator": "evmosvaloper",
+    "account": "evmos"
+  },
+  "genesis": {
+    "time": "2021-07-13T08:00:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "atevmos",
+  "votingPowerTokenUnit": "atevmos",
+  "tokenUnits": {
+    "atevmos": {
+      "display": "tevmos",
+      "exponent": 18
+    }
+  },
+  "extra": {
+    "profile": false
+  },
+  "endpoints": {
+    "graphql":"https://gql-testnet.evmos.forbole.com/v1/graphql",
+    "graphqlWebsocket":"wss://gql-testnet.evmos.forbole.com/v1/graphql",
+    "publicRpcWebsocket":"wss://rpc-testnet.evmos.forbole.com/websocket"
+  }
+}

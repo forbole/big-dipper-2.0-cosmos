@@ -1,0 +1,33 @@
+{
+  "title": "Stride Block Explorer",
+  "network": "stride-1",
+  "icon": "/desmos/images/icon.svg",
+  "logo": {
+    "default": "/desmos/images/logo.svg"
+  },
+  "prefix": {
+    "consensus": "stridevalcons",
+    "validator": "stridevaloper",
+    "account": "stride"
+  },
+  "genesis": {
+    "time": "2022-09-04T19:00:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "ustrd",
+  "votingPowerTokenUnit": "ustrd",
+  "tokenUnits": {
+    "udsm": {
+      "display": "strd",
+      "exponent": 6
+    }
+  },
+  "extra": {
+    "profile": true
+  },
+  "endpoints": {
+    "graphql":"https://gql.stride.forbole.com/v1/graphql",
+    "graphqlWebsocket":"wss://gql.stride.forbole.com/v1/graphql",
+    "publicRpcWebsocket":"wss://rpc.stride.forbole.com/websocket"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "title": "Agoric Block Explorer",
+  "network": "agoric-3",
+  "icon": "/agoric/images/icon.png",
+  "logo": {
+    "default": "/agoric/images/logo.png"
+  },
+  "prefix": {
+    "consensus": "agoricvalcons",
+    "validator": "agoricvaloper",
+    "account": "agoric"
+  },
+  "genesis": {
+    "time": "2021-07-13T08:00:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "ubld",
+  "votingPowerTokenUnit": "ubld",
+  "tokenUnits": {
+    "ubld": {
+      "display": "bld",
+      "exponent": 6
+    },
+    "urun": {
+      "display": "run",
+      "exponent": 6
+    }
+  },
+  "extra": {
+    "profile": true
+  },
+  "endpoints": {
+    "graphql":"https://gql.agoric.forbole.com/v1/graphql",
+    "graphqlWebsocket":"wss://gql.agoric.forbole.com/v1/graphql",
+    "publicRpcWebsocket":"wss://rpc.agoric.forbole.com/websocket"
+  }
+}

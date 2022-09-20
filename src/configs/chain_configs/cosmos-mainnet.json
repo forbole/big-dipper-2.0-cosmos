@@ -1,0 +1,33 @@
+{
+  "title": "Cosmos Block Explorer",
+  "network": "cosmoshub-4",
+  "icon": "/images/icon.svg",
+  "logo": {
+    "default": "/images/logo.svg"
+  },
+  "prefix": {
+    "consensus": "cosmosvalcons",
+    "validator": "cosmosvaloper",
+    "account": "cosmos"
+  },
+  "genesis": {
+    "time": "2021-07-13T08:00:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "uatom",
+  "votingPowerTokenUnit": "uatom",
+  "tokenUnits": {
+    "uatom": {
+      "display": "atom",
+      "exponent": 6
+    }
+  },
+  "extra": {
+    "profile": true
+  },
+  "endpoints": {
+    "graphql":"https://gql.cosmos.forbole.com/v1/graphql",
+    "graphqlWebsocket":"wss://gql.cosmos.forbole.com/v1/graphql",
+    "publicRpcWebsocket":"wss://rpc.cosmoshub.forbole.com/websocket"
+  }
+}

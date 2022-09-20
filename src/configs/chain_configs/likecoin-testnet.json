@@ -1,0 +1,37 @@
+{
+  "title": "LikeCoin Block Explorer",
+  "network": "likecoin-public-testnet-3",
+  "icon": "/likecoin/images/icon.svg",
+  "logo": {
+    "default": "/likecoin/images/logo.svg"
+  },
+  "prefix": {
+    "consensus": "cosmosvalcons",
+    "validator": "likevaloper",
+    "account": "like"
+  },
+  "genesis": {
+    "time": "2021-07-13T08:00:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "nanoekil",
+  "votingPowerTokenUnit": "ulike",
+  "tokenUnits": {
+    "nanoekil": {
+      "display": "ekil",
+      "exponent": 9
+    },
+    "ulike": {
+      "display": "ekil",
+      "exponent": 6
+    }
+  },
+  "extra": {
+    "profile": true
+  },
+  "endpoints": {
+    "graphql":"https://gql-ws-testnet.likecoin.forbole.com/v1/graphql",
+    "graphqlWebsocket":"wss://gql-ws-testnet.likecoin.forbole.com/v1/graphql",
+    "publicRpcWebsocket":"wss://ws-testnet.likecoin.forbole.com"
+  }
+}

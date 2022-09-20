@@ -1,0 +1,33 @@
+{
+  "title": "Shentu Explorer",
+  "network": "shentu-2.2",
+  "icon": "/shentu/images/icon.svg",
+  "logo": {
+    "default": "/shentu/images/logo.svg"
+  },
+  "prefix": {
+    "consensus": "certikvalcons",
+    "validator": "certikvaloper",
+    "account": "certik"
+  },
+  "genesis": {
+    "time": "2020-10-24T14:24:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "uctk",
+  "votingPowerTokenUnit": "uctk",
+  "tokenUnits": {
+    "uctk": {
+      "display": "ctk",
+      "exponent": 6
+    }
+  },
+  "extra": {
+    "profile": true
+  },
+  "endpoints": {
+    "graphql":"https://gql.certik.forbole.com/v1/graphql",
+    "graphqlWebsocket":"wss://gql.certik.forbole.com/v1/graphql",
+    "publicRpcWebsocket":"wss://rpc.certik.forbole.com/websocket"
+  }
+}
