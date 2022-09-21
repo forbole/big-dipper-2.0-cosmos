@@ -161,6 +161,9 @@ export const useProviders = () => {
         providers: {
           items: newItems,
           isNextPageLoading: false,
+          pagination: {
+            totalCount: data.total.aggregate.count,
+          },
         },
       });
     },
