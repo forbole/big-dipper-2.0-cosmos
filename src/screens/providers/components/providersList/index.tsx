@@ -27,6 +27,12 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const { t } = useTranslation('providers');
+  const {
+    page,
+    rowsPerPage,
+    handleChangePage,
+    handleChangeRowsPerPage,
+  } = usePagination({});
 
   // console.log('props in providers list => ', props);
 
@@ -58,10 +64,12 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
         <Pagination
           className={classes.paginate}
           total={props.list.pagination.totalCount}
-          rowsPerPage={props.list.pagination.itemsPerPage}
-          page={props.list.pagination.currentPage}
-          handleChangePage={props.handleChangePage}
-          handleChangeRowsPerPage={props.handleChangeRowsPerPage}
+          // rowsPerPage={props.list.pagination.itemsPerPage}
+          // page={props.list.pagination.currentPage}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          handleChangePage={handleChangePage}
+          handleChangeRowsPerPage={handleChangeRowsPerPage}
         />
       </div>
     </Box>
