@@ -13,7 +13,7 @@ const getChainConfig = () => {
   let chainName = process.env.CHAIN_NAME;
 
   chainType = 'mainnet';
-  chainName = 'desmos';
+  chainName = 'agoric';
 
   switch (chainType) {
     case 'mainnet':
