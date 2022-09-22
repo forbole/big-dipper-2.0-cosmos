@@ -31,7 +31,7 @@
     "publicRpcWebsocket":"wss://rpc-testnet.evmos.forbole.com/websocket"
   },
   "marketing": {
-    "matomoURL":"",
-    "matomoSiteID":""
+    "matomoURL":"https://analytics.bigdipper.live",
+    "matomoSiteID":"19"
   }
 }
