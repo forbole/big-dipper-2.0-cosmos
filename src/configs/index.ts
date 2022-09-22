@@ -9,11 +9,8 @@ import generalConfig from './general_config.json';
  */
 const getChainConfig = () => {
   // TO-DO: find a proper way to pass in chainType's & chainName's values as npm arguments
-  let chainType = process.env.CHAIN_TYPE;
-  let chainName = process.env.CHAIN_NAME;
-
-  chainType = 'mainnet';
-  chainName = 'agoric';
+  const chainType = process.env.CHAIN_TYPE;
+  const chainName = process.env.CHAIN_NAME;
 
   switch (chainType) {
     case 'mainnet':

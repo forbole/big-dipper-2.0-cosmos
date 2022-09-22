@@ -13,3 +13,8 @@ module.exports = nextTranslate({
     return config;
   },
 });
+
+module.exports.env = {
+  CHAIN_TYPE: process.env.CHAIN_TYPE,
+  CHAIN_NAME: process.env.CHAIN_NAME,
+};
