@@ -7,7 +7,7 @@ import chainConfigComdexMainnet from './chain_configs/comdex-mainnet.json';
 import chainConfigCosmosMainnet from './chain_configs/cosmos-mainnet.json';
 import chainConfigCrescentMainnet from './chain_configs/crescent-mainnet.json';
 import chainConfigDesmosMainnet from './chain_configs/desmos-mainnet.json';
-import chainConfigEMoneyMainnet from './chain_configs/eMoney-mainnet.json';
+import chainConfigEMoneyMainnet from './chain_configs/emoney-mainnet.json';
 import chainConfigEvmosMainnet from './chain_configs/evmos-mainnet.json';
 import chainConfigLikecoinMainnet from './chain_configs/likecoin-mainnet.json';
 import chainConfigNomicMainnet from './chain_configs/nomic-mainnet.json';
