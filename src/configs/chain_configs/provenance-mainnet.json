@@ -33,5 +33,9 @@
     "graphql":"https://gql.provenance.forbole.com/v1/graphql",
     "graphqlWebsocket":"wss://gql.provenance.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.provenance.forbole.com/websocket"
+  },
+  "marketing": {
+    "matomoURL":"",
+    "matomoSiteID":""
   }
 }

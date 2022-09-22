@@ -29,5 +29,9 @@
     "graphql":"https://gql.sifchain.forbole.com/v1/graphql",
     "graphqlWebsocket":"wss://gql.sifchain.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.sifchain.forbole.com/websocket"
+  },
+  "marketing": {
+    "matomoURL":"",
+    "matomoSiteID":""
   }
 }

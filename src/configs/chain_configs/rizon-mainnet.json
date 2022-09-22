@@ -29,5 +29,9 @@
     "graphql":"https://gql.rizon.forbole.com/v1/graphql",
     "graphqlWebsocket":"wss://gql.rizon.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.rizon.forbole.com/websocket"
+  },
+  "marketing": {
+    "matomoURL":"",
+    "matomoSiteID":""
   }
 }

@@ -29,5 +29,9 @@
     "graphql":"https://gql.band.forbole.com/v1/graphql",
     "graphqlWebsocket":"wss://gql.band.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.band.forbole.com/websocket"
+  },
+  "marketing": {
+    "matomoURL":"",
+    "matomoSiteID":""
   }
 }

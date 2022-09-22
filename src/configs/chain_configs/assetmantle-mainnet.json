@@ -29,5 +29,9 @@
     "graphql":"https://gql.assetmantle.forbole.com/v1/graphql",
     "graphqlWebsocket":"wss://gql.assetmantle.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.assetmantle.forbole.com/websocket"
+  },
+  "marketing": {
+    "matomoURL":"",
+    "matomoSiteID":""
   }
 }

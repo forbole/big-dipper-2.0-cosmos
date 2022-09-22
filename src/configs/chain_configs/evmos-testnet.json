@@ -29,5 +29,9 @@
     "graphql":"https://gql-testnet.evmos.forbole.com/v1/graphql",
     "graphqlWebsocket":"wss://gql-testnet.evmos.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc-testnet.evmos.forbole.com/websocket"
+  },
+  "marketing": {
+    "matomoURL":"",
+    "matomoSiteID":""
   }
 }

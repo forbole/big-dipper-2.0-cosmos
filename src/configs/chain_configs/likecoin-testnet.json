@@ -33,5 +33,9 @@
     "graphql":"https://gql-ws-testnet.likecoin.forbole.com/v1/graphql",
     "graphqlWebsocket":"wss://gql-ws-testnet.likecoin.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://ws-testnet.likecoin.forbole.com"
+  },
+  "marketing": {
+    "matomoURL":"",
+    "matomoSiteID":""
   }
 }

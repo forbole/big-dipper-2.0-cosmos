@@ -49,5 +49,9 @@
     "graphql":"https://gql.emoney.forbole.com/v1/graphql",
     "graphqlWebsocket":"wss://gql.emoney.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.emoney.forbole.com/websocket"
+  },
+  "marketing": {
+    "matomoURL":"",
+    "matomoSiteID":""
   }
 }

@@ -29,5 +29,9 @@
     "graphql":"https://gql.stride.forbole.com/v1/graphql",
     "graphqlWebsocket":"wss://gql.stride.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.stride.forbole.com/websocket"
+  },
+  "marketing": {
+    "matomoURL":"",
+    "matomoSiteID":""
   }
 }

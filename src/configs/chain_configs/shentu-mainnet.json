@@ -29,5 +29,9 @@
     "graphql":"https://gql.certik.forbole.com/v1/graphql",
     "graphqlWebsocket":"wss://gql.certik.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.certik.forbole.com/websocket"
+  },
+  "marketing": {
+    "matomoURL":"",
+    "matomoSiteID":""
   }
 }

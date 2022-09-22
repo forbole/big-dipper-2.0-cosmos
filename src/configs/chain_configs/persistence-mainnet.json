@@ -29,5 +29,9 @@
     "graphql":"https://gql.persistence.forbole.com/v1/graphql",
     "graphqlWebsocket":"wss://gql.persistence.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.persistence.forbole.com/websocket"
+  },
+  "marketing": {
+    "matomoURL":"",
+    "matomoSiteID":""
   }
 }

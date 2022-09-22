@@ -29,5 +29,9 @@
     "graphql":"https://gql.desmos.forbole.com/v1/graphql",
     "graphqlWebsocket":"wss://gql.desmos.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.desmos.forbole.com/websocket"
+  },
+  "marketing": {
+    "matomoURL":"",
+    "matomoSiteID":""
   }
 }

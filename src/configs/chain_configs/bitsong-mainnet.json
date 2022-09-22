@@ -29,5 +29,9 @@
     "graphql":"https://gql.bitsong.forbole.com/v1/graphql",
     "graphqlWebsocket":"wss://gql.bitsong.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.bitsong.forbole.com/websocket"
+  },
+  "marketing": {
+    "matomoURL":"",
+    "matomoSiteID":""
   }
 }
