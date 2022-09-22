@@ -30,6 +30,10 @@
     "graphqlWebsocket":"wss://gql-testnet.evmos.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc-testnet.evmos.forbole.com/websocket"
   },
+  "general": {
+    "basePath": "/evmos",
+    "previewImage": "https://s3.bigdipper.live/evmos.png"
+  },
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"19"

@@ -34,6 +34,10 @@
     "graphqlWebsocket":"wss://gql.regen.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.regen.forbole.com/websocket"
   },
+  "general": {
+    "basePath": "/regen",
+    "previewImage": "https://s3.bigdipper.live/regen.png"
+  },
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"15"

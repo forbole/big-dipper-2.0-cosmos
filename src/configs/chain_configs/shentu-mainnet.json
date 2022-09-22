@@ -30,6 +30,10 @@
     "graphqlWebsocket":"wss://gql.certik.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.certik.forbole.com/websocket"
   },
+  "general": {
+    "basePath": "/shentu",
+    "previewImage": "https://s3.bigdipper.live/shentu.png"
+  },
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"27"

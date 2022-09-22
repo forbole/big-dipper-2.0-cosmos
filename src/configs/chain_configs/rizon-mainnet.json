@@ -30,6 +30,10 @@
     "graphqlWebsocket":"wss://gql.rizon.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.rizon.forbole.com/websocket"
   },
+  "general": {
+    "basePath": "/rizon",
+    "previewImage": "https://s3.bigdipper.live/rizon.png"
+  },
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"20"

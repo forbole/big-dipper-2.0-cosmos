@@ -30,6 +30,10 @@
     "graphqlWebsocket":"wss://gql.band.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.band.forbole.com/websocket"
   },
+  "general": {
+    "basePath": "/band",
+    "previewImage": "https://s3.bigdipper.live/band.png"
+  },
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"13"

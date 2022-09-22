@@ -34,6 +34,10 @@
     "graphqlWebsocket":"wss://gql-ws-testnet.likecoin.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://ws-testnet.likecoin.forbole.com"
   },
+  "general": {
+    "basePath": "/likecoin",
+    "previewImage": "https://s3.bigdipper.live/likecoin.png"
+  },
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"9"

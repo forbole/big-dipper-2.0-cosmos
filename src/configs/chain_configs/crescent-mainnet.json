@@ -30,6 +30,10 @@
     "graphqlWebsocket":"wss://gql.crescent.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.crescent.forbole.com/websocket"
   },
+  "general": {
+    "basePath": "/crescent",
+    "previewImage": "https://s3.bigdipper.live/crescent.png"
+  },
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"25"

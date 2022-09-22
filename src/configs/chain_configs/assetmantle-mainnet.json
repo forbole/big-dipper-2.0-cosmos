@@ -30,6 +30,10 @@
     "graphqlWebsocket":"wss://gql.assetmantle.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.assetmantle.forbole.com/websocket"
   },
+  "general": {
+    "basePath": "/assetmantle",
+    "previewImage": "https://s3.bigdipper.live/assetmantle.png"
+  },
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"29"

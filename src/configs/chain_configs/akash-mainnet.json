@@ -30,6 +30,10 @@
     "graphqlWebsocket":"wss://gql.akash.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.akash.forbole.com/websocket"
   },
+  "general": {
+    "basePath": "/akash",
+    "previewImage": "https://s3.bigdipper.live/akash.png"
+  },
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"5"

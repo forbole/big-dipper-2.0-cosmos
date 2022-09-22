@@ -34,6 +34,10 @@
     "graphqlWebsocket":"wss://gql.provenance.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.provenance.forbole.com/websocket"
   },
+  "general": {
+    "basePath": "/provenance",
+    "previewImage": "https://s3.bigdipper.live/provenance.png"
+  },
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"28"

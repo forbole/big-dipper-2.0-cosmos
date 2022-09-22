@@ -30,6 +30,10 @@
     "graphqlWebsocket":"wss://gql.nomic.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.nomic.forbole.com/websocket"
   },
+  "general": {
+    "basePath": "/nomic",
+    "previewImage": "https://s3.bigdipper.live/nomic.png"
+  },
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"26"

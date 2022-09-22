@@ -30,6 +30,10 @@
     "graphqlWebsocket":"wss://gql.bitsong.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.bitsong.forbole.com/websocket"
   },
+  "general": {
+    "basePath": "/bitsong",
+    "previewImage": "https://s3.bigdipper.live/bitsong.png"
+  },
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"18"

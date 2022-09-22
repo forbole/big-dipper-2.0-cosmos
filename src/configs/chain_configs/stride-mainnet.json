@@ -30,6 +30,10 @@
     "graphqlWebsocket":"wss://gql.stride.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.stride.forbole.com/websocket"
   },
+  "general": {
+    "basePath": "/stride",
+    "previewImage": "https://s3.bigdipper.live/stride.png"
+  },
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"8"

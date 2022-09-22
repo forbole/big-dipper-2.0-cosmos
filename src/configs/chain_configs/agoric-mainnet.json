@@ -34,6 +34,10 @@
     "graphqlWebsocket":"wss://gql.agoric.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.agoric.forbole.com/websocket"
   },
+  "general": {
+    "basePath": "/agoric",
+    "previewImage": "https://s3.bigdipper.live/agoric.png"
+  },
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"17"

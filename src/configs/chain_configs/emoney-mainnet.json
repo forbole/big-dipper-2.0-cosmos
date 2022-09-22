@@ -50,6 +50,10 @@
     "graphqlWebsocket":"wss://gql.emoney.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.emoney.forbole.com/websocket"
   },
+  "general": {
+    "basePath": "/emoney",
+    "previewImage": "https://s3.bigdipper.live/emoney.png"
+  },
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"2"

@@ -30,6 +30,10 @@
     "graphqlWebsocket":"wss://gql.sifchain.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.sifchain.forbole.com/websocket"
   },
+  "general": {
+    "basePath": "/sifchain",
+    "previewImage": "https://s3.bigdipper.live/sifchain.png"
+  },
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"21"

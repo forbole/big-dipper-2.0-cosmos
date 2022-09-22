@@ -30,6 +30,10 @@
     "graphqlWebsocket":"wss://gql.comdex.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.comdex.forbole.com/websocket"
   },
+  "general": {
+    "basePath": "/comdex",
+    "previewImage": "https://s3.bigdipper.live/comdex.png"
+  },
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"23"

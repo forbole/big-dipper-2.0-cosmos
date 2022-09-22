@@ -30,6 +30,10 @@
     "graphqlWebsocket":"wss://gql.persistence.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc.persistence.forbole.com/websocket"
   },
+  "general": {
+    "basePath": "/persistence",
+    "previewImage": "https://s3.bigdipper.live/persistence.png"
+  },
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"30"

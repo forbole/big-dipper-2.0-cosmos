@@ -30,6 +30,10 @@
     "graphqlWebsocket":"wss://gql-testnet.cosmos.forbole.com/v1/graphql",
     "publicRpcWebsocket":"wss://rpc-testnet.cosmos.forbole.com/websocket"
   },
+  "general": {
+    "basePath": "/cosmos",
+    "previewImage": "https://s3.bigdipper.live/cosmos.png"
+  },
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"4"
