@@ -104,7 +104,6 @@ export const useStaking = () => {
         remainingDelegations
           .filter((x) => x.status === 'fulfilled')
           .forEach((x) => {
-            console.log('x', x);
             const delegations = R.pathOr([], ['value', 'data', 'delegations', 'delegations'], x);
             allDelegations.push(...delegations);
           });
@@ -129,7 +128,6 @@ export const useStaking = () => {
   };
 
   const formatDelegations = (data: any[]) => {
-    console.log('formatDelegation data', data);
     return data
       .map((x) => {
         const address = R.pathOr('', ['delegator_address'], x);

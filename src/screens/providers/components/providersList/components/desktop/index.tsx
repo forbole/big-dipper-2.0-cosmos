@@ -1,16 +1,12 @@
 import React from 'react';
 import classnames from 'classnames';
 import AutoSizer from 'react-virtualized-auto-sizer';
-import numeral from 'numeral';
+// import numeral from 'numeral';
 import Link from 'next/link';
-import {
-  TRANSACTION_DETAILS,
-  BLOCK_DETAILS,
-} from '@utils/go_to_page';
 import { VariableSizeGrid as Grid } from 'react-window';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
-import { mergeRefs } from '@utils/merge_refs';
+// import { mergeRefs } from '@utils/merge_refs';
 import {
   Loading,
 } from '@components';
@@ -38,9 +34,8 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = (list) => {
   const { handleCopyToClipboard } = useAddress(t);
 
   const className = '';
-  // const itemCount = itemsNewProviders.length;
-  const itemCount = list.list.length; // to be fixed
-  const loadMoreItems = (...args) => { console.log('args', JSON.stringify(args)); };
+
+  const itemCount = 10; // state.providers.pagination.itemsPerPage
   const isItemLoaded = (index) => index >= 0 && index < itemCount;
 
   const itemsNew = list.list.map((eachProvider) => ({
@@ -96,7 +91,8 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = (list) => {
       ),
     website: eachProvider.website
       ? (
-        <Link href={`https://${eachProvider.website}`}>
+        // <Link href={`https://${eachProvider.website}`}>
+        <Link href={eachProvider.website}>
           <div>
             <Typography variant="body1" component="a">
               {getMiddleEllipsis(eachProvider.website, {

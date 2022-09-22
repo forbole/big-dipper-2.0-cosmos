@@ -62,8 +62,6 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
         <Pagination
           className={classes.paginate}
           total={props.list.pagination.totalCount}
-          // rowsPerPage={props.list.pagination.itemsPerPage}
-          // page={props.list.pagination.currentPage}
           rowsPerPage={rowsPerPage}
           page={page}
           handleChangePage={handleChangePage}
