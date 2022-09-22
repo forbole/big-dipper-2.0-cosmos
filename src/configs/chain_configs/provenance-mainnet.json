@@ -35,7 +35,7 @@
     "publicRpcWebsocket":"wss://rpc.provenance.forbole.com/websocket"
   },
   "marketing": {
-    "matomoURL":"",
-    "matomoSiteID":""
+    "matomoURL":"https://analytics.bigdipper.live",
+    "matomoSiteID":"28"
   }
 }

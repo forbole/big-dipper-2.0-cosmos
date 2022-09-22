@@ -103,7 +103,7 @@
     "publicRpcWebsocket":"wss://rpc.osmosis.forbole.com/websocket"
   },
   "marketing": {
-    "matomoURL":"",
-    "matomoSiteID":""
+    "matomoURL":"https://analytics.bigdipper.live",
+    "matomoSiteID":"7"
   }
 }

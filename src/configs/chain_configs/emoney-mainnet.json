@@ -51,7 +51,7 @@
     "publicRpcWebsocket":"wss://rpc.emoney.forbole.com/websocket"
   },
   "marketing": {
-    "matomoURL":"",
-    "matomoSiteID":""
+    "matomoURL":"https://analytics.bigdipper.live",
+    "matomoSiteID":"2"
   }
 }
