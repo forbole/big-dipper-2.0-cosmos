@@ -17,7 +17,6 @@ const getChainConfig = () => {
 
   console.log("chainType, chainName: ", chainType, chainName);
   
-
   switch (chainType) {
     case 'mainnet':
       return getMainnetChainConfig(chainName);
