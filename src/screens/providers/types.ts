@@ -27,7 +27,7 @@ export type StorageState = {
 
 export type ProvidersListState = {
   isNextPageLoading: boolean;
-  items: ProviderInfo[];
+  items: ProviderInfo[][];
   pagination: ProvidersListPaginationState;
 }
 

@@ -96,13 +96,15 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = (list) => {
       ),
     website: eachProvider.website
       ? (
-        <Link href={TRANSACTION_DETAILS(eachProvider.website)} passHref>
-          <Typography variant="body1" component="a">
-            {getMiddleEllipsis(eachProvider.website, {
-              beginning: 13, ending: 0,
-            })}
-          </Typography>
-          <WebArrowIcon />
+        <Link href={`https://${eachProvider.website}`}>
+          <div>
+            <Typography variant="body1" component="a">
+              {getMiddleEllipsis(eachProvider.website, {
+                beginning: 13, ending: 0,
+              })}
+            </Typography>
+            <WebArrowIcon />
+          </div>
         </Link>
       ) : (
         'Null'

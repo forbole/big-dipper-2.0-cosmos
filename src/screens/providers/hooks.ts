@@ -40,6 +40,8 @@ export const useProviders = () => {
     },
   });
 
+  const LIMIT = 100;
+
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
@@ -54,6 +56,17 @@ export const useProviders = () => {
     R.uniqBy(R.prop('ownerAddress')),
     R.sort(R.ascend(R.prop('ownerAddress'))),
   );
+
+  const PAGE_LIMIT = 10;
+  const createPagination = (data: any[]) => {
+    const pages = {};
+    data.forEach((x, i) => {
+      const selectedKey = Math.floor(i / PAGE_LIMIT);
+      pages[selectedKey] = pages[selectedKey] || [];
+      pages[selectedKey].push(x);
+    });
+    return pages;
+  };
 
   // ================================
   // tx subscription
@@ -143,7 +156,8 @@ export const useProviders = () => {
 
   const providersQuery = useProvidersQuery({
     variables: {
-      limit: state.providers.pagination.itemsPerPage,
+      // limit: state.providers.pagination.itemsPerPage,
+      limit: LIMIT,
       offset: state.providers.pagination.currentPage * state.providers.pagination.itemsPerPage,
     },
     onError: () => {
@@ -156,10 +170,11 @@ export const useProviders = () => {
         ...state.providers.items,
         ...formatProviders(data),
       ]);
+
       handleSetState({
         loading: false,
         providers: {
-          items: newItems,
+          items: createPagination(newItems),
           isNextPageLoading: false,
           pagination: {
             totalCount: data.total.aggregate.count,
@@ -186,10 +201,15 @@ export const useProviders = () => {
         ...state.providers.items,
         ...formatProviders(data),
       ]);
+
       handleSetState({
         loading: false,
         providers: {
           items: newItems,
+          // items: createPagination(newItems),
+          // data: createPagination(
+          //   formatDelegations(allDelegations),
+          // ),
           isNextPageLoading: false,
         },
       });

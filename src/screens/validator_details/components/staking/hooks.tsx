@@ -87,6 +87,8 @@ export const useStaking = () => {
         },
         query: ValidatorDelegationsDocument,
       });
+      // console.log('data in getDelegation', data); // 191
+
       const count = R.pathOr(0, ['data', 'delegations', 'pagination', 'total'], data);
       const allDelegations = R.pathOr([], ['data', 'delegations', 'delegations'], data);
       // if there are more than the default 100, grab the remaining delegations
@@ -102,6 +104,7 @@ export const useStaking = () => {
         remainingDelegations
           .filter((x) => x.status === 'fulfilled')
           .forEach((x) => {
+            console.log('x', x);
             const delegations = R.pathOr([], ['value', 'data', 'delegations', 'delegations'], x);
             allDelegations.push(...delegations);
           });
@@ -126,6 +129,7 @@ export const useStaking = () => {
   };
 
   const formatDelegations = (data: any[]) => {
+    console.log('formatDelegation data', data);
     return data
       .map((x) => {
         const address = R.pathOr('', ['delegator_address'], x);

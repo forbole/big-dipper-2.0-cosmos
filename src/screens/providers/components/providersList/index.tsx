@@ -34,8 +34,6 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
     handleChangeRowsPerPage,
   } = usePagination({});
 
-  // console.log('props in providers list => ', props);
-
   const component = null;
   // if (props.loading) {
   //   component = <Loading />;
@@ -60,7 +58,7 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
       </Typography>
       <div className={classes.list}>
         {/* {component} */}
-        <Desktop list={props.list.items} />
+        <Desktop list={props.list.items[page]} />
         <Pagination
           className={classes.paginate}
           total={props.list.pagination.totalCount}
