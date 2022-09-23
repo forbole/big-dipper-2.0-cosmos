@@ -2,7 +2,7 @@ const nextTranslate = require('next-translate');
 
 module.exports = nextTranslate({
   poweredByHeader: false,
-  basePath: `/${process.env.CHAIN_NAME}`,
+  basePath: `/${process.env.CHAIN_NAME}`.toLowerCase(),
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
