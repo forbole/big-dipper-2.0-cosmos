@@ -1,6 +1,6 @@
-const backgroundDefault = '#F8F8F8';
-const surfaceOne = '#FFFFFF';
-const surfaceTwo = '#F8F8F8';
+const backgroundDefault = '#F2FBFD';
+const surfaceOne = '#FEFFFF';
+const surfaceTwo = '#EFEFEF'; // Figma general 3
 const fontOne = '#000000';
 const fontTwo = '#414141';
 const fontThree = '#777777';
@@ -18,17 +18,17 @@ export const lightThemeOverride = {
   palette: {
     type: 'light',
     primary: {
-      main: '#FD3B4C',
-      contrastText: '#fff',
+      main: '#E91179',
+      contrastText: '#FFFFFF',
     },
     background: {
       default: backgroundDefault,
       paper: surfaceOne,
     },
-    divider: '#E8E8E8',
+    divider: '#7A7A7A',
     text: {
       primary: '#000000',
-      secondary: '#414141',
+      secondary: '#525252',
     },
     custom: {
       general: {
@@ -43,10 +43,10 @@ export const lightThemeOverride = {
         fontFour: '#999999',
       },
       primaryData: {
-        one: '#FA3A39',
-        two: '#FD5E1F',
-        three: '#FD5D4E',
-        four: '#FD9526',
+        one: '#E91179',
+        two: '#F14196',
+        three: '#45B1C4',
+        four: '#378D9B',
       },
       results: {
         pass: '#1EC490',

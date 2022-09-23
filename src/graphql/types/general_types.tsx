@@ -2576,6 +2576,26 @@ export type Gov_Params = {
   voting_params: Scalars['jsonb'];
 };
 
+/** columns and relationships of "gov_params" */
+export type Stakeibc_Params = {
+  __typename?: 'stakeibc_params';
+  buffer_size: Maybe<Scalars['bigint']>;
+  deposit_interval: Maybe<Scalars['bigint']>;
+  rewards_interval: Maybe<Scalars['bigint']>;
+  delegate_interval: Maybe<Scalars['bigint']>;
+  ica_timeout_nanos: Maybe<Scalars['bigint']>;
+  reinvest_interval: Maybe<Scalars['bigint']>;
+  stride_commission: Maybe<Scalars['bigint']>;
+  ibc_timeout_blocks: Maybe<Scalars['bigint']>;
+  redemption_rate_interval: Maybe<Scalars['bigint']>;
+  fee_transfer_timeout_nanos: Maybe<Scalars['bigint']>;
+  ibc_transfer_timeout_nanos: Maybe<Scalars['bigint']>;
+  max_stake_ica_calls_per_epoch: Maybe<Scalars['bigint']>;
+  validator_rebalancing_threshold: Maybe<Scalars['bigint']>;
+  safety_max_redemption_rate_threshold: Maybe<Scalars['bigint']>;
+  safety_min_redemption_rate_threshold: Maybe<Scalars['bigint']>;
+};
+
 
 /** columns and relationships of "gov_params" */
 export type Gov_ParamsDeposit_ParamsArgs = {
@@ -11770,6 +11790,25 @@ export type ParamsQuery = { stakingParams: Array<(
   )>, govParams: Array<(
     { __typename?: 'gov_params' }
     & { depositParams: Gov_Params['deposit_params'], tallyParams: Gov_Params['tally_params'], votingParams: Gov_Params['voting_params'] }
+  )>, stakeibcParams: Array<(
+    { __typename?: 'stakeibc_params' }
+    & { params: {
+      buffer_size: Stakeibc_Params['buffer_size'],
+      deposit_interval: Stakeibc_Params['deposit_interval'],
+      rewards_interval: Stakeibc_Params['rewards_interval'],
+      delegate_interval: Stakeibc_Params['delegate_interval'],
+      ica_timeout_nanos: Stakeibc_Params['ica_timeout_nanos'],
+      reinvest_interval: Stakeibc_Params['reinvest_interval'],
+      stride_commission: Stakeibc_Params['stride_commission'],
+      ibc_timeout_blocks: Stakeibc_Params['ibc_timeout_blocks'],
+      redemption_rate_interval: Stakeibc_Params['redemption_rate_interval'],
+      fee_transfer_timeout_nanos: Stakeibc_Params['fee_transfer_timeout_nanos'],
+      ibc_transfer_timeout_nanos: Stakeibc_Params['ibc_transfer_timeout_nanos'],
+      max_stake_ica_calls_per_epoch: Stakeibc_Params['max_stake_ica_calls_per_epoch'],
+      validator_rebalancing_threshold: Stakeibc_Params['validator_rebalancing_threshold'],
+      safety_max_redemption_rate_threshold: Stakeibc_Params['safety_max_redemption_rate_threshold'],
+      safety_min_redemption_rate_threshold: Stakeibc_Params['safety_min_redemption_rate_threshold'],
+     } }
   )> };
 
 export type ProposalDetailsQueryVariables = Exact<{
@@ -12794,9 +12833,6 @@ export const MarketDataDocument = gql`
   communityPool: community_pool(order_by: {height: desc}, limit: 1) {
     coins
   }
-  inflation: inflation(order_by: {height: desc}, limit: 1) {
-    value
-  }
   tokenPrice: token_price(where: {unit_name: {_eq: $denom}}) {
     marketCap: market_cap
     price
@@ -12959,6 +12995,9 @@ export const ParamsDocument = gql`
     depositParams: deposit_params
     tallyParams: tally_params
     votingParams: voting_params
+  },
+  stakeibcParams:stakeibc_params(limit: 1, order_by: {height: desc}) {
+    params
   }
 }
     `;

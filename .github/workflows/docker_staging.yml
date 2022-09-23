@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     branches:
-      - chains/desmos
+      - chains/stride
 
 jobs:
   Build-and-Publish:
@@ -16,8 +16,8 @@ jobs:
         id: prep
         run: |
           BRANCH=${GITHUB_REF#refs/heads/}
-          if [[ $GITHUB_REF == refs/heads/chains/desmos ]]; then
-            BRANCH="desmos"
+          if [[ $GITHUB_REF == refs/heads/chains/stride ]]; then
+            BRANCH="stride"
           elif [[ $GITHUB_REF == refs/pull/* ]]; then
             BRANCH="build-test"
           fi
@@ -26,18 +26,24 @@ jobs:
       - name: Prepare docker build env
         id: dockerPrep
         run: |
-          NEXT_PUBLIC_GRAPHQL_URL="https://gql.morpheus.desmos.network/v1/graphql"
-          NEXT_PUBLIC_GRAPHQL_WS="wss://gql.morpheus.desmos.network/v1/graphql"
-          NEXT_PUBLIC_RPC_WEBSOCKET="wss://rpc.morpheus.desmos.network/websocket"
+          NEXT_PUBLIC_GRAPHQL_URL="https://gql.stride.forbole.com/v1/graphql"
+          NEXT_PUBLIC_GRAPHQL_WS="wss://gql.stride.forbole.com/v1/graphql"
+          NEXT_PUBLIC_URL="https://bigdipper.live/stride"
+          NEXT_PUBLIC_RPC_WEBSOCKET="wss://rpc.stride.forbole.com/websocket"
           NEXT_PUBLIC_CHAIN_TYPE="mainnet"
           NODE_ENV="production"
           PORT=3000
+          NEXT_PUBLIC_MATOMO_URL="https://analytics.bigdipper.live"
+          NEXT_PUBLIC_MATOMO_SITE_ID=32
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_WS::${NEXT_PUBLIC_GRAPHQL_WS}
+          echo ::set-output name=NEXT_PUBLIC_URL::${NEXT_PUBLIC_URL}
           echo ::set-output name=NEXT_PUBLIC_RPC_WEBSOCKET::${NEXT_PUBLIC_RPC_WEBSOCKET}
           echo ::set-output name=NEXT_PUBLIC_CHAIN_TYPE::${NEXT_PUBLIC_CHAIN_TYPE}
           echo ::set-output name=NODE_ENV::${NODE_ENV}
           echo ::set-output name=PORT::${PORT}
+          echo ::set-output name=NEXT_PUBLIC_MATOMO_URL::${NEXT_PUBLIC_MATOMO_URL}
+          echo ::set-output name=NEXT_PUBLIC_MATOMO_SITE_ID::${NEXT_PUBLIC_MATOMO_SITE_ID}
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       - name: Login to DockerHub
@@ -55,10 +61,13 @@ jobs:
           build-args: |
             "NEXT_PUBLIC_GRAPHQL_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_URL }}"
             "NEXT_PUBLIC_GRAPHQL_WS=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_WS }}"
+            "NEXT_PUBLIC_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_URL }}"
             "NEXT_PUBLIC_RPC_WEBSOCKET=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_RPC_WEBSOCKET }}"
             "NEXT_PUBLIC_CHAIN_TYPE=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_CHAIN_TYPE }}"
             "NODE_ENV=${{ steps.dockerPrep.outputs.NODE_ENV }}"
             "PORT=${{ steps.dockerPrep.outputs.PORT }}"
+            "NEXT_PUBLIC_MATOMO_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_MATOMO_URL }}"
+            "NEXT_PUBLIC_MATOMO_SITE_ID=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_MATOMO_SITE_ID }}"
           tags: "forbole/big-dipper-2.0-cosmos:${{ steps.prep.outputs.branch }}-staging"
           labels: |
             org.opencontainers.image.source=${{ github.event.repository.html_url }}

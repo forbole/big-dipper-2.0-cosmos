@@ -15,5 +15,8 @@ query Params {
     depositParams: deposit_params
     tallyParams: tally_params
     votingParams: voting_params
+  },
+  stakeibcParams:stakeibc_params(limit: 1, order_by: {height: desc}) {
+    params
   }
 }
