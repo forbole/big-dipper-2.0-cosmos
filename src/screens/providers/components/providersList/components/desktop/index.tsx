@@ -84,7 +84,7 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = (list) => {
     email: eachProvider.emailAddress
       ? (
         <a href={`mailto:${eachProvider.emailAddress}`}>
-          <EmailIcon />
+          <EmailIcon className={classes.actionIcons} />
         </a>
       ) : (
         'Null'
@@ -95,11 +95,13 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = (list) => {
         <Link href={eachProvider.website}>
           <div>
             <Typography variant="body1" component="a">
-              {getMiddleEllipsis(eachProvider.website, {
-                beginning: 13, ending: 0,
-              })}
+              {eachProvider.website.length <= 13
+                ? eachProvider.website
+                : getMiddleEllipsis(eachProvider.website, {
+                  beginning: 13, ending: 0,
+                })}
             </Typography>
-            <WebArrowIcon />
+            <WebArrowIcon className={classes.actionIcons} />
           </div>
         </Link>
       ) : (
