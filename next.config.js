@@ -1,10 +1,8 @@
-import { chainConfig } from './src/configs/index';
-
 const nextTranslate = require('next-translate');
 
 module.exports = nextTranslate({
   poweredByHeader: false,
-  basePath: chainConfig.general.basePath,
+  basePath: `/${process.env.CHAIN_NAME}`,
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
