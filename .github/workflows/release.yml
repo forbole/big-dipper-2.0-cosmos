@@ -15,11 +15,9 @@ jobs:
     env:
       IMAGE_NAME: ${{ github.repository }}
 
-    
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0
           persist-credentials: false
 
       - name: Set network name
@@ -85,12 +83,10 @@ jobs:
     environment: mainnet
     env:
       IMAGE_NAME: ${{ github.repository }}
-
-    
+  
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0
           persist-credentials: false
 
       - name: Set network name
