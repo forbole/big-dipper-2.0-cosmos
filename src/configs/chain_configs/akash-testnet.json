@@ -1,9 +1,9 @@
 {
   "title": "Akash Block Explorer",
   "network": "edgenet-1",
-  "icon": "/images/icon.png",
+  "icon": "/akash/images/akash/icon.png",
   "logo": {
-    "default": "/images/logo.svg"
+    "default": "/akash/images/akash/logo.svg"
   },
   "prefix": {
     "consensus": "akashvalcons",

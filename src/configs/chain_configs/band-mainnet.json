@@ -1,9 +1,9 @@
 {
   "title": "Band Protocol Block Explorer",
   "network": "laozi-mainnet",
-  "icon": "/band/images/icon.svg",
+  "icon": "/band/images/band/icon.svg",
   "logo": {
-    "default": "/band/images/logo.svg"
+    "default": "/band/images/band/logo.svg"
   },
   "prefix": {
     "consensus": "bandvalcons",

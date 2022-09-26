@@ -1,9 +1,9 @@
 {
   "title": "AssetMantle Block Explorer",
   "network": "assetmantle-mainnet-mantle-1",
-  "icon": "/assetmantle/images/icon.svg",
+  "icon": "/assetmantle/images/assetmantle/icon.svg",
   "logo": {
-    "default": "/assetmantle/images/logo.svg"
+    "default": "/assetmantle/images/assetmantle/logo.svg"
   },
   "prefix": {
     "consensus": "mantlevalcons",

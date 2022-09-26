@@ -1,9 +1,9 @@
 {
   "title": "Stride Block Explorer",
   "network": "stride-1",
-  "icon": "/desmos/images/icon.svg",
+  "icon": "/stride/images/stride/icon.tsx",
   "logo": {
-    "default": "/desmos/images/logo.svg"
+    "default": "/stride/images/stride/logo.tsx"
   },
   "prefix": {
     "consensus": "stridevalcons",

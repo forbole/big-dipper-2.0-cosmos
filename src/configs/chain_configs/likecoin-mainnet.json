@@ -1,9 +1,9 @@
 {
   "title": "LikeCoin Block Explorer",
   "network": "likecoin-mainnet-2",
-  "icon": "/likecoin/images/icon.svg",
+  "icon": "/likecoin/images/likecoin/icon.svg",
   "logo": {
-    "default": "/likecoin/images/logo.svg"
+    "default": "/likecoin/images/likecoin/logo.svg"
   },
   "prefix": {
     "consensus": "cosmosvalcons",

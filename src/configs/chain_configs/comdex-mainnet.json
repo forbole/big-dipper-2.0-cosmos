@@ -1,9 +1,9 @@
 {
   "title": "Comdex Block Explorer",
   "network": "comdex-1",
-  "icon": "/images/icon.svg",
+  "icon": "/comdex/images/comdex/icon.svg",
   "logo": {
-    "default": "/images/logo.svg"
+    "default": "/comdex/images/comdex/logo.svg"
   },
   "prefix": {
     "consensus": "comdexvalcons",

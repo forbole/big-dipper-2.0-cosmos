@@ -1,9 +1,9 @@
 {
   "title": "Cosmos Block Explorer",
   "network": "cosmoshub-4",
-  "icon": "/images/icon.svg",
+  "icon": "/cosmos/images/cosmos/icon.svg",
   "logo": {
-    "default": "/images/logo.svg"
+    "default": "/cosmos/images/cosmos/logo.svg"
   },
   "prefix": {
     "consensus": "cosmosvalcons",

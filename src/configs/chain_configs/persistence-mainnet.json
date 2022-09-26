@@ -1,9 +1,9 @@
 {
   "title": "Persistence Block Explorer",
   "network": "persistence-mainnet-1",
-  "icon": "/persistence/images/icon.svg",
+  "icon": "/persistence/images/persistence/icon.svg",
   "logo": {
-    "default": "/persistence/images/logo.svg"
+    "default": "/persistence/images/persistence/logo.svg"
   },
   "prefix": {
     "consensus": "persistencevalcons",

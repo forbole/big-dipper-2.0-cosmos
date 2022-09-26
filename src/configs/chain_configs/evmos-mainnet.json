@@ -1,9 +1,9 @@
 {
   "title": "Evmos Block Explorer",
   "network": "evmos_9001-1",
-  "icon": "/images/icon.svg",
+  "icon": "/evmos/images/evmos/icon.svg",
   "logo": {
-    "default": "/images/logo.svg"
+    "default": "/evmos/images/evmos/logo.svg"
   },
   "prefix": {
     "consensus": "evmosvalcons",

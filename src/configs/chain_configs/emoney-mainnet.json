@@ -1,9 +1,9 @@
 {
   "title": "e-Money Block Explorer",
   "network": "emoney-3",
-  "icon": "/emoney/images/icon.png",
+  "icon": "/emoney/images/emoney/icon.png",
   "logo": {
-    "default": "/emoney/images/logo.svg"
+    "default": "/emoney/images/emoney/logo.svg"
   },
   "prefix": {
     "consensus": "emoneyvalcons",

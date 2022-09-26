@@ -1,9 +1,9 @@
 {
   "title": "Regen Block Explorer",
   "network": "regen-1",
-  "icon": "/regen/images/icon.png",
+  "icon": "/regen/images/regen/icon.png",
   "logo": {
-    "default": "/regen/images/logo.png"
+    "default": "/regen/images/regen/logo.png"
   },
   "prefix": {
     "consensus": "regenvalcons",

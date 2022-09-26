@@ -1,9 +1,9 @@
 {
   "title": "Shentu Explorer",
   "network": "shentu-2.2",
-  "icon": "/shentu/images/icon.svg",
+  "icon": "/shentu/images/shentu/icon.svg",
   "logo": {
-    "default": "/shentu/images/logo.svg"
+    "default": "/shentu/images/shentu/logo.svg"
   },
   "prefix": {
     "consensus": "certikvalcons",
