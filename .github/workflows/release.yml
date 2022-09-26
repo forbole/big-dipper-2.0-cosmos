@@ -75,7 +75,6 @@ jobs:
       - name: Push BigDipper image
         run: docker image push --all-tags registry.digitalocean.com/${{ env.IMAGE_NAME }}
 
-
   release-docker-mainnet:
     name: "BigDipper Docker image - Mainnet"
     runs-on: ubuntu-latest

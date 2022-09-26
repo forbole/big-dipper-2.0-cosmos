@@ -1,0 +1,42 @@
+name: "Deploy"
+on:
+  workflow_call:
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  
+  deploy-testnet:
+    name: "Testnet Explorer Frontend"
+    runs-on: ubuntu-latest
+    if: ${{ ( github.ref_name == 'chains/cheqd/testnet' ) }}
+    environment:
+      name: testnet
+      url: https://testnet-explorer.cheqd.io/
+
+    steps: 
+      - name: Install DigitalOcean CLI
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+      
+      - name: Rebuild backend with latest image
+        run: doctl app create-deployment --force-rebuild ${{ secrets.APP_ID }}
+
+  deploy-mainnet:
+    name: "Mainnet Explorer Frontend"
+    runs-on: ubuntu-latest
+    if: ${{ ( github.ref_name == 'chains/cheqd/mainnet' ) }}
+    environment:
+      name: mainnet
+      url: https://explorer.cheqd.io/
+
+    steps: 
+      - name: Install DigitalOcean CLI
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+      
+      - name: Rebuild backend with latest image
+        run: doctl app create-deployment --force-rebuild ${{ secrets.APP_ID }}

@@ -23,9 +23,9 @@ jobs:
     uses: ./.github/workflows/release.yml
     secrets: inherit
 
-  call-codeql:
-    name: "CodeQL"
-    needs: call-build
+  call-deploy:
+    name: "Deploy"
+    needs: call-release
     if: ${{ github.ref_protected == true }}
-    uses: ./.github/workflows/codeql.yml
+    uses: ./.github/workflows/deploy.yml
     secrets: inherit
