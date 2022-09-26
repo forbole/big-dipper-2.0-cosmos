@@ -189,14 +189,11 @@ export const common = {
   },
 };
 
-const akashLightTemplate:ThemeOptions = R.mergeDeepLeft(lightThemeOverride, common);
-const akashDarkTemplate:ThemeOptions = R.mergeDeepLeft(darkThemeOverride, common);
-const akashDeuteranopiaTemplate:ThemeOptions = R.mergeDeepLeft(deuteranopiaThemeOverride, common);
-const akashTritanopiaTemplate:ThemeOptions = R.mergeDeepLeft(tritanopiaThemeOverride, common);
+const lightTemplate:ThemeOptions = R.mergeDeepLeft(lightThemeOverride, common);
+const darkTemplate:ThemeOptions = R.mergeDeepLeft(darkThemeOverride, common);
+const deuteranopiaTemplate:ThemeOptions = R.mergeDeepLeft(deuteranopiaThemeOverride, common);
+const tritanopiaTemplate:ThemeOptions = R.mergeDeepLeft(tritanopiaThemeOverride, common);
 
-export {
-  akashLightTemplate,
-  akashDarkTemplate,
-  akashDeuteranopiaTemplate,
-  akashTritanopiaTemplate,
+export const akashThemes = {
+  lightTemplate, darkTemplate, deuteranopiaTemplate, tritanopiaTemplate,
 };

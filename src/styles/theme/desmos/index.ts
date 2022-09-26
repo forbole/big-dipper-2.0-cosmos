@@ -185,14 +185,11 @@ export const common = {
   },
 };
 
-const desmosLightTemplate:ThemeOptions = R.mergeDeepLeft(lightThemeOverride, common);
-const desmosDarkTemplate:ThemeOptions = R.mergeDeepLeft(darkThemeOverride, common);
-const desmosDeuteranopiaTemplate:ThemeOptions = R.mergeDeepLeft(deuteranopiaThemeOverride, common);
-const desmosTritanopiaTemplate:ThemeOptions = R.mergeDeepLeft(tritanopiaThemeOverride, common);
+const lightTemplate:ThemeOptions = R.mergeDeepLeft(lightThemeOverride, common);
+const darkTemplate:ThemeOptions = R.mergeDeepLeft(darkThemeOverride, common);
+const deuteranopiaTemplate:ThemeOptions = R.mergeDeepLeft(deuteranopiaThemeOverride, common);
+const tritanopiaTemplate:ThemeOptions = R.mergeDeepLeft(tritanopiaThemeOverride, common);
 
-export {
-  desmosLightTemplate,
-  desmosDarkTemplate,
-  desmosDeuteranopiaTemplate,
-  desmosTritanopiaTemplate,
+export const desmosThemes = {
+  lightTemplate, darkTemplate, deuteranopiaTemplate, tritanopiaTemplate,
 };

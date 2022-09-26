@@ -189,14 +189,11 @@ export const common = {
   },
 };
 
-const agoricLightTemplate:ThemeOptions = R.mergeDeepLeft(lightThemeOverride, common);
-const agoricDarkTemplate:ThemeOptions = R.mergeDeepLeft(darkThemeOverride, common);
-const agoricDeuteranopiaTemplate:ThemeOptions = R.mergeDeepLeft(deuteranopiaThemeOverride, common);
-const agoricTritanopiaTemplate:ThemeOptions = R.mergeDeepLeft(tritanopiaThemeOverride, common);
+const lightTemplate:ThemeOptions = R.mergeDeepLeft(lightThemeOverride, common);
+const darkTemplate:ThemeOptions = R.mergeDeepLeft(darkThemeOverride, common);
+const deuteranopiaTemplate:ThemeOptions = R.mergeDeepLeft(deuteranopiaThemeOverride, common);
+const tritanopiaTemplate:ThemeOptions = R.mergeDeepLeft(tritanopiaThemeOverride, common);
 
-export {
-  agoricLightTemplate,
-  agoricDarkTemplate,
-  agoricDeuteranopiaTemplate,
-  agoricTritanopiaTemplate,
+export const agoricThemes = {
+  lightTemplate, darkTemplate, deuteranopiaTemplate, tritanopiaTemplate,
 };
