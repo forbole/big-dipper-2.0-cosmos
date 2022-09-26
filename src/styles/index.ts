@@ -1,19 +1,15 @@
-import {
+import { getTemplates } from './utils';
+
+const {
   lightTemplate,
   darkTemplate,
   deuteranopiaTemplate,
   tritanopiaTemplate,
-  // lightTheme,
-  // darkTheme,
-  // deuteranopiaTheme,
-} from './theme';
+} = getTemplates(process.env.CHAIN_NAME);
 
 export {
   lightTemplate,
   darkTemplate,
   deuteranopiaTemplate,
   tritanopiaTemplate,
-  // lightTheme,
-  // darkTheme,
-  // deuteranopiaTheme,
 };
