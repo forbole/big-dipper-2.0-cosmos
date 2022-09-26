@@ -1,10 +1,6 @@
 {
   "title": "Cosmos Block Explorer",
   "network": "cosmoshub-4",
-  "icon": "/images/icon.svg",
-  "logo": {
-    "default": "/images/logo.svg"
-  },
   "prefix": {
     "consensus": "cosmosvalcons",
     "validator": "cosmosvaloper",

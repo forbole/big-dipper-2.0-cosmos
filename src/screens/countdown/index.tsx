@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, { useState } from 'react';
-import * as R from 'ramda';
+import Logo from '@assets/logo';
 import { Typography } from '@material-ui/core';
 import { useInterval } from '@hooks';
 import dayjs from '@utils/dayjs';
@@ -25,7 +25,6 @@ const Countdown: React.FC<{
   });
 
   const genesisTime = dayjs.utc(chainConfig.genesis.time);
-  const logoUrl = R.pathOr(chainConfig.logo.default, ['logo', theme], chainConfig);
 
   const intervalCallback = () => {
     const timeNow = dayjs.utc();
@@ -53,7 +52,7 @@ const Countdown: React.FC<{
 
   return (
     <div className={classes.root}>
-      <img src={logoUrl} className={classes.logo} alt="logo" />
+      <Logo className={classes.logo} />
       <div className={classes.timeContainer}>
         <div className={classes.item}>
           <Typography variant="h1">
