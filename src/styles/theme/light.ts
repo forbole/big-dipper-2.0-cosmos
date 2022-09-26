@@ -1,4 +1,4 @@
-const backgroundDefault = '##F7F7FF';
+const backgroundDefault = '#F7F7FF';
 const surfaceOne = '#FFFFFF';
 const surfaceTwo = '#EFEFEF'; // Figma general 3
 const fontOne = '#000000';
