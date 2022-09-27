@@ -133,23 +133,23 @@ export const common = {
         // highlight: '#56B4E9', // links
       },
       condition: {
-        zero: '#D3D3D3',
-        one: '#67B878',
-        two: '#ED862E',
-        three: '#EB5079',
+        zero: '#E8E8E8',
+        one: '#1EC490',
+        two: '#FF9338',
+        three: '#FF608A',
       },
       tokenomics: {
-        one: '#4AA6B6',
-        two: '#DFA431',
-        three: '#B0515F',
+        one: '#915EFF',
+        two: '#19B0C5',
+        three: '#1EC490',
       },
       charts: {
-        zero: '#D3D3D3',
-        one: '#34B596',
-        two: '#DE6071',
-        three: '#EB9E58',
-        four: '#6A82E4',
-        five: '#906CDE',
+        zero: '#E8E8E8',
+        one: '#5ACF78',
+        two: '#ED6295',
+        three: '#19A1BF',
+        four: '#8453C2',
+        five: '#C2A353',
       },
     },
   },
@@ -189,11 +189,11 @@ export const common = {
   },
 };
 
-const lightTemplate:ThemeOptions = R.mergeDeepLeft(lightThemeOverride, common);
-const darkTemplate:ThemeOptions = R.mergeDeepLeft(darkThemeOverride, common);
-const deuteranopiaTemplate:ThemeOptions = R.mergeDeepLeft(deuteranopiaThemeOverride, common);
-const tritanopiaTemplate:ThemeOptions = R.mergeDeepLeft(tritanopiaThemeOverride, common);
+export const lightTemplate:ThemeOptions = R.mergeDeepLeft(lightThemeOverride, common);
+export const darkTemplate:ThemeOptions = R.mergeDeepLeft(darkThemeOverride, common);
+export const deuteranopiaTemplate:ThemeOptions = R.mergeDeepLeft(deuteranopiaThemeOverride, common);
+export const tritanopiaTemplate:ThemeOptions = R.mergeDeepLeft(tritanopiaThemeOverride, common);
 
-export const agoricThemes = {
+export const themes = {
   lightTemplate, darkTemplate, deuteranopiaTemplate, tritanopiaTemplate,
 };

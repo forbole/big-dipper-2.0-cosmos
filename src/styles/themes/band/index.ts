@@ -130,25 +130,26 @@ export const common = {
       fonts: {
         fontFive: '#FFFFFF',
         highlight: '#1D86FF', // links
+        // highlight: '#56B4E9', // links
       },
       condition: {
         zero: '#E8E8E8',
         one: '#1EC490',
-        two: '#FF961B',
-        three: '#FC6A8A',
+        two: '#FF9338',
+        three: '#FF608A',
       },
       tokenomics: {
-        one: '#1EC490',
-        two: '#497BFF',
-        three: '#9F46EC',
+        one: '#394DFF',
+        two: '#B1943A',
+        three: '#088A93',
       },
       charts: {
         zero: '#E8E8E8',
-        one: '#EB3AA4',
-        two: '#497BFF',
-        three: '#FF961B',
-        four: '#1EC490',
-        five: '#9F46EC',
+        one: '#43BE7C',
+        two: '#3372E0',
+        three: '#D37C3E',
+        four: '#7145E4',
+        five: '#C25396',
       },
     },
   },
@@ -173,6 +174,9 @@ export const common = {
     },
     MuiTabs: {
       root: {
+        // '& .MuiTabs-fixed': {
+        //   overflow: 'auto',
+        // },
         '&.MuiTabs-root, & .MuiTab-root': {
           minHeight: '40px',
         },
@@ -185,11 +189,11 @@ export const common = {
   },
 };
 
-const lightTemplate:ThemeOptions = R.mergeDeepLeft(lightThemeOverride, common);
-const darkTemplate:ThemeOptions = R.mergeDeepLeft(darkThemeOverride, common);
-const deuteranopiaTemplate:ThemeOptions = R.mergeDeepLeft(deuteranopiaThemeOverride, common);
-const tritanopiaTemplate:ThemeOptions = R.mergeDeepLeft(tritanopiaThemeOverride, common);
+export const lightTemplate:ThemeOptions = R.mergeDeepLeft(lightThemeOverride, common);
+export const darkTemplate:ThemeOptions = R.mergeDeepLeft(darkThemeOverride, common);
+export const deuteranopiaTemplate:ThemeOptions = R.mergeDeepLeft(deuteranopiaThemeOverride, common);
+export const tritanopiaTemplate:ThemeOptions = R.mergeDeepLeft(tritanopiaThemeOverride, common);
 
-export const desmosThemes = {
+export const themes = {
   lightTemplate, darkTemplate, deuteranopiaTemplate, tritanopiaTemplate,
 };

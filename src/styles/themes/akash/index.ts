@@ -194,6 +194,6 @@ const darkTemplate:ThemeOptions = R.mergeDeepLeft(darkThemeOverride, common);
 const deuteranopiaTemplate:ThemeOptions = R.mergeDeepLeft(deuteranopiaThemeOverride, common);
 const tritanopiaTemplate:ThemeOptions = R.mergeDeepLeft(tritanopiaThemeOverride, common);
 
-export const akashThemes = {
+export const themes = {
   lightTemplate, darkTemplate, deuteranopiaTemplate, tritanopiaTemplate,
 };
