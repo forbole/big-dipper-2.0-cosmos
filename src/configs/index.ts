@@ -1,6 +1,6 @@
 import { getMainnetChainConfig } from './mainnet_configs';
 import { getTestnetChainConfig } from './testnet_configs';
-import chainConfigDesmosMainnet from './chain_configs/desmos-mainnet.json';
+import baseChainConfig from './chain_configs/base-config.json';
 import generalConfig from './general_config.json';
 
 /**
@@ -18,7 +18,7 @@ const getChainConfig = () => {
     case 'testnet':
       return getTestnetChainConfig(chainName);
     default:
-      return chainConfigDesmosMainnet;
+      return baseChainConfig;
   }
 };
 
