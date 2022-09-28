@@ -2,6 +2,8 @@ import {
   getThemes,
 } from './utils';
 
+import { themes as baseThemes } from './themes/base_theme';
+
 const chainName = process.env.CHAIN_NAME;
 
 const {
@@ -12,4 +14,5 @@ const {
 export {
   themeDictionary,
   themeList,
+  baseThemes,
 };

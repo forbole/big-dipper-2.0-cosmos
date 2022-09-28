@@ -1,7 +1,6 @@
 import { themes as agoricThemes } from './themes/agoric';
 import { themes as assetmantleThemes } from './themes/assetmantle';
 import { themes as bandThemes } from './themes/band';
-import { themes as baseThemes } from './themes/base_theme';
 import { themes as bitsongThemes } from './themes/bitsong';
 import { themes as comdexThemes } from './themes/comdex';
 import { themes as cosmosThemes } from './themes/cosmos';
@@ -12,6 +11,8 @@ import { themes as provenanceThemes } from './themes/provenance';
 import { themes as regenThemes } from './themes/regen';
 import { themes as rizonThemes } from './themes/rizon';
 import { themes as sifchainThemes } from './themes/sifchain';
+
+import { themes as baseThemes } from './themes/base_theme';
 
 const getThemes = (chainName: string) => {
   switch (chainName) {

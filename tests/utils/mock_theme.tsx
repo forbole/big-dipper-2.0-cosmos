@@ -7,7 +7,7 @@ import {
   StylesProvider, StylesOptions,
 } from '@material-ui/styles/';
 
-import { lightTemplate } from '@styles';
+import { baseThemes } from '@styles';
 
 /**
  * Theme mocker to handle custom keys
@@ -20,7 +20,7 @@ const MockTheme = ({ children }: {children: React.ReactNode}) => {
 
   return (
     <StylesProvider generateClassName={generateClassName}>
-      <ThemeProvider theme={createMuiTheme(lightTemplate)}>
+      <ThemeProvider theme={createMuiTheme(baseThemes.themeDictionary.light)}>
         {children}
       </ThemeProvider>
     </StylesProvider>
