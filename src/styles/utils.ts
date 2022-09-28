@@ -5,7 +5,7 @@ import { themes as baseThemes } from './themes/base_theme';
 import { themes as bitsongThemes } from './themes/bitsong';
 import { themes as comdexThemes } from './themes/comdex';
 import { themes as cosmosThemes } from './themes/cosmos';
-import { themes as emoneyThemes } from './themes/emoney';
+import { themes as emoneyThemes } from './themes/eMoney';
 import { themes as likecoinThemes } from './themes/likecoin';
 import { themes as osmosisThemes } from './themes/osmosis';
 import { themes as provenanceThemes } from './themes/provenance';
