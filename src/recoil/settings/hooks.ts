@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import {
   atomState,
+  THEME_LIST,
   THEME_DICTIONARY,
 } from '@recoil/settings';
 import {
@@ -28,6 +29,9 @@ export const useSettingsRecoil = () => {
         }
       } else if (THEME_DICTIONARY[savedTheme]) {
         currentTheme = savedTheme;
+      } else {
+        // Use the first them in the Theme list
+        [currentTheme] = THEME_LIST;
       }
 
       const savedDate = getItem(DATE_KEY, settings.dateFormat);

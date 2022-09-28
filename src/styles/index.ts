@@ -1,15 +1,15 @@
-import { getTemplates } from './utils';
+import {
+  getThemes,
+} from './utils';
+
+const chainName = process.env.CHAIN_NAME;
 
 const {
-  lightTemplate,
-  darkTemplate,
-  deuteranopiaTemplate,
-  tritanopiaTemplate,
-} = getTemplates(process.env.CHAIN_NAME);
+  themeDictionary,
+  themeList,
+} = getThemes(chainName);
 
 export {
-  lightTemplate,
-  darkTemplate,
-  deuteranopiaTemplate,
-  tritanopiaTemplate,
+  themeDictionary,
+  themeList,
 };

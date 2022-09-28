@@ -1,181 +1,94 @@
-import { themes as desmosThemes } from './themes/desmos';
 import { themes as agoricThemes } from './themes/agoric';
-import { themes as akashThemes } from './themes/akash';
 import { themes as assetmantleThemes } from './themes/assetmantle';
 import { themes as bandThemes } from './themes/band';
+import { themes as baseThemes } from './themes/base_theme';
 import { themes as bitsongThemes } from './themes/bitsong';
 import { themes as comdexThemes } from './themes/comdex';
 import { themes as cosmosThemes } from './themes/cosmos';
-import { themes as crescentThemes } from './themes/crescent';
-import { themes as eMoneyThemes } from './themes/eMoney';
-import { themes as evmosThemes } from './themes/evmos';
+import { themes as emoneyThemes } from './themes/emoney';
 import { themes as likecoinThemes } from './themes/likecoin';
-import { themes as nomicThemes } from './themes/nomic';
 import { themes as osmosisThemes } from './themes/osmosis';
-import { themes as persistenceThemes } from './themes/persistence';
 import { themes as provenanceThemes } from './themes/provenance';
 import { themes as regenThemes } from './themes/regen';
 import { themes as rizonThemes } from './themes/rizon';
-import { themes as shentuThemes } from './themes/shentu';
 import { themes as sifchainThemes } from './themes/sifchain';
-import { themes as strideThemes } from './themes/stride';
 
-export const getTemplates = (chainName: string) => {
+const getThemes = (chainName: string) => {
   switch (chainName) {
-    case 'desmos':
-      return {
-        lightTemplate: desmosThemes.lightTemplate,
-        darkTemplate: desmosThemes.darkTemplate,
-        deuteranopiaTemplate: desmosThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: desmosThemes.tritanopiaTemplate,
-      };
     case 'agoric':
       return {
-        lightTemplate: agoricThemes.lightTemplate,
-        darkTemplate: agoricThemes.darkTemplate,
-        deuteranopiaTemplate: agoricThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: agoricThemes.tritanopiaTemplate,
-      };
-    case 'akash':
-      return {
-        lightTemplate: akashThemes.lightTemplate,
-        darkTemplate: akashThemes.darkTemplate,
-        deuteranopiaTemplate: akashThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: akashThemes.tritanopiaTemplate,
+        themeDictionary: agoricThemes.themeDictionary,
+        themeList: agoricThemes.themeList,
       };
     case 'assetmantle':
       return {
-        lightTemplate: assetmantleThemes.lightTemplate,
-        darkTemplate: assetmantleThemes.darkTemplate,
-        deuteranopiaTemplate: assetmantleThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: assetmantleThemes.tritanopiaTemplate,
+        themeDictionary: assetmantleThemes.themeDictionary,
+        themeList: assetmantleThemes.themeList,
       };
     case 'band':
       return {
-        lightTemplate: bandThemes.lightTemplate,
-        darkTemplate: bandThemes.darkTemplate,
-        deuteranopiaTemplate: bandThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: bandThemes.tritanopiaTemplate,
+        themeDictionary: bandThemes.themeDictionary,
+        themeList: bandThemes.themeList,
       };
     case 'bitsong':
       return {
-        lightTemplate: bitsongThemes.lightTemplate,
-        darkTemplate: bitsongThemes.darkTemplate,
-        deuteranopiaTemplate: bitsongThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: bitsongThemes.tritanopiaTemplate,
+        themeDictionary: bitsongThemes.themeDictionary,
+        themeList: bitsongThemes.themeList,
       };
     case 'comdex':
       return {
-        lightTemplate: comdexThemes.lightTemplate,
-        darkTemplate: comdexThemes.darkTemplate,
-        deuteranopiaTemplate: comdexThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: comdexThemes.tritanopiaTemplate,
+        themeDictionary: comdexThemes.themeDictionary,
+        themeList: comdexThemes.themeList,
       };
     case 'cosmos':
       return {
-        lightTemplate: cosmosThemes.lightTemplate,
-        darkTemplate: cosmosThemes.darkTemplate,
-        deuteranopiaTemplate: cosmosThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: cosmosThemes.tritanopiaTemplate,
+        themeDictionary: cosmosThemes.themeDictionary,
+        themeList: cosmosThemes.themeList,
       };
-    case 'crescent':
+    case 'emoney':
       return {
-        lightTemplate: crescentThemes.lightTemplate,
-        darkTemplate: crescentThemes.darkTemplate,
-        deuteranopiaTemplate: crescentThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: crescentThemes.tritanopiaTemplate,
-      };
-    case 'eMoney':
-      return {
-        lightTemplate: eMoneyThemes.lightTemplate,
-        darkTemplate: eMoneyThemes.darkTemplate,
-        deuteranopiaTemplate: eMoneyThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: eMoneyThemes.tritanopiaTemplate,
-      };
-    case 'evmos':
-      return {
-        lightTemplate: evmosThemes.lightTemplate,
-        darkTemplate: evmosThemes.darkTemplate,
-        deuteranopiaTemplate: evmosThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: evmosThemes.tritanopiaTemplate,
+        themeDictionary: emoneyThemes.themeDictionary,
+        themeList: emoneyThemes.themeList,
       };
     case 'likecoin':
       return {
-        lightTemplate: likecoinThemes.lightTemplate,
-        darkTemplate: likecoinThemes.darkTemplate,
-        deuteranopiaTemplate: likecoinThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: likecoinThemes.tritanopiaTemplate,
-      };
-    case 'nomic':
-      return {
-        lightTemplate: nomicThemes.lightTemplate,
-        darkTemplate: nomicThemes.darkTemplate,
-        deuteranopiaTemplate: nomicThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: nomicThemes.tritanopiaTemplate,
+        themeDictionary: likecoinThemes.themeDictionary,
+        themeList: likecoinThemes.themeList,
       };
     case 'osmosis':
       return {
-        lightTemplate: osmosisThemes.lightTemplate,
-        darkTemplate: osmosisThemes.darkTemplate,
-        deuteranopiaTemplate: osmosisThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: osmosisThemes.tritanopiaTemplate,
-      };
-    case 'persistence':
-      return {
-        lightTemplate: persistenceThemes.lightTemplate,
-        darkTemplate: persistenceThemes.darkTemplate,
-        deuteranopiaTemplate: persistenceThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: persistenceThemes.tritanopiaTemplate,
+        themeDictionary: osmosisThemes.themeDictionary,
+        themeList: osmosisThemes.themeList,
       };
     case 'provenance':
       return {
-        lightTemplate: provenanceThemes.lightTemplate,
-        darkTemplate: provenanceThemes.darkTemplate,
-        deuteranopiaTemplate: provenanceThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: provenanceThemes.tritanopiaTemplate,
+        themeDictionary: provenanceThemes.themeDictionary,
+        themeList: provenanceThemes.themeList,
       };
     case 'regen':
       return {
-        lightTemplate: regenThemes.lightTemplate,
-        darkTemplate: regenThemes.darkTemplate,
-        deuteranopiaTemplate: regenThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: regenThemes.tritanopiaTemplate,
+        themeDictionary: regenThemes.themeDictionary,
+        themeList: regenThemes.themeList,
       };
     case 'rizon':
       return {
-        lightTemplate: rizonThemes.lightTemplate,
-        darkTemplate: rizonThemes.darkTemplate,
-        deuteranopiaTemplate: rizonThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: rizonThemes.tritanopiaTemplate,
-      };
-    case 'shentu':
-      return {
-        lightTemplate: shentuThemes.lightTemplate,
-        darkTemplate: shentuThemes.darkTemplate,
-        deuteranopiaTemplate: shentuThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: shentuThemes.tritanopiaTemplate,
+        themeDictionary: rizonThemes.themeDictionary,
+        themeList: rizonThemes.themeList,
       };
     case 'sifchain':
       return {
-        lightTemplate: sifchainThemes.lightTemplate,
-        darkTemplate: sifchainThemes.darkTemplate,
-        deuteranopiaTemplate: sifchainThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: sifchainThemes.tritanopiaTemplate,
-      };
-    case 'stride':
-      return {
-        lightTemplate: strideThemes.lightTemplate,
-        darkTemplate: strideThemes.darkTemplate,
-        deuteranopiaTemplate: strideThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: strideThemes.tritanopiaTemplate,
+        themeDictionary: sifchainThemes.themeDictionary,
+        themeList: sifchainThemes.themeList,
       };
 
     default:
       return {
-        lightTemplate: desmosThemes.lightTemplate,
-        darkTemplate: desmosThemes.darkTemplate,
-        deuteranopiaTemplate: desmosThemes.deuteranopiaTemplate,
-        tritanopiaTemplate: desmosThemes.tritanopiaTemplate,
+        themeDictionary: baseThemes.themeDictionary,
+        themeList: baseThemes.themeList,
       };
   }
+};
+
+export {
+  getThemes,
 };

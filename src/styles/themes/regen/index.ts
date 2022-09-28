@@ -1,7 +1,7 @@
 import * as R from 'ramda';
+import { Theme } from 'src/recoil/settings/types';
 import { ThemeOptions } from '@material-ui/core/styles';
 
-import { darkThemeOverride } from './dark';
 import { lightThemeOverride } from './light';
 import { deuteranopiaThemeOverride } from './deuteranopia';
 import { tritanopiaThemeOverride } from './tritanopia';
@@ -189,11 +189,22 @@ export const common = {
   },
 };
 
-export const lightTemplate:ThemeOptions = R.mergeDeepLeft(lightThemeOverride, common);
-export const darkTemplate:ThemeOptions = R.mergeDeepLeft(darkThemeOverride, common);
-export const deuteranopiaTemplate:ThemeOptions = R.mergeDeepLeft(deuteranopiaThemeOverride, common);
-export const tritanopiaTemplate:ThemeOptions = R.mergeDeepLeft(tritanopiaThemeOverride, common);
+const lightTemplate:ThemeOptions = R.mergeDeepLeft(lightThemeOverride, common);
+const deuteranopiaTemplate:ThemeOptions = R.mergeDeepLeft(deuteranopiaThemeOverride, common);
+const tritanopiaTemplate:ThemeOptions = R.mergeDeepLeft(tritanopiaThemeOverride, common);
+
+const themeDictionary = {
+  light: lightTemplate,
+  deuteranopia: deuteranopiaTemplate,
+  tritanopia: tritanopiaTemplate,
+};
+
+const themeList: Theme[] = [
+  'light',
+  'deuteranopia',
+  'tritanopia',
+];
 
 export const themes = {
-  lightTemplate, darkTemplate, deuteranopiaTemplate, tritanopiaTemplate,
+  themeDictionary, themeList,
 };
