@@ -86,7 +86,7 @@ const Memory:React.FC<{
             data={data}
             startAngle={180}
             endAngle={0}
-            // innerRadius={79}
+            innerRadius={80}
             outerRadius={90}
             fill="#8884d8"
             // paddingAngle={-10}
