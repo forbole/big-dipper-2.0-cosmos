@@ -93,6 +93,7 @@
     "react/no-array-index-key": "off",
     "jsx-a11y/anchor-is-valid": "off",
     "react/require-default-props": "warn",
+    "react/no-unused-prop-types": "warn",
     "react/jsx-first-prop-new-line": [
       "error",
       "multiline"

@@ -18,8 +18,8 @@ import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { columns } from './utils';
 
 const Desktop: React.FC<{
-  className?: string;
-  items?: ProfileConnectionType[];
+  className: string;
+  items: ProfileConnectionType[];
 }> = ({
   className,
   items,
@@ -83,7 +83,6 @@ const Desktop: React.FC<{
         </TableBody>
       </Table>
     </div>
-
   );
 };
 

@@ -24,6 +24,11 @@ import { formatBalanceData } from './utils';
 
 const Balance: React.FC<{
   className?: string;
+  available: TokenUnit;
+  delegate: TokenUnit;
+  unbonding: TokenUnit;
+  reward: TokenUnit;
+  commission?: TokenUnit;
   total: TokenUnit;
 }> = (props) => {
   const { t } = useTranslation('accounts');

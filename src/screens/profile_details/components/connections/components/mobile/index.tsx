@@ -15,7 +15,7 @@ import { useStyles } from './styles';
 
 const Mobile: React.FC<{
   className?: string;
-  items?: ProfileConnectionType[];
+  items: ProfileConnectionType[];
 }> = ({
   className, items,
 }) => {

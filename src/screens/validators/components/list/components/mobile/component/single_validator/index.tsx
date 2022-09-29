@@ -8,6 +8,7 @@ import { useStyles } from './styles';
 
 const SingleValidator: React.FC<{
   className?: string;
+  idx: string;
   validator: React.ReactNode;
   commission: string;
   votingPower: React.ReactNode;
