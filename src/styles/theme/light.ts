@@ -1,56 +1,77 @@
-const backgroundDefault = '#F8F8F8';
-const surfaceOne = '#FFFFFF';
-const surfaceTwo = '#F8F8F8';
-const fontOne = '#000000';
-const fontTwo = '#414141';
-const fontThree = '#777777';
+import chainConfig from '../../configs/chain_configs/agoric-mainnet.json';
+
+const {
+  background, primary, divider, text, fonts,
+  primaryData, results, tokenomics, condition, charts,
+} = chainConfig.style.themes.light;
 
 /** Custom theme overrides for light mode */
 export const lightThemeOverride = {
   mixins: {
     tableCell: {
-      background: surfaceOne, // surface one
+      background: background.surfaceOne, // surface one
       '&.odd': {
-        background: surfaceTwo, // surface two
+        background: background.surfaceTwo, // surface two
       },
     },
   },
   palette: {
     type: 'light',
     primary: {
-      main: '#FD3B4C',
-      contrastText: '#fff',
+      main: primary.main,
+      contrastText: primary.contrastText,
     },
     background: {
-      default: backgroundDefault,
-      paper: surfaceOne,
+      default: background.default,
+      paper: background.surfaceOne,
     },
-    divider: '#E8E8E8',
+    divider,
     text: {
-      primary: '#000000',
-      secondary: '#414141',
+      primary: text.primary,
+      secondary: text.secondary,
     },
     custom: {
       general: {
-        background: backgroundDefault, // same as background default
-        surfaceOne, // same as background paper
-        surfaceTwo, // striped tables
+        background: background.default, // same as background default
+        surfaceOne: background.surfaceOne, // same as background paper
+        surfaceTwo: background.surfaceTwo, // striped tables
       },
       fonts: {
-        fontOne,
-        fontTwo,
-        fontThree,
-        fontFour: '#999999',
+        fontOne: fonts.fontOne,
+        fontTwo: fonts.fontTwo,
+        fontThree: fonts.fontThree,
+        fontFour: fonts.fontFour,
+        fontFive: fonts.fontFive,
+        highlight: fonts.highlight,
       },
       primaryData: {
-        one: '#FA3A39',
-        two: '#FD5E1F',
-        three: '#FD5D4E',
-        four: '#FD9526',
+        one: primaryData.one,
+        two: primaryData.two,
+        three: primaryData.three,
+        four: primaryData.four,
       },
       results: {
-        pass: '#1EC490',
-        fail: '#FD3B4C',
+        pass: results.pass,
+        fail: results.fail,
+      },
+      tokenomics: {
+        one: tokenomics.one,
+        two: tokenomics.two,
+        three: tokenomics.three,
+      },
+      condition: {
+        zero: condition.zero,
+        one: condition.one,
+        two: condition.two,
+        three: condition.three,
+      },
+      charts: {
+        zero: charts.zero,
+        one: charts.one,
+        two: charts.two,
+        three: charts.three,
+        four: charts.four,
+        five: charts.five,
       },
     },
   },
@@ -59,24 +80,24 @@ export const lightThemeOverride = {
       root: {
         '& .MuiTableRow-root': {
           '&:nth-child(odd)': {
-            backgroundColor: surfaceTwo, // surface two
+            backgroundColor: background.surfaceTwo, // surface two
           },
         },
         '& .MuiTableCell-root': {
-          color: fontTwo, // font two
+          color: fonts.fontTwo, // font two
         },
       },
     },
     MuiTabs: {
       root: {
         '& .MuiTab-textColorInherit': {
-          color: fontThree, // font three
+          color: fonts.fontThree, // font three
         },
         '& .MuiTab-textColorInherit.Mui-selected': {
-          color: fontOne, // font one
+          color: fonts.fontOne, // font one
         },
         '& .MuiTabs-indicator': {
-          backgroundColor: fontOne, // font one (?)
+          backgroundColor: fonts.fontOne, // font one (?)
         },
       },
     },

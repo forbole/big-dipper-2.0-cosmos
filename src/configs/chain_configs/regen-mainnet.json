@@ -1,9 +1,9 @@
 {
   "title": "Regen Block Explorer",
   "network": "regen-1",
-  "icon": "/regen/images/icon.png",
+  "icon": "/regen/images/regen/icon.png",
   "logo": {
-    "default": "/regen/images/logo.png"
+    "default": "/regen/images/regen/logo.png"
   },
   "prefix": {
     "consensus": "regenvalcons",
@@ -41,5 +41,63 @@
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"15"
+  },
+  "style": {
+    "themes": {
+      "light": {
+        "background": {
+          "default": "#F8F8F8",
+          "paper": "#FFFFFF",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#F8F8F8"
+        },
+        "primary": {
+          "main": "#53B476",
+          "contrastText": "#fff"
+        },
+        "divider": "#E8E8E8",
+        "text": {
+          "primary": "#000000",
+          "secondary": "#414141"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#197CD8"
+        },
+        "primaryData": {
+          "one": "#53B577",
+          "two": "#1DAFB8",
+          "three": "#3BB39F",
+          "four": "#DFA431"
+        },
+        "results": {
+          "pass": "#53B577",
+          "fail": "#EF5562"
+        },
+        "tokenomics": {
+          "one": "#53B577",
+          "two": "#F2B235",
+          "three": "#ED7D5A"
+        },
+        "condition": {
+          "zero": "#D3D3D3",
+          "one": "#67B878",
+          "two": "#ED862E",
+          "three": "#EB5079"
+        },
+        "charts": {
+          "zero": "#D3D3D3",
+          "one": "#30A6E9",
+          "two": "#53B476",
+          "three": "#EB9E58",
+          "four": "#ED7D5A",
+          "five": "#906CDE"
+        }
+      }
+    }
   }
 }

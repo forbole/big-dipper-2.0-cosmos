@@ -1,9 +1,9 @@
 {
   "title": "Agoric Block Explorer",
   "network": "agoric-3",
-  "icon": "/agoric/images/icon.png",
+  "icon": "/agoric/images/agoric/icon.png",
   "logo": {
-    "default": "/agoric/images/logo.png"
+    "default": "/agoric/images/agoric/logo.png"
   },
   "prefix": {
     "consensus": "agoricvalcons",
@@ -41,5 +41,63 @@
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"17"
+  },
+  "style": {
+    "themes": {
+      "light": {
+        "background": {
+          "default": "#F8F8F8",
+          "paper": "#FFFFFF",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#F8F8F8"
+        },
+        "primary": {
+          "main": "#BB2D40",
+          "contrastText": "#fff"
+        },
+        "divider": "#E8E8E8",
+        "text": {
+          "primary": "#000000",
+          "secondary": "#414141"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#197CD8"
+        },
+        "primaryData": {
+          "one": "#C64155",
+          "two": "#4AA6B6",
+          "three": "#419B8C",
+          "four": "#DFA431"
+        },
+        "results": {
+          "pass": "#34B596",
+          "fail": "#EF5562"
+        },
+        "tokenomics": {
+          "one": "#4AA6B6",
+          "two": "#DFA431",
+          "three": "#B0515F"
+        },
+        "condition": {
+          "zero": "#D3D3D3",
+          "one": "#34B596",
+          "two": "#DE6071",
+          "three": "#EB9E58"
+        },
+        "charts": {
+          "zero": "#D3D3D3",
+          "one": "#34B596",
+          "two": "#DE6071",
+          "three": "#EB9E58",
+          "four": "#6A82E4",
+          "five": "#906CDE"
+        }
+      }
+    }
   }
 }
