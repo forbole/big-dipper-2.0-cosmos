@@ -1,12 +1,9 @@
 import {
   lightTemplate,
-  // darkTemplate,
-  // deuteranopiaTemplate,
-  // tritanopiaTemplate,
   ThemeDictionary,
 } from '@styles';
 import {
-  themeList,
+  chainConfig,
 } from '@configs';
 import {
   Theme,
@@ -16,7 +13,7 @@ import {
 // CONSTANTS
 // ================================
 
-export const THEME_LIST: Theme[] = themeList;
+export const THEME_LIST: Theme[] = chainConfig.style.themes.themeList as Theme[];
 
 export const THEME_DICTIONARY = ThemeDictionary;
 
