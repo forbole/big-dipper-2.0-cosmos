@@ -40,6 +40,8 @@
     },
     "style": {
       "themes": {
+        "default": "light",
+        "themeList": ["light", "deuteranopia", "tritanopia"],
         "light": {
           "background": {
             "default": "#F8F8F8",

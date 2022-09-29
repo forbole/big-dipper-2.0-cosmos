@@ -112,6 +112,8 @@
   },
   "style": {
     "themes": {
+      "default": "dark",
+      "themeList": ["dark", "deuteranopia", "tritanopia"],
       "dark": {
         "background": {
           "default": "#0E0826",

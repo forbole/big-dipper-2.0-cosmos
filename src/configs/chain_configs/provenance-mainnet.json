@@ -44,6 +44,8 @@
   },
   "style": {
     "themes": {
+      "default": "dark",
+      "themeList": ["dark", "deuteranopia", "tritanopia"],
       "dark": {
         "background": {
           "default": "#000000",
