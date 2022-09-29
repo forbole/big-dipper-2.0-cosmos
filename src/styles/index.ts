@@ -3,9 +3,6 @@ import {
   darkTemplate,
   deuteranopiaTemplate,
   tritanopiaTemplate,
-  // lightTheme,
-  // darkTheme,
-  // deuteranopiaTheme,
 } from './theme';
 
 export {
@@ -13,7 +10,4 @@ export {
   darkTemplate,
   deuteranopiaTemplate,
   tritanopiaTemplate,
-  // lightTheme,
-  // darkTheme,
-  // deuteranopiaTheme,
 };
