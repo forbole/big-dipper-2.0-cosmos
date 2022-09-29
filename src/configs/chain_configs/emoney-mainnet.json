@@ -1,9 +1,9 @@
 {
   "title": "e-Money Block Explorer",
   "network": "emoney-3",
-  "icon": "/emoney/images/icon.png",
+  "icon": "/emoney/images/emoney/icon.png",
   "logo": {
-    "default": "/emoney/images/logo.svg"
+    "default": "/emoney/images/emoney/logo.svg"
   },
   "prefix": {
     "consensus": "emoneyvalcons",
@@ -62,6 +62,60 @@
     "themes": {
       "default": "dark",
       "themeList": ["dark", "deuteranopia", "tritanopia"],
+      "light": {
+        "background": {
+          "default": "#",
+          "paper": "#",
+          "surfaceOne": "#",
+          "surfaceTwo": "#"
+        },
+        "primary": {
+          "main": "#",
+          "contrastText": "#"
+        },
+        "divider": "#",
+        "text": {
+          "primary": "#",
+          "secondary": "#"
+        },
+        "fonts": {
+          "fontOne": "#",
+          "fontTwo": "#",
+          "fontThree": "#",
+          "fontFour": "#",
+          "fontFive": "#",
+          "highlight": "#"
+        },
+        "primaryData": {
+          "one": "#",
+          "two": "#",
+          "three": "#",
+          "four": "#"
+        },
+        "results": {
+          "pass": "#",
+          "fail": "#"
+        },
+        "tokenomics": {
+          "one": "#",
+          "two": "#",
+          "three": "#"
+        },
+        "condition": {
+          "zero": "#",
+          "one": "#",
+          "two": "#",
+          "three": "#"
+        },
+        "charts": {
+          "zero": "#",
+          "one": "#",
+          "two": "#",
+          "three": "#",
+          "four": "#",
+          "five": "#"
+        }
+      },
       "dark": {
         "background": {
           "default": "#13141D",

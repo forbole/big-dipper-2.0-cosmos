@@ -1,9 +1,13 @@
 import {
   lightTemplate,
-  darkTemplate,
-  deuteranopiaTemplate,
-  tritanopiaTemplate,
+  // darkTemplate,
+  // deuteranopiaTemplate,
+  // tritanopiaTemplate,
+  ThemeDictionary,
 } from '@styles';
+import {
+  themeList,
+} from '@configs';
 import {
   Theme,
 } from './types';
@@ -12,19 +16,9 @@ import {
 // CONSTANTS
 // ================================
 
-export const THEME_LIST: Theme[] = [
-  'light',
-  'dark',
-  'deuteranopia',
-  'tritanopia',
-];
+export const THEME_LIST: Theme[] = themeList;
 
-export const THEME_DICTIONARY = {
-  light: lightTemplate,
-  dark: darkTemplate,
-  deuteranopia: deuteranopiaTemplate,
-  tritanopia: tritanopiaTemplate,
-};
+export const THEME_DICTIONARY = ThemeDictionary;
 
 export const getThemeTemplate = (theme: Theme) => {
   if (THEME_DICTIONARY[theme]) {

@@ -1,3 +1,4 @@
+import { Theme } from '@recoil/settings/types';
 import { getMainnetChainConfig } from './mainnet_configs';
 import { getTestnetChainConfig } from './testnet_configs';
 import baseChainConfig from './chain_configs/base-config.json';
@@ -23,8 +24,10 @@ const getChainConfig = () => {
 };
 
 const chainConfig = getChainConfig();
+const themeList = chainConfig.style.themes.themeList as Theme[];
 
 export {
   chainConfig,
   generalConfig,
+  themeList,
 };

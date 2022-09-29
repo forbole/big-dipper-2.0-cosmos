@@ -1,4 +1,4 @@
-import chainConfig from '../../configs/chain_configs/agoric-mainnet.json';
+import { chainConfig } from '@configs';
 
 const {
   background, primary, divider, text, fonts,
