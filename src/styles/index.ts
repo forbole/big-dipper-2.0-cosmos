@@ -36,12 +36,9 @@ const getThemeDictionary = (list: string[]) :ThemeDictionaryType => {
   return themeDict;
 };
 
-const ThemeDictionary = getThemeDictionary(chainConfig.style.themes.themeList);
+const themeDictionary = getThemeDictionary(chainConfig.style.themes.themeList);
 
 export {
   lightTemplate,
-  darkTemplate,
-  deuteranopiaTemplate,
-  tritanopiaTemplate,
-  ThemeDictionary,
+  themeDictionary,
 };

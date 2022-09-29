@@ -1,6 +1,6 @@
 import {
   lightTemplate,
-  ThemeDictionary,
+  themeDictionary,
 } from '@styles';
 import {
   chainConfig,
@@ -15,7 +15,7 @@ import {
 
 export const THEME_LIST: Theme[] = chainConfig.style.themes.themeList as Theme[];
 
-export const THEME_DICTIONARY = ThemeDictionary;
+export const THEME_DICTIONARY = themeDictionary;
 
 export const getThemeTemplate = (theme: Theme) => {
   if (THEME_DICTIONARY[theme]) {
