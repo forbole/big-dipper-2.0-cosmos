@@ -1,7 +1,7 @@
 # Unreleased
 
 ## Changes
-- 
+- Switched from using `npm` to `yarn` package manager ([\#1012](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1012))
 
 # base-v2.1.2 - 2022-09-11
 
