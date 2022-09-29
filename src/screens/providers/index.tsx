@@ -49,12 +49,12 @@ const Providers = () => {
           className={classes.storage}
           storage={state.storage}
         />
-        <ProvidersList
+        {/* <ProvidersList
           handleChangePage={loadNextPage}
           handleChangeRowsPerPage={setItemsPerPage}
           className={classes.providersList}
           list={state.providers}
-        />
+        /> */}
       </Layout>
     </>
   );

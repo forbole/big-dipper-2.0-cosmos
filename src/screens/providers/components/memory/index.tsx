@@ -130,12 +130,18 @@ const Memory:React.FC<{
             data.map((x) => {
               return (
                 <div className="legends__item" key={x.legendKey}>
-                  <Typography variant="caption">
+                  <Typography variant="caption" className="usage">
                     {t(x.legendKey)}
                     {' '}
+                  </Typography>
+                  <Typography variant="caption" className="tb">
+                    (
                     {x.value}
                     {' '}
                     Bytes
+                    )
+                  </Typography>
+                  <Typography variant="caption" className="percent">
                     {' '}
                     {x.percent}
                   </Typography>

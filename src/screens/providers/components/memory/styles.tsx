@@ -58,6 +58,15 @@ export const useStyles = () => {
             '& .caption__percent': {
               color: theme.palette.custom.fonts.fontThree,
             },
+            '& .usage': {
+              color: 'white',
+            },
+            '& .tb': {
+              color: theme.palette.custom.fonts.fontThree,
+            },
+            '& .percent': {
+              color: 'white',
+            },
           },
         },
         content: {
