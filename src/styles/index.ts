@@ -15,22 +15,14 @@ type ThemeDictionaryType = {
   tritanopia?: ThemeOptions;
 };
 
+// getThemeDictionary allows to return a theme dictionary according to the config theme list
 const getThemeDictionary = (list: string[]) :ThemeDictionaryType => {
   const themeDict: ThemeDictionaryType = {};
-
   for (let i = 0; i < list.length; i += 1) {
-    if (list[i] === 'light') {
-      themeDict.light = lightTemplate;
-    }
-    if (list[i] === 'dark') {
-      themeDict.dark = darkTemplate;
-    }
-    if (list[i] === 'deuteranopia') {
-      themeDict.deuteranopia = deuteranopiaTemplate;
-    }
-    if (list[i] === 'tritanopia') {
-      themeDict.tritanopia = tritanopiaTemplate;
-    }
+    if (list[i] === 'light') themeDict.light = lightTemplate;
+    if (list[i] === 'dark') themeDict.dark = darkTemplate;
+    if (list[i] === 'deuteranopia') themeDict.deuteranopia = deuteranopiaTemplate;
+    if (list[i] === 'tritanopia') themeDict.tritanopia = tritanopiaTemplate;
   }
 
   return themeDict;
