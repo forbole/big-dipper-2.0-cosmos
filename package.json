@@ -4,7 +4,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "dev": "nodemon",
-    "build": "npm run build:next && npm run build:server",
+    "build": "yarn build:next && yarn build:server",
     "build:server": "tsc --project tsconfig.server.json",
     "build:next": "next build",
     "start": "NODE_ENV=production node dist/index.js",
