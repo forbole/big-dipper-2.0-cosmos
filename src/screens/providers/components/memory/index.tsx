@@ -31,13 +31,17 @@ const Memory:React.FC<{
   } = useStyles();
   const { state } = useTokenomics();
 
+  const convertBytesToTB = (bytes: number) => {
+    return bytes / (10 ** 12);
+  };
+
   const total = memory.available + memory.used;
 
   const data = [
     {
       legendKey: 'used',
       percentKey: 'usedPercent',
-      value: numeral(memory.used).format('0,0'),
+      value: numeral(convertBytesToTB(memory.used)).format('0,0'),
       rawValue: memory.used,
       percent: `${numeral((memory.used * 100) / total).format('0.00')}%`,
       // percent: `${100 - (numeral((memory.available * 100) / total).format('0.00'))}%`,
@@ -46,7 +50,7 @@ const Memory:React.FC<{
     {
       legendKey: 'available',
       percentKey: 'availablePercent',
-      value: numeral(memory.available).format('0,0'),
+      value: numeral(convertBytesToTB(memory.available)).format('0,0'),
       rawValue: memory.available,
       percent: `${numeral((memory.available * 100) / total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.two,
@@ -131,9 +135,10 @@ const Memory:React.FC<{
                   </Typography>
                   <Typography variant="caption" className="tb">
                     (
+                    {' '}
                     {x.value}
                     {' '}
-                    Bytes
+                    TB
                     )
                   </Typography>
                   <Typography variant="caption" className="percent">
