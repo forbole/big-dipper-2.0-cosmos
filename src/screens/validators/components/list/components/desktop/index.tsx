@@ -22,13 +22,13 @@ import {
   VotingPowerExplanation,
 } from '..';
 
-const Desktop: React.FC<{
-  className?: string;
+function Desktop(props: {
+ className?: string;
   sortDirection: 'desc' | 'asc';
   sortKey: string;
   handleSort: (key: string) => void;
   items: ItemType[];
-}> = (props) => {
+}) {
   const { t } = useTranslation('validators');
   const classes = useStyles();
   const columns = fetchColumns(t);
@@ -204,6 +204,6 @@ const Desktop: React.FC<{
     </div>
 
   );
-};
+}
 
 export default Desktop;

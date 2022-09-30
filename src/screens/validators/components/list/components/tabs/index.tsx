@@ -10,17 +10,15 @@ import { Search } from '@components';
 import { tabLabels } from './utils';
 import { useStyles } from './styles';
 
-const TabsHeader: React.FC<{
+function TabsHeader(props: {
   className?: string;
   tab: number;
   handleTabChange: (event:any, newvalue:number) => void;
   handleSearch: (value: string) => void;
-}> = ({
-  className,
-  tab,
-  handleTabChange,
-  handleSearch,
-}) => {
+}) {
+  const {
+    className, tab, handleTabChange, handleSearch,
+  } = props;
   const classes = useStyles();
   const { t } = useTranslation('validators');
 
@@ -47,6 +45,6 @@ const TabsHeader: React.FC<{
       />
     </div>
   );
-};
+}
 
 export default TabsHeader;

@@ -9,7 +9,7 @@ import {
 import { a11yProps } from '@utils/allyProps';
 import { useStyles } from './styles';
 
-const TabsHeader: React.FC<{
+function TabsHeader(props: {
   className?: string;
   tab: number;
   handleTabChange: (_event: any, newValue: number) => void;
@@ -19,12 +19,11 @@ const TabsHeader: React.FC<{
     count: number;
     component?: React.ReactNode;
   }[]
-}> = ({
-  className,
-  tab,
-  handleTabChange,
-  tabs,
-}) => {
+}) {
+  const {
+    className, tab, handleTabChange, tabs,
+  } = props;
+
   const classes = useStyles();
   const { t } = useTranslation('accounts');
 
@@ -48,6 +47,6 @@ const TabsHeader: React.FC<{
       </Tabs>
     </div>
   );
-};
+}
 
 export default TabsHeader;

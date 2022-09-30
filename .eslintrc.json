@@ -94,6 +94,10 @@
     "jsx-a11y/anchor-is-valid": "off",
     "react/require-default-props": "warn",
     "react/no-unused-prop-types": "warn",
+    "react/function-component-definition": "warn",
+    "react/jsx-no-useless-fragment": "warn",
+    "react/no-unstable-nested-components": "warn",
+    "no-unsafe-optional-chaining": "warn",
     "react/jsx-first-prop-new-line": [
       "error",
       "multiline"

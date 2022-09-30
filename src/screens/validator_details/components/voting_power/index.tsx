@@ -11,15 +11,14 @@ import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
 import { VotingPowerType } from '../../types';
 
-const VotingPower: React.FC<{
+function VotingPower(props: {
   className?: string;
   data: VotingPowerType;
   status: number;
-}> = ({
-  className,
-  data,
-  status,
-}) => {
+}) {
+  const {
+    className, data, status,
+  } = props;
   const { t } = useTranslation('validators');
   const votingPowerPercent = status === 3 ? numeral((
     data.self / numeral(data.overall.value).value()) * 100) : numeral(0);
@@ -76,6 +75,6 @@ const VotingPower: React.FC<{
       </div>
     </Box>
   );
-};
+}
 
 export default VotingPower;

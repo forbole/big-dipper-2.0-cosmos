@@ -17,12 +17,13 @@ import {
 } from '..';
 import { ItemType } from '../../types';
 
-const Mobile: React.FC<{
+function Mobile(props: {
   className?: string;
   items: ItemType[];
-}> = ({
-  className, items,
-}) => {
+  }) {
+  const {
+    className, items,
+  } = props;
   const {
     listRef,
     getRowHeight,
@@ -94,6 +95,6 @@ const Mobile: React.FC<{
       </AutoSizer>
     </div>
   );
-};
+}
 
 export default Mobile;

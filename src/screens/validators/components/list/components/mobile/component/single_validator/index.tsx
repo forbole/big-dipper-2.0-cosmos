@@ -6,8 +6,8 @@ import {
 } from '@material-ui/core';
 import { useStyles } from './styles';
 
-const SingleValidator: React.FC<{
-  className?: string;
+function SingleValidator(props: {
+   className?: string;
   idx: string;
   validator: React.ReactNode;
   commission: string;
@@ -16,13 +16,11 @@ const SingleValidator: React.FC<{
     status: string;
     theme: string;
   };
-}> = ({
-  className,
-  validator,
-  commission,
-  votingPower,
-  status,
-}) => {
+}) {
+  const {
+    className, validator, commission, votingPower, status,
+  } = props;
+
   const { t } = useTranslation('validators');
   const classes = useStyles();
   return (
@@ -60,6 +58,6 @@ const SingleValidator: React.FC<{
     </div>
 
   );
-};
+}
 
 export default SingleValidator;

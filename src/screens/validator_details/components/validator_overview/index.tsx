@@ -25,130 +25,131 @@ import {
 } from '../../types';
 import { useAddress } from './hooks';
 
-const ValidatorOverview: React.FC<{
-  status: StatusType, overview: OverviewType } & ComponentDefault> = ({
-    status,
-    overview,
-    className,
-  }) => {
-    const { isDesktop } = useScreenSize();
-    const classes = useStyles();
-    const { t } = useTranslation('validators');
-    const { handleCopyToClipboard } = useAddress(t);
+function ValidatorOverview(props: {
+  status: StatusType,
+  overview: OverviewType
+  className: string
+}) {
+  const {
+    className, overview, status,
+  } = props;
+  const { isDesktop } = useScreenSize();
+  const classes = useStyles();
+  const { t } = useTranslation('validators');
+  const { handleCopyToClipboard } = useAddress(t);
 
-    const statusTheme = getValidatorStatus(status.status, status.jailed, status.tombstoned);
-    const condition = getCondition(status.condition, status.status);
+  const statusTheme = getValidatorStatus(status.status, status.jailed, status.tombstoned);
+  const condition = getCondition(status.condition, status.status);
 
-    const statusItems = [
-      {
-        key: (
-          <Typography variant="h4" className="label">
-            {t('status')}
-          </Typography>
-        ),
-        value: (
-          <Tag
-            value={t(statusTheme.status)}
-            theme={statusTheme.theme as any}
-            className={classes.statusTag}
+  const statusItems = [
+    {
+      key: (
+        <Typography variant="h4" className="label">
+          {t('status')}
+        </Typography>
+      ),
+      value: (
+        <Tag
+          value={t(statusTheme.status)}
+          theme={statusTheme.theme as any}
+          className={classes.statusTag}
+        />
+      ),
+    },
+    {
+      key: (
+        <Typography variant="h4" className="label">
+          {t('commission')}
+        </Typography>
+      ),
+      value: (
+        <Typography
+          variant="body1"
+          className="value"
+        >
+          {`${numeral(status.commission * 100).format('0.00')}%`}
+        </Typography>
+      ),
+    },
+    {
+      key: (
+        <Typography variant="h4" className="label condition">
+          {t('condition')}
+          <InfoPopover
+            content={<ConditionExplanation />}
           />
-        ),
-      },
-      {
-        key: (
-          <Typography variant="h4" className="label">
-            {t('commission')}
-          </Typography>
-        ),
-        value: (
-          <Typography
-            variant="body1"
-            className="value"
-          >
-            {`${numeral(status.commission * 100).format('0.00')}%`}
-          </Typography>
-        ),
-      },
-      {
-        key: (
-          <Typography variant="h4" className="label condition">
-            {t('condition')}
+        </Typography>
+      ),
+      value: (
+        status.status === 3 ? (
+          <div className="condition__body">
             <InfoPopover
-              content={<ConditionExplanation />}
-            />
-          </Typography>
-        ),
-        value: (
-          status.status === 3 ? (
-            <div className="condition__body">
-              <InfoPopover
-                content={(
-                  <>
-                    <Typography variant="body1">
-                      {t('missedBlockCounter', {
-                        amount: numeral(status.missedBlockCounter).format('0,0'),
-                      })}
-                    </Typography>
-                    <Typography variant="body1">
-                      {t('signedBlockWindow', {
-                        amount: numeral(status.signedBlockWindow).format('0,0'),
-                      })}
-                    </Typography>
-                  </>
-              )}
-                display={(
-                  <Typography
-                    variant="body1"
-                    className={classnames('value', condition)}
-                  >
-                    {t(condition)}
+              content={(
+                <>
+                  <Typography variant="body1">
+                    {t('missedBlockCounter', {
+                      amount: numeral(status.missedBlockCounter).format('0,0'),
+                    })}
                   </Typography>
+                  <Typography variant="body1">
+                    {t('signedBlockWindow', {
+                      amount: numeral(status.signedBlockWindow).format('0,0'),
+                    })}
+                  </Typography>
+                </>
+              )}
+              display={(
+                <Typography
+                  variant="body1"
+                  className={classnames('value', condition)}
+                >
+                  {t(condition)}
+                </Typography>
           )}
-              />
-            </div>
-          ) : (
-            <Typography
-              variant="body1"
-              className={classnames('value', 'condition', condition)}
-            >
-              {t(condition)}
-            </Typography>
-          )
-        ),
-      },
-      {
-        key: (
-          <Typography variant="h4" className="label">
-            {t('maxRate')}
-          </Typography>
-        ),
-        value: (
+            />
+          </div>
+        ) : (
           <Typography
             variant="body1"
-            className="value"
+            className={classnames('value', 'condition', condition)}
           >
-            {Big(status.maxRate).times(100).toFixed(2)}
-            %
+            {t(condition)}
           </Typography>
-        ),
-      },
-    ];
+        )
+      ),
+    },
+    {
+      key: (
+        <Typography variant="h4" className="label">
+          {t('maxRate')}
+        </Typography>
+      ),
+      value: (
+        <Typography
+          variant="body1"
+          className="value"
+        >
+          {Big(status.maxRate).times(100).toFixed(2)}
+          %
+        </Typography>
+      ),
+    },
+  ];
 
-    return (
-      <>
-        <Box className={classnames(className)}>
-          <div className={classes.addressRoot}>
-            <div className={classnames(classes.copyText, classes.item)}>
-              <Typography variant="body1" className="label">
-                {t('operatorAddress')}
-              </Typography>
-              <div className="detail">
-                <CopyIcon
-                  onClick={() => handleCopyToClipboard(overview.operatorAddress)}
-                  className={classes.actionIcons}
-                />
-                <Typography variant="body1" className="value">
-                  {
+  return (
+    <Box className={classnames(className)}>
+      <div className={classes.addressRoot}>
+        <div className={classnames(classes.copyText, classes.item)}>
+          <Typography variant="body1" className="label">
+            {t('operatorAddress')}
+          </Typography>
+          <div className="detail">
+            <CopyIcon
+              onClick={() => handleCopyToClipboard(overview.operatorAddress)}
+              className={classes.actionIcons}
+            />
+            <Typography variant="body1" className="value">
+              {
                 !isDesktop ? (
                   getMiddleEllipsis(overview.operatorAddress, {
                     beginning: 15, ending: 5,
@@ -157,22 +158,22 @@ const ValidatorOverview: React.FC<{
                   overview.operatorAddress
                 )
               }
-                </Typography>
-              </div>
-            </div>
+            </Typography>
+          </div>
+        </div>
 
-            <div className={classnames(classes.copyText, classes.item)}>
-              <Typography variant="body1" className="label">
-                {t('selfDelegateAddress')}
-              </Typography>
-              <div className="detail">
-                <CopyIcon
-                  className={classes.actionIcons}
-                  onClick={() => handleCopyToClipboard(overview.selfDelegateAddress)}
-                />
-                <Link href={ACCOUNT_DETAILS(overview.selfDelegateAddress)} passHref>
-                  <Typography variant="body1" className="value" component="a">
-                    {
+        <div className={classnames(classes.copyText, classes.item)}>
+          <Typography variant="body1" className="label">
+            {t('selfDelegateAddress')}
+          </Typography>
+          <div className="detail">
+            <CopyIcon
+              className={classes.actionIcons}
+              onClick={() => handleCopyToClipboard(overview.selfDelegateAddress)}
+            />
+            <Link href={ACCOUNT_DETAILS(overview.selfDelegateAddress)} passHref>
+              <Typography variant="body1" className="value" component="a">
+                {
                 !isDesktop ? (
                   getMiddleEllipsis(overview.selfDelegateAddress, {
                     beginning: 15, ending: 5,
@@ -181,14 +182,14 @@ const ValidatorOverview: React.FC<{
                   overview.selfDelegateAddress
                 )
               }
-                  </Typography>
-                </Link>
-              </div>
-            </div>
+              </Typography>
+            </Link>
           </div>
-          <Divider className={classes.divider} />
-          <div className={classes.statusRoot}>
-            {
+        </div>
+      </div>
+      <Divider className={classes.divider} />
+      <div className={classes.statusRoot}>
+        {
           statusItems.map((x, i) => {
             return (
               <div className={classes.statusItem} key={`status-item-${i}`}>
@@ -198,10 +199,9 @@ const ValidatorOverview: React.FC<{
             );
           })
         }
-          </div>
-        </Box>
-      </>
-    );
-  };
+      </div>
+    </Box>
+  );
+}
 
 export default ValidatorOverview;

@@ -17,9 +17,10 @@ import { useValidators } from './hooks';
 const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
 
-const List: React.FC<{
-  className?: string;
-}> = ({ className }) => {
+function List(props: {
+   className?: string;
+}) {
+  const className = props;
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const {
@@ -74,6 +75,6 @@ const List: React.FC<{
       </Box>
     </LoadAndExist>
   );
-};
+}
 
 export default List;
