@@ -14,7 +14,7 @@ class MsgSubmitProposal {
   | MsgSoftwareUpgradeProposal
   | MsgParameterChangeProposal
   | MsgCommunityPoolSpendProposal;
-  public initialDeposit: MsgCoin[]
+  public initialDeposit: MsgCoin[];
   public proposer: string;
   public json: any;
 
