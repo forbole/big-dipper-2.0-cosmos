@@ -41,7 +41,7 @@ const Memory:React.FC<{
       rawValue: memory.used,
       percent: `${numeral((memory.used * 100) / total).format('0.00')}%`,
       // percent: `${100 - (numeral((memory.available * 100) / total).format('0.00'))}%`,
-      fill: theme.palette.custom.tokenomics.two,
+      fill: theme.palette.custom.tokenomics.one,
     },
     {
       legendKey: 'available',
@@ -49,7 +49,7 @@ const Memory:React.FC<{
       value: numeral(memory.available).format('0,0'),
       rawValue: memory.available,
       percent: `${numeral((memory.available * 100) / total).format('0.00')}%`,
-      fill: theme.palette.custom.tokenomics.one,
+      fill: theme.palette.custom.tokenomics.two,
     },
   ];
 
@@ -76,23 +76,18 @@ const Memory:React.FC<{
 
         <PieChart
           width={200}
-          height={100}
-          cy={100}
+          height={200}
+          // cy={100}
         >
           <Pie
             stroke="none"
-            // cornerRadius={40}
+            cornerRadius={100}
             cy={90}
             data={data}
-            startAngle={180}
-            endAngle={0}
             innerRadius={80}
             outerRadius={90}
-            fill="#8884d8"
             // paddingAngle={-10}
             dataKey="rawValue"
-            // stroke={theme.palette.background.paper}
-            // strokeWidth={3}
             isAnimationActive={false}
           >
             {data.map((entry) => {
