@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-const AccountDetailsPage = () => {
+function AccountDetailsPage() {
   const router = useRouter();
 
   useEffect(() => {
@@ -9,6 +9,6 @@ const AccountDetailsPage = () => {
   }, []);
 
   return null;
-};
+}
 
 export default AccountDetailsPage;

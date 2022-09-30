@@ -7,9 +7,9 @@ import {
   useProfileRecoil,
 } from '@recoil/profiles';
 
-const VerifyInvariant = (props: {
+function VerifyInvariant(props: {
   message: MsgVerifyInvariant;
-}) => {
+}) {
   const { message } = props;
 
   const user = useProfileRecoil(message.sender);
@@ -30,6 +30,6 @@ const VerifyInvariant = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default VerifyInvariant;

@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgChannelOpenConfirm } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const ChannelOpenConfirm = (props: {
+function ChannelOpenConfirm(props: {
   message: MsgChannelOpenConfirm;
-}) => {
+}) {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -33,6 +33,6 @@ const ChannelOpenConfirm = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default ChannelOpenConfirm;

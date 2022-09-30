@@ -1,9 +1,9 @@
 import ValidatorDetails from '@screens/validator_details';
 
-const ValidatorDetailsPage = () => {
+function ValidatorDetailsPage() {
   return (
     <ValidatorDetails />
   );
-};
+}
 
 export default ValidatorDetailsPage;

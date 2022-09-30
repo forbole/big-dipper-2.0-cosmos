@@ -1,9 +1,9 @@
 import Validators from '@screens/validators';
 
-const ValidatorsPage = () => {
+function ValidatorsPage() {
   return (
     <Validators />
   );
-};
+}
 
 export default ValidatorsPage;

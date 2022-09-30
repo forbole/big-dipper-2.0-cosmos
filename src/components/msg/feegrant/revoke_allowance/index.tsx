@@ -7,9 +7,9 @@ import {
   useProfileRecoil,
 } from '@recoil/profiles';
 
-const RevokeAllowance = (props: {
+function RevokeAllowance(props: {
   message: MsgRevokeAllowance;
-}) => {
+}) {
   const { message } = props;
 
   const granter = useProfileRecoil(message.granter);
@@ -39,6 +39,6 @@ const RevokeAllowance = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default RevokeAllowance;

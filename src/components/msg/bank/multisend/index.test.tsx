@@ -10,7 +10,9 @@ jest.mock('@components', () => ({
 }));
 
 jest.mock('next-translate/Trans', () => (
-  (props) => <div id={props.i18nKey} {...props} />
+  function (props) {
+  return <div id={props.i18nKey} {...props} />;
+}
 ));
 
 // ==================================

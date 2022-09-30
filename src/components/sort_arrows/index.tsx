@@ -18,7 +18,8 @@ const SortArrows: React.FC<{
       <SortDownIcon
         className={classnames(
           classes.svg,
-          classes.up, {
+          classes.up,
+          {
             desc: sort === 'desc',
           },
         )}

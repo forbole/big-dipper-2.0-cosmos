@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgUnjail } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Unjail = (props: {
+function Unjail(props: {
   message: MsgUnjail;
-}) => {
+}) {
   const { message } = props;
   const validator = useProfileRecoil(message.validatorAddress);
   const validatorMoniker = validator ? validator?.name : message.validatorAddress;
@@ -27,6 +27,6 @@ const Unjail = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default Unjail;

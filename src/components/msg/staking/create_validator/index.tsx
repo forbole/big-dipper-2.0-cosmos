@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgCreateValidator } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const CreateValidator = (props: {
+function CreateValidator(props: {
   message: MsgCreateValidator;
-}) => {
+}) {
   const { message } = props;
 
   const delegator = useProfileRecoil(message.delegatorAddress);
@@ -35,6 +35,6 @@ const CreateValidator = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default CreateValidator;

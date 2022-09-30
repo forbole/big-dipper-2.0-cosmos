@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgChannel } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Channel = (props: {
+function Channel(props: {
   message: MsgChannel;
-}) => {
+}) {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -29,6 +29,6 @@ const Channel = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default Channel;

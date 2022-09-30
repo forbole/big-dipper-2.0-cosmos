@@ -21,7 +21,7 @@ import {
 } from './hooks';
 import { MenuProps } from './types';
 
-const Menu = (props: MenuProps) => {
+function Menu(props: MenuProps) {
   const router = useRouter();
   const {
     t,
@@ -128,6 +128,6 @@ const Menu = (props: MenuProps) => {
       </div>
     </>
   );
-};
+}
 
 export default Menu;

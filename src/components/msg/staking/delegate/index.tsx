@@ -8,9 +8,9 @@ import {
   formatToken, formatNumber,
 } from '@utils/format_token';
 
-const Delegate = (props: {
+function Delegate(props: {
   message: MsgDelegate;
-}) => {
+}) {
   const { message } = props;
   const delegator = useProfileRecoil(message.delegatorAddress);
   const delegatorMoniker = delegator ? delegator?.name : message.delegatorAddress;
@@ -47,6 +47,6 @@ const Delegate = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default Delegate;

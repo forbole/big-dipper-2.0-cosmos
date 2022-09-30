@@ -1,9 +1,9 @@
 import Tokens from '@src/screens/proposals';
 
-const TokensPage = () => {
+function TokensPage() {
   return (
     <Tokens />
   );
-};
+}
 
 export default TokensPage;

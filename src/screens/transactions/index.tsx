@@ -13,7 +13,7 @@ import { readTx } from '@recoil/settings';
 import { useStyles } from './styles';
 import { useTransactions } from './hooks';
 
-const Transactions = () => {
+function Transactions() {
   const txListFormat = useRecoilValue(readTx);
   const { t } = useTranslation('transactions');
   const classes = useStyles();
@@ -67,6 +67,6 @@ const Transactions = () => {
       </Layout>
     </>
   );
-};
+}
 
 export default Transactions;

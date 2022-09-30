@@ -95,9 +95,7 @@ export const useStaking = (rewards: RewardsType) => {
         const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
         const remainingDelegationsPromises = [];
         for (let i = 0; i < remainingFetchCount; i += 1) {
-          remainingDelegationsPromises.push(getStakeByPage(
-            i + 1, AccountDelegationsDocument,
-          ));
+          remainingDelegationsPromises.push(getStakeByPage(i + 1, AccountDelegationsDocument));
         }
         const remainingDelegations = await Promise.allSettled(remainingDelegationsPromises);
         remainingDelegations
@@ -162,9 +160,7 @@ export const useStaking = (rewards: RewardsType) => {
         const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
         const remainingPromises = [];
         for (let i = 0; i < remainingFetchCount; i += 1) {
-          remainingPromises.push(getStakeByPage(
-            i + 1, AccountRedelegationsDocument,
-          ));
+          remainingPromises.push(getStakeByPage(i + 1, AccountRedelegationsDocument));
         }
         const remainingData = await Promise.allSettled(remainingPromises);
         remainingData
@@ -234,9 +230,7 @@ export const useStaking = (rewards: RewardsType) => {
         const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
         const remainingPromises = [];
         for (let i = 0; i < remainingFetchCount; i += 1) {
-          remainingPromises.push(getStakeByPage(
-            i + 1, AccountUndelegationsDocument,
-          ));
+          remainingPromises.push(getStakeByPage(i + 1, AccountUndelegationsDocument));
         }
         const remainingData = await Promise.allSettled(remainingPromises);
         remainingData

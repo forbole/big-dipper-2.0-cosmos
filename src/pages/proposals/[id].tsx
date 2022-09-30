@@ -1,9 +1,9 @@
 import ProposalDetails from '@src/screens/proposal_details';
 
-const TokenDetailsPage = () => {
+function TokenDetailsPage() {
   return (
     <ProposalDetails />
   );
-};
+}
 
 export default TokenDetailsPage;

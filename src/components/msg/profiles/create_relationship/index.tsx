@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgCreateRelationship } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const CreateRelationship = (props: {
+function CreateRelationship(props: {
   message: MsgCreateRelationship;
-}) => {
+}) {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);
@@ -43,6 +43,6 @@ const CreateRelationship = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default CreateRelationship;

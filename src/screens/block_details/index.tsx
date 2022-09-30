@@ -13,7 +13,7 @@ import {
 import { useStyles } from './styles';
 import { useBlockDetails } from './hooks';
 
-const BlockDetails = () => {
+function BlockDetails() {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
   const { state } = useBlockDetails();
@@ -56,6 +56,6 @@ const BlockDetails = () => {
       </Layout>
     </>
   );
-};
+}
 
 export default BlockDetails;

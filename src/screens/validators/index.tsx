@@ -7,7 +7,7 @@ import {
 import { useStyles } from './styles';
 import { List } from './components';
 
-const Validators = () => {
+function Validators() {
   const { t } = useTranslation('validators');
   const classes = useStyles();
   return (
@@ -26,6 +26,6 @@ const Validators = () => {
       </Layout>
     </>
   );
-};
+}
 
 export default Validators;

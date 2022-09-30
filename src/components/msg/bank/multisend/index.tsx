@@ -13,9 +13,9 @@ import {
 } from '@recoil/profiles';
 import { useStyles } from './styles';
 
-const Multisend = (props: {
+function Multisend(props: {
   message: MsgMultiSend;
-}) => {
+}) {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
 
@@ -93,6 +93,6 @@ const Multisend = (props: {
       </div>
     </div>
   );
-};
+}
 
 export default Multisend;

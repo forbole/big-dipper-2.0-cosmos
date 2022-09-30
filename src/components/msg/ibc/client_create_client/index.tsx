@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgCreateClient } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const CreateClient = (props: {
+function CreateClient(props: {
     message: MsgCreateClient;
-}) => {
+}) {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -32,6 +32,6 @@ const CreateClient = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default CreateClient;

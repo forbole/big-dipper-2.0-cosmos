@@ -15,7 +15,7 @@ import {
   useGenesis,
 } from './hooks';
 
-const Main = (props: AppProps) => {
+function Main(props: AppProps) {
   // =====================================
   // init recoil values
   // =====================================
@@ -64,6 +64,6 @@ const Main = (props: AppProps) => {
       {Component}
     </ThemeProvider>
   );
-};
+}
 
 export default Main;

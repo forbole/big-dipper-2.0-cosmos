@@ -4,7 +4,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 
-const ConditionExplanation = () => {
+function ConditionExplanation() {
   const { t } = useTranslation('validators');
   const classes = useStyles();
 
@@ -43,6 +43,6 @@ const ConditionExplanation = () => {
       </div>
     </div>
   );
-};
+}
 
 export default ConditionExplanation;

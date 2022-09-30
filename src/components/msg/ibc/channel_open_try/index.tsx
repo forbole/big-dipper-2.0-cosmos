@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgChannelOpenTry } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const ChannelOpenTry = (props: {
+function ChannelOpenTry(props: {
   message: MsgChannelOpenTry;
-}) => {
+}) {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -34,6 +34,6 @@ const ChannelOpenTry = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default ChannelOpenTry;

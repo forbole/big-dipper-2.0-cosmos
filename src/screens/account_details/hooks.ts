@@ -72,7 +72,8 @@ export const useAccountDetails = () => {
     },
   });
 
-  useEffect(() => {
+  useEffect(
+() => {
     if (!isValidAddress(router.query.address as string)) {
       handleSetState({
         loading: false,
@@ -82,7 +83,8 @@ export const useAccountDetails = () => {
       fetchDesmosProfile(router.query.address as string);
     }
   },
-  [router.query.address]);
+  [router.query.address],
+);
 
   useEffect(() => {
     fetchWithdrawalAddress();

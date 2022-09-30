@@ -3,12 +3,12 @@ import { Typography } from '@material-ui/core';
 import classnames from 'classnames';
 import { useStyles } from './styles';
 
-const SingleNetwork = (props: {
+function SingleNetwork(props: {
   url: string;
   chainId: string;
   name: string;
   className: string;
-}) => {
+}) {
   const {
     url,
     chainId,
@@ -30,6 +30,6 @@ const SingleNetwork = (props: {
       </div>
     </a>
   );
-};
+}
 
 export default SingleNetwork;

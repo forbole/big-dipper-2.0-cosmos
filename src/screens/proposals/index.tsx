@@ -8,7 +8,7 @@ import { useStyles } from './styles';
 import { List } from './components';
 import { useProposals } from './hooks';
 
-const Proposals = () => {
+function Proposals() {
   const { t } = useTranslation('proposals');
   const classes = useStyles();
   const {
@@ -40,6 +40,6 @@ const Proposals = () => {
       </Layout>
     </>
   );
-};
+}
 
 export default Proposals;

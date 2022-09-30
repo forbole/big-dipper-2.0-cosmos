@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-const TransactionDetailsPage = () => {
+function TransactionDetailsPage() {
   const router = useRouter();
 
   useEffect(() => {
@@ -9,6 +9,6 @@ const TransactionDetailsPage = () => {
   }, []);
 
   return null;
-};
+}
 
 export default TransactionDetailsPage;

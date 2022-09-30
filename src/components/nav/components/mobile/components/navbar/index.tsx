@@ -11,7 +11,7 @@ import { readTheme } from '@recoil/settings';
 import { useStyles } from './styles';
 import { NavbarProps } from './types';
 
-const Navbar = (props:NavbarProps) => {
+function Navbar(props:NavbarProps) {
   const classes = useStyles();
   const theme = useRecoilValue(readTheme);
   const selected = useRecoilValue(readSelectedNetwork);
@@ -61,6 +61,6 @@ const Navbar = (props:NavbarProps) => {
       </div>
     </div>
   );
-};
+}
 
 export default Navbar;

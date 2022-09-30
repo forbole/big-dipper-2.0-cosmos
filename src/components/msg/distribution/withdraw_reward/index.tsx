@@ -6,9 +6,9 @@ import { MsgWithdrawDelegatorReward } from '@models';
 import { formatNumber } from '@utils/format_token';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const WithdrawReward = (props: {
+function WithdrawReward(props: {
   message: MsgWithdrawDelegatorReward;
-}) => {
+}) {
   const { message } = props;
   const delegator = useProfileRecoil(message.delegatorAddress);
   const delegatorMoniker = delegator ? delegator?.name : message.delegatorAddress;
@@ -46,6 +46,6 @@ const WithdrawReward = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default WithdrawReward;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const YouTube = () => {
+function YouTube() {
   return (
     <svg
       width="26px"
@@ -19,6 +19,6 @@ const YouTube = () => {
       />
     </svg>
   );
-};
+}
 
 export default YouTube;

@@ -94,9 +94,7 @@ export const useStaking = () => {
         const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
         const remainingDelegationsPromises = [];
         for (let i = 0; i < remainingFetchCount; i += 1) {
-          remainingDelegationsPromises.push(getStakeByPage(
-            i + 1, ValidatorDelegationsDocument,
-          ));
+          remainingDelegationsPromises.push(getStakeByPage(i + 1, ValidatorDelegationsDocument));
         }
         const remainingDelegations = await Promise.allSettled(remainingDelegationsPromises);
         remainingDelegations
@@ -159,9 +157,7 @@ export const useStaking = () => {
         const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
         const remainingPromises = [];
         for (let i = 0; i < remainingFetchCount; i += 1) {
-          remainingPromises.push(getStakeByPage(
-            i + 1, ValidatorRedelegationsDocument,
-          ));
+          remainingPromises.push(getStakeByPage(i + 1, ValidatorRedelegationsDocument));
         }
         const remainingData = await Promise.allSettled(remainingPromises);
         remainingData
@@ -230,9 +226,7 @@ export const useStaking = () => {
         const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
         const remainingPromises = [];
         for (let i = 0; i < remainingFetchCount; i += 1) {
-          remainingPromises.push(getStakeByPage(
-            i + 1, ValidatorUndelegationsDocument,
-          ));
+          remainingPromises.push(getStakeByPage(i + 1, ValidatorUndelegationsDocument));
         }
         const remainingData = await Promise.allSettled(remainingPromises);
         remainingData

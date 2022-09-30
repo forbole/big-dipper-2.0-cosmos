@@ -17,7 +17,7 @@ import {
 } from './components';
 import { useValidatorDetails } from './hooks';
 
-const ValidatorDetails = () => {
+function ValidatorDetails() {
   const { t } = useTranslation('validators');
   const classes = useStyles();
   const {
@@ -75,6 +75,6 @@ const ValidatorDetails = () => {
       </Layout>
     </>
   );
-};
+}
 
 export default ValidatorDetails;

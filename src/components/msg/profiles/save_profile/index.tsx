@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgSaveProfile } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const SaveProfile = (props: {
+function SaveProfile(props: {
   message: MsgSaveProfile;
-}) => {
+}) {
   const { message } = props;
 
   const creator = useProfileRecoil(message.creator);
@@ -29,6 +29,6 @@ const SaveProfile = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default SaveProfile;

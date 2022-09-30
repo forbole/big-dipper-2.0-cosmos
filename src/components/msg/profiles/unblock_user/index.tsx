@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgUnblockUser } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const UnBlockUser = (props: {
+function UnBlockUser(props: {
   message: MsgUnblockUser;
-}) => {
+}) {
   const { message } = props;
 
   const blocker = useProfileRecoil(message.blocker);
@@ -43,6 +43,6 @@ const UnBlockUser = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default UnBlockUser;

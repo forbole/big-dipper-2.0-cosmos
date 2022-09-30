@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-const ValidatorDetailsPage = () => {
+function ValidatorDetailsPage() {
   const router = useRouter();
 
   useEffect(() => {
@@ -9,6 +9,6 @@ const ValidatorDetailsPage = () => {
   }, []);
 
   return null;
-};
+}
 
 export default ValidatorDetailsPage;

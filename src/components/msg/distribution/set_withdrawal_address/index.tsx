@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgSetWithdrawAddress } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const SetWithdrawalAddress = (props: {
+function SetWithdrawalAddress(props: {
   message: MsgSetWithdrawAddress;
-}) => {
+}) {
   const { message } = props;
 
   const delegator = useProfileRecoil(message.delegatorAddress);
@@ -38,6 +38,6 @@ const SetWithdrawalAddress = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default SetWithdrawalAddress;

@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgConnectionEnd } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const ConnectionEnd = (props: {
+function ConnectionEnd(props: {
   message: MsgConnectionEnd;
-}) => {
+}) {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -29,6 +29,6 @@ const ConnectionEnd = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default ConnectionEnd;

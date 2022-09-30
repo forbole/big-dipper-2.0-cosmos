@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgVersion } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Version = (props: {
+function Version(props: {
   message: MsgVersion;
-}) => {
+}) {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -29,6 +29,6 @@ const Version = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default Version;

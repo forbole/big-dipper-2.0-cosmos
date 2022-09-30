@@ -10,7 +10,7 @@ import { useStyles } from './styles';
 import { Connections } from './components';
 import { useProfileDetails } from './hooks';
 
-const ProfileDetails = () => {
+function ProfileDetails() {
   const { t } = useTranslation('profiles');
   const classes = useStyles();
   const {
@@ -50,6 +50,6 @@ const ProfileDetails = () => {
       </Layout>
     </>
   );
-};
+}
 
 export default ProfileDetails;

@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgConnectionOpenAck } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const ConnectionOpenAck = (props: {
+function ConnectionOpenAck(props: {
   message: MsgConnectionOpenAck;
-}) => {
+}) {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -33,6 +33,6 @@ const ConnectionOpenAck = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default ConnectionOpenAck;

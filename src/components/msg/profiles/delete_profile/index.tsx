@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgDeleteProfile } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const DeleteProfile = (props: {
+function DeleteProfile(props: {
   message: MsgDeleteProfile;
-}) => {
+}) {
   const { message } = props;
 
   const creator = useProfileRecoil(message.creator);
@@ -29,6 +29,6 @@ const DeleteProfile = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default DeleteProfile;

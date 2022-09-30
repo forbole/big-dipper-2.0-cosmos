@@ -10,7 +10,7 @@ import {
 import { generalConfig } from '@configs';
 import { useStyles } from './styles';
 
-const Error = () => {
+function Error() {
   const classes = useStyles();
   const { t } = useTranslation();
 
@@ -40,6 +40,6 @@ const Error = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Error;

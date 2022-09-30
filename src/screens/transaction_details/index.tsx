@@ -13,7 +13,7 @@ import {
 } from './components';
 import { useTransactionDetails } from './hooks';
 
-const TransactionDetails = () => {
+function TransactionDetails() {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   const {
@@ -58,6 +58,6 @@ const TransactionDetails = () => {
       </Layout>
     </>
   );
-};
+}
 
 export default TransactionDetails;

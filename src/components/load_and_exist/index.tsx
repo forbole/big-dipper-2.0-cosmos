@@ -4,11 +4,11 @@ import {
   LinearLoading,
 } from '@components';
 
-const LoadAndExist = (props: {
+function LoadAndExist(props: {
   loading: boolean;
   exists: boolean;
   children: React.ReactNode;
-}) => {
+}) {
   const {
     loading,
     exists,
@@ -25,6 +25,6 @@ const LoadAndExist = (props: {
       {children}
     </>
   );
-};
+}
 
 export default LoadAndExist;

@@ -11,9 +11,9 @@ import {
 import { useProfileRecoil } from '@recoil/profiles';
 import { PROPOSAL_DETAILS } from '@utils/go_to_page';
 
-const DepositProposal = (props: {
+function DepositProposal(props: {
   message: MsgDeposit;
-}) => {
+}) {
   const { t } = useTranslation('transactions');
   const { message } = props;
 
@@ -25,7 +25,7 @@ const DepositProposal = (props: {
   const depositor = useProfileRecoil(message.depositor);
   const depositorMoniker = depositor ? depositor?.name : message.depositor;
 
-  const Proposal = () => {
+  function Proposal() {
     return (
       <Link href={PROPOSAL_DETAILS(message.proposalId)} passHref>
         <Typography component="a">
@@ -34,7 +34,7 @@ const DepositProposal = (props: {
         </Typography>
       </Link>
     );
-  };
+  }
   return (
     <Typography>
       <Trans
@@ -57,6 +57,6 @@ const DepositProposal = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default DepositProposal;

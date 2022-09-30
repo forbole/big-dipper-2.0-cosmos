@@ -16,7 +16,7 @@ import {
   formatGov,
 } from './utils';
 
-const Params = () => {
+function Params() {
   const { t } = useTranslation('params');
   const classes = useStyles();
   const { state } = useParams();
@@ -84,6 +84,6 @@ const Params = () => {
       </Layout>
     </>
   );
-};
+}
 
 export default Params;

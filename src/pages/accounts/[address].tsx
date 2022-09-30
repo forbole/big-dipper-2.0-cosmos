@@ -1,9 +1,9 @@
 import AccountDetails from '@src/screens/account_details';
 
-const AccountDetailsPage = () => {
+function AccountDetailsPage() {
   return (
     <AccountDetails />
   );
-};
+}
 
 export default AccountDetailsPage;

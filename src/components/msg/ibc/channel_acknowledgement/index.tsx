@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgAcknowledgement } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Acknowledgement = (props: {
+function Acknowledgement(props: {
   message: MsgAcknowledgement;
-}) => {
+}) {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -32,6 +32,6 @@ const Acknowledgement = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default Acknowledgement;

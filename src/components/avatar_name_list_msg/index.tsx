@@ -6,9 +6,9 @@ import { Name } from '@components';
  * Used for msg when you have to list multiple users
  * using AvatarNames
  */
-const AvatarNameListMsg = (props: {
+function AvatarNameListMsg(props: {
   avatars: AvatarName[];
-}) => {
+}) {
   const { t } = useTranslation('transactions');
   const { avatars } = props;
   return (
@@ -55,6 +55,6 @@ const AvatarNameListMsg = (props: {
       })}
     </>
   );
-};
+}
 
 export default AvatarNameListMsg;

@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgChannelCloseInit } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const ChannelCloseInit = (props: {
+function ChannelCloseInit(props: {
   message: MsgChannelCloseInit;
-}) => {
+}) {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -33,6 +33,6 @@ const ChannelCloseInit = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default ChannelCloseInit;

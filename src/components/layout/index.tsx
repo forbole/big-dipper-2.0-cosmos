@@ -6,7 +6,7 @@ import {
 import { LayoutProps } from './types';
 import { useStyles } from './styles';
 
-const Layout = (props:LayoutProps) => {
+function Layout(props:LayoutProps) {
   const classes = useStyles();
 
   const {
@@ -29,6 +29,6 @@ const Layout = (props:LayoutProps) => {
       <Footer className={classes.footer} />
     </div>
   );
-};
+}
 
 export default Layout;

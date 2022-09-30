@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Medium = () => {
+function Medium() {
   return (
     <svg
       width="26px"
@@ -18,6 +18,6 @@ const Medium = () => {
       />
     </svg>
   );
-};
+}
 
 export default Medium;

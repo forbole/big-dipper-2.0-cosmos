@@ -7,9 +7,9 @@ import {
   useProfileRecoil,
 } from '@recoil/profiles';
 
-const CreatePeriodicVestingAccount = (props: {
+function CreatePeriodicVestingAccount(props: {
   message: MsgCreatePeriodicVestingAccount;
-}) => {
+}) {
   const { message } = props;
 
   const to = useProfileRecoil(message.toAddress);
@@ -30,6 +30,6 @@ const CreatePeriodicVestingAccount = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default CreatePeriodicVestingAccount;

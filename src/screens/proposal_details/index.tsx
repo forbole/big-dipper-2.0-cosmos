@@ -15,7 +15,7 @@ import {
 import { useProposalDetails } from './hooks';
 import { shouldShowData } from './utils';
 
-const ProposalDetails = () => {
+function ProposalDetails() {
   const { t } = useTranslation('proposals');
   const classes = useStyles();
   const {
@@ -59,6 +59,6 @@ const ProposalDetails = () => {
       </Layout>
     </>
   );
-};
+}
 
 export default ProposalDetails;

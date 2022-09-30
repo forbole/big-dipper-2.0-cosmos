@@ -8,7 +8,7 @@ import { chainConfig } from '@configs';
 import { readTheme } from '@recoil/settings';
 import { useStyles } from './styles';
 
-const InitialLoad = () => {
+function InitialLoad() {
   const theme = useRecoilValue(readTheme);
   const classes = useStyles();
 
@@ -27,6 +27,6 @@ const InitialLoad = () => {
       </div>
     </div>
   );
-};
+}
 
 export default InitialLoad;

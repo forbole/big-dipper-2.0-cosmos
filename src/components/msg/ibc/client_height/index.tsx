@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgHeight } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Height = (props: {
+function Height(props: {
     message: MsgHeight;
-}) => {
+}) {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -29,6 +29,6 @@ const Height = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default Height;

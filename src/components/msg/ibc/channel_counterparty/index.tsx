@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgCounterpartyChannel } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const CounterpartyChannel = (props: {
+function CounterpartyChannel(props: {
   message: MsgCounterpartyChannel;
-}) => {
+}) {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -29,6 +29,6 @@ const CounterpartyChannel = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default CounterpartyChannel;

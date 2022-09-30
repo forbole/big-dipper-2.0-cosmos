@@ -2,9 +2,9 @@ import React from 'react';
 import { MsgUnknown } from '@models';
 import { useGetStyles } from './styles';
 
-const Unknown = (props: {
+function Unknown(props: {
   message: MsgUnknown;
-}) => {
+}) {
   const { message } = props;
 
   const { classes } = useGetStyles();
@@ -15,6 +15,6 @@ const Unknown = (props: {
       </code>
     </pre>
   );
-};
+}
 
 export default Unknown;

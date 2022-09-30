@@ -18,7 +18,7 @@ import { useBlocks } from './hooks';
 const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
 
-const Blocks = () => {
+function Blocks() {
   const { t } = useTranslation('blocks');
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
@@ -80,6 +80,6 @@ const Blocks = () => {
       </Layout>
     </>
   );
-};
+}
 
 export default Blocks;

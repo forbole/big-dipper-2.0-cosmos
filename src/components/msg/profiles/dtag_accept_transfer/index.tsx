@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgDtagAcceptTransfer } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const DtagAcceptTransfer = (props: {
+function DtagAcceptTransfer(props: {
   message: MsgDtagAcceptTransfer;
-}) => {
+}) {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);
@@ -39,6 +39,6 @@ const DtagAcceptTransfer = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default DtagAcceptTransfer;

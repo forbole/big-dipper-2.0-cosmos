@@ -6,9 +6,9 @@ import { formatNumber } from '@utils/format_token';
 import { MsgWithdrawValidatorCommission } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const WithdrawCommission = (props: {
+function WithdrawCommission(props: {
   message: MsgWithdrawValidatorCommission;
-}) => {
+}) {
   const { message } = props;
   const validator = useProfileRecoil(message.validatorAddress);
   const validatorMoniker = validator ? validator?.name : message
@@ -36,6 +36,6 @@ const WithdrawCommission = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default WithdrawCommission;

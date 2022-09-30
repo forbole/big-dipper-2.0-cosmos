@@ -5,13 +5,13 @@ import {
 } from '@components';
 import { useStyles } from './styles';
 
-const NotFound = () => {
+function NotFound() {
   const classes = useStyles();
   return (
     <Layout className={classes.root}>
       <NotFoundLogo />
     </Layout>
   );
-};
+}
 
 export default NotFound;

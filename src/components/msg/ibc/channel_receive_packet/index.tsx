@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgReceivePacket } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const ReceivePacket = (props: {
+function ReceivePacket(props: {
   message: MsgReceivePacket;
-}) => {
+}) {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -33,6 +33,6 @@ const ReceivePacket = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default ReceivePacket;

@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgSubmitProposal } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const SubmitProposal = (props: {
+function SubmitProposal(props: {
   message: MsgSubmitProposal;
-}) => {
+}) {
   const { message } = props;
 
   const proposer = useProfileRecoil(message.proposer);
@@ -28,6 +28,6 @@ const SubmitProposal = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default SubmitProposal;

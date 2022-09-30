@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgTimeout } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Timeout = (props: {
+function Timeout(props: {
   message: MsgTimeout;
-}) => {
+}) {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -29,6 +29,6 @@ const Timeout = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default Timeout;

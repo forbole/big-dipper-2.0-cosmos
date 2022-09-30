@@ -1,9 +1,9 @@
 import Transactions from '@src/screens/transactions';
 
-const TransactionsPage = () => {
+function TransactionsPage() {
   return (
     <Transactions />
   );
-};
+}
 
 export default TransactionsPage;

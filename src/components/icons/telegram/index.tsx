@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Telegram = () => {
+function Telegram() {
   return (
     <svg
       width="26px"
@@ -18,5 +18,5 @@ const Telegram = () => {
       />
     </svg>
   );
-};
+}
 export default Telegram;

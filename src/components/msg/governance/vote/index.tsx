@@ -8,9 +8,9 @@ import { MsgVote } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 import { PROPOSAL_DETAILS } from '@utils/go_to_page';
 
-const Vote = (props: {
+function Vote(props: {
   message: MsgVote;
-}) => {
+}) {
   const { t } = useTranslation('transactions');
   const { message } = props;
   const vote = t(message.getOptionTranslationKey());
@@ -18,7 +18,7 @@ const Vote = (props: {
   const voter = useProfileRecoil(message.voter);
   const voterMoniker = voter ? voter?.name : message.voter;
 
-  const Proposal = () => {
+  function Proposal() {
     return (
       <Link href={PROPOSAL_DETAILS(message.proposalId)} passHref>
         <Typography component="a">
@@ -27,7 +27,7 @@ const Vote = (props: {
         </Typography>
       </Link>
     );
-  };
+  }
 
   return (
     <Typography>
@@ -49,6 +49,6 @@ const Vote = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default Vote;

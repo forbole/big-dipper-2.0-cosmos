@@ -1,8 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = () => {
-  const styles = makeStyles(
-    (theme) => {
+  const styles = makeStyles((theme) => {
       return ({
         root: {
           margin: theme.spacing(2, 0),
@@ -69,8 +68,7 @@ export const useStyles = () => {
           },
         },
       });
-    }, { index: 1 },
-  )();
+    }, { index: 1 })();
 
   return styles;
 };

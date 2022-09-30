@@ -8,9 +8,9 @@ import {
   formatToken, formatNumber,
 } from '@utils/format_token';
 
-const Undelegate = (props: {
+function Undelegate(props: {
   message: MsgUndelegate;
-}) => {
+}) {
   const { message } = props;
   const amount = formatToken(message.amount.amount, message.amount.denom);
 
@@ -49,6 +49,6 @@ const Undelegate = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default Undelegate;

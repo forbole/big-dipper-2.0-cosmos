@@ -7,9 +7,9 @@ import {
   useProfileRecoil,
 } from '@recoil/profiles';
 
-const Grant = (props: {
+function Grant(props: {
   message: MsgGrant;
-}) => {
+}) {
   const { message } = props;
 
   const granter = useProfileRecoil(message.granter);
@@ -39,6 +39,6 @@ const Grant = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default Grant;

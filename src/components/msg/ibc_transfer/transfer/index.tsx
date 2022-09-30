@@ -8,9 +8,9 @@ import {
   formatToken, formatNumber,
 } from '@utils/format_token';
 
-const Transfer = (props: {
+function Transfer(props: {
   message: MsgTransfer;
-}) => {
+}) {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);
@@ -46,6 +46,6 @@ const Transfer = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default Transfer;

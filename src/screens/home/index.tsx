@@ -10,7 +10,7 @@ import {
   Hero,
 } from './components';
 
-const Home = () => {
+function Home() {
   const classes = useStyles();
 
   return (
@@ -23,6 +23,6 @@ const Home = () => {
       <Transactions className={classes.transactions} />
     </Layout>
   );
-};
+}
 
 export default Home;

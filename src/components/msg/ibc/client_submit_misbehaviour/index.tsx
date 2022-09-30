@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgSubmitMisbehaviour } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const SubmitMisbehaviour = (props: {
+function SubmitMisbehaviour(props: {
     message: MsgSubmitMisbehaviour;
-}) => {
+}) {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -32,6 +32,6 @@ const SubmitMisbehaviour = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default SubmitMisbehaviour;

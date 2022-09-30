@@ -16,7 +16,7 @@ import {
 } from './components';
 import { useAccountDetails } from './hooks';
 
-const AccountDetails = () => {
+function AccountDetails() {
   const { t } = useTranslation('accounts');
   const classes = useStyles();
   const {
@@ -77,6 +77,6 @@ const AccountDetails = () => {
       </Layout>
     </>
   );
-};
+}
 
 export default AccountDetails;

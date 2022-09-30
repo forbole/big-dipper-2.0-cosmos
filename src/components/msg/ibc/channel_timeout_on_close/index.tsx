@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgTimeoutOnClose } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const TimeoutOnClose = (props: {
+function TimeoutOnClose(props: {
   message: MsgTimeoutOnClose;
-}) => {
+}) {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -29,6 +29,6 @@ const TimeoutOnClose = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default TimeoutOnClose;

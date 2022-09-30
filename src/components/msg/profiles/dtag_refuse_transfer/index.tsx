@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgDtagRefuseTransfer } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const DtagRefuseTransfer = (props: {
+function DtagRefuseTransfer(props: {
   message: MsgDtagRefuseTransfer;
-}) => {
+}) {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);
@@ -39,6 +39,6 @@ const DtagRefuseTransfer = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default DtagRefuseTransfer;

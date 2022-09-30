@@ -3,7 +3,7 @@ import { socialMediaLinks } from './utils';
 import { useStyles } from './styles';
 import { Props } from './types';
 
-const SocialMedia = (props: Props) => {
+function SocialMedia(props: Props) {
   const { className = '' } = props;
   const classes = useStyles();
   return (
@@ -23,6 +23,6 @@ const SocialMedia = (props: Props) => {
       })}
     </div>
   );
-};
+}
 
 export default SocialMedia;

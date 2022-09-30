@@ -1,8 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = () => {
-  const styles = makeStyles(
-    (theme) => {
+  const styles = makeStyles((theme) => {
       return ({
         root: {
           display: 'grid',
@@ -29,8 +28,7 @@ export const useStyles = () => {
           background: theme.palette.custom.primaryData.four,
         },
       });
-    }, { index: 1 },
-  )();
+    }, { index: 1 })();
 
   return styles;
 };

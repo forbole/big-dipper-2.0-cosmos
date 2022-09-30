@@ -11,9 +11,9 @@ import {
   useProfileRecoil,
 } from '@recoil/profiles';
 
-const Send = (props: {
+function Send(props: {
   message: MsgSend;
-}) => {
+}) {
   const { t } = useTranslation('transactions');
   const { message } = props;
 
@@ -53,6 +53,6 @@ const Send = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default Send;

@@ -9,9 +9,9 @@ import { Name } from '@components';
 import { MsgFundCommunityPool } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Fund = (props: {
+function Fund(props: {
   message : MsgFundCommunityPool;
-}) => {
+}) {
   const { t } = useTranslation('transactions');
   const { message } = props;
 
@@ -42,6 +42,6 @@ const Fund = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default Fund;

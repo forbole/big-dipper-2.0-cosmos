@@ -3,7 +3,7 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 
-const VotingPowerExplanation = () => {
+function VotingPowerExplanation() {
   const classes = useStyles();
 
   return (
@@ -18,6 +18,6 @@ const VotingPowerExplanation = () => {
       </Typography>
     </div>
   );
-};
+}
 
 export default VotingPowerExplanation;

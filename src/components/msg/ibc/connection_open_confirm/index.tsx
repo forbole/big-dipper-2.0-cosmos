@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgConnectionOpenConfirm } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const ConnectionOpenConfirm = (props: {
+function ConnectionOpenConfirm(props: {
   message: MsgConnectionOpenConfirm;
-}) => {
+}) {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -32,6 +32,6 @@ const ConnectionOpenConfirm = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default ConnectionOpenConfirm;

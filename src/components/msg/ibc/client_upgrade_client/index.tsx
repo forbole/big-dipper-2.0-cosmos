@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgUpgradeClient } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const UpgradeClient = (props: {
+function UpgradeClient(props: {
     message: MsgUpgradeClient;
-}) => {
+}) {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -32,6 +32,6 @@ const UpgradeClient = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default UpgradeClient;

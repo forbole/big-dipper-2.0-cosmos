@@ -6,9 +6,9 @@ import { MsgEditValidator } from '@models';
 import { VALIDATOR_DETAILS } from '@utils/go_to_page';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const EditValidator = (props: {
+function EditValidator(props: {
   message: MsgEditValidator;
-}) => {
+}) {
   const { message } = props;
 
   const validator = useProfileRecoil(message.validatorAddress);
@@ -31,6 +31,6 @@ const EditValidator = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default EditValidator;

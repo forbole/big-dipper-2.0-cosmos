@@ -1,9 +1,9 @@
 import Home from '@screens/home';
 
-const HomePage = () => {
+function HomePage() {
   return (
     <Home />
   );
-};
+}
 
 export default HomePage;

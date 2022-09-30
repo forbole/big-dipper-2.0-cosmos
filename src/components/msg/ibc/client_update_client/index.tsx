@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgUpdateClient } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const UpdateClient = (props: {
+function UpdateClient(props: {
     message: MsgUpdateClient;
-}) => {
+}) {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -33,6 +33,6 @@ const UpdateClient = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default UpdateClient;

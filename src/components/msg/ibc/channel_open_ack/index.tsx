@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgChannelOpenAck } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const ChannelOpenAck = (props: {
+function ChannelOpenAck(props: {
   message: MsgChannelOpenAck;
-}) => {
+}) {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -35,6 +35,6 @@ const ChannelOpenAck = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default ChannelOpenAck;

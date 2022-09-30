@@ -3,9 +3,9 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 
-const QuorumExplanation = (props: {
+function QuorumExplanation(props: {
   quorum: number;
-}) => {
+}) {
   const classes = useStyles();
 
   return (
@@ -23,6 +23,6 @@ const QuorumExplanation = (props: {
       </Typography>
     </div>
   );
-};
+}
 
 export default QuorumExplanation;

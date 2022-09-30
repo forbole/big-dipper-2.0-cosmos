@@ -5,9 +5,9 @@ import { Name } from '@components';
 import { MsgConnectionOpenTry } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const ConnectionOpenTry = (props: {
+function ConnectionOpenTry(props: {
   message: MsgConnectionOpenTry;
-}) => {
+}) {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -35,6 +35,6 @@ const ConnectionOpenTry = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default ConnectionOpenTry;

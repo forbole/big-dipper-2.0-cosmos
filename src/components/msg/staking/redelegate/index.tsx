@@ -8,9 +8,9 @@ import {
   formatToken, formatNumber,
 } from '@utils/format_token';
 
-const Redelegate = (props: {
+function Redelegate(props: {
   message: MsgRedelegate;
-}) => {
+}) {
   const { message } = props;
   const amount = formatToken(message.amount.amount, message.amount.denom);
 
@@ -59,6 +59,6 @@ const Redelegate = (props: {
       />
     </Typography>
   );
-};
+}
 
 export default Redelegate;

@@ -1,8 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = () => {
-  const styles = makeStyles(
-    (theme) => {
+  const styles = makeStyles((theme) => {
       return ({
         root: {
           display: 'flex',
@@ -43,8 +42,7 @@ export const useStyles = () => {
       });
     }, {
       index: 1,
-    },
-  )();
+    })();
 
   return styles;
 };
