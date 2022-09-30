@@ -73,18 +73,18 @@ export const useAccountDetails = () => {
   });
 
   useEffect(
-() => {
-    if (!isValidAddress(router.query.address as string)) {
-      handleSetState({
-        loading: false,
-        exists: false,
-      });
-    } else if (chainConfig.extra.profile) {
-      fetchDesmosProfile(router.query.address as string);
-    }
-  },
-  [router.query.address],
-);
+    () => {
+      if (!isValidAddress(router.query.address as string)) {
+        handleSetState({
+          loading: false,
+          exists: false,
+        });
+      } else if (chainConfig.extra.profile) {
+        fetchDesmosProfile(router.query.address as string);
+      }
+    },
+    [router.query.address],
+  );
 
   useEffect(() => {
     fetchWithdrawalAddress();
