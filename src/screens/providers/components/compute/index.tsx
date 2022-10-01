@@ -12,9 +12,7 @@ import {
   Cell,
   Tooltip,
 } from 'recharts';
-import { chainConfig } from '@configs';
 import { useStyles } from './styles';
-import { useTokenomics } from './hooks';
 
 const Compute:React.FC<{
   className?: string;
@@ -29,7 +27,6 @@ const Compute:React.FC<{
   const {
     classes, theme,
   } = useStyles();
-  const { state } = useTokenomics();
 
   const total = compute.available + compute.used;
 
@@ -40,7 +37,7 @@ const Compute:React.FC<{
       value: numeral(compute.used).format('0,0'),
       rawValue: compute.used,
       percent: `${numeral((compute.used * 100) / total).format('0.00')}%`,
-      fill: theme.palette.custom.tokenomics.two,
+      fill: theme.palette.custom.tokenomics.one,
     },
     {
       legendKey: 'available',
@@ -48,7 +45,7 @@ const Compute:React.FC<{
       value: numeral(compute.available).format('0,0'),
       rawValue: compute.available,
       percent: `${numeral((compute.available * 100) / total).format('0.00')}%`,
-      fill: theme.palette.custom.tokenomics.one,
+      fill: theme.palette.custom.tokenomics.three,
     },
   ];
 
@@ -57,43 +54,19 @@ const Compute:React.FC<{
       <Typography variant="h2" className={classes.label}>
         {t('compute')}
       </Typography>
-      {/* <div className={classes.data}>
-        {data.slice(0, 2).map((x) => (
-          <div className="data__item" key={x.percentKey}>
-            <Typography variant="h4">
-              {x.value}
-              {' '}
-              {chainConfig.tokenUnits[state.denom]?.display?.toUpperCase()}
-            </Typography>
-            <Typography variant="caption">
-              {t(x.percentKey, {
-                percent: x.percent,
-              })}
-            </Typography>
-          </div>
-        ))}
-      </div> */}
       <div className={classes.content}>
-
         <PieChart
           width={200}
-          height={100}
-          cy={100}
+          height={200}
         >
           <Pie
             stroke="none"
-            // cornerRadius={40}
+            cornerRadius={100}
             cy={90}
             data={data}
-            startAngle={180}
-            endAngle={0}
             innerRadius={80}
             outerRadius={90}
-            fill="#8884d8"
-            // paddingAngle={-10}
             dataKey="rawValue"
-            // stroke={theme.palette.background.paper}
-            // strokeWidth={3}
             isAnimationActive={false}
           >
             {data.map((entry) => {
@@ -113,6 +86,10 @@ const Compute:React.FC<{
                       </Typography>
                       <Typography variant="body1">
                         {x.value}
+                        vCPUs
+                        (
+                        {x.percent}
+                        )
                       </Typography>
                     </>
                   );
@@ -127,12 +104,19 @@ const Compute:React.FC<{
             data.map((x) => {
               return (
                 <div className="legends__item" key={x.legendKey}>
-                  <Typography variant="caption">
+                  <Typography variant="caption" className="usage">
                     {t(x.legendKey)}
+                    {' '}
+                  </Typography>
+                  <Typography variant="caption" className="vCPUs">
+                    (
                     {' '}
                     {x.value}
                     {' '}
                     vCPUs
+                    )
+                  </Typography>
+                  <Typography variant="caption" className="percent">
                     {' '}
                     {x.percent}
                   </Typography>

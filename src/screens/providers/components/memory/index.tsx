@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
@@ -12,9 +12,7 @@ import {
   Cell,
   Tooltip,
 } from 'recharts';
-import { chainConfig } from '@configs';
 import { useStyles } from './styles';
-import { useTokenomics } from './hooks';
 
 const Memory:React.FC<{
   className?: string;
@@ -29,7 +27,6 @@ const Memory:React.FC<{
   const {
     classes, theme,
   } = useStyles();
-  const { state } = useTokenomics();
 
   const convertBytesToTB = (bytes: number) => {
     return bytes / (10 ** 12);
@@ -44,7 +41,6 @@ const Memory:React.FC<{
       value: numeral(convertBytesToTB(memory.used)).format('0,0'),
       rawValue: memory.used,
       percent: `${numeral((memory.used * 100) / total).format('0.00')}%`,
-      // percent: `${100 - (numeral((memory.available * 100) / total).format('0.00'))}%`,
       fill: theme.palette.custom.tokenomics.one,
     },
     {
@@ -62,26 +58,10 @@ const Memory:React.FC<{
       <Typography variant="h2" className={classes.label}>
         {t('memory')}
       </Typography>
-      {/* <div className={classes.data}>
-        {data.slice(0, 2).map((x) => (
-          <div className="data__item" key={x.percentKey}>
-            <Typography variant="h4">
-              {x.value}
-              {' '}
-              TB
-            </Typography>
-            <Typography variant="caption">
-              {x.percent}
-            </Typography>
-          </div>
-        ))}
-      </div> */}
       <div className={classes.content}>
-
         <PieChart
           width={200}
           height={200}
-          // cy={100}
         >
           <Pie
             stroke="none"
@@ -90,7 +70,6 @@ const Memory:React.FC<{
             data={data}
             innerRadius={80}
             outerRadius={90}
-            // paddingAngle={-10}
             dataKey="rawValue"
             isAnimationActive={false}
           >
@@ -111,7 +90,7 @@ const Memory:React.FC<{
                       </Typography>
                       <Typography variant="body1">
                         {x.value}
-                        {' '}
+                        TB
                         (
                         {x.percent}
                         )

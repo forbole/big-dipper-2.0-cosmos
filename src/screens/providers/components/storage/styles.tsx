@@ -50,13 +50,22 @@ export const useStyles = () => {
               background: theme.palette.custom.tokenomics.one,
             },
             '&:nth-child(2):before': {
-              background: theme.palette.custom.tokenomics.two,
+              background: '#4C78EA',
             },
             '&:last-child:before': {
-              background: theme.palette.custom.tokenomics.three,
+              background: '#B021F3',
             },
             '& .caption__percent': {
               color: theme.palette.custom.fonts.fontThree,
+            },
+            '& .usage': {
+              color: 'white',
+            },
+            '& .tb': {
+              color: theme.palette.custom.fonts.fontThree,
+            },
+            '& .percent': {
+              color: 'white',
             },
           },
         },

@@ -29,7 +29,6 @@ export const useStyles = () => {
           },
         },
         legends: {
-          // display: 'flex',
           alignItems: 'flex-start',
           justifyContent: 'flex-start',
           flexWrap: 'wrap',
@@ -38,7 +37,6 @@ export const useStyles = () => {
             color: theme.palette.custom.fonts.fontThree,
           },
           '& .legends__item': {
-            // width: '50%',
             '&:before': {
               content: '""',
               display: 'inline-block',
@@ -49,14 +47,20 @@ export const useStyles = () => {
             '&:first-child:before': {
               background: theme.palette.custom.tokenomics.one,
             },
-            '&:nth-child(2):before': {
-              background: theme.palette.custom.tokenomics.two,
-            },
             '&:last-child:before': {
               background: theme.palette.custom.tokenomics.three,
             },
             '& .caption__percent': {
               color: theme.palette.custom.fonts.fontThree,
+            },
+            '& .usage': {
+              color: 'white',
+            },
+            '& .vCPUs': {
+              color: theme.palette.custom.fonts.fontThree,
+            },
+            '& .percent': {
+              color: 'white',
             },
           },
         },
