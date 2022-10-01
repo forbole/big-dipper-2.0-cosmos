@@ -8,7 +8,7 @@ export const useStyles = () => {
           padding: theme.spacing(2),
           background: theme.palette.primary.main,
           borderRadius: theme.shape.borderRadius,
-          height: '110px',
+          height: '165px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'flex-start',
