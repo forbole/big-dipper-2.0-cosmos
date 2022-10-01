@@ -64,6 +64,8 @@
     }
   ],
   "rules": {
+    "react/require-default-props": "off",
+    "react/no-unused-prop-types": "off",
     "react/destructuring-assignment": "off",
     "no-bitwise": "off",
     "@typescript-eslint/ban-types": "warn",

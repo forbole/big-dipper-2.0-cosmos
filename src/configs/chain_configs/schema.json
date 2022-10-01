@@ -1,0 +1,90 @@
+{
+  "title": "Agoric Block Explorer",
+  "network": {
+    "chain_id": "agoric-3",
+    "bech32Prefix": {
+      "consensus": "agoricvalcons",
+      "validator": "agoricvaloper",
+      "account": "agoric"
+    },
+    "genesis": {
+      "time": "2021-07-13T08:00:00",
+      "height": 1
+    },
+    "tokens": {
+      "units": [
+        {
+          "name": "ubld",
+          "display": "bld",
+          "exponent": 6
+        },
+        {
+          "name": "urun",
+          "display": "run",
+          "exponent": 6
+        }
+      ],
+      "primary": "ubld",
+      "votingPower": "ubld"
+    }
+  },
+  "assets": {
+    "previewImage": "https://s3.bigdipper.live/agoric.png",
+    "icon": "/agoric/images/icon.png",
+    "logo": {
+      "default": "/agoric/images/logo.png"
+    }
+  },
+  "seo": {
+    "matomo": {
+      "url": "https://analytics.bigdipper.live",
+      "siteID": "17"
+    }
+  },
+  "extraFeatures": [
+    "profile"
+  ],
+  "endpoints": {
+    "graphql": "https://gql.agoric.forbole.com/v1/graphql",
+    "websocket": "wss://rpc.agoric.forbole.com/websocket"
+
+    /* TODO: Remove this, we can infer this from the GraphQL query endpoint and simply replace https with wss (or http with ws) */
+    /* "graphqlWebsocket": "wss://gql.agoric.forbole.com/v1/graphql", */
+  },
+
+
+
+  "theme": {
+    /* TODO: All theme colors should be put here. */
+    "default": {
+
+      "background": "#F8F8F8",
+      "surface": {
+        "primary": "",
+        "secondary": ""
+      },
+      "fonts": {
+        "primary": "",
+        "secondary": "",
+        "third": "",
+        ""
+      }
+
+      /* Only put custom messages tags colors, if anyone */
+      "messagesTags": {
+        "/desmos.profiles.v2.MsgSaveProfile": "#D37763",
+        "/desmos.profiles.v2.MSgDeleteProfile": "#D37763"
+      }
+    },
+
+    /* TODO: Put here only light themese overrides, if anyone */
+    "light": {
+
+    },
+
+    /* TODO: Put here only dark theme overrides, if anyone */
+    "dark": {
+
+    }
+  }
+}
