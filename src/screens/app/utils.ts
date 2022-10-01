@@ -1,11 +1,11 @@
-import { generalConfig } from '@configs';
+import { chainConfig } from '@configs';
 
 export const OPEN_GRAPH_SEO = {
   type: 'website',
   site_name: 'Big Dipper',
   images: [
     {
-      url: generalConfig.previewImage,
+      url: chainConfig.general.previewImage,
       width: 800,
       height: 600,
       alt: 'Preview Photo',
@@ -20,33 +20,33 @@ export const TWITTER_SEO = {
 export const ADDITIONAL_LINK_TAGS_SEO = [
   {
     rel: 'apple-touch-icon',
-    href: `${generalConfig.basePath}/icons/apple-touch-icon.png`,
+    href: `${chainConfig.general.basePath}/icons/apple-touch-icon.png`,
     sizes: '180x180',
   },
   {
     rel: 'icon',
     type: 'image/png',
-    href: `${generalConfig.basePath}/icons/favicon-32x32.png`,
+    href: `${chainConfig.general.basePath}/icons/favicon-32x32.png`,
     sizes: '32x32',
   },
   {
     rel: 'icon',
     type: 'image/png',
-    href: `${generalConfig.basePath}/icons/favicon-16x16.png`,
+    href: `${chainConfig.general.basePath}/icons/favicon-16x16.png`,
     sizes: '16x16',
   },
   {
     rel: 'manifest',
-    href: `${generalConfig.basePath}/icons/site.webmanifest`,
+    href: `${chainConfig.general.basePath}/icons/site.webmanifest`,
   },
   {
     rel: 'mask-icon',
-    href: `${generalConfig.basePath}/icons/safari-pinned-tab.svg`,
+    href: `${chainConfig.general.basePath}/icons/safari-pinned-tab.svg`,
     color: '#5bbad5',
   },
   {
     rel: 'shortcut icon',
-    href: `${generalConfig.basePath}/icons/favicon.ico`,
+    href: `${chainConfig.general.basePath}/icons/favicon.ico`,
   },
 ];
 

@@ -1,0 +1,45 @@
+{
+  "title": "Provenance Block Explorer",
+  "network": "pio-mainnet-1",
+  "icon": "/provenance/images/icon.svg",
+  "logo": {
+    "default": "/provenance/images/logo.svg"
+  },
+  "prefix": {
+    "consensus": "pbvalcons",
+    "validator": "pbvaloper",
+    "account": "pb"
+  },
+  "genesis": {
+    "time": "2021-04-20T16:20:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "nhash",
+  "votingPowerTokenUnit": "uhash",
+  "tokenUnits": {
+    "nhash": {
+      "display": "hash",
+      "exponent": 9
+    },
+    "uhash": {
+      "display": "hash",
+      "exponent": 6
+    }
+  },
+  "extra": {
+    "profile": true
+  },
+  "endpoints": {
+    "graphql":"https://gql.provenance.forbole.com/v1/graphql",
+    "graphqlWebsocket":"wss://gql.provenance.forbole.com/v1/graphql",
+    "publicRpcWebsocket":"wss://rpc.provenance.forbole.com/websocket"
+  },
+  "general": {
+    "basePath": "/provenance",
+    "previewImage": "https://s3.bigdipper.live/provenance.png"
+  },
+  "marketing": {
+    "matomoURL":"https://analytics.bigdipper.live",
+    "matomoSiteID":"28"
+  }
+}

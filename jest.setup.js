@@ -60,6 +60,19 @@ jest.mock('@configs', () => ({
     },
     "extra": {
       "profile": true
+    },
+    "endpoints": {
+      "graphql":"https://gql.desmos.forbole.com/v1/graphql",
+      "graphqlWebsocket":"wss://gql.desmos.forbole.com/v1/graphql",
+      "publicRpcWebsocket":"wss://rpc.desmos.forbole.com/websocket"
+    },
+    "general": {
+      "basePath": "/desmos",
+      "previewImage": "https://s3.bigdipper.live/desmos.png"
+    },
+    "marketing": {
+      "matomoURL":"https://analytics.bigdipper.live",
+      "matomoSiteID":"8"
     }
   },
   generalConfig: {

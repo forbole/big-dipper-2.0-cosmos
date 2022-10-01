@@ -1,0 +1,45 @@
+{
+  "title": "LikeCoin Block Explorer",
+  "network": "likecoin-mainnet-2",
+  "icon": "/likecoin/images/icon.svg",
+  "logo": {
+    "default": "/likecoin/images/logo.svg"
+  },
+  "prefix": {
+    "consensus": "cosmosvalcons",
+    "validator": "likevaloper",
+    "account": "like"
+  },
+  "genesis": {
+    "time": "2021-07-13T08:00:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "nanolike",
+  "votingPowerTokenUnit": "ulike",
+  "tokenUnits": {
+    "nanolike": {
+      "display": "like",
+      "exponent": 9
+    },
+    "ulike": {
+      "display": "like",
+      "exponent": 6
+    }
+  },
+  "extra": {
+    "profile": true
+  },
+  "endpoints": {
+    "graphql":"https://gql.likecoin.forbole.com/v1/graphql",
+    "graphqlWebsocket":"wss://gql.likecoin.forbole.com/v1/graphql",
+    "publicRpcWebsocket":"wss://rpc.likecoin.forbole.com/websocket"
+  },
+  "general": {
+    "basePath": "/likecoin",
+    "previewImage": "https://s3.bigdipper.live/likecoin.png"
+  },
+  "marketing": {
+    "matomoURL":"https://analytics.bigdipper.live",
+    "matomoSiteID":"9"
+  }
+}

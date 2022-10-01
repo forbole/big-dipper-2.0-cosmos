@@ -1,5 +1,6 @@
-import chainConfigTestnet from './chain_config.testnet.json';
-import chainConfigMainnet from './chain_config.mainnet.json';
+import { getMainnetChainConfig } from './mainnet_configs';
+import { getTestnetChainConfig } from './testnet_configs';
+import baseChainConfig from './chain_configs/base-config.json';
 import generalConfig from './general_config.json';
 
 /**
@@ -7,11 +8,17 @@ import generalConfig from './general_config.json';
  * @returns config
  */
 const getChainConfig = () => {
-  const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE || process.env.NEXT_PUBLIC_CHAIN_STATUS;
-  if (chainType === 'mainnet') {
-    return chainConfigMainnet;
+  const chainType = process.env.CHAIN_TYPE;
+  const chainName = process.env.CHAIN_NAME;
+
+  switch (chainType) {
+    case 'mainnet':
+      return getMainnetChainConfig(chainName);
+    case 'testnet':
+      return getTestnetChainConfig(chainName);
+    default:
+      return baseChainConfig;
   }
-  return chainConfigTestnet;
 };
 
 const chainConfig = getChainConfig();

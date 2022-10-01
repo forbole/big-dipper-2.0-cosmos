@@ -1,0 +1,41 @@
+{
+  "title": "Cosmos Block Explorer",
+  "network": "theta-testnet-001",
+  "icon": "/images/icon.svg",
+  "logo": {
+    "default": "/images/logo.svg"
+  },
+  "prefix": {
+    "consensus": "cosmosvalcons",
+    "validator": "cosmosvaloper",
+    "account": "cosmos"
+  },
+  "genesis": {
+    "time": "2021-07-13T08:00:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "uatom",
+  "votingPowerTokenUnit": "uatom",
+  "tokenUnits": {
+    "uatom": {
+      "display": "atom",
+      "exponent": 6
+    }
+  },
+  "extra": {
+    "profile": true
+  },
+  "endpoints": {
+    "graphql":"https://gql-testnet.cosmos.forbole.com/v1/graphql",
+    "graphqlWebsocket":"wss://gql-testnet.cosmos.forbole.com/v1/graphql",
+    "publicRpcWebsocket":"wss://rpc-testnet.cosmos.forbole.com/websocket"
+  },
+  "general": {
+    "basePath": "/cosmos",
+    "previewImage": "https://s3.bigdipper.live/cosmos.png"
+  },
+  "marketing": {
+    "matomoURL":"https://analytics.bigdipper.live",
+    "matomoSiteID":"4"
+  }
+}
