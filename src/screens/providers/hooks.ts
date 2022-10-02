@@ -40,6 +40,8 @@ export const useProviders = () => {
     },
   });
 
+  const [search, setSearch] = useState('');
+
   const LIMIT = 100;
 
   const handleSetState = (stateChange: any) => {
@@ -66,6 +68,10 @@ export const useProviders = () => {
       pages[selectedKey].push(x);
     });
     return pages;
+  };
+
+  const handleSearch = (value: string) => {
+    setSearch(value);
   };
 
   // ================================
@@ -166,10 +172,27 @@ export const useProviders = () => {
       });
     },
     onCompleted: (data) => {
-      const newItems = uniqueAndSort([
+      let newItems = uniqueAndSort([
         ...state.providers.items,
         ...formatProviders(data),
       ]);
+
+      console.log('search', search);
+      if (search) {
+        console.log('search input => ', search);
+        newItems = newItems.filter((x) => {
+          const formattedSearch = search.toLowerCase().replace(/ /g, '');
+          return (
+            x.ownerAddress.toLowerCase().includes(formattedSearch)
+          );
+          // return (
+          //   x.validator.name.toLowerCase().replace(/ /g, '').includes(formattedSearch)
+          //   || x.validator.address.toLowerCase().includes(formattedSearch)
+          // );
+        });
+      }
+
+      console.log('newItems', newItems);
 
       handleSetState({
         loading: false,
@@ -245,5 +268,6 @@ export const useProviders = () => {
     state,
     loadNextPage,
     setItemsPerPage,
+    handleSearch,
   };
 };

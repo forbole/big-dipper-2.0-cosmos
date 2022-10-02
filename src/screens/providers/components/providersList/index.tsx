@@ -22,6 +22,7 @@ export type ProvidersListProps = ComponentDefault & {
   list: ProvidersListState,
   handleChangePage: () => void,
   handleChangeRowsPerPage: (page: number) => void,
+  handleSearch:(value: string) => void,
 }
 
 const ProvidersList: React.FC<ProvidersListProps> = (props) => {
@@ -34,6 +35,7 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
     handleChangePage,
     handleChangeRowsPerPage,
   } = usePagination({});
+  const { handleSearch } = props;
 
   const component = null;
   // if (props.loading) {
@@ -60,7 +62,7 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
         </Typography>
         <Search
           className={classes.searchBar}
-        // callback={handleSearch}
+          callback={handleSearch}
           placeholder={t('searchProviders')}
         />
       </div>
