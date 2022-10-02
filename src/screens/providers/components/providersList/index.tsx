@@ -6,6 +6,7 @@ import useTranslation from 'next-translate/useTranslation';
 import {
   Box,
   Pagination,
+  Search,
 } from '@components';
 import {
   usePagination,
@@ -53,9 +54,17 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
 
   return (
     <Box className={classnames(props.className, classes.root)}>
-      <Typography variant="h2">
-        {t('title')}
-      </Typography>
+      <div className={classes.providerHeader}>
+        <Typography variant="h2">
+          {t('title')}
+        </Typography>
+        <Search
+          className={classes.searchBar}
+        // callback={handleSearch}
+          placeholder={t('searchProviders')}
+        />
+      </div>
+
       <div className={classes.list}>
         {/* {component} */}
         <Desktop list={props.list.items[page]} />

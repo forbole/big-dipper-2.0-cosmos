@@ -17,5 +17,6 @@
   "pending":"Pending",
   "availablePercent": "Available Percent",
   "usedPercent": "Used Percent",
-  "pendingPercent": "Pending Percent"
+  "pendingPercent": "Pending Percent",
+  "searchProviders": "Search Providers"
 }
