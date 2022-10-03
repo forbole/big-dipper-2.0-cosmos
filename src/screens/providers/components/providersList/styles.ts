@@ -5,15 +5,16 @@ export const useStyles = () => {
     (theme) => {
       return ({
         root: {
+          height: '100%',
           '& .MuiTypography-h2': {
             marginBottom: theme.spacing(2),
           },
         },
         list: {
-          minHeight: '500px',
-          height: '50vh',
+          minHeight: '700px',
+          height: '70vh',
           [theme.breakpoints.up('lg')]: {
-            minHeight: '65vh',
+            minHeight: '75vh',
           },
         },
         paginate: {

@@ -35,7 +35,7 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
   } = usePagination({});
   const { handleSearch } = props;
 
-  const component = null;
+  let component = null;
   // if (props.loading) {
   //   component = <Loading />;
   // } else if (!items.length) {
@@ -45,6 +45,11 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
   // } else {
   //   component = <Mobile items={items} />;
   // }
+  if (isDesktop) {
+    component = <Desktop list={props.list.pages[page] || []} />;
+  } else {
+    component = <Mobile list={props.list.pages[page] || []} />;
+  }
 
   return (
     <Box className={classnames(props.className, classes.root)}>
@@ -60,9 +65,9 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
       </div>
 
       <div className={classes.list}>
-        {/* {component} */}
-        <Desktop list={props.list.items[page] || []} />
-        <Mobile list={props.list.items[page] || []} />
+        {component}
+        {/* <Desktop list={props.list.pages[page] || []} />
+        <Mobile list={props.list.pages[page] || []} /> */}
         <Pagination
           className={classes.paginate}
           total={props.list.pagination.totalCount}

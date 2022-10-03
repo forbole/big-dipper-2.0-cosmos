@@ -8,7 +8,8 @@ export const useStyles = () => {
           ...theme.mixins.layout,
           display: 'grid',
           gridGap: theme.spacing(1),
-          gridTemplateRows: 'auto auto 1fr',
+          // gridTemplateRows: 'auto auto 1fr',
+          gridTemplateRows: 'auto auto 2fr',
           gridTemplateColumns: 'repeat(1, 1fr)',
           '& a': {
             color: theme.palette.custom.fonts.highlight,
@@ -64,6 +65,7 @@ export const useStyles = () => {
           [theme.breakpoints.up('lg')]: {
             gridColumn: '1 /5',
           },
+          height: '100%',
         },
       });
     },
