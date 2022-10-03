@@ -1,6 +1,6 @@
-import Icon from '@assets/icon';
 import React from 'react';
 import classnames from 'classnames';
+import { ChainIcon } from '@components';
 import { ExpandMore } from '@material-ui/icons';
 import { Typography } from '@material-ui/core';
 import { useRecoilValue } from 'recoil';
@@ -22,7 +22,7 @@ const Network:React.FC<{
       onClick={toggleNetwork}
       role="button"
     >
-      <Icon className={classes.icon} />
+      <ChainIcon className={classes.icon} alt="icon" />
       <Typography variant="body1">
         {selected}
       </Typography>
