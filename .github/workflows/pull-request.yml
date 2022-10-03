@@ -29,4 +29,4 @@ jobs:
           # to override config-conventional rules, specify a relative path to your rules module, actions/checkout is required for this setting!
           commitlintRulesPath: "./.github/linters/.commitlint.rules.js" # default: undefined
           # if the PR contains a single commit, fail if the commit message and the PR title do not match
-          commitTitleMatch: "false" # default: 'true'
+          commitTitleMatch: false # default: 'true'
