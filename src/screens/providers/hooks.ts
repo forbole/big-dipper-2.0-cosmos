@@ -177,7 +177,6 @@ export const useProviders = () => {
         ...formatProviders(data),
       ]);
 
-      console.log('search', search);
       if (search) {
         console.log('search input => ', search);
         newItems = newItems.filter((x) => {
