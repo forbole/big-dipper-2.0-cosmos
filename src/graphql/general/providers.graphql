@@ -24,8 +24,8 @@ subscription CPUMemoryStorageListener {
   }
 },
 
-query Providers($limit: Int!, $offset: Int!) {
-  list: akash_provider(order_by: {owner_address: asc}, limit: $limit, offset: $offset) {
+query Providers {
+  list: akash_provider(order_by: {owner_address: asc}) {
     attributes,
     hostUri: host_uri,
     info,

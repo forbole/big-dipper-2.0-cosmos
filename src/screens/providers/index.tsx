@@ -18,7 +18,7 @@ const Providers = () => {
   const { t } = useTranslation('providers');
   const classes = useStyles();
   const {
-    state, setItemsPerPage, loadNextPage, handleSearch,
+    state, handleSearch,
   } = useProviders();
 
   return (
@@ -50,8 +50,6 @@ const Providers = () => {
           storage={state.storage}
         />
         <ProvidersList
-          handleChangePage={loadNextPage}
-          handleChangeRowsPerPage={setItemsPerPage}
           className={classes.providersList}
           list={state.providers}
           handleSearch={handleSearch}

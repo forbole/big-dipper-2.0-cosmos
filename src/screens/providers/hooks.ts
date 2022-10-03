@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import * as R from 'ramda';
 import {
   useProvidersQuery,
@@ -8,7 +8,7 @@ import {
   useCpuMemoryStorageListenerSubscription,
   CpuMemoryStorageListenerSubscription,
 } from '@graphql/types/general_types';
-import { ProvidersState } from './types';
+import {ProviderInfo, ProvidersState} from './types';
 
 export const useProviders = () => {
   const [state, setState] = useState<ProvidersState>({
@@ -32,6 +32,7 @@ export const useProviders = () => {
     providers: {
       isNextPageLoading: false,
       items: [],
+      pages: [],
       pagination: {
         itemsPerPage: 10,
         currentPage: 0,
@@ -40,30 +41,17 @@ export const useProviders = () => {
     },
   });
 
-  const [search, setSearch] = useState('');
-
-  const LIMIT = 100;
-
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
 
-  // This is a bandaid as it can get extremely
-  // expensive if there is too much data
   /**
-   * Helps remove any possible duplication
-   * and sorts by height in case it bugs out
+   * Paginates the given data by splitting it into a list of arrays, each one having the selected number of items.
    */
-  const uniqueAndSort = R.pipe(
-    R.uniqBy(R.prop('ownerAddress')),
-    R.sort(R.ascend(R.prop('ownerAddress'))),
-  );
-
-  const PAGE_LIMIT = 10;
-  const createPagination = (data: any[]) => {
-    const pages = {};
+  const createPagination = (data: any[]): any[][] => {
+    const pages = [];
     data.forEach((x, i) => {
-      const selectedKey = Math.floor(i / PAGE_LIMIT);
+      const selectedKey = Math.floor(i / state.providers.pagination.itemsPerPage);
       pages[selectedKey] = pages[selectedKey] || [];
       pages[selectedKey].push(x);
     });
@@ -71,7 +59,7 @@ export const useProviders = () => {
   };
 
   const handleSearch = (value: string) => {
-    setSearch(value);
+    filterAndPaginateProviders(state.providers.items, value)
   };
 
   // ================================
@@ -160,88 +148,10 @@ export const useProviders = () => {
   // tx query
   // ================================
 
-  const providersQuery = useProvidersQuery({
-    variables: {
-      // limit: state.providers.pagination.itemsPerPage,
-      limit: LIMIT,
-      offset: state.providers.pagination.currentPage * state.providers.pagination.itemsPerPage,
-    },
-    onError: () => {
-      handleSetState({
-        loading: false,
-      });
-    },
-    onCompleted: (data) => {
-      let newItems = uniqueAndSort([
-        ...state.providers.items,
-        ...formatProviders(data),
-      ]);
-
-      if (search) {
-        console.log('search input => ', search);
-        newItems = newItems.filter((x) => {
-          const formattedSearch = search.toLowerCase().replace(/ /g, '');
-          return (
-            x.ownerAddress.toLowerCase().includes(formattedSearch)
-          );
-          // return (
-          //   x.validator.name.toLowerCase().replace(/ /g, '').includes(formattedSearch)
-          //   || x.validator.address.toLowerCase().includes(formattedSearch)
-          // );
-        });
-      }
-
-      console.log('newItems', newItems);
-
-      handleSetState({
-        loading: false,
-        providers: {
-          items: createPagination(newItems),
-          isNextPageLoading: false,
-          pagination: {
-            totalCount: data.total.aggregate.count,
-          },
-        },
-      });
-    },
-  });
-
-  const loadNextPage = async () => {
-    handleSetState({
-      providers: {
-        isNextPageLoading: true,
-      },
-    });
-    await providersQuery.fetchMore({
-      variables: {
-        offset: (state.providers.pagination.currentPage + 1)
-          * state.providers.pagination.itemsPerPage,
-        limit: state.providers.pagination.itemsPerPage,
-      },
-    }).then(({ data }) => {
-      const newItems = uniqueAndSort([
-        ...state.providers.items,
-        ...formatProviders(data),
-      ]);
-
-      handleSetState({
-        loading: false,
-        providers: {
-          items: newItems,
-          // items: createPagination(newItems),
-          // data: createPagination(
-          //   formatDelegations(allDelegations),
-          // ),
-          isNextPageLoading: false,
-        },
-      });
-    });
-  };
-
-  const formatProviders = (data: ProvidersQuery) => {
-    return data.list.map((item) => {
-      const organization = item.attributes.find((attribute) => attribute.key === 'organization')?.value;
-      const region = item.attributes.find((attribute) => attribute.key === 'region')?.value;
+  const formatProviders = (data: any[]) => {
+    return data.map((item) => {
+      const organization = item.attributes?.find((attribute) => attribute.key === 'organization')?.value;
+      const region = item.attributes?.find((attribute) => attribute.key === 'region')?.value;
       return ({
         ownerAddress: item.ownerAddress,
         hostURI: item.hostUri,
@@ -253,20 +163,48 @@ export const useProviders = () => {
     });
   };
 
-  const setItemsPerPage = (itemsPerPage: number) => {
+  const filterAndPaginateProviders = (items: ProviderInfo[], search: string) => {
+    let filteredPaginatedItems = items;
+
+    // Filter the providers based on the search
+    if (search) {
+      filteredPaginatedItems = state.providers.items.filter((x) => {
+        const formattedSearch = search.toLowerCase().replace(/ /g, '');
+        return x.ownerAddress.toLowerCase().includes(formattedSearch);
+      });
+    }
+
+    // Handle the pagination
     handleSetState({
+      loading: false,
       providers: {
+        items: items,
+        pages: createPagination(filteredPaginatedItems),
+        isNextPageLoading: false,
         pagination: {
-          itemsPerPage,
+          totalCount: filteredPaginatedItems.length,
         },
       },
     });
-  };
+  }
+
+  // ===================
+  // === Fetch data
+  // ===================
+
+  useProvidersQuery({
+    onError: () => {
+      handleSetState({
+        loading: false,
+      });
+    },
+    onCompleted: (data) => {
+      filterAndPaginateProviders(formatProviders(data.list), '');
+    },
+  });
 
   return {
     state,
-    loadNextPage,
-    setItemsPerPage,
     handleSearch,
   };
 };

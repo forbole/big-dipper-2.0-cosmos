@@ -20,8 +20,6 @@ const Mobile = dynamic(() => import('./components/mobile'));
 
 export type ProvidersListProps = ComponentDefault & {
   list: ProvidersListState,
-  handleChangePage: () => void,
-  handleChangeRowsPerPage: (page: number) => void,
   handleSearch:(value: string) => void,
 }
 
@@ -63,8 +61,8 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
 
       <div className={classes.list}>
         {/* {component} */}
-        <Desktop list={props.list.items[page]} />
-        <Mobile list={props.list.items[page]} />
+        <Desktop list={props.list.items[page] || []} />
+        <Mobile list={props.list.items[page] || []} />
         <Pagination
           className={classes.paginate}
           total={props.list.pagination.totalCount}

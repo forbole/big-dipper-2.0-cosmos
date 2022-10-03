@@ -20,7 +20,7 @@ import { columns } from './utils';
 import { useStyles } from './styles';
 import { ProviderInfo } from '../../../../types';
 
-const Desktop: React.FC<{list: ProviderInfo[]}> = (list) => {
+const Desktop: React.FC<{list: ProviderInfo[]}> = ({list}) => {
   const {
     gridRef,
     columnRef,
@@ -35,10 +35,10 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = (list) => {
 
   const className = '';
 
-  const itemCount = 10; // state.providers.pagination.itemsPerPage
+  const itemCount = list.length;
   const isItemLoaded = (index) => index >= 0 && index < itemCount;
 
-  const itemsNew = list.list.map((eachProvider) => ({
+  const itemsNew = list.map((eachProvider) => ({
     ownerAddress: (
       <>
         <Typography variant="body1" component="a">

@@ -14192,12 +14192,8 @@ export function useCpuMemoryStorageListenerSubscription(baseOptions?: Apollo.Sub
 export type CpuMemoryStorageListenerSubscriptionHookResult = ReturnType<typeof useCpuMemoryStorageListenerSubscription>;
 export type CpuMemoryStorageListenerSubscriptionResult = Apollo.SubscriptionResult<CpuMemoryStorageListenerSubscription>;
 export const ProvidersDocument = gql`
-    query Providers($limit: Int!, $offset: Int!) {
-  list: akash_provider(
-    order_by: {owner_address: asc}
-    limit: $limit
-    offset: $offset
-  ) {
+    query Providers {
+  list: akash_provider(order_by: {owner_address: asc}) {
     attributes
     hostUri: host_uri
     info
@@ -14223,12 +14219,10 @@ export const ProvidersDocument = gql`
  * @example
  * const { data, loading, error } = useProvidersQuery({
  *   variables: {
- *      limit: // value for 'limit'
- *      offset: // value for 'offset'
  *   },
  * });
  */
-export function useProvidersQuery(baseOptions: Apollo.QueryHookOptions<ProvidersQuery, ProvidersQueryVariables>) {
+export function useProvidersQuery(baseOptions?: Apollo.QueryHookOptions<ProvidersQuery, ProvidersQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
         return Apollo.useQuery<ProvidersQuery, ProvidersQueryVariables>(ProvidersDocument, options);
       }
