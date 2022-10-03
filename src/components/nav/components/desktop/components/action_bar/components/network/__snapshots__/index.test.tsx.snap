@@ -8,8 +8,21 @@ exports[`screen: Nav/Network it renders 1`] = `
 >
   <img
     alt="icon"
-    className="makeStyles-icon"
-    src="https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true"
+    className="makeStyles-icon makeStyles-light"
+    src={
+      Object {
+        "process": [Function],
+      }
+    }
+  />
+  <img
+    alt="icon"
+    className="makeStyles-icon makeStyles-dark"
+    src={
+      Object {
+        "process": [Function],
+      }
+    }
   />
   <p
     className="MuiTypography-root MuiTypography-body1"
