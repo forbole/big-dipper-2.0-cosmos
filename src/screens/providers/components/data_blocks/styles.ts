@@ -6,10 +6,14 @@ export const useStyles = () => {
       return ({
         root: {
           display: 'grid',
-          // gridGap: theme.spacing(1),
+          height: '100%',
+          gridGap: theme.spacing(1),
           // gridTemplateRows: 'auto',
           [theme.breakpoints.up('sm')]: {
             gridTemplateColumns: 'repeat(2, 1fr)',
+          },
+          [theme.breakpoints.up('md')]: {
+            gridTemplateColumns: 'repeat(1, 1fr)',
           },
           [theme.breakpoints.up('lg')]: {
             // gridGap: theme.spacing(2),

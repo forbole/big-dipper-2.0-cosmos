@@ -34,6 +34,7 @@ const Providers = () => {
         className={classes.root}
       >
         <DataBlocks
+          className={classes.dataBlocks}
           providers={state.activeProvidersCount}
           leases={state.activeLeasesCount}
         />

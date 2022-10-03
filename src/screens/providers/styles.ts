@@ -30,6 +30,16 @@ export const useStyles = () => {
             minHeight: '65vh',
           },
         },
+        dataBlocks: {
+          height: '375px',
+          [theme.breakpoints.up('md')]: {
+            gridColumn: '1 / 2',
+          },
+          [theme.breakpoints.up('lg')]: {
+            gridColumn: '1 / 2',
+            height: '100%',
+          },
+        },
         memory: {
           height: '375px',
           [theme.breakpoints.up('md')]: {
@@ -43,7 +53,7 @@ export const useStyles = () => {
         compute: {
           height: '375px',
           [theme.breakpoints.up('md')]: {
-            gridColumn: '3 / 4',
+            gridColumn: '1 / 2',
           },
           [theme.breakpoints.up('lg')]: {
             gridColumn: '3 / 4',
@@ -53,7 +63,7 @@ export const useStyles = () => {
         storage: {
           height: '375px',
           [theme.breakpoints.up('md')]: {
-            gridColumn: '4 / 5',
+            gridColumn: '2 / 3',
           },
           [theme.breakpoints.up('lg')]: {
             gridColumn: '4 / 5',
@@ -62,6 +72,9 @@ export const useStyles = () => {
         },
         providersList: {
           background: '#31326f',
+          [theme.breakpoints.up('md')]: {
+            gridColumn: '1 / 5',
+          },
           [theme.breakpoints.up('lg')]: {
             gridColumn: '1 /5',
           },
