@@ -7,6 +7,10 @@ export const useStyles = () => {
         root: {
           height: '100%',
         },
+        actionIcons: {
+          width: '1rem',
+          // marginLeft: theme.spacing(1),
+        },
       });
     },
   )();

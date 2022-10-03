@@ -48,12 +48,6 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
   //   component = <Mobile items={items} />;
   // }
 
-  // if (isDesktop) {
-  //   component = <Desktop />;
-  // } else {
-  //   component = <Mobile />;
-  // }
-
   return (
     <Box className={classnames(props.className, classes.root)}>
       <div className={classes.providerHeader}>
@@ -70,6 +64,7 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
       <div className={classes.list}>
         {/* {component} */}
         <Desktop list={props.list.items[page]} />
+        <Mobile list={props.list.items[page]} />
         <Pagination
           className={classes.paginate}
           total={props.list.pagination.totalCount}

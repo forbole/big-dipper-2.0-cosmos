@@ -4,19 +4,13 @@ import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
 import Link from 'next/link';
 import {
-  TRANSACTION_DETAILS,
-  BLOCK_DETAILS,
-} from '@utils/go_to_page';
-import {
   Typography, Divider,
 } from '@material-ui/core';
 import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
-
 import { mergeRefs } from '@utils/merge_refs';
 import {
-  SingleTransactionMobile,
   Loading,
   Result,
 } from '@components';
@@ -25,17 +19,20 @@ import {
   useListRow,
 } from '@hooks';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import EmailIcon from '@assets/icon-email.svg';
+import WebArrowIcon from '@assets/icon-web-arrow.svg';
+import CopyIcon from '@assets/icon-copy.svg';
+import { useAddress } from '@utils/copy_to_clipboard';
+import useTranslation from 'next-translate/useTranslation';
+import { ProviderInfo } from '../../../../types';
 import { useStyles } from './styles';
-import { TransactionsListState } from '../../types';
+import { SingleProvider } from './component';
 
-const Mobile: React.FC<TransactionsListState> = ({
-  className,
-  itemCount,
-  loadMoreItems,
-  isItemLoaded,
-  transactions,
-}) => {
+const Mobile: React.FC<{list: ProviderInfo[]}> = (list) => {
   const classes = useStyles();
+  const { t } = useTranslation('providers');
+  const { handleCopyToClipboard } = useAddress(t);
+  const className = '';
 
   const {
     listRef,
@@ -43,28 +40,75 @@ const Mobile: React.FC<TransactionsListState> = ({
     setRowHeight,
   } = useList();
 
-  const items = transactions.map((x) => ({
-    block: (
-      <Link href={BLOCK_DETAILS(x.height)} passHref>
+  const itemsNew = list.list.map((eachProvider) => ({
+    ownerAddress: (
+      <>
         <Typography variant="body1" component="a">
-          {numeral(x.height).format('0,0')}
-        </Typography>
-      </Link>
-    ),
-    hash: (
-      <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
-        <Typography variant="body1" component="a">
-          {getMiddleEllipsis(x.hash, {
-            beginning: 15, ending: 5,
+          {getMiddleEllipsis(eachProvider.ownerAddress, {
+            beginning: 9, ending: 8,
           })}
         </Typography>
-      </Link>
+        <CopyIcon
+          onClick={() => handleCopyToClipboard(eachProvider.ownerAddress)}
+          className={classes.actionIcons}
+        />
+      </>
     ),
-    result: (
-      <Result success={x.success} />
+    hostUri: (
+      <>
+        <Typography variant="body1" component="a">
+          {getMiddleEllipsis(eachProvider.hostURI, {
+            beginning: 8, ending: 8,
+          })}
+        </Typography>
+        <CopyIcon
+          onClick={() => handleCopyToClipboard(eachProvider.hostURI)}
+          className={classes.actionIcons}
+        />
+      </>
     ),
-    time: dayjs.utc(x.timestamp).fromNow(),
-    messages: numeral(x.messages.count).format('0,0'),
+    region: eachProvider.region
+      ? (
+        <Typography variant="body1" component="a">
+          {eachProvider.region}
+        </Typography>
+      ) : (
+        'Null'
+      ),
+    organization: eachProvider.organization
+      ? (
+        <Typography variant="body1" component="a">
+          {eachProvider.organization}
+        </Typography>
+      ) : (
+        'Null'
+      ),
+    email: eachProvider.emailAddress
+      ? (
+        <a href={`mailto:${eachProvider.emailAddress}`}>
+          <EmailIcon className={classes.actionIcons} />
+        </a>
+      ) : (
+        'Null'
+      ),
+    website: eachProvider.website
+      ? (
+        // <Link href={`https://${eachProvider.website}`}>
+        <Link href={eachProvider.website}>
+          <div>
+            <Typography variant="body1" component="a">
+              {eachProvider.website.length <= 13
+                ? eachProvider.website
+                : getMiddleEllipsis(eachProvider.website, {
+                  beginning: 13, ending: 0,
+                })}
+            </Typography>
+            <WebArrowIcon className={classes.actionIcons} />
+          </div>
+        </Link>
+      ) : (
+        'Null'
+      ),
   }));
 
   return (
@@ -104,11 +148,11 @@ const Mobile: React.FC<TransactionsListState> = ({
                         </div>
                       );
                     }
-                    const item = items[index];
+                    const item = itemsNew[index];
                     return (
                       <div style={style}>
                         <div ref={rowRef}>
-                          <SingleTransactionMobile {...item} />
+                          <SingleProvider {...item} />
                           {index !== itemCount - 1 && <Divider />}
                         </div>
                       </div>
