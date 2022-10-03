@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ToastContainer } from 'react-toastify';
@@ -46,6 +46,13 @@ const Main = (props: AppProps) => {
       <InnerApp {...props} />
     );
   }
+
+  /* Adding a class to the document element to indicate the dark mode. */
+  useEffect(() => {
+    if (typeof document !== 'undefined' && document?.documentElement) {
+      document.documentElement.classList.toggle('mode-dark', muiTheme.palette.type === 'dark');
+    }
+  }, [muiTheme.palette.type]);
 
   return (
     <ThemeProvider theme={muiTheme}>

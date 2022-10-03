@@ -10,7 +10,21 @@ Array [
   >
     <img
       alt="logo"
-      className="makeStyles-logo-3"
+      className="makeStyles-logo-3 makeStyles-light-6"
+      src={
+        Object {
+          "process": [Function],
+        }
+      }
+    />
+    <img
+      alt="logo"
+      className="makeStyles-logo-3 makeStyles-dark-7"
+      src={
+        Object {
+          "process": [Function],
+        }
+      }
     />
     <div
       className="makeStyles-timeContainer-4"

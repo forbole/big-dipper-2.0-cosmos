@@ -1,4 +1,5 @@
 import {
+  lightTemplate,
   darkTemplate,
   deuteranopiaTemplate,
   tritanopiaTemplate,
@@ -12,12 +13,14 @@ import {
 // ================================
 
 export const THEME_LIST: Theme[] = [
+  'light',
   'dark',
   'deuteranopia',
   'tritanopia',
 ];
 
 export const THEME_DICTIONARY = {
+  light: lightTemplate,
   dark: darkTemplate,
   deuteranopia: deuteranopiaTemplate,
   tritanopia: tritanopiaTemplate,

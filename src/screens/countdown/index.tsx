@@ -1,14 +1,13 @@
 /* eslint-disable */
-import React, { useState } from 'react';
-import * as R from 'ramda';
-import { Typography } from '@material-ui/core';
-import { useInterval } from '@hooks';
-import dayjs from '@utils/dayjs';
-import { useRecoilValue } from 'recoil';
+import { ChainLogo, Loading } from '@components';
 import { chainConfig } from '@configs';
+import { useInterval } from '@hooks';
+import { Typography } from '@material-ui/core';
 import { readTheme } from '@recoil/settings';
+import dayjs from '@utils/dayjs';
+import React, { useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import { useStyles } from './styles';
-import { Loading } from '@components';
 
 const Countdown: React.FC<{
   startGenesis: () => void;
@@ -25,7 +24,6 @@ const Countdown: React.FC<{
   });
 
   const genesisTime = dayjs.utc(chainConfig.genesis.time);
-  const logoUrl = R.pathOr(chainConfig.logo.default, ['logo', theme], chainConfig);
 
   const intervalCallback = () => {
     const timeNow = dayjs.utc();
@@ -53,7 +51,7 @@ const Countdown: React.FC<{
 
   return (
     <div className={classes.root}>
-      <img src={logoUrl} className={classes.logo} alt="logo" />
+      <ChainLogo className={classes.logo} alt="logo" />
       <div className={classes.timeContainer}>
         <div className={classes.item}>
           <Typography variant="h1">
