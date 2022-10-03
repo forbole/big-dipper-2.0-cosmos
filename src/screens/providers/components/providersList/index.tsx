@@ -55,7 +55,7 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
     <Box className={classnames(props.className, classes.root)}>
       <div className={classes.providerHeader}>
         <Typography variant="h2">
-          {t('title')}
+          {t('providers')}
         </Typography>
         <Search
           className={classes.searchBar}

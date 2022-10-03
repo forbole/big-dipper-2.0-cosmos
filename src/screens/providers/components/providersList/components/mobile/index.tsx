@@ -28,7 +28,7 @@ import { ProviderInfo } from '../../../../types';
 import { useStyles } from './styles';
 import { SingleProvider } from './component';
 
-const Mobile: React.FC<{list: ProviderInfo[]}> = (list) => {
+const Mobile: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
   const classes = useStyles();
   const { t } = useTranslation('providers');
   const { handleCopyToClipboard } = useAddress(t);
@@ -40,7 +40,7 @@ const Mobile: React.FC<{list: ProviderInfo[]}> = (list) => {
     setRowHeight,
   } = useList();
 
-  const itemsNew = list.list.map((eachProvider) => ({
+  const itemsNew = list.map((eachProvider) => ({
     ownerAddress: (
       <>
         <Typography variant="body1" component="a">
@@ -115,39 +115,28 @@ const Mobile: React.FC<{list: ProviderInfo[]}> = (list) => {
 
   return (
     <div className={classnames(className)}>
-      {console.log('hiii')}
-      <AutoSizer>
+
+      <List
+        height={900}
+        itemCount={itemsNew.length}
+        itemSize={getRowHeight}
+        ref={listRef}
+      >
         {({
-          height, width,
+          index, style,
         }) => {
-          console.log('height', height);
+          const { rowRef } = useListRow(index, setRowHeight);
+          const selectedItem = itemsNew[index];
           return (
-            <List
-              className="List"
-              height={height}
-              itemCount={itemsNew.length}
-              itemSize={getRowHeight}
-              ref={listRef}
-              width={width}
-            >
-              {({
-                index, style,
-              }) => {
-                const { rowRef } = useListRow(index, setRowHeight);
-                const selectedItem = itemsNew[index];
-                return (
-                  <div style={style}>
-                    <div ref={rowRef}>
-                      <SingleProvider {... selectedItem} />
-                      {index !== itemsNew.length - 1 && <Divider />}
-                    </div>
-                  </div>
-                );
-              }}
-            </List>
+            <div style={style}>
+              <div ref={rowRef}>
+                <SingleProvider {... selectedItem} />
+                {index !== itemsNew.length - 1 && <Divider />}
+              </div>
+            </div>
           );
         }}
-      </AutoSizer>
+      </List>
     </div>
   );
 };
