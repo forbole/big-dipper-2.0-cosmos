@@ -388,6 +388,9 @@ Array [
               providers
             </span>
           </div>
+          <span   
+            className="MuiTouchRipple-root"
+          />
         </a>
       </ul>
     </div>
