@@ -1,58 +1,77 @@
-import Color from 'color';
+import { chainConfig } from '@configs';
 
-const backgroundDefault = '#0A0A0A';
-const surfaceOne = '#131316';
-const surfaceTwo = '#19191D';
-const fontOne = '#E6E6E6';
-const fontTwo = '#AAAAAB';
-const fontThree = '#818181';
+const {
+  background, primary, divider, text, fonts,
+  primaryData, results, tokenomics, condition, charts,
+} = chainConfig.style.themes.dark;
 
 /** Custom theme overrides for dark mode */
 export const darkThemeOverride = {
   mixins: {
     tableCell: {
-      background: surfaceOne, // surface one
+      background: background.surfaceOne, // surface one
       '&.odd': {
-        background: surfaceTwo, // surface two
+        background: background.surfaceTwo, // surface two
       },
     },
   },
   palette: {
     type: 'dark',
     primary: {
-      main: Color('#FD3B4C').alpha(0.7).string(),
-      contrastText: '#fff',
+      main: primary.main,
+      contrastText: primary.contrastText,
     },
     background: {
-      default: backgroundDefault,
-      paper: surfaceOne,
+      default: background.default,
+      paper: background.surfaceOne,
     },
-    divider: '#3D3D43',
+    divider,
     text: {
-      primary: '#E6E6E6',
-      secondary: '#AAAAAB',
+      primary: text.primary,
+      secondary: text.secondary,
     },
     custom: {
       general: {
-        background: backgroundDefault, // same as background default
-        surfaceOne, // same as background paper
-        surfaceTwo, // striped tables
+        background: background.default, // same as background default
+        surfaceOne: background.surfaceOne, // same as background paper
+        surfaceTwo: background.surfaceTwo, // striped tables
       },
       fonts: {
-        fontOne,
-        fontTwo,
-        fontThree,
-        fontFour: '#999999',
+        fontOne: fonts.fontOne,
+        fontTwo: fonts.fontTwo,
+        fontThree: fonts.fontThree,
+        fontFour: fonts.fontFour,
+        fontFive: fonts.fontFive,
+        highlight: fonts.highlight,
       },
       primaryData: {
-        one: '#af2929',
-        two: '#b44516',
-        three: '#b14237',
-        four: '#b16919',
+        one: primaryData.one,
+        two: primaryData.two,
+        three: primaryData.three,
+        four: primaryData.four,
       },
       results: {
-        pass: '#198a65',
-        fail: '#b12a34',
+        pass: results.pass,
+        fail: results.fail,
+      },
+      tokenomics: {
+        one: tokenomics.one,
+        two: tokenomics.two,
+        three: tokenomics.three,
+      },
+      condition: {
+        zero: condition.zero,
+        one: condition.one,
+        two: condition.two,
+        three: condition.three,
+      },
+      charts: {
+        zero: charts.zero,
+        one: charts.one,
+        two: charts.two,
+        three: charts.three,
+        four: charts.four,
+        five: charts.five,
       },
     },
   },
@@ -61,24 +80,24 @@ export const darkThemeOverride = {
       root: {
         '& .MuiTableRow-root': {
           '&:nth-child(odd)': {
-            backgroundColor: surfaceTwo, // surface two
+            backgroundColor: background.surfaceTwo, // surface two
           },
         },
         '& .MuiTableCell-root': {
-          color: fontTwo, // font two
+          color: fonts.fontTwo, // font two
         },
       },
     },
     MuiTabs: {
       root: {
         '& .MuiTab-textColorInherit': {
-          color: fontThree, // font three
+          color: fonts.fontThree, // font three
         },
         '& .MuiTab-textColorInherit.Mui-selected': {
-          color: fontOne, // font one
+          color: fonts.fontOne, // font one
         },
         '& .MuiTabs-indicator': {
-          backgroundColor: fontOne, // font one (?)
+          backgroundColor: fonts.fontOne, // font one (?)
         },
       },
     },

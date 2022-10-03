@@ -1,8 +1,12 @@
+import { chainConfig } from '@configs';
 import { atom } from 'recoil';
-import { AtomState } from './types';
+import {
+  AtomState,
+  Theme,
+} from './types';
 
 const initialState: AtomState = {
-  theme: 'light',
+  theme: chainConfig.style.themes.default as Theme,
   dateFormat: 'locale',
   txListFormat: 'compact',
 };

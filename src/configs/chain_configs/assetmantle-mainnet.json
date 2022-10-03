@@ -1,9 +1,9 @@
 {
   "title": "AssetMantle Block Explorer",
   "network": "assetmantle-mainnet-mantle-1",
-  "icon": "/assetmantle/images/icon.svg",
+  "icon": "/assetmantle/images/assetmantle/icon.svg",
   "logo": {
-    "default": "/assetmantle/images/logo.svg"
+    "default": "/assetmantle/images/assetmantle/logo.svg"
   },
   "prefix": {
     "consensus": "mantlevalcons",
@@ -37,5 +37,119 @@
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"29"
+  },
+  "style": {
+    "themes": {
+      "default": "dark",
+      "themeList": ["dark", "deuteranopia", "tritanopia"],
+      "light": {
+        "background": {
+          "default": "#",
+          "paper": "#",
+          "surfaceOne": "#",
+          "surfaceTwo": "#"
+        },
+        "primary": {
+          "main": "#",
+          "contrastText": "#"
+        },
+        "divider": "#",
+        "text": {
+          "primary": "#",
+          "secondary": "#"
+        },
+        "fonts": {
+          "fontOne": "#",
+          "fontTwo": "#",
+          "fontThree": "#",
+          "fontFour": "#",
+          "fontFive": "#",
+          "highlight": "#"
+        },
+        "primaryData": {
+          "one": "#",
+          "two": "#",
+          "three": "#",
+          "four": "#"
+        },
+        "results": {
+          "pass": "#",
+          "fail": "#"
+        },
+        "tokenomics": {
+          "one": "#",
+          "two": "#",
+          "three": "#"
+        },
+        "condition": {
+          "zero": "#",
+          "one": "#",
+          "two": "#",
+          "three": "#"
+        },
+        "charts": {
+          "zero": "#",
+          "one": "#",
+          "two": "#",
+          "three": "#",
+          "four": "#",
+          "five": "#"
+        }
+      },
+      "dark": {
+        "background": {
+          "default": "#000000",
+          "paper": "#1F1F1F",
+          "surfaceOne": "#1F1F1F",
+          "surfaceTwo": "#2C2C2C"
+        },
+        "primary": {
+          "main": "#F3B211",
+          "contrastText": "#FFFFFF"
+        },
+        "divider": "#494949",
+        "text": {
+          "primary": "#E6E6E6",
+          "secondary": "#C4C4C4"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#1D86FF"
+        },
+        "primaryData": {
+          "one": "#F3B211",
+          "two": "#C69006",
+          "three": "#B7B00A",
+          "four": "#C86002"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#F3B211",
+          "two": "#2665FF",
+          "three": "#12F3B3"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#12F3B3",
+          "two": "#F26511",
+          "three": "#0D50E2",
+          "four": "#F3B211",
+          "five": "#F312C2"
+        }
+      }
+    }
   }
 }

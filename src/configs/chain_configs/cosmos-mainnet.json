@@ -1,9 +1,9 @@
 {
   "title": "Cosmos Block Explorer",
   "network": "cosmoshub-4",
-  "icon": "/images/icon.svg",
+  "icon": "/cosmos/images/cosmos/icon.svg",
   "logo": {
-    "default": "/images/logo.svg"
+    "default": "/cosmos/images/cosmos/logo.svg"
   },
   "prefix": {
     "consensus": "cosmosvalcons",
@@ -37,5 +37,119 @@
   "marketing": {
     "matomoURL":"https://analytics.bigdipper.live",
     "matomoSiteID":"4"
+  },
+  "style": {
+    "themes": {
+      "default": "dark",
+      "themeList": ["dark", "deuteranopia", "tritanopia"],
+      "light": {
+        "background": {
+          "default": "#",
+          "paper": "#",
+          "surfaceOne": "#",
+          "surfaceTwo": "#"
+        },
+        "primary": {
+          "main": "#",
+          "contrastText": "#"
+        },
+        "divider": "#",
+        "text": {
+          "primary": "#",
+          "secondary": "#"
+        },
+        "fonts": {
+          "fontOne": "#",
+          "fontTwo": "#",
+          "fontThree": "#",
+          "fontFour": "#",
+          "fontFive": "#",
+          "highlight": "#"
+        },
+        "primaryData": {
+          "one": "#",
+          "two": "#",
+          "three": "#",
+          "four": "#"
+        },
+        "results": {
+          "pass": "#",
+          "fail": "#"
+        },
+        "tokenomics": {
+          "one": "#",
+          "two": "#",
+          "three": "#"
+        },
+        "condition": {
+          "zero": "#",
+          "one": "#",
+          "two": "#",
+          "three": "#"
+        },
+        "charts": {
+          "zero": "#",
+          "one": "#",
+          "two": "#",
+          "three": "#",
+          "four": "#",
+          "five": "#"
+        }
+      },
+      "dark": {
+        "background": {
+          "default": "#020202",
+          "paper": "#191B26",
+          "surfaceOne": "#191B26",
+          "surfaceTwo": "#282A36"
+        },
+        "primary": {
+          "main": "#6B9EFF",
+          "contrastText": "#fff"
+        },
+        "divider": "#363A51",
+        "text": {
+          "primary": "#E6E6E6",
+          "secondary": "#C4C4C4"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#6AA6FF"
+        },
+        "primaryData": {
+          "one": "#AE73F8",
+          "two": "#6B9EFF",
+          "three": "#5ACF78",
+          "four": "#E3AB55"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#5E94FF",
+          "two": "#E3AB55",
+          "three": "#5ACF78"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#5ACF78",
+          "two": "#5E94FF",
+          "three": "#AE73F8",
+          "four": "#E3AB55",
+          "five": "#C25396"
+        }
+      }
+    }
   }
 }

@@ -50,6 +50,7 @@ export const deuteranopiaThemeOverride = {
         fontTwo,
         fontThree,
         fontFour: '#9F9F9F',
+        fontFive: '#FFFFFF',
         highlight: '#FFAC3B', // links
       },
       primaryData: {

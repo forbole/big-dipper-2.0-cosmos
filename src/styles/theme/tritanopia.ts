@@ -50,6 +50,7 @@ export const tritanopiaThemeOverride = {
         fontTwo,
         fontThree,
         fontFour: '#999999',
+        fontFive: '#FFFFFF',
         highlight: '#009FFA', // links
       },
       primaryData: {

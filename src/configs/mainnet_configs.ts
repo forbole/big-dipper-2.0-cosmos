@@ -10,7 +10,6 @@ import chainConfigOsmosisMainnet from './chain_configs/osmosis-mainnet.json';
 import chainConfigProvenanceMainnet from './chain_configs/provenance-mainnet.json';
 import chainConfigRegenMainnet from './chain_configs/regen-mainnet.json';
 import chainConfigRizonMainnet from './chain_configs/rizon-mainnet.json';
-import chainConfigShentuMainnet from './chain_configs/shentu-mainnet.json';
 import chainConfigSifchainMainnet from './chain_configs/sifchain-mainnet.json';
 import baseChainConfig from './chain_configs/base-config.json';
 
@@ -40,8 +39,6 @@ const getMainnetChainConfig = (chainName: string) => {
       return chainConfigRegenMainnet;
     case 'rizon':
       return chainConfigRizonMainnet;
-    case 'shentu':
-      return chainConfigShentuMainnet;
     case 'sifchain':
       return chainConfigSifchainMainnet;
 
