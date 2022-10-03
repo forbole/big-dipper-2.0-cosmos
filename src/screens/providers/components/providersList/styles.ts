@@ -22,13 +22,15 @@ export const useStyles = () => {
           // marginBottom: theme.spacing(3),
         },
         providerHeader: {
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
+          [theme.breakpoints.up('lg')]: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          },
         },
         searchBar: {
           // flex: 1,
-          display: 'none',
+          // display: 'none',
           marginRight: theme.spacing(2),
           '& .MuiInputBase-root': {
             background: theme.palette.custom.general.surfaceTwo,

@@ -111,56 +111,40 @@ const Mobile: React.FC<{list: ProviderInfo[]}> = (list) => {
       ),
   }));
 
+  console.log('items mobile', itemsNew);
+
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={classnames(className)}>
+      {console.log('hiii')}
       <AutoSizer>
         {({
           height, width,
         }) => {
+          console.log('height', height);
           return (
-            <InfiniteLoader
-              isItemLoaded={isItemLoaded}
-              itemCount={itemCount}
-              loadMoreItems={loadMoreItems}
+            <List
+              className="List"
+              height={height}
+              itemCount={itemsNew.length}
+              itemSize={getRowHeight}
+              ref={listRef}
+              width={width}
             >
               {({
-                onItemsRendered, ref,
-              }) => (
-                <List
-                  className="List"
-                  height={height}
-                  itemCount={itemCount}
-                  itemSize={getRowHeight}
-                  onItemsRendered={onItemsRendered}
-                  ref={mergeRefs(listRef, ref)}
-                  width={width}
-                >
-                  {({
-                    index, style,
-                  }) => {
-                    const { rowRef } = useListRow(index, setRowHeight);
-                    if (!isItemLoaded(index)) {
-                      return (
-                        <div style={style}>
-                          <div ref={rowRef}>
-                            <Loading />
-                          </div>
-                        </div>
-                      );
-                    }
-                    const item = itemsNew[index];
-                    return (
-                      <div style={style}>
-                        <div ref={rowRef}>
-                          <SingleProvider {...item} />
-                          {index !== itemCount - 1 && <Divider />}
-                        </div>
-                      </div>
-                    );
-                  }}
-                </List>
-              )}
-            </InfiniteLoader>
+                index, style,
+              }) => {
+                const { rowRef } = useListRow(index, setRowHeight);
+                const selectedItem = itemsNew[index];
+                return (
+                  <div style={style}>
+                    <div ref={rowRef}>
+                      <SingleProvider {... selectedItem} />
+                      {index !== itemsNew.length - 1 && <Divider />}
+                    </div>
+                  </div>
+                );
+              }}
+            </List>
           );
         }}
       </AutoSizer>

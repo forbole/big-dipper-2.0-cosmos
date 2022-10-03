@@ -20,7 +20,7 @@ import { columns } from './utils';
 import { useStyles } from './styles';
 import { ProviderInfo } from '../../../../types';
 
-const Desktop: React.FC<{list: ProviderInfo[]}> = ({list}) => {
+const Desktop: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
   const {
     gridRef,
     columnRef,
@@ -108,6 +108,8 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = ({list}) => {
         'Null'
       ),
   }));
+
+  console.log('items desktop', itemsNew);
 
   return (
     <div className={classnames(className, classes.root)}>
