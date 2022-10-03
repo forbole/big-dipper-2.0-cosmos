@@ -31,8 +31,8 @@
   },
   "endpoints": {
     "graphql":"https://gql.likecoin.forbole.com/v1/graphql",
-    "graphqlWebsocket":"wss://gql.likecoin.forbole.com/v1/graphql",
-    "publicRpcWebsocket":"wss://rpc.likecoin.forbole.com/websocket"
+    "graphqlWebsocket":"wss://gql-ws.likecoin.forbole.com/v1/graphql",
+    "publicRpcWebsocket":"wss://ws.likecoin.forbole.com"
   },
   "general": {
     "basePath": "/likecoin",
