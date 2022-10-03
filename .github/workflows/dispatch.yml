@@ -22,10 +22,3 @@ jobs:
     if: ${{ github.ref_protected == true }}
     uses: ./.github/workflows/release.yml
     secrets: inherit
-
-  call-deploy:
-    name: "Deploy"
-    needs: call-release
-    if: ${{ github.ref_protected == true }}
-    uses: ./.github/workflows/deploy.yml
-    secrets: inherit
