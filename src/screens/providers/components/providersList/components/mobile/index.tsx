@@ -1,19 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
-import numeral from 'numeral';
-import dayjs from '@utils/dayjs';
 import Link from 'next/link';
 import {
   Typography, Divider,
 } from '@material-ui/core';
 import { VariableSizeList as List } from 'react-window';
-import InfiniteLoader from 'react-window-infinite-loader';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import { mergeRefs } from '@utils/merge_refs';
-import {
-  Loading,
-  Result,
-} from '@components';
 import {
   useList,
   useListRow,
@@ -110,8 +101,6 @@ const Mobile: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
         'Null'
       ),
   }));
-
-  console.log('items mobile', itemsNew);
 
   return (
     <div className={classnames(className)}>

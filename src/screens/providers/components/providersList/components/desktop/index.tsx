@@ -1,12 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
 import AutoSizer from 'react-virtualized-auto-sizer';
-// import numeral from 'numeral';
 import Link from 'next/link';
 import { VariableSizeGrid as Grid } from 'react-window';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
-// import { mergeRefs } from '@utils/merge_refs';
 import {
   Loading,
 } from '@components';
@@ -22,7 +20,7 @@ import { ProviderInfo } from '../../../../types';
 
 const Desktop: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
   const {
-    gridRef,
+    // gridRef,
     columnRef,
     onResize,
     getColumnWidth,
@@ -109,8 +107,6 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
       ),
   }));
 
-  console.log('items desktop', itemsNew);
-
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer onResize={onResize}>
@@ -164,7 +160,6 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
                 rowCount={itemCount}
                 rowHeight={getRowHeight}
                 width={width}
-                // className="scrollbar"
               >
                 {({
                   columnIndex, rowIndex, style,

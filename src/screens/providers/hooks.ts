@@ -1,14 +1,17 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import * as R from 'ramda';
 import {
   useProvidersQuery,
-  ProvidersQuery,
+  // ProvidersQuery,
   useActiveProvidersListenerSubscription,
   useActiveLeasesListenerSubscription,
   useCpuMemoryStorageListenerSubscription,
   CpuMemoryStorageListenerSubscription,
 } from '@graphql/types/general_types';
-import {ProviderInfo, ProvidersState} from './types';
+import {
+  ProviderInfo,
+  ProvidersState,
+} from './types';
 
 export const useProviders = () => {
   const [state, setState] = useState<ProvidersState>({
@@ -46,7 +49,8 @@ export const useProviders = () => {
   };
 
   /**
-   * Paginates the given data by splitting it into a list of arrays, each one having the selected number of items.
+   * Paginates the given data by splitting it into a list of arrays,
+   * each one having the selected number of items.
    */
   const createPagination = (data: any[]): any[][] => {
     const pages = [];
@@ -59,7 +63,7 @@ export const useProviders = () => {
   };
 
   const handleSearch = (value: string) => {
-    filterAndPaginateProviders(state.providers.items, value)
+    filterAndPaginateProviders(state.providers.items, value);
   };
 
   // ================================
@@ -178,7 +182,7 @@ export const useProviders = () => {
     handleSetState({
       loading: false,
       providers: {
-        items: items,
+        items,
         pages: createPagination(filteredPaginatedItems),
         isNextPageLoading: false,
         pagination: {
@@ -186,7 +190,7 @@ export const useProviders = () => {
         },
       },
     });
-  }
+  };
 
   // ===================
   // === Fetch data
