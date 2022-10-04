@@ -61,7 +61,7 @@ const SingleProvider: React.FC<{
       </div>
       <div className={classes.item}>
         <Typography variant="h4" className="label">
-          {t('oemail')}
+          {t('email')}
         </Typography>
         {email}
       </div>
