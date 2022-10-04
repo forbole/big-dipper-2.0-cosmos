@@ -37,7 +37,7 @@ export const useProviders = () => {
       items: [],
       pages: [],
       pagination: {
-        itemsPerPage: 10,
+        itemsPerPage: 15,
         currentPage: 0,
         totalCount: 0,
       },

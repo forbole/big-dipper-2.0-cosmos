@@ -32,7 +32,9 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
     rowsPerPage,
     handleChangePage,
     handleChangeRowsPerPage,
-  } = usePagination({});
+  } = usePagination({
+    rowsPage: props.list.pagination.itemsPerPage,
+  });
   const { handleSearch } = props;
 
   let component = null;
@@ -58,15 +60,16 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
 
       <div className={classes.list}>
         {component}
-        <Pagination
-          className={classes.paginate}
-          total={props.list.pagination.totalCount}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          handleChangePage={handleChangePage}
-          handleChangeRowsPerPage={handleChangeRowsPerPage}
-        />
       </div>
+
+      <Pagination
+        className={classes.paginate}
+        total={props.list.pagination.totalCount}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        handleChangePage={handleChangePage}
+        handleChangeRowsPerPage={handleChangeRowsPerPage}
+      />
     </Box>
   );
 };
