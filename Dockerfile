@@ -19,19 +19,19 @@ RUN npm ci
 COPY . .
 
 # # Get env from secrets
-# ARG NODE_ENV
-# ARG PORT
-# ARG CHAIN_NAME
-# ARG CHAIN_TYPE
+ARG NODE_ENV
+ARG PORT
+ARG CHAIN_NAME
+ARG CHAIN_TYPE
 
 # Generate env file
-ENV NODE_ENV=production
-ENV PORT=3000
-ENV CHAIN_NAME=agoric
-ENV CHAIN_TYPE=mainnet
+ENV NODE_ENV ${NODE_ENV}
+ENV PORT ${PORT}
+ENV CHAIN_NAME ${CHAIN_NAME}
+ENV CHAIN_TYPE ${CHAIN_TYPE}
 
 # Building app
-RUN npm run build --chaintype=${CHAIN_TYPE} --chainname=${CHAIN_NAME}
+RUN npm run build --chainname=${CHAIN_NAME} --chaintype=${CHAIN_TYPE} 
 EXPOSE ${PORT}
 
 # Running the app
