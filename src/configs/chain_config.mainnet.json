@@ -6,19 +6,19 @@
     "default": "/images/logo.svg"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "nomicvalcons",
+    "validator": "nomicvaloper",
+    "account": "nomic"
   },
   "genesis": {
-    "time": "2021-07-13T08:00:00",
+    "time": "2022-07-04T00:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udsm",
-  "votingPowerTokenUnit": "udsm",
+  "primaryTokenUnit": "unom",
+  "votingPowerTokenUnit": "unom",
   "tokenUnits": {
-    "udsm": {
-      "display": "dsm",
+    "unom": {
+      "display": "nom",
       "exponent": 6
     }
   },
