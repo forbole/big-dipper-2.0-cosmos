@@ -6,7 +6,7 @@
     "dev": "CHAIN_TYPE=$npm_config_chaintype CHAIN_NAME=$npm_config_chainname nodemon",
     "build": "npm run build:next && npm run build:server",
     "build:server": "tsc --project tsconfig.server.json",
-    "build:next": "next build",
+    "build:next": "CHAIN_TYPE=$npm_config_chaintype CHAIN_NAME=$npm_config_chainname next build",
     "start": "NODE_ENV=production node dist/index.js",
     "type-check": "tsc",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",

@@ -21,13 +21,17 @@ COPY . .
 # Get env from secrets
 ARG NODE_ENV
 ARG PORT
+ARG CHAIN_NAME
+ARG CHAIN_TYPE
 
 # Generate env file
 ENV NODE_ENV ${NODE_ENV}
 ENV PORT ${PORT}
+ENV CHAIN_NAME ${CHAIN_NAME}
+ENV CHAIN_TYPE ${CHAIN_TYPE}
 
 # Building app
-RUN npm run build
+RUN npm run build --chaintype=${CHAIN_TYPE} --chainname=${CHAIN_NAME}
 EXPOSE ${PORT}
 
 # Running the app
