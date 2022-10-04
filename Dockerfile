@@ -18,7 +18,7 @@ RUN npm ci
 # Copying source files
 COPY . .
 
-# # Get env from secrets
+# Get env from secrets
 ARG NODE_ENV
 ARG PORT
 ARG CHAIN_NAME
