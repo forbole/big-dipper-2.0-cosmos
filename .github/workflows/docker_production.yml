@@ -86,7 +86,7 @@ jobs:
       - name: Deploy to Akash 🌐
         env:
           AKASH_EDGENET_1: ${{ secrets.AKASH_EDGENET_1 }}
-          # AKASH_AKASHNET_2: ${{ secrets.AKASH_AKASHNET_2 }}
+          AKASH_AKASHNET_2: ${{ secrets.AKASH_AKASHNET_2 }}
           AKASH_WEBHOOK_SECRET: ${{ secrets.AKASH_WEBHOOK_SECRET }}
         run: |
             BRANCH=${GITHUB_REF}
@@ -96,7 +96,7 @@ jobs:
               WEBHOOK_URL=$AKASH_EDGENET_1
             elif [[ $GITHUB_REF == refs/tags/akash-akashnet-2-v* ]]; then
               echo 'Deploying to Akash akashnet-2-v*'
-              # WEBHOOK_URL=$DESMOS_MAINNET
+              # WEBHOOK_URL=$AKASH_AKASHNET_2
             fi
               curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k $WEBHOOK_URL -u "deploy:$AKASH_WEBHOOK_SECRET"
 
