@@ -4,7 +4,7 @@ const basePath = process.env.CHAIN_NAME || 'desmos';
 
 module.exports = nextTranslate({
   poweredByHeader: false,
-  basePath: `/${basePath}`.toLowerCase(),
+  basePath: `/${basePath.toLowerCase()}`,
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
