@@ -1,8 +1,10 @@
 const nextTranslate = require('next-translate');
 
+const basePath = process.env.CHAIN_NAME || 'desmos';
+
 module.exports = nextTranslate({
   poweredByHeader: false,
-  basePath: `/${process.env.CHAIN_NAME}`.toLowerCase(),
+  basePath: `/${basePath.toLowerCase()}`,
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
