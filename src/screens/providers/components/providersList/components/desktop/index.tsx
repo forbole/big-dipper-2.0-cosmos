@@ -20,7 +20,7 @@ import { ProviderInfo } from '../../../../types';
 
 const Desktop: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
   const {
-    // gridRef,
+    gridRef,
     columnRef,
     onResize,
     getColumnWidth,
@@ -154,6 +154,7 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
               {/* ======================================= */}
 
               <Grid
+                ref={gridRef}
                 columnCount={columns.length}
                 columnWidth={(index) => getColumnWidth(width, index)}
                 height={height - 50}
