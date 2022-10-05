@@ -5,7 +5,7 @@
 - Updated preview image
 - Added mainnet ([\981](https://github.com/forbole/big-dipper-2.0-cosmos/issues/981))
 - Added provider page ([\984](https://github.com/forbole/big-dipper-2.0-cosmos/issues/984))
-- Fixed emailIcon and actionIcon css ([\1019](https://github.com/forbole/big-dipper-2.0-cosmos/issues/1019))
+- Fixed emailIcon and actionIcon css ([\1020](https://github.com/forbole/big-dipper-2.0-cosmos/issues/1020))
 
 # akash-v1.2.0 - 2022-04-19
 
