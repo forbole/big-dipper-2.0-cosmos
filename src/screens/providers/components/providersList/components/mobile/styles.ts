@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = () => {
   const styles = makeStyles(
-    () => {
+    (theme) => {
       return ({
         root: {
           height: '100%',
@@ -10,13 +10,13 @@ export const useStyles = () => {
         list: {
           minHeight: '500px',
           height: '50vh',
-          // [theme.breakpoints.up('lg')]: {
-          //   minHeight: '65vh',
-          // },
         },
         actionIcons: {
           width: '1rem',
-          // marginLeft: theme.spacing(1),
+          marginLeft: theme.spacing(1),
+        },
+        emailIcon: {
+          width: '1.5rem',
         },
       });
     },

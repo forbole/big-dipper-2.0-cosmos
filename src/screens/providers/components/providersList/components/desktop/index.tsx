@@ -82,7 +82,7 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
     email: eachProvider.emailAddress
       ? (
         <a href={`mailto:${eachProvider.emailAddress}`}>
-          <EmailIcon className={classes.actionIcons} />
+          <EmailIcon className={classes.emailIcon} />
         </a>
       ) : (
         'Null'
