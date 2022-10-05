@@ -87,6 +87,8 @@ export const useStaking = () => {
         },
         query: ValidatorDelegationsDocument,
       });
+      // console.log('data in getDelegation', data); // 191
+
       const count = R.pathOr(0, ['data', 'delegations', 'pagination', 'total'], data);
       const allDelegations = R.pathOr([], ['data', 'delegations', 'delegations'], data);
       // if there are more than the default 100, grab the remaining delegations

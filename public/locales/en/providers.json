@@ -1,0 +1,22 @@
+{
+  "providers": "Providers",
+  "activeProviders": "Active Providers",
+  "activeLeases": "Active Leases",
+  "memory": "Memory",
+  "compute": "Compute",
+  "storage": "Storage",
+  "ownerAddress": "Owner Address",
+  "hostUri": "Host Uri",
+  "region": "Region",
+  "organization": "Organization",
+  "email": "Email",
+  "website": "Website",
+  "available":"Available",
+  "used": "Used",
+  "pending":"Pending",
+  "availablePercent": "Available Percent",
+  "usedPercent": "Used Percent",
+  "pendingPercent": "Pending Percent",
+  "searchProviders": "Search Providers",
+  "providersList":"Providers List"
+}

@@ -7,7 +7,8 @@ export const useStyles = () => {
         root: {
           '& .MuiInputBase-root': {
             width: '100%',
-            background: theme.palette.background.paper,
+            // background: theme.palette.background.paper,
+            background: theme.palette.custom.general.surfaceTwo,
             padding: theme.spacing(0.4, 1.2),
             borderRadius: theme.shape.borderRadius,
           },
