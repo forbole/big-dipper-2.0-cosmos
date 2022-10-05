@@ -27,6 +27,7 @@ export const useMarketRecoil = () => {
         denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
       },
       onCompleted: (data) => {
+        console.log('set data', data);
         if (data) {
           setMarket(formatUseChainIdQuery(data));
         }
@@ -46,6 +47,9 @@ export const useMarketRecoil = () => {
 
     const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter((x) => x.denom === chainConfig.primaryTokenUnit);
     const inflation = R.pathOr(0, ['inflation', 0, 'value'], data);
+
+    console.log('inflation', inflation);
+    console.log('data', data);
 
     const rawSupplyAmount = getDenom(
       R.pathOr([], ['supply', 0, 'coins'], data),
