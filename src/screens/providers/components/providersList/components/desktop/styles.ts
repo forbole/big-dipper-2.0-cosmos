@@ -20,6 +20,12 @@ export const useStyles = () => {
           width: '1rem',
           marginLeft: theme.spacing(1),
         },
+        emailIcon: {
+          '&:hover': {
+            cursor: 'pointer',
+          },
+          width: '1.5rem',
+        },
       });
     },
   )();
