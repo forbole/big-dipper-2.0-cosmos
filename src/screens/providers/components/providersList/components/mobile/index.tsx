@@ -36,7 +36,7 @@ const Mobile: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
       <>
         <Typography variant="body1" component="a">
           {getMiddleEllipsis(eachProvider.ownerAddress, {
-            beginning: 9, ending: 8,
+            beginning: 20, ending: 5,
           })}
         </Typography>
         <CopyIcon
@@ -48,9 +48,10 @@ const Mobile: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
     hostUri: (
       <>
         <Typography variant="body1" component="a">
-          {getMiddleEllipsis(eachProvider.hostURI, {
-            beginning: 8, ending: 8,
-          })}
+          {/* {getMiddleEllipsis(eachProvider.hostURI, {
+            beginning: 30, ending: 0,
+          })} */}
+          {eachProvider.hostURI}
         </Typography>
         <CopyIcon
           onClick={() => handleCopyToClipboard(eachProvider.hostURI)}
