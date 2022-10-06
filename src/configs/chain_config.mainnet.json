@@ -1,20 +1,20 @@
 {
   "title": "NYM Block Explorer",
-  "network": "nym-mainnet-1",
+  "network": "nyx",
   "prefix": {
-    "consensus": "nymvalcons",
-    "validator": "nymvaloper",
-    "account": "nym"
+    "consensus": "nvalcons",
+    "validator": "nvaloper",
+    "account": "n"
   },
   "genesis": {
     "time": "2022-01-31T21:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "unyx",
-  "votingPowerTokenUnit": "unyx",
+  "primaryTokenUnit": "unym",
+  "votingPowerTokenUnit": "unym",
   "tokenUnits": {
-    "unyx": {
-      "display": "nyx",
+    "unym": {
+      "display": "nym",
       "exponent": 6
     }
   },
