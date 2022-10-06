@@ -5,16 +5,16 @@ export const columns:{
 }[] = [
   {
     key: 'ownerAddress',
-    width: 25,
+    width: 20,
   },
   {
     key: 'hostUri',
-    width: 20,
+    width: 25,
   },
   {
     key: 'region',
     align: 'right',
-    width: 10,
+    width: 15,
   },
   {
     key: 'organization',
@@ -29,6 +29,6 @@ export const columns:{
   {
     key: 'website',
     align: 'right',
-    width: 20,
+    width: 15,
   },
 ];
