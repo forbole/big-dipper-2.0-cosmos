@@ -1,10 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
+import { ChainIcon } from '@components';
 import { ExpandMore } from '@material-ui/icons';
 import { Typography } from '@material-ui/core';
 import { useRecoilValue } from 'recoil';
 import { readSelectedNetwork } from '@recoil/big_dipper_networks';
-import { chainConfig } from '@configs';
 import { useStyles } from './styles';
 
 const Network:React.FC<{
@@ -22,7 +22,7 @@ const Network:React.FC<{
       onClick={toggleNetwork}
       role="button"
     >
-      <img src={chainConfig.icon} className={classes.icon} alt="icon" />
+      <ChainIcon className={classes.icon} alt="icon" />
       <Typography variant="body1">
         {selected}
       </Typography>

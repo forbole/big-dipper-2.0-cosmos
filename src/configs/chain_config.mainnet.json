@@ -1,24 +1,20 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "desmos-mainnet-1",
-  "icon": "/desmos/images/icon.svg",
-  "logo": {
-    "default": "/desmos/images/logo.svg"
-  },
+  "title": "NYM Block Explorer",
+  "network": "nyx",
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "nvalcons",
+    "validator": "nvaloper",
+    "account": "n"
   },
   "genesis": {
-    "time": "2021-07-13T08:00:00",
+    "time": "2022-01-31T21:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udsm",
-  "votingPowerTokenUnit": "udsm",
+  "primaryTokenUnit": "unym",
+  "votingPowerTokenUnit": "unym",
   "tokenUnits": {
-    "udsm": {
-      "display": "dsm",
+    "unym": {
+      "display": "nym",
       "exponent": 6
     }
   },
