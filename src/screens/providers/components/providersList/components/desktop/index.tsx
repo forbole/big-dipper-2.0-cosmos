@@ -73,7 +73,7 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
       ),
     organization: eachProvider.organization
       ? (
-        <Typography variant="body1" component="a" className={classes.organization}>
+        <Typography variant="body1" component="a">
           {eachProvider.organization}
         </Typography>
       ) : (

@@ -26,10 +26,6 @@ export const useStyles = () => {
           },
           width: '1.5rem',
         },
-        // organization: {
-        //   whiteSpace: 'normal !important',
-        //   text: 'overFlow',
-        // },
       });
     },
   )();
