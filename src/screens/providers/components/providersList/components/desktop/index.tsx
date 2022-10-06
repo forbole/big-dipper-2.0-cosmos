@@ -53,9 +53,10 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
     hostUri: (
       <>
         <Typography variant="body1" component="a">
-          {getMiddleEllipsis(eachProvider.hostURI, {
+          {eachProvider.hostURI}
+          {/* {getMiddleEllipsis(eachProvider.hostURI, {
             beginning: 8, ending: 8,
-          })}
+          })} */}
         </Typography>
         <CopyIcon
           onClick={() => handleCopyToClipboard(eachProvider.hostURI)}
@@ -65,7 +66,7 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
     ),
     region: eachProvider.region
       ? (
-        <Typography variant="body1" component="a">
+        <Typography variant="body1" component="a" className={classes.region}>
           {eachProvider.region}
         </Typography>
       ) : (
@@ -73,7 +74,7 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
       ),
     organization: eachProvider.organization
       ? (
-        <Typography variant="body1" component="a">
+        <Typography variant="body1" component="a" className={classes.organization}>
           {eachProvider.organization}
         </Typography>
       ) : (

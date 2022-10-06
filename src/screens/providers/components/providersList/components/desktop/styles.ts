@@ -26,6 +26,10 @@ export const useStyles = () => {
           },
           width: '1.5rem',
         },
+        region: {
+          whiteSpace: 'normal',
+          // wordWrap: 'break-word',
+        },
       });
     },
   )();
