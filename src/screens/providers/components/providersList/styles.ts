@@ -28,9 +28,8 @@ export const useStyles = () => {
           },
         },
         searchBar: {
-          // flex: 1,
-          // display: 'none',
-          marginRight: theme.spacing(2),
+          width: '100%',
+          margin: theme.spacing(2, 0),
           '& .MuiInputBase-root': {
             background: theme.palette.custom.general.surfaceTwo,
           },
@@ -39,7 +38,6 @@ export const useStyles = () => {
             width: '300px',
             '& .MuiInputBase-root': {
               width: '100%',
-              background: 'pink',
               // background: theme.palette.custom.general.surfaceTwo,
               padding: theme.spacing(0.4, 1.2),
               borderRadius: theme.shape.borderRadius,
