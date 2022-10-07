@@ -27,7 +27,6 @@ export const useMarketRecoil = () => {
         denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
       },
       onCompleted: (data) => {
-        console.log('set data', data);
         if (data) {
           setMarket(formatUseChainIdQuery(data));
         }
@@ -37,7 +36,7 @@ export const useMarketRecoil = () => {
 
   const formatUseChainIdQuery = (data: MarketDataQuery): AtomState => {
     let {
-      communityPool, price, marketCap,
+      price, marketCap,
     } = market;
 
     if (data?.tokenPrice?.length) {
@@ -45,11 +44,7 @@ export const useMarketRecoil = () => {
       marketCap = data.tokenPrice[0]?.marketCap;
     }
 
-    const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter((x) => x.denom === chainConfig.primaryTokenUnit);
     const inflation = R.pathOr(0, ['inflation', 0, 'value'], data);
-
-    console.log('inflation', inflation);
-    console.log('data', data);
 
     const rawSupplyAmount = getDenom(
       R.pathOr([], ['supply', 0, 'coins'], data),
@@ -59,10 +54,6 @@ export const useMarketRecoil = () => {
       rawSupplyAmount,
       chainConfig.primaryTokenUnit,
     );
-
-    if (communityPoolCoin) {
-      communityPool = formatToken(communityPoolCoin.amount, communityPoolCoin.denom);
-    }
 
     const bondedTokens = R.pathOr(1, ['bondedTokens', 0, 'bonded_tokens'], data);
     const communityTax = R.pathOr('0', ['distributionParams', 0, 'params', 'community_tax'], data);
@@ -75,7 +66,6 @@ export const useMarketRecoil = () => {
       supply,
       marketCap,
       inflation,
-      communityPool,
       apr,
     });
   };

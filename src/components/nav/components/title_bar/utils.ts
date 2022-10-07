@@ -3,7 +3,6 @@ import { formatNumber } from '@utils/format_token';
 
 export const formatMarket = (data: {
   marketCap: number;
-  communityPool: TokenUnit;
   supply: TokenUnit;
   inflation: number;
   apr: number;
@@ -27,10 +26,6 @@ export const formatMarket = (data: {
     {
       key: 'supply',
       data: `${formatNumber(data.supply.value, 2)} ${data.supply.displayDenom.toUpperCase()}`,
-    },
-    {
-      key: 'communityPool',
-      data: `${formatNumber(data.communityPool.value, 2)} ${data.communityPool.displayDenom.toUpperCase()}`,
     },
   ]);
 };

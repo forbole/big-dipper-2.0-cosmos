@@ -1,7 +1,4 @@
 query MarketData ($denom: String) {
-  communityPool: community_pool(order_by: {height: desc}, limit: 1) {
-    coins
-  }
   inflation: inflation(order_by: {height: desc}, limit: 1) {
     value
   }

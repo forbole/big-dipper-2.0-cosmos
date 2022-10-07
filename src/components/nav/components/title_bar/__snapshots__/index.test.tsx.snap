@@ -68,20 +68,6 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
         0 
       </p>
     </div>
-    <div
-      className="makeStyles-item"
-    >
-      <p
-        className="MuiTypography-root label MuiTypography-body1"
-      >
-        common:communityPool
-      </p>
-      <p
-        className="MuiTypography-root MuiTypography-body1"
-      >
-        0 
-      </p>
-    </div>
   </div>
 </div>
 `;
