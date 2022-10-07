@@ -85,8 +85,10 @@ const Mobile: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
       ),
     website: eachProvider.website
       ? (
-        // <Link href={`https://${eachProvider.website}`}>
-        <Link href={eachProvider.website}>
+        <Link
+          href={eachProvider.website.startsWith('https://')
+            ? eachProvider.website : `https://${eachProvider.website}`}
+        >
           <div>
             <Typography variant="body1" component="a">
               {eachProvider.website.length <= 13
@@ -117,8 +119,13 @@ const Mobile: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
           const { rowRef } = useListRow(index, setRowHeight);
           const selectedItem = itemsNew[index];
           return (
-            <div style={style}>
-              <div ref={rowRef}>
+            <div
+              style={style}
+              className={!(index % 2) ? 'odd' : ''}
+            >
+              <div
+                ref={rowRef}
+              >
                 <SingleProvider {... selectedItem} />
                 {index !== itemsNew.length - 1 && <Divider />}
               </div>

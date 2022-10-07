@@ -18,6 +18,10 @@ export const useStyles = () => {
         emailIcon: {
           width: '1.5rem',
         },
+        '&.odd': {
+          color: 'red',
+          background: '#C4C4C4', // surface two
+        },
       });
     },
   )();
