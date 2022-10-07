@@ -8,16 +8,13 @@ export const useStyles = () => {
           margin: theme.spacing(2, 0),
         },
         item: {
+          margin: theme.spacing(0, 2),
           display: 'flex',
           justifyContent: 'space-between',
           marginBottom: theme.spacing(2),
           '& .label': {
             marginBottom: theme.spacing(1),
             color: 'white',
-            // '&.popover': {
-            //   display: 'flex',
-            //   alignItems: 'flex-start',
-            // },
           },
           '& p.value': {
             color: theme.palette.custom.fonts.fontTwo,

@@ -121,7 +121,7 @@ const Mobile: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
           return (
             <div
               style={style}
-              className={!(index % 2) ? 'odd' : ''}
+              className={(index % 2) ? classes.even : ''}
             >
               <div
                 ref={rowRef}
