@@ -5,7 +5,10 @@ export const useStyles = () => {
     (theme) => {
       return ({
         root: {
-          height: '100%',
+          // height: '100%',
+          minHeight: '50vh',
+          // height: '70vh',
+          height: '800px',
         },
         cell: {
           ...theme.mixins.tableCell,

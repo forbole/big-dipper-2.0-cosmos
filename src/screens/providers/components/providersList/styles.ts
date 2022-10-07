@@ -11,11 +11,11 @@ export const useStyles = () => {
           },
         },
         list: {
-          minHeight: '700px',
-          height: '70vh',
-          [theme.breakpoints.up('lg')]: {
-            minHeight: '75vh',
-          },
+          // [theme.breakpoints.up('lg')]: {
+          //   minHeight: '75vh',
+          //   // minHeight: '700px',
+          //   height: '70vh',
+          // },
         },
         paginate: {
           marginTop: theme.spacing(3),

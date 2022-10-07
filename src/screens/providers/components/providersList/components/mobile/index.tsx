@@ -105,7 +105,6 @@ const Mobile: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
 
   return (
     <div className={classnames(className)}>
-
       <List
         height={900}
         itemCount={itemsNew.length}
