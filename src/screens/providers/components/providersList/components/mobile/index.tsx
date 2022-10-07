@@ -36,7 +36,7 @@ const Mobile: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
       <>
         <Typography variant="body1" component="a">
           {getMiddleEllipsis(eachProvider.ownerAddress, {
-            beginning: 9, ending: 8,
+            beginning: 20, ending: 5,
           })}
         </Typography>
         <CopyIcon
@@ -48,9 +48,10 @@ const Mobile: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
     hostUri: (
       <>
         <Typography variant="body1" component="a">
-          {getMiddleEllipsis(eachProvider.hostURI, {
-            beginning: 8, ending: 8,
-          })}
+          {/* {getMiddleEllipsis(eachProvider.hostURI, {
+            beginning: 30, ending: 0,
+          })} */}
+          {eachProvider.hostURI}
         </Typography>
         <CopyIcon
           onClick={() => handleCopyToClipboard(eachProvider.hostURI)}
@@ -84,8 +85,10 @@ const Mobile: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
       ),
     website: eachProvider.website
       ? (
-        // <Link href={`https://${eachProvider.website}`}>
-        <Link href={eachProvider.website}>
+        <Link
+          href={eachProvider.website.startsWith('https://')
+            ? eachProvider.website : `https://${eachProvider.website}`}
+        >
           <div>
             <Typography variant="body1" component="a">
               {eachProvider.website.length <= 13
@@ -104,7 +107,6 @@ const Mobile: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
 
   return (
     <div className={classnames(className)}>
-
       <List
         height={900}
         itemCount={itemsNew.length}
@@ -117,8 +119,13 @@ const Mobile: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
           const { rowRef } = useListRow(index, setRowHeight);
           const selectedItem = itemsNew[index];
           return (
-            <div style={style}>
-              <div ref={rowRef}>
+            <div
+              style={style}
+              className={(index % 2) ? classes.even : ''}
+            >
+              <div
+                ref={rowRef}
+              >
                 <SingleProvider {... selectedItem} />
                 {index !== itemsNew.length - 1 && <Divider />}
               </div>

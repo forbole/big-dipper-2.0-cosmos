@@ -39,37 +39,49 @@ const SingleProvider: React.FC<{
         <Typography variant="h4" className="label">
           {t('ownerAddress')}
         </Typography>
-        {ownerAddress}
+        <Typography variant="h4" className="content">
+          {ownerAddress}
+        </Typography>
       </div>
       <div className={classes.item}>
         <Typography variant="h4" className="label">
           {t('hostUri')}
         </Typography>
-        {hostUri}
+        <Typography variant="h4" className="content">
+          {hostUri}
+        </Typography>
       </div>
       <div className={classes.item}>
         <Typography variant="h4" className="label">
           {t('region')}
         </Typography>
-        {region}
+        <Typography variant="h4" className="content">
+          {region}
+        </Typography>
       </div>
       <div className={classes.item}>
         <Typography variant="h4" className="label">
           {t('organization')}
         </Typography>
-        {organization}
+        <Typography variant="h4" className="content">
+          {organization}
+        </Typography>
       </div>
       <div className={classes.item}>
         <Typography variant="h4" className="label">
           {t('email')}
         </Typography>
-        {email}
+        <Typography variant="h4" className="content">
+          {email}
+        </Typography>
       </div>
       <div className={classes.item}>
         <Typography variant="h4" className="label">
           {t('website')}
         </Typography>
-        {website}
+        <Typography variant="h4" className="content">
+          {website}
+        </Typography>
       </div>
     </div>
 

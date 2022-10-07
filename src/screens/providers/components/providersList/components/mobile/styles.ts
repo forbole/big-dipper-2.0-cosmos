@@ -18,6 +18,9 @@ export const useStyles = () => {
         emailIcon: {
           width: '1.5rem',
         },
+        even: {
+          background: '#242424',
+        },
       });
     },
   )();

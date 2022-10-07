@@ -54,7 +54,7 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
       <>
         <Typography variant="body1" component="a">
           {getMiddleEllipsis(eachProvider.hostURI, {
-            beginning: 8, ending: 8,
+            beginning: 31, ending: 0,
           })}
         </Typography>
         <CopyIcon
@@ -89,8 +89,10 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
       ),
     website: eachProvider.website
       ? (
-        // <Link href={`https://${eachProvider.website}`}>
-        <Link href={eachProvider.website}>
+        <Link
+          href={eachProvider.website.startsWith('https://')
+            ? eachProvider.website : `https://${eachProvider.website}`}
+        >
           <div>
             <Typography variant="body1" component="a">
               {eachProvider.website.length <= 13
