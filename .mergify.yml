@@ -1,0 +1,20 @@
+queue_rules:
+  - name: default
+    conditions:
+      - or:
+        - base=base
+        - base~=chains/
+
+pull_request_rules:
+  - name: Automerge with label automerge and branch protection passing
+    conditions:
+      - "#approved-reviews-by>1"
+      - label=automerge
+    actions:
+      queue:
+        name: default
+        method: squash
+        commit_message_template: >
+          {{ title }} (#{{ number }})
+          
+          {{ body }}

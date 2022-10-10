@@ -1,10 +1,19 @@
+// This file sets a custom webpack configuration to use your Next.js app
+// with Sentry.
+// https://nextjs.org/docs/api-reference/next.config.js/introduction
+// https://docs.sentry.io/platforms/javascript/guides/nextjs/
+const { withSentryConfig } = require('@sentry/nextjs');
 const nextTranslate = require('next-translate');
 
 const basePath = process.env.CHAIN_NAME || 'desmos';
 
-module.exports = nextTranslate({
+const moduleExports = nextTranslate({
   poweredByHeader: false,
   basePath: `/${basePath.toLowerCase()}`,
+  env: {
+    CHAIN_TYPE: process.env.CHAIN_TYPE,
+    CHAIN_NAME: process.env.CHAIN_NAME,
+  },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
@@ -14,7 +23,32 @@ module.exports = nextTranslate({
   },
 });
 
-module.exports.env = {
-  CHAIN_TYPE: process.env.CHAIN_TYPE,
-  CHAIN_NAME: process.env.CHAIN_NAME,
-};
+const SENTRY_DSN = process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN;
+
+if (SENTRY_DSN) {
+  moduleExports.sentry = {
+    // Use `hidden-source-map` rather than `source-map` as the Webpack `devtool`
+    // for client-side builds. (This will be the default starting in
+    // `@sentry/nextjs` version 8.0.0.) See
+    // https://webpack.js.org/configuration/devtool/ and
+    // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/#use-hidden-source-map
+    // for more information.
+    hideSourceMaps: true,
+  };
+
+  const sentryWebpackPluginOptions = {
+    // Additional config options for the Sentry Webpack plugin. Keep in mind that
+    // the following options are set automatically, and overriding them is not
+    // recommended:
+    //   release, url, org, project, authToken, configFile, stripPrefix,
+    //   urlPrefix, include, ignore
+
+    silent: true, // Suppresses all logs
+    // For all available options, see:
+    // https://github.com/getsentry/sentry-webpack-plugin#options.
+  };
+
+  module.exports = withSentryConfig(moduleExports, sentryWebpackPluginOptions);
+} else {
+  module.exports = moduleExports;
+}

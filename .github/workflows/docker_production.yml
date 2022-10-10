@@ -48,6 +48,7 @@ jobs:
           build-args: |
             "NODE_ENV=${{ steps.dockerPrep.outputs.NODE_ENV }}"
             "PORT=${{ steps.dockerPrep.outputs.PORT }}"
+            "SENTRY_DSN: ${{ secrets.SENTRY_DSN }}"
           labels: |
             org.opencontainers.image.source=${{ github.event.repository.html_url }}
             org.opencontainers.image.created=${{ steps.prep.outputs.created }}
@@ -64,5 +65,3 @@ jobs:
               WEBHOOK_URL=$DESMOS_AKASH_WEBHOOK_URL
             fi
               curl -i -X POST -H "Content-Type: application/json" -d '{"parameters":{"tag": "${{ steps.prep.outputs.version }}"}}' -k $WEBHOOK_URL -u "deploy:$AKASH_WEBHOOK_SECRET"
-
-
