@@ -9,7 +9,6 @@ import {
 } from '@material-ui/core';
 
 const SoftwareUpgrade: React.FC<{
-  className?: string;
   height: string;
   info: string;
   name: string;

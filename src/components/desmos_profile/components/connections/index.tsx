@@ -14,7 +14,7 @@ import {
   useScreenSize,
 } from '@hooks';
 import { useStyles } from './styles';
-import  Desktop  from './components/desktop';
+import Desktop from './components/desktop';
 import Mobile from './components/mobile';
 
 const Connections: React.FC<{
