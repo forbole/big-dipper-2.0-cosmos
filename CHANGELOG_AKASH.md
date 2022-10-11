@@ -7,6 +7,7 @@
 - Added provider page ([\984](https://github.com/forbole/big-dipper-2.0-cosmos/issues/984))
 - Fixed emailIcon and actionIcon css ([\1020](https://github.com/forbole/big-dipper-2.0-cosmos/issues/1020))
 - Fixed a variety of provider list UI bugs ([\1021](https://github.com/forbole/big-dipper-2.0-cosmos/issues/1021))
+- Test staging fix
 
 # akash-v1.2.0 - 2022-04-19
 
