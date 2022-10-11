@@ -4314,7 +4314,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^4.0.1
     jdenticon: ^3.1.0
-    jest: ^27.3.1
+    jest: ^27.3.2
     jest-localstorage-mock: ^2.4.18
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^0.6.1
@@ -8218,7 +8218,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:^27.3.1":
+"jest@npm:^27.3.2":
   version: 27.5.1
   resolution: "jest@npm:27.5.1"
   dependencies:
