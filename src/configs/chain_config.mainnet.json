@@ -1,24 +1,24 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "desmos-mainnet-1",
-  "icon": "/desmos/images/icon.svg",
+  "title": "Lava Block Explorer",
+  "network": "lava-mainnet-1",
+  "icon": "/images/logo.png",
   "logo": {
-    "default": "/desmos/images/logo.svg"
+    "default": "/images/logo.png"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "cosmosvalcons",
+    "validator": "cosmosvaloper",
+    "account": "cosmos"
   },
   "genesis": {
     "time": "2021-07-13T08:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udsm",
-  "votingPowerTokenUnit": "udsm",
+  "primaryTokenUnit": "ulava",
+  "votingPowerTokenUnit": "ulava",
   "tokenUnits": {
-    "udsm": {
-      "display": "dsm",
+    "ulava": {
+      "display": "ulava",
       "exponent": 6
     }
   },
