@@ -4,7 +4,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "dev": "nodemon",
-    "build": "npm run build:next && npm run build:server",
+    "build": "yarn run build:next && yarn run build:server",
     "build:server": "tsc --project tsconfig.server.json",
     "build:next": "next build",
     "start": "NODE_ENV=production node dist/index.js",
@@ -91,5 +91,6 @@
     "ts-loader": "^9.2.6",
     "ts-node": "^10.4.0",
     "typescript": "^4.3.5"
-  }
+  },
+  "packageManager": "yarn@3.2.4"
 }
