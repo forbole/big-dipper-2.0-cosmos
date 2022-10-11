@@ -21,7 +21,7 @@ import {
 function App(props: AppProps) {
   useApp();
   const { pageProps } = props;
-  const apolloClient = useApollo(pageProps.initialApolloState);
+  const apolloClient = useApollo(pageProps);
   const { t } = useTranslation();
   const { location } = useWindowOrigin();
 

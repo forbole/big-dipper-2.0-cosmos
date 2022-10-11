@@ -67,7 +67,6 @@ const Pagination: React.FC<{
               {...subProps}
               {...additionalProps}
               className={classes.tablet}
-              pageNeighbors={2}
             />
           </>
         );
