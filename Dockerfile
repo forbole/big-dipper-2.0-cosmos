@@ -45,6 +45,7 @@ ENV NEXT_PUBLIC_MATOMO_SITE_ID ${NEXT_PUBLIC_MATOMO_SITE_ID}
 ENV SENTRY_DSN ${ENTRY_DSN}
 
 # Building app
+RUN yarn install
 RUN yarn run build
 EXPOSE ${PORT}
 
