@@ -1,9 +1,9 @@
 {
   "title": "Lava Block Explorer",
   "network": "lava-testnet-1",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
+  "icon": "/images/logo.png",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
+    "default": "/images/logo.png"
   },
   "prefix": {
     "consensus": "cosmosvalcons",
