@@ -59,7 +59,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
           <span
             className="MuiTab-wrapper"
           >
-            proposals:all (24)
+            all (24)
           </span>
           <span
             className="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
@@ -91,7 +91,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
           <span
             className="MuiTab-wrapper"
           >
-            proposals:yes (10)
+            yes (10)
           </span>
         </button>
         <button
@@ -119,7 +119,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
           <span
             className="MuiTab-wrapper"
           >
-            proposals:no (4)
+            no (4)
           </span>
         </button>
         <button
@@ -147,7 +147,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
           <span
             className="MuiTab-wrapper"
           >
-            proposals:veto (10)
+            veto (10)
           </span>
         </button>
         <button
@@ -175,7 +175,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
           <span
             className="MuiTab-wrapper"
           >
-            proposals:abstain (0)
+            abstain (0)
           </span>
         </button>
         <button
@@ -203,7 +203,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
           <span
             className="MuiTab-wrapper"
           >
-            proposals:didNotVote (0)
+            didNotVote (0)
           </span>
         </button>
       </div>

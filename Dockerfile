@@ -1,4 +1,4 @@
-FROM node:14.5.0-alpine
+FROM node:18.10.0-alpine
 
 ENV PORT 3000
 
@@ -9,11 +9,11 @@ RUN apk add --no-cache git
 WORKDIR /app
 
 # Add PM2
-RUN npm install pm2 -g
+RUN yarn add pm2 -g
 
 # Installing dependencies
 COPY package*.json ./
-RUN npm ci
+RUN yarn install
 
 # Copying source files
 COPY . .
@@ -33,7 +33,7 @@ ENV CHAIN_TYPE ${CHAIN_TYPE}
 ENV SENTRY_DSN ${ENTRY_DSN}
 
 # Building app
-RUN npm run build --chainname=${CHAIN_NAME} --chaintype=${CHAIN_TYPE} 
+RUN yarn install && yarn build --chainname=${CHAIN_NAME} --chaintype=${CHAIN_TYPE} 
 EXPOSE ${PORT}
 
 # Running the app

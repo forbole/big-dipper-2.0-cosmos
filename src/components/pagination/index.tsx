@@ -49,7 +49,7 @@ const Pagination: React.FC<{
       count={total}
       rowsPerPage={rowsPerPage}
       page={page}
-      onChangePage={handleChangePage}
+      onPageChange={handleChangePage}
       ActionsComponent={(subProps) => {
         const additionalProps = {
           rowsPerPageOptions,
@@ -67,7 +67,6 @@ const Pagination: React.FC<{
               {...subProps}
               {...additionalProps}
               className={classes.tablet}
-              pageNeighbors={2}
             />
           </>
         );

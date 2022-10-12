@@ -19,14 +19,12 @@ import { useTablePaginationActions } from './hooks';
  */
 const Actions: React.FC<{
   className?: string;
-  backIconButtonProps?: any;
   count: number;
-  nextIconButtonProps?: any;
   onChangePage: (event: React.MouseEvent<HTMLButtonElement> | null, page: number) => void;
+  // eslint-disable-next-line react/no-unused-prop-types
   handleChangeRowsPerPage: (selectedRowsPerPage: number) => void;
   page: number;
   rowsPerPage: number;
-  pageNeighbors?: 1 | 2;
   rowsPerPageOptions?: number[];
 }> = (props) => {
   const classes = useStyles();

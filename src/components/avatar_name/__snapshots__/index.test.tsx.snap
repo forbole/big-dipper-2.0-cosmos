@@ -5,6 +5,7 @@ exports[`component: AvatarName matches snapshot 1`] = `
   href="/accounts/123"
   onClick={[Function]}
   onMouseEnter={[Function]}
+  onTouchStart={[Function]}
 >
   <div
     className="makeStyles-root"
@@ -27,6 +28,7 @@ exports[`component: AvatarName matches snapshot with imageUrl 1`] = `
   href="/accounts/123"
   onClick={[Function]}
   onMouseEnter={[Function]}
+  onTouchStart={[Function]}
 >
   <div
     className="makeStyles-root"

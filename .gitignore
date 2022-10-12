@@ -38,3 +38,12 @@ test.js
 
 # Sentry
 .sentryclirc
+
+# Yarn Berry
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
