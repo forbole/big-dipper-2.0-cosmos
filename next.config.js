@@ -7,7 +7,7 @@ const nextTranslate = require('next-translate');
 
 const moduleExports = nextTranslate({
   poweredByHeader: false,
-  basePath: '/',
+  basePath: '',
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,

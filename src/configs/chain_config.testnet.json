@@ -17,7 +17,7 @@
   "primaryTokenUnit": "ulava",
   "votingPowerTokenUnit": "ulava",
   "tokenUnits": {
-    "udaric": {
+    "ulava": {
       "display": "ulava",
       "exponent": 6
     }
