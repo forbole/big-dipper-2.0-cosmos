@@ -19,6 +19,7 @@ import {
   SingleTransactionMobile,
   Loading,
   Result,
+  Tag,
 } from '@components';
 import {
   useList,
@@ -59,6 +60,15 @@ const Mobile: React.FC<TransactionsListState> = ({
           })}
         </Typography>
       </Link>
+    ),
+    type: (
+      <div>
+        <Tag
+          value="txDelegateLabel"
+          theme="six"
+        />
+        {(x.messages.count > 1) && (' +')}
+      </div>
     ),
     result: (
       <Result success={x.success} />

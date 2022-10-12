@@ -9,12 +9,16 @@ export const columns:{
   },
   {
     key: 'hash',
-    width: 30,
+    width: 20,
+  },
+  {
+    key: 'type',
+    width: 15,
   },
   {
     key: 'messages',
     align: 'right',
-    width: 15,
+    width: 10,
   },
   {
     key: 'result',
