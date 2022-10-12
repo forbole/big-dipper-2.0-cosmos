@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import * as R from 'ramda';
 import {
   useTransactionsListenerSubscription,
   TransactionsListenerSubscription,
@@ -23,6 +24,13 @@ export const useTransactions = () => {
 
   const formatTransactions = (data: TransactionsListenerSubscription) => {
     return data.transactions.map((x) => {
+      const msgType = x.messages.map((eachMsg) => {
+        console.log('eachMsg => ', eachMsg);
+        const eachMsgType = R.pathOr('none', '@type', eachMsg);
+        console.log('eachMsgType', eachMsgType);
+        return eachMsg;
+      });
+      console.log('msgType', msgType);
       return ({
         height: x.height,
         hash: x.hash,
