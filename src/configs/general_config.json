@@ -1,12 +1,12 @@
 {
   "maintainer": {
-    "name": "Forbole",
-    "url": "https://forbole.com"
+    "name": "Lava Protocol",
+    "url": "https://www.lavanet.xyz/"
   },
   "github": {
-    "reportIssue": "https://github.com/forbole/big-dipper-2.0-cosmos/issues"
+    "reportIssue": "https://github.com/lavanet/big-dipper-2.0-cosmos/issues"
   },
-  "basePath": "/desmos",
+  "basePath": "/",
   "previewImage": "https://bigdipper.live/images/big-dipper-social-media.png",
   "version": "base-v2.1.1"
 }

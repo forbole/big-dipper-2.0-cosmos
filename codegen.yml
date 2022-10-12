@@ -6,15 +6,15 @@ generates:
   ./src/graphql/types/general_types.tsx:
     documents:
       - 'src/graphql/general/*'
-    schema: http://127.0.0.1:8080/v1/graphql
+    schema: http://bd-hasura-staging.eba-9d5ihud8.us-east-1.elasticbeanstalk.com/v1/graphql
     plugins:
       - "typescript"
       - "typescript-operations"
       - "typescript-react-apollo" # To generate custom hooks per query
-  ./src/graphql/types/profile_types.ts:
-    schema: https://gql.mainnet.desmos.network/v1/graphql
-    documents:
-      - 'src/graphql/profiles/*'
-    plugins:
-      - "typescript"
-      - "typescript-operations"
+  #./src/graphql/types/profile_types.ts:
+  #  schema: http://bd-hasura-staging.eba-9d5ihud8.us-east-1.elasticbeanstalk.com/v1/graphql
+  #  documents:
+  #    - 'src/graphql/profiles/*'
+  #  plugins:
+  #    - "typescript"
+  #    - "typescript-operations"
