@@ -8,12 +8,13 @@ import {
   Divider,
 } from '@material-ui/core';
 import {
-  SingleTransactionMobile, Result,
+  SingleTransactionMobile, Result, Tag,
 } from '@components';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import {
   BLOCK_DETAILS, TRANSACTION_DETAILS,
 } from '@utils/go_to_page';
+import useTranslation from 'next-translate/useTranslation';
 
 import { TransactionType } from '../../types';
 
@@ -23,6 +24,7 @@ const Mobile:React.FC<{
 }> = ({
   className, items,
 }) => {
+  const { t } = useTranslation('message_labels');
   const formattedData = items.map((x) => {
     return ({
       block: (
@@ -41,6 +43,14 @@ const Mobile:React.FC<{
           </Typography>
         </Link>
       ),
+      type: (
+        <div>
+          <Tag
+            value={t(`message_labels:${'txDelegateLabel'}`)}
+            theme="six"
+          />
+          {(x.messages > 1) && (' +')}
+        </div>),
       result: (
         <Result success={x.success} />
       ),
