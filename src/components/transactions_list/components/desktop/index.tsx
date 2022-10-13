@@ -60,7 +60,7 @@ const Desktop: React.FC<TransactionsListState> = ({
     type: (
       <div>
         <Tag
-          value="txDelegateLabel"
+          value={x.type[0]}
           theme="six"
         />
         {(x.messages.count > 1) && (' +')}

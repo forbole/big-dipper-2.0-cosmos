@@ -9,11 +9,11 @@ export const columns:{
   },
   {
     key: 'hash',
-    width: 20,
+    width: 15,
   },
   {
     key: 'type',
-    width: 15,
+    width: 20,
   },
   {
     key: 'messages',

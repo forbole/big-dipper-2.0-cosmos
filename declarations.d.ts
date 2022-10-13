@@ -21,6 +21,7 @@ interface AvatarName {
 type Transactions = {
   height: number;
   hash: string;
+  type: string[];
   success: boolean;
   timestamp: string;
   messages: {

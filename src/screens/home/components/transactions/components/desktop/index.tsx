@@ -52,8 +52,16 @@ const Desktop: React.FC<{
       ),
       type: (
         <div>
+          {/* {x.type.map(((msg) => {
+            return (
+              <Tag
+                value={msg}
+                theme="six"
+              />
+            );
+          }))} */}
           <Tag
-            value="txDelegateLabel"
+            value={x.type[0]}
             theme="six"
           />
           {(x.messages > 1) && (' +')}

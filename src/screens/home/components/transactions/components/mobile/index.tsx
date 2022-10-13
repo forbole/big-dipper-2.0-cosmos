@@ -14,7 +14,6 @@ import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import {
   BLOCK_DETAILS, TRANSACTION_DETAILS,
 } from '@utils/go_to_page';
-import useTranslation from 'next-translate/useTranslation';
 
 import { TransactionType } from '../../types';
 
@@ -24,7 +23,6 @@ const Mobile:React.FC<{
 }> = ({
   className, items,
 }) => {
-  const { t } = useTranslation('message_labels');
   const formattedData = items.map((x) => {
     return ({
       block: (
@@ -46,7 +44,7 @@ const Mobile:React.FC<{
       type: (
         <div>
           <Tag
-            value={t(`message_labels:${'txDelegateLabel'}`)}
+            value={x.type[0]}
             theme="six"
           />
           {(x.messages > 1) && (' +')}
