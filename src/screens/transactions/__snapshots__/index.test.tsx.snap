@@ -72,8 +72,8 @@ exports[`screen: Transactions matches snapshot 1`] = `
               "success": true,
               "timestamp": "2021-05-28T00:08:33.700487",
               "type": Array [
-                "WithdrawDelegatorReward",
-                "WithdrawValidatorCommission",
+                "Withdraw Delegator Reward",
+                "Withdraw Validator Commission",
               ],
             },
           ]
