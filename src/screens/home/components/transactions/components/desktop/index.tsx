@@ -52,19 +52,11 @@ const Desktop: React.FC<{
       ),
       type: (
         <div>
-          {/* {x.type.map(((msg) => {
-            return (
-              <Tag
-                value={msg}
-                theme="six"
-              />
-            );
-          }))} */}
           <Tag
             value={x.type[0]}
             theme="six"
           />
-          {(x.messages > 1) && (' +')}
+          {(x.messages > 1) && (` + ${x.messages - 1}`)}
         </div>
       ),
       result: (

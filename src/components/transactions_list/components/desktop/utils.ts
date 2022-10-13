@@ -13,7 +13,7 @@ export const columns:{
   },
   {
     key: 'type',
-    width: 20,
+    width: 25,
   },
   {
     key: 'messages',
@@ -23,7 +23,7 @@ export const columns:{
   {
     key: 'result',
     align: 'right',
-    width: 20,
+    width: 15,
   },
   {
     key: 'time',
