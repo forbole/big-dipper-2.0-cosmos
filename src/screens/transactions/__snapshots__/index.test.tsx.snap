@@ -4,7 +4,7 @@ exports[`screen: Transactions matches snapshot 1`] = `
 <div
   className="makeStyles-root"
   id="Layout"
-  navTitle="transactions:transactions"
+  navTitle="transactions"
 >
   <div
     exists={true}

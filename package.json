@@ -4,7 +4,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "dev": "nodemon",
-    "build": "npm run build:next && npm run build:server",
+    "build": "yarn run build:next && yarn run build:server",
     "build:server": "tsc --project tsconfig.server.json",
     "build:next": "next build",
     "start": "NODE_ENV=production node dist/index.js",
@@ -51,7 +51,7 @@
     "react-virtualized-auto-sizer": "^1.0.4",
     "react-window": "^1.8.6",
     "react-window-infinite-loader": "^1.0.7",
-    "recharts": "^2.0.8",
+    "recharts": "2.1.12",
     "recoil": "^0.4.1",
     "subscriptions-transport-ws": "^0.10.0"
   },
@@ -81,7 +81,7 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
-    "jest": "^27.3.1",
+    "jest": "^27.3.2",
     "jest-localstorage-mock": "^2.4.18",
     "jest-transform-stub": "^2.0.0",
     "jest-watch-typeahead": "^0.6.1",
@@ -91,5 +91,9 @@
     "ts-loader": "^9.2.6",
     "ts-node": "^10.4.0",
     "typescript": "^4.3.5"
-  }
+  },
+  "resolutions": {
+    "@types/react": "~17.0.47"
+  },
+  "packageManager": "yarn@3.2.4"
 }
