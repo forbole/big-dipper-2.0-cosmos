@@ -39,7 +39,7 @@ exports[`components: SingleTransaction matches snapshot 1`] = `
         <h4
           className="MuiTypography-root label MuiTypography-h4"
         >
-          transactions:type
+          type
         </h4>
         <div>
           type
