@@ -9,7 +9,6 @@ import {
 } from '@material-ui/core';
 
 const ParamsChange: React.FC<{
-  className?: string;
   changes: {
     subspace: string;
     key: string;

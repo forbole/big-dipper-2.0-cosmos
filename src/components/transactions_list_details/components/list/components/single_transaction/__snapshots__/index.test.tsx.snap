@@ -27,7 +27,7 @@ exports[`components: SingleTransaction matches snapshot 1`] = `
         <h4
           className="MuiTypography-root label MuiTypography-h4"
         >
-          transactions:block
+          block
         </h4>
         <div>
           block
@@ -39,7 +39,7 @@ exports[`components: SingleTransaction matches snapshot 1`] = `
         <h4
           className="MuiTypography-root label MuiTypography-h4"
         >
-          transactions:time
+          time
         </h4>
         <p
           className="MuiTypography-root value MuiTypography-body1"
@@ -53,7 +53,7 @@ exports[`components: SingleTransaction matches snapshot 1`] = `
         <h4
           className="MuiTypography-root label MuiTypography-h4"
         >
-          transactions:messages
+          messages
         </h4>
         <p
           className="MuiTypography-root value MuiTypography-body1"
@@ -67,7 +67,7 @@ exports[`components: SingleTransaction matches snapshot 1`] = `
         <h4
           className="MuiTypography-root label MuiTypography-h4"
         >
-          transactions:result
+          result
         </h4>
         <div>
           result
