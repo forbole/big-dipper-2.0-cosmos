@@ -45,7 +45,7 @@ exports[`screen: Home/Transactions/Mobile matches snapshot 1`] = `
           theme="six"
           value="Delegate"
         />
-         +
+         + 11
       </div>
     }
   />

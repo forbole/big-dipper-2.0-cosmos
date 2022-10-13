@@ -137,7 +137,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
               theme="six"
               value="Delegate"
             />
-             +
+             + 11
           </div>
         </td>
         <td
