@@ -135,7 +135,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
             <div
               id="Tag"
               theme="six"
-              value="txDelegateLabel"
+              value="Delegate"
             />
              +
           </div>

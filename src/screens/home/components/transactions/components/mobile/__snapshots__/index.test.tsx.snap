@@ -43,7 +43,7 @@ exports[`screen: Home/Transactions/Mobile matches snapshot 1`] = `
       <div>
         <Tag
           theme="six"
-          value="message_labels:txDelegateLabel"
+          value="Delegate"
         />
          +
       </div>
