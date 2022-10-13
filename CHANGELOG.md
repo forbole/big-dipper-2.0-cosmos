@@ -2,6 +2,7 @@
 
 ## Changes
 - Added Sentry's Next.js SDK ([\#1005](https://github.com/forbole/big-dipper-2.0-cosmos/issues/1005))
+- Added message type to transactions ([\#1034](https://github.com/forbole/big-dipper-2.0-cosmos/issues/1034))
 
 # base-v2.1.2 - 2022-09-11
 
