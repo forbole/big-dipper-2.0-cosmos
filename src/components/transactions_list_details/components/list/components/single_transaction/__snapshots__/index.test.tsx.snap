@@ -34,6 +34,18 @@ exports[`components: SingleTransaction matches snapshot 1`] = `
         </div>
       </div>
       <div
+        className="makeStyles-item block"
+      >
+        <h4
+          className="MuiTypography-root label MuiTypography-h4"
+        >
+          type
+        </h4>
+        <div>
+          type
+        </div>
+      </div>
+      <div
         className="makeStyles-item time"
       >
         <h4

@@ -10,11 +10,12 @@ const SingleTransactionMobile:React.FC<{
   className?: string;
   block: React.ReactNode;
   hash: React.ReactNode;
+  type: React.ReactNode;
   time: string;
   messages: string;
   result?: React.ReactNode;
 }> = ({
-  className, block, hash, time, messages, result,
+  className, block, hash, type, time, messages, result,
 }) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
@@ -33,6 +34,14 @@ const SingleTransactionMobile:React.FC<{
         </Typography>
         <Typography variant="body1" className="value">
           {hash}
+        </Typography>
+      </div>
+      <div className={classes.item}>
+        <Typography variant="h4" className="label">
+          {t('type')}
+        </Typography>
+        <Typography variant="body1" className="value">
+          {type}
         </Typography>
       </div>
       <div className={classes.flex}>
