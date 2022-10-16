@@ -1,0 +1,14 @@
+{
+  "extends": "tsconfig/nextjs.json",
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "tests/utils/mock_i18n.js",
+    "tests/utils/mock_apollo_provider.tss"
+  ],
+  "exclude": [
+    "node_modules",
+    "cypress"
+  ]
+}

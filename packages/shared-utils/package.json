@@ -1,0 +1,9 @@
+{
+  "name": "shared-utils",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "tsconfig": "*",
+    "typescript": "^4.7.4"
+  }
+}

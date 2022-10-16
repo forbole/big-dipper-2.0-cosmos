@@ -3,6 +3,12 @@ Big Dipper is an open-source block explorer and token management tool serving ov
 
 **This repo contains the UI of big dipper 2.0 only**
 
+## Getting started
+
+```sh
+corepack enable && yarn
+````
+
 ## Documentation
 Read our official documentation at [http://docs.bigdipper.live/](http://docs.bigdipper.live/)
 

@@ -9,7 +9,10 @@ import generalConfig from './general_config.json';
  * @returns config
  */
 const getChainConfig = () => {
+  if (!process.env.CHAIN_TYPE) throw new Error('CHAIN_TYPE is not defined');
   const chainType = process.env.CHAIN_TYPE;
+
+  if (!process.env.CHAIN_NAME) throw new Error('CHAIN_NAME is not defined');
   const chainName = process.env.CHAIN_NAME;
 
   switch (chainType) {

@@ -8,10 +8,10 @@ coverage:
         threshold: 0%
         base: 0%
         # advanced
-        branches: null
+        branches: []
         if_no_uploads: error
         if_not_found: success
         if_ci_failed: error
         only_pulls: false
-        flags: null
-        paths: null
+        flags: []
+        paths: []
