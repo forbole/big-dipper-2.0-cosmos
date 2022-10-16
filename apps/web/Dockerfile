@@ -1,40 +1,43 @@
-FROM node:18.10.0-alpine
+FROM node:alpine AS builder
+RUN apk update
 
-ENV PORT 3000
-
-# Install git for ui and internal packages
-RUN apk add --no-cache git
-
-# Set app directory
+# Set working directory
 WORKDIR /app
 
-# Add PM2
-RUN yarn add pm2 -g
-
-# Installing dependencies
-COPY package*.json ./
-RUN yarn install
-
-# Copying source files
+RUN corepack enable && yarn global add turbo
 COPY . .
+RUN turbo prune --scope=web --docker
 
-# Get env from secrets
-ARG NODE_ENV
-ARG PORT
-ARG CHAIN_NAME
-ARG CHAIN_TYPE
-ARG SENTRY_DSN
+# Add lockfile and package.json's of isolated subworkspace
+FROM node:alpine AS installer
+RUN apk update
+WORKDIR /app
 
-# Generate env file
-ENV NODE_ENV ${NODE_ENV}
-ENV PORT ${PORT}
-ENV CHAIN_NAME ${CHAIN_NAME}
-ENV CHAIN_TYPE ${CHAIN_TYPE}
-ENV SENTRY_DSN ${ENTRY_DSN}
+# First install the dependencies (as they change less often)
+COPY .gitignore .gitignore
+COPY --from=builder /app/out/json/ .
+COPY --from=builder /app/out/yarn.lock ./yarn.lock
+RUN corepack enable && yarn install
 
-# Building app
-RUN yarn install && yarn build --chainname=${CHAIN_NAME} --chaintype=${CHAIN_TYPE} 
-EXPOSE ${PORT}
+# Build the project
+COPY --from=builder /app/out/full/ .
+COPY turbo.json turbo.json
+RUN yarn turbo run build --filter=web...
 
-# Running the app
-CMD ["pm2-runtime", "dist/index.js"]
+FROM node:alpine AS runner
+WORKDIR /app
+
+# Don't run production as root
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+USER nextjs
+
+COPY --from=installer /app/apps/web/next.config.js .
+COPY --from=installer /app/apps/web/package.json .
+
+# Automatically leverage output traces to reduce image size 
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=installer --chown=nextjs:nodejs /app/apps/web/.next/standalone ./
+COPY --from=installer --chown=nextjs:nodejs /app/apps/web/.next/static ./apps/web/.next/static
+
+CMD node apps/web/server.js
