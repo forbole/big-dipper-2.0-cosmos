@@ -46,7 +46,7 @@ export const fetchColumns = (t): {
         <Typography variant="h4" className="label popover">
           {t('condition')}
           <InfoPopover
-            content={<ConditionExplanation />}
+            content={ConditionExplanation}
           />
         </Typography>
       ),

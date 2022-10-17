@@ -19,9 +19,8 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
       <h4
         className="MuiTypography-root MuiTypography-h4"
       >
-        254,579
+        254,578,529,800
          
-        DARIC
       </h4>
       <span
         className="MuiTypography-root MuiTypography-caption"
@@ -35,9 +34,8 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
       <h4
         className="MuiTypography-root MuiTypography-h4"
       >
-        7,528,260
+        -459,465,964,998
          
-        DARIC
       </h4>
       <span
         className="MuiTypography-root MuiTypography-caption"
@@ -81,67 +79,6 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
             />
           </clipPath>
         </defs>
-        <g
-          className="recharts-layer recharts-pie"
-        >
-          <g
-            className="recharts-layer recharts-pie-sector"
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-          >
-            <path
-              className="recharts-sector"
-              cx={100}
-              cy={95}
-              d="M 10,94.99999999999999
-    A 90,90,0,
-    0,1,
-    10.450761328426793,86.00367556489773
-  L 100,95 Z"
-              fill="#1EC490"
-              name={0}
-              stroke="none"
-            />
-          </g>
-          <g
-            className="recharts-layer recharts-pie-sector"
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-          >
-            <path
-              className="recharts-sector"
-              cx={100}
-              cy={95}
-              d="M 10.450761328426793,86.00367556489773
-    A 90,90,0,
-    0,1,
-    189.70794705606173,87.75539959785036
-  L 100,95 Z"
-              fill="#497BFF"
-              name={1}
-              stroke="none"
-            />
-          </g>
-          <g
-            className="recharts-layer recharts-pie-sector"
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-          >
-            <path
-              className="recharts-sector"
-              cx={100}
-              cy={95}
-              d="M 189.70794705606173,87.75539959785036
-    A 90,90,0,
-    0,1,
-    190,95.00000000000003
-  L 100,95 Z"
-              fill="#9F46EC"
-              name={2}
-              stroke="none"
-            />
-          </g>
-        </g>
       </svg>
       <div
         className="recharts-tooltip-wrapper"
