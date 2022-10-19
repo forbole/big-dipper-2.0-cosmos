@@ -5,6 +5,7 @@
 - Removed the use of NEXT_PUBLIC_URL
 - Update graphql types generation structure (in preparation for third party modules)
 - Update preview image location
+- Update testnet `chain_config` ([\#1038](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1038))
 
 # base-v2.1.0 - 2021-04-19
 
