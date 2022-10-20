@@ -19,6 +19,7 @@ import {
   fetchRewards,
   fetchUnbondingBalance,
   fetchCosmWasmInstantiation,
+  fetchCW20TokenBalances,
 } from './utils';
 
 const defaultTokenUnit: TokenUnit = {
@@ -63,6 +64,7 @@ const initialState: AccountDetailState = {
     },
   },
   tab: 0,
+  cw20TokenBalances: [],
 };
 
 export const useAccountDetails = () => {
@@ -128,6 +130,7 @@ export const useAccountDetails = () => {
       fetchUnbondingBalance(address),
       fetchRewards(address),
       fetchCosmWasmInstantiation(address),
+      fetchCW20TokenBalances(address),
     ];
     const [
       commission,
@@ -136,6 +139,7 @@ export const useAccountDetails = () => {
       unbonding,
       rewards,
       cosmWasmInstantiation,
+      cw20TokenBalances,
     ] = await Promise.allSettled(promises);
 
     const formattedRawData: any = {};
@@ -144,6 +148,7 @@ export const useAccountDetails = () => {
     formattedRawData.delegationBalance = R.pathOr([], ['value', 'delegationBalance'], delegation);
     formattedRawData.unbondingBalance = R.pathOr([], ['value', 'unbondingBalance'], unbonding);
     formattedRawData.delegationRewards = R.pathOr([], ['value', 'delegationRewards'], rewards);
+    formattedRawData.cw20TokenBalances = R.pathOr([], ['value'], cw20TokenBalances);
     handleSetState(formatAllBalance(formattedRawData));
 
     const rawData: any = {};
@@ -299,6 +304,7 @@ export const useAccountDetails = () => {
     formatOtherTokens();
 
     stateChange.otherTokens = formatOtherTokens();
+    stateChange.cw20TokenBalances = data.cw20TokenBalances;
 
     return stateChange;
   };

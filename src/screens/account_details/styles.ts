@@ -27,6 +27,11 @@ export const useStyles = () => {
             // gridColumn: '1 / 3',
           },
         },
+        cw20tokenBalances: {
+          [theme.breakpoints.up('lg')]: {
+            // gridColumn: '1 / 3',
+          },
+        },
         overview: {
           [theme.breakpoints.up('lg')]: {
             // gridColumn: '1 / 3',

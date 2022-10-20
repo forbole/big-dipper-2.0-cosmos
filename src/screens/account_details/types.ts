@@ -33,6 +33,31 @@ export type CosmwasmType = {
   transaction: any
 }
 
+export type Cw20TokenBalance = {
+  tokenAddress: string,
+  name: string
+  denom: string,
+  exponent: number,
+  logo: string,
+  balance: number
+}
+// todo
+// export type Cw20TokenInfo = {
+//   address: string,
+//   name: string,
+//   denom: string,
+//   logo: string,
+//   exponent: number,
+//   circulatingSupply: number,
+//   maxSupply: number,
+//   minterAddress: string,
+//   projectUrl: string,
+//   holders: {
+//     address: string,
+//     balance: number
+//   }[]
+// }
+
 export type AccountDetailState = {
   loading: boolean;
   exists: boolean;
@@ -46,4 +71,5 @@ export type AccountDetailState = {
   rewards: RewardsType;
   cosmwasm: CosmwasmType;
   tab: number;
+  cw20TokenBalances: Cw20TokenBalance[];
 }
