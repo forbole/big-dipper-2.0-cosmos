@@ -2,26 +2,17 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { RecoilRoot } from 'recoil';
-import SingleProposal from '.';
-
-// ==================================
-// mocks
-// ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
+import TabPanel from '.';
 
 // ==================================
 // unit tests
 // ==================================
-describe('component: SingleProposal', () => {
+describe('component: TabPanel', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <SingleProposal id="1" title="proposal-title" status="passed" />
+          <TabPanel index="1" value="2" />
         </MockTheme>
       </RecoilRoot>,
     );

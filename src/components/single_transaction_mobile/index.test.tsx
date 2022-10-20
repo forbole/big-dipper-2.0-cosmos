@@ -2,11 +2,11 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import {
-  SingleTransactionMobile,
   Tag,
   Result,
 } from '@components';
 import { RecoilRoot } from 'recoil';
+import SingleTransactionMobile from '.';
 
 // ==================================
 // mocks

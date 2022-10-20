@@ -28,7 +28,7 @@ exports[`component: SingleTransactionMobile matches snapshot 1`] = `
       className="MuiTypography-root value MuiTypography-body1"
     >
       <div>
-        1572D5F78D0112BC59E6BD79875D7796A39B1CE0CEF2E106D586CCCEF5C75317
+        1572D5F78D0192BC59E6BD99875D7796A39B1CE0CEF2E106D586CCCEF5C75317
       </div>
     </p>
   </div>
