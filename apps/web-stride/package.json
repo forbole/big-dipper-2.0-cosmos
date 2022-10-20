@@ -1,13 +1,12 @@
 {
-  "name": "big-dipper-2.0-cosmos",
+  "name": "web-stride",
   "version": "1.0.0",
   "license": "Apache-2.0",
+  "private": true,
   "scripts": {
-    "dev": "nodemon",
-    "build": "npm run build:next && npm run build:server",
-    "build:server": "tsc --project tsconfig.server.json",
-    "build:next": "next build",
-    "start": "NODE_ENV=production node dist/index.js",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "NODE_ENV=production next start",
     "type-check": "tsc",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "test": "NODE_ENV=test jest",
@@ -52,6 +51,7 @@
     "react-window-infinite-loader": "^1.0.7",
     "recharts": "^2.0.8",
     "recoil": "^0.4.1",
+    "shared-utils": "*",
     "subscriptions-transport-ws": "^0.10.0"
   },
   "devDependencies": {
@@ -74,14 +74,10 @@
     "axios-mock-adapter": "^1.19.0",
     "babel-jest": "^27.3.1",
     "eslint": "^7.8.1",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-import-resolver-typescript": "^2.3.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.20.6",
-    "eslint-plugin-react-hooks": "^4.1.0",
+    "eslint-config-custom": "*",
     "jest": "^27.3.1",
     "jest-localstorage-mock": "^2.4.18",
+    "jest-presets": "*",
     "jest-transform-stub": "^2.0.0",
     "jest-watch-typeahead": "^0.6.1",
     "nodemon": "^2.0.4",
@@ -89,6 +85,10 @@
     "ts-jest": "^27.0.7",
     "ts-loader": "^9.2.6",
     "ts-node": "^10.4.0",
+    "tsconfig": "*",
     "typescript": "^4.3.5"
+  },
+  "jest": {
+    "preset": "jest-presets/jest/node"
   }
 }
