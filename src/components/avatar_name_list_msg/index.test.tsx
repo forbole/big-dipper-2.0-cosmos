@@ -19,6 +19,11 @@ describe('components: AvatarNameListMsg', () => {
               address: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
               name: 'name',
             },
+            {
+              imageUrl: '',
+              address: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94xx',
+              name: 'name-2',
+            },
           ]}
         />
       </MockTheme>,
