@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components: Result matches snapshot 1`] = `
+exports[`components: Loading matches snapshot 1`] = `
 <div
   className="makeStyles-root"
 >

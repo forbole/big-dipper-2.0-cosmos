@@ -1,16 +1,19 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import Loading from '.';
+import Name from '.';
 
 // ==================================
 // unit tests
 // ==================================
-describe('components: Loading', () => {
+describe('components: Name', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>
-        <Loading />
+        <Name
+          address="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
+          name="name"
+        />
       </MockTheme>,
     );
     const tree = component.toJSON();

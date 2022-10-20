@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components: Name matches snapshot 1`] = `
+<a
+  className="MuiTypography-root makeStyles-root MuiTypography-body1"
+  href="/accounts/desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
+  onClick={[Function]}
+  onMouseEnter={[Function]}
+  onTouchStart={[Function]}
+>
+  name
+</a>
+`;
