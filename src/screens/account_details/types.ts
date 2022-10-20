@@ -41,22 +41,16 @@ export type Cw20TokenBalance = {
   logo: string,
   balance: number
 }
-// todo
-// export type Cw20TokenInfo = {
-//   address: string,
-//   name: string,
-//   denom: string,
-//   logo: string,
-//   exponent: number,
-//   circulatingSupply: number,
-//   maxSupply: number,
-//   minterAddress: string,
-//   projectUrl: string,
-//   holders: {
-//     address: string,
-//     balance: number
-//   }[]
-// }
+
+export type Cw20TokenInfo = {
+  name: string,
+  denom: string,
+  exponent: number,
+  circulatingSupply: number,
+  maxSupply?: number,
+  minterAddress?: string,
+  projectUrl?: string,
+}
 
 export type AccountDetailState = {
   loading: boolean;
@@ -72,4 +66,5 @@ export type AccountDetailState = {
   cosmwasm: CosmwasmType;
   tab: number;
   cw20TokenBalances: Cw20TokenBalance[];
+  cw20TokenInfo: Cw20TokenInfo;
 }

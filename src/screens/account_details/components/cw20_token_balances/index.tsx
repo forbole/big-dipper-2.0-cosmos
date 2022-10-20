@@ -7,7 +7,6 @@ import {
 } from '@hooks';
 import {
   Pagination,
-  // Loading,
   Box,
 } from '@components';
 import { Typography } from '@material-ui/core';
@@ -20,7 +19,7 @@ const Mobile = dynamic(() => import('./components/mobile'));
 
 const Cw20TokenBalances: React.FC<{
   balances: Cw20TokenBalance[],
-  loading?: boolean // todo implement loading sth
+  loading?: boolean
 } & ComponentDefault> = (props) => {
   if (!props.balances?.length) {
     return null;

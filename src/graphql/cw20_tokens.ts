@@ -13,22 +13,16 @@ query Cw20TokenBalances($address: String!) {
 }
 `;
 
-// query cw20_token_info {
-//   cw20token_info_by_pk(address: "") {
-//     circulating_supply
-//     code_id
-//     decimals
-//     description
-//     logo
-//     marketing_admin
-//     max_supply
-//     minter
-//     name
-//     project_url
-//     symbol
-//     balances {
-//       address
-//       balance
-//     }
-//   }
-// }
+export const Cw20TokenInfoDocument = /* GraphQL */`
+query Cw20TokenInfo($address: String!) {
+  cw20token_info_by_pk(address: $address) {
+    circulating_supply
+    decimals
+    max_supply
+    minter
+    name
+    project_url
+    symbol
+  }
+}
+`;

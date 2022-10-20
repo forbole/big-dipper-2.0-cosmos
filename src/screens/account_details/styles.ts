@@ -27,11 +27,6 @@ export const useStyles = () => {
             // gridColumn: '1 / 3',
           },
         },
-        cw20tokenBalances: {
-          [theme.breakpoints.up('lg')]: {
-            // gridColumn: '1 / 3',
-          },
-        },
         overview: {
           [theme.breakpoints.up('lg')]: {
             // gridColumn: '1 / 3',
@@ -43,6 +38,16 @@ export const useStyles = () => {
           },
         },
         transactions: {
+          [theme.breakpoints.up('lg')]: {
+            // gridColumn: '1 / 3',
+          },
+        },
+        cw20TokenBalances: {
+          [theme.breakpoints.up('lg')]: {
+            // gridColumn: '1 / 3',
+          },
+        },
+        cw20TokenInfo: {
           [theme.breakpoints.up('lg')]: {
             // gridColumn: '1 / 3',
           },
