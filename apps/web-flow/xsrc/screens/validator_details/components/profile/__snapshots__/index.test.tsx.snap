@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
+<div
+  className=""
+  id="Box"
+>
+  <div
+    className="makeStyles-bio"
+  >
+    <div
+      address="operatorAddress"
+      className="makeStyles-avatar makeStyles-desktopAvatar"
+      id="Avatar"
+      imageUrl=""
+    />
+    <div>
+      <div
+        className="bio__header"
+      >
+        <div
+          className="makeStyles-header"
+        >
+          <div
+            address="operatorAddress"
+            className="makeStyles-avatar makeStyles-mobile"
+            id="Avatar"
+            imageUrl=""
+          />
+          <div
+            className="header__content"
+          >
+            <h2
+              className="MuiTypography-root MuiTypography-h2"
+            >
+              validator
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div
+        className="bio__content"
+      >
+        <div
+          id="Markdown"
+          markdown="description"
+        />
+      </div>
+    </div>
+  </div>
+  <hr
+    className="MuiDivider-root makeStyles-divider"
+  />
+  <div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        validators:website
+      </h4>
+      <a
+        className="MuiTypography-root value MuiTypography-body1"
+        href="//"
+        rel="noreferrer"
+        target="_blank"
+      >
+        
+      </a>
+    </div>
+  </div>
+</div>
+`;

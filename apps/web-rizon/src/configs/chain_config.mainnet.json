@@ -1,0 +1,28 @@
+{
+  "title": "Rizon Block Explorer",
+  "network": "titan-1",
+  "icon": "/rizon/images/icon.png",
+  "logo": {
+    "default": "/rizon/images/logo.svg"
+  },
+  "prefix": {
+    "consensus": "rizonvalcons",
+    "validator": "rizonvaloper",
+    "account": "rizon"
+  },
+  "genesis": {
+    "time": "2021-07-13T08:00:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "uatolo",
+  "votingPowerTokenUnit": "uatolo",
+  "tokenUnits": {
+    "uatolo": {
+      "display": "atolo",
+      "exponent": 6
+    }
+  },
+  "extra": {
+    "profile": true
+  }
+}

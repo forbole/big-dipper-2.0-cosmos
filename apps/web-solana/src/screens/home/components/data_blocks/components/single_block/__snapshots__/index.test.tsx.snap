@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Home/SingleBlock matches snapshot 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <p
+    className="MuiTypography-root label MuiTypography-body2"
+  >
+    Price
+  </p>
+  <div
+    className="content"
+  >
+    <h1
+      className="MuiTypography-root MuiTypography-h1"
+    >
+      $4.40
+    </h1>
+  </div>
+</div>
+`;

@@ -1,0 +1,24 @@
+{
+  "title": "NYM Block Explorer",
+  "network": "nyx",
+  "prefix": {
+    "consensus": "nvalcons",
+    "validator": "nvaloper",
+    "account": "n"
+  },
+  "genesis": {
+    "time": "2022-01-31T21:00:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "unym",
+  "votingPowerTokenUnit": "unym",
+  "tokenUnits": {
+    "unym": {
+      "display": "nym",
+      "exponent": 6
+    }
+  },
+  "extra": {
+    "profile": true
+  }
+}

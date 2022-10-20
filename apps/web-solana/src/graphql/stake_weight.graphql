@@ -1,0 +1,12 @@
+query StakeWeight {
+  validatorStatusAggregate: validator_status_aggregate {
+    aggregate {
+      sum {
+        activatedStake: activated_stake
+      }
+    }
+  }
+  supplyInfo: supply_info {
+    total
+  }
+}

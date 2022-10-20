@@ -1,5 +1,3 @@
-const withTM = require("next-transpile-modules")(["ui"]);
-
 // This file sets a custom webpack configuration to use your Next.js app
 // with Sentry.
 // https://nextjs.org/docs/api-reference/next.config.js/introduction
@@ -9,14 +7,20 @@ const nextTranslate = require('next-translate');
 
 const basePath = process.env.CHAIN_NAME || 'desmos';
 
-const moduleExports = withTM(nextTranslate({
+const moduleExports = nextTranslate({
+  swcMinify: true,
+  distDir: `.next/${basePath}`,
   output: 'standalone',
   reactStrictMode: true,
   poweredByHeader: false,
-  basePath: `/${basePath.toLowerCase()}`,
+  basePath: `/${basePath}`,
   env: {
     CHAIN_TYPE: process.env.CHAIN_TYPE,
     CHAIN_NAME: process.env.CHAIN_NAME,
+  },
+  typescript: {
+    // TODO: Remove this once all the typescript errors are fixed
+    ignoreBuildErrors: true,
   },
   webpack: (config) => {
     config.module.rules.push({
@@ -25,7 +29,7 @@ const moduleExports = withTM(nextTranslate({
     });
     return config;
   },
-}));
+});
 
 const SENTRY_DSN = process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN;
 

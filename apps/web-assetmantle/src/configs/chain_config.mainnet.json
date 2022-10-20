@@ -1,0 +1,28 @@
+{
+  "title": "AssetMantle Block Explorer",
+  "network": "assetmantle-mainnet-mantle-1",
+  "icon": "/assetmantle/images/icon.svg",
+  "logo": {
+    "default": "/assetmantle/images/logo.svg"
+  },
+  "prefix": {
+    "consensus": "mantlevalcons",
+    "validator": "mantlevaloper",
+    "account": "mantle"
+  },
+  "genesis": {
+    "time": "2021-07-13T08:00:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "umntl",
+  "votingPowerTokenUnit": "umntl",
+  "tokenUnits": {
+    "umntl": {
+      "display": "mntl",
+      "exponent": 6
+    }
+  },
+  "extra": {
+    "profile": true
+  }
+}

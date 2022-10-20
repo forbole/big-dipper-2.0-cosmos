@@ -1,0 +1,476 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: BlockDetails/Logs matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="Box"
+>
+  <h2
+    className="MuiTypography-root MuiTypography-h2"
+  >
+    transactions:logs
+  </h2>
+  <div
+    className="makeStyles-logs"
+  >
+    <div
+      className="log"
+    >
+      <p
+        className="MuiTypography-root log__count MuiTypography-body1"
+      >
+        #1
+      </p>
+      <div
+        className="log__content"
+      >
+        <p
+          className="MuiTypography-root content content--title MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+           Program 11111111111111111111111111111111 invoke [1]
+        </p>
+        <p
+          className="MuiTypography-root content content--success MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program 11111111111111111111111111111111 success
+        </p>
+      </div>
+    </div>
+    <div
+      className="log"
+    >
+      <p
+        className="MuiTypography-root log__count MuiTypography-body1"
+      >
+        #2
+      </p>
+      <div
+        className="log__content"
+      >
+        <p
+          className="MuiTypography-root content content--title MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+           Program MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr invoke [1]
+        </p>
+        <p
+          className="MuiTypography-root content content--log MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program log: Memo (len 39): "2EE2Hhoe8fVAYn7J5qwuayNmrEgmTPskLyszojv"
+        </p>
+        <p
+          className="MuiTypography-root content MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr consumed 15555 of 200000 compute units
+        </p>
+        <p
+          className="MuiTypography-root content content--success MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr success
+        </p>
+      </div>
+    </div>
+    <div
+      className="log"
+    >
+      <p
+        className="MuiTypography-root log__count MuiTypography-body1"
+      >
+        #3
+      </p>
+      <div
+        className="log__content"
+      >
+        <p
+          className="MuiTypography-root content content--title MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+           Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [1]
+        </p>
+        <p
+          className="MuiTypography-root content content--log MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program log: Instruction: InitializeMint
+        </p>
+        <p
+          className="MuiTypography-root content MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2457 of 200000 compute units
+        </p>
+        <p
+          className="MuiTypography-root content content--success MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+        </p>
+      </div>
+    </div>
+    <div
+      className="log"
+    >
+      <p
+        className="MuiTypography-root log__count MuiTypography-body1"
+      >
+        #4
+      </p>
+      <div
+        className="log__content"
+      >
+        <p
+          className="MuiTypography-root content content--title MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+           Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [1]
+        </p>
+        <p
+          className="MuiTypography-root content content--log MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program log: Transfer 2039280 lamports to the associated token account
+        </p>
+        <p
+          className="MuiTypography-root content content--invoke MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program 11111111111111111111111111111111 invoke [2]
+        </p>
+        <p
+          className="MuiTypography-root content content--success MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 16,
+            }
+          }
+        >
+          &gt; Program 11111111111111111111111111111111 success
+        </p>
+        <p
+          className="MuiTypography-root content content--log MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program log: Allocate space for the associated token account
+        </p>
+        <p
+          className="MuiTypography-root content content--invoke MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program 11111111111111111111111111111111 invoke [2]
+        </p>
+        <p
+          className="MuiTypography-root content content--success MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 16,
+            }
+          }
+        >
+          &gt; Program 11111111111111111111111111111111 success
+        </p>
+        <p
+          className="MuiTypography-root content content--log MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program log: Assign the associated token account to the SPL Token program
+        </p>
+        <p
+          className="MuiTypography-root content content--invoke MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program 11111111111111111111111111111111 invoke [2]
+        </p>
+        <p
+          className="MuiTypography-root content content--success MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 16,
+            }
+          }
+        >
+          &gt; Program 11111111111111111111111111111111 success
+        </p>
+        <p
+          className="MuiTypography-root content content--log MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program log: Initialize the associated token account
+        </p>
+        <p
+          className="MuiTypography-root content content--invoke MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+        </p>
+        <p
+          className="MuiTypography-root content content--log MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 16,
+            }
+          }
+        >
+          &gt; Program log: Instruction: InitializeAccount
+        </p>
+        <p
+          className="MuiTypography-root content MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 16,
+            }
+          }
+        >
+          &gt; Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 3297 of 179576 compute units
+        </p>
+        <p
+          className="MuiTypography-root content content--success MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 16,
+            }
+          }
+        >
+          &gt; Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+        </p>
+        <p
+          className="MuiTypography-root content MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 24370 of 200000 compute units
+        </p>
+        <p
+          className="MuiTypography-root content content--success MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success
+        </p>
+      </div>
+    </div>
+    <div
+      className="log"
+    >
+      <p
+        className="MuiTypography-root log__count MuiTypography-body1"
+      >
+        #5
+      </p>
+      <div
+        className="log__content"
+      >
+        <p
+          className="MuiTypography-root content content--title MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+           Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [1]
+        </p>
+        <p
+          className="MuiTypography-root content content--log MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program log: Instruction: MintTo
+        </p>
+        <p
+          className="MuiTypography-root content MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2611 of 200000 compute units
+        </p>
+        <p
+          className="MuiTypography-root content content--success MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+        </p>
+      </div>
+    </div>
+    <div
+      className="log"
+    >
+      <p
+        className="MuiTypography-root log__count MuiTypography-body1"
+      >
+        #6
+      </p>
+      <div
+        className="log__content"
+      >
+        <p
+          className="MuiTypography-root content content--title MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+           Program CMZYPASGWeTz7RNGHaRJfCq2XQ5pYK6nDvVQxzkH51zb invoke [1]
+        </p>
+        <p
+          className="MuiTypography-root content content--log MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program log: Instruction: MintNft
+        </p>
+        <p
+          className="MuiTypography-root content content--invoke MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program 11111111111111111111111111111111 invoke [2]
+        </p>
+        <p
+          className="MuiTypography-root content content--success MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 16,
+            }
+          }
+        >
+          &gt; Program 11111111111111111111111111111111 success
+        </p>
+        <p
+          className="MuiTypography-root content content--log content--error MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program log: Custom program error: 0x177b
+        </p>
+        <p
+          className="MuiTypography-root content MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program CMZYPASGWeTz7RNGHaRJfCq2XQ5pYK6nDvVQxzkH51zb consumed 35244 of 200000 compute units
+        </p>
+        <p
+          className="MuiTypography-root content content--error MuiTypography-body1"
+          style={
+            Object {
+              "marginLeft": 0,
+            }
+          }
+        >
+          &gt; Program CMZYPASGWeTz7RNGHaRJfCq2XQ5pYK6nDvVQxzkH51zb failed: custom program error: 0x177b
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

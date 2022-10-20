@@ -1,0 +1,48 @@
+{
+  "title": "e-Money Block Explorer",
+  "network": "emoney-3",
+  "icon": "/emoney/images/icon.png",
+  "logo": {
+    "default": "/emoney/images/logo.svg"
+  },
+  "prefix": {
+    "consensus": "emoneyvalcons",
+    "validator": "emoneyvaloper",
+    "account": "emoney"
+  },
+  "genesis": {
+    "time": "2020-11-04T13:00:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "ungm",
+  "votingPowerTokenUnit": "ungm",
+  "tokenUnits": {
+    "ungm": {
+      "display": "ngm",
+      "exponent": 6
+    },
+    "echf": {
+      "display": "echf",
+      "exponent": 6
+    },
+    "edkk": {
+      "display": "edkk",
+      "exponent": 6
+    },
+    "eeur": {
+      "display": "eeur",
+      "exponent": 6
+    },
+    "enok": {
+      "display": "enok",
+      "exponent": 6
+    },
+    "esek": {
+      "display": "esek",
+      "exponent": 6
+    }
+  },
+  "extra": {
+    "profile": true
+  }
+}

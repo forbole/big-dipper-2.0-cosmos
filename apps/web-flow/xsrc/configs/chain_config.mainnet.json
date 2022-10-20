@@ -1,0 +1,28 @@
+{
+  "title": "Desmos Block Explorer",
+  "network": "desmos-mainnet-1",
+  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
+  "logo": {
+    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
+  },
+  "prefix": {
+    "consensus": "desmosvalcons",
+    "validator": "desmosvaloper",
+    "account": "desmos"
+  },
+  "genesis": {
+    "time": "2021-07-13T08:00:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "udsm",
+  "votingPowerTokenUnit": "udsm",
+  "tokenUnits": {
+    "udsm": {
+      "display": "dsm",
+      "exponent": 6
+    }
+  },
+  "extra": {
+    "profile": false
+  }
+}

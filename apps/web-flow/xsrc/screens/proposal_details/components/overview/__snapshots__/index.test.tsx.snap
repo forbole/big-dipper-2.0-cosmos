@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="Box"
+>
+  <div
+    id="#10"
+    status="status"
+    title="title"
+  />
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-content"
+  >
+    <p
+      className="MuiTypography-root label MuiTypography-body1"
+    >
+      proposals:type
+    </p>
+    <p
+      className="MuiTypography-root value MuiTypography-body1"
+    >
+      proposals:
+    </p>
+    <p
+      className="MuiTypography-root label MuiTypography-body1"
+    >
+      proposals:description
+    </p>
+    <div
+      id="Markdown"
+      markdown="description"
+    />
+  </div>
+  <div
+    className="makeStyles-time"
+  />
+</div>
+`;

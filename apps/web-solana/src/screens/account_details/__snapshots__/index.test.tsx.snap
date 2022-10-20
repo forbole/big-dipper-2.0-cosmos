@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: AccountDetails matches snapshot 1`] = `
+<div
+  id="Layout"
+  navTitle="accounts:accountDetails"
+>
+  <div
+    exists={true}
+    id="LoadAndExist"
+    loading={false}
+  >
+    <div
+      className="makeStyles-root"
+    >
+      <div
+        id="TokenDetailsAccount"
+      />
+      <div
+        id="Transactions"
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,28 @@
+{
+  "title": "Bitsong Block Explorer",
+  "network": "bitsong-2",
+  "icon": "/bitsong/images/icon.svg",
+  "logo": {
+    "default": "/bitsong/images/logo.svg"
+  },
+  "prefix": {
+    "consensus": "bitsongvalcons",
+    "validator": "bitsongvaloper",
+    "account": "bitsong"
+  },
+  "genesis": {
+    "time": "2021-07-13T08:00:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "ubtsg",
+  "votingPowerTokenUnit": "ubtsg",
+  "tokenUnits": {
+    "ubtsg": {
+      "display": "btsg",
+      "exponent": 6
+    }
+  },
+  "extra": {
+    "profile": true
+  }
+}

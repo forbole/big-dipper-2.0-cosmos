@@ -1,0 +1,87 @@
+
+subscription LastHundredBlocks($address: String) {
+  block(offset: 1, order_by: {height: desc}, limit: 100) {
+    height
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
+      }
+    }
+    transactions {
+    	hash
+  	}
+    precommits: pre_commits(where: {validator: {validator_info: {operator_address: {_eq: $address}}}}) {
+      validatorAddress: validator_address
+    }
+  }
+}
+
+subscription ValidatorLastSeenListener($address: String) {
+  preCommit: pre_commit(limit: 1, where: {validator: {validator_info: {operator_address: {_eq: $address}}}}, order_by: {height: desc}) {
+    height
+    timestamp
+  }
+}
+
+
+query ValidatorDetails($address: String, $utc: timestamp) {
+  stakingParams: staking_params(limit: 1) {
+    params
+  }
+  stakingPool: staking_pool(order_by: {height: desc}, limit: 1, offset: 0) {
+    height
+    bonded: bonded_tokens
+  }
+  validator(where: {validator_info: {operator_address: {_eq: $address}}}) {
+    validatorDescriptions: validator_descriptions(order_by: {height: desc}, limit: 1) {
+      details
+      website
+    }
+    validatorStatuses: validator_statuses(order_by: {height: desc}, limit: 1) {
+      status
+      jailed
+      height
+    }
+    validatorSigningInfos: validator_signing_infos(order_by: {height: desc}, limit: 1) {
+      missedBlocksCounter: missed_blocks_counter
+    }
+    validatorInfo: validator_info {
+      operatorAddress: operator_address
+      selfDelegateAddress: self_delegate_address
+    }
+    validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
+      commission
+    }
+    validatorVotingPowers: validator_voting_powers(offset: 0, limit: 1, order_by: {height: desc}) {
+      height
+      votingPower: voting_power
+    }
+    delegations {
+      amount
+      delegatorAddress: delegator_address
+    }
+    redelegationsByDstValidatorAddress(where: {completion_time: {_gt: $utc}}) {
+      amount
+      completionTime: completion_time
+      from: src_validator_address
+      to: dst_validator_address
+      delegatorAddress: delegator_address
+    }
+    redelegationsBySrcValidatorAddress(where: {completion_time: {_gt: $utc}}) {
+      amount
+      completionTime: completion_time
+      from: src_validator_address
+      to: dst_validator_address
+      delegatorAddress: delegator_address
+    }
+    unbonding: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}}) {
+      amount
+      completionTimestamp: completion_timestamp
+      delegatorAddress: delegator_address
+    }
+  }
+  slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
+    params
+  }
+}
+

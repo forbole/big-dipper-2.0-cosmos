@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Epoch matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="Layout"
+  navTitle="epoch"
+>
+  <div
+    exists={true}
+    id="LoadAndExist"
+    loading={false}
+  >
+    <div
+      epochDetail={
+        Array [
+          Object {
+            "detail": "epochDetail",
+            "name": "epoch",
+            "value": "305",
+          },
+          Object {
+            "detail": "totalInflationDetail",
+            "name": "totalInflation",
+            "value": "6.96%",
+          },
+          Object {
+            "detail": "validatorInflationDetail",
+            "name": "validatorInflation",
+            "value": "6.96%",
+          },
+          Object {
+            "detail": "foundationInflationDetail",
+            "name": "foundationInflation",
+            "value": "0%",
+          },
+        ]
+      }
+      id="EpochDetail"
+      title="inflation"
+    />
+    <div
+      epochDetail={
+        Array [
+          Object {
+            "detail": "initialDetail",
+            "name": "initial",
+            "value": "8%",
+          },
+          Object {
+            "detail": "terminalDetail",
+            "name": "terminal",
+            "value": "1.5%",
+          },
+          Object {
+            "detail": "taperDetail",
+            "name": "taper",
+            "value": "15%",
+          },
+          Object {
+            "detail": "foundationDetail",
+            "name": "foundation",
+            "value": "0%",
+          },
+          Object {
+            "detail": "foundationTermDetail",
+            "name": "foundationTerm",
+            "value": "0",
+          },
+        ]
+      }
+      id="EpochDetail"
+      title="inflationGovernor"
+    />
+    <div
+      epochDetail={
+        Array [
+          Object {
+            "detail": "slotsPerEpochDetail",
+            "name": "slotsPerEpoch",
+            "value": "432,000",
+          },
+          Object {
+            "detail": "leaderScheduleSlotOffsetDetail",
+            "name": "leaderScheduleSlotOffset",
+            "value": "432,000",
+          },
+          Object {
+            "detail": "warmupDetail",
+            "name": "warmup",
+            "value": "FALSE",
+          },
+          Object {
+            "detail": "firstNormalEpochDetail",
+            "name": "firstNormalEpoch",
+            "value": "0",
+          },
+          Object {
+            "detail": "firstNormalSlotDetail",
+            "name": "firstNormalSlot",
+            "value": "0",
+          },
+        ]
+      }
+      id="EpochDetail"
+      title="epochSchedule"
+    />
+  </div>
+</div>
+`;

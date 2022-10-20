@@ -1,0 +1,20 @@
+{
+  "slot": "Slot",
+  "hash": "Hash",
+  "type": "Type",
+  "time": "Time",
+  "amount": "Amount",
+  "result": "Result",
+  "transactions": "Transactions",
+  "transactionDetails": "Transaction Details",
+  "overview": "Overview",
+  "confirmations": "Confirmations",
+  "fee": "Fee",
+  "instructions": "Instructions",
+  "messages": "Messages",
+  "raw": "Raw",
+  "filterBy": "Filter By",
+  "none": "None",
+  "signature": "Signature",
+  "logs": "Logs"
+}

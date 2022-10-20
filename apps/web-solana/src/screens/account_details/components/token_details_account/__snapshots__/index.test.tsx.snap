@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TokenAccount matches snapshot 1`] = `
+<div
+  className="makeStyles-overview"
+  id="Overview"
+  overview={
+    Object {
+      "address": "9XfsbcUJ8qM4esLtMocrMGLqRPkgYNbcmKLebtBzSjjZ",
+      "balance": Object {
+        "baseDenom": "",
+        "displayDenom": "Ammo",
+        "exponent": 9,
+        "value": "0.000000000",
+      },
+      "mint": "EEhosSQvC2yVDRXRGpkonGFF2WNjtUdzb48GV8TSmhfA",
+      "mintImageUrl": "https://arweave.net/rjP_BdMqFsXBWoInFYuVNDdqLzW1xo82egb74WRl3Hc",
+      "owner": "9T2iv4yXzarKyKgVX4ShNx42NjUAUh63xGohR5B5hjsH",
+    }
+  }
+/>
+`;

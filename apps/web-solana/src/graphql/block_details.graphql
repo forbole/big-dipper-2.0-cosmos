@@ -1,0 +1,20 @@
+query BlockDetails($height: bigint) {
+  block(limit: 1, where: {slot: {_eq: $height}}) {
+    slot
+    hash
+    timestamp
+    validator {
+      address
+    }
+    numTxs: num_txs
+  }
+  transaction(where: {slot: {_eq: $height}}) {
+    slot
+    signature
+    success
+    block {
+      timestamp
+    }
+    numInstructions: num_instructions
+  }
+}

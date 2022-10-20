@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: NonceAccount matches snapshot 1`] = `
+<div
+  className="makeStyles-overview"
+  id="Overview"
+  overview={
+    Object {
+      "address": "9XfsbcUJ8qM4esLtMocrMGLqRPkgYNbcmKLebtBzSjjZ",
+      "authority": "38QU8LKVK1Ew5uzsqttamNTTFxvnfzgi2ACQvj3ekuom",
+      "balance": Object {
+        "baseDenom": "udaric",
+        "displayDenom": "daric",
+        "exponent": 6,
+        "value": "2.5",
+      },
+      "blockhash": "CJm1NSWAm3NDDNtXZyCfK4oRukkS1kXKaWBn3CGQErHi",
+      "fee": 5000,
+    }
+  }
+/>
+`;

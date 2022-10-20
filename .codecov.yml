@@ -4,7 +4,7 @@ coverage:
     project:
       default:
         # basic
-        target: 0%
+        target: 0
         threshold: 0%
         base: 0%
         # advanced

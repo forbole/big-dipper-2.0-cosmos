@@ -1,0 +1,278 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <div
+    onScroll={[Function]}
+    style={
+      Object {
+        "WebkitOverflowScrolling": "touch",
+        "direction": "ltr",
+        "height": 50,
+        "overflow": "auto",
+        "position": "relative",
+        "width": 600,
+        "willChange": "transform",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": 50,
+          "pointerEvents": undefined,
+          "width": 600,
+        }
+      }
+    >
+      <div
+        className="makeStyles-cell"
+        onClick={[Function]}
+        role="button"
+        style={
+          Object {
+            "height": 50,
+            "left": 0,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 60,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4"
+        >
+          idx
+        </h4>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-flexCells undefined sort"
+        onClick={[Function]}
+        role="button"
+        style={
+          Object {
+            "height": 50,
+            "left": 60,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 180,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4"
+        >
+          token
+          <div
+            id="SortArrows"
+            sort="asc"
+          />
+        </h4>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-flexCells right sort"
+        onClick={[Function]}
+        role="button"
+        style={
+          Object {
+            "height": 50,
+            "left": 240,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 120,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight"
+        >
+          price
+          <div
+            id="SortArrows"
+          />
+        </h4>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-flexCells right sort"
+        onClick={[Function]}
+        role="button"
+        style={
+          Object {
+            "height": 50,
+            "left": 360,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 120,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight"
+        >
+          marketCap
+          <div
+            id="SortArrows"
+          />
+        </h4>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-flexCells right sort"
+        onClick={[Function]}
+        role="button"
+        style={
+          Object {
+            "height": 50,
+            "left": 480,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 120,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight"
+        >
+          volume
+          <div
+            id="SortArrows"
+          />
+        </h4>
+      </div>
+    </div>
+  </div>
+  <div
+    className="scrollbar"
+    onScroll={[Function]}
+    style={
+      Object {
+        "WebkitOverflowScrolling": "touch",
+        "direction": "ltr",
+        "height": 550,
+        "overflow": "auto",
+        "position": "relative",
+        "width": 600,
+        "willChange": "transform",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": 50,
+          "pointerEvents": undefined,
+          "width": 600,
+        }
+      }
+    >
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 0,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 60,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          #1
+        </div>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 60,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 180,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          <div
+            address="9n4nbM75f5Ui33ZbPYXn59EwSgE8CGsHtAeTH5YFeJ9E"
+            href={[Function]}
+            id="AvatarName"
+            imageUrl={null}
+            name="BTC"
+          />
+        </div>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 240,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 120,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
+        >
+          $1,802
+        </div>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 360,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 120,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
+        >
+          $515,912,496
+        </div>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 480,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 120,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
+        >
+          $18,333,060
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

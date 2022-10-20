@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Blocks/List matches snapshot 1`] = `
+<div
+  id="Layout"
+  navTitle="transactionDetails"
+>
+  <div
+    exists={true}
+    id="LoadAndExist"
+    loading={false}
+  >
+    <span
+      className="makeStyles-root"
+    >
+      <div
+        data={
+          Object {
+            "fee": Object {
+              "baseDenom": "udaric",
+              "displayDenom": "daric",
+              "exponent": 6,
+              "value": "0.01",
+            },
+            "signature": "2Rmxi1EouXEDtWWL525SiNXATTsyhcWzGak8tWnnhur8u6Zw68befaFHTMxy7avdP96gabsfjpEKJ5su9owyec7r",
+            "slot": 127369547,
+            "success": true,
+            "timestamp": "2022-03-30T08:02:15",
+          }
+        }
+        id="Overview"
+      />
+      <div
+        id="Instructions"
+        instructions={
+          Array [
+            Object {
+              "index": 0,
+              "innerIndex": 0,
+              "program": "Memo1UhkJRfHyvLMcVucJwxXeuD728EqVDDwQDxFMNo",
+              "rawData": "TTfFhc6NAqmBD2SBbgyxRC1oxAhBvXXU8eoGEjL6abFPpNd26V9AbT2cKG9r",
+              "type": "unknown",
+              "value": null,
+            },
+            Object {
+              "index": 1,
+              "innerIndex": 0,
+              "program": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+              "rawData": "3gJqkocMWaMm",
+              "type": "transfer",
+              "value": Object {
+                "amount": "100000",
+                "authority": "31vSgwrQ6AGpCamqAeTfs3JJ77pycnwUj1yixJ77exU9",
+                "destination": "Bo6qknJzJKZwG6P51SL9fF7ewYy9k7TtjPKaVxpheoiA",
+                "source": "7uCywL8j7jhN8YoFvpSyPZrKbYELkkQAYRZuumzSUyAS",
+              },
+            },
+          ]
+        }
+      />
+      <div
+        id="Logs"
+        logs={
+          Array [
+            "Program Memo1UhkJRfHyvLMcVucJwxXeuD728EqVDDwQDxFMNo invoke [1]",
+            "Program Memo1UhkJRfHyvLMcVucJwxXeuD728EqVDDwQDxFMNo consumed 374 of 200000 compute units",
+            "Program Memo1UhkJRfHyvLMcVucJwxXeuD728EqVDDwQDxFMNo success",
+            "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [1]",
+            "Program log: Instruction: Transfer",
+            "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2842 of 200000 compute units",
+            "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+          ]
+        }
+      />
+    </span>
+  </div>
+</div>
+`;

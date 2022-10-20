@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Proposals/List matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="Box"
+>
+  <div
+    className="makeStyles-topContent"
+  >
+    <div
+      className="makeStyles-total"
+      id="Total"
+      total="1"
+    />
+    <div
+      callback={[MockFunction]}
+      className="makeStyles-search"
+      id="Search"
+      placeholder="searchTokens"
+    />
+  </div>
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      id="Mobile"
+      isItemLoaded={[Function]}
+      itemCount={1}
+      items={
+        Array [
+          Object {
+            "address": "9n4nbM75f5Ui33ZbPYXn59EwSgE8CGsHtAeTH5YFeJ9E",
+            "logo": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/G2jrxYSoCSzmohxERa2JzSJMuRM4kiNvRA3DnCv7Lzcz/logo.png",
+            "marketCap": 515912496,
+            "price": 1802,
+            "token": "BTC",
+            "volume": 18333060,
+          },
+        ]
+      }
+      loadMoreItems={[Function]}
+    />
+  </div>
+</div>
+`;

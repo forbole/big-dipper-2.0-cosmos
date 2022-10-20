@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: StakeAccount matches snapshot 1`] = `
+Array [
+  <div
+    className="makeStyles-overview"
+    id="Overview"
+    overview={
+      Object {
+        "address": "9XfsbcUJ8qM4esLtMocrMGLqRPkgYNbcmKLebtBzSjjZ",
+        "balance": Object {
+          "baseDenom": "udaric",
+          "displayDenom": "daric",
+          "exponent": 6,
+          "value": "430282.877615",
+        },
+        "staker": "12Euh1pmCycRLq4grkyY7VDubawWJKXxbX9FJQAs4hZy",
+        "withdrawer": "EhYXq3ANp5nAerUpbSgd7VK2RRcxK1zNuSQ755G5Mtxx",
+      }
+    }
+  />,
+  <div
+    className="makeStyles-overview"
+    id="StakeInfo"
+    stake={
+      Object {
+        "activationEpoch": 200,
+        "deactivationEpoch": 18446744073709552000,
+        "delegated": Object {
+          "baseDenom": "udaric",
+          "displayDenom": "daric",
+          "exponent": 6,
+          "value": "430276.028975",
+        },
+        "status": "active",
+        "voter": "964w4qykexipZ7aCur1BEeJtexTMa1ehMUc9tCcxm9J3",
+      }
+    }
+  />,
+]
+`;

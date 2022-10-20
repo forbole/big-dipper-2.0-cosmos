@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: InitialLoad matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <div>
+    <img
+      alt="logo"
+      className="makeStyles-logo"
+      src="https://raw.githubusercontent.com/forbole/big-dipper-assets/master/elrond/logo.svg?sanitize=true"
+    />
+    <div
+      className="MuiLinearProgress-root MuiLinearProgress-colorPrimary makeStyles-divider MuiLinearProgress-indeterminate"
+      role="progressbar"
+    >
+      <div
+        className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Indeterminate"
+        style={Object {}}
+      />
+      <div
+        className="MuiLinearProgress-bar MuiLinearProgress-bar2Indeterminate MuiLinearProgress-barColorPrimary"
+        style={Object {}}
+      />
+    </div>
+    < />
+  </div>
+</div>
+`;

@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <table
+    className="MuiTable-root makeStyles-table"
+    role={null}
+  >
+    <thead
+      className="MuiTableHead-root"
+      role={null}
+    >
+      <tr
+        className="MuiTableRow-root MuiTableRow-head"
+        role={null}
+      >
+        <th
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-head"
+          scope="col"
+        >
+          height
+        </th>
+        <th
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-head"
+          scope="col"
+        >
+          proposer
+        </th>
+        <th
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-head"
+          scope="col"
+        >
+          hash
+        </th>
+        <th
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"
+          scope="col"
+        >
+          txs
+        </th>
+        <th
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"
+          scope="col"
+        >
+          time
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      className="MuiTableBody-root"
+      role={null}
+    >
+      <tr
+        className="MuiTableRow-root"
+        role={null}
+      >
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body"
+        >
+          <a
+            className="MuiTypography-root value MuiTypography-body1"
+            href="/blocks/4000"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+          >
+            4,000
+          </a>
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body"
+        >
+          <div
+            address="desmosvalcons1why72hjk945yhckcy5hzk2z2w9d5h65t9am0kd"
+            id="AvatarName"
+            imageUrl=""
+            name="name"
+          />
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body"
+        >
+          76nwV8...hQ857
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+        >
+          12
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+        >
+          1 day ago
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

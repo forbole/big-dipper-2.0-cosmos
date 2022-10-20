@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component: AvatarName matches snapshot 1`] = `
+<a
+  href="/accounts/123"
+  onClick={[Function]}
+  onMouseEnter={[Function]}
+>
+  <div
+    className="makeStyles-root"
+  >
+    <div
+      address="123"
+      id="Avatar"
+    />
+    <p
+      className="MuiTypography-root MuiTypography-body1"
+    >
+      name
+    </p>
+  </div>
+</a>
+`;
+
+exports[`component: AvatarName matches snapshot with imageUrl 1`] = `
+<a
+  href="/accounts/123"
+  onClick={[Function]}
+  onMouseEnter={[Function]}
+>
+  <div
+    className="makeStyles-root"
+  >
+    <div
+      address="123"
+      id="Avatar"
+      imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
+    />
+    <p
+      className="MuiTypography-root MuiTypography-body1"
+    >
+      name
+    </p>
+  </div>
+</a>
+`;

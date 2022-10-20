@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: NativeAccount matches snapshot 1`] = `
+Array [
+  <div
+    className="makeStyles-overview"
+    id="Overview"
+    overview={
+      Object {
+        "address": "9XfsbcUJ8qM4esLtMocrMGLqRPkgYNbcmKLebtBzSjjZ",
+      }
+    }
+  />,
+  <div
+    balance={
+      Object {
+        "native": Object {
+          "baseDenom": "udaric",
+          "displayDenom": "daric",
+          "exponent": 6,
+          "value": "1997.95072",
+        },
+        "nonce": Object {
+          "baseDenom": "udaric",
+          "displayDenom": "daric",
+          "exponent": 6,
+          "value": "0",
+        },
+        "stake": Object {
+          "baseDenom": "udaric",
+          "displayDenom": "daric",
+          "exponent": 6,
+          "value": "0",
+        },
+        "total": Object {
+          "baseDenom": "udaric",
+          "displayDenom": "daric",
+          "exponent": 6,
+          "value": "1997.95072",
+        },
+        "vote": Object {
+          "baseDenom": "udaric",
+          "displayDenom": "daric",
+          "exponent": 6,
+          "value": "0",
+        },
+      }
+    }
+    className="makeStyles-balance"
+    id="Balance"
+  />,
+  <div
+    className="makeStyles-accounts"
+    id="Accounts"
+  />,
+  <div
+    className="makeStyles-tokens"
+    id="Tokens"
+  />,
+]
+`;

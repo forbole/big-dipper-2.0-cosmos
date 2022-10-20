@@ -1,0 +1,101 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "downlevelIteration": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": [
+        "src/*"
+      ],
+      "@components": [
+        "src/components"
+      ],
+      "@msg": [
+        "src/components/msg"
+      ],
+      "@icons": [
+        "src/components/icons"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@hooks": [
+        "src/hooks"
+      ],
+      "@models": [
+        "src/models"
+      ],
+      "@screens/*": [
+        "src/screens/*"
+      ],
+      "@public/*": [
+        "public/*"
+      ],
+      "@styles": [
+        "src/styles"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@contexts": [
+        "src/contexts"
+      ],
+      "@recoil/*": [
+        "src/recoil/*"
+      ],
+      "@graphql": [
+        "src/graphql"
+      ],
+      "@configs": [
+        "src/configs"
+      ],
+      "@graphql/*": [
+        "src/graphql/*"
+      ],
+      "@graphql/types": [
+        "src/graphql/types"
+      ],
+      "@graphql/queries": [
+        "src/graphql/queries"
+      ],
+      "@graphql/mutations": [
+        "src/graphql/mutations"
+      ],
+      "@tests/utils": [
+        "tests/utils"
+      ],
+      "@api": [
+        "src/api"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "tests/utils/mock_i18n.js",
+    "tests/utils/mock_apollo_provider.tss"
+  ],
+  "exclude": [
+    "node_modules",
+    "cypress",
+    "xold_xsrc"
+  ]
+}

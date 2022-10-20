@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
+<div
+  details={
+    Array [
+      Object {
+        "className": "makeStyles-copyText",
+        "detail": <React.Fragment>
+          <
+            onClick={[Function]}
+          />
+          <WithStyles(ForwardRef(Typography))
+            className="value"
+            variant="body1"
+          >
+            9n4nbM75f5Ui33Z...FeJ9E
+          </WithStyles(ForwardRef(Typography))>
+        </React.Fragment>,
+        "label": "accounts:address",
+      },
+      Object {
+        "detail": 6,
+        "label": "accounts:decimals",
+      },
+      Object {
+        "className": "makeStyles-copyText",
+        "detail": <React.Fragment>
+          <
+            onClick={[Function]}
+          />
+          <Link
+            href="/accounts/9n4nbM75f5Ui33ZbPYXn59EwSgE8CGsHtAeTH5YFeJ9E"
+            passHref={true}
+          >
+            <WithStyles(ForwardRef(Typography))
+              className="value"
+              component="a"
+              variant="body1"
+            >
+              9n4nbM75f5Ui33Z...FeJ9E
+            </WithStyles(ForwardRef(Typography))>
+          </Link>
+        </React.Fragment>,
+        "label": "accounts:mintAuthority",
+      },
+      Object {
+        "className": "makeStyles-copyText",
+        "detail": <React.Fragment>
+          <
+            onClick={[Function]}
+          />
+          <Link
+            href="/accounts/9n4nbM75f5Ui33ZbPYXn59EwSgE8CGsHtAeTH5YFeJ9E"
+            passHref={true}
+          >
+            <WithStyles(ForwardRef(Typography))
+              className="value"
+              component="a"
+              variant="body1"
+            >
+              9n4nbM75f5Ui33Z...FeJ9E
+            </WithStyles(ForwardRef(Typography))>
+          </Link>
+        </React.Fragment>,
+        "label": "accounts:freezeAuthority",
+      },
+    ]
+  }
+  id="BoxDetails"
+  title="accounts:overview"
+/>
+`;

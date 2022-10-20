@@ -1,0 +1,380 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Home/Epoch matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="box"
+>
+  <h2
+    className="MuiTypography-root makeStyles-label MuiTypography-h2"
+  >
+    epoch
+  </h2>
+  <div
+    className="makeStyles-content"
+  >
+    <div
+      className="recharts-wrapper makeStyles-chart"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseMove={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      style={
+        Object {
+          "cursor": "default",
+          "height": 200,
+          "position": "relative",
+          "width": 200,
+        }
+      }
+    >
+      <svg
+        className="recharts-surface"
+        cx={100}
+        cy={100}
+        height={200}
+        version="1.1"
+        viewBox="0 0 200 200"
+        width={200}
+      >
+        <defs>
+          <clipPath
+            id="recharts1-clip"
+          >
+            <rect
+              height={190}
+              width={190}
+              x={5}
+              y={5}
+            />
+          </clipPath>
+        </defs>
+        <g
+          className="recharts-layer recharts-polar-angle-axis"
+        >
+          <path
+            className="recharts-polygon angleAxis"
+            cx={100}
+            cy={100}
+            d="M100,10L152.90067270632258,27.18847050625473L185.59508646656383,72.18847050625473L185.59508646656383,127.81152949374527L152.90067270632258,172.81152949374527L100,190L47.099327293677426,172.81152949374527L14.404913533436186,127.81152949374527L14.404913533436172,72.18847050625475L47.099327293677405,27.188470506254745L99.99999999999999,10L100,10Z"
+            fill="none"
+            orientation="outer"
+            radius={90}
+            type="number"
+          />
+          <g
+            className="recharts-layer recharts-polar-angle-axis-ticks"
+          >
+            <g
+              className="recharts-layer recharts-polar-angle-axis-tick"
+            >
+              <line
+                className="angleAxis"
+                cx={100}
+                cy={100}
+                fill="none"
+                orientation="outer"
+                radius={90}
+                type="number"
+                x1={100}
+                x2={100}
+                y1={10}
+                y2={2}
+              />
+            </g>
+            <g
+              className="recharts-layer recharts-polar-angle-axis-tick"
+            >
+              <line
+                className="angleAxis"
+                cx={100}
+                cy={100}
+                fill="none"
+                orientation="outer"
+                radius={90}
+                type="number"
+                x1={152.90067270632258}
+                x2={157.60295472466237}
+                y1={27.18847050625473}
+                y2={20.716334551255144}
+              />
+            </g>
+            <g
+              className="recharts-layer recharts-polar-angle-axis-tick"
+            >
+              <line
+                className="angleAxis"
+                cx={100}
+                cy={100}
+                fill="none"
+                orientation="outer"
+                radius={90}
+                type="number"
+                x1={185.59508646656383}
+                x2={193.20353859692506}
+                y1={72.18847050625473}
+                y2={69.71633455125516}
+              />
+            </g>
+            <g
+              className="recharts-layer recharts-polar-angle-axis-tick"
+            >
+              <line
+                className="angleAxis"
+                cx={100}
+                cy={100}
+                fill="none"
+                orientation="outer"
+                radius={90}
+                type="number"
+                x1={185.59508646656383}
+                x2={193.20353859692506}
+                y1={127.81152949374527}
+                y2={130.28366544874484}
+              />
+            </g>
+            <g
+              className="recharts-layer recharts-polar-angle-axis-tick"
+            >
+              <line
+                className="angleAxis"
+                cx={100}
+                cy={100}
+                fill="none"
+                orientation="outer"
+                radius={90}
+                type="number"
+                x1={152.90067270632258}
+                x2={157.60295472466237}
+                y1={172.81152949374527}
+                y2={179.28366544874484}
+              />
+            </g>
+            <g
+              className="recharts-layer recharts-polar-angle-axis-tick"
+            >
+              <line
+                className="angleAxis"
+                cx={100}
+                cy={100}
+                fill="none"
+                orientation="outer"
+                radius={90}
+                type="number"
+                x1={100}
+                x2={100}
+                y1={190}
+                y2={198}
+              />
+            </g>
+            <g
+              className="recharts-layer recharts-polar-angle-axis-tick"
+            >
+              <line
+                className="angleAxis"
+                cx={100}
+                cy={100}
+                fill="none"
+                orientation="outer"
+                radius={90}
+                type="number"
+                x1={47.099327293677426}
+                x2={42.397045275337646}
+                y1={172.81152949374527}
+                y2={179.28366544874484}
+              />
+            </g>
+            <g
+              className="recharts-layer recharts-polar-angle-axis-tick"
+            >
+              <line
+                className="angleAxis"
+                cx={100}
+                cy={100}
+                fill="none"
+                orientation="outer"
+                radius={90}
+                type="number"
+                x1={14.404913533436186}
+                x2={6.796461403074957}
+                y1={127.81152949374527}
+                y2={130.28366544874484}
+              />
+            </g>
+            <g
+              className="recharts-layer recharts-polar-angle-axis-tick"
+            >
+              <line
+                className="angleAxis"
+                cx={100}
+                cy={100}
+                fill="none"
+                orientation="outer"
+                radius={90}
+                type="number"
+                x1={14.404913533436172}
+                x2={6.796461403074943}
+                y1={72.18847050625475}
+                y2={69.71633455125516}
+              />
+            </g>
+            <g
+              className="recharts-layer recharts-polar-angle-axis-tick"
+            >
+              <line
+                className="angleAxis"
+                cx={100}
+                cy={100}
+                fill="none"
+                orientation="outer"
+                radius={90}
+                type="number"
+                x1={47.099327293677405}
+                x2={42.397045275337625}
+                y1={27.188470506254745}
+                y2={20.71633455125516}
+              />
+            </g>
+            <g
+              className="recharts-layer recharts-polar-angle-axis-tick"
+            >
+              <line
+                className="angleAxis"
+                cx={100}
+                cy={100}
+                fill="none"
+                orientation="outer"
+                radius={90}
+                type="number"
+                x1={99.99999999999999}
+                x2={99.99999999999999}
+                y1={10}
+                y2={2}
+              />
+            </g>
+          </g>
+        </g>
+        <g
+          className="recharts-layer recharts-area"
+        >
+          <g
+            className="recharts-layer recharts-radial-bar-background"
+          >
+            <path
+              className="recharts-sector recharts-radial-bar-background-sector"
+              cx={100}
+              cy={100}
+              d="M 100,5
+    A 95,95,0,
+    1,1,
+    99.9983419372107,5.000000014469322
+  L 99.99851647013588,15.000000012946245
+            A 85,85,0,
+            1,0,
+            100,15 Z"
+              fill="#eee"
+            />
+          </g>
+          <g
+            className="recharts-layer recharts-radial-bar-sectors"
+          >
+            <g
+              className="recharts-layer"
+            />
+          </g>
+        </g>
+        <text
+          className="progress-label"
+          dominantBaseline="middle"
+          textAnchor="middle"
+          x={100}
+          y={100}
+        >
+          <tspan
+            className="makeStyles-chartPercentLabel"
+          >
+            44
+            %
+          </tspan>
+        </text>
+        <text
+          x={65}
+          y={130}
+        >
+          <tspan
+            className="makeStyles-chartLabel"
+          >
+            epoch
+             
+            256
+          </tspan>
+        </text>
+      </svg>
+      <div
+        className="recharts-tooltip-wrapper"
+        style={
+          Object {
+            "MozTransform": "translate(undefinedpx, undefinedpx)",
+            "OTransform": "translate(undefinedpx, undefinedpx)",
+            "WebkitTransform": "translate(undefinedpx, undefinedpx)",
+            "left": 0,
+            "msTransform": "translate(undefinedpx, undefinedpx)",
+            "pointerEvents": "none",
+            "position": "absolute",
+            "top": 0,
+            "transform": "translate(undefinedpx, undefinedpx)",
+            "visibility": "hidden",
+          }
+        }
+      >
+        <div
+          className="recharts-default-tooltip"
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "border": "1px solid #ccc",
+              "margin": 0,
+              "padding": 10,
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          <p
+            className="recharts-tooltip-label"
+            style={
+              Object {
+                "margin": 0,
+              }
+            }
+          >
+            0
+          </p>
+        </div>
+      </div>
+    </div>
+    <p
+      className="MuiTypography-root makeStyles-time MuiTypography-body2"
+    >
+      <div
+        components={
+          Array [
+            <span
+              className="highlight"
+            />,
+          ]
+        }
+        i18nKey="home:untilNextEpoch"
+        id="Trans"
+        values={
+          Object {
+            "hours": 33,
+            "minutes": 30,
+          }
+        }
+      />
+    </p>
+  </div>
+</div>
+`;

@@ -27,7 +27,7 @@ module.exports = {
   },
   rules: {
     // TODO: disabled due to historical reason
-    // error
+    // error off
     "@typescript-eslint/no-var-requires": "off",
     "arrow-body-style": "off",
     "camelcase": "off",
@@ -54,12 +54,14 @@ module.exports = {
     "react/require-default-props": "off",
     "react-hooks/exhaustive-deps": "off",
     "react-hooks/rules-of-hooks": "off",
-    // warn
+    // warn off
     "@next/next/no-img-element": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/no-unused-vars": ["off", { "argsIgnorePattern": "^_" }],
     "no-console": ["off", { allow: ["warn", "error"] }],
+    // error
+    '@next/next/no-html-link-for-pages': ['error', './src/pages'],
   },
   env: {
     es6: true,

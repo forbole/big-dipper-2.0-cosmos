@@ -1,0 +1,141 @@
+{
+  "env": {
+    "browser": true,
+    "es2020": true,
+    "node": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {}, // this loads <rootdir>/tsconfig.json to eslint
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    }
+  },
+  "overrides": [
+    {
+      "files": [
+        "src/**/types.ts"
+      ],
+      "rules": {
+        "no-unused-vars": "off"
+      }
+    },
+    {
+      "files": [
+        "tests/**/*"
+      ],
+      "rules": {
+        "no-undef": "off"
+      }
+    },
+    {
+      "files": [
+        "src/**/*.test.tsx",
+        "src/**/*.test.ts",
+        "**/*.spec.ts"
+      ],
+      "rules": {
+        "no-undef": "off",
+        "import/no-extraneous-dependencies": "off"
+      }
+    }
+  ],
+  "rules": {
+    "react/destructuring-assignment": "off",
+    "no-bitwise": "off",
+    "@typescript-eslint/ban-types": "warn",
+    "consistent-return": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error", {
+      "ignoreRestSiblings": true,
+      "varsIgnorePattern": "^_",
+      "argsIgnorePattern": "^_"
+    }],
+    "no-param-reassign": "warn",
+    "no-restricted-globals": "warn",
+    "react/prop-types": "off",
+    "jsx-a11y/interactive-supports-focus": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "arrow-body-style": "off",
+    "import/prefer-default-export": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": "off",
+    "no-use-before-define": "off",
+    "import/no-unresolved": "off",
+    "lines-between-class-members": "off",
+    "react/no-array-index-key": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "react/jsx-first-prop-new-line": [
+      "error",
+      "multiline"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "react/jsx-filename-extension": [
+      2,
+      {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    ],
+    "@typescript-eslint/no-use-before-define": [
+      "warn",
+      {
+        "functions": false,
+        "classes": false,
+        "variables": false,
+        "typedefs": false
+      }
+    ],
+    "object-curly-newline": [
+      "error",
+      {
+        "consistent": true,
+        "minProperties": 2
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+**/node_modules/*
+**/out/*
+**/.next/*
+**/dist/*
+**/cypress/support/*
+**/cypress/plugins/*
+**/cypress/fixtures/*
+**/src/graphql/types.tsx
+**/src/graphql/desmos_profile.ts
+**/src/xgraphql/*

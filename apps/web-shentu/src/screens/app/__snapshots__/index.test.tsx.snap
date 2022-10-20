@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: _app matches snapshot 1`] = `
+Array [
+  <div
+    className="Toastify"
+  />,
+  <div
+    className="makeStyles-root-1"
+  >
+    <img
+      alt="logo"
+      className="makeStyles-logo-3"
+    />
+    <div
+      className="makeStyles-timeContainer-4"
+    >
+      <div
+        className="makeStyles-item-5"
+      >
+        <h1
+          className="MuiTypography-root MuiTypography-h1"
+        >
+          0
+        </h1>
+        <h3
+          className="MuiTypography-root MuiTypography-h3"
+        >
+          Day
+        </h3>
+      </div>
+      <div
+        className="makeStyles-item-5"
+      >
+        <h1
+          className="MuiTypography-root MuiTypography-h1"
+        >
+          0
+        </h1>
+        <h3
+          className="MuiTypography-root MuiTypography-h3"
+        >
+          Hour
+        </h3>
+      </div>
+      <div
+        className="makeStyles-item-5"
+      >
+        <h1
+          className="MuiTypography-root MuiTypography-h1"
+        >
+          0
+        </h1>
+        <h3
+          className="MuiTypography-root MuiTypography-h3"
+        >
+          Min
+        </h3>
+      </div>
+      <div
+        className="makeStyles-item-5"
+      >
+        <h1
+          className="MuiTypography-root MuiTypography-h1"
+        >
+          0
+        </h1>
+        <h3
+          className="MuiTypography-root MuiTypography-h3"
+        >
+          Sec
+        </h3>
+      </div>
+    </div>
+    <h2
+      className="MuiTypography-root makeStyles-chain-2 MuiTypography-h2"
+    >
+      morpheus-apollo-1
+    </h2>
+  </div>,
+]
+`;

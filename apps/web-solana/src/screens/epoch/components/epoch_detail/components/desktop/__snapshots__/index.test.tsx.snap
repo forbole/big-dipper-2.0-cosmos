@@ -1,0 +1,224 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Epoch/EpochDetail/Desktop matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <div
+    id="Table"
+  >
+    <div
+      id="TableHead"
+    >
+      <div
+        id="TableRow"
+      >
+        <div
+          id="TableCell"
+          style={
+            Object {
+              "width": "30%",
+            }
+          }
+        >
+          name
+        </div>
+        <div
+          id="TableCell"
+          style={
+            Object {
+              "width": "20%",
+            }
+          }
+        >
+          value
+        </div>
+        <div
+          id="TableCell"
+          style={
+            Object {
+              "width": "50%",
+            }
+          }
+        >
+          detail
+        </div>
+      </div>
+    </div>
+    <div
+      id="TableBody"
+    >
+      <div
+        id="TableRow"
+      >
+        <div
+          id="TableCell"
+          style={
+            Object {
+              "width": "30%",
+            }
+          }
+        >
+          Foundation
+        </div>
+        <div
+          id="TableCell"
+          style={
+            Object {
+              "width": "20%",
+            }
+          }
+        >
+          0
+        </div>
+        <div
+          id="TableCell"
+          style={
+            Object {
+              "width": "50%",
+            }
+          }
+        >
+          Percentage of total inflation allocated to the foundation
+        </div>
+      </div>
+      <div
+        id="TableRow"
+      >
+        <div
+          id="TableCell"
+          style={
+            Object {
+              "width": "30%",
+            }
+          }
+        >
+          FoundationTerm
+        </div>
+        <div
+          id="TableCell"
+          style={
+            Object {
+              "width": "20%",
+            }
+          }
+        >
+          0
+        </div>
+        <div
+          id="TableCell"
+          style={
+            Object {
+              "width": "50%",
+            }
+          }
+        >
+          Duration of foundation pool inflation in years
+        </div>
+      </div>
+      <div
+        id="TableRow"
+      >
+        <div
+          id="TableCell"
+          style={
+            Object {
+              "width": "30%",
+            }
+          }
+        >
+          Initial
+        </div>
+        <div
+          id="TableCell"
+          style={
+            Object {
+              "width": "20%",
+            }
+          }
+        >
+          0.08
+        </div>
+        <div
+          id="TableCell"
+          style={
+            Object {
+              "width": "50%",
+            }
+          }
+        >
+          The initial inflation percentage from time 0
+        </div>
+      </div>
+      <div
+        id="TableRow"
+      >
+        <div
+          id="TableCell"
+          style={
+            Object {
+              "width": "30%",
+            }
+          }
+        >
+          tTaper
+        </div>
+        <div
+          id="TableCell"
+          style={
+            Object {
+              "width": "20%",
+            }
+          }
+        >
+          0.15
+        </div>
+        <div
+          id="TableCell"
+          style={
+            Object {
+              "width": "50%",
+            }
+          }
+        >
+          Rate per year at which inflation is lowered. Rate reduction is derived using the target slot time in genesis config
+        </div>
+      </div>
+      <div
+        id="TableRow"
+      >
+        <div
+          id="TableCell"
+          style={
+            Object {
+              "width": "30%",
+            }
+          }
+        >
+          Terminal
+        </div>
+        <div
+          id="TableCell"
+          style={
+            Object {
+              "width": "20%",
+            }
+          }
+        >
+          0.015
+        </div>
+        <div
+          id="TableCell"
+          style={
+            Object {
+              "width": "50%",
+            }
+          }
+        >
+          Terminal inflation percentage
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

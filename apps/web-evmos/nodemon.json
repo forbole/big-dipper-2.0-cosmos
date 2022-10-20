@@ -1,0 +1,12 @@
+{
+  "watch": [
+    "server",
+    "public",
+    ".yalc"
+  ],
+  "ignore": [
+    "src"
+  ],
+  "exec": "ts-node --project tsconfig.server.json server/index.ts",
+  "ext": "json, js"
+}

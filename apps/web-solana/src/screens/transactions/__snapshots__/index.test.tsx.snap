@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Transactions matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="Layout"
+  navTitle="transactions:transactions"
+>
+  <div
+    exists={true}
+    id="LoadAndExist"
+    loading={false}
+  >
+    <div
+      className="makeStyles-box"
+      id="Box"
+    >
+      <div
+        id="TransactionsList"
+        items={
+          Array [
+            Object {
+              "numInstructions": 1,
+              "signature": "AxVwePxYYKqGHSwrrpjwptp9km4N91fYtQcHgYvLNRKPEMp6ZNdQJd6wxA4KF3LHRbKS7iZwMWckmnT9YdATE2Y",
+              "slot": 125056600,
+              "success": true,
+              "timestamp": "2022-03-15T13:13:45",
+            },
+          ]
+        }
+      />
+    </div>
+  </div>
+</div>
+`;

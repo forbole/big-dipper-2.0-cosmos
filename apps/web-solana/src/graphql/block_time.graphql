@@ -1,0 +1,11 @@
+query AverageBlockTime {
+  averageSlotTimePerHour: average_slot_time_per_hour(limit: 1, order_by: {slot: desc}) {
+    averageTime: average_time
+  }
+}
+
+query LatestBlockTimestamp($offset: Int = 0) {
+  block: block(order_by: {height: desc}, limit: 1, offset: $offset) {
+    timestamp
+  }
+}

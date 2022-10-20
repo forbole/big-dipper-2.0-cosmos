@@ -1,0 +1,18 @@
+query Validators {
+  validator {
+    address
+    commission
+    validatorStatus: validator_status {
+      active
+      activatedStake: activated_stake
+      lastVote: last_vote
+      rootSlot: root_slot
+      slot
+    }
+    validatorSkipRate: validator_skip_rate {
+      skip
+      skipRate: skip_rate
+      total
+    }
+  }
+}

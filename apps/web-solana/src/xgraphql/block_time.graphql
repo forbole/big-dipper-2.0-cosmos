@@ -1,0 +1,12 @@
+query AverageBlockTime {
+  averageBlockTime: average_block_time_from_genesis(limit: 1, order_by: {height: desc}) {
+    averageTime: average_time
+  }
+}
+
+
+query LatestBlockTimestamp($offset: Int = 0) {
+  block: block(order_by: {height: desc}, limit: 1, offset: $offset) {
+    timestamp
+  }
+}

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Home/Transactions/Mobile matches snapshot 1`] = `
+<div
+  className=""
+>
+  <div
+    id="SingleTransactionMobile"
+    result={
+      <Result
+        success={true}
+      />
+    }
+    signature={
+      <Link
+        href="/transactions/76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857"
+        passHref={true}
+      >
+        <WithStyles(ForwardRef(Typography))
+          component="a"
+          variant="body1"
+        >
+          76nwV8zz8tLz97S...hQ857
+        </WithStyles(ForwardRef(Typography))>
+      </Link>
+    }
+    slot={
+      <Link
+        href="/blocks/812768640"
+        passHref={true}
+      >
+        <WithStyles(ForwardRef(Typography))
+          component="a"
+          variant="body1"
+        >
+          812,768,640
+        </WithStyles(ForwardRef(Typography))>
+      </Link>
+    }
+    time="1 day ago"
+  />
+</div>
+`;

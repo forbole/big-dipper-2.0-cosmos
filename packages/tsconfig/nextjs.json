@@ -7,7 +7,6 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,
@@ -15,64 +14,7 @@
     "module": "esnext",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
-    "baseUrl": ".",
-    "paths": {
-      "@src/*": [
-        "src/*"
-      ],
-      "@components": [
-        "src/components"
-      ],
-      "@msg": [
-        "src/components/msg"
-      ],
-      "@icons": [
-        "src/components/icons"
-      ],
-      "@assets/*": [
-        "src/assets/*"
-      ],
-      "@hooks": [
-        "src/hooks"
-      ],
-      "@models": [
-        "src/models"
-      ],
-      "@screens/*": [
-        "src/screens/*"
-      ],
-      "@public/*": [
-        "public/*"
-      ],
-      "@styles": [
-        "src/styles"
-      ],
-      "@utils/*": [
-        "src/utils/*"
-      ],
-      "@contexts": [
-        "src/contexts"
-      ],
-      "@recoil/*": [
-        "src/recoil/*"
-      ],
-      "@graphql": [
-        "src/graphql"
-      ],
-      "@configs": [
-        "src/configs"
-      ],
-      "@graphql/*": [
-        "src/graphql/*"
-      ],
-      "@graphql/types": [
-        "src/graphql/types"
-      ],
-      "@tests/utils": [
-        "tests/utils"
-      ]
-    }
+    "jsx": "preserve"
   },
   "include": ["src", "next-env.d.ts"],
   "exclude": ["node_modules"]

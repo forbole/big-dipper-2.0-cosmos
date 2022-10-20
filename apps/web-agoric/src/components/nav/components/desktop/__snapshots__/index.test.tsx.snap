@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Nav/Desktop hook toggles correctly 1`] = `
+<div
+  className="makeStyles-root"
+  onClick={[Function]}
+  onTouchEnd={[Function]}
+>
+  <header
+    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary makeStyles-appBar open mui-fixed MuiPaper-elevation4"
+  >
+    <div
+      id="actionBar"
+      isNetwork={false}
+      toggleNetwork={[Function]}
+    />
+    <div
+      id="TitleBar"
+      title="hello world"
+    />
+  </header>
+  <div
+    className="MuiDrawer-root MuiDrawer-docked makeStyles-drawer open makeStyles-drawerOpen"
+  >
+    <div
+      className="MuiPaper-root MuiDrawer-paper open makeStyles-drawerOpen MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
+    >
+      <
+        className="makeStyles-logo"
+        onClick={[Function]}
+        role="button"
+      />
+      <div
+        id="MenuItems"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`screen: Nav/Desktop it renders 1`] = `
+<div
+  className="makeStyles-root"
+  onClick={[Function]}
+  onTouchEnd={[Function]}
+>
+  <header
+    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary makeStyles-appBar mui-fixed MuiPaper-elevation4"
+  >
+    <div
+      id="actionBar"
+      isNetwork={false}
+      toggleNetwork={[Function]}
+    />
+    <div
+      id="TitleBar"
+      title="hello world"
+    />
+  </header>
+  <div
+    className="MuiDrawer-root MuiDrawer-docked makeStyles-drawer closed makeStyles-drawerClose"
+  >
+    <div
+      className="MuiPaper-root MuiDrawer-paper closed makeStyles-drawerClose MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
+    >
+      <
+        className="makeStyles-logo"
+        onClick={[Function]}
+        role="button"
+      />
+      <div
+        id="MenuItems"
+      />
+    </div>
+  </div>
+</div>
+`;

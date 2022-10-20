@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TransactionDetails/Revoke matches snapshot 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body1"
+>
+  <div
+    components={
+      Array [
+        <Name
+          address="sponderbob"
+          name="sponderbob"
+        />,
+        <Name
+          address="grantee"
+          name="grantee"
+        />,
+      ]
+    }
+    i18nKey="message_contents:MsgRevoke"
+    id="Trans"
+  />
+</p>
+`;

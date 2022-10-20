@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Validators matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="Layout"
+  navTitle="validators:validators"
+>
+  <div
+    id="List"
+  />
+</div>
+`;

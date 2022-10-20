@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Transactions/List matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="Box"
+>
+  <h2
+    className="MuiTypography-root MuiTypography-h2"
+  >
+    validators:transactions
+  </h2>
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      hasNextPage={false}
+      id="TransactionsList"
+      isItemLoaded={[Function]}
+      isNextPageLoading={false}
+      itemCount={1}
+      loadMoreItems={[MockFunction]}
+      loadNextPage={[MockFunction]}
+      transactions={
+        Array [
+          Object {
+            "hash": "hash1",
+            "height": 300,
+            "messages": Object {
+              "count": 10,
+              "items": Array [],
+            },
+            "success": true,
+            "timestamp": "",
+          },
+        ]
+      }
+    />
+  </div>
+</div>
+`;

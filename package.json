@@ -8,16 +8,16 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "CHAIN_NAME=$1 CHAIN_TYPE=$2 turbo run build",
+    "build": "yarn run build",
     "clean": "turbo run clean",
-    "dev": "CHAIN_NAME=$1 CHAIN_TYPE=$2 turbo run dev --parallel",
-    "start": "CHAIN_NAME=$1 CHAIN_TYPE=$2 turbo run start --parallel",
+    "dev": "turbo run dev --parallel",
+    "start": "turbo run start --parallel",
     "type-check": "turbo run type-check",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo run lint",
-    "test": "CHAIN_NAME=$1 CHAIN_TYPE=$2 turbo run test",
-    "e2e": "CHAIN_NAME=$1 CHAIN_TYPE=$2 turbo run e2e",
-    "graphql:codegen": "CHAIN_NAME=$1 CHAIN_TYPE=$2 turbo run graphql:codegen"
+    "test": "turbo run test",
+    "e2e": "turbo run e2e",
+    "graphql:codegen": "turbo run graphql:codegen"
   },
   "devDependencies": {
     "eslint-config-custom": "*",

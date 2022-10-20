@@ -1,0 +1,27 @@
+{
+  "title": "Solana Block Explorer",
+  "network": "mainnet-beta",
+  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/solana/icon.svg?sanitize=true",
+  "logo": {
+    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/solana/logo.svg?sanitize=true"
+  },
+  "prefix": {
+    "consensus": "desmosvalcons",
+    "validator": "desmosvaloper",
+    "account": "desmos"
+  },
+  "genesis": {
+    "time": "2021-07-13T08:00:00",
+    "height": 1
+  },
+  "primaryTokenUnit": "sol",
+  "tokenUnits": {
+    "sol": {
+      "display": "sol",
+      "exponent": 9
+    }
+  },
+  "extra": {
+    "profile": false
+  }
+}

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components: Tag matches snapshot 1`] = `
+<div
+  className="makeStyles-root makeStyles-one"
+>
+  <p
+    className="MuiTypography-root MuiTypography-body1"
+  >
+    hello world
+  </p>
+</div>
+`;

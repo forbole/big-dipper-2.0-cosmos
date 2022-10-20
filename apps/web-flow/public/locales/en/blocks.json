@@ -1,0 +1,18 @@
+{
+  "blocks": "Blocks",
+  "blockDetails": "Block Details",
+  "height": "Height",
+  "validator": "Validator",
+  "hash": "ID",
+  "parentId": "Parent ID",
+  "txs": "Txs",
+  "time": "Time",
+  "overview": "Overview",
+  "signedVotingPower": "Signed Voting Power",
+  "proposer": "Proposer",
+  "signatures": "Signatures",
+  "votingPower": "Voting Power",
+  "signed": "Signed",
+  "collections": "Collections",
+  "blockSeals": "Block Seals"
+}

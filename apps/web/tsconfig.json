@@ -1,5 +1,64 @@
 {
   "extends": "tsconfig/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": [
+        "src/*"
+      ],
+      "@components": [
+        "src/components"
+      ],
+      "@msg": [
+        "src/components/msg"
+      ],
+      "@icons": [
+        "src/components/icons"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@hooks": [
+        "src/hooks"
+      ],
+      "@models": [
+        "src/models"
+      ],
+      "@screens/*": [
+        "src/screens/*"
+      ],
+      "@public/*": [
+        "public/*"
+      ],
+      "@styles": [
+        "src/styles"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@contexts": [
+        "src/contexts"
+      ],
+      "@recoil/*": [
+        "src/recoil/*"
+      ],
+      "@graphql": [
+        "src/graphql"
+      ],
+      "@configs": [
+        "src/configs"
+      ],
+      "@graphql/*": [
+        "src/graphql/*"
+      ],
+      "@graphql/types": [
+        "src/graphql/types"
+      ],
+      "@tests/utils": [
+        "tests/utils"
+      ]
+    }
+  },
   "include": [
     "next-env.d.ts",
     "**/*.ts",

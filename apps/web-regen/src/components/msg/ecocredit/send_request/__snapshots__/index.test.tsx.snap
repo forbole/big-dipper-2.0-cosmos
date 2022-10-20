@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TransactionDetails/SendRequest matches snapshot 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body1"
+>
+  <div
+    components={
+      Array [
+        <Name
+          address="sender"
+          name="sender"
+        />,
+        <Name
+          address="recipient"
+          name="recipient"
+        />,
+      ]
+    }
+    i18nKey="message_contents:MsgSendRequest"
+    id="Trans"
+  />
+</p>
+`;

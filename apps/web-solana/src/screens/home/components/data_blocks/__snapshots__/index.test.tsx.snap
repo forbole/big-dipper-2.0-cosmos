@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Home/DataBlocks matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <div
+    className="makeStyles-slotHeight"
+    id="SingleBlock"
+    label="latestSlot"
+    value="953,992"
+  />
+  <div
+    className="makeStyles-slotTime"
+    id="SingleBlock"
+    label="averageSlotTime"
+    value="0.55 s"
+  />
+  <div
+    className="makeStyles-price"
+    id="SingleBlock"
+    label="price"
+    value="$223.65"
+  />
+  <div
+    className="makeStyles-validators"
+    description="outOfValidators"
+    id="SingleBlock"
+    label="activeValidators"
+    value="200"
+  />
+</div>
+`;

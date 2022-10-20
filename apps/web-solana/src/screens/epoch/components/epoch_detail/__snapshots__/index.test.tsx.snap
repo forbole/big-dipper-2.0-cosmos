@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Epoch/EpochDetail matches snapshot 1`] = `
+<div
+  className=""
+  id="Box"
+>
+  <div
+    id="Typography"
+    variant="h2"
+  >
+    inflationGovernor
+  </div>
+</div>
+`;

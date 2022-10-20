@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Proposals matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="Layout"
+  navTitle="tokens:tokens"
+>
+  <div
+    exists={true}
+    id="LoadAndExist"
+    loading={false}
+  >
+    <div
+      handleSearch={[Function]}
+      handleSort={[Function]}
+      id="List"
+      isItemLoaded={[Function]}
+      itemCount={2}
+      items={
+        Array [
+          Object {
+            "address": "EAniGDVY2VKUtZxvpHnbazHfZgfo3bp61TxUGHzw3Cn7",
+            "logo": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EAniGDVY2VKUtZxvpHnbazHfZgfo3bp61TxUGHzw3Cn7/logo.png",
+            "marketCap": null,
+            "price": null,
+            "token": "007 Exchange",
+            "volume": null,
+          },
+          Object {
+            "address": "G2jrxYSoCSzmohxERa2JzSJMuRM4kiNvRA3DnCv7Lzcz",
+            "logo": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/G2jrxYSoCSzmohxERa2JzSJMuRM4kiNvRA3DnCv7Lzcz/logo.png",
+            "marketCap": 783277125,
+            "price": 0.913409,
+            "token": "0x Protocol Token (Wormhole v1)",
+            "volume": 18333060,
+          },
+        ]
+      }
+      loadMoreItems={[Function]}
+      sortDirection="asc"
+      sortKey="token"
+    />
+  </div>
+</div>
+`;

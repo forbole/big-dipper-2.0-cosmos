@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Validators/Tabs matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <div
+    className="MuiTabs-root"
+  >
+    <div
+      className="MuiTabs-scrollable"
+      style={
+        Object {
+          "height": 99,
+          "overflow": "scroll",
+          "position": "absolute",
+          "top": -9999,
+          "width": 99,
+        }
+      }
+    />
+    <div
+      className="MuiTabs-scroller MuiTabs-scrollable"
+      onScroll={[Function]}
+      style={
+        Object {
+          "marginBottom": null,
+          "overflow": "hidden",
+        }
+      }
+    >
+      <div
+        className="MuiTabs-flexContainer"
+        onKeyDown={[Function]}
+        role="tablist"
+      >
+        <button
+          aria-controls="simple-tabpanel-0"
+          aria-selected={true}
+          className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-selected"
+          disabled={false}
+          id="simple-tab-0"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="tab"
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiTab-wrapper"
+          >
+            accounts:key
+          </span>
+          <span
+            className="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+            style={Object {}}
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

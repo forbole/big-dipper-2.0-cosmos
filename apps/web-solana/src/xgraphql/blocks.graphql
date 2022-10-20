@@ -1,0 +1,38 @@
+subscription BlocksListener($limit: Int = 7, $offset: Int = 0) {
+  blocks: block(limit: $limit, offset: $offset, order_by: {height: desc}) {
+    height
+    txs: num_txs
+    hash
+    timestamp
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
+      }
+    }
+  }
+}
+
+
+query Blocks($limit: Int = 7, $offset: Int = 0) {
+  blocks: block(limit: $limit, offset: $offset, order_by: {height: desc}) {
+    height
+    txs: num_txs
+    hash
+    timestamp
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
+        self_delegate_address
+      }
+      validatorDescriptions: validator_descriptions(limit: 1, order_by: {height: desc}) {
+        moniker
+        identity
+      }
+    }
+  }
+  total: block_aggregate {
+    aggregate {
+      count
+    }
+  }
+}

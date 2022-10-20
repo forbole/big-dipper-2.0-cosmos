@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: VoteAccount matches snapshot 1`] = `
+Array [
+  <div
+    className="makeStyles-validator"
+    id="Validator"
+    validator={
+      Object {
+        "active": false,
+        "address": "9XfsbcUJ8qM4esLtMocrMGLqRPkgYNbcmKLebtBzSjjZ",
+        "commission": 100,
+        "description": "",
+        "imageUrl": "",
+        "name": "9XfsbcUJ8qM4esLtMocrMGLqRPkgYNbcmKLebtBzSjjZ",
+        "rootDistance": 0,
+        "voteDistance": 0,
+        "website": "",
+      }
+    }
+  />,
+  <div
+    className="makeStyles-overview"
+    id="Overview"
+    overview={
+      Object {
+        "address": "9XfsbcUJ8qM4esLtMocrMGLqRPkgYNbcmKLebtBzSjjZ",
+        "balance": Object {
+          "baseDenom": "udaric",
+          "displayDenom": "daric",
+          "exponent": 6,
+          "value": "26.85864",
+        },
+        "voter": "F5NgZ5RtJW6fcDTcsYjSo8DgksbWx3mh4Ms2igbhHQTC",
+        "withdrawer": "8RLmw25NXPZ2Ry1iRJFtn5fFkWwpVETEXwu5bnHbWcTJ",
+      }
+    }
+  />,
+  <div
+    className="makeStyles-skipRate"
+    id="SkipRate"
+    skipRate={
+      Object {
+        "epoch": 303,
+        "skip": 5,
+        "skipRate": 0.046296296296296294,
+        "total": 108,
+      }
+    }
+  />,
+]
+`;

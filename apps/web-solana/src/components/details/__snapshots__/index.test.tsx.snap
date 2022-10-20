@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components: BoxDetails matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <div
+    className="makeStyles-item"
+  >
+    <h2
+      className="MuiTypography-root MuiTypography-h2"
+    >
+      overview
+    </h2>
+  </div>
+  <div
+    className="makeStyles-item"
+  >
+    <p
+      className="MuiTypography-root label MuiTypography-body1"
+    >
+      slot
+    </p>
+    <p
+      className="MuiTypography-root detail MuiTypography-body1"
+    >
+      100,000,000
+    </p>
+  </div>
+  <div
+    className="makeStyles-item"
+  >
+    <p
+      className="MuiTypography-root label MuiTypography-body1"
+    >
+      hash
+    </p>
+    <p
+      className="MuiTypography-root detail MuiTypography-body1"
+    >
+      76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857
+    </p>
+  </div>
+</div>
+`;
+
+exports[`components: BoxDetails matches snapshot with title actions 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <div
+    className="makeStyles-item"
+  >
+    <h2
+      className="MuiTypography-root MuiTypography-h2"
+    >
+      overview
+    </h2>
+    <button
+      id="titleAction"
+      onClick={[MockFunction]}
+      type="button"
+    >
+      title action
+    </button>
+  </div>
+  <div
+    className="makeStyles-item"
+  >
+    <p
+      className="MuiTypography-root label MuiTypography-body1"
+    >
+      slot
+    </p>
+    <p
+      className="MuiTypography-root detail MuiTypography-body1"
+    >
+      100,000,000
+    </p>
+  </div>
+  <div
+    className="makeStyles-item"
+  >
+    <p
+      className="MuiTypography-root label MuiTypography-body1"
+    >
+      hash
+    </p>
+    <p
+      className="MuiTypography-root detail MuiTypography-body1"
+    >
+      76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857
+    </p>
+  </div>
+</div>
+`;

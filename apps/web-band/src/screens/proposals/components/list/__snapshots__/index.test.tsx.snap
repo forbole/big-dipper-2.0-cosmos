@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Proposals/List matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="Box"
+>
+  <div
+    className="makeStyles-topContent"
+  >
+    <div
+      className="makeStyles-total"
+      id="Total"
+      total="1"
+    />
+  </div>
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      style={
+        Object {
+          "height": 0,
+          "overflow": "visible",
+          "width": 0,
+        }
+      }
+    />
+  </div>
+</div>
+`;

@@ -1,0 +1,12 @@
+query Tokens {
+  tokenUnit: token_unit(order_by: {unit_name: asc}) {
+    address: mint
+    unitName: unit_name
+    logo: logo_uri
+    tokenPrice: token_price {
+      marketCap: market_cap
+      price
+      volume
+    }
+  }
+}

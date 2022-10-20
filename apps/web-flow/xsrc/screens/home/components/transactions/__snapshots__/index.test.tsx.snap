@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="Box"
+>
+  <div
+    className="makeStyles-label"
+  >
+    <h2
+      className="MuiTypography-root MuiTypography-h2"
+    >
+      latestTransactions
+    </h2>
+    <a
+      className="MuiTypography-root button MuiTypography-h4"
+      href="/transactions"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      seeMore
+    </a>
+  </div>
+  <div
+    id="NoData"
+  />
+</div>
+`;
