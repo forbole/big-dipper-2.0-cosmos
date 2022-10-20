@@ -13,11 +13,26 @@ describe('components: AvatarNameListMsg', () => {
     const component = renderer.create(
       <MockTheme>
         <AvatarNameListMsg
+          avatars={[]}
+        />
+        ,
+        <AvatarNameListMsg
           avatars={[
             {
               imageUrl: '',
               address: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
               name: 'name',
+            },
+
+          ]}
+        />
+        ,
+        <AvatarNameListMsg
+          avatars={[
+            {
+              imageUrl: '',
+              address: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
+              name: 'name-1',
             },
             {
               imageUrl: '',

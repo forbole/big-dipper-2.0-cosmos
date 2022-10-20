@@ -2,6 +2,7 @@
 
 exports[`components: AvatarNameListMsg matches snapshot 1`] = `
 Array [
+  ",",
   <a
     className="MuiTypography-root makeStyles-root MuiTypography-body1"
     href="/accounts/desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
@@ -10,6 +11,16 @@ Array [
     onTouchStart={[Function]}
   >
     name
+  </a>,
+  ",",
+  <a
+    className="MuiTypography-root makeStyles-root MuiTypography-body1"
+    href="/accounts/desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onTouchStart={[Function]}
+  >
+    name-1
   </a>,
   " ",
   "and",
