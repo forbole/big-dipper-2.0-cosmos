@@ -5,18 +5,21 @@
       "outputs": ["dist/**", ".next/**", "public/dist/**"],
       "dependsOn": ["^build"],
       "env": [
-        "NEXT_PUBLIC_GRAPHQL_URL",
-        "NEXT_PUBLIC_GRAPHQL_WS",
-        "NEXT_PUBLIC_RPC_WEBSOCKET",
-        "NEXT_PUBLIC_CHAIN_TYPE",
-        "NODE_ENV",
-        "PORT",
-        "NEXT_PUBLIC_MATOMO_URL",
-        "NEXT_PUBLIC_MATOMO_SITE_ID",
         "CHAIN_TYPE",
         "CHAIN_NAME",
-        "SENTRY_DSN",
-        "NEXT_PUBLIC_SENTRY_DSN"
+        "NEXT_PUBLIC_CHAIN_STATUS",
+        "NEXT_PUBLIC_CHAIN_TYPE",
+        "NEXT_PUBLIC_GRAPHQL_URL",
+        "NEXT_PUBLIC_GRAPHQL_WS",
+        "NEXT_PUBLIC_MATOMO_SITE_ID",
+        "NEXT_PUBLIC_MATOMO_URL",
+        "NEXT_PUBLIC_SENTRY_DSN",
+        "NEXT_PUBLIC_RPC_WEBSOCKET",
+        "NEXT_PUBLIC_URL",
+        "NEXT_PUBLIC_WS_CHAIN_URL",
+        "NODE_ENV",
+        "PORT",
+        "SENTRY_DSN"
       ]
     },
     "clean": {

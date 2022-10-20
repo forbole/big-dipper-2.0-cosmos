@@ -28,6 +28,7 @@ module.exports = {
   rules: {
     // TODO: disabled due to historical reason
     // error off
+    "@typescript-eslint/no-loss-of-precision": "off",
     "@typescript-eslint/no-var-requires": "off",
     "arrow-body-style": "off",
     "camelcase": "off",
@@ -49,6 +50,8 @@ module.exports = {
     "react/jsx-filename-extension": "off",
     "react/jsx-props-no-spreading": "off",
     "react/no-array-index-key": "off",
+    "react/no-unknown-property": "off",
+    "react/no-unused-prop-types": "off",
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
     "react/require-default-props": "off",
