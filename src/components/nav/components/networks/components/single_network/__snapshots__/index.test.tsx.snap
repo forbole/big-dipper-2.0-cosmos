@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Nav/SingleNetwork it renders 1`] = `
+<a
+  className="makeStyles-root"
+  href="http://bigdipper.live/desmos"
+  rel="noreferrer"
+  target="_blank"
+>
+  <div
+    className="makeStyles-item"
+  >
+    <p>
+      desmos-mainnet
+    </p>
+    <div
+      className="MuiTypography-root makeStyles-status MuiTypography-caption"
+    >
+      desmos
+    </div>
+  </div>
+</a>
+`;
