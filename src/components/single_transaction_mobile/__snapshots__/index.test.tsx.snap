@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component: SingleTransactionMobile matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <div
+    className="makeStyles-item"
+  >
+    <h4
+      className="MuiTypography-root label MuiTypography-h4"
+    >
+      block
+    </h4>
+    <div>
+      10
+    </div>
+  </div>
+  <div
+    className="makeStyles-item"
+  >
+    <h4
+      className="MuiTypography-root label MuiTypography-h4"
+    >
+      hash
+    </h4>
+    <p
+      className="MuiTypography-root value MuiTypography-body1"
+    >
+      <div>
+        1572D5F78D0112BC59E6BD79875D7796A39B1CE0CEF2E106D586CCCEF5C75317
+      </div>
+    </p>
+  </div>
+  <div
+    className="makeStyles-item"
+  >
+    <h4
+      className="MuiTypography-root label MuiTypography-h4"
+    >
+      type
+    </h4>
+    <p
+      className="MuiTypography-root value MuiTypography-body1"
+    >
+      <div>
+        <div
+          className="makeStyles-root makeStyles-six"
+        >
+          <p
+            className="MuiTypography-root MuiTypography-body1"
+          >
+            hello world
+          </p>
+        </div>
+      </div>
+    </p>
+  </div>
+  <div
+    className="makeStyles-flex"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        messages
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        2
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        result
+      </h4>
+      <div
+        className="makeStyles-root makeStyles-success"
+      >
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root"
+          color="#999999"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+          />
+        </svg>
+        <p
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          success
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="makeStyles-item"
+  >
+    <h4
+      className="MuiTypography-root label MuiTypography-h4"
+    >
+      time
+    </h4>
+    <p
+      className="MuiTypography-root value MuiTypography-body1"
+    >
+      2022-02-19T19:03:14.969688
+    </p>
+  </div>
+</div>
+`;
