@@ -6,7 +6,6 @@
       "outputs": ["dist/**", ".next/**", "public/dist/**"],
       "env": [
         "CHAIN_TYPE",
-        "CHAIN_NAME",
         "NEXT_PUBLIC_CHAIN_TYPE",
         "NEXT_PUBLIC_GRAPHQL_URL",
         "NEXT_PUBLIC_GRAPHQL_WS",

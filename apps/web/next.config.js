@@ -4,19 +4,16 @@
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 const { withSentryConfig } = require('@sentry/nextjs');
 const nextTranslate = require('next-translate');
-
-const basePath = process.env.CHAIN_NAME || 'desmos';
+const { chainName } = require('./src/configs/general_config.json');
 
 const moduleExports = nextTranslate({
   swcMinify: true,
-  distDir: `.next/${basePath}`,
   output: 'standalone',
   reactStrictMode: true,
   poweredByHeader: false,
-  basePath: `/${basePath}`,
+  basePath: `/${chainName}`,
   env: {
     CHAIN_TYPE: process.env.CHAIN_TYPE,
-    CHAIN_NAME: process.env.CHAIN_NAME,
   },
   typescript: {
     // TODO: Remove this once all the typescript errors are fixed

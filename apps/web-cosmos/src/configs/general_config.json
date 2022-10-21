@@ -6,6 +6,7 @@
   "github": {
     "reportIssue": "https://github.com/forbole/big-dipper-2.0-cosmos/issues"
   },
+  "chainName": "cosmos",
   "previewImage": "https://s3.bigdipper.live/cosmoshub.png",
   "version": "base-v2.1.0"
 }

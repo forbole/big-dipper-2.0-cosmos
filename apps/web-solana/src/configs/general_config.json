@@ -6,5 +6,6 @@
   "github": {
     "reportIssue": "https://github.com/forbole/big-dipper-2.0-solana/issues"
   },
+  "chainName": "solana",
   "version": "v0.1.1-beta"
 }

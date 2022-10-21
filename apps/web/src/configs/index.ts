@@ -4,6 +4,8 @@ import { getTestnetChainConfig } from './testnet_configs';
 import baseChainConfig from './chain_configs/base-config.json';
 import generalConfig from './general_config.json';
 
+const { chainName } = generalConfig;
+
 /**
  * Helper function to return different configs based on the same chain
  * @returns config
@@ -12,8 +14,7 @@ const getChainConfig = () => {
   if (!process.env.CHAIN_TYPE) throw new Error('CHAIN_TYPE is not defined');
   const chainType = process.env.CHAIN_TYPE;
 
-  if (!process.env.CHAIN_NAME) throw new Error('CHAIN_NAME is not defined');
-  const chainName = process.env.CHAIN_NAME;
+  if (!chainName) throw new Error('chainName is not defined');
 
   switch (chainType) {
     case 'mainnet':

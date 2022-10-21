@@ -6,7 +6,7 @@
   "github": {
     "reportIssue": "https://github.com/forbole/big-dipper-2.0-cosmos/issues"
   },
-  "basePath": "/emoney",
+  "chainName": "emoney",
   "previewImage": "https://s3.bigdipper.live/emoney.png",
   "version": "base-v2.1.0"
 }

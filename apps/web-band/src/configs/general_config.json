@@ -6,7 +6,7 @@
   "github": {
     "reportIssue": "https://github.com/forbole/big-dipper-2.0-cosmos/issues"
   },
-  "basePath": "/band",
+  "chainName": "band",
   "previewImage": "https://s3.bigdipper.live/band.png",
   "version": "base-v2.1.1"
 }
