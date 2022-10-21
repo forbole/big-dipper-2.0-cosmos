@@ -10,8 +10,7 @@
   "scripts": {
     "build": "yarn run build",
     "clean": "turbo run clean",
-    "dev": "turbo run dev --parallel",
-    "start": "turbo run start --parallel",
+    "dev": "turbo run dev --no-cache --parallel --continue",
     "type-check": "turbo run type-check",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo run lint",
@@ -19,17 +18,16 @@
     "e2e": "turbo run e2e",
     "graphql:codegen": "turbo run graphql:codegen"
   },
+  "dependencies": {
+    "dotenv-cli": "^6.0.0"
+  },
   "devDependencies": {
-    "eslint-config-custom": "*",
-    "prettier": "latest",
+    "prettier": "2",
     "turbo": "latest"
   },
   "packageManager": "yarn@3.2.4",
   "engines": {
     "node": ">=16.13.0",
     "yarn": ">=3.2.4"
-  },
-  "dependencies": {
-    "dotenv-cli": "^6.0.0"
   }
 }

@@ -59,6 +59,7 @@ module.exports = {
     "react-hooks/rules-of-hooks": "off",
     // warn off
     "@next/next/no-img-element": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/no-unused-vars": ["off", { "argsIgnorePattern": "^_" }],

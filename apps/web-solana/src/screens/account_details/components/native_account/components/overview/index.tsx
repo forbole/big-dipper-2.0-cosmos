@@ -24,7 +24,7 @@ import ShareIcon from '@assets/icon-share.svg';
 import {
   Box,
 } from '@components';
-import { useScreenSize } from '@hooks';
+import { useScreenSize, useWindowOrigin } from '@hooks';
 import NativeAccountLogo from '@assets/native-account.svg';
 import { useStyles } from './styles';
 import { useOverview } from './hooks';
@@ -34,6 +34,7 @@ const Overview: React.FC<{overview: OverviewType} & ComponentDefault> = (props) 
   const { t } = useTranslation('accounts');
   const classes = useStyles();
   const { isDesktop } = useScreenSize();
+  const { location } = useWindowOrigin();
   const {
     open,
     handleClose,
@@ -41,7 +42,7 @@ const Overview: React.FC<{overview: OverviewType} & ComponentDefault> = (props) 
     handleCopyToClipboard,
   } = useOverview(t);
 
-  const url = `${process.env.NEXT_PUBLIC_URL}/accounts/${props.overview.address}`;
+  const url = `${location}/accounts/${props.overview.address}`;
   const hashTags = ['bigdipperexplorer', 'bigdipper'];
 
   return (

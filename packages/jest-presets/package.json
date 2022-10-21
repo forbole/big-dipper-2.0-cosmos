@@ -1,7 +1,6 @@
 {
   "name": "jest-presets",
   "version": "0.0.0",
-  "private": true,
   "license": "Apache-2.0",
   "dependencies": {
     "ts-jest": "^29.0.3",
@@ -10,5 +9,8 @@
   "devDependencies": {
     "jest": "^29.1.2",
     "typescript": "^4.8.4"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
