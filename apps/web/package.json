@@ -87,6 +87,7 @@
     "jest-localstorage-mock": "^2.4.18",
     "jest-presets": "*",
     "jest-transform-stub": "^2.0.0",
+    "next-transpile-modules": "^9.1.0",
     "react-test-renderer": "^17.0.1",
     "subscriptions-transport-ws": "^0.11.0",
     "ts-loader": "^9.2.6",

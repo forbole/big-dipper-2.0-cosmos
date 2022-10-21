@@ -1,3 +1,6 @@
+// for turborepo
+const withTM = require("next-transpile-modules")(["ui"]);
+
 // This file sets a custom webpack configuration to use your Next.js app
 // with Sentry.
 // https://nextjs.org/docs/api-reference/next.config.js/introduction
@@ -6,7 +9,7 @@ const { withSentryConfig } = require('@sentry/nextjs');
 const nextTranslate = require('next-translate');
 const { chainName } = require('./src/configs/general_config.json');
 
-const moduleExports = nextTranslate({
+const moduleExports = withTM(nextTranslate({
   swcMinify: true,
   output: 'standalone',
   reactStrictMode: true,
@@ -26,7 +29,7 @@ const moduleExports = nextTranslate({
     });
     return config;
   },
-});
+}));
 
 const SENTRY_DSN = process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN;
 

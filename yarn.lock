@@ -3465,200 +3465,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/cli@npm:^0.1.57":
-  version: 0.1.57
-  resolution: "@swc/cli@npm:0.1.57"
-  dependencies:
-    commander: ^7.1.0
-    fast-glob: ^3.2.5
-    slash: 3.0.0
-    source-map: ^0.7.3
-  peerDependencies:
-    "@swc/core": ^1.2.66
-    chokidar: ^3.5.1
-  peerDependenciesMeta:
-    chokidar:
-      optional: true
-  bin:
-    spack: bin/spack.js
-    swc: bin/swc.js
-  checksum: d19f02233f5ca18df9d5e9da1d0c847d47c81f4548d8465553b9c54b9ab0aca6ebc61b47f1eff085fe211aea0594e0c694bac3d5097f836fbfaa40d31d0a8dfd
-  languageName: node
-  linkType: hard
-
-"@swc/core-android-arm-eabi@npm:1.3.8":
-  version: 1.3.8
-  resolution: "@swc/core-android-arm-eabi@npm:1.3.8"
-  dependencies:
-    "@swc/wasm": 1.2.122
-  conditions: os=android & cpu=arm
-  languageName: node
-  linkType: hard
-
-"@swc/core-android-arm64@npm:1.3.8":
-  version: 1.3.8
-  resolution: "@swc/core-android-arm64@npm:1.3.8"
-  dependencies:
-    "@swc/wasm": 1.2.130
-  conditions: os=android & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@swc/core-darwin-arm64@npm:1.3.8":
-  version: 1.3.8
-  resolution: "@swc/core-darwin-arm64@npm:1.3.8"
-  conditions: os=darwin & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@swc/core-darwin-x64@npm:1.3.8":
-  version: 1.3.8
-  resolution: "@swc/core-darwin-x64@npm:1.3.8"
-  conditions: os=darwin & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@swc/core-freebsd-x64@npm:1.3.8":
-  version: 1.3.8
-  resolution: "@swc/core-freebsd-x64@npm:1.3.8"
-  dependencies:
-    "@swc/wasm": 1.2.130
-  conditions: os=freebsd & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@swc/core-linux-arm-gnueabihf@npm:1.3.8":
-  version: 1.3.8
-  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.3.8"
-  dependencies:
-    "@swc/wasm": 1.2.130
-  conditions: os=linux & cpu=arm
-  languageName: node
-  linkType: hard
-
-"@swc/core-linux-arm64-gnu@npm:1.3.8":
-  version: 1.3.8
-  resolution: "@swc/core-linux-arm64-gnu@npm:1.3.8"
-  conditions: os=linux & cpu=arm64 & libc=glibc
-  languageName: node
-  linkType: hard
-
-"@swc/core-linux-arm64-musl@npm:1.3.8":
-  version: 1.3.8
-  resolution: "@swc/core-linux-arm64-musl@npm:1.3.8"
-  conditions: os=linux & cpu=arm64 & libc=musl
-  languageName: node
-  linkType: hard
-
-"@swc/core-linux-x64-gnu@npm:1.3.8":
-  version: 1.3.8
-  resolution: "@swc/core-linux-x64-gnu@npm:1.3.8"
-  conditions: os=linux & cpu=x64 & libc=glibc
-  languageName: node
-  linkType: hard
-
-"@swc/core-linux-x64-musl@npm:1.3.8":
-  version: 1.3.8
-  resolution: "@swc/core-linux-x64-musl@npm:1.3.8"
-  conditions: os=linux & cpu=x64 & libc=musl
-  languageName: node
-  linkType: hard
-
-"@swc/core-win32-arm64-msvc@npm:1.3.8":
-  version: 1.3.8
-  resolution: "@swc/core-win32-arm64-msvc@npm:1.3.8"
-  dependencies:
-    "@swc/wasm": 1.2.130
-  conditions: os=win32 & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@swc/core-win32-ia32-msvc@npm:1.3.8":
-  version: 1.3.8
-  resolution: "@swc/core-win32-ia32-msvc@npm:1.3.8"
-  dependencies:
-    "@swc/wasm": 1.2.130
-  conditions: os=win32 & cpu=ia32
-  languageName: node
-  linkType: hard
-
-"@swc/core-win32-x64-msvc@npm:1.3.8":
-  version: 1.3.8
-  resolution: "@swc/core-win32-x64-msvc@npm:1.3.8"
-  conditions: os=win32 & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@swc/core@npm:^1.3.8":
-  version: 1.3.8
-  resolution: "@swc/core@npm:1.3.8"
-  dependencies:
-    "@swc/core-android-arm-eabi": 1.3.8
-    "@swc/core-android-arm64": 1.3.8
-    "@swc/core-darwin-arm64": 1.3.8
-    "@swc/core-darwin-x64": 1.3.8
-    "@swc/core-freebsd-x64": 1.3.8
-    "@swc/core-linux-arm-gnueabihf": 1.3.8
-    "@swc/core-linux-arm64-gnu": 1.3.8
-    "@swc/core-linux-arm64-musl": 1.3.8
-    "@swc/core-linux-x64-gnu": 1.3.8
-    "@swc/core-linux-x64-musl": 1.3.8
-    "@swc/core-win32-arm64-msvc": 1.3.8
-    "@swc/core-win32-ia32-msvc": 1.3.8
-    "@swc/core-win32-x64-msvc": 1.3.8
-  dependenciesMeta:
-    "@swc/core-android-arm-eabi":
-      optional: true
-    "@swc/core-android-arm64":
-      optional: true
-    "@swc/core-darwin-arm64":
-      optional: true
-    "@swc/core-darwin-x64":
-      optional: true
-    "@swc/core-freebsd-x64":
-      optional: true
-    "@swc/core-linux-arm-gnueabihf":
-      optional: true
-    "@swc/core-linux-arm64-gnu":
-      optional: true
-    "@swc/core-linux-arm64-musl":
-      optional: true
-    "@swc/core-linux-x64-gnu":
-      optional: true
-    "@swc/core-linux-x64-musl":
-      optional: true
-    "@swc/core-win32-arm64-msvc":
-      optional: true
-    "@swc/core-win32-ia32-msvc":
-      optional: true
-    "@swc/core-win32-x64-msvc":
-      optional: true
-  bin:
-    swcx: run_swcx.js
-  checksum: 0f4afe1cdfe0fc7c471f77ad9138cd46c65770060ed47a1ed13fdffc1a580c2b8aa4cbb936c1f9da61e925e3d964c6d73dc61888982502b5da148d64028d17b2
-  languageName: node
-  linkType: hard
-
 "@swc/helpers@npm:0.4.11":
   version: 0.4.11
   resolution: "@swc/helpers@npm:0.4.11"
   dependencies:
     tslib: ^2.4.0
   checksum: 736857d524b41a8a4db81094e9b027f554004e0fa3e86325d85bdb38f7e6459ce022db079edb6c61ba0f46fe8583b3e663e95f7acbd13e51b8da6c34e45bba2e
-  languageName: node
-  linkType: hard
-
-"@swc/wasm@npm:1.2.122":
-  version: 1.2.122
-  resolution: "@swc/wasm@npm:1.2.122"
-  checksum: 563345370c5ad18373d3b403590ab880fe52dcd8fc8c8601be263fcd9886520b28a7f4e46236cf49ca2b136c79d4ef50c960bc34b7cdc2068118b0d84dfca1f4
-  languageName: node
-  linkType: hard
-
-"@swc/wasm@npm:1.2.130":
-  version: 1.2.130
-  resolution: "@swc/wasm@npm:1.2.130"
-  checksum: 02203bfef3e382c64cbbd63c138c8fdf61865e74d923b317e9d9e9f33f5a3f0a9533b5fdbc9505e76d78e864be04a82fc847eb987a1e47ccac5850146c858292
   languageName: node
   linkType: hard
 
@@ -6326,13 +6138,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^7.1.0":
-  version: 7.2.0
-  resolution: "commander@npm:7.2.0"
-  checksum: 53501cbeee61d5157546c0bef0fedb6cdfc763a882136284bed9a07225f09a14b82d2a84e7637edfd1a679fb35ed9502fd58ef1d091e6287f60d790147f68ddc
-  languageName: node
-  linkType: hard
-
 "common-tags@npm:1.8.0":
   version: 1.8.0
   resolution: "common-tags@npm:1.8.0"
@@ -8184,7 +7989,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.2.5, fast-glob@npm:^3.2.9":
+"fast-glob@npm:^3.2.9":
   version: 3.2.12
   resolution: "fast-glob@npm:3.2.12"
   dependencies:
@@ -11742,6 +11547,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"next-transpile-modules@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "next-transpile-modules@npm:9.1.0"
+  dependencies:
+    enhanced-resolve: ^5.10.0
+    escalade: ^3.1.1
+  checksum: 8cc46196db3c2d2063fb29fe5b4d03c21065ab08130085b24d61e4ed512d99c12083d28179771cf02f70f8bf5970db0781a228aacf6cc61662dbdcabaddfc472
+  languageName: node
+  linkType: hard
+
 "next@npm:^12.1.0, next@npm:^12.1.2, next@npm:^12.3.1":
   version: 12.3.1
   resolution: "next@npm:12.3.1"
@@ -13629,8 +13444,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "shared-utils@workspace:packages/shared-utils"
   dependencies:
-    "@swc/cli": ^0.1.57
-    "@swc/core": ^1.3.8
     eslint: ^8.25.0
     eslint-config-custom: "*"
     jest-presets: "*"
@@ -13712,7 +13525,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"slash@npm:3.0.0, slash@npm:^3.0.0":
+"slash@npm:^3.0.0":
   version: 3.0.0
   resolution: "slash@npm:3.0.0"
   checksum: 94a93fff615f25a999ad4b83c9d5e257a7280c90a32a7cb8b4a87996e4babf322e469c42b7f649fd5796edd8687652f3fb452a86dc97a816f01113183393f11c
@@ -14872,8 +14685,6 @@ __metadata:
   resolution: "ui@workspace:packages/ui"
   dependencies:
     "@sentry/nextjs": ^7.16.0
-    "@swc/cli": ^0.1.57
-    "@swc/core": ^1.3.8
     "@types/react": ^18.0.21
     "@types/react-dom": ^18.0.6
     eslint: ^8.25.0
@@ -15282,6 +15093,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -15362,6 +15174,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -15442,6 +15255,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -15522,6 +15336,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -15602,6 +15417,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -15682,6 +15498,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -15762,6 +15579,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -15842,6 +15660,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -15922,6 +15741,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -15994,6 +15814,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -16073,6 +15894,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -16153,6 +15975,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -16233,6 +16056,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -16313,6 +16137,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -16393,6 +16218,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -16473,6 +16299,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -16553,6 +16380,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -16633,6 +16461,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -16713,6 +16542,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -16793,6 +16623,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -16873,6 +16704,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -16953,6 +16785,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -17033,6 +16866,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -17115,6 +16949,7 @@ __metadata:
     next: ^12.1.2
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -17209,6 +17044,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
     qrcode.react: ^1.0.1
@@ -17294,6 +17130,7 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     numeral: 2.0.4
     prop-types: ^15.8.1
     qrcode.react: ^1.0.1

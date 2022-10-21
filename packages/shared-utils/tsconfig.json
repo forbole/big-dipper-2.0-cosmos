@@ -1,8 +1,5 @@
 {
   "extends": "tsconfig/react-library.json",
-  "compilerOptions": {
-    "baseUrl": ".",
-  },
   "include": [
     "."
   ],

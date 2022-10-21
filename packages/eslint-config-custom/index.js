@@ -64,8 +64,9 @@ module.exports = {
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/no-unused-vars": ["off", { "argsIgnorePattern": "^_" }],
     "no-console": ["off", { allow: ["warn", "error"] }],
-    // error
-    '@next/next/no-html-link-for-pages': ['error', './src/pages'],
+    // off for turborepo
+    "@next/next/no-html-link-for-pages": "off",
+    "react/jsx-key": "off",
   },
   env: {
     es6: true,
