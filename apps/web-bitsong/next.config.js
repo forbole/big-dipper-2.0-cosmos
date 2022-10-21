@@ -46,17 +46,6 @@ const moduleExports = withTM(nextTranslate({
       },
     ]
   },
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: `/${chainName}/`,
-        basePath: false,
-        locale: false,
-        permanent: true,
-      },
-    ]
-  },
 }));
 
 const SENTRY_DSN = process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN;
