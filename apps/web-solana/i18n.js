@@ -2,6 +2,7 @@ module.exports = {
   // locales: ['en', 'zht'],
   locales: ['en'],
   defaultLocale: 'en',
+  localeDetection: false,
   pages: {
     '*': ['common'],
     '/': ['home', 'blocks', 'transactions'],

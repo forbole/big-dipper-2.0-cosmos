@@ -22,12 +22,29 @@ const moduleExports = withTM(nextTranslate({
     // TODO: Remove this once all the typescript errors are fixed
     ignoreBuildErrors: true,
   },
-  webpack: (config) => {
+  webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     });
     return config;
+  },
+  async redirects() {
+    return [
+      {
+        source: '/en/:slug',
+        destination: `/:slug`,
+        basePath: false,
+        permanent: false,
+        locale: false,
+      },
+      {
+        source: '/',
+        destination: `/${chainName}`,
+        basePath: false,
+        permanent: false,
+      },
+    ]
   },
 }));
 
