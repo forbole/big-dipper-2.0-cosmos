@@ -1,17 +1,115 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: Validators/Tabs matches snapshot 1`] = `
+exports[`screen: Validators/Mobile matches snapshot 1`] = `
 <div
   className=""
 >
   <div
+    className="List"
+    onScroll={[Function]}
     style={
       Object {
-        "height": 0,
-        "overflow": "visible",
-        "width": 0,
+        "WebkitOverflowScrolling": "touch",
+        "direction": "ltr",
+        "height": 600,
+        "overflow": "auto",
+        "position": "relative",
+        "width": 600,
+        "willChange": "transform",
       }
     }
-  />
+  >
+    <div
+      style={
+        Object {
+          "height": 100,
+          "pointerEvents": undefined,
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "height": 100,
+            "left": 0,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": "100%",
+          }
+        }
+      >
+        <div>
+          <div
+            className="makeStyles-root"
+          >
+            <div
+              className="makeStyles-item"
+            >
+              <h4
+                className="MuiTypography-root label MuiTypography-h4"
+              >
+                validator
+              </h4>
+              <div
+                address=""
+                id="AvatarName"
+                imageUrl=""
+                name=""
+              />
+            </div>
+            <div
+              className="makeStyles-item"
+            >
+              <h4
+                className="MuiTypography-root label MuiTypography-h4"
+              >
+                votingPower
+              </h4>
+              <div
+                content="0"
+                id="VotingPower"
+                percentDisplay="0%"
+                percentage={0}
+              />
+            </div>
+            <div
+              className="makeStyles-flex"
+            >
+              <div
+                className="makeStyles-item"
+              >
+                <h4
+                  className="MuiTypography-root label MuiTypography-h4"
+                >
+                  status
+                </h4>
+                <p
+                  className="MuiTypography-root value status two MuiTypography-body1"
+                >
+                  jailed
+                </p>
+              </div>
+              <div
+                className="makeStyles-item"
+              >
+                <h4
+                  className="MuiTypography-root label MuiTypography-h4"
+                >
+                  commission
+                </h4>
+                <p
+                  className="MuiTypography-root value MuiTypography-body1"
+                >
+                  0%
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
