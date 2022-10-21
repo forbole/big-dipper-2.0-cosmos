@@ -7,7 +7,7 @@ import generalConfig from './general_config.json';
  * @returns config
  */
 const getChainConfig = () => {
-  if (process.env.NEXT_PUBLIC_CHAIN_STATUS === 'mainnet') {
+  if (process.env.NEXT_PUBLIC_CHAIN_TYPE === 'mainnet') {
     return chainConfigMainnet;
   }
   return chainConfigTestnet;
