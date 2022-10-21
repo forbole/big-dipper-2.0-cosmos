@@ -13,10 +13,6 @@ describe('components: AvatarNameListMsg', () => {
     const component = renderer.create(
       <MockTheme>
         <AvatarNameListMsg
-          avatars={[]}
-        />
-        ,
-        <AvatarNameListMsg
           avatars={[
             {
               imageUrl: '',
@@ -26,7 +22,27 @@ describe('components: AvatarNameListMsg', () => {
 
           ]}
         />
-        ,
+      </MockTheme>,
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('matches snapshot with empty values', () => {
+    const component = renderer.create(
+      <MockTheme>
+        <AvatarNameListMsg
+          avatars={[]}
+        />
+      </MockTheme>,
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('matches snapshot with multiple values', () => {
+    const component = renderer.create(
+      <MockTheme>
         <AvatarNameListMsg
           avatars={[
             {
