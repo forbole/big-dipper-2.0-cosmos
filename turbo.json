@@ -15,7 +15,6 @@
         "NEXT_PUBLIC_MATOMO_URL",
         "NEXT_PUBLIC_SENTRY_DSN",
         "NEXT_PUBLIC_RPC_WEBSOCKET",
-        "NEXT_PUBLIC_WS_CHAIN_URL",
         "NODE_ENV",
         "PORT",
         "SENTRY_DSN"

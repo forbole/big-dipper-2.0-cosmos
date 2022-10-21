@@ -25,7 +25,7 @@ export const useConsensus = () => {
   });
 
   useEffect(() => {
-    const client = new WebSocket(process.env.NEXT_PUBLIC_WS_CHAIN_URL);
+    const client = new WebSocket(process.env.NEXT_PUBLIC_RPC_WEBSOCKET);
     const stepHeader = {
       jsonrpc: '2.0',
       method: 'subscribe',
