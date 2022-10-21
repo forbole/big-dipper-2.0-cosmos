@@ -28,7 +28,6 @@ jobs:
         run: |
           NEXT_PUBLIC_GRAPHQL_URL=
           NEXT_PUBLIC_GRAPHQL_WS=
-          NEXT_PUBLIC_URL=
           NEXT_PUBLIC_WS_CHAIN_URL=
           NEXT_PUBLIC_CHAIN_STATUS=
           NODE_ENV="production"
@@ -36,13 +35,11 @@ jobs:
           if [[ $GITHUB_REF == refs/tags/desmos-morpheus-apollo-1* ]]; then
             NEXT_PUBLIC_GRAPHQL_URL="https://gql.morpheus.desmos.network/v1/graphql"
             NEXT_PUBLIC_GRAPHQL_WS="wss://gql.morpheus.desmos.network/v1/graphql"
-            NEXT_PUBLIC_URL="https://morpheus.desmos.network"
             NEXT_PUBLIC_WS_CHAIN_URL="wss://rpc.morpheus.desmos.network/websocket"
             NEXT_PUBLIC_CHAIN_STATUS="testnet"
           fi
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
           echo ::set-output name=NEXT_PUBLIC_GRAPHQL_WS::${NEXT_PUBLIC_GRAPHQL_WS}
-          echo ::set-output name=NEXT_PUBLIC_URL::${NEXT_PUBLIC_URL}
           echo ::set-output name=NEXT_PUBLIC_WS_CHAIN_URL::${NEXT_PUBLIC_WS_CHAIN_URL}
           echo ::set-output name=NEXT_PUBLIC_CHAIN_STATUS::${NEXT_PUBLIC_CHAIN_STATUS}
           echo ::set-output name=NODE_ENV::${NODE_ENV}
@@ -65,7 +62,6 @@ jobs:
           build-args: |
             "NEXT_PUBLIC_GRAPHQL_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_URL }}"
             "NEXT_PUBLIC_GRAPHQL_WS=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_WS }}"
-            "NEXT_PUBLIC_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_URL }}"
             "NEXT_PUBLIC_WS_CHAIN_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_WS_CHAIN_URL }}"
             "NEXT_PUBLIC_CHAIN_STATUS=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_CHAIN_STATUS }}"
             "NODE_ENV=${{ steps.dockerPrep.outputs.NODE_ENV }}"

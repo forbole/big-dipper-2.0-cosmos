@@ -14,7 +14,73 @@
     "module": "esnext",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": [
+        "src/*"
+      ],
+      "@components": [
+        "src/components"
+      ],
+      "@msg": [
+        "src/components/msg"
+      ],
+      "@icons": [
+        "src/components/icons"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@hooks": [
+        "src/hooks"
+      ],
+      "@models": [
+        "src/models"
+      ],
+      "@screens/*": [
+        "src/screens/*"
+      ],
+      "@public/*": [
+        "public/*"
+      ],
+      "@styles": [
+        "src/styles"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@contexts": [
+        "src/contexts"
+      ],
+      "@recoil/*": [
+        "src/recoil/*"
+      ],
+      "@graphql": [
+        "src/graphql"
+      ],
+      "@configs": [
+        "src/configs"
+      ],
+      "@graphql/*": [
+        "src/graphql/*"
+      ],
+      "@graphql/types": [
+        "src/graphql/types"
+      ],
+      "@graphql/queries": [
+        "src/graphql/queries"
+      ],
+      "@graphql/mutations": [
+        "src/graphql/mutations"
+      ],
+      "@tests/utils": [
+        "tests/utils"
+      ],
+      "@api": [
+        "src/api"
+      ]
+    }
   },
   "include": ["src", "next-env.d.ts"],
   "exclude": ["node_modules"]

@@ -43,7 +43,6 @@ jobs:
           elif [[ $GITHUB_REF == refs/tags/desmos-mainnet-1-v* ]]; then
             NEXT_PUBLIC_GRAPHQL_URL="https://gql.desmos.forbole.com/v1/graphql"
             NEXT_PUBLIC_GRAPHQL_WS="wss://gql.desmos.forbole.com/v1/graphql"
-            NEXT_PUBLIC_URL="https://explorer.desmos.network"
             NEXT_PUBLIC_RPC_WEBSOCKET="wss://rpc.desmos.forbole.com/websocket"
             NEXT_PUBLIC_CHAIN_TYPE="mainnet"
           fi

@@ -2,8 +2,8 @@
   "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
     "build": {
-      "outputs": ["dist/**", ".next/**", "public/dist/**"],
       "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**", "public/dist/**"],
       "env": [
         "CHAIN_TYPE",
         "CHAIN_NAME",
@@ -15,7 +15,6 @@
         "NEXT_PUBLIC_MATOMO_URL",
         "NEXT_PUBLIC_SENTRY_DSN",
         "NEXT_PUBLIC_RPC_WEBSOCKET",
-        "NEXT_PUBLIC_URL",
         "NEXT_PUBLIC_WS_CHAIN_URL",
         "NODE_ENV",
         "PORT",
@@ -31,15 +30,17 @@
     "start": {},
     "type-check": {},
     "lint": {
-      "outputs": [],
-      "dependsOn": ["^build"]
+      "outputs": []
     },
     "test": {
-      "outputs": ["coverage/**"],
-      "dependsOn": ["^build"]
+      "outputs": ["coverage/**"]
     },
     "e2e": {},
-    "graphql:codegen": {}
+    "graphql:codegen": {},
+    "deploy": {
+      "dependsOn": ["build", "test", "lint"],
+      "outputs": []
+    }
   },
   "globalDependencies": [
     ".env",

@@ -6,6 +6,7 @@ import {
 } from './use_react_window';
 import { usePagination } from './use_pagination';
 import { useInterval } from './use_interval';
+import { useWindowOrigin } from './use_window';
 
 export {
   usePersistedState,
@@ -16,4 +17,5 @@ export {
   useGrid,
   usePagination,
   useInterval,
+  useWindowOrigin,
 };
