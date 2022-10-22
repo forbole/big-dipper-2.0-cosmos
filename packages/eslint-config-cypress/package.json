@@ -1,12 +1,11 @@
 {
-  "name": "jest-presets",
+  "name": "eslint-config-cypress",
   "version": "0.0.0",
+  "main": "index.js",
   "license": "Apache-2.0",
   "dependencies": {
-    "jest": "^29.1.2",
-    "ts-jest": "^29.0.3",
-    "tsconfig": "*",
-    "typescript": "^4.8.4"
+    "eslint": "^7.23.0",
+    "eslint-config-custom": "*"
   },
   "publishConfig": {
     "access": "public"

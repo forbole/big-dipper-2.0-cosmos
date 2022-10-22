@@ -3577,6 +3577,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tsconfig/cypress@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@tsconfig/cypress@npm:1.0.1"
+  checksum: 67974241de587d5d7f13f30caeec53427f37b6890a75e8b55f2ffb8989263b2fc07ed83eb1267f5e8e4a807791a5de752f796ccfdeff9d1027ea00f5bcd4b2e7
+  languageName: node
+  linkType: hard
+
 "@tsconfig/node10@npm:^1.0.7":
   version: 1.0.9
   resolution: "@tsconfig/node10@npm:1.0.9"
@@ -7291,11 +7298,21 @@ __metadata:
     eslint-config-next: ^12.0.8
     eslint-config-prettier: ^8.3.0
     eslint-config-turbo: latest
+    eslint-plugin-cypress: ^2.12.1
     eslint-plugin-import: ^2.26.0
     eslint-plugin-jsx-a11y: ^6.6.1
     eslint-plugin-react: 7.31.8
     eslint-plugin-react-hooks: ^4.6.0
     typescript: ^4.8.4
+  languageName: unknown
+  linkType: soft
+
+"eslint-config-cypress@*, eslint-config-cypress@workspace:packages/eslint-config-cypress":
+  version: 0.0.0-use.local
+  resolution: "eslint-config-cypress@workspace:packages/eslint-config-cypress"
+  dependencies:
+    eslint: ^7.23.0
+    eslint-config-custom: "*"
   languageName: unknown
   linkType: soft
 
@@ -15058,6 +15075,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -15078,6 +15096,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -15138,6 +15157,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -15159,6 +15179,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -15219,6 +15240,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -15240,6 +15262,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -15300,6 +15323,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -15321,6 +15345,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -15381,6 +15406,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -15402,6 +15428,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -15462,6 +15489,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -15483,6 +15511,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -15543,6 +15572,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -15564,6 +15594,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -15624,6 +15655,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -15645,6 +15677,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -15705,6 +15738,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -15726,6 +15760,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -15781,6 +15816,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -15802,6 +15838,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     helmet: ^4.6.0
     jdenticon: ^3.1.0
@@ -15858,6 +15895,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -15879,6 +15917,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -15939,6 +15978,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -15960,6 +16000,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -16020,6 +16061,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -16041,6 +16083,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -16101,6 +16144,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -16122,6 +16166,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -16182,6 +16227,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -16203,6 +16249,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -16263,6 +16310,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -16284,6 +16332,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -16344,6 +16393,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -16365,6 +16415,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -16425,6 +16476,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -16446,6 +16498,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -16506,6 +16559,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -16527,6 +16581,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -16587,6 +16642,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -16608,6 +16664,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -16668,6 +16725,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -16689,6 +16747,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -16749,6 +16808,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -16770,6 +16830,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -16830,6 +16891,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -16851,6 +16913,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -16912,6 +16975,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -16934,6 +16998,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -17008,6 +17073,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^26.0.13
     "@types/node": ^14.6.4
@@ -17029,6 +17095,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.8.1
     eslint-config-custom: "*"
+    eslint-config-cypress: "*"
     express: ^4.17.1
     graphql: ^15.5.0
     helmet: ^4.6.0
@@ -17089,6 +17156,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
+    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.3.4
@@ -17115,7 +17183,7 @@ __metadata:
     dotenv: ^8.2.0
     eslint: ^7.32.0
     eslint-config-custom: "*"
-    eslint-plugin-cypress: ^2.12.1
+    eslint-config-cypress: "*"
     graphql: ^15.5.0
     graphql-tag: ^2.12.6
     helmet: ^4.6.0
