@@ -64,7 +64,6 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.0.2",
     "@testing-library/react-hooks": "^3.7.0",
-    "@tsconfig/cypress": "^1.0.1",
     "@types/big.js": "^6.1.2",
     "@types/jest": "^27.0.0",
     "@types/node": "^18.11.3",

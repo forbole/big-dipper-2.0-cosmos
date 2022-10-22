@@ -14400,6 +14400,8 @@ __metadata:
 "tsconfig@*, tsconfig@workspace:packages/tsconfig":
   version: 0.0.0-use.local
   resolution: "tsconfig@workspace:packages/tsconfig"
+  dependencies:
+    "@tsconfig/cypress": ^1.0.1
   languageName: unknown
   linkType: soft
 
@@ -14998,7 +15000,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -15080,7 +15081,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -15162,7 +15162,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -15244,7 +15243,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -15326,7 +15324,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -15408,7 +15405,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -15490,7 +15486,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -15572,7 +15567,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -15654,7 +15648,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -15735,7 +15728,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -15816,7 +15808,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -15898,7 +15889,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -15980,7 +15970,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -16062,7 +16051,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -16144,7 +16132,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -16226,7 +16213,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -16308,7 +16294,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -16390,7 +16375,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -16472,7 +16456,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -16554,7 +16537,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -16636,7 +16618,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -16718,7 +16699,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -16800,7 +16780,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -16883,7 +16862,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -16980,7 +16958,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/jest": ^27.0.0
     "@types/node": ^18.11.3
@@ -17062,7 +17039,6 @@ __metadata:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
-    "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.3.4

@@ -64,7 +64,6 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.0.2",
     "@testing-library/react-hooks": "^3.7.0",
-    "@tsconfig/cypress": "^1.0.1",
     "@types/big.js": "^6.1.2",
     "@types/color": "^3.0.3",
     "@types/dompurify": "^2.3.4",
