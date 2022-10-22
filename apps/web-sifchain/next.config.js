@@ -1,15 +1,10 @@
-// for turborepo
-const withTM = require("next-transpile-modules")(["ui"]);
-
-// This file sets a custom webpack configuration to use your Next.js app
-// with Sentry.
-// https://nextjs.org/docs/api-reference/next.config.js/introduction
-// https://docs.sentry.io/platforms/javascript/guides/nextjs/
-const { withSentryConfig } = require('@sentry/nextjs');
 const nextTranslate = require('next-translate');
+// for turborepo
+const withTM = require('next-transpile-modules')(['ui']);
+const withSentry = require('shared-utils/withSentry');
 const { chainName } = require('./src/configs/general_config.json');
 
-const moduleExports = withTM(nextTranslate({
+const nextConfig = {
   swcMinify: true,
   output: 'standalone',
   reactStrictMode: true,
@@ -27,7 +22,7 @@ const moduleExports = withTM(nextTranslate({
     return config;
   },
   async redirects() {
-    return [
+    const result = [
       {
         source: '/en/:slug',
         destination: `/:slug`,
@@ -35,42 +30,17 @@ const moduleExports = withTM(nextTranslate({
         permanent: false,
         locale: false,
       },
-      {
+    ];
+    if (chainName) {
+      result.push({
         source: '/',
         destination: `/${chainName}`,
         basePath: false,
         permanent: false,
-      },
-    ]
+      });
+    }
+    return result;
   },
-}));
+};
 
-const SENTRY_DSN = process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN;
-
-if (SENTRY_DSN) {
-  moduleExports.sentry = {
-    // Use `hidden-source-map` rather than `source-map` as the Webpack `devtool`
-    // for client-side builds. (This will be the default starting in
-    // `@sentry/nextjs` version 8.0.0.) See
-    // https://webpack.js.org/configuration/devtool/ and
-    // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/#use-hidden-source-map
-    // for more information.
-    hideSourceMaps: true,
-  };
-
-  const sentryWebpackPluginOptions = {
-    // Additional config options for the Sentry Webpack plugin. Keep in mind that
-    // the following options are set automatically, and overriding them is not
-    // recommended:
-    //   release, url, org, project, authToken, configFile, stripPrefix,
-    //   urlPrefix, include, ignore
-
-    silent: true, // Suppresses all logs
-    // For all available options, see:
-    // https://github.com/getsentry/sentry-webpack-plugin#options.
-  };
-
-  module.exports = withSentryConfig(moduleExports, sentryWebpackPluginOptions);
-} else {
-  module.exports = moduleExports;
-}
+module.exports = withSentry(withTM(nextTranslate(nextConfig)));

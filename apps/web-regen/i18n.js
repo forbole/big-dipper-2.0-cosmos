@@ -1,3 +1,10 @@
+/* eslint-disable no-template-curly-in-string */
+const workaround = require('next-translate/lib/cjs/plugin/utils.js');
+
+// fix: Critical dependency: the request of a dependency is an expression
+workaround.defaultLoader =
+  '(l, n) => import(`@public/locales/${l}/${n}.json`).then(m => m.default)';
+
 module.exports = {
   // locales: ['en', 'zht'],
   locales: ['en'],
@@ -15,5 +22,4 @@ module.exports = {
     'rgx:^/accounts': ['accounts', 'transactions', 'validators', 'message_labels', 'message_contents'],
     'rgx:^/params': ['params'],
   },
-  loadLocaleFrom: (lang, ns) => import(`./public/locales/${lang}/${ns}.json`).then((m) => m.default),
 };

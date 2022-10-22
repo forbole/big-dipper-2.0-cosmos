@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "dev": "turbo run dev --no-cache --continue --filter=!web",
-    "build": "turbo run build --concurrency 1 --continue --filter=!web",
+    "build": "turbo run build --continue --filter=!web",
     "start": "turbo run start --continue --filter=!web",
     "dev:agoric": "turbo run dev --no-cache --filter web-agoric",
     "build:agoric": "turbo run build --filter web-agoric",

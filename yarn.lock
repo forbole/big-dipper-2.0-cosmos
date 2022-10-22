@@ -13411,9 +13411,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "shared-utils@workspace:packages/shared-utils"
   dependencies:
+    "@sentry/nextjs": ^7.16.0
     eslint: ^8.25.0
     eslint-config-custom: "*"
     jest-presets: "*"
+    next: ^12.3.1
+    react: ^18.2.0
+    react-dom: ^18.2.0
     tsconfig: "*"
     typescript: ^4.7.4
   languageName: unknown
@@ -14989,7 +14993,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -15072,7 +15075,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -15155,7 +15157,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -15238,7 +15239,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -15321,7 +15321,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -15404,7 +15403,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -15487,7 +15485,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -15570,7 +15567,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -15653,7 +15649,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -15735,7 +15730,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -15817,7 +15811,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -15900,7 +15893,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -15983,7 +15975,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -16066,7 +16057,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -16149,7 +16139,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -16232,7 +16221,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -16315,7 +16303,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -16398,7 +16385,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -16481,7 +16467,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -16564,7 +16549,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -16647,7 +16631,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -16730,7 +16713,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -16813,7 +16795,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -16896,7 +16877,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@solana/web3.js": ^1.36.0
     "@svgr/webpack": ^5.5.0
@@ -16995,7 +16975,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
@@ -17078,7 +17057,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^5.5.0
     "@testing-library/jest-dom": ^5.11.9
