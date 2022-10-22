@@ -1690,7 +1690,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/cli@npm:^2.0.1, @graphql-codegen/cli@npm:^2.13.7, @graphql-codegen/cli@npm:^2.6.1, @graphql-codegen/cli@npm:^2.6.2":
+"@graphql-codegen/cli@npm:^2.13.7":
   version: 2.13.7
   resolution: "@graphql-codegen/cli@npm:2.13.7"
   dependencies:
@@ -1755,19 +1755,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/fragment-matcher@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@graphql-codegen/fragment-matcher@npm:2.0.1"
+"@graphql-codegen/fragment-matcher@npm:^3.3.1":
+  version: 3.3.1
+  resolution: "@graphql-codegen/fragment-matcher@npm:3.3.1"
   dependencies:
-    "@graphql-codegen/plugin-helpers": ^1.18.2
-    tslib: ~2.0.1
+    "@graphql-codegen/plugin-helpers": ^2.6.2
+    tslib: ~2.4.0
   peerDependencies:
-    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
-  checksum: 1381af591df89d4068fa1438f188a2f332ec44019c6a6cc623b8515941385581bd7fd834e3d16b0c4fdf52b40141758e5497a967181e327fd30c9059fac28259
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: c2a9b6d87a733746bc1ae30c69097f03af0b33c60b2cc0569e7d2cbe227b2c6955a8ff83df3a63e1dd7878dda6a04d49f95d8d99fd90b1203a4b3f96370be703
   languageName: node
   linkType: hard
 
-"@graphql-codegen/plugin-helpers@npm:^1.18.2, @graphql-codegen/plugin-helpers@npm:^1.18.8":
+"@graphql-codegen/plugin-helpers@npm:^1.18.8":
   version: 1.18.8
   resolution: "@graphql-codegen/plugin-helpers@npm:1.18.8"
   dependencies:
@@ -1798,38 +1798,51 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/typescript-operations@npm:^1.17.14":
-  version: 1.18.4
-  resolution: "@graphql-codegen/typescript-operations@npm:1.18.4"
+"@graphql-codegen/schema-ast@npm:^2.5.1":
+  version: 2.5.1
+  resolution: "@graphql-codegen/schema-ast@npm:2.5.1"
   dependencies:
-    "@graphql-codegen/plugin-helpers": ^1.18.8
-    "@graphql-codegen/typescript": ^1.23.0
-    "@graphql-codegen/visitor-plugin-common": 1.22.0
-    auto-bind: ~4.0.0
-    tslib: ~2.3.0
+    "@graphql-codegen/plugin-helpers": ^2.6.2
+    "@graphql-tools/utils": ^8.8.0
+    tslib: ~2.4.0
   peerDependencies:
-    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
-  checksum: 392238694251d4fdbc7e9c15fa7b7936b041eca3ae5036efd1d14a6fbd74b4863b539c84c9e4bd94246f70460c47496b0136381c2247e84b00979e6a9ae9d17d
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: a488c4a35e360f46444fb140ef3b5dffdea1e70549060ce6c2dad6f39c0b3c2cf2bcd797bcec8084f20a3ea4b5ab3e8221b1418e4195d9baf392819425bdd300
   languageName: node
   linkType: hard
 
-"@graphql-codegen/typescript-react-apollo@npm:^2.2.1":
-  version: 2.3.1
-  resolution: "@graphql-codegen/typescript-react-apollo@npm:2.3.1"
+"@graphql-codegen/typescript-operations@npm:^2.5.5":
+  version: 2.5.5
+  resolution: "@graphql-codegen/typescript-operations@npm:2.5.5"
   dependencies:
-    "@graphql-codegen/plugin-helpers": ^1.18.8
-    "@graphql-codegen/visitor-plugin-common": 1.22.0
+    "@graphql-codegen/plugin-helpers": ^2.6.2
+    "@graphql-codegen/typescript": ^2.7.5
+    "@graphql-codegen/visitor-plugin-common": 2.13.0
+    auto-bind: ~4.0.0
+    tslib: ~2.4.0
+  peerDependencies:
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 1411b0da8aa30f6bab4af31db3015dca8c0b76fd516827130c513f7abf94725c559b1b3268348e0249fa196863d7aba8a01337bf55835999f047a1561a7477fc
+  languageName: node
+  linkType: hard
+
+"@graphql-codegen/typescript-react-apollo@npm:^3.3.5":
+  version: 3.3.5
+  resolution: "@graphql-codegen/typescript-react-apollo@npm:3.3.5"
+  dependencies:
+    "@graphql-codegen/plugin-helpers": ^2.6.2
+    "@graphql-codegen/visitor-plugin-common": 2.13.0
     auto-bind: ~4.0.0
     change-case-all: 1.0.14
-    tslib: ~2.3.0
+    tslib: ~2.4.0
   peerDependencies:
-    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
     graphql-tag: ^2.0.0
-  checksum: ef92e801d108f832dac1bedd4a74a7244ee5b1e38fad7ae67c5365bc21ac30907e9b708d17c204d1689f523bd0507fe1b63baf4df99ae7f99862a89e8ab24988
+  checksum: ac20f2c7a2a1e414aec9d27c54d62cbaee4f1049c61d299ab66d933c9a221c062c819d2b875f8d2a1cdf561b9a1acaa36318cc9424f5a2283239033bb1e1ea6a
   languageName: node
   linkType: hard
 
-"@graphql-codegen/typescript@npm:^1.21.0, @graphql-codegen/typescript@npm:^1.23.0":
+"@graphql-codegen/typescript@npm:^1.21.0":
   version: 1.23.0
   resolution: "@graphql-codegen/typescript@npm:1.23.0"
   dependencies:
@@ -1840,6 +1853,21 @@ __metadata:
   peerDependencies:
     graphql: ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
   checksum: 118f06965cd708288abee3543d3c62d26702c344c9b2bee0c8dec065ff22d2f7de36e2b311c3ad611056889f58538710c116575faa17554ba8bcd3c157088904
+  languageName: node
+  linkType: hard
+
+"@graphql-codegen/typescript@npm:^2.7.5":
+  version: 2.7.5
+  resolution: "@graphql-codegen/typescript@npm:2.7.5"
+  dependencies:
+    "@graphql-codegen/plugin-helpers": ^2.6.2
+    "@graphql-codegen/schema-ast": ^2.5.1
+    "@graphql-codegen/visitor-plugin-common": 2.13.0
+    auto-bind: ~4.0.0
+    tslib: ~2.4.0
+  peerDependencies:
+    graphql: ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 0eb51d2bb826284cfed29fdaee0fc57694932627f0146394711d3f012377bccb19592270f6c04f775ec06ec87e1a05a0c85064ca186ea0e50a306ec058674fad
   languageName: node
   linkType: hard
 
@@ -1860,6 +1888,26 @@ __metadata:
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
   checksum: ed3ce44eed78d7cb2f15f96a08e9e19fc61ee4d2204712981edb26895371b5577b461f9813110d453a1882799747d8ad1edc4995c721ff99cc76b12e562b9587
+  languageName: node
+  linkType: hard
+
+"@graphql-codegen/visitor-plugin-common@npm:2.13.0":
+  version: 2.13.0
+  resolution: "@graphql-codegen/visitor-plugin-common@npm:2.13.0"
+  dependencies:
+    "@graphql-codegen/plugin-helpers": ^2.6.2
+    "@graphql-tools/optimize": ^1.3.0
+    "@graphql-tools/relay-operation-optimizer": ^6.5.0
+    "@graphql-tools/utils": ^8.8.0
+    auto-bind: ~4.0.0
+    change-case-all: 1.0.14
+    dependency-graph: ^0.11.0
+    graphql-tag: ^2.11.0
+    parse-filepath: ^1.0.2
+    tslib: ~2.4.0
+  peerDependencies:
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 1d7491d626059529faca2eda5466aa8b05bf2cc9a768175043461d0ec4793b4cbda2fb762ef44e6c8d094f951960569f2adf177af74156f4a74f33c6d5ae77bf
   languageName: node
   linkType: hard
 
@@ -2036,7 +2084,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/optimize@npm:^1.0.1":
+"@graphql-tools/optimize@npm:^1.0.1, @graphql-tools/optimize@npm:^1.3.0":
   version: 1.3.1
   resolution: "@graphql-tools/optimize@npm:1.3.1"
   dependencies:
@@ -2076,7 +2124,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/relay-operation-optimizer@npm:^6.3.0":
+"@graphql-tools/relay-operation-optimizer@npm:^6.3.0, @graphql-tools/relay-operation-optimizer@npm:^6.5.0":
   version: 6.5.6
   resolution: "@graphql-tools/relay-operation-optimizer@npm:6.5.6"
   dependencies:
@@ -3490,22 +3538,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/dom@npm:^8.5.0":
-  version: 8.19.0
-  resolution: "@testing-library/dom@npm:8.19.0"
-  dependencies:
-    "@babel/code-frame": ^7.10.4
-    "@babel/runtime": ^7.12.5
-    "@types/aria-query": ^4.2.0
-    aria-query: ^5.0.0
-    chalk: ^4.1.0
-    dom-accessibility-api: ^0.5.9
-    lz-string: ^1.4.4
-    pretty-format: ^27.0.2
-  checksum: 6bb93fef96703b6c47cf1b7cc8f71d402a9576084a94ba4e9926f51bd7bb1287fbb4f6942d82bd03fc6f3d998ae97e60f6aea4618f3a1ce6139597d2a4ecb7b9
-  languageName: node
-  linkType: hard
-
 "@testing-library/jest-dom@npm:^5.11.9":
   version: 5.16.5
   resolution: "@testing-library/jest-dom@npm:5.16.5"
@@ -3533,20 +3565,6 @@ __metadata:
     react: ">=16.9.0"
     react-test-renderer: ">=16.9.0"
   checksum: 7ada35cb4114056908990250033527ffd554d055eced797083aca752fb9789b3bc70291077f1d57b8cf64ab5eb7b3827f9de3bcaa38655f2b975c65a33a418d6
-  languageName: node
-  linkType: hard
-
-"@testing-library/react@npm:*":
-  version: 13.4.0
-  resolution: "@testing-library/react@npm:13.4.0"
-  dependencies:
-    "@babel/runtime": ^7.12.5
-    "@testing-library/dom": ^8.5.0
-    "@types/react-dom": ^18.0.0
-  peerDependencies:
-    react: ^18.0.0
-    react-dom: ^18.0.0
-  checksum: 51ec548c1fdb1271089a5c63e0908f0166f2c7fcd9cacd3108ebbe0ce64cb4351812d885892020dc37608418cfb15698514856502b3cab0e5cc58d6cc1bd4a3e
   languageName: node
   linkType: hard
 
@@ -3826,7 +3844,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:*, @types/jest@npm:^29.1.2":
+"@types/jest@npm:*":
   version: 29.1.2
   resolution: "@types/jest@npm:29.1.2"
   dependencies:
@@ -3836,13 +3854,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^26.0.13":
-  version: 26.0.24
-  resolution: "@types/jest@npm:26.0.24"
+"@types/jest@npm:^27.0.0":
+  version: 27.5.2
+  resolution: "@types/jest@npm:27.5.2"
   dependencies:
-    jest-diff: ^26.0.0
-    pretty-format: ^26.0.0
-  checksum: ae39675412f08d884926254e9b12bfd2b5a4e4d204c94d3148cb942174a474930d0c60540133c968f22241d4712b7940c96cbc883096eb326a4d5b206fb78bd0
+    jest-matcher-utils: ^27.0.0
+    pretty-format: ^27.0.0
+  checksum: 7e11c6826aa429ad990dc262e4e4b54aa36573287fddf15773e4137f07d11d3105f0dd9f1baff73252160a057df23f5529bb83b1bf83cd3f45f9460a5ca5c22e
   languageName: node
   linkType: hard
 
@@ -3897,17 +3915,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^14.14.31, @types/node@npm:^14.6.4":
+"@types/node@npm:^14.14.31":
   version: 14.18.32
   resolution: "@types/node@npm:14.18.32"
   checksum: 45463114bf85d06dc12925d876dd90b7fff43d9ee10a40e48fd16aece3d0201c76426c128e41230b2818d386422be06c5be33b3d94d90ee924b6fa4d54574035
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.8.5":
-  version: 18.8.5
-  resolution: "@types/node@npm:18.8.5"
-  checksum: f7d896f54743178e64c534c6da16f582505acf18904ecd0ee8541cb4bc1d429ba514e7ecfd5145221b71adbd6ae1ff72df082f667e56d056fcd1a719df948e08
+"@types/node@npm:^18.11.3":
+  version: 18.11.3
+  resolution: "@types/node@npm:18.11.3"
+  checksum: 3a2a9142d891a90a195c296149bf64a69cc0abcc42f543be911ab22b2e0ead85ff077f90af92f0f13f6e3e5e72501469200fd753dfd1101825d4646a89d3ee47
   languageName: node
   linkType: hard
 
@@ -3964,7 +3982,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.0.6":
+"@types/react-dom@npm:^18.0.6":
   version: 18.0.6
   resolution: "@types/react-dom@npm:18.0.6"
   dependencies:
@@ -4030,25 +4048,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^16.9.49":
-  version: 16.14.32
-  resolution: "@types/react@npm:16.14.32"
+"@types/react@npm:17.0.39":
+  version: 17.0.39
+  resolution: "@types/react@npm:17.0.39"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: e26290b15049020d1ed09a4f6f3fb93d17079da52850e7ef1a3f5bd19847e1acb921bfca8e602cb6af08cb2e54f1eba252082ab32b96a7db76c07197d20ff88d
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:^17.0.47":
-  version: 17.0.50
-  resolution: "@types/react@npm:17.0.50"
-  dependencies:
-    "@types/prop-types": "*"
-    "@types/scheduler": "*"
-    csstype: ^3.0.2
-  checksum: b5629dff7c2f3e9fcba95a19b2b3bfd78d7cacc33ba5fc26413dba653d34afcac3b93ddabe563e8062382688a1eac7db68e93739bb8e712d27637a03aaafbbb8
+  checksum: bf04d3c2894559012710d595553e12b422d3b91cd8f4f7e122d8cb044ba9c2ba17f6e8a4e09581359cc5509ddc59cd8c8fabd6774f3505a40a45393f074d6e6e
   languageName: node
   linkType: hard
 
@@ -4095,15 +4102,6 @@ __metadata:
   dependencies:
     "@types/react-test-renderer": "*"
   checksum: f32a5659330a7c2e555bffa74807f7331b1d2fcdd5fe4c08cc9130a0a12826f5f1c5bdf3210e7b2b4c9b774bddecc283171a347f78dc98d28836b0f773583a03
-  languageName: node
-  linkType: hard
-
-"@types/testing-library__react@npm:^10.2.0":
-  version: 10.2.0
-  resolution: "@types/testing-library__react@npm:10.2.0"
-  dependencies:
-    "@testing-library/react": "*"
-  checksum: 85f4db1aee846a86c088e71cbc5538374996b180adcab19d15c4e0a09fe294d71e587a7547b35fb3542519c2415d8e2ee92af579b2b583a8830f56d6d6d76b79
   languageName: node
   linkType: hard
 
@@ -5137,7 +5135,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-jest@npm:^27.3.1, babel-jest@npm:^27.5.1":
+"babel-jest@npm:^27.5.1":
   version: 27.5.1
   resolution: "babel-jest@npm:27.5.1"
   dependencies:
@@ -5395,7 +5393,7 @@ __metadata:
   resolution: "big-dipper-2.0-cosmos@workspace:."
   dependencies:
     dotenv-cli: ^6.0.0
-    prettier: 2
+    prettier: ^2.7.1
     turbo: latest
   languageName: unknown
   linkType: soft
@@ -6794,13 +6792,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"diff-sequences@npm:^26.6.2":
-  version: 26.6.2
-  resolution: "diff-sequences@npm:26.6.2"
-  checksum: 79af871776ef149a7ff3345d6b1bf37fe6e81f68632aa5542787851f6f60fba19b0be22fdd1e06046f56ae7382763ccfe94a982c39ee72bd107aef435ecbc0cf
-  languageName: node
-  linkType: hard
-
 "diff-sequences@npm:^27.5.1":
   version: 27.5.1
   resolution: "diff-sequences@npm:27.5.1"
@@ -6849,7 +6840,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dom-accessibility-api@npm:^0.5.6, dom-accessibility-api@npm:^0.5.9":
+"dom-accessibility-api@npm:^0.5.6":
   version: 0.5.14
   resolution: "dom-accessibility-api@npm:0.5.14"
   checksum: 782c813f75a09ba6735ef03b5e1624406a3829444ae49d5bdedd272a49d437ae3354f53e02ffc8c9fd9165880250f41546538f27461f839dd4ea1234e77e8d5e
@@ -7070,7 +7061,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enhanced-resolve@npm:^5.0.0, enhanced-resolve@npm:^5.10.0":
+"enhanced-resolve@npm:^5.10.0":
   version: 5.10.0
   resolution: "enhanced-resolve@npm:5.10.0"
   dependencies:
@@ -8603,7 +8594,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-tag@npm:^2.11.0, graphql-tag@npm:^2.12.6":
+"graphql-tag@npm:^2.0.0, graphql-tag@npm:^2.11.0, graphql-tag@npm:^2.12.6":
   version: 2.12.6
   resolution: "graphql-tag@npm:2.12.6"
   dependencies:
@@ -8623,7 +8614,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:^15.5.0":
+"graphql@npm:^15.0.0":
   version: 15.8.0
   resolution: "graphql@npm:15.8.0"
   checksum: 423325271db8858428641b9aca01699283d1fe5b40ef6d4ac622569ecca927019fce8196208b91dd1d8eb8114f00263fe661d241d0eb40c10e5bfd650f86ec5e
@@ -9690,18 +9681,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-diff@npm:^26.0.0":
-  version: 26.6.2
-  resolution: "jest-diff@npm:26.6.2"
-  dependencies:
-    chalk: ^4.0.0
-    diff-sequences: ^26.6.2
-    jest-get-type: ^26.3.0
-    pretty-format: ^26.6.2
-  checksum: d00d297f31e1ac0252127089892432caa7a11c69bde29cf3bb6c7a839c8afdb95cf1fd401f9df16a4422745da2e6a5d94b428b30666a2540c38e1c5699915c2d
-  languageName: node
-  linkType: hard
-
 "jest-diff@npm:^27.5.1":
   version: 27.5.1
   resolution: "jest-diff@npm:27.5.1"
@@ -9810,13 +9789,6 @@ __metadata:
     jest-mock: ^29.1.2
     jest-util: ^29.1.2
   checksum: 9af99f8ede5f99781dc88e5fef164292a95cb3b4291ed117c6755fb6048bd8b0a4b597efd87d673976c8a3d2f1d42265613dbfddef628bc9af290d303a061737
-  languageName: node
-  linkType: hard
-
-"jest-get-type@npm:^26.3.0":
-  version: 26.3.0
-  resolution: "jest-get-type@npm:26.3.0"
-  checksum: 1cc6465ae4f5e880be22ba52fd270fa64c21994915f81b41f8f7553a7957dd8e077cc8d03035de9412e2d739f8bad6a032ebb5dab5805692a5fb9e20dd4ea666
   languageName: node
   linkType: hard
 
@@ -9933,7 +9905,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-matcher-utils@npm:^27.5.1":
+"jest-matcher-utils@npm:^27.0.0, jest-matcher-utils@npm:^27.5.1":
   version: 27.5.1
   resolution: "jest-matcher-utils@npm:27.5.1"
   dependencies:
@@ -11292,7 +11264,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"micromatch@npm:^4.0.0, micromatch@npm:^4.0.4":
+"micromatch@npm:^4.0.4":
   version: 4.0.5
   resolution: "micromatch@npm:4.0.5"
   dependencies:
@@ -12307,7 +12279,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:2":
+"prettier@npm:^2.7.1":
   version: 2.7.1
   resolution: "prettier@npm:2.7.1"
   bin:
@@ -12323,7 +12295,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^26.0.0, pretty-format@npm:^26.6.2":
+"pretty-format@npm:^26.6.2":
   version: 26.6.2
   resolution: "pretty-format@npm:26.6.2"
   dependencies:
@@ -12335,7 +12307,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^27.0.2, pretty-format@npm:^27.5.1":
+"pretty-format@npm:^27.0.0, pretty-format@npm:^27.5.1":
   version: 27.5.1
   resolution: "pretty-format@npm:27.5.1"
   dependencies:
@@ -12836,29 +12808,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"recharts@npm:2.1.12":
-  version: 2.1.12
-  resolution: "recharts@npm:2.1.12"
-  dependencies:
-    classnames: ^2.2.5
-    d3-interpolate: ^2.0.0
-    d3-scale: ^3.0.0
-    d3-shape: ^2.0.0
-    eventemitter3: ^4.0.1
-    lodash: ^4.17.19
-    react-is: ^16.10.2
-    react-resize-detector: ^7.1.2
-    react-smooth: ^2.0.1
-    recharts-scale: ^0.4.4
-    reduce-css-calc: ^2.1.8
-  peerDependencies:
-    react: ^16.0.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
-  checksum: 610917e2dd491ba863283d32ab38af2d2e2c51fbbd86a6d32bac37209d8eff29c51290864fbaa4279b80445b51286798e9ad9c337de74c2e3615ebac384ca8fa
-  languageName: node
-  linkType: hard
-
-"recharts@npm:^2.0.8":
+"recharts@npm:^2.1.15":
   version: 2.1.15
   resolution: "recharts@npm:2.1.15"
   dependencies:
@@ -13345,7 +13295,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:7.x, semver@npm:^7.2.1, semver@npm:^7.3.2, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7":
+"semver@npm:7.x, semver@npm:^7.2.1, semver@npm:^7.3.2, semver@npm:^7.3.5, semver@npm:^7.3.7":
   version: 7.3.8
   resolution: "semver@npm:7.3.8"
   dependencies:
@@ -13890,21 +13840,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"subscriptions-transport-ws@npm:^0.10.0":
-  version: 0.10.0
-  resolution: "subscriptions-transport-ws@npm:0.10.0"
-  dependencies:
-    backo2: ^1.0.2
-    eventemitter3: ^3.1.0
-    iterall: ^1.2.1
-    symbol-observable: ^1.0.4
-    ws: ^5.2.0 || ^6.0.0 || ^7.0.0
-  peerDependencies:
-    graphql: ">=0.10.0"
-  checksum: 0e34bb31e82bde6db7022393997725338488d392b4d54965c29fc9ad38693538c525f9f255b2adf917535bcda82ea325167c303ec30fa0ce076c0d7f7aa0c57d
-  languageName: node
-  linkType: hard
-
 "subscriptions-transport-ws@npm:^0.11.0":
   version: 0.11.0
   resolution: "subscriptions-transport-ws@npm:0.11.0"
@@ -14394,21 +14329,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-loader@npm:^9.2.6":
-  version: 9.4.1
-  resolution: "ts-loader@npm:9.4.1"
-  dependencies:
-    chalk: ^4.1.0
-    enhanced-resolve: ^5.0.0
-    micromatch: ^4.0.0
-    semver: ^7.3.4
-  peerDependencies:
-    typescript: "*"
-    webpack: ^5.0.0
-  checksum: b8947f6d396621cc3f6ba8d4c14fa09eba03c4b7eeabbc429481e923a973c244fb80feb44e900f03fc1010755a6bf14fc561c574fb79e324f39b5b6ef1dcca6c
-  languageName: node
-  linkType: hard
-
 "ts-log@npm:^2.2.3":
   version: 2.2.5
   resolution: "ts-log@npm:2.2.5"
@@ -14670,7 +14590,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.3.5, typescript@npm:^4.7.4, typescript@npm:^4.8.4":
+"typescript@npm:^4.7.4, typescript@npm:^4.8.4":
   version: 4.8.4
   resolution: "typescript@npm:4.8.4"
   bin:
@@ -14680,7 +14600,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.3.5#~builtin<compat/typescript>, typescript@patch:typescript@^4.7.4#~builtin<compat/typescript>, typescript@patch:typescript@^4.8.4#~builtin<compat/typescript>":
+"typescript@patch:typescript@^4.7.4#~builtin<compat/typescript>, typescript@patch:typescript@^4.8.4#~builtin<compat/typescript>":
   version: 4.8.4
   resolution: "typescript@patch:typescript@npm%3A4.8.4#~builtin<compat/typescript>::version=4.8.4&hash=701156"
   bin:
@@ -15061,11 +14981,11 @@ __metadata:
   resolution: "web-agoric@workspace:apps/web-agoric"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -15077,14 +14997,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -15098,9 +15017,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -15115,6 +15035,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -15125,16 +15046,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -15143,11 +15064,11 @@ __metadata:
   resolution: "web-akash@workspace:apps/web-akash"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -15159,15 +15080,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -15181,9 +15100,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -15198,6 +15118,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -15208,16 +15129,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -15226,11 +15147,11 @@ __metadata:
   resolution: "web-assetmantle@workspace:apps/web-assetmantle"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -15242,15 +15163,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -15264,9 +15183,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -15281,6 +15201,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -15291,16 +15212,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -15309,11 +15230,11 @@ __metadata:
   resolution: "web-band@workspace:apps/web-band"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -15325,15 +15246,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -15347,9 +15266,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -15364,6 +15284,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -15374,16 +15295,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -15392,11 +15313,11 @@ __metadata:
   resolution: "web-bitsong@workspace:apps/web-bitsong"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -15408,15 +15329,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -15430,9 +15349,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -15447,6 +15367,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -15457,16 +15378,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -15475,11 +15396,11 @@ __metadata:
   resolution: "web-comdex@workspace:apps/web-comdex"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -15491,15 +15412,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -15513,9 +15432,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -15530,6 +15450,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -15540,16 +15461,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -15558,11 +15479,11 @@ __metadata:
   resolution: "web-cosmos@workspace:apps/web-cosmos"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -15574,15 +15495,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -15596,9 +15515,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -15613,6 +15533,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -15623,16 +15544,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -15641,11 +15562,11 @@ __metadata:
   resolution: "web-crescent@workspace:apps/web-crescent"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -15657,15 +15578,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -15679,9 +15598,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -15696,6 +15616,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -15706,16 +15627,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -15724,11 +15645,11 @@ __metadata:
   resolution: "web-desmos@workspace:apps/web-desmos"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -15740,15 +15661,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -15762,9 +15681,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -15779,6 +15699,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -15789,16 +15710,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -15807,6 +15728,10 @@ __metadata:
   resolution: "web-elrond@workspace:apps/web-elrond"
   dependencies:
     "@apollo/client": ^3.1.5
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -15818,15 +15743,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -15840,7 +15763,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -15854,6 +15780,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -15864,15 +15791,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -15881,11 +15809,11 @@ __metadata:
   resolution: "web-emoney@workspace:apps/web-emoney"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -15897,15 +15825,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -15919,9 +15845,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -15936,6 +15863,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -15946,16 +15874,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -15964,11 +15892,11 @@ __metadata:
   resolution: "web-evmos@workspace:apps/web-evmos"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -15980,15 +15908,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -16002,9 +15928,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -16019,6 +15946,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -16029,16 +15957,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -16047,11 +15975,11 @@ __metadata:
   resolution: "web-flow@workspace:apps/web-flow"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.0.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -16063,15 +15991,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.3.1
@@ -16085,9 +16011,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -16102,6 +16029,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -16112,16 +16040,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -16130,11 +16058,11 @@ __metadata:
   resolution: "web-likecoin@workspace:apps/web-likecoin"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -16146,15 +16074,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -16168,9 +16094,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -16185,6 +16112,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -16195,16 +16123,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -16213,11 +16141,11 @@ __metadata:
   resolution: "web-nomic@workspace:apps/web-nomic"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -16229,15 +16157,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -16251,9 +16177,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -16268,6 +16195,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -16278,16 +16206,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -16296,11 +16224,11 @@ __metadata:
   resolution: "web-nym@workspace:apps/web-nym"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -16312,15 +16240,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -16334,9 +16260,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -16351,6 +16278,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -16361,16 +16289,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -16379,11 +16307,11 @@ __metadata:
   resolution: "web-osmosis@workspace:apps/web-osmosis"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -16395,15 +16323,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -16417,9 +16343,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -16434,6 +16361,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -16444,16 +16372,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -16462,11 +16390,11 @@ __metadata:
   resolution: "web-persistence@workspace:apps/web-persistence"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -16478,15 +16406,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -16500,9 +16426,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -16517,6 +16444,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -16527,16 +16455,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -16545,11 +16473,11 @@ __metadata:
   resolution: "web-provenance@workspace:apps/web-provenance"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -16561,15 +16489,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -16583,9 +16509,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -16600,6 +16527,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -16610,16 +16538,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -16628,11 +16556,11 @@ __metadata:
   resolution: "web-regen@workspace:apps/web-regen"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -16644,15 +16572,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -16666,9 +16592,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -16683,6 +16610,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -16693,16 +16621,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -16711,11 +16639,11 @@ __metadata:
   resolution: "web-rizon@workspace:apps/web-rizon"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -16727,15 +16655,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -16749,9 +16675,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -16766,6 +16693,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -16776,16 +16704,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -16794,11 +16722,11 @@ __metadata:
   resolution: "web-shentu@workspace:apps/web-shentu"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -16810,15 +16738,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -16832,9 +16758,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -16849,6 +16776,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -16859,16 +16787,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -16877,11 +16805,11 @@ __metadata:
   resolution: "web-sifchain@workspace:apps/web-sifchain"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -16893,15 +16821,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -16915,9 +16841,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -16932,6 +16859,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -16942,16 +16870,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -16960,11 +16888,11 @@ __metadata:
   resolution: "web-solana@workspace:apps/web-solana"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.2
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -16977,15 +16905,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     bs58: ^4.0.1
@@ -17000,9 +16926,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -17017,6 +16944,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -17027,16 +16955,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -17059,11 +16987,11 @@ __metadata:
   resolution: "web-stride@workspace:apps/web-stride"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/cli": ^2.13.7
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -17075,15 +17003,13 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@tsconfig/cypress": ^1.0.1
     "@types/big.js": ^6.1.2
-    "@types/jest": ^26.0.13
-    "@types/node": ^14.6.4
-    "@types/react": ^16.9.49
-    "@types/testing-library__react": ^10.2.0
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
+    "@types/react": 17.0.39
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
-    babel-jest: ^27.3.1
     bech32: ^2.0.0
     big.js: ^6.1.1
     classnames: ^2.2.6
@@ -17097,9 +17023,10 @@ __metadata:
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     express: ^4.17.1
-    graphql: ^15.5.0
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.1
     jest-localstorage-mock: ^2.4.18
@@ -17114,6 +17041,7 @@ __metadata:
     next-transpile-modules: ^9.1.0
     nodemon: ^2.0.4
     numeral: 2.0.4
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -17124,16 +17052,16 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: ^2.0.8
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
-    subscriptions-transport-ws: ^0.10.0
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^27.0.7
-    ts-loader: ^9.2.6
     ts-node: ^10.4.0
     tsconfig: "*"
-    typescript: ^4.3.5
+    typescript: ^4.8.4
     ui: "*"
+    ws: ^8.9.0
   languageName: unknown
   linkType: soft
 
@@ -17143,10 +17071,10 @@ __metadata:
   dependencies:
     "@apollo/client": ^3.1.5
     "@graphql-codegen/cli": ^2.13.7
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^1.17.14
-    "@graphql-codegen/typescript-react-apollo": ^2.2.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
@@ -17160,12 +17088,12 @@ __metadata:
     "@types/big.js": ^6.1.2
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.3.4
-    "@types/jest": ^29.1.2
-    "@types/node": ^18.8.5
+    "@types/jest": ^27.0.0
+    "@types/node": ^18.11.3
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.15
-    "@types/react": ^17.0.47
+    "@types/react": 17.0.39
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -17184,10 +17112,10 @@ __metadata:
     eslint: ^7.32.0
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
-    graphql: ^15.5.0
-    graphql-tag: ^2.12.6
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^29.1.2
     jest-localstorage-mock: ^2.4.18
@@ -17200,7 +17128,7 @@ __metadata:
     next-translate: ^1.0.3
     next-transpile-modules: ^9.1.0
     numeral: 2.0.4
-    prop-types: ^15.8.1
+    prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: ^17.0.2
@@ -17211,14 +17139,13 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
-    recharts: 2.1.12
+    recharts: ^2.1.15
     recoil: ^0.4.1
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-loader: ^9.2.6
     ts-node: ^10.9.1
     tsconfig: "*"
-    typescript: ^4.7.4
+    typescript: ^4.8.4
     ui: "*"
     webpack: ^5.74.0
     ws: ^8.9.0
