@@ -15,9 +15,6 @@ const moduleExports = withTM(nextTranslate({
   reactStrictMode: true,
   poweredByHeader: false,
   basePath: `/${chainName}`,
-  env: {
-    CHAIN_TYPE: process.env.CHAIN_TYPE,
-  },
   typescript: {
     // TODO: Remove this once all the typescript errors are fixed
     ignoreBuildErrors: true,
