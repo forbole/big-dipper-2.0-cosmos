@@ -94,6 +94,7 @@
     "graphql:codegen": "turbo run graphql:codegen --continue"
   },
   "dependencies": {
+    "@changesets/cli": "^2.25.0",
     "dotenv-cli": "^6.0.0"
   },
   "devDependencies": {
