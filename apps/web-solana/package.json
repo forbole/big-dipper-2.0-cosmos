@@ -86,7 +86,6 @@
     "jest-transform-stub": "^2.0.0",
     "jest-watch-typeahead": "^0.6.1",
     "next-transpile-modules": "^9.1.0",
-    "nodemon": "^2.0.4",
     "react-test-renderer": "^17.0.1",
     "ts-jest": "^27.0.7",
     "ts-node": "^10.4.0",
