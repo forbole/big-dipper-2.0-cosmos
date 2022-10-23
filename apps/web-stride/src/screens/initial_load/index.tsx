@@ -1,6 +1,7 @@
 import BigDipperLogoRed from '@assets/big-dipper-red.svg';
 import BigDipperLogoWhite from '@assets/big-dipper-white.svg';
-import Logo from '@assets/logo';
+// TODO: support light mode
+import Logo from '@assets/logos/stride-dark.svg';
 import { LinearProgress } from '@material-ui/core';
 import { readTheme } from '@recoil/settings';
 import React from 'react';

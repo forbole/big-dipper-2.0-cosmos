@@ -1,6 +1,6 @@
 import React from 'react';
-import light from '@assets/chain-icon-light.svg?url';
-import dark from '@assets/chain-icon-dark.svg?url';
+import light from '@assets/icons/cosmos-light.svg?url';
+import dark from '@assets/icons/cosmos-dark.svg?url';
 import classnames from 'classnames';
 import { useStyles } from './useStyles';
 

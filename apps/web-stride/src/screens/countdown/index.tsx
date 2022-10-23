@@ -1,5 +1,5 @@
 /* eslint-disable */
-import Logo from '@assets/logo';
+import Logo from '@assets/logos/stride-dark.svg';
 import { Loading } from '@components';
 import { chainConfig } from '@configs';
 import { useInterval } from '@hooks';

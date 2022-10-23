@@ -16,7 +16,7 @@
         "src/components/icons"
       ],
       "@assets/*": [
-        "src/assets/*"
+        "../../packages/ui/src/assets/*"
       ],
       "@hooks": [
         "src/hooks"

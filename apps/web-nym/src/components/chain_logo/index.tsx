@@ -1,6 +1,6 @@
 import React from 'react';
-import LightUrl from '@assets/chain-logo-light.svg?url';
-import DarkUrl from '@assets/chain-logo-dark.svg?url';
+import LightUrl from '@assets/logos/nym-light.svg?url';
+import DarkUrl from '@assets/logos/nym-dark.svg?url';
 import classnames from 'classnames';
 import { useStyles } from '../chain_icon/useStyles';
 

@@ -8,7 +8,7 @@ import {
 import { useRecoilValue } from 'recoil';
 import { readTheme } from '@recoil/settings/selectors';
 import BigDipperLogoWhite from '@assets/big-dipper-white.svg';
-import BigDipperLogoRed from '@assets/big-dipper-red.svg';
+import BigDipperLogoRed from '@assets/big-dipper-red-sifchain.svg';
 import { useStyles } from './styles';
 import { useDesktop } from './hooks';
 import {

@@ -5,7 +5,7 @@ import { ExpandMore } from '@material-ui/icons';
 import { useRecoilValue } from 'recoil';
 import { readSelectedNetwork } from '@recoil/big_dipper_networks';
 import BigDipperLogoWhite from '@assets/big-dipper-white.svg';
-import BigDipperLogoRed from '@assets/big-dipper-red.svg';
+import BigDipperLogoRed from '@assets/big-dipper-red-sifchain.svg';
 import { HOME } from '@utils/go_to_page';
 import { readTheme } from '@recoil/settings';
 import { useStyles } from './styles';

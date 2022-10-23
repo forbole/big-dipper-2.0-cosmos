@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import Trans from 'next-translate/Trans';
 import { useRecoilValue } from 'recoil';
 import useTranslation from 'next-translate/useTranslation';
-import FooterLogoLight from '@assets/big-dipper-red.svg';
+import FooterLogoLight from '@assets/big-dipper-red-sifchain.svg';
 import FooterLogoDark from '@assets/big-dipper-white.svg';
 import {
   Button,

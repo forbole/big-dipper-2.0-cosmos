@@ -1,4 +1,4 @@
-import Icon from '@assets/icon';
+import Icon from '@assets/icons/stride-dark.svg';
 import { Typography } from '@material-ui/core';
 import { ExpandMore } from '@material-ui/icons';
 import { readSelectedNetwork } from '@recoil/big_dipper_networks';

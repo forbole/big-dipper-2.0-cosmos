@@ -4,7 +4,7 @@ import { useRecoilValue } from 'recoil';
 import { readMarket } from '@recoil/market';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
-import Logo from '@assets/logo';
+import Logo from '@assets/logos/stride-dark.svg';
 import { useStyles } from './styles';
 import { formatMarket } from './utils';
 

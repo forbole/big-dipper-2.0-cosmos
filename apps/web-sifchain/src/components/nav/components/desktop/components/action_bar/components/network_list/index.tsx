@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { Box } from '@material-ui/core';
 import BigDipperLogoWhite from '@assets/big-dipper-white.svg';
-import BigDipperLogoRed from '@assets/big-dipper-red.svg';
+import BigDipperLogoRed from '@assets/big-dipper-red-sifchain.svg';
 import { Networks } from '@src/components/nav/components';
 import { useRecoilValue } from 'recoil';
 import { readTheme } from '@recoil/settings/selectors';
