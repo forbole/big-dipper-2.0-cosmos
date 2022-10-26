@@ -8,7 +8,7 @@
   "prefix": {
     "consensus": "cosmosvalcons",
     "validator": "cosmosvaloper",
-    "account": "cosmos"
+    "account": "lava"
   },
   "genesis": {
     "time": "2021-07-13T08:00:00",
@@ -23,6 +23,6 @@
     }
   },
   "extra": {
-    "profile": true
+    "profile": false
   }
 }
