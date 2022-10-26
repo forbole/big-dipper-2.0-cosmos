@@ -5,12 +5,12 @@
     "links": [
         {
             "name": "Testnet",
-            "chain_id": "cudos-testnet-public-2",
+            "chain_id": "cudos-testnet-public-3",
             "url": "https://explorer.testnet.cudos.org/"
         },
         {
             "name": "Mainnet",
-            "chain_id": "TBA",
+            "chain_id": "cudos-1",
             "url": "https://explorer.cudos.org/"
         }
     ]
