@@ -117,7 +117,9 @@ export interface PaletteSettings {
 export interface ChainConfig extends ChainSettings {
   chainName: string;
   title: string;
-  profile: boolean;
+  extra: {
+    profile: boolean;
+  };
   previewImage: string;
   themes: {
     default: string;
