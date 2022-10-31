@@ -4,7 +4,7 @@ import { ExpandMore } from '@material-ui/icons';
 import { Typography } from '@material-ui/core';
 import { useRecoilValue } from 'recoil';
 import { readSelectedNetwork } from '@recoil/big_dipper_networks';
-import { chainConfig } from 'ui/dist';
+import { chainConfig } from 'ui/src';
 import { useStyles } from './styles';
 
 const Network:React.FC<{

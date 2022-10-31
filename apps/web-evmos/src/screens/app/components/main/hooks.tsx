@@ -5,7 +5,7 @@ import {
   readTheme,
   getThemeTemplate,
 } from '@recoil/settings';
-import { chainConfig } from 'ui/dist';
+import { chainConfig } from 'ui/src';
 import dayjs from '@utils/dayjs';
 
 export const useTheme = () => {

@@ -3,7 +3,7 @@ import * as R from 'ramda';
 import {
   useTokenPriceHistoryQuery,
 } from '@graphql/types/general_types';
-import { chainConfig } from 'ui/dist';
+import { chainConfig } from 'ui/src';
 import { HeroState } from './types';
 
 export const useHero = () => {

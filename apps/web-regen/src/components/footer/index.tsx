@@ -10,7 +10,7 @@ import {
   Divider,
   Typography,
 } from '@material-ui/core';
-import { chainConfig, generalConfig } from 'ui/dist';
+import { chainConfig, generalConfig } from 'ui/src';
 import { readTheme } from '@recoil/settings/selectors';
 import { SocialMedia } from './components';
 import {

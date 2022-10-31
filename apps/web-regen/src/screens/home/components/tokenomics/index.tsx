@@ -12,7 +12,7 @@ import {
   Cell,
   Tooltip,
 } from 'recharts';
-import { chainConfig } from 'ui/dist';
+import { chainConfig } from 'ui/src';
 import { useStyles } from './styles';
 import { useTokenomics } from './hooks';
 

@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { chainConfig } from 'ui/dist';
+import { chainConfig } from 'ui/src';
 
 /**
  * Helper Function to get Denom from a list
