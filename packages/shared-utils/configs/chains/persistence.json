@@ -1,7 +1,9 @@
 {
   "chainName": "persistence",
   "title": "Persistence Block Explorer",
-  "profile": true,
+  "extra": {
+    "profile": true
+  },
   "previewImage": "https://s3.bigdipper.live/persistence.pngg",
   "themes": {
     "default": "dark",

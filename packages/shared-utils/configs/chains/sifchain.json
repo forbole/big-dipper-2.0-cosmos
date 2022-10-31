@@ -1,7 +1,9 @@
 {
   "chainName": "sifchain",
   "title": "Sifchain Block Explorer",
-  "profile": true,
+  "extra": {
+    "profile": true
+  },
   "previewImage": "https://s3.bigdipper.live/sifchain.png",
   "themes": {
     "default": "light",

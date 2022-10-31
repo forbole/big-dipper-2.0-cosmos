@@ -49,7 +49,7 @@ export const useProfileDetails = () => {
     const regex = /^@/;
     const profileDtag = router.query.dtag as string;
     const regexCheck = regex.test(profileDtag);
-    const configProfile = chainConfig.profile;
+    const configProfile = chainConfig.extra.profile;
     handleSetState(initialState);
 
     if (!regexCheck || !configProfile) {

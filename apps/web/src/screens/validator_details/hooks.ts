@@ -80,7 +80,7 @@ export const useValidatorDetails = () => {
         loading: false,
         exist: false,
       });
-    } else if (chainConfig.profile) {
+    } else if (chainConfig.extra.profile) {
       const address = validatorToDelegatorAddress(router.query.address as string);
       fetchDesmosProfile(address);
     }

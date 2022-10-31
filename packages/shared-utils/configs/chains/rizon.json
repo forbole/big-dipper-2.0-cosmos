@@ -1,7 +1,9 @@
 {
   "chainName": "rizon",
   "title": "Rizon Block Explorer",
-  "profile": true,
+  "extra": {
+    "profile": true
+  },
   "previewImage": "https://s3.bigdipper.live/rizon.png",
   "themes": {
     "default": "dark",

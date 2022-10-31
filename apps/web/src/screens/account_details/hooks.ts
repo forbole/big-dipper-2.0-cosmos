@@ -78,7 +78,7 @@ export const useAccountDetails = () => {
         loading: false,
         exists: false,
       });
-    } else if (chainConfig.profile) {
+    } else if (chainConfig.extra.profile) {
       fetchDesmosProfile(router.query.address as string);
     }
   },

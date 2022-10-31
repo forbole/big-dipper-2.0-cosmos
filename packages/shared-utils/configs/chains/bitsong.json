@@ -1,7 +1,9 @@
 {
   "chainName": "bitsong",
   "title": "Bitsong Block Explorer",
-  "profile": true,
+  "extra": {
+    "profile": true
+  },
   "previewImage": "https://s3.bigdipper.live/bitsong.png",
   "themes": {
     "default": "dark",

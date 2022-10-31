@@ -2,9 +2,9 @@ const generalConfig = require('../configs/general.json');
 
 function nextConfig(chainConfigJson) {
   const basePath = `/${chainConfigJson.chainName}`;
-  const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE;
+  const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE ?? 'testnet';
   const { chains, ...settings } = chainConfigJson;
-  let chain = chains.find(c => c.id === chainType);
+  let chain = chains.find(c => c.chainType?.toLowerCase() === chainType?.toLowerCase());
   if (!chain) [chain] = chains;
   if (!chain) throw new Error(`Config not found for CHAIN_NAME ${chainConfigJson.chainName}`);
   const chainConfig = {

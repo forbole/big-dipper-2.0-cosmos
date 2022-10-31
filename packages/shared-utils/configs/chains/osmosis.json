@@ -1,7 +1,9 @@
 {
   "chainName": "osmosis",
   "title": "Osmosis Block Explorer",
-  "profile": true,
+  "extra": {
+    "profile": true
+  },
   "previewImage": "https://s3.bigdipper.live/osmosis.png",
   "themes": {
     "default": "dark",

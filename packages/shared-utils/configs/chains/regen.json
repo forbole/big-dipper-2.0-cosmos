@@ -1,7 +1,9 @@
 {
   "chainName": "regen",
   "title": "Regen Network Block Explorer",
-  "profile": true,
+  "extra": {
+    "profile": true
+  },
   "previewImage": "https://s3.bigdipper.live/regen.png",
   "themes": {
     "default": "light",

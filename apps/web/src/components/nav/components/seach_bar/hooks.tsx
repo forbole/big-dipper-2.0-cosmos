@@ -42,7 +42,7 @@ export const useSearchBar = (t) => {
         toast(t('common:invalidAddress'));
       }
     } else if (/^@/.test(parsedValue)) {
-      const configProfile = chainConfig.profile;
+      const configProfile = chainConfig.extra.profile;
       if (!configProfile) {
         toast(t('common:profilesNotEnabled'));
       } else if (parsedValue === '@') {

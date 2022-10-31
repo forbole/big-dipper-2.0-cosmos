@@ -1,7 +1,9 @@
 {
   "chainName": "akash",
   "title": "Akash Block Explorer",
-  "profile": true,
+  "extra": {
+    "profile": true
+  },
   "previewImage": "https://s3.bigdipper.live/akash.png",
   "themes": {
     "default": "dark",

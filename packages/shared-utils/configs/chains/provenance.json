@@ -1,7 +1,9 @@
 {
   "chainName": "provenance",
   "title": "Provenance Block Explorer",
-  "profile": true,
+  "extra": {
+    "profile": true
+  },
   "previewImage": "https://s3.bigdipper.live/provenance.png",
   "themes": {
     "default": "dark",

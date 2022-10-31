@@ -37,7 +37,7 @@ export const useSearchBar = (_t) => {
       // } else if (new RegExp(userRegex).test(parsedValue)) {
       //   router.push(ACCOUNT_DETAILS(parsedValue));
       // } else if (/^@/.test(parsedValue)) {
-      //   const configProfile = chainConfig.profile;
+      //   const configProfile = chainConfig.extra.profile;
       //   if (!configProfile) {
       //     toast(t('common:profilesNotEnabled'));
       //   } else if (parsedValue === '@') {

@@ -1,7 +1,9 @@
 {
   "chainName": "agoric",
   "title": "Agoric Block Explorer",
-  "profile": true,
+  "extra": {
+    "profile": true
+  },
   "previewImage": "https://s3.bigdipper.live/agoric.png",
   "themes": {
     "default": "light",

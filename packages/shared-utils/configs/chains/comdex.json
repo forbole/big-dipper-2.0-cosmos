@@ -1,7 +1,9 @@
 {
   "chainName": "comdex",
   "title": "Comdex Block Explorer",
-  "profile": true,
+  "extra": {
+    "profile": true
+  },
   "previewImage": "https://s3.bigdipper.live/comdex.png",
   "themes": {
     "default": "dark",

@@ -42,7 +42,7 @@ export const useProfileRecoil = (address: string): AvatarName | null => {
   });
 
   useEffect(() => {
-    if (chainConfig.profile
+    if (chainConfig.extra.profile
       && delegatorAddress
       && rawProfile === null) {
       fetchProfile();
@@ -83,7 +83,7 @@ export const useProfilesRecoil = (addresses: string[]): AvatarName[] => {
   });
 
   useEffect(() => {
-    if (chainConfig.profile) {
+    if (chainConfig.extra.profile) {
       fetchProfiles();
     }
   }, [delegatorAddresses]);

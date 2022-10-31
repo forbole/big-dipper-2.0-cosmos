@@ -1,7 +1,9 @@
 {
   "chainName": "nomic",
   "title": "Nomic Block Explorer",
-  "profile": true,
+  "extra": {
+    "profile": true
+  },
   "previewImage": "https://s3.bigdipper.live/nomic.png",
   "themes": {
     "default": "dark",

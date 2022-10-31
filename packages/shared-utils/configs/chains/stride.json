@@ -1,7 +1,9 @@
 {
   "chainName": "stride",
   "title": "Stride Block Explorer",
-  "profile": true,
+  "extra": {
+    "profile": true
+  },
   "previewImage": "https://s3.bigdipper.live/stride.png",
   "themes": {
     "default": "light",

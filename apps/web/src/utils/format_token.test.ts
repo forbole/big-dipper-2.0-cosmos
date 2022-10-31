@@ -4,6 +4,30 @@ import {
   formatToken,
 } from './format_token';
 
+jest.mock('ui/dist', () => ({
+  chainConfig: {
+    primaryTokenUnit: 'udaric',
+    tokenUnits: {
+      udaric: {
+        display: 'daric',
+        exponent: 6,
+      },
+      upotic: {
+        display: 'potic',
+        exponent: 0,
+      },
+      ubar: {
+        display: 'bar',
+        exponent: 8,
+      },
+      rowan: {
+        display: 'rowan',
+        exponent: 18,
+      },
+    },
+  },
+}));
+
 // ==================================
 // unit tests
 // ==================================
@@ -113,7 +137,7 @@ describe('utils: formatToken', () => {
     const results = formatToken('1000001', 'upotic');
     expect(results.value).toBe('1000001');
     expect(results.baseDenom).toBe('upotic');
-    expect(results.displayDenom).toBe('potic');
+    expect(results.displayDenom).toBe('upotic');
   });
 
   it('format correctly #4', async () => {

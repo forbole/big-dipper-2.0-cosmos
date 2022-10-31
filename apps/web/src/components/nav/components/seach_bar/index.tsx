@@ -11,7 +11,7 @@ const SearchBar: React.FC<{className?: string}> = ({ className }) => {
   } = useSearchBar(t);
 
   let placeholderText;
-  if (chainConfig.profile) {
+  if (chainConfig.extra.profile) {
     placeholderText = t('searchBarPlaceholderDtag');
   } else {
     placeholderText = t('searchBarPlaceholder');

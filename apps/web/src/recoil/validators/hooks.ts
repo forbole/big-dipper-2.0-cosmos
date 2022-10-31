@@ -67,7 +67,7 @@ export const useValidatorRecoil = () => {
   });
 
   const setProfiles = useRecoilCallback(({ set }) => async (data: ValidatorAddressesQuery) => {
-    if (chainConfig.profile) {
+    if (chainConfig.extra.profile) {
       let profiles = [];
       data?.validator?.filter((x) => x.validatorInfo).forEach((x) => {
         const delegatorAddress = x.validatorInfo.selfDelegateAddress;

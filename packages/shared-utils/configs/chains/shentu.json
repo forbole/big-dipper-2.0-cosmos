@@ -1,7 +1,9 @@
 {
   "chainName": "shentu",
   "title": "Shentu Block Explorer",
-  "profile": true,
+  "extra": {
+    "profile": true
+  },
   "previewImage": "https://s3.bigdipper.live/shentu.png",
   "themes": {
     "default": "light",

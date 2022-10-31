@@ -1,7 +1,9 @@
 {
   "chainName": "crescent",
   "title": "Crescent Block Explorer",
-  "profile": true,
+  "extra": {
+    "profile": true
+  },
   "previewImage": "https://s3.bigdipper.live/crescent.png",
   "themes": {
     "default": "dark",

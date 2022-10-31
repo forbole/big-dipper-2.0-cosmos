@@ -1,7 +1,9 @@
 {
   "chainName": "nym",
   "title": "NYM Block Explorer",
-  "profile": true,
+  "extra": {
+    "profile": true
+  },
   "previewImage": "https://s3.bigdipper.live/nym.png",
   "themes": {
     "default": "light",
