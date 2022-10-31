@@ -5743,9 +5743,9 @@ export type ValidatorsQuery = {
     & { consensusAddress: Validator['consensus_address'], selfDelegateAddress: Validator['self_delegate_address'] }
     & {
       validatorStatuses?: Maybe<(
-      { __typename?: 'validator_status' }
-      & Pick<Validator_Status, 'jailed' | 'tombstoned' | 'in_active_set' | 'height'>
-    & { inActiveSet: Validator_Status['in_active_set'] }
+        { __typename?: 'validator_status' }
+        & Pick<Validator_Status, 'jailed' | 'tombstoned' | 'in_active_set' | 'height'>
+      & { inActiveSet: Validator_Status['in_active_set'] }
     )>, validatorVotingPowers: Array<(
       { __typename?: 'validator_voting_power' }
       & { votingPower: Validator_Voting_Power['voting_power'] }

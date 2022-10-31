@@ -12,14 +12,11 @@ import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import {
   Box,
   Tag,
-  InfoPopover,
-  ConditionExplanation,
 } from '@components';
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { getValidatorStatus } from '@utils/get_validator_status';
 import { useStyles } from './styles';
-import { getCondition } from './utils';
 import {
   StatusType, OverviewType,
 } from '../../types';
@@ -36,8 +33,7 @@ const ValidatorOverview: React.FC<{
     const { t } = useTranslation('validators');
     const { handleCopyToClipboard } = useAddress(t);
 
-    const statusTheme = getValidatorStatus(status.status, status.jailed, status.tombstoned);
-    const condition = getCondition(status.condition, status.status);
+    const statusTheme = getValidatorStatus(status.inActiveSet, status.jailed, status.tombstoned);
 
     const statusItems = [
       {
@@ -48,7 +44,7 @@ const ValidatorOverview: React.FC<{
         ),
         value: (
           <Tag
-            value={t(statusTheme.status)}
+            value={statusTheme.status}
             theme={statusTheme.theme as any}
             className={classes.statusTag}
           />
@@ -67,53 +63,6 @@ const ValidatorOverview: React.FC<{
           >
             {`${numeral(status.commission * 100).format('0.00')}%`}
           </Typography>
-        ),
-      },
-      {
-        key: (
-          <Typography variant="h4" className="label condition">
-            {t('condition')}
-            <InfoPopover
-              content={<ConditionExplanation />}
-            />
-          </Typography>
-        ),
-        value: (
-          status.status === 3 ? (
-            <div className="condition__body">
-              <InfoPopover
-                content={(
-                  <>
-                    <Typography variant="body1">
-                      {t('missedBlockCounter', {
-                        amount: numeral(status.missedBlockCounter).format('0,0'),
-                      })}
-                    </Typography>
-                    <Typography variant="body1">
-                      {t('signedBlockWindow', {
-                        amount: numeral(status.signedBlockWindow).format('0,0'),
-                      })}
-                    </Typography>
-                  </>
-              )}
-                display={(
-                  <Typography
-                    variant="body1"
-                    className={classnames('value', condition)}
-                  >
-                    {t(condition)}
-                  </Typography>
-          )}
-              />
-            </div>
-          ) : (
-            <Typography
-              variant="body1"
-              className={classnames('value', 'condition', condition)}
-            >
-              {t(condition)}
-            </Typography>
-          )
         ),
       },
       {

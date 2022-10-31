@@ -5,7 +5,6 @@ import {
   useRecoilState,
   SetterOrUpdater,
 } from 'recoil';
-import Big from 'big.js';
 import {
   useMarketDataQuery,
   MarketDataQuery,
@@ -55,13 +54,9 @@ export const useMarketRecoil = () => {
       chainConfig.primaryTokenUnit,
     );
 
-    const bondedTokens = R.pathOr(1, ['bondedTokens', 0, 'bonded_tokens'], data);
+    // const bondedTokens = R.pathOr(1, ['bondedTokens', 0, 'bonded_tokens'], data);
 
-    const inflationWithCommunityTax = Big(1).times(inflation).toPrecision(2); // without community tax, need to change naming later
-    console.log('Big(rawSupplyAmount)=>', Big(rawSupplyAmount));
-    console.log('rawSupplyAmount=>', rawSupplyAmount); // 1
-    console.log('inflationWithCommunityTax=>', inflationWithCommunityTax); // 1.5
-    console.log('bondedTokens=>', bondedTokens); // 0
+    // const inflationWithCommunityTax = Big(1).times(inflation).toPrecision(2); // without community tax, need to change naming later
 
     const apr = 0;
     // const apr = bondedTokens ? Big(rawSupplyAmount).times(inflationWithCommunityTax).div(bondedTokens).toNumber() : 0;

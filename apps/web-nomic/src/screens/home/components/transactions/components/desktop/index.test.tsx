@@ -29,8 +29,6 @@ describe('screen: Home/Transactions/Desktop', () => {
               height: 2000,
               timestamp: '2021-02-18T09:02:28.668623',
               hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
-              messages: 12,
-              success: true,
             },
           ]}
         />

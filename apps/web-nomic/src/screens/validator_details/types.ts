@@ -7,10 +7,9 @@ export type OverviewType = {
 }
 
 export type StatusType = {
-  status: number;
-  jailed: boolean;
-  tombstoned: boolean;
-  condition: number;
+  inActiveSet: string;
+  jailed: string;
+  tombstoned: string;
   commission: number;
   signedBlockWindow: number;
   missedBlockCounter: number;

@@ -4,13 +4,11 @@ import { useState } from 'react';
 import { HeroState } from './types';
 
 export const useHero = () => {
-  const [state, setState] = useState<HeroState>({
+  const [state] = useState<HeroState>({
     loading: true,
     exists: true,
     tokenPriceHistory: [],
   });
-
-  console.log(setState);
 
   return {
     state,

@@ -194,6 +194,6 @@ export const darkTemplate:ThemeOptions = R.mergeDeepLeft(darkThemeOverride, comm
 export const deuteranopiaTemplate:ThemeOptions = R.mergeDeepLeft(deuteranopiaThemeOverride, common);
 export const tritanopiaTemplate:ThemeOptions = R.mergeDeepLeft(tritanopiaThemeOverride, common);
 
-// export const lightTheme = createTheme(lightTemplate);
-// export const darkTheme = createTheme(darkTemplate);
-// export const deuteranopiaTheme = createTheme(deuteranopiaTemplate);
+// export const lightTheme = createMuiTheme(lightTemplate);
+// export const darkTheme = createMuiTheme(darkTemplate);
+// export const deuteranopiaTheme = createMuiTheme(deuteranopiaTemplate);

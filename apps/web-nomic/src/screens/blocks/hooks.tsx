@@ -128,8 +128,6 @@ export const useBlocks = () => {
   const loadMoreItems = state.isNextPageLoading ? () => null : loadNextPage;
   const isItemLoaded = (index) => !state.hasNextPage || index < state.items.length;
 
-  console.log('state', state);
-
   return {
     state,
     loadNextPage,

@@ -5,7 +5,7 @@ export const columns:{
 }[] = [
   {
     key: 'block',
-    width: 30,
+    width: 15,
   },
   {
     key: 'hash',

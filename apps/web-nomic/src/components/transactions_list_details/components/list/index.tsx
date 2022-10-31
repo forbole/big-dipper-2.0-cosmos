@@ -16,7 +16,6 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import { mergeRefs } from '@utils/merge_refs';
 import {
   Loading,
-  Result,
 } from '@components';
 import {
   useList,

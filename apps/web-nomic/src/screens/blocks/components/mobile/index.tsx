@@ -60,7 +60,9 @@ const Mobile: React.FC<{
         <AvatarName
           address={x.proposer.address}
           imageUrl={x.proposer.imageUrl}
-          name={x.proposer.name}
+          name={getMiddleEllipsis(x.proposer.name, {
+            beginning: 16, ending: 10,
+          })}
         />
       ),
       hash: getMiddleEllipsis(x.hash, {

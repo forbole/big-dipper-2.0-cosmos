@@ -12,7 +12,6 @@ import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
 import Link from 'next/link';
-import { AvatarName } from '@components';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { useStyles } from './styles';
@@ -39,15 +38,8 @@ const Desktop: React.FC<{
       ),
       txs: numeral(x.txs).format('0,0'),
       time: dayjs.utc(x.timestamp).fromNow(),
-      proposer: (
-        <AvatarName
-          address={x.proposer.address}
-          imageUrl={x.proposer.imageUrl}
-          name={x.proposer.name}
-        />
-      ),
       hash: getMiddleEllipsis(x.hash, {
-        beginning: 6, ending: 5,
+        beginning: 15, ending: 15,
       }),
     });
   });

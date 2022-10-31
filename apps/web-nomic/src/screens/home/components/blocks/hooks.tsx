@@ -28,13 +28,12 @@ export const useBlocks = () => {
 
   const formatBlocks = (data: BlocksListenerSubscription) => {
     return data.blocks.map((x) => {
-      const proposerAddress = R.pathOr('', ['validator', 'validatorInfo', 'operatorAddress'], x);
       return ({
         height: x.height,
         txs: x.txs,
         hash: x.hash,
         timestamp: x.timestamp,
-        proposer: proposerAddress,
+        proposer: x.proposerAddress,
       });
     });
   };

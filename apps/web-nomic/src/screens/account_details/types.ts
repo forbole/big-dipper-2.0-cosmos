@@ -5,10 +5,6 @@ export type OverviewType = {
 
 export type BalanceType = {
   available: TokenUnit;
-  delegate: TokenUnit;
-  unbonding: TokenUnit;
-  reward: TokenUnit;
-  commission?: TokenUnit;
   total: TokenUnit;
 }
 
@@ -33,5 +29,4 @@ export type AccountDetailState = {
     data: OtherTokenType[];
     count: number;
   };
-  rewards: RewardsType;
 }

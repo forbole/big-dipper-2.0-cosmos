@@ -21,7 +21,6 @@ describe('component: SingleSlotMobile', () => {
           parentHash="parentHash"
           txs="txs"
           time="time"
-          proposer={<div id="proposer" />}
           height={<div id="height" />}
         />
       </MockTheme>,

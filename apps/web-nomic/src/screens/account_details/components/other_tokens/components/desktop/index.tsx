@@ -24,9 +24,7 @@ const Desktop: React.FC<{
   const formattedItems = items.map((x) => {
     return ({
       token: x.denom.toUpperCase(),
-      commission: formatNumber(x.commission.value, x.commission.exponent),
       available: formatNumber(x.available.value, x.available.exponent),
-      reward: formatNumber(x.reward.value, x.reward.exponent),
     });
   });
 

@@ -42,10 +42,9 @@ describe('screen: Validators/Desktop', () => {
               votingPower: 0,
               votingPowerPercent: 0,
               commission: 0,
-              condition: 0,
-              jailed: true,
-              status: 3,
-              tombstoned: false,
+              jailed: 'true',
+              inActiveSet: 'false',
+              tombstoned: 'false',
             },
           ]}
         />

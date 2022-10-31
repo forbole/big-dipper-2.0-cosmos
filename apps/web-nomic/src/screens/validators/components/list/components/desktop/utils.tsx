@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-  Typography,
-} from '@material-ui/core';
-import {
-  InfoPopover, ConditionExplanation,
-} from '@components';
 
-export const fetchColumns = (t): {
+export const fetchColumns = (): {
   key: string;
   align?: 'left' | 'center' | 'right' | 'justify' | 'inherit';
   width: number;
@@ -39,21 +33,9 @@ export const fetchColumns = (t): {
       sort: true,
     },
     {
-      key: 'condition',
-      align: 'center',
-      width: 15,
-      component: (
-        <Typography variant="h4" className="label popover">
-          {t('condition')}
-          <InfoPopover
-            content={<ConditionExplanation />}
-          />
-        </Typography>
-      ),
-    },
-    {
       key: 'status',
-      width: 10,
+      align: 'center',
+      width: 25,
     },
   ]);
 };

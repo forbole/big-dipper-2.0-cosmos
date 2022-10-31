@@ -64,7 +64,7 @@ export const useBlockDetails = () => {
     // Overview
     // ==========================
     const formatOverview = () => {
-      const proposerAddress = R.pathOr('', ['block', 0, 'validator', 'validatorInfo', 'operatorAddress'], data);
+      const proposerAddress = R.pathOr('', ['block', 0, 'operatorAddress'], data);
       const overview = {
         height: data.block[0].height,
         hash: data.block[0].hash,

@@ -10,7 +10,6 @@ import {
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import {
   SingleBlockMobile,
-  AvatarName,
 } from '@components';
 import { ItemType } from '../../types';
 
@@ -35,13 +34,6 @@ const Mobile: React.FC<{
               )}
               txs={numeral(x.txs).format('0,0')}
               time={dayjs.utc(x.timestamp).fromNow()}
-              proposer={(
-                <AvatarName
-                  address={x.proposer.address}
-                  imageUrl={x.proposer.imageUrl}
-                  name={x.proposer.name}
-                />
-              )}
               hash={getMiddleEllipsis(x.hash, {
                 beginning: 13, ending: 10,
               })}

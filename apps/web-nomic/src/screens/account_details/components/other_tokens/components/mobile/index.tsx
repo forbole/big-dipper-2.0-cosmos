@@ -21,8 +21,6 @@ const Mobile: React.FC<{
     <div className={classnames(className)}>
       {items.map((x, i) => {
         const available = formatNumber(x.available.value, x.available.exponent);
-        const reward = formatNumber(x.reward.value, x.reward.exponent);
-        const commission = formatNumber(x.commission.value, x.commission.exponent);
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
@@ -40,22 +38,6 @@ const Mobile: React.FC<{
                 </Typography>
                 <Typography variant="body1" className="value">
                   {available}
-                </Typography>
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('reward')}
-                </Typography>
-                <Typography variant="body1" className="value">
-                  {reward}
-                </Typography>
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('commission')}
-                </Typography>
-                <Typography variant="body1" className="value">
-                  {commission}
                 </Typography>
               </div>
             </div>

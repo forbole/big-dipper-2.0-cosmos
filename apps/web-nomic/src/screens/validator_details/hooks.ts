@@ -10,11 +10,7 @@ import {
 } from '@graphql/types/general_types';
 import { useDesmosProfile } from '@hooks';
 import { validatorToDelegatorAddress } from '@recoil/profiles';
-import { getValidatorCondition } from '@utils/get_validator_condition';
 import { chainConfig } from 'ui/dist';
-import {
-  SlashingParams,
-} from '@models';
 import { isValidAddress } from '@utils/prefix_convert';
 import { ValidatorDetailsState } from './types';
 
@@ -37,10 +33,9 @@ const initialState: ValidatorDetailsState = {
     website: '',
   },
   status: {
-    status: 0,
-    jailed: false,
-    tombstoned: false,
-    condition: 0,
+    inActiveSet: 'false',
+    jailed: 'false',
+    tombstoned: 'false',
     commission: 0,
     missedBlockCounter: 0,
     signedBlockWindow: 0,
@@ -131,19 +126,11 @@ export const useValidatorDetails = () => {
     // status
     // ============================
     const formatStatus = () => {
-      const slashingParams = SlashingParams.fromJson(R.pathOr({}, ['slashingParams', 0, 'params'], data));
-      const missedBlockCounter = R.pathOr(0, ['validatorSigningInfos', 0, 'missedBlocksCounter'], data.validator[0]);
-      const { signedBlockWindow } = slashingParams;
-      const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
-
       const profile = {
-        status: R.pathOr(3, ['validatorStatuses', 0, 'status'], data.validator[0]),
-        jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], data.validator[0]),
-        tombstoned: R.pathOr(false, ['validatorSigningInfos', 0, 'tombstoned'], data.validator[0]),
+        inActiveSet: R.pathOr('false', ['validatorStatuses', 'in_active_set'], data.validator[0]),
+        jailed: R.pathOr('false', ['validatorStatuses', 0, 'jailed'], data.validator[0]),
+        tombstoned: R.pathOr('false', ['validatorSigningInfos', 0, 'tombstoned'], data.validator[0]),
         commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], data.validator[0]),
-        condition,
-        missedBlockCounter,
-        signedBlockWindow,
         maxRate: R.pathOr('0', ['validator', 0, 'validatorInfo', 'maxRate'], data),
       };
 

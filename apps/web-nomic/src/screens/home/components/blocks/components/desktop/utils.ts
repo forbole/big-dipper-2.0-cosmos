@@ -6,9 +6,6 @@ export const columns:{
     key: 'height',
   },
   {
-    key: 'proposer',
-  },
-  {
     key: 'hash',
   },
   {

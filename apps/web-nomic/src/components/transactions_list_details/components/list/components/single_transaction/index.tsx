@@ -13,7 +13,7 @@ const SingleTransaction:React.FC<{
   hash: React.ReactNode;
   time: string;
 }> = ({
-  className, block, hash, time, messages, result, messageCount,
+  className, block, hash, time,
 }) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();

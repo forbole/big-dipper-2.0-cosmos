@@ -59,7 +59,7 @@ const ValidatorDetails = () => {
             <VotingPower
               className={classes.votingPower}
               data={state.votingPower}
-              status={status.status}
+              inActiveSet={status.inActiveSet}
             />
             <Blocks className={classes.blocks} />
           </span>
