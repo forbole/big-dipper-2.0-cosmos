@@ -3,7 +3,7 @@ import { RecoilRoot } from 'recoil';
 import { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import { useWindowOrigin } from '@hooks';
 import { Main } from './components';
 import {

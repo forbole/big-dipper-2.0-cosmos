@@ -13,11 +13,8 @@ import { VariableSizeGrid as Grid } from 'react-window';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import { mergeRefs } from '@utils/merge_refs';
-import {
-  Loading, Result,
-} from '@components';
+import { Loading } from '@components';
 import { useGrid } from '@hooks';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { TransactionsListState } from '../../types';
 import { columns } from './utils';
 import { useStyles } from './styles';
@@ -51,17 +48,11 @@ const Desktop: React.FC<TransactionsListState> = ({
     hash: (
       <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
         <Typography variant="body1" component="a">
-          {getMiddleEllipsis(x.hash, {
-            beginning: 20, ending: 15,
-          })}
+          {x.hash}
         </Typography>
       </Link>
     ),
-    result: (
-      <Result success={x.success} />
-    ),
     time: dayjs.utc(x.timestamp).fromNow(),
-    messages: numeral(x.messages.count).format('0,0'),
   }));
   return (
     <div className={classnames(className, classes.root)}>

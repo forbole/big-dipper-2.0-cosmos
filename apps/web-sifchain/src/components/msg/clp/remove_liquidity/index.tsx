@@ -7,7 +7,7 @@ import { MsgRemoveLiquidity } from '@models';
 import {
   useProfileRecoil,
 } from '@recoil/profiles';
-import { chainConfig } from '@src/configs';
+import { chainConfig } from 'ui/dist';
 
 const RemoveLiquidity = (props: {
   message: MsgRemoveLiquidity;

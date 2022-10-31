@@ -18,7 +18,7 @@ export const useStyles = () => {
             },
           },
           '& p.value': {
-            color: theme.palette.custom.fonts.fontTwo,
+            color: theme.palette.custom.fonts.fontTwo
           },
           '& a': {
             color: theme.palette.custom.fonts.highlight,

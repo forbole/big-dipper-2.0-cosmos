@@ -14,9 +14,9 @@ import {
 } from '@components';
 import { getValidatorConditionClass } from '@utils/get_validator_condition';
 import { getValidatorStatus } from '@utils/get_validator_status';
-import LiquidStakingTrueIcon from '@assets/liquid-staking-true.svg';
-import LiquidStakingFalseIcon from '@assets/liquid-staking-false.svg';
-import LiquidStakingTitleIcon from '@assets/liquid-staking-title.svg';
+import LiquidStakingTrueIcon from 'shared-utils/assets/liquid-staking-true.svg';
+import LiquidStakingFalseIcon from 'shared-utils/assets/liquid-staking-false.svg';
+import LiquidStakingTitleIcon from 'shared-utils/assets/liquid-staking-title.svg';
 import { useStyles } from './styles';
 import { fetchColumns } from './utils';
 import { ItemType } from '../../types';

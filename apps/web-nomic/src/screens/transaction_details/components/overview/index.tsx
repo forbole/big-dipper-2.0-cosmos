@@ -8,9 +8,7 @@ import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
 import useTranslation from 'next-translate/useTranslation';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
-import {
-  BoxDetails, Result,
-} from '@components';
+import { BoxDetails } from '@components';
 import { formatNumber } from '@utils/format_token';
 import { useStyles } from './styles';
 import { OverviewType } from '../../types';
@@ -50,13 +48,7 @@ const Overview: React.FC<{
     },
     {
       label: t('gas'),
-      detail: `${numeral(data.gasUsed).format('0,0.[00]')} / ${numeral(data.gasWanted).format('0,0.[00]')}`,
-    },
-    {
-      label: t('result'),
-      detail: (
-        <Result success={data.success} />
-      ),
+      detail: `${numeral(data.gas).format('0,0.[00]')} `,
     },
     {
       className: 'memo',
@@ -64,14 +56,6 @@ const Overview: React.FC<{
       detail: data.memo,
     },
   ];
-
-  if (!data.success) {
-    details.push({
-      className: 'memo',
-      label: t('error'),
-      detail: data.error,
-    });
-  }
 
   return (
     <BoxDetails

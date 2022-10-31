@@ -14,6 +14,8 @@ import { WebSocketLink } from '@apollo/client/link/ws';
 
 import { useMemo } from 'react';
 
+import { chainConfig } from 'ui/dist';
+
 const defaultOptions:any = {
   watchQuery: {
     fetchPolicy: 'no-cache',
@@ -28,11 +30,11 @@ const defaultOptions:any = {
 let apolloClient;
 
 const httpLink = new HttpLink({
-  uri: process.env.NEXT_PUBLIC_GRAPHQL_URL,
+  uri: process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql,
 });
 
 const wsLink = new WebSocketLink({
-  uri: process.env.NEXT_PUBLIC_GRAPHQL_WS ?? 'wss://localhost:3000',
+  uri: process.env.NEXT_PUBLIC_GRAPHQL_WS ?? chainConfig.endpoints.graphqlWebsocket ?? 'wss://localhost:3000',
   options: {
     reconnect: true,
   },

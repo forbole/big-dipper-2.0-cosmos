@@ -18,7 +18,6 @@ import { mergeRefs } from '@utils/merge_refs';
 import {
   SingleTransactionMobile,
   Loading,
-  Result,
 } from '@components';
 import {
   useList,
@@ -55,16 +54,12 @@ const Mobile: React.FC<TransactionsListState> = ({
       <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
         <Typography variant="body1" component="a">
           {getMiddleEllipsis(x.hash, {
-            beginning: 15, ending: 5,
+            beginning: 15, ending: 10,
           })}
         </Typography>
       </Link>
     ),
-    result: (
-      <Result success={x.success} />
-    ),
     time: dayjs.utc(x.timestamp).fromNow(),
-    messages: numeral(x.messages.count).format('0,0'),
   }));
 
   return (

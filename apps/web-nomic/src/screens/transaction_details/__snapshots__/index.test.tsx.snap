@@ -16,115 +16,20 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
       <div
         data={
           Object {
-            "error": "",
             "fee": Object {
               "baseDenom": "udaric",
               "displayDenom": "daric",
               "exponent": 6,
               "value": "0.000050",
             },
-            "gasUsed": 149488,
-            "gasWanted": 200000,
+            "gas": 149488,
             "hash": "7D373DE5C5FB03EA72006F6CEC8F908545D435AE1C598A1B53AD0770C243822A",
             "height": 54290,
             "memo": "",
-            "success": true,
             "timestamp": "2021-05-01T07:47:40.855759",
           }
         }
         id="Overview"
-      />
-      <div
-        className="makeStyles-messages"
-        id="Messages"
-        messages={
-          Array [
-            MsgDelegate {
-              "amount": Object {
-                "amount": "8371578",
-                "denom": "udaric",
-              },
-              "category": "staking",
-              "delegatorAddress": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
-              "json": Object {
-                "@type": "/cosmos.staking.v1beta1.MsgDelegate",
-                "amount": Object {
-                  "amount": "8371578",
-                  "denom": "udaric",
-                },
-                "delegator_address": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
-                "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
-              },
-              "type": "/cosmos.staking.v1beta1.MsgDelegate",
-              "validatorAddress": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
-            },
-          ]
-        }
-        onMessageFilterCallback={[Function]}
-        toggleMessageDisplay={[Function]}
-        viewRaw={false}
-      />
-      <div
-        id="Logs"
-        logs={
-          Array [
-            Object {
-              "events": Array [
-                Object {
-                  "attributes": Array [
-                    Object {
-                      "key": "validator",
-                      "value": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
-                    },
-                    Object {
-                      "key": "amount",
-                      "value": "8371578",
-                    },
-                  ],
-                  "type": "delegate",
-                },
-                Object {
-                  "attributes": Array [
-                    Object {
-                      "key": "action",
-                      "value": "delegate",
-                    },
-                    Object {
-                      "key": "sender",
-                      "value": "desmos1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8n8fv78",
-                    },
-                    Object {
-                      "key": "module",
-                      "value": "staking",
-                    },
-                    Object {
-                      "key": "sender",
-                      "value": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
-                    },
-                  ],
-                  "type": "message",
-                },
-                Object {
-                  "attributes": Array [
-                    Object {
-                      "key": "recipient",
-                      "value": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
-                    },
-                    Object {
-                      "key": "sender",
-                      "value": "desmos1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8n8fv78",
-                    },
-                    Object {
-                      "key": "amount",
-                      "value": "3094654udaric",
-                    },
-                  ],
-                  "type": "transfer",
-                },
-              ],
-            },
-          ]
-        }
       />
     </span>
   </div>

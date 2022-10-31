@@ -34,7 +34,7 @@ export const useStyles = () => {
           fill: theme.palette.custom.fonts.fontOne,
         },
         chartExtraLabel: {
-          fill: theme.palette.custom.fonts.fontTwo,
+          fill: theme.palette.custom.fonts.fontTwo
         },
         chartLabel: {
           fontSize: '1rem',

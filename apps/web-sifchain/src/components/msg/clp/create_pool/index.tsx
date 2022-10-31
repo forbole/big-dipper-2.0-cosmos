@@ -9,7 +9,7 @@ import { MsgCreatePool } from '@models';
 import {
   useProfileRecoil,
 } from '@recoil/profiles';
-import { chainConfig } from '@src/configs';
+import { chainConfig } from 'ui/dist';
 
 const CreatePool = (props: {
   message: MsgCreatePool;

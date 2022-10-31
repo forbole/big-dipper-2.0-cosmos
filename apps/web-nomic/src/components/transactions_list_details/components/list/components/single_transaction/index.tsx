@@ -12,9 +12,6 @@ const SingleTransaction:React.FC<{
   block: React.ReactNode;
   hash: React.ReactNode;
   time: string;
-  messageCount: string;
-  messages: any[];
-  result?: React.ReactNode;
 }> = ({
   className, block, hash, time, messages, result, messageCount,
 }) => {
@@ -44,34 +41,8 @@ const SingleTransaction:React.FC<{
               {time}
             </Typography>
           </div>
-          <div className={classnames(classes.item, 'messages')}>
-            <Typography variant="h4" className="label">
-              {t('messages')}
-            </Typography>
-            <Typography variant="body1" className="value">
-              {messageCount}
-            </Typography>
-          </div>
-          <div className={classnames(classes.item, 'result')}>
-            <Typography variant="h4" className="label">
-              {t('result')}
-            </Typography>
-            {result}
-          </div>
         </div>
         <Divider />
-        <div className={classes.item}>
-          <div className={classes.msgListContainer}>
-            {messages.map((x, i) => (
-              <div className={classes.msg} key={`${x.type}-${i}`}>
-                <div className={classes.tags}>
-                  {x.type}
-                </div>
-                {x.message}
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );

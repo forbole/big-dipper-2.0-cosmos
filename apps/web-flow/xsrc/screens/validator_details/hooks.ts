@@ -19,7 +19,7 @@ import {
 import { useDesmosProfile } from '@hooks';
 import { validatorToDelegatorAddress } from '@recoil/profiles';
 import { getValidatorCondition } from '@utils/get_validator_condition';
-import { chainConfig } from '@src/configs';
+import { chainConfig } from 'ui/dist';
 import {
   SlashingParams,
 } from '@models';
@@ -103,7 +103,7 @@ export const useValidatorDetails = () => {
 
   useEffect(() => {
     handleSetState(initialState);
-    if (chainConfig.extra.profile) {
+    if (chainConfig.profile) {
       const address = validatorToDelegatorAddress(R.pathOr('', ['query', 'address'], router));
 
       fetchDesmosProfile(address);

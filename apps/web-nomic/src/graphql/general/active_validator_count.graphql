@@ -1,10 +1,5 @@
 query ActiveValidatorCount {
-  activeTotal: validator_status_aggregate(where: {status: {_eq: 3}}) {
-    aggregate {
-      count
-    }
-  }
-  inactiveTotal: validator_status_aggregate(where: {status: {_neq: 3}}) {
+  activeTotal: validator_status_aggregate(where: {in_active_set: {_eq: "true"}}) {
     aggregate {
       count
     }

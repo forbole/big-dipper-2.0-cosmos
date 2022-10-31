@@ -32,7 +32,7 @@ export const useStyles = () => {
           color: theme.palette.custom.fonts.fontThree,
           textAlign: 'right',
           [theme.breakpoints.up('lg')]: {
-            color: theme.palette.custom.fonts.fontTwo,
+            color: theme.palette.custom.fonts.fontTwo
           },
         },
         search: {

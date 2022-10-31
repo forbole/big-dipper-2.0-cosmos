@@ -19,9 +19,9 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
             "error": "",
             "fee": Object {
               "baseDenom": "udaric",
-              "displayDenom": "daric",
-              "exponent": 6,
-              "value": "0.000050",
+              "displayDenom": "udaric",
+              "exponent": 0,
+              "value": "50",
             },
             "gasUsed": 149488,
             "gasWanted": 200000,

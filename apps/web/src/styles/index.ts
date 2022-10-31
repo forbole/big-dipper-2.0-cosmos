@@ -1,4 +1,4 @@
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import { ThemeOptions } from '@material-ui/core/styles';
 
 import {
@@ -28,7 +28,7 @@ const getThemeDictionary = (list: string[]) :ThemeDictionaryType => {
   return themeDict;
 };
 
-const themeDictionary = getThemeDictionary(chainConfig.style.themes.themeList);
+const themeDictionary = getThemeDictionary(chainConfig.themes.themeList);
 
 export {
   lightTemplate,

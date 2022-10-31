@@ -21,7 +21,7 @@ export const useStyles = () => {
             width: '50%',
             whiteSpace: 'pre-wrap',
             '& h4': {
-              color: theme.palette.custom.fonts.fontTwo,
+              color: theme.palette.custom.fonts.fontTwo
             },
             '& .MuiTypography-caption': {
               color: theme.palette.custom.fonts.fontThree,

@@ -8,7 +8,7 @@ import {
   useValidatorAddressesQuery,
   ValidatorAddressesQuery,
 } from '@graphql/types/general_types';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import { useDesmosProfile } from '@hooks';
 import {
   atomFamilyState as validatorAtomState,
@@ -67,7 +67,7 @@ export const useValidatorRecoil = () => {
   });
 
   const setProfiles = useRecoilCallback(({ set }) => async (data: ValidatorAddressesQuery) => {
-    if (chainConfig.extra.profile) {
+    if (chainConfig.profile) {
       let profiles = [];
       data?.validator?.filter((x) => x.validatorInfo).forEach((x) => {
         const delegatorAddress = x.validatorInfo.selfDelegateAddress;

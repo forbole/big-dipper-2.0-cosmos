@@ -8,7 +8,6 @@ import {
   TransactionDetailsQuery,
 } from '@graphql/types/general_types';
 import { formatToken } from '@utils/format_token';
-import { convertMsgsToModels } from '@msg';
 import {
   TransactionState,
 } from './types';
@@ -28,17 +27,8 @@ export const useTransactionDetails = () => {
         baseDenom: '',
         exponent: 0,
       },
-      gasUsed: 0,
-      gasWanted: 0,
-      success: false,
+      gas: 0,
       memo: '',
-      error: '',
-    },
-    logs: null,
-    messages: {
-      filterBy: 'none',
-      viewRaw: false,
-      items: [],
     },
   });
 
@@ -87,74 +77,24 @@ export const useTransactionDetails = () => {
         denom: '',
         amount: 0,
       }, ['amount', 0], fee);
-      const { success } = data.transaction[0];
+
       const overview = {
         hash: data.transaction[0].hash,
         height: data.transaction[0].height,
         timestamp: data.transaction[0].block.timestamp,
         fee: formatToken(feeAmount.amount, feeAmount.denom),
-        gasUsed: data.transaction[0].gasUsed,
-        gasWanted: data.transaction[0].gasWanted,
-        success,
+        gas: data.transaction[0].gasUsed,
         memo: data.transaction[0].memo,
-        error: success ? '' : data.transaction[0].rawLog,
       };
       return overview;
     };
 
     stateChange.overview = formatOverview();
 
-    // =============================
-    // logs
-    // =============================
-    const formatLogs = () => {
-      const { logs } = data.transaction[0];
-      return logs;
-    };
-    stateChange.logs = formatLogs();
-
-    // =============================
-    // messages
-    // =============================
-    const formatMessages = () => {
-      const messages = convertMsgsToModels(data.transaction[0]);
-      return {
-        items: messages,
-      };
-    };
-    stateChange.messages = formatMessages();
     return stateChange;
-  };
-
-  const onMessageFilterCallback = (value: string) => {
-    handleSetState({
-      messages: {
-        filterBy: value,
-      },
-    });
-  };
-
-  const toggleMessageDisplay = (event: React.ChangeEvent<HTMLInputElement>) => {
-    handleSetState({
-      messages: {
-        viewRaw: event.target.checked,
-      },
-    });
-  };
-
-  const filterMessages = (messages: any[]) => {
-    return messages.filter((x) => {
-      if (state.messages.filterBy !== 'none') {
-        return x.category === state.messages.filterBy;
-      }
-      return true;
-    });
   };
 
   return {
     state,
-    onMessageFilterCallback,
-    toggleMessageDisplay,
-    filterMessages,
   };
 };

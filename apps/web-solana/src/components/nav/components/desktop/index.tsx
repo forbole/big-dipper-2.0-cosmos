@@ -5,8 +5,8 @@ import {
   AppBar,
   ClickAwayListener,
 } from '@material-ui/core';
-import BigDipperLogoRed from '@assets/big-dipper-red.svg';
-import { generalConfig } from '@configs';
+import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
+import { chainConfig } from 'ui/dist';
 import { useStyles } from './styles';
 import { useDesktop } from './hooks';
 import {

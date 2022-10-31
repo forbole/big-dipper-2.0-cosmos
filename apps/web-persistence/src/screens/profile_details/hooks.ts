@@ -3,7 +3,7 @@ import {
 } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
-import { chainConfig } from '@src/configs';
+import { chainConfig } from 'ui/dist';
 import { useDesmosProfile } from '@hooks';
 import { ProfileDetailState } from './types';
 

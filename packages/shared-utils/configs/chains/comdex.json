@@ -1,0 +1,244 @@
+{
+  "chainName": "comdex",
+  "title": "Comdex Block Explorer",
+  "profile": true,
+  "previewImage": "https://s3.bigdipper.live/comdex.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#FE4350",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#040516",
+        "paper": "#14142D"
+      },
+      "divider": "#363A51",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#040516",
+          "surfaceOne": "",
+          "surfaceTwo": "#0C1C3C",
+          "surfaceThree": "",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": ""
+        },
+        "primaryData": {
+          "one": "#FE4350",
+          "two": "#EA5356",
+          "three": "#285ED5",
+          "four": "#183F9F"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "zero": "",
+          "one": "#EA5356",
+          "two": "#285ED5",
+          "three": "#1EC490"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#1EC490",
+          "three": "#285ED5",
+          "four": "#EA5356",
+          "five": "#C25396"
+        },
+        "tags": {
+          "zero": "#E8E8E23",
+          "one": "#2460FA",
+          "two": "#2BA906",
+          "three": "#E79735",
+          "four": "#F17062",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9959",
+          "nine": "#B49F46",
+          "ten": "#E9A861",
+          "eleven": "#E94696",
+          "twelve": "#C15EC19",
+          "thirteen": "#C388D24",
+          "fourteen": "#46AEE24",
+          "fifteen": "#58BC106",
+          "sixteen": "#90BC73",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A494",
+          "nineteen": "#D37778",
+          "twenty": "#D9C803"
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "",
+        "contrastText": ""
+      },
+      "background": {
+        "default": "",
+        "paper": ""
+      },
+      "divider": "",
+      "text": {
+        "primary": "",
+        "secondary": ""
+      },
+      "custom": {
+        "general": {
+          "background": "",
+          "surfaceOne": "",
+          "surfaceTwo": "",
+          "surfaceThree": "",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "",
+          "fontTwo": "",
+          "fontThree": "",
+          "fontFour": "",
+          "fontFive": "",
+          "highlight": ""
+        },
+        "primaryData": {
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": ""
+        },
+        "results": {
+          "pass": "",
+          "fail": ""
+        },
+        "tokenomics": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": ""
+        },
+        "condition": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": ""
+        },
+        "charts": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": "",
+          "five": ""
+        },
+        "tags": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": "",
+          "five": "",
+          "six": "",
+          "seven": "",
+          "eight": "",
+          "nine": "",
+          "ten": "",
+          "eleven": "",
+          "twelve": "",
+          "thirteen": "",
+          "fourteen": "",
+          "fifteen": "",
+          "sixteen": "",
+          "seventeen": "",
+          "eighteen": "",
+          "nineteen": "",
+          "twenty": ""
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "id": "comdex-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-11-20T14:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "comdexvalcons",
+        "validator": "comdexvaloper",
+        "account": "comdex"
+      },
+      "primaryTokenUnit": "ucmdx",
+      "votingPowerTokenUnit": "ucmdx",
+      "tokenUnits": {
+        "ucmdx": {
+          "display": "cmdx",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.comdex.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.comdex.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.comdex.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "",
+        "matomoSiteID": ""
+      }
+    },
+    {
+      "id": "meteor-test",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "2021-10-15T12:58:04",
+        "height": 4078001
+      },
+      "prefix": {
+        "consensus": "comdexvalcons",
+        "validator": "comdexvaloper",
+        "account": "comdex"
+      },
+      "primaryTokenUnit": "ucmdx",
+      "votingPowerTokenUnit": "ucmdx",
+      "tokenUnits": {
+        "ucmdx": {
+          "display": "cmdx",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql-testnet.comdex.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql-testnet.comdex.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "ws://65.108.130.132:26657/websocket"
+      },
+      "marketing": {
+        "matomoURL": "",
+        "matomoSiteID": ""
+      }
+    }
+  ]
+}

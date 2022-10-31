@@ -1,7 +1,7 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { Search } from '@components';
-import { chainConfig } from '@src/configs';
+import { chainConfig } from 'ui/dist';
 import { useSearchBar } from './hooks';
 
 const SearchBar: React.FC<{className?: string}> = ({ className }) => {
@@ -11,7 +11,7 @@ const SearchBar: React.FC<{className?: string}> = ({ className }) => {
   } = useSearchBar(t);
 
   let placeholderText;
-  if (chainConfig.extra.profile) {
+  if (chainConfig.profile) {
     placeholderText = t('searchBarPlaceholderDtag');
   } else {
     placeholderText = t('searchBarPlaceholder');

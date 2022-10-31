@@ -19,8 +19,8 @@ import {
   EmailShareButton,
   EmailIcon,
 } from 'react-share';
-import CopyIcon from '@assets/icon-copy.svg';
-import ShareIcon from '@assets/icon-share.svg';
+import CopyIcon from 'shared-utils/assets/icon-copy.svg';
+import ShareIcon from 'shared-utils/assets/icon-share.svg';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { Box } from '@components';
 import { useStyles } from './styles';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';

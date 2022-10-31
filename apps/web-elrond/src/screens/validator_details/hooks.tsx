@@ -4,7 +4,7 @@ import {
 import * as R from 'ramda';
 import Big from 'big.js';
 import axios from 'axios';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import { useRouter } from 'next/router';
 import {
   IDENTITY,

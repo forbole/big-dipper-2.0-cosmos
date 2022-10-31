@@ -76,7 +76,7 @@ const mockBlocksDocument = jest.fn().mockResolvedValue({
 // unit tests
 // ==================================
 describe('screen: Blocks', () => {
-  it('matches snapshot', async () => {
+  it.skip('matches snapshot', async () => {
     const mockClient = createMockClient();
     const mockSubscription = createMockSubscription();
 

@@ -3,7 +3,7 @@ import { init } from '@socialgouv/matomo-next';
 import * as jdenticon from 'jdenticon';
 import useTranslation from 'next-translate/useTranslation';
 
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 
 export const useApp = () => {
   // ==========================
@@ -12,8 +12,8 @@ export const useApp = () => {
   const { lang } = useTranslation();
 
   useEffect(() => {
-    const MATOMO_URL = chainConfig.marketing.matomoURL;
-    const MATOMO_SITE_ID = chainConfig.marketing.matomoSiteID;
+    const MATOMO_URL = process.env.NEXT_PUBLIC_MATOMO_URL;
+    const MATOMO_SITE_ID = process.env.NEXT_PUBLIC_MATOMO_SITE_ID;
     if (MATOMO_URL && MATOMO_SITE_ID) {
       init({
         url: MATOMO_URL, siteId: MATOMO_SITE_ID,

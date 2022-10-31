@@ -8,7 +8,7 @@ import {
   useValidatorAddressesQuery,
   ValidatorAddressesQuery,
 } from '@graphql/types/general_types';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import { useDesmosProfile } from '@hooks';
 import {
   atomFamilyState as validatorAtomState,
@@ -47,16 +47,16 @@ export const useValidatorRecoil = () => {
   });
 
   const formatAndSetValidatorsAddressList = useRecoilCallback(({ set }) => async (data: ValidatorAddressesQuery) => {
-    data?.validator?.filter((x) => x.validatorInfo).forEach((x) => {
-      const validatorAddress = x.validatorInfo.operatorAddress;
-      const delegatorAddress = x.validatorInfo.selfDelegateAddress;
-      const { consensusAddress } = x.validatorInfo;
+    data?.validator?.filter((x) => x.consensusAddress || x.selfDelegateAddress).forEach((x) => {
+      // const validatorAddress = x.validatorInfo.operatorAddress;
+      const delegatorAddress = x.selfDelegateAddress;
+      const { consensusAddress } = x;
       const imageUrl = R.pathOr('', ['validatorDescriptions', 0, 'avatarUrl'], x);
       const moniker = R.pathOr('', ['validatorDescriptions', 0, 'moniker'], x);
 
       set(validatorAtomState(consensusAddress), {
         delegator: delegatorAddress,
-        validator: validatorAddress,
+        validator: consensusAddress, // need to check which address should be used to replace
       });
 
       set(profileAtomFamilyState(delegatorAddress), {
@@ -69,14 +69,14 @@ export const useValidatorRecoil = () => {
   const setProfiles = useRecoilCallback(({ set }) => async (data: ValidatorAddressesQuery) => {
     if (chainConfig.extra.profile) {
       let profiles = [];
-      data?.validator?.filter((x) => x.validatorInfo).forEach((x) => {
-        const delegatorAddress = x.validatorInfo.selfDelegateAddress;
+      data?.validator?.filter((x) => x.consensusAddress || x.selfDelegateAddress).forEach((x) => {
+        const delegatorAddress = x.selfDelegateAddress;
         profiles.push(fetchDesmosProfile(delegatorAddress));
       });
 
       profiles = await Promise.allSettled(profiles);
-      data?.validator?.filter((x) => x.validatorInfo).forEach((x, i) => {
-        const delegatorAddress = x.validatorInfo.selfDelegateAddress;
+      data?.validator?.filter((x) => x.consensusAddress || x.selfDelegateAddress).forEach((x, i) => {
+        const delegatorAddress = x.selfDelegateAddress;
         const profile = R.pathOr(undefined, [i, 'value'], profiles);
 
         // ignore if profile doesnt exist

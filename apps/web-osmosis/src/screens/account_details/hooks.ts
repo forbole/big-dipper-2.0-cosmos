@@ -8,7 +8,7 @@ import { getDenom } from '@utils/get_denom';
 import {
   formatToken,
 } from '@utils/format_token';
-import { chainConfig } from '@src/configs';
+import { chainConfig } from 'ui/dist';
 import { isValidAddress } from '@utils/prefix_convert';
 import { useDesmosProfile } from '@hooks';
 import { AccountDetailState } from './types';

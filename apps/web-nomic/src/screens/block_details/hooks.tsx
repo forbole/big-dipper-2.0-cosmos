@@ -8,7 +8,6 @@ import {
   useBlockDetailsQuery,
   BlockDetailsQuery,
 } from '@graphql/types/general_types';
-import { convertMsgsToModels } from '@msg';
 import { BlockDetailState } from './types';
 
 export const useBlockDetails = () => {
@@ -82,8 +81,8 @@ export const useBlockDetails = () => {
     // Signatures
     // ==========================
     const formatSignatures = () => {
-      const signatures = data.preCommits.filter((x) => x?.validator?.validatorInfo).map((x) => {
-        return x.validator.validatorInfo.operatorAddress;
+      const signatures = data.preCommits.filter((x) => x?.operatorAddress).map((x) => {
+        return x.operatorAddress;
       });
       return signatures;
     };
@@ -94,16 +93,10 @@ export const useBlockDetails = () => {
     // ==========================
     const formatTransactions = () => {
       const transactions = data.transaction.map((x) => {
-        const messages = convertMsgsToModels(x);
         return ({
           height: x.height,
           hash: x.hash,
-          success: x.success,
           timestamp: stateChange.overview.timestamp,
-          messages: {
-            count: x.messages.length,
-            items: messages,
-          },
         });
       });
 

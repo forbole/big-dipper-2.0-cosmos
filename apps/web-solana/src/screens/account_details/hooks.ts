@@ -7,7 +7,7 @@ import axios from 'axios';
 import {
   AccountTypeDocument,
 } from '@src/graphql/account_details_documents';
-// import { chainConfig } from '@src/configs';
+// import { chainConfig } from 'ui/dist';
 // import { useDesmosProfile } from '@hooks';
 import {
   AccountDetailState, ACCOUNT_TYPES,

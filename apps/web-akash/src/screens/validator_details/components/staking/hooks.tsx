@@ -12,7 +12,7 @@ import {
 } from '@src/graphql/general/validator_details_documents';
 import { formatToken } from '@utils/format_token';
 import { getDenom } from '@utils/get_denom';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import { StakingState } from './types';
 
 const stakingDefault = {

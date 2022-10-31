@@ -30,7 +30,7 @@ export const useBlocks = () => {
       return {
         height: x.height,
         txs: x.transactions.length,
-        proposer: x.validator.validatorInfo.operatorAddress,
+        proposer: x.precommits[0].validatorAddress,
         signed: x.precommits.length === 1,
       };
     });

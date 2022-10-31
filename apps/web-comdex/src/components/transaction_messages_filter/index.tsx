@@ -7,7 +7,7 @@ import {
   InputBase,
   Typography,
 } from '@material-ui/core';
-import FilterIcon from '@assets/icon-filter.svg';
+import FilterIcon from 'shared-utils/assets/icon-filter.svg';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { getFilterLabels } from './utils';
 import { useStyles } from './styles';

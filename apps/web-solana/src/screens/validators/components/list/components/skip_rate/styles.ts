@@ -6,7 +6,7 @@ export const useStyles = (percentage: string) => {
       return ({
         root: {
           '& .MuiTypography-body1': {
-            color: theme.palette.custom.fonts.fontTwo,
+            color: theme.palette.custom.fonts.fontTwo
           },
         },
         chart: {

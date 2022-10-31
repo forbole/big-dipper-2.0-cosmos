@@ -5,7 +5,7 @@ import { Typography } from '@material-ui/core';
 import Link from 'next/link';
 import { formatNumber } from '@utils/format_token';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import CopyIcon from '@assets/icon-copy.svg';
+import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import { BoxDetails } from '@components';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { useScreenSize } from '@hooks';

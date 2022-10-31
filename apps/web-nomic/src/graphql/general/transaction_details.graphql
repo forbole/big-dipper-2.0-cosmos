@@ -6,12 +6,7 @@ query TransactionDetails($hash: String) {
       timestamp: timestamp
     }
     fee: fee
-    gasUsed: gas_used
-    gasWanted: gas_wanted
-    success: success
+    gasUsed: gas
     memo: memo
-    messages: messages
-    logs
-    rawLog: raw_log
   }
 }

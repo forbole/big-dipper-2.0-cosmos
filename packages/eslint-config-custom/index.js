@@ -23,7 +23,7 @@ module.exports = {
   settings: {
     react: {
       version: 'detect',
-    },
+    }
   },
   rules: {
     // TODO: disabled due to historical reason
@@ -57,6 +57,7 @@ module.exports = {
     "react/require-default-props": "off",
     "react-hooks/exhaustive-deps": "off",
     "react-hooks/rules-of-hooks": "off",
+    "no-underscore-dangle": "off",
     // warn off
     "@next/next/no-img-element": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",

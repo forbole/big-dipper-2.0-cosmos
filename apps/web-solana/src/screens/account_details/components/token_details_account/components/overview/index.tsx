@@ -4,7 +4,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 import Link from 'next/link';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import CopyIcon from '@assets/icon-copy.svg';
+import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import {
   BoxDetails,
   AvatarName,
@@ -12,7 +12,7 @@ import {
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { formatNumber } from '@utils/format_token';
 import { useScreenSize } from '@hooks';
-import TokenAccountLogo from '@assets/token-account.svg';
+import TokenAccountLogo from 'shared-utils/assets/token-account.svg';
 import { useStyles } from './styles';
 import { useOverview } from './hooks';
 import { OverviewType } from '../../types';

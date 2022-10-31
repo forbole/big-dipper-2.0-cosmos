@@ -3,7 +3,7 @@ import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { Typography } from '@material-ui/core';
-import CopyIcon from '@assets/icon-copy.svg';
+import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { BoxDetails } from '@components';
 import { OverviewType } from '../../types';

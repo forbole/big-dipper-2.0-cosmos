@@ -10,7 +10,6 @@ import {
 import {
   Typography,
 } from '@material-ui/core';
-import useTranslation from 'next-translate/useTranslation';
 import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
@@ -25,7 +24,6 @@ import {
   useScreenSize,
 } from '@hooks';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import { getMessageByType } from '@msg';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
 import { useStyles } from './styles';
@@ -42,7 +40,6 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
   const {
     isMobile,
   } = useScreenSize();
-  const { t } = useTranslation('transactions');
   const classes = useStyles();
   const dateFormat = useRecoilValue(readDate);
 
@@ -73,14 +70,7 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
         </Typography>
       </Link>
     ),
-    result: (
-      <Result success={x.success} />
-    ),
     time: formatDayJs(dayjs.utc(x.timestamp), dateFormat),
-    messageCount: numeral(x.messages.count).format('0,0'),
-    messages: x.messages.items.map((message) => {
-      return getMessageByType(message, false, t);
-    }),
   }));
 
   return (

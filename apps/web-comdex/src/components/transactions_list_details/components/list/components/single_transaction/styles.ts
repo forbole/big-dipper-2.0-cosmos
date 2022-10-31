@@ -11,7 +11,7 @@ export const useStyles = () => {
         timeContainer: {
           background: theme.palette.custom.general.surfaceTwo,
           padding: theme.spacing(1, 2),
-          color: theme.palette.custom.fonts.fontTwo,
+          color: theme.palette.custom.fonts.fontTwo
         },
         itemContainer: {
           padding: theme.spacing(2, 2, 1),
@@ -34,7 +34,7 @@ export const useStyles = () => {
             color: theme.palette.custom.fonts.fontThree,
           },
           '& p.value': {
-            color: theme.palette.custom.fonts.fontTwo,
+            color: theme.palette.custom.fonts.fontTwo
           },
           '& a': {
             color: theme.palette.custom.fonts.highlight,

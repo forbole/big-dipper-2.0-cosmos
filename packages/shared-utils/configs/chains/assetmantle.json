@@ -1,0 +1,214 @@
+{
+  "chainName": "assetmantle",
+  "title": "AssetMantle Block Explorer",
+  "profile": true,
+  "previewImage": "https://s3.bigdipper.live/assetmantle.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#F3B211",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#000000",
+        "paper": "#1F1F1F"
+      },
+      "divider": "#494949",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#000000",
+          "surfaceOne": "",
+          "surfaceTwo": "#2C2C2C",
+          "surfaceThree": "",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": ""
+        },
+        "primaryData": {
+          "one": "#F3B211",
+          "two": "#C69006",
+          "three": "#B7B00A",
+          "four": "#C86002"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "zero": "",
+          "one": "#F3B211",
+          "two": "#2665FF",
+          "three": "#12F3B3"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#12F3B3",
+          "two": "#12F3B3",
+          "three": "#0D50E2",
+          "four": "#F26511",
+          "five": "#F312C2"
+        },
+        "tags": {
+          "zero": "#E8E8E27",
+          "one": "#2460FA",
+          "two": "#2BA910",
+          "three": "#E79739",
+          "four": "#F17066",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9963",
+          "nine": "#B49F50",
+          "ten": "#E9A865",
+          "eleven": "#E94700",
+          "twelve": "#C15EC23",
+          "thirteen": "#C388D28",
+          "fourteen": "#46AEE28",
+          "fifteen": "#58BC110",
+          "sixteen": "#90BC77",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A498",
+          "nineteen": "#D37782",
+          "twenty": "#D9C807"
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "",
+        "contrastText": ""
+      },
+      "background": {
+        "default": "",
+        "paper": ""
+      },
+      "divider": "",
+      "text": {
+        "primary": "",
+        "secondary": ""
+      },
+      "custom": {
+        "general": {
+          "background": "",
+          "surfaceOne": "",
+          "surfaceTwo": "",
+          "surfaceThree": "",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "",
+          "fontTwo": "",
+          "fontThree": "",
+          "fontFour": "",
+          "fontFive": "",
+          "highlight": ""
+        },
+        "primaryData": {
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": ""
+        },
+        "results": {
+          "pass": "",
+          "fail": ""
+        },
+        "tokenomics": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": ""
+        },
+        "condition": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": ""
+        },
+        "charts": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": "",
+          "five": ""
+        },
+        "tags": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": "",
+          "five": "",
+          "six": "",
+          "seven": "",
+          "eight": "",
+          "nine": "",
+          "ten": "",
+          "eleven": "",
+          "twelve": "",
+          "thirteen": "",
+          "fourteen": "",
+          "fifteen": "",
+          "sixteen": "",
+          "seventeen": "",
+          "eighteen": "",
+          "nineteen": "",
+          "twenty": ""
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "id": "mantle-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2022-07-12T02:34:54",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "mantlevalcons",
+        "validator": "mantlevaloper",
+        "account": "mantle"
+      },
+      "primaryTokenUnit": "umntl",
+      "votingPowerTokenUnit": "umntl",
+      "tokenUnits": {
+        "umntl": {
+          "display": "mntl",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.assetmantle.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.assetmantle.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.assetmantle.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "",
+        "matomoSiteID": ""
+      }
+    }
+  ]
+}

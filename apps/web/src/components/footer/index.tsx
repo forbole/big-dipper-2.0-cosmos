@@ -3,16 +3,14 @@ import classnames from 'classnames';
 import Trans from 'next-translate/Trans';
 import { useRecoilValue } from 'recoil';
 import useTranslation from 'next-translate/useTranslation';
-import FooterLogoLight from '@assets/big-dipper-red.svg';
-import FooterLogoDark from '@assets/big-dipper-white.svg';
+import FooterLogoLight from 'shared-utils/assets/big-dipper-red.svg';
+import FooterLogoDark from 'shared-utils/assets/big-dipper-white.svg';
 import {
   Button,
   Divider,
   Typography,
 } from '@material-ui/core';
-import {
-  chainConfig, generalConfig,
-} from '@src/configs';
+import { chainConfig, generalConfig } from 'ui/dist';
 import { readTheme } from '@recoil/settings/selectors';
 import { SocialMedia } from './components';
 import {
@@ -111,7 +109,8 @@ const Footer: React.FC<{className?: string}> = ({ className }) => {
                 // eslint-disable-next-line
                 <a
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noreferrer noopener"
+                  title="LICENSE"
                   href="https://raw.githubusercontent.com/forbole/big-dipper-2.0-cosmos/master/LICENSE"
                 />
               ),
@@ -128,8 +127,7 @@ const Footer: React.FC<{className?: string}> = ({ className }) => {
             i18nKey="common:maintainBy"
             components={[
               (
-                // eslint-disable-next-line
-                <a target="_blank" rel="noreferrer" href={generalConfig.maintainer.url} />
+                <a target="_blank" rel="noreferrer" href={generalConfig.maintainer.url}>{}</a>
               ),
             ]}
             values={{

@@ -34,8 +34,8 @@ exports[`screen: Transactions matches snapshot 1`] = `
                   MsgWithdrawDelegatorReward {
                     "amounts": Array [
                       Object {
-                        "baseDenom": "udaric",
-                        "displayDenom": "daric",
+                        "baseDenom": "udsm",
+                        "displayDenom": "dsm",
                         "exponent": 6,
                         "value": "0.000000",
                       },
@@ -53,8 +53,8 @@ exports[`screen: Transactions matches snapshot 1`] = `
                   MsgWithdrawValidatorCommission {
                     "amounts": Array [
                       Object {
-                        "baseDenom": "udaric",
-                        "displayDenom": "daric",
+                        "baseDenom": "udsm",
+                        "displayDenom": "dsm",
                         "exponent": 6,
                         "value": "0.000000",
                       },

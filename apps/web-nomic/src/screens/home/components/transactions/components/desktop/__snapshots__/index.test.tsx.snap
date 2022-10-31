@@ -22,7 +22,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           scope="col"
           style={
             Object {
-              "width": "25%",
+              "width": "30%",
             }
           }
         >
@@ -34,7 +34,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           scope="col"
           style={
             Object {
-              "width": "25%",
+              "width": "40%",
             }
           }
         >
@@ -46,19 +46,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           scope="col"
           style={
             Object {
-              "width": "25%",
-            }
-          }
-        >
-          result
-        </th>
-        <th
-          aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"
-          scope="col"
-          style={
-            Object {
-              "width": "25%",
+              "width": "30%",
             }
           }
         >
@@ -79,7 +67,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           className="MuiTableCell-root MuiTableCell-body"
           style={
             Object {
-              "width": "25%",
+              "width": "30%",
             }
           }
         >
@@ -97,7 +85,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           className="MuiTableCell-root MuiTableCell-body"
           style={
             Object {
-              "width": "25%",
+              "width": "40%",
             }
           }
         >
@@ -115,21 +103,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
           style={
             Object {
-              "width": "25%",
-            }
-          }
-        >
-          <div
-            id="Result"
-            success={true}
-          />
-        </td>
-        <td
-          aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
-          style={
-            Object {
-              "width": "25%",
+              "width": "30%",
             }
           }
         >

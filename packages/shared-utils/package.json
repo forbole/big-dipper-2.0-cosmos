@@ -2,26 +2,22 @@
   "name": "shared-utils",
   "version": "1.0.0",
   "license": "Apache-2.0",
+  "private": true,
   "scripts": {
-    "lint": "TIMING=1 eslint \"**/*.ts*\""
-  },
-  "devDependencies": {
-    "eslint": "^8.25.0",
-    "eslint-config-custom": "*",
-    "jest-presets": "*",
-    "tsconfig": "*",
-    "typescript": "^4.7.4"
-  },
-  "publishConfig": {
-    "access": "public"
+    "lint": "TIMING=1 eslint \"src/**/*.js*\""
   },
   "jest": {
     "preset": "jest-presets/jest/node"
   },
-  "dependencies": {
-    "@sentry/nextjs": "^7.16.0",
-    "next": "^12.3.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "eslint": "^8.26.0",
+    "eslint-config-custom": "*",
+    "jest": "^27.0.0",
+    "jest-presets": "*",
+    "ts-jest": "^27.0.0",
+    "typescript": "^4.8.4"
   }
 }

@@ -19,7 +19,7 @@ import { useRouter } from 'next/router';
 import { useDesmosProfile } from '@hooks';
 import { validatorToDelegatorAddress } from '@recoil/profiles';
 // import { getValidatorCondition } from '@utils/get_validator_condition';
-import { chainConfig } from '@src/configs';
+import { chainConfig } from 'ui/dist';
 // import {
 //   StakingParams,
 //   SlashingParams,

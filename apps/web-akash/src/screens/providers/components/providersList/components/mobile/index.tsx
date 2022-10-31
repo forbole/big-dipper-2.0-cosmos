@@ -10,9 +10,9 @@ import {
   useListRow,
 } from '@hooks';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import EmailIcon from '@assets/icon-email.svg';
-import WebArrowIcon from '@assets/icon-web-arrow.svg';
-import CopyIcon from '@assets/icon-copy.svg';
+import EmailIcon from 'shared-utils/assets/icon-email.svg';
+import WebArrowIcon from 'shared-utils/assets/icon-web-arrow.svg';
+import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import { useAddress } from '@utils/copy_to_clipboard';
 import useTranslation from 'next-translate/useTranslation';
 import { ProviderInfo } from '../../../../types';

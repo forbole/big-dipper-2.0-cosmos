@@ -1,7 +1,7 @@
 /* eslint-disable */
-import Logo from '@assets/logos/stride-dark.svg';
+import ChainIcon from 'ui/dist/components/ChainIcon';
 import { Loading } from '@components';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import { useInterval } from '@hooks';
 import { Typography } from '@material-ui/core';
 import { readTheme } from '@recoil/settings';
@@ -52,7 +52,7 @@ const Countdown: React.FC<{
 
   return (
     <div className={classes.root}>
-      <Logo className={classes.logo} />
+      <ChainIcon type="logo" className={classes.logo} />
       <div className={classes.timeContainer}>
         <div className={classes.item}>
           <Typography variant="h1">

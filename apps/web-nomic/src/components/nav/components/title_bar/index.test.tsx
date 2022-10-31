@@ -18,7 +18,6 @@ const mockUseNavContext = {
   price: 0,
   marketCap: 0,
   inflation: 0,
-  communityPool: 0,
 };
 
 // ==================================

@@ -30,7 +30,7 @@ export const useStyles = () => {
           },
         },
         body: {
-          color: theme.palette.custom.fonts.fontTwo,
+          color: theme.palette.custom.fonts.fontTwo
         },
       });
     },

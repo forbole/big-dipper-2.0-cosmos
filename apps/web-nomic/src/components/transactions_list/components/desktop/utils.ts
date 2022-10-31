@@ -5,21 +5,11 @@ export const columns:{
 }[] = [
   {
     key: 'block',
-    width: 15,
+    width: 20,
   },
   {
     key: 'hash',
-    width: 30,
-  },
-  {
-    key: 'messages',
-    align: 'right',
-    width: 15,
-  },
-  {
-    key: 'result',
-    align: 'right',
-    width: 20,
+    width: 60,
   },
   {
     key: 'time',

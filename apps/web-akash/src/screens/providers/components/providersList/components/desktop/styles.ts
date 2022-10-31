@@ -12,7 +12,7 @@ export const useStyles = () => {
           ...theme.mixins.tableCell,
         },
         body: {
-          color: theme.palette.custom.fonts.fontTwo,
+          color: theme.palette.custom.fonts.fontTwo
         },
         actionIcons: {
           '&:hover': {

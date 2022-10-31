@@ -1,0 +1,210 @@
+{
+  "chainName": "elrond",
+  "title": "Elrond Block Explorer",
+  "profile": false,
+  "previewImage": "https://s3.bigdipper.live/elrond.png",
+  "themes": {
+    "default": "light",
+    "themeList": [
+      "light"
+    ],
+    "dark": {
+      "primary": {
+        "main": "",
+        "contrastText": ""
+      },
+      "background": {
+        "default": "",
+        "paper": ""
+      },
+      "divider": "",
+      "text": {
+        "primary": "",
+        "secondary": ""
+      },
+      "custom": {
+        "general": {
+          "background": "",
+          "surfaceOne": "",
+          "surfaceTwo": "",
+          "surfaceThree": "",
+          "icon": ""
+        },
+        "fonts": {
+          "fontOne": "",
+          "fontTwo": "",
+          "fontThree": "",
+          "fontFour": "",
+          "fontFive": "",
+          "highlight": ""
+        },
+        "primaryData": {
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": ""
+        },
+        "results": {
+          "pass": "",
+          "fail": ""
+        },
+        "tokenomics": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": ""
+        },
+        "condition": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": ""
+        },
+        "charts": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": "",
+          "five": ""
+        },
+        "tags": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": "",
+          "five": "",
+          "six": "",
+          "seven": "",
+          "eight": "",
+          "nine": "",
+          "ten": "",
+          "eleven": "",
+          "twelve": "",
+          "thirteen": "",
+          "fourteen": "",
+          "fifteen": "",
+          "sixteen": "",
+          "seventeen": "",
+          "eighteen": "",
+          "nineteen": "",
+          "twenty": ""
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#2F65DD",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F8F8F8",
+        "paper": "#FFFFFF"
+      },
+      "divider": "#E8E8E8",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#414141"
+      },
+      "custom": {
+        "general": {
+          "background": "#F8F8F8",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#F8F8F8",
+          "surfaceThree": "",
+          "icon": ""
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": ""
+        },
+        "primaryData": {
+          "one": "#3E71E3",
+          "two": "#4493DB",
+          "three": "#279FBA",
+          "four": "#27BAA8"
+        },
+        "results": {
+          "pass": "#12B785",
+          "fail": "#E94848"
+        },
+        "tokenomics": {
+          "zero": "",
+          "one": "#3E71E3",
+          "two": "#F79E4D",
+          "three": "#27BAA8"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF961B",
+          "three": "#FC6A8A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#EB3AA4",
+          "two": "#EB3AA4",
+          "three": "#FF961B",
+          "four": "#497BFF",
+          "five": "#9F46EC"
+        },
+        "tags": {
+          "zero": "#E8E8E21",
+          "one": "#2460FA",
+          "two": "#2BA904",
+          "three": "#E79733",
+          "four": "#F17060",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9957",
+          "nine": "#B49F44",
+          "ten": "#E9A859",
+          "eleven": "#E94694",
+          "twelve": "#C15EC17",
+          "thirteen": "#C388D22",
+          "fourteen": "#46AEE22",
+          "fifteen": "#58BC104",
+          "sixteen": "#90BC71",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A492",
+          "nineteen": "#D37776",
+          "twenty": "#D9C801"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "id": "mainnet",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": "erd1"
+      },
+      "primaryTokenUnit": "egld",
+      "votingPowerTokenUnit": "egld",
+      "tokenUnits": {
+        "egld": {
+          "display": "egld",
+          "exponent": 18
+        }
+      },
+      "endpoints": {},
+      "marketing": {
+        "matomoURL": "",
+        "matomoSiteID": ""
+      }
+    }
+  ]
+}

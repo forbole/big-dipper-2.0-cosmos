@@ -1,0 +1,214 @@
+{
+  "chainName": "rizon",
+  "title": "Rizon Block Explorer",
+  "profile": true,
+  "previewImage": "https://s3.bigdipper.live/rizon.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#6A63FF",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#0F0F22",
+        "paper": "#1A1A35"
+      },
+      "divider": "#363A51",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#0F0F22",
+          "surfaceOne": "",
+          "surfaceTwo": "#2A2A45",
+          "surfaceThree": "",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": ""
+        },
+        "primaryData": {
+          "one": "#5A579C",
+          "two": "#25BE97",
+          "three": "#1CAFE0",
+          "four": "#D4B855"
+        },
+        "results": {
+          "pass": "#25BE97",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "zero": "",
+          "one": "#25BE97",
+          "two": "#D4B855",
+          "three": "#1CAFE0"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#25BE97",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#25BE97",
+          "two": "#25BE97",
+          "three": "#1CAFE0",
+          "four": "#6E69D2",
+          "five": "#D859B4"
+        },
+        "tags": {
+          "zero": "#E8E8E20",
+          "one": "#2460FA",
+          "two": "#2BA903",
+          "three": "#E79732",
+          "four": "#F17059",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9956",
+          "nine": "#B49F43",
+          "ten": "#E9A858",
+          "eleven": "#E94693",
+          "twelve": "#C15EC16",
+          "thirteen": "#C388D21",
+          "fourteen": "#46AEE21",
+          "fifteen": "#58BC103",
+          "sixteen": "#90BC70",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A491",
+          "nineteen": "#D37775",
+          "twenty": "#D9C800"
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "",
+        "contrastText": ""
+      },
+      "background": {
+        "default": "",
+        "paper": ""
+      },
+      "divider": "",
+      "text": {
+        "primary": "",
+        "secondary": ""
+      },
+      "custom": {
+        "general": {
+          "background": "",
+          "surfaceOne": "",
+          "surfaceTwo": "",
+          "surfaceThree": "",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "",
+          "fontTwo": "",
+          "fontThree": "",
+          "fontFour": "",
+          "fontFive": "",
+          "highlight": ""
+        },
+        "primaryData": {
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": ""
+        },
+        "results": {
+          "pass": "",
+          "fail": ""
+        },
+        "tokenomics": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": ""
+        },
+        "condition": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": ""
+        },
+        "charts": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": "",
+          "five": ""
+        },
+        "tags": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": "",
+          "five": "",
+          "six": "",
+          "seven": "",
+          "eight": "",
+          "nine": "",
+          "ten": "",
+          "eleven": "",
+          "twelve": "",
+          "thirteen": "",
+          "fourteen": "",
+          "fifteen": "",
+          "sixteen": "",
+          "seventeen": "",
+          "eighteen": "",
+          "nineteen": "",
+          "twenty": ""
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "id": "titan-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-09-28T08:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "rizonvalcons",
+        "validator": "rizonvaloper",
+        "account": "rizon"
+      },
+      "primaryTokenUnit": "uatolo",
+      "votingPowerTokenUnit": "uatolo",
+      "tokenUnits": {
+        "uatolo": {
+          "display": "atolo",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.rizon.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.rizon.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.rizon.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "",
+        "matomoSiteID": ""
+      }
+    }
+  ]
+}

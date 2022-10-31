@@ -1,1 +1,1 @@
-require('shared-utils/sentry.client.config');
+require('shared-utils/src/sentry.client.config');

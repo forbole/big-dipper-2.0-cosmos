@@ -10,7 +10,7 @@ import {
   useMarketDataQuery,
   MarketDataQuery,
 } from '@graphql/types/general_types';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import {
   writeMarket,
 } from '@recoil/market';
@@ -36,7 +36,7 @@ export const useMarketRecoil = () => {
 
   const formatUseChainIdQuery = (data: MarketDataQuery): AtomState => {
     let {
-      communityPool, price, marketCap,
+      price, marketCap,
     } = market;
 
     if (data?.tokenPrice?.length) {
@@ -44,7 +44,6 @@ export const useMarketRecoil = () => {
       marketCap = data.tokenPrice[0]?.marketCap;
     }
 
-    const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter((x) => x.denom === chainConfig.primaryTokenUnit);
     const inflation = R.pathOr(0, ['inflation', 0, 'value'], data);
 
     const rawSupplyAmount = getDenom(
@@ -56,22 +55,22 @@ export const useMarketRecoil = () => {
       chainConfig.primaryTokenUnit,
     );
 
-    if (communityPoolCoin) {
-      communityPool = formatToken(communityPoolCoin.amount, communityPoolCoin.denom);
-    }
-
     const bondedTokens = R.pathOr(1, ['bondedTokens', 0, 'bonded_tokens'], data);
-    const communityTax = R.pathOr('0', ['distributionParams', 0, 'params', 'community_tax'], data);
 
-    const inflationWithCommunityTax = Big(1).minus(communityTax).times(inflation).toPrecision(2);
-    const apr = Big(rawSupplyAmount).times(inflationWithCommunityTax).div(bondedTokens).toNumber();
+    const inflationWithCommunityTax = Big(1).times(inflation).toPrecision(2); // without community tax, need to change naming later
+    console.log('Big(rawSupplyAmount)=>', Big(rawSupplyAmount));
+    console.log('rawSupplyAmount=>', rawSupplyAmount); // 1
+    console.log('inflationWithCommunityTax=>', inflationWithCommunityTax); // 1.5
+    console.log('bondedTokens=>', bondedTokens); // 0
+
+    const apr = 0;
+    // const apr = bondedTokens ? Big(rawSupplyAmount).times(inflationWithCommunityTax).div(bondedTokens).toNumber() : 0;
 
     return ({
       price,
       supply,
       marketCap,
       inflation,
-      communityPool,
       apr,
     });
   };

@@ -17,7 +17,7 @@ export const useStyles = () => {
             color: 'white',
           },
           '& p.value': {
-            color: theme.palette.custom.fonts.fontTwo,
+            color: theme.palette.custom.fonts.fontTwo
           },
           '& a': {
             color: theme.palette.custom.fonts.highlight,

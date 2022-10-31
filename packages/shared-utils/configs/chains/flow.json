@@ -1,0 +1,213 @@
+{
+  "chainName": "flow",
+  "title": "Flow Block Explorer",
+  "profile": true,
+  "previewImage": "https://s3.bigdipper.live/flow.png",
+  "themes": {
+    "default": "light",
+    "themeList": [
+      "light"
+    ],
+    "dark": {
+      "primary": {
+        "main": "",
+        "contrastText": ""
+      },
+      "background": {
+        "default": "",
+        "paper": ""
+      },
+      "divider": "",
+      "text": {
+        "primary": "",
+        "secondary": ""
+      },
+      "custom": {
+        "general": {
+          "background": "",
+          "surfaceOne": "",
+          "surfaceTwo": "",
+          "surfaceThree": "",
+          "icon": ""
+        },
+        "fonts": {
+          "fontOne": "",
+          "fontTwo": "",
+          "fontThree": "",
+          "fontFour": "",
+          "fontFive": "",
+          "highlight": ""
+        },
+        "primaryData": {
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": ""
+        },
+        "results": {
+          "pass": "",
+          "fail": ""
+        },
+        "tokenomics": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": ""
+        },
+        "condition": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": ""
+        },
+        "charts": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": "",
+          "five": ""
+        },
+        "tags": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": "",
+          "five": "",
+          "six": "",
+          "seven": "",
+          "eight": "",
+          "nine": "",
+          "ten": "",
+          "eleven": "",
+          "twelve": "",
+          "thirteen": "",
+          "fourteen": "",
+          "fifteen": "",
+          "sixteen": "",
+          "seventeen": "",
+          "eighteen": "",
+          "nineteen": "",
+          "twenty": ""
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#4BD779",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F8F8F8",
+        "paper": "#FFFFFF"
+      },
+      "divider": "#E8E8E8",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#414141"
+      },
+      "custom": {
+        "general": {
+          "background": "#F8F8F8",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#F8F8F8",
+          "surfaceThree": "",
+          "icon": ""
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": ""
+        },
+        "primaryData": {
+          "one": "#4BD779",
+          "two": "#D46BCE",
+          "three": "#A660E1",
+          "four": "#E9C746"
+        },
+        "results": {
+          "pass": "#37C365",
+          "fail": "#EF5562"
+        },
+        "tokenomics": {
+          "zero": "",
+          "one": "#4BD779",
+          "two": "#D56BCE",
+          "three": "#E9C746"
+        },
+        "condition": {
+          "zero": "#D3D3D3",
+          "one": "#37C365",
+          "two": "#ED862E",
+          "three": "#EB5079"
+        },
+        "charts": {
+          "zero": "#D3D3D3",
+          "one": "#30A6E9",
+          "two": "#30A6E9",
+          "three": "#D56BCE",
+          "four": "#4BD779",
+          "five": "#A660E1"
+        },
+        "tags": {
+          "zero": "#E8E8E15",
+          "one": "#2460FA",
+          "two": "#2BA898",
+          "three": "#E79727",
+          "four": "#F17054",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9951",
+          "nine": "#B49F38",
+          "ten": "#E9A853",
+          "eleven": "#E94688",
+          "twelve": "#C15EC11",
+          "thirteen": "#C388D16",
+          "fourteen": "#46AEE16",
+          "fifteen": "#58BC98",
+          "sixteen": "#90BC65",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A486",
+          "nineteen": "#D37770",
+          "twenty": "#D9C795"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "id": "likecoin-mainnet-2",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
+      "tokenUnits": {
+        "": {
+          "display": "",
+          "exponent": 0
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.flow.bigdipper.live/v1/graphql",
+        "graphqlWebsocket": "wss://gql.flow.bigdipper.live/v1/graphql"
+      },
+      "marketing": {
+        "matomoURL": "",
+        "matomoSiteID": ""
+      }
+    }
+  ]
+}

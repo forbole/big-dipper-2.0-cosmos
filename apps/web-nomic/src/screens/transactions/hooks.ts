@@ -5,7 +5,6 @@ import {
   useTransactionsListenerSubscription,
   TransactionsListenerSubscription,
 } from '@graphql/types/general_types';
-import { convertMsgsToModels } from '@msg';
 import { TransactionsState } from './types';
 
 export const useTransactions = () => {
@@ -113,15 +112,9 @@ export const useTransactions = () => {
     }
 
     return formattedData.map((x) => {
-      const messages = convertMsgsToModels(x);
       return ({
         height: x.height,
         hash: x.hash,
-        messages: {
-          count: x.messages.length,
-          items: messages,
-        },
-        success: x.success,
         timestamp: x.block.timestamp,
       });
     });

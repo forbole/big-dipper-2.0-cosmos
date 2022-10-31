@@ -1,6 +1,5 @@
 /* eslint-disable */
-import { ChainLogo, Loading } from '@components';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import { useInterval } from '@hooks';
 import { Typography } from '@material-ui/core';
 import { readTheme } from '@recoil/settings';
@@ -8,6 +7,7 @@ import dayjs from '@utils/dayjs';
 import React, { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { useStyles } from './styles';
+import ChainIcon from 'ui/dist/components/ChainIcon';
 
 const Countdown: React.FC<{
   startGenesis: () => void;
@@ -51,7 +51,7 @@ const Countdown: React.FC<{
 
   return (
     <div className={classes.root}>
-      <ChainLogo className={classes.logo} alt="logo" />
+      <ChainIcon type="logo" className={classes.logo} alt="logo" />
       <div className={classes.timeContainer}>
         <div className={classes.item}>
           <Typography variant="h1">

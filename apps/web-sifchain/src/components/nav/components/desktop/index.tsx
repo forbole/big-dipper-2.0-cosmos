@@ -7,8 +7,8 @@ import {
 } from '@material-ui/core';
 import { useRecoilValue } from 'recoil';
 import { readTheme } from '@recoil/settings/selectors';
-import BigDipperLogoWhite from '@assets/big-dipper-white.svg';
-import BigDipperLogoRed from '@assets/big-dipper-red-sifchain.svg';
+import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
+import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red-sifchain.svg';
 import { useStyles } from './styles';
 import { useDesktop } from './hooks';
 import {

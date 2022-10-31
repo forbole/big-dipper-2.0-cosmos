@@ -7,7 +7,7 @@ import {
   Divider, Typography,
 } from '@material-ui/core';
 import { useScreenSize } from '@hooks';
-import CopyIcon from '@assets/icon-copy.svg';
+import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import {
   Box,
@@ -19,8 +19,8 @@ import {
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { getValidatorStatus } from '@utils/get_validator_status';
-import LiquidStakingTrueIcon from '@assets/liquid-staking-true.svg';
-import LiquidStakingFalseIcon from '@assets/liquid-staking-false.svg';
+import LiquidStakingTrueIcon from 'shared-utils/assets/liquid-staking-true.svg';
+import LiquidStakingFalseIcon from 'shared-utils/assets/liquid-staking-false.svg';
 import { useStyles } from './styles';
 import { getCondition } from './utils';
 import {

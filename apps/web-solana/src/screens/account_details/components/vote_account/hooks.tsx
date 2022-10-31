@@ -5,7 +5,7 @@ import {
   useVoteAccountDetailsQuery,
   VoteAccountDetailsQuery,
 } from '@graphql/types';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import { formatToken } from '@utils/format_token';
 import { VoteAccountState } from './types';
 

@@ -7,7 +7,7 @@ import {
   OnlineVotingPowerListenerSubscription,
   TotalVotingPowerListenerSubscription,
 } from '@graphql/types';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import { formatToken } from '@utils/format_token';
 
 const initialState: {

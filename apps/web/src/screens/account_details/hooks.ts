@@ -8,7 +8,7 @@ import { getDenom } from '@utils/get_denom';
 import {
   formatToken,
 } from '@utils/format_token';
-import { chainConfig } from '@src/configs';
+import { chainConfig } from 'ui/dist';
 import { isValidAddress } from '@utils/prefix_convert';
 import { useDesmosProfile } from '@hooks';
 import { AccountDetailState } from './types';
@@ -78,7 +78,7 @@ export const useAccountDetails = () => {
         loading: false,
         exists: false,
       });
-    } else if (chainConfig.extra.profile) {
+    } else if (chainConfig.profile) {
       fetchDesmosProfile(router.query.address as string);
     }
   },
@@ -261,7 +261,7 @@ export const useAccountDetails = () => {
         const commissionAmount = formatToken(commissionRawAmount.amount, x);
 
         otherTokens.push({
-          denom: R.pathOr(x, ['tokenUnits', x, 'display'], chainConfig),
+          denom: R.pathOr(x, ['tokenUnits', x, 'display'], config),
           available: availableAmount,
           reward: rewardAmount,
           commission: commissionAmount,

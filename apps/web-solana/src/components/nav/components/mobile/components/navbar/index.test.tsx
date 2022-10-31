@@ -9,7 +9,7 @@ import Navbar from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@assets/big-dipper-red.svg', () => (props) => <div id="RED" {...props} />);
+jest.mock('shared-utils/assets/big-dipper-red.svg', () => (props) => <div id="RED" {...props} />);
 // ==================================
 // global setup
 // ==================================

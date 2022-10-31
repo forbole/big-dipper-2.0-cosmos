@@ -83,7 +83,7 @@ export const useStyles = () => {
           },
           '& .total__secondary--container': {
             [theme.breakpoints.up('md')]: {
-              color: theme.palette.custom.fonts.fontTwo,
+              color: theme.palette.custom.fonts.fontTwo
             },
           },
         },

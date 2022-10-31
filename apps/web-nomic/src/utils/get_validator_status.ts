@@ -1,10 +1,10 @@
 /**
  * Util to get the validator status and theme
- * @param status 0-3
+ * @param status changes from Cosmos 0-3 to Nomic boolean
  * @param jailed boolean
  * @returns an object with status and theme
  */
-export const getValidatorStatus = (status: number, jailed: boolean, tombstoned: boolean) => {
+export const getValidatorStatus = (status: boolean, jailed: boolean, tombstoned: boolean) => {
   const results = {
     status: 'na',
     theme: 'zero',
@@ -23,15 +23,15 @@ export const getValidatorStatus = (status: number, jailed: boolean, tombstoned: 
     return results;
   }
 
-  if (status === 3) {
+  if (status === true) {
     results.status = 'active';
     results.theme = 'one';
-  } else if (status === 2) {
-    results.status = 'unbonding';
-    results.theme = 'three';
-  } else if (status === 1) {
-    results.status = 'unbonded';
-    results.theme = 'zero';
+  // } else if (status === 2) {
+  //   results.status = 'unbonding';
+  //   results.theme = 'three';
+  // } else if (status === 1) {
+  //   results.status = 'unbonded';
+  //   results.theme = 'zero';
   } else {
     results.status = 'unknown';
     results.theme = 'zero';

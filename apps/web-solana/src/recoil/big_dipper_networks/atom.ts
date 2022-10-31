@@ -1,5 +1,5 @@
 import { atom } from 'recoil';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import { AtomState } from './types';
 
 const initialState: AtomState = {

@@ -1,9 +1,9 @@
-import BlockIcon from '@assets/icon-block.svg';
-import HomeIcon from '@assets/icon-home.svg';
-import TokenIcon from '@assets/icon-token.svg';
-import TransactionIcon from '@assets/icon-transaction.svg';
-import UserIcon from '@assets/icon-user.svg';
-import EpochIcon from '@assets/icon-epoch.svg';
+import BlockIcon from 'shared-utils/assets/icon-block.svg';
+import HomeIcon from 'shared-utils/assets/icon-home.svg';
+import TokenIcon from 'shared-utils/assets/icon-token.svg';
+import TransactionIcon from 'shared-utils/assets/icon-transaction.svg';
+import UserIcon from 'shared-utils/assets/icon-user.svg';
+import EpochIcon from 'shared-utils/assets/icon-epoch.svg';
 import {
   HOME, BLOCKS, VALIDATORS, TRANSACTIONS, TOKENS, EPOCH,
 } from '@utils/go_to_page';

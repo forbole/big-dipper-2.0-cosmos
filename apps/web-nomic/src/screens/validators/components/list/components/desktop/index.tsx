@@ -43,9 +43,12 @@ const Desktop: React.FC<{
 
   const formattedItems = props.items.map((x, i) => {
     const status = getValidatorStatus(x.status, x.jailed, x.tombstoned);
-    const condition = x.status === 3 ? getValidatorConditionClass(x.condition) : undefined;
-    const percentDisplay = x.status === 3 ? `${numeral(x.votingPowerPercent).format('0.[00]')}%` : '0%';
+    const condition = x.status === true ? getValidatorConditionClass(x.condition) : undefined;
+    const percentDisplay = x.status === true ? `${numeral(x.votingPowerPercent).format('0.[00]')}%` : '0%';
     const votingPower = numeral(x.votingPower).format('0,0');
+
+    console.log('status in desktop', status);
+
     return ({
       idx: `#${i + 1}`,
       validator: (

@@ -4,7 +4,7 @@ import {
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { hexToBech32 } from '@utils/hex_to_bech32';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import WebSocket from 'isomorphic-ws';
 
 export const useConsensus = () => {
@@ -25,7 +25,8 @@ export const useConsensus = () => {
   });
 
   useEffect(() => {
-    const client = new WebSocket(chainConfig.endpoints.publicRpcWebsocket);
+    if (!process.env.NEXT_PUBLIC_RPC_WEBSOCKET) throw new Error('NEXT_PUBLIC_RPC_WEBSOCKET is not defined');
+    const client = new WebSocket(process.env.NEXT_PUBLIC_RPC_WEBSOCKET);
     const stepHeader = {
       jsonrpc: '2.0',
       method: 'subscribe',

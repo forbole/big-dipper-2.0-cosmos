@@ -8,7 +8,7 @@ import {
   useValidatorAddressesQuery,
   ValidatorAddressesQuery,
 } from '@graphql/types/general_types';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import { useDesmosProfile } from '@hooks';
 import {
   atomFamilyState as validatorAtomState,

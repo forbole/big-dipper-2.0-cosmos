@@ -15,9 +15,6 @@
       "@icons": [
         "src/components/icons"
       ],
-      "@assets/*": [
-        "../../packages/ui/src/assets/*"
-      ],
       "@hooks": [
         "src/hooks"
       ],
@@ -45,9 +42,6 @@
       "@graphql": [
         "src/graphql"
       ],
-      "@configs": [
-        "src/configs"
-      ],
       "@graphql/*": [
         "src/graphql/*"
       ],
@@ -59,15 +53,5 @@
       ]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "tests/utils/mock_i18n.js",
-    "tests/utils/mock_apollo_provider.tss"
-  ],
-  "exclude": [
-    "node_modules",
-    "cypress"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "../../packages/shared-utils/src/dayjs.ts"]
 }

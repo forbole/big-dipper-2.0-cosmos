@@ -2,7 +2,7 @@ import { useState } from 'react';
 import dayjs from '@utils/dayjs';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import {
   useTokenPriceHistoryQuery,
   TokenPriceHistoryQuery,

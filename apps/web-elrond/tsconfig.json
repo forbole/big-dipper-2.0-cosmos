@@ -15,9 +15,6 @@
       "@icons": [
         "src/components/icons"
       ],
-      "@assets/*": [
-        "../../packages/ui/src/assets/*"
-      ],
       "@hooks": [
         "src/hooks"
       ],
@@ -44,9 +41,6 @@
       ],
       "@graphql": [
         "src/graphql"
-      ],
-      "@configs": [
-        "src/configs"
       ],
       "@graphql/*": [
         "src/graphql/*"

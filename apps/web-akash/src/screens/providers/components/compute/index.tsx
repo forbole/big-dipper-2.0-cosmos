@@ -34,7 +34,7 @@ const Compute:React.FC<{
     {
       legendKey: 'used',
       percentKey: 'usedPercent',
-      value: numeral(compute.used).format('0,0'),
+      value: numeral(compute.used / 1000).format('0,0.00'),
       rawValue: compute.used,
       percent: `${numeral((compute.used * 100) / total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.one,
@@ -42,7 +42,7 @@ const Compute:React.FC<{
     {
       legendKey: 'available',
       percentKey: 'availablePercent',
-      value: numeral(compute.available).format('0,0'),
+      value: numeral(compute.available / 1000).format('0,0.00'),
       rawValue: compute.available,
       percent: `${numeral((compute.available * 100) / total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.three,

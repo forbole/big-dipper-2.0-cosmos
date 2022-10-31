@@ -6,7 +6,7 @@ import {
   ParamsQuery,
 } from '@graphql/types';
 import { formatToken } from '@utils/format_token';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import {
   StakingParams,
   SlashingParams,

@@ -7,7 +7,7 @@ import {
 import {
   formatToken, formatNumber,
 } from '@utils/format_token';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import { InstructionTransfer } from '@models';
 import { getProgramLabel } from '../../../utils';
 

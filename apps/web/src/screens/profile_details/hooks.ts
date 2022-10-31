@@ -3,7 +3,7 @@ import {
 } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
-import { chainConfig } from '@src/configs';
+import { chainConfig } from 'ui/dist';
 import { useDesmosProfile } from '@hooks';
 import { ProfileDetailState } from './types';
 
@@ -49,7 +49,7 @@ export const useProfileDetails = () => {
     const regex = /^@/;
     const profileDtag = router.query.dtag as string;
     const regexCheck = regex.test(profileDtag);
-    const configProfile = chainConfig.extra.profile;
+    const configProfile = chainConfig.profile;
     handleSetState(initialState);
 
     if (!regexCheck || !configProfile) {

@@ -1,20 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: Blocks matches snapshot 1`] = `
-<div
-  className="makeStyles-root"
-  id="Layout"
-  navTitle="blocks:blocks"
->
-  <div
-    exists={true}
-    id="LoadAndExist"
-    loading={false}
-  >
-    <div
-      className="makeStyles-box"
-      id="Box"
-    />
-  </div>
-</div>
-`;
+exports[`screen: Blocks matches snapshot 1`] = `null`;

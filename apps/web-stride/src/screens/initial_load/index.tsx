@@ -1,7 +1,7 @@
-import BigDipperLogoRed from '@assets/big-dipper-red.svg';
-import BigDipperLogoWhite from '@assets/big-dipper-white.svg';
+import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
+import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
 // TODO: support light mode
-import Logo from '@assets/logos/stride-dark.svg';
+import ChainIcon from 'ui/dist/components/ChainIcon';
 import { LinearProgress } from '@material-ui/core';
 import { readTheme } from '@recoil/settings';
 import React from 'react';
@@ -15,7 +15,7 @@ const InitialLoad = () => {
   return (
     <div className={classes.root}>
       <div>
-        <Logo className={classes.logo} />
+        <ChainIcon type="logo" className={classes.logo} />
         <LinearProgress className={classes.divider} />
         {theme === 'light' ? (
           <BigDipperLogoRed />

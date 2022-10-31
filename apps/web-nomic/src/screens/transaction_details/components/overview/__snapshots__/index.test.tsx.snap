@@ -33,24 +33,13 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
         "label": "transactions:fee",
       },
       Object {
-        "detail": "0 / 0",
+        "detail": "0 ",
         "label": "transactions:gas",
-      },
-      Object {
-        "detail": <Result
-          success={false}
-        />,
-        "label": "transactions:result",
       },
       Object {
         "className": "memo",
         "detail": "",
         "label": "transactions:memo",
-      },
-      Object {
-        "className": "memo",
-        "detail": "",
-        "label": "transactions:error",
       },
     ]
   }

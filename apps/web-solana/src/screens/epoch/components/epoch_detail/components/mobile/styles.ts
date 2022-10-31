@@ -15,7 +15,7 @@ export const useStyles = () => {
             color: theme.palette.custom.fonts.fontThree,
           },
           '& p.value': {
-            color: theme.palette.custom.fonts.fontTwo,
+            color: theme.palette.custom.fonts.fontTwo
           },
         },
         flex: {

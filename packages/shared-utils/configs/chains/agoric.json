@@ -1,0 +1,214 @@
+{
+  "chainName": "agoric",
+  "title": "Agoric Block Explorer",
+  "profile": true,
+  "previewImage": "https://s3.bigdipper.live/agoric.png",
+  "themes": {
+    "default": "light",
+    "themeList": [
+      "light"
+    ],
+    "dark": {
+      "primary": {
+        "main": "",
+        "contrastText": ""
+      },
+      "background": {
+        "default": "",
+        "paper": ""
+      },
+      "divider": "",
+      "text": {
+        "primary": "",
+        "secondary": ""
+      },
+      "custom": {
+        "general": {
+          "background": "",
+          "surfaceOne": "",
+          "surfaceTwo": "",
+          "surfaceThree": "",
+          "icon": ""
+        },
+        "fonts": {
+          "fontOne": "",
+          "fontTwo": "",
+          "fontThree": "",
+          "fontFour": "",
+          "fontFive": "",
+          "highlight": ""
+        },
+        "primaryData": {
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": ""
+        },
+        "results": {
+          "pass": "",
+          "fail": ""
+        },
+        "tokenomics": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": ""
+        },
+        "condition": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": ""
+        },
+        "charts": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": "",
+          "five": ""
+        },
+        "tags": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": "",
+          "five": "",
+          "six": "",
+          "seven": "",
+          "eight": "",
+          "nine": "",
+          "ten": "",
+          "eleven": "",
+          "twelve": "",
+          "thirteen": "",
+          "fourteen": "",
+          "fifteen": "",
+          "sixteen": "",
+          "seventeen": "",
+          "eighteen": "",
+          "nineteen": "",
+          "twenty": ""
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#BB2D40",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F8F8F8",
+        "paper": "#FFFFFF"
+      },
+      "divider": "#E8E8E8",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#414141"
+      },
+      "custom": {
+        "general": {
+          "background": "#F8F8F8",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#F8F8F8",
+          "surfaceThree": "",
+          "icon": ""
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": ""
+        },
+        "primaryData": {
+          "one": "#C64155",
+          "two": "#4AA6B6",
+          "three": "#419B8C",
+          "four": "#DFA431"
+        },
+        "results": {
+          "pass": "#34B596",
+          "fail": "#EF5562"
+        },
+        "tokenomics": {
+          "zero": "",
+          "one": "#4AA6B6",
+          "two": "#DFA431",
+          "three": "#B0515F"
+        },
+        "condition": {
+          "zero": "#D3D3D3",
+          "one": "#67B878",
+          "two": "#ED862E",
+          "three": "#EB5079"
+        },
+        "charts": {
+          "zero": "#D3D3D3",
+          "one": "#34B596",
+          "two": "#34B596",
+          "three": "#EB9E58",
+          "four": "#DE6071",
+          "five": "#906CDE"
+        },
+        "tags": {
+          "zero": "#E8E8E19",
+          "one": "#2460FA",
+          "two": "#2BA902",
+          "three": "#E79731",
+          "four": "#F17058",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9955",
+          "nine": "#B49F42",
+          "ten": "#E9A857",
+          "eleven": "#E94692",
+          "twelve": "#C15EC15",
+          "thirteen": "#C388D20",
+          "fourteen": "#46AEE20",
+          "fifteen": "#58BC102",
+          "sixteen": "#90BC69",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A490",
+          "nineteen": "#D37774",
+          "twenty": "#D9C799"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "id": "agoric-3",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-05-15T04:22:21",
+        "height": 2115669
+      },
+      "prefix": {
+        "consensus": "agoricvalcons",
+        "validator": "agoricvaloper",
+        "account": "agoric"
+      },
+      "primaryTokenUnit": "ubld",
+      "votingPowerTokenUnit": "ubld",
+      "tokenUnits": {
+        "ubld": {
+          "display": "bld",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.agoric.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.agoric.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.agoric.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "",
+        "matomoSiteID": ""
+      }
+    }
+  ]
+}

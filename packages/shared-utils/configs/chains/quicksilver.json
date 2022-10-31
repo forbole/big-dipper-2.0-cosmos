@@ -1,0 +1,184 @@
+{
+  "chainName": "quicksilver",
+  "title": "Quicksilver Block Explorer",
+  "profile": false,
+  "previewImage": "https://s3.bigdipper.live/quicksilver.png",
+  "themes": {
+    "default": "",
+    "themeList": [
+      "dark",
+      "light"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#7F8397",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#000000",
+        "paper": "#1C1F1F"
+      },
+      "divider": "#525252",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#000000",
+          "surfaceOne": "",
+          "surfaceTwo": "#333333",
+          "surfaceThree": "",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": ""
+        },
+        "primaryData": {
+          "one": "#3B3D48",
+          "two": "#5C5F70",
+          "three": "#7F8397",
+          "four": "#9396A7"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "zero": "",
+          "one": "#AFB1BD",
+          "two": "#D2B261",
+          "three": "#5D50AC"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#8CD261",
+          "two": "#8CD261",
+          "three": "#9361D2",
+          "four": "#61AAD2",
+          "five": "#D261AC"
+        },
+        "tags": {
+          "zero": "#E8E8E34",
+          "one": "#2460FA",
+          "two": "#2BA917",
+          "three": "#E79746",
+          "four": "#F17073",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9970",
+          "nine": "#B49F57",
+          "ten": "#E9A872",
+          "eleven": "#E94707",
+          "twelve": "#C15EC30",
+          "thirteen": "#C388D35",
+          "fourteen": "#46AEE35",
+          "fifteen": "#58BC117",
+          "sixteen": "#90BC84",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A505",
+          "nineteen": "#D37789",
+          "twenty": "#D9C814"
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#7F8397",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F6F6F6",
+        "paper": "#FEFFFF"
+      },
+      "divider": "#7A7A7A",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#525252"
+      },
+      "custom": {
+        "general": {
+          "background": "#F6F6F6",
+          "surfaceOne": "#FEFFFF",
+          "surfaceTwo": "#EFEFEF",
+          "surfaceThree": "",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": ""
+        },
+        "primaryData": {
+          "one": "#3B3D48",
+          "two": "#5C5F70",
+          "three": "#7F8397",
+          "four": "#9396A7"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "zero": "",
+          "one": "#AFB1BD",
+          "two": "#D2B261",
+          "three": "#5D50AC"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#D3D3D3",
+          "one": "#8CD261",
+          "two": "#8CD261",
+          "three": "#9361D2",
+          "four": "#61AAD2",
+          "five": "#D261AC"
+        },
+        "tags": {
+          "zero": "#E8E8E34",
+          "one": "#2460FA",
+          "two": "#2BA917",
+          "three": "#E79746",
+          "four": "#F17073",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9970",
+          "nine": "#B49F57",
+          "ten": "#E9A872",
+          "eleven": "#E94707",
+          "twelve": "#C15EC30",
+          "thirteen": "#C388D35",
+          "fourteen": "#46AEE35",
+          "fifteen": "#58BC117",
+          "sixteen": "#90BC84",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A505",
+          "nineteen": "#D37789",
+          "twenty": "#D9C814"
+        }
+      }
+    }
+  },
+  "chains": []
+}

@@ -10,7 +10,7 @@ import {
 } from '@graphql/types';
 import { getDenom } from '@utils/get_denom';
 import { formatToken } from '@utils/format_token';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import {
   GovParams,
   StakingParams,

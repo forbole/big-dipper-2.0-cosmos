@@ -10,7 +10,7 @@ import {
   useMarketDataQuery,
   MarketDataQuery,
 } from '@graphql/types';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import {
   writeMarket,
 } from '@recoil/market';

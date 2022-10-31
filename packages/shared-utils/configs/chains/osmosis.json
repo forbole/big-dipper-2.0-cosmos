@@ -1,0 +1,214 @@
+{
+  "chainName": "osmosis",
+  "title": "Osmosis Block Explorer",
+  "profile": true,
+  "previewImage": "https://s3.bigdipper.live/osmosis.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#DC7BFC",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#0E0826",
+        "paper": "#1B173A"
+      },
+      "divider": "#262058",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#0E0826",
+          "surfaceOne": "",
+          "surfaceTwo": "#160F32",
+          "surfaceThree": "",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": ""
+        },
+        "primaryData": {
+          "one": "#9D35FF",
+          "two": "#F372DB",
+          "three": "#36B9AB",
+          "four": "#4EABF0"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "zero": "",
+          "one": "#2E9CED",
+          "two": "#E3AB55",
+          "three": "#5ACF78"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF961B",
+          "three": "#FC6A8A"
+        },
+        "charts": {
+          "zero": "#E6E6E6",
+          "one": "#5E94FF",
+          "two": "#5E94FF",
+          "three": "#5ACF78",
+          "four": "#497BFF",
+          "five": "#C25396"
+        },
+        "tags": {
+          "zero": "#E8E8E16",
+          "one": "#2460FA",
+          "two": "#2BA899",
+          "three": "#E79728",
+          "four": "#F17055",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9952",
+          "nine": "#B49F39",
+          "ten": "#E9A854",
+          "eleven": "#E94689",
+          "twelve": "#C15EC12",
+          "thirteen": "#C388D17",
+          "fourteen": "#46AEE17",
+          "fifteen": "#58BC99",
+          "sixteen": "#90BC66",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A487",
+          "nineteen": "#D37771",
+          "twenty": "#D9C796"
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "",
+        "contrastText": ""
+      },
+      "background": {
+        "default": "",
+        "paper": ""
+      },
+      "divider": "",
+      "text": {
+        "primary": "",
+        "secondary": ""
+      },
+      "custom": {
+        "general": {
+          "background": "",
+          "surfaceOne": "",
+          "surfaceTwo": "",
+          "surfaceThree": "",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "",
+          "fontTwo": "",
+          "fontThree": "",
+          "fontFour": "",
+          "fontFive": "",
+          "highlight": ""
+        },
+        "primaryData": {
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": ""
+        },
+        "results": {
+          "pass": "",
+          "fail": ""
+        },
+        "tokenomics": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": ""
+        },
+        "condition": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": ""
+        },
+        "charts": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": "",
+          "five": ""
+        },
+        "tags": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": "",
+          "five": "",
+          "six": "",
+          "seven": "",
+          "eight": "",
+          "nine": "",
+          "ten": "",
+          "eleven": "",
+          "twelve": "",
+          "thirteen": "",
+          "fourteen": "",
+          "fifteen": "",
+          "sixteen": "",
+          "seventeen": "",
+          "eighteen": "",
+          "nineteen": "",
+          "twenty": ""
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "id": "osmosis-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-06-18T17:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "osmovalcons",
+        "validator": "osmovaloper",
+        "account": "osmo"
+      },
+      "primaryTokenUnit": "uosmo",
+      "votingPowerTokenUnit": "uosmo",
+      "tokenUnits": {
+        "uosmo": {
+          "display": "osmo",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.osmosis.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.osmosis.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.osmosis.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "",
+        "matomoSiteID": ""
+      }
+    }
+  ]
+}

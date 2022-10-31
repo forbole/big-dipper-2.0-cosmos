@@ -11,7 +11,7 @@ import {
 import { useDesmosProfile } from '@hooks';
 import { validatorToDelegatorAddress } from '@recoil/profiles';
 import { getValidatorCondition } from '@utils/get_validator_condition';
-import { chainConfig } from '@src/configs';
+import { chainConfig } from 'ui/dist';
 import {
   SlashingParams,
 } from '@models';
@@ -80,7 +80,7 @@ export const useValidatorDetails = () => {
         loading: false,
         exist: false,
       });
-    } else if (chainConfig.extra.profile) {
+    } else if (chainConfig.profile) {
       const address = validatorToDelegatorAddress(router.query.address as string);
       fetchDesmosProfile(address);
     }

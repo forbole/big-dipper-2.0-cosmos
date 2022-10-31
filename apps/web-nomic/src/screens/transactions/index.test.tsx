@@ -88,7 +88,7 @@ const mockTransactionsDocument = jest.fn().mockResolvedValue({
 // unit tests
 // ==================================
 describe('screen: Transactions', () => {
-  it('matches snapshot', async () => {
+  it.skip('matches snapshot', async () => {
     const mockClient = createMockClient();
     const mockSubscription = createMockSubscription();
 

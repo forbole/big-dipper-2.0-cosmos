@@ -1,10 +1,10 @@
-import BigDipperLogoRed from '@assets/big-dipper-red.svg';
-import BigDipperLogoWhite from '@assets/big-dipper-white.svg';
-import { ChainLogo } from '@components';
+import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
+import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
 import { LinearProgress } from '@material-ui/core';
 import { readTheme } from '@recoil/settings';
 import React from 'react';
 import { useRecoilValue } from 'recoil';
+import ChainIcon from 'ui/dist/components/ChainIcon';
 import { useStyles } from './styles';
 
 const InitialLoad = () => {
@@ -14,7 +14,7 @@ const InitialLoad = () => {
   return (
     <div className={classes.root}>
       <div>
-        <ChainLogo className={classes.logo} alt="logo" />
+        <ChainIcon type="logo" className={classes.logo} alt="logo" />
         <LinearProgress className={classes.divider} />
         {theme === 'light' ? (
           <BigDipperLogoRed />

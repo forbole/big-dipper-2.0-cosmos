@@ -26,9 +26,7 @@ export const useTransactions = () => {
       return ({
         height: x.height,
         hash: x.hash,
-        success: x.success,
         timestamp: x.block.timestamp,
-        messages: x.messages.length,
       });
     });
   };

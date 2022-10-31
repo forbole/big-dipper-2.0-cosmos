@@ -1,11 +1,11 @@
-import { generalConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 
 export const OPEN_GRAPH_SEO = {
   type: 'website',
   site_name: 'Big Dipper',
   images: [
     {
-      url: generalConfig.previewImage,
+      url: chainConfig.previewImage,
       width: 800,
       height: 600,
       alt: 'Preview Photo',

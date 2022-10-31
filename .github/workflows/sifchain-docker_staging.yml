@@ -1,0 +1,69 @@
+name: Docker-Staging
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  Build-and-Publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Prepare tags
+        id: prep
+        run: |
+          BRANCH=${GITHUB_REF#refs/heads/}
+          if [[ $GITHUB_REF == refs/heads/master ]]; then
+            BRANCH="solana"
+          elif [[ $GITHUB_REF == refs/pull/* ]]; then
+            BRANCH="build-test"
+          fi
+          echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
+          echo ::set-output name=branch::${BRANCH}
+      - name: Prepare docker build env
+        id: dockerPrep
+        run: |
+          NEXT_PUBLIC_GRAPHQL_URL="https://gql.solana.forbole.com/v1/graphql"
+          NEXT_PUBLIC_GRAPHQL_WS="wss://gql.solana.forbole.com/v1/graphql"
+          NEXT_PUBLIC_URL="https://solana.bigdipper.live"
+          NODE_ENV="production"
+          PORT=8080
+          NEXT_PUBLIC_MATOMO_URL="https://analytics.bigdipper.live"
+          NEXT_PUBLIC_MATOMO_SITE_ID=22
+          echo ::set-output name=NEXT_PUBLIC_GRAPHQL_URL::${NEXT_PUBLIC_GRAPHQL_URL}
+          echo ::set-output name=NEXT_PUBLIC_GRAPHQL_WS::${NEXT_PUBLIC_GRAPHQL_WS}
+          echo ::set-output name=NEXT_PUBLIC_URL::${NEXT_PUBLIC_URL}
+          echo ::set-output name=NODE_ENV::${NODE_ENV}
+          echo ::set-output name=PORT::${PORT}
+          echo ::set-output name=NEXT_PUBLIC_MATOMO_URL::${NEXT_PUBLIC_MATOMO_URL}
+          echo ::set-output name=NEXT_PUBLIC_MATOMO_SITE_ID::${NEXT_PUBLIC_MATOMO_SITE_ID}
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Login to DockerHub
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          push: ${{ github.event_name != 'pull_request' }}
+          build-args: |
+            "NEXT_PUBLIC_GRAPHQL_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_URL }}"
+            "NEXT_PUBLIC_GRAPHQL_WS=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_GRAPHQL_WS }}"
+            "NEXT_PUBLIC_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_URL }}"
+            "NODE_ENV=${{ steps.dockerPrep.outputs.NODE_ENV }}"
+            "PORT=${{ steps.dockerPrep.outputs.PORT }}"
+            "NEXT_PUBLIC_MATOMO_URL=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_MATOMO_URL }}"
+            "NEXT_PUBLIC_MATOMO_SITE_ID=${{ steps.dockerPrep.outputs.NEXT_PUBLIC_MATOMO_SITE_ID }}"
+          tags: "forbole/big-dipper-2.0-solana:${{ steps.prep.outputs.branch }}-staging"
+          labels: |
+            org.opencontainers.image.source=${{ github.event.repository.html_url }}
+            org.opencontainers.image.created=${{ steps.prep.outputs.created }}
+            org.opencontainers.image.revision=${{ github.sha }}

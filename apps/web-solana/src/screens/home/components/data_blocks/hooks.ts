@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import {
   useLatestBlockHeightListenerSubscription,
   useAverageBlockTimeQuery,

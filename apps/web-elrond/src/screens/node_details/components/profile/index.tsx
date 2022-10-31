@@ -8,7 +8,7 @@ import {
   Divider,
 } from '@material-ui/core';
 import { VALIDATOR_DETAILS } from '@utils/go_to_page';
-import CopyIcon from '@assets/icon-copy.svg';
+import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import {
   Box,

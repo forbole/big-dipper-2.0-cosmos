@@ -1,0 +1,214 @@
+{
+  "chainName": "shentu",
+  "title": "Shentu Block Explorer",
+  "profile": true,
+  "previewImage": "https://s3.bigdipper.live/shentu.png",
+  "themes": {
+    "default": "light",
+    "themeList": [
+      "light"
+    ],
+    "dark": {
+      "primary": {
+        "main": "",
+        "contrastText": ""
+      },
+      "background": {
+        "default": "",
+        "paper": ""
+      },
+      "divider": "",
+      "text": {
+        "primary": "",
+        "secondary": ""
+      },
+      "custom": {
+        "general": {
+          "background": "",
+          "surfaceOne": "",
+          "surfaceTwo": "",
+          "surfaceThree": "",
+          "icon": ""
+        },
+        "fonts": {
+          "fontOne": "",
+          "fontTwo": "",
+          "fontThree": "",
+          "fontFour": "",
+          "fontFive": "",
+          "highlight": ""
+        },
+        "primaryData": {
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": ""
+        },
+        "results": {
+          "pass": "",
+          "fail": ""
+        },
+        "tokenomics": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": ""
+        },
+        "condition": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": ""
+        },
+        "charts": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": "",
+          "five": ""
+        },
+        "tags": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": "",
+          "five": "",
+          "six": "",
+          "seven": "",
+          "eight": "",
+          "nine": "",
+          "ten": "",
+          "eleven": "",
+          "twelve": "",
+          "thirteen": "",
+          "fourteen": "",
+          "fifteen": "",
+          "sixteen": "",
+          "seventeen": "",
+          "eighteen": "",
+          "nineteen": "",
+          "twenty": ""
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#E1AB4C",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F8F8F8",
+        "paper": "#FFFFFF"
+      },
+      "divider": "#E8E8E8",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#414141"
+      },
+      "custom": {
+        "general": {
+          "background": "#F8F8F8",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#F9F9F9",
+          "surfaceThree": "",
+          "icon": ""
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": ""
+        },
+        "primaryData": {
+          "one": "#E7BD74",
+          "two": "#4D6380",
+          "three": "#354559",
+          "four": "#354559"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "zero": "",
+          "one": "#E1AB4C",
+          "two": "#93B2A5",
+          "three": "#EC674C"
+        },
+        "condition": {
+          "zero": "#E6E6E6",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E6E6E6",
+          "one": "#5494E4",
+          "two": "#5494E4",
+          "three": "#CE4C4C",
+          "four": "#E1AB4C",
+          "five": "#7E74BB"
+        },
+        "tags": {
+          "zero": "#E8E8E30",
+          "one": "#2460FA",
+          "two": "#2BA913",
+          "three": "#E79742",
+          "four": "#F17069",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9966",
+          "nine": "#B49F53",
+          "ten": "#E9A868",
+          "eleven": "#E94703",
+          "twelve": "#C15EC26",
+          "thirteen": "#C388D31",
+          "fourteen": "#46AEE31",
+          "fifteen": "#58BC113",
+          "sixteen": "#90BC80",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A501",
+          "nineteen": "#D37785",
+          "twenty": "#D9C810"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "id": "shentu-2.2",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2020-10-24T14:24:00",
+        "height": 4602989
+      },
+      "prefix": {
+        "consensus": "certikvalcons",
+        "validator": "certikvaloper",
+        "account": "certik"
+      },
+      "primaryTokenUnit": "uctk",
+      "votingPowerTokenUnit": "uctk",
+      "tokenUnits": {
+        "uctk": {
+          "display": "ctk",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.certik.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.certik.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.certik.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "",
+        "matomoSiteID": ""
+      }
+    }
+  ]
+}

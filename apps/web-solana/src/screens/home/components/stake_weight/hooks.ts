@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import * as R from 'ramda';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import { formatToken } from '@utils/format_token';
 import {
   useStakeWeightQuery,

@@ -8,7 +8,7 @@ import {
   Divider,
   Typography,
 } from '@material-ui/core';
-import { chainConfig } from '@src/configs';
+import { chainConfig } from 'ui/dist';
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';

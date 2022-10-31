@@ -7,9 +7,7 @@ import {
   Typography,
   Divider,
 } from '@material-ui/core';
-import {
-  SingleTransactionMobile, Result,
-} from '@components';
+import { SingleTransactionMobile } from '@components';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import {
   BLOCK_DETAILS, TRANSACTION_DETAILS,
@@ -41,11 +39,7 @@ const Mobile:React.FC<{
           </Typography>
         </Link>
       ),
-      result: (
-        <Result success={x.success} />
-      ),
       time: dayjs.utc(x.timestamp).fromNow(),
-      messages: numeral(x.messages).format('0,0'),
     });
   });
 

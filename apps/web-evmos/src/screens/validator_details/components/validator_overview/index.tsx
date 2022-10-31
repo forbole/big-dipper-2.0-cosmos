@@ -7,7 +7,7 @@ import {
   Divider, Typography,
 } from '@material-ui/core';
 import { useScreenSize } from '@hooks';
-import CopyIcon from '@assets/icon-copy.svg';
+import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import {
   Box,

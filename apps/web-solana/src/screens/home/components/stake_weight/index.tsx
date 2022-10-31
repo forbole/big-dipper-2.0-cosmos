@@ -10,7 +10,7 @@ import {
   Pie,
   Cell,
 } from 'recharts';
-import { chainConfig } from '@src/configs';
+import { chainConfig } from 'ui/dist';
 import { useStyles } from './styles';
 import { useStakeWeight } from './hooks';
 

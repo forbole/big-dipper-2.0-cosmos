@@ -19,13 +19,13 @@ import {
   EmailIcon,
 } from 'react-share';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import CopyIcon from '@assets/icon-copy.svg';
-import ShareIcon from '@assets/icon-share.svg';
+import CopyIcon from 'shared-utils/assets/icon-copy.svg';
+import ShareIcon from 'shared-utils/assets/icon-share.svg';
 import {
   Box,
 } from '@components';
 import { useScreenSize, useWindowOrigin } from '@hooks';
-import NativeAccountLogo from '@assets/native-account.svg';
+import NativeAccountLogo from 'shared-utils/assets/native-account.svg';
 import { useStyles } from './styles';
 import { useOverview } from './hooks';
 import { OverviewType } from '../../types';

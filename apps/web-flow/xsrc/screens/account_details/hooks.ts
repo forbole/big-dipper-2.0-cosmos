@@ -20,7 +20,7 @@ import { getDenom } from '@utils/get_denom';
 import {
   formatToken,
 } from '@utils/format_token';
-import { chainConfig } from '@src/configs';
+import { chainConfig } from 'ui/dist';
 import { useDesmosProfile } from '@hooks';
 import { AccountDetailState } from './types';
 
@@ -94,7 +94,7 @@ export const useAccountDetails = () => {
 
   useEffect(() => {
     handleSetState(initialState);
-    if (chainConfig.extra.profile) {
+    if (chainConfig.profile) {
       fetchDesmosProfile(R.pathOr('', ['query', 'address'], router));
     }
   },

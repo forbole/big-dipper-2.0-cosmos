@@ -9,7 +9,7 @@ import { MsgAddLiquidity } from '@models';
 import {
   useProfileRecoil,
 } from '@recoil/profiles';
-import { chainConfig } from '@src/configs';
+import { chainConfig } from 'ui/dist';
 
 const AddLiquidity = (props: {
   message: MsgAddLiquidity;

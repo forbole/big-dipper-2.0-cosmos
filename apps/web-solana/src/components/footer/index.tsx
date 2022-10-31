@@ -2,15 +2,13 @@ import React from 'react';
 import classnames from 'classnames';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
-import FooterLogoLight from '@assets/big-dipper-red.svg';
+import FooterLogoLight from 'shared-utils/assets/big-dipper-red.svg';
 import {
   Button,
   Divider,
   Typography,
 } from '@material-ui/core';
-import {
-  chainConfig, generalConfig,
-} from '@src/configs';
+import { chainConfig, generalConfig } from 'ui/dist';
 import { SocialMedia } from './components';
 import {
   footerLinks, donateLink,

@@ -4,7 +4,7 @@ import {
   useRecoilValue,
   useRecoilCallback,
 } from 'recoil';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import {
   writeProfile,
   readProfilesExist,
@@ -42,7 +42,7 @@ export const useProfileRecoil = (address: string): AvatarName | null => {
   });
 
   useEffect(() => {
-    if (chainConfig.extra.profile
+    if (chainConfig.profile
       && delegatorAddress
       && rawProfile === null) {
       fetchProfile();
@@ -83,7 +83,7 @@ export const useProfilesRecoil = (addresses: string[]): AvatarName[] => {
   });
 
   useEffect(() => {
-    if (chainConfig.extra.profile) {
+    if (chainConfig.profile) {
       fetchProfiles();
     }
   }, [delegatorAddresses]);

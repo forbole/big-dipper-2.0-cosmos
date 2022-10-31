@@ -1,10 +1,10 @@
 import { atom } from 'recoil';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import { AtomState } from './types';
 
 const initialState: AtomState = {
   networks: [],
-  selected: chainConfig.network,
+  selected: chainConfig.id,
 };
 
 export const atomState = atom<AtomState>({

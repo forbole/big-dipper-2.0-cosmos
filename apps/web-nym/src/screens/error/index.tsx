@@ -7,7 +7,7 @@ import { HOME } from '@utils/go_to_page';
 import {
   Typography,
 } from '@material-ui/core';
-import { generalConfig } from '@configs';
+import { generalConfig } from 'ui/dist';
 import { useStyles } from './styles';
 
 const Error = () => {

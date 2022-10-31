@@ -1,5 +1,5 @@
 import numeral from 'numeral';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import { useRouter } from 'next/router';
 import {
   VALIDATOR_DETAILS,
@@ -36,7 +36,7 @@ export const useSearchBar = (t) => {
       } else if (new RegExp(userRegex).test(parsedValue)) {
         router.push(ACCOUNT_DETAILS(parsedValue));
       } else if (/^@/.test(parsedValue)) {
-        const configProfile = chainConfig.extra.profile;
+        const configProfile = chainConfig.profile;
         if (!configProfile) {
           toast(t('common:profilesNotEnabled'));
         } else if (parsedValue === '@') {

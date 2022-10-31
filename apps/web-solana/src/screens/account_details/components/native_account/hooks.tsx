@@ -6,7 +6,7 @@ import {
   useNativeAccountDetailsQuery,
   NativeAccountDetailsQuery,
 } from '@graphql/types';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import { formatToken } from '@utils/format_token';
 import { NativeAccountState } from './types';
 

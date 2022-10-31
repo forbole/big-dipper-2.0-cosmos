@@ -1,0 +1,214 @@
+{
+  "chainName": "solana",
+  "title": "Solana Block Explorer",
+  "profile": false,
+  "previewImage": "https://s3.bigdipper.live/solana.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#5DBF84",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#0A0A0A",
+        "paper": "#131316"
+      },
+      "divider": "#3D3D43",
+      "text": {
+        "primary": "#E3E3E3",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#0A0A0A",
+          "surfaceOne": "",
+          "surfaceTwo": "#19191D",
+          "surfaceThree": "#232327",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E3E3E3",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#989898",
+          "fontFive": "#FFFFFF",
+          "highlight": ""
+        },
+        "primaryData": {
+          "one": "#23C981",
+          "two": "#21B6CC",
+          "three": "#6D6ACF",
+          "four": "#B34ED3"
+        },
+        "results": {
+          "pass": "#198a65",
+          "fail": "#b12a34"
+        },
+        "tokenomics": {
+          "zero": "",
+          "one": "#24CB83",
+          "two": "#E86F51",
+          "three": "#EAC46A"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF961B",
+          "three": "#FC6A8A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#EB3AA4",
+          "two": "#EB3AA4",
+          "three": "#FF961B",
+          "four": "#497BFF",
+          "five": "#9F46EC"
+        },
+        "tags": {
+          "zero": "#E8E8E24",
+          "one": "#2460FA",
+          "two": "#2BA907",
+          "three": "#E79736",
+          "four": "#F17063",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9960",
+          "nine": "#B49F47",
+          "ten": "#E9A862",
+          "eleven": "#E94697",
+          "twelve": "#C15EC20",
+          "thirteen": "#C388D25",
+          "fourteen": "#46AEE25",
+          "fifteen": "#58BC107",
+          "sixteen": "#90BC74",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A495",
+          "nineteen": "#D37779",
+          "twenty": "#D9C804"
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "",
+        "contrastText": ""
+      },
+      "background": {
+        "default": "",
+        "paper": ""
+      },
+      "divider": "",
+      "text": {
+        "primary": "",
+        "secondary": ""
+      },
+      "custom": {
+        "general": {
+          "background": "",
+          "surfaceOne": "",
+          "surfaceTwo": "",
+          "surfaceThree": "",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "",
+          "fontTwo": "",
+          "fontThree": "",
+          "fontFour": "",
+          "fontFive": "",
+          "highlight": ""
+        },
+        "primaryData": {
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": ""
+        },
+        "results": {
+          "pass": "",
+          "fail": ""
+        },
+        "tokenomics": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": ""
+        },
+        "condition": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": ""
+        },
+        "charts": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": "",
+          "five": ""
+        },
+        "tags": {
+          "zero": "",
+          "one": "",
+          "two": "",
+          "three": "",
+          "four": "",
+          "five": "",
+          "six": "",
+          "seven": "",
+          "eight": "",
+          "nine": "",
+          "ten": "",
+          "eleven": "",
+          "twelve": "",
+          "thirteen": "",
+          "fourteen": "",
+          "fifteen": "",
+          "sixteen": "",
+          "seventeen": "",
+          "eighteen": "",
+          "nineteen": "",
+          "twenty": ""
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "id": "mainnet-beta",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-07-13T08:00:00",
+        "height": 140248122
+      },
+      "prefix": {
+        "consensus": "solvalcons",
+        "validator": "solvaloper",
+        "account": "sol"
+      },
+      "primaryTokenUnit": "sol",
+      "votingPowerTokenUnit": "sol",
+      "tokenUnits": {
+        "sol": {
+          "display": "sol",
+          "exponent": 9
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.solana.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.solana.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://gql.solana.forbole.com/v1/graphql"
+      },
+      "marketing": {
+        "matomoURL": "",
+        "matomoSiteID": ""
+      }
+    }
+  ]
+}

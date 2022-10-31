@@ -10,8 +10,6 @@ import { useStyles } from './styles';
 import {
   Profile,
   VotingPower,
-  Transactions,
-  Staking,
   Blocks,
   ValidatorOverview,
 } from './components';
@@ -64,12 +62,6 @@ const ValidatorDetails = () => {
               status={status.status}
             />
             <Blocks className={classes.blocks} />
-            <Staking
-              className={classes.staking}
-            />
-            <Transactions
-              className={classes.transactions}
-            />
           </span>
         </LoadAndExist>
       </Layout>

@@ -9,7 +9,7 @@ import {
 import { getValidatorCondition } from '@utils/get_validator_condition';
 import { formatToken } from '@utils/format_token';
 import { SlashingParams } from '@models';
-import { chainConfig } from '@src/configs';
+import { chainConfig } from 'ui/dist';
 import {
   ValidatorsState,
   ItemType,
@@ -48,6 +48,7 @@ export const useValidators = () => {
   // Parse data
   // ==========================
   const formatValidators = (data: ValidatorsQuery) => {
+    console.log('data', data);
     const slashingParams = SlashingParams.fromJson(R.pathOr({}, ['slashingParams', 0, 'params'], data));
     const votingPowerOverall = numeral(formatToken(
       R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data),
@@ -56,22 +57,25 @@ export const useValidators = () => {
 
     const { signedBlockWindow } = slashingParams;
 
-    let formattedItems: ValidatorType[] = data.validator.filter((x) => x.validatorInfo).map((x) => {
+    let formattedItems: ValidatorType[] = data.validator.map((x) => {
+      const statusString = R.pathOr('false', ['validatorStatuses', 'status'], x);
+      const jailedString = R.pathOr('false', ['validatorStatuses', 'jailed'], x);
+      const tombstonedString = R.pathOr('false', ['validatorStatuses', 'tombstoned'], x);
+
       const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
       const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
-
       const missedBlockCounter = R.pathOr(0, ['validatorSigningInfos', 0, 'missedBlocksCounter'], x);
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
 
       return ({
-        validator: x.validatorInfo.operatorAddress,
+        validator: x.selfDelegateAddress,
         votingPower,
         votingPowerPercent,
         commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], x) * 100,
         condition,
-        status: R.pathOr(0, ['validatorStatuses', 0, 'status'], x),
-        jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], x),
-        tombstoned: R.pathOr(false, ['validatorSigningInfos', 0, 'tombstoned'], x),
+        status: statusString === 'true',
+        jailed: jailedString === 'true',
+        tombstoned: tombstonedString === 'true',
       });
     });
 
@@ -84,7 +88,9 @@ export const useValidators = () => {
     let cumulativeVotingPower = Big(0);
     let reached = false;
     formattedItems.forEach((x) => {
-      if (x.status === 3) {
+      if (x.status === true) {
+        console.log('cumulativeVotingPower', cumulativeVotingPower);
+
         const totalVp = cumulativeVotingPower.add(x.votingPowerPercent);
         if (totalVp.lte(34) && !reached) {
           x.topVotingPower = true;
@@ -131,11 +137,11 @@ export const useValidators = () => {
     let sorted: ItemType[] = R.clone(items);
 
     if (state.tab === 0) {
-      sorted = sorted.filter((x) => x.status === 3);
+      sorted = sorted.filter((x) => x.status === true);
     }
 
     if (state.tab === 1) {
-      sorted = sorted.filter((x) => x.status !== 3);
+      sorted = sorted.filter((x) => x.status !== true);
     }
 
     if (search) {

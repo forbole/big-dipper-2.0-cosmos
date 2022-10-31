@@ -1,1 +1,3 @@
-export { default } from "ui/src/screens/ErrorPage";
+import Error, { getInitialProps } from "ui/dist/screens/Error";
+Error.getInitialProps = getInitialProps;
+export default Error;

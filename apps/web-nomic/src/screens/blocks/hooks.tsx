@@ -114,13 +114,12 @@ export const useBlocks = () => {
       formattedData = data.blocks.slice(0, 51);
     }
     return formattedData.map((x) => {
-      const proposerAddress = R.pathOr('', ['validator', 'validatorInfo', 'operatorAddress'], x);
       return ({
         height: x.height,
         txs: x.txs,
         hash: x.hash,
         timestamp: x.timestamp,
-        proposer: proposerAddress,
+        proposer: x.proposerAddress,
       });
     });
   };
@@ -128,6 +127,8 @@ export const useBlocks = () => {
   const itemCount = state.hasNextPage ? state.items.length + 1 : state.items.length;
   const loadMoreItems = state.isNextPageLoading ? () => null : loadNextPage;
   const isItemLoaded = (index) => !state.hasNextPage || index < state.items.length;
+
+  console.log('state', state);
 
   return {
     state,

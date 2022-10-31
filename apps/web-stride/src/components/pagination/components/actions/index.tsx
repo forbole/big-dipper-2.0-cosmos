@@ -8,8 +8,8 @@ import {
   MenuItem,
   InputBase,
 } from '@material-ui/core';
-import NextIcon from '@assets/icon-next.svg';
-import NextFastIcon from '@assets/icon-next-fast.svg';
+import NextIcon from 'shared-utils/assets/icon-next.svg';
+import NextFastIcon from 'shared-utils/assets/icon-next-fast.svg';
 import { useStyles } from './styles';
 import { useTablePaginationActions } from './hooks';
 

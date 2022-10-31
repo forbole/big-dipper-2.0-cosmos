@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { Box } from '@material-ui/core';
-import BigDipperLogoRed from '@assets/big-dipper-red.svg';
+import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
 import { Networks } from '@src/components/nav/components';
 import { useStyles } from './styles';
 

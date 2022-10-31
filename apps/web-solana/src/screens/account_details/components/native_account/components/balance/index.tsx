@@ -18,7 +18,7 @@ import {
 import useTranslation from 'next-translate/useTranslation';
 import { Box } from '@components';
 import { formatNumber } from '@utils/format_token';
-import { chainConfig } from '@configs';
+import { chainConfig } from 'ui/dist';
 import { useStyles } from './styles';
 import { BalanceType } from '../../../../types';
 import { formatBalanceData } from './utils';

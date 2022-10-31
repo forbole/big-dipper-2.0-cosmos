@@ -19,7 +19,7 @@ export const useStyles = () => {
           width: '14px',
           height: '14px',
           right: 0,
-          fill: theme.palette.custom.fonts.fontTwo,
+          fill: theme.palette.custom.fonts.fontTwo
         },
         up: {
           transform: 'rotate(180deg)',

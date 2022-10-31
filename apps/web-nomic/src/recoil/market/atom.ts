@@ -11,12 +11,6 @@ const initialState: AtomState = {
   },
   marketCap: null,
   inflation: 0,
-  communityPool: {
-    value: '0',
-    displayDenom: '',
-    baseDenom: '',
-    exponent: 0,
-  },
   apr: 0,
 };
 
