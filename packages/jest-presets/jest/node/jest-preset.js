@@ -12,12 +12,8 @@ const customJestConfig = {
   transformIgnorePatterns: ['/node_modules/.+\\.(ts|tsx)$'],
   transform: {
     '.+\\.(svg|css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
+    '.+\\.svg\\?url$': 'jest-transform-stub',
     '^.+\\.(ts|tsx)$': '@swc/jest',
-  },
-  moduleNameMapper: {
-    '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
-    'ui/dist': 'ui/src',
-    'ui/dist/(.*)': 'ui/src/$1',
   },
   setupFilesAfterEnv: [
     '<rootDir>/jest.setup.js',
