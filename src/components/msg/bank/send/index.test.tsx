@@ -27,6 +27,14 @@ describe('screen: TransactionDetails/MsgSend', () => {
         denom: 'udaric',
         amount: '200000000',
       }],
+      json: JSON.stringify({
+        from: 'fromAddress',
+        to: 'toAddress',
+        amount: [{
+          denom: 'udaric',
+          amount: '200000000',
+        }],
+      }),
     });
     const component = renderer.create(
       <RecoilRoot>
