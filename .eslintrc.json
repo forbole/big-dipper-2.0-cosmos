@@ -92,6 +92,7 @@
     "lines-between-class-members": "off",
     "react/no-array-index-key": "off",
     "jsx-a11y/anchor-is-valid": "off",
+    "react/require-default-props": "warn",
     "react/jsx-first-prop-new-line": [
       "error",
       "multiline"

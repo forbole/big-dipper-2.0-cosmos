@@ -14,7 +14,7 @@ WORKDIR /home/node/app
 COPY . .
 
 # Installing dependencies
-RUN npm ci
+RUN yarn install --frozen-lockfile
 
 # Build-time arguments
 ARG NODE_ENV="production"
@@ -22,7 +22,6 @@ ARG NEXT_PUBLIC_GRAPHQL_URL
 ARG NEXT_PUBLIC_GRAPHQL_WS
 ARG NEXT_PUBLIC_RPC_WEBSOCKET
 ARG NEXT_PUBLIC_CHAIN_TYPE
-ARG NPM_CONFIG_LOGLEVEL
 ARG PORT=3000
 
 # Run-time environment variables
@@ -30,12 +29,11 @@ ENV NEXT_PUBLIC_GRAPHQL_URL ${NEXT_PUBLIC_GRAPHQL_URL}
 ENV NEXT_PUBLIC_GRAPHQL_WS ${NEXT_PUBLIC_GRAPHQL_WS}
 ENV NEXT_PUBLIC_RPC_WEBSOCKET ${NEXT_PUBLIC_RPC_WEBSOCKET}
 ENV NEXT_PUBLIC_CHAIN_TYPE ${NEXT_PUBLIC_CHAIN_TYPE}
-ENV NPM_CONFIG_LOGLEVEL ${NPM_CONFIG_LOGLEVEL}
 ENV NODE_ENV ${NODE_ENV}
 ENV PORT ${PORT}
 
-# Build the app
-RUN npm run build
+# Building app
+RUN yarn build
 
 # Specify default port
 EXPOSE ${PORT}
@@ -45,4 +43,4 @@ USER node
 SHELL ["/bin/bash", "-euo", "pipefail", "-c"]
 
 # Run the application
-CMD [ "npm start" ]
+CMD [ "yarn", "run", "start" ]

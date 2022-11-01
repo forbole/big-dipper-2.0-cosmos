@@ -20,6 +20,26 @@ jobs:
           config-file: '.github/linters/mlc_config.json'
           use-quiet-mode: 'yes'
 
+  yarn-lint:
+    name: "Yarn lint"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'yarn'
+      
+      - name: "Install dependencies"
+        run: yarn install --frozen-lockfile
+
+      - name: "Execute JS/TS/TSX/JSX linters"
+        run: |
+          yarn run type-check
+          yarn run lint
+
   super-lint:
     name: "Super Linter"
     runs-on: ubuntu-latest
