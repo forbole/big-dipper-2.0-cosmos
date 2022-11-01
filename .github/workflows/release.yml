@@ -63,14 +63,17 @@ jobs:
           file: Dockerfile
           platforms: linux/amd64
           load: true
+          target: runner
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          build-args: |
-            NODE_ENV="production"
-            NEXT_PUBLIC_GRAPHQL_URL=${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }}
-            NEXT_PUBLIC_GRAPHQL_WS=${{ secrets.NEXT_PUBLIC_GRAPHQL_WS }}
-            NEXT_PUBLIC_RPC_WEBSOCKET=${{ secrets.NEXT_PUBLIC_RPC_WEBSOCKET }}
-            NEXT_PUBLIC_CHAIN_TYPE=${{ secrets.NEXT_PUBLIC_CHAIN_TYPE }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          # build-args: |
+          #   NODE_ENV="production"
+          #   NEXT_PUBLIC_GRAPHQL_URL=${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }}
+          #   NEXT_PUBLIC_GRAPHQL_WS=${{ secrets.NEXT_PUBLIC_GRAPHQL_WS }}
+          #   NEXT_PUBLIC_RPC_WEBSOCKET=${{ secrets.NEXT_PUBLIC_RPC_WEBSOCKET }}
+          #   NEXT_PUBLIC_CHAIN_TYPE=${{ secrets.NEXT_PUBLIC_CHAIN_TYPE }}
 
       - name: Push BigDipper image
         run: docker image push --all-tags registry.digitalocean.com/${{ env.IMAGE_NAME }}
@@ -131,14 +134,17 @@ jobs:
           file: Dockerfile
           platforms: linux/amd64
           load: true
+          target: runner
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          build-args: |
-            NODE_ENV="production"
-            NEXT_PUBLIC_GRAPHQL_URL=${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }}
-            NEXT_PUBLIC_GRAPHQL_WS=${{ secrets.NEXT_PUBLIC_GRAPHQL_WS }}
-            NEXT_PUBLIC_RPC_WEBSOCKET=${{ secrets.NEXT_PUBLIC_RPC_WEBSOCKET }}
-            NEXT_PUBLIC_CHAIN_TYPE=${{ secrets.NEXT_PUBLIC_CHAIN_TYPE }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          # build-args: |
+          #   NODE_ENV="production"
+          #   NEXT_PUBLIC_GRAPHQL_URL=${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }}
+          #   NEXT_PUBLIC_GRAPHQL_WS=${{ secrets.NEXT_PUBLIC_GRAPHQL_WS }}
+          #   NEXT_PUBLIC_RPC_WEBSOCKET=${{ secrets.NEXT_PUBLIC_RPC_WEBSOCKET }}
+          #   NEXT_PUBLIC_CHAIN_TYPE=${{ secrets.NEXT_PUBLIC_CHAIN_TYPE }}
 
       - name: Push BigDipper image
         run: docker image push --all-tags registry.digitalocean.com/${{ env.IMAGE_NAME }}
