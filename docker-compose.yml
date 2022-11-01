@@ -15,7 +15,6 @@ services:
       - NODE_ENV=production
       - NEXT_PUBLIC_GRAPHQL_URL=https://testnet-gql.cheqd.io/v1/graphql
       - NEXT_PUBLIC_GRAPHQL_WS_URL=wss://testnet-gql.cheqd.io/v1/graphql
-      - NEXT_PUBLIC_URL=http://localhost:3000
       - NEXT_PUBLIC_RPC_WEBSOCKET=wss://rpc.cheqd.network/websocket
       - NEXT_PUBLIC_CHAIN_TYPE=testnet
     command: [ "yarn run start" ]

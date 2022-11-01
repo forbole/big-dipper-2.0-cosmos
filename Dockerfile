@@ -30,9 +30,7 @@ FROM node:16-alpine AS runner
 WORKDIR /home/node/app
 
 # Copy source/built folders
-COPY --from=builder --chown=node:node /home/node/app/public ./public/
-COPY --from=builder --chown=node:node /home/node/app/server ./server/
-COPY --from=builder --chown=node:node /home/node/app/src ./src/
+COPY . .
 COPY --from=builder --chown=node:node /home/node/app/dist ./dist/
 
 # Build-time arguments
@@ -54,7 +52,8 @@ ENV NEXT_PUBLIC_RPC_WEBSOCKET ${NEXT_PUBLIC_RPC_WEBSOCKET}
 ENV NEXT_PUBLIC_CHAIN_TYPE ${NEXT_PUBLIC_CHAIN_TYPE}
 
 # Install pre-requisite packages
-RUN chown -R node:node /home/node/app && \
+RUN yarn install --frozen-lockfile && \
+	chown -R node:node /home/node/app && \
     apk update && \
     apk add --no-cache bash ca-certificates
 
