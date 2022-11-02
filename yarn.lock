@@ -2876,15 +2876,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@socialgouv/matomo-next@npm:^1.2.2":
-  version: 1.4.0
-  resolution: "@socialgouv/matomo-next@npm:1.4.0"
-  peerDependencies:
-    next: ">= 9.5.5"
-  checksum: 24aabfaea5ed2b1e65d18c8be31d35aa48ac6922972eddd126d3fcdd68aa932d735057bd82247876bf9fe362cb2bb4629119130864c47e8b1e13e0b78a50fe15
-  languageName: node
-  linkType: hard
-
 "@svgr/babel-plugin-add-jsx-attribute@npm:^6.5.1":
   version: 6.5.1
   resolution: "@svgr/babel-plugin-add-jsx-attribute@npm:6.5.1"
