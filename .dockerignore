@@ -9,5 +9,6 @@ tests
 # Skip unnecessary files
 **/*.md
 Dockerfile**
-npm-debug.log
 .env
+.env.sample
+npm-debug.log

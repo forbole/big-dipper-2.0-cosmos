@@ -36,9 +36,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: "Execute JS/TS/TSX/JSX linters"
-        run: |
-          yarn run type-check
-          yarn run lint
+        run: yarn lint
 
   super-lint:
     name: "Super Linter"
