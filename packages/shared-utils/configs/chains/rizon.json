@@ -183,7 +183,7 @@
   },
   "chains": [
     {
-      "id": "titan-1",
+      "network": "titan-1",
       "chainType": "Mainnet",
       "genesis": {
         "time": "2021-09-28T08:00:00",

@@ -183,7 +183,7 @@
   },
   "chains": [
     {
-      "id": "pio-mainnet-1",
+      "network": "pio-mainnet-1",
       "chainType": "Mainnet",
       "genesis": {
         "time": "2021-04-20T16:20:00",

@@ -183,7 +183,7 @@
   },
   "chains": [
     {
-      "id": "core-1",
+      "network": "core-1",
       "chainType": "Mainnet",
       "genesis": {
         "time": "2021-03-30T12:08:46",

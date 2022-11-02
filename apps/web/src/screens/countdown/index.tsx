@@ -1,6 +1,5 @@
 /* eslint-disable */
 import React, { useState } from 'react';
-import * as R from 'ramda';
 import { Typography } from '@material-ui/core';
 import { useInterval } from '@hooks';
 import dayjs from '@utils/dayjs';
@@ -89,7 +88,7 @@ const Countdown: React.FC<{
         </div>
       </div>
       <Typography variant="h2" className={classes.chain}>
-      {chainConfig.network}
+        {chainConfig.network}
       </Typography>
       {state.loading && <Loading />}
     </div>

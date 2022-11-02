@@ -183,7 +183,7 @@
   },
   "chains": [
     {
-      "id": "crescent-1",
+      "network": "crescent-1",
       "chainType": "Mainnet",
       "genesis": {
         "time": "2022-04-13T00:00:00",

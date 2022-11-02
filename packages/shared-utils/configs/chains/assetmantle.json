@@ -183,7 +183,7 @@
   },
   "chains": [
     {
-      "id": "mantle-1",
+      "network": "mantle-1",
       "chainType": "Mainnet",
       "genesis": {
         "time": "2022-07-12T02:34:54",

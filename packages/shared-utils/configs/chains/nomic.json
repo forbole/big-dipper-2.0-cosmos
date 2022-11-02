@@ -183,10 +183,10 @@
   },
   "chains": [
     {
-      "id": "nomic-stakenet-2",
-      "chainType": "",
+      "network": "nomic-stakenet-2",
+      "chainType": "Mainnet",
       "genesis": {
-        "time": "",
+        "time": "2022-07-04T00:00:00",
         "height": 0
       },
       "prefix": {
@@ -194,15 +194,19 @@
         "validator": "",
         "account": ""
       },
-      "primaryTokenUnit": "",
-      "votingPowerTokenUnit": "",
+      "primaryTokenUnit": "usat",
+      "votingPowerTokenUnit": "usat",
       "tokenUnits": {
-        "": {
-          "display": "",
-          "exponent": 0
+        "usat": {
+          "display": "sat",
+          "exponent": 8
         }
       },
-      "endpoints": {},
+      "endpoints": {
+        "graphql": "https://gql.nomic.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.nomic.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://gql.nomic.forbole.com/v1/graphql"
+      },
       "marketing": {
         "matomoURL": "",
         "matomoSiteID": ""

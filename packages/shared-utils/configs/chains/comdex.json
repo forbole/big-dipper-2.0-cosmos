@@ -183,7 +183,7 @@
   },
   "chains": [
     {
-      "id": "comdex-1",
+      "network": "comdex-1",
       "chainType": "Mainnet",
       "genesis": {
         "time": "2021-11-20T14:00:00",
@@ -213,7 +213,7 @@
       }
     },
     {
-      "id": "meteor-test",
+      "network": "meteor-test",
       "chainType": "Testnet",
       "genesis": {
         "time": "2021-10-15T12:58:04",

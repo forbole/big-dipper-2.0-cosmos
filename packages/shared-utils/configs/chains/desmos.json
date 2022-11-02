@@ -184,7 +184,7 @@
   },
   "chains": [
     {
-      "id": "desmos-mainnet",
+      "network": "desmos-mainnet",
       "chainType": "Mainnet",
       "genesis": {
         "time": "2021-08-31T16:15:00",
@@ -214,11 +214,11 @@
       }
     },
     {
-      "id": "morpheus-apollo-2",
+      "network": "morpheus-apollo-3",
       "chainType": "Testnet",
       "genesis": {
-        "time": "2021-07-13T08:00:00",
-        "height": 1045650
+        "time": "2022-10-24T08:00:00",
+        "height": 7942286
       },
       "prefix": {
         "consensus": "desmosvalcons",

@@ -183,7 +183,7 @@
   },
   "chains": [
     {
-      "id": "mainnet",
+      "network": "mainnet",
       "chainType": "Mainnet",
       "genesis": {
         "time": "",

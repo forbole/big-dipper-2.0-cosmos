@@ -183,7 +183,7 @@
   },
   "chains": [
     {
-      "id": "bitsong-2b",
+      "network": "bitsong-2b",
       "chainType": "Mainnet",
       "genesis": {
         "time": "2021-10-21T11:00:00",

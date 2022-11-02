@@ -183,7 +183,7 @@
   },
   "chains": [
     {
-      "id": "regen-1",
+      "network": "regen-1",
       "chainType": "Mainnet",
       "genesis": {
         "time": "2021-04-15T15:00:00",

@@ -183,7 +183,7 @@
   },
   "chains": [
     {
-      "id": "shentu-2.2",
+      "network": "shentu-2.2",
       "chainType": "Mainnet",
       "genesis": {
         "time": "2020-10-24T14:24:00",

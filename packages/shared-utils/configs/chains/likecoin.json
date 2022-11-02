@@ -184,7 +184,7 @@
   },
   "chains": [
     {
-      "id": "likecoin-mainnet-2",
+      "network": "likecoin-mainnet-2",
       "chainType": "Mainnet",
       "genesis": {
         "time": "2021-08-18T13:30:00",
@@ -214,7 +214,7 @@
       }
     },
     {
-      "id": "likecoin-public-testnet-5",
+      "network": "likecoin-public-testnet-5",
       "chainType": "Testnet",
       "genesis": {
         "time": "2022-04-04T07:07:39",
@@ -243,7 +243,7 @@
       }
     },
     {
-      "id": "likecoin-public-testnet-5",
+      "network": "likecoin-public-testnet-5",
       "chainType": "Testnet",
       "genesis": {
         "time": "2022-04-04T07:07:39",

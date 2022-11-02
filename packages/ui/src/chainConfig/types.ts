@@ -1,5 +1,5 @@
 export interface ChainSettings {
-  id: string;
+  network: string;
   chainType: string;
   genesis: {
     time: string;

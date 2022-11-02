@@ -183,7 +183,7 @@
   },
   "chains": [
     {
-      "id": "laozi-mainnet",
+      "network": "laozi-mainnet",
       "chainType": "Mainnet",
       "genesis": {
         "time": "2021-09-23T12:00:00",
@@ -213,7 +213,7 @@
       }
     },
     {
-      "id": "band-guanyu-mainnet",
+      "network": "band-guanyu-mainnet",
       "chainType": "Retired",
       "genesis": {
         "time": "",

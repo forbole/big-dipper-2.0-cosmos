@@ -183,7 +183,7 @@
   },
   "chains": [
     {
-      "id": "mainnet-beta",
+      "network": "mainnet-beta",
       "chainType": "Mainnet",
       "genesis": {
         "time": "2021-07-13T08:00:00",

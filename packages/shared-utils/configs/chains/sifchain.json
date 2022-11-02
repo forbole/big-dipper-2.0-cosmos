@@ -183,7 +183,7 @@
   },
   "chains": [
     {
-      "id": "sifchain-1",
+      "network": "sifchain-1",
       "chainType": "Mainnet",
       "genesis": {
         "time": "2021-07-28T12:16:53",
@@ -213,7 +213,7 @@
       }
     },
     {
-      "id": "sifchain-1",
+      "network": "sifchain-1",
       "chainType": "Betanet",
       "genesis": {
         "time": "2021-07-28T12:16:53",

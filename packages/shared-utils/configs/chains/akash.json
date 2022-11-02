@@ -183,7 +183,7 @@
   },
   "chains": [
     {
-      "id": "akashnet-2",
+      "network": "akashnet-2",
       "chainType": "Mainnet",
       "genesis": {
         "time": "2021-03-08T15:00:00",
@@ -213,7 +213,7 @@
       }
     },
     {
-      "id": "akashnet-1",
+      "network": "akashnet-1",
       "chainType": "Retired",
       "genesis": {
         "time": "",

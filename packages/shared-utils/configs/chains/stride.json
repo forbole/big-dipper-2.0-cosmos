@@ -184,7 +184,7 @@
   },
   "chains": [
     {
-      "id": "stride-1",
+      "network": "stride-1",
       "chainType": "Mainnet",
       "genesis": {
         "time": "2022-09-04T19:00:00",

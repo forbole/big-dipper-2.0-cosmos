@@ -183,7 +183,7 @@
   },
   "chains": [
     {
-      "id": "osmosis-1",
+      "network": "osmosis-1",
       "chainType": "Mainnet",
       "genesis": {
         "time": "2021-06-18T17:00:00",

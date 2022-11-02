@@ -183,7 +183,7 @@
   },
   "chains": [
     {
-      "id": "emoney-3",
+      "network": "emoney-3",
       "chainType": "Mainnet",
       "genesis": {
         "time": "2020-11-04T13:00:00",
@@ -213,7 +213,7 @@
       }
     },
     {
-      "id": "emoney-3",
+      "network": "emoney-3",
       "chainType": "Testnet",
       "genesis": {
         "time": "2020-11-04T13:00:00",

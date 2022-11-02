@@ -183,7 +183,7 @@
   },
   "chains": [
     {
-      "id": "likecoin-mainnet-2",
+      "network": "likecoin-mainnet-2",
       "chainType": "Mainnet",
       "genesis": {
         "time": "",
