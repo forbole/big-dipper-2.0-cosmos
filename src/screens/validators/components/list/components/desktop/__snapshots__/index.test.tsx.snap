@@ -5,13 +5,657 @@ exports[`screen: Validators/Desktop matches snapshot 1`] = `
   className="makeStyles-root"
 >
   <div
+    onScroll={[Function]}
     style={
       Object {
-        "height": 0,
-        "overflow": "visible",
-        "width": 0,
+        "WebkitOverflowScrolling": "touch",
+        "direction": "ltr",
+        "height": 50,
+        "overflow": "auto",
+        "position": "relative",
+        "width": 600,
+        "willChange": "transform",
       }
     }
-  />
+  >
+    <div
+      style={
+        Object {
+          "height": 50,
+          "pointerEvents": undefined,
+          "width": 600,
+        }
+      }
+    >
+      <div
+        className="makeStyles-cell"
+        onClick={[Function]}
+        role="button"
+        style={
+          Object {
+            "height": 50,
+            "left": 0,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 30,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4"
+        >
+          idx
+        </h4>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-flexCells undefined sort"
+        onClick={[Function]}
+        role="button"
+        style={
+          Object {
+            "height": 50,
+            "left": 30,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 150,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4"
+        >
+          validator
+          <div
+            id="SortArrows"
+            sort="asc"
+          />
+        </h4>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-flexCells undefined sort"
+        onClick={[Function]}
+        role="button"
+        style={
+          Object {
+            "height": 50,
+            "left": 180,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 180,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root label popover MuiTypography-h4"
+        >
+          votingPower
+          <div
+            id="InfoPopover"
+          />
+          <div
+            id="SortArrows"
+          />
+        </h4>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-flexCells right sort"
+        onClick={[Function]}
+        role="button"
+        style={
+          Object {
+            "height": 50,
+            "left": 360,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 90,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight"
+        >
+          commission
+          <div
+            id="SortArrows"
+          />
+        </h4>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-flexCells center"
+        onClick={[Function]}
+        role="button"
+        style={
+          Object {
+            "height": 50,
+            "left": 450,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 90,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root label popover MuiTypography-h4"
+        >
+          condition
+          <div
+            id="InfoPopover"
+          />
+        </h4>
+      </div>
+      <div
+        className="makeStyles-cell"
+        onClick={[Function]}
+        role="button"
+        style={
+          Object {
+            "height": 50,
+            "left": 540,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 60,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4"
+        >
+          status
+        </h4>
+      </div>
+    </div>
+  </div>
+  <div
+    className="scrollbar"
+    onScroll={[Function]}
+    style={
+      Object {
+        "WebkitOverflowScrolling": "touch",
+        "direction": "ltr",
+        "height": 550,
+        "overflow": "auto",
+        "position": "relative",
+        "width": 600,
+        "willChange": "transform",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": 50,
+          "pointerEvents": undefined,
+          "width": 600,
+        }
+      }
+    >
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 0,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 30,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          #1
+        </div>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 30,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 150,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          <div
+            address=""
+            id="AvatarName"
+            imageUrl=""
+            name=""
+          />
+        </div>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 180,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 180,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          <div
+            content="0"
+            id="VotingPower"
+            percentDisplay="0%"
+            percentage={0}
+          />
+        </div>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 360,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 90,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
+        >
+          0%
+        </div>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 450,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 90,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter"
+        >
+          <div
+            className="red"
+            id="Condition"
+          />
+        </div>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 540,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 60,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          <p
+            className="MuiTypography-root status two MuiTypography-body1"
+          >
+            jailed
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`screen: Validators/Desktop matches snapshot with active validator 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <div
+    onScroll={[Function]}
+    style={
+      Object {
+        "WebkitOverflowScrolling": "touch",
+        "direction": "ltr",
+        "height": 50,
+        "overflow": "auto",
+        "position": "relative",
+        "width": 600,
+        "willChange": "transform",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": 50,
+          "pointerEvents": undefined,
+          "width": 600,
+        }
+      }
+    >
+      <div
+        className="makeStyles-cell"
+        onClick={[Function]}
+        role="button"
+        style={
+          Object {
+            "height": 50,
+            "left": 0,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 30,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4"
+        >
+          idx
+        </h4>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-flexCells undefined sort"
+        onClick={[Function]}
+        role="button"
+        style={
+          Object {
+            "height": 50,
+            "left": 30,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 150,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4"
+        >
+          validator
+          <div
+            id="SortArrows"
+          />
+        </h4>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-flexCells undefined sort"
+        onClick={[Function]}
+        role="button"
+        style={
+          Object {
+            "height": 50,
+            "left": 180,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 180,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root label popover MuiTypography-h4"
+        >
+          votingPower
+          <div
+            id="InfoPopover"
+          />
+          <div
+            id="SortArrows"
+          />
+        </h4>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-flexCells right sort"
+        onClick={[Function]}
+        role="button"
+        style={
+          Object {
+            "height": 50,
+            "left": 360,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 90,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight"
+        >
+          commission
+          <div
+            id="SortArrows"
+          />
+        </h4>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-flexCells center"
+        onClick={[Function]}
+        role="button"
+        style={
+          Object {
+            "height": 50,
+            "left": 450,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 90,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root label popover MuiTypography-h4"
+        >
+          condition
+          <div
+            id="InfoPopover"
+          />
+        </h4>
+      </div>
+      <div
+        className="makeStyles-cell"
+        onClick={[Function]}
+        role="button"
+        style={
+          Object {
+            "height": 50,
+            "left": 540,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 60,
+          }
+        }
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4"
+        >
+          status
+        </h4>
+      </div>
+    </div>
+  </div>
+  <div
+    className="scrollbar"
+    onScroll={[Function]}
+    style={
+      Object {
+        "WebkitOverflowScrolling": "touch",
+        "direction": "ltr",
+        "height": 550,
+        "overflow": "auto",
+        "position": "relative",
+        "width": 600,
+        "willChange": "transform",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": 50,
+          "pointerEvents": undefined,
+          "width": 600,
+        }
+      }
+    >
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 0,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 30,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          #1
+        </div>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 30,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 150,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          <div
+            address="desmosvaloper1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes"
+            id="AvatarName"
+            imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
+            name="Validator"
+          />
+        </div>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 180,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 180,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          <div
+            content="20"
+            id="VotingPower"
+            percentDisplay="0%"
+            percentage={20}
+          />
+        </div>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 360,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 90,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
+        >
+          30%
+        </div>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 450,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 90,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter"
+        >
+          <div
+            id="Condition"
+          />
+        </div>
+      </div>
+      <div
+        className="makeStyles-cell makeStyles-body odd"
+        style={
+          Object {
+            "height": 50,
+            "left": 540,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": 60,
+          }
+        }
+      >
+        <div
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          <p
+            className="MuiTypography-root status zero MuiTypography-body1"
+          >
+            unbonded
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
