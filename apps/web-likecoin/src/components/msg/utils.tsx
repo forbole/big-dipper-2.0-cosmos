@@ -1,3 +1,4 @@
+import React from 'react';
 import * as MODELS from '@models';
 import * as R from 'ramda';
 import {

@@ -9,7 +9,7 @@ import {
 import { getValidatorCondition } from '@utils/get_validator_condition';
 import { formatToken } from '@utils/format_token';
 import { SlashingParams } from '@models';
-import { chainConfig } from 'ui/src';
+import { chainConfig } from 'ui/dist';
 import {
   ValidatorsState,
   ItemType,

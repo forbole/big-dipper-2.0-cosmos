@@ -137,7 +137,7 @@ describe('utils: formatToken', () => {
     const results = formatToken('1000001', 'upotic');
     expect(results.value).toBe('1000001');
     expect(results.baseDenom).toBe('upotic');
-    expect(results.displayDenom).toBe('upotic');
+    expect(results.displayDenom).toBe('potic');
   });
 
   it('format correctly #4', async () => {

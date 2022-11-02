@@ -9,37 +9,10 @@ exports[`screen: Proposals matches snapshot 1`] = `
   <div
     id="List"
     isItemLoaded={[Function]}
-    itemCount={4}
-    items={
-      Array [
-        Object {
-          "description": "Update max validators",
-          "id": 7,
-          "status": "PROPOSAL_STATUS_REJECTED",
-          "title": "Staking Param Change Part Two",
-        },
-        Object {
-          "description": "software upgrade description",
-          "id": 6,
-          "status": "PROPOSAL_STATUS_INVALID",
-          "title": "upgrading the software",
-        },
-        Object {
-          "description": "Update max validators",
-          "id": 5,
-          "status": "PROPOSAL_STATUS_INVALID",
-          "title": "Staking Param Change",
-        },
-        Object {
-          "description": "My not so awesome proposal",
-          "id": 4,
-          "status": "PROPOSAL_STATUS_REJECTED",
-          "title": "BD Proposal",
-        },
-      ]
-    }
+    itemCount={0}
+    items={Array []}
     loadMoreItems={[Function]}
-    rawDataTotal={4}
+    rawDataTotal={0}
   />
 </div>
 `;

@@ -1,7 +1,9 @@
 {
   "chainName": "band",
   "title": "Band Protocol Block Explorer",
-  "profile": false,
+  "extra": {
+    "profile": false
+  },
   "previewImage": "https://s3.bigdipper.live/band.png",
   "themes": {
     "default": "dark",
@@ -69,7 +71,7 @@
           "five": "#C25396"
         },
         "tags": {
-          "zero": "#E8E8E11",
+          "zero": "#E8E8E8",
           "one": "#2460FA",
           "two": "#2BA894",
           "three": "#E79723",
@@ -81,15 +83,15 @@
           "nine": "#B49F34",
           "ten": "#E9A849",
           "eleven": "#E94684",
-          "twelve": "#C15EC7",
-          "thirteen": "#C388D12",
-          "fourteen": "#46AEE12",
-          "fifteen": "#58BC94",
-          "sixteen": "#90BC61",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
           "seventeen": "#E99E8E",
-          "eighteen": "#F0A482",
-          "nineteen": "#D37766",
-          "twenty": "#D9C791"
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
         }
       }
     },

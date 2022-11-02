@@ -4,7 +4,7 @@ import {
   useRecoilValue,
   useRecoilCallback,
 } from 'recoil';
-import { chainConfig } from 'ui/src';
+import { chainConfig } from 'ui/dist';
 import {
   writeProfile,
   readProfilesExist,

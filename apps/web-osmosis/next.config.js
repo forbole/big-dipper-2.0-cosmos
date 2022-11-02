@@ -1,7 +1,7 @@
 const nextTranslate = require('next-translate');
 
 // for turborepo
-const withTM = require('next-transpile-modules')(['eslint-config-custom', 'eslint-config-cypress', 'jest-presets', 'shared-utils', 'tsconfig', 'ui']);
+const withTM = require('next-transpile-modules')(['shared-utils', 'ui']);
 const withSentry = require('shared-utils/src/withSentry');
 const nextConfig = require('shared-utils/src/next');
 

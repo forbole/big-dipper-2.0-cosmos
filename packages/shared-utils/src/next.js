@@ -41,7 +41,13 @@ function nextConfig(chainConfigJson) {
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
         resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
-        use: ['@svgr/webpack'],
+        use: [
+          'next-swc-loader',
+          {
+            loader: '@svgr/webpack',
+            options: { babel: false }
+          }
+        ],
       });
       return config;
     },
@@ -66,10 +72,10 @@ function nextConfig(chainConfigJson) {
       return result;
     },
   };
-  for (let keys = Object.keys(config.env), i = 0; i < keys.length; i += 1) {
-    const key = keys[i];
+
+  Object.keys(config.env).forEach(key => {
     process.env[key] = config.env[key];
-  }
+  });
   return config;
 }
 

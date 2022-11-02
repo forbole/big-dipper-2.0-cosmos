@@ -8,13 +8,26 @@ exports[`screen: Nav/Network it renders 1`] = `
 >
   <img
     alt="icon"
-    className="makeStyles-icon"
-    src="https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true"
+    className="makeStyles-icon makeStyles-dark-2"
+    src={
+      Object {
+        "process": [Function],
+      }
+    }
+  />
+  <img
+    alt="icon"
+    className="makeStyles-icon makeStyles-light-1"
+    src={
+      Object {
+        "process": [Function],
+      }
+    }
   />
   <p
     className="MuiTypography-root MuiTypography-body1"
   >
-    morpheus-apollo-1
+    morpheus-apollo-2
   </p>
   <svg
     aria-hidden={true}

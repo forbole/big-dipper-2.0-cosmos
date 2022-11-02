@@ -1,3 +1,4 @@
+import React from 'react';
 import classnames from 'classnames';
 import agoricIconLight from 'shared-utils/assets/icons/agoric-light.svg?url';
 import agoricLogoLight from 'shared-utils/assets/logos/agoric-light.png';
@@ -64,7 +65,7 @@ type IconProps = Omit<JSX.IntrinsicElements['img'], 'id' | 'src'> & {
   type: 'icon' | 'logo';
 };
 
-const Icon = ({ className, type, ...props }: IconProps) => {
+const ChainIcon = ({ className, type, ...props }: IconProps) => {
   const classes = useStyles();
   const chainName = process.env.NEXT_PUBLIC_CHAIN_NAME;
 
@@ -170,4 +171,4 @@ const Icon = ({ className, type, ...props }: IconProps) => {
   );
 };
 
-export default Icon;
+export default ChainIcon;

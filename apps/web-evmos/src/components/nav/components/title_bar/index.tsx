@@ -4,7 +4,7 @@ import { useRecoilValue } from 'recoil';
 import { readMarket } from '@recoil/market';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
-import ChainIcon from 'ui/src/components/ChainIcon';
+import ChainIcon from 'ui/dist/components/ChainIcon';
 import { useStyles } from './styles';
 import { formatMarket } from './utils';
 

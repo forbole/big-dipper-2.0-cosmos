@@ -1,7 +1,9 @@
 {
   "chainName": "quicksilver",
   "title": "Quicksilver Block Explorer",
-  "profile": false,
+  "extra": {
+    "profile": false
+  },
   "previewImage": "https://s3.bigdipper.live/quicksilver.png",
   "themes": {
     "default": "",
@@ -70,27 +72,27 @@
           "five": "#D261AC"
         },
         "tags": {
-          "zero": "#E8E8E34",
+          "zero": "#E8E8E8",
           "one": "#2460FA",
-          "two": "#2BA917",
-          "three": "#E79746",
-          "four": "#F17073",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
           "five": "#DA4B4B",
           "six": "#9438DC",
           "seven": "#1A869D",
-          "eight": "#2C9970",
-          "nine": "#B49F57",
-          "ten": "#E9A872",
-          "eleven": "#E94707",
-          "twelve": "#C15EC30",
-          "thirteen": "#C388D35",
-          "fourteen": "#46AEE35",
-          "fifteen": "#58BC117",
-          "sixteen": "#90BC84",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
           "seventeen": "#E99E8E",
-          "eighteen": "#F0A505",
-          "nineteen": "#D37789",
-          "twenty": "#D9C814"
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
         }
       }
     },
@@ -155,27 +157,27 @@
           "five": "#D261AC"
         },
         "tags": {
-          "zero": "#E8E8E34",
+          "zero": "#E8E8E8",
           "one": "#2460FA",
-          "two": "#2BA917",
-          "three": "#E79746",
-          "four": "#F17073",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
           "five": "#DA4B4B",
           "six": "#9438DC",
           "seven": "#1A869D",
-          "eight": "#2C9970",
-          "nine": "#B49F57",
-          "ten": "#E9A872",
-          "eleven": "#E94707",
-          "twelve": "#C15EC30",
-          "thirteen": "#C388D35",
-          "fourteen": "#46AEE35",
-          "fifteen": "#58BC117",
-          "sixteen": "#90BC84",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
           "seventeen": "#E99E8E",
-          "eighteen": "#F0A505",
-          "nineteen": "#D37789",
-          "twenty": "#D9C814"
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
         }
       }
     }

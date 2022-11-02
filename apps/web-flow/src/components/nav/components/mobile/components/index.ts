@@ -1,6 +1,6 @@
 import Menu from './menu';
 import Navbar from './navbar';
-import SearchBar from '../../seach_bar';
+import SearchBar from '../../search_bar';
 
 export {
   Menu,

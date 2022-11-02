@@ -1,7 +1,9 @@
 {
   "chainName": "elrond",
   "title": "Elrond Block Explorer",
-  "profile": false,
+  "extra": {
+    "profile": false
+  },
   "previewImage": "https://s3.bigdipper.live/elrond.png",
   "themes": {
     "default": "light",
@@ -154,27 +156,27 @@
           "five": "#9F46EC"
         },
         "tags": {
-          "zero": "#E8E8E21",
+          "zero": "#E8E8E8",
           "one": "#2460FA",
-          "two": "#2BA904",
-          "three": "#E79733",
-          "four": "#F17060",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
           "five": "#DA4B4B",
           "six": "#9438DC",
           "seven": "#1A869D",
-          "eight": "#2C9957",
-          "nine": "#B49F44",
-          "ten": "#E9A859",
-          "eleven": "#E94694",
-          "twelve": "#C15EC17",
-          "thirteen": "#C388D22",
-          "fourteen": "#46AEE22",
-          "fifteen": "#58BC104",
-          "sixteen": "#90BC71",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
           "seventeen": "#E99E8E",
-          "eighteen": "#F0A492",
-          "nineteen": "#D37776",
-          "twenty": "#D9C801"
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
         }
       }
     }

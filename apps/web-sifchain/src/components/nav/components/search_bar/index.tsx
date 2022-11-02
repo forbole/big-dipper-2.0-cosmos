@@ -1,7 +1,7 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { Search } from '@components';
-import { chainConfig } from 'ui/src';
+import { chainConfig } from 'ui/dist';
 import { useSearchBar } from './hooks';
 
 const SearchBar: React.FC<{className?: string}> = ({ className }) => {

@@ -72,7 +72,7 @@
           "five": "#C975F0"
         },
         "tags": {
-          "zero": "#E8E8E13",
+          "zero": "#E8E8E8",
           "one": "#2460FA",
           "two": "#2BA896",
           "three": "#E79725",
@@ -84,15 +84,15 @@
           "nine": "#B49F36",
           "ten": "#E9A851",
           "eleven": "#E94686",
-          "twelve": "#C15EC9",
-          "thirteen": "#C388D14",
-          "fourteen": "#46AEE14",
-          "fifteen": "#58BC96",
-          "sixteen": "#90BC63",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
           "seventeen": "#E99E8E",
-          "eighteen": "#F0A484",
-          "nineteen": "#D37768",
-          "twenty": "#D9C793"
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
         }
       }
     },
@@ -157,27 +157,27 @@
           "five": "#C975F0"
         },
         "tags": {
-          "zero": "#E8E8E13",
+          "zero": "#E8E8E8",
           "one": "#2460FA",
-          "two": "#2BA896",
-          "three": "#E79725",
-          "four": "#F17052",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
           "five": "#DA4B4B",
           "six": "#9438DC",
           "seven": "#1A869D",
-          "eight": "#2C9949",
-          "nine": "#B49F36",
-          "ten": "#E9A851",
-          "eleven": "#E94686",
-          "twelve": "#C15EC9",
-          "thirteen": "#C388D14",
-          "fourteen": "#46AEE14",
-          "fifteen": "#58BC96",
-          "sixteen": "#90BC63",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
           "seventeen": "#E99E8E",
-          "eighteen": "#F0A484",
-          "nineteen": "#D37768",
-          "twenty": "#D9C793"
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
         }
       }
     }

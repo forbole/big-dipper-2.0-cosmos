@@ -3,7 +3,7 @@ import { useRecoilValue } from 'recoil';
 import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
 import { LinearProgress } from '@material-ui/core';
-import ChainIcon from 'ui/src/components/ChainIcon';
+import ChainIcon from 'ui/dist/components/ChainIcon';
 import { readTheme } from '@recoil/settings';
 import { useStyles } from './styles';
 

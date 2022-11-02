@@ -4,7 +4,7 @@ import {
 } from 'recoil';
 import * as R from 'ramda';
 import { bech32 } from 'bech32';
-import { chainConfig } from 'ui/src';
+import { chainConfig } from 'ui/dist';
 import { readValidator } from '@recoil/validators';
 import { AtomState as ProfileAtomState } from '@recoil/profiles/types';
 import { atomFamilyState } from './atom';

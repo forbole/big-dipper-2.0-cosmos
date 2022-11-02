@@ -1,5 +1,5 @@
 import numeral from 'numeral';
-import { chainConfig } from 'ui/src';
+import { chainConfig } from 'ui/dist';
 import { useRouter } from 'next/router';
 import {
   VALIDATOR_DETAILS,

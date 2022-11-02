@@ -12,7 +12,7 @@ import {
 } from '@src/graphql/general/account_details_documents';
 import { formatToken } from '@utils/format_token';
 import { getDenom } from '@utils/get_denom';
-import { chainConfig } from 'ui/src';
+import { chainConfig } from 'ui/dist';
 import { StakingState } from './types';
 import { RewardsType } from '../../types';
 

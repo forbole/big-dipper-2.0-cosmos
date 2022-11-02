@@ -5,11 +5,12 @@ import { Typography } from '@material-ui/core';
 import { useInterval } from '@hooks';
 import dayjs from '@utils/dayjs';
 import { useRecoilValue } from 'recoil';
-import { chainConfig } from 'ui/dist';
-import ChainIcon from 'ui/dist/components/ChainIcon';
+import { chainConfig, components } from 'ui/dist';
 import { readTheme } from '@recoil/settings';
 import { useStyles } from './styles';
 import { Loading } from '@components';
+
+const { ChainIcon } = components;
 
 const Countdown: React.FC<{
   startGenesis: () => void;

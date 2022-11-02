@@ -156,27 +156,27 @@
           "five": "#9D82D7"
         },
         "tags": {
-          "zero": "#E8E8E26",
+          "zero": "#E8E8E8",
           "one": "#2460FA",
-          "two": "#2BA909",
-          "three": "#E79738",
-          "four": "#F17065",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
           "five": "#DA4B4B",
           "six": "#9438DC",
           "seven": "#1A869D",
-          "eight": "#2C9962",
-          "nine": "#B49F49",
-          "ten": "#E9A864",
-          "eleven": "#E94699",
-          "twelve": "#C15EC22",
-          "thirteen": "#C388D27",
-          "fourteen": "#46AEE27",
-          "fifteen": "#58BC109",
-          "sixteen": "#90BC76",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
           "seventeen": "#E99E8E",
-          "eighteen": "#F0A497",
-          "nineteen": "#D37781",
-          "twenty": "#D9C806"
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
         }
       }
     }

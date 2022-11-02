@@ -1,3 +1,4 @@
+import React from 'react';
 import BlockIcon from 'shared-utils/assets/icon-block.svg';
 import HomeIcon from 'shared-utils/assets/icon-home.svg';
 import TransactionIcon from 'shared-utils/assets/icon-transaction.svg';

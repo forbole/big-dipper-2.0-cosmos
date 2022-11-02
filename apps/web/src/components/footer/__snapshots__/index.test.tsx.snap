@@ -10,7 +10,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
     <div
       className="footer__logo--container"
     >
-      <
+      <SvgrURL
         className="footer__logo"
       />
       <p

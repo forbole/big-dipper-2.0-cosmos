@@ -81,7 +81,7 @@ export const useStyles = () => {
         statusItem: {
           '& .label': {
             marginBottom: theme.spacing(1),
-            color: theme.palette.custom.fonts[2],
+            color: theme.palette.custom.fonts.fontThree,
             '&.condition': {
               display: 'flex',
               alignItems: 'center',

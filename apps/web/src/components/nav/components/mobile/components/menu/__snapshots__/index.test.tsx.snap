@@ -76,56 +76,6 @@ Array [
           />
         </a>
       </div>
-      <div>
-        <a
-          aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          role="menuitem"
-          tabIndex={-1}
-        >
-          deuteranopia
-          <span
-            className="MuiTouchRipple-root"
-          />
-        </a>
-      </div>
-      <div>
-        <a
-          aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          role="menuitem"
-          tabIndex={-1}
-        >
-          tritanopia
-          <span
-            className="MuiTouchRipple-root"
-          />
-        </a>
-      </div>
     </div>
   </div>,
   <div
@@ -159,7 +109,7 @@ Array [
           <div
             className="MuiListItemIcon-root"
           >
-            <
+            <SvgrURL
               height={24}
               width={24}
             />
@@ -199,7 +149,7 @@ Array [
           <div
             className="MuiListItemIcon-root"
           >
-            <
+            <SvgrURL
               height={24}
               width={24}
             />
@@ -239,7 +189,7 @@ Array [
           <div
             className="MuiListItemIcon-root"
           >
-            <
+            <SvgrURL
               height={24}
               width={24}
             />
@@ -279,7 +229,7 @@ Array [
           <div
             className="MuiListItemIcon-root"
           >
-            <
+            <SvgrURL
               height={24}
               width={24}
             />
@@ -319,7 +269,7 @@ Array [
           <div
             className="MuiListItemIcon-root"
           >
-            <
+            <SvgrURL
               height={24}
               width={24}
             />
@@ -359,7 +309,7 @@ Array [
           <div
             className="MuiListItemIcon-root"
           >
-            <
+            <SvgrURL
               height={24}
               width={24}
             />
@@ -387,7 +337,7 @@ Array [
         onClick={[Function]}
         role="button"
       >
-        < />
+        <SvgrURL />
         <span
           className="MuiTypography-root MuiTypography-caption"
         />
@@ -411,7 +361,7 @@ Array [
         <span
           role="button"
         >
-          < />
+          <SvgrURL />
         </span>
         <span
           className="MuiTypography-root MuiTypography-caption"

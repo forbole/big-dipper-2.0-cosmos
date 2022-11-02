@@ -1,4 +1,5 @@
 {
+  "extends": "tsconfig/nextjs.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -52,11 +53,14 @@
       ]
     }
   },
-  "extends": "tsconfig/nextjs.json",
-  "include": ["declarations.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "declarations.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
   "exclude": [
     "dist",
     "build",
-    "node_modules",
+    "node_modules"
   ]
 }

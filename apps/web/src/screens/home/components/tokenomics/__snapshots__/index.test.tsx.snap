@@ -69,6 +69,8 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
         viewBox="0 0 200 100"
         width={200}
       >
+        <title />
+        <desc />
         <defs>
           <clipPath
             id="recharts1-clip"
@@ -98,7 +100,7 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
     0,1,
     10.450761328426793,86.00367556489773
   L 100,95 Z"
-              fill="#1EC490"
+              fill="#2FB6E0"
               name={0}
               stroke="none"
             />
@@ -117,7 +119,7 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
     0,1,
     189.70794705606173,87.75539959785036
   L 100,95 Z"
-              fill="#497BFF"
+              fill="#FFC93D"
               name={1}
               stroke="none"
             />
@@ -136,7 +138,7 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
     0,1,
     190,95.00000000000003
   L 100,95 Z"
-              fill="#9F46EC"
+              fill="#20D494"
               name={2}
               stroke="none"
             />
@@ -145,6 +147,8 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
       </svg>
       <div
         className="recharts-tooltip-wrapper"
+        onKeyDown={[Function]}
+        role="dialog"
         style={
           Object {
             "MozTransform": "translate(undefinedpx, undefinedpx)",
@@ -159,6 +163,7 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
             "visibility": "hidden",
           }
         }
+        tabIndex={-1}
       >
         <div
           active={false}

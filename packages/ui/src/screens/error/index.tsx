@@ -22,11 +22,12 @@ import general from 'shared-utils/configs/general.json';
  *  - https://reactjs.org/docs/error-boundaries.html
  */
 
+import React from 'react';
 import * as Sentry from '@sentry/nextjs';
-import { NextPageContext } from 'next';
+import { NextPageContext, NextPage } from 'next';
 import { useStyles } from './styles';
 
-const Error = () => {
+const Error: NextPage = () => {
   const classes = useStyles();
   const { t } = useTranslation();
 

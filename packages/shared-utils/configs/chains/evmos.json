@@ -1,7 +1,9 @@
 {
   "chainName": "evmos",
   "title": "Evmos Block Explorer",
-  "profile": false,
+  "extra": {
+    "profile": false
+  },
   "previewImage": "https://s3.bigdipper.live/evmos.png",
   "themes": {
     "default": "light",
@@ -70,27 +72,27 @@
           "five": "#9F46EC"
         },
         "tags": {
-          "zero": "#E8E8E22",
+          "zero": "#E8E8E8",
           "one": "#2460FA",
-          "two": "#2BA905",
-          "three": "#E79734",
-          "four": "#F17061",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
           "five": "#DA4B4B",
           "six": "#9438DC",
           "seven": "#1A869D",
-          "eight": "#2C9958",
-          "nine": "#B49F45",
-          "ten": "#E9A860",
-          "eleven": "#E94695",
-          "twelve": "#C15EC18",
-          "thirteen": "#C388D23",
-          "fourteen": "#46AEE23",
-          "fifteen": "#58BC105",
-          "sixteen": "#90BC72",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
           "seventeen": "#E99E8E",
-          "eighteen": "#F0A493",
-          "nineteen": "#D37777",
-          "twenty": "#D9C802"
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
         }
       }
     },
@@ -155,27 +157,27 @@
           "five": "#F58A4E"
         },
         "tags": {
-          "zero": "#E8E8E22",
+          "zero": "#E8E8E8",
           "one": "#2460FA",
-          "two": "#2BA905",
-          "three": "#E79734",
-          "four": "#F17061",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
           "five": "#DA4B4B",
           "six": "#9438DC",
           "seven": "#1A869D",
-          "eight": "#2C9958",
-          "nine": "#B49F45",
-          "ten": "#E9A860",
-          "eleven": "#E94695",
-          "twelve": "#C15EC18",
-          "thirteen": "#C388D23",
-          "fourteen": "#46AEE23",
-          "fifteen": "#58BC105",
-          "sixteen": "#90BC72",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
           "seventeen": "#E99E8E",
-          "eighteen": "#F0A493",
-          "nineteen": "#D37777",
-          "twenty": "#D9C802"
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
         }
       }
     }
