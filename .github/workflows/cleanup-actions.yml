@@ -1,4 +1,4 @@
-name: "Cleanup"
+name: "Cleanup - Actions"
 on:
   workflow_dispatch:
     inputs:
@@ -43,11 +43,3 @@ jobs:
           keep_minimum_runs: ${{ github.event.inputs.minimum_runs }}
           delete_workflow_pattern: ${{ github.event.inputs.delete_workflow_pattern }}
           delete_workflow_by_state_pattern: ${{ github.event.inputs.delete_workflow_by_state_pattern }}
-
-  delete-caches:
-    name: "Delete Actions caches"
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: "Wipe Github Actions cache"
-        uses: easimon/wipe-cache@v1
