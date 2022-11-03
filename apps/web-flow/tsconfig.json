@@ -9,6 +9,9 @@
       "@components": [
         "src/components"
       ],
+      "@components/*": [
+        "src/components/*"
+      ],
       "@msg": [
         "src/components/msg"
       ],

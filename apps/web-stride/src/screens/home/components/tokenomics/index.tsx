@@ -3,18 +3,33 @@ import classnames from 'classnames';
 import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Box, CustomToolTip,
-} from '@components';
-import {
-  PieChart,
-  Pie,
-  Cell,
-  Tooltip,
-} from 'recharts';
+import Box from '@components/box';
+import CustomToolTip, { CustomToolTipData } from '@components/custom_tool_tip';
+import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import { chainConfig } from 'ui/dist';
 import { useStyles } from './styles';
 import { useTokenomics } from './hooks';
+
+const customToolTip = (
+  <CustomToolTip>
+  {(x) => {
+    return (
+      <>
+        <Typography variant="caption">
+          {t(x.legendKey)}
+        </Typography>
+        <Typography variant="body1">
+          {x.value}
+          {' '}
+          (
+          {x.percent}
+          )
+        </Typography>
+      </>
+    );
+  }}
+</CustomToolTip>
+);
 
 const Tokenomics:React.FC<{
   className?: string;
@@ -25,7 +40,7 @@ const Tokenomics:React.FC<{
   } = useStyles();
   const { state } = useTokenomics();
 
-  const data = [
+  const data: CustomToolTipData[] = [
     {
       legendKey: 'bonded',
       percentKey: 'bondedPercent',
@@ -65,9 +80,9 @@ const Tokenomics:React.FC<{
               {chainConfig.tokenUnits[state.denom]?.display?.toUpperCase()}
             </Typography>
             <Typography variant="caption">
-              {t(x.percentKey, {
+              {x.percentKey ? t(x.percentKey, {
                 percent: x.percent,
-              })}
+              }) : ''}
             </Typography>
           </div>
         ))}
@@ -102,26 +117,7 @@ const Tokenomics:React.FC<{
             })}
           </Pie>
           <Tooltip
-            content={(
-              <CustomToolTip>
-                {(x) => {
-                  return (
-                    <>
-                      <Typography variant="caption">
-                        {t(x.legendKey)}
-                      </Typography>
-                      <Typography variant="body1">
-                        {x.value}
-                        {' '}
-                        (
-                        {x.percent}
-                        )
-                      </Typography>
-                    </>
-                  );
-                }}
-              </CustomToolTip>
-            )}
+            content={customToolTip}
           />
         </PieChart>
 

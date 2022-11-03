@@ -6,12 +6,7 @@ import useTranslation from 'next-translate/useTranslation';
 import {
   Box, CustomToolTip,
 } from '@components';
-import {
-  PieChart,
-  Pie,
-  Cell,
-  Tooltip,
-} from 'recharts';
+import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import { useStyles } from './styles';
 
 const Compute:React.FC<{

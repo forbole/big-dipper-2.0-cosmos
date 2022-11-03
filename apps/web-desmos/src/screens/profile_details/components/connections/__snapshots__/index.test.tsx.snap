@@ -7,7 +7,7 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
   <h2
     className="MuiTypography-root MuiTypography-h2"
   >
-    accounts:connectionsTitle
+    connectionsTitle
   </h2>
   <div
     className="makeStyles-paginate"

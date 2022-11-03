@@ -2,12 +2,21 @@ import React from 'react';
 import classnames from 'classnames';
 import { useStyles } from './styles';
 
+export type CustomToolTipData = {
+  legendKey: string;
+  percentKey?: string;
+  value: string;
+  rawValue: number;
+  percent: string;
+  fill: string;
+}
+
 /**
  * Custom tooltips for recharts
  */
 const CustomToolTip: React.FC<{
   className?: string;
-  children: (data) => React.ReactNode;
+  children: (data: CustomToolTipData) => React.ReactNode;
   active?: boolean;
   payload?: any;
 }> = (props) => {
@@ -20,7 +29,7 @@ const CustomToolTip: React.FC<{
 
   const classes = useStyles();
 
-  if (payload && active) {
+  if (active && payload && payload.length) {
     const { payload: data } = payload?.[0];
     return (
       <div className={classnames(classes.root, className)}>

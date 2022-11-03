@@ -18,9 +18,13 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('@components', () => ({
-  Box: (props: JSX.IntrinsicElements['div']) => <div id="box" {...props} />,
-  CustomToolTip: (props: JSX.IntrinsicElements['div']) => <div id="CustomToolTip" {...props} />,
+jest.mock('@components/box', () => ({
+  __esModule: true,
+  default: (props: JSX.IntrinsicElements['div']) => <div id="box" {...props} />,
+}));
+jest.mock('recharts', () => ({
+  ...jest.requireActual('recharts'),
+  Tooltip: () => <div id="tooltip" />,
 }));
 
 const mockTokenomics = jest.fn().mockResolvedValue({

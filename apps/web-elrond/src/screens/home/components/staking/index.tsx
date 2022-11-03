@@ -6,12 +6,7 @@ import useTranslation from 'next-translate/useTranslation';
 import {
   Box, CustomToolTip,
 } from '@components';
-import {
-  PieChart,
-  Pie,
-  Cell,
-  Tooltip,
-} from 'recharts';
+import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import { useStyles } from './styles';
 import { useStaking } from './hooks';
 
@@ -55,9 +50,9 @@ const Staking:React.FC<{
               {' '}
             </Typography>
             <Typography variant="caption">
-              {t(x.percentKey, {
+              {x.percentKey ? t(x.percentKey, {
                 percent: x.percent,
-              })}
+              }) : ''}
             </Typography>
           </div>
         ))}

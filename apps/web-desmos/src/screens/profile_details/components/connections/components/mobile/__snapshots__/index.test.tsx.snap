@@ -37,6 +37,7 @@ exports[`screen: ProfileDetails/Connections/Mobile matches snapshot 1`] = `
           href="/accounts/desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv"
           onClick={[Function]}
           onMouseEnter={[Function]}
+          onTouchStart={[Function]}
         >
           desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv
         </a>

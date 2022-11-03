@@ -4,6 +4,7 @@ import {
   TransactionsListenerSubscription,
 } from '@graphql/types/general_types';
 import { convertMsgType } from '@utils/convert_msg_type';
+import * as R from 'ramda';
 import { TransactionsState } from './types';
 
 export const useTransactions = () => {

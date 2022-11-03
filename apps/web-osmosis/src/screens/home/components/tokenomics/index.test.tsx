@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
 import {
   MockTheme, wait,
 } from '@tests/utils';
@@ -18,9 +18,13 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('@components', () => ({
-  Box: (props: JSX.IntrinsicElements['div']) => <div id="box" {...props} />,
-  CustomToolTip: (props: JSX.IntrinsicElements['div']) => <div id="CustomToolTip" {...props} />,
+jest.mock('@components/box', () => ({
+  __esModule: true,
+  default: (props: JSX.IntrinsicElements['div']) => <div id="box" {...props} />,
+}));
+jest.mock('recharts', () => ({
+  ...jest.requireActual('recharts'),
+  Tooltip: () => <div id="tooltip" />,
 }));
 
 const mockTokenomics = jest.fn().mockResolvedValue({
@@ -60,20 +64,19 @@ describe('screen: Home/Tokenomics', () => {
       mockTokenomics,
     );
 
-    let component;
+    let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
 
     renderer.act(() => {
-      component = renderer.create(
+      tree = renderer.create(
         <ApolloProvider client={mockClient}>
           <MockTheme>
             <Tokenomics />
           </MockTheme>
         </ApolloProvider>,
-      );
+      ).toJSON();
     });
     await wait();
 
-    const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
