@@ -6,15 +6,15 @@ services:
     user: node
     working_dir: /home/node/app
     ports:
-      - target: 8080
-        published: 3000
+      - target: 3000
+        published: 8080
         protocol: tcp
         mode: host
     restart: unless-stopped
     environment:
       - NODE_ENV=production
       - NEXT_PUBLIC_GRAPHQL_URL=https://testnet-gql.cheqd.io/v1/graphql
-      - NEXT_PUBLIC_GRAPHQL_WS_URL=wss://testnet-gql.cheqd.io/v1/graphql
+      - NEXT_PUBLIC_GRAPHQL_WS=wss://testnet-gql.cheqd.io/v1/graphql
       - NEXT_PUBLIC_RPC_WEBSOCKET=wss://rpc.cheqd.network/websocket
       - NEXT_PUBLIC_CHAIN_TYPE=testnet
-    command: [ "yarn run start" ]
+    command: [ "yarn", "start" ]

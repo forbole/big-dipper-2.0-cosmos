@@ -10,10 +10,10 @@ jobs:
 
   build-docker:
     # Doing a build at this stage will create reusable cache layers for release workflow
-    name: "Build Docker image"
+    name: "BigDipper Docker image"
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: registry.digitalocean.com/${{ github.repository }}
+      IMAGE_NAME: ${{ github.repository }}
 
     steps:
       - uses: actions/checkout@v3
@@ -29,10 +29,10 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ env.IMAGE_NAME }}
+          images: registry.digitalocean.com/${{ env.IMAGE_NAME }}
           tags: |
             type=ref,event=branch
-            type=raw,value=staging-latest
+            type=raw,value=bigdipper-build
             type=sha,format=long
 
       - name: Build image
@@ -44,8 +44,15 @@ jobs:
           load: true
           target: runner
           tags: ${{ steps.meta.outputs.tags }}
+          outputs: type=docker,dest=/tmp/bigdipper-build.tar
           cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-to: type=gha,mode=min
+
+      - name: Upload Docker test image
+        uses: actions/upload-artifact@v3
+        with:
+          name: bigdipper-build.tar
+          path: /tmp/bigdipper-build.tar
 
   run-tests:
     name: "Run tests"
@@ -56,11 +63,11 @@ jobs:
       
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           cache: 'yarn'
       
       - name: "Install dependencies"
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: "Execute build"
         run: yarn build

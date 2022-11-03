@@ -2782,15 +2782,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@socialgouv/matomo-next@npm:^1.2.2":
-  version: 1.4.0
-  resolution: "@socialgouv/matomo-next@npm:1.4.0"
-  peerDependencies:
-    next: ">= 9.5.5"
-  checksum: 24aabfaea5ed2b1e65d18c8be31d35aa48ac6922972eddd126d3fcdd68aa932d735057bd82247876bf9fe362cb2bb4629119130864c47e8b1e13e0b78a50fe15
-  languageName: node
-  linkType: hard
-
 "@svgr/babel-plugin-add-jsx-attribute@npm:^6.5.0":
   version: 6.5.0
   resolution: "@svgr/babel-plugin-add-jsx-attribute@npm:6.5.0"
@@ -4184,7 +4175,6 @@ __metadata:
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.10.0
-    "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.4.0
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2

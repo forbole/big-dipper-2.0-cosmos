@@ -7,11 +7,10 @@ defaults:
 
 
 jobs:
-  release-docker-testnet:
-    name: "BigDipper Docker image - Testnet"
+
+  release-docker:
+    name: "BigDipper Docker image"
     runs-on: ubuntu-latest
-    if: ${{ ( github.ref_name == 'chains/cheqd/testnet' ) }}
-    environment: testnet
     env:
       IMAGE_NAME: ${{ github.repository }}
 
@@ -67,84 +66,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
-          cache-to: type=gha,mode=max
-          # build-args: |
-          #   NODE_ENV="production"
-          #   NEXT_PUBLIC_GRAPHQL_URL=${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }}
-          #   NEXT_PUBLIC_GRAPHQL_WS=${{ secrets.NEXT_PUBLIC_GRAPHQL_WS }}
-          #   NEXT_PUBLIC_RPC_WEBSOCKET=${{ secrets.NEXT_PUBLIC_RPC_WEBSOCKET }}
-          #   NEXT_PUBLIC_CHAIN_TYPE=${{ secrets.NEXT_PUBLIC_CHAIN_TYPE }}
-
-      - name: Push BigDipper image
-        run: docker image push --all-tags registry.digitalocean.com/${{ env.IMAGE_NAME }}
-
-  release-docker-mainnet:
-    name: "BigDipper Docker image - Mainnet"
-    runs-on: ubuntu-latest
-    if: ${{ ( github.ref_name == 'chains/cheqd/mainnet' ) }}
-    environment: mainnet
-    env:
-      IMAGE_NAME: ${{ github.repository }}
-  
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          persist-credentials: false
-
-      - name: Set network name
-        id: set-network
-        run: |
-          NETWORK_NAME=${GITHUB_REF##*/}
-          echo ::set-output name=NETWORK_NAME::"$NETWORK_NAME"
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-        id: buildx
-        with:
-          install: true
-          version: latest
-
-      - name: Install DigitalOcean CLI
-        uses: digitalocean/action-doctl@v2
-        with:
-          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-
-      - name: Login to DigitalOcean Container Registry
-        run: doctl registry login --expiry-seconds 600
-
-      - name: Configure Docker image metadata
-        id: meta
-        uses: docker/metadata-action@v4
-        with:
-          images: registry.digitalocean.com/${{ env.IMAGE_NAME }}
-          tags: |
-            type=raw,value=${{ steps.set-network.outputs.NETWORK_NAME }}-latest
-            type=sha,format=long
-          labels: |
-            org.opencontainers.image.description="BigDipper block explorer for cheqd network"
-            org.opencontainers.image.source="https://github.com/cheqd/big-dipper-2.0-cosmos"
-            org.opencontainers.image.vendor="Cheqd Foundation Limited"
-            org.opencontainers.image.created={{date 'dddd, MMMM Do YYYY, h:mm:ss a'}}
-            org.opencontainers.image.documentation="https://product.cheqd.io/"
-
-      - name: Build BigDipper image
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          file: Dockerfile
-          platforms: linux/amd64
-          load: true
-          target: runner
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-          # build-args: |
-          #   NODE_ENV="production"
-          #   NEXT_PUBLIC_GRAPHQL_URL=${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }}
-          #   NEXT_PUBLIC_GRAPHQL_WS=${{ secrets.NEXT_PUBLIC_GRAPHQL_WS }}
-          #   NEXT_PUBLIC_RPC_WEBSOCKET=${{ secrets.NEXT_PUBLIC_RPC_WEBSOCKET }}
-          #   NEXT_PUBLIC_CHAIN_TYPE=${{ secrets.NEXT_PUBLIC_CHAIN_TYPE }}
+          cache-to: type=gha,mode=min
 
       - name: Push BigDipper image
         run: docker image push --all-tags registry.digitalocean.com/${{ env.IMAGE_NAME }}
