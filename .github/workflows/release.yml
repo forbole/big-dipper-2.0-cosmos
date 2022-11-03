@@ -70,3 +70,18 @@ jobs:
 
       - name: Push BigDipper image
         run: docker image push --all-tags registry.digitalocean.com/${{ env.IMAGE_NAME }}
+
+  cache-purge:
+    name: "Purge branch Actions cache"
+    needs: [release-binary, release-docker]
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    
+    steps:
+
+      - name: "Delete Branch Cache Action"
+        uses: snnaplab/delete-branch-cache-action@v1.0.0
+        with:
+          # Specify explicitly because the ref at the time of merging will be a branch name such as 'main', 'develop'
+          ref: refs/pull/${{ github.event.number }}/merge
+          github-token: ${{ secrets.GITHUB_TOKEN }}
