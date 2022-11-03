@@ -262,6 +262,7 @@ export type Account_Bool_Exp = {
   proposal_deposits?: Maybe<Proposal_Deposit_Bool_Exp>;
   proposal_votes?: Maybe<Proposal_Vote_Bool_Exp>;
   proposals?: Maybe<Proposal_Bool_Exp>;
+  proposals_aggregate?: Maybe<Proposal_Aggregate_Bool_Exp>;
   validator_infos?: Maybe<Validator_Info_Bool_Exp>;
   vesting_account?: Maybe<Vesting_Account_Bool_Exp>;
   vesting_accounts?: Maybe<Vesting_Account_Bool_Exp>;
@@ -283,6 +284,19 @@ export enum Account_Select_Column {
   /** column name */
   Address = 'address'
 }
+
+/** Streaming cursor of the table "account" */
+export type Account_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Account_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Account_Stream_Cursor_Value_Input = {
+  address?: Maybe<Scalars['String']>;
+};
 
 /** columns and relationships of "average_block_time_from_genesis" */
 export type Average_Block_Time_From_Genesis = {
@@ -314,6 +328,20 @@ export enum Average_Block_Time_From_Genesis_Select_Column {
   Height = 'height'
 }
 
+/** Streaming cursor of the table "average_block_time_from_genesis" */
+export type Average_Block_Time_From_Genesis_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Average_Block_Time_From_Genesis_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Average_Block_Time_From_Genesis_Stream_Cursor_Value_Input = {
+  average_time?: Maybe<Scalars['numeric']>;
+  height?: Maybe<Scalars['bigint']>;
+};
+
 /** columns and relationships of "average_block_time_per_day" */
 export type Average_Block_Time_Per_Day = {
   __typename?: 'average_block_time_per_day';
@@ -343,6 +371,20 @@ export enum Average_Block_Time_Per_Day_Select_Column {
   /** column name */
   Height = 'height'
 }
+
+/** Streaming cursor of the table "average_block_time_per_day" */
+export type Average_Block_Time_Per_Day_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Average_Block_Time_Per_Day_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Average_Block_Time_Per_Day_Stream_Cursor_Value_Input = {
+  average_time?: Maybe<Scalars['numeric']>;
+  height?: Maybe<Scalars['bigint']>;
+};
 
 /** columns and relationships of "average_block_time_per_hour" */
 export type Average_Block_Time_Per_Hour = {
@@ -374,6 +416,20 @@ export enum Average_Block_Time_Per_Hour_Select_Column {
   Height = 'height'
 }
 
+/** Streaming cursor of the table "average_block_time_per_hour" */
+export type Average_Block_Time_Per_Hour_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Average_Block_Time_Per_Hour_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Average_Block_Time_Per_Hour_Stream_Cursor_Value_Input = {
+  average_time?: Maybe<Scalars['numeric']>;
+  height?: Maybe<Scalars['bigint']>;
+};
+
 /** columns and relationships of "average_block_time_per_minute" */
 export type Average_Block_Time_Per_Minute = {
   __typename?: 'average_block_time_per_minute';
@@ -403,6 +459,20 @@ export enum Average_Block_Time_Per_Minute_Select_Column {
   /** column name */
   Height = 'height'
 }
+
+/** Streaming cursor of the table "average_block_time_per_minute" */
+export type Average_Block_Time_Per_Minute_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Average_Block_Time_Per_Minute_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Average_Block_Time_Per_Minute_Stream_Cursor_Value_Input = {
+  average_time?: Maybe<Scalars['numeric']>;
+  height?: Maybe<Scalars['bigint']>;
+};
 
 
 /** Boolean expression to compare columns of type "bigint". All fields are combined with logical 'AND'. */
@@ -546,6 +616,7 @@ export type Block_Bool_Exp = {
   height?: Maybe<Bigint_Comparison_Exp>;
   num_txs?: Maybe<Int_Comparison_Exp>;
   pre_commits?: Maybe<Pre_Commit_Bool_Exp>;
+  pre_commits_aggregate?: Maybe<Pre_Commit_Aggregate_Bool_Exp>;
   proposal_deposits?: Maybe<Proposal_Deposit_Bool_Exp>;
   proposal_votes?: Maybe<Proposal_Vote_Bool_Exp>;
   proposer_address?: Maybe<String_Comparison_Exp>;
@@ -554,6 +625,7 @@ export type Block_Bool_Exp = {
   transactions?: Maybe<Transaction_Bool_Exp>;
   validator?: Maybe<Validator_Bool_Exp>;
   validator_voting_powers?: Maybe<Validator_Voting_Power_Bool_Exp>;
+  validator_voting_powers_aggregate?: Maybe<Validator_Voting_Power_Aggregate_Bool_Exp>;
 };
 
 /** order by max() on columns of table "block" */
@@ -629,6 +701,24 @@ export type Block_Stddev_Samp_Order_By = {
   total_gas?: Maybe<Order_By>;
 };
 
+/** Streaming cursor of the table "block" */
+export type Block_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Block_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Block_Stream_Cursor_Value_Input = {
+  hash?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  num_txs?: Maybe<Scalars['Int']>;
+  proposer_address?: Maybe<Scalars['String']>;
+  timestamp?: Maybe<Scalars['timestamp']>;
+  total_gas?: Maybe<Scalars['bigint']>;
+};
+
 /** order by sum() on columns of table "block" */
 export type Block_Sum_Order_By = {
   height?: Maybe<Order_By>;
@@ -687,6 +777,28 @@ export enum Community_Pool_Select_Column {
   Height = 'height'
 }
 
+/** Streaming cursor of the table "community_pool" */
+export type Community_Pool_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Community_Pool_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Community_Pool_Stream_Cursor_Value_Input = {
+  coins?: Maybe<Scalars['_dec_coin']>;
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** ordering argument of a cursor */
+export enum Cursor_Ordering {
+  /** ascending ordering of the cursor */
+  Asc = 'ASC',
+  /** descending ordering of the cursor */
+  Desc = 'DESC'
+}
+
 /** columns and relationships of "distribution_params" */
 export type Distribution_Params = {
   __typename?: 'distribution_params';
@@ -722,6 +834,20 @@ export enum Distribution_Params_Select_Column {
   /** column name */
   Params = 'params'
 }
+
+/** Streaming cursor of the table "distribution_params" */
+export type Distribution_Params_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Distribution_Params_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Distribution_Params_Stream_Cursor_Value_Input = {
+  height?: Maybe<Scalars['bigint']>;
+  params?: Maybe<Scalars['jsonb']>;
+};
 
 /** columns and relationships of "double_sign_evidence" */
 export type Double_Sign_Evidence = {
@@ -821,6 +947,21 @@ export type Double_Sign_Evidence_Stddev_Samp_Order_By = {
   height?: Maybe<Order_By>;
   vote_a_id?: Maybe<Order_By>;
   vote_b_id?: Maybe<Order_By>;
+};
+
+/** Streaming cursor of the table "double_sign_evidence" */
+export type Double_Sign_Evidence_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Double_Sign_Evidence_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Double_Sign_Evidence_Stream_Cursor_Value_Input = {
+  height?: Maybe<Scalars['bigint']>;
+  vote_a_id?: Maybe<Scalars['bigint']>;
+  vote_b_id?: Maybe<Scalars['bigint']>;
 };
 
 /** order by sum() on columns of table "double_sign_evidence" */
@@ -1007,6 +1148,25 @@ export type Double_Sign_Vote_Stddev_Samp_Order_By = {
   validator_index?: Maybe<Order_By>;
 };
 
+/** Streaming cursor of the table "double_sign_vote" */
+export type Double_Sign_Vote_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Double_Sign_Vote_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Double_Sign_Vote_Stream_Cursor_Value_Input = {
+  block_id?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  round?: Maybe<Scalars['Int']>;
+  signature?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['smallint']>;
+  validator_address?: Maybe<Scalars['String']>;
+  validator_index?: Maybe<Scalars['Int']>;
+};
+
 /** order by sum() on columns of table "double_sign_vote" */
 export type Double_Sign_Vote_Sum_Order_By = {
   height?: Maybe<Order_By>;
@@ -1093,6 +1253,22 @@ export enum Fee_Grant_Allowance_Select_Column {
   Height = 'height'
 }
 
+/** Streaming cursor of the table "fee_grant_allowance" */
+export type Fee_Grant_Allowance_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Fee_Grant_Allowance_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Fee_Grant_Allowance_Stream_Cursor_Value_Input = {
+  allowance?: Maybe<Scalars['jsonb']>;
+  grantee_address?: Maybe<Scalars['String']>;
+  granter_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+};
+
 /** columns and relationships of "genesis" */
 export type Genesis = {
   __typename?: 'genesis';
@@ -1127,6 +1303,21 @@ export enum Genesis_Select_Column {
   /** column name */
   Time = 'time'
 }
+
+/** Streaming cursor of the table "genesis" */
+export type Genesis_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Genesis_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Genesis_Stream_Cursor_Value_Input = {
+  chain_id?: Maybe<Scalars['String']>;
+  initial_height?: Maybe<Scalars['bigint']>;
+  time?: Maybe<Scalars['timestamp']>;
+};
 
 /** columns and relationships of "gov_params" */
 export type Gov_Params = {
@@ -1186,6 +1377,22 @@ export enum Gov_Params_Select_Column {
   VotingParams = 'voting_params'
 }
 
+/** Streaming cursor of the table "gov_params" */
+export type Gov_Params_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Gov_Params_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Gov_Params_Stream_Cursor_Value_Input = {
+  deposit_params?: Maybe<Scalars['jsonb']>;
+  height?: Maybe<Scalars['bigint']>;
+  tally_params?: Maybe<Scalars['jsonb']>;
+  voting_params?: Maybe<Scalars['jsonb']>;
+};
+
 /** columns and relationships of "inflation" */
 export type Inflation = {
   __typename?: 'inflation';
@@ -1216,9 +1423,28 @@ export enum Inflation_Select_Column {
   Value = 'value'
 }
 
+/** Streaming cursor of the table "inflation" */
+export type Inflation_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Inflation_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Inflation_Stream_Cursor_Value_Input = {
+  height?: Maybe<Scalars['bigint']>;
+  value?: Maybe<Scalars['numeric']>;
+};
+
+
+export type Jsonb_Cast_Exp = {
+  String?: Maybe<String_Comparison_Exp>;
+};
 
 /** Boolean expression to compare columns of type "jsonb". All fields are combined with logical 'AND'. */
 export type Jsonb_Comparison_Exp = {
+  _cast?: Maybe<Jsonb_Cast_Exp>;
   /** is the column contained in the given json value */
   _contained_in?: Maybe<Scalars['jsonb']>;
   /** does the column contain the given json value at the top level */
@@ -1300,6 +1526,24 @@ export enum Message_Select_Column {
   Value = 'value'
 }
 
+/** Streaming cursor of the table "message" */
+export type Message_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Message_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Message_Stream_Cursor_Value_Input = {
+  height?: Maybe<Scalars['bigint']>;
+  index?: Maybe<Scalars['bigint']>;
+  involved_accounts_addresses?: Maybe<Scalars['_text']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['jsonb']>;
+};
+
 export type Messages_By_Address_Args = {
   addresses?: Maybe<Scalars['_text']>;
   limit?: Maybe<Scalars['bigint']>;
@@ -1343,6 +1587,20 @@ export enum Mint_Params_Select_Column {
   Params = 'params'
 }
 
+/** Streaming cursor of the table "mint_params" */
+export type Mint_Params_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Mint_Params_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Mint_Params_Stream_Cursor_Value_Input = {
+  height?: Maybe<Scalars['bigint']>;
+  params?: Maybe<Scalars['jsonb']>;
+};
+
 /** columns and relationships of "modules" */
 export type Modules = {
   __typename?: 'modules';
@@ -1367,6 +1625,19 @@ export enum Modules_Select_Column {
   /** column name */
   ModuleName = 'module_name'
 }
+
+/** Streaming cursor of the table "modules" */
+export type Modules_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Modules_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Modules_Stream_Cursor_Value_Input = {
+  module_name?: Maybe<Scalars['String']>;
+};
 
 
 /** Boolean expression to compare columns of type "numeric". All fields are combined with logical 'AND'. */
@@ -1415,6 +1686,17 @@ export type Pre_Commit_Aggregate = {
   __typename?: 'pre_commit_aggregate';
   aggregate?: Maybe<Pre_Commit_Aggregate_Fields>;
   nodes: Array<Pre_Commit>;
+};
+
+export type Pre_Commit_Aggregate_Bool_Exp = {
+  count?: Maybe<Pre_Commit_Aggregate_Bool_Exp_Count>;
+};
+
+export type Pre_Commit_Aggregate_Bool_Exp_Count = {
+  arguments?: Maybe<Array<Pre_Commit_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+  filter?: Maybe<Pre_Commit_Bool_Exp>;
+  predicate: Int_Comparison_Exp;
 };
 
 /** aggregate fields of "pre_commit" */
@@ -1590,6 +1872,23 @@ export type Pre_Commit_Stddev_Samp_Order_By = {
   voting_power?: Maybe<Order_By>;
 };
 
+/** Streaming cursor of the table "pre_commit" */
+export type Pre_Commit_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Pre_Commit_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Pre_Commit_Stream_Cursor_Value_Input = {
+  height?: Maybe<Scalars['bigint']>;
+  proposer_priority?: Maybe<Scalars['bigint']>;
+  timestamp?: Maybe<Scalars['timestamp']>;
+  validator_address?: Maybe<Scalars['String']>;
+  voting_power?: Maybe<Scalars['bigint']>;
+};
+
 /** aggregate sum on columns */
 export type Pre_Commit_Sum_Fields = {
   __typename?: 'pre_commit_sum_fields';
@@ -1732,6 +2031,17 @@ export type Proposal_Aggregate = {
   __typename?: 'proposal_aggregate';
   aggregate?: Maybe<Proposal_Aggregate_Fields>;
   nodes: Array<Proposal>;
+};
+
+export type Proposal_Aggregate_Bool_Exp = {
+  count?: Maybe<Proposal_Aggregate_Bool_Exp_Count>;
+};
+
+export type Proposal_Aggregate_Bool_Exp_Count = {
+  arguments?: Maybe<Array<Proposal_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+  filter?: Maybe<Proposal_Bool_Exp>;
+  predicate: Int_Comparison_Exp;
 };
 
 /** aggregate fields of "proposal" */
@@ -1921,6 +2231,23 @@ export type Proposal_Deposit_Stddev_Samp_Order_By = {
   proposal_id?: Maybe<Order_By>;
 };
 
+/** Streaming cursor of the table "proposal_deposit" */
+export type Proposal_Deposit_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Proposal_Deposit_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Proposal_Deposit_Stream_Cursor_Value_Input = {
+  amount?: Maybe<Scalars['_coin']>;
+  depositor_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  proposal_id?: Maybe<Scalars['Int']>;
+  timestamp?: Maybe<Scalars['timestamp']>;
+};
+
 /** order by sum() on columns of table "proposal_deposit" */
 export type Proposal_Deposit_Sum_Order_By = {
   height?: Maybe<Order_By>;
@@ -2102,6 +2429,22 @@ export enum Proposal_Staking_Pool_Snapshot_Select_Column {
   ProposalId = 'proposal_id'
 }
 
+/** Streaming cursor of the table "proposal_staking_pool_snapshot" */
+export type Proposal_Staking_Pool_Snapshot_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Proposal_Staking_Pool_Snapshot_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Proposal_Staking_Pool_Snapshot_Stream_Cursor_Value_Input = {
+  bonded_tokens?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  not_bonded_tokens?: Maybe<Scalars['String']>;
+  proposal_id?: Maybe<Scalars['Int']>;
+};
+
 /** aggregate stddev on columns */
 export type Proposal_Stddev_Fields = {
   __typename?: 'proposal_stddev_fields';
@@ -2133,6 +2476,30 @@ export type Proposal_Stddev_Samp_Fields = {
 /** order by stddev_samp() on columns of table "proposal" */
 export type Proposal_Stddev_Samp_Order_By = {
   id?: Maybe<Order_By>;
+};
+
+/** Streaming cursor of the table "proposal" */
+export type Proposal_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Proposal_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Proposal_Stream_Cursor_Value_Input = {
+  content?: Maybe<Scalars['jsonb']>;
+  deposit_end_time?: Maybe<Scalars['timestamp']>;
+  description?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['Int']>;
+  proposal_route?: Maybe<Scalars['String']>;
+  proposal_type?: Maybe<Scalars['String']>;
+  proposer_address?: Maybe<Scalars['String']>;
+  status?: Maybe<Scalars['String']>;
+  submit_time?: Maybe<Scalars['timestamp']>;
+  title?: Maybe<Scalars['String']>;
+  voting_end_time?: Maybe<Scalars['timestamp']>;
+  voting_start_time?: Maybe<Scalars['timestamp']>;
 };
 
 /** aggregate sum on columns */
@@ -2257,6 +2624,24 @@ export type Proposal_Tally_Result_Stddev_Pop_Order_By = {
 export type Proposal_Tally_Result_Stddev_Samp_Order_By = {
   height?: Maybe<Order_By>;
   proposal_id?: Maybe<Order_By>;
+};
+
+/** Streaming cursor of the table "proposal_tally_result" */
+export type Proposal_Tally_Result_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Proposal_Tally_Result_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Proposal_Tally_Result_Stream_Cursor_Value_Input = {
+  abstain?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  no?: Maybe<Scalars['String']>;
+  no_with_veto?: Maybe<Scalars['String']>;
+  proposal_id?: Maybe<Scalars['Int']>;
+  yes?: Maybe<Scalars['String']>;
 };
 
 /** order by sum() on columns of table "proposal_tally_result" */
@@ -2404,6 +2789,24 @@ export type Proposal_Validator_Status_Snapshot_Stddev_Samp_Order_By = {
   proposal_id?: Maybe<Order_By>;
   status?: Maybe<Order_By>;
   voting_power?: Maybe<Order_By>;
+};
+
+/** Streaming cursor of the table "proposal_validator_status_snapshot" */
+export type Proposal_Validator_Status_Snapshot_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Proposal_Validator_Status_Snapshot_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Proposal_Validator_Status_Snapshot_Stream_Cursor_Value_Input = {
+  height?: Maybe<Scalars['bigint']>;
+  jailed?: Maybe<Scalars['Boolean']>;
+  proposal_id?: Maybe<Scalars['Int']>;
+  status?: Maybe<Scalars['Int']>;
+  validator_address?: Maybe<Scalars['String']>;
+  voting_power?: Maybe<Scalars['bigint']>;
 };
 
 /** order by sum() on columns of table "proposal_validator_status_snapshot" */
@@ -2583,6 +2986,23 @@ export type Proposal_Vote_Stddev_Pop_Order_By = {
 export type Proposal_Vote_Stddev_Samp_Order_By = {
   height?: Maybe<Order_By>;
   proposal_id?: Maybe<Order_By>;
+};
+
+/** Streaming cursor of the table "proposal_vote" */
+export type Proposal_Vote_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Proposal_Vote_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Proposal_Vote_Stream_Cursor_Value_Input = {
+  height?: Maybe<Scalars['bigint']>;
+  option?: Maybe<Scalars['String']>;
+  proposal_id?: Maybe<Scalars['Int']>;
+  timestamp?: Maybe<Scalars['timestamp']>;
+  voter_address?: Maybe<Scalars['String']>;
 };
 
 /** order by sum() on columns of table "proposal_vote" */
@@ -3385,6 +3805,20 @@ export enum Slashing_Params_Select_Column {
   Params = 'params'
 }
 
+/** Streaming cursor of the table "slashing_params" */
+export type Slashing_Params_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Slashing_Params_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Slashing_Params_Stream_Cursor_Value_Input = {
+  height?: Maybe<Scalars['bigint']>;
+  params?: Maybe<Scalars['jsonb']>;
+};
+
 
 /** Boolean expression to compare columns of type "smallint". All fields are combined with logical 'AND'. */
 export type Smallint_Comparison_Exp = {
@@ -3530,6 +3964,23 @@ export type Software_Upgrade_Plan_Stddev_Samp_Fields = {
   upgrade_height?: Maybe<Scalars['Float']>;
 };
 
+/** Streaming cursor of the table "software_upgrade_plan" */
+export type Software_Upgrade_Plan_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Software_Upgrade_Plan_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Software_Upgrade_Plan_Stream_Cursor_Value_Input = {
+  height?: Maybe<Scalars['bigint']>;
+  info?: Maybe<Scalars['String']>;
+  plan_name?: Maybe<Scalars['String']>;
+  proposal_id?: Maybe<Scalars['Int']>;
+  upgrade_height?: Maybe<Scalars['bigint']>;
+};
+
 /** aggregate sum on columns */
 export type Software_Upgrade_Plan_Sum_Fields = {
   __typename?: 'software_upgrade_plan_sum_fields';
@@ -3598,6 +4049,20 @@ export enum Staking_Params_Select_Column {
   Params = 'params'
 }
 
+/** Streaming cursor of the table "staking_params" */
+export type Staking_Params_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Staking_Params_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Staking_Params_Stream_Cursor_Value_Input = {
+  height?: Maybe<Scalars['bigint']>;
+  params?: Maybe<Scalars['jsonb']>;
+};
+
 /** columns and relationships of "staking_pool" */
 export type Staking_Pool = {
   __typename?: 'staking_pool';
@@ -3643,54 +4108,107 @@ export enum Staking_Pool_Select_Column {
   UnbondingTokens = 'unbonding_tokens'
 }
 
+/** Streaming cursor of the table "staking_pool" */
+export type Staking_Pool_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Staking_Pool_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Staking_Pool_Stream_Cursor_Value_Input = {
+  bonded_tokens?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  not_bonded_tokens?: Maybe<Scalars['String']>;
+  staked_not_bonded_tokens?: Maybe<Scalars['String']>;
+  unbonding_tokens?: Maybe<Scalars['String']>;
+};
+
 export type Subscription_Root = {
   __typename?: 'subscription_root';
   /** fetch data from the table: "account" */
   account: Array<Account>;
   /** fetch data from the table: "account" using primary key columns */
   account_by_pk?: Maybe<Account>;
+  /** fetch data from the table in a streaming manner: "account" */
+  account_stream: Array<Account>;
   /** fetch data from the table: "average_block_time_from_genesis" */
   average_block_time_from_genesis: Array<Average_Block_Time_From_Genesis>;
+  /** fetch data from the table in a streaming manner: "average_block_time_from_genesis" */
+  average_block_time_from_genesis_stream: Array<Average_Block_Time_From_Genesis>;
   /** fetch data from the table: "average_block_time_per_day" */
   average_block_time_per_day: Array<Average_Block_Time_Per_Day>;
+  /** fetch data from the table in a streaming manner: "average_block_time_per_day" */
+  average_block_time_per_day_stream: Array<Average_Block_Time_Per_Day>;
   /** fetch data from the table: "average_block_time_per_hour" */
   average_block_time_per_hour: Array<Average_Block_Time_Per_Hour>;
+  /** fetch data from the table in a streaming manner: "average_block_time_per_hour" */
+  average_block_time_per_hour_stream: Array<Average_Block_Time_Per_Hour>;
   /** fetch data from the table: "average_block_time_per_minute" */
   average_block_time_per_minute: Array<Average_Block_Time_Per_Minute>;
+  /** fetch data from the table in a streaming manner: "average_block_time_per_minute" */
+  average_block_time_per_minute_stream: Array<Average_Block_Time_Per_Minute>;
   /** fetch data from the table: "block" */
   block: Array<Block>;
   /** fetch data from the table: "block" using primary key columns */
   block_by_pk?: Maybe<Block>;
+  /** fetch data from the table in a streaming manner: "block" */
+  block_stream: Array<Block>;
   /** fetch data from the table: "community_pool" */
   community_pool: Array<Community_Pool>;
+  /** fetch data from the table in a streaming manner: "community_pool" */
+  community_pool_stream: Array<Community_Pool>;
   /** fetch data from the table: "distribution_params" */
   distribution_params: Array<Distribution_Params>;
+  /** fetch data from the table in a streaming manner: "distribution_params" */
+  distribution_params_stream: Array<Distribution_Params>;
   /** fetch data from the table: "double_sign_evidence" */
   double_sign_evidence: Array<Double_Sign_Evidence>;
+  /** fetch data from the table in a streaming manner: "double_sign_evidence" */
+  double_sign_evidence_stream: Array<Double_Sign_Evidence>;
   /** fetch data from the table: "double_sign_vote" */
   double_sign_vote: Array<Double_Sign_Vote>;
+  /** fetch data from the table in a streaming manner: "double_sign_vote" */
+  double_sign_vote_stream: Array<Double_Sign_Vote>;
   /** fetch data from the table: "fee_grant_allowance" */
   fee_grant_allowance: Array<Fee_Grant_Allowance>;
+  /** fetch data from the table in a streaming manner: "fee_grant_allowance" */
+  fee_grant_allowance_stream: Array<Fee_Grant_Allowance>;
   /** fetch data from the table: "genesis" */
   genesis: Array<Genesis>;
+  /** fetch data from the table in a streaming manner: "genesis" */
+  genesis_stream: Array<Genesis>;
   /** fetch data from the table: "gov_params" */
   gov_params: Array<Gov_Params>;
+  /** fetch data from the table in a streaming manner: "gov_params" */
+  gov_params_stream: Array<Gov_Params>;
   /** fetch data from the table: "inflation" */
   inflation: Array<Inflation>;
+  /** fetch data from the table in a streaming manner: "inflation" */
+  inflation_stream: Array<Inflation>;
   /** fetch data from the table: "message" */
   message: Array<Message>;
+  /** fetch data from the table in a streaming manner: "message" */
+  message_stream: Array<Message>;
   /** execute function "messages_by_address" which returns "message" */
   messages_by_address: Array<Message>;
   /** fetch data from the table: "mint_params" */
   mint_params: Array<Mint_Params>;
+  /** fetch data from the table in a streaming manner: "mint_params" */
+  mint_params_stream: Array<Mint_Params>;
   /** fetch data from the table: "modules" */
   modules: Array<Modules>;
   /** fetch data from the table: "modules" using primary key columns */
   modules_by_pk?: Maybe<Modules>;
+  /** fetch data from the table in a streaming manner: "modules" */
+  modules_stream: Array<Modules>;
   /** fetch data from the table: "pre_commit" */
   pre_commit: Array<Pre_Commit>;
   /** fetch aggregated fields from the table: "pre_commit" */
   pre_commit_aggregate: Pre_Commit_Aggregate;
+  /** fetch data from the table in a streaming manner: "pre_commit" */
+  pre_commit_stream: Array<Pre_Commit>;
   /** fetch data from the table: "proposal" */
   proposal: Array<Proposal>;
   /** fetch aggregated fields from the table: "proposal" */
@@ -3699,30 +4217,52 @@ export type Subscription_Root = {
   proposal_by_pk?: Maybe<Proposal>;
   /** fetch data from the table: "proposal_deposit" */
   proposal_deposit: Array<Proposal_Deposit>;
+  /** fetch data from the table in a streaming manner: "proposal_deposit" */
+  proposal_deposit_stream: Array<Proposal_Deposit>;
   /** fetch data from the table: "proposal_staking_pool_snapshot" */
   proposal_staking_pool_snapshot: Array<Proposal_Staking_Pool_Snapshot>;
   /** fetch data from the table: "proposal_staking_pool_snapshot" using primary key columns */
   proposal_staking_pool_snapshot_by_pk?: Maybe<Proposal_Staking_Pool_Snapshot>;
+  /** fetch data from the table in a streaming manner: "proposal_staking_pool_snapshot" */
+  proposal_staking_pool_snapshot_stream: Array<Proposal_Staking_Pool_Snapshot>;
+  /** fetch data from the table in a streaming manner: "proposal" */
+  proposal_stream: Array<Proposal>;
   /** fetch data from the table: "proposal_tally_result" */
   proposal_tally_result: Array<Proposal_Tally_Result>;
   /** fetch data from the table: "proposal_tally_result" using primary key columns */
   proposal_tally_result_by_pk?: Maybe<Proposal_Tally_Result>;
+  /** fetch data from the table in a streaming manner: "proposal_tally_result" */
+  proposal_tally_result_stream: Array<Proposal_Tally_Result>;
   /** fetch data from the table: "proposal_validator_status_snapshot" */
   proposal_validator_status_snapshot: Array<Proposal_Validator_Status_Snapshot>;
+  /** fetch data from the table in a streaming manner: "proposal_validator_status_snapshot" */
+  proposal_validator_status_snapshot_stream: Array<Proposal_Validator_Status_Snapshot>;
   /** fetch data from the table: "proposal_vote" */
   proposal_vote: Array<Proposal_Vote>;
+  /** fetch data from the table in a streaming manner: "proposal_vote" */
+  proposal_vote_stream: Array<Proposal_Vote>;
   /** fetch data from the table: "slashing_params" */
   slashing_params: Array<Slashing_Params>;
+  /** fetch data from the table in a streaming manner: "slashing_params" */
+  slashing_params_stream: Array<Slashing_Params>;
   /** fetch data from the table: "software_upgrade_plan" */
   software_upgrade_plan: Array<Software_Upgrade_Plan>;
   /** fetch aggregated fields from the table: "software_upgrade_plan" */
   software_upgrade_plan_aggregate: Software_Upgrade_Plan_Aggregate;
+  /** fetch data from the table in a streaming manner: "software_upgrade_plan" */
+  software_upgrade_plan_stream: Array<Software_Upgrade_Plan>;
   /** fetch data from the table: "staking_params" */
   staking_params: Array<Staking_Params>;
+  /** fetch data from the table in a streaming manner: "staking_params" */
+  staking_params_stream: Array<Staking_Params>;
   /** fetch data from the table: "staking_pool" */
   staking_pool: Array<Staking_Pool>;
+  /** fetch data from the table in a streaming manner: "staking_pool" */
+  staking_pool_stream: Array<Staking_Pool>;
   /** fetch data from the table: "supply" */
   supply: Array<Supply>;
+  /** fetch data from the table in a streaming manner: "supply" */
+  supply_stream: Array<Supply>;
   /** fetch data from the table: "token" */
   token: Array<Token>;
   /** fetch data from the table: "token_price" */
@@ -3731,10 +4271,20 @@ export type Subscription_Root = {
   token_price_by_pk?: Maybe<Token_Price>;
   /** fetch data from the table: "token_price_history" */
   token_price_history: Array<Token_Price_History>;
+  /** fetch data from the table in a streaming manner: "token_price_history" */
+  token_price_history_stream: Array<Token_Price_History>;
+  /** fetch data from the table in a streaming manner: "token_price" */
+  token_price_stream: Array<Token_Price>;
+  /** fetch data from the table in a streaming manner: "token" */
+  token_stream: Array<Token>;
   /** fetch data from the table: "token_unit" */
   token_unit: Array<Token_Unit>;
+  /** fetch data from the table in a streaming manner: "token_unit" */
+  token_unit_stream: Array<Token_Unit>;
   /** fetch data from the table: "transaction" */
   transaction: Array<Transaction>;
+  /** fetch data from the table in a streaming manner: "transaction" */
+  transaction_stream: Array<Transaction>;
   /** fetch data from the table: "validator" */
   validator: Array<Validator>;
   /** fetch data from the table: "validator" using primary key columns */
@@ -3743,34 +4293,52 @@ export type Subscription_Root = {
   validator_commission: Array<Validator_Commission>;
   /** fetch data from the table: "validator_commission" using primary key columns */
   validator_commission_by_pk?: Maybe<Validator_Commission>;
+  /** fetch data from the table in a streaming manner: "validator_commission" */
+  validator_commission_stream: Array<Validator_Commission>;
   /** fetch data from the table: "validator_description" */
   validator_description: Array<Validator_Description>;
   /** fetch data from the table: "validator_description" using primary key columns */
   validator_description_by_pk?: Maybe<Validator_Description>;
+  /** fetch data from the table in a streaming manner: "validator_description" */
+  validator_description_stream: Array<Validator_Description>;
   /** fetch data from the table: "validator_info" */
   validator_info: Array<Validator_Info>;
   /** fetch data from the table: "validator_info" using primary key columns */
   validator_info_by_pk?: Maybe<Validator_Info>;
+  /** fetch data from the table in a streaming manner: "validator_info" */
+  validator_info_stream: Array<Validator_Info>;
   /** fetch data from the table: "validator_signing_info" */
   validator_signing_info: Array<Validator_Signing_Info>;
   /** fetch data from the table: "validator_signing_info" using primary key columns */
   validator_signing_info_by_pk?: Maybe<Validator_Signing_Info>;
+  /** fetch data from the table in a streaming manner: "validator_signing_info" */
+  validator_signing_info_stream: Array<Validator_Signing_Info>;
   /** fetch data from the table: "validator_status" */
   validator_status: Array<Validator_Status>;
   /** fetch aggregated fields from the table: "validator_status" */
   validator_status_aggregate: Validator_Status_Aggregate;
   /** fetch data from the table: "validator_status" using primary key columns */
   validator_status_by_pk?: Maybe<Validator_Status>;
+  /** fetch data from the table in a streaming manner: "validator_status" */
+  validator_status_stream: Array<Validator_Status>;
+  /** fetch data from the table in a streaming manner: "validator" */
+  validator_stream: Array<Validator>;
   /** fetch data from the table: "validator_voting_power" */
   validator_voting_power: Array<Validator_Voting_Power>;
   /** fetch aggregated fields from the table: "validator_voting_power" */
   validator_voting_power_aggregate: Validator_Voting_Power_Aggregate;
   /** fetch data from the table: "validator_voting_power" using primary key columns */
   validator_voting_power_by_pk?: Maybe<Validator_Voting_Power>;
+  /** fetch data from the table in a streaming manner: "validator_voting_power" */
+  validator_voting_power_stream: Array<Validator_Voting_Power>;
   /** fetch data from the table: "vesting_account" */
   vesting_account: Array<Vesting_Account>;
+  /** fetch data from the table in a streaming manner: "vesting_account" */
+  vesting_account_stream: Array<Vesting_Account>;
   /** fetch data from the table: "vesting_period" */
   vesting_period: Array<Vesting_Period>;
+  /** fetch data from the table in a streaming manner: "vesting_period" */
+  vesting_period_stream: Array<Vesting_Period>;
 };
 
 
@@ -3788,11 +4356,25 @@ export type Subscription_RootAccount_By_PkArgs = {
 };
 
 
+export type Subscription_RootAccount_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Account_Stream_Cursor_Input>>;
+  where?: Maybe<Account_Bool_Exp>;
+};
+
+
 export type Subscription_RootAverage_Block_Time_From_GenesisArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_From_Genesis_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Average_Block_Time_From_Genesis_Order_By>>;
+  where?: Maybe<Average_Block_Time_From_Genesis_Bool_Exp>;
+};
+
+
+export type Subscription_RootAverage_Block_Time_From_Genesis_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Average_Block_Time_From_Genesis_Stream_Cursor_Input>>;
   where?: Maybe<Average_Block_Time_From_Genesis_Bool_Exp>;
 };
 
@@ -3806,6 +4388,13 @@ export type Subscription_RootAverage_Block_Time_Per_DayArgs = {
 };
 
 
+export type Subscription_RootAverage_Block_Time_Per_Day_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Average_Block_Time_Per_Day_Stream_Cursor_Input>>;
+  where?: Maybe<Average_Block_Time_Per_Day_Bool_Exp>;
+};
+
+
 export type Subscription_RootAverage_Block_Time_Per_HourArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Hour_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -3815,11 +4404,25 @@ export type Subscription_RootAverage_Block_Time_Per_HourArgs = {
 };
 
 
+export type Subscription_RootAverage_Block_Time_Per_Hour_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Average_Block_Time_Per_Hour_Stream_Cursor_Input>>;
+  where?: Maybe<Average_Block_Time_Per_Hour_Bool_Exp>;
+};
+
+
 export type Subscription_RootAverage_Block_Time_Per_MinuteArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Minute_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Average_Block_Time_Per_Minute_Order_By>>;
+  where?: Maybe<Average_Block_Time_Per_Minute_Bool_Exp>;
+};
+
+
+export type Subscription_RootAverage_Block_Time_Per_Minute_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Average_Block_Time_Per_Minute_Stream_Cursor_Input>>;
   where?: Maybe<Average_Block_Time_Per_Minute_Bool_Exp>;
 };
 
@@ -3838,11 +4441,25 @@ export type Subscription_RootBlock_By_PkArgs = {
 };
 
 
+export type Subscription_RootBlock_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Block_Stream_Cursor_Input>>;
+  where?: Maybe<Block_Bool_Exp>;
+};
+
+
 export type Subscription_RootCommunity_PoolArgs = {
   distinct_on?: Maybe<Array<Community_Pool_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Community_Pool_Order_By>>;
+  where?: Maybe<Community_Pool_Bool_Exp>;
+};
+
+
+export type Subscription_RootCommunity_Pool_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Community_Pool_Stream_Cursor_Input>>;
   where?: Maybe<Community_Pool_Bool_Exp>;
 };
 
@@ -3856,11 +4473,25 @@ export type Subscription_RootDistribution_ParamsArgs = {
 };
 
 
+export type Subscription_RootDistribution_Params_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Distribution_Params_Stream_Cursor_Input>>;
+  where?: Maybe<Distribution_Params_Bool_Exp>;
+};
+
+
 export type Subscription_RootDouble_Sign_EvidenceArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Evidence_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Double_Sign_Evidence_Order_By>>;
+  where?: Maybe<Double_Sign_Evidence_Bool_Exp>;
+};
+
+
+export type Subscription_RootDouble_Sign_Evidence_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Double_Sign_Evidence_Stream_Cursor_Input>>;
   where?: Maybe<Double_Sign_Evidence_Bool_Exp>;
 };
 
@@ -3874,11 +4505,25 @@ export type Subscription_RootDouble_Sign_VoteArgs = {
 };
 
 
+export type Subscription_RootDouble_Sign_Vote_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Double_Sign_Vote_Stream_Cursor_Input>>;
+  where?: Maybe<Double_Sign_Vote_Bool_Exp>;
+};
+
+
 export type Subscription_RootFee_Grant_AllowanceArgs = {
   distinct_on?: Maybe<Array<Fee_Grant_Allowance_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Fee_Grant_Allowance_Order_By>>;
+  where?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
+};
+
+
+export type Subscription_RootFee_Grant_Allowance_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Fee_Grant_Allowance_Stream_Cursor_Input>>;
   where?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
 };
 
@@ -3892,11 +4537,25 @@ export type Subscription_RootGenesisArgs = {
 };
 
 
+export type Subscription_RootGenesis_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Genesis_Stream_Cursor_Input>>;
+  where?: Maybe<Genesis_Bool_Exp>;
+};
+
+
 export type Subscription_RootGov_ParamsArgs = {
   distinct_on?: Maybe<Array<Gov_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Gov_Params_Order_By>>;
+  where?: Maybe<Gov_Params_Bool_Exp>;
+};
+
+
+export type Subscription_RootGov_Params_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Gov_Params_Stream_Cursor_Input>>;
   where?: Maybe<Gov_Params_Bool_Exp>;
 };
 
@@ -3910,11 +4569,25 @@ export type Subscription_RootInflationArgs = {
 };
 
 
+export type Subscription_RootInflation_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Inflation_Stream_Cursor_Input>>;
+  where?: Maybe<Inflation_Bool_Exp>;
+};
+
+
 export type Subscription_RootMessageArgs = {
   distinct_on?: Maybe<Array<Message_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Message_Order_By>>;
+  where?: Maybe<Message_Bool_Exp>;
+};
+
+
+export type Subscription_RootMessage_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Message_Stream_Cursor_Input>>;
   where?: Maybe<Message_Bool_Exp>;
 };
 
@@ -3938,6 +4611,13 @@ export type Subscription_RootMint_ParamsArgs = {
 };
 
 
+export type Subscription_RootMint_Params_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Mint_Params_Stream_Cursor_Input>>;
+  where?: Maybe<Mint_Params_Bool_Exp>;
+};
+
+
 export type Subscription_RootModulesArgs = {
   distinct_on?: Maybe<Array<Modules_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -3949,6 +4629,13 @@ export type Subscription_RootModulesArgs = {
 
 export type Subscription_RootModules_By_PkArgs = {
   module_name: Scalars['String'];
+};
+
+
+export type Subscription_RootModules_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Modules_Stream_Cursor_Input>>;
+  where?: Maybe<Modules_Bool_Exp>;
 };
 
 
@@ -3966,6 +4653,13 @@ export type Subscription_RootPre_Commit_AggregateArgs = {
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pre_Commit_Order_By>>;
+  where?: Maybe<Pre_Commit_Bool_Exp>;
+};
+
+
+export type Subscription_RootPre_Commit_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Pre_Commit_Stream_Cursor_Input>>;
   where?: Maybe<Pre_Commit_Bool_Exp>;
 };
 
@@ -4002,6 +4696,13 @@ export type Subscription_RootProposal_DepositArgs = {
 };
 
 
+export type Subscription_RootProposal_Deposit_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Proposal_Deposit_Stream_Cursor_Input>>;
+  where?: Maybe<Proposal_Deposit_Bool_Exp>;
+};
+
+
 export type Subscription_RootProposal_Staking_Pool_SnapshotArgs = {
   distinct_on?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4013,6 +4714,20 @@ export type Subscription_RootProposal_Staking_Pool_SnapshotArgs = {
 
 export type Subscription_RootProposal_Staking_Pool_Snapshot_By_PkArgs = {
   proposal_id: Scalars['Int'];
+};
+
+
+export type Subscription_RootProposal_Staking_Pool_Snapshot_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Proposal_Staking_Pool_Snapshot_Stream_Cursor_Input>>;
+  where?: Maybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>;
+};
+
+
+export type Subscription_RootProposal_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Proposal_Stream_Cursor_Input>>;
+  where?: Maybe<Proposal_Bool_Exp>;
 };
 
 
@@ -4030,11 +4745,25 @@ export type Subscription_RootProposal_Tally_Result_By_PkArgs = {
 };
 
 
+export type Subscription_RootProposal_Tally_Result_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Proposal_Tally_Result_Stream_Cursor_Input>>;
+  where?: Maybe<Proposal_Tally_Result_Bool_Exp>;
+};
+
+
 export type Subscription_RootProposal_Validator_Status_SnapshotArgs = {
   distinct_on?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Proposal_Validator_Status_Snapshot_Order_By>>;
+  where?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
+};
+
+
+export type Subscription_RootProposal_Validator_Status_Snapshot_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Proposal_Validator_Status_Snapshot_Stream_Cursor_Input>>;
   where?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
 };
 
@@ -4048,11 +4777,25 @@ export type Subscription_RootProposal_VoteArgs = {
 };
 
 
+export type Subscription_RootProposal_Vote_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Proposal_Vote_Stream_Cursor_Input>>;
+  where?: Maybe<Proposal_Vote_Bool_Exp>;
+};
+
+
 export type Subscription_RootSlashing_ParamsArgs = {
   distinct_on?: Maybe<Array<Slashing_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Slashing_Params_Order_By>>;
+  where?: Maybe<Slashing_Params_Bool_Exp>;
+};
+
+
+export type Subscription_RootSlashing_Params_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Slashing_Params_Stream_Cursor_Input>>;
   where?: Maybe<Slashing_Params_Bool_Exp>;
 };
 
@@ -4075,11 +4818,25 @@ export type Subscription_RootSoftware_Upgrade_Plan_AggregateArgs = {
 };
 
 
+export type Subscription_RootSoftware_Upgrade_Plan_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Software_Upgrade_Plan_Stream_Cursor_Input>>;
+  where?: Maybe<Software_Upgrade_Plan_Bool_Exp>;
+};
+
+
 export type Subscription_RootStaking_ParamsArgs = {
   distinct_on?: Maybe<Array<Staking_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Staking_Params_Order_By>>;
+  where?: Maybe<Staking_Params_Bool_Exp>;
+};
+
+
+export type Subscription_RootStaking_Params_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Staking_Params_Stream_Cursor_Input>>;
   where?: Maybe<Staking_Params_Bool_Exp>;
 };
 
@@ -4093,11 +4850,25 @@ export type Subscription_RootStaking_PoolArgs = {
 };
 
 
+export type Subscription_RootStaking_Pool_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Staking_Pool_Stream_Cursor_Input>>;
+  where?: Maybe<Staking_Pool_Bool_Exp>;
+};
+
+
 export type Subscription_RootSupplyArgs = {
   distinct_on?: Maybe<Array<Supply_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Supply_Order_By>>;
+  where?: Maybe<Supply_Bool_Exp>;
+};
+
+
+export type Subscription_RootSupply_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Supply_Stream_Cursor_Input>>;
   where?: Maybe<Supply_Bool_Exp>;
 };
 
@@ -4134,6 +4905,27 @@ export type Subscription_RootToken_Price_HistoryArgs = {
 };
 
 
+export type Subscription_RootToken_Price_History_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Token_Price_History_Stream_Cursor_Input>>;
+  where?: Maybe<Token_Price_History_Bool_Exp>;
+};
+
+
+export type Subscription_RootToken_Price_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Token_Price_Stream_Cursor_Input>>;
+  where?: Maybe<Token_Price_Bool_Exp>;
+};
+
+
+export type Subscription_RootToken_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Token_Stream_Cursor_Input>>;
+  where?: Maybe<Token_Bool_Exp>;
+};
+
+
 export type Subscription_RootToken_UnitArgs = {
   distinct_on?: Maybe<Array<Token_Unit_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4143,11 +4935,25 @@ export type Subscription_RootToken_UnitArgs = {
 };
 
 
+export type Subscription_RootToken_Unit_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Token_Unit_Stream_Cursor_Input>>;
+  where?: Maybe<Token_Unit_Bool_Exp>;
+};
+
+
 export type Subscription_RootTransactionArgs = {
   distinct_on?: Maybe<Array<Transaction_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Transaction_Order_By>>;
+  where?: Maybe<Transaction_Bool_Exp>;
+};
+
+
+export type Subscription_RootTransaction_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Transaction_Stream_Cursor_Input>>;
   where?: Maybe<Transaction_Bool_Exp>;
 };
 
@@ -4180,6 +4986,13 @@ export type Subscription_RootValidator_Commission_By_PkArgs = {
 };
 
 
+export type Subscription_RootValidator_Commission_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Validator_Commission_Stream_Cursor_Input>>;
+  where?: Maybe<Validator_Commission_Bool_Exp>;
+};
+
+
 export type Subscription_RootValidator_DescriptionArgs = {
   distinct_on?: Maybe<Array<Validator_Description_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4191,6 +5004,13 @@ export type Subscription_RootValidator_DescriptionArgs = {
 
 export type Subscription_RootValidator_Description_By_PkArgs = {
   validator_address: Scalars['String'];
+};
+
+
+export type Subscription_RootValidator_Description_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Validator_Description_Stream_Cursor_Input>>;
+  where?: Maybe<Validator_Description_Bool_Exp>;
 };
 
 
@@ -4208,6 +5028,13 @@ export type Subscription_RootValidator_Info_By_PkArgs = {
 };
 
 
+export type Subscription_RootValidator_Info_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Validator_Info_Stream_Cursor_Input>>;
+  where?: Maybe<Validator_Info_Bool_Exp>;
+};
+
+
 export type Subscription_RootValidator_Signing_InfoArgs = {
   distinct_on?: Maybe<Array<Validator_Signing_Info_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4219,6 +5046,13 @@ export type Subscription_RootValidator_Signing_InfoArgs = {
 
 export type Subscription_RootValidator_Signing_Info_By_PkArgs = {
   validator_address: Scalars['String'];
+};
+
+
+export type Subscription_RootValidator_Signing_Info_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Validator_Signing_Info_Stream_Cursor_Input>>;
+  where?: Maybe<Validator_Signing_Info_Bool_Exp>;
 };
 
 
@@ -4245,6 +5079,20 @@ export type Subscription_RootValidator_Status_By_PkArgs = {
 };
 
 
+export type Subscription_RootValidator_Status_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Validator_Status_Stream_Cursor_Input>>;
+  where?: Maybe<Validator_Status_Bool_Exp>;
+};
+
+
+export type Subscription_RootValidator_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Validator_Stream_Cursor_Input>>;
+  where?: Maybe<Validator_Bool_Exp>;
+};
+
+
 export type Subscription_RootValidator_Voting_PowerArgs = {
   distinct_on?: Maybe<Array<Validator_Voting_Power_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4268,6 +5116,13 @@ export type Subscription_RootValidator_Voting_Power_By_PkArgs = {
 };
 
 
+export type Subscription_RootValidator_Voting_Power_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Validator_Voting_Power_Stream_Cursor_Input>>;
+  where?: Maybe<Validator_Voting_Power_Bool_Exp>;
+};
+
+
 export type Subscription_RootVesting_AccountArgs = {
   distinct_on?: Maybe<Array<Vesting_Account_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4277,11 +5132,25 @@ export type Subscription_RootVesting_AccountArgs = {
 };
 
 
+export type Subscription_RootVesting_Account_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Vesting_Account_Stream_Cursor_Input>>;
+  where?: Maybe<Vesting_Account_Bool_Exp>;
+};
+
+
 export type Subscription_RootVesting_PeriodArgs = {
   distinct_on?: Maybe<Array<Vesting_Period_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Vesting_Period_Order_By>>;
+  where?: Maybe<Vesting_Period_Bool_Exp>;
+};
+
+
+export type Subscription_RootVesting_Period_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<Maybe<Vesting_Period_Stream_Cursor_Input>>;
   where?: Maybe<Vesting_Period_Bool_Exp>;
 };
 
@@ -4314,6 +5183,20 @@ export enum Supply_Select_Column {
   /** column name */
   Height = 'height'
 }
+
+/** Streaming cursor of the table "supply" */
+export type Supply_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Supply_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Supply_Stream_Cursor_Value_Input = {
+  coins?: Maybe<Scalars['_coin']>;
+  height?: Maybe<Scalars['bigint']>;
+};
 
 
 /** Boolean expression to compare columns of type "timestamp". All fields are combined with logical 'AND'. */
@@ -4508,6 +5391,22 @@ export type Token_Price_History_Stddev_Samp_Order_By = {
   price?: Maybe<Order_By>;
 };
 
+/** Streaming cursor of the table "token_price_history" */
+export type Token_Price_History_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Token_Price_History_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Token_Price_History_Stream_Cursor_Value_Input = {
+  market_cap?: Maybe<Scalars['bigint']>;
+  price?: Maybe<Scalars['numeric']>;
+  timestamp?: Maybe<Scalars['timestamp']>;
+  unit_name?: Maybe<Scalars['String']>;
+};
+
 /** order by sum() on columns of table "token_price_history" */
 export type Token_Price_History_Sum_Order_By = {
   market_cap?: Maybe<Order_By>;
@@ -4595,6 +5494,23 @@ export type Token_Price_Stddev_Samp_Order_By = {
   price?: Maybe<Order_By>;
 };
 
+/** Streaming cursor of the table "token_price" */
+export type Token_Price_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Token_Price_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Token_Price_Stream_Cursor_Value_Input = {
+  id?: Maybe<Scalars['Int']>;
+  market_cap?: Maybe<Scalars['bigint']>;
+  price?: Maybe<Scalars['numeric']>;
+  timestamp?: Maybe<Scalars['timestamp']>;
+  unit_name?: Maybe<Scalars['String']>;
+};
+
 /** order by sum() on columns of table "token_price" */
 export type Token_Price_Sum_Order_By = {
   id?: Maybe<Order_By>;
@@ -4628,6 +5544,19 @@ export enum Token_Select_Column {
   /** column name */
   Name = 'name'
 }
+
+/** Streaming cursor of the table "token" */
+export type Token_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Token_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Token_Stream_Cursor_Value_Input = {
+  name?: Maybe<Scalars['String']>;
+};
 
 /** columns and relationships of "token_unit" */
 export type Token_Unit = {
@@ -4759,6 +5688,23 @@ export type Token_Unit_Stddev_Pop_Order_By = {
 /** order by stddev_samp() on columns of table "token_unit" */
 export type Token_Unit_Stddev_Samp_Order_By = {
   exponent?: Maybe<Order_By>;
+};
+
+/** Streaming cursor of the table "token_unit" */
+export type Token_Unit_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Token_Unit_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Token_Unit_Stream_Cursor_Value_Input = {
+  aliases?: Maybe<Scalars['_text']>;
+  denom?: Maybe<Scalars['String']>;
+  exponent?: Maybe<Scalars['Int']>;
+  price_id?: Maybe<Scalars['String']>;
+  token_name?: Maybe<Scalars['String']>;
 };
 
 /** order by sum() on columns of table "token_unit" */
@@ -4950,6 +5896,30 @@ export type Transaction_Stddev_Samp_Order_By = {
   gas_used?: Maybe<Order_By>;
   gas_wanted?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
+};
+
+/** Streaming cursor of the table "transaction" */
+export type Transaction_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Transaction_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Transaction_Stream_Cursor_Value_Input = {
+  fee?: Maybe<Scalars['jsonb']>;
+  gas_used?: Maybe<Scalars['bigint']>;
+  gas_wanted?: Maybe<Scalars['bigint']>;
+  hash?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  logs?: Maybe<Scalars['jsonb']>;
+  memo?: Maybe<Scalars['String']>;
+  messages?: Maybe<Scalars['jsonb']>;
+  raw_log?: Maybe<Scalars['String']>;
+  signatures?: Maybe<Scalars['_text']>;
+  signer_infos?: Maybe<Scalars['jsonb']>;
+  success?: Maybe<Scalars['Boolean']>;
 };
 
 /** order by sum() on columns of table "transaction" */
@@ -5157,6 +6127,7 @@ export type Validator_Bool_Exp = {
   consensus_pubkey?: Maybe<String_Comparison_Exp>;
   double_sign_votes?: Maybe<Double_Sign_Vote_Bool_Exp>;
   pre_commits?: Maybe<Pre_Commit_Bool_Exp>;
+  pre_commits_aggregate?: Maybe<Pre_Commit_Aggregate_Bool_Exp>;
   proposal_validator_status_snapshot?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
   proposal_validator_status_snapshots?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
   validator_commissions?: Maybe<Validator_Commission_Bool_Exp>;
@@ -5165,7 +6136,9 @@ export type Validator_Bool_Exp = {
   validator_infos?: Maybe<Validator_Info_Bool_Exp>;
   validator_signing_infos?: Maybe<Validator_Signing_Info_Bool_Exp>;
   validator_statuses?: Maybe<Validator_Status_Bool_Exp>;
+  validator_statuses_aggregate?: Maybe<Validator_Status_Aggregate_Bool_Exp>;
   validator_voting_powers?: Maybe<Validator_Voting_Power_Bool_Exp>;
+  validator_voting_powers_aggregate?: Maybe<Validator_Voting_Power_Aggregate_Bool_Exp>;
 };
 
 /** columns and relationships of "validator_commission" */
@@ -5269,6 +6242,22 @@ export type Validator_Commission_Stddev_Samp_Order_By = {
   commission?: Maybe<Order_By>;
   height?: Maybe<Order_By>;
   min_self_delegation?: Maybe<Order_By>;
+};
+
+/** Streaming cursor of the table "validator_commission" */
+export type Validator_Commission_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Validator_Commission_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Validator_Commission_Stream_Cursor_Value_Input = {
+  commission?: Maybe<Scalars['numeric']>;
+  height?: Maybe<Scalars['bigint']>;
+  min_self_delegation?: Maybe<Scalars['bigint']>;
+  validator_address?: Maybe<Scalars['String']>;
 };
 
 /** order by sum() on columns of table "validator_commission" */
@@ -5422,6 +6411,26 @@ export type Validator_Description_Stddev_Samp_Order_By = {
   height?: Maybe<Order_By>;
 };
 
+/** Streaming cursor of the table "validator_description" */
+export type Validator_Description_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Validator_Description_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Validator_Description_Stream_Cursor_Value_Input = {
+  avatar_url?: Maybe<Scalars['String']>;
+  details?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  identity?: Maybe<Scalars['String']>;
+  moniker?: Maybe<Scalars['String']>;
+  security_contact?: Maybe<Scalars['String']>;
+  validator_address?: Maybe<Scalars['String']>;
+  website?: Maybe<Scalars['String']>;
+};
+
 /** order by sum() on columns of table "validator_description" */
 export type Validator_Description_Sum_Order_By = {
   height?: Maybe<Order_By>;
@@ -5519,6 +6528,23 @@ export enum Validator_Info_Select_Column {
   /** column name */
   SelfDelegateAddress = 'self_delegate_address'
 }
+
+/** Streaming cursor of the table "validator_info" */
+export type Validator_Info_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Validator_Info_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Validator_Info_Stream_Cursor_Value_Input = {
+  consensus_address?: Maybe<Scalars['String']>;
+  max_change_rate?: Maybe<Scalars['String']>;
+  max_rate?: Maybe<Scalars['String']>;
+  operator_address?: Maybe<Scalars['String']>;
+  self_delegate_address?: Maybe<Scalars['String']>;
+};
 
 /** Ordering options when selecting data from "validator". */
 export type Validator_Order_By = {
@@ -5668,6 +6694,25 @@ export type Validator_Signing_Info_Stddev_Samp_Order_By = {
   start_height?: Maybe<Order_By>;
 };
 
+/** Streaming cursor of the table "validator_signing_info" */
+export type Validator_Signing_Info_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Validator_Signing_Info_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Validator_Signing_Info_Stream_Cursor_Value_Input = {
+  height?: Maybe<Scalars['bigint']>;
+  index_offset?: Maybe<Scalars['bigint']>;
+  jailed_until?: Maybe<Scalars['timestamp']>;
+  missed_blocks_counter?: Maybe<Scalars['bigint']>;
+  start_height?: Maybe<Scalars['bigint']>;
+  tombstoned?: Maybe<Scalars['Boolean']>;
+  validator_address?: Maybe<Scalars['String']>;
+};
+
 /** order by sum() on columns of table "validator_signing_info" */
 export type Validator_Signing_Info_Sum_Order_By = {
   height?: Maybe<Order_By>;
@@ -5716,6 +6761,33 @@ export type Validator_Status_Aggregate = {
   __typename?: 'validator_status_aggregate';
   aggregate?: Maybe<Validator_Status_Aggregate_Fields>;
   nodes: Array<Validator_Status>;
+};
+
+export type Validator_Status_Aggregate_Bool_Exp = {
+  bool_and?: Maybe<Validator_Status_Aggregate_Bool_Exp_Bool_And>;
+  bool_or?: Maybe<Validator_Status_Aggregate_Bool_Exp_Bool_Or>;
+  count?: Maybe<Validator_Status_Aggregate_Bool_Exp_Count>;
+};
+
+export type Validator_Status_Aggregate_Bool_Exp_Bool_And = {
+  arguments: Validator_Status_Select_Column_Validator_Status_Aggregate_Bool_Exp_Bool_And_Arguments_Columns;
+  distinct?: Maybe<Scalars['Boolean']>;
+  filter?: Maybe<Validator_Status_Bool_Exp>;
+  predicate: Boolean_Comparison_Exp;
+};
+
+export type Validator_Status_Aggregate_Bool_Exp_Bool_Or = {
+  arguments: Validator_Status_Select_Column_Validator_Status_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns;
+  distinct?: Maybe<Scalars['Boolean']>;
+  filter?: Maybe<Validator_Status_Bool_Exp>;
+  predicate: Boolean_Comparison_Exp;
+};
+
+export type Validator_Status_Aggregate_Bool_Exp_Count = {
+  arguments?: Maybe<Array<Validator_Status_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+  filter?: Maybe<Validator_Status_Bool_Exp>;
+  predicate: Int_Comparison_Exp;
 };
 
 /** aggregate fields of "validator_status" */
@@ -5832,6 +6904,18 @@ export enum Validator_Status_Select_Column {
   ValidatorAddress = 'validator_address'
 }
 
+/** select "validator_status_aggregate_bool_exp_bool_and_arguments_columns" columns of table "validator_status" */
+export enum Validator_Status_Select_Column_Validator_Status_Aggregate_Bool_Exp_Bool_And_Arguments_Columns {
+  /** column name */
+  Jailed = 'jailed'
+}
+
+/** select "validator_status_aggregate_bool_exp_bool_or_arguments_columns" columns of table "validator_status" */
+export enum Validator_Status_Select_Column_Validator_Status_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns {
+  /** column name */
+  Jailed = 'jailed'
+}
+
 /** aggregate stddev on columns */
 export type Validator_Status_Stddev_Fields = {
   __typename?: 'validator_status_stddev_fields';
@@ -5869,6 +6953,22 @@ export type Validator_Status_Stddev_Samp_Fields = {
 export type Validator_Status_Stddev_Samp_Order_By = {
   height?: Maybe<Order_By>;
   status?: Maybe<Order_By>;
+};
+
+/** Streaming cursor of the table "validator_status" */
+export type Validator_Status_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Validator_Status_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Validator_Status_Stream_Cursor_Value_Input = {
+  height?: Maybe<Scalars['bigint']>;
+  jailed?: Maybe<Scalars['Boolean']>;
+  status?: Maybe<Scalars['Int']>;
+  validator_address?: Maybe<Scalars['String']>;
 };
 
 /** aggregate sum on columns */
@@ -5923,6 +7023,20 @@ export type Validator_Status_Variance_Order_By = {
   status?: Maybe<Order_By>;
 };
 
+/** Streaming cursor of the table "validator" */
+export type Validator_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Validator_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Validator_Stream_Cursor_Value_Input = {
+  consensus_address?: Maybe<Scalars['String']>;
+  consensus_pubkey?: Maybe<Scalars['String']>;
+};
+
 /** columns and relationships of "validator_voting_power" */
 export type Validator_Voting_Power = {
   __typename?: 'validator_voting_power';
@@ -5940,6 +7054,17 @@ export type Validator_Voting_Power_Aggregate = {
   __typename?: 'validator_voting_power_aggregate';
   aggregate?: Maybe<Validator_Voting_Power_Aggregate_Fields>;
   nodes: Array<Validator_Voting_Power>;
+};
+
+export type Validator_Voting_Power_Aggregate_Bool_Exp = {
+  count?: Maybe<Validator_Voting_Power_Aggregate_Bool_Exp_Count>;
+};
+
+export type Validator_Voting_Power_Aggregate_Bool_Exp_Count = {
+  arguments?: Maybe<Array<Validator_Voting_Power_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+  filter?: Maybe<Validator_Voting_Power_Bool_Exp>;
+  predicate: Int_Comparison_Exp;
 };
 
 /** aggregate fields of "validator_voting_power" */
@@ -6093,6 +7218,21 @@ export type Validator_Voting_Power_Stddev_Samp_Order_By = {
   voting_power?: Maybe<Order_By>;
 };
 
+/** Streaming cursor of the table "validator_voting_power" */
+export type Validator_Voting_Power_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Validator_Voting_Power_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Validator_Voting_Power_Stream_Cursor_Value_Input = {
+  height?: Maybe<Scalars['bigint']>;
+  validator_address?: Maybe<Scalars['String']>;
+  voting_power?: Maybe<Scalars['bigint']>;
+};
+
 /** aggregate sum on columns */
 export type Validator_Voting_Power_Sum_Fields = {
   __typename?: 'validator_voting_power_sum_fields';
@@ -6231,6 +7371,23 @@ export enum Vesting_Account_Select_Column {
   Type = 'type'
 }
 
+/** Streaming cursor of the table "vesting_account" */
+export type Vesting_Account_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Vesting_Account_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Vesting_Account_Stream_Cursor_Value_Input = {
+  address?: Maybe<Scalars['String']>;
+  end_time?: Maybe<Scalars['timestamp']>;
+  original_vesting?: Maybe<Scalars['_coin']>;
+  start_time?: Maybe<Scalars['timestamp']>;
+  type?: Maybe<Scalars['String']>;
+};
+
 /** columns and relationships of "vesting_period" */
 export type Vesting_Period = {
   __typename?: 'vesting_period';
@@ -6319,6 +7476,21 @@ export type Vesting_Period_Stddev_Pop_Order_By = {
 export type Vesting_Period_Stddev_Samp_Order_By = {
   length?: Maybe<Order_By>;
   period_order?: Maybe<Order_By>;
+};
+
+/** Streaming cursor of the table "vesting_period" */
+export type Vesting_Period_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Vesting_Period_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: Maybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Vesting_Period_Stream_Cursor_Value_Input = {
+  amount?: Maybe<Scalars['_coin']>;
+  length?: Maybe<Scalars['bigint']>;
+  period_order?: Maybe<Scalars['bigint']>;
 };
 
 /** order by sum() on columns of table "vesting_period" */
