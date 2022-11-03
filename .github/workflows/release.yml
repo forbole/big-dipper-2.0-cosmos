@@ -73,7 +73,7 @@ jobs:
 
   cache-purge:
     name: "Purge branch Actions cache"
-    needs: [release-binary, release-docker]
+    needs: release-docker
     if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
     
