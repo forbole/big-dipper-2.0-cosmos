@@ -7,10 +7,10 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
     Array [
       Object {
         "detail": "",
-        "label": "transactions:hash",
+        "label": "hash",
       },
       Object {
-        "detail": <Link
+        "detail": <ForwardRef(LinkComponent)
           href="/blocks/0"
           passHref={true}
         >
@@ -21,29 +21,29 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
           >
             0
           </WithStyles(ForwardRef(Typography))>
-        </Link>,
-        "label": "transactions:height",
+        </ForwardRef(LinkComponent)>,
+        "label": "height",
       },
       Object {
         "detail": "2020-08-10 12:00:00",
-        "label": "transactions:time",
+        "label": "time",
       },
       Object {
         "detail": "5,000 DARIC",
-        "label": "transactions:fee",
+        "label": "fee",
       },
       Object {
         "detail": "0 ",
-        "label": "transactions:gas",
+        "label": "gas",
       },
       Object {
         "className": "memo",
         "detail": "",
-        "label": "transactions:memo",
+        "label": "memo",
       },
     ]
   }
   id="BoxDetails"
-  title="transactions:overview"
+  title="overview"
 />
 `;

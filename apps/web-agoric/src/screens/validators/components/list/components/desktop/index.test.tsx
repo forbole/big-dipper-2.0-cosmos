@@ -17,6 +17,7 @@ jest.mock('..', () => ({
 }));
 
 jest.mock('@components', () => ({
+  ...jest.requireMock('@components'),
   AvatarName: (props: JSX.IntrinsicElements['div']) => <div id="AvatarName" {...props} />,
   SortArrows: (props: JSX.IntrinsicElements['div']) => <div id="SortArrows" {...props} />,
 }));

@@ -14,6 +14,7 @@ import Home from '.';
 // mocks
 // ==================================
 jest.mock('@components', () => ({
+  ...jest.requireMock('@components'),
   Layout: (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />,
 }));
 

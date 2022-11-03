@@ -19,9 +19,9 @@ export const useBlocks = () => {
   // block subscription
   // ================================
   useBlocksListenerSubscription({
-    onSubscriptionData: (data) => {
+    onData: (data) => {
       handleSetState({
-        items: formatBlocks(data.subscriptionData.data),
+        items: data.data.data ? formatBlocks(data.data.data) : [],
       });
     },
   });

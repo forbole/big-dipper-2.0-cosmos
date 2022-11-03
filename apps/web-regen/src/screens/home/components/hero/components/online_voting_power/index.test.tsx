@@ -17,6 +17,7 @@ const mockI18n = {
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('@components', () => ({
+  ...jest.requireMock('@components'),
   Box: (props: JSX.IntrinsicElements['div']) => <div id="box" {...props} />,
 }));
 

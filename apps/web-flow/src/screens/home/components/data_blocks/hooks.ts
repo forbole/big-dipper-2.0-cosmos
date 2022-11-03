@@ -35,10 +35,9 @@ export const useDataBlocks = () => {
   // block height
   // ====================================
   useLatestBlockHeightListenerSubscription({
-    onSubscriptionData: (data) => {
-      setState((prevState) => ({
+    setState((prevState) => ({
         ...prevState,
-        blockHeight: R.pathOr(0, ['height', 0, 'height'], data.subscriptionData.data),
+        blockHeight: R.pathOr(0, ['height', 0, 'height'], data.data.data),
       }));
     },
   });
@@ -66,10 +65,10 @@ export const useDataBlocks = () => {
     variables: {
       denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
     },
-    onSubscriptionData: (data) => {
+    onData: (data) => {
       setState((prevState) => ({
         ...prevState,
-        price: formatTokenPrice(data.subscriptionData.data),
+        price: data.data.data ? formatTokenPrice(data.data.data) : 0,
       }));
     },
   });

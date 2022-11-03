@@ -22,7 +22,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           scope="col"
           style={
             Object {
-              "width": "30%",
+              "width": "15%",
             }
           }
         >
@@ -34,7 +34,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           scope="col"
           style={
             Object {
-              "width": "40%",
+              "width": "30%",
             }
           }
         >
@@ -42,11 +42,23 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
         </th>
         <th
           aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-head"
+          scope="col"
+          style={
+            Object {
+              "width": "20%",
+            }
+          }
+        >
+          type
+        </th>
+        <th
+          aria-sort={null}
           className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"
           scope="col"
           style={
             Object {
-              "width": "30%",
+              "width": "20%",
             }
           }
         >
@@ -67,7 +79,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           className="MuiTableCell-root MuiTableCell-body"
           style={
             Object {
-              "width": "30%",
+              "width": "15%",
             }
           }
         >
@@ -76,6 +88,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
             href="/blocks/2000"
             onClick={[Function]}
             onMouseEnter={[Function]}
+            onTouchStart={[Function]}
           >
             2,000
           </a>
@@ -85,7 +98,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           className="MuiTableCell-root MuiTableCell-body"
           style={
             Object {
-              "width": "40%",
+              "width": "30%",
             }
           }
         >
@@ -94,16 +107,34 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
             href="/transactions/76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857"
             onClick={[Function]}
             onMouseEnter={[Function]}
+            onTouchStart={[Function]}
           >
-            76nwV8zz8tLz97S...hQ857
+            76nwV8zz8tLz97S...JDLQfF66jZhQ857
           </a>
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body"
+          style={
+            Object {
+              "width": "20%",
+            }
+          }
+        >
+          <div>
+            <div
+              id="Tag"
+              theme="six"
+              value="Delegate"
+            />
+          </div>
         </td>
         <td
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
           style={
             Object {
-              "width": "30%",
+              "width": "20%",
             }
           }
         >

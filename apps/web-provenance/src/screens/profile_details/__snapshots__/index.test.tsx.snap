@@ -3,10 +3,10 @@
 exports[`screen: ProfileDetails matches snapshot 1`] = `
 <div
   id="Layout"
-  navTitle="profiles:profileDetails"
+  navTitle="profileDetails"
 >
   <div
-    exists={true}
+    exists={false}
     id="LoadAndExist"
     loading={false}
   >

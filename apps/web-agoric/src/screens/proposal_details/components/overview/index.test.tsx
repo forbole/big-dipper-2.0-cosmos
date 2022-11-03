@@ -8,6 +8,7 @@ import Overview from '.';
 // mocks
 // ==================================
 jest.mock('@components', () => ({
+  ...jest.requireMock('@components'),
   SingleProposal: (props: JSX.IntrinsicElements['div']) => <div id="SingleProposal" {...props} />,
   Name: (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />,
   Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,

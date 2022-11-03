@@ -7,6 +7,7 @@ import TabsHeader from '.';
 // mocks
 // ==================================
 jest.mock('@components', () => ({
+  ...jest.requireMock('@components'),
   Search: (props: JSX.IntrinsicElements['div']) => <div id="Search" {...props} />,
 }));
 

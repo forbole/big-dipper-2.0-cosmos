@@ -13,6 +13,7 @@ let component:renderer.ReactTestRenderer;
 // ==================================
 
 jest.mock('@components', () => ({
+  ...jest.requireMock('@components'),
   Nav: (props: JSX.IntrinsicElements['div']) => <div id="Nav" {...props} />,
   Footer: (props: JSX.IntrinsicElements['div']) => <div id="Footer" {...props} />,
 }));

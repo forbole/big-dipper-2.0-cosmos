@@ -10,6 +10,7 @@ import RevokeAllowance from '.';
 // ==================================
 
 jest.mock('@components', () => ({
+  ...jest.requireMock('@components'),
   Name: (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />,
 }));
 

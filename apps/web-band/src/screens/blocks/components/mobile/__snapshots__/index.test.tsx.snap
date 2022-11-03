@@ -44,7 +44,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
           <div
             hash="hash"
             height={
-              <Link
+              <ForwardRef(LinkComponent)
                 href="/blocks/300"
                 passHref={true}
               >
@@ -55,7 +55,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
                 >
                   300
                 </WithStyles(ForwardRef(Typography))>
-              </Link>
+              </ForwardRef(LinkComponent)>
             }
             id="SingleBlockMobile"
             proposer={
@@ -88,7 +88,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
           <div
             hash="hash"
             height={
-              <Link
+              <ForwardRef(LinkComponent)
                 href="/blocks/301"
                 passHref={true}
               >
@@ -99,7 +99,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
                 >
                   301
                 </WithStyles(ForwardRef(Typography))>
-              </Link>
+              </ForwardRef(LinkComponent)>
             }
             id="SingleBlockMobile"
             proposer={

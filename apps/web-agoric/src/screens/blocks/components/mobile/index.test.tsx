@@ -7,6 +7,7 @@ import Mobile from '.';
 // mocks
 // ==================================
 jest.mock('@components', () => ({
+  ...jest.requireMock('@components'),
   SingleBlockMobile: (props: JSX.IntrinsicElements['div']) => <div id="SingleBlockMobile" {...props} />,
   Loading: (props: JSX.IntrinsicElements['div']) => <div id="Loading" {...props} />,
   AvatarName: (props: JSX.IntrinsicElements['div']) => <div id="AvatarName" {...props} />,

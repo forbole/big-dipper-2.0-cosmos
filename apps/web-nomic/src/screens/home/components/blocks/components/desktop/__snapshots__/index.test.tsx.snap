@@ -28,13 +28,6 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
           className="MuiTableCell-root MuiTableCell-head"
           scope="col"
         >
-          proposer
-        </th>
-        <th
-          aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head"
-          scope="col"
-        >
           hash
         </th>
         <th
@@ -70,6 +63,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
             href="/blocks/4000"
             onClick={[Function]}
             onMouseEnter={[Function]}
+            onTouchStart={[Function]}
           >
             4,000
           </a>
@@ -78,18 +72,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body"
         >
-          <div
-            address="desmosvalcons1why72hjk945yhckcy5hzk2z2w9d5h65t9am0kd"
-            id="AvatarName"
-            imageUrl=""
-            name="name"
-          />
-        </td>
-        <td
-          aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body"
-        >
-          76nwV8...hQ857
+          76nwV8zz8tLz97S...JDLQfF66jZhQ857
         </td>
         <td
           aria-sort={null}

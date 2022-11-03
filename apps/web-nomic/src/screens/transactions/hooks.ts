@@ -41,9 +41,9 @@ export const useTransactions = () => {
       limit: 1,
       offset: 0,
     },
-    onSubscriptionData: (data) => {
+    onData: (data) => {
       const newItems = uniqueAndSort([
-        ...formatTransactions(data.subscriptionData.data),
+        ...(data.data.data ? formatTransactions(data.data.data) : []),
         ...state.items,
       ]);
       handleSetState({

@@ -41,9 +41,9 @@ export const useBlocks = () => {
       limit: 1,
       offset: 0,
     },
-    onSubscriptionData: (data) => {
+    onData: (data) => {
       const newItems = uniqueAndSort([
-        ...formatBlocks(data.subscriptionData.data),
+        ...data.data.data ? formatBlocks(data.data.data) : [],
         ...state.items,
       ]);
       handleSetState({

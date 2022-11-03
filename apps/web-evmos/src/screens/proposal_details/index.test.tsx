@@ -24,6 +24,7 @@ jest.mock('next/router', () => ({
 }));
 
 jest.mock('@components', () => ({
+  ...jest.requireMock('@components'),
   Layout: (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />,
   LoadAndExist: (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />,
 }));

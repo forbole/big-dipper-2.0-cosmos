@@ -7,6 +7,7 @@ import Overview from '.';
 // mocks
 // ==================================
 jest.mock('@components', () => ({
+  ...jest.requireMock('@components'),
   BoxDetails: (props: JSX.IntrinsicElements['div']) => <div id="BoxDetails" {...props} />,
   Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
 }));

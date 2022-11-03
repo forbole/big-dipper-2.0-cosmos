@@ -29,6 +29,13 @@ jest.mock('recharts', () => ({
 
 const mockTokenomics = jest.fn().mockResolvedValue({
   data: {
+
+    stakingParams: [
+      {
+        params: {},
+      },
+    ],
+
     stakingPool: [
       {
         bonded: 254578529800,

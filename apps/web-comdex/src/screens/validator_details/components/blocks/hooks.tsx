@@ -20,8 +20,9 @@ export const useBlocks = () => {
     variables: {
       address: R.pathOr('', ['query', 'address'], router),
     },
-    onSubscriptionData: (data) => {
-      setState(formatLastHundredBlocks(data.subscriptionData.data));
+    onData: (data) => {
+      if (!data.data.data) return;
+      setState(formatLastHundredBlocks(data.data.data));
     },
   });
 
@@ -30,7 +31,7 @@ export const useBlocks = () => {
       return {
         height: x.height,
         txs: x.transactions.length,
-        proposer: x.validator.validatorInfo.operatorAddress,
+        proposer: x.validator?.validatorInfo?.operatorAddress ?? '',
         signed: x.precommits.length === 1,
       };
     });

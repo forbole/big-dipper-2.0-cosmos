@@ -4,7 +4,7 @@ exports[`screen: Transactions matches snapshot 1`] = `
 <div
   className="makeStyles-root"
   id="Layout"
-  navTitle="transactions:transactions"
+  navTitle="transactions"
 >
   <div
     exists={true}
@@ -71,6 +71,10 @@ exports[`screen: Transactions matches snapshot 1`] = `
               },
               "success": true,
               "timestamp": "2021-05-28T00:08:33.700487",
+              "type": Array [
+                "Withdraw Delegator Reward",
+                "Withdraw Validator Commission",
+              ],
             },
           ]
         }

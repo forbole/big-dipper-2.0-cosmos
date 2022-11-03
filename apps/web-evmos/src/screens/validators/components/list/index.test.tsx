@@ -19,6 +19,7 @@ jest.mock('./components', () => ({
 }));
 
 jest.mock('@components', () => ({
+  ...jest.requireMock('@components'),
   Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
   NoData: (props: JSX.IntrinsicElements['div']) => <div id="NoData" {...props} />,
   LoadAndExist: (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />,

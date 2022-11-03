@@ -15,9 +15,9 @@ export const useTransactions = () => {
   // txs subscription
   // ================================
   useTransactionsListenerSubscription({
-    onSubscriptionData: (data) => {
+    onData: (data) => {
       setState({
-        items: formatTransactions(data.subscriptionData.data),
+        items: data.data.data ? formatTransactions(data.data.data) : [],
       });
     },
   });

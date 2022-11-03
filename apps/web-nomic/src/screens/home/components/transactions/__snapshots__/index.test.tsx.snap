@@ -18,6 +18,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
       href="/transactions"
       onClick={[Function]}
       onMouseEnter={[Function]}
+      onTouchStart={[Function]}
     >
       seeMore
     </a>

@@ -15,9 +15,9 @@ import Proposals from '.';
 // mocks
 // ==================================
 jest.mock('@components', () => ({
+  ...jest.requireMock('@components'),
   Layout: (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />,
 }));
-
 jest.mock('./components', () => ({
   List: (props: JSX.IntrinsicElements['div']) => <div id="List" {...props} />,
 }));

@@ -7,6 +7,7 @@ import {
   useActiveLeasesListenerSubscription,
   useCpuMemoryStorageListenerSubscription,
   CpuMemoryStorageListenerSubscription,
+  ProvidersQuery,
 } from '@graphql/types/general_types';
 import {
   ProviderInfo,
@@ -53,7 +54,7 @@ export const useProviders = () => {
    * each one having the selected number of items.
    */
   const createPagination = (data: any[]): any[][] => {
-    const pages = [];
+    const pages: Array<unknown[]> = [];
     data.forEach((x, i) => {
       const selectedKey = Math.floor(i / state.providers.pagination.itemsPerPage);
       pages[selectedKey] = pages[selectedKey] || [];
@@ -70,24 +71,25 @@ export const useProviders = () => {
   // tx subscription
   // ================================
   useActiveProvidersListenerSubscription({
-    onSubscriptionData: (data) => {
+    onData: (data) => {
       handleSetState({
-        activeProvidersCount: data.subscriptionData.data.activeProviders.aggregate.count,
+        activeProvidersCount: data.data.data?.activeProviders.aggregate?.count ?? 0,
       });
     },
   });
 
   useActiveLeasesListenerSubscription({
-    onSubscriptionData: (data) => {
+    onData: (data) => {
       handleSetState({
-        activeLeasesCount: data.subscriptionData.data.activeLeases.aggregate.sum.lease_count,
+        activeLeasesCount: data.data.data?.activeLeases.aggregate?.sum?.lease_count,
       });
     },
   });
 
   useCpuMemoryStorageListenerSubscription({
-    onSubscriptionData: (data) => {
-      const activeData = formatCPUMemoryStorageData(data.subscriptionData.data);
+    onData: (data) => {
+      if (!data.data.data) return;
+      const activeData = formatCPUMemoryStorageData(data.data.data);
       handleSetState({
         cpu: activeData.cpu,
         memory: activeData.memory,
@@ -152,17 +154,20 @@ export const useProviders = () => {
   // tx query
   // ================================
 
-  const formatProviders = (data: any[]) => {
+  const formatProviders = (data: ProvidersQuery['list']) => {
     return data.map((item) => {
-      const organization = item.attributes?.find((attribute) => attribute.key === 'organization')?.value;
-      const region = item.attributes?.find((attribute) => attribute.key === 'region')?.value;
+      const {attributes, hostUri, info, ownerAddress} = item;
+      const organization = attributes?.
+        find((attribute: { key: string; value: string; }) => attribute.key === 'organization')?.value;
+      const region = attributes?.
+        find((attribute: { key: string; value: string; }) => attribute.key === 'region')?.value;
       return ({
-        ownerAddress: item.ownerAddress,
-        hostURI: item.hostUri,
+        ownerAddress,
+        hostURI: hostUri,
         region,
         organization,
-        emailAddress: item.info.email,
-        website: item.info.website,
+        emailAddress: info.email,
+        website: info.website,
       });
     });
   };

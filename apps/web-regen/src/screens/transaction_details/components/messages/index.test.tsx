@@ -9,6 +9,7 @@ import Messages from '.';
 // mocks
 // ==================================
 jest.mock('@components', () => ({
+  ...jest.requireMock('@components'),
   Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
   Tag: (props: JSX.IntrinsicElements['div']) => <div id="Tag" {...props} />,
   TransactionMessagesFilter: (props: JSX.IntrinsicElements['div']) => <div id="TransactionMessagesFilter" {...props} />,

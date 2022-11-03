@@ -4,6 +4,7 @@ import { MockTheme } from '@tests/utils';
 import AvatarName from '.';
 
 jest.mock('@components', () => ({
+  ...jest.requireMock('@components'),
   Avatar: (props: JSX.IntrinsicElements['div']) => <div id="Avatar" {...props} />,
 }));
 // ==================================
