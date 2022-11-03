@@ -72,10 +72,6 @@ function nextConfig(chainConfigJson) {
       return result;
     },
   };
-
-  Object.keys(config.env).forEach(key => {
-    process.env[key] = config.env[key];
-  });
   return config;
 }
 

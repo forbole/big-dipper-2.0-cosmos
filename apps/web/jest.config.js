@@ -2,6 +2,11 @@ const configFromPreset = require('jest-presets/jest/node/jest-preset');
 const nextJest = require('next/jest');
 const { pathsToModuleNameMapper } = require('ts-jest');
 const { compilerOptions } = require('./tsconfig.json');
+const { env } = require('./next.config');
+
+Object.keys(env).forEach((key) => {
+  process.env[key] = env[key];
+});
 
 const createJestConfig = nextJest({
   // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
@@ -20,7 +25,7 @@ const exportFunc = async () => {
       ...pathsToModuleNameMapper(compilerOptions.paths, {
         prefix: '<rootDir>/',
       }),
-    }
+    },
   };
 };
 
