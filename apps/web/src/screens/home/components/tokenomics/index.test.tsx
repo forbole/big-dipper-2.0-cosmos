@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
 import {
   MockTheme, wait,
 } from '@tests/utils';
@@ -60,20 +60,19 @@ describe('screen: Home/Tokenomics', () => {
       mockTokenomics,
     );
 
-    let component;
+    let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
 
     renderer.act(() => {
-      component = renderer.create(
+      tree = renderer.create(
         <ApolloProvider client={mockClient}>
           <MockTheme>
             <Tokenomics />
           </MockTheme>
         </ApolloProvider>,
-      );
+      ).toJSON();
     });
     await wait();
 
-    const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
