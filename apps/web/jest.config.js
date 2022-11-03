@@ -4,12 +4,13 @@ const { pathsToModuleNameMapper } = require('ts-jest');
 const { compilerOptions } = require('./tsconfig.json');
 const { env } = require('./next.config');
 
+/* Setting the environment variables for the test environment. */
 Object.keys(env).forEach((key) => {
   process.env[key] = env[key];
 });
 
+/* Creating a jest configuration for nextjs. */
 const createJestConfig = nextJest({
-  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
   dir: './',
 })(configFromPreset);
 
