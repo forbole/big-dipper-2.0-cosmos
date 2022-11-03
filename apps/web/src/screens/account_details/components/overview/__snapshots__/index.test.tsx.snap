@@ -16,11 +16,11 @@ exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
     <div
       className="detail"
     >
-      <SvgrURL
+      <svg
         className="makeStyles-actionIcons"
         onClick={[Function]}
       />
-      <SvgrURL
+      <svg
         className="makeStyles-actionIcons"
         onClick={[Function]}
       />
@@ -42,7 +42,7 @@ exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
     <div
       className="detail"
     >
-      <SvgrURL
+      <svg
         className="makeStyles-actionIcons"
         onClick={[Function]}
       />

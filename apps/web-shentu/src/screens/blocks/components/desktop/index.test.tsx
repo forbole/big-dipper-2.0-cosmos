@@ -12,8 +12,8 @@ const mockI18n = {
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('@components', () => ({
-  Loading: (props) => <div id="Loading" {...props} />,
-  AvatarName: (props) => <div id="AvatarName" {...props} />,
+  Loading: (props: JSX.IntrinsicElements['div']) => <div id="Loading" {...props} />,
+  AvatarName: (props: JSX.IntrinsicElements['div']) => <div id="AvatarName" {...props} />,
 }));
 
 jest.mock('react-virtualized-auto-sizer', () => ({ children }: any) => children({

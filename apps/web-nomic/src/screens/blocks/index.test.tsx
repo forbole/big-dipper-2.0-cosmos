@@ -18,10 +18,10 @@ import Blocks from '.';
 // mocks
 // ==================================
 jest.mock('@components', () => ({
-  Layout: (props) => <div id="Layout" {...props} />,
-  Box: (props) => <div id="Box" {...props} />,
-  LoadAndExist: (props) => <div id="LoadAndExist" {...props} />,
-  NoData: (props) => <div id="NoData" {...props} />,
+  Layout: (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />,
+  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
+  LoadAndExist: (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />,
+  NoData: (props: JSX.IntrinsicElements['div']) => <div id="NoData" {...props} />,
 }));
 
 const mockBlocksListenerDocument = {

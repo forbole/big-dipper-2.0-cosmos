@@ -13,7 +13,7 @@ const mockI18n = {
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 
 jest.mock('@components', () => ({
-  Result: (props) => <div id="Result" {...props} />,
+  Result: (props: JSX.IntrinsicElements['div']) => <div id="Result" {...props} />,
 }));
 
 // ==================================

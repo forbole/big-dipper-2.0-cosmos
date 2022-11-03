@@ -10,7 +10,7 @@ import SignDataRequest from '.';
 // ==================================
 
 jest.mock('./components', () => ({
-  Signers: (props) => <div id="Signers" {...props} />,
+  Signers: (props: JSX.IntrinsicElements['div']) => <div id="Signers" {...props} />,
 }));
 
 jest.mock('next-translate/Trans', () => (

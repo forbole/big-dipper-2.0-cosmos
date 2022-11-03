@@ -14,10 +14,10 @@ let component:renderer.ReactTestRenderer;
 // global setup
 // ==================================
 jest.mock('./components', () => ({
-  Menu: (props) => <div id="menu" {...props} />,
-  // Network: (props) => <div id="network" {...props} />,
-  Navbar: (props) => <div id="navbar" {...props} />,
-  SearchBar: (props) => <div id="searchBar" {...props} />,
+  Menu: (props: JSX.IntrinsicElements['div']) => <div id="menu" {...props} />,
+  // Network: (props: JSX.IntrinsicElements['div']) => <div id="network" {...props} />,
+  Navbar: (props: JSX.IntrinsicElements['div']) => <div id="navbar" {...props} />,
+  SearchBar: (props: JSX.IntrinsicElements['div']) => <div id="searchBar" {...props} />,
 }));
 
 // ==================================

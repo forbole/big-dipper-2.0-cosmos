@@ -39,6 +39,15 @@ exports[`screen: Home/Transactions/Mobile matches snapshot 1`] = `
       />
     }
     time="1 day ago"
+    type={
+      <div>
+        <Tag
+          theme="six"
+          value="Delegate"
+        />
+         + 11
+      </div>
+    }
   />
 </div>
 `;

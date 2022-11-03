@@ -8,7 +8,7 @@ import MintNFT from '.';
 // mocks
 // ==================================
 jest.mock('@components', () => ({
-  Name: (props) => <div id="Name" {...props} />,
+  Name: (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />,
 }));
 
 // ==================================

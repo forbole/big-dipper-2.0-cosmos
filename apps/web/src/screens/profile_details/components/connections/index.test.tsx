@@ -7,8 +7,8 @@ import Connections from '.';
 // mocks
 // ==================================
 jest.mock('@components', () => ({
-  Box: (props) => <div id="Box" {...props} />,
-  Pagination: (props) => <div id="Pagination" {...props} />,
+  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
+  Pagination: (props: JSX.IntrinsicElements['div']) => <div id="Pagination" {...props} />,
 }));
 
 // ==================================

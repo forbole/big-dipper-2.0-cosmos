@@ -18,7 +18,7 @@ jest.mock('@recoil/profiles', () => {
 });
 
 jest.mock('@components', () => ({
-  Name: (props) => <div id={props.address} {...props} />,
+  Name: (props: JSX.IntrinsicElements['div']) => <div id={props.address} {...props} />,
 }));
 
 // ==================================

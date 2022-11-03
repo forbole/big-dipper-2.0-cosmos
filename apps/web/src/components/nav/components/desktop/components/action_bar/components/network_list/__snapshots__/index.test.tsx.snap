@@ -11,7 +11,7 @@ exports[`screen: Nav/NetworkList it renders 1`] = `
       }
     }
   >
-    <SvgrURL />
+    <svg />
   </div>
   <Networks
     className="makeStyles-content"

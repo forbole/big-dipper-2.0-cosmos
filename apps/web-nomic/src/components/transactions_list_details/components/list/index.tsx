@@ -16,6 +16,7 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import { mergeRefs } from '@utils/merge_refs';
 import {
   Loading,
+  Tag,
 } from '@components';
 import {
   useList,
@@ -68,6 +69,15 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
           )}
         </Typography>
       </Link>
+    ),
+    type: (
+      <div>
+        <Tag
+          value="txDelegateLabel"
+          theme="six"
+        />
+        {(x.messages.count > 1) && (' +')}
+      </div>
     ),
     time: formatDayJs(dayjs.utc(x.timestamp), dateFormat),
   }));

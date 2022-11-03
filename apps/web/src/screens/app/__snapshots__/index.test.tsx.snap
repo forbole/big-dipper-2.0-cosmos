@@ -11,20 +11,12 @@ Array [
     <img
       alt="logo"
       className="makeStyles-logo-3 makeStyles-dark-2"
-      src={
-        Object {
-          "process": [Function],
-        }
-      }
+      src="svg"
     />
     <img
       alt="logo"
       className="makeStyles-logo-3 makeStyles-light-1"
-      src={
-        Object {
-          "process": [Function],
-        }
-      }
+      src="svg"
     />
     <div
       className="makeStyles-timeContainer-4"
@@ -88,7 +80,9 @@ Array [
     </div>
     <h2
       className="MuiTypography-root makeStyles-chain-2 MuiTypography-h2"
-    />
+    >
+      morpheus-apollo-3
+    </h2>
   </div>,
 ]
 `;

@@ -8,8 +8,8 @@ import Overview from '.';
 // mocks
 // ==================================
 jest.mock('@components', () => ({
-  BoxDetails: (props) => <div id="BoxDetails" {...props} />,
-  AvatarName: (props) => <div id="BoxDetailAvatarName" {...props} />,
+  BoxDetails: (props: JSX.IntrinsicElements['div']) => <div id="BoxDetails" {...props} />,
+  AvatarName: (props: JSX.IntrinsicElements['div']) => <div id="BoxDetailAvatarName" {...props} />,
 }));
 
 // ==================================

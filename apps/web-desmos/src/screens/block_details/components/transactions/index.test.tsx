@@ -8,8 +8,8 @@ import Transactions from '.';
 // mocks
 // ==================================
 jest.mock('@components', () => ({
-  Box: (props) => <div id="Box" {...props} />,
-  TransactionsList: (props) => <div id="TransactionsList" {...props} />,
+  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
+  TransactionsList: (props: JSX.IntrinsicElements['div']) => <div id="TransactionsList" {...props} />,
 }));
 
 // ==================================

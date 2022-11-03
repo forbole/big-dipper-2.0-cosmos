@@ -24,15 +24,15 @@ jest.mock('next/router', () => ({
 }));
 
 jest.mock('@components', () => ({
-  Layout: (props) => <div id="Layout" {...props} />,
-  LoadAndExist: (props) => <div id="LoadAndExist" {...props} />,
+  Layout: (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />,
+  LoadAndExist: (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />,
 }));
 
 jest.mock('./components', () => ({
-  Overview: (props) => <div id="Overview" {...props} />,
-  Votes: (props) => <div id="Votes" {...props} />,
-  Deposits: (props) => <div id="Deposits" {...props} />,
-  VotesGraph: (props) => <div id="VotesGraph" {...props} />,
+  Overview: (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />,
+  Votes: (props: JSX.IntrinsicElements['div']) => <div id="Votes" {...props} />,
+  Deposits: (props: JSX.IntrinsicElements['div']) => <div id="Deposits" {...props} />,
+  VotesGraph: (props: JSX.IntrinsicElements['div']) => <div id="VotesGraph" {...props} />,
 }));
 
 const mockProposalDetailsDocument = jest.fn().mockResolvedValue({

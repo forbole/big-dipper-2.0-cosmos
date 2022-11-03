@@ -24,13 +24,13 @@ jest.mock('next/router', () => ({
 }));
 
 jest.mock('@components', () => ({
-  Layout: (props) => <div id="Layout" {...props} />,
-  LoadAndExist: (props) => <div id="LoadAndExist" {...props} />,
-  DesmosProfile: (props) => <div id="DesmosProfile" {...props} />,
+  Layout: (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />,
+  LoadAndExist: (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />,
+  DesmosProfile: (props: JSX.IntrinsicElements['div']) => <div id="DesmosProfile" {...props} />,
 }));
 
 jest.mock('./components', () => ({
-  Connections: (props) => <div id="Connections" {...props} />,
+  Connections: (props: JSX.IntrinsicElements['div']) => <div id="Connections" {...props} />,
 }));
 
 // ==================================

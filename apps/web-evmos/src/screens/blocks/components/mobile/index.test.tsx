@@ -7,9 +7,9 @@ import Mobile from '.';
 // mocks
 // ==================================
 jest.mock('@components', () => ({
-  SingleBlockMobile: (props) => <div id="SingleBlockMobile" {...props} />,
-  Loading: (props) => <div id="Loading" {...props} />,
-  AvatarName: (props) => <div id="AvatarName" {...props} />,
+  SingleBlockMobile: (props: JSX.IntrinsicElements['div']) => <div id="SingleBlockMobile" {...props} />,
+  Loading: (props: JSX.IntrinsicElements['div']) => <div id="Loading" {...props} />,
+  AvatarName: (props: JSX.IntrinsicElements['div']) => <div id="AvatarName" {...props} />,
 }));
 
 jest.mock('react-virtualized-auto-sizer', () => ({ children }: any) => children({

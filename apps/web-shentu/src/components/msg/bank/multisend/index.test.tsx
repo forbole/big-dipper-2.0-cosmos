@@ -6,7 +6,7 @@ import { MsgMultiSend } from '@models';
 import Multisend from '.';
 
 jest.mock('@components', () => ({
-  Name: (props) => <div id="Name" {...props} />,
+  Name: (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />,
 }));
 
 jest.mock('next-translate/Trans', () => (

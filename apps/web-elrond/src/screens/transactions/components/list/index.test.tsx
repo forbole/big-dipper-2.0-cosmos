@@ -17,10 +17,10 @@ import List from '.';
 // ==================================
 
 jest.mock('@components', () => ({
-  Pagination: (props) => <div id="Pagination" {...props} />,
-  NoData: (props) => <div id="NoData" {...props} />,
-  Box: (props) => <div id="Box" {...props} />,
-  Loading: (props) => <div id="Loading" {...props} />,
+  Pagination: (props: JSX.IntrinsicElements['div']) => <div id="Pagination" {...props} />,
+  NoData: (props: JSX.IntrinsicElements['div']) => <div id="NoData" {...props} />,
+  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
+  Loading: (props: JSX.IntrinsicElements['div']) => <div id="Loading" {...props} />,
 }));
 
 // ==================================

@@ -17,7 +17,7 @@ const mockI18n = {
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('@components', () => ({
-  Box: (props) => <div id="box" {...props} />,
+  Box: (props: JSX.IntrinsicElements['div']) => <div id="box" {...props} />,
 }));
 
 const mockOnlineVotingPower = jest.fn().mockResolvedValue({

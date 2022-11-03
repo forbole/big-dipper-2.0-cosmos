@@ -25,17 +25,17 @@ jest.mock('next/router', () => ({
 }));
 
 jest.mock('@components', () => ({
-  Layout: (props) => <div id="Layout" {...props} />,
-  LoadAndExist: (props) => <div id="LoadAndExist" {...props} />,
-  DesmosProfile: (props) => <div id="DesmosProfile" {...props} />,
+  Layout: (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />,
+  LoadAndExist: (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />,
+  DesmosProfile: (props: JSX.IntrinsicElements['div']) => <div id="DesmosProfile" {...props} />,
 }));
 
 jest.mock('./components', () => ({
-  Overview: (props) => <div id="Overview" {...props} />,
-  Balance: (props) => <div id="Balance" {...props} />,
-  Staking: (props) => <div id="Staking" {...props} />,
-  Transactions: (props) => <div id="Transactions" {...props} />,
-  OtherTokens: (props) => <div id="OtherTokens" {...props} />,
+  Overview: (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />,
+  Balance: (props: JSX.IntrinsicElements['div']) => <div id="Balance" {...props} />,
+  Staking: (props: JSX.IntrinsicElements['div']) => <div id="Staking" {...props} />,
+  Transactions: (props: JSX.IntrinsicElements['div']) => <div id="Transactions" {...props} />,
+  OtherTokens: (props: JSX.IntrinsicElements['div']) => <div id="OtherTokens" {...props} />,
 }));
 
 const mockAccount = jest.fn().mockResolvedValue({

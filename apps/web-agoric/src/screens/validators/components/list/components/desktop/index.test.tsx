@@ -12,13 +12,13 @@ const mockI18n = {
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('..', () => ({
-  VotingPower: (props) => <div id="VotingPower" {...props} />,
-  Condition: (props) => <div id="Condition" {...props} />,
+  VotingPower: (props: JSX.IntrinsicElements['div']) => <div id="VotingPower" {...props} />,
+  Condition: (props: JSX.IntrinsicElements['div']) => <div id="Condition" {...props} />,
 }));
 
 jest.mock('@components', () => ({
-  AvatarName: (props) => <div id="AvatarName" {...props} />,
-  SortArrows: (props) => <div id="SortArrows" {...props} />,
+  AvatarName: (props: JSX.IntrinsicElements['div']) => <div id="AvatarName" {...props} />,
+  SortArrows: (props: JSX.IntrinsicElements['div']) => <div id="SortArrows" {...props} />,
 }));
 
 // ==================================

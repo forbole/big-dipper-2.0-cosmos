@@ -8,4 +8,4 @@ const nextConfig = require('shared-utils/src/next');
 // each chain has its own chains/<chainName>.json
 const config = require('shared-utils/configs/chains/base.json');
 
-module.exports = withTM(withSentry(nextTranslate(nextConfig(config))));
+ module.exports = withTM(withSentry(nextTranslate(nextConfig(config))));

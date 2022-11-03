@@ -14,7 +14,7 @@ import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import { mergeRefs } from '@utils/merge_refs';
 import {
-  Loading, Result,
+  Loading, Result, Tag,
 } from '@components';
 import { useGrid } from '@hooks';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
@@ -52,10 +52,19 @@ const Desktop: React.FC<TransactionsListState> = ({
       <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
         <Typography variant="body1" component="a">
           {getMiddleEllipsis(x.hash, {
-            beginning: 20, ending: 15,
+            beginning: 4, ending: 4,
           })}
         </Typography>
       </Link>
+    ),
+    type: (
+      <div>
+        <Tag
+          value={x.type[0]}
+          theme="six"
+        />
+        {(x.messages.count > 1) && (` + ${x.messages.count - 1}`)}
+      </div>
     ),
     result: (
       <Result success={x.success} />

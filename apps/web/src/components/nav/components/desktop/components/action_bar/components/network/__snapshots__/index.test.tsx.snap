@@ -9,26 +9,16 @@ exports[`screen: Nav/Network it renders 1`] = `
   <img
     alt="icon"
     className="makeStyles-icon makeStyles-dark-2"
-    src={
-      Object {
-        "process": [Function],
-      }
-    }
+    src="svg"
   />
   <img
     alt="icon"
     className="makeStyles-icon makeStyles-light-1"
-    src={
-      Object {
-        "process": [Function],
-      }
-    }
+    src="svg"
   />
   <p
     className="MuiTypography-root MuiTypography-body1"
-  >
-    morpheus-apollo-2
-  </p>
+  />
   <svg
     aria-hidden={true}
     className="MuiSvgIcon-root"

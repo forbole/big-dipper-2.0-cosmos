@@ -16,6 +16,7 @@ import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import {
   BLOCK_DETAILS, TRANSACTION_DETAILS,
 } from '@utils/go_to_page';
+import { Tag } from '@components';
 import { useStyles } from './styles';
 import { columns } from './utils';
 import { TransactionType } from '../../types';
@@ -46,6 +47,15 @@ const Desktop: React.FC<{
             })}
           </Typography>
         </Link>
+      ),
+      type: (
+        <div>
+          <Tag
+            value={x.type[0]}
+            theme="six"
+          />
+          {(x.messages > 1) && (` + ${x.messages - 1}`)}
+        </div>
       ),
       time: dayjs.utc(x.timestamp).fromNow(),
     });

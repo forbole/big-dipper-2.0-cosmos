@@ -14,6 +14,7 @@ describe('components: SingleTransaction', () => {
           block={<div>block</div>}
           hash={<div>hash</div>}
           time="2021-07-13T08:00:00"
+          type={<div>type</div>}
         />
       </MockTheme>,
     );

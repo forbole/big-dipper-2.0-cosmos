@@ -18,6 +18,7 @@ import { mergeRefs } from '@utils/merge_refs';
 import {
   Loading,
   Result,
+  Tag,
 } from '@components';
 import {
   useList,
@@ -72,6 +73,15 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
           )}
         </Typography>
       </Link>
+    ),
+    type: (
+      <div>
+        <Tag
+          value="txDelegateLabel"
+          theme="six"
+        />
+        {(x.messages.count > 1) && (' +')}
+      </div>
     ),
     result: (
       <Result success={x.success} />

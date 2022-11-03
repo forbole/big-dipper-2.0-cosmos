@@ -18,11 +18,11 @@ import Transactions from '.';
 // mocks
 // ==================================
 jest.mock('@components', () => ({
-  Layout: (props) => <div id="Layout" {...props} />,
-  TransactionsList: (props) => <div id="TransactionsList" {...props} />,
-  TransactionListDetails: (props) => <div id="TransactionListDetails" {...props} />,
-  Box: (props) => <div id="Box" {...props} />,
-  LoadAndExist: (props) => <div id="LoadAndExist" {...props} />,
+  Layout: (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />,
+  TransactionsList: (props: JSX.IntrinsicElements['div']) => <div id="TransactionsList" {...props} />,
+  TransactionListDetails: (props: JSX.IntrinsicElements['div']) => <div id="TransactionListDetails" {...props} />,
+  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
+  LoadAndExist: (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />,
 }));
 
 const mockTransactionsListenerDocument = {

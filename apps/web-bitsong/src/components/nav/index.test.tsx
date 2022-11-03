@@ -13,8 +13,8 @@ let component:renderer.ReactTestRenderer;
 // ==================================
 
 jest.mock('./components', () => ({
-  Desktop: (props) => <div id="Desktop" {...props} />,
-  Mobile: (props) => <div id="Mobile" {...props} />,
+  Desktop: (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />,
+  Mobile: (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />,
 }));
 
 // ==================================

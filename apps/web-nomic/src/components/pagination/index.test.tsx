@@ -7,7 +7,7 @@ import Pagination from '.';
 // mocks
 // ==================================
 jest.mock('./components', () => ({
-  Actions: (props) => <div id="Actions" {...props} />,
+  Actions: (props: JSX.IntrinsicElements['div']) => <div id="Actions" {...props} />,
 }));
 
 // ==================================

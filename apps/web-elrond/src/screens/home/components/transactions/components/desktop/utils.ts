@@ -5,15 +5,19 @@ export const columns:{
 }[] = [
   {
     key: 'hash',
-    width: 25,
+    width: 20,
+  },
+  {
+    key: 'type',
+    width: 20,
   },
   {
     key: 'from',
-    width: 20,
+    width: 15,
   },
   {
     key: 'to',
-    width: 20,
+    width: 15,
   },
   {
     key: 'status',
@@ -21,7 +25,7 @@ export const columns:{
   },
   {
     key: 'time',
-    width: 20,
+    width: 15,
     align: 'right',
   },
 ];

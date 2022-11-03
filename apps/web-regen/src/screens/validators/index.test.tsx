@@ -7,11 +7,11 @@ import Validators from '.';
 // mocks
 // ==================================
 jest.mock('@components', () => ({
-  Layout: (props) => <div id="Layout" {...props} />,
+  Layout: (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />,
 }));
 
 jest.mock('./components', () => ({
-  List: (props) => <div id="List" {...props} />,
+  List: (props: JSX.IntrinsicElements['div']) => <div id="List" {...props} />,
 }));
 
 // ==================================

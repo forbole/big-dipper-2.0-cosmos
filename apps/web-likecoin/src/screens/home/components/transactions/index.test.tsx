@@ -21,14 +21,14 @@ const mockI18n = {
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('@components', () => ({
-  Box: (props) => <div id="Box" {...props} />,
-  NoData: (props) => <div id="NoData" {...props} />,
+  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
+  NoData: (props: JSX.IntrinsicElements['div']) => <div id="NoData" {...props} />,
 }));
 
 jest.mock('./components', () => ({
-  Mobile: (props) => <div id="Mobile" {...props} />,
-  Desktop: (props) => <div id="Desktop" {...props} />,
-  Box: (props) => <div id="Box" {...props} />,
+  Mobile: (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />,
+  Desktop: (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />,
+  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
 }));
 
 const mockTxsListenerDocument = {

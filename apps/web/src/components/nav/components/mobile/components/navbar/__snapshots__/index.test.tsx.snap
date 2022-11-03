@@ -26,9 +26,7 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
     >
       <p
         className="text"
-      >
-        morpheus-apollo-2
-      </p>
+      />
       <svg
         aria-hidden={true}
         className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
@@ -80,9 +78,7 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
     >
       <p
         className="text"
-      >
-        morpheus-apollo-2
-      </p>
+      />
       <svg
         aria-hidden={true}
         className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"

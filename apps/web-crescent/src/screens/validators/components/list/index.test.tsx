@@ -13,15 +13,15 @@ import List from '.';
 // mocks
 // ==================================
 jest.mock('./components', () => ({
-  Mobile: (props) => <div id="Mobile" {...props} />,
-  Desktop: (props) => <div id="Desktop" {...props} />,
-  Tabs: (props) => <div id="Tabs" {...props} />,
+  Mobile: (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />,
+  Desktop: (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />,
+  Tabs: (props: JSX.IntrinsicElements['div']) => <div id="Tabs" {...props} />,
 }));
 
 jest.mock('@components', () => ({
-  Box: (props) => <div id="Box" {...props} />,
-  NoData: (props) => <div id="NoData" {...props} />,
-  LoadAndExist: (props) => <div id="LoadAndExist" {...props} />,
+  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
+  NoData: (props: JSX.IntrinsicElements['div']) => <div id="NoData" {...props} />,
+  LoadAndExist: (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />,
 }));
 
 const mockValidatorsDocument = jest.fn().mockResolvedValue({

@@ -27,14 +27,14 @@ const mockI18n = {
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('@components', () => ({
-  Layout: (props) => <div id="Layout" {...props} />,
-  LoadAndExist: (props) => <div id="LoadAndExist" {...props} />,
+  Layout: (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />,
+  LoadAndExist: (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />,
 }));
 
 jest.mock('./components', () => ({
-  Overview: (props) => <div id="Overview" {...props} />,
-  Messages: (props) => <div id="Messages" {...props} />,
-  Logs: (props) => <div id="Logs" {...props} />,
+  Overview: (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />,
+  Messages: (props: JSX.IntrinsicElements['div']) => <div id="Messages" {...props} />,
+  Logs: (props: JSX.IntrinsicElements['div']) => <div id="Logs" {...props} />,
 }));
 
 const mockTransactionDetailsDocument = jest.fn().mockResolvedValue({

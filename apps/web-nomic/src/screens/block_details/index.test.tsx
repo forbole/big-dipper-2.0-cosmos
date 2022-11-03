@@ -22,14 +22,14 @@ jest.mock('next/router', () => ({
 }));
 
 jest.mock('@components', () => ({
-  Layout: (props) => <div id="Layout" {...props} />,
-  LoadAndExist: (props) => <div id="LoadAndExist" {...props} />,
+  Layout: (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />,
+  LoadAndExist: (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />,
 }));
 
 jest.mock('./components', () => ({
-  Overview: (props) => <div id="Overview" {...props} />,
-  Transactions: (props) => <div id="Transactions" {...props} />,
-  Signatures: (props) => <div id="Signatures" {...props} />,
+  Overview: (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />,
+  Transactions: (props: JSX.IntrinsicElements['div']) => <div id="Transactions" {...props} />,
+  Signatures: (props: JSX.IntrinsicElements['div']) => <div id="Signatures" {...props} />,
 }));
 
 const mockAverageBlockTime = jest.fn().mockResolvedValue({

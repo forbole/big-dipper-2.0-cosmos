@@ -7,7 +7,7 @@ import {
   Typography, Divider,
 } from '@material-ui/core';
 import {
-  Result, AvatarName,
+  Result, AvatarName, Tag,
 } from '@components';
 import { TRANSACTION_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
@@ -26,6 +26,15 @@ const Mobile: React.FC<{items: TransactionType[]} & ComponentDefault> = (props) 
             })}
           </Typography>
         </Link>
+      ),
+      type: (
+        <div>
+          <Tag
+            value={x.type[0]}
+            theme="six"
+          />
+          {(x.messages.count > 1) && (` + ${x.messages.count - 1}`)}
+        </div>
       ),
       shard: <Shard to={x.toShard} from={x.fromShard} />,
       from: (

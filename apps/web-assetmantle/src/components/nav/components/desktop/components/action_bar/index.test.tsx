@@ -14,9 +14,9 @@ let component:renderer.ReactTestRenderer;
 let isNetwork = false;
 const toggleNetwork = jest.fn();
 jest.mock('./components', () => ({
-  Network: (props) => <div id="network" {...props} />,
-  NetworkList: (props) => <div id="NetworkList" {...props} />,
-  SettingsList: (props) => <div id="SettingsList" {...props} />,
+  Network: (props: JSX.IntrinsicElements['div']) => <div id="network" {...props} />,
+  NetworkList: (props: JSX.IntrinsicElements['div']) => <div id="NetworkList" {...props} />,
+  SettingsList: (props: JSX.IntrinsicElements['div']) => <div id="SettingsList" {...props} />,
 }));
 // ==================================
 // unit tests

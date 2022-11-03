@@ -13,8 +13,8 @@ let component:renderer.ReactTestRenderer;
 // ==================================
 
 jest.mock('@components', () => ({
-  Nav: (props) => <div id="Nav" {...props} />,
-  Footer: (props) => <div id="Footer" {...props} />,
+  Nav: (props: JSX.IntrinsicElements['div']) => <div id="Nav" {...props} />,
+  Footer: (props: JSX.IntrinsicElements['div']) => <div id="Footer" {...props} />,
 }));
 
 const mockI18n = {
@@ -23,7 +23,7 @@ const mockI18n = {
 };
 
 jest.mock('next-seo', () => ({
-  NextSeo: (props) => <div id="NextSeo" {...props} />,
+  NextSeo: (props: JSX.IntrinsicElements['div']) => <div id="NextSeo" {...props} />,
 }));
 
 jest.mock('next-translate/useTranslation', () => () => mockI18n);

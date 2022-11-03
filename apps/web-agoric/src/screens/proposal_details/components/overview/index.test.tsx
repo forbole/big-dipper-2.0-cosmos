@@ -8,15 +8,15 @@ import Overview from '.';
 // mocks
 // ==================================
 jest.mock('@components', () => ({
-  SingleProposal: (props) => <div id="SingleProposal" {...props} />,
-  Name: (props) => <div id="Name" {...props} />,
-  Box: (props) => <div id="Box" {...props} />,
-  Markdown: (props) => <div id="Markdown" {...props} />,
+  SingleProposal: (props: JSX.IntrinsicElements['div']) => <div id="SingleProposal" {...props} />,
+  Name: (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />,
+  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
+  Markdown: (props: JSX.IntrinsicElements['div']) => <div id="Markdown" {...props} />,
 }));
 
 jest.mock('./components', () => ({
-  ParamsChange: (props) => <div id="ParamsChange" {...props} />,
-  SoftwareUpgrade: (props) => <div id="SoftwareUpgrade" {...props} />,
+  ParamsChange: (props: JSX.IntrinsicElements['div']) => <div id="ParamsChange" {...props} />,
+  SoftwareUpgrade: (props: JSX.IntrinsicElements['div']) => <div id="SoftwareUpgrade" {...props} />,
 }));
 
 // ==================================

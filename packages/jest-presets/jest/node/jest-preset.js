@@ -2,24 +2,19 @@ const { join } = require('path');
 
 // Any custom config you want to pass to Jest
 const customJestConfig = {
-  setupFilesAfterEnv: [
-    join(__dirname, 'jest.setup.js')
-  ],
-  moduleDirectories: ['node_modules', '<rootDir>'],
+  setupFilesAfterEnv: [join(__dirname, 'jest.setup.js')],
   modulePathIgnorePatterns: ['<rootDir>/test/__fixtures__', '<rootDir>/node_modules', '<rootDir>/dist'],
   moduleNameMapper: {
-    '\\.(svg\\?url|css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
-    '\\.svg$': '<rootDir>/__mocks__/svg.js',
+    // must be "^.+\\.(svg)$" to override the default nextjs setting
+    '^.+\\.(svg)$': join(__dirname, 'svg.js'),
+    '^.+\\.(svg)\\?url$': join(__dirname, 'svg.js'),
   },
-  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/', '<rootDir>/cypress/'],
+  // '/node_modules/', '/.next/',  added by nextjs
+  testPathIgnorePatterns: ['/cypress/'],
   transform: {
-    '^.+\\.[jt]sx?$': 'ts-jest',
-    '^.+\\.(svg\\?url|css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
+    '^.+\\.svg\\?url$': 'jest-transform-stub',
   },
-  transformIgnorePatterns: [
-    '/node_modules/',
-    '^.+\\.module\\.(css|sass|scss)$',
-  ],
+  testEnvironment: 'jest-environment-jsdom',
 };
 
 module.exports = customJestConfig;

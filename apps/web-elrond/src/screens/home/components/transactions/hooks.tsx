@@ -6,6 +6,7 @@ import {
   TRANSACTIONS,
 } from '@api';
 import { useInterval } from '@hooks';
+import { convertMsgType } from '@utils/convert_msg_type';
 import { TransactionState } from './types';
 
 export const PAGE_SIZE = 7;
@@ -29,8 +30,14 @@ export const useBlocks = () => {
       });
 
       const items = transactionsData.map((x) => {
+        const msgType = x.messages.map((eachMsg) => {
+          const eachMsgType = R.pathOr('none type', ['@type'], eachMsg);
+          return eachMsgType;
+        });
+        const convertedMsgType = convertMsgType(msgType);
         return ({
           hash: x.txHash,
+          type: convertedMsgType,
           from: x.sender,
           to: x.receiver,
           timestamp: x.timestamp,

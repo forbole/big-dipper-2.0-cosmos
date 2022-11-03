@@ -12,8 +12,8 @@ const mockI18n = {
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('@components', () => ({
-  SingleBlockMobile: (props) => <div id="SingleBlockMobile" {...props} />,
-  AvatarName: (props) => <div id="AvatarName" {...props} />,
+  SingleBlockMobile: (props: JSX.IntrinsicElements['div']) => <div id="SingleBlockMobile" {...props} />,
+  AvatarName: (props: JSX.IntrinsicElements['div']) => <div id="AvatarName" {...props} />,
 }));
 
 // ==================================

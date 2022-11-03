@@ -109,7 +109,7 @@ Array [
           <div
             className="MuiListItemIcon-root"
           >
-            <SvgrURL
+            <svg
               height={24}
               width={24}
             />
@@ -149,7 +149,7 @@ Array [
           <div
             className="MuiListItemIcon-root"
           >
-            <SvgrURL
+            <svg
               height={24}
               width={24}
             />
@@ -189,7 +189,7 @@ Array [
           <div
             className="MuiListItemIcon-root"
           >
-            <SvgrURL
+            <svg
               height={24}
               width={24}
             />
@@ -229,7 +229,7 @@ Array [
           <div
             className="MuiListItemIcon-root"
           >
-            <SvgrURL
+            <svg
               height={24}
               width={24}
             />
@@ -269,7 +269,7 @@ Array [
           <div
             className="MuiListItemIcon-root"
           >
-            <SvgrURL
+            <svg
               height={24}
               width={24}
             />
@@ -309,7 +309,7 @@ Array [
           <div
             className="MuiListItemIcon-root"
           >
-            <SvgrURL
+            <svg
               height={24}
               width={24}
             />
@@ -337,7 +337,7 @@ Array [
         onClick={[Function]}
         role="button"
       >
-        <SvgrURL />
+        <svg />
         <span
           className="MuiTypography-root MuiTypography-caption"
         />
@@ -361,7 +361,7 @@ Array [
         <span
           role="button"
         >
-          <SvgrURL />
+          <svg />
         </span>
         <span
           className="MuiTypography-root MuiTypography-caption"

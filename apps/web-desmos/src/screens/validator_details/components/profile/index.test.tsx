@@ -8,12 +8,12 @@ import Profile from '.';
 // mocks
 // ==================================
 jest.mock('@components', () => ({
-  Box: (props) => <div id="Box" {...props} />,
-  Avatar: (props) => <div id="Avatar" {...props} />,
-  Tag: (props) => <div id="Tag" {...props} />,
-  InfoPopover: (props) => <div id="InfoPopover" {...props} />,
-  Markdown: (props) => <div id="Markdown" {...props} />,
-  ConditionExplanation: (props) => <div id="ConditionExplanation" {...props} />,
+  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
+  Avatar: (props: JSX.IntrinsicElements['div']) => <div id="Avatar" {...props} />,
+  Tag: (props: JSX.IntrinsicElements['div']) => <div id="Tag" {...props} />,
+  InfoPopover: (props: JSX.IntrinsicElements['div']) => <div id="InfoPopover" {...props} />,
+  Markdown: (props: JSX.IntrinsicElements['div']) => <div id="Markdown" {...props} />,
+  ConditionExplanation: (props: JSX.IntrinsicElements['div']) => <div id="ConditionExplanation" {...props} />,
 }));
 
 // ==================================

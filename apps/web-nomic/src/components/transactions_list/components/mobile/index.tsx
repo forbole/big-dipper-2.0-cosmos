@@ -18,6 +18,7 @@ import { mergeRefs } from '@utils/merge_refs';
 import {
   SingleTransactionMobile,
   Loading,
+  Tag,
 } from '@components';
 import {
   useList,
@@ -58,6 +59,15 @@ const Mobile: React.FC<TransactionsListState> = ({
           })}
         </Typography>
       </Link>
+    ),
+    type: (
+      <div>
+        <Tag
+          value={x.type[0]}
+          theme="six"
+        />
+        {(x.messages.count > 1) && (` + ${x.messages.count - 1}`)}
+      </div>
     ),
     time: dayjs.utc(x.timestamp).fromNow(),
   }));

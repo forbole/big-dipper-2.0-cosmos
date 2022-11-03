@@ -14,16 +14,16 @@ import Home from '.';
 // mocks
 // ==================================
 jest.mock('@components', () => ({
-  Layout: (props) => <div id="Layout" {...props} />,
+  Layout: (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />,
 }));
 
 jest.mock('./components', () => ({
-  DataBlocks: (props) => <div id="DataBlocks" {...props} />,
-  Hero: (props) => <div id="Hero" {...props} />,
-  Consensus: (props) => <div id="Consensus" {...props} />,
-  Tokenomics: (props) => <div id="Tokenomics" {...props} />,
-  Blocks: (props) => <div id="Blocks" {...props} />,
-  Transactions: (props) => <div id="Transactions" {...props} />,
+  DataBlocks: (props: JSX.IntrinsicElements['div']) => <div id="DataBlocks" {...props} />,
+  Hero: (props: JSX.IntrinsicElements['div']) => <div id="Hero" {...props} />,
+  Consensus: (props: JSX.IntrinsicElements['div']) => <div id="Consensus" {...props} />,
+  Tokenomics: (props: JSX.IntrinsicElements['div']) => <div id="Tokenomics" {...props} />,
+  Blocks: (props: JSX.IntrinsicElements['div']) => <div id="Blocks" {...props} />,
+  Transactions: (props: JSX.IntrinsicElements['div']) => <div id="Transactions" {...props} />,
 }));
 
 const mockBlockTime = jest.fn().mockResolvedValue({

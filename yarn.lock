@@ -2830,15 +2830,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/create-cache-key-function@npm:^27.4.2":
-  version: 27.5.1
-  resolution: "@jest/create-cache-key-function@npm:27.5.1"
-  dependencies:
-    "@jest/types": ^27.5.1
-  checksum: a6c3a8c769aca6f66f5dc80f1c77e66980b4f213a6b2a15a92ba3595f032848a1261c06c9c798dcf2b672b1ffbefad5085af89d130548741c85ddbe0cf4284e7
-  languageName: node
-  linkType: hard
-
 "@jest/environment@npm:^27.5.1":
   version: 27.5.1
   resolution: "@jest/environment@npm:27.5.1"
@@ -4191,191 +4182,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/core-android-arm-eabi@npm:1.3.11":
-  version: 1.3.11
-  resolution: "@swc/core-android-arm-eabi@npm:1.3.11"
-  dependencies:
-    "@swc/wasm": 1.2.122
-  conditions: os=android & cpu=arm
-  languageName: node
-  linkType: hard
-
-"@swc/core-android-arm64@npm:1.3.11":
-  version: 1.3.11
-  resolution: "@swc/core-android-arm64@npm:1.3.11"
-  dependencies:
-    "@swc/wasm": 1.2.130
-  conditions: os=android & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@swc/core-darwin-arm64@npm:1.3.11":
-  version: 1.3.11
-  resolution: "@swc/core-darwin-arm64@npm:1.3.11"
-  conditions: os=darwin & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@swc/core-darwin-x64@npm:1.3.11":
-  version: 1.3.11
-  resolution: "@swc/core-darwin-x64@npm:1.3.11"
-  conditions: os=darwin & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@swc/core-freebsd-x64@npm:1.3.11":
-  version: 1.3.11
-  resolution: "@swc/core-freebsd-x64@npm:1.3.11"
-  dependencies:
-    "@swc/wasm": 1.2.130
-  conditions: os=freebsd & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@swc/core-linux-arm-gnueabihf@npm:1.3.11":
-  version: 1.3.11
-  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.3.11"
-  dependencies:
-    "@swc/wasm": 1.2.130
-  conditions: os=linux & cpu=arm
-  languageName: node
-  linkType: hard
-
-"@swc/core-linux-arm64-gnu@npm:1.3.11":
-  version: 1.3.11
-  resolution: "@swc/core-linux-arm64-gnu@npm:1.3.11"
-  conditions: os=linux & cpu=arm64 & libc=glibc
-  languageName: node
-  linkType: hard
-
-"@swc/core-linux-arm64-musl@npm:1.3.11":
-  version: 1.3.11
-  resolution: "@swc/core-linux-arm64-musl@npm:1.3.11"
-  conditions: os=linux & cpu=arm64 & libc=musl
-  languageName: node
-  linkType: hard
-
-"@swc/core-linux-x64-gnu@npm:1.3.11":
-  version: 1.3.11
-  resolution: "@swc/core-linux-x64-gnu@npm:1.3.11"
-  conditions: os=linux & cpu=x64 & libc=glibc
-  languageName: node
-  linkType: hard
-
-"@swc/core-linux-x64-musl@npm:1.3.11":
-  version: 1.3.11
-  resolution: "@swc/core-linux-x64-musl@npm:1.3.11"
-  conditions: os=linux & cpu=x64 & libc=musl
-  languageName: node
-  linkType: hard
-
-"@swc/core-win32-arm64-msvc@npm:1.3.11":
-  version: 1.3.11
-  resolution: "@swc/core-win32-arm64-msvc@npm:1.3.11"
-  dependencies:
-    "@swc/wasm": 1.2.130
-  conditions: os=win32 & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@swc/core-win32-ia32-msvc@npm:1.3.11":
-  version: 1.3.11
-  resolution: "@swc/core-win32-ia32-msvc@npm:1.3.11"
-  dependencies:
-    "@swc/wasm": 1.2.130
-  conditions: os=win32 & cpu=ia32
-  languageName: node
-  linkType: hard
-
-"@swc/core-win32-x64-msvc@npm:1.3.11":
-  version: 1.3.11
-  resolution: "@swc/core-win32-x64-msvc@npm:1.3.11"
-  conditions: os=win32 & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@swc/core@npm:^1.3.11":
-  version: 1.3.11
-  resolution: "@swc/core@npm:1.3.11"
-  dependencies:
-    "@swc/core-android-arm-eabi": 1.3.11
-    "@swc/core-android-arm64": 1.3.11
-    "@swc/core-darwin-arm64": 1.3.11
-    "@swc/core-darwin-x64": 1.3.11
-    "@swc/core-freebsd-x64": 1.3.11
-    "@swc/core-linux-arm-gnueabihf": 1.3.11
-    "@swc/core-linux-arm64-gnu": 1.3.11
-    "@swc/core-linux-arm64-musl": 1.3.11
-    "@swc/core-linux-x64-gnu": 1.3.11
-    "@swc/core-linux-x64-musl": 1.3.11
-    "@swc/core-win32-arm64-msvc": 1.3.11
-    "@swc/core-win32-ia32-msvc": 1.3.11
-    "@swc/core-win32-x64-msvc": 1.3.11
-  dependenciesMeta:
-    "@swc/core-android-arm-eabi":
-      optional: true
-    "@swc/core-android-arm64":
-      optional: true
-    "@swc/core-darwin-arm64":
-      optional: true
-    "@swc/core-darwin-x64":
-      optional: true
-    "@swc/core-freebsd-x64":
-      optional: true
-    "@swc/core-linux-arm-gnueabihf":
-      optional: true
-    "@swc/core-linux-arm64-gnu":
-      optional: true
-    "@swc/core-linux-arm64-musl":
-      optional: true
-    "@swc/core-linux-x64-gnu":
-      optional: true
-    "@swc/core-linux-x64-musl":
-      optional: true
-    "@swc/core-win32-arm64-msvc":
-      optional: true
-    "@swc/core-win32-ia32-msvc":
-      optional: true
-    "@swc/core-win32-x64-msvc":
-      optional: true
-  bin:
-    swcx: run_swcx.js
-  checksum: 1d617f0707700b1b4137487acad24e2515c99cfcaba45e7ca3032acecc4faa6146cfcf20eca7a9c57e01f3cbea7995d5c46216cf665de897f6e4e2e4d4a7fa86
-  languageName: node
-  linkType: hard
-
 "@swc/helpers@npm:0.4.11":
   version: 0.4.11
   resolution: "@swc/helpers@npm:0.4.11"
   dependencies:
     tslib: ^2.4.0
   checksum: 736857d524b41a8a4db81094e9b027f554004e0fa3e86325d85bdb38f7e6459ce022db079edb6c61ba0f46fe8583b3e663e95f7acbd13e51b8da6c34e45bba2e
-  languageName: node
-  linkType: hard
-
-"@swc/jest@npm:^0.2.23":
-  version: 0.2.23
-  resolution: "@swc/jest@npm:0.2.23"
-  dependencies:
-    "@jest/create-cache-key-function": ^27.4.2
-    jsonc-parser: ^3.2.0
-  peerDependencies:
-    "@swc/core": "*"
-  checksum: 1c7db1f6995916ad77369311be078e9d33f2c6a586be9c87927f6a36d124dcd49c29d8c596758cd9dbf4e388ec30f41989e70e574eb59bef3fb41d3131629763
-  languageName: node
-  linkType: hard
-
-"@swc/wasm@npm:1.2.122":
-  version: 1.2.122
-  resolution: "@swc/wasm@npm:1.2.122"
-  checksum: 563345370c5ad18373d3b403590ab880fe52dcd8fc8c8601be263fcd9886520b28a7f4e46236cf49ca2b136c79d4ef50c960bc34b7cdc2068118b0d84dfca1f4
-  languageName: node
-  linkType: hard
-
-"@swc/wasm@npm:1.2.130":
-  version: 1.2.130
-  resolution: "@swc/wasm@npm:1.2.130"
-  checksum: 02203bfef3e382c64cbbd63c138c8fdf61865e74d923b317e9d9e9f33f5a3f0a9533b5fdbc9505e76d78e864be04a82fc847eb987a1e47ccac5850146c858292
   languageName: node
   linkType: hard
 
@@ -12420,13 +12232,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsonc-parser@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "jsonc-parser@npm:3.2.0"
-  checksum: 946dd9a5f326b745aa326d48a7257e3f4a4b62c5e98ec8e49fa2bdd8d96cef7e6febf1399f5c7016114fd1f68a1c62c6138826d5d90bc650448e3cf0951c53c7
-  languageName: node
-  linkType: hard
-
 "jsonfile@npm:^4.0.0":
   version: 4.0.0
   resolution: "jsonfile@npm:4.0.0"
@@ -16819,8 +16624,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/react": ^11.0.2
     "@types/jest": ^29.2.0
     "@types/node": ^18.11.8
@@ -17222,8 +17025,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -17309,8 +17110,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -17397,8 +17196,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -17484,8 +17281,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -17572,8 +17367,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -17660,8 +17453,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -17748,8 +17539,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -17836,8 +17625,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -17924,8 +17711,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -18011,8 +17796,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -18098,8 +17881,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -18186,8 +17967,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -18274,8 +18053,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -18362,8 +18139,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -18450,8 +18225,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -18535,8 +18308,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -18623,8 +18394,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -18711,8 +18480,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -18799,8 +18566,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -18887,8 +18652,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -18975,8 +18738,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -19063,8 +18824,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -19151,8 +18910,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -19253,8 +19010,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
@@ -19341,8 +19096,6 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@swc/core": ^1.3.11
-    "@swc/jest": ^0.2.23
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0

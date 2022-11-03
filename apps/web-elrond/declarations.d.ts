@@ -21,6 +21,7 @@ interface AvatarName {
 
 type TransactionType = {
   hash: string;
+  type: string[];
   fromShard: number;
   toShard: number;
   from: string;

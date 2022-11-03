@@ -24,7 +24,7 @@ const mockI18n = {
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('./components', () => ({
-  SingleBlock: (props) => <div id="SingleBlock" {...props} />,
+  SingleBlock: (props: JSX.IntrinsicElements['div']) => <div id="SingleBlock" {...props} />,
 }));
 
 const mockLatestBlockHeight = {
