@@ -51,12 +51,6 @@
       "@graphql/types": [
         "src/graphql/types"
       ],
-      "@graphql/queries": [
-        "src/graphql/queries"
-      ],
-      "@graphql/mutations": [
-        "src/graphql/mutations"
-      ],
       "@tests/utils": [
         "tests/utils"
       ],
@@ -68,13 +62,6 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx",
-    "tests/utils/mock_i18n.js",
-    "tests/utils/mock_apollo_provider.tss"
-  ],
-  "exclude": [
-    "node_modules",
-    "cypress",
-    "xold_xsrc"
+    "**/*.tsx"
   ]
 }

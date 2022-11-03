@@ -10,7 +10,7 @@ import {
   TRANSACTION_DETAILS,
 } from '@utils/go_to_page';
 import {
-  Result, AvatarName, Tag,
+  Result, AvatarName,
 } from '@components';
 import { TransactionType } from '../../types';
 import { useStyles } from './styles';
@@ -30,14 +30,6 @@ const Mobile:React.FC<{ items: TransactionType[] } &ComponentDefault> = (props) 
           </Typography>
         </Link>
       ),
-      type: (
-        <div>
-          <Tag
-            value={x.type[0]}
-            theme="six"
-          />
-          {(x.messages > 1) && (` + ${x.messages - 1}`)}
-        </div>),
       from: (
         <AvatarName
           address={x.from}
@@ -72,12 +64,6 @@ const Mobile:React.FC<{ items: TransactionType[] } &ComponentDefault> = (props) 
                   {t('hash')}
                 </Typography>
                 {x.hash}
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('type')}
-                </Typography>
-                {x.type}
               </div>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">

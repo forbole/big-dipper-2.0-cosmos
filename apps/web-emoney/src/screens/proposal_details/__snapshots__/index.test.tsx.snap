@@ -3,7 +3,7 @@
 exports[`screen: ProposalDetails matches snapshot 1`] = `
 <div
   id="Layout"
-  navTitle="proposals:proposalDetails"
+  navTitle="proposalDetails"
 >
   <div
     exists={true}

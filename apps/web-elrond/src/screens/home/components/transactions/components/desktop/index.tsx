@@ -11,7 +11,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import {
-  Result, AvatarName, Tag,
+  Result, AvatarName,
 } from '@components';
 import {
   TRANSACTION_DETAILS,
@@ -31,19 +31,10 @@ const Desktop:React.FC<{ items: TransactionType[] } &ComponentDefault> = (props)
         <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
           <Typography variant="body1" className="value" component="a">
             {getMiddleEllipsis(x.hash, {
-              beginning: 4, ending: 4,
+              beginning: 10, ending: 5,
             })}
           </Typography>
         </Link>
-      ),
-      type: (
-        <div>
-          <Tag
-            value={x.type[0]}
-            theme="six"
-          />
-          {(x.messages > 1) && (` + ${x.messages - 1}`)}
-        </div>
       ),
       from: (
         <AvatarName
