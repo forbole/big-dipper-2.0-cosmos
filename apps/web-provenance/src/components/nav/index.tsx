@@ -6,7 +6,7 @@ import { useStyles } from './styles';
 
 const Desktop = dynamic(() => import('./components/desktop'));
 
-const Nav:React.FC<{
+const Nav: React.FC<{
   title?: string;
 }> = ({ title }) => {
   const classes = useStyles();
@@ -14,15 +14,9 @@ const Nav:React.FC<{
   return (
     <>
       {isDesktop ? (
-        <Desktop
-          className={classes.desktop}
-          title={title}
-        />
+        <Desktop className={classes.desktop} title={title} />
       ) : (
-        <Mobile
-          className={classes.mobile}
-          title={title}
-        />
+        <Mobile className={classes.mobile} title={title} />
       )}
     </>
   );

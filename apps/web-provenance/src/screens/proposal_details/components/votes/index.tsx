@@ -3,18 +3,10 @@ import dynamic from 'next/dynamic';
 import classnames from 'classnames';
 import Box from '@components/box';
 import NoData from '@components/no_data';
-import {
-  usePagination,
-  useScreenSize,
-} from '@hooks';
-import {
-  useProfilesRecoil,
-} from '@recoil/profiles';
+import { usePagination, useScreenSize } from '@hooks';
+import { useProfilesRecoil } from '@recoil/profiles';
 import { useStyles } from './styles';
-import {
-  Tabs,
-  Paginate,
-} from './components';
+import { Tabs, Paginate } from './components';
 import { filterDataByTab } from './utils';
 import { useVotes } from './hooks';
 
@@ -32,9 +24,7 @@ const Votes: React.FC<ComponentDefault> = (props) => {
     resetPagination,
   } = usePagination({});
   const classes = useStyles();
-  const {
-    state, handleTabChange,
-  } = useVotes(resetPagination);
+  const { state, handleTabChange } = useVotes(resetPagination);
   const filteredItems = filterDataByTab({
     tab: state.tab,
     data: state.data,
@@ -45,10 +35,10 @@ const Votes: React.FC<ComponentDefault> = (props) => {
 
   const userProfiles = useProfilesRecoil(slicedItems.map((x) => x.user));
   const items = slicedItems.map((x, i) => {
-    return ({
+    return {
       ...x,
       user: userProfiles[i],
-    });
+    };
   });
 
   return (
@@ -68,15 +58,9 @@ const Votes: React.FC<ComponentDefault> = (props) => {
         {items.length ? (
           <>
             {isDesktop ? (
-              <Desktop
-                className={classes.desktop}
-                items={items}
-              />
+              <Desktop className={classes.desktop} items={items} />
             ) : (
-              <Mobile
-                className={classes.mobile}
-                items={items}
-              />
+              <Mobile className={classes.mobile} items={items} />
             )}
           </>
         ) : (

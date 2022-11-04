@@ -4,7 +4,7 @@ export type BlockType = {
   timestamp: string;
   proposer: string;
   hash: string;
-}
+};
 
 export type BlocksState = {
   loading: boolean;
@@ -12,6 +12,6 @@ export type BlocksState = {
   hasNextPage: boolean;
   isNextPageLoading: boolean;
   items: BlockType[];
-}
+};
 
-export type ItemType = Override<BlockType, { proposer: AvatarName }>
+export type ItemType = Override<BlockType, { proposer: AvatarName }>;

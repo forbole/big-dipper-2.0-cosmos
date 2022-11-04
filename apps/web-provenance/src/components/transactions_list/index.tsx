@@ -33,23 +33,15 @@ const TransactionsList: React.FC<TransactionsListState> = (props) => {
   };
 
   if (!itemCount) {
-    return (
-      <NoData />
-    );
+    return <NoData />;
   }
 
   return (
     <>
       {isDesktop ? (
-        <Desktop
-          className={classes.desktop}
-          {...formatProps}
-        />
+        <Desktop className={classes.desktop} {...formatProps} />
       ) : (
-        <Mobile
-          className={classes.mobile}
-          {...formatProps}
-        />
+        <Mobile className={classes.mobile} {...formatProps} />
       )}
     </>
   );

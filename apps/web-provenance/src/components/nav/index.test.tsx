@@ -6,7 +6,7 @@ import Nav from '.';
 // ==================================
 // global setup
 // ==================================
-let component:renderer.ReactTestRenderer;
+let component: renderer.ReactTestRenderer;
 
 // ==================================
 // mocks
@@ -25,7 +25,7 @@ describe('Component: Nav', () => {
     component = renderer.create(
       <MockTheme>
         <Nav />
-      </MockTheme>,
+      </MockTheme>
     );
   });
 

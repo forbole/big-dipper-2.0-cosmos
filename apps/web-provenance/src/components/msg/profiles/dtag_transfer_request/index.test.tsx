@@ -9,7 +9,9 @@ import DtagTransferRequest from '.';
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -25,11 +27,9 @@ describe('screen: TransactionDetails/DtagTransferRequest', () => {
     const component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <DtagTransferRequest
-            message={message}
-          />
+          <DtagTransferRequest message={message} />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

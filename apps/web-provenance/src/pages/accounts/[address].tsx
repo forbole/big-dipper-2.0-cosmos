@@ -1,9 +1,7 @@
 import AccountDetails from '@src/screens/account_details';
 
 const AccountDetailsPage = () => {
-  return (
-    <AccountDetails />
-  );
+  return <AccountDetails />;
 };
 
 export default AccountDetailsPage;

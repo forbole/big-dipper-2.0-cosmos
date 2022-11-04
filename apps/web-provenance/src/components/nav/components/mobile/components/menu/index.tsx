@@ -1,37 +1,23 @@
 import React from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
-import {
-  Drawer,
-  MenuItem,
-  Typography,
-} from '@material-ui/core';
+import { Drawer, MenuItem, Typography } from '@material-ui/core';
 import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
 import Language from 'shared-utils/assets/icon-language.svg';
 import ThemeIcon from 'shared-utils/assets/icon-theme.svg';
 import { THEME_LIST } from '@recoil/settings';
-import {
-  ExpandMoreOutlined,
-} from '@material-ui/icons';
+import { ExpandMoreOutlined } from '@material-ui/icons';
 import { useStyles } from './styles';
 import { MenuItems } from '../../..';
-import {
-  useLanguageDrawer, useThemeDrawer,
-} from './hooks';
+import { useLanguageDrawer, useThemeDrawer } from './hooks';
 import { MenuProps } from './types';
 
 const Menu = (props: MenuProps) => {
   const router = useRouter();
-  const {
-    t,
-    lang,
-  } = useTranslation('common');
+  const { t, lang } = useTranslation('common');
 
-  const {
-    toggleNavMenus,
-    className,
-  } = props;
+  const { toggleNavMenus, className } = props;
 
   const classes = useStyles();
   const languageOptions = useLanguageDrawer(lang, toggleNavMenus);
@@ -49,26 +35,24 @@ const Menu = (props: MenuProps) => {
         className={classnames(classes.drawer, 'lang-drawer')}
       >
         <div className={classnames('content')}>
-          {
-            router.locales
-              .filter((l) => l !== lang)
-              .map((l) => (
-                <div key={l}>
-                  <Link
-                    href={{
-                      pathname: router.pathname,
-                      query: router.query,
-                    }}
-                    locale={l}
-                    passHref
-                  >
-                    <MenuItem button component="a">
-                      {t(l)}
-                    </MenuItem>
-                  </Link>
-                </div>
-              ))
-            }
+          {router.locales
+            .filter((l) => l !== lang)
+            .map((l) => (
+              <div key={l}>
+                <Link
+                  href={{
+                    pathname: router.pathname,
+                    query: router.query,
+                  }}
+                  locale={l}
+                  passHref
+                >
+                  <MenuItem button component="a">
+                    {t(l)}
+                  </MenuItem>
+                </Link>
+              </div>
+            ))}
         </div>
       </Drawer>
       {/* ================================== */}
@@ -81,17 +65,13 @@ const Menu = (props: MenuProps) => {
         className={classes.drawer}
       >
         <div className={classnames('content')}>
-          {
-            THEME_LIST
-              .filter((l) => l !== themeOptions.theme)
-              .map((l) => (
-                <div key={l}>
-                  <MenuItem button component="a" onClick={() => themeOptions.handleChangeTheme(l)}>
-                    {t(l)}
-                  </MenuItem>
-                </div>
-              ))
-            }
+          {THEME_LIST.filter((l) => l !== themeOptions.theme).map((l) => (
+            <div key={l}>
+              <MenuItem button component="a" onClick={() => themeOptions.handleChangeTheme(l)}>
+                {t(l)}
+              </MenuItem>
+            </div>
+          ))}
         </div>
       </Drawer>
       {/* ================================== */}
@@ -105,20 +85,12 @@ const Menu = (props: MenuProps) => {
         {/* Footer Actions */}
         {/* ========================= */}
         <div className={classes.footerActions}>
-          <div
-            className={classes.language}
-            role="button"
-            onClick={languageOptions.toggleDrawer}
-          >
+          <div className={classes.language} role="button" onClick={languageOptions.toggleDrawer}>
             <Language />
             <Typography variant="caption">{t(router.locale)}</Typography>
             <ExpandMoreOutlined fontSize="small" />
           </div>
-          <div
-            className={classes.theme}
-            role="button"
-            onClick={themeOptions.toggleDrawer}
-          >
+          <div className={classes.theme} role="button" onClick={themeOptions.toggleDrawer}>
             <span role="button">
               <ThemeIcon />
             </span>

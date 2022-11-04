@@ -8,7 +8,9 @@ import BlockUser from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -25,11 +27,9 @@ describe('screen: TransactionDetails/BlockUser', () => {
     const component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <BlockUser
-            message={message}
-          />
+          <BlockUser message={message} />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
