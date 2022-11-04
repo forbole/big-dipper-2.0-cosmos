@@ -8,12 +8,10 @@ import ChainIcon from 'ui/dist/components/ChainIcon';
 import { useStyles } from './styles';
 import { formatMarket } from './utils';
 
-const TitleBar:React.FC<{
+const TitleBar: React.FC<{
   className?: string;
   title: string;
-}> = ({
-  className, title,
-}) => {
+}> = ({ className, title }) => {
   const { t } = useTranslation('common');
   const classes = useStyles();
   const marketState = useRecoilValue(readMarket);
@@ -22,20 +20,18 @@ const TitleBar:React.FC<{
 
   return (
     <div className={classnames(className, classes.root)}>
-      {
-      title
-        ? <Typography variant="h1">{title}</Typography>
-        : <ChainIcon type="logo" className={classes.logo} alt="logo" />
-      }
+      {title ? (
+        <Typography variant="h1">{title}</Typography>
+      ) : (
+        <ChainIcon type="logo" className={classes.logo} alt="logo" />
+      )}
       <div className={classes.content}>
         {market.map((x) => (
           <div key={x.key} className={classes.item}>
             <Typography variant="body1" className="label">
               {t(x.key)}
             </Typography>
-            <Typography variant="body1">
-              {x.data}
-            </Typography>
+            <Typography variant="body1">{x.data}</Typography>
           </div>
         ))}
       </div>

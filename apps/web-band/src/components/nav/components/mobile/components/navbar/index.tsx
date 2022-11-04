@@ -11,15 +11,11 @@ import { readTheme } from '@recoil/settings';
 import { useStyles } from './styles';
 import { NavbarProps } from './types';
 
-const Navbar = (props:NavbarProps) => {
+const Navbar = (props: NavbarProps) => {
   const classes = useStyles();
   const theme = useRecoilValue(readTheme);
   const selected = useRecoilValue(readSelectedNetwork);
-  const {
-    isOpen,
-    openNetwork,
-    toggleNavMenus,
-  } = props;
+  const { isOpen, openNetwork, toggleNavMenus } = props;
 
   return (
     <div className={classes.root}>
@@ -36,14 +32,8 @@ const Navbar = (props:NavbarProps) => {
         {/* =================================== */}
         {/* Network */}
         {/* =================================== */}
-        <div
-          className={classes.network}
-          onClick={openNetwork}
-          role="button"
-        >
-          <p className="text">
-            {selected}
-          </p>
+        <div className={classes.network} onClick={openNetwork} role="button">
+          <p className="text">{selected}</p>
           <ExpandMore fontSize="small" />
         </div>
         {/* =================================== */}

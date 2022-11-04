@@ -4,7 +4,7 @@ import Color from 'color';
 export const useStyles = (percentage: number | string) => {
   const styles = makeStyles(
     (theme) => {
-      return ({
+      return {
         root: {
           display: 'flex',
           flexDirection: 'column',
@@ -69,8 +69,9 @@ export const useStyles = (percentage: number | string) => {
             justifyContent: 'space-between',
           },
         },
-      });
-    }, { index: 1 },
+      };
+    },
+    { index: 1 }
   )();
 
   return styles;

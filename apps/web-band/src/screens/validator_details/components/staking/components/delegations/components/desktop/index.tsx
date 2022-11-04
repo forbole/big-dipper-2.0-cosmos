@@ -1,13 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
-} from '@material-ui/core';
+import { Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
 import AvatarName from '@components/avatar_name';
 import { formatNumber } from '@utils/format_token';
 import { columns } from './utils';
@@ -16,13 +10,10 @@ import { ItemType } from '../../types';
 const Desktop: React.FC<{
   className?: string;
   items?: ItemType[];
-}> = ({
-  className,
-  items,
-}) => {
+}> = ({ className, items }) => {
   const { t } = useTranslation('accounts');
   const formattedItems = items.map((x) => {
-    return ({
+    return {
       address: (
         <AvatarName
           name={x.address.name}
@@ -30,8 +21,11 @@ const Desktop: React.FC<{
           imageUrl={x.address.imageUrl}
         />
       ),
-      amount: `${formatNumber(x.amount.value, x.amount.exponent)} ${x.amount.displayDenom.toUpperCase()}`,
-    });
+      amount: `${formatNumber(
+        x.amount.value,
+        x.amount.exponent
+      )} ${x.amount.displayDenom.toUpperCase()}`,
+    };
   });
 
   return (
@@ -71,7 +65,6 @@ const Desktop: React.FC<{
         </TableBody>
       </Table>
     </div>
-
   );
 };
 

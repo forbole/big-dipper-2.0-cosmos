@@ -12,7 +12,9 @@ const mockI18n = {
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 
-jest.mock('@components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => <div id="AvatarName" {...props} />);
+jest.mock('@components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="AvatarName" {...props} />
+));
 // ==================================
 // unit tests
 // ==================================
@@ -35,7 +37,7 @@ describe('screen: Home/Blocks/Desktop', () => {
             },
           ]}
         />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

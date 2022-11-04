@@ -10,16 +10,14 @@ import { useStyles } from './styles';
 import { useDesmosProfile } from './hooks';
 import { Connections } from './components';
 
-const DesmosProfile: React.FC<{
-  className?: string;
-} & DesmosProfile> = (props) => {
+const DesmosProfile: React.FC<
+  {
+    className?: string;
+  } & DesmosProfile
+> = (props) => {
   const { t } = useTranslation('accounts');
   const classes = useStyles(props.coverUrl);
-  const {
-    connectionsOpen,
-    handleConnectionsClose,
-    handleConnectionsOpen,
-  } = useDesmosProfile();
+  const { connectionsOpen, handleConnectionsClose, handleConnectionsOpen } = useDesmosProfile();
 
   const displayConnections = props.connections.length ? '' : 'hide';
 
@@ -31,11 +29,7 @@ const DesmosProfile: React.FC<{
         </div>
 
         <div className={classes.avatarContainer}>
-          <Avatar
-            address={props.dtag}
-            imageUrl={props.imageUrl}
-            className={classes.avatar}
-          />
+          <Avatar address={props.dtag} imageUrl={props.imageUrl} className={classes.avatar} />
           <Typography
             variant="body1"
             className={classnames(classes.link, displayConnections)}
@@ -48,12 +42,9 @@ const DesmosProfile: React.FC<{
           </Typography>
         </div>
         <div className={classes.nicknameWrapper}>
-          <Typography variant="h2">
-            {props.nickname}
-          </Typography>
+          <Typography variant="h2">{props.nickname}</Typography>
           <Typography variant="body2" className="tag">
-            @
-            {props.dtag}
+            @{props.dtag}
           </Typography>
         </div>
         {props.bio && (

@@ -8,7 +8,9 @@ import WithdrawReward from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -31,11 +33,9 @@ describe('screen: TransactionDetails/WithdrawReward', () => {
     const component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <WithdrawReward
-            message={message}
-          />
+          <WithdrawReward message={message} />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

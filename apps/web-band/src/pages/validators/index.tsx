@@ -1,9 +1,7 @@
 import Validators from '@screens/validators';
 
 const ValidatorsPage = () => {
-  return (
-    <Validators />
-  );
+  return <Validators />;
 };
 
 export default ValidatorsPage;

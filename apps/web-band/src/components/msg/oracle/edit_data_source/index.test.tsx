@@ -7,7 +7,9 @@ import CreateDataSource from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -21,10 +23,8 @@ describe('screen: TransactionDetails/CreateDataSource', () => {
     });
     const component = renderer.create(
       <MockTheme>
-        <CreateDataSource
-          message={message}
-        />
-      </MockTheme>,
+        <CreateDataSource message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

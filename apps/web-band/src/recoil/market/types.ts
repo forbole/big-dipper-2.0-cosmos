@@ -5,4 +5,4 @@ export type AtomState = {
   inflation: number;
   communityPool: TokenUnit;
   apr: number;
-}
+};

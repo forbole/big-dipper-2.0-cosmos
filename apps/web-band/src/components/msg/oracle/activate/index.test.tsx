@@ -7,7 +7,9 @@ import Activate from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -20,10 +22,8 @@ describe('screen: TransactionDetails/Activate', () => {
     });
     const component = renderer.create(
       <MockTheme>
-        <Activate
-          message={message}
-        />
-      </MockTheme>,
+        <Activate message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

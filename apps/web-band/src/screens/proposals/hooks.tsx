@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import * as R from 'ramda';
 import DOMPurify from 'dompurify';
-import {
-  useProposalsQuery,
-  ProposalsQuery,
-} from '@graphql/types/general_types';
+import { useProposalsQuery, ProposalsQuery } from '@graphql/types/general_types';
 import { ProposalsState } from './types';
 
 export const useProposals = () => {
@@ -46,35 +43,34 @@ export const useProposals = () => {
       isNextPageLoading: true,
     });
     // refetch query
-    await proposalQuery.fetchMore({
-      variables: {
-        offset: state.items.length,
-        limit: 50,
-      },
-    }).then(({ data }) => {
-      const newItems = R.uniq([
-        ...state.items,
-        ...formatProposals(data),
-      ]);
-      // set new state
-      handleSetState({
-        items: newItems,
-        isNextPageLoading: false,
-        hasNextPage: newItems.length < data.total.aggregate.count,
-        rawDataTotal: data.total.aggregate.count,
+    await proposalQuery
+      .fetchMore({
+        variables: {
+          offset: state.items.length,
+          limit: 50,
+        },
+      })
+      .then(({ data }) => {
+        const newItems = R.uniq([...state.items, ...formatProposals(data)]);
+        // set new state
+        handleSetState({
+          items: newItems,
+          isNextPageLoading: false,
+          hasNextPage: newItems.length < data.total.aggregate.count,
+          rawDataTotal: data.total.aggregate.count,
+        });
       });
-    });
   };
 
   const formatProposals = (data: ProposalsQuery) => {
     return data.proposals.map((x) => {
       const description = DOMPurify.sanitize(x.description);
-      return ({
+      return {
         description,
         id: x.proposalId,
         title: x.title,
         status: x.status,
-      });
+      };
     });
   };
 
