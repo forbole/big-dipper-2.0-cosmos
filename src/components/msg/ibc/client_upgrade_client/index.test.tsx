@@ -18,7 +18,7 @@ jest.mock('@components', () => ({
 // ==================================
 describe('screen: TransactionDetails/IBCUpgradeClient', () => {
   it('matches snapshot', () => {
-    const message = new MsgUpgradeClient({
+    const message = MsgUpgradeClient.fromJson({
       category: 'ibc',
       type: 'MsgUpgradeClient',
       signer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',

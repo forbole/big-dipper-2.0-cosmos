@@ -18,7 +18,7 @@ jest.mock('@components', () => ({
 // ==================================
 describe('screen: TransactionDetails/IBCTimeoutOnClose', () => {
   it('matches snapshot', () => {
-    const message = new MsgTimeoutOnClose({
+    const message = MsgTimeoutOnClose.fromJson({
       category: 'ibc',
       type: 'MsgTimeoutOnClose',
       signer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',

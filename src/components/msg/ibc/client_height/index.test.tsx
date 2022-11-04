@@ -18,7 +18,7 @@ jest.mock('@components', () => ({
 // ==================================
 describe('screen: TransactionDetails/IBCHeight', () => {
   it('matches snapshot', () => {
-    const message = new MsgHeight({
+    const message = MsgHeight.fromJson({
       category: 'ibc',
       type: 'MsgHeight',
       signer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',

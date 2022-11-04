@@ -18,7 +18,7 @@ jest.mock('@components', () => ({
 // ==================================
 describe('screen: TransactionDetails/IBCCreateClient', () => {
   it('matches snapshot', () => {
-    const message = new MsgCreateClient({
+    const message = MsgCreateClient.fromJson({
       category: 'ibc',
       type: 'MsgCreateClient',
       signer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',

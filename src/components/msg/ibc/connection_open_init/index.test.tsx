@@ -18,7 +18,7 @@ jest.mock('@components', () => ({
 // ==================================
 describe('screen: TransactionDetails/IBCConnectionOpenInit', () => {
   it('matches snapshot', () => {
-    const message = new MsgConnectionOpenInit({
+    const message = MsgConnectionOpenInit.fromJson({
       category: 'ibc',
       type: 'MsgConnectionOpenInit',
       signer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',

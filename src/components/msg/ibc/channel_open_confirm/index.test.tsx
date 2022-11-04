@@ -18,7 +18,7 @@ jest.mock('@components', () => ({
 // ==================================
 describe('screen: TransactionDetails/IBCChannelOpenConfirm', () => {
   it('matches snapshot', () => {
-    const message = new MsgChannelOpenConfirm({
+    const message = MsgChannelOpenConfirm.fromJson({
       category: 'ibc',
       type: 'MsgChannelOpenConfirm',
       signer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',

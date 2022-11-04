@@ -18,7 +18,7 @@ jest.mock('@components', () => ({
 // ==================================
 describe('screen: TransactionDetails/IBCChannelOpenTry', () => {
   it('matches snapshot', () => {
-    const message = new MsgChannelOpenTry({
+    const message = MsgChannelOpenTry.fromJson({
       category: 'ibc',
       type: 'MsgChannelOpenTry',
       signer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',

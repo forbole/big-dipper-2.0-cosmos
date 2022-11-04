@@ -18,7 +18,7 @@ jest.mock('@components', () => ({
 // ==================================
 describe('screen: TransactionDetails/IBCReceivePacket', () => {
   it('matches snapshot', () => {
-    const message = new MsgReceivePacket({
+    const message = MsgReceivePacket.fromJson({
       category: 'ibc',
       type: 'MsgReceivePacket',
       signer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',

@@ -18,7 +18,7 @@ jest.mock('@components', () => ({
 // ==================================
 describe('screen: TransactionDetails/IBCVersion', () => {
   it('matches snapshot', () => {
-    const message = new MsgVersion({
+    const message = MsgVersion.fromJson({
       category: 'ibc',
       type: 'MsgVersion',
       signer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
