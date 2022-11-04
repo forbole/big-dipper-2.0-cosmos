@@ -1,15 +1,9 @@
-import {
-  useEffect, useState,
-} from 'react';
+import { useEffect, useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import { isBech32 } from '@utils/bech32';
-import {
-  POLLING_INTERVAL,
-  NODES_COUNT,
-  NODES,
-} from '@api';
+import { POLLING_INTERVAL, NODES_COUNT, NODES } from '@api';
 import { useInterval } from '@hooks';
 import { NodeState } from './types';
 
@@ -42,7 +36,7 @@ export const useBlocks = () => {
 
   const getNodesTotal = async () => {
     try {
-      const params:any = {
+      const params: any = {
         // come back to this later
         // brave will block the api if type validator is present
         // type: 'validator',
@@ -66,7 +60,7 @@ export const useBlocks = () => {
 
   const getBlocksByPage = async (page: number) => {
     try {
-      const params:any = {
+      const params: any = {
         from: page * PAGE_SIZE,
         size: PAGE_SIZE,
         type: 'validator',
@@ -81,14 +75,14 @@ export const useBlocks = () => {
       });
 
       const items = blocksData.map((x) => {
-        return ({
+        return {
           pubkey: R.pathOr('', ['bls'], x),
           name: R.pathOr('', ['name'], x),
           shard: R.pathOr(0, ['shard'], x),
           version: R.pathOr('', ['version'], x),
           status: R.pathOr('', ['status'], x),
           online: R.pathOr(false, ['online'], x),
-        });
+        };
       });
 
       handleSetState({
@@ -108,8 +102,8 @@ export const useBlocks = () => {
 
   useInterval(getBlocksInterval, POLLING_INTERVAL);
 
-  return ({
+  return {
     state,
     handlePageChangeCallback,
-  });
+  };
 };

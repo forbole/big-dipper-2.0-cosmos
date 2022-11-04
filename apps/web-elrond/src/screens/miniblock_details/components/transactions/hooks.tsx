@@ -1,13 +1,8 @@
-import {
-  useEffect, useState,
-} from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import axios from 'axios';
-import {
-  TRANSACTIONS,
-  TRANSACTIONS_COUNT,
-} from '@api';
+import { TRANSACTIONS, TRANSACTIONS_COUNT } from '@api';
 import { TransactionState } from './types';
 
 export const PAGE_SIZE = 10;
@@ -55,19 +50,17 @@ export const useTransactions = () => {
 
   const getTransactionsByPage = async (page: number) => {
     try {
-      const { data: transactionsData } = await axios.get(
-        TRANSACTIONS, {
-          params: {
-            from: page * PAGE_SIZE,
-            size: PAGE_SIZE,
-            withLogs: false,
-            miniBlockHash: router.query.hash,
-          },
+      const { data: transactionsData } = await axios.get(TRANSACTIONS, {
+        params: {
+          from: page * PAGE_SIZE,
+          size: PAGE_SIZE,
+          withLogs: false,
+          miniBlockHash: router.query.hash,
         },
-      );
+      });
 
       const items = transactionsData.map((x) => {
-        return ({
+        return {
           hash: x.txHash,
           fromShard: x.senderShard,
           toShard: x.receiverShard,
@@ -75,7 +68,7 @@ export const useTransactions = () => {
           to: x.receiver,
           timestamp: x.timestamp,
           status: x.status,
-        });
+        };
       });
 
       handleSetState({
@@ -87,8 +80,8 @@ export const useTransactions = () => {
     }
   };
 
-  return ({
+  return {
     state,
     handlePageChangeCallback,
-  });
+  };
 };

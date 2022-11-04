@@ -9,9 +9,7 @@ import { useBigDipperNetworksRecoil } from '@recoil/big_dipper_networks';
 import { useMarketRecoil } from '@recoil/market';
 // import { useValidatorRecoil } from '@recoil/validators';
 import { InnerApp } from '..';
-import {
-  useTheme,
-} from './hooks';
+import { useTheme } from './hooks';
 
 const Main = (props: AppProps) => {
   // =====================================
@@ -32,9 +30,7 @@ const Main = (props: AppProps) => {
   if (loading) {
     Component = <InitialLoad {...props.pageProps} />;
   } else {
-    Component = (
-      <InnerApp {...props} />
-    );
+    Component = <InnerApp {...props} />;
   }
 
   return (

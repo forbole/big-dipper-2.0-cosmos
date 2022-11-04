@@ -24,13 +24,7 @@ const Action: React.FC<ActionType & ComponentDefault> = (props) => {
     },
   ];
 
-  return (
-    <BoxDetails
-      className={props.className}
-      title={t('action')}
-      details={details}
-    />
-  );
+  return <BoxDetails className={props.className} title={t('action')} details={details} />;
 };
 
 export default Action;

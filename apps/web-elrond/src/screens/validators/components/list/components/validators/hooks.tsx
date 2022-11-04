@@ -31,8 +31,8 @@ export const useProviders = (search: string) => {
       sorted = sorted.filter((x) => {
         const formattedSearch = search.toLowerCase().replace(/ /g, '');
         return (
-          x.validator.name.toLowerCase().replace(/ /g, '').includes(formattedSearch)
-          || x.validator.address.toLowerCase().includes(formattedSearch)
+          x.validator.name.toLowerCase().replace(/ /g, '').includes(formattedSearch) ||
+          x.validator.address.toLowerCase().includes(formattedSearch)
         );
       });
     }
@@ -72,9 +72,9 @@ export const useProviders = (search: string) => {
     return sorted;
   };
 
-  return ({
+  return {
     state,
     handleSort,
     sortItems,
-  });
+  };
 };

@@ -7,7 +7,7 @@ import Networks from '.';
 // ==================================
 // global setup
 // ==================================
-let component:renderer.ReactTestRenderer;
+let component: renderer.ReactTestRenderer;
 
 // ==================================
 // unit tests
@@ -19,7 +19,7 @@ describe('screen: Nav/Networks', () => {
         <MockTheme>
           <Networks />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
   });
 

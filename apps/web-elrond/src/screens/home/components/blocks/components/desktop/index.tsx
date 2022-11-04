@@ -3,14 +3,7 @@ import numeral from 'numeral';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import {
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
-  Typography,
-} from '@material-ui/core';
+import { Table, TableHead, TableRow, TableCell, TableBody, Typography } from '@material-ui/core';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
 import dayjs from '@utils/dayjs';
@@ -18,24 +11,25 @@ import { useStyles } from './styles';
 import { columns } from './utils';
 import { BlockType } from '../../types';
 
-const Desktop:React.FC<{ items: BlockType[] } &ComponentDefault> = (props) => {
+const Desktop: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
   const formattedItems = props.items.map((x) => {
-    return ({
+    return {
       block: numeral(x.block).format('0,0'),
       hash: (
         <Link href={BLOCK_DETAILS(x.hash)} passHref>
           <Typography variant="body1" className="value" component="a">
             {getMiddleEllipsis(x.hash, {
-              beginning: 13, ending: 15,
+              beginning: 13,
+              ending: 15,
             })}
           </Typography>
         </Link>
       ),
       txs: numeral(x.txs).format('0,0'),
       time: dayjs.utc(dayjs.unix(x.timestamp)).fromNow(),
-    });
+    };
   });
   return (
     <div className={classnames(props.className, classes.root)}>

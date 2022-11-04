@@ -9,13 +9,11 @@ import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import { useStyles } from './styles';
 import { useStaking } from './hooks';
 
-const Staking:React.FC<{
+const Staking: React.FC<{
   className?: string;
 }> = ({ className }) => {
   const { t } = useTranslation('home');
-  const {
-    classes, theme,
-  } = useStyles();
+  const { classes, theme } = useStyles();
   const { state } = useStaking();
   const data = [
     {
@@ -44,24 +42,19 @@ const Staking:React.FC<{
       <div className={classes.data}>
         {data.map((x) => (
           <div className="data__item" key={x.legendKey}>
-            <Typography variant="h4">
-              {x.value}
-              {' '}
-            </Typography>
+            <Typography variant="h4">{x.value} </Typography>
             <Typography variant="caption">
-              {x.percentKey ? t(x.percentKey, {
-                percent: x.percent,
-              }) : ''}
+              {x.percentKey
+                ? t(x.percentKey, {
+                    percent: x.percent,
+                  })
+                : ''}
             </Typography>
           </div>
         ))}
       </div>
       <div className={classes.content}>
-        <PieChart
-          width={200}
-          height={100}
-          cy={100}
-        >
+        <PieChart width={200} height={100} cy={100}>
           <Pie
             stroke="none"
             cy={90}
@@ -74,47 +67,35 @@ const Staking:React.FC<{
             isAnimationActive={false}
           >
             {data.map((entry) => {
-              return (
-                <Cell key={entry.legendKey} fill={entry.fill} />
-              );
+              return <Cell key={entry.legendKey} fill={entry.fill} />;
             })}
           </Pie>
           <Tooltip
-            content={(
+            content={
               <CustomToolTip>
                 {(x) => {
                   return (
                     <>
-                      <Typography variant="caption">
-                        {t(x.legendKey)}
-                      </Typography>
+                      <Typography variant="caption">{t(x.legendKey)}</Typography>
                       <Typography variant="body1">
-                        {x.value}
-                        {' '}
-                        (
-                        {x.percent}
-                        )
+                        {x.value} ({x.percent})
                       </Typography>
                     </>
                   );
                 }}
               </CustomToolTip>
-            )}
+            }
           />
         </PieChart>
 
         <div className={classes.legends}>
-          {
-            data.map((x) => {
-              return (
-                <div className="legends__item" key={x.legendKey}>
-                  <Typography variant="caption">
-                    {t(x.legendKey)}
-                  </Typography>
-                </div>
-              );
-            })
-          }
+          {data.map((x) => {
+            return (
+              <div className="legends__item" key={x.legendKey}>
+                <Typography variant="caption">{t(x.legendKey)}</Typography>
+              </div>
+            );
+          })}
         </div>
       </div>
     </Box>

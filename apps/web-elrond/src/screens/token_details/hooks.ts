@@ -1,6 +1,4 @@
-import {
-  useState, useEffect,
-} from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
@@ -42,9 +40,7 @@ export const useTokenDetails = () => {
 
   const getTokenDetail = async () => {
     try {
-      const { data: tokenData } = await axios.get(
-        TOKEN_DETAILS(router.query.token as string),
-      );
+      const { data: tokenData } = await axios.get(TOKEN_DETAILS(router.query.token as string));
 
       // profile
       const profile = {

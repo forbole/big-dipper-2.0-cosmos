@@ -33,7 +33,8 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
       detail: (
         <Typography variant="body1" className="value">
           {getMiddleEllipsis(props.proposer, {
-            beginning: 13, ending: 15,
+            beginning: 13,
+            ending: 15,
           })}
         </Typography>
       ),
@@ -65,9 +66,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
       detail: (
         <Typography variant="body1" className="value">
           {/* {formatBytes(props.size)} */}
-          {props.size / 1000}
-          {' '}
-          kB
+          {props.size / 1000} kB
         </Typography>
       ),
     },
@@ -75,11 +74,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
       label: t('gasUsedLimit'),
       detail: (
         <Typography variant="body1" className="value">
-          {numeral(props.gasUsed).format('0,0')}
-          {' '}
-          /
-          {' '}
-          {numeral(props.gasProvided).format('0,0')}
+          {numeral(props.gasUsed).format('0,0')} / {numeral(props.gasProvided).format('0,0')}
         </Typography>
       ),
     },
@@ -99,13 +94,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
     });
   }
 
-  return (
-    <BoxDetails
-      className={props.className}
-      title={t('overview')}
-      details={details}
-    />
-  );
+  return <BoxDetails className={props.className} title={t('overview')} details={details} />;
 };
 
 export default Overview;

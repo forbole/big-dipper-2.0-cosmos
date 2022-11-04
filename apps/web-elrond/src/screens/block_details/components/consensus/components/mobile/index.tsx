@@ -4,39 +4,29 @@ import useTranslation from 'next-translate/useTranslation';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import Link from 'next/link';
 import { NODE_DETAILS } from '@utils/go_to_page';
-import {
-  Divider, Typography,
-} from '@material-ui/core';
+import { Divider, Typography } from '@material-ui/core';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import {
-  useList,
-  useListRow,
-} from '@hooks';
+import { useList, useListRow } from '@hooks';
 import { useStyles } from './styles';
 import { ConsensusType } from '../../../../types';
 
-const Mobile: React.FC<{items: ConsensusType[]} & ComponentDefault> = (props) => {
+const Mobile: React.FC<{ items: ConsensusType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');
 
-  const {
-    listRef,
-    getRowHeight,
-    setRowHeight,
-  } = useList();
+  const { listRef, getRowHeight, setRowHeight } = useList();
   const classes = useStyles();
 
   const formattedItems = props.items.map((x) => {
     return getMiddleEllipsis(x, {
-      beginning: 13, ending: 15,
+      beginning: 13,
+      ending: 15,
     });
   });
 
   return (
     <div className={classes.root}>
       <AutoSizer>
-        {({
-          height, width,
-        }) => {
+        {({ height, width }) => {
           return (
             <List
               className="List"
@@ -46,9 +36,7 @@ const Mobile: React.FC<{items: ConsensusType[]} & ComponentDefault> = (props) =>
               ref={listRef}
               width={width}
             >
-              {({
-                index, style,
-              }) => {
+              {({ index, style }) => {
                 const { rowRef } = useListRow(index, setRowHeight);
                 const selectedItem = formattedItems[index];
                 return (

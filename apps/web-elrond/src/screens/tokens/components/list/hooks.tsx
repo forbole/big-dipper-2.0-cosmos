@@ -1,12 +1,7 @@
-import {
-  useEffect, useState,
-} from 'react';
+import { useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
-import {
-  TOKENS,
-  TOKENS_COUNT,
-} from '@api';
+import { TOKENS, TOKENS_COUNT } from '@api';
 import { TokenState } from './types';
 
 export const PAGE_SIZE = 25;
@@ -57,14 +52,14 @@ export const useBlocks = () => {
       });
 
       const items = tokensData.map((x) => {
-        return ({
+        return {
           identifier: R.pathOr('', ['identifier'], x),
           name: R.pathOr('', ['name'], x),
           owner: R.pathOr('', ['owner'], x),
           accounts: R.pathOr('', ['accounts'], x),
           transactions: R.pathOr('', ['transactions'], x),
           imageUrl: R.pathOr('', ['assets', 'pngUrl'], x),
-        });
+        };
       });
 
       handleSetState({
@@ -76,8 +71,8 @@ export const useBlocks = () => {
     }
   };
 
-  return ({
+  return {
     state,
     handlePageChangeCallback,
-  });
+  };
 };

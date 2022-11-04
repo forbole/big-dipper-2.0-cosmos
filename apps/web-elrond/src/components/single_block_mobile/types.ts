@@ -6,4 +6,4 @@ export type SingleBlockMobileType = {
   hash: string | React.ReactNode;
   txs: string;
   time: string;
-}
+};

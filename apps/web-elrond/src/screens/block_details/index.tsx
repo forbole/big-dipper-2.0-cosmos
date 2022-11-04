@@ -3,11 +3,7 @@ import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
 import Layout from '@components/layout';
 import LoadAndExist from '@components/load_and_exist';
-import {
-  Overview,
-  Miniblocks,
-  Consensus,
-} from './components';
+import { Overview, Miniblocks, Consensus } from './components';
 import { useBlockDetails } from './hooks';
 import { useStyles } from './styles';
 
@@ -23,18 +19,10 @@ const BlockDetails = () => {
           title: t('blockDetails'),
         }}
       />
-      <Layout
-        navTitle={t('blockDetails')}
-        className={classes.root}
-      >
-        <LoadAndExist
-          loading={state.loading}
-          exists={state.exists}
-        >
+      <Layout navTitle={t('blockDetails')} className={classes.root}>
+        <LoadAndExist loading={state.loading} exists={state.exists}>
           <Overview {...state.overview} />
-          {!!state.miniBlocks.length && (
-          <Miniblocks miniBlocks={state.miniBlocks} />
-          )}
+          {!!state.miniBlocks.length && <Miniblocks miniBlocks={state.miniBlocks} />}
           <Consensus className={classes.consensus} consensus={state.consensus} />
         </LoadAndExist>
       </Layout>

@@ -5,14 +5,7 @@ import TransactionIcon from 'shared-utils/assets/icon-transaction.svg';
 import TokenIcon from 'shared-utils/assets/icon-token.svg';
 import UserIcon from 'shared-utils/assets/icon-user.svg';
 import NFTIcon from 'shared-utils/assets/icon-nft.svg';
-import {
-  HOME,
-  BLOCKS,
-  VALIDATORS,
-  TRANSACTIONS,
-  TOKENS,
-  NFTS,
-} from '@utils/go_to_page';
+import { HOME, BLOCKS, VALIDATORS, TRANSACTIONS, TOKENS, NFTS } from '@utils/go_to_page';
 
 export const getMenuItems = () => {
   const iconProps = {

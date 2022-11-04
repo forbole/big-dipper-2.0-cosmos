@@ -4,7 +4,7 @@ import Color from 'color';
 export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
-      return ({
+      return {
         root: {
           '& .MuiListItemIcon-root': {
             minWidth: '48px',
@@ -27,8 +27,9 @@ export const useStyles = () => {
             },
           },
         },
-      });
-    }, { index: 1 },
+      };
+    },
+    { index: 1 }
   )();
 
   return styles;

@@ -3,13 +3,7 @@ import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
 import Layout from '@components/layout';
 import LoadAndExist from '@components/load_and_exist';
-import {
-  Profile,
-  Overview,
-  Stats,
-  Consensus,
-  Blocks,
-} from './components';
+import { Profile, Overview, Stats, Consensus, Blocks } from './components';
 import { useNodeDetails } from './hooks';
 import { useStyles } from './styles';
 
@@ -25,13 +19,8 @@ const NodeDetails = () => {
           title: t('nodeDetails'),
         }}
       />
-      <Layout
-        navTitle={t('nodeDetails')}
-      >
-        <LoadAndExist
-          loading={state.loading}
-          exists={state.exists}
-        >
+      <Layout navTitle={t('nodeDetails')}>
+        <LoadAndExist loading={state.loading} exists={state.exists}>
           <div className={classes.root}>
             <Profile
               className={classes.profile}
@@ -40,11 +29,11 @@ const NodeDetails = () => {
             />
             <Overview className={classes.overview} overview={state.overview} />
             {state.overview.type.toLowerCase() === 'validator' && (
-            <>
-              <Stats className={classes.stats} stats={state.stats} />
-              <Consensus className={classes.consensus} consensus={state.consensus} />
-              <Blocks className={classes.blocks} blocks={state.blocks} />
-            </>
+              <>
+                <Stats className={classes.stats} stats={state.stats} />
+                <Consensus className={classes.consensus} consensus={state.consensus} />
+                <Blocks className={classes.blocks} blocks={state.blocks} />
+              </>
             )}
           </div>
         </LoadAndExist>

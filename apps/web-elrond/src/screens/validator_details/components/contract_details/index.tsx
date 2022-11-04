@@ -6,17 +6,12 @@ import AvatarName from '@components/avatar_name';
 import { formatNumber } from '@utils/format_token';
 import { ContractType } from '../../types';
 
-const ContractDetails: React.FC<{contract: ContractType} & ComponentDefault> = (props) => {
+const ContractDetails: React.FC<{ contract: ContractType } & ComponentDefault> = (props) => {
   const { t } = useTranslation('validators');
   const details = [
     {
       label: t('address'),
-      detail: (
-        <AvatarName
-          address={props.contract.address}
-          name={props.contract.address}
-        />
-      ),
+      detail: <AvatarName address={props.contract.address} name={props.contract.address} />,
     },
     {
       label: t('commission'),
@@ -36,21 +31,24 @@ const ContractDetails: React.FC<{contract: ContractType} & ComponentDefault> = (
     },
     {
       label: t('locked'),
-      detail: `${formatNumber(props.contract.locked.value, 2)} ${props.contract.locked.displayDenom.toUpperCase()}`,
+      detail: `${formatNumber(
+        props.contract.locked.value,
+        2
+      )} ${props.contract.locked.displayDenom.toUpperCase()}`,
     },
     {
       label: t('delegation'),
-      detail: `${formatNumber(props.contract.locked.value, 2)} ${props.contract.locked.displayDenom.toUpperCase()} / ${formatNumber(props.contract.delegationCap.value, 2)} ${props.contract.delegationCap.displayDenom.toUpperCase()}`,
+      detail: `${formatNumber(
+        props.contract.locked.value,
+        2
+      )} ${props.contract.locked.displayDenom.toUpperCase()} / ${formatNumber(
+        props.contract.delegationCap.value,
+        2
+      )} ${props.contract.delegationCap.displayDenom.toUpperCase()}`,
     },
   ];
 
-  return (
-    <BoxDetails
-      className={props.className}
-      title={t('contract')}
-      details={details}
-    />
-  );
+  return <BoxDetails className={props.className} title={t('contract')} details={details} />;
 };
 
 export default ContractDetails;

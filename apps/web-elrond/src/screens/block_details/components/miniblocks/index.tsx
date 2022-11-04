@@ -8,12 +8,14 @@ import { MINIBLOCK_DETAILS } from '@utils/go_to_page';
 import { MiniBlockType } from '../../types';
 import { useStyles } from './styles';
 
-const MiniBlocks: React.FC<{miniBlocks: MiniBlockType[]} & ComponentDefault> = (props) => {
+const MiniBlocks: React.FC<{ miniBlocks: MiniBlockType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
   return (
     <Box className={classnames(props.className, classes.root)}>
-      <Typography className={classes.title} variant="h2">{t('miniBlocks')}</Typography>
+      <Typography className={classes.title} variant="h2">
+        {t('miniBlocks')}
+      </Typography>
       <div className={classes.listContainer}>
         {props.miniBlocks.map((x) => {
           return (

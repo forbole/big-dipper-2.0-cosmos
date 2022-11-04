@@ -14,13 +14,13 @@ export type StakeType = {
   stakePercent: number;
   stake: TokenUnit;
   topUp: TokenUnit;
-}
+};
 
 export type ProfileType = {
   name: string;
   imageUrl: string;
   description: string;
-}
+};
 
 export type OverviewType = {
   location: string;
@@ -30,7 +30,7 @@ export type OverviewType = {
     key: string;
     value: number;
   }[];
-}
+};
 
 export type ValidatorDetailsState = {
   loading: boolean;
@@ -40,4 +40,4 @@ export type ValidatorDetailsState = {
   stake: StakeType;
   profile: ProfileType;
   overview: OverviewType;
-}
+};

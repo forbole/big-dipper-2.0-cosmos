@@ -1,9 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Typography, Divider,
-} from '@material-ui/core';
+import { Typography, Divider } from '@material-ui/core';
 import NoData from '@components/no_data';
 import Box from '@components/box';
 import AvatarName from '@components/avatar_name';
@@ -13,39 +11,32 @@ import { ResultType } from '../../types';
 import { CodeBlock } from '..';
 import { useStyles } from './styles';
 
-const SmartContractResults: React.FC<{results: ResultType[]} & ComponentDefault> = (props) => {
+const SmartContractResults: React.FC<{ results: ResultType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
 
   if (!props.results.length) {
-    return (
-      <NoData />
-    );
+    return <NoData />;
   }
 
   const formattedItems = props.results.map((x) => {
-    return ({
+    return {
       hash: x.hash,
-      sender: (
-        <AvatarName
-          address={x.sender}
-          name={x.sender}
-        />
-      ),
-      receiver: (
-        <AvatarName
-          address={x.receiver}
-          name={x.receiver}
-        />
-      ),
-      value: `${formatNumber(x.value.value, x.value.exponent)} ${x.value.displayDenom.toUpperCase()}`,
+      sender: <AvatarName address={x.sender} name={x.sender} />,
+      receiver: <AvatarName address={x.receiver} name={x.receiver} />,
+      value: `${formatNumber(
+        x.value.value,
+        x.value.exponent
+      )} ${x.value.displayDenom.toUpperCase()}`,
       data: decodeBase64(x.data),
-    });
+    };
   });
 
   return (
     <Box className={classes.root}>
-      <Typography className={classes.title} variant="h2">{t('smartContractResults')}</Typography>
+      <Typography className={classes.title} variant="h2">
+        {t('smartContractResults')}
+      </Typography>
       <div>
         {formattedItems.map((x, i) => {
           return (

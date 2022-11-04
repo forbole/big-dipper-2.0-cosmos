@@ -1,5 +1,3 @@
 import TokenList from './tokens_list';
 
-export {
-  TokenList,
-};
+export { TokenList };

@@ -4,7 +4,7 @@ import Color from 'color';
 export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
-      return ({
+      return {
         root: {
           display: 'flex',
           flexDirection: 'column',
@@ -64,8 +64,9 @@ export const useStyles = () => {
             width: '50%',
           },
         },
-      });
-    }, { index: 1 },
+      };
+    },
+    { index: 1 }
   )();
 
   return styles;

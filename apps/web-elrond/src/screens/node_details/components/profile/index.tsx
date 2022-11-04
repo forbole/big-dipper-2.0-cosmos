@@ -3,10 +3,7 @@ import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 import classnames from 'classnames';
 import { useScreenSize } from '@hooks';
-import {
-  Typography,
-  Divider,
-} from '@material-ui/core';
+import { Typography, Divider } from '@material-ui/core';
 import { VALIDATOR_DETAILS } from '@utils/go_to_page';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
@@ -15,16 +12,17 @@ import { useProfile } from './hooks';
 import { useStyles } from './styles';
 import { ProfileType } from '../../types';
 
-const Profile: React.FC<{profile: ProfileType, showRating: boolean} & ComponentDefault> = (props) => {
+const Profile: React.FC<{ profile: ProfileType; showRating: boolean } & ComponentDefault> = (
+  props
+) => {
   const { t } = useTranslation('nodes');
   const classes = useStyles();
   const { isDesktop } = useScreenSize();
-  const {
-    handleCopyToClipboard,
-  } = useProfile(t);
+  const { handleCopyToClipboard } = useProfile(t);
 
   let ellipsis = {
-    beginning: 15, ending: 5,
+    beginning: 15,
+    ending: 5,
   };
 
   if (isDesktop) {
@@ -63,18 +61,11 @@ const Profile: React.FC<{profile: ProfileType, showRating: boolean} & ComponentD
           <Typography variant="h2" className="name">
             {props.profile.name}
           </Typography>
-          <Typography className="version">
-            (
-            {props.profile.version}
-            )
-          </Typography>
+          <Typography className="version">({props.profile.version})</Typography>
         </div>
         {!!props.showRating && (
           <Typography className={classes.rating}>
-            {t('rating')}
-            {' '}
-            {props.profile.rating}
-            %
+            {t('rating')} {props.profile.rating}%
           </Typography>
         )}
       </div>

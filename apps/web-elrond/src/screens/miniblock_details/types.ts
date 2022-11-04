@@ -6,10 +6,10 @@ export type OverviewType = {
   senderShard: number;
   timestamp: number;
   type: string;
-}
+};
 
 export type BlockDetailsState = {
   loading: boolean;
   exists: boolean;
   overview: OverviewType;
-}
+};

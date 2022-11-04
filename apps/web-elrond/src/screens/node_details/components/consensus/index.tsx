@@ -2,9 +2,7 @@ import React from 'react';
 import numeral from 'numeral';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Typography, Tooltip,
-} from '@material-ui/core';
+import { Typography, Tooltip } from '@material-ui/core';
 import Box from '@components/box';
 import NoData from '@components/no_data';
 import { useStyles } from './styles';
@@ -24,7 +22,7 @@ const Consensus: React.FC<{ consensus: ConsensusType } & ComponentDefault> = (pr
               <Tooltip
                 key={`blocks-tooltip-${i}`}
                 enterTouchDelay={50}
-                title={(
+                title={
                   <Box className={classes.toolTip}>
                     <div className={classes.item}>
                       <Typography variant="h4" className="label">
@@ -35,17 +33,14 @@ const Consensus: React.FC<{ consensus: ConsensusType } & ComponentDefault> = (pr
                       </Typography>
                     </div>
                   </Box>
-            )}
+                }
                 placement="top"
               >
                 <div
                   key={i}
-                  className={classnames(
-                    classes.singleBlock,
-                    {
-                      signed: x.proposed,
-                    },
-                  )}
+                  className={classnames(classes.singleBlock, {
+                    signed: x.proposed,
+                  })}
                 />
               </Tooltip>
             );

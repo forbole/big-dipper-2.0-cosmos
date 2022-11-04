@@ -1,12 +1,7 @@
-import {
-  useEffect, useState,
-} from 'react';
+import { useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
-import {
-  ACCOUNT_DETAILS_TRANSACTIONS,
-  ACCOUNT_DETAILS_TRANSACTIONS_COUNT,
-} from '@api';
+import { ACCOUNT_DETAILS_TRANSACTIONS, ACCOUNT_DETAILS_TRANSACTIONS_COUNT } from '@api';
 import { TransactionState } from './types';
 
 export const PAGE_SIZE = 10;
@@ -38,9 +33,7 @@ export const useTransactions = (provider: string) => {
 
   const getLatestTransactionCount = async () => {
     try {
-      const { data: total } = await axios.get(ACCOUNT_DETAILS_TRANSACTIONS_COUNT(
-        provider,
-      ));
+      const { data: total } = await axios.get(ACCOUNT_DETAILS_TRANSACTIONS_COUNT(provider));
       handleSetState({
         total,
       });
@@ -51,18 +44,16 @@ export const useTransactions = (provider: string) => {
 
   const getTransactionsByPage = async (page: number) => {
     try {
-      const { data: transactionsData } = await axios.get(
-        ACCOUNT_DETAILS_TRANSACTIONS(provider), {
-          params: {
-            from: page * PAGE_SIZE,
-            size: PAGE_SIZE,
-            withLogs: false,
-          },
+      const { data: transactionsData } = await axios.get(ACCOUNT_DETAILS_TRANSACTIONS(provider), {
+        params: {
+          from: page * PAGE_SIZE,
+          size: PAGE_SIZE,
+          withLogs: false,
         },
-      );
+      });
 
       const items = transactionsData.map((x) => {
-        return ({
+        return {
           hash: x.txHash,
           fromShard: x.senderShard,
           toShard: x.receiverShard,
@@ -70,7 +61,7 @@ export const useTransactions = (provider: string) => {
           to: x.receiver,
           timestamp: x.timestamp,
           status: x.status,
-        });
+        };
       });
 
       handleSetState({
@@ -82,8 +73,8 @@ export const useTransactions = (provider: string) => {
     }
   };
 
-  return ({
+  return {
     state,
     handlePageChangeCallback,
-  });
+  };
 };

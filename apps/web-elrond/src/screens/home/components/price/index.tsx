@@ -20,19 +20,15 @@ import { useStyles } from './styles';
 import { usePrice } from './hooks';
 
 const Price: React.FC<ComponentDefault> = (props) => {
-  const {
-    classes, theme,
-  } = useStyles();
+  const { classes, theme } = useStyles();
   const { t } = useTranslation('home');
-  const {
-    state, tickPriceFormatter,
-  } = usePrice();
+  const { state, tickPriceFormatter } = usePrice();
 
   const formatItems = state.items.map((x) => {
-    return ({
+    return {
       time: dayjs(x.time).format('MMM DD'),
       value: x.value,
-    });
+    };
   });
 
   return (
@@ -52,34 +48,24 @@ const Price: React.FC<ComponentDefault> = (props) => {
             }}
           >
             <CartesianGrid stroke={theme.palette.divider} />
-            <XAxis
-              dataKey="time"
-              tickLine={false}
-            />
-            <YAxis
-              tickLine={false}
-              tickFormatter={tickPriceFormatter}
-              tickCount={5}
-            />
+            <XAxis dataKey="time" tickLine={false} />
+            <YAxis tickLine={false} tickFormatter={tickPriceFormatter} tickCount={5} />
             <Tooltip
               cursor={false}
-              content={(
+              content={
                 <CustomToolTip>
                   {(x) => {
                     return (
                       <>
-                        <Typography variant="caption">
-                          {x.time}
-                        </Typography>
+                        <Typography variant="caption">{x.time}</Typography>
                         <Typography variant="body1">
-                          $
-                          {numeral(x.value).format('0,0.00')}
+                          ${numeral(x.value).format('0,0.00')}
                         </Typography>
                       </>
                     );
                   }}
                 </CustomToolTip>
-            )}
+              }
             />
             <Area
               type="monotone"

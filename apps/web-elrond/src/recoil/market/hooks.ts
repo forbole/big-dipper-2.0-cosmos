@@ -2,18 +2,15 @@ import { useEffect } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
 import { ECONOMICS } from '@api';
-import {
-  useRecoilState,
-  SetterOrUpdater,
-} from 'recoil';
-import {
-  writeMarket,
-} from '@recoil/market';
+import { useRecoilState, SetterOrUpdater } from 'recoil';
+import { writeMarket } from '@recoil/market';
 import { AtomState } from '@recoil/market/types';
 
 export const useMarketRecoil = () => {
   const [_market, setMarket] = useRecoilState(writeMarket) as [
-    AtomState, SetterOrUpdater<AtomState>];
+    AtomState,
+    SetterOrUpdater<AtomState>
+  ];
 
   useEffect(() => {
     getEconomics();

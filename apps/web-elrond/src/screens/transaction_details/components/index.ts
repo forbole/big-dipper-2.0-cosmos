@@ -5,11 +5,4 @@ import CodeBlock from './code_block';
 import Operations from './operations';
 import SmartContractResults from './smart_contract_results';
 
-export {
-  Overview,
-  Data,
-  Action,
-  CodeBlock,
-  Operations,
-  SmartContractResults,
-};
+export { Overview, Data, Action, CodeBlock, Operations, SmartContractResults };

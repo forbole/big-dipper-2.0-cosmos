@@ -1,18 +1,16 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Typography, Divider,
-} from '@material-ui/core';
+import { Typography, Divider } from '@material-ui/core';
 import Link from 'next/link';
 import { NFT_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
 import { OtherTokenType } from '../../../../types';
 
-const Mobile: React.FC<{items: OtherTokenType[]} & ComponentDefault> = (props) => {
+const Mobile: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('accounts');
   const classes = useStyles();
   const formattedItems = props.items.map((x) => {
-    return ({
+    return {
       identifier: x.identifier,
       nft: (
         <Link href={NFT_DETAILS(x.identifier)} passHref>
@@ -22,7 +20,7 @@ const Mobile: React.FC<{items: OtherTokenType[]} & ComponentDefault> = (props) =
         </Link>
       ),
       type: x.type,
-    });
+    };
   });
 
   return (

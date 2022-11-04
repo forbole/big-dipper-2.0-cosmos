@@ -5,30 +5,20 @@ import useTranslation from 'next-translate/useTranslation';
 import { VariableSizeGrid as Grid } from 'react-window';
 import { Typography } from '@material-ui/core';
 import { useGrid } from '@hooks';
-import {
-  columns, formatRows,
-} from './utils';
+import { columns, formatRows } from './utils';
 import { useStyles } from './styles';
 import { ConsensusType } from '../../../../types';
 
-const Desktop: React.FC<{items: ConsensusType[]} & ComponentDefault> = (props) => {
+const Desktop: React.FC<{ items: ConsensusType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
-  const {
-    gridRef,
-    columnRef,
-    onResize,
-    getColumnWidth,
-    getRowHeight,
-  } = useGrid(columns);
+  const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
   const rows = formatRows(props.items);
 
   return (
     <div className={classes.root}>
       <AutoSizer onResize={onResize}>
-        {({
-          height, width,
-        }) => {
+        {({ height, width }) => {
           return (
             <>
               {/* ======================================= */}
@@ -43,22 +33,12 @@ const Desktop: React.FC<{items: ConsensusType[]} & ComponentDefault> = (props) =
                 rowHeight={() => 50}
                 width={width}
               >
-                {({
-                  columnIndex, style,
-                }) => {
-                  const {
-                    key, align,
-                  } = columns[columnIndex];
+                {({ columnIndex, style }) => {
+                  const { key, align } = columns[columnIndex];
 
                   return (
-                    <div
-                      style={style}
-                      className={classes.cell}
-                    >
-                      <Typography
-                        variant="h4"
-                        align={align}
-                      >
+                    <div style={style} className={classes.cell}>
+                      <Typography variant="h4" align={align}>
                         {t(key)}
                       </Typography>
                     </div>
@@ -77,12 +57,8 @@ const Desktop: React.FC<{items: ConsensusType[]} & ComponentDefault> = (props) =
                 rowHeight={getRowHeight}
                 width={width}
               >
-                {({
-                  columnIndex, rowIndex, style,
-                }) => {
-                  const {
-                    key, align,
-                  } = columns[columnIndex];
+                {({ columnIndex, rowIndex, style }) => {
+                  const { key, align } = columns[columnIndex];
                   const selectedItem = rows[rowIndex][key];
                   return (
                     <div
@@ -91,11 +67,7 @@ const Desktop: React.FC<{items: ConsensusType[]} & ComponentDefault> = (props) =
                         odd: !(rowIndex % 2),
                       })}
                     >
-                      <Typography
-                        variant="body1"
-                        align={align}
-                        component="div"
-                      >
+                      <Typography variant="body1" align={align} component="div">
                         {selectedItem}
                       </Typography>
                     </div>
@@ -106,7 +78,6 @@ const Desktop: React.FC<{items: ConsensusType[]} & ComponentDefault> = (props) =
           );
         }}
       </AutoSizer>
-
     </div>
   );
 };

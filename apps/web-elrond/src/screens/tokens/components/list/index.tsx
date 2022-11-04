@@ -5,22 +5,13 @@ import NoData from '@components/no_data';
 import Box from '@components/box';
 import Loading from '@components/loading';
 import { useStyles } from './styles';
-import {
-  useBlocks, PAGE_SIZE,
-} from './hooks';
+import { useBlocks, PAGE_SIZE } from './hooks';
 import { TokenList } from './components';
 
 const List = () => {
   const classes = useStyles();
-  const {
-    state, handlePageChangeCallback,
-  } = useBlocks();
-  const {
-    page,
-    rowsPerPage,
-    handleChangePage,
-    handleChangeRowsPerPage,
-  } = usePagination({
+  const { state, handlePageChangeCallback } = useBlocks();
+  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage } = usePagination({
     rowsPage: PAGE_SIZE,
     pageChangeCallback: handlePageChangeCallback,
   });

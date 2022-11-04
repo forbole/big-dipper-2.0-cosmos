@@ -5,11 +5,11 @@ export type NodeType = {
   version: string;
   status: string;
   online: boolean;
-}
+};
 
 export type NodeState = {
   page: number;
   loading: boolean;
   total: number;
   items: NodeType[];
-}
+};

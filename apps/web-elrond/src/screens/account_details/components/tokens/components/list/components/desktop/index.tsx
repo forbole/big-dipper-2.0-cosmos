@@ -1,13 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
-} from '@material-ui/core';
+import { Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
 import { formatNumber } from '@utils/format_token';
 import { TOKEN_DETAILS } from '@utils/go_to_page';
 import AvatarName from '@components/avatar_name';
@@ -15,11 +9,11 @@ import { columns } from './utils';
 import { useStyles } from './styles';
 import { OtherTokenType } from '../../../../types';
 
-const Desktop: React.FC<{items: OtherTokenType[]} & ComponentDefault> = (props) => {
+const Desktop: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('accounts');
   const classes = useStyles();
   const formattedItems = props.items.map((x) => {
-    return ({
+    return {
       identifier: x.identifier,
       token: (
         <AvatarName
@@ -29,8 +23,11 @@ const Desktop: React.FC<{items: OtherTokenType[]} & ComponentDefault> = (props) 
           href={TOKEN_DETAILS}
         />
       ),
-      balance: `${formatNumber(x.balance.value, x.balance.exponent)} ${x.balance.displayDenom.toUpperCase()}`,
-    });
+      balance: `${formatNumber(
+        x.balance.value,
+        x.balance.exponent
+      )} ${x.balance.displayDenom.toUpperCase()}`,
+    };
   });
 
   return (

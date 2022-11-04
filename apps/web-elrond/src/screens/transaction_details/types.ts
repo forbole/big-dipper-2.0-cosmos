@@ -11,7 +11,7 @@ export type OverviewType = {
   gasLimit: number;
   gasPrice: TokenUnit;
   price: number;
-}
+};
 
 export type DataType = string;
 
@@ -19,7 +19,7 @@ export type ActionType = {
   category: string;
   name: string;
   description: string;
-}
+};
 
 export type OperationType = {
   action: string;
@@ -27,7 +27,7 @@ export type OperationType = {
   receiver: string;
   identifier: string;
   value: TokenUnit;
-}
+};
 
 export type ResultType = {
   hash: string;
@@ -35,7 +35,7 @@ export type ResultType = {
   receiver: string;
   data: string;
   value: TokenUnit;
-}
+};
 
 export type TransactionDetailsState = {
   loading: boolean;
@@ -45,4 +45,4 @@ export type TransactionDetailsState = {
   action?: ActionType;
   operations: OperationType[];
   results: ResultType[];
-}
+};

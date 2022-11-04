@@ -1,10 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import dynamic from 'next/dynamic';
-import {
-  usePagination,
-  useScreenSize,
-} from '@hooks';
+import { usePagination, useScreenSize } from '@hooks';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import Pagination from '@components/pagination';
@@ -12,9 +9,7 @@ import NoData from '@components/no_data';
 import Box from '@components/box';
 import Loading from '@components/loading';
 import { useStyles } from './styles';
-import {
-  useBlocks, PAGE_SIZE,
-} from './hooks';
+import { useBlocks, PAGE_SIZE } from './hooks';
 
 const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
@@ -23,15 +18,8 @@ const Nodes: React.FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('validators');
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
-  const {
-    state, handlePageChangeCallback,
-  } = useBlocks();
-  const {
-    page,
-    rowsPerPage,
-    handleChangePage,
-    handleChangeRowsPerPage,
-  } = usePagination({
+  const { state, handlePageChangeCallback } = useBlocks();
+  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage } = usePagination({
     rowsPage: PAGE_SIZE,
     pageChangeCallback: handlePageChangeCallback,
   });

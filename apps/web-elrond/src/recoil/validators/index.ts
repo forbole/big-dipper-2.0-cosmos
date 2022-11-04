@@ -1,14 +1,5 @@
-import {
-  atomFamilyState,
-} from './atom';
+import { atomFamilyState } from './atom';
 
-import {
-  readValidator,
-  writeValidator,
-} from './selectors';
+import { readValidator, writeValidator } from './selectors';
 
-export {
-  atomFamilyState,
-  readValidator,
-  writeValidator,
-};
+export { atomFamilyState, readValidator, writeValidator };

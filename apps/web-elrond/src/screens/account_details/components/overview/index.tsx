@@ -9,7 +9,7 @@ import { getShardDisplay } from '@utils/get_shard_display';
 import { useStyles } from './style';
 import { OverviewType } from '../../types';
 
-const Overview: React.FC<{overview: OverviewType} & ComponentDefault> = (props) => {
+const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props) => {
   const { t } = useTranslation('accounts');
   const classes = useStyles();
   const shard = getShardDisplay(props.overview.shard);
@@ -17,11 +17,17 @@ const Overview: React.FC<{overview: OverviewType} & ComponentDefault> = (props) 
   const items = [
     {
       key: t('balance'),
-      value: `${formatNumber(props.overview.balance.value, props.overview.balance.exponent)} ${props.overview.balance.displayDenom.toUpperCase()}`,
+      value: `${formatNumber(
+        props.overview.balance.value,
+        props.overview.balance.exponent
+      )} ${props.overview.balance.displayDenom.toUpperCase()}`,
     },
     {
       key: t('developerReward'),
-      value: `${formatNumber(props.overview.developerReward.value, props.overview.developerReward.exponent)} ${props.overview.developerReward.displayDenom.toUpperCase()}`,
+      value: `${formatNumber(
+        props.overview.developerReward.value,
+        props.overview.developerReward.exponent
+      )} ${props.overview.developerReward.displayDenom.toUpperCase()}`,
     },
     {
       key: t('shard'),
@@ -35,7 +41,9 @@ const Overview: React.FC<{overview: OverviewType} & ComponentDefault> = (props) 
 
   return (
     <Box className={classnames(props.className)}>
-      <Typography className={classes.title} variant="h2">{t('overview')}</Typography>
+      <Typography className={classes.title} variant="h2">
+        {t('overview')}
+      </Typography>
       <div className={classes.body}>
         {items.map((x) => {
           return (
@@ -47,13 +55,9 @@ const Overview: React.FC<{overview: OverviewType} & ComponentDefault> = (props) 
                     {x.key}
                   </Typography>
                   {React.isValidElement(x.value) ? (
-                    <div>
-                      {x.value}
-                    </div>
+                    <div>{x.value}</div>
                   ) : (
-                    <Typography variant="body1">
-                      {x.value}
-                    </Typography>
+                    <Typography variant="body1">{x.value}</Typography>
                   )}
                 </div>
               </div>

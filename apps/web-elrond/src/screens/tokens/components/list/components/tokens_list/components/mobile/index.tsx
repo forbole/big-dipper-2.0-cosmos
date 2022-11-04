@@ -2,21 +2,17 @@ import React from 'react';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import {
-  Typography, Divider,
-} from '@material-ui/core';
+import { Typography, Divider } from '@material-ui/core';
 import AvatarName from '@components/avatar_name';
-import {
-  TOKEN_DETAILS,
-} from '@utils/go_to_page';
+import { TOKEN_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
 import { TokenType } from '../../../../types';
 
-const Mobile: React.FC<{items: TokenType[]} & ComponentDefault> = (props) => {
+const Mobile: React.FC<{ items: TokenType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('tokens');
   const classes = useStyles();
   const formattedItems = props.items.map((x) => {
-    return ({
+    return {
       token: (
         <AvatarName
           imageUrl={x.imageUrl}
@@ -29,14 +25,15 @@ const Mobile: React.FC<{items: TokenType[]} & ComponentDefault> = (props) => {
       owner: (
         <AvatarName
           name={getMiddleEllipsis(x.owner, {
-            beginning: 13, ending: 15,
+            beginning: 13,
+            ending: 15,
           })}
           address={x.owner}
         />
       ),
       transactions: numeral(x.transactions).format('0,0'),
       accounts: numeral(x.accounts).format('0,0'),
-    });
+    };
   });
 
   return (

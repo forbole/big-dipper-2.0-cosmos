@@ -1,9 +1,7 @@
 import NodeDetails from '@src/screens/node_details';
 
 const NodeDetailsPage = () => {
-  return (
-    <NodeDetails />
-  );
+  return <NodeDetails />;
 };
 
 export default NodeDetailsPage;

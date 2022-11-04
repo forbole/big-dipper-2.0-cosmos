@@ -1,12 +1,7 @@
-import {
-  useEffect, useState,
-} from 'react';
+import { useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
-import {
-  NFTS,
-  NFTS_COUNT,
-} from '@api';
+import { NFTS, NFTS_COUNT } from '@api';
 import { BlockState } from './types';
 
 export const PAGE_SIZE = 25;
@@ -70,13 +65,13 @@ export const useNFTs = () => {
       });
 
       const items = nftData.map((x) => {
-        return ({
+        return {
           identifier: R.pathOr('', ['identifier'], x),
           name: R.pathOr('', ['name'], x),
           type: R.pathOr('', ['type'], x),
           creator: R.pathOr('', ['creator'], x),
           collection: R.pathOr('', ['collection'], x),
-        });
+        };
       });
 
       handleSetState({
@@ -88,8 +83,8 @@ export const useNFTs = () => {
     }
   };
 
-  return ({
+  return {
     state,
     handlePageChangeCallback,
-  });
+  };
 };

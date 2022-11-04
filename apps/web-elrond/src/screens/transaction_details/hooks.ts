@@ -1,13 +1,9 @@
-import {
-  useState, useEffect,
-} from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import chainConfig from 'ui/dist/chainConfig';
-import {
-  formatToken, formatTokenByExponent,
-} from '@utils/format_token';
+import { formatToken, formatTokenByExponent } from '@utils/format_token';
 import { TRANSACTION_DETAILS } from '@api';
 import { TransactionDetailsState } from './types';
 
@@ -53,7 +49,7 @@ export const useTransactionDetails = () => {
   const getTransactionDetail = async () => {
     try {
       const { data: transactionData } = await axios.get(
-        TRANSACTION_DETAILS(router.query.hash as string),
+        TRANSACTION_DETAILS(router.query.hash as string)
       );
 
       // overview
@@ -68,7 +64,10 @@ export const useTransactionDetails = () => {
         miniblockHash: transactionData.miniBlockHash,
         gasUsed: transactionData.gasUsed,
         gasLimit: transactionData.gasLimit,
-        gasPrice: formatToken(R.pathOr(0, ['gasPrice'], transactionData), chainConfig.primaryTokenUnit),
+        gasPrice: formatToken(
+          R.pathOr(0, ['gasPrice'], transactionData),
+          chainConfig.primaryTokenUnit
+        ),
         price: transactionData.price,
       };
 
@@ -90,11 +89,8 @@ export const useTransactionDetails = () => {
         if (type === chainConfig.primaryTokenUnit) {
           decimals = chainConfig.tokenUnits[chainConfig.primaryTokenUnit].exponent;
         }
-        const value = formatTokenByExponent(
-          R.pathOr('0', ['value'], x),
-          decimals,
-        );
-        return ({
+        const value = formatTokenByExponent(R.pathOr('0', ['value'], x), decimals);
+        return {
           action: R.pathOr('', ['action'], x),
           sender: R.pathOr('', ['sender'], x),
           receiver: R.pathOr('', ['receiver'], x),
@@ -105,18 +101,18 @@ export const useTransactionDetails = () => {
             displayDenom: R.pathOr('', ['name'], x) || type,
             exponent: decimals,
           },
-        });
+        };
       });
 
       // results
       const results = R.pathOr([], ['results'], transactionData).map((x) => {
-        return ({
+        return {
           hash: R.pathOr('', ['hash'], x),
           sender: R.pathOr('', ['sender'], x),
           receiver: R.pathOr('', ['receiver'], x),
           data: R.pathOr('', ['data'], x),
           value: formatToken(R.pathOr(0, ['value'], x), chainConfig.primaryTokenUnit),
-        });
+        };
       });
 
       handleSetState({

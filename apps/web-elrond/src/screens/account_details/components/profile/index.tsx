@@ -10,10 +10,7 @@ import { useStyles } from './styles';
 import { useOverview } from './hooks';
 import { ProfileType } from '../../types';
 
-const Profile: React.FC<{profile: ProfileType} & ComponentDefault> = ({
-  className,
-  profile,
-}) => {
+const Profile: React.FC<{ profile: ProfileType } & ComponentDefault> = ({ className, profile }) => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const { t } = useTranslation('accounts');
@@ -31,15 +28,12 @@ const Profile: React.FC<{profile: ProfileType} & ComponentDefault> = ({
             className={classes.actionIcons}
           />
           <Typography variant="body1" className="value">
-            {
-                !isDesktop ? (
-                  getMiddleEllipsis(profile.address, {
-                    beginning: 15, ending: 5,
-                  })
-                ) : (
-                  profile.address
-                )
-              }
+            {!isDesktop
+              ? getMiddleEllipsis(profile.address, {
+                  beginning: 15,
+                  ending: 5,
+                })
+              : profile.address}
           </Typography>
         </div>
       </div>

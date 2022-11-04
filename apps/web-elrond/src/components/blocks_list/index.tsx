@@ -1,8 +1,6 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import {
-  useScreenSize,
-} from '@hooks';
+import { useScreenSize } from '@hooks';
 import { BlockListType } from './types';
 
 const Desktop = dynamic(() => import('./components/desktop'));
@@ -18,9 +16,7 @@ const BlocksList: React.FC<BlockListType & ComponentDefault> = (props) => {
     component = <Mobile items={props.items} />;
   }
 
-  return (
-    <>{component}</>
-  );
+  return <>{component}</>;
 };
 
 export default BlocksList;

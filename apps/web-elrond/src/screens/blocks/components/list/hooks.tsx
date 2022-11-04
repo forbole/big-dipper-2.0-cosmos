@@ -1,13 +1,7 @@
-import {
-  useEffect, useState,
-} from 'react';
+import { useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
-import {
-  POLLING_INTERVAL,
-  BLOCKS,
-  LATEST_BLOCK_HEIGHT,
-} from '@api';
+import { POLLING_INTERVAL, BLOCKS, LATEST_BLOCK_HEIGHT } from '@api';
 import { useInterval } from '@hooks';
 import { BlockState } from './types';
 
@@ -58,14 +52,14 @@ export const useBlocks = () => {
       });
 
       const items = blocksData.map((x) => {
-        return ({
+        return {
           block: x.round,
           timestamp: x.timestamp,
           hash: x.hash,
           txs: x.txCount,
           shard: x.shard,
           size: x.sizeTxs,
-        });
+        };
       });
 
       handleSetState({
@@ -85,8 +79,8 @@ export const useBlocks = () => {
 
   useInterval(getBlocksInterval, POLLING_INTERVAL);
 
-  return ({
+  return {
     state,
     handlePageChangeCallback,
-  });
+  };
 };

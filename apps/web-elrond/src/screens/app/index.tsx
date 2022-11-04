@@ -6,9 +6,7 @@ import useTranslation from 'next-translate/useTranslation';
 import chainConfig from 'ui/dist/chainConfig';
 import { useWindowOrigin } from '@hooks';
 import { Main } from './components';
-import {
-  useApp,
-} from './hooks';
+import { useApp } from './hooks';
 import {
   OPEN_GRAPH_SEO,
   TWITTER_SEO,

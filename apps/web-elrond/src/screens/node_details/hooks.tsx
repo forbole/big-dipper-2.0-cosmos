@@ -1,17 +1,8 @@
-import {
-  useState,
-  useEffect,
-} from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import {
-  ROUNDS,
-  STATS,
-  NODE_DETAILS,
-  IDENTITY,
-  BLOCKS,
-} from '@api';
+import { ROUNDS, STATS, NODE_DETAILS, IDENTITY, BLOCKS } from '@api';
 import { NodeDetailsState } from './types';
 
 export const useNodeDetails = () => {
@@ -78,14 +69,14 @@ export const useNodeDetails = () => {
           validator = identity || nodeDataProvider;
         }
 
-        return ({
+        return {
           name: R.pathOr('', ['name'], nodeData),
           version: R.pathOr('', ['version'], nodeData),
           pubkey: R.pathOr('', ['bls'], nodeData),
           rating: R.pathOr(0, ['rating'], nodeData),
           identity: nodeDataIdentity,
           validator,
-        });
+        };
       };
 
       newState.profile = await formatProfile();
@@ -95,13 +86,13 @@ export const useNodeDetails = () => {
       // =============================================
 
       const formatOverview = () => {
-        return ({
+        return {
           shard: R.pathOr(0, ['shard'], nodeData),
           type: R.pathOr('', ['type'], nodeData),
           status: R.pathOr('', ['status'], nodeData),
           online: R.pathOr(false, ['online'], nodeData),
           instances: R.pathOr(0, ['instances'], nodeData),
-        });
+        };
       };
 
       newState.overview = formatOverview();
@@ -124,13 +115,13 @@ export const useNodeDetails = () => {
 
       if (R.pathOr('', ['type'], nodeData).toLowerCase() === 'validator') {
         const formatStats = () => {
-          return ({
+          return {
             ignoredSignatures: R.pathOr(0, ['validatorIgnoredSignatures'], nodeData),
             leaderSuccess: R.pathOr(0, ['leaderSuccess'], nodeData),
             leaderFailure: R.pathOr(0, ['leaderFailure'], nodeData),
             validatorSuccess: R.pathOr(0, ['validatorSuccess'], nodeData),
             validatorFailure: R.pathOr(0, ['validatorFailure'], nodeData),
-          });
+          };
         };
         newState.stats = formatStats();
       }
@@ -201,9 +192,7 @@ export const useNodeDetails = () => {
     }
   };
 
-  const getConsensus = async ({
-    validator, shard, epoch,
-  }) => {
+  const getConsensus = async ({ validator, shard, epoch }) => {
     const { data: roundsData } = await axios.get(ROUNDS, {
       params: {
         size: 138,
@@ -217,9 +206,7 @@ export const useNodeDetails = () => {
     return roundsData || [];
   };
 
-  const getBlocks = async ({
-    validator, shard, epoch,
-  }) => {
+  const getBlocks = async ({ validator, shard, epoch }) => {
     const { data: blocksData } = await axios.get(BLOCKS, {
       params: {
         // size: 25,
@@ -233,7 +220,7 @@ export const useNodeDetails = () => {
     return blocksData || [];
   };
 
-  return ({
+  return {
     state,
-  });
+  };
 };

@@ -1,9 +1,7 @@
 import TokenDetails from '@src/screens/token_details';
 
 const TokenDetailsPage = () => {
-  return (
-    <TokenDetails />
-  );
+  return <TokenDetails />;
 };
 
 export default TokenDetailsPage;

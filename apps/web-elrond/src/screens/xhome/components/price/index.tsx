@@ -20,20 +20,16 @@ import { useStyles } from './styles';
 import { usePrice } from './hooks';
 import { PriceType } from '../../types';
 
-const Price: React.FC<{price: PriceType[]} & ComponentDefault> = (props) => {
-  const {
-    classes, theme,
-  } = useStyles();
+const Price: React.FC<{ price: PriceType[] } & ComponentDefault> = (props) => {
+  const { classes, theme } = useStyles();
   const { t } = useTranslation('home');
-  const {
-    tickPriceFormatter,
-  } = usePrice();
+  const { tickPriceFormatter } = usePrice();
 
   const formatItems = props.price.map((x) => {
-    return ({
+    return {
       time: dayjs(x.time).format('MMM DD'),
       value: x.value,
-    });
+    };
   });
 
   return (
@@ -53,34 +49,24 @@ const Price: React.FC<{price: PriceType[]} & ComponentDefault> = (props) => {
             }}
           >
             <CartesianGrid stroke={theme.palette.divider} />
-            <XAxis
-              dataKey="time"
-              tickLine={false}
-            />
-            <YAxis
-              tickLine={false}
-              tickFormatter={tickPriceFormatter}
-              tickCount={5}
-            />
+            <XAxis dataKey="time" tickLine={false} />
+            <YAxis tickLine={false} tickFormatter={tickPriceFormatter} tickCount={5} />
             <Tooltip
               cursor={false}
-              content={(
+              content={
                 <CustomToolTip>
                   {(x) => {
                     return (
                       <>
-                        <Typography variant="caption">
-                          {x.time}
-                        </Typography>
+                        <Typography variant="caption">{x.time}</Typography>
                         <Typography variant="body1">
-                          $
-                          {numeral(x.value).format('0,0.00')}
+                          ${numeral(x.value).format('0,0.00')}
                         </Typography>
                       </>
                     );
                   }}
                 </CustomToolTip>
-            )}
+              }
             />
             <Area
               type="monotone"

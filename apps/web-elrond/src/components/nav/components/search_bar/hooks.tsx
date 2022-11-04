@@ -1,7 +1,5 @@
 import { useRouter } from 'next/router';
-import {
-  ACCOUNT_DETAILS,
-} from '@utils/go_to_page';
+import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 
 export const useSearchBar = (_t) => {
   const router = useRouter();

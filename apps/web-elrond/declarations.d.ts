@@ -10,7 +10,7 @@ type Override<T1, T2> = Omit<T1, keyof T2> & T2;
 
 type ComponentDefault = {
   className?: string;
-}
+};
 interface AvatarName {
   className?: string;
   imageUrl?: string | null;
@@ -27,7 +27,7 @@ type TransactionType = {
   to: string;
   timestamp: number;
   status: string;
-}
+};
 
 type BlockType = {
   block: number; // round
@@ -36,7 +36,7 @@ type BlockType = {
   shard: number;
   size: number;
   hash: string;
-}
+};
 
 // type Transactions = {
 //   height: number;
@@ -54,7 +54,7 @@ type TokenUnit = {
   baseDenom: string;
   exponent: number;
   value: string;
-}
+};
 
 // type DesmosProfile = {
 //   dtag: string;
@@ -82,29 +82,30 @@ type TokenUnit = {
 //   lastSeen: string;
 // }
 
-type TagTheme = 'zero' |
-'one' |
-'two' |
-'three' |
-'four' |
-'five' |
-'six' |
-'seven' |
-'eight' |
-'nine' |
-'ten' |
-'eleven' |
-'twelve' |
-'thirteen' |
-'fourteen' |
-'fifteen' |
-'sixteen' |
-'seventeen' |
-'eighteen' |
-'nineteen' |
-'twenty'
+type TagTheme =
+  | 'zero'
+  | 'one'
+  | 'two'
+  | 'three'
+  | 'four'
+  | 'five'
+  | 'six'
+  | 'seven'
+  | 'eight'
+  | 'nine'
+  | 'ten'
+  | 'eleven'
+  | 'twelve'
+  | 'thirteen'
+  | 'fourteen'
+  | 'fifteen'
+  | 'sixteen'
+  | 'seventeen'
+  | 'eighteen'
+  | 'nineteen'
+  | 'twenty';
 
 type MsgCoin = {
   denom: string;
   amount: string;
-}
+};

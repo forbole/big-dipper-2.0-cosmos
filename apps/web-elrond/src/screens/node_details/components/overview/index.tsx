@@ -8,7 +8,7 @@ import { getShardDisplay } from '@utils/get_shard_display';
 import { useStyles } from './style';
 import { OverviewType } from '../../types';
 
-const Overview: React.FC<{overview: OverviewType} & ComponentDefault> = (props) => {
+const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props) => {
   const { t } = useTranslation('nodes');
   const classes = useStyles();
   const shard = getShardDisplay(props.overview.shard);
@@ -26,20 +26,12 @@ const Overview: React.FC<{overview: OverviewType} & ComponentDefault> = (props) 
       key: t('type'),
       value: (
         <Typography>
-          {props.overview.type.toUpperCase()}
-          {' '}
-
+          {props.overview.type.toUpperCase()}{' '}
           <span className="item__value--status">
             {props.overview.type === 'validator' ? (
-              <>
-                (
-                {props.overview.status.toUpperCase()}
-                )
-              </>
+              <>({props.overview.status.toUpperCase()})</>
             ) : (
-              <>
-                {props.overview.status.toUpperCase()}
-              </>
+              <>{props.overview.status.toUpperCase()}</>
             )}
           </span>
         </Typography>
@@ -53,7 +45,9 @@ const Overview: React.FC<{overview: OverviewType} & ComponentDefault> = (props) 
 
   return (
     <Box className={classnames(props.className)}>
-      <Typography className={classes.title} variant="h2">{t('overview')}</Typography>
+      <Typography className={classes.title} variant="h2">
+        {t('overview')}
+      </Typography>
       <div className={classes.body}>
         {items.map((x) => {
           return (
@@ -65,13 +59,9 @@ const Overview: React.FC<{overview: OverviewType} & ComponentDefault> = (props) 
                     {x.key}
                   </Typography>
                   {React.isValidElement(x.value) ? (
-                    <div>
-                      {x.value}
-                    </div>
+                    <div>{x.value}</div>
                   ) : (
-                    <Typography variant="body1">
-                      {x.value}
-                    </Typography>
+                    <Typography variant="body1">{x.value}</Typography>
                   )}
                 </div>
               </div>

@@ -2,7 +2,7 @@ import numeral from 'numeral';
 import { AtomState } from '@recoil/market/types';
 
 export const formatMarket = (data: AtomState) => {
-  return ([
+  return [
     {
       key: 'marketCap',
       data: `$${numeral(data.marketCap).format('0,0')}`,
@@ -19,5 +19,5 @@ export const formatMarket = (data: AtomState) => {
       key: 'supply',
       data: numeral(data.supply).format('0,0'),
     },
-  ]);
+  ];
 };

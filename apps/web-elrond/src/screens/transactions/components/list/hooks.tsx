@@ -1,13 +1,7 @@
-import {
-  useEffect, useState,
-} from 'react';
+import { useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
-import {
-  POLLING_INTERVAL,
-  TRANSACTIONS,
-  TRANSACTIONS_COUNT,
-} from '@api';
+import { POLLING_INTERVAL, TRANSACTIONS, TRANSACTIONS_COUNT } from '@api';
 import { useInterval } from '@hooks';
 import { TransactionState } from './types';
 
@@ -58,7 +52,7 @@ export const useBlocks = () => {
       });
 
       const items = transactionsData.map((x) => {
-        return ({
+        return {
           hash: x.txHash,
           fromShard: x.senderShard,
           toShard: x.receiverShard,
@@ -66,7 +60,7 @@ export const useBlocks = () => {
           to: x.receiver,
           timestamp: x.timestamp,
           status: x.status,
-        });
+        };
       });
 
       handleSetState({
@@ -86,8 +80,8 @@ export const useBlocks = () => {
 
   useInterval(getTransactionsInterval, POLLING_INTERVAL);
 
-  return ({
+  return {
     state,
     handlePageChangeCallback,
-  });
+  };
 };

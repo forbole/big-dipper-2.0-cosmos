@@ -7,7 +7,7 @@ import BlocksList from '@components/blocks_list';
 import NoData from '@components/no_data';
 import { useStyles } from './style';
 
-const Blocks: React.FC<{blocks: BlockType[]} & ComponentDefault> = (props) => {
+const Blocks: React.FC<{ blocks: BlockType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('nodes');
   const classes = useStyles();
   let component = null;
@@ -18,7 +18,9 @@ const Blocks: React.FC<{blocks: BlockType[]} & ComponentDefault> = (props) => {
   }
   return (
     <Box className={classnames(props.className)}>
-      <Typography className={classes.title} variant="h2">{t('blocks')}</Typography>
+      <Typography className={classes.title} variant="h2">
+        {t('blocks')}
+      </Typography>
       {component}
     </Box>
   );

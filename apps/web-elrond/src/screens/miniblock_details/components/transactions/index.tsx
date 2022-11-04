@@ -9,22 +9,13 @@ import Loading from '@components/loading';
 import TransactionsList from '@components/transactions_list';
 import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
-import {
-  useTransactions, PAGE_SIZE,
-} from './hooks';
+import { useTransactions, PAGE_SIZE } from './hooks';
 
-const Transactions:React.FC<ComponentDefault> = (props) => {
+const Transactions: React.FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
-  const {
-    state, handlePageChangeCallback,
-  } = useTransactions();
-  const {
-    page,
-    rowsPerPage,
-    handleChangePage,
-    handleChangeRowsPerPage,
-  } = usePagination({
+  const { state, handlePageChangeCallback } = useTransactions();
+  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage } = usePagination({
     rowsPage: PAGE_SIZE,
     pageChangeCallback: handlePageChangeCallback,
   });

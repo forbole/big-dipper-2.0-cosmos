@@ -1,8 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import {
-  Typography,
-} from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import Box from '@components/box';
 import Avatar from '@components/avatar';
 import Markdown from '@components/markdown';
@@ -11,14 +9,13 @@ import { isBech32 } from '@utils/bech32';
 import { useStyles } from './styles';
 import { ProfileType } from '../../types';
 
-const Profile: React.FC<{profile: ProfileType} & ComponentDefault> = ({
-  className, profile,
-}) => {
+const Profile: React.FC<{ profile: ProfileType } & ComponentDefault> = ({ className, profile }) => {
   const classes = useStyles();
   let { name } = profile;
   if (isBech32(name)) {
     name = getMiddleEllipsis(profile.name, {
-      beginning: 10, ending: 8,
+      beginning: 10,
+      ending: 8,
     });
   }
 
@@ -42,9 +39,7 @@ const Profile: React.FC<{profile: ProfileType} & ComponentDefault> = ({
                 className={classnames(classes.avatar, classes.mobile)}
               />
               <div className="header__content">
-                <Typography variant="h2">
-                  {name}
-                </Typography>
+                <Typography variant="h2">{name}</Typography>
               </div>
             </div>
           </div>

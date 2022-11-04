@@ -3,24 +3,29 @@ import renderer from 'react-test-renderer';
 import { RecoilRoot } from 'recoil';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import {
-  LATEST_BLOCK_HEIGHT,
-  BLOCKS,
-} from '@api';
-import {
-  MockTheme, wait,
-} from '@tests/utils';
+import { LATEST_BLOCK_HEIGHT, BLOCKS } from '@api';
+import { MockTheme, wait } from '@tests/utils';
 import List from '.';
 
 // ==================================
 // unit tests
 // ==================================
 
-jest.mock('@components/pagination', () => (props: JSX.IntrinsicElements['div']) => <div id="Pagination" {...props} />);
-jest.mock('@components/no_data', () => (props: JSX.IntrinsicElements['div']) => <div id="NoData" {...props} />);
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />);
-jest.mock('@components/loading', () => (props: JSX.IntrinsicElements['div']) => <div id="Loading" {...props} />);
-jest.mock('@components/blocks_list', () => (props: JSX.IntrinsicElements['div']) => <div id="BlocksList" {...props} />);
+jest.mock('@components/pagination', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Pagination" {...props} />
+));
+jest.mock('@components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="NoData" {...props} />
+));
+jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Box" {...props} />
+));
+jest.mock('@components/loading', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Loading" {...props} />
+));
+jest.mock('@components/blocks_list', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="BlocksList" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -59,7 +64,7 @@ describe('screen: Blocks/List', () => {
           <MockTheme>
             <List />
           </MockTheme>
-        </RecoilRoot>,
+        </RecoilRoot>
       );
     });
     await wait(3000);

@@ -5,7 +5,7 @@ import { NODE_DETAILS } from '@utils/go_to_page';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { ConsensusType } from '../../../../types';
 
-export const columns:{
+export const columns: {
   key: string;
   align?: 'left' | 'center' | 'right' | 'justify' | 'inherit';
   width: number;
@@ -22,19 +22,18 @@ export const columns:{
 
 export const formatRows = (data: ConsensusType[]) => {
   return data.map((x, i) => {
-    return (
-      {
-        idx: numeral(i + 1).format('0,0'),
-        validator: (
-          <Link href={NODE_DETAILS(x)} passHref>
-            <Typography variant="body1" className="value" component="a">
-              {getMiddleEllipsis(x, {
-                beginning: 40, ending: 30,
-              })}
-            </Typography>
-          </Link>
-        ),
-      }
-    );
+    return {
+      idx: numeral(i + 1).format('0,0'),
+      validator: (
+        <Link href={NODE_DETAILS(x)} passHref>
+          <Typography variant="body1" className="value" component="a">
+            {getMiddleEllipsis(x, {
+              beginning: 40,
+              ending: 30,
+            })}
+          </Typography>
+        </Link>
+      ),
+    };
   });
 };

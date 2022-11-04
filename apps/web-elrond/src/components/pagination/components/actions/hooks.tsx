@@ -41,10 +41,9 @@ export const useTablePaginationActions = (props: {
   const getAvailablePages = () => {
     // handle edge case where there is not enough pages
     const totalPages = Math.ceil(count / rowsPerPage);
-    const remainderCount = count - (rowsPerPage * (page + 1));
+    const remainderCount = count - rowsPerPage * (page + 1);
     const remainingPages = Math.ceil(remainderCount / rowsPerPage);
-    const pageDisplay = totalPages < (pageNeighbors * 2) + 1
-      ? totalPages : (pageNeighbors * 2) + 1;
+    const pageDisplay = totalPages < pageNeighbors * 2 + 1 ? totalPages : pageNeighbors * 2 + 1;
     const availablePages = new Array(pageDisplay).fill(0);
 
     let selectedPageIndex = 0;
@@ -58,7 +57,7 @@ export const useTablePaginationActions = (props: {
 
     availablePages.forEach((x, i) => {
       if (i !== selectedPageIndex) {
-        availablePages[i] = (page) - selectedPageIndex + i;
+        availablePages[i] = page - selectedPageIndex + i;
       } else {
         availablePages[i] = page;
       }

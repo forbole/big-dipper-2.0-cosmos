@@ -1,9 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { RecoilRoot } from 'recoil';
-import {
-  MockTheme, wait,
-} from '@tests/utils';
+import { MockTheme, wait } from '@tests/utils';
 import InitialLoad from '.';
 
 // ==================================
@@ -14,13 +12,15 @@ describe('screen: InitialLoad', () => {
     let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
 
     renderer.act(() => {
-      tree = renderer.create(
-        <RecoilRoot>
-          <MockTheme>
-            <InitialLoad />
-          </MockTheme>
-        </RecoilRoot>,
-      ).toJSON();
+      tree = renderer
+        .create(
+          <RecoilRoot>
+            <MockTheme>
+              <InitialLoad />
+            </MockTheme>
+          </RecoilRoot>
+        )
+        .toJSON();
     });
     await wait();
 

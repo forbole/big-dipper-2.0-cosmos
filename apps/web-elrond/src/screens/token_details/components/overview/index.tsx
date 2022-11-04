@@ -6,7 +6,7 @@ import AvatarName from '@components/avatar_name';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { OverviewType } from '../../types';
 
-const Overview: React.FC<{overview: OverviewType} & ComponentDefault> = (props) => {
+const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props) => {
   const { t } = useTranslation('tokens');
 
   const details = [
@@ -16,7 +16,8 @@ const Overview: React.FC<{overview: OverviewType} & ComponentDefault> = (props) 
         <AvatarName
           address={props.overview.owner}
           name={getMiddleEllipsis(props.overview.owner, {
-            beginning: 10, ending: 10,
+            beginning: 10,
+            ending: 10,
           })}
         />
       ),
@@ -31,7 +32,9 @@ const Overview: React.FC<{overview: OverviewType} & ComponentDefault> = (props) 
         <Typography component="a" href={props.overview.website} target="_blank" rel="noreferrer">
           {props.overview.website}
         </Typography>
-      ) : '-',
+      ) : (
+        '-'
+      ),
     },
     {
       label: t('email'),
@@ -39,13 +42,7 @@ const Overview: React.FC<{overview: OverviewType} & ComponentDefault> = (props) 
     },
   ];
 
-  return (
-    <BoxDetails
-      className={props.className}
-      title={t('overview')}
-      details={details}
-    />
-  );
+  return <BoxDetails className={props.className} title={t('overview')} details={details} />;
 };
 
 export default Overview;

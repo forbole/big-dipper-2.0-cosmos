@@ -5,11 +5,4 @@ import Epoch from './epoch';
 import Price from './price';
 import Staking from './staking';
 
-export {
-  DataBlocks,
-  Blocks,
-  Transactions,
-  Epoch,
-  Price,
-  Staking,
-};
+export { DataBlocks, Blocks, Transactions, Epoch, Price, Staking };

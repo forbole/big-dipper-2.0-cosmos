@@ -1,21 +1,11 @@
-import {
-  useEffect, useState,
-} from 'react';
+import { useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
 import Big from 'big.js';
-import {
-  IDENTITIES,
-  PROVIDERS,
-  STAKE,
-} from '@api';
-import {
-  formatToken, formatNumber,
-} from '@utils/format_token';
+import { IDENTITIES, PROVIDERS, STAKE } from '@api';
+import { formatToken, formatNumber } from '@utils/format_token';
 import chainConfig from 'ui/dist/chainConfig';
-import {
-  ValidatorsState,
-} from './types';
+import { ValidatorsState } from './types';
 
 export const useValidators = () => {
   const [state, setState] = useState<ValidatorsState>({
@@ -85,11 +75,15 @@ export const useValidators = () => {
 
       validatorsData.forEach((x) => {
         const identity = R.pathOr(null, ['identity'], x);
-        const validator = R.pathOr({
-          address: R.pathOr('', ['name'], x),
-          imageUrl: '',
-          name: R.pathOr('', ['name'], x),
-        }, [identity], identities);
+        const validator = R.pathOr(
+          {
+            address: R.pathOr('', ['name'], x),
+            imageUrl: '',
+            name: R.pathOr('', ['name'], x),
+          },
+          [identity],
+          identities
+        );
         if (!allValidators[validator.address]) {
           allValidators[validator.address] = validator;
         }
@@ -102,11 +96,15 @@ export const useValidators = () => {
 
       providersData.forEach((x) => {
         const identity = R.pathOr(null, ['identity'], x);
-        const validator = R.pathOr({
-          address: R.pathOr('', ['provider'], x),
-          imageUrl: '',
-          name: R.pathOr('', ['provider'], x),
-        }, [identity], identities);
+        const validator = R.pathOr(
+          {
+            address: R.pathOr('', ['provider'], x),
+            imageUrl: '',
+            name: R.pathOr('', ['provider'], x),
+          },
+          [identity],
+          identities
+        );
 
         // validator should be unique
         if (!allValidators[validator.address]) {
@@ -126,25 +124,22 @@ export const useValidators = () => {
         const data = R.mergeAll([providerData, validatorData]);
 
         const locked = R.pathOr('0', ['locked'], data);
-        const stakePercentString = Big(locked).div(totalStaked === '0' ? 1 : totalStaked).times(100).toFixed(3);
+        const stakePercentString = Big(locked)
+          .div(totalStaked === '0' ? 1 : totalStaked)
+          .times(100)
+          .toFixed(3);
 
-        return ({
+        return {
           validator,
-          stake: formatToken(
-            R.pathOr('0', ['stake'], data),
-            chainConfig.primaryTokenUnit,
-          ),
-          locked: formatToken(
-            locked,
-            chainConfig.primaryTokenUnit,
-          ),
+          stake: formatToken(R.pathOr('0', ['stake'], data), chainConfig.primaryTokenUnit),
+          locked: formatToken(locked, chainConfig.primaryTokenUnit),
           nodes: R.pathOr(0, ['validators'], data),
           commission: R.pathOr(undefined, ['serviceFee'], data),
           apr: R.pathOr(undefined, ['apr'], data),
           delegators: R.pathOr(undefined, ['numUsers'], data),
           stakePercent: Number(formatNumber(stakePercentString, 2)),
           isNode,
-        });
+        };
       });
 
       handleSetState({
@@ -160,9 +155,9 @@ export const useValidators = () => {
     }
   };
 
-  return ({
+  return {
     state,
     handleTabChange,
     handleSearch,
-  });
+  };
 };

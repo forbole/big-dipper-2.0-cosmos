@@ -4,8 +4,8 @@ export type TransactionType = {
   to: string;
   timestamp: number;
   status: string;
-}
+};
 
 export type TransactionState = {
   items: TransactionType[];
-}
+};

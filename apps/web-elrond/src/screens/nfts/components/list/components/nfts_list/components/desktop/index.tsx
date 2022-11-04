@@ -3,26 +3,17 @@ import Link from 'next/link';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import AvatarName from '@components/avatar_name';
-import {
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
-  Typography,
-} from '@material-ui/core';
-import {
-  NFT_DETAILS,
-} from '@utils/go_to_page';
+import { Table, TableHead, TableRow, TableCell, TableBody, Typography } from '@material-ui/core';
+import { NFT_DETAILS } from '@utils/go_to_page';
 import { columns } from './utils';
 import { useStyles } from './styles';
 import { NFTTypes } from '../../../../types';
 
-const Desktop: React.FC<{items: NFTTypes[]} & ComponentDefault> = (props) => {
+const Desktop: React.FC<{ items: NFTTypes[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('nfts');
   const classes = useStyles();
   const formattedItems = props.items.map((x) => {
-    return ({
+    return {
       identifier: x.identifier,
       nft: (
         <Link href={NFT_DETAILS(x.identifier)} passHref>
@@ -32,13 +23,8 @@ const Desktop: React.FC<{items: NFTTypes[]} & ComponentDefault> = (props) => {
         </Link>
       ),
       type: x.type,
-      creator: (
-        <AvatarName
-          name={x.creator}
-          address={x.creator}
-        />
-      ),
-    });
+      creator: <AvatarName name={x.creator} address={x.creator} />,
+    };
   });
   return (
     <div className={classnames(props.className, classes.root)}>

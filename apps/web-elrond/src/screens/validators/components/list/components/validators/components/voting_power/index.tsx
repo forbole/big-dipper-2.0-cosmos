@@ -8,16 +8,12 @@ const VotingPower: React.FC<{
   percentage: number;
   percentDisplay: string;
   content: string;
-}> = ({
-  className, percentage, content, percentDisplay,
-}) => {
+}> = ({ className, percentage, content, percentDisplay }) => {
   const classes = useStyles(percentage);
   return (
     <div className={classnames(className, classes.root)}>
       <div className={classes.content}>
-        <Typography variant="body1">
-          {content}
-        </Typography>
+        <Typography variant="body1">{content}</Typography>
         <Typography variant="body1" className="percentage">
           {percentDisplay}
         </Typography>

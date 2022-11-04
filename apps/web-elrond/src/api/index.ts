@@ -21,18 +21,23 @@ export const PRICE_HISTORY = 'https://data.elrond.com/latestcomplete/quoteshisto
 export const IDENTITIES = `${BASE_URL}/identities`;
 export const IDENTITY = (identity: string) => `${BASE_URL}/identities/${identity}`;
 export const PROVIDERS = `${BASE_URL}/providers`;
-export const PROVIDER_DETAILS = (provider:string) => `${BASE_URL}/providers/${provider}`;
+export const PROVIDER_DETAILS = (provider: string) => `${BASE_URL}/providers/${provider}`;
 export const STAKE = `${BASE_URL}/stake`;
 export const ROUNDS = `${BASE_URL}/rounds`;
 export const NODES = `${BASE_URL}/nodes`;
 export const NODE_DETAILS = (node: string) => `${BASE_URL}/nodes/${node}`;
 export const ACCOUNT_DETAILS = (account: string) => `${BASE_URL}/accounts/${account}`;
-export const ACCOUNT_DETAILS_TOKEN_COUNT = (account: string) => `${BASE_URL}/accounts/${account}/tokens/count`;
-export const ACCOUNT_DETAILS_TRANSACTIONS = (account: string) => `${BASE_URL}/accounts/${account}/transactions`;
-export const ACCOUNT_DETAILS_TRANSACTIONS_COUNT = (account: string) => `${BASE_URL}/accounts/${account}/transactions/count`;
-export const ACCOUNT_DETAILS_TOKENS_COUNT = (account: string) => `${BASE_URL}/accounts/${account}/tokens/count`;
+export const ACCOUNT_DETAILS_TOKEN_COUNT = (account: string) =>
+  `${BASE_URL}/accounts/${account}/tokens/count`;
+export const ACCOUNT_DETAILS_TRANSACTIONS = (account: string) =>
+  `${BASE_URL}/accounts/${account}/transactions`;
+export const ACCOUNT_DETAILS_TRANSACTIONS_COUNT = (account: string) =>
+  `${BASE_URL}/accounts/${account}/transactions/count`;
+export const ACCOUNT_DETAILS_TOKENS_COUNT = (account: string) =>
+  `${BASE_URL}/accounts/${account}/tokens/count`;
 export const ACCOUNT_DETAILS_TOKENS = (account: string) => `${BASE_URL}/accounts/${account}/tokens`;
-export const ACCOUNT_DETAILS_NFTS_COUNT = (account: string) => `${BASE_URL}/accounts/${account}/nfts/count`;
+export const ACCOUNT_DETAILS_NFTS_COUNT = (account: string) =>
+  `${BASE_URL}/accounts/${account}/nfts/count`;
 export const ACCOUNT_DETAILS_NFTS = (account: string) => `${BASE_URL}/accounts/${account}/nfts`;
 export const TOKENS = `${BASE_URL}/tokens`;
 export const TOKENS_COUNT = `${BASE_URL}/tokens/count`;

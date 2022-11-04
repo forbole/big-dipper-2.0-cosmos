@@ -4,7 +4,7 @@ import useTranslation from 'next-translate/useTranslation';
 import BoxDetails from '@components/box_details';
 import { StatsType } from '../../types';
 
-const Stats: React.FC<{stats: StatsType} & ComponentDefault> = (props) => {
+const Stats: React.FC<{ stats: StatsType } & ComponentDefault> = (props) => {
   const { t } = useTranslation('tokens');
 
   const details = [
@@ -26,13 +26,7 @@ const Stats: React.FC<{stats: StatsType} & ComponentDefault> = (props) => {
     },
   ];
 
-  return (
-    <BoxDetails
-      className={props.className}
-      title={t('stats')}
-      details={details}
-    />
-  );
+  return <BoxDetails className={props.className} title={t('stats')} details={details} />;
 };
 
 export default Stats;

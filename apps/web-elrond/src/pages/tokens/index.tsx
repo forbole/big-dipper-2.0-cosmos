@@ -1,9 +1,7 @@
 import Tokens from '@src/screens/tokens';
 
 const TokensPage = () => {
-  return (
-    <Tokens />
-  );
+  return <Tokens />;
 };
 
 export default TokensPage;

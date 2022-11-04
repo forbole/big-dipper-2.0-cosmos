@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
-import {
-  POLLING_INTERVAL,
-  BLOCKS,
-} from '@api';
+import { POLLING_INTERVAL, BLOCKS } from '@api';
 import { useInterval } from '@hooks';
 import { BlockState } from './types';
 
@@ -29,12 +26,12 @@ export const useBlocks = () => {
       });
 
       const items = blocksData.map((x) => {
-        return ({
+        return {
           block: x.round,
           timestamp: x.timestamp,
           hash: x.hash,
           txs: x.txCount,
-        });
+        };
       });
 
       handleSetState({
@@ -47,7 +44,7 @@ export const useBlocks = () => {
 
   useInterval(getBlocksByPage, POLLING_INTERVAL);
 
-  return ({
+  return {
     state,
-  });
+  };
 };

@@ -1,9 +1,7 @@
 import React from 'react';
 import { useGetStyles } from './styles';
 
-const CodeBlock = (props: {
-  message: string;
-}) => {
+const CodeBlock = (props: { message: string }) => {
   const { message } = props;
 
   const { classes } = useGetStyles();

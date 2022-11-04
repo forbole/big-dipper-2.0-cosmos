@@ -1,13 +1,9 @@
-import {
-  useState, useEffect,
-} from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import chainConfig from 'ui/dist/chainConfig';
 import axios from 'axios';
-import {
-  ACCOUNT_DETAILS, ACCOUNT_DETAILS_TOKEN_COUNT,
-} from '@api';
+import { ACCOUNT_DETAILS, ACCOUNT_DETAILS_TOKEN_COUNT } from '@api';
 import { formatToken } from '@utils/format_token';
 import { AccountDetailsType } from './types';
 
@@ -47,7 +43,7 @@ export const useAccountDetails = () => {
     const { data: accountData } = await axios.get(ACCOUNT_DETAILS(router.query.address as string));
 
     const { data: tokenCount } = await axios.get(
-      ACCOUNT_DETAILS_TOKEN_COUNT(router.query.address as string),
+      ACCOUNT_DETAILS_TOKEN_COUNT(router.query.address as string)
     );
 
     const newState: any = {
@@ -55,27 +51,24 @@ export const useAccountDetails = () => {
     };
 
     const getProfile = () => {
-      return ({
+      return {
         address: R.pathOr('', ['address'], accountData),
         username: R.pathOr('', ['username'], accountData),
-      });
+      };
     };
 
     newState.profile = getProfile();
 
     const getOverview = () => {
-      return ({
-        balance: formatToken(
-          R.pathOr('0', ['balance'], accountData),
-          chainConfig.primaryTokenUnit,
-        ),
+      return {
+        balance: formatToken(R.pathOr('0', ['balance'], accountData), chainConfig.primaryTokenUnit),
         developerReward: formatToken(
           R.pathOr('0', ['developerReward'], accountData),
-          chainConfig.primaryTokenUnit,
+          chainConfig.primaryTokenUnit
         ),
         shard: R.pathOr(0, ['shard'], accountData),
         tokenCount,
-      });
+      };
     };
 
     newState.overview = getOverview();

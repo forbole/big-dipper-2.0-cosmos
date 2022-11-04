@@ -8,10 +8,7 @@ const Forbole = () => {
       height="31.202"
       viewBox="0 0 157.198 31.202"
     >
-      <g
-        id="logo_white"
-        transform="translate(0.502 0.488)"
-      >
+      <g id="logo_white" transform="translate(0.502 0.488)">
         <path
           id="Union_2"
           data-name="Union 2"

@@ -4,5 +4,5 @@ export type DataBlockState = {
   validators: {
     total: number;
     active: number;
-  }
-}
+  };
+};

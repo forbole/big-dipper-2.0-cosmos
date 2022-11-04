@@ -1,9 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Typography,
-} from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 
 const SingleValidator: React.FC<{
@@ -80,7 +78,6 @@ const SingleValidator: React.FC<{
         </div>
       </div>
     </div>
-
   );
 };
 

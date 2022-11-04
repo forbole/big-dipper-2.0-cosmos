@@ -5,11 +5,4 @@ import ContractDetails from './contract_details';
 import Nodes from './nodes';
 import Transactions from './transactions';
 
-export {
-  Profile,
-  Stake,
-  Overview,
-  ContractDetails,
-  Nodes,
-  Transactions,
-};
+export { Profile, Stake, Overview, ContractDetails, Nodes, Transactions };

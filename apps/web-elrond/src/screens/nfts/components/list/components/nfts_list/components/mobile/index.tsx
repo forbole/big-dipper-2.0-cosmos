@@ -1,22 +1,18 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import {
-  Typography, Divider,
-} from '@material-ui/core';
+import { Typography, Divider } from '@material-ui/core';
 import Link from 'next/link';
 import AvatarName from '@components/avatar_name';
-import {
-  NFT_DETAILS,
-} from '@utils/go_to_page';
+import { NFT_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
 import { NFTTypes } from '../../../../types';
 
-const Mobile: React.FC<{items: NFTTypes[]} & ComponentDefault> = (props) => {
+const Mobile: React.FC<{ items: NFTTypes[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('nfts');
   const classes = useStyles();
   const formattedItems = props.items.map((x) => {
-    return ({
+    return {
       identifier: x.identifier,
       nft: (
         <Link href={NFT_DETAILS(x.identifier)} passHref>
@@ -29,12 +25,13 @@ const Mobile: React.FC<{items: NFTTypes[]} & ComponentDefault> = (props) => {
       creator: (
         <AvatarName
           name={getMiddleEllipsis(x.creator, {
-            beginning: 13, ending: 15,
+            beginning: 13,
+            ending: 15,
           })}
           address={x.creator}
         />
       ),
-    });
+    };
   });
 
   return (

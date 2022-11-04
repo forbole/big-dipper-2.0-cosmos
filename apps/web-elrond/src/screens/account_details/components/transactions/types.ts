@@ -3,4 +3,4 @@ export type TransactionState = {
   loading: boolean;
   total: number;
   items: TransactionType[];
-}
+};

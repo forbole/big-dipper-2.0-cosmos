@@ -4,11 +4,11 @@ export type NFTTypes = {
   type: string;
   creator: string;
   collection: string;
-}
+};
 
 export type BlockState = {
   page: number;
   loading: boolean;
   total: number;
   items: NFTTypes[];
-}
+};

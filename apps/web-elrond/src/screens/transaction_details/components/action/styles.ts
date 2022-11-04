@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
-      return ({
+      return {
         description: {
           alignItems: 'flex-start',
           '& .label': {
@@ -13,8 +13,9 @@ export const useStyles = () => {
             wordBreak: 'break-all',
           },
         },
-      });
-    }, { index: 1 },
+      };
+    },
+    { index: 1 }
   )();
 
   return styles;

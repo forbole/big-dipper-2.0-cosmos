@@ -5,19 +5,12 @@ import { Typography } from '@material-ui/core';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 import Box from '@components/box';
-import {
-  RadialBarChart,
-  PolarAngleAxis,
-  RadialBar,
-  Tooltip,
-} from 'recharts';
+import { RadialBarChart, PolarAngleAxis, RadialBar, Tooltip } from 'recharts';
 import { useStyles } from './styles';
 import { useEpoch } from './hooks';
 
 const Epoch: React.FC<ComponentDefault> = (props) => {
-  const {
-    classes, theme,
-  } = useStyles();
+  const { classes, theme } = useStyles();
   const { t } = useTranslation('home');
   const { state } = useEpoch();
 
@@ -49,17 +42,8 @@ const Epoch: React.FC<ComponentDefault> = (props) => {
           startAngle={90}
           endAngle={-270}
         >
-          <PolarAngleAxis
-            type="number"
-            domain={[0, 100]}
-            angleAxisId={0}
-            tick={false}
-          />
-          <RadialBar
-            background
-            dataKey="value"
-            cornerRadius={circleSize / 2}
-          />
+          <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
+          <RadialBar background dataKey="value" cornerRadius={circleSize / 2} />
           <Tooltip />
           <text
             x={circleSize / 2}
@@ -73,18 +57,14 @@ const Epoch: React.FC<ComponentDefault> = (props) => {
             </tspan>
           </text>
 
-          <text x={(circleSize / 2) - 20} y={(circleSize / 2) + 30}>
-            <tspan className={classes.chartLabel}>
-              {t('epoch')}
-            </tspan>
+          <text x={circleSize / 2 - 20} y={circleSize / 2 + 30}>
+            <tspan className={classes.chartLabel}>{t('epoch')}</tspan>
           </text>
         </RadialBarChart>
         <Typography variant="body2" className={classes.time}>
           <Trans
             i18nKey="home:epochRoundsLeft"
-            components={[
-              <span />,
-            ]}
+            components={[<span />]}
             values={{
               rounds: numeral(state.roundsPerEpoch - state.roundsPassed).format('0,0'),
             }}

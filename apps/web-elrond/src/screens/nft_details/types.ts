@@ -7,10 +7,10 @@ export type OverviewType = {
   owner: string; // may be null
   minted: number;
   ticker: string;
-}
+};
 
 export type BlockDetailsState = {
   loading: boolean;
   exists: boolean;
   overview: OverviewType;
-}
+};

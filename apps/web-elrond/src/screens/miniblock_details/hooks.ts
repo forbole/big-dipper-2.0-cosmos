@@ -1,12 +1,8 @@
-import {
-  useState, useEffect,
-} from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
-import {
-  MINIBLOCK_DETAILS,
-} from '@api';
+import { MINIBLOCK_DETAILS } from '@api';
 import { BlockDetailsState } from './types';
 
 export const useBlockDetails = () => {

@@ -3,4 +3,4 @@ export type AtomState = {
   price: number;
   supply: number;
   apr: number;
-}
+};

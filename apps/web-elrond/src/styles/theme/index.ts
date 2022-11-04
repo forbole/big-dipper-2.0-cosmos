@@ -186,4 +186,4 @@ export const common = {
   },
 };
 
-export const lightTemplate:ThemeOptions = R.mergeDeepLeft(lightThemeOverride, common);
+export const lightTemplate: ThemeOptions = R.mergeDeepLeft(lightThemeOverride, common);

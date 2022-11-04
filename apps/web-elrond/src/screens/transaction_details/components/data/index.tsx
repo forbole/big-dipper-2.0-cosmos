@@ -8,13 +8,15 @@ import { CodeBlock } from '..';
 import { DataType } from '../../types';
 import { useStyles } from './styles';
 
-const Data: React.FC<{data: DataType} & ComponentDefault> = (props) => {
+const Data: React.FC<{ data: DataType } & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   const data = decodeBase64(props.data);
   return (
     <Box className={classnames(props.className, classes.root)}>
-      <Typography className={classes.title} variant="h2">{t('data')}</Typography>
+      <Typography className={classes.title} variant="h2">
+        {t('data')}
+      </Typography>
       <CodeBlock message={data} />
     </Box>
   );

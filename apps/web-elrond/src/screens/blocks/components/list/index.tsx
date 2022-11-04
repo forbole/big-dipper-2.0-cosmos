@@ -1,28 +1,17 @@
 import React from 'react';
-import {
-  usePagination,
-} from '@hooks';
+import { usePagination } from '@hooks';
 import Pagination from '@components/pagination';
 import NoData from '@components/no_data';
 import Box from '@components/box';
 import Loading from '@components/loading';
 import BlocksList from '@components/blocks_list';
 import { useStyles } from './styles';
-import {
-  useBlocks, PAGE_SIZE,
-} from './hooks';
+import { useBlocks, PAGE_SIZE } from './hooks';
 
 const List = () => {
   const classes = useStyles();
-  const {
-    state, handlePageChangeCallback,
-  } = useBlocks();
-  const {
-    page,
-    rowsPerPage,
-    handleChangePage,
-    handleChangeRowsPerPage,
-  } = usePagination({
+  const { state, handlePageChangeCallback } = useBlocks();
+  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage } = usePagination({
     rowsPage: PAGE_SIZE,
     pageChangeCallback: handlePageChangeCallback,
   });

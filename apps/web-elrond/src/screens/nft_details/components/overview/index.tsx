@@ -35,7 +35,8 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
         <AvatarName
           address={props.creator}
           name={getMiddleEllipsis(props.creator, {
-            beginning: 13, ending: 15,
+            beginning: 13,
+            ending: 15,
           })}
         />
       ),
@@ -49,27 +50,24 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
         <AvatarName
           address={props.owner}
           name={getMiddleEllipsis(props.owner, {
-            beginning: 13, ending: 15,
+            beginning: 13,
+            ending: 15,
           })}
         />
       ),
     });
   }
 
-  details.push(...[
-    {
-      label: t('minted'),
-      detail: formatDayJs(dayjs.utc(dayjs.unix(props.minted)), dateFormat),
-    },
-  ]);
-
-  return (
-    <BoxDetails
-      className={props.className}
-      title={t('overview')}
-      details={details}
-    />
+  details.push(
+    ...[
+      {
+        label: t('minted'),
+        detail: formatDayJs(dayjs.utc(dayjs.unix(props.minted)), dateFormat),
+      },
+    ]
   );
+
+  return <BoxDetails className={props.className} title={t('overview')} details={details} />;
 };
 
 export default Overview;

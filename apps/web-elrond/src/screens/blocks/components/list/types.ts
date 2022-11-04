@@ -3,4 +3,4 @@ export type BlockState = {
   loading: boolean;
   total: number;
   items: BlockType[];
-}
+};

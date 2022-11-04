@@ -11,25 +11,21 @@ import { useStyles } from './styles';
 const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
 
-const Operations: React.FC<{items: OperationType[]} & ComponentDefault> = (props) => {
+const Operations: React.FC<{ items: OperationType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   const { isDesktop } = useScreenSize();
 
   if (!props.items.length) {
-    return (
-      <NoData />
-    );
+    return <NoData />;
   }
 
   return (
     <Box className={classes.root}>
-      <Typography className={classes.title} variant="h2">{t('operations')}</Typography>
-      {isDesktop ? (
-        <Desktop items={props.items} />
-      ) : (
-        <Mobile items={props.items} />
-      )}
+      <Typography className={classes.title} variant="h2">
+        {t('operations')}
+      </Typography>
+      {isDesktop ? <Desktop items={props.items} /> : <Mobile items={props.items} />}
     </Box>
   );
 };

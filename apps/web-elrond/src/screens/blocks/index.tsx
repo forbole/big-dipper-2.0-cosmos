@@ -2,9 +2,7 @@ import React from 'react';
 import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
 import Layout from '@components/layout';
-import {
-  List,
-} from './components';
+import { List } from './components';
 import { useStyles } from './styles';
 
 const Blocks = () => {
@@ -19,10 +17,7 @@ const Blocks = () => {
           title: t('blocks'),
         }}
       />
-      <Layout
-        navTitle={t('blocks')}
-        className={classes.root}
-      >
+      <Layout navTitle={t('blocks')} className={classes.root}>
         <List />
       </Layout>
     </>

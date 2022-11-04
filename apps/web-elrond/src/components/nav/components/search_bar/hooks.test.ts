@@ -1,8 +1,6 @@
 /* eslint-disable */
 import { RecoilRoot } from 'recoil';
-import {
-  renderHook, act,
-} from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react-hooks';
 import { useSearchBar } from './hooks';
 
 const mockPush = jest.fn();
@@ -27,7 +25,9 @@ xdescribe('misc: useSearchBar', () => {
     act(() => {
       result.current.handleOnSubmit('desmosvaloper1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes');
     });
-    expect(mockPush).toBeCalledWith('/validators/desmosvaloper1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes');
+    expect(mockPush).toBeCalledWith(
+      '/validators/desmosvaloper1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes'
+    );
   });
 
   // it('use a consensus address', async () => {

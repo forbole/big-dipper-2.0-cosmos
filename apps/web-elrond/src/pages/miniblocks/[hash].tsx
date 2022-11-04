@@ -1,9 +1,7 @@
 import MiniBlockDetails from '@src/screens/miniblock_details';
 
 const MiniBlockPage = () => {
-  return (
-    <MiniBlockDetails />
-  );
+  return <MiniBlockDetails />;
 };
 
 export default MiniBlockPage;

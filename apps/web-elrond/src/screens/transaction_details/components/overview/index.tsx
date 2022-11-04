@@ -30,9 +30,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
     },
     {
       label: t('status'),
-      detail: (
-        <Result status={props.status} />
-      ),
+      detail: <Result status={props.status} />,
     },
     {
       label: t('miniblockHash'),
@@ -47,10 +45,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
     {
       label: (
         <div>
-          <Typography component="span">
-            {t('from')}
-          </Typography>
-          {' '}
+          <Typography component="span">{t('from')}</Typography>{' '}
           <Typography component="span" className={classes.shard}>
             (
             {t(`common:${senderShard.key}`, {
@@ -60,20 +55,12 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
           </Typography>
         </div>
       ),
-      detail: (
-        <AvatarName
-          address={props.from}
-          name={props.from}
-        />
-      ),
+      detail: <AvatarName address={props.from} name={props.from} />,
     },
     {
       label: (
         <div>
-          <Typography component="span">
-            {t('to')}
-          </Typography>
-          {' '}
+          <Typography component="span">{t('to')}</Typography>{' '}
           <Typography component="span" className={classes.shard}>
             (
             {t(`common:${receiverShard.key}`, {
@@ -83,10 +70,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
           </Typography>
         </div>
       ),
-      detail: <AvatarName
-        address={props.to}
-        name={props.to}
-      />,
+      detail: <AvatarName address={props.to} name={props.to} />,
     },
     {
       label: t('tokenPrice', { token: chainConfig.primaryTokenUnit.toUpperCase() }),
@@ -98,7 +82,10 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
     },
     {
       label: t('gasPrice'),
-      detail: `${formatNumber(props.gasPrice.value, props.gasPrice.exponent)} ${props.gasPrice.displayDenom.toUpperCase()}`,
+      detail: `${formatNumber(
+        props.gasPrice.value,
+        props.gasPrice.exponent
+      )} ${props.gasPrice.displayDenom.toUpperCase()}`,
     },
     {
       label: t('time'),
@@ -106,13 +93,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
     },
   ];
 
-  return (
-    <BoxDetails
-      className={props.className}
-      title={t('overview')}
-      details={details}
-    />
-  );
+  return <BoxDetails className={props.className} title={t('overview')} details={details} />;
 };
 
 export default Overview;

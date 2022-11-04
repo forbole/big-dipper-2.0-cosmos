@@ -1,19 +1,13 @@
 /* eslint-disable max-len */
 import { useEffect } from 'react';
 import axios from 'axios';
-import {
-  useRecoilState,
-  SetterOrUpdater,
-} from 'recoil';
+import { useRecoilState, SetterOrUpdater } from 'recoil';
 import { BigDipperNetwork } from '@models';
-import {
-  writeNetworks,
-} from '@recoil/big_dipper_networks';
-import {
-  Networks,
-} from '@recoil/big_dipper_networks/types';
+import { writeNetworks } from '@recoil/big_dipper_networks';
+import { Networks } from '@recoil/big_dipper_networks/types';
 
-const NETWORK_LIST_API = 'https://raw.githubusercontent.com/forbole/big-dipper-networks/main/networks.json';
+const NETWORK_LIST_API =
+  'https://raw.githubusercontent.com/forbole/big-dipper-networks/main/networks.json';
 
 export const useBigDipperNetworksRecoil = () => {
   const [_, setNetworks] = useRecoilState(writeNetworks) as [Networks, SetterOrUpdater<Networks>];

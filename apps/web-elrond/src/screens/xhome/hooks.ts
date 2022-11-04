@@ -1,6 +1,4 @@
-import {
-  useState, useEffect,
-} from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { PRICE_HISTORY } from '@api';
 import * as R from 'ramda';

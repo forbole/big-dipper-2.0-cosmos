@@ -5,7 +5,7 @@ export type ProfileType = {
   validator: string;
   identity: string;
   rating: number;
-}
+};
 
 export type OverviewType = {
   shard: number;
@@ -13,7 +13,7 @@ export type OverviewType = {
   status: string;
   online: boolean;
   instances: number;
-}
+};
 
 export type StatsType = {
   ignoredSignatures: number;
@@ -21,7 +21,7 @@ export type StatsType = {
   leaderFailure: number;
   validatorSuccess: number;
   validatorFailure: number;
-}
+};
 
 export type ConsensusType = {
   round: number;
@@ -36,4 +36,4 @@ export type NodeDetailsState = {
   stats: StatsType;
   consensus: ConsensusType;
   blocks: BlockType[];
-}
+};

@@ -1,8 +1,8 @@
 export type TabType = {
-  id: number,
-  key: string,
+  id: number;
+  key: string;
   component?: React.ReactNode;
-}
+};
 
 export type ValidatorType = {
   validator: AvatarName;
@@ -14,7 +14,7 @@ export type ValidatorType = {
   apr: number;
   delegators: number;
   isNode: boolean;
-}
+};
 
 export type SearchType = string;
 
@@ -24,4 +24,4 @@ export type ValidatorsState = {
   tab: number;
   search: SearchType;
   validators: ValidatorType[];
-}
+};

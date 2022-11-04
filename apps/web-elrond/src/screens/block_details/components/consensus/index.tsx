@@ -12,7 +12,7 @@ import { useStyles } from './styles';
 const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
 
-const Consensus: React.FC<{consensus: ConsensusType[]} & ComponentDefault> = (props) => {
+const Consensus: React.FC<{ consensus: ConsensusType[] } & ComponentDefault> = (props) => {
   const { isDesktop } = useScreenSize();
   const { t } = useTranslation('blocks');
   const classes = useStyles();
@@ -23,15 +23,7 @@ const Consensus: React.FC<{consensus: ConsensusType[]} & ComponentDefault> = (pr
         <NoData />
       ) : (
         <div className={classes.wrapper}>
-          {isDesktop ? (
-            <Desktop
-              items={props.consensus}
-            />
-          ) : (
-            <Mobile
-              items={props.consensus}
-            />
-          )}
+          {isDesktop ? <Desktop items={props.consensus} /> : <Mobile items={props.consensus} />}
         </div>
       )}
     </Box>

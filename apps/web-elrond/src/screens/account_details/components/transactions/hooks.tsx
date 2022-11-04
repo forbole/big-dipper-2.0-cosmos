@@ -1,13 +1,8 @@
-import {
-  useEffect, useState,
-} from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import axios from 'axios';
-import {
-  ACCOUNT_DETAILS_TRANSACTIONS,
-  ACCOUNT_DETAILS_TRANSACTIONS_COUNT,
-} from '@api';
+import { ACCOUNT_DETAILS_TRANSACTIONS, ACCOUNT_DETAILS_TRANSACTIONS_COUNT } from '@api';
 import { TransactionState } from './types';
 
 export const PAGE_SIZE = 10;
@@ -40,9 +35,9 @@ export const useTransactions = () => {
 
   const getLatestTransactionCount = async () => {
     try {
-      const { data: total } = await axios.get(ACCOUNT_DETAILS_TRANSACTIONS_COUNT(
-        router.query.address as string,
-      ));
+      const { data: total } = await axios.get(
+        ACCOUNT_DETAILS_TRANSACTIONS_COUNT(router.query.address as string)
+      );
       handleSetState({
         total,
       });
@@ -54,17 +49,18 @@ export const useTransactions = () => {
   const getTransactionsByPage = async (page: number) => {
     try {
       const { data: transactionsData } = await axios.get(
-        ACCOUNT_DETAILS_TRANSACTIONS(router.query.address as string), {
+        ACCOUNT_DETAILS_TRANSACTIONS(router.query.address as string),
+        {
           params: {
             from: page * PAGE_SIZE,
             size: PAGE_SIZE,
             withLogs: false,
           },
-        },
+        }
       );
 
       const items = transactionsData.map((x) => {
-        return ({
+        return {
           hash: x.txHash,
           fromShard: x.senderShard,
           toShard: x.receiverShard,
@@ -72,7 +68,7 @@ export const useTransactions = () => {
           to: x.receiver,
           timestamp: x.timestamp,
           status: x.status,
-        });
+        };
       });
 
       handleSetState({
@@ -84,8 +80,8 @@ export const useTransactions = () => {
     }
   };
 
-  return ({
+  return {
     state,
     handlePageChangeCallback,
-  });
+  };
 };

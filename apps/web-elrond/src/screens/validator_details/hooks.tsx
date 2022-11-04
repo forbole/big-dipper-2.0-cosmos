@@ -1,21 +1,12 @@
-import {
-  useState, useEffect,
-} from 'react';
+import { useState, useEffect } from 'react';
 import * as R from 'ramda';
 import Big from 'big.js';
 import axios from 'axios';
 import chainConfig from 'ui/dist/chainConfig';
 import { useRouter } from 'next/router';
-import {
-  IDENTITY,
-  PROVIDERS,
-  PROVIDER_DETAILS,
-  STAKE,
-} from '@api';
+import { IDENTITY, PROVIDERS, PROVIDER_DETAILS, STAKE } from '@api';
 import { isBech32 } from '@utils/bech32';
-import {
-  formatToken, formatNumber,
-} from '@utils/format_token';
+import { formatToken, formatNumber } from '@utils/format_token';
 import { ValidatorDetailsState } from './types';
 
 const defaultTokenUnit: TokenUnit = {
@@ -76,21 +67,21 @@ export const useValidatorDetails = () => {
       // =====================================
       if (isProvider) {
         const getContract = () => {
-          return ({
+          return {
             address: R.pathOr('', ['provider'], providerData),
             locked: formatToken(
               R.pathOr('0', ['locked'], providerData),
-              chainConfig.primaryTokenUnit,
+              chainConfig.primaryTokenUnit
             ),
             nodes: R.pathOr(0, ['numNodes'], providerData),
             apr: R.pathOr(0, ['apr'], providerData),
             commission: R.pathOr(0, ['serviceFee'], providerData),
             delegationCap: formatToken(
               R.pathOr('0', ['delegationCap'], providerData),
-              chainConfig.primaryTokenUnit,
+              chainConfig.primaryTokenUnit
             ),
             delegators: R.pathOr(0, ['numUsers'], providerData),
-          });
+          };
         };
 
         newState.contract = getContract();
@@ -110,27 +101,18 @@ export const useValidatorDetails = () => {
         const locked = R.pathOr('0', ['locked'], reference);
         const totalStaked = R.pathOr('0', ['totalStaked'], stakeData);
 
-        const stakePercentString = Big(locked).div(totalStaked === '0' ? 1 : totalStaked).times(100).toFixed(3);
+        const stakePercentString = Big(locked)
+          .div(totalStaked === '0' ? 1 : totalStaked)
+          .times(100)
+          .toFixed(3);
 
-        return ({
-          locked: formatToken(
-            locked,
-            chainConfig.primaryTokenUnit,
-          ),
-          stake: formatToken(
-            R.pathOr('0', ['stake'], reference),
-            chainConfig.primaryTokenUnit,
-          ),
-          topUp: formatToken(
-            R.pathOr('0', ['topUp'], reference),
-            chainConfig.primaryTokenUnit,
-          ),
-          totalStaked: formatToken(
-            totalStaked,
-            chainConfig.primaryTokenUnit,
-          ),
+        return {
+          locked: formatToken(locked, chainConfig.primaryTokenUnit),
+          stake: formatToken(R.pathOr('0', ['stake'], reference), chainConfig.primaryTokenUnit),
+          topUp: formatToken(R.pathOr('0', ['topUp'], reference), chainConfig.primaryTokenUnit),
+          totalStaked: formatToken(totalStaked, chainConfig.primaryTokenUnit),
           stakePercent: Number(formatNumber(stakePercentString, 2)),
-        });
+        };
       };
       newState.stake = await getStake();
 
@@ -139,17 +121,17 @@ export const useValidatorDetails = () => {
       // =====================================
       const getProfile = () => {
         if (identityData) {
-          return ({
+          return {
             name: R.pathOr('', ['name'], identityData),
             imageUrl: R.pathOr('', ['avatar'], identityData),
             description: R.pathOr('', ['description'], identityData),
-          });
+          };
         }
-        return ({
+        return {
           name: R.pathOr('', ['provider'], providerData),
           imageUrl: '',
           description: '',
-        });
+        };
       };
       newState.profile = await getProfile();
 
@@ -162,19 +144,19 @@ export const useValidatorDetails = () => {
         if (identityData) {
           const keys = R.keys(R.pathOr([], ['distribution'], identityData));
           distribution = keys.map((x) => {
-            return ({
+            return {
               key: x,
               value: R.pathOr(0, ['distribution', x], identityData),
-            });
+            };
           });
         }
 
-        return ({
+        return {
           location: R.pathOr('', ['location'], identityData),
           website: R.pathOr('', ['website'], identityData),
           identity: R.pathOr('', ['identity'], identityData),
           stakeDistribution: distribution,
-        });
+        };
       };
       newState.overview = await getOverview();
 
@@ -205,7 +187,7 @@ export const useValidatorDetails = () => {
       let providerData = null;
       if (isBech32(router.query.identity as string)) {
         const { data: providerRawData } = await axios.get(
-          PROVIDER_DETAILS(router.query.identity as string),
+          PROVIDER_DETAILS(router.query.identity as string)
         );
         providerData = providerRawData;
       } else {

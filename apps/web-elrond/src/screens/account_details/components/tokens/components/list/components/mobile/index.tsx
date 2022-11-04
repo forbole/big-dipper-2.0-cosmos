@@ -1,19 +1,17 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { formatNumber } from '@utils/format_token';
-import {
-  Typography, Divider,
-} from '@material-ui/core';
+import { Typography, Divider } from '@material-ui/core';
 import AvatarName from '@components/avatar_name';
 import { TOKEN_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
 import { OtherTokenType } from '../../../../types';
 
-const Mobile: React.FC<{items: OtherTokenType[]} & ComponentDefault> = (props) => {
+const Mobile: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('accounts');
   const classes = useStyles();
   const formattedItems = props.items.map((x) => {
-    return ({
+    return {
       identifier: x.identifier,
       token: (
         <AvatarName
@@ -23,8 +21,11 @@ const Mobile: React.FC<{items: OtherTokenType[]} & ComponentDefault> = (props) =
           href={TOKEN_DETAILS}
         />
       ),
-      balance: `${formatNumber(x.balance.value, x.balance.exponent)} ${x.balance.displayDenom.toUpperCase()}`,
-    });
+      balance: `${formatNumber(
+        x.balance.value,
+        x.balance.exponent
+      )} ${x.balance.displayDenom.toUpperCase()}`,
+    };
   });
 
   return (

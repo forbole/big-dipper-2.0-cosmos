@@ -8,22 +8,13 @@ import Loading from '@components/loading';
 import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 import { List } from './components';
-import {
-  useTokens, PAGE_SIZE,
-} from './hooks';
+import { useTokens, PAGE_SIZE } from './hooks';
 
-const Tokens:React.FC<ComponentDefault> = (props) => {
+const Tokens: React.FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('accounts');
   const classes = useStyles();
-  const {
-    state, handlePageChangeCallback,
-  } = useTokens();
-  const {
-    page,
-    rowsPerPage,
-    handleChangePage,
-    handleChangeRowsPerPage,
-  } = usePagination({
+  const { state, handlePageChangeCallback } = useTokens();
+  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage } = usePagination({
     rowsPage: PAGE_SIZE,
     pageChangeCallback: handlePageChangeCallback,
   });

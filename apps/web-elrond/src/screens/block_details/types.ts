@@ -10,7 +10,7 @@ export type OverviewType = {
   gasProvided: number;
   gasRefunded: number;
   gasPenalized: number;
-}
+};
 
 export type MiniBlockType = string;
 export type ConsensusType = string;
@@ -21,4 +21,4 @@ export type BlockDetailsState = {
   overview: OverviewType;
   miniBlocks: MiniBlockType[];
   consensus: ConsensusType[];
-}
+};

@@ -3,24 +3,23 @@ import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { getShardDisplay } from '@utils/get_shard_display';
-import {
-  Divider, Typography,
-} from '@material-ui/core';
+import { Divider, Typography } from '@material-ui/core';
 import { NODE_DETAILS } from '@utils/go_to_page';
 import { NodeType } from '../../types';
 import { useStyles } from './styles';
 
-const Mobile: React.FC<{items: NodeType[]} & ComponentDefault> = (props) => {
+const Mobile: React.FC<{ items: NodeType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('nodes');
   const classes = useStyles();
   const formattedItems = props.items.map((x) => {
     const shard = getShardDisplay(x.shard);
-    return ({
+    return {
       pubkey: (
         <Link href={NODE_DETAILS(x.pubkey)} passHref>
           <Typography variant="body1" className="value" component="a">
             {getMiddleEllipsis(x.pubkey, {
-              beginning: 13, ending: 15,
+              beginning: 13,
+              ending: 15,
             })}
           </Typography>
         </Link>
@@ -32,7 +31,7 @@ const Mobile: React.FC<{items: NodeType[]} & ComponentDefault> = (props) => {
       shard: t(`common:${shard.key}`, {
         num: shard.num,
       }),
-    });
+    };
   });
   return (
     <div className={props.className}>

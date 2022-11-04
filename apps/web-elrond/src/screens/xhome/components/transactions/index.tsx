@@ -3,9 +3,7 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import {
-  Typography, Divider,
-} from '@material-ui/core';
+import { Typography, Divider } from '@material-ui/core';
 import { TRANSACTIONS } from '@utils/go_to_page';
 import Box from '@components/box';
 import NoData from '@components/no_data';
@@ -24,9 +22,7 @@ const Transactions: React.FC<ComponentDefault> = (props) => {
   return (
     <Box className={classnames(props.className)}>
       <div className={classes.label}>
-        <Typography variant="h2">
-          {t('latestTransactions')}
-        </Typography>
+        <Typography variant="h2">{t('latestTransactions')}</Typography>
         <Link href={TRANSACTIONS} passHref>
           <Typography variant="h4" className="button" component="a">
             {t('seeMore')}
@@ -37,15 +33,7 @@ const Transactions: React.FC<ComponentDefault> = (props) => {
         <NoData />
       ) : (
         <>
-          {isDesktop ? (
-            <Desktop
-              items={state.items}
-            />
-          ) : (
-            <Mobile
-              items={state.items}
-            />
-          )}
+          {isDesktop ? <Desktop items={state.items} /> : <Mobile items={state.items} />}
           <Divider className={classes.mobile} />
           <Link href={TRANSACTIONS} passHref>
             <Typography
