@@ -18,7 +18,7 @@ jest.mock('@components', () => ({
 // ==================================
 describe('screen: TransactionDetails/Fund', () => {
   it('matches snapshot', () => {
-    const message = new MsgFundCommunityPool({
+    const message = MsgFundCommunityPool.fromJson({
       category: 'distribution',
       type: 'MsgFundCommunityPool',
       depositor: 'depositor',
