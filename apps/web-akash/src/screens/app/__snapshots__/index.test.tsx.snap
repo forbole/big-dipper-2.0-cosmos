@@ -10,7 +10,13 @@ Array [
   >
     <img
       alt="logo"
-      className="makeStyles-logo-3"
+      className="makeStyles-logo-3 makeStyles-dark-2"
+      src="svg"
+    />
+    <img
+      alt="logo"
+      className="makeStyles-logo-3 makeStyles-light-1"
+      src="svg"
     />
     <div
       className="makeStyles-timeContainer-4"
@@ -75,7 +81,7 @@ Array [
     <h2
       className="MuiTypography-root makeStyles-chain-2 MuiTypography-h2"
     >
-      morpheus-apollo-1
+      akashnet-2
     </h2>
   </div>,
 ]
