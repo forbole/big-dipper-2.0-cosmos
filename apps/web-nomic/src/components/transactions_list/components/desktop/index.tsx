@@ -4,10 +4,7 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
 import Link from 'next/link';
-import {
-  TRANSACTION_DETAILS,
-  BLOCK_DETAILS,
-} from '@utils/go_to_page';
+import { TRANSACTION_DETAILS, BLOCK_DETAILS } from '@utils/go_to_page';
 import InfiniteLoader from 'react-window-infinite-loader';
 import { VariableSizeGrid as Grid } from 'react-window';
 import { Typography } from '@material-ui/core';
@@ -27,13 +24,7 @@ const Desktop: React.FC<TransactionsListState> = ({
   isItemLoaded,
   transactions,
 }) => {
-  const {
-    gridRef,
-    columnRef,
-    onResize,
-    getColumnWidth,
-    getRowHeight,
-  } = useGrid(columns);
+  const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
   const classes = useStyles();
   const { t } = useTranslation('transactions');
@@ -49,19 +40,17 @@ const Desktop: React.FC<TransactionsListState> = ({
     hash: (
       <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
         <Typography variant="body1" component="a">
-        {getMiddleEllipsis(x.hash, {
-            beginning: 4, ending: 4,
+          {getMiddleEllipsis(x.hash, {
+            beginning: 4,
+            ending: 4,
           })}
         </Typography>
       </Link>
     ),
     type: (
       <div>
-        <Tag
-          value={x.type[0]}
-          theme="six"
-        />
-        {(x.messages.count > 1) && (` + ${x.messages.count - 1}`)}
+        <Tag value={x.type[0]} theme="six" />
+        {x.messages.count > 1 && ` + ${x.messages.count - 1}`}
       </div>
     ),
     time: dayjs.utc(x.timestamp).fromNow(),
@@ -69,9 +58,7 @@ const Desktop: React.FC<TransactionsListState> = ({
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer onResize={onResize}>
-        {({
-          height, width,
-        }) => {
+        {({ height, width }) => {
           return (
             <>
               {/* ======================================= */}
@@ -86,22 +73,12 @@ const Desktop: React.FC<TransactionsListState> = ({
                 rowHeight={() => 50}
                 width={width}
               >
-                {({
-                  columnIndex, style,
-                }) => {
-                  const {
-                    key, align,
-                  } = columns[columnIndex];
+                {({ columnIndex, style }) => {
+                  const { key, align } = columns[columnIndex];
 
                   return (
-                    <div
-                      style={style}
-                      className={classes.cell}
-                    >
-                      <Typography
-                        variant="h4"
-                        align={align}
-                      >
+                    <div style={style} className={classes.cell}>
+                      <Typography variant="h4" align={align}>
                         {t(key)}
                       </Typography>
                     </div>
@@ -116,9 +93,7 @@ const Desktop: React.FC<TransactionsListState> = ({
                 itemCount={itemCount}
                 loadMoreItems={loadMoreItems}
               >
-                {({
-                  onItemsRendered, ref,
-                }) => {
+                {({ onItemsRendered, ref }) => {
                   return (
                     <Grid
                       onItemsRendered={({
@@ -143,9 +118,7 @@ const Desktop: React.FC<TransactionsListState> = ({
                       width={width}
                       className="scrollbar"
                     >
-                      {({
-                        columnIndex, rowIndex, style,
-                      }) => {
+                      {({ columnIndex, rowIndex, style }) => {
                         if (!isItemLoaded(rowIndex) && columnIndex === 0) {
                           return (
                             <div
@@ -163,9 +136,7 @@ const Desktop: React.FC<TransactionsListState> = ({
                           return null;
                         }
 
-                        const {
-                          key, align,
-                        } = columns[columnIndex];
+                        const { key, align } = columns[columnIndex];
                         const item = items[rowIndex][key];
                         return (
                           <div
@@ -174,11 +145,7 @@ const Desktop: React.FC<TransactionsListState> = ({
                               odd: !(rowIndex % 2),
                             })}
                           >
-                            <Typography
-                              variant="body1"
-                              align={align}
-                              component="div"
-                            >
+                            <Typography variant="body1" align={align} component="div">
                               {item}
                             </Typography>
                           </div>

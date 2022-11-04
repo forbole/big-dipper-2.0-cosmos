@@ -5,36 +5,22 @@ import Name from '@components/name';
 import { MsgBlockUser } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const BlockUser = (props: {
-  message: MsgBlockUser;
-}) => {
+const BlockUser = (props: { message: MsgBlockUser }) => {
   const { message } = props;
 
   const blocker = useProfileRecoil(message.blocker);
-  const blockerMoniker = blocker ? blocker?.name : message
-    .blocker;
+  const blockerMoniker = blocker ? blocker?.name : message.blocker;
 
   const blocked = useProfileRecoil(message.blocked);
-  const blockedMoniker = blocked ? blocked?.name : message
-    .blocked;
+  const blockedMoniker = blocked ? blocked?.name : message.blocked;
 
   return (
     <Typography>
       <Trans
         i18nKey="message_contents:txBlockUserContent"
         components={[
-          (
-            <Name
-              address={message.blocker}
-              name={blockerMoniker}
-            />
-          ),
-          (
-            <Name
-              address={message.blocked}
-              name={blockedMoniker}
-            />
-          ),
+          <Name address={message.blocker} name={blockerMoniker} />,
+          <Name address={message.blocked} name={blockedMoniker} />,
           <span style={{ wordBreak: 'break-all' }} />,
         ]}
         values={{

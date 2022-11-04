@@ -4,20 +4,14 @@ import { NextSeo } from 'next-seo';
 import Layout from '@components/layout';
 import LoadAndExist from '@components/load_and_exist';
 import { useStyles } from './styles';
-import {
-  Overview,
-} from './components';
+import { Overview } from './components';
 import { useTransactionDetails } from './hooks';
 
 const TransactionDetails = () => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
-  const {
-    state,
-  } = useTransactionDetails();
-  const {
-    overview,
-  } = state;
+  const { state } = useTransactionDetails();
+  const { overview } = state;
 
   return (
     <>
@@ -28,14 +22,9 @@ const TransactionDetails = () => {
         }}
       />
       <Layout navTitle={t('transactionDetails')}>
-        <LoadAndExist
-          loading={state.loading}
-          exists={state.exists}
-        >
+        <LoadAndExist loading={state.loading} exists={state.exists}>
           <span className={classes.root}>
-            <Overview
-              data={overview}
-            />
+            <Overview data={overview} />
           </span>
         </LoadAndExist>
       </Layout>

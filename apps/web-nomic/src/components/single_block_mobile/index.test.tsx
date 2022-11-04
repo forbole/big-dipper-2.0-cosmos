@@ -23,7 +23,7 @@ describe('component: SingleSlotMobile', () => {
           time="time"
           height={<div id="height" />}
         />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

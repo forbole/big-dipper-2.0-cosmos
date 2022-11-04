@@ -1,21 +1,16 @@
 import React from 'react';
 import classnames from 'classnames';
-import {
-  Typography,
-  Divider,
-} from '@material-ui/core';
+import { Typography, Divider } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import { useStyles } from './styles';
 
-const SingleTransaction:React.FC<{
+const SingleTransaction: React.FC<{
   className?: string;
   block: React.ReactNode;
   hash: React.ReactNode;
   type: React.ReactNode;
   time: string;
-}> = ({
-  className, block, hash, type, time,
-}) => {
+}> = ({ className, block, hash, type, time }) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
 

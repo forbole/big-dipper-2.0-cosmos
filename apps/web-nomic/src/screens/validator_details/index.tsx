@@ -5,24 +5,14 @@ import Layout from '@components/layout';
 import LoadAndExist from '@components/load_and_exist';
 import DesmosProfile from '@components/desmos_profile';
 import { useStyles } from './styles';
-import {
-  Profile,
-  VotingPower,
-  Blocks,
-  ValidatorOverview,
-} from './components';
+import { Profile, VotingPower, Blocks, ValidatorOverview } from './components';
 import { useValidatorDetails } from './hooks';
 
 const ValidatorDetails = () => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
-  const {
-    state,
-  } = useValidatorDetails();
-  const {
-    desmosProfile,
-    status,
-  } = state;
+  const { state } = useValidatorDetails();
+  const { desmosProfile, status } = state;
 
   return (
     <>
@@ -33,21 +23,12 @@ const ValidatorDetails = () => {
         }}
       />
       <Layout navTitle={t('validatorDetails')}>
-        <LoadAndExist
-          exists={state.exists}
-          loading={state.loading}
-        >
+        <LoadAndExist exists={state.exists} loading={state.loading}>
           <span className={classes.root}>
             {desmosProfile ? (
-              <DesmosProfile
-                className={classes.profile}
-                {...desmosProfile}
-              />
+              <DesmosProfile className={classes.profile} {...desmosProfile} />
             ) : (
-              <Profile
-                className={classes.profile}
-                profile={state.overview}
-              />
+              <Profile className={classes.profile} profile={state.overview} />
             )}
             <ValidatorOverview
               className={classes.address}

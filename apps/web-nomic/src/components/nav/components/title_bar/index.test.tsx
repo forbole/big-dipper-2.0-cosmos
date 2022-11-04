@@ -7,7 +7,7 @@ import TitleBar from '.';
 // ==================================
 // global setup
 // ==================================
-let component:renderer.ReactTestRenderer;
+let component: renderer.ReactTestRenderer;
 
 // ==================================
 // mocks
@@ -28,11 +28,9 @@ describe('screen: Nav/TitleBar', () => {
     component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <TitleBar
-            title="hello world"
-          />
+          <TitleBar title="hello world" />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
   });
 
@@ -48,7 +46,7 @@ describe('screen: Nav/TitleBar', () => {
         <MockTheme>
           <TitleBar title="hello world" />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

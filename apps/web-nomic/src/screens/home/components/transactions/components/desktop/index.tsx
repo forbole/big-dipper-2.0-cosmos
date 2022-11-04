@@ -4,18 +4,9 @@ import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import {
-  Typography,
-  TableRow,
-  TableHead,
-  TableCell,
-  Table,
-  TableBody,
-} from '@material-ui/core';
+import { Typography, TableRow, TableHead, TableCell, Table, TableBody } from '@material-ui/core';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import {
-  BLOCK_DETAILS, TRANSACTION_DETAILS,
-} from '@utils/go_to_page';
+import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@utils/go_to_page';
 import Tag from '@components/tag';
 import { useStyles } from './styles';
 import { columns } from './utils';
@@ -24,14 +15,12 @@ import { TransactionType } from '../../types';
 const Desktop: React.FC<{
   className?: string;
   items: TransactionType[];
-}> = ({
-  className, items,
-}) => {
+}> = ({ className, items }) => {
   const classes = useStyles();
   const { t } = useTranslation('transactions');
 
   const formattedData = items.map((x) => {
-    return ({
+    return {
       block: (
         <Link href={BLOCK_DETAILS(x.height)} passHref>
           <Typography variant="body1" component="a">
@@ -43,22 +32,20 @@ const Desktop: React.FC<{
         <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
           <Typography variant="body1" component="a">
             {getMiddleEllipsis(x.hash, {
-              beginning: 15, ending: 15,
+              beginning: 15,
+              ending: 15,
             })}
           </Typography>
         </Link>
       ),
       type: (
         <div>
-          <Tag
-            value={x.type[0]}
-            theme="six"
-          />
-          {(x.messages > 1) && (` + ${x.messages - 1}`)}
+          <Tag value={x.type[0]} theme="six" />
+          {x.messages > 1 && ` + ${x.messages - 1}`}
         </div>
       ),
       time: dayjs.utc(x.timestamp).fromNow(),
-    });
+    };
   });
 
   return (
@@ -81,9 +68,7 @@ const Desktop: React.FC<{
           {formattedData.map((row, i) => (
             <TableRow key={`row-${i}`}>
               {columns.map((column, index) => {
-                const {
-                  key, align,
-                } = column;
+                const { key, align } = column;
                 const item = row[key];
                 return (
                   <TableCell

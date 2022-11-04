@@ -9,25 +9,22 @@ const OnlineVotingPower: React.FC<ComponentDefault> = () => {
   const { t } = useTranslation('home');
   const { onlineVPState } = useOnlineVotingPower();
 
-  const votingPowerPercent = onlineVPState.totalVotingPower === 0
-    ? numeral(0) : numeral((onlineVPState.votingPower / onlineVPState.totalVotingPower) * 100);
+  const votingPowerPercent =
+    onlineVPState.totalVotingPower === 0
+      ? numeral(0)
+      : numeral((onlineVPState.votingPower / onlineVPState.totalVotingPower) * 100);
 
   const classes = useStyles(votingPowerPercent.format(0));
 
   return (
     <div className={classes.root}>
-      <Typography variant="h2">
-        {t('onlineVotingPower')}
-      </Typography>
+      <Typography variant="h2">{t('onlineVotingPower')}</Typography>
       <div className={classes.data}>
         <Typography variant="h3" className="primary__data">
           {`${votingPowerPercent.format('0,0.00', (n) => ~~n)}%`}
         </Typography>
         <Typography variant="body1">
-          {numeral(onlineVPState.votingPower).format('0,0')}
-          {' '}
-          /
-          {' '}
+          {numeral(onlineVPState.votingPower).format('0,0')} /{' '}
           {numeral(onlineVPState.totalVotingPower).format('0,0')}
         </Typography>
       </div>

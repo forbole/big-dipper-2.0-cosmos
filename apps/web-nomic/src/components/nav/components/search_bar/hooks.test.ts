@@ -36,7 +36,9 @@ describe('misc: useSearchBar', () => {
       wrapper: RecoilRoot,
     });
     act(() => {
-      result.current.handleOnSubmit(`${chainConfig.prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes`);
+      result.current.handleOnSubmit(
+        `${chainConfig.prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes`
+      );
     });
     expect(mockPush).toBeCalledWith(
       `/validators/${chainConfig.prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes`
@@ -48,7 +50,9 @@ describe('misc: useSearchBar', () => {
       wrapper: RecoilRoot,
     });
     act(() => {
-      result.current.handleOnSubmit(`${chainConfig.prefix.consensus}1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467`);
+      result.current.handleOnSubmit(
+        `${chainConfig.prefix.consensus}1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467`
+      );
     });
     expect(mockPush).toBeCalledTimes(0);
   });
@@ -58,9 +62,13 @@ describe('misc: useSearchBar', () => {
       wrapper: RecoilRoot,
     });
     act(() => {
-      result.current.handleOnSubmit(`${chainConfig.prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`);
+      result.current.handleOnSubmit(
+        `${chainConfig.prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
+      );
     });
-    expect(mockPush).toBeCalledWith(`/accounts/${chainConfig.prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`);
+    expect(mockPush).toBeCalledWith(
+      `/accounts/${chainConfig.prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
+    );
   });
 
   it('use a dtag', async () => {
@@ -69,9 +77,13 @@ describe('misc: useSearchBar', () => {
       wrapper: RecoilRoot,
     });
     act(() => {
-      result.current.handleOnSubmit(`@${chainConfig.prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`);
+      result.current.handleOnSubmit(
+        `@${chainConfig.prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
+      );
     });
-    expect(mockPush).toBeCalledWith(`/@${chainConfig.prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`);
+    expect(mockPush).toBeCalledWith(
+      `/@${chainConfig.prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
+    );
   });
 
   it('use a block', async () => {
@@ -89,9 +101,13 @@ describe('misc: useSearchBar', () => {
       wrapper: RecoilRoot,
     });
     act(() => {
-      result.current.handleOnSubmit('FF4ED0EA688507EF3469804580136B4925116FC9B5F5658AF2B65E987A2138E0');
+      result.current.handleOnSubmit(
+        'FF4ED0EA688507EF3469804580136B4925116FC9B5F5658AF2B65E987A2138E0'
+      );
     });
-    expect(mockPush).toBeCalledWith('/transactions/FF4ED0EA688507EF3469804580136B4925116FC9B5F5658AF2B65E987A2138E0');
+    expect(mockPush).toBeCalledWith(
+      '/transactions/FF4ED0EA688507EF3469804580136B4925116FC9B5F5658AF2B65E987A2138E0'
+    );
   });
 });
 

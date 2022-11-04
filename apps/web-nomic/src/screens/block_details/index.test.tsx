@@ -2,12 +2,8 @@ import React from 'react';
 import { createMockClient } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
 import renderer from 'react-test-renderer';
-import {
-  MockTheme, wait,
-} from '@tests/utils';
-import {
-  BlockDetailsDocument,
-} from '@graphql/types/general_types';
+import { MockTheme, wait } from '@tests/utils';
+import { BlockDetailsDocument } from '@graphql/types/general_types';
 import BlockDetails from '.';
 
 // ==================================
@@ -20,8 +16,12 @@ jest.mock('next/router', () => ({
     },
   }),
 }));
-jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />);
-jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />);
+jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Layout" {...props} />
+));
+jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="LoadAndExist" {...props} />
+));
 
 jest.mock('./components', () => ({
   Overview: (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />,
@@ -88,21 +88,20 @@ const mockAverageBlockTime = jest.fn().mockResolvedValue({
 describe('screen: BlockDetails', () => {
   it.skip('matches snapshot', async () => {
     const mockClient = createMockClient();
-    mockClient.setRequestHandler(
-      BlockDetailsDocument,
-      mockAverageBlockTime,
-    );
+    mockClient.setRequestHandler(BlockDetailsDocument, mockAverageBlockTime);
 
     let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
 
     renderer.act(() => {
-      tree = renderer.create(
-        <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <BlockDetails />
-          </MockTheme>
-        </ApolloProvider>,
-      ).toJSON();
+      tree = renderer
+        .create(
+          <ApolloProvider client={mockClient}>
+            <MockTheme>
+              <BlockDetails />
+            </MockTheme>
+          </ApolloProvider>
+        )
+        .toJSON();
     });
     await wait();
 

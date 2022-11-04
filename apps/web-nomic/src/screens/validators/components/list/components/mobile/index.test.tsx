@@ -40,7 +40,7 @@ describe('screen: Validators/Tabs', () => {
             },
           ]}
         />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

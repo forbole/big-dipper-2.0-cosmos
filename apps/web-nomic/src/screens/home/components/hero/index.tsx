@@ -10,11 +10,7 @@ const Hero: React.FC<ComponentDefault> = (props) => {
     component = <OnlineVotingPower />;
   }
 
-  return (
-    <Box className={props.className}>
-      {component}
-    </Box>
-  );
+  return <Box className={props.className}>{component}</Box>;
 };
 
 export default Hero;

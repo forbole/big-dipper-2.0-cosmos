@@ -1,9 +1,7 @@
 import React from 'react';
 import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
-import {
-  MockTheme, wait,
-} from '@tests/utils';
+import { MockTheme, wait } from '@tests/utils';
 import { createMockClient } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
 import { ValidatorsDocument } from '@graphql/types/general_types';
@@ -17,9 +15,15 @@ jest.mock('./components', () => ({
   Desktop: (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />,
   Tabs: (props: JSX.IntrinsicElements['div']) => <div id="Tabs" {...props} />,
 }));
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />);
-jest.mock('@components/no_data', () => (props: JSX.IntrinsicElements['div']) => <div id="NoData" {...props} />);
-jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />);
+jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Box" {...props} />
+));
+jest.mock('@components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="NoData" {...props} />
+));
+jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="LoadAndExist" {...props} />
+));
 
 const mockValidatorsDocument = jest.fn().mockResolvedValue({
   data: {
@@ -82,9 +86,7 @@ const mockValidatorsDocument = jest.fn().mockResolvedValue({
     ],
     slashingParams: [
       {
-        params: {
-
-        },
+        params: {},
       },
     ],
   },
@@ -96,10 +98,7 @@ const mockValidatorsDocument = jest.fn().mockResolvedValue({
 describe('screen: Validators/List', () => {
   it.skip('matches snapshot', async () => {
     const mockClient = createMockClient();
-    mockClient.setRequestHandler(
-      ValidatorsDocument,
-      mockValidatorsDocument,
-    );
+    mockClient.setRequestHandler(ValidatorsDocument, mockValidatorsDocument);
 
     let component;
 
@@ -111,7 +110,7 @@ describe('screen: Validators/List', () => {
               <List />
             </MockTheme>
           </ApolloProvider>
-        </RecoilRoot>,
+        </RecoilRoot>
       );
     });
     await wait();

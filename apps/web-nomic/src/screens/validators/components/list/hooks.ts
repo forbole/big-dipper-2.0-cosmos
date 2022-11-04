@@ -2,16 +2,9 @@ import { useState } from 'react';
 import Big from 'big.js';
 import * as R from 'ramda';
 import numeral from 'numeral';
-import {
-  useValidatorsQuery,
-  ValidatorsQuery,
-} from '@graphql/types/general_types';
+import { useValidatorsQuery, ValidatorsQuery } from '@graphql/types/general_types';
 import { useOnlineVotingPower } from '../../../home/components/hero/components/online_voting_power/hooks';
-import {
-  ValidatorsState,
-  ItemType,
-  ValidatorType,
-} from './types';
+import { ValidatorsState, ItemType, ValidatorType } from './types';
 
 export const useValidators = () => {
   const [search, setSearch] = useState('');
@@ -55,7 +48,7 @@ export const useValidators = () => {
       const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
       const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
 
-      return ({
+      return {
         validator: x.selfDelegateAddress,
         votingPower,
         votingPowerPercent,
@@ -63,7 +56,7 @@ export const useValidators = () => {
         inActiveSet: inActiveSetString,
         jailed: jailedString,
         tombstoned: tombstonedString,
-      });
+      };
     });
 
     // get the top 34% validators
@@ -133,8 +126,8 @@ export const useValidators = () => {
       sorted = sorted.filter((x) => {
         const formattedSearch = search.toLowerCase().replace(/ /g, '');
         return (
-          x.validator.name.toLowerCase().replace(/ /g, '').includes(formattedSearch)
-          || x.validator.address.toLowerCase().includes(formattedSearch)
+          x.validator.name.toLowerCase().replace(/ /g, '').includes(formattedSearch) ||
+          x.validator.address.toLowerCase().includes(formattedSearch)
         );
       });
     }

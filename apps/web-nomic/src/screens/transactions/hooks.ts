@@ -28,10 +28,7 @@ export const useTransactions = () => {
    * Helps remove any possible duplication
    * and sorts by height in case it bugs out
    */
-  const uniqueAndSort = R.pipe(
-    R.uniqBy(R.prop('hash')),
-    R.sort(R.descend(R.prop('height'))),
-  );
+  const uniqueAndSort = R.pipe(R.uniqBy(R.prop('hash')), R.sort(R.descend(R.prop('height'))));
 
   // ================================
   // tx subscription
@@ -69,10 +66,7 @@ export const useTransactions = () => {
     },
     onCompleted: (data) => {
       const itemsLength = data.transactions.length;
-      const newItems = uniqueAndSort([
-        ...state.items,
-        ...formatTransactions(data),
-      ]);
+      const newItems = uniqueAndSort([...state.items, ...formatTransactions(data)]);
       handleSetState({
         loading: false,
         items: newItems,
@@ -87,24 +81,23 @@ export const useTransactions = () => {
       isNextPageLoading: true,
     });
     // refetch query
-    await transactionQuery.fetchMore({
-      variables: {
-        offset: state.items.length,
-        limit: LIMIT,
-      },
-    }).then(({ data }) => {
-      const itemsLength = data.transactions.length;
-      const newItems = uniqueAndSort([
-        ...state.items,
-        ...formatTransactions(data),
-      ]);
-      // set new state
-      handleSetState({
-        items: newItems,
-        isNextPageLoading: false,
-        hasNextPage: itemsLength === 51,
+    await transactionQuery
+      .fetchMore({
+        variables: {
+          offset: state.items.length,
+          limit: LIMIT,
+        },
+      })
+      .then(({ data }) => {
+        const itemsLength = data.transactions.length;
+        const newItems = uniqueAndSort([...state.items, ...formatTransactions(data)]);
+        // set new state
+        handleSetState({
+          items: newItems,
+          isNextPageLoading: false,
+          hasNextPage: itemsLength === 51,
+        });
       });
-    });
   };
 
   const formatTransactions = (data: TransactionsListenerSubscription) => {
@@ -119,12 +112,12 @@ export const useTransactions = () => {
         return eachMsgType;
       });
       const convertedMsgType = convertMsgType(msgType);
-      return ({
+      return {
         height: x.height,
         hash: x.hash,
         type: convertedMsgType,
         timestamp: x.block.timestamp,
-      });
+      };
     });
   };
 

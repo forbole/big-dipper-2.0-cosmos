@@ -5,9 +5,7 @@ import Name from '@components/name';
 import { MsgChannelOpenInit } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const ChannelOpenInit = (props: {
-  message: MsgChannelOpenInit;
-}) => {
+const ChannelOpenInit = (props: { message: MsgChannelOpenInit }) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -17,15 +15,7 @@ const ChannelOpenInit = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:txChannelOpenInitContent"
-        components={[
-          (
-            <Name
-              address={message.signer}
-              name={signerMoniker}
-            />
-          ),
-          <b />,
-        ]}
+        components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
         values={{
           channelId: message.channelId,
           portId: message.portId,

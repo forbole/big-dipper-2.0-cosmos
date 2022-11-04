@@ -7,9 +7,7 @@ import Box from '@components/box';
 import LoadAndExist from '@components/load_and_exist';
 import NoData from '@components/no_data';
 import { useScreenSize } from '@hooks';
-import {
-  useProfilesRecoil,
-} from '@recoil/profiles';
+import { useProfilesRecoil } from '@recoil/profiles';
 import { useStyles } from './styles';
 import { useBlocks } from './hooks';
 
@@ -20,19 +18,14 @@ const Blocks = () => {
   const { t } = useTranslation('blocks');
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
-  const {
-    state,
-    loadMoreItems,
-    itemCount,
-    isItemLoaded,
-  } = useBlocks();
+  const { state, loadMoreItems, itemCount, isItemLoaded } = useBlocks();
 
   const proposerProfiles = useProfilesRecoil(state.items.map((x) => x.proposer));
   const mergedDataWithProfiles = state.items.map((x, i) => {
-    return ({
+    return {
       ...x,
       proposer: proposerProfiles[i],
-    });
+    };
   });
 
   return (
@@ -43,14 +36,8 @@ const Blocks = () => {
           title: t('blocks'),
         }}
       />
-      <Layout
-        navTitle={t('blocks')}
-        className={classes.root}
-      >
-        <LoadAndExist
-          loading={state.loading}
-          exists={state.exists}
-        >
+      <Layout navTitle={t('blocks')} className={classes.root}>
+        <LoadAndExist loading={state.loading} exists={state.exists}>
           <Box className={classes.box}>
             {!state.items.length ? (
               <NoData />

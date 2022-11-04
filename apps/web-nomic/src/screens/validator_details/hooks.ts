@@ -1,13 +1,8 @@
-import {
-  useState, useEffect,
-} from 'react';
+import { useState, useEffect } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import { formatToken } from '@utils/format_token';
-import {
-  useValidatorDetailsQuery,
-  ValidatorDetailsQuery,
-} from '@graphql/types/general_types';
+import { useValidatorDetailsQuery, ValidatorDetailsQuery } from '@graphql/types/general_types';
 import { useDesmosProfile } from '@hooks';
 import { validatorToDelegatorAddress } from '@recoil/profiles';
 import chainConfig from 'ui/dist/chainConfig';
@@ -59,9 +54,7 @@ export const useValidatorDetails = () => {
   // ==========================
   // Desmos Profile
   // ==========================
-  const {
-    fetchDesmosProfile, formatDesmosProfile,
-  } = useDesmosProfile({
+  const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
     onComplete: (data) => {
       handleSetState({
         desmosProfile: formatDesmosProfile(data),
@@ -107,8 +100,16 @@ export const useValidatorDetails = () => {
     // overview
     // ============================
     const formatOverview = () => {
-      const operatorAddress = R.pathOr('', ['validator', 0, 'validatorInfo', 'operatorAddress'], data);
-      const selfDelegateAddress = R.pathOr('', ['validator', 0, 'validatorInfo', 'selfDelegateAddress'], data);
+      const operatorAddress = R.pathOr(
+        '',
+        ['validator', 0, 'validatorInfo', 'operatorAddress'],
+        data
+      );
+      const selfDelegateAddress = R.pathOr(
+        '',
+        ['validator', 0, 'validatorInfo', 'selfDelegateAddress'],
+        data
+      );
       const profile = {
         validator: operatorAddress,
         operatorAddress,
@@ -129,7 +130,11 @@ export const useValidatorDetails = () => {
       const profile = {
         inActiveSet: R.pathOr('false', ['validatorStatuses', 'in_active_set'], data.validator[0]),
         jailed: R.pathOr('false', ['validatorStatuses', 0, 'jailed'], data.validator[0]),
-        tombstoned: R.pathOr('false', ['validatorSigningInfos', 0, 'tombstoned'], data.validator[0]),
+        tombstoned: R.pathOr(
+          'false',
+          ['validatorSigningInfos', 0, 'tombstoned'],
+          data.validator[0]
+        ),
         commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], data.validator[0]),
         maxRate: R.pathOr('0', ['validator', 0, 'validatorInfo', 'maxRate'], data),
       };
@@ -142,13 +147,17 @@ export const useValidatorDetails = () => {
     // votingPower
     // ============================
     const formatVotingPower = () => {
-      const selfVotingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], data.validator[0]);
+      const selfVotingPower = R.pathOr(
+        0,
+        ['validatorVotingPowers', 0, 'votingPower'],
+        data.validator[0]
+      );
 
       const votingPower = {
         self: selfVotingPower,
         overall: formatToken(
           R.pathOr(0, ['stakingPool', 0, 'bonded'], data),
-          chainConfig.votingPowerTokenUnit,
+          chainConfig.votingPowerTokenUnit
         ),
         height: R.pathOr(0, ['validatorVotingPowers', 0, 'height'], data.validator[0]),
       };

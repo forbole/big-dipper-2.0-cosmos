@@ -1,13 +1,8 @@
-import {
-  useState, useEffect,
-} from 'react';
+import { useState, useEffect } from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
 import { useRouter } from 'next/router';
-import {
-  useBlockDetailsQuery,
-  BlockDetailsQuery,
-} from '@graphql/types/general_types';
+import { useBlockDetailsQuery, BlockDetailsQuery } from '@graphql/types/general_types';
 import { BlockDetailState } from './types';
 
 export const useBlockDetails = () => {
@@ -81,9 +76,11 @@ export const useBlockDetails = () => {
     // Signatures
     // ==========================
     const formatSignatures = () => {
-      const signatures = data.preCommits.filter((x) => x?.operatorAddress).map((x) => {
-        return x.operatorAddress;
-      });
+      const signatures = data.preCommits
+        .filter((x) => x?.operatorAddress)
+        .map((x) => {
+          return x.operatorAddress;
+        });
       return signatures;
     };
     stateChange.signatures = formatSignatures();
@@ -93,11 +90,11 @@ export const useBlockDetails = () => {
     // ==========================
     const formatTransactions = () => {
       const transactions = data.transaction.map((x) => {
-        return ({
+        return {
           height: x.height,
           hash: x.hash,
           timestamp: stateChange.overview.timestamp,
-        });
+        };
       });
 
       return transactions;

@@ -3,13 +3,8 @@ import classnames from 'classnames';
 import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
 import Link from 'next/link';
-import {
-  TRANSACTION_DETAILS,
-  BLOCK_DETAILS,
-} from '@utils/go_to_page';
-import {
-  Typography, Divider,
-} from '@material-ui/core';
+import { TRANSACTION_DETAILS, BLOCK_DETAILS } from '@utils/go_to_page';
+import { Typography, Divider } from '@material-ui/core';
 import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
@@ -18,10 +13,7 @@ import { mergeRefs } from '@utils/merge_refs';
 import SingleTransactionMobile from '@components/single_transaction_mobile';
 import Loading from '@components/loading';
 import Tag from '@components/tag';
-import {
-  useList,
-  useListRow,
-} from '@hooks';
+import { useList, useListRow } from '@hooks';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { useStyles } from './styles';
 import { TransactionsListState } from '../../types';
@@ -35,11 +27,7 @@ const Mobile: React.FC<TransactionsListState> = ({
 }) => {
   const classes = useStyles();
 
-  const {
-    listRef,
-    getRowHeight,
-    setRowHeight,
-  } = useList();
+  const { listRef, getRowHeight, setRowHeight } = useList();
 
   const items = transactions.map((x) => ({
     block: (
@@ -53,18 +41,16 @@ const Mobile: React.FC<TransactionsListState> = ({
       <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
         <Typography variant="body1" component="a">
           {getMiddleEllipsis(x.hash, {
-            beginning: 15, ending: 10,
+            beginning: 15,
+            ending: 10,
           })}
         </Typography>
       </Link>
     ),
     type: (
       <div>
-        <Tag
-          value={x.type[0]}
-          theme="six"
-        />
-        {(x.messages.count > 1) && (` + ${x.messages.count - 1}`)}
+        <Tag value={x.type[0]} theme="six" />
+        {x.messages.count > 1 && ` + ${x.messages.count - 1}`}
       </div>
     ),
     time: dayjs.utc(x.timestamp).fromNow(),
@@ -73,18 +59,14 @@ const Mobile: React.FC<TransactionsListState> = ({
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer>
-        {({
-          height, width,
-        }) => {
+        {({ height, width }) => {
           return (
             <InfiniteLoader
               isItemLoaded={isItemLoaded}
               itemCount={itemCount}
               loadMoreItems={loadMoreItems}
             >
-              {({
-                onItemsRendered, ref,
-              }) => (
+              {({ onItemsRendered, ref }) => (
                 <List
                   className="List"
                   height={height}
@@ -94,9 +76,7 @@ const Mobile: React.FC<TransactionsListState> = ({
                   ref={mergeRefs(listRef, ref)}
                   width={width}
                 >
-                  {({
-                    index, style,
-                  }) => {
+                  {({ index, style }) => {
                     const { rowRef } = useListRow(index, setRowHeight);
                     if (!isItemLoaded(index)) {
                       return (

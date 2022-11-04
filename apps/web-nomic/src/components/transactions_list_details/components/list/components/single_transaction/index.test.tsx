@@ -16,7 +16,7 @@ describe('components: SingleTransaction', () => {
           time="2021-07-13T08:00:00"
           type={<div>type</div>}
         />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

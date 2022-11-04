@@ -22,12 +22,12 @@ class BigDipperNetwork {
   }
 
   static fromJson(data: any) {
-    const allLinks:Link[] = data?.links?.map((x) => {
-      return ({
+    const allLinks: Link[] = data?.links?.map((x) => {
+      return {
         chainId: x.chain_id,
         url: x.url,
         name: x.name,
-      });
+      };
     });
     const mainnet = [];
     const testnet = [];
@@ -37,11 +37,11 @@ class BigDipperNetwork {
     allLinks.forEach((x) => {
       // main
       if (x.name.toLowerCase().includes('mainnet')) {
-        mainnet.push((x));
+        mainnet.push(x);
       } else if (x.name.toLowerCase().includes('testnet')) {
-        testnet.push((x));
+        testnet.push(x);
       } else if (x.name.toLowerCase().includes('retired')) {
-        retired.push((x));
+        retired.push(x);
       } else {
         other.push(x);
       }

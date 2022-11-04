@@ -3,24 +3,15 @@ import classnames from 'classnames';
 import numeral from 'numeral';
 import dayjs, { formatDayJs } from '@utils/dayjs';
 import Link from 'next/link';
-import {
-  TRANSACTION_DETAILS,
-  BLOCK_DETAILS,
-} from '@utils/go_to_page';
-import {
-  Typography,
-} from '@material-ui/core';
+import { TRANSACTION_DETAILS, BLOCK_DETAILS } from '@utils/go_to_page';
+import { Typography } from '@material-ui/core';
 import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { mergeRefs } from '@utils/merge_refs';
 import Loading from '@components/loading';
 import Tag from '@components/tag';
-import {
-  useList,
-  useListRow,
-  useScreenSize,
-} from '@hooks';
+import { useList, useListRow, useScreenSize } from '@hooks';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
@@ -35,17 +26,11 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
   isItemLoaded,
   transactions,
 }) => {
-  const {
-    isMobile,
-  } = useScreenSize();
+  const { isMobile } = useScreenSize();
   const classes = useStyles();
   const dateFormat = useRecoilValue(readDate);
 
-  const {
-    listRef,
-    getRowHeight,
-    setRowHeight,
-  } = useList();
+  const { listRef, getRowHeight, setRowHeight } = useList();
 
   const items = transactions.map((x) => ({
     block: (
@@ -58,23 +43,19 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
     hash: (
       <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
         <Typography variant="body1" component="a">
-          {isMobile ? (
-            getMiddleEllipsis(x.hash, {
-              beginning: 15, ending: 5,
-            })
-          ) : (
-            x.hash
-          )}
+          {isMobile
+            ? getMiddleEllipsis(x.hash, {
+                beginning: 15,
+                ending: 5,
+              })
+            : x.hash}
         </Typography>
       </Link>
     ),
     type: (
       <div>
-        <Tag
-          value="txDelegateLabel"
-          theme="six"
-        />
-        {(x.messages.count > 1) && (' +')}
+        <Tag value="txDelegateLabel" theme="six" />
+        {x.messages.count > 1 && ' +'}
       </div>
     ),
     time: formatDayJs(dayjs.utc(x.timestamp), dateFormat),
@@ -83,18 +64,14 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer>
-        {({
-          height, width,
-        }) => {
+        {({ height, width }) => {
           return (
             <InfiniteLoader
               isItemLoaded={isItemLoaded}
               itemCount={itemCount}
               loadMoreItems={loadMoreItems}
             >
-              {({
-                onItemsRendered, ref,
-              }) => (
+              {({ onItemsRendered, ref }) => (
                 <List
                   className="List"
                   height={height}
@@ -104,9 +81,7 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
                   ref={mergeRefs(listRef, ref)}
                   width={width}
                 >
-                  {({
-                    index, style,
-                  }) => {
+                  {({ index, style }) => {
                     const { rowRef } = useListRow(index, setRowHeight);
                     if (!isItemLoaded(index)) {
                       return (

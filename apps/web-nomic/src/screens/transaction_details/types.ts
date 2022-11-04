@@ -5,10 +5,10 @@ export type OverviewType = {
   fee: TokenUnit;
   gas: number;
   memo: string;
-}
+};
 
 export type TransactionState = {
   loading: boolean;
   exists: boolean;
   overview: OverviewType;
-}
+};

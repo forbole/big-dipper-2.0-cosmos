@@ -7,12 +7,14 @@ import {
 } from '@graphql/types/general_types';
 
 export const useBlocks = () => {
-  const [state, setState] = useState<{
-    height: number;
-    txs: number;
-    proposer: string;
-    signed: boolean;
-  }[]>([]);
+  const [state, setState] = useState<
+    {
+      height: number;
+      txs: number;
+      proposer: string;
+      signed: boolean;
+    }[]
+  >([]);
 
   const router = useRouter();
 

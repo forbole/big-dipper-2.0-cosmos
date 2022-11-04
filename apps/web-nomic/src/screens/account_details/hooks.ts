@@ -1,21 +1,14 @@
-import {
-  useState, useEffect,
-} from 'react';
+import { useState, useEffect } from 'react';
 import * as R from 'ramda';
 // import Big from 'big.js';
 import { useRouter } from 'next/router';
 import { getDenom } from '@utils/get_denom';
-import {
-  formatToken,
-} from '@utils/format_token';
+import { formatToken } from '@utils/format_token';
 import chainConfig from 'ui/dist/chainConfig';
 import { isValidAddress } from '@utils/prefix_convert';
 import { useDesmosProfile } from '@hooks';
 import { AccountDetailState } from './types';
-import {
-  fetchAvailableBalances,
-  fetchAccountWithdrawalAddress,
-} from './utils';
+import { fetchAvailableBalances, fetchAccountWithdrawalAddress } from './utils';
 
 const defaultTokenUnit: TokenUnit = {
   value: '0',
@@ -53,9 +46,7 @@ export const useAccountDetails = () => {
   // ==========================
   // Desmos Profile
   // ==========================
-  const {
-    fetchDesmosProfile, formatDesmosProfile,
-  } = useDesmosProfile({
+  const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
     onComplete: (data) => {
       handleSetState({
         desmosProfile: formatDesmosProfile(data),
@@ -72,8 +63,7 @@ export const useAccountDetails = () => {
     } else if (chainConfig.extra.profile) {
       fetchDesmosProfile(router.query.address as string);
     }
-  },
-  [router.query.address]);
+  }, [router.query.address]);
 
   useEffect(() => {
     fetchWithdrawalAddress();
@@ -95,12 +85,8 @@ export const useAccountDetails = () => {
 
   const fetchBalance = async () => {
     const address = router.query.address as string;
-    const promises = [
-      fetchAvailableBalances(address),
-    ];
-    const [
-      available,
-    ] = await Promise.allSettled(promises);
+    const promises = [fetchAvailableBalances(address)];
+    const [available] = await Promise.allSettled(promises);
 
     const formattedRawData: any = {};
     formattedRawData.accountBalances = R.pathOr([], ['value', 'accountBalances'], available);
@@ -122,7 +108,7 @@ export const useAccountDetails = () => {
     const formatBalance = () => {
       const available = getDenom(
         R.pathOr([], ['accountBalances', 'coins'], data),
-        chainConfig.primaryTokenUnit,
+        chainConfig.primaryTokenUnit
       );
       const availableAmount = formatToken(available.amount, chainConfig.primaryTokenUnit);
 
@@ -168,10 +154,10 @@ export const useAccountDetails = () => {
         });
       });
 
-      return ({
+      return {
         data: otherTokens,
         count: otherTokens.length,
-      });
+      };
     };
 
     formatOtherTokens();

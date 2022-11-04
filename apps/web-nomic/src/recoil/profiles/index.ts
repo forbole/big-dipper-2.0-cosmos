@@ -1,11 +1,6 @@
-import {
-  atomFamilyState,
-} from './atom';
+import { atomFamilyState } from './atom';
 
-import {
-  useProfileRecoil,
-  useProfilesRecoil,
-} from './hooks';
+import { useProfileRecoil, useProfilesRecoil } from './hooks';
 
 import {
   readProfile,

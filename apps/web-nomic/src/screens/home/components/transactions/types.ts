@@ -3,8 +3,8 @@ export type TransactionType = {
   hash: string;
   type: string[];
   timestamp: string;
-}
+};
 
 export type TransactionsState = {
-  items: TransactionType[]
-}
+  items: TransactionType[];
+};

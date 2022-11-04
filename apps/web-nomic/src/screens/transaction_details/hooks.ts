@@ -1,16 +1,9 @@
-import {
-  useState, useEffect,
-} from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import {
-  useTransactionDetailsQuery,
-  TransactionDetailsQuery,
-} from '@graphql/types/general_types';
+import { useTransactionDetailsQuery, TransactionDetailsQuery } from '@graphql/types/general_types';
 import { formatToken } from '@utils/format_token';
-import {
-  TransactionState,
-} from './types';
+import { TransactionState } from './types';
 
 export const useTransactionDetails = () => {
   const router = useRouter();
@@ -73,10 +66,14 @@ export const useTransactionDetails = () => {
     // =============================
     const formatOverview = () => {
       const { fee } = data.transaction[0];
-      const feeAmount = R.pathOr({
-        denom: '',
-        amount: 0,
-      }, ['amount', 0], fee);
+      const feeAmount = R.pathOr(
+        {
+          denom: '',
+          amount: 0,
+        },
+        ['amount', 0],
+        fee
+      );
 
       const overview = {
         hash: data.transaction[0].hash,

@@ -8,7 +8,7 @@ export const fetchColumns = (): {
   sortKey?: string;
   sort?: boolean;
 }[] => {
-  return ([
+  return [
     {
       key: 'idx',
       width: 5,
@@ -37,5 +37,5 @@ export const fetchColumns = (): {
       align: 'center',
       width: 25,
     },
-  ]);
+  ];
 };

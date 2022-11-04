@@ -8,11 +8,17 @@ export const formatMarket = (data: {
   apr: number;
 }) => {
   const exludedItems = [null, 0];
-  const marketCap = exludedItems.includes(data.marketCap) ? 'N/A' : `$${formatNumber(data.marketCap.toString(), 2)}`;
-  const apr = exludedItems.includes(data.apr) ? 'N/A' : `${formatNumber(Big(data.apr).times(100).toPrecision(), 2)}%`;
-  const supply = data.supply.value ? 'N/A' : `${formatNumber(data.supply.value, 2)} ${data.supply.displayDenom.toUpperCase()}`;
+  const marketCap = exludedItems.includes(data.marketCap)
+    ? 'N/A'
+    : `$${formatNumber(data.marketCap.toString(), 2)}`;
+  const apr = exludedItems.includes(data.apr)
+    ? 'N/A'
+    : `${formatNumber(Big(data.apr).times(100).toPrecision(), 2)}%`;
+  const supply = data.supply.value
+    ? 'N/A'
+    : `${formatNumber(data.supply.value, 2)} ${data.supply.displayDenom.toUpperCase()}`;
 
-  return ([
+  return [
     {
       key: 'marketCap',
       data: marketCap,
@@ -29,5 +35,5 @@ export const formatMarket = (data: {
       key: 'supply',
       data: supply,
     },
-  ]);
+  ];
 };

@@ -3,12 +3,7 @@ import BlockIcon from 'shared-utils/assets/icon-block.svg';
 import HomeIcon from 'shared-utils/assets/icon-home.svg';
 import TransactionIcon from 'shared-utils/assets/icon-transaction.svg';
 import UserIcon from 'shared-utils/assets/icon-user.svg';
-import {
-  HOME,
-  BLOCKS,
-  VALIDATORS,
-  TRANSACTIONS,
-} from '@utils/go_to_page';
+import { HOME, BLOCKS, VALIDATORS, TRANSACTIONS } from '@utils/go_to_page';
 
 export const getMenuItems = () => {
   const iconProps = {

@@ -30,12 +30,12 @@ export const useTransactions = () => {
       });
       const convertedMsgType = convertMsgType(msgType);
 
-      return ({
+      return {
         height: x.height,
         hash: x.hash,
         type: convertedMsgType,
         timestamp: x.block.timestamp,
-      });
+      };
     });
   };
 

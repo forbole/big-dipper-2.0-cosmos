@@ -7,18 +7,13 @@ import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import AvatarName from '@components/avatar_name';
 import SingleBlockMobile from '@components/single_block_mobile';
 import Loading from '@components/loading';
-import {
-  Typography, Divider,
-} from '@material-ui/core';
+import { Typography, Divider } from '@material-ui/core';
 import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { mergeRefs } from '@utils/merge_refs';
-import {
-  useList,
-  useListRow,
-} from '@hooks';
+import { useList, useListRow } from '@hooks';
 import { useStyles } from './styles';
 import { ItemType } from '../../types';
 
@@ -28,23 +23,13 @@ const Mobile: React.FC<{
   itemCount: number;
   loadMoreItems: (any) => void;
   isItemLoaded?: (index: number) => boolean;
-}> = ({
-  className,
-  items,
-  itemCount,
-  loadMoreItems,
-  isItemLoaded,
-}) => {
+}> = ({ className, items, itemCount, loadMoreItems, isItemLoaded }) => {
   const classes = useStyles();
 
-  const {
-    listRef,
-    getRowHeight,
-    setRowHeight,
-  } = useList();
+  const { listRef, getRowHeight, setRowHeight } = useList();
 
   const formattedItems = items.map((x) => {
-    return ({
+    return {
       height: (
         <Link href={BLOCK_DETAILS(x.height)} passHref>
           <Typography variant="body1" className="value" component="a">
@@ -59,31 +44,29 @@ const Mobile: React.FC<{
           address={x.proposer.address}
           imageUrl={x.proposer.imageUrl}
           name={getMiddleEllipsis(x.proposer.name, {
-            beginning: 16, ending: 10,
+            beginning: 16,
+            ending: 10,
           })}
         />
       ),
       hash: getMiddleEllipsis(x.hash, {
-        beginning: 13, ending: 10,
+        beginning: 13,
+        ending: 10,
       }),
-    });
+    };
   });
 
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer>
-        {({
-          height, width,
-        }) => {
+        {({ height, width }) => {
           return (
             <InfiniteLoader
               isItemLoaded={isItemLoaded}
               itemCount={itemCount}
               loadMoreItems={loadMoreItems}
             >
-              {({
-                onItemsRendered, ref,
-              }) => (
+              {({ onItemsRendered, ref }) => (
                 <List
                   className="List"
                   height={height}
@@ -93,9 +76,7 @@ const Mobile: React.FC<{
                   ref={mergeRefs(listRef, ref)}
                   width={width}
                 >
-                  {({
-                    index, style,
-                  }) => {
+                  {({ index, style }) => {
                     const { rowRef } = useListRow(index, setRowHeight);
                     if (!isItemLoaded(index)) {
                       return (

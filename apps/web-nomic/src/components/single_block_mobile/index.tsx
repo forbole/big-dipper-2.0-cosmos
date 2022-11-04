@@ -1,8 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import {
-  Typography,
-} from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import { useStyles } from './styles';
 
@@ -13,9 +11,7 @@ const SingleBlockMobile: React.FC<{
   parentHash?: string;
   txs: string;
   time: string;
-}> = ({
-  className, height, hash, parentHash, txs, time,
-}) => {
+}> = ({ className, height, hash, parentHash, txs, time }) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
 

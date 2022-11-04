@@ -5,9 +5,7 @@ import Name from '@components/name';
 import { MsgPacket } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Packet = (props: {
-  message: MsgPacket;
-}) => {
+const Packet = (props: { message: MsgPacket }) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -17,15 +15,7 @@ const Packet = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:txPacketContent"
-        components={[
-          (
-            <Name
-              address={message.signer}
-              name={signerMoniker}
-            />
-          ),
-          <b />,
-        ]}
+        components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
       />
     </Typography>
   );

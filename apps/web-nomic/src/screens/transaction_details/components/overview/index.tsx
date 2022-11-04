@@ -16,9 +16,7 @@ import { OverviewType } from '../../types';
 const Overview: React.FC<{
   className?: string;
   data: OverviewType;
-}> = ({
-  className, data,
-}) => {
+}> = ({ className, data }) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   const dateFormat = useRecoilValue(readDate);
@@ -44,7 +42,10 @@ const Overview: React.FC<{
     },
     {
       label: t('fee'),
-      detail: `${formatNumber(data.fee.value, data.fee.exponent)} ${data?.fee?.displayDenom?.toUpperCase()}`,
+      detail: `${formatNumber(
+        data.fee.value,
+        data.fee.exponent
+      )} ${data?.fee?.displayDenom?.toUpperCase()}`,
     },
     {
       label: t('gas'),

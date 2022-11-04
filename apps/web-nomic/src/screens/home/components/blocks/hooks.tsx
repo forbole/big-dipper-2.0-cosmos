@@ -28,13 +28,13 @@ export const useBlocks = () => {
 
   const formatBlocks = (data: BlocksListenerSubscription) => {
     return data.blocks.map((x) => {
-      return ({
+      return {
         height: x.height,
         txs: x.txs,
         hash: x.hash,
         timestamp: x.timestamp,
         proposer: x.proposerAddress,
-      });
+      };
     });
   };
 
