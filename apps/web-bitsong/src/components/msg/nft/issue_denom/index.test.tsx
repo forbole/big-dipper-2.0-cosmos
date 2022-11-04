@@ -7,7 +7,9 @@ import IssueDenom from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -27,7 +29,7 @@ describe('screen: TransactionDetails/IssueDenom', () => {
     const component = renderer.create(
       <MockTheme>
         <IssueDenom message={message} />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

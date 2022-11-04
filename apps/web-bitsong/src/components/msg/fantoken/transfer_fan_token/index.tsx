@@ -5,9 +5,7 @@ import Name from '@components/name';
 import { MsgTransferFanTokenOwner } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const TransferFanToken = (props: {
-  message: MsgTransferFanTokenOwner;
-}) => {
+const TransferFanToken = (props: { message: MsgTransferFanTokenOwner }) => {
   const { message } = props;
 
   const src = useProfileRecoil(message.srcOwner);
@@ -21,19 +19,9 @@ const TransferFanToken = (props: {
       <Trans
         i18nKey="message_contents:txMsgTransferFanTokenOwner"
         components={[
-          (
-            <Name
-              address={message.srcOwner}
-              name={srcMoniker}
-            />
-          ),
+          <Name address={message.srcOwner} name={srcMoniker} />,
           <b />,
-          (
-            <Name
-              address={message.dstOwner}
-              name={dstMoniker}
-            />
-          ),
+          <Name address={message.dstOwner} name={dstMoniker} />,
         ]}
         values={{
           symbol: message.symbol,

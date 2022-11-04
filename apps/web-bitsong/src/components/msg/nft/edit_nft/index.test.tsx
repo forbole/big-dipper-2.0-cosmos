@@ -7,7 +7,9 @@ import EditNFT from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -22,10 +24,8 @@ describe('screen: TransactionDetails/EditNFT', () => {
     });
     const component = renderer.create(
       <MockTheme>
-        <EditNFT
-          message={message}
-        />
-      </MockTheme>,
+        <EditNFT message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

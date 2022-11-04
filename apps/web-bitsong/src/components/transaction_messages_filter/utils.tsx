@@ -1,5 +1,5 @@
 export const getFilterLabels = () => {
-  return ([
+  return [
     {
       key: 'none',
       display: 'none',
@@ -60,5 +60,5 @@ export const getFilterLabels = () => {
       key: 'others',
       display: 'others',
     },
-  ]);
+  ];
 };

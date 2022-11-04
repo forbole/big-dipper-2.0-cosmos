@@ -6,9 +6,7 @@ import Name from '@components/name';
 import { MsgCancelAuction } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const CancelAuction = (props: {
-  message: MsgCancelAuction;
-}) => {
+const CancelAuction = (props: { message: MsgCancelAuction }) => {
   const { message } = props;
 
   const owner = useProfileRecoil(message.owner);
@@ -18,15 +16,7 @@ const CancelAuction = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:txMsgCancelAuction"
-        components={[
-          (
-            <Name
-              address={message.owner}
-              name={ownerMoniker}
-            />
-          ),
-          <b />,
-        ]}
+        components={[<Name address={message.owner} name={ownerMoniker} />, <b />]}
         values={{
           id: numeral(message.id).format('0,0'),
         }}

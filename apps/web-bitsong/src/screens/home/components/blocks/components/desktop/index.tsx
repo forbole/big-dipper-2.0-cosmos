@@ -1,13 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import {
-  TableRow,
-  TableHead,
-  TableCell,
-  Table,
-  TableBody,
-  Typography,
-} from '@material-ui/core';
+import { TableRow, TableHead, TableCell, Table, TableBody, Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
@@ -22,14 +15,12 @@ import { ItemType } from '../../types';
 const Desktop: React.FC<{
   className?: string;
   items: ItemType[];
-}> = ({
-  className, items,
-}) => {
+}> = ({ className, items }) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
 
   const formattedData = items.map((x) => {
-    return ({
+    return {
       height: (
         <Link href={BLOCK_DETAILS(x.height)} passHref>
           <Typography variant="body1" className="value" component="a">
@@ -47,23 +38,19 @@ const Desktop: React.FC<{
         />
       ),
       hash: getMiddleEllipsis(x.hash, {
-        beginning: 6, ending: 5,
+        beginning: 6,
+        ending: 5,
       }),
-    });
+    };
   });
 
   return (
-    <div
-      className={classnames(className, classes.root)}
-    >
+    <div className={classnames(className, classes.root)}>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
             {columns.map((column) => (
-              <TableCell
-                key={column.key}
-                align={column.align}
-              >
+              <TableCell key={column.key} align={column.align}>
                 {t(column.key)}
               </TableCell>
             ))}
@@ -73,9 +60,7 @@ const Desktop: React.FC<{
           {formattedData.map((row, i) => (
             <TableRow key={`${items[i].height}`}>
               {columns.map((column, index) => {
-                const {
-                  key, align,
-                } = column;
+                const { key, align } = column;
                 const item = row[key];
                 return (
                   <TableCell align={align} key={`${key}-${index}`}>

@@ -6,18 +6,23 @@ import ListNames from '.';
 // mocks
 // ==================================
 jest.mock('@recoil/profiles', () => {
-  return ({
+  return {
     useProfilesRecoil: jest.fn((addresses) => {
       return addresses.map((address) => ({
         address,
-        name: address === 'desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7' ? 'AC Validator 🦦' : address,
+        name:
+          address === 'desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7'
+            ? 'AC Validator 🦦'
+            : address,
         imageUrl: '',
       }));
     }),
-  });
+  };
 });
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id={props.address} {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id={props.address} {...props} />
+));
 
 // ==================================
 // unit tests
@@ -32,14 +37,23 @@ describe('screen: TransactionDetails/IssueDenom', () => {
           'desmosvaloper1jh753mzjy358jf86cfqqzkrrtqqefhjxctcre4',
           'desmosvaloper1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467',
         ]}
-      />,
+      />
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
     expect(component.root.findAllByType('div').length).toBeGreaterThan(2);
-    expect(component.root.findByProps({ id: 'desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7' }).props.name).toBe('AC Validator 🦦');
-    expect(component.root.findByProps({ id: 'desmosvaloper1jh753mzjy358jf86cfqqzkrrtqqefhjxctcre4' }).props.id).toBe('desmosvaloper1jh753mzjy358jf86cfqqzkrrtqqefhjxctcre4');
-    expect(component.root.findByProps({ id: 'desmosvaloper1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467' }).props.id).not.toBe('desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7');
+    expect(
+      component.root.findByProps({ id: 'desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7' })
+        .props.name
+    ).toBe('AC Validator 🦦');
+    expect(
+      component.root.findByProps({ id: 'desmosvaloper1jh753mzjy358jf86cfqqzkrrtqqefhjxctcre4' })
+        .props.id
+    ).toBe('desmosvaloper1jh753mzjy358jf86cfqqzkrrtqqefhjxctcre4');
+    expect(
+      component.root.findByProps({ id: 'desmosvaloper1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467' })
+        .props.id
+    ).not.toBe('desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7');
     expect(component.root.findAllByProps({ name: 'moniker' }).length).not.toBe(4);
   });
 

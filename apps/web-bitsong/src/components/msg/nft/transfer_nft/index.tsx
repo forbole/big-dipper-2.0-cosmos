@@ -5,9 +5,7 @@ import Name from '@components/name';
 import { MsgTransferNFT } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const TransferNFT = (props: {
-  message: MsgTransferNFT;
-}) => {
+const TransferNFT = (props: { message: MsgTransferNFT }) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);
@@ -21,19 +19,9 @@ const TransferNFT = (props: {
       <Trans
         i18nKey="message_contents:txTransferNFTContent"
         components={[
-          (
-            <Name
-              address={message.sender}
-              name={senderMoniker}
-            />
-          ),
+          <Name address={message.sender} name={senderMoniker} />,
           <b />,
-          (
-            <Name
-              address={message.recipient}
-              name={recipientMoniker}
-            />
-          ),
+          <Name address={message.recipient} name={recipientMoniker} />,
         ]}
         values={{
           id: message.id,

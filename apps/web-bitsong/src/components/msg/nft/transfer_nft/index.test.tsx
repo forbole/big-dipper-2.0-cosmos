@@ -7,7 +7,9 @@ import TransferNFT from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -23,10 +25,8 @@ describe('screen: TransactionDetails/TransferNFT', () => {
     });
     const component = renderer.create(
       <MockTheme>
-        <TransferNFT
-          message={message}
-        />
-      </MockTheme>,
+        <TransferNFT message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

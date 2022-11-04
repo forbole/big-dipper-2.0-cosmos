@@ -1,6 +1,6 @@
 import AvatarName from '@components/avatar_name';
 
-export const columns:{
+export const columns: {
   key: string;
   align?: 'left' | 'center' | 'right' | 'justify' | 'inherit';
   width: number;
@@ -13,16 +13,8 @@ export const columns:{
 
 export const formatRows = (data: AvatarName[]) => {
   return data.map((x) => {
-    return (
-      {
-        validator: (
-          <AvatarName
-            address={x.address}
-            imageUrl={x.imageUrl}
-            name={x.name}
-          />
-        ),
-      }
-    );
+    return {
+      validator: <AvatarName address={x.address} imageUrl={x.imageUrl} name={x.name} />,
+    };
   });
 };

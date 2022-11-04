@@ -9,10 +9,10 @@ export type OverviewType = {
   votingStartTime: string | null;
   votingEndTime: string | null;
   content: string;
-}
+};
 
 export type ProposalState = {
   loading: boolean;
   exists: boolean;
   overview: OverviewType;
-}
+};

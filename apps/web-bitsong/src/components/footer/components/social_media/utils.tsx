@@ -1,12 +1,7 @@
 import React from 'react';
-import {
-  TelegramIcon,
-  LinkedinIcon,
-  TwitterIcon,
-  GithubIcon,
-} from '@icons';
+import { TelegramIcon, LinkedinIcon, TwitterIcon, GithubIcon } from '@icons';
 
-export const socialMediaLinks:{
+export const socialMediaLinks: {
   component: React.ReactNode;
   className: string;
   url: string;

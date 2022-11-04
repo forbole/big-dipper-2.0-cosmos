@@ -9,7 +9,7 @@ export type CustomToolTipData = {
   rawValue: number;
   percent: string;
   fill: string;
-}
+};
 
 /**
  * Custom tooltips for recharts
@@ -20,22 +20,13 @@ const CustomToolTip: React.FC<{
   active?: boolean;
   payload?: any;
 }> = (props) => {
-  const {
-    active,
-    payload,
-    className,
-    children,
-  } = props;
+  const { active, payload, className, children } = props;
 
   const classes = useStyles();
 
   if (active && payload && payload.length) {
     const { payload: data } = payload?.[0];
-    return (
-      <div className={classnames(classes.root, className)}>
-        {children(data)}
-      </div>
-    );
+    return <div className={classnames(classes.root, className)}>{children(data)}</div>;
   }
 
   return null;

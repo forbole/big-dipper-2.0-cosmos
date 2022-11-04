@@ -5,9 +5,7 @@ import Name from '@components/name';
 import { MsgEditFanToken } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const EditFanToken = (props: {
-  message: MsgEditFanToken;
-}) => {
+const EditFanToken = (props: { message: MsgEditFanToken }) => {
   const { message } = props;
 
   const owner = useProfileRecoil(message.owner);
@@ -17,14 +15,7 @@ const EditFanToken = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:txMsgEditFanToken"
-        components={[
-          (
-            <Name
-              address={message.owner}
-              name={ownerMoniker}
-            />
-          ),
-        ]}
+        components={[<Name address={message.owner} name={ownerMoniker} />]}
       />
     </Typography>
   );

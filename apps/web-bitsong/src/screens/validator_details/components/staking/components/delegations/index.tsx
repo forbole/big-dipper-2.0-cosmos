@@ -2,43 +2,35 @@ import React from 'react';
 import * as R from 'ramda';
 import classnames from 'classnames';
 import dynamic from 'next/dynamic';
-import {
-  usePagination,
-  useScreenSize,
-} from '@hooks';
+import { usePagination, useScreenSize } from '@hooks';
 import Pagination from '@components/pagination';
 import NoData from '@components/no_data';
 import Loading from '@components/loading';
-import {
-  useProfilesRecoil,
-} from '@recoil/profiles';
+import { useProfilesRecoil } from '@recoil/profiles';
 import { useStyles } from './styles';
 import { DelegationsType } from '../../types';
 
 const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
 
-const Delegations: React.FC<{
-  delegations: DelegationsType,
-} & ComponentDefault> = (props) => {
+const Delegations: React.FC<
+  {
+    delegations: DelegationsType;
+  } & ComponentDefault
+> = (props) => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
-  const {
-    page,
-    rowsPerPage,
-    handleChangePage,
-    handleChangeRowsPerPage,
-  } = usePagination({});
+  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage } = usePagination({});
 
   const pageItems = R.pathOr([], ['delegations', 'data', page], props);
 
   const dataProfiles = useProfilesRecoil(pageItems.map((x) => x.address));
 
   const mergedDataWithProfiles = pageItems.map((x, i) => {
-    return ({
+    return {
       ...x,
       address: dataProfiles[i],
-    });
+    };
   });
 
   const items = mergedDataWithProfiles;

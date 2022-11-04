@@ -1,3 +1,3 @@
 import { DelegationType } from '../../types';
 
-export type ItemType = Override<DelegationType, { address: AvatarName }>
+export type ItemType = Override<DelegationType, { address: AvatarName }>;

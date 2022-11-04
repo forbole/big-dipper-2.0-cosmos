@@ -4,9 +4,7 @@ import { Typography } from '@material-ui/core';
 import { MsgIssueDenom } from '@models';
 import { ListNames } from './components';
 
-const IssueDenom = (props: {
-  message: MsgIssueDenom ;
-}) => {
+const IssueDenom = (props: { message: MsgIssueDenom }) => {
   const { message } = props;
   const { creators } = message;
 
@@ -14,13 +12,8 @@ const IssueDenom = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:txIssueDenomContent"
-        components={[
-          (
-            <ListNames creators={creators} />
-          ),
-        ]}
+        components={[<ListNames creators={creators} />]}
       />
-
     </Typography>
   );
 };

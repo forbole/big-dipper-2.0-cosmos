@@ -1,9 +1,7 @@
 import Params from '@src/screens/params';
 
 const ParamsPage = () => {
-  return (
-    <Params />
-  );
+  return <Params />;
 };
 
 export default ParamsPage;

@@ -3,4 +3,4 @@ export type TransactionState = {
   isNextPageLoading: boolean;
   offsetCount: number;
   data: Transactions[];
-}
+};

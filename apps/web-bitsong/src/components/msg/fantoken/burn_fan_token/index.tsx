@@ -5,9 +5,7 @@ import Name from '@components/name';
 import { MsgBurnFanToken } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const BurnFanToken = (props: {
-  message: MsgBurnFanToken;
-}) => {
+const BurnFanToken = (props: { message: MsgBurnFanToken }) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);
@@ -17,14 +15,7 @@ const BurnFanToken = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:txMsgBurnFanToken"
-        components={[
-          (
-            <Name
-              address={message.sender}
-              name={senderMoniker}
-            />
-          ),
-        ]}
+        components={[<Name address={message.sender} name={senderMoniker} />]}
       />
     </Typography>
   );

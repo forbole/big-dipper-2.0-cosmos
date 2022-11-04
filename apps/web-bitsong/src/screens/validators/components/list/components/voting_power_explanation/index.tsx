@@ -9,12 +9,7 @@ const VotingPowerExplanation = () => {
   return (
     <div className={classes.root}>
       <Typography>
-        <Trans
-          i18nKey="validators:votingPowerExplanation"
-          components={[
-            <b />,
-          ]}
-        />
+        <Trans i18nKey="validators:votingPowerExplanation" components={[<b />]} />
       </Typography>
     </div>
   );

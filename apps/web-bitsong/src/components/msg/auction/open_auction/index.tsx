@@ -5,9 +5,7 @@ import Name from '@components/name';
 import { MsgOpenAuction } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const OpenAuction = (props: {
-  message: MsgOpenAuction;
-}) => {
+const OpenAuction = (props: { message: MsgOpenAuction }) => {
   const { message } = props;
 
   const owner = useProfileRecoil(message.owner);
@@ -17,15 +15,7 @@ const OpenAuction = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:txMsgOpenAuction"
-        components={[
-          (
-            <Name
-              address={message.owner}
-              name={ownerMoniker}
-            />
-          ),
-          <b />,
-        ]}
+        components={[<Name address={message.owner} name={ownerMoniker} />, <b />]}
         values={{
           nftId: message.nftId,
         }}

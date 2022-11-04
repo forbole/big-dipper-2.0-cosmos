@@ -8,7 +8,9 @@ import BurnNFT from '.';
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -23,10 +25,8 @@ describe('screen: TransactionDetails/BurnNFT', () => {
     });
     const component = renderer.create(
       <MockTheme>
-        <BurnNFT
-          message={message}
-        />
-      </MockTheme>,
+        <BurnNFT message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

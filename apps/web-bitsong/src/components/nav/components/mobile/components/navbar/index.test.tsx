@@ -1,20 +1,20 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { RecoilRoot } from 'recoil';
-import {
-  MockTheme, wait,
-} from '@tests/utils';
+import { MockTheme, wait } from '@tests/utils';
 import Navbar from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('shared-utils/assets/big-dipper-white.svg', () => (props) => <div id="WHITE" {...props} />);
+jest.mock('shared-utils/assets/big-dipper-white.svg', () => (props) => (
+  <div id="WHITE" {...props} />
+));
 jest.mock('shared-utils/assets/big-dipper-red.svg', () => (props) => <div id="RED" {...props} />);
 // ==================================
 // global setup
 // ==================================
-let component:renderer.ReactTestRenderer;
+let component: renderer.ReactTestRenderer;
 
 // ==================================
 // global setup
@@ -29,13 +29,9 @@ describe('screen: Nav/mobile/navbar', () => {
     component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <Navbar
-            isOpen={false}
-            openNetwork={openNetwork}
-            toggleNavMenus={toggleNavMenus}
-          />
+          <Navbar isOpen={false} openNetwork={openNetwork} toggleNavMenus={toggleNavMenus} />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     await wait();
   });

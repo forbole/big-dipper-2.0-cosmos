@@ -5,9 +5,7 @@ import Name from '@components/name';
 import { MsgMintNFT } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const MintNFT = (props: {
-  message: MsgMintNFT;
-}) => {
+const MintNFT = (props: { message: MsgMintNFT }) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);
@@ -17,15 +15,7 @@ const MintNFT = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:txMintNFTContent"
-        components={[
-          (
-            <Name
-              address={message.sender}
-              name={senderMoniker}
-            />
-          ),
-          <b />,
-        ]}
+        components={[<Name address={message.sender} name={senderMoniker} />, <b />]}
         values={{
           id: message.id,
         }}
