@@ -1,5 +1,5 @@
 export type ProfileDetailState = {
-    loading: boolean;
-    exists: boolean;
-    desmosProfile: DesmosProfile | null;
-  }
+  loading: boolean;
+  exists: boolean;
+  desmosProfile: DesmosProfile | null;
+};

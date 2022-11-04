@@ -7,8 +7,12 @@ import Overview from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/box_details', () => (props: JSX.IntrinsicElements['div']) => <div id="BoxDetails" {...props} />);
-jest.mock('@components/result', () => (props: JSX.IntrinsicElements['div']) => <div id="Result" {...props} />);
+jest.mock('@components/box_details', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="BoxDetails" {...props} />
+));
+jest.mock('@components/result', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Result" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -19,27 +23,25 @@ describe('screen: BlockDetails/Overview', () => {
       <RecoilRoot>
         <MockTheme>
           <Overview
-            data={
-          {
-            hash: '',
-            height: 0,
-            timestamp: '',
-            fee: {
-              value: '5000',
-              baseDenom: 'udaric',
-              displayDenom: 'daric',
-              exponent: 6,
-            },
-            gasUsed: 0,
-            gasWanted: 0,
-            success: false,
-            memo: '',
-            error: '',
-          }
-        }
+            data={{
+              hash: '',
+              height: 0,
+              timestamp: '',
+              fee: {
+                value: '5000',
+                baseDenom: 'udaric',
+                displayDenom: 'daric',
+                exponent: 6,
+              },
+              gasUsed: 0,
+              gasWanted: 0,
+              success: false,
+              memo: '',
+              error: '',
+            }}
           />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

@@ -3,9 +3,9 @@ export type VotesType = {
   no: TokenUnit;
   abstain: TokenUnit;
   veto: TokenUnit;
-}
+};
 export type VotesGraphState = {
   votes: VotesType;
   bonded: TokenUnit;
   quorum: number;
-}
+};

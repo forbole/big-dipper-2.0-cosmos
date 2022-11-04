@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
-      return ({
+      return {
         root: {
           display: 'grid',
           gridGap: theme.spacing(1),
@@ -28,8 +28,9 @@ export const useStyles = () => {
         validators: {
           background: theme.palette.custom.primaryData.four,
         },
-      });
-    }, { index: 1 },
+      };
+    },
+    { index: 1 }
   )();
 
   return styles;

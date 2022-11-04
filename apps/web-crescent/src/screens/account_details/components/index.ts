@@ -4,10 +4,4 @@ import Staking from './staking';
 import Transactions from './transactions';
 import OtherTokens from './other_tokens';
 
-export {
-  Overview,
-  Balance,
-  Staking,
-  Transactions,
-  OtherTokens,
-};
+export { Overview, Balance, Staking, Transactions, OtherTokens };

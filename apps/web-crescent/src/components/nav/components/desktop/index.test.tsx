@@ -7,7 +7,7 @@ import Desktop from '.';
 // ==================================
 // global setup
 // ==================================
-let component:renderer.ReactTestRenderer;
+let component: renderer.ReactTestRenderer;
 
 // ==================================
 // mocks
@@ -30,7 +30,7 @@ describe('screen: Nav/Desktop', () => {
         <MockTheme>
           <Desktop title="hello world" />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
   });
 

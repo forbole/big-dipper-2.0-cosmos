@@ -18,11 +18,7 @@ import LiquidStakingTitleIcon from 'shared-utils/assets/liquid-staking-title.svg
 import { useStyles } from './styles';
 import { fetchColumns } from './utils';
 import { ItemType } from '../../types';
-import {
-  Condition,
-  VotingPower,
-  VotingPowerExplanation,
-} from '..';
+import { Condition, VotingPower, VotingPowerExplanation } from '..';
 
 const Desktop: React.FC<{
   className?: string;
@@ -35,20 +31,15 @@ const Desktop: React.FC<{
   const classes = useStyles();
   const columns = fetchColumns(t);
 
-  const {
-    gridRef,
-    columnRef,
-    onResize,
-    getColumnWidth,
-    getRowHeight,
-  } = useGrid(columns);
+  const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
   const formattedItems = props.items.map((x, i) => {
     const status = getValidatorStatus(x.status, x.jailed, x.tombstoned);
     const condition = x.status === 3 ? getValidatorConditionClass(x.condition) : undefined;
-    const percentDisplay = x.status === 3 ? `${numeral(x.votingPowerPercent).format('0.[00]')}%` : '0%';
+    const percentDisplay =
+      x.status === 3 ? `${numeral(x.votingPowerPercent).format('0.[00]')}%` : '0%';
     const votingPower = numeral(x.votingPower).format('0,0');
-    return ({
+    return {
       idx: `#${i + 1}`,
       validator: (
         <AvatarName
@@ -71,19 +62,16 @@ const Desktop: React.FC<{
           {t(status.status)}
         </Typography>
       ),
-      condition: (
-        <Condition className={condition} />
-      ),
-      liquidStaking: x.liquidStaking === 'Yes' ? <LiquidStakingTrueIcon /> : <LiquidStakingFalseIcon />,
-    });
+      condition: <Condition className={condition} />,
+      liquidStaking:
+        x.liquidStaking === 'Yes' ? <LiquidStakingTrueIcon /> : <LiquidStakingFalseIcon />,
+    };
   });
 
   return (
     <div className={classnames(props.className, classes.root)}>
       <AutoSizer onResize={onResize}>
-        {({
-          height, width,
-        }) => {
+        {({ height, width }) => {
           return (
             <>
               {/* ======================================= */}
@@ -98,16 +86,8 @@ const Desktop: React.FC<{
                 rowHeight={() => 50}
                 width={width}
               >
-                {({
-                  columnIndex, style,
-                }) => {
-                  const {
-                    key,
-                    align,
-                    component,
-                    sort,
-                    sortKey: sortingKey,
-                  } = columns[columnIndex];
+                {({ columnIndex, style }) => {
+                  const { key, align, component, sort, sortKey: sortingKey } = columns[columnIndex];
 
                   let formattedComponent = component;
 
@@ -115,14 +95,10 @@ const Desktop: React.FC<{
                     formattedComponent = (
                       <Typography variant="h4" className="label popover">
                         {t('votingPower')}
-                        <InfoPopover
-                          content={<VotingPowerExplanation />}
-                        />
+                        <InfoPopover content={<VotingPowerExplanation />} />
                         {!!sort && (
                           <SortArrows
-                            sort={props.sortKey === sortingKey
-                              ? props.sortDirection
-                              : undefined}
+                            sort={props.sortKey === sortingKey ? props.sortDirection : undefined}
                           />
                         )}
                       </Typography>
@@ -133,14 +109,10 @@ const Desktop: React.FC<{
                     formattedComponent = (
                       <Typography variant="h4" className="label popover">
                         <LiquidStakingTitleIcon />
-                        <InfoPopover
-                          content={<LiquidStakingExplanation />}
-                        />
+                        <InfoPopover content={<LiquidStakingExplanation />} />
                         {!!sort && (
                           <SortArrows
-                            sort={props.sortKey === sortingKey
-                              ? props.sortDirection
-                              : undefined}
+                            sort={props.sortKey === sortingKey ? props.sortDirection : undefined}
                           />
                         )}
                       </Typography>
@@ -150,31 +122,23 @@ const Desktop: React.FC<{
                   return (
                     <div
                       style={style}
-                      className={classnames(
-                        classes.cell,
-                        {
-                          [classes.flexCells]: component || sort,
-                          [align]: sort || component,
-                          sort,
-                        },
-                      )}
+                      className={classnames(classes.cell, {
+                        [classes.flexCells]: component || sort,
+                        [align]: sort || component,
+                        sort,
+                      })}
                       onClick={() => (sort ? props.handleSort(sortingKey) : null)}
                       role="button"
                     >
                       {formattedComponent || (
-                      <Typography
-                        variant="h4"
-                        align={align}
-                      >
-                        {t(key)}
-                        {!!sort && (
-                        <SortArrows
-                          sort={props.sortKey === sortingKey
-                            ? props.sortDirection
-                            : undefined}
-                        />
-                        )}
-                      </Typography>
+                        <Typography variant="h4" align={align}>
+                          {t(key)}
+                          {!!sort && (
+                            <SortArrows
+                              sort={props.sortKey === sortingKey ? props.sortDirection : undefined}
+                            />
+                          )}
+                        </Typography>
                       )}
                     </div>
                   );
@@ -193,12 +157,8 @@ const Desktop: React.FC<{
                 width={width}
                 className="scrollbar"
               >
-                {({
-                  columnIndex, rowIndex, style,
-                }) => {
-                  const {
-                    key, align,
-                  } = columns[columnIndex];
+                {({ columnIndex, rowIndex, style }) => {
+                  const { key, align } = columns[columnIndex];
                   const item = formattedItems[rowIndex][key];
                   return (
                     <div
@@ -207,11 +167,7 @@ const Desktop: React.FC<{
                         odd: !(rowIndex % 2),
                       })}
                     >
-                      <Typography
-                        variant="body1"
-                        align={align}
-                        component="div"
-                      >
+                      <Typography variant="body1" align={align} component="div">
                         {item}
                       </Typography>
                     </div>
@@ -223,7 +179,6 @@ const Desktop: React.FC<{
         }}
       </AutoSizer>
     </div>
-
   );
 };
 

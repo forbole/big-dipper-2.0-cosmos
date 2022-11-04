@@ -1,9 +1,6 @@
 /* eslint-disable max-len */
 import { useEffect } from 'react';
-import {
-  useRecoilValue,
-  useRecoilCallback,
-} from 'recoil';
+import { useRecoilValue, useRecoilCallback } from 'recoil';
 import chainConfig from 'ui/dist/chainConfig';
 import {
   writeProfile,
@@ -42,9 +39,7 @@ export const useProfileRecoil = (address: string): AvatarName | null => {
   });
 
   useEffect(() => {
-    if (chainConfig.extra.profile
-      && delegatorAddress
-      && rawProfile === null) {
+    if (chainConfig.extra.profile && delegatorAddress && rawProfile === null) {
       fetchProfile();
     }
   }, [address]);
@@ -62,22 +57,24 @@ export const useProfilesRecoil = (addresses: string[]): AvatarName[] => {
   const profiles = useRecoilValue(readProfiles(addresses));
 
   const fetchProfiles = useRecoilCallback(({ set }) => async () => {
-    const fetchedProfiles = await Promise.all(rawProfiles.map(async (x, i) => {
-      const delegatorAddress = delegatorAddresses[i];
-      if (delegatorAddress && x === null) {
-        const fetchedProfile = await getProfile(delegatorAddress);
-        if (fetchedProfile === null) {
-          set(writeProfile(delegatorAddress), null);
-        } else {
-          set(writeProfile(delegatorAddress), {
-            address: delegatorAddress,
-            // name: fetchedProfile.nickname || addresses[i],
-            name: `@${fetchedProfile.dtag}` || addresses[i],
-            imageUrl: fetchedProfile.imageUrl,
-          });
+    const fetchedProfiles = await Promise.all(
+      rawProfiles.map(async (x, i) => {
+        const delegatorAddress = delegatorAddresses[i];
+        if (delegatorAddress && x === null) {
+          const fetchedProfile = await getProfile(delegatorAddress);
+          if (fetchedProfile === null) {
+            set(writeProfile(delegatorAddress), null);
+          } else {
+            set(writeProfile(delegatorAddress), {
+              address: delegatorAddress,
+              // name: fetchedProfile.nickname || addresses[i],
+              name: `@${fetchedProfile.dtag}` || addresses[i],
+              imageUrl: fetchedProfile.imageUrl,
+            });
+          }
         }
-      }
-    }));
+      })
+    );
 
     return fetchedProfiles;
   });

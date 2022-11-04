@@ -1,20 +1,13 @@
-import {
-  useState, useEffect,
-} from 'react';
+import { useState, useEffect } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import { formatToken } from '@utils/format_token';
-import {
-  useValidatorDetailsQuery,
-  ValidatorDetailsQuery,
-} from '@graphql/types/general_types';
+import { useValidatorDetailsQuery, ValidatorDetailsQuery } from '@graphql/types/general_types';
 import { useDesmosProfile } from '@hooks';
 import { validatorToDelegatorAddress } from '@recoil/profiles';
 import { getValidatorCondition } from '@utils/get_validator_condition';
 import chainConfig from 'ui/dist/chainConfig';
-import {
-  SlashingParams,
-} from '@models';
+import { SlashingParams } from '@models';
 import { isValidAddress } from '@utils/prefix_convert';
 import { ValidatorDetailsState } from './types';
 
@@ -65,9 +58,7 @@ export const useValidatorDetails = () => {
   // ==========================
   // Desmos Profile
   // ==========================
-  const {
-    fetchDesmosProfile, formatDesmosProfile,
-  } = useDesmosProfile({
+  const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
     onComplete: (data) => {
       handleSetState({
         desmosProfile: formatDesmosProfile(data),
@@ -113,8 +104,16 @@ export const useValidatorDetails = () => {
     // overview
     // ============================
     const formatOverview = () => {
-      const operatorAddress = R.pathOr('', ['validator', 0, 'validatorInfo', 'operatorAddress'], data);
-      const selfDelegateAddress = R.pathOr('', ['validator', 0, 'validatorInfo', 'selfDelegateAddress'], data);
+      const operatorAddress = R.pathOr(
+        '',
+        ['validator', 0, 'validatorInfo', 'operatorAddress'],
+        data
+      );
+      const selfDelegateAddress = R.pathOr(
+        '',
+        ['validator', 0, 'validatorInfo', 'selfDelegateAddress'],
+        data
+      );
       const profile = {
         validator: operatorAddress,
         operatorAddress,
@@ -132,12 +131,22 @@ export const useValidatorDetails = () => {
     // status
     // ============================
     const formatStatus = () => {
-      const slashingParams = SlashingParams.fromJson(R.pathOr({}, ['slashingParams', 0, 'params'], data));
-      const missedBlockCounter = R.pathOr(0, ['validatorSigningInfos', 0, 'missedBlocksCounter'], data.validator[0]);
+      const slashingParams = SlashingParams.fromJson(
+        R.pathOr({}, ['slashingParams', 0, 'params'], data)
+      );
+      const missedBlockCounter = R.pathOr(
+        0,
+        ['validatorSigningInfos', 0, 'missedBlocksCounter'],
+        data.validator[0]
+      );
       const { signedBlockWindow } = slashingParams;
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
 
-      const liquidStakingReturn = R.pathOr('N/A', ['validatorLiquidStaking', 0, 'liquidStaking'], data.validator[0]);
+      const liquidStakingReturn = R.pathOr(
+        'N/A',
+        ['validatorLiquidStaking', 0, 'liquidStaking'],
+        data.validator[0]
+      );
       let liquidStaking = liquidStakingReturn;
       if (liquidStakingReturn !== 'N/A') {
         if (liquidStakingReturn) {
@@ -167,13 +176,17 @@ export const useValidatorDetails = () => {
     // votingPower
     // ============================
     const formatVotingPower = () => {
-      const selfVotingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], data.validator[0]);
+      const selfVotingPower = R.pathOr(
+        0,
+        ['validatorVotingPowers', 0, 'votingPower'],
+        data.validator[0]
+      );
 
       const votingPower = {
         self: selfVotingPower,
         overall: formatToken(
           R.pathOr(0, ['stakingPool', 0, 'bonded'], data),
-          chainConfig.votingPowerTokenUnit,
+          chainConfig.votingPowerTokenUnit
         ),
         height: R.pathOr(0, ['validatorVotingPowers', 0, 'height'], data.validator[0]),
       };

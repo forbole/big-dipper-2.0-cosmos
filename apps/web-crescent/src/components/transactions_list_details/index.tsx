@@ -26,14 +26,10 @@ const TransactionsListDetails: React.FC<TransactionsListDetailsState> = (props) 
   };
 
   if (!itemCount) {
-    return (
-      <NoData />
-    );
+    return <NoData />;
   }
 
-  return (
-    <List {...formatProps} />
-  );
+  return <List {...formatProps} />;
 };
 
 export default TransactionsListDetails;

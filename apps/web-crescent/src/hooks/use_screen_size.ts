@@ -1,6 +1,4 @@
-import {
-  useState, useEffect,
-} from 'react';
+import { useState, useEffect } from 'react';
 import { useTheme } from '@material-ui/core/styles';
 
 export const useScreenSize = () => {
@@ -13,12 +11,12 @@ export const useScreenSize = () => {
     };
   }
 
-  const [windowSize, setWindowSize] = useState<{width: number; height: number;}>(getSize());
+  const [windowSize, setWindowSize] = useState<{ width: number; height: number }>(getSize());
   const [isDesktop, setIsDesktop] = useState<boolean>(false);
   const [isTablet, setIsTablet] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(true);
 
-  const theme:any = useTheme();
+  const theme: any = useTheme();
 
   useEffect((): any => {
     if (!isClient) {
@@ -42,8 +40,7 @@ export const useScreenSize = () => {
       setIsMobile(false);
     }
     // is tablet
-    if (width >= theme?.breakpoints?.values?.md
-      && width < theme?.breakpoints?.values?.lg) {
+    if (width >= theme?.breakpoints?.values?.md && width < theme?.breakpoints?.values?.lg) {
       setIsTablet(true);
     } else {
       setIsTablet(false);

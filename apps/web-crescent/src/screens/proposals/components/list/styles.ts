@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
-      return ({
+      return {
         root: {
           minHeight: '500px',
           height: '50vh',
@@ -32,7 +32,7 @@ export const useStyles = () => {
           color: theme.palette.custom.fonts.fontThree,
           textAlign: 'right',
           [theme.breakpoints.up('lg')]: {
-            color: theme.palette.custom.fonts.fontTwo
+            color: theme.palette.custom.fonts.fontTwo,
           },
         },
         search: {
@@ -62,8 +62,9 @@ export const useStyles = () => {
             marginBottom: theme.spacing(2),
           },
         },
-      });
-    }, { index: 1 },
+      };
+    },
+    { index: 1 }
   )();
 
   return styles;

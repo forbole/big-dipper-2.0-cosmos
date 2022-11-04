@@ -5,9 +5,7 @@ import Name from '@components/name';
 import { MsgConnectionOpenInit } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const ConnectionOpenInit = (props: {
-  message: MsgConnectionOpenInit;
-}) => {
+const ConnectionOpenInit = (props: { message: MsgConnectionOpenInit }) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -17,15 +15,7 @@ const ConnectionOpenInit = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:txConnectionOpenInitContent"
-        components={[
-          (
-            <Name
-              address={message.signer}
-              name={signerMoniker}
-            />
-          ),
-          <b />,
-        ]}
+        components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
         values={{
           clientId: message.clientId,
           counterparty: message.counterparty,

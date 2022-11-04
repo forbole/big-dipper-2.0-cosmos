@@ -9,12 +9,7 @@ const LiquidStakingExplanation = () => {
   return (
     <div className={classes.root}>
       <Typography>
-        <Trans
-          i18nKey="validators:liquidStakingExplanation"
-          components={[
-            <b />,
-          ]}
-        />
+        <Trans i18nKey="validators:liquidStakingExplanation" components={[<b />]} />
       </Typography>
     </div>
   );

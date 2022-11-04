@@ -1,9 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Typography,
-} from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import LiquidStakingTrueIcon from 'shared-utils/assets/liquid-staking-true.svg';
 import LiquidStakingFalseIcon from 'shared-utils/assets/liquid-staking-false.svg';
 import { useStyles } from './styles';
@@ -19,14 +17,7 @@ const SingleValidator: React.FC<{
     theme: string;
   };
   liquidStaking: string;
-}> = ({
-  className,
-  validator,
-  commission,
-  votingPower,
-  status,
-  liquidStaking,
-}) => {
+}> = ({ className, validator, commission, votingPower, status, liquidStaking }) => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
 
@@ -71,7 +62,6 @@ const SingleValidator: React.FC<{
         </div>
       </div>
     </div>
-
   );
 };
 

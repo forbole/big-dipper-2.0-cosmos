@@ -6,13 +6,25 @@ import Mobile from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/single_block_mobile', () => (props: JSX.IntrinsicElements['div']) => <div id="SingleBlockMobile" {...props} />);
-jest.mock('@components/loading', () => (props: JSX.IntrinsicElements['div']) => <div id="Loading" {...props} />);
-jest.mock('@components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => <div id="AvatarName" {...props} />);
+jest.mock('@components/single_block_mobile', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="SingleBlockMobile" {...props} />
+));
+jest.mock('@components/loading', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Loading" {...props} />
+));
+jest.mock('@components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="AvatarName" {...props} />
+));
 
-jest.mock('react-virtualized-auto-sizer', () => ({ children }: any) => children({
-  height: 600, width: 600,
-}));
+jest.mock(
+  'react-virtualized-auto-sizer',
+  () =>
+    ({ children }: any) =>
+      children({
+        height: 600,
+        width: 600,
+      })
+);
 
 // ==================================
 // unit tests
@@ -48,7 +60,7 @@ describe('screen: Home/Blocks/Mobile', () => {
           loadMoreItems={() => jest.fn()}
           isItemLoaded={() => true}
         />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

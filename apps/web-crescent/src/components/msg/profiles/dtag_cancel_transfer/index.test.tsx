@@ -8,7 +8,9 @@ import DtagCancelTransfer from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -24,11 +26,9 @@ describe('screen: TransactionDetails/MsgDtagCancelTransfer', () => {
     const component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <DtagCancelTransfer
-            message={message}
-          />
+          <DtagCancelTransfer message={message} />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

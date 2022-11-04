@@ -2,9 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import dayjs, { formatDayJs } from '@utils/dayjs';
-import {
-  Divider, Typography,
-} from '@material-ui/core';
+import { Divider, Typography } from '@material-ui/core';
 import AvatarName from '@components/avatar_name';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
@@ -15,14 +13,12 @@ import { ItemType } from '../../types';
 const Mobile: React.FC<{
   className?: string;
   items: ItemType[];
-}> = ({
-  className, items,
-}) => {
+}> = ({ className, items }) => {
   const classes = useStyles();
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
   const formattedItems = items.map((x) => {
-    return ({
+    return {
       validator: (
         <AvatarName
           address={x.validator.address}
@@ -30,9 +26,12 @@ const Mobile: React.FC<{
           name={x.validator.name}
         />
       ),
-      amount: `${formatNumber(x.amount.value, x.amount.exponent)} ${x.amount.displayDenom.toUpperCase()}`,
+      amount: `${formatNumber(
+        x.amount.value,
+        x.amount.exponent
+      )} ${x.amount.displayDenom.toUpperCase()}`,
       completionTime: formatDayJs(dayjs.utc(x.completionTime), dateFormat),
-    });
+    };
   });
 
   return (
