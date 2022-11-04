@@ -4,7 +4,7 @@ import Color from 'color';
 export const useStyles = (percentage: number) => {
   const styles = makeStyles(
     (theme) => {
-      return ({
+      return {
         root: {
           '& .MuiTypography-h2': {
             marginBottom: theme.spacing(2),
@@ -59,8 +59,9 @@ export const useStyles = (percentage: number) => {
             justifyContent: 'space-between',
           },
         },
-      });
-    }, { index: 1 },
+      };
+    },
+    { index: 1 }
   )();
 
   return styles;

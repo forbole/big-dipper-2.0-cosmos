@@ -5,11 +5,4 @@ import SearchBar from './search_bar';
 import Networks from './networks';
 import TitleBar from './title_bar';
 
-export {
-  Mobile,
-  Desktop,
-  MenuItems,
-  SearchBar,
-  Networks,
-  TitleBar,
-};
+export { Mobile, Desktop, MenuItems, SearchBar, Networks, TitleBar };

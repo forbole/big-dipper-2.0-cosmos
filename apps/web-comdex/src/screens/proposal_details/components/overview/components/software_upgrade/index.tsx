@@ -1,28 +1,20 @@
 import React from 'react';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableRow,
-} from '@material-ui/core';
+import { Table, TableBody, TableCell, TableRow } from '@material-ui/core';
 
 const SoftwareUpgrade: React.FC<{
   className?: string;
   height: string;
   info: string;
   name: string;
-}> = ({
-  height,
-  info,
-  name,
-}) => {
+}> = ({ height, info, name }) => {
   const { t } = useTranslation('proposals');
   return (
     <div
       style={{
-        overflow: 'auto', whiteSpace: 'nowrap',
+        overflow: 'auto',
+        whiteSpace: 'nowrap',
       }}
     >
       <Table>

@@ -22,10 +22,10 @@ class MsgCommunityPoolSpendProposal {
       description: json.description,
       recipient: json.recipient,
       amount: json?.amount.map((x) => {
-        return ({
+        return {
           denom: x?.denom,
           amount: R.pathOr('0', ['amount'], x),
-        });
+        };
       }),
     });
   }

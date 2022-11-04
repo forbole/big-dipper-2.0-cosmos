@@ -6,4 +6,4 @@ export type Selected = string;
 export type AtomState = {
   networks: Networks;
   selected: Selected;
-}
+};

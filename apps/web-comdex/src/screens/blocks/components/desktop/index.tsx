@@ -24,25 +24,13 @@ const Desktop: React.FC<{
   itemCount: number;
   loadMoreItems: (any) => void;
   isItemLoaded?: (index: number) => boolean;
-}> = ({
-  className,
-  items,
-  itemCount,
-  loadMoreItems,
-  isItemLoaded,
-}) => {
+}> = ({ className, items, itemCount, loadMoreItems, isItemLoaded }) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
-  const {
-    gridRef,
-    columnRef,
-    onResize,
-    getColumnWidth,
-    getRowHeight,
-  } = useGrid(columns);
+  const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
   const formattedItems = items.map((x) => {
-    return ({
+    return {
       height: (
         <Link href={BLOCK_DETAILS(x.height)} passHref>
           <Typography variant="body1" className="value" component="a">
@@ -60,17 +48,16 @@ const Desktop: React.FC<{
         />
       ),
       hash: getMiddleEllipsis(x.hash, {
-        beginning: 13, ending: 15,
+        beginning: 13,
+        ending: 15,
       }),
-    });
+    };
   });
 
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer onResize={onResize}>
-        {({
-          height, width,
-        }) => {
+        {({ height, width }) => {
           return (
             <>
               {/* ======================================= */}
@@ -85,22 +72,12 @@ const Desktop: React.FC<{
                 rowHeight={() => 50}
                 width={width}
               >
-                {({
-                  columnIndex, style,
-                }) => {
-                  const {
-                    key, align,
-                  } = columns[columnIndex];
+                {({ columnIndex, style }) => {
+                  const { key, align } = columns[columnIndex];
 
                   return (
-                    <div
-                      style={style}
-                      className={classes.cell}
-                    >
-                      <Typography
-                        variant="h4"
-                        align={align}
-                      >
+                    <div style={style} className={classes.cell}>
+                      <Typography variant="h4" align={align}>
                         {t(key)}
                       </Typography>
                     </div>
@@ -115,9 +92,7 @@ const Desktop: React.FC<{
                 itemCount={itemCount}
                 loadMoreItems={loadMoreItems}
               >
-                {({
-                  onItemsRendered, ref,
-                }) => {
+                {({ onItemsRendered, ref }) => {
                   return (
                     <Grid
                       onItemsRendered={({
@@ -142,9 +117,7 @@ const Desktop: React.FC<{
                       width={width}
                       className="scrollbar"
                     >
-                      {({
-                        columnIndex, rowIndex, style,
-                      }) => {
+                      {({ columnIndex, rowIndex, style }) => {
                         if (!isItemLoaded(rowIndex) && columnIndex === 0) {
                           return (
                             <div
@@ -162,9 +135,7 @@ const Desktop: React.FC<{
                           return null;
                         }
 
-                        const {
-                          key, align,
-                        } = columns[columnIndex];
+                        const { key, align } = columns[columnIndex];
                         const item = formattedItems[rowIndex][key];
                         return (
                           <div
@@ -173,11 +144,7 @@ const Desktop: React.FC<{
                               odd: !(rowIndex % 2),
                             })}
                           >
-                            <Typography
-                              variant="body1"
-                              align={align}
-                              component="div"
-                            >
+                            <Typography variant="body1" align={align} component="div">
                               {item}
                             </Typography>
                           </div>
