@@ -47,7 +47,7 @@ jest.mock('@recoil/profiles', () => {
       imageUrl: ''
     })),
   });
-});
+}, { virtual: true });
 
 jest.mock('ui/dist/chainConfig', () => ({
   __esModule: true,
