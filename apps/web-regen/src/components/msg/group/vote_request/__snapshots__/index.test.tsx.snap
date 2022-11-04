@@ -7,7 +7,7 @@ exports[`screen: TransactionDetails/VoteRequest matches snapshot 1`] = `
   <div
     components={
       Array [
-        <Name
+        <Unknown
           address="voter"
           name="voter"
         />,

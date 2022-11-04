@@ -7,7 +7,7 @@ exports[`screen: TransactionDetails/CreateClassRequest matches snapshot 1`] = `
   <div
     components={
       Array [
-        <Name
+        <Unknown
           address="sender"
           name="sender"
         />,

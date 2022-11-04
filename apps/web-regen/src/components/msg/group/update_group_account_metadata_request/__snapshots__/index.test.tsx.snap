@@ -7,11 +7,11 @@ exports[`screen: TransactionDetails/UpdateGroupAccountMetadataRequest matches sn
   <div
     components={
       Array [
-        <Name
+        <Unknown
           address="admin"
           name="admin"
         />,
-        <Name
+        <Unknown
           address="address"
           name="address"
         />,
