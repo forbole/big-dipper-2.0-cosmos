@@ -7,7 +7,7 @@ import React from 'react';
  */
 export const usePersistedState = <P>(
   key: string,
-  initialValue: P,
+  initialValue: P
 ): [P, React.Dispatch<React.SetStateAction<P>>] => {
   const [value, setValue] = React.useState(initialValue);
   const retrievePersistedValue = React.useCallback(() => {

@@ -1,5 +1,3 @@
 import List from './list';
 
-export {
-  List,
-};
+export { List };

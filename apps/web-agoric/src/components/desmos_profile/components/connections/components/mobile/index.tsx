@@ -4,18 +4,13 @@ import useTranslation from 'next-translate/useTranslation';
 import dayjs, { formatDayJs } from '@utils/dayjs';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
-import {
-  Divider,
-  Typography,
-} from '@material-ui/core';
+import { Divider, Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 
 const Mobile: React.FC<{
   className?: string;
   items?: ProfileConnectionType[];
-}> = ({
-  className, items,
-}) => {
+}> = ({ className, items }) => {
   const dateFormat = useRecoilValue(readDate);
   const classes = useStyles();
   const { t } = useTranslation('accounts');
@@ -50,7 +45,6 @@ const Mobile: React.FC<{
                   {formatDayJs(dayjs.utc(x.creationTime), dateFormat)}
                 </Typography>
               </div>
-
             </div>
             {i !== items.length - 1 && <Divider />}
           </React.Fragment>

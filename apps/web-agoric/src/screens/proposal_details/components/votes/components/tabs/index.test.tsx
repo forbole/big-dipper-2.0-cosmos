@@ -6,7 +6,9 @@ import TabsHeader from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/search', () => (props: JSX.IntrinsicElements['div']) => <div id="Search" {...props} />);
+jest.mock('@components/search', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Search" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -28,7 +30,7 @@ describe('screen: Validators/Tabs', () => {
             },
           }}
         />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

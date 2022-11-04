@@ -20,7 +20,7 @@ describe('components: Result', () => {
     const component = renderer.create(
       <MockTheme>
         <Result />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
@@ -30,7 +30,7 @@ describe('components: Result', () => {
     const component = renderer.create(
       <MockTheme>
         <Result success />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

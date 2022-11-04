@@ -10,11 +10,8 @@ describe('screen: Home/SingleBlock', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>
-        <SingleBlock
-          label="Price"
-          value="$4.40"
-        />
-      </MockTheme>,
+        <SingleBlock label="Price" value="$4.40" />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

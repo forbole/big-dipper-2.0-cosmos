@@ -18,14 +18,8 @@ const NotFound: React.FC<{
   return (
     <div className={classnames(className, classes.root)}>
       <div className={classes.content}>
-        {theme === 'light' ? (
-          <NotFoundLight />
-        ) : (
-          <NotFoundDark />
-        )}
-        <Typography variant="body1">
-          {t('notFound')}
-        </Typography>
+        {theme === 'light' ? <NotFoundLight /> : <NotFoundDark />}
+        <Typography variant="body1">{t('notFound')}</Typography>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ export type OverviewType = {
   timestamp: string;
   proposer: string;
   // votingPower: number;
-}
+};
 
 export type BlockDetailState = {
   loading: boolean;
@@ -13,4 +13,4 @@ export type BlockDetailState = {
   overview: OverviewType;
   signatures: string[];
   transactions: Transactions[];
-}
+};

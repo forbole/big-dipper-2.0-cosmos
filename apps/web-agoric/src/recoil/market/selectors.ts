@@ -11,9 +11,7 @@ const getMarket = ({ get }): AtomState => {
 export const writeMarket = selector({
   key: 'market.write.market',
   get: getMarket,
-  set: ({
-    get, set,
-  }, value: AtomState) => {
+  set: ({ get, set }, value: AtomState) => {
     const prevState = get(atomState);
     const newState = mergeStateChange(prevState, value);
     set(atomState, newState);

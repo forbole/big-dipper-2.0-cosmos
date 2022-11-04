@@ -16,10 +16,7 @@ const Validators = () => {
           title: t('validators'),
         }}
       />
-      <Layout
-        navTitle={t('validators')}
-        className={classes.root}
-      >
+      <Layout navTitle={t('validators')} className={classes.root}>
         <List />
       </Layout>
     </>

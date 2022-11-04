@@ -6,7 +6,7 @@ import Search from '.';
 // ==================================
 // global setup
 // ==================================
-let component:renderer.ReactTestRenderer;
+let component: renderer.ReactTestRenderer;
 const callback = jest.fn();
 // ==================================
 // unit tests
@@ -15,11 +15,8 @@ describe('screen: Nav/SearchBar', () => {
   beforeEach(() => {
     component = renderer.create(
       <MockTheme>
-        <Search
-          placeholder="placeholder"
-          callback={callback}
-        />
-      </MockTheme>,
+        <Search placeholder="placeholder" callback={callback} />
+      </MockTheme>
     );
   });
 

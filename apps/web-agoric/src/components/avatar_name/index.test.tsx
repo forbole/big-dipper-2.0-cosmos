@@ -3,7 +3,9 @@ import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import AvatarName from '.';
 
-jest.mock('@components/avatar', () => (props: JSX.IntrinsicElements['div']) => <div id="Avatar" {...props} />);
+jest.mock('@components/avatar', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Avatar" {...props} />
+));
 // ==================================
 // unit tests
 // ==================================
@@ -11,11 +13,8 @@ describe('component: AvatarName', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>
-        <AvatarName
-          name="name"
-          address="123"
-        />
-      </MockTheme>,
+        <AvatarName name="name" address="123" />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
@@ -29,7 +28,7 @@ describe('component: AvatarName', () => {
           address="123"
           imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
         />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
