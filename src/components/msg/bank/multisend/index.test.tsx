@@ -16,9 +16,9 @@ jest.mock('next-translate/Trans', () => (
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/MsgSend', () => {
+describe('component: TransactionDetails/MsgMultiSend', () => {
   it('matches snapshot', () => {
-    const message = new MsgMultiSend({
+    const message = MsgMultiSend.fromJson({
       category: 'bank',
       type: 'MsgMultiSend',
       inputs: [
@@ -53,6 +53,7 @@ describe('screen: TransactionDetails/MsgSend', () => {
         },
       ],
     });
+
     const component = renderer.create(
       <RecoilRoot>
         <MockTheme>
