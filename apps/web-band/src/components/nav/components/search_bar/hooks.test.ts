@@ -1,7 +1,5 @@
 import { RecoilRoot } from 'recoil';
-import {
-  renderHook, act,
-} from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react-hooks';
 import chainConfig from 'ui/dist/chainConfig';
 import { useSearchBar } from './hooks';
 
@@ -17,6 +15,19 @@ jest.mock('react-toastify', () => ({
   toast: jest.fn(),
 }));
 
+jest.mock('@utils/prefix_convert', () => ({
+  ...jest.requireActual('@utils/prefix_convert'),
+  isValidAddress(address: string) {
+    if (
+      address === `${chainConfig.prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes` ||
+      address === `${chainConfig.prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
+    ) {
+      return true;
+    }
+    return jest.requireActual('@utils/prefix_convert').isValidAddress(address);
+  },
+}));
+
 const t = jest.fn((value) => value);
 
 describe('misc: useSearchBar', () => {
@@ -27,7 +38,9 @@ describe('misc: useSearchBar', () => {
     act(() => {
       result.current.handleOnSubmit(`${chainConfig.prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes`);
     });
-    expect(mockPush).toBeCalledWith(`/validators/${chainConfig.prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes`);
+    expect(mockPush).toBeCalledWith(
+      `/validators/${chainConfig.prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes`
+    );
   });
 
   it('use a consensus address', async () => {

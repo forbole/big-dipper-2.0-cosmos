@@ -3,6 +3,7 @@ import {
   act,
   cleanup,
 } from '@testing-library/react-hooks';
+import chainConfig from 'ui/dist/chainConfig';
 import { useProfileDetails } from './hooks';
 
 const mockRouter = {
@@ -66,7 +67,7 @@ jest.mock('@hooks', () => ({
             bio: 'hungry all the time',
             connections: [{
               network: 'native',
-              identifier: 'desmos1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w',
+              identifier: `${chainConfig.prefix.account}1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w`,
             }],
           };
         }
@@ -80,7 +81,7 @@ jest.mock('@hooks', () => ({
             bio: 'Forbole [ˈfɔːbəl] is a well-established blockchain validator and developer since 2017.',
             connections: [{
               network: 'native',
-              identifier: 'desmos1pm6pmpsdw8kd5g6jneyq8rl3qw6tukcp7g57w3',
+              identifier: `${chainConfig.prefix.account}1pm6pmpsdw8kd5g6jneyq8rl3qw6tukcp7g57w3`,
             }],
           };
         }
