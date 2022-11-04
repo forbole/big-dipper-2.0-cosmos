@@ -3,13 +3,9 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgCreateClassRequest } from '@models';
-import {
-  useProfileRecoil,
-} from '@recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 
-const CreateClassRequest = (props: {
-  message: MsgCreateClassRequest;
-}) => {
+const CreateClassRequest = (props: { message: MsgCreateClassRequest }) => {
   const { message } = props;
 
   const designer = useProfileRecoil(message.designer);
@@ -19,14 +15,7 @@ const CreateClassRequest = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:MsgCreateClassRequest"
-        components={[
-          (
-            <Name
-              address={message.designer}
-              name={designerMoniker}
-            />
-          ),
-        ]}
+        components={[<Name address={message.designer} name={designerMoniker} />]}
       />
     </Typography>
   );

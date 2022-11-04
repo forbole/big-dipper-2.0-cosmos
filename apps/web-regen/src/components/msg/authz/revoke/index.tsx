@@ -3,13 +3,9 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgRevoke } from '@models';
-import {
-  useProfileRecoil,
-} from '@recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 
-const Revoke = (props: {
-  message: MsgRevoke;
-}) => {
+const Revoke = (props: { message: MsgRevoke }) => {
   const { message } = props;
 
   const granter = useProfileRecoil(message.granter);
@@ -23,18 +19,8 @@ const Revoke = (props: {
       <Trans
         i18nKey="message_contents:MsgRevoke"
         components={[
-          (
-            <Name
-              address={message.granter}
-              name={granterMoniker}
-            />
-          ),
-          (
-            <Name
-              address={message.grantee}
-              name={granteeMoniker}
-            />
-          ),
+          <Name address={message.granter} name={granterMoniker} />,
+          <Name address={message.grantee} name={granteeMoniker} />,
         ]}
       />
     </Typography>

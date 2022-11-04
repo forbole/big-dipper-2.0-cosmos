@@ -18,13 +18,8 @@ import { useValidatorDetails } from './hooks';
 const ValidatorDetails = () => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
-  const {
-    state,
-  } = useValidatorDetails();
-  const {
-    desmosProfile,
-    status,
-  } = state;
+  const { state } = useValidatorDetails();
+  const { desmosProfile, status } = state;
 
   return (
     <>
@@ -35,21 +30,12 @@ const ValidatorDetails = () => {
         }}
       />
       <Layout navTitle={t('validatorDetails')}>
-        <LoadAndExist
-          exists={state.exists}
-          loading={state.loading}
-        >
+        <LoadAndExist exists={state.exists} loading={state.loading}>
           <span className={classes.root}>
             {desmosProfile ? (
-              <DesmosProfile
-                className={classes.profile}
-                {...desmosProfile}
-              />
+              <DesmosProfile className={classes.profile} {...desmosProfile} />
             ) : (
-              <Profile
-                className={classes.profile}
-                profile={state.overview}
-              />
+              <Profile className={classes.profile} profile={state.overview} />
             )}
             <ValidatorOverview
               className={classes.address}
@@ -62,12 +48,8 @@ const ValidatorDetails = () => {
               status={status.status}
             />
             <Blocks className={classes.blocks} />
-            <Staking
-              className={classes.staking}
-            />
-            <Transactions
-              className={classes.transactions}
-            />
+            <Staking className={classes.staking} />
+            <Transactions className={classes.transactions} />
           </span>
         </LoadAndExist>
       </Layout>

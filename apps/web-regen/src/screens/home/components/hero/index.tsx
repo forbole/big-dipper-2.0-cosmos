@@ -1,8 +1,6 @@
 import React from 'react';
 import Box from '@components/box';
-import {
-  OnlineVotingPower, TokenPrice,
-} from './components';
+import { OnlineVotingPower, TokenPrice } from './components';
 import { useHero } from './hooks';
 
 const Hero: React.FC<ComponentDefault> = (props) => {
@@ -16,11 +14,7 @@ const Hero: React.FC<ComponentDefault> = (props) => {
     }
   }
 
-  return (
-    <Box className={props.className}>
-      {component}
-    </Box>
-  );
+  return <Box className={props.className}>{component}</Box>;
 };
 
 export default Hero;

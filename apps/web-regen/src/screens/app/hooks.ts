@@ -14,7 +14,8 @@ export const useApp = () => {
     const MATOMO_SITE_ID = process.env.NEXT_PUBLIC_MATOMO_SITE_ID;
     if (MATOMO_URL && MATOMO_SITE_ID) {
       init({
-        url: MATOMO_URL, siteId: MATOMO_SITE_ID,
+        url: MATOMO_URL,
+        siteId: MATOMO_SITE_ID,
       });
     }
     // jdenticon theme

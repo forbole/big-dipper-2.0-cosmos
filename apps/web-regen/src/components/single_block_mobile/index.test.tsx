@@ -24,7 +24,7 @@ describe('component: SingleSlotMobile', () => {
           proposer={<div id="proposer" />}
           height={<div id="height" />}
         />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

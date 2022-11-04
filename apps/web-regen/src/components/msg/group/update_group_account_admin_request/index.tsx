@@ -3,13 +3,9 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgUpdateGroupAccountAdminRequest } from '@models';
-import {
-  useProfileRecoil,
-} from '@recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 
-const UpdateGroupAccountAdminRequest = (props: {
-  message: MsgUpdateGroupAccountAdminRequest;
-}) => {
+const UpdateGroupAccountAdminRequest = (props: { message: MsgUpdateGroupAccountAdminRequest }) => {
   const { message } = props;
 
   const admin = useProfileRecoil(message.admin);
@@ -23,18 +19,8 @@ const UpdateGroupAccountAdminRequest = (props: {
       <Trans
         i18nKey="message_contents:MsgUpdateGroupAccountAdminRequest"
         components={[
-          (
-            <Name
-              address={message.admin}
-              name={adminMoniker}
-            />
-          ),
-          (
-            <Name
-              address={message.newAdmin}
-              name={newAdminMoniker}
-            />
-          ),
+          <Name address={message.admin} name={adminMoniker} />,
+          <Name address={message.newAdmin} name={newAdminMoniker} />,
         ]}
       />
     </Typography>

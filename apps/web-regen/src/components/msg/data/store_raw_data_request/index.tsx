@@ -3,13 +3,9 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgStoreRawDataRequest } from '@models';
-import {
-  useProfileRecoil,
-} from '@recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 
-const StoreRawDataRequest = (props: {
-  message: MsgStoreRawDataRequest;
-}) => {
+const StoreRawDataRequest = (props: { message: MsgStoreRawDataRequest }) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);
@@ -19,14 +15,7 @@ const StoreRawDataRequest = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:MsgStoreRawDataRequest"
-        components={[
-          (
-            <Name
-              address={message.sender}
-              name={senderMoniker}
-            />
-          ),
-        ]}
+        components={[<Name address={message.sender} name={senderMoniker} />]}
       />
     </Typography>
   );

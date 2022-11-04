@@ -6,8 +6,12 @@ import Connections from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />);
-jest.mock('@components/pagination', () => (props: JSX.IntrinsicElements['div']) => <div id="Pagination" {...props} />);
+jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Box" {...props} />
+));
+jest.mock('@components/pagination', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Pagination" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -27,9 +31,10 @@ describe('screen: ProfileDetails/Connections', () => {
               network: 'emoney',
               identifier: 'emoney1wke3ev9ja6rxsngld75r3vppcpet94xxnh63ry',
               creationTime: '2021-08-31T17:02:28.575104',
-            }]}
+            },
+          ]}
         />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

@@ -1,11 +1,7 @@
 // =========================
 // utils
 // =========================
-import {
-  getMessageModelByType,
-  getMessageByType,
-  convertMsgsToModels,
-} from './utils';
+import { getMessageModelByType, getMessageByType, convertMsgsToModels } from './utils';
 
 // =========================
 // msg components
@@ -87,11 +83,7 @@ import UpdateGroupMembersRequest from './group/update_group_members_request';
 import UpdateGroupMetadataRequest from './group/update_group_metadata_request';
 import VoteRequest from './group/vote_request';
 
-export {
-  getMessageModelByType,
-  getMessageByType,
-  convertMsgsToModels,
-};
+export { getMessageModelByType, getMessageByType, convertMsgsToModels };
 
 export {
   Delegate,

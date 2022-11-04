@@ -7,8 +7,12 @@ import Transactions from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />);
-jest.mock('@components/transactions_list', () => (props: JSX.IntrinsicElements['div']) => <div id="TransactionsList" {...props} />);
+jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Box" {...props} />
+));
+jest.mock('@components/transactions_list', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="TransactionsList" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -43,7 +47,7 @@ describe('screen: BlockDetails/Transactions', () => {
             ]}
           />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

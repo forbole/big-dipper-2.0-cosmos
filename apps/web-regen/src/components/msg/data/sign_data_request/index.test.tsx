@@ -13,9 +13,7 @@ jest.mock('./components', () => ({
   Signers: (props: JSX.IntrinsicElements['div']) => <div id="Signers" {...props} />,
 }));
 
-jest.mock('next-translate/Trans', () => (
-  (props) => <div id="Trans" {...props} />
-));
+jest.mock('next-translate/Trans', () => (props) => <div id="Trans" {...props} />);
 
 // ==================================
 // unit tests
@@ -36,16 +34,16 @@ describe('screen: TransactionDetails/SignDataRequest', () => {
     const component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <SignDataRequest
-            message={message}
-          />
+          <SignDataRequest message={message} />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
 
-    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual('message_contents:MsgSignDataRequest');
+    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(
+      'message_contents:MsgSignDataRequest'
+    );
   });
 
   afterEach(() => {

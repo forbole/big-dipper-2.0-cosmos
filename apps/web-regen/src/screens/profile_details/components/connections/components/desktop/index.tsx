@@ -4,14 +4,7 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
-import {
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
-  Typography,
-} from '@material-ui/core';
+import { Table, TableHead, TableRow, TableCell, TableBody, Typography } from '@material-ui/core';
 import dayjs, { formatDayJs } from '@utils/dayjs';
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
@@ -20,10 +13,7 @@ import { columns } from './utils';
 const Desktop: React.FC<{
   className?: string;
   items?: ProfileConnectionType[];
-}> = ({
-  className,
-  items,
-}) => {
+}> = ({ className, items }) => {
   const dateFormat = useRecoilValue(readDate);
   const { t } = useTranslation('accounts');
 
@@ -39,11 +29,11 @@ const Desktop: React.FC<{
       );
     }
 
-    return ({
+    return {
       network: x.network.toUpperCase(),
       identifier: identity,
       creationTime: formatDayJs(dayjs.utc(x.creationTime), dateFormat),
-    });
+    };
   });
 
   return (
@@ -83,7 +73,6 @@ const Desktop: React.FC<{
         </TableBody>
       </Table>
     </div>
-
   );
 };
 

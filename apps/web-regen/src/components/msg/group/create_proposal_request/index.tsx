@@ -3,13 +3,9 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgCreateProposalRequest } from '@models';
-import {
-  useProfileRecoil,
-} from '@recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 
-const CreateProposalRequest = (props: {
-  message: MsgCreateProposalRequest;
-}) => {
+const CreateProposalRequest = (props: { message: MsgCreateProposalRequest }) => {
   const { message } = props;
 
   const address = useProfileRecoil(message.address);
@@ -19,14 +15,7 @@ const CreateProposalRequest = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:MsgCreateProposalRequest"
-        components={[
-          (
-            <Name
-              address={message.address}
-              name={addressMoniker}
-            />
-          ),
-        ]}
+        components={[<Name address={message.address} name={addressMoniker} />]}
       />
     </Typography>
   );

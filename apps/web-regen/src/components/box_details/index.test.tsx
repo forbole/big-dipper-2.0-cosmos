@@ -25,7 +25,7 @@ describe('components: BoxDetails', () => {
     const component = renderer.create(
       <MockTheme>
         <BoxDetails {...dummyProps} />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
@@ -36,7 +36,11 @@ describe('components: BoxDetails', () => {
 
     const dummyProps = {
       title: 'overview',
-      titleAction: <button type="button" id="titleAction" onClick={mockOnClick}>title action</button>,
+      titleAction: (
+        <button type="button" id="titleAction" onClick={mockOnClick}>
+          title action
+        </button>
+      ),
       details: [
         {
           label: 'slot',
@@ -52,7 +56,7 @@ describe('components: BoxDetails', () => {
     const component = renderer.create(
       <MockTheme>
         <BoxDetails {...dummyProps} />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

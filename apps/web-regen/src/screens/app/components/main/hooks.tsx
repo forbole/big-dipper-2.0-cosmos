@@ -1,19 +1,16 @@
 import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { createTheme } from '@material-ui/core/styles';
-import {
-  readTheme,
-  getThemeTemplate,
-} from '@recoil/settings';
+import { readTheme, getThemeTemplate } from '@recoil/settings';
 import chainConfig from 'ui/dist/chainConfig';
 import dayjs from '@utils/dayjs';
 
 export const useTheme = () => {
   const theme = useRecoilValue(readTheme);
 
-  return ({
+  return {
     muiTheme: createTheme(getThemeTemplate(theme)),
-  });
+  };
 };
 
 export const useGenesis = () => {

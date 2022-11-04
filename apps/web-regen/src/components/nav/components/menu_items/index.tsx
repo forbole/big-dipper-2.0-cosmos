@@ -2,12 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import {
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-} from '@material-ui/core';
+import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import { useStyles } from './styles';
 import { getMenuItems } from './utils';

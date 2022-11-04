@@ -5,27 +5,17 @@ import Name from '@components/name';
 import { MsgSaveProfile } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const SaveProfile = (props: {
-  message: MsgSaveProfile;
-}) => {
+const SaveProfile = (props: { message: MsgSaveProfile }) => {
   const { message } = props;
 
   const creator = useProfileRecoil(message.creator);
-  const creatorMoniker = creator ? creator?.name : message
-    .creator;
+  const creatorMoniker = creator ? creator?.name : message.creator;
 
   return (
     <Typography>
       <Trans
         i18nKey="message_contents:txSaveProfileContent"
-        components={[
-          (
-            <Name
-              address={message.creator}
-              name={creatorMoniker}
-            />
-          ),
-        ]}
+        components={[<Name address={message.creator} name={creatorMoniker} />]}
       />
     </Typography>
   );

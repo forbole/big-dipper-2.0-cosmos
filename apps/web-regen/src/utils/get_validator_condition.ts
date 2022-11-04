@@ -5,7 +5,7 @@
  * @returns number out of 100
  */
 export const getValidatorCondition = (signedBlockWindow: number, missedBlockCounter: number) => {
-  return (1 - (missedBlockCounter / signedBlockWindow)) * 100;
+  return (1 - missedBlockCounter / signedBlockWindow) * 100;
 };
 
 /**

@@ -1,5 +1,3 @@
 import Signers from './signers';
 
-export {
-  Signers,
-};
+export { Signers };

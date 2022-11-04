@@ -1,3 +1,3 @@
 import { UnbondingType } from '../../types';
 
-export type ItemType = Override<UnbondingType, { address: AvatarName }>
+export type ItemType = Override<UnbondingType, { address: AvatarName }>;

@@ -3,9 +3,7 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgUpdateGroupAccountDecisionPolicyRequest } from '@models';
-import {
-  useProfileRecoil,
-} from '@recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const UpdateGroupAccountDecisionPolicyRequest = (props: {
   message: MsgUpdateGroupAccountDecisionPolicyRequest;
@@ -23,18 +21,8 @@ const UpdateGroupAccountDecisionPolicyRequest = (props: {
       <Trans
         i18nKey="message_contents:MsgUpdateGroupAccountDecisionPolicyRequest"
         components={[
-          (
-            <Name
-              address={message.admin}
-              name={adminMoniker}
-            />
-          ),
-          (
-            <Name
-              address={message.address}
-              name={addressMoniker}
-            />
-          ),
+          <Name address={message.admin} name={adminMoniker} />,
+          <Name address={message.address} name={addressMoniker} />,
         ]}
       />
     </Typography>
