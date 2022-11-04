@@ -1,14 +1,7 @@
 import React from 'react';
 import Layout from '@components/layout';
 import { useStyles } from './styles';
-import {
-  DataBlocks,
-  Consensus,
-  Tokenomics,
-  Blocks,
-  Transactions,
-  Hero,
-} from './components';
+import { DataBlocks, Consensus, Tokenomics, Blocks, Transactions, Hero } from './components';
 
 const Home = () => {
   const classes = useStyles();

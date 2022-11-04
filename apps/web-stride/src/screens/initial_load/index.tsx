@@ -17,11 +17,7 @@ const InitialLoad = () => {
       <div>
         <ChainIcon type="logo" className={classes.logo} />
         <LinearProgress className={classes.divider} />
-        {theme === 'light' ? (
-          <BigDipperLogoRed />
-        ) : (
-          <BigDipperLogoWhite />
-        )}
+        {theme === 'light' ? <BigDipperLogoRed /> : <BigDipperLogoWhite />}
       </div>
     </div>
   );

@@ -10,9 +10,7 @@ const Name: React.FC<{
   address: string;
   name: string;
   href?: (address: string) => string;
-}> = ({
-  className, address, name, href = ADDRESS_DETAILS,
-}) => {
+}> = ({ className, address, name, href = ADDRESS_DETAILS }) => {
   const classes = useStyles();
 
   return (

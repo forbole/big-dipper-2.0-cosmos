@@ -35,8 +35,8 @@ const Countdown: React.FC<{
         day: Math.floor(difference / (1000 * 60 * 60 * 24)),
         hour: Math.floor((difference / (1000 * 60 * 60)) % 24),
         minute: Math.floor((difference / 1000 / 60) % 60),
-        second: Math.floor((difference / 1000) % 60)
-      }))
+        second: Math.floor((difference / 1000) % 60),
+      }));
     } else {
       setState((prevState) => ({
         ...prevState,
@@ -49,46 +49,29 @@ const Countdown: React.FC<{
 
   useInterval(intervalCallback, state.interval);
 
-
   return (
     <div className={classes.root}>
       <ChainIcon type="logo" className={classes.logo} />
       <div className={classes.timeContainer}>
         <div className={classes.item}>
-          <Typography variant="h1">
-            {state.day}
-          </Typography>
-          <Typography variant="h3">
-            Day
-          </Typography>
+          <Typography variant="h1">{state.day}</Typography>
+          <Typography variant="h3">Day</Typography>
         </div>
         <div className={classes.item}>
-          <Typography variant="h1">
-            {state.hour}
-          </Typography>
-          <Typography variant="h3">
-            Hour
-          </Typography>
+          <Typography variant="h1">{state.hour}</Typography>
+          <Typography variant="h3">Hour</Typography>
         </div>
         <div className={classes.item}>
-          <Typography variant="h1">
-            {state.minute}
-          </Typography>
-          <Typography variant="h3">
-            Min
-          </Typography>
+          <Typography variant="h1">{state.minute}</Typography>
+          <Typography variant="h3">Min</Typography>
         </div>
         <div className={classes.item}>
-          <Typography variant="h1">
-            {state.second}
-          </Typography>
-          <Typography variant="h3">
-            Sec
-          </Typography>
+          <Typography variant="h1">{state.second}</Typography>
+          <Typography variant="h3">Sec</Typography>
         </div>
       </div>
       <Typography variant="h2" className={classes.chain}>
-      {chainConfig.network}
+        {chainConfig.network}
       </Typography>
       {state.loading && <Loading />}
     </div>

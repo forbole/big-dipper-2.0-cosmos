@@ -19,29 +19,22 @@ import { TokenPriceType } from '../../types';
 import { useStyles } from './styles';
 import { usePrice } from './hooks';
 
-const TokenPrice: React.FC<{items: TokenPriceType[]} & ComponentDefault> = (props) => {
-  const {
-    classes, theme,
-  } = useStyles();
+const TokenPrice: React.FC<{ items: TokenPriceType[] } & ComponentDefault> = (props) => {
+  const { classes, theme } = useStyles();
   const { t } = useTranslation('home');
-  const {
-    tickPriceFormatter,
-    formatTime,
-  } = usePrice();
+  const { tickPriceFormatter, formatTime } = usePrice();
   const dateFormat = useRecoilValue(readDate);
 
   const formatItems = props.items.map((x) => {
-    return ({
+    return {
       time: formatTime(dayjs.utc(x.time), dateFormat),
       fullTime: formatDayJs(dayjs.utc(x.time), dateFormat),
       value: x.value,
-    });
+    };
   });
   return (
     <div>
-      <Typography variant="h2">
-        {t('priceHistory')}
-      </Typography>
+      <Typography variant="h2">{t('priceHistory')}</Typography>
       <div className={classes.chart}>
         <ResponsiveContainer width="99%">
           <AreaChart
@@ -68,10 +61,7 @@ const TokenPrice: React.FC<{items: TokenPriceType[]} & ComponentDefault> = (prop
               </linearGradient>
             </defs>
             <CartesianGrid stroke={theme.palette.divider} />
-            <XAxis
-              dataKey="time"
-              tickLine={false}
-            />
+            <XAxis dataKey="time" tickLine={false} />
             <YAxis
               tickLine={false}
               tickFormatter={tickPriceFormatter}
@@ -81,23 +71,20 @@ const TokenPrice: React.FC<{items: TokenPriceType[]} & ComponentDefault> = (prop
             />
             <Tooltip
               cursor={false}
-              content={(
+              content={
                 <CustomToolTip>
                   {(x) => {
                     return (
                       <>
-                        <Typography variant="caption">
-                          {x.fullTime}
-                        </Typography>
+                        <Typography variant="caption">{x.fullTime}</Typography>
                         <Typography variant="body1">
-                          $
-                          {numeral(x.value).format('0,0.00')}
+                          ${numeral(x.value).format('0,0.00')}
                         </Typography>
                       </>
                     );
                   }}
                 </CustomToolTip>
-            )}
+              }
             />
             <Area
               type="monotone"

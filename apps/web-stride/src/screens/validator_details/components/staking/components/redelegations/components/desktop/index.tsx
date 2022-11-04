@@ -2,13 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import dayjs, { formatDayJs } from '@utils/dayjs';
-import {
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
-} from '@material-ui/core';
+import { Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
 import AvatarName from '@components/avatar_name';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
@@ -19,13 +13,11 @@ import { ItemType } from '../../types';
 const Desktop: React.FC<{
   className?: string;
   items: ItemType[];
-}> = ({
-  className, items,
-}) => {
+}> = ({ className, items }) => {
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
   const formattedItems = items.map((x) => {
-    return ({
+    return {
       address: (
         <AvatarName
           address={x.address.address}
@@ -33,16 +25,13 @@ const Desktop: React.FC<{
           name={x.address.name}
         />
       ),
-      to: (
-        <AvatarName
-          address={x.to.address}
-          imageUrl={x.to.imageUrl}
-          name={x.to.name}
-        />
-      ),
-      amount: `${formatNumber(x.amount.value, x.amount.exponent)} ${x.amount.displayDenom.toUpperCase()}`,
+      to: <AvatarName address={x.to.address} imageUrl={x.to.imageUrl} name={x.to.name} />,
+      amount: `${formatNumber(
+        x.amount.value,
+        x.amount.exponent
+      )} ${x.amount.displayDenom.toUpperCase()}`,
       completionTime: formatDayJs(dayjs.utc(x.completionTime), dateFormat),
-    });
+    };
   });
 
   return (
@@ -82,7 +71,6 @@ const Desktop: React.FC<{
         </TableBody>
       </Table>
     </div>
-
   );
 };
 

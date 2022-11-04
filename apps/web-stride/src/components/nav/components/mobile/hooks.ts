@@ -1,6 +1,4 @@
-import {
-  useState, useEffect,
-} from 'react';
+import { useState, useEffect } from 'react';
 import * as R from 'ramda';
 import { useScreenSize } from '@hooks';
 
@@ -12,7 +10,7 @@ export const useMobile = () => {
 
   const [state, setState] = useState<{
     isMenu?: boolean;
-    isNetwork?: boolean
+    isNetwork?: boolean;
   }>({
     isMenu: false,
     isNetwork: false,
@@ -31,7 +29,7 @@ export const useMobile = () => {
   // closes menu if opened and opens menu if
   // closed and hamburger icon is clicked
   const toggleNavMenus = () => {
-    if ((state.isNetwork) || (state.isMenu)) {
+    if (state.isNetwork || state.isMenu) {
       closeAll();
     } else {
       // if initial state is closed then we open navbar

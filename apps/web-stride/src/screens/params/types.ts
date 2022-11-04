@@ -4,7 +4,7 @@ export type Staking = {
   maxEntries: number;
   historicalEntries: number;
   maxValidators: number;
-}
+};
 
 export type Slashing = {
   downtimeJailDuration: number;
@@ -12,7 +12,7 @@ export type Slashing = {
   signedBlockWindow: number;
   slashFractionDoubleSign: number;
   slashFractionDowntime: number;
-}
+};
 
 export type Minting = {
   blocksPerYear: number;
@@ -21,14 +21,14 @@ export type Minting = {
   inflationMin: number;
   inflationRateChange: number;
   mintDenom: string;
-}
+};
 
 export type Distribution = {
   baseProposerReward: number;
   bonusProposerReward: number;
   communityTax: number;
   withdrawAddressEnabled: boolean;
-}
+};
 
 export type Gov = {
   minDeposit: TokenUnit;
@@ -37,7 +37,7 @@ export type Gov = {
   threshold: number;
   vetoThreshold: number;
   votingPeriod: number;
-}
+};
 
 export type Stakeibc = {
   bufferSize: number;
@@ -55,7 +55,7 @@ export type Stakeibc = {
   validatorRebalancingThreshold: number;
   safetyMaxRedemptionRateThreshold: number;
   safetyMinRedemptionRateThreshold: number;
-}
+};
 
 export type ParamsState = {
   loading: boolean;
@@ -66,4 +66,4 @@ export type ParamsState = {
   distribution: Distribution | null;
   gov: Gov | null;
   stakeibc: Stakeibc | null;
-}
+};

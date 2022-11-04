@@ -7,7 +7,12 @@ import BoxDetails from '@components/box_details';
 import { useStyles } from './styles';
 import { useParams } from './hooks';
 import {
-  formatStaking, formatSlashing, formatMinting, formatDistribution, formatGov, formatStakeibc,
+  formatStaking,
+  formatSlashing,
+  formatMinting,
+  formatDistribution,
+  formatGov,
+  formatStakeibc,
 } from './utils';
 
 const Params = () => {
@@ -17,44 +22,44 @@ const Params = () => {
 
   const staking = state.staking
     ? {
-      title: t('staking'),
-      details: formatStaking(state.staking, t),
-    }
+        title: t('staking'),
+        details: formatStaking(state.staking, t),
+      }
     : null;
 
   const slashing = state.slashing
     ? {
-      title: t('slashing'),
-      details: formatSlashing(state.slashing, t),
-    }
+        title: t('slashing'),
+        details: formatSlashing(state.slashing, t),
+      }
     : null;
 
   const minting = state.minting
     ? {
-      title: t('minting'),
-      details: formatMinting(state.minting, t),
-    }
+        title: t('minting'),
+        details: formatMinting(state.minting, t),
+      }
     : null;
 
   const distribution = state.distribution
     ? {
-      title: t('distribution'),
-      details: formatDistribution(state.distribution, t),
-    }
+        title: t('distribution'),
+        details: formatDistribution(state.distribution, t),
+      }
     : null;
 
   const gov = state.gov
     ? {
-      title: t('gov'),
-      details: formatGov(state.gov, t),
-    }
+        title: t('gov'),
+        details: formatGov(state.gov, t),
+      }
     : null;
 
   const stakeibc = state.stakeibc
     ? {
-      title: t('stakeibc'),
-      details: formatStakeibc(state.stakeibc, t),
-    }
+        title: t('stakeibc'),
+        details: formatStakeibc(state.stakeibc, t),
+      }
     : null;
 
   return (

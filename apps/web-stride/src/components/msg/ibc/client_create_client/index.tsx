@@ -5,9 +5,7 @@ import Name from '@components/name';
 import { MsgCreateClient } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const CreateClient = (props: {
-    message: MsgCreateClient;
-}) => {
+const CreateClient = (props: { message: MsgCreateClient }) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -17,15 +15,7 @@ const CreateClient = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:txCreateClientContent"
-        components={[
-          (
-            <Name
-              address={message.signer}
-              name={signerMoniker}
-            />
-          ),
-          <b />,
-        ]}
+        components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
         values={{
           chainId: message.chainId,
         }}

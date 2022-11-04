@@ -4,8 +4,8 @@ describe('Example', () => {
   });
 
   it('Displays english', () => {
-    cy.contains('Big ol\' welcome to this boilerplate').should('be.visible');
+    cy.contains("Big ol' welcome to this boilerplate").should('be.visible');
     cy.contains('change lang').click();
-    cy.contains('中文 Big ol\' welcome to this boilerplate').should('be.visible');
+    cy.contains("中文 Big ol' welcome to this boilerplate").should('be.visible');
   });
 });

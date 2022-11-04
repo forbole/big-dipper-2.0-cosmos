@@ -11,7 +11,7 @@ describe('components: Tag', () => {
     const component = renderer.create(
       <MockTheme>
         <Tag value="hello world" theme="one" />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

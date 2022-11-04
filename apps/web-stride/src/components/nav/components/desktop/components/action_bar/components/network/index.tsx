@@ -7,26 +7,17 @@ import React from 'react';
 import { useRecoilValue } from 'recoil';
 import { useStyles } from './styles';
 
-const Network:React.FC<{
+const Network: React.FC<{
   className?: string;
   toggleNetwork: () => void;
-}> = ({
-  className, toggleNetwork,
-}) => {
+}> = ({ className, toggleNetwork }) => {
   const classes = useStyles();
   const selected = useRecoilValue(readSelectedNetwork);
 
   return (
-    <div
-      className={classnames(className, classes.root)}
-      onClick={toggleNetwork}
-      role="button"
-    >
-
+    <div className={classnames(className, classes.root)} onClick={toggleNetwork} role="button">
       <ChainIcon type="icon" className={classes.icon} />
-      <Typography variant="body1">
-        {selected}
-      </Typography>
+      <Typography variant="body1">{selected}</Typography>
       <ExpandMore />
     </div>
   );

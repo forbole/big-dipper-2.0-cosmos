@@ -9,11 +9,11 @@ import CreatePeriodicVestingAccount from '.';
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
-
-jest.mock('next-translate/Trans', () => (
-  (props) => <div id="Trans" {...props} />
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
 ));
+
+jest.mock('next-translate/Trans', () => (props) => <div id="Trans" {...props} />);
 
 // ==================================
 // unit tests
@@ -29,16 +29,16 @@ describe('screen: TransactionDetails/Grant', () => {
     const component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <CreatePeriodicVestingAccount
-            message={message}
-          />
+          <CreatePeriodicVestingAccount message={message} />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
 
-    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual('message_contents:MsgCreatePeriodicVestingAccount');
+    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(
+      'message_contents:MsgCreatePeriodicVestingAccount'
+    );
   });
 
   afterEach(() => {
