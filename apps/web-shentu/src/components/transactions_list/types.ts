@@ -7,4 +7,4 @@ export type TransactionsListState = {
   isItemLoaded?: (index: number) => boolean;
   itemCount: number;
   transactions: Transactions[];
-}
+};

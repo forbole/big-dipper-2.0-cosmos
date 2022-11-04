@@ -8,7 +8,9 @@ import SaveProfile from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -23,11 +25,9 @@ describe('screen: TransactionDetails/SaveProfile', () => {
     const component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <SaveProfile
-            message={message}
-          />
+          <SaveProfile message={message} />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

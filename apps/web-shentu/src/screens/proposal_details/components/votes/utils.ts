@@ -12,11 +12,7 @@ export const getVoteKey = (vote: string) => {
   return votes[vote] || vote;
 };
 
-export const filterDataByTab = (props: {
-  data: VoteType[];
-  notVoted: VoteType[];
-  tab: number;
-}) => {
+export const filterDataByTab = (props: { data: VoteType[]; notVoted: VoteType[]; tab: number }) => {
   if (props.tab === 5) {
     return props.notVoted;
   }

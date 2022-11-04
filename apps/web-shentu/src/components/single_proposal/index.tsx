@@ -12,13 +12,7 @@ const SingleProposal: React.FC<{
   title: string | React.ReactNode;
   status: string;
   description?: string;
-}> = ({
-  className,
-  id,
-  title,
-  status,
-  description,
-}) => {
+}> = ({ className, id, title, status, description }) => {
   const { t } = useTranslation('proposals');
   const classes = useStyles();
   const statusInfo = getStatusInfo(status, t);
@@ -30,35 +24,31 @@ const SingleProposal: React.FC<{
           {id}
         </Typography>
         <span className={classes.mobile}>
-          <Tag
-            theme={statusInfo.tag}
-            value={statusInfo.value}
-          />
+          <Tag theme={statusInfo.tag} value={statusInfo.value} />
         </span>
       </div>
       {/* ================= */}
       {/* ================= */}
       <div>
         <div className={classes.title}>
-          {React.isValidElement(title) ? title : (
+          {React.isValidElement(title) ? (
+            title
+          ) : (
             <Typography variant="h3" className="value">
               {title}
             </Typography>
           )}
         </div>
         {!!description && (
-        <Typography variant="body2" className={classnames(classes.content)}>
-          {description}
-        </Typography>
+          <Typography variant="body2" className={classnames(classes.content)}>
+            {description}
+          </Typography>
         )}
       </div>
       {/* ================= */}
       {/* ================= */}
       <span className={classes.desktop}>
-        <Tag
-          theme={statusInfo.tag}
-          value={statusInfo.value}
-        />
+        <Tag theme={statusInfo.tag} value={statusInfo.value} />
       </span>
     </div>
   );

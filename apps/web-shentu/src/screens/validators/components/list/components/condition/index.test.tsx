@@ -15,7 +15,7 @@ describe('screen: Validators/Condition', () => {
     const component = renderer.create(
       <MockTheme>
         <Condition />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

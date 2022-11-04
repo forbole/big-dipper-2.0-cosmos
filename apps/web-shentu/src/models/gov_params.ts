@@ -51,16 +51,39 @@ class GovParams {
           vetoThreshold: R.pathOr('0', ['tallyParams', 'default_tally', 'veto_threshold'], data),
         },
         certifierStakeVote: {
-          quorum: R.pathOr('0', ['tallyParams', 'certifier_update_stake_vote_tally', 'quorum'], data),
-          threshold: R.pathOr('0', ['tallyParams', 'certifier_update_stake_vote_tally', 'threshold'], data),
-          vetoThreshold: R.pathOr('0', ['tallyParams', 'certifier_update_stake_vote_tally', 'veto_threshold'], data),
+          quorum: R.pathOr(
+            '0',
+            ['tallyParams', 'certifier_update_stake_vote_tally', 'quorum'],
+            data
+          ),
+          threshold: R.pathOr(
+            '0',
+            ['tallyParams', 'certifier_update_stake_vote_tally', 'threshold'],
+            data
+          ),
+          vetoThreshold: R.pathOr(
+            '0',
+            ['tallyParams', 'certifier_update_stake_vote_tally', 'veto_threshold'],
+            data
+          ),
         },
         certifierSecurityVote: {
-          quorum: R.pathOr('0', ['tallyParams', 'certifier_update_security_vote_tally', 'quorum'], data),
-          threshold: R.pathOr('0', ['tallyParams', 'certifier_update_security_vote_tally', 'threshold'], data),
-          vetoThreshold: R.pathOr('0', ['tallyParams', 'certifier_update_security_vote_tally', 'veto_threshold'], data),
+          quorum: R.pathOr(
+            '0',
+            ['tallyParams', 'certifier_update_security_vote_tally', 'quorum'],
+            data
+          ),
+          threshold: R.pathOr(
+            '0',
+            ['tallyParams', 'certifier_update_security_vote_tally', 'threshold'],
+            data
+          ),
+          vetoThreshold: R.pathOr(
+            '0',
+            ['tallyParams', 'certifier_update_security_vote_tally', 'veto_threshold'],
+            data
+          ),
         },
-
       },
       votingParams: {
         votingPeriod: R.pathOr(0, ['votingParams', 'voting_period'], data),

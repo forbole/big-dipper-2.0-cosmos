@@ -24,7 +24,7 @@ describe('components: SingleTransaction', () => {
           ]}
           result={<div>result</div>}
         />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

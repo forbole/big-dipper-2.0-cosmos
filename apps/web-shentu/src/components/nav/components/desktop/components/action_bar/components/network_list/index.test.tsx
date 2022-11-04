@@ -7,7 +7,7 @@ import NetworkList from '.';
 // ==================================
 // global setup
 // ==================================
-let component:renderer.ReactTestRenderer;
+let component: renderer.ReactTestRenderer;
 
 // ==================================
 // mocks
@@ -24,11 +24,9 @@ describe('screen: Nav/NetworkList', () => {
     component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <NetworkList
-            actionHeight={30}
-          />
+          <NetworkList actionHeight={30} />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
   });
 

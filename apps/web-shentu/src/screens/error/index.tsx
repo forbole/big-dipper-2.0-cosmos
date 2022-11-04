@@ -4,9 +4,7 @@ import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 import Trans from 'next-translate/Trans';
 import { HOME } from '@utils/go_to_page';
-import {
-  Typography,
-} from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import generalConfig from 'ui/dist/generalConfig';
 import { useStyles } from './styles';
 
@@ -17,15 +15,13 @@ const Error = () => {
   return (
     <div className={classes.root}>
       <div className="container">
-        <Typography variant="h2">
-          {t('common:errorTitle')}
-        </Typography>
+        <Typography variant="h2">{t('common:errorTitle')}</Typography>
         <Typography className="details">
           <Trans
             i18nKey="common:errorDetails"
             components={[
-                // eslint-disable-next-line
-                <a target="_blank" rel="noreferrer" href={generalConfig.github.reportIssue} />,
+              // eslint-disable-next-line
+              <a target="_blank" rel="noreferrer" href={generalConfig.github.reportIssue} />,
             ]}
             values={{
               issue: generalConfig.github.reportIssue,
@@ -33,9 +29,7 @@ const Error = () => {
           />
         </Typography>
         <Link href={HOME} passHref>
-          <Typography component="a">
-            {t('common:errorHome')}
-          </Typography>
+          <Typography component="a">{t('common:errorHome')}</Typography>
         </Link>
       </div>
     </div>

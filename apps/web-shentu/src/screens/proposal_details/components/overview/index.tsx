@@ -6,25 +6,20 @@ import dayjs, { formatDayJs } from '@utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
-import {
-  Typography,
-  Divider,
-} from '@material-ui/core';
+import { Typography, Divider } from '@material-ui/core';
 import SingleProposal from '@components/single_proposal';
 import Box from '@components/box';
 import Markdown from '@components/markdown';
 import Name from '@components/name';
 import { useProfileRecoil } from '@recoil/profiles';
-import {
-  ParamsChange,
-  SoftwareUpgrade,
-} from './components';
+import { ParamsChange, SoftwareUpgrade } from './components';
 import { useStyles } from './styles';
 import { getProposalType } from '../../utils';
 import { OverviewType } from '../../types';
 
 const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
-  className, overview,
+  className,
+  overview,
 }) => {
   const dateFormat = useRecoilValue(readDate);
   const classes = useStyles();
@@ -43,9 +38,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
           <Typography variant="body1" className="label">
             {t('changes')}
           </Typography>
-          <ParamsChange
-            changes={R.pathOr([], ['changes'], overview.content)}
-          />
+          <ParamsChange changes={R.pathOr([], ['changes'], overview.content)} />
         </>
       );
     } else if (type === 'softwareUpgradeProposal') {
@@ -86,58 +79,47 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
         <Typography variant="body1" className="label">
           {t('proposer')}
         </Typography>
-        <Name
-          name={proposerMoniker}
-          address={proposer.address}
-        />
-        {
-          !!overview.submitTime && (
-            <>
-              <Typography variant="body1" className="label">
-                {t('submitTime')}
-              </Typography>
-              <Typography variant="body1" className="value">
-                {formatDayJs(dayjs.utc(overview.submitTime), dateFormat)}
-              </Typography>
-            </>
-          )
-        }
-        {
-          !!overview.depositEndTime && (
-            <>
-              <Typography variant="body1" className="label">
-                {t('depositEndTime')}
-              </Typography>
-              <Typography variant="body1" className="value">
-                {formatDayJs(dayjs.utc(overview.depositEndTime), dateFormat)}
-              </Typography>
-            </>
-          )
-        }
-        {
-          !!overview.votingStartTime && (
-            <>
-              <Typography variant="body1" className="label">
-                {t('votingStartTime')}
-              </Typography>
-              <Typography variant="body1" className="value">
-                {formatDayJs(dayjs.utc(overview.votingStartTime), dateFormat)}
-              </Typography>
-            </>
-          )
-        }
-        {
-          !!overview.votingEndTime && (
-            <>
-              <Typography variant="body1" className="label">
-                {t('votingEndTime')}
-              </Typography>
-              <Typography variant="body1" className="value">
-                {formatDayJs(dayjs.utc(overview.votingEndTime), dateFormat)}
-              </Typography>
-            </>
-          )
-        }
+        <Name name={proposerMoniker} address={proposer.address} />
+        {!!overview.submitTime && (
+          <>
+            <Typography variant="body1" className="label">
+              {t('submitTime')}
+            </Typography>
+            <Typography variant="body1" className="value">
+              {formatDayJs(dayjs.utc(overview.submitTime), dateFormat)}
+            </Typography>
+          </>
+        )}
+        {!!overview.depositEndTime && (
+          <>
+            <Typography variant="body1" className="label">
+              {t('depositEndTime')}
+            </Typography>
+            <Typography variant="body1" className="value">
+              {formatDayJs(dayjs.utc(overview.depositEndTime), dateFormat)}
+            </Typography>
+          </>
+        )}
+        {!!overview.votingStartTime && (
+          <>
+            <Typography variant="body1" className="label">
+              {t('votingStartTime')}
+            </Typography>
+            <Typography variant="body1" className="value">
+              {formatDayJs(dayjs.utc(overview.votingStartTime), dateFormat)}
+            </Typography>
+          </>
+        )}
+        {!!overview.votingEndTime && (
+          <>
+            <Typography variant="body1" className="label">
+              {t('votingEndTime')}
+            </Typography>
+            <Typography variant="body1" className="value">
+              {formatDayJs(dayjs.utc(overview.votingEndTime), dateFormat)}
+            </Typography>
+          </>
+        )}
         <Typography variant="body1" className="label">
           {t('description')}
         </Typography>
