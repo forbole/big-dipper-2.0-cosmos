@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import React from 'react';
 import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
@@ -27,7 +28,7 @@ jest.mock('next-translate/Trans', () => (
 // ==================================
 describe('screen: TransactionDetails/SubmitProposal', () => {
   it('matches snapshot', () => {
-    const message = new MsgSubmitProposal({
+    const message = MsgSubmitProposal.fromJson({
       type: {
         '@type': '/cosmos.gov.v1beta1.MsgSubmitProposal',
       },
@@ -54,13 +55,13 @@ describe('screen: TransactionDetails/SubmitProposal', () => {
   });
 
   it('matches snapshot with Text Proposal', () => {
-    const messageTextProposal = new MsgTextProposal({
+    const messageTextProposal = MsgTextProposal.fromJson({
       title: 'Dummy Text Proposal',
       type: '/cosmos.gov.v1beta1.TextProposal',
       description: 'Text Proposal Desription',
     });
 
-    const message = new MsgSubmitProposal({
+    const message = MsgSubmitProposal.fromJson({
       category: 'governance',
       type: '/cosmos.gov.v1beta1.MsgSubmitProposal',
       content: messageTextProposal,
@@ -92,7 +93,7 @@ describe('screen: TransactionDetails/SubmitProposal', () => {
   });
 
   it('matches snapshot with Software Upgrade Proposal', () => {
-    const msgSoftwareUpgradeProposal = new MsgSoftwareUpgradeProposal({
+    const msgSoftwareUpgradeProposal = MsgSoftwareUpgradeProposal.fromJson({
       title: 'Dummy Software Upgrade Proposal',
       type: '/cosmos.upgrade.v1beta1.SoftwareUpgradeProposal',
       description: '',
@@ -136,18 +137,18 @@ describe('screen: TransactionDetails/SubmitProposal', () => {
   });
 
   it('matches snapshot with Parameter Change Proposal', () => {
-    const msgParameterChangeProposal = new MsgParameterChangeProposal({
+    const msgParameterChangeProposal = MsgParameterChangeProposal.fromJson({
       title: 'Dummy Parameter Change Proposal',
       type: '/cosmos.params.v1beta1.ParameterChangeProposal',
       description: '',
-      changes: {
+      changes: [{
         subspace: 'baseapp',
         key: 'BlockParams',
         value: '{\n \"max_gas\": \"120000000\"\n }',
-      },
+      }],
     });
 
-    const message = new MsgSubmitProposal({
+    const message = MsgSubmitProposal.fromJson({
       category: 'governance',
       type: '/cosmos.gov.v1beta1.MsgSubmitProposal',
       content: msgParameterChangeProposal,
@@ -178,7 +179,7 @@ describe('screen: TransactionDetails/SubmitProposal', () => {
   });
 
   it('matches snapshot with Community Pool Spend Proposal', () => {
-    const msgCommunityPoolSpendProposal = new MsgCommunityPoolSpendProposal({
+    const msgCommunityPoolSpendProposal = MsgCommunityPoolSpendProposal.fromJson({
       title: 'Dummy Community Pool Spend Proposal',
       type: '/cosmos.distribution.v1beta1.CommunityPoolSpendProposal',
       description: '',
@@ -189,7 +190,7 @@ describe('screen: TransactionDetails/SubmitProposal', () => {
       }],
     });
 
-    const message = new MsgSubmitProposal({
+    const message = MsgSubmitProposal.fromJson({
       category: 'governance',
       type: '/cosmos.gov.v1beta1.MsgSubmitProposal',
       content: msgCommunityPoolSpendProposal,

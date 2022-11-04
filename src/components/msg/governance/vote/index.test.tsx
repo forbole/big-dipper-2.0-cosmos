@@ -32,7 +32,7 @@ jest.mock('next-translate/Trans', () => (
 // ==================================
 describe('screen: TransactionDetails/MsgVote', () => {
   it('matches snapshot', () => {
-    const message = new MsgVote({
+    const message = MsgVote.fromJson({
       category: 'governance',
       type: 'MsgVote',
       proposalId: 10,
