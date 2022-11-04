@@ -64,6 +64,7 @@ describe('misc: useSearchBar', () => {
   });
 
   it('use a dtag', async () => {
+    if (!chainConfig.extra.profile) return;
     const { result } = renderHook(() => useSearchBar(t), {
       wrapper: RecoilRoot,
     });
