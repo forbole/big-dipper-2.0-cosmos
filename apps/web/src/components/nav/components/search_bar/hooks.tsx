@@ -17,7 +17,7 @@ export const useSearchBar = (t) => {
   const router = useRouter();
 
   const handleOnSubmit = useRecoilCallback(({ snapshot }) => async (value: string, clear?: () => void) => {
-    const consensusRegex = `^(${RegExp.chainConfig.prefix.consensus})`;
+    const consensusRegex = `^(${chainConfig.prefix.consensus})`;
     const validatorRegex = `^(${chainConfig.prefix.validator})`;
     const userRegex = `^(${chainConfig.prefix.account})`;
     const parsedValue = value.replace(/\s+/g, '');
