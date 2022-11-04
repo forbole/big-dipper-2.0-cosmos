@@ -18,7 +18,7 @@ jest.mock('@components', () => ({
 // ==================================
 describe('screen: TransactionDetails/MsgSend', () => {
   it('matches snapshot', () => {
-    const message = new MsgSend({
+    const message = MsgSend.fromJson({
       category: 'bank',
       type: 'MsgSend',
       fromAddress: 'fromAddress',
