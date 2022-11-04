@@ -106,7 +106,7 @@ describe('screen: TransactionDetails/SubmitProposal', () => {
       },
     });
 
-    const message = new MsgSubmitProposal({
+    const message = MsgSubmitProposal.fromJson({
       category: 'governance',
       type: '/cosmos.gov.v1beta1.MsgSubmitProposal',
       content: msgSoftwareUpgradeProposal,
