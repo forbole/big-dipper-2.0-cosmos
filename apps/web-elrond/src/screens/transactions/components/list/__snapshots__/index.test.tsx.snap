@@ -1,3 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: Transactions/List matches snapshot 1`] = `null`;
+exports[`screen: Transactions/List matches snapshot 1`] = `
+<div
+  id="Box"
+>
+  <div
+    className="makeStyles-paginate"
+    handleChangePage={[Function]}
+    handleChangeRowsPerPage={[Function]}
+    id="Pagination"
+    page={0}
+    rowsPerPage={25}
+    total={5005}
+  />
+</div>
+`;

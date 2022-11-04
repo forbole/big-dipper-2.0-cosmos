@@ -4,6 +4,6 @@ exports[`screen: Nav/SearchBar it renders 1`] = `
 <div
   callback={[Function]}
   id="Search"
-  placeholder="common:searchBarPlaceholder"
+  placeholder="searchBarPlaceholder"
 />
 `;

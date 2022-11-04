@@ -8,23 +8,21 @@ jest.mock('@utils/dayjs', () => {
 
   mockTest.utc = jest.fn(() => {
     const format = jest.fn(() => '2020-08-10 12:00:00');
-    return (
-      {
+    return {
+      format,
+      fromNow: jest.fn(() => '1 day ago'),
+      diff: jest.fn(() => 30),
+      local: jest.fn(() => ({
         format,
-        fromNow: jest.fn(() => '1 day ago'),
-        diff: jest.fn(() => 30),
-        local: jest.fn(() => ({
-          format,
-        }))
-      }
-    );
+      })),
+    };
   });
 
-  return ({
+  return {
     __esModule: true,
     default: mockTest,
-    formatDayJs: jest.fn(() => '2020-08-10 12:00:00')
-  });
+    formatDayJs: jest.fn(() => '2020-08-10 12:00:00'),
+  };
 });
 
 jest.mock('next/dynamic', () => () => {
@@ -34,24 +32,26 @@ jest.mock('next/dynamic', () => () => {
   return DynamicComponent;
 });
 
-jest.mock('@recoil/profiles', () => {
-  return ({
-    useProfileRecoil: jest.fn((address) => ({
-      address,
-      name: address,
-      imageUrl: ''
-    })),
-    useProfilesRecoil: jest.fn((address) => ({
-      address,
-      name: address,
-      imageUrl: ''
-    })),
+if (jest.requireActual('ui/dist/chainConfig').default.extra.profile) {
+  jest.mock('@recoil/profiles', () => {
+    return {
+      useProfileRecoil: jest.fn((address) => ({
+        address,
+        name: address,
+        imageUrl: '',
+      })),
+      useProfilesRecoil: jest.fn((address) => ({
+        address,
+        name: address,
+        imageUrl: '',
+      })),
+    };
   });
-}, { virtual: true });
+}
 
 jest.mock('ui/dist/chainConfig', () => ({
   __esModule: true,
-  default: ({
+  default: {
     ...jest.requireActual('ui/dist/chainConfig').default,
     primaryTokenUnit: 'udaric',
     tokenUnits: {
@@ -72,5 +72,5 @@ jest.mock('ui/dist/chainConfig', () => ({
         exponent: 18,
       },
     },
-  }),
+  },
 }));

@@ -39,6 +39,9 @@ export const useNFTs = () => {
   const getCount = async () => {
     try {
       const { data: total } = await axios.get(NFTS_COUNT, {
+        headers: {
+          accept: 'application/json',
+        },
         params: {
           // keeps getting blocked by client
           // type: 'SemiFungibleESDT,NonFungibleESDT',
@@ -49,13 +52,16 @@ export const useNFTs = () => {
         total: total > maxSize ? maxSize : total,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log(NFTS_COUNT, error.message);
     }
   };
 
   const getNFTsByPage = async (page: number) => {
     try {
       const { data: nftData } = await axios.get(NFTS, {
+        headers: {
+          accept: 'application/json',
+        },
         params: {
           from: page * PAGE_SIZE,
           size: PAGE_SIZE,
@@ -78,7 +84,7 @@ export const useNFTs = () => {
         items,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log(NFTS, error.message);
     }
   };
 
