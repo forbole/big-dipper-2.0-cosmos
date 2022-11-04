@@ -6,11 +6,13 @@ import SearchBar from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/search', () => (props: JSX.IntrinsicElements['div']) => <div id="Search" {...props} />);
+jest.mock('@components/search', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Search" {...props} />
+));
 // ==================================
 // global setup
 // ==================================
-let component:renderer.ReactTestRenderer;
+let component: renderer.ReactTestRenderer;
 
 // ==================================
 // unit tests
@@ -20,7 +22,7 @@ describe('screen: Nav/SearchBar', () => {
     component = renderer.create(
       <MockTheme>
         <SearchBar />
-      </MockTheme>,
+      </MockTheme>
     );
   });
 

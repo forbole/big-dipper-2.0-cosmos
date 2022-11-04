@@ -8,7 +8,7 @@ export type ValidatorType = {
   jailed: boolean;
   tombstoned: boolean;
   topVotingPower?: boolean; // top 34% VP
-}
+};
 
 export type ValidatorsState = {
   loading: boolean;
@@ -18,6 +18,6 @@ export type ValidatorsState = {
   sortDirection: 'asc' | 'desc';
   votingPowerOverall: number;
   items: ValidatorType[];
-}
+};
 
 export type ItemType = Override<ValidatorType, { validator: AvatarName }>;

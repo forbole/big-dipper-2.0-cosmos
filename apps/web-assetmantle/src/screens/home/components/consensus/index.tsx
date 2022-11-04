@@ -5,24 +5,15 @@ import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import Box from '@components/box';
 import AvatarName from '@components/avatar_name';
-import {
-  RadialBarChart,
-  PolarAngleAxis,
-  RadialBar,
-  Tooltip,
-} from 'recharts';
-import {
-  useProfileRecoil,
-} from '@recoil/profiles';
+import { RadialBarChart, PolarAngleAxis, RadialBar, Tooltip } from 'recharts';
+import { useProfileRecoil } from '@recoil/profiles';
 import { useStyles } from './styles';
 import { useConsensus } from './hooks';
 
 const Consensus: React.FC<{
   className?: string;
 }> = ({ className }) => {
-  const {
-    classes, theme,
-  } = useStyles();
+  const { classes, theme } = useStyles();
   const { state } = useConsensus();
   const { t } = useTranslation('home');
 
@@ -51,9 +42,7 @@ const Consensus: React.FC<{
           </Typography>
         </div>
         <div>
-          <Typography variant="h4">
-            {numeral(state.height).format('0,0')}
-          </Typography>
+          <Typography variant="h4">{numeral(state.height).format('0,0')}</Typography>
           {state.proposer ? (
             <AvatarName
               address={proposerProfile.address}
@@ -79,17 +68,8 @@ const Consensus: React.FC<{
           startAngle={90}
           endAngle={-270}
         >
-          <PolarAngleAxis
-            type="number"
-            domain={[0, 100]}
-            angleAxisId={0}
-            tick={false}
-          />
-          <RadialBar
-            background
-            dataKey="value"
-            cornerRadius={circleSize / 2}
-          />
+          <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
+          <RadialBar background dataKey="value" cornerRadius={circleSize / 2} />
           <Tooltip />
           <text
             x={circleSize / 2}
@@ -104,11 +84,7 @@ const Consensus: React.FC<{
               })}
             </tspan>
           </text>
-          <text
-            x={(circleSize / 2) - 32}
-            y={(circleSize / 2) + 35}
-            className={classes.chartExtraLabel}
-          >
+          <text x={circleSize / 2 - 32} y={circleSize / 2 + 35} className={classes.chartExtraLabel}>
             <tspan className={classes.chartLabel}>
               {t('round', {
                 round: numeral(state.round).format('0,0'),

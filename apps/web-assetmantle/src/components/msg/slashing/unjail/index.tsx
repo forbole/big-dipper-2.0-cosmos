@@ -5,9 +5,7 @@ import Name from '@components/name';
 import { MsgUnjail } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Unjail = (props: {
-  message: MsgUnjail;
-}) => {
+const Unjail = (props: { message: MsgUnjail }) => {
   const { message } = props;
   const validator = useProfileRecoil(message.validatorAddress);
   const validatorMoniker = validator ? validator?.name : message.validatorAddress;
@@ -16,14 +14,7 @@ const Unjail = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:txUnjailContent"
-        components={[
-          (
-            <Name
-              address={message.validatorAddress}
-              name={validatorMoniker}
-            />
-          ),
-        ]}
+        components={[<Name address={message.validatorAddress} name={validatorMoniker} />]}
       />
     </Typography>
   );

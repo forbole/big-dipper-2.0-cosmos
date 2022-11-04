@@ -3,11 +3,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { NextSeo } from 'next-seo';
 import Layout from '@components/layout';
 import LoadAndExist from '@components/load_and_exist';
-import {
-  Overview,
-  Transactions,
-  Signatures,
-} from './components';
+import { Overview, Transactions, Signatures } from './components';
 import { useStyles } from './styles';
 import { useBlockDetails } from './hooks';
 
@@ -15,11 +11,7 @@ const BlockDetails = () => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
   const { state } = useBlockDetails();
-  const {
-    overview,
-    signatures,
-    transactions,
-  } = state;
+  const { overview, signatures, transactions } = state;
 
   return (
     <>
@@ -30,10 +22,7 @@ const BlockDetails = () => {
         }}
       />
       <Layout navTitle={t('blockDetails')}>
-        <LoadAndExist
-          loading={state.loading}
-          exists={state.exists}
-        >
+        <LoadAndExist loading={state.loading} exists={state.exists}>
           <span className={classes.root}>
             <Overview
               height={overview.height}
@@ -42,13 +31,8 @@ const BlockDetails = () => {
               timestamp={overview.timestamp}
               txs={overview.txs}
             />
-            <Signatures
-              className={classes.signatures}
-              signatures={signatures}
-            />
-            <Transactions
-              transactions={transactions}
-            />
+            <Signatures className={classes.signatures} signatures={signatures} />
+            <Transactions transactions={transactions} />
           </span>
         </LoadAndExist>
       </Layout>

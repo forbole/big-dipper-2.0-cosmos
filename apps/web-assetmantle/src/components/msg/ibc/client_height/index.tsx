@@ -5,9 +5,7 @@ import Name from '@components/name';
 import { MsgHeight } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Height = (props: {
-    message: MsgHeight;
-}) => {
+const Height = (props: { message: MsgHeight }) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -17,15 +15,7 @@ const Height = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:txHeightContent"
-        components={[
-          (
-            <Name
-              address={message.signer}
-              name={signerMoniker}
-            />
-          ),
-          <b />,
-        ]}
+        components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
       />
     </Typography>
   );

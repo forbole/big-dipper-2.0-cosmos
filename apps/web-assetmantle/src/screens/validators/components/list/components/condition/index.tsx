@@ -7,9 +7,7 @@ const Condition: React.FC<{
 }> = ({ className }) => {
   const classes = useStyles();
 
-  return (
-    <div className={classnames(className, classes.root)} />
-  );
+  return <div className={classnames(className, classes.root)} />;
 };
 
 export default Condition;

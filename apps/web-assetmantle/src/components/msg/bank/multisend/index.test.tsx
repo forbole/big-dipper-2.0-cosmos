@@ -5,11 +5,11 @@ import { MockTheme } from '@tests/utils';
 import { MsgMultiSend } from '@models';
 import Multisend from '.';
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
-
-jest.mock('next-translate/Trans', () => (
-  (props) => <div id={props.i18nKey} {...props} />
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
 ));
+
+jest.mock('next-translate/Trans', () => (props) => <div id={props.i18nKey} {...props} />);
 
 // ==================================
 // unit tests
@@ -54,16 +54,19 @@ describe('screen: TransactionDetails/MsgSend', () => {
     const component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <Multisend
-            message={message}
-          />
+          <Multisend message={message} />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
-    expect(component.root.findByProps({ id: 'message_contents:txMultisendContentOne' }).props.i18nKey).toEqual('message_contents:txMultisendContentOne');
-    expect(component.root.findByProps({ id: 'message_contents:txMultisendContentOne' }).props.values.amount).toEqual('20 DARIC');
+    expect(
+      component.root.findByProps({ id: 'message_contents:txMultisendContentOne' }).props.i18nKey
+    ).toEqual('message_contents:txMultisendContentOne');
+    expect(
+      component.root.findByProps({ id: 'message_contents:txMultisendContentOne' }).props.values
+        .amount
+    ).toEqual('20 DARIC');
   });
 
   afterEach(() => {

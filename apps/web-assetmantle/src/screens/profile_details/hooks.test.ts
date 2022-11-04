@@ -28,8 +28,10 @@ jest.mock('@hooks', () => ({
             chainLinks: [],
             applicationLinks: [],
             creationTime: '2021-10-06T00:10:45.761731',
-            coverPic: 'https://ipfs.desmos.network/ipfs/Qmf48cpgi2zNiH24Vo1xtVsePUJx9665gtiRduVCvV5fFg',
-            profilePic: 'https://ipfs.desmos.network/ipfs/QmTvkdGrtBHHihjVajqqA2HAoHangeKR1oYbQWzasnPi7B',
+            coverPic:
+              'https://ipfs.desmos.network/ipfs/Qmf48cpgi2zNiH24Vo1xtVsePUJx9665gtiRduVCvV5fFg',
+            profilePic:
+              'https://ipfs.desmos.network/ipfs/QmTvkdGrtBHHihjVajqqA2HAoHangeKR1oYbQWzasnPi7B',
           };
         }
         if (dtag === '@forbole') {
@@ -41,8 +43,10 @@ jest.mock('@hooks', () => ({
             chainLinks: [],
             applicationLinks: [],
             creationTime: '2021-10-06T00:10:45.761731',
-            coverPic: 'https://ipfs.desmos.network/ipfs/Qmf48cpgi2zNiH24Vo1xtVsePUJx9665gtiRduVCvV5fFg',
-            profilePic: 'https://ipfs.desmos.network/ipfs/QmTvkdGrtBHHihjVajqqA2HAoHangeKR1oYbQWzasnPi7B',
+            coverPic:
+              'https://ipfs.desmos.network/ipfs/Qmf48cpgi2zNiH24Vo1xtVsePUJx9665gtiRduVCvV5fFg',
+            profilePic:
+              'https://ipfs.desmos.network/ipfs/QmTvkdGrtBHHihjVajqqA2HAoHangeKR1oYbQWzasnPi7B',
           };
         }
 
@@ -56,8 +60,10 @@ jest.mock('@hooks', () => ({
           results = {
             dtag: 'HappieSa',
             nickname: 'theHappySamoyed',
-            imageUrl: 'https://ipfs.desmos.network/ipfs/Qmf48cpgi2zNiH24Vo1xtVsePUJx9665gtiRduVCvV5fFg',
-            coverUrl: 'https://ipfs.desmos.network/ipfs/QmTvkdGrtBHHihjVajqqA2HAoHangeKR1oYbQWzasnPi7B',
+            imageUrl:
+              'https://ipfs.desmos.network/ipfs/Qmf48cpgi2zNiH24Vo1xtVsePUJx9665gtiRduVCvV5fFg',
+            coverUrl:
+              'https://ipfs.desmos.network/ipfs/QmTvkdGrtBHHihjVajqqA2HAoHangeKR1oYbQWzasnPi7B',
             bio: 'hungry all the time',
             connections: [
               {
@@ -72,8 +78,10 @@ jest.mock('@hooks', () => ({
           results = {
             dtag: 'forbole',
             nickname: 'Forbole',
-            imageUrl: 'https://ipfs.desmos.network/ipfs/Qmf48cpgi2zNiH24Vo1xtVsePUJx9665gtiRduVCvV5fFg',
-            coverUrl: 'https://ipfs.desmos.network/ipfs/QmTvkdGrtBHHihjVajqqA2HAoHangeKR1oYbQWzasnPi7B',
+            imageUrl:
+              'https://ipfs.desmos.network/ipfs/Qmf48cpgi2zNiH24Vo1xtVsePUJx9665gtiRduVCvV5fFg',
+            coverUrl:
+              'https://ipfs.desmos.network/ipfs/QmTvkdGrtBHHihjVajqqA2HAoHangeKR1oYbQWzasnPi7B',
             bio: 'Forbole [ˈfɔːbəl] is a well-established blockchain validator and developer since 2017.',
             connections: [
               {
@@ -95,7 +103,9 @@ describe('hook: useProfileDetails', () => {
     const { result, rerender } = renderHook(() => useProfileDetails());
 
     expect(result.current.state.desmosProfile?.bio).toBe('hungry all the time');
-    expect(mockRouter.push).toHaveBeenCalledWith({ pathname: '/@HappieSa' }, '/@HappieSa', { shallow: true });
+    expect(mockRouter.push).toHaveBeenCalledWith({ pathname: '/@HappieSa' }, '/@HappieSa', {
+      shallow: true,
+    });
     act(() => {
       mockRouter.query.dtag = '@forbole';
       rerender();
