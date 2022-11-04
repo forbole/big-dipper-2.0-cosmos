@@ -1,8 +1,6 @@
 import React from 'react';
 import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
-import {
-  MockTheme, wait,
-} from '@tests/utils';
+import { MockTheme, wait } from '@tests/utils';
 import List from '.';
 
 // ==================================
@@ -13,7 +11,9 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />);
+jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Box" {...props} />
+));
 
 jest.mock('./components', () => ({
   Mobile: (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />,
@@ -29,24 +29,26 @@ describe('screen: Proposals/List', () => {
     let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
 
     renderer.act(() => {
-      tree = renderer.create(
-        <MockTheme>
-          <List
-            items={[
-              {
-                title: 'Staking Param Change Part Two',
-                id: 7,
-                status: 'PROPOSAL_STATUS_REJECTED',
-                description: 'Update max validators',
-              },
-            ]}
-            rawDataTotal={1}
-            isItemLoaded={() => true}
-            itemCount={1}
-            loadMoreItems={() => null}
-          />
-        </MockTheme>,
-      ).toJSON();
+      tree = renderer
+        .create(
+          <MockTheme>
+            <List
+              items={[
+                {
+                  title: 'Staking Param Change Part Two',
+                  id: 7,
+                  status: 'PROPOSAL_STATUS_REJECTED',
+                  description: 'Update max validators',
+                },
+              ]}
+              rawDataTotal={1}
+              isItemLoaded={() => true}
+              itemCount={1}
+              loadMoreItems={() => null}
+            />
+          </MockTheme>
+        )
+        .toJSON();
     });
     await wait();
 

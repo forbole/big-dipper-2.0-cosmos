@@ -8,19 +8,15 @@ import CustomToolTip from '@components/custom_tool_tip';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import { useStyles } from './styles';
 
-const Compute:React.FC<{
+const Compute: React.FC<{
   className?: string;
   compute: {
     available: number;
     used: number;
   };
-}> = ({
-  className, compute,
-}) => {
+}> = ({ className, compute }) => {
   const { t } = useTranslation('providers');
-  const {
-    classes, theme,
-  } = useStyles();
+  const { classes, theme } = useStyles();
 
   const total = compute.available + compute.used;
 
@@ -49,10 +45,7 @@ const Compute:React.FC<{
         {t('compute')}
       </Typography>
       <div className={classes.content}>
-        <PieChart
-          width={200}
-          height={200}
-        >
+        <PieChart width={200} height={200}>
           <Pie
             stroke="none"
             cornerRadius={100}
@@ -64,60 +57,45 @@ const Compute:React.FC<{
             isAnimationActive={false}
           >
             {data.map((entry) => {
-              return (
-                <Cell key={entry.legendKey} fill={entry.fill} />
-              );
+              return <Cell key={entry.legendKey} fill={entry.fill} />;
             })}
           </Pie>
           <Tooltip
-            content={(
+            content={
               <CustomToolTip>
                 {(x) => {
                   return (
                     <>
-                      <Typography variant="caption">
-                        {t(x.legendKey)}
-                      </Typography>
+                      <Typography variant="caption">{t(x.legendKey)}</Typography>
                       <Typography variant="body1">
                         {x.value}
-                        vCPUs
-                        (
-                        {x.percent}
-                        )
+                        vCPUs ({x.percent})
                       </Typography>
                     </>
                   );
                 }}
               </CustomToolTip>
-            )}
+            }
           />
         </PieChart>
 
         <div className={classes.legends}>
-          {
-            data.map((x) => {
-              return (
-                <div className="legends__item" key={x.legendKey}>
-                  <Typography variant="caption" className="usage">
-                    {t(x.legendKey)}
-                    {' '}
-                  </Typography>
-                  <Typography variant="caption" className="vCPUs">
-                    (
-                    {' '}
-                    {x.value}
-                    {' '}
-                    vCPUs
-                    )
-                  </Typography>
-                  <Typography variant="caption" className="percent">
-                    {' '}
-                    {x.percent}
-                  </Typography>
-                </div>
-              );
-            })
-          }
+          {data.map((x) => {
+            return (
+              <div className="legends__item" key={x.legendKey}>
+                <Typography variant="caption" className="usage">
+                  {t(x.legendKey)}{' '}
+                </Typography>
+                <Typography variant="caption" className="vCPUs">
+                  ( {x.value} vCPUs )
+                </Typography>
+                <Typography variant="caption" className="percent">
+                  {' '}
+                  {x.percent}
+                </Typography>
+              </div>
+            );
+          })}
         </div>
       </div>
     </Box>

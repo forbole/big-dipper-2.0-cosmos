@@ -5,9 +5,7 @@ import Name from '@components/name';
 import { MsgSubmitProposal } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const SubmitProposal = (props: {
-  message: MsgSubmitProposal;
-}) => {
+const SubmitProposal = (props: { message: MsgSubmitProposal }) => {
   const { message } = props;
 
   const proposer = useProfileRecoil(message.proposer);
@@ -17,14 +15,7 @@ const SubmitProposal = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:txSubmitProposalContent"
-        components={[
-          (
-            <Name
-              address={message.proposer}
-              name={proposerMoniker}
-            />
-          ),
-        ]}
+        components={[<Name address={message.proposer} name={proposerMoniker} />]}
       />
     </Typography>
   );

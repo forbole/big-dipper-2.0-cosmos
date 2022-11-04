@@ -1,10 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Divider,
-  Typography,
-} from '@material-ui/core';
+import { Divider, Typography } from '@material-ui/core';
 import AvatarName from '@components/avatar_name';
 import { useStyles } from './styles';
 import { getVoteKey } from '../../utils';
@@ -13,23 +10,15 @@ import { ItemType } from '../../types';
 const Mobile: React.FC<{
   className?: string;
   items?: ItemType[];
-}> = ({
-  className, items,
-}) => {
+}> = ({ className, items }) => {
   const { t } = useTranslation('proposals');
   const classes = useStyles();
 
   const formattedItems = items.map((x) => {
-    return ({
-      voter: (
-        <AvatarName
-          address={x.user.address}
-          imageUrl={x.user.imageUrl}
-          name={x.user.name}
-        />
-      ),
+    return {
+      voter: <AvatarName address={x.user.address} imageUrl={x.user.imageUrl} name={x.user.name} />,
       vote: t(getVoteKey(x.vote)),
-    });
+    };
   });
 
   return (

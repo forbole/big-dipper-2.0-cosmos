@@ -5,9 +5,7 @@ import Name from '@components/name';
 import { MsgSubmitMisbehaviour } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const SubmitMisbehaviour = (props: {
-    message: MsgSubmitMisbehaviour;
-}) => {
+const SubmitMisbehaviour = (props: { message: MsgSubmitMisbehaviour }) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -17,15 +15,7 @@ const SubmitMisbehaviour = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:txSubmitMisbehaviourContent"
-        components={[
-          (
-            <Name
-              address={message.signer}
-              name={signerMoniker}
-            />
-          ),
-          <b />,
-        ]}
+        components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
         values={{
           clientId: message.clientId,
         }}

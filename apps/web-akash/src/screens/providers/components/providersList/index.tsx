@@ -6,10 +6,7 @@ import useTranslation from 'next-translate/useTranslation';
 import Box from '@components/box';
 import Pagination from '@components/pagination';
 import Search from '@components/search';
-import {
-  usePagination,
-  useScreenSize,
-} from '@hooks';
+import { usePagination, useScreenSize } from '@hooks';
 import { useStyles } from './styles';
 import { ProvidersListState } from '../../types';
 
@@ -17,20 +14,15 @@ const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
 
 export type ProvidersListProps = ComponentDefault & {
-  list: ProvidersListState,
-  handleSearch:(value: string) => void,
-}
+  list: ProvidersListState;
+  handleSearch: (value: string) => void;
+};
 
 const ProvidersList: React.FC<ProvidersListProps> = (props) => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const { t } = useTranslation('providers');
-  const {
-    page,
-    rowsPerPage,
-    handleChangePage,
-    handleChangeRowsPerPage,
-  } = usePagination({
+  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage } = usePagination({
     rowsPage: props.list.pagination.itemsPerPage,
   });
   const { handleSearch } = props;
@@ -46,9 +38,7 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
   return (
     <Box className={classnames(props.className, classes.root)}>
       <div className={classes.providerHeader}>
-        <Typography variant="h2">
-          {t('providersList')}
-        </Typography>
+        <Typography variant="h2">{t('providersList')}</Typography>
         <Search
           className={classes.searchBar}
           callback={handleSearch}
@@ -56,9 +46,7 @@ const ProvidersList: React.FC<ProvidersListProps> = (props) => {
         />
       </div>
 
-      <div className={classes.list}>
-        {component}
-      </div>
+      <div className={classes.list}>{component}</div>
 
       <Pagination
         className={classes.paginate}

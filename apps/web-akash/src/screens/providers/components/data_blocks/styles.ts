@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
-      return ({
+      return {
         root: {
           display: 'grid',
           height: '100%',
@@ -26,8 +26,9 @@ export const useStyles = () => {
         activeLeases: {
           background: theme.palette.custom.primaryData.three,
         },
-      });
-    }, { index: 1 },
+      };
+    },
+    { index: 1 }
   )();
 
   return styles;

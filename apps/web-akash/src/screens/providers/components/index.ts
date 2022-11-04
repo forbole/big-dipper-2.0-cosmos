@@ -4,10 +4,4 @@ import Compute from './compute';
 import Storage from './storage';
 import ProvidersList from './providersList';
 
-export {
-  DataBlocks,
-  Memory,
-  Compute,
-  Storage,
-  ProvidersList,
-};
+export { DataBlocks, Memory, Compute, Storage, ProvidersList };

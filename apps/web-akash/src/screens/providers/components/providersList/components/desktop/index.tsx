@@ -16,14 +16,8 @@ import { columns } from './utils';
 import { useStyles } from './styles';
 import { ProviderInfo } from '../../../../types';
 
-const Desktop: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
-  const {
-    gridRef,
-    columnRef,
-    onResize,
-    getColumnWidth,
-    getRowHeight,
-  } = useGrid(columns);
+const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
+  const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
   const classes = useStyles();
   const { t } = useTranslation('providers');
@@ -39,7 +33,8 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
       <>
         <Typography variant="body1" component="a">
           {getMiddleEllipsis(eachProvider.ownerAddress, {
-            beginning: 9, ending: 8,
+            beginning: 9,
+            ending: 8,
           })}
         </Typography>
         <CopyIcon
@@ -52,7 +47,8 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
       <>
         <Typography variant="body1" component="a">
           {getMiddleEllipsis(eachProvider.hostURI, {
-            beginning: 31, ending: 0,
+            beginning: 31,
+            ending: 0,
           })}
         </Typography>
         <CopyIcon
@@ -61,58 +57,56 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
         />
       </>
     ),
-    region: eachProvider.region
-      ? (
-        <Typography variant="body1" component="a">
-          {eachProvider.region}
-        </Typography>
-      ) : (
-        'Null'
-      ),
-    organization: eachProvider.organization
-      ? (
-        <Typography variant="body1" component="a">
-          {eachProvider.organization}
-        </Typography>
-      ) : (
-        'Null'
-      ),
-    email: eachProvider.emailAddress
-      ? (
-        <a href={`mailto:${eachProvider.emailAddress}`}>
-          <EmailIcon className={classes.emailIcon} />
-        </a>
-      ) : (
-        'Null'
-      ),
-    website: eachProvider.website
-      ? (
-        <Link
-          href={eachProvider.website.startsWith('https://')
-            ? eachProvider.website : `https://${eachProvider.website}`}
-        >
-          <div>
-            <Typography variant="body1" component="a">
-              {eachProvider.website.length <= 13
-                ? eachProvider.website
-                : getMiddleEllipsis(eachProvider.website, {
-                  beginning: 13, ending: 0,
+    region: eachProvider.region ? (
+      <Typography variant="body1" component="a">
+        {eachProvider.region}
+      </Typography>
+    ) : (
+      'Null'
+    ),
+    organization: eachProvider.organization ? (
+      <Typography variant="body1" component="a">
+        {eachProvider.organization}
+      </Typography>
+    ) : (
+      'Null'
+    ),
+    email: eachProvider.emailAddress ? (
+      <a href={`mailto:${eachProvider.emailAddress}`}>
+        <EmailIcon className={classes.emailIcon} />
+      </a>
+    ) : (
+      'Null'
+    ),
+    website: eachProvider.website ? (
+      <Link
+        href={
+          eachProvider.website.startsWith('https://')
+            ? eachProvider.website
+            : `https://${eachProvider.website}`
+        }
+      >
+        <div>
+          <Typography variant="body1" component="a">
+            {eachProvider.website.length <= 13
+              ? eachProvider.website
+              : getMiddleEllipsis(eachProvider.website, {
+                  beginning: 13,
+                  ending: 0,
                 })}
-            </Typography>
-            <WebArrowIcon className={classes.actionIcons} />
-          </div>
-        </Link>
-      ) : (
-        'Null'
-      ),
+          </Typography>
+          <WebArrowIcon className={classes.actionIcons} />
+        </div>
+      </Link>
+    ) : (
+      'Null'
+    ),
   }));
 
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer onResize={onResize}>
-        {({
-          height, width,
-        }) => {
+        {({ height, width }) => {
           return (
             <>
               {/* ======================================= */}
@@ -127,22 +121,12 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
                 rowHeight={() => 50}
                 width={width}
               >
-                {({
-                  columnIndex, style,
-                }) => {
-                  const {
-                    key, align,
-                  } = columns[columnIndex];
+                {({ columnIndex, style }) => {
+                  const { key, align } = columns[columnIndex];
 
                   return (
-                    <div
-                      style={style}
-                      className={classes.cell}
-                    >
-                      <Typography
-                        variant="h4"
-                        align={align}
-                      >
+                    <div style={style} className={classes.cell}>
+                      <Typography variant="h4" align={align}>
                         {t(key)}
                       </Typography>
                     </div>
@@ -162,9 +146,7 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
                 rowHeight={getRowHeight}
                 width={width}
               >
-                {({
-                  columnIndex, rowIndex, style,
-                }) => {
+                {({ columnIndex, rowIndex, style }) => {
                   if (!isItemLoaded(rowIndex) && columnIndex === 0) {
                     return (
                       <div
@@ -182,9 +164,7 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
                     return null;
                   }
 
-                  const {
-                    key, align,
-                  } = columns[columnIndex];
+                  const { key, align } = columns[columnIndex];
                   const item = itemsNew[rowIndex][key];
                   return (
                     <div
@@ -193,11 +173,7 @@ const Desktop: React.FC<{list: ProviderInfo[]}> = ({ list }) => {
                         odd: !(rowIndex % 2),
                       })}
                     >
-                      <Typography
-                        variant="body1"
-                        align={align}
-                        component="div"
-                      >
+                      <Typography variant="body1" align={align} component="div">
                         {item}
                       </Typography>
                     </div>

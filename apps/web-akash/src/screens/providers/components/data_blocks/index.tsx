@@ -9,11 +9,7 @@ const DataBlocks: React.FC<{
   className?: string;
   providers: number;
   leases: number;
-}> = ({
-  className,
-  providers,
-  leases,
-}) => {
+}> = ({ className, providers, leases }) => {
   const { t } = useTranslation('providers');
   const classes = useStyles();
   const data = [
@@ -32,12 +28,7 @@ const DataBlocks: React.FC<{
   return (
     <div className={classnames(classes.root, className)}>
       {data.map((x) => (
-        <SingleBlock
-          key={x.key}
-          label={x.key}
-          value={x.value}
-          className={x.className}
-        />
+        <SingleBlock key={x.key} label={x.key} value={x.value} className={x.className} />
       ))}
     </div>
   );

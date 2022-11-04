@@ -5,11 +5,11 @@ export type TitleListType = {
   organization: string;
   email: string;
   website: string;
-}
+};
 
 export type TitleListState = {
   hasNextPage: boolean;
   isNextPageLoading: boolean;
   offsetCount: number;
   data: TitleListType[];
-}
+};

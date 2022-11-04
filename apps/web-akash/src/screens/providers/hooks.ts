@@ -9,10 +9,7 @@ import {
   CpuMemoryStorageListenerSubscription,
   ProvidersQuery,
 } from '@graphql/types/general_types';
-import {
-  ProviderInfo,
-  ProvidersState,
-} from './types';
+import { ProviderInfo, ProvidersState } from './types';
 
 export const useProviders = () => {
   const [state, setState] = useState<ProvidersState>({
@@ -117,37 +114,40 @@ export const useProviders = () => {
       };
     });
 
-    return mappedData.reduce((total, row) => {
-      return {
+    return mappedData.reduce(
+      (total, row) => {
+        return {
+          memory: {
+            available: total.memory.available + row.memory.available,
+            used: total.memory.used + row.memory.used,
+          },
+          cpu: {
+            available: total.cpu.available + row.cpu.available,
+            used: total.cpu.used + row.cpu.used,
+          },
+          storage: {
+            available: total.storage.available + row.storage.available,
+            used: total.storage.used + row.storage.used,
+            pending: total.storage.pending + row.storage.pending,
+          },
+        };
+      },
+      {
         memory: {
-          available: total.memory.available + row.memory.available,
-          used: total.memory.used + row.memory.used,
+          available: 0,
+          used: 0,
         },
         cpu: {
-          available: total.cpu.available + row.cpu.available,
-          used: total.cpu.used + row.cpu.used,
+          available: 0,
+          used: 0,
         },
         storage: {
-          available: total.storage.available + row.storage.available,
-          used: total.storage.used + row.storage.used,
-          pending: total.storage.pending + row.storage.pending,
+          available: 0,
+          used: 0,
+          pending: 0,
         },
-      };
-    }, {
-      memory: {
-        available: 0,
-        used: 0,
-      },
-      cpu: {
-        available: 0,
-        used: 0,
-      },
-      storage: {
-        available: 0,
-        used: 0,
-        pending: 0,
-      },
-    });
+      }
+    );
   };
 
   // ================================
@@ -156,19 +156,21 @@ export const useProviders = () => {
 
   const formatProviders = (data: ProvidersQuery['list']) => {
     return data.map((item) => {
-      const {attributes, hostUri, info, ownerAddress} = item;
-      const organization = attributes?.
-        find((attribute: { key: string; value: string; }) => attribute.key === 'organization')?.value;
-      const region = attributes?.
-        find((attribute: { key: string; value: string; }) => attribute.key === 'region')?.value;
-      return ({
+      const { attributes, hostUri, info, ownerAddress } = item;
+      const organization = attributes?.find(
+        (attribute: { key: string; value: string }) => attribute.key === 'organization'
+      )?.value;
+      const region = attributes?.find(
+        (attribute: { key: string; value: string }) => attribute.key === 'region'
+      )?.value;
+      return {
         ownerAddress,
         hostURI: hostUri,
         region,
         organization,
         emailAddress: info.email,
         website: info.website,
-      });
+      };
     });
   };
 

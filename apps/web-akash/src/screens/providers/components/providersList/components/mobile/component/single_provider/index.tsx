@@ -1,9 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Typography,
-} from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 
 const SingleProvider: React.FC<{
@@ -22,15 +20,7 @@ const SingleProvider: React.FC<{
   organization;
   email;
   website;
-}> = ({
-  className,
-  ownerAddress,
-  hostUri,
-  region,
-  organization,
-  email,
-  website,
-}) => {
+}> = ({ className, ownerAddress, hostUri, region, organization, email, website }) => {
   const { t } = useTranslation('providers');
   const classes = useStyles();
   return (
@@ -84,7 +74,6 @@ const SingleProvider: React.FC<{
         </Typography>
       </div>
     </div>
-
   );
 };
 

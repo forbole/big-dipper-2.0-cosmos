@@ -13,9 +13,15 @@ const mockI18n = {
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 
-jest.mock('react-virtualized-auto-sizer', () => ({ children }: any) => children({
-  height: 600, width: 600,
-}));
+jest.mock(
+  'react-virtualized-auto-sizer',
+  () =>
+    ({ children }: any) =>
+      children({
+        height: 600,
+        width: 600,
+      })
+);
 
 // ==================================
 // unit tests
@@ -36,10 +42,11 @@ describe('screen: ProfileDetails/Connections/Desktop', () => {
                 network: 'emoney',
                 identifier: 'emoney1wke3ev9ja6rxsngld75r3vppcpet94xxnh63ry',
                 creationTime: '2021-08-31T17:02:28.575104',
-              }]}
+              },
+            ]}
           />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

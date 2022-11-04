@@ -1,15 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {
-  MockTheme, wait,
-} from '@tests/utils';
-import {
-  createMockClient, createMockSubscription,
-} from 'mock-apollo-client';
+import { MockTheme, wait } from '@tests/utils';
+import { createMockClient, createMockSubscription } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
-import {
-  TransactionsListenerDocument,
-} from '@graphql/types/general_types';
+import { TransactionsListenerDocument } from '@graphql/types/general_types';
 import Transactions from '.';
 
 // ==================================
@@ -20,8 +14,12 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />);
-jest.mock('@components/no_data', () => (props: JSX.IntrinsicElements['div']) => <div id="NoData" {...props} />);
+jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Box" {...props} />
+));
+jest.mock('@components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="NoData" {...props} />
+));
 
 jest.mock('./components', () => ({
   Mobile: (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />,
@@ -54,10 +52,7 @@ describe('screen: Home/Blocks/Mobile', () => {
     const mockClient = createMockClient();
     const mockSubscription = createMockSubscription();
 
-    mockClient.setRequestHandler(
-      TransactionsListenerDocument,
-      () => mockSubscription,
-    );
+    mockClient.setRequestHandler(TransactionsListenerDocument, () => mockSubscription);
 
     let component;
 
@@ -67,7 +62,7 @@ describe('screen: Home/Blocks/Mobile', () => {
           <MockTheme>
             <Transactions />
           </MockTheme>
-        </ApolloProvider>,
+        </ApolloProvider>
       );
     });
 

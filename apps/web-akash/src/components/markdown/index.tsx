@@ -84,17 +84,9 @@ const options = {
   },
 };
 
-export default function Markdown(props: {
-  markdown: string
-}) {
+export default function Markdown(props: { markdown: string }) {
   const clean = DOMPurify.sanitize(props.markdown.replace(/\\n\s?/g, '<br/>'));
   // clean = clean.replace(/\\n\s?/g, '\n'); // this will also work
 
-  return (
-    <ReactMarkdown
-      options={options}
-    >
-      {clean}
-    </ReactMarkdown>
-  );
+  return <ReactMarkdown options={options}>{clean}</ReactMarkdown>;
 }
