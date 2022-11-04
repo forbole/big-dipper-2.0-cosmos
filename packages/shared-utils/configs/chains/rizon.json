@@ -7,9 +7,7 @@
   "previewImage": "https://s3.bigdipper.live/rizon.png",
   "themes": {
     "default": "dark",
-    "themeList": [
-      "dark"
-    ],
+    "themeList": ["dark"],
     "dark": {
       "primary": {
         "main": "#6A63FF",

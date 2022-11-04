@@ -48,8 +48,5 @@
       "outputs": []
     }
   },
-  "globalDependencies": [
-    ".env",
-    "tsconfig.json"
-  ]
+  "globalDependencies": [".env", "tsconfig.json"]
 }

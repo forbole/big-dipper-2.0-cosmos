@@ -7,9 +7,7 @@
   "previewImage": "https://s3.bigdipper.live/assetmantle.png",
   "themes": {
     "default": "dark",
-    "themeList": [
-      "dark"
-    ],
+    "themeList": ["dark"],
     "dark": {
       "primary": {
         "main": "#F3B211",

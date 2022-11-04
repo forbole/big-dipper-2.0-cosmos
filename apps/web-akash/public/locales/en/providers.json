@@ -11,12 +11,12 @@
   "organization": "Organization",
   "email": "Email",
   "website": "Website",
-  "available":"Available",
+  "available": "Available",
   "used": "Used",
-  "pending":"Pending",
+  "pending": "Pending",
   "availablePercent": "Available Percent",
   "usedPercent": "Used Percent",
   "pendingPercent": "Pending Percent",
   "searchProviders": "Search Providers",
-  "providersList":"Providers List"
+  "providersList": "Providers List"
 }

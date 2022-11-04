@@ -7,10 +7,7 @@
   "previewImage": "https://s3.bigdipper.live/desmos.png",
   "themes": {
     "default": "light",
-    "themeList": [
-      "dark",
-      "light"
-    ],
+    "themeList": ["dark", "light"],
     "dark": {
       "primary": {
         "main": "#FF835B",
