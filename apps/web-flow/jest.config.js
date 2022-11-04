@@ -27,6 +27,7 @@ const exportFunc = async () => {
         prefix: '<rootDir>/',
       }),
     },
+    setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   };
 };
 
