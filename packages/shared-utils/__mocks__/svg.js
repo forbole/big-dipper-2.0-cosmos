@@ -1,2 +1,2 @@
-export default "svg";
-export const ReactComponent = "svg";
+export default 'svg';
+export const ReactComponent = 'svg';
