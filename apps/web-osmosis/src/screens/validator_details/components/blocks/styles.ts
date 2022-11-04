@@ -4,7 +4,7 @@ import Color from 'color';
 export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
-      return ({
+      return {
         root: {
           '& .MuiTypography-h2': {
             marginBottom: theme.spacing(2),
@@ -63,8 +63,9 @@ export const useStyles = () => {
             width: '50%',
           },
         },
-      });
-    }, { index: 1 },
+      };
+    },
+    { index: 1 }
   )();
 
   return styles;

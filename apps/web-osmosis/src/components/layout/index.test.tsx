@@ -6,14 +6,18 @@ import Layout from '.';
 // ==================================
 // global setup
 // ==================================
-let component:renderer.ReactTestRenderer;
+let component: renderer.ReactTestRenderer;
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('@components/nav', () => (props: JSX.IntrinsicElements['div']) => <div id="Nav" {...props} />);
-jest.mock('@components/footer', () => (props: JSX.IntrinsicElements['div']) => <div id="Footer" {...props} />);
+jest.mock('@components/nav', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Nav" {...props} />
+));
+jest.mock('@components/footer', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Footer" {...props} />
+));
 
 const mockI18n = {
   t: (key: string) => key,
@@ -36,7 +40,7 @@ describe('component: Layout', () => {
         <Layout>
           <div>hello world</div>
         </Layout>
-      </MockTheme>,
+      </MockTheme>
     );
   });
 

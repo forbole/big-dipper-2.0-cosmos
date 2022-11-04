@@ -3,13 +3,9 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgCreatePeriodicVestingAccount } from '@models';
-import {
-  useProfileRecoil,
-} from '@recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 
-const CreatePeriodicVestingAccount = (props: {
-  message: MsgCreatePeriodicVestingAccount;
-}) => {
+const CreatePeriodicVestingAccount = (props: { message: MsgCreatePeriodicVestingAccount }) => {
   const { message } = props;
 
   const to = useProfileRecoil(message.toAddress);
@@ -19,14 +15,7 @@ const CreatePeriodicVestingAccount = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:MsgCreatePeriodicVestingAccount"
-        components={[
-          (
-            <Name
-              address={message.toAddress}
-              name={toMoniker}
-            />
-          ),
-        ]}
+        components={[<Name address={message.toAddress} name={toMoniker} />]}
       />
     </Typography>
   );

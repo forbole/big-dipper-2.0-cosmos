@@ -1,19 +1,17 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {
-  MockTheme, wait,
-} from '@tests/utils';
+import { MockTheme, wait } from '@tests/utils';
 import { createMockClient } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
-import {
-  LatestBlockTimestampDocument,
-} from '@graphql/types/general_types';
+import { LatestBlockTimestampDocument } from '@graphql/types/general_types';
 import Home from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />);
+jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Layout" {...props} />
+));
 
 jest.mock('./components', () => ({
   DataBlocks: (props: JSX.IntrinsicElements['div']) => <div id="DataBlocks" {...props} />,
@@ -40,20 +38,19 @@ const mockBlockTime = jest.fn().mockResolvedValue({
 describe('screen: Home', () => {
   it('matches snapshot', async () => {
     const mockClient = createMockClient();
-    mockClient.setRequestHandler(
-      LatestBlockTimestampDocument,
-      mockBlockTime,
-    );
+    mockClient.setRequestHandler(LatestBlockTimestampDocument, mockBlockTime);
     let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
 
     renderer.act(() => {
-      tree = renderer.create(
-        <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <Home />
-          </MockTheme>
-        </ApolloProvider>,
-      ).toJSON();
+      tree = renderer
+        .create(
+          <ApolloProvider client={mockClient}>
+            <MockTheme>
+              <Home />
+            </MockTheme>
+          </ApolloProvider>
+        )
+        .toJSON();
     });
     await wait();
 

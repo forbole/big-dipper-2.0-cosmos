@@ -1,17 +1,8 @@
 import { selector } from 'recoil';
 import { mergeStateChange } from '@utils/merge_state_change';
-import {
-  THEME_KEY,
-  DATE_KEY,
-  TX_KEY,
-  setItem,
-} from '@utils/localstorage';
+import { THEME_KEY, DATE_KEY, TX_KEY, setItem } from '@utils/localstorage';
 import { atomState } from './atom';
-import {
-  Theme,
-  Date,
-  Tx,
-} from './types';
+import { Theme, Date, Tx } from './types';
 
 const getTheme = ({ get }): Theme => {
   const state = get(atomState);
@@ -21,9 +12,7 @@ const getTheme = ({ get }): Theme => {
 export const writeTheme = selector({
   key: 'settings.write.theme',
   get: getTheme,
-  set: ({
-    get, set,
-  }, newTheme: Theme) => {
+  set: ({ get, set }, newTheme: Theme) => {
     setItem(THEME_KEY, newTheme);
     const prevState = get(atomState);
     const newState = mergeStateChange(prevState, {
@@ -49,9 +38,7 @@ const getDate = ({ get }): Date => {
 export const writeDate = selector({
   key: 'settings.write.date',
   get: getDate,
-  set: ({
-    get, set,
-  }, newDate: Date) => {
+  set: ({ get, set }, newDate: Date) => {
     setItem(DATE_KEY, newDate);
     const prevState = get(atomState);
     const newState = mergeStateChange(prevState, {
@@ -77,9 +64,7 @@ const getTx = ({ get }): Tx => {
 export const writeTx = selector({
   key: 'settings.write.tx',
   get: getTx,
-  set: ({
-    get, set,
-  }, newTx: Tx) => {
+  set: ({ get, set }, newTx: Tx) => {
     setItem(TX_KEY, newTx);
     const prevState = get(atomState);
     const newState = mergeStateChange(prevState, {

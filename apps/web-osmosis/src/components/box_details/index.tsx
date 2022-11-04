@@ -13,34 +13,21 @@ const BoxDetails: React.FC<{
     detail: string | number | React.ReactNode;
     className?: string;
   }[];
-}> = ({
-  className, title, titleAction, details,
-}) => {
+}> = ({ className, title, titleAction, details }) => {
   const classes = useStyles();
   return (
     <Box className={classnames(className, classes.root)}>
       {!!title && (
         <div className={classnames(classes.header, classes.item)}>
-            {React.isValidElement(title) ? (
-              title
-            ) : (
-              <Typography variant="h2">
-                {title}
-              </Typography>
-            )}
-            {!!titleAction && titleAction}
+          {React.isValidElement(title) ? title : <Typography variant="h2">{title}</Typography>}
+          {!!titleAction && titleAction}
         </div>
       )}
       {details.map((x, i) => {
         return (
-          <div
-            className={classnames(classes.item, x.className)}
-            key={`box-detail__item--${i}`}
-          >
+          <div className={classnames(classes.item, x.className)} key={`box-detail__item--${i}`}>
             {React.isValidElement(x.label) ? (
-              <div className="label">
-                {x.label}
-              </div>
+              <div className="label">{x.label}</div>
             ) : (
               <Typography variant="body1" className="label">
                 {x.label}
@@ -48,9 +35,7 @@ const BoxDetails: React.FC<{
             )}
 
             {React.isValidElement(x.detail) ? (
-              <div className="detail">
-                {x.detail}
-              </div>
+              <div className="detail">{x.detail}</div>
             ) : (
               <Typography variant="body1" className="detail">
                 {x.detail}

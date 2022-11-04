@@ -4,9 +4,7 @@ import MockAdapter from 'axios-mock-adapter';
 import { createMockClient } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
 import renderer from 'react-test-renderer';
-import {
-  MockTheme, wait,
-} from '@tests/utils';
+import { MockTheme, wait } from '@tests/utils';
 import {
   // AccountDocument,
   GetMessagesByAddressDocument,
@@ -23,9 +21,15 @@ jest.mock('next/router', () => ({
     },
   }),
 }));
-jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />);
-jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />);
-jest.mock('@components/desmos_profile', () => (props: JSX.IntrinsicElements['div']) => <div id="DesmosProfile" {...props} />);
+jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Layout" {...props} />
+));
+jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="LoadAndExist" {...props} />
+));
+jest.mock('@components/desmos_profile', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="DesmosProfile" {...props} />
+));
 
 jest.mock('./components', () => ({
   Overview: (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />,
@@ -151,24 +155,23 @@ describe('screen: BlockDetails', () => {
     const mockClient = createMockClient();
     mockClient.setRequestHandler(
       // AccountDocument,
-      mockAccount,
+      mockAccount
     );
 
-    mockClient.setRequestHandler(
-      GetMessagesByAddressDocument,
-      mockAccountMessages,
-    );
+    mockClient.setRequestHandler(GetMessagesByAddressDocument, mockAccountMessages);
 
     let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
 
     renderer.act(() => {
-      tree = renderer.create(
-        <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <AccountDetails />
-          </MockTheme>
-        </ApolloProvider>,
-      ).toJSON();
+      tree = renderer
+        .create(
+          <ApolloProvider client={mockClient}>
+            <MockTheme>
+              <AccountDetails />
+            </MockTheme>
+          </ApolloProvider>
+        )
+        .toJSON();
     });
     await wait();
 

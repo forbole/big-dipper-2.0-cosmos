@@ -5,9 +5,7 @@ import Name from '@components/name';
 import { MsgUpgradeClient } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const UpgradeClient = (props: {
-    message: MsgUpgradeClient;
-}) => {
+const UpgradeClient = (props: { message: MsgUpgradeClient }) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -17,15 +15,7 @@ const UpgradeClient = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:txUpgradeClientContent"
-        components={[
-          (
-            <Name
-              address={message.signer}
-              name={signerMoniker}
-            />
-          ),
-          <b />,
-        ]}
+        components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
         values={{
           clientId: message.clientId,
         }}

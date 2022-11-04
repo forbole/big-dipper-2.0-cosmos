@@ -3,10 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
-      return ({
-        root: {
-
-        },
+      return {
+        root: {},
         tag: {
           '& .MuiTypography-body1': {
             lineHeight: 1,
@@ -138,8 +136,9 @@ export const useStyles = () => {
             marginLeft: theme.spacing(1),
           },
         },
-      });
-    }, { index: 1 },
+      };
+    },
+    { index: 1 }
   )();
 
   return styles;

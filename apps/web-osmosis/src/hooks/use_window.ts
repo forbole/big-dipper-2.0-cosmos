@@ -1,6 +1,4 @@
-import {
-  useState, useEffect,
-} from 'react';
+import { useState, useEffect } from 'react';
 
 export const useWindowOrigin = () => {
   const isClient = typeof window === 'object';

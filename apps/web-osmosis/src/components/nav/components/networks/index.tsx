@@ -5,7 +5,7 @@ import { readNetworks } from '@recoil/big_dipper_networks';
 import { useStyles } from './styles';
 import { SingleNetwork } from './components';
 
-const Networks:React.FC<{
+const Networks: React.FC<{
   className?: string;
 }> = ({ className }) => {
   const networks = useRecoilValue(readNetworks);
@@ -17,9 +17,7 @@ const Networks:React.FC<{
         <div className={classes.networkList} key={x.name}>
           <img src={x.logo} alt="logo" />
           <div className="network">
-            <Typography variant="h4">
-              {x.name}
-            </Typography>
+            <Typography variant="h4">{x.name}</Typography>
             {x.mainnet.map((network) => (
               <SingleNetwork
                 className="mainnet"
