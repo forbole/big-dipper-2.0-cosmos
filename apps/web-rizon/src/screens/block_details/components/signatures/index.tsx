@@ -12,12 +12,11 @@ import { useStyles } from './styles';
 const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
 
-const Signatures: React.FC<ComponentDefault & {
-  signatures: string[];
-}> = ({
-  className,
-  signatures,
-}) => {
+const Signatures: React.FC<
+  ComponentDefault & {
+    signatures: string[];
+  }
+> = ({ className, signatures }) => {
   const { isDesktop } = useScreenSize();
   const { t } = useTranslation('blocks');
   const classes = useStyles();
@@ -25,21 +24,17 @@ const Signatures: React.FC<ComponentDefault & {
 
   return (
     <Box className={classnames(className, classes.root)}>
-      <Typography className={classes.title} variant="h2">{t('signatures')}</Typography>
+      <Typography className={classes.title} variant="h2">
+        {t('signatures')}
+      </Typography>
       {!signatures.length ? (
         <NoData />
       ) : (
         <div className={classes.wrapper}>
           {isDesktop ? (
-            <Desktop
-              className={classes.desktop}
-              signatures={formattedSignatures}
-            />
+            <Desktop className={classes.desktop} signatures={formattedSignatures} />
           ) : (
-            <Mobile
-              className={classes.mobile}
-              signatures={formattedSignatures}
-            />
+            <Mobile className={classes.mobile} signatures={formattedSignatures} />
           )}
         </div>
       )}

@@ -2,13 +2,7 @@ import React from 'react';
 import Pagination from '@components/pagination';
 import { useStyles } from './styles';
 
-const Paginate = ({
-  total,
-  page,
-  rowsPerPage,
-  handleChangePage,
-  handleChangeRowsPerPage,
-}) => {
+const Paginate = ({ total, page, rowsPerPage, handleChangePage, handleChangeRowsPerPage }) => {
   const classes = useStyles();
   return (
     <Pagination

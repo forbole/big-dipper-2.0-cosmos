@@ -6,22 +6,15 @@ import { useStyles } from './styles';
 const SortArrows: React.FC<{
   className?: string;
   sort?: 'asc' | 'desc';
-}> = ({
-  className, sort,
-}) => {
+}> = ({ className, sort }) => {
   const classes = useStyles();
 
   return (
-    <div
-      className={classnames(className, classes.root)}
-    >
+    <div className={classnames(className, classes.root)}>
       <SortDownIcon
-        className={classnames(
-          classes.svg,
-          classes.up, {
-            desc: sort === 'desc',
-          },
-        )}
+        className={classnames(classes.svg, classes.up, {
+          desc: sort === 'desc',
+        })}
       />
       <SortDownIcon
         className={classnames(classes.svg, classes.down, {

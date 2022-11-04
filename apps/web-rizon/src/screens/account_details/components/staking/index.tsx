@@ -6,68 +6,43 @@ import TabPanel from '@components/tab_panel';
 import { Tabs } from './components';
 import { useStaking } from './hooks';
 import { useStyles } from './styles';
-import {
-  RewardsType,
-} from '../../types';
+import { RewardsType } from '../../types';
 
 const Delegations = dynamic(() => import('./components/delegations'));
 const Redelgations = dynamic(() => import('./components/redelegations'));
 const Unbondings = dynamic(() => import('./components/unbondings'));
 
-const Staking: React.FC<{rewards: RewardsType} & ComponentDefault> = (props) => {
+const Staking: React.FC<{ rewards: RewardsType } & ComponentDefault> = (props) => {
   const classes = useStyles();
-  const {
-    state,
-    handleTabChange,
-  } = useStaking(props.rewards);
+  const { state, handleTabChange } = useStaking(props.rewards);
 
   const tabs = [
     {
       id: 0,
       key: 'delegations',
-      component: (
-        <Delegations
-          delegations={state.delegations}
-        />
-      ),
+      component: <Delegations delegations={state.delegations} />,
       count: state.delegations.count,
     },
     {
       id: 1,
       key: 'redelegations',
-      component: (
-        <Redelgations
-          redelegations={state.redelegations}
-        />
-      ),
+      component: <Redelgations redelegations={state.redelegations} />,
       count: state.redelegations.count,
     },
     {
       id: 2,
       key: 'unbondings',
-      component: (
-        <Unbondings
-          unbondings={state.unbondings}
-        />
-      ),
+      component: <Unbondings unbondings={state.unbondings} />,
       count: state.unbondings.count,
     },
   ];
 
   return (
     <Box className={classnames(props.className, classes.root)}>
-      <Tabs
-        tab={state.tab}
-        handleTabChange={handleTabChange}
-        tabs={tabs}
-      />
+      <Tabs tab={state.tab} handleTabChange={handleTabChange} tabs={tabs} />
       {tabs.map((x) => {
         return (
-          <TabPanel
-            key={x.id}
-            index={x.id}
-            value={state.tab}
-          >
+          <TabPanel key={x.id} index={x.id} value={state.tab}>
             {x.component}
           </TabPanel>
         );

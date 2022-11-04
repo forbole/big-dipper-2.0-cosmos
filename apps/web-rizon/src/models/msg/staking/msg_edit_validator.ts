@@ -10,7 +10,7 @@ class MsgEditValidator {
     website: string;
     securityContact: string;
     details: string;
-  }
+  };
   public validatorAddress: string;
   public commissionRate: string | number;
   public minSelfDelegation: string | number;

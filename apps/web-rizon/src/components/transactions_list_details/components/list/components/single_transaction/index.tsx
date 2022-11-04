@@ -1,13 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
-import {
-  Typography,
-  Divider,
-} from '@material-ui/core';
+import { Typography, Divider } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import { useStyles } from './styles';
 
-const SingleTransaction:React.FC<{
+const SingleTransaction: React.FC<{
   className?: string;
   block: React.ReactNode;
   hash: React.ReactNode;
@@ -16,9 +13,7 @@ const SingleTransaction:React.FC<{
   messageCount: string;
   messages: any[];
   result?: React.ReactNode;
-}> = ({
-  className, block, hash, type, time, messages, result, messageCount,
-}) => {
+}> = ({ className, block, hash, type, time, messages, result, messageCount }) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
 
@@ -71,9 +66,7 @@ const SingleTransaction:React.FC<{
           <div className={classes.msgListContainer}>
             {messages.map((x, i) => (
               <div className={classes.msg} key={`${x.type}-${i}`}>
-                <div className={classes.tags}>
-                  {x.type}
-                </div>
+                <div className={classes.tags}>{x.type}</div>
                 {x.message}
               </div>
             ))}

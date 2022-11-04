@@ -4,11 +4,9 @@ import Search from '@components/search';
 import chainConfig from 'ui/dist/chainConfig';
 import { useSearchBar } from './hooks';
 
-const SearchBar: React.FC<{className?: string}> = ({ className }) => {
+const SearchBar: React.FC<{ className?: string }> = ({ className }) => {
   const { t } = useTranslation('common');
-  const {
-    handleOnSubmit,
-  } = useSearchBar(t);
+  const { handleOnSubmit } = useSearchBar(t);
 
   let placeholderText;
   if (chainConfig.extra.profile) {
@@ -17,13 +15,7 @@ const SearchBar: React.FC<{className?: string}> = ({ className }) => {
     placeholderText = t('searchBarPlaceholder');
   }
 
-  return (
-    <Search
-      className={className}
-      placeholder={placeholderText}
-      callback={handleOnSubmit}
-    />
-  );
+  return <Search className={className} placeholder={placeholderText} callback={handleOnSubmit} />;
 };
 
 export default SearchBar;

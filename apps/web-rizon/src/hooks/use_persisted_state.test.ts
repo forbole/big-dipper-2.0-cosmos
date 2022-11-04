@@ -1,6 +1,4 @@
-import {
-  renderHook, act,
-} from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react-hooks';
 import { usePersistedState } from '.';
 
 describe('misc: usePersistedState', () => {
