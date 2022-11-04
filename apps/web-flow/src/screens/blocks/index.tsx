@@ -17,12 +17,7 @@ const Blocks = () => {
   const { t } = useTranslation('blocks');
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
-  const {
-    state,
-    loadMoreItems,
-    itemCount,
-    isItemLoaded,
-  } = useBlocks();
+  const { state, loadMoreItems, itemCount, isItemLoaded } = useBlocks();
 
   return (
     <>
@@ -32,14 +27,8 @@ const Blocks = () => {
           title: t('blocks'),
         }}
       />
-      <Layout
-        navTitle={t('blocks')}
-        className={classes.root}
-      >
-        <LoadAndExist
-          loading={state.loading}
-          exists={state.exists}
-        >
+      <Layout navTitle={t('blocks')} className={classes.root}>
+        <LoadAndExist loading={state.loading} exists={state.exists}>
           <Box className={classes.box}>
             {!state.items.length ? (
               <NoData />

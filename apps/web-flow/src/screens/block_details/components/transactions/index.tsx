@@ -9,11 +9,11 @@ import Box from '@components/box';
 // import { readTx } from '@recoil/settings';
 import { useStyles } from './styles';
 
-const Transactions: React.FC<ComponentDefault & {
-  transactions: Transactions[];
-}> = ({
-  className,
-}) => {
+const Transactions: React.FC<
+  ComponentDefault & {
+    transactions: Transactions[];
+  }
+> = ({ className }) => {
   // const txListFormat = useRecoilValue(readTx);
   const { t } = useTranslation('transactions');
   const classes = useStyles();
@@ -46,7 +46,6 @@ const Transactions: React.FC<ComponentDefault & {
         />
       )} */}
     </Box>
-
   );
 };
 

@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import * as R from 'ramda';
-import {
-  useBlocksListenerSubscription,
-  BlocksListenerSubscription,
-} from '@graphql/types';
+import { useBlocksListenerSubscription, BlocksListenerSubscription } from '@graphql/types';
 import { BlocksState } from './types';
 
 export const useBlocks = () => {
@@ -28,12 +25,12 @@ export const useBlocks = () => {
 
   const formatBlocks = (data: BlocksListenerSubscription) => {
     return data.blocks.map((x) => {
-      return ({
+      return {
         height: x.height,
         txs: x.txs.aggregate.count,
         hash: x.hash,
         timestamp: x.timestamp,
-      });
+      };
     });
   };
 

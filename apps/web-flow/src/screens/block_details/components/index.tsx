@@ -3,9 +3,4 @@ import Signatures from './signatures';
 import Transactions from './transactions';
 import CollectionsAndBlockSeals from './collectionAndBlockSeals';
 
-export {
-  Overview,
-  Signatures,
-  Transactions,
-  CollectionsAndBlockSeals,
-};
+export { Overview, Signatures, Transactions, CollectionsAndBlockSeals };

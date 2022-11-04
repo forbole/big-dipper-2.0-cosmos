@@ -1,12 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
-import {
-  Typography,
-} from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import { useStyles } from './styles';
 
-const SingleTransactionMobile:React.FC<{
+const SingleTransactionMobile: React.FC<{
   className?: string;
   block: React.ReactNode;
   hash: React.ReactNode;
@@ -14,7 +12,10 @@ const SingleTransactionMobile:React.FC<{
   // messages: string;
   // result?: React.ReactNode;
 }> = ({
-  className, block, hash, time,
+  className,
+  block,
+  hash,
+  time,
   // messages, result,
 }) => {
   const { t } = useTranslation('transactions');

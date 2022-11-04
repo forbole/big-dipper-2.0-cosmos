@@ -3,8 +3,8 @@ export type BlockType = {
   txs: number;
   timestamp: string;
   hash: string;
-}
+};
 
 export type BlocksState = {
   items: BlockType[];
-}
+};

@@ -10,9 +10,7 @@ import {
   // CollectionsAndBlockSeals,
 } from './components';
 import { useStyles } from './styles';
-import {
-  useBlockDetails,
-} from './hooks';
+import { useBlockDetails } from './hooks';
 
 const BlockDetails = () => {
   const { t } = useTranslation('blocks');
@@ -24,16 +22,18 @@ const BlockDetails = () => {
     // transactions,
   } = state;
 
-  const transactions = [{
-    height: 34567889,
-    hash: '098765',
-    success: true,
-    timestamp: '0987654567890',
-    messages: {
-      count: 3,
-      items: ['items'],
+  const transactions = [
+    {
+      height: 34567889,
+      hash: '098765',
+      success: true,
+      timestamp: '0987654567890',
+      messages: {
+        count: 3,
+        items: ['items'],
+      },
     },
-  }];
+  ];
 
   return (
     <>
@@ -44,10 +44,7 @@ const BlockDetails = () => {
         }}
       />
       <Layout navTitle={t('blockDetails')}>
-        <LoadAndExist
-          loading={false}
-          exists
-        >
+        <LoadAndExist loading={false} exists>
           <span className={classes.root}>
             <Overview
               height={overview.height}
@@ -58,15 +55,15 @@ const BlockDetails = () => {
             />
             <Signatures
               className={classes.signatures}
-              signatures={['+G+LAAAAAAAAAAAAAACwiiAMSwt7Y3SF7QEaeaxFLuW6pjRohJE/seFT0Jl7KNbXvZk8N8Lh96nBzYXx1l/WgLCwHUA1VSl/ZQ0s2SSm8eiFkcLTu/SWbIPj3ItmqXe98z2NefKfbezXxTNAjgYmo94=']}
+              signatures={[
+                '+G+LAAAAAAAAAAAAAACwiiAMSwt7Y3SF7QEaeaxFLuW6pjRohJE/seFT0Jl7KNbXvZk8N8Lh96nBzYXx1l/WgLCwHUA1VSl/ZQ0s2SSm8eiFkcLTu/SWbIPj3ItmqXe98z2NefKfbezXxTNAjgYmo94=',
+              ]}
             />
             {/* <Signatures
               className={classes.signatures}
               signatures={signatures}
             /> */}
-            <Transactions
-              transactions={transactions}
-            />
+            <Transactions transactions={transactions} />
             {/* <CollectionsAndBlockSeals /> */}
           </span>
         </LoadAndExist>

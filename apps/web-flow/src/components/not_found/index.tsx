@@ -14,9 +14,7 @@ const NotFound: React.FC<{
     <div className={classnames(className, classes.root)}>
       <div className={classes.content}>
         <Face />
-        <Typography variant="body1">
-          {t('notFound')}
-        </Typography>
+        <Typography variant="body1">{t('notFound')}</Typography>
       </div>
     </div>
   );

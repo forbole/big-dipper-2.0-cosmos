@@ -30,10 +30,7 @@ const Transactions = () => {
           title: t('transactions'),
         }}
       />
-      <Layout
-        navTitle={t('transactions')}
-        className={classes.root}
-      >
+      <Layout navTitle={t('transactions')} className={classes.root}>
         {/* <LoadAndExist
           exists={state.exists}
           loading={state.loading}

@@ -3,27 +3,20 @@ import classnames from 'classnames';
 import Link from 'next/link';
 import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
-import {
-  Typography,
-  Divider,
-} from '@material-ui/core';
+import { Typography, Divider } from '@material-ui/core';
 import SingleTransactionMobile from '@components/single_transaction_mobile';
 // import Result from '@components/result';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import {
-  BLOCK_DETAILS, TRANSACTION_DETAILS,
-} from '@utils/go_to_page';
+import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@utils/go_to_page';
 
 import { TransactionType } from '../../types';
 
-const Mobile:React.FC<{
+const Mobile: React.FC<{
   className?: string;
   items: TransactionType[];
-}> = ({
-  className, items,
-}) => {
+}> = ({ className, items }) => {
   const formattedData = items.map((x) => {
-    return ({
+    return {
       block: (
         <Link href={BLOCK_DETAILS(x.height)} passHref>
           <Typography variant="body1" component="a">
@@ -35,7 +28,8 @@ const Mobile:React.FC<{
         <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
           <Typography variant="body1" component="a">
             {getMiddleEllipsis(x.hash, {
-              beginning: 15, ending: 5,
+              beginning: 15,
+              ending: 5,
             })}
           </Typography>
         </Link>
@@ -45,7 +39,7 @@ const Mobile:React.FC<{
       // ),
       time: dayjs.utc(x.timestamp).fromNow(),
       // messages: numeral(x.messages).format('0,0'),
-    });
+    };
   });
 
   return (

@@ -14,9 +14,7 @@ const NoData: React.FC<{
     <div className={classnames(className, classes.root)}>
       <div className={classes.content}>
         <Face />
-        <Typography variant="body1">
-          {t('nothingToShow')}
-        </Typography>
+        <Typography variant="body1">{t('nothingToShow')}</Typography>
       </div>
     </div>
   );

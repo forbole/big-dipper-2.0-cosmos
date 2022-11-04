@@ -4,8 +4,8 @@ export type TransactionType = {
   // success: boolean;
   timestamp: string;
   // messages: number;
-}
+};
 
 export type TransactionsState = {
-  items: TransactionType[]
-}
+  items: TransactionType[];
+};

@@ -1,10 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Tabs,
-  Tab,
-} from '@material-ui/core';
+import { Tabs, Tab } from '@material-ui/core';
 import { a11yProps } from '@utils/allyProps';
 import { useStyles } from './styles';
 import { TabType } from '../../types';
@@ -13,7 +10,7 @@ const TabsHeader: React.FC<{
   className?: string;
   tabs: TabType[];
   tab: number;
-  handleTabChange: (event:any, newvalue:number) => void;
+  handleTabChange: (event: any, newvalue: number) => void;
   handleSearch: (value: string) => void;
 }> = (props) => {
   const classes = useStyles();
@@ -28,11 +25,7 @@ const TabsHeader: React.FC<{
         onChange={props.handleTabChange}
       >
         {props.tabs.map((x, i) => (
-          <Tab
-            key={x.id}
-            label={t(x.key)}
-            {...a11yProps(i)}
-          />
+          <Tab key={x.id} label={t(x.key)} {...a11yProps(i)} />
         ))}
       </Tabs>
     </div>

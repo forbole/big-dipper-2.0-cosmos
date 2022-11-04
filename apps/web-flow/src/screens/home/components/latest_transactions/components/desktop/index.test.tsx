@@ -32,7 +32,7 @@ describe('screen: Home/Transactions/Desktop', () => {
             },
           ]}
         />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

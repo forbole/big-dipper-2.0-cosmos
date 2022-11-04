@@ -5,9 +5,7 @@ import {
   useBlocksQuery,
   BlocksListenerSubscription,
 } from '@graphql/types';
-import {
-  BlocksState, BlockType,
-} from './types';
+import { BlocksState, BlockType } from './types';
 
 export const useBlocks = () => {
   const [state, setState] = useState<BlocksState>({
@@ -28,10 +26,7 @@ export const useBlocks = () => {
    * Helps remove any possible duplication
    * and sorts by height in case it bugs out
    */
-  const uniqueAndSort = R.pipe(
-    R.uniqBy(R.prop('height')),
-    R.sort(R.descend(R.prop('height'))),
-  );
+  const uniqueAndSort = R.pipe(R.uniqBy(R.prop('height')), R.sort(R.descend(R.prop('height'))));
 
   // ================================
   // block subscription
@@ -43,7 +38,7 @@ export const useBlocks = () => {
     },
     onData: (data) => {
       const newItems = uniqueAndSort([
-        ...data.data.data ? formatBlocks(data.data.data) : [],
+        ...(data.data.data ? formatBlocks(data.data.data) : []),
         ...state.items,
       ]);
       handleSetState({
@@ -69,10 +64,7 @@ export const useBlocks = () => {
     },
     onCompleted: (data) => {
       const itemsLength = data.blocks.length;
-      const newItems = uniqueAndSort([
-        ...state.items,
-        ...formatBlocks(data),
-      ]);
+      const newItems = uniqueAndSort([...state.items, ...formatBlocks(data)]);
       handleSetState({
         loading: false,
         items: newItems,
@@ -87,25 +79,24 @@ export const useBlocks = () => {
       isNextPageLoading: true,
     });
     // refetch query
-    await blockQuery.fetchMore({
-      variables: {
-        offset: state.items.length,
-        limit: LIMIT,
-      },
-    }).then(({ data }) => {
-      const itemsLength = data.blocks.length;
-      const newItems = uniqueAndSort([
-        ...state.items,
-        ...formatBlocks(data),
-      ]);
+    await blockQuery
+      .fetchMore({
+        variables: {
+          offset: state.items.length,
+          limit: LIMIT,
+        },
+      })
+      .then(({ data }) => {
+        const itemsLength = data.blocks.length;
+        const newItems = uniqueAndSort([...state.items, ...formatBlocks(data)]);
 
-      // set new state
-      handleSetState({
-        items: newItems,
-        isNextPageLoading: false,
-        hasNextPage: itemsLength === 51,
+        // set new state
+        handleSetState({
+          items: newItems,
+          isNextPageLoading: false,
+          hasNextPage: itemsLength === 51,
+        });
       });
-    });
   };
 
   const formatBlocks = (data: BlocksListenerSubscription): BlockType[] => {
@@ -114,12 +105,12 @@ export const useBlocks = () => {
       formattedData = data.blocks.slice(0, 51);
     }
     return formattedData.map((x) => {
-      return ({
+      return {
         height: x.height,
         txs: x.txs.aggregate.count,
         hash: x.hash,
         timestamp: x.timestamp,
-      });
+      };
     });
   };
 

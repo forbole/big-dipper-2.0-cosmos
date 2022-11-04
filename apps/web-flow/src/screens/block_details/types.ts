@@ -4,7 +4,7 @@ export type OverviewType = {
   parentId: string;
   txs: number;
   timestamp: string;
-}
+};
 
 export type BlockDetailState = {
   loading: boolean;
@@ -12,4 +12,4 @@ export type BlockDetailState = {
   overview: OverviewType;
   signatures: string[];
   transactions: Transactions[];
-}
+};

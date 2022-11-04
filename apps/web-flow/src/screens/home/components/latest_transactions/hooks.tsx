@@ -23,13 +23,13 @@ export const useTransactions = () => {
 
   const formatTransactions = (data: TransactionsListenerSubscription) => {
     return data.transactions.map((x) => {
-      return ({
+      return {
         height: x.height,
         hash: x.hash,
         // success: x.success,
         timestamp: x.block.timestamp,
         // messages: x.messages.length,
-      });
+      };
     });
   };
 

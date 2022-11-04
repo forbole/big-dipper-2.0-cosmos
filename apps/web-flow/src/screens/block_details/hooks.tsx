@@ -1,13 +1,8 @@
-import {
-  useState, useEffect,
-} from 'react';
+import { useState, useEffect } from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
 import { useRouter } from 'next/router';
-import {
-  useBlockDetailsQuery,
-  BlockDetailsQuery,
-} from '@graphql/types';
+import { useBlockDetailsQuery, BlockDetailsQuery } from '@graphql/types';
 // import { convertMsgsToModels } from '@msg';
 import { BlockDetailState } from './types';
 

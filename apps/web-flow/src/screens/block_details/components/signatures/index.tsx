@@ -6,18 +6,19 @@ import Box from '@components/box';
 import NoData from '@components/no_data';
 import { useStyles } from './styles';
 
-const Signatures: React.FC<ComponentDefault & {
-  signatures: string[];
-}> = ({
-  className,
-  signatures,
-}) => {
+const Signatures: React.FC<
+  ComponentDefault & {
+    signatures: string[];
+  }
+> = ({ className, signatures }) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
 
   return (
     <Box className={classnames(className, classes.root)}>
-      <Typography className={classes.title} variant="h2">{t('signatures')}</Typography>
+      <Typography className={classes.title} variant="h2">
+        {t('signatures')}
+      </Typography>
       {!signatures.length ? (
         <NoData />
       ) : (

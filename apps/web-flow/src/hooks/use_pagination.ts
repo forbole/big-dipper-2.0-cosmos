@@ -5,11 +5,11 @@ type Options = {
   pageChangeCallback?: (page: number, rowsPerPage: number) => void;
   rowsChangeCallback?: (page: number, rowsPerPage: number) => void;
   rowsPage?: number;
-}
+};
 /**
  * Hook helper for reusable
  */
-export const usePagination = (options?:Options) => {
+export const usePagination = (options?: Options) => {
   const rowsPage = R.pathOr(null, ['rowsPage'], options);
   const rowsChangeCallback = R.pathOr(null, ['rowsChangeCallback'], options);
   const pageChangeCallback = R.pathOr(null, ['pageChangeCallback'], options);
@@ -19,7 +19,7 @@ export const usePagination = (options?:Options) => {
 
   const handleChangePage = (
     _event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
-    newPage: number,
+    newPage: number
   ) => {
     setPage(newPage);
     if (pageChangeCallback) {
@@ -35,13 +35,13 @@ export const usePagination = (options?:Options) => {
     }
   };
 
-  const sliceItems = (items:any[]) => {
+  const sliceItems = (items: any[]) => {
     const start = page * rowsPerPage;
     const end = start + rowsPerPage;
     return items.slice(start, end);
   };
 
-  const getTotal = (items:any[]) => {
+  const getTotal = (items: any[]) => {
     return items.length;
   };
 

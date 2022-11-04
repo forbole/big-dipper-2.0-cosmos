@@ -24,10 +24,7 @@ const Proposals = () => {
           title: t('proposals'),
         }}
       />
-      <Layout
-        navTitle={t('proposals')}
-        className={classes.root}
-      >
+      <Layout navTitle={t('proposals')} className={classes.root}>
         {/* <List
           items={state.items}
           rawDataTotal={state.rawDataTotal}

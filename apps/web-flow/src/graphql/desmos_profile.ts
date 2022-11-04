@@ -20,7 +20,6 @@ export type Scalars = {
   timestamp: any;
 };
 
-
 /** Boolean expression to compare columns of type "Boolean". All fields are combined with logical 'AND'. */
 export type Boolean_Comparison_Exp = {
   _eq?: Maybe<Scalars['Boolean']>;
@@ -80,7 +79,6 @@ export type String_Comparison_Exp = {
   _similar?: Maybe<Scalars['String']>;
 };
 
-
 /** Boolean expression to compare columns of type "_coin". All fields are combined with logical 'AND'. */
 export type _Coin_Comparison_Exp = {
   _eq?: Maybe<Scalars['_coin']>;
@@ -94,7 +92,6 @@ export type _Coin_Comparison_Exp = {
   _nin?: Maybe<Array<Scalars['_coin']>>;
 };
 
-
 /** Boolean expression to compare columns of type "_dec_coin". All fields are combined with logical 'AND'. */
 export type _Dec_Coin_Comparison_Exp = {
   _eq?: Maybe<Scalars['_dec_coin']>;
@@ -107,7 +104,6 @@ export type _Dec_Coin_Comparison_Exp = {
   _neq?: Maybe<Scalars['_dec_coin']>;
   _nin?: Maybe<Array<Scalars['_dec_coin']>>;
 };
-
 
 /** Boolean expression to compare columns of type "_text". All fields are combined with logical 'AND'. */
 export type _Text_Comparison_Exp = {
@@ -182,7 +178,6 @@ export type Account = {
   vesting_accounts_aggregate: Vesting_Account_Aggregate;
 };
 
-
 /** columns and relationships of "account" */
 export type AccountAccount_Balance_HistoriesArgs = {
   distinct_on?: Maybe<Array<Account_Balance_History_Select_Column>>;
@@ -191,7 +186,6 @@ export type AccountAccount_Balance_HistoriesArgs = {
   order_by?: Maybe<Array<Account_Balance_History_Order_By>>;
   where?: Maybe<Account_Balance_History_Bool_Exp>;
 };
-
 
 /** columns and relationships of "account" */
 export type AccountAccount_Balance_Histories_AggregateArgs = {
@@ -202,7 +196,6 @@ export type AccountAccount_Balance_Histories_AggregateArgs = {
   where?: Maybe<Account_Balance_History_Bool_Exp>;
 };
 
-
 /** columns and relationships of "account" */
 export type AccountAccount_BalancesArgs = {
   distinct_on?: Maybe<Array<Account_Balance_Select_Column>>;
@@ -211,7 +204,6 @@ export type AccountAccount_BalancesArgs = {
   order_by?: Maybe<Array<Account_Balance_Order_By>>;
   where?: Maybe<Account_Balance_Bool_Exp>;
 };
-
 
 /** columns and relationships of "account" */
 export type AccountAccount_Balances_AggregateArgs = {
@@ -222,7 +214,6 @@ export type AccountAccount_Balances_AggregateArgs = {
   where?: Maybe<Account_Balance_Bool_Exp>;
 };
 
-
 /** columns and relationships of "account" */
 export type AccountDelegation_RewardsArgs = {
   distinct_on?: Maybe<Array<Delegation_Reward_Select_Column>>;
@@ -231,7 +222,6 @@ export type AccountDelegation_RewardsArgs = {
   order_by?: Maybe<Array<Delegation_Reward_Order_By>>;
   where?: Maybe<Delegation_Reward_Bool_Exp>;
 };
-
 
 /** columns and relationships of "account" */
 export type AccountDelegation_Rewards_AggregateArgs = {
@@ -242,7 +232,6 @@ export type AccountDelegation_Rewards_AggregateArgs = {
   where?: Maybe<Delegation_Reward_Bool_Exp>;
 };
 
-
 /** columns and relationships of "account" */
 export type AccountDelegationsArgs = {
   distinct_on?: Maybe<Array<Delegation_Select_Column>>;
@@ -251,7 +240,6 @@ export type AccountDelegationsArgs = {
   order_by?: Maybe<Array<Delegation_Order_By>>;
   where?: Maybe<Delegation_Bool_Exp>;
 };
-
 
 /** columns and relationships of "account" */
 export type AccountDelegations_AggregateArgs = {
@@ -262,7 +250,6 @@ export type AccountDelegations_AggregateArgs = {
   where?: Maybe<Delegation_Bool_Exp>;
 };
 
-
 /** columns and relationships of "account" */
 export type AccountFeeGrantAllowancesByGranterAddressArgs = {
   distinct_on?: Maybe<Array<Fee_Grant_Allowance_Select_Column>>;
@@ -271,7 +258,6 @@ export type AccountFeeGrantAllowancesByGranterAddressArgs = {
   order_by?: Maybe<Array<Fee_Grant_Allowance_Order_By>>;
   where?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
 };
-
 
 /** columns and relationships of "account" */
 export type AccountFeeGrantAllowancesByGranterAddress_AggregateArgs = {
@@ -282,7 +268,6 @@ export type AccountFeeGrantAllowancesByGranterAddress_AggregateArgs = {
   where?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
 };
 
-
 /** columns and relationships of "account" */
 export type AccountFee_Grant_AllowancesArgs = {
   distinct_on?: Maybe<Array<Fee_Grant_Allowance_Select_Column>>;
@@ -291,7 +276,6 @@ export type AccountFee_Grant_AllowancesArgs = {
   order_by?: Maybe<Array<Fee_Grant_Allowance_Order_By>>;
   where?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
 };
-
 
 /** columns and relationships of "account" */
 export type AccountFee_Grant_Allowances_AggregateArgs = {
@@ -302,7 +286,6 @@ export type AccountFee_Grant_Allowances_AggregateArgs = {
   where?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
 };
 
-
 /** columns and relationships of "account" */
 export type AccountProposal_DepositsArgs = {
   distinct_on?: Maybe<Array<Proposal_Deposit_Select_Column>>;
@@ -311,7 +294,6 @@ export type AccountProposal_DepositsArgs = {
   order_by?: Maybe<Array<Proposal_Deposit_Order_By>>;
   where?: Maybe<Proposal_Deposit_Bool_Exp>;
 };
-
 
 /** columns and relationships of "account" */
 export type AccountProposal_Deposits_AggregateArgs = {
@@ -322,7 +304,6 @@ export type AccountProposal_Deposits_AggregateArgs = {
   where?: Maybe<Proposal_Deposit_Bool_Exp>;
 };
 
-
 /** columns and relationships of "account" */
 export type AccountProposal_VotesArgs = {
   distinct_on?: Maybe<Array<Proposal_Vote_Select_Column>>;
@@ -331,7 +312,6 @@ export type AccountProposal_VotesArgs = {
   order_by?: Maybe<Array<Proposal_Vote_Order_By>>;
   where?: Maybe<Proposal_Vote_Bool_Exp>;
 };
-
 
 /** columns and relationships of "account" */
 export type AccountProposal_Votes_AggregateArgs = {
@@ -342,7 +322,6 @@ export type AccountProposal_Votes_AggregateArgs = {
   where?: Maybe<Proposal_Vote_Bool_Exp>;
 };
 
-
 /** columns and relationships of "account" */
 export type AccountProposalsArgs = {
   distinct_on?: Maybe<Array<Proposal_Select_Column>>;
@@ -351,7 +330,6 @@ export type AccountProposalsArgs = {
   order_by?: Maybe<Array<Proposal_Order_By>>;
   where?: Maybe<Proposal_Bool_Exp>;
 };
-
 
 /** columns and relationships of "account" */
 export type AccountProposals_AggregateArgs = {
@@ -362,7 +340,6 @@ export type AccountProposals_AggregateArgs = {
   where?: Maybe<Proposal_Bool_Exp>;
 };
 
-
 /** columns and relationships of "account" */
 export type AccountRedelegationsArgs = {
   distinct_on?: Maybe<Array<Redelegation_Select_Column>>;
@@ -371,7 +348,6 @@ export type AccountRedelegationsArgs = {
   order_by?: Maybe<Array<Redelegation_Order_By>>;
   where?: Maybe<Redelegation_Bool_Exp>;
 };
-
 
 /** columns and relationships of "account" */
 export type AccountRedelegations_AggregateArgs = {
@@ -382,7 +358,6 @@ export type AccountRedelegations_AggregateArgs = {
   where?: Maybe<Redelegation_Bool_Exp>;
 };
 
-
 /** columns and relationships of "account" */
 export type AccountUnbonding_DelegationsArgs = {
   distinct_on?: Maybe<Array<Unbonding_Delegation_Select_Column>>;
@@ -391,7 +366,6 @@ export type AccountUnbonding_DelegationsArgs = {
   order_by?: Maybe<Array<Unbonding_Delegation_Order_By>>;
   where?: Maybe<Unbonding_Delegation_Bool_Exp>;
 };
-
 
 /** columns and relationships of "account" */
 export type AccountUnbonding_Delegations_AggregateArgs = {
@@ -402,7 +376,6 @@ export type AccountUnbonding_Delegations_AggregateArgs = {
   where?: Maybe<Unbonding_Delegation_Bool_Exp>;
 };
 
-
 /** columns and relationships of "account" */
 export type AccountValidator_InfosArgs = {
   distinct_on?: Maybe<Array<Validator_Info_Select_Column>>;
@@ -411,7 +384,6 @@ export type AccountValidator_InfosArgs = {
   order_by?: Maybe<Array<Validator_Info_Order_By>>;
   where?: Maybe<Validator_Info_Bool_Exp>;
 };
-
 
 /** columns and relationships of "account" */
 export type AccountValidator_Infos_AggregateArgs = {
@@ -422,7 +394,6 @@ export type AccountValidator_Infos_AggregateArgs = {
   where?: Maybe<Validator_Info_Bool_Exp>;
 };
 
-
 /** columns and relationships of "account" */
 export type AccountVesting_AccountsArgs = {
   distinct_on?: Maybe<Array<Vesting_Account_Select_Column>>;
@@ -431,7 +402,6 @@ export type AccountVesting_AccountsArgs = {
   order_by?: Maybe<Array<Vesting_Account_Order_By>>;
   where?: Maybe<Vesting_Account_Bool_Exp>;
 };
-
 
 /** columns and relationships of "account" */
 export type AccountVesting_Accounts_AggregateArgs = {
@@ -457,7 +427,6 @@ export type Account_Aggregate_Fields = {
   min?: Maybe<Account_Min_Fields>;
 };
 
-
 /** aggregate fields of "account" */
 export type Account_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Account_Select_Column>>;
@@ -477,7 +446,6 @@ export type Account_Balance = {
   /** A computed field, executes function "account_balance_tokens_prices" */
   tokens_prices?: Maybe<Array<Token_Price>>;
 };
-
 
 /** columns and relationships of "account_balance" */
 export type Account_BalanceTokens_PricesArgs = {
@@ -510,7 +478,6 @@ export type Account_Balance_Aggregate_Fields = {
   var_samp?: Maybe<Account_Balance_Var_Samp_Fields>;
   variance?: Maybe<Account_Balance_Variance_Fields>;
 };
-
 
 /** aggregate fields of "account_balance" */
 export type Account_Balance_Aggregate_FieldsCountArgs = {
@@ -573,7 +540,6 @@ export type Account_Balance_History = {
   unbonding: Scalars['_coin'];
 };
 
-
 /** columns and relationships of "account_balance_history" */
 export type Account_Balance_HistoryToken_Prices_HistoryArgs = {
   distinct_on?: Maybe<Array<Token_Price_History_Select_Column>>;
@@ -597,7 +563,6 @@ export type Account_Balance_History_Aggregate_Fields = {
   max?: Maybe<Account_Balance_History_Max_Fields>;
   min?: Maybe<Account_Balance_History_Min_Fields>;
 };
-
 
 /** aggregate fields of "account_balance_history" */
 export type Account_Balance_History_Aggregate_FieldsCountArgs = {
@@ -684,7 +649,7 @@ export enum Account_Balance_History_Select_Column {
   /** column name */
   Timestamp = 'timestamp',
   /** column name */
-  Unbonding = 'unbonding'
+  Unbonding = 'unbonding',
 }
 
 /** aggregate max on columns */
@@ -729,7 +694,7 @@ export enum Account_Balance_Select_Column {
   /** column name */
   Coins = 'coins',
   /** column name */
-  Height = 'height'
+  Height = 'height',
 }
 
 /** aggregate stddev on columns */
@@ -865,7 +830,7 @@ export type Account_Order_By = {
 /** select columns of table "account" */
 export enum Account_Select_Column {
   /** column name */
-  Address = 'address'
+  Address = 'address',
 }
 
 /** columns and relationships of "application_link" */
@@ -887,7 +852,6 @@ export type Application_Link = {
   username: Scalars['String'];
 };
 
-
 /** columns and relationships of "application_link" */
 export type Application_LinkApplication_Link_Oracle_RequestsArgs = {
   distinct_on?: Maybe<Array<Application_Link_Oracle_Request_Select_Column>>;
@@ -897,7 +861,6 @@ export type Application_LinkApplication_Link_Oracle_RequestsArgs = {
   where?: Maybe<Application_Link_Oracle_Request_Bool_Exp>;
 };
 
-
 /** columns and relationships of "application_link" */
 export type Application_LinkApplication_Link_Oracle_Requests_AggregateArgs = {
   distinct_on?: Maybe<Array<Application_Link_Oracle_Request_Select_Column>>;
@@ -906,7 +869,6 @@ export type Application_LinkApplication_Link_Oracle_Requests_AggregateArgs = {
   order_by?: Maybe<Array<Application_Link_Oracle_Request_Order_By>>;
   where?: Maybe<Application_Link_Oracle_Request_Bool_Exp>;
 };
-
 
 /** columns and relationships of "application_link" */
 export type Application_LinkResultArgs = {
@@ -935,7 +897,6 @@ export type Application_Link_Aggregate_Fields = {
   var_samp?: Maybe<Application_Link_Var_Samp_Fields>;
   variance?: Maybe<Application_Link_Variance_Fields>;
 };
-
 
 /** aggregate fields of "application_link" */
 export type Application_Link_Aggregate_FieldsCountArgs = {
@@ -1048,7 +1009,6 @@ export type Application_Link_Oracle_Request = {
   script_id: Scalars['bigint'];
 };
 
-
 /** columns and relationships of "application_link_oracle_request" */
 export type Application_Link_Oracle_RequestCall_DataArgs = {
   path?: Maybe<Scalars['String']>;
@@ -1076,7 +1036,6 @@ export type Application_Link_Oracle_Request_Aggregate_Fields = {
   var_samp?: Maybe<Application_Link_Oracle_Request_Var_Samp_Fields>;
   variance?: Maybe<Application_Link_Oracle_Request_Variance_Fields>;
 };
-
 
 /** aggregate fields of "application_link_oracle_request" */
 export type Application_Link_Oracle_Request_Aggregate_FieldsCountArgs = {
@@ -1202,7 +1161,7 @@ export enum Application_Link_Oracle_Request_Select_Column {
   /** column name */
   RequestId = 'request_id',
   /** column name */
-  ScriptId = 'script_id'
+  ScriptId = 'script_id',
 }
 
 /** aggregate stddev on columns */
@@ -1369,7 +1328,7 @@ export enum Application_Link_Select_Column {
   /** column name */
   UserAddress = 'user_address',
   /** column name */
-  Username = 'username'
+  Username = 'username',
 }
 
 /** aggregate stddev on columns */
@@ -1493,7 +1452,6 @@ export type Average_Block_Time_From_Genesis_Aggregate_Fields = {
   variance?: Maybe<Average_Block_Time_From_Genesis_Variance_Fields>;
 };
 
-
 /** aggregate fields of "average_block_time_from_genesis" */
 export type Average_Block_Time_From_Genesis_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Average_Block_Time_From_Genesis_Select_Column>>;
@@ -1541,7 +1499,7 @@ export enum Average_Block_Time_From_Genesis_Select_Column {
   /** column name */
   AverageTime = 'average_time',
   /** column name */
-  Height = 'height'
+  Height = 'height',
 }
 
 /** aggregate stddev on columns */
@@ -1623,7 +1581,6 @@ export type Average_Block_Time_Per_Day_Aggregate_Fields = {
   variance?: Maybe<Average_Block_Time_Per_Day_Variance_Fields>;
 };
 
-
 /** aggregate fields of "average_block_time_per_day" */
 export type Average_Block_Time_Per_Day_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Average_Block_Time_Per_Day_Select_Column>>;
@@ -1671,7 +1628,7 @@ export enum Average_Block_Time_Per_Day_Select_Column {
   /** column name */
   AverageTime = 'average_time',
   /** column name */
-  Height = 'height'
+  Height = 'height',
 }
 
 /** aggregate stddev on columns */
@@ -1753,7 +1710,6 @@ export type Average_Block_Time_Per_Hour_Aggregate_Fields = {
   variance?: Maybe<Average_Block_Time_Per_Hour_Variance_Fields>;
 };
 
-
 /** aggregate fields of "average_block_time_per_hour" */
 export type Average_Block_Time_Per_Hour_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Average_Block_Time_Per_Hour_Select_Column>>;
@@ -1801,7 +1757,7 @@ export enum Average_Block_Time_Per_Hour_Select_Column {
   /** column name */
   AverageTime = 'average_time',
   /** column name */
-  Height = 'height'
+  Height = 'height',
 }
 
 /** aggregate stddev on columns */
@@ -1883,7 +1839,6 @@ export type Average_Block_Time_Per_Minute_Aggregate_Fields = {
   variance?: Maybe<Average_Block_Time_Per_Minute_Variance_Fields>;
 };
 
-
 /** aggregate fields of "average_block_time_per_minute" */
 export type Average_Block_Time_Per_Minute_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Average_Block_Time_Per_Minute_Select_Column>>;
@@ -1931,7 +1886,7 @@ export enum Average_Block_Time_Per_Minute_Select_Column {
   /** column name */
   AverageTime = 'average_time',
   /** column name */
-  Height = 'height'
+  Height = 'height',
 }
 
 /** aggregate stddev on columns */
@@ -1983,7 +1938,6 @@ export type Average_Block_Time_Per_Minute_Variance_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-
 /** Boolean expression to compare columns of type "bigint". All fields are combined with logical 'AND'. */
 export type Bigint_Comparison_Exp = {
   _eq?: Maybe<Scalars['bigint']>;
@@ -2030,7 +1984,6 @@ export type Block = {
   validator_voting_powers_aggregate: Validator_Voting_Power_Aggregate;
 };
 
-
 /** columns and relationships of "block" */
 export type BlockPre_CommitsArgs = {
   distinct_on?: Maybe<Array<Pre_Commit_Select_Column>>;
@@ -2039,7 +1992,6 @@ export type BlockPre_CommitsArgs = {
   order_by?: Maybe<Array<Pre_Commit_Order_By>>;
   where?: Maybe<Pre_Commit_Bool_Exp>;
 };
-
 
 /** columns and relationships of "block" */
 export type BlockPre_Commits_AggregateArgs = {
@@ -2050,7 +2002,6 @@ export type BlockPre_Commits_AggregateArgs = {
   where?: Maybe<Pre_Commit_Bool_Exp>;
 };
 
-
 /** columns and relationships of "block" */
 export type BlockProposal_DepositsArgs = {
   distinct_on?: Maybe<Array<Proposal_Deposit_Select_Column>>;
@@ -2059,7 +2010,6 @@ export type BlockProposal_DepositsArgs = {
   order_by?: Maybe<Array<Proposal_Deposit_Order_By>>;
   where?: Maybe<Proposal_Deposit_Bool_Exp>;
 };
-
 
 /** columns and relationships of "block" */
 export type BlockProposal_Deposits_AggregateArgs = {
@@ -2070,7 +2020,6 @@ export type BlockProposal_Deposits_AggregateArgs = {
   where?: Maybe<Proposal_Deposit_Bool_Exp>;
 };
 
-
 /** columns and relationships of "block" */
 export type BlockProposal_VotesArgs = {
   distinct_on?: Maybe<Array<Proposal_Vote_Select_Column>>;
@@ -2079,7 +2028,6 @@ export type BlockProposal_VotesArgs = {
   order_by?: Maybe<Array<Proposal_Vote_Order_By>>;
   where?: Maybe<Proposal_Vote_Bool_Exp>;
 };
-
 
 /** columns and relationships of "block" */
 export type BlockProposal_Votes_AggregateArgs = {
@@ -2090,7 +2038,6 @@ export type BlockProposal_Votes_AggregateArgs = {
   where?: Maybe<Proposal_Vote_Bool_Exp>;
 };
 
-
 /** columns and relationships of "block" */
 export type BlockTransactionsArgs = {
   distinct_on?: Maybe<Array<Transaction_Select_Column>>;
@@ -2099,7 +2046,6 @@ export type BlockTransactionsArgs = {
   order_by?: Maybe<Array<Transaction_Order_By>>;
   where?: Maybe<Transaction_Bool_Exp>;
 };
-
 
 /** columns and relationships of "block" */
 export type BlockTransactions_AggregateArgs = {
@@ -2110,7 +2056,6 @@ export type BlockTransactions_AggregateArgs = {
   where?: Maybe<Transaction_Bool_Exp>;
 };
 
-
 /** columns and relationships of "block" */
 export type BlockValidator_Voting_PowersArgs = {
   distinct_on?: Maybe<Array<Validator_Voting_Power_Select_Column>>;
@@ -2119,7 +2064,6 @@ export type BlockValidator_Voting_PowersArgs = {
   order_by?: Maybe<Array<Validator_Voting_Power_Order_By>>;
   where?: Maybe<Validator_Voting_Power_Bool_Exp>;
 };
-
 
 /** columns and relationships of "block" */
 export type BlockValidator_Voting_Powers_AggregateArgs = {
@@ -2152,7 +2096,6 @@ export type Block_Aggregate_Fields = {
   var_samp?: Maybe<Block_Var_Samp_Fields>;
   variance?: Maybe<Block_Variance_Fields>;
 };
-
 
 /** aggregate fields of "block" */
 export type Block_Aggregate_FieldsCountArgs = {
@@ -2280,7 +2223,7 @@ export enum Block_Select_Column {
   /** column name */
   Timestamp = 'timestamp',
   /** column name */
-  TotalGas = 'total_gas'
+  TotalGas = 'total_gas',
 }
 
 /** aggregate stddev on columns */
@@ -2428,7 +2371,6 @@ export type Chain_Link_Aggregate_Fields = {
   variance?: Maybe<Chain_Link_Variance_Fields>;
 };
 
-
 /** aggregate fields of "chain_link" */
 export type Chain_Link_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Chain_Link_Select_Column>>;
@@ -2492,7 +2434,6 @@ export type Chain_Link_Chain_Config = {
   name: Scalars['String'];
 };
 
-
 /** columns and relationships of "chain_link_chain_config" */
 export type Chain_Link_Chain_ConfigChain_LinksArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Select_Column>>;
@@ -2501,7 +2442,6 @@ export type Chain_Link_Chain_ConfigChain_LinksArgs = {
   order_by?: Maybe<Array<Chain_Link_Order_By>>;
   where?: Maybe<Chain_Link_Bool_Exp>;
 };
-
 
 /** columns and relationships of "chain_link_chain_config" */
 export type Chain_Link_Chain_ConfigChain_Links_AggregateArgs = {
@@ -2534,7 +2474,6 @@ export type Chain_Link_Chain_Config_Aggregate_Fields = {
   var_samp?: Maybe<Chain_Link_Chain_Config_Var_Samp_Fields>;
   variance?: Maybe<Chain_Link_Chain_Config_Variance_Fields>;
 };
-
 
 /** aggregate fields of "chain_link_chain_config" */
 export type Chain_Link_Chain_Config_Aggregate_FieldsCountArgs = {
@@ -2584,7 +2523,7 @@ export enum Chain_Link_Chain_Config_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -2697,7 +2636,6 @@ export type Chain_Link_Proof = {
   signature: Scalars['String'];
 };
 
-
 /** columns and relationships of "chain_link_proof" */
 export type Chain_Link_ProofPublic_KeyArgs = {
   path?: Maybe<Scalars['String']>;
@@ -2725,7 +2663,6 @@ export type Chain_Link_Proof_Aggregate_Fields = {
   var_samp?: Maybe<Chain_Link_Proof_Var_Samp_Fields>;
   variance?: Maybe<Chain_Link_Proof_Variance_Fields>;
 };
-
 
 /** aggregate fields of "chain_link_proof" */
 export type Chain_Link_Proof_Aggregate_FieldsCountArgs = {
@@ -2799,7 +2736,7 @@ export enum Chain_Link_Proof_Select_Column {
   /** column name */
   PublicKey = 'public_key',
   /** column name */
-  Signature = 'signature'
+  Signature = 'signature',
 }
 
 /** aggregate stddev on columns */
@@ -2871,7 +2808,7 @@ export enum Chain_Link_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  UserAddress = 'user_address'
+  UserAddress = 'user_address',
 }
 
 /** aggregate stddev on columns */
@@ -2979,7 +2916,6 @@ export type Chain_Link_Variance_Order_By = {
   id?: Maybe<Order_By>;
 };
 
-
 /** Boolean expression to compare columns of type "coin". All fields are combined with logical 'AND'. */
 export type Coin_Comparison_Exp = {
   _eq?: Maybe<Scalars['coin']>;
@@ -3022,7 +2958,6 @@ export type Community_Pool_Aggregate_Fields = {
   var_samp?: Maybe<Community_Pool_Var_Samp_Fields>;
   variance?: Maybe<Community_Pool_Variance_Fields>;
 };
-
 
 /** aggregate fields of "community_pool" */
 export type Community_Pool_Aggregate_FieldsCountArgs = {
@@ -3068,7 +3003,7 @@ export enum Community_Pool_Select_Column {
   /** column name */
   Coins = 'coins',
   /** column name */
-  Height = 'height'
+  Height = 'height',
 }
 
 /** aggregate stddev on columns */
@@ -3144,7 +3079,6 @@ export type Consensus_Aggregate_Fields = {
   variance?: Maybe<Consensus_Variance_Fields>;
 };
 
-
 /** aggregate fields of "consensus" */
 export type Consensus_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Consensus_Select_Column>>;
@@ -3198,7 +3132,7 @@ export enum Consensus_Select_Column {
   /** column name */
   Round = 'round',
   /** column name */
-  Step = 'step'
+  Step = 'step',
 }
 
 /** aggregate stddev on columns */
@@ -3288,7 +3222,6 @@ export type Delegation_Aggregate_Fields = {
   var_samp?: Maybe<Delegation_Var_Samp_Fields>;
   variance?: Maybe<Delegation_Variance_Fields>;
 };
-
 
 /** aggregate fields of "delegation" */
 export type Delegation_Aggregate_FieldsCountArgs = {
@@ -3420,7 +3353,6 @@ export type Delegation_Reward_Aggregate_Fields = {
   variance?: Maybe<Delegation_Reward_Variance_Fields>;
 };
 
-
 /** aggregate fields of "delegation_reward" */
 export type Delegation_Reward_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Delegation_Reward_Select_Column>>;
@@ -3523,7 +3455,7 @@ export enum Delegation_Reward_Select_Column {
   /** column name */
   ValidatorAddress = 'validator_address',
   /** column name */
-  WithdrawAddress = 'withdraw_address'
+  WithdrawAddress = 'withdraw_address',
 }
 
 /** aggregate stddev on columns */
@@ -3614,7 +3546,7 @@ export enum Delegation_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  ValidatorAddress = 'validator_address'
+  ValidatorAddress = 'validator_address',
 }
 
 /** aggregate stddev on columns */
@@ -3716,7 +3648,6 @@ export type Distribution_Params = {
   params: Scalars['jsonb'];
 };
 
-
 /** columns and relationships of "distribution_params" */
 export type Distribution_ParamsParamsArgs = {
   path?: Maybe<Scalars['String']>;
@@ -3744,7 +3675,6 @@ export type Distribution_Params_Aggregate_Fields = {
   var_samp?: Maybe<Distribution_Params_Var_Samp_Fields>;
   variance?: Maybe<Distribution_Params_Variance_Fields>;
 };
-
 
 /** aggregate fields of "distribution_params" */
 export type Distribution_Params_Aggregate_FieldsCountArgs = {
@@ -3794,7 +3724,7 @@ export enum Distribution_Params_Select_Column {
   /** column name */
   OneRowId = 'one_row_id',
   /** column name */
-  Params = 'params'
+  Params = 'params',
 }
 
 /** aggregate stddev on columns */
@@ -3873,7 +3803,6 @@ export type Double_Sign_Evidence_Aggregate_Fields = {
   var_samp?: Maybe<Double_Sign_Evidence_Var_Samp_Fields>;
   variance?: Maybe<Double_Sign_Evidence_Variance_Fields>;
 };
-
 
 /** aggregate fields of "double_sign_evidence" */
 export type Double_Sign_Evidence_Aggregate_FieldsCountArgs = {
@@ -3969,7 +3898,7 @@ export enum Double_Sign_Evidence_Select_Column {
   /** column name */
   VoteAId = 'vote_a_id',
   /** column name */
-  VoteBId = 'vote_b_id'
+  VoteBId = 'vote_b_id',
 }
 
 /** aggregate stddev on columns */
@@ -4100,7 +4029,6 @@ export type Double_Sign_Vote = {
   validator_index: Scalars['Int'];
 };
 
-
 /** columns and relationships of "double_sign_vote" */
 export type Double_Sign_VoteDoubleSignEvidencesByVoteBIdArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Evidence_Select_Column>>;
@@ -4109,7 +4037,6 @@ export type Double_Sign_VoteDoubleSignEvidencesByVoteBIdArgs = {
   order_by?: Maybe<Array<Double_Sign_Evidence_Order_By>>;
   where?: Maybe<Double_Sign_Evidence_Bool_Exp>;
 };
-
 
 /** columns and relationships of "double_sign_vote" */
 export type Double_Sign_VoteDoubleSignEvidencesByVoteBId_AggregateArgs = {
@@ -4120,7 +4047,6 @@ export type Double_Sign_VoteDoubleSignEvidencesByVoteBId_AggregateArgs = {
   where?: Maybe<Double_Sign_Evidence_Bool_Exp>;
 };
 
-
 /** columns and relationships of "double_sign_vote" */
 export type Double_Sign_VoteDouble_Sign_EvidencesArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Evidence_Select_Column>>;
@@ -4129,7 +4055,6 @@ export type Double_Sign_VoteDouble_Sign_EvidencesArgs = {
   order_by?: Maybe<Array<Double_Sign_Evidence_Order_By>>;
   where?: Maybe<Double_Sign_Evidence_Bool_Exp>;
 };
-
 
 /** columns and relationships of "double_sign_vote" */
 export type Double_Sign_VoteDouble_Sign_Evidences_AggregateArgs = {
@@ -4162,7 +4087,6 @@ export type Double_Sign_Vote_Aggregate_Fields = {
   var_samp?: Maybe<Double_Sign_Vote_Var_Samp_Fields>;
   variance?: Maybe<Double_Sign_Vote_Variance_Fields>;
 };
-
 
 /** aggregate fields of "double_sign_vote" */
 export type Double_Sign_Vote_Aggregate_FieldsCountArgs = {
@@ -4304,7 +4228,7 @@ export enum Double_Sign_Vote_Select_Column {
   /** column name */
   ValidatorAddress = 'validator_address',
   /** column name */
-  ValidatorIndex = 'validator_index'
+  ValidatorIndex = 'validator_index',
 }
 
 /** aggregate stddev on columns */
@@ -4475,7 +4399,6 @@ export type Dtag_Transfer_Requests_Aggregate_Fields = {
   variance?: Maybe<Dtag_Transfer_Requests_Variance_Fields>;
 };
 
-
 /** aggregate fields of "dtag_transfer_requests" */
 export type Dtag_Transfer_Requests_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
@@ -4566,7 +4489,7 @@ export enum Dtag_Transfer_Requests_Select_Column {
   /** column name */
   ReceiverAddress = 'receiver_address',
   /** column name */
-  SenderAddress = 'sender_address'
+  SenderAddress = 'sender_address',
 }
 
 /** aggregate stddev on columns */
@@ -4660,7 +4583,6 @@ export type Fee_Grant_Allowance = {
   id: Scalars['Int'];
 };
 
-
 /** columns and relationships of "fee_grant_allowance" */
 export type Fee_Grant_AllowanceAllowanceArgs = {
   path?: Maybe<Scalars['String']>;
@@ -4688,7 +4610,6 @@ export type Fee_Grant_Allowance_Aggregate_Fields = {
   var_samp?: Maybe<Fee_Grant_Allowance_Var_Samp_Fields>;
   variance?: Maybe<Fee_Grant_Allowance_Variance_Fields>;
 };
-
 
 /** aggregate fields of "fee_grant_allowance" */
 export type Fee_Grant_Allowance_Aggregate_FieldsCountArgs = {
@@ -4794,7 +4715,7 @@ export enum Fee_Grant_Allowance_Select_Column {
   /** column name */
   Height = 'height',
   /** column name */
-  Id = 'id'
+  Id = 'id',
 }
 
 /** aggregate stddev on columns */
@@ -4919,7 +4840,6 @@ export type Genesis_Aggregate_Fields = {
   variance?: Maybe<Genesis_Variance_Fields>;
 };
 
-
 /** aggregate fields of "genesis" */
 export type Genesis_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Genesis_Select_Column>>;
@@ -4972,7 +4892,7 @@ export enum Genesis_Select_Column {
   /** column name */
   InitialHeight = 'initial_height',
   /** column name */
-  Time = 'time'
+  Time = 'time',
 }
 
 /** aggregate stddev on columns */
@@ -5027,18 +4947,15 @@ export type Gov_Params = {
   voting_params: Scalars['jsonb'];
 };
 
-
 /** columns and relationships of "gov_params" */
 export type Gov_ParamsDeposit_ParamsArgs = {
   path?: Maybe<Scalars['String']>;
 };
 
-
 /** columns and relationships of "gov_params" */
 export type Gov_ParamsTally_ParamsArgs = {
   path?: Maybe<Scalars['String']>;
 };
-
 
 /** columns and relationships of "gov_params" */
 export type Gov_ParamsVoting_ParamsArgs = {
@@ -5067,7 +4984,6 @@ export type Gov_Params_Aggregate_Fields = {
   var_samp?: Maybe<Gov_Params_Var_Samp_Fields>;
   variance?: Maybe<Gov_Params_Variance_Fields>;
 };
-
 
 /** aggregate fields of "gov_params" */
 export type Gov_Params_Aggregate_FieldsCountArgs = {
@@ -5125,7 +5041,7 @@ export enum Gov_Params_Select_Column {
   /** column name */
   TallyParams = 'tally_params',
   /** column name */
-  VotingParams = 'voting_params'
+  VotingParams = 'voting_params',
 }
 
 /** aggregate stddev on columns */
@@ -5200,7 +5116,6 @@ export type Inflation_Aggregate_Fields = {
   variance?: Maybe<Inflation_Variance_Fields>;
 };
 
-
 /** aggregate fields of "inflation" */
 export type Inflation_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Inflation_Select_Column>>;
@@ -5248,7 +5163,7 @@ export enum Inflation_Select_Column {
   /** column name */
   Height = 'height',
   /** column name */
-  Value = 'value'
+  Value = 'value',
 }
 
 /** aggregate stddev on columns */
@@ -5300,7 +5215,6 @@ export type Inflation_Variance_Fields = {
   value?: Maybe<Scalars['Float']>;
 };
 
-
 /** Boolean expression to compare columns of type "jsonb". All fields are combined with logical 'AND'. */
 export type Jsonb_Comparison_Exp = {
   /** is the column contained in the given json value */
@@ -5336,7 +5250,6 @@ export type Message = {
   value: Scalars['jsonb'];
 };
 
-
 /** columns and relationships of "message" */
 export type MessageValueArgs = {
   path?: Maybe<Scalars['String']>;
@@ -5364,7 +5277,6 @@ export type Message_Aggregate_Fields = {
   var_samp?: Maybe<Message_Var_Samp_Fields>;
   variance?: Maybe<Message_Variance_Fields>;
 };
-
 
 /** aggregate fields of "message" */
 export type Message_Aggregate_FieldsCountArgs = {
@@ -5462,7 +5374,7 @@ export enum Message_Select_Column {
   /** column name */
   Type = 'type',
   /** column name */
-  Value = 'value'
+  Value = 'value',
 }
 
 /** aggregate stddev on columns */
@@ -5557,7 +5469,6 @@ export type Mint_Params = {
   params: Scalars['jsonb'];
 };
 
-
 /** columns and relationships of "mint_params" */
 export type Mint_ParamsParamsArgs = {
   path?: Maybe<Scalars['String']>;
@@ -5585,7 +5496,6 @@ export type Mint_Params_Aggregate_Fields = {
   var_samp?: Maybe<Mint_Params_Var_Samp_Fields>;
   variance?: Maybe<Mint_Params_Variance_Fields>;
 };
-
 
 /** aggregate fields of "mint_params" */
 export type Mint_Params_Aggregate_FieldsCountArgs = {
@@ -5635,7 +5545,7 @@ export enum Mint_Params_Select_Column {
   /** column name */
   OneRowId = 'one_row_id',
   /** column name */
-  Params = 'params'
+  Params = 'params',
 }
 
 /** aggregate stddev on columns */
@@ -5701,7 +5611,6 @@ export type Modules_Aggregate_Fields = {
   min?: Maybe<Modules_Min_Fields>;
 };
 
-
 /** aggregate fields of "modules" */
 export type Modules_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Modules_Select_Column>>;
@@ -5736,9 +5645,8 @@ export type Modules_Order_By = {
 /** select columns of table "modules" */
 export enum Modules_Select_Column {
   /** column name */
-  ModuleName = 'module_name'
+  ModuleName = 'module_name',
 }
-
 
 /** Boolean expression to compare columns of type "numeric". All fields are combined with logical 'AND'. */
 export type Numeric_Comparison_Exp = {
@@ -5766,7 +5674,7 @@ export enum Order_By {
   /** in descending order, nulls first */
   DescNullsFirst = 'desc_nulls_first',
   /** in descending order, nulls last */
-  DescNullsLast = 'desc_nulls_last'
+  DescNullsLast = 'desc_nulls_last',
 }
 
 /** columns and relationships of "poll" */
@@ -5790,7 +5698,6 @@ export type Poll = {
   user_poll_answers_aggregate: User_Poll_Answer_Aggregate;
 };
 
-
 /** columns and relationships of "poll" */
 export type PollPoll_AnswersArgs = {
   distinct_on?: Maybe<Array<Poll_Answer_Select_Column>>;
@@ -5799,7 +5706,6 @@ export type PollPoll_AnswersArgs = {
   order_by?: Maybe<Array<Poll_Answer_Order_By>>;
   where?: Maybe<Poll_Answer_Bool_Exp>;
 };
-
 
 /** columns and relationships of "poll" */
 export type PollPoll_Answers_AggregateArgs = {
@@ -5810,7 +5716,6 @@ export type PollPoll_Answers_AggregateArgs = {
   where?: Maybe<Poll_Answer_Bool_Exp>;
 };
 
-
 /** columns and relationships of "poll" */
 export type PollUser_Poll_AnswersArgs = {
   distinct_on?: Maybe<Array<User_Poll_Answer_Select_Column>>;
@@ -5819,7 +5724,6 @@ export type PollUser_Poll_AnswersArgs = {
   order_by?: Maybe<Array<User_Poll_Answer_Order_By>>;
   where?: Maybe<User_Poll_Answer_Bool_Exp>;
 };
-
 
 /** columns and relationships of "poll" */
 export type PollUser_Poll_Answers_AggregateArgs = {
@@ -5852,7 +5756,6 @@ export type Poll_Aggregate_Fields = {
   var_samp?: Maybe<Poll_Var_Samp_Fields>;
   variance?: Maybe<Poll_Variance_Fields>;
 };
-
 
 /** aggregate fields of "poll" */
 export type Poll_Aggregate_FieldsCountArgs = {
@@ -5892,7 +5795,6 @@ export type Poll_Answer_Aggregate_Fields = {
   var_samp?: Maybe<Poll_Answer_Var_Samp_Fields>;
   variance?: Maybe<Poll_Answer_Variance_Fields>;
 };
-
 
 /** aggregate fields of "poll_answer" */
 export type Poll_Answer_Aggregate_FieldsCountArgs = {
@@ -5982,7 +5884,7 @@ export enum Poll_Answer_Select_Column {
   /** column name */
   AnswerText = 'answer_text',
   /** column name */
-  PollId = 'poll_id'
+  PollId = 'poll_id',
 }
 
 /** aggregate stddev on columns */
@@ -6128,7 +6030,7 @@ export enum Poll_Select_Column {
   /** column name */
   PostId = 'post_id',
   /** column name */
-  Question = 'question'
+  Question = 'question',
 }
 
 /** aggregate stddev on columns */
@@ -6214,7 +6116,6 @@ export type Post = {
   subspace: Scalars['String'];
 };
 
-
 /** columns and relationships of "post" */
 export type PostPost_AttachmentsArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Select_Column>>;
@@ -6223,7 +6124,6 @@ export type PostPost_AttachmentsArgs = {
   order_by?: Maybe<Array<Post_Attachment_Order_By>>;
   where?: Maybe<Post_Attachment_Bool_Exp>;
 };
-
 
 /** columns and relationships of "post" */
 export type PostPost_Attachments_AggregateArgs = {
@@ -6234,7 +6134,6 @@ export type PostPost_Attachments_AggregateArgs = {
   where?: Maybe<Post_Attachment_Bool_Exp>;
 };
 
-
 /** columns and relationships of "post" */
 export type PostPost_AttributesArgs = {
   distinct_on?: Maybe<Array<Post_Attribute_Select_Column>>;
@@ -6243,7 +6142,6 @@ export type PostPost_AttributesArgs = {
   order_by?: Maybe<Array<Post_Attribute_Order_By>>;
   where?: Maybe<Post_Attribute_Bool_Exp>;
 };
-
 
 /** columns and relationships of "post" */
 export type PostPost_Attributes_AggregateArgs = {
@@ -6254,7 +6152,6 @@ export type PostPost_Attributes_AggregateArgs = {
   where?: Maybe<Post_Attribute_Bool_Exp>;
 };
 
-
 /** columns and relationships of "post" */
 export type PostPost_ReactionsArgs = {
   distinct_on?: Maybe<Array<Post_Reaction_Select_Column>>;
@@ -6263,7 +6160,6 @@ export type PostPost_ReactionsArgs = {
   order_by?: Maybe<Array<Post_Reaction_Order_By>>;
   where?: Maybe<Post_Reaction_Bool_Exp>;
 };
-
 
 /** columns and relationships of "post" */
 export type PostPost_Reactions_AggregateArgs = {
@@ -6274,7 +6170,6 @@ export type PostPost_Reactions_AggregateArgs = {
   where?: Maybe<Post_Reaction_Bool_Exp>;
 };
 
-
 /** columns and relationships of "post" */
 export type PostPost_ReportsArgs = {
   distinct_on?: Maybe<Array<Post_Report_Select_Column>>;
@@ -6283,7 +6178,6 @@ export type PostPost_ReportsArgs = {
   order_by?: Maybe<Array<Post_Report_Order_By>>;
   where?: Maybe<Post_Report_Bool_Exp>;
 };
-
 
 /** columns and relationships of "post" */
 export type PostPost_Reports_AggregateArgs = {
@@ -6294,7 +6188,6 @@ export type PostPost_Reports_AggregateArgs = {
   where?: Maybe<Post_Report_Bool_Exp>;
 };
 
-
 /** columns and relationships of "post" */
 export type PostPostsArgs = {
   distinct_on?: Maybe<Array<Post_Select_Column>>;
@@ -6303,7 +6196,6 @@ export type PostPostsArgs = {
   order_by?: Maybe<Array<Post_Order_By>>;
   where?: Maybe<Post_Bool_Exp>;
 };
-
 
 /** columns and relationships of "post" */
 export type PostPosts_AggregateArgs = {
@@ -6336,7 +6228,6 @@ export type Post_Aggregate_Fields = {
   var_samp?: Maybe<Post_Var_Samp_Fields>;
   variance?: Maybe<Post_Variance_Fields>;
 };
-
 
 /** aggregate fields of "post" */
 export type Post_Aggregate_FieldsCountArgs = {
@@ -6374,7 +6265,6 @@ export type Post_Attachment = {
   uri: Scalars['String'];
 };
 
-
 /** columns and relationships of "post_attachment" */
 export type Post_AttachmentPost_Attachment_TagsArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Tag_Select_Column>>;
@@ -6383,7 +6273,6 @@ export type Post_AttachmentPost_Attachment_TagsArgs = {
   order_by?: Maybe<Array<Post_Attachment_Tag_Order_By>>;
   where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
 };
-
 
 /** columns and relationships of "post_attachment" */
 export type Post_AttachmentPost_Attachment_Tags_AggregateArgs = {
@@ -6416,7 +6305,6 @@ export type Post_Attachment_Aggregate_Fields = {
   var_samp?: Maybe<Post_Attachment_Var_Samp_Fields>;
   variance?: Maybe<Post_Attachment_Variance_Fields>;
 };
-
 
 /** aggregate fields of "post_attachment" */
 export type Post_Attachment_Aggregate_FieldsCountArgs = {
@@ -6516,7 +6404,7 @@ export enum Post_Attachment_Select_Column {
   /** column name */
   PostId = 'post_id',
   /** column name */
-  Uri = 'uri'
+  Uri = 'uri',
 }
 
 /** aggregate stddev on columns */
@@ -6596,7 +6484,6 @@ export type Post_Attachment_Tag_Aggregate_Fields = {
   var_samp?: Maybe<Post_Attachment_Tag_Var_Samp_Fields>;
   variance?: Maybe<Post_Attachment_Tag_Variance_Fields>;
 };
-
 
 /** aggregate fields of "post_attachment_tag" */
 export type Post_Attachment_Tag_Aggregate_FieldsCountArgs = {
@@ -6680,7 +6567,7 @@ export enum Post_Attachment_Tag_Select_Column {
   /** column name */
   AttachmentId = 'attachment_id',
   /** column name */
-  TagAddress = 'tag_address'
+  TagAddress = 'tag_address',
 }
 
 /** aggregate stddev on columns */
@@ -6818,7 +6705,6 @@ export type Post_Attribute_Aggregate_Fields = {
   min?: Maybe<Post_Attribute_Min_Fields>;
 };
 
-
 /** aggregate fields of "post_attribute" */
 export type Post_Attribute_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Post_Attribute_Select_Column>>;
@@ -6888,7 +6774,7 @@ export enum Post_Attribute_Select_Column {
   /** column name */
   PostId = 'post_id',
   /** column name */
-  Value = 'value'
+  Value = 'value',
 }
 
 /** aggregate avg on columns */
@@ -7040,7 +6926,6 @@ export type Post_Reaction_Aggregate_Fields = {
   variance?: Maybe<Post_Reaction_Variance_Fields>;
 };
 
-
 /** aggregate fields of "post_reaction" */
 export type Post_Reaction_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Post_Reaction_Select_Column>>;
@@ -7147,7 +7032,7 @@ export enum Post_Reaction_Select_Column {
   /** column name */
   ShortCode = 'short_code',
   /** column name */
-  Value = 'value'
+  Value = 'value',
 }
 
 /** aggregate stddev on columns */
@@ -7265,7 +7150,6 @@ export type Post_Report_Aggregate_Fields = {
   variance?: Maybe<Post_Report_Variance_Fields>;
 };
 
-
 /** aggregate fields of "post_report" */
 export type Post_Report_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Post_Report_Select_Column>>;
@@ -7382,7 +7266,7 @@ export enum Post_Report_Select_Column {
   /** column name */
   ReporterAddress = 'reporter_address',
   /** column name */
-  Type = 'type'
+  Type = 'type',
 }
 
 /** aggregate stddev on columns */
@@ -7497,7 +7381,7 @@ export enum Post_Select_Column {
   /** column name */
   ParentId = 'parent_id',
   /** column name */
-  Subspace = 'subspace'
+  Subspace = 'subspace',
 }
 
 /** aggregate stddev on columns */
@@ -7612,7 +7496,6 @@ export type Pre_Commit_Aggregate_Fields = {
   variance?: Maybe<Pre_Commit_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pre_commit" */
 export type Pre_Commit_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pre_Commit_Select_Column>>;
@@ -7721,7 +7604,7 @@ export enum Pre_Commit_Select_Column {
   /** column name */
   ValidatorAddress = 'validator_address',
   /** column name */
-  VotingPower = 'voting_power'
+  VotingPower = 'voting_power',
 }
 
 /** aggregate stddev on columns */
@@ -7898,7 +7781,6 @@ export type Profile = {
   user_poll_answers_aggregate: User_Poll_Answer_Aggregate;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfileApplication_LinksArgs = {
   distinct_on?: Maybe<Array<Application_Link_Select_Column>>;
@@ -7907,7 +7789,6 @@ export type ProfileApplication_LinksArgs = {
   order_by?: Maybe<Array<Application_Link_Order_By>>;
   where?: Maybe<Application_Link_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfileApplication_Links_AggregateArgs = {
@@ -7918,7 +7799,6 @@ export type ProfileApplication_Links_AggregateArgs = {
   where?: Maybe<Application_Link_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfileChain_LinksArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Select_Column>>;
@@ -7927,7 +7807,6 @@ export type ProfileChain_LinksArgs = {
   order_by?: Maybe<Array<Chain_Link_Order_By>>;
   where?: Maybe<Chain_Link_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfileChain_Links_AggregateArgs = {
@@ -7938,7 +7817,6 @@ export type ProfileChain_Links_AggregateArgs = {
   where?: Maybe<Chain_Link_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfileDtagTransferRequestsBySenderAddressArgs = {
   distinct_on?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
@@ -7947,7 +7825,6 @@ export type ProfileDtagTransferRequestsBySenderAddressArgs = {
   order_by?: Maybe<Array<Dtag_Transfer_Requests_Order_By>>;
   where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfileDtagTransferRequestsBySenderAddress_AggregateArgs = {
@@ -7958,7 +7835,6 @@ export type ProfileDtagTransferRequestsBySenderAddress_AggregateArgs = {
   where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfileDtag_Transfer_RequestsArgs = {
   distinct_on?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
@@ -7967,7 +7843,6 @@ export type ProfileDtag_Transfer_RequestsArgs = {
   order_by?: Maybe<Array<Dtag_Transfer_Requests_Order_By>>;
   where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfileDtag_Transfer_Requests_AggregateArgs = {
@@ -7978,7 +7853,6 @@ export type ProfileDtag_Transfer_Requests_AggregateArgs = {
   where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfilePost_Attachment_TagsArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Tag_Select_Column>>;
@@ -7987,7 +7861,6 @@ export type ProfilePost_Attachment_TagsArgs = {
   order_by?: Maybe<Array<Post_Attachment_Tag_Order_By>>;
   where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfilePost_Attachment_Tags_AggregateArgs = {
@@ -7998,7 +7871,6 @@ export type ProfilePost_Attachment_Tags_AggregateArgs = {
   where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfilePost_ReactionsArgs = {
   distinct_on?: Maybe<Array<Post_Reaction_Select_Column>>;
@@ -8007,7 +7879,6 @@ export type ProfilePost_ReactionsArgs = {
   order_by?: Maybe<Array<Post_Reaction_Order_By>>;
   where?: Maybe<Post_Reaction_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfilePost_Reactions_AggregateArgs = {
@@ -8018,7 +7889,6 @@ export type ProfilePost_Reactions_AggregateArgs = {
   where?: Maybe<Post_Reaction_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfilePost_ReportsArgs = {
   distinct_on?: Maybe<Array<Post_Report_Select_Column>>;
@@ -8027,7 +7897,6 @@ export type ProfilePost_ReportsArgs = {
   order_by?: Maybe<Array<Post_Report_Order_By>>;
   where?: Maybe<Post_Report_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfilePost_Reports_AggregateArgs = {
@@ -8038,7 +7907,6 @@ export type ProfilePost_Reports_AggregateArgs = {
   where?: Maybe<Post_Report_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfilePostsArgs = {
   distinct_on?: Maybe<Array<Post_Select_Column>>;
@@ -8047,7 +7915,6 @@ export type ProfilePostsArgs = {
   order_by?: Maybe<Array<Post_Order_By>>;
   where?: Maybe<Post_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfilePosts_AggregateArgs = {
@@ -8058,7 +7925,6 @@ export type ProfilePosts_AggregateArgs = {
   where?: Maybe<Post_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfileProfileRelationshipsBySenderAddressArgs = {
   distinct_on?: Maybe<Array<Profile_Relationship_Select_Column>>;
@@ -8067,7 +7933,6 @@ export type ProfileProfileRelationshipsBySenderAddressArgs = {
   order_by?: Maybe<Array<Profile_Relationship_Order_By>>;
   where?: Maybe<Profile_Relationship_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfileProfileRelationshipsBySenderAddress_AggregateArgs = {
@@ -8078,7 +7943,6 @@ export type ProfileProfileRelationshipsBySenderAddress_AggregateArgs = {
   where?: Maybe<Profile_Relationship_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfileProfile_RelationshipsArgs = {
   distinct_on?: Maybe<Array<Profile_Relationship_Select_Column>>;
@@ -8087,7 +7951,6 @@ export type ProfileProfile_RelationshipsArgs = {
   order_by?: Maybe<Array<Profile_Relationship_Order_By>>;
   where?: Maybe<Profile_Relationship_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfileProfile_Relationships_AggregateArgs = {
@@ -8098,7 +7961,6 @@ export type ProfileProfile_Relationships_AggregateArgs = {
   where?: Maybe<Profile_Relationship_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfileRegistered_ReactionsArgs = {
   distinct_on?: Maybe<Array<Registered_Reactions_Select_Column>>;
@@ -8107,7 +7969,6 @@ export type ProfileRegistered_ReactionsArgs = {
   order_by?: Maybe<Array<Registered_Reactions_Order_By>>;
   where?: Maybe<Registered_Reactions_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfileRegistered_Reactions_AggregateArgs = {
@@ -8118,7 +7979,6 @@ export type ProfileRegistered_Reactions_AggregateArgs = {
   where?: Maybe<Registered_Reactions_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfileUserBlocksByBlockerAddressArgs = {
   distinct_on?: Maybe<Array<User_Block_Select_Column>>;
@@ -8127,7 +7987,6 @@ export type ProfileUserBlocksByBlockerAddressArgs = {
   order_by?: Maybe<Array<User_Block_Order_By>>;
   where?: Maybe<User_Block_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfileUserBlocksByBlockerAddress_AggregateArgs = {
@@ -8138,7 +7997,6 @@ export type ProfileUserBlocksByBlockerAddress_AggregateArgs = {
   where?: Maybe<User_Block_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfileUser_BlocksArgs = {
   distinct_on?: Maybe<Array<User_Block_Select_Column>>;
@@ -8147,7 +8005,6 @@ export type ProfileUser_BlocksArgs = {
   order_by?: Maybe<Array<User_Block_Order_By>>;
   where?: Maybe<User_Block_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfileUser_Blocks_AggregateArgs = {
@@ -8158,7 +8015,6 @@ export type ProfileUser_Blocks_AggregateArgs = {
   where?: Maybe<User_Block_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfileUser_Poll_AnswersArgs = {
   distinct_on?: Maybe<Array<User_Poll_Answer_Select_Column>>;
@@ -8167,7 +8023,6 @@ export type ProfileUser_Poll_AnswersArgs = {
   order_by?: Maybe<Array<User_Poll_Answer_Order_By>>;
   where?: Maybe<User_Poll_Answer_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfileUser_Poll_Answers_AggregateArgs = {
@@ -8200,7 +8055,6 @@ export type Profile_Aggregate_Fields = {
   var_samp?: Maybe<Profile_Var_Samp_Fields>;
   variance?: Maybe<Profile_Variance_Fields>;
 };
-
 
 /** aggregate fields of "profile" */
 export type Profile_Aggregate_FieldsCountArgs = {
@@ -8331,7 +8185,6 @@ export type Profile_Relationship_Aggregate_Fields = {
   variance?: Maybe<Profile_Relationship_Variance_Fields>;
 };
 
-
 /** aggregate fields of "profile_relationship" */
 export type Profile_Relationship_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Profile_Relationship_Select_Column>>;
@@ -8430,7 +8283,7 @@ export enum Profile_Relationship_Select_Column {
   /** column name */
   SenderAddress = 'sender_address',
   /** column name */
-  Subspace = 'subspace'
+  Subspace = 'subspace',
 }
 
 /** aggregate stddev on columns */
@@ -8527,7 +8380,7 @@ export enum Profile_Select_Column {
   /** column name */
   Nickname = 'nickname',
   /** column name */
-  ProfilePic = 'profile_pic'
+  ProfilePic = 'profile_pic',
 }
 
 /** aggregate stddev on columns */
@@ -8579,7 +8432,6 @@ export type Profiles_Params = {
   params: Scalars['jsonb'];
 };
 
-
 /** columns and relationships of "profiles_params" */
 export type Profiles_ParamsParamsArgs = {
   path?: Maybe<Scalars['String']>;
@@ -8605,7 +8457,7 @@ export enum Profiles_Params_Select_Column {
   /** column name */
   Height = 'height',
   /** column name */
-  Params = 'params'
+  Params = 'params',
 }
 
 /** columns and relationships of "proposal" */
@@ -8647,12 +8499,10 @@ export type Proposal = {
   voting_start_time?: Maybe<Scalars['timestamp']>;
 };
 
-
 /** columns and relationships of "proposal" */
 export type ProposalContentArgs = {
   path?: Maybe<Scalars['String']>;
 };
-
 
 /** columns and relationships of "proposal" */
 export type ProposalProposal_DepositsArgs = {
@@ -8663,7 +8513,6 @@ export type ProposalProposal_DepositsArgs = {
   where?: Maybe<Proposal_Deposit_Bool_Exp>;
 };
 
-
 /** columns and relationships of "proposal" */
 export type ProposalProposal_Deposits_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Deposit_Select_Column>>;
@@ -8672,7 +8521,6 @@ export type ProposalProposal_Deposits_AggregateArgs = {
   order_by?: Maybe<Array<Proposal_Deposit_Order_By>>;
   where?: Maybe<Proposal_Deposit_Bool_Exp>;
 };
-
 
 /** columns and relationships of "proposal" */
 export type ProposalProposal_Tally_ResultsArgs = {
@@ -8683,7 +8531,6 @@ export type ProposalProposal_Tally_ResultsArgs = {
   where?: Maybe<Proposal_Tally_Result_Bool_Exp>;
 };
 
-
 /** columns and relationships of "proposal" */
 export type ProposalProposal_Tally_Results_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Tally_Result_Select_Column>>;
@@ -8692,7 +8539,6 @@ export type ProposalProposal_Tally_Results_AggregateArgs = {
   order_by?: Maybe<Array<Proposal_Tally_Result_Order_By>>;
   where?: Maybe<Proposal_Tally_Result_Bool_Exp>;
 };
-
 
 /** columns and relationships of "proposal" */
 export type ProposalProposal_VotesArgs = {
@@ -8703,7 +8549,6 @@ export type ProposalProposal_VotesArgs = {
   where?: Maybe<Proposal_Vote_Bool_Exp>;
 };
 
-
 /** columns and relationships of "proposal" */
 export type ProposalProposal_Votes_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Vote_Select_Column>>;
@@ -8713,7 +8558,6 @@ export type ProposalProposal_Votes_AggregateArgs = {
   where?: Maybe<Proposal_Vote_Bool_Exp>;
 };
 
-
 /** columns and relationships of "proposal" */
 export type ProposalValidator_Status_SnapshotsArgs = {
   distinct_on?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
@@ -8722,7 +8566,6 @@ export type ProposalValidator_Status_SnapshotsArgs = {
   order_by?: Maybe<Array<Proposal_Validator_Status_Snapshot_Order_By>>;
   where?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
 };
-
 
 /** columns and relationships of "proposal" */
 export type ProposalValidator_Status_Snapshots_AggregateArgs = {
@@ -8755,7 +8598,6 @@ export type Proposal_Aggregate_Fields = {
   var_samp?: Maybe<Proposal_Var_Samp_Fields>;
   variance?: Maybe<Proposal_Variance_Fields>;
 };
-
 
 /** aggregate fields of "proposal" */
 export type Proposal_Aggregate_FieldsCountArgs = {
@@ -8852,7 +8694,6 @@ export type Proposal_Deposit_Aggregate_Fields = {
   var_samp?: Maybe<Proposal_Deposit_Var_Samp_Fields>;
   variance?: Maybe<Proposal_Deposit_Variance_Fields>;
 };
-
 
 /** aggregate fields of "proposal_deposit" */
 export type Proposal_Deposit_Aggregate_FieldsCountArgs = {
@@ -8952,7 +8793,7 @@ export enum Proposal_Deposit_Select_Column {
   /** column name */
   Height = 'height',
   /** column name */
-  ProposalId = 'proposal_id'
+  ProposalId = 'proposal_id',
 }
 
 /** aggregate stddev on columns */
@@ -9156,7 +8997,7 @@ export enum Proposal_Select_Column {
   /** column name */
   VotingEndTime = 'voting_end_time',
   /** column name */
-  VotingStartTime = 'voting_start_time'
+  VotingStartTime = 'voting_start_time',
 }
 
 /** columns and relationships of "proposal_staking_pool_snapshot" */
@@ -9192,7 +9033,6 @@ export type Proposal_Staking_Pool_Snapshot_Aggregate_Fields = {
   var_samp?: Maybe<Proposal_Staking_Pool_Snapshot_Var_Samp_Fields>;
   variance?: Maybe<Proposal_Staking_Pool_Snapshot_Variance_Fields>;
 };
-
 
 /** aggregate fields of "proposal_staking_pool_snapshot" */
 export type Proposal_Staking_Pool_Snapshot_Aggregate_FieldsCountArgs = {
@@ -9257,7 +9097,7 @@ export enum Proposal_Staking_Pool_Snapshot_Select_Column {
   /** column name */
   NotBondedTokens = 'not_bonded_tokens',
   /** column name */
-  ProposalId = 'proposal_id'
+  ProposalId = 'proposal_id',
 }
 
 /** aggregate stddev on columns */
@@ -9403,7 +9243,6 @@ export type Proposal_Tally_Result_Aggregate_Fields = {
   variance?: Maybe<Proposal_Tally_Result_Variance_Fields>;
 };
 
-
 /** aggregate fields of "proposal_tally_result" */
 export type Proposal_Tally_Result_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Proposal_Tally_Result_Select_Column>>;
@@ -9518,7 +9357,7 @@ export enum Proposal_Tally_Result_Select_Column {
   /** column name */
   ProposalId = 'proposal_id',
   /** column name */
-  Yes = 'yes'
+  Yes = 'yes',
 }
 
 /** aggregate stddev on columns */
@@ -9651,7 +9490,6 @@ export type Proposal_Validator_Status_Snapshot_Aggregate_Fields = {
   variance?: Maybe<Proposal_Validator_Status_Snapshot_Variance_Fields>;
 };
 
-
 /** aggregate fields of "proposal_validator_status_snapshot" */
 export type Proposal_Validator_Status_Snapshot_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
@@ -9778,7 +9616,7 @@ export enum Proposal_Validator_Status_Snapshot_Select_Column {
   /** column name */
   ValidatorAddress = 'validator_address',
   /** column name */
-  VotingPower = 'voting_power'
+  VotingPower = 'voting_power',
 }
 
 /** aggregate stddev on columns */
@@ -9985,7 +9823,6 @@ export type Proposal_Vote_Aggregate_Fields = {
   variance?: Maybe<Proposal_Vote_Variance_Fields>;
 };
 
-
 /** aggregate fields of "proposal_vote" */
 export type Proposal_Vote_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Proposal_Vote_Select_Column>>;
@@ -10088,7 +9925,7 @@ export enum Proposal_Vote_Select_Column {
   /** column name */
   ProposalId = 'proposal_id',
   /** column name */
-  VoterAddress = 'voter_address'
+  VoterAddress = 'voter_address',
 }
 
 /** aggregate stddev on columns */
@@ -10540,7 +10377,6 @@ export type Query_Root = {
   vesting_period_aggregate: Vesting_Period_Aggregate;
 };
 
-
 export type Query_RootAccountArgs = {
   distinct_on?: Maybe<Array<Account_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10548,7 +10384,6 @@ export type Query_RootAccountArgs = {
   order_by?: Maybe<Array<Account_Order_By>>;
   where?: Maybe<Account_Bool_Exp>;
 };
-
 
 export type Query_RootAccount_AggregateArgs = {
   distinct_on?: Maybe<Array<Account_Select_Column>>;
@@ -10558,7 +10393,6 @@ export type Query_RootAccount_AggregateArgs = {
   where?: Maybe<Account_Bool_Exp>;
 };
 
-
 export type Query_RootAccount_BalanceArgs = {
   distinct_on?: Maybe<Array<Account_Balance_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10566,7 +10400,6 @@ export type Query_RootAccount_BalanceArgs = {
   order_by?: Maybe<Array<Account_Balance_Order_By>>;
   where?: Maybe<Account_Balance_Bool_Exp>;
 };
-
 
 export type Query_RootAccount_Balance_AggregateArgs = {
   distinct_on?: Maybe<Array<Account_Balance_Select_Column>>;
@@ -10576,11 +10409,9 @@ export type Query_RootAccount_Balance_AggregateArgs = {
   where?: Maybe<Account_Balance_Bool_Exp>;
 };
 
-
 export type Query_RootAccount_Balance_By_PkArgs = {
   address: Scalars['String'];
 };
-
 
 export type Query_RootAccount_Balance_HistoryArgs = {
   distinct_on?: Maybe<Array<Account_Balance_History_Select_Column>>;
@@ -10590,7 +10421,6 @@ export type Query_RootAccount_Balance_HistoryArgs = {
   where?: Maybe<Account_Balance_History_Bool_Exp>;
 };
 
-
 export type Query_RootAccount_Balance_History_AggregateArgs = {
   distinct_on?: Maybe<Array<Account_Balance_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10599,11 +10429,9 @@ export type Query_RootAccount_Balance_History_AggregateArgs = {
   where?: Maybe<Account_Balance_History_Bool_Exp>;
 };
 
-
 export type Query_RootAccount_By_PkArgs = {
   address: Scalars['String'];
 };
-
 
 export type Query_RootApplication_LinkArgs = {
   distinct_on?: Maybe<Array<Application_Link_Select_Column>>;
@@ -10613,7 +10441,6 @@ export type Query_RootApplication_LinkArgs = {
   where?: Maybe<Application_Link_Bool_Exp>;
 };
 
-
 export type Query_RootApplication_Link_AggregateArgs = {
   distinct_on?: Maybe<Array<Application_Link_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10622,11 +10449,9 @@ export type Query_RootApplication_Link_AggregateArgs = {
   where?: Maybe<Application_Link_Bool_Exp>;
 };
 
-
 export type Query_RootApplication_Link_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootApplication_Link_Oracle_RequestArgs = {
   distinct_on?: Maybe<Array<Application_Link_Oracle_Request_Select_Column>>;
@@ -10636,7 +10461,6 @@ export type Query_RootApplication_Link_Oracle_RequestArgs = {
   where?: Maybe<Application_Link_Oracle_Request_Bool_Exp>;
 };
 
-
 export type Query_RootApplication_Link_Oracle_Request_AggregateArgs = {
   distinct_on?: Maybe<Array<Application_Link_Oracle_Request_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10645,11 +10469,9 @@ export type Query_RootApplication_Link_Oracle_Request_AggregateArgs = {
   where?: Maybe<Application_Link_Oracle_Request_Bool_Exp>;
 };
 
-
 export type Query_RootApplication_Link_Oracle_Request_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootAverage_Block_Time_From_GenesisArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_From_Genesis_Select_Column>>;
@@ -10659,7 +10481,6 @@ export type Query_RootAverage_Block_Time_From_GenesisArgs = {
   where?: Maybe<Average_Block_Time_From_Genesis_Bool_Exp>;
 };
 
-
 export type Query_RootAverage_Block_Time_From_Genesis_AggregateArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_From_Genesis_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10667,7 +10488,6 @@ export type Query_RootAverage_Block_Time_From_Genesis_AggregateArgs = {
   order_by?: Maybe<Array<Average_Block_Time_From_Genesis_Order_By>>;
   where?: Maybe<Average_Block_Time_From_Genesis_Bool_Exp>;
 };
-
 
 export type Query_RootAverage_Block_Time_Per_DayArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Day_Select_Column>>;
@@ -10677,7 +10497,6 @@ export type Query_RootAverage_Block_Time_Per_DayArgs = {
   where?: Maybe<Average_Block_Time_Per_Day_Bool_Exp>;
 };
 
-
 export type Query_RootAverage_Block_Time_Per_Day_AggregateArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Day_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10685,7 +10504,6 @@ export type Query_RootAverage_Block_Time_Per_Day_AggregateArgs = {
   order_by?: Maybe<Array<Average_Block_Time_Per_Day_Order_By>>;
   where?: Maybe<Average_Block_Time_Per_Day_Bool_Exp>;
 };
-
 
 export type Query_RootAverage_Block_Time_Per_HourArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Hour_Select_Column>>;
@@ -10695,7 +10513,6 @@ export type Query_RootAverage_Block_Time_Per_HourArgs = {
   where?: Maybe<Average_Block_Time_Per_Hour_Bool_Exp>;
 };
 
-
 export type Query_RootAverage_Block_Time_Per_Hour_AggregateArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Hour_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10703,7 +10520,6 @@ export type Query_RootAverage_Block_Time_Per_Hour_AggregateArgs = {
   order_by?: Maybe<Array<Average_Block_Time_Per_Hour_Order_By>>;
   where?: Maybe<Average_Block_Time_Per_Hour_Bool_Exp>;
 };
-
 
 export type Query_RootAverage_Block_Time_Per_MinuteArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Minute_Select_Column>>;
@@ -10713,7 +10529,6 @@ export type Query_RootAverage_Block_Time_Per_MinuteArgs = {
   where?: Maybe<Average_Block_Time_Per_Minute_Bool_Exp>;
 };
 
-
 export type Query_RootAverage_Block_Time_Per_Minute_AggregateArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Minute_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10721,7 +10536,6 @@ export type Query_RootAverage_Block_Time_Per_Minute_AggregateArgs = {
   order_by?: Maybe<Array<Average_Block_Time_Per_Minute_Order_By>>;
   where?: Maybe<Average_Block_Time_Per_Minute_Bool_Exp>;
 };
-
 
 export type Query_RootBlockArgs = {
   distinct_on?: Maybe<Array<Block_Select_Column>>;
@@ -10731,7 +10545,6 @@ export type Query_RootBlockArgs = {
   where?: Maybe<Block_Bool_Exp>;
 };
 
-
 export type Query_RootBlock_AggregateArgs = {
   distinct_on?: Maybe<Array<Block_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10740,11 +10553,9 @@ export type Query_RootBlock_AggregateArgs = {
   where?: Maybe<Block_Bool_Exp>;
 };
 
-
 export type Query_RootBlock_By_PkArgs = {
   height: Scalars['bigint'];
 };
-
 
 export type Query_RootChain_LinkArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Select_Column>>;
@@ -10754,7 +10565,6 @@ export type Query_RootChain_LinkArgs = {
   where?: Maybe<Chain_Link_Bool_Exp>;
 };
 
-
 export type Query_RootChain_Link_AggregateArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10763,11 +10573,9 @@ export type Query_RootChain_Link_AggregateArgs = {
   where?: Maybe<Chain_Link_Bool_Exp>;
 };
 
-
 export type Query_RootChain_Link_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootChain_Link_Chain_ConfigArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Chain_Config_Select_Column>>;
@@ -10777,7 +10585,6 @@ export type Query_RootChain_Link_Chain_ConfigArgs = {
   where?: Maybe<Chain_Link_Chain_Config_Bool_Exp>;
 };
 
-
 export type Query_RootChain_Link_Chain_Config_AggregateArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Chain_Config_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10786,11 +10593,9 @@ export type Query_RootChain_Link_Chain_Config_AggregateArgs = {
   where?: Maybe<Chain_Link_Chain_Config_Bool_Exp>;
 };
 
-
 export type Query_RootChain_Link_Chain_Config_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootChain_Link_ProofArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Proof_Select_Column>>;
@@ -10800,7 +10605,6 @@ export type Query_RootChain_Link_ProofArgs = {
   where?: Maybe<Chain_Link_Proof_Bool_Exp>;
 };
 
-
 export type Query_RootChain_Link_Proof_AggregateArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Proof_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10808,7 +10612,6 @@ export type Query_RootChain_Link_Proof_AggregateArgs = {
   order_by?: Maybe<Array<Chain_Link_Proof_Order_By>>;
   where?: Maybe<Chain_Link_Proof_Bool_Exp>;
 };
-
 
 export type Query_RootCommunity_PoolArgs = {
   distinct_on?: Maybe<Array<Community_Pool_Select_Column>>;
@@ -10818,7 +10621,6 @@ export type Query_RootCommunity_PoolArgs = {
   where?: Maybe<Community_Pool_Bool_Exp>;
 };
 
-
 export type Query_RootCommunity_Pool_AggregateArgs = {
   distinct_on?: Maybe<Array<Community_Pool_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10826,7 +10628,6 @@ export type Query_RootCommunity_Pool_AggregateArgs = {
   order_by?: Maybe<Array<Community_Pool_Order_By>>;
   where?: Maybe<Community_Pool_Bool_Exp>;
 };
-
 
 export type Query_RootConsensusArgs = {
   distinct_on?: Maybe<Array<Consensus_Select_Column>>;
@@ -10836,7 +10637,6 @@ export type Query_RootConsensusArgs = {
   where?: Maybe<Consensus_Bool_Exp>;
 };
 
-
 export type Query_RootConsensus_AggregateArgs = {
   distinct_on?: Maybe<Array<Consensus_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10844,7 +10644,6 @@ export type Query_RootConsensus_AggregateArgs = {
   order_by?: Maybe<Array<Consensus_Order_By>>;
   where?: Maybe<Consensus_Bool_Exp>;
 };
-
 
 export type Query_RootDelegationArgs = {
   distinct_on?: Maybe<Array<Delegation_Select_Column>>;
@@ -10854,7 +10653,6 @@ export type Query_RootDelegationArgs = {
   where?: Maybe<Delegation_Bool_Exp>;
 };
 
-
 export type Query_RootDelegation_AggregateArgs = {
   distinct_on?: Maybe<Array<Delegation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10863,11 +10661,9 @@ export type Query_RootDelegation_AggregateArgs = {
   where?: Maybe<Delegation_Bool_Exp>;
 };
 
-
 export type Query_RootDelegation_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootDelegation_RewardArgs = {
   distinct_on?: Maybe<Array<Delegation_Reward_Select_Column>>;
@@ -10877,7 +10673,6 @@ export type Query_RootDelegation_RewardArgs = {
   where?: Maybe<Delegation_Reward_Bool_Exp>;
 };
 
-
 export type Query_RootDelegation_Reward_AggregateArgs = {
   distinct_on?: Maybe<Array<Delegation_Reward_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10885,7 +10680,6 @@ export type Query_RootDelegation_Reward_AggregateArgs = {
   order_by?: Maybe<Array<Delegation_Reward_Order_By>>;
   where?: Maybe<Delegation_Reward_Bool_Exp>;
 };
-
 
 export type Query_RootDistribution_ParamsArgs = {
   distinct_on?: Maybe<Array<Distribution_Params_Select_Column>>;
@@ -10895,7 +10689,6 @@ export type Query_RootDistribution_ParamsArgs = {
   where?: Maybe<Distribution_Params_Bool_Exp>;
 };
 
-
 export type Query_RootDistribution_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Distribution_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10904,11 +10697,9 @@ export type Query_RootDistribution_Params_AggregateArgs = {
   where?: Maybe<Distribution_Params_Bool_Exp>;
 };
 
-
 export type Query_RootDistribution_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
-
 
 export type Query_RootDouble_Sign_EvidenceArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Evidence_Select_Column>>;
@@ -10918,7 +10709,6 @@ export type Query_RootDouble_Sign_EvidenceArgs = {
   where?: Maybe<Double_Sign_Evidence_Bool_Exp>;
 };
 
-
 export type Query_RootDouble_Sign_Evidence_AggregateArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Evidence_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10926,7 +10716,6 @@ export type Query_RootDouble_Sign_Evidence_AggregateArgs = {
   order_by?: Maybe<Array<Double_Sign_Evidence_Order_By>>;
   where?: Maybe<Double_Sign_Evidence_Bool_Exp>;
 };
-
 
 export type Query_RootDouble_Sign_VoteArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Vote_Select_Column>>;
@@ -10936,7 +10725,6 @@ export type Query_RootDouble_Sign_VoteArgs = {
   where?: Maybe<Double_Sign_Vote_Bool_Exp>;
 };
 
-
 export type Query_RootDouble_Sign_Vote_AggregateArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Vote_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10945,11 +10733,9 @@ export type Query_RootDouble_Sign_Vote_AggregateArgs = {
   where?: Maybe<Double_Sign_Vote_Bool_Exp>;
 };
 
-
 export type Query_RootDouble_Sign_Vote_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootDtag_Transfer_RequestsArgs = {
   distinct_on?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
@@ -10959,7 +10745,6 @@ export type Query_RootDtag_Transfer_RequestsArgs = {
   where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
 };
 
-
 export type Query_RootDtag_Transfer_Requests_AggregateArgs = {
   distinct_on?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10967,7 +10752,6 @@ export type Query_RootDtag_Transfer_Requests_AggregateArgs = {
   order_by?: Maybe<Array<Dtag_Transfer_Requests_Order_By>>;
   where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
 };
-
 
 export type Query_RootFee_Grant_AllowanceArgs = {
   distinct_on?: Maybe<Array<Fee_Grant_Allowance_Select_Column>>;
@@ -10977,7 +10761,6 @@ export type Query_RootFee_Grant_AllowanceArgs = {
   where?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
 };
 
-
 export type Query_RootFee_Grant_Allowance_AggregateArgs = {
   distinct_on?: Maybe<Array<Fee_Grant_Allowance_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -10986,11 +10769,9 @@ export type Query_RootFee_Grant_Allowance_AggregateArgs = {
   where?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
 };
 
-
 export type Query_RootFee_Grant_Allowance_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootGenesisArgs = {
   distinct_on?: Maybe<Array<Genesis_Select_Column>>;
@@ -11000,7 +10781,6 @@ export type Query_RootGenesisArgs = {
   where?: Maybe<Genesis_Bool_Exp>;
 };
 
-
 export type Query_RootGenesis_AggregateArgs = {
   distinct_on?: Maybe<Array<Genesis_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11008,7 +10788,6 @@ export type Query_RootGenesis_AggregateArgs = {
   order_by?: Maybe<Array<Genesis_Order_By>>;
   where?: Maybe<Genesis_Bool_Exp>;
 };
-
 
 export type Query_RootGov_ParamsArgs = {
   distinct_on?: Maybe<Array<Gov_Params_Select_Column>>;
@@ -11018,7 +10797,6 @@ export type Query_RootGov_ParamsArgs = {
   where?: Maybe<Gov_Params_Bool_Exp>;
 };
 
-
 export type Query_RootGov_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Gov_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11027,11 +10805,9 @@ export type Query_RootGov_Params_AggregateArgs = {
   where?: Maybe<Gov_Params_Bool_Exp>;
 };
 
-
 export type Query_RootGov_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
-
 
 export type Query_RootInflationArgs = {
   distinct_on?: Maybe<Array<Inflation_Select_Column>>;
@@ -11041,7 +10817,6 @@ export type Query_RootInflationArgs = {
   where?: Maybe<Inflation_Bool_Exp>;
 };
 
-
 export type Query_RootInflation_AggregateArgs = {
   distinct_on?: Maybe<Array<Inflation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11049,7 +10824,6 @@ export type Query_RootInflation_AggregateArgs = {
   order_by?: Maybe<Array<Inflation_Order_By>>;
   where?: Maybe<Inflation_Bool_Exp>;
 };
-
 
 export type Query_RootMessageArgs = {
   distinct_on?: Maybe<Array<Message_Select_Column>>;
@@ -11059,7 +10833,6 @@ export type Query_RootMessageArgs = {
   where?: Maybe<Message_Bool_Exp>;
 };
 
-
 export type Query_RootMessage_AggregateArgs = {
   distinct_on?: Maybe<Array<Message_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11067,7 +10840,6 @@ export type Query_RootMessage_AggregateArgs = {
   order_by?: Maybe<Array<Message_Order_By>>;
   where?: Maybe<Message_Bool_Exp>;
 };
-
 
 export type Query_RootMessages_By_AddressArgs = {
   args: Messages_By_Address_Args;
@@ -11078,7 +10850,6 @@ export type Query_RootMessages_By_AddressArgs = {
   where?: Maybe<Message_Bool_Exp>;
 };
 
-
 export type Query_RootMessages_By_Address_AggregateArgs = {
   args: Messages_By_Address_Args;
   distinct_on?: Maybe<Array<Message_Select_Column>>;
@@ -11088,7 +10859,6 @@ export type Query_RootMessages_By_Address_AggregateArgs = {
   where?: Maybe<Message_Bool_Exp>;
 };
 
-
 export type Query_RootMint_ParamsArgs = {
   distinct_on?: Maybe<Array<Mint_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11096,7 +10866,6 @@ export type Query_RootMint_ParamsArgs = {
   order_by?: Maybe<Array<Mint_Params_Order_By>>;
   where?: Maybe<Mint_Params_Bool_Exp>;
 };
-
 
 export type Query_RootMint_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Mint_Params_Select_Column>>;
@@ -11106,11 +10875,9 @@ export type Query_RootMint_Params_AggregateArgs = {
   where?: Maybe<Mint_Params_Bool_Exp>;
 };
 
-
 export type Query_RootMint_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
-
 
 export type Query_RootModulesArgs = {
   distinct_on?: Maybe<Array<Modules_Select_Column>>;
@@ -11120,7 +10887,6 @@ export type Query_RootModulesArgs = {
   where?: Maybe<Modules_Bool_Exp>;
 };
 
-
 export type Query_RootModules_AggregateArgs = {
   distinct_on?: Maybe<Array<Modules_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11129,11 +10895,9 @@ export type Query_RootModules_AggregateArgs = {
   where?: Maybe<Modules_Bool_Exp>;
 };
 
-
 export type Query_RootModules_By_PkArgs = {
   module_name: Scalars['String'];
 };
-
 
 export type Query_RootPollArgs = {
   distinct_on?: Maybe<Array<Poll_Select_Column>>;
@@ -11143,7 +10907,6 @@ export type Query_RootPollArgs = {
   where?: Maybe<Poll_Bool_Exp>;
 };
 
-
 export type Query_RootPoll_AggregateArgs = {
   distinct_on?: Maybe<Array<Poll_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11151,7 +10914,6 @@ export type Query_RootPoll_AggregateArgs = {
   order_by?: Maybe<Array<Poll_Order_By>>;
   where?: Maybe<Poll_Bool_Exp>;
 };
-
 
 export type Query_RootPoll_AnswerArgs = {
   distinct_on?: Maybe<Array<Poll_Answer_Select_Column>>;
@@ -11161,7 +10923,6 @@ export type Query_RootPoll_AnswerArgs = {
   where?: Maybe<Poll_Answer_Bool_Exp>;
 };
 
-
 export type Query_RootPoll_Answer_AggregateArgs = {
   distinct_on?: Maybe<Array<Poll_Answer_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11170,11 +10931,9 @@ export type Query_RootPoll_Answer_AggregateArgs = {
   where?: Maybe<Poll_Answer_Bool_Exp>;
 };
 
-
 export type Query_RootPoll_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPostArgs = {
   distinct_on?: Maybe<Array<Post_Select_Column>>;
@@ -11184,7 +10943,6 @@ export type Query_RootPostArgs = {
   where?: Maybe<Post_Bool_Exp>;
 };
 
-
 export type Query_RootPost_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11192,7 +10950,6 @@ export type Query_RootPost_AggregateArgs = {
   order_by?: Maybe<Array<Post_Order_By>>;
   where?: Maybe<Post_Bool_Exp>;
 };
-
 
 export type Query_RootPost_AttachmentArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Select_Column>>;
@@ -11202,7 +10959,6 @@ export type Query_RootPost_AttachmentArgs = {
   where?: Maybe<Post_Attachment_Bool_Exp>;
 };
 
-
 export type Query_RootPost_Attachment_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11211,11 +10967,9 @@ export type Query_RootPost_Attachment_AggregateArgs = {
   where?: Maybe<Post_Attachment_Bool_Exp>;
 };
 
-
 export type Query_RootPost_Attachment_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPost_Attachment_TagArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Tag_Select_Column>>;
@@ -11225,7 +10979,6 @@ export type Query_RootPost_Attachment_TagArgs = {
   where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
 };
 
-
 export type Query_RootPost_Attachment_Tag_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Tag_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11233,7 +10986,6 @@ export type Query_RootPost_Attachment_Tag_AggregateArgs = {
   order_by?: Maybe<Array<Post_Attachment_Tag_Order_By>>;
   where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
 };
-
 
 export type Query_RootPost_AttributeArgs = {
   distinct_on?: Maybe<Array<Post_Attribute_Select_Column>>;
@@ -11243,7 +10995,6 @@ export type Query_RootPost_AttributeArgs = {
   where?: Maybe<Post_Attribute_Bool_Exp>;
 };
 
-
 export type Query_RootPost_Attribute_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Attribute_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11252,11 +11003,9 @@ export type Query_RootPost_Attribute_AggregateArgs = {
   where?: Maybe<Post_Attribute_Bool_Exp>;
 };
 
-
 export type Query_RootPost_By_PkArgs = {
   id: Scalars['String'];
 };
-
 
 export type Query_RootPost_ReactionArgs = {
   distinct_on?: Maybe<Array<Post_Reaction_Select_Column>>;
@@ -11266,7 +11015,6 @@ export type Query_RootPost_ReactionArgs = {
   where?: Maybe<Post_Reaction_Bool_Exp>;
 };
 
-
 export type Query_RootPost_Reaction_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Reaction_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11274,7 +11022,6 @@ export type Query_RootPost_Reaction_AggregateArgs = {
   order_by?: Maybe<Array<Post_Reaction_Order_By>>;
   where?: Maybe<Post_Reaction_Bool_Exp>;
 };
-
 
 export type Query_RootPost_ReportArgs = {
   distinct_on?: Maybe<Array<Post_Report_Select_Column>>;
@@ -11284,7 +11031,6 @@ export type Query_RootPost_ReportArgs = {
   where?: Maybe<Post_Report_Bool_Exp>;
 };
 
-
 export type Query_RootPost_Report_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Report_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11292,7 +11038,6 @@ export type Query_RootPost_Report_AggregateArgs = {
   order_by?: Maybe<Array<Post_Report_Order_By>>;
   where?: Maybe<Post_Report_Bool_Exp>;
 };
-
 
 export type Query_RootPre_CommitArgs = {
   distinct_on?: Maybe<Array<Pre_Commit_Select_Column>>;
@@ -11302,7 +11047,6 @@ export type Query_RootPre_CommitArgs = {
   where?: Maybe<Pre_Commit_Bool_Exp>;
 };
 
-
 export type Query_RootPre_Commit_AggregateArgs = {
   distinct_on?: Maybe<Array<Pre_Commit_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11310,7 +11054,6 @@ export type Query_RootPre_Commit_AggregateArgs = {
   order_by?: Maybe<Array<Pre_Commit_Order_By>>;
   where?: Maybe<Pre_Commit_Bool_Exp>;
 };
-
 
 export type Query_RootProfileArgs = {
   distinct_on?: Maybe<Array<Profile_Select_Column>>;
@@ -11320,7 +11063,6 @@ export type Query_RootProfileArgs = {
   where?: Maybe<Profile_Bool_Exp>;
 };
 
-
 export type Query_RootProfile_AggregateArgs = {
   distinct_on?: Maybe<Array<Profile_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11329,11 +11071,9 @@ export type Query_RootProfile_AggregateArgs = {
   where?: Maybe<Profile_Bool_Exp>;
 };
 
-
 export type Query_RootProfile_By_PkArgs = {
   address: Scalars['String'];
 };
-
 
 export type Query_RootProfile_RelationshipArgs = {
   distinct_on?: Maybe<Array<Profile_Relationship_Select_Column>>;
@@ -11343,7 +11083,6 @@ export type Query_RootProfile_RelationshipArgs = {
   where?: Maybe<Profile_Relationship_Bool_Exp>;
 };
 
-
 export type Query_RootProfile_Relationship_AggregateArgs = {
   distinct_on?: Maybe<Array<Profile_Relationship_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11351,7 +11090,6 @@ export type Query_RootProfile_Relationship_AggregateArgs = {
   order_by?: Maybe<Array<Profile_Relationship_Order_By>>;
   where?: Maybe<Profile_Relationship_Bool_Exp>;
 };
-
 
 export type Query_RootProfiles_ParamsArgs = {
   distinct_on?: Maybe<Array<Profiles_Params_Select_Column>>;
@@ -11361,7 +11099,6 @@ export type Query_RootProfiles_ParamsArgs = {
   where?: Maybe<Profiles_Params_Bool_Exp>;
 };
 
-
 export type Query_RootProposalArgs = {
   distinct_on?: Maybe<Array<Proposal_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11369,7 +11106,6 @@ export type Query_RootProposalArgs = {
   order_by?: Maybe<Array<Proposal_Order_By>>;
   where?: Maybe<Proposal_Bool_Exp>;
 };
-
 
 export type Query_RootProposal_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Select_Column>>;
@@ -11379,11 +11115,9 @@ export type Query_RootProposal_AggregateArgs = {
   where?: Maybe<Proposal_Bool_Exp>;
 };
 
-
 export type Query_RootProposal_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootProposal_DepositArgs = {
   distinct_on?: Maybe<Array<Proposal_Deposit_Select_Column>>;
@@ -11393,7 +11127,6 @@ export type Query_RootProposal_DepositArgs = {
   where?: Maybe<Proposal_Deposit_Bool_Exp>;
 };
 
-
 export type Query_RootProposal_Deposit_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Deposit_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11402,13 +11135,11 @@ export type Query_RootProposal_Deposit_AggregateArgs = {
   where?: Maybe<Proposal_Deposit_Bool_Exp>;
 };
 
-
 export type Query_RootProposal_Deposit_By_PkArgs = {
   depositor_address: Scalars['String'];
   height: Scalars['bigint'];
   proposal_id: Scalars['Int'];
 };
-
 
 export type Query_RootProposal_Staking_Pool_SnapshotArgs = {
   distinct_on?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Select_Column>>;
@@ -11418,7 +11149,6 @@ export type Query_RootProposal_Staking_Pool_SnapshotArgs = {
   where?: Maybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>;
 };
 
-
 export type Query_RootProposal_Staking_Pool_Snapshot_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11427,11 +11157,9 @@ export type Query_RootProposal_Staking_Pool_Snapshot_AggregateArgs = {
   where?: Maybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>;
 };
 
-
 export type Query_RootProposal_Staking_Pool_Snapshot_By_PkArgs = {
   proposal_id: Scalars['Int'];
 };
-
 
 export type Query_RootProposal_Tally_ResultArgs = {
   distinct_on?: Maybe<Array<Proposal_Tally_Result_Select_Column>>;
@@ -11441,7 +11169,6 @@ export type Query_RootProposal_Tally_ResultArgs = {
   where?: Maybe<Proposal_Tally_Result_Bool_Exp>;
 };
 
-
 export type Query_RootProposal_Tally_Result_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Tally_Result_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11450,12 +11177,10 @@ export type Query_RootProposal_Tally_Result_AggregateArgs = {
   where?: Maybe<Proposal_Tally_Result_Bool_Exp>;
 };
 
-
 export type Query_RootProposal_Tally_Result_By_PkArgs = {
   height: Scalars['bigint'];
   proposal_id: Scalars['Int'];
 };
-
 
 export type Query_RootProposal_Validator_Status_SnapshotArgs = {
   distinct_on?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
@@ -11465,7 +11190,6 @@ export type Query_RootProposal_Validator_Status_SnapshotArgs = {
   where?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
 };
 
-
 export type Query_RootProposal_Validator_Status_Snapshot_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11474,11 +11198,9 @@ export type Query_RootProposal_Validator_Status_Snapshot_AggregateArgs = {
   where?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
 };
 
-
 export type Query_RootProposal_Validator_Status_Snapshot_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootProposal_VoteArgs = {
   distinct_on?: Maybe<Array<Proposal_Vote_Select_Column>>;
@@ -11488,7 +11210,6 @@ export type Query_RootProposal_VoteArgs = {
   where?: Maybe<Proposal_Vote_Bool_Exp>;
 };
 
-
 export type Query_RootProposal_Vote_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Vote_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11496,7 +11217,6 @@ export type Query_RootProposal_Vote_AggregateArgs = {
   order_by?: Maybe<Array<Proposal_Vote_Order_By>>;
   where?: Maybe<Proposal_Vote_Bool_Exp>;
 };
-
 
 export type Query_RootRedelegationArgs = {
   distinct_on?: Maybe<Array<Redelegation_Select_Column>>;
@@ -11506,7 +11226,6 @@ export type Query_RootRedelegationArgs = {
   where?: Maybe<Redelegation_Bool_Exp>;
 };
 
-
 export type Query_RootRedelegation_AggregateArgs = {
   distinct_on?: Maybe<Array<Redelegation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11514,7 +11233,6 @@ export type Query_RootRedelegation_AggregateArgs = {
   order_by?: Maybe<Array<Redelegation_Order_By>>;
   where?: Maybe<Redelegation_Bool_Exp>;
 };
-
 
 export type Query_RootRegistered_ReactionsArgs = {
   distinct_on?: Maybe<Array<Registered_Reactions_Select_Column>>;
@@ -11524,7 +11242,6 @@ export type Query_RootRegistered_ReactionsArgs = {
   where?: Maybe<Registered_Reactions_Bool_Exp>;
 };
 
-
 export type Query_RootRegistered_Reactions_AggregateArgs = {
   distinct_on?: Maybe<Array<Registered_Reactions_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11532,7 +11249,6 @@ export type Query_RootRegistered_Reactions_AggregateArgs = {
   order_by?: Maybe<Array<Registered_Reactions_Order_By>>;
   where?: Maybe<Registered_Reactions_Bool_Exp>;
 };
-
 
 export type Query_RootSlashing_ParamsArgs = {
   distinct_on?: Maybe<Array<Slashing_Params_Select_Column>>;
@@ -11542,7 +11258,6 @@ export type Query_RootSlashing_ParamsArgs = {
   where?: Maybe<Slashing_Params_Bool_Exp>;
 };
 
-
 export type Query_RootSlashing_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Slashing_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11551,11 +11266,9 @@ export type Query_RootSlashing_Params_AggregateArgs = {
   where?: Maybe<Slashing_Params_Bool_Exp>;
 };
 
-
 export type Query_RootSlashing_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
-
 
 export type Query_RootStaking_ParamsArgs = {
   distinct_on?: Maybe<Array<Staking_Params_Select_Column>>;
@@ -11565,7 +11278,6 @@ export type Query_RootStaking_ParamsArgs = {
   where?: Maybe<Staking_Params_Bool_Exp>;
 };
 
-
 export type Query_RootStaking_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Staking_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11574,11 +11286,9 @@ export type Query_RootStaking_Params_AggregateArgs = {
   where?: Maybe<Staking_Params_Bool_Exp>;
 };
 
-
 export type Query_RootStaking_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
-
 
 export type Query_RootStaking_PoolArgs = {
   distinct_on?: Maybe<Array<Staking_Pool_Select_Column>>;
@@ -11588,7 +11298,6 @@ export type Query_RootStaking_PoolArgs = {
   where?: Maybe<Staking_Pool_Bool_Exp>;
 };
 
-
 export type Query_RootStaking_Pool_AggregateArgs = {
   distinct_on?: Maybe<Array<Staking_Pool_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11596,7 +11305,6 @@ export type Query_RootStaking_Pool_AggregateArgs = {
   order_by?: Maybe<Array<Staking_Pool_Order_By>>;
   where?: Maybe<Staking_Pool_Bool_Exp>;
 };
-
 
 export type Query_RootSupplyArgs = {
   distinct_on?: Maybe<Array<Supply_Select_Column>>;
@@ -11606,7 +11314,6 @@ export type Query_RootSupplyArgs = {
   where?: Maybe<Supply_Bool_Exp>;
 };
 
-
 export type Query_RootSupply_AggregateArgs = {
   distinct_on?: Maybe<Array<Supply_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11614,7 +11321,6 @@ export type Query_RootSupply_AggregateArgs = {
   order_by?: Maybe<Array<Supply_Order_By>>;
   where?: Maybe<Supply_Bool_Exp>;
 };
-
 
 export type Query_RootTokenArgs = {
   distinct_on?: Maybe<Array<Token_Select_Column>>;
@@ -11624,7 +11330,6 @@ export type Query_RootTokenArgs = {
   where?: Maybe<Token_Bool_Exp>;
 };
 
-
 export type Query_RootToken_AggregateArgs = {
   distinct_on?: Maybe<Array<Token_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11632,7 +11337,6 @@ export type Query_RootToken_AggregateArgs = {
   order_by?: Maybe<Array<Token_Order_By>>;
   where?: Maybe<Token_Bool_Exp>;
 };
-
 
 export type Query_RootToken_PriceArgs = {
   distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
@@ -11642,7 +11346,6 @@ export type Query_RootToken_PriceArgs = {
   where?: Maybe<Token_Price_Bool_Exp>;
 };
 
-
 export type Query_RootToken_Price_AggregateArgs = {
   distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11651,11 +11354,9 @@ export type Query_RootToken_Price_AggregateArgs = {
   where?: Maybe<Token_Price_Bool_Exp>;
 };
 
-
 export type Query_RootToken_Price_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootToken_Price_HistoryArgs = {
   distinct_on?: Maybe<Array<Token_Price_History_Select_Column>>;
@@ -11665,7 +11366,6 @@ export type Query_RootToken_Price_HistoryArgs = {
   where?: Maybe<Token_Price_History_Bool_Exp>;
 };
 
-
 export type Query_RootToken_Price_History_AggregateArgs = {
   distinct_on?: Maybe<Array<Token_Price_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11673,7 +11373,6 @@ export type Query_RootToken_Price_History_AggregateArgs = {
   order_by?: Maybe<Array<Token_Price_History_Order_By>>;
   where?: Maybe<Token_Price_History_Bool_Exp>;
 };
-
 
 export type Query_RootToken_UnitArgs = {
   distinct_on?: Maybe<Array<Token_Unit_Select_Column>>;
@@ -11683,7 +11382,6 @@ export type Query_RootToken_UnitArgs = {
   where?: Maybe<Token_Unit_Bool_Exp>;
 };
 
-
 export type Query_RootToken_Unit_AggregateArgs = {
   distinct_on?: Maybe<Array<Token_Unit_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11691,7 +11389,6 @@ export type Query_RootToken_Unit_AggregateArgs = {
   order_by?: Maybe<Array<Token_Unit_Order_By>>;
   where?: Maybe<Token_Unit_Bool_Exp>;
 };
-
 
 export type Query_RootTransactionArgs = {
   distinct_on?: Maybe<Array<Transaction_Select_Column>>;
@@ -11701,7 +11398,6 @@ export type Query_RootTransactionArgs = {
   where?: Maybe<Transaction_Bool_Exp>;
 };
 
-
 export type Query_RootTransaction_AggregateArgs = {
   distinct_on?: Maybe<Array<Transaction_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11710,11 +11406,9 @@ export type Query_RootTransaction_AggregateArgs = {
   where?: Maybe<Transaction_Bool_Exp>;
 };
 
-
 export type Query_RootTransaction_By_PkArgs = {
   hash: Scalars['String'];
 };
-
 
 export type Query_RootUnbonding_DelegationArgs = {
   distinct_on?: Maybe<Array<Unbonding_Delegation_Select_Column>>;
@@ -11724,7 +11418,6 @@ export type Query_RootUnbonding_DelegationArgs = {
   where?: Maybe<Unbonding_Delegation_Bool_Exp>;
 };
 
-
 export type Query_RootUnbonding_Delegation_AggregateArgs = {
   distinct_on?: Maybe<Array<Unbonding_Delegation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11732,7 +11425,6 @@ export type Query_RootUnbonding_Delegation_AggregateArgs = {
   order_by?: Maybe<Array<Unbonding_Delegation_Order_By>>;
   where?: Maybe<Unbonding_Delegation_Bool_Exp>;
 };
-
 
 export type Query_RootUser_BlockArgs = {
   distinct_on?: Maybe<Array<User_Block_Select_Column>>;
@@ -11742,7 +11434,6 @@ export type Query_RootUser_BlockArgs = {
   where?: Maybe<User_Block_Bool_Exp>;
 };
 
-
 export type Query_RootUser_Block_AggregateArgs = {
   distinct_on?: Maybe<Array<User_Block_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11750,7 +11441,6 @@ export type Query_RootUser_Block_AggregateArgs = {
   order_by?: Maybe<Array<User_Block_Order_By>>;
   where?: Maybe<User_Block_Bool_Exp>;
 };
-
 
 export type Query_RootUser_Poll_AnswerArgs = {
   distinct_on?: Maybe<Array<User_Poll_Answer_Select_Column>>;
@@ -11760,7 +11450,6 @@ export type Query_RootUser_Poll_AnswerArgs = {
   where?: Maybe<User_Poll_Answer_Bool_Exp>;
 };
 
-
 export type Query_RootUser_Poll_Answer_AggregateArgs = {
   distinct_on?: Maybe<Array<User_Poll_Answer_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11768,7 +11457,6 @@ export type Query_RootUser_Poll_Answer_AggregateArgs = {
   order_by?: Maybe<Array<User_Poll_Answer_Order_By>>;
   where?: Maybe<User_Poll_Answer_Bool_Exp>;
 };
-
 
 export type Query_RootValidatorArgs = {
   distinct_on?: Maybe<Array<Validator_Select_Column>>;
@@ -11778,7 +11466,6 @@ export type Query_RootValidatorArgs = {
   where?: Maybe<Validator_Bool_Exp>;
 };
 
-
 export type Query_RootValidator_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11787,11 +11474,9 @@ export type Query_RootValidator_AggregateArgs = {
   where?: Maybe<Validator_Bool_Exp>;
 };
 
-
 export type Query_RootValidator_By_PkArgs = {
   consensus_address: Scalars['String'];
 };
-
 
 export type Query_RootValidator_CommissionArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Select_Column>>;
@@ -11801,7 +11486,6 @@ export type Query_RootValidator_CommissionArgs = {
   where?: Maybe<Validator_Commission_Bool_Exp>;
 };
 
-
 export type Query_RootValidator_Commission_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11809,7 +11493,6 @@ export type Query_RootValidator_Commission_AggregateArgs = {
   order_by?: Maybe<Array<Validator_Commission_Order_By>>;
   where?: Maybe<Validator_Commission_Bool_Exp>;
 };
-
 
 export type Query_RootValidator_Commission_AmountArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Amount_Select_Column>>;
@@ -11819,7 +11502,6 @@ export type Query_RootValidator_Commission_AmountArgs = {
   where?: Maybe<Validator_Commission_Amount_Bool_Exp>;
 };
 
-
 export type Query_RootValidator_Commission_Amount_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Amount_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11828,16 +11510,13 @@ export type Query_RootValidator_Commission_Amount_AggregateArgs = {
   where?: Maybe<Validator_Commission_Amount_Bool_Exp>;
 };
 
-
 export type Query_RootValidator_Commission_Amount_By_PkArgs = {
   validator_address: Scalars['String'];
 };
 
-
 export type Query_RootValidator_Commission_By_PkArgs = {
   validator_address: Scalars['String'];
 };
-
 
 export type Query_RootValidator_DescriptionArgs = {
   distinct_on?: Maybe<Array<Validator_Description_Select_Column>>;
@@ -11847,7 +11526,6 @@ export type Query_RootValidator_DescriptionArgs = {
   where?: Maybe<Validator_Description_Bool_Exp>;
 };
 
-
 export type Query_RootValidator_Description_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Description_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11856,11 +11534,9 @@ export type Query_RootValidator_Description_AggregateArgs = {
   where?: Maybe<Validator_Description_Bool_Exp>;
 };
 
-
 export type Query_RootValidator_Description_By_PkArgs = {
   validator_address: Scalars['String'];
 };
-
 
 export type Query_RootValidator_InfoArgs = {
   distinct_on?: Maybe<Array<Validator_Info_Select_Column>>;
@@ -11870,7 +11546,6 @@ export type Query_RootValidator_InfoArgs = {
   where?: Maybe<Validator_Info_Bool_Exp>;
 };
 
-
 export type Query_RootValidator_Info_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Info_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11879,11 +11554,9 @@ export type Query_RootValidator_Info_AggregateArgs = {
   where?: Maybe<Validator_Info_Bool_Exp>;
 };
 
-
 export type Query_RootValidator_Info_By_PkArgs = {
   consensus_address: Scalars['String'];
 };
-
 
 export type Query_RootValidator_Signing_InfoArgs = {
   distinct_on?: Maybe<Array<Validator_Signing_Info_Select_Column>>;
@@ -11893,7 +11566,6 @@ export type Query_RootValidator_Signing_InfoArgs = {
   where?: Maybe<Validator_Signing_Info_Bool_Exp>;
 };
 
-
 export type Query_RootValidator_Signing_Info_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Signing_Info_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11902,11 +11574,9 @@ export type Query_RootValidator_Signing_Info_AggregateArgs = {
   where?: Maybe<Validator_Signing_Info_Bool_Exp>;
 };
 
-
 export type Query_RootValidator_Signing_Info_By_PkArgs = {
   validator_address: Scalars['String'];
 };
-
 
 export type Query_RootValidator_StatusArgs = {
   distinct_on?: Maybe<Array<Validator_Status_Select_Column>>;
@@ -11916,7 +11586,6 @@ export type Query_RootValidator_StatusArgs = {
   where?: Maybe<Validator_Status_Bool_Exp>;
 };
 
-
 export type Query_RootValidator_Status_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Status_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11925,11 +11594,9 @@ export type Query_RootValidator_Status_AggregateArgs = {
   where?: Maybe<Validator_Status_Bool_Exp>;
 };
 
-
 export type Query_RootValidator_Status_By_PkArgs = {
   validator_address: Scalars['String'];
 };
-
 
 export type Query_RootValidator_Voting_PowerArgs = {
   distinct_on?: Maybe<Array<Validator_Voting_Power_Select_Column>>;
@@ -11939,7 +11606,6 @@ export type Query_RootValidator_Voting_PowerArgs = {
   where?: Maybe<Validator_Voting_Power_Bool_Exp>;
 };
 
-
 export type Query_RootValidator_Voting_Power_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Voting_Power_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11948,11 +11614,9 @@ export type Query_RootValidator_Voting_Power_AggregateArgs = {
   where?: Maybe<Validator_Voting_Power_Bool_Exp>;
 };
 
-
 export type Query_RootValidator_Voting_Power_By_PkArgs = {
   validator_address: Scalars['String'];
 };
-
 
 export type Query_RootVesting_AccountArgs = {
   distinct_on?: Maybe<Array<Vesting_Account_Select_Column>>;
@@ -11962,7 +11626,6 @@ export type Query_RootVesting_AccountArgs = {
   where?: Maybe<Vesting_Account_Bool_Exp>;
 };
 
-
 export type Query_RootVesting_Account_AggregateArgs = {
   distinct_on?: Maybe<Array<Vesting_Account_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -11971,11 +11634,9 @@ export type Query_RootVesting_Account_AggregateArgs = {
   where?: Maybe<Vesting_Account_Bool_Exp>;
 };
 
-
 export type Query_RootVesting_Account_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootVesting_PeriodArgs = {
   distinct_on?: Maybe<Array<Vesting_Period_Select_Column>>;
@@ -11984,7 +11645,6 @@ export type Query_RootVesting_PeriodArgs = {
   order_by?: Maybe<Array<Vesting_Period_Order_By>>;
   where?: Maybe<Vesting_Period_Bool_Exp>;
 };
-
 
 export type Query_RootVesting_Period_AggregateArgs = {
   distinct_on?: Maybe<Array<Vesting_Period_Select_Column>>;
@@ -12033,7 +11693,6 @@ export type Redelegation_Aggregate_Fields = {
   var_samp?: Maybe<Redelegation_Var_Samp_Fields>;
   variance?: Maybe<Redelegation_Variance_Fields>;
 };
-
 
 /** aggregate fields of "redelegation" */
 export type Redelegation_Aggregate_FieldsCountArgs = {
@@ -12147,7 +11806,7 @@ export enum Redelegation_Select_Column {
   /** column name */
   Height = 'height',
   /** column name */
-  SrcValidatorAddress = 'src_validator_address'
+  SrcValidatorAddress = 'src_validator_address',
 }
 
 /** aggregate stddev on columns */
@@ -12262,7 +11921,6 @@ export type Registered_Reactions_Aggregate_Fields = {
   variance?: Maybe<Registered_Reactions_Variance_Fields>;
 };
 
-
 /** aggregate fields of "registered_reactions" */
 export type Registered_Reactions_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Registered_Reactions_Select_Column>>;
@@ -12367,7 +12025,7 @@ export enum Registered_Reactions_Select_Column {
   /** column name */
   Subspace = 'subspace',
   /** column name */
-  Value = 'value'
+  Value = 'value',
 }
 
 /** aggregate stddev on columns */
@@ -12455,7 +12113,6 @@ export type Slashing_Params = {
   params: Scalars['jsonb'];
 };
 
-
 /** columns and relationships of "slashing_params" */
 export type Slashing_ParamsParamsArgs = {
   path?: Maybe<Scalars['String']>;
@@ -12483,7 +12140,6 @@ export type Slashing_Params_Aggregate_Fields = {
   var_samp?: Maybe<Slashing_Params_Var_Samp_Fields>;
   variance?: Maybe<Slashing_Params_Variance_Fields>;
 };
-
 
 /** aggregate fields of "slashing_params" */
 export type Slashing_Params_Aggregate_FieldsCountArgs = {
@@ -12533,7 +12189,7 @@ export enum Slashing_Params_Select_Column {
   /** column name */
   OneRowId = 'one_row_id',
   /** column name */
-  Params = 'params'
+  Params = 'params',
 }
 
 /** aggregate stddev on columns */
@@ -12578,7 +12234,6 @@ export type Slashing_Params_Variance_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-
 /** Boolean expression to compare columns of type "smallint". All fields are combined with logical 'AND'. */
 export type Smallint_Comparison_Exp = {
   _eq?: Maybe<Scalars['smallint']>;
@@ -12599,7 +12254,6 @@ export type Staking_Params = {
   one_row_id: Scalars['Boolean'];
   params: Scalars['jsonb'];
 };
-
 
 /** columns and relationships of "staking_params" */
 export type Staking_ParamsParamsArgs = {
@@ -12628,7 +12282,6 @@ export type Staking_Params_Aggregate_Fields = {
   var_samp?: Maybe<Staking_Params_Var_Samp_Fields>;
   variance?: Maybe<Staking_Params_Variance_Fields>;
 };
-
 
 /** aggregate fields of "staking_params" */
 export type Staking_Params_Aggregate_FieldsCountArgs = {
@@ -12678,7 +12331,7 @@ export enum Staking_Params_Select_Column {
   /** column name */
   OneRowId = 'one_row_id',
   /** column name */
-  Params = 'params'
+  Params = 'params',
 }
 
 /** aggregate stddev on columns */
@@ -12754,7 +12407,6 @@ export type Staking_Pool_Aggregate_Fields = {
   variance?: Maybe<Staking_Pool_Variance_Fields>;
 };
 
-
 /** aggregate fields of "staking_pool" */
 export type Staking_Pool_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Staking_Pool_Select_Column>>;
@@ -12809,7 +12461,7 @@ export enum Staking_Pool_Select_Column {
   /** column name */
   Height = 'height',
   /** column name */
-  NotBondedTokens = 'not_bonded_tokens'
+  NotBondedTokens = 'not_bonded_tokens',
 }
 
 /** aggregate stddev on columns */
@@ -13226,7 +12878,6 @@ export type Subscription_Root = {
   vesting_period_aggregate: Vesting_Period_Aggregate;
 };
 
-
 export type Subscription_RootAccountArgs = {
   distinct_on?: Maybe<Array<Account_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13234,7 +12885,6 @@ export type Subscription_RootAccountArgs = {
   order_by?: Maybe<Array<Account_Order_By>>;
   where?: Maybe<Account_Bool_Exp>;
 };
-
 
 export type Subscription_RootAccount_AggregateArgs = {
   distinct_on?: Maybe<Array<Account_Select_Column>>;
@@ -13244,7 +12894,6 @@ export type Subscription_RootAccount_AggregateArgs = {
   where?: Maybe<Account_Bool_Exp>;
 };
 
-
 export type Subscription_RootAccount_BalanceArgs = {
   distinct_on?: Maybe<Array<Account_Balance_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13252,7 +12901,6 @@ export type Subscription_RootAccount_BalanceArgs = {
   order_by?: Maybe<Array<Account_Balance_Order_By>>;
   where?: Maybe<Account_Balance_Bool_Exp>;
 };
-
 
 export type Subscription_RootAccount_Balance_AggregateArgs = {
   distinct_on?: Maybe<Array<Account_Balance_Select_Column>>;
@@ -13262,11 +12910,9 @@ export type Subscription_RootAccount_Balance_AggregateArgs = {
   where?: Maybe<Account_Balance_Bool_Exp>;
 };
 
-
 export type Subscription_RootAccount_Balance_By_PkArgs = {
   address: Scalars['String'];
 };
-
 
 export type Subscription_RootAccount_Balance_HistoryArgs = {
   distinct_on?: Maybe<Array<Account_Balance_History_Select_Column>>;
@@ -13276,7 +12922,6 @@ export type Subscription_RootAccount_Balance_HistoryArgs = {
   where?: Maybe<Account_Balance_History_Bool_Exp>;
 };
 
-
 export type Subscription_RootAccount_Balance_History_AggregateArgs = {
   distinct_on?: Maybe<Array<Account_Balance_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13285,11 +12930,9 @@ export type Subscription_RootAccount_Balance_History_AggregateArgs = {
   where?: Maybe<Account_Balance_History_Bool_Exp>;
 };
 
-
 export type Subscription_RootAccount_By_PkArgs = {
   address: Scalars['String'];
 };
-
 
 export type Subscription_RootApplication_LinkArgs = {
   distinct_on?: Maybe<Array<Application_Link_Select_Column>>;
@@ -13299,7 +12942,6 @@ export type Subscription_RootApplication_LinkArgs = {
   where?: Maybe<Application_Link_Bool_Exp>;
 };
 
-
 export type Subscription_RootApplication_Link_AggregateArgs = {
   distinct_on?: Maybe<Array<Application_Link_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13308,11 +12950,9 @@ export type Subscription_RootApplication_Link_AggregateArgs = {
   where?: Maybe<Application_Link_Bool_Exp>;
 };
 
-
 export type Subscription_RootApplication_Link_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootApplication_Link_Oracle_RequestArgs = {
   distinct_on?: Maybe<Array<Application_Link_Oracle_Request_Select_Column>>;
@@ -13322,7 +12962,6 @@ export type Subscription_RootApplication_Link_Oracle_RequestArgs = {
   where?: Maybe<Application_Link_Oracle_Request_Bool_Exp>;
 };
 
-
 export type Subscription_RootApplication_Link_Oracle_Request_AggregateArgs = {
   distinct_on?: Maybe<Array<Application_Link_Oracle_Request_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13331,11 +12970,9 @@ export type Subscription_RootApplication_Link_Oracle_Request_AggregateArgs = {
   where?: Maybe<Application_Link_Oracle_Request_Bool_Exp>;
 };
 
-
 export type Subscription_RootApplication_Link_Oracle_Request_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootAverage_Block_Time_From_GenesisArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_From_Genesis_Select_Column>>;
@@ -13345,7 +12982,6 @@ export type Subscription_RootAverage_Block_Time_From_GenesisArgs = {
   where?: Maybe<Average_Block_Time_From_Genesis_Bool_Exp>;
 };
 
-
 export type Subscription_RootAverage_Block_Time_From_Genesis_AggregateArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_From_Genesis_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13353,7 +12989,6 @@ export type Subscription_RootAverage_Block_Time_From_Genesis_AggregateArgs = {
   order_by?: Maybe<Array<Average_Block_Time_From_Genesis_Order_By>>;
   where?: Maybe<Average_Block_Time_From_Genesis_Bool_Exp>;
 };
-
 
 export type Subscription_RootAverage_Block_Time_Per_DayArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Day_Select_Column>>;
@@ -13363,7 +12998,6 @@ export type Subscription_RootAverage_Block_Time_Per_DayArgs = {
   where?: Maybe<Average_Block_Time_Per_Day_Bool_Exp>;
 };
 
-
 export type Subscription_RootAverage_Block_Time_Per_Day_AggregateArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Day_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13371,7 +13005,6 @@ export type Subscription_RootAverage_Block_Time_Per_Day_AggregateArgs = {
   order_by?: Maybe<Array<Average_Block_Time_Per_Day_Order_By>>;
   where?: Maybe<Average_Block_Time_Per_Day_Bool_Exp>;
 };
-
 
 export type Subscription_RootAverage_Block_Time_Per_HourArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Hour_Select_Column>>;
@@ -13381,7 +13014,6 @@ export type Subscription_RootAverage_Block_Time_Per_HourArgs = {
   where?: Maybe<Average_Block_Time_Per_Hour_Bool_Exp>;
 };
 
-
 export type Subscription_RootAverage_Block_Time_Per_Hour_AggregateArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Hour_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13389,7 +13021,6 @@ export type Subscription_RootAverage_Block_Time_Per_Hour_AggregateArgs = {
   order_by?: Maybe<Array<Average_Block_Time_Per_Hour_Order_By>>;
   where?: Maybe<Average_Block_Time_Per_Hour_Bool_Exp>;
 };
-
 
 export type Subscription_RootAverage_Block_Time_Per_MinuteArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Minute_Select_Column>>;
@@ -13399,7 +13030,6 @@ export type Subscription_RootAverage_Block_Time_Per_MinuteArgs = {
   where?: Maybe<Average_Block_Time_Per_Minute_Bool_Exp>;
 };
 
-
 export type Subscription_RootAverage_Block_Time_Per_Minute_AggregateArgs = {
   distinct_on?: Maybe<Array<Average_Block_Time_Per_Minute_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13407,7 +13037,6 @@ export type Subscription_RootAverage_Block_Time_Per_Minute_AggregateArgs = {
   order_by?: Maybe<Array<Average_Block_Time_Per_Minute_Order_By>>;
   where?: Maybe<Average_Block_Time_Per_Minute_Bool_Exp>;
 };
-
 
 export type Subscription_RootBlockArgs = {
   distinct_on?: Maybe<Array<Block_Select_Column>>;
@@ -13417,7 +13046,6 @@ export type Subscription_RootBlockArgs = {
   where?: Maybe<Block_Bool_Exp>;
 };
 
-
 export type Subscription_RootBlock_AggregateArgs = {
   distinct_on?: Maybe<Array<Block_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13426,11 +13054,9 @@ export type Subscription_RootBlock_AggregateArgs = {
   where?: Maybe<Block_Bool_Exp>;
 };
 
-
 export type Subscription_RootBlock_By_PkArgs = {
   height: Scalars['bigint'];
 };
-
 
 export type Subscription_RootChain_LinkArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Select_Column>>;
@@ -13440,7 +13066,6 @@ export type Subscription_RootChain_LinkArgs = {
   where?: Maybe<Chain_Link_Bool_Exp>;
 };
 
-
 export type Subscription_RootChain_Link_AggregateArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13449,11 +13074,9 @@ export type Subscription_RootChain_Link_AggregateArgs = {
   where?: Maybe<Chain_Link_Bool_Exp>;
 };
 
-
 export type Subscription_RootChain_Link_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootChain_Link_Chain_ConfigArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Chain_Config_Select_Column>>;
@@ -13463,7 +13086,6 @@ export type Subscription_RootChain_Link_Chain_ConfigArgs = {
   where?: Maybe<Chain_Link_Chain_Config_Bool_Exp>;
 };
 
-
 export type Subscription_RootChain_Link_Chain_Config_AggregateArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Chain_Config_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13472,11 +13094,9 @@ export type Subscription_RootChain_Link_Chain_Config_AggregateArgs = {
   where?: Maybe<Chain_Link_Chain_Config_Bool_Exp>;
 };
 
-
 export type Subscription_RootChain_Link_Chain_Config_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootChain_Link_ProofArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Proof_Select_Column>>;
@@ -13486,7 +13106,6 @@ export type Subscription_RootChain_Link_ProofArgs = {
   where?: Maybe<Chain_Link_Proof_Bool_Exp>;
 };
 
-
 export type Subscription_RootChain_Link_Proof_AggregateArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Proof_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13494,7 +13113,6 @@ export type Subscription_RootChain_Link_Proof_AggregateArgs = {
   order_by?: Maybe<Array<Chain_Link_Proof_Order_By>>;
   where?: Maybe<Chain_Link_Proof_Bool_Exp>;
 };
-
 
 export type Subscription_RootCommunity_PoolArgs = {
   distinct_on?: Maybe<Array<Community_Pool_Select_Column>>;
@@ -13504,7 +13122,6 @@ export type Subscription_RootCommunity_PoolArgs = {
   where?: Maybe<Community_Pool_Bool_Exp>;
 };
 
-
 export type Subscription_RootCommunity_Pool_AggregateArgs = {
   distinct_on?: Maybe<Array<Community_Pool_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13512,7 +13129,6 @@ export type Subscription_RootCommunity_Pool_AggregateArgs = {
   order_by?: Maybe<Array<Community_Pool_Order_By>>;
   where?: Maybe<Community_Pool_Bool_Exp>;
 };
-
 
 export type Subscription_RootConsensusArgs = {
   distinct_on?: Maybe<Array<Consensus_Select_Column>>;
@@ -13522,7 +13138,6 @@ export type Subscription_RootConsensusArgs = {
   where?: Maybe<Consensus_Bool_Exp>;
 };
 
-
 export type Subscription_RootConsensus_AggregateArgs = {
   distinct_on?: Maybe<Array<Consensus_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13530,7 +13145,6 @@ export type Subscription_RootConsensus_AggregateArgs = {
   order_by?: Maybe<Array<Consensus_Order_By>>;
   where?: Maybe<Consensus_Bool_Exp>;
 };
-
 
 export type Subscription_RootDelegationArgs = {
   distinct_on?: Maybe<Array<Delegation_Select_Column>>;
@@ -13540,7 +13154,6 @@ export type Subscription_RootDelegationArgs = {
   where?: Maybe<Delegation_Bool_Exp>;
 };
 
-
 export type Subscription_RootDelegation_AggregateArgs = {
   distinct_on?: Maybe<Array<Delegation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13549,11 +13162,9 @@ export type Subscription_RootDelegation_AggregateArgs = {
   where?: Maybe<Delegation_Bool_Exp>;
 };
 
-
 export type Subscription_RootDelegation_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootDelegation_RewardArgs = {
   distinct_on?: Maybe<Array<Delegation_Reward_Select_Column>>;
@@ -13563,7 +13174,6 @@ export type Subscription_RootDelegation_RewardArgs = {
   where?: Maybe<Delegation_Reward_Bool_Exp>;
 };
 
-
 export type Subscription_RootDelegation_Reward_AggregateArgs = {
   distinct_on?: Maybe<Array<Delegation_Reward_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13571,7 +13181,6 @@ export type Subscription_RootDelegation_Reward_AggregateArgs = {
   order_by?: Maybe<Array<Delegation_Reward_Order_By>>;
   where?: Maybe<Delegation_Reward_Bool_Exp>;
 };
-
 
 export type Subscription_RootDistribution_ParamsArgs = {
   distinct_on?: Maybe<Array<Distribution_Params_Select_Column>>;
@@ -13581,7 +13190,6 @@ export type Subscription_RootDistribution_ParamsArgs = {
   where?: Maybe<Distribution_Params_Bool_Exp>;
 };
 
-
 export type Subscription_RootDistribution_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Distribution_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13590,11 +13198,9 @@ export type Subscription_RootDistribution_Params_AggregateArgs = {
   where?: Maybe<Distribution_Params_Bool_Exp>;
 };
 
-
 export type Subscription_RootDistribution_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
-
 
 export type Subscription_RootDouble_Sign_EvidenceArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Evidence_Select_Column>>;
@@ -13604,7 +13210,6 @@ export type Subscription_RootDouble_Sign_EvidenceArgs = {
   where?: Maybe<Double_Sign_Evidence_Bool_Exp>;
 };
 
-
 export type Subscription_RootDouble_Sign_Evidence_AggregateArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Evidence_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13612,7 +13217,6 @@ export type Subscription_RootDouble_Sign_Evidence_AggregateArgs = {
   order_by?: Maybe<Array<Double_Sign_Evidence_Order_By>>;
   where?: Maybe<Double_Sign_Evidence_Bool_Exp>;
 };
-
 
 export type Subscription_RootDouble_Sign_VoteArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Vote_Select_Column>>;
@@ -13622,7 +13226,6 @@ export type Subscription_RootDouble_Sign_VoteArgs = {
   where?: Maybe<Double_Sign_Vote_Bool_Exp>;
 };
 
-
 export type Subscription_RootDouble_Sign_Vote_AggregateArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Vote_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13631,11 +13234,9 @@ export type Subscription_RootDouble_Sign_Vote_AggregateArgs = {
   where?: Maybe<Double_Sign_Vote_Bool_Exp>;
 };
 
-
 export type Subscription_RootDouble_Sign_Vote_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootDtag_Transfer_RequestsArgs = {
   distinct_on?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
@@ -13645,7 +13246,6 @@ export type Subscription_RootDtag_Transfer_RequestsArgs = {
   where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
 };
 
-
 export type Subscription_RootDtag_Transfer_Requests_AggregateArgs = {
   distinct_on?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13653,7 +13253,6 @@ export type Subscription_RootDtag_Transfer_Requests_AggregateArgs = {
   order_by?: Maybe<Array<Dtag_Transfer_Requests_Order_By>>;
   where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
 };
-
 
 export type Subscription_RootFee_Grant_AllowanceArgs = {
   distinct_on?: Maybe<Array<Fee_Grant_Allowance_Select_Column>>;
@@ -13663,7 +13262,6 @@ export type Subscription_RootFee_Grant_AllowanceArgs = {
   where?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
 };
 
-
 export type Subscription_RootFee_Grant_Allowance_AggregateArgs = {
   distinct_on?: Maybe<Array<Fee_Grant_Allowance_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13672,11 +13270,9 @@ export type Subscription_RootFee_Grant_Allowance_AggregateArgs = {
   where?: Maybe<Fee_Grant_Allowance_Bool_Exp>;
 };
 
-
 export type Subscription_RootFee_Grant_Allowance_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootGenesisArgs = {
   distinct_on?: Maybe<Array<Genesis_Select_Column>>;
@@ -13686,7 +13282,6 @@ export type Subscription_RootGenesisArgs = {
   where?: Maybe<Genesis_Bool_Exp>;
 };
 
-
 export type Subscription_RootGenesis_AggregateArgs = {
   distinct_on?: Maybe<Array<Genesis_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13694,7 +13289,6 @@ export type Subscription_RootGenesis_AggregateArgs = {
   order_by?: Maybe<Array<Genesis_Order_By>>;
   where?: Maybe<Genesis_Bool_Exp>;
 };
-
 
 export type Subscription_RootGov_ParamsArgs = {
   distinct_on?: Maybe<Array<Gov_Params_Select_Column>>;
@@ -13704,7 +13298,6 @@ export type Subscription_RootGov_ParamsArgs = {
   where?: Maybe<Gov_Params_Bool_Exp>;
 };
 
-
 export type Subscription_RootGov_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Gov_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13713,11 +13306,9 @@ export type Subscription_RootGov_Params_AggregateArgs = {
   where?: Maybe<Gov_Params_Bool_Exp>;
 };
 
-
 export type Subscription_RootGov_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
-
 
 export type Subscription_RootInflationArgs = {
   distinct_on?: Maybe<Array<Inflation_Select_Column>>;
@@ -13727,7 +13318,6 @@ export type Subscription_RootInflationArgs = {
   where?: Maybe<Inflation_Bool_Exp>;
 };
 
-
 export type Subscription_RootInflation_AggregateArgs = {
   distinct_on?: Maybe<Array<Inflation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13735,7 +13325,6 @@ export type Subscription_RootInflation_AggregateArgs = {
   order_by?: Maybe<Array<Inflation_Order_By>>;
   where?: Maybe<Inflation_Bool_Exp>;
 };
-
 
 export type Subscription_RootMessageArgs = {
   distinct_on?: Maybe<Array<Message_Select_Column>>;
@@ -13745,7 +13334,6 @@ export type Subscription_RootMessageArgs = {
   where?: Maybe<Message_Bool_Exp>;
 };
 
-
 export type Subscription_RootMessage_AggregateArgs = {
   distinct_on?: Maybe<Array<Message_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13753,7 +13341,6 @@ export type Subscription_RootMessage_AggregateArgs = {
   order_by?: Maybe<Array<Message_Order_By>>;
   where?: Maybe<Message_Bool_Exp>;
 };
-
 
 export type Subscription_RootMessages_By_AddressArgs = {
   args: Messages_By_Address_Args;
@@ -13764,7 +13351,6 @@ export type Subscription_RootMessages_By_AddressArgs = {
   where?: Maybe<Message_Bool_Exp>;
 };
 
-
 export type Subscription_RootMessages_By_Address_AggregateArgs = {
   args: Messages_By_Address_Args;
   distinct_on?: Maybe<Array<Message_Select_Column>>;
@@ -13774,7 +13360,6 @@ export type Subscription_RootMessages_By_Address_AggregateArgs = {
   where?: Maybe<Message_Bool_Exp>;
 };
 
-
 export type Subscription_RootMint_ParamsArgs = {
   distinct_on?: Maybe<Array<Mint_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13782,7 +13367,6 @@ export type Subscription_RootMint_ParamsArgs = {
   order_by?: Maybe<Array<Mint_Params_Order_By>>;
   where?: Maybe<Mint_Params_Bool_Exp>;
 };
-
 
 export type Subscription_RootMint_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Mint_Params_Select_Column>>;
@@ -13792,11 +13376,9 @@ export type Subscription_RootMint_Params_AggregateArgs = {
   where?: Maybe<Mint_Params_Bool_Exp>;
 };
 
-
 export type Subscription_RootMint_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
-
 
 export type Subscription_RootModulesArgs = {
   distinct_on?: Maybe<Array<Modules_Select_Column>>;
@@ -13806,7 +13388,6 @@ export type Subscription_RootModulesArgs = {
   where?: Maybe<Modules_Bool_Exp>;
 };
 
-
 export type Subscription_RootModules_AggregateArgs = {
   distinct_on?: Maybe<Array<Modules_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13815,11 +13396,9 @@ export type Subscription_RootModules_AggregateArgs = {
   where?: Maybe<Modules_Bool_Exp>;
 };
 
-
 export type Subscription_RootModules_By_PkArgs = {
   module_name: Scalars['String'];
 };
-
 
 export type Subscription_RootPollArgs = {
   distinct_on?: Maybe<Array<Poll_Select_Column>>;
@@ -13829,7 +13408,6 @@ export type Subscription_RootPollArgs = {
   where?: Maybe<Poll_Bool_Exp>;
 };
 
-
 export type Subscription_RootPoll_AggregateArgs = {
   distinct_on?: Maybe<Array<Poll_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13837,7 +13415,6 @@ export type Subscription_RootPoll_AggregateArgs = {
   order_by?: Maybe<Array<Poll_Order_By>>;
   where?: Maybe<Poll_Bool_Exp>;
 };
-
 
 export type Subscription_RootPoll_AnswerArgs = {
   distinct_on?: Maybe<Array<Poll_Answer_Select_Column>>;
@@ -13847,7 +13424,6 @@ export type Subscription_RootPoll_AnswerArgs = {
   where?: Maybe<Poll_Answer_Bool_Exp>;
 };
 
-
 export type Subscription_RootPoll_Answer_AggregateArgs = {
   distinct_on?: Maybe<Array<Poll_Answer_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13856,11 +13432,9 @@ export type Subscription_RootPoll_Answer_AggregateArgs = {
   where?: Maybe<Poll_Answer_Bool_Exp>;
 };
 
-
 export type Subscription_RootPoll_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPostArgs = {
   distinct_on?: Maybe<Array<Post_Select_Column>>;
@@ -13870,7 +13444,6 @@ export type Subscription_RootPostArgs = {
   where?: Maybe<Post_Bool_Exp>;
 };
 
-
 export type Subscription_RootPost_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13878,7 +13451,6 @@ export type Subscription_RootPost_AggregateArgs = {
   order_by?: Maybe<Array<Post_Order_By>>;
   where?: Maybe<Post_Bool_Exp>;
 };
-
 
 export type Subscription_RootPost_AttachmentArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Select_Column>>;
@@ -13888,7 +13460,6 @@ export type Subscription_RootPost_AttachmentArgs = {
   where?: Maybe<Post_Attachment_Bool_Exp>;
 };
 
-
 export type Subscription_RootPost_Attachment_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13897,11 +13468,9 @@ export type Subscription_RootPost_Attachment_AggregateArgs = {
   where?: Maybe<Post_Attachment_Bool_Exp>;
 };
 
-
 export type Subscription_RootPost_Attachment_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPost_Attachment_TagArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Tag_Select_Column>>;
@@ -13911,7 +13480,6 @@ export type Subscription_RootPost_Attachment_TagArgs = {
   where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
 };
 
-
 export type Subscription_RootPost_Attachment_Tag_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Tag_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13919,7 +13487,6 @@ export type Subscription_RootPost_Attachment_Tag_AggregateArgs = {
   order_by?: Maybe<Array<Post_Attachment_Tag_Order_By>>;
   where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
 };
-
 
 export type Subscription_RootPost_AttributeArgs = {
   distinct_on?: Maybe<Array<Post_Attribute_Select_Column>>;
@@ -13929,7 +13496,6 @@ export type Subscription_RootPost_AttributeArgs = {
   where?: Maybe<Post_Attribute_Bool_Exp>;
 };
 
-
 export type Subscription_RootPost_Attribute_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Attribute_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13938,11 +13504,9 @@ export type Subscription_RootPost_Attribute_AggregateArgs = {
   where?: Maybe<Post_Attribute_Bool_Exp>;
 };
 
-
 export type Subscription_RootPost_By_PkArgs = {
   id: Scalars['String'];
 };
-
 
 export type Subscription_RootPost_ReactionArgs = {
   distinct_on?: Maybe<Array<Post_Reaction_Select_Column>>;
@@ -13952,7 +13516,6 @@ export type Subscription_RootPost_ReactionArgs = {
   where?: Maybe<Post_Reaction_Bool_Exp>;
 };
 
-
 export type Subscription_RootPost_Reaction_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Reaction_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13960,7 +13523,6 @@ export type Subscription_RootPost_Reaction_AggregateArgs = {
   order_by?: Maybe<Array<Post_Reaction_Order_By>>;
   where?: Maybe<Post_Reaction_Bool_Exp>;
 };
-
 
 export type Subscription_RootPost_ReportArgs = {
   distinct_on?: Maybe<Array<Post_Report_Select_Column>>;
@@ -13970,7 +13532,6 @@ export type Subscription_RootPost_ReportArgs = {
   where?: Maybe<Post_Report_Bool_Exp>;
 };
 
-
 export type Subscription_RootPost_Report_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Report_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13978,7 +13539,6 @@ export type Subscription_RootPost_Report_AggregateArgs = {
   order_by?: Maybe<Array<Post_Report_Order_By>>;
   where?: Maybe<Post_Report_Bool_Exp>;
 };
-
 
 export type Subscription_RootPre_CommitArgs = {
   distinct_on?: Maybe<Array<Pre_Commit_Select_Column>>;
@@ -13988,7 +13548,6 @@ export type Subscription_RootPre_CommitArgs = {
   where?: Maybe<Pre_Commit_Bool_Exp>;
 };
 
-
 export type Subscription_RootPre_Commit_AggregateArgs = {
   distinct_on?: Maybe<Array<Pre_Commit_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -13996,7 +13555,6 @@ export type Subscription_RootPre_Commit_AggregateArgs = {
   order_by?: Maybe<Array<Pre_Commit_Order_By>>;
   where?: Maybe<Pre_Commit_Bool_Exp>;
 };
-
 
 export type Subscription_RootProfileArgs = {
   distinct_on?: Maybe<Array<Profile_Select_Column>>;
@@ -14006,7 +13564,6 @@ export type Subscription_RootProfileArgs = {
   where?: Maybe<Profile_Bool_Exp>;
 };
 
-
 export type Subscription_RootProfile_AggregateArgs = {
   distinct_on?: Maybe<Array<Profile_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14015,11 +13572,9 @@ export type Subscription_RootProfile_AggregateArgs = {
   where?: Maybe<Profile_Bool_Exp>;
 };
 
-
 export type Subscription_RootProfile_By_PkArgs = {
   address: Scalars['String'];
 };
-
 
 export type Subscription_RootProfile_RelationshipArgs = {
   distinct_on?: Maybe<Array<Profile_Relationship_Select_Column>>;
@@ -14029,7 +13584,6 @@ export type Subscription_RootProfile_RelationshipArgs = {
   where?: Maybe<Profile_Relationship_Bool_Exp>;
 };
 
-
 export type Subscription_RootProfile_Relationship_AggregateArgs = {
   distinct_on?: Maybe<Array<Profile_Relationship_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14037,7 +13591,6 @@ export type Subscription_RootProfile_Relationship_AggregateArgs = {
   order_by?: Maybe<Array<Profile_Relationship_Order_By>>;
   where?: Maybe<Profile_Relationship_Bool_Exp>;
 };
-
 
 export type Subscription_RootProfiles_ParamsArgs = {
   distinct_on?: Maybe<Array<Profiles_Params_Select_Column>>;
@@ -14047,7 +13600,6 @@ export type Subscription_RootProfiles_ParamsArgs = {
   where?: Maybe<Profiles_Params_Bool_Exp>;
 };
 
-
 export type Subscription_RootProposalArgs = {
   distinct_on?: Maybe<Array<Proposal_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14055,7 +13607,6 @@ export type Subscription_RootProposalArgs = {
   order_by?: Maybe<Array<Proposal_Order_By>>;
   where?: Maybe<Proposal_Bool_Exp>;
 };
-
 
 export type Subscription_RootProposal_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Select_Column>>;
@@ -14065,11 +13616,9 @@ export type Subscription_RootProposal_AggregateArgs = {
   where?: Maybe<Proposal_Bool_Exp>;
 };
 
-
 export type Subscription_RootProposal_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootProposal_DepositArgs = {
   distinct_on?: Maybe<Array<Proposal_Deposit_Select_Column>>;
@@ -14079,7 +13628,6 @@ export type Subscription_RootProposal_DepositArgs = {
   where?: Maybe<Proposal_Deposit_Bool_Exp>;
 };
 
-
 export type Subscription_RootProposal_Deposit_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Deposit_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14088,13 +13636,11 @@ export type Subscription_RootProposal_Deposit_AggregateArgs = {
   where?: Maybe<Proposal_Deposit_Bool_Exp>;
 };
 
-
 export type Subscription_RootProposal_Deposit_By_PkArgs = {
   depositor_address: Scalars['String'];
   height: Scalars['bigint'];
   proposal_id: Scalars['Int'];
 };
-
 
 export type Subscription_RootProposal_Staking_Pool_SnapshotArgs = {
   distinct_on?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Select_Column>>;
@@ -14104,7 +13650,6 @@ export type Subscription_RootProposal_Staking_Pool_SnapshotArgs = {
   where?: Maybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>;
 };
 
-
 export type Subscription_RootProposal_Staking_Pool_Snapshot_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Staking_Pool_Snapshot_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14113,11 +13658,9 @@ export type Subscription_RootProposal_Staking_Pool_Snapshot_AggregateArgs = {
   where?: Maybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>;
 };
 
-
 export type Subscription_RootProposal_Staking_Pool_Snapshot_By_PkArgs = {
   proposal_id: Scalars['Int'];
 };
-
 
 export type Subscription_RootProposal_Tally_ResultArgs = {
   distinct_on?: Maybe<Array<Proposal_Tally_Result_Select_Column>>;
@@ -14127,7 +13670,6 @@ export type Subscription_RootProposal_Tally_ResultArgs = {
   where?: Maybe<Proposal_Tally_Result_Bool_Exp>;
 };
 
-
 export type Subscription_RootProposal_Tally_Result_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Tally_Result_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14136,12 +13678,10 @@ export type Subscription_RootProposal_Tally_Result_AggregateArgs = {
   where?: Maybe<Proposal_Tally_Result_Bool_Exp>;
 };
 
-
 export type Subscription_RootProposal_Tally_Result_By_PkArgs = {
   height: Scalars['bigint'];
   proposal_id: Scalars['Int'];
 };
-
 
 export type Subscription_RootProposal_Validator_Status_SnapshotArgs = {
   distinct_on?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
@@ -14151,7 +13691,6 @@ export type Subscription_RootProposal_Validator_Status_SnapshotArgs = {
   where?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
 };
 
-
 export type Subscription_RootProposal_Validator_Status_Snapshot_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14160,11 +13699,9 @@ export type Subscription_RootProposal_Validator_Status_Snapshot_AggregateArgs = 
   where?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
 };
 
-
 export type Subscription_RootProposal_Validator_Status_Snapshot_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootProposal_VoteArgs = {
   distinct_on?: Maybe<Array<Proposal_Vote_Select_Column>>;
@@ -14174,7 +13711,6 @@ export type Subscription_RootProposal_VoteArgs = {
   where?: Maybe<Proposal_Vote_Bool_Exp>;
 };
 
-
 export type Subscription_RootProposal_Vote_AggregateArgs = {
   distinct_on?: Maybe<Array<Proposal_Vote_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14182,7 +13718,6 @@ export type Subscription_RootProposal_Vote_AggregateArgs = {
   order_by?: Maybe<Array<Proposal_Vote_Order_By>>;
   where?: Maybe<Proposal_Vote_Bool_Exp>;
 };
-
 
 export type Subscription_RootRedelegationArgs = {
   distinct_on?: Maybe<Array<Redelegation_Select_Column>>;
@@ -14192,7 +13727,6 @@ export type Subscription_RootRedelegationArgs = {
   where?: Maybe<Redelegation_Bool_Exp>;
 };
 
-
 export type Subscription_RootRedelegation_AggregateArgs = {
   distinct_on?: Maybe<Array<Redelegation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14200,7 +13734,6 @@ export type Subscription_RootRedelegation_AggregateArgs = {
   order_by?: Maybe<Array<Redelegation_Order_By>>;
   where?: Maybe<Redelegation_Bool_Exp>;
 };
-
 
 export type Subscription_RootRegistered_ReactionsArgs = {
   distinct_on?: Maybe<Array<Registered_Reactions_Select_Column>>;
@@ -14210,7 +13743,6 @@ export type Subscription_RootRegistered_ReactionsArgs = {
   where?: Maybe<Registered_Reactions_Bool_Exp>;
 };
 
-
 export type Subscription_RootRegistered_Reactions_AggregateArgs = {
   distinct_on?: Maybe<Array<Registered_Reactions_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14218,7 +13750,6 @@ export type Subscription_RootRegistered_Reactions_AggregateArgs = {
   order_by?: Maybe<Array<Registered_Reactions_Order_By>>;
   where?: Maybe<Registered_Reactions_Bool_Exp>;
 };
-
 
 export type Subscription_RootSlashing_ParamsArgs = {
   distinct_on?: Maybe<Array<Slashing_Params_Select_Column>>;
@@ -14228,7 +13759,6 @@ export type Subscription_RootSlashing_ParamsArgs = {
   where?: Maybe<Slashing_Params_Bool_Exp>;
 };
 
-
 export type Subscription_RootSlashing_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Slashing_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14237,11 +13767,9 @@ export type Subscription_RootSlashing_Params_AggregateArgs = {
   where?: Maybe<Slashing_Params_Bool_Exp>;
 };
 
-
 export type Subscription_RootSlashing_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
-
 
 export type Subscription_RootStaking_ParamsArgs = {
   distinct_on?: Maybe<Array<Staking_Params_Select_Column>>;
@@ -14251,7 +13779,6 @@ export type Subscription_RootStaking_ParamsArgs = {
   where?: Maybe<Staking_Params_Bool_Exp>;
 };
 
-
 export type Subscription_RootStaking_Params_AggregateArgs = {
   distinct_on?: Maybe<Array<Staking_Params_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14260,11 +13787,9 @@ export type Subscription_RootStaking_Params_AggregateArgs = {
   where?: Maybe<Staking_Params_Bool_Exp>;
 };
 
-
 export type Subscription_RootStaking_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
-
 
 export type Subscription_RootStaking_PoolArgs = {
   distinct_on?: Maybe<Array<Staking_Pool_Select_Column>>;
@@ -14274,7 +13799,6 @@ export type Subscription_RootStaking_PoolArgs = {
   where?: Maybe<Staking_Pool_Bool_Exp>;
 };
 
-
 export type Subscription_RootStaking_Pool_AggregateArgs = {
   distinct_on?: Maybe<Array<Staking_Pool_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14282,7 +13806,6 @@ export type Subscription_RootStaking_Pool_AggregateArgs = {
   order_by?: Maybe<Array<Staking_Pool_Order_By>>;
   where?: Maybe<Staking_Pool_Bool_Exp>;
 };
-
 
 export type Subscription_RootSupplyArgs = {
   distinct_on?: Maybe<Array<Supply_Select_Column>>;
@@ -14292,7 +13815,6 @@ export type Subscription_RootSupplyArgs = {
   where?: Maybe<Supply_Bool_Exp>;
 };
 
-
 export type Subscription_RootSupply_AggregateArgs = {
   distinct_on?: Maybe<Array<Supply_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14300,7 +13822,6 @@ export type Subscription_RootSupply_AggregateArgs = {
   order_by?: Maybe<Array<Supply_Order_By>>;
   where?: Maybe<Supply_Bool_Exp>;
 };
-
 
 export type Subscription_RootTokenArgs = {
   distinct_on?: Maybe<Array<Token_Select_Column>>;
@@ -14310,7 +13831,6 @@ export type Subscription_RootTokenArgs = {
   where?: Maybe<Token_Bool_Exp>;
 };
 
-
 export type Subscription_RootToken_AggregateArgs = {
   distinct_on?: Maybe<Array<Token_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14318,7 +13838,6 @@ export type Subscription_RootToken_AggregateArgs = {
   order_by?: Maybe<Array<Token_Order_By>>;
   where?: Maybe<Token_Bool_Exp>;
 };
-
 
 export type Subscription_RootToken_PriceArgs = {
   distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
@@ -14328,7 +13847,6 @@ export type Subscription_RootToken_PriceArgs = {
   where?: Maybe<Token_Price_Bool_Exp>;
 };
 
-
 export type Subscription_RootToken_Price_AggregateArgs = {
   distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14337,11 +13855,9 @@ export type Subscription_RootToken_Price_AggregateArgs = {
   where?: Maybe<Token_Price_Bool_Exp>;
 };
 
-
 export type Subscription_RootToken_Price_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootToken_Price_HistoryArgs = {
   distinct_on?: Maybe<Array<Token_Price_History_Select_Column>>;
@@ -14351,7 +13867,6 @@ export type Subscription_RootToken_Price_HistoryArgs = {
   where?: Maybe<Token_Price_History_Bool_Exp>;
 };
 
-
 export type Subscription_RootToken_Price_History_AggregateArgs = {
   distinct_on?: Maybe<Array<Token_Price_History_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14359,7 +13874,6 @@ export type Subscription_RootToken_Price_History_AggregateArgs = {
   order_by?: Maybe<Array<Token_Price_History_Order_By>>;
   where?: Maybe<Token_Price_History_Bool_Exp>;
 };
-
 
 export type Subscription_RootToken_UnitArgs = {
   distinct_on?: Maybe<Array<Token_Unit_Select_Column>>;
@@ -14369,7 +13883,6 @@ export type Subscription_RootToken_UnitArgs = {
   where?: Maybe<Token_Unit_Bool_Exp>;
 };
 
-
 export type Subscription_RootToken_Unit_AggregateArgs = {
   distinct_on?: Maybe<Array<Token_Unit_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14377,7 +13890,6 @@ export type Subscription_RootToken_Unit_AggregateArgs = {
   order_by?: Maybe<Array<Token_Unit_Order_By>>;
   where?: Maybe<Token_Unit_Bool_Exp>;
 };
-
 
 export type Subscription_RootTransactionArgs = {
   distinct_on?: Maybe<Array<Transaction_Select_Column>>;
@@ -14387,7 +13899,6 @@ export type Subscription_RootTransactionArgs = {
   where?: Maybe<Transaction_Bool_Exp>;
 };
 
-
 export type Subscription_RootTransaction_AggregateArgs = {
   distinct_on?: Maybe<Array<Transaction_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14396,11 +13907,9 @@ export type Subscription_RootTransaction_AggregateArgs = {
   where?: Maybe<Transaction_Bool_Exp>;
 };
 
-
 export type Subscription_RootTransaction_By_PkArgs = {
   hash: Scalars['String'];
 };
-
 
 export type Subscription_RootUnbonding_DelegationArgs = {
   distinct_on?: Maybe<Array<Unbonding_Delegation_Select_Column>>;
@@ -14410,7 +13919,6 @@ export type Subscription_RootUnbonding_DelegationArgs = {
   where?: Maybe<Unbonding_Delegation_Bool_Exp>;
 };
 
-
 export type Subscription_RootUnbonding_Delegation_AggregateArgs = {
   distinct_on?: Maybe<Array<Unbonding_Delegation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14418,7 +13926,6 @@ export type Subscription_RootUnbonding_Delegation_AggregateArgs = {
   order_by?: Maybe<Array<Unbonding_Delegation_Order_By>>;
   where?: Maybe<Unbonding_Delegation_Bool_Exp>;
 };
-
 
 export type Subscription_RootUser_BlockArgs = {
   distinct_on?: Maybe<Array<User_Block_Select_Column>>;
@@ -14428,7 +13935,6 @@ export type Subscription_RootUser_BlockArgs = {
   where?: Maybe<User_Block_Bool_Exp>;
 };
 
-
 export type Subscription_RootUser_Block_AggregateArgs = {
   distinct_on?: Maybe<Array<User_Block_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14436,7 +13942,6 @@ export type Subscription_RootUser_Block_AggregateArgs = {
   order_by?: Maybe<Array<User_Block_Order_By>>;
   where?: Maybe<User_Block_Bool_Exp>;
 };
-
 
 export type Subscription_RootUser_Poll_AnswerArgs = {
   distinct_on?: Maybe<Array<User_Poll_Answer_Select_Column>>;
@@ -14446,7 +13951,6 @@ export type Subscription_RootUser_Poll_AnswerArgs = {
   where?: Maybe<User_Poll_Answer_Bool_Exp>;
 };
 
-
 export type Subscription_RootUser_Poll_Answer_AggregateArgs = {
   distinct_on?: Maybe<Array<User_Poll_Answer_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14454,7 +13958,6 @@ export type Subscription_RootUser_Poll_Answer_AggregateArgs = {
   order_by?: Maybe<Array<User_Poll_Answer_Order_By>>;
   where?: Maybe<User_Poll_Answer_Bool_Exp>;
 };
-
 
 export type Subscription_RootValidatorArgs = {
   distinct_on?: Maybe<Array<Validator_Select_Column>>;
@@ -14464,7 +13967,6 @@ export type Subscription_RootValidatorArgs = {
   where?: Maybe<Validator_Bool_Exp>;
 };
 
-
 export type Subscription_RootValidator_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14473,11 +13975,9 @@ export type Subscription_RootValidator_AggregateArgs = {
   where?: Maybe<Validator_Bool_Exp>;
 };
 
-
 export type Subscription_RootValidator_By_PkArgs = {
   consensus_address: Scalars['String'];
 };
-
 
 export type Subscription_RootValidator_CommissionArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Select_Column>>;
@@ -14487,7 +13987,6 @@ export type Subscription_RootValidator_CommissionArgs = {
   where?: Maybe<Validator_Commission_Bool_Exp>;
 };
 
-
 export type Subscription_RootValidator_Commission_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14495,7 +13994,6 @@ export type Subscription_RootValidator_Commission_AggregateArgs = {
   order_by?: Maybe<Array<Validator_Commission_Order_By>>;
   where?: Maybe<Validator_Commission_Bool_Exp>;
 };
-
 
 export type Subscription_RootValidator_Commission_AmountArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Amount_Select_Column>>;
@@ -14505,7 +14003,6 @@ export type Subscription_RootValidator_Commission_AmountArgs = {
   where?: Maybe<Validator_Commission_Amount_Bool_Exp>;
 };
 
-
 export type Subscription_RootValidator_Commission_Amount_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Amount_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14514,16 +14011,13 @@ export type Subscription_RootValidator_Commission_Amount_AggregateArgs = {
   where?: Maybe<Validator_Commission_Amount_Bool_Exp>;
 };
 
-
 export type Subscription_RootValidator_Commission_Amount_By_PkArgs = {
   validator_address: Scalars['String'];
 };
 
-
 export type Subscription_RootValidator_Commission_By_PkArgs = {
   validator_address: Scalars['String'];
 };
-
 
 export type Subscription_RootValidator_DescriptionArgs = {
   distinct_on?: Maybe<Array<Validator_Description_Select_Column>>;
@@ -14533,7 +14027,6 @@ export type Subscription_RootValidator_DescriptionArgs = {
   where?: Maybe<Validator_Description_Bool_Exp>;
 };
 
-
 export type Subscription_RootValidator_Description_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Description_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14542,11 +14035,9 @@ export type Subscription_RootValidator_Description_AggregateArgs = {
   where?: Maybe<Validator_Description_Bool_Exp>;
 };
 
-
 export type Subscription_RootValidator_Description_By_PkArgs = {
   validator_address: Scalars['String'];
 };
-
 
 export type Subscription_RootValidator_InfoArgs = {
   distinct_on?: Maybe<Array<Validator_Info_Select_Column>>;
@@ -14556,7 +14047,6 @@ export type Subscription_RootValidator_InfoArgs = {
   where?: Maybe<Validator_Info_Bool_Exp>;
 };
 
-
 export type Subscription_RootValidator_Info_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Info_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14565,11 +14055,9 @@ export type Subscription_RootValidator_Info_AggregateArgs = {
   where?: Maybe<Validator_Info_Bool_Exp>;
 };
 
-
 export type Subscription_RootValidator_Info_By_PkArgs = {
   consensus_address: Scalars['String'];
 };
-
 
 export type Subscription_RootValidator_Signing_InfoArgs = {
   distinct_on?: Maybe<Array<Validator_Signing_Info_Select_Column>>;
@@ -14579,7 +14067,6 @@ export type Subscription_RootValidator_Signing_InfoArgs = {
   where?: Maybe<Validator_Signing_Info_Bool_Exp>;
 };
 
-
 export type Subscription_RootValidator_Signing_Info_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Signing_Info_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14588,11 +14075,9 @@ export type Subscription_RootValidator_Signing_Info_AggregateArgs = {
   where?: Maybe<Validator_Signing_Info_Bool_Exp>;
 };
 
-
 export type Subscription_RootValidator_Signing_Info_By_PkArgs = {
   validator_address: Scalars['String'];
 };
-
 
 export type Subscription_RootValidator_StatusArgs = {
   distinct_on?: Maybe<Array<Validator_Status_Select_Column>>;
@@ -14602,7 +14087,6 @@ export type Subscription_RootValidator_StatusArgs = {
   where?: Maybe<Validator_Status_Bool_Exp>;
 };
 
-
 export type Subscription_RootValidator_Status_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Status_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14611,11 +14095,9 @@ export type Subscription_RootValidator_Status_AggregateArgs = {
   where?: Maybe<Validator_Status_Bool_Exp>;
 };
 
-
 export type Subscription_RootValidator_Status_By_PkArgs = {
   validator_address: Scalars['String'];
 };
-
 
 export type Subscription_RootValidator_Voting_PowerArgs = {
   distinct_on?: Maybe<Array<Validator_Voting_Power_Select_Column>>;
@@ -14625,7 +14107,6 @@ export type Subscription_RootValidator_Voting_PowerArgs = {
   where?: Maybe<Validator_Voting_Power_Bool_Exp>;
 };
 
-
 export type Subscription_RootValidator_Voting_Power_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Voting_Power_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14634,11 +14115,9 @@ export type Subscription_RootValidator_Voting_Power_AggregateArgs = {
   where?: Maybe<Validator_Voting_Power_Bool_Exp>;
 };
 
-
 export type Subscription_RootValidator_Voting_Power_By_PkArgs = {
   validator_address: Scalars['String'];
 };
-
 
 export type Subscription_RootVesting_AccountArgs = {
   distinct_on?: Maybe<Array<Vesting_Account_Select_Column>>;
@@ -14648,7 +14127,6 @@ export type Subscription_RootVesting_AccountArgs = {
   where?: Maybe<Vesting_Account_Bool_Exp>;
 };
 
-
 export type Subscription_RootVesting_Account_AggregateArgs = {
   distinct_on?: Maybe<Array<Vesting_Account_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -14657,11 +14135,9 @@ export type Subscription_RootVesting_Account_AggregateArgs = {
   where?: Maybe<Vesting_Account_Bool_Exp>;
 };
 
-
 export type Subscription_RootVesting_Account_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootVesting_PeriodArgs = {
   distinct_on?: Maybe<Array<Vesting_Period_Select_Column>>;
@@ -14670,7 +14146,6 @@ export type Subscription_RootVesting_PeriodArgs = {
   order_by?: Maybe<Array<Vesting_Period_Order_By>>;
   where?: Maybe<Vesting_Period_Bool_Exp>;
 };
-
 
 export type Subscription_RootVesting_Period_AggregateArgs = {
   distinct_on?: Maybe<Array<Vesting_Period_Select_Column>>;
@@ -14709,7 +14184,6 @@ export type Supply_Aggregate_Fields = {
   var_samp?: Maybe<Supply_Var_Samp_Fields>;
   variance?: Maybe<Supply_Variance_Fields>;
 };
-
 
 /** aggregate fields of "supply" */
 export type Supply_Aggregate_FieldsCountArgs = {
@@ -14755,7 +14229,7 @@ export enum Supply_Select_Column {
   /** column name */
   Coins = 'coins',
   /** column name */
-  Height = 'height'
+  Height = 'height',
 }
 
 /** aggregate stddev on columns */
@@ -14800,7 +14274,6 @@ export type Supply_Variance_Fields = {
   height?: Maybe<Scalars['Float']>;
 };
 
-
 /** Boolean expression to compare columns of type "timestamp". All fields are combined with logical 'AND'. */
 export type Timestamp_Comparison_Exp = {
   _eq?: Maybe<Scalars['timestamp']>;
@@ -14824,7 +14297,6 @@ export type Token = {
   token_units_aggregate: Token_Unit_Aggregate;
 };
 
-
 /** columns and relationships of "token" */
 export type TokenToken_UnitsArgs = {
   distinct_on?: Maybe<Array<Token_Unit_Select_Column>>;
@@ -14833,7 +14305,6 @@ export type TokenToken_UnitsArgs = {
   order_by?: Maybe<Array<Token_Unit_Order_By>>;
   where?: Maybe<Token_Unit_Bool_Exp>;
 };
-
 
 /** columns and relationships of "token" */
 export type TokenToken_Units_AggregateArgs = {
@@ -14858,7 +14329,6 @@ export type Token_Aggregate_Fields = {
   max?: Maybe<Token_Max_Fields>;
   min?: Maybe<Token_Min_Fields>;
 };
-
 
 /** aggregate fields of "token" */
 export type Token_Aggregate_FieldsCountArgs = {
@@ -14927,7 +14397,6 @@ export type Token_Price_Aggregate_Fields = {
   var_samp?: Maybe<Token_Price_Var_Samp_Fields>;
   variance?: Maybe<Token_Price_Variance_Fields>;
 };
-
 
 /** aggregate fields of "token_price" */
 export type Token_Price_Aggregate_FieldsCountArgs = {
@@ -15011,7 +14480,6 @@ export type Token_Price_History_Aggregate_Fields = {
   var_samp?: Maybe<Token_Price_History_Var_Samp_Fields>;
   variance?: Maybe<Token_Price_History_Variance_Fields>;
 };
-
 
 /** aggregate fields of "token_price_history" */
 export type Token_Price_History_Aggregate_FieldsCountArgs = {
@@ -15111,7 +14579,7 @@ export enum Token_Price_History_Select_Column {
   /** column name */
   Timestamp = 'timestamp',
   /** column name */
-  UnitName = 'unit_name'
+  UnitName = 'unit_name',
 }
 
 /** aggregate stddev on columns */
@@ -15264,7 +14732,7 @@ export enum Token_Price_Select_Column {
   /** column name */
   Timestamp = 'timestamp',
   /** column name */
-  UnitName = 'unit_name'
+  UnitName = 'unit_name',
 }
 
 /** aggregate stddev on columns */
@@ -15375,7 +14843,7 @@ export type Token_Price_Variance_Order_By = {
 /** select columns of table "token" */
 export enum Token_Select_Column {
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** columns and relationships of "token_unit" */
@@ -15400,7 +14868,6 @@ export type Token_Unit = {
   token_prices_aggregate: Token_Price_Aggregate;
 };
 
-
 /** columns and relationships of "token_unit" */
 export type Token_UnitToken_Price_HistoriesArgs = {
   distinct_on?: Maybe<Array<Token_Price_History_Select_Column>>;
@@ -15409,7 +14876,6 @@ export type Token_UnitToken_Price_HistoriesArgs = {
   order_by?: Maybe<Array<Token_Price_History_Order_By>>;
   where?: Maybe<Token_Price_History_Bool_Exp>;
 };
-
 
 /** columns and relationships of "token_unit" */
 export type Token_UnitToken_Price_Histories_AggregateArgs = {
@@ -15420,7 +14886,6 @@ export type Token_UnitToken_Price_Histories_AggregateArgs = {
   where?: Maybe<Token_Price_History_Bool_Exp>;
 };
 
-
 /** columns and relationships of "token_unit" */
 export type Token_UnitToken_PricesArgs = {
   distinct_on?: Maybe<Array<Token_Price_Select_Column>>;
@@ -15429,7 +14894,6 @@ export type Token_UnitToken_PricesArgs = {
   order_by?: Maybe<Array<Token_Price_Order_By>>;
   where?: Maybe<Token_Price_Bool_Exp>;
 };
-
 
 /** columns and relationships of "token_unit" */
 export type Token_UnitToken_Prices_AggregateArgs = {
@@ -15462,7 +14926,6 @@ export type Token_Unit_Aggregate_Fields = {
   var_samp?: Maybe<Token_Unit_Var_Samp_Fields>;
   variance?: Maybe<Token_Unit_Variance_Fields>;
 };
-
 
 /** aggregate fields of "token_unit" */
 export type Token_Unit_Aggregate_FieldsCountArgs = {
@@ -15570,7 +15033,7 @@ export enum Token_Unit_Select_Column {
   /** column name */
   PriceId = 'price_id',
   /** column name */
-  TokenName = 'token_name'
+  TokenName = 'token_name',
 }
 
 /** aggregate stddev on columns */
@@ -15673,24 +15136,20 @@ export type Transaction = {
   success: Scalars['Boolean'];
 };
 
-
 /** columns and relationships of "transaction" */
 export type TransactionFeeArgs = {
   path?: Maybe<Scalars['String']>;
 };
-
 
 /** columns and relationships of "transaction" */
 export type TransactionLogsArgs = {
   path?: Maybe<Scalars['String']>;
 };
 
-
 /** columns and relationships of "transaction" */
 export type TransactionMessagesArgs = {
   path?: Maybe<Scalars['String']>;
 };
-
 
 /** columns and relationships of "transaction" */
 export type TransactionMessagesByTransactionHashArgs = {
@@ -15701,7 +15160,6 @@ export type TransactionMessagesByTransactionHashArgs = {
   where?: Maybe<Message_Bool_Exp>;
 };
 
-
 /** columns and relationships of "transaction" */
 export type TransactionMessagesByTransactionHash_AggregateArgs = {
   distinct_on?: Maybe<Array<Message_Select_Column>>;
@@ -15710,7 +15168,6 @@ export type TransactionMessagesByTransactionHash_AggregateArgs = {
   order_by?: Maybe<Array<Message_Order_By>>;
   where?: Maybe<Message_Bool_Exp>;
 };
-
 
 /** columns and relationships of "transaction" */
 export type TransactionSigner_InfosArgs = {
@@ -15739,7 +15196,6 @@ export type Transaction_Aggregate_Fields = {
   var_samp?: Maybe<Transaction_Var_Samp_Fields>;
   variance?: Maybe<Transaction_Variance_Fields>;
 };
-
 
 /** aggregate fields of "transaction" */
 export type Transaction_Aggregate_FieldsCountArgs = {
@@ -15883,7 +15339,7 @@ export enum Transaction_Select_Column {
   /** column name */
   SignerInfos = 'signer_infos',
   /** column name */
-  Success = 'success'
+  Success = 'success',
 }
 
 /** aggregate stddev on columns */
@@ -16028,7 +15484,6 @@ export type Unbonding_Delegation_Aggregate_Fields = {
   variance?: Maybe<Unbonding_Delegation_Variance_Fields>;
 };
 
-
 /** aggregate fields of "unbonding_delegation" */
 export type Unbonding_Delegation_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Unbonding_Delegation_Select_Column>>;
@@ -16131,7 +15586,7 @@ export enum Unbonding_Delegation_Select_Column {
   /** column name */
   Height = 'height',
   /** column name */
-  ValidatorAddress = 'validator_address'
+  ValidatorAddress = 'validator_address',
 }
 
 /** aggregate stddev on columns */
@@ -16248,7 +15703,6 @@ export type User_Block_Aggregate_Fields = {
   variance?: Maybe<User_Block_Variance_Fields>;
 };
 
-
 /** aggregate fields of "user_block" */
 export type User_Block_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<User_Block_Select_Column>>;
@@ -16355,7 +15809,7 @@ export enum User_Block_Select_Column {
   /** column name */
   Reason = 'reason',
   /** column name */
-  Subspace = 'subspace'
+  Subspace = 'subspace',
 }
 
 /** aggregate stddev on columns */
@@ -16471,7 +15925,6 @@ export type User_Poll_Answer_Aggregate_Fields = {
   variance?: Maybe<User_Poll_Answer_Variance_Fields>;
 };
 
-
 /** aggregate fields of "user_poll_answer" */
 export type User_Poll_Answer_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<User_Poll_Answer_Select_Column>>;
@@ -16574,7 +16027,7 @@ export enum User_Poll_Answer_Select_Column {
   /** column name */
   Height = 'height',
   /** column name */
-  PollId = 'poll_id'
+  PollId = 'poll_id',
 }
 
 /** aggregate stddev on columns */
@@ -16757,7 +16210,6 @@ export type Validator = {
   validator_voting_powers_aggregate: Validator_Voting_Power_Aggregate;
 };
 
-
 /** columns and relationships of "validator" */
 export type ValidatorBlocksArgs = {
   distinct_on?: Maybe<Array<Block_Select_Column>>;
@@ -16766,7 +16218,6 @@ export type ValidatorBlocksArgs = {
   order_by?: Maybe<Array<Block_Order_By>>;
   where?: Maybe<Block_Bool_Exp>;
 };
-
 
 /** columns and relationships of "validator" */
 export type ValidatorBlocks_AggregateArgs = {
@@ -16777,7 +16228,6 @@ export type ValidatorBlocks_AggregateArgs = {
   where?: Maybe<Block_Bool_Exp>;
 };
 
-
 /** columns and relationships of "validator" */
 export type ValidatorDelegation_RewardsArgs = {
   distinct_on?: Maybe<Array<Delegation_Reward_Select_Column>>;
@@ -16786,7 +16236,6 @@ export type ValidatorDelegation_RewardsArgs = {
   order_by?: Maybe<Array<Delegation_Reward_Order_By>>;
   where?: Maybe<Delegation_Reward_Bool_Exp>;
 };
-
 
 /** columns and relationships of "validator" */
 export type ValidatorDelegation_Rewards_AggregateArgs = {
@@ -16797,7 +16246,6 @@ export type ValidatorDelegation_Rewards_AggregateArgs = {
   where?: Maybe<Delegation_Reward_Bool_Exp>;
 };
 
-
 /** columns and relationships of "validator" */
 export type ValidatorDelegationsArgs = {
   distinct_on?: Maybe<Array<Delegation_Select_Column>>;
@@ -16806,7 +16254,6 @@ export type ValidatorDelegationsArgs = {
   order_by?: Maybe<Array<Delegation_Order_By>>;
   where?: Maybe<Delegation_Bool_Exp>;
 };
-
 
 /** columns and relationships of "validator" */
 export type ValidatorDelegations_AggregateArgs = {
@@ -16817,7 +16264,6 @@ export type ValidatorDelegations_AggregateArgs = {
   where?: Maybe<Delegation_Bool_Exp>;
 };
 
-
 /** columns and relationships of "validator" */
 export type ValidatorDouble_Sign_VotesArgs = {
   distinct_on?: Maybe<Array<Double_Sign_Vote_Select_Column>>;
@@ -16826,7 +16272,6 @@ export type ValidatorDouble_Sign_VotesArgs = {
   order_by?: Maybe<Array<Double_Sign_Vote_Order_By>>;
   where?: Maybe<Double_Sign_Vote_Bool_Exp>;
 };
-
 
 /** columns and relationships of "validator" */
 export type ValidatorDouble_Sign_Votes_AggregateArgs = {
@@ -16837,7 +16282,6 @@ export type ValidatorDouble_Sign_Votes_AggregateArgs = {
   where?: Maybe<Double_Sign_Vote_Bool_Exp>;
 };
 
-
 /** columns and relationships of "validator" */
 export type ValidatorPre_CommitsArgs = {
   distinct_on?: Maybe<Array<Pre_Commit_Select_Column>>;
@@ -16846,7 +16290,6 @@ export type ValidatorPre_CommitsArgs = {
   order_by?: Maybe<Array<Pre_Commit_Order_By>>;
   where?: Maybe<Pre_Commit_Bool_Exp>;
 };
-
 
 /** columns and relationships of "validator" */
 export type ValidatorPre_Commits_AggregateArgs = {
@@ -16857,7 +16300,6 @@ export type ValidatorPre_Commits_AggregateArgs = {
   where?: Maybe<Pre_Commit_Bool_Exp>;
 };
 
-
 /** columns and relationships of "validator" */
 export type ValidatorProposal_Validator_Status_SnapshotsArgs = {
   distinct_on?: Maybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
@@ -16866,7 +16308,6 @@ export type ValidatorProposal_Validator_Status_SnapshotsArgs = {
   order_by?: Maybe<Array<Proposal_Validator_Status_Snapshot_Order_By>>;
   where?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
 };
-
 
 /** columns and relationships of "validator" */
 export type ValidatorProposal_Validator_Status_Snapshots_AggregateArgs = {
@@ -16877,7 +16318,6 @@ export type ValidatorProposal_Validator_Status_Snapshots_AggregateArgs = {
   where?: Maybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
 };
 
-
 /** columns and relationships of "validator" */
 export type ValidatorRedelegationsByDstValidatorAddressArgs = {
   distinct_on?: Maybe<Array<Redelegation_Select_Column>>;
@@ -16886,7 +16326,6 @@ export type ValidatorRedelegationsByDstValidatorAddressArgs = {
   order_by?: Maybe<Array<Redelegation_Order_By>>;
   where?: Maybe<Redelegation_Bool_Exp>;
 };
-
 
 /** columns and relationships of "validator" */
 export type ValidatorRedelegationsByDstValidatorAddress_AggregateArgs = {
@@ -16897,7 +16336,6 @@ export type ValidatorRedelegationsByDstValidatorAddress_AggregateArgs = {
   where?: Maybe<Redelegation_Bool_Exp>;
 };
 
-
 /** columns and relationships of "validator" */
 export type ValidatorRedelegationsBySrcValidatorAddressArgs = {
   distinct_on?: Maybe<Array<Redelegation_Select_Column>>;
@@ -16906,7 +16344,6 @@ export type ValidatorRedelegationsBySrcValidatorAddressArgs = {
   order_by?: Maybe<Array<Redelegation_Order_By>>;
   where?: Maybe<Redelegation_Bool_Exp>;
 };
-
 
 /** columns and relationships of "validator" */
 export type ValidatorRedelegationsBySrcValidatorAddress_AggregateArgs = {
@@ -16917,7 +16354,6 @@ export type ValidatorRedelegationsBySrcValidatorAddress_AggregateArgs = {
   where?: Maybe<Redelegation_Bool_Exp>;
 };
 
-
 /** columns and relationships of "validator" */
 export type ValidatorSelf_DelegationsArgs = {
   distinct_on?: Maybe<Array<Delegation_Select_Column>>;
@@ -16926,7 +16362,6 @@ export type ValidatorSelf_DelegationsArgs = {
   order_by?: Maybe<Array<Delegation_Order_By>>;
   where?: Maybe<Delegation_Bool_Exp>;
 };
-
 
 /** columns and relationships of "validator" */
 export type ValidatorUnbonding_DelegationsArgs = {
@@ -16937,7 +16372,6 @@ export type ValidatorUnbonding_DelegationsArgs = {
   where?: Maybe<Unbonding_Delegation_Bool_Exp>;
 };
 
-
 /** columns and relationships of "validator" */
 export type ValidatorUnbonding_Delegations_AggregateArgs = {
   distinct_on?: Maybe<Array<Unbonding_Delegation_Select_Column>>;
@@ -16946,7 +16380,6 @@ export type ValidatorUnbonding_Delegations_AggregateArgs = {
   order_by?: Maybe<Array<Unbonding_Delegation_Order_By>>;
   where?: Maybe<Unbonding_Delegation_Bool_Exp>;
 };
-
 
 /** columns and relationships of "validator" */
 export type ValidatorValidator_Commission_AmountsArgs = {
@@ -16957,7 +16390,6 @@ export type ValidatorValidator_Commission_AmountsArgs = {
   where?: Maybe<Validator_Commission_Amount_Bool_Exp>;
 };
 
-
 /** columns and relationships of "validator" */
 export type ValidatorValidator_Commission_Amounts_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Amount_Select_Column>>;
@@ -16966,7 +16398,6 @@ export type ValidatorValidator_Commission_Amounts_AggregateArgs = {
   order_by?: Maybe<Array<Validator_Commission_Amount_Order_By>>;
   where?: Maybe<Validator_Commission_Amount_Bool_Exp>;
 };
-
 
 /** columns and relationships of "validator" */
 export type ValidatorValidator_CommissionsArgs = {
@@ -16977,7 +16408,6 @@ export type ValidatorValidator_CommissionsArgs = {
   where?: Maybe<Validator_Commission_Bool_Exp>;
 };
 
-
 /** columns and relationships of "validator" */
 export type ValidatorValidator_Commissions_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Commission_Select_Column>>;
@@ -16986,7 +16416,6 @@ export type ValidatorValidator_Commissions_AggregateArgs = {
   order_by?: Maybe<Array<Validator_Commission_Order_By>>;
   where?: Maybe<Validator_Commission_Bool_Exp>;
 };
-
 
 /** columns and relationships of "validator" */
 export type ValidatorValidator_DescriptionsArgs = {
@@ -16997,7 +16426,6 @@ export type ValidatorValidator_DescriptionsArgs = {
   where?: Maybe<Validator_Description_Bool_Exp>;
 };
 
-
 /** columns and relationships of "validator" */
 export type ValidatorValidator_Descriptions_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Description_Select_Column>>;
@@ -17006,7 +16434,6 @@ export type ValidatorValidator_Descriptions_AggregateArgs = {
   order_by?: Maybe<Array<Validator_Description_Order_By>>;
   where?: Maybe<Validator_Description_Bool_Exp>;
 };
-
 
 /** columns and relationships of "validator" */
 export type ValidatorValidator_InfosArgs = {
@@ -17017,7 +16444,6 @@ export type ValidatorValidator_InfosArgs = {
   where?: Maybe<Validator_Info_Bool_Exp>;
 };
 
-
 /** columns and relationships of "validator" */
 export type ValidatorValidator_Infos_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Info_Select_Column>>;
@@ -17026,7 +16452,6 @@ export type ValidatorValidator_Infos_AggregateArgs = {
   order_by?: Maybe<Array<Validator_Info_Order_By>>;
   where?: Maybe<Validator_Info_Bool_Exp>;
 };
-
 
 /** columns and relationships of "validator" */
 export type ValidatorValidator_Signing_InfosArgs = {
@@ -17037,7 +16462,6 @@ export type ValidatorValidator_Signing_InfosArgs = {
   where?: Maybe<Validator_Signing_Info_Bool_Exp>;
 };
 
-
 /** columns and relationships of "validator" */
 export type ValidatorValidator_Signing_Infos_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Signing_Info_Select_Column>>;
@@ -17046,7 +16470,6 @@ export type ValidatorValidator_Signing_Infos_AggregateArgs = {
   order_by?: Maybe<Array<Validator_Signing_Info_Order_By>>;
   where?: Maybe<Validator_Signing_Info_Bool_Exp>;
 };
-
 
 /** columns and relationships of "validator" */
 export type ValidatorValidator_StatusesArgs = {
@@ -17057,7 +16480,6 @@ export type ValidatorValidator_StatusesArgs = {
   where?: Maybe<Validator_Status_Bool_Exp>;
 };
 
-
 /** columns and relationships of "validator" */
 export type ValidatorValidator_Statuses_AggregateArgs = {
   distinct_on?: Maybe<Array<Validator_Status_Select_Column>>;
@@ -17067,7 +16489,6 @@ export type ValidatorValidator_Statuses_AggregateArgs = {
   where?: Maybe<Validator_Status_Bool_Exp>;
 };
 
-
 /** columns and relationships of "validator" */
 export type ValidatorValidator_Voting_PowersArgs = {
   distinct_on?: Maybe<Array<Validator_Voting_Power_Select_Column>>;
@@ -17076,7 +16497,6 @@ export type ValidatorValidator_Voting_PowersArgs = {
   order_by?: Maybe<Array<Validator_Voting_Power_Order_By>>;
   where?: Maybe<Validator_Voting_Power_Bool_Exp>;
 };
-
 
 /** columns and relationships of "validator" */
 export type ValidatorValidator_Voting_Powers_AggregateArgs = {
@@ -17101,7 +16521,6 @@ export type Validator_Aggregate_Fields = {
   max?: Maybe<Validator_Max_Fields>;
   min?: Maybe<Validator_Min_Fields>;
 };
-
 
 /** aggregate fields of "validator" */
 export type Validator_Aggregate_FieldsCountArgs = {
@@ -17169,7 +16588,6 @@ export type Validator_Commission_Aggregate_Fields = {
   variance?: Maybe<Validator_Commission_Variance_Fields>;
 };
 
-
 /** aggregate fields of "validator_commission" */
 export type Validator_Commission_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Validator_Commission_Select_Column>>;
@@ -17223,7 +16641,6 @@ export type Validator_Commission_Amount_Aggregate_Fields = {
   var_samp?: Maybe<Validator_Commission_Amount_Var_Samp_Fields>;
   variance?: Maybe<Validator_Commission_Amount_Variance_Fields>;
 };
-
 
 /** aggregate fields of "validator_commission_amount" */
 export type Validator_Commission_Amount_Aggregate_FieldsCountArgs = {
@@ -17309,7 +16726,7 @@ export enum Validator_Commission_Amount_Select_Column {
   /** column name */
   Height = 'height',
   /** column name */
-  ValidatorAddress = 'validator_address'
+  ValidatorAddress = 'validator_address',
 }
 
 /** aggregate stddev on columns */
@@ -17468,7 +16885,7 @@ export enum Validator_Commission_Select_Column {
   /** column name */
   MinSelfDelegation = 'min_self_delegation',
   /** column name */
-  ValidatorAddress = 'validator_address'
+  ValidatorAddress = 'validator_address',
 }
 
 /** aggregate stddev on columns */
@@ -17614,7 +17031,6 @@ export type Validator_Description_Aggregate_Fields = {
   variance?: Maybe<Validator_Description_Variance_Fields>;
 };
 
-
 /** aggregate fields of "validator_description" */
 export type Validator_Description_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Validator_Description_Select_Column>>;
@@ -17743,7 +17159,7 @@ export enum Validator_Description_Select_Column {
   /** column name */
   ValidatorAddress = 'validator_address',
   /** column name */
-  Website = 'website'
+  Website = 'website',
 }
 
 /** aggregate stddev on columns */
@@ -17861,7 +17277,6 @@ export type Validator_Info_Aggregate_Fields = {
   variance?: Maybe<Validator_Info_Variance_Fields>;
 };
 
-
 /** aggregate fields of "validator_info" */
 export type Validator_Info_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Validator_Info_Select_Column>>;
@@ -17976,7 +17391,7 @@ export enum Validator_Info_Select_Column {
   /** column name */
   OperatorAddress = 'operator_address',
   /** column name */
-  SelfDelegateAddress = 'self_delegate_address'
+  SelfDelegateAddress = 'self_delegate_address',
 }
 
 /** aggregate stddev on columns */
@@ -18098,7 +17513,7 @@ export enum Validator_Select_Column {
   /** column name */
   ConsensusAddress = 'consensus_address',
   /** column name */
-  ConsensusPubkey = 'consensus_pubkey'
+  ConsensusPubkey = 'consensus_pubkey',
 }
 
 /** columns and relationships of "validator_signing_info" */
@@ -18135,7 +17550,6 @@ export type Validator_Signing_Info_Aggregate_Fields = {
   var_samp?: Maybe<Validator_Signing_Info_Var_Samp_Fields>;
   variance?: Maybe<Validator_Signing_Info_Variance_Fields>;
 };
-
 
 /** aggregate fields of "validator_signing_info" */
 export type Validator_Signing_Info_Aggregate_FieldsCountArgs = {
@@ -18257,7 +17671,7 @@ export enum Validator_Signing_Info_Select_Column {
   /** column name */
   Tombstoned = 'tombstoned',
   /** column name */
-  ValidatorAddress = 'validator_address'
+  ValidatorAddress = 'validator_address',
 }
 
 /** aggregate stddev on columns */
@@ -18414,7 +17828,6 @@ export type Validator_Status_Aggregate_Fields = {
   variance?: Maybe<Validator_Status_Variance_Fields>;
 };
 
-
 /** aggregate fields of "validator_status" */
 export type Validator_Status_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Validator_Status_Select_Column>>;
@@ -18513,7 +17926,7 @@ export enum Validator_Status_Select_Column {
   /** column name */
   Tombstoned = 'tombstoned',
   /** column name */
-  ValidatorAddress = 'validator_address'
+  ValidatorAddress = 'validator_address',
 }
 
 /** aggregate stddev on columns */
@@ -18640,7 +18053,6 @@ export type Validator_Voting_Power_Aggregate_Fields = {
   variance?: Maybe<Validator_Voting_Power_Variance_Fields>;
 };
 
-
 /** aggregate fields of "validator_voting_power" */
 export type Validator_Voting_Power_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Validator_Voting_Power_Select_Column>>;
@@ -18731,7 +18143,7 @@ export enum Validator_Voting_Power_Select_Column {
   /** column name */
   ValidatorAddress = 'validator_address',
   /** column name */
-  VotingPower = 'voting_power'
+  VotingPower = 'voting_power',
 }
 
 /** aggregate stddev on columns */
@@ -18842,7 +18254,6 @@ export type Vesting_Account = {
   vesting_periods_aggregate: Vesting_Period_Aggregate;
 };
 
-
 /** columns and relationships of "vesting_account" */
 export type Vesting_AccountVesting_PeriodsArgs = {
   distinct_on?: Maybe<Array<Vesting_Period_Select_Column>>;
@@ -18851,7 +18262,6 @@ export type Vesting_AccountVesting_PeriodsArgs = {
   order_by?: Maybe<Array<Vesting_Period_Order_By>>;
   where?: Maybe<Vesting_Period_Bool_Exp>;
 };
-
 
 /** columns and relationships of "vesting_account" */
 export type Vesting_AccountVesting_Periods_AggregateArgs = {
@@ -18884,7 +18294,6 @@ export type Vesting_Account_Aggregate_Fields = {
   var_samp?: Maybe<Vesting_Account_Var_Samp_Fields>;
   variance?: Maybe<Vesting_Account_Variance_Fields>;
 };
-
 
 /** aggregate fields of "vesting_account" */
 export type Vesting_Account_Aggregate_FieldsCountArgs = {
@@ -18996,7 +18405,7 @@ export enum Vesting_Account_Select_Column {
   /** column name */
   StartTime = 'start_time',
   /** column name */
-  Type = 'type'
+  Type = 'type',
 }
 
 /** aggregate stddev on columns */
@@ -19110,7 +18519,6 @@ export type Vesting_Period_Aggregate_Fields = {
   variance?: Maybe<Vesting_Period_Variance_Fields>;
 };
 
-
 /** aggregate fields of "vesting_period" */
 export type Vesting_Period_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Vesting_Period_Select_Column>>;
@@ -19207,7 +18615,7 @@ export enum Vesting_Period_Select_Column {
   /** column name */
   PeriodOrder = 'period_order',
   /** column name */
-  VestingAccountId = 'vesting_account_id'
+  VestingAccountId = 'vesting_account_id',
 }
 
 /** aggregate stddev on columns */
@@ -19319,67 +18727,94 @@ export type DesmosProfileQueryVariables = Exact<{
   address?: Maybe<Scalars['String']>;
 }>;
 
-
-export type DesmosProfileQuery = { profile: Array<(
-    { __typename?: 'profile' }
-    & Pick<Profile, 'address' | 'bio' | 'dtag' | 'nickname'>
-    & { profilePic: Profile['profile_pic'], coverPic: Profile['cover_pic'], creationTime: Profile['creation_time'] }
-    & { chainLinks: Array<(
-      { __typename?: 'chain_link' }
-      & { creationTime: Chain_Link['creation_time'], externalAddress: Chain_Link['external_address'] }
-      & { chainConfig: (
-        { __typename?: 'chain_link_chain_config' }
-        & Pick<Chain_Link_Chain_Config, 'name' | 'id'>
-      ) }
-    )>, applicationLinks: Array<(
-      { __typename?: 'application_link' }
-      & Pick<Application_Link, 'username' | 'application'>
-      & { creationTime: Application_Link['creation_time'] }
-    )> }
-  )> };
+export type DesmosProfileQuery = {
+  profile: Array<
+    { __typename?: 'profile' } & Pick<Profile, 'address' | 'bio' | 'dtag' | 'nickname'> & {
+        profilePic: Profile['profile_pic'];
+        coverPic: Profile['cover_pic'];
+        creationTime: Profile['creation_time'];
+      } & {
+        chainLinks: Array<
+          { __typename?: 'chain_link' } & {
+            creationTime: Chain_Link['creation_time'];
+            externalAddress: Chain_Link['external_address'];
+          } & {
+            chainConfig: { __typename?: 'chain_link_chain_config' } & Pick<
+              Chain_Link_Chain_Config,
+              'name' | 'id'
+            >;
+          }
+        >;
+        applicationLinks: Array<
+          { __typename?: 'application_link' } & Pick<
+            Application_Link,
+            'username' | 'application'
+          > & { creationTime: Application_Link['creation_time'] }
+        >;
+      }
+  >;
+};
 
 export type DesmosProfileLinkQueryVariables = Exact<{
   address?: Maybe<Scalars['String']>;
 }>;
 
-
-export type DesmosProfileLinkQuery = { profile: Array<(
-    { __typename?: 'profile' }
-    & Pick<Profile, 'address' | 'bio' | 'dtag' | 'nickname'>
-    & { profilePic: Profile['profile_pic'], coverPic: Profile['cover_pic'], creationTime: Profile['creation_time'] }
-    & { chainLinks: Array<(
-      { __typename?: 'chain_link' }
-      & { creationTime: Chain_Link['creation_time'], externalAddress: Chain_Link['external_address'] }
-      & { chainConfig: (
-        { __typename?: 'chain_link_chain_config' }
-        & Pick<Chain_Link_Chain_Config, 'name' | 'id'>
-      ) }
-    )>, applicationLinks: Array<(
-      { __typename?: 'application_link' }
-      & Pick<Application_Link, 'username' | 'application'>
-      & { creationTime: Application_Link['creation_time'] }
-    )> }
-  )> };
+export type DesmosProfileLinkQuery = {
+  profile: Array<
+    { __typename?: 'profile' } & Pick<Profile, 'address' | 'bio' | 'dtag' | 'nickname'> & {
+        profilePic: Profile['profile_pic'];
+        coverPic: Profile['cover_pic'];
+        creationTime: Profile['creation_time'];
+      } & {
+        chainLinks: Array<
+          { __typename?: 'chain_link' } & {
+            creationTime: Chain_Link['creation_time'];
+            externalAddress: Chain_Link['external_address'];
+          } & {
+            chainConfig: { __typename?: 'chain_link_chain_config' } & Pick<
+              Chain_Link_Chain_Config,
+              'name' | 'id'
+            >;
+          }
+        >;
+        applicationLinks: Array<
+          { __typename?: 'application_link' } & Pick<
+            Application_Link,
+            'username' | 'application'
+          > & { creationTime: Application_Link['creation_time'] }
+        >;
+      }
+  >;
+};
 
 export type DesmosProfileDtagQueryVariables = Exact<{
   dtag?: Maybe<Scalars['String']>;
 }>;
 
-
-export type DesmosProfileDtagQuery = { profile: Array<(
-    { __typename?: 'profile' }
-    & Pick<Profile, 'address' | 'bio' | 'dtag' | 'nickname'>
-    & { profilePic: Profile['profile_pic'], coverPic: Profile['cover_pic'], creationTime: Profile['creation_time'] }
-    & { chainLinks: Array<(
-      { __typename?: 'chain_link' }
-      & { creationTime: Chain_Link['creation_time'], externalAddress: Chain_Link['external_address'] }
-      & { chainConfig: (
-        { __typename?: 'chain_link_chain_config' }
-        & Pick<Chain_Link_Chain_Config, 'name' | 'id'>
-      ) }
-    )>, applicationLinks: Array<(
-      { __typename?: 'application_link' }
-      & Pick<Application_Link, 'username' | 'application'>
-      & { creationTime: Application_Link['creation_time'] }
-    )> }
-  )> };
+export type DesmosProfileDtagQuery = {
+  profile: Array<
+    { __typename?: 'profile' } & Pick<Profile, 'address' | 'bio' | 'dtag' | 'nickname'> & {
+        profilePic: Profile['profile_pic'];
+        coverPic: Profile['cover_pic'];
+        creationTime: Profile['creation_time'];
+      } & {
+        chainLinks: Array<
+          { __typename?: 'chain_link' } & {
+            creationTime: Chain_Link['creation_time'];
+            externalAddress: Chain_Link['external_address'];
+          } & {
+            chainConfig: { __typename?: 'chain_link_chain_config' } & Pick<
+              Chain_Link_Chain_Config,
+              'name' | 'id'
+            >;
+          }
+        >;
+        applicationLinks: Array<
+          { __typename?: 'application_link' } & Pick<
+            Application_Link,
+            'username' | 'application'
+          > & { creationTime: Application_Link['creation_time'] }
+        >;
+      }
+  >;
+};

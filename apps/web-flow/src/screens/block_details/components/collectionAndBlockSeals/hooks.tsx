@@ -1,6 +1,4 @@
-import {
-  useEffect, useState,
-} from 'react';
+import { useEffect, useState } from 'react';
 import * as R from 'ramda';
 // import axios from 'axios';
 // import {
@@ -8,9 +6,7 @@ import * as R from 'ramda';
 // } from '@api';
 // import { formatToken } from '@utils/format_token';
 // import chainConfig from 'ui/dist/chainConfig';
-import {
-  ValidatorsState,
-} from './types';
+import { ValidatorsState } from './types';
 
 export const useValidators = () => {
   const [state, setState] = useState<ValidatorsState>({
@@ -45,8 +41,8 @@ export const useValidators = () => {
 
   const getValidators = async () => {
     try {
-    //   const { data: validatorsData } = await axios.get(IDENTITIES);
-    //   const { data: providersData } = await axios.get(PROVIDERS);
+      //   const { data: validatorsData } = await axios.get(IDENTITIES);
+      //   const { data: providersData } = await axios.get(PROVIDERS);
 
       // identities
       //   const identities = {};
@@ -133,9 +129,9 @@ export const useValidators = () => {
     }
   };
 
-  return ({
+  return {
     state,
     handleTabChange,
     handleSearch,
-  });
+  };
 };

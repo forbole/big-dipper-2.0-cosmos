@@ -5,7 +5,7 @@ import MenuItems from '.';
 // ==================================
 // global setup
 // ==================================
-let component:renderer.ReactTestRenderer;
+let component: renderer.ReactTestRenderer;
 
 // ==================================
 // mocks
@@ -24,7 +24,7 @@ describe('screen: Nav/MenuItems', () => {
     component = renderer.create(
       <MockTheme>
         <MenuItems />
-      </MockTheme>,
+      </MockTheme>
     );
   });
 

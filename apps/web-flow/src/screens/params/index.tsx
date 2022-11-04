@@ -52,9 +52,7 @@ const Params = () => {
           title: t('params'),
         }}
       />
-      <Layout
-        navTitle={t('params')}
-      >
+      <Layout navTitle={t('params')}>
         {/* <LoadAndExist
           loading={state.loading}
           exists={state.exists}

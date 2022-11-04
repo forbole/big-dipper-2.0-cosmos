@@ -16,11 +16,7 @@ const CollectionsAndBlockSeals: React.FC<{
   className?: string;
 }> = ({ className }) => {
   const classes = useStyles();
-  const {
-    state,
-    handleTabChange,
-    handleSearch,
-  } = useValidators();
+  const { state, handleTabChange, handleSearch } = useValidators();
 
   // const state = {
   //   loading: false,
@@ -31,15 +27,13 @@ const CollectionsAndBlockSeals: React.FC<{
   //   providers: [],
   // };
 
-  const tabs:TabType[] = [
+  const tabs: TabType[] = [
     {
       id: 0,
       key: 'collections',
       component: (
         // <Collections />
-        <div>
-          Collections
-        </div>
+        <div>Collections</div>
       ),
     },
     {
@@ -47,18 +41,13 @@ const CollectionsAndBlockSeals: React.FC<{
       key: 'blockSeals',
       component: (
         // <BlockSeals />
-        <div>
-          Block Seals
-        </div>
+        <div>Block Seals</div>
       ),
     },
   ];
 
   return (
-    <LoadAndExist
-      loading={state.loading}
-      exists={state.exists}
-    >
+    <LoadAndExist loading={state.loading} exists={state.exists}>
       <Box className={classnames(className, classes.root)}>
         <Tabs
           tabs={tabs}
@@ -68,14 +57,8 @@ const CollectionsAndBlockSeals: React.FC<{
         />
         {tabs.map((x) => {
           return (
-            <TabPanel
-              key={x.id}
-              index={x.id}
-              value={state.tab}
-            >
-              <div className={classes.list}>
-                {x.component}
-              </div>
+            <TabPanel key={x.id} index={x.id} value={state.tab}>
+              <div className={classes.list}>{x.component}</div>
             </TabPanel>
           );
         })}

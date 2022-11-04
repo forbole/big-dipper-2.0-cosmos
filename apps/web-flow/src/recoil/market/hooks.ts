@@ -1,40 +1,31 @@
 /* eslint-disable max-len */
 import numeral from 'numeral';
-import {
-  useRecoilState,
-  SetterOrUpdater,
-} from 'recoil';
-import {
-  useMarketDataQuery,
-  MarketDataQuery,
-} from '@graphql/types';
+import { useRecoilState, SetterOrUpdater } from 'recoil';
+import { useMarketDataQuery, MarketDataQuery } from '@graphql/types';
 import chainConfig from 'ui/dist/chainConfig';
-import {
-  writeMarket,
-} from '@recoil/market';
+import { writeMarket } from '@recoil/market';
 import { AtomState } from '@recoil/market/types';
 import { formatToken } from '@utils/format_token';
 
 export const useMarketRecoil = () => {
-  const [market, setMarket] = useRecoilState(writeMarket) as [AtomState, SetterOrUpdater<AtomState>];
+  const [market, setMarket] = useRecoilState(writeMarket) as [
+    AtomState,
+    SetterOrUpdater<AtomState>
+  ];
 
-  useMarketDataQuery(
-    {
-      variables: {
-        denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
-      },
-      onCompleted: (data) => {
-        if (data) {
-          setMarket(formatUseChainIdQuery(data));
-        }
-      },
+  useMarketDataQuery({
+    variables: {
+      denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
     },
-  );
+    onCompleted: (data) => {
+      if (data) {
+        setMarket(formatUseChainIdQuery(data));
+      }
+    },
+  });
 
   const formatUseChainIdQuery = (data: MarketDataQuery): AtomState => {
-    let {
-      price, marketCap,
-    } = market;
+    let { price, marketCap } = market;
 
     let rawSupplyAmount = market.supply.value;
 
@@ -46,10 +37,10 @@ export const useMarketRecoil = () => {
 
     const supply = formatToken(rawSupplyAmount, chainConfig.primaryTokenUnit);
 
-    return ({
+    return {
       price,
       supply,
       marketCap,
-    });
+    };
   };
 };

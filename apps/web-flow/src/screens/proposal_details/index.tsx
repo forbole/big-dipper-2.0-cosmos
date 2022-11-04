@@ -35,9 +35,7 @@ const ProposalDetails = () => {
           title: t('proposalDetails'),
         }}
       />
-      <Layout
-        navTitle={t('proposalDetails')}
-      >
+      <Layout navTitle={t('proposalDetails')}>
         {/* <LoadAndExist
           exists={state.exists}
           loading={state.loading}

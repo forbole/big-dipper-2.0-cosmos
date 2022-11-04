@@ -1,7 +1,5 @@
 import { RecoilRoot } from 'recoil';
-import {
-  renderHook, act,
-} from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react-hooks';
 import { useSearchBar } from './hooks';
 
 const mockPush = jest.fn();
@@ -26,7 +24,9 @@ xdescribe('misc: useSearchBar', () => {
     act(() => {
       result.current.handleOnSubmit('desmosvaloper1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes');
     });
-    expect(mockPush).toBeCalledWith('/validators/desmosvaloper1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes');
+    expect(mockPush).toBeCalledWith(
+      '/validators/desmosvaloper1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes'
+    );
   });
 
   it('use a consensus address', async () => {
@@ -74,9 +74,13 @@ xdescribe('misc: useSearchBar', () => {
       wrapper: RecoilRoot,
     });
     act(() => {
-      result.current.handleOnSubmit('FF4ED0EA688507EF3469804580136B4925116FC9B5F5658AF2B65E987A2138E0');
+      result.current.handleOnSubmit(
+        'FF4ED0EA688507EF3469804580136B4925116FC9B5F5658AF2B65E987A2138E0'
+      );
     });
-    expect(mockPush).toBeCalledWith('/transactions/FF4ED0EA688507EF3469804580136B4925116FC9B5F5658AF2B65E987A2138E0');
+    expect(mockPush).toBeCalledWith(
+      '/transactions/FF4ED0EA688507EF3469804580136B4925116FC9B5F5658AF2B65E987A2138E0'
+    );
   });
 });
 
