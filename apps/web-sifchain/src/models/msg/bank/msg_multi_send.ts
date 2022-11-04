@@ -6,11 +6,11 @@ class MsgMultiSend {
   public type: string;
   public inputs: {
     address: string;
-    coins: MsgCoin[],
+    coins: MsgCoin[];
   }[];
   public outputs: {
     address: string;
-    coins: MsgCoin[],
+    coins: MsgCoin[];
   }[];
   public json: any;
 
@@ -27,26 +27,26 @@ class MsgMultiSend {
       json,
       type: json['@type'],
       inputs: json.inputs?.map((input) => {
-        return ({
+        return {
           address: input?.address,
           coins: input?.coins?.map((coin) => {
-            return ({
+            return {
               denom: coin?.denom,
               amount: R.pathOr('0', ['amount'], coin),
-            });
+            };
           }),
-        });
+        };
       }),
       outputs: json.outputs?.map((output) => {
-        return ({
+        return {
           address: output?.address,
           coins: output?.coins?.map((coin) => {
-            return ({
+            return {
               denom: coin?.denom,
               amount: R.pathOr('0', ['amount'], coin),
-            });
+            };
           }),
-        });
+        };
       }),
     });
   }

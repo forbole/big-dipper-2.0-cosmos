@@ -11,7 +11,7 @@ describe('components: Result', () => {
     const component = renderer.create(
       <MockTheme>
         <Loading />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

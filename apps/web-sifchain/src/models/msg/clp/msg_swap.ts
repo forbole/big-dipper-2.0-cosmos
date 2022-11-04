@@ -8,10 +8,10 @@ class MsgSwap {
   public signer: string;
   public sentAsset: {
     symbol: string;
-  }
+  };
   public receivedAsset: {
     symbol: string;
-  }
+  };
   public sentAmount: string;
   public minReceivingAmount: string;
   public receivedAmount: string;
@@ -30,7 +30,9 @@ class MsgSwap {
 
   static getReceivedAmount(log: any): string {
     const swapEvents = R.pathOr([], ['events'], log).filter((x) => x.type === 'swap_successful');
-    const amount = R.pathOr([], [0, 'attributes'], swapEvents).filter((x) => x.key === 'swap_amount');
+    const amount = R.pathOr([], [0, 'attributes'], swapEvents).filter(
+      (x) => x.key === 'swap_amount'
+    );
     return R.pathOr('0', [0, 'value'], amount);
   }
 

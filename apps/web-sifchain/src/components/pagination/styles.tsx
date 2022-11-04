@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
-      return ({
+      return {
         root: {
           '& .MuiTablePagination-spacer': {
             display: 'none',
@@ -43,10 +43,11 @@ export const useStyles = () => {
             display: 'flex',
           },
         },
-      });
-    }, {
-      index: 1,
+      };
     },
+    {
+      index: 1,
+    }
   )();
 
   return styles;

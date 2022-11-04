@@ -3,13 +3,9 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgUpdateWhiteListValidator } from '@models';
-import {
-  useProfileRecoil,
-} from '@recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 
-const UpdateWhiteListValidator = (props: {
-  message: MsgUpdateWhiteListValidator;
-}) => {
+const UpdateWhiteListValidator = (props: { message: MsgUpdateWhiteListValidator }) => {
   const { message } = props;
 
   const cosmosSender = useProfileRecoil(message.cosmosSender);
@@ -19,15 +15,7 @@ const UpdateWhiteListValidator = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:MsgUpdateWhiteListValidator"
-        components={[
-          (
-            <Name
-              address={message.cosmosSender}
-              name={cosmosSenderMoniker}
-            />
-          ),
-          <b />,
-        ]}
+        components={[<Name address={message.cosmosSender} name={cosmosSenderMoniker} />, <b />]}
       />
     </Typography>
   );

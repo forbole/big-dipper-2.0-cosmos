@@ -4,7 +4,7 @@ export type OverviewType = {
   selfDelegateAddress: string;
   description: string;
   website: string;
-}
+};
 
 export type StatusType = {
   status: number;
@@ -15,13 +15,13 @@ export type StatusType = {
   signedBlockWindow: number;
   missedBlockCounter: number;
   maxRate: string;
-}
+};
 
 export type VotingPowerType = {
   height: number;
   overall: TokenUnit;
   self: number;
-}
+};
 
 export type ValidatorDetailsState = {
   loading: boolean;
@@ -30,4 +30,4 @@ export type ValidatorDetailsState = {
   overview: OverviewType;
   status: StatusType;
   votingPower: VotingPowerType;
-}
+};

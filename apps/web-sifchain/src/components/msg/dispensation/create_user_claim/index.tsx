@@ -3,13 +3,9 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgCreateUserClaim } from '@models';
-import {
-  useProfileRecoil,
-} from '@recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 
-const CreateUserClaim = (props: {
-  message: MsgCreateUserClaim;
-}) => {
+const CreateUserClaim = (props: { message: MsgCreateUserClaim }) => {
   const { message } = props;
 
   const user = useProfileRecoil(message.userClaimAddress);
@@ -19,15 +15,7 @@ const CreateUserClaim = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:MsgCreateUserClaim"
-        components={[
-          (
-            <Name
-              address={message.userClaimAddress}
-              name={userMoniker}
-            />
-          ),
-          <b />,
-        ]}
+        components={[<Name address={message.userClaimAddress} name={userMoniker} />, <b />]}
         values={{
           userClaimType: message.userClaimType,
         }}

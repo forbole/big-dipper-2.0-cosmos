@@ -17,9 +17,7 @@ import { OverviewType } from '../../types';
 const Overview: React.FC<{
   className?: string;
   data: OverviewType;
-}> = ({
-  className, data,
-}) => {
+}> = ({ className, data }) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   const dateFormat = useRecoilValue(readDate);
@@ -45,17 +43,20 @@ const Overview: React.FC<{
     },
     {
       label: t('fee'),
-      detail: `${formatNumber(data.fee.value, data.fee.exponent)} ${data?.fee?.displayDenom?.toUpperCase()}`,
+      detail: `${formatNumber(
+        data.fee.value,
+        data.fee.exponent
+      )} ${data?.fee?.displayDenom?.toUpperCase()}`,
     },
     {
       label: t('gas'),
-      detail: `${numeral(data.gasUsed).format('0,0.[00]')} / ${numeral(data.gasWanted).format('0,0.[00]')}`,
+      detail: `${numeral(data.gasUsed).format('0,0.[00]')} / ${numeral(data.gasWanted).format(
+        '0,0.[00]'
+      )}`,
     },
     {
       label: t('result'),
-      detail: (
-        <Result success={data.success} />
-      ),
+      detail: <Result success={data.success} />,
     },
     {
       className: 'memo',

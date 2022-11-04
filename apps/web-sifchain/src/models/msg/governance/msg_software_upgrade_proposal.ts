@@ -10,7 +10,7 @@ class MsgSoftwareUpgradeProposal {
     height: string | number;
     info: string;
     upgradedClientState: any;
-  }
+  };
 
   constructor(payload: any) {
     this.type = payload.type;

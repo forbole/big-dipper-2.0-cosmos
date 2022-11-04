@@ -8,7 +8,7 @@ class MsgCreateEthBridgeClaim {
   public ethBridgeClaim: {
     cosmosreceiver: string;
     claimType: 'CLAIM_TYPE_UNSPECIFIED' | 'CLAIM_TYPE_BURN' | 'CLAIM_TYPE_LOCK';
-  }
+  };
 
   constructor(payload: any) {
     this.category = 'ethbridge';

@@ -3,13 +3,9 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgBurn } from '@models';
-import {
-  useProfileRecoil,
-} from '@recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 
-const Burn = (props: {
-  message: MsgBurn;
-}) => {
+const Burn = (props: { message: MsgBurn }) => {
   const { message } = props;
 
   const cosmosSender = useProfileRecoil(message.cosmosSender);
@@ -19,14 +15,7 @@ const Burn = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:MsgBurn"
-        components={[
-          (
-            <Name
-              address={message.cosmosSender}
-              name={cosmosSenderMoniker}
-            />
-          ),
-        ]}
+        components={[<Name address={message.cosmosSender} name={cosmosSenderMoniker} />]}
       />
     </Typography>
   );

@@ -9,11 +9,11 @@ import CreateDistribution from '.';
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
-
-jest.mock('next-translate/Trans', () => (
-  (props) => <div id="Trans" {...props} />
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
 ));
+
+jest.mock('next-translate/Trans', () => (props) => <div id="Trans" {...props} />);
 
 // ==================================
 // unit tests
@@ -29,17 +29,19 @@ describe('screen: TransactionDetails/CreateDistribution', () => {
     const component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <CreateDistribution
-            message={message}
-          />
+          <CreateDistribution message={message} />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
 
-    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual('message_contents:MsgCreateDistribution');
-    expect(component.root.findByProps({ id: 'Trans' }).props.values.distributionType).toEqual('DISTRIBUTION_TYPE_AIRDROP');
+    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(
+      'message_contents:MsgCreateDistribution'
+    );
+    expect(component.root.findByProps({ id: 'Trans' }).props.values.distributionType).toEqual(
+      'DISTRIBUTION_TYPE_AIRDROP'
+    );
   });
 
   afterEach(() => {

@@ -3,30 +3,22 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgCreateEthBridgeClaim } from '@models';
-import {
-  useProfileRecoil,
-} from '@recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 
-const CreateEthBridgeClaim = (props: {
-  message: MsgCreateEthBridgeClaim;
-}) => {
+const CreateEthBridgeClaim = (props: { message: MsgCreateEthBridgeClaim }) => {
   const { message } = props;
 
   const cosmosreceiver = useProfileRecoil(message.ethBridgeClaim.cosmosreceiver);
   const cosmosreceiverMoniker = cosmosreceiver
-    ? cosmosreceiver?.name : message.ethBridgeClaim.cosmosreceiver;
+    ? cosmosreceiver?.name
+    : message.ethBridgeClaim.cosmosreceiver;
 
   return (
     <Typography>
       <Trans
         i18nKey="message_contents:MsgCreateEthBridgeClaim"
         components={[
-          (
-            <Name
-              address={message.ethBridgeClaim.cosmosreceiver}
-              name={cosmosreceiverMoniker}
-            />
-          ),
+          <Name address={message.ethBridgeClaim.cosmosreceiver} name={cosmosreceiverMoniker} />,
           <b />,
         ]}
         values={{

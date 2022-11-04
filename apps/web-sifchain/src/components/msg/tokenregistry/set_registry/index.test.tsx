@@ -9,10 +9,12 @@ import SetRegistry from '.';
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
-jest.mock('next-translate/Trans', () => (
-  (props: JSX.IntrinsicElements['div']) => <div id="Trans" {...props} />
+jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Trans" {...props} />
 ));
 
 // ==================================
@@ -24,26 +26,24 @@ describe('screen: TransactionDetails/MsgBurn', () => {
       category: 'dispensation',
       type: 'MsgRegister',
       from: 'from',
-      registry: [
-        { denom: 'daric' },
-        { denom: 'bar' },
-        { denom: 'etg' },
-      ],
+      registry: [{ denom: 'daric' }, { denom: 'bar' }, { denom: 'etg' }],
     });
     const component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <SetRegistry
-            message={message}
-          />
+          <SetRegistry message={message} />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
 
-    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual('message_contents:MsgSetRegistry');
-    expect(component.root.findByProps({ id: 'Trans' }).props.values.denoms).toEqual('DARIC, BAR and ETG');
+    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(
+      'message_contents:MsgSetRegistry'
+    );
+    expect(component.root.findByProps({ id: 'Trans' }).props.values.denoms).toEqual(
+      'DARIC, BAR and ETG'
+    );
   });
 
   afterEach(() => {

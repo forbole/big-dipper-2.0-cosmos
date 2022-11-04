@@ -20,7 +20,7 @@ export const useDataBlocks = () => {
     validators: {
       active: number;
       total: number;
-    }
+    };
   }>({
     blockHeight: 0,
     blockTime: 0,

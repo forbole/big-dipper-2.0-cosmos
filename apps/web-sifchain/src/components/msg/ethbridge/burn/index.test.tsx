@@ -9,11 +9,11 @@ import Burn from '.';
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
-
-jest.mock('next-translate/Trans', () => (
-  (props) => <div id="Trans" {...props} />
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
 ));
+
+jest.mock('next-translate/Trans', () => (props) => <div id="Trans" {...props} />);
 
 // ==================================
 // unit tests
@@ -28,16 +28,16 @@ describe('screen: TransactionDetails/MsgBurn', () => {
     const component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <Burn
-            message={message}
-          />
+          <Burn message={message} />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
 
-    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual('message_contents:MsgBurn');
+    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(
+      'message_contents:MsgBurn'
+    );
   });
 
   afterEach(() => {

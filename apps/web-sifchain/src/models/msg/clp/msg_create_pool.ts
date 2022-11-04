@@ -8,7 +8,7 @@ class MsgCreatePool {
   public signer: string;
   public externalAsset: {
     symbol: string;
-  }
+  };
   public nativeAssetAmount: string;
   public externalAssetAmount: string;
 

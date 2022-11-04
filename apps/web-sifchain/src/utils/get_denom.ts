@@ -7,8 +7,8 @@ import chainConfig from 'ui/dist/chainConfig';
  * @param value The value in base denom value
  */
 export const getDenom = (
-  list: {denom: string, amount: string | number}[] = [],
-  denom = chainConfig.primaryTokenUnit,
+  list: { denom: string; amount: string | number }[] = [],
+  denom = chainConfig.primaryTokenUnit
 ): {
   denom: string;
   amount: string | number;

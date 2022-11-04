@@ -3,13 +3,9 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgCreateDistribution } from '@models';
-import {
-  useProfileRecoil,
-} from '@recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 
-const CreateDistribution = (props: {
-  message: MsgCreateDistribution;
-}) => {
+const CreateDistribution = (props: { message: MsgCreateDistribution }) => {
   const { message } = props;
 
   const distributor = useProfileRecoil(message.distributor);
@@ -19,15 +15,7 @@ const CreateDistribution = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:MsgCreateDistribution"
-        components={[
-          (
-            <Name
-              address={message.distributor}
-              name={distributorMoniker}
-            />
-          ),
-          <b />,
-        ]}
+        components={[<Name address={message.distributor} name={distributorMoniker} />, <b />]}
         values={{
           distributionType: message.distributionType,
         }}

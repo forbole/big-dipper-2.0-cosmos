@@ -1,13 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
-} from '@material-ui/core';
+import { Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
 import AvatarName from '@components/avatar_name';
 import { formatNumber } from '@utils/format_token';
 import { columns } from './utils';
@@ -16,15 +10,12 @@ import { ItemType } from '../../types';
 const Desktop: React.FC<{
   className?: string;
   items?: ItemType[];
-}> = ({
-  className,
-  items,
-}) => {
+}> = ({ className, items }) => {
   const { t } = useTranslation('accounts');
   const formattedItems = items.map((x) => {
     const amount = formatNumber(x.amount.value, x.amount.exponent);
     const reward = formatNumber(x.reward.value, x.reward.exponent);
-    return ({
+    return {
       validator: (
         <AvatarName
           name={x.validator.name}
@@ -34,7 +25,7 @@ const Desktop: React.FC<{
       ),
       amount: `${amount} ${x.amount.displayDenom.toUpperCase()}`,
       reward: `${reward} ${x.reward.displayDenom.toUpperCase()}`,
-    });
+    };
   });
 
   return (
@@ -74,7 +65,6 @@ const Desktop: React.FC<{
         </TableBody>
       </Table>
     </div>
-
   );
 };
 

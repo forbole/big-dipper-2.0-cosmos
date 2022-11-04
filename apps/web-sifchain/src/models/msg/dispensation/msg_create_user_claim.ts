@@ -6,7 +6,11 @@ class MsgCreateUserClaim {
   public type: string;
   public json: any;
   public userClaimAddress: string;
-  public userClaimType: 'DISTRIBUTION_TYPE_UNSPECIFIED' | 'DISTRIBUTION_TYPE_AIRDROP' | 'DISTRIBUTION_TYPE_VALIDATOR_SUBSIDY' | 'DISTRIBUTION_TYPE_LIQUIDITY_MINING';
+  public userClaimType:
+    | 'DISTRIBUTION_TYPE_UNSPECIFIED'
+    | 'DISTRIBUTION_TYPE_AIRDROP'
+    | 'DISTRIBUTION_TYPE_VALIDATOR_SUBSIDY'
+    | 'DISTRIBUTION_TYPE_LIQUIDITY_MINING';
 
   constructor(payload: any) {
     this.category = 'dispensation';

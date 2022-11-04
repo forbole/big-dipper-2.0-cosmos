@@ -3,13 +3,9 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgRegister } from '@models';
-import {
-  useProfileRecoil,
-} from '@recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 
-const Register = (props: {
-  message: MsgRegister;
-}) => {
+const Register = (props: { message: MsgRegister }) => {
   const { message } = props;
 
   const from = useProfileRecoil(message.from);
@@ -19,15 +15,7 @@ const Register = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:MsgRegister"
-        components={[
-          (
-            <Name
-              address={message.from}
-              name={fromMoniker}
-            />
-          ),
-          <b />,
-        ]}
+        components={[<Name address={message.from} name={fromMoniker} />, <b />]}
         values={{
           denom: message.entry.denom.toUpperCase(),
         }}

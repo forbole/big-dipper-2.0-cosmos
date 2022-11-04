@@ -9,11 +9,11 @@ import RemoveLiquidity from '.';
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
-
-jest.mock('next-translate/Trans', () => (
-  (props) => <div id="Trans" {...props} />
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
 ));
+
+jest.mock('next-translate/Trans', () => (props) => <div id="Trans" {...props} />);
 
 // ==================================
 // unit tests
@@ -31,16 +31,16 @@ describe('screen: TransactionDetails/MsgRemoveLiquidity', () => {
     const component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <RemoveLiquidity
-            message={message}
-          />
+          <RemoveLiquidity message={message} />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
 
-    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual('message_contents:MsgRemoveLiquidity');
+    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(
+      'message_contents:MsgRemoveLiquidity'
+    );
     expect(component.root.findByProps({ id: 'Trans' }).props.values.symbol).toEqual('DARIC');
   });
 

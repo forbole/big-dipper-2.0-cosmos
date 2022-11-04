@@ -5,9 +5,7 @@ import Name from '@components/name';
 import { MsgCounterpartyChannel } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const CounterpartyChannel = (props: {
-  message: MsgCounterpartyChannel;
-}) => {
+const CounterpartyChannel = (props: { message: MsgCounterpartyChannel }) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -17,15 +15,7 @@ const CounterpartyChannel = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:txCounterpartyContent"
-        components={[
-          (
-            <Name
-              address={message.signer}
-              name={signerMoniker}
-            />
-          ),
-          <b />,
-        ]}
+        components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
       />
     </Typography>
   );

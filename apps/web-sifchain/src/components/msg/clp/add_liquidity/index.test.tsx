@@ -9,11 +9,11 @@ import AddLiquidity from '.';
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
-
-jest.mock('next-translate/Trans', () => (
-  (props) => <div id="Trans" {...props} />
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
 ));
+
+jest.mock('next-translate/Trans', () => (props) => <div id="Trans" {...props} />);
 
 // ==================================
 // unit tests
@@ -33,17 +33,19 @@ describe('screen: TransactionDetails/AddLiquidity', () => {
     const component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <AddLiquidity
-            message={message}
-          />
+          <AddLiquidity message={message} />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
 
-    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual('message_contents:MsgAddLiquidity');
-    expect(component.root.findByProps({ id: 'Trans' }).props.values.nativeAssetAmount).toEqual('4 DARIC');
+    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(
+      'message_contents:MsgAddLiquidity'
+    );
+    expect(component.root.findByProps({ id: 'Trans' }).props.values.nativeAssetAmount).toEqual(
+      '4 DARIC'
+    );
   });
 
   afterEach(() => {

@@ -3,13 +3,9 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgRunDistribution } from '@models';
-import {
-  useProfileRecoil,
-} from '@recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 
-const RunDistribution = (props: {
-  message: MsgRunDistribution;
-}) => {
+const RunDistribution = (props: { message: MsgRunDistribution }) => {
   const { message } = props;
 
   const runner = useProfileRecoil(message.authorizedRunner);
@@ -19,15 +15,7 @@ const RunDistribution = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:MsgRunDistribution"
-        components={[
-          (
-            <Name
-              address={message.authorizedRunner}
-              name={runnerMoniker}
-            />
-          ),
-          <b />,
-        ]}
+        components={[<Name address={message.authorizedRunner} name={runnerMoniker} />, <b />]}
         values={{
           distributionType: message.distributionType,
         }}

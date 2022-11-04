@@ -3,13 +3,9 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgLock } from '@models';
-import {
-  useProfileRecoil,
-} from '@recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 
-const Lock = (props: {
-  message: MsgLock;
-}) => {
+const Lock = (props: { message: MsgLock }) => {
   const { message } = props;
 
   const cosmosSender = useProfileRecoil(message.cosmosSender);
@@ -19,15 +15,7 @@ const Lock = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:MsgLock"
-        components={[
-          (
-            <Name
-              address={message.cosmosSender}
-              name={cosmosSenderMoniker}
-            />
-          ),
-          <b />,
-        ]}
+        components={[<Name address={message.cosmosSender} name={cosmosSenderMoniker} />, <b />]}
       />
     </Typography>
   );

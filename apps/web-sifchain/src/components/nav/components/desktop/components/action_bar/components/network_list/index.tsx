@@ -11,27 +11,18 @@ import { useStyles } from './styles';
 const NetworkList: React.FC<{
   className?: string;
   actionHeight?: number;
-}> = ({
-  className, actionHeight,
-}) => {
+}> = ({ className, actionHeight }) => {
   const classes = useStyles();
   const theme = useRecoilValue(readTheme);
 
   return (
-    <Box
-      boxShadow={3}
-      className={classnames(className, classes.root)}
-    >
+    <Box boxShadow={3} className={classnames(className, classes.root)}>
       <div
         style={{
           height: actionHeight,
         }}
       >
-        {theme === 'light' ? (
-          <BigDipperLogoRed />
-        ) : (
-          <BigDipperLogoWhite />
-        )}
+        {theme === 'light' ? <BigDipperLogoRed /> : <BigDipperLogoWhite />}
       </div>
       <Networks className={classes.content} />
     </Box>

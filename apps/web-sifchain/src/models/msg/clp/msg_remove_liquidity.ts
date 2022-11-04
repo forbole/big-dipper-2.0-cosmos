@@ -8,7 +8,7 @@ class MsgRemoveLiquidity {
   public signer: string;
   public externalAsset: {
     symbol: string;
-  }
+  };
 
   constructor(payload: any) {
     this.category = 'clp';
