@@ -7,7 +7,7 @@ exports[`screen: TransactionDetails/MsgBurn matches snapshot 1`] = `
   <div
     components={
       Array [
-        <Name
+        <Unknown
           address="from"
           name="from"
         />,
@@ -18,7 +18,7 @@ exports[`screen: TransactionDetails/MsgBurn matches snapshot 1`] = `
     id="Trans"
     values={
       Object {
-        "denoms": "DARIC, BAR transactions:and ETG",
+        "denoms": "DARIC, BAR and ETG",
       }
     }
   />

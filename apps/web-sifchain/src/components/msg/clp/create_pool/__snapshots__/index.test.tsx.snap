@@ -7,7 +7,7 @@ exports[`screen: TransactionDetails/CreatePool matches snapshot 1`] = `
   <div
     components={
       Array [
-        <Name
+        <Unknown
           address="signer"
           name="signer"
         />,
@@ -18,7 +18,7 @@ exports[`screen: TransactionDetails/CreatePool matches snapshot 1`] = `
     id="Trans"
     values={
       Object {
-        "externalAssetAmount": "0 UBAR",
+        "externalAssetAmount": "0 BAR",
         "nativeAssetAmount": "4 DARIC",
       }
     }

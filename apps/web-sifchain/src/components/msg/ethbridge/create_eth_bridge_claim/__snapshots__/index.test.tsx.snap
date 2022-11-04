@@ -7,7 +7,7 @@ exports[`screen: TransactionDetails/CreateEthBridgeClaim matches snapshot 1`] = 
   <div
     components={
       Array [
-        <Name
+        <Unknown
           address="cosmosreceiver"
           name="cosmosreceiver"
         />,

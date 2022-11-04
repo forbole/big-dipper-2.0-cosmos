@@ -7,7 +7,7 @@ exports[`screen: TransactionDetails/MsgUpdateWhiteListValidator matches snapshot
   <div
     components={
       Array [
-        <Name
+        <Unknown
           address="cosmosSender"
           name="cosmosSender"
         />,

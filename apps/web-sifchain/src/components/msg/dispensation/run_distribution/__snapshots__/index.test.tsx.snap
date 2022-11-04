@@ -7,7 +7,7 @@ exports[`screen: TransactionDetails/RunDistribution matches snapshot 1`] = `
   <div
     components={
       Array [
-        <Name
+        <Unknown
           address="userClaimAddress"
           name="userClaimAddress"
         />,

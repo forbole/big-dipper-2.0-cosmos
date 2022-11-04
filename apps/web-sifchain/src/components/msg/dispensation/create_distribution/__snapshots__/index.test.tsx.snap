@@ -7,7 +7,7 @@ exports[`screen: TransactionDetails/CreateDistribution matches snapshot 1`] = `
   <div
     components={
       Array [
-        <Name
+        <Unknown
           address="distributor"
           name="distributor"
         />,

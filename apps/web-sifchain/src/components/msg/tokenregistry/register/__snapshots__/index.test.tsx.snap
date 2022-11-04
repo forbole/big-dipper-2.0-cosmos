@@ -7,7 +7,7 @@ exports[`screen: TransactionDetails/MsgBurn matches snapshot 1`] = `
   <div
     components={
       Array [
-        <Name
+        <Unknown
           address="from"
           name="from"
         />,

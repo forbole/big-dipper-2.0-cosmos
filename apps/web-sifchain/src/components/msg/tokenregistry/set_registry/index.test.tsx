@@ -12,7 +12,7 @@ import SetRegistry from '.';
 jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
 
 jest.mock('next-translate/Trans', () => (
-  (props) => <div id="Trans" {...props} />
+  (props: JSX.IntrinsicElements['div']) => <div id="Trans" {...props} />
 ));
 
 // ==================================
@@ -43,7 +43,7 @@ describe('screen: TransactionDetails/MsgBurn', () => {
     expect(tree).toMatchSnapshot();
 
     expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual('message_contents:MsgSetRegistry');
-    expect(component.root.findByProps({ id: 'Trans' }).props.values.denoms).toEqual('DARIC, BAR transactions:and ETG');
+    expect(component.root.findByProps({ id: 'Trans' }).props.values.denoms).toEqual('DARIC, BAR and ETG');
   });
 
   afterEach(() => {
