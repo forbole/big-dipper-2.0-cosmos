@@ -9,6 +9,7 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
     href="/"
     onClick={[Function]}
     onMouseEnter={[Function]}
+    onTouchStart={[Function]}
   >
     <div
       className="makeStyles-logo"
@@ -26,7 +27,7 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
       <p
         className="text"
       >
-        morpheus-apollo-1
+        likecoin-public-testnet-5
       </p>
       <svg
         aria-hidden={true}
@@ -62,6 +63,7 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
     href="/"
     onClick={[Function]}
     onMouseEnter={[Function]}
+    onTouchStart={[Function]}
   >
     <div
       className="makeStyles-logo"
@@ -79,7 +81,7 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
       <p
         className="text"
       >
-        morpheus-apollo-1
+        likecoin-public-testnet-5
       </p>
       <svg
         aria-hidden={true}

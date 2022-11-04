@@ -9,12 +9,11 @@ exports[`screen: Nav/Network it renders 1`] = `
   <img
     alt="icon"
     className="makeStyles-icon"
-    src="https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true"
   />
   <p
     className="MuiTypography-root MuiTypography-body1"
   >
-    morpheus-apollo-1
+    likecoin-public-testnet-5
   </p>
   <svg
     aria-hidden={true}
