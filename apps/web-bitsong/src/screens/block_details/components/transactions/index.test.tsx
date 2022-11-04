@@ -7,11 +7,8 @@ import Transactions from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components', () => ({
-  ...jest.requireMock('@components'),
-  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
-  TransactionsList: (props: JSX.IntrinsicElements['div']) => <div id="TransactionsList" {...props} />,
-}));
+jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />);
+jest.mock('@components/transactions_list', () => (props: JSX.IntrinsicElements['div']) => <div id="TransactionsList" {...props} />);
 
 // ==================================
 // unit tests

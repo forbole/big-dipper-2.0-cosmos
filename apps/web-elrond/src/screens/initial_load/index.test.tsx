@@ -11,19 +11,19 @@ import InitialLoad from '.';
 // ==================================
 describe('screen: InitialLoad', () => {
   it('matches snapshot', async () => {
-    let component;
+    let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
+
     renderer.act(() => {
-      component = renderer.create(
+      tree = renderer.create(
         <RecoilRoot>
           <MockTheme>
             <InitialLoad />
           </MockTheme>
         </RecoilRoot>,
-      );
+      ).toJSON();
     });
     await wait();
 
-    const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

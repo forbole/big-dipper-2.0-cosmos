@@ -10,9 +10,7 @@ import {
 import { VALIDATOR_DETAILS } from '@utils/go_to_page';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import {
-  Box,
-} from '@components';
+import Box from '@components/box';
 import { useProfile } from './hooks';
 import { useStyles } from './styles';
 import { ProfileType } from '../../types';

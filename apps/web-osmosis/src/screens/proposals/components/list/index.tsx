@@ -15,10 +15,8 @@ import {
   useList,
   useListRow,
 } from '@hooks';
-import {
-  Loading,
-  Box,
-} from '@components';
+import Loading from '@components/loading';
+import Box from '@components/box';
 import {
   Total,
   SingleProposal,

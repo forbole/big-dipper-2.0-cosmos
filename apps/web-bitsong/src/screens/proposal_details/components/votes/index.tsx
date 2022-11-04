@@ -1,9 +1,8 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import classnames from 'classnames';
-import {
-  Box, NoData,
-} from '@components';
+import Box from '@components/box';
+import NoData from '@components/no_data';
 import {
   usePagination,
   useScreenSize,

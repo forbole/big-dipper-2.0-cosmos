@@ -3,11 +3,9 @@ import classnames from 'classnames';
 import {
   Typography,
 } from '@material-ui/core';
-import {
-  Box,
-  Avatar,
-  Markdown,
-} from '@components';
+import Box from '@components/box';
+import Avatar from '@components/avatar';
+import Markdown from '@components/markdown';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { isBech32 } from '@utils/bech32';
 import { useStyles } from './styles';

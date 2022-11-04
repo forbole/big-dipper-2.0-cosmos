@@ -6,11 +6,9 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import { Typography } from '@material-ui/core';
 import { useGrid } from '@hooks';
-import {
-  SortArrows,
-  AvatarName,
-  InfoPopover,
-} from '@components';
+import SortArrows from '@components/sort_arrows';
+import AvatarName from '@components/avatar_name';
+import InfoPopover from '@components/info_popover';
 import { getValidatorStatus } from '@utils/get_validator_status';
 import { useStyles } from './styles';
 import { fetchColumns } from './utils';

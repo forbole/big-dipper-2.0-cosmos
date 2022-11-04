@@ -17,7 +17,7 @@ import {
   Cell,
 } from 'recharts';
 import useTranslation from 'next-translate/useTranslation';
-import { Box } from '@components';
+import Box from '@components/box';
 import { chainConfig } from 'ui/dist';
 import { formatNumber } from '@utils/format_token';
 import { useStyles } from './styles';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@components';
+import Box from '@components/box';
 import {
   OnlineVotingPower, TokenPrice,
 } from './components';

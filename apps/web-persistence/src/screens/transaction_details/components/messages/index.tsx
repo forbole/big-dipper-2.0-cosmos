@@ -13,10 +13,8 @@ import {
   useList,
   useListRow,
 } from '@hooks';
-import {
-  Box,
-  TransactionMessagesFilter,
-} from '@components';
+import Box from '@components/box';
+import TransactionMessagesFilter from '@components/transaction_messages_filter';
 import { getMessageByType } from '@msg';
 import { useStyles } from './styles';
 

@@ -3,9 +3,7 @@ import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import classnames from 'classnames';
 import { Typography } from '@material-ui/core';
-import {
-  Box,
-} from '@components';
+import Box from '@components/box';
 import { formatNumber } from '@utils/format_token';
 import { getShardDisplay } from '@utils/get_shard_display';
 import { useStyles } from './style';

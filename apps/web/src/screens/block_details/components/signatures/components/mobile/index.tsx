@@ -10,7 +10,7 @@ import {
   useList,
   useListRow,
 } from '@hooks';
-import { AvatarName } from '@components';
+import AvatarName from '@components/avatar_name';
 import { useStyles } from './styles';
 
 const Mobile: React.FC<{

@@ -10,9 +10,8 @@ import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { VariableSizeGrid as Grid } from 'react-window';
-import {
-  Loading, AvatarName,
-} from '@components';
+import Loading from '@components/loading';
+import AvatarName from '@components/avatar_name';
 import { useGrid } from '@hooks';
 import { mergeRefs } from '@src/utils/merge_refs';
 import { useStyles } from './styles';

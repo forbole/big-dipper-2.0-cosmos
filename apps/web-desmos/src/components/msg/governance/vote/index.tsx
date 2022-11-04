@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
-import { Name } from '@components';
+import Name from '@components/name';
 import { MsgVote } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 import { PROPOSAL_DETAILS } from '@utils/go_to_page';

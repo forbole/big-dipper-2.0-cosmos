@@ -5,7 +5,7 @@ import { Typography } from '@material-ui/core';
 import {
   formatToken, formatNumber,
 } from '@utils/format_token';
-import { Name } from '@components';
+import Name from '@components/name';
 import { MsgFundCommunityPool } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 

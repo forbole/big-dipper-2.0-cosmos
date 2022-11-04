@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
-import { AvatarName } from '@components';
+import AvatarName from '@components/avatar_name';
 import { formatNumber } from '@utils/format_token';
 import { useStyles } from './styles';
 import { ItemType } from '../../types';

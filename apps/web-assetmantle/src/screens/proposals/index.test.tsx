@@ -14,10 +14,7 @@ import Proposals from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components', () => ({
-  ...jest.requireMock('@components'),
-  Layout: (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />,
-}));
+jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />);
 jest.mock('./components', () => ({
   List: (props: JSX.IntrinsicElements['div']) => <div id="List" {...props} />,
 }));
@@ -69,19 +66,19 @@ describe('screen: Proposals', () => {
       ProposalsDocument,
       mockProposals,
     );
-    let component;
+    let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
+
     renderer.act(() => {
-      component = renderer.create(
+      tree = renderer.create(
         <ApolloProvider client={mockClient}>
           <MockTheme>
             <Proposals />
           </MockTheme>
         </ApolloProvider>,
-      );
+      ).toJSON();
     });
     await wait();
 
-    const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

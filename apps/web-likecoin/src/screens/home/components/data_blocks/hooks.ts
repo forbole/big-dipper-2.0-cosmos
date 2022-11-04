@@ -36,7 +36,8 @@ export const useDataBlocks = () => {
   // ====================================
 
   useLatestBlockHeightListenerSubscription({
-    setState((prevState) => ({
+    onData: (data) => {
+      setState((prevState) => ({
         ...prevState,
         blockHeight: R.pathOr(0, ['height', 0, 'height'], data.data.data),
       }));

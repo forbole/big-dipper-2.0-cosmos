@@ -6,10 +6,8 @@ import Overview from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components', () => ({
-  BoxDetails: (props: JSX.IntrinsicElements['div']) => <div id="BoxDetails" {...props} />,
-  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
-}));
+jest.mock('@components/box_details', () => (props: JSX.IntrinsicElements['div']) => <div id="BoxDetails" {...props} />);
+jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />);
 
 // ==================================
 // unit tests

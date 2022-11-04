@@ -8,10 +8,8 @@ import {
   Typography, Divider,
 } from '@material-ui/core';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import {
-  SingleBlockMobile,
-  AvatarName,
-} from '@components';
+import SingleBlockMobile from '@components/single_block_mobile';
+import AvatarName from '@components/avatar_name';
 import { ItemType } from '../../types';
 
 const Mobile: React.FC<{

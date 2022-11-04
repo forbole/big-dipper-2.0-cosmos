@@ -6,7 +6,7 @@ import { Typography } from '@material-ui/core';
 import {
   formatToken, formatNumber,
 } from '@utils/format_token';
-import { Name } from '@components';
+import Name from '@components/name';
 import { MsgMultiSend } from '@models';
 import {
   useProfileRecoil, useProfilesRecoil,

@@ -12,9 +12,8 @@ import {
 } from '@material-ui/core';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { TRANSACTION_DETAILS } from '@utils/go_to_page';
-import {
-  Result, AvatarName,
-} from '@components';
+import Result from '@components/result';
+import AvatarName from '@components/avatar_name';
 import dayjs from '@utils/dayjs';
 import { columns } from './utils';
 import { useStyles } from './styles';

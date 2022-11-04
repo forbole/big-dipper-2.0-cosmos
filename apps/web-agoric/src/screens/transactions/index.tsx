@@ -1,13 +1,11 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { NextSeo } from 'next-seo';
-import {
-  Layout,
-  TransactionsList,
-  Box,
-  LoadAndExist,
-  TransactionListDetails,
-} from '@components';
+import Layout from '@components/layout';
+import TransactionsList from '@components/transactions_list';
+import Box from '@components/box';
+import LoadAndExist from '@components/load_and_exist';
+import TransactionsListDetails from '@components/transactions_list_details';
 import { useRecoilValue } from 'recoil';
 import { readTx } from '@recoil/settings';
 import { useStyles } from './styles';
@@ -52,7 +50,7 @@ const Transactions = () => {
                 isItemLoaded={isItemLoaded}
               />
             ) : (
-              <TransactionListDetails
+              <TransactionsListDetails
                 transactions={state.items}
                 itemCount={itemCount}
                 hasNextPage={state.hasNextPage}

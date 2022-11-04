@@ -8,12 +8,9 @@ import Messages from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components', () => ({
-  ...jest.requireMock('@components'),
-  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
-  Tag: (props: JSX.IntrinsicElements['div']) => <div id="Tag" {...props} />,
-  TransactionMessagesFilter: (props: JSX.IntrinsicElements['div']) => <div id="TransactionMessagesFilter" {...props} />,
-}));
+jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />);
+jest.mock('@components/tag', () => (props: JSX.IntrinsicElements['div']) => <div id="Tag" {...props} />);
+jest.mock('@components/transaction_messages_filter', () => (props: JSX.IntrinsicElements['div']) => <div id="TransactionMessagesFilter" {...props} />);
 
 jest.mock('react-virtualized-auto-sizer', () => ({ children }: any) => children({
   height: 600, width: 600,

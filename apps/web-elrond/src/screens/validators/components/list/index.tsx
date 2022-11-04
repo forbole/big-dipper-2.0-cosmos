@@ -1,10 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
-import {
-  Box,
-  LoadAndExist,
-  TabPanel,
-} from '@components';
+import Box from '@components/box';
+import LoadAndExist from '@components/load_and_exist';
+import TabPanel from '@components/tab_panel';
 import {
   Validators, Tabs,
 } from './components';

@@ -1,8 +1,6 @@
 import React from 'react';
-import {
-  Layout,
-  LoadAndExist,
-} from '@components';
+import Layout from '@components/layout';
+import LoadAndExist from '@components/load_and_exist';
 import { useStyles } from './styles';
 import {
   DataBlocks,

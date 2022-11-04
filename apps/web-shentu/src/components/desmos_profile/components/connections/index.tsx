@@ -9,7 +9,7 @@ import {
   DialogContent,
 } from '@material-ui/core';
 import { Close as CloseIcon } from '@material-ui/icons';
-import { Pagination } from '@components';
+import Pagination from '@components/pagination';
 import {
   usePagination,
   useScreenSize,

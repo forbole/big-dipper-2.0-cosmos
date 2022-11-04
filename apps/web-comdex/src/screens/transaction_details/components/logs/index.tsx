@@ -1,7 +1,7 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
-import { Box } from '@components';
+import Box from '@components/box';
 import { useGetStyles } from './styles';
 
 const Logs: React.FC<{

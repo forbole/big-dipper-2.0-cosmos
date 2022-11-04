@@ -1,10 +1,8 @@
 import React from 'react';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  BoxDetails,
-  AvatarName,
-} from '@components';
+import BoxDetails from '@components/box_details';
+import AvatarName from '@components/avatar_name';
 import { formatNumber } from '@utils/format_token';
 import { ContractType } from '../../types';
 

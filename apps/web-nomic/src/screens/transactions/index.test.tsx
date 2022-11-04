@@ -17,13 +17,11 @@ import Transactions from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components', () => ({
-  Layout: (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />,
-  TransactionsList: (props: JSX.IntrinsicElements['div']) => <div id="TransactionsList" {...props} />,
-  TransactionListDetails: (props: JSX.IntrinsicElements['div']) => <div id="TransactionListDetails" {...props} />,
-  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
-  LoadAndExist: (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />,
-}));
+jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />);
+jest.mock('@components/transactions_list', () => (props: JSX.IntrinsicElements['div']) => <div id="TransactionsList" {...props} />);
+jest.mock('@components/transactions_list_details', () => (props: JSX.IntrinsicElements['div']) => <div id="TransactionsListDetails" {...props} />);
+jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />);
+jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />);
 
 const mockTransactionsListenerDocument = {
   data: {
@@ -102,10 +100,10 @@ describe('screen: Transactions', () => {
       mockTransactionsDocument,
     );
 
-    let component;
+    let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
 
     renderer.act(() => {
-      component = renderer.create(
+      tree = renderer.create(
         <RecoilRoot>
           <ApolloProvider client={mockClient}>
             <MockTheme>
@@ -113,7 +111,7 @@ describe('screen: Transactions', () => {
             </MockTheme>
           </ApolloProvider>
         </RecoilRoot>,
-      );
+      ).toJSON();
     });
     await wait();
 
@@ -121,7 +119,6 @@ describe('screen: Transactions', () => {
       mockSubscription.next(mockTransactionsListenerDocument);
     });
 
-    const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

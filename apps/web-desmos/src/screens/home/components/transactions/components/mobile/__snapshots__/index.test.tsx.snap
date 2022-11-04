@@ -34,14 +34,14 @@ exports[`screen: Home/Transactions/Mobile matches snapshot 1`] = `
     id="SingleTransactionMobile"
     messages="12"
     result={
-      <Result
+      <Unknown
         success={true}
       />
     }
     time="1 day ago"
     type={
       <div>
-        <Tag
+        <Unknown
           theme="six"
           value="Delegate"
         />

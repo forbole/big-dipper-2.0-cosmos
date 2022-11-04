@@ -2,12 +2,10 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import useTranslation from 'next-translate/useTranslation';
 import { NextSeo } from 'next-seo';
-import {
-  Layout,
-  Box,
-  LoadAndExist,
-  NoData,
-} from '@components';
+import Layout from '@components/layout';
+import Box from '@components/box';
+import LoadAndExist from '@components/load_and_exist';
+import NoData from '@components/no_data';
 import { useScreenSize } from '@hooks';
 import {
   useProfilesRecoil,

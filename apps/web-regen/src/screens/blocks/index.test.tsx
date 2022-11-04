@@ -17,13 +17,10 @@ import Blocks from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components', () => ({
-  ...jest.requireMock('@components'),
-  Layout: (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />,
-  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
-  LoadAndExist: (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />,
-  NoData: (props: JSX.IntrinsicElements['div']) => <div id="NoData" {...props} />,
-}));
+jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />);
+jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />);
+jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />);
+jest.mock('@components/no_data', () => (props: JSX.IntrinsicElements['div']) => <div id="NoData" {...props} />);
 
 const mockBlocksListenerDocument = {
   data: {

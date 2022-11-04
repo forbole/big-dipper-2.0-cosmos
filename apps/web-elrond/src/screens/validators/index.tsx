@@ -1,7 +1,7 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { NextSeo } from 'next-seo';
-import { Layout } from '@components';
+import Layout from '@components/layout';
 import { List } from './components';
 import { useStyles } from './styles';
 

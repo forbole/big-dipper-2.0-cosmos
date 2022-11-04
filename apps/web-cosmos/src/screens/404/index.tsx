@@ -1,8 +1,6 @@
 import React from 'react';
-import {
-  Layout,
-  NotFound as NotFoundLogo,
-} from '@components';
+import Layout from '@components/layout';
+import NotFoundLogo from '@components/not_found';
 import { useStyles } from './styles';
 
 const NotFound = () => {

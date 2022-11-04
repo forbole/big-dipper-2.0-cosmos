@@ -2,7 +2,7 @@ import React from 'react';
 import numeral from 'numeral';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import { AvatarName } from '@components';
+import AvatarName from '@components/avatar_name';
 import {
   Table,
   TableHead,

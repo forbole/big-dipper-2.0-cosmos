@@ -10,9 +10,8 @@ import {
   TableBody,
   Typography,
 } from '@material-ui/core';
-import {
-  Result, AvatarName,
-} from '@components';
+import Result from '@components/result';
+import AvatarName from '@components/avatar_name';
 import {
   TRANSACTION_DETAILS,
 } from '@utils/go_to_page';

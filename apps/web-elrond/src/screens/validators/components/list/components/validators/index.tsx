@@ -1,9 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { useScreenSize } from '@hooks';
-import {
-  NoData,
-} from '@components';
+import NoData from '@components/no_data';
 import { useProviders } from './hooks';
 import {
   ValidatorType,

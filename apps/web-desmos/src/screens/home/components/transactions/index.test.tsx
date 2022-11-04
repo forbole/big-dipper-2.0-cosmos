@@ -20,10 +20,8 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('@components', () => ({
-  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
-  NoData: (props: JSX.IntrinsicElements['div']) => <div id="NoData" {...props} />,
-}));
+jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />);
+jest.mock('@components/no_data', () => (props: JSX.IntrinsicElements['div']) => <div id="NoData" {...props} />);
 
 jest.mock('./components', () => ({
   Mobile: (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />,
@@ -36,10 +34,13 @@ const mockTxsListenerDocument = {
     transactions: [
       {
         height: 2000,
-        timestamp: '2021-02-18T09:02:28.668623',
         hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
         messages: 12,
         success: true,
+        block: {
+          timestamp: '2021-02-18T09:02:28.668623',
+        },
+        logs: [],
       },
     ],
   },

@@ -3,11 +3,9 @@ import classnames from 'classnames';
 import dynamic from 'next/dynamic';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Box,
-  Pagination,
-  Search,
-} from '@components';
+import Box from '@components/box';
+import Pagination from '@components/pagination';
+import Search from '@components/search';
 import {
   usePagination,
   useScreenSize,

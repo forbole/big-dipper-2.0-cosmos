@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 import { formatNumber } from '@utils/format_token';
 import { TOKEN_DETAILS } from '@utils/go_to_page';
-import { AvatarName } from '@components';
+import AvatarName from '@components/avatar_name';
 import { columns } from './utils';
 import { useStyles } from './styles';
 import { OtherTokenType } from '../../../../types';

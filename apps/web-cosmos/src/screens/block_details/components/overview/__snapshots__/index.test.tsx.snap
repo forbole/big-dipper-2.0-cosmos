@@ -11,31 +11,31 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
         >
           300
         </WithStyles(ForwardRef(Typography))>,
-        "label": "blocks:height",
+        "label": "height",
       },
       Object {
         "detail": "hash",
-        "label": "blocks:hash",
+        "label": "hash",
       },
       Object {
-        "detail": <AvatarName
+        "detail": <Unknown
           address="proposer"
           imageUrl=""
           name="proposer"
         />,
-        "label": "blocks:proposer",
+        "label": "proposer",
       },
       Object {
         "detail": "2020-08-10 12:00:00",
-        "label": "blocks:time",
+        "label": "time",
       },
       Object {
         "detail": "0",
-        "label": "blocks:txs",
+        "label": "txs",
       },
     ]
   }
   id="BoxDetails"
-  title="blocks:overview"
+  title="overview"
 />
 `;

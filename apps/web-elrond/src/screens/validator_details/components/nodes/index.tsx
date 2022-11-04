@@ -7,12 +7,10 @@ import {
 } from '@hooks';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Pagination,
-  NoData,
-  Box,
-  Loading,
-} from '@components';
+import Pagination from '@components/pagination';
+import NoData from '@components/no_data';
+import Box from '@components/box';
+import Loading from '@components/loading';
 import { useStyles } from './styles';
 import {
   useBlocks, PAGE_SIZE,

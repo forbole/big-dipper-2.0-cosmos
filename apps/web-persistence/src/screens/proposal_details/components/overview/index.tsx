@@ -10,12 +10,10 @@ import {
   Typography,
   Divider,
 } from '@material-ui/core';
-import {
-  SingleProposal,
-  Box,
-  Markdown,
-  Name,
-} from '@components';
+import SingleProposal from '@components/single_proposal';
+import Box from '@components/box';
+import Markdown from '@components/markdown';
+import Name from '@components/name';
 import { useProfileRecoil } from '@recoil/profiles';
 import {
   ParamsChange,

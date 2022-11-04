@@ -9,7 +9,7 @@ import chainConfig from 'ui/dist/chainConfig';
 import ChainIcon from 'ui/dist/components/ChainIcon';
 import { readTheme } from '@recoil/settings';
 import { useStyles } from './styles';
-import { Loading } from '@components';
+import Loading from '@components/loading';
 
 const Countdown: React.FC<{
   startGenesis: () => void;

@@ -18,12 +18,9 @@ jest.mock('./components', () => ({
   Tabs: (props: JSX.IntrinsicElements['div']) => <div id="Tabs" {...props} />,
 }));
 
-jest.mock('@components', () => ({
-  ...jest.requireMock('@components'),
-  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
-  NoData: (props: JSX.IntrinsicElements['div']) => <div id="NoData" {...props} />,
-  LoadAndExist: (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />,
-}));
+jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />);
+jest.mock('@components/no_data', () => (props: JSX.IntrinsicElements['div']) => <div id="NoData" {...props} />);
+jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />);
 
 const mockValidatorsDocument = jest.fn().mockResolvedValue({
   data: {

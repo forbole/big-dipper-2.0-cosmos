@@ -1,6 +1,6 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import { Name } from '@components';
+import Name from '@components/name';
 
 const Signers = (props: {
   signers: AvatarName[];

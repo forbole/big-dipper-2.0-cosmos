@@ -10,6 +10,7 @@ import {
   useActiveValidatorCountQuery,
   ActiveValidatorCountQuery,
 } from '@graphql/types/general_types';
+import { chainConfig } from 'ui/dist';
 
 export const useDataBlocks = () => {
   const [state, setState] = useState<{
@@ -35,7 +36,8 @@ export const useDataBlocks = () => {
   // ====================================
 
   useLatestBlockHeightListenerSubscription({
-    setState((prevState) => ({
+    onData: (data) => {
+      setState((prevState) => ({
         ...prevState,
         blockHeight: R.pathOr(0, ['height', 0, 'height'], data.data.data),
       }));
@@ -63,7 +65,7 @@ export const useDataBlocks = () => {
   // ====================================
   useTokenPriceListenerSubscription({
     variables: {
-      denom: 'erowan',
+      denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
     },
     onData: (data) => {
       setState((prevState) => ({

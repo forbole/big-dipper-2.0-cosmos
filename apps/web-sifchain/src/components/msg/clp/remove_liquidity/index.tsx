@@ -2,7 +2,7 @@ import React from 'react';
 import * as R from 'ramda';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
-import { Name } from '@components';
+import Name from '@components/name';
 import { MsgRemoveLiquidity } from '@models';
 import {
   useProfileRecoil,

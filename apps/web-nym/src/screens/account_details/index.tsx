@@ -1,10 +1,8 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Layout,
-  LoadAndExist,
-  DesmosProfile,
-} from '@components';
+import Layout from '@components/layout';
+import LoadAndExist from '@components/load_and_exist';
+import DesmosProfile from '@components/desmos_profile';
 import { NextSeo } from 'next-seo';
 import { useStyles } from './styles';
 import {

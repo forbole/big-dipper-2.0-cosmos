@@ -5,7 +5,7 @@ import {
   Divider,
   Typography,
 } from '@material-ui/core';
-import { AvatarName } from '@components';
+import AvatarName from '@components/avatar_name';
 import { formatNumber } from '@utils/format_token';
 import { useStyles } from './styles';
 import { ItemType } from '../../types';

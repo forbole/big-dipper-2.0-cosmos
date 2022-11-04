@@ -1,11 +1,9 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { NextSeo } from 'next-seo';
-import {
-  Layout,
-  LoadAndExist,
-  BoxDetails,
-} from '@components';
+import Layout from '@components/layout';
+import LoadAndExist from '@components/load_and_exist';
+import BoxDetails from '@components/box_details';
 import { useStyles } from './styles';
 import { useParams } from './hooks';
 import {

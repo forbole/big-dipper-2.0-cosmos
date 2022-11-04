@@ -7,10 +7,8 @@ import { VariableSizeGrid as Grid } from 'react-window';
 import { Typography } from '@material-ui/core';
 import { useGrid } from '@hooks';
 import { formatNumber } from '@utils/format_token';
-import {
-  SortArrows,
-  AvatarName,
-} from '@components';
+import SortArrows from '@components/sort_arrows';
+import AvatarName from '@components/avatar_name';
 import {
   VALIDATOR_DETAILS, NODE_DETAILS,
 } from '@utils/go_to_page';

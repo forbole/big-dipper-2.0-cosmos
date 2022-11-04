@@ -6,7 +6,7 @@ import {
 } from '@material-ui/core';
 import { formatNumber } from '@utils/format_token';
 import dayjs, { formatDayJs } from '@utils/dayjs';
-import { AvatarName } from '@components';
+import AvatarName from '@components/avatar_name';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
 import { useStyles } from './styles';

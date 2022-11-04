@@ -9,13 +9,11 @@ import {
 import { useScreenSize } from '@hooks';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import {
-  Box,
-  Tag,
-  InfoPopover,
-  ConditionExplanation,
-  LiquidStakingExplanation,
-} from '@components';
+import Box from '@components/box';
+import Tag from '@components/tag';
+import InfoPopover from '@components/info_popover';
+import ConditionExplanation from '@components/condition_explanation';
+import LiquidStakingExplanation from '@components/liquid_staking_explanation';
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { getValidatorStatus } from '@utils/get_validator_status';

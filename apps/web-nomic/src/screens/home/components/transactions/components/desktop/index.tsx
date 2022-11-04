@@ -16,7 +16,7 @@ import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import {
   BLOCK_DETAILS, TRANSACTION_DETAILS,
 } from '@utils/go_to_page';
-import { Tag } from '@components';
+import Tag from '@components/tag';
 import { useStyles } from './styles';
 import { columns } from './utils';
 import { TransactionType } from '../../types';

@@ -3,10 +3,8 @@ import classnames from 'classnames';
 import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Box,
-  AvatarName,
-} from '@components';
+import Box from '@components/box';
+import AvatarName from '@components/avatar_name';
 import {
   RadialBarChart,
   PolarAngleAxis,

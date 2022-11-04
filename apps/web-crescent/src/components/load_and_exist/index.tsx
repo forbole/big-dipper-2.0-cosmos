@@ -1,8 +1,6 @@
 import React from 'react';
-import {
-  NotFound,
-  LinearLoading,
-} from '@components';
+import NotFound from '@components/not_found';
+import LinearLoading from '@components/linear_loading';
 
 const LoadAndExist = (props: {
   loading: boolean;

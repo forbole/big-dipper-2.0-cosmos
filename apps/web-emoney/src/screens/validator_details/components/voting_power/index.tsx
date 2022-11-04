@@ -6,7 +6,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
-import { Box } from '@components';
+import Box from '@components/box';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
 import { VotingPowerType } from '../../types';

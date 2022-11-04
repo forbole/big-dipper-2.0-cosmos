@@ -6,7 +6,7 @@ import {
   Tab,
 } from '@material-ui/core';
 import { a11yProps } from '@utils/allyProps';
-import { Search } from '@components';
+import Search from '@components/search';
 import { useStyles } from './styles';
 import { TabType } from '../../types';
 

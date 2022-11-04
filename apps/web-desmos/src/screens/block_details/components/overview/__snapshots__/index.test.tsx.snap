@@ -18,7 +18,7 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
         "label": "hash",
       },
       Object {
-        "detail": <AvatarName
+        "detail": <Unknown
           address="proposer"
           imageUrl=""
           name="proposer"

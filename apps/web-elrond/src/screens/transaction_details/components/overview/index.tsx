@@ -2,11 +2,9 @@ import React from 'react';
 import { Typography } from '@material-ui/core';
 import numeral from 'numeral';
 import Link from 'next/link';
-import {
-  BoxDetails,
-  Result,
-  AvatarName,
-} from '@components';
+import BoxDetails from '@components/box_details';
+import Result from '@components/result';
+import AvatarName from '@components/avatar_name';
 import dayjs, { formatDayJs } from '@utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';

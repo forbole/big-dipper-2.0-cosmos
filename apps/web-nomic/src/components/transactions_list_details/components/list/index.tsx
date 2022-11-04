@@ -14,10 +14,8 @@ import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { mergeRefs } from '@utils/merge_refs';
-import {
-  Loading,
-  Tag,
-} from '@components';
+import Loading from '@components/loading';
+import Tag from '@components/tag';
 import {
   useList,
   useListRow,

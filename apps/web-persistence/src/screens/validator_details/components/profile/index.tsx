@@ -5,11 +5,9 @@ import {
   Divider,
 } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Box,
-  Avatar,
-  Markdown,
-} from '@components';
+import Box from '@components/box';
+import Avatar from '@components/avatar';
+import Markdown from '@components/markdown';
 import { useProfileRecoil } from '@recoil/profiles';
 import { useStyles } from './styles';
 import { OverviewType } from '../../types';

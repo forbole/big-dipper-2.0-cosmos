@@ -1,6 +1,6 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { NoData } from '@components';
+import NoData from '@components/no_data';
 import { useScreenSize } from '@hooks';
 import { useStyles } from './styles';
 import { TransactionsListState } from './types';

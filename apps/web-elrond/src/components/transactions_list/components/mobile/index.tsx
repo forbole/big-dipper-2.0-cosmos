@@ -6,9 +6,8 @@ import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import {
   Typography, Divider,
 } from '@material-ui/core';
-import {
-  Result, AvatarName,
-} from '@components';
+import Result from '@components/result';
+import AvatarName from '@components/avatar_name';
 import { TRANSACTION_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
 import { Shard } from '..';

@@ -9,7 +9,7 @@ import {
 import {
   Typography, Divider,
 } from '@material-ui/core';
-import { AvatarName } from '@components';
+import AvatarName from '@components/avatar_name';
 import { useStyles } from './styles';
 import { OperationType } from '../../../../types';
 

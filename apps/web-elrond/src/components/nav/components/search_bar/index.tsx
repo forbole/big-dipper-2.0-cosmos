@@ -1,6 +1,6 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import { Search } from '@components';
+import Search from '@components/search';
 import { useSearchBar } from './hooks';
 
 const SearchBar: React.FC<{className?: string}> = ({ className }) => {

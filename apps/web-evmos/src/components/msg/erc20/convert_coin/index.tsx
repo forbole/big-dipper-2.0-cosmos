@@ -4,7 +4,7 @@ import {
   formatToken, formatNumber,
 } from '@utils/format_token';
 import { Typography } from '@material-ui/core';
-import { Name } from '@components';
+import Name from '@components/name';
 import { MsgConvertCoin } from '@models';
 import {
   useProfileRecoil,

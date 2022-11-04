@@ -22,11 +22,8 @@ jest.mock('next/router', () => ({
     },
   }),
 }));
-
-jest.mock('@components', () => ({
-  Layout: (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />,
-  LoadAndExist: (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />,
-}));
+jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />);
+jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />);
 
 jest.mock('./components', () => ({
   Overview: (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />,

@@ -6,10 +6,7 @@ import Paginate from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components', () => ({
-  ...jest.requireMock('@components'),
-  Pagination: (props: JSX.IntrinsicElements['div']) => <div id="Pagination" {...props} />,
-}));
+jest.mock('@components/pagination', () => (props: JSX.IntrinsicElements['div']) => <div id="Pagination" {...props} />);
 
 // ==================================
 // unit tests

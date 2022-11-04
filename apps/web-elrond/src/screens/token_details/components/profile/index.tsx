@@ -3,11 +3,9 @@ import classnames from 'classnames';
 import {
   Typography,
 } from '@material-ui/core';
-import {
-  Box,
-  Avatar,
-  Markdown,
-} from '@components';
+import Box from '@components/box';
+import Avatar from '@components/avatar';
+import Markdown from '@components/markdown';
 import { useStyles } from './styles';
 import { ProfileType } from '../../types';
 

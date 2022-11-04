@@ -7,12 +7,10 @@ import Overview from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components', () => ({
-  SingleProposal: (props: JSX.IntrinsicElements['div']) => <div id="SingleProposal" {...props} />,
-  Name: (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />,
-  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
-  Markdown: (props: JSX.IntrinsicElements['div']) => <div id="Markdown" {...props} />,
-}));
+jest.mock('@components/single_proposal', () => (props: JSX.IntrinsicElements['div']) => <div id="SingleProposal" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />);
+jest.mock('@components/markdown', () => (props: JSX.IntrinsicElements['div']) => <div id="Markdown" {...props} />);
 
 jest.mock('./components', () => ({
   ParamsChange: (props: JSX.IntrinsicElements['div']) => <div id="ParamsChange" {...props} />,

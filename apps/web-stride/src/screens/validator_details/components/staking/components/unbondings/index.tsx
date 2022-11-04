@@ -5,9 +5,9 @@ import classnames from 'classnames';
 import {
   usePagination, useScreenSize,
 } from '@hooks';
-import {
-  Pagination, NoData, Loading,
-} from '@components';
+import Pagination from '@components/pagination';
+import NoData from '@components/no_data';
+import Loading from '@components/loading';
 import {
   useProfilesRecoil,
 } from '@recoil/profiles';

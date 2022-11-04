@@ -5,9 +5,8 @@ import useTranslation from 'next-translate/useTranslation';
 import {
   Typography, Tooltip,
 } from '@material-ui/core';
-import {
-  Box, NoData,
-} from '@components';
+import Box from '@components/box';
+import NoData from '@components/no_data';
 import { useStyles } from './styles';
 import { ConsensusType } from '../../types';
 

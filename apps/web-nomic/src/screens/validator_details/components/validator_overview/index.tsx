@@ -9,10 +9,8 @@ import {
 import { useScreenSize } from '@hooks';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import {
-  Box,
-  Tag,
-} from '@components';
+import Box from '@components/box';
+import Tag from '@components/tag';
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { getValidatorStatus } from '@utils/get_validator_status';

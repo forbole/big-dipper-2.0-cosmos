@@ -6,12 +6,10 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import { Typography } from '@material-ui/core';
 import { useGrid } from '@hooks';
-import {
-  SortArrows,
-  AvatarName,
-  InfoPopover,
-  LiquidStakingExplanation,
-} from '@components';
+import SortArrows from '@components/sort_arrows';
+import AvatarName from '@components/avatar_name';
+import InfoPopover from '@components/info_popover';
+import LiquidStakingExplanation from '@components/liquid_staking_explanation';
 import { getValidatorConditionClass } from '@utils/get_validator_condition';
 import { getValidatorStatus } from '@utils/get_validator_status';
 import LiquidStakingTrueIcon from 'shared-utils/assets/liquid-staking-true.svg';

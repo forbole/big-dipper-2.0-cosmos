@@ -7,7 +7,7 @@ import {
   Divider, Typography,
 } from '@material-ui/core';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
-import { SingleBlockMobile } from '@components';
+import Single from '@components/single_block_mobile';
 import { BlockType } from '../../types';
 
 const Mobile:React.FC<{ items: BlockType[] } &ComponentDefault> = (props) => {

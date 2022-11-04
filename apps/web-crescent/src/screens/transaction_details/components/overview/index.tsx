@@ -8,9 +8,8 @@ import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
 import useTranslation from 'next-translate/useTranslation';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
-import {
-  BoxDetails, Result,
-} from '@components';
+import BoxDetails from '@components/box_details';
+import Result from '@components/result';
 import { formatNumber } from '@utils/format_token';
 import { useStyles } from './styles';
 import { OverviewType } from '../../types';

@@ -4,9 +4,8 @@ import dynamic from 'next/dynamic';
 import {
   Typography,
 } from '@material-ui/core';
-import {
-  Pagination, Box,
-} from '@components';
+import Pagination from '@components/pagination';
+import Box from '@components/box';
 import {
   usePagination,
   useScreenSize,

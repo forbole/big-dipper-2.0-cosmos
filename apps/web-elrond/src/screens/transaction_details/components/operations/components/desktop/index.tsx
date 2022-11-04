@@ -11,7 +11,7 @@ import {
   TableBody,
   Typography,
 } from '@material-ui/core';
-import { AvatarName } from '@components';
+import AvatarName from '@components/avatar_name';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import {
   TOKEN_DETAILS, NFT_DETAILS,

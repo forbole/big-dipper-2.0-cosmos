@@ -1,11 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
 import dynamic from 'next/dynamic';
-import {
-  Box,
-  NoData,
-  LoadAndExist,
-} from '@components';
+import Box from '@components/box';
+import NoData from '@components/no_data';
+import LoadAndExist from '@components/load_and_exist';
 import { useScreenSize } from '@hooks';
 import {
   useProfilesRecoil,

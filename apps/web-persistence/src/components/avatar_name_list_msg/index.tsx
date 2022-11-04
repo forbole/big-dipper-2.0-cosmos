@@ -1,6 +1,6 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import { Name } from '@components';
+import Name from '@components/name';
 
 /**
  * Used for msg when you have to list multiple users

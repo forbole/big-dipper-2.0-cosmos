@@ -7,9 +7,8 @@ import {
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { TRANSACTIONS } from '@utils/go_to_page';
-import {
-  Box, NoData,
-} from '@components';
+import Box from '@components/box';
+import NoData from '@components/no_data';
 import { useScreenSize } from '@hooks';
 import { useStyles } from './styles';
 import { useTransactions } from './hooks';

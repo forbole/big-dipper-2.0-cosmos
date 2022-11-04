@@ -1,4 +1,4 @@
-import { AvatarName } from '@components';
+import AvatarName from '@components/avatar_name';
 
 export const columns:{
   key: string;

@@ -16,12 +16,10 @@ import List from '.';
 // unit tests
 // ==================================
 
-jest.mock('@components', () => ({
-  Pagination: (props: JSX.IntrinsicElements['div']) => <div id="Pagination" {...props} />,
-  NoData: (props: JSX.IntrinsicElements['div']) => <div id="NoData" {...props} />,
-  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
-  Loading: (props: JSX.IntrinsicElements['div']) => <div id="Loading" {...props} />,
-}));
+jest.mock('@components/pagination', () => (props: JSX.IntrinsicElements['div']) => <div id="Pagination" {...props} />);
+jest.mock('@components/no_data', () => (props: JSX.IntrinsicElements['div']) => <div id="NoData" {...props} />);
+jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />);
+jest.mock('@components/loading', () => (props: JSX.IntrinsicElements['div']) => <div id="Loading" {...props} />);
 
 // ==================================
 // unit tests

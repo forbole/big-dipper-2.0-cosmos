@@ -5,7 +5,7 @@ import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import {
   Typography, Divider,
 } from '@material-ui/core';
-import { AvatarName } from '@components';
+import AvatarName from '@components/avatar_name';
 import {
   TOKEN_DETAILS,
 } from '@utils/go_to_page';

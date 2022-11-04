@@ -2,11 +2,9 @@ import React from 'react';
 import classnames from 'classnames';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  TransactionListDetails,
-  TransactionsList,
-  Box,
-} from '@components';
+import TransactionsListDetails from '@components/transactions_list_details';
+import TransactionsList from '@components/transactions_list';
+import Box from '@components/box';
 import { useRecoilValue } from 'recoil';
 import { readTx } from '@recoil/settings';
 import { useStyles } from './styles';
@@ -36,7 +34,7 @@ const Transactions: React.FC<ComponentDefault & {
           isItemLoaded={() => true}
         />
       ) : (
-        <TransactionListDetails
+        <TransactionsListDetails
           transactions={transactions}
           itemCount={transactions.length}
           className={classes.list}

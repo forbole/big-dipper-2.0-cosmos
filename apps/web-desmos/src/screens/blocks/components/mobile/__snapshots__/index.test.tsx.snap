@@ -59,7 +59,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
             }
             id="SingleBlockMobile"
             proposer={
-              <AvatarName
+              <Unknown
                 address="address"
                 name="proposer"
               />
@@ -103,7 +103,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
             }
             id="SingleBlockMobile"
             proposer={
-              <AvatarName
+              <Unknown
                 address="address"
                 name="proposer"
               />

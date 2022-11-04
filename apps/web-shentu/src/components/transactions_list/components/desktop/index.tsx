@@ -13,9 +13,9 @@ import { VariableSizeGrid as Grid } from 'react-window';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import { mergeRefs } from '@utils/merge_refs';
-import {
-  Loading, Result, Tag,
-} from '@components';
+import Loading from '@components/loading';
+import Result from '@components/result';
+import Tag from '@components/tag';
 import { useGrid } from '@hooks';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { TransactionsListState } from '../../types';

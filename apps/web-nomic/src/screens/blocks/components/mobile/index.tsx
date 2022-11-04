@@ -4,11 +4,9 @@ import numeral from 'numeral';
 import dayjs from '@utils/dayjs';
 import Link from 'next/link';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
-import {
-  AvatarName,
-  SingleBlockMobile,
-  Loading,
-} from '@components';
+import AvatarName from '@components/avatar_name';
+import SingleBlockMobile from '@components/single_block_mobile';
+import Loading from '@components/loading';
 import {
   Typography, Divider,
 } from '@material-ui/core';

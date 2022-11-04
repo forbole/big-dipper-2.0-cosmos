@@ -4,7 +4,7 @@ exports[`screen: Validators matches snapshot 1`] = `
 <div
   className="makeStyles-root"
   id="Layout"
-  navTitle="validators:validators"
+  navTitle="validators"
 >
   <div
     id="List"

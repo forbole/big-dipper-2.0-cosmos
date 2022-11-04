@@ -18,10 +18,7 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('@components/box', () => ({
-  __esModule: true,
-  default: (props: JSX.IntrinsicElements['div']) => <div id="box" {...props} />,
-}));
+jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => <div id="box" {...props} />);
 jest.mock('recharts', () => ({
   ...jest.requireActual('recharts'),
   Tooltip: () => <div id="tooltip" />,

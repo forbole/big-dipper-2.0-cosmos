@@ -8,89 +8,32 @@ Array [
   <div
     className="makeStyles-root-1"
   >
-    <img
-      alt="logo"
-      className="makeStyles-logo-3 makeStyles-light-6"
-      src={
-        Object {
-          "process": [Function],
-        }
-      }
-    />
-    <img
-      alt="logo"
-      className="makeStyles-logo-3 makeStyles-dark-7"
-      src={
-        Object {
-          "process": [Function],
-        }
-      }
-    />
-    <div
-      className="makeStyles-timeContainer-4"
-    >
+    <div>
+      <img
+        alt="logo"
+        className="makeStyles-logo-2 makeStyles-dark-2"
+        src="svg"
+      />
+      <img
+        alt="logo"
+        className="makeStyles-logo-2 makeStyles-light-1"
+        src="svg"
+      />
       <div
-        className="makeStyles-item-5"
+        className="MuiLinearProgress-root MuiLinearProgress-colorPrimary makeStyles-divider-3 MuiLinearProgress-indeterminate"
+        role="progressbar"
       >
-        <h1
-          className="MuiTypography-root MuiTypography-h1"
-        >
-          0
-        </h1>
-        <h3
-          className="MuiTypography-root MuiTypography-h3"
-        >
-          Day
-        </h3>
+        <div
+          className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Indeterminate"
+          style={Object {}}
+        />
+        <div
+          className="MuiLinearProgress-bar MuiLinearProgress-bar2Indeterminate MuiLinearProgress-barColorPrimary"
+          style={Object {}}
+        />
       </div>
-      <div
-        className="makeStyles-item-5"
-      >
-        <h1
-          className="MuiTypography-root MuiTypography-h1"
-        >
-          0
-        </h1>
-        <h3
-          className="MuiTypography-root MuiTypography-h3"
-        >
-          Hour
-        </h3>
-      </div>
-      <div
-        className="makeStyles-item-5"
-      >
-        <h1
-          className="MuiTypography-root MuiTypography-h1"
-        >
-          0
-        </h1>
-        <h3
-          className="MuiTypography-root MuiTypography-h3"
-        >
-          Min
-        </h3>
-      </div>
-      <div
-        className="makeStyles-item-5"
-      >
-        <h1
-          className="MuiTypography-root MuiTypography-h1"
-        >
-          0
-        </h1>
-        <h3
-          className="MuiTypography-root MuiTypography-h3"
-        >
-          Sec
-        </h3>
-      </div>
+      <svg />
     </div>
-    <h2
-      className="MuiTypography-root makeStyles-chain-2 MuiTypography-h2"
-    >
-      morpheus-apollo-1
-    </h2>
   </div>,
 ]
 `;

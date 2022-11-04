@@ -2,10 +2,8 @@ import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import Big from 'big.js';
-import {
-  Box,
-  InfoPopover,
-} from '@components';
+import Box from '@components/box';
+import InfoPopover from '@components/info_popover';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 import {

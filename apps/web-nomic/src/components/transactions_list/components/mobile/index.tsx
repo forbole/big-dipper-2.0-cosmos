@@ -15,11 +15,9 @@ import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
 
 import { mergeRefs } from '@utils/merge_refs';
-import {
-  SingleTransactionMobile,
-  Loading,
-  Tag,
-} from '@components';
+import SingleTransactionMobile from '@components/single_transaction_mobile';
+import Loading from '@components/loading';
+import Tag from '@components/tag';
 import {
   useList,
   useListRow,

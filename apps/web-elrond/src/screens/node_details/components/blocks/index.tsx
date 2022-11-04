@@ -2,11 +2,9 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
-import {
-  Box,
-  BlocksList,
-  NoData,
-} from '@components';
+import Box from '@components/box';
+import BlocksList from '@components/blocks_list';
+import NoData from '@components/no_data';
 import { useStyles } from './style';
 
 const Blocks: React.FC<{blocks: BlockType[]} & ComponentDefault> = (props) => {

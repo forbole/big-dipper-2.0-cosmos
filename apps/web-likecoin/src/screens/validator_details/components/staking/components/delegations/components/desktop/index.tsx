@@ -8,9 +8,7 @@ import {
   TableCell,
   TableBody,
 } from '@material-ui/core';
-import {
-  AvatarName,
-} from '@components';
+import AvatarName from '@components/avatar_name';
 import { formatNumber } from '@utils/format_token';
 import { columns } from './utils';
 import { ItemType } from '../../types';

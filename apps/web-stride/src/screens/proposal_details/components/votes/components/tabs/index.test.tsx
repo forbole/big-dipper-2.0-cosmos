@@ -6,9 +6,7 @@ import TabsHeader from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components', () => ({
-  Search: (props: JSX.IntrinsicElements['div']) => <div id="Search" {...props} />,
-}));
+jest.mock('@components/search', () => (props: JSX.IntrinsicElements['div']) => <div id="Search" {...props} />);
 
 // ==================================
 // unit tests

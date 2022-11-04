@@ -23,12 +23,9 @@ jest.mock('next/router', () => ({
     },
   }),
 }));
-
-jest.mock('@components', () => ({
-  Layout: (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />,
-  LoadAndExist: (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />,
-  DesmosProfile: (props: JSX.IntrinsicElements['div']) => <div id="DesmosProfile" {...props} />,
-}));
+jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />);
+jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />);
+jest.mock('@components/desmos_profile', () => (props: JSX.IntrinsicElements['div']) => <div id="DesmosProfile" {...props} />);
 
 jest.mock('./components', () => ({
   Overview: (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />,
@@ -162,19 +159,19 @@ describe('screen: BlockDetails', () => {
       mockAccountMessages,
     );
 
-    let component;
+    let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
+
     renderer.act(() => {
-      component = renderer.create(
+      tree = renderer.create(
         <ApolloProvider client={mockClient}>
           <MockTheme>
             <AccountDetails />
           </MockTheme>
         </ApolloProvider>,
-      );
+      ).toJSON();
     });
     await wait();
 
-    const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

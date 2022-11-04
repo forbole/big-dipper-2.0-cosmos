@@ -6,10 +6,8 @@ import Connections from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components', () => ({
-  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
-  Pagination: (props: JSX.IntrinsicElements['div']) => <div id="Pagination" {...props} />,
-}));
+jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />);
+jest.mock('@components/pagination', () => (props: JSX.IntrinsicElements['div']) => <div id="Pagination" {...props} />);
 
 // ==================================
 // unit tests

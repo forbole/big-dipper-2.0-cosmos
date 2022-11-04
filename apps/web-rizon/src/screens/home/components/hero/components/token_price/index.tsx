@@ -12,7 +12,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
-import { CustomToolTip } from '@components';
+import Custom from '@components/custom_tool_tip';
 import { readDate } from '@recoil/settings';
 import dayjs, { formatDayJs } from '@utils/dayjs';
 import { TokenPriceType } from '../../types';

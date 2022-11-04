@@ -11,11 +11,8 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('@components', () => ({
-  ...jest.requireMock('@components'),
-  Loading: (props: JSX.IntrinsicElements['div']) => <div id="Loading" {...props} />,
-  AvatarName: (props: JSX.IntrinsicElements['div']) => <div id="AvatarName" {...props} />,
-}));
+jest.mock('@components/loading', () => (props: JSX.IntrinsicElements['div']) => <div id="Loading" {...props} />);
+jest.mock('@components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => <div id="AvatarName" {...props} />);
 
 jest.mock('react-virtualized-auto-sizer', () => ({ children }: any) => children({
   height: 600, width: 600,

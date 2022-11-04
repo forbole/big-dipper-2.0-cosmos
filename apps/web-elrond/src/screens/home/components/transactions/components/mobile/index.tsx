@@ -9,9 +9,8 @@ import {
 import {
   TRANSACTION_DETAILS,
 } from '@utils/go_to_page';
-import {
-  Result, AvatarName,
-} from '@components';
+import Result from '@components/result';
+import AvatarName from '@components/avatar_name';
 import { TransactionType } from '../../types';
 import { useStyles } from './styles';
 

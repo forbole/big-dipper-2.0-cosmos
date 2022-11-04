@@ -1,5 +1,5 @@
 import React from 'react';
-import { BoxDetails } from '@components';
+import BoxDetails from '@components/box_details';
 import useTranslation from 'next-translate/useTranslation';
 import { ActionType } from '../../types';
 import { useStyles } from './styles';

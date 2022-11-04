@@ -5,7 +5,7 @@ import {
   Typography, Divider,
 } from '@material-ui/core';
 import Link from 'next/link';
-import { AvatarName } from '@components';
+import AvatarName from '@components/avatar_name';
 import {
   NFT_DETAILS,
 } from '@utils/go_to_page';

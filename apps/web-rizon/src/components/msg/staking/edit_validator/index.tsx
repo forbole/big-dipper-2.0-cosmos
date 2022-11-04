@@ -1,7 +1,7 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
-import { Name } from '@components';
+import Name from '@components/name';
 import { MsgEditValidator } from '@models';
 import { VALIDATOR_DETAILS } from '@utils/go_to_page';
 import { useProfileRecoil } from '@recoil/profiles';

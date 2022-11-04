@@ -9,11 +9,9 @@ import {
 import {
   useProfilesRecoil,
 } from '@recoil/profiles';
-import {
-  Box,
-  AvatarName,
-  Result,
-} from '@components';
+import Box from '@components/box';
+import AvatarName from '@components/avatar_name';
+import Result from '@components/result';
 import { useStyles } from './styles';
 import { useBlocks } from './hooks';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
 import {
   MockTheme, wait,
 } from '@tests/utils';
@@ -13,9 +13,7 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('@components', () => ({
-  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
-}));
+jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />);
 
 jest.mock('./components', () => ({
   Mobile: (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />,
@@ -28,9 +26,10 @@ jest.mock('./components', () => ({
 // ==================================
 describe('screen: Proposals/List', () => {
   it('matches snapshot', async () => {
-    let component;
+    let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
+
     renderer.act(() => {
-      component = renderer.create(
+      tree = renderer.create(
         <MockTheme>
           <List
             items={[
@@ -47,11 +46,10 @@ describe('screen: Proposals/List', () => {
             loadMoreItems={() => null}
           />
         </MockTheme>,
-      );
+      ).toJSON();
     });
     await wait();
 
-    const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

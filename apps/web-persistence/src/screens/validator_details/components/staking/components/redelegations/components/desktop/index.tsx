@@ -9,7 +9,7 @@ import {
   TableCell,
   TableBody,
 } from '@material-ui/core';
-import { AvatarName } from '@components';
+import AvatarName from '@components/avatar_name';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
 import { formatNumber } from '@utils/format_token';
