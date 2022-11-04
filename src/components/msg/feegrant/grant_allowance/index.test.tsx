@@ -22,7 +22,7 @@ jest.mock('next-translate/Trans', () => (
 // ==================================
 describe('screen: TransactionDetails/Grant', () => {
   it('matches snapshot', () => {
-    const message = new MsgGrantAllowance({
+    const message = MsgGrantAllowance.fromJson({
       category: 'feegrant',
       type: 'MsgGrant',
       granter: 'sponderbob',

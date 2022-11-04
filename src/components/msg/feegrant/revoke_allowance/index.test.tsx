@@ -22,7 +22,7 @@ jest.mock('next-translate/Trans', () => (
 // ==================================
 describe('screen: TransactionDetails/Revoke', () => {
   it('matches snapshot', () => {
-    const message = new MsgRevokeAllowance({
+    const message = MsgRevokeAllowance.fromJson({
       category: 'authz',
       type: 'MsgRevokeAllowance',
       granter: 'sponderbob',
