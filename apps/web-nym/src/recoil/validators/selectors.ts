@@ -10,17 +10,21 @@ import { AtomState } from './types';
  * @param address string
  * @returns string | null
  */
-const getValidator = (address: string) => ({ get }): AtomState => {
-  const state = get(atomFamilyState(address));
-  return state;
-};
+const getValidator =
+  (address: string) =>
+  ({ get }): AtomState => {
+    const state = get(atomFamilyState(address));
+    return state;
+  };
 
 export const writeValidator = selectorFamily<AtomState, string>({
   key: 'validator.write.validator',
   get: getValidator,
-  set: (address: string) => ({ set }, validator) => {
-    set(atomFamilyState(address), validator);
-  },
+  set:
+    (address: string) =>
+    ({ set }, validator) => {
+      set(atomFamilyState(address), validator);
+    },
 });
 
 export const readValidator = selectorFamily({

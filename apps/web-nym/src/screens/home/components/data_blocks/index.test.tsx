@@ -1,12 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {
-  MockTheme, wait,
-} from '@tests/utils';
+import { MockTheme, wait } from '@tests/utils';
 import { ApolloProvider } from '@apollo/client';
-import {
-  createMockClient, createMockSubscription,
-} from 'mock-apollo-client';
+import { createMockClient, createMockSubscription } from 'mock-apollo-client';
 import {
   LatestBlockHeightListenerDocument,
   AverageBlockTimeDocument,
@@ -82,25 +78,13 @@ describe('screen: Home/DataBlocks', () => {
     const mockSubscription = createMockSubscription();
     const mockSubscriptionTwo = createMockSubscription();
 
-    mockClient.setRequestHandler(
-      LatestBlockHeightListenerDocument,
-      () => mockSubscription,
-    );
+    mockClient.setRequestHandler(LatestBlockHeightListenerDocument, () => mockSubscription);
 
-    mockClient.setRequestHandler(
-      TokenPriceListenerDocument,
-      () => mockSubscriptionTwo,
-    );
+    mockClient.setRequestHandler(TokenPriceListenerDocument, () => mockSubscriptionTwo);
 
-    mockClient.setRequestHandler(
-      AverageBlockTimeDocument,
-      mockAverageBlockTime,
-    );
+    mockClient.setRequestHandler(AverageBlockTimeDocument, mockAverageBlockTime);
 
-    mockClient.setRequestHandler(
-      ActiveValidatorCountDocument,
-      mockActiveValidatorsCount,
-    );
+    mockClient.setRequestHandler(ActiveValidatorCountDocument, mockActiveValidatorsCount);
 
     let component;
 
@@ -110,7 +94,7 @@ describe('screen: Home/DataBlocks', () => {
           <MockTheme>
             <DataBlocks />
           </MockTheme>
-        </ApolloProvider>,
+        </ApolloProvider>
       );
     });
     await wait();

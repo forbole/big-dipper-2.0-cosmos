@@ -4,4 +4,4 @@ export type TransactionsState = {
   hasNextPage: boolean;
   isNextPageLoading: boolean;
   items: Transactions[];
-}
+};

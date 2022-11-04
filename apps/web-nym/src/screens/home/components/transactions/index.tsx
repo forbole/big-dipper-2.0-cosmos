@@ -1,9 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import {
-  Typography, Divider,
-} from '@material-ui/core';
+import { Typography, Divider } from '@material-ui/core';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { TRANSACTIONS } from '@utils/go_to_page';
@@ -26,9 +24,7 @@ const Transactions: React.FC<{
   return (
     <Box className={classnames(className, classes.root)}>
       <div className={classes.label}>
-        <Typography variant="h2">
-          {t('latestTransactions')}
-        </Typography>
+        <Typography variant="h2">{t('latestTransactions')}</Typography>
         <Link href={TRANSACTIONS} passHref>
           <Typography variant="h4" className="button" component="a">
             {t('seeMore')}
@@ -40,19 +36,17 @@ const Transactions: React.FC<{
       ) : (
         <>
           {isDesktop ? (
-            <Desktop
-              className={classes.desktop}
-              items={state.items}
-            />
+            <Desktop className={classes.desktop} items={state.items} />
           ) : (
-            <Mobile
-              className={classes.mobile}
-              items={state.items}
-            />
+            <Mobile className={classes.mobile} items={state.items} />
           )}
           <Divider className={classes.mobile} />
           <Link href={TRANSACTIONS} passHref>
-            <Typography variant="h4" component="a" className={classnames(classes.seeMoreFooter, classes.mobile, 'button')}>
+            <Typography
+              variant="h4"
+              component="a"
+              className={classnames(classes.seeMoreFooter, classes.mobile, 'button')}
+            >
               {t('seeMore')}
             </Typography>
           </Link>

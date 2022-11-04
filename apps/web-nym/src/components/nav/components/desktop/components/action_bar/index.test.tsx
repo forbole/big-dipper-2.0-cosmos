@@ -6,7 +6,7 @@ import ActionBar from '.';
 // ==================================
 // global setup
 // ==================================
-let component:renderer.ReactTestRenderer;
+let component: renderer.ReactTestRenderer;
 
 // ==================================
 // mocks
@@ -25,11 +25,8 @@ describe('screen: Nav/ActionBar', () => {
   beforeEach(() => {
     component = renderer.create(
       <MockTheme>
-        <ActionBar
-          isNetwork={isNetwork}
-          toggleNetwork={toggleNetwork}
-        />
-      </MockTheme>,
+        <ActionBar isNetwork={isNetwork} toggleNetwork={toggleNetwork} />
+      </MockTheme>
     );
   });
 
@@ -42,11 +39,8 @@ describe('screen: Nav/ActionBar', () => {
     isNetwork = true;
     component.update(
       <MockTheme>
-        <ActionBar
-          isNetwork={isNetwork}
-          toggleNetwork={toggleNetwork}
-        />
-      </MockTheme>,
+        <ActionBar isNetwork={isNetwork} toggleNetwork={toggleNetwork} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

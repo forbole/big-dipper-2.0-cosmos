@@ -2,9 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
 import numeral from 'numeral';
-import {
-  Typography,
-} from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import Box from '@components/box';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
@@ -15,14 +13,10 @@ const VotingPower: React.FC<{
   className?: string;
   data: VotingPowerType;
   status: number;
-}> = ({
-  className,
-  data,
-  status,
-}) => {
+}> = ({ className, data, status }) => {
   const { t } = useTranslation('validators');
-  const votingPowerPercent = status === 3 ? numeral((
-    data.self / numeral(data.overall.value).value()) * 100) : numeral(0);
+  const votingPowerPercent =
+    status === 3 ? numeral((data.self / numeral(data.overall.value).value()) * 100) : numeral(0);
 
   const classes = useStyles(votingPowerPercent.format(0, Math.floor));
 
@@ -30,19 +24,13 @@ const VotingPower: React.FC<{
 
   return (
     <Box className={classnames(className, classes.root)}>
-      <Typography variant="h2">
-        {t('votingPower')}
-      </Typography>
+      <Typography variant="h2">{t('votingPower')}</Typography>
       <div className={classes.data}>
         <Typography variant="h3" className="primary__data">
           {`${votingPowerPercent.format('0,0.00')}%`}
         </Typography>
         <Typography variant="body1">
-          {votingPower}
-          {' '}
-          /
-          {' '}
-          {numeral(data.overall.value).format('0,0')}
+          {votingPower} / {numeral(data.overall.value).format('0,0')}
         </Typography>
       </div>
       <div className={classes.chart}>
