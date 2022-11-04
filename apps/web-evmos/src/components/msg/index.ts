@@ -1,11 +1,7 @@
 // =========================
 // utils
 // =========================
-import {
-  getMessageModelByType,
-  getMessageByType,
-  convertMsgsToModels,
-} from './utils';
+import { getMessageModelByType, getMessageByType, convertMsgsToModels } from './utils';
 
 // =========================
 // msg components
@@ -73,11 +69,7 @@ import ConvertErc20 from './erc20/convert_erc20';
 import CreateClawbackVestingAccount from './vesting/create_clawback_vesting_account';
 import Clawback from './vesting/clawback';
 
-export {
-  getMessageModelByType,
-  getMessageByType,
-  convertMsgsToModels,
-};
+export { getMessageModelByType, getMessageByType, convertMsgsToModels };
 
 export {
   Delegate,

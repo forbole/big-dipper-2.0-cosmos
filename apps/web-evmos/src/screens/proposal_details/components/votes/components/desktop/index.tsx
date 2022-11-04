@@ -1,13 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
-} from '@material-ui/core';
+import { Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
 import AvatarName from '@components/avatar_name';
 import { columns } from './utils';
 import { getVoteKey } from '../../utils';
@@ -16,22 +10,14 @@ import { ItemType } from '../../types';
 const Desktop: React.FC<{
   className?: string;
   items?: ItemType[];
-}> = ({
-  className, items,
-}) => {
+}> = ({ className, items }) => {
   const { t } = useTranslation('proposals');
 
   const formattedItems = items.map((x) => {
-    return ({
-      voter: (
-        <AvatarName
-          address={x.user.address}
-          imageUrl={x.user.imageUrl}
-          name={x.user.name}
-        />
-      ),
+    return {
+      voter: <AvatarName address={x.user.address} imageUrl={x.user.imageUrl} name={x.user.name} />,
       vote: t(getVoteKey(x.vote)),
-    });
+    };
   });
 
   return (

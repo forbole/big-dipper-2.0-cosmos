@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
-import {
-  useTokenomicsQuery,
-  TokenomicsQuery,
-} from '@graphql/types/general_types';
+import { useTokenomicsQuery, TokenomicsQuery } from '@graphql/types/general_types';
 import { StakingParams } from '@models';
 import { formatToken } from '@utils/format_token';
 
@@ -31,32 +28,23 @@ export const useTokenomics = () => {
 
   const formatTokenomics = (data: TokenomicsQuery) => {
     const results = { ...state };
-    const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
+    const stakingParams = StakingParams.fromJson(
+      R.pathOr({}, ['stakingParams', 0, 'params'], data)
+    );
     results.denom = stakingParams.bondDenom;
 
-    const [total] = R.pathOr([], [
-      'supply',
-      0,
-      'coins',
-    ], data)
-      .filter((x) => x.denom === results.denom);
+    const [total] = R.pathOr([], ['supply', 0, 'coins'], data).filter(
+      (x) => x.denom === results.denom
+    );
     if (total) {
       results.total = numeral(formatToken(total.amount, total.denom).value).value();
     }
 
-    const bonded = R.pathOr(state.bonded, [
-      'stakingPool',
-      0,
-      'bonded',
-    ], data);
+    const bonded = R.pathOr(state.bonded, ['stakingPool', 0, 'bonded'], data);
 
     results.bonded = numeral(formatToken(bonded, results.denom).value).value();
 
-    const unbonding = R.pathOr(state.bonded, [
-      'stakingPool',
-      0,
-      'unbonded',
-    ], data);
+    const unbonding = R.pathOr(state.bonded, ['stakingPool', 0, 'unbonded'], data);
     results.unbonding = numeral(formatToken(unbonding, results.denom).value).value();
 
     const unbonded = results.total - results.unbonding - results.bonded;

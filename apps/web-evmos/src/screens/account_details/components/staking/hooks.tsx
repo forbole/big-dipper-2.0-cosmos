@@ -1,6 +1,4 @@
-import {
-  useState, useEffect,
-} from 'react';
+import { useState, useEffect } from 'react';
 import * as R from 'ramda';
 import Big from 'big.js';
 import { useRouter } from 'next/router';
@@ -95,9 +93,7 @@ export const useStaking = (rewards: RewardsType) => {
         const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
         const remainingDelegationsPromises = [];
         for (let i = 0; i < remainingFetchCount; i += 1) {
-          remainingDelegationsPromises.push(getStakeByPage(
-            i + 1, AccountDelegationsDocument,
-          ));
+          remainingDelegationsPromises.push(getStakeByPage(i + 1, AccountDelegationsDocument));
         }
         const remainingDelegations = await Promise.allSettled(remainingDelegationsPromises);
         remainingDelegations
@@ -112,9 +108,7 @@ export const useStaking = (rewards: RewardsType) => {
         delegations: {
           loading: false,
           count,
-          data: createPagination(
-            formatDelegations(allDelegations),
-          ),
+          data: createPagination(formatDelegations(allDelegations)),
         },
       });
     } catch (error) {
@@ -131,11 +125,11 @@ export const useStaking = (rewards: RewardsType) => {
       .map((x) => {
         const validator = R.pathOr('', ['validator_address'], x);
         const delegation = getDenom(x.coins, chainConfig.primaryTokenUnit);
-        return ({
+        return {
           validator,
           amount: formatToken(delegation.amount, delegation.denom),
           reward: rewards[validator],
-        });
+        };
       })
       .sort((a, b) => {
         return Big(a.amount.value).gt(b.amount.value) ? -1 : 1;
@@ -162,15 +156,17 @@ export const useStaking = (rewards: RewardsType) => {
         const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
         const remainingPromises = [];
         for (let i = 0; i < remainingFetchCount; i += 1) {
-          remainingPromises.push(getStakeByPage(
-            i + 1, AccountRedelegationsDocument,
-          ));
+          remainingPromises.push(getStakeByPage(i + 1, AccountRedelegationsDocument));
         }
         const remainingData = await Promise.allSettled(remainingPromises);
         remainingData
           .filter((x) => x.status === 'fulfilled')
           .forEach((x) => {
-            const fullfilledData = R.pathOr([], ['value', 'data', 'redelegations', 'redelegations'], x);
+            const fullfilledData = R.pathOr(
+              [],
+              ['value', 'data', 'redelegations', 'redelegations'],
+              x
+            );
             allData.push(...fullfilledData);
           });
       }
@@ -195,17 +191,16 @@ export const useStaking = (rewards: RewardsType) => {
 
   const formatRedelegations = (data: any[]) => {
     const results = [];
-    data
-      .forEach((x) => {
-        R.pathOr([], ['entries'], x).forEach((y) => {
-          results.push({
-            from: R.pathOr('', ['validator_src_address'], x),
-            to: R.pathOr('', ['validator_dst_address'], x),
-            amount: formatToken(y.balance, chainConfig.primaryTokenUnit),
-            completionTime: R.pathOr('', ['completion_time'], y),
-          });
+    data.forEach((x) => {
+      R.pathOr([], ['entries'], x).forEach((y) => {
+        results.push({
+          from: R.pathOr('', ['validator_src_address'], x),
+          to: R.pathOr('', ['validator_dst_address'], x),
+          amount: formatToken(y.balance, chainConfig.primaryTokenUnit),
+          completionTime: R.pathOr('', ['completion_time'], y),
         });
       });
+    });
 
     results.sort((a, b) => {
       return a.completionTime < b.completionTime ? -1 : 1;
@@ -234,15 +229,17 @@ export const useStaking = (rewards: RewardsType) => {
         const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
         const remainingPromises = [];
         for (let i = 0; i < remainingFetchCount; i += 1) {
-          remainingPromises.push(getStakeByPage(
-            i + 1, AccountUndelegationsDocument,
-          ));
+          remainingPromises.push(getStakeByPage(i + 1, AccountUndelegationsDocument));
         }
         const remainingData = await Promise.allSettled(remainingPromises);
         remainingData
           .filter((x) => x.status === 'fulfilled')
           .forEach((x) => {
-            const fullfilledData = R.pathOr([], ['value', 'data', 'undelegations', 'undelegations'], x);
+            const fullfilledData = R.pathOr(
+              [],
+              ['value', 'data', 'undelegations', 'undelegations'],
+              x
+            );
             allData.push(...fullfilledData);
           });
       }

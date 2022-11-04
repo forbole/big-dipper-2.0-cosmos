@@ -3,13 +3,9 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgCreateClawbackVestingAccount } from '@models';
-import {
-  useProfileRecoil,
-} from '@recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 
-const CreateClawbackVestingAccount = (props: {
-  message: MsgCreateClawbackVestingAccount;
-}) => {
+const CreateClawbackVestingAccount = (props: { message: MsgCreateClawbackVestingAccount }) => {
   const { message } = props;
 
   const to = useProfileRecoil(message.toAddress);
@@ -23,18 +19,8 @@ const CreateClawbackVestingAccount = (props: {
       <Trans
         i18nKey="message_contents:MsgCreateClawbackVestingAccount"
         components={[
-          (
-            <Name
-              address={message.fromAddress}
-              name={fromMoniker}
-            />
-          ),
-          (
-            <Name
-              address={message.toAddress}
-              name={toMoniker}
-            />
-          ),
+          <Name address={message.fromAddress} name={fromMoniker} />,
+          <Name address={message.toAddress} name={toMoniker} />,
         ]}
       />
     </Typography>

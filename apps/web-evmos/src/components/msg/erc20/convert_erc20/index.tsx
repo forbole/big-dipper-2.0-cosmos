@@ -3,13 +3,9 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgConvertErc20 } from '@models';
-import {
-  useProfileRecoil,
-} from '@recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 
-const ConvertErc20 = (props: {
-  message: MsgConvertErc20;
-}) => {
+const ConvertErc20 = (props: { message: MsgConvertErc20 }) => {
   const { message } = props;
 
   const receiver = useProfileRecoil(message.receiver);
@@ -19,15 +15,7 @@ const ConvertErc20 = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:MsgConvertErc20"
-        components={[
-          (
-            <Name
-              address={message.receiver}
-              name={receiverMoniker}
-            />
-          ),
-          <b />,
-        ]}
+        components={[<Name address={message.receiver} name={receiverMoniker} />, <b />]}
         values={{
           sender: message.sender,
           amount: message.amount,

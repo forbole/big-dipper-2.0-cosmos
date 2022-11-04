@@ -1,12 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  MenuItem,
-  Select,
-  InputBase,
-  Typography,
-} from '@material-ui/core';
+import { MenuItem, Select, InputBase, Typography } from '@material-ui/core';
 import FilterIcon from 'shared-utils/assets/icon-filter.svg';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { getFilterLabels } from './utils';
@@ -16,16 +11,11 @@ import { useTransactionsFilter } from './hooks';
 const TransactionMessagesFilter: React.FC<{
   className?: string;
   callback: (value: string) => void;
-}> = ({
-  className, callback,
-}) => {
+}> = ({ className, callback }) => {
   const filterLabels = getFilterLabels();
   const { t } = useTranslation('transactions');
   const classes = useStyles();
-  const {
-    handleSelect,
-    selectedFilter,
-  } = useTransactionsFilter(callback);
+  const { handleSelect, selectedFilter } = useTransactionsFilter(callback);
 
   return (
     <Select
@@ -45,19 +35,16 @@ const TransactionMessagesFilter: React.FC<{
       }}
       value={selectedFilter}
       renderValue={
-        selectedFilter !== '' ? undefined : () => {
-          return (
-            <Typography
-              variant="body1"
-              noWrap
-              component="div"
-              className={classes.filterLabel}
-            >
-              <FilterIcon className={classes.filterIcon} />
-              {t('filterBy')}
-            </Typography>
-          );
-        }
+        selectedFilter !== ''
+          ? undefined
+          : () => {
+              return (
+                <Typography variant="body1" noWrap component="div" className={classes.filterLabel}>
+                  <FilterIcon className={classes.filterIcon} />
+                  {t('filterBy')}
+                </Typography>
+              );
+            }
       }
       input={<InputBase />}
     >

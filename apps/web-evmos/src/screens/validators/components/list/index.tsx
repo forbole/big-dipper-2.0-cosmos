@@ -5,9 +5,7 @@ import Box from '@components/box';
 import NoData from '@components/no_data';
 import LoadAndExist from '@components/load_and_exist';
 import { useScreenSize } from '@hooks';
-import {
-  useProfilesRecoil,
-} from '@recoil/profiles';
+import { useProfilesRecoil } from '@recoil/profiles';
 import { Tabs } from './components';
 import { useStyles } from './styles';
 import { useValidators } from './hooks';
@@ -20,33 +18,20 @@ const List: React.FC<{
 }> = ({ className }) => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
-  const {
-    state,
-    handleTabChange,
-    handleSearch,
-    handleSort,
-    sortItems,
-  } = useValidators();
+  const { state, handleTabChange, handleSearch, handleSort, sortItems } = useValidators();
   const dataProfiles = useProfilesRecoil(state.items.map((x) => x.validator));
   const mergedDataWithProfiles = state.items.map((x, i) => {
-    return ({
+    return {
       ...x,
       validator: dataProfiles[i],
-    });
+    };
   });
   const items = sortItems(mergedDataWithProfiles);
 
   return (
-    <LoadAndExist
-      loading={state.loading}
-      exists={state.exists}
-    >
+    <LoadAndExist loading={state.loading} exists={state.exists}>
       <Box className={classnames(className)}>
-        <Tabs
-          tab={state.tab}
-          handleTabChange={handleTabChange}
-          handleSearch={handleSearch}
-        />
+        <Tabs tab={state.tab} handleTabChange={handleTabChange} handleSearch={handleSearch} />
         <div className={classes.list}>
           {items.length ? (
             <>
@@ -59,10 +44,7 @@ const List: React.FC<{
                   items={items}
                 />
               ) : (
-                <Mobile
-                  className={classes.mobile}
-                  items={items}
-                />
+                <Mobile className={classes.mobile} items={items} />
               )}
             </>
           ) : (

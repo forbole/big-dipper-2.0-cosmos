@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = (coverUrl?: string) => {
   const styles = makeStyles(
     (theme) => {
-      return ({
+      return {
         root: {
           overflow: 'hidden',
         },
@@ -89,9 +89,9 @@ export const useStyles = (coverUrl?: string) => {
             color: theme.palette.custom.fonts.fontFour,
           },
         },
-      });
+      };
     },
-    { index: 1 },
+    { index: 1 }
   )();
 
   return styles;

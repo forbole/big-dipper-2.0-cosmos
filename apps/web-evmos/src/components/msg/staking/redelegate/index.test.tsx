@@ -8,7 +8,9 @@ import Redelegate from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -29,11 +31,9 @@ describe('screen: TransactionDetails/Redelegate', () => {
     const component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <Redelegate
-            message={message}
-          />
+          <Redelegate message={message} />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

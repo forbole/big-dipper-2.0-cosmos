@@ -2,12 +2,8 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { createMockClient } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
-import {
-  MockTheme, wait,
-} from '@tests/utils';
-import {
-  TransactionDetailsDocument,
-} from '@graphql/types/general_types';
+import { MockTheme, wait } from '@tests/utils';
+import { TransactionDetailsDocument } from '@graphql/types/general_types';
 import TransactionDetails from '.';
 
 // ==================================
@@ -26,8 +22,12 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />);
-jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />);
+jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Layout" {...props} />
+));
+jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="LoadAndExist" {...props} />
+));
 
 jest.mock('./components', () => ({
   Overview: (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />,
@@ -127,7 +127,8 @@ const mockTransactionDetailsDocument = jest.fn().mockResolvedValue({
             ],
           },
         ],
-        rawLog: '[{"events":[{"type":"delegate","attributes":[{"key":"validator","value":"desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3"},{"key":"amount","value":"8371578"}]},{"type":"message","attributes":[{"key":"action","value":"delegate"},{"key":"sender","value":"desmos1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8n8fv78"},{"key":"module","value":"staking"},{"key":"sender","value":"desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr"}]},{"type":"transfer","attributes":[{"key":"recipient","value":"desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr"},{"key":"sender","value":"desmos1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8n8fv78"},{"key":"amount","value":"3094654udaric"}]}]}]',
+        rawLog:
+          '[{"events":[{"type":"delegate","attributes":[{"key":"validator","value":"desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3"},{"key":"amount","value":"8371578"}]},{"type":"message","attributes":[{"key":"action","value":"delegate"},{"key":"sender","value":"desmos1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8n8fv78"},{"key":"module","value":"staking"},{"key":"sender","value":"desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr"}]},{"type":"transfer","attributes":[{"key":"recipient","value":"desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr"},{"key":"sender","value":"desmos1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8n8fv78"},{"key":"amount","value":"3094654udaric"}]}]}]',
       },
     ],
   },
@@ -139,21 +140,20 @@ const mockTransactionDetailsDocument = jest.fn().mockResolvedValue({
 describe('screen: Blocks/List', () => {
   it('matches snapshot', async () => {
     const mockClient = createMockClient();
-    mockClient.setRequestHandler(
-      TransactionDetailsDocument,
-      mockTransactionDetailsDocument,
-    );
+    mockClient.setRequestHandler(TransactionDetailsDocument, mockTransactionDetailsDocument);
 
     let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
 
     renderer.act(() => {
-      tree = renderer.create(
-        <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <TransactionDetails />
-          </MockTheme>
-        </ApolloProvider>,
-      ).toJSON();
+      tree = renderer
+        .create(
+          <ApolloProvider client={mockClient}>
+            <MockTheme>
+              <TransactionDetails />
+            </MockTheme>
+          </ApolloProvider>
+        )
+        .toJSON();
     });
     await wait();
 
