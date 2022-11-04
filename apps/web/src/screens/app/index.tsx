@@ -5,7 +5,7 @@ import { DefaultSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
 import { ApolloProvider } from '@apollo/client';
 import { useApollo } from '@src/graphql/client';
-import { chainConfig } from 'ui/dist';
+import chainConfig from 'ui/dist/chainConfig';
 import { useWindowOrigin } from '@hooks';
 import { Main } from './components';
 import {

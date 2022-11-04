@@ -4,32 +4,6 @@ import {
   formatToken,
 } from './format_token';
 
-beforeAll(() => {
-  jest.mock('ui/dist', () => ({
-    chainConfig: {
-      primaryTokenUnit: 'udaric',
-      tokenUnits: {
-        udaric: {
-          display: 'daric',
-          exponent: 6,
-        },
-        upotic: {
-          display: 'potic',
-          exponent: 0,
-        },
-        ubar: {
-          display: 'bar',
-          exponent: 8,
-        },
-        rowan: {
-          display: 'rowan',
-          exponent: 18,
-        },
-      },
-    },
-  }));
-});
-
 // ==================================
 // unit tests
 // ==================================

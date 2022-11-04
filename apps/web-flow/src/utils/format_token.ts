@@ -1,7 +1,7 @@
 import numeral from 'numeral';
 import * as R from 'ramda';
 import Big from 'big.js';
-import { chainConfig } from 'ui/dist';
+import chainConfig from 'ui/dist/chainConfig';
 
 /**
  * Util to help me correctly transform a base denom amount

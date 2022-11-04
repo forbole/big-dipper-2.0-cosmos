@@ -3,7 +3,7 @@ import { init } from '@socialgouv/matomo-next';
 import * as jdenticon from 'jdenticon';
 import useTranslation from 'next-translate/useTranslation';
 
-import { chainConfig } from 'ui/dist';
+import chainConfig from 'ui/dist/chainConfig';
 
 export const useApp = () => {
   // ==========================

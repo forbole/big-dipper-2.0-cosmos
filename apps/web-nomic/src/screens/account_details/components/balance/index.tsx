@@ -17,7 +17,7 @@ import {
 } from 'recharts';
 import useTranslation from 'next-translate/useTranslation';
 import Box from '@components/box';
-import { chainConfig } from 'ui/dist';
+import chainConfig from 'ui/dist/chainConfig';
 import { formatNumber } from '@utils/format_token';
 import { useStyles } from './styles';
 import { formatBalanceData } from './utils';

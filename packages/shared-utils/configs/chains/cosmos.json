@@ -214,34 +214,6 @@
       }
     },
     {
-      "network": "stargate-final",
-      "chainType": "Testnet",
-      "genesis": {
-        "time": "",
-        "height": 0
-      },
-      "prefix": {
-        "consensus": "",
-        "validator": "",
-        "account": ""
-      },
-      "primaryTokenUnit": "",
-      "votingPowerTokenUnit": "",
-      "tokenUnits": {
-        "": {
-          "display": "",
-          "exponent": 0
-        }
-      },
-      "endpoints": {
-        "publicRpcWebsocket": "wss://gaia.bigdipper.live/sockjs/580/arrnnrzd/websocket"
-      },
-      "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
-      }
-    },
-    {
       "network": "theta-testnet-001",
       "chainType": "Testnet",
       "genesis": {
@@ -265,6 +237,34 @@
         "graphql": "https://gql-testnet.cosmos.forbole.com/v1/graphql",
         "graphqlWebsocket": "wss://gql-testnet.cosmos.forbole.com/v1/graphql",
         "publicRpcWebsocket": "wss://rpc-testnet.cosmos.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "",
+        "matomoSiteID": ""
+      }
+    },
+    {
+      "network": "stargate-final",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
+      "tokenUnits": {
+        "": {
+          "display": "",
+          "exponent": 0
+        }
+      },
+      "endpoints": {
+        "publicRpcWebsocket": "wss://gaia.bigdipper.live/sockjs/580/arrnnrzd/websocket"
       },
       "marketing": {
         "matomoURL": "",

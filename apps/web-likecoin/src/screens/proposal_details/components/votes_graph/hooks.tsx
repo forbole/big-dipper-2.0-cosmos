@@ -5,7 +5,7 @@ import {
   useProposalDetailsTallyQuery, ProposalDetailsTallyQuery,
 } from '@graphql/types/general_types';
 import { formatToken } from '@utils/format_token';
-import { chainConfig } from 'ui/dist';
+import chainConfig from 'ui/dist/chainConfig';
 import Big from 'big.js';
 import { VotesGraphState } from './types';
 

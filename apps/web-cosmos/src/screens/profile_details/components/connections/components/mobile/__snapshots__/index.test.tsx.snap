@@ -32,15 +32,7 @@ exports[`screen: ProfileDetails/Connections/Mobile matches snapshot 1`] = `
       <p
         className="MuiTypography-root value MuiTypography-body1"
       >
-        <a
-          className="MuiTypography-root value MuiTypography-body1"
-          href="/accounts/desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-          onTouchStart={[Function]}
-        >
-          desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv
-        </a>
+        desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv
       </p>
     </div>
     <div
@@ -89,15 +81,7 @@ exports[`screen: ProfileDetails/Connections/Mobile matches snapshot 1`] = `
       <p
         className="MuiTypography-root value MuiTypography-body1"
       >
-        <a
-          className="MuiTypography-root value MuiTypography-body1"
-          href="/accounts/emoney1wke3ev9ja6rxsngld75r3vppcpet94xxnh63ry"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-          onTouchStart={[Function]}
-        >
-          emoney1wke3ev9ja6rxsngld75r3vppcpet94xxnh63ry
-        </a>
+        emoney1wke3ev9ja6rxsngld75r3vppcpet94xxnh63ry
       </p>
     </div>
     <div

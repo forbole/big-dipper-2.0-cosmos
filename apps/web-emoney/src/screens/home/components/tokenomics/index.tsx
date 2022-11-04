@@ -6,7 +6,7 @@ import useTranslation from 'next-translate/useTranslation';
 import Box from '@components/box';
 import CustomToolTip, { CustomToolTipData } from '@components/custom_tool_tip';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
-import { chainConfig } from 'ui/dist';
+import chainConfig from 'ui/dist/chainConfig';
 import { useStyles } from './styles';
 import { useTokenomics } from './hooks';
 

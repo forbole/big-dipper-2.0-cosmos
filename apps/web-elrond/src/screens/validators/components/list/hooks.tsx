@@ -12,7 +12,7 @@ import {
 import {
   formatToken, formatNumber,
 } from '@utils/format_token';
-import { chainConfig } from 'ui/dist';
+import chainConfig from 'ui/dist/chainConfig';
 import {
   ValidatorsState,
 } from './types';

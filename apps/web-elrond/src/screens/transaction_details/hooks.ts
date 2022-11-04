@@ -4,7 +4,7 @@ import {
 import axios from 'axios';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
-import { chainConfig } from 'ui/dist';
+import chainConfig from 'ui/dist/chainConfig';
 import {
   formatToken, formatTokenByExponent,
 } from '@utils/format_token';

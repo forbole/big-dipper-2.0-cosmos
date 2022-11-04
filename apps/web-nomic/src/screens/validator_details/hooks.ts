@@ -10,7 +10,7 @@ import {
 } from '@graphql/types/general_types';
 import { useDesmosProfile } from '@hooks';
 import { validatorToDelegatorAddress } from '@recoil/profiles';
-import { chainConfig } from 'ui/dist';
+import chainConfig from 'ui/dist/chainConfig';
 import { isValidAddress } from '@utils/prefix_convert';
 import { ValidatorDetailsState } from './types';
 

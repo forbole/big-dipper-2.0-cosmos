@@ -5,7 +5,7 @@ import { WebSocketLink } from '@apollo/client/link/ws';
 
 import { useMemo } from 'react';
 
-import { chainConfig } from 'ui/dist';
+import chainConfig from 'ui/dist/chainConfig';
 
 const defaultOptions: any = {
   watchQuery: {

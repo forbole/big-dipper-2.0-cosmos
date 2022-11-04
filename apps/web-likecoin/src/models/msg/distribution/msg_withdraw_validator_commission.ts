@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { chainConfig } from 'ui/dist';
+import chainConfig from 'ui/dist/chainConfig';
 import { formatToken } from '@utils/format_token';
 import { Categories } from '../types';
 

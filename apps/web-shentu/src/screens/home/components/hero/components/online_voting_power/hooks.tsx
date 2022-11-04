@@ -5,7 +5,7 @@ import {
   useOnlineVotingPowerQuery,
   OnlineVotingPowerQuery,
 } from '@graphql/types/general_types';
-import { chainConfig } from 'ui/dist';
+import chainConfig from 'ui/dist/chainConfig';
 import { formatToken } from '@utils/format_token';
 
 const initialState: {

@@ -49,10 +49,10 @@ jest.mock('@recoil/profiles', () => {
   });
 });
 
-jest.mock('ui/dist', () => ({
-  ...jest.requireActual('ui/dist'),
-  chainConfig: {
-    ...jest.requireActual('ui/dist').chainConfig,
+jest.mock('ui/dist/chainConfig', () => ({
+  __esModule: true,
+  default: ({
+    ...jest.requireActual('ui/dist/chainConfig').default,
     primaryTokenUnit: 'udaric',
     tokenUnits: {
       udaric: {
@@ -72,5 +72,5 @@ jest.mock('ui/dist', () => ({
         exponent: 18,
       },
     },
-  },
+  }),
 }));

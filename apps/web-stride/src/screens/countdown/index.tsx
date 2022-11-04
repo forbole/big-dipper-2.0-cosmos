@@ -1,7 +1,7 @@
 /* eslint-disable */
 import ChainIcon from 'ui/dist/components/ChainIcon';
 import Loading from '@components/loading';
-import { chainConfig } from 'ui/dist';
+import chainConfig from 'ui/dist/chainConfig';
 import { useInterval } from '@hooks';
 import { Typography } from '@material-ui/core';
 import { readTheme } from '@recoil/settings';

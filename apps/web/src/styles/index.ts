@@ -1,4 +1,4 @@
-import { chainConfig } from 'ui/dist';
+import chainConfig from 'ui/dist/chainConfig';
 import { ThemeOptions } from '@material-ui/core/styles';
 
 import {

@@ -7,7 +7,7 @@ import { MsgDecommissionPool } from '@models';
 import {
   useProfileRecoil,
 } from '@recoil/profiles';
-import { chainConfig } from 'ui/dist';
+import chainConfig from 'ui/dist/chainConfig';
 
 const DecommissionPool = (props: {
   message: MsgDecommissionPool;

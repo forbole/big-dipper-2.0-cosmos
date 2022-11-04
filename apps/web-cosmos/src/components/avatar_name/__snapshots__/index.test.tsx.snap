@@ -2,7 +2,7 @@
 
 exports[`component: AvatarName matches snapshot 1`] = `
 <a
-  href="/validators/123"
+  href="/accounts/123"
   onClick={[Function]}
   onMouseEnter={[Function]}
   onTouchStart={[Function]}
@@ -25,7 +25,7 @@ exports[`component: AvatarName matches snapshot 1`] = `
 
 exports[`component: AvatarName matches snapshot with imageUrl 1`] = `
 <a
-  href="/validators/123"
+  href="/accounts/123"
   onClick={[Function]}
   onMouseEnter={[Function]}
   onTouchStart={[Function]}

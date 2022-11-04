@@ -1,5 +1,5 @@
 import { bech32 } from 'bech32';
-import { chainConfig } from 'ui/dist';
+import chainConfig from 'ui/dist/chainConfig';
 
 export const toValidatorAddress = (address: string) => {
   if (!address) {

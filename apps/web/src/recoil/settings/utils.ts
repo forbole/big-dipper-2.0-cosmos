@@ -2,7 +2,7 @@ import {
   lightTemplate,
   themeDictionary,
 } from '@styles';
-import { chainConfig } from 'ui/dist';
+import chainConfig from 'ui/dist/chainConfig';
 import {
   Theme,
 } from './types';
