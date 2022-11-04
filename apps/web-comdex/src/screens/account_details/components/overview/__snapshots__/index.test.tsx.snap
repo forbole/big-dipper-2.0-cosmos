@@ -11,16 +11,16 @@ exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
     <p
       className="MuiTypography-root label MuiTypography-body1"
     >
-      accounts:address
+      address
     </p>
     <div
       className="detail"
     >
-      <
+      <svg
         className="makeStyles-actionIcons"
         onClick={[Function]}
       />
-      <
+      <svg
         className="makeStyles-actionIcons"
         onClick={[Function]}
       />
@@ -37,12 +37,12 @@ exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
     <p
       className="MuiTypography-root label MuiTypography-body1"
     >
-      accounts:rewardAddress
+      rewardAddress
     </p>
     <div
       className="detail"
     >
-      <
+      <svg
         className="makeStyles-actionIcons"
         onClick={[Function]}
       />
