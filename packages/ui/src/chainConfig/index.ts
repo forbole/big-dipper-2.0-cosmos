@@ -1,4 +1,4 @@
-import type { ChainConfig } from './types'
+import type { ChainConfig } from './types';
 
 if (!process.env.NEXT_PUBLIC_CHAIN_CONFIG) {
   throw new Error('NEXT_PUBLIC_CHAIN_CONFIG is not defined.');

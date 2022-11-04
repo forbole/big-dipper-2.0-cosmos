@@ -34,15 +34,13 @@ const Error: NextPage = () => {
   return (
     <div className={classes.root}>
       <div className="container">
-        <Typography variant="h2">
-          {t('common:errorTitle')}
-        </Typography>
+        <Typography variant="h2">{t('common:errorTitle')}</Typography>
         <Typography className="details">
           <Trans
             i18nKey="common:errorDetails"
             components={[
-                // eslint-disable-next-line
-                <a target="_blank" rel="noreferrer" href={general.github.reportIssue} />,
+              // eslint-disable-next-line
+              <a target="_blank" rel="noreferrer" href={general.github.reportIssue} />,
             ]}
             values={{
               issue: general.github.reportIssue,
@@ -50,30 +48,25 @@ const Error: NextPage = () => {
           />
         </Typography>
         <Link href="/" passHref>
-          <Typography component="a">
-            {t('common:errorHome')}
-          </Typography>
+          <Typography component="a">{t('common:errorHome')}</Typography>
         </Link>
       </div>
     </div>
   );
 };
- 
- /* It's getting the Sentry DSN from the environment variables. */
- const SENTRY_DSN = process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN;
- 
- export async function getInitialProps(contextData: NextPageContext) {
-   if (SENTRY_DSN) {
-     // In case this is running in a serverless function, await this in order to give Sentry
-     // time to send the error before the lambda exits
-     await Sentry.captureUnderscoreErrorException(contextData);
-   }
-   const {
-     res, err,
-   } = contextData;
-   const statusCode = res?.statusCode ?? err?.statusCode ?? 404;
-   return { statusCode };
- };
- 
+
+/* It's getting the Sentry DSN from the environment variables. */
+const SENTRY_DSN = process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN;
+
+export async function getInitialProps(contextData: NextPageContext) {
+  if (SENTRY_DSN) {
+    // In case this is running in a serverless function, await this in order to give Sentry
+    // time to send the error before the lambda exits
+    await Sentry.captureUnderscoreErrorException(contextData);
+  }
+  const { res, err } = contextData;
+  const statusCode = res?.statusCode ?? err?.statusCode ?? 404;
+  return { statusCode };
+}
 
 export default Error;

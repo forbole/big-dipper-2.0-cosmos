@@ -69,35 +69,46 @@ const ChainIcon = ({ className, type, ...props }: IconProps) => {
   const classes = useStyles();
   const chainName = process.env.NEXT_PUBLIC_CHAIN_NAME;
 
-  let [iconDark, iconLight] = type === 'icon' ? [desmosIconLight, desmosIconLight] : [desmosLogoLight, desmosLogoLight];
+  let [iconDark, iconLight] =
+    type === 'icon' ? [desmosIconLight, desmosIconLight] : [desmosLogoLight, desmosLogoLight];
   switch (chainName) {
     case 'agoric':
-      [iconDark, iconLight] = type === 'icon' ? [agoricIconLight, agoricIconLight] : [agoricLogoLight, agoricLogoLight];
+      [iconDark, iconLight] =
+        type === 'icon' ? [agoricIconLight, agoricIconLight] : [agoricLogoLight, agoricLogoLight];
       break;
     case 'assetmantle':
       [iconDark, iconLight] =
-        type === 'icon' ? [assetmantleIconDark, assetmantleIconDark] : [assetmantleLogoDark, assetmantleLogoDark];
+        type === 'icon'
+          ? [assetmantleIconDark, assetmantleIconDark]
+          : [assetmantleLogoDark, assetmantleLogoDark];
       break;
     case 'akash':
-      [iconDark, iconLight] = type === 'icon' ? [akashIconDark, akashIconDark] : [akashLogoDark, akashLogoDark];
+      [iconDark, iconLight] =
+        type === 'icon' ? [akashIconDark, akashIconDark] : [akashLogoDark, akashLogoDark];
       break;
     case 'band':
-      [iconDark, iconLight] = type === 'icon' ? [bandIconDark, bandIconDark] : [bandLogoDark, bandLogoDark];
+      [iconDark, iconLight] =
+        type === 'icon' ? [bandIconDark, bandIconDark] : [bandLogoDark, bandLogoDark];
       break;
     case 'base':
       break;
     case 'bitsong':
-      [iconDark, iconLight] = type === 'icon' ? [bitsongIconDark, bitsongIconDark] : [bitsongLogoDark, bitsongLogoDark];
+      [iconDark, iconLight] =
+        type === 'icon' ? [bitsongIconDark, bitsongIconDark] : [bitsongLogoDark, bitsongLogoDark];
       break;
     case 'cosmos':
-      [iconDark, iconLight] = type === 'icon' ? [cosmosIconLight, cosmosIconLight] : [cosmosLogoDark, cosmosLogoLight];
+      [iconDark, iconLight] =
+        type === 'icon' ? [cosmosIconLight, cosmosIconLight] : [cosmosLogoDark, cosmosLogoLight];
       break;
     case 'comdex':
-      [iconDark, iconLight] = type === 'icon' ? [comdexIconDark, comdexIconLight] : [comdexLogoDark, comdexLogoDark];
+      [iconDark, iconLight] =
+        type === 'icon' ? [comdexIconDark, comdexIconLight] : [comdexLogoDark, comdexLogoDark];
       break;
     case 'crescent':
       [iconDark, iconLight] =
-        type === 'icon' ? [crescentIconDark, crescentIconDark] : [crescentLogoDark, crescentLogoDark];
+        type === 'icon'
+          ? [crescentIconDark, crescentIconDark]
+          : [crescentLogoDark, crescentLogoDark];
       break;
     case 'cryptoorg':
       [iconDark, iconLight] = [cryptoorgIconLight, cryptoorgIconLight];
@@ -105,26 +116,34 @@ const ChainIcon = ({ className, type, ...props }: IconProps) => {
     case 'desmos':
       break;
     case 'elrond':
-      [iconDark, iconLight] = type === 'icon' ? [elrondIconLight, elrondIconLight] : [elrondLogoLight, elrondLogoLight];
+      [iconDark, iconLight] =
+        type === 'icon' ? [elrondIconLight, elrondIconLight] : [elrondLogoLight, elrondLogoLight];
       break;
     case 'emoney':
-      [iconDark, iconLight] = type === 'icon' ? [emoneyIconDark, emoneyIconDark] : [emoneyLogoDark, emoneyLogoDark];
+      [iconDark, iconLight] =
+        type === 'icon' ? [emoneyIconDark, emoneyIconDark] : [emoneyLogoDark, emoneyLogoDark];
       break;
     case 'evmos':
-      [iconDark, iconLight] = type === 'icon' ? [evmosIconLight, evmosIconLight] : [evmosLogoLight, evmosLogoLight];
+      [iconDark, iconLight] =
+        type === 'icon' ? [evmosIconLight, evmosIconLight] : [evmosLogoLight, evmosLogoLight];
       break;
     case 'flow':
-      [iconDark, iconLight] = type === 'icon' ? [flowIconLight, flowIconLight] : [flowLogoLight, flowLogoLight];
+      [iconDark, iconLight] =
+        type === 'icon' ? [flowIconLight, flowIconLight] : [flowLogoLight, flowLogoLight];
       break;
     case 'likecoin':
       [iconDark, iconLight] =
-        type === 'icon' ? [likecoinIconLight, likecoinIconLight] : [likecoinLogoLight, likecoinLogoLight];
+        type === 'icon'
+          ? [likecoinIconLight, likecoinIconLight]
+          : [likecoinLogoLight, likecoinLogoLight];
       break;
     case 'nomic':
-      [iconDark, iconLight] = type === 'icon' ? [nomicIconDark, nomicIconDark] : [nomicLogoDark, nomicLogoDark];
+      [iconDark, iconLight] =
+        type === 'icon' ? [nomicIconDark, nomicIconDark] : [nomicLogoDark, nomicLogoDark];
       break;
     case 'nym':
-      [iconDark, iconLight] = type === 'icon' ? [nymIconDark, nymIconLight] : [nymLogoLight, nymLogoDark];
+      [iconDark, iconLight] =
+        type === 'icon' ? [nymIconDark, nymIconLight] : [nymLogoLight, nymLogoDark];
       break;
     case 'osmosis':
       [iconDark, iconLight] =
@@ -132,33 +151,44 @@ const ChainIcon = ({ className, type, ...props }: IconProps) => {
       break;
     case 'persistence':
       [iconDark, iconLight] =
-        type === 'icon' ? [persistenceIconDark, persistenceIconDark] : [persistenceLogoDark, persistenceLogoDark];
+        type === 'icon'
+          ? [persistenceIconDark, persistenceIconDark]
+          : [persistenceLogoDark, persistenceLogoDark];
       break;
     case 'provenance':
       [iconDark, iconLight] =
-        type === 'icon' ? [provenanceIconDark, provenanceIconDark] : [provenanceLogoDark, provenanceLogoDark];
+        type === 'icon'
+          ? [provenanceIconDark, provenanceIconDark]
+          : [provenanceLogoDark, provenanceLogoDark];
       break;
     case 'quicksliver':
       [iconDark, iconLight] = [quicksliverIconLight, quicksliverIconLight];
       break;
     case 'regen':
-      [iconDark, iconLight] = type === 'icon' ? [regenIconLight, regenIconLight] : [regenLogoLight, regenLogoLight];
+      [iconDark, iconLight] =
+        type === 'icon' ? [regenIconLight, regenIconLight] : [regenLogoLight, regenLogoLight];
       break;
     case 'rizon':
-      [iconDark, iconLight] = type === 'icon' ? [rizonIconLight, rizonIconLight] : [rizonLogoLight, rizonLogoLight];
+      [iconDark, iconLight] =
+        type === 'icon' ? [rizonIconLight, rizonIconLight] : [rizonLogoLight, rizonLogoLight];
       break;
     case 'shentu':
-      [iconDark, iconLight] = type === 'icon' ? [shentuIconLight, shentuIconLight] : [shentuLogoLight, shentuLogoLight];
+      [iconDark, iconLight] =
+        type === 'icon' ? [shentuIconLight, shentuIconLight] : [shentuLogoLight, shentuLogoLight];
       break;
     case 'sifchain':
       [iconDark, iconLight] =
-        type === 'icon' ? [sifchainIconLight, sifchainIconLight] : [sifchainLogoLight, sifchainLogoLight];
+        type === 'icon'
+          ? [sifchainIconLight, sifchainIconLight]
+          : [sifchainLogoLight, sifchainLogoLight];
       break;
     case 'solana':
-      [iconDark, iconLight] = type === 'icon' ? [solanaIconDark, solanaIconLight] : [solanaLogoLight, solanaLogoLight];
+      [iconDark, iconLight] =
+        type === 'icon' ? [solanaIconDark, solanaIconLight] : [solanaLogoLight, solanaLogoLight];
       break;
     case 'stride':
-      [iconDark, iconLight] = type === 'icon' ? [strideIconDark, strideIconDark] : [strideLogoDark, strideLogoLight];
+      [iconDark, iconLight] =
+        type === 'icon' ? [strideIconDark, strideIconDark] : [strideLogoDark, strideLogoLight];
       break;
     default:
       throw new Error(`chain ${chainName} not supported`);

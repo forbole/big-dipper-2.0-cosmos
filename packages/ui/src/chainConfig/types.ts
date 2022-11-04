@@ -4,29 +4,29 @@ export interface ChainSettings {
   genesis: {
     time: string;
     height: number;
-  }
+  };
   prefix: {
     consensus: string;
     validator: string;
     account: string;
-  }
+  };
   primaryTokenUnit: string;
   votingPowerTokenUnit: string;
   tokenUnits: {
     [token: string]: {
       display: string;
       exponent: number;
-    }
-  }
+    };
+  };
   endpoints: {
     graphql?: string;
     graphqlWebsocket?: string;
     publicRpcWebsocket?: string;
-  }
+  };
   marketing: {
     matomoURL: string;
     matomoSiteID: string;
-  }
+  };
 }
 
 export interface PaletteSettings {
@@ -126,5 +126,5 @@ export interface ChainConfig extends ChainSettings {
     themeList: Array<'dark' | 'light'>;
     dark: PaletteSettings;
     light: PaletteSettings;
-  }
+  };
 }

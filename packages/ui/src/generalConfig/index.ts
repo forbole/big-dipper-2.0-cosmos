@@ -1,4 +1,4 @@
-import type { GeneralConfig } from './types'
+import type { GeneralConfig } from './types';
 
 if (!process.env.NEXT_PUBLIC_GENERAL_CONFIG) {
   throw new Error('NEXT_PUBLIC_GENERAL_CONFIG is not defined.');
