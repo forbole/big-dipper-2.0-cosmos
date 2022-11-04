@@ -1,14 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { RecoilRoot } from 'recoil';
-import {
-  MockTheme, wait,
-} from '@tests/utils';
+import { MockTheme, wait } from '@tests/utils';
 import Mobile from '.';
 // ==================================
 // global setup
 // ==================================
-let component:renderer.ReactTestRenderer;
+let component: renderer.ReactTestRenderer;
 
 // ==================================
 // global setup
@@ -30,7 +28,7 @@ describe('screen: Nav/Mobile', () => {
         <MockTheme>
           <Mobile title="hello world" />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     await wait();
   });

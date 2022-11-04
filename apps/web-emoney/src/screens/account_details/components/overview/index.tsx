@@ -1,14 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Typography,
-  Dialog,
-} from '@material-ui/core';
+import { Typography, Dialog } from '@material-ui/core';
 import QRCode from 'qrcode.react';
-import {
-  useScreenSize, useWindowOrigin,
-} from '@hooks';
+import { useScreenSize, useWindowOrigin } from '@hooks';
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -32,47 +27,25 @@ const Overview: React.FC<{
   className?: string;
   withdrawalAddress: string;
   address: string;
-}> = ({
-  className,
-  address,
-  withdrawalAddress,
-}) => {
+}> = ({ className, address, withdrawalAddress }) => {
   const { isDesktop } = useScreenSize();
   const { location } = useWindowOrigin();
   const classes = useStyles();
   const { t } = useTranslation('accounts');
-  const {
-    open,
-    handleClose,
-    handleOpen,
-    handleCopyToClipboard,
-  } = useOverview(t);
+  const { open, handleClose, handleOpen, handleCopyToClipboard } = useOverview(t);
 
   const url = `${location}/accounts/${address}`;
   const hashTags = ['bigdipperexplorer', 'bigdipper'];
   return (
     <>
-      <Dialog
-        maxWidth="xl"
-        onClose={handleClose}
-        aria-labelledby="simple-dialog-title"
-        open={open}
-      >
+      <Dialog maxWidth="xl" onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
         <Box className={classes.dialog}>
           <Typography variant="body1" align="center">
             {t('scanForAddress')}
           </Typography>
-          <QRCode
-            value={address}
-            size={200}
-            bgColor="#ffffff"
-            fgColor="#000000"
-            renderAs="svg"
-          />
+          <QRCode value={address} size={200} bgColor="#ffffff" fgColor="#000000" renderAs="svg" />
           <div className="dialog__share--wrapper">
-            <Typography variant="body1">
-              {t('shareTo')}
-            </Typography>
+            <Typography variant="body1">{t('shareTo')}</Typography>
             <div className={classes.icons}>
               <FacebookShareButton
                 url={url}
@@ -80,9 +53,7 @@ const Overview: React.FC<{
                 hashtag={hashTags[0]}
                 className="share-buttons"
               >
-                <FacebookIcon
-                  round
-                />
+                <FacebookIcon round />
               </FacebookShareButton>
               <TwitterShareButton
                 url={url}
@@ -90,19 +61,11 @@ const Overview: React.FC<{
                 hashtags={hashTags}
                 className="share-buttons"
               >
-                <TwitterIcon
-                  round
-                />
+                <TwitterIcon round />
               </TwitterShareButton>
 
-              <TelegramShareButton
-                url={url}
-                title={address}
-                className="share-buttons"
-              >
-                <TelegramIcon
-                  round
-                />
+              <TelegramShareButton url={url} title={address} className="share-buttons">
+                <TelegramIcon round />
               </TelegramShareButton>
 
               <WhatsappShareButton
@@ -111,9 +74,7 @@ const Overview: React.FC<{
                 separator=":: "
                 className="share-buttons"
               >
-                <WhatsappIcon
-                  round
-                />
+                <WhatsappIcon round />
               </WhatsappShareButton>
               <EmailShareButton
                 url={url}
@@ -122,9 +83,7 @@ const Overview: React.FC<{
                 separator=":: "
                 className="share-buttons email"
               >
-                <EmailIcon
-                  round
-                />
+                <EmailIcon round />
               </EmailShareButton>
             </div>
           </div>
@@ -140,20 +99,14 @@ const Overview: React.FC<{
               onClick={() => handleCopyToClipboard(address)}
               className={classes.actionIcons}
             />
-            <ShareIcon
-              onClick={handleOpen}
-              className={classes.actionIcons}
-            />
+            <ShareIcon onClick={handleOpen} className={classes.actionIcons} />
             <Typography variant="body1" className="value">
-              {
-                !isDesktop ? (
-                  getMiddleEllipsis(address, {
-                    beginning: 15, ending: 5,
+              {!isDesktop
+                ? getMiddleEllipsis(address, {
+                    beginning: 15,
+                    ending: 5,
                   })
-                ) : (
-                  address
-                )
-              }
+                : address}
             </Typography>
           </div>
         </div>
@@ -168,15 +121,12 @@ const Overview: React.FC<{
               onClick={() => handleCopyToClipboard(withdrawalAddress)}
             />
             <Typography variant="body1" className="value">
-              {
-                !isDesktop ? (
-                  getMiddleEllipsis(withdrawalAddress, {
-                    beginning: 15, ending: 5,
+              {!isDesktop
+                ? getMiddleEllipsis(withdrawalAddress, {
+                    beginning: 15,
+                    ending: 5,
                   })
-                ) : (
-                  withdrawalAddress
-                )
-              }
+                : withdrawalAddress}
             </Typography>
           </div>
         </div>

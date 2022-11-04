@@ -6,7 +6,7 @@ class MsgParameterChangeProposal {
     subspace: string;
     key: string;
     value: string | number;
-  }[]
+  }[];
 
   constructor(payload: any) {
     this.type = payload.type;

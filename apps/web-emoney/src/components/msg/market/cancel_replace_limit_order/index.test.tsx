@@ -7,7 +7,9 @@ import CancelReplaceLimitOrder from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -32,10 +34,8 @@ describe('screen: TransactionDetails/CancelReplaceLimitOrder', () => {
     });
     const component = renderer.create(
       <MockTheme>
-        <CancelReplaceLimitOrder
-          message={message}
-        />
-      </MockTheme>,
+        <CancelReplaceLimitOrder message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

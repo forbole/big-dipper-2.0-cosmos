@@ -4,13 +4,9 @@ import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgTransfer } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
-import {
-  formatToken, formatNumber,
-} from '@utils/format_token';
+import { formatToken, formatNumber } from '@utils/format_token';
 
-const Transfer = (props: {
-  message: MsgTransfer;
-}) => {
+const Transfer = (props: { message: MsgTransfer }) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);
@@ -18,21 +14,16 @@ const Transfer = (props: {
   const receiver = useProfileRecoil(message.receiver);
   const receiverMoniker = receiver ? receiver?.name : message.receiver;
   const tokenFormatDenom = formatToken(message.token?.amount, message.token?.denom);
-  const token = `${formatNumber(tokenFormatDenom.value, tokenFormatDenom.exponent)} ${tokenFormatDenom.displayDenom.toUpperCase()}`;
+  const token = `${formatNumber(
+    tokenFormatDenom.value,
+    tokenFormatDenom.exponent
+  )} ${tokenFormatDenom.displayDenom.toUpperCase()}`;
 
   return (
     <Typography>
       <Trans
         i18nKey="message_contents:txTransferContent"
-        components={[
-          (
-            <Name
-              address={message.sender}
-              name={senderMoniker}
-            />
-          ),
-          <b />,
-        ]}
+        components={[<Name address={message.sender} name={senderMoniker} />, <b />]}
         values={{
           receiver: receiverMoniker,
           token,

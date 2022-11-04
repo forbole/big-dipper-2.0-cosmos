@@ -7,7 +7,9 @@ import AddMarketOrder from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -29,10 +31,8 @@ describe('screen: TransactionDetails/AddLimitOrder', () => {
     });
     const component = renderer.create(
       <MockTheme>
-        <AddMarketOrder
-          message={message}
-        />
-      </MockTheme>,
+        <AddMarketOrder message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

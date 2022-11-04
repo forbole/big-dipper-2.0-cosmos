@@ -10,9 +10,11 @@ export const formatMarket = (data: {
   apr: number;
 }) => {
   const exludedItems = [null, 0];
-  const marketCap = exludedItems.includes(data.marketCap) ? 'N/A' : `$${formatNumber(data.marketCap.toString(), 2)}`;
+  const marketCap = exludedItems.includes(data.marketCap)
+    ? 'N/A'
+    : `$${formatNumber(data.marketCap.toString(), 2)}`;
 
-  return ([
+  return [
     {
       key: 'marketCap',
       data: marketCap,
@@ -31,7 +33,9 @@ export const formatMarket = (data: {
     },
     {
       key: 'communityPool',
-      data: `${numeral(data.communityPool.value, 2).format('0,0.00')} ${data.communityPool.displayDenom.toUpperCase()}`,
+      data: `${numeral(data.communityPool.value, 2).format(
+        '0,0.00'
+      )} ${data.communityPool.displayDenom.toUpperCase()}`,
     },
-  ]);
+  ];
 };

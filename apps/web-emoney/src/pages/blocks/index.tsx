@@ -1,9 +1,7 @@
 import Blocks from '@src/screens/blocks';
 
 const BlocksPage = () => {
-  return (
-    <Blocks />
-  );
+  return <Blocks />;
 };
 
 export default BlocksPage;

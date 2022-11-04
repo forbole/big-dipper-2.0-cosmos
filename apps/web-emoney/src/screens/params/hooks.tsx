@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import {
-  useParamsQuery,
-  ParamsQuery,
-} from '@graphql/types/general_types';
+import { useParamsQuery, ParamsQuery } from '@graphql/types/general_types';
 import { formatToken } from '@utils/format_token';
 import chainConfig from 'ui/dist/chainConfig';
 import {
@@ -16,9 +13,7 @@ import {
   InflationRateParams,
   GasPriceParams,
 } from '@models';
-import {
-  ParamsState,
-} from './types';
+import { ParamsState } from './types';
 
 const initialState: ParamsState = {
   loading: true,
@@ -64,7 +59,9 @@ export const useParams = () => {
     // ================================
     const formatStaking = () => {
       if (data.stakingParams.length) {
-        const stakingParamsRaw = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
+        const stakingParamsRaw = StakingParams.fromJson(
+          R.pathOr({}, ['stakingParams', 0, 'params'], data)
+        );
         return {
           bondDenom: stakingParamsRaw.bondDenom,
           unbondingTime: stakingParamsRaw.unbondingTime,
@@ -84,7 +81,9 @@ export const useParams = () => {
     // ================================
     const formatSlashing = () => {
       if (data.slashingParams.length) {
-        const slashingParamsRaw = SlashingParams.fromJson(R.pathOr({}, ['slashingParams', 0, 'params'], data));
+        const slashingParamsRaw = SlashingParams.fromJson(
+          R.pathOr({}, ['slashingParams', 0, 'params'], data)
+        );
         return {
           downtimeJailDuration: slashingParamsRaw.downtimeJailDuration,
           minSignedPerWindow: slashingParamsRaw.minSignedPerWindow,
@@ -126,7 +125,9 @@ export const useParams = () => {
 
     const formatDistribution = () => {
       if (data.distributionParams.length) {
-        const distributionParamsRaw = DistributionParams.fromJson(R.pathOr({}, ['distributionParams', 0, 'params'], data));
+        const distributionParamsRaw = DistributionParams.fromJson(
+          R.pathOr({}, ['distributionParams', 0, 'params'], data)
+        );
         return {
           baseProposerReward: distributionParamsRaw.baseProposerReward,
           bonusProposerReward: distributionParamsRaw.bonusProposerReward,
@@ -150,12 +151,18 @@ export const useParams = () => {
         return {
           minDeposit: formatToken(
             R.pathOr(0, [0, 'amount'], govParamsRaw.depositParams.minDeposit),
-            R.pathOr(chainConfig.primaryTokenUnit, [0, 'denom'], govParamsRaw.depositParams.minDeposit),
+            R.pathOr(
+              chainConfig.primaryTokenUnit,
+              [0, 'denom'],
+              govParamsRaw.depositParams.minDeposit
+            )
           ),
           maxDepositPeriod: govParamsRaw.depositParams.maxDepositPeriod,
           quorum: numeral(numeral(govParamsRaw.tallyParams.quorum).format('0.[00]')).value(),
           threshold: numeral(numeral(govParamsRaw.tallyParams.threshold).format('0.[00]')).value(),
-          vetoThreshold: numeral(numeral(govParamsRaw.tallyParams.vetoThreshold).format('0.[00]')).value(),
+          vetoThreshold: numeral(
+            numeral(govParamsRaw.tallyParams.vetoThreshold).format('0.[00]')
+          ).value(),
           votingPeriod: govParamsRaw.votingParams.votingPeriod,
         };
       }
@@ -170,7 +177,9 @@ export const useParams = () => {
     // ================================
     const formatInflationRate = () => {
       if (data.inflationRateParams.length) {
-        const inflationRateParamsRaw = InflationRateParams.fromJson(R.pathOr([], ['inflationRateParams', 0, 'inflation'], data));
+        const inflationRateParamsRaw = InflationRateParams.fromJson(
+          R.pathOr([], ['inflationRateParams', 0, 'inflation'], data)
+        );
         const inflationRateParamsData = inflationRateParamsRaw.inflation;
         return inflationRateParamsData;
       }
@@ -185,7 +194,9 @@ export const useParams = () => {
     // ================================
     const formatGasPrice = () => {
       if (data.gasPriceParams.length) {
-        const gasPriceParamsRaw = GasPriceParams.fromJson(R.pathOr([], ['gasPriceParams', 0, 'gas_prices'], data));
+        const gasPriceParamsRaw = GasPriceParams.fromJson(
+          R.pathOr([], ['gasPriceParams', 0, 'gas_prices'], data)
+        );
         const gasPriceParamsData = gasPriceParamsRaw.gasPrice;
         return gasPriceParamsData;
       }

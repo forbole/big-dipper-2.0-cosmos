@@ -482,7 +482,7 @@ export const getMessageModelByType = (type: string) => {
  * Helper function to correctly display the correct UI
  * @param type Model type
  */
-export const getMessageByType = (message: any, viewRaw: boolean, t:any) => {
+export const getMessageByType = (message: any, viewRaw: boolean, t: any) => {
   const { type } = message;
   let results: {
     content: any;
@@ -511,10 +511,7 @@ export const getMessageByType = (message: any, viewRaw: boolean, t:any) => {
   }
 
   return {
-    type: <Tag
-      value={t(`message_labels:${results.tagDisplay}`)}
-      theme={results.tagTheme}
-    />,
+    type: <Tag value={t(`message_labels:${results.tagDisplay}`)} theme={results.tagTheme} />,
     message: <results.content message={message as any} />,
   };
 };
@@ -522,8 +519,10 @@ export const getMessageByType = (message: any, viewRaw: boolean, t:any) => {
 export const convertMsgsToModels = (transaction: any) => {
   const messages = R.pathOr([], ['messages'], transaction).map((msg, i) => {
     const model = getMessageModelByType(msg?.['@type']);
-    if (model === MODELS.MsgWithdrawDelegatorReward
-      || model === MODELS.MsgWithdrawValidatorCommission) {
+    if (
+      model === MODELS.MsgWithdrawDelegatorReward ||
+      model === MODELS.MsgWithdrawValidatorCommission
+    ) {
       const log = R.pathOr(null, ['logs', i], transaction);
       return model.fromJson(msg, log);
     }

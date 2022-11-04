@@ -1,7 +1,7 @@
 export type OverviewType = {
   address: string;
   withdrawalAddress: string;
-}
+};
 
 export type BalanceType = {
   available: TokenUnit;
@@ -10,18 +10,18 @@ export type BalanceType = {
   reward: TokenUnit;
   commission?: TokenUnit;
   total: TokenUnit;
-}
+};
 
 export type OtherTokenType = {
   denom: string;
   available: TokenUnit;
   reward: TokenUnit;
   commission: TokenUnit;
-}
+};
 
 export type RewardsType = {
-  [value:string]: TokenUnit[];
-}
+  [value: string]: TokenUnit[];
+};
 
 export type AccountDetailState = {
   loading: boolean;
@@ -34,4 +34,4 @@ export type AccountDetailState = {
     count: number;
   };
   rewards: RewardsType;
-}
+};

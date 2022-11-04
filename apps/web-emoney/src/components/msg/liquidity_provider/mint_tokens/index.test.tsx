@@ -7,7 +7,9 @@ import MintTokens from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -31,10 +33,8 @@ describe('screen: TransactionDetails/MintTokens', () => {
     });
     const component = renderer.create(
       <MockTheme>
-        <MintTokens
-          message={message}
-        />
-      </MockTheme>,
+        <MintTokens message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

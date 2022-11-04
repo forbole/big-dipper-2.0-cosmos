@@ -5,10 +5,7 @@ import useTranslation from 'next-translate/useTranslation';
 import Pagination from '@components/pagination';
 import Box from '@components/box';
 
-import {
-  usePagination,
-  useScreenSize,
-} from '@hooks';
+import { usePagination, useScreenSize } from '@hooks';
 import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 import { OtherTokenType } from '../../types';
@@ -19,23 +16,15 @@ const Mobile = dynamic(() => import('./components/mobile'));
 export const OtherTokens: React.FC<{
   className?: string;
   otherTokens: {
-    data: OtherTokenType[],
+    data: OtherTokenType[];
     count: number;
-  }
-}> = ({
-  className,
-  otherTokens,
-}) => {
+  };
+}> = ({ className, otherTokens }) => {
   const { t } = useTranslation('accounts');
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
-  const {
-    page,
-    rowsPerPage,
-    handleChangePage,
-    handleChangeRowsPerPage,
-    sliceItems,
-  } = usePagination({});
+  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage, sliceItems } =
+    usePagination({});
 
   const { data } = otherTokens;
   const count = data.length;
@@ -47,9 +36,7 @@ export const OtherTokens: React.FC<{
 
   return (
     <Box className={classnames(className)}>
-      <Typography variant="h2">
-        {t('otherTokens')}
-      </Typography>
+      <Typography variant="h2">{t('otherTokens')}</Typography>
 
       {isDesktop ? (
         <Desktop className={classes.desktop} items={items} />

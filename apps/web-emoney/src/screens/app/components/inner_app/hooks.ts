@@ -1,7 +1,4 @@
-import {
-  useEffect,
-  useState,
-} from 'react';
+import { useEffect, useState } from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import dayjs from '@utils/dayjs';
 import { toast } from 'react-toastify';
@@ -20,11 +17,14 @@ export const useChainHealthCheck = () => {
       const timeDifference = timeNow.diff(timestamp, 's');
       // if latest block has been over two minute ago
       if (timeDifference > 120 && chainActive) {
-        toast.error(t('blockTimeAgo', {
-          time: dayjs.utc(timestamp).fromNow(),
-        }), {
-          autoClose: false,
-        });
+        toast.error(
+          t('blockTimeAgo', {
+            time: dayjs.utc(timestamp).fromNow(),
+          }),
+          {
+            autoClose: false,
+          }
+        );
         setChainActive(false);
       }
     },

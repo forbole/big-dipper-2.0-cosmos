@@ -2,24 +2,20 @@ import React from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import classnames from 'classnames';
-import {
-  Typography, Divider,
-} from '@material-ui/core';
+import { Typography, Divider } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import { BLOCKS } from '@utils/go_to_page';
 import Box from '@components/box';
 import NoData from '@components/no_data';
 import { useScreenSize } from '@hooks';
-import {
-  useProfilesRecoil,
-} from '@recoil/profiles';
+import { useProfilesRecoil } from '@recoil/profiles';
 import { useStyles } from './styles';
 import { useBlocks } from './hooks';
 
 const Desktop = dynamic(() => import('./components/desktop'));
 const Mobile = dynamic(() => import('./components/mobile'));
 
-const Blocks:React.FC<{
+const Blocks: React.FC<{
   className?: string;
 }> = ({ className }) => {
   const { isDesktop } = useScreenSize();
@@ -29,18 +25,16 @@ const Blocks:React.FC<{
 
   const proposerProfiles = useProfilesRecoil(state.items.map((x) => x.proposer));
   const mergedDataWithProfiles = state.items.map((x, i) => {
-    return ({
+    return {
       ...x,
       proposer: proposerProfiles[i],
-    });
+    };
   });
 
   return (
     <Box className={classnames(className, classes.root)}>
       <div className={classes.label}>
-        <Typography variant="h2">
-          {t('latestBlocks')}
-        </Typography>
+        <Typography variant="h2">{t('latestBlocks')}</Typography>
         <Link href={BLOCKS} passHref>
           <Typography variant="h4" className="button" component="a">
             {t('seeMore')}
@@ -52,15 +46,9 @@ const Blocks:React.FC<{
       ) : (
         <>
           {isDesktop ? (
-            <Desktop
-              className={classes.desktop}
-              items={mergedDataWithProfiles}
-            />
+            <Desktop className={classes.desktop} items={mergedDataWithProfiles} />
           ) : (
-            <Mobile
-              className={classes.mobile}
-              items={mergedDataWithProfiles}
-            />
+            <Mobile className={classes.mobile} items={mergedDataWithProfiles} />
           )}
           <Divider className={classes.mobile} />
           <Link href={BLOCKS} passHref>

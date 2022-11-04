@@ -9,7 +9,9 @@ import VerifyInvariant from '.';
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -26,11 +28,9 @@ describe('screen: TransactionDetails/MsgVerifyInvariant', () => {
     const component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <VerifyInvariant
-            message={message}
-          />
+          <VerifyInvariant message={message} />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

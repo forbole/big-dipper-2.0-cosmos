@@ -26,10 +26,10 @@ class MsgDeposit {
       proposalId: numeral(json.proposal_id).value(),
       depositor: json.depositor,
       amount: json?.amount.map((x) => {
-        return ({
+        return {
           denom: x?.denom,
           amount: R.pathOr('0', ['amount'], x),
-        });
+        };
       }),
     });
   }

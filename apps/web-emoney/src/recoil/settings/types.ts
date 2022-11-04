@@ -6,4 +6,4 @@ export type AtomState = {
   theme: Theme;
   dateFormat: Date;
   txListFormat: Tx;
-}
+};

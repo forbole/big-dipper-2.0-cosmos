@@ -7,7 +7,9 @@ import CreateIssuer from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -23,10 +25,8 @@ describe('screen: TransactionDetails/MsgCreateIssuer', () => {
     });
     const component = renderer.create(
       <MockTheme>
-        <CreateIssuer
-          message={message}
-        />
-      </MockTheme>,
+        <CreateIssuer message={message} />
+      </MockTheme>
     );
 
     const tree = component.toJSON();

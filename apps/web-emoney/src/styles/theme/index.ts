@@ -189,10 +189,13 @@ export const common = {
   },
 };
 
-export const lightTemplate:ThemeOptions = R.mergeDeepLeft(lightThemeOverride, common);
-export const darkTemplate:ThemeOptions = R.mergeDeepLeft(darkThemeOverride, common);
-export const deuteranopiaTemplate:ThemeOptions = R.mergeDeepLeft(deuteranopiaThemeOverride, common);
-export const tritanopiaTemplate:ThemeOptions = R.mergeDeepLeft(tritanopiaThemeOverride, common);
+export const lightTemplate: ThemeOptions = R.mergeDeepLeft(lightThemeOverride, common);
+export const darkTemplate: ThemeOptions = R.mergeDeepLeft(darkThemeOverride, common);
+export const deuteranopiaTemplate: ThemeOptions = R.mergeDeepLeft(
+  deuteranopiaThemeOverride,
+  common
+);
+export const tritanopiaTemplate: ThemeOptions = R.mergeDeepLeft(tritanopiaThemeOverride, common);
 
 // export const lightTheme = createTheme(lightTemplate);
 // export const darkTheme = createTheme(darkTemplate);

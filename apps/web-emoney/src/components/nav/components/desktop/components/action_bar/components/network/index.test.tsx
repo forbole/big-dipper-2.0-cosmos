@@ -7,7 +7,7 @@ import Network from '.';
 // ==================================
 // global setup
 // ==================================
-let component:renderer.ReactTestRenderer;
+let component: renderer.ReactTestRenderer;
 
 // ==================================
 // mocks
@@ -22,11 +22,9 @@ describe('screen: Nav/Network', () => {
     component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <Network
-            toggleNetwork={mockToggleNetwork}
-          />
+          <Network toggleNetwork={mockToggleNetwork} />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
   });
 

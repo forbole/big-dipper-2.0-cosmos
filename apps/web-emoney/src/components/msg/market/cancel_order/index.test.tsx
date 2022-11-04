@@ -7,7 +7,9 @@ import CancelOrder from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -22,10 +24,8 @@ describe('screen: TransactionDetails/CancelOrder', () => {
     });
     const component = renderer.create(
       <MockTheme>
-        <CancelOrder
-          message={message}
-        />
-      </MockTheme>,
+        <CancelOrder message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

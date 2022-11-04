@@ -13,10 +13,10 @@ class GasPriceParams {
   static fromJson(data: any) {
     return new GasPriceParams({
       gasPrice: data.map((x) => {
-        return ({
+        return {
           denom: R.pathOr('', ['denom'], x),
           amount: R.pathOr('0', ['amount'], x),
-        });
+        };
       }),
     });
   }
