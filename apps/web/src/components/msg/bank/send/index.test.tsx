@@ -9,7 +9,9 @@ import Send from '.';
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -21,19 +23,19 @@ describe('screen: TransactionDetails/MsgSend', () => {
       type: 'MsgSend',
       fromAddress: 'fromAddress',
       toAddress: 'toAddress',
-      amount: [{
-        denom: 'udaric',
-        amount: '200000000',
-      }],
+      amount: [
+        {
+          denom: 'udaric',
+          amount: '200000000',
+        },
+      ],
     });
     const component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <Send
-            message={message}
-          />
+          <Send message={message} />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

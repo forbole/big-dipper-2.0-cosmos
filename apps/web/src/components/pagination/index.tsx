@@ -11,8 +11,10 @@ const Pagination: React.FC<{
   rowsPerPage: number;
   rowsPerPageOptions?: number[];
   page: number;
-  handleChangePage: (_event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
-    selectedRowsPerPage: number) => void;
+  handleChangePage: (
+    _event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
+    selectedRowsPerPage: number
+  ) => void;
   handleChangeRowsPerPage: (page: number) => void;
 }> = ({
   className,
@@ -37,13 +39,13 @@ const Pagination: React.FC<{
       className={classnames(className, classes.root)}
       rowsPerPageOptions={[]}
       labelRowsPerPage=""
-      labelDisplayedRows={({
-        from, to, count,
-      }) => t('paginationLabelOne', {
-        from,
-        to,
-        count,
-      })}
+      labelDisplayedRows={({ from, to, count }) =>
+        t('paginationLabelOne', {
+          from,
+          to,
+          count,
+        })
+      }
       colSpan={6}
       component="div"
       count={total}
@@ -58,16 +60,8 @@ const Pagination: React.FC<{
 
         return (
           <>
-            <Actions
-              {...subProps}
-              {...additionalProps}
-              className={classes.mobile}
-            />
-            <Actions
-              {...subProps}
-              {...additionalProps}
-              className={classes.tablet}
-            />
+            <Actions {...subProps} {...additionalProps} className={classes.mobile} />
+            <Actions {...subProps} {...additionalProps} className={classes.tablet} />
           </>
         );
       }}

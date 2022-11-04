@@ -1,6 +1,4 @@
-import {
-  useState, useEffect,
-} from 'react';
+import { useState, useEffect } from 'react';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { hexToBech32 } from '@utils/hex_to_bech32';
@@ -25,14 +23,15 @@ export const useConsensus = () => {
   });
 
   useEffect(() => {
-    if (!process.env.NEXT_PUBLIC_RPC_WEBSOCKET) throw new Error('NEXT_PUBLIC_RPC_WEBSOCKET is not defined');
+    if (!process.env.NEXT_PUBLIC_RPC_WEBSOCKET)
+      throw new Error('NEXT_PUBLIC_RPC_WEBSOCKET is not defined');
     const client = new WebSocket(process.env.NEXT_PUBLIC_RPC_WEBSOCKET);
     const stepHeader = {
       jsonrpc: '2.0',
       method: 'subscribe',
       id: 0,
       params: {
-        query: 'tm.event=\'NewRoundStep\'',
+        query: "tm.event='NewRoundStep'",
       },
     };
 
@@ -41,7 +40,7 @@ export const useConsensus = () => {
       method: 'subscribe',
       id: 0,
       params: {
-        query: 'tm.event=\'NewRound\'',
+        query: "tm.event='NewRound'",
       },
     };
 
@@ -70,7 +69,7 @@ export const useConsensus = () => {
     };
   }, []);
 
-  const formatNewRound = (data:any) => {
+  const formatNewRound = (data: any) => {
     const height = numeral(R.pathOr('', ['result', 'data', 'value', 'height'], data)).value();
     const proposerHex = R.pathOr('', ['result', 'data', 'value', 'proposer', 'address'], data);
     const consensusAddress = hexToBech32(proposerHex, chainConfig.prefix.consensus);
@@ -82,7 +81,7 @@ export const useConsensus = () => {
     }));
   };
 
-  const formatNewStep = (data:any) => {
+  const formatNewStep = (data: any) => {
     const stepReference = {
       0: 0,
       RoundStepNewHeight: 1,

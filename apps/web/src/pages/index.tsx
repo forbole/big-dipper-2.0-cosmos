@@ -1,9 +1,7 @@
 import Home from '@screens/home';
 
 const HomePage = () => {
-  return (
-    <Home />
-  );
+  return <Home />;
 };
 
 export default HomePage;

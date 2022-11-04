@@ -1,13 +1,9 @@
 import React from 'react';
 import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
-import {
-  MockTheme, wait,
-} from '@tests/utils';
+import { MockTheme, wait } from '@tests/utils';
 import { ApolloProvider } from '@apollo/client';
 import { createMockClient } from 'mock-apollo-client';
-import {
-  TokenomicsDocument,
-} from '@graphql/types/general_types';
+import { TokenomicsDocument } from '@graphql/types/general_types';
 import Tokenomics from '.';
 
 // ==================================
@@ -18,7 +14,9 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => <div id="box" {...props} />);
+jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="box" {...props} />
+));
 jest.mock('recharts', () => ({
   ...jest.requireActual('recharts'),
   Tooltip: () => <div id="tooltip" />,
@@ -26,7 +24,6 @@ jest.mock('recharts', () => ({
 
 const mockTokenomics = jest.fn().mockResolvedValue({
   data: {
-
     stakingParams: [
       {
         params: {},
@@ -63,21 +60,20 @@ describe('screen: Home/Tokenomics', () => {
   it('matches snapshot', async () => {
     const mockClient = createMockClient();
 
-    mockClient.setRequestHandler(
-      TokenomicsDocument,
-      mockTokenomics,
-    );
+    mockClient.setRequestHandler(TokenomicsDocument, mockTokenomics);
 
     let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
 
     renderer.act(() => {
-      tree = renderer.create(
-        <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <Tokenomics />
-          </MockTheme>
-        </ApolloProvider>,
-      ).toJSON();
+      tree = renderer
+        .create(
+          <ApolloProvider client={mockClient}>
+            <MockTheme>
+              <Tokenomics />
+            </MockTheme>
+          </ApolloProvider>
+        )
+        .toJSON();
     });
     await wait();
 

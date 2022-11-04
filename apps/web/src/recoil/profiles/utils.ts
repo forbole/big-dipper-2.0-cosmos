@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { DesmosProfileQuery } from '@graphql/types/profile_types';
 import {
-  DesmosProfileDocument, DesmosProfileLinkDocument,
+  DesmosProfileDocument,
+  DesmosProfileLinkDocument,
 } from '@src/graphql/profiles/desmos_profile_graphql';
 
 const PROFILE_API = 'https://gql.mainnet.desmos.network/v1/graphql';
@@ -47,7 +48,7 @@ const fetchDesmosProfile = async (address: string) => {
   }
 };
 
-const formatDesmosProfile = (data:DesmosProfileQuery) => {
+const formatDesmosProfile = (data: DesmosProfileQuery) => {
   if (!data.profile.length) {
     return null;
   }
@@ -61,33 +62,33 @@ const formatDesmosProfile = (data:DesmosProfileQuery) => {
   };
 
   const applications = profile.applicationLinks.map((x) => {
-    return ({
+    return {
       network: x.application,
       identifier: x.username,
       creationTime: x.creationTime,
-    });
+    };
   });
 
   const chains = profile.chainLinks.map((x) => {
-    return ({
+    return {
       network: x.config.name,
       identifier: x.externalAddress,
       creationTime: x.creationTime,
-    });
+    };
   });
 
-  const connectionsWithoutNativeSorted = [...applications, ...chains].sort((a, b) => (
-    (a.network.toLowerCase() > b.network.toLowerCase()) ? 1 : -1
-  ));
+  const connectionsWithoutNativeSorted = [...applications, ...chains].sort((a, b) =>
+    a.network.toLowerCase() > b.network.toLowerCase() ? 1 : -1
+  );
 
-  return ({
+  return {
     dtag: profile.dtag,
     nickname: profile.nickname,
     imageUrl: profile.profilePic,
     coverUrl: profile.coverPic,
     bio: profile.bio,
     connections: [nativeData, ...connectionsWithoutNativeSorted],
-  });
+  };
 };
 
 export const getProfile = async (delegatorAddress: string): Promise<DesmosProfile | null> => {

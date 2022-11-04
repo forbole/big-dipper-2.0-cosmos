@@ -22,10 +22,10 @@ class MsgFundCommunityPool {
       type: json['@type'],
       depositor: json.depositor,
       amount: json?.amount.map((x) => {
-        return ({
+        return {
           denom: x?.denom,
           amount: R.pathOr('0', ['amount'], x),
-        });
+        };
       }),
     });
   }

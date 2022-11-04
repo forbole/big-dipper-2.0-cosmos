@@ -8,7 +8,7 @@ export type OverviewType = {
   success: boolean;
   memo: string;
   error: string;
-}
+};
 
 export type TransactionState = {
   loading: boolean;
@@ -19,5 +19,5 @@ export type TransactionState = {
     filterBy: string;
     viewRaw: boolean;
     items: any[];
-  }
-}
+  };
+};

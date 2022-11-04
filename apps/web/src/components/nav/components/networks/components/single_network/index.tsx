@@ -9,12 +9,7 @@ const SingleNetwork = (props: {
   name: string;
   className: string;
 }) => {
-  const {
-    url,
-    chainId,
-    name,
-    className,
-  } = props;
+  const { url, chainId, name, className } = props;
   const classes = useStyles();
   return (
     <a href={url} target="_blank" rel="noreferrer" className={classes.root}>

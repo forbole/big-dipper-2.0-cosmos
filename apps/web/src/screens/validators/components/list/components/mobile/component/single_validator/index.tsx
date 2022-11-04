@@ -1,9 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Typography,
-} from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 
 const SingleValidator: React.FC<{
@@ -15,13 +13,7 @@ const SingleValidator: React.FC<{
     status: string;
     theme: string;
   };
-}> = ({
-  className,
-  validator,
-  commission,
-  votingPower,
-  status,
-}) => {
+}> = ({ className, validator, commission, votingPower, status }) => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
   return (
@@ -57,7 +49,6 @@ const SingleValidator: React.FC<{
         </div>
       </div>
     </div>
-
   );
 };
 

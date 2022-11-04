@@ -5,11 +5,4 @@ import Staking from './staking';
 import Blocks from './blocks';
 import ValidatorOverview from './validator_overview';
 
-export {
-  Profile,
-  VotingPower,
-  Transactions,
-  Staking,
-  Blocks,
-  ValidatorOverview,
-};
+export { Profile, VotingPower, Transactions, Staking, Blocks, ValidatorOverview };

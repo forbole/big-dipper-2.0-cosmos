@@ -29,14 +29,7 @@ const Actions: React.FC<{
 }> = (props) => {
   const classes = useStyles();
 
-  const {
-    count,
-    page,
-    rowsPerPage,
-    onChangePage,
-    className,
-    rowsPerPageOptions,
-  } = props;
+  const { count, page, rowsPerPage, onChangePage, className, rowsPerPageOptions } = props;
 
   const {
     handleFirstPage,
@@ -118,17 +111,13 @@ const Actions: React.FC<{
               onChange={handleRowOptionChange}
               input={<InputBase />}
             >
-              {
-                rowsPerPageOptions.map((x) => {
-                  return (
-                    <MenuItem value={x} key={x} className={classes.menuItem}>
-                      <Typography variant="body2">
-                        {x}
-                      </Typography>
-                    </MenuItem>
-                  );
-                })
-              }
+              {rowsPerPageOptions.map((x) => {
+                return (
+                  <MenuItem value={x} key={x} className={classes.menuItem}>
+                    <Typography variant="body2">{x}</Typography>
+                  </MenuItem>
+                );
+              })}
             </Select>
           </FormControl>
         </li>

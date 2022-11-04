@@ -15,10 +15,7 @@ const Transactions: React.FC<ComponentDefault> = (props) => {
   const classes = useStyles();
   const { t } = useTranslation('validators');
 
-  const {
-    state,
-    loadNextPage,
-  } = useTransactions();
+  const { state, loadNextPage } = useTransactions();
 
   const loadMoreItems = state.isNextPageLoading ? () => null : loadNextPage;
   const isItemLoaded = (index) => !state.hasNextPage || index < state.data.length;
@@ -26,9 +23,7 @@ const Transactions: React.FC<ComponentDefault> = (props) => {
 
   return (
     <Box className={classnames(props.className, classes.root)}>
-      <Typography variant="h2">
-        {t('transactions')}
-      </Typography>
+      <Typography variant="h2">{t('transactions')}</Typography>
       <div className={classes.list}>
         {txListFormat === 'compact' ? (
           <TransactionsList

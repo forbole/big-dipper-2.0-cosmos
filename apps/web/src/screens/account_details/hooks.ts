@@ -1,13 +1,9 @@
-import {
-  useState, useEffect,
-} from 'react';
+import { useState, useEffect } from 'react';
 import * as R from 'ramda';
 import Big from 'big.js';
 import { useRouter } from 'next/router';
 import { getDenom } from '@utils/get_denom';
-import {
-  formatToken,
-} from '@utils/format_token';
+import { formatToken } from '@utils/format_token';
 import chainConfig from 'ui/dist/chainConfig';
 import { isValidAddress } from '@utils/prefix_convert';
 import { useDesmosProfile } from '@hooks';
@@ -62,9 +58,7 @@ export const useAccountDetails = () => {
   // ==========================
   // Desmos Profile
   // ==========================
-  const {
-    fetchDesmosProfile, formatDesmosProfile,
-  } = useDesmosProfile({
+  const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
     onComplete: (data) => {
       handleSetState({
         desmosProfile: formatDesmosProfile(data),
@@ -81,8 +75,7 @@ export const useAccountDetails = () => {
     } else if (chainConfig.extra.profile) {
       fetchDesmosProfile(router.query.address as string);
     }
-  },
-  [router.query.address]);
+  }, [router.query.address]);
 
   useEffect(() => {
     fetchWithdrawalAddress();
@@ -111,13 +104,9 @@ export const useAccountDetails = () => {
       fetchUnbondingBalance(address),
       fetchRewards(address),
     ];
-    const [
-      commission,
-      available,
-      delegation,
-      unbonding,
-      rewards,
-    ] = await Promise.allSettled(promises);
+    const [commission, available, delegation, unbonding, rewards] = await Promise.allSettled(
+      promises
+    );
 
     const formattedRawData: any = {};
     formattedRawData.commission = R.pathOr([], ['value', 'commission'], commission);
@@ -160,18 +149,18 @@ export const useAccountDetails = () => {
     const formatBalance = () => {
       const available = getDenom(
         R.pathOr([], ['accountBalances', 'coins'], data),
-        chainConfig.primaryTokenUnit,
+        chainConfig.primaryTokenUnit
       );
       const availableAmount = formatToken(available.amount, chainConfig.primaryTokenUnit);
       const delegate = getDenom(
         R.pathOr([], ['delegationBalance', 'coins'], data),
-        chainConfig.primaryTokenUnit,
+        chainConfig.primaryTokenUnit
       );
       const delegateAmount = formatToken(delegate.amount, chainConfig.primaryTokenUnit);
 
       const unbonding = getDenom(
         R.pathOr([], ['unbondingBalance', 'coins'], data),
-        chainConfig.primaryTokenUnit,
+        chainConfig.primaryTokenUnit
       );
       const unbondingAmount = formatToken(unbonding.amount, chainConfig.primaryTokenUnit);
 
@@ -185,7 +174,7 @@ export const useAccountDetails = () => {
 
       const commission = getDenom(
         R.pathOr([], ['commission', 'coins'], data),
-        chainConfig.primaryTokenUnit,
+        chainConfig.primaryTokenUnit
       );
       const commissionAmount = formatToken(commission.amount, chainConfig.primaryTokenUnit);
 
@@ -268,10 +257,10 @@ export const useAccountDetails = () => {
         });
       });
 
-      return ({
+      return {
         data: otherTokens,
         count: otherTokens.length,
-      });
+      };
     };
 
     formatOtherTokens();

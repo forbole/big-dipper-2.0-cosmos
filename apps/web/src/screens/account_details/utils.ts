@@ -19,12 +19,15 @@ export const fetchCommission = async (address: string) => {
     },
   };
   try {
-    const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql, {
-      variables: {
-        validatorAddress: toValidatorAddress(address),
-      },
-      query: AccountCommissionDocument,
-    });
+    const { data } = await axios.post(
+      process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql,
+      {
+        variables: {
+          validatorAddress: toValidatorAddress(address),
+        },
+        query: AccountCommissionDocument,
+      }
+    );
     return R.pathOr(defaultReturnValue, ['data'], data);
   } catch (error) {
     return defaultReturnValue;
@@ -38,12 +41,15 @@ export const fetchAccountWithdrawalAddress = async (address: string) => {
     },
   };
   try {
-    const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql, {
-      variables: {
-        address,
-      },
-      query: AccountWithdrawalAddressDocument,
-    });
+    const { data } = await axios.post(
+      process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql,
+      {
+        variables: {
+          address,
+        },
+        query: AccountWithdrawalAddressDocument,
+      }
+    );
     return R.pathOr(defaultReturnValue, ['data'], data);
   } catch (error) {
     return defaultReturnValue;
@@ -57,12 +63,15 @@ export const fetchAvailableBalances = async (address: string) => {
     },
   };
   try {
-    const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql, {
-      variables: {
-        address,
-      },
-      query: AccountBalancesDocument,
-    });
+    const { data } = await axios.post(
+      process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql,
+      {
+        variables: {
+          address,
+        },
+        query: AccountBalancesDocument,
+      }
+    );
     return R.pathOr(defaultReturnValue, ['data'], data);
   } catch (error) {
     return defaultReturnValue;
@@ -76,12 +85,15 @@ export const fetchDelegationBalance = async (address: string) => {
     },
   };
   try {
-    const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql, {
-      variables: {
-        address,
-      },
-      query: AccountDelegationBalanceDocument,
-    });
+    const { data } = await axios.post(
+      process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql,
+      {
+        variables: {
+          address,
+        },
+        query: AccountDelegationBalanceDocument,
+      }
+    );
     return R.pathOr(defaultReturnValue, ['data'], data);
   } catch (error) {
     return defaultReturnValue;
@@ -95,12 +107,15 @@ export const fetchUnbondingBalance = async (address: string) => {
     },
   };
   try {
-    const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql, {
-      variables: {
-        address,
-      },
-      query: AccountUnbondingBalanceDocument,
-    });
+    const { data } = await axios.post(
+      process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql,
+      {
+        variables: {
+          address,
+        },
+        query: AccountUnbondingBalanceDocument,
+      }
+    );
     return R.pathOr(defaultReturnValue, ['data'], data);
   } catch (error) {
     return defaultReturnValue;
@@ -112,12 +127,15 @@ export const fetchRewards = async (address: string) => {
     delegationRewards: [],
   };
   try {
-    const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql, {
-      variables: {
-        address,
-      },
-      query: AccountDelegationRewardsDocument,
-    });
+    const { data } = await axios.post(
+      process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql,
+      {
+        variables: {
+          address,
+        },
+        query: AccountDelegationRewardsDocument,
+      }
+    );
     return R.pathOr(defaultReturnValue, ['data'], data);
   } catch (error) {
     return defaultReturnValue;

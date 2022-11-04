@@ -7,7 +7,7 @@ class MsgRedelegate {
   public delegatorAddress: string;
   public validatorSrcAddress: string;
   public validatorDstAddress: string;
-  public amount: MsgCoin
+  public amount: MsgCoin;
   public json: any;
 
   constructor(payload: any) {

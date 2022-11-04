@@ -1,5 +1,1 @@
-export const tabLabels = [
-  'active',
-  'inactive',
-  'allValidators',
-];
+export const tabLabels = ['active', 'inactive', 'allValidators'];

@@ -5,21 +5,15 @@ import { useRecoilValue } from 'recoil';
 import useTranslation from 'next-translate/useTranslation';
 import FooterLogoLight from 'shared-utils/assets/big-dipper-red.svg';
 import FooterLogoDark from 'shared-utils/assets/big-dipper-white.svg';
-import {
-  Button,
-  Divider,
-  Typography,
-} from '@material-ui/core';
+import { Button, Divider, Typography } from '@material-ui/core';
 import chainConfig from 'ui/dist/chainConfig';
 import generalConfig from 'ui/dist/generalConfig';
 import { readTheme } from '@recoil/settings/selectors';
 import { SocialMedia } from './components';
-import {
-  footerLinks, donateLink,
-} from './utils';
+import { footerLinks, donateLink } from './utils';
 import { useStyles } from './styles';
 
-const Footer: React.FC<{className?: string}> = ({ className }) => {
+const Footer: React.FC<{ className?: string }> = ({ className }) => {
   const { t } = useTranslation();
   const classes = useStyles();
   const theme = useRecoilValue(readTheme);
@@ -51,20 +45,13 @@ const Footer: React.FC<{className?: string}> = ({ className }) => {
             return (
               <div key={group.key} className={`${group.key} links__group`}>
                 <h3>{t(`common:${group.key}`)}</h3>
-                {
-                    group.links.map((x) => {
-                      return (
-                        <a
-                          key={x.url}
-                          href={x.url}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          {t(`common:${x.key}`)}
-                        </a>
-                      );
-                    })
-                  }
+                {group.links.map((x) => {
+                  return (
+                    <a key={x.url} href={x.url} target="_blank" rel="noreferrer">
+                      {t(`common:${x.key}`)}
+                    </a>
+                  );
+                })}
               </div>
             );
           })}
@@ -76,16 +63,8 @@ const Footer: React.FC<{className?: string}> = ({ className }) => {
             <SocialMedia />
             <div>
               <p className="footer__donate--excerpt">{t('common:donateExcerpt')}</p>
-              <a
-                href={donateLink.url}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Button
-                  className="footer__donate-button"
-                  variant="contained"
-                  color="primary"
-                >
+              <a href={donateLink.url} target="_blank" rel="noreferrer">
+                <Button className="footer__donate-button" variant="contained" color="primary">
                   {t('common:donate')}
                 </Button>
               </a>
@@ -106,30 +85,27 @@ const Footer: React.FC<{className?: string}> = ({ className }) => {
           <Trans
             i18nKey="common:copyright"
             components={[
-              (
-                // eslint-disable-next-line
-                <a
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  title="LICENSE"
-                  href="https://raw.githubusercontent.com/forbole/big-dipper-2.0-cosmos/master/LICENSE"
-                />
-              ),
+              // eslint-disable-next-line
+              <a
+                target="_blank"
+                rel="noreferrer noopener"
+                title="LICENSE"
+                href="https://raw.githubusercontent.com/forbole/big-dipper-2.0-cosmos/master/LICENSE"
+              />,
             ]}
             values={{
               name: generalConfig.maintainer.name,
             }}
-          />
-          {' '}
+          />{' '}
           {year}
         </Typography>
         <Typography className="footer__closing--text">
           <Trans
             i18nKey="common:maintainBy"
             components={[
-              (
-                <a target="_blank" rel="noreferrer" href={generalConfig.maintainer.url}>{}</a>
-              ),
+              <a target="_blank" rel="noreferrer" href={generalConfig.maintainer.url}>
+                {}
+              </a>,
             ]}
             values={{
               name: generalConfig.maintainer.name,

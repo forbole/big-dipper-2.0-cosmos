@@ -1,9 +1,6 @@
 import chainConfig from 'ui/dist/chainConfig';
 import { atom } from 'recoil';
-import {
-  AtomState,
-  Theme,
-} from './types';
+import { AtomState, Theme } from './types';
 
 const initialState: AtomState = {
   theme: chainConfig.themes.default as Theme,

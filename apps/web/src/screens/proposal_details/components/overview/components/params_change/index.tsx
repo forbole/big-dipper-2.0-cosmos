@@ -1,12 +1,6 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-} from '@material-ui/core';
+import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 
 const ParamsChange: React.FC<{
   changes: {
@@ -14,9 +8,7 @@ const ParamsChange: React.FC<{
     key: string;
     value: string;
   }[];
-}> = ({
-  changes,
-}) => {
+}> = ({ changes }) => {
   const { t } = useTranslation('proposals');
   return (
     <div style={{ overflow: 'auto' }}>

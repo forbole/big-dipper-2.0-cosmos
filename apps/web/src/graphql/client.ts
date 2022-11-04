@@ -25,7 +25,10 @@ const httpLink = new HttpLink({
 });
 
 const wsLink = new WebSocketLink({
-  uri: process.env.NEXT_PUBLIC_GRAPHQL_WS ?? chainConfig.endpoints.graphqlWebsocket ?? 'wss://localhost:3000',
+  uri:
+    process.env.NEXT_PUBLIC_GRAPHQL_WS ??
+    chainConfig.endpoints.graphqlWebsocket ??
+    'wss://localhost:3000',
   options: {
     reconnect: true,
   },

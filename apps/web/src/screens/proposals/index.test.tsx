@@ -1,20 +1,18 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {
-  MockTheme, wait,
-} from '@tests/utils';
+import { MockTheme, wait } from '@tests/utils';
 
 import { ApolloProvider } from '@apollo/client';
 import { createMockClient } from 'mock-apollo-client';
-import {
-  ProposalsDocument,
-} from '@graphql/types/general_types';
+import { ProposalsDocument } from '@graphql/types/general_types';
 import Proposals from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />);
+jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Layout" {...props} />
+));
 
 jest.mock('./components', () => ({
   List: (props: JSX.IntrinsicElements['div']) => <div id="List" {...props} />,
@@ -63,20 +61,19 @@ describe('screen: Proposals', () => {
   it('matches snapshot', async () => {
     const mockClient = createMockClient();
 
-    mockClient.setRequestHandler(
-      ProposalsDocument,
-      mockProposals,
-    );
+    mockClient.setRequestHandler(ProposalsDocument, mockProposals);
     let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
 
     renderer.act(() => {
-      tree = renderer.create(
-        <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <Proposals />
-          </MockTheme>
-        </ApolloProvider>,
-      ).toJSON();
+      tree = renderer
+        .create(
+          <ApolloProvider client={mockClient}>
+            <MockTheme>
+              <Proposals />
+            </MockTheme>
+          </ApolloProvider>
+        )
+        .toJSON();
     });
     await wait();
 

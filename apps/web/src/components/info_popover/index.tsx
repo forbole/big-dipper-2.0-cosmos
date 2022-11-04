@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  Popover,
-  Paper,
-} from '@material-ui/core';
+import { Popover, Paper } from '@material-ui/core';
 import { HelpOutline } from '@material-ui/icons';
 import classnames from 'classnames';
 import { useInfoPopover } from './hooks';
@@ -12,17 +9,8 @@ const InfoPopover: React.FC<{
   className?: string;
   content?: string | React.ReactNode;
   display?: string | React.ReactNode;
-}> = ({
-  className,
-  content,
-  display,
-}) => {
-  const {
-    handlePopoverOpen,
-    handlePopoverClose,
-    anchorEl,
-    open,
-  } = useInfoPopover();
+}> = ({ className, content, display }) => {
+  const { handlePopoverOpen, handlePopoverClose, anchorEl, open } = useInfoPopover();
 
   const classes = useStyles();
 
@@ -35,11 +23,7 @@ const InfoPopover: React.FC<{
         onMouseLeave={handlePopoverClose}
         className={classes.root}
       >
-        {display || (
-        <HelpOutline
-          className={classnames(className, classes.icon)}
-        />
-        )}
+        {display || <HelpOutline className={classnames(className, classes.icon)} />}
       </span>
       <Popover
         id="mouse-over-popover"
@@ -57,10 +41,7 @@ const InfoPopover: React.FC<{
         onClose={handlePopoverClose}
         disableRestoreFocus
       >
-        <Paper
-          elevation={0}
-          className={classnames(className)}
-        >
+        <Paper elevation={0} className={classnames(className)}>
           {content}
         </Paper>
       </Popover>

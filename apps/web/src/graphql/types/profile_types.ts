@@ -14,7 +14,6 @@ export type Scalars = {
   timestamp: any;
 };
 
-
 /** Boolean expression to compare columns of type "Boolean". All fields are combined with logical 'AND'. */
 export type Boolean_Comparison_Exp = {
   _eq?: Maybe<Scalars['Boolean']>;
@@ -93,7 +92,6 @@ export type Application_Link = {
   username: Scalars['String'];
 };
 
-
 /** columns and relationships of "application_link" */
 export type Application_LinkApplication_Link_Oracle_RequestsArgs = {
   distinct_on?: Maybe<Array<Application_Link_Oracle_Request_Select_Column>>;
@@ -103,7 +101,6 @@ export type Application_LinkApplication_Link_Oracle_RequestsArgs = {
   where?: Maybe<Application_Link_Oracle_Request_Bool_Exp>;
 };
 
-
 /** columns and relationships of "application_link" */
 export type Application_LinkApplication_Link_Oracle_Requests_AggregateArgs = {
   distinct_on?: Maybe<Array<Application_Link_Oracle_Request_Select_Column>>;
@@ -112,7 +109,6 @@ export type Application_LinkApplication_Link_Oracle_Requests_AggregateArgs = {
   order_by?: Maybe<Array<Application_Link_Oracle_Request_Order_By>>;
   where?: Maybe<Application_Link_Oracle_Request_Bool_Exp>;
 };
-
 
 /** columns and relationships of "application_link" */
 export type Application_LinkResultArgs = {
@@ -141,7 +137,6 @@ export type Application_Link_Aggregate_Fields = {
   var_samp?: Maybe<Application_Link_Var_Samp_Fields>;
   variance?: Maybe<Application_Link_Variance_Fields>;
 };
-
 
 /** aggregate fields of "application_link" */
 export type Application_Link_Aggregate_FieldsCountArgs = {
@@ -254,7 +249,6 @@ export type Application_Link_Oracle_Request = {
   script_id: Scalars['bigint'];
 };
 
-
 /** columns and relationships of "application_link_oracle_request" */
 export type Application_Link_Oracle_RequestCall_DataArgs = {
   path?: Maybe<Scalars['String']>;
@@ -282,7 +276,6 @@ export type Application_Link_Oracle_Request_Aggregate_Fields = {
   var_samp?: Maybe<Application_Link_Oracle_Request_Var_Samp_Fields>;
   variance?: Maybe<Application_Link_Oracle_Request_Variance_Fields>;
 };
-
 
 /** aggregate fields of "application_link_oracle_request" */
 export type Application_Link_Oracle_Request_Aggregate_FieldsCountArgs = {
@@ -408,7 +401,7 @@ export enum Application_Link_Oracle_Request_Select_Column {
   /** column name */
   RequestId = 'request_id',
   /** column name */
-  ScriptId = 'script_id'
+  ScriptId = 'script_id',
 }
 
 /** aggregate stddev on columns */
@@ -575,7 +568,7 @@ export enum Application_Link_Select_Column {
   /** column name */
   UserAddress = 'user_address',
   /** column name */
-  Username = 'username'
+  Username = 'username',
 }
 
 /** aggregate stddev on columns */
@@ -669,7 +662,6 @@ export type Application_Link_Variance_Order_By = {
   id?: Maybe<Order_By>;
 };
 
-
 /** Boolean expression to compare columns of type "bigint". All fields are combined with logical 'AND'. */
 export type Bigint_Comparison_Exp = {
   _eq?: Maybe<Scalars['bigint']>;
@@ -704,7 +696,6 @@ export type Chain_Link = {
   user_address: Scalars['String'];
 };
 
-
 /** columns and relationships of "chain_link" */
 export type Chain_LinkChain_Link_ProofsArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Proof_Select_Column>>;
@@ -713,7 +704,6 @@ export type Chain_LinkChain_Link_ProofsArgs = {
   order_by?: Maybe<Array<Chain_Link_Proof_Order_By>>;
   where?: Maybe<Chain_Link_Proof_Bool_Exp>;
 };
-
 
 /** columns and relationships of "chain_link" */
 export type Chain_LinkChain_Link_Proofs_AggregateArgs = {
@@ -746,7 +736,6 @@ export type Chain_Link_Aggregate_Fields = {
   var_samp?: Maybe<Chain_Link_Var_Samp_Fields>;
   variance?: Maybe<Chain_Link_Variance_Fields>;
 };
-
 
 /** aggregate fields of "chain_link" */
 export type Chain_Link_Aggregate_FieldsCountArgs = {
@@ -812,7 +801,6 @@ export type Chain_Link_Chain_Config = {
   name: Scalars['String'];
 };
 
-
 /** columns and relationships of "chain_link_chain_config" */
 export type Chain_Link_Chain_ConfigChain_LinksArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Select_Column>>;
@@ -821,7 +809,6 @@ export type Chain_Link_Chain_ConfigChain_LinksArgs = {
   order_by?: Maybe<Array<Chain_Link_Order_By>>;
   where?: Maybe<Chain_Link_Bool_Exp>;
 };
-
 
 /** columns and relationships of "chain_link_chain_config" */
 export type Chain_Link_Chain_ConfigChain_Links_AggregateArgs = {
@@ -854,7 +841,6 @@ export type Chain_Link_Chain_Config_Aggregate_Fields = {
   var_samp?: Maybe<Chain_Link_Chain_Config_Var_Samp_Fields>;
   variance?: Maybe<Chain_Link_Chain_Config_Variance_Fields>;
 };
-
 
 /** aggregate fields of "chain_link_chain_config" */
 export type Chain_Link_Chain_Config_Aggregate_FieldsCountArgs = {
@@ -904,7 +890,7 @@ export enum Chain_Link_Chain_Config_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -1018,7 +1004,6 @@ export type Chain_Link_Proof = {
   signature: Scalars['String'];
 };
 
-
 /** columns and relationships of "chain_link_proof" */
 export type Chain_Link_ProofPublic_KeyArgs = {
   path?: Maybe<Scalars['String']>;
@@ -1046,7 +1031,6 @@ export type Chain_Link_Proof_Aggregate_Fields = {
   var_samp?: Maybe<Chain_Link_Proof_Var_Samp_Fields>;
   variance?: Maybe<Chain_Link_Proof_Variance_Fields>;
 };
-
 
 /** aggregate fields of "chain_link_proof" */
 export type Chain_Link_Proof_Aggregate_FieldsCountArgs = {
@@ -1160,7 +1144,7 @@ export enum Chain_Link_Proof_Select_Column {
   /** column name */
   PublicKey = 'public_key',
   /** column name */
-  Signature = 'signature'
+  Signature = 'signature',
 }
 
 /** aggregate stddev on columns */
@@ -1281,7 +1265,7 @@ export enum Chain_Link_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  UserAddress = 'user_address'
+  UserAddress = 'user_address',
 }
 
 /** aggregate stddev on columns */
@@ -1424,7 +1408,6 @@ export type Dtag_Transfer_Requests_Aggregate_Fields = {
   variance?: Maybe<Dtag_Transfer_Requests_Variance_Fields>;
 };
 
-
 /** aggregate fields of "dtag_transfer_requests" */
 export type Dtag_Transfer_Requests_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
@@ -1515,7 +1498,7 @@ export enum Dtag_Transfer_Requests_Select_Column {
   /** column name */
   ReceiverAddress = 'receiver_address',
   /** column name */
-  SenderAddress = 'sender_address'
+  SenderAddress = 'sender_address',
 }
 
 /** aggregate stddev on columns */
@@ -1595,7 +1578,6 @@ export type Dtag_Transfer_Requests_Variance_Order_By = {
   height?: Maybe<Order_By>;
 };
 
-
 /** Boolean expression to compare columns of type "jsonb". All fields are combined with logical 'AND'. */
 export type Jsonb_Comparison_Exp = {
   /** is the column contained in the given json value */
@@ -1632,7 +1614,7 @@ export enum Order_By {
   /** in descending order, nulls first */
   DescNullsFirst = 'desc_nulls_first',
   /** in descending order, nulls last */
-  DescNullsLast = 'desc_nulls_last'
+  DescNullsLast = 'desc_nulls_last',
 }
 
 /** columns and relationships of "poll" */
@@ -1656,7 +1638,6 @@ export type Poll = {
   user_poll_answers_aggregate: User_Poll_Answer_Aggregate;
 };
 
-
 /** columns and relationships of "poll" */
 export type PollPoll_AnswersArgs = {
   distinct_on?: Maybe<Array<Poll_Answer_Select_Column>>;
@@ -1665,7 +1646,6 @@ export type PollPoll_AnswersArgs = {
   order_by?: Maybe<Array<Poll_Answer_Order_By>>;
   where?: Maybe<Poll_Answer_Bool_Exp>;
 };
-
 
 /** columns and relationships of "poll" */
 export type PollPoll_Answers_AggregateArgs = {
@@ -1676,7 +1656,6 @@ export type PollPoll_Answers_AggregateArgs = {
   where?: Maybe<Poll_Answer_Bool_Exp>;
 };
 
-
 /** columns and relationships of "poll" */
 export type PollUser_Poll_AnswersArgs = {
   distinct_on?: Maybe<Array<User_Poll_Answer_Select_Column>>;
@@ -1685,7 +1664,6 @@ export type PollUser_Poll_AnswersArgs = {
   order_by?: Maybe<Array<User_Poll_Answer_Order_By>>;
   where?: Maybe<User_Poll_Answer_Bool_Exp>;
 };
-
 
 /** columns and relationships of "poll" */
 export type PollUser_Poll_Answers_AggregateArgs = {
@@ -1718,7 +1696,6 @@ export type Poll_Aggregate_Fields = {
   var_samp?: Maybe<Poll_Var_Samp_Fields>;
   variance?: Maybe<Poll_Variance_Fields>;
 };
-
 
 /** aggregate fields of "poll" */
 export type Poll_Aggregate_FieldsCountArgs = {
@@ -1758,7 +1735,6 @@ export type Poll_Answer_Aggregate_Fields = {
   var_samp?: Maybe<Poll_Answer_Var_Samp_Fields>;
   variance?: Maybe<Poll_Answer_Variance_Fields>;
 };
-
 
 /** aggregate fields of "poll_answer" */
 export type Poll_Answer_Aggregate_FieldsCountArgs = {
@@ -1848,7 +1824,7 @@ export enum Poll_Answer_Select_Column {
   /** column name */
   AnswerText = 'answer_text',
   /** column name */
-  PollId = 'poll_id'
+  PollId = 'poll_id',
 }
 
 /** aggregate stddev on columns */
@@ -1994,7 +1970,7 @@ export enum Poll_Select_Column {
   /** column name */
   PostId = 'post_id',
   /** column name */
-  Question = 'question'
+  Question = 'question',
 }
 
 /** aggregate stddev on columns */
@@ -2080,7 +2056,6 @@ export type Post = {
   subspace: Scalars['String'];
 };
 
-
 /** columns and relationships of "post" */
 export type PostPost_AttachmentsArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Select_Column>>;
@@ -2089,7 +2064,6 @@ export type PostPost_AttachmentsArgs = {
   order_by?: Maybe<Array<Post_Attachment_Order_By>>;
   where?: Maybe<Post_Attachment_Bool_Exp>;
 };
-
 
 /** columns and relationships of "post" */
 export type PostPost_Attachments_AggregateArgs = {
@@ -2100,7 +2074,6 @@ export type PostPost_Attachments_AggregateArgs = {
   where?: Maybe<Post_Attachment_Bool_Exp>;
 };
 
-
 /** columns and relationships of "post" */
 export type PostPost_AttributesArgs = {
   distinct_on?: Maybe<Array<Post_Attribute_Select_Column>>;
@@ -2109,7 +2082,6 @@ export type PostPost_AttributesArgs = {
   order_by?: Maybe<Array<Post_Attribute_Order_By>>;
   where?: Maybe<Post_Attribute_Bool_Exp>;
 };
-
 
 /** columns and relationships of "post" */
 export type PostPost_Attributes_AggregateArgs = {
@@ -2120,7 +2092,6 @@ export type PostPost_Attributes_AggregateArgs = {
   where?: Maybe<Post_Attribute_Bool_Exp>;
 };
 
-
 /** columns and relationships of "post" */
 export type PostPost_ReactionsArgs = {
   distinct_on?: Maybe<Array<Post_Reaction_Select_Column>>;
@@ -2129,7 +2100,6 @@ export type PostPost_ReactionsArgs = {
   order_by?: Maybe<Array<Post_Reaction_Order_By>>;
   where?: Maybe<Post_Reaction_Bool_Exp>;
 };
-
 
 /** columns and relationships of "post" */
 export type PostPost_Reactions_AggregateArgs = {
@@ -2140,7 +2110,6 @@ export type PostPost_Reactions_AggregateArgs = {
   where?: Maybe<Post_Reaction_Bool_Exp>;
 };
 
-
 /** columns and relationships of "post" */
 export type PostPost_ReportsArgs = {
   distinct_on?: Maybe<Array<Post_Report_Select_Column>>;
@@ -2149,7 +2118,6 @@ export type PostPost_ReportsArgs = {
   order_by?: Maybe<Array<Post_Report_Order_By>>;
   where?: Maybe<Post_Report_Bool_Exp>;
 };
-
 
 /** columns and relationships of "post" */
 export type PostPost_Reports_AggregateArgs = {
@@ -2160,7 +2128,6 @@ export type PostPost_Reports_AggregateArgs = {
   where?: Maybe<Post_Report_Bool_Exp>;
 };
 
-
 /** columns and relationships of "post" */
 export type PostPostsArgs = {
   distinct_on?: Maybe<Array<Post_Select_Column>>;
@@ -2169,7 +2136,6 @@ export type PostPostsArgs = {
   order_by?: Maybe<Array<Post_Order_By>>;
   where?: Maybe<Post_Bool_Exp>;
 };
-
 
 /** columns and relationships of "post" */
 export type PostPosts_AggregateArgs = {
@@ -2202,7 +2168,6 @@ export type Post_Aggregate_Fields = {
   var_samp?: Maybe<Post_Var_Samp_Fields>;
   variance?: Maybe<Post_Variance_Fields>;
 };
-
 
 /** aggregate fields of "post" */
 export type Post_Aggregate_FieldsCountArgs = {
@@ -2240,7 +2205,6 @@ export type Post_Attachment = {
   uri: Scalars['String'];
 };
 
-
 /** columns and relationships of "post_attachment" */
 export type Post_AttachmentPost_Attachment_TagsArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Tag_Select_Column>>;
@@ -2249,7 +2213,6 @@ export type Post_AttachmentPost_Attachment_TagsArgs = {
   order_by?: Maybe<Array<Post_Attachment_Tag_Order_By>>;
   where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
 };
-
 
 /** columns and relationships of "post_attachment" */
 export type Post_AttachmentPost_Attachment_Tags_AggregateArgs = {
@@ -2282,7 +2245,6 @@ export type Post_Attachment_Aggregate_Fields = {
   var_samp?: Maybe<Post_Attachment_Var_Samp_Fields>;
   variance?: Maybe<Post_Attachment_Variance_Fields>;
 };
-
 
 /** aggregate fields of "post_attachment" */
 export type Post_Attachment_Aggregate_FieldsCountArgs = {
@@ -2382,7 +2344,7 @@ export enum Post_Attachment_Select_Column {
   /** column name */
   PostId = 'post_id',
   /** column name */
-  Uri = 'uri'
+  Uri = 'uri',
 }
 
 /** aggregate stddev on columns */
@@ -2462,7 +2424,6 @@ export type Post_Attachment_Tag_Aggregate_Fields = {
   var_samp?: Maybe<Post_Attachment_Tag_Var_Samp_Fields>;
   variance?: Maybe<Post_Attachment_Tag_Variance_Fields>;
 };
-
 
 /** aggregate fields of "post_attachment_tag" */
 export type Post_Attachment_Tag_Aggregate_FieldsCountArgs = {
@@ -2546,7 +2507,7 @@ export enum Post_Attachment_Tag_Select_Column {
   /** column name */
   AttachmentId = 'attachment_id',
   /** column name */
-  TagAddress = 'tag_address'
+  TagAddress = 'tag_address',
 }
 
 /** aggregate stddev on columns */
@@ -2684,7 +2645,6 @@ export type Post_Attribute_Aggregate_Fields = {
   min?: Maybe<Post_Attribute_Min_Fields>;
 };
 
-
 /** aggregate fields of "post_attribute" */
 export type Post_Attribute_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Post_Attribute_Select_Column>>;
@@ -2754,7 +2714,7 @@ export enum Post_Attribute_Select_Column {
   /** column name */
   PostId = 'post_id',
   /** column name */
-  Value = 'value'
+  Value = 'value',
 }
 
 /** aggregate avg on columns */
@@ -2906,7 +2866,6 @@ export type Post_Reaction_Aggregate_Fields = {
   variance?: Maybe<Post_Reaction_Variance_Fields>;
 };
 
-
 /** aggregate fields of "post_reaction" */
 export type Post_Reaction_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Post_Reaction_Select_Column>>;
@@ -3013,7 +2972,7 @@ export enum Post_Reaction_Select_Column {
   /** column name */
   ShortCode = 'short_code',
   /** column name */
-  Value = 'value'
+  Value = 'value',
 }
 
 /** aggregate stddev on columns */
@@ -3131,7 +3090,6 @@ export type Post_Report_Aggregate_Fields = {
   variance?: Maybe<Post_Report_Variance_Fields>;
 };
 
-
 /** aggregate fields of "post_report" */
 export type Post_Report_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Post_Report_Select_Column>>;
@@ -3248,7 +3206,7 @@ export enum Post_Report_Select_Column {
   /** column name */
   ReporterAddress = 'reporter_address',
   /** column name */
-  Type = 'type'
+  Type = 'type',
 }
 
 /** aggregate stddev on columns */
@@ -3363,7 +3321,7 @@ export enum Post_Select_Column {
   /** column name */
   ParentId = 'parent_id',
   /** column name */
-  Subspace = 'subspace'
+  Subspace = 'subspace',
 }
 
 /** aggregate stddev on columns */
@@ -3512,7 +3470,6 @@ export type Profile = {
   user_poll_answers_aggregate: User_Poll_Answer_Aggregate;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfileApplication_LinksArgs = {
   distinct_on?: Maybe<Array<Application_Link_Select_Column>>;
@@ -3521,7 +3478,6 @@ export type ProfileApplication_LinksArgs = {
   order_by?: Maybe<Array<Application_Link_Order_By>>;
   where?: Maybe<Application_Link_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfileApplication_Links_AggregateArgs = {
@@ -3532,7 +3488,6 @@ export type ProfileApplication_Links_AggregateArgs = {
   where?: Maybe<Application_Link_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfileChain_LinksArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Select_Column>>;
@@ -3541,7 +3496,6 @@ export type ProfileChain_LinksArgs = {
   order_by?: Maybe<Array<Chain_Link_Order_By>>;
   where?: Maybe<Chain_Link_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfileChain_Links_AggregateArgs = {
@@ -3552,7 +3506,6 @@ export type ProfileChain_Links_AggregateArgs = {
   where?: Maybe<Chain_Link_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfileDtagTransferRequestsBySenderAddressArgs = {
   distinct_on?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
@@ -3561,7 +3514,6 @@ export type ProfileDtagTransferRequestsBySenderAddressArgs = {
   order_by?: Maybe<Array<Dtag_Transfer_Requests_Order_By>>;
   where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfileDtagTransferRequestsBySenderAddress_AggregateArgs = {
@@ -3572,7 +3524,6 @@ export type ProfileDtagTransferRequestsBySenderAddress_AggregateArgs = {
   where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfileDtag_Transfer_RequestsArgs = {
   distinct_on?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
@@ -3581,7 +3532,6 @@ export type ProfileDtag_Transfer_RequestsArgs = {
   order_by?: Maybe<Array<Dtag_Transfer_Requests_Order_By>>;
   where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfileDtag_Transfer_Requests_AggregateArgs = {
@@ -3592,7 +3542,6 @@ export type ProfileDtag_Transfer_Requests_AggregateArgs = {
   where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfilePost_Attachment_TagsArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Tag_Select_Column>>;
@@ -3601,7 +3550,6 @@ export type ProfilePost_Attachment_TagsArgs = {
   order_by?: Maybe<Array<Post_Attachment_Tag_Order_By>>;
   where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfilePost_Attachment_Tags_AggregateArgs = {
@@ -3612,7 +3560,6 @@ export type ProfilePost_Attachment_Tags_AggregateArgs = {
   where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfilePost_ReactionsArgs = {
   distinct_on?: Maybe<Array<Post_Reaction_Select_Column>>;
@@ -3621,7 +3568,6 @@ export type ProfilePost_ReactionsArgs = {
   order_by?: Maybe<Array<Post_Reaction_Order_By>>;
   where?: Maybe<Post_Reaction_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfilePost_Reactions_AggregateArgs = {
@@ -3632,7 +3578,6 @@ export type ProfilePost_Reactions_AggregateArgs = {
   where?: Maybe<Post_Reaction_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfilePost_ReportsArgs = {
   distinct_on?: Maybe<Array<Post_Report_Select_Column>>;
@@ -3641,7 +3586,6 @@ export type ProfilePost_ReportsArgs = {
   order_by?: Maybe<Array<Post_Report_Order_By>>;
   where?: Maybe<Post_Report_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfilePost_Reports_AggregateArgs = {
@@ -3652,7 +3596,6 @@ export type ProfilePost_Reports_AggregateArgs = {
   where?: Maybe<Post_Report_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfilePostsArgs = {
   distinct_on?: Maybe<Array<Post_Select_Column>>;
@@ -3661,7 +3604,6 @@ export type ProfilePostsArgs = {
   order_by?: Maybe<Array<Post_Order_By>>;
   where?: Maybe<Post_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfilePosts_AggregateArgs = {
@@ -3672,7 +3614,6 @@ export type ProfilePosts_AggregateArgs = {
   where?: Maybe<Post_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfileProfileRelationshipsBySenderAddressArgs = {
   distinct_on?: Maybe<Array<Profile_Relationship_Select_Column>>;
@@ -3681,7 +3622,6 @@ export type ProfileProfileRelationshipsBySenderAddressArgs = {
   order_by?: Maybe<Array<Profile_Relationship_Order_By>>;
   where?: Maybe<Profile_Relationship_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfileProfileRelationshipsBySenderAddress_AggregateArgs = {
@@ -3692,7 +3632,6 @@ export type ProfileProfileRelationshipsBySenderAddress_AggregateArgs = {
   where?: Maybe<Profile_Relationship_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfileProfile_RelationshipsArgs = {
   distinct_on?: Maybe<Array<Profile_Relationship_Select_Column>>;
@@ -3701,7 +3640,6 @@ export type ProfileProfile_RelationshipsArgs = {
   order_by?: Maybe<Array<Profile_Relationship_Order_By>>;
   where?: Maybe<Profile_Relationship_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfileProfile_Relationships_AggregateArgs = {
@@ -3712,7 +3650,6 @@ export type ProfileProfile_Relationships_AggregateArgs = {
   where?: Maybe<Profile_Relationship_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfileRegistered_ReactionsArgs = {
   distinct_on?: Maybe<Array<Registered_Reactions_Select_Column>>;
@@ -3721,7 +3658,6 @@ export type ProfileRegistered_ReactionsArgs = {
   order_by?: Maybe<Array<Registered_Reactions_Order_By>>;
   where?: Maybe<Registered_Reactions_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfileRegistered_Reactions_AggregateArgs = {
@@ -3732,7 +3668,6 @@ export type ProfileRegistered_Reactions_AggregateArgs = {
   where?: Maybe<Registered_Reactions_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfileUserBlocksByBlockerAddressArgs = {
   distinct_on?: Maybe<Array<User_Block_Select_Column>>;
@@ -3741,7 +3676,6 @@ export type ProfileUserBlocksByBlockerAddressArgs = {
   order_by?: Maybe<Array<User_Block_Order_By>>;
   where?: Maybe<User_Block_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfileUserBlocksByBlockerAddress_AggregateArgs = {
@@ -3752,7 +3686,6 @@ export type ProfileUserBlocksByBlockerAddress_AggregateArgs = {
   where?: Maybe<User_Block_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfileUser_BlocksArgs = {
   distinct_on?: Maybe<Array<User_Block_Select_Column>>;
@@ -3761,7 +3694,6 @@ export type ProfileUser_BlocksArgs = {
   order_by?: Maybe<Array<User_Block_Order_By>>;
   where?: Maybe<User_Block_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfileUser_Blocks_AggregateArgs = {
@@ -3772,7 +3704,6 @@ export type ProfileUser_Blocks_AggregateArgs = {
   where?: Maybe<User_Block_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profile" */
 export type ProfileUser_Poll_AnswersArgs = {
   distinct_on?: Maybe<Array<User_Poll_Answer_Select_Column>>;
@@ -3781,7 +3712,6 @@ export type ProfileUser_Poll_AnswersArgs = {
   order_by?: Maybe<Array<User_Poll_Answer_Order_By>>;
   where?: Maybe<User_Poll_Answer_Bool_Exp>;
 };
-
 
 /** columns and relationships of "profile" */
 export type ProfileUser_Poll_Answers_AggregateArgs = {
@@ -3814,7 +3744,6 @@ export type Profile_Aggregate_Fields = {
   var_samp?: Maybe<Profile_Var_Samp_Fields>;
   variance?: Maybe<Profile_Variance_Fields>;
 };
-
 
 /** aggregate fields of "profile" */
 export type Profile_Aggregate_FieldsCountArgs = {
@@ -3945,7 +3874,6 @@ export type Profile_Relationship_Aggregate_Fields = {
   variance?: Maybe<Profile_Relationship_Variance_Fields>;
 };
 
-
 /** aggregate fields of "profile_relationship" */
 export type Profile_Relationship_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Profile_Relationship_Select_Column>>;
@@ -4044,7 +3972,7 @@ export enum Profile_Relationship_Select_Column {
   /** column name */
   SenderAddress = 'sender_address',
   /** column name */
-  Subspace = 'subspace'
+  Subspace = 'subspace',
 }
 
 /** aggregate stddev on columns */
@@ -4141,7 +4069,7 @@ export enum Profile_Select_Column {
   /** column name */
   Nickname = 'nickname',
   /** column name */
-  ProfilePic = 'profile_pic'
+  ProfilePic = 'profile_pic',
 }
 
 /** aggregate stddev on columns */
@@ -4282,7 +4210,6 @@ export type Query_Root = {
   user_poll_answer_aggregate: User_Poll_Answer_Aggregate;
 };
 
-
 export type Query_RootApplication_LinkArgs = {
   distinct_on?: Maybe<Array<Application_Link_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4290,7 +4217,6 @@ export type Query_RootApplication_LinkArgs = {
   order_by?: Maybe<Array<Application_Link_Order_By>>;
   where?: Maybe<Application_Link_Bool_Exp>;
 };
-
 
 export type Query_RootApplication_Link_AggregateArgs = {
   distinct_on?: Maybe<Array<Application_Link_Select_Column>>;
@@ -4300,11 +4226,9 @@ export type Query_RootApplication_Link_AggregateArgs = {
   where?: Maybe<Application_Link_Bool_Exp>;
 };
 
-
 export type Query_RootApplication_Link_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootApplication_Link_Oracle_RequestArgs = {
   distinct_on?: Maybe<Array<Application_Link_Oracle_Request_Select_Column>>;
@@ -4314,7 +4238,6 @@ export type Query_RootApplication_Link_Oracle_RequestArgs = {
   where?: Maybe<Application_Link_Oracle_Request_Bool_Exp>;
 };
 
-
 export type Query_RootApplication_Link_Oracle_Request_AggregateArgs = {
   distinct_on?: Maybe<Array<Application_Link_Oracle_Request_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4323,11 +4246,9 @@ export type Query_RootApplication_Link_Oracle_Request_AggregateArgs = {
   where?: Maybe<Application_Link_Oracle_Request_Bool_Exp>;
 };
 
-
 export type Query_RootApplication_Link_Oracle_Request_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootChain_LinkArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Select_Column>>;
@@ -4337,7 +4258,6 @@ export type Query_RootChain_LinkArgs = {
   where?: Maybe<Chain_Link_Bool_Exp>;
 };
 
-
 export type Query_RootChain_Link_AggregateArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4346,11 +4266,9 @@ export type Query_RootChain_Link_AggregateArgs = {
   where?: Maybe<Chain_Link_Bool_Exp>;
 };
 
-
 export type Query_RootChain_Link_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootChain_Link_Chain_ConfigArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Chain_Config_Select_Column>>;
@@ -4360,7 +4278,6 @@ export type Query_RootChain_Link_Chain_ConfigArgs = {
   where?: Maybe<Chain_Link_Chain_Config_Bool_Exp>;
 };
 
-
 export type Query_RootChain_Link_Chain_Config_AggregateArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Chain_Config_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4369,11 +4286,9 @@ export type Query_RootChain_Link_Chain_Config_AggregateArgs = {
   where?: Maybe<Chain_Link_Chain_Config_Bool_Exp>;
 };
 
-
 export type Query_RootChain_Link_Chain_Config_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootChain_Link_ProofArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Proof_Select_Column>>;
@@ -4383,7 +4298,6 @@ export type Query_RootChain_Link_ProofArgs = {
   where?: Maybe<Chain_Link_Proof_Bool_Exp>;
 };
 
-
 export type Query_RootChain_Link_Proof_AggregateArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Proof_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4391,7 +4305,6 @@ export type Query_RootChain_Link_Proof_AggregateArgs = {
   order_by?: Maybe<Array<Chain_Link_Proof_Order_By>>;
   where?: Maybe<Chain_Link_Proof_Bool_Exp>;
 };
-
 
 export type Query_RootDtag_Transfer_RequestsArgs = {
   distinct_on?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
@@ -4401,7 +4314,6 @@ export type Query_RootDtag_Transfer_RequestsArgs = {
   where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
 };
 
-
 export type Query_RootDtag_Transfer_Requests_AggregateArgs = {
   distinct_on?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4409,7 +4321,6 @@ export type Query_RootDtag_Transfer_Requests_AggregateArgs = {
   order_by?: Maybe<Array<Dtag_Transfer_Requests_Order_By>>;
   where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
 };
-
 
 export type Query_RootPollArgs = {
   distinct_on?: Maybe<Array<Poll_Select_Column>>;
@@ -4419,7 +4330,6 @@ export type Query_RootPollArgs = {
   where?: Maybe<Poll_Bool_Exp>;
 };
 
-
 export type Query_RootPoll_AggregateArgs = {
   distinct_on?: Maybe<Array<Poll_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4427,7 +4337,6 @@ export type Query_RootPoll_AggregateArgs = {
   order_by?: Maybe<Array<Poll_Order_By>>;
   where?: Maybe<Poll_Bool_Exp>;
 };
-
 
 export type Query_RootPoll_AnswerArgs = {
   distinct_on?: Maybe<Array<Poll_Answer_Select_Column>>;
@@ -4437,7 +4346,6 @@ export type Query_RootPoll_AnswerArgs = {
   where?: Maybe<Poll_Answer_Bool_Exp>;
 };
 
-
 export type Query_RootPoll_Answer_AggregateArgs = {
   distinct_on?: Maybe<Array<Poll_Answer_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4446,11 +4354,9 @@ export type Query_RootPoll_Answer_AggregateArgs = {
   where?: Maybe<Poll_Answer_Bool_Exp>;
 };
 
-
 export type Query_RootPoll_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPostArgs = {
   distinct_on?: Maybe<Array<Post_Select_Column>>;
@@ -4460,7 +4366,6 @@ export type Query_RootPostArgs = {
   where?: Maybe<Post_Bool_Exp>;
 };
 
-
 export type Query_RootPost_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4468,7 +4373,6 @@ export type Query_RootPost_AggregateArgs = {
   order_by?: Maybe<Array<Post_Order_By>>;
   where?: Maybe<Post_Bool_Exp>;
 };
-
 
 export type Query_RootPost_AttachmentArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Select_Column>>;
@@ -4478,7 +4382,6 @@ export type Query_RootPost_AttachmentArgs = {
   where?: Maybe<Post_Attachment_Bool_Exp>;
 };
 
-
 export type Query_RootPost_Attachment_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4487,11 +4390,9 @@ export type Query_RootPost_Attachment_AggregateArgs = {
   where?: Maybe<Post_Attachment_Bool_Exp>;
 };
 
-
 export type Query_RootPost_Attachment_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPost_Attachment_TagArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Tag_Select_Column>>;
@@ -4501,7 +4402,6 @@ export type Query_RootPost_Attachment_TagArgs = {
   where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
 };
 
-
 export type Query_RootPost_Attachment_Tag_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Tag_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4509,7 +4409,6 @@ export type Query_RootPost_Attachment_Tag_AggregateArgs = {
   order_by?: Maybe<Array<Post_Attachment_Tag_Order_By>>;
   where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
 };
-
 
 export type Query_RootPost_AttributeArgs = {
   distinct_on?: Maybe<Array<Post_Attribute_Select_Column>>;
@@ -4519,7 +4418,6 @@ export type Query_RootPost_AttributeArgs = {
   where?: Maybe<Post_Attribute_Bool_Exp>;
 };
 
-
 export type Query_RootPost_Attribute_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Attribute_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4528,11 +4426,9 @@ export type Query_RootPost_Attribute_AggregateArgs = {
   where?: Maybe<Post_Attribute_Bool_Exp>;
 };
 
-
 export type Query_RootPost_By_PkArgs = {
   id: Scalars['String'];
 };
-
 
 export type Query_RootPost_ReactionArgs = {
   distinct_on?: Maybe<Array<Post_Reaction_Select_Column>>;
@@ -4542,7 +4438,6 @@ export type Query_RootPost_ReactionArgs = {
   where?: Maybe<Post_Reaction_Bool_Exp>;
 };
 
-
 export type Query_RootPost_Reaction_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Reaction_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4550,7 +4445,6 @@ export type Query_RootPost_Reaction_AggregateArgs = {
   order_by?: Maybe<Array<Post_Reaction_Order_By>>;
   where?: Maybe<Post_Reaction_Bool_Exp>;
 };
-
 
 export type Query_RootPost_ReportArgs = {
   distinct_on?: Maybe<Array<Post_Report_Select_Column>>;
@@ -4560,7 +4454,6 @@ export type Query_RootPost_ReportArgs = {
   where?: Maybe<Post_Report_Bool_Exp>;
 };
 
-
 export type Query_RootPost_Report_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Report_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4568,7 +4461,6 @@ export type Query_RootPost_Report_AggregateArgs = {
   order_by?: Maybe<Array<Post_Report_Order_By>>;
   where?: Maybe<Post_Report_Bool_Exp>;
 };
-
 
 export type Query_RootProfileArgs = {
   distinct_on?: Maybe<Array<Profile_Select_Column>>;
@@ -4578,7 +4470,6 @@ export type Query_RootProfileArgs = {
   where?: Maybe<Profile_Bool_Exp>;
 };
 
-
 export type Query_RootProfile_AggregateArgs = {
   distinct_on?: Maybe<Array<Profile_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4587,11 +4478,9 @@ export type Query_RootProfile_AggregateArgs = {
   where?: Maybe<Profile_Bool_Exp>;
 };
 
-
 export type Query_RootProfile_By_PkArgs = {
   address: Scalars['String'];
 };
-
 
 export type Query_RootProfile_RelationshipArgs = {
   distinct_on?: Maybe<Array<Profile_Relationship_Select_Column>>;
@@ -4601,7 +4490,6 @@ export type Query_RootProfile_RelationshipArgs = {
   where?: Maybe<Profile_Relationship_Bool_Exp>;
 };
 
-
 export type Query_RootProfile_Relationship_AggregateArgs = {
   distinct_on?: Maybe<Array<Profile_Relationship_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4609,7 +4497,6 @@ export type Query_RootProfile_Relationship_AggregateArgs = {
   order_by?: Maybe<Array<Profile_Relationship_Order_By>>;
   where?: Maybe<Profile_Relationship_Bool_Exp>;
 };
-
 
 export type Query_RootRegistered_ReactionsArgs = {
   distinct_on?: Maybe<Array<Registered_Reactions_Select_Column>>;
@@ -4619,7 +4506,6 @@ export type Query_RootRegistered_ReactionsArgs = {
   where?: Maybe<Registered_Reactions_Bool_Exp>;
 };
 
-
 export type Query_RootRegistered_Reactions_AggregateArgs = {
   distinct_on?: Maybe<Array<Registered_Reactions_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4627,7 +4513,6 @@ export type Query_RootRegistered_Reactions_AggregateArgs = {
   order_by?: Maybe<Array<Registered_Reactions_Order_By>>;
   where?: Maybe<Registered_Reactions_Bool_Exp>;
 };
-
 
 export type Query_RootUser_BlockArgs = {
   distinct_on?: Maybe<Array<User_Block_Select_Column>>;
@@ -4637,7 +4522,6 @@ export type Query_RootUser_BlockArgs = {
   where?: Maybe<User_Block_Bool_Exp>;
 };
 
-
 export type Query_RootUser_Block_AggregateArgs = {
   distinct_on?: Maybe<Array<User_Block_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4646,7 +4530,6 @@ export type Query_RootUser_Block_AggregateArgs = {
   where?: Maybe<User_Block_Bool_Exp>;
 };
 
-
 export type Query_RootUser_Poll_AnswerArgs = {
   distinct_on?: Maybe<Array<User_Poll_Answer_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4654,7 +4537,6 @@ export type Query_RootUser_Poll_AnswerArgs = {
   order_by?: Maybe<Array<User_Poll_Answer_Order_By>>;
   where?: Maybe<User_Poll_Answer_Bool_Exp>;
 };
-
 
 export type Query_RootUser_Poll_Answer_AggregateArgs = {
   distinct_on?: Maybe<Array<User_Poll_Answer_Select_Column>>;
@@ -4698,7 +4580,6 @@ export type Registered_Reactions_Aggregate_Fields = {
   var_samp?: Maybe<Registered_Reactions_Var_Samp_Fields>;
   variance?: Maybe<Registered_Reactions_Variance_Fields>;
 };
-
 
 /** aggregate fields of "registered_reactions" */
 export type Registered_Reactions_Aggregate_FieldsCountArgs = {
@@ -4804,7 +4685,7 @@ export enum Registered_Reactions_Select_Column {
   /** column name */
   Subspace = 'subspace',
   /** column name */
-  Value = 'value'
+  Value = 'value',
 }
 
 /** aggregate stddev on columns */
@@ -4980,7 +4861,6 @@ export type Subscription_Root = {
   user_poll_answer_aggregate: User_Poll_Answer_Aggregate;
 };
 
-
 export type Subscription_RootApplication_LinkArgs = {
   distinct_on?: Maybe<Array<Application_Link_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -4988,7 +4868,6 @@ export type Subscription_RootApplication_LinkArgs = {
   order_by?: Maybe<Array<Application_Link_Order_By>>;
   where?: Maybe<Application_Link_Bool_Exp>;
 };
-
 
 export type Subscription_RootApplication_Link_AggregateArgs = {
   distinct_on?: Maybe<Array<Application_Link_Select_Column>>;
@@ -4998,11 +4877,9 @@ export type Subscription_RootApplication_Link_AggregateArgs = {
   where?: Maybe<Application_Link_Bool_Exp>;
 };
 
-
 export type Subscription_RootApplication_Link_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootApplication_Link_Oracle_RequestArgs = {
   distinct_on?: Maybe<Array<Application_Link_Oracle_Request_Select_Column>>;
@@ -5012,7 +4889,6 @@ export type Subscription_RootApplication_Link_Oracle_RequestArgs = {
   where?: Maybe<Application_Link_Oracle_Request_Bool_Exp>;
 };
 
-
 export type Subscription_RootApplication_Link_Oracle_Request_AggregateArgs = {
   distinct_on?: Maybe<Array<Application_Link_Oracle_Request_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -5021,11 +4897,9 @@ export type Subscription_RootApplication_Link_Oracle_Request_AggregateArgs = {
   where?: Maybe<Application_Link_Oracle_Request_Bool_Exp>;
 };
 
-
 export type Subscription_RootApplication_Link_Oracle_Request_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootChain_LinkArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Select_Column>>;
@@ -5035,7 +4909,6 @@ export type Subscription_RootChain_LinkArgs = {
   where?: Maybe<Chain_Link_Bool_Exp>;
 };
 
-
 export type Subscription_RootChain_Link_AggregateArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -5044,11 +4917,9 @@ export type Subscription_RootChain_Link_AggregateArgs = {
   where?: Maybe<Chain_Link_Bool_Exp>;
 };
 
-
 export type Subscription_RootChain_Link_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootChain_Link_Chain_ConfigArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Chain_Config_Select_Column>>;
@@ -5058,7 +4929,6 @@ export type Subscription_RootChain_Link_Chain_ConfigArgs = {
   where?: Maybe<Chain_Link_Chain_Config_Bool_Exp>;
 };
 
-
 export type Subscription_RootChain_Link_Chain_Config_AggregateArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Chain_Config_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -5067,11 +4937,9 @@ export type Subscription_RootChain_Link_Chain_Config_AggregateArgs = {
   where?: Maybe<Chain_Link_Chain_Config_Bool_Exp>;
 };
 
-
 export type Subscription_RootChain_Link_Chain_Config_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootChain_Link_ProofArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Proof_Select_Column>>;
@@ -5081,7 +4949,6 @@ export type Subscription_RootChain_Link_ProofArgs = {
   where?: Maybe<Chain_Link_Proof_Bool_Exp>;
 };
 
-
 export type Subscription_RootChain_Link_Proof_AggregateArgs = {
   distinct_on?: Maybe<Array<Chain_Link_Proof_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -5089,7 +4956,6 @@ export type Subscription_RootChain_Link_Proof_AggregateArgs = {
   order_by?: Maybe<Array<Chain_Link_Proof_Order_By>>;
   where?: Maybe<Chain_Link_Proof_Bool_Exp>;
 };
-
 
 export type Subscription_RootDtag_Transfer_RequestsArgs = {
   distinct_on?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
@@ -5099,7 +4965,6 @@ export type Subscription_RootDtag_Transfer_RequestsArgs = {
   where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
 };
 
-
 export type Subscription_RootDtag_Transfer_Requests_AggregateArgs = {
   distinct_on?: Maybe<Array<Dtag_Transfer_Requests_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -5107,7 +4972,6 @@ export type Subscription_RootDtag_Transfer_Requests_AggregateArgs = {
   order_by?: Maybe<Array<Dtag_Transfer_Requests_Order_By>>;
   where?: Maybe<Dtag_Transfer_Requests_Bool_Exp>;
 };
-
 
 export type Subscription_RootPollArgs = {
   distinct_on?: Maybe<Array<Poll_Select_Column>>;
@@ -5117,7 +4981,6 @@ export type Subscription_RootPollArgs = {
   where?: Maybe<Poll_Bool_Exp>;
 };
 
-
 export type Subscription_RootPoll_AggregateArgs = {
   distinct_on?: Maybe<Array<Poll_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -5125,7 +4988,6 @@ export type Subscription_RootPoll_AggregateArgs = {
   order_by?: Maybe<Array<Poll_Order_By>>;
   where?: Maybe<Poll_Bool_Exp>;
 };
-
 
 export type Subscription_RootPoll_AnswerArgs = {
   distinct_on?: Maybe<Array<Poll_Answer_Select_Column>>;
@@ -5135,7 +4997,6 @@ export type Subscription_RootPoll_AnswerArgs = {
   where?: Maybe<Poll_Answer_Bool_Exp>;
 };
 
-
 export type Subscription_RootPoll_Answer_AggregateArgs = {
   distinct_on?: Maybe<Array<Poll_Answer_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -5144,11 +5005,9 @@ export type Subscription_RootPoll_Answer_AggregateArgs = {
   where?: Maybe<Poll_Answer_Bool_Exp>;
 };
 
-
 export type Subscription_RootPoll_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPostArgs = {
   distinct_on?: Maybe<Array<Post_Select_Column>>;
@@ -5158,7 +5017,6 @@ export type Subscription_RootPostArgs = {
   where?: Maybe<Post_Bool_Exp>;
 };
 
-
 export type Subscription_RootPost_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -5166,7 +5024,6 @@ export type Subscription_RootPost_AggregateArgs = {
   order_by?: Maybe<Array<Post_Order_By>>;
   where?: Maybe<Post_Bool_Exp>;
 };
-
 
 export type Subscription_RootPost_AttachmentArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Select_Column>>;
@@ -5176,7 +5033,6 @@ export type Subscription_RootPost_AttachmentArgs = {
   where?: Maybe<Post_Attachment_Bool_Exp>;
 };
 
-
 export type Subscription_RootPost_Attachment_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -5185,11 +5041,9 @@ export type Subscription_RootPost_Attachment_AggregateArgs = {
   where?: Maybe<Post_Attachment_Bool_Exp>;
 };
 
-
 export type Subscription_RootPost_Attachment_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPost_Attachment_TagArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Tag_Select_Column>>;
@@ -5199,7 +5053,6 @@ export type Subscription_RootPost_Attachment_TagArgs = {
   where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
 };
 
-
 export type Subscription_RootPost_Attachment_Tag_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Attachment_Tag_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -5207,7 +5060,6 @@ export type Subscription_RootPost_Attachment_Tag_AggregateArgs = {
   order_by?: Maybe<Array<Post_Attachment_Tag_Order_By>>;
   where?: Maybe<Post_Attachment_Tag_Bool_Exp>;
 };
-
 
 export type Subscription_RootPost_AttributeArgs = {
   distinct_on?: Maybe<Array<Post_Attribute_Select_Column>>;
@@ -5217,7 +5069,6 @@ export type Subscription_RootPost_AttributeArgs = {
   where?: Maybe<Post_Attribute_Bool_Exp>;
 };
 
-
 export type Subscription_RootPost_Attribute_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Attribute_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -5226,11 +5077,9 @@ export type Subscription_RootPost_Attribute_AggregateArgs = {
   where?: Maybe<Post_Attribute_Bool_Exp>;
 };
 
-
 export type Subscription_RootPost_By_PkArgs = {
   id: Scalars['String'];
 };
-
 
 export type Subscription_RootPost_ReactionArgs = {
   distinct_on?: Maybe<Array<Post_Reaction_Select_Column>>;
@@ -5240,7 +5089,6 @@ export type Subscription_RootPost_ReactionArgs = {
   where?: Maybe<Post_Reaction_Bool_Exp>;
 };
 
-
 export type Subscription_RootPost_Reaction_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Reaction_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -5248,7 +5096,6 @@ export type Subscription_RootPost_Reaction_AggregateArgs = {
   order_by?: Maybe<Array<Post_Reaction_Order_By>>;
   where?: Maybe<Post_Reaction_Bool_Exp>;
 };
-
 
 export type Subscription_RootPost_ReportArgs = {
   distinct_on?: Maybe<Array<Post_Report_Select_Column>>;
@@ -5258,7 +5105,6 @@ export type Subscription_RootPost_ReportArgs = {
   where?: Maybe<Post_Report_Bool_Exp>;
 };
 
-
 export type Subscription_RootPost_Report_AggregateArgs = {
   distinct_on?: Maybe<Array<Post_Report_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -5266,7 +5112,6 @@ export type Subscription_RootPost_Report_AggregateArgs = {
   order_by?: Maybe<Array<Post_Report_Order_By>>;
   where?: Maybe<Post_Report_Bool_Exp>;
 };
-
 
 export type Subscription_RootProfileArgs = {
   distinct_on?: Maybe<Array<Profile_Select_Column>>;
@@ -5276,7 +5121,6 @@ export type Subscription_RootProfileArgs = {
   where?: Maybe<Profile_Bool_Exp>;
 };
 
-
 export type Subscription_RootProfile_AggregateArgs = {
   distinct_on?: Maybe<Array<Profile_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -5285,11 +5129,9 @@ export type Subscription_RootProfile_AggregateArgs = {
   where?: Maybe<Profile_Bool_Exp>;
 };
 
-
 export type Subscription_RootProfile_By_PkArgs = {
   address: Scalars['String'];
 };
-
 
 export type Subscription_RootProfile_RelationshipArgs = {
   distinct_on?: Maybe<Array<Profile_Relationship_Select_Column>>;
@@ -5299,7 +5141,6 @@ export type Subscription_RootProfile_RelationshipArgs = {
   where?: Maybe<Profile_Relationship_Bool_Exp>;
 };
 
-
 export type Subscription_RootProfile_Relationship_AggregateArgs = {
   distinct_on?: Maybe<Array<Profile_Relationship_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -5307,7 +5148,6 @@ export type Subscription_RootProfile_Relationship_AggregateArgs = {
   order_by?: Maybe<Array<Profile_Relationship_Order_By>>;
   where?: Maybe<Profile_Relationship_Bool_Exp>;
 };
-
 
 export type Subscription_RootRegistered_ReactionsArgs = {
   distinct_on?: Maybe<Array<Registered_Reactions_Select_Column>>;
@@ -5317,7 +5157,6 @@ export type Subscription_RootRegistered_ReactionsArgs = {
   where?: Maybe<Registered_Reactions_Bool_Exp>;
 };
 
-
 export type Subscription_RootRegistered_Reactions_AggregateArgs = {
   distinct_on?: Maybe<Array<Registered_Reactions_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -5325,7 +5164,6 @@ export type Subscription_RootRegistered_Reactions_AggregateArgs = {
   order_by?: Maybe<Array<Registered_Reactions_Order_By>>;
   where?: Maybe<Registered_Reactions_Bool_Exp>;
 };
-
 
 export type Subscription_RootUser_BlockArgs = {
   distinct_on?: Maybe<Array<User_Block_Select_Column>>;
@@ -5335,7 +5173,6 @@ export type Subscription_RootUser_BlockArgs = {
   where?: Maybe<User_Block_Bool_Exp>;
 };
 
-
 export type Subscription_RootUser_Block_AggregateArgs = {
   distinct_on?: Maybe<Array<User_Block_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -5343,7 +5180,6 @@ export type Subscription_RootUser_Block_AggregateArgs = {
   order_by?: Maybe<Array<User_Block_Order_By>>;
   where?: Maybe<User_Block_Bool_Exp>;
 };
-
 
 export type Subscription_RootUser_Poll_AnswerArgs = {
   distinct_on?: Maybe<Array<User_Poll_Answer_Select_Column>>;
@@ -5353,7 +5189,6 @@ export type Subscription_RootUser_Poll_AnswerArgs = {
   where?: Maybe<User_Poll_Answer_Bool_Exp>;
 };
 
-
 export type Subscription_RootUser_Poll_Answer_AggregateArgs = {
   distinct_on?: Maybe<Array<User_Poll_Answer_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -5361,7 +5196,6 @@ export type Subscription_RootUser_Poll_Answer_AggregateArgs = {
   order_by?: Maybe<Array<User_Poll_Answer_Order_By>>;
   where?: Maybe<User_Poll_Answer_Bool_Exp>;
 };
-
 
 /** Boolean expression to compare columns of type "timestamp". All fields are combined with logical 'AND'. */
 export type Timestamp_Comparison_Exp = {
@@ -5412,7 +5246,6 @@ export type User_Block_Aggregate_Fields = {
   var_samp?: Maybe<User_Block_Var_Samp_Fields>;
   variance?: Maybe<User_Block_Variance_Fields>;
 };
-
 
 /** aggregate fields of "user_block" */
 export type User_Block_Aggregate_FieldsCountArgs = {
@@ -5520,7 +5353,7 @@ export enum User_Block_Select_Column {
   /** column name */
   Reason = 'reason',
   /** column name */
-  Subspace = 'subspace'
+  Subspace = 'subspace',
 }
 
 /** aggregate stddev on columns */
@@ -5636,7 +5469,6 @@ export type User_Poll_Answer_Aggregate_Fields = {
   variance?: Maybe<User_Poll_Answer_Variance_Fields>;
 };
 
-
 /** aggregate fields of "user_poll_answer" */
 export type User_Poll_Answer_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<User_Poll_Answer_Select_Column>>;
@@ -5739,7 +5571,7 @@ export enum User_Poll_Answer_Select_Column {
   /** column name */
   Height = 'height',
   /** column name */
-  PollId = 'poll_id'
+  PollId = 'poll_id',
 }
 
 /** aggregate stddev on columns */
@@ -5851,67 +5683,100 @@ export type DesmosProfileQueryVariables = Exact<{
   address?: Maybe<Scalars['String']>;
 }>;
 
-
-export type DesmosProfileQuery = { profile: Array<(
-    { __typename?: 'profile' }
-    & Pick<Profile, 'address' | 'bio' | 'dtag' | 'nickname'>
-    & { profilePic: Profile['profile_pic'], coverPic: Profile['cover_pic'], creationTime: Profile['creation_time'] }
-    & { chainLinks: Array<(
-      { __typename?: 'chain_link' }
-      & { creationTime: Chain_Link['creation_time'], externalAddress: Chain_Link['external_address'] }
-      & { chainConfig: (
-        { __typename?: 'chain_link_chain_config' }
-        & Pick<Chain_Link_Chain_Config, 'name' | 'id'>
-      ) }
-    )>, applicationLinks: Array<(
-      { __typename?: 'application_link' }
-      & Pick<Application_Link, 'username' | 'application'>
-      & { creationTime: Application_Link['creation_time'] }
-    )> }
-  )> };
+export type DesmosProfileQuery = {
+  profile: Array<
+    { __typename?: 'profile' } & Pick<Profile, 'address' | 'bio' | 'dtag' | 'nickname'> & {
+        profilePic: Profile['profile_pic'];
+        coverPic: Profile['cover_pic'];
+        creationTime: Profile['creation_time'];
+      } & {
+        chainLinks: Array<
+          { __typename?: 'chain_link' } & {
+            creationTime: Chain_Link['creation_time'];
+            externalAddress: Chain_Link['external_address'];
+          } & {
+            chainConfig: { __typename?: 'chain_link_chain_config' } & Pick<
+              Chain_Link_Chain_Config,
+              'name' | 'id'
+            >;
+          }
+        >;
+        applicationLinks: Array<
+          { __typename?: 'application_link' } & Pick<
+            Application_Link,
+            'username' | 'application'
+          > & {
+              creationTime: Application_Link['creation_time'];
+            }
+        >;
+      }
+  >;
+};
 
 export type DesmosProfileLinkQueryVariables = Exact<{
   address?: Maybe<Scalars['String']>;
 }>;
 
-
-export type DesmosProfileLinkQuery = { profile: Array<(
-    { __typename?: 'profile' }
-    & Pick<Profile, 'address' | 'bio' | 'dtag' | 'nickname'>
-    & { profilePic: Profile['profile_pic'], coverPic: Profile['cover_pic'], creationTime: Profile['creation_time'] }
-    & { chainLinks: Array<(
-      { __typename?: 'chain_link' }
-      & { creationTime: Chain_Link['creation_time'], externalAddress: Chain_Link['external_address'] }
-      & { chainConfig: (
-        { __typename?: 'chain_link_chain_config' }
-        & Pick<Chain_Link_Chain_Config, 'name' | 'id'>
-      ) }
-    )>, applicationLinks: Array<(
-      { __typename?: 'application_link' }
-      & Pick<Application_Link, 'username' | 'application'>
-      & { creationTime: Application_Link['creation_time'] }
-    )> }
-  )> };
+export type DesmosProfileLinkQuery = {
+  profile: Array<
+    { __typename?: 'profile' } & Pick<Profile, 'address' | 'bio' | 'dtag' | 'nickname'> & {
+        profilePic: Profile['profile_pic'];
+        coverPic: Profile['cover_pic'];
+        creationTime: Profile['creation_time'];
+      } & {
+        chainLinks: Array<
+          { __typename?: 'chain_link' } & {
+            creationTime: Chain_Link['creation_time'];
+            externalAddress: Chain_Link['external_address'];
+          } & {
+            chainConfig: { __typename?: 'chain_link_chain_config' } & Pick<
+              Chain_Link_Chain_Config,
+              'name' | 'id'
+            >;
+          }
+        >;
+        applicationLinks: Array<
+          { __typename?: 'application_link' } & Pick<
+            Application_Link,
+            'username' | 'application'
+          > & {
+              creationTime: Application_Link['creation_time'];
+            }
+        >;
+      }
+  >;
+};
 
 export type DesmosProfileDtagQueryVariables = Exact<{
   dtag?: Maybe<Scalars['String']>;
 }>;
 
-
-export type DesmosProfileDtagQuery = { profile: Array<(
-    { __typename?: 'profile' }
-    & Pick<Profile, 'address' | 'bio' | 'dtag' | 'nickname'>
-    & { profilePic: Profile['profile_pic'], coverPic: Profile['cover_pic'], creationTime: Profile['creation_time'] }
-    & { chainLinks: Array<(
-      { __typename?: 'chain_link' }
-      & { creationTime: Chain_Link['creation_time'], externalAddress: Chain_Link['external_address'] }
-      & { chainConfig: (
-        { __typename?: 'chain_link_chain_config' }
-        & Pick<Chain_Link_Chain_Config, 'name' | 'id'>
-      ) }
-    )>, applicationLinks: Array<(
-      { __typename?: 'application_link' }
-      & Pick<Application_Link, 'username' | 'application'>
-      & { creationTime: Application_Link['creation_time'] }
-    )> }
-  )> };
+export type DesmosProfileDtagQuery = {
+  profile: Array<
+    { __typename?: 'profile' } & Pick<Profile, 'address' | 'bio' | 'dtag' | 'nickname'> & {
+        profilePic: Profile['profile_pic'];
+        coverPic: Profile['cover_pic'];
+        creationTime: Profile['creation_time'];
+      } & {
+        chainLinks: Array<
+          { __typename?: 'chain_link' } & {
+            creationTime: Chain_Link['creation_time'];
+            externalAddress: Chain_Link['external_address'];
+          } & {
+            chainConfig: { __typename?: 'chain_link_chain_config' } & Pick<
+              Chain_Link_Chain_Config,
+              'name' | 'id'
+            >;
+          }
+        >;
+        applicationLinks: Array<
+          { __typename?: 'application_link' } & Pick<
+            Application_Link,
+            'username' | 'application'
+          > & {
+              creationTime: Application_Link['creation_time'];
+            }
+        >;
+      }
+  >;
+};

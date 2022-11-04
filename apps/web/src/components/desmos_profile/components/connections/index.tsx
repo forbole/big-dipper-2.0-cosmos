@@ -1,18 +1,9 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Dialog,
-  Typography,
-  DialogTitle,
-  IconButton,
-  DialogContent,
-} from '@material-ui/core';
+import { Dialog, Typography, DialogTitle, IconButton, DialogContent } from '@material-ui/core';
 import { Close as CloseIcon } from '@material-ui/icons';
 import Pagination from '@components/pagination';
-import {
-  usePagination,
-  useScreenSize,
-} from '@hooks';
+import { usePagination, useScreenSize } from '@hooks';
 import { useStyles } from './styles';
 import Desktop from './components/desktop';
 import Mobile from './components/mobile';
@@ -21,21 +12,12 @@ const Connections: React.FC<{
   handleClose: () => void;
   open: boolean;
   data: ProfileConnectionType[];
-}> = ({
-  handleClose,
-  open,
-  data,
-}) => {
+}> = ({ handleClose, open, data }) => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const { t } = useTranslation('accounts');
-  const {
-    page,
-    rowsPerPage,
-    handleChangePage,
-    handleChangeRowsPerPage,
-    sliceItems,
-  } = usePagination({});
+  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage, sliceItems } =
+    usePagination({});
   const items = sliceItems(data);
   return (
     <Dialog
@@ -46,13 +28,8 @@ const Connections: React.FC<{
       className={classes.dialog}
     >
       <DialogTitle disableTypography className={classes.header}>
-        <Typography variant="h2">
-          {t('connectionsTitle')}
-        </Typography>
-        <IconButton
-          aria-label="close"
-          onClick={handleClose}
-        >
+        <Typography variant="h2">{t('connectionsTitle')}</Typography>
+        <IconButton aria-label="close" onClick={handleClose}>
           <CloseIcon />
         </IconButton>
       </DialogTitle>
