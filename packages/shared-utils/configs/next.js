@@ -1,4 +1,4 @@
-const generalConfig = require('../configs/general.json');
+const generalConfig = require("./general.json");
 
 function nextConfig(chainConfigJson) {
   /* Setting the basePath, chainType, chains, and settings variables. */
