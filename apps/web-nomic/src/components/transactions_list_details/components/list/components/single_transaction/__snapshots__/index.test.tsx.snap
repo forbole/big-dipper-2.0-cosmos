@@ -34,6 +34,18 @@ exports[`components: SingleTransaction matches snapshot 1`] = `
         </div>
       </div>
       <div
+        className="makeStyles-item block"
+      >
+        <h4
+          className="MuiTypography-root label MuiTypography-h4"
+        >
+          type
+        </h4>
+        <div>
+          type
+        </div>
+      </div>
+      <div
         className="makeStyles-item time"
       >
         <h4
@@ -47,58 +59,10 @@ exports[`components: SingleTransaction matches snapshot 1`] = `
           2021-07-13T08:00:00
         </p>
       </div>
-      <div
-        className="makeStyles-item messages"
-      >
-        <h4
-          className="MuiTypography-root label MuiTypography-h4"
-        >
-          messages
-        </h4>
-        <p
-          className="MuiTypography-root value MuiTypography-body1"
-        >
-          1,000
-        </p>
-      </div>
-      <div
-        className="makeStyles-item result"
-      >
-        <h4
-          className="MuiTypography-root label MuiTypography-h4"
-        >
-          result
-        </h4>
-        <div>
-          result
-        </div>
-      </div>
     </div>
     <hr
       className="MuiDivider-root"
     />
-    <div
-      className="makeStyles-item"
-    >
-      <div
-        className="makeStyles-msgListContainer"
-      >
-        <div
-          className="makeStyles-msg"
-        >
-          <div
-            className="makeStyles-tags"
-          >
-            <div>
-              type
-            </div>
-          </div>
-          <div>
-            message
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 `;

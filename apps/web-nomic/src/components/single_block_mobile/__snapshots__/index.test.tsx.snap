@@ -22,18 +22,6 @@ exports[`component: SingleSlotMobile matches snapshot 1`] = `
     <h4
       className="MuiTypography-root label MuiTypography-h4"
     >
-      proposer
-    </h4>
-    <div
-      id="proposer"
-    />
-  </div>
-  <div
-    className="makeStyles-item"
-  >
-    <h4
-      className="MuiTypography-root label MuiTypography-h4"
-    >
       hash
     </h4>
     <p

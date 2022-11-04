@@ -10,13 +10,13 @@ exports[`component: layout/footer matches snapshot 1`] = `
     <div
       className="footer__logo--container"
     >
-      <
+      <svg
         className="footer__logo"
       />
       <p
         className="footer__slogan"
       >
-        Desmos Block Explorer
+        Nomic Block Explorer
       </p>
     </div>
     <div

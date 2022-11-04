@@ -190,9 +190,9 @@
         "height": 0
       },
       "prefix": {
-        "consensus": "",
-        "validator": "",
-        "account": ""
+        "consensus": "nomicvalcons",
+        "validator": "nomicvaloper",
+        "account": "nomic"
       },
       "primaryTokenUnit": "usat",
       "votingPowerTokenUnit": "usat",

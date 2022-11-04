@@ -42,6 +42,7 @@ const mockBlocksListenerDocument = {
             operatorAddress: 'desmosvaloper1h5f3dywec65v9qulxkmcv3e6yujyh3zm0ghhl3',
           },
         },
+        proposerAddress: null,
       },
     ],
   },
