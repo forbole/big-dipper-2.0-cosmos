@@ -130,7 +130,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.1.0, @babel/core@npm:^7.13.0, @babel/core@npm:^7.19.6, @babel/core@npm:^7.7.2, @babel/core@npm:^7.8.0":
+"@babel/core@npm:^7.1.0, @babel/core@npm:^7.19.6, @babel/core@npm:^7.7.2, @babel/core@npm:^7.8.0":
   version: 7.19.6
   resolution: "@babel/core@npm:7.19.6"
   dependencies:
@@ -14316,7 +14316,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^17.0.2":
+"react-dom@npm:17.0.2":
   version: 17.0.2
   resolution: "react-dom@npm:17.0.2"
   dependencies:
@@ -14407,7 +14407,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-test-renderer@npm:^17.0.1":
+"react-test-renderer@npm:^17.0.2":
   version: 17.0.2
   resolution: "react-test-renderer@npm:17.0.2"
   dependencies:
@@ -14496,7 +14496,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^17.0.2":
+"react@npm:17.0.2":
   version: 17.0.2
   resolution: "react@npm:17.0.2"
   dependencies:
@@ -16657,9 +16657,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17010,9 +17011,6 @@ __metadata:
   resolution: "web-agoric@workspace:apps/web-agoric"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -17069,10 +17067,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17095,9 +17093,6 @@ __metadata:
   resolution: "web-akash@workspace:apps/web-akash"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -17155,10 +17150,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17181,9 +17176,6 @@ __metadata:
   resolution: "web-assetmantle@workspace:apps/web-assetmantle"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -17240,10 +17232,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17266,9 +17258,6 @@ __metadata:
   resolution: "web-band@workspace:apps/web-band"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -17326,10 +17315,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17352,9 +17341,6 @@ __metadata:
   resolution: "web-bitsong@workspace:apps/web-bitsong"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -17412,10 +17398,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17438,9 +17424,6 @@ __metadata:
   resolution: "web-comdex@workspace:apps/web-comdex"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -17498,10 +17481,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17524,9 +17507,6 @@ __metadata:
   resolution: "web-cosmos@workspace:apps/web-cosmos"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -17584,10 +17564,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17610,9 +17590,6 @@ __metadata:
   resolution: "web-crescent@workspace:apps/web-crescent"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -17670,10 +17647,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17696,9 +17673,6 @@ __metadata:
   resolution: "web-desmos@workspace:apps/web-desmos"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -17756,10 +17730,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17782,9 +17756,6 @@ __metadata:
   resolution: "web-elrond@workspace:apps/web-elrond"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -17840,10 +17811,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17866,9 +17837,6 @@ __metadata:
   resolution: "web-emoney@workspace:apps/web-emoney"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -17926,10 +17894,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17952,9 +17920,6 @@ __metadata:
   resolution: "web-evmos@workspace:apps/web-evmos"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -18012,10 +17977,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -18038,9 +18003,6 @@ __metadata:
   resolution: "web-flow@workspace:apps/web-flow"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -18098,10 +18060,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -18124,9 +18086,6 @@ __metadata:
   resolution: "web-likecoin@workspace:apps/web-likecoin"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -18184,10 +18143,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -18210,9 +18169,6 @@ __metadata:
   resolution: "web-nomic@workspace:apps/web-nomic"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -18267,10 +18223,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -18293,9 +18249,6 @@ __metadata:
   resolution: "web-nym@workspace:apps/web-nym"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -18353,10 +18306,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -18379,9 +18332,6 @@ __metadata:
   resolution: "web-osmosis@workspace:apps/web-osmosis"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -18439,10 +18389,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -18465,9 +18415,6 @@ __metadata:
   resolution: "web-persistence@workspace:apps/web-persistence"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -18525,10 +18472,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -18551,9 +18498,6 @@ __metadata:
   resolution: "web-provenance@workspace:apps/web-provenance"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -18611,10 +18555,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -18637,9 +18581,6 @@ __metadata:
   resolution: "web-regen@workspace:apps/web-regen"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -18697,10 +18638,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -18723,9 +18664,6 @@ __metadata:
   resolution: "web-rizon@workspace:apps/web-rizon"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -18783,10 +18721,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -18809,9 +18747,6 @@ __metadata:
   resolution: "web-shentu@workspace:apps/web-shentu"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -18869,10 +18804,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -18895,9 +18830,6 @@ __metadata:
   resolution: "web-sifchain@workspace:apps/web-sifchain"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -18955,10 +18887,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -18995,9 +18927,6 @@ __metadata:
   resolution: "web-stride@workspace:apps/web-stride"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -19055,10 +18984,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -19081,9 +19010,6 @@ __metadata:
   resolution: "web@workspace:apps/web"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@babel/core": ^7.13.0
-    "@babel/preset-env": ^7.19.4
-    "@babel/preset-react": ^7.18.6
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -19147,10 +19073,10 @@ __metadata:
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-share: ^4.4.0
-    react-test-renderer: ^17.0.1
+    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
