@@ -22,7 +22,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
     }
     id="SingleBlockMobile"
     proposer={
-      <AvatarName
+      <Unknown
         address="desmosvalcons1why72hjk945yhckcy5hzk2z2w9d5h65t9am0kd"
         imageUrl=""
         name="name"
