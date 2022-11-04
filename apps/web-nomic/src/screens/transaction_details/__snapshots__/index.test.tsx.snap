@@ -1,37 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: Blocks/List matches snapshot 1`] = `
-<div
-  id="Layout"
-  navTitle="transactionDetails"
->
-  <div
-    exists={true}
-    id="LoadAndExist"
-    loading={false}
-  >
-    <span
-      className="makeStyles-root"
-    >
-      <div
-        data={
-          Object {
-            "fee": Object {
-              "baseDenom": "udaric",
-              "displayDenom": "daric",
-              "exponent": 6,
-              "value": "0.000050",
-            },
-            "gas": 149488,
-            "hash": "7D373DE5C5FB03EA72006F6CEC8F908545D435AE1C598A1B53AD0770C243822A",
-            "height": 54290,
-            "memo": "",
-            "timestamp": "2021-05-01T07:47:40.855759",
-          }
-        }
-        id="Overview"
-      />
-    </span>
-  </div>
-</div>
-`;
+exports[`screen: Blocks/List matches snapshot 1`] = `null`;

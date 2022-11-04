@@ -35,7 +35,7 @@ exports[`screen: Home/Transactions/Mobile matches snapshot 1`] = `
     time="1 day ago"
     type={
       <div>
-        <Tag
+        <Unknown
           theme="six"
           value="Delegate"
         />
