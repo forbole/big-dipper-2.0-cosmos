@@ -4,9 +4,11 @@ import { Typography } from '@material-ui/core';
 import Box from '@components/box';
 import { useGetStyles } from './styles';
 
-const Logs: React.FC<{
-  logs: null | any[];
-} & ComponentDefault> = ({ logs }) => {
+const Logs: React.FC<
+  {
+    logs: null | any[];
+  } & ComponentDefault
+> = ({ logs }) => {
   const { classes } = useGetStyles();
   const { t } = useTranslation('transactions');
   return (
@@ -15,9 +17,7 @@ const Logs: React.FC<{
         {t('logs')}
       </Typography>
       <pre className={classes.pre}>
-        <code>
-          {JSON.stringify(logs, null, 4)}
-        </code>
+        <code>{JSON.stringify(logs, null, 4)}</code>
       </pre>
     </Box>
   );

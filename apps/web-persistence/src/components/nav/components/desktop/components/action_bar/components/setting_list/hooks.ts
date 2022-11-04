@@ -1,19 +1,8 @@
 import { useState } from 'react';
 import setLanguage from 'next-translate/setLanguage';
-import {
-  useRecoilState, SetterOrUpdater,
-} from 'recoil';
-import {
-  Theme,
-  Date,
-  Tx,
-} from '@recoil/settings/types';
-import {
-  writeTheme,
-  writeDate,
-  writeTx,
-  THEME_DICTIONARY,
-} from '@recoil/settings';
+import { useRecoilState, SetterOrUpdater } from 'recoil';
+import { Theme, Date, Tx } from '@recoil/settings/types';
+import { writeTheme, writeDate, writeTx, THEME_DICTIONARY } from '@recoil/settings';
 import * as R from 'ramda';
 
 export const useSettingList = ({ lang }) => {

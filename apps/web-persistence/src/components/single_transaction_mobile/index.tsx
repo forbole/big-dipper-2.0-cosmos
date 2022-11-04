@@ -1,21 +1,17 @@
 import React from 'react';
 import classnames from 'classnames';
-import {
-  Typography,
-} from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import { useStyles } from './styles';
 
-const SingleTransactionMobile:React.FC<{
+const SingleTransactionMobile: React.FC<{
   className?: string;
   block: React.ReactNode;
   hash: React.ReactNode;
   time: string;
   messages: string;
   result?: React.ReactNode;
-}> = ({
-  className, block, hash, type, time, messages, result,
-}) => {
+}> = ({ className, block, hash, type, time, messages, result }) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
 
@@ -37,14 +33,14 @@ const SingleTransactionMobile:React.FC<{
       </div>
       <div className={classes.flex}>
         {!!messages && (
-        <div className={classes.item}>
-          <Typography variant="h4" className="label">
-            {t('messages')}
-          </Typography>
-          <Typography variant="body1" className="value">
-            {messages}
-          </Typography>
-        </div>
+          <div className={classes.item}>
+            <Typography variant="h4" className="label">
+              {t('messages')}
+            </Typography>
+            <Typography variant="body1" className="value">
+              {messages}
+            </Typography>
+          </div>
         )}
         <div className={classes.item}>
           <Typography variant="h4" className="label">

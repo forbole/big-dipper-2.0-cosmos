@@ -6,9 +6,7 @@ import { Typography } from '@material-ui/core';
 const Total: React.FC<{
   className?: string;
   total: string;
-}> = ({
-  className, total,
-}) => {
+}> = ({ className, total }) => {
   const { t } = useTranslation('proposals');
   return (
     <Typography variant="body1" className={classnames(className)}>

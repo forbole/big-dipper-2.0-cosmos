@@ -3,7 +3,7 @@ export type ProposalType = {
   title: string;
   description: string;
   status: string;
-}
+};
 
 export type ProposalsState = {
   loading: boolean;
@@ -12,4 +12,4 @@ export type ProposalsState = {
   isNextPageLoading: boolean;
   rawDataTotal: number;
   items: ProposalType[];
-}
+};

@@ -10,10 +10,7 @@ import { useBigDipperNetworksRecoil } from '@recoil/big_dipper_networks';
 import { useMarketRecoil } from '@recoil/market';
 import { useValidatorRecoil } from '@recoil/validators';
 import { InnerApp } from '..';
-import {
-  useTheme,
-  useGenesis,
-} from './hooks';
+import { useTheme, useGenesis } from './hooks';
 
 const Main = (props: AppProps) => {
   // =====================================
@@ -28,23 +25,16 @@ const Main = (props: AppProps) => {
   // general setup
   // =====================================
   const { muiTheme } = useTheme();
-  const {
-    genesisStarted,
-    startGenesis,
-  } = useGenesis();
+  const { genesisStarted, startGenesis } = useGenesis();
 
   let Component = null;
 
   if (!genesisStarted) {
-    Component = (
-      <Countdown startGenesis={startGenesis} />
-    );
+    Component = <Countdown startGenesis={startGenesis} />;
   } else if (loading) {
     Component = <InitialLoad {...props.pageProps} />;
   } else {
-    Component = (
-      <InnerApp {...props} />
-    );
+    Component = <InnerApp {...props} />;
   }
 
   return (
