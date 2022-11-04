@@ -1,27 +1,32 @@
 # v1.0.4 - 2022-06-20
 
 ## Changes
+
 - Updated preview image location
 - Added preview image
 
 # v1.0.3 - 2022-03-09
 
 ## Fixes
+
 - Fixed dockerfile
 
 # v1.0.2 - 2022-03-09
 
 ## Changes
+
 - Updated matomo to CI/CD
 
 # v1.0.1 - 2022-03-08
 
 ## Fixes
+
 - Fixed locked sorting display in validators list
 
 # v1.0.0 - 2022-03-08
 
 ## Changes
+
 - Added Blocks Page
 - Added Transactions Page
 - Added Home Page

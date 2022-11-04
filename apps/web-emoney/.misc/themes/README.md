@@ -1,13 +1,16 @@
 <br><br>
+
 <div align="center">
   <img src="./big-dipper-red.svg" width=300>
 </div>
 <br>
 
 # Themes
+
 If the default theme does not match your needs please feel free to make your own or use one of the alternatives.
 
 ## Default
+
 <div>
   <p align="center">
     <a href="./default/light.ts">
@@ -31,6 +34,7 @@ If the default theme does not match your needs please feel free to make your own
 </div>
 
 ## Desmos
+
 <div>
   <p align="center">
     <a href="./desmos/light.ts">
@@ -54,6 +58,7 @@ If the default theme does not match your needs please feel free to make your own
 </div>
 
 ## Agoric
+
 <div>
   <p align="center">
     <a href="./agoric/light.ts">
@@ -66,6 +71,7 @@ If the default theme does not match your needs please feel free to make your own
 </div>
 
 ## Band
+
 <div>
   <p align="center">
     <a href="./band/dark.ts">
@@ -78,6 +84,7 @@ If the default theme does not match your needs please feel free to make your own
 </div>
 
 ## Bitsong
+
 <div>
   <p align="center">
     <a href="./bitsong/dark.ts">
@@ -90,6 +97,7 @@ If the default theme does not match your needs please feel free to make your own
 </div>
 
 ## E-money
+
 <div>
   <p align="center">
     <a href="./emoney/dark.ts">
@@ -102,6 +110,7 @@ If the default theme does not match your needs please feel free to make your own
 </div>
 
 ## Likecoin
+
 <div>
   <p align="center">
     <a href="./likecoin/light.ts">
@@ -113,8 +122,8 @@ If the default theme does not match your needs please feel free to make your own
   </div>
 </div>
 
-
 ## Sifchain
+
 <div>
   <p align="center">
     <a href="./sifchain/light.ts">
@@ -127,6 +136,7 @@ If the default theme does not match your needs please feel free to make your own
 </div>
 
 ## Terra
+
 <div>
   <p align="center">
     <a href="./terra/light.ts">
@@ -139,6 +149,7 @@ If the default theme does not match your needs please feel free to make your own
 </div>
 
 ## Osmosis
+
 <div>
   <p align="center">
     <a href="./osmosis/dark.ts">

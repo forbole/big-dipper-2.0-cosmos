@@ -9,8 +9,8 @@ are the most critical to review. -->
 
 ### Author Checklist
 
-*All items are required. Please add a note to the item if the item is not applicable and
-please add links to any relevant follow up issues.*
+_All items are required. Please add a note to the item if the item is not applicable and
+please add links to any relevant follow up issues._
 
 I have...
 
