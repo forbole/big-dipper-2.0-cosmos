@@ -8,7 +8,7 @@ exports[`screen: TransactionDetails/MsgMultiSend matches snapshot 1`] = `
     <div
       components={
         Array [
-          <Name
+          <Unknown
             address="address"
             name="address"
           />,
@@ -33,7 +33,7 @@ exports[`screen: TransactionDetails/MsgMultiSend matches snapshot 1`] = `
       <div
         components={
           Array [
-            <Name
+            <Unknown
               address="output1"
               name="output1"
             />,
@@ -55,7 +55,7 @@ exports[`screen: TransactionDetails/MsgMultiSend matches snapshot 1`] = `
       <div
         components={
           Array [
-            <Name
+            <Unknown
               address="output2"
               name="output2"
             />,
