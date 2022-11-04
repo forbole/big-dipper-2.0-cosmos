@@ -7,7 +7,9 @@ import IscnChangeOwnership from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -23,10 +25,8 @@ describe('screen: TransactionDetails/IscnChangeOwnership', () => {
     });
     const component = renderer.create(
       <MockTheme>
-        <IscnChangeOwnership
-          message={message}
-        />
-      </MockTheme>,
+        <IscnChangeOwnership message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

@@ -9,12 +9,7 @@ import { useProposals } from './hooks';
 const Proposals = () => {
   const { t } = useTranslation('proposals');
   const classes = useStyles();
-  const {
-    state,
-    loadMoreItems,
-    itemCount,
-    isItemLoaded,
-  } = useProposals();
+  const { state, loadMoreItems, itemCount, isItemLoaded } = useProposals();
 
   return (
     <>
@@ -24,10 +19,7 @@ const Proposals = () => {
           title: t('proposals'),
         }}
       />
-      <Layout
-        navTitle={t('proposals')}
-        className={classes.root}
-      >
+      <Layout navTitle={t('proposals')} className={classes.root}>
         <List
           items={state.items}
           rawDataTotal={state.rawDataTotal}

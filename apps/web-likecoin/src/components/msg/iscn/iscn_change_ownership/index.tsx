@@ -6,9 +6,7 @@ import Name from '@components/name';
 import { MsgChangeIscnRecordOwnership } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const IscnChangeOwnership = (props: {
-  message: MsgChangeIscnRecordOwnership;
-}) => {
+const IscnChangeOwnership = (props: { message: MsgChangeIscnRecordOwnership }) => {
   const { message } = props;
 
   const from = useProfileRecoil(message.from);
@@ -22,19 +20,9 @@ const IscnChangeOwnership = (props: {
       <Trans
         i18nKey="message_contents:txChangeIscnRecordOwnershipContent"
         components={[
-          (
-            <Name
-              address={message.from}
-              name={fromMoniker}
-            />
-          ),
+          <Name address={message.from} name={fromMoniker} />,
           <b />,
-          (
-            <Name
-              address={message.newOwner}
-              name={toMoniker}
-            />
-          ),
+          <Name address={message.newOwner} name={toMoniker} />,
         ]}
         values={{
           iscnId: numeral(message.iscnId).format('0,0'),

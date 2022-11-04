@@ -2,12 +2,13 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import {
-  useProposalDetailsVotesQuery, ProposalDetailsVotesQuery,
+  useProposalDetailsVotesQuery,
+  ProposalDetailsVotesQuery,
 } from '@graphql/types/general_types';
 import { toValidatorAddress } from '@utils/prefix_convert';
 import { VoteState } from './types';
 
-export const useVotes = (resetPagination:any) => {
+export const useVotes = (resetPagination: any) => {
   const router = useRouter();
   const [state, setState] = useState<VoteState>({
     data: [],
@@ -47,7 +48,11 @@ export const useVotes = (resetPagination:any) => {
   const formatVotes = (data: ProposalDetailsVotesQuery) => {
     const validatorDict = {};
     const validators = data.validatorStatuses.map((x) => {
-      const selfDelegateAddress = R.pathOr('', ['validator', 'validatorInfo', 'selfDelegateAddress'], x);
+      const selfDelegateAddress = R.pathOr(
+        '',
+        ['validator', 'validatorInfo', 'selfDelegateAddress'],
+        x
+      );
       validatorDict[selfDelegateAddress] = false;
       return selfDelegateAddress;
     });
@@ -74,25 +79,27 @@ export const useVotes = (resetPagination:any) => {
         validatorDict[x.voterAddress] = true;
       }
 
-      return ({
+      return {
         user: x.voterAddress,
         vote: x.option,
-      });
+      };
     });
 
     // =====================================
     // Get data for active validators that did not vote
     // =====================================
-    const validatorsNotVoted = validators.filter((x) => {
-      return validatorDict[x] === false;
-    }).map((address) => {
-      return ({
-        user: toValidatorAddress(address),
-        vote: 'NOT_VOTED',
+    const validatorsNotVoted = validators
+      .filter((x) => {
+        return validatorDict[x] === false;
+      })
+      .map((address) => {
+        return {
+          user: toValidatorAddress(address),
+          vote: 'NOT_VOTED',
+        };
       });
-    });
 
-    return ({
+    return {
       data: votes,
       validatorsNotVoted,
       voteCount: {
@@ -102,7 +109,7 @@ export const useVotes = (resetPagination:any) => {
         abstain,
         didNotVote: validatorsNotVoted.length,
       },
-    });
+    };
   };
 
   return {

@@ -1,8 +1,4 @@
-import {
-  useEffect,
-  useState,
-  useRef,
-} from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 /**
  * Nav hook helper to get the component height

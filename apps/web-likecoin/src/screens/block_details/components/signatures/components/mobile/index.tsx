@@ -3,37 +3,24 @@ import classnames from 'classnames';
 import { VariableSizeList as List } from 'react-window';
 import useTranslation from 'next-translate/useTranslation';
 import AutoSizer from 'react-virtualized-auto-sizer';
-import {
-  Divider, Typography,
-} from '@material-ui/core';
-import {
-  useList,
-  useListRow,
-} from '@hooks';
+import { Divider, Typography } from '@material-ui/core';
+import { useList, useListRow } from '@hooks';
 import AvatarName from '@components/avatar_name';
 import { useStyles } from './styles';
 
 const Mobile: React.FC<{
   className?: string;
   signatures?: AvatarName[];
-}> = ({
-  className, signatures,
-}) => {
+}> = ({ className, signatures }) => {
   const { t } = useTranslation('blocks');
 
-  const {
-    listRef,
-    getRowHeight,
-    setRowHeight,
-  } = useList();
+  const { listRef, getRowHeight, setRowHeight } = useList();
   const classes = useStyles();
 
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer>
-        {({
-          height, width,
-        }) => {
+        {({ height, width }) => {
           return (
             <List
               className="List"
@@ -43,9 +30,7 @@ const Mobile: React.FC<{
               ref={listRef}
               width={width}
             >
-              {({
-                index, style,
-              }) => {
+              {({ index, style }) => {
                 const { rowRef } = useListRow(index, setRowHeight);
                 const selectedItem = signatures[index];
                 return (

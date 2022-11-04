@@ -8,9 +8,7 @@ import { useDataBlocks } from './hooks';
 
 const DataBlocks: React.FC<{
   className?: string;
-}> = ({
-  className,
-}) => {
+}> = ({ className }) => {
   const { t } = useTranslation('home');
   const classes = useStyles();
   const { state } = useDataBlocks();

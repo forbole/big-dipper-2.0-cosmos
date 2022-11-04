@@ -1,7 +1,4 @@
-import {
-  selectorFamily,
-  GetRecoilValue,
-} from 'recoil';
+import { selectorFamily, GetRecoilValue } from 'recoil';
 import * as R from 'ramda';
 import { bech32 } from 'bech32';
 import chainConfig from 'ui/dist/chainConfig';
@@ -14,8 +11,12 @@ import { atomFamilyState } from './atom';
 // ======================================================================
 
 const getDelegatorAddress = ({
-  address, get,
-}: {address: string, get: GetRecoilValue}): string => {
+  address,
+  get,
+}: {
+  address: string;
+  get: GetRecoilValue;
+}): string => {
   const consensusRegex = `^(${chainConfig.prefix.consensus})`;
   const validatorRegex = `^(${chainConfig.prefix.validator})`;
   const delegatorRegex = `^(${chainConfig.prefix.account})`;
@@ -46,9 +47,7 @@ export const validatorToDelegatorAddress = (address: string) => {
  * Returns a validator address if the given address is a consensus address.
  * Returns address otherwise
  */
-const getReturnAddress = ({
-  address, get,
-}: {address: string, get: GetRecoilValue}): string => {
+const getReturnAddress = ({ address, get }: { address: string; get: GetRecoilValue }): string => {
   const consensusRegex = `^(${chainConfig.prefix.consensus})`;
   let selectedAddress = address;
   if (new RegExp(consensusRegex).test(address)) {
@@ -68,42 +67,50 @@ const getReturnAddress = ({
  * @param address string
  * @returns string | null
  */
-const getProfile = (address: string) => ({ get }): AvatarName => {
-  const returnAddress = getReturnAddress({
-    address, get,
-  });
-  const delegatorAddress = getDelegatorAddress({
-    address, get,
-  });
-  const state = get(atomFamilyState(delegatorAddress));
-  const name = R.pathOr(address, ['moniker'], state);
-  const imageUrl = R.pathOr('', ['imageUrl'], state);
-  return ({
-    address: returnAddress,
-    name: name.length ? name : address,
-    imageUrl,
-  });
-};
-
-const getProfiles = (addresses: string[]) => ({ get }): AvatarName[] => {
-  const profiles = addresses.map((x) => {
+const getProfile =
+  (address: string) =>
+  ({ get }): AvatarName => {
     const returnAddress = getReturnAddress({
-      address: x, get,
+      address,
+      get,
     });
     const delegatorAddress = getDelegatorAddress({
-      address: x, get,
+      address,
+      get,
     });
     const state = get(atomFamilyState(delegatorAddress));
-    const name = R.pathOr(x, ['moniker'], state);
+    const name = R.pathOr(address, ['moniker'], state);
     const imageUrl = R.pathOr('', ['imageUrl'], state);
-    return ({
+    return {
       address: returnAddress,
-      name: name.length ? name : x,
+      name: name.length ? name : address,
       imageUrl,
+    };
+  };
+
+const getProfiles =
+  (addresses: string[]) =>
+  ({ get }): AvatarName[] => {
+    const profiles = addresses.map((x) => {
+      const returnAddress = getReturnAddress({
+        address: x,
+        get,
+      });
+      const delegatorAddress = getDelegatorAddress({
+        address: x,
+        get,
+      });
+      const state = get(atomFamilyState(delegatorAddress));
+      const name = R.pathOr(x, ['moniker'], state);
+      const imageUrl = R.pathOr('', ['imageUrl'], state);
+      return {
+        address: returnAddress,
+        name: name.length ? name : x,
+        imageUrl,
+      };
     });
-  });
-  return profiles;
-};
+    return profiles;
+  };
 
 // ======================================================================
 // selectors
@@ -111,23 +118,24 @@ const getProfiles = (addresses: string[]) => ({ get }): AvatarName[] => {
 export const writeProfile = selectorFamily<AvatarName, string>({
   key: 'profile.write.profile',
   get: getProfile,
-  set: (address: string) => ({
-    set, get,
-  }, profile: AvatarName) => {
-    const delegatorAddress = getDelegatorAddress({
-      address, get,
-    });
-    if (delegatorAddress) {
-      if (profile === null) {
-        set(atomFamilyState(delegatorAddress), false);
-      } else {
-        set(atomFamilyState(delegatorAddress), {
-          moniker: profile.name,
-          imageUrl: profile.imageUrl,
-        });
+  set:
+    (address: string) =>
+    ({ set, get }, profile: AvatarName) => {
+      const delegatorAddress = getDelegatorAddress({
+        address,
+        get,
+      });
+      if (delegatorAddress) {
+        if (profile === null) {
+          set(atomFamilyState(delegatorAddress), false);
+        } else {
+          set(atomFamilyState(delegatorAddress), {
+            moniker: profile.name,
+            imageUrl: profile.imageUrl,
+          });
+        }
       }
-    }
-  },
+    },
 });
 
 export const readProfile = selectorFamily({
@@ -142,45 +150,57 @@ export const readProfiles = selectorFamily({
 
 export const readDelegatorAddress = selectorFamily({
   key: 'profile.read.delegatorAddress',
-  get: (address:string) => ({ get }): string => {
-    return getDelegatorAddress({
-      address, get,
-    });
-  },
+  get:
+    (address: string) =>
+    ({ get }): string => {
+      return getDelegatorAddress({
+        address,
+        get,
+      });
+    },
 });
 
 export const readDelegatorAddresses = selectorFamily({
   key: 'profile.read.delegatorAddresses',
-  get: (addresses:string[]) => ({ get }): string[] => {
-    return addresses.map((x) => {
-      return getDelegatorAddress({
-        address: x, get,
+  get:
+    (addresses: string[]) =>
+    ({ get }): string[] => {
+      return addresses.map((x) => {
+        return getDelegatorAddress({
+          address: x,
+          get,
+        });
       });
-    });
-  },
+    },
 });
 
 export const readProfileExist = selectorFamily({
   key: 'profile.read.profileExist',
-  get: (address: string) => ({ get }): ProfileAtomState => {
-    const delegatorAddress = getDelegatorAddress({
-      address, get,
-    });
-    const state = get(atomFamilyState(delegatorAddress));
-    return state;
-  },
+  get:
+    (address: string) =>
+    ({ get }): ProfileAtomState => {
+      const delegatorAddress = getDelegatorAddress({
+        address,
+        get,
+      });
+      const state = get(atomFamilyState(delegatorAddress));
+      return state;
+    },
 });
 
 export const readProfilesExist = selectorFamily({
   key: 'profile.read.profilesExist',
-  get: (addresses: string[]) => ({ get }) => {
-    const profiles: ProfileAtomState[] = addresses.map((x) => {
-      const delegatorAddress = getDelegatorAddress({
-        address: x, get,
+  get:
+    (addresses: string[]) =>
+    ({ get }) => {
+      const profiles: ProfileAtomState[] = addresses.map((x) => {
+        const delegatorAddress = getDelegatorAddress({
+          address: x,
+          get,
+        });
+        const state = get(atomFamilyState(delegatorAddress));
+        return state;
       });
-      const state = get(atomFamilyState(delegatorAddress));
-      return state;
-    });
-    return profiles;
-  },
+      return profiles;
+    },
 });

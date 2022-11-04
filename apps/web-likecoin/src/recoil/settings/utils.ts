@@ -4,9 +4,7 @@ import {
   deuteranopiaTemplate,
   tritanopiaTemplate,
 } from '@styles';
-import {
-  Theme,
-} from './types';
+import { Theme } from './types';
 
 // ================================
 // CONSTANTS
@@ -33,12 +31,6 @@ export const getThemeTemplate = (theme: Theme) => {
   return lightTemplate;
 };
 
-export const DATE_LIST = [
-  'locale',
-  'utc',
-];
+export const DATE_LIST = ['locale', 'utc'];
 
-export const TX_LIST = [
-  'compact',
-  'detailed',
-];
+export const TX_LIST = ['compact', 'detailed'];

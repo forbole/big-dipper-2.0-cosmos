@@ -1,6 +1,4 @@
-import {
-  useState, useEffect,
-} from 'react';
+import { useState, useEffect } from 'react';
 import { useScreenSize } from '@hooks';
 
 export const useDesktop = () => {

@@ -7,7 +7,9 @@ import UpdateIscnRecord from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -28,10 +30,8 @@ describe('screen: TransactionDetails/UpdateIscnRecord', () => {
     });
     const component = renderer.create(
       <MockTheme>
-        <UpdateIscnRecord
-          message={message}
-        />
-      </MockTheme>,
+        <UpdateIscnRecord message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

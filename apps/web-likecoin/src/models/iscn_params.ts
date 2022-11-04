@@ -6,7 +6,7 @@ class IscnParams {
   public feePerByte: {
     denom: string;
     amount: string;
-  }
+  };
 
   constructor(payload: any) {
     this.registryName = payload.registryName;

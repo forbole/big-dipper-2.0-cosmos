@@ -1,9 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import {
-  Typography,
-  Divider,
-} from '@material-ui/core';
+import { Typography, Divider } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import Box from '@components/box';
 import Avatar from '@components/avatar';
@@ -12,8 +9,9 @@ import { useProfileRecoil } from '@recoil/profiles';
 import { useStyles } from './styles';
 import { OverviewType } from '../../types';
 
-const Profile: React.FC<{profile: OverviewType} & ComponentDefault> = ({
-  className, profile,
+const Profile: React.FC<{ profile: OverviewType } & ComponentDefault> = ({
+  className,
+  profile,
 }) => {
   const classes = useStyles();
   const { t } = useTranslation('validators');
@@ -61,9 +59,7 @@ const Profile: React.FC<{profile: OverviewType} & ComponentDefault> = ({
                 className={classnames(classes.avatar, classes.mobile)}
               />
               <div className="header__content">
-                <Typography variant="h2">
-                  {validator.name}
-                </Typography>
+                <Typography variant="h2">{validator.name}</Typography>
               </div>
             </div>
           </div>

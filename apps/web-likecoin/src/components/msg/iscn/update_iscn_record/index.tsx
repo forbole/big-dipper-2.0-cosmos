@@ -6,9 +6,7 @@ import Name from '@components/name';
 import { MsgUpdateIscnRecord } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const UpdateIscnRecord = (props: {
-  message: MsgUpdateIscnRecord;
-}) => {
+const UpdateIscnRecord = (props: { message: MsgUpdateIscnRecord }) => {
   const { message } = props;
 
   const from = useProfileRecoil(message.from);
@@ -18,15 +16,7 @@ const UpdateIscnRecord = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:txUpdateIscnRecordContent"
-        components={[
-          (
-            <Name
-              address={message.from}
-              name={fromMoniker}
-            />
-          ),
-          <b />,
-        ]}
+        components={[<Name address={message.from} name={fromMoniker} />, <b />]}
         values={{
           iscnId: numeral(message.iscnId).format('0,0'),
         }}

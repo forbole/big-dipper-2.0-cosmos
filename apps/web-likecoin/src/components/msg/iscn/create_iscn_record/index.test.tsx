@@ -7,7 +7,9 @@ import CreateIscnRecord from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -27,10 +29,8 @@ describe('screen: TransactionDetails/CreateIscnRecord', () => {
     });
     const component = renderer.create(
       <MockTheme>
-        <CreateIscnRecord
-          message={message}
-        />
-      </MockTheme>,
+        <CreateIscnRecord message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
