@@ -88,6 +88,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
             href="/blocks/2000"
             onClick={[Function]}
             onMouseEnter={[Function]}
+            onTouchStart={[Function]}
           >
             2,000
           </a>
@@ -106,6 +107,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
             href="/transactions/76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857"
             onClick={[Function]}
             onMouseEnter={[Function]}
+            onTouchStart={[Function]}
           >
             76nwV8zz8tLz97S...hQ857
           </a>
