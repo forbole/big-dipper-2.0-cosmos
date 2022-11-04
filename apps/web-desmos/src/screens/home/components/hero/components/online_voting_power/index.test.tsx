@@ -3,9 +3,7 @@ import renderer from 'react-test-renderer';
 import { ApolloProvider } from '@apollo/client';
 import { createMockClient } from 'mock-apollo-client';
 import { OnlineVotingPowerDocument } from '@graphql/types/general_types';
-import {
-  MockTheme, wait,
-} from '@tests/utils';
+import { MockTheme, wait } from '@tests/utils';
 import OnlineVotingPower from '.';
 
 // ==================================
@@ -16,7 +14,9 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => <div id="box" {...props} />);
+jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="box" {...props} />
+));
 
 const mockOnlineVotingPower = jest.fn().mockResolvedValue({
   data: {
@@ -58,10 +58,7 @@ describe('screen: Home/OnlineVotingPower', () => {
   it('matches snapshot', async () => {
     const mockClient = createMockClient();
 
-    mockClient.setRequestHandler(
-      OnlineVotingPowerDocument,
-      mockOnlineVotingPower,
-    );
+    mockClient.setRequestHandler(OnlineVotingPowerDocument, mockOnlineVotingPower);
 
     let component;
 
@@ -72,7 +69,7 @@ describe('screen: Home/OnlineVotingPower', () => {
             <OnlineVotingPower />
           </MockTheme>
           ,
-        </ApolloProvider>,
+        </ApolloProvider>
       );
     });
     await wait();

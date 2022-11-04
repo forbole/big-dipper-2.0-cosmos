@@ -24,7 +24,7 @@ describe('components: Pagination', () => {
           page={0}
           rowsPerPage={5}
         />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

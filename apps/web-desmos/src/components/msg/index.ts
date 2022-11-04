@@ -1,11 +1,7 @@
 // =========================
 // utils
 // =========================
-import {
-  getMessageModelByType,
-  getMessageByType,
-  convertMsgsToModels,
-} from './utils';
+import { getMessageModelByType, getMessageByType, convertMsgsToModels } from './utils';
 
 // =========================
 // msg components
@@ -73,11 +69,7 @@ import RevokeAllowance from './feegrant/revoke_allowance';
 import CreateVestingAccount from './vesting/create_vesting_account';
 import CreatePeriodicVestingAccount from './vesting/create_periodic_vesting_account';
 
-export {
-  getMessageModelByType,
-  getMessageByType,
-  convertMsgsToModels,
-};
+export { getMessageModelByType, getMessageByType, convertMsgsToModels };
 
 export {
   Delegate,

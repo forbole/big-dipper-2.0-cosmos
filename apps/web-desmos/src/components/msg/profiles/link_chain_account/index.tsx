@@ -5,30 +5,17 @@ import Name from '@components/name';
 import { MsgLinkChainAccount } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const LinkChainAccount = (props: {
-  message: MsgLinkChainAccount;
-}) => {
+const LinkChainAccount = (props: { message: MsgLinkChainAccount }) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
-  const signerMoniker = signer ? signer?.name : message
-    .signer;
+  const signerMoniker = signer ? signer?.name : message.signer;
 
   return (
     <Typography>
       <Trans
         i18nKey="message_contents:txLinkChainAccount"
-        components={[
-          (
-            <Name
-              address={message.signer}
-              name={signerMoniker}
-            />
-          ),
-          (
-            <b />
-          ),
-        ]}
+        components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
         values={{
           name: message.chainConfig.name,
         }}

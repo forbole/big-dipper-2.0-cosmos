@@ -9,7 +9,7 @@ class MsgLinkApplication {
   public linkData: {
     application: string;
     username: string;
-  }
+  };
 
   constructor(payload: any) {
     this.category = 'profiles';

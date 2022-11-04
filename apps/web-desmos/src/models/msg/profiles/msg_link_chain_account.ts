@@ -8,7 +8,7 @@ class MsgLinkChainAccount {
   public signer: string;
   public chainConfig: {
     name: string;
-  }
+  };
 
   constructor(payload: any) {
     this.category = 'profiles';

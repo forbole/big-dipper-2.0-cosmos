@@ -7,7 +7,9 @@ import LinkApplication from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -25,10 +27,8 @@ describe('screen: TransactionDetails/MsgLinkApplication', () => {
     });
     const component = renderer.create(
       <MockTheme>
-        <LinkApplication
-          message={message}
-        />
-      </MockTheme>,
+        <LinkApplication message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

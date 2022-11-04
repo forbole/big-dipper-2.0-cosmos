@@ -31,14 +31,14 @@ export const useTransactions = () => {
       });
       const convertedMsgType = convertMsgType(msgType);
 
-      return ({
+      return {
         height: x.height,
         hash: x.hash,
         type: convertedMsgType,
         success: x.success,
         timestamp: x.block.timestamp,
         messages: x.messages.length,
-      });
+      };
     });
   };
 

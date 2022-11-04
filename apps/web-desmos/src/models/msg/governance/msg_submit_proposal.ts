@@ -10,11 +10,12 @@ import { Categories } from '../types';
 class MsgSubmitProposal {
   public category: Categories;
   public type: string;
-  public content: MsgTextProposal
-  | MsgSoftwareUpgradeProposal
-  | MsgParameterChangeProposal
-  | MsgCommunityPoolSpendProposal;
-  public initialDeposit: MsgCoin[]
+  public content:
+    | MsgTextProposal
+    | MsgSoftwareUpgradeProposal
+    | MsgParameterChangeProposal
+    | MsgCommunityPoolSpendProposal;
+  public initialDeposit: MsgCoin[];
   public proposer: string;
   public json: any;
 
@@ -58,12 +59,13 @@ class MsgSubmitProposal {
       json,
       content,
       type: json['@type'],
-      initialDeposit: json?.initial_deposit?.map((x) => {
-        return ({
-          denom: x?.denom,
-          amount: R.pathOr('0', ['amount'], x),
-        });
-      }) ?? [],
+      initialDeposit:
+        json?.initial_deposit?.map((x) => {
+          return {
+            denom: x?.denom,
+            amount: R.pathOr('0', ['amount'], x),
+          };
+        }) ?? [],
       proposer: json.proposer,
     });
   }

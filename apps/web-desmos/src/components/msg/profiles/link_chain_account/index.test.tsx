@@ -7,7 +7,9 @@ import LinkChainAccount from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -24,10 +26,8 @@ describe('screen: TransactionDetails/LinkChainAccount', () => {
     });
     const component = renderer.create(
       <MockTheme>
-        <LinkChainAccount
-          message={message}
-        />
-      </MockTheme>,
+        <LinkChainAccount message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

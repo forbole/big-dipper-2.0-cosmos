@@ -5,30 +5,17 @@ import Name from '@components/name';
 import { MsgUnlinkApplication } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const UnlinkApplication = (props: {
-  message: MsgUnlinkApplication;
-}) => {
+const UnlinkApplication = (props: { message: MsgUnlinkApplication }) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
-  const signerMoniker = signer ? signer?.name : message
-    .signer;
+  const signerMoniker = signer ? signer?.name : message.signer;
 
   return (
     <Typography>
       <Trans
         i18nKey="message_contents:txMsgUnlinkApplication"
-        components={[
-          (
-            <Name
-              address={message.signer}
-              name={signerMoniker}
-            />
-          ),
-          (
-            <b />
-          ),
-        ]}
+        components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
         values={{
           application: message.application,
           username: message.username,

@@ -7,7 +7,9 @@ import UnlinkChainAccount from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => <div id="Name" {...props} />);
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -22,10 +24,8 @@ describe('screen: TransactionDetails/UnlinkChainAccount', () => {
     });
     const component = renderer.create(
       <MockTheme>
-        <UnlinkChainAccount
-          message={message}
-        />
-      </MockTheme>,
+        <UnlinkChainAccount message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
