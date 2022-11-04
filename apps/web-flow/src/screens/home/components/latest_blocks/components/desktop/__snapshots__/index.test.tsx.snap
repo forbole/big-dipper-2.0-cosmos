@@ -63,6 +63,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
             href="/blocks/4000"
             onClick={[Function]}
             onMouseEnter={[Function]}
+            onTouchStart={[Function]}
           >
             4,000
           </a>

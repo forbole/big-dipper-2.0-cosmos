@@ -18,7 +18,7 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
       <p
         className="MuiTypography-root label MuiTypography-body1"
       >
-        common:price
+        price
       </p>
       <p
         className="MuiTypography-root MuiTypography-body1"
@@ -32,7 +32,7 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
       <p
         className="MuiTypography-root label MuiTypography-body1"
       >
-        common:supply
+        supply
       </p>
       <p
         className="MuiTypography-root MuiTypography-body1"
@@ -46,7 +46,7 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
       <p
         className="MuiTypography-root label MuiTypography-body1"
       >
-        common:marketCap
+        marketCap
       </p>
       <p
         className="MuiTypography-root MuiTypography-body1"
@@ -76,7 +76,7 @@ exports[`screen: Nav/TitleBar it renders 1`] = `
       <p
         className="MuiTypography-root label MuiTypography-body1"
       >
-        common:price
+        price
       </p>
       <p
         className="MuiTypography-root MuiTypography-body1"
@@ -90,7 +90,7 @@ exports[`screen: Nav/TitleBar it renders 1`] = `
       <p
         className="MuiTypography-root label MuiTypography-body1"
       >
-        common:supply
+        supply
       </p>
       <p
         className="MuiTypography-root MuiTypography-body1"
@@ -104,7 +104,7 @@ exports[`screen: Nav/TitleBar it renders 1`] = `
       <p
         className="MuiTypography-root label MuiTypography-body1"
       >
-        common:marketCap
+        marketCap
       </p>
       <p
         className="MuiTypography-root MuiTypography-body1"

@@ -4,7 +4,7 @@
   "license": "Apache-2.0",
   "private": true,
   "sideEffects": false,
-  "main": "./dist/index.js",
+  "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
@@ -19,8 +19,7 @@
     "clean": true,
     "platform": "browser",
     "format": [
-      "esm",
-      "cjs"
+      "esm"
     ],
     "dts": true
   },

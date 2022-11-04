@@ -8,16 +8,16 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "turbo run dev --no-cache --continue --concurrency=50%",
-    "build": "turbo run build --continue --concurrency=50%",
-    "start": "turbo run start --continue --concurrency=50%",
+    "dev": "turbo run dev --no-cache --continue --concurrency=2",
+    "build": "turbo run build --continue --concurrency=2",
+    "start": "turbo run start --continue --concurrency=2",
     "type-check": "turbo run type-check --continue",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "lint": "turbo run lint --continue --concurrency=50%",
-    "test": "turbo run test --continue --concurrency=50%",
-    "clean": "turbo run clean --continue --concurrency=50%",
-    "e2e": "turbo run e2e --continue --concurrency=50%",
-    "graphql:codegen": "turbo run graphql:codegen --continue --concurrency=50%"
+    "lint": "turbo run lint --continue --concurrency=2",
+    "test": "turbo run test --continue --concurrency=2",
+    "clean": "turbo run clean --continue --concurrency=2",
+    "e2e": "turbo run e2e --continue --concurrency=2",
+    "graphql:codegen": "turbo run graphql:codegen --continue --concurrency=2"
   },
   "dependencies": {
     "@changesets/cli": "^2.25.0",
