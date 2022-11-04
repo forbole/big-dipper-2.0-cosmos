@@ -1,9 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { RecoilRoot } from 'recoil';
-import {
-  MockTheme, wait,
-} from '@tests/utils';
+import { MockTheme, wait } from '@tests/utils';
 import Menu from '.';
 // ==================================
 // globals
@@ -38,11 +36,9 @@ describe('screen: Nav/Menu', () => {
       component = renderer.create(
         <RecoilRoot>
           <MockTheme>
-            <Menu
-              toggleNavMenus={toggleNavMenus}
-            />
+            <Menu toggleNavMenus={toggleNavMenus} />
           </MockTheme>
-        </RecoilRoot>,
+        </RecoilRoot>
       );
     });
     await wait();
@@ -60,23 +56,25 @@ describe('screen: Nav/Menu', () => {
     component.update(
       <RecoilRoot>
         <MockTheme>
-          <Menu
-            toggleNavMenus={toggleNavMenus}
-          />
+          <Menu toggleNavMenus={toggleNavMenus} />
         </MockTheme>
-      </RecoilRoot>,
+      </RecoilRoot>
     );
     await wait();
     expect(toggleNavMenus).toBeCalledTimes(1);
   });
 
   it('drawer displays on click', () => {
-    expect(component.root.findByProps({ className: 'makeStyles-drawer lang-drawer' }).props.open).toEqual(false);
+    expect(
+      component.root.findByProps({ className: 'makeStyles-drawer lang-drawer' }).props.open
+    ).toEqual(false);
 
     renderer.act(() => {
       component.root.findByProps({ className: 'makeStyles-language' }).props.onClick();
     });
-    expect(component.root.findByProps({ className: 'makeStyles-drawer lang-drawer' }).props.open).toEqual(true);
+    expect(
+      component.root.findByProps({ className: 'makeStyles-drawer lang-drawer' }).props.open
+    ).toEqual(true);
   });
 });
 

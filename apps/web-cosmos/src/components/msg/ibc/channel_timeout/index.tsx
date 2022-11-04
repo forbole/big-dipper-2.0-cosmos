@@ -5,9 +5,7 @@ import Name from '@components/name';
 import { MsgTimeout } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Timeout = (props: {
-  message: MsgTimeout;
-}) => {
+const Timeout = (props: { message: MsgTimeout }) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
@@ -17,15 +15,7 @@ const Timeout = (props: {
     <Typography>
       <Trans
         i18nKey="message_contents:txTimeoutContent"
-        components={[
-          (
-            <Name
-              address={message.signer}
-              name={signerMoniker}
-            />
-          ),
-          <b />,
-        ]}
+        components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
       />
     </Typography>
   );

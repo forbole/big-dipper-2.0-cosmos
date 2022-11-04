@@ -4,10 +4,7 @@ import useTranslation from 'next-translate/useTranslation';
 import dayjs, { formatDayJs } from '@utils/dayjs';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
-import {
-  Divider,
-  Typography,
-} from '@material-ui/core';
+import { Divider, Typography } from '@material-ui/core';
 import chainConfig from 'ui/dist/chainConfig';
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
@@ -16,9 +13,7 @@ import { useStyles } from './styles';
 const Mobile: React.FC<{
   className?: string;
   items?: ProfileConnectionType[];
-}> = ({
-  className, items,
-}) => {
+}> = ({ className, items }) => {
   const dateFormat = useRecoilValue(readDate);
   const classes = useStyles();
   const { t } = useTranslation('accounts');
@@ -44,13 +39,14 @@ const Mobile: React.FC<{
                 </Typography>
                 <Typography variant="body1" className="value">
                   {checkIdentifier && (
-                  <Link href={ACCOUNT_DETAILS(x.identifier)} passHref>
-                    <Typography variant="body1" className="value" component="a">
-                      {x.identifier}
-                    </Typography>
-                  </Link>
+                    <Link href={ACCOUNT_DETAILS(x.identifier)} passHref>
+                      <Typography variant="body1" className="value" component="a">
+                        {x.identifier}
+                      </Typography>
+                    </Link>
                   )}
-                  {new RegExp(`^(${chainConfig.prefix.account})`).test(x.identifier) === false && x.identifier}
+                  {new RegExp(`^(${chainConfig.prefix.account})`).test(x.identifier) === false &&
+                    x.identifier}
                 </Typography>
               </div>
               <div className={classes.item}>

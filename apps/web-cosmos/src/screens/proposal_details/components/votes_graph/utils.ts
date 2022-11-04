@@ -5,13 +5,11 @@ import { ThemeOptions } from '@material-ui/core/styles';
 import { VotesType } from './types';
 
 type FormatGraphType = {
-  data:VotesType;
-  theme:ThemeOptions;
+  data: VotesType;
+  theme: ThemeOptions;
   total: Big;
-}
-export const formatGraphData = ({
-  data, theme, total,
-}: FormatGraphType) => {
+};
+export const formatGraphData = ({ data, theme, total }: FormatGraphType) => {
   const keys = R.keys(data);
   const color = {
     0: theme.palette.custom.charts.four,
@@ -22,15 +20,15 @@ export const formatGraphData = ({
 
   const formattedData = keys.map((x, i) => {
     const selectedData = data[x] as TokenUnit;
-    return ({
+    return {
       name: x,
       value: Big(selectedData.value).toNumber(),
       display: formatNumber(selectedData.value, selectedData.exponent),
-      percentage: total.gt(0) ? (
-        `${Big(selectedData.value).div(total.toString()).times(100).toFixed(2)}%`
-      ) : '0%',
+      percentage: total.gt(0)
+        ? `${Big(selectedData.value).div(total.toString()).times(100).toFixed(2)}%`
+        : '0%',
       color: color[i],
-    });
+    };
   });
 
   const notEmpty = formattedData.some((x) => x.value > 0);

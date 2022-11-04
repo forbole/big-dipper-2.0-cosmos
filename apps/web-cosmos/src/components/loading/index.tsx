@@ -5,9 +5,7 @@ import { useStyles } from './styles';
 
 const Loading: React.FC<{
   className?: string;
-}> = ({
-  className,
-}) => {
+}> = ({ className }) => {
   const classes = useStyles();
   return (
     <div className={classnames(className, classes.root)}>

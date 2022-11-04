@@ -25,10 +25,10 @@ class MsgSend {
       fromAddress: json.from_address,
       toAddress: json.to_address,
       amount: json?.amount.map((x) => {
-        return ({
+        return {
           denom: x?.denom,
           amount: R.pathOr('0', ['amount'], x),
-        });
+        };
       }),
     });
   }

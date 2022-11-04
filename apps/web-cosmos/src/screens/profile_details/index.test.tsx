@@ -4,9 +4,7 @@ import MockAdapter from 'axios-mock-adapter';
 import { createMockClient } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
 import renderer from 'react-test-renderer';
-import {
-  MockTheme, wait,
-} from '@tests/utils';
+import { MockTheme, wait } from '@tests/utils';
 import ProfileDetails from '.';
 
 // ==================================
@@ -19,12 +17,18 @@ jest.mock('next/router', () => ({
     },
     pathname: '/@dtag',
     replace: jest.fn(() => '/'),
-    push: jest.fn(() => ('/@dtag')),
+    push: jest.fn(() => '/@dtag'),
   }),
 }));
-jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => <div id="Layout" {...props} />);
-jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />);
-jest.mock('@components/desmos_profile', () => (props: JSX.IntrinsicElements['div']) => <div id="DesmosProfile" {...props} />);
+jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Layout" {...props} />
+));
+jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="LoadAndExist" {...props} />
+));
+jest.mock('@components/desmos_profile', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="DesmosProfile" {...props} />
+));
 
 jest.mock('./components', () => ({
   Connections: (props: JSX.IntrinsicElements['div']) => <div id="Connections" {...props} />,
@@ -47,8 +51,10 @@ describe('screen: ProfileDetails', () => {
             chainLinks: [],
             applicationLinks: [],
             creationTime: '2021-10-06T00:10:45.761731',
-            coverPic: 'https://ipfs.desmos.network/ipfs/Qmf48cpgi2zNiH24Vo1xtVsePUJx9665gtiRduVCvV5fFg',
-            profilePic: 'https://ipfs.desmos.network/ipfs/QmTvkdGrtBHHihjVajqqA2HAoHangeKR1oYbQWzasnPi7B',
+            coverPic:
+              'https://ipfs.desmos.network/ipfs/Qmf48cpgi2zNiH24Vo1xtVsePUJx9665gtiRduVCvV5fFg',
+            profilePic:
+              'https://ipfs.desmos.network/ipfs/QmTvkdGrtBHHihjVajqqA2HAoHangeKR1oYbQWzasnPi7B',
           },
         ],
       },
@@ -59,16 +65,17 @@ describe('screen: ProfileDetails', () => {
     let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
 
     renderer.act(() => {
-      tree = renderer.create(
-        <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <ProfileDetails />
-          </MockTheme>
-        </ApolloProvider>,
-      ).toJSON();
+      tree = renderer
+        .create(
+          <ApolloProvider client={mockClient}>
+            <MockTheme>
+              <ProfileDetails />
+            </MockTheme>
+          </ApolloProvider>
+        )
+        .toJSON();
     });
     await wait();
-
 
     expect(tree).toMatchSnapshot();
   });
