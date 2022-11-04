@@ -7,11 +7,11 @@ exports[`screen: TransactionDetails/Clawback matches snapshot 1`] = `
   <div
     components={
       Array [
-        <Name
+        <Unknown
           address="accountAddress"
           name="accountAddress"
         />,
-        <Name
+        <Unknown
           address="destAddress"
           name="destAddress"
         />,

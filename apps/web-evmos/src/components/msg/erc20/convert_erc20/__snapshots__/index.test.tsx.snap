@@ -7,7 +7,7 @@ exports[`screen: TransactionDetails/MsgConvertErc20 matches snapshot 1`] = `
   <div
     components={
       Array [
-        <Name
+        <Unknown
           address="evmos1s9waleajyy7hzdzpml3kvhakea0vfepkw7x8a2"
           name="evmos1s9waleajyy7hzdzpml3kvhakea0vfepkw7x8a2"
         />,

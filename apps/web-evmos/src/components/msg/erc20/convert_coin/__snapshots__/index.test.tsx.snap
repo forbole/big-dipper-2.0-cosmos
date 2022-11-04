@@ -8,7 +8,7 @@ exports[`screen: TransactionDetails/MsgConvertCoin matches snapshot 1`] = `
     components={
       Array [
         <b />,
-        <Name
+        <Unknown
           address="evmos1s9waleajyy7hzdzpml3kvhakea0vfepkw7x8a2"
           name="evmos1s9waleajyy7hzdzpml3kvhakea0vfepkw7x8a2"
         />,

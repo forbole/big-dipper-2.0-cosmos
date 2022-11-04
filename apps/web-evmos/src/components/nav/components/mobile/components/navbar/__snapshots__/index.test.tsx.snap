@@ -9,6 +9,7 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
     href="/"
     onClick={[Function]}
     onMouseEnter={[Function]}
+    onTouchStart={[Function]}
   >
     <div
       className="makeStyles-logo"
@@ -26,7 +27,7 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
       <p
         className="text"
       >
-        morpheus-apollo-1
+        evmos_9000-4
       </p>
       <svg
         aria-hidden={true}
