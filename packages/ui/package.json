@@ -44,7 +44,7 @@
     "build": "tsup",
     "clean": "rm -rf dist",
     "dev": "tsup --watch",
-    "lint": "TIMING=1 eslint \"src/**/*.ts*\"",
+    "lint": "TIMING=1 eslint \"src/**/*.{ts,tsx}\"",
     "test": "jest"
   },
   "dependencies": {
