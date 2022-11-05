@@ -7,12 +7,12 @@ exports[`screen: Nav/Network it renders 1`] = `
   role="button"
 >
   <img
-    alt=""
+    alt="icon"
     className="makeStyles-icon makeStyles-dark-2"
     src="svg"
   />
   <img
-    alt=""
+    alt="icon"
     className="makeStyles-icon makeStyles-light-1"
     src="svg"
   />
