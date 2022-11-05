@@ -8,7 +8,13 @@ exports[`screen: Nav/Network it renders 1`] = `
 >
   <img
     alt="icon"
-    className="makeStyles-icon"
+    className="makeStyles-icon makeStyles-dark-2"
+    src="svg"
+  />
+  <img
+    alt="icon"
+    className="makeStyles-icon makeStyles-light-1"
+    src="svg"
   />
   <p
     className="MuiTypography-root MuiTypography-body1"
