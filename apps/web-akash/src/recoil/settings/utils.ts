@@ -1,4 +1,4 @@
-import { themeDictionary } from '@styles';
+import { defaultTheme, isThemeSupported, themeDictionary } from '@styles';
 import chainConfig from 'ui/chainConfig';
 import { Theme } from './types';
 
@@ -11,12 +11,10 @@ export const THEME_LIST: Theme[] = chainConfig.themes.themeList;
 export const THEME_DICTIONARY = themeDictionary;
 
 export const getThemeTemplate = (theme: Theme) => {
-  if (THEME_DICTIONARY[theme]) {
+  if (isThemeSupported(theme)) {
     return THEME_DICTIONARY[theme];
   }
-  const first = Object.keys(THEME_DICTIONARY)[0];
-  if (!first) throw new Error('No theme found');
-  return first;
+  return defaultTheme;
 };
 
 export const DATE_LIST = ['locale', 'utc'];

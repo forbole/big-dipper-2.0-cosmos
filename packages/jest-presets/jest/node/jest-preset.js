@@ -16,7 +16,7 @@ const customJestConfig = {
   // '/node_modules/', '/.next/',  added by nextjs
   testPathIgnorePatterns: ['/cypress/'],
   transform: {
-    '^.+\\.svg\\?url$': 'jest-transform-stub',
+    '^.+\\.(woff|woff2|eot|ttf|otf|svg\\?url)$': 'jest-transform-stub',
   },
   testEnvironment: 'jest-environment-jsdom',
 };

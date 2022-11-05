@@ -123,7 +123,7 @@ export interface ChainConfig extends ChainSettings {
   previewImage: string;
   themes: {
     default: string;
-    themeList: Array<'dark' | 'light'>;
+    themeList: Array<'dark' | 'light' | 'deuteranopia' | 'tritanopia'>;
     dark: PaletteSettings;
     light: PaletteSettings;
   };
