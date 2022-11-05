@@ -3402,7 +3402,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jridgewell/gen-mapping@npm:^0.3.0, @jridgewell/gen-mapping@npm:^0.3.2":
+"@jridgewell/gen-mapping@npm:^0.3.2":
   version: 0.3.2
   resolution: "@jridgewell/gen-mapping@npm:0.3.2"
   dependencies:
@@ -3427,16 +3427,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jridgewell/source-map@npm:^0.3.2":
-  version: 0.3.2
-  resolution: "@jridgewell/source-map@npm:0.3.2"
-  dependencies:
-    "@jridgewell/gen-mapping": ^0.3.0
-    "@jridgewell/trace-mapping": ^0.3.9
-  checksum: 1b83f0eb944e77b70559a394d5d3b3f98a81fcc186946aceb3ef42d036762b52ef71493c6c0a3b7c1d2f08785f53ba2df1277fe629a06e6109588ff4cdcf7482
-  languageName: node
-  linkType: hard
-
 "@jridgewell/sourcemap-codec@npm:1.4.14, @jridgewell/sourcemap-codec@npm:^1.4.10":
   version: 1.4.14
   resolution: "@jridgewell/sourcemap-codec@npm:1.4.14"
@@ -3454,7 +3444,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jridgewell/trace-mapping@npm:^0.3.12, @jridgewell/trace-mapping@npm:^0.3.14, @jridgewell/trace-mapping@npm:^0.3.15, @jridgewell/trace-mapping@npm:^0.3.9":
+"@jridgewell/trace-mapping@npm:^0.3.12, @jridgewell/trace-mapping@npm:^0.3.15, @jridgewell/trace-mapping@npm:^0.3.9":
   version: 0.3.16
   resolution: "@jridgewell/trace-mapping@npm:0.3.16"
   dependencies:
@@ -4443,40 +4433,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint-scope@npm:^3.7.3":
-  version: 3.7.4
-  resolution: "@types/eslint-scope@npm:3.7.4"
-  dependencies:
-    "@types/eslint": "*"
-    "@types/estree": "*"
-  checksum: ea6a9363e92f301cd3888194469f9ec9d0021fe0a397a97a6dd689e7545c75de0bd2153dfb13d3ab532853a278b6572c6f678ce846980669e41029d205653460
-  languageName: node
-  linkType: hard
-
-"@types/eslint@npm:*":
-  version: 8.4.6
-  resolution: "@types/eslint@npm:8.4.6"
-  dependencies:
-    "@types/estree": "*"
-    "@types/json-schema": "*"
-  checksum: bfaf27b00031b2238139003965475d023306119e467947f7a43a41e380918e365618e2ae6a6ae638697f6421a6bb1571db078695ff5e548f23618000b38acd23
-  languageName: node
-  linkType: hard
-
-"@types/estree@npm:*":
-  version: 1.0.0
-  resolution: "@types/estree@npm:1.0.0"
-  checksum: 910d97fb7092c6738d30a7430ae4786a38542023c6302b95d46f49420b797f21619cdde11fa92b338366268795884111c2eb10356e4bd2c8ad5b92941e9e6443
-  languageName: node
-  linkType: hard
-
-"@types/estree@npm:^0.0.51":
-  version: 0.0.51
-  resolution: "@types/estree@npm:0.0.51"
-  checksum: e56a3bcf759fd9185e992e7fdb3c6a5f81e8ff120e871641607581fb3728d16c811702a7d40fa5f869b7f7b4437ab6a87eb8d98ffafeee51e85bbe955932a189
-  languageName: node
-  linkType: hard
-
 "@types/graceful-fs@npm:^4.1.2, @types/graceful-fs@npm:^4.1.3":
   version: 4.1.5
   resolution: "@types/graceful-fs@npm:4.1.5"
@@ -4558,7 +4514,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/json-schema@npm:*, @types/json-schema@npm:^7.0.7, @types/json-schema@npm:^7.0.8, @types/json-schema@npm:^7.0.9":
+"@types/json-schema@npm:^7.0.9":
   version: 7.0.11
   resolution: "@types/json-schema@npm:7.0.11"
   checksum: 527bddfe62db9012fccd7627794bd4c71beb77601861055d87e3ee464f2217c85fca7a4b56ae677478367bbd248dbde13553312b7d4dbc702a2f2bbf60c4018d
@@ -4613,13 +4569,6 @@ __metadata:
   version: 14.18.32
   resolution: "@types/node@npm:14.18.32"
   checksum: 45463114bf85d06dc12925d876dd90b7fff43d9ee10a40e48fd16aece3d0201c76426c128e41230b2818d386422be06c5be33b3d94d90ee924b6fa4d54574035
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^18.11.3":
-  version: 18.11.3
-  resolution: "@types/node@npm:18.11.3"
-  checksum: 3a2a9142d891a90a195c296149bf64a69cc0abcc42f543be911ab22b2e0ead85ff077f90af92f0f13f6e3e5e72501469200fd753dfd1101825d4646a89d3ee47
   languageName: node
   linkType: hard
 
@@ -4680,6 +4629,15 @@ __metadata:
   dependencies:
     ts-toolbelt: ^6.15.1
   checksum: f96576c78a3bfdc8d0675a7c5fb237a56fe76b1d380578f63e59185bd1938c38729d7051d92750e6773bc2ea9c64e5d63bdbd7b95c92f5d400d3d5ce850a6dbd
+  languageName: node
+  linkType: hard
+
+"@types/react-dom@npm:^17.0.2":
+  version: 17.0.18
+  resolution: "@types/react-dom@npm:17.0.18"
+  dependencies:
+    "@types/react": ^17
+  checksum: b74525b1a13a0e27fe20859ff7a7e8f7e4581fb9d45ed1b6447ad1534d86f813818353c39d0df2e28f9d2b9be2e3af1908c244b2214a979393d19f217665e614
   languageName: node
   linkType: hard
 
@@ -4749,14 +4707,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:17.0.39":
-  version: 17.0.39
-  resolution: "@types/react@npm:17.0.39"
+"@types/react@npm:^17, @types/react@npm:^17.0.2":
+  version: 17.0.52
+  resolution: "@types/react@npm:17.0.52"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: bf04d3c2894559012710d595553e12b422d3b91cd8f4f7e122d8cb044ba9c2ba17f6e8a4e09581359cc5509ddc59cd8c8fabd6774f3505a40a45393f074d6e6e
+  checksum: a51b98dd87838d161278fdf9dd78e6a4ff8c018f406d6647f77963e144fb52a8beee40c89fd0e7e840eaeaa8bd9fe2f34519410540b1a52d43a6f8b4d2fbce33
   languageName: node
   linkType: hard
 
@@ -4782,6 +4740,13 @@ __metadata:
   version: 6.2.3
   resolution: "@types/semver@npm:6.2.3"
   checksum: 83c86d7005b229df9c4c0d6d13825b839a01932895504596140aea19e2b88f63ac27ab1575347451b50eedb63f72309e845ce1a0ca78360c4f719bbb38371594
+  languageName: node
+  linkType: hard
+
+"@types/semver@npm:^7.3.12":
+  version: 7.3.13
+  resolution: "@types/semver@npm:7.3.13"
+  checksum: 00c0724d54757c2f4bc60b5032fe91cda6410e48689633d5f35ece8a0a66445e3e57fa1d6e07eb780f792e82ac542948ec4d0b76eb3484297b79bd18b8cf1cb0
   languageName: node
   linkType: hard
 
@@ -4890,28 +4855,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^4.1.0":
-  version: 4.33.0
-  resolution: "@typescript-eslint/eslint-plugin@npm:4.33.0"
-  dependencies:
-    "@typescript-eslint/experimental-utils": 4.33.0
-    "@typescript-eslint/scope-manager": 4.33.0
-    debug: ^4.3.1
-    functional-red-black-tree: ^1.0.1
-    ignore: ^5.1.8
-    regexpp: ^3.1.0
-    semver: ^7.3.5
-    tsutils: ^3.21.0
-  peerDependencies:
-    "@typescript-eslint/parser": ^4.0.0
-    eslint: ^5.0.0 || ^6.0.0 || ^7.0.0
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  checksum: d74855d0a5ffe0b2f362ec02fcd9301d39a53fb4155b9bd0cb15a0a31d065143129ebf98df9d86af4b6f74de1d423a4c0d8c0095520844068117453afda5bc4f
-  languageName: node
-  linkType: hard
-
 "@typescript-eslint/eslint-plugin@npm:^5.40.0":
   version: 5.40.0
   resolution: "@typescript-eslint/eslint-plugin@npm:5.40.0"
@@ -4934,36 +4877,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/experimental-utils@npm:4.33.0":
-  version: 4.33.0
-  resolution: "@typescript-eslint/experimental-utils@npm:4.33.0"
+"@typescript-eslint/eslint-plugin@npm:^5.42.0":
+  version: 5.42.0
+  resolution: "@typescript-eslint/eslint-plugin@npm:5.42.0"
   dependencies:
-    "@types/json-schema": ^7.0.7
-    "@typescript-eslint/scope-manager": 4.33.0
-    "@typescript-eslint/types": 4.33.0
-    "@typescript-eslint/typescript-estree": 4.33.0
-    eslint-scope: ^5.1.1
-    eslint-utils: ^3.0.0
+    "@typescript-eslint/scope-manager": 5.42.0
+    "@typescript-eslint/type-utils": 5.42.0
+    "@typescript-eslint/utils": 5.42.0
+    debug: ^4.3.4
+    ignore: ^5.2.0
+    natural-compare-lite: ^1.4.0
+    regexpp: ^3.2.0
+    semver: ^7.3.7
+    tsutils: ^3.21.0
   peerDependencies:
-    eslint: "*"
-  checksum: f859800ada0884f92db6856f24efcb1d073ac9883ddc2b1aa9339f392215487895bed8447ebce3741e8141bb32e545244abef62b73193ba9a8a0527c523aabae
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/parser@npm:^4.1.0":
-  version: 4.33.0
-  resolution: "@typescript-eslint/parser@npm:4.33.0"
-  dependencies:
-    "@typescript-eslint/scope-manager": 4.33.0
-    "@typescript-eslint/types": 4.33.0
-    "@typescript-eslint/typescript-estree": 4.33.0
-    debug: ^4.3.1
-  peerDependencies:
-    eslint: ^5.0.0 || ^6.0.0 || ^7.0.0
+    "@typescript-eslint/parser": ^5.0.0
+    eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 102457eae1acd516211098fea081c8a2ed728522bbda7f5a557b6ef23d88970514f9a0f6285d53fca134d3d4d7d17822b5d5e12438d5918df4d1f89cc9e67d57
+  checksum: 8dd13c77f5b83a8ba7e37196769b9c8a296c4417ffe7e33cb4d172495e1596ea0a9140dae0f1bbe1317a0cd5d5d92bf76a1799e7b9f8b3a577433b9569f1436d
   languageName: node
   linkType: hard
 
@@ -4984,13 +4917,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/scope-manager@npm:4.33.0":
-  version: 4.33.0
-  resolution: "@typescript-eslint/scope-manager@npm:4.33.0"
+"@typescript-eslint/parser@npm:^5.42.0":
+  version: 5.42.0
+  resolution: "@typescript-eslint/parser@npm:5.42.0"
   dependencies:
-    "@typescript-eslint/types": 4.33.0
-    "@typescript-eslint/visitor-keys": 4.33.0
-  checksum: 9a25fb7ba7c725ea7227a24d315b0f6aacbad002e2549a049edf723c1d3615c22f5c301f0d7d615b377f2cdf2f3519d97e79af0c459de6ef8d2aaf0906dff13e
+    "@typescript-eslint/scope-manager": 5.42.0
+    "@typescript-eslint/types": 5.42.0
+    "@typescript-eslint/typescript-estree": 5.42.0
+    debug: ^4.3.4
+  peerDependencies:
+    eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 790d5fcc53f02a25628b1d2a06e3b7f26f4fa12e78f51a67e1db0ac6a4b643a34f247991d7b938f45c7f8395fcaf920807c8a29d768913a7a8266162d2244806
   languageName: node
   linkType: hard
 
@@ -5001,6 +4941,16 @@ __metadata:
     "@typescript-eslint/types": 5.40.0
     "@typescript-eslint/visitor-keys": 5.40.0
   checksum: 48dfb2f1a71bda5b782263e97608f1e1a2e8a89a603344af5072208be7936140af9d41483be439405c5ee379d0263555d6cc94405b187707f9ecfd7dd9821b5f
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/scope-manager@npm:5.42.0":
+  version: 5.42.0
+  resolution: "@typescript-eslint/scope-manager@npm:5.42.0"
+  dependencies:
+    "@typescript-eslint/types": 5.42.0
+    "@typescript-eslint/visitor-keys": 5.42.0
+  checksum: c7dac787c27db640ef8add18e91f84ade36871a50e84f36604fc1b823fc544ad28cea4731c4b7cadec157964f5399e6db2b3a9a115b2a2dd97fbc2bae7b1f9e0
   languageName: node
   linkType: hard
 
@@ -5021,10 +4971,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/types@npm:4.33.0":
-  version: 4.33.0
-  resolution: "@typescript-eslint/types@npm:4.33.0"
-  checksum: 3baae1ca35872421b4eb60f5d3f3f32dc1d513f2ae0a67dee28c7d159fd7a43ed0d11a8a5a0f0c2d38507ffa036fc7c511cb0f18a5e8ac524b3ebde77390ec53
+"@typescript-eslint/type-utils@npm:5.42.0":
+  version: 5.42.0
+  resolution: "@typescript-eslint/type-utils@npm:5.42.0"
+  dependencies:
+    "@typescript-eslint/typescript-estree": 5.42.0
+    "@typescript-eslint/utils": 5.42.0
+    debug: ^4.3.4
+    tsutils: ^3.21.0
+  peerDependencies:
+    eslint: "*"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 5c98bdff38d8ace74f77b792d97572c41e3d0d01506529a32bc1244791a9e933d06dcc516eaad5bf1fc85b2cf1a95642f519f9c4ce4d6a974481e1a3680ed8dd
   languageName: node
   linkType: hard
 
@@ -5035,21 +4995,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/typescript-estree@npm:4.33.0":
-  version: 4.33.0
-  resolution: "@typescript-eslint/typescript-estree@npm:4.33.0"
-  dependencies:
-    "@typescript-eslint/types": 4.33.0
-    "@typescript-eslint/visitor-keys": 4.33.0
-    debug: ^4.3.1
-    globby: ^11.0.3
-    is-glob: ^4.0.1
-    semver: ^7.3.5
-    tsutils: ^3.21.0
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  checksum: 2566984390c76bd95f43240057215c068c69769e406e27aba41e9f21fd300074d6772e4983fa58fe61e80eb5550af1548d2e31e80550d92ba1d051bb00fe6f5c
+"@typescript-eslint/types@npm:5.42.0":
+  version: 5.42.0
+  resolution: "@typescript-eslint/types@npm:5.42.0"
+  checksum: 7a17ff007972129a1e2105a653d8aa637070b74d4f8b98309aeb83d06076ab40cebfa1c3e9aae3fc614118e730c4539ff13e8299d34530851cb06260483ef14c
   languageName: node
   linkType: hard
 
@@ -5071,6 +5020,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@typescript-eslint/typescript-estree@npm:5.42.0":
+  version: 5.42.0
+  resolution: "@typescript-eslint/typescript-estree@npm:5.42.0"
+  dependencies:
+    "@typescript-eslint/types": 5.42.0
+    "@typescript-eslint/visitor-keys": 5.42.0
+    debug: ^4.3.4
+    globby: ^11.1.0
+    is-glob: ^4.0.3
+    semver: ^7.3.7
+    tsutils: ^3.21.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: cc8a98815daf6c8bf6f8f5e43c4a7bf7008aa850cecc669de7b8cfdddb0648fd2eae738a185165176a24aed360cb12204cc0808f251e9fcf8e436cd15fff3645
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/utils@npm:5.40.0":
   version: 5.40.0
   resolution: "@typescript-eslint/utils@npm:5.40.0"
@@ -5088,13 +5055,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/visitor-keys@npm:4.33.0":
-  version: 4.33.0
-  resolution: "@typescript-eslint/visitor-keys@npm:4.33.0"
+"@typescript-eslint/utils@npm:5.42.0":
+  version: 5.42.0
+  resolution: "@typescript-eslint/utils@npm:5.42.0"
   dependencies:
-    "@typescript-eslint/types": 4.33.0
-    eslint-visitor-keys: ^2.0.0
-  checksum: 59953e474ad4610c1aa23b2b1a964445e2c6201521da6367752f37939d854352bbfced5c04ea539274065e012b1337ba3ffa49c2647a240a4e87155378ba9873
+    "@types/json-schema": ^7.0.9
+    "@types/semver": ^7.3.12
+    "@typescript-eslint/scope-manager": 5.42.0
+    "@typescript-eslint/types": 5.42.0
+    "@typescript-eslint/typescript-estree": 5.42.0
+    eslint-scope: ^5.1.1
+    eslint-utils: ^3.0.0
+    semver: ^7.3.7
+  peerDependencies:
+    eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+  checksum: cc57ba8bdf1cf18de5c6c264b71be80dc8c4a7630c0d6a34f73ed991cd3684c97a06605f414a8fd439ce2201f7724249b2fc29eac1e54a770ee4e8303cabef52
   languageName: node
   linkType: hard
 
@@ -5108,154 +5083,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@webassemblyjs/ast@npm:1.11.1":
-  version: 1.11.1
-  resolution: "@webassemblyjs/ast@npm:1.11.1"
+"@typescript-eslint/visitor-keys@npm:5.42.0":
+  version: 5.42.0
+  resolution: "@typescript-eslint/visitor-keys@npm:5.42.0"
   dependencies:
-    "@webassemblyjs/helper-numbers": 1.11.1
-    "@webassemblyjs/helper-wasm-bytecode": 1.11.1
-  checksum: 1eee1534adebeece635362f8e834ae03e389281972611408d64be7895fc49f48f98fddbbb5339bf8a72cb101bcb066e8bca3ca1bf1ef47dadf89def0395a8d87
-  languageName: node
-  linkType: hard
-
-"@webassemblyjs/floating-point-hex-parser@npm:1.11.1":
-  version: 1.11.1
-  resolution: "@webassemblyjs/floating-point-hex-parser@npm:1.11.1"
-  checksum: b8efc6fa08e4787b7f8e682182d84dfdf8da9d9c77cae5d293818bc4a55c1f419a87fa265ab85252b3e6c1fd323d799efea68d825d341a7c365c64bc14750e97
-  languageName: node
-  linkType: hard
-
-"@webassemblyjs/helper-api-error@npm:1.11.1":
-  version: 1.11.1
-  resolution: "@webassemblyjs/helper-api-error@npm:1.11.1"
-  checksum: 0792813f0ed4a0e5ee0750e8b5d0c631f08e927f4bdfdd9fe9105dc410c786850b8c61bff7f9f515fdfb149903bec3c976a1310573a4c6866a94d49bc7271959
-  languageName: node
-  linkType: hard
-
-"@webassemblyjs/helper-buffer@npm:1.11.1":
-  version: 1.11.1
-  resolution: "@webassemblyjs/helper-buffer@npm:1.11.1"
-  checksum: a337ee44b45590c3a30db5a8b7b68a717526cf967ada9f10253995294dbd70a58b2da2165222e0b9830cd4fc6e4c833bf441a721128d1fe2e9a7ab26b36003ce
-  languageName: node
-  linkType: hard
-
-"@webassemblyjs/helper-numbers@npm:1.11.1":
-  version: 1.11.1
-  resolution: "@webassemblyjs/helper-numbers@npm:1.11.1"
-  dependencies:
-    "@webassemblyjs/floating-point-hex-parser": 1.11.1
-    "@webassemblyjs/helper-api-error": 1.11.1
-    "@xtuc/long": 4.2.2
-  checksum: 44d2905dac2f14d1e9b5765cf1063a0fa3d57295c6d8930f6c59a36462afecc6e763e8a110b97b342a0f13376166c5d41aa928e6ced92e2f06b071fd0db59d3a
-  languageName: node
-  linkType: hard
-
-"@webassemblyjs/helper-wasm-bytecode@npm:1.11.1":
-  version: 1.11.1
-  resolution: "@webassemblyjs/helper-wasm-bytecode@npm:1.11.1"
-  checksum: eac400113127832c88f5826bcc3ad1c0db9b3dbd4c51a723cfdb16af6bfcbceb608170fdaac0ab7731a7e18b291be7af68a47fcdb41cfe0260c10857e7413d97
-  languageName: node
-  linkType: hard
-
-"@webassemblyjs/helper-wasm-section@npm:1.11.1":
-  version: 1.11.1
-  resolution: "@webassemblyjs/helper-wasm-section@npm:1.11.1"
-  dependencies:
-    "@webassemblyjs/ast": 1.11.1
-    "@webassemblyjs/helper-buffer": 1.11.1
-    "@webassemblyjs/helper-wasm-bytecode": 1.11.1
-    "@webassemblyjs/wasm-gen": 1.11.1
-  checksum: 617696cfe8ecaf0532763162aaf748eb69096fb27950219bb87686c6b2e66e11cd0614d95d319d0ab1904bc14ebe4e29068b12c3e7c5e020281379741fe4bedf
-  languageName: node
-  linkType: hard
-
-"@webassemblyjs/ieee754@npm:1.11.1":
-  version: 1.11.1
-  resolution: "@webassemblyjs/ieee754@npm:1.11.1"
-  dependencies:
-    "@xtuc/ieee754": ^1.2.0
-  checksum: 23a0ac02a50f244471631802798a816524df17e56b1ef929f0c73e3cde70eaf105a24130105c60aff9d64a24ce3b640dad443d6f86e5967f922943a7115022ec
-  languageName: node
-  linkType: hard
-
-"@webassemblyjs/leb128@npm:1.11.1":
-  version: 1.11.1
-  resolution: "@webassemblyjs/leb128@npm:1.11.1"
-  dependencies:
-    "@xtuc/long": 4.2.2
-  checksum: 33ccc4ade2f24de07bf31690844d0b1ad224304ee2062b0e464a610b0209c79e0b3009ac190efe0e6bd568b0d1578d7c3047fc1f9d0197c92fc061f56224ff4a
-  languageName: node
-  linkType: hard
-
-"@webassemblyjs/utf8@npm:1.11.1":
-  version: 1.11.1
-  resolution: "@webassemblyjs/utf8@npm:1.11.1"
-  checksum: 972c5cfc769d7af79313a6bfb96517253a270a4bf0c33ba486aa43cac43917184fb35e51dfc9e6b5601548cd5931479a42e42c89a13bb591ffabebf30c8a6a0b
-  languageName: node
-  linkType: hard
-
-"@webassemblyjs/wasm-edit@npm:1.11.1":
-  version: 1.11.1
-  resolution: "@webassemblyjs/wasm-edit@npm:1.11.1"
-  dependencies:
-    "@webassemblyjs/ast": 1.11.1
-    "@webassemblyjs/helper-buffer": 1.11.1
-    "@webassemblyjs/helper-wasm-bytecode": 1.11.1
-    "@webassemblyjs/helper-wasm-section": 1.11.1
-    "@webassemblyjs/wasm-gen": 1.11.1
-    "@webassemblyjs/wasm-opt": 1.11.1
-    "@webassemblyjs/wasm-parser": 1.11.1
-    "@webassemblyjs/wast-printer": 1.11.1
-  checksum: 6d7d9efaec1227e7ef7585a5d7ff0be5f329f7c1c6b6c0e906b18ed2e9a28792a5635e450aca2d136770d0207225f204eff70a4b8fd879d3ac79e1dcc26dbeb9
-  languageName: node
-  linkType: hard
-
-"@webassemblyjs/wasm-gen@npm:1.11.1":
-  version: 1.11.1
-  resolution: "@webassemblyjs/wasm-gen@npm:1.11.1"
-  dependencies:
-    "@webassemblyjs/ast": 1.11.1
-    "@webassemblyjs/helper-wasm-bytecode": 1.11.1
-    "@webassemblyjs/ieee754": 1.11.1
-    "@webassemblyjs/leb128": 1.11.1
-    "@webassemblyjs/utf8": 1.11.1
-  checksum: 1f6921e640293bf99fb16b21e09acb59b340a79f986c8f979853a0ae9f0b58557534b81e02ea2b4ef11e929d946708533fd0693c7f3712924128fdafd6465f5b
-  languageName: node
-  linkType: hard
-
-"@webassemblyjs/wasm-opt@npm:1.11.1":
-  version: 1.11.1
-  resolution: "@webassemblyjs/wasm-opt@npm:1.11.1"
-  dependencies:
-    "@webassemblyjs/ast": 1.11.1
-    "@webassemblyjs/helper-buffer": 1.11.1
-    "@webassemblyjs/wasm-gen": 1.11.1
-    "@webassemblyjs/wasm-parser": 1.11.1
-  checksum: 21586883a20009e2b20feb67bdc451bbc6942252e038aae4c3a08e6f67b6bae0f5f88f20bfc7bd0452db5000bacaf5ab42b98cf9aa034a6c70e9fc616142e1db
-  languageName: node
-  linkType: hard
-
-"@webassemblyjs/wasm-parser@npm:1.11.1":
-  version: 1.11.1
-  resolution: "@webassemblyjs/wasm-parser@npm:1.11.1"
-  dependencies:
-    "@webassemblyjs/ast": 1.11.1
-    "@webassemblyjs/helper-api-error": 1.11.1
-    "@webassemblyjs/helper-wasm-bytecode": 1.11.1
-    "@webassemblyjs/ieee754": 1.11.1
-    "@webassemblyjs/leb128": 1.11.1
-    "@webassemblyjs/utf8": 1.11.1
-  checksum: 1521644065c360e7b27fad9f4bb2df1802d134dd62937fa1f601a1975cde56bc31a57b6e26408b9ee0228626ff3ba1131ae6f74ffb7d718415b6528c5a6dbfc2
-  languageName: node
-  linkType: hard
-
-"@webassemblyjs/wast-printer@npm:1.11.1":
-  version: 1.11.1
-  resolution: "@webassemblyjs/wast-printer@npm:1.11.1"
-  dependencies:
-    "@webassemblyjs/ast": 1.11.1
-    "@xtuc/long": 4.2.2
-  checksum: f15ae4c2441b979a3b4fce78f3d83472fb22350c6dc3fd34bfe7c3da108e0b2360718734d961bba20e7716cb8578e964b870da55b035e209e50ec9db0378a3f7
+    "@typescript-eslint/types": 5.42.0
+    eslint-visitor-keys: ^3.3.0
+  checksum: d198e51ea968555dd44b3ff14587dd82ce43c30ae43d4021d4eacb468e4476102a5b715e15240adcdeec4b4b5280d819087a9c4090360f1e4dcb05829ea8f2dc
   languageName: node
   linkType: hard
 
@@ -5328,20 +5162,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xtuc/ieee754@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "@xtuc/ieee754@npm:1.2.0"
-  checksum: ac56d4ca6e17790f1b1677f978c0c6808b1900a5b138885d3da21732f62e30e8f0d9120fcf8f6edfff5100ca902b46f8dd7c1e3f903728634523981e80e2885a
-  languageName: node
-  linkType: hard
-
-"@xtuc/long@npm:4.2.2":
-  version: 4.2.2
-  resolution: "@xtuc/long@npm:4.2.2"
-  checksum: 8ed0d477ce3bc9c6fe2bf6a6a2cc316bb9c4127c5a7827bae947fa8ec34c7092395c5a283cc300c05b5fa01cbbfa1f938f410a7bf75db7c7846fea41949989ec
-  languageName: node
-  linkType: hard
-
 "abab@npm:^2.0.3, abab@npm:^2.0.5, abab@npm:^2.0.6":
   version: 2.0.6
   resolution: "abab@npm:2.0.6"
@@ -5365,16 +5185,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"accepts@npm:~1.3.8":
-  version: 1.3.8
-  resolution: "accepts@npm:1.3.8"
-  dependencies:
-    mime-types: ~2.1.34
-    negotiator: 0.6.3
-  checksum: 50c43d32e7b50285ebe84b613ee4a3aa426715a7d131b65b786e2ead0fd76b6b60091b9916d3478a75f11f162628a2139991b6c03ab3f1d9ab7c86075dc8eab4
-  languageName: node
-  linkType: hard
-
 "acorn-globals@npm:^6.0.0":
   version: 6.0.0
   resolution: "acorn-globals@npm:6.0.0"
@@ -5392,15 +5202,6 @@ __metadata:
     acorn: ^8.1.0
     acorn-walk: ^8.0.2
   checksum: 2a2998a547af6d0db5f0cdb90acaa7c3cbca6709010e02121fb8b8617c0fbd8bab0b869579903fde358ac78454356a14fadcc1a672ecb97b04b1c2ccba955ce8
-  languageName: node
-  linkType: hard
-
-"acorn-import-assertions@npm:^1.7.6":
-  version: 1.8.0
-  resolution: "acorn-import-assertions@npm:1.8.0"
-  peerDependencies:
-    acorn: ^8
-  checksum: 5c4cf7c850102ba7ae0eeae0deb40fb3158c8ca5ff15c0bca43b5c47e307a1de3d8ef761788f881343680ea374631ae9e9615ba8876fee5268dbe068c98bcba6
   languageName: node
   linkType: hard
 
@@ -5445,7 +5246,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn@npm:^8.4.1, acorn@npm:^8.5.0, acorn@npm:^8.7.1, acorn@npm:^8.8.0":
+"acorn@npm:^8.4.1, acorn@npm:^8.8.0":
   version: 8.8.0
   resolution: "acorn@npm:8.8.0"
   bin:
@@ -5484,16 +5285,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ajv-keywords@npm:^3.5.2":
-  version: 3.5.2
-  resolution: "ajv-keywords@npm:3.5.2"
-  peerDependencies:
-    ajv: ^6.9.1
-  checksum: 7dc5e5931677a680589050f79dcbe1fefbb8fea38a955af03724229139175b433c63c68f7ae5f86cf8f65d55eb7c25f75a046723e2e58296707617ca690feae9
-  languageName: node
-  linkType: hard
-
-"ajv@npm:^6.10.0, ajv@npm:^6.12.4, ajv@npm:^6.12.5":
+"ajv@npm:^6.10.0, ajv@npm:^6.12.4":
   version: 6.12.6
   resolution: "ajv@npm:6.12.6"
   dependencies:
@@ -5683,13 +5475,6 @@ __metadata:
   version: 5.0.2
   resolution: "aria-query@npm:5.0.2"
   checksum: 2ecb77a64b9bbb030f5267b8672042b9559bdc507348d7c5efc14a6c180b06704c63481b162913f0466391837569b6d84f93ab18d73629e7bfa34c4f927c1fbc
-  languageName: node
-  linkType: hard
-
-"array-flatten@npm:1.1.1":
-  version: 1.1.1
-  resolution: "array-flatten@npm:1.1.1"
-  checksum: a9925bf3512d9dce202112965de90c222cd59a4fbfce68a0951d25d965cf44642931f40aac72309c41f12df19afa010ecadceb07cfff9ccc1621e99d89ab5f3b
   languageName: node
   linkType: hard
 
@@ -6213,26 +5998,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"body-parser@npm:1.20.1":
-  version: 1.20.1
-  resolution: "body-parser@npm:1.20.1"
-  dependencies:
-    bytes: 3.1.2
-    content-type: ~1.0.4
-    debug: 2.6.9
-    depd: 2.0.0
-    destroy: 1.2.0
-    http-errors: 2.0.0
-    iconv-lite: 0.4.24
-    on-finished: 2.4.1
-    qs: 6.11.0
-    raw-body: 2.5.1
-    type-is: ~1.6.18
-    unpipe: 1.0.0
-  checksum: f1050dbac3bede6a78f0b87947a8d548ce43f91ccc718a50dd774f3c81f2d8b04693e52acf62659fad23101827dd318da1fb1363444ff9a8482b886a3e4a5266
-  languageName: node
-  linkType: hard
-
 "boolbase@npm:^1.0.0":
   version: 1.0.0
   resolution: "boolbase@npm:1.0.0"
@@ -6284,7 +6049,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist@npm:^4.14.5, browserslist@npm:^4.21.3, browserslist@npm:^4.21.4":
+"browserslist@npm:^4.21.3, browserslist@npm:^4.21.4":
   version: 4.21.4
   resolution: "browserslist@npm:4.21.4"
   dependencies:
@@ -6364,13 +6129,6 @@ __metadata:
   dependencies:
     streamsearch: ^1.1.0
   checksum: 32801e2c0164e12106bf236291a00795c3c4e4b709ae02132883fe8478ba2ae23743b11c5735a0aae8afe65ac4b6ca4568b91f0d9fed1fdbc32ede824a73746e
-  languageName: node
-  linkType: hard
-
-"bytes@npm:3.1.2":
-  version: 3.1.2
-  resolution: "bytes@npm:3.1.2"
-  checksum: e4bcd3948d289c5127591fbedf10c0b639ccbf00243504e4e127374a15c3bc8eed0d28d4aaab08ff6f1cf2abc0cce6ba3085ed32f4f90e82a5683ce0014e1b6e
   languageName: node
   linkType: hard
 
@@ -6623,13 +6381,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chrome-trace-event@npm:^1.0.2":
-  version: 1.0.3
-  resolution: "chrome-trace-event@npm:1.0.3"
-  checksum: cb8b1fc7e881aaef973bd0c4a43cd353c2ad8323fb471a041e64f7c2dd849cde4aad15f8b753331a32dda45c973f032c8a03b8177fc85d60eaa75e91e08bfb97
-  languageName: node
-  linkType: hard
-
 "ci-info@npm:^3.1.0, ci-info@npm:^3.2.0":
   version: 3.5.0
   resolution: "ci-info@npm:3.5.0"
@@ -6849,13 +6600,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^2.20.0":
-  version: 2.20.3
-  resolution: "commander@npm:2.20.3"
-  checksum: ab8c07884e42c3a8dbc5dd9592c606176c7eb5c1ca5ff274bcf907039b2c41de3626f684ea75ccf4d361ba004bbaff1f577d5384c155f3871e456bdf27becf9e
-  languageName: node
-  linkType: hard
-
 "commander@npm:^4.0.0":
   version: 4.1.1
   resolution: "commander@npm:4.1.1"
@@ -6923,40 +6667,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"content-disposition@npm:0.5.4":
-  version: 0.5.4
-  resolution: "content-disposition@npm:0.5.4"
-  dependencies:
-    safe-buffer: 5.2.1
-  checksum: afb9d545e296a5171d7574fcad634b2fdf698875f4006a9dd04a3e1333880c5c0c98d47b560d01216fb6505a54a2ba6a843ee3a02ec86d7e911e8315255f56c3
-  languageName: node
-  linkType: hard
-
-"content-type@npm:~1.0.4":
-  version: 1.0.4
-  resolution: "content-type@npm:1.0.4"
-  checksum: 3d93585fda985d1554eca5ebd251994327608d2e200978fdbfba21c0c679914d5faf266d17027de44b34a72c7b0745b18584ecccaa7e1fdfb6a68ac7114f12e0
-  languageName: node
-  linkType: hard
-
 "convert-source-map@npm:^1.4.0, convert-source-map@npm:^1.6.0, convert-source-map@npm:^1.7.0":
   version: 1.9.0
   resolution: "convert-source-map@npm:1.9.0"
   checksum: dc55a1f28ddd0e9485ef13565f8f756b342f9a46c4ae18b843fe3c30c675d058d6a4823eff86d472f187b176f0adf51ea7b69ea38be34be4a63cbbf91b0593c8
-  languageName: node
-  linkType: hard
-
-"cookie-signature@npm:1.0.6":
-  version: 1.0.6
-  resolution: "cookie-signature@npm:1.0.6"
-  checksum: f4e1b0a98a27a0e6e66fd7ea4e4e9d8e038f624058371bf4499cfcd8f3980be9a121486995202ba3fca74fbed93a407d6d54d43a43f96fd28d0bd7a06761591a
-  languageName: node
-  linkType: hard
-
-"cookie@npm:0.5.0":
-  version: 0.5.0
-  resolution: "cookie@npm:0.5.0"
-  checksum: 1f4bd2ca5765f8c9689a7e8954183f5332139eb72b6ff783d8947032ec1fdf43109852c178e21a953a30c0dd42257828185be01b49d1eb1a67fd054ca588a180
   languageName: node
   linkType: hard
 
@@ -7228,9 +6942,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress@npm:^10.10.0":
-  version: 10.10.0
-  resolution: "cypress@npm:10.10.0"
+"cypress@npm:^10.11.0":
+  version: 10.11.0
+  resolution: "cypress@npm:10.11.0"
   dependencies:
     "@cypress/request": ^2.88.10
     "@cypress/xvfb": ^1.2.4
@@ -7276,7 +6990,7 @@ __metadata:
     yauzl: ^2.10.0
   bin:
     cypress: bin/cypress
-  checksum: 668a32534a527dba79754abbf98af176b80c539a12ec00058932ba2a19c794c7888323e59e738c30f726ad740c5451c31d02548a0cb7c1b1c8ad01c55a984ca2
+  checksum: 938cc6a20f7eeace5c8e850d234904ee1651cbb36d94666fe600cf17ce964e73d4f7d8d944aab677491702a57364e6aceeb4fe8bcbd96147ff5e2b575a956fb2
   languageName: node
   linkType: hard
 
@@ -7418,15 +7132,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:2.6.9, debug@npm:^2.1.3, debug@npm:^2.6.9":
-  version: 2.6.9
-  resolution: "debug@npm:2.6.9"
-  dependencies:
-    ms: 2.0.0
-  checksum: d2f51589ca66df60bf36e1fa6e4386b318c3f1e06772280eea5b1ae9fd3d05e9c2b7fd8a7d862457d00853c75b00451aa2d7459b924629ee385287a650f58fe6
-  languageName: node
-  linkType: hard
-
 "debug@npm:4, debug@npm:^4.0.1, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.3.1, debug@npm:^4.3.2, debug@npm:^4.3.3, debug@npm:^4.3.4":
   version: 4.3.4
   resolution: "debug@npm:4.3.4"
@@ -7436,6 +7141,15 @@ __metadata:
     supports-color:
       optional: true
   checksum: 3dbad3f94ea64f34431a9cbf0bafb61853eda57bff2880036153438f50fb5a84f27683ba0d8e5426bf41a8c6ff03879488120cf5b3a761e77953169c0600a708
+  languageName: node
+  linkType: hard
+
+"debug@npm:^2.1.3, debug@npm:^2.6.9":
+  version: 2.6.9
+  resolution: "debug@npm:2.6.9"
+  dependencies:
+    ms: 2.0.0
+  checksum: d2f51589ca66df60bf36e1fa6e4386b318c3f1e06772280eea5b1ae9fd3d05e9c2b7fd8a7d862457d00853c75b00451aa2d7459b924629ee385287a650f58fe6
   languageName: node
   linkType: hard
 
@@ -7533,13 +7247,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"depd@npm:2.0.0":
-  version: 2.0.0
-  resolution: "depd@npm:2.0.0"
-  checksum: abbe19c768c97ee2eed6282d8ce3031126662252c58d711f646921c9623f9052e3e1906443066beec1095832f534e57c523b7333f8e7e0d93051ab6baef5ab3a
-  languageName: node
-  linkType: hard
-
 "depd@npm:^1.1.2":
   version: 1.1.2
   resolution: "depd@npm:1.1.2"
@@ -7551,13 +7258,6 @@ __metadata:
   version: 0.11.0
   resolution: "dependency-graph@npm:0.11.0"
   checksum: 477204beaa9be69e642bc31ffe7a8c383d0cf48fa27acbc91c5df01431ab913e65c154213d2ef83d034c98d77280743ec85e5da018a97a18dd43d3c0b78b28cd
-  languageName: node
-  linkType: hard
-
-"destroy@npm:1.2.0":
-  version: 1.2.0
-  resolution: "destroy@npm:1.2.0"
-  checksum: 0acb300b7478a08b92d810ab229d5afe0d2f4399272045ab22affa0d99dbaf12637659411530a6fcd597a9bdac718fc94373a61a95b4651bbc7b83684a565e38
   languageName: node
   linkType: hard
 
@@ -7790,13 +7490,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ee-first@npm:1.1.1":
-  version: 1.1.1
-  resolution: "ee-first@npm:1.1.1"
-  checksum: 1b4cac778d64ce3b582a7e26b218afe07e207a0f9bfe13cc7395a6d307849cfe361e65033c3251e00c27dd060cab43014c2d6b2647676135e18b77d2d05b3f4f
-  languageName: node
-  linkType: hard
-
 "electron-to-chromium@npm:^1.4.251":
   version: 1.4.276
   resolution: "electron-to-chromium@npm:1.4.276"
@@ -7836,13 +7529,6 @@ __metadata:
   version: 9.2.2
   resolution: "emoji-regex@npm:9.2.2"
   checksum: 8487182da74aabd810ac6d6f1994111dfc0e331b01271ae01ec1eb0ad7b5ecc2bbbbd2f053c05cb55a1ac30449527d819bbfbf0e3de1023db308cbcb47f86601
-  languageName: node
-  linkType: hard
-
-"encodeurl@npm:~1.0.2":
-  version: 1.0.2
-  resolution: "encodeurl@npm:1.0.2"
-  checksum: e50e3d508cdd9c4565ba72d2012e65038e5d71bdc9198cb125beb6237b5b1ade6c0d343998da9e170fb2eae52c1bed37d4d6d98a46ea423a0cddbed5ac3f780c
   languageName: node
   linkType: hard
 
@@ -7949,13 +7635,6 @@ __metadata:
     string.prototype.trimstart: ^1.0.5
     unbox-primitive: ^1.0.2
   checksum: 89297cc785c31aedf961a603d5a07ed16471e435d3a1b6d070b54f157cf48454b95cda2ac55e4b86ff4fe3276e835fcffd2771578e6fa634337da49b26826141
-  languageName: node
-  linkType: hard
-
-"es-module-lexer@npm:^0.9.0":
-  version: 0.9.3
-  resolution: "es-module-lexer@npm:0.9.3"
-  checksum: 84bbab23c396281db2c906c766af58b1ae2a1a2599844a504df10b9e8dc77ec800b3211fdaa133ff700f5703d791198807bba25d9667392d27a5e9feda344da8
   languageName: node
   linkType: hard
 
@@ -8200,13 +7879,6 @@ __metadata:
   version: 3.1.1
   resolution: "escalade@npm:3.1.1"
   checksum: a3e2a99f07acb74b3ad4989c48ca0c3140f69f923e56d0cba0526240ee470b91010f9d39001f2a4a313841d237ede70a729e92125191ba5d21e74b106800b133
-  languageName: node
-  linkType: hard
-
-"escape-html@npm:~1.0.3":
-  version: 1.0.3
-  resolution: "escape-html@npm:1.0.3"
-  checksum: 6213ca9ae00d0ab8bccb6d8d4e0a98e76237b2410302cf7df70aaa6591d509a2a37ce8998008cbecae8fc8ffaadf3fb0229535e6a145f3ce0b211d060decbb24
   languageName: node
   linkType: hard
 
@@ -8522,7 +8194,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-scope@npm:5.1.1, eslint-scope@npm:^5.1.1":
+"eslint-scope@npm:^5.1.1":
   version: 5.1.1
   resolution: "eslint-scope@npm:5.1.1"
   dependencies:
@@ -8583,7 +8255,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^7.23.0, eslint@npm:^7.32.0, eslint@npm:^7.8.1":
+"eslint@npm:^7.23.0":
   version: 7.32.0
   resolution: "eslint@npm:7.32.0"
   dependencies:
@@ -8760,13 +8432,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"etag@npm:~1.8.1":
-  version: 1.8.1
-  resolution: "etag@npm:1.8.1"
-  checksum: 571aeb3dbe0f2bbd4e4fadbdb44f325fc75335cd5f6f6b6a091e6a06a9f25ed5392f0863c5442acb0646787446e816f13cbfc6edce5b07658541dff573cab1ff
-  languageName: node
-  linkType: hard
-
 "event-target-polyfill@npm:^0.0.3":
   version: 0.0.3
   resolution: "event-target-polyfill@npm:0.0.3"
@@ -8799,13 +8464,6 @@ __metadata:
   version: 4.0.7
   resolution: "eventemitter3@npm:4.0.7"
   checksum: 1875311c42fcfe9c707b2712c32664a245629b42bb0a5a84439762dd0fd637fc54d078155ea83c2af9e0323c9ac13687e03cfba79b03af9f40c89b4960099374
-  languageName: node
-  linkType: hard
-
-"events@npm:^3.2.0":
-  version: 3.3.0
-  resolution: "events@npm:3.3.0"
-  checksum: f6f487ad2198aa41d878fa31452f1a3c00958f46e9019286ff4787c84aac329332ab45c9cdc8c445928fc6d7ded294b9e005a7fce9426488518017831b272780
   languageName: node
   linkType: hard
 
@@ -8894,45 +8552,6 @@ __metadata:
     jest-message-util: ^29.1.2
     jest-util: ^29.1.2
   checksum: 578c61459e0f4b2b8f93f11f38264446aa3be1f8bf4b85eaeb56be035535877514bc15a5aaaffc714961b872fd0ea3c2bc7dfe6efd4acf0a3315ffab0597fd7a
-  languageName: node
-  linkType: hard
-
-"express@npm:^4.17.1":
-  version: 4.18.2
-  resolution: "express@npm:4.18.2"
-  dependencies:
-    accepts: ~1.3.8
-    array-flatten: 1.1.1
-    body-parser: 1.20.1
-    content-disposition: 0.5.4
-    content-type: ~1.0.4
-    cookie: 0.5.0
-    cookie-signature: 1.0.6
-    debug: 2.6.9
-    depd: 2.0.0
-    encodeurl: ~1.0.2
-    escape-html: ~1.0.3
-    etag: ~1.8.1
-    finalhandler: 1.2.0
-    fresh: 0.5.2
-    http-errors: 2.0.0
-    merge-descriptors: 1.0.1
-    methods: ~1.1.2
-    on-finished: 2.4.1
-    parseurl: ~1.3.3
-    path-to-regexp: 0.1.7
-    proxy-addr: ~2.0.7
-    qs: 6.11.0
-    range-parser: ~1.2.1
-    safe-buffer: 5.2.1
-    send: 0.18.0
-    serve-static: 1.15.0
-    setprototypeof: 1.2.0
-    statuses: 2.0.1
-    type-is: ~1.6.18
-    utils-merge: 1.0.1
-    vary: ~1.1.2
-  checksum: 3c4b9b076879442f6b968fe53d85d9f1eeacbb4f4c41e5f16cc36d77ce39a2b0d81b3f250514982110d815b2f7173f5561367f9110fcc541f9371948e8c8b037
   languageName: node
   linkType: hard
 
@@ -9123,21 +8742,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"finalhandler@npm:1.2.0":
-  version: 1.2.0
-  resolution: "finalhandler@npm:1.2.0"
-  dependencies:
-    debug: 2.6.9
-    encodeurl: ~1.0.2
-    escape-html: ~1.0.3
-    on-finished: 2.4.1
-    parseurl: ~1.3.3
-    statuses: 2.0.1
-    unpipe: ~1.0.0
-  checksum: 92effbfd32e22a7dff2994acedbd9bcc3aa646a3e919ea6a53238090e87097f8ef07cced90aa2cc421abdf993aefbdd5b00104d55c7c5479a8d00ed105b45716
-  languageName: node
-  linkType: hard
-
 "find-up@npm:^4.0.0, find-up@npm:^4.1.0":
   version: 4.1.0
   resolution: "find-up@npm:4.1.0"
@@ -9249,20 +8853,6 @@ __metadata:
     node-domexception: 1.0.0
     web-streams-polyfill: 4.0.0-beta.3
   checksum: d91d4f667cfed74827fc281594102c0dabddd03c9f8b426fc97123eedbf73f5060ee43205d89284d6854e2fc5827e030cd352ef68b93beda8decc2d72128c576
-  languageName: node
-  linkType: hard
-
-"forwarded@npm:0.2.0":
-  version: 0.2.0
-  resolution: "forwarded@npm:0.2.0"
-  checksum: fd27e2394d8887ebd16a66ffc889dc983fbbd797d5d3f01087c020283c0f019a7d05ee85669383d8e0d216b116d720fc0cef2f6e9b7eb9f4c90c6e0bc7fd28e6
-  languageName: node
-  linkType: hard
-
-"fresh@npm:0.5.2":
-  version: 0.5.2
-  resolution: "fresh@npm:0.5.2"
-  checksum: 13ea8b08f91e669a64e3ba3a20eb79d7ca5379a81f1ff7f4310d54e2320645503cc0c78daedc93dfb6191287295f6479544a649c64d8e41a1c0fb0c221552346
   languageName: node
   linkType: hard
 
@@ -9491,13 +9081,6 @@ __metadata:
   dependencies:
     is-glob: ^4.0.3
   checksum: c13ee97978bef4f55106b71e66428eb1512e71a7466ba49025fc2aec59a5bfb0954d5abd58fc5ee6c9b076eef4e1f6d3375c2e964b88466ca390da4419a786a8
-  languageName: node
-  linkType: hard
-
-"glob-to-regexp@npm:^0.4.1":
-  version: 0.4.1
-  resolution: "glob-to-regexp@npm:0.4.1"
-  checksum: e795f4e8f06d2a15e86f76e4d92751cf8bbfcf0157cea5c2f0f35678a8195a750b34096b1256e436f0cebc1883b5ff0888c47348443e69546a5a87f9e1eb1167
   languageName: node
   linkType: hard
 
@@ -9814,19 +9397,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"http-errors@npm:2.0.0":
-  version: 2.0.0
-  resolution: "http-errors@npm:2.0.0"
-  dependencies:
-    depd: 2.0.0
-    inherits: 2.0.4
-    setprototypeof: 1.2.0
-    statuses: 2.0.1
-    toidentifier: 1.0.1
-  checksum: 9b0a3782665c52ce9dc658a0d1560bcb0214ba5699e4ea15aefb2a496e2ca83db03ebc42e1cce4ac1f413e4e0d2d736a3fd755772c556a9a06853ba2a0b7d920
-  languageName: node
-  linkType: hard
-
 "http-proxy-agent@npm:^4.0.1":
   version: 4.0.1
   resolution: "http-proxy-agent@npm:4.0.1"
@@ -9939,7 +9509,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ignore@npm:^5.1.8, ignore@npm:^5.2.0":
+"ignore@npm:^5.2.0":
   version: 5.2.0
   resolution: "ignore@npm:5.2.0"
   checksum: 6b1f926792d614f64c6c83da3a1f9c83f6196c2839aa41e1e32dd7b8d174cef2e329d75caabb62cb61ce9dc432f75e67d07d122a037312db7caa73166a1bdb77
@@ -10020,7 +9590,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"inherits@npm:2, inherits@npm:2.0.4, inherits@npm:^2.0.3, inherits@npm:^2.0.4, inherits@npm:~2.0.3":
+"inherits@npm:2, inherits@npm:^2.0.3, inherits@npm:^2.0.4, inherits@npm:~2.0.3":
   version: 2.0.4
   resolution: "inherits@npm:2.0.4"
   checksum: 4a48a733847879d6cf6691860a6b1e3f0f4754176e4d71494c41f3475553768b10f84b5ce1d40fbd0e34e6bfbb864ee35858ad4dd2cf31e02fc4a154b724d7f1
@@ -10088,13 +9658,6 @@ __metadata:
   version: 2.0.0
   resolution: "ip@npm:2.0.0"
   checksum: cfcfac6b873b701996d71ec82a7dd27ba92450afdb421e356f44044ed688df04567344c36cbacea7d01b1c39a4c732dc012570ebe9bebfb06f27314bca625349
-  languageName: node
-  linkType: hard
-
-"ipaddr.js@npm:1.9.1":
-  version: 1.9.1
-  resolution: "ipaddr.js@npm:1.9.1"
-  checksum: f88d3825981486f5a1942414c8d77dd6674dd71c065adcfa46f578d677edcb99fda25af42675cb59db492fdf427b34a5abfcde3982da11a8fd83a500b41cfe77
   languageName: node
   linkType: hard
 
@@ -11913,7 +11476,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-worker@npm:^27.4.5, jest-worker@npm:^27.5.1":
+"jest-worker@npm:^27.5.1":
   version: 27.5.1
   resolution: "jest-worker@npm:27.5.1"
   dependencies:
@@ -12151,7 +11714,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json-parse-even-better-errors@npm:^2.3.0, json-parse-even-better-errors@npm:^2.3.1":
+"json-parse-even-better-errors@npm:^2.3.0":
   version: 2.3.1
   resolution: "json-parse-even-better-errors@npm:2.3.1"
   checksum: 798ed4cf3354a2d9ccd78e86d2169515a0097a5c133337807cdf7f1fc32e1391d207ccfc276518cc1d7d8d4db93288b8a50ba4293d212ad1336e52a8ec0a941f
@@ -12575,13 +12138,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loader-runner@npm:^4.2.0":
-  version: 4.3.0
-  resolution: "loader-runner@npm:4.3.0"
-  checksum: a90e00dee9a16be118ea43fec3192d0b491fe03a32ed48a4132eb61d498f5536a03a1315531c19d284392a8726a4ecad71d82044c28d7f22ef62e029bf761569
-  languageName: node
-  linkType: hard
-
 "localforage@npm:^1.8.1":
   version: 1.10.0
   resolution: "localforage@npm:1.10.0"
@@ -12886,13 +12442,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"media-typer@npm:0.3.0":
-  version: 0.3.0
-  resolution: "media-typer@npm:0.3.0"
-  checksum: af1b38516c28ec95d6b0826f6c8f276c58aec391f76be42aa07646b4e39d317723e869700933ca6995b056db4b09a78c92d5440dc23657e6764be5d28874bba1
-  languageName: node
-  linkType: hard
-
 "memoize-one@npm:>=3.1.1 <6":
   version: 5.2.1
   resolution: "memoize-one@npm:5.2.1"
@@ -12916,13 +12465,6 @@ __metadata:
     type-fest: ^0.13.1
     yargs-parser: ^18.1.3
   checksum: 77b569781145ad030be77130623d9f74d6eef0af5e0a349419d3df39bcf6d88cc25be046a7757062162a88160fb5d8604e540b5177b371d2bbc2aaf73ec01479
-  languageName: node
-  linkType: hard
-
-"merge-descriptors@npm:1.0.1":
-  version: 1.0.1
-  resolution: "merge-descriptors@npm:1.0.1"
-  checksum: 5abc259d2ae25bb06d19ce2b94a21632583c74e2a9109ee1ba7fd147aa7362b380d971e0251069f8b3eb7d48c21ac839e21fa177b335e82c76ec172e30c31a26
   languageName: node
   linkType: hard
 
@@ -12952,13 +12494,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"methods@npm:~1.1.2":
-  version: 1.1.2
-  resolution: "methods@npm:1.1.2"
-  checksum: 0917ff4041fa8e2f2fda5425a955fe16ca411591fbd123c0d722fcf02b73971ed6f764d85f0a6f547ce49ee0221ce2c19a5fa692157931cecb422984f1dcd13a
-  languageName: node
-  linkType: hard
-
 "micromatch@npm:^4.0.2, micromatch@npm:^4.0.4":
   version: 4.0.5
   resolution: "micromatch@npm:4.0.5"
@@ -12976,21 +12511,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mime-types@npm:^2.1.12, mime-types@npm:^2.1.27, mime-types@npm:~2.1.19, mime-types@npm:~2.1.24, mime-types@npm:~2.1.34":
+"mime-types@npm:^2.1.12, mime-types@npm:~2.1.19":
   version: 2.1.35
   resolution: "mime-types@npm:2.1.35"
   dependencies:
     mime-db: 1.52.0
   checksum: 89a5b7f1def9f3af5dad6496c5ed50191ae4331cc5389d7c521c8ad28d5fdad2d06fd81baf38fed813dc4e46bb55c8145bb0ff406330818c9cf712fb2e9b3836
-  languageName: node
-  linkType: hard
-
-"mime@npm:1.6.0":
-  version: 1.6.0
-  resolution: "mime@npm:1.6.0"
-  bin:
-    mime: cli.js
-  checksum: fef25e39263e6d207580bdc629f8872a3f9772c923c7f8c7e793175cee22777bbe8bba95e5d509a40aaa292d8974514ce634ae35769faa45f22d17edda5e8557
   languageName: node
   linkType: hard
 
@@ -13173,7 +12699,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ms@npm:2.1.3, ms@npm:^2.0.0, ms@npm:^2.1.1":
+"ms@npm:^2.0.0, ms@npm:^2.1.1":
   version: 2.1.3
   resolution: "ms@npm:2.1.3"
   checksum: aa92de608021b242401676e35cfa5aa42dd70cbdc082b916da7fb925c542173e36bce97ea3e804923fe92c0ad991434e4a38327e15a1b5b5f945d66df615ae6d
@@ -13207,6 +12733,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"natural-compare-lite@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "natural-compare-lite@npm:1.4.0"
+  checksum: 5222ac3986a2b78dd6069ac62cbb52a7bf8ffc90d972ab76dfe7b01892485d229530ed20d0c62e79a6b363a663b273db3bde195a1358ce9e5f779d4453887225
+  languageName: node
+  linkType: hard
+
 "natural-compare@npm:^1.4.0":
   version: 1.4.0
   resolution: "natural-compare@npm:1.4.0"
@@ -13214,17 +12747,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"negotiator@npm:0.6.3, negotiator@npm:^0.6.3":
+"negotiator@npm:^0.6.3":
   version: 0.6.3
   resolution: "negotiator@npm:0.6.3"
   checksum: b8ffeb1e262eff7968fc90a2b6767b04cfd9842582a9d0ece0af7049537266e7b2506dfb1d107a32f06dd849ab2aea834d5830f7f4d0e5cb7d36e1ae55d021d9
-  languageName: node
-  linkType: hard
-
-"neo-async@npm:^2.6.2":
-  version: 2.6.2
-  resolution: "neo-async@npm:2.6.2"
-  checksum: deac9f8d00eda7b2e5cd1b2549e26e10a0faa70adaa6fdadca701cc55f49ee9018e427f424bac0c790b7c7e2d3068db97f3093f1093975f2acb8f8818b936ed9
   languageName: node
   linkType: hard
 
@@ -13578,15 +13104,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"on-finished@npm:2.4.1":
-  version: 2.4.1
-  resolution: "on-finished@npm:2.4.1"
-  dependencies:
-    ee-first: 1.1.1
-  checksum: d20929a25e7f0bb62f937a425b5edeb4e4cde0540d77ba146ec9357f00b0d497cdb3b9b05b9c8e46222407d1548d08166bff69cc56dfa55ba0e4469228920ff0
-  languageName: node
-  linkType: hard
-
 "once@npm:^1.3.0, once@npm:^1.3.1, once@npm:^1.4.0":
   version: 1.4.0
   resolution: "once@npm:1.4.0"
@@ -13807,13 +13324,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"parseurl@npm:~1.3.3":
-  version: 1.3.3
-  resolution: "parseurl@npm:1.3.3"
-  checksum: 407cee8e0a3a4c5cd472559bca8b6a45b82c124e9a4703302326e9ab60fc1081442ada4e02628efef1eb16197ddc7f8822f5a91fd7d7c86b51f530aedb17dfa2
-  languageName: node
-  linkType: hard
-
 "pascal-case@npm:^3.1.2":
   version: 3.1.2
   resolution: "pascal-case@npm:3.1.2"
@@ -13875,13 +13385,6 @@ __metadata:
   dependencies:
     path-root-regex: ^0.1.0
   checksum: ff88aebfc1c59ace510cc06703d67692a11530989920427625e52b66a303ca9b3d4059b0b7d0b2a73248d1ad29bcb342b8b786ec00592f3101d38a45fd3b2e08
-  languageName: node
-  linkType: hard
-
-"path-to-regexp@npm:0.1.7":
-  version: 0.1.7
-  resolution: "path-to-regexp@npm:0.1.7"
-  checksum: 69a14ea24db543e8b0f4353305c5eac6907917031340e5a8b37df688e52accd09e3cebfe1660b70d76b6bd89152f52183f28c74813dbf454ba1a01c82a38abce
   languageName: node
   linkType: hard
 
@@ -14153,16 +13656,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"proxy-addr@npm:~2.0.7":
-  version: 2.0.7
-  resolution: "proxy-addr@npm:2.0.7"
-  dependencies:
-    forwarded: 0.2.0
-    ipaddr.js: 1.9.1
-  checksum: 29c6990ce9364648255454842f06f8c46fcd124d3e6d7c5066df44662de63cdc0bad032e9bf5a3d653ff72141cc7b6019873d685708ac8210c30458ad99f2b74
-  languageName: node
-  linkType: hard
-
 "proxy-from-env@npm:1.0.0":
   version: 1.0.0
   resolution: "proxy-from-env@npm:1.0.0"
@@ -14244,15 +13737,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:6.11.0":
-  version: 6.11.0
-  resolution: "qs@npm:6.11.0"
-  dependencies:
-    side-channel: ^1.0.4
-  checksum: 6e1f29dd5385f7488ec74ac7b6c92f4d09a90408882d0c208414a34dd33badc1a621019d4c799a3df15ab9b1d0292f97c1dd71dc7c045e69f81a8064e5af7297
-  languageName: node
-  linkType: hard
-
 "qs@npm:~6.5.2":
   version: 6.5.3
   resolution: "qs@npm:6.5.3"
@@ -14285,34 +13769,6 @@ __metadata:
   version: 0.27.2
   resolution: "ramda@npm:0.27.2"
   checksum: 28d6735dd1eea1a796c56cf6111f3673c6105bbd736e521cdd7826c46a18eeff337c2dba4668f6eed990d539b9961fd6db19aa46ccc1530ba67a396c0a9f580d
-  languageName: node
-  linkType: hard
-
-"randombytes@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "randombytes@npm:2.1.0"
-  dependencies:
-    safe-buffer: ^5.1.0
-  checksum: d779499376bd4cbb435ef3ab9a957006c8682f343f14089ed5f27764e4645114196e75b7f6abf1cbd84fd247c0cb0651698444df8c9bf30e62120fbbc52269d6
-  languageName: node
-  linkType: hard
-
-"range-parser@npm:~1.2.1":
-  version: 1.2.1
-  resolution: "range-parser@npm:1.2.1"
-  checksum: 0a268d4fea508661cf5743dfe3d5f47ce214fd6b7dec1de0da4d669dd4ef3d2144468ebe4179049eff253d9d27e719c88dae55be64f954e80135a0cada804ec9
-  languageName: node
-  linkType: hard
-
-"raw-body@npm:2.5.1":
-  version: 2.5.1
-  resolution: "raw-body@npm:2.5.1"
-  dependencies:
-    bytes: 3.1.2
-    http-errors: 2.0.0
-    iconv-lite: 0.4.24
-    unpipe: 1.0.0
-  checksum: 5362adff1575d691bb3f75998803a0ffed8c64eabeaa06e54b4ada25a0cd1b2ae7f4f5ec46565d1bec337e08b5ac90c76eaa0758de6f72a633f025d754dec29e
   languageName: node
   linkType: hard
 
@@ -14982,7 +14438,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"safe-buffer@npm:5.2.1, safe-buffer@npm:^5.0.1, safe-buffer@npm:^5.1.0, safe-buffer@npm:^5.1.2, safe-buffer@npm:~5.2.0":
+"safe-buffer@npm:^5.0.1, safe-buffer@npm:^5.1.2, safe-buffer@npm:~5.2.0":
   version: 5.2.1
   resolution: "safe-buffer@npm:5.2.1"
   checksum: b99c4b41fdd67a6aaf280fcd05e9ffb0813654894223afb78a31f14a19ad220bba8aba1cb14eddce1fcfb037155fe6de4e861784eb434f7d11ed58d1e70dd491
@@ -15042,17 +14498,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"schema-utils@npm:^3.1.0, schema-utils@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "schema-utils@npm:3.1.1"
-  dependencies:
-    "@types/json-schema": ^7.0.8
-    ajv: ^6.12.5
-    ajv-keywords: ^3.5.2
-  checksum: fb73f3d759d43ba033c877628fe9751620a26879f6301d3dbeeb48cf2a65baec5cdf99da65d1bf3b4ff5444b2e59cbe4f81c2456b5e0d2ba7d7fd4aed5da29ce
-  languageName: node
-  linkType: hard
-
 "scuid@npm:^1.1.0":
   version: 1.1.0
   resolution: "scuid@npm:1.1.0"
@@ -15089,27 +14534,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"send@npm:0.18.0":
-  version: 0.18.0
-  resolution: "send@npm:0.18.0"
-  dependencies:
-    debug: 2.6.9
-    depd: 2.0.0
-    destroy: 1.2.0
-    encodeurl: ~1.0.2
-    escape-html: ~1.0.3
-    etag: ~1.8.1
-    fresh: 0.5.2
-    http-errors: 2.0.0
-    mime: 1.6.0
-    ms: 2.1.3
-    on-finished: 2.4.1
-    range-parser: ~1.2.1
-    statuses: 2.0.1
-  checksum: 74fc07ebb58566b87b078ec63e5a3e41ecd987e4272ba67b7467e86c6ad51bc6b0b0154133b6d8b08a2ddda360464f71382f7ef864700f34844a76c8027817a8
-  languageName: node
-  linkType: hard
-
 "sentence-case@npm:^3.0.4":
   version: 3.0.4
   resolution: "sentence-case@npm:3.0.4"
@@ -15118,27 +14542,6 @@ __metadata:
     tslib: ^2.0.3
     upper-case-first: ^2.0.2
   checksum: 3cfe6c0143e649132365695706702d7f729f484fa7b25f43435876efe7af2478243eefb052bacbcce10babf9319fd6b5b6bc59b94c80a1c819bcbb40651465d5
-  languageName: node
-  linkType: hard
-
-"serialize-javascript@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "serialize-javascript@npm:6.0.0"
-  dependencies:
-    randombytes: ^2.1.0
-  checksum: 56f90b562a1bdc92e55afb3e657c6397c01a902c588c0fe3d4c490efdcc97dcd2a3074ba12df9e94630f33a5ce5b76a74784a7041294628a6f4306e0ec84bf93
-  languageName: node
-  linkType: hard
-
-"serve-static@npm:1.15.0":
-  version: 1.15.0
-  resolution: "serve-static@npm:1.15.0"
-  dependencies:
-    encodeurl: ~1.0.2
-    escape-html: ~1.0.3
-    parseurl: ~1.3.3
-    send: 0.18.0
-  checksum: af57fc13be40d90a12562e98c0b7855cf6e8bd4c107fe9a45c212bf023058d54a1871b1c89511c3958f70626fff47faeb795f5d83f8cf88514dbaeb2b724464d
   languageName: node
   linkType: hard
 
@@ -15153,13 +14556,6 @@ __metadata:
   version: 1.0.5
   resolution: "setimmediate@npm:1.0.5"
   checksum: c9a6f2c5b51a2dabdc0247db9c46460152ffc62ee139f3157440bd48e7c59425093f42719ac1d7931f054f153e2d26cf37dfeb8da17a794a58198a2705e527fd
-  languageName: node
-  linkType: hard
-
-"setprototypeof@npm:1.2.0":
-  version: 1.2.0
-  resolution: "setprototypeof@npm:1.2.0"
-  checksum: be18cbbf70e7d8097c97f713a2e76edf84e87299b40d085c6bf8b65314e994cc15e2e317727342fa6996e38e1f52c59720b53fe621e2eb593a6847bf0356db89
   languageName: node
   linkType: hard
 
@@ -15363,7 +14759,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-support@npm:^0.5.6, source-map-support@npm:~0.5.20":
+"source-map-support@npm:^0.5.6":
   version: 0.5.21
   resolution: "source-map-support@npm:0.5.21"
   dependencies:
@@ -15499,13 +14895,6 @@ __metadata:
   dependencies:
     escape-string-regexp: ^2.0.0
   checksum: 76b69da0f5b48a34a0f93c98ee2a96544d2c4ca2557f7eef5ddb961d3bdc33870b46f498a84a7c4f4ffb781df639840e7ebf6639164ed4da5e1aeb659615b9c7
-  languageName: node
-  linkType: hard
-
-"statuses@npm:2.0.1":
-  version: 2.0.1
-  resolution: "statuses@npm:2.0.1"
-  checksum: 18c7623fdb8f646fb213ca4051be4df7efb3484d4ab662937ca6fbef7ced9b9e12842709872eb3020cc3504b93bde88935c9f6417489627a7786f24f8031cbcb
   languageName: node
   linkType: hard
 
@@ -15851,7 +15240,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tapable@npm:^2.1.1, tapable@npm:^2.2.0":
+"tapable@npm:^2.2.0":
   version: 2.2.1
   resolution: "tapable@npm:2.2.1"
   checksum: 3b7a1b4d86fa940aad46d9e73d1e8739335efd4c48322cb37d073eb6f80f5281889bf0320c6d8ffcfa1a0dd5bfdbd0f9d037e252ef972aca595330538aac4d51
@@ -15886,42 +15275,6 @@ __metadata:
     ansi-escapes: ^4.2.1
     supports-hyperlinks: ^2.0.0
   checksum: ce3d2cd3a438c4a9453947aa664581519173ea40e77e2534d08c088ee6dda449eabdbe0a76d2a516b8b73c33262fedd10d5270ccf7576ae316e3db170ce6562f
-  languageName: node
-  linkType: hard
-
-"terser-webpack-plugin@npm:^5.1.3":
-  version: 5.3.6
-  resolution: "terser-webpack-plugin@npm:5.3.6"
-  dependencies:
-    "@jridgewell/trace-mapping": ^0.3.14
-    jest-worker: ^27.4.5
-    schema-utils: ^3.1.1
-    serialize-javascript: ^6.0.0
-    terser: ^5.14.1
-  peerDependencies:
-    webpack: ^5.1.0
-  peerDependenciesMeta:
-    "@swc/core":
-      optional: true
-    esbuild:
-      optional: true
-    uglify-js:
-      optional: true
-  checksum: 8f3448d7fdb0434ce6a0c09d95c462bfd2f4a5a430233d854163337f734a7f5c07c74513d16081e06d4ca33d366d5b1a36f5444219bc41a7403afd6162107bad
-  languageName: node
-  linkType: hard
-
-"terser@npm:^5.14.1":
-  version: 5.15.1
-  resolution: "terser@npm:5.15.1"
-  dependencies:
-    "@jridgewell/source-map": ^0.3.2
-    acorn: ^8.5.0
-    commander: ^2.20.0
-    source-map-support: ~0.5.20
-  bin:
-    terser: bin/terser
-  checksum: 9880a1e0956983a1ce5de204ea35121c0009fa41d582a6904ae850e1953a1a2cc021168439565280c5a8eee67c85a874175627e24989b046c7a72589b81c3979
   languageName: node
   linkType: hard
 
@@ -16043,13 +15396,6 @@ __metadata:
   version: 1.0.6
   resolution: "toggle-selection@npm:1.0.6"
   checksum: a90dc80ed1e7b18db8f4e16e86a5574f87632dc729cfc07d9ea3ced50021ad42bb4e08f22c0913e0b98e3837b0b717e0a51613c65f30418e21eb99da6556a74c
-  languageName: node
-  linkType: hard
-
-"toidentifier@npm:1.0.1":
-  version: 1.0.1
-  resolution: "toidentifier@npm:1.0.1"
-  checksum: 952c29e2a85d7123239b5cfdd889a0dde47ab0497f0913d70588f19c53f7e0b5327c95f4651e413c74b785147f9637b17410ac8c846d5d4a20a5a33eb6dc3a45
   languageName: node
   linkType: hard
 
@@ -16247,7 +15593,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:^10.4.0, ts-node@npm:^10.8.1, ts-node@npm:^10.9.1":
+"ts-node@npm:^10.8.1, ts-node@npm:^10.9.1":
   version: 10.9.1
   resolution: "ts-node@npm:10.9.1"
   dependencies:
@@ -16565,16 +15911,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-is@npm:~1.6.18":
-  version: 1.6.18
-  resolution: "type-is@npm:1.6.18"
-  dependencies:
-    media-typer: 0.3.0
-    mime-types: ~2.1.24
-  checksum: 2c8e47675d55f8b4e404bcf529abdf5036c537a04c2b20177bcf78c9e3c1da69da3942b1346e6edb09e823228c0ee656ef0e033765ec39a70d496ef601a0c657
-  languageName: node
-  linkType: hard
-
 "typedarray-to-buffer@npm:^3.1.5":
   version: 3.1.5
   resolution: "typedarray-to-buffer@npm:3.1.5"
@@ -16669,11 +16005,13 @@ __metadata:
     recharts: ^2.1.16
     recoil: ^0.4.1
     shared-utils: "*"
+    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^28.0.8
     ts-node: ^10.9.1
     tsconfig: "*"
     tsup: ^6.3.0
     typescript: ^4.8.4
+    ws: ^8.10.0
   languageName: unknown
   linkType: soft
 
@@ -16784,13 +16122,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unpipe@npm:1.0.0, unpipe@npm:~1.0.0":
-  version: 1.0.0
-  resolution: "unpipe@npm:1.0.0"
-  checksum: 4fa18d8d8d977c55cb09715385c203197105e10a6d220087ec819f50cb68870f02942244f1017565484237f1f8c5d3cd413631b1ae104d3096f24fdfde1b4aa2
-  languageName: node
-  linkType: hard
-
 "untildify@npm:^4.0.0":
   version: 4.0.0
   resolution: "untildify@npm:4.0.0"
@@ -16865,13 +16196,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"utils-merge@npm:1.0.1":
-  version: 1.0.1
-  resolution: "utils-merge@npm:1.0.1"
-  checksum: c81095493225ecfc28add49c106ca4f09cdf56bc66731aa8dabc2edbbccb1e1bfe2de6a115e5c6a380d3ea166d1636410b62ef216bb07b3feb1cfde1d95d5080
-  languageName: node
-  linkType: hard
-
 "uuid@npm:^8.3.2":
   version: 8.3.2
   resolution: "uuid@npm:8.3.2"
@@ -16934,7 +16258,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vary@npm:^1, vary@npm:~1.1.2":
+"vary@npm:^1":
   version: 1.1.2
   resolution: "vary@npm:1.1.2"
   checksum: ae0123222c6df65b437669d63dfa8c36cee20a504101b2fcd97b8bf76f91259c17f9f2b4d70a1e3c6bbcee7f51b28392833adb6b2770b23b01abec84e369660b
@@ -16988,16 +16312,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"watchpack@npm:^2.4.0":
-  version: 2.4.0
-  resolution: "watchpack@npm:2.4.0"
-  dependencies:
-    glob-to-regexp: ^0.4.1
-    graceful-fs: ^4.1.2
-  checksum: 23d4bc58634dbe13b86093e01c6a68d8096028b664ab7139d58f0c37d962d549a940e98f2f201cecdabd6f9c340338dc73ef8bf094a2249ef582f35183d1a131
-  languageName: node
-  linkType: hard
-
 "wcwidth@npm:^1.0.1":
   version: 1.0.1
   resolution: "wcwidth@npm:1.0.1"
@@ -17029,11 +16343,12 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
     "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
+    "@types/node": ^18.11.8
     "@types/numeral": ^2.0.2
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
     bech32: ^2.0.0
@@ -17045,1164 +16360,7 @@ __metadata:
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
-    eslint: ^7.8.1
-    eslint-config-custom: "*"
-    eslint-config-cypress: "*"
-    graphql: ^15.0.0
-    graphql-tag: ^2.0.0
-    helmet: ^4.6.0
-    isomorphic-ws: ^5.0.0
-    jdenticon: ^3.1.0
-    jest: ^28.1.0
-    jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
-    jest-presets: "*"
-    jest-transform-stub: ^2.0.0
-    jest-watch-typeahead: ^2.2.0
-    markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
-    next: ^12.1.0
-    next-seo: ^4.26.0
-    next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
-    numeral: 2.0.4
-    prop-types: ^15.6.0
-    qrcode.react: ^1.0.1
-    ramda: ^0.27.1
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-share: ^4.4.0
-    react-test-renderer: ^17.0.2
-    react-toastify: ^7.0.3
-    react-virtualized-auto-sizer: ^1.0.4
-    react-window: ^1.8.6
-    react-window-infinite-loader: ^1.0.7
-    recharts: ^2.1.16
-    recoil: ^0.4.1
-    shared-utils: "*"
-    subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
-    ts-node: ^10.4.0
-    tsconfig: "*"
-    typescript: ^4.8.4
-    ui: "*"
-    ws: ^8.9.0
-  languageName: unknown
-  linkType: soft
-
-"web-akash@workspace:apps/web-akash":
-  version: 0.0.0-use.local
-  resolution: "web-akash@workspace:apps/web-akash"
-  dependencies:
-    "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.13.8
-    "@graphql-codegen/client-preset": ^1.1.1
-    "@graphql-codegen/fragment-matcher": ^3.3.1
-    "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^2.5.5
-    "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
-    "@socialgouv/matomo-next": ^1.2.2
-    "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
-    axios: ^0.21.4
-    axios-mock-adapter: ^1.19.0
-    bech32: ^2.0.0
-    big.js: ^6.1.1
-    classnames: ^2.2.6
-    color: ^3.1.3
-    copy-to-clipboard: ^3.3.1
-    cors: ^2.8.5
-    dayjs: ^1.10.4
-    dompurify: ^2.3.1
-    dotenv: ^8.2.0
-    eslint: ^7.8.1
-    eslint-config-custom: "*"
-    eslint-config-cypress: "*"
-    express: ^4.17.1
-    graphql: ^15.0.0
-    graphql-tag: ^2.0.0
-    helmet: ^4.6.0
-    isomorphic-ws: ^5.0.0
-    jdenticon: ^3.1.0
-    jest: ^28.1.0
-    jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
-    jest-presets: "*"
-    jest-transform-stub: ^2.0.0
-    jest-watch-typeahead: ^2.2.0
-    markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
-    next: ^12.1.0
-    next-seo: ^4.26.0
-    next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
-    numeral: 2.0.4
-    prop-types: ^15.6.0
-    qrcode.react: ^1.0.1
-    ramda: ^0.27.1
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-share: ^4.4.0
-    react-test-renderer: ^17.0.2
-    react-toastify: ^7.0.3
-    react-virtualized-auto-sizer: ^1.0.4
-    react-window: ^1.8.6
-    react-window-infinite-loader: ^1.0.7
-    recharts: ^2.1.16
-    recoil: ^0.4.1
-    shared-utils: "*"
-    subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
-    ts-node: ^10.4.0
-    tsconfig: "*"
-    typescript: ^4.8.4
-    ui: "*"
-    ws: ^8.9.0
-  languageName: unknown
-  linkType: soft
-
-"web-assetmantle@workspace:apps/web-assetmantle":
-  version: 0.0.0-use.local
-  resolution: "web-assetmantle@workspace:apps/web-assetmantle"
-  dependencies:
-    "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.13.8
-    "@graphql-codegen/client-preset": ^1.1.1
-    "@graphql-codegen/fragment-matcher": ^3.3.1
-    "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^2.5.5
-    "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
-    "@socialgouv/matomo-next": ^1.2.2
-    "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
-    axios: ^0.21.4
-    axios-mock-adapter: ^1.19.0
-    bech32: ^2.0.0
-    big.js: ^6.1.1
-    classnames: ^2.2.6
-    color: ^3.1.3
-    copy-to-clipboard: ^3.3.1
-    cors: ^2.8.5
-    dayjs: ^1.10.4
-    dompurify: ^2.3.1
-    dotenv: ^8.2.0
-    eslint: ^7.8.1
-    eslint-config-custom: "*"
-    eslint-config-cypress: "*"
-    graphql: ^15.0.0
-    graphql-tag: ^2.0.0
-    helmet: ^4.6.0
-    isomorphic-ws: ^5.0.0
-    jdenticon: ^3.1.0
-    jest: ^28.1.0
-    jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
-    jest-presets: "*"
-    jest-transform-stub: ^2.0.0
-    jest-watch-typeahead: ^2.2.0
-    markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
-    next: ^12.1.0
-    next-seo: ^4.26.0
-    next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
-    numeral: 2.0.4
-    prop-types: ^15.6.0
-    qrcode.react: ^1.0.1
-    ramda: ^0.27.1
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-share: ^4.4.0
-    react-test-renderer: ^17.0.2
-    react-toastify: ^7.0.3
-    react-virtualized-auto-sizer: ^1.0.4
-    react-window: ^1.8.6
-    react-window-infinite-loader: ^1.0.7
-    recharts: ^2.1.16
-    recoil: ^0.4.1
-    shared-utils: "*"
-    subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
-    ts-node: ^10.4.0
-    tsconfig: "*"
-    typescript: ^4.8.4
-    ui: "*"
-    ws: ^8.9.0
-  languageName: unknown
-  linkType: soft
-
-"web-band@workspace:apps/web-band":
-  version: 0.0.0-use.local
-  resolution: "web-band@workspace:apps/web-band"
-  dependencies:
-    "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.13.8
-    "@graphql-codegen/client-preset": ^1.1.1
-    "@graphql-codegen/fragment-matcher": ^3.3.1
-    "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^2.5.5
-    "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
-    "@socialgouv/matomo-next": ^1.2.2
-    "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
-    axios: ^0.21.4
-    axios-mock-adapter: ^1.19.0
-    bech32: ^2.0.0
-    big.js: ^6.1.1
-    classnames: ^2.2.6
-    color: ^3.1.3
-    copy-to-clipboard: ^3.3.1
-    cors: ^2.8.5
-    dayjs: ^1.10.4
-    dompurify: ^2.3.1
-    dotenv: ^8.2.0
-    eslint: ^7.8.1
-    eslint-config-custom: "*"
-    eslint-config-cypress: "*"
-    express: ^4.17.1
-    graphql: ^15.0.0
-    graphql-tag: ^2.0.0
-    helmet: ^4.6.0
-    isomorphic-ws: ^5.0.0
-    jdenticon: ^3.1.0
-    jest: ^28.1.0
-    jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
-    jest-presets: "*"
-    jest-transform-stub: ^2.0.0
-    jest-watch-typeahead: ^2.2.0
-    markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
-    next: ^12.1.0
-    next-seo: ^4.26.0
-    next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
-    numeral: 2.0.4
-    prop-types: ^15.6.0
-    qrcode.react: ^1.0.1
-    ramda: ^0.27.1
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-share: ^4.4.0
-    react-test-renderer: ^17.0.2
-    react-toastify: ^7.0.3
-    react-virtualized-auto-sizer: ^1.0.4
-    react-window: ^1.8.6
-    react-window-infinite-loader: ^1.0.7
-    recharts: ^2.1.16
-    recoil: ^0.4.1
-    shared-utils: "*"
-    subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
-    ts-node: ^10.4.0
-    tsconfig: "*"
-    typescript: ^4.8.4
-    ui: "*"
-    ws: ^8.9.0
-  languageName: unknown
-  linkType: soft
-
-"web-bitsong@workspace:apps/web-bitsong":
-  version: 0.0.0-use.local
-  resolution: "web-bitsong@workspace:apps/web-bitsong"
-  dependencies:
-    "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.13.8
-    "@graphql-codegen/client-preset": ^1.1.1
-    "@graphql-codegen/fragment-matcher": ^3.3.1
-    "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^2.5.5
-    "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
-    "@socialgouv/matomo-next": ^1.2.2
-    "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
-    axios: ^0.21.4
-    axios-mock-adapter: ^1.19.0
-    bech32: ^2.0.0
-    big.js: ^6.1.1
-    classnames: ^2.2.6
-    color: ^3.1.3
-    copy-to-clipboard: ^3.3.1
-    cors: ^2.8.5
-    dayjs: ^1.10.4
-    dompurify: ^2.3.1
-    dotenv: ^8.2.0
-    eslint: ^7.8.1
-    eslint-config-custom: "*"
-    eslint-config-cypress: "*"
-    express: ^4.17.1
-    graphql: ^15.0.0
-    graphql-tag: ^2.0.0
-    helmet: ^4.6.0
-    isomorphic-ws: ^5.0.0
-    jdenticon: ^3.1.0
-    jest: ^28.1.0
-    jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
-    jest-presets: "*"
-    jest-transform-stub: ^2.0.0
-    jest-watch-typeahead: ^2.2.0
-    markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
-    next: ^12.1.0
-    next-seo: ^4.26.0
-    next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
-    numeral: 2.0.4
-    prop-types: ^15.6.0
-    qrcode.react: ^1.0.1
-    ramda: ^0.27.1
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-share: ^4.4.0
-    react-test-renderer: ^17.0.2
-    react-toastify: ^7.0.3
-    react-virtualized-auto-sizer: ^1.0.4
-    react-window: ^1.8.6
-    react-window-infinite-loader: ^1.0.7
-    recharts: ^2.1.16
-    recoil: ^0.4.1
-    shared-utils: "*"
-    subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
-    ts-node: ^10.4.0
-    tsconfig: "*"
-    typescript: ^4.8.4
-    ui: "*"
-    ws: ^8.9.0
-  languageName: unknown
-  linkType: soft
-
-"web-comdex@workspace:apps/web-comdex":
-  version: 0.0.0-use.local
-  resolution: "web-comdex@workspace:apps/web-comdex"
-  dependencies:
-    "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.13.8
-    "@graphql-codegen/client-preset": ^1.1.1
-    "@graphql-codegen/fragment-matcher": ^3.3.1
-    "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^2.5.5
-    "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
-    "@socialgouv/matomo-next": ^1.2.2
-    "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
-    axios: ^0.21.4
-    axios-mock-adapter: ^1.19.0
-    bech32: ^2.0.0
-    big.js: ^6.1.1
-    classnames: ^2.2.6
-    color: ^3.1.3
-    copy-to-clipboard: ^3.3.1
-    cors: ^2.8.5
-    dayjs: ^1.10.4
-    dompurify: ^2.3.1
-    dotenv: ^8.2.0
-    eslint: ^7.8.1
-    eslint-config-custom: "*"
-    eslint-config-cypress: "*"
-    express: ^4.17.1
-    graphql: ^15.0.0
-    graphql-tag: ^2.0.0
-    helmet: ^4.6.0
-    isomorphic-ws: ^5.0.0
-    jdenticon: ^3.1.0
-    jest: ^28.1.0
-    jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
-    jest-presets: "*"
-    jest-transform-stub: ^2.0.0
-    jest-watch-typeahead: ^2.2.0
-    markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
-    next: ^12.1.0
-    next-seo: ^4.26.0
-    next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
-    numeral: 2.0.4
-    prop-types: ^15.6.0
-    qrcode.react: ^1.0.1
-    ramda: ^0.27.1
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-share: ^4.4.0
-    react-test-renderer: ^17.0.2
-    react-toastify: ^7.0.3
-    react-virtualized-auto-sizer: ^1.0.4
-    react-window: ^1.8.6
-    react-window-infinite-loader: ^1.0.7
-    recharts: ^2.1.16
-    recoil: ^0.4.1
-    shared-utils: "*"
-    subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
-    ts-node: ^10.4.0
-    tsconfig: "*"
-    typescript: ^4.8.4
-    ui: "*"
-    ws: ^8.9.0
-  languageName: unknown
-  linkType: soft
-
-"web-cosmos@workspace:apps/web-cosmos":
-  version: 0.0.0-use.local
-  resolution: "web-cosmos@workspace:apps/web-cosmos"
-  dependencies:
-    "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.13.8
-    "@graphql-codegen/client-preset": ^1.1.1
-    "@graphql-codegen/fragment-matcher": ^3.3.1
-    "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^2.5.5
-    "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
-    "@socialgouv/matomo-next": ^1.2.2
-    "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
-    axios: ^0.21.4
-    axios-mock-adapter: ^1.19.0
-    bech32: ^2.0.0
-    big.js: ^6.1.1
-    classnames: ^2.2.6
-    color: ^3.1.3
-    copy-to-clipboard: ^3.3.1
-    cors: ^2.8.5
-    dayjs: ^1.10.4
-    dompurify: ^2.3.1
-    dotenv: ^8.2.0
-    eslint: ^7.8.1
-    eslint-config-custom: "*"
-    eslint-config-cypress: "*"
-    express: ^4.17.1
-    graphql: ^15.0.0
-    graphql-tag: ^2.0.0
-    helmet: ^4.6.0
-    isomorphic-ws: ^5.0.0
-    jdenticon: ^3.1.0
-    jest: ^28.1.0
-    jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
-    jest-presets: "*"
-    jest-transform-stub: ^2.0.0
-    jest-watch-typeahead: ^2.2.0
-    markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
-    next: ^12.1.0
-    next-seo: ^4.26.0
-    next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
-    numeral: 2.0.4
-    prop-types: ^15.6.0
-    qrcode.react: ^1.0.1
-    ramda: ^0.27.1
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-share: ^4.4.0
-    react-test-renderer: ^17.0.2
-    react-toastify: ^7.0.3
-    react-virtualized-auto-sizer: ^1.0.4
-    react-window: ^1.8.6
-    react-window-infinite-loader: ^1.0.7
-    recharts: ^2.1.16
-    recoil: ^0.4.1
-    shared-utils: "*"
-    subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
-    ts-node: ^10.4.0
-    tsconfig: "*"
-    typescript: ^4.8.4
-    ui: "*"
-    ws: ^8.9.0
-  languageName: unknown
-  linkType: soft
-
-"web-crescent@workspace:apps/web-crescent":
-  version: 0.0.0-use.local
-  resolution: "web-crescent@workspace:apps/web-crescent"
-  dependencies:
-    "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.13.8
-    "@graphql-codegen/client-preset": ^1.1.1
-    "@graphql-codegen/fragment-matcher": ^3.3.1
-    "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^2.5.5
-    "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
-    "@socialgouv/matomo-next": ^1.2.2
-    "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
-    axios: ^0.21.4
-    axios-mock-adapter: ^1.19.0
-    bech32: ^2.0.0
-    big.js: ^6.1.1
-    classnames: ^2.2.6
-    color: ^3.1.3
-    copy-to-clipboard: ^3.3.1
-    cors: ^2.8.5
-    dayjs: ^1.10.4
-    dompurify: ^2.3.1
-    dotenv: ^8.2.0
-    eslint: ^7.8.1
-    eslint-config-custom: "*"
-    eslint-config-cypress: "*"
-    express: ^4.17.1
-    graphql: ^15.0.0
-    graphql-tag: ^2.0.0
-    helmet: ^4.6.0
-    isomorphic-ws: ^5.0.0
-    jdenticon: ^3.1.0
-    jest: ^28.1.0
-    jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
-    jest-presets: "*"
-    jest-transform-stub: ^2.0.0
-    jest-watch-typeahead: ^2.2.0
-    markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
-    next: ^12.1.0
-    next-seo: ^4.26.0
-    next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
-    numeral: 2.0.4
-    prop-types: ^15.6.0
-    qrcode.react: ^1.0.1
-    ramda: ^0.27.1
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-share: ^4.4.0
-    react-test-renderer: ^17.0.2
-    react-toastify: ^7.0.3
-    react-virtualized-auto-sizer: ^1.0.4
-    react-window: ^1.8.6
-    react-window-infinite-loader: ^1.0.7
-    recharts: ^2.1.16
-    recoil: ^0.4.1
-    shared-utils: "*"
-    subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
-    ts-node: ^10.4.0
-    tsconfig: "*"
-    typescript: ^4.8.4
-    ui: "*"
-    ws: ^8.9.0
-  languageName: unknown
-  linkType: soft
-
-"web-desmos@workspace:apps/web-desmos":
-  version: 0.0.0-use.local
-  resolution: "web-desmos@workspace:apps/web-desmos"
-  dependencies:
-    "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.13.8
-    "@graphql-codegen/client-preset": ^1.1.1
-    "@graphql-codegen/fragment-matcher": ^3.3.1
-    "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^2.5.5
-    "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
-    "@socialgouv/matomo-next": ^1.2.2
-    "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
-    axios: ^0.21.4
-    axios-mock-adapter: ^1.19.0
-    bech32: ^2.0.0
-    big.js: ^6.1.1
-    classnames: ^2.2.6
-    color: ^3.1.3
-    copy-to-clipboard: ^3.3.1
-    cors: ^2.8.5
-    dayjs: ^1.10.4
-    dompurify: ^2.3.1
-    dotenv: ^8.2.0
-    eslint: ^7.8.1
-    eslint-config-custom: "*"
-    eslint-config-cypress: "*"
-    express: ^4.17.1
-    graphql: ^15.0.0
-    graphql-tag: ^2.0.0
-    helmet: ^4.6.0
-    isomorphic-ws: ^5.0.0
-    jdenticon: ^3.1.0
-    jest: ^28.1.0
-    jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
-    jest-presets: "*"
-    jest-transform-stub: ^2.0.0
-    jest-watch-typeahead: ^2.2.0
-    markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
-    next: ^12.1.0
-    next-seo: ^4.26.0
-    next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
-    numeral: 2.0.4
-    prop-types: ^15.6.0
-    qrcode.react: ^1.0.1
-    ramda: ^0.27.1
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-share: ^4.4.0
-    react-test-renderer: ^17.0.2
-    react-toastify: ^7.0.3
-    react-virtualized-auto-sizer: ^1.0.4
-    react-window: ^1.8.6
-    react-window-infinite-loader: ^1.0.7
-    recharts: ^2.1.16
-    recoil: ^0.4.1
-    shared-utils: "*"
-    subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
-    ts-node: ^10.4.0
-    tsconfig: "*"
-    typescript: ^4.8.4
-    ui: "*"
-    ws: ^8.9.0
-  languageName: unknown
-  linkType: soft
-
-"web-elrond@workspace:apps/web-elrond":
-  version: 0.0.0-use.local
-  resolution: "web-elrond@workspace:apps/web-elrond"
-  dependencies:
-    "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.13.8
-    "@graphql-codegen/client-preset": ^1.1.1
-    "@graphql-codegen/fragment-matcher": ^3.3.1
-    "@graphql-codegen/typescript-operations": ^2.5.5
-    "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
-    "@socialgouv/matomo-next": ^1.2.2
-    "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
-    axios: ^0.21.4
-    axios-mock-adapter: ^1.19.0
-    bech32: ^2.0.0
-    big.js: ^6.1.1
-    classnames: ^2.2.6
-    color: ^3.1.3
-    copy-to-clipboard: ^3.3.1
-    cors: ^2.8.5
-    dayjs: ^1.10.4
-    dompurify: ^2.3.1
-    dotenv: ^8.2.0
-    eslint: ^7.8.1
-    eslint-config-custom: "*"
-    eslint-config-cypress: "*"
-    express: ^4.17.1
-    graphql: ^15.0.0
-    graphql-tag: ^2.0.0
-    helmet: ^4.6.0
-    isomorphic-ws: ^5.0.0
-    jdenticon: ^3.1.0
-    jest: ^28.1.0
-    jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
-    jest-presets: "*"
-    jest-transform-stub: ^2.0.0
-    jest-watch-typeahead: ^2.2.0
-    markdown-to-jsx: ^7.1.2
-    next: ^12.1.0
-    next-seo: ^4.26.0
-    next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
-    numeral: 2.0.4
-    prop-types: ^15.6.0
-    qrcode.react: ^1.0.1
-    ramda: ^0.27.1
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-share: ^4.4.0
-    react-test-renderer: ^17.0.2
-    react-toastify: ^7.0.3
-    react-virtualized-auto-sizer: ^1.0.4
-    react-window: ^1.8.6
-    react-window-infinite-loader: ^1.0.7
-    recharts: ^2.1.16
-    recoil: ^0.4.1
-    shared-utils: "*"
-    subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
-    ts-node: ^10.4.0
-    tsconfig: "*"
-    typescript: ^4.8.4
-    ui: "*"
-    ws: ^8.9.0
-  languageName: unknown
-  linkType: soft
-
-"web-emoney@workspace:apps/web-emoney":
-  version: 0.0.0-use.local
-  resolution: "web-emoney@workspace:apps/web-emoney"
-  dependencies:
-    "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.13.8
-    "@graphql-codegen/client-preset": ^1.1.1
-    "@graphql-codegen/fragment-matcher": ^3.3.1
-    "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^2.5.5
-    "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
-    "@socialgouv/matomo-next": ^1.2.2
-    "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
-    axios: ^0.21.4
-    axios-mock-adapter: ^1.19.0
-    bech32: ^2.0.0
-    big.js: ^6.1.1
-    classnames: ^2.2.6
-    color: ^3.1.3
-    copy-to-clipboard: ^3.3.1
-    cors: ^2.8.5
-    dayjs: ^1.10.4
-    dompurify: ^2.3.1
-    dotenv: ^8.2.0
-    eslint: ^7.8.1
-    eslint-config-custom: "*"
-    eslint-config-cypress: "*"
-    express: ^4.17.1
-    graphql: ^15.0.0
-    graphql-tag: ^2.0.0
-    helmet: ^4.6.0
-    isomorphic-ws: ^5.0.0
-    jdenticon: ^3.1.0
-    jest: ^28.1.0
-    jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
-    jest-presets: "*"
-    jest-transform-stub: ^2.0.0
-    jest-watch-typeahead: ^2.2.0
-    markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
-    next: ^12.1.0
-    next-seo: ^4.26.0
-    next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
-    numeral: 2.0.4
-    prop-types: ^15.6.0
-    qrcode.react: ^1.0.1
-    ramda: ^0.27.1
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-share: ^4.4.0
-    react-test-renderer: ^17.0.2
-    react-toastify: ^7.0.3
-    react-virtualized-auto-sizer: ^1.0.4
-    react-window: ^1.8.6
-    react-window-infinite-loader: ^1.0.7
-    recharts: ^2.1.16
-    recoil: ^0.4.1
-    shared-utils: "*"
-    subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
-    ts-node: ^10.4.0
-    tsconfig: "*"
-    typescript: ^4.8.4
-    ui: "*"
-    ws: ^8.9.0
-  languageName: unknown
-  linkType: soft
-
-"web-evmos@workspace:apps/web-evmos":
-  version: 0.0.0-use.local
-  resolution: "web-evmos@workspace:apps/web-evmos"
-  dependencies:
-    "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.13.8
-    "@graphql-codegen/client-preset": ^1.1.1
-    "@graphql-codegen/fragment-matcher": ^3.3.1
-    "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^2.5.5
-    "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
-    "@socialgouv/matomo-next": ^1.2.2
-    "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
-    axios: ^0.21.4
-    axios-mock-adapter: ^1.19.0
-    bech32: ^2.0.0
-    big.js: ^6.1.1
-    classnames: ^2.2.6
-    color: ^3.1.3
-    copy-to-clipboard: ^3.3.1
-    cors: ^2.8.5
-    dayjs: ^1.10.4
-    dompurify: ^2.3.1
-    dotenv: ^8.2.0
-    eslint: ^7.8.1
-    eslint-config-custom: "*"
-    eslint-config-cypress: "*"
-    express: ^4.17.1
-    graphql: ^15.0.0
-    graphql-tag: ^2.0.0
-    helmet: ^4.6.0
-    isomorphic-ws: ^5.0.0
-    jdenticon: ^3.1.0
-    jest: ^28.1.0
-    jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
-    jest-presets: "*"
-    jest-transform-stub: ^2.0.0
-    jest-watch-typeahead: ^2.2.0
-    markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
-    next: ^12.1.0
-    next-seo: ^4.26.0
-    next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
-    numeral: 2.0.4
-    prop-types: ^15.6.0
-    qrcode.react: ^1.0.1
-    ramda: ^0.27.1
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-share: ^4.4.0
-    react-test-renderer: ^17.0.2
-    react-toastify: ^7.0.3
-    react-virtualized-auto-sizer: ^1.0.4
-    react-window: ^1.8.6
-    react-window-infinite-loader: ^1.0.7
-    recharts: ^2.1.16
-    recoil: ^0.4.1
-    shared-utils: "*"
-    subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
-    ts-node: ^10.4.0
-    tsconfig: "*"
-    typescript: ^4.8.4
-    ui: "*"
-    ws: ^8.9.0
-  languageName: unknown
-  linkType: soft
-
-"web-flow@workspace:apps/web-flow":
-  version: 0.0.0-use.local
-  resolution: "web-flow@workspace:apps/web-flow"
-  dependencies:
-    "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.13.8
-    "@graphql-codegen/client-preset": ^1.1.1
-    "@graphql-codegen/fragment-matcher": ^3.3.1
-    "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^2.5.5
-    "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
-    "@socialgouv/matomo-next": ^1.2.2
-    "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/numeral": ^2.0.2
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
-    axios: ^0.21.4
-    axios-mock-adapter: ^1.19.0
-    bech32: ^2.0.0
-    big.js: ^6.1.1
-    classnames: ^2.3.1
-    color: ^3.1.3
-    copy-to-clipboard: ^3.3.1
-    cors: ^2.8.5
-    dayjs: ^1.10.4
-    dompurify: ^2.3.1
-    dotenv: ^8.2.0
-    eslint: ^7.8.1
-    eslint-config-custom: "*"
-    eslint-config-cypress: "*"
-    express: ^4.17.1
-    graphql: ^15.0.0
-    graphql-tag: ^2.0.0
-    helmet: ^4.6.0
-    isomorphic-ws: ^5.0.0
-    jdenticon: ^3.1.0
-    jest: ^28.1.0
-    jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
-    jest-presets: "*"
-    jest-transform-stub: ^2.0.0
-    jest-watch-typeahead: ^2.2.0
-    markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
-    next: ^12.1.0
-    next-seo: ^4.26.0
-    next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
-    numeral: 2.0.4
-    prop-types: ^15.6.0
-    qrcode.react: ^1.0.1
-    ramda: ^0.27.1
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-share: ^4.4.0
-    react-test-renderer: ^17.0.2
-    react-toastify: ^7.0.3
-    react-virtualized-auto-sizer: ^1.0.4
-    react-window: ^1.8.6
-    react-window-infinite-loader: ^1.0.7
-    recharts: ^2.1.16
-    recoil: ^0.4.1
-    shared-utils: "*"
-    subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
-    ts-node: ^10.4.0
-    tsconfig: "*"
-    typescript: ^4.8.4
-    ui: "*"
-    ws: ^8.9.0
-  languageName: unknown
-  linkType: soft
-
-"web-likecoin@workspace:apps/web-likecoin":
-  version: 0.0.0-use.local
-  resolution: "web-likecoin@workspace:apps/web-likecoin"
-  dependencies:
-    "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.13.8
-    "@graphql-codegen/client-preset": ^1.1.1
-    "@graphql-codegen/fragment-matcher": ^3.3.1
-    "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^2.5.5
-    "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
-    "@socialgouv/matomo-next": ^1.2.2
-    "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
-    axios: ^0.21.4
-    axios-mock-adapter: ^1.19.0
-    bech32: ^2.0.0
-    big.js: ^6.1.1
-    classnames: ^2.2.6
-    color: ^3.1.3
-    copy-to-clipboard: ^3.3.1
-    cors: ^2.8.5
-    dayjs: ^1.10.4
-    dompurify: ^2.3.1
-    dotenv: ^8.2.0
-    eslint: ^7.8.1
-    eslint-config-custom: "*"
-    eslint-config-cypress: "*"
-    express: ^4.17.1
-    graphql: ^15.0.0
-    graphql-tag: ^2.0.0
-    helmet: ^4.6.0
-    isomorphic-ws: ^5.0.0
-    jdenticon: ^3.1.0
-    jest: ^28.1.0
-    jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
-    jest-presets: "*"
-    jest-transform-stub: ^2.0.0
-    jest-watch-typeahead: ^2.2.0
-    markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
-    next: ^12.1.0
-    next-seo: ^4.26.0
-    next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
-    numeral: 2.0.4
-    prop-types: ^15.6.0
-    qrcode.react: ^1.0.1
-    ramda: ^0.27.1
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-share: ^4.4.0
-    react-test-renderer: ^17.0.2
-    react-toastify: ^7.0.3
-    react-virtualized-auto-sizer: ^1.0.4
-    react-window: ^1.8.6
-    react-window-infinite-loader: ^1.0.7
-    recharts: ^2.1.16
-    recoil: ^0.4.1
-    shared-utils: "*"
-    subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
-    ts-node: ^10.4.0
-    tsconfig: "*"
-    typescript: ^4.8.4
-    ui: "*"
-    ws: ^8.9.0
-  languageName: unknown
-  linkType: soft
-
-"web-nomic@workspace:apps/web-nomic":
-  version: 0.0.0-use.local
-  resolution: "web-nomic@workspace:apps/web-nomic"
-  dependencies:
-    "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.13.8
-    "@graphql-codegen/client-preset": ^1.1.1
-    "@graphql-codegen/fragment-matcher": ^3.3.1
-    "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^2.5.5
-    "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
-    "@socialgouv/matomo-next": ^1.2.2
-    "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/react": 17.0.39
-    axios: ^0.21.4
-    axios-mock-adapter: ^1.19.0
-    bech32: ^2.0.0
-    big.js: ^6.1.1
-    classnames: ^2.2.6
-    color: ^3.1.3
-    copy-to-clipboard: ^3.3.1
-    cors: ^2.8.5
-    dayjs: ^1.10.4
-    dompurify: ^2.3.1
-    dotenv: ^8.2.0
-    eslint: ^7.32.0
+    eslint: ^8.26.0
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     graphql: ^15.0.0
@@ -18243,7 +16401,1188 @@ __metadata:
     tsconfig: "*"
     typescript: ^4.8.4
     ui: "*"
-    ws: ^8.9.0
+    ws: ^8.10.0
+  languageName: unknown
+  linkType: soft
+
+"web-akash@workspace:apps/web-akash":
+  version: 0.0.0-use.local
+  resolution: "web-akash@workspace:apps/web-akash"
+  dependencies:
+    "@apollo/client": ^3.1.5
+    "@graphql-codegen/cli": ^2.13.8
+    "@graphql-codegen/client-preset": ^1.1.1
+    "@graphql-codegen/fragment-matcher": ^3.3.1
+    "@graphql-codegen/typescript": ^1.21.0
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
+    "@material-ui/core": ^4.11.3
+    "@material-ui/icons": ^4.9.1
+    "@material-ui/styles": ^4.10.0
+    "@sentry/nextjs": ^7.16.0
+    "@socialgouv/matomo-next": ^1.2.2
+    "@svgr/webpack": ^6.5.1
+    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/react": ^11.0.2
+    "@testing-library/react-hooks": ^3.7.0
+    "@types/big.js": ^6.1.2
+    "@types/jest": ^29.2.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
+    axios: ^0.21.4
+    axios-mock-adapter: ^1.19.0
+    bech32: ^2.0.0
+    big.js: ^6.1.1
+    classnames: ^2.2.6
+    color: ^3.1.3
+    copy-to-clipboard: ^3.3.1
+    cors: ^2.8.5
+    dayjs: ^1.10.4
+    dompurify: ^2.3.1
+    dotenv: ^8.2.0
+    eslint: ^8.26.0
+    eslint-config-custom: "*"
+    eslint-config-cypress: "*"
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
+    helmet: ^4.6.0
+    isomorphic-ws: ^5.0.0
+    jdenticon: ^3.1.0
+    jest: ^28.1.0
+    jest-environment-jsdom: ^29.2.2
+    jest-localstorage-mock: ^2.4.18
+    jest-presets: "*"
+    jest-transform-stub: ^2.0.0
+    jest-watch-typeahead: ^2.2.0
+    markdown-to-jsx: ^7.1.2
+    mock-apollo-client: ^1.1.0
+    next: ^12.1.0
+    next-seo: ^4.26.0
+    next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
+    numeral: 2.0.4
+    prop-types: ^15.6.0
+    qrcode.react: ^1.0.1
+    ramda: ^0.27.1
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-share: ^4.4.0
+    react-test-renderer: ^17.0.2
+    react-toastify: ^7.0.3
+    react-virtualized-auto-sizer: ^1.0.4
+    react-window: ^1.8.6
+    react-window-infinite-loader: ^1.0.7
+    recharts: ^2.1.16
+    recoil: ^0.4.1
+    shared-utils: "*"
+    subscriptions-transport-ws: ^0.11.0
+    ts-jest: ^28.0.8
+    ts-node: ^10.9.1
+    tsconfig: "*"
+    typescript: ^4.8.4
+    ui: "*"
+    ws: ^8.10.0
+  languageName: unknown
+  linkType: soft
+
+"web-assetmantle@workspace:apps/web-assetmantle":
+  version: 0.0.0-use.local
+  resolution: "web-assetmantle@workspace:apps/web-assetmantle"
+  dependencies:
+    "@apollo/client": ^3.1.5
+    "@graphql-codegen/cli": ^2.13.8
+    "@graphql-codegen/client-preset": ^1.1.1
+    "@graphql-codegen/fragment-matcher": ^3.3.1
+    "@graphql-codegen/typescript": ^1.21.0
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
+    "@material-ui/core": ^4.11.3
+    "@material-ui/icons": ^4.9.1
+    "@material-ui/styles": ^4.10.0
+    "@sentry/nextjs": ^7.16.0
+    "@socialgouv/matomo-next": ^1.2.2
+    "@svgr/webpack": ^6.5.1
+    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/react": ^11.0.2
+    "@testing-library/react-hooks": ^3.7.0
+    "@types/big.js": ^6.1.2
+    "@types/jest": ^29.2.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
+    axios: ^0.21.4
+    axios-mock-adapter: ^1.19.0
+    bech32: ^2.0.0
+    big.js: ^6.1.1
+    classnames: ^2.2.6
+    color: ^3.1.3
+    copy-to-clipboard: ^3.3.1
+    cors: ^2.8.5
+    dayjs: ^1.10.4
+    dompurify: ^2.3.1
+    dotenv: ^8.2.0
+    eslint: ^8.26.0
+    eslint-config-custom: "*"
+    eslint-config-cypress: "*"
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
+    helmet: ^4.6.0
+    isomorphic-ws: ^5.0.0
+    jdenticon: ^3.1.0
+    jest: ^28.1.0
+    jest-environment-jsdom: ^29.2.2
+    jest-localstorage-mock: ^2.4.18
+    jest-presets: "*"
+    jest-transform-stub: ^2.0.0
+    jest-watch-typeahead: ^2.2.0
+    markdown-to-jsx: ^7.1.2
+    mock-apollo-client: ^1.1.0
+    next: ^12.1.0
+    next-seo: ^4.26.0
+    next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
+    numeral: 2.0.4
+    prop-types: ^15.6.0
+    qrcode.react: ^1.0.1
+    ramda: ^0.27.1
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-share: ^4.4.0
+    react-test-renderer: ^17.0.2
+    react-toastify: ^7.0.3
+    react-virtualized-auto-sizer: ^1.0.4
+    react-window: ^1.8.6
+    react-window-infinite-loader: ^1.0.7
+    recharts: ^2.1.16
+    recoil: ^0.4.1
+    shared-utils: "*"
+    subscriptions-transport-ws: ^0.11.0
+    ts-jest: ^28.0.8
+    ts-node: ^10.9.1
+    tsconfig: "*"
+    typescript: ^4.8.4
+    ui: "*"
+    ws: ^8.10.0
+  languageName: unknown
+  linkType: soft
+
+"web-band@workspace:apps/web-band":
+  version: 0.0.0-use.local
+  resolution: "web-band@workspace:apps/web-band"
+  dependencies:
+    "@apollo/client": ^3.1.5
+    "@graphql-codegen/cli": ^2.13.8
+    "@graphql-codegen/client-preset": ^1.1.1
+    "@graphql-codegen/fragment-matcher": ^3.3.1
+    "@graphql-codegen/typescript": ^1.21.0
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
+    "@material-ui/core": ^4.11.3
+    "@material-ui/icons": ^4.9.1
+    "@material-ui/styles": ^4.10.0
+    "@sentry/nextjs": ^7.16.0
+    "@socialgouv/matomo-next": ^1.2.2
+    "@svgr/webpack": ^6.5.1
+    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/react": ^11.0.2
+    "@testing-library/react-hooks": ^3.7.0
+    "@types/big.js": ^6.1.2
+    "@types/jest": ^29.2.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
+    axios: ^0.21.4
+    axios-mock-adapter: ^1.19.0
+    bech32: ^2.0.0
+    big.js: ^6.1.1
+    classnames: ^2.2.6
+    color: ^3.1.3
+    copy-to-clipboard: ^3.3.1
+    cors: ^2.8.5
+    dayjs: ^1.10.4
+    dompurify: ^2.3.1
+    dotenv: ^8.2.0
+    eslint: ^8.26.0
+    eslint-config-custom: "*"
+    eslint-config-cypress: "*"
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
+    helmet: ^4.6.0
+    isomorphic-ws: ^5.0.0
+    jdenticon: ^3.1.0
+    jest: ^28.1.0
+    jest-environment-jsdom: ^29.2.2
+    jest-localstorage-mock: ^2.4.18
+    jest-presets: "*"
+    jest-transform-stub: ^2.0.0
+    jest-watch-typeahead: ^2.2.0
+    markdown-to-jsx: ^7.1.2
+    mock-apollo-client: ^1.1.0
+    next: ^12.1.0
+    next-seo: ^4.26.0
+    next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
+    numeral: 2.0.4
+    prop-types: ^15.6.0
+    qrcode.react: ^1.0.1
+    ramda: ^0.27.1
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-share: ^4.4.0
+    react-test-renderer: ^17.0.2
+    react-toastify: ^7.0.3
+    react-virtualized-auto-sizer: ^1.0.4
+    react-window: ^1.8.6
+    react-window-infinite-loader: ^1.0.7
+    recharts: ^2.1.16
+    recoil: ^0.4.1
+    shared-utils: "*"
+    subscriptions-transport-ws: ^0.11.0
+    ts-jest: ^28.0.8
+    ts-node: ^10.9.1
+    tsconfig: "*"
+    typescript: ^4.8.4
+    ui: "*"
+    ws: ^8.10.0
+  languageName: unknown
+  linkType: soft
+
+"web-bitsong@workspace:apps/web-bitsong":
+  version: 0.0.0-use.local
+  resolution: "web-bitsong@workspace:apps/web-bitsong"
+  dependencies:
+    "@apollo/client": ^3.1.5
+    "@graphql-codegen/cli": ^2.13.8
+    "@graphql-codegen/client-preset": ^1.1.1
+    "@graphql-codegen/fragment-matcher": ^3.3.1
+    "@graphql-codegen/typescript": ^1.21.0
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
+    "@material-ui/core": ^4.11.3
+    "@material-ui/icons": ^4.9.1
+    "@material-ui/styles": ^4.10.0
+    "@sentry/nextjs": ^7.16.0
+    "@socialgouv/matomo-next": ^1.2.2
+    "@svgr/webpack": ^6.5.1
+    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/react": ^11.0.2
+    "@testing-library/react-hooks": ^3.7.0
+    "@types/big.js": ^6.1.2
+    "@types/jest": ^29.2.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
+    axios: ^0.21.4
+    axios-mock-adapter: ^1.19.0
+    bech32: ^2.0.0
+    big.js: ^6.1.1
+    classnames: ^2.2.6
+    color: ^3.1.3
+    copy-to-clipboard: ^3.3.1
+    cors: ^2.8.5
+    dayjs: ^1.10.4
+    dompurify: ^2.3.1
+    dotenv: ^8.2.0
+    eslint: ^8.26.0
+    eslint-config-custom: "*"
+    eslint-config-cypress: "*"
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
+    helmet: ^4.6.0
+    isomorphic-ws: ^5.0.0
+    jdenticon: ^3.1.0
+    jest: ^28.1.0
+    jest-environment-jsdom: ^29.2.2
+    jest-localstorage-mock: ^2.4.18
+    jest-presets: "*"
+    jest-transform-stub: ^2.0.0
+    jest-watch-typeahead: ^2.2.0
+    markdown-to-jsx: ^7.1.2
+    mock-apollo-client: ^1.1.0
+    next: ^12.1.0
+    next-seo: ^4.26.0
+    next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
+    numeral: 2.0.4
+    prop-types: ^15.6.0
+    qrcode.react: ^1.0.1
+    ramda: ^0.27.1
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-share: ^4.4.0
+    react-test-renderer: ^17.0.2
+    react-toastify: ^7.0.3
+    react-virtualized-auto-sizer: ^1.0.4
+    react-window: ^1.8.6
+    react-window-infinite-loader: ^1.0.7
+    recharts: ^2.1.16
+    recoil: ^0.4.1
+    shared-utils: "*"
+    subscriptions-transport-ws: ^0.11.0
+    ts-jest: ^28.0.8
+    ts-node: ^10.9.1
+    tsconfig: "*"
+    typescript: ^4.8.4
+    ui: "*"
+    ws: ^8.10.0
+  languageName: unknown
+  linkType: soft
+
+"web-comdex@workspace:apps/web-comdex":
+  version: 0.0.0-use.local
+  resolution: "web-comdex@workspace:apps/web-comdex"
+  dependencies:
+    "@apollo/client": ^3.1.5
+    "@graphql-codegen/cli": ^2.13.8
+    "@graphql-codegen/client-preset": ^1.1.1
+    "@graphql-codegen/fragment-matcher": ^3.3.1
+    "@graphql-codegen/typescript": ^1.21.0
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
+    "@material-ui/core": ^4.11.3
+    "@material-ui/icons": ^4.9.1
+    "@material-ui/styles": ^4.10.0
+    "@sentry/nextjs": ^7.16.0
+    "@socialgouv/matomo-next": ^1.2.2
+    "@svgr/webpack": ^6.5.1
+    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/react": ^11.0.2
+    "@testing-library/react-hooks": ^3.7.0
+    "@types/big.js": ^6.1.2
+    "@types/jest": ^29.2.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
+    axios: ^0.21.4
+    axios-mock-adapter: ^1.19.0
+    bech32: ^2.0.0
+    big.js: ^6.1.1
+    classnames: ^2.2.6
+    color: ^3.1.3
+    copy-to-clipboard: ^3.3.1
+    cors: ^2.8.5
+    dayjs: ^1.10.4
+    dompurify: ^2.3.1
+    dotenv: ^8.2.0
+    eslint: ^8.26.0
+    eslint-config-custom: "*"
+    eslint-config-cypress: "*"
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
+    helmet: ^4.6.0
+    isomorphic-ws: ^5.0.0
+    jdenticon: ^3.1.0
+    jest: ^28.1.0
+    jest-environment-jsdom: ^29.2.2
+    jest-localstorage-mock: ^2.4.18
+    jest-presets: "*"
+    jest-transform-stub: ^2.0.0
+    jest-watch-typeahead: ^2.2.0
+    markdown-to-jsx: ^7.1.2
+    mock-apollo-client: ^1.1.0
+    next: ^12.1.0
+    next-seo: ^4.26.0
+    next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
+    numeral: 2.0.4
+    prop-types: ^15.6.0
+    qrcode.react: ^1.0.1
+    ramda: ^0.27.1
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-share: ^4.4.0
+    react-test-renderer: ^17.0.2
+    react-toastify: ^7.0.3
+    react-virtualized-auto-sizer: ^1.0.4
+    react-window: ^1.8.6
+    react-window-infinite-loader: ^1.0.7
+    recharts: ^2.1.16
+    recoil: ^0.4.1
+    shared-utils: "*"
+    subscriptions-transport-ws: ^0.11.0
+    ts-jest: ^28.0.8
+    ts-node: ^10.9.1
+    tsconfig: "*"
+    typescript: ^4.8.4
+    ui: "*"
+    ws: ^8.10.0
+  languageName: unknown
+  linkType: soft
+
+"web-cosmos@workspace:apps/web-cosmos":
+  version: 0.0.0-use.local
+  resolution: "web-cosmos@workspace:apps/web-cosmos"
+  dependencies:
+    "@apollo/client": ^3.1.5
+    "@graphql-codegen/cli": ^2.13.8
+    "@graphql-codegen/client-preset": ^1.1.1
+    "@graphql-codegen/fragment-matcher": ^3.3.1
+    "@graphql-codegen/typescript": ^1.21.0
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
+    "@material-ui/core": ^4.11.3
+    "@material-ui/icons": ^4.9.1
+    "@material-ui/styles": ^4.10.0
+    "@sentry/nextjs": ^7.16.0
+    "@socialgouv/matomo-next": ^1.2.2
+    "@svgr/webpack": ^6.5.1
+    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/react": ^11.0.2
+    "@testing-library/react-hooks": ^3.7.0
+    "@types/big.js": ^6.1.2
+    "@types/jest": ^29.2.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
+    axios: ^0.21.4
+    axios-mock-adapter: ^1.19.0
+    bech32: ^2.0.0
+    big.js: ^6.1.1
+    classnames: ^2.2.6
+    color: ^3.1.3
+    copy-to-clipboard: ^3.3.1
+    cors: ^2.8.5
+    dayjs: ^1.10.4
+    dompurify: ^2.3.1
+    dotenv: ^8.2.0
+    eslint: ^8.26.0
+    eslint-config-custom: "*"
+    eslint-config-cypress: "*"
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
+    helmet: ^4.6.0
+    isomorphic-ws: ^5.0.0
+    jdenticon: ^3.1.0
+    jest: ^28.1.0
+    jest-environment-jsdom: ^29.2.2
+    jest-localstorage-mock: ^2.4.18
+    jest-presets: "*"
+    jest-transform-stub: ^2.0.0
+    jest-watch-typeahead: ^2.2.0
+    markdown-to-jsx: ^7.1.2
+    mock-apollo-client: ^1.1.0
+    next: ^12.1.0
+    next-seo: ^4.26.0
+    next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
+    numeral: 2.0.4
+    prop-types: ^15.6.0
+    qrcode.react: ^1.0.1
+    ramda: ^0.27.1
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-share: ^4.4.0
+    react-test-renderer: ^17.0.2
+    react-toastify: ^7.0.3
+    react-virtualized-auto-sizer: ^1.0.4
+    react-window: ^1.8.6
+    react-window-infinite-loader: ^1.0.7
+    recharts: ^2.1.16
+    recoil: ^0.4.1
+    shared-utils: "*"
+    subscriptions-transport-ws: ^0.11.0
+    ts-jest: ^28.0.8
+    ts-node: ^10.9.1
+    tsconfig: "*"
+    typescript: ^4.8.4
+    ui: "*"
+    ws: ^8.10.0
+  languageName: unknown
+  linkType: soft
+
+"web-crescent@workspace:apps/web-crescent":
+  version: 0.0.0-use.local
+  resolution: "web-crescent@workspace:apps/web-crescent"
+  dependencies:
+    "@apollo/client": ^3.1.5
+    "@graphql-codegen/cli": ^2.13.8
+    "@graphql-codegen/client-preset": ^1.1.1
+    "@graphql-codegen/fragment-matcher": ^3.3.1
+    "@graphql-codegen/typescript": ^1.21.0
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
+    "@material-ui/core": ^4.11.3
+    "@material-ui/icons": ^4.9.1
+    "@material-ui/styles": ^4.10.0
+    "@sentry/nextjs": ^7.16.0
+    "@socialgouv/matomo-next": ^1.2.2
+    "@svgr/webpack": ^6.5.1
+    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/react": ^11.0.2
+    "@testing-library/react-hooks": ^3.7.0
+    "@types/big.js": ^6.1.2
+    "@types/jest": ^29.2.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
+    axios: ^0.21.4
+    axios-mock-adapter: ^1.19.0
+    bech32: ^2.0.0
+    big.js: ^6.1.1
+    classnames: ^2.2.6
+    color: ^3.1.3
+    copy-to-clipboard: ^3.3.1
+    cors: ^2.8.5
+    dayjs: ^1.10.4
+    dompurify: ^2.3.1
+    dotenv: ^8.2.0
+    eslint: ^8.26.0
+    eslint-config-custom: "*"
+    eslint-config-cypress: "*"
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
+    helmet: ^4.6.0
+    isomorphic-ws: ^5.0.0
+    jdenticon: ^3.1.0
+    jest: ^28.1.0
+    jest-environment-jsdom: ^29.2.2
+    jest-localstorage-mock: ^2.4.18
+    jest-presets: "*"
+    jest-transform-stub: ^2.0.0
+    jest-watch-typeahead: ^2.2.0
+    markdown-to-jsx: ^7.1.2
+    mock-apollo-client: ^1.1.0
+    next: ^12.1.0
+    next-seo: ^4.26.0
+    next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
+    numeral: 2.0.4
+    prop-types: ^15.6.0
+    qrcode.react: ^1.0.1
+    ramda: ^0.27.1
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-share: ^4.4.0
+    react-test-renderer: ^17.0.2
+    react-toastify: ^7.0.3
+    react-virtualized-auto-sizer: ^1.0.4
+    react-window: ^1.8.6
+    react-window-infinite-loader: ^1.0.7
+    recharts: ^2.1.16
+    recoil: ^0.4.1
+    shared-utils: "*"
+    subscriptions-transport-ws: ^0.11.0
+    ts-jest: ^28.0.8
+    ts-node: ^10.9.1
+    tsconfig: "*"
+    typescript: ^4.8.4
+    ui: "*"
+    ws: ^8.10.0
+  languageName: unknown
+  linkType: soft
+
+"web-desmos@workspace:apps/web-desmos":
+  version: 0.0.0-use.local
+  resolution: "web-desmos@workspace:apps/web-desmos"
+  dependencies:
+    "@apollo/client": ^3.1.5
+    "@graphql-codegen/cli": ^2.13.8
+    "@graphql-codegen/client-preset": ^1.1.1
+    "@graphql-codegen/fragment-matcher": ^3.3.1
+    "@graphql-codegen/typescript": ^1.21.0
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
+    "@material-ui/core": ^4.11.3
+    "@material-ui/icons": ^4.9.1
+    "@material-ui/styles": ^4.10.0
+    "@sentry/nextjs": ^7.16.0
+    "@socialgouv/matomo-next": ^1.2.2
+    "@svgr/webpack": ^6.5.1
+    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/react": ^11.0.2
+    "@testing-library/react-hooks": ^3.7.0
+    "@types/big.js": ^6.1.2
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.15
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
+    axios: ^0.21.4
+    axios-mock-adapter: ^1.19.0
+    bech32: ^2.0.0
+    big.js: ^6.1.1
+    classnames: ^2.2.6
+    color: ^3.1.3
+    copy-to-clipboard: ^3.3.1
+    cors: ^2.8.5
+    dayjs: ^1.10.4
+    dompurify: ^2.3.1
+    dotenv: ^8.2.0
+    eslint: ^8.26.0
+    eslint-config-custom: "*"
+    eslint-config-cypress: "*"
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
+    helmet: ^4.6.0
+    isomorphic-ws: ^5.0.0
+    jdenticon: ^3.1.0
+    jest: ^28.1.0
+    jest-environment-jsdom: ^29.2.2
+    jest-localstorage-mock: ^2.4.18
+    jest-presets: "*"
+    jest-transform-stub: ^2.0.0
+    jest-watch-typeahead: ^2.2.0
+    markdown-to-jsx: ^7.1.2
+    mock-apollo-client: ^1.1.0
+    next: ^12.1.0
+    next-seo: ^4.26.0
+    next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
+    numeral: 2.0.4
+    prop-types: ^15.6.0
+    qrcode.react: ^1.0.1
+    ramda: ^0.27.1
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-share: ^4.4.0
+    react-test-renderer: ^17.0.2
+    react-toastify: ^7.0.3
+    react-virtualized-auto-sizer: ^1.0.4
+    react-window: ^1.8.6
+    react-window-infinite-loader: ^1.0.7
+    recharts: ^2.1.16
+    recoil: ^0.4.1
+    shared-utils: "*"
+    subscriptions-transport-ws: ^0.11.0
+    ts-jest: ^28.0.8
+    ts-node: ^10.9.1
+    tsconfig: "*"
+    typescript: ^4.8.4
+    ui: "*"
+    ws: ^8.10.0
+  languageName: unknown
+  linkType: soft
+
+"web-elrond@workspace:apps/web-elrond":
+  version: 0.0.0-use.local
+  resolution: "web-elrond@workspace:apps/web-elrond"
+  dependencies:
+    "@apollo/client": ^3.1.5
+    "@graphql-codegen/cli": ^2.13.8
+    "@graphql-codegen/client-preset": ^1.1.1
+    "@graphql-codegen/fragment-matcher": ^3.3.1
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
+    "@material-ui/core": ^4.11.3
+    "@material-ui/icons": ^4.9.1
+    "@material-ui/styles": ^4.10.0
+    "@sentry/nextjs": ^7.16.0
+    "@socialgouv/matomo-next": ^1.2.2
+    "@svgr/webpack": ^6.5.1
+    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/react": ^11.0.2
+    "@testing-library/react-hooks": ^3.7.0
+    "@types/big.js": ^6.1.2
+    "@types/jest": ^29.2.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
+    axios: ^0.21.4
+    axios-mock-adapter: ^1.19.0
+    bech32: ^2.0.0
+    big.js: ^6.1.1
+    classnames: ^2.2.6
+    color: ^3.1.3
+    copy-to-clipboard: ^3.3.1
+    cors: ^2.8.5
+    dayjs: ^1.10.4
+    dompurify: ^2.3.1
+    dotenv: ^8.2.0
+    eslint: ^8.26.0
+    eslint-config-custom: "*"
+    eslint-config-cypress: "*"
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
+    helmet: ^4.6.0
+    isomorphic-ws: ^5.0.0
+    jdenticon: ^3.1.0
+    jest: ^28.1.0
+    jest-environment-jsdom: ^29.2.2
+    jest-localstorage-mock: ^2.4.18
+    jest-presets: "*"
+    jest-transform-stub: ^2.0.0
+    jest-watch-typeahead: ^2.2.0
+    markdown-to-jsx: ^7.1.2
+    next: ^12.1.0
+    next-seo: ^4.26.0
+    next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
+    numeral: 2.0.4
+    prop-types: ^15.6.0
+    qrcode.react: ^1.0.1
+    ramda: ^0.27.1
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-share: ^4.4.0
+    react-test-renderer: ^17.0.2
+    react-toastify: ^7.0.3
+    react-virtualized-auto-sizer: ^1.0.4
+    react-window: ^1.8.6
+    react-window-infinite-loader: ^1.0.7
+    recharts: ^2.1.16
+    recoil: ^0.4.1
+    shared-utils: "*"
+    subscriptions-transport-ws: ^0.11.0
+    ts-jest: ^28.0.8
+    ts-node: ^10.9.1
+    tsconfig: "*"
+    typescript: ^4.8.4
+    ui: "*"
+    ws: ^8.10.0
+  languageName: unknown
+  linkType: soft
+
+"web-emoney@workspace:apps/web-emoney":
+  version: 0.0.0-use.local
+  resolution: "web-emoney@workspace:apps/web-emoney"
+  dependencies:
+    "@apollo/client": ^3.1.5
+    "@graphql-codegen/cli": ^2.13.8
+    "@graphql-codegen/client-preset": ^1.1.1
+    "@graphql-codegen/fragment-matcher": ^3.3.1
+    "@graphql-codegen/typescript": ^1.21.0
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
+    "@material-ui/core": ^4.11.3
+    "@material-ui/icons": ^4.9.1
+    "@material-ui/styles": ^4.10.0
+    "@sentry/nextjs": ^7.16.0
+    "@socialgouv/matomo-next": ^1.2.2
+    "@svgr/webpack": ^6.5.1
+    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/react": ^11.0.2
+    "@testing-library/react-hooks": ^3.7.0
+    "@types/big.js": ^6.1.2
+    "@types/jest": ^29.2.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
+    axios: ^0.21.4
+    axios-mock-adapter: ^1.19.0
+    bech32: ^2.0.0
+    big.js: ^6.1.1
+    classnames: ^2.2.6
+    color: ^3.1.3
+    copy-to-clipboard: ^3.3.1
+    cors: ^2.8.5
+    dayjs: ^1.10.4
+    dompurify: ^2.3.1
+    dotenv: ^8.2.0
+    eslint: ^8.26.0
+    eslint-config-custom: "*"
+    eslint-config-cypress: "*"
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
+    helmet: ^4.6.0
+    isomorphic-ws: ^5.0.0
+    jdenticon: ^3.1.0
+    jest: ^28.1.0
+    jest-environment-jsdom: ^29.2.2
+    jest-localstorage-mock: ^2.4.18
+    jest-presets: "*"
+    jest-transform-stub: ^2.0.0
+    jest-watch-typeahead: ^2.2.0
+    markdown-to-jsx: ^7.1.2
+    mock-apollo-client: ^1.1.0
+    next: ^12.1.0
+    next-seo: ^4.26.0
+    next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
+    numeral: 2.0.4
+    prop-types: ^15.6.0
+    qrcode.react: ^1.0.1
+    ramda: ^0.27.1
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-share: ^4.4.0
+    react-test-renderer: ^17.0.2
+    react-toastify: ^7.0.3
+    react-virtualized-auto-sizer: ^1.0.4
+    react-window: ^1.8.6
+    react-window-infinite-loader: ^1.0.7
+    recharts: ^2.1.16
+    recoil: ^0.4.1
+    shared-utils: "*"
+    subscriptions-transport-ws: ^0.11.0
+    ts-jest: ^28.0.8
+    ts-node: ^10.9.1
+    tsconfig: "*"
+    typescript: ^4.8.4
+    ui: "*"
+    ws: ^8.10.0
+  languageName: unknown
+  linkType: soft
+
+"web-evmos@workspace:apps/web-evmos":
+  version: 0.0.0-use.local
+  resolution: "web-evmos@workspace:apps/web-evmos"
+  dependencies:
+    "@apollo/client": ^3.1.5
+    "@graphql-codegen/cli": ^2.13.8
+    "@graphql-codegen/client-preset": ^1.1.1
+    "@graphql-codegen/fragment-matcher": ^3.3.1
+    "@graphql-codegen/typescript": ^1.21.0
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
+    "@material-ui/core": ^4.11.3
+    "@material-ui/icons": ^4.9.1
+    "@material-ui/styles": ^4.10.0
+    "@sentry/nextjs": ^7.16.0
+    "@socialgouv/matomo-next": ^1.2.2
+    "@svgr/webpack": ^6.5.1
+    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/react": ^11.0.2
+    "@testing-library/react-hooks": ^3.7.0
+    "@types/big.js": ^6.1.2
+    "@types/jest": ^29.2.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
+    axios: ^0.21.4
+    axios-mock-adapter: ^1.19.0
+    bech32: ^2.0.0
+    big.js: ^6.1.1
+    classnames: ^2.2.6
+    color: ^3.1.3
+    copy-to-clipboard: ^3.3.1
+    cors: ^2.8.5
+    dayjs: ^1.10.4
+    dompurify: ^2.3.1
+    dotenv: ^8.2.0
+    eslint: ^8.26.0
+    eslint-config-custom: "*"
+    eslint-config-cypress: "*"
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
+    helmet: ^4.6.0
+    isomorphic-ws: ^5.0.0
+    jdenticon: ^3.1.0
+    jest: ^28.1.0
+    jest-environment-jsdom: ^29.2.2
+    jest-localstorage-mock: ^2.4.18
+    jest-presets: "*"
+    jest-transform-stub: ^2.0.0
+    jest-watch-typeahead: ^2.2.0
+    markdown-to-jsx: ^7.1.2
+    mock-apollo-client: ^1.1.0
+    next: ^12.1.0
+    next-seo: ^4.26.0
+    next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
+    numeral: 2.0.4
+    prop-types: ^15.6.0
+    qrcode.react: ^1.0.1
+    ramda: ^0.27.1
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-share: ^4.4.0
+    react-test-renderer: ^17.0.2
+    react-toastify: ^7.0.3
+    react-virtualized-auto-sizer: ^1.0.4
+    react-window: ^1.8.6
+    react-window-infinite-loader: ^1.0.7
+    recharts: ^2.1.16
+    recoil: ^0.4.1
+    shared-utils: "*"
+    subscriptions-transport-ws: ^0.11.0
+    ts-jest: ^28.0.8
+    ts-node: ^10.9.1
+    tsconfig: "*"
+    typescript: ^4.8.4
+    ui: "*"
+    ws: ^8.10.0
+  languageName: unknown
+  linkType: soft
+
+"web-flow@workspace:apps/web-flow":
+  version: 0.0.0-use.local
+  resolution: "web-flow@workspace:apps/web-flow"
+  dependencies:
+    "@apollo/client": ^3.1.5
+    "@graphql-codegen/cli": ^2.13.8
+    "@graphql-codegen/client-preset": ^1.1.1
+    "@graphql-codegen/fragment-matcher": ^3.3.1
+    "@graphql-codegen/typescript": ^1.21.0
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
+    "@material-ui/core": ^4.11.3
+    "@material-ui/icons": ^4.9.1
+    "@material-ui/styles": ^4.10.0
+    "@sentry/nextjs": ^7.16.0
+    "@socialgouv/matomo-next": ^1.2.2
+    "@svgr/webpack": ^6.5.1
+    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/react": ^11.0.2
+    "@testing-library/react-hooks": ^3.7.0
+    "@types/big.js": ^6.1.2
+    "@types/jest": ^29.2.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
+    axios: ^0.21.4
+    axios-mock-adapter: ^1.19.0
+    bech32: ^2.0.0
+    big.js: ^6.1.1
+    classnames: ^2.3.1
+    color: ^3.1.3
+    copy-to-clipboard: ^3.3.1
+    cors: ^2.8.5
+    dayjs: ^1.10.4
+    dompurify: ^2.3.1
+    dotenv: ^8.2.0
+    eslint: ^8.26.0
+    eslint-config-custom: "*"
+    eslint-config-cypress: "*"
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
+    helmet: ^4.6.0
+    isomorphic-ws: ^5.0.0
+    jdenticon: ^3.1.0
+    jest: ^28.1.0
+    jest-environment-jsdom: ^29.2.2
+    jest-localstorage-mock: ^2.4.18
+    jest-presets: "*"
+    jest-transform-stub: ^2.0.0
+    jest-watch-typeahead: ^2.2.0
+    markdown-to-jsx: ^7.1.2
+    mock-apollo-client: ^1.1.0
+    next: ^12.1.0
+    next-seo: ^4.26.0
+    next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
+    numeral: 2.0.4
+    prop-types: ^15.6.0
+    qrcode.react: ^1.0.1
+    ramda: ^0.27.1
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-share: ^4.4.0
+    react-test-renderer: ^17.0.2
+    react-toastify: ^7.0.3
+    react-virtualized-auto-sizer: ^1.0.4
+    react-window: ^1.8.6
+    react-window-infinite-loader: ^1.0.7
+    recharts: ^2.1.16
+    recoil: ^0.4.1
+    shared-utils: "*"
+    subscriptions-transport-ws: ^0.11.0
+    ts-jest: ^28.0.8
+    ts-node: ^10.9.1
+    tsconfig: "*"
+    typescript: ^4.8.4
+    ui: "*"
+    ws: ^8.10.0
+  languageName: unknown
+  linkType: soft
+
+"web-likecoin@workspace:apps/web-likecoin":
+  version: 0.0.0-use.local
+  resolution: "web-likecoin@workspace:apps/web-likecoin"
+  dependencies:
+    "@apollo/client": ^3.1.5
+    "@graphql-codegen/cli": ^2.13.8
+    "@graphql-codegen/client-preset": ^1.1.1
+    "@graphql-codegen/fragment-matcher": ^3.3.1
+    "@graphql-codegen/typescript": ^1.21.0
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
+    "@material-ui/core": ^4.11.3
+    "@material-ui/icons": ^4.9.1
+    "@material-ui/styles": ^4.10.0
+    "@sentry/nextjs": ^7.16.0
+    "@socialgouv/matomo-next": ^1.2.2
+    "@svgr/webpack": ^6.5.1
+    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/react": ^11.0.2
+    "@testing-library/react-hooks": ^3.7.0
+    "@types/big.js": ^6.1.2
+    "@types/jest": ^29.2.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
+    axios: ^0.21.4
+    axios-mock-adapter: ^1.19.0
+    bech32: ^2.0.0
+    big.js: ^6.1.1
+    classnames: ^2.2.6
+    color: ^3.1.3
+    copy-to-clipboard: ^3.3.1
+    cors: ^2.8.5
+    dayjs: ^1.10.4
+    dompurify: ^2.3.1
+    dotenv: ^8.2.0
+    eslint: ^8.26.0
+    eslint-config-custom: "*"
+    eslint-config-cypress: "*"
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
+    helmet: ^4.6.0
+    isomorphic-ws: ^5.0.0
+    jdenticon: ^3.1.0
+    jest: ^28.1.0
+    jest-environment-jsdom: ^29.2.2
+    jest-localstorage-mock: ^2.4.18
+    jest-presets: "*"
+    jest-transform-stub: ^2.0.0
+    jest-watch-typeahead: ^2.2.0
+    markdown-to-jsx: ^7.1.2
+    mock-apollo-client: ^1.1.0
+    next: ^12.1.0
+    next-seo: ^4.26.0
+    next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
+    numeral: 2.0.4
+    prop-types: ^15.6.0
+    qrcode.react: ^1.0.1
+    ramda: ^0.27.1
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-share: ^4.4.0
+    react-test-renderer: ^17.0.2
+    react-toastify: ^7.0.3
+    react-virtualized-auto-sizer: ^1.0.4
+    react-window: ^1.8.6
+    react-window-infinite-loader: ^1.0.7
+    recharts: ^2.1.16
+    recoil: ^0.4.1
+    shared-utils: "*"
+    subscriptions-transport-ws: ^0.11.0
+    ts-jest: ^28.0.8
+    ts-node: ^10.9.1
+    tsconfig: "*"
+    typescript: ^4.8.4
+    ui: "*"
+    ws: ^8.10.0
+  languageName: unknown
+  linkType: soft
+
+"web-nomic@workspace:apps/web-nomic":
+  version: 0.0.0-use.local
+  resolution: "web-nomic@workspace:apps/web-nomic"
+  dependencies:
+    "@apollo/client": ^3.1.5
+    "@graphql-codegen/cli": ^2.13.8
+    "@graphql-codegen/client-preset": ^1.1.1
+    "@graphql-codegen/fragment-matcher": ^3.3.1
+    "@graphql-codegen/typescript": ^1.21.0
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
+    "@material-ui/core": ^4.11.3
+    "@material-ui/icons": ^4.9.1
+    "@material-ui/styles": ^4.10.0
+    "@sentry/nextjs": ^7.16.0
+    "@socialgouv/matomo-next": ^1.2.2
+    "@svgr/webpack": ^6.5.1
+    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/react": ^11.0.2
+    "@testing-library/react-hooks": ^3.7.0
+    "@types/big.js": ^6.1.2
+    "@types/jest": ^29.2.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
+    axios: ^0.21.4
+    axios-mock-adapter: ^1.19.0
+    bech32: ^2.0.0
+    big.js: ^6.1.1
+    classnames: ^2.2.6
+    color: ^3.1.3
+    copy-to-clipboard: ^3.3.1
+    cors: ^2.8.5
+    dayjs: ^1.10.4
+    dompurify: ^2.3.1
+    dotenv: ^8.2.0
+    eslint: ^8.26.0
+    eslint-config-custom: "*"
+    eslint-config-cypress: "*"
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
+    helmet: ^4.6.0
+    isomorphic-ws: ^5.0.0
+    jdenticon: ^3.1.0
+    jest: ^28.1.0
+    jest-environment-jsdom: ^29.2.2
+    jest-localstorage-mock: ^2.4.18
+    jest-presets: "*"
+    jest-transform-stub: ^2.0.0
+    jest-watch-typeahead: ^2.2.0
+    markdown-to-jsx: ^7.1.2
+    mock-apollo-client: ^1.1.0
+    next: ^12.1.0
+    next-seo: ^4.26.0
+    next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
+    numeral: 2.0.4
+    prop-types: ^15.6.0
+    qrcode.react: ^1.0.1
+    ramda: ^0.27.1
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-share: ^4.4.0
+    react-test-renderer: ^17.0.2
+    react-toastify: ^7.0.3
+    react-virtualized-auto-sizer: ^1.0.4
+    react-window: ^1.8.6
+    react-window-infinite-loader: ^1.0.7
+    recharts: ^2.1.16
+    recoil: ^0.4.1
+    shared-utils: "*"
+    subscriptions-transport-ws: ^0.11.0
+    ts-jest: ^28.0.8
+    ts-node: ^10.9.1
+    tsconfig: "*"
+    typescript: ^4.8.4
+    ui: "*"
+    ws: ^8.10.0
   languageName: unknown
   linkType: soft
 
@@ -18269,10 +17608,12 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
     "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
     bech32: ^2.0.0
@@ -18284,10 +17625,9 @@ __metadata:
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
-    eslint: ^7.8.1
+    eslint: ^8.26.0
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
-    express: ^4.17.1
     graphql: ^15.0.0
     graphql-tag: ^2.0.0
     helmet: ^4.6.0
@@ -18322,11 +17662,11 @@ __metadata:
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
     ts-jest: ^28.0.8
-    ts-node: ^10.4.0
+    ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
     ui: "*"
-    ws: ^8.9.0
+    ws: ^8.10.0
   languageName: unknown
   linkType: soft
 
@@ -18352,10 +17692,12 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
     "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
     bech32: ^2.0.0
@@ -18367,10 +17709,9 @@ __metadata:
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
-    eslint: ^7.8.1
+    eslint: ^8.26.0
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
-    express: ^4.17.1
     graphql: ^15.0.0
     graphql-tag: ^2.0.0
     helmet: ^4.6.0
@@ -18405,11 +17746,11 @@ __metadata:
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
     ts-jest: ^28.0.8
-    ts-node: ^10.4.0
+    ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
     ui: "*"
-    ws: ^8.9.0
+    ws: ^8.10.0
   languageName: unknown
   linkType: soft
 
@@ -18435,10 +17776,12 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
     "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
     bech32: ^2.0.0
@@ -18450,10 +17793,9 @@ __metadata:
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
-    eslint: ^7.8.1
+    eslint: ^8.26.0
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
-    express: ^4.17.1
     graphql: ^15.0.0
     graphql-tag: ^2.0.0
     helmet: ^4.6.0
@@ -18488,11 +17830,11 @@ __metadata:
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
     ts-jest: ^28.0.8
-    ts-node: ^10.4.0
+    ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
     ui: "*"
-    ws: ^8.9.0
+    ws: ^8.10.0
   languageName: unknown
   linkType: soft
 
@@ -18518,10 +17860,12 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
     "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
     bech32: ^2.0.0
@@ -18533,10 +17877,9 @@ __metadata:
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
-    eslint: ^7.8.1
+    eslint: ^8.26.0
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
-    express: ^4.17.1
     graphql: ^15.0.0
     graphql-tag: ^2.0.0
     helmet: ^4.6.0
@@ -18571,11 +17914,11 @@ __metadata:
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
     ts-jest: ^28.0.8
-    ts-node: ^10.4.0
+    ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
     ui: "*"
-    ws: ^8.9.0
+    ws: ^8.10.0
   languageName: unknown
   linkType: soft
 
@@ -18601,10 +17944,12 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
     "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
     bech32: ^2.0.0
@@ -18616,10 +17961,9 @@ __metadata:
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
-    eslint: ^7.8.1
+    eslint: ^8.26.0
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
-    express: ^4.17.1
     graphql: ^15.0.0
     graphql-tag: ^2.0.0
     helmet: ^4.6.0
@@ -18654,11 +17998,11 @@ __metadata:
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
     ts-jest: ^28.0.8
-    ts-node: ^10.4.0
+    ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
     ui: "*"
-    ws: ^8.9.0
+    ws: ^8.10.0
   languageName: unknown
   linkType: soft
 
@@ -18684,10 +18028,12 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
     "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
     bech32: ^2.0.0
@@ -18699,10 +18045,9 @@ __metadata:
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
-    eslint: ^7.8.1
+    eslint: ^8.26.0
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
-    express: ^4.17.1
     graphql: ^15.0.0
     graphql-tag: ^2.0.0
     helmet: ^4.6.0
@@ -18737,11 +18082,11 @@ __metadata:
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
     ts-jest: ^28.0.8
-    ts-node: ^10.4.0
+    ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
     ui: "*"
-    ws: ^8.9.0
+    ws: ^8.10.0
   languageName: unknown
   linkType: soft
 
@@ -18767,10 +18112,12 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
     "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
     bech32: ^2.0.0
@@ -18782,10 +18129,9 @@ __metadata:
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
-    eslint: ^7.8.1
+    eslint: ^8.26.0
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
-    express: ^4.17.1
     graphql: ^15.0.0
     graphql-tag: ^2.0.0
     helmet: ^4.6.0
@@ -18820,11 +18166,11 @@ __metadata:
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
     ts-jest: ^28.0.8
-    ts-node: ^10.4.0
+    ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
     ui: "*"
-    ws: ^8.9.0
+    ws: ^8.10.0
   languageName: unknown
   linkType: soft
 
@@ -18850,10 +18196,12 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
     "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
     bech32: ^2.0.0
@@ -18865,10 +18213,9 @@ __metadata:
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
-    eslint: ^7.8.1
+    eslint: ^8.26.0
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
-    express: ^4.17.1
     graphql: ^15.0.0
     graphql-tag: ^2.0.0
     helmet: ^4.6.0
@@ -18903,11 +18250,11 @@ __metadata:
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
     ts-jest: ^28.0.8
-    ts-node: ^10.4.0
+    ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
     ui: "*"
-    ws: ^8.9.0
+    ws: ^8.10.0
   languageName: unknown
   linkType: soft
 
@@ -18947,11 +18294,12 @@ __metadata:
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
     "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
+    "@types/node": ^18.11.8
     "@types/numeral": ^2.0.2
-    "@types/react": 17.0.39
-    "@typescript-eslint/eslint-plugin": ^4.1.0
-    "@typescript-eslint/parser": ^4.1.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
     bech32: ^2.0.0
@@ -18963,97 +18311,7 @@ __metadata:
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
-    eslint: ^7.8.1
-    eslint-config-custom: "*"
-    eslint-config-cypress: "*"
-    express: ^4.17.1
-    graphql: ^15.0.0
-    graphql-tag: ^2.0.0
-    helmet: ^4.6.0
-    isomorphic-ws: ^5.0.0
-    jdenticon: ^3.1.0
-    jest: ^28.1.0
-    jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
-    jest-presets: "*"
-    jest-transform-stub: ^2.0.0
-    jest-watch-typeahead: ^2.2.0
-    markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
-    next: ^12.1.0
-    next-seo: ^4.26.0
-    next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
-    numeral: 2.0.4
-    prop-types: ^15.6.0
-    qrcode.react: ^1.0.1
-    ramda: ^0.27.1
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-share: ^4.4.0
-    react-test-renderer: ^17.0.2
-    react-toastify: ^7.0.3
-    react-virtualized-auto-sizer: ^1.0.4
-    react-window: ^1.8.6
-    react-window-infinite-loader: ^1.0.7
-    recharts: ^2.1.16
-    recoil: ^0.4.1
-    shared-utils: "*"
-    subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
-    ts-node: ^10.4.0
-    tsconfig: "*"
-    typescript: ^4.8.4
-    ui: "*"
-    ws: ^8.9.0
-  languageName: unknown
-  linkType: soft
-
-"web@workspace:apps/web":
-  version: 0.0.0-use.local
-  resolution: "web@workspace:apps/web"
-  dependencies:
-    "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.13.8
-    "@graphql-codegen/client-preset": ^1.1.1
-    "@graphql-codegen/fragment-matcher": ^3.3.1
-    "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^2.5.5
-    "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
-    "@socialgouv/matomo-next": ^1.2.2
-    "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/color": ^3.0.3
-    "@types/dompurify": ^2.3.4
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.3
-    "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
-    "@types/ramda": ^0.28.15
-    "@types/react": 17.0.39
-    "@types/react-virtualized-auto-sizer": ^1.0.1
-    "@types/react-window": ^1.8.5
-    "@types/react-window-infinite-loader": ^1.0.6
-    axios: ^0.21.4
-    axios-mock-adapter: ^1.19.0
-    bech32: ^2.0.0
-    big.js: ^6.1.1
-    classnames: ^2.2.6
-    color: ^3.1.3
-    copy-to-clipboard: ^3.3.1
-    cors: ^2.8.5
-    cypress: ^10.10.0
-    dayjs: ^1.10.4
-    dompurify: ^2.3.1
-    dotenv: ^8.2.0
-    eslint: ^7.32.0
+    eslint: ^8.26.0
     eslint-config-custom: "*"
     eslint-config-cypress: "*"
     graphql: ^15.0.0
@@ -19094,8 +18352,99 @@ __metadata:
     tsconfig: "*"
     typescript: ^4.8.4
     ui: "*"
-    webpack: ^5.74.0
-    ws: ^8.9.0
+    ws: ^8.10.0
+  languageName: unknown
+  linkType: soft
+
+"web@workspace:apps/web":
+  version: 0.0.0-use.local
+  resolution: "web@workspace:apps/web"
+  dependencies:
+    "@apollo/client": ^3.1.5
+    "@graphql-codegen/cli": ^2.13.8
+    "@graphql-codegen/client-preset": ^1.1.1
+    "@graphql-codegen/fragment-matcher": ^3.3.1
+    "@graphql-codegen/typescript": ^1.21.0
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
+    "@material-ui/core": ^4.11.3
+    "@material-ui/icons": ^4.9.1
+    "@material-ui/styles": ^4.10.0
+    "@sentry/nextjs": ^7.16.0
+    "@socialgouv/matomo-next": ^1.2.2
+    "@svgr/webpack": ^6.5.1
+    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/react": ^11.0.2
+    "@testing-library/react-hooks": ^3.7.0
+    "@types/big.js": ^6.1.2
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.0
+    "@types/node": ^18.11.8
+    "@types/numeral": ^2.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.15
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
+    axios: ^0.21.4
+    axios-mock-adapter: ^1.19.0
+    bech32: ^2.0.0
+    big.js: ^6.1.1
+    classnames: ^2.2.6
+    color: ^3.1.3
+    copy-to-clipboard: ^3.3.1
+    cors: ^2.8.5
+    cypress: ^10.11.0
+    dayjs: ^1.10.4
+    dompurify: ^2.3.1
+    dotenv: ^8.2.0
+    eslint: ^8.26.0
+    eslint-config-custom: "*"
+    eslint-config-cypress: "*"
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
+    helmet: ^4.6.0
+    isomorphic-ws: ^5.0.0
+    jdenticon: ^3.1.0
+    jest: ^28.1.0
+    jest-environment-jsdom: ^29.2.2
+    jest-localstorage-mock: ^2.4.18
+    jest-presets: "*"
+    jest-transform-stub: ^2.0.0
+    jest-watch-typeahead: ^2.2.0
+    markdown-to-jsx: ^7.1.2
+    mock-apollo-client: ^1.1.0
+    next: ^12.1.0
+    next-seo: ^4.26.0
+    next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
+    numeral: 2.0.4
+    prop-types: ^15.6.0
+    qrcode.react: ^1.0.1
+    ramda: ^0.27.1
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-share: ^4.4.0
+    react-test-renderer: ^17.0.2
+    react-toastify: ^7.0.3
+    react-virtualized-auto-sizer: ^1.0.4
+    react-window: ^1.8.6
+    react-window-infinite-loader: ^1.0.7
+    recharts: ^2.1.16
+    recoil: ^0.4.1
+    shared-utils: "*"
+    subscriptions-transport-ws: ^0.11.0
+    ts-jest: ^28.0.8
+    ts-node: ^10.9.1
+    tsconfig: "*"
+    typescript: ^4.8.4
+    ui: "*"
+    ws: ^8.10.0
   languageName: unknown
   linkType: soft
 
@@ -19144,50 +18493,6 @@ __metadata:
   version: 7.0.0
   resolution: "webidl-conversions@npm:7.0.0"
   checksum: f05588567a2a76428515333eff87200fae6c83c3948a7482ebb109562971e77ef6dc49749afa58abb993391227c5697b3ecca52018793e0cb4620a48f10bd21b
-  languageName: node
-  linkType: hard
-
-"webpack-sources@npm:^3.2.3":
-  version: 3.2.3
-  resolution: "webpack-sources@npm:3.2.3"
-  checksum: 989e401b9fe3536529e2a99dac8c1bdc50e3a0a2c8669cbafad31271eadd994bc9405f88a3039cd2e29db5e6d9d0926ceb7a1a4e7409ece021fe79c37d9c4607
-  languageName: node
-  linkType: hard
-
-"webpack@npm:^5.74.0":
-  version: 5.74.0
-  resolution: "webpack@npm:5.74.0"
-  dependencies:
-    "@types/eslint-scope": ^3.7.3
-    "@types/estree": ^0.0.51
-    "@webassemblyjs/ast": 1.11.1
-    "@webassemblyjs/wasm-edit": 1.11.1
-    "@webassemblyjs/wasm-parser": 1.11.1
-    acorn: ^8.7.1
-    acorn-import-assertions: ^1.7.6
-    browserslist: ^4.14.5
-    chrome-trace-event: ^1.0.2
-    enhanced-resolve: ^5.10.0
-    es-module-lexer: ^0.9.0
-    eslint-scope: 5.1.1
-    events: ^3.2.0
-    glob-to-regexp: ^0.4.1
-    graceful-fs: ^4.2.9
-    json-parse-even-better-errors: ^2.3.1
-    loader-runner: ^4.2.0
-    mime-types: ^2.1.27
-    neo-async: ^2.6.2
-    schema-utils: ^3.1.0
-    tapable: ^2.1.1
-    terser-webpack-plugin: ^5.1.3
-    watchpack: ^2.4.0
-    webpack-sources: ^3.2.3
-  peerDependenciesMeta:
-    webpack-cli:
-      optional: true
-  bin:
-    webpack: bin/webpack.js
-  checksum: 320c41369a75051b19e18c63f408b3dcc481852e992f83d311771c5ec0f05f2946385e8ebef62030cf3587f0a3d2f12779ffdb191569a966847289ba7313f946
   languageName: node
   linkType: hard
 
@@ -19403,6 +18708,21 @@ __metadata:
     utf-8-validate:
       optional: true
   checksum: c3c100a181b731f40b7f2fddf004aa023f79d64f489706a28bc23ff88e87f6a64b3c6651fbec3a84a53960b75159574d7a7385709847a62ddb7ad6af76f49138
+  languageName: node
+  linkType: hard
+
+"ws@npm:^8.10.0":
+  version: 8.10.0
+  resolution: "ws@npm:8.10.0"
+  peerDependencies:
+    bufferutil: ^4.0.1
+    utf-8-validate: ^5.0.2
+  peerDependenciesMeta:
+    bufferutil:
+      optional: true
+    utf-8-validate:
+      optional: true
+  checksum: 3a32e15dffe633dd5ce99659793dbcf1440ea25d2da1060c88cbd22efdfb7986a6933e68aaa4b098fc3f1f7870cb386afd378a1ceaca4b31748471576d5a8b52
   languageName: node
   linkType: hard
 

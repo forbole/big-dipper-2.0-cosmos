@@ -12,8 +12,9 @@ import { useRecoilCallback } from 'recoil';
 import { readValidator } from '@recoil/validators';
 import { toast } from 'react-toastify';
 import { isValidAddress } from '@utils/prefix_convert';
+import { Translate } from 'next-translate';
 
-export const useSearchBar = (t) => {
+export const useSearchBar = (t: Translate) => {
   const router = useRouter();
 
   const handleOnSubmit = useRecoilCallback(
@@ -56,6 +57,8 @@ export const useSearchBar = (t) => {
           } else {
             router.push(PROFILE_DETAILS(parsedValue));
           }
+        } else if (/^-?\d+$/.test(String(numeral(parsedValue).value()))) {
+          router.push(BLOCK_DETAILS(String(numeral(parsedValue).value())));
         } else {
           router.push(TRANSACTION_DETAILS(parsedValue));
         }

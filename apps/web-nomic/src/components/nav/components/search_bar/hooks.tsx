@@ -53,6 +53,8 @@ export const useSearchBar = (t: Translate) => {
           } else {
             router.push(PROFILE_DETAILS(parsedValue));
           }
+        } else if (/^-?\d+$/.test(String(numeral(parsedValue).value()))) {
+          router.push(BLOCK_DETAILS(String(numeral(parsedValue).value())));
         } else {
           router.push(TRANSACTION_DETAILS(parsedValue));
         }

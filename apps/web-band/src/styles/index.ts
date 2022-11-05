@@ -24,5 +24,12 @@ const getThemeDictionary = (list: string[]): ThemeDictionaryType => {
 };
 
 const themeDictionary = getThemeDictionary(chainConfig.themes.themeList);
+const defaultTheme = isThemeSupported(chainConfig.themes.default) ?
+  themeDictionary[chainConfig.themes.default] :
+  themeDictionary[chainConfig.themes.themeList[0]];
 
-export { themeDictionary };
+function isThemeSupported(theme: string): theme is keyof ThemeDictionaryType {
+  return theme in themeDictionary;
+}
+
+export { defaultTheme, isThemeSupported, themeDictionary };

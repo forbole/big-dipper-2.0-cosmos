@@ -1,13 +1,13 @@
-/* eslint-disable */
-import chainConfig from 'ui/chainConfig';
-import { useInterval } from '@hooks';
-import { Typography } from '@material-ui/core';
-import { readTheme } from '@recoil/settings';
-import dayjs from '@utils/dayjs';
 import React, { useState } from 'react';
+import { Typography } from '@material-ui/core';
+import { useInterval } from '@hooks';
+import dayjs from '@utils/dayjs';
 import { useRecoilValue } from 'recoil';
-import { useStyles } from './styles';
+import chainConfig from 'ui/chainConfig';
 import ChainIcon from 'ui/components/ChainIcon';
+import { readTheme } from '@recoil/settings';
+import Loading from '@components/loading';
+import { useStyles } from './styles';
 
 const Countdown: React.FC<{
   startGenesis: () => void;

@@ -4,7 +4,6 @@ import useTranslation from 'next-translate/useTranslation';
 import { Table, TableBody, TableCell, TableRow } from '@material-ui/core';
 
 const SoftwareUpgrade: React.FC<{
-  className?: string;
   height: string;
   info: string;
   name: string;

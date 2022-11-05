@@ -8,7 +8,6 @@ import { useStyles } from './styles';
 
 const SingleValidator: React.FC<{
   className?: string;
-  idx: string;
   validator: React.ReactNode;
   commission: string;
   votingPower: React.ReactNode;
@@ -20,7 +19,6 @@ const SingleValidator: React.FC<{
 }> = ({ className, validator, commission, votingPower, status, liquidStaking }) => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
-
   return (
     <div className={classnames(className, classes.root)}>
       <div className={classes.item}>

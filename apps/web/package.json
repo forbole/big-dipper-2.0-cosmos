@@ -53,7 +53,9 @@
     "recharts": "^2.1.16",
     "recoil": "^0.4.1",
     "shared-utils": "*",
-    "ui": "*"
+    "subscriptions-transport-ws": "^0.11.0",
+    "ui": "*",
+    "ws": "^8.10.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.13.8",
@@ -70,17 +72,20 @@
     "@types/color": "^3.0.3",
     "@types/dompurify": "^2.3.4",
     "@types/jest": "^29.2.0",
-    "@types/node": "^18.11.3",
+    "@types/node": "^18.11.8",
     "@types/numeral": "^2.0.2",
     "@types/qrcode.react": "^1.0.2",
     "@types/ramda": "^0.28.15",
-    "@types/react": "17.0.39",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
     "@types/react-virtualized-auto-sizer": "^1.0.1",
     "@types/react-window": "^1.8.5",
     "@types/react-window-infinite-loader": "^1.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
     "axios-mock-adapter": "^1.19.0",
-    "cypress": "^10.10.0",
-    "eslint": "^7.32.0",
+    "cypress": "^10.11.0",
+    "eslint": "^8.26.0",
     "eslint-config-custom": "*",
     "eslint-config-cypress": "*",
     "graphql-tag": "^2.0.0",
@@ -92,12 +97,9 @@
     "jest-watch-typeahead": "^2.2.0",
     "next-transpile-modules": "^9.1.0",
     "react-test-renderer": "^17.0.2",
-    "subscriptions-transport-ws": "^0.11.0",
     "ts-jest": "^28.0.8",
     "ts-node": "^10.9.1",
     "tsconfig": "*",
-    "typescript": "^4.8.4",
-    "webpack": "^5.74.0",
-    "ws": "^8.9.0"
+    "typescript": "^4.8.4"
   }
 }

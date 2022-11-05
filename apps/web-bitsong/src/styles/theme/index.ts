@@ -127,30 +127,6 @@ export const common = {
         nineteen: '#D37763',
         twenty: '#D9C788',
       },
-      fonts: {
-        fontFive: '#FFFFFF',
-        highlight: '#1D86FF', // links
-        // highlight: '#56B4E9', // links
-      },
-      condition: {
-        zero: '#E8E8E8',
-        one: '#1EC490',
-        two: '#FF9338',
-        three: '#FF608A',
-      },
-      tokenomics: {
-        one: '#915EFF',
-        two: '#19B0C5',
-        three: '#1EC490',
-      },
-      charts: {
-        zero: '#E8E8E8',
-        one: '#5ACF78',
-        two: '#ED6295',
-        three: '#19A1BF',
-        four: '#8453C2',
-        five: '#C2A353',
-      },
     },
   },
   overrides: {
@@ -196,7 +172,3 @@ export const deuteranopiaTemplate: ThemeOptions = R.mergeDeepLeft(
   common
 );
 export const tritanopiaTemplate: ThemeOptions = R.mergeDeepLeft(tritanopiaThemeOverride, common);
-
-// export const lightTheme = createTheme(lightTemplate);
-// export const darkTheme = createTheme(darkTemplate);
-// export const deuteranopiaTheme = createTheme(deuteranopiaTemplate);

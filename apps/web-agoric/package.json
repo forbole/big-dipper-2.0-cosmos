@@ -55,7 +55,7 @@
     "shared-utils": "*",
     "subscriptions-transport-ws": "^0.11.0",
     "ui": "*",
-    "ws": "^8.9.0"
+    "ws": "^8.10.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.13.8",
@@ -70,13 +70,14 @@
     "@testing-library/react-hooks": "^3.7.0",
     "@types/big.js": "^6.1.2",
     "@types/jest": "^29.2.0",
-    "@types/node": "^18.11.3",
+    "@types/node": "^18.11.8",
     "@types/numeral": "^2.0.2",
-    "@types/react": "17.0.39",
-    "@typescript-eslint/eslint-plugin": "^4.1.0",
-    "@typescript-eslint/parser": "^4.1.0",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
     "axios-mock-adapter": "^1.19.0",
-    "eslint": "^7.8.1",
+    "eslint": "^8.26.0",
     "eslint-config-custom": "*",
     "eslint-config-cypress": "*",
     "graphql-tag": "^2.0.0",
@@ -89,7 +90,7 @@
     "next-transpile-modules": "^9.1.0",
     "react-test-renderer": "^17.0.2",
     "ts-jest": "^28.0.8",
-    "ts-node": "^10.4.0",
+    "ts-node": "^10.9.1",
     "tsconfig": "*",
     "typescript": "^4.8.4"
   }
