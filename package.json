@@ -13,9 +13,9 @@
     "start": "turbo run start --continue --concurrency=1",
     "type-check": "turbo run type-check --continue",
     "format": "prettier --ignore-path ./.gitignore --write \"**/*.{js,ts,tsx,json,md}\"",
-    "lint": "turbo run lint --continue --concurrency=1",
+    "lint": "turbo run lint",
     "test": "turbo run test --continue --concurrency=1",
-    "clean": "turbo run clean --continue --concurrency=1",
+    "clean": "turbo run clean",
     "e2e": "turbo run e2e --continue --concurrency=1",
     "graphql:codegen": "turbo run graphql:codegen --continue --concurrency=2"
   },
