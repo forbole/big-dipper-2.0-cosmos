@@ -1,7 +1,7 @@
 import { selectorFamily, GetRecoilValue } from 'recoil';
 import * as R from 'ramda';
 import { bech32 } from 'bech32';
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 import { readValidator } from '@recoil/validators';
 import { AtomState as ProfileAtomState } from '@recoil/profiles/types';
 import { atomFamilyState } from './atom';

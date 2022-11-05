@@ -5,7 +5,7 @@ import { formatToken, formatNumber } from '@utils/format_token';
 import Name from '@components/name';
 import { MsgAddLiquidity } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 
 const AddLiquidity = (props: { message: MsgAddLiquidity }) => {
   const { message } = props;

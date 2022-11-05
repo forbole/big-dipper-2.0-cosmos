@@ -1,3 +1,3 @@
-import Error, { getInitialProps } from 'ui/dist/screens/Error';
+import Error, { getInitialProps } from 'ui/screens/Error';
 Error.getInitialProps = getInitialProps;
 export default Error;

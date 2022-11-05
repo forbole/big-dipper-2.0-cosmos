@@ -22,6 +22,6 @@
       "@tests/utils": ["tests/utils"]
     }
   },
-  "include": ["declarations.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["declarations.d.ts", "src/**/*", "tests/**/*"],
   "exclude": ["dist", "build", "node_modules"]
 }

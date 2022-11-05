@@ -4,7 +4,7 @@ import { LinearProgress } from '@material-ui/core';
 import { readTheme } from '@recoil/settings';
 import React from 'react';
 import { useRecoilValue } from 'recoil';
-import ChainIcon from 'ui/dist/components/ChainIcon';
+import ChainIcon from 'ui/components/ChainIcon';
 import { useStyles } from './styles';
 
 const InitialLoad = () => {

@@ -32,10 +32,10 @@ jest.mock('next/dynamic', () => () => {
   return DynamicComponent;
 });
 
-jest.mock('ui/dist/chainConfig', () => ({
+jest.mock('ui/chainConfig', () => ({
   __esModule: true,
   default: {
-    ...jest.requireActual('ui/dist/chainConfig').default,
+    ...jest.requireActual('ui/chainConfig').default,
     primaryTokenUnit: 'udaric',
     tokenUnits: {
       udaric: {

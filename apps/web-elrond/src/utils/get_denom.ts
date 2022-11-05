@@ -1,4 +1,4 @@
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 
 /**
  * Helper Function to get Denom from a list

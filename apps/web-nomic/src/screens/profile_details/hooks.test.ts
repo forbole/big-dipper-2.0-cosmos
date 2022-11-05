@@ -1,5 +1,5 @@
 import { renderHook, act, cleanup } from '@testing-library/react-hooks';
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 import { useProfileDetails } from './hooks';
 
 const mockRouter = {

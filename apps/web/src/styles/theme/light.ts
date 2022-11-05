@@ -1,4 +1,4 @@
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 
 const { light: theme } = chainConfig.themes;
 

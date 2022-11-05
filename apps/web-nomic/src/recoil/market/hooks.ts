@@ -3,7 +3,7 @@ import * as R from 'ramda';
 import numeral from 'numeral';
 import { useRecoilState, SetterOrUpdater } from 'recoil';
 import { useMarketDataQuery, MarketDataQuery } from '@graphql/types/general_types';
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 import { writeMarket } from '@recoil/market';
 import { AtomState } from '@recoil/market/types';
 import { getDenom } from '@utils/get_denom';

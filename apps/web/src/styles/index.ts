@@ -1,4 +1,4 @@
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 import { ThemeOptions } from '@material-ui/core/styles';
 
 import { lightTemplate, darkTemplate, deuteranopiaTemplate, tritanopiaTemplate } from './theme';

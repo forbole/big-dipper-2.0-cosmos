@@ -1,2 +1,1 @@
-import ChainIcon from './ChainIcon';
-export { ChainIcon };
+export { default as ChainIcon } from './ChainIcon/index';

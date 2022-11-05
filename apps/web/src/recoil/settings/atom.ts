@@ -1,4 +1,4 @@
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 import { atom } from 'recoil';
 import { AtomState, Theme } from './types';
 

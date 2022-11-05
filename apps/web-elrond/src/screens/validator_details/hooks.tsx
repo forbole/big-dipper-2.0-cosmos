@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import * as R from 'ramda';
 import Big from 'big.js';
 import axios from 'axios';
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 import { useRouter } from 'next/router';
 import { IDENTITY, PROVIDERS, PROVIDER_DETAILS, STAKE } from '@api';
 import { isBech32 } from '@utils/bech32';

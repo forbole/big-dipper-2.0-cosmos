@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRecoilCallback } from 'recoil';
 import * as R from 'ramda';
 import { useValidatorAddressesQuery, ValidatorAddressesQuery } from '@graphql/types/general_types';
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 import { useDesmosProfile } from '@hooks';
 import { atomFamilyState as validatorAtomState } from '@recoil/validators';
 import { atomFamilyState as profileAtomFamilyState } from '@recoil/profiles';

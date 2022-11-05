@@ -1,7 +1,7 @@
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
 import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
 // TODO: support light mode
-import ChainIcon from 'ui/dist/components/ChainIcon';
+import ChainIcon from 'ui/components/ChainIcon';
 import { LinearProgress } from '@material-ui/core';
 import { readTheme } from '@recoil/settings';
 import React from 'react';

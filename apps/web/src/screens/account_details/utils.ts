@@ -10,7 +10,7 @@ import {
   AccountDelegationRewardsDocument,
 } from '@src/graphql/general/account_details_documents';
 
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 
 export const fetchCommission = async (address: string) => {
   const defaultReturnValue = {

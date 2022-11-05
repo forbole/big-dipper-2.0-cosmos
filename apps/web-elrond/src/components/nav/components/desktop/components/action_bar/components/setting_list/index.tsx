@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import SettingIcon from 'shared-utils/assets/icon-setting.svg';
-import generalConfig from 'ui/dist/generalConfig';
+import generalConfig from 'ui/generalConfig';
 import {
   MenuItem,
   Typography,

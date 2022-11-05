@@ -1,4 +1,4 @@
-import ChainIcon from 'ui/dist/components/ChainIcon';
+import ChainIcon from 'ui/components/ChainIcon';
 import { Typography } from '@material-ui/core';
 import { ExpandMore } from '@material-ui/icons';
 import { readSelectedNetwork } from '@recoil/big_dipper_networks';

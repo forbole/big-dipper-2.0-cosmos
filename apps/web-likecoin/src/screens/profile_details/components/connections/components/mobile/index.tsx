@@ -5,7 +5,7 @@ import dayjs, { formatDayJs } from '@utils/dayjs';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
 import { Divider, Typography } from '@material-ui/core';
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';

@@ -5,7 +5,7 @@ import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgDecommissionPool } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 
 const DecommissionPool = (props: { message: MsgDecommissionPool }) => {
   const { message } = props;

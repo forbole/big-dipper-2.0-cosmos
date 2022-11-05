@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { hexToBech32 } from '@utils/hex_to_bech32';
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 import WebSocket from 'isomorphic-ws';
 
 export const useConsensus = () => {

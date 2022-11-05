@@ -1,6 +1,6 @@
 import { RecoilRoot } from 'recoil';
 import { renderHook, act } from '@testing-library/react-hooks';
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 import { useSearchBar } from './hooks';
 
 const mockPush = jest.fn();

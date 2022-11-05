@@ -2,7 +2,7 @@ import { useState } from 'react';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { useOnlineVotingPowerQuery, OnlineVotingPowerQuery } from '@graphql/types/general_types';
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 import { formatToken } from '@utils/format_token';
 
 const initialState: {

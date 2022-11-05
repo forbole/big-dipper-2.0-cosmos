@@ -1,5 +1,5 @@
 import numeral from 'numeral';
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 import { useRouter } from 'next/router';
 import {
   VALIDATOR_DETAILS,
@@ -56,8 +56,6 @@ export const useSearchBar = (t) => {
           } else {
             router.push(PROFILE_DETAILS(parsedValue));
           }
-        } else if (/^-?\d+$/.test(numeral(parsedValue).value())) {
-          router.push(BLOCK_DETAILS(numeral(parsedValue).value()));
         } else {
           router.push(TRANSACTION_DETAILS(parsedValue));
         }

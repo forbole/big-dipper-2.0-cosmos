@@ -5,7 +5,7 @@ import {
   useProposalDetailsDepositsQuery,
   ProposalDetailsDepositsQuery,
 } from '@graphql/types/general_types';
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 import { formatToken } from '@utils/format_token';
 import { DepositState } from './types';
 

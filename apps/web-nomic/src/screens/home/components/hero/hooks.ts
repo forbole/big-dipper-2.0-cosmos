@@ -1,6 +1,6 @@
 import { useState } from 'react';
 // import * as R from 'ramda';
-// import chainConfig from 'ui/dist/chainConfig';
+// import chainConfig from 'ui/chainConfig';
 import { HeroState } from './types';
 
 export const useHero = () => {

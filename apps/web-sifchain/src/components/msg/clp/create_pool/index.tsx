@@ -5,7 +5,7 @@ import { formatToken, formatNumber } from '@utils/format_token';
 import Name from '@components/name';
 import { MsgCreatePool } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 
 const CreatePool = (props: { message: MsgCreatePool }) => {
   const { message } = props;

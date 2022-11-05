@@ -1,5 +1,4 @@
-import * as components from './components';
-import * as screens from './screens';
-import chainConfig from './chainConfig';
-import generalConfig from './generalConfig';
-export { components, screens, chainConfig, generalConfig };
+export * as screens from './screens';
+export { default as generalConfig } from './generalConfig';
+export { default as chainConfig } from './chainConfig';
+export * as components from './components';

@@ -3,21 +3,38 @@
   "version": "1.0.0",
   "license": "Apache-2.0",
   "private": true,
+  "type": "module",
   "sideEffects": false,
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*/index.js"
+  },
   "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "dist/*.d.ts": [
+        "dist/*.d.ts",
+        "dist/*/index.d.ts"
+      ],
+      "*": [
+        "dist/*.d.ts",
+        "dist/*/index.d.ts"
+      ]
+    }
+  },
   "files": [
     "dist/**"
   ],
   "tsup": {
     "entry": [
-      "src/**"
+      "src/**/index.ts",
+      "src/**/index.tsx"
     ],
     "target": "es6",
     "minify": true,
     "clean": true,
-    "platform": "browser",
     "format": [
       "esm"
     ],
@@ -77,6 +94,7 @@
     "@testing-library/react": "^11.0.2",
     "@types/jest": "^29.2.0",
     "@types/node": "^18.11.8",
+    "@types/numeral": "^2.0.2",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^18.0.7",
     "eslint": "^8.26.0",

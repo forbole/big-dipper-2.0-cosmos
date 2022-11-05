@@ -4,7 +4,7 @@ import axios from 'axios';
 import Big from 'big.js';
 import { IDENTITIES, PROVIDERS, STAKE } from '@api';
 import { formatToken, formatNumber } from '@utils/format_token';
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 import { ValidatorsState } from './types';
 
 export const useValidators = () => {

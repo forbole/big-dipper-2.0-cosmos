@@ -11,6 +11,7 @@ const Avatar: React.FC<{
   const icon = useRef(null);
   const [error, setError] = useState<boolean>(false);
   useEffect(() => {
+    if (!icon.current) return;
     jdenticon.update(icon.current, address);
   }, [address, error, imageUrl]);
 

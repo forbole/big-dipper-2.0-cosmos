@@ -71,6 +71,7 @@
     "@types/big.js": "^6.1.2",
     "@types/jest": "^29.2.0",
     "@types/node": "^18.11.3",
+    "@types/numeral": "^2.0.2",
     "@types/react": "17.0.39",
     "@typescript-eslint/eslint-plugin": "^4.1.0",
     "@typescript-eslint/parser": "^4.1.0",

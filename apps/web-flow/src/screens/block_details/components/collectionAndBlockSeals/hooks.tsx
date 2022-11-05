@@ -5,7 +5,7 @@ import * as R from 'ramda';
 //   IDENTITIES, PROVIDERS,
 // } from '@api';
 // import { formatToken } from '@utils/format_token';
-// import chainConfig from 'ui/dist/chainConfig';
+// import chainConfig from 'ui/chainConfig';
 import { ValidatorsState } from './types';
 
 export const useValidators = () => {

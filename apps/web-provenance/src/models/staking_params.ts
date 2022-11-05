@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 
 class StakingParams {
   public bondDenom: string;

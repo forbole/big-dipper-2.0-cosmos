@@ -1,5 +1,5 @@
 import { lightTemplate, themeDictionary } from '@styles';
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 import { Theme } from './types';
 
 // ================================

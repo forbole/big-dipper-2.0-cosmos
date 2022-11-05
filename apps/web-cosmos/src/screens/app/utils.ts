@@ -1,4 +1,4 @@
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 
 export const OPEN_GRAPH_SEO = {
   type: 'website',

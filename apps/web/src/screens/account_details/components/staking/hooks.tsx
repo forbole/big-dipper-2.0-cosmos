@@ -10,8 +10,8 @@ import {
 } from '@src/graphql/general/account_details_documents';
 import { formatToken } from '@utils/format_token';
 import { getDenom } from '@utils/get_denom';
-import chainConfig from 'ui/dist/chainConfig';
-import { StakingState } from './types';
+import chainConfig from 'ui/chainConfig';
+import { RedelegationType, StakingState } from './types';
 import { RewardsType } from '../../types';
 
 const stakingDefault = {
@@ -50,7 +50,7 @@ export const useStaking = (rewards: RewardsType) => {
   };
 
   const createPagination = (data: any[]) => {
-    const pages = {};
+    const pages: Record<number, unknown[]> = {};
     data.forEach((x, i) => {
       const selectedKey = Math.floor(i / PAGE_LIMIT);
       pages[selectedKey] = pages[selectedKey] || [];
@@ -63,7 +63,7 @@ export const useStaking = (rewards: RewardsType) => {
   // if it is over the default limit
   const getStakeByPage = async (page: number, query: string) => {
     const { data } = await axios.post(
-      process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql,
+      process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql ?? '',
       {
         variables: {
           address: R.pathOr('', ['query', 'address'], router),
@@ -83,7 +83,7 @@ export const useStaking = (rewards: RewardsType) => {
   const getDelegations = async () => {
     try {
       const { data } = await axios.post(
-        process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql,
+        process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql ?? '',
         {
           variables: {
             address: R.pathOr('', ['query', 'address'], router),
@@ -148,7 +148,7 @@ export const useStaking = (rewards: RewardsType) => {
   const getRedelegations = async () => {
     try {
       const { data } = await axios.post(
-        process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql,
+        process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql ?? '',
         {
           variables: {
             address: R.pathOr('', ['query', 'address'], router),
@@ -199,9 +199,9 @@ export const useStaking = (rewards: RewardsType) => {
   };
 
   const formatRedelegations = (data: any[]) => {
-    const results = [];
+    const results: RedelegationType[] = [];
     data.forEach((x) => {
-      R.pathOr([], ['entries'], x).forEach((y) => {
+      R.pathOr([], ['entries'], x).forEach((y: { balance: string | number }) => {
         results.push({
           from: R.pathOr('', ['validator_src_address'], x),
           to: R.pathOr('', ['validator_dst_address'], x),
@@ -224,7 +224,7 @@ export const useStaking = (rewards: RewardsType) => {
   const getUnbondings = async () => {
     try {
       const { data } = await axios.post(
-        process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql,
+        process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql ?? '',
         {
           variables: {
             address: R.pathOr('', ['query', 'address'], router),
@@ -275,9 +275,9 @@ export const useStaking = (rewards: RewardsType) => {
   };
 
   const formatUnbondings = (data: any[]) => {
-    const results = [];
+    const results: Array<{ validator: string; amount: TokenUnit; completionTime: string }> = [];
     data.forEach((x) => {
-      R.pathOr([], ['entries'], x).forEach((y) => {
+      R.pathOr([], ['entries'], x).forEach((y: { balance: string | number }) => {
         results.push({
           validator: R.pathOr('', ['validator_address'], x),
           amount: formatToken(y.balance, chainConfig.primaryTokenUnit),

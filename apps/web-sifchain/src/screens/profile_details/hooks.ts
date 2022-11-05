@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 import { useDesmosProfile } from '@hooks';
 import { ProfileDetailState } from './types';
 

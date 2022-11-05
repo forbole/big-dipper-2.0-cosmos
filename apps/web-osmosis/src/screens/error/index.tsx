@@ -5,7 +5,7 @@ import useTranslation from 'next-translate/useTranslation';
 import Trans from 'next-translate/Trans';
 import { HOME } from '@utils/go_to_page';
 import { Typography } from '@material-ui/core';
-import generalConfig from 'ui/dist/generalConfig';
+import generalConfig from 'ui/generalConfig';
 import { useStyles } from './styles';
 
 const Error = () => {

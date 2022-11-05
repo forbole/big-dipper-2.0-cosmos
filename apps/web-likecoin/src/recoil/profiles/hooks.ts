@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { useEffect } from 'react';
 import { useRecoilValue, useRecoilCallback } from 'recoil';
-import chainConfig from 'ui/dist/chainConfig';
+import chainConfig from 'ui/chainConfig';
 import {
   writeProfile,
   readProfilesExist,
