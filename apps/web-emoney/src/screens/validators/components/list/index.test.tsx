@@ -15,6 +15,7 @@ jest.mock('./components', () => ({
   Desktop: (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />,
   Tabs: (props: JSX.IntrinsicElements['div']) => <div id="Tabs" {...props} />,
 }));
+
 jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));

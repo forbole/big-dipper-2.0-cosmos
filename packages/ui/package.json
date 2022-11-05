@@ -29,8 +29,7 @@
   ],
   "tsup": {
     "entry": [
-      "src/**/index.ts",
-      "src/**/index.tsx"
+      "src/**/index.{ts,tsx}"
     ],
     "target": "es6",
     "minify": true,

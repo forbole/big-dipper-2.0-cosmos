@@ -4,7 +4,7 @@ import { AtomState } from './types';
 
 const initialState: AtomState = {
   networks: [],
-  selected: chainConfig.id,
+  selected: chainConfig.network,
 };
 
 export const atomState = atom<AtomState>({

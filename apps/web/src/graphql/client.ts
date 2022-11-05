@@ -67,7 +67,7 @@ function createApolloClient() {
   return client;
 }
 
-export function initializeApollo(initialState: object = null) {
+export function initializeApollo(initialState = null) {
   // eslint-disable-next-line
   const _apolloClient = apolloClient ?? createApolloClient();
 

@@ -1,102 +1,50 @@
-const backgroundDefault = '#000000';
-const surfaceOne = '#171717';
-const surfaceTwo = '#242424';
-const fontOne = '#E6E6E6';
-const fontTwo = '#C4C4C4';
-const fontThree = '#818181';
+import chainConfig from 'ui/chainConfig';
+import hindMadurai from './hindMadurai';
+
+const { dark: theme } = chainConfig.themes;
 
 /** Custom theme overrides for dark mode */
 export const darkThemeOverride = {
   mixins: {
     tableCell: {
-      background: surfaceOne, // surface one
+      background: theme.custom.general.surfaceOne, // surface one
       '&.odd': {
-        background: surfaceTwo, // surface two
+        background: theme.custom.general.surfaceTwo, // surface two
       },
     },
   },
   palette: {
     type: 'dark',
-    primary: {
-      main: '#FF6557',
-      contrastText: '#fff',
-    },
-    background: {
-      default: backgroundDefault,
-      paper: surfaceOne,
-    },
-    divider: '#282828',
-    text: {
-      primary: '#E6E6E6',
-      secondary: '#C4C4C4',
-    },
-    custom: {
-      general: {
-        background: backgroundDefault, // same as background default
-        surfaceOne, // same as background paper
-        surfaceTwo, // striped tables
-      },
-      fonts: {
-        fontOne,
-        fontTwo,
-        fontThree,
-        fontFour: '#999999',
-        highlight: '#379AFE',
-      },
-      primaryData: {
-        one: '#D84839',
-        two: '#FE5834',
-        three: '#B021F3',
-        four: '#4C78EA',
-      },
-      condition: {
-        zero: '#E6E6E6',
-        one: '#1EC490',
-        two: '#FF9338',
-        three: '#FF608A',
-      },
-      tokenomics: {
-        one: '#E46245',
-        two: '#E3BB55',
-        three: '#20D292',
-      },
-      charts: {
-        zero: '#E6E6E6',
-        one: '#5ACF78',
-        two: '#E46245',
-        three: '#D2463A',
-        four: '#E3AB55',
-        five: '#C25396',
-      },
-      results: {
-        pass: '#1EC490',
-        fail: '#FD3B4C',
-      },
-    },
+    ...theme,
   },
   overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        '@font-face': [hindMadurai],
+      },
+    },
     MuiTableBody: {
       root: {
         '& .MuiTableRow-root': {
           '&:nth-child(odd)': {
-            backgroundColor: surfaceTwo, // surface two
+            backgroundColor: theme.custom.general.surfaceTwo, // surface two
           },
         },
         '& .MuiTableCell-root': {
-          color: fontTwo, // font two
+          color: theme.custom.fonts.fontTwo, // font two
         },
       },
     },
     MuiTabs: {
       root: {
         '& .MuiTab-textColorInherit': {
-          color: fontThree, // font three
+          color: theme.custom.fonts.fontThree, // font three
         },
         '& .MuiTab-textColorInherit.Mui-selected': {
-          color: fontOne, // font one
+          color: theme.custom.fonts.fontOne, // font one
         },
         '& .MuiTabs-indicator': {
-          backgroundColor: fontOne, // font one (?)
+          backgroundColor: theme.custom.fonts.fontOne, // font one (?)
         },
       },
     },

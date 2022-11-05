@@ -1,6 +1,4 @@
-/* eslint-disable */
 import React, { useState } from 'react';
-import * as R from 'ramda';
 import { Typography } from '@material-ui/core';
 import { useInterval } from '@hooks';
 import dayjs from '@utils/dayjs';
@@ -8,8 +6,8 @@ import { useRecoilValue } from 'recoil';
 import chainConfig from 'ui/chainConfig';
 import ChainIcon from 'ui/components/ChainIcon';
 import { readTheme } from '@recoil/settings';
-import { useStyles } from './styles';
 import Loading from '@components/loading';
+import { useStyles } from './styles';
 
 const Countdown: React.FC<{
   startGenesis: () => void;

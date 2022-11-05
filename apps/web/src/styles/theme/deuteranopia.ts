@@ -1,3 +1,5 @@
+import hindMadurai from './hindMadurai';
+
 const backgroundDefault = '#000000';
 const surfaceOne = '#1C1C1C';
 const surfaceTwo = '#252527';
@@ -108,6 +110,11 @@ export const deuteranopiaThemeOverride = {
     },
   },
   overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        '@font-face': [hindMadurai],
+      },
+    },
     MuiTableBody: {
       root: {
         '& .MuiTableRow-root': {

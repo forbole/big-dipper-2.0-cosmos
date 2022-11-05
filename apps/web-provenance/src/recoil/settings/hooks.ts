@@ -1,3 +1,4 @@
+import chainConfig from 'ui/chainConfig';
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { atomState, THEME_DICTIONARY } from '@recoil/settings';
@@ -13,7 +14,10 @@ export const useSettingsRecoil = () => {
       const savedTheme = getItem(THEME_KEY, 'device');
       let currentTheme: Theme = settings.theme;
       if (savedTheme === 'device') {
-        if (window?.matchMedia('(prefers-color-scheme: dark)')?.matches) {
+        if (
+          chainConfig.themes.themeList.contains('dark') &&
+          window?.matchMedia('(prefers-color-scheme: dark)')?.matches
+        ) {
           currentTheme = 'dark';
         }
       } else if (THEME_DICTIONARY[savedTheme]) {

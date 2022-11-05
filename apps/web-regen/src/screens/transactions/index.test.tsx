@@ -1,6 +1,6 @@
 import React from 'react';
 import { RecoilRoot } from 'recoil';
-import renderer from 'react-test-renderer';
+import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
 import { createMockClient, createMockSubscription } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
 import { MockTheme, wait } from '@tests/utils';

@@ -12,7 +12,11 @@ type Options = {
   onComplete: (data: DesmosProfileQuery) => any;
 };
 
-const PROFILE_API = 'https://gql.mainnet.desmos.network/v1/graphql';
+let PROFILE_API = 'https://gql.mainnet.desmos.network/v1/graphql';
+
+if (/^^testnet$/i.test(process.env.NEXT_PUBLIC_CHAIN_TYPE)) {
+  PROFILE_API = 'https://gql.morpheus.desmos.network/v1/graphql';
+}
 
 export const useDesmosProfile = (options: Options) => {
   const [loading, setLoading] = useState(false);

@@ -88,7 +88,8 @@ const Footer: React.FC<{ className?: string }> = ({ className }) => {
               // eslint-disable-next-line
               <a
                 target="_blank"
-                rel="noreferrer"
+                rel="noreferrer noopener"
+                title="LICENSE"
                 href="https://raw.githubusercontent.com/forbole/big-dipper-2.0-cosmos/master/LICENSE"
               />,
             ]}
@@ -102,8 +103,9 @@ const Footer: React.FC<{ className?: string }> = ({ className }) => {
           <Trans
             i18nKey="common:maintainBy"
             components={[
-              // eslint-disable-next-line
-              <a target="_blank" rel="noreferrer" href={generalConfig.maintainer.url} />,
+              <a target="_blank" rel="noreferrer" href={generalConfig.maintainer.url}>
+                {}
+              </a>,
             ]}
             values={{
               name: generalConfig.maintainer.name,

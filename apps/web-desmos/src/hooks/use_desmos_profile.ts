@@ -14,7 +14,7 @@ type Options = {
 
 let PROFILE_API = 'https://gql.mainnet.desmos.network/v1/graphql';
 
-if (process.env.NEXT_PUBLIC_CHAIN_TYPE === 'testnet') {
+if (/^^testnet$/i.test(process.env.NEXT_PUBLIC_CHAIN_TYPE)) {
   PROFILE_API = 'https://gql.morpheus.desmos.network/v1/graphql';
 }
 

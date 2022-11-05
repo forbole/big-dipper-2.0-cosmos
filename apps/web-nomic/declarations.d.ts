@@ -5,6 +5,7 @@ declare module '*.jpeg';
 declare module '*.svg';
 declare module '*.svg?url';
 declare module '*.gif';
+declare module '*.woff2';
 
 type Override<T1, T2> = Omit<T1, keyof T2> & T2;
 

@@ -25,4 +25,4 @@ const getThemeDictionary = (list: string[]): ThemeDictionaryType => {
 
 const themeDictionary = getThemeDictionary(chainConfig.themes.themeList);
 
-export { lightTemplate, themeDictionary };
+export { themeDictionary };

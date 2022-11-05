@@ -71,9 +71,7 @@ export const useProfileDetails = () => {
           router.push(
             { pathname: `/@${state.desmosProfile.dtag}` },
             `/@${state.desmosProfile.dtag}`,
-            {
-              shallow: true,
-            }
+            { shallow: true }
           );
         }
       } else {

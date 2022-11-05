@@ -1,5 +1,6 @@
 import { RecoilRoot } from 'recoil';
 import { renderHook, act } from '@testing-library/react-hooks';
+import chainConfig from 'ui/chainConfig';
 import { useSearchBar } from './hooks';
 
 const mockPush = jest.fn();
@@ -16,16 +17,18 @@ jest.mock('react-toastify', () => ({
 
 const t = jest.fn((value) => value);
 
-xdescribe('misc: useSearchBar', () => {
+describe('misc: useSearchBar', () => {
   it('use a validator address', async () => {
     const { result } = renderHook(() => useSearchBar(t), {
       wrapper: RecoilRoot,
     });
     act(() => {
-      result.current.handleOnSubmit('desmosvaloper1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes');
+      result.current.handleOnSubmit(
+        `${chainConfig.prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes`
+      );
     });
     expect(mockPush).toBeCalledWith(
-      '/validators/desmosvaloper1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes'
+      `/validators/${chainConfig.prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes`
     );
   });
 
@@ -34,7 +37,9 @@ xdescribe('misc: useSearchBar', () => {
       wrapper: RecoilRoot,
     });
     act(() => {
-      result.current.handleOnSubmit('desmosvalcons1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467');
+      result.current.handleOnSubmit(
+        `${chainConfig.prefix.consensus}1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467`
+      );
     });
     expect(mockPush).toBeCalledTimes(0);
   });
@@ -44,19 +49,28 @@ xdescribe('misc: useSearchBar', () => {
       wrapper: RecoilRoot,
     });
     act(() => {
-      result.current.handleOnSubmit('desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz');
+      result.current.handleOnSubmit(
+        `${chainConfig.prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
+      );
     });
-    expect(mockPush).toBeCalledWith('/accounts/desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz');
+    expect(mockPush).toBeCalledWith(
+      `/accounts/${chainConfig.prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
+    );
   });
 
   it('use a dtag', async () => {
+    if (!chainConfig.extra.profile) return;
     const { result } = renderHook(() => useSearchBar(t), {
       wrapper: RecoilRoot,
     });
     act(() => {
-      result.current.handleOnSubmit('@desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz');
+      result.current.handleOnSubmit(
+        `@${chainConfig.prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
+      );
     });
-    expect(mockPush).toBeCalledWith('/@desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz');
+    expect(mockPush).toBeCalledWith(
+      `/@${chainConfig.prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
+    );
   });
 
   it('use a block', async () => {

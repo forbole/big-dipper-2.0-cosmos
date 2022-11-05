@@ -1,3 +1,5 @@
+import hindMadurai from './hindMadurai';
+
 const backgroundDefault = '#0A0A0A';
 const surfaceOne = '#18181C';
 const surfaceTwo = '#252529';
@@ -108,6 +110,11 @@ export const tritanopiaThemeOverride = {
     },
   },
   overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        '@font-face': [hindMadurai],
+      },
+    },
     MuiTableBody: {
       root: {
         '& .MuiTableRow-root': {

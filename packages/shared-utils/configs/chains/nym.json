@@ -7,7 +7,12 @@
   "previewImage": "https://s3.bigdipper.live/nym.png",
   "themes": {
     "default": "light",
-    "themeList": ["dark", "light"],
+    "themeList": [
+      "dark",
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
     "dark": {
       "primary": {
         "main": "rgba(251,110,78,1)",

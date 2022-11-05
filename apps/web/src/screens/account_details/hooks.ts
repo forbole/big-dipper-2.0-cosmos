@@ -250,7 +250,7 @@ export const useAccountDetails = () => {
         const commissionAmount = formatToken(commissionRawAmount.amount, x);
 
         otherTokens.push({
-          denom: R.pathOr(x, ['tokenUnits', x, 'display'], config),
+          denom: R.pathOr(x, ['tokenUnits', x, 'display'], chainConfig),
           available: availableAmount,
           reward: rewardAmount,
           commission: commissionAmount,

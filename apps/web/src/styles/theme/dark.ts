@@ -1,4 +1,5 @@
 import chainConfig from 'ui/chainConfig';
+import hindMadurai from './hindMadurai';
 
 const { dark: theme } = chainConfig.themes;
 
@@ -17,6 +18,11 @@ export const darkThemeOverride = {
     ...theme,
   },
   overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        '@font-face': [hindMadurai],
+      },
+    },
     MuiTableBody: {
       root: {
         '& .MuiTableRow-root': {

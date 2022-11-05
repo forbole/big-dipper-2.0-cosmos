@@ -29,7 +29,6 @@ const mockTokenomics = jest.fn().mockResolvedValue({
         params: {},
       },
     ],
-
     stakingPool: [
       {
         bonded: 254578529800,

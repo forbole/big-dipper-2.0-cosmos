@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unused-prop-types */
 import React from 'react';
 import classnames from 'classnames';
 import Big from 'big.js';

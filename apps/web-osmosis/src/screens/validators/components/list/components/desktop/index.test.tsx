@@ -15,6 +15,7 @@ jest.mock('..', () => ({
   VotingPower: (props: JSX.IntrinsicElements['div']) => <div id="VotingPower" {...props} />,
   Condition: (props: JSX.IntrinsicElements['div']) => <div id="Condition" {...props} />,
 }));
+
 jest.mock('@components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="AvatarName" {...props} />
 ));

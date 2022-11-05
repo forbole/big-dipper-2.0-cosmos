@@ -7,7 +7,11 @@
   "previewImage": "https://s3.bigdipper.live/comdex.png",
   "themes": {
     "default": "dark",
-    "themeList": ["dark"],
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
     "dark": {
       "primary": {
         "main": "#FE4350",

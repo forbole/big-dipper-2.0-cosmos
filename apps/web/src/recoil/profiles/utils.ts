@@ -71,7 +71,7 @@ const formatDesmosProfile = (data: DesmosProfileQuery) => {
 
   const chains = profile.chainLinks.map((x) => {
     return {
-      network: x.config.name,
+      network: x.chainConfig.name,
       identifier: x.externalAddress,
       creationTime: x.creationTime,
     };
