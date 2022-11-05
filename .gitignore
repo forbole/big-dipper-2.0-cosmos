@@ -14,6 +14,7 @@ coverage/
 out/
 build/
 dist/
+.swc/
 
 # misc
 .DS_Store
