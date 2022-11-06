@@ -7,7 +7,11 @@
   "previewImage": "https://s3.bigdipper.live/comdex.png",
   "themes": {
     "default": "dark",
-    "themeList": ["dark", "deuteranopia", "tritanopia"],
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
     "dark": {
       "primary": {
         "main": "#FE4350",
@@ -134,8 +138,8 @@
         "publicRpcWebsocket": "wss://rpc.comdex.forbole.com/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "23"
       }
     },
     {
@@ -164,8 +168,8 @@
         "publicRpcWebsocket": "ws://65.108.130.132:26657/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "23"
       }
     }
   ]

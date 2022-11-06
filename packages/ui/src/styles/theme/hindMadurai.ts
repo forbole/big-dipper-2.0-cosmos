@@ -1,5 +1,7 @@
 import { AtRule } from 'csstype';
-import HindMaduraiWoff2 from '@public/fonts/HindMadurai-Regular.woff2';
+import chainConfig from 'ui/chainConfig';
+
+const basePath = process.env.BASE_PATH ?? `/${chainConfig.chainName}`.replace(/^\/$/, '');
 
 const hindMadurai: AtRule.FontFace = {
   fontFamily: 'Hind Madurai',
@@ -9,7 +11,7 @@ const hindMadurai: AtRule.FontFace = {
   src: `
     local('HindMadurai'),
     local('HindMadurai-Regular'),
-    url(${HindMaduraiWoff2}) format('woff2')
+    url(${basePath}/fonts/HindMadurai-Regular.woff2) format('woff2')
   `,
 };
 

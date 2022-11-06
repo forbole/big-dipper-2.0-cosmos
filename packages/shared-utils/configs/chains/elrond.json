@@ -7,7 +7,9 @@
   "previewImage": "https://s3.bigdipper.live/elrond.png",
   "themes": {
     "default": "light",
-    "themeList": ["light", "deuteranopia", "tritanopia"],
+    "themeList": [
+      "light"
+    ],
     "dark": {
       "primary": {},
       "background": {},
@@ -110,9 +112,12 @@
       "network": "mainnet",
       "chainType": "Mainnet",
       "genesis": {
+        "time": "",
         "height": 0
       },
       "prefix": {
+        "consensus": "",
+        "validator": "",
         "account": "erd1"
       },
       "primaryTokenUnit": "egld",
@@ -125,8 +130,8 @@
       },
       "endpoints": {},
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "16"
       }
     }
   ]

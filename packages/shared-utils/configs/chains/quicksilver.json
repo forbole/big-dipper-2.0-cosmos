@@ -6,7 +6,13 @@
   },
   "previewImage": "https://s3.bigdipper.live/quicksilver.png",
   "themes": {
-    "themeList": ["dark", "light", "deuteranopia", "tritanopia"],
+    "default": "",
+    "themeList": [
+      "dark",
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
     "dark": {
       "primary": {
         "main": "#7F8397",

@@ -7,7 +7,11 @@
   "previewImage": "https://s3.bigdipper.live/rizon.png",
   "themes": {
     "default": "dark",
-    "themeList": ["dark", "deuteranopia", "tritanopia"],
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
     "dark": {
       "primary": {
         "main": "#6A63FF",
@@ -134,8 +138,8 @@
         "publicRpcWebsocket": "wss://rpc.rizon.forbole.com/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "20"
       }
     }
   ]

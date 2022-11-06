@@ -2,10 +2,12 @@ import generalConfig from './general.json' assert { type: 'json' };
 
 function nextConfig(chainConfigJson) {
   /* Setting the basePath, chainType, chains, and settings variables. */
-  const basePath = `/${chainConfigJson.chainName}`;
-  const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE ?? 'testnet';
+  const chainType = (process.env.NEXT_PUBLIC_CHAIN_TYPE ?? 'mainnet').toLowerCase();
   const { chains, ...settings } = chainConfigJson;
-  let chain = chains.find((c) => c.chainType?.toLowerCase() === chainType?.toLowerCase());
+  let chain = chains.find((c) => c.chainType?.toLowerCase() === chainType);
+  if (!chain && chainType !== 'testnet') {
+    chain = chains.find((c) => c.chainType?.toLowerCase() === 'testnet');
+  }
 
   /* If the chainType is not found, it will use the first chain in the array. */
   if (!chain) [chain] = chains;
@@ -16,6 +18,7 @@ function nextConfig(chainConfigJson) {
     ...settings,
     ...chain,
   };
+  const basePath = process.env.BASE_PATH ?? `/${chainConfig.chainName}`.replace(/^\/$/, '');
 
   const config = {
     swcMinify: true,
@@ -59,12 +62,6 @@ function nextConfig(chainConfigJson) {
             options: { babel: false },
           },
         ],
-      });
-      /* This is to allow the use of fonts in the project. */
-      config.module.rules.push({
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        issuer: { and: [/\.(js|ts|md)x?$/] },
-        type: 'asset/resource',
       });
       return config;
     },

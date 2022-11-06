@@ -7,7 +7,12 @@
   "previewImage": "https://s3.bigdipper.live/cosmoshub.png",
   "themes": {
     "default": "dark",
-    "themeList": ["dark", "light", "deuteranopia", "tritanopia"],
+    "themeList": [
+      "dark",
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
     "dark": {
       "primary": {
         "main": "#6B9EFF",
@@ -199,8 +204,8 @@
         "publicRpcWebsocket": "wss://rpc.cosmoshub.forbole.com/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "4"
       }
     },
     {
@@ -229,17 +234,24 @@
         "publicRpcWebsocket": "wss://rpc-testnet.cosmos.forbole.com/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "4"
       }
     },
     {
       "network": "stargate-final",
       "chainType": "Testnet",
       "genesis": {
+        "time": "",
         "height": 0
       },
-      "prefix": {},
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
       "tokenUnits": {
         "": {
           "exponent": 0
@@ -249,17 +261,24 @@
         "publicRpcWebsocket": "wss://gaia.bigdipper.live/sockjs/580/arrnnrzd/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "4"
       }
     },
     {
       "network": "cosmoshub-3",
       "chainType": "Retired",
       "genesis": {
+        "time": "",
         "height": 0
       },
-      "prefix": {},
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
       "tokenUnits": {
         "": {
           "exponent": 0
@@ -269,17 +288,24 @@
         "publicRpcWebsocket": "wss://cosmoshub-3.bigdipper.live/sockjs/902/2yvx74io/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "4"
       }
     },
     {
       "network": "cosmoshub-2",
       "chainType": "Retired",
       "genesis": {
+        "time": "",
         "height": 0
       },
-      "prefix": {},
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
       "tokenUnits": {
         "": {
           "exponent": 0
@@ -289,17 +315,24 @@
         "publicRpcWebsocket": "wss://cosmoshub-2.bigdipper.live/sockjs/383/tbt49zsw/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "4"
       }
     },
     {
       "network": "cosmoshub-1",
       "chainType": "Retired",
       "genesis": {
+        "time": "",
         "height": 0
       },
-      "prefix": {},
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
       "tokenUnits": {
         "": {
           "exponent": 0
@@ -309,8 +342,8 @@
         "publicRpcWebsocket": "wss://cosmoshub-1.bigdipper.live/sockjs/795/sieku_si/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "4"
       }
     }
   ]

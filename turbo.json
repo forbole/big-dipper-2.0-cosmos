@@ -5,6 +5,7 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**", "public/dist/**"],
       "env": [
+        "BASE_PATH",
         "NEXT_PUBLIC_CHAIN_CONFIG",
         "NEXT_PUBLIC_CHAIN_TYPE",
         "NEXT_PUBLIC_GENERAL_CONFIG",

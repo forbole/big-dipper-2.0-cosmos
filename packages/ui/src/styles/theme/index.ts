@@ -1,4 +1,4 @@
-import * as R from 'ramda';
+  import * as R from 'ramda';
 import { ThemeOptions } from '@material-ui/core/styles';
 
 import { darkThemeOverride } from './dark';
@@ -118,7 +118,7 @@ export const common: ThemeOptions = {
       primaryData: {
         one: '#F87255',
         two: '#FA9147',
-        three: '#43BE7',
+        three: '#43BE7C',
         four: '#43A1BE',
       },
       results: {

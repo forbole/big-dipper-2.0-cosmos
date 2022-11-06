@@ -7,7 +7,9 @@
   "previewImage": "https://s3.bigdipper.live/flow.png",
   "themes": {
     "default": "light",
-    "themeList": ["light", "deuteranopia", "tritanopia"],
+    "themeList": [
+      "light"
+    ],
     "dark": {
       "primary": {},
       "background": {},
@@ -110,9 +112,16 @@
       "network": "likecoin-mainnet-2",
       "chainType": "Mainnet",
       "genesis": {
+        "time": "",
         "height": 0
       },
-      "prefix": {},
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
       "tokenUnits": {
         "": {
           "exponent": 0
@@ -122,10 +131,7 @@
         "graphql": "https://gql.flow.bigdipper.live/v1/graphql",
         "graphqlWebsocket": "wss://gql.flow.bigdipper.live/v1/graphql"
       },
-      "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
-      }
+      "marketing": {}
     }
   ]
 }

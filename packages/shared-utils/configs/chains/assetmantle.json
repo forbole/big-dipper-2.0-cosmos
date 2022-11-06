@@ -7,7 +7,11 @@
   "previewImage": "https://s3.bigdipper.live/assetmantle.png",
   "themes": {
     "default": "dark",
-    "themeList": ["dark", "deuteranopia", "tritanopia"],
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
     "dark": {
       "primary": {
         "main": "#F3B211",
@@ -133,10 +137,7 @@
         "graphqlWebsocket": "wss://gql.assetmantle.forbole.com/v1/graphql",
         "publicRpcWebsocket": "wss://rpc.assetmantle.forbole.com/websocket"
       },
-      "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
-      }
+      "marketing": {}
     }
   ]
 }

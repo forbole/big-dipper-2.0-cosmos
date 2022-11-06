@@ -7,7 +7,11 @@
   "previewImage": "https://s3.bigdipper.live/osmosis.png",
   "themes": {
     "default": "dark",
-    "themeList": ["dark", "deuteranopia", "tritanopia"],
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
     "dark": {
       "primary": {
         "main": "#DC7BFC",
@@ -133,10 +137,7 @@
         "graphqlWebsocket": "wss://gql.osmosis.forbole.com/v1/graphql",
         "publicRpcWebsocket": "wss://rpc.osmosis.forbole.com/websocket"
       },
-      "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
-      }
+      "marketing": {}
     }
   ]
 }

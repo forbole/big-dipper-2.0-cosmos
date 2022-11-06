@@ -12,7 +12,7 @@
     "build": "turbo run build --continue --concurrency=1",
     "start": "turbo run start --continue --concurrency=1",
     "type-check": "turbo run type-check --continue",
-    "format": "prettier --ignore-path ./.gitignore --write \"**/*.{js,ts,tsx,json,mjs,cjs,md}\"",
+    "format": "prettier --ignore-path ./.gitignore --write \"**/*.{js,ts,tsx,mjs,cjs,md}\"",
     "lint": "turbo run lint",
     "test": "turbo run test --continue --concurrency=1",
     "clean": "turbo run clean",

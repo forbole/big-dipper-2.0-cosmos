@@ -1,10 +1,16 @@
-import WebSocket from 'isomorphic-ws';
-import { ApolloClient, InMemoryCache, split, HttpLink, ApolloLink, concat } from '@apollo/client';
+import {
+  ApolloClient,
+  ApolloLink,
+  HttpLink,
+  InMemoryCache,
+  NormalizedCacheObject,
+  split,
+} from '@apollo/client';
+import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
 import { getMainDefinition } from '@apollo/client/utilities';
-import { WebSocketLink } from '@apollo/client/link/ws';
-
+import { Kind, OperationDefinitionNode, OperationTypeNode } from 'graphql';
+import { createClient } from 'graphql-ws';
 import { useMemo } from 'react';
-
 import chainConfig from 'ui/chainConfig';
 
 const defaultOptions: any = {
@@ -18,47 +24,37 @@ const defaultOptions: any = {
   },
 };
 
-let apolloClient;
+let apolloClient: ApolloClient<NormalizedCacheObject>;
 
 const httpLink = new HttpLink({
-  uri: process.env.NEXT_PUBLIC_GRAPHQL_URL ?? chainConfig.endpoints.graphql,
+  uri: process.env.NEXT_PUBLIC_GRAPHQL_URL,
 });
 
-const wsLink = new WebSocketLink({
-  uri:
-    process.env.NEXT_PUBLIC_GRAPHQL_WS ??
-    chainConfig.endpoints.graphqlWebsocket ??
-    'wss://localhost:3000',
-  options: {
-    reconnect: true,
-  },
-  webSocketImpl: WebSocket,
-});
+let wsLink: GraphQLWsLink;
+let link: ApolloLink = httpLink;
 
-const link =
-  typeof window !== 'undefined'
-    ? split(
-        ({ query }) => {
-          const { kind, operation }: any = getMainDefinition(query);
-          return kind === 'OperationDefinition' && operation === 'subscription';
-        },
-        wsLink,
-        httpLink
-      )
-    : httpLink;
-
-const authMiddleware = new ApolloLink((operation, forward) => {
-  operation.setContext({
-    headers: {},
-  });
-
-  return forward(operation);
-});
+if (typeof window !== 'undefined' && process.env.NEXT_PUBLIC_GRAPHQL_WS) {
+  wsLink = new GraphQLWsLink(
+    createClient({
+      url: process.env.NEXT_PUBLIC_GRAPHQL_WS,
+    })
+  );
+  link = split(
+    ({ query }) => {
+      const node = getMainDefinition(query);
+      return (
+        node.kind === Kind.OPERATION_DEFINITION && node.operation === OperationTypeNode.SUBSCRIPTION
+      );
+    },
+    wsLink,
+    httpLink
+  );
+}
 
 function createApolloClient() {
   const client = new ApolloClient({
     ssrMode: typeof window === 'undefined',
-    link: concat(authMiddleware, link),
+    link,
     cache: new InMemoryCache({}),
   });
 
@@ -67,7 +63,7 @@ function createApolloClient() {
   return client;
 }
 
-export function initializeApollo(initialState = null) {
+export function initializeApollo(initialState?: NormalizedCacheObject) {
   // eslint-disable-next-line
   const _apolloClient = apolloClient ?? createApolloClient();
 
@@ -91,7 +87,7 @@ export function initializeApollo(initialState = null) {
   return _apolloClient;
 }
 
-export function useApollo(initialState) {
+export function useApollo(initialState: NormalizedCacheObject) {
   const store = useMemo(() => initializeApollo(initialState), [initialState]);
   return store;
 }

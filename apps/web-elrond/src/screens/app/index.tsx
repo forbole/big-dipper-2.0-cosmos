@@ -2,7 +2,7 @@ import React from 'react';
 import { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
-import { RecoilRoot  } from 'recoil';
+import { RecoilRoot } from 'recoil';
 import chainConfig from 'ui/chainConfig';
 import { useWindowOrigin } from '@hooks';
 import { Main } from './components';

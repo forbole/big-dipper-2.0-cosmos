@@ -75,7 +75,7 @@ const ChainIcon = ({ className, type, ...props }: IconProps) => {
   switch (chainName) {
     case 'agoric':
       [iconDark, iconLight] =
-        type === 'icon' ? [agoricIconLight, agoricIconLight] : [agoricLogoLight, agoricLogoLight];
+        type === 'icon' ? [agoricIconLight, agoricIconLight] : [agoricLogoLight.src, agoricLogoLight.src];
       break;
     case 'assetmantle':
       [iconDark, iconLight] =
@@ -167,7 +167,7 @@ const ChainIcon = ({ className, type, ...props }: IconProps) => {
       break;
     case 'regen':
       [iconDark, iconLight] =
-        type === 'icon' ? [regenIconLight, regenIconLight] : [regenLogoLight, regenLogoLight];
+        type === 'icon' ? [regenIconLight, regenIconLight] : [regenLogoLight.src, regenLogoLight.src];
       break;
     case 'rizon':
       [iconDark, iconLight] =
@@ -181,7 +181,7 @@ const ChainIcon = ({ className, type, ...props }: IconProps) => {
       [iconDark, iconLight] =
         type === 'icon'
           ? [sifchainIconLight, sifchainIconLight]
-          : [sifchainLogoLight, sifchainLogoLight];
+          : [sifchainLogoLight.src, sifchainLogoLight.src];
       break;
     case 'solana':
       [iconDark, iconLight] =

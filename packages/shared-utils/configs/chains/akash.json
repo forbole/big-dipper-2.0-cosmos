@@ -7,7 +7,11 @@
   "previewImage": "https://s3.bigdipper.live/akash.png",
   "themes": {
     "default": "dark",
-    "themeList": ["dark", "deuteranopia", "tritanopia"],
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
     "dark": {
       "primary": {
         "main": "#FF6557",
@@ -134,17 +138,24 @@
         "publicRpcWebsocket": "wss://rpc.akash.forbole.com/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "5"
       }
     },
     {
       "network": "akashnet-1",
       "chainType": "Retired",
       "genesis": {
+        "time": "",
         "height": 0
       },
-      "prefix": {},
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
       "tokenUnits": {
         "": {
           "exponent": 0
@@ -154,8 +165,8 @@
         "publicRpcWebsocket": "wss://akashnet-1.bigdipper.live/sockjs/148/5fvjwp4h/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "5"
       }
     }
   ]

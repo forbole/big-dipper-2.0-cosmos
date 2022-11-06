@@ -7,7 +7,12 @@
   "previewImage": "https://s3.bigdipper.live/stride.png",
   "themes": {
     "default": "light",
-    "themeList": ["dark", "light", "deuteranopia", "tritanopia"],
+    "themeList": [
+      "dark",
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
     "dark": {
       "primary": {
         "main": "rgba(233,17,121,1)",
@@ -199,8 +204,8 @@
         "publicRpcWebsocket": "wss://rpc.stride.forbole.com/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "32"
       }
     }
   ]

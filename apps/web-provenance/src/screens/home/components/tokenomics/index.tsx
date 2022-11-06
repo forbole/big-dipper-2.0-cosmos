@@ -10,27 +10,27 @@ import chainConfig from 'ui/chainConfig';
 import { useStyles } from './styles';
 import { useTokenomics } from './hooks';
 
-const customToolTip = (
-  <CustomToolTip>
-    {(x) => {
-      return (
-        <>
-          <Typography variant="caption">{t(x.legendKey)}</Typography>
-          <Typography variant="body1">
-            {x.value} ({x.percent})
-          </Typography>
-        </>
-      );
-    }}
-  </CustomToolTip>
-);
-
 const Tokenomics: React.FC<{
   className?: string;
 }> = ({ className }) => {
   const { t } = useTranslation('home');
   const { classes, theme } = useStyles();
   const { state } = useTokenomics();
+
+  const customToolTip = (
+    <CustomToolTip>
+      {(x) => {
+        return (
+          <>
+            <Typography variant="caption">{t(x.legendKey)}</Typography>
+            <Typography variant="body1">
+              {x.value} ({x.percent})
+            </Typography>
+          </>
+        );
+      }}
+    </CustomToolTip>
+  );
 
   const data: CustomToolTipData[] = [
     {

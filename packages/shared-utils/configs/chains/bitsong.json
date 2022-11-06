@@ -7,7 +7,11 @@
   "previewImage": "https://s3.bigdipper.live/bitsong.png",
   "themes": {
     "default": "dark",
-    "themeList": ["dark", "deuteranopia", "tritanopia"],
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
     "dark": {
       "primary": {
         "main": "#FE4080",
@@ -134,8 +138,8 @@
         "publicRpcWebsocket": "wss://rpc.bitsong.forbole.com/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "18"
       }
     }
   ]

@@ -6,7 +6,12 @@
   },
   "previewImage": "https://s3.bigdipper.live/emoney.png",
   "themes": {
-    "themeList": ["dark", "deuteranopia", "tritanopia"],
+    "default": "",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
     "dark": {
       "primary": {
         "main": "#3FB3BD",
@@ -133,8 +138,8 @@
         "publicRpcWebsocket": "wss://rpc.emoney.forbole.com/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "12"
       }
     },
     {
@@ -163,8 +168,8 @@
         "publicRpcWebsocket": "wss://rpc.emoney.forbole.com/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "12"
       }
     }
   ]

@@ -7,7 +7,12 @@
   "previewImage": "https://s3.bigdipper.live/evmos.png",
   "themes": {
     "default": "light",
-    "themeList": ["dark", "light", "deuteranopia", "tritanopia"],
+    "themeList": [
+      "dark",
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
     "dark": {
       "primary": {
         "main": "#FD3B4C",
@@ -199,8 +204,8 @@
         "publicRpcWebsocket": "wss://evmos-archive-testnet.api.bdnodes.net:26657/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "19"
       }
     },
     {
@@ -215,6 +220,8 @@
         "validator": "evmosvaloper",
         "account": "evmos"
       },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
       "tokenUnits": {
         "": {
           "exponent": 0
@@ -226,17 +233,24 @@
         "publicRpcWebsocket": "wss://evmos-archive-testnet.api.bdnodes.net:26657/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "19"
       }
     },
     {
       "network": "evmos_9000-3",
       "chainType": "Testnet",
       "genesis": {
+        "time": "",
         "height": 0
       },
-      "prefix": {},
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
       "tokenUnits": {
         "": {
           "exponent": 0
@@ -244,8 +258,8 @@
       },
       "endpoints": {},
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "19"
       }
     }
   ]

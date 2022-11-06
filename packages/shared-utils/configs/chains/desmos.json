@@ -7,15 +7,20 @@
   "previewImage": "https://s3.bigdipper.live/desmos.png",
   "themes": {
     "default": "light",
-    "themeList": ["dark", "light", "deuteranopia", "tritanopia"],
+    "themeList": [
+      "dark",
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
     "dark": {
       "primary": {
         "main": "#FF835B",
         "contrastText": "#FFFFFF"
       },
       "background": {
-        "default": "#E6E6E6",
-        "paper": "#C4C4C4"
+        "default": "#000000",
+        "paper": "#131316"
       },
       "divider": "#282828",
       "text": {
@@ -24,8 +29,8 @@
       },
       "custom": {
         "general": {
-          "background": "#E6E6E6",
-          "surfaceTwo": "#818181",
+          "background": "#000000",
+          "surfaceTwo": "#212123",
           "icon": "#999999"
         },
         "fonts": {
@@ -38,7 +43,7 @@
         "primaryData": {
           "one": "#F87255",
           "two": "#FA9147",
-          "three": "#43BE7",
+          "three": "#43BE7C",
           "four": "#43A1BE"
         },
         "results": {
@@ -46,8 +51,8 @@
           "fail": "#FD3B4C"
         },
         "tokenomics": {
-          "one": "#43A1BE'",
-          "two": "#E3BB55'",
+          "one": "#43A1BE",
+          "two": "#E3BB55",
           "three": "#20D292"
         },
         "condition": {
@@ -199,8 +204,8 @@
         "publicRpcWebsocket": "wss://rpc.desmos.forbole.com/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
       }
     },
     {
@@ -229,8 +234,8 @@
         "publicRpcWebsocket": "wss://rpc-morpheus.desmos.forbole.com/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
       }
     }
   ]

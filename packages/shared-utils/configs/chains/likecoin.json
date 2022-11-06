@@ -7,7 +7,12 @@
   "previewImage": "https://s3.bigdipper.live/rizon.png",
   "themes": {
     "default": "light",
-    "themeList": ["dark", "light", "deuteranopia", "tritanopia"],
+    "themeList": [
+      "dark",
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
     "dark": {
       "primary": {
         "main": "rgba(253,59,76,0.7)",
@@ -199,8 +204,8 @@
         "publicRpcWebsocket": "wss://ws.likecoin.forbole.com"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "9"
       }
     },
     {
@@ -228,8 +233,8 @@
         "graphqlWebsocket": "wss://gql-testnet.likecoin.forbole.com/v1/graphql"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "9"
       }
     },
     {
@@ -257,8 +262,8 @@
         "graphqlWebsocket": "wss://gql-ws-testnet.likecoin.forbole.com/v1/graphql"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "9"
       }
     }
   ]

@@ -7,7 +7,11 @@
   "previewImage": "https://s3.bigdipper.live/band.png",
   "themes": {
     "default": "dark",
-    "themeList": ["dark", "deuteranopia", "tritanopia"],
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
     "dark": {
       "primary": {
         "main": "#4160FF",
@@ -134,17 +138,24 @@
         "publicRpcWebsocket": "wss://rpc.band.forbole.com/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "13"
       }
     },
     {
       "network": "band-guanyu-mainnet",
       "chainType": "Retired",
       "genesis": {
+        "time": "",
         "height": 0
       },
-      "prefix": {},
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
       "tokenUnits": {
         "": {
           "exponent": 0
@@ -154,8 +165,8 @@
         "publicRpcWebsocket": "wss://band-guanyu.bigdipper.live/sockjs/931/88vfskpn/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "13"
       }
     }
   ]

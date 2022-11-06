@@ -7,7 +7,9 @@
   "previewImage": "https://s3.bigdipper.live/regen.png",
   "themes": {
     "default": "light",
-    "themeList": ["light", "deuteranopia", "tritanopia"],
+    "themeList": [
+      "light"
+    ],
     "dark": {
       "primary": {},
       "background": {},
@@ -132,8 +134,8 @@
         "publicRpcWebsocket": "wss://rpc.regen.forbole.com/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "15"
       }
     }
   ]

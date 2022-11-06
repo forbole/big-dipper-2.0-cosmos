@@ -7,7 +7,11 @@
   "previewImage": "https://s3.bigdipper.live/persistence.pngg",
   "themes": {
     "default": "dark",
-    "themeList": ["dark", "deuteranopia", "tritanopia"],
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
     "dark": {
       "primary": {
         "main": "#FF3D47",
@@ -134,8 +138,8 @@
         "publicRpcWebsocket": "wss://rpc.persistence.forbole.com/websocket"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "30"
       }
     }
   ]

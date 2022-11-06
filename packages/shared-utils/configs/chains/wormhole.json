@@ -6,7 +6,8 @@
   },
   "previewImage": "https://s3.bigdipper.live/wormhole.png",
   "themes": {
-    "themeList": ["deuteranopia", "tritanopia"],
+    "default": "",
+    "themeList": [],
     "dark": {
       "primary": {},
       "background": {},

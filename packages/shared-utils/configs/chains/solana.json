@@ -7,7 +7,11 @@
   "previewImage": "https://s3.bigdipper.live/solana.png",
   "themes": {
     "default": "dark",
-    "themeList": ["dark", "deuteranopia", "tritanopia"],
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
     "dark": {
       "primary": {
         "main": "#5DBF84",
@@ -135,8 +139,8 @@
         "publicRpcWebsocket": "wss://gql.solana.forbole.com/v1/graphql"
       },
       "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "22"
       }
     }
   ]

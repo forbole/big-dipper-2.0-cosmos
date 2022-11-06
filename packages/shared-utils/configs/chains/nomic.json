@@ -7,7 +7,11 @@
   "previewImage": "https://s3.bigdipper.live/nomic.png",
   "themes": {
     "default": "dark",
-    "themeList": ["dark", "deuteranopia", "tritanopia"],
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
     "dark": {
       "primary": {
         "main": "#6000FF",
@@ -133,10 +137,7 @@
         "graphqlWebsocket": "wss://gql.nomic.forbole.com/v1/graphql",
         "publicRpcWebsocket": "wss://gql.nomic.forbole.com/v1/graphql"
       },
-      "marketing": {
-        "matomoURL": "",
-        "matomoSiteID": ""
-      }
+      "marketing": {}
     }
   ]
 }
