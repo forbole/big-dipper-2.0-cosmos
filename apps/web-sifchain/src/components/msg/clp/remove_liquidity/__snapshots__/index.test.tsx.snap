@@ -6,7 +6,7 @@ exports[`screen: TransactionDetails/MsgRemoveLiquidity matches snapshot 1`] = `
 >
   <div
     components={
-      Array [
+      [
         <Unknown
           address="signer"
           name="signer"
@@ -17,7 +17,7 @@ exports[`screen: TransactionDetails/MsgRemoveLiquidity matches snapshot 1`] = `
     i18nKey="message_contents:MsgRemoveLiquidity"
     id="Trans"
     values={
-      Object {
+      {
         "symbol": "DARIC",
       }
     }

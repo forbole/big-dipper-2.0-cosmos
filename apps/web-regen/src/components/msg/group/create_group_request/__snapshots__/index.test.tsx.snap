@@ -6,7 +6,7 @@ exports[`screen: TransactionDetails/CreateGroupRequest matches snapshot 1`] = `
 >
   <div
     components={
-      Array [
+      [
         <Unknown
           address="admin"
           name="admin"

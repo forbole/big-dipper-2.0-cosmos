@@ -6,7 +6,7 @@ exports[`screen: TransactionDetails/UpdateGroupMembersRequest matches snapshot 1
 >
   <div
     components={
-      Array [
+      [
         <Unknown
           address="admin"
           name="admin"

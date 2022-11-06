@@ -30,7 +30,7 @@ exports[`screen: Nav/Mobile it renders 1`] = `
   </div>
   <div
     style={
-      Object {
+      {
         "height": 0,
       }
     }

@@ -3,8 +3,8 @@
 exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
 <div
   details={
-    Array [
-      Object {
+    [
+      {
         "detail": <WithStyles(ForwardRef(Typography))
           className="value"
           variant="body1"
@@ -13,11 +13,11 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
         </WithStyles(ForwardRef(Typography))>,
         "label": "height",
       },
-      Object {
+      {
         "detail": "hash",
         "label": "hash",
       },
-      Object {
+      {
         "detail": <Unknown
           address="proposer"
           imageUrl=""
@@ -25,11 +25,11 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
         />,
         "label": "proposer",
       },
-      Object {
+      {
         "detail": "2020-08-10 12:00:00",
         "label": "time",
       },
-      Object {
+      {
         "detail": "0",
         "label": "txs",
       },

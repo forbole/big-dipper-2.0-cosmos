@@ -8,7 +8,7 @@ exports[`components: Result matches snapshot 1`] = `
     className="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
     role="progressbar"
     style={
-      Object {
+      {
         "height": 40,
         "width": 40,
       }
@@ -25,7 +25,7 @@ exports[`components: Result matches snapshot 1`] = `
         fill="none"
         r={20.2}
         strokeWidth={3.6}
-        style={Object {}}
+        style={{}}
       />
     </svg>
   </div>

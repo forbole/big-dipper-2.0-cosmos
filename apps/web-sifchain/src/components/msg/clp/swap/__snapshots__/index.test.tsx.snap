@@ -6,7 +6,7 @@ exports[`screen: TransactionDetails/Swap matches snapshot 1`] = `
 >
   <div
     components={
-      Array [
+      [
         <Unknown
           address="signer"
           name="signer"
@@ -17,7 +17,7 @@ exports[`screen: TransactionDetails/Swap matches snapshot 1`] = `
     i18nKey="message_contents:MsgSwap"
     id="Trans"
     values={
-      Object {
+      {
         "receivedAmount": "51 DARIC",
         "sentAmount": "4 DARIC",
       }

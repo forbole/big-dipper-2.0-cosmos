@@ -2,6 +2,7 @@ import React from 'react';
 import { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
+import { RecoilRoot  } from 'recoil';
 import chainConfig from 'ui/chainConfig';
 import { useWindowOrigin } from '@hooks';
 import { Main } from './components';
@@ -19,7 +20,7 @@ function App(props: AppProps) {
   const { location } = useWindowOrigin();
 
   return (
-    <>
+    <RecoilRoot>
       <DefaultSeo
         titleTemplate={`%s | ${chainConfig.title}`}
         title={t('common:bigDipper')}
@@ -35,7 +36,7 @@ function App(props: AppProps) {
         additionalMetaTags={ADDITIONAL_META_TAGS}
       />
       <Main {...props} />
-    </>
+    </RecoilRoot>
   );
 }
 

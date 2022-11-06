@@ -6,7 +6,7 @@ exports[`screen: TransactionDetails/CreateUserClaim matches snapshot 1`] = `
 >
   <div
     components={
-      Array [
+      [
         <Unknown
           address="userClaimAddress"
           name="userClaimAddress"
@@ -17,7 +17,7 @@ exports[`screen: TransactionDetails/CreateUserClaim matches snapshot 1`] = `
     i18nKey="message_contents:MsgCreateUserClaim"
     id="Trans"
     values={
-      Object {
+      {
         "userClaimType": "DISTRIBUTION_TYPE_AIRDROP",
       }
     }

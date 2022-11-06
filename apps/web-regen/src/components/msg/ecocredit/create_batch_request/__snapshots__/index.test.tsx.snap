@@ -6,7 +6,7 @@ exports[`screen: TransactionDetails/CreateBatchRequest matches snapshot 1`] = `
 >
   <div
     components={
-      Array [
+      [
         <Unknown
           address="issuer"
           name="issuer"

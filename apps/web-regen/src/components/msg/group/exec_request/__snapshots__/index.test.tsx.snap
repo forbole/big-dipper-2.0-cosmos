@@ -6,7 +6,7 @@ exports[`screen: TransactionDetails/ExecRequest matches snapshot 1`] = `
 >
   <div
     components={
-      Array [
+      [
         <Unknown
           address="signer"
           name="signer"

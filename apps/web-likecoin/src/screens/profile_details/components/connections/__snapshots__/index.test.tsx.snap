@@ -17,7 +17,7 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
     page={0}
     rowsPerPage={10}
     rowsPerPageOptions={
-      Array [
+      [
         10,
         25,
         50,

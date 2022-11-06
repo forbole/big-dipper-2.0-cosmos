@@ -17,7 +17,7 @@ exports[`components: Pagination matches snapshot 1`] = `
     </p>
     <div
       backIconButtonProps={
-        Object {
+        {
           "aria-label": "Previous page",
           "title": "Previous page",
         }
@@ -27,7 +27,7 @@ exports[`components: Pagination matches snapshot 1`] = `
       handleChangeRowsPerPage={[MockFunction]}
       id="Actions"
       nextIconButtonProps={
-        Object {
+        {
           "aria-label": "Next page",
           "title": "Next page",
         }
@@ -38,7 +38,7 @@ exports[`components: Pagination matches snapshot 1`] = `
     />
     <div
       backIconButtonProps={
-        Object {
+        {
           "aria-label": "Previous page",
           "title": "Previous page",
         }
@@ -48,7 +48,7 @@ exports[`components: Pagination matches snapshot 1`] = `
       handleChangeRowsPerPage={[MockFunction]}
       id="Actions"
       nextIconButtonProps={
-        Object {
+        {
           "aria-label": "Next page",
           "title": "Next page",
         }

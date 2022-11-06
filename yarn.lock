@@ -2664,20 +2664,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/console@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "@jest/console@npm:28.1.3"
-  dependencies:
-    "@jest/types": ^28.1.3
-    "@types/node": "*"
-    chalk: ^4.0.0
-    jest-message-util: ^28.1.3
-    jest-util: ^28.1.3
-    slash: ^3.0.0
-  checksum: fe50d98d26d02ce2901c76dff4bd5429a33c13affb692c9ebf8a578ca2f38a5dd854363d40d6c394f215150791fd1f692afd8e730a4178dda24107c8dfd9750a
-  languageName: node
-  linkType: hard
-
 "@jest/console@npm:^29.1.2":
   version: 29.1.2
   resolution: "@jest/console@npm:29.1.2"
@@ -2747,48 +2733,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/core@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "@jest/core@npm:28.1.3"
-  dependencies:
-    "@jest/console": ^28.1.3
-    "@jest/reporters": ^28.1.3
-    "@jest/test-result": ^28.1.3
-    "@jest/transform": ^28.1.3
-    "@jest/types": ^28.1.3
-    "@types/node": "*"
-    ansi-escapes: ^4.2.1
-    chalk: ^4.0.0
-    ci-info: ^3.2.0
-    exit: ^0.1.2
-    graceful-fs: ^4.2.9
-    jest-changed-files: ^28.1.3
-    jest-config: ^28.1.3
-    jest-haste-map: ^28.1.3
-    jest-message-util: ^28.1.3
-    jest-regex-util: ^28.0.2
-    jest-resolve: ^28.1.3
-    jest-resolve-dependencies: ^28.1.3
-    jest-runner: ^28.1.3
-    jest-runtime: ^28.1.3
-    jest-snapshot: ^28.1.3
-    jest-util: ^28.1.3
-    jest-validate: ^28.1.3
-    jest-watcher: ^28.1.3
-    micromatch: ^4.0.4
-    pretty-format: ^28.1.3
-    rimraf: ^3.0.0
-    slash: ^3.0.0
-    strip-ansi: ^6.0.0
-  peerDependencies:
-    node-notifier: ^8.0.1 || ^9.0.0 || ^10.0.0
-  peerDependenciesMeta:
-    node-notifier:
-      optional: true
-  checksum: cb79f34bafc4637e7130df12257f5b29075892a2be2c7f45c6d4c0420853e80b5dae11016e652530eb234f4c44c00910cdca3c2cd86275721860725073f7d9b4
-  languageName: node
-  linkType: hard
-
 "@jest/core@npm:^29.1.2":
   version: 29.1.2
   resolution: "@jest/core@npm:29.1.2"
@@ -2830,6 +2774,47 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jest/core@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "@jest/core@npm:29.2.2"
+  dependencies:
+    "@jest/console": ^29.2.1
+    "@jest/reporters": ^29.2.2
+    "@jest/test-result": ^29.2.1
+    "@jest/transform": ^29.2.2
+    "@jest/types": ^29.2.1
+    "@types/node": "*"
+    ansi-escapes: ^4.2.1
+    chalk: ^4.0.0
+    ci-info: ^3.2.0
+    exit: ^0.1.2
+    graceful-fs: ^4.2.9
+    jest-changed-files: ^29.2.0
+    jest-config: ^29.2.2
+    jest-haste-map: ^29.2.1
+    jest-message-util: ^29.2.1
+    jest-regex-util: ^29.2.0
+    jest-resolve: ^29.2.2
+    jest-resolve-dependencies: ^29.2.2
+    jest-runner: ^29.2.2
+    jest-runtime: ^29.2.2
+    jest-snapshot: ^29.2.2
+    jest-util: ^29.2.1
+    jest-validate: ^29.2.2
+    jest-watcher: ^29.2.2
+    micromatch: ^4.0.4
+    pretty-format: ^29.2.1
+    slash: ^3.0.0
+    strip-ansi: ^6.0.0
+  peerDependencies:
+    node-notifier: ^8.0.1 || ^9.0.0 || ^10.0.0
+  peerDependenciesMeta:
+    node-notifier:
+      optional: true
+  checksum: 47c867fce6484b9716d030e81819ef72effb23fa60ec3f46f631be7ced84fa10f50b409a933423add50a4ac917028c9b4ea7b62ba3a1fbd8b4516a2067bd1740
+  languageName: node
+  linkType: hard
+
 "@jest/environment@npm:^27.5.1":
   version: 27.5.1
   resolution: "@jest/environment@npm:27.5.1"
@@ -2839,18 +2824,6 @@ __metadata:
     "@types/node": "*"
     jest-mock: ^27.5.1
   checksum: 2a9e18c35a015508dbec5b90b21c150230fa6c1c8cb8fabe029d46ee2ca4c40eb832fb636157da14c66590d0a4c8a2c053226b041f54a44507d6f6a89abefd66
-  languageName: node
-  linkType: hard
-
-"@jest/environment@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "@jest/environment@npm:28.1.3"
-  dependencies:
-    "@jest/fake-timers": ^28.1.3
-    "@jest/types": ^28.1.3
-    "@types/node": "*"
-    jest-mock: ^28.1.3
-  checksum: 14c496b84aef951df33128cea68988e9de43b2e9d62be9f9c4308d4ac307fa345642813679f80d0a4cedeb900cf6f0b6bb2b92ce089528e8721f72295fdc727f
   languageName: node
   linkType: hard
 
@@ -2878,15 +2851,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/expect-utils@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "@jest/expect-utils@npm:28.1.3"
-  dependencies:
-    jest-get-type: ^28.0.2
-  checksum: 808ea3a68292a7e0b95490fdd55605c430b4cf209ea76b5b61bfb2a1badcb41bc046810fe4e364bd5fe04663978aa2bd73d8f8465a761dd7c655aeb44cf22987
-  languageName: node
-  linkType: hard
-
 "@jest/expect-utils@npm:^29.1.2":
   version: 29.1.2
   resolution: "@jest/expect-utils@npm:29.1.2"
@@ -2896,13 +2860,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/expect@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "@jest/expect@npm:28.1.3"
+"@jest/expect-utils@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "@jest/expect-utils@npm:29.2.2"
   dependencies:
-    expect: ^28.1.3
-    jest-snapshot: ^28.1.3
-  checksum: 4197f6fdddc33dc45ba4e838f992fc61839c421d7aed0dfe665ef9c2f172bb1df8a8cac9cecee272b40e744a326da521d5e182709fe82a0b936055bfffa3b473
+    jest-get-type: ^29.2.0
+  checksum: 42afdd576ae55c31cbcee50f1efecd338073b88cad146b91b653ef9d67970ebcd457b0fc2236b18a7d82945be7ae0674b9e75a34f0f6067585fd5c89a89bb232
   languageName: node
   linkType: hard
 
@@ -2913,6 +2876,16 @@ __metadata:
     expect: ^29.1.2
     jest-snapshot: ^29.1.2
   checksum: e7c5db9f95210d1769064cbb1cb4f35c10a37c38d51764f8baf5c10e343475a8e5c49e62af230e4e427ea9e7dcfb92c7d0ee2695177949bf4280933731f0e9b4
+  languageName: node
+  linkType: hard
+
+"@jest/expect@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "@jest/expect@npm:29.2.2"
+  dependencies:
+    expect: ^29.2.2
+    jest-snapshot: ^29.2.2
+  checksum: 85735d27a49b122083171b3001fc66c804d9f7e16143544d9363389838797fdef5cbc736c560014b63cc3601ad45058a75a4a275147e43d146fde23afd6b19ce
   languageName: node
   linkType: hard
 
@@ -2927,20 +2900,6 @@ __metadata:
     jest-mock: ^27.5.1
     jest-util: ^27.5.1
   checksum: 02a0561ed2f4586093facd4ae500b74694f187ac24d4a00e949a39a1c5325bca8932b4fcb0388a2c5ed0656506fc1cf51fd3e32cdd48cea7497ad9c6e028aba8
-  languageName: node
-  linkType: hard
-
-"@jest/fake-timers@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "@jest/fake-timers@npm:28.1.3"
-  dependencies:
-    "@jest/types": ^28.1.3
-    "@sinonjs/fake-timers": ^9.1.2
-    "@types/node": "*"
-    jest-message-util: ^28.1.3
-    jest-mock: ^28.1.3
-    jest-util: ^28.1.3
-  checksum: cec14d5b14913a54dce64a62912c5456235f5d90b509ceae19c727565073114dae1aaf960ac6be96b3eb94789a3a758b96b72c8fca7e49a6ccac415fbc0321e1
   languageName: node
   linkType: hard
 
@@ -2983,17 +2942,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/globals@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "@jest/globals@npm:28.1.3"
-  dependencies:
-    "@jest/environment": ^28.1.3
-    "@jest/expect": ^28.1.3
-    "@jest/types": ^28.1.3
-  checksum: 3504bb23de629d466c6f2b6b75d2e1c1b10caccbbcfb7eaa82d22cc37711c8e364c243929581184846605c023b475ea6c42c2e3ea5994429a988d8d527af32cd
-  languageName: node
-  linkType: hard
-
 "@jest/globals@npm:^29.1.2":
   version: 29.1.2
   resolution: "@jest/globals@npm:29.1.2"
@@ -3003,6 +2951,18 @@ __metadata:
     "@jest/types": ^29.1.2
     jest-mock: ^29.1.2
   checksum: 4baffd630ed6b4748d980bb57142dbe624b59f139c9e278dd1ee0916e574c5322e2aeb0c44059d70c67d594072024811c6577e736bfffddc1f6b8696d3188d4e
+  languageName: node
+  linkType: hard
+
+"@jest/globals@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "@jest/globals@npm:29.2.2"
+  dependencies:
+    "@jest/environment": ^29.2.2
+    "@jest/expect": ^29.2.2
+    "@jest/types": ^29.2.1
+    jest-mock: ^29.2.2
+  checksum: 94adec44b31b84cdd3f51abf1d824bb62acfa7e0d60b9f7a960fa8677ec5894389262bf6f7fc7fab5b4cce05e3337d0d117a2846faa27dfdff736d6a9585469d
   languageName: node
   linkType: hard
 
@@ -3044,44 +3004,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/reporters@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "@jest/reporters@npm:28.1.3"
-  dependencies:
-    "@bcoe/v8-coverage": ^0.2.3
-    "@jest/console": ^28.1.3
-    "@jest/test-result": ^28.1.3
-    "@jest/transform": ^28.1.3
-    "@jest/types": ^28.1.3
-    "@jridgewell/trace-mapping": ^0.3.13
-    "@types/node": "*"
-    chalk: ^4.0.0
-    collect-v8-coverage: ^1.0.0
-    exit: ^0.1.2
-    glob: ^7.1.3
-    graceful-fs: ^4.2.9
-    istanbul-lib-coverage: ^3.0.0
-    istanbul-lib-instrument: ^5.1.0
-    istanbul-lib-report: ^3.0.0
-    istanbul-lib-source-maps: ^4.0.0
-    istanbul-reports: ^3.1.3
-    jest-message-util: ^28.1.3
-    jest-util: ^28.1.3
-    jest-worker: ^28.1.3
-    slash: ^3.0.0
-    string-length: ^4.0.1
-    strip-ansi: ^6.0.0
-    terminal-link: ^2.0.0
-    v8-to-istanbul: ^9.0.1
-  peerDependencies:
-    node-notifier: ^8.0.1 || ^9.0.0 || ^10.0.0
-  peerDependenciesMeta:
-    node-notifier:
-      optional: true
-  checksum: a7440887ce837922cbeaa64c3232eb48aae02aa9123f29fc4280ad3e1afe4b35dcba171ba1d5fd219037c396c5152d9c2d102cff1798dd5ae3bd33ac4759ae0a
-  languageName: node
-  linkType: hard
-
 "@jest/reporters@npm:^29.1.2":
   version: 29.1.2
   resolution: "@jest/reporters@npm:29.1.2"
@@ -3120,12 +3042,40 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/schemas@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "@jest/schemas@npm:28.1.3"
+"@jest/reporters@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "@jest/reporters@npm:29.2.2"
   dependencies:
-    "@sinclair/typebox": ^0.24.1
-  checksum: 3cf1d4b66c9c4ffda58b246de1ddcba8e6ad085af63dccdf07922511f13b68c0cc480a7bc620cb4f3099a6f134801c747e1df7bfc7a4ef4dceefbdea3e31e1de
+    "@bcoe/v8-coverage": ^0.2.3
+    "@jest/console": ^29.2.1
+    "@jest/test-result": ^29.2.1
+    "@jest/transform": ^29.2.2
+    "@jest/types": ^29.2.1
+    "@jridgewell/trace-mapping": ^0.3.15
+    "@types/node": "*"
+    chalk: ^4.0.0
+    collect-v8-coverage: ^1.0.0
+    exit: ^0.1.2
+    glob: ^7.1.3
+    graceful-fs: ^4.2.9
+    istanbul-lib-coverage: ^3.0.0
+    istanbul-lib-instrument: ^5.1.0
+    istanbul-lib-report: ^3.0.0
+    istanbul-lib-source-maps: ^4.0.0
+    istanbul-reports: ^3.1.3
+    jest-message-util: ^29.2.1
+    jest-util: ^29.2.1
+    jest-worker: ^29.2.1
+    slash: ^3.0.0
+    string-length: ^4.0.1
+    strip-ansi: ^6.0.0
+    v8-to-istanbul: ^9.0.1
+  peerDependencies:
+    node-notifier: ^8.0.1 || ^9.0.0 || ^10.0.0
+  peerDependenciesMeta:
+    node-notifier:
+      optional: true
+  checksum: c8d8c4bd08c2f268bc2df4aba92d55b42cbec2cb0dbffcb33a455c147f80430ea962d3829225370f831e16ca66e55f31ff8e4687546dec05b520fd1ace7a8502
   languageName: node
   linkType: hard
 
@@ -3149,17 +3099,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/source-map@npm:^28.1.2":
-  version: 28.1.2
-  resolution: "@jest/source-map@npm:28.1.2"
-  dependencies:
-    "@jridgewell/trace-mapping": ^0.3.13
-    callsites: ^3.0.0
-    graceful-fs: ^4.2.9
-  checksum: b82a5c2e93d35d86779c61a02ccb967d1b5cd2e9dd67d26d8add44958637cbbb99daeeb8129c7653389cb440dc2a2f5ae4d2183dc453c67669ff98938b775a3a
-  languageName: node
-  linkType: hard
-
 "@jest/source-map@npm:^29.0.0":
   version: 29.0.0
   resolution: "@jest/source-map@npm:29.0.0"
@@ -3168,6 +3107,17 @@ __metadata:
     callsites: ^3.0.0
     graceful-fs: ^4.2.9
   checksum: dd97bc5826cf68d6eb5565383816332f800476232fd12800bd027a259cbf3ef216f1633405f3ad0861dde3b12a7886301798c078b334f6d3012044d43abcf4f6
+  languageName: node
+  linkType: hard
+
+"@jest/source-map@npm:^29.2.0":
+  version: 29.2.0
+  resolution: "@jest/source-map@npm:29.2.0"
+  dependencies:
+    "@jridgewell/trace-mapping": ^0.3.15
+    callsites: ^3.0.0
+    graceful-fs: ^4.2.9
+  checksum: 09f76ab63d15dcf44b3035a79412164f43be34ec189575930f1a00c87e36ea0211ebd6a4fbe2253c2516e19b49b131f348ddbb86223ca7b6bbac9a6bc76ec96e
   languageName: node
   linkType: hard
 
@@ -3180,18 +3130,6 @@ __metadata:
     "@types/istanbul-lib-coverage": ^2.0.0
     collect-v8-coverage: ^1.0.0
   checksum: 338f7c509d6a3bc6d7dd7388c8f6f548b87638e171dc1fddfedcacb4e8950583288832223ba688058cbcf874b937d22bdc0fa88f79f5fc666f77957e465c06a5
-  languageName: node
-  linkType: hard
-
-"@jest/test-result@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "@jest/test-result@npm:28.1.3"
-  dependencies:
-    "@jest/console": ^28.1.3
-    "@jest/types": ^28.1.3
-    "@types/istanbul-lib-coverage": ^2.0.0
-    collect-v8-coverage: ^1.0.0
-  checksum: 957a5dd2fd2e84aabe86698f93c0825e96128ccaa23abf548b159a9b08ac74e4bde7acf4bec48479243dbdb27e4ea1b68c171846d21fb64855c6b55cead9ef27
   languageName: node
   linkType: hard
 
@@ -3231,18 +3169,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/test-sequencer@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "@jest/test-sequencer@npm:28.1.3"
-  dependencies:
-    "@jest/test-result": ^28.1.3
-    graceful-fs: ^4.2.9
-    jest-haste-map: ^28.1.3
-    slash: ^3.0.0
-  checksum: 13f8905e6d1ec8286694146f7be3cf90eff801bbdea5e5c403e6881444bb390ed15494c7b9948aa94bd7e9c9a851e0d3002ed6e7371d048b478596e5b23df953
-  languageName: node
-  linkType: hard
-
 "@jest/test-sequencer@npm:^29.1.2":
   version: 29.1.2
   resolution: "@jest/test-sequencer@npm:29.1.2"
@@ -3252,6 +3178,18 @@ __metadata:
     jest-haste-map: ^29.1.2
     slash: ^3.0.0
   checksum: 5e084063192b311a2ee12cbbe43f79204c5a91e9359eeea644fcad5ab4540ceedf280d7c5a746429b6ac6dabfe178c53024daa414faf35eccfb6bc40c530f736
+  languageName: node
+  linkType: hard
+
+"@jest/test-sequencer@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "@jest/test-sequencer@npm:29.2.2"
+  dependencies:
+    "@jest/test-result": ^29.2.1
+    graceful-fs: ^4.2.9
+    jest-haste-map: ^29.2.1
+    slash: ^3.0.0
+  checksum: 05a9a218e7ac8f574da3a2c5a85d420d3643124bbb31374675e57c6f6a49ffd942e79514d0f2fa173542e8e5ee7ec544e908aced9958d3523c895ba6c2c03691
   languageName: node
   linkType: hard
 
@@ -3278,29 +3216,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/transform@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "@jest/transform@npm:28.1.3"
-  dependencies:
-    "@babel/core": ^7.11.6
-    "@jest/types": ^28.1.3
-    "@jridgewell/trace-mapping": ^0.3.13
-    babel-plugin-istanbul: ^6.1.1
-    chalk: ^4.0.0
-    convert-source-map: ^1.4.0
-    fast-json-stable-stringify: ^2.0.0
-    graceful-fs: ^4.2.9
-    jest-haste-map: ^28.1.3
-    jest-regex-util: ^28.0.2
-    jest-util: ^28.1.3
-    micromatch: ^4.0.4
-    pirates: ^4.0.4
-    slash: ^3.0.0
-    write-file-atomic: ^4.0.1
-  checksum: dadf618936e0aa84342f07f532801d5bed43cdf95d1417b929e4f8782c872cff1adc84096d5a287a796d0039a2691c06d8450cce5a713a8b52fbb9f872a1e760
-  languageName: node
-  linkType: hard
-
 "@jest/transform@npm:^29.1.2":
   version: 29.1.2
   resolution: "@jest/transform@npm:29.1.2"
@@ -3324,16 +3239,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/types@npm:^26.6.2":
-  version: 26.6.2
-  resolution: "@jest/types@npm:26.6.2"
+"@jest/transform@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "@jest/transform@npm:29.2.2"
   dependencies:
-    "@types/istanbul-lib-coverage": ^2.0.0
-    "@types/istanbul-reports": ^3.0.0
-    "@types/node": "*"
-    "@types/yargs": ^15.0.0
+    "@babel/core": ^7.11.6
+    "@jest/types": ^29.2.1
+    "@jridgewell/trace-mapping": ^0.3.15
+    babel-plugin-istanbul: ^6.1.1
     chalk: ^4.0.0
-  checksum: a0bd3d2f22f26ddb23f41fddf6e6a30bf4fab2ce79ec1cb6ce6fdfaf90a72e00f4c71da91ec61e13db3b10c41de22cf49d07c57ff2b59171d64b29f909c1d8d6
+    convert-source-map: ^1.4.0
+    fast-json-stable-stringify: ^2.1.0
+    graceful-fs: ^4.2.9
+    jest-haste-map: ^29.2.1
+    jest-regex-util: ^29.2.0
+    jest-util: ^29.2.1
+    micromatch: ^4.0.4
+    pirates: ^4.0.4
+    slash: ^3.0.0
+    write-file-atomic: ^4.0.1
+  checksum: ac12069100c260d1c46e5048bbad35bf0b5408592b918692b87a52c1c0c0e189c9f37ecf48dbcaa6f00ef083e1bc68201844999e1c0f66cd4d9b70127bf77537
   languageName: node
   linkType: hard
 
@@ -3347,20 +3272,6 @@ __metadata:
     "@types/yargs": ^16.0.0
     chalk: ^4.0.0
   checksum: d1f43cc946d87543ddd79d49547aab2399481d34025d5c5f2025d3d99c573e1d9832fa83cef25e9d9b07a8583500229d15bbb07b8e233d127d911d133e2f14b1
-  languageName: node
-  linkType: hard
-
-"@jest/types@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "@jest/types@npm:28.1.3"
-  dependencies:
-    "@jest/schemas": ^28.1.3
-    "@types/istanbul-lib-coverage": ^2.0.0
-    "@types/istanbul-reports": ^3.0.0
-    "@types/node": "*"
-    "@types/yargs": ^17.0.8
-    chalk: ^4.0.0
-  checksum: 1e258d9c063fcf59ebc91e46d5ea5984674ac7ae6cae3e50aa780d22b4405bf2c925f40350bf30013839eb5d4b5e521d956ddf8f3b7c78debef0e75a07f57350
   languageName: node
   linkType: hard
 
@@ -3454,16 +3365,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jridgewell/trace-mapping@npm:^0.3.13":
-  version: 0.3.17
-  resolution: "@jridgewell/trace-mapping@npm:0.3.17"
-  dependencies:
-    "@jridgewell/resolve-uri": 3.1.0
-    "@jridgewell/sourcemap-codec": 1.4.14
-  checksum: 9d703b859cff5cd83b7308fd457a431387db5db96bd781a63bf48e183418dd9d3d44e76b9e4ae13237f6abeeb25d739ec9215c1d5bfdd08f66f750a50074a339
-  languageName: node
-  linkType: hard
-
 "@manypkg/find-root@npm:^1.1.0":
   version: 1.1.0
   resolution: "@manypkg/find-root@npm:1.1.0"
@@ -3490,7 +3391,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@material-ui/core@npm:^4.11.3":
+"@material-ui/core@npm:^4.12.4":
   version: 4.12.4
   resolution: "@material-ui/core@npm:4.12.4"
   dependencies:
@@ -3517,7 +3418,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@material-ui/icons@npm:^4.9.1":
+"@material-ui/icons@npm:^4.11.3":
   version: 4.11.3
   resolution: "@material-ui/icons@npm:4.11.3"
   dependencies:
@@ -3534,7 +3435,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@material-ui/styles@npm:^4.10.0, @material-ui/styles@npm:^4.11.5":
+"@material-ui/styles@npm:^4.11.5":
   version: 4.11.5
   resolution: "@material-ui/styles@npm:4.11.5"
   dependencies:
@@ -4181,19 +4082,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/dom@npm:^7.28.1":
-  version: 7.31.2
-  resolution: "@testing-library/dom@npm:7.31.2"
+"@testing-library/dom@npm:^8.0.0":
+  version: 8.19.0
+  resolution: "@testing-library/dom@npm:8.19.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/runtime": ^7.12.5
     "@types/aria-query": ^4.2.0
-    aria-query: ^4.2.2
+    aria-query: ^5.0.0
     chalk: ^4.1.0
-    dom-accessibility-api: ^0.5.6
+    dom-accessibility-api: ^0.5.9
     lz-string: ^1.4.4
-    pretty-format: ^26.6.2
-  checksum: 54fbedd1ecdfe1d47be2e592b98d18b2ab9d7e731f57231caf9b152593fe7329fe5ebe219e0e5d1e0df5b1ab803121cb8acd8b73bd1fb292bfdc2c55663eb01d
+    pretty-format: ^27.0.2
+  checksum: 6bb93fef96703b6c47cf1b7cc8f71d402a9576084a94ba4e9926f51bd7bb1287fbb4f6942d82bd03fc6f3d998ae97e60f6aea4618f3a1ce6139597d2a4ecb7b9
   languageName: node
   linkType: hard
 
@@ -4214,29 +4115,39 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react-hooks@npm:^3.7.0":
-  version: 3.7.0
-  resolution: "@testing-library/react-hooks@npm:3.7.0"
+"@testing-library/react-hooks@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "@testing-library/react-hooks@npm:8.0.1"
   dependencies:
     "@babel/runtime": ^7.12.5
-    "@types/testing-library__react-hooks": ^3.4.0
+    react-error-boundary: ^3.1.0
   peerDependencies:
-    react: ">=16.9.0"
-    react-test-renderer: ">=16.9.0"
-  checksum: 7ada35cb4114056908990250033527ffd554d055eced797083aca752fb9789b3bc70291077f1d57b8cf64ab5eb7b3827f9de3bcaa38655f2b975c65a33a418d6
+    "@types/react": ^16.9.0 || ^17.0.0
+    react: ^16.9.0 || ^17.0.0
+    react-dom: ^16.9.0 || ^17.0.0
+    react-test-renderer: ^16.9.0 || ^17.0.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    react-dom:
+      optional: true
+    react-test-renderer:
+      optional: true
+  checksum: 7fe44352e920deb5cb1876f80d64e48615232072c9d5382f1e0284b3aab46bb1c659a040b774c45cdf084a5257b8fe463f7e08695ad8480d8a15635d4d3d1f6d
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:^11.0.2":
-  version: 11.2.7
-  resolution: "@testing-library/react@npm:11.2.7"
+"@testing-library/react@npm:^12.1.5":
+  version: 12.1.5
+  resolution: "@testing-library/react@npm:12.1.5"
   dependencies:
     "@babel/runtime": ^7.12.5
-    "@testing-library/dom": ^7.28.1
+    "@testing-library/dom": ^8.0.0
+    "@types/react-dom": <18.0.0
   peerDependencies:
-    react: "*"
-    react-dom: "*"
-  checksum: 64e07cb96e40dbdbd3c46a09c47bed14446b30efafaa65a5d4fed5a7553878990cda108578f2b114422a775f31c635d51fd50b752f6163ddd6b8474e0e5fc2ce
+    react: <18.0.0
+    react-dom: <18.0.0
+  checksum: 4abd0490405e709a7df584a0db604e508a4612398bb1326e8fa32dd9393b15badc826dcf6d2f7525437886d507871f719f127b9860ed69ddd204d1fa834f576a
   languageName: node
   linkType: hard
 
@@ -4344,7 +4255,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/big.js@npm:^6.1.2":
+"@types/big.js@npm:^6.1.6":
   version: 6.1.6
   resolution: "@types/big.js@npm:6.1.6"
   checksum: 290936fc4e9ebd9883ead8e8278126f43783b3e57bf7736b12ce6d922c62515a83b8c62cd3ef557a043508109d403cb0bd89c7556b221c2c1057fd3a1d03e683
@@ -4486,13 +4397,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^29.2.0":
-  version: 29.2.0
-  resolution: "@types/jest@npm:29.2.0"
+"@types/jest@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "@types/jest@npm:29.2.2"
   dependencies:
     expect: ^29.0.0
     pretty-format: ^29.0.0
-  checksum: 6779e63d8d7507b116a61b2935a200e48531849fc1ac74090212759fe17716777ca6d2c3a8d927a563e9cfa474ae91d40b1688376ae80e3a08974b3c9e9691e1
+  checksum: 13b1a48858c8c451109c2838205fdcee6f41d672674d2f0e3cada35e94f133370aba4f4b5c3f5b174f3e16244d76d7d718afa7cc67d4d6f90d1b87951f4c87c3
   languageName: node
   linkType: hard
 
@@ -4572,10 +4483,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.11.8":
-  version: 18.11.8
-  resolution: "@types/node@npm:18.11.8"
-  checksum: 60b358f97c1a029722dc785811b217615ef20249c3fbde60a65869cfd7a5cd5b1872ee95c79c187ef70e5a078f4ac7670d2129803985268b1f021ad6e8040af8
+"@types/node@npm:^18.11.9":
+  version: 18.11.9
+  resolution: "@types/node@npm:18.11.9"
+  checksum: cc0aae109e9b7adefc32eecb838d6fad931663bb06484b5e9cbbbf74865c721b03d16fd8d74ad90e31dbe093d956a7c2c306ba5429ba0c00f3f7505103d7a496
   languageName: node
   linkType: hard
 
@@ -4623,30 +4534,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ramda@npm:^0.28.15":
-  version: 0.28.15
-  resolution: "@types/ramda@npm:0.28.15"
+"@types/ramda@npm:^0.28.18":
+  version: 0.28.18
+  resolution: "@types/ramda@npm:0.28.18"
   dependencies:
     ts-toolbelt: ^6.15.1
-  checksum: f96576c78a3bfdc8d0675a7c5fb237a56fe76b1d380578f63e59185bd1938c38729d7051d92750e6773bc2ea9c64e5d63bdbd7b95c92f5d400d3d5ce850a6dbd
+  checksum: b140b062efefb3f293811783fdaabf43059d0ec1d78c1bc54884e6fc2bcd909ffe845d99d876b4a13972cc57109097c56f2c3a70e31401ede189a035a840465d
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^17.0.2":
+"@types/react-dom@npm:<18.0.0, @types/react-dom@npm:^17.0.11":
   version: 17.0.18
   resolution: "@types/react-dom@npm:17.0.18"
   dependencies:
     "@types/react": ^17
   checksum: b74525b1a13a0e27fe20859ff7a7e8f7e4581fb9d45ed1b6447ad1534d86f813818353c39d0df2e28f9d2b9be2e3af1908c244b2214a979393d19f217665e614
-  languageName: node
-  linkType: hard
-
-"@types/react-test-renderer@npm:*":
-  version: 18.0.0
-  resolution: "@types/react-test-renderer@npm:18.0.0"
-  dependencies:
-    "@types/react": "*"
-  checksum: 6afc938a1d7618d88ab8793e251f0bd5981bf3f08c1b600f74df3f8800b92589ea534dc6dcb7c8d683893fcc740bf8d7843a42bf2dae59785cfe88f004bd7b0b
   languageName: node
   linkType: hard
 
@@ -4698,7 +4600,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^17, @types/react@npm:^17.0.2":
+"@types/react@npm:^17, @types/react@npm:^17.0.39":
   version: 17.0.52
   resolution: "@types/react@npm:17.0.52"
   dependencies:
@@ -4760,15 +4662,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/testing-library__react-hooks@npm:^3.4.0":
-  version: 3.4.1
-  resolution: "@types/testing-library__react-hooks@npm:3.4.1"
-  dependencies:
-    "@types/react-test-renderer": "*"
-  checksum: f32a5659330a7c2e555bffa74807f7331b1d2fcdd5fe4c08cc9130a0a12826f5f1c5bdf3210e7b2b4c9b774bddecc283171a347f78dc98d28836b0f773583a03
-  languageName: node
-  linkType: hard
-
 "@types/tough-cookie@npm:*":
   version: 4.0.2
   resolution: "@types/tough-cookie@npm:4.0.2"
@@ -4796,15 +4689,6 @@ __metadata:
   version: 21.0.0
   resolution: "@types/yargs-parser@npm:21.0.0"
   checksum: b2f4c8d12ac18a567440379909127cf2cec393daffb73f246d0a25df36ea983b93b7e9e824251f959e9f928cbc7c1aab6728d0a0ff15d6145f66cec2be67d9a2
-  languageName: node
-  linkType: hard
-
-"@types/yargs@npm:^15.0.0":
-  version: 15.0.14
-  resolution: "@types/yargs@npm:15.0.14"
-  dependencies:
-    "@types/yargs-parser": "*"
-  checksum: 8e358aeb8f0c3758e59e2b8fcfdee5627ab2fe3d92f50f380503d966c7f33287be3322155516a50d27727fde1ad3878f48f60cd6648439126d4b0bbb1a1153ed
   languageName: node
   linkType: hard
 
@@ -5321,7 +5205,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ansi-regex@npm:^5.0.0, ansi-regex@npm:^5.0.1":
+"ansi-regex@npm:^5.0.1":
   version: 5.0.1
   resolution: "ansi-regex@npm:5.0.1"
   checksum: 2aa4bb54caf2d622f1afdad09441695af2a83aa3fe8b8afa581d205e57ed4261c183c4d3877cee25794443fde5876417d859c108078ab788d6af7e4fe52eb66b
@@ -5652,23 +5536,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-jest@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "babel-jest@npm:28.1.3"
-  dependencies:
-    "@jest/transform": ^28.1.3
-    "@types/babel__core": ^7.1.14
-    babel-plugin-istanbul: ^6.1.1
-    babel-preset-jest: ^28.1.3
-    chalk: ^4.0.0
-    graceful-fs: ^4.2.9
-    slash: ^3.0.0
-  peerDependencies:
-    "@babel/core": ^7.8.0
-  checksum: 57ccd2296e1839687b5df2fd138c3d00717e0369e385254b012ccd4ee70e75f5d5c8e6cfcdf92d155015b468cfebb847b38e69bb5805d8aaf730e20575127cc6
-  languageName: node
-  linkType: hard
-
 "babel-jest@npm:^29.1.2":
   version: 29.1.2
   resolution: "babel-jest@npm:29.1.2"
@@ -5683,6 +5550,23 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.8.0
   checksum: 7180628db07516029390c1892bcea6adeb7b3b7a5bffa9b071ac0178502afc2eb6eb9934f20947b66a55feb75ad8e9aebe1360f6365259a0eb002ddf2bdca274
+  languageName: node
+  linkType: hard
+
+"babel-jest@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "babel-jest@npm:29.2.2"
+  dependencies:
+    "@jest/transform": ^29.2.2
+    "@types/babel__core": ^7.1.14
+    babel-plugin-istanbul: ^6.1.1
+    babel-preset-jest: ^29.2.0
+    chalk: ^4.0.0
+    graceful-fs: ^4.2.9
+    slash: ^3.0.0
+  peerDependencies:
+    "@babel/core": ^7.8.0
+  checksum: 35f0eb895ab9218b55cacedbfe62dd94c99924d89a0a8096354c4fbb4c8465c0a2c4aba82e5bedf367def6c89635f4f134c7ebc22f07b6f9c930f7b43b7bbdde
   languageName: node
   linkType: hard
 
@@ -5720,18 +5604,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-jest-hoist@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "babel-plugin-jest-hoist@npm:28.1.3"
-  dependencies:
-    "@babel/template": ^7.3.3
-    "@babel/types": ^7.3.3
-    "@types/babel__core": ^7.1.14
-    "@types/babel__traverse": ^7.0.6
-  checksum: 648d89f9d80f6450ce7e50d0c32eb91b7f26269b47c3e37aaf2e0f2f66a980978345bd6b8c9b8c3aa6a8252ad2bc2c9fb50630e9895622c9a0972af5f70ed20e
-  languageName: node
-  linkType: hard
-
 "babel-plugin-jest-hoist@npm:^29.0.2":
   version: 29.0.2
   resolution: "babel-plugin-jest-hoist@npm:29.0.2"
@@ -5741,6 +5613,18 @@ __metadata:
     "@types/babel__core": ^7.1.14
     "@types/babel__traverse": ^7.0.6
   checksum: e02ab2c56b471940bc147d75808f6fb5d18b81382088beb36088d2fee8c5f9699b2a814a98884539191d43871d66770928e09c268c095ec39aad5766c3337f34
+  languageName: node
+  linkType: hard
+
+"babel-plugin-jest-hoist@npm:^29.2.0":
+  version: 29.2.0
+  resolution: "babel-plugin-jest-hoist@npm:29.2.0"
+  dependencies:
+    "@babel/template": ^7.3.3
+    "@babel/types": ^7.3.3
+    "@types/babel__core": ^7.1.14
+    "@types/babel__traverse": ^7.0.6
+  checksum: 368d271ceae491ae6b96cd691434859ea589fbe5fd5aead7660df75d02394077273c6442f61f390e9347adffab57a32b564d0fabcf1c53c4b83cd426cb644072
   languageName: node
   linkType: hard
 
@@ -5858,18 +5742,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-preset-jest@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "babel-preset-jest@npm:28.1.3"
-  dependencies:
-    babel-plugin-jest-hoist: ^28.1.3
-    babel-preset-current-node-syntax: ^1.0.0
-  peerDependencies:
-    "@babel/core": ^7.0.0
-  checksum: 8248a4a5ca4242cc06ad13b10b9183ad2664da8fb0da060c352223dcf286f0ce9c708fa17901dc44ecabec25e6d309e5e5b9830a61dd777c3925f187a345a47d
-  languageName: node
-  linkType: hard
-
 "babel-preset-jest@npm:^29.0.2":
   version: 29.0.2
   resolution: "babel-preset-jest@npm:29.0.2"
@@ -5879,6 +5751,18 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0
   checksum: 485db525f4cd38c02c29edcd7240dd232e8d6dbcaef88bfa4765ad3057ed733512f1b7aad06f4bf9661afefeb0ada2c4e259d130113b0289d7db574f82bbd4f8
+  languageName: node
+  linkType: hard
+
+"babel-preset-jest@npm:^29.2.0":
+  version: 29.2.0
+  resolution: "babel-preset-jest@npm:29.2.0"
+  dependencies:
+    babel-plugin-jest-hoist: ^29.2.0
+    babel-preset-current-node-syntax: ^1.0.0
+  peerDependencies:
+    "@babel/core": ^7.0.0
+  checksum: 1b09a2db968c36e064daf98082cfffa39c849b63055112ddc56fc2551fd0d4783897265775b1d2f8a257960a3339745de92e74feb01bad86d41c4cecbfa854fc
   languageName: node
   linkType: hard
 
@@ -6375,7 +6259,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"classnames@npm:^2.2.5, classnames@npm:^2.2.6, classnames@npm:^2.3.1":
+"classnames@npm:^2.2.5, classnames@npm:^2.2.6, classnames@npm:^2.3.2":
   version: 2.3.2
   resolution: "classnames@npm:2.3.2"
   checksum: 2c62199789618d95545c872787137262e741f9db13328e216b093eea91c85ef2bfb152c1f9e63027204e2559a006a92eb74147d46c800a9f96297ae1d9f96f4e
@@ -7262,17 +7146,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"diff-sequences@npm:^28.1.1":
-  version: 28.1.1
-  resolution: "diff-sequences@npm:28.1.1"
-  checksum: e2529036505567c7ca5a2dea86b6bcd1ca0e3ae63bf8ebf529b8a99cfa915bbf194b7021dc1c57361a4017a6d95578d4ceb29fabc3232a4f4cb866a2726c7690
-  languageName: node
-  linkType: hard
-
 "diff-sequences@npm:^29.0.0":
   version: 29.0.0
   resolution: "diff-sequences@npm:29.0.0"
   checksum: 2c084a3db03ecde26f649f6f2559974e01e174451debeb301a7e17199e73423a8e8ddeb9a35ae38638c084b4fa51296a4a20fa7f44f3db0c0ba566bdc704ed3d
+  languageName: node
+  linkType: hard
+
+"diff-sequences@npm:^29.2.0":
+  version: 29.2.0
+  resolution: "diff-sequences@npm:29.2.0"
+  checksum: e7b874cc7a4ce76fd199794c4d5fabb099ab4bce069592407ac2933e3a10e05f035111498e2f2c86572f5cfa9668a191b09e79f1d967dc39d9ca0a12aacde41a
   languageName: node
   linkType: hard
 
@@ -7310,7 +7194,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dom-accessibility-api@npm:^0.5.6":
+"dom-accessibility-api@npm:^0.5.6, dom-accessibility-api@npm:^0.5.9":
   version: 0.5.14
   resolution: "dom-accessibility-api@npm:0.5.14"
   checksum: 782c813f75a09ba6735ef03b5e1624406a3829444ae49d5bdedd272a49d437ae3354f53e02ffc8c9fd9165880250f41546538f27461f839dd4ea1234e77e8d5e
@@ -8509,19 +8393,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expect@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "expect@npm:28.1.3"
-  dependencies:
-    "@jest/expect-utils": ^28.1.3
-    jest-get-type: ^28.0.2
-    jest-matcher-utils: ^28.1.3
-    jest-message-util: ^28.1.3
-    jest-util: ^28.1.3
-  checksum: 101e0090de300bcafedb7dbfd19223368a2251ce5fe0105bbb6de5720100b89fb6b64290ebfb42febc048324c76d6a4979cdc4b61eb77747857daf7a5de9b03d
-  languageName: node
-  linkType: hard
-
 "expect@npm:^29.0.0, expect@npm:^29.1.2":
   version: 29.1.2
   resolution: "expect@npm:29.1.2"
@@ -8532,6 +8403,19 @@ __metadata:
     jest-message-util: ^29.1.2
     jest-util: ^29.1.2
   checksum: 578c61459e0f4b2b8f93f11f38264446aa3be1f8bf4b85eaeb56be035535877514bc15a5aaaffc714961b872fd0ea3c2bc7dfe6efd4acf0a3315ffab0597fd7a
+  languageName: node
+  linkType: hard
+
+"expect@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "expect@npm:29.2.2"
+  dependencies:
+    "@jest/expect-utils": ^29.2.2
+    jest-get-type: ^29.2.0
+    jest-matcher-utils: ^29.2.2
+    jest-message-util: ^29.2.1
+    jest-util: ^29.2.1
+  checksum: e763df36fe406d2746cdf993b85714c16355b249b063b3f1ab0ff4077435b46ccae937c09930218516c1225203353652a8c6ac07b354474bc81d0ec45133dbf1
   languageName: node
   linkType: hard
 
@@ -10090,16 +9974,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-changed-files@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "jest-changed-files@npm:28.1.3"
-  dependencies:
-    execa: ^5.0.0
-    p-limit: ^3.1.0
-  checksum: c78af14a68b9b19101623ae7fde15a2488f9b3dbe8cca12a05c4a223bc9bfd3bf41ee06830f20fb560c52434435d6153c9cc6cf450b1f7b03e5e7f96a953a6a6
-  languageName: node
-  linkType: hard
-
 "jest-changed-files@npm:^29.0.0":
   version: 29.0.0
   resolution: "jest-changed-files@npm:29.0.0"
@@ -10107,6 +9981,16 @@ __metadata:
     execa: ^5.0.0
     p-limit: ^3.1.0
   checksum: 5642ace8cd1e7e4f9e3ee423b97d0b018b00ad85ea7e5864592b4657e8500ef56ec50d2189229b912223046bbf31c9196c8ef2442a917be9726a5911d40db1b2
+  languageName: node
+  linkType: hard
+
+"jest-changed-files@npm:^29.2.0":
+  version: 29.2.0
+  resolution: "jest-changed-files@npm:29.2.0"
+  dependencies:
+    execa: ^5.0.0
+    p-limit: ^3.1.0
+  checksum: 8ad8290324db1de2ee3c9443d3e3fbfdcb6d72ec7054c5796be2854b2bc239dea38a7c797c8c9c2bd959f539d44305790f2f75b18f3046b04317ed77c7480cb1
   languageName: node
   linkType: hard
 
@@ -10137,33 +10021,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-circus@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "jest-circus@npm:28.1.3"
-  dependencies:
-    "@jest/environment": ^28.1.3
-    "@jest/expect": ^28.1.3
-    "@jest/test-result": ^28.1.3
-    "@jest/types": ^28.1.3
-    "@types/node": "*"
-    chalk: ^4.0.0
-    co: ^4.6.0
-    dedent: ^0.7.0
-    is-generator-fn: ^2.0.0
-    jest-each: ^28.1.3
-    jest-matcher-utils: ^28.1.3
-    jest-message-util: ^28.1.3
-    jest-runtime: ^28.1.3
-    jest-snapshot: ^28.1.3
-    jest-util: ^28.1.3
-    p-limit: ^3.1.0
-    pretty-format: ^28.1.3
-    slash: ^3.0.0
-    stack-utils: ^2.0.3
-  checksum: b635e60a9c92adaefc3f24def8eba691e7c2fdcf6c9fa640cddf2eb8c8b26ee62eab73ebb88798fd7c52a74c1495a984e39b748429b610426f02e9d3d56e09b2
-  languageName: node
-  linkType: hard
-
 "jest-circus@npm:^29.1.2":
   version: 29.1.2
   resolution: "jest-circus@npm:29.1.2"
@@ -10188,6 +10045,33 @@ __metadata:
     slash: ^3.0.0
     stack-utils: ^2.0.3
   checksum: 27893239ba0eba2b3a7c6778d0c5da22a443ce911f2b399a5216af722c0aca45090b392ee82db75fdcfc09526791df105523ce59a7dad376f12e36110a1d8dd1
+  languageName: node
+  linkType: hard
+
+"jest-circus@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "jest-circus@npm:29.2.2"
+  dependencies:
+    "@jest/environment": ^29.2.2
+    "@jest/expect": ^29.2.2
+    "@jest/test-result": ^29.2.1
+    "@jest/types": ^29.2.1
+    "@types/node": "*"
+    chalk: ^4.0.0
+    co: ^4.6.0
+    dedent: ^0.7.0
+    is-generator-fn: ^2.0.0
+    jest-each: ^29.2.1
+    jest-matcher-utils: ^29.2.2
+    jest-message-util: ^29.2.1
+    jest-runtime: ^29.2.2
+    jest-snapshot: ^29.2.2
+    jest-util: ^29.2.1
+    p-limit: ^3.1.0
+    pretty-format: ^29.2.1
+    slash: ^3.0.0
+    stack-utils: ^2.0.3
+  checksum: 0c292c4391c7a8455172343a47710882dd077c989946feaf3979771d3013b8c5ee0548f9c63ec063010dbee6ee6aa4dfc6a295720ff2bf31322de34164489b8b
   languageName: node
   linkType: hard
 
@@ -10218,33 +10102,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-cli@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "jest-cli@npm:28.1.3"
-  dependencies:
-    "@jest/core": ^28.1.3
-    "@jest/test-result": ^28.1.3
-    "@jest/types": ^28.1.3
-    chalk: ^4.0.0
-    exit: ^0.1.2
-    graceful-fs: ^4.2.9
-    import-local: ^3.0.2
-    jest-config: ^28.1.3
-    jest-util: ^28.1.3
-    jest-validate: ^28.1.3
-    prompts: ^2.0.1
-    yargs: ^17.3.1
-  peerDependencies:
-    node-notifier: ^8.0.1 || ^9.0.0 || ^10.0.0
-  peerDependenciesMeta:
-    node-notifier:
-      optional: true
-  bin:
-    jest: bin/jest.js
-  checksum: fb424576bf38346318daddee3fcc597cd78cb8dda1759d09c529d8ba1a748f2765c17b00671072a838826e59465a810ff8a232bc6ba2395c131bf3504425a363
-  languageName: node
-  linkType: hard
-
 "jest-cli@npm:^29.1.2":
   version: 29.1.2
   resolution: "jest-cli@npm:29.1.2"
@@ -10269,6 +10126,33 @@ __metadata:
   bin:
     jest: bin/jest.js
   checksum: 2962060e3e0c3d3578201d58afdf617dce5c48fc686ac7897fb39318598131925bec299a981f5ceda87be9eba52fd8023573d4119603234eb25370f5cb8d8462
+  languageName: node
+  linkType: hard
+
+"jest-cli@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "jest-cli@npm:29.2.2"
+  dependencies:
+    "@jest/core": ^29.2.2
+    "@jest/test-result": ^29.2.1
+    "@jest/types": ^29.2.1
+    chalk: ^4.0.0
+    exit: ^0.1.2
+    graceful-fs: ^4.2.9
+    import-local: ^3.0.2
+    jest-config: ^29.2.2
+    jest-util: ^29.2.1
+    jest-validate: ^29.2.2
+    prompts: ^2.0.1
+    yargs: ^17.3.1
+  peerDependencies:
+    node-notifier: ^8.0.1 || ^9.0.0 || ^10.0.0
+  peerDependenciesMeta:
+    node-notifier:
+      optional: true
+  bin:
+    jest: bin/jest.js
+  checksum: 95ba7fde0a88d1fd347cd1db4810fbae096c87256b260f8deef7c4b12fd6722d2a31b0a2c0e321e5fc74215d06725195d04c32761279bc8571fe069fd0b0581a
   languageName: node
   linkType: hard
 
@@ -10306,44 +10190,6 @@ __metadata:
     ts-node:
       optional: true
   checksum: 1188fd46c0ed78cbe3175eb9ad6712ccf74a74be33d9f0d748e147c107f0889f8b701fbff1567f31836ae18597dacdc43d6a8fc30dd34ade6c9229cc6c7cb82d
-  languageName: node
-  linkType: hard
-
-"jest-config@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "jest-config@npm:28.1.3"
-  dependencies:
-    "@babel/core": ^7.11.6
-    "@jest/test-sequencer": ^28.1.3
-    "@jest/types": ^28.1.3
-    babel-jest: ^28.1.3
-    chalk: ^4.0.0
-    ci-info: ^3.2.0
-    deepmerge: ^4.2.2
-    glob: ^7.1.3
-    graceful-fs: ^4.2.9
-    jest-circus: ^28.1.3
-    jest-environment-node: ^28.1.3
-    jest-get-type: ^28.0.2
-    jest-regex-util: ^28.0.2
-    jest-resolve: ^28.1.3
-    jest-runner: ^28.1.3
-    jest-util: ^28.1.3
-    jest-validate: ^28.1.3
-    micromatch: ^4.0.4
-    parse-json: ^5.2.0
-    pretty-format: ^28.1.3
-    slash: ^3.0.0
-    strip-json-comments: ^3.1.1
-  peerDependencies:
-    "@types/node": "*"
-    ts-node: ">=9.0.0"
-  peerDependenciesMeta:
-    "@types/node":
-      optional: true
-    ts-node:
-      optional: true
-  checksum: ddabffd3a3a8cb6c2f58f06cdf3535157dbf8c70bcde3e5c3de7bee6a8d617840ffc8cffb0083e38c6814f2a08c225ca19f58898efaf4f351af94679f22ce6bc
   languageName: node
   linkType: hard
 
@@ -10385,6 +10231,44 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-config@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "jest-config@npm:29.2.2"
+  dependencies:
+    "@babel/core": ^7.11.6
+    "@jest/test-sequencer": ^29.2.2
+    "@jest/types": ^29.2.1
+    babel-jest: ^29.2.2
+    chalk: ^4.0.0
+    ci-info: ^3.2.0
+    deepmerge: ^4.2.2
+    glob: ^7.1.3
+    graceful-fs: ^4.2.9
+    jest-circus: ^29.2.2
+    jest-environment-node: ^29.2.2
+    jest-get-type: ^29.2.0
+    jest-regex-util: ^29.2.0
+    jest-resolve: ^29.2.2
+    jest-runner: ^29.2.2
+    jest-util: ^29.2.1
+    jest-validate: ^29.2.2
+    micromatch: ^4.0.4
+    parse-json: ^5.2.0
+    pretty-format: ^29.2.1
+    slash: ^3.0.0
+    strip-json-comments: ^3.1.1
+  peerDependencies:
+    "@types/node": "*"
+    ts-node: ">=9.0.0"
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    ts-node:
+      optional: true
+  checksum: 9da0013a1db22ecc594e86a7fea9475175d5ec9ed776ce237672e8be138cea21b68dd9677665c6b316ec4c1aa70a91537861e16ff8938dce44837e71d8f0b5db
+  languageName: node
+  linkType: hard
+
 "jest-diff@npm:^27.5.1":
   version: 27.5.1
   resolution: "jest-diff@npm:27.5.1"
@@ -10394,18 +10278,6 @@ __metadata:
     jest-get-type: ^27.5.1
     pretty-format: ^27.5.1
   checksum: 8be27c1e1ee57b2bb2bef9c0b233c19621b4c43d53a3c26e2c00a4e805eb4ea11fe1694a06a9fb0e80ffdcfdc0d2b1cb0b85920b3f5c892327ecd1e7bd96b865
-  languageName: node
-  linkType: hard
-
-"jest-diff@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "jest-diff@npm:28.1.3"
-  dependencies:
-    chalk: ^4.0.0
-    diff-sequences: ^28.1.1
-    jest-get-type: ^28.0.2
-    pretty-format: ^28.1.3
-  checksum: fa8583e0ccbe775714ce850b009be1b0f6b17a4b6759f33ff47adef27942ebc610dbbcc8a5f7cfb7f12b3b3b05afc9fb41d5f766674616025032ff1e4f9866e0
   languageName: node
   linkType: hard
 
@@ -10421,6 +10293,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-diff@npm:^29.2.1":
+  version: 29.2.1
+  resolution: "jest-diff@npm:29.2.1"
+  dependencies:
+    chalk: ^4.0.0
+    diff-sequences: ^29.2.0
+    jest-get-type: ^29.2.0
+    pretty-format: ^29.2.1
+  checksum: e3553e5bf556b786b864e3da0ef0a2cde8b260a7bb281eaf47d34aee0bf303bf557bc75416c20f9454e2e1b6ac0ae53684d5be7af5cfc010dc08805bdcb3f457
+  languageName: node
+  linkType: hard
+
 "jest-docblock@npm:^27.5.1":
   version: 27.5.1
   resolution: "jest-docblock@npm:27.5.1"
@@ -10430,21 +10314,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-docblock@npm:^28.1.1":
-  version: 28.1.1
-  resolution: "jest-docblock@npm:28.1.1"
-  dependencies:
-    detect-newline: ^3.0.0
-  checksum: 22fca68d988ecb2933bc65f448facdca85fc71b4bd0a188ea09a5ae1b0cc3a049a2a6ec7e7eaa2542c1d5cb5e5145e420a3df4fa280f5070f486c44da1d36151
-  languageName: node
-  linkType: hard
-
 "jest-docblock@npm:^29.0.0":
   version: 29.0.0
   resolution: "jest-docblock@npm:29.0.0"
   dependencies:
     detect-newline: ^3.0.0
   checksum: b4f81426cc0dffb05b873d3cc373a1643040be62d72cce4dfed499fbcb57c55ac02c44af7aba5e7753915ff5e85b8d6030456981156eaea20be1cb57d2719904
+  languageName: node
+  linkType: hard
+
+"jest-docblock@npm:^29.2.0":
+  version: 29.2.0
+  resolution: "jest-docblock@npm:29.2.0"
+  dependencies:
+    detect-newline: ^3.0.0
+  checksum: b3f1227b7d73fc9e4952180303475cf337b36fa65c7f730ac92f0580f1c08439983262fee21cf3dba11429aa251b4eee1e3bc74796c5777116b400d78f9d2bbe
   languageName: node
   linkType: hard
 
@@ -10461,19 +10345,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-each@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "jest-each@npm:28.1.3"
-  dependencies:
-    "@jest/types": ^28.1.3
-    chalk: ^4.0.0
-    jest-get-type: ^28.0.2
-    jest-util: ^28.1.3
-    pretty-format: ^28.1.3
-  checksum: 5c5b8ccb1484e58b027bea682cfa020a45e5bf5379cc7c23bdec972576c1dc3c3bf03df2b78416cefc1a58859dd33b7cf5fff54c370bc3c0f14a3e509eb87282
-  languageName: node
-  linkType: hard
-
 "jest-each@npm:^29.1.2":
   version: 29.1.2
   resolution: "jest-each@npm:29.1.2"
@@ -10484,6 +10355,19 @@ __metadata:
     jest-util: ^29.1.2
     pretty-format: ^29.1.2
   checksum: 785c1b785c8ad9f7c712f0b0cc31f95cb8813bde59cd123d24d555f6fb18bd0a01328febfb6480e400b324566b5bd9084e86ffd4a86025265f32d36424cc1270
+  languageName: node
+  linkType: hard
+
+"jest-each@npm:^29.2.1":
+  version: 29.2.1
+  resolution: "jest-each@npm:29.2.1"
+  dependencies:
+    "@jest/types": ^29.2.1
+    chalk: ^4.0.0
+    jest-get-type: ^29.2.0
+    jest-util: ^29.2.1
+    pretty-format: ^29.2.1
+  checksum: 877bd64a08ff4245400c4d84d65a6fb87898e53498b65f53915c7e66e66bf49a4559bc5ca584a3dab57251e88815f48c1053e40c0c1017fbb7d9813f40eb25b8
   languageName: node
   linkType: hard
 
@@ -10537,20 +10421,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-environment-node@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "jest-environment-node@npm:28.1.3"
-  dependencies:
-    "@jest/environment": ^28.1.3
-    "@jest/fake-timers": ^28.1.3
-    "@jest/types": ^28.1.3
-    "@types/node": "*"
-    jest-mock: ^28.1.3
-    jest-util: ^28.1.3
-  checksum: 1048fe306a6a8b0880a4c66278ebb57479f29c12cff89aab3aa79ab77a8859cf17ab8aa9919fd21c329a7db90e35581b43664e694ad453d5b04e00f3c6420469
-  languageName: node
-  linkType: hard
-
 "jest-environment-node@npm:^29.1.2":
   version: 29.1.2
   resolution: "jest-environment-node@npm:29.1.2"
@@ -10565,6 +10435,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-environment-node@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "jest-environment-node@npm:29.2.2"
+  dependencies:
+    "@jest/environment": ^29.2.2
+    "@jest/fake-timers": ^29.2.2
+    "@jest/types": ^29.2.1
+    "@types/node": "*"
+    jest-mock: ^29.2.2
+    jest-util: ^29.2.1
+  checksum: 06046c31f664f37b2fcf2dd85fbb3818ab15ee12570f707a6fdfc6b6009cce2444564a531bbb44acc4eff06cc86dc1070786fe79fab1c5ba7f6a9ded482957f1
+  languageName: node
+  linkType: hard
+
 "jest-get-type@npm:^27.5.1":
   version: 27.5.1
   resolution: "jest-get-type@npm:27.5.1"
@@ -10572,17 +10456,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-get-type@npm:^28.0.2":
-  version: 28.0.2
-  resolution: "jest-get-type@npm:28.0.2"
-  checksum: 5281d7c89bc8156605f6d15784f45074f4548501195c26e9b188742768f72d40948252d13230ea905b5349038865a1a8eeff0e614cc530ff289dfc41fe843abd
-  languageName: node
-  linkType: hard
-
 "jest-get-type@npm:^29.0.0":
   version: 29.0.0
   resolution: "jest-get-type@npm:29.0.0"
   checksum: 9abdd11d69788963a92fb9d813a7b887654ecc8f3a3c8bf83166d33aaf4d57ed380e74ab8ef106f57565dd235446ca6ebc607679f0c516c4633e6d09f0540a2b
+  languageName: node
+  linkType: hard
+
+"jest-get-type@npm:^29.2.0":
+  version: 29.2.0
+  resolution: "jest-get-type@npm:29.2.0"
+  checksum: e396fd880a30d08940ed8a8e43cd4595db1b8ff09649018eb358ca701811137556bae82626af73459e3c0f8c5e972ed1e57fd3b1537b13a260893dac60a90942
   languageName: node
   linkType: hard
 
@@ -10610,29 +10494,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-haste-map@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "jest-haste-map@npm:28.1.3"
-  dependencies:
-    "@jest/types": ^28.1.3
-    "@types/graceful-fs": ^4.1.3
-    "@types/node": "*"
-    anymatch: ^3.0.3
-    fb-watchman: ^2.0.0
-    fsevents: ^2.3.2
-    graceful-fs: ^4.2.9
-    jest-regex-util: ^28.0.2
-    jest-util: ^28.1.3
-    jest-worker: ^28.1.3
-    micromatch: ^4.0.4
-    walker: ^1.0.8
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  checksum: d05fdc108645fc2b39fcd4001952cc7a8cb550e93494e98c1e9ab1fc542686f6ac67177c132e564cf94fe8f81503f3f8db8b825b9b713dc8c5748aec63ba4688
-  languageName: node
-  linkType: hard
-
 "jest-haste-map@npm:^29.1.2":
   version: 29.1.2
   resolution: "jest-haste-map@npm:29.1.2"
@@ -10653,6 +10514,29 @@ __metadata:
     fsevents:
       optional: true
   checksum: 848f41046f3b587ae619b963859164e3220bf6811dcf3c23e198734aad892fff96210d5dd6b2cf5228dbe3dbc8102ee534b8264730e2c107598c50f048dfbf60
+  languageName: node
+  linkType: hard
+
+"jest-haste-map@npm:^29.2.1":
+  version: 29.2.1
+  resolution: "jest-haste-map@npm:29.2.1"
+  dependencies:
+    "@jest/types": ^29.2.1
+    "@types/graceful-fs": ^4.1.3
+    "@types/node": "*"
+    anymatch: ^3.0.3
+    fb-watchman: ^2.0.0
+    fsevents: ^2.3.2
+    graceful-fs: ^4.2.9
+    jest-regex-util: ^29.2.0
+    jest-util: ^29.2.1
+    jest-worker: ^29.2.1
+    micromatch: ^4.0.4
+    walker: ^1.0.8
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  checksum: 1880e5dd12b83c8ffbd527b80c81bd694a9018ed003d1ecc72ed4e1a0c2be0bc2a26a96c7439c4be8954912cd01ecaea807d2739b24d2ac7dd23f5aa672d9da1
   languageName: node
   linkType: hard
 
@@ -10691,16 +10575,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-leak-detector@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "jest-leak-detector@npm:28.1.3"
-  dependencies:
-    jest-get-type: ^28.0.2
-    pretty-format: ^28.1.3
-  checksum: 2e976a4880cf9af11f53a19f6a3820e0f90b635a900737a5427fc42e337d5628ba446dcd7c020ecea3806cf92bc0bbf6982ed62a9cd84e5a13d8751aa30fbbb7
-  languageName: node
-  linkType: hard
-
 "jest-leak-detector@npm:^29.1.2":
   version: 29.1.2
   resolution: "jest-leak-detector@npm:29.1.2"
@@ -10711,7 +10585,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-localstorage-mock@npm:^2.4.18":
+"jest-leak-detector@npm:^29.2.1":
+  version: 29.2.1
+  resolution: "jest-leak-detector@npm:29.2.1"
+  dependencies:
+    jest-get-type: ^29.2.0
+    pretty-format: ^29.2.1
+  checksum: c30107ae583c7b1a30b8ac32f98997597ac5c46c243ef69a2b4bbaf803eefe0a696c6049a75434afdd0b0adbff418081a202903fcf00d38e4f8c1fe442c0f660
+  languageName: node
+  linkType: hard
+
+"jest-localstorage-mock@npm:^2.4.22":
   version: 2.4.22
   resolution: "jest-localstorage-mock@npm:2.4.22"
   checksum: 34459a58e3851c353ba1e7df0b585451191bc9b81b17f441f27f1cd3287b539f797387e9608b7ee5d9ab6154a0ddf1244ff80d04d4f98c14cbe7bef4df47517a
@@ -10730,18 +10614,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-matcher-utils@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "jest-matcher-utils@npm:28.1.3"
-  dependencies:
-    chalk: ^4.0.0
-    jest-diff: ^28.1.3
-    jest-get-type: ^28.0.2
-    pretty-format: ^28.1.3
-  checksum: 6b34f0cf66f6781e92e3bec97bf27796bd2ba31121e5c5997218d9adba6deea38a30df5203937d6785b68023ed95cbad73663cc9aad6fb0cb59aeb5813a58daf
-  languageName: node
-  linkType: hard
-
 "jest-matcher-utils@npm:^29.1.2":
   version: 29.1.2
   resolution: "jest-matcher-utils@npm:29.1.2"
@@ -10751,6 +10623,18 @@ __metadata:
     jest-get-type: ^29.0.0
     pretty-format: ^29.1.2
   checksum: 648afe4349eecf33316b08cf92b85a9a61aa6d1cf9b086a619ba494842888e1d883a783616d09c07a7a63e030983d4bb902e9a6b07702dc5247282d25c4c644f
+  languageName: node
+  linkType: hard
+
+"jest-matcher-utils@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "jest-matcher-utils@npm:29.2.2"
+  dependencies:
+    chalk: ^4.0.0
+    jest-diff: ^29.2.1
+    jest-get-type: ^29.2.0
+    pretty-format: ^29.2.1
+  checksum: 97ef2638ab826c25f84bfedea231cef091820ae0876ba316922da81145e950d2b9d2057d3645813b5ee880bb975ed4f22e228dda5d0d26a20715e575b675357d
   languageName: node
   linkType: hard
 
@@ -10768,23 +10652,6 @@ __metadata:
     slash: ^3.0.0
     stack-utils: ^2.0.3
   checksum: eb6d637d1411c71646de578c49826b6da8e33dd293e501967011de9d1916d53d845afbfb52a5b661ff1c495be7c13f751c48c7f30781fd94fbd64842e8195796
-  languageName: node
-  linkType: hard
-
-"jest-message-util@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "jest-message-util@npm:28.1.3"
-  dependencies:
-    "@babel/code-frame": ^7.12.13
-    "@jest/types": ^28.1.3
-    "@types/stack-utils": ^2.0.0
-    chalk: ^4.0.0
-    graceful-fs: ^4.2.9
-    micromatch: ^4.0.4
-    pretty-format: ^28.1.3
-    slash: ^3.0.0
-    stack-utils: ^2.0.3
-  checksum: 1f266854166dcc6900d75a88b54a25225a2f3710d463063ff1c99021569045c35c7d58557b25447a17eb3a65ce763b2f9b25550248b468a9d4657db365f39e96
   languageName: node
   linkType: hard
 
@@ -10829,16 +10696,6 @@ __metadata:
     "@jest/types": ^27.5.1
     "@types/node": "*"
   checksum: f5b5904bb1741b4a1687a5f492535b7b1758dc26534c72a5423305f8711292e96a601dec966df81bb313269fb52d47227e29f9c2e08324d79529172f67311be0
-  languageName: node
-  linkType: hard
-
-"jest-mock@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "jest-mock@npm:28.1.3"
-  dependencies:
-    "@jest/types": ^28.1.3
-    "@types/node": "*"
-  checksum: a573bf8e5f12f4c29c661266c31b5c6b69a28d3195b83049983bce025b2b1a0152351567e89e63b102ef817034c2a3aa97eda4e776f3bae2aee54c5765573aa7
   languageName: node
   linkType: hard
 
@@ -10894,17 +10751,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-regex-util@npm:^28.0.2":
-  version: 28.0.2
-  resolution: "jest-regex-util@npm:28.0.2"
-  checksum: 0ea8c5c82ec88bc85e273c0ec82e0c0f35f7a1e2d055070e50f0cc2a2177f848eec55f73e37ae0d045c3db5014c42b2f90ac62c1ab3fdb354d2abd66a9e08add
-  languageName: node
-  linkType: hard
-
 "jest-regex-util@npm:^29.0.0":
   version: 29.0.0
   resolution: "jest-regex-util@npm:29.0.0"
   checksum: dce16394c357213008e6f84f2288f77c64bba59b7cb48ea614e85c5aae036a7e46dbfd1f45aa08180b7e7c576102bf4f8f0ff8bc60fb9721fb80874adc3ae0ea
+  languageName: node
+  linkType: hard
+
+"jest-regex-util@npm:^29.2.0":
+  version: 29.2.0
+  resolution: "jest-regex-util@npm:29.2.0"
+  checksum: 7c533e51c51230dac20c0d7395b19b8366cb022f7c6e08e6bcf2921626840ff90424af4c9b4689f02f0addfc9b071c4cd5f8f7a989298a4c8e0f9c94418ca1c3
   languageName: node
   linkType: hard
 
@@ -10919,16 +10776,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-resolve-dependencies@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "jest-resolve-dependencies@npm:28.1.3"
-  dependencies:
-    jest-regex-util: ^28.0.2
-    jest-snapshot: ^28.1.3
-  checksum: 4eea9ec33aefc1c71dc5956391efbcc7be76bda986b366ab3931d99c5f7ed01c9ebd7520e405ea2c76e1bb2c7ce504be6eca2b9831df16564d1e625500f3bfe7
-  languageName: node
-  linkType: hard
-
 "jest-resolve-dependencies@npm:^29.1.2":
   version: 29.1.2
   resolution: "jest-resolve-dependencies@npm:29.1.2"
@@ -10936,6 +10783,16 @@ __metadata:
     jest-regex-util: ^29.0.0
     jest-snapshot: ^29.1.2
   checksum: 6aee77d61ba57eb511fe4357c85019e3d15110638dd73c336cd9d28f2716b6d09ab3604db9a1240e91bbcdd93d6542e3ac736e768e2c49e3a58f8a43058da640
+  languageName: node
+  linkType: hard
+
+"jest-resolve-dependencies@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "jest-resolve-dependencies@npm:29.2.2"
+  dependencies:
+    jest-regex-util: ^29.2.0
+    jest-snapshot: ^29.2.2
+  checksum: 80a602beebe694444afc6f4ba7d32685d464bea75955ff74bee14640dfebe28a02080e94a9a49377e0815c86d045d653a4d6ce5a63a816347600ebd2c3f79084
   languageName: node
   linkType: hard
 
@@ -10957,23 +10814,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-resolve@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "jest-resolve@npm:28.1.3"
-  dependencies:
-    chalk: ^4.0.0
-    graceful-fs: ^4.2.9
-    jest-haste-map: ^28.1.3
-    jest-pnp-resolver: ^1.2.2
-    jest-util: ^28.1.3
-    jest-validate: ^28.1.3
-    resolve: ^1.20.0
-    resolve.exports: ^1.1.0
-    slash: ^3.0.0
-  checksum: df61a490c93f4f4cf52135e43d6a4fcacb07b0b7d4acc6319e9289529c1d14f2d8e1638e095dbf96f156834802755e38db68caca69dba21a3261ee711d4426b6
-  languageName: node
-  linkType: hard
-
 "jest-resolve@npm:^29.1.2":
   version: 29.1.2
   resolution: "jest-resolve@npm:29.1.2"
@@ -10988,6 +10828,23 @@ __metadata:
     resolve.exports: ^1.1.0
     slash: ^3.0.0
   checksum: 3b91f6197139e7f7a5ca5bcc9608054b675aada5083e4a2ef7afe75ce4b53724d64c03ade4a11b10578601268fa598f508aacf3cdbc3c118b57a2613f96cd072
+  languageName: node
+  linkType: hard
+
+"jest-resolve@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "jest-resolve@npm:29.2.2"
+  dependencies:
+    chalk: ^4.0.0
+    graceful-fs: ^4.2.9
+    jest-haste-map: ^29.2.1
+    jest-pnp-resolver: ^1.2.2
+    jest-util: ^29.2.1
+    jest-validate: ^29.2.2
+    resolve: ^1.20.0
+    resolve.exports: ^1.1.0
+    slash: ^3.0.0
+  checksum: 2bfa5c64d4ed2e60fea6a398cd08db91e925e4efbac3bee7ec2b9561dc8b05b16f43c7a00b158e4facd3a7738b7beaf580f9ac486e3bdd6edb4fc91073042c08
   languageName: node
   linkType: hard
 
@@ -11020,35 +10877,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-runner@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "jest-runner@npm:28.1.3"
-  dependencies:
-    "@jest/console": ^28.1.3
-    "@jest/environment": ^28.1.3
-    "@jest/test-result": ^28.1.3
-    "@jest/transform": ^28.1.3
-    "@jest/types": ^28.1.3
-    "@types/node": "*"
-    chalk: ^4.0.0
-    emittery: ^0.10.2
-    graceful-fs: ^4.2.9
-    jest-docblock: ^28.1.1
-    jest-environment-node: ^28.1.3
-    jest-haste-map: ^28.1.3
-    jest-leak-detector: ^28.1.3
-    jest-message-util: ^28.1.3
-    jest-resolve: ^28.1.3
-    jest-runtime: ^28.1.3
-    jest-util: ^28.1.3
-    jest-watcher: ^28.1.3
-    jest-worker: ^28.1.3
-    p-limit: ^3.1.0
-    source-map-support: 0.5.13
-  checksum: 32405cd970fa6b11e039192dae699fd1bcc6f61f67d50605af81d193f24dd4373b25f5fcc1c571a028ec1b02174e8a4b6d0d608772063fb06f08a5105693533b
-  languageName: node
-  linkType: hard
-
 "jest-runner@npm:^29.1.2":
   version: 29.1.2
   resolution: "jest-runner@npm:29.1.2"
@@ -11075,6 +10903,35 @@ __metadata:
     p-limit: ^3.1.0
     source-map-support: 0.5.13
   checksum: 717633249beaeefb3bb431558e356e03dd498102e8127fd20ab2a17cbe4bf04cd939cd10caf5abec6a093605da2322ab821b41b0599482d501f2ff0045ab63c5
+  languageName: node
+  linkType: hard
+
+"jest-runner@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "jest-runner@npm:29.2.2"
+  dependencies:
+    "@jest/console": ^29.2.1
+    "@jest/environment": ^29.2.2
+    "@jest/test-result": ^29.2.1
+    "@jest/transform": ^29.2.2
+    "@jest/types": ^29.2.1
+    "@types/node": "*"
+    chalk: ^4.0.0
+    emittery: ^0.13.1
+    graceful-fs: ^4.2.9
+    jest-docblock: ^29.2.0
+    jest-environment-node: ^29.2.2
+    jest-haste-map: ^29.2.1
+    jest-leak-detector: ^29.2.1
+    jest-message-util: ^29.2.1
+    jest-resolve: ^29.2.2
+    jest-runtime: ^29.2.2
+    jest-util: ^29.2.1
+    jest-watcher: ^29.2.2
+    jest-worker: ^29.2.1
+    p-limit: ^3.1.0
+    source-map-support: 0.5.13
+  checksum: 1bea17607f505a394af7c3ce8dca9af0f804bd96c52eb48fa2470ec396d52e8132a12a0550ef6e0ac3c175c9596e4a3c20b691bca9aea9cffa009f9833c6a009
   languageName: node
   linkType: hard
 
@@ -11108,36 +10965,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-runtime@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "jest-runtime@npm:28.1.3"
-  dependencies:
-    "@jest/environment": ^28.1.3
-    "@jest/fake-timers": ^28.1.3
-    "@jest/globals": ^28.1.3
-    "@jest/source-map": ^28.1.2
-    "@jest/test-result": ^28.1.3
-    "@jest/transform": ^28.1.3
-    "@jest/types": ^28.1.3
-    chalk: ^4.0.0
-    cjs-module-lexer: ^1.0.0
-    collect-v8-coverage: ^1.0.0
-    execa: ^5.0.0
-    glob: ^7.1.3
-    graceful-fs: ^4.2.9
-    jest-haste-map: ^28.1.3
-    jest-message-util: ^28.1.3
-    jest-mock: ^28.1.3
-    jest-regex-util: ^28.0.2
-    jest-resolve: ^28.1.3
-    jest-snapshot: ^28.1.3
-    jest-util: ^28.1.3
-    slash: ^3.0.0
-    strip-bom: ^4.0.0
-  checksum: b17c40af858e74dafa4f515ef3711c1e9ef3d4ad7d74534ee0745422534bc04fd166d4eceb62a3aa7dc951505d6f6d2a81d16e90bebb032be409ec0500974a36
-  languageName: node
-  linkType: hard
-
 "jest-runtime@npm:^29.1.2":
   version: 29.1.2
   resolution: "jest-runtime@npm:29.1.2"
@@ -11165,6 +10992,36 @@ __metadata:
     slash: ^3.0.0
     strip-bom: ^4.0.0
   checksum: 88011109a85712bb9fc18bf910310eaf353706cf50a778b4c9da673929f4fac2b089c39d68a93eeb7fed99d880888568713b55494df7f7df52c05f303ec66372
+  languageName: node
+  linkType: hard
+
+"jest-runtime@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "jest-runtime@npm:29.2.2"
+  dependencies:
+    "@jest/environment": ^29.2.2
+    "@jest/fake-timers": ^29.2.2
+    "@jest/globals": ^29.2.2
+    "@jest/source-map": ^29.2.0
+    "@jest/test-result": ^29.2.1
+    "@jest/transform": ^29.2.2
+    "@jest/types": ^29.2.1
+    "@types/node": "*"
+    chalk: ^4.0.0
+    cjs-module-lexer: ^1.0.0
+    collect-v8-coverage: ^1.0.0
+    glob: ^7.1.3
+    graceful-fs: ^4.2.9
+    jest-haste-map: ^29.2.1
+    jest-message-util: ^29.2.1
+    jest-mock: ^29.2.2
+    jest-regex-util: ^29.2.0
+    jest-resolve: ^29.2.2
+    jest-snapshot: ^29.2.2
+    jest-util: ^29.2.1
+    slash: ^3.0.0
+    strip-bom: ^4.0.0
+  checksum: 82268a0091cf5ed8ea26bdeeb207cf2eff1c2130704313cd9132c65481d8e30845955b8af08fb73fac1c541573c0701fccd19d3394f24c8c36e0521e467815c8
   languageName: node
   linkType: hard
 
@@ -11208,37 +11065,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-snapshot@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "jest-snapshot@npm:28.1.3"
-  dependencies:
-    "@babel/core": ^7.11.6
-    "@babel/generator": ^7.7.2
-    "@babel/plugin-syntax-typescript": ^7.7.2
-    "@babel/traverse": ^7.7.2
-    "@babel/types": ^7.3.3
-    "@jest/expect-utils": ^28.1.3
-    "@jest/transform": ^28.1.3
-    "@jest/types": ^28.1.3
-    "@types/babel__traverse": ^7.0.6
-    "@types/prettier": ^2.1.5
-    babel-preset-current-node-syntax: ^1.0.0
-    chalk: ^4.0.0
-    expect: ^28.1.3
-    graceful-fs: ^4.2.9
-    jest-diff: ^28.1.3
-    jest-get-type: ^28.0.2
-    jest-haste-map: ^28.1.3
-    jest-matcher-utils: ^28.1.3
-    jest-message-util: ^28.1.3
-    jest-util: ^28.1.3
-    natural-compare: ^1.4.0
-    pretty-format: ^28.1.3
-    semver: ^7.3.5
-  checksum: 2a46a5493f1fb50b0a236a21f25045e7f46a244f9f3ae37ef4fbcd40249d0d68bb20c950ce77439e4e2cac985b05c3061c90b34739bf6069913a1199c8c716e1
-  languageName: node
-  linkType: hard
-
 "jest-snapshot@npm:^29.1.2":
   version: 29.1.2
   resolution: "jest-snapshot@npm:29.1.2"
@@ -11271,6 +11097,38 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-snapshot@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "jest-snapshot@npm:29.2.2"
+  dependencies:
+    "@babel/core": ^7.11.6
+    "@babel/generator": ^7.7.2
+    "@babel/plugin-syntax-jsx": ^7.7.2
+    "@babel/plugin-syntax-typescript": ^7.7.2
+    "@babel/traverse": ^7.7.2
+    "@babel/types": ^7.3.3
+    "@jest/expect-utils": ^29.2.2
+    "@jest/transform": ^29.2.2
+    "@jest/types": ^29.2.1
+    "@types/babel__traverse": ^7.0.6
+    "@types/prettier": ^2.1.5
+    babel-preset-current-node-syntax: ^1.0.0
+    chalk: ^4.0.0
+    expect: ^29.2.2
+    graceful-fs: ^4.2.9
+    jest-diff: ^29.2.1
+    jest-get-type: ^29.2.0
+    jest-haste-map: ^29.2.1
+    jest-matcher-utils: ^29.2.2
+    jest-message-util: ^29.2.1
+    jest-util: ^29.2.1
+    natural-compare: ^1.4.0
+    pretty-format: ^29.2.1
+    semver: ^7.3.5
+  checksum: f2f86aa83ee2a785ff9da17b372b4132f2d94aa9499c21ade4034436b302be3c8d3d0612712738dd36f708b342b785e2fc2069ec0caeaf75c84d75cc501439df
+  languageName: node
+  linkType: hard
+
 "jest-transform-stub@npm:^2.0.0":
   version: 2.0.0
   resolution: "jest-transform-stub@npm:2.0.0"
@@ -11289,20 +11147,6 @@ __metadata:
     graceful-fs: ^4.2.9
     picomatch: ^2.2.3
   checksum: ac8d122f6daf7a035dcea156641fd3701aeba245417c40836a77e35b3341b9c02ddc5d904cfcd4ddbaa00ab854da76d3b911870cafdcdbaff90ea471de26c7d7
-  languageName: node
-  linkType: hard
-
-"jest-util@npm:^28.0.0, jest-util@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "jest-util@npm:28.1.3"
-  dependencies:
-    "@jest/types": ^28.1.3
-    "@types/node": "*"
-    chalk: ^4.0.0
-    ci-info: ^3.2.0
-    graceful-fs: ^4.2.9
-    picomatch: ^2.2.3
-  checksum: fd6459742c941f070223f25e38a2ac0719aad92561591e9fb2a50d602a5d19d754750b79b4074327a42b00055662b95da3b006542ceb8b54309da44d4a62e721
   languageName: node
   linkType: hard
 
@@ -11348,20 +11192,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-validate@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "jest-validate@npm:28.1.3"
-  dependencies:
-    "@jest/types": ^28.1.3
-    camelcase: ^6.2.0
-    chalk: ^4.0.0
-    jest-get-type: ^28.0.2
-    leven: ^3.1.0
-    pretty-format: ^28.1.3
-  checksum: 95e0513b3803c3372a145cda86edbdb33d9dfeaa18818176f2d581e821548ceac9a179f065b6d4671a941de211354efd67f1fff8789a4fb89962565c85f646db
-  languageName: node
-  linkType: hard
-
 "jest-validate@npm:^29.1.2":
   version: 29.1.2
   resolution: "jest-validate@npm:29.1.2"
@@ -11373,6 +11203,20 @@ __metadata:
     leven: ^3.1.0
     pretty-format: ^29.1.2
   checksum: e25dc8f87bf9536903b5b2aed740ef8b02c229d8512c635d0ac3112c241a1e488bf99ca98e6c0cc8e3619be782b2d77c05ee21a42ee5f997025a9631788fa4ea
+  languageName: node
+  linkType: hard
+
+"jest-validate@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "jest-validate@npm:29.2.2"
+  dependencies:
+    "@jest/types": ^29.2.1
+    camelcase: ^6.2.0
+    chalk: ^4.0.0
+    jest-get-type: ^29.2.0
+    leven: ^3.1.0
+    pretty-format: ^29.2.1
+  checksum: faa462777d3aa632f13feb2c23b3b263429f0bc7c6addc97e325d53a2dd954f01b05456ab730a1492b606c175457f72c8afad371f555bfaf5e0f6085b6f4cbb9
   languageName: node
   linkType: hard
 
@@ -11408,23 +11252,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-watcher@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "jest-watcher@npm:28.1.3"
-  dependencies:
-    "@jest/test-result": ^28.1.3
-    "@jest/types": ^28.1.3
-    "@types/node": "*"
-    ansi-escapes: ^4.2.1
-    chalk: ^4.0.0
-    emittery: ^0.10.2
-    jest-util: ^28.1.3
-    string-length: ^4.0.1
-  checksum: 8f6d674a4865e7df251f71544f1b51f06fd36b5a3a61f2ac81aeb81fa2a196be354fba51d0f97911c88f67cd254583b3a22ee124bf2c5b6ee2fadec27356c207
-  languageName: node
-  linkType: hard
-
-"jest-watcher@npm:^29.0.0":
+"jest-watcher@npm:^29.0.0, jest-watcher@npm:^29.2.2":
   version: 29.2.2
   resolution: "jest-watcher@npm:29.2.2"
   dependencies:
@@ -11467,17 +11295,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-worker@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "jest-worker@npm:28.1.3"
-  dependencies:
-    "@types/node": "*"
-    merge-stream: ^2.0.0
-    supports-color: ^8.0.0
-  checksum: e921c9a1b8f0909da9ea07dbf3592f95b653aef3a8bb0cbcd20fc7f9a795a1304adecac31eecb308992c167e8d7e75c522061fec38a5928ace0f9571c90169ca
-  languageName: node
-  linkType: hard
-
 "jest-worker@npm:^29.1.2":
   version: 29.1.2
   resolution: "jest-worker@npm:29.1.2"
@@ -11487,6 +11304,18 @@ __metadata:
     merge-stream: ^2.0.0
     supports-color: ^8.0.0
   checksum: 788d14b2a051bf548a316dd177175c0e46127e63d794677fb0ba67e9b0b9f579cbc6a602a72671c80a020bf4d3f502b0a2dff7bf380986e5f30d30ec0f69168b
+  languageName: node
+  linkType: hard
+
+"jest-worker@npm:^29.2.1":
+  version: 29.2.1
+  resolution: "jest-worker@npm:29.2.1"
+  dependencies:
+    "@types/node": "*"
+    jest-util: ^29.2.1
+    merge-stream: ^2.0.0
+    supports-color: ^8.0.0
+  checksum: 10365612fae02412376e963de9f069d854deaf5aec8ff818ce49c299cd0373256a387a2da68db8225fb0f18483f2cc9072a52d1846881d44b756b1e36bc7f4ed
   languageName: node
   linkType: hard
 
@@ -11508,25 +11337,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:^28.1.0":
-  version: 28.1.3
-  resolution: "jest@npm:28.1.3"
-  dependencies:
-    "@jest/core": ^28.1.3
-    "@jest/types": ^28.1.3
-    import-local: ^3.0.2
-    jest-cli: ^28.1.3
-  peerDependencies:
-    node-notifier: ^8.0.1 || ^9.0.0 || ^10.0.0
-  peerDependenciesMeta:
-    node-notifier:
-      optional: true
-  bin:
-    jest: bin/jest.js
-  checksum: b9dcb542eb7c16261c281cdc2bf37155dbb3f1205bae0b567f05051db362c85ddd4b765f126591efb88f6d298eb10336d0aa6c7d5373b4d53f918137a9a70182
-  languageName: node
-  linkType: hard
-
 "jest@npm:^29.1.2":
   version: 29.1.2
   resolution: "jest@npm:29.1.2"
@@ -11543,6 +11353,25 @@ __metadata:
   bin:
     jest: bin/jest.js
   checksum: 6b5fca89c6ad1a0c9338a70144542933ed3491d849b6256618ec8d3a420bc6e60ed2c5b952e452ee4bdeaf590bf4c81c6727581c71d6b989faa8dedd7b6e2905
+  languageName: node
+  linkType: hard
+
+"jest@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "jest@npm:29.2.2"
+  dependencies:
+    "@jest/core": ^29.2.2
+    "@jest/types": ^29.2.1
+    import-local: ^3.0.2
+    jest-cli: ^29.2.2
+  peerDependencies:
+    node-notifier: ^8.0.1 || ^9.0.0 || ^10.0.0
+  peerDependenciesMeta:
+    node-notifier:
+      optional: true
+  bin:
+    jest: bin/jest.js
+  checksum: 6b4c0af3b5a0fddee46e26c9a539d70a3945700c20444ad3568e14faba27e89671f972dfaa8a02225c4e02b6d422171535660f5e167b1eb765a0922aea82533b
   languageName: node
   linkType: hard
 
@@ -12755,13 +12584,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-transpile-modules@npm:^9.1.0":
-  version: 9.1.0
-  resolution: "next-transpile-modules@npm:9.1.0"
+"next-transpile-modules@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "next-transpile-modules@npm:10.0.0"
   dependencies:
     enhanced-resolve: ^5.10.0
-    escalade: ^3.1.1
-  checksum: 8cc46196db3c2d2063fb29fe5b4d03c21065ab08130085b24d61e4ed512d99c12083d28179771cf02f70f8bf5970db0781a228aacf6cc61662dbdcabaddfc472
+  checksum: 3300fc7081f63b2c9487588db7cbe718f209dfd2111adec22d9c8af0e3c8ade2d95fd45f91e045546d78d98cafc78a49431de9a623360d33831b5e694bf007c9
   languageName: node
   linkType: hard
 
@@ -13518,19 +13346,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^26.6.2":
-  version: 26.6.2
-  resolution: "pretty-format@npm:26.6.2"
-  dependencies:
-    "@jest/types": ^26.6.2
-    ansi-regex: ^5.0.0
-    ansi-styles: ^4.0.0
-    react-is: ^17.0.1
-  checksum: e3b808404d7e1519f0df1aa1f25cee0054ab475775c6b2b8c5568ff23194a92d54bf93274139b6f584ca70fd773be4eaa754b0e03f12bb0a8d1426b07f079976
-  languageName: node
-  linkType: hard
-
-"pretty-format@npm:^27.5.1":
+"pretty-format@npm:^27.0.2, pretty-format@npm:^27.5.1":
   version: 27.5.1
   resolution: "pretty-format@npm:27.5.1"
   dependencies:
@@ -13538,18 +13354,6 @@ __metadata:
     ansi-styles: ^5.0.0
     react-is: ^17.0.1
   checksum: cf610cffcb793885d16f184a62162f2dd0df31642d9a18edf4ca298e909a8fe80bdbf556d5c9573992c102ce8bf948691da91bf9739bee0ffb6e79c8a8a6e088
-  languageName: node
-  linkType: hard
-
-"pretty-format@npm:^28.1.3":
-  version: 28.1.3
-  resolution: "pretty-format@npm:28.1.3"
-  dependencies:
-    "@jest/schemas": ^28.1.3
-    ansi-regex: ^5.0.1
-    ansi-styles: ^5.0.0
-    react-is: ^18.0.0
-  checksum: e69f857358a3e03d271252d7524bec758c35e44680287f36c1cb905187fbc82da9981a6eb07edfd8a03bc3cbeebfa6f5234c13a3d5b59f2bbdf9b4c4053e0a7f
   languageName: node
   linkType: hard
 
@@ -13765,6 +13569,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-error-boundary@npm:^3.1.0":
+  version: 3.1.4
+  resolution: "react-error-boundary@npm:3.1.4"
+  dependencies:
+    "@babel/runtime": ^7.12.5
+  peerDependencies:
+    react: ">=16.13.1"
+  checksum: f36270a5d775a25c8920f854c0d91649ceea417b15b5bc51e270a959b0476647bb79abb4da3be7dd9a4597b029214e8fe43ea914a7f16fa7543c91f784977f1b
+  languageName: node
+  linkType: hard
+
 "react-is@npm:^16.10.2, react-is@npm:^16.13.1, react-is@npm:^16.7.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
@@ -13817,15 +13632,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-share@npm:^4.4.0":
-  version: 4.4.0
-  resolution: "react-share@npm:4.4.0"
+"react-share@npm:^4.4.1":
+  version: 4.4.1
+  resolution: "react-share@npm:4.4.1"
   dependencies:
-    classnames: ^2.2.5
+    classnames: ^2.3.2
     jsonp: ^0.2.1
   peerDependencies:
-    react: ^16.3.0 || ^17
-  checksum: 69306d4593cbbc8043383d03a6aea254affb9d74f79da79903bfb6fb044451516761b955786a4b1bf54b84ff9ddeaa4512f3722388e80b073defcd3949f1abc4
+    react: ^16.3.0 || ^17 || ^18
+  checksum: f86bf7415f9fe98243b1ea58bf9df53503de7fb2235b1e633dd25c8cef68e59070b3cd20fab6ec5286eccbd30d27ce6c458ac532c4fdf7b6f12f4048bbea24d3
   languageName: node
   linkType: hard
 
@@ -14047,9 +13862,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"recoil@npm:^0.4.1":
-  version: 0.4.1
-  resolution: "recoil@npm:0.4.1"
+"recoil@npm:^0.7.6":
+  version: 0.7.6
+  resolution: "recoil@npm:0.7.6"
   dependencies:
     hamt_plus: 1.0.2
   peerDependencies:
@@ -14059,7 +13874,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: a11a93e5168d22500b8b981b0ae9c31a81987f5d7213f8be9531c3938d1b2c192ee664d94c9a70302248a292cb21ec430b0e8113f751d0ff46185ebf32c58c95
+  checksum: 2b31dd29a7e0b369bc986a16f7253006776845144684c9e38bb6760e4ea954c5d7dc682aaf88e815e69098b8dea3ff62b6fa4e6c156157a29d2d9cb824db1779
   languageName: node
   linkType: hard
 
@@ -15500,39 +15315,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:^28.0.8":
-  version: 28.0.8
-  resolution: "ts-jest@npm:28.0.8"
-  dependencies:
-    bs-logger: 0.x
-    fast-json-stable-stringify: 2.x
-    jest-util: ^28.0.0
-    json5: ^2.2.1
-    lodash.memoize: 4.x
-    make-error: 1.x
-    semver: 7.x
-    yargs-parser: ^21.0.1
-  peerDependencies:
-    "@babel/core": ">=7.0.0-beta.0 <8"
-    "@jest/types": ^28.0.0
-    babel-jest: ^28.0.0
-    jest: ^28.0.0
-    typescript: ">=4.3"
-  peerDependenciesMeta:
-    "@babel/core":
-      optional: true
-    "@jest/types":
-      optional: true
-    babel-jest:
-      optional: true
-    esbuild:
-      optional: true
-  bin:
-    ts-jest: cli.js
-  checksum: c72e9292709e77ce47ac7813cb24feaa9d01dc983598d29a821f224b5cc190dc7d67e17379cef089095404c00b9d582ee91c727916f9ec289cb1b723df408ae3
-  languageName: node
-  linkType: hard
-
 "ts-jest@npm:^29.0.3":
   version: 29.0.3
   resolution: "ts-jest@npm:29.0.3"
@@ -15932,25 +15714,25 @@ __metadata:
   resolution: "ui@workspace:packages/ui"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.3.4
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
-    "@types/ramda": ^0.28.15
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -15971,9 +15753,9 @@ __metadata:
     graphql: ^15.0.0
     helmet: ^4.6.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -15982,24 +15764,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     tsup: ^6.3.0
@@ -16325,21 +16107,28 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
@@ -16350,6 +16139,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -16361,9 +16151,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -16372,24 +16162,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -16409,21 +16199,28 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
@@ -16434,6 +16231,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -16445,9 +16243,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -16456,24 +16254,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -16493,21 +16291,28 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
@@ -16518,6 +16323,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -16529,9 +16335,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -16540,24 +16346,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -16577,21 +16383,28 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
@@ -16602,6 +16415,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -16613,9 +16427,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -16624,24 +16438,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -16661,21 +16475,28 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
@@ -16686,6 +16507,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -16697,9 +16519,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -16708,24 +16530,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -16745,21 +16567,28 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
@@ -16770,6 +16599,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -16781,9 +16611,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -16792,24 +16622,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -16829,21 +16659,28 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
@@ -16854,6 +16691,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -16865,9 +16703,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -16876,24 +16714,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -16913,21 +16751,28 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
@@ -16938,6 +16783,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -16949,9 +16795,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -16960,24 +16806,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -16997,25 +16843,25 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.3.4
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
-    "@types/ramda": ^0.28.15
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -17029,6 +16875,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -17040,9 +16887,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -17051,24 +16898,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -17085,23 +16932,31 @@ __metadata:
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/client-preset": ^1.1.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
+    "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
@@ -17112,6 +16967,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -17123,34 +16979,35 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
+    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -17170,21 +17027,28 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
@@ -17195,6 +17059,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -17206,9 +17071,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -17217,24 +17082,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -17254,21 +17119,28 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
@@ -17279,6 +17151,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -17290,9 +17163,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -17301,24 +17174,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -17338,31 +17211,39 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
     axios-mock-adapter: ^1.19.0
     bech32: ^2.0.0
     big.js: ^6.1.1
-    classnames: ^2.3.1
+    classnames: ^2.2.6
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -17374,9 +17255,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -17385,24 +17266,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -17422,21 +17303,28 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
@@ -17447,6 +17335,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -17458,9 +17347,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -17469,24 +17358,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -17506,21 +17395,28 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
@@ -17531,6 +17427,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -17542,9 +17439,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -17553,24 +17450,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -17590,21 +17487,28 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
@@ -17615,6 +17519,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -17626,9 +17531,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -17637,24 +17542,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -17674,21 +17579,28 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
@@ -17699,6 +17611,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -17710,9 +17623,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -17721,24 +17634,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -17758,21 +17671,28 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
@@ -17783,6 +17703,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -17794,9 +17715,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -17805,24 +17726,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -17842,21 +17763,28 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
@@ -17867,6 +17795,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -17878,9 +17807,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -17889,24 +17818,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -17926,21 +17855,28 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
@@ -17951,6 +17887,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -17962,9 +17899,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -17973,24 +17910,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -18010,21 +17947,28 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
@@ -18035,6 +17979,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -18046,9 +17991,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -18057,24 +18002,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -18094,21 +18039,28 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
@@ -18119,6 +18071,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -18130,9 +18083,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -18141,24 +18094,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -18178,21 +18131,28 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
@@ -18203,6 +18163,7 @@ __metadata:
     color: ^3.1.3
     copy-to-clipboard: ^3.3.1
     cors: ^2.8.5
+    cypress: ^10.11.0
     dayjs: ^1.10.4
     dompurify: ^2.3.1
     dotenv: ^8.2.0
@@ -18214,9 +18175,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -18225,24 +18186,24 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4
@@ -18276,109 +18237,25 @@ __metadata:
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
-    "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
-    "@typescript-eslint/eslint-plugin": ^5.42.0
-    "@typescript-eslint/parser": ^5.42.0
-    axios: ^0.21.4
-    axios-mock-adapter: ^1.19.0
-    bech32: ^2.0.0
-    big.js: ^6.1.1
-    classnames: ^2.2.6
-    color: ^3.1.3
-    copy-to-clipboard: ^3.3.1
-    cors: ^2.8.5
-    dayjs: ^1.10.4
-    dompurify: ^2.3.1
-    dotenv: ^8.2.0
-    eslint: ^8.26.0
-    eslint-config-custom: "*"
-    eslint-config-cypress: "*"
-    graphql: ^15.0.0
-    graphql-tag: ^2.0.0
-    helmet: ^4.6.0
-    isomorphic-ws: ^5.0.0
-    jdenticon: ^3.1.0
-    jest: ^28.1.0
-    jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
-    jest-presets: "*"
-    jest-transform-stub: ^2.0.0
-    jest-watch-typeahead: ^2.2.0
-    markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
-    next: ^12.1.0
-    next-seo: ^4.26.0
-    next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
-    numeral: 2.0.4
-    prop-types: ^15.6.0
-    qrcode.react: ^1.0.1
-    ramda: ^0.27.1
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-share: ^4.4.0
-    react-test-renderer: ^17.0.2
-    react-toastify: ^7.0.3
-    react-virtualized-auto-sizer: ^1.0.4
-    react-window: ^1.8.6
-    react-window-infinite-loader: ^1.0.7
-    recharts: ^2.1.16
-    recoil: ^0.4.1
-    shared-utils: "*"
-    subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
-    ts-node: ^10.9.1
-    tsconfig: "*"
-    typescript: ^4.8.4
-    ui: "*"
-    ws: ^8.10.0
-  languageName: unknown
-  linkType: soft
-
-"web@workspace:apps/web":
-  version: 0.0.0-use.local
-  resolution: "web@workspace:apps/web"
-  dependencies:
-    "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.13.8
-    "@graphql-codegen/client-preset": ^1.1.1
-    "@graphql-codegen/fragment-matcher": ^3.3.1
-    "@graphql-codegen/typescript": ^1.21.0
-    "@graphql-codegen/typescript-operations": ^2.5.5
-    "@graphql-codegen/typescript-react-apollo": ^3.3.5
-    "@material-ui/core": ^4.11.3
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
-    "@sentry/nextjs": ^7.16.0
-    "@socialgouv/matomo-next": ^1.2.2
-    "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^11.0.2
-    "@testing-library/react-hooks": ^3.7.0
-    "@types/big.js": ^6.1.2
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.3.4
-    "@types/jest": ^29.2.0
-    "@types/node": ^18.11.8
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
-    "@types/ramda": ^0.28.15
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -18404,9 +18281,9 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
-    jest: ^28.1.0
+    jest: ^29.2.2
     jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.18
+    jest-localstorage-mock: ^2.4.22
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
@@ -18415,24 +18292,116 @@ __metadata:
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     numeral: 2.0.4
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
     qrcode.react: ^1.0.1
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-share: ^4.4.0
+    react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.7
     recharts: ^2.1.16
-    recoil: ^0.4.1
+    recoil: ^0.7.6
     shared-utils: "*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^28.0.8
+    ts-jest: ^29.0.3
+    ts-node: ^10.9.1
+    tsconfig: "*"
+    typescript: ^4.8.4
+    ui: "*"
+    ws: ^8.10.0
+  languageName: unknown
+  linkType: soft
+
+"web@workspace:apps/web":
+  version: 0.0.0-use.local
+  resolution: "web@workspace:apps/web"
+  dependencies:
+    "@apollo/client": ^3.1.5
+    "@graphql-codegen/cli": ^2.13.8
+    "@graphql-codegen/client-preset": ^1.1.1
+    "@graphql-codegen/fragment-matcher": ^3.3.1
+    "@graphql-codegen/typescript": ^1.21.0
+    "@graphql-codegen/typescript-operations": ^2.5.5
+    "@graphql-codegen/typescript-react-apollo": ^3.3.5
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@material-ui/styles": ^4.11.5
+    "@sentry/nextjs": ^7.16.0
+    "@socialgouv/matomo-next": ^1.2.2
+    "@svgr/webpack": ^6.5.1
+    "@testing-library/jest-dom": ^5.16.5
+    "@testing-library/react": ^12.1.5
+    "@testing-library/react-hooks": ^8.0.1
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
+    "@types/jest": ^29.2.2
+    "@types/node": ^18.11.9
+    "@types/numeral": ^2.0.2
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.18
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
+    axios: ^0.21.4
+    axios-mock-adapter: ^1.19.0
+    bech32: ^2.0.0
+    big.js: ^6.1.1
+    classnames: ^2.2.6
+    color: ^3.1.3
+    copy-to-clipboard: ^3.3.1
+    cors: ^2.8.5
+    cypress: ^10.11.0
+    dayjs: ^1.10.4
+    dompurify: ^2.3.1
+    dotenv: ^8.2.0
+    eslint: ^8.26.0
+    eslint-config-custom: "*"
+    eslint-config-cypress: "*"
+    graphql: ^15.0.0
+    graphql-tag: ^2.0.0
+    helmet: ^4.6.0
+    isomorphic-ws: ^5.0.0
+    jdenticon: ^3.1.0
+    jest: ^29.2.2
+    jest-environment-jsdom: ^29.2.2
+    jest-localstorage-mock: ^2.4.22
+    jest-presets: "*"
+    jest-transform-stub: ^2.0.0
+    jest-watch-typeahead: ^2.2.0
+    markdown-to-jsx: ^7.1.2
+    mock-apollo-client: ^1.1.0
+    next: ^12.1.0
+    next-seo: ^4.26.0
+    next-translate: ^1.0.3
+    next-transpile-modules: ^10.0.0
+    numeral: 2.0.4
+    prop-types: ^15.8.1
+    qrcode.react: ^1.0.1
+    ramda: ^0.27.1
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-share: ^4.4.1
+    react-test-renderer: ^17.0.2
+    react-toastify: ^7.0.3
+    react-virtualized-auto-sizer: ^1.0.4
+    react-window: ^1.8.6
+    react-window-infinite-loader: ^1.0.7
+    recharts: ^2.1.16
+    recoil: ^0.7.6
+    shared-utils: "*"
+    subscriptions-transport-ws: ^0.11.0
+    ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
     typescript: ^4.8.4

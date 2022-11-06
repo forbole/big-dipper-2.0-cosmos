@@ -6,7 +6,7 @@ exports[`screen: TransactionDetails/MsgConvertCoin matches snapshot 1`] = `
 >
   <div
     components={
-      Array [
+      [
         <b />,
         <Unknown
           address="evmos1s9waleajyy7hzdzpml3kvhakea0vfepkw7x8a2"
@@ -17,7 +17,7 @@ exports[`screen: TransactionDetails/MsgConvertCoin matches snapshot 1`] = `
     i18nKey="message_contents:MsgConvertCoin"
     id="Trans"
     values={
-      Object {
+      {
         "amount": "0.0336 DARIC",
         "receiver": "0x6B6A7D59f854d1d9F38881A6502f4970f96A0104",
       }

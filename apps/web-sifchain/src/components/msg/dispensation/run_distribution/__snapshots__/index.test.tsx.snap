@@ -6,7 +6,7 @@ exports[`screen: TransactionDetails/RunDistribution matches snapshot 1`] = `
 >
   <div
     components={
-      Array [
+      [
         <Unknown
           address="userClaimAddress"
           name="userClaimAddress"
@@ -17,7 +17,7 @@ exports[`screen: TransactionDetails/RunDistribution matches snapshot 1`] = `
     i18nKey="message_contents:MsgRunDistribution"
     id="Trans"
     values={
-      Object {
+      {
         "distributionType": "DISTRIBUTION_TYPE_AIRDROP",
       }
     }

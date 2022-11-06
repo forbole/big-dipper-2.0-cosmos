@@ -24,23 +24,23 @@ exports[`screen: BlockDetails/Transactions matches snapshot 1`] = `
     loadMoreItems={[Function]}
     loadNextPage={[Function]}
     transactions={
-      Array [
-        Object {
+      [
+        {
           "hash": "hash",
           "height": 300,
-          "messages": Object {
+          "messages": {
             "count": 3,
-            "items": Array [],
+            "items": [],
           },
           "success": false,
           "timestamp": "",
         },
-        Object {
+        {
           "hash": "hash1",
           "height": 300,
-          "messages": Object {
+          "messages": {
             "count": 13,
-            "items": Array [],
+            "items": [],
           },
           "success": true,
           "timestamp": "",

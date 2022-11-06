@@ -7,7 +7,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
   <div
     onScroll={[Function]}
     style={
-      Object {
+      {
         "WebkitOverflowScrolling": "touch",
         "direction": "ltr",
         "height": 50,
@@ -20,7 +20,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
   >
     <div
       style={
-        Object {
+        {
           "height": 50,
           "pointerEvents": undefined,
           "width": 600,
@@ -30,7 +30,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       <div
         className="makeStyles-cell"
         style={
-          Object {
+          {
             "height": 50,
             "left": 0,
             "position": "absolute",
@@ -49,7 +49,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       <div
         className="makeStyles-cell"
         style={
-          Object {
+          {
             "height": 50,
             "left": 90,
             "position": "absolute",
@@ -68,7 +68,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       <div
         className="makeStyles-cell"
         style={
-          Object {
+          {
             "height": 50,
             "left": 240,
             "position": "absolute",
@@ -87,7 +87,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       <div
         className="makeStyles-cell"
         style={
-          Object {
+          {
             "height": 50,
             "left": 390,
             "position": "absolute",
@@ -106,7 +106,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       <div
         className="makeStyles-cell"
         style={
-          Object {
+          {
             "height": 50,
             "left": 480,
             "position": "absolute",
@@ -128,7 +128,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
     className="scrollbar"
     onScroll={[Function]}
     style={
-      Object {
+      {
         "WebkitOverflowScrolling": "touch",
         "direction": "ltr",
         "height": 550,
@@ -141,7 +141,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
   >
     <div
       style={
-        Object {
+        {
           "height": 100,
           "pointerEvents": undefined,
           "width": 600,
@@ -151,7 +151,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       <div
         className="makeStyles-cell makeStyles-body odd"
         style={
-          Object {
+          {
             "height": 50,
             "left": 0,
             "position": "absolute",
@@ -178,7 +178,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       <div
         className="makeStyles-cell makeStyles-body odd"
         style={
-          Object {
+          {
             "height": 50,
             "left": 90,
             "position": "absolute",
@@ -201,7 +201,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       <div
         className="makeStyles-cell makeStyles-body odd"
         style={
-          Object {
+          {
             "height": 50,
             "left": 240,
             "position": "absolute",
@@ -220,7 +220,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       <div
         className="makeStyles-cell makeStyles-body odd"
         style={
-          Object {
+          {
             "height": 50,
             "left": 390,
             "position": "absolute",
@@ -239,7 +239,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       <div
         className="makeStyles-cell makeStyles-body odd"
         style={
-          Object {
+          {
             "height": 50,
             "left": 480,
             "position": "absolute",
@@ -258,7 +258,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       <div
         className="makeStyles-cell makeStyles-body"
         style={
-          Object {
+          {
             "height": 50,
             "left": 0,
             "position": "absolute",
@@ -285,7 +285,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       <div
         className="makeStyles-cell makeStyles-body"
         style={
-          Object {
+          {
             "height": 50,
             "left": 90,
             "position": "absolute",
@@ -308,7 +308,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       <div
         className="makeStyles-cell makeStyles-body"
         style={
-          Object {
+          {
             "height": 50,
             "left": 240,
             "position": "absolute",
@@ -327,7 +327,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       <div
         className="makeStyles-cell makeStyles-body"
         style={
-          Object {
+          {
             "height": 50,
             "left": 390,
             "position": "absolute",
@@ -346,7 +346,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       <div
         className="makeStyles-cell makeStyles-body"
         style={
-          Object {
+          {
             "height": 50,
             "left": 480,
             "position": "absolute",

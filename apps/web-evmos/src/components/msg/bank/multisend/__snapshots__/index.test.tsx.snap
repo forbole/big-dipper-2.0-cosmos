@@ -7,7 +7,7 @@ exports[`screen: TransactionDetails/MsgSend matches snapshot 1`] = `
   >
     <div
       components={
-        Array [
+        [
           <Unknown
             address="address"
             name="address"
@@ -18,7 +18,7 @@ exports[`screen: TransactionDetails/MsgSend matches snapshot 1`] = `
       i18nKey="message_contents:txMultisendContentOne"
       id="message_contents:txMultisendContentOne"
       values={
-        Object {
+        {
           "amount": "20 DARIC",
         }
       }
@@ -32,7 +32,7 @@ exports[`screen: TransactionDetails/MsgSend matches snapshot 1`] = `
     >
       <div
         components={
-          Array [
+          [
             <Unknown
               address="output1"
               name="output1"
@@ -43,7 +43,7 @@ exports[`screen: TransactionDetails/MsgSend matches snapshot 1`] = `
         i18nKey="message_contents:txMultisendContentTwo"
         id="message_contents:txMultisendContentTwo"
         values={
-          Object {
+          {
             "amount": "19 DARIC",
           }
         }
@@ -54,7 +54,7 @@ exports[`screen: TransactionDetails/MsgSend matches snapshot 1`] = `
     >
       <div
         components={
-          Array [
+          [
             <Unknown
               address="output2"
               name="output2"
@@ -65,7 +65,7 @@ exports[`screen: TransactionDetails/MsgSend matches snapshot 1`] = `
         i18nKey="message_contents:txMultisendContentTwo"
         id="message_contents:txMultisendContentTwo"
         values={
-          Object {
+          {
             "amount": "1 DARIC",
           }
         }

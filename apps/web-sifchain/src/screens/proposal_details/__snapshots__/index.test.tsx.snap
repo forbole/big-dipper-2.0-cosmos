@@ -17,8 +17,8 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
         className="makeStyles-overview"
         id="Overview"
         overview={
-          Object {
-            "content": Object {
+          {
+            "content": {
               "@type": "/cosmos.gov.v1beta1.TextProposal",
               "description": "Set the minimum commission to 5%. This will help ensure network stability. It also ensures that validators earn enough to support secure and stable validation. We must create a healthier network. If this proposal is accepted, it will mean that the blockchain needs to be updated so that the fee of all validators can be changed automatically.",
               "title": "Increase minimum commission rate to 5%",

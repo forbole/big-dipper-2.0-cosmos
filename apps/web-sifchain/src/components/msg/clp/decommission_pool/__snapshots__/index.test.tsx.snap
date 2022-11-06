@@ -6,7 +6,7 @@ exports[`screen: TransactionDetails/DecommissionPool matches snapshot 1`] = `
 >
   <div
     components={
-      Array [
+      [
         <Unknown
           address="signer"
           name="signer"
@@ -17,7 +17,7 @@ exports[`screen: TransactionDetails/DecommissionPool matches snapshot 1`] = `
     i18nKey="message_contents:MsgDecommissionPool"
     id="Trans"
     values={
-      Object {
+      {
         "symbol": "DARIC",
       }
     }

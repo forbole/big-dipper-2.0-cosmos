@@ -6,7 +6,7 @@ exports[`screen: Validators/Desktop matches snapshot 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "height": 0,
         "overflow": "visible",
         "width": 0,

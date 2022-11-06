@@ -21,7 +21,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           className="MuiTableCell-root MuiTableCell-head"
           scope="col"
           style={
-            Object {
+            {
               "width": "25%",
             }
           }
@@ -33,7 +33,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           className="MuiTableCell-root MuiTableCell-head"
           scope="col"
           style={
-            Object {
+            {
               "width": "25%",
             }
           }
@@ -45,7 +45,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"
           scope="col"
           style={
-            Object {
+            {
               "width": "25%",
             }
           }
@@ -57,7 +57,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"
           scope="col"
           style={
-            Object {
+            {
               "width": "25%",
             }
           }
@@ -78,7 +78,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body"
           style={
-            Object {
+            {
               "width": "25%",
             }
           }
@@ -97,7 +97,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body"
           style={
-            Object {
+            {
               "width": "25%",
             }
           }
@@ -116,7 +116,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
           style={
-            Object {
+            {
               "width": "25%",
             }
           }
@@ -125,7 +125,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
           style={
-            Object {
+            {
               "width": "25%",
             }
           }

@@ -6,7 +6,7 @@ exports[`screen: TransactionDetails/MsgBurn matches snapshot 1`] = `
 >
   <div
     components={
-      Array [
+      [
         <Unknown
           address="from"
           name="from"
@@ -17,7 +17,7 @@ exports[`screen: TransactionDetails/MsgBurn matches snapshot 1`] = `
     i18nKey="message_contents:MsgSetRegistry"
     id="Trans"
     values={
-      Object {
+      {
         "denoms": "DARIC, BAR and ETG",
       }
     }

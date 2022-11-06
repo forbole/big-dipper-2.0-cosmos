@@ -6,7 +6,7 @@ exports[`screen: TransactionDetails/CreateDistribution matches snapshot 1`] = `
 >
   <div
     components={
-      Array [
+      [
         <Unknown
           address="distributor"
           name="distributor"
@@ -17,7 +17,7 @@ exports[`screen: TransactionDetails/CreateDistribution matches snapshot 1`] = `
     i18nKey="message_contents:MsgCreateDistribution"
     id="Trans"
     values={
-      Object {
+      {
         "distributionType": "DISTRIBUTION_TYPE_AIRDROP",
       }
     }

@@ -7,8 +7,8 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
   <div
     id="BlocksList"
     items={
-      Array [
-        Object {
+      [
+        {
           "block": 7713524,
           "hash": "24b6a32c87896b6b529db9faf74dfed9d0972b62c632e60c08f014ebbbcb892b",
           "shard": 0,

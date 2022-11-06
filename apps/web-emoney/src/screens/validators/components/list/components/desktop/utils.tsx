@@ -2,9 +2,10 @@ import React from 'react';
 import { Typography } from '@material-ui/core';
 import InfoPopover from '@components/info_popover';
 import ConditionExplanation from '@components/condition_explanation';
+import { Translate } from 'next-translate';
 
 export const fetchColumns = (
-  t
+  t: Translate
 ): {
   key: string;
   align?: 'left' | 'center' | 'right' | 'justify' | 'inherit';
@@ -37,6 +38,20 @@ export const fetchColumns = (
       width: 15,
       sort: true,
     },
+    // {
+    //   key: 'self',
+    //   sortKey: 'selfPercent',
+    //   align: 'right',
+    //   width: 11,
+    //   sort: true,
+    // },
+    // {
+    //   key: 'delegators',
+    //   sortKey: 'delegators',
+    //   align: 'right',
+    //   width: 11,
+    //   sort: true,
+    // },
     {
       key: 'condition',
       align: 'center',

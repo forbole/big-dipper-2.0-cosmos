@@ -6,7 +6,7 @@ exports[`screen: TransactionDetails/CreatePool matches snapshot 1`] = `
 >
   <div
     components={
-      Array [
+      [
         <Unknown
           address="signer"
           name="signer"
@@ -17,7 +17,7 @@ exports[`screen: TransactionDetails/CreatePool matches snapshot 1`] = `
     i18nKey="message_contents:MsgCreatePool"
     id="Trans"
     values={
-      Object {
+      {
         "externalAssetAmount": "0 BAR",
         "nativeAssetAmount": "4 DARIC",
       }

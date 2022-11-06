@@ -6,7 +6,7 @@ exports[`screen: TransactionDetails/CreateEthBridgeClaim matches snapshot 1`] = 
 >
   <div
     components={
-      Array [
+      [
         <Unknown
           address="cosmosreceiver"
           name="cosmosreceiver"
@@ -17,7 +17,7 @@ exports[`screen: TransactionDetails/CreateEthBridgeClaim matches snapshot 1`] = 
     i18nKey="message_contents:MsgCreateEthBridgeClaim"
     id="Trans"
     values={
-      Object {
+      {
         "claimType": undefined,
       }
     }

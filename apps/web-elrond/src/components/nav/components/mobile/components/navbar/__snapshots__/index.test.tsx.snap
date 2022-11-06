@@ -99,11 +99,11 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
       className="makeStyles-hamburger"
       onClick={
         [MockFunction] {
-          "calls": Array [
-            Array [],
+          "calls": [
+            [],
           ],
-          "results": Array [
-            Object {
+          "results": [
+            {
               "type": "return",
               "value": undefined,
             },

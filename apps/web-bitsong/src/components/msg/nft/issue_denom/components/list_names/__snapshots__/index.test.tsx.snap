@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: TransactionDetails/IssueDenom matches snapshot 1`] = `
-Array [
+[
   <div
     address="desmos1hfhkduejung7g29wv863x369rndf3hu5xj4g93"
     id="desmos1hfhkduejung7g29wv863x369rndf3hu5xj4g93"

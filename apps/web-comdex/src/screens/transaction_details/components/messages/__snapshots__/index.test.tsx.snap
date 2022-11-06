@@ -129,7 +129,7 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
       className="List"
       onScroll={[Function]}
       style={
-        Object {
+        {
           "WebkitOverflowScrolling": "touch",
           "direction": "ltr",
           "height": 600,
@@ -142,7 +142,7 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
     >
       <div
         style={
-          Object {
+          {
             "height": 100,
             "pointerEvents": undefined,
             "width": "100%",
@@ -151,7 +151,7 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
       >
         <div
           style={
-            Object {
+            {
               "height": 100,
               "left": 0,
               "position": "absolute",
