@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgConvertErc20 } from '@models';
@@ -27,11 +26,9 @@ describe('screen: TransactionDetails/MsgConvertErc20', () => {
       amount: '33600atevmos',
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <ConvertErc20 message={message} />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <ConvertErc20 message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

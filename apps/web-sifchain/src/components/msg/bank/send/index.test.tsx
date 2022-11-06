@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgSend } from '@models';
@@ -31,11 +30,9 @@ describe('screen: TransactionDetails/MsgSend', () => {
       ],
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <Send message={message} />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <Send message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

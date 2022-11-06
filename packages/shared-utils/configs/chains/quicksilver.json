@@ -6,13 +6,7 @@
   },
   "previewImage": "https://s3.bigdipper.live/quicksilver.png",
   "themes": {
-    "default": "",
-    "themeList": [
-      "dark",
-      "light",
-      "deuteranopia",
-      "tritanopia"
-    ],
+    "themeList": ["dark", "light", "deuteranopia", "tritanopia"],
     "dark": {
       "primary": {
         "main": "#7F8397",
@@ -30,9 +24,7 @@
       "custom": {
         "general": {
           "background": "#000000",
-          "surfaceOne": "",
           "surfaceTwo": "#333333",
-          "surfaceThree": "",
           "icon": "#999999"
         },
         "fonts": {
@@ -40,8 +32,7 @@
           "fontTwo": "#C4C4C4",
           "fontThree": "#818181",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF",
-          "highlight": ""
+          "fontFive": "#FFFFFF"
         },
         "primaryData": {
           "one": "#3B3D48",
@@ -54,7 +45,6 @@
           "fail": "#FD3B4C"
         },
         "tokenomics": {
-          "zero": "",
           "one": "#AFB1BD",
           "two": "#D2B261",
           "three": "#5D50AC"
@@ -117,7 +107,6 @@
           "background": "#F6F6F6",
           "surfaceOne": "#FEFFFF",
           "surfaceTwo": "#EFEFEF",
-          "surfaceThree": "",
           "icon": "#999999"
         },
         "fonts": {
@@ -125,8 +114,7 @@
           "fontTwo": "#414141",
           "fontThree": "#777777",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF",
-          "highlight": ""
+          "fontFive": "#FFFFFF"
         },
         "primaryData": {
           "one": "#3B3D48",
@@ -139,7 +127,6 @@
           "fail": "#FD3B4C"
         },
         "tokenomics": {
-          "zero": "",
           "one": "#AFB1BD",
           "two": "#D2B261",
           "three": "#5D50AC"

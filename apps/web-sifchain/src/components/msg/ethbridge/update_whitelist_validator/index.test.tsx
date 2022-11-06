@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgUpdateWhiteListValidator } from '@models';
@@ -26,11 +25,9 @@ describe('screen: TransactionDetails/MsgUpdateWhiteListValidator', () => {
       cosmosSender: 'cosmosSender',
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <UpdateWhiteListValidator message={message} />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <UpdateWhiteListValidator message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgSetRegistry } from '@models';
@@ -29,11 +28,9 @@ describe('screen: TransactionDetails/MsgBurn', () => {
       registry: [{ denom: 'daric' }, { denom: 'bar' }, { denom: 'etg' }],
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <SetRegistry message={message} />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <SetRegistry message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

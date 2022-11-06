@@ -415,9 +415,7 @@ Array [
         </span>
         <span
           className="MuiTypography-root MuiTypography-caption"
-        >
-          
-        </span>
+        />
       </div>
     </div>
   </div>,

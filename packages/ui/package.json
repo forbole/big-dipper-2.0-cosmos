@@ -26,18 +26,6 @@
   "files": [
     "dist/**"
   ],
-  "tsup": {
-    "entry": [
-      "src/**/index.{ts,tsx}"
-    ],
-    "target": "es6",
-    "minify": true,
-    "clean": true,
-    "format": [
-      "esm"
-    ],
-    "dts": true
-  },
   "scripts": {
     "build": "tsup",
     "clean": "rm -rf dist",
@@ -88,21 +76,34 @@
     "ws": "^8.10.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^2.13.8",
-    "@graphql-codegen/client-preset": "^1.1.1",
     "@svgr/webpack": "^6.5.1",
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^11.0.2",
+    "@testing-library/react-hooks": "^3.7.0",
+    "@types/big.js": "^6.1.2",
+    "@types/color": "^3.0.3",
+    "@types/dompurify": "^2.3.4",
     "@types/jest": "^29.2.0",
     "@types/node": "^18.11.8",
     "@types/numeral": "^2.0.2",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^18.0.7",
+    "@types/qrcode.react": "^1.0.2",
+    "@types/ramda": "^0.28.15",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
+    "@types/react-virtualized-auto-sizer": "^1.0.1",
+    "@types/react-window": "^1.8.5",
+    "@types/react-window-infinite-loader": "^1.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
     "eslint": "^8.26.0",
     "eslint-config-custom": "*",
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^29.2.2",
+    "jest-localstorage-mock": "^2.4.18",
     "jest-presets": "*",
+    "jest-transform-stub": "^2.0.0",
     "jest-watch-typeahead": "^2.2.0",
+    "next-transpile-modules": "^9.1.0",
     "react-test-renderer": "^17.0.2",
     "ts-jest": "^28.0.8",
     "ts-node": "^10.9.1",

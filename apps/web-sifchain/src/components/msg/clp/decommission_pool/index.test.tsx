@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgDecommissionPool } from '@models';
@@ -27,11 +26,9 @@ describe('screen: TransactionDetails/DecommissionPool', () => {
       symbol: 'udaric',
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <DecommissionPool message={message} />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <DecommissionPool message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

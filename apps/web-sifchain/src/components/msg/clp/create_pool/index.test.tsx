@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgCreatePool } from '@models';
@@ -31,11 +30,9 @@ describe('screen: TransactionDetails/CreatePool', () => {
       externalAssetAmount: '0',
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <CreatePool message={message} />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <CreatePool message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

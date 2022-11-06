@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgDtagAcceptTransfer } from '@models';
@@ -26,11 +25,9 @@ describe('screen: TransactionDetails/DtagAcceptTransfer', () => {
       newDtag: 'newDtag',
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <DtagAcceptTransfer message={message} />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <DtagAcceptTransfer message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

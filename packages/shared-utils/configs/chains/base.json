@@ -7,12 +7,7 @@
   "previewImage": "https://s3.bigdipper.live/desmos.png",
   "themes": {
     "default": "light",
-    "themeList": [
-      "dark",
-      "light",
-      "deuteranopia",
-      "tritanopia"
-    ],
+    "themeList": ["dark", "light", "deuteranopia", "tritanopia"],
     "dark": {
       "primary": {
         "main": "#FF835B",
@@ -30,9 +25,7 @@
       "custom": {
         "general": {
           "background": "#E6E6E6",
-          "surfaceOne": "",
           "surfaceTwo": "#818181",
-          "surfaceThree": "",
           "icon": "#999999"
         },
         "fonts": {
@@ -40,8 +33,7 @@
           "fontTwo": "#C4C4C4",
           "fontThree": "#818181",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF",
-          "highlight": ""
+          "fontFive": "#FFFFFF"
         },
         "primaryData": {
           "one": "#F87255",
@@ -54,7 +46,6 @@
           "fail": "#FD3B4C"
         },
         "tokenomics": {
-          "zero": "",
           "one": "#43A1BE'",
           "two": "#E3BB55'",
           "three": "#20D292"
@@ -117,7 +108,6 @@
           "background": "#F8F8F8",
           "surfaceOne": "#FFFFFF",
           "surfaceTwo": "#F8F8F8",
-          "surfaceThree": "",
           "icon": "#999999"
         },
         "fonts": {
@@ -125,8 +115,7 @@
           "fontTwo": "#414141",
           "fontThree": "#777777",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF",
-          "highlight": ""
+          "fontFive": "#FFFFFF"
         },
         "primaryData": {
           "one": "#F87255",
@@ -139,7 +128,6 @@
           "fail": "#FD3B4C"
         },
         "tokenomics": {
-          "zero": "",
           "one": "#2FB6E0",
           "two": "#FFC93D",
           "three": "#20D494"

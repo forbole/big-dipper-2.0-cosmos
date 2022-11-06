@@ -7,11 +7,7 @@
   "previewImage": "https://s3.bigdipper.live/akash.png",
   "themes": {
     "default": "dark",
-    "themeList": [
-      "dark",
-      "deuteranopia",
-      "tritanopia"
-    ],
+    "themeList": ["dark", "deuteranopia", "tritanopia"],
     "dark": {
       "primary": {
         "main": "#FF6557",
@@ -29,9 +25,7 @@
       "custom": {
         "general": {
           "background": "#000000",
-          "surfaceOne": "",
           "surfaceTwo": "#242424",
-          "surfaceThree": "",
           "icon": "#999999"
         },
         "fonts": {
@@ -39,8 +33,7 @@
           "fontTwo": "#C4C4C4",
           "fontThree": "#818181",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF",
-          "highlight": ""
+          "fontFive": "#FFFFFF"
         },
         "primaryData": {
           "one": "#D84839",
@@ -53,7 +46,6 @@
           "fail": "#FD3B4C"
         },
         "tokenomics": {
-          "zero": "",
           "one": "#E46245",
           "two": "#E3BB55",
           "three": "#20D292"
@@ -98,88 +90,20 @@
       }
     },
     "light": {
-      "primary": {
-        "main": "",
-        "contrastText": ""
-      },
-      "background": {
-        "default": "",
-        "paper": ""
-      },
-      "divider": "",
-      "text": {
-        "primary": "",
-        "secondary": ""
-      },
+      "primary": {},
+      "background": {},
+      "text": {},
       "custom": {
         "general": {
-          "background": "",
-          "surfaceOne": "",
-          "surfaceTwo": "",
-          "surfaceThree": "",
           "icon": "#999999"
         },
-        "fonts": {
-          "fontOne": "",
-          "fontTwo": "",
-          "fontThree": "",
-          "fontFour": "",
-          "fontFive": "",
-          "highlight": ""
-        },
-        "primaryData": {
-          "one": "",
-          "two": "",
-          "three": "",
-          "four": ""
-        },
-        "results": {
-          "pass": "",
-          "fail": ""
-        },
-        "tokenomics": {
-          "zero": "",
-          "one": "",
-          "two": "",
-          "three": ""
-        },
-        "condition": {
-          "zero": "",
-          "one": "",
-          "two": "",
-          "three": ""
-        },
-        "charts": {
-          "zero": "",
-          "one": "",
-          "two": "",
-          "three": "",
-          "four": "",
-          "five": ""
-        },
-        "tags": {
-          "zero": "",
-          "one": "",
-          "two": "",
-          "three": "",
-          "four": "",
-          "five": "",
-          "six": "",
-          "seven": "",
-          "eight": "",
-          "nine": "",
-          "ten": "",
-          "eleven": "",
-          "twelve": "",
-          "thirteen": "",
-          "fourteen": "",
-          "fifteen": "",
-          "sixteen": "",
-          "seventeen": "",
-          "eighteen": "",
-          "nineteen": "",
-          "twenty": ""
-        }
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
       }
     }
   },
@@ -218,19 +142,11 @@
       "network": "akashnet-1",
       "chainType": "Retired",
       "genesis": {
-        "time": "",
         "height": 0
       },
-      "prefix": {
-        "consensus": "",
-        "validator": "",
-        "account": ""
-      },
-      "primaryTokenUnit": "",
-      "votingPowerTokenUnit": "",
+      "prefix": {},
       "tokenUnits": {
         "": {
-          "display": "",
           "exponent": 0
         }
       },

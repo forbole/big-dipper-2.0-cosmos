@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgSaveProfile } from '@models';
@@ -23,11 +22,9 @@ describe('screen: TransactionDetails/SaveProfile', () => {
       creator: 'creator',
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <SaveProfile message={message} />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <SaveProfile message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

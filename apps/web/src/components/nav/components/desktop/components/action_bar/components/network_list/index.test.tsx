@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import NetworkList from '.';
@@ -22,11 +21,9 @@ jest.mock('@src/components/nav/components', () => ({
 describe('screen: Nav/NetworkList', () => {
   beforeEach(() => {
     component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <NetworkList actionHeight={30} />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <NetworkList actionHeight={30} />
+      </MockTheme>
     );
   });
 

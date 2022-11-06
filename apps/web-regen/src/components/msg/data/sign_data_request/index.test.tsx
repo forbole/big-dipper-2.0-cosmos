@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgSignDataRequest } from '@models';
@@ -32,11 +31,9 @@ describe('screen: TransactionDetails/SignDataRequest', () => {
     });
 
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <SignDataRequest message={message} />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <SignDataRequest message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

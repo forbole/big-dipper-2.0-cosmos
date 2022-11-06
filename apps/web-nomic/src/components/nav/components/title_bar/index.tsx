@@ -1,9 +1,9 @@
-import React from 'react';
-import classnames from 'classnames';
-import { useRecoilValue } from 'recoil';
-import { readMarket } from '@recoil/market';
-import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
+import { readMarket } from '@recoil/market';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import React from 'react';
+import { useRecoilValue } from 'recoil';
 import ChainIcon from 'ui/components/ChainIcon';
 import { useStyles } from './styles';
 import { formatMarket } from './utils';

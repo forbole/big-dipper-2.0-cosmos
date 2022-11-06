@@ -1,6 +1,5 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { RecoilRoot } from 'recoil';
 import { MockTheme, wait } from '@tests/utils';
 import Transactions from '.';
 
@@ -25,11 +24,9 @@ describe('screen: Transactions', () => {
     renderer.act(() => {
       tree = renderer
         .create(
-          <RecoilRoot>
-            <MockTheme>
-              <Transactions />
-            </MockTheme>
-          </RecoilRoot>
+          <MockTheme>
+            <Transactions />
+          </MockTheme>
         )
         .toJSON();
     });

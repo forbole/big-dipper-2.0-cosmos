@@ -1,4 +1,4 @@
-import { defaultTheme, isThemeSupported, themeDictionary } from '@styles';
+import { defaultTheme, isThemeSupported, themeDictionary } from 'ui/styles';
 import chainConfig from 'ui/chainConfig';
 import { Theme } from './types';
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgCreateRelationship } from '@models';
@@ -25,11 +24,9 @@ describe('screen: TransactionDetails/CreateRelationship', () => {
       subspace: 'subspace',
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <CreateRelationship message={message} />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <CreateRelationship message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

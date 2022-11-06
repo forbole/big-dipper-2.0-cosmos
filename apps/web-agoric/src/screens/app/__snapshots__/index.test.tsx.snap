@@ -10,7 +10,7 @@ Array [
   >
     <img
       alt="logo"
-      className="makeStyles-logo-3 makeStyles-dark-2"
+      className="makeStyles-logo-3 makeStyles-dark-7"
       src={
         Object {
           "blurDataURL": "data:image/png;base64,imagedata",
@@ -22,7 +22,7 @@ Array [
     />
     <img
       alt="logo"
-      className="makeStyles-logo-3 makeStyles-light-1"
+      className="makeStyles-logo-3 makeStyles-light-6"
       src={
         Object {
           "blurDataURL": "data:image/png;base64,imagedata",

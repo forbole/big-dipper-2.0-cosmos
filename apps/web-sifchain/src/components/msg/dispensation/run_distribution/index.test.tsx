@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgRunDistribution } from '@models';
@@ -27,11 +26,9 @@ describe('screen: TransactionDetails/RunDistribution', () => {
       distributionType: 'DISTRIBUTION_TYPE_AIRDROP',
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <RunDistribution message={message} />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <RunDistribution message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

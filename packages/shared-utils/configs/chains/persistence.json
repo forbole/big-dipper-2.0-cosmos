@@ -7,11 +7,7 @@
   "previewImage": "https://s3.bigdipper.live/persistence.pngg",
   "themes": {
     "default": "dark",
-    "themeList": [
-      "dark",
-      "deuteranopia",
-      "tritanopia"
-    ],
+    "themeList": ["dark", "deuteranopia", "tritanopia"],
     "dark": {
       "primary": {
         "main": "#FF3D47",
@@ -29,9 +25,7 @@
       "custom": {
         "general": {
           "background": "#000000",
-          "surfaceOne": "",
           "surfaceTwo": "#363636",
-          "surfaceThree": "",
           "icon": "#999999"
         },
         "fonts": {
@@ -39,8 +33,7 @@
           "fontTwo": "#C4C4C4",
           "fontThree": "#818181",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF",
-          "highlight": ""
+          "fontFive": "#FFFFFF"
         },
         "primaryData": {
           "one": "#FF3D47",
@@ -53,7 +46,6 @@
           "fail": "#FD3B4C"
         },
         "tokenomics": {
-          "zero": "",
           "one": "#FF3D47",
           "two": "#3DC8FF",
           "three": "#A8FF3D"
@@ -98,88 +90,20 @@
       }
     },
     "light": {
-      "primary": {
-        "main": "",
-        "contrastText": ""
-      },
-      "background": {
-        "default": "",
-        "paper": ""
-      },
-      "divider": "",
-      "text": {
-        "primary": "",
-        "secondary": ""
-      },
+      "primary": {},
+      "background": {},
+      "text": {},
       "custom": {
         "general": {
-          "background": "",
-          "surfaceOne": "",
-          "surfaceTwo": "",
-          "surfaceThree": "",
           "icon": "#999999"
         },
-        "fonts": {
-          "fontOne": "",
-          "fontTwo": "",
-          "fontThree": "",
-          "fontFour": "",
-          "fontFive": "",
-          "highlight": ""
-        },
-        "primaryData": {
-          "one": "",
-          "two": "",
-          "three": "",
-          "four": ""
-        },
-        "results": {
-          "pass": "",
-          "fail": ""
-        },
-        "tokenomics": {
-          "zero": "",
-          "one": "",
-          "two": "",
-          "three": ""
-        },
-        "condition": {
-          "zero": "",
-          "one": "",
-          "two": "",
-          "three": ""
-        },
-        "charts": {
-          "zero": "",
-          "one": "",
-          "two": "",
-          "three": "",
-          "four": "",
-          "five": ""
-        },
-        "tags": {
-          "zero": "",
-          "one": "",
-          "two": "",
-          "three": "",
-          "four": "",
-          "five": "",
-          "six": "",
-          "seven": "",
-          "eight": "",
-          "nine": "",
-          "ten": "",
-          "eleven": "",
-          "twelve": "",
-          "thirteen": "",
-          "fourteen": "",
-          "fifteen": "",
-          "sixteen": "",
-          "seventeen": "",
-          "eighteen": "",
-          "nineteen": "",
-          "twenty": ""
-        }
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
       }
     }
   },

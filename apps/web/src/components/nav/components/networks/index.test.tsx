@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import Networks from '.';
@@ -15,11 +14,9 @@ let component: renderer.ReactTestRenderer;
 describe('screen: Nav/Networks', () => {
   beforeEach(() => {
     component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <Networks />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <Networks />
+      </MockTheme>
     );
   });
 

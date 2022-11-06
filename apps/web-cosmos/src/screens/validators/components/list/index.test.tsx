@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme, wait } from '@tests/utils';
 import { createMockClient } from 'mock-apollo-client';
@@ -105,13 +104,11 @@ describe('screen: Validators/List', () => {
 
     renderer.act(() => {
       component = renderer.create(
-        <RecoilRoot>
-          <ApolloProvider client={mockClient}>
-            <MockTheme>
-              <List />
-            </MockTheme>
-          </ApolloProvider>
-        </RecoilRoot>
+        <ApolloProvider client={mockClient}>
+          <MockTheme>
+            <List />
+          </MockTheme>
+        </ApolloProvider>
       );
     });
     await wait();

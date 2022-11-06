@@ -8,12 +8,12 @@ exports[`screen: Nav/Network it renders 1`] = `
 >
   <img
     alt="icon"
-    className="makeStyles-icon makeStyles-dark-2"
+    className="makeStyles-icon makeStyles-dark"
     src="svg"
   />
   <img
     alt="icon"
-    className="makeStyles-icon makeStyles-light-1"
+    className="makeStyles-icon makeStyles-light"
     src="svg"
   />
   <p

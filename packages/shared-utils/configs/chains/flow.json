@@ -7,94 +7,20 @@
   "previewImage": "https://s3.bigdipper.live/flow.png",
   "themes": {
     "default": "light",
-    "themeList": [
-      "light",
-      "deuteranopia",
-      "tritanopia"
-    ],
+    "themeList": ["light", "deuteranopia", "tritanopia"],
     "dark": {
-      "primary": {
-        "main": "",
-        "contrastText": ""
-      },
-      "background": {
-        "default": "",
-        "paper": ""
-      },
-      "divider": "",
-      "text": {
-        "primary": "",
-        "secondary": ""
-      },
+      "primary": {},
+      "background": {},
+      "text": {},
       "custom": {
-        "general": {
-          "background": "",
-          "surfaceOne": "",
-          "surfaceTwo": "",
-          "surfaceThree": "",
-          "icon": ""
-        },
-        "fonts": {
-          "fontOne": "",
-          "fontTwo": "",
-          "fontThree": "",
-          "fontFour": "",
-          "fontFive": "",
-          "highlight": ""
-        },
-        "primaryData": {
-          "one": "",
-          "two": "",
-          "three": "",
-          "four": ""
-        },
-        "results": {
-          "pass": "",
-          "fail": ""
-        },
-        "tokenomics": {
-          "zero": "",
-          "one": "",
-          "two": "",
-          "three": ""
-        },
-        "condition": {
-          "zero": "",
-          "one": "",
-          "two": "",
-          "three": ""
-        },
-        "charts": {
-          "zero": "",
-          "one": "",
-          "two": "",
-          "three": "",
-          "four": "",
-          "five": ""
-        },
-        "tags": {
-          "zero": "",
-          "one": "",
-          "two": "",
-          "three": "",
-          "four": "",
-          "five": "",
-          "six": "",
-          "seven": "",
-          "eight": "",
-          "nine": "",
-          "ten": "",
-          "eleven": "",
-          "twelve": "",
-          "thirteen": "",
-          "fourteen": "",
-          "fifteen": "",
-          "sixteen": "",
-          "seventeen": "",
-          "eighteen": "",
-          "nineteen": "",
-          "twenty": ""
-        }
+        "general": {},
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
       }
     },
     "light": {
@@ -115,17 +41,14 @@
         "general": {
           "background": "#F8F8F8",
           "surfaceOne": "#FFFFFF",
-          "surfaceTwo": "#F8F8F8",
-          "surfaceThree": "",
-          "icon": ""
+          "surfaceTwo": "#F8F8F8"
         },
         "fonts": {
           "fontOne": "#000000",
           "fontTwo": "#414141",
           "fontThree": "#777777",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF",
-          "highlight": ""
+          "fontFive": "#FFFFFF"
         },
         "primaryData": {
           "one": "#4BD779",
@@ -138,7 +61,6 @@
           "fail": "#EF5562"
         },
         "tokenomics": {
-          "zero": "",
           "one": "#4BD779",
           "two": "#D56BCE",
           "three": "#E9C746"
@@ -188,19 +110,11 @@
       "network": "likecoin-mainnet-2",
       "chainType": "Mainnet",
       "genesis": {
-        "time": "",
         "height": 0
       },
-      "prefix": {
-        "consensus": "",
-        "validator": "",
-        "account": ""
-      },
-      "primaryTokenUnit": "",
-      "votingPowerTokenUnit": "",
+      "prefix": {},
       "tokenUnits": {
         "": {
-          "display": "",
           "exponent": 0
         }
       },

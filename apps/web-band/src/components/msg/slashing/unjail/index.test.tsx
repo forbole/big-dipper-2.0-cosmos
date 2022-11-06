@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgUnjail } from '@models';
@@ -23,11 +22,9 @@ describe('screen: TransactionDetails/UnBlockUser', () => {
       validatorAddress: 'validatorAddress',
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <Unjail message={message} />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <Unjail message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

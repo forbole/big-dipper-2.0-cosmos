@@ -15,7 +15,7 @@ generates:
   ./src/graphql/desmos_profile.ts:
     schema: https://gql.morpheus.desmos.network/v1/graphql
     documents:
-      - 'src/graphql/desmos_profile_graphql.ts'
+      - 'src/graphql/profiles/*'
     plugins:
       - "typescript"
       - "typescript-operations"

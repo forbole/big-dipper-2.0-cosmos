@@ -1,4 +1,4 @@
-import { selectorFamily, GetRecoilValue } from 'recoil';
+import { selectorFamily, GetRecoilValue, DefaultValue } from 'recoil';
 import * as R from 'ramda';
 import { bech32 } from 'bech32';
 import chainConfig from 'ui/chainConfig';
@@ -69,7 +69,7 @@ const getReturnAddress = ({ address, get }: { address: string; get: GetRecoilVal
  */
 const getProfile =
   (address: string) =>
-  ({ get }): AvatarName => {
+  ({ get }: { get: GetRecoilValue }): AvatarName => {
     const returnAddress = getReturnAddress({
       address,
       get,
@@ -83,14 +83,14 @@ const getProfile =
     const imageUrl = R.pathOr('', ['imageUrl'], state);
     return {
       address: returnAddress,
-      name: name.length ? name : address,
+      name: name?.length ? name : address,
       imageUrl,
     };
   };
 
 const getProfiles =
   (addresses: string[]) =>
-  ({ get }): AvatarName[] => {
+  ({ get }: { get: GetRecoilValue }): AvatarName[] => {
     const profiles = addresses.map((x) => {
       const returnAddress = getReturnAddress({
         address: x,
@@ -105,7 +105,7 @@ const getProfiles =
       const imageUrl = R.pathOr('', ['imageUrl'], state);
       return {
         address: returnAddress,
-        name: name.length ? name : x,
+        name: name?.length ? name : x,
         imageUrl,
       };
     });
@@ -115,23 +115,23 @@ const getProfiles =
 // ======================================================================
 // selectors
 // ======================================================================
-export const writeProfile = selectorFamily<AvatarName, string>({
+export const writeProfile = selectorFamily<AvatarName | null, string>({
   key: 'profile.write.profile',
   get: getProfile,
   set:
     (address: string) =>
-    ({ set, get }, profile: AvatarName) => {
+    ({ set, get }, profile: AvatarName | DefaultValue) => {
       const delegatorAddress = getDelegatorAddress({
         address,
         get,
       });
       if (delegatorAddress) {
-        if (profile === null) {
+        if (!((_: object): _ is AvatarName => _ && 'name' in _ && 'imageUrl' in _)(profile)) {
           set(atomFamilyState(delegatorAddress), false);
         } else {
           set(atomFamilyState(delegatorAddress), {
             moniker: profile.name,
-            imageUrl: profile.imageUrl,
+            imageUrl: profile.imageUrl ?? undefined,
           });
         }
       }

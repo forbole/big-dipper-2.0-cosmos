@@ -7,12 +7,7 @@
   "previewImage": "https://s3.bigdipper.live/cosmoshub.png",
   "themes": {
     "default": "dark",
-    "themeList": [
-      "dark",
-      "light",
-      "deuteranopia",
-      "tritanopia"
-    ],
+    "themeList": ["dark", "light", "deuteranopia", "tritanopia"],
     "dark": {
       "primary": {
         "main": "#6B9EFF",
@@ -30,9 +25,7 @@
       "custom": {
         "general": {
           "background": "#020202",
-          "surfaceOne": "",
           "surfaceTwo": "#282A36",
-          "surfaceThree": "",
           "icon": "#999999"
         },
         "fonts": {
@@ -40,8 +33,7 @@
           "fontTwo": "#C4C4C4",
           "fontThree": "#818181",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF",
-          "highlight": ""
+          "fontFive": "#FFFFFF"
         },
         "primaryData": {
           "one": "#AE73F8",
@@ -54,7 +46,6 @@
           "fail": "#FD3B4C"
         },
         "tokenomics": {
-          "zero": "",
           "one": "#5E94FF",
           "two": "#E3AB55",
           "three": "#5ACF78"
@@ -117,7 +108,6 @@
           "background": "#F7F7FF",
           "surfaceOne": "#FFFFFF",
           "surfaceTwo": "#EFEFEF",
-          "surfaceThree": "",
           "icon": "#999999"
         },
         "fonts": {
@@ -125,8 +115,7 @@
           "fontTwo": "#414141",
           "fontThree": "#777777",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF",
-          "highlight": ""
+          "fontFive": "#FFFFFF"
         },
         "primaryData": {
           "one": "#AE73F8",
@@ -139,7 +128,6 @@
           "fail": "#FD3B4C"
         },
         "tokenomics": {
-          "zero": "",
           "one": "#5E94FF",
           "two": "#E3AB55",
           "three": "#5ACF78"
@@ -249,19 +237,11 @@
       "network": "stargate-final",
       "chainType": "Testnet",
       "genesis": {
-        "time": "",
         "height": 0
       },
-      "prefix": {
-        "consensus": "",
-        "validator": "",
-        "account": ""
-      },
-      "primaryTokenUnit": "",
-      "votingPowerTokenUnit": "",
+      "prefix": {},
       "tokenUnits": {
         "": {
-          "display": "",
           "exponent": 0
         }
       },
@@ -277,19 +257,11 @@
       "network": "cosmoshub-3",
       "chainType": "Retired",
       "genesis": {
-        "time": "",
         "height": 0
       },
-      "prefix": {
-        "consensus": "",
-        "validator": "",
-        "account": ""
-      },
-      "primaryTokenUnit": "",
-      "votingPowerTokenUnit": "",
+      "prefix": {},
       "tokenUnits": {
         "": {
-          "display": "",
           "exponent": 0
         }
       },
@@ -305,19 +277,11 @@
       "network": "cosmoshub-2",
       "chainType": "Retired",
       "genesis": {
-        "time": "",
         "height": 0
       },
-      "prefix": {
-        "consensus": "",
-        "validator": "",
-        "account": ""
-      },
-      "primaryTokenUnit": "",
-      "votingPowerTokenUnit": "",
+      "prefix": {},
       "tokenUnits": {
         "": {
-          "display": "",
           "exponent": 0
         }
       },
@@ -333,19 +297,11 @@
       "network": "cosmoshub-1",
       "chainType": "Retired",
       "genesis": {
-        "time": "",
         "height": 0
       },
-      "prefix": {
-        "consensus": "",
-        "validator": "",
-        "account": ""
-      },
-      "primaryTokenUnit": "",
-      "votingPowerTokenUnit": "",
+      "prefix": {},
       "tokenUnits": {
         "": {
-          "display": "",
           "exponent": 0
         }
       },

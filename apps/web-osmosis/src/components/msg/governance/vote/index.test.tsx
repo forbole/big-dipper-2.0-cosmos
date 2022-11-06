@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgVote } from '@models';
@@ -25,11 +24,9 @@ describe('screen: TransactionDetails/MsgVote', () => {
       option: 'VOTE_OPTION_NO',
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <Vote message={message} />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <Vote message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

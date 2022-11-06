@@ -1,10 +1,8 @@
 import React from 'react';
 import { ThemeProvider, createTheme } from '@material-ui/core/styles';
-
 import { StylesProvider, StylesOptions } from '@material-ui/styles/';
-
-import { defaultTheme } from '@styles';
-
+import { RecoilRoot } from 'recoil';
+import { defaultTheme } from 'ui/styles';
 
 /**
  * Theme mocker to handle custom keys
@@ -15,7 +13,9 @@ const MockTheme = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <StylesProvider generateClassName={generateClassName}>
-      <ThemeProvider theme={createTheme(defaultTheme)}>{children}</ThemeProvider>
+      <ThemeProvider theme={createTheme(defaultTheme)}>
+        <RecoilRoot>{children}</RecoilRoot>
+      </ThemeProvider>
     </StylesProvider>
   );
 };

@@ -1,6 +1,5 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { RecoilRoot } from 'recoil';
 import { MockTheme, wait } from '@tests/utils';
 import Blocks from '.';
 
@@ -25,11 +24,9 @@ describe('screen: Blocks', () => {
     renderer.act(() => {
       tree = renderer
         .create(
-          <RecoilRoot>
-            <MockTheme>
-              <Blocks />
-            </MockTheme>
-          </RecoilRoot>
+          <MockTheme>
+            <Blocks />
+          </MockTheme>
         )
         .toJSON();
     });

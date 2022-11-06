@@ -1,6 +1,5 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { RecoilRoot } from 'recoil';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { TRANSACTIONS, TRANSACTIONS_COUNT } from '@api';
@@ -57,11 +56,9 @@ describe('screen: Transactions/List', () => {
     let component;
     renderer.act(() => {
       component = renderer.create(
-        <RecoilRoot>
-          <MockTheme>
-            <List />
-          </MockTheme>
-        </RecoilRoot>
+        <MockTheme>
+          <List />
+        </MockTheme>
       );
     });
     await wait(3000);

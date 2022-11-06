@@ -1,6 +1,5 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { RecoilRoot } from 'recoil';
 import { MockTheme, wait } from '@tests/utils';
 import Mobile from '.';
 // ==================================
@@ -24,11 +23,9 @@ jest.mock('./components', () => ({
 describe('screen: Nav/Mobile', () => {
   beforeEach(async () => {
     component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <Mobile title="hello world" />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <Mobile title="hello world" />
+      </MockTheme>
     );
     await wait();
   });

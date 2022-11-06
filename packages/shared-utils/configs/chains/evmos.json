@@ -7,12 +7,7 @@
   "previewImage": "https://s3.bigdipper.live/evmos.png",
   "themes": {
     "default": "light",
-    "themeList": [
-      "dark",
-      "light",
-      "deuteranopia",
-      "tritanopia"
-    ],
+    "themeList": ["dark", "light", "deuteranopia", "tritanopia"],
     "dark": {
       "primary": {
         "main": "#FD3B4C",
@@ -30,9 +25,7 @@
       "custom": {
         "general": {
           "background": "#0A0A0A",
-          "surfaceOne": "",
           "surfaceTwo": "#19191D",
-          "surfaceThree": "",
           "icon": "#999999"
         },
         "fonts": {
@@ -40,8 +33,7 @@
           "fontTwo": "#AAAAAB",
           "fontThree": "#818181",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF",
-          "highlight": ""
+          "fontFive": "#FFFFFF"
         },
         "primaryData": {
           "one": "#af2929",
@@ -54,7 +46,6 @@
           "fail": "#b12a34"
         },
         "tokenomics": {
-          "zero": "",
           "one": "#1EC490",
           "two": "#497BFF",
           "three": "#9F46EC"
@@ -117,7 +108,6 @@
           "background": "#F8F8F8",
           "surfaceOne": "#FFFFFF",
           "surfaceTwo": "#F8F8F8",
-          "surfaceThree": "",
           "icon": "#999999"
         },
         "fonts": {
@@ -125,8 +115,7 @@
           "fontTwo": "#414141",
           "fontThree": "#777777",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF",
-          "highlight": ""
+          "fontFive": "#FFFFFF"
         },
         "primaryData": {
           "one": "#237BF9",
@@ -139,7 +128,6 @@
           "fail": "#EF5562"
         },
         "tokenomics": {
-          "zero": "",
           "one": "#ECBA3A",
           "two": "#8F78F3",
           "three": "#32B47D"
@@ -227,11 +215,8 @@
         "validator": "evmosvaloper",
         "account": "evmos"
       },
-      "primaryTokenUnit": "",
-      "votingPowerTokenUnit": "",
       "tokenUnits": {
         "": {
-          "display": "",
           "exponent": 0
         }
       },
@@ -249,19 +234,11 @@
       "network": "evmos_9000-3",
       "chainType": "Testnet",
       "genesis": {
-        "time": "",
         "height": 0
       },
-      "prefix": {
-        "consensus": "",
-        "validator": "",
-        "account": ""
-      },
-      "primaryTokenUnit": "",
-      "votingPowerTokenUnit": "",
+      "prefix": {},
       "tokenUnits": {
         "": {
-          "display": "",
           "exponent": 0
         }
       },

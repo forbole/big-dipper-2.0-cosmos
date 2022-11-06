@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
@@ -40,9 +39,7 @@ function App(props: AppProps) {
         additionalMetaTags={ADDITIONAL_META_TAGS}
       />
       <ApolloProvider client={apolloClient}>
-        <RecoilRoot>
-          <Main {...props} />
-        </RecoilRoot>
+        <Main {...props} />
       </ApolloProvider>
     </>
   );

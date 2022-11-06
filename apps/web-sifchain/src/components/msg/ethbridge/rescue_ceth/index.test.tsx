@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgRescueCeth } from '@models';
@@ -26,11 +25,9 @@ describe('screen: TransactionDetails/MsgRescueCeth', () => {
       cosmosSender: 'cosmosSender',
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <RescueCeth message={message} />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <RescueCeth message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

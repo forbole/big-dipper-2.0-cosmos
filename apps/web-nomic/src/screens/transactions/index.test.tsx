@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { createMockClient, createMockSubscription } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
@@ -102,13 +101,11 @@ describe('screen: Transactions', () => {
     renderer.act(() => {
       tree = renderer
         .create(
-          <RecoilRoot>
-            <ApolloProvider client={mockClient}>
-              <MockTheme>
-                <Transactions />
-              </MockTheme>
-            </ApolloProvider>
-          </RecoilRoot>
+          <ApolloProvider client={mockClient}>
+            <MockTheme>
+              <Transactions />
+            </MockTheme>
+          </ApolloProvider>
         )
         .toJSON();
     });

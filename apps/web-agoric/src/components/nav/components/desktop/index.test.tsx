@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import Desktop from '.';
@@ -26,11 +25,9 @@ jest.mock('..', () => ({
 describe('screen: Nav/Desktop', () => {
   beforeEach(() => {
     component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <Desktop title="hello world" />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <Desktop title="hello world" />
+      </MockTheme>
     );
   });
 

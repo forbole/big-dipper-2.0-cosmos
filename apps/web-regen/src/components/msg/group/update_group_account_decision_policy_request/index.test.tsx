@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgUpdateGroupAccountDecisionPolicyRequest } from '@models';
@@ -28,11 +27,9 @@ describe('screen: TransactionDetails/UpdateGroupAccountDecisionPolicyRequest', (
     });
 
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <UpdateGroupAccountDecisionPolicyRequest message={message} />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <UpdateGroupAccountDecisionPolicyRequest message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

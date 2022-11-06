@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import TitleBar from '.';
@@ -14,7 +13,7 @@ let component: renderer.ReactTestRenderer;
 // ==================================
 
 const mockUseNavContext = {
-  title: undefined,
+  title: undefined as string | undefined,
   price: 0,
   marketCap: 0,
   inflation: 0,
@@ -26,11 +25,9 @@ const mockUseNavContext = {
 describe('screen: Nav/TitleBar', () => {
   beforeEach(() => {
     component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <TitleBar title="hello world" />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <TitleBar title="hello world" />
+      </MockTheme>
     );
   });
 
@@ -42,11 +39,9 @@ describe('screen: Nav/TitleBar', () => {
   it('hook toggles correctly', () => {
     mockUseNavContext.title = 'Validators';
     component.update(
-      <RecoilRoot>
-        <MockTheme>
-          <TitleBar title="hello world" />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <TitleBar title="hello world" />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

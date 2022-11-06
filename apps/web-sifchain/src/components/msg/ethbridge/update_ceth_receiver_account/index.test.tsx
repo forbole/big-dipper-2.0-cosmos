@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgUpdateCethReceiverAccount } from '@models';
@@ -27,11 +26,9 @@ describe('screen: TransactionDetails/CreateEthBridgeClaim', () => {
       cethReceiverAccount: 'cethReceiverAccount',
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <UpdateCethReceiverAccount message={message} />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <UpdateCethReceiverAccount message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

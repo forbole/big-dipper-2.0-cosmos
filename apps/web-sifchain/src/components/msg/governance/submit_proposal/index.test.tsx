@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgSubmitProposal } from '@models';
@@ -30,11 +29,9 @@ describe('screen: TransactionDetails/SubmitProposal', () => {
       ],
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <SubmitProposal message={message} />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <SubmitProposal message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

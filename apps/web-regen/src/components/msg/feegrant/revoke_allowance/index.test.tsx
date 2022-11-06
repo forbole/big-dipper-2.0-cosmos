@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import { MsgRevokeAllowance } from '@models';
@@ -27,11 +26,9 @@ describe('screen: TransactionDetails/Revoke', () => {
       grantee: 'grantee',
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <RevokeAllowance message={message} />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <RevokeAllowance message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

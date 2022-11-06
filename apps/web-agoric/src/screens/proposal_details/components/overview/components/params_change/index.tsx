@@ -3,7 +3,6 @@ import useTranslation from 'next-translate/useTranslation';
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 
 const ParamsChange: React.FC<{
-  className?: string;
   changes: {
     subspace: string;
     key: string;

@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { createMockClient } from 'mock-apollo-client';
+import { RecoilRoot } from 'recoil';
 import App from '.';
 
 const mockClient = createMockClient();
@@ -25,13 +26,15 @@ jest.mock('next-translate/useTranslation', () => () => mockI18n);
 describe('screen: _app', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
-      <App
-        router={{} as any}
-        Component={() => <div id="component" />}
-        pageProps={{
-          props: 'props',
-        }}
-      />
+      <RecoilRoot>
+        <App
+          router={{} as any}
+          Component={() => <div id="component" />}
+          pageProps={{
+            props: 'props',
+          }}
+        />
+      </RecoilRoot>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

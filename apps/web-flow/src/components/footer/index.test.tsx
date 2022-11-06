@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
 import Footer from '.';
@@ -13,11 +12,9 @@ describe('component: layout/footer', () => {
     jest.spyOn(global, 'Date').mockImplementation(() => mockDate as any);
 
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <Footer />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <Footer />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

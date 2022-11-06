@@ -59,6 +59,7 @@ import solanaLogoLight from 'shared-utils/assets/logos/solana-dark.svg?url';
 import strideIconDark from 'shared-utils/assets/icons/stride-dark.svg?url';
 import strideLogoDark from 'shared-utils/assets/logos/stride-dark.svg?url';
 import strideLogoLight from 'shared-utils/assets/logos/stride-light.svg?url';
+import chainCoing from 'ui/chainConfig';
 import { useStyles } from './useStyles';
 
 type IconProps = Omit<JSX.IntrinsicElements['img'], 'id' | 'src'> & {
@@ -67,7 +68,7 @@ type IconProps = Omit<JSX.IntrinsicElements['img'], 'id' | 'src'> & {
 
 const ChainIcon = ({ className, type, ...props }: IconProps) => {
   const classes = useStyles();
-  const chainName = process.env.NEXT_PUBLIC_CHAIN_NAME;
+  const { chainName } = chainCoing;
 
   let [iconDark, iconLight] =
     type === 'icon' ? [desmosIconLight, desmosIconLight] : [desmosLogoLight, desmosLogoLight];

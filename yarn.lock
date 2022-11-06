@@ -4197,7 +4197,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:^5.11.9":
+"@testing-library/jest-dom@npm:^5.16.5":
   version: 5.16.5
   resolution: "@testing-library/jest-dom@npm:5.16.5"
   dependencies:
@@ -4641,15 +4641,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.0.7":
-  version: 18.0.7
-  resolution: "@types/react-dom@npm:18.0.7"
-  dependencies:
-    "@types/react": "*"
-  checksum: 4fd47dd114d61e7228637de9bee685b81ea18b89b220a67662b05ebe74f69aad7cd929ebe69e8fd572cc8e0e9adf9bba1ea5586cfd37eb9045778851e78bcd66
-  languageName: node
-  linkType: hard
-
 "@types/react-test-renderer@npm:*":
   version: 18.0.0
   resolution: "@types/react-test-renderer@npm:18.0.0"
@@ -4715,17 +4706,6 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: a51b98dd87838d161278fdf9dd78e6a4ff8c018f406d6647f77963e144fb52a8beee40c89fd0e7e840eaeaa8bd9fe2f34519410540b1a52d43a6f8b4d2fbce33
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:^17.0.0":
-  version: 17.0.50
-  resolution: "@types/react@npm:17.0.50"
-  dependencies:
-    "@types/prop-types": "*"
-    "@types/scheduler": "*"
-    csstype: ^3.0.2
-  checksum: b5629dff7c2f3e9fcba95a19b2b3bfd78d7cacc33ba5fc26413dba653d34afcac3b93ddabe563e8062382688a1eac7db68e93739bb8e712d27637a03aaafbbb8
   languageName: node
   linkType: hard
 
@@ -15952,20 +15932,30 @@ __metadata:
   resolution: "ui@workspace:packages/ui"
   dependencies:
     "@apollo/client": ^3.1.5
-    "@graphql-codegen/cli": ^2.13.8
-    "@graphql-codegen/client-preset": ^1.1.1
     "@material-ui/core": ^4.11.3
     "@material-ui/icons": ^4.9.1
     "@material-ui/styles": ^4.10.0
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
+    "@testing-library/react-hooks": ^3.7.0
+    "@types/big.js": ^6.1.2
+    "@types/color": ^3.0.3
+    "@types/dompurify": ^2.3.4
     "@types/jest": ^29.2.0
     "@types/node": ^18.11.8
     "@types/numeral": ^2.0.2
-    "@types/react": ^17.0.0
-    "@types/react-dom": ^18.0.7
+    "@types/qrcode.react": ^1.0.2
+    "@types/ramda": ^0.28.15
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
+    "@typescript-eslint/eslint-plugin": ^5.42.0
+    "@typescript-eslint/parser": ^5.42.0
     axios: ^0.21.4
     bech32: ^2.0.0
     big.js: ^6.1.1
@@ -15983,13 +15973,16 @@ __metadata:
     jdenticon: ^3.1.0
     jest: ^28.1.0
     jest-environment-jsdom: ^29.2.2
+    jest-localstorage-mock: ^2.4.18
     jest-presets: "*"
+    jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
     mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
+    next-transpile-modules: ^9.1.0
     numeral: 2.0.4
     prop-types: ^15.6.0
     qrcode.react: ^1.0.1
@@ -16338,7 +16331,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -16422,7 +16415,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -16506,7 +16499,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -16590,7 +16583,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -16674,7 +16667,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -16758,7 +16751,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -16842,7 +16835,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -16926,7 +16919,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -17010,7 +17003,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -17100,7 +17093,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -17183,7 +17176,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -17267,7 +17260,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -17351,7 +17344,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -17435,7 +17428,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -17519,7 +17512,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -17603,7 +17596,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -17687,7 +17680,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -17771,7 +17764,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -17855,7 +17848,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -17939,7 +17932,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -18023,7 +18016,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -18107,7 +18100,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -18191,7 +18184,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -18289,7 +18282,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2
@@ -18373,7 +18366,7 @@ __metadata:
     "@sentry/nextjs": ^7.16.0
     "@socialgouv/matomo-next": ^1.2.2
     "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^11.0.2
     "@testing-library/react-hooks": ^3.7.0
     "@types/big.js": ^6.1.2

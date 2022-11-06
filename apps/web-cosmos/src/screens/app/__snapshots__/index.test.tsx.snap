@@ -11,12 +11,12 @@ Array [
     <div>
       <img
         alt="logo"
-        className="makeStyles-logo-2 makeStyles-dark-2"
+        className="makeStyles-logo-2 makeStyles-dark-5"
         src="svg"
       />
       <img
         alt="logo"
-        className="makeStyles-logo-2 makeStyles-light-1"
+        className="makeStyles-logo-2 makeStyles-light-4"
         src="svg"
       />
       <div

@@ -7,12 +7,7 @@
   "previewImage": "https://s3.bigdipper.live/rizon.png",
   "themes": {
     "default": "light",
-    "themeList": [
-      "dark",
-      "light",
-      "deuteranopia",
-      "tritanopia"
-    ],
+    "themeList": ["dark", "light", "deuteranopia", "tritanopia"],
     "dark": {
       "primary": {
         "main": "rgba(253,59,76,0.7)",
@@ -30,9 +25,7 @@
       "custom": {
         "general": {
           "background": "#0A0A0A",
-          "surfaceOne": "",
           "surfaceTwo": "#19191D",
-          "surfaceThree": "",
           "icon": "#999999"
         },
         "fonts": {
@@ -40,8 +33,7 @@
           "fontTwo": "#AAAAAB",
           "fontThree": "#818181",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF",
-          "highlight": ""
+          "fontFive": "#FFFFFF"
         },
         "primaryData": {
           "one": "#af2929",
@@ -54,7 +46,6 @@
           "fail": "#b12a34"
         },
         "tokenomics": {
-          "zero": "",
           "one": "#50B6D7",
           "two": "#F4CD69",
           "three": "#45A884"
@@ -117,7 +108,6 @@
           "background": "#F8F8F8",
           "surfaceOne": "#FFFFFF",
           "surfaceTwo": "#F8F8F8",
-          "surfaceThree": "",
           "icon": "#999999"
         },
         "fonts": {
@@ -125,8 +115,7 @@
           "fontTwo": "#414141",
           "fontThree": "#777777",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF",
-          "highlight": ""
+          "fontFive": "#FFFFFF"
         },
         "primaryData": {
           "one": "#488D98",
@@ -139,7 +128,6 @@
           "fail": "#FD3B4C"
         },
         "tokenomics": {
-          "zero": "",
           "one": "#50B6D7",
           "two": "#F4CD69",
           "three": "#45A884"

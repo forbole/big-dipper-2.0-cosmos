@@ -1,6 +1,5 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { RecoilRoot } from 'recoil';
 import { MockTheme, wait } from '@tests/utils';
 import Menu from '.';
 // ==================================
@@ -34,11 +33,9 @@ describe('screen: Nav/Menu', () => {
   beforeEach(async () => {
     renderer.act(() => {
       component = renderer.create(
-        <RecoilRoot>
-          <MockTheme>
-            <Menu toggleNavMenus={toggleNavMenus} />
-          </MockTheme>
-        </RecoilRoot>
+        <MockTheme>
+          <Menu toggleNavMenus={toggleNavMenus} />
+        </MockTheme>
       );
     });
     await wait();
@@ -54,11 +51,9 @@ describe('screen: Nav/Menu', () => {
 
     mockI18n.lang = 'zht';
     component.update(
-      <RecoilRoot>
-        <MockTheme>
-          <Menu toggleNavMenus={toggleNavMenus} />
-        </MockTheme>
-      </RecoilRoot>
+      <MockTheme>
+        <Menu toggleNavMenus={toggleNavMenus} />
+      </MockTheme>
     );
     await wait();
     expect(toggleNavMenus).toBeCalledTimes(1);
