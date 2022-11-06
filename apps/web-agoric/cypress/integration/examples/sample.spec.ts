@@ -9,3 +9,5 @@ describe('Example', () => {
     cy.contains("中文 Big ol' welcome to this boilerplate").should('be.visible');
   });
 });
+
+export {}

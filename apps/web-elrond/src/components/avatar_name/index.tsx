@@ -18,7 +18,7 @@ const AvatarName: React.FC<AvatarName> = ({
     <Link href={href(address || name)}>
       <a>
         <div className={classnames(className, classes.root)}>
-          <Avatar address={address} imageUrl={imageUrl} />
+          <Avatar address={address} imageUrl={imageUrl ?? undefined} />
           <Typography variant="body1">{name}</Typography>
         </div>
       </a>

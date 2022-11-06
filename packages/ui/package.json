@@ -29,6 +29,8 @@
   "scripts": {
     "build": "tsup",
     "clean": "rm -rf dist",
+    "type-check": "tsc",
+    "lint": "next lint",
     "dev": "tsup --watch",
     "test": "jest"
   },
@@ -91,6 +93,7 @@
     "@types/ramda": "^0.28.18",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
+    "@types/react-test-renderer": "^18.0.0",
     "@types/react-virtualized-auto-sizer": "^1.0.1",
     "@types/react-window": "^1.8.5",
     "@types/react-window-infinite-loader": "^1.0.6",
