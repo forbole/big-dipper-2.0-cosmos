@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
 import numeral from 'numeral';
-import dayjs from '@utils/dayjs';
+import dayjs from 'ui/utils/dayjs';
 import { Typography, Divider } from '@material-ui/core';
 import SingleTransactionMobile from '@components/single_transaction_mobile';
 import Tag from '@components/tag';

@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
-import dayjs from '@utils/dayjs';
+import dayjs from 'ui/utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { Typography, TableRow, TableHead, TableCell, Table, TableBody } from '@material-ui/core';

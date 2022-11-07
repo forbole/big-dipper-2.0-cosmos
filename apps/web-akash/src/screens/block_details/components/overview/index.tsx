@@ -1,6 +1,6 @@
 import React from 'react';
 import numeral from 'numeral';
-import dayjs, { formatDayJs } from '@utils/dayjs';
+import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 import { useRecoilValue } from 'recoil';

@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import numeral from 'numeral';
-import dayjs from '@utils/dayjs';
+import dayjs from 'ui/utils/dayjs';
 import Link from 'next/link';
 import { TRANSACTION_DETAILS, BLOCK_DETAILS } from '@utils/go_to_page';
 import InfiniteLoader from 'react-window-infinite-loader';

@@ -3,7 +3,7 @@ import { useRecoilValue } from 'recoil';
 import { createTheme } from '@material-ui/core/styles';
 import { readTheme, getThemeTemplate } from '@recoil/settings';
 import chainConfig from 'ui/chainConfig';
-import dayjs from '@utils/dayjs';
+import dayjs from 'ui/utils/dayjs';
 
 export const useTheme = () => {
   const theme = useRecoilValue(readTheme);

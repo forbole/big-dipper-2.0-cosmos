@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Table, TableHead, TableRow, TableCell, TableBody, Typography } from '@material-ui/core';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
-import dayjs from '@utils/dayjs';
+import dayjs from 'ui/utils/dayjs';
 import { useStyles } from './styles';
 import { columns } from './utils';
 import { BlockType } from '../../types';

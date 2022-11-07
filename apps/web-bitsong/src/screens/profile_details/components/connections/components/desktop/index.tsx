@@ -5,7 +5,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
 import { Table, TableHead, TableRow, TableCell, TableBody, Typography } from '@material-ui/core';
-import dayjs, { formatDayJs } from '@utils/dayjs';
+import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { columns } from './utils';

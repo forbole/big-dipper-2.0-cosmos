@@ -4,7 +4,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
 import { Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
-import dayjs, { formatDayJs } from '@utils/dayjs';
+import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import { columns } from './utils';
 
 const Desktop: React.FC<{

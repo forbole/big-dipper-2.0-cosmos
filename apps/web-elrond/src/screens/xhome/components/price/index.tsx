@@ -15,7 +15,7 @@ import {
 } from 'recharts';
 import Box from '@components/box';
 import CustomToolTip from '@components/custom_tool_tip';
-import dayjs from '@utils/dayjs';
+import dayjs from 'ui/utils/dayjs';
 import { useStyles } from './styles';
 import { usePrice } from './hooks';
 import { PriceType } from '../../types';

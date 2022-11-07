@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
-import dayjs from '@utils/dayjs';
+import dayjs from 'ui/utils/dayjs';
 import Link from 'next/link';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import SingleBlockMobile from '@components/single_block_mobile';

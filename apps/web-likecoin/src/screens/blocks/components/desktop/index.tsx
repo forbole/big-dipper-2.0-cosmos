@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
-import dayjs from '@utils/dayjs';
+import dayjs from 'ui/utils/dayjs';
 import Link from 'next/link';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
 import AutoSizer from 'react-virtualized-auto-sizer';

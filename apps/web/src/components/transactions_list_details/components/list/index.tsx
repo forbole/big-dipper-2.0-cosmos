@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
-import dayjs, { formatDayJs } from '@utils/dayjs';
+import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import Link from 'next/link';
 import { TRANSACTION_DETAILS, BLOCK_DETAILS } from '@utils/go_to_page';
 import { Typography } from '@material-ui/core';

@@ -1,4 +1,4 @@
-import dayjs from '@utils/dayjs';
+import dayjs from 'ui/utils/dayjs';
 import numeral from 'numeral';
 
 export const usePrice = () => {

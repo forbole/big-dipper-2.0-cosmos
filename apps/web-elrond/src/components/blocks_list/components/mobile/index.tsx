@@ -1,6 +1,6 @@
 import React from 'react';
 import numeral from 'numeral';
-import dayjs from '@utils/dayjs';
+import dayjs from 'ui/utils/dayjs';
 import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';

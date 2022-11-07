@@ -28,7 +28,7 @@ process.env = {
   NEXT_PUBLIC_CHAIN_CONFIG: JSON.stringify(chainConfig),
 };
 
-jest.mock('@utils/dayjs', () => {
+jest.mock('ui/utils/dayjs', () => {
   const mockTest = () => ({
     format: jest.fn(() => '2020-08-10 12:00:00'),
   });

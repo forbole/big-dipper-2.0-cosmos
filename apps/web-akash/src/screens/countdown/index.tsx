@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Typography } from '@material-ui/core';
 import { useInterval } from '@hooks';
-import dayjs from '@utils/dayjs';
+import dayjs from 'ui/utils/dayjs';
 import { useRecoilValue } from 'recoil';
 import chainConfig from 'ui/chainConfig';
 import ChainIcon from 'ui/components/ChainIcon';

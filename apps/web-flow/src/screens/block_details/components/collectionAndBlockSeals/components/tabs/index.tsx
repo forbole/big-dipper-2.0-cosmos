@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { Tabs, Tab } from '@material-ui/core';
-import { a11yProps } from '@utils/allyProps';
+import { a11yProps } from 'ui/utils/a11yProps';
 import { useStyles } from './styles';
 import { TabType } from '../../types';
 

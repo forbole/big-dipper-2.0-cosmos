@@ -1,5 +1,5 @@
 import React from 'react';
-import dayjs from '@utils/dayjs';
+import dayjs from 'ui/utils/dayjs';
 import Link from 'next/link';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import useTranslation from 'next-translate/useTranslation';

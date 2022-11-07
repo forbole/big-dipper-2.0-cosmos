@@ -7,7 +7,7 @@ import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { TRANSACTION_DETAILS } from '@utils/go_to_page';
 import Result from '@components/result';
 import AvatarName from '@components/avatar_name';
-import dayjs from '@utils/dayjs';
+import dayjs from 'ui/utils/dayjs';
 import { columns } from './utils';
 import { useStyles } from './styles';
 import { Shard } from '..';

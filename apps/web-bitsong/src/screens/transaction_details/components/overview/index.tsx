@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import Link from 'next/link';
-import dayjs, { formatDayJs } from '@utils/dayjs';
+import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import { Typography } from '@material-ui/core';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';

@@ -3,7 +3,7 @@ import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { Table, TableHead, TableRow, TableCell, TableBody, Typography } from '@material-ui/core';
-import dayjs from '@utils/dayjs';
+import dayjs from 'ui/utils/dayjs';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { getShardDisplay } from '@utils/get_shard_display';
 import { columns } from './utils';

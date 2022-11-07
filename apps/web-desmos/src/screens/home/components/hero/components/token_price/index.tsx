@@ -14,7 +14,7 @@ import {
 } from 'recharts';
 import CustomToolTip from '@components/custom_tool_tip';
 import { readDate } from '@recoil/settings';
-import dayjs, { formatDayJs } from '@utils/dayjs';
+import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import { TokenPriceType } from '../../types';
 import { useStyles } from './styles';
 import { usePrice } from './hooks';
