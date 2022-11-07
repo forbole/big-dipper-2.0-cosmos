@@ -1,5 +1,4 @@
 import BigDipperNetwork from './big_dipper_network';
-import GovParams from './gov_params';
 import DistributionParams from './distribution_params';
 // ================================
 // Transaction Message Types
@@ -87,7 +86,6 @@ import MsgVoteRequest from './msg/group/msg_vote_request';
 
 export {
   BigDipperNetwork,
-  GovParams,
   DistributionParams,
 };
 

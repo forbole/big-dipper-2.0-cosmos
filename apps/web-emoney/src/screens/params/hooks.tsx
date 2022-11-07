@@ -6,11 +6,10 @@ import { formatToken } from 'ui/utils/format_token';
 import chainConfig from 'ui/chainConfig';
 import {
   DistributionParams,
-  GovParams,
   InflationRateParams,
   GasPriceParams,
 } from '@models';
-import { MintParams, StakingParams, SlashingParams } from 'ui/models';
+import { GovParams, MintParams, StakingParams, SlashingParams } from 'ui/models';
 import { ParamsState } from './types';
 
 const initialState: ParamsState = {

@@ -1,5 +1,4 @@
 import BigDipperNetwork from './big_dipper_network';
-import GovParams from './gov_params';
 import DistributionParams from './distribution_params';
 import StakeibcParams from './stakeibc_params';
 // ================================
@@ -70,7 +69,6 @@ import MsgCreatePeriodicVestingAccount from './msg/vesting/msg_create_periodic_v
 
 export {
   BigDipperNetwork,
-  GovParams,
   DistributionParams,
   StakeibcParams,
 };

@@ -26,7 +26,11 @@ class GovParams {
   static fromJson(data: any) {
     return new GovParams({
       depositParams: {
-        minDeposit: R.pathOr([], ['depositParams', 'min_deposit'], data).map((x) => ({
+        minDeposit: R.pathOr<Array<{ denom: string; amount: number }>>(
+          [],
+          ['depositParams', 'min_deposit'],
+          data
+        ).map((x) => ({
           denom: x.denom,
           amount: x.amount,
         })),

@@ -1,6 +1,5 @@
 import BigDipperNetwork from './big_dipper_network';
 import DistributionParams from './distribution_params';
-import GovParams from './gov_params';
 import InflationRateParams from './inflation_rate_params';
 import GasPriceParams from './gas_price_params';
 
@@ -81,7 +80,6 @@ import MsgCreatePeriodicVestingAccount from './msg/vesting/msg_create_periodic_v
 export {
   BigDipperNetwork,
   DistributionParams,
-  GovParams,
   InflationRateParams,
   GasPriceParams,
 };
