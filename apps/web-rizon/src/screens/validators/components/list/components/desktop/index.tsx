@@ -10,7 +10,7 @@ import SortArrows from '@components/sort_arrows';
 import AvatarName from '@components/avatar_name';
 import InfoPopover from '@components/info_popover';
 import { getValidatorConditionClass } from 'ui/utils/get_validator_condition';
-import { getValidatorStatus } from '@utils/get_validator_status';
+import { getValidatorStatus } from 'ui/utils/get_validator_status';
 import { useStyles } from './styles';
 import { fetchColumns } from './utils';
 import { ItemType } from '../../types';

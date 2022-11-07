@@ -1,4 +1,4 @@
-import { getValidatorStatus } from '@utils/get_validator_status';
+import { getValidatorStatus } from 'ui/utils/get_validator_status';
 
 export const getStatusTheme = getValidatorStatus;
 
