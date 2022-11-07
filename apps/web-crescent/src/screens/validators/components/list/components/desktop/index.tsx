@@ -10,7 +10,7 @@ import SortArrows from '@components/sort_arrows';
 import AvatarName from '@components/avatar_name';
 import InfoPopover from '@components/info_popover';
 import LiquidStakingExplanation from '@components/liquid_staking_explanation';
-import { getValidatorConditionClass } from '@utils/get_validator_condition';
+import { getValidatorConditionClass } from 'ui/utils/get_validator_condition';
 import { getValidatorStatus } from '@utils/get_validator_status';
 import LiquidStakingTrueIcon from 'shared-utils/assets/liquid-staking-true.svg';
 import LiquidStakingFalseIcon from 'shared-utils/assets/liquid-staking-false.svg';

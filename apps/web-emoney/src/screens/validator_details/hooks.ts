@@ -5,7 +5,7 @@ import { formatToken } from 'ui/utils/format_token';
 import { useValidatorDetailsQuery, ValidatorDetailsQuery } from '@graphql/types/general_types';
 import { useDesmosProfile } from '@hooks';
 import { validatorToDelegatorAddress } from '@recoil/profiles';
-import { getValidatorCondition } from '@utils/get_validator_condition';
+import { getValidatorCondition } from 'ui/utils/get_validator_condition';
 import chainConfig from 'ui/chainConfig';
 import { SlashingParams } from '@models';
 import { isValidAddress } from 'ui/utils/prefix_convert';

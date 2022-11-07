@@ -3,7 +3,7 @@ import Big from 'big.js';
 import * as R from 'ramda';
 import numeral from 'numeral';
 import { useValidatorsQuery, ValidatorsQuery } from '@graphql/types/general_types';
-import { getValidatorCondition } from '@utils/get_validator_condition';
+import { getValidatorCondition } from 'ui/utils/get_validator_condition';
 import { formatToken } from 'ui/utils/format_token';
 import { SlashingParams } from '@models';
 import chainConfig from 'ui/chainConfig';
