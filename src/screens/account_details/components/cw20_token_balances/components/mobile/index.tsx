@@ -9,6 +9,7 @@ import { AvatarName } from '@components';
 import { formatNumber } from '@utils/format_token';
 import { Cw20TokenBalance } from '@src/screens/account_details/types';
 import { getMiddleEllipsis } from '@src/utils/get_middle_ellipsis';
+import { TOKEN_DETAILS } from '@src/utils/go_to_page';
 import { useStyles } from './styles';
 
 const Mobile: React.FC<{
@@ -35,6 +36,7 @@ const Mobile: React.FC<{
                   name={`${b.name} (${b.denom.toUpperCase()})`}
                   address={b.tokenAddress}
                   imageUrl={b.logo}
+                  href={TOKEN_DETAILS}
                 />
               </div>
               <div className={classes.flex}>

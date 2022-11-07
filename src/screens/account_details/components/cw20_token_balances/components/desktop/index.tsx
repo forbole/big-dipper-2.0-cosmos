@@ -14,6 +14,7 @@ import {
 import { formatNumber } from '@utils/format_token';
 import { Cw20TokenBalance } from '@src/screens/account_details/types';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { TOKEN_DETAILS } from '@src/utils/go_to_page';
 import { columns } from './utils';
 
 const Desktop: React.FC<{
@@ -32,6 +33,7 @@ const Desktop: React.FC<{
           name={`${b.name} (${b.denom.toUpperCase()})`}
           address={b.tokenAddress}
           imageUrl={b.logo}
+          href={TOKEN_DETAILS}
         />
       ),
       balance: `${balance} ${b.denom.toUpperCase()}`,

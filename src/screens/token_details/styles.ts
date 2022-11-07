@@ -17,32 +17,17 @@ export const useStyles = () => {
             // gridTemplateColumns: 'repeat(2, 1fr)',
           },
         },
-        balance: {
-          [theme.breakpoints.up('lg')]: {
-            // gridColumn: '1 / 3',
-          },
-        },
-        otherTokens: {
-          [theme.breakpoints.up('lg')]: {
-            // gridColumn: '1 / 3',
-          },
-        },
         overview: {
           [theme.breakpoints.up('lg')]: {
             // gridColumn: '1 / 3',
           },
         },
-        staking: {
+        cw20TokenInfo: {
           [theme.breakpoints.up('lg')]: {
             // gridColumn: '1 / 3',
           },
         },
         transactions: {
-          [theme.breakpoints.up('lg')]: {
-            // gridColumn: '1 / 3',
-          },
-        },
-        cw20TokenBalances: {
           [theme.breakpoints.up('lg')]: {
             // gridColumn: '1 / 3',
           },

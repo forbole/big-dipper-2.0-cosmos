@@ -40,13 +40,5 @@
   "codeId": "Code Id",
   "instaBlock": "Instantiated At Block",
   "collateralTransactions": "Collateral Transactions",
-  "cw20tokens": "CW20 Tokens",
-  "cw20TokenDetails": "CW20 Token Details",
-  "name": "Name",
-  "denom": "Denom",
-  "exponent": "Exponent",
-  "circulatingSupply": "Circulating Supply",
-  "minter": "Minter",
-  "maxSupply": "Maximum Supply",
-  "projectUrl": "Project URL"
+  "cw20tokens": "CW20 Tokens"
 }

@@ -14,7 +14,7 @@ import {
   CosmWasmInstantiateDocument,
 } from '@graphql/cosmwasm';
 import {
-  Cw20TokenBalancesDocument, Cw20TokenInfoDocument,
+  Cw20TokenBalancesDocument,
 } from '@src/graphql/cw20_tokens';
 
 export const fetchCommission = async (address: string) => {
@@ -183,43 +183,6 @@ export const fetchCW20TokenBalances = async (address: string) => {
         balance: b.balance,
       };
     });
-  } catch (error) {
-    return defaultReturnValue;
-  }
-};
-
-export const fetchCW20TokenInfo = async (address: string) => {
-  const defaultReturnValue = {
-    cw20TokenInfo: {
-      name: '',
-      denom: '',
-      logo: '',
-      exponent: 0,
-      circulatingSupply: 0,
-      maxSupply: 0,
-      minterAddress: '',
-      projectUrl: '',
-    },
-  };
-
-  try {
-    const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
-      variables: {
-        address,
-      },
-      query: Cw20TokenInfoDocument,
-    });
-    const tokenInfo = R.pathOr(defaultReturnValue, ['data', 'cw20token_info_by_pk'], data);
-
-    return {
-      name: tokenInfo.name,
-      denom: tokenInfo.symbol,
-      circulatingSupply: tokenInfo.circulating_supply,
-      exponent: tokenInfo.decimals,
-      maxSupply: tokenInfo.max_supply,
-      minterAddress: tokenInfo.minter,
-      projectUrl: tokenInfo.project_url,
-    };
   } catch (error) {
     return defaultReturnValue;
   }

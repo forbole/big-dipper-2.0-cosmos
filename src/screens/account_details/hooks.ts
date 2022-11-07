@@ -20,7 +20,6 @@ import {
   fetchUnbondingBalance,
   fetchCosmWasmInstantiation,
   fetchCW20TokenBalances,
-  fetchCW20TokenInfo,
 } from './utils';
 
 const defaultTokenUnit: TokenUnit = {
@@ -66,13 +65,6 @@ const initialState: AccountDetailState = {
   },
   tab: 0,
   cw20TokenBalances: [],
-  cw20TokenInfo: {
-    name: '',
-    denom: '',
-    logo: '',
-    exponent: 0,
-    circulatingSupply: 0,
-  },
 };
 
 export const useAccountDetails = () => {
@@ -139,7 +131,6 @@ export const useAccountDetails = () => {
       fetchRewards(address),
       fetchCosmWasmInstantiation(address),
       fetchCW20TokenBalances(address),
-      fetchCW20TokenInfo(address),
     ];
     const [
       commission,
@@ -149,7 +140,6 @@ export const useAccountDetails = () => {
       rewards,
       cosmWasmInstantiation,
       cw20TokenBalances,
-      cw20TokenInfo,
     ] = await Promise.allSettled(promises);
 
     const formattedRawData: any = {};
@@ -163,7 +153,6 @@ export const useAccountDetails = () => {
 
     const rawData: any = {};
     rawData.cosmwasm = R.pathOr([], ['value'], cosmWasmInstantiation);
-    rawData.cw20TokenInfo = R.pathOr([], ['value'], cw20TokenInfo);
     handleSetState(rawData);
   };
 

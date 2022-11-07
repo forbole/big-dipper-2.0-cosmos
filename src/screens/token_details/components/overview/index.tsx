@@ -12,7 +12,7 @@ const Cw20TokenOverview: React.FC<{
     return null;
   }
 
-  const { t } = useTranslation('accounts');
+  const { t } = useTranslation('token');
 
   const details = [
     {

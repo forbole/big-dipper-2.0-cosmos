@@ -23,7 +23,6 @@ import {
 } from './components';
 import { useAccountDetails } from './hooks';
 import Cw20TokenBalances from './components/cw20_token_balances';
-import Cw20TokenOverview from './components/cw20_token_overview';
 
 const AccountDetails = () => {
   const { t } = useTranslation('accounts');
@@ -34,45 +33,6 @@ const AccountDetails = () => {
   } = useAccountDetails();
 
   const isSmartContract = state.cosmwasm.result_contract_address === state.overview.address;
-  const isCw20Token = state.cw20TokenInfo.name && state.cw20TokenInfo.name !== '';
-
-  let title = '';
-  if (isCw20Token) {
-    title = t('cw20TokenDetails');
-  } else if (isSmartContract) {
-    title = t('smartContractDetails');
-  } else {
-    title = t('accountDetails');
-  }
-
-  let overview;
-  if (isCw20Token) {
-    overview = (
-      <Cw20TokenOverview
-        className={classes.overview}
-        tokenInfo={state.cw20TokenInfo}
-      />
-    );
-  } else if (isSmartContract) {
-    overview = (
-      <ContractOverview
-        className={classes.overview}
-        address={state.cosmwasm.result_contract_address}
-        deployerAddress={state.cosmwasm.sender}
-        label={state.cosmwasm.label}
-        codeId={state.cosmwasm.code_id}
-        block={state.cosmwasm.transaction.block.height}
-      />
-    );
-  } else {
-    overview = (
-      <Overview
-        className={classes.overview}
-        withdrawalAddress={state.overview.withdrawalAddress}
-        address={state.overview.address}
-      />
-    );
-  }
 
   const tabs = [
     {
@@ -100,12 +60,12 @@ const AccountDetails = () => {
   return (
     <>
       <NextSeo
-        title={title}
+        title={isSmartContract ? t('smartContractDetails') : t('accountDetails')}
         openGraph={{
-          title,
+          title: isSmartContract ? t('smartContractDetails') : t('accountDetails'),
         }}
       />
-      <Layout navTitle={title}>
+      <Layout navTitle={isSmartContract ? t('smartContractDetails') : t('accountDetails')}>
         <LoadAndExist
           loading={state.loading}
           exists={state.exists}
@@ -121,7 +81,24 @@ const AccountDetails = () => {
               coverUrl={state.desmosProfile.coverUrl}
             />
             )}
-            {overview}
+            {isSmartContract
+              ? (
+                <ContractOverview
+                  className={classes.overview}
+                  address={state.cosmwasm.result_contract_address}
+                  deployerAddress={state.cosmwasm.sender}
+                  label={state.cosmwasm.label}
+                  codeId={state.cosmwasm.code_id}
+                  block={state.cosmwasm.transaction.block.height}
+                />
+              )
+              : (
+                <Overview
+                  className={classes.overview}
+                  withdrawalAddress={state.overview.withdrawalAddress}
+                  address={state.overview.address}
+                />
+              )}
             {isSmartContract
               ? <SimpleBalance total={state.balance.total} />
               : (

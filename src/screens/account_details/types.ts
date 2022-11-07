@@ -42,16 +42,6 @@ export type Cw20TokenBalance = {
   balance: number
 }
 
-export type Cw20TokenInfo = {
-  name: string,
-  denom: string,
-  exponent: number,
-  circulatingSupply: number,
-  maxSupply?: number,
-  minterAddress?: string,
-  projectUrl?: string,
-}
-
 export type AccountDetailState = {
   loading: boolean;
   exists: boolean;
@@ -66,5 +56,4 @@ export type AccountDetailState = {
   cosmwasm: CosmwasmType;
   tab: number;
   cw20TokenBalances: Cw20TokenBalance[];
-  cw20TokenInfo: Cw20TokenInfo;
 }
