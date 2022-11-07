@@ -21,18 +21,23 @@ class BigDipperNetwork {
     this.other = payload.other;
   }
 
-  static fromJson(data: any) {
-    const allLinks: Link[] = data?.links?.map((x) => {
-      return {
-        chainId: x.chain_id,
-        url: x.url,
-        name: x.name,
-      };
-    });
-    const mainnet = [];
-    const testnet = [];
-    const retired = [];
-    const other = [];
+  static fromJson(data?: {
+    links?: Array<{ chain_id: string; url: string; name: string }>;
+    name: string;
+    logo: string;
+  }) {
+    const allLinks: Link[] =
+      data?.links?.map((x) => {
+        return {
+          chainId: x.chain_id,
+          url: x.url,
+          name: x.name,
+        };
+      }) ?? [];
+    const mainnet: Link[] = [];
+    const testnet: Link[] = [];
+    const retired: Link[] = [];
+    const other: Link[] = [];
 
     allLinks.forEach((x) => {
       // main
@@ -52,8 +57,8 @@ class BigDipperNetwork {
       testnet,
       retired,
       other,
-      name: data.name,
-      logo: data.logo,
+      name: data?.name,
+      logo: data?.logo,
     });
   }
 }

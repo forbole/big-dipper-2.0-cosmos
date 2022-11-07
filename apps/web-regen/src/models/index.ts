@@ -1,4 +1,3 @@
-import BigDipperNetwork from './big_dipper_network';
 // ================================
 // Transaction Message Types
 // ================================
@@ -82,8 +81,6 @@ import MsgUpdateGroupAdminRequest from './msg/group/msg_update_group_admin_reque
 import MsgUpdateGroupMembersRequest from './msg/group/msg_update_group_members_request';
 import MsgUpdateGroupMetadataRequest from './msg/group/msg_update_group_metadata_request';
 import MsgVoteRequest from './msg/group/msg_vote_request';
-
-export { BigDipperNetwork };
 
 export {
   MsgSend,

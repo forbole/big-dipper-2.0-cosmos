@@ -1,4 +1,3 @@
-import BigDipperNetwork from './big_dipper_network';
 // ================================
 // Transaction Message Types
 // ================================
@@ -68,8 +67,6 @@ import MsgConvertCoin from './msg/erc20/msg_convert_coin';
 import MsgConvertErc20 from './msg/erc20/msg_convert_erc20';
 import MsgCreateClawbackVestingAccount from './msg/vesting/msg_create_clawback_vesting_account';
 import MsgClawback from './msg/vesting/msg_clawback';
-
-export { BigDipperNetwork };
 
 export {
   MsgSend,

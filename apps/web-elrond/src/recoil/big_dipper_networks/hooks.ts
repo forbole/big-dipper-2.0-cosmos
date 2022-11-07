@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useRecoilState, SetterOrUpdater } from 'recoil';
-import { BigDipperNetwork } from '@models';
+import { BigDipperNetwork } from 'ui/models';
 import { writeNetworks } from '@recoil/big_dipper_networks';
 import { Networks } from '@recoil/big_dipper_networks/types';
 

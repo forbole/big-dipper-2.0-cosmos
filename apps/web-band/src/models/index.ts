@@ -1,4 +1,3 @@
-import BigDipperNetwork from './big_dipper_network';
 import OracleParams from './oracle_params';
 
 // ================================
@@ -74,7 +73,7 @@ import MsgRevokeAllowance from './msg/feegrant/msg_revoke_allowance';
 import MsgCreateVestingAccount from './msg/vesting/msg_create_vesting_account';
 import MsgCreatePeriodicVestingAccount from './msg/vesting/msg_create_periodic_vesting_account';
 
-export { BigDipperNetwork, OracleParams };
+export { OracleParams };
 
 export {
   MsgSend,
