@@ -9,7 +9,7 @@ import {
   ValidatorUndelegationsDocument,
 } from '@src/graphql/general/validator_details_documents';
 import { formatToken } from 'ui/utils/format_token';
-import { getDenom } from '@utils/get_denom';
+import { getDenom } from 'ui/utils/get_denom';
 import chainConfig from 'ui/chainConfig';
 import { StakingState } from './types';
 

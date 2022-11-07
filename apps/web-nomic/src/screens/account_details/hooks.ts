@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import * as R from 'ramda';
 // import Big from 'big.js';
 import { useRouter } from 'next/router';
-import { getDenom } from '@utils/get_denom';
+import { getDenom } from 'ui/utils/get_denom';
 import { formatToken } from 'ui/utils/format_token';
 import chainConfig from 'ui/chainConfig';
 import { isValidAddress } from '@utils/prefix_convert';
