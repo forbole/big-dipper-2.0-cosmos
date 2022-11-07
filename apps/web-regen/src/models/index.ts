@@ -1,6 +1,4 @@
 import BigDipperNetwork from './big_dipper_network';
-import SlashingParams from './slashing_params';
-import MintParams from './mint_params';
 import GovParams from './gov_params';
 import DistributionParams from './distribution_params';
 // ================================
@@ -89,8 +87,6 @@ import MsgVoteRequest from './msg/group/msg_vote_request';
 
 export {
   BigDipperNetwork,
-  SlashingParams,
-  MintParams,
   GovParams,
   DistributionParams,
 };

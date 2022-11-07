@@ -5,14 +5,12 @@ import { useParamsQuery, ParamsQuery } from '@graphql/types/general_types';
 import { formatToken } from 'ui/utils/format_token';
 import chainConfig from 'ui/chainConfig';
 import {
-  StakingParams,
-  SlashingParams,
-  MintParams,
   DistributionParams,
   GovParams,
   InflationRateParams,
   GasPriceParams,
 } from '@models';
+import { MintParams, StakingParams, SlashingParams } from 'ui/models';
 import { ParamsState } from './types';
 
 const initialState: ParamsState = {
