@@ -7,7 +7,7 @@ export const convertMsgType = (type: string[]) => {
     const wordIndex = eachType.indexOf('Msg');
     const msgStringLength = 'Msg'.length;
     const msgTitle = eachType.substring(wordIndex + msgStringLength);
-    const msgTitleSeperatedByUpperCase = msgTitle.match(/[A-Z][a-z]+|[0-9]+/g).join(' ');
+    const msgTitleSeperatedByUpperCase = msgTitle.match(/[A-Z][a-z]+|[0-9]+/g)?.join(' ');
     return msgTitleSeperatedByUpperCase;
   });
 
