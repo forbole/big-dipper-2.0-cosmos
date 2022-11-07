@@ -2,7 +2,7 @@ import { useState } from 'react';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { useParamsQuery, ParamsQuery } from '@graphql/types/general_types';
-import { formatToken } from '@utils/format_token';
+import { formatToken } from 'ui/utils/format_token';
 import chainConfig from 'ui/chainConfig';
 import { StakingParams, SlashingParams, MintParams, DistributionParams, GovParams } from '@models';
 import { ParamsState } from './types';

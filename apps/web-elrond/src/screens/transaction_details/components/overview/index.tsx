@@ -10,7 +10,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
 import { MINIBLOCK_DETAILS } from '@utils/go_to_page';
-import { formatNumber } from '@utils/format_token';
+import { formatNumber } from 'ui/utils/format_token';
 import { getShardDisplay } from '@utils/get_shard_display';
 import chainConfig from 'ui/chainConfig';
 import { OverviewType } from '../../types';

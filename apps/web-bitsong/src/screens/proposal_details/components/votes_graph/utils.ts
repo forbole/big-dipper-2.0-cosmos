@@ -1,6 +1,6 @@
 import * as R from 'ramda';
 import Big from 'big.js';
-import { formatNumber } from '@utils/format_token';
+import { formatNumber } from 'ui/utils/format_token';
 import { ThemeOptions } from '@material-ui/core/styles';
 import { VotesType } from './types';
 

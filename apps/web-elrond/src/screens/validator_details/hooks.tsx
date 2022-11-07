@@ -6,7 +6,7 @@ import chainConfig from 'ui/chainConfig';
 import { useRouter } from 'next/router';
 import { IDENTITY, PROVIDERS, PROVIDER_DETAILS, STAKE } from '@api';
 import { isBech32 } from '@utils/bech32';
-import { formatToken, formatNumber } from '@utils/format_token';
+import { formatToken, formatNumber } from 'ui/utils/format_token';
 import { ValidatorDetailsState } from './types';
 
 const defaultTokenUnit: TokenUnit = {

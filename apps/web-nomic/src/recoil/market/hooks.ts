@@ -7,7 +7,7 @@ import chainConfig from 'ui/chainConfig';
 import { writeMarket } from '@recoil/market';
 import { AtomState } from '@recoil/market/types';
 import { getDenom } from '@utils/get_denom';
-import { formatToken } from '@utils/format_token';
+import { formatToken } from 'ui/utils/format_token';
 
 export const useMarketRecoil = () => {
   const [market, setMarket] = useRecoilState(writeMarket) as [

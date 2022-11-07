@@ -6,7 +6,7 @@ import {
   ProposalDetailsDepositsQuery,
 } from '@graphql/types/general_types';
 import chainConfig from 'ui/chainConfig';
-import { formatToken } from '@utils/format_token';
+import { formatToken } from 'ui/utils/format_token';
 import { DepositState } from './types';
 
 export const useDeposits = () => {

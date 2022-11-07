@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
-import { formatNumber } from '@utils/format_token';
+import { formatNumber } from 'ui/utils/format_token';
 import { TOKEN_DETAILS } from '@utils/go_to_page';
 import AvatarName from '@components/avatar_name';
 import { columns } from './utils';

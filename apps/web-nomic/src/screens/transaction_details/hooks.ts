@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useTransactionDetailsQuery, TransactionDetailsQuery } from '@graphql/types/general_types';
-import { formatToken } from '@utils/format_token';
+import { formatToken } from 'ui/utils/format_token';
 import { TransactionState } from './types';
 
 export const useTransactionDetails = () => {

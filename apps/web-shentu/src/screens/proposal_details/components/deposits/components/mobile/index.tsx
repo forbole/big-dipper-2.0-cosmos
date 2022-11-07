@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { Divider, Typography } from '@material-ui/core';
-import { formatNumber } from '@utils/format_token';
+import { formatNumber } from 'ui/utils/format_token';
 import dayjs, { formatDayJs } from '@utils/dayjs';
 import AvatarName from '@components/avatar_name';
 import { useRecoilValue } from 'recoil';

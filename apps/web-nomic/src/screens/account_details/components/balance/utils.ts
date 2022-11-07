@@ -1,4 +1,4 @@
-import { formatNumber } from '@utils/format_token';
+import { formatNumber } from 'ui/utils/format_token';
 
 export const formatBalanceData = (data: { available: TokenUnit }) => {
   const balanceChart = [

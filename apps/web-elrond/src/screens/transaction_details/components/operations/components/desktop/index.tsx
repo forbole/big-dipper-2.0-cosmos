@@ -1,7 +1,7 @@
 import React from 'react';
 import * as R from 'ramda';
 import useTranslation from 'next-translate/useTranslation';
-import { formatNumber } from '@utils/format_token';
+import { formatNumber } from 'ui/utils/format_token';
 import Link from 'next/link';
 import { Table, TableHead, TableRow, TableCell, TableBody, Typography } from '@material-ui/core';
 import AvatarName from '@components/avatar_name';

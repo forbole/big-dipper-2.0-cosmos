@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import axios from 'axios';
-import { formatTokenByExponent } from '@utils/format_token';
+import { formatTokenByExponent } from 'ui/utils/format_token';
 import { ACCOUNT_DETAILS_TOKENS, ACCOUNT_DETAILS_TOKENS_COUNT } from '@api';
 import { OtherTokensState } from './types';
 

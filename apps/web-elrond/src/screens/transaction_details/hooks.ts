@@ -3,7 +3,7 @@ import axios from 'axios';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import chainConfig from 'ui/chainConfig';
-import { formatToken, formatTokenByExponent } from '@utils/format_token';
+import { formatToken, formatTokenByExponent } from 'ui/utils/format_token';
 import { TRANSACTION_DETAILS } from '@api';
 import { TransactionDetailsState } from './types';
 

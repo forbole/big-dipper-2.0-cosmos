@@ -7,7 +7,7 @@ import { Divider } from '@material-ui/core';
 import AvatarName from '@components/avatar_name';
 import { VALIDATOR_DETAILS, NODE_DETAILS } from '@utils/go_to_page';
 import { useList, useListRow } from '@hooks';
-import { formatNumber } from '@utils/format_token';
+import { formatNumber } from 'ui/utils/format_token';
 import { SingleValidator } from './component';
 import { VotingPower } from '..';
 import { ValidatorType } from '../../../../types';

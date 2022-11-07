@@ -3,7 +3,7 @@ import * as R from 'ramda';
 import numeral from 'numeral';
 import { useTokenomicsQuery, TokenomicsQuery } from '@graphql/types/general_types';
 import { StakingParams } from '@models';
-import { formatToken } from '@utils/format_token';
+import { formatToken } from 'ui/utils/format_token';
 
 export const useTokenomics = () => {
   const [state, setState] = useState<{

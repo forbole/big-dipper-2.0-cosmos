@@ -1,4 +1,4 @@
-import { formatNumber } from '@utils/format_token';
+import { formatNumber } from 'ui/utils/format_token';
 import numeral from 'numeral';
 
 export const formatMarket = (data: { price: number; supply: TokenUnit; marketCap: number }) => {

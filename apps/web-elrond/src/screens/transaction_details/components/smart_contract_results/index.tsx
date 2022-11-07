@@ -5,7 +5,7 @@ import { Typography, Divider } from '@material-ui/core';
 import NoData from '@components/no_data';
 import Box from '@components/box';
 import AvatarName from '@components/avatar_name';
-import { formatNumber } from '@utils/format_token';
+import { formatNumber } from 'ui/utils/format_token';
 import { decodeBase64 } from '@utils/base64';
 import { ResultType } from '../../types';
 import { CodeBlock } from '..';

@@ -6,7 +6,7 @@ import { Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/c
 import AvatarName from '@components/avatar_name';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
-import { formatNumber } from '@utils/format_token';
+import { formatNumber } from 'ui/utils/format_token';
 import { columns } from './utils';
 import { ItemType } from '../../types';
 

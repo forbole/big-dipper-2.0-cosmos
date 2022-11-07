@@ -4,7 +4,7 @@ import * as R from 'ramda';
 import chainConfig from 'ui/chainConfig';
 import axios from 'axios';
 import { ACCOUNT_DETAILS, ACCOUNT_DETAILS_TOKEN_COUNT } from '@api';
-import { formatToken } from '@utils/format_token';
+import { formatToken } from 'ui/utils/format_token';
 import { AccountDetailsType } from './types';
 
 const defaultTokenUnit: TokenUnit = {

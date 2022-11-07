@@ -8,7 +8,7 @@ import {
   AccountRedelegationsDocument,
   AccountUndelegationsDocument,
 } from '@src/graphql/general/account_details_documents';
-import { formatToken } from '@utils/format_token';
+import { formatToken } from 'ui/utils/format_token';
 import { getDenom } from '@utils/get_denom';
 import chainConfig from 'ui/chainConfig';
 import { RedelegationType, StakingState } from './types';

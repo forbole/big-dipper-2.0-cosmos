@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgUndelegate } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
-import { formatToken, formatNumber } from '@utils/format_token';
+import { formatToken, formatNumber } from 'ui/utils/format_token';
 
 const Undelegate = (props: { message: MsgUndelegate }) => {
   const { message } = props;

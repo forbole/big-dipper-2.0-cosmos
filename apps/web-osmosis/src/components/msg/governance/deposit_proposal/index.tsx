@@ -5,7 +5,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgDeposit } from '@models';
-import { formatToken, formatNumber } from '@utils/format_token';
+import { formatToken, formatNumber } from 'ui/utils/format_token';
 import { useProfileRecoil } from '@recoil/profiles';
 import { PROPOSAL_DETAILS } from '@utils/go_to_page';
 

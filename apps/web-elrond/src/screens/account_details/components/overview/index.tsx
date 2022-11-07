@@ -4,7 +4,7 @@ import useTranslation from 'next-translate/useTranslation';
 import classnames from 'classnames';
 import { Typography } from '@material-ui/core';
 import Box from '@components/box';
-import { formatNumber } from '@utils/format_token';
+import { formatNumber } from 'ui/utils/format_token';
 import { getShardDisplay } from '@utils/get_shard_display';
 import { useStyles } from './style';
 import { OverviewType } from '../../types';

@@ -1,6 +1,6 @@
 import * as R from 'ramda';
 import chainConfig from 'ui/chainConfig';
-import { formatToken } from '@utils/format_token';
+import { formatToken } from 'ui/utils/format_token';
 import { Categories } from '../types';
 
 class MsgWithdrawValidatorCommission {

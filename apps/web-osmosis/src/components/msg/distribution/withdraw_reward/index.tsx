@@ -3,7 +3,7 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { MsgWithdrawDelegatorReward } from '@models';
-import { formatNumber } from '@utils/format_token';
+import { formatNumber } from 'ui/utils/format_token';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const WithdrawReward = (props: { message: MsgWithdrawDelegatorReward }) => {

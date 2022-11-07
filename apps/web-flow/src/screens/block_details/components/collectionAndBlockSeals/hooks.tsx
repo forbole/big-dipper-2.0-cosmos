@@ -4,7 +4,7 @@ import * as R from 'ramda';
 // import {
 //   IDENTITIES, PROVIDERS,
 // } from '@api';
-// import { formatToken } from '@utils/format_token';
+// import { formatToken } from 'ui/utils/format_token';
 // import chainConfig from 'ui/chainConfig';
 import { ValidatorsState } from './types';
 

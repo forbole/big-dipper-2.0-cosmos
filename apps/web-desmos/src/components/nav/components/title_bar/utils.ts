@@ -1,5 +1,5 @@
 import Big from 'big.js';
-import { formatNumber } from '@utils/format_token';
+import { formatNumber } from 'ui/utils/format_token';
 import { AtomState } from '@src/recoil/market/types';
 
 export const formatMarket = (data: AtomState) => {

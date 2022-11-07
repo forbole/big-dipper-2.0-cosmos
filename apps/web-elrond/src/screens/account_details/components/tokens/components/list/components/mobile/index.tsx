@@ -1,6 +1,6 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import { formatNumber } from '@utils/format_token';
+import { formatNumber } from 'ui/utils/format_token';
 import { Typography, Divider } from '@material-ui/core';
 import AvatarName from '@components/avatar_name';
 import { TOKEN_DETAILS } from '@utils/go_to_page';

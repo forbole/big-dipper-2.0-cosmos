@@ -2,7 +2,7 @@ import React from 'react';
 import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
-import { formatToken, formatNumber } from '@utils/format_token';
+import { formatToken, formatNumber } from 'ui/utils/format_token';
 import Name from '@components/name';
 import { MsgOpenBid } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
