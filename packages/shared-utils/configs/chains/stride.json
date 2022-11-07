@@ -30,6 +30,7 @@
       "custom": {
         "general": {
           "background": "#141617",
+          "surfaceOne": "#232829",
           "surfaceTwo": "#333333",
           "icon": "#999999"
         },
