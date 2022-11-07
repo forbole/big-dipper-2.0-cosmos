@@ -2,7 +2,7 @@ import React from 'react';
 import numeral from 'numeral';
 import classnames from 'classnames';
 import Link from 'next/link';
-import { mergeRefs } from '@utils/merge_refs';
+import { mergeRefs } from 'ui/utils/merge_refs';
 import { Typography, Divider } from '@material-ui/core';
 import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';

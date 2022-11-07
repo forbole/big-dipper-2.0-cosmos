@@ -9,7 +9,7 @@ import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
 
-import { mergeRefs } from '@utils/merge_refs';
+import { mergeRefs } from 'ui/utils/merge_refs';
 import SingleTransactionMobile from '@components/single_transaction_mobile';
 import Loading from '@components/loading';
 import Result from '@components/result';

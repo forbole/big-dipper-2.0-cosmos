@@ -11,7 +11,7 @@ import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
-import { mergeRefs } from '@utils/merge_refs';
+import { mergeRefs } from 'ui/utils/merge_refs';
 import { useList, useListRow } from '@hooks';
 import { useStyles } from './styles';
 import { BlockType } from '../../types';

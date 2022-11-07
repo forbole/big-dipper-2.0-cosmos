@@ -8,7 +8,7 @@ import { Typography } from '@material-ui/core';
 import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
-import { mergeRefs } from '@utils/merge_refs';
+import { mergeRefs } from 'ui/utils/merge_refs';
 import Loading from '@components/loading';
 import Tag from '@components/tag';
 import { useList, useListRow, useScreenSize } from '@hooks';
