@@ -23,9 +23,7 @@ export const useConsensus = () => {
   });
 
   useEffect(() => {
-    if (!process.env.NEXT_PUBLIC_RPC_WEBSOCKET)
-      throw new Error('NEXT_PUBLIC_RPC_WEBSOCKET is not defined');
-    const client = new WebSocket(process.env.NEXT_PUBLIC_RPC_WEBSOCKET);
+    const client = new WebSocket(process.env.NEXT_PUBLIC_RPC_WEBSOCKET || 'ws://localhost:3000');
     const stepHeader = {
       jsonrpc: '2.0',
       method: 'subscribe',
@@ -51,7 +49,7 @@ export const useConsensus = () => {
 
     client.onmessage = (e: any) => {
       const data = JSON.parse(e.data);
-      const event = R.pathOr('', ['result', 'data', 'type'], data);
+      const event = R.pathOr<string>('', ['result', 'data', 'type'], data);
       if (event === 'tendermint/event/NewRound') {
         formatNewRound(data);
       }
@@ -70,7 +68,7 @@ export const useConsensus = () => {
   }, []);
 
   const formatNewRound = (data: any) => {
-    const height = numeral(R.pathOr('', ['result', 'data', 'value', 'height'], data)).value();
+    const height = numeral(R.pathOr('', ['result', 'data', 'value', 'height'], data)).value() ?? 0;
     const proposerHex = R.pathOr('', ['result', 'data', 'value', 'proposer', 'address'], data);
     const consensusAddress = hexToBech32(proposerHex, chainConfig.prefix.consensus);
 

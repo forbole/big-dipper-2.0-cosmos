@@ -1,17 +1,17 @@
 import {
   ApolloClient,
   ApolloLink,
+  concat,
   HttpLink,
   InMemoryCache,
   NormalizedCacheObject,
   split,
 } from '@apollo/client';
-import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
 import { getMainDefinition } from '@apollo/client/utilities';
-import { Kind, OperationDefinitionNode, OperationTypeNode } from 'graphql';
-import { createClient } from 'graphql-ws';
+import { WebSocketLink } from '@apollo/client/link/ws';
+import webSocketImpl from 'isomorphic-ws';
+import { Kind, OperationTypeNode } from 'graphql';
 import { useMemo } from 'react';
-import chainConfig from 'ui/chainConfig';
 
 const defaultOptions: any = {
   watchQuery: {
@@ -24,21 +24,21 @@ const defaultOptions: any = {
   },
 };
 
-let apolloClient: ApolloClient<NormalizedCacheObject>;
-
 const httpLink = new HttpLink({
   uri: process.env.NEXT_PUBLIC_GRAPHQL_URL,
 });
 
-let wsLink: GraphQLWsLink;
+const wsLink = new WebSocketLink({
+  uri: process.env.NEXT_PUBLIC_GRAPHQL_WS ?? 'ss://localhost:3000',
+  options: {
+    reconnect: true,
+  },
+  webSocketImpl,
+});
+
 let link: ApolloLink = httpLink;
 
-if (typeof window !== 'undefined' && process.env.NEXT_PUBLIC_GRAPHQL_WS) {
-  wsLink = new GraphQLWsLink(
-    createClient({
-      url: process.env.NEXT_PUBLIC_GRAPHQL_WS,
-    })
-  );
+if (typeof window !== 'undefined') {
   link = split(
     ({ query }) => {
       const node = getMainDefinition(query);
@@ -51,10 +51,18 @@ if (typeof window !== 'undefined' && process.env.NEXT_PUBLIC_GRAPHQL_WS) {
   );
 }
 
+const authMiddleware = new ApolloLink((operation, forward) => {
+  operation.setContext({
+    headers: {},
+  });
+
+  return forward(operation);
+});
+
 function createApolloClient() {
   const client = new ApolloClient({
     ssrMode: typeof window === 'undefined',
-    link,
+    link: concat(authMiddleware, link),
     cache: new InMemoryCache({}),
   });
 
@@ -63,8 +71,9 @@ function createApolloClient() {
   return client;
 }
 
+let apolloClient: ApolloClient<NormalizedCacheObject>;
+
 export function initializeApollo(initialState?: NormalizedCacheObject) {
-  // eslint-disable-next-line
   const _apolloClient = apolloClient ?? createApolloClient();
 
   // If your page has Next.js data fetching methods that use Apollo Client, the initial state
