@@ -1,6 +1,6 @@
 import { selector } from 'recoil';
 import { mergeStateChange } from 'ui/utils/merge_state_change';
-import { THEME_KEY, DATE_KEY, TX_KEY, setItem } from '@utils/localstorage';
+import { THEME_KEY, DATE_KEY, TX_KEY, setItem } from 'ui/utils/localstorage';
 import { atomState } from './atom';
 import { Theme, Date, Tx } from './types';
 

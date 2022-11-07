@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { atomState, THEME_DICTIONARY } from '@recoil/settings';
 import { AtomState, Theme } from '@recoil/settings/types';
-import { getItem, THEME_KEY, DATE_KEY, TX_KEY } from '@utils/localstorage';
+import { getItem, THEME_KEY, DATE_KEY, TX_KEY } from 'ui/utils/localstorage';
 
 export const useSettingsRecoil = () => {
   const [settings, setSettings] = useRecoilState(atomState);
