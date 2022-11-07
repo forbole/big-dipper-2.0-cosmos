@@ -14,7 +14,7 @@ import Loading from '@components/loading';
 import Result from '@components/result';
 import Tag from '@components/tag';
 import { useGrid } from '@hooks';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { TransactionsListState } from '../../types';
 import { columns } from './utils';
 import { useStyles } from './styles';

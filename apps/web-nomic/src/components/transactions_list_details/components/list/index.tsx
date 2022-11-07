@@ -12,7 +12,7 @@ import { mergeRefs } from '@utils/merge_refs';
 import Loading from '@components/loading';
 import Tag from '@components/tag';
 import { useList, useListRow, useScreenSize } from '@hooks';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
 import { useStyles } from './styles';

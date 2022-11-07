@@ -1,7 +1,7 @@
 import React from 'react';
 import dayjs from 'ui/utils/dayjs';
 import Link from 'next/link';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography, Divider } from '@material-ui/core';
 import { TRANSACTION_DETAILS } from '@utils/go_to_page';

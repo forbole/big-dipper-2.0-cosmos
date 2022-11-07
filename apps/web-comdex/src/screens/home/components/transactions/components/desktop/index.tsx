@@ -5,7 +5,7 @@ import dayjs from 'ui/utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { Typography, TableRow, TableHead, TableCell, Table, TableBody } from '@material-ui/core';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@utils/go_to_page';
 import Result from '@components/result';
 import Tag from '@components/tag';

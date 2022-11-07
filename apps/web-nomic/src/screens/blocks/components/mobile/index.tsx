@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import numeral from 'numeral';
 import dayjs from 'ui/utils/dayjs';
 import Link from 'next/link';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import AvatarName from '@components/avatar_name';
 import SingleBlockMobile from '@components/single_block_mobile';
 import Loading from '@components/loading';

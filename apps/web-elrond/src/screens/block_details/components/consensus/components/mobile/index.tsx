@@ -5,7 +5,7 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import Link from 'next/link';
 import { NODE_DETAILS } from '@utils/go_to_page';
 import { Divider, Typography } from '@material-ui/core';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { useList, useListRow } from '@hooks';
 import { useStyles } from './styles';
 import { ConsensusType } from '../../../../types';

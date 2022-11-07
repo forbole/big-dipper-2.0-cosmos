@@ -1,4 +1,4 @@
-import { nanoToSeconds, secondsToDays } from '@utils/time';
+import { nanoToSeconds, secondsToDays } from 'ui/utils/time';
 import numeral from 'numeral';
 import { Staking, Slashing, Minting, Distribution, Gov, Stakeibc } from './types';
 

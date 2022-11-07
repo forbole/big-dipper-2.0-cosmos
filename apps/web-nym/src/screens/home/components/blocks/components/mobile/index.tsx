@@ -5,7 +5,7 @@ import dayjs from 'ui/utils/dayjs';
 import Link from 'next/link';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { Typography, Divider } from '@material-ui/core';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import SingleBlockMobile from '@components/single_block_mobile';
 import AvatarName from '@components/avatar_name';
 import { ItemType } from '../../types';

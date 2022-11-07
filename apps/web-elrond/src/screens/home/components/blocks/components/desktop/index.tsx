@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { Table, TableHead, TableRow, TableCell, TableBody, Typography } from '@material-ui/core';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
 import dayjs from 'ui/utils/dayjs';
 import { useStyles } from './styles';

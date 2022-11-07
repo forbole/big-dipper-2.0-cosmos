@@ -6,7 +6,7 @@ import { Table, TableHead, TableRow, TableCell, TableBody, Typography } from '@m
 import Result from '@components/result';
 import AvatarName from '@components/avatar_name';
 import { TRANSACTION_DETAILS } from '@utils/go_to_page';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import dayjs from 'ui/utils/dayjs';
 import { columns } from './utils';
 import { useStyles } from './styles';

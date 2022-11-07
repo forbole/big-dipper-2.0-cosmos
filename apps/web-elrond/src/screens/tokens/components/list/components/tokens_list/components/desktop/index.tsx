@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import AvatarName from '@components/avatar_name';
 import { Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { TOKEN_DETAILS } from '@utils/go_to_page';
 import { columns } from './utils';
 import { useStyles } from './styles';

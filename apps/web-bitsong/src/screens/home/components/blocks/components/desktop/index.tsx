@@ -7,7 +7,7 @@ import dayjs from 'ui/utils/dayjs';
 import Link from 'next/link';
 import AvatarName from '@components/avatar_name';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { useStyles } from './styles';
 import { columns } from './utils';
 import { ItemType } from '../../types';

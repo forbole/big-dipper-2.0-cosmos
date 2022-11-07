@@ -2,7 +2,7 @@ import numeral from 'numeral';
 import Link from 'next/link';
 import { Typography } from '@material-ui/core';
 import { NODE_DETAILS } from '@utils/go_to_page';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { ConsensusType } from '../../../../types';
 
 export const columns: {

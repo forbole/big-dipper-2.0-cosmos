@@ -18,7 +18,7 @@ import {
 } from 'react-share';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import ShareIcon from 'shared-utils/assets/icon-share.svg';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import Box from '@components/box';
 import { useStyles } from './styles';
 import { useOverview } from './hooks';

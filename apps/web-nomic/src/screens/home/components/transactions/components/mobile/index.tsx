@@ -6,7 +6,7 @@ import dayjs from 'ui/utils/dayjs';
 import { Typography, Divider } from '@material-ui/core';
 import SingleTransactionMobile from '@components/single_transaction_mobile';
 import Tag from '@components/tag';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@utils/go_to_page';
 
 import { TransactionType } from '../../types';

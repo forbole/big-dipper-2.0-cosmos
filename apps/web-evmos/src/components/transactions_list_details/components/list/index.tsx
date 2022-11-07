@@ -14,7 +14,7 @@ import Loading from '@components/loading';
 import Result from '@components/result';
 import Tag from '@components/tag';
 import { useList, useListRow, useScreenSize } from '@hooks';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { getMessageByType } from '@msg';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';

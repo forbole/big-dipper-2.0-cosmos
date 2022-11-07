@@ -3,7 +3,7 @@ import numeral from 'numeral';
 import dayjs from 'ui/utils/dayjs';
 import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
-import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { getShardDisplay } from '@utils/get_shard_display';
 import { Divider, Typography } from '@material-ui/core';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
