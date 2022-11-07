@@ -1,5 +1,4 @@
 import BigDipperNetwork from './big_dipper_network';
-import DistributionParams from './distribution_params';
 import IscnParams from './iscn_params';
 // ================================
 // Transaction Message Types
@@ -70,11 +69,7 @@ import MsgRevokeAllowance from './msg/feegrant/msg_revoke_allowance';
 import MsgCreateVestingAccount from './msg/vesting/msg_create_vesting_account';
 import MsgCreatePeriodicVestingAccount from './msg/vesting/msg_create_periodic_vesting_account';
 
-export {
-  BigDipperNetwork,
-  DistributionParams,
-  IscnParams,
-};
+export { BigDipperNetwork, IscnParams };
 
 export {
   MsgSend,

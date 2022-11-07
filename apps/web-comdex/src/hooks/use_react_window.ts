@@ -5,7 +5,7 @@ import * as R from 'ramda';
 
 export const useList = () => {
   const listRef = useRef({});
-  const rowHeights = useRef<{[key: keyof any]: number}>({});
+  const rowHeights = useRef<{ [key: keyof any]: number }>({});
 
   const getRowHeight = (index: keyof any) => {
     return rowHeights.current[index] + 16 || 100;

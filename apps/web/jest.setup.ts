@@ -73,4 +73,3 @@ jest.mock('@recoil/profiles', () => {
     })),
   };
 });
-

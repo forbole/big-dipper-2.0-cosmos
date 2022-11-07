@@ -1,5 +1,5 @@
 export const getStatusInfo = (status: string, t: any) => {
-  const statusDict: {[key: string]: { value: string; tag: string; }} = {
+  const statusDict: { [key: string]: { value: string; tag: string } } = {
     PROPOSAL_STATUS_DEPOSIT_PERIOD: {
       value: t('deposit'),
       tag: 'one',

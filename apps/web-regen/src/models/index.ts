@@ -1,5 +1,4 @@
 import BigDipperNetwork from './big_dipper_network';
-import DistributionParams from './distribution_params';
 // ================================
 // Transaction Message Types
 // ================================
@@ -84,10 +83,7 @@ import MsgUpdateGroupMembersRequest from './msg/group/msg_update_group_members_r
 import MsgUpdateGroupMetadataRequest from './msg/group/msg_update_group_metadata_request';
 import MsgVoteRequest from './msg/group/msg_vote_request';
 
-export {
-  BigDipperNetwork,
-  DistributionParams,
-};
+export { BigDipperNetwork };
 
 export {
   MsgSend,

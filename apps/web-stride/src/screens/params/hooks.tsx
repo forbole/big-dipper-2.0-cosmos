@@ -4,8 +4,8 @@ import * as R from 'ramda';
 import { useParamsQuery, ParamsQuery } from '@graphql/types/general_types';
 import { formatToken } from 'ui/utils/format_token';
 import chainConfig from 'ui/chainConfig';
-import { DistributionParams, StakeibcParams } from '@models';
-import { GovParams, MintParams, StakingParams, SlashingParams } from 'ui/models';
+import { StakeibcParams } from '@models';
+import { DistributionParams, GovParams, MintParams, StakingParams, SlashingParams } from 'ui/models';
 import { ParamsState } from './types';
 
 const initialState = {
