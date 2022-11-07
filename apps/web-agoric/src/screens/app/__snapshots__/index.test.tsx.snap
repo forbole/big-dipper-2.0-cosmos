@@ -11,26 +11,12 @@ exports[`screen: _app matches snapshot 1`] = `
     <img
       alt="logo"
       className="makeStyles-logo-3 makeStyles-dark-7"
-      src={
-        {
-          "blurDataURL": "data:image/png;base64,imagedata",
-          "height": 24,
-          "src": "/img.jpg",
-          "width": 24,
-        }
-      }
+      src="/img.jpg"
     />
     <img
       alt="logo"
       className="makeStyles-logo-3 makeStyles-light-6"
-      src={
-        {
-          "blurDataURL": "data:image/png;base64,imagedata",
-          "height": 24,
-          "src": "/img.jpg",
-          "width": 24,
-        }
-      }
+      src="/img.jpg"
     />
     <div
       className="makeStyles-timeContainer-4"

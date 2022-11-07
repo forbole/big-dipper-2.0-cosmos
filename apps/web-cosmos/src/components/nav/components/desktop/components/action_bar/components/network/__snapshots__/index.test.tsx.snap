@@ -19,7 +19,7 @@ exports[`screen: Nav/Network it renders 1`] = `
   <p
     className="MuiTypography-root MuiTypography-body1"
   >
-    theta-testnet-001
+    cosmoshub-4
   </p>
   <svg
     aria-hidden={true}

@@ -81,7 +81,7 @@ exports[`screen: _app matches snapshot 1`] = `
     <h2
       className="MuiTypography-root makeStyles-chain-2 MuiTypography-h2"
     >
-      evmos_9000-4
+      evmos_9001-2
     </h2>
   </div>,
 ]

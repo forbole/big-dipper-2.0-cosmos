@@ -2,12 +2,6 @@ import configFromPreset from 'jest-presets/jest/node/jest-preset';
 import nextJest from 'next/jest';
 import { pathsToModuleNameMapper } from 'ts-jest';
 import tsconfig from './tsconfig.json';
-import nextConfig from './next.config.mjs';
-
-/* Setting the environment variables for the test environment. */
-Object.keys(nextConfig.env).forEach((key) => {
-  process.env[key] = nextConfig.env[key];
-});
 
 /* Creating a jest configuration for nextjs. */
 const createJestConfig = nextJest({

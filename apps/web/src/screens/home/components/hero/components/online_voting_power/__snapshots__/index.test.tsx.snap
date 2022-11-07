@@ -16,7 +16,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
       <h3
         className="MuiTypography-root primary__data MuiTypography-h3"
       >
-        14,100,654.08%
+        100.00%
       </h3>
       <p
         className="MuiTypography-root MuiTypography-body1"
@@ -24,7 +24,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
         76,341,043
          /
          
-        76
+        76,341,043
       </p>
     </div>
     <div
@@ -62,7 +62,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
         <p
           className="MuiTypography-root value MuiTypography-body1"
         >
-          14,100,654.08%
+          100.00%
         </p>
       </div>
       <div
@@ -90,7 +90,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
         <p
           className="MuiTypography-root value MuiTypography-body1"
         >
-          76
+          76,341,043
         </p>
       </div>
     </div>
@@ -115,7 +115,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
       <h3
         className="MuiTypography-root primary__data MuiTypography-h3"
       >
-        14,100,654.08%
+        100.00%
       </h3>
       <p
         className="MuiTypography-root MuiTypography-body1"
@@ -123,7 +123,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
         76,341,043
          /
          
-        76
+        76,341,043
       </p>
     </div>
     <div
@@ -161,7 +161,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
         <p
           className="MuiTypography-root value MuiTypography-body1"
         >
-          14,100,654.08%
+          100.00%
         </p>
       </div>
       <div
@@ -189,7 +189,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
         <p
           className="MuiTypography-root value MuiTypography-body1"
         >
-          76
+          76,341,043
         </p>
       </div>
     </div>

@@ -27,7 +27,7 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
       <p
         className="text"
       >
-        theta-testnet-001
+        cosmoshub-4
       </p>
       <svg
         aria-hidden={true}
@@ -81,7 +81,7 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
       <p
         className="text"
       >
-        theta-testnet-001
+        cosmoshub-4
       </p>
       <svg
         aria-hidden={true}

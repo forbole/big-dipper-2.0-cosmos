@@ -81,7 +81,7 @@ exports[`screen: _app matches snapshot 1`] = `
     <h2
       className="MuiTypography-root makeStyles-chain-2 MuiTypography-h2"
     >
-      meteor-test
+      comdex-1
     </h2>
   </div>,
 ]

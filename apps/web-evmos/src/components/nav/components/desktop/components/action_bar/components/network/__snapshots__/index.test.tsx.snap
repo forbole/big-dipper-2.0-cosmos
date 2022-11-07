@@ -19,7 +19,7 @@ exports[`screen: Nav/Network it renders 1`] = `
   <p
     className="MuiTypography-root MuiTypography-body1"
   >
-    evmos_9000-4
+    evmos_9001-2
   </p>
   <svg
     aria-hidden={true}

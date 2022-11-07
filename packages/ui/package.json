@@ -27,7 +27,7 @@
     "dist/**"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && tsc --emitDeclarationOnly --declaration",
     "clean": "rm -rf dist",
     "type-check": "tsc",
     "lint": "next lint",

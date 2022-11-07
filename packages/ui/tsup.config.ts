@@ -5,7 +5,7 @@ const config: Options = {
   target: 'es6',
   minify: true,
   clean: true,
-  format: ['esm'],
+  format: ['esm', "cjs"],
   dts: true,
 };
 

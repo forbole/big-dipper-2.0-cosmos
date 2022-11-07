@@ -390,7 +390,9 @@ exports[`screen: Nav/Menu it renders 1`] = `
         <svg />
         <span
           className="MuiTypography-root MuiTypography-caption"
-        />
+        >
+          
+        </span>
         <svg
           aria-hidden={true}
           className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
@@ -415,7 +417,9 @@ exports[`screen: Nav/Menu it renders 1`] = `
         </span>
         <span
           className="MuiTypography-root MuiTypography-caption"
-        />
+        >
+          
+        </span>
       </div>
     </div>
   </div>,

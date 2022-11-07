@@ -4,5 +4,6 @@ exports[`Component: Nav it renders 1`] = `
 <div
   className="makeStyles-mobile"
   id="Mobile"
+  title=""
 />
 `;
