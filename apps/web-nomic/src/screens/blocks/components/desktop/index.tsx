@@ -13,7 +13,7 @@ import { VariableSizeGrid as Grid } from 'react-window';
 import Loading from '@components/loading';
 import AvatarName from '@components/avatar_name';
 import { useGrid } from '@hooks';
-import { mergeRefs } from '@src/utils/merge_refs';
+import { mergeRefs } from 'ui/utils/merge_refs';
 import { useStyles } from './styles';
 import { columns } from './utils';
 import { ItemType } from '../../types';

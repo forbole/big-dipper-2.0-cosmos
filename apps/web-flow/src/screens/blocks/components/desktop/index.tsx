@@ -12,7 +12,7 @@ import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { VariableSizeGrid as Grid } from 'react-window';
 import Loading from '@components/loading';
 import { useGrid } from '@hooks';
-import { mergeRefs } from '@src/utils/merge_refs';
+import { mergeRefs } from 'ui/utils/merge_refs';
 import { useStyles } from './styles';
 import { columns } from './utils';
 import { BlockType } from '../../types';
