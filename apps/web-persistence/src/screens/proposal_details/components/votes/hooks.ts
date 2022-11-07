@@ -5,7 +5,7 @@ import {
   useProposalDetailsVotesQuery,
   ProposalDetailsVotesQuery,
 } from '@graphql/types/general_types';
-import { toValidatorAddress } from '@utils/prefix_convert';
+import { toValidatorAddress } from 'ui/utils/prefix_convert';
 import { VoteState } from './types';
 
 export const useVotes = (resetPagination: any) => {

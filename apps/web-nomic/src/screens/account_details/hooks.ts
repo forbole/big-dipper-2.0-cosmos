@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { getDenom } from 'ui/utils/get_denom';
 import { formatToken } from 'ui/utils/format_token';
 import chainConfig from 'ui/chainConfig';
-import { isValidAddress } from '@utils/prefix_convert';
+import { isValidAddress } from 'ui/utils/prefix_convert';
 import { useDesmosProfile } from '@hooks';
 import { AccountDetailState } from './types';
 import { fetchAvailableBalances, fetchAccountWithdrawalAddress } from './utils';

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as R from 'ramda';
-import { toValidatorAddress } from '@utils/prefix_convert';
+import { toValidatorAddress } from 'ui/utils/prefix_convert';
 import {
   AccountCommissionDocument,
   AccountWithdrawalAddressDocument,

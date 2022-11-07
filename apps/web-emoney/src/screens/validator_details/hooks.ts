@@ -8,7 +8,7 @@ import { validatorToDelegatorAddress } from '@recoil/profiles';
 import { getValidatorCondition } from '@utils/get_validator_condition';
 import chainConfig from 'ui/chainConfig';
 import { SlashingParams } from '@models';
-import { isValidAddress } from '@utils/prefix_convert';
+import { isValidAddress } from 'ui/utils/prefix_convert';
 import { ValidatorDetailsState } from './types';
 
 const initialTokenDenom: TokenUnit = {

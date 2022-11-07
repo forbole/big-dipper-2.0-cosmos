@@ -15,8 +15,8 @@ jest.mock('react-toastify', () => ({
   toast: jest.fn(),
 }));
 
-// jest.mock('@utils/prefix_convert', () => ({
-//   ...jest.requireActual('@utils/prefix_convert'),
+// jest.mock('ui/utils/prefix_convert', () => ({
+//   ...jest.requireActual('ui/utils/prefix_convert'),
 //   isValidAddress(address: string) {
 //     if (
 //       address === `${chainConfig.prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes` ||
@@ -24,7 +24,7 @@ jest.mock('react-toastify', () => ({
 //     ) {
 //       return true;
 //     }
-//     return jest.requireActual('@utils/prefix_convert').isValidAddress(address);
+//     return jest.requireActual('ui/utils/prefix_convert').isValidAddress(address);
 //   },
 // }));
 

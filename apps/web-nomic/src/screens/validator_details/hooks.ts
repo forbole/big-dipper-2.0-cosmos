@@ -6,7 +6,7 @@ import { useValidatorDetailsQuery, ValidatorDetailsQuery } from '@graphql/types/
 import { useDesmosProfile } from '@hooks';
 import { validatorToDelegatorAddress } from '@recoil/profiles';
 import chainConfig from 'ui/chainConfig';
-import { isValidAddress } from '@utils/prefix_convert';
+import { isValidAddress } from 'ui/utils/prefix_convert';
 import { ValidatorDetailsState } from './types';
 
 const initialTokenDenom: TokenUnit = {
