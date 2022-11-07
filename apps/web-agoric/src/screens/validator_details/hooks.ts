@@ -7,7 +7,7 @@ import { useDesmosProfile } from '@hooks';
 import { validatorToDelegatorAddress } from '@recoil/profiles';
 import { getValidatorCondition } from 'ui/utils/get_validator_condition';
 import chainConfig from 'ui/chainConfig';
-import { SlashingParams } from 'ui/models';
+import { SlashingParams } from '@models';
 import { isValidAddress } from 'ui/utils/prefix_convert';
 import { ValidatorDetailsState } from './types';
 

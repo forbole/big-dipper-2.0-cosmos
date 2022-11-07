@@ -1,164 +1,83 @@
 // ================================
 // Transaction Message Types
 // ================================
-import MsgMultiSend from './msg/bank/msg_multi_send';
-import MsgSend from './msg/bank/msg_send';
-import MsgVerifyInvariant from './msg/crisis/msg_verify_invariant';
-import MsgFundCommunityPool from './msg/distribution/msg_fund_community_pool';
-import MsgSubmitProposal from './msg/governance/msg_submit_proposal';
-import MsgSetWithdrawAddress from './msg/distribution/msg_set_withdrawal_address';
-import MsgWithdrawDelegatorReward from './msg/distribution/msg_withdrawal_delegator_reward';
-import MsgCommunityPoolSpendProposal from './msg/governance/msg_community_pool_spend_proposal';
-import MsgParameterChangeProposal from './msg/governance/msg_parameter_change_proposal';
-import MsgSoftwareUpgradeProposal from './msg/governance/msg_software_upgrade_proposal';
-import MsgTextProposal from './msg/governance/msg_text_proposal';
-import MsgDeposit from './msg/governance/msg_deposit';
-import MsgVote from './msg/governance/msg_vote';
-import MsgUnjail from './msg/slashing/msg_unjail';
-import MsgCreateValidator from './msg/staking/msg_create_validator';
-import MsgDelegate from './msg/staking/msg_delegate';
-import MsgEditValidator from './msg/staking/msg_edit_validator';
-import MsgRedelegate from './msg/staking/msg_redelegate';
-import MsgUndelegate from './msg/staking/msg_undelegate';
-import MsgUnknown from './msg/msg_unknown';
-import MsgWithdrawValidatorCommission from './msg/distribution/msg_withdraw_validator_commission';
-import MsgBlockUser from './msg/profiles/msg_block_user';
-import MsgCreateRelationship from './msg/profiles/msg_create_relationship';
-import MsgDeleteProfile from './msg/profiles/msg_delete_profile';
-import MsgDtagAcceptTransfer from './msg/profiles/msg_dtag_accept_transfer';
-import MsgDtagCancelTransfer from './msg/profiles/msg_dtag_cancel_transfer';
-import MsgDtagRefuseTransfer from './msg/profiles/msg_dtag_refuse_transfer';
-import MsgDtagTransferRequest from './msg/profiles/msg_dtag_transfer_request';
-import MsgSaveProfile from './msg/profiles/msg_save_profile';
-import MsgUnblockUser from './msg/profiles/msg_unblock_user';
-import MsgCreateClient from './msg/ibc/msg_client_create_client';
-import MsgUpdateClient from './msg/ibc/msg_client_update_client';
-import MsgUpgradeClient from './msg/ibc/msg_client_upgrade_client';
-import MsgSubmitMisbehaviour from './msg/ibc/msg_client_submit_misbehaviour';
-import MsgHeight from './msg/ibc/msg_client_height';
-import MsgAcknowledgement from './msg/ibc/msg_channel_acknowledgement';
-import MsgChannelCloseConfirm from './msg/ibc/msg_channel_close_confirm';
-import MsgChannelCloseInit from './msg/ibc/msg_channel_close_init';
-import MsgChannelOpenAck from './msg/ibc/msg_channel_open_ack';
-import MsgChannelOpenConfirm from './msg/ibc/msg_channel_open_confirm';
-import MsgChannelOpenInit from './msg/ibc/msg_channel_open_init';
-import MsgChannelOpenTry from './msg/ibc/msg_channel_open_try';
-import MsgChannel from './msg/ibc/msg_channel';
-import MsgCounterpartyChannel from './msg/ibc/msg_channel_counterparty';
-import MsgPacket from './msg/ibc/msg_channel_packet';
-import MsgReceivePacket from './msg/ibc/msg_channel_receive_packet';
-import MsgTimeout from './msg/ibc/msg_channel_timeout';
-import MsgTimeoutOnClose from './msg/ibc/msg_channel_timeout_on_close';
-import MsgConnectionEnd from './msg/ibc/msg_connection_end';
-import MsgConnectionOpenAck from './msg/ibc/msg_connection_open_ack';
-import MsgConnectionOpenConfirm from './msg/ibc/msg_connection_open_confirm';
-import MsgConnectionOpenInit from './msg/ibc/msg_connection_open_init';
-import MsgConnectionOpenTry from './msg/ibc/msg_connection_open_try';
-import MsgCounterpartyConnection from './msg/ibc/msg_connection_counterparty';
-import MsgVersion from './msg/ibc/msg_connection_version';
-import MsgTransfer from './msg/ibc_transfer/msg_transfer';
-import MsgRemoveLiquidity from './msg/clp/msg_remove_liquidity';
-import MsgCreatePool from './msg/clp/msg_create_pool';
-import MsgAddLiquidity from './msg/clp/msg_add_liquidity';
-import MsgSwap from './msg/clp/msg_swap';
-import MsgDecommissionPool from './msg/clp/msg_decommission_pool';
-import MsgCreateDistribution from './msg/dispensation/msg_create_distribution';
-import MsgCreateUserClaim from './msg/dispensation/msg_create_user_claim';
-import MsgRunDistribution from './msg/dispensation/msg_run_distribution';
-import MsgLock from './msg/ethbridge/msg_lock';
-import MsgBurn from './msg/ethbridge/msg_burn';
-import MsgCreateEthBridgeClaim from './msg/ethbridge/msg_create_eth_bridge_claim';
-import MsgUpdateWhiteListValidator from './msg/ethbridge/msg_update_whitelist_validator';
-import MsgUpdateCethReceiverAccount from './msg/ethbridge/msg_update_ceth_receiver_account';
-import MsgRescueCeth from './msg/ethbridge/msg_rescue_ceth';
-import MsgRegister from './msg/tokenregistry/msg_register';
-import MsgDeregister from './msg/tokenregistry/msg_deregister';
-import MsgSetRegistry from './msg/tokenregistry/msg_set_registry';
-import MsgGrant from './msg/authz/msg_grant';
-import MsgRevoke from './msg/authz/msg_revoke';
-import MsgGrantAllowance from './msg/feegrant/msg_grant_allowance';
-import MsgRevokeAllowance from './msg/feegrant/msg_revoke_allowance';
-import MsgCreateVestingAccount from './msg/vesting/msg_create_vesting_account';
-import MsgCreatePeriodicVestingAccount from './msg/vesting/msg_create_periodic_vesting_account';
-
-export {
-  MsgSend,
-  MsgMultiSend,
-  MsgVerifyInvariant,
-  MsgFundCommunityPool,
-  MsgSetWithdrawAddress,
-  MsgWithdrawDelegatorReward,
-  MsgCommunityPoolSpendProposal,
-  MsgParameterChangeProposal,
-  MsgSoftwareUpgradeProposal,
-  MsgTextProposal,
-  MsgDeposit,
-  MsgVote,
-  MsgUnjail,
-  MsgCreateValidator,
-  MsgDelegate,
-  MsgEditValidator,
-  MsgRedelegate,
-  MsgUndelegate,
-  MsgSubmitProposal,
-  MsgUnknown,
-  MsgWithdrawValidatorCommission,
-  MsgUnblockUser,
-  MsgSaveProfile,
-  MsgDtagTransferRequest,
-  MsgDtagRefuseTransfer,
-  MsgDtagCancelTransfer,
-  MsgDtagAcceptTransfer,
-  MsgDeleteProfile,
-  MsgCreateRelationship,
-  MsgBlockUser,
-  MsgCreateClient,
-  MsgUpdateClient,
-  MsgUpgradeClient,
-  MsgSubmitMisbehaviour,
-  MsgHeight,
-  MsgAcknowledgement,
-  MsgChannelCloseConfirm,
-  MsgChannelCloseInit,
-  MsgChannelOpenAck,
-  MsgChannelOpenConfirm,
-  MsgChannelOpenInit,
-  MsgChannelOpenTry,
-  MsgChannel,
-  MsgCounterpartyChannel,
-  MsgPacket,
-  MsgReceivePacket,
-  MsgTimeout,
-  MsgTimeoutOnClose,
-  MsgConnectionEnd,
-  MsgConnectionOpenAck,
-  MsgConnectionOpenConfirm,
-  MsgConnectionOpenInit,
-  MsgConnectionOpenTry,
-  MsgCounterpartyConnection,
-  MsgVersion,
-  MsgTransfer,
-  MsgCreatePool,
-  MsgRemoveLiquidity,
-  MsgAddLiquidity,
-  MsgSwap,
-  MsgDecommissionPool,
-  MsgCreateDistribution,
-  MsgCreateUserClaim,
-  MsgRunDistribution,
-  MsgLock,
-  MsgBurn,
-  MsgCreateEthBridgeClaim,
-  MsgUpdateWhiteListValidator,
-  MsgUpdateCethReceiverAccount,
-  MsgRescueCeth,
-  MsgRegister,
-  MsgDeregister,
-  MsgSetRegistry,
-  MsgGrant,
-  MsgRevoke,
-  MsgGrantAllowance,
-  MsgRevokeAllowance,
-  MsgCreateVestingAccount,
-  MsgCreatePeriodicVestingAccount,
-};
+export * from 'ui/models';
+export {default as MsgMultiSend } from './msg/bank/msg_multi_send';
+export {default as MsgSend } from './msg/bank/msg_send';
+export {default as MsgVerifyInvariant } from './msg/crisis/msg_verify_invariant';
+export {default as MsgFundCommunityPool } from './msg/distribution/msg_fund_community_pool';
+export {default as MsgSubmitProposal } from './msg/governance/msg_submit_proposal';
+export {default as MsgSetWithdrawAddress } from './msg/distribution/msg_set_withdrawal_address';
+export {default as MsgWithdrawDelegatorReward } from './msg/distribution/msg_withdrawal_delegator_reward';
+export {default as MsgCommunityPoolSpendProposal } from './msg/governance/msg_community_pool_spend_proposal';
+export {default as MsgParameterChangeProposal } from './msg/governance/msg_parameter_change_proposal';
+export {default as MsgSoftwareUpgradeProposal } from './msg/governance/msg_software_upgrade_proposal';
+export {default as MsgTextProposal } from './msg/governance/msg_text_proposal';
+export {default as MsgDeposit } from './msg/governance/msg_deposit';
+export {default as MsgVote } from './msg/governance/msg_vote';
+export {default as MsgUnjail } from './msg/slashing/msg_unjail';
+export {default as MsgCreateValidator } from './msg/staking/msg_create_validator';
+export {default as MsgDelegate } from './msg/staking/msg_delegate';
+export {default as MsgEditValidator } from './msg/staking/msg_edit_validator';
+export {default as MsgRedelegate } from './msg/staking/msg_redelegate';
+export {default as MsgUndelegate } from './msg/staking/msg_undelegate';
+export {default as MsgUnknown } from './msg/msg_unknown';
+export {default as MsgWithdrawValidatorCommission } from './msg/distribution/msg_withdraw_validator_commission';
+export {default as MsgBlockUser } from './msg/profiles/msg_block_user';
+export {default as MsgCreateRelationship } from './msg/profiles/msg_create_relationship';
+export {default as MsgDeleteProfile } from './msg/profiles/msg_delete_profile';
+export {default as MsgDtagAcceptTransfer } from './msg/profiles/msg_dtag_accept_transfer';
+export {default as MsgDtagCancelTransfer } from './msg/profiles/msg_dtag_cancel_transfer';
+export {default as MsgDtagRefuseTransfer } from './msg/profiles/msg_dtag_refuse_transfer';
+export {default as MsgDtagTransferRequest } from './msg/profiles/msg_dtag_transfer_request';
+export {default as MsgSaveProfile } from './msg/profiles/msg_save_profile';
+export {default as MsgUnblockUser } from './msg/profiles/msg_unblock_user';
+export {default as MsgCreateClient } from './msg/ibc/msg_client_create_client';
+export {default as MsgUpdateClient } from './msg/ibc/msg_client_update_client';
+export {default as MsgUpgradeClient } from './msg/ibc/msg_client_upgrade_client';
+export {default as MsgSubmitMisbehaviour } from './msg/ibc/msg_client_submit_misbehaviour';
+export {default as MsgHeight } from './msg/ibc/msg_client_height';
+export {default as MsgAcknowledgement } from './msg/ibc/msg_channel_acknowledgement';
+export {default as MsgChannelCloseConfirm } from './msg/ibc/msg_channel_close_confirm';
+export {default as MsgChannelCloseInit } from './msg/ibc/msg_channel_close_init';
+export {default as MsgChannelOpenAck } from './msg/ibc/msg_channel_open_ack';
+export {default as MsgChannelOpenConfirm } from './msg/ibc/msg_channel_open_confirm';
+export {default as MsgChannelOpenInit } from './msg/ibc/msg_channel_open_init';
+export {default as MsgChannelOpenTry } from './msg/ibc/msg_channel_open_try';
+export {default as MsgChannel } from './msg/ibc/msg_channel';
+export {default as MsgCounterpartyChannel } from './msg/ibc/msg_channel_counterparty';
+export {default as MsgPacket } from './msg/ibc/msg_channel_packet';
+export {default as MsgReceivePacket } from './msg/ibc/msg_channel_receive_packet';
+export {default as MsgTimeout } from './msg/ibc/msg_channel_timeout';
+export {default as MsgTimeoutOnClose } from './msg/ibc/msg_channel_timeout_on_close';
+export {default as MsgConnectionEnd } from './msg/ibc/msg_connection_end';
+export {default as MsgConnectionOpenAck } from './msg/ibc/msg_connection_open_ack';
+export {default as MsgConnectionOpenConfirm } from './msg/ibc/msg_connection_open_confirm';
+export {default as MsgConnectionOpenInit } from './msg/ibc/msg_connection_open_init';
+export {default as MsgConnectionOpenTry } from './msg/ibc/msg_connection_open_try';
+export {default as MsgCounterpartyConnection } from './msg/ibc/msg_connection_counterparty';
+export {default as MsgVersion } from './msg/ibc/msg_connection_version';
+export {default as MsgTransfer } from './msg/ibc_transfer/msg_transfer';
+export {default as MsgRemoveLiquidity } from './msg/clp/msg_remove_liquidity';
+export {default as MsgCreatePool } from './msg/clp/msg_create_pool';
+export {default as MsgAddLiquidity } from './msg/clp/msg_add_liquidity';
+export {default as MsgSwap } from './msg/clp/msg_swap';
+export {default as MsgDecommissionPool } from './msg/clp/msg_decommission_pool';
+export {default as MsgCreateDistribution } from './msg/dispensation/msg_create_distribution';
+export {default as MsgCreateUserClaim } from './msg/dispensation/msg_create_user_claim';
+export {default as MsgRunDistribution } from './msg/dispensation/msg_run_distribution';
+export {default as MsgLock } from './msg/ethbridge/msg_lock';
+export {default as MsgBurn } from './msg/ethbridge/msg_burn';
+export {default as MsgCreateEthBridgeClaim } from './msg/ethbridge/msg_create_eth_bridge_claim';
+export {default as MsgUpdateWhiteListValidator } from './msg/ethbridge/msg_update_whitelist_validator';
+export {default as MsgUpdateCethReceiverAccount } from './msg/ethbridge/msg_update_ceth_receiver_account';
+export {default as MsgRescueCeth } from './msg/ethbridge/msg_rescue_ceth';
+export {default as MsgRegister } from './msg/tokenregistry/msg_register';
+export {default as MsgDeregister } from './msg/tokenregistry/msg_deregister';
+export {default as MsgSetRegistry } from './msg/tokenregistry/msg_set_registry';
+export {default as MsgGrant } from './msg/authz/msg_grant';
+export {default as MsgRevoke } from './msg/authz/msg_revoke';
+export {default as MsgGrantAllowance } from './msg/feegrant/msg_grant_allowance';
+export {default as MsgRevokeAllowance } from './msg/feegrant/msg_revoke_allowance';
+export {default as MsgCreateVestingAccount } from './msg/vesting/msg_create_vesting_account';
+export {default as MsgCreatePeriodicVestingAccount } from './msg/vesting/msg_create_periodic_vesting_account';

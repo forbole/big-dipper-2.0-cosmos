@@ -10,7 +10,7 @@ import {
   MintParams,
   SlashingParams,
   StakingParams,
-} from 'ui/models';
+} from '@models';
 import { ParamsState } from './types';
 
 const initialState = {

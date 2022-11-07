@@ -1,4 +1,4 @@
-import { BigDipperNetwork } from 'ui/models';
+import { BigDipperNetwork } from '@models';
 
 export type Networks = BigDipperNetwork[];
 export type Selected = string;
