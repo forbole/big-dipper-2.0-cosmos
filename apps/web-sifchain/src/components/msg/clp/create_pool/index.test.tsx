@@ -41,7 +41,7 @@ describe('screen: TransactionDetails/CreatePool', () => {
       'message_contents:MsgCreatePool'
     );
     expect(component.root.findByProps({ id: 'Trans' }).props.values.nativeAssetAmount).toEqual(
-      '4 DARIC'
+      '4,000,000 UEROWAN'
     );
   });
 

@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/extend-expect';
 import 'jest-localstorage-mock';
 import nextConfig from './next.config.mjs';
 
-const chainConfig = JSON.parse(nextConfig.env.NEXT_PUBLIC_CHAIN_CONFIG ?? '');
+const chainConfig = JSON.parse(nextConfig.env.NEXT_PUBLIC_CHAIN_CONFIG || '');
 chainConfig.tokenUnits = {
   udaric: {
     display: 'daric',

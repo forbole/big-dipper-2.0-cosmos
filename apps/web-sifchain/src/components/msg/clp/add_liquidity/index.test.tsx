@@ -41,7 +41,7 @@ describe('screen: TransactionDetails/AddLiquidity', () => {
       'message_contents:MsgAddLiquidity'
     );
     expect(component.root.findByProps({ id: 'Trans' }).props.values.nativeAssetAmount).toEqual(
-      '4 DARIC'
+      '4,000,000 UEROWAN'
     );
   });
 
