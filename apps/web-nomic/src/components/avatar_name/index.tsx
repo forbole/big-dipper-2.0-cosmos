@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import Link from 'next/link';
 import { Typography } from '@material-ui/core';
 import Avatar from '@components/avatar';
-import { ADDRESS_DETAILS } from '@utils/go_to_page';
+import { ADDRESS_DETAILS } from 'ui/utils/go_to_page';
 import { useStyles } from './styles';
 
 const AvatarName: React.FC<AvatarName> = ({

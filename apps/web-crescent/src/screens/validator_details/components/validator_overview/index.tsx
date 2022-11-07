@@ -13,7 +13,7 @@ import InfoPopover from '@components/info_popover';
 import ConditionExplanation from '@components/condition_explanation';
 import LiquidStakingExplanation from '@components/liquid_staking_explanation';
 import Link from 'next/link';
-import { ACCOUNT_DETAILS } from '@utils/go_to_page';
+import { ACCOUNT_DETAILS } from 'ui/utils/go_to_page';
 import { getValidatorStatus } from 'ui/utils/get_validator_status';
 import LiquidStakingTrueIcon from 'shared-utils/assets/liquid-staking-true.svg';
 import LiquidStakingFalseIcon from 'shared-utils/assets/liquid-staking-false.svg';

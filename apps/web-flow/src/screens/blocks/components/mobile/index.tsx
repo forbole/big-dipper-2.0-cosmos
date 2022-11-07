@@ -10,7 +10,7 @@ import { Typography, Divider } from '@material-ui/core';
 import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
-import { BLOCK_DETAILS } from '@utils/go_to_page';
+import { BLOCK_DETAILS } from 'ui/utils/go_to_page';
 import { mergeRefs } from 'ui/utils/merge_refs';
 import { useList, useListRow } from '@hooks';
 import { useStyles } from './styles';

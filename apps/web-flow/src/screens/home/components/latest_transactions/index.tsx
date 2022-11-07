@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import { Typography, Divider } from '@material-ui/core';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import { TRANSACTIONS } from '@utils/go_to_page';
+import { TRANSACTIONS } from 'ui/utils/go_to_page';
 import Box from '@components/box';
 import NoData from '@components/no_data';
 import { useScreenSize } from '@hooks';

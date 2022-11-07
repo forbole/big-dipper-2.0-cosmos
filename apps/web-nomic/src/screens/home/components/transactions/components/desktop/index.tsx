@@ -6,7 +6,7 @@ import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { Typography, TableRow, TableHead, TableCell, Table, TableBody } from '@material-ui/core';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@utils/go_to_page';
+import { BLOCK_DETAILS, TRANSACTION_DETAILS } from 'ui/utils/go_to_page';
 import Tag from '@components/tag';
 import { useStyles } from './styles';
 import { columns } from './utils';

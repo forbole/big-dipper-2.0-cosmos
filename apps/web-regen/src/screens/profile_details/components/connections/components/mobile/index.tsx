@@ -7,7 +7,7 @@ import { readDate } from '@recoil/settings';
 import { Divider, Typography } from '@material-ui/core';
 import chainConfig from 'ui/chainConfig';
 import Link from 'next/link';
-import { ACCOUNT_DETAILS } from '@utils/go_to_page';
+import { ACCOUNT_DETAILS } from 'ui/utils/go_to_page';
 import { useStyles } from './styles';
 
 const Mobile: React.FC<{

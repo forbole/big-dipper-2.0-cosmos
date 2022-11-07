@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import numeral from 'numeral';
 import dayjs from 'ui/utils/dayjs';
 import Link from 'next/link';
-import { TRANSACTION_DETAILS, BLOCK_DETAILS } from '@utils/go_to_page';
+import { TRANSACTION_DETAILS, BLOCK_DETAILS } from 'ui/utils/go_to_page';
 import { Typography, Divider } from '@material-ui/core';
 import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';

@@ -7,7 +7,7 @@ import { Typography, Divider } from '@material-ui/core';
 import SingleTransactionMobile from '@components/single_transaction_mobile';
 // import Result from '@components/result';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@utils/go_to_page';
+import { BLOCK_DETAILS, TRANSACTION_DETAILS } from 'ui/utils/go_to_page';
 
 import { TransactionType } from '../../types';
 

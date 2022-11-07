@@ -7,7 +7,7 @@
 //   BLOCK_DETAILS,
 //   TRANSACTION_DETAILS,
 //   PROFILE_DETAILS,
-// } from '@utils/go_to_page';
+// } from 'ui/utils/go_to_page';
 import { useRecoilCallback } from 'recoil';
 // import { readValidator } from '@recoil/validators';
 // import { toast } from 'react-toastify';

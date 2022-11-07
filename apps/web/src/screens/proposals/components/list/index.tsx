@@ -8,7 +8,7 @@ import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
 
-import { PROPOSAL_DETAILS } from '@utils/go_to_page';
+import { PROPOSAL_DETAILS } from 'ui/utils/go_to_page';
 import { useList, useListRow } from '@hooks';
 import Loading from '@components/loading';
 import Box from '@components/box';

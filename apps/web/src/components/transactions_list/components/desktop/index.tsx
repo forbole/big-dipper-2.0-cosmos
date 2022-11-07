@@ -4,7 +4,7 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import numeral from 'numeral';
 import dayjs from 'ui/utils/dayjs';
 import Link from 'next/link';
-import { TRANSACTION_DETAILS, BLOCK_DETAILS } from '@utils/go_to_page';
+import { TRANSACTION_DETAILS, BLOCK_DETAILS } from 'ui/utils/go_to_page';
 import InfiniteLoader from 'react-window-infinite-loader';
 import { VariableSizeGrid as Grid, VariableSizeGrid } from 'react-window';
 import { Typography } from '@material-ui/core';

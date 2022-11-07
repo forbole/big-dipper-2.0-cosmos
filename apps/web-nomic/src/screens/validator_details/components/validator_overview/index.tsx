@@ -10,7 +10,7 @@ import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import Box from '@components/box';
 import Tag from '@components/tag';
 import Link from 'next/link';
-import { ACCOUNT_DETAILS } from '@utils/go_to_page';
+import { ACCOUNT_DETAILS } from 'ui/utils/go_to_page';
 import { getValidatorStatus } from '@utils/get_validator_status';
 import { useStyles } from './styles';
 import { StatusType, OverviewType } from '../../types';

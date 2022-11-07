@@ -6,7 +6,7 @@ import { useRecoilValue } from 'recoil';
 import { readSelectedNetwork } from '@recoil/big_dipper_networks';
 import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red-sifchain.svg';
-import { HOME } from '@utils/go_to_page';
+import { HOME } from 'ui/utils/go_to_page';
 import { readTheme } from '@recoil/settings';
 import { useStyles } from './styles';
 import { NavbarProps } from './types';

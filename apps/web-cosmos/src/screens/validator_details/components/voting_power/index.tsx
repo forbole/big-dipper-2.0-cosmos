@@ -5,7 +5,7 @@ import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import Box from '@components/box';
-import { BLOCK_DETAILS } from '@utils/go_to_page';
+import { BLOCK_DETAILS } from 'ui/utils/go_to_page';
 import { useStyles } from './styles';
 import { VotingPowerType } from '../../types';
 

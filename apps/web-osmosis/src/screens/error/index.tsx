@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 import Trans from 'next-translate/Trans';
-import { HOME } from '@utils/go_to_page';
+import { HOME } from 'ui/utils/go_to_page';
 import { Typography } from '@material-ui/core';
 import generalConfig from 'ui/generalConfig';
 import { useStyles } from './styles';

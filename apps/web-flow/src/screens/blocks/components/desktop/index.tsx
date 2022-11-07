@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import numeral from 'numeral';
 import dayjs from 'ui/utils/dayjs';
 import Link from 'next/link';
-import { BLOCK_DETAILS } from '@utils/go_to_page';
+import { BLOCK_DETAILS } from 'ui/utils/go_to_page';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import InfiniteLoader from 'react-window-infinite-loader';
 import useTranslation from 'next-translate/useTranslation';
