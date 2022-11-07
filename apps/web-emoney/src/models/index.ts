@@ -1,5 +1,4 @@
 import BigDipperNetwork from './big_dipper_network';
-import StakingParams from './staking_params';
 import SlashingParams from './slashing_params';
 import MintParams from './mint_params';
 import DistributionParams from './distribution_params';
@@ -83,7 +82,6 @@ import MsgCreatePeriodicVestingAccount from './msg/vesting/msg_create_periodic_v
 
 export {
   BigDipperNetwork,
-  StakingParams,
   SlashingParams,
   MintParams,
   DistributionParams,
