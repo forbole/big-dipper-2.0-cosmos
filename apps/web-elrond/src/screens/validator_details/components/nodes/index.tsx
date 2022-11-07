@@ -10,9 +10,11 @@ import Box from '@components/box';
 import Loading from '@components/loading';
 import { useStyles } from './styles';
 import { useBlocks, PAGE_SIZE } from './hooks';
+import type DesktopType from './components/desktop';
+import type MobileType from './components/mobile';
 
-const Desktop = dynamic(() => import('./components/desktop'));
-const Mobile = dynamic(() => import('./components/mobile'));
+const Desktop = dynamic(() => import('./components/desktop')) as typeof DesktopType;
+const Mobile = dynamic(() => import('./components/mobile')) as typeof MobileType;
 
 const Nodes: React.FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('validators');

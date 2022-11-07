@@ -9,9 +9,11 @@ import { useStyles } from './styles';
 import { Tabs, Paginate } from './components';
 import { filterDataByTab } from './utils';
 import { useVotes } from './hooks';
+import type DesktopType from './components/desktop';
+import type MobileType from './components/mobile';
 
-const Desktop = dynamic(() => import('./components/desktop'));
-const Mobile = dynamic(() => import('./components/mobile'));
+const Desktop = dynamic(() => import('./components/desktop')) as typeof DesktopType;
+const Mobile = dynamic(() => import('./components/mobile')) as typeof MobileType;
 
 const Votes: React.FC<ComponentDefault> = (props) => {
   const { isDesktop } = useScreenSize();

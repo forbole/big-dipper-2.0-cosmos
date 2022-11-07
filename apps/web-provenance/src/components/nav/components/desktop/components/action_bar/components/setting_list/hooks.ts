@@ -5,7 +5,7 @@ import { Theme, Date, Tx } from '@recoil/settings/types';
 import { writeTheme, writeDate, writeTx, THEME_DICTIONARY } from '@recoil/settings';
 import * as R from 'ramda';
 
-export const useSettingList = ({ lang }) => {
+export const useSettingList = ({ lang }: { lang: string }) => {
   const [theme, setTheme] = useRecoilState(writeTheme) as [Theme, SetterOrUpdater<Theme>];
   const [date, setDate] = useRecoilState(writeDate) as [Date, SetterOrUpdater<Date>];
   const [tx, setTx] = useRecoilState(writeTx) as [Tx, SetterOrUpdater<Tx>];

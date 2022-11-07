@@ -62,18 +62,15 @@ export const useStaking = (rewards: RewardsType) => {
   // helper function to get rest of the staking items
   // if it is over the default limit
   const getStakeByPage = async (page: number, query: string) => {
-    const { data } = await axios.post(
-      process.env.NEXT_PUBLIC_GRAPHQL_URL ?? '',
-      {
-        variables: {
-          address: R.pathOr('', ['query', 'address'], router),
-          offset: page * LIMIT,
-          limit: LIMIT,
-          pagination: false,
-        },
-        query,
-      }
-    );
+    const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL ?? '', {
+      variables: {
+        address: R.pathOr('', ['query', 'address'], router),
+        offset: page * LIMIT,
+        limit: LIMIT,
+        pagination: false,
+      },
+      query,
+    });
     return data;
   };
 
@@ -82,16 +79,13 @@ export const useStaking = (rewards: RewardsType) => {
   // =====================================
   const getDelegations = async () => {
     try {
-      const { data } = await axios.post(
-        process.env.NEXT_PUBLIC_GRAPHQL_URL ?? '',
-        {
-          variables: {
-            address: R.pathOr('', ['query', 'address'], router),
-            limit: LIMIT,
-          },
-          query: AccountDelegationsDocument,
-        }
-      );
+      const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL ?? '', {
+        variables: {
+          address: R.pathOr('', ['query', 'address'], router),
+          limit: LIMIT,
+        },
+        query: AccountDelegationsDocument,
+      });
       const count = R.pathOr(0, ['data', 'delegations', 'pagination', 'total'], data);
       const allDelegations = R.pathOr([], ['data', 'delegations', 'delegations'], data);
       // if there are more than the default 100, grab the remaining delegations
@@ -147,16 +141,13 @@ export const useStaking = (rewards: RewardsType) => {
   // =====================================
   const getRedelegations = async () => {
     try {
-      const { data } = await axios.post(
-        process.env.NEXT_PUBLIC_GRAPHQL_URL ?? '',
-        {
-          variables: {
-            address: R.pathOr('', ['query', 'address'], router),
-            limit: LIMIT,
-          },
-          query: AccountRedelegationsDocument,
-        }
-      );
+      const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL ?? '', {
+        variables: {
+          address: R.pathOr('', ['query', 'address'], router),
+          limit: LIMIT,
+        },
+        query: AccountRedelegationsDocument,
+      });
       const count = R.pathOr(0, ['data', 'redelegations', 'pagination', 'total'], data);
       const allData = R.pathOr([], ['data', 'redelegations', 'redelegations'], data);
 
@@ -223,16 +214,13 @@ export const useStaking = (rewards: RewardsType) => {
   // =====================================
   const getUnbondings = async () => {
     try {
-      const { data } = await axios.post(
-        process.env.NEXT_PUBLIC_GRAPHQL_URL ?? '',
-        {
-          variables: {
-            address: R.pathOr('', ['query', 'address'], router),
-            limit: LIMIT,
-          },
-          query: AccountUndelegationsDocument,
-        }
-      );
+      const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL ?? '', {
+        variables: {
+          address: R.pathOr('', ['query', 'address'], router),
+          limit: LIMIT,
+        },
+        query: AccountUndelegationsDocument,
+      });
       const count = R.pathOr(0, ['data', 'undelegations', 'pagination', 'total'], data);
       const allData = R.pathOr([], ['data', 'undelegations', 'undelegations'], data);
 

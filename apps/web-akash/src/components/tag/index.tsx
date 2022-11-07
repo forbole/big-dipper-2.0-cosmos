@@ -10,7 +10,7 @@ const Tag: React.FC<{
 }> = ({ className, value, theme }) => {
   const classes = useStyles();
   return (
-    <div className={classnames(className, classes.root, classes[theme])}>
+    <div className={classnames(className, classes.root, theme ? classes[theme] : undefined)}>
       <Typography variant="body1">{value}</Typography>
     </div>
   );

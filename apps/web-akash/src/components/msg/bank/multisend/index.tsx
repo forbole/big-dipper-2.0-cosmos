@@ -15,7 +15,7 @@ const Multisend = (props: { message: MsgMultiSend }) => {
 
   const { message } = props;
 
-  const sender = R.pathOr({}, ['inputs', 0], message);
+  const sender = message.inputs[0];
   const senderAmount = sender?.coins
     ?.map((x) => {
       const amount = formatToken(x.amount, x.denom);

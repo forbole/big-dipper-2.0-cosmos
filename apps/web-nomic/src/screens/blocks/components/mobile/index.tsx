@@ -62,9 +62,14 @@ const Mobile: React.FC<{
         {({ height, width }) => {
           return (
             <InfiniteLoader
-              isItemLoaded={isItemLoaded}
+              isItemLoaded={isItemLoaded ?? (() => true)}
               itemCount={itemCount}
-              loadMoreItems={loadMoreItems}
+              loadMoreItems={
+                loadMoreItems ??
+                (() => {
+                  // do nothing
+                })
+              }
             >
               {({ onItemsRendered, ref }) => (
                 <List
@@ -78,7 +83,7 @@ const Mobile: React.FC<{
                 >
                   {({ index, style }) => {
                     const { rowRef } = useListRow(index, setRowHeight);
-                    if (!isItemLoaded(index)) {
+                    if (!isItemLoaded?.(index)) {
                       return (
                         <div style={style}>
                           <div ref={rowRef}>

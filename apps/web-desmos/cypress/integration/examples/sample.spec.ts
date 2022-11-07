@@ -10,4 +10,4 @@ describe('Example', () => {
   });
 });
 
-export {}
+export {};

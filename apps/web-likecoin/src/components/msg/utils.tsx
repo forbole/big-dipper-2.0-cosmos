@@ -424,8 +424,18 @@ const getDataByType = (type: string) => {
     },
   };
 
-  if (defaultTypeToModel[type]) return defaultTypeToModel[type];
-  if (customTypeToModel[type]) return customTypeToModel[type];
+  if (
+    ((_): _ is keyof typeof defaultTypeToModel => _ in defaultTypeToModel)(type) &&
+    defaultTypeToModel[type]
+  )
+    return defaultTypeToModel[type];
+
+  if (
+    ((_): _ is keyof typeof customTypeToModel => _ in customTypeToModel)(type) &&
+    customTypeToModel[type]
+  )
+    return customTypeToModel[type];
+
   return null;
 };
 
@@ -448,12 +458,17 @@ export const getMessageModelByType = (type: string) => {
  */
 export const getMessageByType = (message: any, viewRaw: boolean, t: any) => {
   const { type } = message;
-  let results: {
-    content: any;
-    tagDisplay: string;
-    tagTheme?: TagTheme;
-    unknown?: boolean;
-  } = {
+  type dataType = ReturnType<typeof getDataByType>;
+  type resultType = {
+    content: dataType extends { content: unknown }
+      ? dataType['content']
+      : typeof COMPONENTS.Unknown;
+    tagDisplay: dataType extends { tagDisplay: unknown }
+      ? dataType['tagDisplay']
+      : 'txUnknownLabel';
+    tagTheme: dataType extends { tagTheme: unknown } ? dataType['tagTheme'] : 'zero';
+  };
+  let results: resultType = {
     content: COMPONENTS.Unknown,
     tagDisplay: 'txUnknownLabel',
     tagTheme: 'zero',
@@ -463,9 +478,9 @@ export const getMessageByType = (message: any, viewRaw: boolean, t: any) => {
 
   if (data) {
     results = {
-      content: data?.content,
-      tagDisplay: data.tagDisplay,
-      tagTheme: data.tagTheme,
+      content: data?.content as resultType['content'],
+      tagDisplay: data.tagDisplay as resultType['tagDisplay'],
+      tagTheme: data.tagTheme as resultType['tagTheme'],
     };
   }
 

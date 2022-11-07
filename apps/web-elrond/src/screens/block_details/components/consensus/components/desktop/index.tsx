@@ -25,7 +25,7 @@ const Desktop: React.FC<{ items: ConsensusType[] } & ComponentDefault> = (props)
               {/* Table Header */}
               {/* ======================================= */}
               <Grid
-                ref={columnRef}
+                ref={columnRef as React.LegacyRef<VariableSizeGrid>}
                 columnCount={columns.length}
                 columnWidth={(index) => getColumnWidth(width, index)}
                 height={50}

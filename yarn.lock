@@ -4536,7 +4536,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:<18.0.0, @types/react-dom@npm:^17.0.11":
+"@types/react-dom@npm:<18.0.0, @types/react-dom@npm:^17.0.2":
   version: 17.0.18
   resolution: "@types/react-dom@npm:17.0.18"
   dependencies:
@@ -4545,12 +4545,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-test-renderer@npm:^18.0.0":
-  version: 18.0.0
-  resolution: "@types/react-test-renderer@npm:18.0.0"
+"@types/react-test-renderer@npm:^17.0.2":
+  version: 17.0.2
+  resolution: "@types/react-test-renderer@npm:17.0.2"
   dependencies:
-    "@types/react": "*"
-  checksum: 6afc938a1d7618d88ab8793e251f0bd5981bf3f08c1b600f74df3f8800b92589ea534dc6dcb7c8d683893fcc740bf8d7843a42bf2dae59785cfe88f004bd7b0b
+    "@types/react": ^17
+  checksum: 0be325798b6b38cc31fbb11f2f1e1a5578cc3b23eddf1ddd1ab58ccf50966e8f779383084d8bc3a7db3108ad815af8fbae5c0f54329a88d52200e01547d85c33
   languageName: node
   linkType: hard
 
@@ -4602,7 +4602,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^17, @types/react@npm:^17.0.39":
+"@types/react@npm:^17, @types/react@npm:^17.0.2":
   version: 17.0.52
   resolution: "@types/react@npm:17.0.52"
   dependencies:
@@ -15663,9 +15663,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -16058,9 +16058,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -16104,7 +16104,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -16149,9 +16148,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -16195,7 +16194,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -16240,9 +16238,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -16286,7 +16284,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -16331,9 +16328,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -16378,7 +16375,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -16423,9 +16419,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -16469,7 +16465,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -16514,9 +16509,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -16560,7 +16555,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -16605,9 +16599,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -16651,7 +16645,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -16697,9 +16690,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -16744,7 +16737,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -16789,9 +16781,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -16835,7 +16827,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -16880,9 +16871,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -16926,7 +16917,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -16971,9 +16961,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -17018,7 +17008,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17064,9 +17053,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -17111,7 +17100,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17156,9 +17144,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -17202,7 +17190,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17247,9 +17234,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -17293,7 +17280,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17338,9 +17324,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -17384,7 +17370,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17429,9 +17414,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -17475,7 +17460,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17520,9 +17504,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -17566,7 +17550,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17612,9 +17595,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -17660,7 +17643,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17705,9 +17687,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -17751,7 +17733,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17796,9 +17777,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -17842,7 +17823,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17887,9 +17867,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -17934,7 +17914,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -17980,9 +17959,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -18027,7 +18006,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -18072,9 +18050,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -18118,7 +18096,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -18177,9 +18154,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -18223,7 +18200,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6
@@ -18268,9 +18244,9 @@ __metadata:
     "@types/numeral": ^2.0.2
     "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.11
-    "@types/react-test-renderer": ^18.0.0
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
+    "@types/react-test-renderer": ^17.0.2
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
@@ -18314,7 +18290,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
     react-toastify: ^7.0.3
     react-virtualized-auto-sizer: ^1.0.4
     react-window: ^1.8.6

@@ -5,15 +5,15 @@ import * as R from 'ramda';
 
 export const useList = () => {
   const listRef = useRef({});
-  const rowHeights = useRef({});
+  const rowHeights = useRef<{ [key: keyof any]: number }>({});
 
-  const getRowHeight = (index) => {
+  const getRowHeight = (index: keyof any) => {
     return rowHeights.current[index] + 16 || 100;
   };
 
-  const setRowHeight = (idx, size) => {
+  const setRowHeight = (idx: keyof any, size: number) => {
     R.pathOr(
-      () => {
+      (_: number) => {
         console.log('something went wrong');
       },
       ['current', 'resetAfterIndex'],
@@ -62,14 +62,14 @@ export const useGrid = (
 
   const onResize = () => {
     if (gridRef.current != null) {
-      R.pathOr(() => null, ['current', 'resetAfterColumnIndex'], gridRef)(0);
+      R.pathOr((_: number) => null, ['current', 'resetAfterColumnIndex'], gridRef)(0);
     }
     if (columnRef.current != null) {
-      R.pathOr(() => null, ['current', 'resetAfterColumnIndex'], columnRef)(0);
+      R.pathOr((_: number) => null, ['current', 'resetAfterColumnIndex'], columnRef)(0);
     }
   };
 
-  const getColumnWidth = (width, index) => {
+  const getColumnWidth = (width: number, index: number) => {
     return (columns[index].width * width) / 100;
   };
 

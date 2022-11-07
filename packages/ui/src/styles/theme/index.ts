@@ -1,4 +1,4 @@
-  import * as R from 'ramda';
+import * as R from 'ramda';
 import { ThemeOptions } from '@material-ui/core/styles';
 
 import { darkThemeOverride } from './dark';

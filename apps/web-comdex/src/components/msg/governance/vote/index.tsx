@@ -11,7 +11,7 @@ import { PROPOSAL_DETAILS } from '@utils/go_to_page';
 const Vote = (props: { message: MsgVote }) => {
   const { t } = useTranslation('transactions');
   const { message } = props;
-  const vote = t(message.getOptionTranslationKey());
+  const vote = t(message.getOptionTranslationKey() ?? '');
 
   const voter = useProfileRecoil(message.voter);
   const voterMoniker = voter ? voter?.name : message.voter;

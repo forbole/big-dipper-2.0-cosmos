@@ -14,13 +14,14 @@ const Desktop: React.FC<{
   const dateFormat = useRecoilValue(readDate);
   const { t } = useTranslation('accounts');
 
-  const formattedItems = items.map((x) => {
-    return {
-      network: x.network.toUpperCase(),
-      identifier: x.identifier,
-      creationTime: formatDayJs(dayjs.utc(x.creationTime), dateFormat),
-    };
-  });
+  const formattedItems =
+    items?.map((x) => {
+      return {
+        network: x.network.toUpperCase(),
+        identifier: x.identifier,
+        creationTime: formatDayJs(dayjs.utc(x.creationTime), dateFormat),
+      };
+    }) ?? [];
 
   return (
     <div className={classnames(className)}>
@@ -50,7 +51,9 @@ const Desktop: React.FC<{
                     align={column.align}
                     style={{ width: `${column.width}%` }}
                   >
-                    {row[column.key]}
+                    {((_): _ is keyof typeof row => _ in row)(column.key)
+                      ? row[column.key]
+                      : undefined}
                   </TableCell>
                 );
               })}

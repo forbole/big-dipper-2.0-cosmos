@@ -10,9 +10,11 @@ import NoData from '@components/no_data';
 import { useScreenSize } from '@hooks';
 import { useStyles } from './styles';
 import { useBlocks } from './hooks';
+import type DesktopType from './components/desktop';
+import type MobileType from './components/mobile';
 
-const Desktop = dynamic(() => import('./components/desktop'));
-const Mobile = dynamic(() => import('./components/mobile'));
+const Desktop = dynamic(() => import('./components/desktop')) as typeof DesktopType;
+const Mobile = dynamic(() => import('./components/mobile')) as typeof MobileType;
 
 const Blocks: React.FC<{
   className?: string;

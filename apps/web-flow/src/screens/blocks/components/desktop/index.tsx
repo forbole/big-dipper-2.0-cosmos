@@ -56,7 +56,7 @@ const Desktop: React.FC<{
               {/* Table Header */}
               {/* ======================================= */}
               <Grid
-                ref={columnRef}
+                ref={columnRef as React.LegacyRef<VariableSizeGrid>}
                 columnCount={columns.length}
                 columnWidth={(index) => getColumnWidth(width, index)}
                 height={50}
@@ -80,9 +80,14 @@ const Desktop: React.FC<{
               {/* Table Body */}
               {/* ======================================= */}
               <InfiniteLoader
-                isItemLoaded={isItemLoaded}
+                isItemLoaded={isItemLoaded ?? (() => true)}
                 itemCount={itemCount}
-                loadMoreItems={loadMoreItems}
+                loadMoreItems={
+                  loadMoreItems ??
+                  (() => {
+                    // do nothing
+                  })
+                }
               >
                 {({ onItemsRendered, ref }) => {
                   return (
@@ -110,7 +115,7 @@ const Desktop: React.FC<{
                       className="scrollbar"
                     >
                       {({ columnIndex, rowIndex, style }) => {
-                        if (!isItemLoaded(rowIndex) && columnIndex === 0) {
+                        if (!isItemLoaded?.(rowIndex) && columnIndex === 0) {
                           return (
                             <div
                               style={{
@@ -123,7 +128,7 @@ const Desktop: React.FC<{
                           );
                         }
 
-                        if (!isItemLoaded(rowIndex)) {
+                        if (!isItemLoaded?.(rowIndex)) {
                           return null;
                         }
 

@@ -61,18 +61,15 @@ export const useStaking = () => {
   // helper function to get rest of the staking items
   // if it is over the default limit
   const getStakeByPage = async (page: number, query: string) => {
-    const { data } = await axios.post(
-      process.env.NEXT_PUBLIC_GRAPHQL_URL,
-      {
-        variables: {
-          validatorAddress: R.pathOr('', ['query', 'address'], router),
-          offset: page * LIMIT,
-          limit: LIMIT,
-          pagination: false,
-        },
-        query,
-      }
-    );
+    const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
+      variables: {
+        validatorAddress: R.pathOr('', ['query', 'address'], router),
+        offset: page * LIMIT,
+        limit: LIMIT,
+        pagination: false,
+      },
+      query,
+    });
     return data;
   };
 
@@ -81,16 +78,13 @@ export const useStaking = () => {
   // =====================================
   const getDelegations = async () => {
     try {
-      const { data } = await axios.post(
-        process.env.NEXT_PUBLIC_GRAPHQL_URL,
-        {
-          variables: {
-            validatorAddress: R.pathOr('', ['query', 'address'], router),
-            limit: LIMIT,
-          },
-          query: ValidatorDelegationsDocument,
-        }
-      );
+      const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
+        variables: {
+          validatorAddress: R.pathOr('', ['query', 'address'], router),
+          limit: LIMIT,
+        },
+        query: ValidatorDelegationsDocument,
+      });
       const count = R.pathOr(0, ['data', 'delegations', 'pagination', 'total'], data);
       const allDelegations = R.pathOr([], ['data', 'delegations', 'delegations'], data);
       // if there are more than the default 100, grab the remaining delegations
@@ -145,16 +139,13 @@ export const useStaking = () => {
   // =====================================
   const getRedelegations = async () => {
     try {
-      const { data } = await axios.post(
-        process.env.NEXT_PUBLIC_GRAPHQL_URL,
-        {
-          variables: {
-            validatorAddress: R.pathOr('', ['query', 'address'], router),
-            limit: LIMIT,
-          },
-          query: ValidatorRedelegationsDocument,
-        }
-      );
+      const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
+        variables: {
+          validatorAddress: R.pathOr('', ['query', 'address'], router),
+          limit: LIMIT,
+        },
+        query: ValidatorRedelegationsDocument,
+      });
       const count = R.pathOr(0, ['data', 'redelegations', 'pagination', 'total'], data);
       const allData = R.pathOr([], ['data', 'redelegations', 'redelegations'], data);
 
@@ -220,16 +211,13 @@ export const useStaking = () => {
   // =====================================
   const getUnbondings = async () => {
     try {
-      const { data } = await axios.post(
-        process.env.NEXT_PUBLIC_GRAPHQL_URL,
-        {
-          variables: {
-            validatorAddress: R.pathOr('', ['query', 'address'], router),
-            limit: LIMIT,
-          },
-          query: ValidatorUndelegationsDocument,
-        }
-      );
+      const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
+        variables: {
+          validatorAddress: R.pathOr('', ['query', 'address'], router),
+          limit: LIMIT,
+        },
+        query: ValidatorUndelegationsDocument,
+      });
       const count = R.pathOr(0, ['data', 'undelegations', 'pagination', 'total'], data);
       const allData = R.pathOr([], ['data', 'undelegations', 'undelegations'], data);
 

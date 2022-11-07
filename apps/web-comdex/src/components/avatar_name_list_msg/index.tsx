@@ -12,7 +12,7 @@ const AvatarNameListMsg = (props: { avatars: AvatarName[] }) => {
   return (
     <>
       {avatars.map((x, i) => {
-        const signerMoniker = x ? x?.name : x?.address;
+        const signerMoniker = x?.name ?? x?.address;
         if (avatars.length === 1) {
           return <Name address={x?.address} name={signerMoniker} />;
         }

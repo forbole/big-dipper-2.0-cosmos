@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import * as R from 'ramda';
 
 type Options = {
   pageChangeCallback?: (page: number, rowsPerPage: number) => void;
@@ -10,9 +9,9 @@ type Options = {
  * Hook helper for reusable
  */
 export const usePagination = (options?: Options) => {
-  const rowsPage = R.pathOr(null, ['rowsPage'], options);
-  const rowsChangeCallback = R.pathOr(null, ['rowsChangeCallback'], options);
-  const pageChangeCallback = R.pathOr(null, ['pageChangeCallback'], options);
+  const rowsPage = options?.rowsPage ?? null;
+  const rowsChangeCallback = options?.rowsChangeCallback ?? null;
+  const pageChangeCallback = options?.rowsChangeCallback ?? null;
 
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(rowsPage ?? 10);

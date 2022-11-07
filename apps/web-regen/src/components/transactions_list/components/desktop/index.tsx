@@ -69,7 +69,7 @@ const Desktop: React.FC<TransactionsListState> = ({
               {/* Table Header */}
               {/* ======================================= */}
               <Grid
-                ref={columnRef}
+                ref={columnRef as React.LegacyRef<VariableSizeGrid>}
                 columnCount={columns.length}
                 columnWidth={(index) => getColumnWidth(width, index)}
                 height={50}
@@ -93,9 +93,14 @@ const Desktop: React.FC<TransactionsListState> = ({
               {/* Table Body */}
               {/* ======================================= */}
               <InfiniteLoader
-                isItemLoaded={isItemLoaded}
+                isItemLoaded={isItemLoaded ?? (() => true)}
                 itemCount={itemCount}
-                loadMoreItems={loadMoreItems}
+                loadMoreItems={
+                  loadMoreItems ??
+                  (() => {
+                    // do nothing
+                  })
+                }
               >
                 {({ onItemsRendered, ref }) => {
                   return (
@@ -123,7 +128,7 @@ const Desktop: React.FC<TransactionsListState> = ({
                       className="scrollbar"
                     >
                       {({ columnIndex, rowIndex, style }) => {
-                        if (!isItemLoaded(rowIndex) && columnIndex === 0) {
+                        if (!isItemLoaded?.(rowIndex) && columnIndex === 0) {
                           return (
                             <div
                               style={{
@@ -136,12 +141,12 @@ const Desktop: React.FC<TransactionsListState> = ({
                           );
                         }
 
-                        if (!isItemLoaded(rowIndex)) {
+                        if (!isItemLoaded?.(rowIndex)) {
                           return null;
                         }
 
                         const { key, align } = columns[columnIndex];
-                        const item = items[rowIndex][key];
+                        const item = items[rowIndex][key as keyof typeof items[number]];
                         return (
                           <div
                             style={style}

@@ -1,5 +1,4 @@
-/* eslint-disable*/
-import { MixinsOptions, Mixins } from '@material-ui/core/styles/createMixins';
+import type { MixinsOptions, Mixins } from '@material-ui/core/styles/createMixins';
 
 declare module '@material-ui/core/styles/createMixins' {
   interface MixinsOptions {

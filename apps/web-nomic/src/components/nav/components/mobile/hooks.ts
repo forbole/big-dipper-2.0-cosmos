@@ -65,6 +65,6 @@ export const useMobile = () => {
     openNetwork,
     isNetwork: state.isNetwork,
     isMenu: state.isMenu,
-    isOpen: state.isNetwork || state.isMenu,
+    isOpen: (state.isNetwork || state.isMenu) ?? false,
   };
 };

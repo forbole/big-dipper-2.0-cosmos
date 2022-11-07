@@ -36,7 +36,7 @@ const Menu = (props: MenuProps) => {
       >
         <div className={classnames('content')}>
           {router.locales
-            .filter((l) => l !== lang)
+            ?.filter((l) => l !== lang)
             .map((l) => (
               <div key={l}>
                 <Link
@@ -87,7 +87,7 @@ const Menu = (props: MenuProps) => {
         <div className={classes.footerActions}>
           <div className={classes.language} role="button" onClick={languageOptions.toggleDrawer}>
             <Language />
-            <Typography variant="caption">{t(router.locale)}</Typography>
+            <Typography variant="caption">{router.locale ? t(router.locale) : ''}</Typography>
             <ExpandMoreOutlined fontSize="small" />
           </div>
           <div className={classes.theme} role="button" onClick={themeOptions.toggleDrawer}>

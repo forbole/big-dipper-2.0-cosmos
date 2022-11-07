@@ -9,9 +9,11 @@ import { usePagination, useScreenSize } from '@hooks';
 import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 import { OtherTokenType } from '../../types';
+import type DesktopType from './components/desktop';
+import type MobileType from './components/mobile';
 
-const Desktop = dynamic(() => import('./components/desktop'));
-const Mobile = dynamic(() => import('./components/mobile'));
+const Desktop = dynamic(() => import('./components/desktop')) as typeof DesktopType;
+const Mobile = dynamic(() => import('./components/mobile')) as typeof MobileType;
 
 export const OtherTokens: React.FC<{
   className?: string;

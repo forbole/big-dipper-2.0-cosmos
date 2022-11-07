@@ -113,7 +113,7 @@ const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
               {/* Table Header */}
               {/* ======================================= */}
               <Grid
-                ref={columnRef}
+                ref={columnRef as React.LegacyRef<VariableSizeGrid>}
                 columnCount={columns.length}
                 columnWidth={(index) => getColumnWidth(width, index)}
                 height={50}
@@ -147,7 +147,7 @@ const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
                 width={width}
               >
                 {({ columnIndex, rowIndex, style }) => {
-                  if (!isItemLoaded(rowIndex) && columnIndex === 0) {
+                  if (!isItemLoaded?.(rowIndex) && columnIndex === 0) {
                     return (
                       <div
                         style={{
@@ -160,7 +160,7 @@ const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
                     );
                   }
 
-                  if (!isItemLoaded(rowIndex)) {
+                  if (!isItemLoaded?.(rowIndex)) {
                     return null;
                   }
 
