@@ -1,6 +1,3 @@
-export { default as InflationRateParams } from './inflation_rate_params';
-export { default as GasPriceParams } from './gas_price_params';
-
 // ================================
 // Transaction Message Types
 // ================================

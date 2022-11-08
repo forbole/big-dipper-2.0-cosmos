@@ -10,7 +10,7 @@ class GasPriceParams {
     this.gasPrice = payload.gasPrice;
   }
 
-  static fromJson(data: any) {
+  static fromJson(data: Array<{ denom: string; amount: number }>) {
     return new GasPriceParams({
       gasPrice: data.map((x) => {
         return {

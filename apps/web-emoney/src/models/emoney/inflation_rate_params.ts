@@ -10,7 +10,7 @@ class InflationRateParams {
     this.inflation = payload.inflation;
   }
 
-  static fromJson(data: any) {
+  static fromJson(data: Array<{ denom: string; amount: number }>) {
     return new InflationRateParams({
       inflation: data.map((x) => {
         return {

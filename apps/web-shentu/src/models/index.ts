@@ -1,4 +1,3 @@
-export { default as GovParams } from './gov_params';
 // ================================
 // Transaction Message Types
 // ================================

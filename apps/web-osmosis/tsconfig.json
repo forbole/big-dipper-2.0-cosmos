@@ -10,6 +10,7 @@
       "@icons": ["src/components/icons"],
       "@hooks": ["src/hooks"],
       "@models": ["src/models"],
+      "@models/*": ["src/models/*"],
       "@screens/*": ["src/screens/*"],
       "@public/*": ["public/*"],
       "@utils/*": ["src/utils/*"],

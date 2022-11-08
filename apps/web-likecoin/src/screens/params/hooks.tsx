@@ -10,8 +10,8 @@ import {
   MintParams,
   StakingParams,
   SlashingParams,
-  IscnParams,
 } from '@models';
+import IscnParams from '@models/likecoin/iscn_params';
 import { ParamsState } from './types';
 
 const initialState = {

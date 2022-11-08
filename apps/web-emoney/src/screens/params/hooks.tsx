@@ -10,9 +10,9 @@ import {
   MintParams,
   StakingParams,
   SlashingParams,
-  InflationRateParams,
-  GasPriceParams,
 } from '@models';
+import InflationRateParams from '@models/emoney/inflation_rate_params';
+import GasPriceParams from '@models/emoney/gas_price_params';
 import { ParamsState } from './types';
 
 const initialState: ParamsState = {

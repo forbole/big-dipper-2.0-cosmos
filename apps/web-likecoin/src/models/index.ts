@@ -1,4 +1,3 @@
-export { default as IscnParams } from './iscn_params';
 // ================================
 // Transaction Message Types
 // ================================

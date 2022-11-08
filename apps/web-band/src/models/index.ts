@@ -1,5 +1,3 @@
-export { default as OracleParams } from './oracle_params';
-
 // ================================
 // Transaction Message Types
 // ================================
