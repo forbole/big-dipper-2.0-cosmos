@@ -1,0 +1,33 @@
+import * as R from 'ramda';
+import { Categories } from '../types';
+
+class MsgRegister {
+  public category: Categories;
+  public type: string;
+  public json: any;
+  public from: string;
+  public entry: {
+    denom: string;
+  };
+
+  constructor(payload: any) {
+    this.category = 'tokenregistry';
+    this.type = payload.type;
+    this.json = payload.json;
+    this.from = payload.from;
+    this.entry = payload.entry;
+  }
+
+  static fromJson(json: any) {
+    return new MsgRegister({
+      json,
+      type: json['@type'],
+      from: json.from,
+      entry: {
+        denom: R.pathOr('', ['entry', 'denom'], json),
+      },
+    });
+  }
+}
+
+export default MsgRegister;

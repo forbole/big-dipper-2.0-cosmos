@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components: Pagination matches snapshot 1`] = `
+<div
+  className="MuiTablePagination-root makeStyles-root"
+>
+  <div
+    className="MuiToolbar-root MuiToolbar-regular MuiTablePagination-toolbar MuiToolbar-gutters"
+  >
+    <div
+      className="MuiTablePagination-spacer"
+    />
+    <p
+      className="MuiTypography-root MuiTablePagination-caption MuiTypography-body2 MuiTypography-colorInherit"
+    >
+      paginationLabelOne
+    </p>
+    <div
+      backIconButtonProps={
+        {
+          "aria-label": "Previous page",
+          "title": "Previous page",
+        }
+      }
+      className="makeStyles-mobile"
+      count={100}
+      handleChangeRowsPerPage={[MockFunction]}
+      id="Actions"
+      nextIconButtonProps={
+        {
+          "aria-label": "Next page",
+          "title": "Next page",
+        }
+      }
+      onPageChange={[MockFunction]}
+      page={0}
+      rowsPerPage={5}
+    />
+    <div
+      backIconButtonProps={
+        {
+          "aria-label": "Previous page",
+          "title": "Previous page",
+        }
+      }
+      className="makeStyles-tablet"
+      count={100}
+      handleChangeRowsPerPage={[MockFunction]}
+      id="Actions"
+      nextIconButtonProps={
+        {
+          "aria-label": "Next page",
+          "title": "Next page",
+        }
+      }
+      onPageChange={[MockFunction]}
+      page={0}
+      rowsPerPage={5}
+    />
+  </div>
+</div>
+`;

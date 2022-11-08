@@ -1,0 +1,20 @@
+overwrite: true
+config:
+  # omitOperationSuffix: true
+  skipTypeNameForRoot: true
+generates:
+  ./src/graphql/types/general_types.tsx:
+    documents:
+      - 'src/graphql/general/*'
+    schema: https://gql.provenance.forbole.com/v1/graphql
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo" # To generate custom hooks per query
+  ./src/graphql/types/profile_types.ts:
+    schema: https://gql.mainnet.desmos.network/v1/graphql
+    documents:
+      - 'src/graphql/profiles/*'
+    plugins:
+      - "typescript"
+      - "typescript-operations"

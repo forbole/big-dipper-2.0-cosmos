@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TransactionDetails/UpdateGroupAccountAdminRequest matches snapshot 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body1"
+>
+  <div
+    components={
+      [
+        <Unknown
+          address="admin"
+          name="admin"
+        />,
+        <Unknown
+          address="newAdmin"
+          name="newAdmin"
+        />,
+      ]
+    }
+    i18nKey="message_contents:MsgUpdateGroupAccountAdminRequest"
+    id="Trans"
+  />
+</p>
+`;

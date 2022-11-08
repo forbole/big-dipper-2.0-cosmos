@@ -1,0 +1,20 @@
+{
+  "name": "shared-utils",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {
+    "lint": "TIMING=1 eslint \"**/*.{js,cjs}\""
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "eslint": "^8.26.0",
+    "eslint-config-custom": "*",
+    "jest": "^27.0.0",
+    "jest-presets": "*",
+    "ts-jest": "^27.0.0",
+    "typescript": "^4.8.4"
+  }
+}

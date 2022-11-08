@@ -1,0 +1,19 @@
+subscription TransactionsListener($limit: Int = 7, $offset: Int = 0) {
+  transactions: transaction(limit: $limit, offset: $offset, order_by: {height: desc}) {
+    height
+    hash
+    block {
+      timestamp
+    }
+  }
+}
+
+query Transactions($limit: Int = 7, $offset: Int = 0) {
+  transactions: transaction(limit: $limit, offset: $offset, order_by: {height: desc}) {
+    height
+    hash
+    block {
+      timestamp
+    }
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "chainName": "evmos",
+  "title": "Evmos Block Explorer",
+  "extra": {
+    "profile": false
+  },
+  "previewImage": "https://s3.bigdipper.live/evmos.png",
+  "themes": {
+    "default": "light",
+    "themeList": [
+      "dark",
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#FD3B4C",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#0A0A0A",
+        "paper": "#131316"
+      },
+      "divider": "#3D3D43",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#AAAAAB"
+      },
+      "custom": {
+        "general": {
+          "background": "#0A0A0A",
+          "surfaceOne": "#131316",
+          "surfaceTwo": "#19191D",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#AAAAAB",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF"
+        },
+        "primaryData": {
+          "one": "#af2929",
+          "two": "#b44516",
+          "three": "#b14237",
+          "four": "#b16919"
+        },
+        "results": {
+          "pass": "#198a65",
+          "fail": "#b12a34"
+        },
+        "tokenomics": {
+          "one": "#1EC490",
+          "two": "#497BFF",
+          "three": "#9F46EC"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF961B",
+          "three": "#FC6A8A"
+        },
+        "charts": {
+          "zero": "#6D6D6C",
+          "one": "#EB3AA4",
+          "two": "#EB3AA4",
+          "three": "#FF961B",
+          "four": "#497BFF",
+          "five": "#9F46EC"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#237BF9",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F8F8F8",
+        "paper": "#FFFFFF"
+      },
+      "divider": "#E8E8E8",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#414141"
+      },
+      "custom": {
+        "general": {
+          "background": "#F8F8F8",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#F8F8F8",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF"
+        },
+        "primaryData": {
+          "one": "#237BF9",
+          "two": "#5961F3",
+          "three": "#8F78F3",
+          "four": "#32B47D"
+        },
+        "results": {
+          "pass": "#37C465",
+          "fail": "#EF5562"
+        },
+        "tokenomics": {
+          "one": "#ECBA3A",
+          "two": "#8F78F3",
+          "three": "#32B47D"
+        },
+        "condition": {
+          "zero": "#D3D3D3",
+          "one": "#37C365",
+          "two": "#ED862E",
+          "three": "#EB5079"
+        },
+        "charts": {
+          "zero": "#D3D3D3",
+          "one": "#30A6E9",
+          "two": "#30A6E9",
+          "three": "#8F78F3",
+          "four": "#32B47D",
+          "five": "#F58A4E"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "evmos_9001-2",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2022-04-27T16:00:00",
+        "height": 58701
+      },
+      "prefix": {
+        "consensus": "evmosvalcons",
+        "validator": "evmosvaloper",
+        "account": "evmos"
+      },
+      "primaryTokenUnit": "uevmos",
+      "votingPowerTokenUnit": "uevmos",
+      "tokenUnits": {
+        "uevmos": {
+          "display": "evmos",
+          "exponent": 18
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.evmos.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.evmos.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://evmos-archive-testnet.api.bdnodes.net:26657/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "19"
+      }
+    },
+    {
+      "network": "evmos_9000-4",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "2022-02-17T00:00:00",
+        "height": 709050
+      },
+      "prefix": {
+        "consensus": "evmosvalcons",
+        "validator": "evmosvaloper",
+        "account": "evmos"
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
+      "tokenUnits": {
+        "": {
+          "exponent": 0
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql-testnet.evmos.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql-testnet.evmos.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://evmos-archive-testnet.api.bdnodes.net:26657/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "19"
+      }
+    },
+    {
+      "network": "evmos_9000-3",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
+      "tokenUnits": {
+        "": {
+          "exponent": 0
+        }
+      },
+      "endpoints": {},
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "19"
+      }
+    }
+  ]
+}

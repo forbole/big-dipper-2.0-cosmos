@@ -1,0 +1,18 @@
+{
+  "name": "eslint-config-cypress",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "eslint": "^7.23.0",
+    "eslint-config-custom": "*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "jest": "^27.0.0",
+    "ts-jest": "^27.0.0",
+    "typescript": "^4.8.4"
+  }
+}

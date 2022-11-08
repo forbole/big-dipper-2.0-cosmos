@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TransactionDetails/MsgLock matches snapshot 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body1"
+>
+  <div
+    components={
+      [
+        <Unknown
+          address="cosmosSender"
+          name="cosmosSender"
+        />,
+        <b />,
+      ]
+    }
+    i18nKey="message_contents:MsgLock"
+    id="Trans"
+  />
+</p>
+`;

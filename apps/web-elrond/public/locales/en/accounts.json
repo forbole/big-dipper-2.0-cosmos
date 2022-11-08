@@ -1,0 +1,17 @@
+{
+  "accountDetails": "Account Details",
+  "user": "User",
+  "address": "Address",
+  "shard": "Shard",
+  "balance": "Balance",
+  "developerReward": "Developer Reward",
+  "tokens": "Tokens",
+  "overview": "Overview",
+  "transactions": "Transactions",
+  "otherTokens": "Other Tokens",
+  "token": "Token",
+  "nft": "NFT",
+  "nfts": "NFTs",
+  "identifier": "Identifier",
+  "type": "Type"
+}

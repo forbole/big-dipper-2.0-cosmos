@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TransactionDetails/CreateEthBridgeClaim matches snapshot 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body1"
+>
+  <div
+    components={
+      [
+        <Unknown
+          address="cosmosSender"
+          name="cosmosSender"
+        />,
+        <b />,
+      ]
+    }
+    i18nKey="message_contents:MsgUpdateCethReceiverAccount"
+    id="Trans"
+    values={
+      {
+        "cethReceiverAccount": "cethReceiverAccount",
+      }
+    }
+  />
+</p>
+`;

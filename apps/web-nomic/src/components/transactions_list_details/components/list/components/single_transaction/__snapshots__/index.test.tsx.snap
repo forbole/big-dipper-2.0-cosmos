@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components: SingleTransaction matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <div
+    className="makeStyles-timeContainer"
+  >
+    <p
+      className="MuiTypography-root value MuiTypography-body1"
+    >
+      <div>
+        hash
+      </div>
+    </p>
+  </div>
+  <div
+    className="makeStyles-itemContainer"
+  >
+    <div
+      className="makeStyles-itemPrimaryDetailsContainer"
+    >
+      <div
+        className="makeStyles-item block"
+      >
+        <h4
+          className="MuiTypography-root label MuiTypography-h4"
+        >
+          block
+        </h4>
+        <div>
+          block
+        </div>
+      </div>
+      <div
+        className="makeStyles-item block"
+      >
+        <h4
+          className="MuiTypography-root label MuiTypography-h4"
+        >
+          type
+        </h4>
+        <div>
+          type
+        </div>
+      </div>
+      <div
+        className="makeStyles-item time"
+      >
+        <h4
+          className="MuiTypography-root label MuiTypography-h4"
+        >
+          time
+        </h4>
+        <p
+          className="MuiTypography-root value MuiTypography-body1"
+        >
+          2021-07-13T08:00:00
+        </p>
+      </div>
+    </div>
+    <hr
+      className="MuiDivider-root"
+    />
+  </div>
+</div>
+`;

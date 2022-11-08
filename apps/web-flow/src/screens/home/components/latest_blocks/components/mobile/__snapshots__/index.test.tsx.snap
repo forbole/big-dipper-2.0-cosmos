@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
+<div
+  className=""
+>
+  <div
+    hash="0x76nwV8zz8tLz9...F66jZhQ857"
+    height={
+      <ForwardRef(LinkComponent)
+        href="/blocks/4000"
+        passHref={true}
+      >
+        <WithStyles(ForwardRef(Typography))
+          className="value"
+          component="a"
+          variant="body1"
+        >
+          4,000
+        </WithStyles(ForwardRef(Typography))>
+      </ForwardRef(LinkComponent)>
+    }
+    id="SingleBlockMobile"
+    time="1 day ago"
+    txs="12"
+  />
+</div>
+`;

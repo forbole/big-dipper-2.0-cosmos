@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TransactionDetails/AddLiquidity matches snapshot 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body1"
+>
+  <div
+    components={
+      [
+        <Unknown
+          address="signer"
+          name="signer"
+        />,
+        <b />,
+      ]
+    }
+    i18nKey="message_contents:MsgAddLiquidity"
+    id="Trans"
+    values={
+      {
+        "externalAssetAmount": "0 BAR",
+        "nativeAssetAmount": "4,000,000 UEROWAN",
+      }
+    }
+  />
+</p>
+`;

@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: BlockDetails matches snapshot 1`] = `
+<div
+  id="Layout"
+  navTitle="accounts:accountDetails"
+>
+  <div
+    exists={true}
+    id="LoadAndExist"
+    loading={false}
+  >
+    <span
+      className="makeStyles-root"
+    >
+      <div
+        bio=""
+        connections={
+          Array [
+            Object {
+              "creationTime": "2021-10-06T00:10:45.761731",
+              "identifier": "desmos1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w",
+              "network": "native",
+            },
+          ]
+        }
+        dtag="RiccardoMontagnin"
+        id="DesmosProfile"
+        imageUrl=""
+        nickname=""
+      />
+      <div
+        address="desmos1ltpgdupjgtpqzsznltcptmfh6gfu5d8uehxggj"
+        className="makeStyles-overview"
+        id="Overview"
+        withdrawalAddress="desmos1ltpgdupjgtpqzsznltcptmfh6gfu5d8uehxggj"
+      />
+      <div
+        available={
+          Object {
+            "baseDenom": "udaric",
+            "displayDenom": "daric",
+            "exponent": 6,
+            "value": "0",
+          }
+        }
+        className="makeStyles-balance"
+        commission={
+          Object {
+            "baseDenom": "udaric",
+            "displayDenom": "daric",
+            "exponent": 6,
+            "value": "0",
+          }
+        }
+        delegate={
+          Object {
+            "baseDenom": "udaric",
+            "displayDenom": "daric",
+            "exponent": 6,
+            "value": "0",
+          }
+        }
+        id="Balance"
+        reward={
+          Object {
+            "baseDenom": "udaric",
+            "displayDenom": "daric",
+            "exponent": 6,
+            "value": "0",
+          }
+        }
+        total={
+          Object {
+            "baseDenom": "udaric",
+            "displayDenom": "daric",
+            "exponent": 6,
+            "value": "0",
+          }
+        }
+        unbonding={
+          Object {
+            "baseDenom": "udaric",
+            "displayDenom": "daric",
+            "exponent": 6,
+            "value": "0",
+          }
+        }
+      />
+      <div
+        className="makeStyles-otherTokens"
+        id="OtherTokens"
+        otherTokens={
+          Object {
+            "count": 1,
+            "data": Array [
+              Object {
+                "available": Object {
+                  "baseDenom": "udsm",
+                  "displayDenom": "udsm",
+                  "exponent": 0,
+                  "value": "116306",
+                },
+                "commission": Object {
+                  "baseDenom": "udsm",
+                  "displayDenom": "udsm",
+                  "exponent": 0,
+                  "value": "935371507.295045102561007305",
+                },
+                "denom": "udsm",
+                "reward": Object {
+                  "baseDenom": "udsm",
+                  "displayDenom": "udsm",
+                  "exponent": 0,
+                  "value": "3012571.97979500724",
+                },
+              },
+            ],
+          }
+        }
+      />
+      <div
+        className="makeStyles-staking"
+        id="Staking"
+        rewards={
+          Object {
+            "desmosvaloper1gwr9l765vfxv4l4zz8glsxwkkphj2084xjwc68": Object {
+              "baseDenom": "udaric",
+              "displayDenom": "daric",
+              "exponent": 6,
+              "value": "0",
+            },
+            "desmosvaloper1mqfr567kvp659z0zjvpqudw3wx7hh3s7u9a8g9": Object {
+              "baseDenom": "udaric",
+              "displayDenom": "daric",
+              "exponent": 6,
+              "value": "0",
+            },
+          }
+        }
+      />
+      <div
+        className="makeStyles-transactions"
+        data={
+          Array [
+            Object {
+              "hash": "6BC372069E41B5493B785002FD795746384A07C3F373FF6E2CAD6ABDE29860BA",
+              "height": 793314,
+              "messages": Object {
+                "count": 2,
+                "items": Array [
+                  MsgWithdrawDelegatorReward {
+                    "amounts": Array [
+                      Object {
+                        "baseDenom": "udaric",
+                        "displayDenom": "daric",
+                        "exponent": 6,
+                        "value": "0",
+                      },
+                    ],
+                    "category": "distribution",
+                    "delegatorAddress": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                    "json": Object {
+                      "@type": "/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward",
+                      "delegator_address": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                      "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+                    },
+                    "type": "/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward",
+                    "validatorAddress": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+                  },
+                  MsgWithdrawValidatorCommission {
+                    "amounts": Array [
+                      Object {
+                        "baseDenom": "udaric",
+                        "displayDenom": "daric",
+                        "exponent": 6,
+                        "value": "0",
+                      },
+                    ],
+                    "category": "distribution",
+                    "json": Object {
+                      "@type": "/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission",
+                      "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+                    },
+                    "type": "/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission",
+                    "validatorAddress": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+                  },
+                ],
+              },
+              "success": true,
+              "timestamp": "2021-06-22T03:40:33.804715",
+            },
+          ]
+        }
+        hasNextPage={false}
+        id="Transactions"
+        isNextPageLoading={false}
+        loadNextPage={[Function]}
+      />
+    </span>
+  </div>
+</div>
+`;

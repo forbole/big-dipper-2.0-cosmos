@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Nav/SearchBar it renders 1`] = `
+<div
+  callback={[Function]}
+  id="Search"
+  placeholder="searchBarPlaceholderDtag"
+/>
+`;

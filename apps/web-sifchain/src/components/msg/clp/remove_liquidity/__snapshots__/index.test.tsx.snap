@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TransactionDetails/MsgRemoveLiquidity matches snapshot 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body1"
+>
+  <div
+    components={
+      [
+        <Unknown
+          address="signer"
+          name="signer"
+        />,
+        <b />,
+      ]
+    }
+    i18nKey="message_contents:MsgRemoveLiquidity"
+    id="Trans"
+    values={
+      {
+        "symbol": "DARIC",
+      }
+    }
+  />
+</p>
+`;

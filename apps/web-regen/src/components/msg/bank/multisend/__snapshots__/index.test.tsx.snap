@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TransactionDetails/MsgMultiSend matches snapshot 1`] = `
+<div>
+  <p
+    className="MuiTypography-root MuiTypography-body1"
+  >
+    <div
+      components={
+        [
+          <Unknown
+            address="address"
+            name="address"
+          />,
+          <b />,
+        ]
+      }
+      i18nKey="message_contents:txMultisendContentOne"
+      id="message_contents:txMultisendContentOne"
+      values={
+        {
+          "amount": "20 DARIC",
+        }
+      }
+    />
+  </p>
+  <div
+    className="makeStyles-multisend"
+  >
+    <p
+      className="MuiTypography-root MuiTypography-body1"
+    >
+      <div
+        components={
+          [
+            <Unknown
+              address="output1"
+              name="output1"
+            />,
+            <b />,
+          ]
+        }
+        i18nKey="message_contents:txMultisendContentTwo"
+        id="message_contents:txMultisendContentTwo"
+        values={
+          {
+            "amount": "19 DARIC",
+          }
+        }
+      />
+    </p>
+    <p
+      className="MuiTypography-root MuiTypography-body1"
+    >
+      <div
+        components={
+          [
+            <Unknown
+              address="output2"
+              name="output2"
+            />,
+            <b />,
+          ]
+        }
+        i18nKey="message_contents:txMultisendContentTwo"
+        id="message_contents:txMultisendContentTwo"
+        values={
+          {
+            "amount": "1 DARIC",
+          }
+        }
+      />
+    </p>
+  </div>
+</div>
+`;

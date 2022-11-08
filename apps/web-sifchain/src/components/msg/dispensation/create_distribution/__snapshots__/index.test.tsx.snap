@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TransactionDetails/CreateDistribution matches snapshot 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body1"
+>
+  <div
+    components={
+      [
+        <Unknown
+          address="distributor"
+          name="distributor"
+        />,
+        <b />,
+      ]
+    }
+    i18nKey="message_contents:MsgCreateDistribution"
+    id="Trans"
+    values={
+      {
+        "distributionType": "DISTRIBUTION_TYPE_AIRDROP",
+      }
+    }
+  />
+</p>
+`;

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TransactionDetails/MsgBurn matches snapshot 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body1"
+>
+  <div
+    components={
+      [
+        <Unknown
+          address="from"
+          name="from"
+        />,
+        <b />,
+      ]
+    }
+    i18nKey="message_contents:MsgDeregister"
+    id="Trans"
+    values={
+      {
+        "denom": "DARIC",
+      }
+    }
+  />
+</p>
+`;

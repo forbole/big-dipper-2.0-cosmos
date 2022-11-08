@@ -1,0 +1,177 @@
+{
+  "chainName": "emoney",
+  "title": "e-Money Block Explorer",
+  "extra": {
+    "profile": true
+  },
+  "previewImage": "https://s3.bigdipper.live/emoney.png",
+  "themes": {
+    "default": "",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#3FB3BD",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#13141D",
+        "paper": "#1A202B"
+      },
+      "divider": "#2D374A",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#13141D",
+          "surfaceOne": "#1A202B",
+          "surfaceTwo": "#222A39",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF"
+        },
+        "primaryData": {
+          "one": "#4AA6AE",
+          "two": "#3372E0",
+          "three": "#DDBC57",
+          "four": "#5638A3"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#3372E0",
+          "two": "#DDBC57",
+          "three": "#5638A3"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF961B",
+          "three": "#FC6A8A"
+        },
+        "charts": {
+          "zero": "#6D6D6C",
+          "one": "#EB3AA4",
+          "two": "#EB3AA4",
+          "three": "#FF961B",
+          "four": "#497BFF",
+          "five": "#9F46EC"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA893",
+          "three": "#E79722",
+          "four": "#F17049",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9946",
+          "nine": "#B49F33",
+          "ten": "#E9A848",
+          "eleven": "#E94683",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "emoney-3",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2020-11-04T13:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "emoneyvalcons",
+        "validator": "emoneyvaloper",
+        "account": "emoney"
+      },
+      "primaryTokenUnit": "ungm",
+      "votingPowerTokenUnit": "ungm",
+      "tokenUnits": {
+        "ungm": {
+          "display": "ngm",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.emoney.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.emoney.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.emoney.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "12"
+      }
+    },
+    {
+      "network": "emoney-3",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "2020-11-04T13:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "emoneyvalcons",
+        "validator": "emoneyvaloper",
+        "account": "emoney"
+      },
+      "primaryTokenUnit": "ungm",
+      "votingPowerTokenUnit": "ungm",
+      "tokenUnits": {
+        "ungm": {
+          "display": "ngm",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.emoney.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.emoney.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.emoney.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "12"
+      }
+    }
+  ]
+}

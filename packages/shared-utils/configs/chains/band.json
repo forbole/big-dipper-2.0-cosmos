@@ -1,0 +1,174 @@
+{
+  "chainName": "band",
+  "title": "Band Protocol Block Explorer",
+  "extra": {
+    "profile": false
+  },
+  "previewImage": "https://s3.bigdipper.live/band.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#4160FF",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#13141D",
+        "paper": "#1A202B"
+      },
+      "divider": "#2D374A",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#13141D",
+          "surfaceOne": "#1A202B",
+          "surfaceTwo": "#222A39",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF"
+        },
+        "primaryData": {
+          "one": "#4520E6",
+          "two": "#394DFF",
+          "three": "#088A93",
+          "four": "#8541E0"
+        },
+        "results": {
+          "pass": "#198A65",
+          "fail": "#BB3746"
+        },
+        "tokenomics": {
+          "one": "#394DFF",
+          "two": "#B1943A",
+          "three": "#088A93"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#6D6D6C",
+          "one": "#43BE7C",
+          "two": "#43BE7C",
+          "three": "#D37C3E",
+          "four": "#3372E0",
+          "five": "#C25396"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA894",
+          "three": "#E79723",
+          "four": "#F17050",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9947",
+          "nine": "#B49F34",
+          "ten": "#E9A849",
+          "eleven": "#E94684",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "laozi-mainnet",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-09-23T12:00:00",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "bandvalcons",
+        "validator": "bandvaloper",
+        "account": "band"
+      },
+      "primaryTokenUnit": "uband",
+      "votingPowerTokenUnit": "uband",
+      "tokenUnits": {
+        "uband": {
+          "display": "band",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.band.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.band.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.band.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "13"
+      }
+    },
+    {
+      "network": "band-guanyu-mainnet",
+      "chainType": "Retired",
+      "genesis": {
+        "time": "",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
+      "tokenUnits": {
+        "": {
+          "exponent": 0
+        }
+      },
+      "endpoints": {
+        "publicRpcWebsocket": "wss://band-guanyu.bigdipper.live/sockjs/931/88vfskpn/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "13"
+      }
+    }
+  ]
+}

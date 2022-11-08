@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <div
+    className="List"
+    onScroll={[Function]}
+    style={
+      {
+        "WebkitOverflowScrolling": "touch",
+        "direction": "ltr",
+        "height": 600,
+        "overflow": "auto",
+        "position": "relative",
+        "width": 600,
+        "willChange": "transform",
+      }
+    }
+  >
+    <div
+      style={
+        {
+          "height": 200,
+          "pointerEvents": undefined,
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        style={
+          {
+            "height": 100,
+            "left": 0,
+            "position": "absolute",
+            "right": undefined,
+            "top": 0,
+            "width": "100%",
+          }
+        }
+      >
+        <div>
+          <div
+            hash="hash"
+            height={
+              <ForwardRef(LinkComponent)
+                href="/blocks/300"
+                passHref={true}
+              >
+                <WithStyles(ForwardRef(Typography))
+                  className="value"
+                  component="a"
+                  variant="body1"
+                >
+                  300
+                </WithStyles(ForwardRef(Typography))>
+              </ForwardRef(LinkComponent)>
+            }
+            id="SingleBlockMobile"
+            proposer={
+              <Unknown
+                address="address"
+                name="proposer"
+              />
+            }
+            time="1 day ago"
+            txs="2"
+          />
+          <hr
+            className="MuiDivider-root"
+          />
+        </div>
+      </div>
+      <div
+        style={
+          {
+            "height": 100,
+            "left": 0,
+            "position": "absolute",
+            "right": undefined,
+            "top": 100,
+            "width": "100%",
+          }
+        }
+      >
+        <div>
+          <div
+            hash="hash"
+            height={
+              <ForwardRef(LinkComponent)
+                href="/blocks/301"
+                passHref={true}
+              >
+                <WithStyles(ForwardRef(Typography))
+                  className="value"
+                  component="a"
+                  variant="body1"
+                >
+                  301
+                </WithStyles(ForwardRef(Typography))>
+              </ForwardRef(LinkComponent)>
+            }
+            id="SingleBlockMobile"
+            proposer={
+              <Unknown
+                address="address"
+                name="proposer"
+              />
+            }
+            time="1 day ago"
+            txs="2"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

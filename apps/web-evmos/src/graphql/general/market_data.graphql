@@ -1,0 +1,28 @@
+query MarketData ($denom: String) {
+  communityPool: community_pool(order_by: {height: desc}, limit: 1) {
+    coins
+  }
+  inflation: inflation(order_by: {height: desc}, limit: 1) {
+    value
+  }
+  tokenPrice: token_price(where: {unit_name: {_eq: $denom}}) {
+    marketCap: market_cap
+    price
+  }
+  supply {
+    coins
+  }
+  bondedTokens: staking_pool(order_by: {height: desc}, limit: 1) {
+    bonded_tokens
+  }
+  distributionParams: distribution_params {
+    params
+  }
+  evmosInflationData: evmos_inflation_data {
+    circulating_supply
+    inflation_rate
+  }
+  evmosInflationParams: evmos_inflation_params {
+    params
+  }
+}

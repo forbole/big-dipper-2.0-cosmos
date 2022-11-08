@@ -1,0 +1,213 @@
+{
+  "chainName": "stride",
+  "title": "Stride Block Explorer",
+  "extra": {
+    "profile": true
+  },
+  "previewImage": "https://s3.bigdipper.live/stride.png",
+  "themes": {
+    "default": "light",
+    "themeList": [
+      "dark",
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "rgba(233,17,121,1)",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#141617",
+        "paper": "#232829"
+      },
+      "divider": "#525252",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#141617",
+          "surfaceOne": "#232829",
+          "surfaceTwo": "#333333",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF"
+        },
+        "primaryData": {
+          "one": "#E91179",
+          "two": "#F14196",
+          "three": "#45B1C4",
+          "four": "#378D9B"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#1EC490",
+          "two": "#497BFF",
+          "three": "#9F46EC"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "55F28C',",
+          "two": "55F28C',",
+          "three": "#DD1AFF",
+          "four": "#1A88FF",
+          "five": "#E91179"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#E91179",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F2FBFD",
+        "paper": "#FEFFFF"
+      },
+      "divider": "#7A7A7A",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#525252"
+      },
+      "custom": {
+        "general": {
+          "background": "#F2FBFD",
+          "surfaceOne": "#FEFFFF",
+          "surfaceTwo": "#EFEFEF",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF"
+        },
+        "primaryData": {
+          "one": "#E91179",
+          "two": "#F14196",
+          "three": "#45B1C4",
+          "four": "#378D9B"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#1EC490",
+          "two": "#497BFF",
+          "three": "#9F46EC"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF961B",
+          "three": "#FC6A8A"
+        },
+        "charts": {
+          "zero": "#D3D3D3",
+          "one": "#EB3AA4",
+          "two": "#EB3AA4",
+          "three": "#FF961B",
+          "four": "#497BFF",
+          "five": "#9F46EC"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "stride-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2022-09-04T19:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "stridevalcons",
+        "validator": "stridevaloper",
+        "account": "stride"
+      },
+      "primaryTokenUnit": "ustrd",
+      "votingPowerTokenUnit": "ustrd",
+      "tokenUnits": {
+        "ustrd": {
+          "display": "strd",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.stride.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.stride.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.stride.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "32"
+      }
+    }
+  ]
+}

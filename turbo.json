@@ -1,0 +1,45 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**", "public/dist/**"],
+      "env": [
+        "BASE_PATH",
+        "NEXT_PUBLIC_CHAIN_CONFIG",
+        "NEXT_PUBLIC_CHAIN_TYPE",
+        "NEXT_PUBLIC_GENERAL_CONFIG",
+        "NEXT_PUBLIC_GRAPHQL_URL",
+        "NEXT_PUBLIC_GRAPHQL_WS",
+        "NEXT_PUBLIC_MATOMO_SITE_ID",
+        "NEXT_PUBLIC_MATOMO_URL",
+        "NEXT_PUBLIC_RPC_WEBSOCKET",
+        "NEXT_PUBLIC_SENTRY_DSN",
+        "NODE_ENV",
+        "PORT",
+        "SENTRY_DSN"
+      ]
+    },
+    "clean": {
+      "cache": false
+    },
+    "dev": {
+      "cache": false
+    },
+    "start": {},
+    "type-check": {},
+    "lint": {
+      "outputs": []
+    },
+    "test": {
+      "outputs": ["coverage/**"]
+    },
+    "e2e": {},
+    "graphql:codegen": {},
+    "deploy": {
+      "dependsOn": ["build", "test", "lint"],
+      "outputs": []
+    }
+  },
+  "globalDependencies": [".env", "tsconfig.json"]
+}

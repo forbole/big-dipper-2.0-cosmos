@@ -1,0 +1,147 @@
+{
+  "chainName": "provenance",
+  "title": "Provenance Block Explorer",
+  "extra": {
+    "profile": true
+  },
+  "previewImage": "https://s3.bigdipper.live/provenance.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#2A70EA",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#000000",
+        "paper": "#131721"
+      },
+      "divider": "#464646",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#000000",
+          "surfaceOne": "#131721",
+          "surfaceTwo": "#232632",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF"
+        },
+        "primaryData": {
+          "one": "#2A70EA",
+          "two": "#0D479A",
+          "three": "#404999",
+          "four": "#37357C"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#2A70EA",
+          "two": "#CC336B",
+          "three": "#18B8B2"
+        },
+        "condition": {
+          "zero": "#E6E6E6",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#33CCB0",
+          "two": "#33CCB0",
+          "three": "#CC336B",
+          "four": "#CC6A33",
+          "five": "#8933CC"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "pio-mainnet-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-04-20T16:20:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "pbvalcons",
+        "validator": "pbvaloper",
+        "account": "pb"
+      },
+      "primaryTokenUnit": "uhash",
+      "votingPowerTokenUnit": "uhash",
+      "tokenUnits": {
+        "uhash": {
+          "display": "hash",
+          "exponent": 9
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.provenance.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.provenance.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.provenance.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "28"
+      }
+    }
+  ]
+}

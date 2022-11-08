@@ -1,0 +1,28 @@
+{
+  "extends": "tsconfig/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["src/*"],
+      "@components": ["src/components"],
+      "@components/*": ["src/components/*"],
+      "@msg": ["src/components/msg"],
+      "@icons": ["src/components/icons"],
+      "@hooks": ["src/hooks"],
+      "@models": ["src/models"],
+      "@models/*": ["src/models/*"],
+      "@screens/*": ["src/screens/*"],
+      "@public/*": ["public/*"],
+      "@utils/*": ["src/utils/*"],
+      "@contexts": ["src/contexts"],
+      "@recoil/*": ["src/recoil/*"],
+      "@graphql": ["src/graphql"],
+      "@graphql/*": ["src/graphql/*"],
+      "@graphql/types": ["src/graphql/types"],
+      "@tests/utils": ["tests/utils"],
+      "@api": ["src/api"]
+    }
+  },
+  "include": ["*.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["dist", "build", "node_modules"]
+}
