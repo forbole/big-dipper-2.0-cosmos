@@ -4320,7 +4320,7 @@ __metadata:
     react-dom: ^17.0.2
     react-share: ^4.4.0
     react-test-renderer: ^17.0.1
-    react-toastify: ^9.0.8
+    react-toastify: ^9.1.1
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.6
     react-window-infinite-loader: ^1.0.8
@@ -10140,15 +10140,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-toastify@npm:^9.0.8":
-  version: 9.1.0
-  resolution: "react-toastify@npm:9.1.0"
+"react-toastify@npm:^9.1.1":
+  version: 9.1.1
+  resolution: "react-toastify@npm:9.1.1"
   dependencies:
     clsx: ^1.1.1
   peerDependencies:
     react: ">=16"
     react-dom: ">=16"
-  checksum: 03c366abca1492d32f30900dad752fa92b242911b97aeb71fa5e9915267bf860dfac0c83a29dc036a90cafc2586ab1bb9a3b491f24a12967c57df0995ff6e78c
+  checksum: 2039255539961a9b4d77b2656f120b20abe46cb0c699a7f3c0af23b4ef669d9c4d24dae6b8f4954b5efd83edf6d6e23614a29e94e9ee0d2647741fba9ba2db85
   languageName: node
   linkType: hard
 
