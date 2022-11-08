@@ -16,7 +16,7 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/CreateRelationship', () => {
   it('matches snapshot', () => {
-    const message = new MsgCreateRelationship({
+    const message = MsgCreateRelationship.fromJson({
       category: 'profiles',
       type: 'MsgCreateRelationship',
       sender: 'sender',

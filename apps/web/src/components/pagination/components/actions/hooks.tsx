@@ -71,6 +71,7 @@ export const useTablePaginationActions = (props: {
   };
 
   return {
+    page,
     handleFirstPage,
     handleNextPage,
     handlePreviousPage,

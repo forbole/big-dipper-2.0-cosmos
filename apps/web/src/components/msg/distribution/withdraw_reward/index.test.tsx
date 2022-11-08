@@ -16,7 +16,7 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/WithdrawReward', () => {
   it('matches snapshot', () => {
-    const message = new MsgWithdrawDelegatorReward({
+    const message = MsgWithdrawDelegatorReward.fromJson({
       category: 'distribution',
       type: 'MsgWithdrawDelegatorReward',
       delegatorAddress: 'delegatorAddress',

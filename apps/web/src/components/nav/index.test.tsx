@@ -20,7 +20,7 @@ jest.mock('./components', () => ({
 // ==================================
 // unit tests
 // ==================================
-describe('Component: Nav', () => {
+describe('component: Nav', () => {
   beforeEach(() => {
     component = renderer.create(
       <MockTheme>

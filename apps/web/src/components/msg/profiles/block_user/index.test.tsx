@@ -16,7 +16,7 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/BlockUser', () => {
   it('matches snapshot', () => {
-    const message = new MsgBlockUser({
+    const message = MsgBlockUser.fromJson({
       category: 'profiles',
       type: 'MsgBlockUser',
       blocked: 'blocked',

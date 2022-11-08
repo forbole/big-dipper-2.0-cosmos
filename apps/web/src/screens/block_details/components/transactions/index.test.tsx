@@ -6,6 +6,12 @@ import Transactions from '.';
 // ==================================
 // mocks
 // ==================================
+const mockI18n = {
+  t: (key: string) => key,
+  lang: 'en',
+};
+jest.mock('next-translate/useTranslation', () => () => mockI18n);
+
 jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
@@ -27,19 +33,68 @@ describe('screen: BlockDetails/Transactions', () => {
               hash: 'hash',
               success: false,
               timestamp: '',
+              type: [''],
               messages: {
-                count: 3,
-                items: [],
+                count: 2,
+                items: [
+                  {
+                    '@type': '/cosmos.staking.v1beta1.MsgDelegate',
+                    amount: {
+                      denom: 'udaric',
+                      amount: '8371578',
+                    },
+                    delegator_address: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
+                    validator_address: 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3',
+                  },
+                  {
+                    '@type': '/cosmos.staking.v1beta1.MsgDelegate',
+                    amount: {
+                      denom: 'udaric',
+                      amount: '1233',
+                    },
+                    delegator_address: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
+                    validator_address: 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3',
+                  },
+                ],
               },
             },
             {
-              height: 300,
+              height: 301,
               hash: 'hash1',
               success: true,
               timestamp: '',
+              type: [''],
               messages: {
-                count: 13,
-                items: [],
+                count: 3,
+                items: [
+                  {
+                    '@type': '/cosmos.staking.v1beta1.MsgDelegate',
+                    amount: {
+                      denom: 'udaric',
+                      amount: '44444',
+                    },
+                    delegator_address: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
+                    validator_address: 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3',
+                  },
+                  {
+                    '@type': '/cosmos.staking.v1beta1.MsgDelegate',
+                    amount: {
+                      denom: 'udaric',
+                      amount: '12211',
+                    },
+                    delegator_address: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
+                    validator_address: 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3',
+                  },
+                  {
+                    '@type': '/cosmos.staking.v1beta1.MsgDelegate',
+                    amount: {
+                      denom: 'udaric',
+                      amount: '11111',
+                    },
+                    delegator_address: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
+                    validator_address: 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3',
+                  },
+                ],
               },
             },
           ]}

@@ -1,29 +1,35 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import TabsHeader from '.';
+import Mobile from '.';
 
 // ==================================
 // mocks
 // ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
+jest.mock('..', () => ({
+  VotingPower: (props) => <div id="VotingPower" {...props} />,
+  Condition: (props) => <div id="Condition" {...props} />,
+}));
 
-jest.mock('./component', () => ({
-  SingleValidator: (props: JSX.IntrinsicElements['div']) => <div id="SingleValidator" {...props} />,
+jest.mock('@components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="AvatarName" {...props} />
+));
+jest.mock('@components/single_validator', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="SingleValidator" {...props} />
+));
+
+jest.mock('react-virtualized-auto-sizer', () => ({ children }: any) => children({
+  height: 600, width: 600,
 }));
 
 // ==================================
 // unit tests
 // ==================================
-describe('screen: Validators/Tabs', () => {
+describe('screen: Validators/Mobile', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>
-        <TabsHeader
+        <Mobile
           items={[
             {
               validator: {

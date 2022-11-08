@@ -26,7 +26,13 @@ const mockTokenomics = jest.fn().mockResolvedValue({
   data: {
     stakingParams: [
       {
-        params: {},
+        params: {
+          bond_denom: 'udsm',
+          max_entries: 7,
+          max_validators: 125,
+          unbonding_time: 1209600000000000,
+          historical_entries: 10000,
+        },
       },
     ],
     stakingPool: [

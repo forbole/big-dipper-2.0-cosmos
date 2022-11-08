@@ -1,18 +1,16 @@
 import React from 'react';
 import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
 import { MockTheme, wait } from '@tests/utils';
-import List from '.';
+import ProposalsList from '.';
 
 // ==================================
 // mocks
 // ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
+));
+jest.mock('@components/loading', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Loading" />
 ));
 
 jest.mock('./components', () => ({
@@ -21,36 +19,67 @@ jest.mock('./components', () => ({
   Total: (props: JSX.IntrinsicElements['div']) => <div id="Total" {...props} />,
 }));
 
+jest.mock(
+  'react-virtualized-auto-sizer',
+  () =>
+    ({ children }: any) =>
+      children({
+        height: 600,
+        width: 600,
+      })
+);
+
 // ==================================
 // unit tests
 // ==================================
 describe('screen: Proposals/List', () => {
   it('matches snapshot', async () => {
-    let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
-
-    renderer.act(() => {
-      tree = renderer
-        .create(
-          <MockTheme>
-            <List
-              items={[
-                {
-                  title: 'Staking Param Change Part Two',
-                  id: 7,
-                  status: 'PROPOSAL_STATUS_REJECTED',
-                  description: 'Update max validators',
-                },
-              ]}
-              rawDataTotal={1}
-              isItemLoaded={() => true}
-              itemCount={1}
-              loadMoreItems={() => null}
-            />
-          </MockTheme>
-        )
-        .toJSON();
-    });
+    const component = renderer.create(
+      <MockTheme>
+        <ProposalsList
+          items={[
+            {
+              title: 'Staking Param Change Part Three',
+              id: 3,
+              status: 'PROPOSAL_STATUS_PASSED',
+              description: 'Update max validators',
+            },
+            {
+              title: 'Staking Param Change Part Two',
+              id: 7,
+              status: 'PROPOSAL_STATUS_REJECTED',
+              description: 'Update max validators',
+            },
+          ]}
+          rawDataTotal={2}
+          isItemLoaded={() => true}
+          itemCount={2}
+          loadMoreItems={() => jest.fn()}
+        />
+      </MockTheme>
+    );
     await wait();
+
+    const tree = component.toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+  
+  it('matches snapshot with empty proposal list', async () => {
+    const component = renderer.create(
+      <MockTheme>
+        <ProposalsList
+          items={[]}
+          rawDataTotal={0}
+          isItemLoaded={() => false}
+          itemCount={0}
+          loadMoreItems={() => jest.fn()}
+        />
+      </MockTheme>,
+    );
+    await wait();
+
+    const tree = component.toJSON();
 
     expect(tree).toMatchSnapshot();
   });

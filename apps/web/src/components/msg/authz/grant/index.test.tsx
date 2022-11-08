@@ -21,12 +21,13 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/Grant', () => {
   it('matches snapshot', () => {
-    const message = new MsgGrant({
+    const message = MsgGrant.fromJson({
       category: 'authz',
       type: 'MsgGrant',
       granter: 'sponderbob',
       grantee: 'grantee',
     });
+
     const component = renderer.create(
       <MockTheme>
         <Grant message={message} />

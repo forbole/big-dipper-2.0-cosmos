@@ -17,7 +17,7 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/MsgSend', () => {
   it('matches snapshot', () => {
-    const message = new MsgSend({
+    const message = MsgSend.fromJson({
       category: 'bank',
       type: 'MsgSend',
       fromAddress: 'fromAddress',
@@ -28,6 +28,16 @@ describe('screen: TransactionDetails/MsgSend', () => {
           amount: '200000000',
         },
       ],
+      json: JSON.stringify({
+        from: 'fromAddress',
+        to: 'toAddress',
+        amount: [
+          {
+            denom: 'udaric',
+            amount: '200000000',
+          },
+        ],
+      }),
     });
     const component = renderer.create(
       <MockTheme>

@@ -3,6 +3,9 @@ import renderer from 'react-test-renderer';
 import { createMockClient } from 'mock-apollo-client';
 import App from '.';
 
+// ==================================
+// mocks
+// ==================================
 const mockClient = createMockClient();
 
 jest.mock('next-translate/useTranslation', () => () => ({
@@ -18,6 +21,11 @@ const mockI18n = {
 };
 
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
+
+jest.mock('./hooks', () => ({
+  useApp: () => jest.fn(),
+}
+));
 
 // ==================================
 // unit tests

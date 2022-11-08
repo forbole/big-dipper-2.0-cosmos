@@ -16,7 +16,7 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/UnBlockUser', () => {
   it('matches snapshot', () => {
-    const message = new MsgUnjail({
+    const message = MsgUnjail.fromJson({
       category: 'slashing',
       type: 'MsgUnjail',
       validatorAddress: 'validatorAddress',

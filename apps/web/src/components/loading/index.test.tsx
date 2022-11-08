@@ -6,7 +6,7 @@ import Loading from '.';
 // ==================================
 // unit tests
 // ==================================
-describe('components: Result', () => {
+describe('components: Loading', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>

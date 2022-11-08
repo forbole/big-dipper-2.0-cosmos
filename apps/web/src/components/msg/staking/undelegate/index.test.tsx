@@ -16,7 +16,7 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/Undelegate', () => {
   it('matches snapshot', () => {
-    const message = new MsgUndelegate({
+    const message = MsgUndelegate.fromJson({
       category: 'staking',
       type: 'MsgEditValidator',
       delegatorAddress: 'delegatorAddress',

@@ -17,7 +17,7 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/MsgVerifyInvariant', () => {
   it('matches snapshot', () => {
-    const message = new MsgVerifyInvariant({
+    const message = MsgVerifyInvariant.fromJson({
       category: 'crisis',
       type: 'MsgVerifyInvariant',
       sender: 'sender',

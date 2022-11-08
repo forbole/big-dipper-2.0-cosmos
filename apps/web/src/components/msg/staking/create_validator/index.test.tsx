@@ -16,7 +16,7 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/CreateValidator', () => {
   it('matches snapshot', () => {
-    const message = new MsgCreateValidator({
+    const message = MsgCreateValidator.fromJson({
       category: 'staking',
       type: 'MsgCreateValidator',
       description: {

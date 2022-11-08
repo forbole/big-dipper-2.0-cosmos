@@ -6,6 +6,8 @@ import { MockTheme, wait } from '@tests/utils';
 import { BlocksListenerDocument, BlocksDocument } from '@graphql/types/general_types';
 import Blocks from '.';
 
+let component: renderer.ReactTestRenderer;
+
 // ==================================
 // mocks
 // ==================================
@@ -21,6 +23,57 @@ jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div
 jest.mock('@components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="NoData" {...props} />
 ));
+
+jest.mock('./hooks', () => ({
+  useBlocks: () => {
+    return {
+      state: {
+        loading: false,
+        exists: true,
+        hasNextPage: true,
+        isNextPageLoading: false,
+        items: [
+          {
+            height: 1123213,
+            txs: 0,
+            timestamp: '2021-04-27T16:27:34.331769',
+            proposer: 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3',
+            hash: 'txhash',
+          },
+          {
+            height: 1123214,
+            txs: 1,
+            timestamp: '2021-04-33T16:27:34.331769',
+            proposer: 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3',
+            hash: 'txhash',
+          },
+        ],
+      },
+      loadNextPage: () => jest.fn(),
+      itemCount: 2,
+      loadMoreItems: () => jest.fn(),
+      isItemLoaded: () => true,
+    };
+  },
+}));
+
+jest.mock('./hooks', () => ({
+  useBlocks: () => {
+    return {
+      state: {
+        loading: false,
+        exists: true,
+        hasNextPage: true,
+        isNextPageLoading: false,
+        items: [],
+      },
+      loadNextPage: () => jest.fn(),
+      itemCount: 2,
+      loadMoreItems: () => jest.fn(),
+      isItemLoaded: () => true,
+    };
+  },
+}));
 
 const mockBlocksListenerDocument = {
   data: {
@@ -81,8 +134,6 @@ describe('screen: Blocks', () => {
     mockClient.setRequestHandler(BlocksListenerDocument, () => mockSubscription);
 
     mockClient.setRequestHandler(BlocksDocument, mockBlocksDocument);
-
-    let component;
 
     renderer.act(() => {
       component = renderer.create(

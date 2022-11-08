@@ -17,7 +17,7 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/DepositProposal', () => {
   it('matches snapshot', () => {
-    const message = new MsgDeposit({
+    const message = MsgDeposit.fromJson({
       category: 'governance',
       type: 'MsgDeposit',
       proposalId: 10,

@@ -17,7 +17,7 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/WithdrawCommission', () => {
   it('matches snapshot', () => {
-    const message = new MsgWithdrawValidatorCommission({
+    const message = MsgWithdrawValidatorCommission.fromJson({
       category: 'distribution',
       type: 'MsgWithdrawValidatorCommission',
       validatorAddress: 'validatorAddress',
