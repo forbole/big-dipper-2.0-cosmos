@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.1",
-    "@graphql-tools/schema": "^9.0.8",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
     "@material-ui/styles": "^4.11.5",
@@ -54,6 +53,7 @@
     "recharts": "^2.1.16",
     "recoil": "^0.7.6",
     "shared-utils": "*",
+    "subscriptions-transport-ws": "^0.11.0",
     "ui": "*",
     "ws": "^8.10.0"
   },
@@ -97,6 +97,7 @@
     "jest-transform-stub": "^2.0.0",
     "jest-watch-typeahead": "^2.2.0",
     "next-transpile-modules": "^10.0.0",
+    "react-test-renderer": "^17.0.2",
     "ts-jest": "^29.0.3",
     "ts-node": "^10.9.1",
     "tsconfig": "*",
