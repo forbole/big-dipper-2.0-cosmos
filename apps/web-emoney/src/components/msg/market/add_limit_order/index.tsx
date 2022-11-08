@@ -3,7 +3,7 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
-import { MsgAddLimitOrder } from '@models';
+import MsgAddLimitOrder from '@models/emoney/msg/market/msg_add_limit_order';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const AddLimitOrder = (props: { message: MsgAddLimitOrder }) => {

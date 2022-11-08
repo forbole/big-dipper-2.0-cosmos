@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgTransferFanTokenOwner } from '@models';
+import MsgTransferFanTokenOwner from '@models/bitsong/msg/fantoken/msg_transfer_fan_token';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const TransferFanToken = (props: { message: MsgTransferFanTokenOwner }) => {

@@ -4,7 +4,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
-import { MsgBurnTokens } from '@models';
+import MsgBurnTokens from '@models/emoney/msg/liquidity_provider/msg_burn_tokens';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const BurnTokens = (props: { message: MsgBurnTokens }) => {

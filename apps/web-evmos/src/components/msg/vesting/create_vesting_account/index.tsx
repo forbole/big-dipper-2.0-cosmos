@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgCreateVestingAccount } from '@models';
+import MsgCreateVestingAccount from '@models/evmos/msg/vesting/msg_create_vesting_account';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const CreateVestingAccount = (props: { message: MsgCreateVestingAccount }) => {

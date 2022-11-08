@@ -60,7 +60,7 @@
   "MsgLock": "Lock",
   "MsgBurn": "Burn",
   "MsgCreateEthBridgeClaim": "Create Eth Bridge Claim",
-  "MsgUpdateWhiteListValidator": "Update White List Validator",
+  "MsgUpdateWhitelistValidator": "Update White List Validator",
   "MsgUpdateCethReceiverAccount": "Update Ceth Receiver Account",
   "MsgRescueCeth": "Rescue Ceth",
   "MsgRegister": "Register",

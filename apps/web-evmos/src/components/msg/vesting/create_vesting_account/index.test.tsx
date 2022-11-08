@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgCreateVestingAccount } from '@models';
+import MsgCreateVestingAccount from '@models/evmos/msg/vesting/msg_create_vesting_account';
 import CreateVestingAccount from '.';
 
 // ==================================

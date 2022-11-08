@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgMintTokens } from '@models';
+import MsgMintTokens from '@models/emoney/msg/liquidity_provider/msg_mint_tokens';
 import MintTokens from '.';
 
 // ==================================

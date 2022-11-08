@@ -3,7 +3,7 @@ import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgCancelAuction } from '@models';
+import MsgCancelAuction from '@models/bitsong/msg/auction/msg_cancel_auction';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const CancelAuction = (props: { message: MsgCancelAuction }) => {

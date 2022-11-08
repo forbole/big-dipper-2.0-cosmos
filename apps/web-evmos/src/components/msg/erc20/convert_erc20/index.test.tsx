@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgConvertErc20 } from '@models';
+import MsgConvertErc20 from '@models/evmos/msg/erc20/msg_convert_erc20';
 import ConvertErc20 from '.';
 
 // ==================================

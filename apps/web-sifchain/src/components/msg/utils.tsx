@@ -419,11 +419,11 @@ const getDataByType = (type: string) => {
       tagTheme: 'twelve',
       tagDisplay: 'MsgCreateEthBridgeClaim',
     },
-    '/sifnode.ethbridge.v1.MsgUpdateWhiteListValidator': {
-      model: MODELS.MsgUpdateWhiteListValidator,
+    '/sifnode.ethbridge.v1.MsgUpdateWhitelistValidator': {
+      model: MODELS.MsgUpdateWhitelistValidator,
       content: COMPONENTS.UpdateWhiteListValidator,
       tagTheme: 'twelve',
-      tagDisplay: 'MsgUpdateWhiteListValidator',
+      tagDisplay: 'MsgUpdateWhitelistValidator',
     },
     '/sifnode.ethbridge.v1.MsgUpdateCethReceiverAccount': {
       model: MODELS.MsgUpdateCethReceiverAccount,

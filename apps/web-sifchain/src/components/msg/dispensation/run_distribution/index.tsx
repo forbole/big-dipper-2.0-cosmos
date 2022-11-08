@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgRunDistribution } from '@models';
+import MsgRunDistribution from '@models/sifchain/msg/dispensation/msg_run_distribution';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const RunDistribution = (props: { message: MsgRunDistribution }) => {

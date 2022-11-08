@@ -12,3 +12,8 @@ type TokenUnit = {
   exponent: number;
   value: string;
 };
+
+type MsgCoin = {
+  denom: string;
+  amount: string;
+};

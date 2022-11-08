@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgUpdateWhiteListValidator } from '@models';
+import { MsgUpdateWhitelistValidator } from '@models';
 import UpdateWhiteListValidator from '.';
 
 // ==================================
@@ -17,9 +17,9 @@ jest.mock('next-translate/Trans', () => (props) => <div id="Trans" {...props} />
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/MsgUpdateWhiteListValidator', () => {
+describe('screen: TransactionDetails/MsgUpdateWhitelistValidator', () => {
   it('matches snapshot', () => {
-    const message = new MsgUpdateWhiteListValidator({
+    const message = new MsgUpdateWhitelistValidator({
       category: 'dispensation',
       type: 'MsgBurn',
       cosmosSender: 'cosmosSender',
@@ -33,7 +33,7 @@ describe('screen: TransactionDetails/MsgUpdateWhiteListValidator', () => {
     expect(tree).toMatchSnapshot();
 
     expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(
-      'message_contents:MsgUpdateWhiteListValidator'
+      'message_contents:MsgUpdateWhitelistValidator'
     );
   });
 

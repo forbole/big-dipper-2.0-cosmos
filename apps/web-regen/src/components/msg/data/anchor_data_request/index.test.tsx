@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgAnchorDataRequest } from '@models';
+import MsgAnchorDataRequest from '@models/regen/msg/data/msg_anchor_data_request';
 import AnchorDataRequest from '.';
 
 // ==================================

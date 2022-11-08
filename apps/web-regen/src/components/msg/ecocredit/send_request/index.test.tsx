@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgSendRequest } from '@models';
+import MsgSendRequest from '@models/regen/msg/ecocredit/msg_send_request';
 import SendRequest from '.';
 
 // ==================================

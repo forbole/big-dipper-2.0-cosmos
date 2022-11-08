@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgRetireRequest } from '@models';
+import MsgRetireRequest from '@models/regen/msg/ecocredit/msg_retire_request';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const RetireRequest = (props: { message: MsgRetireRequest }) => {

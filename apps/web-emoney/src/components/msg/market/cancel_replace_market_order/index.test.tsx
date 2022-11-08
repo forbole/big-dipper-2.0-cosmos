@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgCancelReplaceMarketOrder } from '@models';
+import MsgCancelReplaceMarketOrder from '@models/emoney/msg/market/msg_cancel_replace_market_order';
 import CancelReplaceMarketOrder from '.';
 
 // ==================================

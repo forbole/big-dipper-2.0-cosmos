@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgCancelReplaceLimitOrder } from '@models';
+import MsgCancelReplaceLimitOrder from '@models/emoney/msg/market/msg_cancel_replace_limit_order';
 import CancelReplaceLimitOrder from '.';
 
 // ==================================

@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgRescueCeth } from '@models';
+import MsgRescueCeth from '@models/sifchain/msg/ethbridge/msg_rescue_ceth';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const RescueCeth = (props: { message: MsgRescueCeth }) => {

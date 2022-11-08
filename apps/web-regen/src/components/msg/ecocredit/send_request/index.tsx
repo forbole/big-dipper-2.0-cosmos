@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgSendRequest } from '@models';
+import MsgSendRequest from '@models/regen/msg/ecocredit/msg_send_request';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const SendRequest = (props: { message: MsgSendRequest }) => {

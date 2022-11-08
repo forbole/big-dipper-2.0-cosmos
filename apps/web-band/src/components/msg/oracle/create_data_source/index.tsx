@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgCreateDataSource } from '@models';
+import MsgCreateDataSource from '@models/band/msg/oracle/msg_create_data_source';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const CreateDataSource = (props: { message: MsgCreateDataSource }) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
-import { MsgIssueDenom } from '@models';
+import MsgIssueDenom from '@models/bitsong/msg/nft/msg_issue_denom';
 import { ListNames } from './components';
 
 const IssueDenom = (props: { message: MsgIssueDenom }) => {

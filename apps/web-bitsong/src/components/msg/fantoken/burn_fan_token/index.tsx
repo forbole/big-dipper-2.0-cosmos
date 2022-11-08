@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgBurnFanToken } from '@models';
+import MsgBurnFanToken from '@models/bitsong/msg/fantoken/msg_burn_fan_token';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const BurnFanToken = (props: { message: MsgBurnFanToken }) => {

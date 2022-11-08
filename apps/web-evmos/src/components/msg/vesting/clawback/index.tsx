@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgClawback } from '@models';
+import MsgClawback from '@models/evmos/msg/vesting/msg_clawback';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const Clawback = (props: { message: MsgClawback }) => {

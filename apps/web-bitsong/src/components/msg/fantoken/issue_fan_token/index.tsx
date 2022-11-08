@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgIssueFanToken } from '@models';
+import MsgIssueFanToken from '@models/bitsong/msg/fantoken/msg_issue_fan_token';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const IssueFanToken = (props: { message: MsgIssueFanToken }) => {

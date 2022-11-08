@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgConvertCoin } from '@models';
+import MsgConvertCoin from '@models/evmos/msg/erc20/msg_convert_coin';
 import ConvertCoin from '.';
 
 // ==================================

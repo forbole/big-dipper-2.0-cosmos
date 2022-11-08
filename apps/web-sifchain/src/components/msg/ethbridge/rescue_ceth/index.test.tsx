@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgRescueCeth } from '@models';
+import MsgRescueCeth from '@models/sifchain/msg/ethbridge/msg_rescue_ceth';
 import RescueCeth from '.';
 
 // ==================================

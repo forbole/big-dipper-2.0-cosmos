@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgEditNFT } from '@models';
+import MsgEditNFT from '@models/bitsong/msg/nft/msg_edit_nft';
 import EditNFT from '.';
 
 // ==================================

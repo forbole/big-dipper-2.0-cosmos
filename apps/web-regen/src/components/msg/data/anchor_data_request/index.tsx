@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgAnchorDataRequest } from '@models';
+import MsgAnchorDataRequest from '@models/regen/msg/data/msg_anchor_data_request';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const AnchorDataRequest = (props: { message: MsgAnchorDataRequest }) => {

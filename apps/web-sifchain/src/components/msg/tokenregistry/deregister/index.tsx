@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgDeregister } from '@models';
+import MsgDeregister from '@models/sifchain/msg/tokenregistry/msg_deregister';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const Deregister = (props: { message: MsgDeregister }) => {

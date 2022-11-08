@@ -4,7 +4,7 @@ import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
 import Name from '@components/name';
-import { MsgOpenBid } from '@models';
+import MsgOpenBid from '@models/bitsong/msg/auction/msg_open_bid';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const OpenBid = (props: { message: MsgOpenBid }) => {

@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgBurn } from '@models';
+import MsgBurn from '@models/sifchain/msg/ethbridge/msg_burn';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const Burn = (props: { message: MsgBurn }) => {

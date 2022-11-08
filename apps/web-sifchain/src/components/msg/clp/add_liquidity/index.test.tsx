@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgAddLiquidity } from '@models';
+import MsgAddLiquidity from '@models/sifchain/msg/clp/msg_add_liquidity';
 import AddLiquidity from '.';
 
 // ==================================

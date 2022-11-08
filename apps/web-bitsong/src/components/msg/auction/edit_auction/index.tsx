@@ -3,7 +3,7 @@ import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgEditAuction } from '@models';
+import MsgEditAuction from '@models/bitsong/msg/auction/msg_edit_auction';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const EditAuction = (props: { message: MsgEditAuction }) => {

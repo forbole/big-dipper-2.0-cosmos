@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgDecommissionPool } from '@models';
+import MsgDecommissionPool from '@models/sifchain/msg/clp/msg_decommission_pool';
 import DecommissionPool from '.';
 
 // ==================================

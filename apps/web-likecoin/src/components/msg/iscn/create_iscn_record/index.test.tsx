@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgCreateIscnRecord } from '@models';
+import MsgCreateIscnRecord from '@models/likecoin/msg/iscn/msg_create_iscn_record';
 import CreateIscnRecord from '.';
 
 // ==================================

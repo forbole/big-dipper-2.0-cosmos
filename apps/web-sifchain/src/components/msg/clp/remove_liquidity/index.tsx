@@ -3,7 +3,7 @@ import * as R from 'ramda';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgRemoveLiquidity } from '@models';
+import MsgRemoveLiquidity from '@models/sifchain/msg/clp/msg_remove_liquidity';
 import { useProfileRecoil } from '@recoil/profiles';
 import chainConfig from 'ui/chainConfig';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgCancelOrder } from '@models';
+import MsgCancelOrder from '@models/emoney/msg/market/msg_cancel_order';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const CancelOrder = (props: { message: MsgCancelOrder }) => {

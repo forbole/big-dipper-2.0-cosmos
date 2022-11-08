@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: TransactionDetails/MsgUpdateWhiteListValidator matches snapshot 1`] = `
+exports[`screen: TransactionDetails/MsgUpdateWhitelistValidator matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1"
 >
@@ -14,7 +14,7 @@ exports[`screen: TransactionDetails/MsgUpdateWhiteListValidator matches snapshot
         <b />,
       ]
     }
-    i18nKey="message_contents:MsgUpdateWhiteListValidator"
+    i18nKey="message_contents:MsgUpdateWhitelistValidator"
     id="Trans"
   />
 </p>

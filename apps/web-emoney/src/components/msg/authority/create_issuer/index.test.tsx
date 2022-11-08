@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgCreateIssuer } from '@models';
+import MsgCreateIssuer from '@models/emoney/msg/authority/msg_create_issuer';
 import CreateIssuer from '.';
 
 // ==================================

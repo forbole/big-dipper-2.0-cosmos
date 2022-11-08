@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgDeregister } from '@models';
+import MsgDeregister from '@models/sifchain/msg/tokenregistry/msg_deregister';
 import Deregister from '.';
 
 // ==================================

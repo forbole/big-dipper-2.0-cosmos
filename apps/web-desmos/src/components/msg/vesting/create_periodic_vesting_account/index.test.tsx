@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgCreatePeriodicVestingAccount } from '@models';
+import { MsgCreatePeriodicVestingAccount } from '@models'
 import CreatePeriodicVestingAccount from '.';
 
 // ==================================

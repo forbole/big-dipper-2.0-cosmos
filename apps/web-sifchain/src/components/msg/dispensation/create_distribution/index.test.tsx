@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgCreateDistribution } from '@models';
+import MsgCreateDistribution from '@models/sifchain/msg/dispensation/msg_create_distribution';
 import CreateDistribution from '.';
 
 // ==================================

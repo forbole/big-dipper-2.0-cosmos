@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgBurnNFT } from '@models';
+import MsgBurnNFT from '@models/bitsong/msg/nft/msg_burn_nft';
 import BurnNFT from '.';
 
 // ==================================

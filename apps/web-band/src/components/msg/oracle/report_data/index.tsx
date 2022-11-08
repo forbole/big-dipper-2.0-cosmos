@@ -3,7 +3,7 @@ import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgReportData } from '@models';
+import MsgReportData from '@models/band/msg/oracle/msg_report_data';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const ReportData = (props: { message: MsgReportData }) => {

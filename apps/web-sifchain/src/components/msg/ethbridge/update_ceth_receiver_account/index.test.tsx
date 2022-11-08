@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgUpdateCethReceiverAccount } from '@models';
+import MsgUpdateCethReceiverAccount from '@models/sifchain/msg/ethbridge/msg_update_ceth_receiver_account';
 import UpdateCethReceiverAccount from '.';
 
 // ==================================

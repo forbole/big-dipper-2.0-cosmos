@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgCreateDistribution } from '@models';
+import MsgCreateDistribution from '@models/sifchain/msg/dispensation/msg_create_distribution';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const CreateDistribution = (props: { message: MsgCreateDistribution }) => {

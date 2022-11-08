@@ -3,7 +3,7 @@ import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgWithdraw } from '@models';
+import MsgWithdraw from '@models/bitsong/msg/auction/msg_withdraw';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const Withdraw = (props: { message: MsgWithdraw }) => {

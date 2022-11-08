@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgIssueDenom } from '@models';
+import MsgIssueDenom from '@models/bitsong/msg/nft/msg_issue_denom';
 import IssueDenom from '.';
 
 // ==================================
