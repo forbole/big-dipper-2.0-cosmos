@@ -22,7 +22,7 @@ const stakingDefault = {
   loading: true,
 };
 
-const LIMIT = 100;
+const LIMIT = 10;
 const PAGE_LIMIT = 10;
 
 export const useStaking = (rewards: RewardsType) => {
