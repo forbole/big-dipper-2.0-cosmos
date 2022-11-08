@@ -9,7 +9,9 @@ import Navbar from '.';
 jest.mock('shared-utils/assets/big-dipper-white.svg', () => (props) => (
   <div id="WHITE" {...props} />
 ));
-jest.mock('shared-utils/assets/big-dipper-red.svg', () => (props) => <div id="RED" {...props} />);
+jest.mock('shared-utils/assets/big-dipper-red.svg', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="RED" {...props} />
+));
 // ==================================
 // global setup
 // ==================================

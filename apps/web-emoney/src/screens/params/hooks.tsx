@@ -4,13 +4,7 @@ import * as R from 'ramda';
 import { useParamsQuery, ParamsQuery } from '@graphql/types/general_types';
 import { formatToken } from 'ui/utils/format_token';
 import chainConfig from 'ui/chainConfig';
-import {
-  DistributionParams,
-  GovParams,
-  MintParams,
-  StakingParams,
-  SlashingParams,
-} from '@models';
+import { DistributionParams, GovParams, MintParams, StakingParams, SlashingParams } from '@models';
 import InflationRateParams from '@models/emoney/inflation_rate_params';
 import GasPriceParams from '@models/emoney/gas_price_params';
 import { ParamsState } from './types';

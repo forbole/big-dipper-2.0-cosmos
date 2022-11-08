@@ -15,7 +15,9 @@ const mockI18n = {
   t: (key: string) => key,
   lang: 'en',
 };
-jest.mock('@material-ui/core/Drawer', () => (props) => <div id="drawer" {...props} />);
+jest.mock('@material-ui/core/Drawer', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="drawer" {...props} />
+));
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('next/router', () => ({
   useRouter: () => ({

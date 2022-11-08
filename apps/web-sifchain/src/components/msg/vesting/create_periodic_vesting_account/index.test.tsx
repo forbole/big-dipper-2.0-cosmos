@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from '@tests/utils';
-import { MsgCreatePeriodicVestingAccount } from '@models'
+import { MsgCreatePeriodicVestingAccount } from '@models';
 import CreatePeriodicVestingAccount from '.';
 
 // ==================================
@@ -12,7 +12,9 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 
-jest.mock('next-translate/Trans', () => (props) => <div id="Trans" {...props} />);
+jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Trans" {...props} />
+));
 
 // ==================================
 // unit tests

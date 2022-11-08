@@ -22,10 +22,10 @@ class MsgWithdrawDelegatorReward {
 
   static getWithdrawalAmount(log: any) {
     const withdrawEvents = R.pathOr([], ['events'], log).filter(
-      (x: { type: string; }) => x.type === 'withdraw_rewards'
+      (x: { type: string }) => x.type === 'withdraw_rewards'
     );
     const withdrawAmounts = R.pathOr([], [0, 'attributes'], withdrawEvents).filter(
-      (x: { key: string; }) => x.key === 'amount'
+      (x: { key: string }) => x.key === 'amount'
     );
 
     const amounts = R.pathOr('0', [0, 'value'], withdrawAmounts)
