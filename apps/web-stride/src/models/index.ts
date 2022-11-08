@@ -1,4 +1,3 @@
-export { default as StakeibcParams } from './stakeibc_params';
 // ================================
 // Transaction Message Types
 // ================================

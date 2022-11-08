@@ -1,7 +1,7 @@
 import { defineConfig, Options } from 'tsup';
 
 const config: Options = {
-  entry: ['src/**/index.{ts,tsx}'],
+  entry: ['src/**/*.{ts,tsx}'],
   target: 'es6',
   minify: true,
   clean: true,
