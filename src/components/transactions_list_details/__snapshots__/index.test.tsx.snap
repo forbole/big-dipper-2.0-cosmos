@@ -1,8 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`component: TransactionsListDetails it renders 1`] = `
+exports[`component: TransactionsListDetails handles empty data correctly 1`] = `
 <div
-  hasNextPage={true}
+  id="NoData"
+/>
+`;
+
+exports[`component: TransactionsListDetails matches snapshot 1`] = `
+<div
+  hasNextPage={false}
   id="List"
   isItemLoaded={[Function]}
   isNextPageLoading={false}
