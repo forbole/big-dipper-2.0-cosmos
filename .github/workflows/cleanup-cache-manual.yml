@@ -1,4 +1,4 @@
-name: "Cleanup - Cache"
+name: "Cache Cleanup - Manual"
 on:
   workflow_dispatch:
     inputs:

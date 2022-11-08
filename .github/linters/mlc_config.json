@@ -1,3 +1,13 @@
 {
-    "aliveStatusCodes": [0, 200, 206, 999]
+    "aliveStatusCodes": [0, 200, 206, 429, 403, 501, 999],
+    "replacementPatterns": [
+        {
+            "pattern": "\" %}",
+            "replacement": ""
+        },
+        {
+            "pattern": "&quot; %}",
+            "replacement": ""
+        }
+    ]
 }

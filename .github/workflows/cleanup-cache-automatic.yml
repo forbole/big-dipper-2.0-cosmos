@@ -1,0 +1,24 @@
+name: "Cache Cleanup - Automatic"
+on:
+  pull_request:
+    types:
+      - closed
+defaults:
+  run:
+    shell: bash
+
+
+jobs:
+
+  cache-purge:
+    name: "Purge Actions cache"
+    runs-on: ubuntu-latest
+    
+    steps:
+
+      - name: "Delete Branch Cache Action"
+        uses: snnaplab/delete-branch-cache-action@v1.0.0
+        with:
+          # Specify explicitly because the ref at the time of merging will be a branch name such as 'main', 'develop'
+          ref: refs/pull/${{ github.event.number }}/merge
+          github-token: ${{ secrets.GITHUB_TOKEN }}
