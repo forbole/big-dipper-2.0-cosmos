@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import { useRecoilValue } from 'recoil';
-import { readMarket } from '@recoil/market';
+import { readMarket } from 'ui/recoil/market';
 import useTranslation from 'next-translate/useTranslation';
 import { SingleBlock } from './components';
 import { useStyles } from './styles';

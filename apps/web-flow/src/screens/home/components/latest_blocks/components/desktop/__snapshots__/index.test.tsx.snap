@@ -84,7 +84,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
         >
-          1 day ago
+          2 years ago
         </td>
       </tr>
     </tbody>

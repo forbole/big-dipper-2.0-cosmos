@@ -7,7 +7,7 @@ import Countdown from '@screens/countdown';
 import InitialLoad from '@screens/initial_load';
 import { useSettingsRecoil } from '@recoil/settings';
 import { useBigDipperNetworksRecoil } from 'ui/recoil/big_dipper_networks';
-import { useMarketRecoil } from '@recoil/market';
+import { useMarketRecoil } from '@recoil/market/flow';
 // import { useValidatorRecoil } from '@recoil/validators';
 import { InnerApp } from '..';
 import { useTheme, useGenesis } from './hooks';

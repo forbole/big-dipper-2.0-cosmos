@@ -6,7 +6,7 @@ import { AppProps } from 'next/app';
 import InitialLoad from '@screens/initial_load';
 // import { useSettingsRecoil } from '@recoil/settings';
 import { useBigDipperNetworksRecoil } from 'ui/recoil/big_dipper_networks';
-import { useMarketRecoil } from '@recoil/market';
+import { useMarketRecoil } from '@recoil/market/elrond';
 // import { useValidatorRecoil } from '@recoil/validators';
 import { InnerApp } from '..';
 import { useTheme } from './hooks';

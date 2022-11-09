@@ -126,68 +126,14 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
     className="makeStyles-list"
   >
     <div
-      className="List"
-      onScroll={[Function]}
       style={
         {
-          "WebkitOverflowScrolling": "touch",
-          "direction": "ltr",
-          "height": 600,
-          "overflow": "auto",
-          "position": "relative",
-          "width": 600,
-          "willChange": "transform",
+          "height": 0,
+          "overflow": "visible",
+          "width": 0,
         }
       }
-    >
-      <div
-        style={
-          {
-            "height": 100,
-            "pointerEvents": undefined,
-            "width": "100%",
-          }
-        }
-      >
-        <div
-          style={
-            {
-              "height": 100,
-              "left": 0,
-              "position": "absolute",
-              "right": undefined,
-              "top": 0,
-              "width": "100%",
-            }
-          }
-        >
-          <div>
-            <div
-              className="makeStyles-item"
-            >
-              <div
-                className="makeStyles-tags"
-              >
-                <div
-                  id="Tag"
-                  theme="two"
-                  value="message_labels:txSendLabel"
-                />
-              </div>
-              <span
-                className="msg"
-              >
-                <p
-                  className="MuiTypography-root MuiTypography-body1"
-                >
-                  message_contents:txSendContent
-                </p>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    />
   </div>
 </div>
 `;

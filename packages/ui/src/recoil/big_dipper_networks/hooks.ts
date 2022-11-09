@@ -7,7 +7,9 @@ import { BigDipperNetwork } from '@models';
 import { writeNetworks, writeSelectedNetwork } from 'ui/recoil/big_dipper_networks';
 import { Networks, Selected } from 'ui/recoil/big_dipper_networks/types';
 
-export type UseChainIdQuery<T, V, R> = (baseOptions?: QueryHookOptions<T, V>) => QueryResult<T, R>;
+export type UseChainIdQuery<TData, TVariables> = (
+  baseOptions?: QueryHookOptions<TData, TVariables>
+) => QueryResult<TData, TVariables>;
 
 const NETWORK_LIST_API =
   'https://raw.githubusercontent.com/forbole/big-dipper-networks/main/networks.json';
@@ -21,7 +23,9 @@ const NETWORK_LIST_API =
  * takes in a useChainIdQuery and returns a function that takes in a useChainIdQuery and returns a
  * function that takes in a useChainIdQuery and returns a function that takes in a useChain
  */
-export function useBigDipperNetworksRecoil<T, V, R>(useChainIdQuery?: UseChainIdQuery<T, V, R>) {
+export function useBigDipperNetworksRecoil<TData, TVariables>(
+  useChainIdQuery?: UseChainIdQuery<TData, TVariables>
+) {
   const disabledSelection = !useChainIdQuery;
   const [_, setNetworks] = useRecoilState(writeNetworks) as [Networks, SetterOrUpdater<Networks>];
   const [selectedNetwork, setSelectedNetwork] = useSelectedHook(disabledSelection);
@@ -63,7 +67,7 @@ export function useBigDipperNetworksRecoil<T, V, R>(useChainIdQuery?: UseChainId
     },
   });
 
-  function formatUseChainIdQuery(data: T) {
+  function formatUseChainIdQuery(data: TData) {
     return R.pathOr(selectedNetwork, ['genesis', 0, 'chainId'], data);
   }
 }

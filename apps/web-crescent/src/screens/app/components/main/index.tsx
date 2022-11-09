@@ -8,7 +8,7 @@ import InitialLoad from '@screens/initial_load';
 import { useSettingsRecoil } from '@recoil/settings';
 import { useChainIdQuery } from '@graphql/types/general_types';
 import { useBigDipperNetworksRecoil } from 'ui/recoil/big_dipper_networks';
-import { useMarketRecoil } from '@recoil/market';
+import { useMarketRecoil } from '@recoil/market/crescent';
 import { useValidatorRecoil } from '@recoil/validators';
 import { InnerApp } from '..';
 import { useTheme, useGenesis } from './hooks';

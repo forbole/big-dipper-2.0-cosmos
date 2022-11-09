@@ -6,9 +6,9 @@ import { AppProps } from 'next/app';
 import Countdown from '@screens/countdown';
 import InitialLoad from '@screens/initial_load';
 import { useSettingsRecoil } from '@recoil/settings';
-import { useChainIdQuery } from '@graphql/types/general_types';
+import { useChainIdQuery, useMarketDataQuery } from '@graphql/types/general_types';
 import { useBigDipperNetworksRecoil } from 'ui/recoil/big_dipper_networks';
-import { useMarketRecoil } from '@recoil/market';
+import { useMarketRecoil } from 'ui/recoil/market';
 import { useValidatorRecoil } from '@recoil/validators';
 import { InnerApp } from '..';
 import { useTheme, useGenesis } from './hooks';
@@ -19,7 +19,7 @@ const Main = (props: AppProps) => {
   // =====================================
   useSettingsRecoil();
   useBigDipperNetworksRecoil(useChainIdQuery);
-  useMarketRecoil();
+  useMarketRecoil(useMarketDataQuery);
   const { loading } = useValidatorRecoil();
 
   // =====================================

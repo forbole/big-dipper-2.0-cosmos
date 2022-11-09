@@ -21,7 +21,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
       </ForwardRef(LinkComponent)>
     }
     id="SingleBlockMobile"
-    time="1 day ago"
+    time="2 years ago"
     txs="12"
   />
 </div>
