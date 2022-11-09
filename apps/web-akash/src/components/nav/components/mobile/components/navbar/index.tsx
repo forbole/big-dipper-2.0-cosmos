@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import Link from 'next/link';
 import { ExpandMore } from '@material-ui/icons';
 import { useRecoilValue } from 'recoil';
-import { readSelectedNetwork } from 'ui/recoil/big_dipper_networks';
+import { readSelectedNetwork } from '@recoil/big_dipper_networks';
 import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
 import { HOME } from '@utils/go_to_page';

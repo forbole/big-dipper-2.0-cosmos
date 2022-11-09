@@ -6,4 +6,4 @@ export {
   readNetworks,
   readSelectedNetwork,
 } from './selectors';
-export type { AtomState } from './types';
+export type { AtomState, Networks, Selected } from './types';

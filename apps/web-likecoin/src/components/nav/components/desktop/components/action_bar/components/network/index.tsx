@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { ExpandMore } from '@material-ui/icons';
 import { Typography } from '@material-ui/core';
 import { useRecoilValue } from 'recoil';
-import { readSelectedNetwork } from 'ui/recoil/big_dipper_networks';
+import { readSelectedNetwork } from '@recoil/big_dipper_networks';
 import ChainIcon from 'ui/components/ChainIcon';
 import { useStyles } from './styles';
 
