@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
 import { useRecoilValue } from 'recoil';
-import { readNetworks } from '@recoil/big_dipper_networks';
+import { readNetworks } from 'ui/recoil/big_dipper_networks';
 import { useStyles } from './styles';
 import { SingleNetwork } from './components';
 

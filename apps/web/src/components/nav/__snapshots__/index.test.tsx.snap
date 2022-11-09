@@ -1,11 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component: Nav it renders 1`] = `
-<div>
-  <div
-    className="makeStyles-mobile"
-    id="Mobile"
-    title=""
-  />
-</div>
+<div
+  className="makeStyles-mobile"
+  id="Mobile"
+  title=""
+/>
 `;

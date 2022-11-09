@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Nav/Menu it renders 1`] = `
-<div>
+[
   <div
     anchor="bottom"
     className="makeStyles-drawer lang-drawer"
@@ -40,7 +40,7 @@ exports[`screen: Nav/Menu it renders 1`] = `
         </a>
       </div>
     </div>
-  </div>
+  </div>,
   <div
     anchor="bottom"
     className="makeStyles-drawer"
@@ -127,7 +127,7 @@ exports[`screen: Nav/Menu it renders 1`] = `
         </a>
       </div>
     </div>
-  </div>
+  </div>,
   <div
     className="makeStyles-root"
   >
@@ -422,6 +422,6 @@ exports[`screen: Nav/Menu it renders 1`] = `
         </span>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;

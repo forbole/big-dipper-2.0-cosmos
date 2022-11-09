@@ -1,205 +1,203 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component: TransactionMessagesFilter it renders 1`] = `
-<div>
+<div
+  IconComponent={
+    {
+      "$$typeof": Symbol(react.memo),
+      "compare": null,
+      "type": {
+        "$$typeof": Symbol(react.forward_ref),
+        "render": [Function],
+      },
+    }
+  }
+  MenuProps={
+    {
+      "anchorOrigin": {
+        "horizontal": "left",
+        "vertical": "bottom",
+      },
+      "getContentAnchorEl": null,
+      "transformOrigin": {
+        "horizontal": "left",
+        "vertical": "top",
+      },
+    }
+  }
+  className="makeStyles-select"
+  displayEmpty={true}
+  id="Select"
+  input={<InputBase />}
+  renderValue={[Function]}
+  value=""
+>
   <div
-    IconComponent={
-      {
-        "$$typeof": Symbol(react.memo),
-        "compare": null,
-        "type": {
-          "$$typeof": Symbol(react.forward_ref),
-          "render": [Function],
-        },
-      }
-    }
-    MenuProps={
-      {
-        "anchorOrigin": {
-          "horizontal": "left",
-          "vertical": "bottom",
-        },
-        "getContentAnchorEl": null,
-        "transformOrigin": {
-          "horizontal": "left",
-          "vertical": "top",
-        },
-      }
-    }
-    className="makeStyles-select"
-    displayEmpty={true}
-    id="Select"
-    input={<InputBase />}
-    renderValue={[Function]}
-    value=""
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="none"
   >
     <div
-      className="makeStyles-item"
-      id="MenuItem"
-      onClick={[Function]}
-      value="none"
+      id="Typography"
+      noWrap={true}
+      variant="body1"
     >
-      <div
-        id="Typography"
-        noWrap={true}
-        variant="body1"
-      >
-        none
-      </div>
+      none
     </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="bank"
+  >
     <div
-      className="makeStyles-item"
-      id="MenuItem"
-      onClick={[Function]}
-      value="bank"
+      id="Typography"
+      noWrap={true}
+      variant="body1"
     >
-      <div
-        id="Typography"
-        noWrap={true}
-        variant="body1"
-      >
-        bank
-      </div>
+      bank
     </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="crisis"
+  >
     <div
-      className="makeStyles-item"
-      id="MenuItem"
-      onClick={[Function]}
-      value="crisis"
+      id="Typography"
+      noWrap={true}
+      variant="body1"
     >
-      <div
-        id="Typography"
-        noWrap={true}
-        variant="body1"
-      >
-        crisis
-      </div>
+      crisis
     </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="distribution"
+  >
     <div
-      className="makeStyles-item"
-      id="MenuItem"
-      onClick={[Function]}
-      value="distribution"
+      id="Typography"
+      noWrap={true}
+      variant="body1"
     >
-      <div
-        id="Typography"
-        noWrap={true}
-        variant="body1"
-      >
-        distribution
-      </div>
+      distribution
     </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="governance"
+  >
     <div
-      className="makeStyles-item"
-      id="MenuItem"
-      onClick={[Function]}
-      value="governance"
+      id="Typography"
+      noWrap={true}
+      variant="body1"
     >
-      <div
-        id="Typography"
-        noWrap={true}
-        variant="body1"
-      >
-        governance
-      </div>
+      governance
     </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="slashing"
+  >
     <div
-      className="makeStyles-item"
-      id="MenuItem"
-      onClick={[Function]}
-      value="slashing"
+      id="Typography"
+      noWrap={true}
+      variant="body1"
     >
-      <div
-        id="Typography"
-        noWrap={true}
-        variant="body1"
-      >
-        slashing
-      </div>
+      slashing
     </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="staking"
+  >
     <div
-      className="makeStyles-item"
-      id="MenuItem"
-      onClick={[Function]}
-      value="staking"
+      id="Typography"
+      noWrap={true}
+      variant="body1"
     >
-      <div
-        id="Typography"
-        noWrap={true}
-        variant="body1"
-      >
-        staking
-      </div>
+      staking
     </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="authz"
+  >
     <div
-      className="makeStyles-item"
-      id="MenuItem"
-      onClick={[Function]}
-      value="authz"
+      id="Typography"
+      noWrap={true}
+      variant="body1"
     >
-      <div
-        id="Typography"
-        noWrap={true}
-        variant="body1"
-      >
-        authz
-      </div>
+      authz
     </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="feegrant"
+  >
     <div
-      className="makeStyles-item"
-      id="MenuItem"
-      onClick={[Function]}
-      value="feegrant"
+      id="Typography"
+      noWrap={true}
+      variant="body1"
     >
-      <div
-        id="Typography"
-        noWrap={true}
-        variant="body1"
-      >
-        feegrant
-      </div>
+      feegrant
     </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="vesting"
+  >
     <div
-      className="makeStyles-item"
-      id="MenuItem"
-      onClick={[Function]}
-      value="vesting"
+      id="Typography"
+      noWrap={true}
+      variant="body1"
     >
-      <div
-        id="Typography"
-        noWrap={true}
-        variant="body1"
-      >
-        vesting
-      </div>
+      vesting
     </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="profiles"
+  >
     <div
-      className="makeStyles-item"
-      id="MenuItem"
-      onClick={[Function]}
-      value="profiles"
+      id="Typography"
+      noWrap={true}
+      variant="body1"
     >
-      <div
-        id="Typography"
-        noWrap={true}
-        variant="body1"
-      >
-        profiles
-      </div>
+      profiles
     </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="others"
+  >
     <div
-      className="makeStyles-item"
-      id="MenuItem"
-      onClick={[Function]}
-      value="others"
+      id="Typography"
+      noWrap={true}
+      variant="body1"
     >
-      <div
-        id="Typography"
-        noWrap={true}
-        variant="body1"
-      >
-        others
-      </div>
+      others
     </div>
   </div>
 </div>

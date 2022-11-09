@@ -1,58 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
-<div>
+<div
+  className="makeStyles-root"
+  id="Box"
+>
   <div
-    className="makeStyles-root"
-    id="Box"
+    className="makeStyles-copyText makeStyles-item"
   >
-    <div
-      className="makeStyles-copyText makeStyles-item"
+    <p
+      className="MuiTypography-root label MuiTypography-body1"
     >
+      address
+    </p>
+    <div
+      className="detail"
+    >
+      <svg
+        className="makeStyles-actionIcons"
+        onClick={[Function]}
+      />
+      <svg
+        className="makeStyles-actionIcons"
+        onClick={[Function]}
+      />
       <p
-        className="MuiTypography-root label MuiTypography-body1"
+        className="MuiTypography-root value MuiTypography-body1"
       >
-        address
+        desmos1jrld5g99...y94nz
       </p>
-      <div
-        className="detail"
-      >
-        <svg
-          className="makeStyles-actionIcons"
-          onClick={[Function]}
-        />
-        <svg
-          className="makeStyles-actionIcons"
-          onClick={[Function]}
-        />
-        <p
-          className="MuiTypography-root value MuiTypography-body1"
-        >
-          desmos1jrld5g99...y94nz
-        </p>
-      </div>
     </div>
-    <div
-      className="makeStyles-copyText makeStyles-item"
+  </div>
+  <div
+    className="makeStyles-copyText makeStyles-item"
+  >
+    <p
+      className="MuiTypography-root label MuiTypography-body1"
     >
+      rewardAddress
+    </p>
+    <div
+      className="detail"
+    >
+      <svg
+        className="makeStyles-actionIcons"
+        onClick={[Function]}
+      />
       <p
-        className="MuiTypography-root label MuiTypography-body1"
+        className="MuiTypography-root value MuiTypography-body1"
       >
-        rewardAddress
+        desmos1jrld5g99...y94nz
       </p>
-      <div
-        className="detail"
-      >
-        <svg
-          className="makeStyles-actionIcons"
-          onClick={[Function]}
-        />
-        <p
-          className="MuiTypography-root value MuiTypography-body1"
-        >
-          desmos1jrld5g99...y94nz
-        </p>
-      </div>
     </div>
   </div>
 </div>

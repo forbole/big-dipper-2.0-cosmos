@@ -1,19 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
-<div>
+<div
+  className="makeStyles-root"
+>
   <div
-    className="makeStyles-root"
-  >
-    <div
-      style={
-        {
-          "height": 0,
-          "overflow": "visible",
-          "width": 0,
-        }
+    style={
+      {
+        "height": 0,
+        "overflow": "visible",
+        "width": 0,
       }
-    />
-  </div>
+    }
+  />
 </div>
 `;

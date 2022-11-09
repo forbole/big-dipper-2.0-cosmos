@@ -1,65 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Proposals/List matches snapshot 1`] = `
-<div>
+<div
+  className="makeStyles-root"
+  id="Box"
+>
   <div
-    className="makeStyles-root"
-    id="Box"
+    className="makeStyles-topContent"
   >
     <div
-      className="makeStyles-topContent"
-    >
-      <div
-        className="makeStyles-total"
-        id="Total"
-        total="2"
-      />
-    </div>
+      className="makeStyles-total"
+      id="Total"
+      total="2"
+    />
+  </div>
+  <div
+    className="makeStyles-list"
+  >
     <div
-      className="makeStyles-list"
-    >
-      <div
-        style={
-          {
-            "height": 0,
-            "overflow": "visible",
-            "width": 0,
-          }
+      style={
+        {
+          "height": 0,
+          "overflow": "visible",
+          "width": 0,
         }
-      />
-    </div>
+      }
+    />
   </div>
 </div>
 `;
 
 exports[`screen: Proposals/List matches snapshot with empty proposal list 1`] = `
-<div>
+<div
+  className="makeStyles-root"
+  id="Box"
+>
   <div
-    className="makeStyles-root"
-    id="Box"
+    className="makeStyles-topContent"
   >
     <div
-      className="makeStyles-topContent"
-    >
-      <div
-        className="makeStyles-total"
-        id="Total"
-        total="0"
-      />
-    </div>
+      className="makeStyles-total"
+      id="Total"
+      total="0"
+    />
+  </div>
+  <div
+    className="makeStyles-list"
+  >
     <div
-      className="makeStyles-list"
-    >
-      <div
-        style={
-          {
-            "height": 0,
-            "overflow": "visible",
-            "width": 0,
-          }
+      style={
+        {
+          "height": 0,
+          "overflow": "visible",
+          "width": 0,
         }
-      />
-    </div>
+      }
+    />
   </div>
 </div>
 `;

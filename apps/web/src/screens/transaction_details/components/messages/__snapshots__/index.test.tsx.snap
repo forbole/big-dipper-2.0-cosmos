@@ -1,141 +1,139 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
-<div>
+<div
+  className="makeStyles-root"
+  id="Box"
+>
   <div
-    className="makeStyles-root"
-    id="Box"
+    className="makeStyles-header"
   >
     <div
-      className="makeStyles-header"
+      className="makeStyles-mobileOptions"
     >
-      <div
-        className="makeStyles-mobileOptions"
+      <h2
+        className="MuiTypography-root MuiTypography-h2"
       >
-        <h2
-          className="MuiTypography-root MuiTypography-h2"
-        >
-          messages
-        </h2>
-        <label
-          className="MuiFormControlLabel-root"
-        >
-          <span
-            className="MuiSwitch-root"
-          >
-            <span
-              aria-disabled={false}
-              className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary"
-              onBlur={[Function]}
-              onDragLeave={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onKeyUp={[Function]}
-              onMouseDown={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              tabIndex={null}
-            >
-              <span
-                className="MuiIconButton-label"
-              >
-                <input
-                  checked={false}
-                  className="PrivateSwitchBase-input MuiSwitch-input"
-                  onChange={[Function]}
-                  type="checkbox"
-                />
-                <span
-                  className="MuiSwitch-thumb"
-                />
-              </span>
-            </span>
-            <span
-              className="MuiSwitch-track"
-            />
-          </span>
-          <span
-            className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-          >
-            raw
-          </span>
-        </label>
-      </div>
-      <div
-        className="makeStyles-desktopOptions"
+        messages
+      </h2>
+      <label
+        className="MuiFormControlLabel-root"
       >
-        <label
-          className="MuiFormControlLabel-root"
+        <span
+          className="MuiSwitch-root"
         >
           <span
-            className="MuiSwitch-root"
+            aria-disabled={false}
+            className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary"
+            onBlur={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={null}
           >
             <span
-              aria-disabled={false}
-              className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary"
-              onBlur={[Function]}
-              onDragLeave={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onKeyUp={[Function]}
-              onMouseDown={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              tabIndex={null}
+              className="MuiIconButton-label"
             >
+              <input
+                checked={false}
+                className="PrivateSwitchBase-input MuiSwitch-input"
+                onChange={[Function]}
+                type="checkbox"
+              />
               <span
-                className="MuiIconButton-label"
-              >
-                <input
-                  checked={false}
-                  className="PrivateSwitchBase-input MuiSwitch-input"
-                  onChange={[Function]}
-                  type="checkbox"
-                />
-                <span
-                  className="MuiSwitch-thumb"
-                />
-              </span>
+                className="MuiSwitch-thumb"
+              />
             </span>
-            <span
-              className="MuiSwitch-track"
-            />
           </span>
           <span
-            className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-          >
-            raw
-          </span>
-        </label>
-        <div
-          callback={[MockFunction]}
-          className="makeStyles-filter"
-          id="TransactionMessagesFilter"
-        />
-      </div>
+            className="MuiSwitch-track"
+          />
+        </span>
+        <span
+          className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+        >
+          raw
+        </span>
+      </label>
     </div>
-    <hr
-      className="MuiDivider-root"
-    />
     <div
-      className="makeStyles-list"
+      className="makeStyles-desktopOptions"
     >
+      <label
+        className="MuiFormControlLabel-root"
+      >
+        <span
+          className="MuiSwitch-root"
+        >
+          <span
+            aria-disabled={false}
+            className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary"
+            onBlur={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={null}
+          >
+            <span
+              className="MuiIconButton-label"
+            >
+              <input
+                checked={false}
+                className="PrivateSwitchBase-input MuiSwitch-input"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <span
+                className="MuiSwitch-thumb"
+              />
+            </span>
+          </span>
+          <span
+            className="MuiSwitch-track"
+          />
+        </span>
+        <span
+          className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+        >
+          raw
+        </span>
+      </label>
       <div
-        style={
-          {
-            "height": 0,
-            "overflow": "visible",
-            "width": 0,
-          }
-        }
+        callback={[MockFunction]}
+        className="makeStyles-filter"
+        id="TransactionMessagesFilter"
       />
     </div>
+  </div>
+  <hr
+    className="MuiDivider-root"
+  />
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      style={
+        {
+          "height": 0,
+          "overflow": "visible",
+          "width": 0,
+        }
+      }
+    />
   </div>
 </div>
 `;

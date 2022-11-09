@@ -1,66 +1,64 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components: ConditionExplanation matches snapshot 1`] = `
-<div>
-  <div
-    className="makeStyles-root"
+<div
+  className="makeStyles-root"
+>
+  <p
+    className="MuiTypography-root MuiTypography-body1"
   >
-    <p
-      className="MuiTypography-root MuiTypography-body1"
-    >
-      conditionExplanation
-    </p>
+    conditionExplanation
+  </p>
+  <div
+    className="makeStyles-itemWrapper"
+  >
     <div
-      className="makeStyles-itemWrapper"
+      className="makeStyles-item"
     >
-      <div
-        className="makeStyles-item"
+      <p
+        className="MuiTypography-root MuiTypography-body1"
       >
-        <p
-          className="MuiTypography-root MuiTypography-body1"
-        >
-          90% - 100%
-        </p>
-        <div
-          className="makeStyles-condition green"
-        />
-      </div>
+        90% - 100%
+      </p>
       <div
-        className="makeStyles-item"
+        className="makeStyles-condition green"
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body1"
       >
-        <p
-          className="MuiTypography-root MuiTypography-body1"
-        >
-          70% - 90%
-        </p>
-        <div
-          className="makeStyles-condition yellow"
-        />
-      </div>
+        70% - 90%
+      </p>
       <div
-        className="makeStyles-item"
+        className="makeStyles-condition yellow"
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body1"
       >
-        <p
-          className="MuiTypography-root MuiTypography-body1"
-        >
-          1% - 70%
-        </p>
-        <div
-          className="makeStyles-condition red"
-        />
-      </div>
+        1% - 70%
+      </p>
       <div
-        className="makeStyles-item"
+        className="makeStyles-condition red"
+      />
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body1"
       >
-        <p
-          className="MuiTypography-root MuiTypography-body1"
-        >
-          0%
-        </p>
-        <div
-          className="makeStyles-condition"
-        />
-      </div>
+        0%
+      </p>
+      <div
+        className="makeStyles-condition"
+      />
     </div>
   </div>
 </div>

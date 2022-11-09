@@ -1,20 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component: NotFound matches snapshot 1`] = `
-<div>
+<div
+  className="makeStyles-root"
+>
   <div
-    className="makeStyles-root"
+    className="makeStyles-content"
   >
-    <div
-      className="makeStyles-content"
+    <svg />
+    <p
+      className="MuiTypography-root MuiTypography-body1"
     >
-      <svg />
-      <p
-        className="MuiTypography-root MuiTypography-body1"
-      >
-        notFound
-      </p>
-    </div>
+      notFound
+    </p>
   </div>
 </div>
 `;

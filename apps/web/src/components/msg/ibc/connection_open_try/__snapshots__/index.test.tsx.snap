@@ -1,11 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: TransactionDetails/IBCConnectionOpenTry matches snapshot 1`] = `
-<div>
-  <p
-    className="MuiTypography-root MuiTypography-body1"
-  >
-    message_contents:txConnectionOpenTryContent
-  </p>
-</div>
+<p
+  className="MuiTypography-root MuiTypography-body1"
+>
+  message_contents:txConnectionOpenTryContent
+</p>
 `;

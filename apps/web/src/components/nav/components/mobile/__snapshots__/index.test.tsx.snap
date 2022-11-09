@@ -2,121 +2,119 @@
 
 exports[`screen: Nav/Mobile it renders 1`] = `
 <div>
-  <div>
+  <div
+    className="makeStyles-root"
+  >
     <div
-      className="makeStyles-root"
+      className="makeStyles-screens"
+      id="menu"
+      toggleNavMenus={[Function]}
+    />
+    <span
+      className="makeStyles-screens"
     >
       <div
-        className="makeStyles-screens"
-        id="menu"
-        toggleNavMenus={[Function]}
+        className="makeStyles-networks"
       />
-      <span
-        className="makeStyles-screens"
-      >
-        <div
-          className="makeStyles-networks"
-        />
-      </span>
-      <div
-        id="navbar"
-        isOpen={false}
-        openNetwork={[Function]}
-        toggleNavMenus={[Function]}
-      />
-      <div
-        className="makeStyles-searchBar"
-        id="searchBar"
-      />
-    </div>
+    </span>
     <div
-      style={
-        {
-          "height": 0,
-        }
-      }
+      id="navbar"
+      isOpen={false}
+      openNetwork={[Function]}
+      toggleNavMenus={[Function]}
     />
     <div
-      className="makeStyles-root"
+      className="makeStyles-searchBar"
+      id="searchBar"
+    />
+  </div>
+  <div
+    style={
+      {
+        "height": 0,
+      }
+    }
+  />
+  <div
+    className="makeStyles-root"
+  >
+    <h1
+      className="MuiTypography-root MuiTypography-h1"
     >
-      <h1
-        className="MuiTypography-root MuiTypography-h1"
-      >
-        hello world
-      </h1>
+      hello world
+    </h1>
+    <div
+      className="makeStyles-content"
+    >
       <div
-        className="makeStyles-content"
+        className="makeStyles-item"
       >
-        <div
-          className="makeStyles-item"
+        <p
+          className="MuiTypography-root label MuiTypography-body1"
         >
-          <p
-            className="MuiTypography-root label MuiTypography-body1"
-          >
-            marketCap
-          </p>
-          <p
-            className="MuiTypography-root MuiTypography-body1"
-          >
-            N/A
-          </p>
-        </div>
-        <div
-          className="makeStyles-item"
+          marketCap
+        </p>
+        <p
+          className="MuiTypography-root MuiTypography-body1"
         >
-          <p
-            className="MuiTypography-root label MuiTypography-body1"
-          >
-            inflation
-          </p>
-          <p
-            className="MuiTypography-root MuiTypography-body1"
-          >
-            0%
-          </p>
-        </div>
-        <div
-          className="makeStyles-item"
+          N/A
+        </p>
+      </div>
+      <div
+        className="makeStyles-item"
+      >
+        <p
+          className="MuiTypography-root label MuiTypography-body1"
         >
-          <p
-            className="MuiTypography-root label MuiTypography-body1"
-          >
-            apr
-          </p>
-          <p
-            className="MuiTypography-root MuiTypography-body1"
-          >
-            0%
-          </p>
-        </div>
-        <div
-          className="makeStyles-item"
+          inflation
+        </p>
+        <p
+          className="MuiTypography-root MuiTypography-body1"
         >
-          <p
-            className="MuiTypography-root label MuiTypography-body1"
-          >
-            supply
-          </p>
-          <p
-            className="MuiTypography-root MuiTypography-body1"
-          >
-            0 
-          </p>
-        </div>
-        <div
-          className="makeStyles-item"
+          0%
+        </p>
+      </div>
+      <div
+        className="makeStyles-item"
+      >
+        <p
+          className="MuiTypography-root label MuiTypography-body1"
         >
-          <p
-            className="MuiTypography-root label MuiTypography-body1"
-          >
-            communityPool
-          </p>
-          <p
-            className="MuiTypography-root MuiTypography-body1"
-          >
-            0 
-          </p>
-        </div>
+          apr
+        </p>
+        <p
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          0%
+        </p>
+      </div>
+      <div
+        className="makeStyles-item"
+      >
+        <p
+          className="MuiTypography-root label MuiTypography-body1"
+        >
+          supply
+        </p>
+        <p
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          0 
+        </p>
+      </div>
+      <div
+        className="makeStyles-item"
+      >
+        <p
+          className="MuiTypography-root label MuiTypography-body1"
+        >
+          communityPool
+        </p>
+        <p
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          0 
+        </p>
       </div>
     </div>
   </div>

@@ -2,99 +2,97 @@
 
 exports[`screen: Nav/Networks it renders 1`] = `
 <div>
-  <div>
+  <div
+    className="makeStyles-networkList"
+  >
+    <img
+      alt="logo"
+      src="logo"
+    />
     <div
-      className="makeStyles-networkList"
+      className="network"
     >
-      <img
-        alt="logo"
-        src="logo"
-      />
-      <div
-        className="network"
+      <h4
+        className="MuiTypography-root MuiTypography-h4"
       >
-        <h4
-          className="MuiTypography-root MuiTypography-h4"
+        Cosmos
+      </h4>
+      <a
+        className="makeStyles-root"
+        href="https://cosmos.bigdipper.live"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <div
+          className="makeStyles-item"
         >
-          Cosmos
-        </h4>
-        <a
-          className="makeStyles-root"
-          href="https://cosmos.bigdipper.live"
-          rel="noreferrer"
-          target="_blank"
-        >
+          <p>
+            cosmoshub-4
+          </p>
           <div
-            className="makeStyles-item"
+            className="MuiTypography-root mainnet makeStyles-status MuiTypography-caption"
           >
-            <p>
-              cosmoshub-4
-            </p>
-            <div
-              className="MuiTypography-root mainnet makeStyles-status MuiTypography-caption"
-            >
-              Mainnet
-            </div>
+            Mainnet
           </div>
-        </a>
-        <a
-          className="makeStyles-root"
-          href="https://gaia.bigdipper.live/"
-          rel="noreferrer"
-          target="_blank"
+        </div>
+      </a>
+      <a
+        className="makeStyles-root"
+        href="https://gaia.bigdipper.live/"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <div
+          className="makeStyles-item"
         >
+          <p>
+            stargate-final
+          </p>
           <div
-            className="makeStyles-item"
+            className="MuiTypography-root testnet makeStyles-status MuiTypography-caption"
           >
-            <p>
-              stargate-final
-            </p>
-            <div
-              className="MuiTypography-root testnet makeStyles-status MuiTypography-caption"
-            >
-              Testnet
-            </div>
+            Testnet
           </div>
-        </a>
-        <a
-          className="makeStyles-root"
-          href="https://stargate-retired.bigdipper.live/"
-          rel="noreferrer"
-          target="_blank"
+        </div>
+      </a>
+      <a
+        className="makeStyles-root"
+        href="https://stargate-retired.bigdipper.live/"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <div
+          className="makeStyles-item"
         >
+          <p>
+            stargate-retired
+          </p>
           <div
-            className="makeStyles-item"
+            className="MuiTypography-root retired makeStyles-status MuiTypography-caption"
           >
-            <p>
-              stargate-retired
-            </p>
-            <div
-              className="MuiTypography-root retired makeStyles-status MuiTypography-caption"
-            >
-              Retired
-            </div>
+            Retired
           </div>
-        </a>
-        <a
-          className="makeStyles-root"
-          href=""
-          rel="noreferrer"
-          target="_blank"
+        </div>
+      </a>
+      <a
+        className="makeStyles-root"
+        href=""
+        rel="noreferrer"
+        target="_blank"
+      >
+        <div
+          className="makeStyles-item"
         >
+          <p>
+            other
+          </p>
           <div
-            className="makeStyles-item"
+            className="MuiTypography-root other makeStyles-status MuiTypography-caption"
           >
-            <p>
-              other
-            </p>
-            <div
-              className="MuiTypography-root other makeStyles-status MuiTypography-caption"
-            >
-              Other
-            </div>
+            Other
           </div>
-        </a>
-      </div>
+        </div>
+      </a>
     </div>
   </div>
 </div>

@@ -1,84 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components: Pagination/Actions matches snapshot 1`] = `
-<div>
-  <ul
-    className="makeStyles-root"
+<ul
+  className="makeStyles-root"
+>
+  <li
+    className="first"
   >
-    <li
-      className="first"
-    >
-      <div
-        aria-label="first page"
-        className="makeStyles-button"
-        disableRipple={true}
-        disabled={true}
-        id="iconButton"
-        onClick={[Function]}
-      >
-        <svg
-          className="makeStyles-prev"
-        />
-      </div>
-    </li>
-    <li>
-      <div
-        aria-label="previous page"
-        className="makeStyles-button"
-        disableRipple={true}
-        disabled={true}
-        id="iconButton"
-        onClick={[Function]}
-      >
-        <svg
-          className="makeStyles-prev"
-        />
-      </div>
-    </li>
-    <li
-      className="MuiTypography-root makeStyles-button makeStyles-pageButton selected MuiTypography-body2"
+    <div
+      aria-label="first page"
+      className="makeStyles-button"
+      disableRipple={true}
+      disabled={true}
+      id="iconButton"
       onClick={[Function]}
     >
-      1
-    </li>
-    <li
-      className="MuiTypography-root makeStyles-button makeStyles-pageButton MuiTypography-body2"
+      <svg
+        className="makeStyles-prev"
+      />
+    </div>
+  </li>
+  <li>
+    <div
+      aria-label="previous page"
+      className="makeStyles-button"
+      disableRipple={true}
+      disabled={true}
+      id="iconButton"
       onClick={[Function]}
     >
-      2
-    </li>
-    <li
-      className="MuiTypography-root makeStyles-button makeStyles-pageButton MuiTypography-body2"
+      <svg
+        className="makeStyles-prev"
+      />
+    </div>
+  </li>
+  <li
+    className="MuiTypography-root makeStyles-button makeStyles-pageButton selected MuiTypography-body2"
+    onClick={[Function]}
+  >
+    1
+  </li>
+  <li
+    className="MuiTypography-root makeStyles-button makeStyles-pageButton MuiTypography-body2"
+    onClick={[Function]}
+  >
+    2
+  </li>
+  <li
+    className="MuiTypography-root makeStyles-button makeStyles-pageButton MuiTypography-body2"
+    onClick={[Function]}
+  >
+    3
+  </li>
+  <li>
+    <div
+      aria-label="next page"
+      className="makeStyles-button"
+      disableRipple={true}
+      disabled={false}
+      id="iconButton"
       onClick={[Function]}
     >
-      3
-    </li>
-    <li>
-      <div
-        aria-label="next page"
-        className="makeStyles-button"
-        disableRipple={true}
-        disabled={false}
-        id="iconButton"
-        onClick={[Function]}
-      >
-        <svg />
-      </div>
-    </li>
-    <li
-      className="last"
+      <svg />
+    </div>
+  </li>
+  <li
+    className="last"
+  >
+    <div
+      aria-label="last page"
+      className="makeStyles-button"
+      disableRipple={true}
+      disabled={false}
+      id="iconButton"
+      onClick={[Function]}
     >
-      <div
-        aria-label="last page"
-        className="makeStyles-button"
-        disableRipple={true}
-        disabled={false}
-        id="iconButton"
-        onClick={[Function]}
-      >
-        <svg />
-      </div>
-    </li>
-  </ul>
-</div>
+      <svg />
+    </div>
+  </li>
+</ul>
 `;

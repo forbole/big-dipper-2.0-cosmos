@@ -1,9 +1,63 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component: SingleSlotMobile matches snapshot 1`] = `
-<div>
+<div
+  className="makeStyles-root"
+>
   <div
-    className="makeStyles-root"
+    className="makeStyles-item"
+  >
+    <h4
+      className="MuiTypography-root label MuiTypography-h4"
+    >
+      height
+    </h4>
+    <div
+      id="height"
+    />
+  </div>
+  <div
+    className="makeStyles-item"
+  >
+    <h4
+      className="MuiTypography-root label MuiTypography-h4"
+    >
+      proposer
+    </h4>
+    <div
+      id="proposer"
+    />
+  </div>
+  <div
+    className="makeStyles-item"
+  >
+    <h4
+      className="MuiTypography-root label MuiTypography-h4"
+    >
+      hash
+    </h4>
+    <p
+      className="MuiTypography-root value MuiTypography-body1"
+    >
+      hash
+    </p>
+  </div>
+  <div
+    className="makeStyles-item"
+  >
+    <h4
+      className="MuiTypography-root label MuiTypography-h4"
+    >
+      parentHash
+    </h4>
+    <p
+      className="MuiTypography-root value MuiTypography-body1"
+    >
+      parentHash
+    </p>
+  </div>
+  <div
+    className="makeStyles-flex"
   >
     <div
       className="makeStyles-item"
@@ -11,36 +65,12 @@ exports[`component: SingleSlotMobile matches snapshot 1`] = `
       <h4
         className="MuiTypography-root label MuiTypography-h4"
       >
-        height
-      </h4>
-      <div
-        id="height"
-      />
-    </div>
-    <div
-      className="makeStyles-item"
-    >
-      <h4
-        className="MuiTypography-root label MuiTypography-h4"
-      >
-        proposer
-      </h4>
-      <div
-        id="proposer"
-      />
-    </div>
-    <div
-      className="makeStyles-item"
-    >
-      <h4
-        className="MuiTypography-root label MuiTypography-h4"
-      >
-        hash
+        txs
       </h4>
       <p
         className="MuiTypography-root value MuiTypography-body1"
       >
-        hash
+        txs
       </p>
     </div>
     <div
@@ -49,45 +79,13 @@ exports[`component: SingleSlotMobile matches snapshot 1`] = `
       <h4
         className="MuiTypography-root label MuiTypography-h4"
       >
-        parentHash
+        time
       </h4>
       <p
         className="MuiTypography-root value MuiTypography-body1"
       >
-        parentHash
+        time
       </p>
-    </div>
-    <div
-      className="makeStyles-flex"
-    >
-      <div
-        className="makeStyles-item"
-      >
-        <h4
-          className="MuiTypography-root label MuiTypography-h4"
-        >
-          txs
-        </h4>
-        <p
-          className="MuiTypography-root value MuiTypography-body1"
-        >
-          txs
-        </p>
-      </div>
-      <div
-        className="makeStyles-item"
-      >
-        <h4
-          className="MuiTypography-root label MuiTypography-h4"
-        >
-          time
-        </h4>
-        <p
-          className="MuiTypography-root value MuiTypography-body1"
-        >
-          time
-        </p>
-      </div>
     </div>
   </div>
 </div>

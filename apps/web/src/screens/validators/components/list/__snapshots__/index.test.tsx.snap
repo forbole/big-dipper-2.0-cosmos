@@ -1,29 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Validators/List matches snapshot 1`] = `
-<div>
+<div
+  exists={true}
+  id="LoadAndExist"
+  loading={true}
+>
   <div
-    exists={true}
-    id="LoadAndExist"
-    loading={true}
+    className=""
+    id="Box"
   >
     <div
-      className=""
-      id="Box"
+      handleSearch={[Function]}
+      handleTabChange={[Function]}
+      id="Tabs"
+      tab={1}
+    />
+    <div
+      className="makeStyles-list"
     >
       <div
-        handleSearch={[Function]}
-        handleTabChange={[Function]}
-        id="Tabs"
-        tab={1}
+        id="NoData"
       />
-      <div
-        className="makeStyles-list"
-      >
-        <div
-          id="NoData"
-        />
-      </div>
     </div>
   </div>
 </div>

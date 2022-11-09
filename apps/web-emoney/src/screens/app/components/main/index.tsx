@@ -6,7 +6,8 @@ import { AppProps } from 'next/app';
 import Countdown from '@screens/countdown';
 import InitialLoad from '@screens/initial_load';
 import { useSettingsRecoil } from '@recoil/settings';
-import { useBigDipperNetworksRecoil } from '@recoil/big_dipper_networks';
+import { useChainIdQuery } from '@graphql/types/general_types';
+import { useBigDipperNetworksRecoil } from 'ui/recoil/big_dipper_networks';
 import { useMarketRecoil } from '@recoil/market';
 import { useValidatorRecoil } from '@recoil/validators';
 import { InnerApp } from '..';
@@ -17,7 +18,7 @@ const Main = (props: AppProps) => {
   // init recoil values
   // =====================================
   useSettingsRecoil();
-  useBigDipperNetworksRecoil();
+  useBigDipperNetworksRecoil(useChainIdQuery);
   useMarketRecoil();
   const { loading } = useValidatorRecoil();
 

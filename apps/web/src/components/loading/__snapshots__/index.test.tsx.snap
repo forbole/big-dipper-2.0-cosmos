@@ -1,35 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components: Loading matches snapshot 1`] = `
-<div>
+<div
+  className="makeStyles-root"
+>
   <div
-    className="makeStyles-root"
-  >
-    <div
-      className="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
-      role="progressbar"
-      style={
-        {
-          "height": 40,
-          "width": 40,
-        }
+    className="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+    role="progressbar"
+    style={
+      {
+        "height": 40,
+        "width": 40,
       }
+    }
+  >
+    <svg
+      className="MuiCircularProgress-svg"
+      viewBox="22 22 44 44"
     >
-      <svg
-        className="MuiCircularProgress-svg"
-        viewBox="22 22 44 44"
-      >
-        <circle
-          className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
-          cx={44}
-          cy={44}
-          fill="none"
-          r={20.2}
-          strokeWidth={3.6}
-          style={{}}
-        />
-      </svg>
-    </div>
+      <circle
+        className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+        cx={44}
+        cy={44}
+        fill="none"
+        r={20.2}
+        strokeWidth={3.6}
+        style={{}}
+      />
+    </svg>
   </div>
 </div>
 `;

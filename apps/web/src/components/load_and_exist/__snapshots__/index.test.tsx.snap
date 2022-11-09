@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components: LoadAndExist matches snapshot 1`] = `
-<div>
+[
   <div
     className="makeStyles-root"
   >
@@ -18,8 +18,8 @@ exports[`components: LoadAndExist matches snapshot 1`] = `
         style={{}}
       />
     </div>
-  </div>
-  ,
+  </div>,
+  ",",
   <div
     className="makeStyles-root"
   >
@@ -33,10 +33,10 @@ exports[`components: LoadAndExist matches snapshot 1`] = `
         notFound
       </p>
     </div>
-  </div>
-  ,
+  </div>,
+  ",",
   <div>
     Test 3
-  </div>
-</div>
+  </div>,
+]
 `;
