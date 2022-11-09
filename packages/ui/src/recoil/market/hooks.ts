@@ -5,7 +5,7 @@ import { useRecoilState, SetterOrUpdater } from 'recoil';
 import Big from 'big.js';
 import chainConfig from 'ui/chainConfig';
 import { writeMarket } from 'ui/recoil/market';
-import { AtomState } from '@recoil/market/types';
+import { AtomState } from 'ui/recoil/market';
 import { getDenom } from 'ui/utils/get_denom';
 import { formatToken } from 'ui/utils/format_token';
 import { QueryHookOptions, QueryResult } from '@apollo/client';

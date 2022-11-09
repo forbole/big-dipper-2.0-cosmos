@@ -1,5 +1,5 @@
 import { Typography } from '@material-ui/core';
-import { readMarket } from 'ui/recoil/market';
+import { readMarket } from '@recoil/market/nomic';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React from 'react';
