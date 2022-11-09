@@ -24,6 +24,7 @@
     "dotenv-cli": "^6.0.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.27.1",
     "prettier": "2.7.1",
     "turbo": "latest"
   },
