@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgCreateUserClaim from '@models/sifchain/msg/dispensation/msg_create_user_claim';
 import CreateUserClaim from '.';
 

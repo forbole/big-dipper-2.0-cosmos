@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgRemoveLiquidity from '@models/sifchain/msg/clp/msg_remove_liquidity';
 import RemoveLiquidity from '.';
 

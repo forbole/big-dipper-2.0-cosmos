@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Validators/VotingPower matches snapshot 1`] = `
+<div>
+  <div
+    className="makeStyles-root"
+  >
+    <div
+      className="makeStyles-content"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body1"
+      >
+        
+      </p>
+      <p
+        className="MuiTypography-root percentage MuiTypography-body1"
+      >
+        20%
+      </p>
+    </div>
+    <div
+      className="makeStyles-chart"
+    >
+      <div
+        className="makeStyles-active"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`screen: Validators/VotingPower matches snapshot with topVotingPower set to false 1`] = `
+<div>
+  <div
+    className="makeStyles-root"
+  >
+    <div
+      className="makeStyles-content"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body1"
+      >
+        
+      </p>
+      <p
+        className="MuiTypography-root percentage MuiTypography-body1"
+      >
+        0%
+      </p>
+    </div>
+    <div
+      className="makeStyles-chart"
+    >
+      <div
+        className="makeStyles-active"
+      />
+    </div>
+  </div>
+</div>
+`;

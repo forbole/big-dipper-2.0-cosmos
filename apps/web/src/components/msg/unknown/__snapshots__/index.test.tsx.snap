@@ -1,11 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: TransactionDetails/Unknown matches snapshot 1`] = `
-<pre
-  className="makeStyles-root"
->
-  <code>
-    "{\\"hello\\":\\"world\\"}"
-  </code>
-</pre>
+<div>
+  <pre
+    className="makeStyles-root"
+  >
+    <code>
+      {
+	"category": "others",
+	"type": "MsgUnknown",
+	"json": "{\\"hello\\":\\"world\\"}"
+}
+    </code>
+  </pre>
+</div>
 `;

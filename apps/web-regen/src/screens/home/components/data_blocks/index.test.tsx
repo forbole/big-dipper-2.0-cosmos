@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from '@tests/utils';
+import { MockTheme, wait } from 'ui/tests/utils';
 import { ApolloProvider } from '@apollo/client';
 import { createMockClient, createMockSubscription } from 'mock-apollo-client';
 import {
@@ -97,19 +97,19 @@ describe('screen: Home/DataBlocks', () => {
         </ApolloProvider>
       );
     });
-    await wait();
+    await wait(renderer.act);
 
     renderer.act(() => {
       mockSubscription.next(mockLatestBlockHeight);
     });
 
-    await wait();
+    await wait(renderer.act);
 
     renderer.act(() => {
       mockSubscriptionTwo.next(mockTokenPrice);
     });
 
-    await wait();
+    await wait(renderer.act);
 
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

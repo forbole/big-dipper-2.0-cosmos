@@ -1,13 +1,12 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Mobile from '.';
 
 // ==================================
 // global setup
 // ==================================
-let component:renderer.ReactTestRenderer;
+let component: renderer.ReactTestRenderer;
 
 // ==================================
 // unit tests
@@ -22,11 +21,9 @@ describe('screen: DesmosProfile/Mobile', () => {
   ];
   beforeEach(() => {
     component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <Mobile items={connection} />
-        </MockTheme>
-      </RecoilRoot>,
+      <MockTheme>
+        <Mobile items={connection} />
+      </MockTheme>
     );
   });
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from '@tests/utils';
+import { MockTheme, wait } from 'ui/tests/utils';
 import Mobile from '.';
 // ==================================
 // global setup
@@ -27,7 +27,7 @@ describe('screen: Nav/Mobile', () => {
         <Mobile title="hello world" />
       </MockTheme>
     );
-    await wait();
+    await wait(renderer.act);
   });
 
   it('it renders', async () => {

@@ -1,17 +1,15 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import { MsgChannelCloseConfirm } from '@models';
 import ChannelCloseConfirm from '.';
 
 // ==================================
 // mocks
 // ==================================
-
-jest.mock('@components', () => ({
-  Name: (props) => <div id="Name" {...props} />,
-}));
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -32,13 +30,9 @@ describe('screen: TransactionDetails/IBCChannelCloseConfirm', () => {
       ],
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <ChannelCloseConfirm
-            message={message}
-          />
-        </MockTheme>
-      </RecoilRoot>,
+      <MockTheme>
+        <ChannelCloseConfirm message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

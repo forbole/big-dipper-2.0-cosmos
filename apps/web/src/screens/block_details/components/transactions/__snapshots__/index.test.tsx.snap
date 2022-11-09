@@ -1,52 +1,107 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: BlockDetails/Transactions matches snapshot 1`] = `
-<div
-  className="makeStyles-root"
-  id="Box"
->
+<div>
   <div
-    className="makeStyles-header"
+    className="makeStyles-root"
+    id="Box"
   >
-    <h2
-      className="MuiTypography-root MuiTypography-h2"
+    <div
+      className="makeStyles-header"
     >
-      transactions
-    </h2>
+      <h2
+        className="MuiTypography-root MuiTypography-h2"
+      >
+        transactions
+      </h2>
+    </div>
+    <div
+      className="makeStyles-list"
+      hasNextPage={false}
+      id="TransactionsList"
+      isItemLoaded={[Function]}
+      isNextPageLoading={false}
+      itemCount={2}
+      loadMoreItems={[Function]}
+      loadNextPage={[Function]}
+      transactions={
+        [
+          {
+            "hash": "hash",
+            "height": 300,
+            "messages": {
+              "count": 2,
+              "items": [
+                {
+                  "@type": "/cosmos.staking.v1beta1.MsgDelegate",
+                  "amount": {
+                    "amount": "8371578",
+                    "denom": "udaric",
+                  },
+                  "delegator_address": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                  "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+                },
+                {
+                  "@type": "/cosmos.staking.v1beta1.MsgDelegate",
+                  "amount": {
+                    "amount": "1233",
+                    "denom": "udaric",
+                  },
+                  "delegator_address": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                  "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+                },
+              ],
+            },
+            "success": false,
+            "timestamp": "",
+            "type": [
+              "",
+            ],
+          },
+          {
+            "hash": "hash1",
+            "height": 301,
+            "messages": {
+              "count": 3,
+              "items": [
+                {
+                  "@type": "/cosmos.staking.v1beta1.MsgDelegate",
+                  "amount": {
+                    "amount": "44444",
+                    "denom": "udaric",
+                  },
+                  "delegator_address": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                  "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+                },
+                {
+                  "@type": "/cosmos.staking.v1beta1.MsgDelegate",
+                  "amount": {
+                    "amount": "12211",
+                    "denom": "udaric",
+                  },
+                  "delegator_address": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                  "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+                },
+                {
+                  "@type": "/cosmos.staking.v1beta1.MsgDelegate",
+                  "amount": {
+                    "amount": "11111",
+                    "denom": "udaric",
+                  },
+                  "delegator_address": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                  "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+                },
+              ],
+            },
+            "success": true,
+            "timestamp": "",
+            "type": [
+              "",
+            ],
+          },
+        ]
+      }
+    />
   </div>
-  <div
-    className="makeStyles-list"
-    hasNextPage={false}
-    id="TransactionsList"
-    isItemLoaded={[Function]}
-    isNextPageLoading={false}
-    itemCount={2}
-    loadMoreItems={[Function]}
-    loadNextPage={[Function]}
-    transactions={
-      [
-        {
-          "hash": "hash",
-          "height": 300,
-          "messages": {
-            "count": 3,
-            "items": [],
-          },
-          "success": false,
-          "timestamp": "",
-        },
-        {
-          "hash": "hash1",
-          "height": 300,
-          "messages": {
-            "count": 13,
-            "items": [],
-          },
-          "success": true,
-          "timestamp": "",
-        },
-      ]
-    }
-  />
 </div>
 `;

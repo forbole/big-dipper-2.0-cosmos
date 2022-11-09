@@ -1,17 +1,15 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import { MsgChannelOpenAck } from '@models';
 import ChannelOpenAck from '.';
 
 // ==================================
 // mocks
 // ==================================
-
-jest.mock('@components', () => ({
-  Name: (props) => <div id="Name" {...props} />,
-}));
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -34,13 +32,9 @@ describe('screen: TransactionDetails/IBCChannelOpenAck', () => {
       ],
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <ChannelOpenAck
-            message={message}
-          />
-        </MockTheme>
-      </RecoilRoot>,
+      <MockTheme>
+        <ChannelOpenAck message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

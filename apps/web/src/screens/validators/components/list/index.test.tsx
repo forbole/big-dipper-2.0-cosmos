@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from '@tests/utils';
+import { MockTheme, wait } from 'ui/tests/utils';
 import { createMockClient } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
 import { ValidatorsDocument } from '@graphql/types/general_types';
@@ -34,8 +34,7 @@ jest.mock('@hooks', () => ({
       isDesktop: false,
     };
   },
-}
-));
+}));
 
 jest.mock('./hooks', () => ({
   useValidators: () => {
@@ -47,26 +46,28 @@ jest.mock('./hooks', () => ({
         sortKey: 'height',
         sortDirection: 'asc',
         votingPowerOverall: 1123323e231,
-        items: [{
-          validator: 'val',
-          votingPower: 323243,
-          votingPowerPercent: 11,
-          commission: 5,
-          condition: 1,
-          status: 3,
-          jailed: false,
-          tombstoned: false,
-        },
-        {
-          validator: 'val-2',
-          votingPower: 223243,
-          votingPowerPercent: 8,
-          commission: 4,
-          condition: 1,
-          status: 3,
-          jailed: false,
-          tombstoned: false,
-        }],
+        items: [
+          {
+            validator: 'val',
+            votingPower: 323243,
+            votingPowerPercent: 11,
+            commission: 5,
+            condition: 1,
+            status: 3,
+            jailed: false,
+            tombstoned: false,
+          },
+          {
+            validator: 'val-2',
+            votingPower: 223243,
+            votingPowerPercent: 8,
+            commission: 4,
+            condition: 1,
+            status: 3,
+            jailed: false,
+            tombstoned: false,
+          },
+        ],
       },
       handleTabChange: () => jest.fn(),
       handleSort: () => jest.fn(),
@@ -74,8 +75,7 @@ jest.mock('./hooks', () => ({
       sortItems: () => jest.fn(),
     };
   },
-}
-));
+}));
 
 const mockValidatorsDocument = jest.fn().mockResolvedValue({
   data: {
@@ -133,51 +133,9 @@ const mockValidatorsDocument = jest.fn().mockResolvedValue({
             },
             delegatorAddress: 'desmos1njm853h4h9vh8xge3v9mf7nnukzhgt6zyqxyfr',
           },
-        ],      {
-        validatorStatuses: [
-          {
-            status: 3,
-            jailed: false,
-            height: 437042,
-          },
         ],
-        validatorSigningInfos: [
-          {
-            missedBlocksCounter: 12,
-            tombstoned: false,
-          },
-        ],
-        validatorInfo: {
-          operatorAddress: 'desmosvaloper1zm3l7p8n5dxqeadsfxy3rd0j3c2knnx3chg77a',
-          selfDelegateAddress: 'desmos1zm3l7p8n5dxqeadsfxy3rd0j3c2knnx3x6q250',
-        },
-        validatorVotingPowers: [
-          {
-            votingPower: 44,
-          },
-        ],
-        validatorCommissions: [
-          {
-            commission: 0.14,
-          },
-        ],
-        delegations: [
-          {
-            amount: {
-              denom: 'udaric',
-              amount: '14000000',
-            },
-            delegatorAddress: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
-          },
-          {
-            amount: {
-              denom: 'udaric',
-              amount: '30000000',
-            },
-            delegatorAddress: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
-          },
-        ],
-      },      {
+      },
+      {
         validatorStatuses: [
           {
             status: 3,
@@ -250,7 +208,7 @@ describe('screen: Validators/List', () => {
         </ApolloProvider>
       );
     });
-    await wait();
+    await wait(renderer.act);
 
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

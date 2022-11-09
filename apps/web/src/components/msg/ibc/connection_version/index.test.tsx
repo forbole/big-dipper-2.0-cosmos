@@ -1,7 +1,6 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import { MsgVersion } from '@models';
 import Version from '.';
 
@@ -9,9 +8,9 @@ import Version from '.';
 // mocks
 // ==================================
 
-jest.mock('@components', () => ({
-  Name: (props) => <div id="Name" {...props} />,
-}));
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -30,13 +29,9 @@ describe('screen: TransactionDetails/IBCVersion', () => {
       ],
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <Version
-            message={message}
-          />
-        </MockTheme>
-      </RecoilRoot>,
+      <MockTheme>
+        <Version message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

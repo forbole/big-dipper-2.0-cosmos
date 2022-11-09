@@ -1,135 +1,137 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Validators/Tabs matches snapshot 1`] = `
-<div
-  className="makeStyles-root"
->
+<div>
   <div
-    className="MuiTabs-root"
+    className="makeStyles-root"
   >
     <div
-      className="MuiTabs-scrollable"
-      style={
-        {
-          "height": 99,
-          "overflow": "scroll",
-          "position": "absolute",
-          "top": -9999,
-          "width": 99,
-        }
-      }
-    />
-    <div
-      className="MuiTabs-scroller MuiTabs-scrollable"
-      onScroll={[Function]}
-      style={
-        {
-          "marginBottom": null,
-          "overflow": "hidden",
-        }
-      }
+      className="MuiTabs-root"
     >
       <div
-        className="MuiTabs-flexContainer"
-        onKeyDown={[Function]}
-        role="tablist"
+        className="MuiTabs-scrollable"
+        style={
+          {
+            "height": 99,
+            "overflow": "scroll",
+            "position": "absolute",
+            "top": -9999,
+            "width": 99,
+          }
+        }
+      />
+      <div
+        className="MuiTabs-scroller MuiTabs-scrollable"
+        onScroll={[Function]}
+        style={
+          {
+            "marginBottom": null,
+            "overflow": "hidden",
+          }
+        }
       >
-        <button
-          aria-controls="simple-tabpanel-0"
-          aria-selected={true}
-          className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-selected"
-          disabled={false}
-          id="simple-tab-0"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
+        <div
+          className="MuiTabs-flexContainer"
           onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          role="tab"
-          tabIndex={0}
-          type="button"
+          role="tablist"
         >
-          <span
-            className="MuiTab-wrapper"
+          <button
+            aria-controls="simple-tabpanel-0"
+            aria-selected={true}
+            className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-selected"
+            disabled={false}
+            id="simple-tab-0"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            tabIndex={0}
+            type="button"
           >
-            active
-          </span>
-          <span
-            className="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
-            style={{}}
-          />
-        </button>
-        <button
-          aria-controls="simple-tabpanel-1"
-          aria-selected={false}
-          className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit"
-          disabled={false}
-          id="simple-tab-1"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          role="tab"
-          tabIndex={-1}
-          type="button"
-        >
-          <span
-            className="MuiTab-wrapper"
+            <span
+              className="MuiTab-wrapper"
+            >
+              active
+            </span>
+            <span
+              className="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+              style={{}}
+            />
+          </button>
+          <button
+            aria-controls="simple-tabpanel-1"
+            aria-selected={false}
+            className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit"
+            disabled={false}
+            id="simple-tab-1"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            tabIndex={-1}
+            type="button"
           >
-            inactive
-          </span>
-        </button>
-        <button
-          aria-controls="simple-tabpanel-2"
-          aria-selected={false}
-          className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit"
-          disabled={false}
-          id="simple-tab-2"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          role="tab"
-          tabIndex={-1}
-          type="button"
-        >
-          <span
-            className="MuiTab-wrapper"
+            <span
+              className="MuiTab-wrapper"
+            >
+              inactive
+            </span>
+          </button>
+          <button
+            aria-controls="simple-tabpanel-2"
+            aria-selected={false}
+            className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit"
+            disabled={false}
+            id="simple-tab-2"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            tabIndex={-1}
+            type="button"
           >
-            allValidators
-          </span>
-        </button>
+            <span
+              className="MuiTab-wrapper"
+            >
+              allValidators
+            </span>
+          </button>
+        </div>
       </div>
     </div>
+    <div
+      callback={[MockFunction]}
+      className="makeStyles-searchBar"
+      id="Search"
+      placeholder="searchValidator"
+    />
   </div>
-  <div
-    callback={[MockFunction]}
-    className="makeStyles-searchBar"
-    id="Search"
-    placeholder="searchValidator"
-  />
 </div>
 `;

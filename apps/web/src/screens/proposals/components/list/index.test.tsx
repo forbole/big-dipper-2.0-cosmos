@@ -1,11 +1,16 @@
 import React from 'react';
 import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
-import { MockTheme, wait } from '@tests/utils';
+import { MockTheme, wait } from 'ui/tests/utils';
 import ProposalsList from '.';
 
 // ==================================
 // mocks
 // ==================================
+const mockI18n = {
+  t: (key: string) => key,
+  lang: 'en',
+};
+jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
@@ -19,15 +24,15 @@ jest.mock('./components', () => ({
   Total: (props: JSX.IntrinsicElements['div']) => <div id="Total" {...props} />,
 }));
 
-jest.mock(
-  'react-virtualized-auto-sizer',
-  () =>
-    ({ children }: any) =>
-      children({
-        height: 600,
-        width: 600,
-      })
-);
+// jest.mock(
+//   'react-virtualized-auto-sizer',
+//   () =>
+//     ({ children }: AutoSizerProps) =>
+//       children({
+//         height: 600,
+//         width: 600,
+//       })
+// );
 
 // ==================================
 // unit tests
@@ -58,13 +63,13 @@ describe('screen: Proposals/List', () => {
         />
       </MockTheme>
     );
-    await wait();
+    await wait(renderer.act);
 
     const tree = component.toJSON();
 
     expect(tree).toMatchSnapshot();
   });
-  
+
   it('matches snapshot with empty proposal list', async () => {
     const component = renderer.create(
       <MockTheme>
@@ -75,9 +80,9 @@ describe('screen: Proposals/List', () => {
           itemCount={0}
           loadMoreItems={() => jest.fn()}
         />
-      </MockTheme>,
+      </MockTheme>
     );
-    await wait();
+    await wait(renderer.act);
 
     const tree = component.toJSON();
 

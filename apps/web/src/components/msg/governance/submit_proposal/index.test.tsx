@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import {
   MsgSubmitProposal,
   MsgSoftwareUpgradeProposal,
@@ -9,7 +9,6 @@ import {
   MsgCommunityPoolSpendProposal,
 } from '@models';
 import SubmitProposal from '.';
-import { RecoilRoot } from 'recoil';
 
 // ==================================
 // mocks
@@ -18,26 +17,26 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 
-jest.mock('next-translate/Trans', () => (
-  (props) => <div id="Trans" {...props} />
-));
+jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) => <div id="Trans" {...props} />);
 
 // ==================================
 // unit tests
 // ==================================
 describe('screen: TransactionDetails/SubmitProposal', () => {
-  it('matches snapshot', () => {    const message = MsgSubmitProposal.fromJson({
-    type: {
-      '@type': '/cosmos.gov.v1beta1.MsgSubmitProposal',
-    },
-    content: 'content',
-    proposer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
-    initialDeposit: [
-      {
-        denom: 'udaric',
-        amount: '2000000',
+  it('matches snapshot', () => {
+    const message = MsgSubmitProposal.fromJson({
+      type: {
+        '@type': '/cosmos.gov.v1beta1.MsgSubmitProposal',
       },
-    ],
+      content: 'content',
+      proposer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
+      initialDeposit: [
+        {
+          denom: 'udaric',
+          amount: '2000000',
+        },
+      ],
+    });
   });
 
   it('matches snapshot with Text Proposal', () => {
@@ -61,18 +60,13 @@ describe('screen: TransactionDetails/SubmitProposal', () => {
       json: {
         content: {
           '@type': '/cosmos.gov.v1beta1.TextProposal',
-
         },
       },
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <SubmitProposal
-            message={message}
-          />
-        </MockTheme>
-      </RecoilRoot>,
+      <MockTheme>
+        <SubmitProposal message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
@@ -110,13 +104,9 @@ describe('screen: TransactionDetails/SubmitProposal', () => {
       },
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <SubmitProposal
-            message={message}
-          />
-        </MockTheme>
-      </RecoilRoot>,
+      <MockTheme>
+        <SubmitProposal message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
@@ -127,11 +117,13 @@ describe('screen: TransactionDetails/SubmitProposal', () => {
       title: 'Dummy Parameter Change Proposal',
       type: '/cosmos.params.v1beta1.ParameterChangeProposal',
       description: '',
-      changes: [{
-        subspace: 'baseapp',
-        key: 'BlockParams',
-        value: '{\n \"max_gas\": \"120000000\"\n }',
-      }],
+      changes: [
+        {
+          subspace: 'baseapp',
+          key: 'BlockParams',
+          value: '{\n "max_gas": "120000000"\n }',
+        },
+      ],
     });
 
     const message = MsgSubmitProposal.fromJson({
@@ -152,13 +144,9 @@ describe('screen: TransactionDetails/SubmitProposal', () => {
       },
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <SubmitProposal
-            message={message}
-          />
-        </MockTheme>
-      </RecoilRoot>,
+      <MockTheme>
+        <SubmitProposal message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
@@ -170,10 +158,12 @@ describe('screen: TransactionDetails/SubmitProposal', () => {
       type: '/cosmos.distribution.v1beta1.CommunityPoolSpendProposal',
       description: '',
       recipient: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
-      amount: [{
-        denom: 'udaric',
-        amount: '2000000',
-      }],
+      amount: [
+        {
+          denom: 'udaric',
+          amount: '2000000',
+        },
+      ],
     });
 
     const message = MsgSubmitProposal.fromJson({
@@ -193,17 +183,13 @@ describe('screen: TransactionDetails/SubmitProposal', () => {
         },
       },
     });
-  const component = renderer.create(
-    <RecoilRoot>
+    const component = renderer.create(
       <MockTheme>
-        <SubmitProposal
-          message={message}
-        />
+        <SubmitProposal message={message} />
       </MockTheme>
-    </RecoilRoot>,
-  );
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
   afterEach(() => {

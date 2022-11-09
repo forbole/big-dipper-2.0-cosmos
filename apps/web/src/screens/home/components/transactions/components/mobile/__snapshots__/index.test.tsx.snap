@@ -1,53 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Home/Transactions/Mobile matches snapshot 1`] = `
-<div
-  className=""
->
+<div>
   <div
-    block={
-      <ForwardRef(LinkComponent)
-        href="/blocks/2000"
-        passHref={true}
-      >
-        <WithStyles(ForwardRef(Typography))
-          component="a"
-          variant="body1"
+    className=""
+  >
+    <div
+      block={
+        <ForwardRef(LinkComponent)
+          href="/blocks/2000"
+          passHref={true}
         >
-          2,000
-        </WithStyles(ForwardRef(Typography))>
-      </ForwardRef(LinkComponent)>
-    }
-    hash={
-      <ForwardRef(LinkComponent)
-        href="/transactions/76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857"
-        passHref={true}
-      >
-        <WithStyles(ForwardRef(Typography))
-          component="a"
-          variant="body1"
+          <WithStyles(ForwardRef(Typography))
+            component="a"
+            variant="body1"
+          >
+            2,000
+          </WithStyles(ForwardRef(Typography))>
+        </ForwardRef(LinkComponent)>
+      }
+      hash={
+        <ForwardRef(LinkComponent)
+          href="/transactions/76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857"
+          passHref={true}
         >
-          76nwV8zz8tLz97S...hQ857
-        </WithStyles(ForwardRef(Typography))>
-      </ForwardRef(LinkComponent)>
-    }
-    id="SingleTransactionMobile"
-    messages="12"
-    result={
-      <Unknown
-        success={true}
-      />
-    }
-    time="1 day ago"
-    type={
-      <div>
+          <WithStyles(ForwardRef(Typography))
+            component="a"
+            variant="body1"
+          >
+            76nwV8zz8tLz97S...hQ857
+          </WithStyles(ForwardRef(Typography))>
+        </ForwardRef(LinkComponent)>
+      }
+      id="SingleTransactionMobile"
+      messages="12"
+      result={
         <Unknown
-          theme="six"
-          value="Delegate"
+          success={true}
         />
-         + 11
-      </div>
-    }
-  />
+      }
+      time="1 day ago"
+      type={
+        <div>
+          <Unknown
+            theme="six"
+            value="Delegate"
+          />
+           + 11
+        </div>
+      }
+    />
+  </div>
 </div>
 `;

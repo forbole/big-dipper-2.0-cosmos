@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { createMockClient } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
-import { MockTheme, wait } from '@tests/utils';
+import { MockTheme, wait } from 'ui/tests/utils';
 import { ProposalDetailsDocument } from '@graphql/types/general_types';
 import ProposalDetails from '.';
 
@@ -75,7 +75,7 @@ describe('screen: ProposalDetails', () => {
         </ApolloProvider>
       );
     });
-    await wait();
+    await wait(renderer.act);
 
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

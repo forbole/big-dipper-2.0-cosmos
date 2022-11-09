@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgCreateClassRequest from '@models/regen/msg/ecocredit/msg_create_class_request';
 import CreateClassRequest from '.';
 

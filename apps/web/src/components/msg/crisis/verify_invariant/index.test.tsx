@@ -1,13 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import { MsgVerifyInvariant } from '@models';
 import VerifyInvariant from '.';
 
 // ==================================
 // mocks
 // ==================================
-
 jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));

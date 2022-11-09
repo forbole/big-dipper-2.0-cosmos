@@ -2,7 +2,7 @@ import React from 'react';
 import { createMockClient, createMockSubscription } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from '@tests/utils';
+import { MockTheme, wait } from 'ui/tests/utils';
 import { BlocksListenerDocument, BlocksDocument } from '@graphql/types/general_types';
 import Blocks from '.';
 
@@ -93,7 +93,7 @@ describe('screen: Blocks', () => {
         </ApolloProvider>
       );
     });
-    await wait();
+    await wait(renderer.act);
 
     renderer.act(() => {
       mockSubscription.next(mockBlocksListenerDocument);

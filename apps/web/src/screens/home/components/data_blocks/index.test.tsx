@@ -1,8 +1,8 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme, wait } from '@tests/utils';
+import renderer, { ReactTestRenderer } from 'react-test-renderer';
+import { MockTheme, wait } from 'ui/tests/utils';
 import { ApolloProvider } from '@apollo/client';
-import { createMockClient, createMockSubscription } from 'mock-apollo-client';
+import { createMockClient, createMockSubscription, IMockSubscription, MockApolloClient } from 'mock-apollo-client';
 import {
   LatestBlockHeightListenerDocument,
   AverageBlockTimeDocument,
@@ -18,10 +18,6 @@ const mockI18n = {
   t: (key: string) => key,
   lang: 'en',
 };
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('./components', () => ({
-  SingleBlock: (props: JSX.IntrinsicElements['div']) => <div id="SingleBlock" {...props} />,
-}));
 
 const mockLatestBlockHeight = {
   data: {
@@ -69,49 +65,61 @@ const mockActiveValidatorsCount = jest.fn().mockResolvedValue({
   },
 });
 
+let mockClient: MockApolloClient;
+let mockSubscription: IMockSubscription;
+let mockSubscriptionTwo: IMockSubscription;
+
+beforeEach(() => {
+  jest.mock('next-translate/useTranslation', () => () => mockI18n);
+  jest.mock('./components', () => ({
+    SingleBlock: (props: JSX.IntrinsicElements['div']) => <div id="SingleBlock" {...props} />,
+  }));
+  
+  mockClient = createMockClient();
+  mockSubscription = createMockSubscription();
+  mockSubscriptionTwo = createMockSubscription();
+
+  mockClient.setRequestHandler(LatestBlockHeightListenerDocument, () => mockSubscription);
+
+  mockClient.setRequestHandler(TokenPriceListenerDocument, () => mockSubscriptionTwo);
+
+  mockClient.setRequestHandler(AverageBlockTimeDocument, mockAverageBlockTime);
+
+  mockClient.setRequestHandler(ActiveValidatorCountDocument, mockActiveValidatorsCount);
+});
+
 // ==================================
 // unit tests
 // ==================================
 describe('screen: Home/DataBlocks', () => {
   it('matches snapshot', async () => {
-    const mockClient = createMockClient();
-    const mockSubscription = createMockSubscription();
-    const mockSubscriptionTwo = createMockSubscription();
 
-    mockClient.setRequestHandler(LatestBlockHeightListenerDocument, () => mockSubscription);
-
-    mockClient.setRequestHandler(TokenPriceListenerDocument, () => mockSubscriptionTwo);
-
-    mockClient.setRequestHandler(AverageBlockTimeDocument, mockAverageBlockTime);
-
-    mockClient.setRequestHandler(ActiveValidatorCountDocument, mockActiveValidatorsCount);
-
-    let component;
+    let tree: renderer.ReactTestRendererJSON | renderer.ReactTestRendererJSON[] | null = null;
 
     renderer.act(() => {
-      component = renderer.create(
+      const component = renderer.create(
         <ApolloProvider client={mockClient}>
           <MockTheme>
             <DataBlocks />
           </MockTheme>
         </ApolloProvider>
       );
+      tree = component.toJSON();
     });
-    await wait();
+    await wait(renderer.act);
 
     renderer.act(() => {
       mockSubscription.next(mockLatestBlockHeight);
     });
 
-    await wait();
+    await wait(renderer.act);
 
     renderer.act(() => {
       mockSubscriptionTwo.next(mockTokenPrice);
     });
 
-    await wait();
+    await wait(renderer.act);
 
-    const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
     expect(mockActiveValidatorsCount).toBeCalledTimes(1);
   });

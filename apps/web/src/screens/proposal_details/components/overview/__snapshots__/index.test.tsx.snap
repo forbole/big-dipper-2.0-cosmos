@@ -1,70 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
-<div
-  className="makeStyles-root"
-  id="Box"
->
+<div>
   <div
-    id="#10"
-    status="status"
-    title="title"
-  />
-  <hr
-    className="MuiDivider-root"
-  />
-  <div
-    className="makeStyles-content"
+    className="makeStyles-root"
+    id="Box"
   >
-    <p
-      className="MuiTypography-root label MuiTypography-body1"
-    >
-      type
-    </p>
-    <p
-      className="MuiTypography-root value MuiTypography-body1"
-    >
-      
-    </p>
-    <p
-      className="MuiTypography-root label MuiTypography-body1"
-    >
-      proposer
-    </p>
     <div
-      address=""
-      id="Name"
-      name=""
+      id="#10"
+      status="status"
+      title="title"
     />
-    <p
-      className="MuiTypography-root label MuiTypography-body1"
-    >
-      submitTime
-    </p>
-    <p
-      className="MuiTypography-root value MuiTypography-body1"
-    >
-      2020-08-10 12:00:00
-    </p>
-    <p
-      className="MuiTypography-root label MuiTypography-body1"
-    >
-      depositEndTime
-    </p>
-    <p
-      className="MuiTypography-root value MuiTypography-body1"
-    >
-      2020-08-10 12:00:00
-    </p>
-    <p
-      className="MuiTypography-root label MuiTypography-body1"
-    >
-      description
-    </p>
+    <hr
+      className="MuiDivider-root"
+    />
     <div
-      id="Markdown"
-      markdown="description"
-    />
+      className="makeStyles-content"
+    >
+      <p
+        className="MuiTypography-root label MuiTypography-body1"
+      >
+        type
+      </p>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        
+      </p>
+      <p
+        className="MuiTypography-root label MuiTypography-body1"
+      >
+        proposer
+      </p>
+      <div
+        address=""
+        id="Name"
+        name=""
+      />
+      <p
+        className="MuiTypography-root label MuiTypography-body1"
+      >
+        submitTime
+      </p>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        2020-08-10 12:00:00
+      </p>
+      <p
+        className="MuiTypography-root label MuiTypography-body1"
+      >
+        depositEndTime
+      </p>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        2020-08-10 12:00:00
+      </p>
+      <p
+        className="MuiTypography-root label MuiTypography-body1"
+      >
+        description
+      </p>
+      <div
+        id="Markdown"
+        markdown="description"
+      />
+    </div>
   </div>
 </div>
 `;

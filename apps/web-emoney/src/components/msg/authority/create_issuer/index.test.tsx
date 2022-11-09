@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgCreateIssuer from '@models/emoney/msg/authority/msg_create_issuer';
 import CreateIssuer from '.';
 

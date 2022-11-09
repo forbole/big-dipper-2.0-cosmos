@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components: AvatarNameListMsg matches snapshot 1`] = `
+<div>
+  <a
+    className="MuiTypography-root makeStyles-root MuiTypography-body1"
+    href="/accounts/desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onTouchStart={[Function]}
+  >
+    name
+  </a>
+</div>
+`;
+
+exports[`components: AvatarNameListMsg matches snapshot with empty values 1`] = `<div />`;
+
+exports[`components: AvatarNameListMsg matches snapshot with multiple values 1`] = `
+<div>
+  <a
+    className="MuiTypography-root makeStyles-root MuiTypography-body1"
+    href="/accounts/desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onTouchStart={[Function]}
+  >
+    name-1
+  </a>
+   
+  and
+   
+  <a
+    className="MuiTypography-root makeStyles-root MuiTypography-body1"
+    href="/accounts/desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94xx"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onTouchStart={[Function]}
+  >
+    name-2
+  </a>
+</div>
+`;

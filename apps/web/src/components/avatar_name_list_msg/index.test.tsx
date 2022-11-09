@@ -1,9 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
-import {
-  AvatarNameListMsg,
-} from '@components';
+import { MockTheme } from 'ui/tests/utils';
+import AvatarNameListMsg from '@components/avatar_name_list_msg';
 
 // ==================================
 // unit tests
@@ -19,10 +17,9 @@ describe('components: AvatarNameListMsg', () => {
               address: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
               name: 'name',
             },
-
           ]}
         />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
@@ -31,10 +28,8 @@ describe('components: AvatarNameListMsg', () => {
   it('matches snapshot with empty values', () => {
     const component = renderer.create(
       <MockTheme>
-        <AvatarNameListMsg
-          avatars={[]}
-        />
-      </MockTheme>,
+        <AvatarNameListMsg avatars={[]} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
@@ -57,7 +52,7 @@ describe('components: AvatarNameListMsg', () => {
             },
           ]}
         />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

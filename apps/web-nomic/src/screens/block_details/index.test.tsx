@@ -2,7 +2,7 @@ import React from 'react';
 import { createMockClient } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from '@tests/utils';
+import { MockTheme, wait } from 'ui/tests/utils';
 import { BlockDetailsDocument } from '@graphql/types/general_types';
 import BlockDetails from '.';
 
@@ -103,7 +103,7 @@ describe('screen: BlockDetails', () => {
         )
         .toJSON();
     });
-    await wait();
+    await wait(renderer.act);
 
     expect(tree).toMatchSnapshot();
   });

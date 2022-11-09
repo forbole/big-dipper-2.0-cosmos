@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import numeral from 'numeral';
 import VotingPower from '.';
 
@@ -17,7 +17,7 @@ describe('screen: Validators/VotingPower', () => {
           content=""
           topVotingPower
         />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
@@ -26,13 +26,8 @@ describe('screen: Validators/VotingPower', () => {
   it('matches snapshot with topVotingPower set to false', () => {
     const component = renderer.create(
       <MockTheme>
-        <VotingPower
-          percentage={0}
-          percentDisplay="0%"
-          content=""
-          topVotingPower={false}
-        />
-      </MockTheme>,
+        <VotingPower percentage={0} percentDisplay="0%" content="" topVotingPower={false} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

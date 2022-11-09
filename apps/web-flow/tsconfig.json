@@ -18,8 +18,7 @@
       "@recoil/*": ["src/recoil/*"],
       "@graphql": ["src/graphql"],
       "@graphql/*": ["src/graphql/*"],
-      "@graphql/types": ["src/graphql/types"],
-      "@tests/utils": ["tests/utils"]
+      "@graphql/types": ["src/graphql/types"]
     }
   },
   "include": ["*.d.ts", "**/*.ts", "**/*.tsx"],

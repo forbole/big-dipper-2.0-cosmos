@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: DesmosProfile/Mobile it renders 1`] = `
+<div>
+  <div
+    className=""
+  >
+    <div
+      className="makeStyles-list"
+    >
+      <div
+        className="makeStyles-item"
+      >
+        <h4
+          className="MuiTypography-root label MuiTypography-h4"
+        >
+          network
+        </h4>
+        <p
+          className="MuiTypography-root value MuiTypography-body1"
+        >
+          
+        </p>
+      </div>
+      <div
+        className="makeStyles-item"
+      >
+        <h4
+          className="MuiTypography-root label MuiTypography-h4"
+        >
+          identifier
+        </h4>
+        <p
+          className="MuiTypography-root value MuiTypography-body1"
+        >
+          
+        </p>
+      </div>
+      <div
+        className="makeStyles-item"
+      >
+        <h4
+          className="MuiTypography-root label MuiTypography-h4"
+        >
+          creationTime
+        </h4>
+        <p
+          className="MuiTypography-root value MuiTypography-body1"
+        >
+          2020-08-10 12:00:00
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

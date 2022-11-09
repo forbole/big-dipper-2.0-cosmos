@@ -5,7 +5,7 @@ export const OPEN_GRAPH_SEO = {
   site_name: 'Big Dipper',
   images: [
     {
-      url: chainConfig.previewImage,
+      url: chainConfig.previewImage ?? '',
       width: 800,
       height: 600,
       alt: 'Preview Photo',

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component: TransactionsListDetails/TransactionList matches snapshot 1`] = `
+<div>
+  <div
+    className="makeStyles-root"
+  >
+    <div
+      style={
+        {
+          "height": 0,
+          "overflow": "visible",
+          "width": 0,
+        }
+      }
+    />
+  </div>
+</div>
+`;

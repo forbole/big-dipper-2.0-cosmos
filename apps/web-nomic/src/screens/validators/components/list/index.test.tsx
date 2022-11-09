@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from '@tests/utils';
+import { MockTheme, wait } from 'ui/tests/utils';
 import { createMockClient } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
 import { ValidatorsDocument } from '@graphql/types/general_types';
@@ -110,7 +110,7 @@ describe('screen: Validators/List', () => {
         </ApolloProvider>
       );
     });
-    await wait();
+    await wait(renderer.act);
 
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

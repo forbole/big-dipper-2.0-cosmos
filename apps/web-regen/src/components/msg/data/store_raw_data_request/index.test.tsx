@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgStoreRawDataRequest from '@models/regen/msg/data/msg_store_raw_data_request';
 import StoreRawDataRequest from '.';
 

@@ -1,7 +1,6 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import { MsgUpgradeClient } from '@models';
 import UpgradeClient from '.';
 
@@ -9,9 +8,9 @@ import UpgradeClient from '.';
 // mocks
 // ==================================
 
-jest.mock('@components', () => ({
-  Name: (props) => <div id="Name" {...props} />,
-}));
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -31,13 +30,9 @@ describe('screen: TransactionDetails/IBCUpgradeClient', () => {
       ],
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <UpgradeClient
-            message={message}
-          />
-        </MockTheme>
-      </RecoilRoot>,
+      <MockTheme>
+        <UpgradeClient message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

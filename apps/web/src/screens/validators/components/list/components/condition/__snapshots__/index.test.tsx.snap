@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Validators/Condition matches snapshot 1`] = `
-<div
-  className="makeStyles-root"
-/>
+<div>
+  <div
+    className="makeStyles-root"
+  />
+</div>
 `;

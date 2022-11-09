@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgCreateIscnRecord from '@models/likecoin/msg/iscn/msg_create_iscn_record';
 import CreateIscnRecord from '.';
 

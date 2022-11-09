@@ -1,20 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Nav/NetworkList it renders 1`] = `
-<div
-  className="MuiBox-root MuiBox-root makeStyles-root"
->
+<div>
   <div
-    style={
-      {
-        "height": 30,
-      }
-    }
+    className="MuiBox-root MuiBox-root makeStyles-root"
   >
-    <svg />
+    <div
+      style={
+        {
+          "height": 30,
+        }
+      }
+    >
+      <svg />
+    </div>
+    <Networks
+      className="makeStyles-content"
+    />
   </div>
-  <Networks
-    className="makeStyles-content"
-  />
 </div>
 `;

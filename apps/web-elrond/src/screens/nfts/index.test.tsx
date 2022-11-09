@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from '@tests/utils';
+import { MockTheme, wait } from 'ui/tests/utils';
 import Blocks from '.';
 
 // ==================================
@@ -30,7 +30,7 @@ describe('screen: Blocks', () => {
         )
         .toJSON();
     });
-    await wait();
+    await wait(renderer.act);
 
     expect(tree).toMatchSnapshot();
   });

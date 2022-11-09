@@ -1,14 +1,17 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import numeral from 'numeral';
-import {
-  PieChart,
-  Pie,
-  Cell,
-  Tooltip,
-} from 'recharts';
+import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import CustomToolTip from '.';
+
+
+// to fix error, this.wrapperNode is null node_modules/recharts/src/component/Tooltip.tsx:143
+jest.mock('recharts', () => ({
+  ...jest.requireActual('recharts'),
+  Tooltip: () => <div id="test-tooltip"/>,
+}));
+
 // ==================================
 // unit tests
 // ==================================
@@ -42,11 +45,7 @@ describe('component: CustomToolTip', () => {
 
     const component = renderer.create(
       <MockTheme>
-        <PieChart
-          width={200}
-          height={100}
-          cy={100}
-        >
+        <PieChart width={200} height={100} cy={100}>
           <Pie
             stroke="none"
             cy={90}
@@ -59,32 +58,25 @@ describe('component: CustomToolTip', () => {
             isAnimationActive={false}
           >
             {dummyProps.map((entry) => {
-              return (
-                <Cell key={entry.legendKey} fill={entry.fill} />
-              );
+              return <Cell key={entry.legendKey} fill={entry.fill} />;
             })}
+            <Tooltip
+              content={
+                <CustomToolTip>
+                  {(x) => {
+                    return (
+                      <>
+                        <div>{x.legendKey}</div>
+                        <div>{x.value}</div>
+                      </>
+                    );
+                  }}
+                </CustomToolTip>
+              }
+            />
           </Pie>
-          <Tooltip
-            content={(
-              <CustomToolTip>
-                {(x) => {
-                  return (
-                    <>
-                      <div>
-                        {x.legendKey}
-                      </div>
-                      <div>
-                        {x.value}
-                      </div>
-                    </>
-                  );
-                }}
-              </CustomToolTip>
-            )}
-          />
         </PieChart>
-
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

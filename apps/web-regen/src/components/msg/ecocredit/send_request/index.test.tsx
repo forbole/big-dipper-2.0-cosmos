@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgSendRequest from '@models/regen/msg/ecocredit/msg_send_request';
 import SendRequest from '.';
 

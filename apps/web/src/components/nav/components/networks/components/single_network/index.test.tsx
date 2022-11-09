@@ -1,11 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import SingleNetwork from '.';
 // ==================================
 // global setup
 // ==================================
-let component:renderer.ReactTestRenderer;
+let component: renderer.ReactTestRenderer;
 
 // ==================================
 // unit tests
@@ -14,8 +14,13 @@ describe('screen: Nav/SingleNetwork', () => {
   beforeEach(() => {
     component = renderer.create(
       <MockTheme>
-        <SingleNetwork url="http://bigdipper.live/desmos" chainId="desmos-mainnet" name="desmos" className="" />
-      </MockTheme>,
+        <SingleNetwork
+          url="http://bigdipper.live/desmos"
+          chainId="desmos-mainnet"
+          name="desmos"
+          className=""
+        />
+      </MockTheme>
     );
   });
 

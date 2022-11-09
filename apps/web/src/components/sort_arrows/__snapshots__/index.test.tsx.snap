@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component: SortArrows matches snapshot 1`] = `
+<div>
+  <div
+    className="makeStyles-root"
+  >
+    <svg
+      className="makeStyles-svg makeStyles-up"
+    />
+    <svg
+      className="makeStyles-svg makeStyles-down"
+    />
+  </div>
+</div>
+`;

@@ -28,33 +28,35 @@ process.env = {
   NEXT_PUBLIC_CHAIN_CONFIG: JSON.stringify(chainConfig),
 };
 
-jest.mock('ui/utils/dayjs', () => {
-  const mockTest = () => ({
-    format: jest.fn(() => '2020-08-10 12:00:00'),
-  });
+beforeEach(() => {
+  jest.mock('ui/utils/dayjs', () => {
+    const mockTest = () => ({
+      format: jest.fn(() => '2020-08-10 12:00:00'),
+    });
 
-  mockTest.utc = jest.fn(() => {
-    const format = jest.fn(() => '2020-08-10 12:00:00');
-    return {
-      format,
-      fromNow: jest.fn(() => '1 day ago'),
-      diff: jest.fn(() => 30),
-      local: jest.fn(() => ({
+    mockTest.utc = jest.fn(() => {
+      const format = jest.fn(() => '2020-08-10 12:00:00');
+      return {
         format,
-      })),
+        fromNow: jest.fn(() => '1 day ago'),
+        diff: jest.fn(() => 30),
+        local: jest.fn(() => ({
+          format,
+        })),
+      };
+    });
+
+    return {
+      __esModule: true,
+      default: mockTest,
+      formatDayJs: jest.fn(() => '2020-08-10 12:00:00'),
     };
   });
 
-  return {
-    __esModule: true,
-    default: mockTest,
-    formatDayJs: jest.fn(() => '2020-08-10 12:00:00'),
-  };
-});
-
-jest.mock('next/dynamic', () => () => {
-  const DynamicComponent = () => null;
-  DynamicComponent.displayName = 'LoadableComponent';
-  DynamicComponent.preload = jest.fn();
-  return DynamicComponent;
+  jest.mock('next/dynamic', () => () => {
+    const DynamicComponent = () => null;
+    DynamicComponent.displayName = 'LoadableComponent';
+    DynamicComponent.preload = jest.fn();
+    return DynamicComponent;
+  });
 });

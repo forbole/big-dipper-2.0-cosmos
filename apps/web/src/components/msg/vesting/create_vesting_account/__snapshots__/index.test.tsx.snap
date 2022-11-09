@@ -1,20 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: TransactionDetails/Grant matches snapshot 1`] = `
-<p
-  className="MuiTypography-root MuiTypography-body1"
->
-  <div
-    components={
-      [
-        <Unknown
-          address="toAddress"
-          name="toAddress"
-        />,
-      ]
-    }
-    i18nKey="message_contents:MsgCreateVestingAccount"
-    id="Trans"
-  />
-</p>
+exports[`screen: TransactionDetails/CreateVestingAccount matches snapshot 1`] = `
+<div>
+  <p
+    className="MuiTypography-root MuiTypography-body1"
+  >
+    <div
+      components={
+        [
+          <Unknown
+            address=""
+            name=""
+          />,
+        ]
+      }
+      i18nKey="message_contents:MsgCreateVestingAccount"
+      id="Trans"
+    />
+  </p>
+</div>
 `;

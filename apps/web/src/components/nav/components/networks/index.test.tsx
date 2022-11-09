@@ -1,9 +1,7 @@
 import React from 'react';
-import {
-  RecoilRoot, useRecoilValue,
-} from 'recoil';
+import { RecoilRoot, useRecoilValue } from 'recoil';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Networks from '.';
 
 // ==================================
@@ -20,32 +18,40 @@ jest.mock('recoil', () => ({
 }));
 
 beforeEach(() => {
-  (useRecoilValue as jest.Mock).mockImplementation(() => ([
+  (useRecoilValue as jest.Mock).mockImplementation(() => [
     {
       logo: 'logo',
       name: 'Cosmos',
-      mainnet: [{
-        name: 'Mainnet',
-        chainId: 'cosmoshub-4',
-        url: 'https://cosmos.bigdipper.live',
-      }],
-      testnet: [{
-        name: 'Testnet',
-        chainId: 'stargate-final',
-        url: 'https://gaia.bigdipper.live/',
-      }],
-      retired: [{
-        name: 'Retired',
-        chainId: 'stargate-retired',
-        url: 'https://stargate-retired.bigdipper.live/',
-      }],
-      other: [{
-        name: 'Other',
-        chainId: 'other',
-        url: '',
-      }],
+      mainnet: [
+        {
+          name: 'Mainnet',
+          chainId: 'cosmoshub-4',
+          url: 'https://cosmos.bigdipper.live',
+        },
+      ],
+      testnet: [
+        {
+          name: 'Testnet',
+          chainId: 'stargate-final',
+          url: 'https://gaia.bigdipper.live/',
+        },
+      ],
+      retired: [
+        {
+          name: 'Retired',
+          chainId: 'stargate-retired',
+          url: 'https://stargate-retired.bigdipper.live/',
+        },
+      ],
+      other: [
+        {
+          name: 'Other',
+          chainId: 'other',
+          url: '',
+        },
+      ],
     },
-  ]));
+  ]);
 });
 
 // ==================================

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: InitialLoad matches snapshot 1`] = `
+<div>
+  <div
+    className="makeStyles-root"
+  >
+    <div>
+      <img
+        alt="logo"
+        className="makeStyles-logo makeStyles-dark"
+        src="svg"
+      />
+      <img
+        alt="logo"
+        className="makeStyles-logo makeStyles-light"
+        src="svg"
+      />
+      <div
+        className="makeStyles-divider"
+        id="LinearProgress"
+      />
+      <svg />
+    </div>
+  </div>
+</div>
+`;

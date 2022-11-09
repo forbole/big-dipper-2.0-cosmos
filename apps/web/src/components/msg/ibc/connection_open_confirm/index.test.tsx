@@ -1,7 +1,6 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import { MsgConnectionOpenConfirm } from '@models';
 import ConnectionOpenConfirm from '.';
 
@@ -9,9 +8,9 @@ import ConnectionOpenConfirm from '.';
 // mocks
 // ==================================
 
-jest.mock('@components', () => ({
-  Name: (props) => <div id="Name" {...props} />,
-}));
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -31,13 +30,9 @@ describe('screen: TransactionDetails/IBCConnectionOpenConfirm', () => {
       ],
     });
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <ConnectionOpenConfirm
-            message={message}
-          />
-        </MockTheme>
-      </RecoilRoot>,
+      <MockTheme>
+        <ConnectionOpenConfirm message={message} />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

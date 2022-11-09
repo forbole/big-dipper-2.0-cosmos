@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Desktop from '.';
 
 // ==================================
@@ -23,9 +23,15 @@ jest.mock('@components/sort_arrows', () => (props: JSX.IntrinsicElements['div'])
   <div id="SortArrows" {...props} />
 ));
 
-jest.mock('react-virtualized-auto-sizer', () => ({ children }: any) => children({
-  height: 600, width: 600,
-}));
+// jest.mock(
+//   'react-virtualized-auto-sizer',
+//   () =>
+//     ({ children }: AutoSizerProps) =>
+//       children({
+//         height: 600,
+//         width: 600,
+//       })
+// );
 
 // ==================================
 // unit tests
@@ -60,7 +66,7 @@ describe('screen: Validators/Desktop', () => {
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
-  
+
   it('matches snapshot with active validator', () => {
     const component = renderer.create(
       <MockTheme>
@@ -73,7 +79,8 @@ describe('screen: Validators/Desktop', () => {
               validator: {
                 name: 'Validator',
                 address: 'desmosvaloper1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes',
-                imageUrl: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
+                imageUrl:
+                  'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
               },
               votingPower: 20,
               votingPowerPercent: 20,
@@ -85,7 +92,7 @@ describe('screen: Validators/Desktop', () => {
             },
           ]}
         />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

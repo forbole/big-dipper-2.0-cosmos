@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgBurnTokens from '@models/emoney/msg/liquidity_provider/msg_burn_tokens';
 import BurnTokens from '.';
 

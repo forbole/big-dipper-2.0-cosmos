@@ -1,13 +1,12 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Desktop from '.';
 
 // ==================================
 // global setup
 // ==================================
-let component:renderer.ReactTestRenderer;
+let component: renderer.ReactTestRenderer;
 
 // ==================================
 // unit tests
@@ -22,11 +21,9 @@ describe('screen: DesmosProfile/Desktop', () => {
   ];
   beforeEach(() => {
     component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <Desktop items={connection} />
-        </MockTheme>
-      </RecoilRoot>,
+      <MockTheme>
+        <Desktop items={connection} />
+      </MockTheme>
     );
   });
 

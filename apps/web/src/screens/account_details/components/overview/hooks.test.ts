@@ -1,8 +1,4 @@
-import {
-  renderHook,
-  cleanup,
-  act,
-} from '@testing-library/react-hooks';
+import { renderHook, cleanup, act } from '@testing-library/react-hooks';
 import { useOverview } from './hooks';
 
 const mockI18n = {

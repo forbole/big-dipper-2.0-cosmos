@@ -81,7 +81,7 @@ const ValidatorOverview: React.FC<
       key: (
         <Typography variant="h4" className="label condition">
           {t('condition')}
-          <InfoPopover content={<ConditionExplanation />} />
+          <InfoPopover content={ConditionExplanation} />
         </Typography>
       ),
       value:

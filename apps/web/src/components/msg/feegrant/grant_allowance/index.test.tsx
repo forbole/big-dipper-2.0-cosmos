@@ -1,13 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme, wait } from 'ui/tests/utils';
 import { MsgGrantAllowance } from '@models';
 import GrantAllowance from '.';
 
 // ==================================
 // mocks
 // ==================================
-
 jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
@@ -20,13 +19,14 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // unit tests
 // ==================================
 describe('screen: TransactionDetails/Grant', () => {
-  it('matches snapshot', () => {
+  it('matches snapshot', async () => {
     const message = MsgGrantAllowance.fromJson({
       category: 'feegrant',
       type: 'MsgGrant',
       granter: 'sponderbob',
       grantee: 'grantee',
     });
+    await wait(renderer.act);
     const component = renderer.create(
       <MockTheme>
         <GrantAllowance message={message} />

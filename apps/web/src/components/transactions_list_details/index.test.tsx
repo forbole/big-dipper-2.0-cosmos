@@ -1,39 +1,46 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import TransactionsListDetails from '.';
 
 // ==================================
 // global setup
 // ==================================
-let component:renderer.ReactTestRenderer;
+let component: renderer.ReactTestRenderer;
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components', () => ({
-  NoData: (props) => <div id="NoData" {...props} />,
-}));
+jest.mock('@components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="NoData" {...props} />
+));
 
 jest.mock('./components', () => ({
-  List: (props) => <div id="List" {...props} />,
+  List: (props: JSX.IntrinsicElements['div']) => <div id="List" {...props} />,
 }));
 
-const txs = [{
-  height: 1212131,
-  hash: 'D0243447726B8BD7AE94BF4F98E536A647959194E870AB8566CB833A3CC847F6',
-  type: ['cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward'],
-  success: true,
-  timestamp: '2021-05-24T05:28:05.839448',
-  messages: {
-    count: 2,
-    items: [{
-      '@type': '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward', delegator_address: 'desmos1r574p4zzhe0rq7w4acjwdqrejszjjz2lc4an7a', validator_address: 'desmosvaloper1r574p4zzhe0rq7w4acjwdqrejszjjz2lxc4850',
-    }, {
-      '@type': '/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission', validator_address: 'desmosvaloper1r574p4zzhe0rq7w4acjwdqrejszjjz2lxc4850',
-    }],
+const txs = [
+  {
+    height: 1212131,
+    hash: 'D0243447726B8BD7AE94BF4F98E536A647959194E870AB8566CB833A3CC847F6',
+    type: ['cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward'],
+    success: true,
+    timestamp: '2021-05-24T05:28:05.839448',
+    messages: {
+      count: 2,
+      items: [
+        {
+          '@type': '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward',
+          delegator_address: 'desmos1r574p4zzhe0rq7w4acjwdqrejszjjz2lc4an7a',
+          validator_address: 'desmosvaloper1r574p4zzhe0rq7w4acjwdqrejszjjz2lxc4850',
+        },
+        {
+          '@type': '/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission',
+          validator_address: 'desmosvaloper1r574p4zzhe0rq7w4acjwdqrejszjjz2lxc4850',
+        },
+      ],
+    },
   },
-},
 ];
 
 const props = {
@@ -64,7 +71,7 @@ describe('component: TransactionsListDetails', () => {
     component = renderer.create(
       <MockTheme>
         <TransactionsListDetails {...props} />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
@@ -74,7 +81,7 @@ describe('component: TransactionsListDetails', () => {
     component = renderer.create(
       <MockTheme>
         <TransactionsListDetails {...emptyProps} />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

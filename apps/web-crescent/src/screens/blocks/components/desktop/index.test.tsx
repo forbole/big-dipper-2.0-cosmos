@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Desktop from '.';
 
 // ==================================
@@ -18,15 +18,15 @@ jest.mock('@components/avatar_name', () => (props: JSX.IntrinsicElements['div'])
   <div id="AvatarName" {...props} />
 ));
 
-jest.mock(
-  'react-virtualized-auto-sizer',
-  () =>
-    ({ children }: any) =>
-      children({
-        height: 600,
-        width: 600,
-      })
-);
+// jest.mock(
+//   'react-virtualized-auto-sizer',
+//   () =>
+//     ({ children }: AutoSizerProps) =>
+//       children({
+//         height: 600,
+//         width: 600,
+//       })
+// );
 
 // ==================================
 // unit tests

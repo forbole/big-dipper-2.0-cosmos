@@ -1,16 +1,16 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Actions from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@material-ui/core/IconButton', () => (props) => <div id="iconButton" {...props} />);
-jest.mock('@material-ui/core/FormControl', () => (props) => <div id="formControl" {...props} />);
-jest.mock('@material-ui/core/Select', () => (props) => <div id="select" {...props} />);
-jest.mock('@material-ui/core/MenuItem', () => (props) => <div id="menuItem" {...props} />);
-jest.mock('@material-ui/core/InputBase', () => (props) => <div id="inputBase" {...props} />);
+jest.mock('@material-ui/core/IconButton', () => (props: JSX.IntrinsicElements['div']) => <div id="iconButton" {...props} />);
+jest.mock('@material-ui/core/FormControl', () => (props: JSX.IntrinsicElements['div']) => <div id="formControl" {...props} />);
+jest.mock('@material-ui/core/Select', () => (props: JSX.IntrinsicElements['div']) => <div id="select" {...props} />);
+jest.mock('@material-ui/core/MenuItem', () => (props: JSX.IntrinsicElements['div']) => <div id="menuItem" {...props} />);
+jest.mock('@material-ui/core/InputBase', () => (props: JSX.IntrinsicElements['div']) => <div id="inputBase" {...props} />);
 
 // ==================================
 // unit tests

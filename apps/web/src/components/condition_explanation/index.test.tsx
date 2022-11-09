@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import ConditionExplanation from '.';
 
 // ==================================
@@ -11,7 +11,7 @@ describe('components: ConditionExplanation', () => {
     const component = renderer.create(
       <MockTheme>
         <ConditionExplanation />
-      </MockTheme>,
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

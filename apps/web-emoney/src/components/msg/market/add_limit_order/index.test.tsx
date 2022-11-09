@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgAddLimitOrder from '@models/emoney/msg/market/msg_add_limit_order';
 import AddLimitOrder from '.';
 

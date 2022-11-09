@@ -88,7 +88,7 @@ const Desktop: React.FC<{
                     formattedComponent = (
                       <Typography variant="h4" className="label popover">
                         {t('votingPower')}
-                        <InfoPopover content={<VotingPowerExplanation />} />
+                        <InfoPopover content={VotingPowerExplanation} />
                         {!!sort && (
                           <SortArrows
                             sort={props.sortKey === sortingKey ? props.sortDirection : undefined}

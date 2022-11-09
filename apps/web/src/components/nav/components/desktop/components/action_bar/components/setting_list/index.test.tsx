@@ -1,7 +1,6 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Settings from '.';
 
 // ==================================
@@ -16,7 +15,7 @@ const mockI18n = {
   t: (key: string) => key,
   lang: 'en',
 };
-jest.mock('@material-ui/core/Select', () => (props) => <div id="select" {...props} />);
+jest.mock('@material-ui/core/Select', () => (props: JSX.IntrinsicElements['div']) => <div id="select" {...props} />);
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('next/router', () => ({
   useRouter: () => ({
@@ -35,11 +34,9 @@ describe('screen: Nav/SettingList', () => {
   beforeEach(async () => {
     renderer.act(() => {
       component = renderer.create(
-        <RecoilRoot>
-          <MockTheme>
-            <Settings />
-          </MockTheme>
-        </RecoilRoot>,
+        <MockTheme>
+          <Settings />
+        </MockTheme>
       );
     });
   });

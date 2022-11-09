@@ -1,17 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: Validators/Tabs matches snapshot 1`] = `
-<div
-  className=""
->
+exports[`screen: Validators/Mobile matches snapshot 1`] = `
+<div>
   <div
-    style={
-      {
-        "height": 0,
-        "overflow": "visible",
-        "width": 0,
+    className=""
+  >
+    <div
+      style={
+        {
+          "height": 0,
+          "overflow": "visible",
+          "width": 0,
+        }
       }
-    }
-  />
+    />
+  </div>
 </div>
 `;

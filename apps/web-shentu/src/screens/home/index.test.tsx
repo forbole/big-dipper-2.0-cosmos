@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from '@tests/utils';
+import { MockTheme, wait } from 'ui/tests/utils';
 import { createMockClient } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
 import { LatestBlockTimestampDocument } from '@graphql/types/general_types';
@@ -52,7 +52,7 @@ describe('screen: Home', () => {
         )
         .toJSON();
     });
-    await wait();
+    await wait(renderer.act);
 
     expect(tree).toMatchSnapshot();
   });

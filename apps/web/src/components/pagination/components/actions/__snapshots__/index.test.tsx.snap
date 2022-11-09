@@ -1,142 +1,84 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components: Pagination/Actions matches snapshot 1`] = `
-<ul
-  className="makeStyles-root"
->
-  <li
-    className="first"
+<div>
+  <ul
+    className="makeStyles-root"
   >
-    <button
-      aria-label="first page"
-      className="MuiButtonBase-root MuiIconButton-root makeStyles-button MuiIconButton-disabled MuiButtonBase-disabled"
-      disabled={true}
-      onBlur={[Function]}
-      onClick={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex={-1}
-      type="button"
+    <li
+      className="first"
     >
-      <span
-        className="MuiIconButton-label"
+      <div
+        aria-label="first page"
+        className="makeStyles-button"
+        disableRipple={true}
+        disabled={true}
+        id="iconButton"
+        onClick={[Function]}
       >
         <svg
           className="makeStyles-prev"
         />
-      </span>
-    </button>
-  </li>
-  <li>
-    <button
-      aria-label="previous page"
-      className="MuiButtonBase-root MuiIconButton-root makeStyles-button MuiIconButton-disabled MuiButtonBase-disabled"
-      disabled={true}
-      onBlur={[Function]}
-      onClick={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex={-1}
-      type="button"
-    >
-      <span
-        className="MuiIconButton-label"
+      </div>
+    </li>
+    <li>
+      <div
+        aria-label="previous page"
+        className="makeStyles-button"
+        disableRipple={true}
+        disabled={true}
+        id="iconButton"
+        onClick={[Function]}
       >
         <svg
           className="makeStyles-prev"
         />
-      </span>
-    </button>
-  </li>
-  <li
-    className="MuiTypography-root makeStyles-button makeStyles-pageButton selected MuiTypography-body2"
-    onClick={[Function]}
-  >
-    1
-  </li>
-  <li
-    className="MuiTypography-root makeStyles-button makeStyles-pageButton MuiTypography-body2"
-    onClick={[Function]}
-  >
-    2
-  </li>
-  <li
-    className="MuiTypography-root makeStyles-button makeStyles-pageButton MuiTypography-body2"
-    onClick={[Function]}
-  >
-    3
-  </li>
-  <li>
-    <button
-      aria-label="next page"
-      className="MuiButtonBase-root MuiIconButton-root makeStyles-button"
-      disabled={false}
-      onBlur={[Function]}
+      </div>
+    </li>
+    <li
+      className="MuiTypography-root makeStyles-button makeStyles-pageButton selected MuiTypography-body2"
       onClick={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex={0}
-      type="button"
     >
-      <span
-        className="MuiIconButton-label"
+      1
+    </li>
+    <li
+      className="MuiTypography-root makeStyles-button makeStyles-pageButton MuiTypography-body2"
+      onClick={[Function]}
+    >
+      2
+    </li>
+    <li
+      className="MuiTypography-root makeStyles-button makeStyles-pageButton MuiTypography-body2"
+      onClick={[Function]}
+    >
+      3
+    </li>
+    <li>
+      <div
+        aria-label="next page"
+        className="makeStyles-button"
+        disableRipple={true}
+        disabled={false}
+        id="iconButton"
+        onClick={[Function]}
       >
         <svg />
-      </span>
-    </button>
-  </li>
-  <li
-    className="last"
-  >
-    <button
-      aria-label="last page"
-      className="MuiButtonBase-root MuiIconButton-root makeStyles-button"
-      disabled={false}
-      onBlur={[Function]}
-      onClick={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex={0}
-      type="button"
+      </div>
+    </li>
+    <li
+      className="last"
     >
-      <span
-        className="MuiIconButton-label"
+      <div
+        aria-label="last page"
+        className="makeStyles-button"
+        disableRipple={true}
+        disabled={false}
+        id="iconButton"
+        onClick={[Function]}
       >
         <svg />
-      </span>
-    </button>
-  </li>
-</ul>
+      </div>
+    </li>
+  </ul>
+</div>
 `;

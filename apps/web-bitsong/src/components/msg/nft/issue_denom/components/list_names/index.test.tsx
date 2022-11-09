@@ -1,4 +1,4 @@
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import React from 'react';
 import renderer from 'react-test-renderer';
 import ListNames from '.';

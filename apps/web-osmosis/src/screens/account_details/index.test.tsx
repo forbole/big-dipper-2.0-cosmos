@@ -4,7 +4,7 @@ import MockAdapter from 'axios-mock-adapter';
 import { createMockClient } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
 import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
-import { MockTheme, wait } from '@tests/utils';
+import { MockTheme, wait } from 'ui/tests/utils';
 import {
   // AccountDocument,
   GetMessagesByAddressDocument,
@@ -173,7 +173,7 @@ describe('screen: BlockDetails', () => {
         )
         .toJSON();
     });
-    await wait();
+    await wait(renderer.act);
 
     expect(tree).toMatchSnapshot();
   });

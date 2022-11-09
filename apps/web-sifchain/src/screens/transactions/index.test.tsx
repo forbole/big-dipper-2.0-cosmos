@@ -2,7 +2,7 @@ import React from 'react';
 import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
 import { createMockClient, createMockSubscription } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
-import { MockTheme, wait } from '@tests/utils';
+import { MockTheme, wait } from 'ui/tests/utils';
 import { TransactionsListenerDocument, TransactionsDocument } from '@graphql/types/general_types';
 import Transactions from '.';
 
@@ -109,7 +109,7 @@ describe('screen: Transactions', () => {
         )
         .toJSON();
     });
-    await wait();
+    await wait(renderer.act);
 
     renderer.act(() => {
       mockSubscription.next(mockTransactionsListenerDocument);

@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgRunDistribution from '@models/sifchain/msg/dispensation/msg_run_distribution';
 import RunDistribution from '.';
 

@@ -1,10 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
-import { RecoilRoot } from 'recoil';
+import { MockTheme } from 'ui/tests/utils';
 import Overview from '.';
 
-let component:renderer.ReactTestRenderer;
+let component: renderer.ReactTestRenderer;
 
 // ==================================
 // mocks
@@ -22,15 +21,12 @@ jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
 describe('screen: AccountDetails/Overview', () => {
   it('matches snapshot', () => {
     component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <Overview
-            withdrawalAddress="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
-            address="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
-          />
-        </MockTheme>
-      </RecoilRoot>,
-
+      <MockTheme>
+        <Overview
+          withdrawalAddress="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
+          address="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
+        />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

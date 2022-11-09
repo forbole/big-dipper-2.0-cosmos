@@ -1,7 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
-import { RecoilRoot } from 'recoil';
+import { MockTheme } from 'ui/tests/utils';
 import SortArrows from '.';
 
 // ==================================
@@ -10,11 +9,9 @@ import SortArrows from '.';
 describe('component: SortArrows', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <SortArrows />
-        </MockTheme>
-      </RecoilRoot>,
+      <MockTheme>
+        <SortArrows />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

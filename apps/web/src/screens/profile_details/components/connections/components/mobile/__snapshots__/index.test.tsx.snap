@@ -1,110 +1,112 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: ProfileDetails/Connections/Mobile matches snapshot 1`] = `
-<div
-  className=""
->
+<div>
   <div
-    className="makeStyles-list"
+    className=""
   >
     <div
-      className="makeStyles-item"
+      className="makeStyles-list"
     >
-      <h4
-        className="MuiTypography-root label MuiTypography-h4"
+      <div
+        className="makeStyles-item"
       >
-        network
-      </h4>
-      <p
-        className="MuiTypography-root value MuiTypography-body1"
-      >
-        NATIVE
-      </p>
-    </div>
-    <div
-      className="makeStyles-item"
-    >
-      <h4
-        className="MuiTypography-root label MuiTypography-h4"
-      >
-        identifier
-      </h4>
-      <p
-        className="MuiTypography-root value MuiTypography-body1"
-      >
-        <a
-          className="MuiTypography-root value MuiTypography-body1"
-          href="/accounts/desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-          onTouchStart={[Function]}
+        <h4
+          className="MuiTypography-root label MuiTypography-h4"
         >
-          desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv
-        </a>
-      </p>
+          network
+        </h4>
+        <p
+          className="MuiTypography-root value MuiTypography-body1"
+        >
+          NATIVE
+        </p>
+      </div>
+      <div
+        className="makeStyles-item"
+      >
+        <h4
+          className="MuiTypography-root label MuiTypography-h4"
+        >
+          identifier
+        </h4>
+        <p
+          className="MuiTypography-root value MuiTypography-body1"
+        >
+          <a
+            className="MuiTypography-root value MuiTypography-body1"
+            href="/accounts/desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onTouchStart={[Function]}
+          >
+            desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv
+          </a>
+        </p>
+      </div>
+      <div
+        className="makeStyles-item"
+      >
+        <h4
+          className="MuiTypography-root label MuiTypography-h4"
+        >
+          creationTime
+        </h4>
+        <p
+          className="MuiTypography-root value MuiTypography-body1"
+        >
+          2020-08-10 12:00:00
+        </p>
+      </div>
     </div>
+    <hr
+      className="MuiDivider-root"
+    />
     <div
-      className="makeStyles-item"
+      className="makeStyles-list"
     >
-      <h4
-        className="MuiTypography-root label MuiTypography-h4"
+      <div
+        className="makeStyles-item"
       >
-        creationTime
-      </h4>
-      <p
-        className="MuiTypography-root value MuiTypography-body1"
+        <h4
+          className="MuiTypography-root label MuiTypography-h4"
+        >
+          network
+        </h4>
+        <p
+          className="MuiTypography-root value MuiTypography-body1"
+        >
+          EMONEY
+        </p>
+      </div>
+      <div
+        className="makeStyles-item"
       >
-        2020-08-10 12:00:00
-      </p>
-    </div>
-  </div>
-  <hr
-    className="MuiDivider-root"
-  />
-  <div
-    className="makeStyles-list"
-  >
-    <div
-      className="makeStyles-item"
-    >
-      <h4
-        className="MuiTypography-root label MuiTypography-h4"
+        <h4
+          className="MuiTypography-root label MuiTypography-h4"
+        >
+          identifier
+        </h4>
+        <p
+          className="MuiTypography-root value MuiTypography-body1"
+        >
+          emoney1wke3ev9ja6rxsngld75r3vppcpet94xxnh63ry
+        </p>
+      </div>
+      <div
+        className="makeStyles-item"
       >
-        network
-      </h4>
-      <p
-        className="MuiTypography-root value MuiTypography-body1"
-      >
-        EMONEY
-      </p>
-    </div>
-    <div
-      className="makeStyles-item"
-    >
-      <h4
-        className="MuiTypography-root label MuiTypography-h4"
-      >
-        identifier
-      </h4>
-      <p
-        className="MuiTypography-root value MuiTypography-body1"
-      >
-        emoney1wke3ev9ja6rxsngld75r3vppcpet94xxnh63ry
-      </p>
-    </div>
-    <div
-      className="makeStyles-item"
-    >
-      <h4
-        className="MuiTypography-root label MuiTypography-h4"
-      >
-        creationTime
-      </h4>
-      <p
-        className="MuiTypography-root value MuiTypography-body1"
-      >
-        2020-08-10 12:00:00
-      </p>
+        <h4
+          className="MuiTypography-root label MuiTypography-h4"
+        >
+          creationTime
+        </h4>
+        <p
+          className="MuiTypography-root value MuiTypography-body1"
+        >
+          2020-08-10 12:00:00
+        </p>
+      </div>
     </div>
   </div>
 </div>

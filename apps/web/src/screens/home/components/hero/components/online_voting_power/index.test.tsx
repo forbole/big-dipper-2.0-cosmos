@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import { ApolloProvider } from '@apollo/client';
 import { createMockClient } from 'mock-apollo-client';
 import { OnlineVotingPowerDocument } from '@graphql/types/general_types';
-import { MockTheme, wait } from '@tests/utils';
+import { MockTheme, wait } from 'ui/tests/utils';
 import OnlineVotingPower from '.';
 
 // ==================================
@@ -71,7 +71,7 @@ describe('screen: Home/OnlineVotingPower', () => {
         </ApolloProvider>
       );
     });
-    await wait();
+    await wait(renderer.act);
 
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();

@@ -1,60 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
-<div
-  className="makeStyles-root"
-  details={
-    [
-      {
-        "detail": "",
-        "label": "hash",
-      },
-      {
-        "detail": <ForwardRef(LinkComponent)
-          href="/blocks/0"
-          passHref={true}
-        >
-          <WithStyles(ForwardRef(Typography))
-            className="value"
-            component="a"
-            variant="body1"
+<div>
+  <div
+    className="makeStyles-root"
+    details={
+      [
+        {
+          "detail": "",
+          "label": "hash",
+        },
+        {
+          "detail": <ForwardRef(LinkComponent)
+            href="/blocks/0"
+            passHref={true}
           >
-            0
-          </WithStyles(ForwardRef(Typography))>
-        </ForwardRef(LinkComponent)>,
-        "label": "height",
-      },
-      {
-        "detail": "2020-08-10 12:00:00",
-        "label": "time",
-      },
-      {
-        "detail": "5,000 DARIC",
-        "label": "fee",
-      },
-      {
-        "detail": "0 / 0",
-        "label": "gas",
-      },
-      {
-        "detail": <Unknown
-          success={false}
-        />,
-        "label": "result",
-      },
-      {
-        "className": "memo",
-        "detail": "",
-        "label": "memo",
-      },
-      {
-        "className": "memo",
-        "detail": "",
-        "label": "error",
-      },
-    ]
-  }
-  id="BoxDetails"
-  title="overview"
-/>
+            <WithStyles(ForwardRef(Typography))
+              className="value"
+              component="a"
+              variant="body1"
+            >
+              0
+            </WithStyles(ForwardRef(Typography))>
+          </ForwardRef(LinkComponent)>,
+          "label": "height",
+        },
+        {
+          "detail": "2020-08-10 12:00:00",
+          "label": "time",
+        },
+        {
+          "detail": "5,000 DARIC",
+          "label": "fee",
+        },
+        {
+          "detail": "0 / 0",
+          "label": "gas",
+        },
+        {
+          "detail": <Unknown
+            success={false}
+          />,
+          "label": "result",
+        },
+        {
+          "className": "memo",
+          "detail": "",
+          "label": "memo",
+        },
+        {
+          "className": "memo",
+          "detail": "",
+          "label": "error",
+        },
+      ]
+    }
+    id="BoxDetails"
+    title="overview"
+  />
+</div>
 `;

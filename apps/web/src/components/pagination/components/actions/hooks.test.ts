@@ -1,8 +1,4 @@
-import {
-  renderHook,
-  cleanup,
-  act,
-} from '@testing-library/react-hooks';
+import { renderHook, cleanup, act } from '@testing-library/react-hooks';
 import { useTablePaginationActions } from './hooks';
 
 const props = {

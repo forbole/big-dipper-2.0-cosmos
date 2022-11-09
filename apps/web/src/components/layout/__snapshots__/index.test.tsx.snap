@@ -1,33 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component: Layout it renders 1`] = `
-<div
-  className="makeStyles-root"
->
+<div>
   <div
-    className="makeStyles-contentWrapper"
+    className="makeStyles-root"
   >
     <div
-      id="Nav"
-    />
-    <div
-      className="makeStyles-children"
+      className="makeStyles-contentWrapper"
     >
       <div
-        className="makeStyles-appBarPlaceholder"
+        id="Nav"
       />
       <div
-        className="main-content"
+        className="makeStyles-children"
       >
-        <div>
-          hello world
+        <div
+          className="makeStyles-appBarPlaceholder"
+        />
+        <div
+          className="main-content"
+        >
+          <div>
+            hello world
+          </div>
         </div>
       </div>
     </div>
+    <div
+      className="makeStyles-footer"
+      id="Footer"
+    />
   </div>
-  <div
-    className="makeStyles-footer"
-    id="Footer"
-  />
 </div>
 `;

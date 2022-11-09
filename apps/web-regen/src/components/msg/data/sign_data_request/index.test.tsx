@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgSignDataRequest from '@models/regen/msg/data/msg_sign_data_request';
 import SignDataRequest from '.';
 

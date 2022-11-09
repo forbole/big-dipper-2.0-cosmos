@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component: NoData matches snapshot 1`] = `
+<div>
+  <div
+    className="makeStyles-root"
+  >
+    <div
+      className="makeStyles-content"
+    >
+      <svg />
+      <p
+        className="MuiTypography-root MuiTypography-body1"
+      >
+        nothingToShow
+      </p>
+    </div>
+  </div>
+</div>
+`;

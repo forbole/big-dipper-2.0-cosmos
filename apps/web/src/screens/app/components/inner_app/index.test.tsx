@@ -1,8 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {
-  createMockClient,
-} from 'mock-apollo-client';
+import { createMockClient } from 'mock-apollo-client';
 import InnerApp from '.';
 // ==================================
 // global setup
@@ -16,8 +14,7 @@ const mockClient = createMockClient();
 
 jest.mock('./hooks', () => ({
   useChainHealthCheck: () => mockClient,
-}
-));
+}));
 
 // ==================================
 // unit tests
@@ -27,13 +24,12 @@ describe('screen: _app/InnerApp', () => {
     renderer.act(() => {
       component = renderer.create(
         <InnerApp
-          router={{
-          } as any}
+          router={{} as any}
           Component={() => <div id="component" />}
           pageProps={{
             props: 'props',
           }}
-        />,
+        />
       );
     });
 

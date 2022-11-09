@@ -1,10 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
-import {
-  NotFound,
-} from '@components';
-import { RecoilRoot } from 'recoil';
+import { MockTheme } from 'ui/tests/utils';
+import NotFound from '@components/not_found';
 
 // ==================================
 // mocks
@@ -21,11 +18,9 @@ jest.mock('next-translate/useTranslation', () => () => mockI18n);
 describe('component: NotFound', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
-      <RecoilRoot>
-        <MockTheme>
-          <NotFound />
-        </MockTheme>
-      </RecoilRoot>,
+      <MockTheme>
+        <NotFound />
+      </MockTheme>
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

@@ -19,7 +19,6 @@
       "@graphql": ["src/graphql"],
       "@graphql/*": ["src/graphql/*"],
       "@graphql/types": ["src/graphql/types"],
-      "@tests/utils": ["tests/utils"],
       "@api": ["src/api"]
     }
   },

@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from '@tests/utils';
+import { MockTheme, wait } from 'ui/tests/utils';
 import { createMockClient, createMockSubscription } from 'mock-apollo-client';
 import { ApolloProvider } from '@apollo/client';
 import { TransactionsListenerDocument } from '@graphql/types/general_types';
@@ -32,12 +32,12 @@ const mockTxsListenerDocument = {
     transactions: [
       {
         height: 2000,
+        block: {
+          timestamp: '2021-05-28T00:08:33.700487',
+        },
         hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
         messages: 12,
         success: true,
-        block: {
-          timestamp: '2021-02-18T09:02:28.668623',
-        },
         logs: [],
       },
     ],
@@ -66,7 +66,7 @@ describe('screen: Home/Blocks/Mobile', () => {
       );
     });
 
-    await wait();
+    await wait(renderer.act);
 
     renderer.act(() => {
       mockSubscription.next(mockTxsListenerDocument);

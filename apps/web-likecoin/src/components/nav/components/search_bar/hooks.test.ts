@@ -1,5 +1,5 @@
-import { RecoilRoot } from 'recoil';
 import { renderHook, act } from '@testing-library/react-hooks';
+import { RecoilRoot } from 'recoil';
 import chainConfig from 'ui/chainConfig';
 import { useSearchBar } from './hooks';
 

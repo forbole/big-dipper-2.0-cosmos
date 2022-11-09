@@ -11,9 +11,7 @@ const mockClient = createMockClient();
 jest.mock('next-translate/useTranslation', () => () => ({
   lang: 'en',
 }));
-jest.mock('@src/graphql/client', () => ({
-  useApollo: () => mockClient,
-}));
+jest.mock('ui/graphql/useApollo', () => () => mockClient);
 
 const mockI18n = {
   t: (key: string) => key,
@@ -24,8 +22,7 @@ jest.mock('next-translate/useTranslation', () => () => mockI18n);
 
 jest.mock('./hooks', () => ({
   useApp: () => jest.fn(),
-}
-));
+}));
 
 // ==================================
 // unit tests

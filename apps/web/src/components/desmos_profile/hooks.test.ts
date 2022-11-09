@@ -1,8 +1,4 @@
-import {
-  renderHook,
-  cleanup,
-  act,
-} from '@testing-library/react-hooks';
+import { renderHook, cleanup, act } from '@testing-library/react-hooks';
 import { useDesmosProfile } from './hooks';
 
 describe('hook: useDesmosProfile', () => {

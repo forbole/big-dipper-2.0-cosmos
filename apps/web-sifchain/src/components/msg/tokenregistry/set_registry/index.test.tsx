@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgSetRegistry from '@models/sifchain/msg/tokenregistry/msg_set_registry';
 import SetRegistry from '.';
 

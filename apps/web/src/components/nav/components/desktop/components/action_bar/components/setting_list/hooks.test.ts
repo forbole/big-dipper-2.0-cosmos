@@ -1,8 +1,4 @@
-import {
-  renderHook,
-  cleanup,
-  act,
-} from '@testing-library/react-hooks';
+import { renderHook, cleanup, act } from '@testing-library/react-hooks';
 import { RecoilRoot } from 'recoil';
 import { useSettingList } from './hooks';
 
@@ -47,7 +43,10 @@ describe('hook: useSettingList', () => {
 
     act(() => result.current.handleCancel());
     expect(result.current.state).toStrictEqual({
-      dateFormat: 'locale', lang: 'en', theme: 'light', txListFormat: 'compact',
+      dateFormat: 'locale',
+      lang: 'en',
+      theme: 'light',
+      txListFormat: 'compact',
     });
   });
 
@@ -58,7 +57,10 @@ describe('hook: useSettingList', () => {
 
     act(() => result.current.handleChange('lang', 'zht'));
     expect(result.current.state).toStrictEqual({
-      dateFormat: 'locale', lang: 'zht', theme: 'light', txListFormat: 'compact',
+      dateFormat: 'locale',
+      lang: 'zht',
+      theme: 'light',
+      txListFormat: 'compact',
     });
   });
 
@@ -69,7 +71,10 @@ describe('hook: useSettingList', () => {
 
     act(() => result.current.handleFormSubmit({ preventDefault: jest.fn() }));
     expect(result.current.state).toStrictEqual({
-      dateFormat: 'locale', lang: 'en', theme: 'light', txListFormat: 'compact',
+      dateFormat: 'locale',
+      lang: 'en',
+      theme: 'light',
+      txListFormat: 'compact',
     });
   });
 });

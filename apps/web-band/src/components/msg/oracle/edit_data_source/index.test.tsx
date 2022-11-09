@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgCreateDataSource from '@models/band/msg/oracle/msg_create_data_source';
 import CreateDataSource from '.';
 

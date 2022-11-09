@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { TRANSACTIONS, TRANSACTIONS_COUNT } from '@api';
-import { MockTheme, wait } from '@tests/utils';
+import { MockTheme, wait } from 'ui/tests/utils';
 import List from '.';
 
 // ==================================
@@ -61,7 +61,7 @@ describe('screen: Transactions/List', () => {
         </MockTheme>
       );
     });
-    await wait(3000);
+    await wait(renderer.act, 3000);
 
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

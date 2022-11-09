@@ -1,21 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: TokenDetails/Paginate matches snapshot 1`] = `
-<div
-  className="makeStyles-root"
-  handleChangePage={[MockFunction]}
-  handleChangeRowsPerPage={[MockFunction]}
-  id="Pagination"
-  page={0}
-  rowsPerPage={10}
-  rowsPerPageOptions={
-    [
-      10,
-      25,
-      50,
-      100,
-    ]
-  }
-  total={100}
-/>
+<div>
+  <div
+    className="makeStyles-root"
+    handleChangePage={[MockFunction]}
+    handleChangeRowsPerPage={[MockFunction]}
+    id="Pagination"
+    page={0}
+    rowsPerPage={10}
+    rowsPerPageOptions={
+      [
+        10,
+        25,
+        50,
+        100,
+      ]
+    }
+    total={100}
+  />
+</div>
 `;

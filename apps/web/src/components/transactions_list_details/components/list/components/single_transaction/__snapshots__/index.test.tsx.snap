@@ -1,112 +1,114 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components: SingleTransaction matches snapshot 1`] = `
-<div
-  className="makeStyles-root"
->
+<div>
   <div
-    className="makeStyles-timeContainer"
-  >
-    <p
-      className="MuiTypography-root value MuiTypography-body1"
-    >
-      <div>
-        hash
-      </div>
-    </p>
-  </div>
-  <div
-    className="makeStyles-itemContainer"
+    className="makeStyles-root"
   >
     <div
-      className="makeStyles-itemPrimaryDetailsContainer"
+      className="makeStyles-timeContainer"
     >
-      <div
-        className="makeStyles-item block"
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
       >
-        <h4
-          className="MuiTypography-root label MuiTypography-h4"
-        >
-          block
-        </h4>
         <div>
-          block
+          hash
         </div>
-      </div>
-      <div
-        className="makeStyles-item block"
-      >
-        <h4
-          className="MuiTypography-root label MuiTypography-h4"
-        >
-          type
-        </h4>
-        <div>
-          type
-        </div>
-      </div>
-      <div
-        className="makeStyles-item time"
-      >
-        <h4
-          className="MuiTypography-root label MuiTypography-h4"
-        >
-          time
-        </h4>
-        <p
-          className="MuiTypography-root value MuiTypography-body1"
-        >
-          2021-07-13T08:00:00
-        </p>
-      </div>
-      <div
-        className="makeStyles-item messages"
-      >
-        <h4
-          className="MuiTypography-root label MuiTypography-h4"
-        >
-          messages
-        </h4>
-        <p
-          className="MuiTypography-root value MuiTypography-body1"
-        >
-          1,000
-        </p>
-      </div>
-      <div
-        className="makeStyles-item result"
-      >
-        <h4
-          className="MuiTypography-root label MuiTypography-h4"
-        >
-          result
-        </h4>
-        <div>
-          result
-        </div>
-      </div>
+      </p>
     </div>
-    <hr
-      className="MuiDivider-root"
-    />
     <div
-      className="makeStyles-item"
+      className="makeStyles-itemContainer"
     >
       <div
-        className="makeStyles-msgListContainer"
+        className="makeStyles-itemPrimaryDetailsContainer"
       >
         <div
-          className="makeStyles-msg"
+          className="makeStyles-item block"
+        >
+          <h4
+            className="MuiTypography-root label MuiTypography-h4"
+          >
+            block
+          </h4>
+          <div>
+            block
+          </div>
+        </div>
+        <div
+          className="makeStyles-item block"
+        >
+          <h4
+            className="MuiTypography-root label MuiTypography-h4"
+          >
+            type
+          </h4>
+          <div>
+            type
+          </div>
+        </div>
+        <div
+          className="makeStyles-item time"
+        >
+          <h4
+            className="MuiTypography-root label MuiTypography-h4"
+          >
+            time
+          </h4>
+          <p
+            className="MuiTypography-root value MuiTypography-body1"
+          >
+            2021-07-13T08:00:00
+          </p>
+        </div>
+        <div
+          className="makeStyles-item messages"
+        >
+          <h4
+            className="MuiTypography-root label MuiTypography-h4"
+          >
+            messages
+          </h4>
+          <p
+            className="MuiTypography-root value MuiTypography-body1"
+          >
+            1,000
+          </p>
+        </div>
+        <div
+          className="makeStyles-item result"
+        >
+          <h4
+            className="MuiTypography-root label MuiTypography-h4"
+          >
+            result
+          </h4>
+          <div>
+            result
+          </div>
+        </div>
+      </div>
+      <hr
+        className="MuiDivider-root"
+      />
+      <div
+        className="makeStyles-item"
+      >
+        <div
+          className="makeStyles-msgListContainer"
         >
           <div
-            className="makeStyles-tags"
+            className="makeStyles-msg"
           >
-            <div>
-              type
+            <div
+              className="makeStyles-tags"
+            >
+              <div>
+                type
+              </div>
             </div>
-          </div>
-          <div>
-            message
+            <div>
+              message
+            </div>
           </div>
         </div>
       </div>

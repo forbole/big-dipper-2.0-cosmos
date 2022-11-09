@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
-import { MockTheme, wait } from '@tests/utils';
+import { MockTheme, wait } from 'ui/tests/utils';
 import { ApolloProvider } from '@apollo/client';
 import { createMockClient } from 'mock-apollo-client';
 import { TokenomicsDocument } from '@graphql/types/general_types';
@@ -17,9 +17,10 @@ jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="box" {...props} />
 ));
+// to fix error, this.wrapperNode is null node_modules/recharts/src/component/Tooltip.tsx:143
 jest.mock('recharts', () => ({
   ...jest.requireActual('recharts'),
-  Tooltip: () => <div id="tooltip" />,
+  Tooltip: () => <div id="test-tooltip"/>,
 }));
 
 const mockTokenomics = jest.fn().mockResolvedValue({
@@ -74,7 +75,7 @@ describe('screen: Home/Tokenomics', () => {
         )
         .toJSON();
     });
-    await wait();
+    await wait(renderer.act);
 
     expect(tree).toMatchSnapshot();
   });

@@ -1,22 +1,22 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import TransactionMessagesFilter from '.';
 
 // ==================================
 // global setup
 // ==================================
-let component:renderer.ReactTestRenderer;
+let component: renderer.ReactTestRenderer;
 const callback = jest.fn();
 
 // ==================================
 // mocks
 // ==================================
 jest.mock('@material-ui/core', () => ({
-  MenuItem: (props) => <div id="MenuItem" {...props} />,
-  Select: (props) => <div id="Select" {...props} />,
-  InputBase: (props) => <div id="InputBase" {...props} />,
-  Typography: (props) => <div id="Typography" {...props} />,
+  MenuItem: (props: JSX.IntrinsicElements['div']) => <div id="MenuItem" {...props} />,
+  Select: (props: JSX.IntrinsicElements['div']) => <div id="Select" {...props} />,
+  InputBase: (props: JSX.IntrinsicElements['div']) => <div id="InputBase" {...props} />,
+  Typography: (props: JSX.IntrinsicElements['div']) => <div id="Typography" {...props} />,
 }));
 
 // ==================================
@@ -26,10 +26,8 @@ describe('component: TransactionMessagesFilter', () => {
   beforeEach(() => {
     component = renderer.create(
       <MockTheme>
-        <TransactionMessagesFilter
-          callback={callback}
-        />
-      </MockTheme>,
+        <TransactionMessagesFilter callback={callback} />
+      </MockTheme>
     );
   });
 

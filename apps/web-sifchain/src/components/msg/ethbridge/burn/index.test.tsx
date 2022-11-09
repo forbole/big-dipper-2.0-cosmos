@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgBurn from '@models/sifchain/msg/ethbridge/msg_burn';
 import Burn from '.';
 

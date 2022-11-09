@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component: CustomToolTip matches snapshot 1`] = `
+<div>
+  <div
+    className="recharts-wrapper"
+    style={
+      {
+        "cursor": "default",
+        "height": 100,
+        "position": "relative",
+        "width": 200,
+      }
+    }
+  >
+    <svg
+      className="recharts-surface"
+      cx="50%"
+      cy={100}
+      height={100}
+      version="1.1"
+      viewBox="0 0 200 100"
+      width={200}
+    >
+      <title />
+      <desc />
+      <defs>
+        <clipPath
+          id="recharts1-clip"
+        >
+          <rect
+            height={90}
+            width={190}
+            x={5}
+            y={5}
+          />
+        </clipPath>
+      </defs>
+      <g
+        className="recharts-layer recharts-pie"
+      >
+        <g
+          className="recharts-layer recharts-pie-sector"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <path
+            className="recharts-sector"
+            cx={100}
+            cy={95}
+            d="M 10,94.99999999999999
+    A 90,90,0,
+    0,1,
+    152.90067270632255,22.188470506254717
+  L 100,95 Z"
+            fill="#5451CB"
+            name={0}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="recharts-layer recharts-pie-sector"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <path
+            className="recharts-sector"
+            cx={100}
+            cy={95}
+            d="M 152.90067270632255,22.188470506254717
+    A 90,90,0,
+    0,1,
+    172.81152949374524,42.099327293677405
+  L 100,95 Z"
+            fill="#773CAA"
+            name={1}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="recharts-layer recharts-pie-sector"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <path
+            className="recharts-sector"
+            cx={100}
+            cy={95}
+            d="M 172.81152949374524,42.099327293677405
+    A 90,90,0,
+    0,1,
+    190,94.99999999999997
+  L 100,95 Z"
+            fill="CA4D4D"
+            name={2}
+            stroke="none"
+          />
+        </g>
+      </g>
+    </svg>
+  </div>
+</div>
+`;

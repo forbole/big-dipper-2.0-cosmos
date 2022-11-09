@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import { MsgSetWithdrawAddress } from '@models';
 import SetWithdrawalAddress from '.';
 
@@ -16,7 +16,7 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/SetWithdrawalAddress', () => {
   it('matches snapshot', () => {
-    const message = MsgSetWithdrawAddress.fromJson({({
+    const message = MsgSetWithdrawAddress.fromJson({
       category: 'distribution',
       type: 'MsgSetWithdrawAddress',
       delegatorAddress: 'delegatorAddress',

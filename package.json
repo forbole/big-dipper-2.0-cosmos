@@ -8,15 +8,15 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "turbo run dev --no-cache --continue --concurrency=1",
-    "build": "turbo run build --continue --concurrency=1",
-    "start": "turbo run start --continue --concurrency=1",
+    "dev": "turbo run dev --no-cache --continue --concurrency=30%",
+    "build": "turbo run build --continue --concurrency=30%",
+    "start": "turbo run start --continue --concurrency=30%",
     "type-check": "turbo run type-check --continue",
     "format": "prettier --ignore-path ./.gitignore --write \"**/*.{js,ts,tsx,mjs,cjs,md}\"",
     "lint": "turbo run lint",
-    "test": "turbo run test --continue --concurrency=1",
+    "test": "turbo run test --continue --concurrency=30%",
     "clean": "turbo run clean",
-    "e2e": "turbo run e2e --continue --concurrency=1",
+    "e2e": "turbo run e2e --continue --concurrency=30%",
     "graphql:codegen": "turbo run graphql:codegen --continue --concurrency=2"
   },
   "dependencies": {
