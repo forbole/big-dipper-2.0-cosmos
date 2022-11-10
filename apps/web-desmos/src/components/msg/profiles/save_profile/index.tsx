@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgSaveProfile } from '@models';
+import MsgSaveProfile from '@models/desmos/msg/profiles/msg_save_profile';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const SaveProfile = (props: { message: MsgSaveProfile }) => {

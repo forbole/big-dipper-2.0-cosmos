@@ -1,15 +1,11 @@
-import { QueryHookOptions, QueryResult } from '@apollo/client';
+import type { QueryHookOptions, QueryResult } from '@apollo/client';
 import { useEffect } from 'react';
 import axios from 'axios';
 import * as R from 'ramda';
 import { useRecoilState, SetterOrUpdater } from 'recoil';
-import { BigDipperNetwork } from '@models';
-import {
-  writeNetworks,
-  writeSelectedNetwork,
-  type Networks,
-  type Selected,
-} from 'ui/recoil/big_dipper_networks';
+import { BigDipperNetwork } from 'ui/models';
+import { writeNetworks, writeSelectedNetwork } from './selectors';
+import type { Networks, Selected } from './types';
 
 export type UseChainIdQuery<TData, TVariables> = (
   baseOptions?: QueryHookOptions<TData, TVariables>

@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 import { useRecoilValue } from 'recoil';
-import { readTheme } from '@recoil/settings/selectors';
+import { readTheme } from '@recoil/settings';
 import NotFoundLight from 'shared-utils/assets/not-found-light.svg';
 import NotFoundDark from 'shared-utils/assets/not-found-dark.svg';
 import { useStyles } from './styles';

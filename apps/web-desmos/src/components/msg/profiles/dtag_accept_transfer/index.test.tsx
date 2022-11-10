@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from 'ui/tests/utils';
-import { MsgDtagAcceptTransfer } from '@models';
+import MsgDtagAcceptTransfer from '@models/desmos/msg/profiles/msg_dtag_accept_transfer';
 import DtagAcceptTransfer from '.';
 
 // ==================================

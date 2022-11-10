@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgLinkChainAccount } from '@models';
+import MsgLinkChainAccount from '@models/desmos/msg/profiles/msg_link_chain_account';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const LinkChainAccount = (props: { message: MsgLinkChainAccount }) => {

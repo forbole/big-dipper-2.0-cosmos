@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from 'ui/tests/utils';
-import { MsgCreateProposalRequest } from '@models';
+import MsgCreateProposalRequest from '@models/regen/msg/group/msg_create_proposal_request';
 import CreateProposalRequest from '.';
 
 // ==================================

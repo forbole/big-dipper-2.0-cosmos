@@ -3,7 +3,7 @@ import { mergeStateChange } from 'ui/utils/merge_state_change';
 import { atomState } from './atom';
 import { AtomState } from './types';
 
-const getMarket: ReadOnlySelectorOptions<AtomState>['get'] = ({ get }): AtomState => {
+const getMarket: ReadOnlySelectorOptions<AtomState>['get'] = ({ get }) => {
   const state = get(atomState);
   return state;
 };

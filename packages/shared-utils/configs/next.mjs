@@ -1,4 +1,9 @@
-import generalConfig from './general.json' assert { type: 'json' };
+import { readFileSync } from 'fs';
+import { dirname, join, resolve } from 'path';
+import { fileURLToPath } from 'url';
+const curdir =
+  typeof __dirname !== 'undefined' ? __dirname : dirname(fileURLToPath(import.meta.url));
+const generalConfig = JSON.parse(readFileSync(resolve(join(curdir, 'general.json'))));
 
 function nextConfig(chainConfigJson) {
   /* Setting the basePath, chainType, chains, and settings variables. */

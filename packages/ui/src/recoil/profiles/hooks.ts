@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import { useRecoilValue, useRecoilCallback } from 'recoil';
 import chainConfig from 'ui/chainConfig';
+import type { AtomState as ProfileAtomState } from './types';
 import {
   writeProfile,
   readProfilesExist,
@@ -10,15 +11,14 @@ import {
   readProfiles,
   readDelegatorAddress,
   readDelegatorAddresses,
-} from '@recoil/profiles';
-import { AtomState as ProfileAtomState } from '@recoil/profiles/types';
+} from './selectors';
 import { getProfile } from './utils';
 
 /**
  * Accepts a delegator address and returns the appropriate profile
  * @param address
  */
-export const useProfileRecoil = (address: string): AvatarName | null => {
+export const useProfileRecoil = (address: string): AvatarName => {
   const delegatorAddress = useRecoilValue(readDelegatorAddress(address));
   const rawProfile = useRecoilValue(readProfileExist(address));
   const profile = useRecoilValue(readProfile(address));

@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgUpdateGroupAccountDecisionPolicyRequest } from '@models';
+import MsgUpdateGroupAccountDecisionPolicyRequest from '@models/regen/msg/group/msg_update_group_account_decision_policy_request';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const UpdateGroupAccountDecisionPolicyRequest = (props: {

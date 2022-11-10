@@ -18,7 +18,7 @@ const Main = (props: AppProps) => {
   // useSettingsRecoil();
   useBigDipperNetworksRecoil();
   useMarketRecoil();
-  // const { loading } = useValidatorRecoil();
+  // const { loading } = useValidatorRecoil(useValidatorAddressesQuery);
 
   // =====================================
   // general setup

@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from 'ui/tests/utils';
-import { MsgBlockUser } from '@models';
+import MsgBlockUser from '@models/desmos/msg/profiles/msg_block_user';
 import BlockUser from '.';
 
 // ==================================

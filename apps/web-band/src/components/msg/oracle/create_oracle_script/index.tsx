@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgCreateOracleScript } from '@models';
+import MsgCreateOracleScript from '@models/band/msg/oracle/msg_create_oracle_script';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const CreateOracleScript = (props: { message: MsgCreateOracleScript }) => {

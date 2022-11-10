@@ -1,5 +1,3 @@
-import Network from './network';
-import NetworkList from './network_list';
-import SettingsList from './setting_list';
-
-export { Network, NetworkList, SettingsList };
+export { default as Network } from './network';
+export { default as NetworkList } from './network_list';
+export { default as SettingsList } from './setting_list';

@@ -2,8 +2,8 @@ import { selectorFamily, GetRecoilValue, DefaultValue } from 'recoil';
 import * as R from 'ramda';
 import { bech32 } from 'bech32';
 import chainConfig from 'ui/chainConfig';
-import { readValidator } from '@recoil/validators';
-import { AtomState as ProfileAtomState } from '@recoil/profiles/types';
+import { readValidator } from '../validators';
+import type { AtomState as ProfileAtomState } from './types';
 import { atomFamilyState } from './atom';
 
 // ======================================================================
@@ -120,13 +120,13 @@ export const writeProfile = selectorFamily<AvatarName | null, string>({
   get: getProfile,
   set:
     (address: string) =>
-    ({ set, get }, profile: AvatarName | DefaultValue) => {
+    ({ set, get }, profile) => {
       const delegatorAddress = getDelegatorAddress({
         address,
         get,
       });
       if (delegatorAddress) {
-        if (!((_: object): _ is AvatarName => _ && 'name' in _ && 'imageUrl' in _)(profile)) {
+        if (!isAvatarName(profile)) {
           set(atomFamilyState(delegatorAddress), false);
         } else {
           set(atomFamilyState(delegatorAddress), {
@@ -134,6 +134,11 @@ export const writeProfile = selectorFamily<AvatarName | null, string>({
             imageUrl: profile.imageUrl ?? undefined,
           });
         }
+      }
+
+      function isAvatarName(x: unknown): x is AvatarName {
+        if (!x) return false;
+        return 'name' in x && 'imageUrl' in x;
       }
     },
 });

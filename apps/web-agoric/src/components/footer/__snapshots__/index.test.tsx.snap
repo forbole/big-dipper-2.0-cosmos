@@ -16,7 +16,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
       <p
         className="footer__slogan"
       >
-        Agoric Block Explorer
+        Desmos Block Explorer
       </p>
     </div>
     <div

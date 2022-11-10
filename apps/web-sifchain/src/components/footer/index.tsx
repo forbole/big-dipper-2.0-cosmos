@@ -8,7 +8,7 @@ import FooterLogoDark from 'shared-utils/assets/big-dipper-white.svg';
 import { Button, Divider, Typography } from '@material-ui/core';
 import chainConfig from 'ui/chainConfig';
 import generalConfig from 'ui/generalConfig';
-import { readTheme } from '@recoil/settings/selectors';
+import { readTheme } from '@recoil/settings';
 import { SocialMedia } from './components';
 import { footerLinks, donateLink } from './utils';
 import { useStyles } from './styles';

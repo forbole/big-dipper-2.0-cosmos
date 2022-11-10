@@ -18,7 +18,7 @@ module.exports = {
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'import'],
 
   settings: {
     react: {
@@ -27,25 +27,34 @@ module.exports = {
   },
   rules: {
     // TODO: disabled due to historical reason
-    // error off
+    '@next/next/no-img-element': 'off',
+    '@next/next/no-html-link-for-pages': 'off',
     '@typescript-eslint/no-loss-of-precision': 'off',
     '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/no-unused-vars': ['off', { argsIgnorePattern: '^_' }],
     'arrow-body-style': 'off',
     camelcase: 'off',
     'consistent-return': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/interactive-supports-focus': 'off',
+    'lines-between-class-members': 'off',
     'no-bitwise': 'off',
     'no-param-reassign': 'off',
     'no-use-before-define': 'off',
     'no-shadow': 'off',
+    'no-underscore-dangle': 'off',
+    'no-console': ['off', { allow: ['warn', 'error'] }],
+    // turn on errors for missing imports
+    'import/no-cycle': 'off',
+    'import/no-unresolved': 'off',
     'import/extensions': 'off',
     'import/prefer-default-export': 'off',
-    'lines-between-class-members': 'off',
     'import/newline-after-import': 'off',
     'import/no-extraneous-dependencies': 'off',
-    'import/no-unresolved': 'off',
     'react/destructuring-assignment': 'off',
     'react/jsx-filename-extension': 'off',
     'react/jsx-props-no-spreading': 'off',
@@ -57,16 +66,6 @@ module.exports = {
     'react/require-default-props': 'off',
     'react-hooks/exhaustive-deps': 'off',
     'react-hooks/rules-of-hooks': 'off',
-    'no-underscore-dangle': 'off',
-    // warn off
-    '@next/next/no-img-element': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/no-unused-vars': ['off', { argsIgnorePattern: '^_' }],
-    'no-console': ['off', { allow: ['warn', 'error'] }],
-    // off for turborepo
-    '@next/next/no-html-link-for-pages': 'off',
     'react/jsx-key': 'off',
   },
   env: {

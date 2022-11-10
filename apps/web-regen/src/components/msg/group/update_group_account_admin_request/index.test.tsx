@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from 'ui/tests/utils';
-import { MsgUpdateGroupAccountAdminRequest } from '@models';
+import MsgUpdateGroupAccountAdminRequest from '@models/regen/msg/group/msg_update_group_account_admin_request';
 import UpdateGroupAccountAdminRequest from '.';
 
 // ==================================

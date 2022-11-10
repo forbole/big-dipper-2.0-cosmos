@@ -3,9 +3,9 @@ import classnames from 'classnames';
 import Box from 'ui/components/Box';
 import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
-import { Networks } from '@src/components/nav/components';
+import Networks from '@src/components/nav/components/networks';
 import { useRecoilValue } from 'recoil';
-import { readTheme } from '@recoil/settings/selectors';
+import { readTheme } from '@recoil/settings';
 import { useStyles } from './styles';
 
 const NetworkList: React.FC<{

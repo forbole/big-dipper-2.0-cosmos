@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgBlockUser } from '@models';
+import MsgBlockUser from '@models/desmos/msg/profiles/msg_block_user';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const BlockUser = (props: { message: MsgBlockUser }) => {

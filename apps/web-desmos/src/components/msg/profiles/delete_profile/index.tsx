@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgDeleteProfile } from '@models';
+import MsgDeleteProfile from '@models/desmos/msg/profiles/msg_delete_profile';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const DeleteProfile = (props: { message: MsgDeleteProfile }) => {

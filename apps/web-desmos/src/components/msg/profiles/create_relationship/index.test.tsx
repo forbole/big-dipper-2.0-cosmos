@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from 'ui/tests/utils';
-import { MsgCreateRelationship } from '@models';
+import MsgCreateRelationship from '@models/desmos/msg/profiles/msg_create_relationship';
 import CreateRelationship from '.';
 
 // ==================================

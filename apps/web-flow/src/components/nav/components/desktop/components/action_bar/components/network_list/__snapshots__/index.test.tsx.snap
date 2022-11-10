@@ -13,7 +13,7 @@ exports[`screen: Nav/NetworkList it renders 1`] = `
   >
     <svg />
   </div>
-  <Networks
+  <div
     className="makeStyles-content"
   />
 </div>

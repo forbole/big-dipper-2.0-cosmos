@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgLinkApplication } from '@models';
+import MsgLinkApplication from '@models/desmos/msg/profiles/msg_link_application';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const LinkApplication = (props: { message: MsgLinkApplication }) => {

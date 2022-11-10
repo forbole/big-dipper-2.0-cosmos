@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from 'ui/tests/utils';
-import { MsgUnlinkChainAccount } from '@models';
+import MsgUnlinkChainAccount from '@models/desmos/msg/profiles/msg_unlink_chain_account';
 import UnlinkChainAccount from '.';
 
 // ==================================

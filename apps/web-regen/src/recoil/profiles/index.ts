@@ -1,1 +1,1 @@
-export * from 'ui/src/recoil/profiles';
+export * from 'ui/recoil/profiles';

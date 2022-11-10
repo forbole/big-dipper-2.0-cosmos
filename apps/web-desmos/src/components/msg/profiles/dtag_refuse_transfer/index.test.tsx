@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from 'ui/tests/utils';
-import { MsgDtagRefuseTransfer } from '@models';
+import MsgDtagRefuseTransfer from '@models/desmos/msg/profiles/msg_dtag_refuse_transfer';
 import DtagRefuseTransfer from '.';
 
 // ==================================

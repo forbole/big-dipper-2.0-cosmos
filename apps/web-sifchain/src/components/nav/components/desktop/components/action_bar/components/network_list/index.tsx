@@ -5,7 +5,7 @@ import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red-sifchain.svg';
 import { Networks } from '@src/components/nav/components';
 import { useRecoilValue } from 'recoil';
-import { readTheme } from '@recoil/settings/selectors';
+import { readTheme } from '@recoil/settings';
 import { useStyles } from './styles';
 
 const NetworkList: React.FC<{

@@ -6,6 +6,8 @@ import withSentry from 'shared-utils/configs/withSentry.mjs';
 import nextConfig from 'shared-utils/configs/next.mjs';
 
 // each chain has its own chains/<chainName>.json
-import config from 'shared-utils/configs/chains/evmos.json' assert { type: 'json' };
+import { readFileSync } from 'fs';
+import { resolve } from 'path';
+const config = JSON.parse(readFileSync(resolve('../../packages/shared-utils/configs/chains/evmos.json')));
 
 export default withTM(['ui'])(withSentry(nextTranslate(nextConfig(config))));

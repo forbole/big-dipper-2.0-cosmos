@@ -82,7 +82,15 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
             }
           }
         >
-          desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv
+          <a
+            className="MuiTypography-root value MuiTypography-body1"
+            href="/accounts/desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onTouchStart={[Function]}
+          >
+            desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv
+          </a>
         </td>
         <td
           aria-sort={null}

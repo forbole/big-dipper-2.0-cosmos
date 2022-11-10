@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgUpdateGroupAdminRequest } from '@models';
+import MsgUpdateGroupAdminRequest from '@src/models/regen/msg/group/msg_update_group_admin_request';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const UpdateGroupAdminRequest = (props: { message: MsgUpdateGroupAdminRequest }) => {

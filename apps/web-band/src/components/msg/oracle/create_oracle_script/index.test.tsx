@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from 'ui/tests/utils';
-import { MsgCreateOracleScript } from '@models';
+import MsgCreateOracleScript from '@models/band/msg/oracle/msg_create_oracle_script';
 import CreateOracleScript from '.';
 
 // ==================================

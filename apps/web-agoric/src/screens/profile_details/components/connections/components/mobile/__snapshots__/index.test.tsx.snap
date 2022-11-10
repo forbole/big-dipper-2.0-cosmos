@@ -32,7 +32,15 @@ exports[`screen: ProfileDetails/Connections/Mobile matches snapshot 1`] = `
       <p
         className="MuiTypography-root value MuiTypography-body1"
       >
-        desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv
+        <a
+          className="MuiTypography-root value MuiTypography-body1"
+          href="/accounts/desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchStart={[Function]}
+        >
+          desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv
+        </a>
       </p>
     </div>
     <div

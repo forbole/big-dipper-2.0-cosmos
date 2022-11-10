@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from 'ui/tests/utils';
-import { MsgLinkApplication } from '@models';
+import MsgLinkApplication from '@models/desmos/msg/profiles/msg_link_application';
 import LinkApplication from '.';
 
 // ==================================

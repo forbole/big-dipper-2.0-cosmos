@@ -17,3 +17,21 @@ type MsgCoin = {
   denom: string;
   amount: string;
 };
+
+interface AvatarName {
+  className?: string;
+  imageUrl?: string | null;
+  address: string;
+  name: string;
+  href?: (address: string) => string;
+}
+
+type DesmosProfile = {
+  dtag: string;
+  nickname: string;
+  imageUrl: string;
+  coverUrl: string;
+  bio: string;
+  connections: ProfileConnectionType[];
+  validator?: ValidatorProfile;
+};

@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgUpdateGroupMetadataRequest } from '@models';
+import MsgUpdateGroupMetadataRequest from '@src/models/regen/msg/group/msg_update_group_metadata_request';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const UpdateGroupMetadataRequest = (props: { message: MsgUpdateGroupMetadataRequest }) => {

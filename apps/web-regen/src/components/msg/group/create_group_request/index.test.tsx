@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from 'ui/tests/utils';
-import { MsgCreateGroupRequest } from '@models';
+import MsgCreateGroupRequest from '@models/regen/msg/group/msg_create_group_request';
 import CreateGroupRequest from '.';
 
 // ==================================

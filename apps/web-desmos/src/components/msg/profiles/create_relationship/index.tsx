@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgCreateRelationship } from '@models';
+import MsgCreateRelationship from '@models/desmos/msg/profiles/msg_create_relationship';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const CreateRelationship = (props: { message: MsgCreateRelationship }) => {

@@ -3,7 +3,7 @@ import Trans from 'next-translate/Trans';
 import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgChangeIscnRecordOwnership } from '@models';
+import MsgChangeIscnRecordOwnership from '@models/likecoin/msg/iscn/msg_change_iscn_record_ownership';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const IscnChangeOwnership = (props: { message: MsgChangeIscnRecordOwnership }) => {

@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { DesmosProfileQuery } from '@graphql/types/profile_types';
+import { DesmosProfileQuery } from '../../graphql/types/profile_types';
 import {
   DesmosProfileDocument,
   DesmosProfileLinkDocument,
-} from '@src/graphql/profiles/desmos_profile_graphql';
+} from '../../graphql/profiles/desmos_profile_graphql';
 
 const PROFILE_API = 'https://gql.mainnet.desmos.network/v1/graphql';
 

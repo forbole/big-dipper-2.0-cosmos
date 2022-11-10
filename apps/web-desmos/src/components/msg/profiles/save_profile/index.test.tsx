@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from 'ui/tests/utils';
-import { MsgSaveProfile } from '@models';
+import MsgSaveProfile from '@models/desmos/msg/profiles/msg_save_profile';
 import SaveProfile from '.';
 
 // ==================================

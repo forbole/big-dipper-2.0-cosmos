@@ -1,21 +1,8 @@
-import { usePersistedState } from './use_persisted_state';
-import { useScreenSize } from './use_screen_size';
-import { useGetComponentDimension } from './use_get_component_dimension';
-import { useList, useListRow, useGrid } from './use_react_window';
-import { usePagination } from './use_pagination';
-import { useInterval } from './use_interval';
-import { useDesmosProfile } from './use_desmos_profile';
-import { useWindowOrigin } from './use_window';
-
-export {
-  usePersistedState,
-  useScreenSize,
-  useGetComponentDimension,
-  useList,
-  useListRow,
-  useGrid,
-  usePagination,
-  useInterval,
-  useDesmosProfile,
-  useWindowOrigin,
-};
+export { usePersistedState } from './use_persisted_state';
+export { useScreenSize } from './use_screen_size';
+export { useGetComponentDimension } from './use_get_component_dimension';
+export { useList, useListRow, useGrid } from './use_react_window';
+export { usePagination } from './use_pagination';
+export { useInterval } from './use_interval';
+export { useWindowOrigin } from './use_window';
+export { useDesmosProfile } from 'ui/hooks/use_desmos_profile';

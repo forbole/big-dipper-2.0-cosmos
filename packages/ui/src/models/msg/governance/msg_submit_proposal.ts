@@ -1,10 +1,8 @@
 import * as R from 'ramda';
-import {
-  MsgTextProposal,
-  MsgSoftwareUpgradeProposal,
-  MsgParameterChangeProposal,
-  MsgCommunityPoolSpendProposal,
-} from '../..';
+import MsgTextProposal from './msg_text_proposal';
+import MsgSoftwareUpgradeProposal from './msg_software_upgrade_proposal';
+import MsgParameterChangeProposal from './msg_parameter_change_proposal';
+import MsgCommunityPoolSpendProposal from './msg_community_pool_spend_proposal';
 import { Categories } from '../types';
 
 class MsgSubmitProposal {

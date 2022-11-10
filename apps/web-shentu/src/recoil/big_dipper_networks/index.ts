@@ -1,1 +1,1 @@
-export * from '@recoil/big_dipper_networks';
+export * from 'ui/recoil/big_dipper_networks';

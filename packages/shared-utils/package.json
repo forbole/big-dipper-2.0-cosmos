@@ -9,12 +9,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "dependencies": {
+    "eslint": "^8.27.0"
+  },
   "devDependencies": {
-    "eslint": "^8.26.0",
     "eslint-config-custom": "*",
-    "jest": "^27.0.0",
-    "jest-presets": "*",
-    "ts-jest": "^27.0.0",
     "typescript": "^4.8.4"
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from 'ui/tests/utils';
-import { MsgUpdateWhitelistValidator } from '@models';
+import MsgUpdateWhitelistValidator from '@models/sifchain/msg/ethbridge/msg_update_whitelist_validator';
 import UpdateWhiteListValidator from '.';
 
 // ==================================

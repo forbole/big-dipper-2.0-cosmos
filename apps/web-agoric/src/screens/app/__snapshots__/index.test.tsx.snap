@@ -11,12 +11,12 @@ exports[`screen: _app matches snapshot 1`] = `
     <img
       alt="logo"
       className="makeStyles-logo-3 makeStyles-dark-7"
-      src="/img.jpg"
+      src="svg"
     />
     <img
       alt="logo"
       className="makeStyles-logo-3 makeStyles-light-6"
-      src="/img.jpg"
+      src="svg"
     />
     <div
       className="makeStyles-timeContainer-4"
@@ -81,7 +81,7 @@ exports[`screen: _app matches snapshot 1`] = `
     <h2
       className="MuiTypography-root makeStyles-chain-2 MuiTypography-h2"
     >
-      agoric-3
+      desmos-mainnet
     </h2>
   </div>,
 ]

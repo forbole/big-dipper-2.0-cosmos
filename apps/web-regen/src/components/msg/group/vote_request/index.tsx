@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgVoteRequest } from '@models';
+import MsgVoteRequest from '@models/regen/msg/group/msg_vote_request';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const VoteRequest = (props: { message: MsgVoteRequest }) => {

@@ -3,7 +3,7 @@ import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import Name from '@components/name';
-import { MsgUpdateIscnRecord } from '@models';
+import MsgUpdateIscnRecord from '@models/likecoin/msg/iscn/msg_update_iscn_record';
 import { useProfileRecoil } from '@recoil/profiles';
 
 const UpdateIscnRecord = (props: { message: MsgUpdateIscnRecord }) => {
