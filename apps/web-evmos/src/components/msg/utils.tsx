@@ -1,8 +1,11 @@
-import React from 'react';
-import * as MODELS from '@models';
-import * as R from 'ramda';
 import Tag from '@components/tag';
+import * as models from '@models';
+import * as modelsCustom from '@models/evmos';
 import * as COMPONENTS from '@msg';
+import * as R from 'ramda';
+import React from 'react';
+
+const MODELS = { ...models, ...modelsCustom };
 
 const getDataByType = (type: string) => {
   // =====================================
