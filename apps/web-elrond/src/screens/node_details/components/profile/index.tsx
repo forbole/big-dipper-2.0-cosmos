@@ -7,7 +7,7 @@ import { Typography, Divider } from '@material-ui/core';
 import { VALIDATOR_DETAILS } from '@utils/go_to_page';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import Box from '@components/box';
+import Box from 'ui/components/box';
 import { useProfile } from './hooks';
 import { useStyles } from './styles';
 import { ProfileType } from '../../types';

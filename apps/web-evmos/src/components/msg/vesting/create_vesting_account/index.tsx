@@ -1,7 +1,7 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
-import Name from '@components/name';
+import Name from 'ui/components/name';
 import MsgCreateVestingAccount from '@models/evmos/msg/vesting/msg_create_vesting_account';
 import { useProfileRecoil } from '@recoil/profiles';
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import classnames from 'classnames';
-import Box from '@components/box';
-import NoData from '@components/no_data';
+import Box from 'ui/components/box';
+import NoData from 'ui/components/no_data';
 import { usePagination, useScreenSize } from '@hooks';
 import { useProfilesRecoil } from '@recoil/profiles';
 import { useStyles } from './styles';

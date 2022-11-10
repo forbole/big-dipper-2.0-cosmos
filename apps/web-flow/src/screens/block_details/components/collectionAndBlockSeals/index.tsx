@@ -1,9 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
 // import dynamic from 'next/dynamic';
-import Box from '@components/box';
-import LoadAndExist from '@components/load_and_exist';
-import TabPanel from '@components/tab_panel';
+import Box from 'ui/components/box';
+import LoadAndExist from 'ui/components/load_and_exist';
+import TabPanel from 'ui/components/tab_panel';
 import { Tabs } from './components';
 import { useStyles } from './styles';
 import { useValidators } from './hooks';

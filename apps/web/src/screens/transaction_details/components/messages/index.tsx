@@ -5,9 +5,9 @@ import useTranslation from 'next-translate/useTranslation';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { Divider, Typography, Switch, FormControlLabel } from '@material-ui/core';
 import { useList, useListRow } from '@hooks';
-import Box from '@components/box';
-import TransactionMessagesFilter from '@components/transaction_messages_filter';
-import { getMessageByType } from '@msg';
+import Box from 'ui/components/box';
+import TransactionMessagesFilter from 'ui/components/transaction_messages_filter';
+import { getMessageByType } from 'ui/components/msg';
 import { useStyles } from './styles';
 
 const Messages: React.FC<{

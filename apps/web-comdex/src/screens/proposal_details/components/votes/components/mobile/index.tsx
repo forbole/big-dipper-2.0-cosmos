@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { Divider, Typography } from '@material-ui/core';
-import AvatarName from '@components/avatar_name';
+import AvatarName from 'ui/components/avatar_name';
 import { useStyles } from './styles';
 import { getVoteKey } from '../../utils';
 import { ItemType } from '../../types';

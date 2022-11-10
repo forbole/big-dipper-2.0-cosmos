@@ -1,5 +1,5 @@
 import React from 'react';
-import NoData from '@components/no_data';
+import NoData from 'ui/components/no_data';
 import { TransactionsListDetailsState } from './types';
 import { List } from './components';
 

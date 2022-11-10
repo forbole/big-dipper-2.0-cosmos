@@ -1,7 +1,7 @@
-import Tag from '@components/tag';
+import Tag from 'ui/components/tag';
 import * as models from '@models';
 import * as modelsCustom from '@models/bitsong';
-import * as COMPONENTS from '@msg';
+import * as COMPONENTS from 'ui/components/msg';
 import * as R from 'ramda';
 import React from 'react';
 

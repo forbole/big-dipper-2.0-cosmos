@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from 'ui/tests/utils';
-import AvatarNameListMsg from '@components/avatar_name_list_msg';
+import AvatarNameListMsg from 'ui/components/avatar_name_list_msg';
 
 // ==================================
 // unit tests

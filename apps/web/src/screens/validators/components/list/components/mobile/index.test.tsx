@@ -11,7 +11,7 @@ jest.mock('..', () => ({
   Condition: (props: JSX.IntrinsicElements['div']) => <div id="Condition" {...props} />,
 }));
 
-jest.mock('@components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="AvatarName" {...props} />
 ));
 jest.mock('./single_validator', () => (props: JSX.IntrinsicElements['div']) => (

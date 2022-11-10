@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
-import AvatarName from '@components/avatar_name';
+import AvatarName from 'ui/components/avatar_name';
 import { formatNumber } from 'ui/utils/format_token';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';

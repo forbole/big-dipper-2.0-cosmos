@@ -4,7 +4,7 @@ import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
-import Box from '@components/box';
+import Box from 'ui/components/box';
 import { RadialBarChart, PolarAngleAxis, RadialBar, Tooltip } from 'recharts';
 import { useStyles } from './styles';
 import { useEpoch } from './hooks';

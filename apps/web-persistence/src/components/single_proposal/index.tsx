@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
-import Tag from '@components/tag';
+import Tag from 'ui/components/tag';
 import { useStyles } from './styles';
 import { getStatusInfo } from './utils';
 

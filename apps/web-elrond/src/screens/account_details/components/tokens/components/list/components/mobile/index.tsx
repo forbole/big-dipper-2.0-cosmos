@@ -2,7 +2,7 @@ import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { formatNumber } from 'ui/utils/format_token';
 import { Typography, Divider } from '@material-ui/core';
-import AvatarName from '@components/avatar_name';
+import AvatarName from 'ui/components/avatar_name';
 import { TOKEN_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
 import { OtherTokenType } from '../../../../types';

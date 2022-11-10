@@ -2,7 +2,7 @@ import React from 'react';
 import numeral from 'numeral';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import BoxDetails from '@components/box_details';
+import BoxDetails from 'ui/components/box_details';
 import { StatsType } from '../../types';
 
 const Stats: React.FC<{ stats: StatsType } & ComponentDefault> = (props) => {

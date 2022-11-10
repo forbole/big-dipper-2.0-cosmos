@@ -2,7 +2,7 @@ import React from 'react';
 import * as R from 'ramda';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
-import Name from '@components/name';
+import Name from 'ui/components/name';
 import MsgDecommissionPool from '@models/sifchain/msg/clp/msg_decommission_pool';
 import { useProfileRecoil } from '@recoil/profiles';
 import chainConfig from 'ui/chainConfig';

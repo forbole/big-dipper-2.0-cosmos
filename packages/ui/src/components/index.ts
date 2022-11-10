@@ -29,6 +29,7 @@ import LoadAndExist from './load_and_exist';
 import DesmosProfile from './desmos_profile';
 import TransactionsListDetails from './transactions_list_details';
 import AvatarNameListMsg from './avatar_name_list_msg';
+export { default as ChainIcon } from './ChainIcon';
 
 export {
   Layout,

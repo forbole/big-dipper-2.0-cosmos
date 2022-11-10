@@ -4,8 +4,8 @@ import Link from 'next/link';
 import numeral from 'numeral';
 import dayjs from 'ui/utils/dayjs';
 import { Typography, Divider } from '@material-ui/core';
-import SingleTransactionMobile from '@components/single_transaction_mobile';
-import Tag from '@components/tag';
+import SingleTransactionMobile from 'ui/components/single_transaction_mobile';
+import Tag from 'ui/components/tag';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from 'ui/utils/go_to_page';
 

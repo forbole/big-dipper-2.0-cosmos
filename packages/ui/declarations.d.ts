@@ -6,18 +6,11 @@ declare module '*.svg?url';
 declare module '*.gif';
 declare module '*.woff2';
 
-type TokenUnit = {
-  displayDenom: string;
-  baseDenom: string;
-  exponent: number;
-  value: string;
-};
+type Override<T1, T2> = Omit<T1, keyof T2> & T2;
 
-type MsgCoin = {
-  denom: string;
-  amount: string;
+type ComponentDefault = {
+  className?: string;
 };
-
 interface AvatarName {
   className?: string;
   imageUrl?: string | null;
@@ -25,6 +18,25 @@ interface AvatarName {
   name: string;
   href?: (address: string) => string;
 }
+
+type Transactions = {
+  height: number;
+  hash: string;
+  type: string[];
+  success: boolean;
+  timestamp: string;
+  messages: {
+    count: number;
+    items: any[];
+  };
+};
+
+type TokenUnit = {
+  displayDenom: string;
+  baseDenom: string;
+  exponent: number;
+  value: string;
+};
 
 type DesmosProfile = {
   dtag: string;
@@ -34,4 +46,48 @@ type DesmosProfile = {
   bio: string;
   connections: ProfileConnectionType[];
   validator?: ValidatorProfile;
+};
+
+type ProfileConnectionType = {
+  network: string;
+  identifier: string;
+  creationTime: string;
+};
+
+type ValidatorProfile = {
+  status: number;
+  jailed: boolean;
+  condition: number;
+  commission: number;
+  signedBlockWindow: number;
+  missedBlockCounter: number;
+  lastSeen: string;
+};
+
+type TagTheme =
+  | 'zero'
+  | 'one'
+  | 'two'
+  | 'three'
+  | 'four'
+  | 'five'
+  | 'six'
+  | 'seven'
+  | 'eight'
+  | 'nine'
+  | 'ten'
+  | 'eleven'
+  | 'twelve'
+  | 'thirteen'
+  | 'fourteen'
+  | 'fifteen'
+  | 'sixteen'
+  | 'seventeen'
+  | 'eighteen'
+  | 'nineteen'
+  | 'twenty';
+
+type MsgCoin = {
+  denom: string;
+  amount: string;
 };

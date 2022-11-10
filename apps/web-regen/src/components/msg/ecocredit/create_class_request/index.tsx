@@ -1,7 +1,7 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
-import Name from '@components/name';
+import Name from 'ui/components/name';
 import MsgCreateClassRequest from '@models/regen/msg/ecocredit/msg_create_class_request';
 import { useProfileRecoil } from '@recoil/profiles';
 

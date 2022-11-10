@@ -1,9 +1,9 @@
 import React from 'react';
 import { usePagination } from '@hooks';
-import Pagination from '@components/pagination';
-import NoData from '@components/no_data';
-import Box from '@components/box';
-import Loading from '@components/loading';
+import Pagination from 'ui/components/pagination';
+import NoData from 'ui/components/no_data';
+import Box from 'ui/components/box';
+import Loading from 'ui/components/loading';
 import { useStyles } from './styles';
 import { useNFTs, PAGE_SIZE } from './hooks';
 import { NftsList } from './components';

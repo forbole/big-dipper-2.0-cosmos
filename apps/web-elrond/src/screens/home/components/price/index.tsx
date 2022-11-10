@@ -13,8 +13,8 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
-import Box from '@components/box';
-import CustomToolTip from '@components/custom_tool_tip';
+import Box from 'ui/components/box';
+import CustomToolTip from 'ui/components/custom_tool_tip';
 import dayjs from 'ui/utils/dayjs';
 import { useStyles } from './styles';
 import { usePrice } from './hooks';

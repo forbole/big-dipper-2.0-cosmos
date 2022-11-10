@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import Box from 'ui/components/Box';
+import Box from 'ui/components/box';
 import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
 import { Networks } from '@src/components/nav/components';
@@ -16,7 +16,7 @@ const NetworkList: React.FC<{
   const theme = useRecoilValue(readTheme);
 
   return (
-    <Box boxShadow={3} className={classnames(className, classes.root)}>
+    <Box className={classnames(className, classes.root)}>
       <div
         style={{
           height: actionHeight,

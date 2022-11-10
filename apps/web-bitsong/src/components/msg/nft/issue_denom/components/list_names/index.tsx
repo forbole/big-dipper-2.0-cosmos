@@ -1,6 +1,6 @@
 import React from 'react';
 import { useProfilesRecoil } from '@recoil/profiles';
-import Name from '@components/name';
+import Name from 'ui/components/name';
 import useTranslation from 'next-translate/useTranslation';
 
 const ListNames = (props: { creators: string[] }) => {

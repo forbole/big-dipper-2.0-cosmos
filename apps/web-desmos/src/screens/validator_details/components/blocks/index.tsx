@@ -4,9 +4,9 @@ import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography, Tooltip } from '@material-ui/core';
 import { useProfilesRecoil } from '@recoil/profiles';
-import Box from '@components/box';
-import AvatarName from '@components/avatar_name';
-import Result from '@components/result';
+import Box from 'ui/components/box';
+import AvatarName from 'ui/components/avatar_name';
+import Result from 'ui/components/result';
 import { useStyles } from './styles';
 import { useBlocks } from './hooks';
 

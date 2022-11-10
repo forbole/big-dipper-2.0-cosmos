@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '@components/layout';
+import Layout from 'ui/components/layout';
 import { useStyles } from './styles';
 import { DataBlocks, LatestBlocks, LatestTransactions } from './components';
 

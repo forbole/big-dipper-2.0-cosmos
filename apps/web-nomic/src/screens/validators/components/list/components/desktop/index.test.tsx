@@ -15,10 +15,10 @@ jest.mock('..', () => ({
   VotingPower: (props: JSX.IntrinsicElements['div']) => <div id="VotingPower" {...props} />,
   Condition: (props: JSX.IntrinsicElements['div']) => <div id="Condition" {...props} />,
 }));
-jest.mock('@components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="AvatarName" {...props} />
 ));
-jest.mock('@components/sort_arrows', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/sort_arrows', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="SortArrows" {...props} />
 ));
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
 import dynamic from 'next/dynamic';
-import Box from '@components/box';
-import NoData from '@components/no_data';
-import LoadAndExist from '@components/load_and_exist';
+import Box from 'ui/components/box';
+import NoData from 'ui/components/no_data';
+import LoadAndExist from 'ui/components/load_and_exist';
 import { useScreenSize } from '@hooks';
 import { useProfilesRecoil } from '@recoil/profiles';
 import { Tabs } from './components';

@@ -2,7 +2,7 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
 import { Typography } from '@material-ui/core';
-import Name from '@components/name';
+import Name from 'ui/components/name';
 import MsgConvertCoin from '@models/evmos/msg/erc20/msg_convert_coin';
 import { useProfileRecoil } from '@recoil/profiles';
 

@@ -6,13 +6,13 @@ import Mobile from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/single_block_mobile', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/single_block_mobile', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="SingleBlockMobile" {...props} />
 ));
-jest.mock('@components/loading', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/loading', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Loading" {...props} />
 ));
-jest.mock('@components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="AvatarName" {...props} />
 ));
 

@@ -64,7 +64,7 @@ function nextConfig(chainConfigJson) {
       });
       config.module.rules.push({
         test: /\.svg$/i,
-        issuer: /\.[jt]sx?$/,
+        // issuer: /\.[jtmc]sx?$/,
         resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
         use: [
           'next-swc-loader',

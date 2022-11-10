@@ -6,22 +6,22 @@ import Profile from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
-jest.mock('@components/avatar', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/avatar', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Avatar" {...props} />
 ));
-jest.mock('@components/tag', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/tag', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Tag" {...props} />
 ));
-jest.mock('@components/info_popover', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/info_popover', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="InfoPopover" {...props} />
 ));
-jest.mock('@components/markdown', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/markdown', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Markdown" {...props} />
 ));
-jest.mock('@components/condition_explanation', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/condition_explanation', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="ConditionExplanation" {...props} />
 ));
 

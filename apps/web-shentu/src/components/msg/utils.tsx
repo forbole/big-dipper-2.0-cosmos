@@ -1,8 +1,8 @@
 import React from 'react';
 import * as MODELS from '@models';
 import * as R from 'ramda';
-import Tag from '@components/tag';
-import * as COMPONENTS from '@msg';
+import Tag from 'ui/components/tag';
+import * as COMPONENTS from 'ui/components/msg';
 
 const getDataByType = (type: string) => {
   // =====================================

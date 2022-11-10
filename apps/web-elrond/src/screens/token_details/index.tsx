@@ -1,8 +1,8 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
-import Layout from '@components/layout';
-import LoadAndExist from '@components/load_and_exist';
+import Layout from 'ui/components/layout';
+import LoadAndExist from 'ui/components/load_and_exist';
 import { Profile, Overview, Stats, Transactions } from './components';
 import { useStyles } from './styles';
 import { useTokenDetails } from './hooks';

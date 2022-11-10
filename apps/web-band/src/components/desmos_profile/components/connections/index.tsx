@@ -2,7 +2,7 @@ import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { Dialog, Typography, DialogTitle, IconButton, DialogContent } from '@material-ui/core';
 import { Close as CloseIcon } from '@material-ui/icons';
-import Pagination from '@components/pagination';
+import Pagination from 'ui/components/pagination';
 import { usePagination, useScreenSize } from '@hooks';
 import { useStyles } from './styles';
 import Desktop from './components/desktop';

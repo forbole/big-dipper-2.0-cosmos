@@ -11,10 +11,10 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('@components/single_transaction_mobile', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/single_transaction_mobile', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="SingleTransactionMobile" {...props} />
 ));
-// jest.mock('@components/result', () => (props: JSX.IntrinsicElements['div']) => <div id="Result" {...props} />);
+// jest.mock('ui/components/result', () => (props: JSX.IntrinsicElements['div']) => <div id="Result" {...props} />);
 
 // ==================================
 // unit tests

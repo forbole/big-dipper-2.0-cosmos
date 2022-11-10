@@ -5,7 +5,7 @@ import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import dayjs from 'ui/utils/dayjs';
 import Link from 'next/link';
-import AvatarName from '@components/avatar_name';
+import AvatarName from 'ui/components/avatar_name';
 import { BLOCK_DETAILS } from 'ui/utils/go_to_page';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { useStyles } from './styles';

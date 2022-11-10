@@ -6,8 +6,8 @@ import { Typography } from '@material-ui/core';
 import { useRecoilValue } from 'recoil';
 import { useProfileRecoil } from '@recoil/profiles';
 import { readDate } from '@recoil/settings';
-import BoxDetails from '@components/box_details';
-import AvatarName from '@components/avatar_name';
+import BoxDetails from 'ui/components/box_details';
+import AvatarName from 'ui/components/avatar_name';
 import { OverviewType } from '../../types';
 
 const Overview: React.FC<OverviewType & ComponentDefault> = (props, { className }) => {

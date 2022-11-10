@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
-import Box from '@components/box';
+import Box from 'ui/components/box';
 import { formatNumber } from 'ui/utils/format_token';
 import { useStyles } from './styles';
 import { StakeType } from '../../types';

@@ -6,7 +6,7 @@ import { useRecoilValue } from 'recoil';
 import chainConfig from 'ui/chainConfig';
 import ChainIcon from 'ui/components/ChainIcon';
 import { readTheme } from '@recoil/settings';
-import Loading from '@components/loading';
+import Loading from 'ui/components/loading';
 import { useStyles } from './styles';
 
 const Countdown: React.FC<{

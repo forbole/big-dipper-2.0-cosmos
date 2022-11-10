@@ -5,7 +5,7 @@ import useTranslation from 'next-translate/useTranslation';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { Divider, Typography } from '@material-ui/core';
 import { useList, useListRow } from '@hooks';
-import AvatarName from '@components/avatar_name';
+import AvatarName from 'ui/components/avatar_name';
 import { useStyles } from './styles';
 
 const Mobile: React.FC<{

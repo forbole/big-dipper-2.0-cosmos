@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import dynamic from 'next/dynamic';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
-import Box from '@components/box';
+import Box from 'ui/components/box';
 import { usePagination, useScreenSize } from '@hooks';
 import { useProfilesRecoil } from '@recoil/profiles';
 import { useStyles } from './styles';

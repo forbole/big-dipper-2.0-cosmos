@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from 'ui/tests/utils';
-import NotFound from '@components/not_found';
+import NotFound from 'ui/components/not_found';
 
 // ==================================
 // mocks

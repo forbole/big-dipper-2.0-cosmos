@@ -1,7 +1,7 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
-import Name from '@components/name';
+import Name from 'ui/components/name';
 import MsgCreateProposalRequest from '@models/regen/msg/group/msg_create_proposal_request';
 import { useProfileRecoil } from '@recoil/profiles';
 

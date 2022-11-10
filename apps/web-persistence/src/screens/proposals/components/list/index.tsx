@@ -10,8 +10,8 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 
 import { PROPOSAL_DETAILS } from 'ui/utils/go_to_page';
 import { useList, useListRow } from '@hooks';
-import Loading from '@components/loading';
-import Box from '@components/box';
+import Loading from 'ui/components/loading';
+import Box from 'ui/components/box';
 import { Total, SingleProposal } from './components';
 import { useStyles } from './styles';
 import { ProposalType } from '../../types';

@@ -1,6 +1,6 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import BoxDetails from '@components/box_details';
+import BoxDetails from 'ui/components/box_details';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { OverviewType } from '../../types';
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import BoxDetails from '@components/box_details';
-import AvatarName from '@components/avatar_name';
+import BoxDetails from 'ui/components/box_details';
+import AvatarName from 'ui/components/avatar_name';
 import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';

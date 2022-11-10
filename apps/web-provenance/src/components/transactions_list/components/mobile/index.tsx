@@ -10,10 +10,10 @@ import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
 
 import { mergeRefs } from 'ui/utils/merge_refs';
-import SingleTransactionMobile from '@components/single_transaction_mobile';
-import Loading from '@components/loading';
-import Result from '@components/result';
-import Tag from '@components/tag';
+import SingleTransactionMobile from 'ui/components/single_transaction_mobile';
+import Loading from 'ui/components/loading';
+import Result from 'ui/components/result';
+import Tag from 'ui/components/tag';
 import { useList, useListRow } from '@hooks';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { useStyles } from './styles';

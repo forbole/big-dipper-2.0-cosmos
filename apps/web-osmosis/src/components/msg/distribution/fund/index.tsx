@@ -3,7 +3,7 @@ import useTranslation from 'next-translate/useTranslation';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
-import Name from '@components/name';
+import Name from 'ui/components/name';
 import { MsgFundCommunityPool } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 

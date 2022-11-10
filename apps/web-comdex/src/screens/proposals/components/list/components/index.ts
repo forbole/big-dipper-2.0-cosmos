@@ -1,4 +1,2 @@
-import Total from './total';
-import SingleProposal from '../../../../../components/single_proposal';
-
-export { Total, SingleProposal };
+export { default as SingleProposal } from 'ui/components/single_proposal';
+export { default as Total } from './total';

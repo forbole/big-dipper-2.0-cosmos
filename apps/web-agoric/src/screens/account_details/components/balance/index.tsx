@@ -8,7 +8,7 @@ import { readMarket } from '@recoil/market';
 import { Typography, Divider } from '@material-ui/core';
 import { PieChart, Pie, ResponsiveContainer, Cell } from 'recharts';
 import useTranslation from 'next-translate/useTranslation';
-import Box from '@components/box';
+import Box from 'ui/components/box';
 import chainConfig from 'ui/chainConfig';
 import { formatNumber } from 'ui/utils/format_token';
 import { useStyles } from './styles';

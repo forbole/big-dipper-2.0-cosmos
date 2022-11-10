@@ -5,7 +5,7 @@ import { formatNumber } from 'ui/utils/format_token';
 import Link from 'next/link';
 import { TOKEN_DETAILS, NFT_DETAILS } from '@utils/go_to_page';
 import { Typography, Divider } from '@material-ui/core';
-import AvatarName from '@components/avatar_name';
+import AvatarName from 'ui/components/avatar_name';
 import { useStyles } from './styles';
 import { OperationType } from '../../../../types';
 

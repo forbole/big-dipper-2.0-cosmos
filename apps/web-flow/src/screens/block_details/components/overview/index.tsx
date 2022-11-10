@@ -5,7 +5,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 // import { useRecoilValue } from 'recoil';
 // import { readDate } from '@recoil/settings';
-import BoxDetails from '@components/box_details';
+import BoxDetails from 'ui/components/box_details';
 import { OverviewType } from '../../types';
 
 const Overview: React.FC<OverviewType & ComponentDefault> = (props, { className }) => {

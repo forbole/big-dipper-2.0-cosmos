@@ -1,10 +1,10 @@
 import React from 'react';
 import { usePagination } from '@hooks';
-import Pagination from '@components/pagination';
-import NoData from '@components/no_data';
-import Box from '@components/box';
-import Loading from '@components/loading';
-import TransactionsList from '@components/transactions_list';
+import Pagination from 'ui/components/pagination';
+import NoData from 'ui/components/no_data';
+import Box from 'ui/components/box';
+import Loading from 'ui/components/loading';
+import TransactionsList from 'ui/components/transactions_list';
 import { useStyles } from './styles';
 import { useBlocks, PAGE_SIZE } from './hooks';
 

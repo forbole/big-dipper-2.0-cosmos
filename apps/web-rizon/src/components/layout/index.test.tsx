@@ -12,10 +12,10 @@ let component: renderer.ReactTestRenderer;
 // mocks
 // ==================================
 
-jest.mock('@components/nav', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/nav', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Nav" {...props} />
 ));
-jest.mock('@components/footer', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/footer', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Footer" {...props} />
 ));
 

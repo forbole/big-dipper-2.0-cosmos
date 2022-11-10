@@ -3,8 +3,8 @@ import numeral from 'numeral';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography, Tooltip } from '@material-ui/core';
-import Box from '@components/box';
-import NoData from '@components/no_data';
+import Box from 'ui/components/box';
+import NoData from 'ui/components/no_data';
 import { useStyles } from './styles';
 import { ConsensusType } from '../../types';
 

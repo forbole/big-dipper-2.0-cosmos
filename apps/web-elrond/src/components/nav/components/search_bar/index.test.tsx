@@ -6,7 +6,7 @@ import SearchBar from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/search', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/search', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Search" {...props} />
 ));
 // ==================================

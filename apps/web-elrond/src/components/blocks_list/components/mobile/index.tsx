@@ -7,7 +7,7 @@ import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { getShardDisplay } from '@utils/get_shard_display';
 import { Divider, Typography } from '@material-ui/core';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
-import SingleBlockMobile from '@components/single_block_mobile';
+import SingleBlockMobile from 'ui/components/single_block_mobile';
 
 const Mobile: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');

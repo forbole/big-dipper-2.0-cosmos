@@ -1,7 +1,7 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
-import Name from '@components/name';
+import Name from 'ui/components/name';
 import MsgDtagRefuseTransfer from '@models/desmos/msg/profiles/msg_dtag_refuse_transfer';
 import { useProfileRecoil } from '@recoil/profiles';
 

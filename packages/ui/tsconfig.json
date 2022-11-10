@@ -4,10 +4,6 @@
     "baseUrl": ".",
     "paths": {
       "@src/*": ["src/*"],
-      "@components": ["src/components"],
-      "@components/*": ["src/components/*"],
-      "@msg": ["src/components/msg"],
-      "@icons": ["src/components/icons"],
       "@hooks": ["src/hooks"],
       "@models": ["src/models"],
       "@models/*": ["src/models/*"],

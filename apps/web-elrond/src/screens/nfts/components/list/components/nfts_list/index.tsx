@@ -1,6 +1,6 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import NoData from '@components/no_data';
+import NoData from 'ui/components/no_data';
 import { useScreenSize } from '@hooks';
 import { NFTTypes } from '../../types';
 import type DesktopType from './components/desktop';

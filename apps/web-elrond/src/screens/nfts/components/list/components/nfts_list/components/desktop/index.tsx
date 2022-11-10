@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import AvatarName from '@components/avatar_name';
+import AvatarName from 'ui/components/avatar_name';
 import { Table, TableHead, TableRow, TableCell, TableBody, Typography } from '@material-ui/core';
 import { NFT_DETAILS } from '@utils/go_to_page';
 import { columns } from './utils';

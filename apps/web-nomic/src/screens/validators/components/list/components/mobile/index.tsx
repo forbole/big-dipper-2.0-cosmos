@@ -4,7 +4,7 @@ import numeral from 'numeral';
 import { VariableSizeList as List } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { Divider } from '@material-ui/core';
-import AvatarName from '@components/avatar_name';
+import AvatarName from 'ui/components/avatar_name';
 import { useList, useListRow } from '@hooks';
 import { getValidatorStatus } from '@utils/get_validator_status';
 import { SingleValidator } from './component';

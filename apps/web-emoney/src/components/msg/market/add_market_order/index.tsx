@@ -1,7 +1,7 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
-import Name from '@components/name';
+import Name from 'ui/components/name';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
 import MsgAddMarketOrder from '@models/emoney/msg/market/msg_add_market_order';
 import { useProfileRecoil } from '@recoil/profiles';

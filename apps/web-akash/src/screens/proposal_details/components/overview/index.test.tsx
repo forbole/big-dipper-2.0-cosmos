@@ -6,16 +6,16 @@ import Overview from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/single_proposal', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/single_proposal', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="SingleProposal" {...props} />
 ));
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
-jest.mock('@components/markdown', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/markdown', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Markdown" {...props} />
 ));
 

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { VariableSizeGrid as Grid } from 'react-window';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
-import Loading from '@components/loading';
+import Loading from 'ui/components/loading';
 import { useGrid } from '@hooks';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import EmailIcon from 'shared-utils/assets/icon-email.svg';

@@ -5,7 +5,7 @@ import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import { Divider, Typography } from '@material-ui/core';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
-import AvatarName from '@components/avatar_name';
+import AvatarName from 'ui/components/avatar_name';
 import { formatNumber } from 'ui/utils/format_token';
 import { useStyles } from './styles';
 import { ItemType } from '../../types';

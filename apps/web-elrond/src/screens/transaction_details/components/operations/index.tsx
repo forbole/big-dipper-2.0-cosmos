@@ -1,7 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import NoData from '@components/no_data';
-import Box from '@components/box';
+import NoData from 'ui/components/no_data';
+import Box from 'ui/components/box';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import { useScreenSize } from '@hooks';

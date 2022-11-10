@@ -1,5 +1,5 @@
 import React from 'react';
-import Box from '@components/box';
+import Box from 'ui/components/box';
 import classnames from 'classnames';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';

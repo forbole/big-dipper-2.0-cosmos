@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { Typography, TableRow, TableHead, TableCell, Table, TableBody } from '@material-ui/core';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from 'ui/utils/go_to_page';
-// import Result from '@components/result';
+// import Result from 'ui/components/result';
 import { useStyles } from './styles';
 import { columns } from './utils';
 import { TransactionType } from '../../types';

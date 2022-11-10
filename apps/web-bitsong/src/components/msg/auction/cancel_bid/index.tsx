@@ -2,7 +2,7 @@ import React from 'react';
 import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
 import { Typography } from '@material-ui/core';
-import Name from '@components/name';
+import Name from 'ui/components/name';
 import MsgCancelBid from '@models/bitsong/msg/auction/msg_cancel_bid';
 import { useProfileRecoil } from '@recoil/profiles';
 

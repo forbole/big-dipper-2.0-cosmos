@@ -1,6 +1,6 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import Name from '@components/name';
+import Name from 'ui/components/name';
 
 const Signers = (props: { signers: AvatarName[] }) => {
   const { t } = useTranslation('transactions');
