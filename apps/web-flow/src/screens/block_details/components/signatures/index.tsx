@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
 import Box from 'ui/components/box';
-import NoData from 'ui/components/no_data';
+import NoData from '@components/no_data';
 import { useStyles } from './styles';
 
 const Signatures: React.FC<

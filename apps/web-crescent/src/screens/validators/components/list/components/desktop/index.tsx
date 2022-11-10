@@ -9,7 +9,7 @@ import { useGrid } from '@hooks';
 import SortArrows from 'ui/components/sort_arrows';
 import AvatarName from 'ui/components/avatar_name';
 import InfoPopover from 'ui/components/info_popover';
-import LiquidStakingExplanation from 'ui/components/liquid_staking_explanation';
+import LiquidStakingExplanation from '@components/liquid_staking_explanation';
 import { getValidatorConditionClass } from 'ui/utils/get_validator_condition';
 import { getValidatorStatus } from 'ui/utils/get_validator_status';
 import LiquidStakingTrueIcon from 'shared-utils/assets/liquid-staking-true.svg';

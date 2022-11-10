@@ -1,11 +1,8 @@
 import Tag from 'ui/components/tag';
-import * as models from '@models';
-import * as modelsCustom from '@models/band';
-import * as COMPONENTS from 'ui/components/msg';
+import * as MODELS from '@models';
+import * as COMPONENTS from '@components/msg';
 import * as R from 'ramda';
 import React from 'react';
-
-const MODELS = { ...models, ...modelsCustom };
 
 const getDataByType = (type: string) => {
   // =====================================

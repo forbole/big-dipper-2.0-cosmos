@@ -9,6 +9,6 @@ const initialState: AtomState = {
 };
 
 export const atomState = atom<AtomState>({
-  key: 'market',
+  key: 'elrond/market',
   default: initialState,
 });

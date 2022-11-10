@@ -15,6 +15,6 @@ const initialState: AtomState = {
 };
 
 export const atomState = atom<AtomState>({
-  key: 'market',
+  key: 'nomic/market',
   default: initialState,
 });

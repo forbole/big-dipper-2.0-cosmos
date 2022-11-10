@@ -61,7 +61,12 @@ const Pagination: React.FC<{
         return (
           <>
             <Actions {...subProps} {...additionalProps} className={classes.mobile} />
-            <Actions {...subProps} {...additionalProps} className={classes.tablet} />
+            <Actions
+              {...subProps}
+              {...additionalProps}
+              className={classes.tablet}
+              // pageNeighbors={2}
+            />
           </>
         );
       }}

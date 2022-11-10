@@ -4,7 +4,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
 import { formatNumber } from 'ui/utils/format_token';
 import { TOKEN_DETAILS } from '@utils/go_to_page';
-import AvatarName from 'ui/components/avatar_name';
+import AvatarName from '@components/avatar_name';
 import { columns } from './utils';
 import { useStyles } from './styles';
 import { OtherTokenType } from '../../../../types';

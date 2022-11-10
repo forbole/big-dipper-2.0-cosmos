@@ -9,7 +9,7 @@ const getMarket: ReadOnlySelectorOptions<AtomState>['get'] = ({ get }): AtomStat
 };
 
 export const writeMarket = selector({
-  key: 'market.write.market',
+  key: 'elrond/market.write.market',
   get: getMarket,
   set: ({ get, set }, value) => {
     const prevState = get(atomState);
@@ -19,6 +19,6 @@ export const writeMarket = selector({
 });
 
 export const readMarket = selector({
-  key: 'market.read.market',
+  key: 'elrond/market.read.market',
   get: getMarket,
 });

@@ -5,7 +5,7 @@ import {
   useTransactionsListenerSubscription,
   TransactionsListenerSubscription,
 } from '@graphql/types/general_types';
-import { convertMsgsToModels } from 'ui/components/msg';
+import { convertMsgsToModels } from '@components/msg';
 import { convertMsgType } from 'ui/utils/convert_msg_type';
 import { TransactionsState } from './types';
 

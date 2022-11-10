@@ -4,7 +4,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { formatNumber } from 'ui/utils/format_token';
 import Link from 'next/link';
 import { Table, TableHead, TableRow, TableCell, TableBody, Typography } from '@material-ui/core';
-import AvatarName from 'ui/components/avatar_name';
+import AvatarName from '@components/avatar_name';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { TOKEN_DETAILS, NFT_DETAILS } from '@utils/go_to_page';
 import { columns } from './utils';

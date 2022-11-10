@@ -13,6 +13,6 @@ const initialState: AtomState = {
 };
 
 export const atomState = atom<AtomState>({
-  key: 'market',
+  key: 'flow/market',
   default: initialState,
 });

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { Divider, Typography } from '@material-ui/core';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
-import SingleBlockMobile from 'ui/components/single_block_mobile';
+import SingleBlockMobile from '@components/single_block_mobile';
 import { BlockType } from '../../types';
 
 const Mobile: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {

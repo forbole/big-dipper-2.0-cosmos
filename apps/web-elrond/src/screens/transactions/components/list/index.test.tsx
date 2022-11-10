@@ -10,10 +10,10 @@ import List from '.';
 // unit tests
 // ==================================
 
-jest.mock('ui/components/pagination', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@components/pagination', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Pagination" {...props} />
 ));
-jest.mock('ui/components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="NoData" {...props} />
 ));
 jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (

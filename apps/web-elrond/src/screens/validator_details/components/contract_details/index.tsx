@@ -2,7 +2,7 @@ import React from 'react';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import BoxDetails from 'ui/components/box_details';
-import AvatarName from 'ui/components/avatar_name';
+import AvatarName from '@components/avatar_name';
 import { formatNumber } from 'ui/utils/format_token';
 import { ContractType } from '../../types';
 

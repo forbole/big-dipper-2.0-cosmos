@@ -4,7 +4,7 @@ import numeral from 'numeral';
 import dayjs from 'ui/utils/dayjs';
 import Link from 'next/link';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import SingleBlockMobile from 'ui/components/single_block_mobile';
+import SingleBlockMobile from '@components/single_block_mobile';
 import Loading from 'ui/components/loading';
 import { Typography, Divider } from '@material-ui/core';
 import { VariableSizeList as List } from 'react-window';

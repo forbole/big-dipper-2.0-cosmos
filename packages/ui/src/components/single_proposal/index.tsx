@@ -24,7 +24,10 @@ const SingleProposal: React.FC<{
           {id}
         </Typography>
         <span className={classes.mobile}>
-          <Tag theme={statusInfo.tag as TagTheme} value={statusInfo.value} />
+          <Tag
+            theme={statusInfo.tag as React.ComponentProps<typeof Tag>['theme']}
+            value={statusInfo.value}
+          />
         </span>
       </div>
       {/* ================= */}

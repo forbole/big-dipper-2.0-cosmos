@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import Box from 'ui/components/box';
 import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red-sifchain.svg';
-import { Networks } from '@src/components/nav/components';
+import { Networks } from '@components/nav/components';
 import { useRecoilValue } from 'recoil';
 import { readTheme } from '@recoil/settings';
 import { useStyles } from './styles';

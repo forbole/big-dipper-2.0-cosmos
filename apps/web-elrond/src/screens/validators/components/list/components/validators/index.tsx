@@ -1,7 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { useScreenSize } from '@hooks';
-import NoData from 'ui/components/no_data';
+import NoData from '@components/no_data';
 import { useProviders } from './hooks';
 import { ValidatorType, SearchType } from '../../types';
 import type DesktopType from './components/desktop';

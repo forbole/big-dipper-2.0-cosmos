@@ -2,7 +2,7 @@ import React from 'react';
 import numeral from 'numeral';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import AvatarName from 'ui/components/avatar_name';
+import AvatarName from '@components/avatar_name';
 import { Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { TOKEN_DETAILS } from '@utils/go_to_page';

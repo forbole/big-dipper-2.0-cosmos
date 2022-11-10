@@ -8,7 +8,7 @@ import { Typography } from '@material-ui/core';
 import { useGrid } from '@hooks';
 import { formatNumber } from 'ui/utils/format_token';
 import SortArrows from 'ui/components/sort_arrows';
-import AvatarName from 'ui/components/avatar_name';
+import AvatarName from '@components/avatar_name';
 import { VALIDATOR_DETAILS, NODE_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
 import { fetchColumns } from './utils';

@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`screen: TransactionDetails/MsgSend matches snapshot 1`] = `
-<p
-  className="MuiTypography-root MuiTypography-body1"
->
-  message_contents:txSendContent
-</p>
-`;

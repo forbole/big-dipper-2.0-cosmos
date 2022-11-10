@@ -9,9 +9,9 @@ const getMarket = ({ get }): AtomState => {
 };
 
 export const writeMarket = selector({
-  key: 'market.write.market',
+  key: 'nomic/market.write.market',
   get: getMarket,
-  set: ({ get, set }, value: AtomState) => {
+  set: ({ get, set }, value) => {
     const prevState = get(atomState);
     const newState = mergeStateChange(prevState, value);
     set(atomState, newState);
@@ -19,6 +19,6 @@ export const writeMarket = selector({
 });
 
 export const readMarket = selector({
-  key: 'market.read.market',
+  key: 'nomic/market.read.market',
   get: getMarket,
 });

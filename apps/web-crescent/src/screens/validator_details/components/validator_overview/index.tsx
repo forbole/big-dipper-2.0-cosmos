@@ -11,7 +11,7 @@ import Box from 'ui/components/box';
 import Tag from 'ui/components/tag';
 import InfoPopover from 'ui/components/info_popover';
 import ConditionExplanation from 'ui/components/condition_explanation';
-import LiquidStakingExplanation from 'ui/components/liquid_staking_explanation';
+import LiquidStakingExplanation from '@components/liquid_staking_explanation';
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from 'ui/utils/go_to_page';
 import { getValidatorStatus } from 'ui/utils/get_validator_status';

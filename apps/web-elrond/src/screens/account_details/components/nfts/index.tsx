@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { usePagination } from '@hooks';
-import Pagination from 'ui/components/pagination';
+import Pagination from '@components/pagination';
 import Box from 'ui/components/box';
 import Loading from 'ui/components/loading';
 import { Typography } from '@material-ui/core';

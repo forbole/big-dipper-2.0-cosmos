@@ -1,14 +1,11 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
 import NoData from 'ui/components/no_data';
 import { useScreenSize } from '@hooks';
 import { useStyles } from './styles';
 import { TransactionsListState } from './types';
-import type DesktopType from './components/desktop';
-import type MobileType from './components/mobile';
 
-const Desktop = dynamic(() => import('./components/desktop')) as typeof DesktopType;
-const Mobile = dynamic(() => import('./components/mobile')) as typeof MobileType;
+import Desktop from './components/desktop';
+import Mobile from './components/mobile';
 
 const TransactionsList: React.FC<TransactionsListState> = (props) => {
   const { isDesktop } = useScreenSize();

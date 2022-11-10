@@ -4,7 +4,7 @@ class MsgUnblockUser {
   public category: Categories;
   public type: string;
   public json: any;
-  public reason: string;
+  public reason?: string;
   public blocked: string;
   public blocker: string;
   public subspace: string;

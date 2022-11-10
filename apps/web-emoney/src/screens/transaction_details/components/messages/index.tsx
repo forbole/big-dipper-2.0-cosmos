@@ -7,7 +7,7 @@ import { Divider, Typography, Switch, FormControlLabel } from '@material-ui/core
 import { useList, useListRow } from '@hooks';
 import Box from 'ui/components/box';
 import TransactionMessagesFilter from 'ui/components/transaction_messages_filter';
-import { getMessageByType } from 'ui/components/msg';
+import { getMessageByType } from '@components/msg';
 import { useStyles } from './styles';
 
 const Messages: React.FC<{

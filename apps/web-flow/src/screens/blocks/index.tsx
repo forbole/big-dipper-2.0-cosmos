@@ -5,7 +5,7 @@ import { NextSeo } from 'next-seo';
 import Layout from 'ui/components/layout';
 import Box from 'ui/components/box';
 import LoadAndExist from 'ui/components/load_and_exist';
-import NoData from 'ui/components/no_data';
+import NoData from '@components/no_data';
 import { useScreenSize } from '@hooks';
 import { useStyles } from './styles';
 import { useBlocks } from './hooks';

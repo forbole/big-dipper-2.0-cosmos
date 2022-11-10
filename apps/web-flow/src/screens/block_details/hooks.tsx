@@ -3,7 +3,7 @@ import * as R from 'ramda';
 import numeral from 'numeral';
 import { useRouter } from 'next/router';
 import { useBlockDetailsQuery, BlockDetailsQuery } from '@graphql/types';
-// import { convertMsgsToModels } from 'ui/components/msg';
+// import { convertMsgsToModels } from '@components/msg';
 import { BlockDetailState } from './types';
 
 export const useBlockDetails = () => {

@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 import { Typography, Divider } from '@material-ui/core';
 import { BLOCKS } from '@utils/go_to_page';
 import Box from 'ui/components/box';
-import NoData from 'ui/components/no_data';
+import NoData from '@components/no_data';
 import { useScreenSize } from '@hooks';
 import { useStyles } from './styles';
 import { useBlocks } from './hooks';
