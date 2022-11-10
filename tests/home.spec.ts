@@ -5,9 +5,30 @@ test('home page', async ({ page }) => {
 
     // Expect a title "to contain" a substring.
     await expect(page).toHaveTitle(/Big Dipper/);
+    await expect(page).toHaveURL("https://cosmos.bigdipper.live");
 
-    await page.getByRole('link', { name: 'See More' }).first().click();
-    await expect(page).toHaveURL(/.*blocks/);
+    // Test language change 
+    await page.getByRole('button', { name: 'settings-button' }).click();
+    await page.getByRole('button', { name: 'English' }).click();
+    await page.getByRole('button', { name: 'Save' }).click();
+
+    // Test theme change 
+    await page.getByRole('button', { name: 'settings-button' }).click();
+    await page.getByRole('option', { name: 'Light' }).click();
+    await page.getByRole('option', { name: 'Dark' }).click();
+    await page.getByRole('button', { name: 'Save' }).click();
+
+    // Test date format change 
+    await page.getByRole('button', { name: 'settings-button' }).click();
+    await page.getByRole('button', { name: 'Locale' }).click();
+    await page.getByRole('option', { name: 'UTC' }).click();
+    await page.getByRole('button', { name: 'Save' }).click();
+    
+    // Test transactions format change 
+    await page.getByRole('button', { name: 'settings-button' }).click();
+    await page.getByRole('button', { name: 'Compact' }).click();
+    await page.getByRole('option', { name: 'Detailed' }).click();
+    await page.getByRole('button', { name: 'Save' }).click();
 
     await page.getByRole('link', { name: 'Overview' }).click();
     await expect(page).toHaveURL(/.*/);

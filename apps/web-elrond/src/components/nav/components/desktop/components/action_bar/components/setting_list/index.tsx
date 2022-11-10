@@ -32,7 +32,7 @@ const Settings: React.FC<{
 
   return (
     <div>
-      <div onClick={handleOpen} role="button" className={classnames(props.className, classes.icon)}>
+      <div onClick={handleOpen} role="button" className={classnames(props.className, classes.icon)} aria-label="settings-button">
         <SettingIcon />
       </div>
       <Dialog maxWidth="md" onClose={handleCancel} open={open} className={classes.dialog}>
