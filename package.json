@@ -17,6 +17,7 @@
     "test": "turbo run test --continue --concurrency=1",
     "clean": "turbo run clean",
     "e2e": "turbo run e2e --continue --concurrency=1",
+    "e2e-tests": "npx playwright test",
     "graphql:codegen": "turbo run graphql:codegen --continue --concurrency=2"
   },
   "dependencies": {
