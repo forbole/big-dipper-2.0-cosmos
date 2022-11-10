@@ -7,6 +7,14 @@ test('home page', async ({ page }) => {
     await expect(page).toHaveTitle(/Big Dipper/);
     await expect(page).toHaveURL("https://cosmos.bigdipper.live");
 
+    // Test 'See More' blocks button
+    await page.getByRole('link', { name: 'see more blocks' }).first().click();
+    await expect(page).toHaveURL(/.*blocks/);
+  
+    // Test 'See More' transactions button
+    await page.getByRole('link', { name: 'see more txs' }).first().click();
+    await expect(page).toHaveURL(/.*transactions/);
+  
     // Test language change 
     await page.getByRole('button', { name: 'settings-button' }).click();
     await page.getByRole('button', { name: 'English' }).click();
