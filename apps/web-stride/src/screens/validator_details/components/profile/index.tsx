@@ -44,7 +44,7 @@ const Profile: React.FC<{ profile: OverviewType } & ComponentDefault> = ({
       <div className={classes.bio}>
         <Avatar
           address={profile.operatorAddress}
-          imageUrl={validator.imageUrl}
+          imageUrl={validator.imageUrl ?? undefined}
           className={classnames(classes.avatar, classes.desktopAvatar)}
         />
         <div>
@@ -55,7 +55,7 @@ const Profile: React.FC<{ profile: OverviewType } & ComponentDefault> = ({
             <div className={classes.header}>
               <Avatar
                 address={profile.operatorAddress}
-                imageUrl={validator.imageUrl}
+                imageUrl={validator.imageUrl ?? undefined}
                 className={classnames(classes.avatar, classes.mobile)}
               />
               <div className="header__content">

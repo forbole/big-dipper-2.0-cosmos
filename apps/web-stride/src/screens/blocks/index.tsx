@@ -25,7 +25,7 @@ const Blocks = () => {
   const proposerProfiles = useProfilesRecoil(state.items.map((x) => x.proposer));
   const mergedDataWithProfiles = state.items.map((x, i) => {
     return {
-      ...x,
+      ...(x as object),
       proposer: proposerProfiles[i],
     };
   });
@@ -47,14 +47,14 @@ const Blocks = () => {
               <>
                 {isDesktop ? (
                   <Desktop
-                    items={mergedDataWithProfiles}
+                    items={mergedDataWithProfiles as any}
                     itemCount={itemCount}
                     loadMoreItems={loadMoreItems}
                     isItemLoaded={isItemLoaded}
                   />
                 ) : (
                   <Mobile
-                    items={mergedDataWithProfiles}
+                    items={mergedDataWithProfiles as any}
                     itemCount={itemCount}
                     loadMoreItems={loadMoreItems}
                     isItemLoaded={isItemLoaded}

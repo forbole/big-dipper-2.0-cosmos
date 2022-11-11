@@ -12,7 +12,7 @@ const Desktop: React.FC<{
   items?: ItemType[];
 }> = ({ className, items }) => {
   const { t } = useTranslation('accounts');
-  const formattedItems = items.map((x) => {
+  const formattedItems = items?.map((x) => {
     return {
       address: (
         <AvatarName
@@ -47,7 +47,7 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems.map((row, i) => (
+          {formattedItems?.map((row: { [key: string]: unknown }, i) => (
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => {
                 return (

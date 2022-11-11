@@ -6,10 +6,13 @@ import TabPanel from 'ui/components/tab_panel';
 import { Tabs } from './components';
 import { useStaking } from './hooks';
 import { useStyles } from './styles';
+import type DelegationsFC from './components/delegations';
+import type RedelgationsFC from './components/redelegations';
+import type UnbondingsFC from './components/unbondings';
 
-const Delegations = dynamic(() => import('./components/delegations'));
-const Redelgations = dynamic(() => import('./components/redelegations'));
-const Unbondings = dynamic(() => import('./components/unbondings'));
+const Delegations = dynamic(() => import('./components/delegations')) as typeof DelegationsFC;
+const Redelgations = dynamic(() => import('./components/redelegations')) as typeof RedelgationsFC;
+const Unbondings = dynamic(() => import('./components/unbondings')) as typeof UnbondingsFC;
 
 const Staking: React.FC<ComponentDefault> = (props) => {
   const classes = useStyles();

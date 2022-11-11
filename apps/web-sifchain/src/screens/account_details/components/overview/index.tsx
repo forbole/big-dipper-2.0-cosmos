@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { Typography, Dialog } from '@material-ui/core';
-import QRCode from 'qrcode.react';
+import { QRCodeSVG } from 'qrcode.react';
 import { useScreenSize, useWindowOrigin } from '@hooks';
 import {
   FacebookShareButton,
@@ -43,7 +43,7 @@ const Overview: React.FC<{
           <Typography variant="body1" align="center">
             {t('scanForAddress')}
           </Typography>
-          <QRCode value={address} size={200} bgColor="#ffffff" fgColor="#000000" renderAs="svg" />
+          <QRCodeSVG value={address} size={200} bgColor="#ffffff" fgColor="#000000" />
           <div className="dialog__share--wrapper">
             <Typography variant="body1">{t('shareTo')}</Typography>
             <div className={classes.icons}>

@@ -28,7 +28,7 @@ const ProposalsList: React.FC<{
 
   const { listRef, getRowHeight, setRowHeight } = useList();
 
-  const formattedItems = items.map((x) => {
+  const formattedItems = items?.map((x) => {
     return {
       description: x.description.length > 200 ? `${x.description.slice(0, 200)}...` : x.description,
       status: x.status,

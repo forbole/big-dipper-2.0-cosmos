@@ -51,7 +51,7 @@ const Mobile: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props
 
   return (
     <div>
-      {formattedItems.map((x, i) => {
+      {formattedItems?.map((x, i) => {
         return (
           <React.Fragment key={`${x.hash}-${i}`}>
             <div className={classes.root}>

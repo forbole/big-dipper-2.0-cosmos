@@ -57,7 +57,7 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedData.map((row, i) => (
+          {formattedData.map((row: any, i) => (
             <TableRow key={`${items[i].height}`}>
               {columns.map((column, index) => {
                 const { key, align } = column;

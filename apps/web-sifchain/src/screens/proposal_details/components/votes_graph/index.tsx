@@ -69,7 +69,7 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
         </div>
 
         {formattedData
-          .filter((x) => x.name !== 'empty')
+          .filter((x) => String(x.name) !== 'empty')
           .map((x) => {
             return (
               <div key={x.name} className={classnames(classes.voteItem, x.name)}>

@@ -28,7 +28,7 @@ const Blocks: React.FC<{
   const proposerProfiles = useProfilesRecoil(state.items.map((x) => x.proposer));
   const mergedDataWithProfiles = state.items.map((x, i) => {
     return {
-      ...x,
+      ...(x as object),
       proposer: proposerProfiles[i],
     };
   });
@@ -48,9 +48,9 @@ const Blocks: React.FC<{
       ) : (
         <>
           {isDesktop ? (
-            <Desktop className={classes.desktop} items={mergedDataWithProfiles} />
+            <Desktop className={classes.desktop} items={mergedDataWithProfiles as any} />
           ) : (
-            <Mobile className={classes.mobile} items={mergedDataWithProfiles} />
+            <Mobile className={classes.mobile} items={mergedDataWithProfiles as any} />
           )}
           <Divider className={classes.mobile} />
           <Link href={BLOCKS} passHref>

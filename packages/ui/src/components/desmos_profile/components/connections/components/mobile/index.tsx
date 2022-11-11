@@ -46,7 +46,7 @@ const Mobile: React.FC<{
                 </Typography>
               </div>
             </div>
-            {i !== items.length - 1 && <Divider />}
+            {!!items &&i !== items.length - 1 && <Divider />}
           </React.Fragment>
         );
       })}

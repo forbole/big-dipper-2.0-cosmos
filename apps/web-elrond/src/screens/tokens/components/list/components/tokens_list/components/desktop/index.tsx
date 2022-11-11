@@ -56,7 +56,7 @@ const Desktop: React.FC<{ items: TokenType[] } & ComponentDefault> = (props) => 
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems.map((row, i) => (
+          {formattedItems?.map((row: { [key: string]: unknown }, i) => (
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => {
                 return (

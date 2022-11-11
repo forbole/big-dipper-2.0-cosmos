@@ -20,7 +20,7 @@ const VotingPower: React.FC<{
       ? numeral((data.self / numeral(data.overall.value).value()) * 100)
       : numeral(0);
 
-  const classes = useStyles(votingPowerPercent.format(0, Math.floor));
+  const classes = useStyles(parseFloat(votingPowerPercent.format('0', Math.floor)));
 
   const votingPower = inActiveSet === 'true' ? numeral(data.self).format('0,0') : '0';
 

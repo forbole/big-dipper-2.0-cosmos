@@ -14,7 +14,7 @@ const Mobile: React.FC<{
   const { t } = useTranslation('accounts');
   return (
     <div className={classnames(className)}>
-      {items.map((x, i) => {
+      {items?.map((x, i) => {
         const available = formatNumber(x.available.value, x.available.exponent);
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
@@ -36,7 +36,7 @@ const Mobile: React.FC<{
                 </Typography>
               </div>
             </div>
-            {i !== items.length - 1 && <Divider />}
+            {!!items &&i !== items.length - 1 && <Divider />}
           </React.Fragment>
         );
       })}

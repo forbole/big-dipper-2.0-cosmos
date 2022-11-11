@@ -69,7 +69,7 @@ const Desktop: React.FC<TransactionsListState> = ({
               {/* Table Header */}
               {/* ======================================= */}
               <Grid
-                ref={columnRef as React.LegacyRef<VariableSizeGrid>}
+                ref={columnRef as React.LegacyRef<Grid>}
                 columnCount={columns.length}
                 columnWidth={(index) => getColumnWidth(width, index)}
                 height={50}

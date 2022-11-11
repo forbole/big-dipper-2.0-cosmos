@@ -14,7 +14,7 @@ const Mobile: React.FC<{
   const { t } = useTranslation('proposals');
   const classes = useStyles();
 
-  const formattedItems = items.map((x) => {
+  const formattedItems = items?.map((x) => {
     return {
       voter: <AvatarName address={x.user.address} imageUrl={x.user.imageUrl} name={x.user.name} />,
       vote: t(getVoteKey(x.vote)),
@@ -23,7 +23,7 @@ const Mobile: React.FC<{
 
   return (
     <div className={classnames(className)}>
-      {formattedItems.map((x, i) => {
+      {formattedItems?.map((x, i) => {
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>

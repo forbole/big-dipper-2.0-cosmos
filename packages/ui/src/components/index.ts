@@ -1,66 +1,32 @@
-import Layout from './layout';
-import Nav from './nav';
-import Footer from './footer';
-import SingleBlockMobile from './single_block_mobile';
-import Avatar from './avatar';
-import AvatarName from './avatar_name';
-import Tag from './tag';
-import Result from './result';
-import SingleTransactionMobile from './single_transaction_mobile';
-import Box from './box';
-import Loading from './loading';
-import TransactionMessagesFilter from './transaction_messages_filter';
-import BoxDetails from './box_details';
-import Pagination from './pagination';
-import Search from './search';
-import InfoPopover from './info_popover';
-import SortArrows from './sort_arrows';
-import SingleProposal from './single_proposal';
-import TabPanel from './tab_panel';
-import NoData from './no_data';
-import CustomToolTip from './custom_tool_tip';
-import NotFound from './not_found';
-import LinearLoading from './linear_loading';
-import Name from './name';
-import Markdown from './markdown';
-import ConditionExplanation from './condition_explanation';
-import TransactionsList from './transactions_list';
-import LoadAndExist from './load_and_exist';
-import DesmosProfile from './desmos_profile';
-import TransactionsListDetails from './transactions_list_details';
-import AvatarNameListMsg from './avatar_name_list_msg';
+export { default as Layout } from './layout';
+export { default as Nav } from './nav';
+export { default as Footer } from './footer';
+export { default as SingleBlockMobile } from './single_block_mobile';
+export { default as Avatar } from './avatar';
+export { default as AvatarName } from './avatar_name';
+export { default as Tag } from './tag';
+export { default as Result } from './result';
+export { default as SingleTransactionMobile } from './single_transaction_mobile';
+export { default as Box } from './box';
+export { default as Loading } from './loading';
+export { default as TransactionMessagesFilter } from './transaction_messages_filter';
+export { default as BoxDetails } from './box_details';
+export { default as Pagination } from './pagination';
+export { default as Search } from './search';
+export { default as InfoPopover } from './info_popover';
+export { default as SortArrows } from './sort_arrows';
+export { default as SingleProposal } from './single_proposal';
+export { default as TabPanel } from './tab_panel';
+export { default as NoData } from './no_data';
+export { default as CustomToolTip } from './custom_tool_tip';
+export { default as NotFound } from './not_found';
+export { default as LinearLoading } from './linear_loading';
+export { default as Name } from './name';
+export { default as Markdown } from './markdown';
+export { default as ConditionExplanation } from './condition_explanation';
+export { default as TransactionsList } from './transactions_list';
+export { default as LoadAndExist } from './load_and_exist';
+export { default as DesmosProfile } from './desmos_profile';
+export { default as TransactionsListDetails } from './transactions_list_details';
+export { default as AvatarNameListMsg } from './avatar_name_list_msg';
 export { default as ChainIcon } from './ChainIcon';
-
-export {
-  Layout,
-  Nav,
-  Footer,
-  SingleBlockMobile,
-  Avatar,
-  AvatarName,
-  Tag,
-  Result,
-  SingleTransactionMobile,
-  Box,
-  Loading,
-  TransactionsList,
-  TransactionMessagesFilter,
-  BoxDetails,
-  Pagination,
-  Search,
-  InfoPopover,
-  SortArrows,
-  SingleProposal,
-  TabPanel,
-  NoData,
-  CustomToolTip,
-  NotFound,
-  LinearLoading,
-  Name,
-  Markdown,
-  ConditionExplanation,
-  LoadAndExist,
-  DesmosProfile,
-  TransactionsListDetails,
-  AvatarNameListMsg,
-};

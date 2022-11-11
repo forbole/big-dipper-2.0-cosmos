@@ -4283,15 +4283,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/qrcode.react@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "@types/qrcode.react@npm:1.0.2"
-  dependencies:
-    "@types/react": "*"
-  checksum: be256f0192366b4c0822da43c732bf3e29beb954c89d739aa770f09e5160842a3ca4d6814cb57bbcbbf8997cf7af0b998de318dab957f0820f267bb746c9a329
-  languageName: node
-  linkType: hard
-
 "@types/ramda@npm:^0.28.18":
   version: 0.28.19
   resolution: "@types/ramda@npm:0.28.19"
@@ -12669,7 +12660,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.0, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -12741,23 +12732,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qr.js@npm:0.0.0":
-  version: 0.0.0
-  resolution: "qr.js@npm:0.0.0"
-  checksum: 5ac6c393967bdeaa660e7fd3a501a25eb538c1f6008a4d30ab2b97bbe520e5c236530090773f1578aa0a523cdaa6923c866615e21143f9e7cd22abd41c789b69
-  languageName: node
-  linkType: hard
-
-"qrcode.react@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "qrcode.react@npm:1.0.1"
-  dependencies:
-    loose-envify: ^1.4.0
-    prop-types: ^15.6.0
-    qr.js: 0.0.0
+"qrcode.react@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "qrcode.react@npm:3.1.0"
   peerDependencies:
-    react: ^15.5.3 || ^16.0.0 || ^17.0.0
-  checksum: 154a9557d103fa776cd99bc0d2600b862be74872ff965052533bc38ea0606c4d0965b4dd6df93e53f1db86699517a25db2718bbbc08c5d535a90c0d335552e9a
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 94a2942ecf83f461d869adb20305ae663c6d1abe93ef2c72442b07d756ce70cf6deb6fd588dc5b382b48c6991cfde1dfd5ac9b814c1461e71d5edb2d945e67fc
   languageName: node
   linkType: hard
 
@@ -14931,7 +14911,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -14973,7 +14952,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -15329,7 +15308,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -15373,7 +15351,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -15423,7 +15401,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -15467,7 +15444,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -15517,7 +15494,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -15561,7 +15537,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -15611,7 +15587,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -15655,7 +15630,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -15705,7 +15680,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -15749,7 +15723,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -15799,7 +15773,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -15843,7 +15816,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -15893,7 +15866,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -15937,7 +15909,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -15987,7 +15959,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -16031,7 +16002,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -16081,7 +16052,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -16125,7 +16095,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -16175,7 +16145,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -16219,7 +16188,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -16269,7 +16238,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -16313,7 +16281,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -16363,7 +16331,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -16407,7 +16374,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -16457,7 +16424,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -16501,7 +16467,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -16551,7 +16517,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -16595,7 +16560,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -16645,7 +16610,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -16689,7 +16653,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -16739,7 +16703,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -16783,7 +16746,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -16833,7 +16796,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -16877,7 +16839,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -16927,7 +16889,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -16971,7 +16932,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -17021,7 +16982,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -17065,7 +17025,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -17115,7 +17075,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -17159,7 +17118,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -17209,7 +17168,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -17253,7 +17211,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -17303,7 +17261,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -17347,7 +17304,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -17397,7 +17354,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -17441,7 +17397,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -17505,7 +17461,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -17549,7 +17504,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -17599,7 +17554,6 @@ __metadata:
     "@types/jest": ^29.2.2
     "@types/node": ^18.11.9
     "@types/numeral": ^2.0.2
-    "@types/qrcode.react": ^1.0.2
     "@types/ramda": ^0.28.18
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -17643,7 +17597,7 @@ __metadata:
     next-transpile-modules: ^10.0.0
     numeral: 2.0.4
     prop-types: ^15.8.1
-    qrcode.react: ^1.0.1
+    qrcode.react: ^3.1.0
     ramda: ^0.27.1
     react: 17.0.2
     react-dom: 17.0.2

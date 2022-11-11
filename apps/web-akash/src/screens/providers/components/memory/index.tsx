@@ -84,7 +84,7 @@ const Memory: React.FC<{
         </PieChart>
 
         <div className={classes.legends}>
-          {data.map((x) => {
+          {data.map((x: any) => {
             return (
               <div className="legends__item" key={x.legendKey}>
                 <Typography variant="caption" className="usage">

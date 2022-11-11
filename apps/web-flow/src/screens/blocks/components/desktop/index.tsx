@@ -21,14 +21,14 @@ const Desktop: React.FC<{
   className?: string;
   items: BlockType[];
   itemCount: number;
-  loadMoreItems: (any) => void;
+  loadMoreItems: (...arg: unknown[]) => void;
   isItemLoaded?: (index: number) => boolean;
 }> = ({ className, items, itemCount, loadMoreItems, isItemLoaded }) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
-  const formattedItems = items.map((x) => {
+  const formattedItems = items?.map((x) => {
     return {
       height: (
         <Link href={BLOCK_DETAILS(x.height)} passHref>
@@ -56,7 +56,7 @@ const Desktop: React.FC<{
               {/* Table Header */}
               {/* ======================================= */}
               <Grid
-                ref={columnRef as React.LegacyRef<VariableSizeGrid>}
+                ref={columnRef as React.LegacyRef<Grid>}
                 columnCount={columns.length}
                 columnWidth={(index) => getColumnWidth(width, index)}
                 height={50}
@@ -133,7 +133,7 @@ const Desktop: React.FC<{
                         }
 
                         const { key, align } = columns[columnIndex];
-                        const item = formattedItems[rowIndex][key];
+                        const item = (formattedItems as any)[rowIndex][key];
                         return (
                           <div
                             style={style}

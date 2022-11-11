@@ -68,7 +68,7 @@ const Desktop: React.FC<{ items: TransactionType[] } & ComponentDefault> = (prop
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems.map((row, i) => (
+          {formattedItems?.map((row: { [key: string]: unknown }, i) => (
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => {
                 return (

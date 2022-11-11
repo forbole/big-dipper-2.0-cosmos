@@ -26,11 +26,11 @@ const Delegations: React.FC<
 
   const pageItems = R.pathOr([], ['delegations', 'data', page], props);
 
-  const dataProfiles = useProfilesRecoil(pageItems.map((x) => x.validator));
+  const dataProfiles = useProfilesRecoil(pageItems.map((x: any) => x.validator));
 
   const mergedDataWithProfiles = pageItems.map((x, i) => {
     return {
-      ...x,
+      ...(x as object),
       validator: dataProfiles[i],
     };
   });
@@ -44,9 +44,9 @@ const Delegations: React.FC<
   } else if (!items.length) {
     component = <NoData />;
   } else if (isDesktop) {
-    component = <Desktop items={items} />;
+    component = <Desktop items={items as any} />;
   } else {
-    component = <Mobile items={items} />;
+    component = <Mobile items={items as any} />;
   }
 
   return (

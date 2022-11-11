@@ -25,7 +25,7 @@ const Desktop: React.FC<{ items: ConsensusType[] } & ComponentDefault> = (props)
               {/* Table Header */}
               {/* ======================================= */}
               <Grid
-                ref={columnRef as React.LegacyRef<VariableSizeGrid>}
+                ref={columnRef as React.LegacyRef<Grid>}
                 columnCount={columns.length}
                 columnWidth={(index) => getColumnWidth(width, index)}
                 height={50}
@@ -49,7 +49,7 @@ const Desktop: React.FC<{ items: ConsensusType[] } & ComponentDefault> = (props)
               {/* Table Body */}
               {/* ======================================= */}
               <Grid
-                ref={gridRef}
+                ref={gridRef as React.LegacyRef<Grid>}
                 columnCount={columns.length}
                 columnWidth={(index) => getColumnWidth(width, index)}
                 height={height - 50}
@@ -59,7 +59,7 @@ const Desktop: React.FC<{ items: ConsensusType[] } & ComponentDefault> = (props)
               >
                 {({ columnIndex, rowIndex, style }) => {
                   const { key, align } = columns[columnIndex];
-                  const selectedItem = rows[rowIndex][key];
+                  const selectedItem = (rows as any)[rowIndex][key];
                   return (
                     <div
                       style={style}

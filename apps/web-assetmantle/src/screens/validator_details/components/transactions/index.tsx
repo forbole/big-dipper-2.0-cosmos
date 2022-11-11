@@ -18,7 +18,7 @@ const Transactions: React.FC<ComponentDefault> = (props) => {
   const { state, loadNextPage } = useTransactions();
 
   const loadMoreItems = state.isNextPageLoading ? () => null : loadNextPage;
-  const isItemLoaded = (index) => !state.hasNextPage || index < state.data.length;
+  const isItemLoaded = (index: number) => !state.hasNextPage || index < state.data.length;
   const itemCount = state.hasNextPage ? state.data.length + 1 : state.data.length;
 
   return (

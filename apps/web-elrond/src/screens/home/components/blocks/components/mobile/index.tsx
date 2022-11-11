@@ -29,7 +29,7 @@ const Mobile: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
 
   return (
     <div>
-      {formattedItems.map((x, i) => {
+      {formattedItems?.map((x, i) => {
         return (
           <React.Fragment key={`${x.block}-${i}`}>
             <SingleBlockMobile {...x} />

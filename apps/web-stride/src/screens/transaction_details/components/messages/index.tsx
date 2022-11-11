@@ -69,7 +69,7 @@ const Messages: React.FC<{
                 height={height}
                 itemCount={props.messages.length}
                 itemSize={getRowHeight}
-                ref={listRef}
+                ref={listRef as React.LegacyRef<List>}
                 width={width}
               >
                 {({ index, style }) => {

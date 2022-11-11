@@ -38,7 +38,7 @@ const Votes: React.FC<ComponentDefault> = (props) => {
   const userProfiles = useProfilesRecoil(slicedItems.map((x) => x.user));
   const items = slicedItems.map((x, i) => {
     return {
-      ...x,
+      ...(x as object),
       user: userProfiles[i],
     };
   });
@@ -60,9 +60,9 @@ const Votes: React.FC<ComponentDefault> = (props) => {
         {items.length ? (
           <>
             {isDesktop ? (
-              <Desktop className={classes.desktop} items={items} />
+              <Desktop className={classes.desktop} items={items as any} />
             ) : (
-              <Mobile className={classes.mobile} items={items} />
+              <Mobile className={classes.mobile} items={items as any} />
             )}
           </>
         ) : (

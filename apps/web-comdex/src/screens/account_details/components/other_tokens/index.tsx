@@ -41,9 +41,9 @@ export const OtherTokens: React.FC<{
       <Typography variant="h2">{t('otherTokens')}</Typography>
 
       {isDesktop ? (
-        <Desktop className={classes.desktop} items={items} />
+        <Desktop className={classes.desktop} items={items as any} />
       ) : (
-        <Mobile className={classes.mobile} items={items} />
+        <Mobile className={classes.mobile} items={items as any} />
       )}
       <Pagination
         className={classes.paginate}

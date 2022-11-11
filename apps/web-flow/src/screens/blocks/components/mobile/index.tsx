@@ -20,14 +20,14 @@ const Mobile: React.FC<{
   className?: string;
   items: BlockType[];
   itemCount: number;
-  loadMoreItems: (any) => void;
+  loadMoreItems: (...arg: unknown[]) => void;
   isItemLoaded?: (index: number) => boolean;
 }> = ({ className, items, itemCount, loadMoreItems, isItemLoaded }) => {
   const classes = useStyles();
 
   const { listRef, getRowHeight, setRowHeight } = useList();
 
-  const formattedItems = items.map((x) => {
+  const formattedItems = items?.map((x) => {
     return {
       height: (
         <Link href={BLOCK_DETAILS(x.height)} passHref>

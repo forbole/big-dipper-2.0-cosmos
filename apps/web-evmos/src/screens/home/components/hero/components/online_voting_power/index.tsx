@@ -14,7 +14,7 @@ const OnlineVotingPower: React.FC<ComponentDefault> = () => {
       ? numeral(0)
       : numeral((state.votingPower / state.totalVotingPower) * 100);
 
-  const classes = useStyles(votingPowerPercent.format(0));
+  const classes = useStyles(votingPowerPercent.format('0'));
 
   return (
     <div className={classes.root}>

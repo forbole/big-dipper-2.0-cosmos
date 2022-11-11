@@ -15,7 +15,7 @@ const Mobile: React.FC<{
 }> = ({ className, items }) => {
   return (
     <div className={classnames(className)}>
-      {items.map((x, i) => {
+      {items?.map((x, i) => {
         return (
           <React.Fragment key={`${x.height}-${i}`}>
             <SingleBlockMobile
@@ -33,7 +33,7 @@ const Mobile: React.FC<{
                 ending: 10,
               })}
             />
-            {i !== items.length - 1 && <Divider />}
+            {!!items &&i !== items.length - 1 && <Divider />}
           </React.Fragment>
         );
       })}

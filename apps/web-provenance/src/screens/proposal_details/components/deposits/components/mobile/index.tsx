@@ -18,7 +18,7 @@ const Mobile: React.FC<{
   const classes = useStyles();
   const dateFormat = useRecoilValue(readDate);
 
-  const formattedItems = items.map((x) => {
+  const formattedItems = items?.map((x) => {
     return {
       depositor: (
         <>
@@ -39,7 +39,7 @@ const Mobile: React.FC<{
 
   return (
     <div className={classnames(className)}>
-      {formattedItems.map((x, i) => {
+      {formattedItems?.map((x, i) => {
         return (
           <React.Fragment key={`depositors-mobile-${i}`}>
             <div className={classes.list}>
@@ -66,7 +66,7 @@ const Mobile: React.FC<{
                 </Typography>
               </div>
             </div>
-            {i !== items.length - 1 && <Divider />}
+            {!!items &&i !== items.length - 1 && <Divider />}
           </React.Fragment>
         );
       })}

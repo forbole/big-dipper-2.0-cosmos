@@ -14,7 +14,7 @@ const Mobile: React.FC<{
   const { t } = useTranslation('accounts');
   return (
     <div className={classnames(className)}>
-      {items.map((x, i) => {
+      {items?.map((x, i) => {
         const available = formatNumber(x.available.value, x.available.exponent);
         const reward = formatNumber(x.reward.value, x.reward.exponent);
         const commission = formatNumber(x.commission.value, x.commission.exponent);
@@ -54,7 +54,7 @@ const Mobile: React.FC<{
                 </Typography>
               </div>
             </div>
-            {i !== items.length - 1 && <Divider />}
+            {!!items &&i !== items.length - 1 && <Divider />}
           </React.Fragment>
         );
       })}

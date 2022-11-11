@@ -33,7 +33,7 @@ const Mobile: React.FC<{ items: ConsensusType[] } & ComponentDefault> = (props) 
               height={height}
               itemCount={props.items.length}
               itemSize={getRowHeight}
-              ref={listRef}
+              ref={listRef as React.LegacyRef<List>}
               width={width}
             >
               {({ index, style }) => {

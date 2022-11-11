@@ -38,7 +38,7 @@ const SmartContractResults: React.FC<{ results: ResultType[] } & ComponentDefaul
         {t('smartContractResults')}
       </Typography>
       <div>
-        {formattedItems.map((x, i) => {
+        {formattedItems?.map((x, i) => {
           return (
             <React.Fragment key={`${x.data}-${i}`}>
               <div className={classes.itemWrap}>

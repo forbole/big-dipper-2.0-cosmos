@@ -24,11 +24,11 @@ const List: React.FC<{
   const dataProfiles = useProfilesRecoil(state.items.map((x) => x.validator));
   const mergedDataWithProfiles = state.items.map((x, i) => {
     return {
-      ...x,
+      ...(x as object),
       validator: dataProfiles[i],
     };
   });
-  const items = sortItems(mergedDataWithProfiles);
+  const items = sortItems(mergedDataWithProfiles as any);
 
   return (
     <LoadAndExist loading={state.loading} exists={state.exists}>
@@ -46,7 +46,7 @@ const List: React.FC<{
                   items={items}
                 />
               ) : (
-                <Mobile className={classes.mobile} items={items} />
+                <Mobile className={classes.mobile} items={items as any} />
               )}
             </>
           ) : (

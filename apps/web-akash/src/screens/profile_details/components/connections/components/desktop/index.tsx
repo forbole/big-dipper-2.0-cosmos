@@ -17,7 +17,7 @@ const Desktop: React.FC<{
   const dateFormat = useRecoilValue(readDate);
   const { t } = useTranslation('accounts');
 
-  const formattedItems = items.map((x) => {
+  const formattedItems = items?.map((x) => {
     let identity: string | React.ReactNode = x.identifier;
     if (new RegExp(`^(${chainConfig.prefix.account})`).test(x.identifier)) {
       identity = (
@@ -55,7 +55,7 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems.map((row, i) => (
+          {formattedItems?.map((row: { [key: string]: unknown }, i) => (
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => {
                 return (

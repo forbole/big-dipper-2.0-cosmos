@@ -16,9 +16,9 @@ const VotingPower: React.FC<{
 }> = ({ className, data, status }) => {
   const { t } = useTranslation('validators');
   const votingPowerPercent =
-    status === 3 ? numeral((data.self / numeral(data.overall.value).value()) * 100) : numeral(0);
+    status === 3 ? numeral((data.self / (numeral(data.overall.value).value() ?? 0) * 100) ?? 0) : numeral(0);
 
-  const classes = useStyles(votingPowerPercent.format(0, Math.floor));
+  const classes = useStyles(parseFloat(votingPowerPercent.format('0', Math.floor)));
 
   const votingPower = status === 3 ? numeral(data.self).format('0,0') : '0';
 

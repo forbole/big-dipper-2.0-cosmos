@@ -44,7 +44,7 @@ const Balance: React.FC<{
   ];
 
   const formatData = formattedChartData.map((x, i) => ({
-    ...x,
+    ...(x as object),
     value: numeral(x.value).value(),
     background: backgrounds[i],
   }));
@@ -88,7 +88,7 @@ const Balance: React.FC<{
           </ResponsiveContainer>
         </div>
         <div className={classes.legends}>
-          {data.map((x) => {
+          {data.map((x: any) => {
             if (x.key.toLowerCase() === 'empty') {
               return null;
             }

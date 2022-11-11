@@ -25,14 +25,14 @@ const Mobile: React.FC<{
             <List
               className="List"
               height={height}
-              itemCount={signatures.length}
+              itemCount={signatures?.length ?? 0}
               itemSize={getRowHeight}
-              ref={listRef}
+              ref={listRef as React.LegacyRef<List>}
               width={width}
             >
               {({ index, style }) => {
                 const { rowRef } = useListRow(index, setRowHeight);
-                const selectedItem = signatures[index];
+                const selectedItem = signatures?.[index];
                 return (
                   <div style={style}>
                     <div ref={rowRef}>
@@ -43,14 +43,14 @@ const Mobile: React.FC<{
                             {t('validator')}
                           </Typography>
                           <AvatarName
-                            address={selectedItem.address}
-                            imageUrl={selectedItem.imageUrl}
-                            name={selectedItem.name}
+                            address={selectedItem?.address ?? ''}
+                            imageUrl={selectedItem?.imageUrl}
+                            name={selectedItem?.name ?? ''}
                           />
                         </div>
                       </div>
                       {/* single signature end */}
-                      {index !== signatures.length - 1 && <Divider />}
+                      {!!signatures && index !== signatures.length - 1 && <Divider />}
                     </div>
                   </div>
                 );

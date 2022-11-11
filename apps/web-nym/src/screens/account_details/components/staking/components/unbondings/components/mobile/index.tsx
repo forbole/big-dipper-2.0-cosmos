@@ -17,7 +17,7 @@ const Mobile: React.FC<{
   const classes = useStyles();
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
-  const formattedItems = items.map((x) => {
+  const formattedItems = items?.map((x) => {
     return {
       validator: (
         <AvatarName
@@ -36,7 +36,7 @@ const Mobile: React.FC<{
 
   return (
     <div className={classnames(className)}>
-      {formattedItems.map((x, i) => {
+      {formattedItems?.map((x, i) => {
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
@@ -59,7 +59,7 @@ const Mobile: React.FC<{
                 {x.amount}
               </div>
             </div>
-            {i !== items.length - 1 && <Divider />}
+            {!!items &&i !== items.length - 1 && <Divider />}
           </React.Fragment>
         );
       })}

@@ -26,11 +26,11 @@ const Redelegations: React.FC<
 
   const pageItems = R.pathOr([], ['redelegations', 'data', page], props);
 
-  const fromProfiles = useProfilesRecoil(pageItems.map((x) => x.from));
-  const toProfiles = useProfilesRecoil(pageItems.map((x) => x.to));
+  const fromProfiles = useProfilesRecoil(pageItems.map((x: any) => x.from));
+  const toProfiles = useProfilesRecoil(pageItems.map((x: any) => x.to));
   const mergedDataWithProfiles = pageItems.map((x, i) => {
     return {
-      ...x,
+      ...(x as object),
       from: fromProfiles[i],
       to: toProfiles[i],
     };
@@ -45,9 +45,9 @@ const Redelegations: React.FC<
   } else if (!items.length) {
     component = <NoData />;
   } else if (isDesktop) {
-    component = <Desktop items={items} />;
+    component = <Desktop items={items as any} />;
   } else {
-    component = <Mobile items={items} />;
+    component = <Mobile items={items as any} />;
   }
 
   return (

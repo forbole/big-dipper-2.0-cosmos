@@ -35,7 +35,7 @@ const Mobile: React.FC<{ items: NodeType[] } & ComponentDefault> = (props) => {
   });
   return (
     <div className={props.className}>
-      {formattedItems.map((x, i) => {
+      {formattedItems?.map((x, i) => {
         return (
           <React.Fragment key={`${x.pubkey}-${i}`}>
             <div className={classes.wrapper}>

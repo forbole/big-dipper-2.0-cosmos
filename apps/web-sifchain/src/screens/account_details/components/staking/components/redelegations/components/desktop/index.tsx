@@ -16,7 +16,7 @@ const Desktop: React.FC<{
 }> = ({ className, items }) => {
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
-  const formattedItems = items.map((x) => {
+  const formattedItems = items?.map((x) => {
     return {
       to: <AvatarName address={x.to.address} imageUrl={x.to.imageUrl} name={x.to.name} />,
       from: <AvatarName address={x.from.address} imageUrl={x.from.imageUrl} name={x.from.name} />,
@@ -47,7 +47,7 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems.map((row, i) => (
+          {formattedItems?.map((row: { [key: string]: unknown }, i) => (
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => {
                 return (

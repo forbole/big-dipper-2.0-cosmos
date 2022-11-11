@@ -76,7 +76,7 @@ const TokenPrice: React.FC<{ items: TokenPriceType[] } & ComponentDefault> = (pr
                   {(x) => {
                     return (
                       <>
-                        <Typography variant="caption">{x.fullTime}</Typography>
+                        <Typography variant="caption">{(x as any).fullTime}</Typography>
                         <Typography variant="body1">
                           ${numeral(x.value).format('0,0.00')}
                         </Typography>

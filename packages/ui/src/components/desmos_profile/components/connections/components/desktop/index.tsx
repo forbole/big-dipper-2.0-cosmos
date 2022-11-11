@@ -42,7 +42,7 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems.map((row, i) => (
+          {formattedItems?.map((row: { [key: string]: unknown }, i) => (
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => {
                 return (
@@ -51,9 +51,7 @@ const Desktop: React.FC<{
                     align={column.align}
                     style={{ width: `${column.width}%` }}
                   >
-                    {((_): _ is keyof typeof row => _ in row)(column.key)
-                      ? row[column.key]
-                      : undefined}
+                    {(row as any)?.[column.key]}
                   </TableCell>
                 );
               })}

@@ -29,7 +29,7 @@ const Deposits: React.FC<ComponentDefault> = (props) => {
   const dataProfiles = useProfilesRecoil(items.map((x) => x.user));
   items = items.map((x, i) => {
     return {
-      ...x,
+      ...(x as object),
       user: dataProfiles[i],
     };
   });
@@ -41,9 +41,9 @@ const Deposits: React.FC<ComponentDefault> = (props) => {
       </Typography>
       <div className={classes.list}>
         {isDesktop ? (
-          <Desktop className={classes.desktop} items={items} />
+          <Desktop className={classes.desktop} items={items as any} />
         ) : (
-          <Mobile className={classes.mobile} items={items} />
+          <Mobile className={classes.mobile} items={items as any} />
         )}
       </div>
       <Paginate

@@ -39,7 +39,7 @@ const Countdown: React.FC<{
     } else {
       setState((prevState) => ({
         ...prevState,
-        interval: null,
+        interval: 0,
         loading: true,
       }));
       startGenesis();

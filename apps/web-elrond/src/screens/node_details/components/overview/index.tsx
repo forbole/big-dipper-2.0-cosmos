@@ -49,7 +49,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props
         {t('overview')}
       </Typography>
       <div className={classes.body}>
-        {items.map((x) => {
+        {items?.map((x) => {
           return (
             <div key={x.key} className={classes.item}>
               <div className={classes.hash}>

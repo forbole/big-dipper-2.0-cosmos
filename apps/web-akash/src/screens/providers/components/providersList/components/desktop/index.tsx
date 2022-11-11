@@ -26,7 +26,7 @@ const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
   const className = '';
 
   const itemCount = list.length;
-  const isItemLoaded = (index) => index >= 0 && index < itemCount;
+  const isItemLoaded = (index: number) => index >= 0 && index < itemCount;
 
   const itemsNew = list.map((eachProvider) => ({
     ownerAddress: (
@@ -113,7 +113,7 @@ const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
               {/* Table Header */}
               {/* ======================================= */}
               <Grid
-                ref={columnRef as React.LegacyRef<VariableSizeGrid>}
+                ref={columnRef as React.LegacyRef<Grid>}
                 columnCount={columns.length}
                 columnWidth={(index) => getColumnWidth(width, index)}
                 height={50}
@@ -138,7 +138,7 @@ const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
               {/* ======================================= */}
 
               <Grid
-                ref={gridRef}
+                ref={gridRef as React.LegacyRef<Grid>}
                 columnCount={columns.length}
                 columnWidth={(index) => getColumnWidth(width, index)}
                 height={height - 50}

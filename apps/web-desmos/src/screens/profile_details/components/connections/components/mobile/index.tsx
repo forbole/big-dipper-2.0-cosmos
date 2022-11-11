@@ -20,7 +20,7 @@ const Mobile: React.FC<{
 
   return (
     <div className={classnames(className)}>
-      {items.map((x, i) => {
+      {items?.map((x, i) => {
         const checkIdentifier = new RegExp(`^(${chainConfig.prefix.account})`).test(x.identifier);
         return (
           <React.Fragment key={`votes-mobile-${i}`}>
@@ -58,7 +58,7 @@ const Mobile: React.FC<{
                 </Typography>
               </div>
             </div>
-            {i !== items.length - 1 && <Divider />}
+            {!!items &&i !== items.length - 1 && <Divider />}
           </React.Fragment>
         );
       })}

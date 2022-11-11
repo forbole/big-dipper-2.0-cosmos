@@ -18,7 +18,7 @@ const Mobile: React.FC<{
 }> = ({ className, items }) => {
   const { listRef, getRowHeight, setRowHeight } = useList();
 
-  const formattedItems = items.map((x, i) => {
+  const formattedItems = items?.map((x, i) => {
     const status = getValidatorStatus(x.status, x.jailed, x.tombstoned);
     const condition = x.status === 3 ? getValidatorConditionClass(x.condition) : undefined;
     const percentDisplay =
@@ -40,7 +40,7 @@ const Mobile: React.FC<{
           percentDisplay={percentDisplay}
           percentage={x.votingPowerPercent}
           content={votingPower}
-          topVotingPower={x.topVotingPower}
+          topVotingPower={x.topVotingPower ?? false}
         />
       ),
       status,
@@ -57,7 +57,7 @@ const Mobile: React.FC<{
               height={height}
               itemCount={formattedItems.length}
               itemSize={getRowHeight}
-              ref={listRef}
+              ref={listRef as React.LegacyRef<List>}
               width={width}
             >
               {({ index, style }) => {

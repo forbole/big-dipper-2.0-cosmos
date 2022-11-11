@@ -15,7 +15,7 @@ const MenuItems = () => {
 
   return (
     <List>
-      {items.map((x) => {
+      {items?.map((x) => {
         let isActive = false;
         if (x.url === router?.asPath) {
           isActive = true;

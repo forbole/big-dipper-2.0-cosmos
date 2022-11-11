@@ -53,7 +53,7 @@ const Desktop: React.FC<{
           percentDisplay={percentDisplay}
           percentage={x.votingPowerPercent}
           content={votingPower}
-          topVotingPower={x.topVotingPower}
+          topVotingPower={x.topVotingPower ?? false}
         />
       ),
       commission: `${numeral(x.commission).format('0.[00]')}%`,
@@ -78,7 +78,7 @@ const Desktop: React.FC<{
               {/* Table Header */}
               {/* ======================================= */}
               <Grid
-                ref={columnRef as React.LegacyRef<VariableSizeGrid>}
+                ref={columnRef as React.LegacyRef<Grid>}
                 columnCount={columns.length}
                 columnWidth={(index) => getColumnWidth(width, index)}
                 height={50}
@@ -124,10 +124,10 @@ const Desktop: React.FC<{
                       style={style}
                       className={classnames(classes.cell, {
                         [classes.flexCells]: component || sort,
-                        [align]: sort || component,
+                        [align ?? '']: sort || component,
                         sort,
                       })}
-                      onClick={() => (sort ? props.handleSort(sortingKey) : null)}
+                      onClick={() => (sort ? props.handleSort(sortingKey ?? '') : null)}
                       role="button"
                     >
                       {formattedComponent || (
@@ -148,7 +148,7 @@ const Desktop: React.FC<{
               {/* Table Body */}
               {/* ======================================= */}
               <Grid
-                ref={gridRef}
+                ref={gridRef as React.LegacyRef<Grid>}
                 columnCount={columns.length}
                 columnWidth={(index) => getColumnWidth(width, index)}
                 height={height - 50}
@@ -159,7 +159,7 @@ const Desktop: React.FC<{
               >
                 {({ columnIndex, rowIndex, style }) => {
                   const { key, align } = columns[columnIndex];
-                  const item = formattedItems[rowIndex][key];
+                  const item = (formattedItems as any)[rowIndex][key];
                   return (
                     <div
                       style={style}

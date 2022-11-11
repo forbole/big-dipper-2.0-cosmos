@@ -20,7 +20,7 @@ const Mobile: React.FC<{
   const classes = useStyles();
   const { listRef, getRowHeight, setRowHeight } = useList();
 
-  const formattedItems = items.map((x, i) => {
+  const formattedItems = items?.map((x, i) => {
     return {
       idx: `#${i + 1}`,
       validator: (
@@ -59,7 +59,7 @@ const Mobile: React.FC<{
               height={height}
               itemCount={formattedItems.length}
               itemSize={getRowHeight}
-              ref={listRef}
+              ref={listRef as React.LegacyRef<List>}
               width={width}
             >
               {({ index, style }) => {

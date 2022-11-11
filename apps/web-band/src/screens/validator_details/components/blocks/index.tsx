@@ -18,7 +18,7 @@ const Blocks: React.FC<{
   const dataProfiles = useProfilesRecoil(state.map((x) => x.proposer));
   const mergedDataWithProfiles = state.map((x, i) => {
     return {
-      ...x,
+      ...(x as object),
       proposer: dataProfiles[i],
     };
   });
@@ -28,7 +28,7 @@ const Blocks: React.FC<{
     <Box className={classnames(className, classes.root)}>
       <Typography variant="h2">{t('lastBlocks')}</Typography>
       <div className={classes.blocks}>
-        {mergedDataWithProfiles.map((x, i) => {
+        {mergedDataWithProfiles.map((x: any, i) => {
           return (
             <Tooltip
               key={`blocks-tooltip-${i}`}
