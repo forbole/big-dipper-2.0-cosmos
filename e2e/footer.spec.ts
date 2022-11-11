@@ -1,9 +1,13 @@
 import { test, expect } from '@playwright/test';
 
+const deployURL = process.env.DEPLOY_URL ?? "http://localhost:3000";
+
 test('footer', async ({ page }) => {
-    const url = await page.goto('https://cosmos.bigdipper.live/');
+    // Test url
+    await page.goto(deployURL);
+    await expect(page).toHaveURL(deployURL);
     
-    // Company footer section 
+    // Test company footer section 
     const [forbole] = await Promise.all([
         page.waitForEvent('popup'),
         page.getByRole('link', { name: 'Forbole' }).first().click()
@@ -33,7 +37,7 @@ test('footer', async ({ page }) => {
     await expect(blog).toHaveURL("https://www.forbole.com/blog");
 
 
-    // Big Dipper footer section 
+    // Test Big Dipper footer section 
     const [about] = await Promise.all([
         page.waitForEvent('popup'),
         page.getByRole('link', { name: 'About' }).click()
@@ -63,7 +67,7 @@ test('footer', async ({ page }) => {
     await expect(privacyPolicy).toHaveURL("https://bigdipper.live/privacy-policy");
 
 
-    // Community footer section 
+    // Test community footer section 
     const [telegram] = await Promise.all([
         page.waitForEvent('popup'),
         page.getByRole('link', { name: 'Telegram' }).click()
@@ -92,7 +96,7 @@ test('footer', async ({ page }) => {
     await expect(github).toHaveURL("https://github.com/forbole");
 
     
-    // Donate footer section
+    // Test donate button in footer section
     const [donate] = await Promise.all([
         page.waitForEvent('popup'),
         page.getByRole('link', { name: 'Donate' }).click()

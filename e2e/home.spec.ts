@@ -1,11 +1,15 @@
 import { test, expect } from '@playwright/test';
 
-test('home page', async ({ page }) => {
-    await page.goto('https://cosmos.bigdipper.live');
+const deployURL = process.env.DEPLOY_URL ?? "http://localhost:3000";
 
-    // Expect a title "to contain" a substring.
+test('home page', async ({ page }) => {
+    // Test url
+    await page.goto(deployURL);
+    await expect(page).toHaveURL(deployURL);
+
+    // Test a title
     await expect(page).toHaveTitle(/Big Dipper/);
-    await expect(page).toHaveURL("https://cosmos.bigdipper.live");
+    await expect(page).toHaveURL(deployURL);
 
     // Test 'See More' blocks button
     await page.getByRole('link', { name: 'see more blocks' }).first().click();

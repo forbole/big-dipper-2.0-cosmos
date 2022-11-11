@@ -1,11 +1,17 @@
 import { test, expect } from '@playwright/test';
 
-test('params page', async ({ page }) => {
-    const url = await page.goto('https://desmos.bigdipper.live');
+const deployURL = process.env.DEPLOY_URL ?? "http://localhost:3000";
 
+test('params page', async ({ page }) => {
+    // Test url
+    await page.goto(deployURL);
+    await expect(page).toHaveURL(deployURL);
+
+    // Test click params section
     await page.getByRole('link', { name: 'Params' }).click();
     await expect(page).toHaveURL(/.*params/);
 
-    await page.goto(`https://desmos.bigdipper.live/params`);
-
+    // Test params url
+    await page.goto(`${deployURL}/params`);
+    await expect(page).toHaveURL(`${deployURL}/params`);
 });
