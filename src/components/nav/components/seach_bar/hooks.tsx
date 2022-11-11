@@ -7,12 +7,14 @@ import {
   BLOCK_DETAILS,
   TRANSACTION_DETAILS,
   PROFILE_DETAILS,
+  TOKEN_DETAILS,
 } from '@utils/go_to_page';
 import {
   useRecoilCallback,
 } from 'recoil';
 import { readValidator } from '@recoil/validators';
 import { toast } from 'react-toastify';
+import { fetchCW20TokenInfo } from '@src/screens/token_details/utils';
 
 export const useSearchBar = (t) => {
   const router = useRouter();
@@ -23,7 +25,7 @@ export const useSearchBar = (t) => {
       const validatorRegex = `^(${chainConfig.prefix.validator})`;
       const userRegex = `^(${chainConfig.prefix.account})`;
       const parsedValue = value.replace(/\s+/g, '');
-
+      const tokenInfo = await fetchCW20TokenInfo(parsedValue);
       if (new RegExp(consensusRegex).test(parsedValue)) {
         const validatorAddress = await snapshot.getPromise(readValidator(parsedValue));
         if (validatorAddress) {
@@ -33,6 +35,8 @@ export const useSearchBar = (t) => {
         }
       } else if (new RegExp(validatorRegex).test(parsedValue)) {
         router.push(VALIDATOR_DETAILS(parsedValue));
+      } else if (tokenInfo.name) {
+        router.push(TOKEN_DETAILS(parsedValue));
       } else if (new RegExp(userRegex).test(parsedValue)) {
         router.push(ACCOUNT_DETAILS(parsedValue));
       } else if (/^@/.test(parsedValue)) {

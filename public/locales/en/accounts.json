@@ -39,5 +39,6 @@
   "label": "Label",
   "codeId": "Code Id",
   "instaBlock": "Instantiated At Block",
-  "collateralTransactions": "Collateral Transactions"
+  "collateralTransactions": "Collateral Transactions",
+  "cw20tokens": "CW20 Tokens"
 }

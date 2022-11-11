@@ -22,6 +22,7 @@ import {
   SimpleBalance,
 } from './components';
 import { useAccountDetails } from './hooks';
+import Cw20TokenBalances from './components/cw20_token_balances';
 
 const AccountDetails = () => {
   const { t } = useTranslation('accounts');
@@ -114,6 +115,10 @@ const AccountDetails = () => {
             <OtherTokens
               className={classes.otherTokens}
               otherTokens={state.otherTokens}
+            />
+            <Cw20TokenBalances
+              className={classes.cw20TokenBalances}
+              balances={state.cw20TokenBalances}
             />
             {!isSmartContract
               && (

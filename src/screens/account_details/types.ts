@@ -33,6 +33,15 @@ export type CosmwasmType = {
   transaction: any
 }
 
+export type Cw20TokenBalance = {
+  tokenAddress: string,
+  name: string
+  denom: string,
+  exponent: number,
+  logo: string,
+  balance: number
+}
+
 export type AccountDetailState = {
   loading: boolean;
   exists: boolean;
@@ -46,4 +55,5 @@ export type AccountDetailState = {
   rewards: RewardsType;
   cosmwasm: CosmwasmType;
   tab: number;
+  cw20TokenBalances: Cw20TokenBalance[];
 }
