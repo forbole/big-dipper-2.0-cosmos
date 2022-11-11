@@ -18,15 +18,15 @@ test('validator page', async ({ page, context }) => {
 
     // Test copy operator address to clipboard
     await page.locator('#icon-copy_svg__Layer_1').first().click();
-    const copy = await page.evaluate(async () => navigator.clipboard.readText());
-    expect(typeof copy).toEqual('string');
-    expect(copy).toEqual('desmosvaloper134zrg6jn3a5l5jjpzv9eucdlw3nl2qelk0e992');
+    const copyOperatorAddress = await page.evaluate(async () => navigator.clipboard.readText());
+    expect(typeof copyOperatorAddress).toEqual('string');
+    expect(copyOperatorAddress).toEqual('desmosvaloper134zrg6jn3a5l5jjpzv9eucdlw3nl2qelk0e992');
 
     // Test copy reward address to clipboard
     await page.locator(':nth-match(#icon-copy_svg__Layer_1, 2)').click();
-    const share = await page.evaluate(async () => navigator.clipboard.readText());
-    expect(typeof share).toEqual('string');
-    expect(share).toEqual('desmos134zrg6jn3a5l5jjpzv9eucdlw3nl2qelgz330c');
+    const copyRewardAddress = await page.evaluate(async () => navigator.clipboard.readText());
+    expect(typeof copyRewardAddress).toEqual('string');
+    expect(copyRewardAddress).toEqual('desmos134zrg6jn3a5l5jjpzv9eucdlw3nl2qelgz330c');
 
     // Test validator staking section
     await page.getByRole('tab', { name: /Delegations/ }).click()
