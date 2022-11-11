@@ -26,11 +26,11 @@ function App(props: AppProps) {
   return (
     <>
       <DefaultSeo
-        titleTemplate={`%s | ${chainConfig.title}`}
+        titleTemplate={`${chainConfig.title} | %s`}
         title={t('common:bigDipper')}
         description={t('common:description')}
         openGraph={{
-          title: `${t('common:bigDipper')} | ${chainConfig.title}`,
+          title: `${chainConfig.title} | ${t('common:bigDipper')}`,
           url: process.env.NEXT_PUBLIC_URL,
           description: t('common:description'),
           ...OPEN_GRAPH_SEO,

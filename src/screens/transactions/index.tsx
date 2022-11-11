@@ -27,9 +27,12 @@ const Transactions = () => {
   return (
     <>
       <NextSeo
-        title={t('transactions')}
+        titleTemplate="%s"
+        title={t('common:transactionsTitle')}
+        description={t('common:transactionsDescription')}
         openGraph={{
-          title: t('transactions'),
+          title: t('common:transactionsTitle'),
+          description: t('common:transactionsDescription'),
         }}
       />
       <Layout
