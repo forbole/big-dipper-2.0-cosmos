@@ -35,6 +35,12 @@ test('validator page', async ({ page, context }) => {
         expect(dialog.message()).toContain('Copied')
         await dialog.dismiss();
     })
+});
+
+test('validator page tabs', async ({ page }) => {
+    // Test validator url
+    await page.goto(`${deployURL}/validators/desmosvaloper134zrg6jn3a5l5jjpzv9eucdlw3nl2qelk0e992`);
+    await expect(page).toHaveURL(`${deployURL}/validators/desmosvaloper134zrg6jn3a5l5jjpzv9eucdlw3nl2qelk0e992`);
 
     // Test validator staking section
     await page.getByRole('tab', { name: /Delegations/ }).click()
@@ -45,4 +51,3 @@ test('validator page', async ({ page, context }) => {
     await page.getByRole('button', { name: /.\sConnection/ }).click();
     await page.getByRole('button', { name: /close/ }).click();
 });
-
