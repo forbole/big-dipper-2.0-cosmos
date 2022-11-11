@@ -7,7 +7,8 @@ import {
   split,
 } from '@apollo/client';
 import { getMainDefinition } from '@apollo/client/utilities';
-import { WebSocketLink } from '@apollo/client/link/ws';
+import { GraphQLWsLink } from "@apollo/client/link/subscriptions";
+import { createClient } from "graphql-ws";
 import webSocketImpl from 'isomorphic-ws';
 import { Kind, OperationTypeNode } from 'graphql';
 import { useEffect, useState } from 'react';
@@ -38,15 +39,14 @@ const httpLink = new HttpLink({
  * @returns A WebSocketLink object.
  */
 function createWebSocketLink() {
-  return new WebSocketLink({
-    uri: process.env.NEXT_PUBLIC_GRAPHQL_WS ?? 'ws://localhost:3000',
-    options: {
-      reconnect: true,
-      lazy: true,
-      timeout: 30000,
-    },
+  return new GraphQLWsLink(createClient({
+    url: process.env.NEXT_PUBLIC_GRAPHQL_WS ?? 'ws://localhost:3000',
+    lazy: true,
+    retryAttempts: Number.MAX_VALUE,
+    shouldRetry() { return true; },
+    connectionAckWaitTimeout: 30000,
     webSocketImpl,
-  });
+  }));
 }
 
 

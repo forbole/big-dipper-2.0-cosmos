@@ -7,7 +7,6 @@
     "dev": "RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED=false next dev",
     "build": "next build",
     "start": "NODE_ENV=production next start",
-    "type-check": "tsc",
     "lint": "next lint",
     "test": "jest",
     "e2e": "cypress open"
@@ -30,6 +29,7 @@
     "dompurify": "^2.3.1",
     "dotenv": "^8.2.0",
     "graphql": "^16.6.0",
+    "graphql-ws": "^5.11.2",
     "helmet": "^4.6.0",
     "isomorphic-ws": "^5.0.0",
     "jdenticon": "^3.1.0",
@@ -52,7 +52,6 @@
     "recharts": "^2.1.16",
     "recoil": "^0.7.6",
     "shared-utils": "*",
-    "subscriptions-transport-ws": "^0.11.0",
     "ui": "*",
     "ws": "^8.10.0"
   },

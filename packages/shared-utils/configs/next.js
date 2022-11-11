@@ -1,8 +1,6 @@
-import { readFileSync } from 'fs';
-import { dirname, join, resolve } from 'path';
-import { fileURLToPath } from 'url';
-const curdir =
-  typeof __dirname !== 'undefined' ? __dirname : dirname(fileURLToPath(import.meta.url));
+const { readFileSync } = require('fs');
+const { join, resolve } = require('path');
+const curdir = __dirname;
 const generalConfig = JSON.parse(readFileSync(resolve(join(curdir, 'general.json'))));
 
 function nextConfig(chainConfigJson) {
@@ -102,4 +100,4 @@ function nextConfig(chainConfigJson) {
   return config;
 }
 
-export default nextConfig;
+module.exports = nextConfig;
