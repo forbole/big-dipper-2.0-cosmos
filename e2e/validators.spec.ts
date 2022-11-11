@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 const deployURL = process.env.DEPLOY_URL ?? "http://localhost:3000";
+const validatorAddress = 'desmosvaloper17lca9smrdlwkznr92hypzrgsjkelnxeaacgrwq';
 
 test('validators list page', async ({ page }) => {
     // Test url
@@ -27,8 +28,8 @@ test('validators list page', async ({ page }) => {
     await page.getByPlaceholder('Search Validator').press('Enter');
     
     // Test single validator url
-    await page.goto(`${deployURL}/validators/desmosvaloper17lca9smrdlwkznr92hypzrgsjkelnxeaacgrwq`);
-    await expect(page).toHaveURL(`${deployURL}/validators/desmosvaloper17lca9smrdlwkznr92hypzrgsjkelnxeaacgrwq`);
+    await page.goto(`${deployURL}/validators/${validatorAddress}`);
+    await expect(page).toHaveURL(`${deployURL}/validators/${validatorAddress}`);
 
 });
 
