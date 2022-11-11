@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const deployURL = process.env.DEPLOY_URL ?? "https://desmos.bigdipper.live";
+const deployURL = process.env.DEPLOY_URL ?? "http://localhost:3000";
 
 test('validator page', async ({ page, context }) => {
     // Test validator url
