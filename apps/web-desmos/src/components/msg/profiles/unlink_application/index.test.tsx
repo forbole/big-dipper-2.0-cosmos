@@ -28,7 +28,7 @@ describe('screen: TransactionDetails/MsgUnlinkApplication', () => {
         <UnlinkApplication message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

@@ -42,7 +42,7 @@ describe('screen: TransactionDetails/IssueDenom', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
     expect(component.root.findAllByType('div').length).toBeGreaterThan(2);
     expect(

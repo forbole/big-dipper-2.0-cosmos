@@ -1,9 +1,9 @@
 import React from 'react';
-import { createMockClient } from 'mock-apollo-client';
-import { ApolloProvider } from '@apollo/client';
-import renderer from 'react-test-renderer';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
 import { MockTheme, wait } from 'ui/tests/utils';
 import { BlockDetailsDocument } from '@graphql/types/general_types';
+import { MockedProvider } from '@apollo/client/testing';
 import BlockDetails from '.';
 
 // ==================================
@@ -29,7 +29,7 @@ jest.mock('./components', () => ({
   Signatures: (props: JSX.IntrinsicElements['div']) => <div id="Signatures" {...props} />,
 }));
 
-const mockAverageBlockTime = jest.fn().mockResolvedValue({
+const mockAverageBlockTime = jest.fn().mockReturnValue({
   data: {
     transaction: [
       {
@@ -87,24 +87,25 @@ const mockAverageBlockTime = jest.fn().mockResolvedValue({
 // ==================================
 describe('screen: BlockDetails', () => {
   it.skip('matches snapshot', async () => {
-    const mockClient = createMockClient();
-    mockClient.setRequestHandler(BlockDetailsDocument, mockAverageBlockTime);
-
-    let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
+    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
+    let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
-      tree = renderer
-        .create(
-          <ApolloProvider client={mockClient}>
+      component = renderer.create(
+        <ApolloProvider client={mockClient}>
+          <MockedProvider
+            mocks={[{ request: { query: BlockDetailsDocument }, result: mockAverageBlockTime }]}
+          >
             <MockTheme>
               <BlockDetails />
             </MockTheme>
-          </ApolloProvider>
-        )
-        .toJSON();
+          </MockedProvider>
+        </ApolloProvider>
+      );
     });
     await wait(renderer.act);
 
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

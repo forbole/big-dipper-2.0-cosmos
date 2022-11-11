@@ -7,9 +7,9 @@ import CounterpartyChannel from '.';
 // ==================================
 // mocks
 // ==================================
-  jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
-    <div id="Name" {...props} />
-  ));
+jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Name" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -32,7 +32,7 @@ describe('screen: TransactionDetails/IBCCounterpartyChannel', () => {
         <CounterpartyChannel message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

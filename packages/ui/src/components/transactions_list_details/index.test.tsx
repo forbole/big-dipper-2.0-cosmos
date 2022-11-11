@@ -73,7 +73,7 @@ describe('component: TransactionsListDetails', () => {
         <TransactionsListDetails {...props} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -83,7 +83,7 @@ describe('component: TransactionsListDetails', () => {
         <TransactionsListDetails {...emptyProps} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

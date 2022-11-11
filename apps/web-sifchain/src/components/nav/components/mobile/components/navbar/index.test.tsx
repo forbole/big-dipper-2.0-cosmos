@@ -36,7 +36,7 @@ describe('screen: Nav/mobile/navbar', () => {
   });
 
   it('it renders', () => {
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -52,7 +52,7 @@ describe('screen: Nav/mobile/navbar', () => {
       component.root.findByProps({ className: 'makeStyles-hamburger' }).props.onClick();
     });
     expect(toggleNavMenus).toBeCalled();
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

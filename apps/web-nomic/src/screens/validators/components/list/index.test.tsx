@@ -1,9 +1,9 @@
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
+import { ValidatorsDocument } from '@graphql/types/general_types';
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme, wait } from 'ui/tests/utils';
-import { createMockClient } from 'mock-apollo-client';
-import { ApolloProvider } from '@apollo/client';
-import { ValidatorsDocument } from '@graphql/types/general_types';
 import List from '.';
 
 // ==================================
@@ -24,7 +24,7 @@ jest.mock('ui/components/load_and_exist', () => (props: JSX.IntrinsicElements['d
   <div id="LoadAndExist" {...props} />
 ));
 
-const mockValidatorsDocument = jest.fn().mockResolvedValue({
+const mockValidatorsDocument = jest.fn().mockReturnValue({
   data: {
     stakingParams: [
       {
@@ -96,23 +96,25 @@ const mockValidatorsDocument = jest.fn().mockResolvedValue({
 // ==================================
 describe('screen: Validators/List', () => {
   it.skip('matches snapshot', async () => {
-    const mockClient = createMockClient();
-    mockClient.setRequestHandler(ValidatorsDocument, mockValidatorsDocument);
-
-    let component;
+    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
+    let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
       component = renderer.create(
         <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <List />
-          </MockTheme>
+          <MockedProvider
+            mocks={[{ request: { query: ValidatorsDocument }, result: mockValidatorsDocument }]}
+          >
+            <MockTheme>
+              <List />
+            </MockTheme>
+          </MockedProvider>
         </ApolloProvider>
       );
     });
     await wait(renderer.act);
 
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

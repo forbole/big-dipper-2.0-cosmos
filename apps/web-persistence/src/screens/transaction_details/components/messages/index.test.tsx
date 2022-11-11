@@ -55,7 +55,7 @@ describe('screen: TransactionDetails/ Messages', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

@@ -8,7 +8,7 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
     className="makeStyles-blockHeight"
     id="SingleBlock"
     label="latestBlock"
-    value="953,992"
+    value="0"
   />
   <div
     className="makeStyles-blockTime"

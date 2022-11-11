@@ -1,6 +1,6 @@
+import { ApolloClient, from, InMemoryCache } from '@apollo/client';
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { createMockClient } from 'mock-apollo-client';
 import InnerApp from '.';
 // ==================================
 // global setup
@@ -10,7 +10,7 @@ let component: renderer.ReactTestRenderer;
 // ==================================
 // mocks
 // ==================================
-const mockClient = createMockClient();
+const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
 
 jest.mock('./hooks', () => ({
   useChainHealthCheck: () => mockClient,
@@ -33,7 +33,7 @@ describe('screen: _app/InnerApp', () => {
       );
     });
 
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

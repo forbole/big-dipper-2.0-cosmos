@@ -53,7 +53,7 @@ describe('screen: Transactions/List', () => {
       },
     ]);
 
-    let component;
+    let component: renderer.ReactTestRenderer | undefined;
     renderer.act(() => {
       component = renderer.create(
         <MockTheme>
@@ -63,7 +63,7 @@ describe('screen: Transactions/List', () => {
     });
     await wait(renderer.act, 3000);
 
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

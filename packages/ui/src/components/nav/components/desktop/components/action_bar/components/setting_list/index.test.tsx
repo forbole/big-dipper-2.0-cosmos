@@ -15,7 +15,9 @@ const mockI18n = {
   t: (key: string) => key,
   lang: 'en',
 };
-jest.mock('@material-ui/core/Select', () => (props: JSX.IntrinsicElements['div']) => <div id="select" {...props} />);
+jest.mock('@material-ui/core/Select', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="select" {...props} />
+));
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('next/router', () => ({
   useRouter: () => ({
@@ -42,7 +44,7 @@ describe('screen: Nav/SettingList', () => {
   });
 
   it('it renders', () => {
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

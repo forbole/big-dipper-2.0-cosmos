@@ -21,7 +21,7 @@ describe('components: AvatarNameListMsg', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -31,7 +31,7 @@ describe('components: AvatarNameListMsg', () => {
         <AvatarNameListMsg avatars={[]} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -54,7 +54,7 @@ describe('components: AvatarNameListMsg', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

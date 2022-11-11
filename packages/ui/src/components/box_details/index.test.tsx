@@ -27,7 +27,7 @@ describe('components: BoxDetails', () => {
         <BoxDetails {...dummyProps} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -58,7 +58,7 @@ describe('components: BoxDetails', () => {
         <BoxDetails {...dummyProps} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
 
     renderer.act(() => {

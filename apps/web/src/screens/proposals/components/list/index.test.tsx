@@ -65,7 +65,7 @@ describe('screen: Proposals/List', () => {
     );
     await wait(renderer.act);
 
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
 
     expect(tree).toMatchSnapshot();
   });
@@ -84,7 +84,7 @@ describe('screen: Proposals/List', () => {
     );
     await wait(renderer.act);
 
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
 
     expect(tree).toMatchSnapshot();
   });

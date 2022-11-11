@@ -13,7 +13,7 @@ describe('components: Name', () => {
         <Name address="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz" name="name" />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

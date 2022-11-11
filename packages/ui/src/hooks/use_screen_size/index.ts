@@ -11,7 +11,10 @@ export const useScreenSize = () => {
     };
   }
 
-  const [windowSize, setWindowSize] = useState<{ width: number | undefined; height: number |undefined }>(getSize());
+  const [windowSize, setWindowSize] = useState<{
+    width: number | undefined;
+    height: number | undefined;
+  }>(getSize());
   const [isDesktop, setIsDesktop] = useState<boolean>(false);
   const [isTablet, setIsTablet] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(true);

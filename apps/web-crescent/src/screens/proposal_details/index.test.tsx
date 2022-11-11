@@ -1,9 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { createMockClient } from 'mock-apollo-client';
-import { ApolloProvider } from '@apollo/client';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import { MockTheme, wait } from 'ui/tests/utils';
 import { ProposalDetailsDocument } from '@graphql/types/general_types';
+import { MockedProvider } from '@apollo/client/testing';
 import ProposalDetails from '.';
 
 // ==================================
@@ -30,7 +30,7 @@ jest.mock('./components', () => ({
   VotesGraph: (props: JSX.IntrinsicElements['div']) => <div id="VotesGraph" {...props} />,
 }));
 
-const mockProposalDetailsDocument = jest.fn().mockResolvedValue({
+const mockProposalDetailsDocument = jest.fn().mockReturnValue({
   data: {
     proposal: [
       {
@@ -60,24 +60,27 @@ const mockProposalDetailsDocument = jest.fn().mockResolvedValue({
 // ==================================
 describe('screen: ProposalDetails', () => {
   it('matches snapshot', async () => {
-    const mockClient = createMockClient();
-
-    mockClient.setRequestHandler(ProposalDetailsDocument, mockProposalDetailsDocument);
-
-    let component;
+    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
+    let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
       component = renderer.create(
         <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <ProposalDetails />
-          </MockTheme>
+          <MockedProvider
+            mocks={[
+              { request: { query: ProposalDetailsDocument }, result: mockProposalDetailsDocument },
+            ]}
+          >
+            <MockTheme>
+              <ProposalDetails />
+            </MockTheme>
+          </MockedProvider>
         </ApolloProvider>
       );
     });
     await wait(renderer.act);
 
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

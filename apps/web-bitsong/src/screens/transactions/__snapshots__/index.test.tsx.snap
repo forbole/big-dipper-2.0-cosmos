@@ -1,3 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: Transactions matches snapshot 1`] = `null`;
+exports[`screen: Transactions matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="Layout"
+  navTitle="transactions"
+>
+  <div
+    exists={true}
+    id="LoadAndExist"
+    loading={false}
+  >
+    <div
+      className="makeStyles-box"
+      id="Box"
+    >
+      <div
+        hasNextPage={false}
+        id="TransactionsList"
+        isItemLoaded={[Function]}
+        isNextPageLoading={false}
+        itemCount={0}
+        loadMoreItems={[Function]}
+        loadNextPage={[Function]}
+        transactions={[]}
+      />
+    </div>
+  </div>
+</div>
+`;

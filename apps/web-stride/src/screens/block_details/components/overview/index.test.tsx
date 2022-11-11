@@ -23,7 +23,7 @@ describe('screen: BlockDetails/Overview', () => {
         <Overview height={300} hash="hash" proposer="proposer" txs={0} timestamp="" />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from 'ui/tests/utils';
-import { createMockClient, createMockSubscription } from 'mock-apollo-client';
-import { ApolloProvider } from '@apollo/client';
+import { MockTheme } from 'ui/tests/utils';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
 import { BlocksListenerDocument } from '@graphql/types/general_types';
 import Blocks from '.';
 
@@ -26,7 +26,7 @@ jest.mock('./components', () => ({
   Desktop: (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />,
 }));
 
-const mockBlocksListenerDocument = {
+const mockBlocksListenerDocument = jest.fn().mockReturnValue({
   data: {
     blocks: [
       {
@@ -43,36 +43,34 @@ const mockBlocksListenerDocument = {
       },
     ],
   },
-};
+});
 
 // ==================================
 // unit tests
 // ==================================
 describe('screen: Home/Blocks/Mobile', () => {
-  it('matches snapshot', async () => {
-    const mockClient = createMockClient();
-    const mockSubscription = createMockSubscription();
-    mockClient.setRequestHandler(BlocksListenerDocument, () => mockSubscription);
+  it('matches snapshot', () => {
+    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
 
-    let component;
+    let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
       component = renderer.create(
         <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <Blocks />
-          </MockTheme>
+          <MockedProvider
+            mocks={[
+              { request: { query: BlocksListenerDocument }, result: mockBlocksListenerDocument },
+            ]}
+          >
+            <MockTheme>
+              <Blocks />
+            </MockTheme>
+          </MockedProvider>
         </ApolloProvider>
       );
     });
 
-    await wait(renderer.act);
-
-    renderer.act(() => {
-      mockSubscription.next(mockBlocksListenerDocument);
-    });
-
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

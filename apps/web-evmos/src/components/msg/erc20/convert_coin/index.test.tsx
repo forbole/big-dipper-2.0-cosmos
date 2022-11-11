@@ -36,7 +36,7 @@ describe('screen: TransactionDetails/MsgConvertCoin', () => {
         <ConvertCoin message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
     expect(component.root.findByProps({ id: 'Trans' }).props.values.receiver).toEqual(
       '0x6B6A7D59f854d1d9F38881A6502f4970f96A0104'

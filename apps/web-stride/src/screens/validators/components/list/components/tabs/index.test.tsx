@@ -20,7 +20,7 @@ describe('screen: Validators/Tabs', () => {
         <TabsHeader tab={0} handleSearch={jest.fn()} handleTabChange={jest.fn()} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

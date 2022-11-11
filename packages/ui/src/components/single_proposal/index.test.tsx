@@ -22,7 +22,7 @@ describe('component: SingleProposal', () => {
         <SingleProposal id="1" title="proposal-title" status="passed" />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

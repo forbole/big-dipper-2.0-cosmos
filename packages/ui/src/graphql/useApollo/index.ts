@@ -7,8 +7,8 @@ import {
   split,
 } from '@apollo/client';
 import { getMainDefinition } from '@apollo/client/utilities';
-import { GraphQLWsLink } from "@apollo/client/link/subscriptions";
-import { createClient } from "graphql-ws";
+import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
+import { createClient } from 'graphql-ws';
 import webSocketImpl from 'isomorphic-ws';
 import { Kind, OperationTypeNode } from 'graphql';
 import { useEffect, useState } from 'react';
@@ -39,16 +39,19 @@ const httpLink = new HttpLink({
  * @returns A WebSocketLink object.
  */
 function createWebSocketLink() {
-  return new GraphQLWsLink(createClient({
-    url: process.env.NEXT_PUBLIC_GRAPHQL_WS ?? 'ws://localhost:3000',
-    lazy: true,
-    retryAttempts: Number.MAX_VALUE,
-    shouldRetry() { return true; },
-    connectionAckWaitTimeout: 30000,
-    webSocketImpl,
-  }));
+  return new GraphQLWsLink(
+    createClient({
+      url: process.env.NEXT_PUBLIC_GRAPHQL_WS ?? 'ws://localhost:3000',
+      lazy: true,
+      retryAttempts: Number.MAX_VALUE,
+      shouldRetry() {
+        return true;
+      },
+      connectionAckWaitTimeout: 30000,
+      webSocketImpl,
+    })
+  );
 }
-
 
 /**
  * It creates a new Apollo Client, and sets the default options for it
@@ -65,17 +68,20 @@ function createApolloClient(initialState = {}) {
   server, it uses the httpLink. If it is running on the client, it uses the split function to check
   if the query is a subscription. If it is, it uses the WebSocketLink. If it is not, it uses the
   httpLink. */
-  const link = ssrMode ? httpLink : split(
-    /* Checking if the query is a subscription. */
-    ({ query }) => {
-      const node = getMainDefinition(query);
-      return (
-        node.kind === Kind.OPERATION_DEFINITION && node.operation === OperationTypeNode.SUBSCRIPTION
+  const link = ssrMode
+    ? httpLink
+    : split(
+        /* Checking if the query is a subscription. */
+        ({ query }) => {
+          const node = getMainDefinition(query);
+          return (
+            node.kind === Kind.OPERATION_DEFINITION &&
+            node.operation === OperationTypeNode.SUBSCRIPTION
+          );
+        },
+        createWebSocketLink(),
+        httpLink
       );
-    },
-    createWebSocketLink(),
-    httpLink,
-  );
 
   /* Creating a new Apollo Client. */
   const client = new ApolloClient({
@@ -117,7 +123,7 @@ export function initializeApollo(initialState?: NormalizedCacheObject) {
 function useApollo(initialState: NormalizedCacheObject) {
   /* Setting the initial state of the Apollo Client. */
   const [store, setStore] = useState(() => initializeApollo(initialState));
-  
+
   useEffect(() => {
     /* Setting the store with the new initial state. */
     setStore(initializeApollo(initialState));

@@ -22,7 +22,7 @@ describe('components: Result', () => {
         <Result />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -32,7 +32,7 @@ describe('components: Result', () => {
         <Result success />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

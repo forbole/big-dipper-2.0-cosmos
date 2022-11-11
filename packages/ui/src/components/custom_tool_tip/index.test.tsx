@@ -5,11 +5,10 @@ import numeral from 'numeral';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import CustomToolTip from '.';
 
-
 // to fix error, this.wrapperNode is null node_modules/recharts/src/component/Tooltip.tsx:143
 jest.mock('recharts', () => ({
   ...jest.requireActual('recharts'),
-  Tooltip: () => <div id="test-tooltip"/>,
+  Tooltip: () => <div id="test-tooltip" />,
 }));
 
 // ==================================
@@ -78,7 +77,7 @@ describe('component: CustomToolTip', () => {
         </PieChart>
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

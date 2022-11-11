@@ -1,9 +1,9 @@
+import { ApolloClient, from, InMemoryCache } from '@apollo/client';
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { createMockClient } from 'mock-apollo-client';
 import App from '.';
 
-const mockClient = createMockClient();
+const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
 
 jest.mock('next-translate/useTranslation', () => () => ({
   lang: 'en',
@@ -31,7 +31,7 @@ describe('screen: _app', () => {
         }}
       />
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

@@ -37,7 +37,7 @@ describe('screen: TransactionDetails/IBCConnectionOpenTry', () => {
         <ConnectionOpenTry message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

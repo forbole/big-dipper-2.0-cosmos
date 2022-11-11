@@ -14,7 +14,11 @@ exports[`screen: Blocks matches snapshot 1`] = `
     <div
       className="makeStyles-box"
       id="Box"
-    />
+    >
+      <div
+        id="NoData"
+      />
+    </div>
   </div>
 </div>
 `;

@@ -1,3 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: Home/DataBlocks matches snapshot 1`] = `null`;
+exports[`screen: Home/DataBlocks matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <div
+    className="makeStyles-blockHeight makeStyles-root"
+  >
+    <p
+      className="MuiTypography-root label MuiTypography-body2"
+    >
+      latestBlock
+    </p>
+    <div
+      className="content"
+    >
+      <h1
+        className="MuiTypography-root MuiTypography-h1"
+      >
+        0
+      </h1>
+    </div>
+  </div>
+  <div
+    className="makeStyles-blockTime makeStyles-root"
+  >
+    <p
+      className="MuiTypography-root label MuiTypography-body2"
+    >
+      averageBlockTime
+    </p>
+    <div
+      className="content"
+    >
+      <h1
+        className="MuiTypography-root MuiTypography-h1"
+      >
+        6.54 s
+      </h1>
+    </div>
+  </div>
+  <div
+    className="makeStyles-price makeStyles-root"
+  >
+    <p
+      className="MuiTypography-root label MuiTypography-body2"
+    >
+      price
+    </p>
+    <div
+      className="content"
+    >
+      <h1
+        className="MuiTypography-root MuiTypography-h1"
+      >
+        N/A
+      </h1>
+    </div>
+  </div>
+  <div
+    className="makeStyles-validators makeStyles-root"
+  >
+    <p
+      className="MuiTypography-root label MuiTypography-body2"
+    >
+      activeValidators
+    </p>
+    <div
+      className="content"
+    >
+      <h1
+        className="MuiTypography-root MuiTypography-h1"
+      >
+        200
+      </h1>
+      <span
+        className="MuiTypography-root description MuiTypography-caption"
+      >
+        outOfValidators
+      </span>
+    </div>
+  </div>
+</div>
+`;

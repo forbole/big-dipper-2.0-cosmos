@@ -64,4 +64,3 @@ export { default as ConnectionOpenConfirm } from './ibc/connection_open_confirm'
 export { default as ConnectionOpenInit } from './ibc/connection_open_init';
 export { default as ConnectionOpenTry } from './ibc/connection_open_try';
 export { default as Version } from './ibc/connection_version';
-

@@ -8,7 +8,8 @@ import DesmosProfile from 'ui/components/desmos_profile';
 // ==================================
 jest.mock('./components/connections/components', () => ({
   Desktop: (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />,
-  Mobile: (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />,}));
+  Mobile: (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />,
+}));
 
 // ==================================
 // unit tests
@@ -34,7 +35,7 @@ describe('component: DesmosProfile', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

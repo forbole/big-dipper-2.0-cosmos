@@ -33,7 +33,7 @@ describe('screen: Nav/TitleBar', () => {
   });
 
   it('it renders', () => {
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -44,7 +44,7 @@ describe('screen: Nav/TitleBar', () => {
         <TitleBar title="hello world" />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

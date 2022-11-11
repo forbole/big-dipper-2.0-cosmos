@@ -58,7 +58,7 @@ describe('screen: TransactionDetails/MsgMultiSend', () => {
         <Multisend message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
     expect(
       component.root.findByProps({ id: 'message_contents:txMultisendContentOne' }).props.i18nKey

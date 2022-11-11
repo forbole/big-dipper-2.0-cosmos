@@ -1,9 +1,9 @@
-import React from 'react';
-import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
-import { createMockClient, createMockSubscription } from 'mock-apollo-client';
-import { ApolloProvider } from '@apollo/client';
-import { MockTheme, wait } from 'ui/tests/utils';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
 import { TransactionsListenerDocument, TransactionsDocument } from '@graphql/types/general_types';
+import React from 'react';
+import renderer from 'react-test-renderer';
+import { MockTheme, wait } from 'ui/tests/utils';
 import Transactions from '.';
 
 // ==================================
@@ -15,9 +15,10 @@ jest.mock('ui/components/layout', () => (props: JSX.IntrinsicElements['div']) =>
 jest.mock('ui/components/transactions_list', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="TransactionsList" {...props} />
 ));
-jest.mock('ui/components/transactions_list_details', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="TransactionsListDetails" {...props} />
-));
+jest.mock(
+  'ui/components/transactions_list_details',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="TransactionsListDetails" {...props} />
+);
 jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
@@ -25,7 +26,7 @@ jest.mock('ui/components/load_and_exist', () => (props: JSX.IntrinsicElements['d
   <div id="LoadAndExist" {...props} />
 ));
 
-const mockTransactionsListenerDocument = {
+const mockTransactionsListenerDocument = jest.fn().mockReturnValue({
   data: {
     transactions: [
       {
@@ -50,9 +51,9 @@ const mockTransactionsListenerDocument = {
       },
     ],
   },
-};
+});
 
-const mockTransactionsDocument = jest.fn().mockResolvedValue({
+const mockTransactionsDocument = jest.fn().mockReturnValue({
   data: {
     transactions: [
       {
@@ -84,37 +85,35 @@ const mockTransactionsDocument = jest.fn().mockResolvedValue({
   },
 });
 
+let component: renderer.ReactTestRenderer | undefined;
+
 // ==================================
 // unit tests
 // ==================================
 describe('screen: Transactions', () => {
   it('matches snapshot', async () => {
-    const mockClient = createMockClient();
-    const mockSubscription = createMockSubscription();
-
-    mockClient.setRequestHandler(TransactionsListenerDocument, () => mockSubscription);
-
-    mockClient.setRequestHandler(TransactionsDocument, mockTransactionsDocument);
-
-    let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
-
+    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
     renderer.act(() => {
-      tree = renderer
-        .create(
-          <ApolloProvider client={mockClient}>
+      component = renderer.create(
+        <ApolloProvider client={mockClient}>
+          <MockedProvider
+            mocks={[
+              {
+                request: { query: TransactionsListenerDocument },
+                result: mockTransactionsListenerDocument,
+              },
+              { request: { query: TransactionsDocument }, result: mockTransactionsDocument },
+            ]}
+          >
             <MockTheme>
               <Transactions />
             </MockTheme>
-          </ApolloProvider>
-        )
-        .toJSON();
+          </MockedProvider>
+        </ApolloProvider>
+      );
     });
     await wait(renderer.act);
-
-    renderer.act(() => {
-      mockSubscription.next(mockTransactionsListenerDocument);
-    });
-
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

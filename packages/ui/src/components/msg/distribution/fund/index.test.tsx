@@ -32,7 +32,7 @@ describe('screen: TransactionDetails/Fund', () => {
         <Fund message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

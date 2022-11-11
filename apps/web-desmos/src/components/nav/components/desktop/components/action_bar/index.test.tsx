@@ -31,7 +31,7 @@ describe('screen: Nav/ActionBar', () => {
   });
 
   it('it renders', () => {
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -42,7 +42,7 @@ describe('screen: Nav/ActionBar', () => {
         <ActionBar isNetwork={isNetwork} toggleNetwork={toggleNetwork} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

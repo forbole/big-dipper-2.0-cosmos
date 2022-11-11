@@ -31,7 +31,7 @@ describe('screen: TransactionDetails/IssueDenom', () => {
         <IssueDenom message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

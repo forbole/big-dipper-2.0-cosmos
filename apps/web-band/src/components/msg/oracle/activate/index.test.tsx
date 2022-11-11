@@ -25,7 +25,7 @@ describe('screen: TransactionDetails/Activate', () => {
         <Activate message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

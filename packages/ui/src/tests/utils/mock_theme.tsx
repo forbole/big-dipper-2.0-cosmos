@@ -16,9 +16,7 @@ const MockTheme = ({ children }: { children: ReactNode }) => {
   return (
     <StylesProviderWrapper generateClassName={generateClassName}>
       <ThemeProvider theme={createTheme(defaultTheme)}>
-        <RecoilRoot>
-          {children}
-        </RecoilRoot>
+        <RecoilRoot>{children}</RecoilRoot>
       </ThemeProvider>
     </StylesProviderWrapper>
   );

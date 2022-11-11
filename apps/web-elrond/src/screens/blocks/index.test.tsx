@@ -14,24 +14,22 @@ jest.mock('./components', () => ({
   List: (props: JSX.IntrinsicElements['div']) => <div id="List" {...props} />,
 }));
 
+let component: renderer.ReactTestRenderer | null = null;
+
 // ==================================
 // unit tests
 // ==================================
 describe('screen: Blocks', () => {
   it('matches snapshot', async () => {
-    let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
-
     renderer.act(() => {
-      tree = renderer
-        .create(
-          <MockTheme>
-            <Blocks />
-          </MockTheme>
-        )
-        .toJSON();
+      component = renderer.create(
+        <MockTheme>
+          <Blocks />
+        </MockTheme>
+      );
     });
     await wait(renderer.act);
-
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

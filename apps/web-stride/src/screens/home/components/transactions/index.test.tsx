@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme, wait } from 'ui/tests/utils';
-import { createMockClient, createMockSubscription } from 'mock-apollo-client';
-import { ApolloProvider } from '@apollo/client';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
 import { TransactionsListenerDocument } from '@graphql/types/general_types';
 import Transactions from '.';
 
@@ -27,7 +27,7 @@ jest.mock('./components', () => ({
   Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
 }));
 
-const mockTxsListenerDocument = {
+const mockTxsListenerDocument = jest.fn().mockReturnValue({
   data: {
     transactions: [
       {
@@ -42,37 +42,34 @@ const mockTxsListenerDocument = {
       },
     ],
   },
-};
+});
 
 // ==================================
 // unit tests
 // ==================================
 describe('screen: Home/Blocks/Mobile', () => {
   it('matches snapshot', async () => {
-    const mockClient = createMockClient();
-    const mockSubscription = createMockSubscription();
-
-    mockClient.setRequestHandler(TransactionsListenerDocument, () => mockSubscription);
-
-    let component;
+    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
+    let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
       component = renderer.create(
         <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <Transactions />
-          </MockTheme>
+          <MockedProvider
+            mocks={[
+              { request: { query: TransactionsListenerDocument }, result: mockTxsListenerDocument },
+            ]}
+          >
+            <MockTheme>
+              <Transactions />
+            </MockTheme>
+          </MockedProvider>
         </ApolloProvider>
       );
     });
 
     await wait(renderer.act);
-
-    renderer.act(() => {
-      mockSubscription.next(mockTxsListenerDocument);
-    });
-
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

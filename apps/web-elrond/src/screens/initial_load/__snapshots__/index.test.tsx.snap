@@ -1,3 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: InitialLoad matches snapshot 1`] = `null`;
+exports[`screen: InitialLoad matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <div>
+    <img
+      alt="logo"
+      className="makeStyles-logo makeStyles-dark"
+      src="svg"
+    />
+    <img
+      alt="logo"
+      className="makeStyles-logo makeStyles-light"
+      src="svg"
+    />
+    <div
+      className="MuiLinearProgress-root MuiLinearProgress-colorPrimary makeStyles-divider MuiLinearProgress-indeterminate"
+      role="progressbar"
+    >
+      <div
+        className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Indeterminate"
+        style={{}}
+      />
+      <div
+        className="MuiLinearProgress-bar MuiLinearProgress-bar2Indeterminate MuiLinearProgress-barColorPrimary"
+        style={{}}
+      />
+    </div>
+    <svg />
+  </div>
+</div>
+`;

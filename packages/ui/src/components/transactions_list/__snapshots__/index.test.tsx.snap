@@ -1,3 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`component: TransactionsList it renders 1`] = `null`;
+exports[`component: TransactionsList it renders 1`] = `
+<div
+  className="makeStyles-mobile makeStyles-root"
+>
+  <div
+    style={
+      {
+        "height": 0,
+        "overflow": "visible",
+        "width": 0,
+      }
+    }
+  />
+</div>
+`;

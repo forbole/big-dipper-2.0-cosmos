@@ -14,9 +14,11 @@ jest.mock('..', () => ({
 jest.mock('ui/components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="AvatarName" {...props} />
 ));
-jest.mock('./single_validator', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="SingleValidator" {...props} />
-), { virtual: true });
+jest.mock(
+  './single_validator',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="SingleValidator" {...props} />,
+  { virtual: true }
+);
 
 // jest.mock(
 //   'react-virtualized-auto-sizer',
@@ -55,7 +57,7 @@ describe('screen: Validators/Mobile', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

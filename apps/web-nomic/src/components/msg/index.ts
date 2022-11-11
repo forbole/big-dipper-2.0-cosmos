@@ -126,5 +126,3 @@ export {
   CreateVestingAccount,
   CreatePeriodicVestingAccount,
 };
-
-

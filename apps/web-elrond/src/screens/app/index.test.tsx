@@ -27,7 +27,7 @@ describe('screen: _app', () => {
         }}
       />
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

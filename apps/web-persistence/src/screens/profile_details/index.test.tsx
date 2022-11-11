@@ -1,8 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { createMockClient } from 'mock-apollo-client';
-import { ApolloProvider } from '@apollo/client';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import renderer from 'react-test-renderer';
 import { MockTheme, wait } from 'ui/tests/utils';
 import ProfileDetails from '.';
@@ -60,23 +59,22 @@ describe('screen: ProfileDetails', () => {
       },
     });
 
-    const mockClient = createMockClient();
+    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
 
-    let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
+    let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
-      tree = renderer
-        .create(
-          <ApolloProvider client={mockClient}>
-            <MockTheme>
-              <ProfileDetails />
-            </MockTheme>
-          </ApolloProvider>
-        )
-        .toJSON();
+      component = renderer.create(
+        <ApolloProvider client={mockClient}>
+          <MockTheme>
+            <ProfileDetails />
+          </MockTheme>
+        </ApolloProvider>
+      );
     });
     await wait(renderer.act);
 
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

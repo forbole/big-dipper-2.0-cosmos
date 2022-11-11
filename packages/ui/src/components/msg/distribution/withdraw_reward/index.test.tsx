@@ -34,7 +34,7 @@ describe('screen: TransactionDetails/WithdrawReward', () => {
         <WithdrawReward message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

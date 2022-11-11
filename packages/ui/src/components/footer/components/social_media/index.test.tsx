@@ -13,7 +13,7 @@ describe('component: layout/footer', () => {
         <SocialMedia />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

@@ -34,7 +34,7 @@ describe('screen: TransactionDetails/MsgBurn', () => {
         <Register message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
 
     expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(

@@ -23,7 +23,7 @@ describe('screen: AccountDetails/Overview', () => {
         <Overview withdrawalAddress="withdrawalAddress" address="address" />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

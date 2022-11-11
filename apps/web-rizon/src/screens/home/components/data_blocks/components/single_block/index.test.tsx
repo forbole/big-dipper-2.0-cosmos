@@ -13,7 +13,7 @@ describe('screen: Home/SingleBlock', () => {
         <SingleBlock label="Price" value="$4.40" />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

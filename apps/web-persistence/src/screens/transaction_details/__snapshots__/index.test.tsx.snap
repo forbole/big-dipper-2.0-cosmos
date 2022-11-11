@@ -1,3 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: Blocks/List matches snapshot 1`] = `null`;
+exports[`screen: Blocks/List matches snapshot 1`] = `
+<div
+  id="Layout"
+  navTitle="transactionDetails"
+>
+  <div
+    exists={true}
+    id="LoadAndExist"
+    loading={true}
+  >
+    <span
+      className="makeStyles-root"
+    >
+      <div
+        data={
+          {
+            "error": "",
+            "fee": {
+              "baseDenom": "",
+              "displayDenom": "",
+              "exponent": 0,
+              "value": "0",
+            },
+            "gasUsed": 0,
+            "gasWanted": 0,
+            "hash": "",
+            "height": 0,
+            "memo": "",
+            "success": false,
+            "timestamp": "",
+          }
+        }
+        id="Overview"
+      />
+      <div
+        className="makeStyles-messages"
+        id="Messages"
+        messages={[]}
+        onMessageFilterCallback={[Function]}
+        toggleMessageDisplay={[Function]}
+        viewRaw={false}
+      />
+    </span>
+  </div>
+</div>
+`;

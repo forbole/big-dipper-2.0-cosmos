@@ -22,7 +22,9 @@ jest.mock('next/link', () => ({
   Link: (props: JSX.IntrinsicElements['div']) => <div id="Link" {...props} />,
 }));
 
-jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) => <div id="Trans" {...props} />);
+jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Trans" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -46,7 +48,7 @@ describe('screen: TransactionDetails/MsgVote', () => {
         <Vote message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
     expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(
       'message_contents:txVoteContent'

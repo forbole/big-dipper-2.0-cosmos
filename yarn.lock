@@ -2377,6 +2377,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@graphql-tools/mock@npm:^8.7.11":
+  version: 8.7.11
+  resolution: "@graphql-tools/mock@npm:8.7.11"
+  dependencies:
+    "@graphql-tools/schema": 9.0.9
+    "@graphql-tools/utils": 9.1.0
+    fast-json-stable-stringify: ^2.1.0
+    tslib: ^2.4.0
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: f1742d5e4d6878d4297efdfa6184cd48e5c4a2f3a47dc1f156c9fa7111da90c2860201267941c4224102cf354a6175548f9338b3e0c8b1b3f694d7dc735e2d03
+  languageName: node
+  linkType: hard
+
 "@graphql-tools/optimize@npm:^1.3.0":
   version: 1.3.1
   resolution: "@graphql-tools/optimize@npm:1.3.1"
@@ -2444,7 +2458,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/schema@npm:9.0.9, @graphql-tools/schema@npm:^9.0.0":
+"@graphql-tools/schema@npm:9.0.9, @graphql-tools/schema@npm:^9.0.0, @graphql-tools/schema@npm:^9.0.9":
   version: 9.0.9
   resolution: "@graphql-tools/schema@npm:9.0.9"
   dependencies:
@@ -11721,15 +11735,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mock-apollo-client@npm:^1.1.0":
-  version: 1.2.1
-  resolution: "mock-apollo-client@npm:1.2.1"
-  peerDependencies:
-    "@apollo/client": ^3.0.0
-  checksum: 7de4938b5a60c231d08d89a83266f9b289ce09f6be836564cdc177ee4748d4dd53a3df67d951fae12b30862417f5c69621270c43cc6f59c60445b3103a9616ee
-  languageName: node
-  linkType: hard
-
 "ms@npm:2.0.0":
   version: 2.0.0
   resolution: "ms@npm:2.0.0"
@@ -14909,6 +14914,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -14960,7 +14967,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -15306,6 +15312,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -15359,7 +15367,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -15399,6 +15406,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -15452,7 +15461,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -15492,6 +15500,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -15545,7 +15555,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -15585,6 +15594,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -15638,7 +15649,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -15678,6 +15688,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -15731,7 +15743,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -15771,6 +15782,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -15824,7 +15837,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -15864,6 +15876,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -15917,7 +15931,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -15957,6 +15970,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -16010,7 +16025,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -16050,6 +16064,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -16103,7 +16119,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -16143,6 +16158,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -16196,7 +16213,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -16236,6 +16252,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -16289,7 +16307,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -16329,6 +16346,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -16382,7 +16401,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -16422,6 +16440,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -16475,7 +16495,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -16515,6 +16534,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -16568,7 +16589,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -16608,6 +16628,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -16661,7 +16683,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -16701,6 +16722,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -16754,7 +16777,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -16794,6 +16816,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -16847,7 +16871,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -16887,6 +16910,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -16940,7 +16965,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -16980,6 +17004,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -17033,7 +17059,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -17073,6 +17098,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -17126,7 +17153,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -17166,6 +17192,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -17219,7 +17247,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -17259,6 +17286,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -17312,7 +17341,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -17352,6 +17380,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -17405,7 +17435,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -17459,6 +17488,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -17512,7 +17543,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3
@@ -17552,6 +17582,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.1
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
+    "@graphql-tools/mock": ^8.7.11
+    "@graphql-tools/schema": ^9.0.9
     "@material-ui/core": ^4.12.4
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
@@ -17605,7 +17637,6 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.0
     markdown-to-jsx: ^7.1.2
-    mock-apollo-client: ^1.1.0
     next: ^12.1.0
     next-seo: ^4.26.0
     next-translate: ^1.0.3

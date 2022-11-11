@@ -19,7 +19,7 @@ describe('screen: Validators/VotingPower', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -29,7 +29,7 @@ describe('screen: Validators/VotingPower', () => {
         <VotingPower percentage={0} percentDisplay="0%" content="" topVotingPower={false} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

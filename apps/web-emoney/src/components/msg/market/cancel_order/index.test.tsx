@@ -27,7 +27,7 @@ describe('screen: TransactionDetails/CancelOrder', () => {
         <CancelOrder message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

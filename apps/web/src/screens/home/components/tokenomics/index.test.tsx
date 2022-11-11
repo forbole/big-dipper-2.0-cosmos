@@ -1,9 +1,9 @@
 import React from 'react';
 import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
 import { MockTheme, wait } from 'ui/tests/utils';
-import { ApolloProvider } from '@apollo/client';
-import { createMockClient } from 'mock-apollo-client';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import { TokenomicsDocument } from '@graphql/types/general_types';
+import { MockedProvider } from '@apollo/client/testing';
 import Tokenomics from '.';
 
 // ==================================
@@ -20,10 +20,10 @@ jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
 // to fix error, this.wrapperNode is null node_modules/recharts/src/component/Tooltip.tsx:143
 jest.mock('recharts', () => ({
   ...jest.requireActual('recharts'),
-  Tooltip: () => <div id="test-tooltip"/>,
+  Tooltip: () => <div id="test-tooltip" />,
 }));
 
-const mockTokenomics = jest.fn().mockResolvedValue({
+const mockTokenomics = jest.fn().mockReturnValue({
   data: {
     stakingParams: [
       {
@@ -64,25 +64,25 @@ const mockTokenomics = jest.fn().mockResolvedValue({
 // ==================================
 describe('screen: Home/Tokenomics', () => {
   it('matches snapshot', async () => {
-    const mockClient = createMockClient();
-
-    mockClient.setRequestHandler(TokenomicsDocument, mockTokenomics);
-
-    let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
+    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
+    let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
-      tree = renderer
-        .create(
-          <ApolloProvider client={mockClient}>
+      component = renderer.create(
+        <ApolloProvider client={mockClient}>
+          <MockedProvider
+            mocks={[{ request: { query: TokenomicsDocument }, result: mockTokenomics }]}
+          >
             <MockTheme>
               <Tokenomics />
             </MockTheme>
-          </ApolloProvider>
-        )
-        .toJSON();
+          </MockedProvider>
+        </ApolloProvider>
+      );
     });
     await wait(renderer.act);
 
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

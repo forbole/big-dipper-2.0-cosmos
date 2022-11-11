@@ -19,19 +19,18 @@ jest.mock('./components', () => ({
 // ==================================
 describe('screen: Transactions', () => {
   it('matches snapshot', async () => {
-    let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
+    let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
-      tree = renderer
-        .create(
-          <MockTheme>
-            <Transactions />
-          </MockTheme>
-        )
-        .toJSON();
+      component = renderer.create(
+        <MockTheme>
+          <Transactions />
+        </MockTheme>
+      );
     });
     await wait(renderer.act);
 
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

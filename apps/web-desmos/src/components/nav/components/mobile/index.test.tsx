@@ -31,7 +31,7 @@ describe('screen: Nav/Mobile', () => {
   });
 
   it('it renders', async () => {
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

@@ -1,14 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { createMockClient } from 'mock-apollo-client';
-import { ApolloProvider } from '@apollo/client';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
 import { MockTheme, wait } from 'ui/tests/utils';
 import {
   // AccountDocument,
   GetMessagesByAddressDocument,
 } from '@graphql/types/general_types';
+import { MockedProvider } from '@apollo/client/testing';
 import AccountDetails from '.';
 
 // ==================================
@@ -39,7 +39,7 @@ jest.mock('./components', () => ({
   OtherTokens: (props: JSX.IntrinsicElements['div']) => <div id="OtherTokens" {...props} />,
 }));
 
-const mockAccount = jest.fn().mockResolvedValue({
+const mockAccount = jest.fn().mockReturnValue({
   data: {
     commission: {
       coins: [
@@ -99,7 +99,7 @@ const mockAccount = jest.fn().mockResolvedValue({
   },
 });
 
-const mockAccountMessages = jest.fn().mockResolvedValue({
+const mockAccountMessages = jest.fn().mockReturnValue({
   data: {
     messagesByAddress: [
       {
@@ -152,29 +152,28 @@ describe('screen: BlockDetails', () => {
       },
     });
 
-    const mockClient = createMockClient();
-    mockClient.setRequestHandler(
-      // AccountDocument,
-      mockAccount
-    );
-
-    mockClient.setRequestHandler(GetMessagesByAddressDocument, mockAccountMessages);
-
-    let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
+    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
+    let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
-      tree = renderer
-        .create(
-          <ApolloProvider client={mockClient}>
+      component = renderer.create(
+        <ApolloProvider client={mockClient}>
+          <MockedProvider
+            mocks={[
+              // {request: { query: AccountDocument }, result: mockAccount},
+              { request: { query: GetMessagesByAddressDocument }, result: mockAccountMessages },
+            ]}
+          >
             <MockTheme>
               <AccountDetails />
             </MockTheme>
-          </ApolloProvider>
-        )
-        .toJSON();
+          </MockedProvider>
+        </ApolloProvider>
+      );
     });
     await wait(renderer.act);
 
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

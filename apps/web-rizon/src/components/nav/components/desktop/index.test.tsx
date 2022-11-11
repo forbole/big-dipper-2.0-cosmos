@@ -32,7 +32,7 @@ describe('screen: Nav/Desktop', () => {
   });
 
   it('it renders', () => {
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -40,7 +40,7 @@ describe('screen: Nav/Desktop', () => {
     renderer.act(() => {
       component.root.findByProps({ className: 'makeStyles-logo' }).props.onClick();
     });
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

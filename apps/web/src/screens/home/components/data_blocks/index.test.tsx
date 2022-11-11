@@ -1,8 +1,8 @@
 import React from 'react';
-import renderer, { ReactTestRenderer } from 'react-test-renderer';
+import renderer from 'react-test-renderer';
 import { MockTheme, wait } from 'ui/tests/utils';
-import { ApolloProvider } from '@apollo/client';
-import { createMockClient, createMockSubscription, IMockSubscription, MockApolloClient } from 'mock-apollo-client';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
 import {
   LatestBlockHeightListenerDocument,
   AverageBlockTimeDocument,
@@ -19,7 +19,7 @@ const mockI18n = {
   lang: 'en',
 };
 
-const mockLatestBlockHeight = {
+const mockLatestBlockHeight = jest.fn().mockReturnValue({
   data: {
     height: [
       {
@@ -27,9 +27,9 @@ const mockLatestBlockHeight = {
       },
     ],
   },
-};
+});
 
-const mockAverageBlockTime = jest.fn().mockResolvedValue({
+const mockAverageBlockTime = jest.fn().mockReturnValue({
   data: {
     averageBlockTime: [
       {
@@ -39,13 +39,13 @@ const mockAverageBlockTime = jest.fn().mockResolvedValue({
   },
 });
 
-const mockTokenPrice = {
+const mockTokenPrice = jest.fn().mockReturnValue({
   data: {
     tokenPrice: [],
   },
-};
+});
 
-const mockActiveValidatorsCount = jest.fn().mockResolvedValue({
+const mockActiveValidatorsCount = jest.fn().mockReturnValue({
   data: {
     activeTotal: {
       aggregate: {
@@ -65,27 +65,11 @@ const mockActiveValidatorsCount = jest.fn().mockResolvedValue({
   },
 });
 
-let mockClient: MockApolloClient;
-let mockSubscription: IMockSubscription;
-let mockSubscriptionTwo: IMockSubscription;
-
 beforeEach(() => {
   jest.mock('next-translate/useTranslation', () => () => mockI18n);
   jest.mock('./components', () => ({
     SingleBlock: (props: JSX.IntrinsicElements['div']) => <div id="SingleBlock" {...props} />,
   }));
-  
-  mockClient = createMockClient();
-  mockSubscription = createMockSubscription();
-  mockSubscriptionTwo = createMockSubscription();
-
-  mockClient.setRequestHandler(LatestBlockHeightListenerDocument, () => mockSubscription);
-
-  mockClient.setRequestHandler(TokenPriceListenerDocument, () => mockSubscriptionTwo);
-
-  mockClient.setRequestHandler(AverageBlockTimeDocument, mockAverageBlockTime);
-
-  mockClient.setRequestHandler(ActiveValidatorCountDocument, mockActiveValidatorsCount);
 });
 
 // ==================================
@@ -93,33 +77,34 @@ beforeEach(() => {
 // ==================================
 describe('screen: Home/DataBlocks', () => {
   it('matches snapshot', async () => {
-
-    let tree: renderer.ReactTestRendererJSON | renderer.ReactTestRendererJSON[] | null = null;
+    let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
-      const component = renderer.create(
-        <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <DataBlocks />
-          </MockTheme>
+      component = renderer.create(
+        <ApolloProvider client={new ApolloClient({ link: from([]), cache: new InMemoryCache() })}>
+          <MockedProvider
+            mocks={[
+              {
+                request: { query: LatestBlockHeightListenerDocument },
+                result: mockLatestBlockHeight,
+              },
+              { request: { query: TokenPriceListenerDocument }, result: mockTokenPrice },
+              { request: { query: AverageBlockTimeDocument }, result: mockAverageBlockTime },
+              {
+                request: { query: ActiveValidatorCountDocument },
+                result: mockActiveValidatorsCount,
+              },
+            ]}
+          >
+            <MockTheme>
+              <DataBlocks />
+            </MockTheme>
+          </MockedProvider>
         </ApolloProvider>
       );
-      tree = component.toJSON();
     });
     await wait(renderer.act);
-
-    renderer.act(() => {
-      mockSubscription.next(mockLatestBlockHeight);
-    });
-
-    await wait(renderer.act);
-
-    renderer.act(() => {
-      mockSubscriptionTwo.next(mockTokenPrice);
-    });
-
-    await wait(renderer.act);
-
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
     expect(mockActiveValidatorsCount).toBeCalledTimes(1);
   });

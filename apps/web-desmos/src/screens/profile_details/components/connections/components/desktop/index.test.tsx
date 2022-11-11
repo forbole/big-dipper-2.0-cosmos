@@ -45,7 +45,7 @@ describe('screen: ProfileDetails/Connections/Desktop', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

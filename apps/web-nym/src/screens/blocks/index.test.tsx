@@ -1,6 +1,6 @@
 import React from 'react';
-import { createMockClient, createMockSubscription } from 'mock-apollo-client';
-import { ApolloProvider } from '@apollo/client';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
 import { MockTheme, wait } from 'ui/tests/utils';
 import { BlocksListenerDocument, BlocksDocument } from '@graphql/types/general_types';
@@ -22,7 +22,7 @@ jest.mock('ui/components/no_data', () => (props: JSX.IntrinsicElements['div']) =
   <div id="NoData" {...props} />
 ));
 
-const mockBlocksListenerDocument = {
+const mockBlocksListenerDocument = jest.fn().mockReturnValue({
   data: {
     blocks: [
       {
@@ -38,9 +38,9 @@ const mockBlocksListenerDocument = {
       },
     ],
   },
-};
+});
 
-const mockBlocksDocument = jest.fn().mockResolvedValue({
+const mockBlocksDocument = jest.fn().mockReturnValue({
   data: {
     blocks: [
       {
@@ -75,31 +75,27 @@ const mockBlocksDocument = jest.fn().mockResolvedValue({
 // ==================================
 describe('screen: Blocks', () => {
   it('matches snapshot', async () => {
-    const mockClient = createMockClient();
-    const mockSubscription = createMockSubscription();
-
-    mockClient.setRequestHandler(BlocksListenerDocument, () => mockSubscription);
-
-    mockClient.setRequestHandler(BlocksDocument, mockBlocksDocument);
-
-    let component;
+    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
+    let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
       component = renderer.create(
         <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <Blocks />
-          </MockTheme>
+          <MockedProvider
+            mocks={[
+              { request: { query: BlocksListenerDocument }, result: mockBlocksListenerDocument },
+              { request: { query: BlocksDocument }, result: mockBlocksDocument },
+            ]}
+          >
+            <MockTheme>
+              <Blocks />
+            </MockTheme>
+          </MockedProvider>
         </ApolloProvider>
       );
     });
     await wait(renderer.act);
-
-    renderer.act(() => {
-      mockSubscription.next(mockBlocksListenerDocument);
-    });
-
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
