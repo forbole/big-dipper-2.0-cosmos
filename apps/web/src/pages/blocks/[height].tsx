@@ -1,4 +1,4 @@
-import BlockDetails from 'ui/screens/block_details';
+import BlockDetails from '@screens/block_details';
 
 const BlockDetailsPage = () => {
   return <BlockDetails />;

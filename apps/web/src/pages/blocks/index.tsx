@@ -1,4 +1,4 @@
-import Blocks from 'ui/screens/blocks';
+import Blocks from '@screens/blocks';
 
 const BlocksPage = () => {
   return <Blocks />;

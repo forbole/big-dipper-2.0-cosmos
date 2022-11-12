@@ -1,4 +1,4 @@
-import Home from 'ui/screens/home';
+import Home from '@screens/home';
 
 const HomePage = () => {
   return <Home />;

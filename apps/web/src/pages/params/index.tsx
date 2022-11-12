@@ -1,4 +1,4 @@
-import Params from 'ui/screens/params';
+import Params from '@screens/params';
 
 const ParamsPage = () => {
   return <Params />;
