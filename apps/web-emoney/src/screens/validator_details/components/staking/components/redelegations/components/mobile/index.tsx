@@ -66,7 +66,7 @@ const Mobile: React.FC<{
                 {x.amount}
               </div>
             </div>
-            {!!items &&i !== items.length - 1 && <Divider />}
+            {!!items && i !== items.length - 1 && <Divider />}
           </React.Fragment>
         );
       })}

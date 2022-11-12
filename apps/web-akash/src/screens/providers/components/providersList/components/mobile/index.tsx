@@ -99,7 +99,12 @@ const Mobile: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
 
   return (
     <div className={classnames(className)}>
-      <List height={900} itemCount={itemsNew.length} itemSize={getRowHeight} ref={listRef as React.LegacyRef<List>}>
+      <List
+        height={900}
+        itemCount={itemsNew.length}
+        itemSize={getRowHeight}
+        ref={listRef as React.LegacyRef<List>}
+      >
         {({ index, style }) => {
           const { rowRef } = useListRow(index, setRowHeight);
           const selectedItem = itemsNew[index];

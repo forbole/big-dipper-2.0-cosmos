@@ -42,4 +42,4 @@ export function useChainHealthCheck<TData, TVariables>(
     }
     useLatestBlockTimestamp();
   }, []);
-};
+}
