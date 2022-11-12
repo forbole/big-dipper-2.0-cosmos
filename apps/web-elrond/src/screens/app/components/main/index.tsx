@@ -3,7 +3,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ToastContainer } from 'react-toastify';
 import { AppProps } from 'next/app';
-import InitialLoad from '@screens/initial_load';
+import InitialLoad from 'ui/screens/initial_load';
 // import { useSettingsRecoil } from '@recoil/settings';
 import { useBigDipperNetworksRecoil } from '@recoil/big_dipper_networks';
 import { useMarketRecoil } from '@recoil/market/elrond';
