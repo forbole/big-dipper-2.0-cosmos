@@ -2,18 +2,15 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { convertMsgsToModels } from 'ui/components/msg';
 import * as R from 'ramda';
-import { QueryHookOptions, QueryResult } from '@apollo/client';
+import {
+  useGetMessagesByAddressQuery,
+  GetMessagesByAddressQuery,
+} from '@graphql/types/general_types';
 import { TransactionState } from './types';
 
 const LIMIT = 50;
 
-export type UseGetMessagesByAddressQuery<TData, TVariables> = (
-  baseOptions?: QueryHookOptions<TData, TVariables>
-) => QueryResult<TData, TVariables>;
-
-export function useTransactions<TData, TVariables>(
-  useGetMessagesByAddressQuery: UseGetMessagesByAddressQuery<TData, TVariables>
-) {
+export const useTransactions = () => {
   const router = useRouter();
   const [state, setState] = useState<TransactionState>({
     data: [],
@@ -31,8 +28,8 @@ export function useTransactions<TData, TVariables>(
       limit: LIMIT + 1, // to check if more exist
       offset: 0,
       address: `{${R.pathOr('', ['query', 'address'], router)}}`,
-    } as TVariables,
-    onCompleted: (data: any) => {
+    },
+    onCompleted: (data: GetMessagesByAddressQuery) => {
       const itemsLength = data.messagesByAddress.length;
       const newItems = R.uniq([...state.data, ...formatTransactions(data)]);
       const stateChange = {
@@ -101,4 +98,4 @@ export function useTransactions<TData, TVariables>(
     state,
     loadNextPage,
   };
-}
+};
