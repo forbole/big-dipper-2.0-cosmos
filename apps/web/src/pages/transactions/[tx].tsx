@@ -1,4 +1,4 @@
-import TransactionDetails from 'ui/screens/transaction_details';
+import TransactionDetails from '@screens/transaction_details';
 
 const TransactionDetailsPage = () => {
   return <TransactionDetails />;

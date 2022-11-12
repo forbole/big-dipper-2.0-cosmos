@@ -1,4 +1,5 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import classnames from 'classnames';
 import Box from 'ui/components/box';
 import TabPanel from 'ui/components/tab_panel';
