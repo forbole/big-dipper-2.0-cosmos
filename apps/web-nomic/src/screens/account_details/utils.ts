@@ -14,7 +14,7 @@ export const fetchAvailableBalances = async (address: string) => {
     },
   };
   try {
-    const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
+    const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL ?? '', {
       variables: {
         address,
       },
@@ -33,7 +33,7 @@ export const fetchAccountWithdrawalAddress = async (address: string) => {
     },
   };
   try {
-    const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
+    const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL ?? '', {
       variables: {
         address,
       },

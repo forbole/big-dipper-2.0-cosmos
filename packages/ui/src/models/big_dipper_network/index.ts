@@ -39,7 +39,7 @@ class BigDipperNetwork {
     const retired: Link[] = [];
     const other: Link[] = [];
 
-    allLinks.forEach((x) => {
+    allLinks.forEach((x: any) => {
       // main
       if (x.name.toLowerCase().includes('mainnet')) {
         mainnet.push(x);

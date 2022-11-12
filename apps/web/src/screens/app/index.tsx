@@ -3,7 +3,7 @@ import { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
 import { RecoilRoot } from 'recoil';
-import { ApolloProvider, NormalizedCache, NormalizedCacheObject } from '@apollo/client';
+import { ApolloProvider, NormalizedCacheObject } from '@apollo/client';
 import useApollo from 'ui/graphql/useApollo';
 import chainConfig from 'ui/chainConfig';
 import { useWindowOrigin } from '@hooks';

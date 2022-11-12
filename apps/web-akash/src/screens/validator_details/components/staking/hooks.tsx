@@ -49,7 +49,7 @@ export const useStaking = () => {
   };
 
   const createPagination = (data: any[]) => {
-    const pages = {};
+    const pages: {[key: string]: any} = {};
     data.forEach((x, i) => {
       const selectedKey = Math.floor(i / PAGE_LIMIT);
       pages[selectedKey] = pages[selectedKey] || [];
@@ -61,7 +61,7 @@ export const useStaking = () => {
   // helper function to get rest of the staking items
   // if it is over the default limit
   const getStakeByPage = async (page: number, query: string) => {
-    const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
+    const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL ?? '', {
       variables: {
         validatorAddress: R.pathOr('', ['query', 'address'], router),
         offset: page * LIMIT,
@@ -78,7 +78,7 @@ export const useStaking = () => {
   // =====================================
   const getDelegations = async () => {
     try {
-      const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
+      const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL ?? '', {
         variables: {
           validatorAddress: R.pathOr('', ['query', 'address'], router),
           limit: LIMIT,
@@ -99,7 +99,7 @@ export const useStaking = () => {
         const remainingDelegations = await Promise.allSettled(remainingDelegationsPromises);
         remainingDelegations
           .filter((x) => x.status === 'fulfilled')
-          .forEach((x) => {
+          .forEach((x: any) => {
             const delegations = R.pathOr([], ['value', 'data', 'delegations', 'delegations'], x);
             allDelegations.push(...delegations);
           });
@@ -141,7 +141,7 @@ export const useStaking = () => {
   // =====================================
   const getRedelegations = async () => {
     try {
-      const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
+      const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL ?? '', {
         variables: {
           validatorAddress: R.pathOr('', ['query', 'address'], router),
           limit: LIMIT,
@@ -161,7 +161,7 @@ export const useStaking = () => {
         const remainingData = await Promise.allSettled(remainingPromises);
         remainingData
           .filter((x) => x.status === 'fulfilled')
-          .forEach((x) => {
+          .forEach((x: any) => {
             const fullfilledData = R.pathOr(
               [],
               ['value', 'data', 'redelegations', 'redelegations'],
@@ -190,9 +190,9 @@ export const useStaking = () => {
   };
 
   const formatRedelegations = (data: any) => {
-    const results = [];
-    data.forEach((x) => {
-      R.pathOr([], ['entries'], x).forEach((y) => {
+    const results: any = [];
+    data.forEach((x: any) => {
+      R.pathOr([], ['entries'], x).forEach((y: any) => {
         results.push({
           address: R.pathOr('', ['delegator_address'], x),
           to: R.pathOr('', ['validator_dst_address'], x),
@@ -201,7 +201,7 @@ export const useStaking = () => {
         });
       });
     });
-    results.sort((a, b) => {
+    results.sort((a: any, b: any) => {
       return a.completionTime < b.completionTime ? -1 : 1;
     });
 
@@ -213,7 +213,7 @@ export const useStaking = () => {
   // =====================================
   const getUnbondings = async () => {
     try {
-      const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
+      const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL ?? '', {
         variables: {
           validatorAddress: R.pathOr('', ['query', 'address'], router),
           limit: LIMIT,
@@ -233,7 +233,7 @@ export const useStaking = () => {
         const remainingData = await Promise.allSettled(remainingPromises);
         remainingData
           .filter((x) => x.status === 'fulfilled')
-          .forEach((x) => {
+          .forEach((x: any) => {
             const fullfilledData = R.pathOr(
               [],
               ['value', 'data', 'undelegations', 'undelegations'],
@@ -262,9 +262,9 @@ export const useStaking = () => {
   };
 
   const formatUnbondings = (data: any) => {
-    const results = [];
-    data.forEach((x) => {
-      R.pathOr([], ['entries'], x).forEach((y) => {
+    const results: any = [];
+    data.forEach((x: any) => {
+      R.pathOr([], ['entries'], x).forEach((y: any) => {
         results.push({
           address: R.pathOr('', ['delegator_address'], x),
           amount: formatToken(y.balance, chainConfig.primaryTokenUnit),
@@ -273,7 +273,7 @@ export const useStaking = () => {
       });
     });
 
-    results.sort((a, b) => {
+    results.sort((a: any, b: any) => {
       return a.completionTime < b.completionTime ? -1 : 1;
     });
 

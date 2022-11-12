@@ -43,7 +43,7 @@ export const useTokens = () => {
         total,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 
@@ -57,7 +57,7 @@ export const useTokens = () => {
         },
       });
 
-      const items = data.map((x) => {
+      const items = data.map((x: any) => {
         const balance = R.pathOr('0', ['balance'], x);
         const exponent = R.pathOr(0, ['decimals'], x);
         return {
@@ -78,7 +78,7 @@ export const useTokens = () => {
         items,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 

@@ -26,11 +26,11 @@ const ValidatorDetails = () => {
             <Stake className={classes.stake} stake={state.stake} />
             <Overview className={classes.overview} overview={state.overview} />
             {state.isProvider && (
-              <ContractDetails className={classes.contractDetails} contract={state.contract} />
+              <ContractDetails className={classes.contractDetails} contract={state.contract as any} />
             )}
             <Nodes className={classes.nodes} />
             {state.isProvider && (
-              <Transactions provider={state.contract.address} className={classes.transaction} />
+              <Transactions provider={state.contract?.address as any} className={classes.transaction as any} />
             )}
           </div>
         </LoadAndExist>

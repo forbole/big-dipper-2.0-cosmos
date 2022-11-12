@@ -26,7 +26,7 @@ export const usePrice = () => {
         items: prices.slice(-7),
       });
     } catch (error) {
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 

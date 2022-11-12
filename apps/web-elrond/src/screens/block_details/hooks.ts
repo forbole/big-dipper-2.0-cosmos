@@ -63,7 +63,7 @@ export const useBlockDetails = () => {
         loading: false,
         exists: false,
       });
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 

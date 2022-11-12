@@ -49,9 +49,9 @@ const Balance: React.FC<{
     background: backgrounds[i],
   }));
 
-  const notEmpty = formatData.some((x) => Big(x.value).gt(0));
+  const notEmpty = formatData.some((x) => x.value &&Big(x.value).gt(0));
 
-  const dataCount = formatData.filter((x) => Big(x.value).gt(0)).length;
+  const dataCount = formatData.filter((x) => x.value &&Big(x.value).gt(0)).length;
   const data = notEmpty ? formatData : [...formatData, empty];
   const totalAmount = `$${numeral(
     Big(market.price || 0)

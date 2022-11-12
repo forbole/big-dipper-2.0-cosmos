@@ -38,7 +38,7 @@ const Mobile: React.FC<{
         </Link>
       ),
       txs: numeral(x.txs).format('0,0'),
-      time: dayjs.utc(x.timestamp).fromNow(),
+      time: (dayjs as any).utc(x.timestamp).fromNow(),
       proposer: (
         <AvatarName
           address={x.proposer.address}

@@ -69,7 +69,7 @@ const Params = () => {
             {slashing && <BoxDetails {...slashing} />}
             {minting && <BoxDetails {...minting} />}
             {distribution && <BoxDetails {...distribution} />}
-            {gov && <BoxDetails {...gov} />}
+            {gov && <BoxDetails {...gov as any} />}
           </span>
         </LoadAndExist>
       </Layout>

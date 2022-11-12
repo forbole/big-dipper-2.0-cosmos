@@ -58,7 +58,7 @@ const Price: React.FC<{ price: PriceType[] } & ComponentDefault> = (props) => {
                   {(x) => {
                     return (
                       <>
-                        <Typography variant="caption">{x.time}</Typography>
+                        <Typography variant="caption">{(x as any)?.time}</Typography>
                         <Typography variant="body1">
                           ${numeral(x.value).format('0,0.00')}
                         </Typography>

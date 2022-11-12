@@ -21,7 +21,7 @@ export const useDeposits = () => {
 
   useProposalDetailsDepositsQuery({
     variables: {
-      proposalId: R.pathOr('', ['query', 'id'], router),
+      proposalId: parseInt(R.pathOr('', ['query', 'id'], router), 10),
     },
     onCompleted: (data) => {
       handleSetState(foramtProposalDeposits(data));

@@ -11,11 +11,11 @@ type FormatGraphType = {
 };
 export const formatGraphData = ({ data, theme, total }: FormatGraphType) => {
   const keys = R.keys(data);
-  const color = {
-    0: theme.palette.custom.charts.four,
-    1: theme.palette.custom.charts.one,
-    2: theme.palette.custom.charts.three,
-    3: theme.palette.custom.charts.two,
+  const color: any = {
+    0: theme.palette?.custom?.charts.four,
+    1: theme.palette?.custom?.charts.one,
+    2: theme.palette?.custom?.charts.three,
+    3: theme.palette?.custom?.charts.two,
   };
 
   const formattedData = keys.map((x, i) => {
@@ -35,9 +35,9 @@ export const formatGraphData = ({ data, theme, total }: FormatGraphType) => {
 
   if (!notEmpty) {
     formattedData.push({
-      name: 'empty',
+      name: 'empty' as any,
       value: 2400,
-      color: theme.palette.custom.charts.zero,
+      color: theme.palette?.custom?.charts.zero,
       percentage: '0%',
       display: '',
     });

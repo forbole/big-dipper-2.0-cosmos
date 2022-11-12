@@ -47,7 +47,7 @@ export const useTokens = () => {
         total,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log((error as Error).message);
     }
   };
 
@@ -62,7 +62,7 @@ export const useTokens = () => {
         },
       });
 
-      const items = data.map((x) => {
+      const items = data.map((x: any) => {
         return {
           identifier: R.pathOr('', ['identifier'], x),
           name: R.pathOr('', ['name'], x),
@@ -75,7 +75,7 @@ export const useTokens = () => {
         items,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 

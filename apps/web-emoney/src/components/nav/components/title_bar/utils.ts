@@ -28,7 +28,7 @@ export const formatMarket = (data: AtomState) => {
     },
     {
       key: 'communityPool',
-      data: `${numeral(data.communityPool.value, 2).format(
+      data: `${(numeral as any)(data.communityPool.value, 2).format(
         '0,0.00'
       )} ${data.communityPool.displayDenom.toUpperCase()}`,
     },

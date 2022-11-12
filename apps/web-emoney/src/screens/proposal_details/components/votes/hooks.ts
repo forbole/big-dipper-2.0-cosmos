@@ -38,7 +38,7 @@ export const useVotes = (resetPagination: any) => {
 
   useProposalDetailsVotesQuery({
     variables: {
-      proposalId: R.pathOr('', ['query', 'id'], router),
+      proposalId: parseInt(R.pathOr('', ['query', 'id'], router), 10),
     },
     onCompleted: (data) => {
       handleSetState(formatVotes(data));
@@ -46,7 +46,7 @@ export const useVotes = (resetPagination: any) => {
   });
 
   const formatVotes = (data: ProposalDetailsVotesQuery) => {
-    const validatorDict = {};
+    const validatorDict: {[key: string]: any} = {};
     const validators = data.validatorStatuses.map((x) => {
       const selfDelegateAddress = R.pathOr(
         '',

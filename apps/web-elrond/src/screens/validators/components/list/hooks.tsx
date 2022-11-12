@@ -50,8 +50,8 @@ export const useValidators = () => {
       const stakeData = R.pathOr({}, ['value', 'data'], stakeDataRaw);
 
       // identities
-      const identities = {};
-      validatorsData.forEach((x) => {
+      const identities: {[key: string]: any} = {};
+      validatorsData.forEach((x: any) => {
         const identity = R.pathOr('', ['identity'], x);
         const imageUrl = R.pathOr('', ['avatar'], x);
         const name = R.pathOr('', ['name'], x);
@@ -73,7 +73,7 @@ export const useValidators = () => {
       const allProviderData: any = {};
       const allNodes: any = {};
 
-      validatorsData.forEach((x) => {
+      validatorsData.forEach((x: any) => {
         const identity = R.pathOr(null, ['identity'], x);
         const validator = R.pathOr(
           {
@@ -81,7 +81,7 @@ export const useValidators = () => {
             imageUrl: '',
             name: R.pathOr('', ['name'], x),
           },
-          [identity],
+          [identity ?? ''],
           identities
         );
         if (!allValidators[validator.address]) {
@@ -89,12 +89,12 @@ export const useValidators = () => {
         }
         allValidatorData[validator.address] = x;
         // node edgecase
-        if (!identities[identity]) {
+        if (!identities[identity ?? '']) {
           allNodes[validator.address] = true;
         }
       });
 
-      providersData.forEach((x) => {
+      providersData.forEach((x: any) => {
         const identity = R.pathOr(null, ['identity'], x);
         const validator = R.pathOr(
           {
@@ -102,7 +102,7 @@ export const useValidators = () => {
             imageUrl: '',
             name: R.pathOr('', ['provider'], x),
           },
-          [identity],
+          [identity ?? ''],
           identities
         );
 
@@ -151,7 +151,7 @@ export const useValidators = () => {
         loading: false,
         exists: false,
       });
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 

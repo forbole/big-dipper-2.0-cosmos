@@ -45,8 +45,8 @@ export const useValidators = () => {
       //   const { data: providersData } = await axios.get(PROVIDERS);
 
       // identities
-      //   const identities = {};
-      //   validatorsData.forEach((x) => {
+      //   const identities: {[key: string]: any} = {};
+      //   validatorsData.forEach((x: any) => {
       //     const identity = R.pathOr('', ['identity'], x);
       //     const imageUrl = R.pathOr('', ['avatar'], x);
       //     const name = R.pathOr('', ['name'], x);
@@ -125,7 +125,7 @@ export const useValidators = () => {
         loading: false,
         exists: false,
       });
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 

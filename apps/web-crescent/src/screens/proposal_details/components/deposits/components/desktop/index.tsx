@@ -32,7 +32,7 @@ const Desktop: React.FC<{
         x.amount.value,
         x.amount.exponent
       )} ${x.amount.displayDenom.toUpperCase()}`,
-      time: formatDayJs(dayjs.utc(x.timestamp), dateFormat),
+      time: formatDayJs((dayjs as any).utc(x.timestamp), dateFormat),
     };
   });
 

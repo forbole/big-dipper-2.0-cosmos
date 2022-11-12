@@ -28,7 +28,7 @@ const Desktop: React.FC<{
         </Link>
       ),
       txs: numeral(x.txs).format('0,0'),
-      time: dayjs.utc(x.timestamp).fromNow(),
+      time: (dayjs as any).utc(x.timestamp).fromNow(),
       hash: getMiddleEllipsis(x.hash, {
         beginning: 15,
         ending: 15,

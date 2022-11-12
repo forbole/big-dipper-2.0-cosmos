@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import copy from 'copy-to-clipboard';
+import { Translate } from 'next-translate';
 
-export const useOverview = (t) => {
+export const useOverview = (t: Translate) => {
   const [open, setOpen] = useState(false);
 
   const handleClose = () => {

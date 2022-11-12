@@ -140,10 +140,10 @@ export const useValidatorDetails = () => {
       // =====================================
       const getOverview = () => {
         // distribution
-        let distribution = [];
+        let distribution: any[] = [];
         if (identityData) {
           const keys = R.keys(R.pathOr([], ['distribution'], identityData));
-          distribution = keys.map((x) => {
+          distribution = keys.map((x: any) => {
             return {
               key: x,
               value: R.pathOr(0, ['distribution', x], identityData),
@@ -166,7 +166,7 @@ export const useValidatorDetails = () => {
         loading: false,
         exists: false,
       });
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 

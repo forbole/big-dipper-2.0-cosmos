@@ -53,7 +53,7 @@ export const useValidatorRecoil = <TData, TVariables>(
   const formatAndSetValidatorsAddressList = useRecoilCallback(({ set }) => async (data: TData) => {
     (data as DataType)?.validator
       ?.filter((x) => x.validatorInfo)
-      .forEach((x) => {
+      .forEach((x: any) => {
         const validatorAddress = x.validatorInfo.operatorAddress;
         const delegatorAddress = x.validatorInfo.selfDelegateAddress;
         const { consensusAddress } = x.validatorInfo;
@@ -77,7 +77,7 @@ export const useValidatorRecoil = <TData, TVariables>(
       const profilesPromises: Array<Promise<DataType>> = [];
       (data as DataType)?.validator
         ?.filter((x) => x.validatorInfo)
-        .forEach((x) => {
+        .forEach((x: any) => {
           const delegatorAddress = x.validatorInfo.selfDelegateAddress;
           profilesPromises.push(fetchDesmosProfile(delegatorAddress));
         });

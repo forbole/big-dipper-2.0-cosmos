@@ -27,7 +27,7 @@ const Mobile: React.FC<{
                 </Link>
               }
               txs={numeral(x.txs).format('0,0')}
-              time={dayjs.utc(x.timestamp).fromNow()}
+              time={(dayjs as any).utc(x.timestamp).fromNow()}
               hash={`0x${getMiddleEllipsis(x.hash, {
                 beginning: 13,
                 ending: 10,

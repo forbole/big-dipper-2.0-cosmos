@@ -4,7 +4,8 @@ import { useChainHealthCheck } from './hooks';
 
 function InnerApp({ Component, pageProps }: AppProps) {
   useChainHealthCheck();
-  return <Component {...pageProps} />;
+  const ComponentFC = Component as React.FC;
+  return <ComponentFC {...pageProps} />;
 }
 
 export default InnerApp;

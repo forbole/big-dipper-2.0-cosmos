@@ -104,10 +104,10 @@ export const useBlocks = () => {
     if (data.blocks.length === 51) {
       formattedData = data.blocks.slice(0, 51);
     }
-    return formattedData.map((x) => {
+    return formattedData.map((x: any) => {
       return {
         height: x.height,
-        txs: x.txs.aggregate.count,
+        txs: x.txs.aggregate?.count,
         hash: x.hash,
         timestamp: x.timestamp,
       };

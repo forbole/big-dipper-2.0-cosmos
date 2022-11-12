@@ -23,10 +23,10 @@ const Countdown: React.FC<{
     loading: false,
   });
 
-  const genesisTime = dayjs.utc(chainConfig.genesis.time);
+  const genesisTime = (dayjs as any).utc(chainConfig.genesis.time);
 
   const intervalCallback = () => {
-    const timeNow = dayjs.utc();
+    const timeNow = (dayjs as any).utc();
     const difference = genesisTime.diff(timeNow);
     if (difference > 0) {
       setState((prevState) => ({

@@ -100,6 +100,7 @@ const Mobile: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
   return (
     <div className={classnames(className)}>
       <List
+        width="auto"
         height={900}
         itemCount={itemsNew.length}
         itemSize={getRowHeight}
@@ -111,7 +112,7 @@ const Mobile: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
           return (
             <div style={style} className={index % 2 ? classes.even : ''}>
               <div ref={rowRef}>
-                <SingleProvider {...selectedItem} />
+                <SingleProvider {...selectedItem as any} />
                 {index !== itemsNew.length - 1 && <Divider />}
               </div>
             </div>

@@ -39,8 +39,8 @@ export const useProviders = (search: string) => {
 
     if (state.sortKey && state.sortDirection) {
       sorted.sort((a, b) => {
-        let compareA = R.pathOr(undefined, [...state.sortKey.split('.')], a);
-        let compareB = R.pathOr(undefined, [...state.sortKey.split('.')], b);
+        let compareA: any = R.pathOr(undefined, [...state.sortKey.split('.')], a);
+        let compareB: any = R.pathOr(undefined, [...state.sortKey.split('.')], b);
 
         if (state.sortKey === 'locked.value') {
           compareA = Number(compareA);

@@ -39,7 +39,7 @@ export const useValidatorRecoil = () => {
       async (data: ValidatorAddressesQuery) => {
         data?.validator
           ?.filter((x) => x.consensusAddress || x.selfDelegateAddress)
-          .forEach((x) => {
+          .forEach((x: any) => {
             // const validatorAddress = x.validatorInfo.operatorAddress;
             const delegatorAddress = x.selfDelegateAddress;
             const { consensusAddress } = x;
@@ -61,10 +61,10 @@ export const useValidatorRecoil = () => {
 
   const setProfiles = useRecoilCallback(({ set }) => async (data: ValidatorAddressesQuery) => {
     if (chainConfig.extra.profile) {
-      let profiles = [];
+      let profiles: any[] = [];
       data?.validator
         ?.filter((x) => x.consensusAddress || x.selfDelegateAddress)
-        .forEach((x) => {
+        .forEach((x: any) => {
           const delegatorAddress = x.selfDelegateAddress;
           profiles.push(fetchDesmosProfile(delegatorAddress));
         });

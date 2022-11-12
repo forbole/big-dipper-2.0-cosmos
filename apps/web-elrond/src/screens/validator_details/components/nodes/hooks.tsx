@@ -54,7 +54,7 @@ export const useBlocks = () => {
         total,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 
@@ -74,7 +74,7 @@ export const useBlocks = () => {
         params,
       });
 
-      const items = blocksData.map((x) => {
+      const items = blocksData.map((x: any) => {
         return {
           pubkey: R.pathOr('', ['bls'], x),
           name: R.pathOr('', ['name'], x),
@@ -90,7 +90,7 @@ export const useBlocks = () => {
         items,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 

@@ -67,7 +67,7 @@ export function useMarketRecoil<TData, TVariables>(
     }
 
     const [communityPoolCoin] = (data?.communityPool?.[0].coins ?? []).filter(
-      (x) => x.denom === chainConfig.primaryTokenUnit
+      (x: any) => x.denom === chainConfig.primaryTokenUnit
     );
     const inflation = R.pathOr(0, ['inflation', 0, 'value'], data);
 

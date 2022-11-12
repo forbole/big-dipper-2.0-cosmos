@@ -29,7 +29,7 @@ export const useStaking = () => {
         percentStaked: ((economicsData.staked * 100) / economicsData.circulatingSupply).toFixed(2),
       });
     } catch (error) {
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 

@@ -8,7 +8,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props
   const { t } = useTranslation('validators');
   const details = [];
 
-  props.overview.stakeDistribution.forEach((x) => {
+  props.overview.stakeDistribution.forEach((x: any) => {
     const key = getMiddleEllipsis(x.key, {
       beginning: 10,
       ending: 7,

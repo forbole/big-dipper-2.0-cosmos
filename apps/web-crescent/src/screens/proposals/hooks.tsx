@@ -31,9 +31,9 @@ export const useProposals = () => {
       const newItems = R.uniq([...state.items, ...formatProposals(data)]);
       handleSetState({
         items: newItems,
-        hasNextPage: newItems.length < data.total.aggregate.count,
+        hasNextPage: newItems.length < (data.total?.aggregate?.count ?? 0),
         isNextPageLoading: false,
-        rawDataTotal: data.total.aggregate.count,
+        rawDataTotal: data.total?.aggregate?.count,
       });
     },
   });
@@ -56,8 +56,8 @@ export const useProposals = () => {
         handleSetState({
           items: newItems,
           isNextPageLoading: false,
-          hasNextPage: newItems.length < data.total.aggregate.count,
-          rawDataTotal: data.total.aggregate.count,
+          hasNextPage: newItems.length < (data.total?.aggregate?.count ?? 0),
+          rawDataTotal: data.total?.aggregate?.count,
         });
       });
   };

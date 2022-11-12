@@ -19,7 +19,7 @@ const Desktop: React.FC<{
       return {
         network: x.network.toUpperCase(),
         identifier: x.identifier,
-        creationTime: formatDayJs(dayjs.utc(x.creationTime), dateFormat),
+        creationTime: formatDayJs((dayjs as any).utc(x.creationTime), dateFormat),
       };
     }) ?? [];
 

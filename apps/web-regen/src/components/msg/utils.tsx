@@ -10,7 +10,7 @@ const getDataByType = (type: string) => {
   // ONLY COSMOS SDK DEFAULT MESSAGES HERE.
   // Please use `customTypeToModel` below for custom message types
   // =====================================
-  const defaultTypeToModel = {
+  const defaultTypeToModel: any = {
     // ========================
     // staking
     // ========================
@@ -343,7 +343,7 @@ const getDataByType = (type: string) => {
   // =====================================
   // Update your chain's message types here
   // =====================================
-  const customTypeToModel = {
+  const customTypeToModel: any = {
     // ========================
     // data
     // ========================
@@ -464,13 +464,13 @@ const getDataByType = (type: string) => {
   };
 
   if (
-    ((_): _ is keyof typeof defaultTypeToModel => _ in defaultTypeToModel)(type) &&
+    (type in defaultTypeToModel) &&
     defaultTypeToModel[type]
   )
     return defaultTypeToModel[type];
 
   if (
-    ((_): _ is keyof typeof customTypeToModel => _ in customTypeToModel)(type) &&
+    (type in customTypeToModel) &&
     customTypeToModel[type]
   )
     return customTypeToModel[type];
@@ -536,7 +536,7 @@ export const getMessageByType = (message: any, viewRaw: boolean, t: any) => {
 
 export const convertMsgsToModels = (transaction: any) => {
   const messages = R.pathOr([], ['messages'], transaction).map((msg, i) => {
-    const model = getMessageModelByType(msg?.['@type']);
+    const model = getMessageModelByType(msg?.['@type']) as any;
     if (
       model === MODELS.MsgWithdrawDelegatorReward ||
       model === MODELS.MsgWithdrawValidatorCommission

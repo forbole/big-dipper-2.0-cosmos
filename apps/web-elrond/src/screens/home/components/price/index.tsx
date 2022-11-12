@@ -54,7 +54,7 @@ const Price: React.FC<ComponentDefault> = (props) => {
               cursor={false}
               content={
                 <CustomToolTip>
-                  {(x) => {
+                  {(x: any) => {
                     return (
                       <>
                         <Typography variant="caption">{x.time}</Typography>

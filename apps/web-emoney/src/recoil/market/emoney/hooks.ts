@@ -35,13 +35,13 @@ export const useMarketRecoil = () => {
     }
 
     const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter(
-      (x) => x.denom === chainConfig.primaryTokenUnit
-    );
+      (x: any) => x.denom === chainConfig.primaryTokenUnit
+    ) as any;
     const inflation = R.pathOr(
       0,
       [0, 'inflation'],
       R.pathOr([], ['inflation', 0, 'inflation'], data).filter(
-        (x) => x.denom === chainConfig.primaryTokenUnit
+        (x: any) => x.denom === chainConfig.primaryTokenUnit
       )
     );
 

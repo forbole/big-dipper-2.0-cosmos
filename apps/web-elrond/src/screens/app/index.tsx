@@ -5,6 +5,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { RecoilRoot } from 'recoil';
 import chainConfig from 'ui/chainConfig';
 import { useWindowOrigin } from '@hooks';
+import { NormalizedCacheObject } from '@apollo/client';
 import { Main } from './components';
 import { useApp } from './hooks';
 import {
@@ -14,7 +15,7 @@ import {
   ADDITIONAL_META_TAGS,
 } from './utils';
 
-function App(props: AppProps) {
+function App(props: AppProps<{ initialApolloState?: NormalizedCacheObject }>) {
   useApp();
   const { t } = useTranslation();
   const { location } = useWindowOrigin();

@@ -1,4 +1,4 @@
-import { OracleParams } from '@models';
+import OracleParams from '@models/band/oracle_params';
 
 export type Staking = {
   bondDenom: string;

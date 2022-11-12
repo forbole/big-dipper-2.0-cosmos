@@ -30,7 +30,7 @@ const Desktop: React.FC<{
         x.amount.value,
         x.amount.exponent
       )} ${x.amount.displayDenom.toUpperCase()}`,
-      completionTime: formatDayJs(dayjs.utc(x.completionTime), dateFormat),
+      completionTime: formatDayJs((dayjs as any).utc(x.completionTime), dateFormat),
     };
   });
 

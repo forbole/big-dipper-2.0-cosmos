@@ -57,7 +57,7 @@ export const useValidators = () => {
       .filter((x) => x.validatorInfo)
       .map((x) => {
         const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
-        const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
+        const votingPowerPercent = numeral((votingPower / (votingPowerOverall ?? 0)) * 100).value();
 
         const missedBlockCounter = R.pathOr(
           0,
@@ -67,9 +67,9 @@ export const useValidators = () => {
         const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
 
         return {
-          validator: x.validatorInfo.operatorAddress,
-          votingPower,
-          votingPowerPercent,
+          validator: x.validatorInfo?.operatorAddress ?? '',
+          votingPower: votingPower ?? 0,
+          votingPowerPercent: votingPowerPercent ?? 0,
           commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], x) * 100,
           condition,
           status: R.pathOr(0, ['validatorStatuses', 0, 'status'], x),
@@ -86,7 +86,7 @@ export const useValidators = () => {
     // add key to indicate they are part of top 34%
     let cumulativeVotingPower = Big(0);
     let reached = false;
-    formattedItems.forEach((x) => {
+    formattedItems.forEach((x: any) => {
       if (x.status === 3) {
         const totalVp = cumulativeVotingPower.add(x.votingPowerPercent);
         if (totalVp.lte(34) && !reached) {
@@ -153,8 +153,8 @@ export const useValidators = () => {
 
     if (state.sortKey && state.sortDirection) {
       sorted.sort((a, b) => {
-        let compareA = R.pathOr(undefined, [...state.sortKey.split('.')], a);
-        let compareB = R.pathOr(undefined, [...state.sortKey.split('.')], b);
+        let compareA: any = R.pathOr(undefined, [...state.sortKey.split('.')], a);
+        let compareB: any = R.pathOr(undefined, [...state.sortKey.split('.')], b);
 
         if (typeof compareA === 'string') {
           compareA = compareA.toLowerCase();

@@ -36,7 +36,7 @@ export const useVotesGraph = () => {
 
   useProposalDetailsTallyQuery({
     variables: {
-      proposalId: R.pathOr('', ['query', 'id'], router),
+      proposalId: parseInt(R.pathOr('', ['query', 'id'], router), 10),
     },
     onCompleted: (data) => {
       handleSetState(foramtProposalTally(data));

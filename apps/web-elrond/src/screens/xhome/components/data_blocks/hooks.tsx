@@ -33,7 +33,7 @@ export const useDataBlocks = () => {
         },
       });
     } catch (error) {
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 
@@ -44,7 +44,7 @@ export const useDataBlocks = () => {
         blockHeight,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 
@@ -55,7 +55,7 @@ export const useDataBlocks = () => {
         transactions,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 

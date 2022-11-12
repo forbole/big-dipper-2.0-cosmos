@@ -82,10 +82,6 @@ function getBaseConfig(chainConfigJson) {
     reactStrictMode: true,
     poweredByHeader: false,
     basePath,
-    typescript: {
-      // TODO: Remove this once all the typescript errors are fixed
-      ignoreBuildErrors: true,
-    },
     /* Setting the environment variables for the app. */
     env: env(generalConfig, chainConfig),
     compiler: {

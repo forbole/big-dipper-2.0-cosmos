@@ -36,7 +36,7 @@ class MsgEditDataSource {
       name: json.name,
       description: json.description,
       executable: R.pathOr('', ['executable'], json),
-      fee: R.pathOr([], ['fee'], json).map((x) => ({
+      fee: R.pathOr([], ['fee'], json).map((x: any) => ({
         denom: x.denom,
         amount: R.pathOr(0, ['amount'], x),
       })),

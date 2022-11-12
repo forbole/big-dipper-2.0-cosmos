@@ -132,12 +132,12 @@ export const useAccountDetails = () => {
     // ============================
     const formatOtherTokens = () => {
       // Loop through balance and delegation to figure out what the other tokens are
-      const otherTokenUnits = new Set();
-      const otherTokens = [];
+      const otherTokenUnits = new Set<string>();
+      const otherTokens: any[] = [];
       // available tokens
       const available = R.pathOr([], ['accountBalances', 'coins'], data);
 
-      available.forEach((x) => {
+      available.forEach((x: any) => {
         otherTokenUnits.add(x.denom);
       });
 

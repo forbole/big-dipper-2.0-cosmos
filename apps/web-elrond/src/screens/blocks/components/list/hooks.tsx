@@ -38,7 +38,7 @@ export const useBlocks = () => {
         total,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 
@@ -51,7 +51,7 @@ export const useBlocks = () => {
         },
       });
 
-      const items = blocksData.map((x) => {
+      const items = blocksData.map((x: any) => {
         return {
           block: x.round,
           timestamp: x.timestamp,
@@ -67,7 +67,7 @@ export const useBlocks = () => {
         items,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 

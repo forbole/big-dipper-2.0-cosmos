@@ -31,12 +31,12 @@ export const useBlocks = () => {
       const proposerAddress = R.pathOr('', ['validator', 'validatorInfo', 'operatorAddress'], x);
       return {
         height: x.height,
-        txs: x.txs,
+        txs: x.txs ?? 0,
         hash: x.hash,
         timestamp: x.timestamp,
         proposer: proposerAddress,
       };
-    });
+    }) ?? [];
   };
 
   return {

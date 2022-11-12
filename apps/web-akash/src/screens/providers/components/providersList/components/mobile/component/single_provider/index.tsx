@@ -14,12 +14,12 @@ const SingleProvider: React.FC<{
   // organization: string;
   // email: string;
   // website: string;
-  ownerAddress;
-  hostUri;
-  region;
-  organization;
-  email;
-  website;
+  ownerAddress: string;
+  hostUri: string;
+  region: string;
+  organization: string;
+  email: string;
+  website: string;
 }> = ({ className, ownerAddress, hostUri, region, organization, email, website }) => {
   const { t } = useTranslation('providers');
   const classes = useStyles();

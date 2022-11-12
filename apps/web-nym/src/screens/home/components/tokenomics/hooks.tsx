@@ -34,17 +34,17 @@ export const useTokenomics = () => {
     results.denom = stakingParams.bondDenom;
 
     const [total] = R.pathOr([], ['supply', 0, 'coins'], data).filter(
-      (x) => x.denom === results.denom
-    );
+      (x: any) => x.denom === results.denom
+    ) as any;
     if (total) {
-      results.total = numeral(formatToken(total.amount, total.denom).value).value();
+      results.total = numeral(formatToken(total.amount, total.denom).value).value() ?? 0;
     }
 
     const bonded = R.pathOr(state.bonded, ['stakingPool', 0, 'bonded'], data);
-    results.bonded = numeral(formatToken(bonded, results.denom).value).value();
+    results.bonded = numeral(formatToken(bonded, results.denom).value).value() ?? 0;
 
     const unbonding = R.pathOr(state.bonded, ['stakingPool', 0, 'unbonded'], data);
-    results.unbonding = numeral(formatToken(unbonding, results.denom).value).value();
+    results.unbonding = numeral(formatToken(unbonding, results.denom).value).value() ?? 0;
 
     const unbonded = results.total - results.unbonding - results.bonded;
     results.unbonded = unbonded;

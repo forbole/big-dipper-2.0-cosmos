@@ -55,7 +55,7 @@ const Mobile: React.FC<TransactionsListState> = ({
       </div>
     ),
     result: <Result success={x.success} />,
-    time: dayjs.utc(x.timestamp).fromNow(),
+    time: (dayjs as any).utc(x.timestamp).fromNow(),
     messages: numeral(x.messages.count).format('0,0'),
   }));
 

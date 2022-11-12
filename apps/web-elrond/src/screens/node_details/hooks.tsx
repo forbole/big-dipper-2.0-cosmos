@@ -139,7 +139,7 @@ export const useNodeDetails = () => {
             shard,
             epoch,
           });
-          return consensusData.map((x) => ({
+          return consensusData.map((x: any) => ({
             round: x.round,
             proposed: x.blockWasProposed,
           }));
@@ -161,7 +161,7 @@ export const useNodeDetails = () => {
             epoch,
           });
 
-          return blocksData.map((x) => ({
+          return blocksData.map((x: any) => ({
             block: x.round,
             timestamp: x.timestamp,
             hash: x.hash,
@@ -179,7 +179,7 @@ export const useNodeDetails = () => {
         loading: false,
         exists: false,
       });
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 
@@ -192,7 +192,7 @@ export const useNodeDetails = () => {
     }
   };
 
-  const getConsensus = async ({ validator, shard, epoch }) => {
+  const getConsensus = async ({ validator, shard, epoch }: any) => {
     const { data: roundsData } = await axios.get(ROUNDS, {
       params: {
         size: 138,
@@ -206,7 +206,7 @@ export const useNodeDetails = () => {
     return roundsData || [];
   };
 
-  const getBlocks = async ({ validator, shard, epoch }) => {
+  const getBlocks = async ({ validator, shard, epoch }: any) => {
     const { data: blocksData } = await axios.get(BLOCKS, {
       params: {
         // size: 25,

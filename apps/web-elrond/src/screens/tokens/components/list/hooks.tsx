@@ -38,7 +38,7 @@ export const useBlocks = () => {
         total,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 
@@ -51,7 +51,7 @@ export const useBlocks = () => {
         },
       });
 
-      const items = tokensData.map((x) => {
+      const items = tokensData.map((x: any) => {
         return {
           identifier: R.pathOr('', ['identifier'], x),
           name: R.pathOr('', ['name'], x),
@@ -67,7 +67,7 @@ export const useBlocks = () => {
         items,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 

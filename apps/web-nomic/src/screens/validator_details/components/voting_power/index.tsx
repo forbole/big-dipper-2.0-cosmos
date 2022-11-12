@@ -17,7 +17,7 @@ const VotingPower: React.FC<{
   const { t } = useTranslation('validators');
   const votingPowerPercent =
     inActiveSet === 'true'
-      ? numeral((data.self / numeral(data.overall.value).value()) * 100)
+      ? numeral((data.self / (numeral(data.overall.value).value() ?? 0)) * 100)
       : numeral(0);
 
   const classes = useStyles(parseFloat(votingPowerPercent.format('0', Math.floor)));

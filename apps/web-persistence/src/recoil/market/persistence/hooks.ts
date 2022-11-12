@@ -35,8 +35,8 @@ export const useMarketRecoil = () => {
     }
 
     const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter(
-      (x) => x.denom === chainConfig.primaryTokenUnit
-    );
+      (x: any) => x.denom === chainConfig.primaryTokenUnit
+    ) as any;
     const inflation = R.pathOr(0, ['inflation', 0, 'value'], data);
 
     const rawSupplyAmount = getDenom(

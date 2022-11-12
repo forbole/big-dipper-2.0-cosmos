@@ -37,7 +37,7 @@ const Mobile: React.FC<{
       // result: (
       //   <Result success={x.success} />
       // ),
-      time: dayjs.utc(x.timestamp).fromNow(),
+      time: (dayjs as any).utc(x.timestamp).fromNow(),
       // messages: numeral(x.messages).format('0,0'),
     };
   });

@@ -16,7 +16,7 @@ const NetworkList: React.FC<{
   const theme = useRecoilValue(readTheme);
 
   return (
-    <Box boxShadow={3} className={classnames(className, classes.root)}>
+    <Box className={classnames(className, classes.root)}>
       <div
         style={{
           height: actionHeight,

@@ -98,7 +98,7 @@ export const useStaking = (rewards: RewardsType) => {
         const remainingDelegations = await Promise.allSettled(remainingDelegationsPromises);
         remainingDelegations
           .filter((x) => x.status === 'fulfilled')
-          .forEach((x) => {
+          .forEach((x: any) => {
             const delegations = R.pathOr([], ['value', 'data', 'delegations', 'delegations'], x);
             allDelegations.push(...delegations);
           });
@@ -161,7 +161,7 @@ export const useStaking = (rewards: RewardsType) => {
         const remainingData = await Promise.allSettled(remainingPromises);
         remainingData
           .filter((x) => x.status === 'fulfilled')
-          .forEach((x) => {
+          .forEach((x: any) => {
             const fullfilledData = R.pathOr(
               [],
               ['value', 'data', 'redelegations', 'redelegations'],
@@ -191,7 +191,7 @@ export const useStaking = (rewards: RewardsType) => {
 
   const formatRedelegations = (data: any[]) => {
     const results: RedelegationType[] = [];
-    data.forEach((x) => {
+    data.forEach((x: any) => {
       R.pathOr([], ['entries'], x).forEach((y: { balance: string | number }) => {
         results.push({
           from: R.pathOr('', ['validator_src_address'], x),
@@ -202,7 +202,7 @@ export const useStaking = (rewards: RewardsType) => {
       });
     });
 
-    results.sort((a, b) => {
+    results.sort((a: any, b: any) => {
       return a.completionTime < b.completionTime ? -1 : 1;
     });
 
@@ -234,7 +234,7 @@ export const useStaking = (rewards: RewardsType) => {
         const remainingData = await Promise.allSettled(remainingPromises);
         remainingData
           .filter((x) => x.status === 'fulfilled')
-          .forEach((x) => {
+          .forEach((x: any) => {
             const fullfilledData = R.pathOr(
               [],
               ['value', 'data', 'undelegations', 'undelegations'],
@@ -264,7 +264,7 @@ export const useStaking = (rewards: RewardsType) => {
 
   const formatUnbondings = (data: any[]) => {
     const results: Array<{ validator: string; amount: TokenUnit; completionTime: string }> = [];
-    data.forEach((x) => {
+    data.forEach((x: any) => {
       R.pathOr([], ['entries'], x).forEach((y: { balance: string | number }) => {
         results.push({
           validator: R.pathOr('', ['validator_address'], x),
@@ -274,7 +274,7 @@ export const useStaking = (rewards: RewardsType) => {
       });
     });
 
-    results.sort((a, b) => {
+    results.sort((a: any, b: any) => {
       return a.completionTime < b.completionTime ? -1 : 1;
     });
 

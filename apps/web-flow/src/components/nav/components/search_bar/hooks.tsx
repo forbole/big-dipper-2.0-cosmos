@@ -12,7 +12,7 @@ import { useRecoilCallback } from 'recoil';
 // import { readValidator } from '@recoil/validators';
 // import { toast } from 'react-toastify';
 
-export const useSearchBar = (_t) => {
+export const useSearchBar = (_t: any) => {
   // const router = useRouter();
 
   // eslint-disable-next-line

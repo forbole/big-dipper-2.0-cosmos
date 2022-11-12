@@ -7,6 +7,7 @@ import TransactionsList from 'ui/components/transactions_list';
 import Box from 'ui/components/box';
 import { useRecoilValue } from 'recoil';
 import { readTx } from '@recoil/settings';
+import { useGetMessagesByAddressQuery } from '@src/graphql/types/general_types';
 import { useStyles } from './styles';
 import { useTransactions } from './hooks';
 
@@ -15,7 +16,7 @@ const Transactions: React.FC<ComponentDefault> = (props) => {
   const classes = useStyles();
   const { t } = useTranslation('validators');
 
-  const { state, loadNextPage } = useTransactions();
+  const { state, loadNextPage } = useTransactions(useGetMessagesByAddressQuery);
 
   const loadMoreItems = state.isNextPageLoading ? () => null : loadNextPage;
   const isItemLoaded = (index: number) => !state.hasNextPage || index < state.data.length;

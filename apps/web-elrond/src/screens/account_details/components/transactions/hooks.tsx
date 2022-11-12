@@ -42,7 +42,7 @@ export const useTransactions = () => {
         total,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 
@@ -59,7 +59,7 @@ export const useTransactions = () => {
         }
       );
 
-      const items = transactionsData.map((x) => {
+      const items = transactionsData.map((x: any) => {
         return {
           hash: x.txHash,
           fromShard: x.senderShard,
@@ -76,7 +76,7 @@ export const useTransactions = () => {
         items,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 

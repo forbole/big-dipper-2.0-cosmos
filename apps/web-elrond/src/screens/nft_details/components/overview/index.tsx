@@ -62,7 +62,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
     ...[
       {
         label: t('minted'),
-        detail: formatDayJs(dayjs.utc(dayjs.unix(props.minted)), dateFormat),
+        detail: formatDayJs((dayjs as any).utc(dayjs.unix(props.minted)), dateFormat),
       },
     ]
   );

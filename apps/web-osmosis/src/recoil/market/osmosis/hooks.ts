@@ -35,8 +35,8 @@ export const useMarketRecoil = () => {
     }
 
     const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter(
-      (x) => x.denom === chainConfig.primaryTokenUnit
-    );
+      (x: any) => x.denom === chainConfig.primaryTokenUnit
+    ) as any;
     const inflation = R.pathOr(0, ['inflation', 0, 'value'], data);
 
     const rawSupplyAmount = getDenom(
@@ -50,7 +50,7 @@ export const useMarketRecoil = () => {
     }
 
     const bondedTokens = R.pathOr(1, ['bondedTokens', 0, 'bonded_tokens'], data);
-    const distributionProportions = R.pathOr(
+    const distributionProportions: any = R.pathOr(
       '0',
       ['mintParams', 0, 'params', 'distribution_proportions'],
       data

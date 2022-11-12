@@ -32,7 +32,7 @@ export const useProposalDetails = () => {
   // ==========================
   useProposalDetailsQuery({
     variables: {
-      proposalId: R.pathOr('', ['query', 'id'], router),
+      proposalId: parseInt(R.pathOr('', ['query', 'id'], router), 10),
     },
     onCompleted: (data) => {
       handleSetState(formatProposalQuery(data));
@@ -59,9 +59,9 @@ export const useProposalDetails = () => {
     const formatOverview = () => {
       const DEFAULT_TIME = '0001-01-01T00:00:00';
       let votingStartTime = R.pathOr(DEFAULT_TIME, ['proposal', 0, 'votingStartTime'], data);
-      votingStartTime = votingStartTime === DEFAULT_TIME ? null : votingStartTime;
+      votingStartTime = votingStartTime === DEFAULT_TIME ? '' : votingStartTime;
       let votingEndTime = R.pathOr(DEFAULT_TIME, ['proposal', 0, 'votingEndTime'], data);
-      votingEndTime = votingEndTime === DEFAULT_TIME ? null : votingEndTime;
+      votingEndTime = votingEndTime === DEFAULT_TIME ? '' : votingEndTime;
 
       const overview = {
         proposer: R.pathOr('', ['proposal', 0, 'proposer'], data),

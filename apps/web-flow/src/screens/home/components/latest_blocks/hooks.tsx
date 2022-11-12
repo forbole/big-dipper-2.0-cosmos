@@ -27,7 +27,7 @@ export const useBlocks = () => {
     return data.blocks.map((x) => {
       return {
         height: x.height,
-        txs: x.txs.aggregate.count,
+        txs: x.txs.aggregate?.count,
         hash: x.hash,
         timestamp: x.timestamp,
       };

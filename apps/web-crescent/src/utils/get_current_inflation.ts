@@ -14,7 +14,7 @@ export const getCurrentInflationAmount = (
   );
   let result = 0;
   if (currentInflationSchedule) {
-    result = R.pathOr('0', ['amount'], currentInflationSchedule);
+    result = parseFloat(R.pathOr('0', ['amount'], currentInflationSchedule));
   }
   return result;
 };

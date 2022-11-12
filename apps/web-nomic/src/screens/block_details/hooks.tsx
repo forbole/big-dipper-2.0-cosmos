@@ -38,7 +38,7 @@ export const useBlockDetails = () => {
   useBlockDetailsQuery({
     variables: {
       height: numeral(router.query.height).value(),
-      signatureHeight: numeral(router.query.height).value() + 1,
+      signatureHeight: (numeral(router.query.height).value() ?? 0) + 1,
     },
     onCompleted: (data) => {
       handleSetState(formatRaws(data));

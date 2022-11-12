@@ -32,7 +32,7 @@ export const useProfileDetails = () => {
   });
 
   const shouldShowProfile = () => {
-    const dtagConnections = state.desmosProfile.connections;
+    const dtagConnections = state.desmosProfile?.connections ?? [];
     const dtagConnectionsNetwork = dtagConnections.map((x) => {
       return x.identifier;
     });

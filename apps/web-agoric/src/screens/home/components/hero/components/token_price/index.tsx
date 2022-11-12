@@ -27,8 +27,8 @@ const TokenPrice: React.FC<{ items: TokenPriceType[] } & ComponentDefault> = (pr
 
   const formatItems = props.items.map((x) => {
     return {
-      time: formatTime(dayjs.utc(x.time), dateFormat),
-      fullTime: formatDayJs(dayjs.utc(x.time), dateFormat),
+      time: formatTime((dayjs as any).utc(x.time), dateFormat),
+      fullTime: formatDayJs((dayjs as any).utc(x.time), dateFormat),
       value: x.value,
     };
   });

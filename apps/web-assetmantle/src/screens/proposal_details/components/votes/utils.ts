@@ -1,7 +1,7 @@
 import { VoteType } from './types';
 
 export const getVoteKey = (vote: string) => {
-  const votes = {
+  const votes: any = {
     VOTE_OPTION_YES: 'yes',
     VOTE_OPTION_NO: 'no',
     VOTE_OPTION_NO_WITH_VETO: 'veto',

@@ -106,8 +106,8 @@ export const useTransactions = () => {
       formattedData = data.transactions.slice(0, 51);
     }
 
-    return formattedData.map((x) => {
-      const msgType = x.messages.map((eachMsg) => {
+    return formattedData.map((x: any) => {
+      const msgType = x.messages.map((eachMsg: any) => {
         const eachMsgType = R.pathOr('none type', ['@type'], eachMsg);
         return eachMsgType;
       });

@@ -25,7 +25,7 @@ export const useBlocks = () => {
         },
       });
 
-      const items = transactionsData.map((x) => {
+      const items = transactionsData.map((x: any) => {
         return {
           hash: x.txHash,
           from: x.sender,
@@ -39,7 +39,7 @@ export const useBlocks = () => {
         items,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log((error as any).message);
     }
   };
 

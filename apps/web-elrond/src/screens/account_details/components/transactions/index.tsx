@@ -27,7 +27,7 @@ const Transactions: React.FC<ComponentDefault> = (props) => {
   } else if (!state.items.length) {
     component = <NoData />;
   } else {
-    component = <TransactionsList items={state.items} />;
+    component = <TransactionsList {...({ items: state.items } as any)} />;
   }
 
   return (

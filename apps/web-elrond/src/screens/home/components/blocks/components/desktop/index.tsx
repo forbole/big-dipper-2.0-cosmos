@@ -28,7 +28,7 @@ const Desktop: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => 
         </Link>
       ),
       txs: numeral(x.txs).format('0,0'),
-      time: dayjs.utc(dayjs.unix(x.timestamp)).fromNow(),
+      time: (dayjs as any).utc(dayjs.unix(x.timestamp)).fromNow(),
     };
   });
   return (

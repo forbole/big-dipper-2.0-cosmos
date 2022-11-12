@@ -15,7 +15,7 @@ const Mobile: React.FC<{
   className?: string;
   items: TransactionType[];
 }> = ({ className, items }) => {
-  const formattedData = items.map((x) => {
+  const formattedData = items.map((x: any) => {
     return {
       block: (
         <Link href={BLOCK_DETAILS(x.height)} passHref>
@@ -40,7 +40,7 @@ const Mobile: React.FC<{
           {x.messages > 1 && ` + ${x.messages - 1}`}
         </div>
       ),
-      time: dayjs.utc(x.timestamp).fromNow(),
+      time: (dayjs as any).utc(x.timestamp).fromNow(),
     };
   });
 

@@ -89,15 +89,15 @@ export const useDataBlocks = () => {
     onCompleted: (data) => {
       setState((prevState) => ({
         ...prevState,
-        validators: formatActiveValidatorsCount(data),
+        validators: formatActiveValidatorsCount(data) as any,
       }));
     },
   });
 
   const formatActiveValidatorsCount = (data: ActiveValidatorCountQuery) => {
     return {
-      active: data.total.aggregate.count,
-      total: data.total.aggregate.count,
+      active: data.total?.aggregate?.count,
+      total: data.total?.aggregate?.count,
     };
   };
 
