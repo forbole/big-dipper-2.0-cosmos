@@ -1,4 +1,4 @@
-import AccountDetails from '@src/screens/account_details';
+import AccountDetails from 'ui/screens/account_details';
 
 const AccountDetailsPage = () => {
   return <AccountDetails />;

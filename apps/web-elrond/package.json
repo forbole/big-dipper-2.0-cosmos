@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "NODE_ENV=production next start",
     "lint": "next lint",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "e2e": "cypress open"
   },
   "dependencies": {

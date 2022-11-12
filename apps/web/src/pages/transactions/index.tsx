@@ -1,4 +1,4 @@
-import Transactions from '@src/screens/transactions';
+import Transactions from 'ui/screens/transactions';
 
 const TransactionsPage = () => {
   return <Transactions />;

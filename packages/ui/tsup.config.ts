@@ -7,7 +7,6 @@ const config: Options = {
   clean: true,
   format: ['esm'],
   dts: true,
-  silent: true,
 };
 
 export default defineConfig(config);

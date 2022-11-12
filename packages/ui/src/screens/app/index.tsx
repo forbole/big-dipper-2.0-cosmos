@@ -3,7 +3,7 @@ import { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
 import { RecoilRoot } from 'recoil';
-import { ApolloProvider } from '@apollo/client';
+import { ApolloProvider, NormalizedCache, NormalizedCacheObject } from '@apollo/client';
 import useApollo from 'ui/graphql/useApollo';
 import chainConfig from 'ui/chainConfig';
 import { useWindowOrigin } from '@hooks';
@@ -16,10 +16,10 @@ import {
   ADDITIONAL_META_TAGS,
 } from './utils';
 
-function App(props: AppProps) {
+function App(props: AppProps<{ initialApolloState?: NormalizedCacheObject }>) {
   useApp();
   const { pageProps } = props;
-  const apolloClient = useApollo(pageProps);
+  const apolloClient = useApollo(pageProps.initialApolloState);
   const { t } = useTranslation();
   const { location } = useWindowOrigin();
 

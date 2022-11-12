@@ -3,7 +3,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ToastContainer } from 'react-toastify';
 import { AppProps } from 'next/app';
-import Countdown from '@screens/countdown';
+import Countdown from 'ui/screens/countdown';
 import InitialLoad from '@screens/initial_load';
 import { useSettingsRecoil } from '@recoil/settings';
 import {

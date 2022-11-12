@@ -1,9 +1,12 @@
 import React from 'react';
 import { AppProps } from 'next/app';
-import { useChainHealthCheck } from './hooks';
+import { useChainHealthCheck, UseLatestBlockTimestampLazyQuery } from './hooks';
 
-function InnerApp({ Component, pageProps }: AppProps) {
-  useChainHealthCheck();
+function InnerApp<TData, TVariables>(
+  { Component, pageProps }: AppProps,
+  useLatestBlockTimestampLazyQuery: UseLatestBlockTimestampLazyQuery<TData, TVariables>
+) {
+  useChainHealthCheck(useLatestBlockTimestampLazyQuery);
   const ComponentFC = Component as React.FC;
   return <ComponentFC {...pageProps} />;
 }

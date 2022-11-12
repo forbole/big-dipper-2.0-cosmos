@@ -31,7 +31,7 @@
     "clean": "rm -rf dist",
     "lint": "next lint",
     "dev": "tsup --watch",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "graphql:codegen": "graphql-codegen"
   },
   "dependencies": {

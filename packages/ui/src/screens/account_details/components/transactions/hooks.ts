@@ -2,15 +2,18 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { convertMsgsToModels } from 'ui/components/msg';
 import * as R from 'ramda';
-import {
-  useGetMessagesByAddressQuery,
-  GetMessagesByAddressQuery,
-} from '@graphql/types/general_types';
+import { QueryHookOptions, QueryResult } from '@apollo/client';
 import { TransactionState } from './types';
 
 const LIMIT = 50;
 
-export const useTransactions = () => {
+export type UseGetMessagesByAddressQuery<TData, TVariables> = (
+  baseOptions?: QueryHookOptions<TData, TVariables>
+) => QueryResult<TData, TVariables>;
+
+export function useTransactions<TData, TVariables>(
+  useGetMessagesByAddressQuery: UseGetMessagesByAddressQuery<TData, TVariables>
+) {
   const router = useRouter();
   const [state, setState] = useState<TransactionState>({
     data: [],
@@ -28,8 +31,8 @@ export const useTransactions = () => {
       limit: LIMIT + 1, // to check if more exist
       offset: 0,
       address: `{${R.pathOr('', ['query', 'address'], router)}}`,
-    },
-    onCompleted: (data) => {
+    } as TVariables,
+    onCompleted: (data: any) => {
       const itemsLength = data.messagesByAddress.length;
       const newItems = R.uniq([...state.data, ...formatTransactions(data)]);
       const stateChange = {
@@ -55,7 +58,7 @@ export const useTransactions = () => {
           limit: LIMIT + 1,
         },
       })
-      .then(({ data }) => {
+      .then(({ data }: any) => {
         const itemsLength = data.messagesByAddress.length;
         const newItems = R.uniq([...state.data, ...formatTransactions(data)]);
         const stateChange = {
@@ -68,12 +71,12 @@ export const useTransactions = () => {
       });
   };
 
-  const formatTransactions = (data: GetMessagesByAddressQuery) => {
+  const formatTransactions = (data: any) => {
     let formattedData = data.messagesByAddress;
     if (data.messagesByAddress.length === 51) {
       formattedData = data.messagesByAddress.slice(0, 51);
     }
-    return formattedData.map((x) => {
+    return formattedData.map((x: any) => {
       const { transaction } = x;
 
       // =============================
@@ -98,4 +101,4 @@ export const useTransactions = () => {
     state,
     loadNextPage,
   };
-};
+}

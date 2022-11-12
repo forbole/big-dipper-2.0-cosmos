@@ -1,4 +1,4 @@
-import Tokens from '@src/screens/proposals';
+import Tokens from 'ui/screens/proposals';
 
 const TokensPage = () => {
   return <Tokens />;

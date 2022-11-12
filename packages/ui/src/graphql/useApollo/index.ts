@@ -120,7 +120,7 @@ export function initializeApollo(initialState?: NormalizedCacheObject) {
  * @param {NormalizedCacheObject} initialState - This is the initial state of the Apollo Client.
  * @returns The Apollo Client instance.
  */
-function useApollo(initialState: NormalizedCacheObject) {
+function useApollo(initialState?: NormalizedCacheObject) {
   /* Setting the initial state of the Apollo Client. */
   const [store, setStore] = useState(() => initializeApollo(initialState));
 

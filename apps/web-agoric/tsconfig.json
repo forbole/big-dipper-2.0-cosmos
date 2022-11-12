@@ -8,7 +8,7 @@
       "@components/*": ["src/components/*"],
       "@models": ["src/models"],
       "@models/*": ["src/models/*"],
-      "@screens/*": ["src/screens/*"],
+      "ui/screens/*": ["src/screens/*"],
       "@public/*": ["public/*"],
       "@utils/*": ["src/utils/*"],
       "@contexts": ["src/contexts"],

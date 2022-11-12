@@ -1,4 +1,4 @@
-import ValidatorDetails from '@screens/validator_details';
+import ValidatorDetails from 'ui/screens/validator_details';
 
 const ValidatorDetailsPage = () => {
   return <ValidatorDetails />;
