@@ -9,12 +9,12 @@ exports[`screen: _app matches snapshot 1`] = `
     className="makeStyles-root-1"
   >
     <img
-      alt=""
+      alt="logo"
       className="makeStyles-logo-3 makeStyles-dark-7"
       src="svg"
     />
     <img
-      alt=""
+      alt="logo"
       className="makeStyles-logo-3 makeStyles-light-6"
       src="svg"
     />

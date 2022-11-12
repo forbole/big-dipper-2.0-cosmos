@@ -6,7 +6,7 @@ exports[`screen: ProfileDetails matches snapshot 1`] = `
   navTitle="profileDetails"
 >
   <div
-    exists={true}
+    exists={false}
     id="LoadAndExist"
     loading={false}
   >

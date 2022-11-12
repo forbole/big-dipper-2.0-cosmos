@@ -2,7 +2,7 @@
 
 exports[`screen: Nav/NetworkList it renders 1`] = `
 <div
-  className="MuiBox-root MuiBox-root makeStyles-root"
+  className="makeStyles-root makeStyles-root"
 >
   <div
     style={

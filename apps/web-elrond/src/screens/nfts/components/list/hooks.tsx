@@ -46,7 +46,7 @@ export const useNFTs = () => {
       handleSetState({
         total: total > maxSize ? maxSize : total,
       });
-    } catch (error) {
+    } catch (error: any) {
       console.log(NFTS_COUNT, error.message);
     }
   };
@@ -64,7 +64,7 @@ export const useNFTs = () => {
         },
       });
 
-      const items = nftData.map((x) => {
+      const items = nftData.map((x: any) => {
         return {
           identifier: R.pathOr('', ['identifier'], x),
           name: R.pathOr('', ['name'], x),
@@ -78,7 +78,7 @@ export const useNFTs = () => {
         loading: false,
         items,
       });
-    } catch (error) {
+    } catch (error: any) {
       console.log(NFTS, error.message);
     }
   };
