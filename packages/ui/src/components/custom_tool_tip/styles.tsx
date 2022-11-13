@@ -8,8 +8,8 @@ const styles = makeStyles((theme) => {
       background: Color(theme.palette.background.paper).alpha(0.9).string(),
     },
   };
-})
+});
 
 export const useStyles = () => {
-  return styles();;
+  return styles();
 };

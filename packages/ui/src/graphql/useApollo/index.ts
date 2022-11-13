@@ -47,7 +47,6 @@ const httpLink = new HttpLink({
  * @returns A WebSocketLink object.
  */
 function createWebSocketLink() {
-
   // older version of Hasura doesn't support graphql-ws
   if (enableGraphqlWs) {
     return new GraphQLWsLink(

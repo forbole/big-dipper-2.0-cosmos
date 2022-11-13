@@ -29,7 +29,7 @@ const styles = makeStyles<Theme, { percentage: number | string }>(
         margin: theme.spacing(2, 0),
       },
       active: {
-        width: props => `${props.percentage}%`,
+        width: (props) => `${props.percentage}%`,
         background: theme.palette.primary.main,
         transition: '0.3s',
       },
