@@ -1,3 +1,4 @@
+import { useLatestBlockTimestampLazyQuery } from '@src/graphql/types/general_types';
 import { renderHook, cleanup } from '@testing-library/react-hooks';
 import { useChainHealthCheck } from './hooks';
 
@@ -14,7 +15,7 @@ jest.mock('react-toastify', () => ({
 
 describe('hook: useChainHealthCheck', () => {
   test('handles open correctly', () => {
-    renderHook(() => useChainHealthCheck());
+    renderHook(() => useChainHealthCheck(useLatestBlockTimestampLazyQuery));
   });
 });
 

@@ -3,7 +3,7 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**", "public/dist/**"],
+      "outputs": ["dist/**", ".next/**"],
       "env": [
         "BASE_PATH",
         "NEXT_PUBLIC_CHAIN_CONFIG",
@@ -32,6 +32,7 @@
       "outputs": []
     },
     "test": {
+      "dependsOn": ["^build"],
       "outputs": ["coverage/**"]
     },
     "e2e": {},
