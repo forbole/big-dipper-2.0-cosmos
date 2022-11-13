@@ -199,10 +199,10 @@ const ChainIcon = ({ className, type, ...props }: IconProps) => {
       throw new Error(`chain ${chainName} not supported`);
   }
   return (
-    <>
+    <span>
       <img src={iconDark} alt="" {...props} className={classnames(className, classes.dark)} />
       <img src={iconLight} alt="" {...props} className={classnames(className, classes.light)} />
-    </>
+    </span>
   );
 };
 
