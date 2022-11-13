@@ -18,7 +18,7 @@ export const useTransactions = () => {
   useTransactionsListenerSubscription({
     onData: (data) => {
       setState({
-        items: data.data.data ? formatTransactions(data.data.data) as any : [],
+        items: data.data.data ? (formatTransactions(data.data.data) as any) : [],
       });
     },
   });

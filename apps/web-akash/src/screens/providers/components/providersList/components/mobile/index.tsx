@@ -112,7 +112,7 @@ const Mobile: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
           return (
             <div style={style} className={index % 2 ? classes.even : ''}>
               <div ref={rowRef}>
-                <SingleProvider {...selectedItem as any} />
+                <SingleProvider {...(selectedItem as any)} />
                 {index !== itemsNew.length - 1 && <Divider />}
               </div>
             </div>

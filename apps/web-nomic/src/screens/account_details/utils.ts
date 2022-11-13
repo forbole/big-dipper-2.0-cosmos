@@ -14,12 +14,17 @@ export const fetchAvailableBalances = async (address: string) => {
     },
   };
   try {
-    const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL || chainConfig.endpoints.graphql || 'http://localhost:3000/v1/graphql', {
-      variables: {
-        address,
-      },
-      query: AccountBalancesDocument,
-    });
+    const { data } = await axios.post(
+      process.env.NEXT_PUBLIC_GRAPHQL_URL ||
+        chainConfig.endpoints.graphql ||
+        'http://localhost:3000/v1/graphql',
+      {
+        variables: {
+          address,
+        },
+        query: AccountBalancesDocument,
+      }
+    );
     return R.pathOr(defaultReturnValue, ['data'], data);
   } catch (error) {
     return defaultReturnValue;
@@ -33,12 +38,17 @@ export const fetchAccountWithdrawalAddress = async (address: string) => {
     },
   };
   try {
-    const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL || chainConfig.endpoints.graphql || 'http://localhost:3000/v1/graphql', {
-      variables: {
-        address,
-      },
-      query: AccountWithdrawalAddressDocument,
-    });
+    const { data } = await axios.post(
+      process.env.NEXT_PUBLIC_GRAPHQL_URL ||
+        chainConfig.endpoints.graphql ||
+        'http://localhost:3000/v1/graphql',
+      {
+        variables: {
+          address,
+        },
+        query: AccountWithdrawalAddressDocument,
+      }
+    );
     return R.pathOr(defaultReturnValue, ['data'], data);
   } catch (error) {
     return defaultReturnValue;

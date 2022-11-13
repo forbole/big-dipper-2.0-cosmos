@@ -63,7 +63,9 @@ export const useStaking = (rewards: RewardsType) => {
   // if it is over the default limit
   const getStakeByPage = async (page: number, query: string) => {
     const { data } = await axios.post(
-      process.env.NEXT_PUBLIC_GRAPHQL_URL || chainConfig.endpoints.graphql || 'http://localhost:3000/v1/graphql',
+      process.env.NEXT_PUBLIC_GRAPHQL_URL ||
+        chainConfig.endpoints.graphql ||
+        'http://localhost:3000/v1/graphql',
       {
         variables: {
           address: R.pathOr('', ['query', 'address'], router),

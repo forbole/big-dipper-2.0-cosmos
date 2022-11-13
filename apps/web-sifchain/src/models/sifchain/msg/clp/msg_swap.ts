@@ -29,7 +29,9 @@ class MsgSwap {
   }
 
   static getReceivedAmount(log: any): string {
-    const swapEvents = R.pathOr([], ['events'], log).filter((x: any) => x.type === 'swap_successful');
+    const swapEvents = R.pathOr([], ['events'], log).filter(
+      (x: any) => x.type === 'swap_successful'
+    );
     const amount = R.pathOr([], [0, 'attributes'], swapEvents).filter(
       (x: any) => x.key === 'swap_amount'
     );

@@ -463,17 +463,9 @@ const getDataByType = (type: string) => {
     },
   };
 
-  if (
-    (type in defaultTypeToModel) &&
-    defaultTypeToModel[type]
-  )
-    return defaultTypeToModel[type];
+  if (type in defaultTypeToModel && defaultTypeToModel[type]) return defaultTypeToModel[type];
 
-  if (
-    (type in customTypeToModel) &&
-    customTypeToModel[type]
-  )
-    return customTypeToModel[type];
+  if (type in customTypeToModel && customTypeToModel[type]) return customTypeToModel[type];
 
   return null;
 };

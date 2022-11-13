@@ -33,7 +33,7 @@ MyDocument.getInitialProps = async (ctx) => {
     originalRenderPage({
       enhanceApp: (App) => {
         const AppFC = App as React.FC;
-        return (props) => sheets.collect(<AppFC {...props} />)
+        return (props) => sheets.collect(<AppFC {...props} />);
       },
     });
 

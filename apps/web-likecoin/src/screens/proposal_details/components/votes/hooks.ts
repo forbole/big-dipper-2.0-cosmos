@@ -46,7 +46,7 @@ export const useVotes = (resetPagination: any) => {
   });
 
   const formatVotes = (data: ProposalDetailsVotesQuery) => {
-    const validatorDict: {[key: string]: any} = {};
+    const validatorDict: { [key: string]: any } = {};
     const validators = data.validatorStatuses.map((x) => {
       const selfDelegateAddress = R.pathOr(
         '',

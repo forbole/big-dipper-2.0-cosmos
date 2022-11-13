@@ -50,7 +50,7 @@ export const useValidators = () => {
       const stakeData = R.pathOr({}, ['value', 'data'], stakeDataRaw);
 
       // identities
-      const identities: {[key: string]: any} = {};
+      const identities: { [key: string]: any } = {};
       validatorsData.forEach((x: any) => {
         const identity = R.pathOr('', ['identity'], x);
         const imageUrl = R.pathOr('', ['avatar'], x);

@@ -62,7 +62,9 @@ export const useStaking = () => {
   // if it is over the default limit
   const getStakeByPage = async (page: number, query: string) => {
     const { data } = await axios.post(
-      process.env.NEXT_PUBLIC_GRAPHQL_URL || chainConfig.endpoints.graphql || 'http://localhost:3000/v1/graphql',
+      process.env.NEXT_PUBLIC_GRAPHQL_URL ||
+        chainConfig.endpoints.graphql ||
+        'http://localhost:3000/v1/graphql',
       {
         variables: {
           validatorAddress: R.pathOr('', ['query', 'address'], router),
@@ -82,7 +84,9 @@ export const useStaking = () => {
   const getDelegations = async () => {
     try {
       const { data } = await axios.post(
-        process.env.NEXT_PUBLIC_GRAPHQL_URL || chainConfig.endpoints.graphql || 'http://localhost:3000/v1/graphql',
+        process.env.NEXT_PUBLIC_GRAPHQL_URL ||
+          chainConfig.endpoints.graphql ||
+          'http://localhost:3000/v1/graphql',
         {
           variables: {
             validatorAddress: R.pathOr('', ['query', 'address'], router),
@@ -146,7 +150,9 @@ export const useStaking = () => {
   const getRedelegations = async () => {
     try {
       const { data } = await axios.post(
-        process.env.NEXT_PUBLIC_GRAPHQL_URL || chainConfig.endpoints.graphql || 'http://localhost:3000/v1/graphql',
+        process.env.NEXT_PUBLIC_GRAPHQL_URL ||
+          chainConfig.endpoints.graphql ||
+          'http://localhost:3000/v1/graphql',
         {
           variables: {
             validatorAddress: R.pathOr('', ['query', 'address'], router),
@@ -221,7 +227,9 @@ export const useStaking = () => {
   const getUnbondings = async () => {
     try {
       const { data } = await axios.post(
-        process.env.NEXT_PUBLIC_GRAPHQL_URL || chainConfig.endpoints.graphql || 'http://localhost:3000/v1/graphql',
+        process.env.NEXT_PUBLIC_GRAPHQL_URL ||
+          chainConfig.endpoints.graphql ||
+          'http://localhost:3000/v1/graphql',
         {
           variables: {
             validatorAddress: R.pathOr('', ['query', 'address'], router),

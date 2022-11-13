@@ -130,7 +130,7 @@ export const useAccountDetails = () => {
     // rewards
     // ============================
     const formatRewards = () => {
-      const rewardsDict: {[key: string]: any} = {};
+      const rewardsDict: { [key: string]: any } = {};
       // log all the rewards
       R.pathOr([], ['delegationRewards'], data).forEach((x: any) => {
         const coins = R.pathOr([], ['coins'], x);

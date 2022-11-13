@@ -32,7 +32,9 @@ const defaultOptions: DefaultOptions = {
 /* Creating a new HttpLink object. */
 const httpLink = new HttpLink({
   uri:
-    process.env.NEXT_PUBLIC_GRAPHQL_URL || chainConfig.endpoints.graphql || 'http://localhost:3000/v1/graphql',
+    process.env.NEXT_PUBLIC_GRAPHQL_URL ||
+    chainConfig.endpoints.graphql ||
+    'http://localhost:3000/v1/graphql',
   fetch,
 });
 

@@ -95,7 +95,7 @@ function getBaseConfig(chainConfigJson) {
 
 /**
  * "This is to allow the use of svg files in the project."
- * 
+ *
  * The first rule is to allow the use of svg files in the project
  * @param config - This is the webpack configuration object.
  * @returns The config object.
@@ -139,8 +139,7 @@ function webpack(config) {
  */
 function env(generalConfig, chainConfig) {
   return {
-    GENERAL_CONFIG:
-      process.env.GENERAL_CONFIG || JSON.stringify(generalConfig),
+    GENERAL_CONFIG: process.env.GENERAL_CONFIG || JSON.stringify(generalConfig),
     CHAIN_CONFIG: process.env.CHAIN_CONFIG || JSON.stringify(chainConfig),
   };
 }

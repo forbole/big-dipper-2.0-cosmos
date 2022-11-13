@@ -16,7 +16,7 @@ const Mobile: React.FC<{
 }> = ({ className, items }) => {
   const classes = useStyles();
   const { t } = useTranslation('accounts');
-const dateFormat = useRecoilValue(readDate);
+  const dateFormat = useRecoilValue(readDate);
   const formattedItems = items?.map((x) => {
     return {
       validator: (

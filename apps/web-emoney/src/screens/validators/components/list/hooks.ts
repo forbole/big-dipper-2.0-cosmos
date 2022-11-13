@@ -56,12 +56,13 @@ export const useValidators = () => {
     let formattedItems: ValidatorType[] = data.validator
       .filter((x) => x.validatorInfo)
       .map((x) => {
-        const votingPower = numeral(
-          formatToken(
-            R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x),
-            chainConfig.votingPowerTokenUnit
-          ).value
-        ).value() ?? 0;
+        const votingPower =
+          numeral(
+            formatToken(
+              R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x),
+              chainConfig.votingPowerTokenUnit
+            ).value
+          ).value() ?? 0;
         const votingPowerPercent = numeral((votingPower / (votingPowerOverall ?? 0)) * 100).value();
 
         const missedBlockCounter = R.pathOr(

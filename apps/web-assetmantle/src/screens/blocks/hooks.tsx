@@ -104,16 +104,18 @@ export const useBlocks = () => {
     if (data.blocks.length === 51) {
       formattedData = data.blocks.slice(0, 51);
     }
-    return formattedData?.map((x) => {
-      const proposerAddress = R.pathOr('', ['validator', 'validatorInfo', 'operatorAddress'], x);
-      return {
-        height: x.height,
-        txs: x.txs ?? 0,
-        hash: x.hash,
-        timestamp: x.timestamp,
-        proposer: proposerAddress,
-      };
-    }) ?? [];
+    return (
+      formattedData?.map((x) => {
+        const proposerAddress = R.pathOr('', ['validator', 'validatorInfo', 'operatorAddress'], x);
+        return {
+          height: x.height,
+          txs: x.txs ?? 0,
+          hash: x.hash,
+          timestamp: x.timestamp,
+          proposer: proposerAddress,
+        };
+      }) ?? []
+    );
   };
 
   const itemCount = state.hasNextPage ? state.items.length + 1 : state.items.length;
