@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from 'ui/components/box';
 import classnames from 'classnames';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { decodeBase64 } from '@utils/base64';
 import { CodeBlock } from '..';

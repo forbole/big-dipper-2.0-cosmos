@@ -5,7 +5,7 @@ import Big from 'big.js';
 import Box from 'ui/components/box';
 import InfoPopover from 'ui/components/info_popover';
 import useTranslation from 'next-translate/useTranslation';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import { PieChart, Pie, Cell } from 'recharts';
 import { useStyles } from './styles';
 import { formatGraphData } from './utils';

@@ -1,6 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Drawer, AppBar, ClickAwayListener } from '@material-ui/core';
+import Drawer from '@material-ui/core/Drawer';
+import AppBar from '@material-ui/core/AppBar';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import { useRecoilValue } from 'recoil';
 import { readTheme } from '@recoil/settings';
 import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';

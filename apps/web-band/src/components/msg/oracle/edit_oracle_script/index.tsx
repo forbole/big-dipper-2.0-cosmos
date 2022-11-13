@@ -1,6 +1,6 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import MsgEditOracleScript from '@models/band/msg/oracle/msg_edit_oracle_script';
 import { useProfileRecoil } from '@recoil/profiles';

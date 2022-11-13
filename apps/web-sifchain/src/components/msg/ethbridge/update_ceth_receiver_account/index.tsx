@@ -1,6 +1,6 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import MsgUpdateCethReceiverAccount from '@models/sifchain/msg/ethbridge/msg_update_ceth_receiver_account';
 import { useProfileRecoil } from '@recoil/profiles';

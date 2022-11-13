@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import numeral from 'numeral';
 import { VariableSizeList as List } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
-import { Divider } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
 import AvatarName from 'ui/components/avatar_name';
 import { getValidatorConditionClass } from 'ui/utils/get_validator_condition';
 import { useList, useListRow } from '@hooks';

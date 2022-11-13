@@ -1,15 +1,16 @@
 FROM node:alpine AS builder
+RUN apk add --no-cache libc6-compat
 RUN apk update
 
 # Set working directory
 WORKDIR /app
-
-RUN corepack enable && yarn global add turbo
+RUN yarn global add turbo
 COPY . .
 RUN turbo prune --scope=web --docker
 
 # Add lockfile and package.json's of isolated subworkspace
 FROM node:alpine AS installer
+RUN apk add --no-cache libc6-compat
 RUN apk update
 WORKDIR /app
 
@@ -33,7 +34,7 @@ COPY --from=builder /app/out/full/ .
 COPY turbo.json turbo.json
 RUN yarn turbo run build --filter=web...
 
-FROM node:alpine AS runner
+FROM node:16 AS runner
 WORKDIR /app
 
 ARG NEXT_PUBLIC_CHAIN_TYPE

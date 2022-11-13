@@ -1,7 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
-import { Typography, Divider } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import { VariableSizeList as List } from 'react-window';
 import { useList, useListRow } from '@hooks';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';

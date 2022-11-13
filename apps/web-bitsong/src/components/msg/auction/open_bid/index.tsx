@@ -1,7 +1,7 @@
 import React from 'react';
 import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
 import Name from 'ui/components/name';
 import MsgOpenBid from '@models/bitsong/msg/auction/msg_open_bid';

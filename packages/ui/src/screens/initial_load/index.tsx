@@ -1,4 +1,4 @@
-import { LinearProgress } from '@material-ui/core';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import { readTheme } from '@recoil/settings';
 import React from 'react';
 import { useRecoilValue } from 'recoil';

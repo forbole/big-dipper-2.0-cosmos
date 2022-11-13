@@ -5,7 +5,7 @@ import { usePagination } from '@hooks';
 import Pagination from '@components/pagination';
 import Box from 'ui/components/box';
 import Loading from 'ui/components/loading';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import { useStyles } from './styles';
 import { List } from './components';
 import { useTokens, PAGE_SIZE } from './hooks';

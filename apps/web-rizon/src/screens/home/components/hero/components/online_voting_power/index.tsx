@@ -1,6 +1,6 @@
 import React from 'react';
 import numeral from 'numeral';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { useStyles } from './styles';
 import { useOnlineVotingPower } from './hooks';

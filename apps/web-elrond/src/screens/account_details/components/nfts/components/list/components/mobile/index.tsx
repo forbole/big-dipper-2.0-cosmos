@@ -1,6 +1,7 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import { Typography, Divider } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
 import { NFT_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';

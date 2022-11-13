@@ -1,7 +1,7 @@
 import React from 'react';
 import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import MsgEditAuction from '@models/bitsong/msg/auction/msg_edit_auction';
 import { useProfileRecoil } from '@recoil/profiles';

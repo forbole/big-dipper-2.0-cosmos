@@ -2,7 +2,7 @@ import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 import Trans from 'next-translate/Trans';
 import { HOME } from 'ui/utils/go_to_page';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import generalConfig from 'shared-utils/configs/general.json';
 
 /**

@@ -1,7 +1,10 @@
 import React from 'react';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
-import { Table, TableBody, TableCell, TableRow } from '@material-ui/core';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
 
 const SoftwareUpgrade: React.FC<{
   height: string;

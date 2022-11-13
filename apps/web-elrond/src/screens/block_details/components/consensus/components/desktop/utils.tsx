@@ -1,6 +1,6 @@
 import numeral from 'numeral';
 import Link from 'next/link';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import { NODE_DETAILS } from '@utils/go_to_page';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { ConsensusType } from '../../../../types';

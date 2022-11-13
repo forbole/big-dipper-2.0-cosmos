@@ -1,13 +1,11 @@
 import React from 'react';
 import classnames from 'classnames';
-import {
-  IconButton,
-  Typography,
-  FormControl,
-  Select,
-  MenuItem,
-  InputBase,
-} from '@material-ui/core';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import InputBase from '@material-ui/core/InputBase';
 import NextIcon from 'shared-utils/assets/icon-next.svg';
 import NextFastIcon from 'shared-utils/assets/icon-next-fast.svg';
 import { useStyles } from './styles';

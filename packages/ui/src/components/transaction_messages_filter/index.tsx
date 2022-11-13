@@ -1,7 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import { MenuItem, Select, InputBase, Typography } from '@material-ui/core';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import InputBase from '@material-ui/core/InputBase';
+import Typography from '@material-ui/core/Typography';
 import FilterIcon from 'shared-utils/assets/icon-filter.svg';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { getFilterLabels } from './utils';

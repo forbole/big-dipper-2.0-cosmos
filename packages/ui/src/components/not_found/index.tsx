@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import { useRecoilValue } from 'recoil';
 import { readTheme } from '@recoil/settings';
 import NotFoundLight from 'shared-utils/assets/not-found-light.svg';

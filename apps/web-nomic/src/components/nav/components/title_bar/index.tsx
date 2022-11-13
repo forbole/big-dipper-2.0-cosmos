@@ -1,4 +1,4 @@
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import { readMarket } from '@recoil/market/nomic';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';

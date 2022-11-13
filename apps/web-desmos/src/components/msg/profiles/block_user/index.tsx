@@ -1,6 +1,6 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import MsgBlockUser from '@models/desmos/msg/profiles/msg_block_user';
 import { useProfileRecoil } from '@recoil/profiles';

@@ -1,6 +1,6 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import MsgConvertErc20 from '@models/evmos/msg/erc20/msg_convert_erc20';
 import { useProfileRecoil } from '@recoil/profiles';

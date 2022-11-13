@@ -4,7 +4,7 @@ import numeral from 'numeral';
 import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import Link from 'next/link';
 import { TRANSACTION_DETAILS, BLOCK_DETAILS } from 'ui/utils/go_to_page';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';

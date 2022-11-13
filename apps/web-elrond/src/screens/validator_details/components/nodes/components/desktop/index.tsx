@@ -1,7 +1,12 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import { Table, TableHead, TableRow, TableCell, TableBody, Typography } from '@material-ui/core';
+import Table from '@material-ui/core/Table';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
+import TableBody from '@material-ui/core/TableBody';
+import Typography from '@material-ui/core/Typography';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { NODE_DETAILS } from '@utils/go_to_page';
 import { getShardDisplay } from '@utils/get_shard_display';

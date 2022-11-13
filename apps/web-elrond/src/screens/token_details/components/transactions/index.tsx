@@ -6,7 +6,7 @@ import NoData from '@components/no_data';
 import Box from 'ui/components/box';
 import Loading from 'ui/components/loading';
 import TransactionsList from 'ui/components/transactions_list';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import { useStyles } from './styles';
 import { useTransactions, PAGE_SIZE } from './hooks';
 

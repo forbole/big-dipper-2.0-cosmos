@@ -10,7 +10,8 @@
     "access": "public"
   },
   "dependencies": {
-    "eslint": "^8.27.0"
+    "eslint": "^8.27.0",
+    "next-translate": "^1.6.0"
   },
   "devDependencies": {
     "eslint-config-custom": "*",

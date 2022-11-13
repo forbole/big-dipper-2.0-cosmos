@@ -1,7 +1,12 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import { Table, TableHead, TableRow, TableCell, TableBody, Typography } from '@material-ui/core';
+import Table from '@material-ui/core/Table';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
+import TableBody from '@material-ui/core/TableBody';
+import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
 import { NFT_DETAILS } from '@utils/go_to_page';
 import { columns } from './utils';

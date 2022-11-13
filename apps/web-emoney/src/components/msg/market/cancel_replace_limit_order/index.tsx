@@ -1,6 +1,6 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
 import MsgCancelReplaceLimitOrder from '@models/emoney/msg/market/msg_cancel_replace_limit_order';

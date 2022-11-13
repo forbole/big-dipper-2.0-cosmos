@@ -1,7 +1,7 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import dynamic from 'next/dynamic';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import Pagination from 'ui/components/pagination';
 import Box from 'ui/components/box';
 import { usePagination, useScreenSize } from '@hooks';

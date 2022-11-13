@@ -1,7 +1,8 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { formatNumber } from 'ui/utils/format_token';
-import { Typography, Divider } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import AvatarName from '@components/avatar_name';
 import { TOKEN_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';

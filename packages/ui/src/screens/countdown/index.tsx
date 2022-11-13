@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import { useInterval } from '@hooks';
 import dayjs from 'ui/utils/dayjs';
 import { useRecoilValue } from 'recoil';

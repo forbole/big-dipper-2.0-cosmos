@@ -1,6 +1,6 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import MsgTransferNFT from '@models/bitsong/msg/nft/msg_transfer_nft';
 import { useProfileRecoil } from '@recoil/profiles';

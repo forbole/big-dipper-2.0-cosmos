@@ -1,7 +1,7 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import classnames from 'classnames';
-import { TablePagination } from '@material-ui/core';
+import TablePagination from '@material-ui/core/TablePagination';
 import { Actions } from './components';
 import { useStyles } from './styles';
 

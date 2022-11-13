@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import { MsgDeposit } from '@models';
 import { formatToken, formatNumber } from 'ui/utils/format_token';

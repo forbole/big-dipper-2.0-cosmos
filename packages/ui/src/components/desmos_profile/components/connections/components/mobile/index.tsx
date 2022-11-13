@@ -4,7 +4,8 @@ import useTranslation from 'next-translate/useTranslation';
 import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
-import { Divider, Typography } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import { useStyles } from './styles';
 
 const Mobile: React.FC<{

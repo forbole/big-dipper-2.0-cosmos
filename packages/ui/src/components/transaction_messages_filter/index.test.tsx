@@ -12,12 +12,10 @@ const callback = jest.fn();
 // ==================================
 // mocks
 // ==================================
-jest.mock('@material-ui/core', () => ({
-  MenuItem: (props: JSX.IntrinsicElements['div']) => <div id="MenuItem" {...props} />,
-  Select: (props: JSX.IntrinsicElements['div']) => <div id="Select" {...props} />,
-  InputBase: (props: JSX.IntrinsicElements['div']) => <div id="InputBase" {...props} />,
-  Typography: (props: JSX.IntrinsicElements['div']) => <div id="Typography" {...props} />,
-}));
+jest.mock('@material-ui/core/MenuItem', () => (props: JSX.IntrinsicElements['div']) => <div id="MenuItem" {...props} />);
+jest.mock('@material-ui/core/Select', () => (props: JSX.IntrinsicElements['div']) => <div id="Select" {...props} />);
+jest.mock('@material-ui/core/InputBase', () => (props: JSX.IntrinsicElements['div']) => <div id="InputBase" {...props} />);
+jest.mock('@material-ui/core/Typography', () => (props: JSX.IntrinsicElements['div']) => <div id="Typography" {...props} />);
 
 // ==================================
 // unit tests

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
 import BoxDetails from 'ui/components/box_details';
 import dayjs, { formatDayJs } from 'ui/utils/dayjs';

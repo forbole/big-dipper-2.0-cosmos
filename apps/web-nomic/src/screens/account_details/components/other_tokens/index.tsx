@@ -6,7 +6,7 @@ import Pagination from 'ui/components/pagination';
 import Box from 'ui/components/box';
 
 import { usePagination, useScreenSize } from '@hooks';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import { useStyles } from './styles';
 import { OtherTokenType } from '../../types';
 import type DesktopType from './components/desktop';

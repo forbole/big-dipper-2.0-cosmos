@@ -2,7 +2,7 @@ import React from 'react';
 import Color from 'color';
 import classnames from 'classnames';
 import numeral from 'numeral';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import {
   AreaChart,

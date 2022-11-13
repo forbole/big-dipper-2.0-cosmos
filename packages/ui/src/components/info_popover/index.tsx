@@ -1,6 +1,7 @@
 import React from 'react';
-import { Popover, Paper } from '@material-ui/core';
-import { HelpOutline } from '@material-ui/icons';
+import Popover from '@material-ui/core/Popover';
+import Paper from '@material-ui/core/Paper';
+import HelpOutline from '@material-ui/icons/HelpOutline';
 import classnames from 'classnames';
 import { useInfoPopover } from './hooks';
 import { useStyles } from './styles';

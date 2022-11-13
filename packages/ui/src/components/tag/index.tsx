@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import { useStyles } from './styles';
 
 const Tag: React.FC<{

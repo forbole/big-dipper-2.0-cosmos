@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import Avatar from 'ui/components/avatar';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';

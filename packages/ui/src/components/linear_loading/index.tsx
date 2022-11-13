@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { LinearProgress } from '@material-ui/core';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import { useStyles } from './styles';
 
 const LinearLoading: React.FC<{

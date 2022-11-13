@@ -1,6 +1,6 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import BoxDetails from 'ui/components/box_details';
 import AvatarName from '@components/avatar_name';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';

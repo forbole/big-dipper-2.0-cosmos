@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
 import numeral from 'numeral';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Box from 'ui/components/box';
 import { BLOCK_DETAILS } from '@utils/go_to_page';

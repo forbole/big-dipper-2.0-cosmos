@@ -28,7 +28,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
   className="makeStyles-select"
   displayEmpty={true}
   id="Select"
-  input={<InputBase />}
+  input={<Unknown />}
   renderValue={[Function]}
   value=""
 >

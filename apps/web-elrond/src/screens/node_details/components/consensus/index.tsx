@@ -2,7 +2,8 @@ import React from 'react';
 import numeral from 'numeral';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import { Typography, Tooltip } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
+import Tooltip from '@material-ui/core/Tooltip'
 import Box from 'ui/components/box';
 import NoData from '@components/no_data';
 import { useStyles } from './styles';

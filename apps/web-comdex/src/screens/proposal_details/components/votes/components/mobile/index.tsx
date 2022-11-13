@@ -1,7 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import { Divider, Typography } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import AvatarName from 'ui/components/avatar_name';
 import { useStyles } from './styles';
 import { getVoteKey } from '../../utils';

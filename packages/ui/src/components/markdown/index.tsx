@@ -2,10 +2,8 @@ import React from 'react';
 import ReactMarkdown from 'markdown-to-jsx';
 import DOMPurify from 'dompurify';
 // import { withStyles } from '@material-ui/core/styles';
-import {
-  Typography,
-  // Link,
-} from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
+// import Link from '@material-ui/core/Link';
 
 // const styles = (theme) => ({
 //   listItem: {

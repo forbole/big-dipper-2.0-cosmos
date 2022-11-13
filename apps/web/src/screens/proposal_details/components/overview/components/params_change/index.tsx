@@ -1,6 +1,10 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 const ParamsChange: React.FC<{
   changes: {

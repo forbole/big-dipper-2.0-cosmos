@@ -1,7 +1,11 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import { Dialog, Typography, DialogTitle, IconButton, DialogContent } from '@material-ui/core';
-import { Close as CloseIcon } from '@material-ui/icons';
+import Dialog from '@material-ui/core/Dialog';
+import Typography from '@material-ui/core/Typography';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import IconButton from '@material-ui/core/IconButton';
+import DialogContent from '@material-ui/core/DialogContent';
+import CloseIcon from '@material-ui/icons/Close';
 import Pagination from 'ui/components/pagination';
 import { usePagination, useScreenSize } from '@hooks';
 import { useStyles } from './styles';

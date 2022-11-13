@@ -2,7 +2,7 @@ import React from 'react';
 import numeral from 'numeral';
 // import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 // import { useRecoilValue } from 'recoil';
 // import { readDate } from '@recoil/settings';
 import BoxDetails from 'ui/components/box_details';

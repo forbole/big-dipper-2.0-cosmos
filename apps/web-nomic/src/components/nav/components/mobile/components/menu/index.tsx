@@ -1,13 +1,15 @@
 import React from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
-import { Drawer, MenuItem, Typography } from '@material-ui/core';
+import Drawer from '@material-ui/core/Drawer';
+import MenuItem from '@material-ui/core/MenuItem';
+import Typography from '@material-ui/core/Typography';
 import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
 import Language from 'shared-utils/assets/icon-language.svg';
 import ThemeIcon from 'shared-utils/assets/icon-theme.svg';
 import { THEME_LIST } from '@recoil/settings';
-import { ExpandMoreOutlined } from '@material-ui/icons';
+import ExpandMoreOutlined from '@material-ui/icons/ExpandMoreOutlined';
 import { useStyles } from './styles';
 import { MenuItems } from '../../..';
 import { useLanguageDrawer, useThemeDrawer } from './hooks';

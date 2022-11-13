@@ -1,7 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
-import { InputBase, InputAdornment } from '@material-ui/core';
-import { Search as SearchIcon } from '@material-ui/icons';
+import InputBase from '@material-ui/core/InputBase';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import SearchIcon from '@material-ui/icons/Search';
 import { useStyles } from './styles';
 import { useSearch } from './hooks';
 

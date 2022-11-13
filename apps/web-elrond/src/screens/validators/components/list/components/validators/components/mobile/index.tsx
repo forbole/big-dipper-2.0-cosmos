@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import numeral from 'numeral';
 import { VariableSizeList as List } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
-import { Divider } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
 import AvatarName from '@components/avatar_name';
 import { VALIDATOR_DETAILS, NODE_DETAILS } from '@utils/go_to_page';
 import { useList, useListRow } from '@hooks';

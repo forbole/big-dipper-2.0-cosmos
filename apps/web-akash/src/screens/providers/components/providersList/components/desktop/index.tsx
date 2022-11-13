@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import Link from 'next/link';
 import { VariableSizeGrid as Grid } from 'react-window';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Loading from 'ui/components/loading';
 import { useGrid } from '@hooks';

@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import { useScreenSize } from '@hooks';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';

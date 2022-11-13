@@ -1,7 +1,7 @@
 import React from 'react';
 import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import MsgUpdateIscnRecord from '@models/likecoin/msg/iscn/msg_update_iscn_record';
 import { useProfileRecoil } from '@recoil/profiles';

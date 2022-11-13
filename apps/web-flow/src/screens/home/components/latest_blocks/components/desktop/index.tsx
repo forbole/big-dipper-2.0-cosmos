@@ -1,6 +1,11 @@
 import React from 'react';
 import classnames from 'classnames';
-import { TableRow, TableHead, TableCell, Table, TableBody, Typography } from '@material-ui/core';
+import TableRow from '@material-ui/core/TableRow';
+import TableHead from '@material-ui/core/TableHead';
+import TableCell from '@material-ui/core/TableCell';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import dayjs from 'ui/utils/dayjs';

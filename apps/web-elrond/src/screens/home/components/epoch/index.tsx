@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 import Box from 'ui/components/box';

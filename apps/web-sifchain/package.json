@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED=false next dev",
     "build": "next build",
+    "clean": "rm -rf node_modules .next",
     "start": "NODE_ENV=production next start",
     "lint": "next lint",
     "test": "jest --passWithNoTests",

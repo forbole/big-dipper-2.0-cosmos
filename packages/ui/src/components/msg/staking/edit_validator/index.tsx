@@ -1,6 +1,6 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import { MsgEditValidator } from '@models';
 import { VALIDATOR_DETAILS } from 'ui/utils/go_to_page';

@@ -6,6 +6,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3000:3000
@@ -16,6 +17,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-cosmos/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3001:3000
@@ -26,6 +28,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-akash/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3002:3000
@@ -36,6 +39,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-emoney/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3003:3000
@@ -46,6 +50,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-band/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3004:3000
@@ -56,6 +61,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-likecoin/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3005:3000
@@ -66,6 +72,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-desmos/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3006:3000
@@ -76,6 +83,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-flow/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3007:3000
@@ -86,6 +94,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-osmosis/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3008:3000
@@ -96,6 +105,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-bitsong/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3009:3000
@@ -106,6 +116,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-regen/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3010:3000
@@ -116,6 +127,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-agoric/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3011:3000
@@ -126,6 +138,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-rizon/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3012:3000
@@ -136,6 +149,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-elrond/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3013:3000
@@ -146,6 +160,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-evmos/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3014:3000
@@ -156,6 +171,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-comdex/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3015:3000
@@ -166,6 +182,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-crescent/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3016:3000
@@ -176,6 +193,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-sifchain/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3017:3000
@@ -186,6 +204,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-assetmantle/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3018:3000
@@ -196,6 +215,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-provenance/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3019:3000
@@ -206,6 +226,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-nomic/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3020:3000
@@ -216,6 +237,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-shentu/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3021:3000
@@ -226,6 +248,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-persistence/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3022:3000
@@ -236,6 +259,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-stride/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3023:3000
@@ -246,6 +270,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-nym/Dockerfile
+    platform: linux/arm64/v8
     restart: always
     ports:
       - 3024:3000

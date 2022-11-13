@@ -4,18 +4,16 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import SettingIcon from 'shared-utils/assets/icon-setting.svg';
 import generalConfig from 'ui/generalConfig';
-import {
-  MenuItem,
-  Typography,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Button,
-  IconButton,
-  Select,
-} from '@material-ui/core';
-import { Close as CloseIcon } from '@material-ui/icons';
+import MenuItem from '@material-ui/core/MenuItem';
+import Typography from '@material-ui/core/Typography';
+import Dialog from '@material-ui/core/Dialog';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogActions from '@material-ui/core/DialogActions';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import Select from '@material-ui/core/Select';
+import CloseIcon from '@material-ui/icons/Close';
 import { THEME_LIST, DATE_LIST } from '@recoil/settings';
 import { useSettingList } from './hooks';
 import { useStyles } from './styles';

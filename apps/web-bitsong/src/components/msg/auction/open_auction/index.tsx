@@ -1,6 +1,6 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import MsgOpenAuction from '@models/bitsong/msg/auction/msg_open_auction';
 import { useProfileRecoil } from '@recoil/profiles';

@@ -4,7 +4,7 @@ import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import { useGrid } from '@hooks';
 import { formatNumber } from 'ui/utils/format_token';
 import SortArrows from 'ui/components/sort_arrows';

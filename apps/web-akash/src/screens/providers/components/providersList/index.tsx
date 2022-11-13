@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import dynamic from 'next/dynamic';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Box from 'ui/components/box';
 import Pagination from 'ui/components/pagination';

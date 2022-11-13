@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Typography, Divider } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { useStyles } from './styles';
 
