@@ -28,7 +28,7 @@ const styles = makeStyles(
         },
       },
       total: {
-        color: theme.palette.custom.fonts.fontThree,
+        // color: theme.palette.custom.fonts.fontThree,
         textAlign: 'right',
         [theme.breakpoints.up('lg')]: {
           color: theme.palette.custom.fonts.fontTwo,

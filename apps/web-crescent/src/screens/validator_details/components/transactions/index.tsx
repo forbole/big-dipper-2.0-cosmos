@@ -16,7 +16,7 @@ const Transactions: React.FC<ComponentDefault> = (props) => {
   const classes = useStyles();
   const { t } = useTranslation('validators');
 
-  const { state, loadNextPage } = useTransactions();
+  const { state, loadNextPage } = useTransactions(useGetMessagesByAddressQuery);
 
   const loadMoreItems = state.isNextPageLoading ? () => null : loadNextPage;
   const isItemLoaded = (index: number) => !state.hasNextPage || index < state.data.length;

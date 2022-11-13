@@ -38,7 +38,8 @@
           "fontTwo": "#C4C4C4",
           "fontThree": "#818181",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF"
+          "fontFive": "#FFFFFF",
+          "highlight": "#56B4E9"
         },
         "primaryData": {
           "one": "#9D35FF",
