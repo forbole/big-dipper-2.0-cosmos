@@ -74,6 +74,7 @@
     "recharts": "^2.1.16",
     "recoil": "^0.7.6",
     "shared-utils": "*",
+    "subscriptions-transport-ws": "^0.11.0",
     "ws": "^8.10.0"
   },
   "devDependencies": {

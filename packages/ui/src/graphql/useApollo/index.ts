@@ -8,6 +8,7 @@ import {
 } from '@apollo/client';
 import { getMainDefinition } from '@apollo/client/utilities';
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
+import { WebSocketLink } from '@apollo/client/link/ws';
 import { createClient } from 'graphql-ws';
 import webSocketImpl from 'isomorphic-ws';
 import { Kind, OperationTypeNode } from 'graphql';
@@ -16,6 +17,9 @@ import chainConfig from '@src/chainConfig';
 
 /* A global variable that stores the Apollo Client. */
 let globalApolloClient: ApolloClient<NormalizedCacheObject>;
+
+// older version of Hasura doesn't support graphql-ws
+const enableGraphqlWs = false;
 
 /* Setting the default options for the Apollo Client. */
 const defaultOptions: DefaultOptions = {
@@ -43,22 +47,40 @@ const httpLink = new HttpLink({
  * @returns A WebSocketLink object.
  */
 function createWebSocketLink() {
-  return new GraphQLWsLink(
-    createClient({
-      url:
-        process.env.NEXT_PUBLIC_GRAPHQL_WS ||
-        chainConfig.endpoints.graphqlWebsocket ||
-        'ws://localhost:3000/websocket',
+
+  // older version of Hasura doesn't support graphql-ws
+  if (enableGraphqlWs) {
+    return new GraphQLWsLink(
+      createClient({
+        url:
+          process.env.NEXT_PUBLIC_GRAPHQL_WS ||
+          chainConfig.endpoints.graphqlWebsocket ||
+          'ws://localhost:3000/websocket',
+        lazy: true,
+        retryAttempts: Number.MAX_VALUE,
+        retryWait: (_count) => new Promise((r) => setTimeout(r, 1000)),
+        shouldRetry() {
+          return true;
+        },
+        connectionAckWaitTimeout: 30000,
+        webSocketImpl,
+      })
+    );
+  }
+
+  return new WebSocketLink({
+    uri:
+      process.env.NEXT_PUBLIC_GRAPHQL_WS ||
+      chainConfig.endpoints.graphqlWebsocket ||
+      'ws://localhost:3000/websocket',
+    options: {
       lazy: true,
-      retryAttempts: Number.MAX_VALUE,
-      retryWait: (_count) => new Promise((r) => setTimeout(r, 1000)),
-      shouldRetry() {
-        return true;
-      },
-      connectionAckWaitTimeout: 30000,
-      webSocketImpl,
-    })
-  );
+      reconnect: true,
+      reconnectionAttempts: Number.MAX_VALUE,
+      timeout: 30000,
+    },
+    webSocketImpl,
+  });
 }
 
 /**
