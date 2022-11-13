@@ -1,46 +1,71 @@
-FROM node:14.5.0-alpine
+FROM node:18-alpine AS builder
+RUN apk add --no-cache libc6-compat \
+  && apk update
 
-ENV PORT 3000
-
-# Install git for ui and internal packages
-RUN apk add --no-cache git
-
-# Set app directory
+# Set working directory
 WORKDIR /app
 
-# Add PM2
-RUN npm install pm2 -g
-
-# Installing dependencies
-COPY package*.json ./
-RUN npm ci
-
-# Copying source files
+ARG PROJECT_NAME=web-rizon
+RUN yarn global add turbo
 COPY . .
+RUN turbo prune --scope=${PROJECT_NAME} --docker
 
-# Get env from secrets
-ARG GRAPHQL_URL
-ARG GRAPHQL_WS
-ARG RPC_WEBSOCKET
+# Add lockfile and package.json's of isolated subworkspace
+FROM node:18-alpine AS installer
+RUN apk add --no-cache libc6-compat \
+  && apk update
+WORKDIR /app
+
+ARG PROJECT_NAME=web-rizon
+ARG GENERAL_CONFIG
+ENV GENERAL_CONFIG ${GENERAL_CONFIG}
+ARG CHAIN_CONFIG
+ENV CHAIN_CONFIG ${CHAIN_CONFIG}
+ARG BASE_PATH
+ENV BASE_PATH ${BASE_PATH}
+ARG SENTRY_DSN
+ENV SENTRY_DSN ${SENTRY_DSN}
+ENV NEXT_TELEMETRY_DISABLED 1
+
+# First install the dependencies (as they change less often)
+COPY .gitignore .gitignore
+COPY --from=builder /app/out/json/ .
+COPY --from=builder /app/out/yarn.lock ./yarn.lock
+RUN corepack enable \
+  && yarn install --frozen-lockfile
+
+# Build the project
+COPY --from=builder /app/out/full/ .
+COPY turbo.json turbo.json
+RUN yarn turbo run build --filter=${PROJECT_NAME}...
+
+FROM node:16 AS runner
+WORKDIR /app
+
 ARG NEXT_PUBLIC_CHAIN_TYPE
-ARG NODE_ENV
-ARG PORT
-ARG MATOMO_URL
-ARG MATOMO_SITE_ID
-
-# Generate env file
-ENV GRAPHQL_URL ${GRAPHQL_URL}
-ENV GRAPHQL_WS ${GRAPHQL_WS}
-ENV RPC_WEBSOCKET ${RPC_WEBSOCKET}
 ENV NEXT_PUBLIC_CHAIN_TYPE ${NEXT_PUBLIC_CHAIN_TYPE}
-ENV NODE_ENV ${NODE_ENV}
-ENV PORT ${PORT}
-ENV MATOMO_URL ${MATOMO_URL}
-ENV MATOMO_SITE_ID ${MATOMO_SITE_ID}
+ARG NEXT_PUBLIC_GRAPHQL_URL
+ENV NEXT_PUBLIC_GRAPHQL_URL ${NEXT_PUBLIC_GRAPHQL_URL}
+ARG NEXT_PUBLIC_GRAPHQL_WS
+ENV NEXT_PUBLIC_GRAPHQL_WS ${NEXT_PUBLIC_GRAPHQL_WS}
+ARG NEXT_PUBLIC_MATOMO_URL
+ENV NEXT_PUBLIC_MATOMO_URL ${NEXT_PUBLIC_MATOMO_URL}
+ARG NEXT_PUBLIC_MATOMO_SITE_ID
+ENV NEXT_PUBLIC_MATOMO_SITE_ID ${NEXT_PUBLIC_MATOMO_SITE_ID}
+ARG NEXT_PUBLIC_RPC_WEBSOCKET
+ENV NEXT_PUBLIC_RPC_WEBSOCKET ${NEXT_PUBLIC_RPC_WEBSOCKET}
+ENV NEXT_TELEMETRY_DISABLED 1
+ENV NODE_ENV production
 
-# Building app
-RUN npm run build
-EXPOSE ${PORT}
+# Don't run production as root
+RUN corepack enable \
+  && addgroup --system --gid 1001 nodejs \
+  && adduser --system --uid 1001 nextjs \
+  && mkdir -p /home/nextjs/.cache \
+  && chown -R nextjs:nodejs /home/nextjs
+USER nextjs
 
-# Running the app
-CMD ["pm2-runtime", "dist/index.js"]
+COPY --from=installer --chown=nextjs:nodejs /app .
+
+EXPOSE 3000
+CMD yarn workspace web-rizon start

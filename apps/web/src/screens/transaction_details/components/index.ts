@@ -1,5 +1,3 @@
-import Overview from './overview';
-import Messages from './messages';
-import Logs from './logs';
-
-export { Overview, Messages, Logs };
+export { default as Overview } from './overview';
+export { default as Messages } from './messages';
+export { default as Logs } from './logs';

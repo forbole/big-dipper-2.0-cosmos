@@ -53,11 +53,10 @@ function getChainConfig(chainConfigJson) {
 function getBaseConfig(chainConfigJson) {
   /* Merging the settings and chain objects. */
   const chainConfig = getChainConfig(chainConfigJson);
-  const basePath = process.env.BASE_PATH ?? `${`/${chainConfig.chainName}`.replace(/^\/$/, '')}`.replace(/^\/$/, '');
+  const basePath = process.env.BASE_PATH ?? `${`/${chainConfig.chainName}`}`.replace(/^\/$/, '');
 
   const config = {
     swcMinify: true,
-    output: 'standalone',
     reactStrictMode: true,
     poweredByHeader: false,
     basePath,
@@ -79,7 +78,7 @@ function getBaseConfig(chainConfigJson) {
         },
       ];
       /* This is to redirect the user to the baasePath if they are trying to access the root. */
-      if (basePath !== '/') {
+      if (basePath) {
         result.push({
           source: '/',
           destination: basePath,

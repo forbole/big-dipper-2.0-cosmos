@@ -48,7 +48,7 @@ import { makeStyles } from '@material-ui/core/styles';
             color: theme.palette.custom.fonts.fontTwo,
           },
           '& a': {
-            color: '#f94', //theme.palette.custom.fonts.highlight,
+            color: theme.palette.custom.fonts.highlight,
           },
         },
         status: {

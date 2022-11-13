@@ -17,7 +17,7 @@ export const TWITTER_SEO = {
   cardType: 'summary_large_image',
 };
 
-const basePath = process.env.BASE_PATH ?? `${`/${chainConfig.chainName}`.replace(/^\/$/, '')}`.replace(/^\/$/, '');
+const basePath = process.env.BASE_PATH ?? `${`/${chainConfig.chainName}`}`.replace(/^\/$/, '');
 
 export const ADDITIONAL_LINK_TAGS_SEO = [
   {
