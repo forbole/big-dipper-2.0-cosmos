@@ -4,9 +4,9 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
-    "dev": "PORT=$(node ../../getPort.js ${PWD}) RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED=false next dev",
+    "dev": "RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED=false next dev",
     "build": "next build",
-    "start": "PORT=$(node ../../getPort.js ${PWD}) NODE_ENV=production next start",
+    "start": "NODE_ENV=production next start",
     "lint": "next lint",
     "test": "jest --passWithNoTests",
     "e2e": "cypress open",

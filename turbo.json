@@ -6,9 +6,9 @@
       "outputs": ["dist/**", ".next/**"],
       "env": [
         "BASE_PATH",
-        "NEXT_PUBLIC_CHAIN_CONFIG",
+        "CHAIN_CONFIG",
+        "GENERAL_CONFIG",
         "NEXT_PUBLIC_CHAIN_TYPE",
-        "NEXT_PUBLIC_GENERAL_CONFIG",
         "NEXT_PUBLIC_GRAPHQL_URL",
         "NEXT_PUBLIC_GRAPHQL_WS",
         "NEXT_PUBLIC_MATOMO_SITE_ID",

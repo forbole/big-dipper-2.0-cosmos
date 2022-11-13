@@ -49,7 +49,7 @@ export const useStaking = () => {
   };
 
   const createPagination = (data: any[]) => {
-    const pages: {[key: string]: any} = {};
+    const pages: { [key: string]: any } = {};
     data.forEach((x, i) => {
       const selectedKey = Math.floor(i / PAGE_LIMIT);
       pages[selectedKey] = pages[selectedKey] || [];
@@ -61,15 +61,18 @@ export const useStaking = () => {
   // helper function to get rest of the staking items
   // if it is over the default limit
   const getStakeByPage = async (page: number, query: string) => {
-    const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL ?? '', {
-      variables: {
-        validatorAddress: R.pathOr('', ['query', 'address'], router),
-        offset: page * LIMIT,
-        limit: LIMIT,
-        pagination: false,
-      },
-      query,
-    });
+    const { data } = await axios.post(
+      process.env.NEXT_PUBLIC_GRAPHQL_URL || chainConfig.endpoints.graphql || 'http://localhost:3000/v1/graphql',
+      {
+        variables: {
+          validatorAddress: R.pathOr('', ['query', 'address'], router),
+          offset: page * LIMIT,
+          limit: LIMIT,
+          pagination: false,
+        },
+        query,
+      }
+    );
     return data;
   };
 
@@ -78,13 +81,16 @@ export const useStaking = () => {
   // =====================================
   const getDelegations = async () => {
     try {
-      const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL ?? '', {
-        variables: {
-          validatorAddress: R.pathOr('', ['query', 'address'], router),
-          limit: LIMIT,
-        },
-        query: ValidatorDelegationsDocument,
-      });
+      const { data } = await axios.post(
+        process.env.NEXT_PUBLIC_GRAPHQL_URL || chainConfig.endpoints.graphql || 'http://localhost:3000/v1/graphql',
+        {
+          variables: {
+            validatorAddress: R.pathOr('', ['query', 'address'], router),
+            limit: LIMIT,
+          },
+          query: ValidatorDelegationsDocument,
+        }
+      );
       // console.log('data in getDelegation', data); // 191
 
       const count = R.pathOr(0, ['data', 'delegations', 'pagination', 'total'], data);
@@ -141,13 +147,16 @@ export const useStaking = () => {
   // =====================================
   const getRedelegations = async () => {
     try {
-      const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL ?? '', {
-        variables: {
-          validatorAddress: R.pathOr('', ['query', 'address'], router),
-          limit: LIMIT,
-        },
-        query: ValidatorRedelegationsDocument,
-      });
+      const { data } = await axios.post(
+        process.env.NEXT_PUBLIC_GRAPHQL_URL || chainConfig.endpoints.graphql || 'http://localhost:3000/v1/graphql',
+        {
+          variables: {
+            validatorAddress: R.pathOr('', ['query', 'address'], router),
+            limit: LIMIT,
+          },
+          query: ValidatorRedelegationsDocument,
+        }
+      );
       const count = R.pathOr(0, ['data', 'redelegations', 'pagination', 'total'], data);
       const allData = R.pathOr([], ['data', 'redelegations', 'redelegations'], data);
 
@@ -213,13 +222,16 @@ export const useStaking = () => {
   // =====================================
   const getUnbondings = async () => {
     try {
-      const { data } = await axios.post(process.env.NEXT_PUBLIC_GRAPHQL_URL ?? '', {
-        variables: {
-          validatorAddress: R.pathOr('', ['query', 'address'], router),
-          limit: LIMIT,
-        },
-        query: ValidatorUndelegationsDocument,
-      });
+      const { data } = await axios.post(
+        process.env.NEXT_PUBLIC_GRAPHQL_URL || chainConfig.endpoints.graphql || 'http://localhost:3000/v1/graphql',
+        {
+          variables: {
+            validatorAddress: R.pathOr('', ['query', 'address'], router),
+            limit: LIMIT,
+          },
+          query: ValidatorUndelegationsDocument,
+        }
+      );
       const count = R.pathOr(0, ['data', 'undelegations', 'pagination', 'total'], data);
       const allData = R.pathOr([], ['data', 'undelegations', 'undelegations'], data);
 

@@ -131,28 +131,17 @@ function webpack(config) {
  * @param chainConfig - This is the chain configuration object. It contains the endpoints for the
  * GraphQL server, the GraphQL websocket, and the public RPC websocket.
  * @returns An object with the following properties:
- * - NEXT_PUBLIC_GENERAL_CONFIG:
- *   - If the environment variable NEXT_PUBLIC_GENERAL_CONFIG is set, it will be used.
+ * - GENERAL_CONFIG:
+ *   - If the environment variable GENERAL_CONFIG is set, it will be used.
  *   - Otherwise, the generalConfig object will be stringified and used.
- * - NEXT_PUBLIC_CHAIN_CONFIG:
+ * - CHAIN_CONFIG:
  *   - If the environment
  */
 function env(generalConfig, chainConfig) {
   return {
-    NEXT_PUBLIC_GENERAL_CONFIG:
-      process.env.NEXT_PUBLIC_GENERAL_CONFIG || JSON.stringify(generalConfig),
-    NEXT_PUBLIC_CHAIN_CONFIG: process.env.NEXT_PUBLIC_CHAIN_CONFIG || JSON.stringify(chainConfig),
-    NEXT_PUBLIC_GRAPHQL_URL: process.env.NEXT_PUBLIC_GRAPHQL_URL || chainConfig.endpoints.graphql,
-    NEXT_PUBLIC_GRAPHQL_WS:
-      process.env.NEXT_PUBLIC_GRAPHQL_WS || chainConfig.endpoints.graphqlWebsocket,
-    NEXT_PUBLIC_MATOMO_URL: process.env.NEXT_PUBLIC_MATOMO_URL || chainConfig.marketing.matomoURL,
-    NEXT_PUBLIC_MATOMO_SITE_ID:
-      process.env.NEXT_PUBLIC_MATOMO_SITE_ID || chainConfig.marketing.matomoSiteID,
-    NEXT_PUBLIC_RPC_WEBSOCKET:
-      process.env.NEXT_PUBLIC_RPC_WEBSOCKET ||
-      chainConfig.endpoints.publicRpcWebsocket ||
-      process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-      chainConfig.endpoints.graphql,
+    GENERAL_CONFIG:
+      process.env.GENERAL_CONFIG || JSON.stringify(generalConfig),
+    CHAIN_CONFIG: process.env.CHAIN_CONFIG || JSON.stringify(chainConfig),
   };
 }
 

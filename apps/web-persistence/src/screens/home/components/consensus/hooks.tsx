@@ -23,7 +23,12 @@ export const useConsensus = () => {
   });
 
   useEffect(() => {
-    const client = new WebSocket(process.env.NEXT_PUBLIC_RPC_WEBSOCKET || 'ws://localhost:3000');
+    const client = new WebSocket(
+      process.env.NEXT_PUBLIC_RPC_WEBSOCKET ||
+        chainConfig.endpoints.publicRpcWebsocket ||
+        chainConfig.endpoints.graphqlWebsocket ||
+        'ws://localhost:3000/websocket'
+    );
     const stepHeader = {
       jsonrpc: '2.0',
       method: 'subscribe',

@@ -11,6 +11,247 @@ services:
       - 3000:3000
     networks:
       - app_network
+  web-cosmos:
+    container_name: web-cosmos
+    build:
+      context: .
+      dockerfile: ./apps/web-cosmos/Dockerfile
+    restart: always
+    ports:
+      - 3001:3000
+    networks:
+      - app_network
+  web-akash:
+    container_name: web-akash
+    build:
+      context: .
+      dockerfile: ./apps/web-akash/Dockerfile
+    restart: always
+    ports:
+      - 3002:3000
+    networks:
+      - app_network
+  web-emoney:
+    container_name: web-emoney
+    build:
+      context: .
+      dockerfile: ./apps/web-emoney/Dockerfile
+    restart: always
+    ports:
+      - 3003:3000
+    networks:
+      - app_network
+  web-band:
+    container_name: web-band
+    build:
+      context: .
+      dockerfile: ./apps/web-band/Dockerfile
+    restart: always
+    ports:
+      - 3004:3000
+    networks:
+      - app_network
+  web-likecoin:
+    container_name: web-likecoin
+    build:
+      context: .
+      dockerfile: ./apps/web-likecoin/Dockerfile
+    restart: always
+    ports:
+      - 3005:3000
+    networks:
+      - app_network
+  web-desmos:
+    container_name: web-desmos
+    build:
+      context: .
+      dockerfile: ./apps/web-desmos/Dockerfile
+    restart: always
+    ports:
+      - 3006:3000
+    networks:
+      - app_network
+  web-flow:
+    container_name: web-flow
+    build:
+      context: .
+      dockerfile: ./apps/web-flow/Dockerfile
+    restart: always
+    ports:
+      - 3007:3000
+    networks:
+      - app_network
+  web-osmosis:
+    container_name: web-osmosis
+    build:
+      context: .
+      dockerfile: ./apps/web-osmosis/Dockerfile
+    restart: always
+    ports:
+      - 3008:3000
+    networks:
+      - app_network
+  web-bitsong:
+    container_name: web-bitsong
+    build:
+      context: .
+      dockerfile: ./apps/web-bitsong/Dockerfile
+    restart: always
+    ports:
+      - 3009:3000
+    networks:
+      - app_network
+  web-regen:
+    container_name: web-regen
+    build:
+      context: .
+      dockerfile: ./apps/web-regen/Dockerfile
+    restart: always
+    ports:
+      - 3010:3000
+    networks:
+      - app_network
+  web-agoric:
+    container_name: web-agoric
+    build:
+      context: .
+      dockerfile: ./apps/web-agoric/Dockerfile
+    restart: always
+    ports:
+      - 3011:3000
+    networks:
+      - app_network
+  web-rizon:
+    container_name: web-rizon
+    build:
+      context: .
+      dockerfile: ./apps/web-rizon/Dockerfile
+    restart: always
+    ports:
+      - 3012:3000
+    networks:
+      - app_network
+  web-elrond:
+    container_name: web-elrond
+    build:
+      context: .
+      dockerfile: ./apps/web-elrond/Dockerfile
+    restart: always
+    ports:
+      - 3013:3000
+    networks:
+      - app_network
+  web-evmos:
+    container_name: web-evmos
+    build:
+      context: .
+      dockerfile: ./apps/web-evmos/Dockerfile
+    restart: always
+    ports:
+      - 3014:3000
+    networks:
+      - app_network
+  web-comdex:
+    container_name: web-comdex
+    build:
+      context: .
+      dockerfile: ./apps/web-comdex/Dockerfile
+    restart: always
+    ports:
+      - 3015:3000
+    networks:
+      - app_network
+  web-crescent:
+    container_name: web-crescent
+    build:
+      context: .
+      dockerfile: ./apps/web-crescent/Dockerfile
+    restart: always
+    ports:
+      - 3016:3000
+    networks:
+      - app_network
+  web-sifchain:
+    container_name: web-sifchain
+    build:
+      context: .
+      dockerfile: ./apps/web-sifchain/Dockerfile
+    restart: always
+    ports:
+      - 3017:3000
+    networks:
+      - app_network
+  web-assetmantle:
+    container_name: web-assetmantle
+    build:
+      context: .
+      dockerfile: ./apps/web-assetmantle/Dockerfile
+    restart: always
+    ports:
+      - 3018:3000
+    networks:
+      - app_network
+  web-provenance:
+    container_name: web-provenance
+    build:
+      context: .
+      dockerfile: ./apps/web-provenance/Dockerfile
+    restart: always
+    ports:
+      - 3019:3000
+    networks:
+      - app_network
+  web-nomic:
+    container_name: web-nomic
+    build:
+      context: .
+      dockerfile: ./apps/web-nomic/Dockerfile
+    restart: always
+    ports:
+      - 3020:3000
+    networks:
+      - app_network
+  web-shentu:
+    container_name: web-shentu
+    build:
+      context: .
+      dockerfile: ./apps/web-shentu/Dockerfile
+    restart: always
+    ports:
+      - 3021:3000
+    networks:
+      - app_network
+  web-persistence:
+    container_name: web-persistence
+    build:
+      context: .
+      dockerfile: ./apps/web-persistence/Dockerfile
+    restart: always
+    ports:
+      - 3022:3000
+    networks:
+      - app_network
+  web-stride:
+    container_name: web-stride
+    build:
+      context: .
+      dockerfile: ./apps/web-stride/Dockerfile
+    restart: always
+    ports:
+      - 3023:3000
+    networks:
+      - app_network
+  web-nym:
+    container_name: web-nym
+    build:
+      context: .
+      dockerfile: ./apps/web-nym/Dockerfile
+    restart: always
+    ports:
+      - 3024:3000
+    networks:
+      - app_network
+
 
 # Define a network, which allows containers to communicate
 # with each other, by using their container name as a hostname

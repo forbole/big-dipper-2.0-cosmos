@@ -12,6 +12,7 @@ import { createClient } from 'graphql-ws';
 import webSocketImpl from 'isomorphic-ws';
 import { Kind, OperationTypeNode } from 'graphql';
 import { useEffect, useState } from 'react';
+import chainConfig from '@src/chainConfig';
 
 /* A global variable that stores the Apollo Client. */
 let globalApolloClient: ApolloClient<NormalizedCacheObject>;
@@ -30,7 +31,8 @@ const defaultOptions: DefaultOptions = {
 
 /* Creating a new HttpLink object. */
 const httpLink = new HttpLink({
-  uri: process.env.NEXT_PUBLIC_GRAPHQL_URL,
+  uri:
+    process.env.NEXT_PUBLIC_GRAPHQL_URL || chainConfig.endpoints.graphql || 'http://localhost:3000/v1/graphql',
   fetch,
 });
 
@@ -41,7 +43,10 @@ const httpLink = new HttpLink({
 function createWebSocketLink() {
   return new GraphQLWsLink(
     createClient({
-      url: process.env.NEXT_PUBLIC_GRAPHQL_WS ?? 'ws://localhost:3000',
+      url:
+        process.env.NEXT_PUBLIC_GRAPHQL_WS ||
+        chainConfig.endpoints.graphqlWebsocket ||
+        'ws://localhost:3000/websocket',
       lazy: true,
       retryAttempts: Number.MAX_VALUE,
       shouldRetry() {
