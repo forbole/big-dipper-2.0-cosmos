@@ -30,7 +30,6 @@ export const useTransactions = () => {
         return eachMsgType;
       });
       const convertedMsgType = convertMsgType(msgType);
-
       return {
         height: x.height,
         hash: x.hash,

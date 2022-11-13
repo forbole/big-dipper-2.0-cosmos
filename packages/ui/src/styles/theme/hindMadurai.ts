@@ -1,7 +1,7 @@
 import { AtRule } from 'csstype';
 import chainConfig from 'ui/chainConfig';
 
-const basePath = process.env.BASE_PATH ?? `/${chainConfig.chainName}`.replace(/^\/$/, '');
+const basePath = process.env.BASE_PATH ?? `${`/${chainConfig.chainName}`.replace(/^\/$/, '')}`.replace(/^\/$/, '');
 
 const hindMadurai: AtRule.FontFace = {
   fontFamily: 'Hind Madurai',

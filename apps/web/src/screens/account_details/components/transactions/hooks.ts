@@ -80,7 +80,6 @@ export const useTransactions = () => {
       // messages
       // =============================
       const messages = convertMsgsToModels(transaction);
-
       return {
         height: transaction?.height,
         hash: transaction?.hash,

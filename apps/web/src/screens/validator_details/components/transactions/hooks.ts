@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { convertMsgsToModels } from 'ui/components/msg';
 import * as R from 'ramda';
 import { QueryHookOptions, QueryResult } from '@apollo/client';
+import { convertMsgType } from 'ui/utils/convert_msg_type';
 import { TransactionState } from './types';
 
 const LIMIT = 50;
@@ -22,8 +23,8 @@ export function useTransactions<TData, TVariables>(
     offsetCount: 0,
   });
 
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = (stateChange: Partial<TransactionState>) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState) as TransactionState);
   };
 
   const transactionQuery = useGetMessagesByAddressQuery({
@@ -35,7 +36,7 @@ export function useTransactions<TData, TVariables>(
     onCompleted: (data: any) => {
       const itemsLength = data.messagesByAddress.length;
       const newItems = R.uniq([...state.data, ...formatTransactions(data)]);
-      const stateChange = {
+      const stateChange: TransactionState = {
         data: newItems,
         hasNextPage: itemsLength === 51,
         isNextPageLoading: false,
@@ -61,7 +62,7 @@ export function useTransactions<TData, TVariables>(
       .then(({ data }: any) => {
         const itemsLength = data.messagesByAddress.length;
         const newItems = R.uniq([...state.data, ...formatTransactions(data)]);
-        const stateChange = {
+        const stateChange: TransactionState = {
           data: newItems,
           hasNextPage: itemsLength === 51,
           isNextPageLoading: false,
@@ -83,10 +84,15 @@ export function useTransactions<TData, TVariables>(
       // messages
       // =============================
       const messages = convertMsgsToModels(transaction);
-
+      const msgType = messages.map((eachMsg: any) => {
+        const eachMsgType = R.pathOr('none type', ['type'], eachMsg);
+        return eachMsgType;
+      });
+      const convertedMsgType = convertMsgType(msgType);
       return {
         height: transaction?.height,
         hash: transaction?.hash,
+        type: convertedMsgType,
         messages: {
           count: messages.length,
           items: messages,
