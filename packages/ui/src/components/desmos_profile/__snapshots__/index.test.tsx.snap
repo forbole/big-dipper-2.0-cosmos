@@ -5,7 +5,7 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
   className="makeStyles-root makeStyles-root"
 >
   <div
-    className="makeStyles-cover"
+    className="makeStyles-cover makeStyles-cover"
   >
     <div
       className="cover"

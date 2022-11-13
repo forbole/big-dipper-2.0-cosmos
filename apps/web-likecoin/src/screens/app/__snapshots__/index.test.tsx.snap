@@ -8,16 +8,18 @@ exports[`screen: _app matches snapshot 1`] = `
   <div
     className="makeStyles-root-1"
   >
-    <img
-      alt="logo"
-      className="makeStyles-logo-3 makeStyles-dark-7"
-      src="svg"
-    />
-    <img
-      alt="logo"
-      className="makeStyles-logo-3 makeStyles-light-6"
-      src="svg"
-    />
+    <span>
+      <img
+        alt="logo"
+        className="makeStyles-logo-3 makeStyles-dark-7"
+        src="svg"
+      />
+      <img
+        alt="logo"
+        className="makeStyles-logo-3 makeStyles-light-6"
+        src="svg"
+      />
+    </span>
     <div
       className="makeStyles-timeContainer-4"
     >

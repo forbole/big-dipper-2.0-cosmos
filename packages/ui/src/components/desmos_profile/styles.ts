@@ -18,7 +18,7 @@ const styles = makeStyles<Theme, { coverUrl?: string }>(
         '& .cover': {
           width: '100%',
           height: '100%',
-          backgroundImage: `url(${coverUrl})`,
+          backgroundImage: (props) => `url(${props.coverUrl})`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
           backgroundPosition: 'center center',

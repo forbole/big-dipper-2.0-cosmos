@@ -5,16 +5,18 @@ exports[`screen: InitialLoad matches snapshot 1`] = `
   className="makeStyles-root"
 >
   <div>
-    <img
-      alt="logo"
-      className="makeStyles-logo makeStyles-dark"
-      src="svg"
-    />
-    <img
-      alt="logo"
-      className="makeStyles-logo makeStyles-light"
-      src="svg"
-    />
+    <span>
+      <img
+        alt="logo"
+        className="makeStyles-logo makeStyles-dark"
+        src="svg"
+      />
+      <img
+        alt="logo"
+        className="makeStyles-logo makeStyles-light"
+        src="svg"
+      />
+    </span>
     <div
       className="makeStyles-divider"
       id="LinearProgress"

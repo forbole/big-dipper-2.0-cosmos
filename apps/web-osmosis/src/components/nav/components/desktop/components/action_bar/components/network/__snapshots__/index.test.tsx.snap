@@ -6,16 +6,18 @@ exports[`screen: Nav/Network it renders 1`] = `
   onClick={[MockFunction]}
   role="button"
 >
-  <img
-    alt="icon"
-    className="makeStyles-icon makeStyles-dark"
-    src="svg"
-  />
-  <img
-    alt="icon"
-    className="makeStyles-icon makeStyles-light"
-    src="svg"
-  />
+  <span>
+    <img
+      alt="icon"
+      className="makeStyles-icon makeStyles-dark"
+      src="svg"
+    />
+    <img
+      alt="icon"
+      className="makeStyles-icon makeStyles-light"
+      src="svg"
+    />
+  </span>
   <p
     className="MuiTypography-root MuiTypography-body1"
   >

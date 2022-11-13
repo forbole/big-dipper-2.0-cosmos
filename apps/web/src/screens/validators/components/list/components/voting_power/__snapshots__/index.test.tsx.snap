@@ -2,10 +2,10 @@
 
 exports[`screen: Validators/VotingPower matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="makeStyles-root makeStyles-root"
 >
   <div
-    className="makeStyles-content"
+    className="makeStyles-content makeStyles-content"
   >
     <p
       className="MuiTypography-root MuiTypography-body1"
@@ -19,10 +19,10 @@ exports[`screen: Validators/VotingPower matches snapshot 1`] = `
     </p>
   </div>
   <div
-    className="makeStyles-chart"
+    className="makeStyles-chart makeStyles-chart"
   >
     <div
-      className="makeStyles-active"
+      className="makeStyles-active makeStyles-active"
     />
   </div>
 </div>
@@ -30,10 +30,10 @@ exports[`screen: Validators/VotingPower matches snapshot 1`] = `
 
 exports[`screen: Validators/VotingPower matches snapshot with topVotingPower set to false 1`] = `
 <div
-  className="makeStyles-root"
+  className="makeStyles-root makeStyles-root"
 >
   <div
-    className="makeStyles-content"
+    className="makeStyles-content makeStyles-content"
   >
     <p
       className="MuiTypography-root MuiTypography-body1"
@@ -47,10 +47,10 @@ exports[`screen: Validators/VotingPower matches snapshot with topVotingPower set
     </p>
   </div>
   <div
-    className="makeStyles-chart"
+    className="makeStyles-chart makeStyles-chart"
   >
     <div
-      className="makeStyles-active"
+      className="makeStyles-active makeStyles-active"
     />
   </div>
 </div>

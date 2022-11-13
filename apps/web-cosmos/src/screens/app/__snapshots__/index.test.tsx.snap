@@ -9,16 +9,18 @@ exports[`screen: _app matches snapshot 1`] = `
     className="makeStyles-root-1"
   >
     <div>
-      <img
-        alt="logo"
-        className="makeStyles-logo-2 makeStyles-dark-5"
-        src="svg"
-      />
-      <img
-        alt="logo"
-        className="makeStyles-logo-2 makeStyles-light-4"
-        src="svg"
-      />
+      <span>
+        <img
+          alt="logo"
+          className="makeStyles-logo-2 makeStyles-dark-5"
+          src="svg"
+        />
+        <img
+          alt="logo"
+          className="makeStyles-logo-2 makeStyles-light-4"
+          src="svg"
+        />
+      </span>
       <div
         className="MuiLinearProgress-root MuiLinearProgress-colorPrimary makeStyles-divider-3 MuiLinearProgress-indeterminate"
         role="progressbar"

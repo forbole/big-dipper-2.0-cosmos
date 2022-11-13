@@ -30,7 +30,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
     className="makeStyles-chart"
   >
     <div
-      className="makeStyles-active"
+      className="makeStyles-active makeStyles-active"
     />
   </div>
   <div
@@ -126,7 +126,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
     className="makeStyles-chart"
   >
     <div
-      className="makeStyles-active"
+      className="makeStyles-active makeStyles-active"
     />
   </div>
   <div
