@@ -1,7 +1,0 @@
-query ActiveValidatorCount {
-  total: node_infos_from_table_aggregate(where: {role: {_eq: "1"}}) {
-    aggregate {
-      count(columns: delegators)
-    }
-  }
-}

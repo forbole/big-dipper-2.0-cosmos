@@ -92,17 +92,6 @@ services:
       - 3006:3000
     networks:
       - app_network
-  web-flow:
-    container_name: web-flow
-    build:
-      context: .
-      dockerfile: ./apps/web-flow/Dockerfile
-    platform: linux/arm64
-    restart: always
-    ports:
-      - 3007:3000
-    networks:
-      - app_network
   web-osmosis:
     container_name: web-osmosis
     build:

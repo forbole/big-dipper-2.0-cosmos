@@ -5356,13 +5356,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"backo2@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "backo2@npm:1.0.2"
-  checksum: fda8d0a0f4810068d23715f2f45153146d6ee8f62dd827ce1e0b6cc3c8328e84ad61e11399a83931705cef702fe7cbb457856bf99b9bd10c4ed57b0786252385
-  languageName: node
-  linkType: hard
-
 "balanced-match@npm:^1.0.0":
   version: 1.0.2
   resolution: "balanced-match@npm:1.0.2"
@@ -8039,13 +8032,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eventemitter3@npm:^3.1.0":
-  version: 3.1.2
-  resolution: "eventemitter3@npm:3.1.2"
-  checksum: 81e4e82b8418f5cfd986d2b4a2fa5397ac4eb8134e09bcb47005545e22fdf8e9e61d5c053d34651112245aae411bdfe6d0ad5511da0400743fef5fc38bfcfbe3
-  languageName: node
-  linkType: hard
-
 "eventemitter3@npm:^4.0.1":
   version: 4.0.7
   resolution: "eventemitter3@npm:4.0.7"
@@ -9758,13 +9744,6 @@ __metadata:
     html-escaper: ^2.0.0
     istanbul-lib-report: ^3.0.0
   checksum: 7867228f83ed39477b188ea07e7ccb9b4f5320b6f73d1db93a0981b7414fa4ef72d3f80c4692c442f90fc250d9406e71d8d7ab65bb615cb334e6292b73192b89
-  languageName: node
-  linkType: hard
-
-"iterall@npm:^1.2.1":
-  version: 1.3.0
-  resolution: "iterall@npm:1.3.0"
-  checksum: c78b99678f8c99be488cca7f33e4acca9b72c1326e050afbaf023f086e55619ee466af0464af94a0cb3f292e60cb5bac53a8fd86bd4249ecad26e09f17bb158b
   languageName: node
   linkType: hard
 
@@ -14377,21 +14356,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"subscriptions-transport-ws@npm:^0.11.0":
-  version: 0.11.0
-  resolution: "subscriptions-transport-ws@npm:0.11.0"
-  dependencies:
-    backo2: ^1.0.2
-    eventemitter3: ^3.1.0
-    iterall: ^1.2.1
-    symbol-observable: ^1.0.4
-    ws: ^5.2.0 || ^6.0.0 || ^7.0.0
-  peerDependencies:
-    graphql: ^15.7.2 || ^16.0.0
-  checksum: cc2e98d5c9d89c44d2e15eca188781c6ebae13d1661c42a99cee9d2897aebe2a22bc118eefff83244a79c88ee4ea24d46973ebf26ae7cb47ac1857fb8ee2c947
-  languageName: node
-  linkType: hard
-
 "sucrase@npm:^3.20.0, sucrase@npm:^3.20.3":
   version: 3.28.0
   resolution: "sucrase@npm:3.28.0"
@@ -14483,13 +14447,6 @@ __metadata:
   dependencies:
     tslib: ^2.0.3
   checksum: 6e21c9e1b3cd5735eb2af679a99ec3efc78a14e3d4d5e3fd594e254b91cfd37185b3d1c6e41b22f53a2cdf5d1b963ce30c0fe8b78337e3fd43d0137084670a5f
-  languageName: node
-  linkType: hard
-
-"symbol-observable@npm:^1.0.4":
-  version: 1.2.0
-  resolution: "symbol-observable@npm:1.2.0"
-  checksum: 48ffbc22e3d75f9853b3ff2ae94a44d84f386415110aea5effc24d84c502e03a4a6b7a8f75ebaf7b585780bda34eb5d6da3121f826a6f93398429d30032971b6
   languageName: node
   linkType: hard
 
@@ -15293,7 +15250,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -15706,7 +15662,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -15813,7 +15768,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -15920,7 +15874,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -16027,7 +15980,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -16134,7 +16086,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -16241,7 +16192,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -16348,7 +16298,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -16455,7 +16404,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -16562,7 +16510,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -16669,7 +16616,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -16776,7 +16722,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -16883,114 +16828,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
-    ts-node: ^10.9.1
-    tsconfig: "*"
-    typescript: ^4.8.4
-    ui: "*"
-    ws: ^8.10.0
-  languageName: unknown
-  linkType: soft
-
-"web-flow@workspace:apps/web-flow":
-  version: 0.0.0-use.local
-  resolution: "web-flow@workspace:apps/web-flow"
-  dependencies:
-    "@apollo/client": ^3.7.1
-    "@graphql-codegen/cli": ^2.13.11
-    "@graphql-codegen/client-preset": ^1.1.3
-    "@graphql-codegen/fragment-matcher": ^3.3.1
-    "@graphql-codegen/typescript": ^2.8.1
-    "@graphql-codegen/typescript-operations": ^2.5.6
-    "@graphql-codegen/typescript-react-apollo": ^3.3.6
-    "@graphql-tools/mock": ^8.7.11
-    "@graphql-tools/schema": ^9.0.9
-    "@jest/globals": ^29.3.1
-    "@material-ui/core": ^4.12.4
-    "@material-ui/icons": ^4.11.3
-    "@material-ui/styles": ^4.11.5
-    "@next/eslint-plugin-next": ^13.0.3
-    "@sentry/nextjs": ^7.16.0
-    "@socialgouv/matomo-next": ^1.2.2
-    "@svgr/webpack": ^6.5.1
-    "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^12.1.5
-    "@testing-library/react-hooks": ^8.0.1
-    "@types/big.js": ^6.1.6
-    "@types/color": ^3.0.3
-    "@types/dompurify": ^2.3.4
-    "@types/jest": ^29.2.2
-    "@types/node": ^18.11.9
-    "@types/numeral": ^2.0.2
-    "@types/ramda": ^0.28.18
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.2
-    "@types/react-test-renderer": ^17.0.2
-    "@types/react-virtualized-auto-sizer": ^1.0.1
-    "@types/react-window": ^1.8.5
-    "@types/react-window-infinite-loader": ^1.0.6
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
-    axios: ^0.21.4
-    axios-mock-adapter: ^1.19.0
-    bech32: ^2.0.0
-    big.js: ^6.1.1
-    classnames: ^2.2.6
-    color: ^3.1.3
-    copy-to-clipboard: ^3.3.1
-    cors: ^2.8.5
-    cypress: ^10.11.0
-    dayjs: ^1.10.4
-    dompurify: ^2.3.1
-    dotenv: ^8.2.0
-    eslint: ^8.27.0
-    eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-cypress: "*"
-    eslint-config-next: ^13.0.3
-    eslint-config-prettier: ^8.5.0
-    eslint-config-turbo: latest
-    eslint-plugin-cypress: ^2.12.1
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.6.1
-    eslint-plugin-react: ^7.31.10
-    eslint-plugin-react-hooks: ^4.6.0
-    eslint-plugin-turbo: ^0.0.4
-    graphql: ^16.6.0
-    graphql-tag: ^2.0.0
-    graphql-ws: ^5.11.2
-    helmet: ^4.6.0
-    isomorphic-ws: ^5.0.0
-    jdenticon: ^3.1.0
-    jest: ^29.2.2
-    jest-environment-jsdom: ^29.2.2
-    jest-localstorage-mock: ^2.4.22
-    jest-presets: "*"
-    jest-transform-stub: ^2.0.0
-    jest-watch-typeahead: ^2.2.0
-    markdown-to-jsx: ^7.1.2
-    next: ^12.3.3
-    next-seo: ^4.26.0
-    next-translate: ^1.0.3
-    next-transpile-modules: ^10.0.0
-    numeral: 2.0.4
-    prop-types: ^15.8.1
-    qrcode.react: ^3.1.0
-    ramda: ^0.27.1
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-share: ^4.4.1
-    react-test-renderer: ^17.0.2
-    react-toastify: ^7.0.3
-    react-virtualized-auto-sizer: ^1.0.4
-    react-window: ^1.8.6
-    react-window-infinite-loader: ^1.0.7
-    recharts: ^2.1.16
-    recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -17097,7 +16934,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -17204,7 +17040,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -17311,7 +17146,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -17418,7 +17252,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -17525,7 +17358,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -17632,7 +17464,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -17739,7 +17570,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -17846,7 +17676,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -17953,7 +17782,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -18060,7 +17888,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -18181,7 +18008,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -18288,7 +18114,6 @@ __metadata:
     recoil: ^0.7.6
     shared-utils: "*"
     sharp: ^0.31.2
-    subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
@@ -18594,7 +18419,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:^5.2.0 || ^6.0.0 || ^7.0.0, ws@npm:^7.4.6":
+"ws@npm:^7.4.6":
   version: 7.5.9
   resolution: "ws@npm:7.5.9"
   peerDependencies:

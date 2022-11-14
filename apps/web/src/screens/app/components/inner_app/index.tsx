@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppProps } from 'next/app';
 import { useLatestBlockTimestampLazyQuery } from '@src/graphql/types/general_types';
-import { useChainHealthCheck, UseLatestBlockTimestampLazyQuery } from './hooks';
+import { useChainHealthCheck } from './hooks';
 
 function InnerApp<TData, TVariables>({ Component, pageProps }: AppProps) {
   useChainHealthCheck(useLatestBlockTimestampLazyQuery);
