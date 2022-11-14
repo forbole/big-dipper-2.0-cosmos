@@ -21,11 +21,11 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/AnchorDataRequest', () => {
   it('matches snapshot', () => {
-    const message = new MsgAnchorDataRequest({
+    const message = {
       category: 'data',
       type: 'MsgAnchorDataRequest',
       sender: 'sender',
-    });
+    } as MsgAnchorDataRequest;
 
     const component = renderer.create(
       <MockTheme>

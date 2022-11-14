@@ -15,13 +15,14 @@ class MsgUpdateGroupAccountMetadataRequest {
     this.address = payload.address;
   }
 
-  static fromJson(json: any) {
-    return new MsgUpdateGroupAccountMetadataRequest({
+  static fromJson(json: any): MsgUpdateGroupAccountMetadataRequest {
+    return {
+      category: 'group',
       json,
       type: json['@type'],
       admin: json.admin,
       address: json.address,
-    });
+    };
   }
 }
 

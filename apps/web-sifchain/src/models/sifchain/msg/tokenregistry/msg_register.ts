@@ -18,15 +18,16 @@ class MsgRegister {
     this.entry = payload.entry;
   }
 
-  static fromJson(json: any) {
-    return new MsgRegister({
+  static fromJson(json: any): MsgRegister {
+    return {
+      category: 'tokenregistry',
       json,
       type: json['@type'],
       from: json.from,
       entry: {
         denom: R.pathOr('', ['entry', 'denom'], json),
       },
-    });
+    };
   }
 }
 

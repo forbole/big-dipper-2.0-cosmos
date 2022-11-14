@@ -18,14 +18,15 @@ class MsgTransferFanTokenOwner {
     this.dstOwner = payload.dstOwner;
   }
 
-  static fromJson(json: any) {
-    return new MsgTransferFanTokenOwner({
+  static fromJson(json: any): MsgTransferFanTokenOwner {
+    return {
+      category: 'fantoken',
       json,
       type: json['@type'],
       symbol: json.symbol,
       srcOwner: R.pathOr('', ['src_owner'], json),
       dstOwner: R.pathOr('', ['dst_owner'], json),
-    });
+    }
   }
 }
 

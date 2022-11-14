@@ -18,14 +18,15 @@ class MsgUnlinkChainAccount {
     this.target = payload.target;
   }
 
-  static fromJson(json: any) {
-    return new MsgUnlinkChainAccount({
+  static fromJson(json: any): MsgUnlinkChainAccount {
+    return {
+      category: 'profiles',
       json,
       type: json['@type'],
       owner: json.owner,
       chainName: R.pathOr('', ['chain_name'], json),
       target: json.target,
-    });
+    };
   }
 }
 

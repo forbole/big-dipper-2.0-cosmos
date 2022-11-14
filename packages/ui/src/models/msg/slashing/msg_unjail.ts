@@ -13,12 +13,13 @@ class MsgUnjail {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgUnjail({
+  static fromJson(json: any): MsgUnjail {
+    return {
+      category: 'slashing',
       json,
       type: json['@type'],
       validatorAddress: json.validator_addr,
-    });
+    };
   }
 }
 

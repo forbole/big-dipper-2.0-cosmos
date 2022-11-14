@@ -18,8 +18,9 @@ class MsgSend {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgSend({
+  static fromJson(json: any): MsgSend {
+    return {
+      category: 'bank',
       json,
       type: json['@type'],
       fromAddress: json.from_address,
@@ -30,7 +31,7 @@ class MsgSend {
           amount: R.pathOr('0', ['amount'], x),
         };
       }),
-    });
+    };
   }
 }
 

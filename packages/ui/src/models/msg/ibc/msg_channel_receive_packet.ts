@@ -17,14 +17,15 @@ class MsgReceivePacket {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgReceivePacket({
+  static fromJson(json: any): MsgReceivePacket {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
       sourceChannel: json.packet?.source_channel,
       destinationChannel: json.packet?.destination_channel,
-    });
+    };
   }
 }
 

@@ -17,12 +17,12 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/DtagTransferRequest', () => {
   it('matches snapshot', () => {
-    const message = new MsgDtagTransferRequest({
+    const message = {
       category: 'profiles',
       type: 'MsgDtagCancelTransfer',
       sender: 'sender',
       receiver: 'receiver',
-    });
+    } as MsgDtagTransferRequest;
     const component = renderer.create(
       <MockTheme>
         <DtagTransferRequest message={message} />

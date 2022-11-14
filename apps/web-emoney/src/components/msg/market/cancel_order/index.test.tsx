@@ -16,12 +16,12 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/CancelOrder', () => {
   it('matches snapshot', () => {
-    const message = new MsgCancelOrder({
+    const message = {
       category: 'market',
       type: 'MsgCancelOrder',
       owner: 'owner',
       clientOrderId: 'clientOrderId',
-    });
+    } as MsgCancelOrder;
     const component = renderer.create(
       <MockTheme>
         <CancelOrder message={message} />

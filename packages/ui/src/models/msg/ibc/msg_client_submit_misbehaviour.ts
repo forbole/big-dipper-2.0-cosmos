@@ -15,13 +15,14 @@ class MsgSubmitMisbehaviour {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgSubmitMisbehaviour({
+  static fromJson(json: any): MsgSubmitMisbehaviour {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
       clientId: json.client_id,
-    });
+    };
   }
 }
 

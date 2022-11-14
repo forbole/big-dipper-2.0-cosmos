@@ -18,15 +18,16 @@ class MsgSetRegistry {
     this.registry = payload.registry;
   }
 
-  static fromJson(json: any) {
-    return new MsgSetRegistry({
+  static fromJson(json: any): MsgSetRegistry {
+    return {
+      category: 'tokenregistry',
       json,
       type: json['@type'],
       from: json.from,
       registry: R.pathOr([], ['registry'], json).map((x) => ({
         denom: R.pathOr('', ['denom'], x),
       })),
-    });
+    };
   }
 }
 

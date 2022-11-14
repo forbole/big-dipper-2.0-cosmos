@@ -16,8 +16,9 @@ class MsgFundCommunityPool {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgFundCommunityPool({
+  static fromJson(json: any): MsgFundCommunityPool {
+    return {
+      category: 'distribution',
       json,
       type: json['@type'],
       depositor: json.depositor,
@@ -27,7 +28,7 @@ class MsgFundCommunityPool {
           amount: R.pathOr('0', ['amount'], x),
         };
       }),
-    });
+    };
   }
 }
 

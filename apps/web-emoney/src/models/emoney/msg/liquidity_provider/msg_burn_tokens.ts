@@ -16,8 +16,9 @@ class MsgBurnTokens {
     this.amount = payload.amount;
   }
 
-  static fromJson(json: any) {
-    return new MsgBurnTokens({
+  static fromJson(json: any): MsgBurnTokens {
+    return {
+      category: 'liquidityProvider',
       json,
       type: json['@type'],
       liquidityProvider: json.liquidity_provider,
@@ -27,7 +28,7 @@ class MsgBurnTokens {
           amount: R.pathOr('0', ['amount'], x),
         };
       }),
-    });
+    };
   }
 }
 

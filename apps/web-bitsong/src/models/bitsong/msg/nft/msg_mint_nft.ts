@@ -15,13 +15,14 @@ class MsgMintNFT {
     this.id = payload.id;
   }
 
-  static fromJson(json: any) {
-    return new MsgMintNFT({
+  static fromJson(json: any): MsgMintNFT {
+    return {
+      category: 'nft',
       json,
       type: json['@type'],
       sender: json?.sender,
       id: json?.id,
-    });
+    };
   }
 }
 

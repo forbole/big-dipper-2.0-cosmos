@@ -38,16 +38,17 @@ class MsgWithdrawDelegatorReward {
     return amounts;
   }
 
-  static fromJson(json: any, log?: any) {
+  static fromJson(json: any, log?: any): MsgWithdrawDelegatorReward {
     const amounts = this.getWithdrawalAmount(log);
 
-    return new MsgWithdrawDelegatorReward({
+    return {
+      category: 'distribution',
       json,
       type: json['@type'],
       delegatorAddress: json.delegator_address,
       validatorAddress: json.validator_address,
       amounts,
-    });
+    };
   }
 }
 

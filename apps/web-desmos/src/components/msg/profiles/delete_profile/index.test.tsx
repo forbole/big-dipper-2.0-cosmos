@@ -17,11 +17,11 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/DeleteProfile', () => {
   it('matches snapshot', () => {
-    const message = new MsgDeleteProfile({
+    const message = {
       category: 'profiles',
       type: 'MsgDeleteProfile',
       creator: 'creator',
-    });
+    } as MsgDeleteProfile;
     const component = renderer.create(
       <MockTheme>
         <DeleteProfile message={message} />

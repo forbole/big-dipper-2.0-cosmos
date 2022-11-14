@@ -14,12 +14,13 @@ class MsgBurn {
     this.cosmosSender = payload.cosmosSender;
   }
 
-  static fromJson(json: any) {
-    return new MsgBurn({
+  static fromJson(json: any): MsgBurn {
+    return {
+      category: 'ethbridge',
       json,
       type: json['@type'],
       cosmosSender: R.pathOr('', ['cosmos_sender'], json),
-    });
+    };
   }
 }
 

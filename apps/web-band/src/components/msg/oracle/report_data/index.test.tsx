@@ -16,11 +16,11 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/BlockUser', () => {
   it('matches snapshot', () => {
-    const message = new MsgReportData({
+    const message = {
       type: 'MsgBlockUser',
       validator: 'validator',
       requestId: 100,
-    });
+    } as MsgReportData;
     const component = renderer.create(
       <MockTheme>
         <ReportData message={message} />

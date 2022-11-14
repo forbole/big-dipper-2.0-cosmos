@@ -20,8 +20,9 @@ class MsgTransfer {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgTransfer({
+  static fromJson(json: any): MsgTransfer {
+    return {
+      category: 'ibc-transfer',
       json,
       type: json['@type'],
       sender: json.sender,
@@ -31,7 +32,7 @@ class MsgTransfer {
         amount: R.pathOr('0', ['token', 'amount'], json),
       },
       sourceChannel: json.source_channel,
-    });
+    };
   }
 }
 

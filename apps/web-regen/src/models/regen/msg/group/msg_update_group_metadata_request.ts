@@ -13,12 +13,13 @@ class MsgUpdateGroupMetadataRequest {
     this.admin = payload.admin;
   }
 
-  static fromJson(json: any) {
-    return new MsgUpdateGroupMetadataRequest({
+  static fromJson(json: any): MsgUpdateGroupMetadataRequest {
+    return {
+      category: 'group',
       json,
       type: json['@type'],
       admin: json.admin,
-    });
+    };
   }
 }
 

@@ -18,14 +18,15 @@ class MsgCreateIssuer {
     this.denominations = payload.denominations;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreateIssuer({
+  static fromJson(json: any): MsgCreateIssuer {
+    return {
+      category: 'authority',
       json,
       type: json['@type'],
       authority: json.authority,
       issuer: R.pathOr('', ['issuer'], json),
       denominations: R.pathOr([], ['denominations'], json),
-    });
+    };
   }
 }
 

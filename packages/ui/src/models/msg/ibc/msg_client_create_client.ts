@@ -15,13 +15,14 @@ class MsgCreateClient {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreateClient({
+  static fromJson(json: any): MsgCreateClient {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
       chainId: json.client_state?.chain_id,
-    });
+    };
   }
 }
 

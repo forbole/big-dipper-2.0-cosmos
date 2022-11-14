@@ -25,9 +25,9 @@ class OracleParams {
     this.perValidatorRequestGas = payload.perValidatorRequestGas;
   }
 
-  static fromJson(data: any) {
+  static fromJson(data: any): OracleParams {
     console.log(data, 'data');
-    return new OracleParams({
+    return {
       maxAskCount: R.pathOr(0, ['max_ask_count'], data),
       baseOwsmGas: R.pathOr(0, ['base_owasm_gas'], data),
       maxCalldataSize: R.pathOr(0, ['max_calldata_size'], data),
@@ -38,7 +38,7 @@ class OracleParams {
       oracleRewardPercentage: R.pathOr(0, ['oracle_reward_percentage'], data),
       inactivePenaltyDuration: R.pathOr(0, ['inactive_penalty_duration'], data),
       perValidatorRequestGas: R.pathOr(0, ['per_validator_request_gas'], data),
-    });
+    };
   }
 }
 

@@ -13,12 +13,13 @@ class MsgTimeout {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgTimeout({
+  static fromJson(json: any): MsgTimeout {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
-    });
+    };
   }
 }
 

@@ -26,18 +26,19 @@ class MsgCreateOracleScript {
     this.sender = payload.sender;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreateOracleScript({
+  static fromJson(json: any): MsgCreateOracleScript {
+    return {
+      category: 'oracle',
       json,
       type: json['@type'],
       name: json.name,
       description: json.description,
       schema: json.schema,
       sourceCodeUrl: R.pathOr('', ['source_code_url'], json),
-      code: R.pathOr('', ['code'], json),
+      code: R.pathOr('', ['code'], json) as unknown as JSON,
       owner: json.owner,
       sender: json.sender,
-    });
+    };
   }
 }
 

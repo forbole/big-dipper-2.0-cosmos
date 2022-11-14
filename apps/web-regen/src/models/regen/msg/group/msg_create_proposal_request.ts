@@ -13,12 +13,13 @@ class MsgCreateProposalRequest {
     this.address = payload.address;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreateProposalRequest({
+  static fromJson(json: any): MsgCreateProposalRequest {
+    return {
+      category: 'group',
       json,
       type: json['@type'],
       address: json.address,
-    });
+    };
   }
 }
 

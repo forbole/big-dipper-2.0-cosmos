@@ -21,7 +21,7 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/MsgConvertCoin', () => {
   it('matches snapshot', () => {
-    const message = new MsgConvertCoin({
+    const message = {
       category: 'erc20',
       type: 'MsgSend',
       receiver: '0x6B6A7D59f854d1d9F38881A6502f4970f96A0104',
@@ -30,7 +30,7 @@ describe('screen: TransactionDetails/MsgConvertCoin', () => {
         denom: 'udaric',
         amount: '33600',
       },
-    });
+    } as MsgConvertCoin;
     const component = renderer.create(
       <MockTheme>
         <ConvertCoin message={message} />

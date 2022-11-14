@@ -17,14 +17,15 @@ class MsgChannelCloseConfirm {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgChannelCloseConfirm({
+  static fromJson(json: any): MsgChannelCloseConfirm {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
       channelId: json.channel_id,
       portId: json.port_id,
-    });
+    };
   }
 }
 

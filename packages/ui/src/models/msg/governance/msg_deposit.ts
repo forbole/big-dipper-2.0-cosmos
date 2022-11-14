@@ -19,11 +19,12 @@ class MsgDeposit {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgDeposit({
+  static fromJson(json: any): MsgDeposit {
+    return {
+      category: 'governance',
       json,
       type: json['@type'],
-      proposalId: numeral(json.proposal_id).value(),
+      proposalId: numeral(json.proposal_id).value() ?? '',
       depositor: json.depositor,
       amount: json?.amount.map((x?: { denom?: string; amount?: number }) => {
         return {
@@ -31,7 +32,7 @@ class MsgDeposit {
           amount: R.pathOr('0', ['amount'], x),
         };
       }),
-    });
+    };
   }
 }
 

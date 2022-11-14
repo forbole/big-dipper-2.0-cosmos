@@ -26,8 +26,9 @@ class MsgEditValidator {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgEditValidator({
+  static fromJson(json: any): MsgEditValidator {
+    return {
+      category: 'staking',
       json,
       type: json['@type'],
       description: {
@@ -38,9 +39,9 @@ class MsgEditValidator {
         details: json?.description?.details,
       },
       validatorAddress: json.validator_address,
-      commissionRate: numeral(json.commission_rate ?? 0).value(),
-      minSelfDelegation: numeral(json?.min_self_delegation ?? 0).value(),
-    });
+      commissionRate: numeral(json.commission_rate ?? 0).value() ?? 0,
+      minSelfDelegation: numeral(json?.min_self_delegation ?? 0).value() ?? 0,
+    };
   }
 }
 

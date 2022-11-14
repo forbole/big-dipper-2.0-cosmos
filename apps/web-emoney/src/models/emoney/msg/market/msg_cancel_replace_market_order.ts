@@ -26,8 +26,9 @@ class MsgCancelReplaceMarketOrder {
     this.maximumSlippage = payload.maximumSlippage;
   }
 
-  static fromJson(json: any) {
-    return new MsgCancelReplaceMarketOrder({
+  static fromJson(json: any): MsgCancelReplaceMarketOrder {
+    return {
+      category: 'market',
       json,
       type: json['@type'],
       owner: json.owner,
@@ -40,7 +41,7 @@ class MsgCancelReplaceMarketOrder {
         amount: R.pathOr('', ['destination', 'amount'], json),
       },
       maximumSlippage: R.pathOr('', ['maximum_slippage'], json),
-    });
+    };
   }
 }
 

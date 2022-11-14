@@ -16,12 +16,12 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/EditNFT', () => {
   it('matches snapshot', () => {
-    const message = new MsgEditNFT({
+    const message = {
       category: 'nft',
       type: 'MsgEditNFT',
       sender: 'desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7',
       id: 'goodGoodDayDay',
-    });
+    } as MsgEditNFT;
     const component = renderer.create(
       <MockTheme>
         <EditNFT message={message} />

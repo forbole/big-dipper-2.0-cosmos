@@ -21,11 +21,11 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/CreateClassRequest', () => {
   it('matches snapshot', () => {
-    const message = new MsgCreateClassRequest({
+    const message = {
       category: 'ecocredit',
       type: 'MsgCreateClassRequest',
       designer: 'sender',
-    });
+    } as MsgCreateClassRequest;
 
     const component = renderer.create(
       <MockTheme>

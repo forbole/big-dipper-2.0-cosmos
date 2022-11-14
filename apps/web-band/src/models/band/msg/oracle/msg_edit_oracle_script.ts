@@ -28,8 +28,9 @@ class MsgEditOracleScript {
     this.sender = payload.sender;
   }
 
-  static fromJson(json: any) {
-    return new MsgEditOracleScript({
+  static fromJson(json: any): MsgEditOracleScript {
+    return {
+      category: 'oracle',
       json,
       type: json['@type'],
       oracleScriptId: R.pathOr(0, ['oracle_script_id'], json),
@@ -37,10 +38,10 @@ class MsgEditOracleScript {
       description: json.description,
       schema: json.schema,
       sourceCodeUrl: R.pathOr('', ['source_code_url'], json),
-      code: R.pathOr('', ['code'], json),
+      code: R.pathOr('', ['code'], json) as unknown as JSON,
       owner: json.owner,
       sender: json.sender,
-    });
+    };
   }
 }
 

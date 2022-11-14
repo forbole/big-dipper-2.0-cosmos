@@ -22,8 +22,9 @@ class MsgAddLimitOrder {
     this.destination = payload.destination;
   }
 
-  static fromJson(json: any) {
-    return new MsgAddLimitOrder({
+  static fromJson(json: any): MsgAddLimitOrder {
+    return {
+      category: 'market',
       json,
       type: json['@type'],
       owner: json.owner,
@@ -35,9 +36,9 @@ class MsgAddLimitOrder {
       },
       destination: {
         denom: R.pathOr('', ['destination', 'denom'], json),
-        amount: R.pathOr(0, ['destination', 'amount'], json),
+        amount: R.pathOr('0', ['destination', 'amount'], json),
       },
-    });
+    };
   }
 }
 

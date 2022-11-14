@@ -21,13 +21,13 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/CreateEthBridgeClaim', () => {
   it('matches snapshot', () => {
-    const message = new MsgCreateEthBridgeClaim({
+    const message = {
       category: 'dispensation',
       type: 'MsgBurn',
       ethBridgeClaim: {
         cosmosreceiver: 'cosmosreceiver',
       },
-    });
+    } as MsgCreateEthBridgeClaim;
     const component = renderer.create(
       <MockTheme>
         <CreateEthBridgeClaim message={message} />

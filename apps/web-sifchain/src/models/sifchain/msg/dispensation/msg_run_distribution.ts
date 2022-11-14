@@ -20,13 +20,14 @@ class MsgRunDistribution {
     this.distributionType = payload.distributionType;
   }
 
-  static fromJson(json: any) {
-    return new MsgRunDistribution({
+  static fromJson(json: any): MsgRunDistribution {
+    return {
+      category: 'dispensation',
       json,
       type: json['@type'],
       authorizedRunner: R.pathOr('', ['authorized_runner'], json),
       distributionType: R.pathOr('DISTRIBUTION_TYPE_UNSPECIFIED', ['distribution_type'], json),
-    });
+    };
   }
 }
 

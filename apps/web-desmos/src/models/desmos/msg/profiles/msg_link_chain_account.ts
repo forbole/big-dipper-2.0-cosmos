@@ -18,15 +18,16 @@ class MsgLinkChainAccount {
     this.chainConfig = payload.chainConfig;
   }
 
-  static fromJson(json: any) {
-    return new MsgLinkChainAccount({
+  static fromJson(json: any): MsgLinkChainAccount {
+    return {
+      category: 'profiles',
       json,
       type: json['@type'],
       signer: json.signer,
       chainConfig: {
         name: R.pathOr('', ['chain_config', 'name'], json),
       },
-    });
+    };
   }
 }
 

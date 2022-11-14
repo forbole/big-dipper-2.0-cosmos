@@ -26,8 +26,9 @@ class MsgCreateDataSource {
     this.sender = payload.sender;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreateDataSource({
+  static fromJson(json: any): MsgCreateDataSource {
+    return {
+      category: 'oracle',
       json,
       type: json['@type'],
       name: json.name,
@@ -40,7 +41,7 @@ class MsgCreateDataSource {
       // treasury: json.treasury,
       // owner: json.owner,
       sender: json.sender,
-    });
+    };
   }
 }
 

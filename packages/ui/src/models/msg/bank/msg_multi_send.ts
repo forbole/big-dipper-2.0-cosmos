@@ -22,8 +22,9 @@ class MsgMultiSend {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgMultiSend({
+  static fromJson(json: any): MsgMultiSend {
+    return {
+      category: 'bank',
       json,
       type: json['@type'],
       inputs: json.inputs?.map(
@@ -52,7 +53,7 @@ class MsgMultiSend {
           };
         }
       ),
-    });
+    };
   }
 }
 

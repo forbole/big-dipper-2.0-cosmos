@@ -20,13 +20,14 @@ class MsgCreateDistribution {
     this.distributionType = payload.distributionType;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreateDistribution({
+  static fromJson(json: any): MsgCreateDistribution {
+    return {
+      category: 'dispensation',
       json,
       type: json['@type'],
       distributor: json.distributor,
       distributionType: R.pathOr('DISTRIBUTION_TYPE_UNSPECIFIED', ['distribution_type'], json),
-    });
+    };
   }
 }
 

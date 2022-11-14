@@ -13,12 +13,13 @@ class MsgAnchorDataRequest {
     this.sender = payload.sender;
   }
 
-  static fromJson(json: any) {
-    return new MsgAnchorDataRequest({
+  static fromJson(json: any): MsgAnchorDataRequest {
+    return {
+      category: 'data',
       json,
       type: json['@type'],
       sender: json.sender,
-    });
+    };
   }
 }
 

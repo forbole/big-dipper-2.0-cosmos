@@ -19,15 +19,16 @@ class MsgChannelOpenTry {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgChannelOpenTry({
+  static fromJson(json: any): MsgChannelOpenTry {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
       channel: json.channel,
       portId: json.port_id,
       counterpartyVersion: json.counterparty_version,
-    });
+    };
   }
 }
 

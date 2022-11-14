@@ -20,13 +20,14 @@ class MsgCreateUserClaim {
     this.userClaimType = payload.userClaimType;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreateUserClaim({
+  static fromJson(json: any): MsgCreateUserClaim {
+    return {
+      category: 'dispensation',
       json,
       type: json['@type'],
       userClaimAddress: R.pathOr('', ['user_claim_address'], json),
       userClaimType: R.pathOr('DISTRIBUTION_TYPE_UNSPECIFIED', ['user_claim_type'], json),
-    });
+    };
   }
 }
 

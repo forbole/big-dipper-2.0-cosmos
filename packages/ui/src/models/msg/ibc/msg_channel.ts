@@ -13,12 +13,13 @@ class MsgChannel {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgChannel({
+  static fromJson(json: any): MsgChannel {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
-    });
+    };
   }
 }
 

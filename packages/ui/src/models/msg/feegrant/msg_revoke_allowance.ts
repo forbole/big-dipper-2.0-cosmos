@@ -15,13 +15,14 @@ class MsgRevokeAllowance {
     this.grantee = payload.grantee;
   }
 
-  static fromJson(json: any) {
-    return new MsgRevokeAllowance({
+  static fromJson(json: any): MsgRevokeAllowance {
+    return {
+      category: 'feegrant',
       json,
       type: json['@type'],
       granter: json.granter,
       grantee: json.grantee,
-    });
+    };
   }
 }
 

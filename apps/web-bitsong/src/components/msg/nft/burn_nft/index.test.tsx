@@ -17,12 +17,12 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/BurnNFT', () => {
   it('matches snapshot', () => {
-    const message = new MsgBurnNFT({
+    const message = {
       category: 'nft',
       type: 'MsgBurnNFT',
       sender: 'desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7',
       id: 'goodGoodDayDay',
-    });
+    } as MsgBurnNFT;
     const component = renderer.create(
       <MockTheme>
         <BurnNFT message={message} />

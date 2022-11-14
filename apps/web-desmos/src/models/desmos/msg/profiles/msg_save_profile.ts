@@ -13,12 +13,13 @@ class MsgSaveProfile {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgSaveProfile({
+  static fromJson(json: any): MsgSaveProfile {
+    return {
+      category: 'profiles',
       type: json['@type'],
       creator: json.creator,
       json,
-    });
+    };
   }
 }
 

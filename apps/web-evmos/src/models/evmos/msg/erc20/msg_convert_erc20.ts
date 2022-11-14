@@ -22,15 +22,16 @@ class MsgConvertErc20 {
     this.sender = payload.sender; // hex
   }
 
-  static fromJson(json: any) {
-    return new MsgConvertErc20({
+  static fromJson(json: any): MsgConvertErc20 {
+    return {
+      category: 'erc20',
       json,
       type: json['@type'],
       contractAddress: R.pathOr('', ['contract_address'], json),
       amount: R.pathOr('', ['amount'], json),
       receiver: json.receiver,
       sender: json.sender,
-    });
+    };
   }
 }
 

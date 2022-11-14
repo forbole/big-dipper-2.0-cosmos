@@ -21,11 +21,11 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/CreateBatchRequest', () => {
   it('matches snapshot', () => {
-    const message = new MsgCreateBatchRequest({
+    const message = {
       category: 'ecocredit',
       type: 'MsgCreateBatchRequest',
       issuer: 'issuer',
-    });
+    } as MsgCreateBatchRequest;
 
     const component = renderer.create(
       <MockTheme>

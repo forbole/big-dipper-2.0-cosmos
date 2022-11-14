@@ -18,8 +18,9 @@ class MsgOpenBid {
     this.bidAmount = payload.bidAmount;
   }
 
-  static fromJson(json: any) {
-    return new MsgOpenBid({
+  static fromJson(json: any): MsgOpenBid {
+    return {
+      category: 'auction',
       json,
       type: json['@type'],
       auctionId: R.pathOr(0, ['auction_id'], json),
@@ -28,7 +29,7 @@ class MsgOpenBid {
         denom: R.pathOr('', ['bid_amount', 'denom'], json),
         amount: R.pathOr('0', ['bid_amount', 'amount'], json),
       },
-    });
+    };
   }
 }
 

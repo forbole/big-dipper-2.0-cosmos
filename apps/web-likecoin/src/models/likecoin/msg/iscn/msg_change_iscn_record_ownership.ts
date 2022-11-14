@@ -17,14 +17,15 @@ class MsgChangeIscnRecordOwnership {
     this.newOwner = payload.newOwner;
   }
 
-  static fromJson(json: any) {
-    return new MsgChangeIscnRecordOwnership({
+  static fromJson(json: any): MsgChangeIscnRecordOwnership {
+    return {
+      category: 'iscn',
       json,
       type: json['@type'],
       iscnId: json.iscn_id,
       from: json.from,
       newOwner: json.new_owner,
-    });
+    };
   }
 }
 

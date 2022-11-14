@@ -13,12 +13,13 @@ class MsgActivate {
     this.validator = payload.validator;
   }
 
-  static fromJson(json: any) {
-    return new MsgActivate({
+  static fromJson(json: any): MsgActivate {
+    return {
+      category: 'oracle',
       json,
       type: json['@type'],
       validator: json.validator,
-    });
+    };
   }
 }
 

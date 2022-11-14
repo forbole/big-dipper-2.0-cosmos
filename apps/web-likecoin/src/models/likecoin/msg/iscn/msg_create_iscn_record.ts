@@ -21,8 +21,9 @@ class MsgCreateIscnRecord {
     this.record = payload.record;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreateIscnRecord({
+  static fromJson(json: any): MsgCreateIscnRecord {
+    return {
+      category: 'iscn',
       json,
       type: json['@type'],
       from: json.from,
@@ -30,9 +31,9 @@ class MsgCreateIscnRecord {
         recordNotes: R.pathOr('', ['record', 'recordNotes'], json),
         contentFingerprints: R.pathOr([], ['record', 'contentFingerprints'], json),
         stakeholders: R.pathOr([], ['record', 'stakeholders'], json),
-        contentMetadata: R.pathOr('', ['record', 'contentMetadata'], json),
+        contentMetadata: R.pathOr('', ['record', 'contentMetadata'], json) as unknown as JSON,
       },
-    });
+    };
   }
 }
 

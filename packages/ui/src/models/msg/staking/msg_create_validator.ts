@@ -41,7 +41,8 @@ class MsgCreateValidator {
   }
 
   static fromJson(json: any) {
-    return new MsgCreateValidator({
+    return {
+      category: 'staking',
       json,
       type: json['@type'],
       description: {
@@ -67,7 +68,7 @@ class MsgCreateValidator {
         denom: json?.value?.denom,
         amount: R.pathOr('0', ['value', 'amount'], json),
       },
-    });
+    } as MsgCreateValidator;
   }
 }
 

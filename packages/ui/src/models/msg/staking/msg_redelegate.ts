@@ -20,8 +20,9 @@ class MsgRedelegate {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgRedelegate({
+  static fromJson(json: any): MsgRedelegate {
+    return {
+      category: 'staking',
       json,
       type: json['@type'],
       delegatorAddress: json?.delegator_address,
@@ -31,7 +32,7 @@ class MsgRedelegate {
         denom: json?.amount?.denom,
         amount: R.pathOr('0', ['amount', 'amount'], json),
       },
-    });
+    };
   }
 }
 

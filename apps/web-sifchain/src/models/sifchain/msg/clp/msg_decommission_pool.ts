@@ -15,13 +15,14 @@ class MsgDecommissionPool {
     this.symbol = payload.symbol;
   }
 
-  static fromJson(json: any) {
-    return new MsgDecommissionPool({
+  static fromJson(json: any): MsgDecommissionPool {
+    return {
+      category: 'clp',
       json,
       type: json['@type'],
       signer: json.signer,
       symbol: json.symbol,
-    });
+    };
   }
 }
 

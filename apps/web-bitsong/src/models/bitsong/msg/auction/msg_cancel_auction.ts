@@ -15,13 +15,14 @@ class MsgCancelAuction {
     this.id = payload.id;
   }
 
-  static fromJson(json: any) {
-    return new MsgCancelAuction({
+  static fromJson(json: any): MsgCancelAuction {
+    return {
+      category: 'auction',
       json,
       type: json['@type'],
       owner: json.owner,
       id: json.id,
-    });
+    };
   }
 }
 

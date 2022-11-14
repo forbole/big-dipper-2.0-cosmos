@@ -14,12 +14,13 @@ class MsgIssueDenom {
     this.creators = payload.creators;
   }
 
-  static fromJson(json: any) {
-    return new MsgIssueDenom({
+  static fromJson(json: any): MsgIssueDenom {
+    return {
+      category: 'nft',
       json,
       type: json['@type'],
       creators: R.pathOr([], ['creators'], json),
-    });
+    };
   }
 }
 

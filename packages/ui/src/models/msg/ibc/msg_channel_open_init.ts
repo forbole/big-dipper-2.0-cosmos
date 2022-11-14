@@ -17,14 +17,15 @@ class MsgChannelOpenInit {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgChannelOpenInit({
+  static fromJson(json: any): MsgChannelOpenInit {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
       channelId: json.channel?.counterparty?.channel_id,
       portId: json.port_id,
-    });
+    };
   }
 }
 

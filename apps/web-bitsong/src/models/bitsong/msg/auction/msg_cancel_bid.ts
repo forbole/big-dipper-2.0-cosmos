@@ -16,13 +16,14 @@ class MsgCancelBid {
     this.bidder = payload.bidder;
   }
 
-  static fromJson(json: any) {
-    return new MsgCancelBid({
+  static fromJson(json: any): MsgCancelBid {
+    return {
+      category: 'auction',
       json,
       type: json['@type'],
       auctionId: R.pathOr(0, ['auction_id'], json),
       bidder: json.bidder,
-    });
+    };
   }
 }
 

@@ -13,12 +13,13 @@ class MsgPacket {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgPacket({
+  static fromJson(json: any): MsgPacket {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
-    });
+    };
   }
 }
 

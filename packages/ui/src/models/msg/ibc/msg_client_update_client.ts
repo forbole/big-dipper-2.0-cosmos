@@ -17,14 +17,15 @@ class MsgUpdateClient {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgUpdateClient({
+  static fromJson(json: any): MsgUpdateClient {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
       chainId: json.header?.signed_header?.header?.chain_id,
       clientId: json.client_id,
-    });
+    };
   }
 }
 

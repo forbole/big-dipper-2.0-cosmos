@@ -15,13 +15,14 @@ class MsgSendRequest {
     this.recipient = payload.recipient;
   }
 
-  static fromJson(json: any) {
-    return new MsgSendRequest({
+  static fromJson(json: any): MsgSendRequest {
+    return {
+      category: 'ecocredit',
       json,
       type: json['@type'],
       sender: json.sender,
       recipient: json.recipient,
-    });
+    };
   }
 }
 

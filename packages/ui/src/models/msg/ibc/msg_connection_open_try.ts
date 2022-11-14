@@ -21,8 +21,9 @@ class MsgConnectionOpenTry {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgConnectionOpenTry({
+  static fromJson(json: any): MsgConnectionOpenTry {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
@@ -30,7 +31,7 @@ class MsgConnectionOpenTry {
       clientId: json.client_id,
       counterpartyClientId: json.counterparty?.client_id,
       counterpartyConnectionId: json.counterparty?.connection_id,
-    });
+    };
   }
 }
 

@@ -16,13 +16,14 @@ class MsgCreatePeriodicVestingAccount {
     this.toAddress = payload.toAddress;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreatePeriodicVestingAccount({
+  static fromJson(json: any): MsgCreatePeriodicVestingAccount {
+    return {
+      category: 'vesting',
       json,
       type: json['@type'],
       fromAddress: R.pathOr('', ['from_address'], json),
       toAddress: R.pathOr('', ['to_address'], json),
-    });
+    };
   }
 }
 

@@ -17,15 +17,16 @@ class MsgCreateEthBridgeClaim {
     this.ethBridgeClaim = payload.ethBridgeClaim;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreateEthBridgeClaim({
+  static fromJson(json: any): MsgCreateEthBridgeClaim {
+    return {
+      category: 'ethbridge',
       json,
       type: json['@type'],
       ethBridgeClaim: {
         cosmosreceiver: R.pathOr('', ['eth_bridge_claim', 'cosmos_receiver'], json),
         claimType: R.pathOr('CLAIM_TYPE_UNSPECIFIED', ['eth_bridge_claim', 'claim_type'], json),
       },
-    });
+    };
   }
 }
 

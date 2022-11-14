@@ -24,8 +24,9 @@ class MsgAddMarketOrder {
     this.maximumSlippage = payload.maximumSlippage;
   }
 
-  static fromJson(json: any) {
-    return new MsgAddMarketOrder({
+  static fromJson(json: any): MsgAddMarketOrder {
+    return {
+      category: 'market',
       json,
       type: json['@type'],
       owner: json.owner,
@@ -37,7 +38,7 @@ class MsgAddMarketOrder {
         amount: R.pathOr('', ['destination', 'amount'], json),
       },
       maximumSlippage: R.pathOr('', ['maximum_slippage'], json),
-    });
+    };
   }
 }
 

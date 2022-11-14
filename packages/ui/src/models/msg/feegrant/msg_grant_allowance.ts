@@ -15,13 +15,14 @@ class MsgGrantAllowance {
     this.grantee = payload.grantee;
   }
 
-  static fromJson(json: any) {
-    return new MsgGrantAllowance({
+  static fromJson(json: any): MsgGrantAllowance {
+    return {
+      category: 'feegrant',
       json,
       type: json['@type'],
       granter: json.granter,
       grantee: json.grantee,
-    });
+    };
   }
 }
 

@@ -18,14 +18,15 @@ class MsgUnblockUser {
     this.subspace = payload.subspace;
   }
 
-  static fromJson(json: any) {
-    return new MsgUnblockUser({
+  static fromJson(json: any): MsgUnblockUser {
+    return {
+      category: 'profiles',
       json,
       type: json['@type'],
       blocked: json.blocked,
       blocker: json.blocker,
       subspace: json.subspace,
-    });
+    };
   }
 }
 

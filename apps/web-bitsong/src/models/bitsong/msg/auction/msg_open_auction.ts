@@ -16,13 +16,14 @@ class MsgOpenAuction {
     this.nftId = payload.nftId;
   }
 
-  static fromJson(json: any) {
-    return new MsgOpenAuction({
+  static fromJson(json: any): MsgOpenAuction {
+    return {
+      category: 'auction',
       json,
       type: json['@type'],
       owner: json.owner,
       nftId: R.pathOr('', ['nft_id'], json),
-    });
+    };
   }
 }
 

@@ -21,11 +21,11 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/RetireRequest', () => {
   it('matches snapshot', () => {
-    const message = new MsgRetireRequest({
+    const message = {
       category: 'ecocredit',
       type: 'MsgRetireRequest',
       holder: 'holder',
-    });
+    } as MsgRetireRequest;
 
     const component = renderer.create(
       <MockTheme>

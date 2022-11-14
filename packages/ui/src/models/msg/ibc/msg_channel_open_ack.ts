@@ -21,8 +21,9 @@ class MsgChannelCloseInit {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgChannelCloseInit({
+  static fromJson(json: any): MsgChannelCloseInit {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
@@ -30,7 +31,7 @@ class MsgChannelCloseInit {
       portId: json.port_id,
       counterpartyChannelId: json.counterparty_channel_id,
       counterpartyVersion: json.counterparty_version,
-    });
+    };
   }
 }
 

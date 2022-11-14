@@ -20,8 +20,9 @@ class MsgConvertCoin {
     this.sender = payload.sender; // bech32
   }
 
-  static fromJson(json: any) {
-    return new MsgConvertCoin({
+  static fromJson(json: any): MsgConvertCoin {
+    return {
+      category: 'erc20',
       json,
       type: json['@type'],
       coin: {
@@ -30,7 +31,7 @@ class MsgConvertCoin {
       },
       receiver: json.receiver,
       sender: json.sender,
-    });
+    };
   }
 }
 

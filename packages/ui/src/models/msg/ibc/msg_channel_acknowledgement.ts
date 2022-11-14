@@ -15,13 +15,14 @@ class MsgAcknowledgement {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgAcknowledgement({
+  static fromJson(json: any): MsgAcknowledgement {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
       sourceChannel: json.packet?.source_channel,
-    });
+    };
   }
 }
 

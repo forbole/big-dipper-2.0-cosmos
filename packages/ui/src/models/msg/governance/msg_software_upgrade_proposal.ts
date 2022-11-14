@@ -19,19 +19,19 @@ class MsgSoftwareUpgradeProposal {
     this.plan = payload.plan;
   }
 
-  static fromJson(json: any) {
-    return new MsgSoftwareUpgradeProposal({
+  static fromJson(json: any): MsgSoftwareUpgradeProposal {
+    return {
       type: json['@type'],
       title: json.title,
       description: json.description,
       plan: {
         name: json?.plan?.name,
         time: json?.plan?.time,
-        height: numeral(json?.plan?.height).value(),
+        height: numeral(json?.plan?.height).value() ?? '',
         info: json?.plan?.info,
         upgradedClientState: json?.plan?.upgraded_client_state,
       },
-    });
+    };
   }
 }
 

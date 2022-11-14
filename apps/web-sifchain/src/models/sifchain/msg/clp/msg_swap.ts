@@ -38,8 +38,9 @@ class MsgSwap {
     return R.pathOr('0', [0, 'value'], amount);
   }
 
-  static fromJson(json: any, log?: any) {
-    return new MsgSwap({
+  static fromJson(json: any, log?: any): MsgSwap {
+    return {
+      category: 'clp',
       json,
       type: json['@type'],
       signer: json.signer,
@@ -52,7 +53,7 @@ class MsgSwap {
       sentAmount: R.pathOr('0', ['sent_amount'], json),
       minReceivingAmount: R.pathOr('0', ['min_receiving_amount'], json),
       receivedAmount: this.getReceivedAmount(log),
-    });
+    };
   }
 }
 

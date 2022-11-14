@@ -13,12 +13,13 @@ class MsgExecRequest {
     this.signer = payload.signer;
   }
 
-  static fromJson(json: any) {
-    return new MsgExecRequest({
+  static fromJson(json: any): MsgExecRequest {
+    return {
+      category: 'group',
       json,
       type: json['@type'],
       signer: json.signer,
-    });
+    };
   }
 }
 

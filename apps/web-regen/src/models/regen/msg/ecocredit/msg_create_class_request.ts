@@ -13,12 +13,13 @@ class MsgCreateClassRequest {
     this.designer = payload.designer;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreateClassRequest({
+  static fromJson(json: any): MsgCreateClassRequest {
+    return {
+      category: 'ecocredit',
       json,
       type: json['@type'],
       designer: json.designer,
-    });
+    };
   }
 }
 

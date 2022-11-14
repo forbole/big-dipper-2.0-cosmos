@@ -22,12 +22,12 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 
 describe('screen: TransactionDetails/UpdateGroupAdminRequest', () => {
   it('matches snapshot', () => {
-    const message = new MsgUpdateGroupAdminRequest({
+    const message = {
       category: 'group',
       type: 'MsgUpdateGroupAdminRequest',
       admin: 'admin',
       newAdmin: 'newAdmin',
-    });
+    } as MsgUpdateGroupAdminRequest;
 
     const component = renderer.create(
       <MockTheme>

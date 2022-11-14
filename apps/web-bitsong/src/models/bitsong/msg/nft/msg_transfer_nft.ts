@@ -17,14 +17,15 @@ class MsgTransferNFT {
     this.recipient = payload.recipient;
   }
 
-  static fromJson(json: any) {
-    return new MsgTransferNFT({
+  static fromJson(json: any): MsgTransferNFT {
+    return {
+      category: 'nft',
       json,
       type: json['@type'],
       sender: json?.sender,
       id: json?.id,
       recipient: json?.recipient,
-    });
+    };
   }
 }
 

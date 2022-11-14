@@ -21,12 +21,12 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/Grant', () => {
   it('matches snapshot', () => {
-    const message = new MsgCreateClawbackVestingAccount({
+    const message = {
       category: 'vesting',
       type: 'MsgGrant',
       toAddress: 'toAddress',
       fromAddress: 'fromAddress',
-    });
+    } as MsgCreateClawbackVestingAccount;
     const component = renderer.create(
       <MockTheme>
         <CreateClawbackVestingAccount message={message} />

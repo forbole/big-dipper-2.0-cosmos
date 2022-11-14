@@ -18,14 +18,15 @@ class MsgIssueFanToken {
     this.maxSupply = payload.maxSupply;
   }
 
-  static fromJson(json: any) {
-    return new MsgIssueFanToken({
+  static fromJson(json: any): MsgIssueFanToken {
+    return {
+      category: 'fantoken',
       json,
       type: json['@type'],
       owner: json.owner,
       name: json.name,
       maxSupply: R.pathOr('', ['max_supply'], json),
-    });
+    };
   }
 }
 

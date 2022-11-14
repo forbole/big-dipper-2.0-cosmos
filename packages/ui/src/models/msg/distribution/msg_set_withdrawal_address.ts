@@ -15,13 +15,14 @@ class MsgSetWithdrawAddress {
     this.withdrawalAddress = payload.withdrawalAddress;
   }
 
-  static fromJson(json: any) {
-    return new MsgSetWithdrawAddress({
+  static fromJson(json: any): MsgSetWithdrawAddress {
+    return {
+      category: 'distribution',
       json,
       type: json['@type'],
       delegatorAddress: json.delegator_address,
       withdrawalAddress: json.withdraw_address,
-    });
+    };
   }
 }
 

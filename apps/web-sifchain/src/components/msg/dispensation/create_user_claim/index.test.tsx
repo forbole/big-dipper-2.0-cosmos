@@ -21,12 +21,12 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/CreateUserClaim', () => {
   it('matches snapshot', () => {
-    const message = new MsgCreateUserClaim({
+    const message = {
       category: 'dispensation',
       type: 'MsgCreateDistribution',
       userClaimAddress: 'userClaimAddress',
       userClaimType: 'DISTRIBUTION_TYPE_AIRDROP',
-    });
+    } as MsgCreateUserClaim;
     const component = renderer.create(
       <MockTheme>
         <CreateUserClaim message={message} />

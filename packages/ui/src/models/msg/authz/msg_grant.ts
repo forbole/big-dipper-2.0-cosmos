@@ -15,13 +15,14 @@ class MsgGrant {
     this.grantee = payload.grantee;
   }
 
-  static fromJson(json: any) {
-    return new MsgGrant({
+  static fromJson(json: any): MsgGrant {
+    return {
+      category: 'authz',
       json,
       type: json['@type'],
       granter: json.granter,
       grantee: json.grantee,
-    });
+    };
   }
 }
 

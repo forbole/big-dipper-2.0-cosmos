@@ -17,14 +17,15 @@ class MsgDeleteRelationship {
     this.subspace = payload.subspace;
   }
 
-  static fromJson(json: any) {
-    return new MsgDeleteRelationship({
+  static fromJson(json: any): MsgDeleteRelationship {
+    return {
+      category: 'profiles',
       json,
       type: json['@type'],
       sender: json.sender,
       receiver: json.receiver,
       subspace: json.subspace,
-    });
+    };
   }
 }
 

@@ -16,7 +16,7 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/CreateIscnRecord', () => {
   it('matches snapshot', () => {
-    const message = new MsgCreateIscnRecord({
+    const message = {
       category: 'iscn',
       type: 'MsgCreateIscnRecord',
       from: 'from',
@@ -26,7 +26,7 @@ describe('screen: TransactionDetails/CreateIscnRecord', () => {
         stakeholders: [],
         contentMetadata: '{}',
       },
-    });
+    } as MsgCreateIscnRecord;
     const component = renderer.create(
       <MockTheme>
         <CreateIscnRecord message={message} />

@@ -13,12 +13,13 @@ class MsgVoteRequest {
     this.voter = payload.voter;
   }
 
-  static fromJson(json: any) {
-    return new MsgVoteRequest({
+  static fromJson(json: any): MsgVoteRequest {
+    return {
+      category: 'group',
       json,
       type: json['@type'],
       voter: json.voter,
-    });
+    };
   }
 }
 

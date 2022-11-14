@@ -16,13 +16,14 @@ class MsgUpdateCethReceiverAccount {
     this.cethReceiverAccount = payload.cethReceiverAccount;
   }
 
-  static fromJson(json: any) {
-    return new MsgUpdateCethReceiverAccount({
+  static fromJson(json: any): MsgUpdateCethReceiverAccount {
+    return {
+      category: 'ethbridge',
       json,
       type: json['@type'],
       cosmosSender: R.pathOr('', ['cosmos_sender'], json),
       cethReceiverAccount: R.pathOr('', ['ceth_receiver_account'], json),
-    });
+    };
   }
 }
 

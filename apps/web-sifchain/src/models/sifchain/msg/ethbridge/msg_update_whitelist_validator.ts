@@ -14,12 +14,13 @@ class MsgUpdateWhitelistValidator {
     this.cosmosSender = payload.cosmosSender;
   }
 
-  static fromJson(json: any) {
-    return new MsgUpdateWhitelistValidator({
+  static fromJson(json: any): MsgUpdateWhitelistValidator {
+    return {
+      category: 'ethbridge',
       json,
       type: json['@type'],
       cosmosSender: R.pathOr('', ['cosmos_sender'], json),
-    });
+    };
   }
 }
 

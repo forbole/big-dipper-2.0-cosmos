@@ -13,12 +13,13 @@ class MsgTimeoutOnClose {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgTimeoutOnClose({
+  static fromJson(json: any): MsgTimeoutOnClose {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
-    });
+    };
   }
 }
 

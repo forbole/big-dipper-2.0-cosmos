@@ -16,14 +16,14 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/LinkChainAccount', () => {
   it('matches snapshot', () => {
-    const message = new MsgLinkChainAccount({
+    const message = {
       category: 'profiles',
       type: 'MsgCreateRelationship',
       signer: 'signer',
       chainConfig: {
         name: 'emoney',
       },
-    });
+    } as MsgLinkChainAccount;
     const component = renderer.create(
       <MockTheme>
         <LinkChainAccount message={message} />

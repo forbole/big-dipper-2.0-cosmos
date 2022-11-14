@@ -17,14 +17,15 @@ class MsgDtagAcceptTransfer {
     this.newDtag = payload.newDtag;
   }
 
-  static fromJson(json: any) {
-    return new MsgDtagAcceptTransfer({
+  static fromJson(json: any): MsgDtagAcceptTransfer {
+    return {
+      category: 'profiles',
       json,
       type: json['@type'],
       sender: json.sender,
       receiver: json.receiver,
       newDtag: json.new_dtag,
-    });
+    };
   }
 }
 

@@ -21,7 +21,7 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/CreatePool', () => {
   it('matches snapshot', () => {
-    const message = new MsgCreatePool({
+    const message = {
       category: 'bank',
       type: 'MsgCreatePool',
       signer: 'signer',
@@ -30,7 +30,7 @@ describe('screen: TransactionDetails/CreatePool', () => {
       },
       nativeAssetAmount: '4000000',
       externalAssetAmount: '0',
-    });
+    } as MsgCreatePool;
     const component = renderer.create(
       <MockTheme>
         <CreatePool message={message} />

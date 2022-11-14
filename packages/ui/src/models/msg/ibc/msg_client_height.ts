@@ -13,12 +13,13 @@ class MsgHeight {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgHeight({
+  static fromJson(json: any): MsgHeight {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
-    });
+    };
   }
 }
 

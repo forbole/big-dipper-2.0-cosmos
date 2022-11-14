@@ -22,8 +22,9 @@ class MsgCreatePool {
     this.externalAssetAmount = payload.externalAssetAmount;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreatePool({
+  static fromJson(json: any): MsgCreatePool {
+    return {
+      category: 'clp',
       json,
       type: json['@type'],
       signer: json.signer,
@@ -32,7 +33,7 @@ class MsgCreatePool {
       },
       nativeAssetAmount: R.pathOr('', ['native_asset_amount'], json),
       externalAssetAmount: R.pathOr('', ['external_asset_amount'], json),
-    });
+    };
   }
 }
 

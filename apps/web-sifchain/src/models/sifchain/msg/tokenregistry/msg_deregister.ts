@@ -15,13 +15,14 @@ class MsgDeregister {
     this.denom = payload.denom;
   }
 
-  static fromJson(json: any) {
-    return new MsgDeregister({
+  static fromJson(json: any): MsgDeregister {
+    return {
+      category: 'tokenregistry',
       json,
       type: json['@type'],
       from: json.from,
       denom: json.denom,
-    });
+    };
   }
 }
 

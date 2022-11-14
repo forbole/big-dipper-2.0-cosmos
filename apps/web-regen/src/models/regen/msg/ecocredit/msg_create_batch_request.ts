@@ -13,12 +13,13 @@ class MsgCreateBatchRequest {
     this.issuer = payload.issuer;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreateBatchRequest({
+  static fromJson(json: any): MsgCreateBatchRequest {
+    return {
+      category: 'ecocredit',
       json,
       type: json['@type'],
       issuer: json.issuer,
-    });
+    };
   }
 }
 

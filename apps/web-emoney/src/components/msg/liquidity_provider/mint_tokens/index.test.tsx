@@ -16,7 +16,7 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/MintTokens', () => {
   it('matches snapshot', () => {
-    const message = new MsgMintTokens({
+    const message = {
       category: 'liquidityProvider',
       type: 'MsgMintTokens',
       liquidityProvider: 'liquidityProvider',
@@ -30,7 +30,7 @@ describe('screen: TransactionDetails/MintTokens', () => {
           amount: 200000,
         },
       ],
-    });
+    } as MsgMintTokens;
     const component = renderer.create(
       <MockTheme>
         <MintTokens message={message} />

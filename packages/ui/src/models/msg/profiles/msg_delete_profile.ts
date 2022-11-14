@@ -13,12 +13,13 @@ class MsgDeleteProfile {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgDeleteProfile({
+  static fromJson(json: any): MsgDeleteProfile {
+    return {
+      category: 'profiles',
       type: json['@type'],
       creator: json.creator,
       json,
-    });
+    };
   }
 }
 

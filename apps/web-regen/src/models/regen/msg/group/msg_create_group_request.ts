@@ -13,12 +13,13 @@ class MsgCreateGroupRequest {
     this.admin = payload.admin;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreateGroupRequest({
+  static fromJson(json: any): MsgCreateGroupRequest {
+    return {
+      category: 'group',
       json,
       type: json['@type'],
       admin: json.admin,
-    });
+    };
   }
 }
 

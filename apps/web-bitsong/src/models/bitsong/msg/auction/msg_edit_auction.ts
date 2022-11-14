@@ -15,13 +15,14 @@ class MsgEditAuction {
     this.id = payload.id;
   }
 
-  static fromJson(json: any) {
-    return new MsgEditAuction({
+  static fromJson(json: any): MsgEditAuction {
+    return {
+      category: 'auction',
       json,
       type: json['@type'],
       owner: json.owner,
       id: json.id,
-    });
+    };
   }
 }
 

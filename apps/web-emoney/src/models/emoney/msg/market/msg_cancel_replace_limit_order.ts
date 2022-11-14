@@ -24,8 +24,9 @@ class MsgCancelReplaceLimitOrder {
     this.destination = payload.destination;
   }
 
-  static fromJson(json: any) {
-    return new MsgCancelReplaceLimitOrder({
+  static fromJson(json: any): MsgCancelReplaceLimitOrder {
+    return {
+      category: 'market',
       json,
       type: json['@type'],
       owner: json.owner,
@@ -40,7 +41,7 @@ class MsgCancelReplaceLimitOrder {
         denom: R.pathOr('', ['destination', 'denom'], json),
         amount: R.pathOr('', ['destination', 'amount'], json),
       },
-    });
+    };
   }
 }
 

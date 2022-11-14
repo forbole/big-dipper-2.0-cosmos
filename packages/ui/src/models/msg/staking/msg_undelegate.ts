@@ -18,8 +18,9 @@ class MsgUndelegate {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgUndelegate({
+  static fromJson(json: any): MsgUndelegate {
+    return {
+      category: 'staking',
       json,
       type: json['@type'],
       delegatorAddress: json?.delegator_address,
@@ -28,7 +29,7 @@ class MsgUndelegate {
         denom: json?.amount?.denom,
         amount: R.pathOr('0', ['amount', 'amount'], json),
       },
-    });
+    };
   }
 }
 

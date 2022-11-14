@@ -18,15 +18,16 @@ class MsgRemoveLiquidity {
     this.externalAsset = payload.externalAsset;
   }
 
-  static fromJson(json: any) {
-    return new MsgRemoveLiquidity({
+  static fromJson(json: any): MsgRemoveLiquidity {
+    return {
+      category: 'clp',
       json,
       type: json['@type'],
       signer: json.signer,
       externalAsset: {
         symbol: R.pathOr('', ['external_asset', 'symbol'], json),
       },
-    });
+    };
   }
 }
 

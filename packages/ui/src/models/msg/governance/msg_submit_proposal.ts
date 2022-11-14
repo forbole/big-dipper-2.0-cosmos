@@ -26,7 +26,7 @@ class MsgSubmitProposal {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
+  static fromJson(json: any): MsgSubmitProposal {
     const contentDetailsRaw = json?.content;
     const contentType = contentDetailsRaw?.['@type'];
     let content = null;
@@ -53,7 +53,8 @@ class MsgSubmitProposal {
         break;
     }
 
-    return new MsgSubmitProposal({
+    return {
+      category: 'governance',
       json,
       content,
       type: json['@type'],
@@ -65,7 +66,7 @@ class MsgSubmitProposal {
           };
         }) ?? [],
       proposer: json.proposer,
-    });
+    };
   }
 }
 

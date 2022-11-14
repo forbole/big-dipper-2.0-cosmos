@@ -13,12 +13,13 @@ class MsgBurnFanToken {
     this.sender = payload.sender;
   }
 
-  static fromJson(json: any) {
-    return new MsgBurnFanToken({
+  static fromJson(json: any): MsgBurnFanToken {
+    return {
+      category: 'fantoken',
       json,
       type: json['@type'],
       sender: json.sender,
-    });
+    };
   }
 }
 

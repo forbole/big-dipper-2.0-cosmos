@@ -22,8 +22,9 @@ class MsgAddLiquidity {
     this.externalAssetAmount = payload.externalAssetAmount;
   }
 
-  static fromJson(json: any) {
-    return new MsgAddLiquidity({
+  static fromJson(json: any): MsgAddLiquidity {
+    return {
+      category: 'clp',
       json,
       type: json['@type'],
       signer: json.signer,
@@ -32,7 +33,7 @@ class MsgAddLiquidity {
       },
       nativeAssetAmount: R.pathOr('', ['native_asset_amount'], json),
       externalAssetAmount: R.pathOr('', ['external_asset_amount'], json),
-    });
+    };
   }
 }
 

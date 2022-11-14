@@ -17,14 +17,15 @@ class MsgCreateRelationship {
     this.subspace = payload.subspace;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreateRelationship({
+  static fromJson(json: any): MsgCreateRelationship {
+    return {
+      category: 'profiles',
       json,
       type: json['@type'],
       sender: json.sender,
       receiver: json.receiver,
       subspace: json.subspace,
-    });
+    };
   }
 }
 

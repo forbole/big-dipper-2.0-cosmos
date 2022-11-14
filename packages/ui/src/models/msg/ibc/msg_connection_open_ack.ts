@@ -17,14 +17,15 @@ class MsgConnectionOpenAck {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgConnectionOpenAck({
+  static fromJson(json: any): MsgConnectionOpenAck {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
       connectionId: json.connection_id,
       counterpartyConnectionId: json.counterparty_connection_id,
-    });
+    };
   }
 }
 

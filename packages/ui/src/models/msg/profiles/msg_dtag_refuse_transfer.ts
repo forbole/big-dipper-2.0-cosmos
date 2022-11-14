@@ -15,13 +15,14 @@ class MsgDtagRefuseTransfer {
     this.receiver = payload.receiver;
   }
 
-  static fromJson(json: any) {
-    return new MsgDtagRefuseTransfer({
+  static fromJson(json: any): MsgDtagRefuseTransfer {
+    return {
+      category: 'profiles',
       json,
       type: json['@type'],
       sender: json.sender,
       receiver: json.receiver,
-    });
+    };
   }
 }
 

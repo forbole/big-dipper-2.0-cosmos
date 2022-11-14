@@ -16,13 +16,14 @@ class MsgClawback {
     this.destAddress = payload.destAddress;
   }
 
-  static fromJson(json: any) {
-    return new MsgClawback({
+  static fromJson(json: any): MsgClawback {
+    return {
+      category: 'vesting',
       json,
       type: json['@type'],
       accountAddress: R.pathOr('', ['account_address'], json),
       destAddress: R.pathOr('', ['dest_address'], json),
-    });
+    };
   }
 }
 

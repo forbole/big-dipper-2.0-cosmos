@@ -16,7 +16,7 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/Activate', () => {
   it('matches snapshot', () => {
-    const message = new MsgActivate({
+    const message = MsgActivate.fromJson({
       type: 'MsgCreateDataSource',
       validator: 'validator',
     });

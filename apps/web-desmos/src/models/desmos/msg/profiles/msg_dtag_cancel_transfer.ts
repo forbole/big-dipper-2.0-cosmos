@@ -15,13 +15,14 @@ class MsgDtagCancelTransfer {
     this.receiver = payload.receiver;
   }
 
-  static fromJson(json: any) {
-    return new MsgDtagCancelTransfer({
+  static fromJson(json: any): MsgDtagCancelTransfer {
+    return {
+      category: 'profiles',
       json,
       type: json['@type'],
       sender: json.sender,
       receiver: json.receiver,
-    });
+    };
   }
 }
 

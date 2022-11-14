@@ -17,14 +17,15 @@ class MsgConnectionOpenInit {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgConnectionOpenInit({
+  static fromJson(json: any): MsgConnectionOpenInit {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
       clientId: json.client_id,
       counterparty: json.counterparty?.client_id,
-    });
+    };
   }
 }
 

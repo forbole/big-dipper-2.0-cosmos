@@ -15,13 +15,14 @@ class MsgUpdateGroupAccountAdminRequest {
     this.newAdmin = payload.newAdmin;
   }
 
-  static fromJson(json: any) {
-    return new MsgUpdateGroupAccountAdminRequest({
+  static fromJson(json: any): MsgUpdateGroupAccountAdminRequest {
+    return {
+      category: 'group',
       json,
       type: json['@type'],
       admin: json.admin,
       newAdmin: json.new_admin,
-    });
+    };
   }
 }
 

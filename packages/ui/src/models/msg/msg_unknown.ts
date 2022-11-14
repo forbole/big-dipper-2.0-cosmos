@@ -11,11 +11,12 @@ class MsgUnknown {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgUnknown({
+  static fromJson(json: any): MsgUnknown {
+    return {
+      category: 'others',
       type: json['@type'] ?? '',
       json,
-    });
+    };
   }
 }
 

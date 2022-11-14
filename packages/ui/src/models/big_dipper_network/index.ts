@@ -25,7 +25,7 @@ class BigDipperNetwork {
     links?: Array<{ chain_id: string; url: string; name: string }>;
     name: string;
     logo: string;
-  }) {
+  }): BigDipperNetwork {
     const allLinks: Link[] =
       data?.links?.map((x) => {
         return {
@@ -52,14 +52,14 @@ class BigDipperNetwork {
       }
     });
 
-    return new BigDipperNetwork({
+    return {
       mainnet,
       testnet,
       retired,
       other,
-      name: data?.name,
-      logo: data?.logo,
-    });
+      name: data?.name ?? '',
+      logo: data?.logo ?? '',
+    };
   }
 }
 

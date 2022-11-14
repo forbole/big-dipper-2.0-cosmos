@@ -15,13 +15,14 @@ class MsgRevoke {
     this.grantee = payload.grantee;
   }
 
-  static fromJson(json: any) {
-    return new MsgRevoke({
+  static fromJson(json: any): MsgRevoke {
+    return {
+      category: 'authz',
       json,
       type: json['@type'],
       granter: json.granter,
       grantee: json.grantee,
-    });
+    };
   }
 }
 

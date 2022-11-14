@@ -36,15 +36,16 @@ class MsgWithdrawValidatorCommission {
     return amounts;
   }
 
-  static fromJson(json: any, log?: any) {
+  static fromJson(json: any, log?: any): MsgWithdrawValidatorCommission {
     const amounts = this.getWithdrawalAmount(log);
 
-    return new MsgWithdrawValidatorCommission({
+    return {
+      category: 'distribution',
       json,
       type: json['@type'],
       validatorAddress: json.validator_address,
       amounts,
-    });
+    };
   }
 }
 

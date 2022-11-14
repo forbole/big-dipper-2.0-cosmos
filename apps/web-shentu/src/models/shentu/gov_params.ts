@@ -35,8 +35,8 @@ class GovParams {
     this.votingParams = payload.votingParams;
   }
 
-  static fromJson(data: any) {
-    return new GovParams({
+  static fromJson(data: any): GovParams {
+    return {
       depositParams: {
         minDeposit: R.pathOr<Array<{ denom: string; amount: number }>>(
           [],
@@ -44,7 +44,7 @@ class GovParams {
           data
         ).map((x) => ({
           denom: x.denom,
-          amount: x.amount,
+          amount: String(x.amount),
         })),
         maxDepositPeriod: R.pathOr(0, ['depositParams', 'max_deposit_period'], data),
       },
@@ -92,7 +92,7 @@ class GovParams {
       votingParams: {
         votingPeriod: R.pathOr(0, ['votingParams', 'voting_period'], data),
       },
-    });
+    };
   }
 }
 

@@ -21,11 +21,11 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/VoteRequest', () => {
   it('matches snapshot', () => {
-    const message = new MsgVoteRequest({
+    const message = {
       category: 'group',
       type: 'MsgVoteRequest',
       voter: 'voter',
-    });
+    } as MsgVoteRequest;
 
     const component = renderer.create(
       <MockTheme>

@@ -22,14 +22,15 @@ class MsgReportData {
     this.validator = payload.validator;
   }
 
-  static fromJson(json: any) {
-    return new MsgReportData({
+  static fromJson(json: any): MsgReportData {
+    return {
+      category: 'oracle',
       json,
       type: json['@type'],
       requestId: R.pathOr(0, ['request_id'], json),
       // rawReports: R.pathOr([], ['raw_reports'], json),
       validator: json.validator,
-    });
+    };
   }
 }
 

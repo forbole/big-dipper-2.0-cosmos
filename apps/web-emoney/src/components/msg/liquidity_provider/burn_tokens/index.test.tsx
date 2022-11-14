@@ -16,7 +16,7 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/BurnTokens', () => {
   it('matches snapshot', () => {
-    const message = new MsgBurnTokens({
+    const message = {
       category: 'liquidityProvider',
       type: 'MsgBurnTokens',
       liquidityProvider: 'liquidityProvider',
@@ -30,7 +30,7 @@ describe('screen: TransactionDetails/BurnTokens', () => {
           amount: 200000,
         },
       ],
-    });
+    } as MsgBurnTokens;
     const component = renderer.create(
       <MockTheme>
         <BurnTokens message={message} />

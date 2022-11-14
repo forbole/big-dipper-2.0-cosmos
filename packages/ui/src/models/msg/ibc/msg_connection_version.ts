@@ -13,12 +13,13 @@ class MsgVersion {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgVersion({
+  static fromJson(json: any): MsgVersion {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
-    });
+    };
   }
 }
 

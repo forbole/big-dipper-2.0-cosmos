@@ -16,11 +16,11 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/CreateDataSource', () => {
   it('matches snapshot', () => {
-    const message = new MsgEditOracleScript({
+    const message = {
       type: 'MsgEditOracleScript',
       name: 'name',
       sender: 'name',
-    });
+    } as MsgEditOracleScript;
     const component = renderer.create(
       <MockTheme>
         <EditOracleScript message={message} />

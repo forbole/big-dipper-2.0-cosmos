@@ -16,13 +16,14 @@ class MsgWithdraw {
     this.auctionId = payload.auctionId;
   }
 
-  static fromJson(json: any) {
-    return new MsgWithdraw({
+  static fromJson(json: any): MsgWithdraw {
+    return {
+      category: 'auction',
       json,
       type: json['@type'],
       recipient: json.recipient,
       auctionId: R.pathOr(0, ['auction_id'], json),
-    });
+    };
   }
 }
 

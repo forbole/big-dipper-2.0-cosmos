@@ -14,12 +14,13 @@ class MsgLock {
     this.cosmosSender = payload.cosmosSender;
   }
 
-  static fromJson(json: any) {
-    return new MsgLock({
+  static fromJson(json: any): MsgLock {
+    return {
+      category: 'ethbridge',
       json,
       type: json['@type'],
       cosmosSender: R.pathOr('', ['cosmos_sender'], json),
-    });
+    };
   }
 }
 

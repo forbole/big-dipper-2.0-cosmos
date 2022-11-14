@@ -13,12 +13,13 @@ class MsgCounterpartyConnection {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgCounterpartyConnection({
+  static fromJson(json: any): MsgCounterpartyConnection {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
-    });
+    };
   }
 }
 

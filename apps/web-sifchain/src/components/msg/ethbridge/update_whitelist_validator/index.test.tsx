@@ -21,11 +21,11 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/MsgUpdateWhitelistValidator', () => {
   it('matches snapshot', () => {
-    const message = new MsgUpdateWhitelistValidator({
+    const message = {
       category: 'dispensation',
       type: 'MsgBurn',
       cosmosSender: 'cosmosSender',
-    });
+    } as MsgUpdateWhitelistValidator;
     const component = renderer.create(
       <MockTheme>
         <UpdateWhiteListValidator message={message} />
