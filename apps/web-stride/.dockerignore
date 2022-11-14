@@ -4,7 +4,6 @@
 **/yarn-debug.log*
 **/yarn-error.log*
 
-**/.changeset
 **/.dockerignore
 **/.git
 **/.github
@@ -16,7 +15,6 @@
 **/.next
 **/.swc
 **/.turbo
-**/.yarn
 **/CHANGELOG.md
 **/coverage
 **/dist
@@ -25,3 +23,11 @@
 **/node_modules
 **/README.md
 **/out
+
+.changeset
+.yarn/
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

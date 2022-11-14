@@ -61,7 +61,7 @@ export const ADDITIONAL_META_TAGS = [
   },
   {
     name: 'msapplication-config',
-    content: '/icons/browserconfig.xml',
+    content: `${basePath}/icons/browserconfig.xml`,
   },
   {
     name: 'theme-color',

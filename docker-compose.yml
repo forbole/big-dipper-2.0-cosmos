@@ -6,6 +6,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web/Dockerfile
+      args:
+        PROJECT_NAME: web
     platform: linux/arm64
     restart: always
     ports:
@@ -17,6 +19,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-cosmos/Dockerfile
+      args:
+        PROJECT_NAME: web-cosmos
     platform: linux/arm64
     restart: always
     ports:
@@ -28,6 +32,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-akash/Dockerfile
+      args:
+        PROJECT_NAME: web-akash
     platform: linux/arm64
     restart: always
     ports:
@@ -39,6 +45,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-emoney/Dockerfile
+      args:
+        PROJECT_NAME: web-emoney
     platform: linux/arm64
     restart: always
     ports:
@@ -50,6 +58,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-band/Dockerfile
+      args:
+        PROJECT_NAME: web-band
     platform: linux/arm64
     restart: always
     ports:
@@ -61,6 +71,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-likecoin/Dockerfile
+      args:
+        PROJECT_NAME: web-likecoin
     platform: linux/arm64
     restart: always
     ports:
@@ -72,6 +84,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-desmos/Dockerfile
+      args:
+        PROJECT_NAME: web-desmos
     platform: linux/arm64
     restart: always
     ports:
@@ -94,6 +108,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-osmosis/Dockerfile
+      args:
+        PROJECT_NAME: web-osmosis
     platform: linux/arm64
     restart: always
     ports:
@@ -105,6 +121,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-bitsong/Dockerfile
+      args:
+        PROJECT_NAME: web-bitsong
     platform: linux/arm64
     restart: always
     ports:
@@ -116,6 +134,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-regen/Dockerfile
+      args:
+        PROJECT_NAME: web-regen
     platform: linux/arm64
     restart: always
     ports:
@@ -127,6 +147,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-agoric/Dockerfile
+      args:
+        PROJECT_NAME: web-agoric
     platform: linux/arm64
     restart: always
     ports:
@@ -138,6 +160,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-rizon/Dockerfile
+      args:
+        PROJECT_NAME: web-rizon
     platform: linux/arm64
     restart: always
     ports:
@@ -149,6 +173,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-elrond/Dockerfile
+      args:
+        PROJECT_NAME: web-elrond
     platform: linux/arm64
     restart: always
     ports:
@@ -160,6 +186,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-evmos/Dockerfile
+      args:
+        PROJECT_NAME: web-evmos
     platform: linux/arm64
     restart: always
     ports:
@@ -171,6 +199,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-comdex/Dockerfile
+      args:
+        PROJECT_NAME: web-comdex
     platform: linux/arm64
     restart: always
     ports:
@@ -182,6 +212,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-crescent/Dockerfile
+      args:
+        PROJECT_NAME: web-crescent
     platform: linux/arm64
     restart: always
     ports:
@@ -193,6 +225,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-sifchain/Dockerfile
+      args:
+        PROJECT_NAME: web-sifchain
     platform: linux/arm64
     restart: always
     ports:
@@ -204,6 +238,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-assetmantle/Dockerfile
+      args:
+        PROJECT_NAME: web-assetmantle
     platform: linux/arm64
     restart: always
     ports:
@@ -215,6 +251,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-provenance/Dockerfile
+      args:
+        PROJECT_NAME: web-provenance
     platform: linux/arm64
     restart: always
     ports:
@@ -226,6 +264,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-nomic/Dockerfile
+      args:
+        PROJECT_NAME: web-nomic
     platform: linux/arm64
     restart: always
     ports:
@@ -237,6 +277,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-shentu/Dockerfile
+      args:
+        PROJECT_NAME: web-shentu
     platform: linux/arm64
     restart: always
     ports:
@@ -248,6 +290,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-persistence/Dockerfile
+      args:
+        PROJECT_NAME: web-persistence
     platform: linux/arm64
     restart: always
     ports:
@@ -259,6 +303,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-stride/Dockerfile
+      args:
+        PROJECT_NAME: web-stride
     platform: linux/arm64
     restart: always
     ports:
@@ -270,6 +316,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web-nym/Dockerfile
+      args:
+        PROJECT_NAME: web-nym
     platform: linux/arm64
     restart: always
     ports:
