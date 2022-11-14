@@ -8,18 +8,18 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "turbo run dev --no-cache --filter=web...",
-    "dev:all": "turbo run dev --no-cache --continue --concurrency=30%",
-    "build": "turbo run build --filter=web...",
-    "build:all": "turbo run build --continue --concurrency=30%",
+    "dev": "turbo run dev --no-cache --concurrency=1",
+    "dev:web": "turbo run dev --no-cache --filter=web...",
+    "build": "turbo run build --continue --concurrency=30%",
+    "build:web": "turbo run build --filter=web...",
     "clean": "rm -rf node_modules; turbo run clean",
     "start": "turbo run start --filter=web...",
     "format": "prettier --ignore-path ./.gitignore --write \"**/*.{js,ts,tsx,mjs,cjs,md}\"",
     "lint": "turbo run lint",
-    "test": "turbo run test --filter=web...",
-    "test:all": "turbo run test --continue --concurrency=30%",
-    "e2e": "turbo run e2e --filter=web...",
-    "e2e:all": "turbo run e2e --continue --concurrency=30%",
+    "test": "turbo run test --continue --concurrency=30%",
+    "test:web": "turbo run test --filter=web...",
+    "e2e": "turbo run e2e --continue --concurrency=30%",
+    "e2e:web": "turbo run e2e --filter=web...",
     "graphql:codegen": "turbo run graphql:codegen --continue --concurrency=2"
   },
   "dependencies": {
