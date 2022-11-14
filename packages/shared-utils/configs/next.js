@@ -26,7 +26,7 @@ function getNextConfig(dirname) {
  */
 function getChainConfig(chainConfigJson) {
   /* Setting the basePath, chainType, chains, and settings variables. */
-  const chainType = (process.env.NEXT_PUBLIC_CHAIN_TYPE ?? 'mainnet').toLowerCase();
+  const chainType = (process.env.NEXT_PUBLIC_CHAIN_TYPE || 'mainnet').toLowerCase();
   const { chains, ...settings } = chainConfigJson;
   let chain = chains.find((c) => c.chainType?.toLowerCase() === chainType);
   if (!chain && chainType !== 'testnet') {
