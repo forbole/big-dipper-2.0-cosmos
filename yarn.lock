@@ -1641,19 +1641,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/fragment-matcher@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@graphql-codegen/fragment-matcher@npm:2.0.1"
+"@graphql-codegen/fragment-matcher@npm:^3.3.1":
+  version: 3.3.1
+  resolution: "@graphql-codegen/fragment-matcher@npm:3.3.1"
   dependencies:
-    "@graphql-codegen/plugin-helpers": ^1.18.2
-    tslib: ~2.0.1
+    "@graphql-codegen/plugin-helpers": ^2.6.2
+    tslib: ~2.4.0
   peerDependencies:
-    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
-  checksum: 1381af591df89d4068fa1438f188a2f332ec44019c6a6cc623b8515941385581bd7fd834e3d16b0c4fdf52b40141758e5497a967181e327fd30c9059fac28259
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: c2a9b6d87a733746bc1ae30c69097f03af0b33c60b2cc0569e7d2cbe227b2c6955a8ff83df3a63e1dd7878dda6a04d49f95d8d99fd90b1203a4b3f96370be703
   languageName: node
   linkType: hard
 
-"@graphql-codegen/plugin-helpers@npm:^1.18.2, @graphql-codegen/plugin-helpers@npm:^1.18.8":
+"@graphql-codegen/plugin-helpers@npm:^1.18.8":
   version: 1.18.8
   resolution: "@graphql-codegen/plugin-helpers@npm:1.18.8"
   dependencies:
@@ -1668,7 +1668,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/plugin-helpers@npm:^2.7.2":
+"@graphql-codegen/plugin-helpers@npm:^2.6.2, @graphql-codegen/plugin-helpers@npm:^2.7.2":
   version: 2.7.2
   resolution: "@graphql-codegen/plugin-helpers@npm:2.7.2"
   dependencies:
@@ -4262,7 +4262,7 @@ __metadata:
   dependencies:
     "@apollo/client": ^3.1.5
     "@graphql-codegen/cli": ^2.6.1
-    "@graphql-codegen/fragment-matcher": ^2.0.1
+    "@graphql-codegen/fragment-matcher": ^3.3.1
     "@graphql-codegen/typescript": ^1.21.0
     "@graphql-codegen/typescript-operations": ^1.17.14
     "@graphql-codegen/typescript-react-apollo": ^3.3.3
