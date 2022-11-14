@@ -3,7 +3,8 @@ import numeral from 'numeral';
 import * as R from 'ramda';
 import { hexToBech32 } from 'ui/utils/hex_to_bech32';
 import chainConfig from 'ui/chainConfig';
-import WebSocket from 'isomorphic-ws';
+import WebSocket, { CertMeta } from 'isomorphic-ws';
+import { stringifyMessage, GRAPHQL_TRANSPORT_WS_PROTOCOL, MessageType } from 'graphql-ws';
 
 export const useConsensus = () => {
   const [state, setState] = useState<{
@@ -23,12 +24,10 @@ export const useConsensus = () => {
   });
 
   useEffect(() => {
-    const client = new WebSocket(
-      process.env.NEXT_PUBLIC_RPC_WEBSOCKET ||
-        chainConfig.endpoints.publicRpcWebsocket ||
-        chainConfig.endpoints.graphqlWebsocket ||
-        'ws://localhost:3000/websocket'
-    );
+    const keepAlive = 30000;
+    let queuedPing: ReturnType<typeof setTimeout>;
+
+    let client: WebSocket;
     const stepHeader = {
       jsonrpc: '2.0',
       method: 'subscribe',
@@ -37,7 +36,6 @@ export const useConsensus = () => {
         query: "tm.event='NewRoundStep'",
       },
     };
-
     const roundHeader = {
       jsonrpc: '2.0',
       method: 'subscribe',
@@ -47,28 +45,57 @@ export const useConsensus = () => {
       },
     };
 
-    client.onopen = () => {
-      client.send(JSON.stringify(stepHeader));
-      client.send(JSON.stringify(roundHeader));
-    };
+    function connect() {
+      client = new WebSocket(
+        process.env.NEXT_PUBLIC_RPC_WEBSOCKET ||
+          chainConfig.endpoints.publicRpcWebsocket ||
+          chainConfig.endpoints.graphqlWebsocket ||
+          'ws://localhost:3000/websocket',
+        GRAPHQL_TRANSPORT_WS_PROTOCOL
+      );
 
-    client.onmessage = (e: any) => {
-      const data = JSON.parse(e.data);
-      const event = R.pathOr<string>('', ['result', 'data', 'type'], data);
-      if (event === 'tendermint/event/NewRound') {
-        formatNewRound(data);
-      }
-      if (event === 'tendermint/event/RoundState') {
-        formatNewStep(data);
-      }
-    };
+      client.onopen = () => {
+        client.send(JSON.stringify(stepHeader));
+        client.send(JSON.stringify(roundHeader));
+        enqueuePing();
+      };
 
-    client.onclose = () => {
-      console.log('closing socket');
-    };
+      client.onmessage = (e: any) => {
+        const data = JSON.parse(e.data);
+        const event = R.pathOr<string>('', ['result', 'data', 'type'], data);
+        if (event === 'tendermint/event/NewRound') {
+          formatNewRound(data);
+        }
+        if (event === 'tendermint/event/RoundState') {
+          formatNewStep(data);
+        }
+      };
+
+      client.onclose = () => {
+        console.log('closing socket');
+        setTimeout(() => {
+          connect();
+        }, 1000);
+      };
+
+      client.onerror = (err: WebSocket.ErrorEvent) => {
+        console.error('Socket encountered error: ', err.message, 'Closing socket');
+        client.close();
+      };
+
+      function enqueuePing() {
+        clearTimeout(queuedPing); // in case where a pong was received before a ping (this is valid behaviour)
+        queuedPing = setTimeout(() => {
+          if (client.readyState === WebSocket.OPEN) {
+            client.send(stringifyMessage({ type: MessageType.Ping }));
+          }
+        }, keepAlive);
+      }
+    }
+    connect();
 
     return () => {
-      client.close();
+      client?.close();
     };
   }, []);
 

@@ -52,6 +52,7 @@ function createWebSocketLink() {
       lazy: true,
       retryAttempts: Number.MAX_VALUE,
       lazyCloseTimeout: 30000,
+      keepAlive: 30000,
       retryWait: (_count) => new Promise((r) => setTimeout(r, 1000)),
       shouldRetry() {
         return true;
