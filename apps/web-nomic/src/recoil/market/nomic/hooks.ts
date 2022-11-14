@@ -2,14 +2,20 @@
 import * as R from 'ramda';
 import numeral from 'numeral';
 import { useRecoilState, SetterOrUpdater } from 'recoil';
-import { useMarketDataQuery, MarketDataQuery } from '@graphql/types/general_types';
-import chainConfig from 'ui/chainConfig';
+import { QueryHookOptions, QueryResult } from '@apollo/client';
 import { formatToken } from 'ui/utils/format_token';
 import { getDenom } from 'ui/utils/get_denom';
-import { writeMarket } from './selectors';
+import chainConfig from 'ui/chainConfig';
 import { AtomState } from './types';
+import { writeMarket } from './selectors';
 
-export const useMarketRecoil = () => {
+export type UseMarketDataQuery<TData, TVariables> = (
+  baseOptions?: QueryHookOptions<TData, TVariables>
+) => QueryResult<TData, TVariables>;
+
+export function useMarketRecoil<TData, TVariables>(
+  useMarketDataQuery: UseMarketDataQuery<TData, TVariables>
+) {
   const [market, setMarket] = useRecoilState(writeMarket) as [
     AtomState,
     SetterOrUpdater<AtomState>
@@ -18,7 +24,7 @@ export const useMarketRecoil = () => {
   useMarketDataQuery({
     variables: {
       denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
-    },
+    } as TVariables,
     onCompleted: (data) => {
       if (data) {
         setMarket(formatUseChainIdQuery(data));
@@ -26,7 +32,15 @@ export const useMarketRecoil = () => {
     },
   });
 
-  const formatUseChainIdQuery = (data: MarketDataQuery): AtomState => {
+  function formatUseChainIdQuery(
+    data: TData & {
+      communityPool?: Array<{ coins?: Array<{ amount: number; denom: string }> }>;
+      tokenPrice?: Array<{
+        marketCap: number;
+        price: number;
+      }>;
+    }
+  ): AtomState {
     let { price, marketCap } = market;
 
     if (data?.tokenPrice?.length) {
@@ -56,5 +70,5 @@ export const useMarketRecoil = () => {
       inflation,
       apr,
     };
-  };
-};
+  }
+}

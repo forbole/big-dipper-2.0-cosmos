@@ -1,4 +1,4 @@
-import Consensus from 'ui/screens/home/components/consensus';
+import Consensus from './consensus';
 import Profile from './profile';
 import Overview from './overview';
 import Stats from './stats';

@@ -1,5 +1,5 @@
-import Consensus from 'ui/screens/home/components/consensus';
-import Overview from './overview';
+import Consensus from './consensus';
 import Miniblocks from './miniblocks';
+import Overview from './overview';
 
 export { Overview, Miniblocks, Consensus };
