@@ -9,7 +9,4 @@ module.exports = nextTranslate({
     });
     return config;
   },
-  experimental: {
-    esmExternals: false,
-  },
 });
