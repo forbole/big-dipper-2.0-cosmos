@@ -17,36 +17,38 @@ export const TWITTER_SEO = {
   cardType: 'summary_large_image',
 };
 
+const basePath = process.env.BASE_PATH ?? `${`/${chainConfig.chainName}`}`.replace(/^\/$/, '');
+
 export const ADDITIONAL_LINK_TAGS_SEO = [
   {
     rel: 'apple-touch-icon',
-    href: `${`/${chainConfig.chainName}`.replace(/^\/$/, '')}/icons/apple-touch-icon.png`,
+    href: `${basePath}/icons/apple-touch-icon.png`,
     sizes: '180x180',
   },
   {
     rel: 'icon',
     type: 'image/png',
-    href: `${`/${chainConfig.chainName}`.replace(/^\/$/, '')}/icons/favicon-32x32.png`,
+    href: `${basePath}/icons/favicon-32x32.png`,
     sizes: '32x32',
   },
   {
     rel: 'icon',
     type: 'image/png',
-    href: `${`/${chainConfig.chainName}`.replace(/^\/$/, '')}/icons/favicon-16x16.png`,
+    href: `${basePath}/icons/favicon-16x16.png`,
     sizes: '16x16',
   },
   {
     rel: 'manifest',
-    href: `${`/${chainConfig.chainName}`.replace(/^\/$/, '')}/icons/site.webmanifest`,
+    href: `${basePath}/icons/site.webmanifest`,
   },
   {
     rel: 'mask-icon',
-    href: `${`/${chainConfig.chainName}`.replace(/^\/$/, '')}/icons/safari-pinned-tab.svg`,
+    href: `${basePath}/icons/safari-pinned-tab.svg`,
     color: '#5bbad5',
   },
   {
     rel: 'shortcut icon',
-    href: `${`/${chainConfig.chainName}`.replace(/^\/$/, '')}/icons/favicon.ico`,
+    href: `${basePath}/icons/favicon.ico`,
   },
 ];
 
