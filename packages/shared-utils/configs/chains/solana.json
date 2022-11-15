@@ -2,7 +2,8 @@
   "chainName": "solana",
   "title": "Solana Block Explorer",
   "extra": {
-    "profile": false
+    "profile": false,
+    "graphqlWs": false
   },
   "previewImage": "https://s3.bigdipper.live/solana.png",
   "themes": {

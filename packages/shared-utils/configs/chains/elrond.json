@@ -2,7 +2,8 @@
   "chainName": "elrond",
   "title": "Elrond Block Explorer",
   "extra": {
-    "profile": false
+    "profile": false,
+    "graphqlWs": false
   },
   "previewImage": "https://s3.bigdipper.live/elrond.png",
   "themes": {

@@ -2,7 +2,8 @@
   "chainName": "base",
   "title": "Desmos Block Explorer",
   "extra": {
-    "profile": true
+    "profile": true,
+    "graphqlWs": false
   },
   "previewImage": "https://s3.bigdipper.live/desmos.png",
   "themes": {

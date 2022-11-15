@@ -2,7 +2,8 @@
   "chainName": "band",
   "title": "Band Protocol Block Explorer",
   "extra": {
-    "profile": false
+    "profile": false,
+    "graphqlWs": true
   },
   "previewImage": "https://s3.bigdipper.live/band.png",
   "themes": {

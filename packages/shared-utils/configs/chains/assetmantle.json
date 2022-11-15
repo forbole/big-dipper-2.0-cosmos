@@ -2,7 +2,8 @@
   "chainName": "assetmantle",
   "title": "AssetMantle Block Explorer",
   "extra": {
-    "profile": true
+    "profile": true,
+    "graphqlWs": true
   },
   "previewImage": "https://s3.bigdipper.live/assetmantle.png",
   "themes": {

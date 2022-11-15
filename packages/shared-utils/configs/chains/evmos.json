@@ -2,7 +2,8 @@
   "chainName": "evmos",
   "title": "Evmos Block Explorer",
   "extra": {
-    "profile": false
+    "profile": false,
+    "graphqlWs": true
   },
   "previewImage": "https://s3.bigdipper.live/evmos.png",
   "themes": {

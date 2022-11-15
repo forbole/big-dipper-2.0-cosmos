@@ -25,6 +25,7 @@ describe('screen: BlockDetails/Transactions', () => {
             {
               height: 300,
               hash: 'hash',
+              type: [''],
               success: false,
               timestamp: '',
               messages: {
@@ -35,6 +36,7 @@ describe('screen: BlockDetails/Transactions', () => {
             {
               height: 300,
               hash: 'hash1',
+              type: [''],
               success: true,
               timestamp: '',
               messages: {

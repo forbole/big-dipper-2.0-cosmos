@@ -25,7 +25,7 @@ export const useTransactions = () => {
 
   const formatTransactions = (data: TransactionsListenerSubscription) => {
     return data.transactions.map((x) => {
-      const msgType = x.messages.map((eachMsg: any) => {
+      const msgType = x.messages?.map((eachMsg: any) => {
         const eachMsgType = R.pathOr('none type', ['@type'], eachMsg);
         return eachMsgType;
       });

@@ -2,7 +2,8 @@
   "chainName": "bitsong",
   "title": "Bitsong Block Explorer",
   "extra": {
-    "profile": true
+    "profile": true,
+    "graphqlWs": true
   },
   "previewImage": "https://s3.bigdipper.live/bitsong.png",
   "themes": {

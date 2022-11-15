@@ -53,7 +53,7 @@ function getChainConfig(chainConfigJson) {
 function getBaseConfig(chainConfigJson) {
   /* Merging the settings and chain objects. */
   const chainConfig = getChainConfig(chainConfigJson);
-  const basePath = (process.env.BASE_PATH || `${`/${chainConfig.chainName}`}`).replace(/^\/$/, '');
+  const basePath = (process.env.BASE_PATH || `${`/${chainConfig.chainName}`}`).replace(/^\/(|base)$/, '');
 
   const config = {
     swcMinify: true,
@@ -66,28 +66,6 @@ function getBaseConfig(chainConfigJson) {
       styledComponents: true,
     },
     webpack,
-    async redirects() {
-      /* This is to redirect the user to the default page if they accessed english version. */
-      const result = [
-        {
-          source: '/en/:slug',
-          destination: `/:slug`,
-          basePath: false,
-          permanent: false,
-          locale: false,
-        },
-      ];
-      /* This is to redirect the user to the baasePath if they are trying to access the root. */
-      if (basePath) {
-        result.push({
-          source: '/',
-          destination: basePath,
-          basePath: false,
-          permanent: false,
-        });
-      }
-      return result;
-    },
   };
   return config;
 }

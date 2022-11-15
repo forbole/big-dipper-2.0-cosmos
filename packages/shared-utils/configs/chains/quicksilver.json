@@ -2,7 +2,8 @@
   "chainName": "quicksilver",
   "title": "Quicksilver Block Explorer",
   "extra": {
-    "profile": false
+    "profile": false,
+    "graphqlWs": false
   },
   "previewImage": "https://s3.bigdipper.live/quicksilver.png",
   "themes": {

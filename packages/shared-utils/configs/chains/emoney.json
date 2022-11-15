@@ -2,7 +2,8 @@
   "chainName": "emoney",
   "title": "e-Money Block Explorer",
   "extra": {
-    "profile": true
+    "profile": true,
+    "graphqlWs": true
   },
   "previewImage": "https://s3.bigdipper.live/emoney.png",
   "themes": {

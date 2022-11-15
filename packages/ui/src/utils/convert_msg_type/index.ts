@@ -3,7 +3,7 @@
  * @param type The raw type you wish to convert
  */
 export const convertMsgType = (type: string[]) => {
-  const typeTitle = type.map((eachType) => {
+  const typeTitle = type?.map((eachType) => {
     const wordIndex = eachType.indexOf('Msg');
     const msgStringLength = 'Msg'.length;
     const msgTitle = eachType.substring(wordIndex + msgStringLength);
@@ -11,5 +11,5 @@ export const convertMsgType = (type: string[]) => {
     return msgTitleSeperatedByUpperCase;
   });
 
-  return typeTitle;
+  return typeTitle ?? '';
 };

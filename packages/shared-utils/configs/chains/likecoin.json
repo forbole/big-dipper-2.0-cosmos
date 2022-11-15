@@ -2,7 +2,8 @@
   "chainName": "likecoin",
   "title": "LikeCoin Block Explorer",
   "extra": {
-    "profile": true
+    "profile": true,
+    "graphqlWs": true
   },
   "previewImage": "https://s3.bigdipper.live/rizon.png",
   "themes": {
