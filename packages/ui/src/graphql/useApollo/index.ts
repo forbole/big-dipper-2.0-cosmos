@@ -19,7 +19,7 @@ import chainConfig from '@src/chainConfig';
 let globalApolloClient: ApolloClient<NormalizedCacheObject>;
 
 // older version of Hasura doesn't support graphql-ws
-const enableGraphqlWs = true;
+const enableGraphqlWs = chainConfig.extra.graphqlWs;
 
 /* Setting the default options for the Apollo Client. */
 const defaultOptions: DefaultOptions = {
