@@ -38,3 +38,5 @@ test.js
 
 # Sentry
 .sentryclirc
+
+.idea

@@ -6,9 +6,9 @@
     "default": "/images/logo.png"
   },
   "prefix": {
-    "consensus": "cosmosvalcons",
-    "validator": "cosmosvaloper",
-    "account": "lava"
+    "consensus": "lava@valcons",
+    "validator": "lava@valoper",
+    "account": "lava@"
   },
   "genesis": {
     "time": "2021-07-13T08:00:00",
@@ -23,6 +23,6 @@
     }
   },
   "extra": {
-    "profile": false
+    "profile": true
   }
 }
