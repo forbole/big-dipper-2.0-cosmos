@@ -146,7 +146,7 @@ const ChainIcon = ({ className, type, ...props }: IconProps) => {
       break;
     case 'nym':
       [iconDark, iconLight] =
-        type === 'icon' ? [nymIconDark, nymIconLight] : [nymLogoLight, nymLogoDark];
+        type === 'icon' ? [nymIconDark, nymIconLight] : [nymLogoDark, nymLogoLight];
       break;
     case 'osmosis':
       [iconDark, iconLight] =
