@@ -5,7 +5,6 @@ import {
   useRecoilState,
   SetterOrUpdater,
 } from 'recoil';
-import Big from 'big.js';
 import {
   useMarketDataQuery,
   MarketDataQuery,
@@ -15,7 +14,6 @@ import {
   writeMarket,
 } from '@recoil/market';
 import { AtomState } from '@recoil/market/types';
-import { getDenom } from '@utils/get_denom';
 import { formatToken } from '@utils/format_token';
 
 export const useMarketRecoil = () => {
