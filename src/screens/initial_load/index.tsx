@@ -12,18 +12,24 @@ const InitialLoad = () => {
   const theme = useRecoilValue(readTheme);
   const classes = useStyles();
 
-  const logoUrl = R.pathOr(chainConfig.logo.default, ['logo', theme], chainConfig);
+  const logoUrl = R.pathOr(
+    chainConfig.logo.default,
+    ['logo', theme],
+    chainConfig,
+  );
 
   return (
     <div className={classes.root}>
       <div>
-        <img src={logoUrl} className={classes.logo} alt="logo" />
+        <img
+          src={logoUrl}
+          className={classes.logo}
+          width="60px"
+          height="60px"
+          alt="logo"
+        />
         <LinearProgress className={classes.divider} />
-        {theme === 'light' ? (
-          <BigDipperLogoRed />
-        ) : (
-          <BigDipperLogoWhite />
-        )}
+        {theme === 'light' ? <BigDipperLogoRed /> : <BigDipperLogoWhite />}
       </div>
     </div>
   );
