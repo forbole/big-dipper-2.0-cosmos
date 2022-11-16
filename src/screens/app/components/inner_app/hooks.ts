@@ -12,14 +12,14 @@ export const useChainHealthCheck = () => {
   const { t } = useTranslation('common');
   const [chainActive, setChainActive] = useState(true);
   const isClient = typeof window === 'object';
-
+  const intervalTimeInSeconds = 300;
   const [useLatestBlockTimestamp] = useLatestBlockTimestampLazyQuery({
     onCompleted: (data) => {
       const timestamp = dayjs.utc(R.pathOr('', ['block', 0, 'timestamp'], data));
       const timeNow = dayjs.utc();
       const timeDifference = timeNow.diff(timestamp, 's');
-      // if latest block has been over a minute ago
-      if (timeDifference > 60 && chainActive) {
+      // if latest block has been over the interval(intervalTimeInSeconds)
+      if (timeDifference > intervalTimeInSeconds && chainActive) {
         toast.error(t('blockTimeAgo', {
           time: dayjs.utc(timestamp).fromNow(),
         }), {
