@@ -12,7 +12,7 @@ export const useChainHealthCheck = () => {
   const { t } = useTranslation('common');
   const [chainActive, setChainActive] = useState(true);
   const isClient = typeof window === 'object';
-  const intervalTimeInSeconds = 300;
+  const intervalTimeInSeconds = process.env.NEXT_PUBLIC_BLOCK_TOSTER_INTERVAL_INS ?? 300;
   const [useLatestBlockTimestamp] = useLatestBlockTimestampLazyQuery({
     onCompleted: (data) => {
       const timestamp = dayjs.utc(R.pathOr('', ['block', 0, 'timestamp'], data));
