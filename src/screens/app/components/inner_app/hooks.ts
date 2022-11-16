@@ -12,12 +12,13 @@ export const useChainHealthCheck = () => {
   const { t } = useTranslation('common');
   const [chainActive, setChainActive] = useState(true);
   const isClient = typeof window === 'object';
-  const intervalTimeInSeconds = Number(process.env.NEXT_PUBLIC_BLOCK_TOSTER_INTERVAL_INS || 300);
   const [useLatestBlockTimestamp] = useLatestBlockTimestampLazyQuery({
     onCompleted: (data) => {
       const timestamp = dayjs.utc(R.pathOr('', ['block', 0, 'timestamp'], data));
       const timeNow = dayjs.utc();
       const timeDifference = timeNow.diff(timestamp, 's');
+      // eslint-disable-next-line max-len
+      const intervalTimeInSeconds = Number(process.env.NEXT_PUBLIC_BLOCK_TOSTER_INTERVAL_INS || 300);
       // if latest block has been over the interval(intervalTimeInSeconds)
       if (timeDifference > intervalTimeInSeconds && chainActive) {
         toast.error(t('blockTimeAgo', {
