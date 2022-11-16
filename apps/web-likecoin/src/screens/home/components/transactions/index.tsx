@@ -28,7 +28,7 @@ const Transactions: React.FC<{
       <div className={classes.label}>
         <Typography variant="h2">{t('latestTransactions')}</Typography>
         <Link href={TRANSACTIONS} passHref>
-          <Typography variant="h4" className="button" component="a">
+          <Typography variant="h4" className="button" component="a" aria-label="see more txs">
             {t('seeMore')}
           </Typography>
         </Link>
@@ -47,6 +47,7 @@ const Transactions: React.FC<{
             <Typography
               variant="h4"
               component="a"
+              aria-label="see more txs"
               className={classnames(classes.seeMoreFooter, classes.mobile, 'button')}
             >
               {t('seeMore')}
