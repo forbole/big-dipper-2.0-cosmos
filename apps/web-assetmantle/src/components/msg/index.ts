@@ -1,11 +1,11 @@
 // =========================
 // utils
 // =========================
+export { convertMsgsToModels, getMessageByType, getMessageModelByType } from 'ui/components/msg';
 
 // =========================
 // msg components
 // =========================
-export { convertMsgsToModels, getMessageByType, getMessageModelByType } from 'ui/components/msg';
 export { default as Grant } from 'ui/components/msg/authz/grant';
 export { default as Revoke } from 'ui/components/msg/authz/revoke';
 export { default as Multisend } from 'ui/components/msg/bank/multisend';
@@ -39,28 +39,28 @@ export { default as Undelegate } from 'ui/components/msg/staking/undelegate';
 export { default as Unknown } from 'ui/components/msg/unknown';
 export { default as CreatePeriodicVestingAccount } from 'ui/components/msg/vesting/create_periodic_vesting_account';
 export { default as CreateVestingAccount } from 'ui/components/msg/vesting/create_vesting_account';
-export { default as Channel } from './ibc/channel';
-export { default as Acknowledgement } from './ibc/channel_acknowledgement';
-export { default as ChannelCloseConfirm } from './ibc/channel_close_confirm';
-export { default as ChannelCloseInit } from './ibc/channel_close_init';
-export { default as CounterpartyChannel } from './ibc/channel_counterparty';
-export { default as ChannelOpenAck } from './ibc/channel_open_ack';
-export { default as ChannelOpenConfirm } from './ibc/channel_open_confirm';
-export { default as ChannelOpenInit } from './ibc/channel_open_init';
-export { default as ChannelOpenTry } from './ibc/channel_open_try';
-export { default as Packet } from './ibc/channel_packet';
-export { default as ReceivePacket } from './ibc/channel_receive_packet';
-export { default as Timeout } from './ibc/channel_timeout';
-export { default as TimeoutOnClose } from './ibc/channel_timeout_on_close';
-export { default as CreateClient } from './ibc/client_create_client';
-export { default as Height } from './ibc/client_height';
-export { default as SubmitMisbehaviour } from './ibc/client_submit_misbehaviour';
-export { default as UpdateClient } from './ibc/client_update_client';
-export { default as UpgradeClient } from './ibc/client_upgrade_client';
-export { default as CounterpartyConnection } from './ibc/connection_counterparty';
-export { default as ConnectionEnd } from './ibc/connection_end';
-export { default as ConnectionOpenAck } from './ibc/connection_open_ack';
-export { default as ConnectionOpenConfirm } from './ibc/connection_open_confirm';
-export { default as ConnectionOpenInit } from './ibc/connection_open_init';
-export { default as ConnectionOpenTry } from './ibc/connection_open_try';
-export { default as Version } from './ibc/connection_version';
+export { default as Channel } from 'ui/components/msg/ibc/channel';
+export { default as Acknowledgement } from 'ui/components/msg/ibc/channel_acknowledgement';
+export { default as ChannelCloseConfirm } from 'ui/components/msg/ibc/channel_close_confirm';
+export { default as ChannelCloseInit } from 'ui/components/msg/ibc/channel_close_init';
+export { default as CounterpartyChannel } from 'ui/components/msg/ibc/channel_counterparty';
+export { default as ChannelOpenAck } from 'ui/components/msg/ibc/channel_open_ack';
+export { default as ChannelOpenConfirm } from 'ui/components/msg/ibc/channel_open_confirm';
+export { default as ChannelOpenInit } from 'ui/components/msg/ibc/channel_open_init';
+export { default as ChannelOpenTry } from 'ui/components/msg/ibc/channel_open_try';
+export { default as Packet } from 'ui/components/msg/ibc/channel_packet';
+export { default as ReceivePacket } from 'ui/components/msg/ibc/channel_receive_packet';
+export { default as Timeout } from 'ui/components/msg/ibc/channel_timeout';
+export { default as TimeoutOnClose } from 'ui/components/msg/ibc/channel_timeout_on_close';
+export { default as CreateClient } from 'ui/components/msg/ibc/client_create_client';
+export { default as Height } from 'ui/components/msg/ibc/client_height';
+export { default as SubmitMisbehaviour } from 'ui/components/msg/ibc/client_submit_misbehaviour';
+export { default as UpdateClient } from 'ui/components/msg/ibc/client_update_client';
+export { default as UpgradeClient } from 'ui/components/msg/ibc/client_upgrade_client';
+export { default as CounterpartyConnection } from 'ui/components/msg/ibc/connection_counterparty';
+export { default as ConnectionEnd } from 'ui/components/msg/ibc/connection_end';
+export { default as ConnectionOpenAck } from 'ui/components/msg/ibc/connection_open_ack';
+export { default as ConnectionOpenConfirm } from 'ui/components/msg/ibc/connection_open_confirm';
+export { default as ConnectionOpenInit } from 'ui/components/msg/ibc/connection_open_init';
+export { default as ConnectionOpenTry } from 'ui/components/msg/ibc/connection_open_try';
+export { default as Version } from 'ui/components/msg/ibc/connection_version';

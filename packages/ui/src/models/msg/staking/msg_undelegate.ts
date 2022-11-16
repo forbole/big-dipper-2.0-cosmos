@@ -1,5 +1,4 @@
-import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgUndelegate {
   public category: Categories;
@@ -27,7 +26,7 @@ class MsgUndelegate {
       validatorAddress: json?.validator_address,
       amount: {
         denom: json?.amount?.denom,
-        amount: R.pathOr('0', ['amount', 'amount'], json),
+        amount: json?.amount?.amount ?? '0',
       },
     };
   }

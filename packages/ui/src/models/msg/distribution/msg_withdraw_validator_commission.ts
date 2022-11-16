@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 import chainConfig from 'ui/chainConfig';
 import { formatToken } from 'ui/utils/format_token';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgWithdrawValidatorCommission {
   public category: Categories;

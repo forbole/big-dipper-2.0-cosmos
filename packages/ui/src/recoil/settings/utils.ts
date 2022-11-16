@@ -1,6 +1,6 @@
 import chainConfig from 'ui/chainConfig';
 import { defaultTheme, isThemeSupported, themeDictionary } from 'ui/styles';
-import { Theme } from './types';
+import type { Theme } from './types';
 
 // ================================
 // CONSTANTS

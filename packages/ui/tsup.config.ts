@@ -8,6 +8,7 @@ const config: Options = {
   format: ['esm'],
   dts: true,
   silent: true,
+  sourcemap: true,
 };
 
 export default defineConfig(config);

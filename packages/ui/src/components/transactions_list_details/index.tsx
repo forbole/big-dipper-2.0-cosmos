@@ -1,6 +1,6 @@
 import React from 'react';
 import NoData from 'ui/components/no_data';
-import { TransactionsListDetailsState } from './types';
+import type { TransactionsListDetailsState } from './types';
 import { List } from './components';
 
 const TransactionsListDetails: React.FC<TransactionsListDetailsState> = (props) => {
@@ -15,7 +15,7 @@ const TransactionsListDetails: React.FC<TransactionsListDetailsState> = (props) 
     transactions,
   } = props;
 
-  const formatProps = {
+  const formatProps: TransactionsListDetailsState = {
     hasNextPage,
     isNextPageLoading,
     isItemLoaded,

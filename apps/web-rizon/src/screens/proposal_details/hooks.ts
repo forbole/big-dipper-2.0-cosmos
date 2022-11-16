@@ -2,7 +2,7 @@ import { useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import { useProposalDetailsQuery, ProposalDetailsQuery } from '@graphql/types/general_types';
-import { ProposalState } from './types';
+import type { ProposalState } from './types';
 
 export const useProposalDetails = () => {
   const router = useRouter();

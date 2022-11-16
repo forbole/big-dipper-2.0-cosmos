@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgLinkApplication from '@models/desmos/msg/profiles/msg_link_application';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const LinkApplication = (props: { message: MsgLinkApplication }) => {
+const LinkApplication: React.FC<{ message: MsgLinkApplication }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

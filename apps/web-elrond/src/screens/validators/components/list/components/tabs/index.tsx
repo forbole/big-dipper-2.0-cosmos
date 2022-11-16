@@ -6,7 +6,7 @@ import Tab from '@material-ui/core/Tab';
 import { a11yProps } from 'ui/utils/a11yProps';
 import Search from 'ui/components/search';
 import { useStyles } from './styles';
-import { TabType } from '../../types';
+import type { TabType } from '../../types';
 
 const TabsHeader: React.FC<{
   className?: string;

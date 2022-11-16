@@ -2,10 +2,10 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
-import { MsgConnectionOpenAck } from '@models';
+import { type MsgConnectionOpenAck } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const ConnectionOpenAck = (props: { message: MsgConnectionOpenAck }) => {
+const ConnectionOpenAck: React.FC<{ message: MsgConnectionOpenAck }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

@@ -11,7 +11,7 @@ import Tag from 'ui/components/tag';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from 'ui/utils/go_to_page';
 
-import { TransactionType } from '../../types';
+import type { TransactionType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;

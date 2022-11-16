@@ -6,7 +6,7 @@ import Name from 'ui/components/name';
 import MsgConvertCoin from '@models/evmos/msg/erc20/msg_convert_coin';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const ConvertCoin = (props: { message: MsgConvertCoin }) => {
+const ConvertCoin: React.FC<{ message: MsgConvertCoin }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

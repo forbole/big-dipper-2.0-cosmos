@@ -6,7 +6,7 @@ import Name from 'ui/components/name';
 import MsgCancelAuction from '@models/bitsong/msg/auction/msg_cancel_auction';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const CancelAuction = (props: { message: MsgCancelAuction }) => {
+const CancelAuction: React.FC<{ message: MsgCancelAuction }> = (props) => {
   const { message } = props;
 
   const owner = useProfileRecoil(message.owner);

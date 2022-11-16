@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgEditNFT from '@models/bitsong/msg/nft/msg_edit_nft';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const EditNFT = (props: { message: MsgEditNFT }) => {
+const EditNFT: React.FC<{ message: MsgEditNFT }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

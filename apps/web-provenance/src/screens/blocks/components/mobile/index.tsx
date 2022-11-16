@@ -16,7 +16,7 @@ import { BLOCK_DETAILS } from 'ui/utils/go_to_page';
 import { mergeRefs } from 'ui/utils/merge_refs';
 import { useList, useListRow } from '@hooks';
 import { useStyles } from './styles';
-import { ItemType } from '../../types';
+import type { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;
@@ -29,30 +29,31 @@ const Mobile: React.FC<{
 
   const { listRef, getRowHeight, setRowHeight } = useList();
 
-  const formattedItems = items?.map((x) => {
-    return {
-      height: (
-        <Link href={BLOCK_DETAILS(x.height)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {numeral(x.height).format('0,0')}
-          </Typography>
-        </Link>
-      ),
-      txs: numeral(x.txs).format('0,0'),
-      time: (dayjs as any).utc(x.timestamp).fromNow(),
-      proposer: (
-        <AvatarName
-          address={x.proposer.address}
-          imageUrl={x.proposer.imageUrl}
-          name={x.proposer.name}
-        />
-      ),
-      hash: getMiddleEllipsis(x.hash, {
-        beginning: 13,
-        ending: 10,
-      }),
-    };
-  });
+  const formattedItems =
+    items?.map((x) => {
+      return {
+        height: (
+          <Link href={BLOCK_DETAILS(x.height)} passHref>
+            <Typography variant="body1" className="value" component="a">
+              {numeral(x.height).format('0,0')}
+            </Typography>
+          </Link>
+        ),
+        txs: numeral(x.txs).format('0,0'),
+        time: (dayjs as any).utc(x.timestamp).fromNow(),
+        proposer: (
+          <AvatarName
+            address={x.proposer.address}
+            imageUrl={x.proposer.imageUrl}
+            name={x.proposer.name}
+          />
+        ),
+        hash: getMiddleEllipsis(x.hash, {
+          beginning: 13,
+          ending: 10,
+        }),
+      };
+    }) ?? [];
 
   return (
     <div className={classnames(className, classes.root)}>

@@ -1,4 +1,4 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgAnchorDataRequest {
   public category: Categories;

@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import AvatarName from 'ui/components/avatar_name';
 import { useStyles } from './styles';
 import { getVoteKey } from '../../utils';
-import { ItemType } from '../../types';
+import type { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;
@@ -15,12 +15,15 @@ const Mobile: React.FC<{
   const { t } = useTranslation('proposals');
   const classes = useStyles();
 
-  const formattedItems = items?.map((x) => {
-    return {
-      voter: <AvatarName address={x.user.address} imageUrl={x.user.imageUrl} name={x.user.name} />,
-      vote: t(getVoteKey(x.vote)),
-    };
-  });
+  const formattedItems =
+    items?.map((x) => {
+      return {
+        voter: (
+          <AvatarName address={x.user.address} imageUrl={x.user.imageUrl} name={x.user.name} />
+        ),
+        vote: t(getVoteKey(x.vote)),
+      };
+    }) ?? [];
 
   return (
     <div className={classnames(className)}>

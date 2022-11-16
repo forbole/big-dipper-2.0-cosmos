@@ -11,7 +11,7 @@ import { TOKEN_DETAILS } from '@utils/go_to_page';
 import AvatarName from '@components/avatar_name';
 import { columns } from './utils';
 import { useStyles } from './styles';
-import { OtherTokenType } from '../../../../types';
+import type { OtherTokenType } from '../../../../types';
 
 const Desktop: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('accounts');

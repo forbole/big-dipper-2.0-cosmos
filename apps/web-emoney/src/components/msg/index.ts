@@ -1,144 +1,74 @@
 // =========================
 // utils
 // =========================
-import Grant from 'ui/components/msg/authz/grant';
-import Revoke from 'ui/components/msg/authz/revoke';
-import Multisend from 'ui/components/msg/bank/multisend';
-import Send from 'ui/components/msg/bank/send';
-import VerifyInvariant from 'ui/components/msg/crisis/verify_invariant';
-import Fund from 'ui/components/msg/distribution/fund';
-import SetWithdrawalAddress from 'ui/components/msg/distribution/set_withdrawal_address';
-import WithdrawCommission from 'ui/components/msg/distribution/withdraw_commission';
-import WithdrawReward from 'ui/components/msg/distribution/withdraw_reward';
-import GrantAllowance from 'ui/components/msg/feegrant/grant_allowance';
-import RevokeAllowance from 'ui/components/msg/feegrant/revoke_allowance';
-import DepositProposal from 'ui/components/msg/governance/deposit_proposal';
-import SubmitProposal from 'ui/components/msg/governance/submit_proposal';
-import Vote from 'ui/components/msg/governance/vote';
-import BlockUser from 'ui/components/msg/profiles/block_user';
-import CreateRelationship from 'ui/components/msg/profiles/create_relationship';
-import DeleteProfile from 'ui/components/msg/profiles/delete_profile';
-import DtagAcceptTransfer from 'ui/components/msg/profiles/dtag_accept_transfer';
-import DtagCancelTransfer from 'ui/components/msg/profiles/dtag_cancel_transfer';
-import DtagRefuseTransfer from 'ui/components/msg/profiles/dtag_refuse_transfer';
-import DtagTransferRequest from 'ui/components/msg/profiles/dtag_transfer_request';
-import SaveProfile from 'ui/components/msg/profiles/save_profile';
-import UnBlockUser from 'ui/components/msg/profiles/unblock_user';
-import Unjail from 'ui/components/msg/slashing/unjail';
-import CreateValidator from 'ui/components/msg/staking/create_validator';
-import Delegate from 'ui/components/msg/staking/delegate';
-import EditValidator from 'ui/components/msg/staking/edit_validator';
-import Redelegate from 'ui/components/msg/staking/redelegate';
-import Undelegate from 'ui/components/msg/staking/undelegate';
-import Unknown from 'ui/components/msg/unknown';
-import CreatePeriodicVestingAccount from 'ui/components/msg/vesting/create_periodic_vesting_account';
-import CreateVestingAccount from 'ui/components/msg/vesting/create_vesting_account';
-import { convertMsgsToModels, getMessageByType, getMessageModelByType } from './utils';
+export { convertMsgsToModels, getMessageByType, getMessageModelByType } from './utils';
 
 // =========================
 // msg components
 // =========================
-import CreateIssuer from './authority/create_issuer';
-import Channel from './ibc/channel';
-import Acknowledgement from './ibc/channel_acknowledgement';
-import ChannelCloseConfirm from './ibc/channel_close_confirm';
-import ChannelCloseInit from './ibc/channel_close_init';
-import CounterpartyChannel from './ibc/channel_counterparty';
-import ChannelOpenAck from './ibc/channel_open_ack';
-import ChannelOpenConfirm from './ibc/channel_open_confirm';
-import ChannelOpenInit from './ibc/channel_open_init';
-import ChannelOpenTry from './ibc/channel_open_try';
-import Packet from './ibc/channel_packet';
-import ReceivePacket from './ibc/channel_receive_packet';
-import Timeout from './ibc/channel_timeout';
-import TimeoutOnClose from './ibc/channel_timeout_on_close';
-import CreateClient from './ibc/client_create_client';
-import Height from './ibc/client_height';
-import SubmitMisbehaviour from './ibc/client_submit_misbehaviour';
-import UpdateClient from './ibc/client_update_client';
-import UpgradeClient from './ibc/client_upgrade_client';
-import CounterpartyConnection from './ibc/connection_counterparty';
-import ConnectionEnd from './ibc/connection_end';
-import ConnectionOpenAck from './ibc/connection_open_ack';
-import ConnectionOpenConfirm from './ibc/connection_open_confirm';
-import ConnectionOpenInit from './ibc/connection_open_init';
-import ConnectionOpenTry from './ibc/connection_open_try';
-import Version from './ibc/connection_version';
-import Transfer from './ibc_transfer/transfer';
-import BurnTokens from './liquidity_provider/burn_tokens';
-import MintTokens from './liquidity_provider/mint_tokens';
-import AddLimitOrder from './market/add_limit_order';
-import AddMarketOrder from './market/add_market_order';
-import CancelOrder from './market/cancel_order';
-import CancelReplaceLimitOrder from './market/cancel_replace_limit_order';
-import CancelReplaceMarketOrder from './market/cancel_replace_market_order';
-
-export { getMessageModelByType, getMessageByType, convertMsgsToModels };
-export {
-  Delegate,
-  Unknown,
-  Redelegate,
-  Undelegate,
-  CreateValidator,
-  EditValidator,
-  Send,
-  Multisend,
-  VerifyInvariant,
-  Unjail,
-  Fund,
-  SetWithdrawalAddress,
-  WithdrawReward,
-  DepositProposal,
-  Vote,
-  SubmitProposal,
-  WithdrawCommission,
-  SaveProfile,
-  DeleteProfile,
-  CreateRelationship,
-  DtagTransferRequest,
-  DtagAcceptTransfer,
-  DtagCancelTransfer,
-  DtagRefuseTransfer,
-  BlockUser,
-  UnBlockUser,
-  CreateClient,
-  UpdateClient,
-  UpgradeClient,
-  SubmitMisbehaviour,
-  Height,
-  Acknowledgement,
-  Channel,
-  ChannelCloseConfirm,
-  ChannelCloseInit,
-  ChannelOpenAck,
-  ChannelOpenConfirm,
-  ChannelOpenInit,
-  ChannelOpenTry,
-  CounterpartyChannel,
-  Packet,
-  ReceivePacket,
-  Timeout,
-  TimeoutOnClose,
-  ConnectionEnd,
-  ConnectionOpenAck,
-  ConnectionOpenConfirm,
-  ConnectionOpenInit,
-  ConnectionOpenTry,
-  CounterpartyConnection,
-  Version,
-  Transfer,
-  CreateIssuer,
-  AddLimitOrder,
-  AddMarketOrder,
-  CancelOrder,
-  CancelReplaceLimitOrder,
-  CancelReplaceMarketOrder,
-  MintTokens,
-  BurnTokens,
-  Grant,
-  Revoke,
-  GrantAllowance,
-  RevokeAllowance,
-  CreateVestingAccount,
-  CreatePeriodicVestingAccount,
-};
+export { default as Grant } from 'ui/components/msg/authz/grant';
+export { default as Revoke } from 'ui/components/msg/authz/revoke';
+export { default as Multisend } from 'ui/components/msg/bank/multisend';
+export { default as Send } from 'ui/components/msg/bank/send';
+export { default as VerifyInvariant } from 'ui/components/msg/crisis/verify_invariant';
+export { default as Fund } from 'ui/components/msg/distribution/fund';
+export { default as SetWithdrawalAddress } from 'ui/components/msg/distribution/set_withdrawal_address';
+export { default as WithdrawCommission } from 'ui/components/msg/distribution/withdraw_commission';
+export { default as WithdrawReward } from 'ui/components/msg/distribution/withdraw_reward';
+export { default as GrantAllowance } from 'ui/components/msg/feegrant/grant_allowance';
+export { default as RevokeAllowance } from 'ui/components/msg/feegrant/revoke_allowance';
+export { default as DepositProposal } from 'ui/components/msg/governance/deposit_proposal';
+export { default as SubmitProposal } from 'ui/components/msg/governance/submit_proposal';
+export { default as Vote } from 'ui/components/msg/governance/vote';
+export { default as BlockUser } from 'ui/components/msg/profiles/block_user';
+export { default as CreateRelationship } from 'ui/components/msg/profiles/create_relationship';
+export { default as DeleteProfile } from 'ui/components/msg/profiles/delete_profile';
+export { default as DtagAcceptTransfer } from 'ui/components/msg/profiles/dtag_accept_transfer';
+export { default as DtagCancelTransfer } from 'ui/components/msg/profiles/dtag_cancel_transfer';
+export { default as DtagRefuseTransfer } from 'ui/components/msg/profiles/dtag_refuse_transfer';
+export { default as DtagTransferRequest } from 'ui/components/msg/profiles/dtag_transfer_request';
+export { default as SaveProfile } from 'ui/components/msg/profiles/save_profile';
+export { default as UnBlockUser } from 'ui/components/msg/profiles/unblock_user';
+export { default as Unjail } from 'ui/components/msg/slashing/unjail';
+export { default as CreateValidator } from 'ui/components/msg/staking/create_validator';
+export { default as Delegate } from 'ui/components/msg/staking/delegate';
+export { default as EditValidator } from 'ui/components/msg/staking/edit_validator';
+export { default as Redelegate } from 'ui/components/msg/staking/redelegate';
+export { default as Undelegate } from 'ui/components/msg/staking/undelegate';
+export { default as Unknown } from 'ui/components/msg/unknown';
+export { default as CreatePeriodicVestingAccount } from 'ui/components/msg/vesting/create_periodic_vesting_account';
+export { default as CreateVestingAccount } from 'ui/components/msg/vesting/create_vesting_account';
+export { default as CreateIssuer } from './authority/create_issuer';
+export { default as Channel } from 'ui/components/msg/ibc/channel';
+export { default as Acknowledgement } from 'ui/components/msg/ibc/channel_acknowledgement';
+export { default as ChannelCloseConfirm } from 'ui/components/msg/ibc/channel_close_confirm';
+export { default as ChannelCloseInit } from 'ui/components/msg/ibc/channel_close_init';
+export { default as CounterpartyChannel } from 'ui/components/msg/ibc/channel_counterparty';
+export { default as ChannelOpenAck } from 'ui/components/msg/ibc/channel_open_ack';
+export { default as ChannelOpenConfirm } from 'ui/components/msg/ibc/channel_open_confirm';
+export { default as ChannelOpenInit } from 'ui/components/msg/ibc/channel_open_init';
+export { default as ChannelOpenTry } from 'ui/components/msg/ibc/channel_open_try';
+export { default as Packet } from 'ui/components/msg/ibc/channel_packet';
+export { default as ReceivePacket } from 'ui/components/msg/ibc/channel_receive_packet';
+export { default as Timeout } from 'ui/components/msg/ibc/channel_timeout';
+export { default as TimeoutOnClose } from 'ui/components/msg/ibc/channel_timeout_on_close';
+export { default as CreateClient } from 'ui/components/msg/ibc/client_create_client';
+export { default as Height } from 'ui/components/msg/ibc/client_height';
+export { default as SubmitMisbehaviour } from 'ui/components/msg/ibc/client_submit_misbehaviour';
+export { default as UpdateClient } from 'ui/components/msg/ibc/client_update_client';
+export { default as UpgradeClient } from 'ui/components/msg/ibc/client_upgrade_client';
+export { default as CounterpartyConnection } from 'ui/components/msg/ibc/connection_counterparty';
+export { default as ConnectionEnd } from 'ui/components/msg/ibc/connection_end';
+export { default as ConnectionOpenAck } from 'ui/components/msg/ibc/connection_open_ack';
+export { default as ConnectionOpenConfirm } from 'ui/components/msg/ibc/connection_open_confirm';
+export { default as ConnectionOpenInit } from 'ui/components/msg/ibc/connection_open_init';
+export { default as ConnectionOpenTry } from 'ui/components/msg/ibc/connection_open_try';
+export { default as Version } from 'ui/components/msg/ibc/connection_version';
+export { default as Transfer } from './ibc_transfer/transfer';
+export { default as BurnTokens } from './liquidity_provider/burn_tokens';
+export { default as MintTokens } from './liquidity_provider/mint_tokens';
+export { default as AddLimitOrder } from './market/add_limit_order';
+export { default as AddMarketOrder } from './market/add_market_order';
+export { default as CancelOrder } from './market/cancel_order';
+export { default as CancelReplaceLimitOrder } from './market/cancel_replace_limit_order';
+export { default as CancelReplaceMarketOrder } from './market/cancel_replace_market_order';

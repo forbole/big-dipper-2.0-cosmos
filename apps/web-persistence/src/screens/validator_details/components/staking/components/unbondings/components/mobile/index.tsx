@@ -9,7 +9,7 @@ import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
 import { formatNumber } from 'ui/utils/format_token';
 import { useStyles } from './styles';
-import { ItemType } from '../../types';
+import type { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;
@@ -18,22 +18,23 @@ const Mobile: React.FC<{
   const classes = useStyles();
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
-  const formattedItems = items?.map((x) => {
-    return {
-      address: (
-        <AvatarName
-          address={x.address.address}
-          imageUrl={x.address.imageUrl}
-          name={x.address.name}
-        />
-      ),
-      amount: `${formatNumber(
-        x.amount.value,
-        x.amount.exponent
-      )} ${x.amount.displayDenom.toUpperCase()}`,
-      completionTime: formatDayJs((dayjs as any).utc(x.completionTime), dateFormat),
-    };
-  });
+  const formattedItems =
+    items?.map((x) => {
+      return {
+        address: (
+          <AvatarName
+            address={x.address.address}
+            imageUrl={x.address.imageUrl}
+            name={x.address.name}
+          />
+        ),
+        amount: `${formatNumber(
+          x.amount.value,
+          x.amount.exponent
+        )} ${x.amount.displayDenom.toUpperCase()}`,
+        completionTime: formatDayJs((dayjs as any).utc(x.completionTime), dateFormat),
+      };
+    }) ?? [];
 
   return (
     <div className={classnames(className)}>

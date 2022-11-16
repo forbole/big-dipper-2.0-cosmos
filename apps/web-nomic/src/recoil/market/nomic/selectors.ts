@@ -1,7 +1,7 @@
 import { selector } from 'recoil';
 import { mergeStateChange } from 'ui/utils/merge_state_change';
 import { atomState } from './atom';
-import { AtomState } from './types';
+import type { AtomState } from './types';
 
 const getMarket = ({ get }: any): AtomState => {
   const state = get(atomState);

@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgIssueFanToken from '@models/bitsong/msg/fantoken/msg_issue_fan_token';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const IssueFanToken = (props: { message: MsgIssueFanToken }) => {
+const IssueFanToken: React.FC<{ message: MsgIssueFanToken }> = (props) => {
   const { message } = props;
 
   const owner = useProfileRecoil(message.owner);

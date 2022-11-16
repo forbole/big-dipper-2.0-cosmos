@@ -7,7 +7,7 @@ import {
 } from '@graphql/types/general_types';
 import chainConfig from 'ui/chainConfig';
 import { formatToken } from 'ui/utils/format_token';
-import { DepositState } from './types';
+import type { DepositState } from './types';
 
 export const useDeposits = () => {
   const router = useRouter();

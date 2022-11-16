@@ -16,7 +16,7 @@ import { useGrid } from '@hooks';
 import { mergeRefs } from 'ui/utils/merge_refs';
 import { useStyles } from './styles';
 import { columns } from './utils';
-import { ItemType } from '../../types';
+import type { ItemType } from '../../types';
 
 const Desktop: React.FC<{
   className?: string;

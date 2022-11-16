@@ -8,7 +8,7 @@ import { MsgVote } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 import { PROPOSAL_DETAILS } from 'ui/utils/go_to_page';
 
-const Vote = (props: { message: MsgVote }) => {
+const Vote: React.FC<{ message: MsgVote }> = (props) => {
   const { t } = useTranslation('transactions');
   const { message } = props;
   const vote = t(message.getOptionTranslationKey() ?? '');

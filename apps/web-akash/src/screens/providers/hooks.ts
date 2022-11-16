@@ -9,7 +9,7 @@ import {
   CpuMemoryStorageListenerSubscription,
   ProvidersQuery,
 } from '@graphql/types/general_types';
-import { ProviderInfo, ProvidersState } from './types';
+import type { ProviderInfo, ProvidersState } from './types';
 
 export const useProviders = () => {
   const [state, setState] = useState<ProvidersState>({

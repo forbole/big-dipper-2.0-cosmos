@@ -5,7 +5,7 @@ import MsgSignDataRequest from '@models/regen/msg/data/msg_sign_data_request';
 import { useProfilesRecoil } from '@recoil/profiles';
 import { Signers } from './components';
 
-const SignDataRequest = (props: { message: MsgSignDataRequest }) => {
+const SignDataRequest: React.FC<{ message: MsgSignDataRequest }> = (props) => {
   const { message } = props;
   const signersProfiles = useProfilesRecoil(message.signers);
 

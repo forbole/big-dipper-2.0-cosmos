@@ -2,10 +2,10 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
-import { MsgTimeout } from '@models';
+import { type MsgTimeout } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Timeout = (props: { message: MsgTimeout }) => {
+const Timeout: React.FC<{ message: MsgTimeout }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

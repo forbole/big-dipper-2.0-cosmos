@@ -12,7 +12,7 @@ import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { TOKEN_DETAILS } from '@utils/go_to_page';
 import { columns } from './utils';
 import { useStyles } from './styles';
-import { TokenType } from '../../../../types';
+import type { TokenType } from '../../../../types';
 
 const Desktop: React.FC<{ items: TokenType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('tokens');

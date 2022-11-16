@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
 import { TOKENS, TOKENS_COUNT } from '@api';
-import { TokenState } from './types';
+import type { TokenState } from './types';
 
 export const PAGE_SIZE = 25;
 

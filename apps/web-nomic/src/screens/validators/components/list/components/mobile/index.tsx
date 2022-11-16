@@ -9,7 +9,7 @@ import { useList, useListRow } from '@hooks';
 import { getValidatorStatus } from '@utils/get_validator_status';
 import { SingleValidator } from './component';
 import { VotingPower } from '..';
-import { ItemType } from '../../types';
+import type { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;
@@ -17,33 +17,34 @@ const Mobile: React.FC<{
 }> = ({ className, items }) => {
   const { listRef, getRowHeight, setRowHeight } = useList();
 
-  const formattedItems = items?.map((x, i) => {
-    const status = getValidatorStatus(x.inActiveSet, x.jailed, x.tombstoned);
-    const percentDisplay = x.inActiveSet
-      ? `${numeral(x.votingPowerPercent).format('0.[00]')}%`
-      : '0%';
-    const votingPower = numeral(x.votingPower).format('0,0');
-    return {
-      idx: `#${i + 1}`,
-      validator: (
-        <AvatarName
-          address={x.validator.address}
-          imageUrl={x.validator.imageUrl}
-          name={x.validator.name}
-        />
-      ),
-      commission: `${numeral(x.commission).format('0.[00]')}%`,
-      votingPower: (
-        <VotingPower
-          percentDisplay={percentDisplay}
-          percentage={x.votingPowerPercent}
-          content={votingPower}
-          topVotingPower={x.topVotingPower ?? false}
-        />
-      ),
-      status,
-    };
-  });
+  const formattedItems =
+    items?.map((x, i) => {
+      const status = getValidatorStatus(x.inActiveSet, x.jailed, x.tombstoned);
+      const percentDisplay = x.inActiveSet
+        ? `${numeral(x.votingPowerPercent).format('0.[00]')}%`
+        : '0%';
+      const votingPower = numeral(x.votingPower).format('0,0');
+      return {
+        idx: `#${i + 1}`,
+        validator: (
+          <AvatarName
+            address={x.validator.address}
+            imageUrl={x.validator.imageUrl}
+            name={x.validator.name}
+          />
+        ),
+        commission: `${numeral(x.commission).format('0.[00]')}%`,
+        votingPower: (
+          <VotingPower
+            percentDisplay={percentDisplay}
+            percentage={x.votingPowerPercent}
+            content={votingPower}
+            topVotingPower={x.topVotingPower ?? false}
+          />
+        ),
+        status,
+      };
+    }) ?? [];
 
   return (
     <div className={classnames(className)}>

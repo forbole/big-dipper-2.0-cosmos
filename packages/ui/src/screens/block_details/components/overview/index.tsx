@@ -8,7 +8,7 @@ import { useProfileRecoil } from '@recoil/profiles';
 import { readDate } from '@recoil/settings';
 import BoxDetails from 'ui/components/box_details';
 import AvatarName from 'ui/components/avatar_name';
-import { OverviewType } from '../../types';
+import type { OverviewType } from '../../types';
 
 const Overview: React.FC<OverviewType & ComponentDefault> = (props, { className }) => {
   const proposer = useProfileRecoil(props.proposer);

@@ -6,7 +6,7 @@ import { formatToken } from 'ui/utils/format_token';
 import chainConfig from 'ui/chainConfig';
 import { DistributionParams, GovParams, MintParams, StakingParams, SlashingParams } from '@models';
 import OracleParams from '@models/band/oracle_params';
-import { ParamsState } from './types';
+import type { ParamsState } from './types';
 
 const initialState = {
   loading: true,

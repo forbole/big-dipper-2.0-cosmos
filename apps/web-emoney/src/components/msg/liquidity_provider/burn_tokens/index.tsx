@@ -7,7 +7,7 @@ import { formatToken, formatNumber } from 'ui/utils/format_token';
 import MsgBurnTokens from '@models/emoney/msg/liquidity_provider/msg_burn_tokens';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const BurnTokens = (props: { message: MsgBurnTokens }) => {
+const BurnTokens: React.FC<{ message: MsgBurnTokens }> = (props) => {
   const { message } = props;
   const { t } = useTranslation('transactions');
 

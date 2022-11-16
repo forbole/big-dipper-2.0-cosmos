@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgBurnFanToken from '@models/bitsong/msg/fantoken/msg_burn_fan_token';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const BurnFanToken = (props: { message: MsgBurnFanToken }) => {
+const BurnFanToken: React.FC<{ message: MsgBurnFanToken }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

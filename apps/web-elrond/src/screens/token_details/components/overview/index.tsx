@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import BoxDetails from 'ui/components/box_details';
 import AvatarName from '@components/avatar_name';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import { OverviewType } from '../../types';
+import type { OverviewType } from '../../types';
 
 const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props) => {
   const { t } = useTranslation('tokens');

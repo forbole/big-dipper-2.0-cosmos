@@ -34,9 +34,9 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
   const totalVotedPercent =
     total.gt(0) && state.bonded.value
       ? `${numeral(Big(total.toFixed(2)).div(state.bonded.value).times(100).toFixed(2)).format(
-        '0.[00]'
-      )}%`
-    : '0%';
+          '0.[00]'
+        )}%`
+      : '0%';
 
   return (
     <Box className={classnames(props.className, classes.root)}>

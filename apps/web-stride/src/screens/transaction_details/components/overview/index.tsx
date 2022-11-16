@@ -12,7 +12,7 @@ import BoxDetails from 'ui/components/box_details';
 import Result from 'ui/components/result';
 import { formatNumber } from 'ui/utils/format_token';
 import { useStyles } from './styles';
-import { OverviewType } from '../../types';
+import type { OverviewType } from '../../types';
 
 const Overview: React.FC<{
   className?: string;

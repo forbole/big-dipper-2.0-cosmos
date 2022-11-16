@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import { MsgCreateValidator } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const CreateValidator = (props: { message: MsgCreateValidator }) => {
+const CreateValidator: React.FC<{ message: MsgCreateValidator }> = (props) => {
   const { message } = props;
 
   const delegator = useProfileRecoil(message.delegatorAddress);

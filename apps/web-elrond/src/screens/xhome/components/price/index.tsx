@@ -18,7 +18,7 @@ import CustomToolTip from 'ui/components/custom_tool_tip';
 import dayjs from 'ui/utils/dayjs';
 import { useStyles } from './styles';
 import { usePrice } from './hooks';
-import { PriceType } from '../../types';
+import type { PriceType } from '../../types';
 
 const Price: React.FC<{ price: PriceType[] } & ComponentDefault> = (props) => {
   const { classes, theme } = useStyles();

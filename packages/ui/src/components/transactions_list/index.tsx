@@ -2,7 +2,7 @@ import React from 'react';
 import NoData from 'ui/components/no_data';
 import { useScreenSize } from '@hooks';
 import { useStyles } from './styles';
-import { TransactionsListState } from './types';
+import type { TransactionsListState } from './types';
 
 import Desktop from './components/desktop';
 import Mobile from './components/mobile';
@@ -21,7 +21,7 @@ const TransactionsList: React.FC<TransactionsListState> = (props) => {
   } = props;
   const classes = useStyles();
 
-  const formatProps = {
+  const formatProps: TransactionsListState = {
     hasNextPage,
     isNextPageLoading,
     isItemLoaded,

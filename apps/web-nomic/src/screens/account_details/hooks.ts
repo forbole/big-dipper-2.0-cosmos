@@ -7,7 +7,7 @@ import { formatToken } from 'ui/utils/format_token';
 import chainConfig from 'ui/chainConfig';
 import { isValidAddress } from 'ui/utils/prefix_convert';
 import { useDesmosProfile } from '@hooks';
-import { AccountDetailState } from './types';
+import type { AccountDetailState } from './types';
 import { fetchAvailableBalances, fetchAccountWithdrawalAddress } from './utils';
 
 const defaultTokenUnit: TokenUnit = {

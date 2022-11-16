@@ -5,7 +5,9 @@ import Name from 'ui/components/name';
 import MsgUpdateGroupAccountAdminRequest from '@models/regen/msg/group/msg_update_group_account_admin_request';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const UpdateGroupAccountAdminRequest = (props: { message: MsgUpdateGroupAccountAdminRequest }) => {
+const UpdateGroupAccountAdminRequest: React.FC<{ message: MsgUpdateGroupAccountAdminRequest }> = (
+  props
+) => {
   const { message } = props;
 
   const admin = useProfileRecoil(message.admin);

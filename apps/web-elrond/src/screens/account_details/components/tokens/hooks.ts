@@ -4,7 +4,7 @@ import * as R from 'ramda';
 import axios from 'axios';
 import { formatTokenByExponent } from 'ui/utils/format_token';
 import { ACCOUNT_DETAILS_TOKENS, ACCOUNT_DETAILS_TOKENS_COUNT } from '@api';
-import { OtherTokensState } from './types';
+import type { OtherTokensState } from './types';
 
 export const PAGE_SIZE = 10;
 

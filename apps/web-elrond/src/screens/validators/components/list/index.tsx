@@ -6,7 +6,7 @@ import TabPanel from 'ui/components/tab_panel';
 import { Validators, Tabs } from './components';
 import { useStyles } from './styles';
 import { useValidators } from './hooks';
-import { TabType } from './types';
+import type { TabType } from './types';
 
 const List: React.FC<{
   className?: string;

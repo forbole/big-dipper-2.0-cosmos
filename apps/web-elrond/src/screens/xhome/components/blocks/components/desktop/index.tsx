@@ -14,7 +14,7 @@ import { BLOCK_DETAILS } from '@utils/go_to_page';
 import dayjs from 'ui/utils/dayjs';
 import { useStyles } from './styles';
 import { columns } from './utils';
-import { BlockType } from '../../types';
+import type { BlockType } from '../../types';
 
 const Desktop: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');

@@ -8,7 +8,7 @@ import Box from 'ui/components/box';
 import { usePagination, useScreenSize } from '@hooks';
 import Typography from '@material-ui/core/Typography';
 import { useStyles } from './styles';
-import { OtherTokenType } from '../../types';
+import type { OtherTokenType } from '../../types';
 import type DesktopType from './components/desktop';
 import type MobileType from './components/mobile';
 

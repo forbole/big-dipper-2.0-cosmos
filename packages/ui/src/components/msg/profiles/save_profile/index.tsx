@@ -2,10 +2,10 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
-import { MsgSaveProfile } from '@models';
+import { type MsgSaveProfile } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const SaveProfile = (props: { message: MsgSaveProfile }) => {
+const SaveProfile: React.FC<{ message: MsgSaveProfile }> = (props) => {
   const { message } = props;
 
   const creator = useProfileRecoil(message.creator);

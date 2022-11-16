@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import AvatarName from '@components/avatar_name';
 import { TOKEN_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
-import { TokenType } from '../../../../types';
+import type { TokenType } from '../../../../types';
 
 const Mobile: React.FC<{ items: TokenType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('tokens');

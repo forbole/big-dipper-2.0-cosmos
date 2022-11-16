@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgEditOracleScript from '@models/band/msg/oracle/msg_edit_oracle_script';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const EditOracleScript = (props: { message: MsgEditOracleScript }) => {
+const EditOracleScript: React.FC<{ message: MsgEditOracleScript }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

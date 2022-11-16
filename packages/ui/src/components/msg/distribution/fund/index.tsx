@@ -7,7 +7,7 @@ import Name from 'ui/components/name';
 import { MsgFundCommunityPool } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Fund = (props: { message: MsgFundCommunityPool }) => {
+const Fund: React.FC<{ message: MsgFundCommunityPool }> = (props) => {
   const { t } = useTranslation('transactions');
   const { message } = props;
 

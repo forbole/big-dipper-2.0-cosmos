@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgUnlinkApplication from '@models/desmos/msg/profiles/msg_unlink_application';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const UnlinkApplication = (props: { message: MsgUnlinkApplication }) => {
+const UnlinkApplication: React.FC<{ message: MsgUnlinkApplication }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

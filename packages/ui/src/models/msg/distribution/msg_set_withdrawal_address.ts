@@ -1,4 +1,4 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgSetWithdrawAddress {
   public category: Categories;

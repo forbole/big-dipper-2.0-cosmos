@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { PRICE_HISTORY } from '@api';
 import * as R from 'ramda';
-import { HomeState } from './types';
+import type { HomeState } from './types';
 
 export const useHome = () => {
   const [state, setState] = useState<HomeState>({

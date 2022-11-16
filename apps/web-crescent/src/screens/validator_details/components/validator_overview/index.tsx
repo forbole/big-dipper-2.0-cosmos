@@ -20,7 +20,7 @@ import LiquidStakingTrueIcon from 'shared-utils/assets/liquid-staking-true.svg';
 import LiquidStakingFalseIcon from 'shared-utils/assets/liquid-staking-false.svg';
 import { useStyles } from './styles';
 import { getCondition } from './utils';
-import { StatusType, OverviewType } from '../../types';
+import type { StatusType, OverviewType } from '../../types';
 import { useAddress } from './hooks';
 
 const ValidatorOverview: React.FC<

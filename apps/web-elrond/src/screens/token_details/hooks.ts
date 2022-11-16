@@ -3,7 +3,7 @@ import axios from 'axios';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import { TOKEN_DETAILS } from '@api';
-import { TokenDetailsState } from './types';
+import type { TokenDetailsState } from './types';
 
 export const useTokenDetails = () => {
   const router = useRouter();

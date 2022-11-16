@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgMintFanToken from '@models/bitsong/msg/fantoken/msg_mint_fan_token';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const MintFanToken = (props: { message: MsgMintFanToken }) => {
+const MintFanToken: React.FC<{ message: MsgMintFanToken }> = (props) => {
   const { message } = props;
 
   const recipient = useProfileRecoil(message.recipient);

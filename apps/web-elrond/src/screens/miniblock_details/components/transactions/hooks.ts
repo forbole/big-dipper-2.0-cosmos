@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import axios from 'axios';
 import { TRANSACTIONS, TRANSACTIONS_COUNT } from '@api';
-import { TransactionState } from './types';
+import type { TransactionState } from './types';
 
 export const PAGE_SIZE = 10;
 

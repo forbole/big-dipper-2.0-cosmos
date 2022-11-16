@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import { MsgUnblockUser } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const UnBlockUser = (props: { message: MsgUnblockUser }) => {
+const UnBlockUser: React.FC<{ message: MsgUnblockUser }> = (props) => {
   const { message } = props;
 
   const blocker = useProfileRecoil(message.blocker);

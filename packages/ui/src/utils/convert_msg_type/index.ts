@@ -8,8 +8,8 @@ export const convertMsgType = (type: string[]) => {
     const msgStringLength = 'Msg'.length;
     const msgTitle = eachType.substring(wordIndex + msgStringLength);
     const msgTitleSeperatedByUpperCase = msgTitle.match(/[A-Z][a-z]+|[0-9]+/g)?.join(' ');
-    return msgTitleSeperatedByUpperCase;
+    return msgTitleSeperatedByUpperCase ?? '';
   });
 
-  return typeTitle ?? '';
+  return typeTitle;
 };

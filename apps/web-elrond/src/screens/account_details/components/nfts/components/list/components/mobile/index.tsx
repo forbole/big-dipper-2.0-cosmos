@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
 import { NFT_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
-import { OtherTokenType } from '../../../../types';
+import type { OtherTokenType } from '../../../../types';
 
 const Mobile: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('accounts');

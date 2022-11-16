@@ -6,7 +6,7 @@ import Name from 'ui/components/name';
 import MsgSetRegistry from '@models/sifchain/msg/tokenregistry/msg_set_registry';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const SetRegistry = (props: { message: MsgSetRegistry }) => {
+const SetRegistry: React.FC<{ message: MsgSetRegistry }> = (props) => {
   const { t } = useTranslation('transactions');
   const { message } = props;
 

@@ -4,7 +4,7 @@ import * as R from 'ramda';
 import { useTransactionDetailsQuery, TransactionDetailsQuery } from '@graphql/types/general_types';
 import { formatToken } from 'ui/utils/format_token';
 import { convertMsgsToModels } from '@components/msg';
-import { TransactionState } from './types';
+import type { TransactionState } from './types';
 
 export const useTransactionDetails = () => {
   const router = useRouter();

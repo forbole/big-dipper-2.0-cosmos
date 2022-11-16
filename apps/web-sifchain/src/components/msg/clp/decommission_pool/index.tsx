@@ -7,7 +7,7 @@ import MsgDecommissionPool from '@models/sifchain/msg/clp/msg_decommission_pool'
 import { useProfileRecoil } from '@recoil/profiles';
 import chainConfig from 'ui/chainConfig';
 
-const DecommissionPool = (props: { message: MsgDecommissionPool }) => {
+const DecommissionPool: React.FC<{ message: MsgDecommissionPool }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

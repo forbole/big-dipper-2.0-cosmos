@@ -11,7 +11,7 @@ import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { NODE_DETAILS } from '@utils/go_to_page';
 import { getShardDisplay } from '@utils/get_shard_display';
 import { columns } from './utils';
-import { NodeType } from '../../types';
+import type { NodeType } from '../../types';
 import { useStyles } from './styles';
 
 const Desktop: React.FC<{ items: NodeType[] } & ComponentDefault> = (props) => {

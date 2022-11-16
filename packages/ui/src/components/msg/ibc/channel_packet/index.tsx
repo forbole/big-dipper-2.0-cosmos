@@ -2,10 +2,10 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
-import { MsgPacket } from '@models';
+import { type MsgPacket } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Packet = (props: { message: MsgPacket }) => {
+const Packet: React.FC<{ message: MsgPacket }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

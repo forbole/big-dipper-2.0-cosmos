@@ -6,7 +6,7 @@ import Name from 'ui/components/name';
 import MsgSwap from '@models/sifchain/msg/clp/msg_swap';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Swap = (props: { message: MsgSwap }) => {
+const Swap: React.FC<{ message: MsgSwap }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

@@ -13,7 +13,7 @@ import { getValidatorConditionClass } from 'ui/utils/get_validator_condition';
 import { getValidatorStatus } from 'ui/utils/get_validator_status';
 import { useStyles } from './styles';
 import { fetchColumns } from './utils';
-import { ItemType } from '../../types';
+import type { ItemType } from '../../types';
 import { Condition, VotingPower, VotingPowerExplanation } from '..';
 
 const Desktop: React.FC<{

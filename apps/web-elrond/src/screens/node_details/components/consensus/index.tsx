@@ -3,11 +3,11 @@ import numeral from 'numeral';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Typography from '@material-ui/core/Typography';
-import Tooltip from '@material-ui/core/Tooltip'
+import Tooltip from '@material-ui/core/Tooltip';
 import Box from 'ui/components/box';
 import NoData from '@components/no_data';
 import { useStyles } from './styles';
-import { ConsensusType } from '../../types';
+import type { ConsensusType } from '../../types';
 
 const Consensus: React.FC<{ consensus: ConsensusType } & ComponentDefault> = (props) => {
   const { t } = useTranslation('nodes');

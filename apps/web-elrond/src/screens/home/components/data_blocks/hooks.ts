@@ -3,7 +3,7 @@ import * as R from 'ramda';
 import axios from 'axios';
 import { POLLING_INTERVAL, LATEST_BLOCK_HEIGHT, TRANSACTIONS_COUNT, STAKE } from '@api';
 import { useInterval } from '@hooks';
-import { DataBlockState } from './types';
+import type { DataBlockState } from './types';
 
 export const useDataBlocks = () => {
   const [state, setState] = useState<DataBlockState>({

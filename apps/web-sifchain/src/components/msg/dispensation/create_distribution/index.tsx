@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgCreateDistribution from '@models/sifchain/msg/dispensation/msg_create_distribution';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const CreateDistribution = (props: { message: MsgCreateDistribution }) => {
+const CreateDistribution: React.FC<{ message: MsgCreateDistribution }> = (props) => {
   const { message } = props;
 
   const distributor = useProfileRecoil(message.distributor);

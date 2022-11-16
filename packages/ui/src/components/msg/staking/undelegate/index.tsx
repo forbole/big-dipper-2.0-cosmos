@@ -6,7 +6,7 @@ import { MsgUndelegate } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
 
-const Undelegate = (props: { message: MsgUndelegate }) => {
+const Undelegate: React.FC<{ message: MsgUndelegate }> = (props) => {
   const { message } = props;
   const amount = formatToken(message.amount.amount, message.amount.denom);
 

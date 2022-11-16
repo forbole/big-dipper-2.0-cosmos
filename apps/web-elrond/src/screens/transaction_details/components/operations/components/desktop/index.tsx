@@ -13,7 +13,7 @@ import AvatarName from '@components/avatar_name';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { TOKEN_DETAILS, NFT_DETAILS } from '@utils/go_to_page';
 import { columns } from './utils';
-import { OperationType } from '../../../../types';
+import type { OperationType } from '../../../../types';
 
 const Desktop: React.FC<{ items: OperationType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');

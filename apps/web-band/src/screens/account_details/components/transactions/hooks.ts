@@ -4,16 +4,23 @@ import { convertMsgsToModels } from 'ui/components/msg';
 import * as R from 'ramda';
 import { QueryHookOptions, QueryResult } from '@apollo/client';
 import { convertMsgType } from 'ui/utils/convert_msg_type';
-import { TransactionState } from './types';
+import type { TransactionState } from './types';
 
 const LIMIT = 50;
 
-export type UseGetMessagesByAddressQuery<TData, TVariables> = (
+type TVariables = {
+  address?: string;
+  limit?: number;
+  offset?: number;
+  types?: string;
+};
+
+export type UseGetMessagesByAddressQuery<TData> = (
   baseOptions?: QueryHookOptions<TData, TVariables>
 ) => QueryResult<TData, TVariables>;
 
-export function useTransactions<TData, TVariables>(
-  useGetMessagesByAddressQuery: UseGetMessagesByAddressQuery<TData, TVariables>
+export function useTransactions<TData>(
+  useGetMessagesByAddressQuery: UseGetMessagesByAddressQuery<TData>
 ) {
   const router = useRouter();
   const [state, setState] = useState<TransactionState>({
@@ -32,7 +39,7 @@ export function useTransactions<TData, TVariables>(
       limit: LIMIT + 1, // to check if more exist
       offset: 0,
       address: `{${R.pathOr('', ['query', 'address'], router)}}`,
-    } as TVariables,
+    },
     onCompleted: (data: any) => {
       const itemsLength = data.messagesByAddress.length;
       const newItems = R.uniq([...state.data, ...formatTransactions(data)]);
@@ -86,7 +93,7 @@ export function useTransactions<TData, TVariables>(
       const messages = convertMsgsToModels(transaction);
       const msgType = messages.map((eachMsg: any) => {
         const eachMsgType = R.pathOr('none type', ['type'], eachMsg);
-        return eachMsgType;
+        return eachMsgType ?? '';
       });
       const convertedMsgType = convertMsgType(msgType);
       return {

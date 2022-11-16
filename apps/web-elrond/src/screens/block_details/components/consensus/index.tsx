@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from 'ui/components/box';
 import NoData from '@components/no_data';
 import { useScreenSize } from '@hooks';
-import { ConsensusType } from '../../types';
+import type { ConsensusType } from '../../types';
 import { useStyles } from './styles';
 import type DesktopType from './components/desktop';
 import type MobileType from './components/mobile';

@@ -3,7 +3,7 @@ import axios from 'axios';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import { MINIBLOCK_DETAILS } from '@api';
-import { BlockDetailsState } from './types';
+import type { BlockDetailsState } from './types';
 
 export const useBlockDetails = () => {
   const router = useRouter();

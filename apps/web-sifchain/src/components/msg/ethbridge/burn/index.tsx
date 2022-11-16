@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgBurn from '@models/sifchain/msg/ethbridge/msg_burn';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Burn = (props: { message: MsgBurn }) => {
+const Burn: React.FC<{ message: MsgBurn }> = (props) => {
   const { message } = props;
 
   const cosmosSender = useProfileRecoil(message.cosmosSender);

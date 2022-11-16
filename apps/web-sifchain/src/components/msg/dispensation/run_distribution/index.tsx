@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgRunDistribution from '@models/sifchain/msg/dispensation/msg_run_distribution';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const RunDistribution = (props: { message: MsgRunDistribution }) => {
+const RunDistribution: React.FC<{ message: MsgRunDistribution }> = (props) => {
   const { message } = props;
 
   const runner = useProfileRecoil(message.authorizedRunner);

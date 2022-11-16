@@ -5,7 +5,7 @@ import Big from 'big.js';
 import { IDENTITIES, PROVIDERS, STAKE } from '@api';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
 import chainConfig from 'ui/chainConfig';
-import { ValidatorsState } from './types';
+import type { ValidatorsState } from './types';
 
 export const useValidators = () => {
   const [state, setState] = useState<ValidatorsState>({

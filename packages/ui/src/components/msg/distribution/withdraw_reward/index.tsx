@@ -6,7 +6,7 @@ import { MsgWithdrawDelegatorReward } from '@models';
 import { formatNumber } from 'ui/utils/format_token';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const WithdrawReward = (props: { message: MsgWithdrawDelegatorReward }) => {
+const WithdrawReward: React.FC<{ message: MsgWithdrawDelegatorReward }> = (props) => {
   const { message } = props;
   const delegator = useProfileRecoil(message.delegatorAddress);
   const delegatorMoniker = delegator ? delegator?.name : message.delegatorAddress;

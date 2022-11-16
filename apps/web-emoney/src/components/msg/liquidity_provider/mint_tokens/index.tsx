@@ -7,7 +7,7 @@ import { formatToken, formatNumber } from 'ui/utils/format_token';
 import MsgMintTokens from '@models/emoney/msg/liquidity_provider/msg_mint_tokens';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const MintTokens = (props: { message: MsgMintTokens }) => {
+const MintTokens: React.FC<{ message: MsgMintTokens }> = (props) => {
   const { message } = props;
   const { t } = useTranslation('transactions');
 

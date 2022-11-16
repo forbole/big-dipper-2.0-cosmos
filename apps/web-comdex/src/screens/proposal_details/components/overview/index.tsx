@@ -16,7 +16,7 @@ import { useProfileRecoil } from '@recoil/profiles';
 import { ParamsChange, SoftwareUpgrade } from './components';
 import { useStyles } from './styles';
 import { getProposalType } from '../../utils';
-import { OverviewType } from '../../types';
+import type { OverviewType } from '../../types';
 
 const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
   className,

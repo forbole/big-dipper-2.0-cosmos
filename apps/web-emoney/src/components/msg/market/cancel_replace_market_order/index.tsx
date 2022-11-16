@@ -6,7 +6,7 @@ import { formatToken, formatNumber } from 'ui/utils/format_token';
 import MsgCancelReplaceMarketOrder from '@models/emoney/msg/market/msg_cancel_replace_market_order';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const CancelReplaceMarketOrder = (props: { message: MsgCancelReplaceMarketOrder }) => {
+const CancelReplaceMarketOrder: React.FC<{ message: MsgCancelReplaceMarketOrder }> = (props) => {
   const { message } = props;
   const owner = useProfileRecoil(message.owner);
   const ownerMoniker = owner ? owner?.name : message.owner;

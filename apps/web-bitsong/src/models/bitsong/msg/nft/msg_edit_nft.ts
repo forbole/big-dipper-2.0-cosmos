@@ -1,4 +1,4 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgEditNFT {
   public category: Categories;
@@ -22,7 +22,7 @@ class MsgEditNFT {
       type: json['@type'],
       sender: json?.sender,
       id: json?.id,
-    }
+    };
   }
 }
 

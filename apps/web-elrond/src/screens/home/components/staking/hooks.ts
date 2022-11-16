@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
 import { ECONOMICS } from '@api';
-import { StakingState } from './types';
+import type { StakingState } from './types';
 
 export const useStaking = () => {
   const [state, setState] = useState<StakingState>({

@@ -12,7 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import { NFT_DETAILS } from '@utils/go_to_page';
 import { columns } from './utils';
 import { useStyles } from './styles';
-import { NFTTypes } from '../../../../types';
+import type { NFTTypes } from '../../../../types';
 
 const Desktop: React.FC<{ items: NFTTypes[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('nfts');

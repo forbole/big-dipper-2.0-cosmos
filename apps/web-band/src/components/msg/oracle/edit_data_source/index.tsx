@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgEditDataSource from '@models/band/msg/oracle/msg_edit_data_source';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const EditDataSource = (props: { message: MsgEditDataSource }) => {
+const EditDataSource: React.FC<{ message: MsgEditDataSource }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

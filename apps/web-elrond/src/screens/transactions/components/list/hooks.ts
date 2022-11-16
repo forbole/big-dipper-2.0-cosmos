@@ -3,7 +3,7 @@ import * as R from 'ramda';
 import axios from 'axios';
 import { POLLING_INTERVAL, TRANSACTIONS, TRANSACTIONS_COUNT } from '@api';
 import { useInterval } from '@hooks';
-import { TransactionState } from './types';
+import type { TransactionState } from './types';
 
 export const PAGE_SIZE = 25;
 

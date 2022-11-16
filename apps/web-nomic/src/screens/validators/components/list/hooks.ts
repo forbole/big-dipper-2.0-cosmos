@@ -4,7 +4,7 @@ import * as R from 'ramda';
 import numeral from 'numeral';
 import { useValidatorsQuery, ValidatorsQuery } from '@graphql/types/general_types';
 import { useOnlineVotingPower } from '../../../home/components/hero/components/online_voting_power/hooks';
-import { ValidatorsState, ItemType, ValidatorType } from './types';
+import type { ValidatorsState, ItemType, ValidatorType } from './types';
 
 export const useValidators = () => {
   const [search, setSearch] = useState('');

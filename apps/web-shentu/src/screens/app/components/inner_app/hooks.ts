@@ -3,9 +3,15 @@ import useTranslation from 'next-translate/useTranslation';
 import dayjs from 'ui/utils/dayjs';
 import { toast } from 'react-toastify';
 import * as R from 'ramda';
-import { useLatestBlockTimestampLazyQuery } from '@graphql/types/general_types';
+import { LazyQueryHookOptions, LazyQueryResultTuple } from '@apollo/client';
 
-export const useChainHealthCheck = () => {
+export type UseLatestBlockTimestampLazyQuery<TData, TVariables> = (
+  baseOptions?: LazyQueryHookOptions<TData, TVariables>
+) => LazyQueryResultTuple<TData, TVariables>;
+
+export function useChainHealthCheck<TData, TVariables>(
+  useLatestBlockTimestampLazyQuery: UseLatestBlockTimestampLazyQuery<TData, TVariables>
+) {
   const { t } = useTranslation('common');
   const [chainActive, setChainActive] = useState(true);
   const isClient = typeof window === 'object';
@@ -36,4 +42,4 @@ export const useChainHealthCheck = () => {
     }
     useLatestBlockTimestamp();
   }, []);
-};
+}

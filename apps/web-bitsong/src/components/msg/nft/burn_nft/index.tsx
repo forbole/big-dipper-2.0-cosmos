@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgBurnNFT from '@models/bitsong/msg/nft/msg_burn_nft';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const BurnNFT = (props: { message: MsgBurnNFT }) => {
+const BurnNFT: React.FC<{ message: MsgBurnNFT }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

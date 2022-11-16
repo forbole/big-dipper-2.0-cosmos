@@ -3,7 +3,7 @@ import numeral from 'numeral';
 import * as R from 'ramda';
 import axios from 'axios';
 import { PRICE_HISTORY } from '@api';
-import { PriceState } from './types';
+import type { PriceState } from './types';
 
 export const usePrice = () => {
   const [state, setState] = useState<PriceState>({

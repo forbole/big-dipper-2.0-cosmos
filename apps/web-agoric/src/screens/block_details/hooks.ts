@@ -4,7 +4,7 @@ import numeral from 'numeral';
 import { useRouter } from 'next/router';
 import { useBlockDetailsQuery, BlockDetailsQuery } from '@graphql/types/general_types';
 import { convertMsgsToModels } from 'ui/components/msg';
-import { BlockDetailState } from './types';
+import type { BlockDetailState } from './types';
 
 export const useBlockDetails = () => {
   const router = useRouter();

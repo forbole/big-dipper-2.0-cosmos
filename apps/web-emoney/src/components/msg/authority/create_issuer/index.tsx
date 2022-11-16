@@ -6,7 +6,7 @@ import Name from 'ui/components/name';
 import MsgCreateIssuer from '@models/emoney/msg/authority/msg_create_issuer';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const CreateIssuer = (props: { message: MsgCreateIssuer }) => {
+const CreateIssuer: React.FC<{ message: MsgCreateIssuer }> = (props) => {
   const { message } = props;
   const { t } = useTranslation('transactions');
 

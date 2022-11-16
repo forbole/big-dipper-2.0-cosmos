@@ -17,7 +17,7 @@ import LiquidStakingFalseIcon from 'shared-utils/assets/liquid-staking-false.svg
 import LiquidStakingTitleIcon from 'shared-utils/assets/liquid-staking-title.svg';
 import { useStyles } from './styles';
 import { fetchColumns } from './utils';
-import { ItemType } from '../../types';
+import type { ItemType } from '../../types';
 import { Condition, VotingPower, VotingPowerExplanation } from '..';
 
 const Desktop: React.FC<{

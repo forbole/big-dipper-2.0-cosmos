@@ -8,7 +8,7 @@ import Box from 'ui/components/box';
 import AvatarName from '@components/avatar_name';
 import { formatNumber } from 'ui/utils/format_token';
 import { decodeBase64 } from '@utils/base64';
-import { ResultType } from '../../types';
+import type { ResultType } from '../../types';
 import { CodeBlock } from '..';
 import { useStyles } from './styles';
 

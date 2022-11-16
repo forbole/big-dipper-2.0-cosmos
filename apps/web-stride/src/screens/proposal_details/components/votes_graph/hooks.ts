@@ -8,7 +8,7 @@ import {
 import { formatToken } from 'ui/utils/format_token';
 import chainConfig from 'ui/chainConfig';
 import Big from 'big.js';
-import { VotesGraphState } from './types';
+import type { VotesGraphState } from './types';
 
 const defaultTokenUnit: TokenUnit = {
   value: '0',

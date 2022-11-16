@@ -15,7 +15,7 @@ import Result from 'ui/components/result';
 import Tag from 'ui/components/tag';
 import { useGrid } from '@hooks';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import { TransactionsListState } from '../../types';
+import type { TransactionsListState } from '../../types';
 import { columns } from './utils';
 import { useStyles } from './styles';
 

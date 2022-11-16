@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { ROUNDS, STATS, NODE_DETAILS, IDENTITY, BLOCKS } from '@api';
-import { NodeDetailsState } from './types';
+import type { NodeDetailsState } from './types';
 
 export const useNodeDetails = () => {
   const router = useRouter();

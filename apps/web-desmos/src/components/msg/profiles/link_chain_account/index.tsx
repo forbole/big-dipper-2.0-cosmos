@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgLinkChainAccount from '@models/desmos/msg/profiles/msg_link_chain_account';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const LinkChainAccount = (props: { message: MsgLinkChainAccount }) => {
+const LinkChainAccount: React.FC<{ message: MsgLinkChainAccount }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

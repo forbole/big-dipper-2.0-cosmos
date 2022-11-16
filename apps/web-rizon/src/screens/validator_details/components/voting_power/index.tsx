@@ -7,7 +7,7 @@ import useTranslation from 'next-translate/useTranslation';
 import Box from 'ui/components/box';
 import { BLOCK_DETAILS } from 'ui/utils/go_to_page';
 import { useStyles } from './styles';
-import { VotingPowerType } from '../../types';
+import type { VotingPowerType } from '../../types';
 
 const VotingPower: React.FC<{
   className?: string;

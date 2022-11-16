@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import { MsgRevokeAllowance } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const RevokeAllowance = (props: { message: MsgRevokeAllowance }) => {
+const RevokeAllowance: React.FC<{ message: MsgRevokeAllowance }> = (props) => {
   const { message } = props;
 
   const granter = useProfileRecoil(message.granter);

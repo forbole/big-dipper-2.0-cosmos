@@ -53,7 +53,10 @@ function getChainConfig(chainConfigJson) {
 function getBaseConfig(chainConfigJson) {
   /* Merging the settings and chain objects. */
   const chainConfig = getChainConfig(chainConfigJson);
-  const basePath = (process.env.BASE_PATH || `${`/${chainConfig.chainName}`}`).replace(/^\/(|base)$/, '');
+  const basePath = (process.env.BASE_PATH || `${`/${chainConfig.chainName}`}`).replace(
+    /^\/(|base)$/,
+    ''
+  );
 
   const config = {
     swcMinify: true,

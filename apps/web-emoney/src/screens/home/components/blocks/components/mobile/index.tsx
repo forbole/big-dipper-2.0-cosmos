@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import SingleBlockMobile from 'ui/components/single_block_mobile';
 import AvatarName from 'ui/components/avatar_name';
-import { ItemType } from '../../types';
+import type { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;

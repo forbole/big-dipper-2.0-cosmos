@@ -6,7 +6,7 @@ import { formatNumber } from 'ui/utils/format_token';
 import { MsgWithdrawValidatorCommission } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const WithdrawCommission = (props: { message: MsgWithdrawValidatorCommission }) => {
+const WithdrawCommission: React.FC<{ message: MsgWithdrawValidatorCommission }> = (props) => {
   const { message } = props;
   const validator = useProfileRecoil(message.validatorAddress);
   const validatorMoniker = validator ? validator?.name : message.validatorAddress;

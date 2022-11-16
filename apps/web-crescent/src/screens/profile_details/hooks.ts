@@ -3,7 +3,7 @@ import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import chainConfig from 'ui/chainConfig';
 import { useDesmosProfile } from '@hooks';
-import { ProfileDetailState } from './types';
+import type { ProfileDetailState } from './types';
 
 const initialState: ProfileDetailState = {
   loading: true,

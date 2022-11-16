@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgClawback from '@models/evmos/msg/vesting/msg_clawback';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Clawback = (props: { message: MsgClawback }) => {
+const Clawback: React.FC<{ message: MsgClawback }> = (props) => {
   const { message } = props;
 
   const account = useProfileRecoil(message.accountAddress);

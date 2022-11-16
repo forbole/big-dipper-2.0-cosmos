@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgDeregister from '@models/sifchain/msg/tokenregistry/msg_deregister';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Deregister = (props: { message: MsgDeregister }) => {
+const Deregister: React.FC<{ message: MsgDeregister }> = (props) => {
   const { message } = props;
 
   const from = useProfileRecoil(message.from);

@@ -8,7 +8,7 @@ import Pagination from 'ui/components/pagination';
 import Loading from 'ui/components/loading';
 import { useProfilesRecoil } from '@recoil/profiles';
 import { useStyles } from './styles';
-import { RedelegationsType } from '../../types';
+import type { RedelegationsType } from '../../types';
 import type DesktopType from './components/desktop';
 import type MobileType from './components/mobile';
 

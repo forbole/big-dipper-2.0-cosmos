@@ -8,7 +8,7 @@ import Avatar from 'ui/components/avatar';
 import Markdown from 'ui/components/markdown';
 import { useProfileRecoil } from '@recoil/profiles';
 import { useStyles } from './styles';
-import { OverviewType } from '../../types';
+import type { OverviewType } from '../../types';
 
 const Profile: React.FC<{ profile: OverviewType } & ComponentDefault> = ({
   className,

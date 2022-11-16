@@ -13,7 +13,7 @@ import { MINIBLOCK_DETAILS } from '@utils/go_to_page';
 import { formatNumber } from 'ui/utils/format_token';
 import { getShardDisplay } from '@utils/get_shard_display';
 import chainConfig from 'ui/chainConfig';
-import { OverviewType } from '../../types';
+import type { OverviewType } from '../../types';
 import { useStyles } from './styles';
 
 const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {

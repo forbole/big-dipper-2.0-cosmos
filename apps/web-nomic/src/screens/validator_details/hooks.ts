@@ -7,7 +7,7 @@ import { useDesmosProfile } from '@hooks';
 import { validatorToDelegatorAddress } from '@recoil/profiles';
 import chainConfig from 'ui/chainConfig';
 import { isValidAddress } from 'ui/utils/prefix_convert';
-import { ValidatorDetailsState } from './types';
+import type { ValidatorDetailsState } from './types';
 
 const initialTokenDenom: TokenUnit = {
   value: '0',

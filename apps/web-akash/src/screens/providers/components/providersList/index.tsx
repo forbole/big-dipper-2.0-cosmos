@@ -8,7 +8,7 @@ import Pagination from 'ui/components/pagination';
 import Search from 'ui/components/search';
 import { usePagination, useScreenSize } from '@hooks';
 import { useStyles } from './styles';
-import { ProvidersListState } from '../../types';
+import type { ProvidersListState } from '../../types';
 import type DesktopType from './components/desktop';
 import type MobileType from './components/mobile';
 

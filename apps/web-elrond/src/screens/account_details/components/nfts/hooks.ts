@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import axios from 'axios';
 import { ACCOUNT_DETAILS_NFTS, ACCOUNT_DETAILS_NFTS_COUNT } from '@api';
-import { OtherTokensState } from './types';
+import type { OtherTokensState } from './types';
 
 export const PAGE_SIZE = 10;
 

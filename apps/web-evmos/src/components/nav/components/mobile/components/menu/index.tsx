@@ -13,7 +13,7 @@ import ExpandMoreOutlined from '@material-ui/icons/ExpandMoreOutlined';
 import { useStyles } from './styles';
 import { MenuItems } from '../../..';
 import { useLanguageDrawer, useThemeDrawer } from './hooks';
-import { MenuProps } from './types';
+import type { MenuProps } from './types';
 
 const Menu = (props: MenuProps) => {
   const router = useRouter();

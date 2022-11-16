@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgCreateIscnRecord from '@models/likecoin/msg/iscn/msg_create_iscn_record';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const CreateIscnRecord = (props: { message: MsgCreateIscnRecord }) => {
+const CreateIscnRecord: React.FC<{ message: MsgCreateIscnRecord }> = (props) => {
   const { message } = props;
 
   const from = useProfileRecoil(message.from);

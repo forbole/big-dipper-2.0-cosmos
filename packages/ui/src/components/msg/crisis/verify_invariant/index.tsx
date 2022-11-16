@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import { MsgVerifyInvariant } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const VerifyInvariant = (props: { message: MsgVerifyInvariant }) => {
+const VerifyInvariant: React.FC<{ message: MsgVerifyInvariant }> = (props) => {
   const { message } = props;
 
   const user = useProfileRecoil(message.sender);

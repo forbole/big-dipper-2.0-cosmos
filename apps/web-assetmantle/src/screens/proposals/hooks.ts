@@ -2,7 +2,7 @@ import { useState } from 'react';
 import * as R from 'ramda';
 import DOMPurify from 'dompurify';
 import { useProposalsQuery, ProposalsQuery } from '@graphql/types/general_types';
-import { ProposalsState } from './types';
+import type { ProposalsState } from './types';
 
 export const useProposals = () => {
   const [state, setState] = useState<ProposalsState>({

@@ -14,7 +14,7 @@ import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import { useAddress } from '@utils/copy_to_clipboard';
 import { columns } from './utils';
 import { useStyles } from './styles';
-import { ProviderInfo } from '../../../../types';
+import type { ProviderInfo } from '../../../../types';
 
 const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);

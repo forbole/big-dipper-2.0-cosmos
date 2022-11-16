@@ -13,7 +13,7 @@ import { VALIDATOR_DETAILS, NODE_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
 import { fetchColumns } from './utils';
 import { VotingPower } from '..';
-import { ValidatorType } from '../../../../types';
+import type { ValidatorType } from '../../../../types';
 
 const Desktop: React.FC<{
   className?: string;

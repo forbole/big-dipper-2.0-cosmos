@@ -15,7 +15,7 @@ import { BLOCK_DETAILS, TRANSACTION_DETAILS } from 'ui/utils/go_to_page';
 import Tag from 'ui/components/tag';
 import { useStyles } from './styles';
 import { columns } from './utils';
-import { TransactionType } from '../../types';
+import type { TransactionType } from '../../types';
 
 const Desktop: React.FC<{
   className?: string;

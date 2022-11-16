@@ -7,7 +7,7 @@ import Name from 'ui/components/name';
 import MsgOpenBid from '@models/bitsong/msg/auction/msg_open_bid';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const OpenBid = (props: { message: MsgOpenBid }) => {
+const OpenBid: React.FC<{ message: MsgOpenBid }> = (props) => {
   const { message } = props;
 
   const amount = formatToken(message.bidAmount.amount, message.bidAmount.denom);

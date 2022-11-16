@@ -10,7 +10,10 @@ const styles = makeStyles<Theme, { coverUrl?: string }>(
       cover: {
         height: '150px',
         background: theme.palette.custom.fonts.fontFour,
-        backgroundImage: `url("${`/${chainConfig.chainName}`.replace(/^\/$/, '')}/images/default_cover_pattern.png")`,
+        backgroundImage: `url("${`/${chainConfig.chainName}`.replace(
+          /^\/$/,
+          ''
+        )}/images/default_cover_pattern.png")`,
         backgroundRepeat: 'repeat',
         backgroundPosition: 'center center',
         margin: theme.spacing(-2, -2, 0, -2),

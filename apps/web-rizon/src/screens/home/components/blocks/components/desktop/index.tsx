@@ -15,7 +15,7 @@ import { BLOCK_DETAILS } from 'ui/utils/go_to_page';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { useStyles } from './styles';
 import { columns } from './utils';
-import { ItemType } from '../../types';
+import type { ItemType } from '../../types';
 
 const Desktop: React.FC<{
   className?: string;

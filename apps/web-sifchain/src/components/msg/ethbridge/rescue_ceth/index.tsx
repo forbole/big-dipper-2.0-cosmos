@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgRescueCeth from '@models/sifchain/msg/ethbridge/msg_rescue_ceth';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const RescueCeth = (props: { message: MsgRescueCeth }) => {
+const RescueCeth: React.FC<{ message: MsgRescueCeth }> = (props) => {
   const { message } = props;
 
   const cosmosSender = useProfileRecoil(message.cosmosSender);

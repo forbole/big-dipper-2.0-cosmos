@@ -6,7 +6,7 @@ import Name from 'ui/components/name';
 import MsgReportData from '@models/band/msg/oracle/msg_report_data';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const ReportData = (props: { message: MsgReportData }) => {
+const ReportData: React.FC<{ message: MsgReportData }> = (props) => {
   const { message } = props;
 
   const validator = useProfileRecoil(message.validator);

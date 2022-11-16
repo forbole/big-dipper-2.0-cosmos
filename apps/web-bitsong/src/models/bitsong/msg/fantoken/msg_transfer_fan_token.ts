@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgTransferFanTokenOwner {
   public category: Categories;
@@ -26,7 +26,7 @@ class MsgTransferFanTokenOwner {
       symbol: json.symbol,
       srcOwner: R.pathOr('', ['src_owner'], json),
       dstOwner: R.pathOr('', ['dst_owner'], json),
-    }
+    };
   }
 }
 

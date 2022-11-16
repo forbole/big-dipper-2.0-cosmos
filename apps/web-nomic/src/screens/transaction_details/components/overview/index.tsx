@@ -11,7 +11,7 @@ import { BLOCK_DETAILS } from 'ui/utils/go_to_page';
 import BoxDetails from 'ui/components/box_details';
 import { formatNumber } from 'ui/utils/format_token';
 import { useStyles } from './styles';
-import { OverviewType } from '../../types';
+import type { OverviewType } from '../../types';
 
 const Overview: React.FC<{
   className?: string;

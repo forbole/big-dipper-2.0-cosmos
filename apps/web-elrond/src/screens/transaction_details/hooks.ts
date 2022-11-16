@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import chainConfig from 'ui/chainConfig';
 import { formatToken, formatTokenByExponent } from 'ui/utils/format_token';
 import { TRANSACTION_DETAILS } from '@api';
-import { TransactionDetailsState } from './types';
+import type { TransactionDetailsState } from './types';
 
 const defaultTokenUnit: TokenUnit = {
   value: '0',

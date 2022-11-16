@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgStoreRawDataRequest from '@models/regen/msg/data/msg_store_raw_data_request';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const StoreRawDataRequest = (props: { message: MsgStoreRawDataRequest }) => {
+const StoreRawDataRequest: React.FC<{ message: MsgStoreRawDataRequest }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

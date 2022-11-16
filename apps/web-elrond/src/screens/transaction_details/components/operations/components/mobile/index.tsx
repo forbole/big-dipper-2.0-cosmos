@@ -8,7 +8,7 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import AvatarName from '@components/avatar_name';
 import { useStyles } from './styles';
-import { OperationType } from '../../../../types';
+import type { OperationType } from '../../../../types';
 
 const Mobile: React.FC<{ items: OperationType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');

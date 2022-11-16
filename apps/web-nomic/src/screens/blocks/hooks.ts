@@ -5,7 +5,7 @@ import {
   useBlocksQuery,
   BlocksListenerSubscription,
 } from '@graphql/types/general_types';
-import { BlocksState, BlockType } from './types';
+import type { BlocksState, BlockType } from './types';
 
 export const useBlocks = () => {
   const [state, setState] = useState<BlocksState>({

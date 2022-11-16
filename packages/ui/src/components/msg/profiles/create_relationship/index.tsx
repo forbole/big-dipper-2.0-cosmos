@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import { MsgCreateRelationship } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const CreateRelationship = (props: { message: MsgCreateRelationship }) => {
+const CreateRelationship: React.FC<{ message: MsgCreateRelationship }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

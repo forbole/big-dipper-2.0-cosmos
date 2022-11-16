@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgLock from '@models/sifchain/msg/ethbridge/msg_lock';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Lock = (props: { message: MsgLock }) => {
+const Lock: React.FC<{ message: MsgLock }> = (props) => {
   const { message } = props;
 
   const cosmosSender = useProfileRecoil(message.cosmosSender);

@@ -5,7 +5,7 @@ import Box from 'ui/components/box';
 import Avatar from 'ui/components/avatar';
 import Markdown from 'ui/components/markdown';
 import { useStyles } from './styles';
-import { ProfileType } from '../../types';
+import type { ProfileType } from '../../types';
 
 const Profile: React.FC<{ profile: ProfileType } & ComponentDefault> = ({ className, profile }) => {
   const classes = useStyles();

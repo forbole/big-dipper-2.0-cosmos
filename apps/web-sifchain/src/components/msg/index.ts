@@ -1,162 +1,83 @@
 // =========================
 // utils
 // =========================
-import Grant from 'ui/components/msg/authz/grant';
-import Revoke from 'ui/components/msg/authz/revoke';
-import Multisend from 'ui/components/msg/bank/multisend';
-import Send from 'ui/components/msg/bank/send';
-import VerifyInvariant from 'ui/components/msg/crisis/verify_invariant';
-import Fund from 'ui/components/msg/distribution/fund';
-import SetWithdrawalAddress from 'ui/components/msg/distribution/set_withdrawal_address';
-import WithdrawCommission from 'ui/components/msg/distribution/withdraw_commission';
-import WithdrawReward from 'ui/components/msg/distribution/withdraw_reward';
-import GrantAllowance from 'ui/components/msg/feegrant/grant_allowance';
-import RevokeAllowance from 'ui/components/msg/feegrant/revoke_allowance';
-import DepositProposal from 'ui/components/msg/governance/deposit_proposal';
-import SubmitProposal from 'ui/components/msg/governance/submit_proposal';
-import Vote from 'ui/components/msg/governance/vote';
-import Transfer from 'ui/components/msg/ibc_transfer/transfer';
-import BlockUser from 'ui/components/msg/profiles/block_user';
-import CreateRelationship from 'ui/components/msg/profiles/create_relationship';
-import DeleteProfile from 'ui/components/msg/profiles/delete_profile';
-import DtagAcceptTransfer from 'ui/components/msg/profiles/dtag_accept_transfer';
-import DtagCancelTransfer from 'ui/components/msg/profiles/dtag_cancel_transfer';
-import DtagRefuseTransfer from 'ui/components/msg/profiles/dtag_refuse_transfer';
-import DtagTransferRequest from 'ui/components/msg/profiles/dtag_transfer_request';
-import SaveProfile from 'ui/components/msg/profiles/save_profile';
-import UnBlockUser from 'ui/components/msg/profiles/unblock_user';
-import Unjail from 'ui/components/msg/slashing/unjail';
-import CreateValidator from 'ui/components/msg/staking/create_validator';
-import Delegate from 'ui/components/msg/staking/delegate';
-import EditValidator from 'ui/components/msg/staking/edit_validator';
-import Redelegate from 'ui/components/msg/staking/redelegate';
-import Undelegate from 'ui/components/msg/staking/undelegate';
-import Unknown from 'ui/components/msg/unknown';
-import CreateVestingAccount from 'ui/components/msg/vesting/create_vesting_account';
-import { convertMsgsToModels, getMessageByType, getMessageModelByType } from './utils';
+export { getMessageModelByType, getMessageByType, convertMsgsToModels } from './utils';
 
 // =========================
 // msg components
 // =========================
-import AddLiquidity from './clp/add_liquidity';
-import CreatePool from './clp/create_pool';
-import DecommissionPool from './clp/decommission_pool';
-import RemoveLiquidity from './clp/remove_liquidity';
-import Swap from './clp/swap';
-import CreateDistribution from './dispensation/create_distribution';
-import CreateUserClaim from './dispensation/create_user_claim';
-import RunDistribution from './dispensation/run_distribution';
-import Burn from './ethbridge/burn';
-import CreateEthBridgeClaim from './ethbridge/create_eth_bridge_claim';
-import Lock from './ethbridge/lock';
-import RescueCeth from './ethbridge/rescue_ceth';
-import UpdateCethReceiverAccount from './ethbridge/update_ceth_receiver_account';
-import UpdateWhiteListValidator from './ethbridge/update_whitelist_validator';
-import Channel from './ibc/channel';
-import Acknowledgement from './ibc/channel_acknowledgement';
-import ChannelCloseConfirm from './ibc/channel_close_confirm';
-import ChannelCloseInit from './ibc/channel_close_init';
-import CounterpartyChannel from './ibc/channel_counterparty';
-import ChannelOpenAck from './ibc/channel_open_ack';
-import ChannelOpenConfirm from './ibc/channel_open_confirm';
-import ChannelOpenInit from './ibc/channel_open_init';
-import ChannelOpenTry from './ibc/channel_open_try';
-import Packet from './ibc/channel_packet';
-import ReceivePacket from './ibc/channel_receive_packet';
-import Timeout from './ibc/channel_timeout';
-import TimeoutOnClose from './ibc/channel_timeout_on_close';
-import CreateClient from './ibc/client_create_client';
-import Height from './ibc/client_height';
-import SubmitMisbehaviour from './ibc/client_submit_misbehaviour';
-import UpdateClient from './ibc/client_update_client';
-import UpgradeClient from './ibc/client_upgrade_client';
-import CounterpartyConnection from './ibc/connection_counterparty';
-import ConnectionEnd from './ibc/connection_end';
-import ConnectionOpenAck from './ibc/connection_open_ack';
-import ConnectionOpenConfirm from './ibc/connection_open_confirm';
-import ConnectionOpenInit from './ibc/connection_open_init';
-import ConnectionOpenTry from './ibc/connection_open_try';
-import Version from './ibc/connection_version';
-import Deregister from './tokenregistry/deregister';
-import Register from './tokenregistry/register';
-import SetRegistry from './tokenregistry/set_registry';
-import CreatePeriodicVestingAccount from './vesting/create_periodic_vesting_account';
-
-export { getMessageModelByType, getMessageByType, convertMsgsToModels };
-export {
-  Delegate,
-  Unknown,
-  Redelegate,
-  Undelegate,
-  CreateValidator,
-  EditValidator,
-  Send,
-  Multisend,
-  VerifyInvariant,
-  Unjail,
-  Fund,
-  SetWithdrawalAddress,
-  WithdrawReward,
-  DepositProposal,
-  Vote,
-  SubmitProposal,
-  WithdrawCommission,
-  SaveProfile,
-  DeleteProfile,
-  CreateRelationship,
-  DtagTransferRequest,
-  DtagAcceptTransfer,
-  DtagCancelTransfer,
-  DtagRefuseTransfer,
-  BlockUser,
-  UnBlockUser,
-  CreateClient,
-  UpdateClient,
-  UpgradeClient,
-  SubmitMisbehaviour,
-  Height,
-  Acknowledgement,
-  Channel,
-  ChannelCloseConfirm,
-  ChannelCloseInit,
-  ChannelOpenAck,
-  ChannelOpenConfirm,
-  ChannelOpenInit,
-  ChannelOpenTry,
-  CounterpartyChannel,
-  Packet,
-  ReceivePacket,
-  Timeout,
-  TimeoutOnClose,
-  ConnectionEnd,
-  ConnectionOpenAck,
-  ConnectionOpenConfirm,
-  ConnectionOpenInit,
-  ConnectionOpenTry,
-  CounterpartyConnection,
-  Version,
-  Transfer,
-  AddLiquidity,
-  CreatePool,
-  DecommissionPool,
-  RemoveLiquidity,
-  Swap,
-  CreateDistribution,
-  CreateUserClaim,
-  RunDistribution,
-  Lock,
-  Burn,
-  CreateEthBridgeClaim,
-  UpdateWhiteListValidator,
-  UpdateCethReceiverAccount,
-  RescueCeth,
-  Register,
-  Deregister,
-  SetRegistry,
-  Grant,
-  Revoke,
-  GrantAllowance,
-  RevokeAllowance,
-  CreateVestingAccount,
-  CreatePeriodicVestingAccount,
-};
+export { default as Delegate } from 'ui/components/msg/staking/delegate';
+export { default as Unknown } from 'ui/components/msg/unknown';
+export { default as Redelegate } from 'ui/components/msg/staking/redelegate';
+export { default as Undelegate } from 'ui/components/msg/staking/undelegate';
+export { default as CreateValidator } from 'ui/components/msg/staking/create_validator';
+export { default as EditValidator } from 'ui/components/msg/staking/edit_validator';
+export { default as Send } from 'ui/components/msg/bank/send';
+export { default as Multisend } from 'ui/components/msg/bank/multisend';
+export { default as VerifyInvariant } from 'ui/components/msg/crisis/verify_invariant';
+export { default as Unjail } from 'ui/components/msg/slashing/unjail';
+export { default as Fund } from 'ui/components/msg/distribution/fund';
+export { default as SetWithdrawalAddress } from 'ui/components/msg/distribution/set_withdrawal_address';
+export { default as WithdrawReward } from 'ui/components/msg/distribution/withdraw_reward';
+export { default as DepositProposal } from 'ui/components/msg/governance/deposit_proposal';
+export { default as Vote } from 'ui/components/msg/governance/vote';
+export { default as SubmitProposal } from 'ui/components/msg/governance/submit_proposal';
+export { default as WithdrawCommission } from 'ui/components/msg/distribution/withdraw_commission';
+export { default as SaveProfile } from 'ui/components/msg/profiles/save_profile';
+export { default as DeleteProfile } from 'ui/components/msg/profiles/delete_profile';
+export { default as CreateRelationship } from 'ui/components/msg/profiles/create_relationship';
+export { default as DtagTransferRequest } from 'ui/components/msg/profiles/dtag_transfer_request';
+export { default as DtagAcceptTransfer } from 'ui/components/msg/profiles/dtag_accept_transfer';
+export { default as DtagCancelTransfer } from 'ui/components/msg/profiles/dtag_cancel_transfer';
+export { default as DtagRefuseTransfer } from 'ui/components/msg/profiles/dtag_refuse_transfer';
+export { default as BlockUser } from 'ui/components/msg/profiles/block_user';
+export { default as UnBlockUser } from 'ui/components/msg/profiles/unblock_user';
+export { default as Transfer } from 'ui/components/msg/ibc_transfer/transfer';
+export { default as Grant } from 'ui/components/msg/authz/grant';
+export { default as Revoke } from 'ui/components/msg/authz/revoke';
+export { default as GrantAllowance } from 'ui/components/msg/feegrant/grant_allowance';
+export { default as RevokeAllowance } from 'ui/components/msg/feegrant/revoke_allowance';
+export { default as CreateVestingAccount } from 'ui/components/msg/vesting/create_vesting_account';
+export { default as CreateClient } from 'ui/components/msg/ibc/client_create_client';
+export { default as UpdateClient } from 'ui/components/msg/ibc/client_update_client';
+export { default as UpgradeClient } from 'ui/components/msg/ibc/client_upgrade_client';
+export { default as SubmitMisbehaviour } from 'ui/components/msg/ibc/client_submit_misbehaviour';
+export { default as Height } from 'ui/components/msg/ibc/client_height';
+export { default as Acknowledgement } from 'ui/components/msg/ibc/channel_acknowledgement';
+export { default as Channel } from 'ui/components/msg/ibc/channel';
+export { default as ChannelCloseConfirm } from 'ui/components/msg/ibc/channel_close_confirm';
+export { default as ChannelCloseInit } from 'ui/components/msg/ibc/channel_close_init';
+export { default as ChannelOpenAck } from 'ui/components/msg/ibc/channel_open_ack';
+export { default as ChannelOpenConfirm } from 'ui/components/msg/ibc/channel_open_confirm';
+export { default as ChannelOpenInit } from 'ui/components/msg/ibc/channel_open_init';
+export { default as ChannelOpenTry } from 'ui/components/msg/ibc/channel_open_try';
+export { default as CounterpartyChannel } from 'ui/components/msg/ibc/channel_counterparty';
+export { default as Packet } from 'ui/components/msg/ibc/channel_packet';
+export { default as ReceivePacket } from 'ui/components/msg/ibc/channel_receive_packet';
+export { default as Timeout } from 'ui/components/msg/ibc/channel_timeout';
+export { default as TimeoutOnClose } from 'ui/components/msg/ibc/channel_timeout_on_close';
+export { default as ConnectionEnd } from 'ui/components/msg/ibc/connection_end';
+export { default as ConnectionOpenAck } from 'ui/components/msg/ibc/connection_open_ack';
+export { default as ConnectionOpenConfirm } from 'ui/components/msg/ibc/connection_open_confirm';
+export { default as ConnectionOpenInit } from 'ui/components/msg/ibc/connection_open_init';
+export { default as ConnectionOpenTry } from 'ui/components/msg/ibc/connection_open_try';
+export { default as CounterpartyConnection } from 'ui/components/msg/ibc/connection_counterparty';
+export { default as Version } from 'ui/components/msg/ibc/connection_version';
+export { default as CreatePeriodicVestingAccount } from './vesting/create_periodic_vesting_account';
+export { default as AddLiquidity } from './clp/add_liquidity';
+export { default as CreatePool } from './clp/create_pool';
+export { default as DecommissionPool } from './clp/decommission_pool';
+export { default as RemoveLiquidity } from './clp/remove_liquidity';
+export { default as Swap } from './clp/swap';
+export { default as CreateDistribution } from './dispensation/create_distribution';
+export { default as CreateUserClaim } from './dispensation/create_user_claim';
+export { default as RunDistribution } from './dispensation/run_distribution';
+export { default as Burn } from './ethbridge/burn';
+export { default as CreateEthBridgeClaim } from './ethbridge/create_eth_bridge_claim';
+export { default as Lock } from './ethbridge/lock';
+export { default as RescueCeth } from './ethbridge/rescue_ceth';
+export { default as UpdateCethReceiverAccount } from './ethbridge/update_ceth_receiver_account';
+export { default as UpdateWhiteListValidator } from './ethbridge/update_whitelist_validator';
+export { default as Deregister } from './tokenregistry/deregister';
+export { default as Register } from './tokenregistry/register';
+export { default as SetRegistry } from './tokenregistry/set_registry';

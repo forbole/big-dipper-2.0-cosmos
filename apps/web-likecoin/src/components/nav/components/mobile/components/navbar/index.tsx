@@ -9,7 +9,7 @@ import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
 import { HOME } from '@utils/go_to_page';
 import { readTheme } from '@recoil/settings';
 import { useStyles } from './styles';
-import { NavbarProps } from './types';
+import type { NavbarProps } from './types';
 
 const Navbar = (props: NavbarProps) => {
   const classes = useStyles();

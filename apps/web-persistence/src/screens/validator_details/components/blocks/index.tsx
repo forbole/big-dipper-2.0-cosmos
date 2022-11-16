@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import Typography from '@material-ui/core/Typography';
-import Tooltip from '@material-ui/core/Tooltip'
+import Tooltip from '@material-ui/core/Tooltip';
 import { useProfilesRecoil } from '@recoil/profiles';
 import Box from 'ui/components/box';
 import AvatarName from 'ui/components/avatar_name';

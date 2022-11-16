@@ -6,7 +6,7 @@ import { MsgTransfer } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
 
-const Transfer = (props: { message: MsgTransfer }) => {
+const Transfer: React.FC<{ message: MsgTransfer }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

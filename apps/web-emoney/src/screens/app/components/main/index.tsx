@@ -6,7 +6,11 @@ import { AppProps } from 'next/app';
 import Countdown from 'ui/screens/countdown';
 import InitialLoad from 'ui/screens/initial_load';
 import { useSettingsRecoil } from '@recoil/settings';
-import { useChainIdQuery, useMarketDataQuery, useValidatorAddressesQuery } from '@graphql/types/general_types';
+import {
+  useChainIdQuery,
+  useMarketDataQuery,
+  useValidatorAddressesQuery,
+} from '@graphql/types/general_types';
 import { useBigDipperNetworksRecoil } from '@recoil/big_dipper_networks';
 import { useMarketRecoil } from '@recoil/market/emoney';
 import { useValidatorRecoil } from '@recoil/validators';

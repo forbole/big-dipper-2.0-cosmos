@@ -9,7 +9,7 @@ import TableBody from '@material-ui/core/TableBody';
 import AvatarName from 'ui/components/avatar_name';
 import { formatNumber } from 'ui/utils/format_token';
 import { columns } from './utils';
-import { ItemType } from '../../types';
+import type { ItemType } from '../../types';
 
 const Desktop: React.FC<{
   className?: string;

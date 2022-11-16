@@ -6,7 +6,7 @@ import { getShardDisplay } from '@utils/get_shard_display';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import { NODE_DETAILS } from '@utils/go_to_page';
-import { NodeType } from '../../types';
+import type { NodeType } from '../../types';
 import { useStyles } from './styles';
 
 const Mobile: React.FC<{ items: NodeType[] } & ComponentDefault> = (props) => {

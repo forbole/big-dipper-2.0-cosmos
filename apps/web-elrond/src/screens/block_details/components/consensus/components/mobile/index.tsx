@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { useList, useListRow } from '@hooks';
 import { useStyles } from './styles';
-import { ConsensusType } from '../../../../types';
+import type { ConsensusType } from '../../../../types';
 
 const Mobile: React.FC<{ items: ConsensusType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');

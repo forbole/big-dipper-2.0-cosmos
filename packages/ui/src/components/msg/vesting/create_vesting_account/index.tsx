@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import { MsgCreateVestingAccount } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const CreateVestingAccount = (props: { message: MsgCreateVestingAccount }) => {
+const CreateVestingAccount: React.FC<{ message: MsgCreateVestingAccount }> = (props) => {
   const { message } = props;
 
   const to = useProfileRecoil(message.toAddress);

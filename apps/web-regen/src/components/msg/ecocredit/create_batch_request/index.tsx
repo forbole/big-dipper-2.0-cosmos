@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgCreateBatchRequest from '@models/regen/msg/ecocredit/msg_create_batch_request';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const CreateBatchRequest = (props: { message: MsgCreateBatchRequest }) => {
+const CreateBatchRequest: React.FC<{ message: MsgCreateBatchRequest }> = (props) => {
   const { message } = props;
 
   const issuer = useProfileRecoil(message.issuer);

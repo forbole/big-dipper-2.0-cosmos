@@ -10,7 +10,7 @@ import { useList, useListRow } from '@hooks';
 import { formatNumber } from 'ui/utils/format_token';
 import { SingleValidator } from './component';
 import { VotingPower } from '..';
-import { ValidatorType } from '../../../../types';
+import type { ValidatorType } from '../../../../types';
 import { useStyles } from './styles';
 
 const Mobile: React.FC<{
@@ -20,34 +20,35 @@ const Mobile: React.FC<{
   const classes = useStyles();
   const { listRef, getRowHeight, setRowHeight } = useList();
 
-  const formattedItems = items?.map((x, i) => {
-    return {
-      idx: `#${i + 1}`,
-      validator: (
-        <AvatarName
-          address={x.validator.address}
-          imageUrl={x.validator.imageUrl}
-          name={x.validator.name}
-          href={x.isNode ? NODE_DETAILS : VALIDATOR_DETAILS}
-        />
-      ),
-      locked: (
-        <VotingPower
-          percentDisplay={`${x.stakePercent}%`}
-          percentage={x.stakePercent}
-          content={formatNumber(x.locked.value, 2)}
-        />
-      ),
-      stake: `${formatNumber(
-        x.stake.value,
-        x.stake.exponent
-      )} ${x.stake.displayDenom.toUpperCase()}`,
-      nodes: x.nodes ? numeral(x.nodes).format('0,0') : '-',
-      delegators: x.delegators ? numeral(x.delegators).format('0,0') : '-',
-      commission: x.commission ? `${numeral(x.commission * 100).format('0,0.[00]')}%` : '-',
-      apr: x.apr ? `${x.apr}%` : '-',
-    };
-  });
+  const formattedItems =
+    items?.map((x, i) => {
+      return {
+        idx: `#${i + 1}`,
+        validator: (
+          <AvatarName
+            address={x.validator.address}
+            imageUrl={x.validator.imageUrl}
+            name={x.validator.name}
+            href={x.isNode ? NODE_DETAILS : VALIDATOR_DETAILS}
+          />
+        ),
+        locked: (
+          <VotingPower
+            percentDisplay={`${x.stakePercent}%`}
+            percentage={x.stakePercent}
+            content={formatNumber(x.locked.value, 2)}
+          />
+        ),
+        stake: `${formatNumber(
+          x.stake.value,
+          x.stake.exponent
+        )} ${x.stake.displayDenom.toUpperCase()}`,
+        nodes: x.nodes ? numeral(x.nodes).format('0,0') : '-',
+        delegators: x.delegators ? numeral(x.delegators).format('0,0') : '-',
+        commission: x.commission ? `${numeral(x.commission * 100).format('0,0.[00]')}%` : '-',
+        apr: x.apr ? `${x.apr}%` : '-',
+      };
+    }) ?? [];
 
   return (
     <div className={classnames(className, classes.root)}>

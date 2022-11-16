@@ -29,6 +29,8 @@ ARG SENTRY_DSN
 ENV SENTRY_DSN=${SENTRY_DSN}
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
+ENV TURBO_TEAM=
+ENV TURBO_TOKEN=
 
 # First install the dependencies (as they change less often)
 COPY .gitignore ./.gitignore

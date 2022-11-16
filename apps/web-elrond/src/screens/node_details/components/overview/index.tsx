@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from 'ui/components/box';
 import { getShardDisplay } from '@utils/get_shard_display';
 import { useStyles } from './styles';
-import { OverviewType } from '../../types';
+import type { OverviewType } from '../../types';
 
 const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props) => {
   const { t } = useTranslation('nodes');

@@ -12,7 +12,7 @@ import InfoPopover from 'ui/components/info_popover';
 import { getValidatorStatus } from '@utils/get_validator_status';
 import { useStyles } from './styles';
 import { fetchColumns } from './utils';
-import { ItemType } from '../../types';
+import type { ItemType } from '../../types';
 import { VotingPower, VotingPowerExplanation } from '..';
 
 const Desktop: React.FC<{

@@ -5,7 +5,7 @@ import Box from 'ui/components/box';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { useScreenSize } from '@hooks';
-import { OperationType } from '../../types';
+import type { OperationType } from '../../types';
 import { useStyles } from './styles';
 import type DesktopType from './components/desktop';
 import type MobileType from './components/mobile';

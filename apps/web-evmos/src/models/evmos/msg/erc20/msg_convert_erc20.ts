@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 // ConvertERC20 mints a Cosmos coin representation of the ERC20 token contract
 // that is registered on the token mapping.

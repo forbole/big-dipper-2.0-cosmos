@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import Nav from 'ui/components/nav';
 import Footer from 'ui/components/footer';
-import { LayoutProps } from './types';
+import type { LayoutProps } from './types';
 import { useStyles } from './styles';
 
 const Layout = (props: LayoutProps) => {

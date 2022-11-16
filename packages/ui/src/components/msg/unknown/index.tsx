@@ -1,8 +1,8 @@
 import React from 'react';
-import { MsgUnknown } from '@models';
+import { type MsgUnknown } from '@models';
 import { useGetStyles } from './styles';
 
-const Unknown = (props: { message: MsgUnknown }) => {
+const Unknown: React.FC<{ message: MsgUnknown }> = (props) => {
   const { message } = props;
 
   const { classes } = useGetStyles();

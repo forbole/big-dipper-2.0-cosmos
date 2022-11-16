@@ -2,10 +2,10 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
-import { MsgCounterpartyConnection } from '@models';
+import { type MsgCounterpartyConnection } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const CounterpartyConnection = (props: { message: MsgCounterpartyConnection }) => {
+const CounterpartyConnection: React.FC<{ message: MsgCounterpartyConnection }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

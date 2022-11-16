@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgUpdateWhitelistValidator from '@models/sifchain/msg/ethbridge/msg_update_whitelist_validator';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const UpdateWhiteListValidator = (props: { message: MsgUpdateWhitelistValidator }) => {
+const UpdateWhiteListValidator: React.FC<{ message: MsgUpdateWhitelistValidator }> = (props) => {
   const { message } = props;
 
   const cosmosSender = useProfileRecoil(message.cosmosSender);

@@ -2,10 +2,10 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
-import { MsgTimeoutOnClose } from '@models';
+import { type MsgTimeoutOnClose } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const TimeoutOnClose = (props: { message: MsgTimeoutOnClose }) => {
+const TimeoutOnClose: React.FC<{ message: MsgTimeoutOnClose }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

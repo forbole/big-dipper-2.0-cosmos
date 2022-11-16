@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgDtagAcceptTransfer from '@models/desmos/msg/profiles/msg_dtag_accept_transfer';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const DtagAcceptTransfer = (props: { message: MsgDtagAcceptTransfer }) => {
+const DtagAcceptTransfer: React.FC<{ message: MsgDtagAcceptTransfer }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

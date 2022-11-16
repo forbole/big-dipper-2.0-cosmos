@@ -19,7 +19,7 @@ import { getMessageByType } from 'ui/components/msg';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
 import { useStyles } from './styles';
-import { TransactionsListDetailsState } from '../../types';
+import type { TransactionsListDetailsState } from '../../types';
 import { SingleTransaction } from './components';
 
 const TransactionList: React.FC<TransactionsListDetailsState> = ({

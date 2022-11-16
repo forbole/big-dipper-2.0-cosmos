@@ -7,7 +7,7 @@ import Markdown from 'ui/components/markdown';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { isBech32 } from '@utils/bech32';
 import { useStyles } from './styles';
-import { ProfileType } from '../../types';
+import type { ProfileType } from '../../types';
 
 const Profile: React.FC<{ profile: ProfileType } & ComponentDefault> = ({ className, profile }) => {
   const classes = useStyles();

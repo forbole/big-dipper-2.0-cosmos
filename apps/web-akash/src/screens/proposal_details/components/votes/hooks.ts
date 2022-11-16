@@ -6,7 +6,7 @@ import {
   ProposalDetailsVotesQuery,
 } from '@graphql/types/general_types';
 import { toValidatorAddress } from 'ui/utils/prefix_convert';
-import { VoteState } from './types';
+import type { VoteState } from './types';
 
 export const useVotes = (resetPagination: any) => {
   const router = useRouter();

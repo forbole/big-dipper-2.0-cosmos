@@ -7,7 +7,7 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
 import SingleBlockMobile from '@components/single_block_mobile';
-import { BlockType } from '../../types';
+import type { BlockType } from '../../types';
 
 const Mobile: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
   const formattedItems = props.items.map((x) => {

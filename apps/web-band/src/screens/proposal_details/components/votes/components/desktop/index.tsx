@@ -9,7 +9,7 @@ import TableBody from '@material-ui/core/TableBody';
 import AvatarName from 'ui/components/avatar_name';
 import { columns } from './utils';
 import { getVoteKey } from '../../utils';
-import { ItemType } from '../../types';
+import type { ItemType } from '../../types';
 
 const Desktop: React.FC<{
   className?: string;
@@ -17,12 +17,15 @@ const Desktop: React.FC<{
 }> = ({ className, items }) => {
   const { t } = useTranslation('proposals');
 
-  const formattedItems = items?.map((x) => {
-    return {
-      voter: <AvatarName address={x.user.address} imageUrl={x.user.imageUrl} name={x.user.name} />,
-      vote: t(getVoteKey(x.vote)),
-    };
-  });
+  const formattedItems =
+    items?.map((x) => {
+      return {
+        voter: (
+          <AvatarName address={x.user.address} imageUrl={x.user.imageUrl} name={x.user.name} />
+        ),
+        vote: t(getVoteKey(x.vote)),
+      };
+    }) ?? [];
 
   return (
     <div className={classnames(className)}>

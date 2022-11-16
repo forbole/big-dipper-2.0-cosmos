@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import { TRANSACTION_DETAILS } from '@utils/go_to_page';
 import Result from '@components/result';
 import AvatarName from '@components/avatar_name';
-import { TransactionType } from '../../types';
+import type { TransactionType } from '../../types';
 import { useStyles } from './styles';
 
 const Mobile: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props) => {

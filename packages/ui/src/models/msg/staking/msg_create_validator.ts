@@ -1,6 +1,5 @@
 import numeral from 'numeral';
-import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgCreateValidator {
   public category: Categories;
@@ -66,7 +65,7 @@ class MsgCreateValidator {
       },
       value: {
         denom: json?.value?.denom,
-        amount: R.pathOr('0', ['value', 'amount'], json),
+        amount: json?.value?.amount ?? '0',
       },
     } as MsgCreateValidator;
   }

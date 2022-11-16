@@ -6,7 +6,7 @@ import Name from 'ui/components/name';
 import MsgWithdraw from '@models/bitsong/msg/auction/msg_withdraw';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Withdraw = (props: { message: MsgWithdraw }) => {
+const Withdraw: React.FC<{ message: MsgWithdraw }> = (props) => {
   const { message } = props;
 
   const recipient = useProfileRecoil(message.recipient);

@@ -7,7 +7,7 @@ import MsgAddLiquidity from '@models/sifchain/msg/clp/msg_add_liquidity';
 import { useProfileRecoil } from '@recoil/profiles';
 import chainConfig from 'ui/chainConfig';
 
-const AddLiquidity = (props: { message: MsgAddLiquidity }) => {
+const AddLiquidity: React.FC<{ message: MsgAddLiquidity }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

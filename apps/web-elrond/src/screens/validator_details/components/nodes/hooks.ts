@@ -5,7 +5,7 @@ import axios from 'axios';
 import { isBech32 } from '@utils/bech32';
 import { POLLING_INTERVAL, NODES_COUNT, NODES } from '@api';
 import { useInterval } from '@hooks';
-import { NodeState } from './types';
+import type { NodeState } from './types';
 
 export const PAGE_SIZE = 10;
 

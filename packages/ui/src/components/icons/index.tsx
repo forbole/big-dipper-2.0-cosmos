@@ -1,19 +1,8 @@
-import FacebookIcon from './facebook';
-import ForboleIcon from './forbole';
-import GithubIcon from './github';
-import LinkedinIcon from './linkedIn';
-import MediumIcon from './medium';
-import TelegramIcon from './telegram';
-import YoutubeIcon from './youtube';
-import TwitterIcon from './twitter';
-
-export {
-  FacebookIcon,
-  ForboleIcon,
-  GithubIcon,
-  LinkedinIcon,
-  MediumIcon,
-  TelegramIcon,
-  YoutubeIcon,
-  TwitterIcon,
-};
+export { default as FacebookIcon } from './facebook';
+export { default as ForboleIcon } from './forbole';
+export { default as GithubIcon } from './github';
+export { default as LinkedinIcon } from './linkedIn';
+export { default as MediumIcon } from './medium';
+export { default as TelegramIcon } from './telegram';
+export { default as YoutubeIcon } from './youtube';
+export { default as TwitterIcon } from './twitter';

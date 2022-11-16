@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgCreateGroupAccountRequest from '@models/regen/msg/group/msg_create_group_account_request';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const CreateGroupAccountRequest = (props: { message: MsgCreateGroupAccountRequest }) => {
+const CreateGroupAccountRequest: React.FC<{ message: MsgCreateGroupAccountRequest }> = (props) => {
   const { message } = props;
 
   const admin = useProfileRecoil(message.admin);

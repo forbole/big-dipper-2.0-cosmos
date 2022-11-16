@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgRetireRequest from '@models/regen/msg/ecocredit/msg_retire_request';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const RetireRequest = (props: { message: MsgRetireRequest }) => {
+const RetireRequest: React.FC<{ message: MsgRetireRequest }> = (props) => {
   const { message } = props;
 
   const holder = useProfileRecoil(message.holder);

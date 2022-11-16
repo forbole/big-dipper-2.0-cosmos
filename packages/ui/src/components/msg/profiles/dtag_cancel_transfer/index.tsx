@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import { MsgDtagCancelTransfer } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const DtagCancelTransfer = (props: { message: MsgDtagCancelTransfer }) => {
+const DtagCancelTransfer: React.FC<{ message: MsgDtagCancelTransfer }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

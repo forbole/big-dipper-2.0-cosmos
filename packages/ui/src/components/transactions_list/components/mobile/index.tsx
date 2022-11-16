@@ -18,7 +18,7 @@ import Tag from 'ui/components/tag';
 import { useList, useListRow } from '@hooks';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { useStyles } from './styles';
-import { TransactionsListState } from '../../types';
+import type { TransactionsListState } from '../../types';
 
 const Mobile: React.FC<TransactionsListState> = ({
   className,

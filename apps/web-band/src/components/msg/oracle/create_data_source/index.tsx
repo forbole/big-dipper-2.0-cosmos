@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgCreateDataSource from '@models/band/msg/oracle/msg_create_data_source';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const CreateDataSource = (props: { message: MsgCreateDataSource }) => {
+const CreateDataSource: React.FC<{ message: MsgCreateDataSource }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

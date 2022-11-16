@@ -15,7 +15,7 @@ import Loading from 'ui/components/loading';
 import Box from 'ui/components/box';
 import { Total, SingleProposal } from './components';
 import { useStyles } from './styles';
-import { ProposalType } from '../../types';
+import type { ProposalType } from '../../types';
 
 const ProposalsList: React.FC<{
   className?: string;
@@ -29,20 +29,22 @@ const ProposalsList: React.FC<{
 
   const { listRef, getRowHeight, setRowHeight } = useList();
 
-  const formattedItems = items?.map((x) => {
-    return {
-      description: x.description.length > 200 ? `${x.description.slice(0, 200)}...` : x.description,
-      status: x.status,
-      title: (
-        <Link href={PROPOSAL_DETAILS(x.id)} passHref>
-          <Typography variant="h3" className="value" component="a">
-            {x.title}
-          </Typography>
-        </Link>
-      ),
-      id: `#${numeral(x.id).format('0,0')}`,
-    };
-  });
+  const formattedItems =
+    items?.map((x) => {
+      return {
+        description:
+          x.description.length > 200 ? `${x.description.slice(0, 200)}...` : x.description,
+        status: x.status,
+        title: (
+          <Link href={PROPOSAL_DETAILS(x.id)} passHref>
+            <Typography variant="h3" className="value" component="a">
+              {x.title}
+            </Typography>
+          </Link>
+        ),
+        id: `#${numeral(x.id).format('0,0')}`,
+      };
+    }) ?? [];
 
   return (
     <Box className={classnames(className, classes.root)}>

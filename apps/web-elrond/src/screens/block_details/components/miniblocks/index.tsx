@@ -5,7 +5,7 @@ import Box from 'ui/components/box';
 import useTranslation from 'next-translate/useTranslation';
 import Typography from '@material-ui/core/Typography';
 import { MINIBLOCK_DETAILS } from '@utils/go_to_page';
-import { MiniBlockType } from '../../types';
+import type { MiniBlockType } from '../../types';
 import { useStyles } from './styles';
 
 const MiniBlocks: React.FC<{ miniBlocks: MiniBlockType[] } & ComponentDefault> = (props) => {

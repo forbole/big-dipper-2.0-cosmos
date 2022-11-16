@@ -2,11 +2,11 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
-import { MsgDelegate } from '@models';
+import { type MsgDelegate } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
 
-const Delegate = (props: { message: MsgDelegate }) => {
+const Delegate: React.FC<{ message: MsgDelegate }> = (props) => {
   const { message } = props;
   const delegator = useProfileRecoil(message.delegatorAddress);
   const delegatorMoniker = delegator ? delegator?.name : message.delegatorAddress;

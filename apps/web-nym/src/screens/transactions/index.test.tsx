@@ -1,9 +1,9 @@
-import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
-import { MockedProvider } from '@apollo/client/testing';
-import { TransactionsListenerDocument, TransactionsDocument } from '@graphql/types/general_types';
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
 import { MockTheme, wait } from 'ui/tests/utils';
+import { TransactionsListenerDocument, TransactionsDocument } from '@graphql/types/general_types';
 import Transactions from '.';
 
 // ==================================
@@ -85,14 +85,14 @@ const mockTransactionsDocument = jest.fn().mockReturnValue({
   },
 });
 
-let component: renderer.ReactTestRenderer | undefined;
-
 // ==================================
 // unit tests
 // ==================================
 describe('screen: Transactions', () => {
   it('matches snapshot', async () => {
     const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
+    let component: renderer.ReactTestRenderer | undefined;
+
     renderer.act(() => {
       component = renderer.create(
         <ApolloProvider client={mockClient}>

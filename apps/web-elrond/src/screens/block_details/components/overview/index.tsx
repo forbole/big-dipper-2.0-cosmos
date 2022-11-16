@@ -8,7 +8,7 @@ import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { getShardDisplay } from '@utils/get_shard_display';
-import { OverviewType } from '../../types';
+import type { OverviewType } from '../../types';
 
 const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');

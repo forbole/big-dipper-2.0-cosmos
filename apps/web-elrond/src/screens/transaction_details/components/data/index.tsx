@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { decodeBase64 } from '@utils/base64';
 import { CodeBlock } from '..';
-import { DataType } from '../../types';
+import type { DataType } from '../../types';
 import { useStyles } from './styles';
 
 const Data: React.FC<{ data: DataType } & ComponentDefault> = (props) => {

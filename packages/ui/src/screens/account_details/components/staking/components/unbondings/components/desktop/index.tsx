@@ -12,7 +12,7 @@ import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
 import { formatNumber } from 'ui/utils/format_token';
 import { columns } from './utils';
-import { ItemType } from '../../types';
+import type { ItemType } from '../../types';
 
 const Desktop: React.FC<{
   className?: string;

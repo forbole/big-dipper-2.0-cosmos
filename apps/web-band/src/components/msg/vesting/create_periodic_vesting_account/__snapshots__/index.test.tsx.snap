@@ -8,8 +8,8 @@ exports[`screen: TransactionDetails/Grant matches snapshot 1`] = `
     components={
       [
         <Unknown
-          address="toAddress"
-          name="toAddress"
+          address=""
+          name=""
         />,
       ]
     }

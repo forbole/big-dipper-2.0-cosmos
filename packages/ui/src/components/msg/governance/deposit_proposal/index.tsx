@@ -9,7 +9,7 @@ import { formatToken, formatNumber } from 'ui/utils/format_token';
 import { useProfileRecoil } from '@recoil/profiles';
 import { PROPOSAL_DETAILS } from 'ui/utils/go_to_page';
 
-const DepositProposal = (props: { message: MsgDeposit }) => {
+const DepositProposal: React.FC<{ message: MsgDeposit }> = (props) => {
   const { t } = useTranslation('transactions');
   const { message } = props;
 

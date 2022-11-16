@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgExecRequest from '@models/regen/msg/group/msg_exec_request';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const ExecRequest = (props: { message: MsgExecRequest }) => {
+const ExecRequest: React.FC<{ message: MsgExecRequest }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

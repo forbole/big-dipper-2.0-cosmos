@@ -1,3 +1,3 @@
-import { UnbondingType } from '../../types';
+import type { UnbondingType } from '../../types';
 
 export type ItemType = Override<UnbondingType, { validator: AvatarName }>;

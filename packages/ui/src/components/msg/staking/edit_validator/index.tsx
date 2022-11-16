@@ -6,7 +6,7 @@ import { MsgEditValidator } from '@models';
 import { VALIDATOR_DETAILS } from 'ui/utils/go_to_page';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const EditValidator = (props: { message: MsgEditValidator }) => {
+const EditValidator: React.FC<{ message: MsgEditValidator }> = (props) => {
   const { message } = props;
 
   const validator = useProfileRecoil(message.validatorAddress);

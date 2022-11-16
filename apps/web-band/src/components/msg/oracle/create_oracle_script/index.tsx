@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgCreateOracleScript from '@models/band/msg/oracle/msg_create_oracle_script';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const CreateOracleScript = (props: { message: MsgCreateOracleScript }) => {
+const CreateOracleScript: React.FC<{ message: MsgCreateOracleScript }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

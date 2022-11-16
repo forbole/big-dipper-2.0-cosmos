@@ -11,7 +11,7 @@ import {
 import { formatToken } from 'ui/utils/format_token';
 import { getDenom } from 'ui/utils/get_denom';
 import chainConfig from 'ui/chainConfig';
-import { StakingState } from './types';
+import type { StakingState } from './types';
 
 const stakingDefault = {
   data: {},

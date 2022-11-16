@@ -9,7 +9,7 @@ import { getValidatorCondition } from 'ui/utils/get_validator_condition';
 import chainConfig from 'ui/chainConfig';
 import { SlashingParams } from '@models';
 import { isValidAddress } from 'ui/utils/prefix_convert';
-import { ValidatorDetailsState } from './types';
+import type { ValidatorDetailsState } from './types';
 
 const initialTokenDenom: TokenUnit = {
   value: '0',

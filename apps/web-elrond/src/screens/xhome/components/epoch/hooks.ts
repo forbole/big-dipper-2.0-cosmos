@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
 import { STATS } from '@api';
-import { EpochState } from './types';
+import type { EpochState } from './types';
 
 export const useEpoch = () => {
   const [state, setState] = useState<EpochState>({

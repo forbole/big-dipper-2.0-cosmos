@@ -9,7 +9,7 @@ import AvatarName from 'ui/components/avatar_name';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@recoil/settings';
 import { useStyles } from './styles';
-import { ItemType } from '../../types';
+import type { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;
@@ -19,24 +19,25 @@ const Mobile: React.FC<{
   const classes = useStyles();
   const dateFormat = useRecoilValue(readDate);
 
-  const formattedItems = items?.map((x) => {
-    return {
-      depositor: (
-        <>
-          {x.user.address ? (
-            <AvatarName address={x.user.address} imageUrl={x.user.imageUrl} name={x.user.name} />
-          ) : (
-            <>-</>
-          )}
-        </>
-      ),
-      amount: `${formatNumber(
-        x.amount.value,
-        x.amount.exponent
-      )} ${x.amount.displayDenom.toUpperCase()}`,
-      time: formatDayJs((dayjs as any).utc(x.timestamp), dateFormat),
-    };
-  });
+  const formattedItems =
+    items?.map((x) => {
+      return {
+        depositor: (
+          <>
+            {x.user.address ? (
+              <AvatarName address={x.user.address} imageUrl={x.user.imageUrl} name={x.user.name} />
+            ) : (
+              <>-</>
+            )}
+          </>
+        ),
+        amount: `${formatNumber(
+          x.amount.value,
+          x.amount.exponent
+        )} ${x.amount.displayDenom.toUpperCase()}`,
+        time: formatDayJs((dayjs as any).utc(x.timestamp), dateFormat),
+      };
+    }) ?? [];
 
   return (
     <div className={classnames(className)}>

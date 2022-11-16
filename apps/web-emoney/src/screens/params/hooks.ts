@@ -7,7 +7,7 @@ import chainConfig from 'ui/chainConfig';
 import { DistributionParams, GovParams, MintParams, StakingParams, SlashingParams } from '@models';
 import InflationRateParams from '@models/emoney/inflation_rate_params';
 import GasPriceParams from '@models/emoney/gas_price_params';
-import { ParamsState } from './types';
+import type { ParamsState } from './types';
 
 const initialState: ParamsState = {
   loading: true,

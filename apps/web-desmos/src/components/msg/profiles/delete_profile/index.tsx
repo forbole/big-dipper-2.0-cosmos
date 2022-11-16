@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgDeleteProfile from '@models/desmos/msg/profiles/msg_delete_profile';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const DeleteProfile = (props: { message: MsgDeleteProfile }) => {
+const DeleteProfile: React.FC<{ message: MsgDeleteProfile }> = (props) => {
   const { message } = props;
 
   const creator = useProfileRecoil(message.creator);

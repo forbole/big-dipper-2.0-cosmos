@@ -1,6 +1,6 @@
 import { nanoToSeconds, secondsToDays } from 'ui/utils/time';
 import numeral from 'numeral';
-import { Staking, Slashing, Minting, Distribution, Gov, Oracle } from './types';
+import type { Staking, Slashing, Minting, Distribution, Gov, Oracle } from './types';
 
 const convertBySeconds = (seconds: number, t: any) => {
   const SECONDS_IN_DAY = 86400;

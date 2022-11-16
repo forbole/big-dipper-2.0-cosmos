@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import { MsgSetWithdrawAddress } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const SetWithdrawalAddress = (props: { message: MsgSetWithdrawAddress }) => {
+const SetWithdrawalAddress: React.FC<{ message: MsgSetWithdrawAddress }> = (props) => {
   const { message } = props;
 
   const delegator = useProfileRecoil(message.delegatorAddress);

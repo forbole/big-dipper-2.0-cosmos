@@ -1,5 +1,5 @@
 import numeral from 'numeral';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgEditValidator {
   public category: Categories;

@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgCreatePeriodicVestingAccount {
   public category: Categories;
@@ -22,7 +22,7 @@ class MsgCreatePeriodicVestingAccount {
       json,
       type: json['@type'],
       fromAddress: R.pathOr('', ['from_address'], json),
-      toAddress: R.pathOr('', ['to_address'], json),
+      toAddress: json?.from_address ?? '',
     };
   }
 }

@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgBlockUser from '@models/desmos/msg/profiles/msg_block_user';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const BlockUser = (props: { message: MsgBlockUser }) => {
+const BlockUser: React.FC<{ message: MsgBlockUser }> = (props) => {
   const { message } = props;
 
   const blocker = useProfileRecoil(message.blocker);

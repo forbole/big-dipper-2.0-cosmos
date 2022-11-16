@@ -1,9 +1,10 @@
 import React from 'react';
 import { AppProps } from 'next/app';
+import { useLatestBlockTimestampLazyQuery } from '@src/graphql/types/general_types';
 import { useChainHealthCheck } from './hooks';
 
-function InnerApp({ Component, pageProps }: AppProps) {
-  useChainHealthCheck();
+function InnerApp<TData, TVariables>({ Component, pageProps }: AppProps) {
+  useChainHealthCheck(useLatestBlockTimestampLazyQuery);
   const ComponentFC = Component as React.FC;
   return <ComponentFC {...pageProps} />;
 }

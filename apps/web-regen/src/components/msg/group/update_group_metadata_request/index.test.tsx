@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from 'ui/tests/utils';
-import MsgUpdateGroupMetadataRequest from '@src/models/regen/msg/group/msg_update_group_metadata_request';
+import MsgUpdateGroupMetadataRequest from '@models/regen/msg/group/msg_update_group_metadata_request';
 import UpdateGroupMetadataRequest from '.';
 
 // ==================================

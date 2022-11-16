@@ -15,7 +15,7 @@ import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import dayjs from 'ui/utils/dayjs';
 import { columns } from './utils';
 import { useStyles } from './styles';
-import { TransactionType } from '../../types';
+import type { TransactionType } from '../../types';
 
 const Desktop: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');

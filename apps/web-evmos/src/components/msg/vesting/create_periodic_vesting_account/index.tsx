@@ -5,7 +5,9 @@ import Name from 'ui/components/name';
 import MsgCreatePeriodicVestingAccount from '@models/evmos/msg/vesting/msg_create_periodic_vesting_account';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const CreatePeriodicVestingAccount = (props: { message: MsgCreatePeriodicVestingAccount }) => {
+const CreatePeriodicVestingAccount: React.FC<{ message: MsgCreatePeriodicVestingAccount }> = (
+  props
+) => {
   const { message } = props;
 
   const to = useProfileRecoil(message.toAddress);

@@ -6,7 +6,7 @@ import { formatToken, formatNumber } from 'ui/utils/format_token';
 import MsgAddMarketOrder from '@models/emoney/msg/market/msg_add_market_order';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const AddMarketOrder = (props: { message: MsgAddMarketOrder }) => {
+const AddMarketOrder: React.FC<{ message: MsgAddMarketOrder }> = (props) => {
   const { message } = props;
   const owner = useProfileRecoil(message.owner);
   const ownerMoniker = owner ? owner?.name : message.owner;

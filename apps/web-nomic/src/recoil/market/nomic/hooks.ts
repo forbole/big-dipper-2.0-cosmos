@@ -6,7 +6,7 @@ import { QueryHookOptions, QueryResult } from '@apollo/client';
 import { formatToken } from 'ui/utils/format_token';
 import { getDenom } from 'ui/utils/get_denom';
 import chainConfig from 'ui/chainConfig';
-import { AtomState } from './types';
+import type { AtomState } from './types';
 import { writeMarket } from './selectors';
 
 export type UseMarketDataQuery<TData, TVariables> = (

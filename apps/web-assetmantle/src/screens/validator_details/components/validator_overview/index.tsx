@@ -17,7 +17,7 @@ import { ACCOUNT_DETAILS } from 'ui/utils/go_to_page';
 import { getValidatorStatus } from 'ui/utils/get_validator_status';
 import { useStyles } from './styles';
 import { getCondition } from './utils';
-import { StatusType, OverviewType } from '../../types';
+import type { StatusType, OverviewType } from '../../types';
 import { useAddress } from './hooks';
 
 const ValidatorOverview: React.FC<

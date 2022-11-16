@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import AvatarName from 'ui/components/avatar_name';
 import { formatNumber } from 'ui/utils/format_token';
 import { useStyles } from './styles';
-import { ItemType } from '../../types';
+import type { ItemType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;

@@ -8,7 +8,7 @@ import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import Box from 'ui/components/box';
 import { useStyles } from './styles';
 import { useOverview } from './hooks';
-import { ProfileType } from '../../types';
+import type { ProfileType } from '../../types';
 
 const Profile: React.FC<{ profile: ProfileType } & ComponentDefault> = ({ className, profile }) => {
   const { isDesktop } = useScreenSize();

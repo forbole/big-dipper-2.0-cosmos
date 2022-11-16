@@ -7,7 +7,7 @@ import MsgCreatePool from '@models/sifchain/msg/clp/msg_create_pool';
 import { useProfileRecoil } from '@recoil/profiles';
 import chainConfig from 'ui/chainConfig';
 
-const CreatePool = (props: { message: MsgCreatePool }) => {
+const CreatePool: React.FC<{ message: MsgCreatePool }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

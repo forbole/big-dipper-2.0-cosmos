@@ -7,7 +7,7 @@ import Link from 'next/link';
 import AvatarName from '@components/avatar_name';
 import { NFT_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
-import { NFTTypes } from '../../../../types';
+import type { NFTTypes } from '../../../../types';
 
 const Mobile: React.FC<{ items: NFTTypes[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('nfts');

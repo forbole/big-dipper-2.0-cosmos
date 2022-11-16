@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgActivate from '@models/band/msg/oracle/msg_activate';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Activate = (props: { message: MsgActivate }) => {
+const Activate: React.FC<{ message: MsgActivate }> = (props) => {
   const { message } = props;
 
   const validator = useProfileRecoil(message.validator);

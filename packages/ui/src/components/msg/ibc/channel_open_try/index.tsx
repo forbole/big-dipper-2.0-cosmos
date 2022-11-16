@@ -2,10 +2,10 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
-import { MsgChannelOpenTry } from '@models';
+import { type MsgChannelOpenTry } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const ChannelOpenTry = (props: { message: MsgChannelOpenTry }) => {
+const ChannelOpenTry: React.FC<{ message: MsgChannelOpenTry }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

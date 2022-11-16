@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgCreateEthBridgeClaim {
   public category: Categories;

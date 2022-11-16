@@ -6,7 +6,7 @@ import { MsgRedelegate } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
 
-const Redelegate = (props: { message: MsgRedelegate }) => {
+const Redelegate: React.FC<{ message: MsgRedelegate }> = (props) => {
   const { message } = props;
   const amount = formatToken(message.amount.amount, message.amount.denom);
 

@@ -11,7 +11,7 @@ import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import Box from 'ui/components/box';
 import { useProfile } from './hooks';
 import { useStyles } from './styles';
-import { ProfileType } from '../../types';
+import type { ProfileType } from '../../types';
 
 const Profile: React.FC<{ profile: ProfileType; showRating: boolean } & ComponentDefault> = (
   props

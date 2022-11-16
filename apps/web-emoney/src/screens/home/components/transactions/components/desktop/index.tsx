@@ -16,7 +16,7 @@ import Result from 'ui/components/result';
 import Tag from 'ui/components/tag';
 import { useStyles } from './styles';
 import { columns } from './utils';
-import { TransactionType } from '../../types';
+import type { TransactionType } from '../../types';
 
 const Desktop: React.FC<{
   className?: string;

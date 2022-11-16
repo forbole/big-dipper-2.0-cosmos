@@ -7,7 +7,7 @@ import { getValidatorCondition } from 'ui/utils/get_validator_condition';
 import { formatToken } from 'ui/utils/format_token';
 import { SlashingParams } from '@models';
 import chainConfig from 'ui/chainConfig';
-import { ValidatorsState, ItemType, ValidatorType } from './types';
+import type { ValidatorsState, ItemType, ValidatorType } from './types';
 
 export const useValidators = () => {
   const [search, setSearch] = useState('');

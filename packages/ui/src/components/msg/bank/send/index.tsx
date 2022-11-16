@@ -7,7 +7,7 @@ import Name from 'ui/components/name';
 import { MsgSend } from '@models';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const Send = (props: { message: MsgSend }) => {
+const Send: React.FC<{ message: MsgSend }> = (props) => {
   const { t } = useTranslation('transactions');
   const { message } = props;
 

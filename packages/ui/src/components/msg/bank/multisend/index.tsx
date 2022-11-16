@@ -9,7 +9,7 @@ import { MsgMultiSend } from '@models';
 import { useProfileRecoil, useProfilesRecoil } from '@recoil/profiles';
 import { useStyles } from './styles';
 
-const Multisend = (props: { message: MsgMultiSend }) => {
+const Multisend: React.FC<{ message: MsgMultiSend }> = (props) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
 

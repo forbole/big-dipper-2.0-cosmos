@@ -2,10 +2,12 @@ import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
-import MsgUpdateGroupMetadataRequest from '@src/models/regen/msg/group/msg_update_group_metadata_request';
+import MsgUpdateGroupMetadataRequest from '@models/regen/msg/group/msg_update_group_metadata_request';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const UpdateGroupMetadataRequest = (props: { message: MsgUpdateGroupMetadataRequest }) => {
+const UpdateGroupMetadataRequest: React.FC<{ message: MsgUpdateGroupMetadataRequest }> = (
+  props
+) => {
   const { message } = props;
 
   const admin = useProfileRecoil(message.admin);

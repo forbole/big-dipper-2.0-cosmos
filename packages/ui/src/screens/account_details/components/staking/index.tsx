@@ -6,7 +6,7 @@ import TabPanel from 'ui/components/tab_panel';
 import { Tabs } from './components';
 import { useStaking } from './hooks';
 import { useStyles } from './styles';
-import { RewardsType } from '../../types';
+import type { RewardsType } from '../../types';
 import type DelegationsFC from './components/delegations';
 import type RedelgationsFC from './components/redelegations';
 import type UnbondingsFC from './components/unbondings';

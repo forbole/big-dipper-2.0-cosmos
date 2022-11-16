@@ -11,7 +11,7 @@ import WebArrowIcon from 'shared-utils/assets/icon-web-arrow.svg';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import { useAddress } from '@utils/copy_to_clipboard';
 import useTranslation from 'next-translate/useTranslation';
-import { ProviderInfo } from '../../../../types';
+import type { ProviderInfo } from '../../../../types';
 import { useStyles } from './styles';
 import { SingleProvider } from './component';
 

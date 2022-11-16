@@ -5,7 +5,7 @@ import Name from 'ui/components/name';
 import MsgAnchorDataRequest from '@models/regen/msg/data/msg_anchor_data_request';
 import { useProfileRecoil } from '@recoil/profiles';
 
-const AnchorDataRequest = (props: { message: MsgAnchorDataRequest }) => {
+const AnchorDataRequest: React.FC<{ message: MsgAnchorDataRequest }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

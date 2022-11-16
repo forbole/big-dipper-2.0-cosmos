@@ -6,7 +6,7 @@ import { formatToken } from 'ui/utils/format_token';
 import chainConfig from 'ui/chainConfig';
 import { DistributionParams, MintParams, SlashingParams, StakingParams } from '@models';
 import GovParams from '@models/shentu/gov_params';
-import { ParamsState } from './types';
+import type { ParamsState } from './types';
 
 const initialState = {
   loading: true,

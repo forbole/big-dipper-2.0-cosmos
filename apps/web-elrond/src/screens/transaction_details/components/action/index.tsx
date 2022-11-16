@@ -1,7 +1,7 @@
 import React from 'react';
 import BoxDetails from 'ui/components/box_details';
 import useTranslation from 'next-translate/useTranslation';
-import { ActionType } from '../../types';
+import type { ActionType } from '../../types';
 import { useStyles } from './styles';
 
 const Action: React.FC<ActionType & ComponentDefault> = (props) => {

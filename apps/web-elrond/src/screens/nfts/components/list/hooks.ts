@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
 import { NFTS, NFTS_COUNT } from '@api';
-import { BlockState } from './types';
+import type { BlockState } from './types';
 
 export const PAGE_SIZE = 25;
 
