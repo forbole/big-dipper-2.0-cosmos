@@ -63,6 +63,9 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
               },
               "success": true,
               "timestamp": "2021-04-27T16:27:34.331769",
+              "type": Array [
+                "Delegate",
+              ],
             },
           ]
         }

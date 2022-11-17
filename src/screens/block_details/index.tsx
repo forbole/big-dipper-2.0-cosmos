@@ -2,13 +2,10 @@ import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { NextSeo } from 'next-seo';
 import {
-  Layout,
-  LoadAndExist,
+  Layout, LoadAndExist,
 } from '@components';
 import {
-  Overview,
-  Transactions,
-  Signatures,
+  Overview, Transactions, Signatures,
 } from './components';
 import { useStyles } from './styles';
 import { useBlockDetails } from './hooks';
@@ -18,9 +15,7 @@ const BlockDetails = () => {
   const classes = useStyles();
   const { state } = useBlockDetails();
   const {
-    overview,
-    signatures,
-    transactions,
+    overview, signatures, transactions,
   } = state;
 
   return (
@@ -32,10 +27,7 @@ const BlockDetails = () => {
         }}
       />
       <Layout navTitle={t('blockDetails')}>
-        <LoadAndExist
-          loading={state.loading}
-          exists={state.exists}
-        >
+        <LoadAndExist loading={state.loading} exists={state.exists}>
           <span className={classes.root}>
             <Overview
               height={overview.height}
@@ -48,9 +40,7 @@ const BlockDetails = () => {
               className={classes.signatures}
               signatures={signatures}
             />
-            <Transactions
-              transactions={transactions}
-            />
+            <Transactions transactions={transactions} />
           </span>
         </LoadAndExist>
       </Layout>

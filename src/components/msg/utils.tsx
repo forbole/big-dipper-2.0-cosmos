@@ -1,9 +1,10 @@
 import * as MODELS from '@models';
 import * as R from 'ramda';
-import {
-  Tag,
-} from '@components';
+import { Tag } from '@components';
 import * as COMPONENTS from '@msg';
+import { MsgCreateDid } from '../../models/msg/cheqd/msg_create_did';
+import { MsgUpdateDid } from '../../models/msg/cheqd/msg_update_did';
+import { MsgCreateResource } from '../../models/msg/cheqd/resources/msg_create_resource';
 
 const getDataByType = (type: string) => {
   // =====================================
@@ -341,11 +342,30 @@ const getDataByType = (type: string) => {
     },
   };
 
-  // =====================================
   // Update your chain's message types here
   // =====================================
   const customTypeToModel = {
-    // ========================
+    // =========================
+    // Decentralised Identifiers
+    // =========================
+    '/cheqdid.cheqdnode.cheqd.v1.MsgCreateDid': {
+      model: MsgCreateDid,
+      content: COMPONENTS.CreateDID,
+      tagTheme: 'four',
+      tagDisplay: 'MsgCreateDid',
+    },
+    '/cheqdid.cheqdnode.cheqd.v1.MsgupdateDid': {
+      model: MsgUpdateDid,
+      content: COMPONENTS.CreateDID,
+      tagTheme: 'four',
+      tagDisplay: 'MsgUpdateDID',
+    },
+    '/cheqresource.cheqdnode.cheqd.v1.MsgCreateResource': {
+      model: MsgCreateResource,
+      content: COMPONENTS.CreateDID,
+      tagTheme: 'four',
+      tagDisplay: 'MsgCreateResource',
+    },
     // profiles
     // ========================
     '/desmos.profiles.v1beta1.MsgSaveProfile': {
@@ -402,7 +422,6 @@ const getDataByType = (type: string) => {
       tagTheme: 'four',
       tagDisplay: 'txUnblockUserLabel',
     },
-
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];
@@ -427,7 +446,7 @@ export const getMessageModelByType = (type: string) => {
  * Helper function to correctly display the correct UI
  * @param type Model type
  */
-export const getMessageByType = (message: any, viewRaw: boolean, t:any) => {
+export const getMessageByType = (message: any, viewRaw: boolean, t: any) => {
   const { type } = message;
   let results: {
     content: any;
@@ -441,7 +460,6 @@ export const getMessageByType = (message: any, viewRaw: boolean, t:any) => {
   };
 
   const data = getDataByType(type);
-
   if (data) {
     results = {
       content: data?.content,
@@ -456,23 +474,29 @@ export const getMessageByType = (message: any, viewRaw: boolean, t:any) => {
   }
 
   return {
-    type: <Tag
-      value={t(`message_labels:${results.tagDisplay}`)}
-      theme={results.tagTheme}
-    />,
-    message: <results.content message={message as any} />,
+    type: (
+      <Tag
+        value={t(`message_labels:${results.tagDisplay}`)}
+        theme={results.tagTheme}
+      />
+    ),
+    message: <results.content message={message} />,
   };
 };
 
 export const convertMsgsToModels = (transaction: any) => {
   const messages = R.pathOr([], ['messages'], transaction).map((msg, i) => {
     const model = getMessageModelByType(msg?.['@type']);
-    if (model === MODELS.MsgWithdrawDelegatorReward
-      || model === MODELS.MsgWithdrawValidatorCommission) {
+    if (
+      model === MODELS.MsgWithdrawDelegatorReward
+      || model === MODELS.MsgWithdrawValidatorCommission
+    ) {
       const log = R.pathOr(null, ['logs', i], transaction);
-      return model.fromJson(msg, log);
+      const data = model.fromJson(msg, log);
+      return data;
     }
-    return model.fromJson(msg);
+    const data = model.fromJson(msg);
+    return data;
   });
 
   return messages;

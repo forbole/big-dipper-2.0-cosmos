@@ -6,6 +6,7 @@ import {
   useGetMessagesByAddressQuery,
   GetMessagesByAddressQuery,
 } from '@graphql/types/general_types';
+import { convertMsgType } from '@src/utils/convert_msg_type';
 import { TransactionState } from './types';
 
 const LIMIT = 50;
@@ -48,22 +49,24 @@ export const useTransactions = () => {
       isNextPageLoading: true,
     });
     // refetch query
-    await transactionQuery.fetchMore({
-      variables: {
-        offset: state.offsetCount,
-        limit: LIMIT + 1,
-      },
-    }).then(({ data }) => {
-      const itemsLength = data.messagesByAddress.length;
-      const newItems = R.uniq([...state.data, ...formatTransactions(data)]);
-      const stateChange = {
-        data: newItems,
-        hasNextPage: itemsLength === 51,
-        isNextPageLoading: false,
-        offsetCount: state.offsetCount + LIMIT,
-      };
-      handleSetState(stateChange);
-    });
+    await transactionQuery
+      .fetchMore({
+        variables: {
+          offset: state.offsetCount,
+          limit: LIMIT + 1,
+        },
+      })
+      .then(({ data }) => {
+        const itemsLength = data.messagesByAddress.length;
+        const newItems = R.uniq([...state.data, ...formatTransactions(data)]);
+        const stateChange = {
+          data: newItems,
+          hasNextPage: itemsLength === 51,
+          isNextPageLoading: false,
+          offsetCount: state.offsetCount + LIMIT,
+        };
+        handleSetState(stateChange);
+      });
   };
 
   const formatTransactions = (data: GetMessagesByAddressQuery) => {
@@ -78,22 +81,27 @@ export const useTransactions = () => {
       // messages
       // =============================
       const messages = convertMsgsToModels(transaction);
-
-      return ({
+      const msgType = transaction.messages.map((eachMsg) => {
+        const eachMsgType = R.pathOr('none type', ['@type'], eachMsg);
+        return eachMsgType;
+      });
+      const convertedMsgType = convertMsgType(msgType);
+      return {
         height: transaction.height,
         hash: transaction.hash,
+        type: convertedMsgType,
         messages: {
           count: messages.length,
           items: messages,
         },
         success: transaction.success,
         timestamp: transaction.block.timestamp,
-      });
+      };
     });
   };
 
-  return ({
+  return {
     state,
     loadNextPage,
-  });
+  };
 };

@@ -1,6 +1,7 @@
 // =========================
 // utils
 // =========================
+import CreateDID from '@src/models/msg/dids/create_did';
 import {
   getMessageModelByType,
   getMessageByType,
@@ -134,4 +135,5 @@ export {
   RevokeAllowance,
   CreateVestingAccount,
   CreatePeriodicVestingAccount,
+  CreateDID,
 };

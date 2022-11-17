@@ -2,6 +2,12 @@ version: '3.8'
 
 services:
   bigdipper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+      tags:
+        - bigdipper:local
     image: bigdipper:local
     user: node
     working_dir: /home/node/app

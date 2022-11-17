@@ -2,14 +2,11 @@ import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { NextSeo } from 'next-seo';
 import {
-  Layout,
-  LoadAndExist,
+  Layout, LoadAndExist,
 } from '@components';
 import { useStyles } from './styles';
 import {
-  Overview,
-  Messages,
-  Logs,
+  Overview, Messages, Logs,
 } from './components';
 import { useTransactionDetails } from './hooks';
 
@@ -23,9 +20,7 @@ const TransactionDetails = () => {
     filterMessages,
   } = useTransactionDetails();
   const {
-    overview,
-    logs,
-    messages,
+    overview, logs, messages,
   } = state;
 
   return (
@@ -37,14 +32,9 @@ const TransactionDetails = () => {
         }}
       />
       <Layout navTitle={t('transactionDetails')}>
-        <LoadAndExist
-          loading={state.loading}
-          exists={state.exists}
-        >
+        <LoadAndExist loading={state.loading} exists={state.exists}>
           <span className={classes.root}>
-            <Overview
-              data={overview}
-            />
+            <Overview data={overview} />
             <Messages
               className={classes.messages}
               messages={filterMessages(messages.items)}

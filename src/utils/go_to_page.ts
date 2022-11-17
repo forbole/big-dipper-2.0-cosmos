@@ -20,3 +20,5 @@ export const PROFILE_DETAILS = (dtag: string):string => `/${dtag}`;
  */
 export const ADDRESS_DETAILS = (address: string) => (address.includes(chainConfig.prefix.validator)
   ? VALIDATOR_DETAILS(address) : ACCOUNT_DETAILS(address));
+
+export const DID_RESOLVER_URL = (did: string) => (`https://resolver.cheqd.net/1.0/identifiers/${did}`);

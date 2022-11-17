@@ -3,9 +3,7 @@ import classnames from 'classnames';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import {
-  TransactionListDetails,
-  TransactionsList,
-  Box,
+  TransactionListDetails, TransactionsList, Box,
 } from '@components';
 import { useRecoilValue } from 'recoil';
 import { readTx } from '@recoil/settings';
@@ -18,19 +16,18 @@ const Transactions: React.FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('validators');
 
   const {
-    state,
-    loadNextPage,
+    state, loadNextPage,
   } = useTransactions();
 
   const loadMoreItems = state.isNextPageLoading ? () => null : loadNextPage;
   const isItemLoaded = (index) => !state.hasNextPage || index < state.data.length;
-  const itemCount = state.hasNextPage ? state.data.length + 1 : state.data.length;
+  const itemCount = state.hasNextPage
+    ? state.data.length + 1
+    : state.data.length;
 
   return (
     <Box className={classnames(props.className, classes.root)}>
-      <Typography variant="h2">
-        {t('transactions')}
-      </Typography>
+      <Typography variant="h2">{t('transactions')}</Typography>
       <div className={classes.list}>
         {txListFormat === 'compact' ? (
           <TransactionsList

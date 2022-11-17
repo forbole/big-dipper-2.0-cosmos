@@ -10,12 +10,10 @@ import {
   FormControlLabel,
 } from '@material-ui/core';
 import {
-  useList,
-  useListRow,
+  useList, useListRow,
 } from '@hooks';
 import {
-  Box,
-  TransactionMessagesFilter,
+  Box, TransactionMessagesFilter,
 } from '@components';
 import { getMessageByType } from '@msg';
 import { useStyles } from './styles';
@@ -33,9 +31,7 @@ const Messages: React.FC<{
   const classes = useStyles();
 
   const {
-    listRef,
-    getRowHeight,
-    setRowHeight,
+    listRef, getRowHeight, setRowHeight,
   } = useList();
 
   const formattedItems = props.messages.map((x) => {
@@ -46,9 +42,7 @@ const Messages: React.FC<{
     <Box className={classnames(className, classes.root)}>
       <div className={classes.header}>
         <div className={classes.mobileOptions}>
-          <Typography variant="h2">
-            {t('messages')}
-          </Typography>
+          <Typography variant="h2">{t('messages')}</Typography>
           <FormControlLabel
             control={(
               <Switch
@@ -104,9 +98,7 @@ const Messages: React.FC<{
                           <div className={classes.tags}>
                             {selectedItem.type}
                           </div>
-                          <span className="msg">
-                            {selectedItem.message}
-                          </span>
+                          <span className="msg">{selectedItem.message}</span>
                         </div>
                         {index !== props.messages.length - 1 && <Divider />}
                       </div>

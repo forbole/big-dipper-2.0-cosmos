@@ -4,26 +4,19 @@ import numeral from 'numeral';
 import dayjs, { formatDayJs } from '@utils/dayjs';
 import Link from 'next/link';
 import {
-  TRANSACTION_DETAILS,
-  BLOCK_DETAILS,
+  TRANSACTION_DETAILS, BLOCK_DETAILS,
 } from '@utils/go_to_page';
-import {
-  Typography,
-} from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { mergeRefs } from '@utils/merge_refs';
 import {
-  Loading,
-  Result,
-  Tag,
+  Loading, Result, Tag,
 } from '@components';
 import {
-  useList,
-  useListRow,
-  useScreenSize,
+  useList, useListRow, useScreenSize,
 } from '@hooks';
 import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
 import { getMessageByType } from '@msg';
@@ -40,17 +33,13 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
   isItemLoaded,
   transactions,
 }) => {
-  const {
-    isMobile,
-  } = useScreenSize();
+  const { isMobile } = useScreenSize();
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   const dateFormat = useRecoilValue(readDate);
 
   const {
-    listRef,
-    getRowHeight,
-    setRowHeight,
+    listRef, getRowHeight, setRowHeight,
   } = useList();
 
   const items = transactions.map((x) => ({
@@ -64,28 +53,22 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
     hash: (
       <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
         <Typography variant="body1" component="a">
-          {isMobile ? (
-            getMiddleEllipsis(x.hash, {
-              beginning: 15, ending: 5,
+          {isMobile
+            ? getMiddleEllipsis(x.hash, {
+              beginning: 15,
+              ending: 5,
             })
-          ) : (
-            x.hash
-          )}
+            : x.hash}
         </Typography>
       </Link>
     ),
     type: (
       <div>
-        <Tag
-          value="txDelegateLabel"
-          theme="six"
-        />
-        {(x.messages.count > 1) && (' +')}
+        <Tag value={x.type ? x.type.join(',') : ''} theme="six" />
+        {x.messages.count > 1 && ' +'}
       </div>
     ),
-    result: (
-      <Result success={x.success} />
-    ),
+    result: <Result success={x.success} />,
     time: formatDayJs(dayjs.utc(x.timestamp), dateFormat),
     messageCount: numeral(x.messages.count).format('0,0'),
     messages: x.messages.items.map((message) => {
