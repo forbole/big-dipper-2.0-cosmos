@@ -28,7 +28,7 @@ steps:
   # 3. Deploy the image with Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
-    timeout: 120s # 2 minutes
+    timeout: 300s # 5 minutes
     args:
       [
         'run',
@@ -42,7 +42,14 @@ steps:
         'us-central1',
         '--min-instances',
         '1',
+        '--max-instances',
+        '100',
         '--no-cpu-throttling',
+        '--allow-unauthenticated',
+        '--memory',
+        '4Gi',
+        '--cpu',
+        '2000m'
       ]
 
 options:
