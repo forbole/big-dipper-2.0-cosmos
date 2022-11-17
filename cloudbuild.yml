@@ -32,7 +32,7 @@ steps:
       [
         'run',
         'deploy',
-        '$REPO_NAME',
+        'big-dipper-frontend',
         '--image',
         'us-docker.pkg.dev/$PROJECT_ID/gcr.io/$REPO_NAME:latest',
         '--region',
