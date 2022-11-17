@@ -42,5 +42,9 @@ steps:
         '--no-cpu-throttling',
       ]
 
+options:
+  machineType: 'E2_HIGHCPU_8' # 8 cores
+  dynamic_substitutions: true
 images:
   - '$$_GCR_URL:latest'
+logsBucket: gs://logs-ci-bigdipper-fe
