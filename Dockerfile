@@ -45,11 +45,8 @@ ENV SENTRY_DSN ${ENTRY_DSN}
 RUN yarn install && yarn build
 EXPOSE ${PORT}
 
-# Add global npm location to path
-RUN export PATH=$PATH:$(npm bin -g)
-
 # Add PM2
 RUN npm install -g pm2
 
 # Running the app
-CMD ["pm2-runtime", "dist/index.js"]
+CMD ["pm2-runtime", "start", "dist/index.js"]

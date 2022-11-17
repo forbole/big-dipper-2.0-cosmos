@@ -7,7 +7,7 @@ steps:
   # 1. Build the image
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: bash
-    timeout: 1200s
+    timeout: 1200s # 20 minutes
     args: [
       '-c',
       'export DOCKER_BUILDKIT=1 && docker build
@@ -28,6 +28,7 @@ steps:
   # 3. Deploy the image with Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
+    timeout: 120s # 2 minutes
     args:
       [
         'run',
