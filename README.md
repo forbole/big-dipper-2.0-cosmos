@@ -1,5 +1,5 @@
 # Big Dipper 2.0 ✨ (Cosmos Based Chains)
-Big Dipper is an open-source block explorer and token management tool serving over 10 proof-of-stake blockchains. It has been forked more than 100 times on GitHub and has served audiences from 140 countries and regions.
+The CUDOS explorer allows you to visualise blocks, network statistics & transaction history for the CUDOS network | Powering the Metaverse, NFTs, Web3, & gaming
 
 **This repo contains the UI of big dipper 2.0 only**
 
