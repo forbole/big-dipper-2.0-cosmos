@@ -9,7 +9,7 @@ RUN apk add --no-cache git
 WORKDIR /app
 
 # Add PM2
-RUN yarn add pm2 -g
+RUN npm install -g pm2
 
 # Installing dependencies
 COPY package*.json ./

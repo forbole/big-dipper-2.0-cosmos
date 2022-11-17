@@ -33,6 +33,8 @@ steps:
         'run',
         'deploy',
         'big-dipper-frontend',
+        '--port',
+        '${_PORT}',
         '--image',
         'us-docker.pkg.dev/$PROJECT_ID/gcr.io/$REPO_NAME:latest',
         '--region',
