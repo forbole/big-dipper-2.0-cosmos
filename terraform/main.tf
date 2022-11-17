@@ -31,8 +31,6 @@ resource "google_cloudbuild_trigger" "bigdipper_build_deploy_trigger" {
   ignored_files = [".gitignore"]
 
   substitutions = {
-    _GCP_ZONE = var.gcp_zone
-    _GCP_PROJECT = var.gcp_project
     _NEXT_PUBLIC_GRAPHQL_URL = var.next_public_graphql_url
     _NEXT_PUBLIC_GRAPHQL_WS_URL = var.next_public_graphql_wss_url
     _NEXT_PUBLIC_RPC_WEBSOCKET = var.next_public_rpc_wss_url
