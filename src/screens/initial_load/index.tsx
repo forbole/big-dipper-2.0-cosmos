@@ -24,7 +24,7 @@ const InitialLoad = () => {
         <img
           src={logoUrl}
           className={classes.logo}
-          width="60px"
+          width="120px"
           height="60px"
           alt="logo"
         />
