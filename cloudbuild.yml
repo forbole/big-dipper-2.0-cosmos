@@ -1,0 +1,46 @@
+steps:
+  # 0. Get previous build for cache
+  - name: 'gcr.io/cloud-builders/docker'
+    entrypoint: 'bash'
+    args: [ '-c', 'docker pull $$GCR_URL:latest || exit 0' ]
+
+  # 1. Build the image
+  - name: 'gcr.io/cloud-builders/docker'
+    entrypoint: bash
+    timeout: 1200s
+    args: [
+      '-c',
+      'export DOCKER_BUILDKIT=1 && docker build
+       --cache-from $$_GCR_URL:latest
+       -t $$_GCR_URL:latest .
+       --build-arg NEXT_PUBLIC_GRAPHQL_URL=$$_NEXT_PUBLIC_GRAPHQL_URL
+       --build-arg NEXT_PUBLIC_GRAPHQL_WS=$$_NEXT_PUBLIC_GRAPHQL_WS_URL
+       --build-arg NEXT_PUBLIC_RPC_WEBSOCKET=$$_NEXT_PUBLIC_RPC_WEBSOCKET
+       --build-arg NEXT_PUBLIC_CHAIN_TYPE=$$_NEXT_PUBLIC_CHAIN_TYPE
+       --build-arg NODE_ENV=$$_NODE_ENV
+       --build-arg PORT=$$_PORT',
+    ]
+
+  # 2. Push the image to GCR
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', '$$_GCR_URL:latest']
+
+  # 3. Deploy the image with Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      [
+        'run',
+        'deploy',
+        'frontend-main',
+        '--image',
+        '$$_GCR_URL:latest',
+        '--region',
+        'us-central1',
+        '--min-instances',
+        '1',
+        '--no-cpu-throttling',
+      ]
+
+images:
+  - '$$_GCR_URL:latest'
