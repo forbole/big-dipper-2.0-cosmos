@@ -32,7 +32,7 @@ steps:
       [
         'run',
         'deploy',
-        'frontend-main',
+        '$REPO_NAME',
         '--image',
         'us-docker.pkg.dev/$PROJECT_ID/$REPO_NAME:latest',
         '--region',
