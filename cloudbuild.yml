@@ -13,12 +13,12 @@ steps:
       'export DOCKER_BUILDKIT=1 && docker build
        --cache-from us-docker.pkg.dev/$PROJECT_ID/$REPO_NAME:latest
        -t us-docker.pkg.dev/$PROJECT_ID/$REPO_NAME:latest .
-       --build-arg NEXT_PUBLIC_GRAPHQL_URL=$$_NEXT_PUBLIC_GRAPHQL_URL
-       --build-arg NEXT_PUBLIC_GRAPHQL_WS=$$_NEXT_PUBLIC_GRAPHQL_WS_URL
-       --build-arg NEXT_PUBLIC_RPC_WEBSOCKET=$$_NEXT_PUBLIC_RPC_WEBSOCKET
-       --build-arg NEXT_PUBLIC_CHAIN_TYPE=$$_NEXT_PUBLIC_CHAIN_TYPE
-       --build-arg NODE_ENV=$$_NODE_ENV
-       --build-arg PORT=$$_PORT',
+       --build-arg NEXT_PUBLIC_GRAPHQL_URL=${_NEXT_PUBLIC_GRAPHQL_URL}
+       --build-arg NEXT_PUBLIC_GRAPHQL_WS=${_NEXT_PUBLIC_GRAPHQL_WS_URL}
+       --build-arg NEXT_PUBLIC_RPC_WEBSOCKET=${_NEXT_PUBLIC_RPC_WEBSOCKET}
+       --build-arg NEXT_PUBLIC_CHAIN_TYPE=${_NEXT_PUBLIC_CHAIN_TYPE}
+       --build-arg NODE_ENV=${_NODE_ENV}
+       --build-arg PORT=${_PORT}',
     ]
 
   # 2. Push the image to GCR
