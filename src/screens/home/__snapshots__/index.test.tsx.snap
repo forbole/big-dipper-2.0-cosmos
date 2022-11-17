@@ -11,7 +11,7 @@ exports[`screen: Home matches snapshot 1`] = `
   />
   <div
     className="makeStyles-hero"
-    id="hero"
+    id="Hero"
   />
   <div
     className="makeStyles-tokenomics"

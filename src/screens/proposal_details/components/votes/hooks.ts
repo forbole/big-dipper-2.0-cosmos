@@ -56,11 +56,11 @@ export const useVotes = (resetPagination:any) => {
 
     const proposalVote = R.pathOr([], ['proposalVote'], votesData);
 
-    proposalVote.map((x: any) => {
+    proposalVote.forEach((x: any) => {
       x.weight = '100.00%';
     });
 
-    mergedVotesData.proposalVote.map((x: any) => {
+    mergedVotesData.proposalVote.forEach((x: any) => {
       x.weight = `${(parseFloat(x.weight) * 100.0).toFixed(2)}%`;
     });
 

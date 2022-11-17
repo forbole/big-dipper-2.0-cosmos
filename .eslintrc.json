@@ -64,6 +64,9 @@
     }
   ],
   "rules": {
+    "max-len": "off",
+    "no-console": "off",
+    "camelcase": "off",
     "react/destructuring-assignment": "off",
     "no-bitwise": "off",
     "@typescript-eslint/ban-types": "warn",
@@ -73,12 +76,15 @@
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": ["error", {
-      "ignoreRestSiblings": true,
-      "varsIgnorePattern": "^_",
-      "argsIgnorePattern": "^_"
-    }],
-    "no-param-reassign": "warn",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "ignoreRestSiblings": true,
+        "varsIgnorePattern": "^_",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "no-param-reassign": "off",
     "no-restricted-globals": "warn",
     "react/prop-types": "off",
     "jsx-a11y/interactive-supports-focus": "off",
