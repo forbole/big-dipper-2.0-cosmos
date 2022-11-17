@@ -2,7 +2,7 @@ steps:
   # 0. Get previous build for cache
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
-    args: [ '-c', 'docker pull $$GCR_URL:latest || exit 0' ]
+    args: [ '-c', 'docker pull us-docker.pkg.dev/$PROJECT_ID/$REPO_NAME:latest || exit 0' ]
 
   # 1. Build the image
   - name: 'gcr.io/cloud-builders/docker'
@@ -11,8 +11,8 @@ steps:
     args: [
       '-c',
       'export DOCKER_BUILDKIT=1 && docker build
-       --cache-from $$_GCR_URL:latest
-       -t $$_GCR_URL:latest .
+       --cache-from us-docker.pkg.dev/$PROJECT_ID/$REPO_NAME:latest
+       -t us-docker.pkg.dev/$PROJECT_ID/$REPO_NAME:latest .
        --build-arg NEXT_PUBLIC_GRAPHQL_URL=$$_NEXT_PUBLIC_GRAPHQL_URL
        --build-arg NEXT_PUBLIC_GRAPHQL_WS=$$_NEXT_PUBLIC_GRAPHQL_WS_URL
        --build-arg NEXT_PUBLIC_RPC_WEBSOCKET=$$_NEXT_PUBLIC_RPC_WEBSOCKET
@@ -23,7 +23,7 @@ steps:
 
   # 2. Push the image to GCR
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', '$$_GCR_URL:latest']
+    args: ['push', 'us-docker.pkg.dev/$PROJECT_ID/$REPO_NAME:latest']
 
   # 3. Deploy the image with Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -34,7 +34,7 @@ steps:
         'deploy',
         'frontend-main',
         '--image',
-        '$$_GCR_URL:latest',
+        'us-docker.pkg.dev/$PROJECT_ID/$REPO_NAME:latest',
         '--region',
         'us-central1',
         '--min-instances',
@@ -46,5 +46,5 @@ options:
   machineType: 'E2_HIGHCPU_8' # 8 cores
   dynamic_substitutions: true
 images:
-  - '$$_GCR_URL:latest'
+  - 'us-docker.pkg.dev/$PROJECT_ID/$REPO_NAME:latest'
 logsBucket: gs://logs-ci-bigdipper-fe
