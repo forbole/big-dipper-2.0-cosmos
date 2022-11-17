@@ -33,7 +33,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
           rel="noreferrer"
           target="_blank"
         >
-          common:Cudos
+          common:cudos
         </a>
         <a
           href="https://www.cudos.org/earn"
@@ -43,53 +43,46 @@ exports[`component: layout/footer matches snapshot 1`] = `
           common:earn
         </a>
         <a
-          href="https://www.cudos.org/about"
-          rel="noreferrer"
-          target="_blank"
-        >
-          common:about
-        </a>
-        <a
           href="https://www.cudos.org/blog"
           rel="noreferrer"
           target="_blank"
         >
           common:blog
         </a>
-      </div>
-      <div
-        className="bigDipper links__group"
-      >
-        <h3>
-          common:bigDipper
-        </h3>
         <a
-          href="https://bigdipper.live/#about"
+          href="https://www.cudos.org/about"
           rel="noreferrer"
           target="_blank"
         >
           common:about
         </a>
+      </div>
+      <div
+        className="policies links__group"
+      >
+        <h3>
+          common:policies
+        </h3>
         <a
-          href="https://bigdipper.live/faq"
-          rel="noreferrer"
-          target="_blank"
-        >
-          common:faq
-        </a>
-        <a
-          href="https://bigdipper.live/terms-and-conditions"
-          rel="noreferrer"
-          target="_blank"
-        >
-          common:termsAndConditions
-        </a>
-        <a
-          href="https://bigdipper.live/privacy-policy"
+          href="https://www.cudos.org/privacy-policy"
           rel="noreferrer"
           target="_blank"
         >
           common:privacyPolicy
+        </a>
+        <a
+          href="https://www.cudoventures.com/cookie-policy/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          common:cookiesPolicy
+        </a>
+        <a
+          href="https://www.cudos.org/terms-and-conditions"
+          rel="noreferrer"
+          target="_blank"
+        >
+          common:termsAndConditions
         </a>
       </div>
       <div
@@ -103,7 +96,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
         >
           <a
             className="media telegram"
-            href="https://t.me/forbole"
+            href="https://t.me/cudostelegram"
             rel="noreferrer"
             target="_blank"
           >
@@ -127,7 +120,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
           </a>
           <a
             className="media linkedin"
-            href="https://www.linkedin.com/company/forbole"
+            href="https://www.linkedin.com/company/cudos1"
             rel="noreferrer"
             target="_blank"
           >
@@ -152,7 +145,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
           </a>
           <a
             className="media twitter"
-            href="https://twitter.com/bigdipperlive"
+            href="https://twitter.com/CUDOS_"
             rel="noreferrer"
             target="_blank"
           >
@@ -176,7 +169,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
           </a>
           <a
             className="media github"
-            href="https://github.com/forbole"
+            href="https://github.com/CudoVentures"
             rel="noreferrer"
             target="_blank"
           >
@@ -232,8 +225,78 @@ exports[`component: layout/footer matches snapshot 1`] = `
               >
                 common:donate
               </span>
+              <span
+                className="MuiTouchRipple-root"
+              />
             </button>
           </a>
+        </div>
+      </div>
+      <div
+        className="cookie__consent"
+      >
+        <div
+          className="CookieConsent"
+          style={
+            Object {
+              "alignItems": "baseline",
+              "background": "#fd3b4cb3",
+              "bottom": "0",
+              "color": "white",
+              "display": "flex",
+              "flexWrap": "wrap",
+              "justifyContent": "space-between",
+              "left": "0",
+              "margin": "0% 32.5%",
+              "minWidth": "350px",
+              "position": "fixed",
+              "width": "35%",
+              "zIndex": "999",
+            }
+          }
+        >
+          <div
+            className="text-capitalize"
+            style={
+              Object {
+                "flex": "1 0 300px",
+                "margin": "15px",
+              }
+            }
+          >
+            We use cookies to enhance the user experience. Read our
+             
+            <a
+              href="https://www.cudos.org/privacy-policy/"
+            >
+              Privacy Policy
+            </a>
+          </div>
+          <div
+            className=""
+          >
+            <button
+              aria-label="Accept cookies"
+              className=""
+              id="rcc-confirm-button"
+              onClick={[Function]}
+              style={
+                Object {
+                  "background": "#6a1d27",
+                  "border": "0",
+                  "borderRadius": "0px",
+                  "boxShadow": "none",
+                  "color": "#ffffff",
+                  "cursor": "pointer",
+                  "flex": "0 0 auto",
+                  "margin": "15px",
+                  "padding": "5px 10px",
+                }
+              }
+            >
+              I understand
+            </button>
+          </div>
         </div>
       </div>
     </div>

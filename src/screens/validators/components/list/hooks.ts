@@ -138,7 +138,7 @@ export const useValidators = () => {
       sorted = sorted.filter((x) => x.status === 3 && x.jailed === true);
     }
 
-    if (state.tab == 2) {
+    if (state.tab === 2) {
       sorted = sorted.filter((x) => x.status !== 3);
     }
 

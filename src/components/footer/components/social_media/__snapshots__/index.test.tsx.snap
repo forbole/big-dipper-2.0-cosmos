@@ -6,7 +6,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
 >
   <a
     className="media telegram"
-    href="https://t.me/forbole"
+    href="https://t.me/cudostelegram"
     rel="noreferrer"
     target="_blank"
   >
@@ -30,7 +30,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
   </a>
   <a
     className="media linkedin"
-    href="https://www.linkedin.com/company/forbole"
+    href="https://www.linkedin.com/company/cudos1"
     rel="noreferrer"
     target="_blank"
   >
@@ -55,7 +55,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
   </a>
   <a
     className="media twitter"
-    href="https://twitter.com/bigdipperlive"
+    href="https://twitter.com/CUDOS_"
     rel="noreferrer"
     target="_blank"
   >
@@ -79,7 +79,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
   </a>
   <a
     className="media github"
-    href="https://github.com/forbole"
+    href="https://github.com/CudoVentures"
     rel="noreferrer"
     target="_blank"
   >

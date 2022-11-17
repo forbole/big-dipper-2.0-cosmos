@@ -23,8 +23,8 @@ describe('misc: useSearchBar', () => {
     const { result } = renderHook(() => useSearchBar(t), {
       wrapper: RecoilRoot,
     });
-    act(() => {
-      result.current.handleOnSubmit('desmosvaloper1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes');
+    await act(async () => {
+      await result.current.handleOnSubmit('desmosvaloper1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes');
     });
     expect(mockPush).toBeCalledWith('/validators/desmosvaloper1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes');
   });
@@ -33,8 +33,8 @@ describe('misc: useSearchBar', () => {
     const { result } = renderHook(() => useSearchBar(t), {
       wrapper: RecoilRoot,
     });
-    act(() => {
-      result.current.handleOnSubmit('desmosvalcons1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467');
+    await act(async () => {
+      await result.current.handleOnSubmit('desmosvalcons1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467');
     });
     expect(mockPush).toBeCalledTimes(0);
   });
@@ -43,8 +43,8 @@ describe('misc: useSearchBar', () => {
     const { result } = renderHook(() => useSearchBar(t), {
       wrapper: RecoilRoot,
     });
-    act(() => {
-      result.current.handleOnSubmit('desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz');
+    await act(async () => {
+      await result.current.handleOnSubmit('desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz');
     });
     expect(mockPush).toBeCalledWith('/accounts/desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz');
   });
@@ -53,8 +53,8 @@ describe('misc: useSearchBar', () => {
     const { result } = renderHook(() => useSearchBar(t), {
       wrapper: RecoilRoot,
     });
-    act(() => {
-      result.current.handleOnSubmit('@desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz');
+    await act(async () => {
+      await result.current.handleOnSubmit('@desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz');
     });
     expect(mockPush).toBeCalledWith('/@desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz');
   });
@@ -63,8 +63,8 @@ describe('misc: useSearchBar', () => {
     const { result } = renderHook(() => useSearchBar(t), {
       wrapper: RecoilRoot,
     });
-    act(() => {
-      result.current.handleOnSubmit('300,000');
+    await act(async () => {
+      await result.current.handleOnSubmit('300,000');
     });
     expect(mockPush).toBeCalledWith('/blocks/300000');
   });
@@ -73,8 +73,8 @@ describe('misc: useSearchBar', () => {
     const { result } = renderHook(() => useSearchBar(t), {
       wrapper: RecoilRoot,
     });
-    act(() => {
-      result.current.handleOnSubmit('FF4ED0EA688507EF3469804580136B4925116FC9B5F5658AF2B65E987A2138E0');
+    await act(async () => {
+      await result.current.handleOnSubmit('FF4ED0EA688507EF3469804580136B4925116FC9B5F5658AF2B65E987A2138E0');
     });
     expect(mockPush).toBeCalledWith('/transactions/FF4ED0EA688507EF3469804580136B4925116FC9B5F5658AF2B65E987A2138E0');
   });

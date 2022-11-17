@@ -117,8 +117,10 @@ export const useTransactionDetails = () => {
     stateChange.logs = formatLogs();
 
     const [mutatedMessages, logs] = mutateMessages(data.transaction[0]);
-    data.transaction[0].messages = mutatedMessages;
-    data.transaction[0].logs = logs;
+    Object.defineProperties(data.transaction[0], {
+      messages: mutatedMessages,
+      logs,
+    });
 
     // =============================
     // messages

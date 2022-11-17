@@ -12,7 +12,7 @@ export const getProposalType = (proposalType: string) => {
     type = 'communityPoolSpendProposal';
   }
 
-  if (proposalType == '/ibc.core.client.v1.ClientUpdateProposal') {
+  if (proposalType === '/ibc.core.client.v1.ClientUpdateProposal') {
     type = 'IbcClientUpdateProposal';
   }
 

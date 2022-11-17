@@ -7,3 +7,4 @@
 **/cypress/fixtures/*
 **/src/graphql/types.tsx
 **/src/graphql/desmos_profile.ts
+**/src/pages/_document.tsx
