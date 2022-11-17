@@ -113,7 +113,7 @@ const Desktop: React.FC<{
                       <Typography variant="h4" className="label popover">
                         {t('votingPower')}
                         <InfoPopover
-                          content={<VotingPowerExplanation />}
+                          content={VotingPowerExplanation}
                         />
                         {!!sort && (
                           <SortArrows

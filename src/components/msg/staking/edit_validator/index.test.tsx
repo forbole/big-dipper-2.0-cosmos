@@ -17,7 +17,7 @@ jest.mock('@components', () => ({
 // ==================================
 describe('screen: TransactionDetails/EditValidator', () => {
   it('matches snapshot', () => {
-    const message = new MsgEditValidator({
+    const message = MsgEditValidator.fromJson({
       category: 'staking',
       type: 'MsgEditValidator',
       description: {

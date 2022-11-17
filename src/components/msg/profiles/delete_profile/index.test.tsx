@@ -18,7 +18,7 @@ jest.mock('@components', () => ({
 // ==================================
 describe('screen: TransactionDetails/DeleteProfile', () => {
   it('matches snapshot', () => {
-    const message = new MsgDeleteProfile({
+    const message = MsgDeleteProfile.fromJson({
       category: 'profiles',
       type: 'MsgDeleteProfile',
       creator: 'creator',

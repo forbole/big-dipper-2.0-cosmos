@@ -4,6 +4,24 @@ exports[`screen: TransactionDetails/MsgVote matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1"
 >
-  message_contents:txVoteContent
+  <div
+    components={
+      Array [
+        <Name
+          address="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
+          name="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
+        />,
+        <b />,
+        <Proposal />,
+      ]
+    }
+    i18nKey="message_contents:txVoteContent"
+    id="Trans"
+    values={
+      Object {
+        "vote": "no",
+      }
+    }
+  />
 </p>
 `;

@@ -18,7 +18,7 @@ jest.mock('@components', () => ({
 // ==================================
 describe('screen: TransactionDetails/DtagTransferRequest', () => {
   it('matches snapshot', () => {
-    const message = new MsgDtagTransferRequest({
+    const message = MsgDtagTransferRequest.fromJson({
       category: 'profiles',
       type: 'MsgDtagCancelTransfer',
       sender: 'sender',

@@ -22,12 +22,13 @@ jest.mock('next-translate/Trans', () => (
 // ==================================
 describe('screen: TransactionDetails/Revoke', () => {
   it('matches snapshot', () => {
-    const message = new MsgRevoke({
+    const message = MsgRevoke.fromJson({
       category: 'authz',
       type: 'MsgRevoke',
       granter: 'sponderbob',
       grantee: 'grantee',
     });
+
     const component = renderer.create(
       <RecoilRoot>
         <MockTheme>

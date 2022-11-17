@@ -17,7 +17,7 @@ jest.mock('@components', () => ({
 // ==================================
 describe('screen: TransactionDetails/SaveProfile', () => {
   it('matches snapshot', () => {
-    const message = new MsgSaveProfile({
+    const message = MsgSaveProfile.fromJson({
       category: 'profiles',
       type: 'MsgSaveProfile',
       creator: 'creator',

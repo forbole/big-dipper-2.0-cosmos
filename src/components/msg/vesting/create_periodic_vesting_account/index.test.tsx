@@ -20,9 +20,9 @@ jest.mock('next-translate/Trans', () => (
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/Grant', () => {
+describe('screen: TransactionDetails/CreatePeriodicVestingAccount', () => {
   it('matches snapshot', () => {
-    const message = new MsgCreatePeriodicVestingAccount({
+    const message = MsgCreatePeriodicVestingAccount.fromJson({
       category: 'vesting',
       type: 'MsgGrant',
       toAddress: 'toAddress',
