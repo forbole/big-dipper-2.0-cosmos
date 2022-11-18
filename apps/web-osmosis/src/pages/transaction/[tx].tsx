@@ -6,7 +6,7 @@ const TransactionDetailsPage = () => {
 
   useEffect(() => {
     router.replace(`/transactions/${router.query.tx}`);
-  }, []);
+  }, [router]);
 
   return null;
 };

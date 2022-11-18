@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import * as R from 'ramda';
 import { useScreenSize } from 'ui/hooks';
 
@@ -16,19 +16,29 @@ export const useMobile = () => {
     isNetwork: false,
   });
 
+  const handleSetState = useCallback((stateChange: typeof state) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  }, []);
+
+  /**
+   * Helper that will check and turn off any open tabs
+   */
+  const closeAll = useCallback(() => {
+    handleSetState({
+      isNetwork: false,
+      isMenu: false,
+    });
+  }, [handleSetState]);
+
   useEffect(() => {
     if (isDesktop) {
       closeAll();
     }
-  }, [isDesktop]);
-
-  const handleSetState = (stateChange: typeof state) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  }, [closeAll, isDesktop]);
 
   // closes menu if opened and opens menu if
   // closed and hamburger icon is clicked
-  const toggleNavMenus = () => {
+  const toggleNavMenus = useCallback(() => {
     if (state.isNetwork || state.isMenu) {
       closeAll();
     } else {
@@ -37,9 +47,9 @@ export const useMobile = () => {
         isMenu: true,
       });
     }
-  };
+  }, [closeAll, handleSetState, state.isMenu, state.isNetwork]);
 
-  const openNetwork = () => {
+  const openNetwork = useCallback(() => {
     // make sure everything else is closed first
     if (state.isMenu) {
       handleSetState({ isMenu: false });
@@ -47,17 +57,7 @@ export const useMobile = () => {
     handleSetState({
       isNetwork: true,
     });
-  };
-
-  /**
-   * Helper that will check and turn off any open tabs
-   */
-  const closeAll = () => {
-    handleSetState({
-      isNetwork: false,
-      isMenu: false,
-    });
-  };
+  }, [handleSetState, state.isMenu]);
 
   return {
     toggleNavMenus,

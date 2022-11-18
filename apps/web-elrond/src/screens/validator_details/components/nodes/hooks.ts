@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import axios from 'axios';
@@ -18,47 +18,39 @@ export const useBlocks = () => {
     total: 0,
   });
 
-  useEffect(() => {
-    getNodesTotal();
-  }, [router.query.identity]);
-
-  const handleSetState = (stateChange: any) => {
+  const handleSetState = useCallback((stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  }, []);
 
-  const handlePageChangeCallback = async (page: number, _rowsPerPage: number) => {
-    handleSetState({
-      page,
-      loading: true,
-    });
-    await getBlocksByPage(page);
-  };
-
-  const getNodesTotal = async () => {
-    try {
-      const params: any = {
-        // come back to this later
-        // brave will block the api if type validator is present
-        // type: 'validator',
-      };
-      if (isBech32(router.query.identity as string)) {
-        params.provider = router.query.identity;
-      } else {
-        params.identity = router.query.identity;
+  useEffect(() => {
+    const getNodesTotal = async () => {
+      try {
+        const params: any = {
+          // come back to this later
+          // brave will block the api if type validator is present
+          // type: 'validator',
+        };
+        if (isBech32(router.query.identity as string)) {
+          params.provider = router.query.identity;
+        } else {
+          params.identity = router.query.identity;
+        }
+  
+        const { data: total } = await axios.get(NODES_COUNT, {
+          params,
+        });
+        handleSetState({
+          total,
+        });
+      } catch (error) {
+        console.log((error as any).message);
       }
+    };
 
-      const { data: total } = await axios.get(NODES_COUNT, {
-        params,
-      });
-      handleSetState({
-        total,
-      });
-    } catch (error) {
-      console.log((error as any).message);
-    }
-  };
+    getNodesTotal();
+  }, [handleSetState, router.query.identity]);
 
-  const getBlocksByPage = async (page: number) => {
+  const getBlocksByPage = useCallback(async (page: number) => {
     try {
       const params: any = {
         from: page * PAGE_SIZE,
@@ -92,13 +84,21 @@ export const useBlocks = () => {
     } catch (error) {
       console.log((error as any).message);
     }
-  };
+  }, [handleSetState, router.query.identity]);
 
-  const getBlocksInterval = async () => {
+  const handlePageChangeCallback = useCallback(async (page: number, _rowsPerPage: number) => {
+    handleSetState({
+      page,
+      loading: true,
+    });
+    await getBlocksByPage(page);
+  }, [getBlocksByPage, handleSetState]);
+
+  const getBlocksInterval = useCallback(async () => {
     if (state.page === 0) {
       await getBlocksByPage(0);
     }
-  };
+  }, [getBlocksByPage, state.page]);
 
   useInterval(getBlocksInterval, POLLING_INTERVAL);
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import Typography from '@material-ui/core/Typography';
 import { useInterval } from 'ui/hooks';
 import dayjs from 'ui/utils/dayjs';
@@ -12,7 +12,7 @@ import { useStyles } from './styles';
 const Countdown: React.FC<{
   startGenesis: () => void;
 }> = ({ startGenesis }) => {
-  const theme = useRecoilValue(readTheme);
+  // const theme = useRecoilValue(readTheme);
   const classes = useStyles();
   const [state, setState] = useState({
     day: 0,
@@ -23,9 +23,8 @@ const Countdown: React.FC<{
     loading: false,
   });
 
-  const genesisTime = (dayjs as any).utc(chainConfig.genesis.time);
-
-  const intervalCallback = () => {
+  const intervalCallback = useCallback(() => {
+    const genesisTime = (dayjs as any).utc(chainConfig.genesis.time);
     const timeNow = (dayjs as any).utc();
     const difference = genesisTime.diff(timeNow);
     if (difference > 0) {
@@ -44,7 +43,7 @@ const Countdown: React.FC<{
       }));
       startGenesis();
     }
-  };
+  }, [startGenesis]);
 
   useInterval(intervalCallback, state.interval);
 

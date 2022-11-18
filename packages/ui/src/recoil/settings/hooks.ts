@@ -34,5 +34,5 @@ export const useSettingsRecoil = () => {
       };
       setSettings(initSettings);
     }
-  }, []);
+  }, [setSettings, settings.dateFormat, settings.theme, settings.txListFormat]);
 };

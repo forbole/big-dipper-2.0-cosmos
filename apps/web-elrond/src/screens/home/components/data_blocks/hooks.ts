@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
 import { POLLING_INTERVAL, LATEST_BLOCK_HEIGHT, TRANSACTIONS_COUNT, STAKE } from '@api';
@@ -15,29 +15,29 @@ export const useDataBlocks = () => {
     },
   });
 
-  const handleSetState = (stateChange: any) => {
+  const handleSetState = useCallback((stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
-
-  useEffect(() => {
-    getValidatorsCount();
   }, []);
 
-  const getValidatorsCount = async () => {
-    try {
-      const { data: validators } = await axios.get(STAKE);
-      handleSetState({
-        validators: {
-          total: R.pathOr(0, ['totalValidators'], validators),
-          active: R.pathOr(0, ['activeValidators'], validators),
-        },
-      });
-    } catch (error) {
-      console.log((error as any).message);
-    }
-  };
+  useEffect(() => {
+    const getValidatorsCount = async () => {
+      try {
+        const { data: validators } = await axios.get(STAKE);
+        handleSetState({
+          validators: {
+            total: R.pathOr(0, ['totalValidators'], validators),
+            active: R.pathOr(0, ['activeValidators'], validators),
+          },
+        });
+      } catch (error) {
+        console.log((error as any).message);
+      }
+    };
 
-  const getLatestBlockHeight = async () => {
+    getValidatorsCount();
+  }, [handleSetState]);
+
+  const getLatestBlockHeight = useCallback(async () => {
     try {
       const { data: blockHeight } = await axios.get(LATEST_BLOCK_HEIGHT);
       handleSetState({
@@ -46,9 +46,9 @@ export const useDataBlocks = () => {
     } catch (error) {
       console.log((error as any).message);
     }
-  };
+  }, [handleSetState]);
 
-  const getTransactionCount = async () => {
+  const getTransactionCount = useCallback(async () => {
     try {
       const { data: transactions } = await axios.get(TRANSACTIONS_COUNT);
       handleSetState({
@@ -57,7 +57,7 @@ export const useDataBlocks = () => {
     } catch (error) {
       console.log((error as any).message);
     }
-  };
+  }, [handleSetState]);
 
   useInterval(getLatestBlockHeight, POLLING_INTERVAL);
   useInterval(getTransactionCount, POLLING_INTERVAL);

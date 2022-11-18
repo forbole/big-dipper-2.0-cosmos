@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import Big from 'big.js';
 import * as R from 'ramda';
 import numeral from 'numeral';
@@ -108,75 +108,81 @@ export const useValidators = () => {
     };
   };
 
-  const handleTabChange = (_event: any, newValue: number) => {
+  const handleTabChange = useCallback((_event: any, newValue: number) => {
     setState((prevState) => ({
       ...prevState,
       tab: newValue,
     }));
-  };
+  }, []);
 
-  const handleSort = (key: string) => {
-    if (key === state.sortKey) {
-      setState((prevState) => ({
-        ...prevState,
-        sortDirection: prevState.sortDirection === 'asc' ? 'desc' : 'asc',
-      }));
-    } else {
-      setState((prevState) => ({
-        ...prevState,
-        sortKey: key,
-        sortDirection: 'asc', // new key so we start the sort by asc
-      }));
-    }
-  };
+  const handleSort = useCallback(
+    (key: string) => {
+      if (key === state.sortKey) {
+        setState((prevState) => ({
+          ...prevState,
+          sortDirection: prevState.sortDirection === 'asc' ? 'desc' : 'asc',
+        }));
+      } else {
+        setState((prevState) => ({
+          ...prevState,
+          sortKey: key,
+          sortDirection: 'asc', // new key so we start the sort by asc
+        }));
+      }
+    },
+    [state.sortKey]
+  );
 
-  const sortItems = (items: ItemType[]) => {
-    let sorted: ItemType[] = R.clone(items);
+  const sortItems = useCallback(
+    (items: ItemType[]) => {
+      let sorted: ItemType[] = R.clone(items);
 
-    if (state.tab === 0) {
-      sorted = sorted.filter((x) => x.status === 3);
-    }
+      if (state.tab === 0) {
+        sorted = sorted.filter((x) => x.status === 3);
+      }
 
-    if (state.tab === 1) {
-      sorted = sorted.filter((x) => x.status !== 3);
-    }
+      if (state.tab === 1) {
+        sorted = sorted.filter((x) => x.status !== 3);
+      }
 
-    if (search) {
-      sorted = sorted.filter((x) => {
-        const formattedSearch = search.toLowerCase().replace(/ /g, '');
-        return (
-          x.validator.name.toLowerCase().replace(/ /g, '').includes(formattedSearch) ||
-          x.validator.address.toLowerCase().includes(formattedSearch)
-        );
-      });
-    }
+      if (search) {
+        sorted = sorted.filter((x) => {
+          const formattedSearch = search.toLowerCase().replace(/ /g, '');
+          return (
+            x.validator.name.toLowerCase().replace(/ /g, '').includes(formattedSearch) ||
+            x.validator.address.toLowerCase().includes(formattedSearch)
+          );
+        });
+      }
 
-    if (state.sortKey && state.sortDirection) {
-      sorted.sort((a, b) => {
-        let compareA: any = R.pathOr(undefined, [...state.sortKey.split('.')], a);
-        let compareB: any = R.pathOr(undefined, [...state.sortKey.split('.')], b);
+      if (state.sortKey && state.sortDirection) {
+        sorted.sort((a, b) => {
+          let compareA: any = R.pathOr(undefined, [...state.sortKey.split('.')], a);
+          let compareB: any = R.pathOr(undefined, [...state.sortKey.split('.')], b);
 
-        if (typeof compareA === 'string') {
-          compareA = compareA.toLowerCase();
-          compareB = compareB.toLowerCase();
-        }
+          if (typeof compareA === 'string') {
+            compareA = compareA.toLowerCase();
+            compareB = compareB.toLowerCase();
+          }
 
-        if (compareA < compareB) {
-          return state.sortDirection === 'asc' ? -1 : 1;
-        }
-        if (compareA > compareB) {
-          return state.sortDirection === 'asc' ? 1 : -1;
-        }
-        return 0;
-      });
-    }
+          if (compareA < compareB) {
+            return state.sortDirection === 'asc' ? -1 : 1;
+          }
+          if (compareA > compareB) {
+            return state.sortDirection === 'asc' ? 1 : -1;
+          }
+          return 0;
+        });
+      }
 
-    return sorted;
-  };
+      return sorted;
+    },
+    [search, state.sortDirection, state.sortKey, state.tab]
+  );
 
-  const handleSearch = (value: string) => {
+  const handleSearch = useCallback((value: string) => {
     setSearch(value);
-  };
+  }, []);
 
   return {
     state,

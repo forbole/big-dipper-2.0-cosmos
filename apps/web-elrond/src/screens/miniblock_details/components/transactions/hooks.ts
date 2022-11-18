@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import axios from 'axios';
@@ -16,39 +16,11 @@ export const useTransactions = () => {
     total: 0,
   });
 
-  useEffect(() => {
-    getLatestTransactionCount();
-    getTransactionsByPage(0);
-  }, [router.query.hash]);
-
-  const handleSetState = (stateChange: any) => {
+  const handleSetState = useCallback((stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
-
-  const handlePageChangeCallback = async (page: number, _rowsPerPage: number) => {
-    handleSetState({
-      page,
-      loading: true,
-    });
-    await getTransactionsByPage(page);
-  };
-
-  const getLatestTransactionCount = async () => {
-    try {
-      const { data: total } = await axios.get(TRANSACTIONS_COUNT, {
-        params: {
-          miniBlockHash: router.query.hash,
-        },
-      });
-      handleSetState({
-        total,
-      });
-    } catch (error) {
-      console.log((error as any).message);
-    }
-  };
-
-  const getTransactionsByPage = async (page: number) => {
+  }, []);
+  
+  const getTransactionsByPage = useCallback(async (page: number) => {
     try {
       const { data: transactionsData } = await axios.get(TRANSACTIONS, {
         params: {
@@ -78,7 +50,35 @@ export const useTransactions = () => {
     } catch (error) {
       console.log((error as any).message);
     }
-  };
+  }, [handleSetState, router.query.hash]);
+
+  const handlePageChangeCallback = useCallback(async (page: number, _rowsPerPage: number) => {
+    handleSetState({
+      page,
+      loading: true,
+    });
+    await getTransactionsByPage(page);
+  }, [getTransactionsByPage, handleSetState]);
+
+  useEffect(() => {
+    const getLatestTransactionCount = async () => {
+      try {
+        const { data: total } = await axios.get(TRANSACTIONS_COUNT, {
+          params: {
+            miniBlockHash: router.query.hash,
+          },
+        });
+        handleSetState({
+          total,
+        });
+      } catch (error) {
+        console.log((error as any).message);
+      }
+    };
+
+    getLatestTransactionCount();
+    getTransactionsByPage(0);
+  }, [getTransactionsByPage, handleSetState, router.query.hash]);
 
   return {
     state,

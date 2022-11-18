@@ -21,21 +21,19 @@ module.exports = {
   plugins: ['@typescript-eslint', 'import'],
 
   settings: {
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
     react: {
       version: 'detect',
     },
-    "import/resolver": {
-      "typescript": {
-        "alwaysTryTypes": true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+    'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
         // use an array of glob patterns
-        "project": [
-          "./tsconfig.json",
-        ]
-      }
-    }
+        project: ['./tsconfig.json'],
+      },
+    },
   },
   rules: {
     // TODO: disabled due to historical reason
@@ -72,9 +70,14 @@ module.exports = {
     'react/no-array-index-key': 'off',
     'react/no-unknown-property': 'off',
     'react/no-unused-prop-types': 'off',
+    /* https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md */
+    /* nextjs has its own jsx transform */
     'react/react-in-jsx-scope': 'off',
+    /* https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-default-props.md */
+    /* as per https://twitter.com/dan_abramov/status/1133878326358171650 this will eventually get deprecated. */
     'react/require-default-props': 'off',
-    'react-hooks/exhaustive-deps': 'off',
+    /* Https://github.com/facebook/react/issues/14920 */
+    'react-hooks/exhaustive-deps': 'warn',
     'react-hooks/rules-of-hooks': 'off',
   },
   env: {

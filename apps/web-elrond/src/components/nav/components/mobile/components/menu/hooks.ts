@@ -12,7 +12,7 @@ export const useLanguageDrawer = (lang: string, toggleNavMenus: () => void) => {
       toggleNavMenus();
       setLang(lang);
     }
-  }, [lang]);
+  }, [currentLang, lang, toggleNavMenus]);
 
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
@@ -36,7 +36,7 @@ export const useThemeDrawer = (toggleNavMenus: () => void) => {
       toggleNavMenus();
       setCurrentTheme(theme);
     }
-  }, [theme]);
+  }, [currentTheme, theme, toggleNavMenus]);
 
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);

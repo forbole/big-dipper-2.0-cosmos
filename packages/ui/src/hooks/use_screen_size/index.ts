@@ -4,13 +4,6 @@ import { useTheme } from '@material-ui/core/styles';
 export const useScreenSize = () => {
   const isClient = typeof window === 'object';
 
-  function getSize() {
-    return {
-      width: isClient ? window.innerWidth : undefined,
-      height: isClient ? window.innerHeight : undefined,
-    };
-  }
-
   const [windowSize, setWindowSize] = useState<{
     width: number | undefined;
     height: number | undefined;
@@ -32,7 +25,7 @@ export const useScreenSize = () => {
     window.addEventListener('resize', handleResize);
 
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [isClient]);
 
   useEffect(() => {
     const width = windowSize?.width ?? 0;
@@ -55,7 +48,7 @@ export const useScreenSize = () => {
     } else {
       setIsDesktop(false);
     }
-  }, [windowSize.width]);
+  }, [theme?.breakpoints?.values?.lg, theme?.breakpoints?.values?.md, windowSize?.width]);
 
   return {
     windowSize,
@@ -64,3 +57,10 @@ export const useScreenSize = () => {
     isMobile,
   };
 };
+
+function getSize() {
+  return {
+    width: isClient ? window.innerWidth : undefined,
+    height: isClient ? window.innerHeight : undefined,
+  };
+}

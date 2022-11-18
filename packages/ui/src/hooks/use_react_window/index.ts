@@ -7,11 +7,11 @@ export const useList = () => {
   const listRef = useRef({});
   const rowHeights = useRef<{ [key: keyof any]: number }>({});
 
-  const getRowHeight = (index: keyof any) => {
+  const getRowHeight = useCallback((index: keyof any) => {
     return rowHeights.current[index] + 16 || 100;
-  };
+  }, []);
 
-  const setRowHeight = (idx: keyof any, size: number) => {
+  const setRowHeight = useCallback((idx: keyof any, size: number) => {
     R.pathOr(
       (_: number) => {
         console.log('something went wrong');
@@ -23,7 +23,7 @@ export const useList = () => {
       ...rowHeights.current,
       [idx]: size,
     };
-  };
+  }, []);
 
   return {
     listRef,
@@ -43,7 +43,7 @@ export const useListRow = (
     if (rowRef.current) {
       setRowHeight(index, R.pathOr(0, ['current', 'clientHeight'], rowRef));
     }
-  }, [rowRef]);
+  }, [index, rowRef, setRowHeight]);
 
   return {
     rowRef,
@@ -60,23 +60,23 @@ export const useGrid = (
   const gridRef = createRef();
   const columnRef = createRef();
 
-  const onResize = () => {
+  const onResize = useCallback(() => {
     if (gridRef.current != null) {
       R.pathOr((_: number) => null, ['current', 'resetAfterColumnIndex'], gridRef)(0);
     }
     if (columnRef.current != null) {
       R.pathOr((_: number) => null, ['current', 'resetAfterColumnIndex'], columnRef)(0);
     }
-  };
+  }, [columnRef, gridRef]);
 
-  const getColumnWidth = (width: number, index: number) => {
+  const getColumnWidth = useCallback((width: number, index: number) => {
     return (columns[index].width * width) / 100;
-  };
+  }, [columns]);
 
-  const getRowHeight = () => {
+  const getRowHeight = useCallback(() => {
     // this matches mui table height setup
     return 50;
-  };
+  }, []);
 
   return {
     gridRef,

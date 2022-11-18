@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
 import { STATS } from '@api';
@@ -11,27 +11,27 @@ export const useEpoch = () => {
     roundsPerEpoch: 0,
   });
 
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
-
   useEffect(() => {
+    const handleSetState = (stateChange: any) => {
+      setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+    };
+
+    const getEpoch = async () => {
+      try {
+        const { data: statsData } = await axios.get(STATS);
+
+        handleSetState({
+          epoch: statsData.epoch,
+          roundsPassed: statsData.roundsPassed,
+          roundsPerEpoch: statsData.roundsPerEpoch,
+        });
+      } catch (error) {
+        console.log((error as any).message);
+      }
+    };
+
     getEpoch();
   }, []);
-
-  const getEpoch = async () => {
-    try {
-      const { data: statsData } = await axios.get(STATS);
-
-      handleSetState({
-        epoch: statsData.epoch,
-        roundsPassed: statsData.roundsPassed,
-        roundsPerEpoch: statsData.roundsPerEpoch,
-      });
-    } catch (error) {
-      console.log((error as any).message);
-    }
-  };
 
   return {
     state,

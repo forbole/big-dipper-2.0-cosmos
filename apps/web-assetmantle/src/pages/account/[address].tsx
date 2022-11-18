@@ -6,7 +6,7 @@ const AccountDetailsPage = () => {
 
   useEffect(() => {
     router.replace(`/accounts/${router.query.address}`);
-  }, []);
+  }, [router]);
 
   return null;
 };

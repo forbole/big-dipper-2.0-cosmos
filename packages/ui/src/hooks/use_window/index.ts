@@ -7,7 +7,7 @@ export const useWindowOrigin = () => {
   useEffect(() => {
     if (!isClient) return;
     setLocation(window.location.origin);
-  }, []);
+  }, [isClient]);
 
   return { location };
 };

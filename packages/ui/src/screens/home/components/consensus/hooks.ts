@@ -24,6 +24,42 @@ export const useConsensus = () => {
   });
 
   useEffect(() => {
+    const formatNewRound = (data: any) => {
+      const height =
+        numeral(R.pathOr('', ['result', 'data', 'value', 'height'], data)).value() ?? 0;
+      const proposerHex = R.pathOr('', ['result', 'data', 'value', 'proposer', 'address'], data);
+      const consensusAddress = hexToBech32(proposerHex, chainConfig.prefix.consensus);
+
+      setState((prevState) => ({
+        ...prevState,
+        height,
+        proposer: consensusAddress,
+      }));
+    };
+
+    const formatNewStep = (data: any) => {
+      const stepReference = {
+        0: 0,
+        RoundStepNewHeight: 1,
+        RoundStepPropose: 2,
+        RoundStepPrevote: 3,
+        RoundStepPrecommit: 4,
+        RoundStepCommit: 5,
+      };
+
+      const round = R.pathOr(0, ['result', 'data', 'value', 'round'], data);
+      const step = stepReference[R.pathOr(0, ['result', 'data', 'value', 'step'], data)];
+
+      const roundCompletion = (step / state.totalSteps) * 100;
+
+      setState((prevState) => ({
+        ...prevState,
+        round,
+        step,
+        roundCompletion,
+      }));
+    };
+
     const keepAlive = 30000;
     let queuedPing: ReturnType<typeof setTimeout>;
 
@@ -97,42 +133,7 @@ export const useConsensus = () => {
     return () => {
       client?.close();
     };
-  }, []);
-
-  const formatNewRound = (data: any) => {
-    const height = numeral(R.pathOr('', ['result', 'data', 'value', 'height'], data)).value() ?? 0;
-    const proposerHex = R.pathOr('', ['result', 'data', 'value', 'proposer', 'address'], data);
-    const consensusAddress = hexToBech32(proposerHex, chainConfig.prefix.consensus);
-
-    setState((prevState) => ({
-      ...prevState,
-      height,
-      proposer: consensusAddress,
-    }));
-  };
-
-  const formatNewStep = (data: any) => {
-    const stepReference = {
-      0: 0,
-      RoundStepNewHeight: 1,
-      RoundStepPropose: 2,
-      RoundStepPrevote: 3,
-      RoundStepPrecommit: 4,
-      RoundStepCommit: 5,
-    };
-
-    const round = R.pathOr(0, ['result', 'data', 'value', 'round'], data);
-    const step = stepReference[R.pathOr(0, ['result', 'data', 'value', 'step'], data)];
-
-    const roundCompletion = (step / state.totalSteps) * 100;
-
-    setState((prevState) => ({
-      ...prevState,
-      round,
-      step,
-      roundCompletion,
-    }));
-  };
+  }, [state.totalSteps]);
 
   return {
     state,

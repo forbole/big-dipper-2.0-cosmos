@@ -31,55 +31,55 @@ export const useTokenDetails = () => {
   });
 
   useEffect(() => {
+    const handleSetState = (stateChange: any) => {
+      setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+    };
+  
+    const getTokenDetail = async () => {
+      try {
+        const { data: tokenData } = await axios.get(TOKEN_DETAILS(router.query.token as string));
+  
+        // profile
+        const profile = {
+          name: R.pathOr('', ['name'], tokenData),
+          identifier: R.pathOr('', ['identifier'], tokenData),
+          description: R.pathOr('', ['assets', 'description'], tokenData),
+          imageUrl: R.pathOr('', ['assets', 'pngUrl'], tokenData),
+        };
+  
+        // overview
+        const overview = {
+          owner: R.pathOr('', ['owner'], tokenData),
+          decimals: R.pathOr(0, ['decimals'], tokenData),
+          website: R.pathOr('', ['assets', 'website'], tokenData),
+          email: R.pathOr('', ['assets', 'social', 'email'], tokenData),
+        };
+  
+        // stats
+        const stats = {
+          identifier: R.pathOr('', ['identifier'], tokenData),
+          accounts: R.pathOr(0, ['accounts'], tokenData),
+          transactions: R.pathOr(0, ['transactions'], tokenData),
+          supply: R.pathOr('', ['supply'], tokenData),
+        };
+  
+        handleSetState({
+          loading: false,
+          profile,
+          overview,
+          stats,
+        });
+      } catch (error) {
+        handleSetState({
+          loading: false,
+          exists: false,
+        });
+        console.log((error as any).message);
+      }
+    };
+
     getTokenDetail();
   }, [router.query.token]);
-
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
-
-  const getTokenDetail = async () => {
-    try {
-      const { data: tokenData } = await axios.get(TOKEN_DETAILS(router.query.token as string));
-
-      // profile
-      const profile = {
-        name: R.pathOr('', ['name'], tokenData),
-        identifier: R.pathOr('', ['identifier'], tokenData),
-        description: R.pathOr('', ['assets', 'description'], tokenData),
-        imageUrl: R.pathOr('', ['assets', 'pngUrl'], tokenData),
-      };
-
-      // overview
-      const overview = {
-        owner: R.pathOr('', ['owner'], tokenData),
-        decimals: R.pathOr(0, ['decimals'], tokenData),
-        website: R.pathOr('', ['assets', 'website'], tokenData),
-        email: R.pathOr('', ['assets', 'social', 'email'], tokenData),
-      };
-
-      // stats
-      const stats = {
-        identifier: R.pathOr('', ['identifier'], tokenData),
-        accounts: R.pathOr(0, ['accounts'], tokenData),
-        transactions: R.pathOr(0, ['transactions'], tokenData),
-        supply: R.pathOr('', ['supply'], tokenData),
-      };
-
-      handleSetState({
-        loading: false,
-        profile,
-        overview,
-        stats,
-      });
-    } catch (error) {
-      handleSetState({
-        loading: false,
-        exists: false,
-      });
-      console.log((error as any).message);
-    }
-  };
 
   return {
     state,

@@ -50,7 +50,7 @@ export function useBigDipperNetworksRecoil<TData, TVariables>(
       setNetworks(formattedData);
     };
     getNetworkList();
-  }, []);
+  }, [setNetworks]);
 
   if (disabledSelection) return;
 

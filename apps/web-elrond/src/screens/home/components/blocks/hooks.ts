@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
 import { POLLING_INTERVAL, BLOCKS } from '@api';
@@ -12,11 +12,11 @@ export const useBlocks = () => {
     items: [],
   });
 
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  const getBlocksByPage = useCallback(async () => {
+    const handleSetState = (stateChange: any) => {
+      setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+    };
 
-  const getBlocksByPage = async () => {
     try {
       const { data: blocksData } = await axios.get(BLOCKS, {
         params: {
@@ -40,7 +40,7 @@ export const useBlocks = () => {
     } catch (error) {
       console.log((error as any).message);
     }
-  };
+  }, []);
 
   useInterval(getBlocksByPage, POLLING_INTERVAL);
 

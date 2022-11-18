@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import chainConfig from 'ui/chainConfig';
@@ -18,20 +18,7 @@ export const useProfileDetails = () => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
 
-  // ==========================
-  // Desmos Profile
-  // ==========================
-  const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
-    onComplete: (data) => {
-      handleSetState({
-        loading: false,
-        exists: !!data.profile.length,
-        desmosProfile: formatDesmosProfile(data),
-      });
-    },
-  });
-
-  const shouldShowProfile = () => {
+  const shouldShowProfile = useCallback(() => {
     const dtagConnections = state.desmosProfile?.connections ?? [];
     const dtagConnectionsNetwork = dtagConnections.map((x) => {
       return x.identifier;
@@ -41,9 +28,24 @@ export const useProfileDetails = () => {
     if (containNetwork) {
       return true;
     }
-  };
+  }, [state.desmosProfile?.connections]);
+
+  const query = R.pathOr('', ['query', 'dtag'], router);
 
   useEffect(() => {
+    // ==========================
+    // Desmos Profile
+    // ==========================
+    const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
+      onComplete: (data) => {
+        handleSetState({
+          loading: false,
+          exists: !!data.profile.length,
+          desmosProfile: formatDesmosProfile(data),
+        });
+      },
+    });
+
     const regex = /^@/;
     const profileDtag = router.query.dtag as string;
     const regexCheck = regex.test(profileDtag);
@@ -54,9 +56,9 @@ export const useProfileDetails = () => {
       router.replace('/');
     }
     if (configProfile) {
-      fetchDesmosProfile(R.pathOr('', ['query', 'dtag'], router));
+      fetchDesmosProfile(query);
     }
-  }, [R.pathOr('', ['query', 'dtag'], router)]);
+  }, [query, router]);
 
   useEffect(() => {
     if (state.desmosProfile) {
@@ -80,7 +82,7 @@ export const useProfileDetails = () => {
         });
       }
     }
-  }, [state.desmosProfile]);
+  }, [router, shouldShowProfile, state.desmosProfile]);
 
   return {
     state,

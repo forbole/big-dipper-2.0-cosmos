@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
 import { POLLING_INTERVAL, BLOCKS, LATEST_BLOCK_HEIGHT } from '@api';
@@ -15,34 +15,26 @@ export const useBlocks = () => {
     total: 0,
   });
 
-  useEffect(() => {
-    getLatestBlockHeight();
+  const handleSetState = useCallback((stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   }, []);
 
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  useEffect(() => {
+    const getLatestBlockHeight = async () => {
+      try {
+        const { data: total } = await axios.get(LATEST_BLOCK_HEIGHT);
+        handleSetState({
+          total,
+        });
+      } catch (error) {
+        console.log((error as any).message);
+      }
+    };
+    
+    getLatestBlockHeight();
+  }, [handleSetState]);
 
-  const handlePageChangeCallback = async (page: number, _rowsPerPage: number) => {
-    handleSetState({
-      page,
-      loading: true,
-    });
-    await getBlocksByPage(page);
-  };
-
-  const getLatestBlockHeight = async () => {
-    try {
-      const { data: total } = await axios.get(LATEST_BLOCK_HEIGHT);
-      handleSetState({
-        total,
-      });
-    } catch (error) {
-      console.log((error as any).message);
-    }
-  };
-
-  const getBlocksByPage = async (page: number) => {
+  const getBlocksByPage = useCallback(async (page: number) => {
     try {
       const { data: blocksData } = await axios.get(BLOCKS, {
         params: {
@@ -69,13 +61,21 @@ export const useBlocks = () => {
     } catch (error) {
       console.log((error as any).message);
     }
-  };
+  }, [handleSetState]);
 
-  const getBlocksInterval = async () => {
+  const handlePageChangeCallback = useCallback(async (page: number, _rowsPerPage: number) => {
+    handleSetState({
+      page,
+      loading: true,
+    });
+    await getBlocksByPage(page);
+  }, [getBlocksByPage, handleSetState]);
+
+  const getBlocksInterval = useCallback(async () => {
     if (state.page === 0) {
       await getBlocksByPage(0);
     }
-  };
+  }, [getBlocksByPage, state.page]);
 
   useInterval(getBlocksInterval, POLLING_INTERVAL);
 

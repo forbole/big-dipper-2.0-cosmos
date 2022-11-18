@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import axios from 'axios';
@@ -16,24 +16,11 @@ export const useTransactions = () => {
     total: 0,
   });
 
-  useEffect(() => {
-    getLatestTransactionCount();
-    getTransactionsByPage(0);
-  }, [router.query.address]);
-
-  const handleSetState = (stateChange: any) => {
+  const handleSetState = useCallback((stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  }, []);
 
-  const handlePageChangeCallback = async (page: number, _rowsPerPage: number) => {
-    handleSetState({
-      page,
-      loading: true,
-    });
-    await getTransactionsByPage(page);
-  };
-
-  const getLatestTransactionCount = async () => {
+  const getLatestTransactionCount = useCallback(async () => {
     try {
       const { data: total } = await axios.get(
         ACCOUNT_DETAILS_TRANSACTIONS_COUNT(router.query.address as string)
@@ -44,9 +31,9 @@ export const useTransactions = () => {
     } catch (error) {
       console.log((error as any).message);
     }
-  };
+  }, [handleSetState, router.query.address]);
 
-  const getTransactionsByPage = async (page: number) => {
+  const getTransactionsByPage = useCallback(async (page: number) => {
     try {
       const { data: transactionsData } = await axios.get(
         ACCOUNT_DETAILS_TRANSACTIONS(router.query.address as string),
@@ -78,7 +65,20 @@ export const useTransactions = () => {
     } catch (error) {
       console.log((error as any).message);
     }
-  };
+  }, [handleSetState, router.query.address]);
+
+  const handlePageChangeCallback = useCallback(async (page: number, _rowsPerPage: number) => {
+    handleSetState({
+      page,
+      loading: true,
+    });
+    await getTransactionsByPage(page);
+  }, [getTransactionsByPage, handleSetState]);
+
+  useEffect(() => {
+    getLatestTransactionCount();
+    getTransactionsByPage(0);
+  }, [getLatestTransactionCount, getTransactionsByPage, router.query.address]);
 
   return {
     state,

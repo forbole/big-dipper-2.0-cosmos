@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import axios from 'axios';
@@ -17,37 +17,11 @@ export const useTokens = () => {
     total: 0,
   });
 
-  useEffect(() => {
-    getCount();
-    getTransactionsByPage(0);
-  }, [router.query.address]);
-
-  const handleSetState = (stateChange: any) => {
+  const handleSetState = useCallback((stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  }, []);
 
-  const handlePageChangeCallback = async (page: number, _rowsPerPage: number) => {
-    handleSetState({
-      page,
-      loading: true,
-    });
-    await getTransactionsByPage(page);
-  };
-
-  const getCount = async () => {
-    try {
-      const { data: total } = await axios.get(
-        ACCOUNT_DETAILS_TOKENS_COUNT(router.query.address as string)
-      );
-      handleSetState({
-        total,
-      });
-    } catch (error) {
-      console.log((error as any).message);
-    }
-  };
-
-  const getTransactionsByPage = async (page: number) => {
+  const getTransactionsByPage = useCallback(async (page: number) => {
     try {
       const { data } = await axios.get(ACCOUNT_DETAILS_TOKENS(router.query.address as string), {
         params: {
@@ -80,7 +54,33 @@ export const useTokens = () => {
     } catch (error) {
       console.log((error as any).message);
     }
-  };
+  }, [handleSetState, router.query.address]);
+
+  useEffect(() => {
+    const getCount = async () => {
+      try {
+        const { data: total } = await axios.get(
+          ACCOUNT_DETAILS_TOKENS_COUNT(router.query.address as string)
+        );
+        handleSetState({
+          total,
+        });
+      } catch (error) {
+        console.log((error as any).message);
+      }
+    };
+
+    getCount();
+    getTransactionsByPage(0);
+  }, [getTransactionsByPage, handleSetState, router.query.address]);
+
+  const handlePageChangeCallback = useCallback(async (page: number, _rowsPerPage: number) => {
+    handleSetState({
+      page,
+      loading: true,
+    });
+    await getTransactionsByPage(page);
+  }, [getTransactionsByPage, handleSetState]);
 
   return {
     state,

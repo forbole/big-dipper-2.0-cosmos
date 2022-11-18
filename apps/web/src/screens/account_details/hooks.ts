@@ -51,22 +51,22 @@ export const useAccountDetails = () => {
   const router = useRouter();
   const [state, setState] = useState<AccountDetailState>(initialState);
 
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
-
-  // ==========================
-  // Desmos Profile
-  // ==========================
-  const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
-    onComplete: (data) => {
-      handleSetState({
-        desmosProfile: formatDesmosProfile(data),
-      });
-    },
-  });
-
   useEffect(() => {
+    const handleSetState = (stateChange: any) => {
+      setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+    };
+
+    // ==========================
+    // Desmos Profile
+    // ==========================
+    const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
+      onComplete: (data) => {
+        handleSetState({
+          desmosProfile: formatDesmosProfile(data),
+        });
+      },
+    });
+
     if (!isValidAddress(router.query.address as string)) {
       handleSetState({
         loading: false,
@@ -78,45 +78,45 @@ export const useAccountDetails = () => {
   }, [router.query.address]);
 
   useEffect(() => {
+    const fetchBalance = async () => {
+      const address = router.query.address as string;
+      const promises = [
+        fetchCommission(address),
+        fetchAvailableBalances(address),
+        fetchDelegationBalance(address),
+        fetchUnbondingBalance(address),
+        fetchRewards(address),
+      ];
+      const [commission, available, delegation, unbonding, rewards] = await Promise.allSettled(
+        promises
+      );
+
+      const formattedRawData: any = {};
+      formattedRawData.commission = R.pathOr([], ['value', 'commission'], commission);
+      formattedRawData.accountBalances = R.pathOr([], ['value', 'accountBalances'], available);
+      formattedRawData.delegationBalance = R.pathOr([], ['value', 'delegationBalance'], delegation);
+      formattedRawData.unbondingBalance = R.pathOr([], ['value', 'unbondingBalance'], unbonding);
+      formattedRawData.delegationRewards = R.pathOr([], ['value', 'delegationRewards'], rewards);
+
+      handleSetState(formatAllBalance(formattedRawData));
+    };
+
+    // ==========================
+    // Fetch Data
+    // ==========================
+    const fetchWithdrawalAddress = async () => {
+      const data = await fetchAccountWithdrawalAddress(router.query.address as string);
+      handleSetState({
+        overview: {
+          address: router.query.address,
+          withdrawalAddress: R.pathOr('', ['withdrawalAddress', 'address'], data),
+        },
+      });
+    };
+
     fetchWithdrawalAddress();
     fetchBalance();
   }, [router.query.address]);
-
-  // ==========================
-  // Fetch Data
-  // ==========================
-  const fetchWithdrawalAddress = async () => {
-    const data = await fetchAccountWithdrawalAddress(router.query.address as string);
-    handleSetState({
-      overview: {
-        address: router.query.address,
-        withdrawalAddress: R.pathOr('', ['withdrawalAddress', 'address'], data),
-      },
-    });
-  };
-
-  const fetchBalance = async () => {
-    const address = router.query.address as string;
-    const promises = [
-      fetchCommission(address),
-      fetchAvailableBalances(address),
-      fetchDelegationBalance(address),
-      fetchUnbondingBalance(address),
-      fetchRewards(address),
-    ];
-    const [commission, available, delegation, unbonding, rewards] = await Promise.allSettled(
-      promises
-    );
-
-    const formattedRawData: any = {};
-    formattedRawData.commission = R.pathOr([], ['value', 'commission'], commission);
-    formattedRawData.accountBalances = R.pathOr([], ['value', 'accountBalances'], available);
-    formattedRawData.delegationBalance = R.pathOr([], ['value', 'delegationBalance'], delegation);
-    formattedRawData.unbondingBalance = R.pathOr([], ['value', 'unbondingBalance'], unbonding);
-    formattedRawData.delegationRewards = R.pathOr([], ['value', 'delegationRewards'], rewards);
-
-    handleSetState(formatAllBalance(formattedRawData));
-  };
 
   // ==========================
   // Format Data

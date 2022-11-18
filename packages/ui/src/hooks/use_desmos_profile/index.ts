@@ -21,83 +21,80 @@ if (/^testnet$/i.test(process.env.NEXT_PUBLIC_CHAIN_TYPE || '')) {
 export const useDesmosProfile = (options: Options) => {
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    if (options.address) {
-      fetchDesmosProfile(options.address);
-    }
-  }, [options.address]);
+  const fetchDesmosProfile = useCallback(
+    async (input: string) => {
+      const fetchLink = async (address: string) => {
+        try {
+          const { data } = await axios.post(PROFILE_API, {
+            variables: {
+              address,
+            },
+            query: DesmosProfileLinkDocument,
+          });
+          return data.data;
+        } catch (error) {
+          return null;
+        }
+      };
 
-  const fetchDesmos = async (address: string) => {
-    try {
-      const { data } = await axios.post(PROFILE_API, {
-        variables: {
-          address,
-        },
-        query: DesmosProfileDocument,
-      });
-      return data.data;
-    } catch (error) {
-      return null;
-    }
-  };
+      const fetchDesmos = async (address: string) => {
+        try {
+          const { data } = await axios.post(PROFILE_API, {
+            variables: {
+              address,
+            },
+            query: DesmosProfileDocument,
+          });
+          return data.data;
+        } catch (error) {
+          return null;
+        }
+      };
 
-  const fetchLink = async (address: string) => {
-    try {
-      const { data } = await axios.post(PROFILE_API, {
-        variables: {
-          address,
-        },
-        query: DesmosProfileLinkDocument,
-      });
-      return data.data;
-    } catch (error) {
-      return null;
-    }
-  };
+      const fetchDtag = async (dtag: string) => {
+        try {
+          const { data } = await axios.post(PROFILE_API, {
+            variables: {
+              dtag,
+            },
+            query: DesmosProfileDtagDocument,
+          });
 
-  const fetchDtag = async (dtag: string) => {
-    try {
-      const { data } = await axios.post(PROFILE_API, {
-        variables: {
-          dtag,
-        },
-        query: DesmosProfileDtagDocument,
-      });
+          return data.data;
+        } catch (error) {
+          return null;
+        }
+      };
 
-      return data.data;
-    } catch (error) {
-      return null;
-    }
-  };
+      let data: DesmosProfileQuery = {
+        profile: [],
+      };
 
-  const fetchDesmosProfile = async (input: string) => {
-    let data: DesmosProfileQuery = {
-      profile: [],
-    };
+      try {
+        setLoading(true);
+        if (input.startsWith('@')) {
+          data = await fetchDtag(input.substring(1));
+        }
 
-    try {
-      setLoading(true);
-      if (input.startsWith('@')) {
-        data = await fetchDtag(input.substring(1));
+        if (input.startsWith('desmos')) {
+          data = await fetchDesmos(input);
+        }
+
+        // if the address is a link instead
+        if (!data.profile.length) {
+          data = await fetchLink(input);
+        }
+        setLoading(false);
+        return options.onComplete(data);
+      } catch (error) {
+        setLoading(false);
+        return options.onComplete(data);
       }
+    },
+    [options]
+  );
 
-      if (input.startsWith('desmos')) {
-        data = await fetchDesmos(input);
-      }
-
-      // if the address is a link instead
-      if (!data.profile.length) {
-        data = await fetchLink(input);
-      }
-      setLoading(false);
-      return options.onComplete(data);
-    } catch (error) {
-      setLoading(false);
-      return options.onComplete(data);
-    }
-  };
-
-  const formatDesmosProfile = (data: DesmosProfileQuery): DesmosProfile | null => {
+  const formatDesmosProfile = useCallback((data: DesmosProfileQuery): DesmosProfile | null => {
     if (!data.profile.length) {
       return null;
     }
@@ -138,7 +135,13 @@ export const useDesmosProfile = (options: Options) => {
       bio: profile.bio,
       connections: [nativeData, ...connectionsWithoutNativeSorted],
     };
-  };
+  }, []);
+
+  useEffect(() => {
+    if (options.address) {
+      fetchDesmosProfile(options.address);
+    }
+  }, [fetchDesmosProfile, options.address]);
 
   return {
     loading,

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
 import { useRouter } from 'next/router';
@@ -16,39 +16,7 @@ export const useTransactions = () => {
     total: 0,
   });
 
-  useEffect(() => {
-    getLatestTransactionCount();
-    getTransactionsByPage(0);
-  }, [router.query.token]);
-
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
-
-  const handlePageChangeCallback = async (page: number, _rowsPerPage: number) => {
-    handleSetState({
-      page,
-      loading: true,
-    });
-    await getTransactionsByPage(page);
-  };
-
-  const getLatestTransactionCount = async () => {
-    try {
-      const { data: total } = await axios.get(TRANSACTIONS_COUNT, {
-        params: {
-          token: router.query.token as string,
-        },
-      });
-      handleSetState({
-        total,
-      });
-    } catch (error) {
-      console.log((error as any).message);
-    }
-  };
-
-  const getTransactionsByPage = async (page: number) => {
+  const getTransactionsByPage = useCallback(async (page: number) => {
     try {
       const { data: transactionsData } = await axios.get(TRANSACTIONS, {
         params: {
@@ -78,7 +46,39 @@ export const useTransactions = () => {
     } catch (error) {
       console.log((error as any).message);
     }
+  }, [router.query.token]);
+
+  useEffect(() => {
+    const getLatestTransactionCount = async () => {
+      try {
+        const { data: total } = await axios.get(TRANSACTIONS_COUNT, {
+          params: {
+            token: router.query.token as string,
+          },
+        });
+        handleSetState({
+          total,
+        });
+      } catch (error) {
+        console.log((error as any).message);
+      }
+    };
+
+    getLatestTransactionCount();
+    getTransactionsByPage(0);
+  }, [getTransactionsByPage, router.query.token]);
+
+  const handleSetState = (stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
+
+  const handlePageChangeCallback = useCallback(async (page: number, _rowsPerPage: number) => {
+    handleSetState({
+      page,
+      loading: true,
+    });
+    await getTransactionsByPage(page);
+  }, [getTransactionsByPage]);
 
   return {
     state,

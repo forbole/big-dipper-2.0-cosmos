@@ -11,27 +11,27 @@ export const useStaking = () => {
     percentStaked: 0,
   });
 
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
-
   useEffect(() => {
+    const handleSetState = (stateChange: any) => {
+      setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+    };
+
+    const getEconomics = async () => {
+      try {
+        const { data: economicsData } = await axios.get(ECONOMICS);
+  
+        handleSetState({
+          staked: economicsData.staked,
+          circulatingSupply: economicsData.circulatingSupply,
+          percentStaked: ((economicsData.staked * 100) / economicsData.circulatingSupply).toFixed(2),
+        });
+      } catch (error) {
+        console.log((error as any).message);
+      }
+    };
+
     getEconomics();
   }, []);
-
-  const getEconomics = async () => {
-    try {
-      const { data: economicsData } = await axios.get(ECONOMICS);
-
-      handleSetState({
-        staked: economicsData.staked,
-        circulatingSupply: economicsData.circulatingSupply,
-        percentStaked: ((economicsData.staked * 100) / economicsData.circulatingSupply).toFixed(2),
-      });
-    } catch (error) {
-      console.log((error as any).message);
-    }
-  };
 
   return {
     state,

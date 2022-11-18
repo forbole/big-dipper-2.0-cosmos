@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
 import { POLLING_INTERVAL, TRANSACTIONS, TRANSACTIONS_COUNT } from '@api';
@@ -15,34 +15,26 @@ export const useBlocks = () => {
     total: 0,
   });
 
-  useEffect(() => {
-    getLatestTransactionCount();
+  const handleSetState = useCallback((stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   }, []);
 
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  useEffect(() => {
+    const getLatestTransactionCount = async () => {
+      try {
+        const { data: total } = await axios.get(TRANSACTIONS_COUNT);
+        handleSetState({
+          total,
+        });
+      } catch (error) {
+        console.log((error as any).message);
+      }
+    };
 
-  const handlePageChangeCallback = async (page: number, _rowsPerPage: number) => {
-    handleSetState({
-      page,
-      loading: true,
-    });
-    await getTransactionsByPage(page);
-  };
+    getLatestTransactionCount();
+  }, [handleSetState]);
 
-  const getLatestTransactionCount = async () => {
-    try {
-      const { data: total } = await axios.get(TRANSACTIONS_COUNT);
-      handleSetState({
-        total,
-      });
-    } catch (error) {
-      console.log((error as any).message);
-    }
-  };
-
-  const getTransactionsByPage = async (page: number) => {
+  const getTransactionsByPage = useCallback(async (page: number) => {
     try {
       const { data: transactionsData } = await axios.get(TRANSACTIONS, {
         params: {
@@ -70,13 +62,21 @@ export const useBlocks = () => {
     } catch (error) {
       console.log((error as any).message);
     }
-  };
+  }, [handleSetState]);
 
-  const getTransactionsInterval = async () => {
+  const handlePageChangeCallback = useCallback(async (page: number, _rowsPerPage: number) => {
+    handleSetState({
+      page,
+      loading: true,
+    });
+    await getTransactionsByPage(page);
+  }, [getTransactionsByPage, handleSetState]);
+
+  const getTransactionsInterval = useCallback(async () => {
     if (state.page === 0) {
       await getTransactionsByPage(0);
     }
-  };
+  }, [getTransactionsByPage, state.page]);
 
   useInterval(getTransactionsInterval, POLLING_INTERVAL);
 

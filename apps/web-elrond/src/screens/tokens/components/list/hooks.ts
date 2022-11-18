@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
 import { TOKENS, TOKENS_COUNT } from '@api';
@@ -14,35 +14,7 @@ export const useBlocks = () => {
     total: 0,
   });
 
-  useEffect(() => {
-    getLatestTransactionCount();
-    getTransactionsByPage(0);
-  }, []);
-
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
-
-  const handlePageChangeCallback = async (page: number, _rowsPerPage: number) => {
-    handleSetState({
-      page,
-      loading: true,
-    });
-    await getTransactionsByPage(page);
-  };
-
-  const getLatestTransactionCount = async () => {
-    try {
-      const { data: total } = await axios.get(TOKENS_COUNT);
-      handleSetState({
-        total,
-      });
-    } catch (error) {
-      console.log((error as any).message);
-    }
-  };
-
-  const getTransactionsByPage = async (page: number) => {
+  const getTransactionsByPage = useCallback(async (page: number) => {
     try {
       const { data: tokensData } = await axios.get(TOKENS, {
         params: {
@@ -69,7 +41,35 @@ export const useBlocks = () => {
     } catch (error) {
       console.log((error as any).message);
     }
+  }, []);
+
+  useEffect(() => {
+    const getLatestTransactionCount = async () => {
+      try {
+        const { data: total } = await axios.get(TOKENS_COUNT);
+        handleSetState({
+          total,
+        });
+      } catch (error) {
+        console.log((error as any).message);
+      }
+    };
+
+    getLatestTransactionCount();
+    getTransactionsByPage(0);
+  }, [getTransactionsByPage]);
+
+  const handleSetState = (stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
+
+  const handlePageChangeCallback = useCallback(async (page: number, _rowsPerPage: number) => {
+    handleSetState({
+      page,
+      loading: true,
+    });
+    await getTransactionsByPage(page);
+  }, [getTransactionsByPage]);
 
   return {
     state,

@@ -31,5 +31,5 @@ export const useChainHealthCheck = () => {
       return false;
     }
     // useLatestBlockTimestamp();
-  }, []);
+  }, [isClient]);
 };

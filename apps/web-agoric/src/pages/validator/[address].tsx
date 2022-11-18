@@ -6,7 +6,7 @@ const ValidatorDetailsPage = () => {
 
   useEffect(() => {
     router.replace(`/validators/${router.query.address}`);
-  }, []);
+  }, [router]);
 
   return null;
 };

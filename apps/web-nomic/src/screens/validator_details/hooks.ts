@@ -51,18 +51,18 @@ export const useValidatorDetails = () => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
 
-  // ==========================
-  // Desmos Profile
-  // ==========================
-  const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
-    onComplete: (data) => {
-      handleSetState({
-        desmosProfile: formatDesmosProfile(data),
-      });
-    },
-  });
-
   useEffect(() => {
+    // ==========================
+    // Desmos Profile
+    // ==========================
+    const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
+      onComplete: (data) => {
+        handleSetState({
+          desmosProfile: formatDesmosProfile(data),
+        });
+      },
+    });
+
     if (!isValidAddress(router.query.address as string)) {
       handleSetState({
         loading: false,

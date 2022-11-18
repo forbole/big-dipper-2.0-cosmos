@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
 import { NFTS, NFTS_COUNT } from '@api';
@@ -14,44 +14,11 @@ export const useNFTs = () => {
     total: 0,
   });
 
-  useEffect(() => {
-    getCount();
-    getNFTsByPage(0);
+  const handleSetState = useCallback((stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   }, []);
 
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
-
-  const handlePageChangeCallback = async (page: number, _rowsPerPage: number) => {
-    handleSetState({
-      page,
-      loading: true,
-    });
-    await getNFTsByPage(page);
-  };
-
-  const getCount = async () => {
-    try {
-      const { data: total } = await axios.get(NFTS_COUNT, {
-        headers: {
-          accept: 'application/json',
-        },
-        params: {
-          // keeps getting blocked by client
-          // type: 'SemiFungibleESDT,NonFungibleESDT',
-        },
-      });
-      const maxSize = 1000;
-      handleSetState({
-        total: total > maxSize ? maxSize : total,
-      });
-    } catch (error: any) {
-      console.log(NFTS_COUNT, error.message);
-    }
-  };
-
-  const getNFTsByPage = async (page: number) => {
+  const getNFTsByPage = useCallback(async (page: number) => {
     try {
       const { data: nftData } = await axios.get(NFTS, {
         headers: {
@@ -81,7 +48,40 @@ export const useNFTs = () => {
     } catch (error: any) {
       console.log(NFTS, error.message);
     }
-  };
+  }, [handleSetState]);
+
+  const handlePageChangeCallback = useCallback(async (page: number, _rowsPerPage: number) => {
+    handleSetState({
+      page,
+      loading: true,
+    });
+    await getNFTsByPage(page);
+  }, [getNFTsByPage, handleSetState]);
+
+  useEffect(() => {
+    const getCount = async () => {
+      try {
+        const { data: total } = await axios.get(NFTS_COUNT, {
+          headers: {
+            accept: 'application/json',
+          },
+          params: {
+            // keeps getting blocked by client
+            // type: 'SemiFungibleESDT,NonFungibleESDT',
+          },
+        });
+        const maxSize = 1000;
+        handleSetState({
+          total: total > maxSize ? maxSize : total,
+        });
+      } catch (error: any) {
+        console.log(NFTS_COUNT, error.message);
+      }
+    };
+
+    getCount();
+    getNFTsByPage(0);
+  }, [getNFTsByPage, handleSetState]);
 
   return {
     state,
