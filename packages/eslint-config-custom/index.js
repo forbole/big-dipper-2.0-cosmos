@@ -77,7 +77,6 @@ module.exports = {
     'react/require-default-props': 'off',
     'react-hooks/exhaustive-deps': 'off',
     'react-hooks/rules-of-hooks': 'off',
-    'react/jsx-key': 'off',
   },
   env: {
     es6: true,

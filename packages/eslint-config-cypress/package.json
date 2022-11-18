@@ -4,8 +4,11 @@
   "main": "index.js",
   "license": "Apache-2.0",
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
     "eslint": "^7.23.0",
-    "eslint-config-custom": "*"
+    "eslint-config-custom": "*",
+    "eslint-import-resolver-typescript": "^3.5.2"
   },
   "publishConfig": {
     "access": "public"
