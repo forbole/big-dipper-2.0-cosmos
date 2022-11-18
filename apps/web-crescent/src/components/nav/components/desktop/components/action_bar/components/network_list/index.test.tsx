@@ -11,7 +11,7 @@ let component: renderer.ReactTestRenderer;
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/nav/components/networks', () => 'Networks');
+jest.mock('ui/components/nav/components/networks', () => 'Networks');
 
 // ==================================
 // unit tests

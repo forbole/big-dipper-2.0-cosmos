@@ -9,7 +9,7 @@
     "clean": "rm -rf node_modules .next",
     "start": "NODE_ENV=production next start",
     "lint": "next lint",
-    "test": "jest --passWithNoTests",
+    "test": "jest --passWithNoTests --ci",
     "e2e": "cypress open"
   },
   "dependencies": {
