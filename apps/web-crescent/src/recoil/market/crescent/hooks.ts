@@ -8,7 +8,7 @@ import { formatToken } from 'ui/utils/format_token';
 import { getDenom } from 'ui/utils/get_denom';
 import chainConfig from 'ui/chainConfig';
 import { type AtomState, writeMarket } from 'ui/recoil/market';
-import { getCurrentInflationAmount } from '@utils/get_current_inflation';
+import getCurrentInflationAmount from '@utils/get_current_inflation';
 
 export type UseMarketDataQuery<TData, TVariables> = (
   baseOptions?: QueryHookOptions<TData, TVariables>

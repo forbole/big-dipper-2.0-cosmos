@@ -4,7 +4,7 @@ import numeral from 'numeral';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Box from 'ui/components/box';
-import CustomToolTip, { CustomToolTipData } from 'ui/components/custom_tool_tip';
+import CustomToolTip, { type CustomToolTipData } from 'ui/components/custom_tool_tip';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import chainConfig from 'ui/chainConfig';
 import { useStyles } from './styles';

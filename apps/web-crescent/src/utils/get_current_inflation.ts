@@ -3,7 +3,7 @@ import * as R from 'ramda';
 /**
  * Helper Function to get inflation amount from a list
  */
-export const getCurrentInflationAmount = (
+const getCurrentInflationAmount = (
   // eslint-disable-next-line camelcase
   list: { amount: string; end_time: Date; start_time: Date }[] = []
 ) => {
@@ -18,3 +18,5 @@ export const getCurrentInflationAmount = (
   }
   return result;
 };
+
+export default getCurrentInflationAmount;

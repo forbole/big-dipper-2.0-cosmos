@@ -1,3 +1,3 @@
 import Error, { getInitialProps } from 'ui/screens/error';
-Error.getInitialProps = getInitialProps;
+export { getInitialProps };
 export default Error;

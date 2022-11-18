@@ -15,7 +15,7 @@ import type MobileType from './components/mobile';
 const Desktop = dynamic(() => import('./components/desktop')) as typeof DesktopType;
 const Mobile = dynamic(() => import('./components/mobile')) as typeof MobileType;
 
-export const OtherTokens: React.FC<{
+const OtherTokens: React.FC<{
   className?: string;
   otherTokens: {
     data: OtherTokenType[];

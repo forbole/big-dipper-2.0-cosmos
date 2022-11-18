@@ -21,9 +21,21 @@ module.exports = {
   plugins: ['@typescript-eslint', 'import'],
 
   settings: {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
     react: {
       version: 'detect',
     },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+        // use an array of glob patterns
+        "project": [
+          "./tsconfig.json",
+        ]
+      }
+    }
   },
   rules: {
     // TODO: disabled due to historical reason
@@ -50,7 +62,6 @@ module.exports = {
     'no-console': ['off', { allow: ['warn', 'error'] }],
     // turn on errors for missing imports
     'import/no-cycle': 'off',
-    'import/no-unresolved': 'off',
     'import/extensions': 'off',
     'import/prefer-default-export': 'off',
     'import/newline-after-import': 'off',

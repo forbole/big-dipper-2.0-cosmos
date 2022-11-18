@@ -1,10 +1,10 @@
-import React from 'react';
 import classnames from 'classnames';
-import Box from 'ui/components/box';
-import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
-import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
-import Networks from '@components/nav/components/networks';
+import React from 'react';
 import { useRecoilValue } from 'recoil';
+import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
+import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
+import Box from 'ui/components/box';
+import Networks from 'ui/components/nav/components/networks';
 import { readTheme } from 'ui/recoil/settings';
 import { useStyles } from './styles';
 

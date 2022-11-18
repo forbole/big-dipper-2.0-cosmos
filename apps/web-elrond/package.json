@@ -96,6 +96,7 @@
     "eslint-config-next": "^13.0.3",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-turbo": "latest",
+    "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
