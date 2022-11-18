@@ -21,10 +21,12 @@ jest.mock('ui/components/no_data', () => (props: JSX.IntrinsicElements['div']) =
   <div id="NoData" {...props} />
 ));
 
-jest.mock('./components', () => ({
-  Mobile: (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />,
-  Desktop: (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />,
-}));
+jest.mock('./components/mobile', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Mobile" {...props} />
+));
+jest.mock('./components/desktop', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Desktop" {...props} />
+));
 
 const mockBlocksListenerDocument = jest.fn().mockReturnValue({
   data: {

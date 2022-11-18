@@ -4,4 +4,4 @@ export {
   readValidator,
   writeValidator,
 } from 'ui/recoil/validators';
-export * from './hooks';
+export { type UseValidatorAddressesQuery, type DataType, useValidatorRecoil } from './hooks';

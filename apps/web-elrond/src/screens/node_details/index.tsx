@@ -1,9 +1,13 @@
-import React from 'react';
 import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
-import Layout from 'ui/components/layout';
+import React from 'react';
+import Layout from '@components/layout';
 import LoadAndExist from 'ui/components/load_and_exist';
-import { Profile, Overview, Stats, Consensus, Blocks } from './components';
+import Blocks from './components/blocks';
+import Consensus from './components/consensus';
+import Overview from './components/overview';
+import Profile from './components/profile';
+import Stats from './components/stats';
 import { useNodeDetails } from './hooks';
 import { useStyles } from './styles';
 

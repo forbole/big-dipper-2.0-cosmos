@@ -5,6 +5,7 @@ export type OverviewType = {
 
 export type BalanceType = {
   available: TokenUnit;
+  delegate: TokenUnit;
   total: TokenUnit;
 };
 

@@ -15,11 +15,15 @@ jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
 
-jest.mock('./components', () => ({
-  Mobile: (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />,
-  Desktop: (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />,
-  Total: (props: JSX.IntrinsicElements['div']) => <div id="Total" {...props} />,
-}));
+// jest.mock('./components/mobile', () => (props: JSX.IntrinsicElements['div']) => (
+//   <div id="Mobile" {...props} />
+// ));
+// jest.mock('./components/desktop', () => (props: JSX.IntrinsicElements['div']) => (
+//   <div id="Desktop" {...props} />
+// ));
+jest.mock('./components/total', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Total" {...props} />
+));
 
 // ==================================
 // unit tests

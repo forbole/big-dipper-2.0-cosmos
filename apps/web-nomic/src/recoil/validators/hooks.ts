@@ -4,9 +4,9 @@ import { useRecoilCallback } from 'recoil';
 import * as R from 'ramda';
 import { QueryHookOptions, QueryResult } from '@apollo/client';
 import chainConfig from 'ui/chainConfig';
-import { useDesmosProfile } from '@hooks';
+import { useDesmosProfile } from 'ui/hooks';
 import { atomFamilyState as validatorAtomState } from '@recoil/validators';
-import { atomFamilyState as profileAtomFamilyState } from '@recoil/profiles';
+import { atomFamilyState as profileAtomFamilyState } from 'ui/recoil/profiles';
 
 export type UseValidatorAddressesQuery<TData, TVariables> = (
   baseOptions?: QueryHookOptions<TData, TVariables>

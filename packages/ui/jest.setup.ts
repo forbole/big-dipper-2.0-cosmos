@@ -57,7 +57,7 @@ jest.mock('next/dynamic', () => () => {
   return DynamicComponent;
 });
 
-jest.mock('@recoil/profiles', () => {
+jest.mock('ui/recoil/profiles', () => {
   return {
     useProfileRecoil: jest.fn((address) => ({
       address,

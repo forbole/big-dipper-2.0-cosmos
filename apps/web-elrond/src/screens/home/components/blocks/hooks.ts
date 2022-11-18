@@ -2,7 +2,7 @@ import { useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
 import { POLLING_INTERVAL, BLOCKS } from '@api';
-import { useInterval } from '@hooks';
+import { useInterval } from 'ui/hooks';
 import type { BlockState } from './types';
 
 export const PAGE_SIZE = 7;

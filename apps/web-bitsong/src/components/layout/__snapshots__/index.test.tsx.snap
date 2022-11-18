@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component: Layout it renders 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <div
+    className="makeStyles-contentWrapper"
+  >
+    <div
+      id="Nav"
+    />
+    <div
+      className="makeStyles-children"
+    >
+      <div
+        className="makeStyles-appBarPlaceholder"
+      />
+      <div
+        className="main-content"
+      >
+        <div>
+          hello world
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="makeStyles-footer"
+    id="Footer"
+  />
+</div>
+`;

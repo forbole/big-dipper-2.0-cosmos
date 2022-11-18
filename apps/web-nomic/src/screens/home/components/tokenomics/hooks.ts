@@ -9,13 +9,11 @@ export const useTokenomics = () => {
   const [state, setState] = useState<{
     bonded: number;
     unbonded: number;
-    unbonding: number;
     total: number;
     denom: string;
   }>({
     bonded: 0,
     unbonded: 0,
-    unbonding: 0,
     total: 0,
     denom: '',
   });
@@ -43,11 +41,8 @@ export const useTokenomics = () => {
     const bonded = R.pathOr(state.bonded, ['stakingPool', 0, 'bonded'], data);
     results.bonded = numeral(formatToken(bonded, results.denom).value).value() ?? 0;
 
-    const unbonding = R.pathOr(state.bonded, ['stakingPool', 0, 'unbonded'], data);
-    results.unbonding = numeral(formatToken(unbonding, results.denom).value).value() ?? 0;
-
-    const unbonded = results.total - results.unbonding - results.bonded;
-    results.unbonded = unbonded;
+    const unbonded = R.pathOr(state.unbonded, ['stakingPool', 0, 'unbonded'], data);
+    results.unbonded = numeral(formatToken(unbonded, results.denom).value).value() ?? 0;
 
     return results;
   };

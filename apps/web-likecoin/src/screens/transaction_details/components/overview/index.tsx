@@ -5,7 +5,7 @@ import Link from 'next/link';
 import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import Typography from '@material-ui/core/Typography';
 import { useRecoilValue } from 'recoil';
-import { readDate } from '@recoil/settings';
+import { readDate } from 'ui/recoil/settings';
 import useTranslation from 'next-translate/useTranslation';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
 import BoxDetails from 'ui/components/box_details';

@@ -1,7 +1,12 @@
 import React from 'react';
-import Layout from 'ui/components/layout';
+import Layout from '@components/layout';
 import { useStyles } from './styles';
-import { DataBlocks, Blocks, Transactions, Epoch, Price, Staking } from './components';
+import DataBlocks from './components/data_blocks';
+import Blocks from './components/blocks';
+import Transactions from './components/transactions';
+import Epoch from './components/epoch';
+import Price from './components/price';
+import Staking from './components/staking';
 
 const Home = () => {
   const classes = useStyles();

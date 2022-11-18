@@ -1,11 +1,13 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import Layout from 'ui/components/layout';
+import Layout from '@components/layout';
 import LoadAndExist from 'ui/components/load_and_exist';
 import DesmosProfile from 'ui/components/desmos_profile';
 import { NextSeo } from 'next-seo';
+import Overview from 'ui/screens/account_details/components/overview';
 import { useStyles } from './styles';
-import { Overview, Balance, OtherTokens } from './components';
+import Balance from './components/balance';
+import OtherTokens from './components/other_tokens';
 import { useAccountDetails } from './hooks';
 
 const AccountDetails = () => {
@@ -42,6 +44,7 @@ const AccountDetails = () => {
             <Balance
               className={classes.balance}
               available={state.balance.available}
+              delegate={state.balance.delegate}
               total={state.balance.total}
             />
             <OtherTokens className={classes.otherTokens} otherTokens={state.otherTokens} />

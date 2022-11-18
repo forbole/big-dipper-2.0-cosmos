@@ -41,20 +41,12 @@ describe('screen: Home/Blocks/Desktop', () => {
               height: 300,
               txs: 2,
               timestamp: '',
-              proposer: {
-                name: 'proposer',
-                address: 'address',
-              },
               hash: 'hash',
             },
             {
               height: 301,
               txs: 2,
               timestamp: '',
-              proposer: {
-                name: 'proposer',
-                address: 'address',
-              },
               hash: 'hash',
             },
           ]}

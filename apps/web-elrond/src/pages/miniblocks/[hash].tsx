@@ -1,4 +1,4 @@
-import MiniBlockDetails from '@src/screens/miniblock_details';
+import MiniBlockDetails from '@screens/miniblock_details';
 
 const MiniBlockPage = () => {
   return <MiniBlockDetails />;

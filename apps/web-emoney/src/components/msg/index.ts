@@ -36,7 +36,7 @@ export { default as EditValidator } from 'ui/components/msg/staking/edit_validat
 export { default as Redelegate } from 'ui/components/msg/staking/redelegate';
 export { default as Undelegate } from 'ui/components/msg/staking/undelegate';
 export { default as Unknown } from 'ui/components/msg/unknown';
-export { default as CreatePeriodicVestingAccount } from 'ui/components/msg/vesting/create_periodic_vesting_account';
+export { default as CreatePeriodicVestingAccount } from './vesting/create_periodic_vesting_account';
 export { default as CreateVestingAccount } from 'ui/components/msg/vesting/create_vesting_account';
 export { default as CreateIssuer } from './authority/create_issuer';
 export { default as Channel } from 'ui/components/msg/ibc/channel';

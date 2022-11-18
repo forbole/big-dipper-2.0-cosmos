@@ -6,10 +6,11 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import Divider from '@material-ui/core/Divider';
 import AvatarName from 'ui/components/avatar_name';
 import { getValidatorConditionClass } from 'ui/utils/get_validator_condition';
-import { useList, useListRow } from '@hooks';
+import { useList, useListRow } from 'ui/hooks';
 import { getValidatorStatus } from 'ui/utils/get_validator_status';
-import { SingleValidator } from './component';
-import { Condition, VotingPower } from '..';
+import SingleValidator from './component/single_validator';
+import Condition from '../condition';
+import VotingPower from '../voting_power';
 import type { ItemType } from '../../types';
 
 const Mobile: React.FC<{

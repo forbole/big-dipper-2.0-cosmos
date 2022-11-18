@@ -4,7 +4,7 @@ import Big from 'big.js';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { useRecoilValue } from 'recoil';
-import { readMarket } from '@recoil/market';
+import { readMarket } from 'ui/recoil/market';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import { PieChart, Pie, ResponsiveContainer, Cell } from 'recharts';

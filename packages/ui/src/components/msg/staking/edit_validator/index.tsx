@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import { MsgEditValidator } from '@models';
 import { VALIDATOR_DETAILS } from 'ui/utils/go_to_page';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const EditValidator: React.FC<{ message: MsgEditValidator }> = (props) => {
   const { message } = props;

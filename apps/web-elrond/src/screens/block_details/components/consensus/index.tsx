@@ -5,7 +5,7 @@ import useTranslation from 'next-translate/useTranslation';
 import Typography from '@material-ui/core/Typography';
 import Box from 'ui/components/box';
 import NoData from '@components/no_data';
-import { useScreenSize } from '@hooks';
+import { useScreenSize } from 'ui/hooks';
 import type { ConsensusType } from '../../types';
 import { useStyles } from './styles';
 import type DesktopType from './components/desktop';

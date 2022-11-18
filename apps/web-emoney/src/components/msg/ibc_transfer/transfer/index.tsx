@@ -3,7 +3,7 @@ import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import { MsgTransfer } from '@models';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
 
 const Transfer: React.FC<{ message: MsgTransfer }> = (props) => {

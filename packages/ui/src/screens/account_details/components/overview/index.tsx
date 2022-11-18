@@ -4,7 +4,7 @@ import useTranslation from 'next-translate/useTranslation';
 import Typography from '@material-ui/core/Typography';
 import Dialog from '@material-ui/core/Dialog';
 import { QRCodeSVG } from 'qrcode.react';
-import { useScreenSize, useWindowOrigin } from '@hooks';
+import { useScreenSize, useWindowOrigin } from 'ui/hooks';
 import {
   FacebookShareButton,
   FacebookIcon,

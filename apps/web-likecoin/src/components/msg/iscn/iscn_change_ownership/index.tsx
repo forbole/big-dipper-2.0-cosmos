@@ -4,7 +4,7 @@ import numeral from 'numeral';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import MsgChangeIscnRecordOwnership from '@models/likecoin/msg/iscn/msg_change_iscn_record_ownership';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const IscnChangeOwnership: React.FC<{ message: MsgChangeIscnRecordOwnership }> = (props) => {
   const { message } = props;

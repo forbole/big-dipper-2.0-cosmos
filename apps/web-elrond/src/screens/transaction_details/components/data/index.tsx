@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { decodeBase64 } from '@utils/base64';
-import { CodeBlock } from '..';
+import CodeBlock from '../code_block';
 import type { DataType } from '../../types';
 import { useStyles } from './styles';
 

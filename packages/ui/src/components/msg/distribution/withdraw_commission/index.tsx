@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import { formatNumber } from 'ui/utils/format_token';
 import { MsgWithdrawValidatorCommission } from '@models';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const WithdrawCommission: React.FC<{ message: MsgWithdrawValidatorCommission }> = (props) => {
   const { message } = props;

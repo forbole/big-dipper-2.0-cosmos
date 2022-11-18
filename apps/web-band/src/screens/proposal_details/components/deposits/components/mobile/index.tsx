@@ -7,7 +7,7 @@ import { formatNumber } from 'ui/utils/format_token';
 import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import AvatarName from 'ui/components/avatar_name';
 import { useRecoilValue } from 'recoil';
-import { readDate } from '@recoil/settings';
+import { readDate } from 'ui/recoil/settings';
 import { useStyles } from './styles';
 import type { ItemType } from '../../types';
 

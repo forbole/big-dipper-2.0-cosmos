@@ -3,7 +3,7 @@ import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import { type MsgConnectionOpenInit } from '@models';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const ConnectionOpenInit: React.FC<{ message: MsgConnectionOpenInit }> = (props) => {
   const { message } = props;

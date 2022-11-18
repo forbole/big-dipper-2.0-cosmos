@@ -22,18 +22,22 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('ui/components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Layout" {...props} />
 ));
 jest.mock('ui/components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="LoadAndExist" {...props} />
 ));
 
-jest.mock('./components', () => ({
-  Overview: (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />,
-  Messages: (props: JSX.IntrinsicElements['div']) => <div id="Messages" {...props} />,
-  Logs: (props: JSX.IntrinsicElements['div']) => <div id="Logs" {...props} />,
-}));
+jest.mock('./components/overview', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Overview" {...props} />
+));
+jest.mock('./components/messages', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Messages" {...props} />
+));
+jest.mock('./components/logs', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Logs" {...props} />
+));
 
 const mockTransactionDetailsDocument = jest.fn().mockReturnValue({
   data: {

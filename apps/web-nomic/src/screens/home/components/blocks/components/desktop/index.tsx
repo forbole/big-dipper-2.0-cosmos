@@ -14,11 +14,11 @@ import { BLOCK_DETAILS } from 'ui/utils/go_to_page';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { useStyles } from './styles';
 import { columns } from './utils';
-import type { ItemType } from '../../types';
+import type { BlockType } from '../../types';
 
 const Desktop: React.FC<{
   className?: string;
-  items: ItemType[];
+  items: BlockType[];
 }> = ({ className, items }) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();

@@ -5,14 +5,14 @@ import useTranslation from 'next-translate/useTranslation';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import Typography from '@material-ui/core/Typography';
-import { useGrid } from '@hooks';
+import { useGrid } from 'ui/hooks';
 import { formatNumber } from 'ui/utils/format_token';
 import SortArrows from 'ui/components/sort_arrows';
 import AvatarName from '@components/avatar_name';
 import { VALIDATOR_DETAILS, NODE_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
 import { fetchColumns } from './utils';
-import { VotingPower } from '..';
+import VotingPower from '../voting_power';
 import type { ValidatorType } from '../../../../types';
 
 const Desktop: React.FC<{

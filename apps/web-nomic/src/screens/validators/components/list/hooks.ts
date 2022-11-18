@@ -3,7 +3,6 @@ import Big from 'big.js';
 import * as R from 'ramda';
 import numeral from 'numeral';
 import { useValidatorsQuery, ValidatorsQuery } from '@graphql/types/general_types';
-import { useOnlineVotingPower } from '../../../home/components/hero/components/online_voting_power/hooks';
 import type { ValidatorsState, ItemType, ValidatorType } from './types';
 
 export const useValidators = () => {
@@ -17,7 +16,6 @@ export const useValidators = () => {
     sortKey: 'validator.name',
     sortDirection: 'asc',
   });
-  const { onlineVPState } = useOnlineVotingPower();
 
   const handleSetState = (stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
@@ -39,7 +37,9 @@ export const useValidators = () => {
   // Parse data
   // ==========================
   const formatValidators = (data: ValidatorsQuery) => {
-    const votingPowerOverall = onlineVPState.votingPower;
+    const votingPowerOverall = numeral(
+      R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data)
+    ).value();
 
     let formattedItems: ValidatorType[] = data.validator.map((x) => {
       const inActiveSetString = R.pathOr('false', ['validatorStatuses', 'in_active_set'], x);
@@ -68,7 +68,7 @@ export const useValidators = () => {
     let cumulativeVotingPower = Big(0);
     let reached = false;
     formattedItems.forEach((x: any) => {
-      if (x.inActiveSet) {
+      if (x.inActiveSet === 'true') {
         const totalVp = cumulativeVotingPower.add(x.votingPowerPercent);
         if (totalVp.lte(34) && !reached) {
           x.topVotingPower = true;

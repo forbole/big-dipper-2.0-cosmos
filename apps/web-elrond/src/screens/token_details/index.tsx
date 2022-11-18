@@ -1,9 +1,12 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
-import Layout from 'ui/components/layout';
+import Layout from '@components/layout';
 import LoadAndExist from 'ui/components/load_and_exist';
-import { Profile, Overview, Stats, Transactions } from './components';
+import Profile from './components/profile';
+import Overview from './components/overview';
+import Stats from './components/stats';
+import Transactions from './components/transactions';
 import { useStyles } from './styles';
 import { useTokenDetails } from './hooks';
 

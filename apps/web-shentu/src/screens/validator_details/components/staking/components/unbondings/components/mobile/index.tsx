@@ -6,7 +6,7 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import AvatarName from 'ui/components/avatar_name';
 import { useRecoilValue } from 'recoil';
-import { readDate } from '@recoil/settings';
+import { readDate } from 'ui/recoil/settings';
 import { formatNumber } from 'ui/utils/format_token';
 import { useStyles } from './styles';
 import type { ItemType } from '../../types';

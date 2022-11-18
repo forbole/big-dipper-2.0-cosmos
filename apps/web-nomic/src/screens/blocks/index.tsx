@@ -2,12 +2,11 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import useTranslation from 'next-translate/useTranslation';
 import { NextSeo } from 'next-seo';
-import Layout from 'ui/components/layout';
+import Layout from '@components/layout';
 import Box from 'ui/components/box';
 import LoadAndExist from 'ui/components/load_and_exist';
 import NoData from 'ui/components/no_data';
-import { useScreenSize } from '@hooks';
-import { useProfilesRecoil } from '@recoil/profiles';
+import { useScreenSize } from 'ui/hooks';
 import { useStyles } from './styles';
 import { useBlocks } from './hooks';
 import type DesktopType from './components/desktop';
@@ -21,14 +20,6 @@ const Blocks = () => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const { state, loadMoreItems, itemCount, isItemLoaded } = useBlocks();
-
-  const proposerProfiles = useProfilesRecoil(state.items.map((x) => x.proposer));
-  const mergedDataWithProfiles = state.items.map((x, i) => {
-    return {
-      ...(x as object),
-      proposer: proposerProfiles[i],
-    };
-  });
 
   return (
     <>
@@ -47,14 +38,14 @@ const Blocks = () => {
               <>
                 {isDesktop ? (
                   <Desktop
-                    items={mergedDataWithProfiles as any}
+                    items={state.items}
                     itemCount={itemCount}
                     loadMoreItems={loadMoreItems}
                     isItemLoaded={isItemLoaded}
                   />
                 ) : (
                   <Mobile
-                    items={mergedDataWithProfiles as any}
+                    items={state.items}
                     itemCount={itemCount}
                     loadMoreItems={loadMoreItems}
                     isItemLoaded={isItemLoaded}

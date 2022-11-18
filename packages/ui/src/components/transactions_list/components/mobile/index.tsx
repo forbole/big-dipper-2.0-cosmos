@@ -15,7 +15,7 @@ import SingleTransactionMobile from 'ui/components/single_transaction_mobile';
 import Loading from 'ui/components/loading';
 import Result from 'ui/components/result';
 import Tag from 'ui/components/tag';
-import { useList, useListRow } from '@hooks';
+import { useList, useListRow } from 'ui/hooks';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { useStyles } from './styles';
 import type { TransactionsListState } from '../../types';

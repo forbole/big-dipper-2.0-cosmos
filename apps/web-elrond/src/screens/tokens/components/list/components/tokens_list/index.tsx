@@ -1,7 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import NoData from '@components/no_data';
-import { useScreenSize } from '@hooks';
+import { useScreenSize } from 'ui/hooks';
 import type { TokenType } from '../../types';
 import type DesktopType from './components/desktop';
 import type MobileType from './components/mobile';

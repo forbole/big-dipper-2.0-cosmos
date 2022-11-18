@@ -1,4 +1,4 @@
-export { default as Layout } from 'ui/components/layout';
+export { default as Layout } from '@components/layout';
 export { default as Footer } from 'ui/components/footer';
 export { default as SingleBlockMobile } from 'ui/components/single_block_mobile';
 export { default as Avatar } from 'ui/components/avatar';

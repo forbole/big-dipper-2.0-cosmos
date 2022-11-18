@@ -7,7 +7,7 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { useList, useListRow } from '@hooks';
+import { useList, useListRow } from 'ui/hooks';
 import Box from 'ui/components/box';
 import TransactionMessagesFilter from 'ui/components/transaction_messages_filter';
 import { getMessageByType } from '@components/msg';

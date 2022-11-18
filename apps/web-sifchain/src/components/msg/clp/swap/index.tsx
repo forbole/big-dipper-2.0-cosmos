@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
 import Name from 'ui/components/name';
 import MsgSwap from '@models/sifchain/msg/clp/msg_swap';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const Swap: React.FC<{ message: MsgSwap }> = (props) => {
   const { message } = props;

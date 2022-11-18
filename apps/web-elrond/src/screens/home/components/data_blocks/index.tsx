@@ -4,7 +4,7 @@ import numeral from 'numeral';
 import { useRecoilValue } from 'recoil';
 import { readMarket } from '@recoil/market/elrond';
 import useTranslation from 'next-translate/useTranslation';
-import { SingleBlock } from './components';
+import SingleBlock from './components/single_block';
 import { useStyles } from './styles';
 import { useDataBlocks } from './hooks';
 

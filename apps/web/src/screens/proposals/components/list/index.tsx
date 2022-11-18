@@ -10,10 +10,11 @@ import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
 
 import { PROPOSAL_DETAILS } from 'ui/utils/go_to_page';
-import { useList, useListRow } from '@hooks';
+import { useList, useListRow } from 'ui/hooks';
 import Loading from 'ui/components/loading';
 import Box from 'ui/components/box';
-import { Total, SingleProposal } from './components';
+import SingleProposal from 'ui/components/single_proposal';
+import Total from './components/total';
 import { useStyles } from './styles';
 import type { ProposalType } from '../../types';
 

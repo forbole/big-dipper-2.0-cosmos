@@ -13,14 +13,14 @@ import { mergeRefs } from 'ui/utils/merge_refs';
 import Loading from 'ui/components/loading';
 import Result from 'ui/components/result';
 import Tag from 'ui/components/tag';
-import { useList, useListRow, useScreenSize } from '@hooks';
+import { useList, useListRow, useScreenSize } from 'ui/hooks';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { getMessageByType } from 'ui/components/msg';
 import { useRecoilValue } from 'recoil';
-import { readDate } from '@recoil/settings';
+import { readDate } from 'ui/recoil/settings';
 import { useStyles } from './styles';
 import type { TransactionsListDetailsState } from '../../types';
-import { SingleTransaction } from './components';
+import SingleTransaction from './components/single_transaction';
 
 const TransactionList: React.FC<TransactionsListDetailsState> = ({
   className,

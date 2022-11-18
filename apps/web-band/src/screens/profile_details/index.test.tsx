@@ -19,7 +19,7 @@ jest.mock('next/router', () => ({
     push: jest.fn(() => '/@dtag'),
   }),
 }));
-jest.mock('ui/components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Layout" {...props} />
 ));
 jest.mock('ui/components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
@@ -29,9 +29,9 @@ jest.mock('ui/components/desmos_profile', () => (props: JSX.IntrinsicElements['d
   <div id="DesmosProfile" {...props} />
 ));
 
-jest.mock('./components', () => ({
-  Connections: (props: JSX.IntrinsicElements['div']) => <div id="Connections" {...props} />,
-}));
+jest.mock('./components/connections', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Connections" {...props} />
+));
 
 // ==================================
 // unit tests

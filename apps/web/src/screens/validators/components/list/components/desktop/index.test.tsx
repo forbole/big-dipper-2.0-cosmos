@@ -11,10 +11,12 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('..', () => ({
-  VotingPower: (props: JSX.IntrinsicElements['div']) => <div id="VotingPower" {...props} />,
-  Condition: (props: JSX.IntrinsicElements['div']) => <div id="Condition" {...props} />,
-}));
+jest.mock('../condition', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Condition" {...props} />
+));
+jest.mock('../voting_power', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="VotingPower" {...props} />
+));
 
 jest.mock('ui/components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="AvatarName" {...props} />

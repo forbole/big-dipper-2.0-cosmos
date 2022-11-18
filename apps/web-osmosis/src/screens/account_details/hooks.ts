@@ -6,7 +6,7 @@ import { getDenom } from 'ui/utils/get_denom';
 import { formatToken } from 'ui/utils/format_token';
 import chainConfig from 'ui/chainConfig';
 import { isValidAddress } from 'ui/utils/prefix_convert';
-import { useDesmosProfile } from '@hooks';
+import { useDesmosProfile } from 'ui/hooks';
 import type { AccountDetailState } from './types';
 import {
   fetchAccountWithdrawalAddress,

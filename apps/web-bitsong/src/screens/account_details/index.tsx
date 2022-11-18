@@ -1,11 +1,15 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import Layout from 'ui/components/layout';
+import Layout from '@components/layout';
 import LoadAndExist from 'ui/components/load_and_exist';
 import DesmosProfile from 'ui/components/desmos_profile';
 import { NextSeo } from 'next-seo';
+import Overview from 'ui/screens/account_details/components/overview';
+import Staking from 'ui/screens/account_details/components/staking';
+import Balance from 'ui/screens/account_details/components/balance';
+import OtherTokens from 'ui/screens/account_details/components/other_tokens';
 import { useStyles } from './styles';
-import { Overview, Balance, Staking, Transactions, OtherTokens } from './components';
+import Transactions from './components/transactions';
 import { useAccountDetails } from './hooks';
 
 const AccountDetails = () => {

@@ -7,7 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import DialogContent from '@material-ui/core/DialogContent';
 import CloseIcon from '@material-ui/icons/Close';
 import Pagination from 'ui/components/pagination';
-import { usePagination, useScreenSize } from '@hooks';
+import { usePagination, useScreenSize } from 'ui/hooks';
 import { useStyles } from './styles';
 import Desktop from './components/desktop';
 import Mobile from './components/mobile';

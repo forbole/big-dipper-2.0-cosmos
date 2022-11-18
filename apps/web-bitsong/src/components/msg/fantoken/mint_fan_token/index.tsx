@@ -3,7 +3,7 @@ import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import MsgMintFanToken from '@models/bitsong/msg/fantoken/msg_mint_fan_token';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const MintFanToken: React.FC<{ message: MsgMintFanToken }> = (props) => {
   const { message } = props;

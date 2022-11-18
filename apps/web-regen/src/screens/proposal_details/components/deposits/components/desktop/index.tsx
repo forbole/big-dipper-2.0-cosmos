@@ -9,7 +9,7 @@ import TableBody from '@material-ui/core/TableBody';
 import AvatarName from 'ui/components/avatar_name';
 import { formatNumber } from 'ui/utils/format_token';
 import { useRecoilValue } from 'recoil';
-import { readDate } from '@recoil/settings';
+import { readDate } from 'ui/recoil/settings';
 import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import { columns } from './utils';
 import type { ItemType } from '../../types';

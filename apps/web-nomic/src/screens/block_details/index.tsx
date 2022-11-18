@@ -1,9 +1,11 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { NextSeo } from 'next-seo';
-import Layout from 'ui/components/layout';
+import Layout from '@components/layout';
 import LoadAndExist from 'ui/components/load_and_exist';
-import { Overview, Transactions, Signatures } from './components';
+import Overview from 'ui/screens/block_details/components/overview';
+import Transactions from './components/transactions';
+import Signatures from './components/signatures';
 import { useStyles } from './styles';
 import { useBlockDetails } from './hooks';
 

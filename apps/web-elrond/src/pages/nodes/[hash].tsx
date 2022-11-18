@@ -1,4 +1,4 @@
-import NodeDetails from '@src/screens/node_details';
+import NodeDetails from '@screens/node_details';
 
 const NodeDetailsPage = () => {
   return <NodeDetails />;

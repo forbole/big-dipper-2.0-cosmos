@@ -13,7 +13,7 @@ import { mergeRefs } from 'ui/utils/merge_refs';
 import Loading from 'ui/components/loading';
 import Result from 'ui/components/result';
 import Tag from 'ui/components/tag';
-import { useGrid } from '@hooks';
+import { useGrid } from 'ui/hooks';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import type { TransactionsListState } from '../../types';
 import { columns } from './utils';

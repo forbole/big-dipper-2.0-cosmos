@@ -43,6 +43,9 @@ test.js
 # Sentry
 .sentryclirc
 
+# WebStorm
+.idea/
+
 # Yarn Berry
 .pnp.*
 .yarn/*

@@ -3,7 +3,7 @@ import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import MsgStoreRawDataRequest from '@models/regen/msg/data/msg_store_raw_data_request';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const StoreRawDataRequest: React.FC<{ message: MsgStoreRawDataRequest }> = (props) => {
   const { message } = props;

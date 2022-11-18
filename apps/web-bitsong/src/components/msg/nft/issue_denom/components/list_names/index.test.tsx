@@ -6,7 +6,7 @@ import ListNames from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@recoil/profiles', () => {
+jest.mock('ui/recoil/profiles', () => {
   return {
     useProfilesRecoil: jest.fn((addresses) => {
       return addresses.map((address) => ({

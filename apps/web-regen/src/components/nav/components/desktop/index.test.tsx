@@ -11,14 +11,16 @@ let component: renderer.ReactTestRenderer;
 // ==================================
 // mocks
 // ==================================
-jest.mock('./components', () => ({
-  ActionBar: (props: JSX.IntrinsicElements['div']) => <div id="actionBar" {...props} />,
-}));
+jest.mock('./components/action_bar', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="actionBar" {...props} />
+));
 
-jest.mock('..', () => ({
-  MenuItems: (props: JSX.IntrinsicElements['div']) => <div id="MenuItems" {...props} />,
-  TitleBar: (props: JSX.IntrinsicElements['div']) => <div id="TitleBar" {...props} />,
-}));
+jest.mock('ui/components/nav/components/menu_items', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="MenuItems" {...props} />
+));
+jest.mock('../title_bar', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="TitleBar" {...props} />
+));
 // ==================================
 // unit tests
 // ==================================

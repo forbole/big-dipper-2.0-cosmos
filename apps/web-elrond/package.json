@@ -10,8 +10,7 @@
     "start": "NODE_ENV=production next start",
     "lint": "next lint",
     "test": "jest --passWithNoTests",
-    "e2e": "cypress open",
-    "graphql:codegen": "graphql-codegen"
+    "e2e": "cypress open"
   },
   "dependencies": {
     "@apollo/client": "^3.7.1",

@@ -3,7 +3,7 @@ import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import MsgRescueCeth from '@models/sifchain/msg/ethbridge/msg_rescue_ceth';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const RescueCeth: React.FC<{ message: MsgRescueCeth }> = (props) => {
   const { message } = props;

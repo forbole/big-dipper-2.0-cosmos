@@ -29,11 +29,15 @@ jest.mock('ui/components/load_and_exist', () => (props: JSX.IntrinsicElements['d
   <div id="LoadAndExist" {...props} />
 ));
 
-jest.mock('./components', () => ({
-  Overview: (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />,
-  Messages: (props: JSX.IntrinsicElements['div']) => <div id="Messages" {...props} />,
-  Logs: (props: JSX.IntrinsicElements['div']) => <div id="Logs" {...props} />,
-}));
+jest.mock('./components/overview', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Overview" {...props} />
+));
+jest.mock('./components/messages', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Messages" {...props} />
+));
+jest.mock('./components/logs', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Logs" {...props} />
+));
 
 const mockTransactionDetailsDocument = jest.fn().mockReturnValue({
   data: {

@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
 import MsgAddLimitOrder from '@models/emoney/msg/market/msg_add_limit_order';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const AddLimitOrder: React.FC<{ message: MsgAddLimitOrder }> = (props) => {
   const { message } = props;

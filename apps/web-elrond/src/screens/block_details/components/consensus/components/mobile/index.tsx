@@ -7,7 +7,7 @@ import { NODE_DETAILS } from '@utils/go_to_page';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import { useList, useListRow } from '@hooks';
+import { useList, useListRow } from 'ui/hooks';
 import { useStyles } from './styles';
 import type { ConsensusType } from '../../../../types';
 

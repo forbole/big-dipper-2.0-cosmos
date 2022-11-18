@@ -9,11 +9,15 @@ import List from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('./components', () => ({
-  Mobile: (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />,
-  Desktop: (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />,
-  Tabs: (props: JSX.IntrinsicElements['div']) => <div id="Tabs" {...props} />,
-}));
+jest.mock('./components/mobile', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Mobile" {...props} />
+));
+jest.mock('./components/desktop', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Desktop" {...props} />
+));
+jest.mock('./components/tabs', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Tabs" {...props} />
+));
 jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));

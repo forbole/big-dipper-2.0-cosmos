@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import classnames from 'classnames';
 import Box from 'ui/components/box';
 import TabPanel from 'ui/components/tab_panel';
-import { Tabs } from './components';
+import Tabs from './components/tabs';
 import { useStaking } from './hooks';
 import { useStyles } from './styles';
 import type DelegationsFC from './components/delegations';

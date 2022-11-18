@@ -19,10 +19,12 @@ jest.mock('ui/components/markdown', () => (props: JSX.IntrinsicElements['div']) 
   <div id="Markdown" {...props} />
 ));
 
-jest.mock('./components', () => ({
-  ParamsChange: (props: JSX.IntrinsicElements['div']) => <div id="ParamsChange" {...props} />,
-  SoftwareUpgrade: (props: JSX.IntrinsicElements['div']) => <div id="SoftwareUpgrade" {...props} />,
-}));
+jest.mock('./components/params_change', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="ParamsChange" {...props} />
+));
+jest.mock('./components/software_upgrade', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="SoftwareUpgrade" {...props} />
+));
 
 // ==================================
 // unit tests

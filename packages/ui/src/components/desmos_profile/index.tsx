@@ -8,7 +8,7 @@ import Avatar from 'ui/components/avatar';
 import Markdown from 'ui/components/markdown';
 import { useStyles } from './styles';
 import { useDesmosProfile } from './hooks';
-import { Connections } from './components';
+import Connections from './components/connections';
 
 const DesmosProfile: React.FC<
   {

@@ -21,11 +21,11 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/CreateGroupAccountRequest', () => {
   it('matches snapshot', () => {
-    const message = {
+    const message: MsgCreateGroupAccountRequest = {
       category: 'group',
       type: 'MsgCreateGroupAccountRequest',
       admin: 'admin',
-    } as MsgCreateGroupAccountRequest;
+    };
 
     const component = renderer.create(
       <MockTheme>

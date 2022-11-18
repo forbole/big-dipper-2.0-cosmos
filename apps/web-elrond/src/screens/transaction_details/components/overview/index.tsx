@@ -8,7 +8,7 @@ import AvatarName from '@components/avatar_name';
 import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';
-import { readDate } from '@recoil/settings';
+import { readDate } from 'ui/recoil/settings';
 import { MINIBLOCK_DETAILS } from '@utils/go_to_page';
 import { formatNumber } from 'ui/utils/format_token';
 import { getShardDisplay } from '@utils/get_shard_display';

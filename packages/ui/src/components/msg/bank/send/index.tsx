@@ -5,7 +5,7 @@ import useTranslation from 'next-translate/useTranslation';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import { MsgSend } from '@models';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const Send: React.FC<{ message: MsgSend }> = (props) => {
   const { t } = useTranslation('transactions');

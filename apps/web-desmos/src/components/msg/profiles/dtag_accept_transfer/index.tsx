@@ -3,7 +3,7 @@ import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import MsgDtagAcceptTransfer from '@models/desmos/msg/profiles/msg_dtag_accept_transfer';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const DtagAcceptTransfer: React.FC<{ message: MsgDtagAcceptTransfer }> = (props) => {
   const { message } = props;

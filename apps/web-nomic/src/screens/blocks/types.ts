@@ -2,7 +2,6 @@ export type BlockType = {
   height: number;
   txs: number;
   timestamp: string;
-  proposer: string;
   hash: string;
 };
 

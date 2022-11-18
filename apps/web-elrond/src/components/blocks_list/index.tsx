@@ -1,6 +1,6 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { useScreenSize } from '@hooks';
+import { useScreenSize } from 'ui/hooks';
 import type { BlockListType } from './types';
 import type DesktopType from './components/desktop';
 import type MobileType from './components/mobile';

@@ -10,8 +10,8 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import chainConfig from 'ui/chainConfig';
 import generalConfig from 'ui/generalConfig';
-import { readTheme } from '@recoil/settings';
-import { SocialMedia } from './components';
+import { readTheme } from 'ui/recoil/settings';
+import SocialMedia from './components/social_media';
 import { footerLinks, donateLink } from './utils';
 import { useStyles } from './styles';
 

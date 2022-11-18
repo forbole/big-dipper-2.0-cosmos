@@ -9,13 +9,13 @@ import Proposals from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('ui/components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Layout" {...props} />
 ));
 
-jest.mock('./components', () => ({
-  List: (props: JSX.IntrinsicElements['div']) => <div id="List" {...props} />,
-}));
+jest.mock('./components/list', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="List" {...props} />
+));
 
 const mockProposals = jest.fn().mockReturnValue({
   data: {

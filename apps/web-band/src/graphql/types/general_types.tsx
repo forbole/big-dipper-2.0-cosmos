@@ -6405,6 +6405,8 @@ export type Staking_Pool = {
   bonded_tokens: Scalars['String'];
   height: Scalars['bigint'];
   not_bonded_tokens: Scalars['String'];
+  staked_not_bonded_tokens: Scalars['String'];
+  unbonding_tokens: Scalars['String'];
 };
 
 /** aggregated selection of "staking_pool" */
@@ -6450,6 +6452,8 @@ export type Staking_Pool_Bool_Exp = {
   bonded_tokens?: InputMaybe<String_Comparison_Exp>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
   not_bonded_tokens?: InputMaybe<String_Comparison_Exp>;
+  staked_not_bonded_tokens?: InputMaybe<String_Comparison_Exp>;
+  unbonding_tokens?: InputMaybe<String_Comparison_Exp>;
 };
 
 /** aggregate max on columns */
@@ -6458,6 +6462,8 @@ export type Staking_Pool_Max_Fields = {
   bonded_tokens?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
   not_bonded_tokens?: Maybe<Scalars['String']>;
+  staked_not_bonded_tokens?: Maybe<Scalars['String']>;
+  unbonding_tokens?: Maybe<Scalars['String']>;
 };
 
 /** aggregate min on columns */
@@ -6466,6 +6472,8 @@ export type Staking_Pool_Min_Fields = {
   bonded_tokens?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
   not_bonded_tokens?: Maybe<Scalars['String']>;
+  staked_not_bonded_tokens?: Maybe<Scalars['String']>;
+  unbonding_tokens?: Maybe<Scalars['String']>;
 };
 
 /** Ordering options when selecting data from "staking_pool". */
@@ -6473,6 +6481,8 @@ export type Staking_Pool_Order_By = {
   bonded_tokens?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
   not_bonded_tokens?: InputMaybe<Order_By>;
+  staked_not_bonded_tokens?: InputMaybe<Order_By>;
+  unbonding_tokens?: InputMaybe<Order_By>;
 };
 
 /** select columns of table "staking_pool" */
@@ -6483,6 +6493,10 @@ export enum Staking_Pool_Select_Column {
   Height = 'height',
   /** column name */
   NotBondedTokens = 'not_bonded_tokens',
+  /** column name */
+  StakedNotBondedTokens = 'staked_not_bonded_tokens',
+  /** column name */
+  UnbondingTokens = 'unbonding_tokens',
 }
 
 /** aggregate stddev on columns */
@@ -10053,7 +10067,6 @@ export type Validator_Status = {
   height: Scalars['bigint'];
   jailed: Scalars['Boolean'];
   status: Scalars['Int'];
-  tombstoned: Scalars['Boolean'];
   /** An object relationship */
   validator: Validator;
   validator_address: Scalars['String'];
@@ -10124,7 +10137,6 @@ export type Validator_Status_Bool_Exp = {
   height?: InputMaybe<Bigint_Comparison_Exp>;
   jailed?: InputMaybe<Boolean_Comparison_Exp>;
   status?: InputMaybe<Int_Comparison_Exp>;
-  tombstoned?: InputMaybe<Boolean_Comparison_Exp>;
   validator?: InputMaybe<Validator_Bool_Exp>;
   validator_address?: InputMaybe<String_Comparison_Exp>;
 };
@@ -10164,7 +10176,6 @@ export type Validator_Status_Order_By = {
   height?: InputMaybe<Order_By>;
   jailed?: InputMaybe<Order_By>;
   status?: InputMaybe<Order_By>;
-  tombstoned?: InputMaybe<Order_By>;
   validator?: InputMaybe<Validator_Order_By>;
   validator_address?: InputMaybe<Order_By>;
 };
@@ -10177,8 +10188,6 @@ export enum Validator_Status_Select_Column {
   Jailed = 'jailed',
   /** column name */
   Status = 'status',
-  /** column name */
-  Tombstoned = 'tombstoned',
   /** column name */
   ValidatorAddress = 'validator_address',
 }

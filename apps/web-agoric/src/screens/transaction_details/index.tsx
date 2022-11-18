@@ -4,7 +4,9 @@ import { NextSeo } from 'next-seo';
 import Layout from 'ui/components/layout';
 import LoadAndExist from 'ui/components/load_and_exist';
 import { useStyles } from './styles';
-import { Overview, Messages, Logs } from './components';
+import Overview from './components/overview';
+import Messages from './components/messages';
+import Logs from './components/logs';
 import { useTransactionDetails } from './hooks';
 
 const TransactionDetails = () => {

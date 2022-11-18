@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import { BLOCKS } from '@utils/go_to_page';
 import Box from 'ui/components/box';
 import NoData from '@components/no_data';
-import { useScreenSize } from '@hooks';
+import { useScreenSize } from 'ui/hooks';
 import { useStyles } from './styles';
 import { useBlocks } from './hooks';
 import type DesktopType from './components/desktop';

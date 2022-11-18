@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
 import Name from 'ui/components/name';
 import MsgCreatePool from '@models/sifchain/msg/clp/msg_create_pool';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 import chainConfig from 'ui/chainConfig';
 
 const CreatePool: React.FC<{ message: MsgCreatePool }> = (props) => {

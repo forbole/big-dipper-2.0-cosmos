@@ -4,7 +4,7 @@ import { formatToken, formatNumber } from 'ui/utils/format_token';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import MsgConvertCoin from '@models/evmos/msg/erc20/msg_convert_coin';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const ConvertCoin: React.FC<{ message: MsgConvertCoin }> = (props) => {
   const { message } = props;

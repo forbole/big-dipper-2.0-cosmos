@@ -9,16 +9,15 @@ import Transactions from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('ui/components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Layout" {...props} />
 ));
 jest.mock('ui/components/transactions_list', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="TransactionsList" {...props} />
 ));
-jest.mock(
-  'ui/components/transactions_list_details',
-  () => (props: JSX.IntrinsicElements['div']) => <div id="TransactionsListDetails" {...props} />
-);
+jest.mock('@components/transactions_list_details', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="TransactionsListDetails" {...props} />
+));
 jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));

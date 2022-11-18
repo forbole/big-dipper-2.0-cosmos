@@ -1,4 +1,4 @@
-import Validators from '@src/screens/validators';
+import Validators from '@screens/validators';
 
 const ValidatorsPage = () => {
   return <Validators />;

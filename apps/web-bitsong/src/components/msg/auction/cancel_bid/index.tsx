@@ -4,7 +4,7 @@ import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import MsgCancelBid from '@models/bitsong/msg/auction/msg_cancel_bid';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const CancelBid: React.FC<{ message: MsgCancelBid }> = (props) => {
   const { message } = props;

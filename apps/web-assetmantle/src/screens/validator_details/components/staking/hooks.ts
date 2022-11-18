@@ -7,7 +7,7 @@ import {
   ValidatorDelegationsDocument,
   ValidatorRedelegationsDocument,
   ValidatorUndelegationsDocument,
-} from '@src/graphql/general/validator_details_documents';
+} from '@graphql/general/validator_details_documents';
 import { formatToken } from 'ui/utils/format_token';
 import { getDenom } from 'ui/utils/get_denom';
 import chainConfig from 'ui/chainConfig';

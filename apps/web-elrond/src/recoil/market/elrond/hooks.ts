@@ -4,7 +4,7 @@ import axios from 'axios';
 import { ECONOMICS } from '@api';
 import { useRecoilState, SetterOrUpdater } from 'recoil';
 import { writeMarket } from './selectors';
-import type { AtomState } from './types';
+import { AtomState } from './types';
 
 export const useMarketRecoil = () => {
   const [_market, setMarket] = useRecoilState(writeMarket) as [

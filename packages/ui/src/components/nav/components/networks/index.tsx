@@ -1,9 +1,9 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { useRecoilValue } from 'recoil';
-import { readNetworks } from '@recoil/big_dipper_networks';
+import { readNetworks } from 'ui/recoil/big_dipper_networks';
+import SingleNetwork from 'ui/components/nav/components/networks/components/single_network';
 import { useStyles } from './styles';
-import { SingleNetwork } from './components';
 
 const Networks: React.FC<{
   className?: string;

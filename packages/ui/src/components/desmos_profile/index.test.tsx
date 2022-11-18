@@ -6,10 +6,14 @@ import DesmosProfile from 'ui/components/desmos_profile';
 // ==================================
 // mocks
 // ==================================
-jest.mock('./components/connections/components', () => ({
-  Desktop: (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />,
-  Mobile: (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />,
-}));
+jest.mock(
+  './components/connections/components/desktop',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />
+);
+jest.mock(
+  './components/connections/components/mobile',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />
+);
 
 // ==================================
 // unit tests

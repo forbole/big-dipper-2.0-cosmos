@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 import classnames from 'classnames';
-import { useScreenSize } from '@hooks';
+import { useScreenSize } from 'ui/hooks';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import { VALIDATOR_DETAILS } from '@utils/go_to_page';

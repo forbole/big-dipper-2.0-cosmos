@@ -1,4 +1,4 @@
-import Nfts from '@src/screens/nfts';
+import Nfts from '@screens/nfts';
 
 const NftsPage = () => {
   return <Nfts />;

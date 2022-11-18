@@ -3,7 +3,7 @@ import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import MsgCreateIscnRecord from '@models/likecoin/msg/iscn/msg_create_iscn_record';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const CreateIscnRecord: React.FC<{ message: MsgCreateIscnRecord }> = (props) => {
   const { message } = props;

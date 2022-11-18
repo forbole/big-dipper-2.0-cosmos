@@ -6,10 +6,10 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import Divider from '@material-ui/core/Divider';
 import AvatarName from '@components/avatar_name';
 import { VALIDATOR_DETAILS, NODE_DETAILS } from '@utils/go_to_page';
-import { useList, useListRow } from '@hooks';
+import { useList, useListRow } from 'ui/hooks';
 import { formatNumber } from 'ui/utils/format_token';
-import { SingleValidator } from './component';
-import { VotingPower } from '..';
+import SingleValidator from './component/single_validator';
+import VotingPower from '../voting_power';
 import type { ValidatorType } from '../../../../types';
 import { useStyles } from './styles';
 

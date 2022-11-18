@@ -4,7 +4,7 @@ import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import MsgRequestData from '@models/band/msg/oracle/msg_request_data';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const RequestData: React.FC<{ message: MsgRequestData }> = (props) => {
   const { message } = props;

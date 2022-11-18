@@ -10,7 +10,7 @@ import { PieChart, Pie, Cell } from 'recharts';
 import { useStyles } from './styles';
 import { formatGraphData } from './utils';
 import { useVotesGraph } from './hooks';
-import { QuorumExplanation } from './components';
+import QuorumExplanation from './components/quorum_explanation';
 
 const VotesGraph: React.FC<ComponentDefault> = (props) => {
   const { classes, theme } = useStyles();

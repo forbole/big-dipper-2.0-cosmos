@@ -16,18 +16,23 @@ jest.mock('next/router', () => ({
     },
   }),
 }));
-jest.mock('ui/components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Layout" {...props} />
 ));
 jest.mock('ui/components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="LoadAndExist" {...props} />
 ));
 
-jest.mock('./components', () => ({
-  Overview: (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />,
-  Transactions: (props: JSX.IntrinsicElements['div']) => <div id="Transactions" {...props} />,
-  Signatures: (props: JSX.IntrinsicElements['div']) => <div id="Signatures" {...props} />,
-}));
+jest.mock(
+  'ui/screens/block_details/components/overview',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />
+);
+jest.mock('./components/transactions', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Transactions" {...props} />
+));
+jest.mock('./components/signatures', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Signatures" {...props} />
+));
 
 const mockAverageBlockTime = jest.fn().mockReturnValue({
   data: {

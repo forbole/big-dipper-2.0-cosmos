@@ -6,7 +6,7 @@ import useTranslation from 'next-translate/useTranslation';
 import Box from 'ui/components/box';
 import Avatar from 'ui/components/avatar';
 import Markdown from 'ui/components/markdown';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 import { useStyles } from './styles';
 import type { OverviewType } from '../../types';
 

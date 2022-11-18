@@ -6,8 +6,8 @@ import { RecoilRoot } from 'recoil';
 import { ApolloProvider, NormalizedCacheObject } from '@apollo/client';
 import useApollo from 'ui/graphql/useApollo';
 import chainConfig from 'ui/chainConfig';
-import { useWindowOrigin } from '@hooks';
-import { Main } from './components';
+import { useWindowOrigin } from 'ui/hooks';
+import Main from './components/main';
 import { useApp } from './hooks';
 import {
   OPEN_GRAPH_SEO,

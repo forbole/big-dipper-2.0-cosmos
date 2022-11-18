@@ -1,4 +1,4 @@
-import { useLatestBlockTimestampLazyQuery } from '@src/graphql/types/general_types';
+import { useLatestBlockTimestampLazyQuery } from '@graphql/types/general_types';
 import { renderHook, cleanup } from '@testing-library/react-hooks';
 import { useChainHealthCheck } from './hooks';
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { NextSeo } from 'next-seo';
-import Layout from 'ui/components/layout';
+import Layout from '@components/layout';
 import LoadAndExist from 'ui/components/load_and_exist';
 import { useStyles } from './styles';
-import { Overview } from './components';
+import Overview from './components/overview';
 import { useTransactionDetails } from './hooks';
 
 const TransactionDetails = () => {

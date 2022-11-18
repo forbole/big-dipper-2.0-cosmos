@@ -8,10 +8,10 @@ import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
 import Language from 'shared-utils/assets/icon-language.svg';
 import ThemeIcon from 'shared-utils/assets/icon-theme.svg';
-import { THEME_LIST } from '@recoil/settings';
+import { THEME_LIST } from 'ui/recoil/settings';
 import ExpandMoreOutlined from '@material-ui/icons/ExpandMoreOutlined';
 import { useStyles } from './styles';
-import { MenuItems } from '../../..';
+import MenuItems from '../../../menu_items';
 import { useLanguageDrawer, useThemeDrawer } from './hooks';
 import type { MenuProps } from './types';
 

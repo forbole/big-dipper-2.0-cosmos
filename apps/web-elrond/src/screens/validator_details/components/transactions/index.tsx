@@ -1,6 +1,6 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import { usePagination } from '@hooks';
+import { usePagination } from 'ui/hooks';
 import Pagination from '@components/pagination';
 import NoData from '@components/no_data';
 import Box from 'ui/components/box';

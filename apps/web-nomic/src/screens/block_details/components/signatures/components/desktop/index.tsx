@@ -4,7 +4,7 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import useTranslation from 'next-translate/useTranslation';
 import { VariableSizeGrid as Grid } from 'react-window';
 import Typography from '@material-ui/core/Typography';
-import { useGrid } from '@hooks';
+import { useGrid } from 'ui/hooks';
 import { columns, formatRows } from './utils';
 import { useStyles } from './styles';
 

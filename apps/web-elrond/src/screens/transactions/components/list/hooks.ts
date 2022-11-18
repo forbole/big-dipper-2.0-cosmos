@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
 import { POLLING_INTERVAL, TRANSACTIONS, TRANSACTIONS_COUNT } from '@api';
-import { useInterval } from '@hooks';
+import { useInterval } from 'ui/hooks';
 import type { TransactionState } from './types';
 
 export const PAGE_SIZE = 25;

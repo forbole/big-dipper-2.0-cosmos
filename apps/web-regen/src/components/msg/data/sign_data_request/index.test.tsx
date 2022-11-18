@@ -8,9 +8,9 @@ import SignDataRequest from '.';
 // mocks
 // ==================================
 
-jest.mock('./components', () => ({
-  Signers: (props: JSX.IntrinsicElements['div']) => <div id="Signers" {...props} />,
-}));
+jest.mock('./components/signers', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Signers" {...props} />
+));
 
 jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Trans" {...props} />
@@ -21,7 +21,7 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/SignDataRequest', () => {
   it('matches snapshot', () => {
-    const message = {
+    const message: MsgSignDataRequest = {
       category: 'data',
       type: 'MsgAnchorDataRequest',
       signers: [
@@ -30,7 +30,7 @@ describe('screen: TransactionDetails/SignDataRequest', () => {
         'desmos1hfhkduejung7g29wv863x369rndf3hu5xj4g93',
         'desmos1hfhkduejung7g29wv863x369rndf3hu5xj4g93',
       ],
-    } as MsgSignDataRequest;
+    };
 
     const component = renderer.create(
       <MockTheme>

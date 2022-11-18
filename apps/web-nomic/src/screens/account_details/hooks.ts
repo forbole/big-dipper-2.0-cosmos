@@ -1,14 +1,18 @@
 import { useState, useEffect } from 'react';
 import * as R from 'ramda';
-// import Big from 'big.js';
+import Big from 'big.js';
 import { useRouter } from 'next/router';
 import { getDenom } from 'ui/utils/get_denom';
 import { formatToken } from 'ui/utils/format_token';
 import chainConfig from 'ui/chainConfig';
 import { isValidAddress } from 'ui/utils/prefix_convert';
-import { useDesmosProfile } from '@hooks';
+import { useDesmosProfile } from 'ui/hooks';
 import type { AccountDetailState } from './types';
-import { fetchAvailableBalances, fetchAccountWithdrawalAddress } from './utils';
+import {
+  fetchAvailableBalances,
+  fetchDelegationBalance,
+  // fetchAccountWithdrawalAddress,
+} from './utils';
 
 const defaultTokenUnit: TokenUnit = {
   value: '0',
@@ -31,6 +35,7 @@ const initialState: AccountDetailState = {
   },
   balance: {
     available: defaultTokenUnit,
+    delegate: defaultTokenUnit,
     total: defaultTokenUnit,
   },
 };
@@ -66,30 +71,31 @@ export const useAccountDetails = () => {
   }, [router.query.address]);
 
   useEffect(() => {
-    fetchWithdrawalAddress();
+    // fetchWithdrawalAddress();
     fetchBalance();
   }, [router.query.address]);
 
   // ==========================
   // Fetch Data
   // ==========================
-  const fetchWithdrawalAddress = async () => {
-    const data = await fetchAccountWithdrawalAddress(router.query.address as string);
-    handleSetState({
-      overview: {
-        address: router.query.address,
-        withdrawalAddress: R.pathOr('', ['withdrawalAddress', 'address'], data),
-      },
-    });
-  };
+  // const fetchWithdrawalAddress = async () => {
+  //   const data = await fetchAccountWithdrawalAddress(router.query.address as string);
+  //   handleSetState({
+  //     overview: {
+  //       address: router.query.address,
+  //       withdrawalAddress: R.pathOr('', ['withdrawalAddress', 'address'], data),
+  //     },
+  //   });
+  // };
 
   const fetchBalance = async () => {
     const address = router.query.address as string;
-    const promises = [fetchAvailableBalances(address)];
-    const [available] = await Promise.allSettled(promises);
+    const promises = [fetchAvailableBalances(address), fetchDelegationBalance(address)];
+    const [available, delegation] = await Promise.allSettled(promises);
 
     const formattedRawData: any = {};
     formattedRawData.accountBalances = R.pathOr([], ['value', 'accountBalances'], available);
+    formattedRawData.delegationBalance = R.pathOr([], ['value', 'delegationBalance'], delegation);
 
     handleSetState(formatAllBalance(formattedRawData));
   };
@@ -112,10 +118,20 @@ export const useAccountDetails = () => {
       );
       const availableAmount = formatToken(available.amount, chainConfig.primaryTokenUnit);
 
+      const delegate = getDenom(
+        R.pathOr([], ['delegationBalance', 'coins'], data),
+        chainConfig.primaryTokenUnit
+      );
+      const delegateAmount = formatToken(delegate.amount, chainConfig.primaryTokenUnit);
+
+      const total = Big(availableAmount.value)
+        .plus(delegateAmount.value)
+        .toFixed(chainConfig.tokenUnits[chainConfig.primaryTokenUnit].exponent);
+
       const balance = {
         available: availableAmount,
         total: {
-          value: availableAmount.value,
+          value: total,
           displayDenom: availableAmount.displayDenom,
           baseDenom: availableAmount.baseDenom,
           exponent: availableAmount.exponent,

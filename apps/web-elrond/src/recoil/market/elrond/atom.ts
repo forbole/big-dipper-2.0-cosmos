@@ -1,5 +1,5 @@
 import { atom } from 'recoil';
-import type { AtomState } from './types';
+import { AtomState } from './types';
 
 const initialState: AtomState = {
   marketCap: 0,

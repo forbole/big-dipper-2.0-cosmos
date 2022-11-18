@@ -3,7 +3,7 @@ import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import MsgRegister from '@models/sifchain/msg/tokenregistry/msg_register';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const Register: React.FC<{ message: MsgRegister }> = (props) => {
   const { message } = props;

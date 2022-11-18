@@ -7,7 +7,7 @@ exports[`screen: TransactionDetails/SignDataRequest matches snapshot 1`] = `
   <div
     components={
       [
-        <Signers
+        <Unknown
           signers={
             {
               "address": [

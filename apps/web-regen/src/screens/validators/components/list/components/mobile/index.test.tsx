@@ -12,9 +12,9 @@ const mockI18n = {
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 
-jest.mock('./component', () => ({
-  SingleValidator: (props: JSX.IntrinsicElements['div']) => <div id="SingleValidator" {...props} />,
-}));
+jest.mock('./component', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="SingleValidator" {...props} />
+));
 
 // ==================================
 // unit tests

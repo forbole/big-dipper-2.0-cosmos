@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import { isBech32 } from '@utils/bech32';
 import { POLLING_INTERVAL, NODES_COUNT, NODES } from '@api';
-import { useInterval } from '@hooks';
+import { useInterval } from 'ui/hooks';
 import type { NodeState } from './types';
 
 export const PAGE_SIZE = 10;

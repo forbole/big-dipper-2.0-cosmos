@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
 import MsgMintTokens from '@models/emoney/msg/liquidity_provider/msg_mint_tokens';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const MintTokens: React.FC<{ message: MsgMintTokens }> = (props) => {
   const { message } = props;

@@ -6,7 +6,7 @@ import useTranslation from 'next-translate/useTranslation';
 import Box from 'ui/components/box';
 import AvatarName from 'ui/components/avatar_name';
 import { RadialBarChart, PolarAngleAxis, RadialBar, Tooltip } from 'recharts';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 import { useStyles } from './styles';
 import { useConsensus } from './hooks';
 

@@ -8,7 +8,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { TRANSACTIONS } from 'ui/utils/go_to_page';
 import Box from 'ui/components/box';
 import NoData from 'ui/components/no_data';
-import { useScreenSize } from '@hooks';
+import { useScreenSize } from 'ui/hooks';
 import { useStyles } from './styles';
 import { useTransactions } from './hooks';
 import type DesktopType from './components/desktop';

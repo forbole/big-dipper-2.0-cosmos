@@ -5,7 +5,7 @@ import Layout from 'ui/components/layout';
 import LoadAndExist from 'ui/components/load_and_exist';
 import DesmosProfile from 'ui/components/desmos_profile';
 import { useStyles } from './styles';
-import { Connections } from './components';
+import Connections from './components/connections';
 import { useProfileDetails } from './hooks';
 
 const ProfileDetails = () => {

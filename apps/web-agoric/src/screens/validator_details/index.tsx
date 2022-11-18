@@ -5,14 +5,12 @@ import Layout from 'ui/components/layout';
 import LoadAndExist from 'ui/components/load_and_exist';
 import DesmosProfile from 'ui/components/desmos_profile';
 import { useStyles } from './styles';
-import {
-  Profile,
-  VotingPower,
-  Transactions,
-  Staking,
-  Blocks,
-  ValidatorOverview,
-} from './components';
+import Profile from './components/profile';
+import VotingPower from './components/voting_power';
+import Transactions from './components/transactions';
+import Staking from './components/staking';
+import Blocks from './components/blocks';
+import ValidatorOverview from './components/validator_overview';
 import { useValidatorDetails } from './hooks';
 
 const ValidatorDetails = () => {

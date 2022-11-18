@@ -4,7 +4,10 @@ import { NextSeo } from 'next-seo';
 import Layout from 'ui/components/layout';
 import LoadAndExist from 'ui/components/load_and_exist';
 import { useStyles } from './styles';
-import { Overview, Votes, Deposits, VotesGraph } from './components';
+import Overview from './components/overview';
+import Votes from './components/votes';
+import Deposits from './components/deposits';
+import VotesGraph from './components/votes_graph';
 import { useProposalDetails } from './hooks';
 import { shouldShowData } from './utils';
 

@@ -21,7 +21,7 @@ jest.mock('next/router', () => ({
     },
   }),
 }));
-jest.mock('ui/components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Layout" {...props} />
 ));
 jest.mock('ui/components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
@@ -31,13 +31,24 @@ jest.mock('ui/components/desmos_profile', () => (props: JSX.IntrinsicElements['d
   <div id="DesmosProfile" {...props} />
 ));
 
-jest.mock('./components', () => ({
-  Overview: (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />,
-  Balance: (props: JSX.IntrinsicElements['div']) => <div id="Balance" {...props} />,
-  Staking: (props: JSX.IntrinsicElements['div']) => <div id="Staking" {...props} />,
-  Transactions: (props: JSX.IntrinsicElements['div']) => <div id="Transactions" {...props} />,
-  OtherTokens: (props: JSX.IntrinsicElements['div']) => <div id="OtherTokens" {...props} />,
-}));
+jest.mock(
+  'ui/screens/account_details/components/overview',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />
+);
+jest.mock('./components/balance', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Balance" {...props} />
+));
+jest.mock(
+  'ui/screens/account_details/components/staking',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Staking" {...props} />
+);
+jest.mock('./components/transactions', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Transactions" {...props} />
+));
+jest.mock(
+  'ui/screens/account_details/components/other_tokens',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="OtherTokens" {...props} />
+);
 
 const mockAccount = jest.fn().mockReturnValue({
   data: {

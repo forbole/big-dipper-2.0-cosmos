@@ -67,9 +67,9 @@ const mockActiveValidatorsCount = jest.fn().mockReturnValue({
 
 beforeEach(() => {
   jest.mock('next-translate/useTranslation', () => () => mockI18n);
-  jest.mock('./components', () => ({
-    SingleBlock: (props: JSX.IntrinsicElements['div']) => <div id="SingleBlock" {...props} />,
-  }));
+  jest.mock('./components/single_block', () => (props: JSX.IntrinsicElements['div']) => (
+    <div id="SingleBlock" {...props} />
+  ));
 });
 
 // ==================================

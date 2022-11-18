@@ -9,18 +9,28 @@ import Home from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('ui/components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Layout" {...props} />
 ));
 
-jest.mock('./components', () => ({
-  DataBlocks: (props: JSX.IntrinsicElements['div']) => <div id="DataBlocks" {...props} />,
-  Hero: (props: JSX.IntrinsicElements['div']) => <div id="Hero" {...props} />,
-  Consensus: (props: JSX.IntrinsicElements['div']) => <div id="Consensus" {...props} />,
-  Tokenomics: (props: JSX.IntrinsicElements['div']) => <div id="Tokenomics" {...props} />,
-  Blocks: (props: JSX.IntrinsicElements['div']) => <div id="Blocks" {...props} />,
-  Transactions: (props: JSX.IntrinsicElements['div']) => <div id="Transactions" {...props} />,
-}));
+jest.mock('./components/data_blocks', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="DataBlocks" {...props} />
+));
+jest.mock('./components/hero', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Hero" {...props} />
+));
+jest.mock('ui/screens/home/components/consensus', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Consensus" {...props} />
+));
+jest.mock('./components/tokenomics', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Tokenomics" {...props} />
+));
+jest.mock('./components/blocks', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Blocks" {...props} />
+));
+jest.mock('./components/transactions', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Transactions" {...props} />
+));
 
 const mockBlockTime = jest.fn().mockReturnValue({
   data: {

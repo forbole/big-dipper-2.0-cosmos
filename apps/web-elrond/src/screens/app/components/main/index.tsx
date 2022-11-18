@@ -4,11 +4,11 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { ToastContainer } from 'react-toastify';
 import { AppProps } from 'next/app';
 import InitialLoad from 'ui/screens/initial_load';
-// import { useSettingsRecoil } from '@recoil/settings';
-import { useBigDipperNetworksRecoil } from '@recoil/big_dipper_networks';
+// import { useSettingsRecoil } from 'ui/recoil/settings';
+import { useBigDipperNetworksRecoil } from 'ui/recoil/big_dipper_networks';
 import { useMarketRecoil } from '@recoil/market/elrond';
-// import { useValidatorRecoil } from '@recoil/validators';
-import { InnerApp } from '..';
+// import { useValidatorRecoil } from 'ui/recoil/validators';
+import InnerApp from '../inner_app';
 import { useTheme } from './hooks';
 
 const Main = (props: AppProps) => {

@@ -5,7 +5,7 @@ import BoxDetails from 'ui/components/box_details';
 import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';
-import { readDate } from '@recoil/settings';
+import { readDate } from 'ui/recoil/settings';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { getShardDisplay } from '@utils/get_shard_display';
 import type { OverviewType } from '../../types';

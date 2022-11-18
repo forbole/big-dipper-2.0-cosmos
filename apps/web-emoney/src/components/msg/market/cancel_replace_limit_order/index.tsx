@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
 import MsgCancelReplaceLimitOrder from '@models/emoney/msg/market/msg_cancel_replace_limit_order';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const CancelReplaceLimitOrder: React.FC<{ message: MsgCancelReplaceLimitOrder }> = (props) => {
   const { message } = props;

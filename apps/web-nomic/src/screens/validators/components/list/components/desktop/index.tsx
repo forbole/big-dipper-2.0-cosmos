@@ -5,7 +5,7 @@ import useTranslation from 'next-translate/useTranslation';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import Typography from '@material-ui/core/Typography';
-import { useGrid } from '@hooks';
+import { useGrid } from 'ui/hooks';
 import SortArrows from 'ui/components/sort_arrows';
 import AvatarName from 'ui/components/avatar_name';
 import InfoPopover from 'ui/components/info_popover';
@@ -13,7 +13,9 @@ import { getValidatorStatus } from '@utils/get_validator_status';
 import { useStyles } from './styles';
 import { fetchColumns } from './utils';
 import type { ItemType } from '../../types';
-import { VotingPower, VotingPowerExplanation } from '..';
+import Condition from '../condition';
+import VotingPower from '../voting_power';
+import VotingPowerExplanation from '../voting_power_explanation';
 
 const Desktop: React.FC<{
   className?: string;

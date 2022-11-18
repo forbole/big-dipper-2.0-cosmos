@@ -29,9 +29,9 @@ jest.mock('ui/components/desmos_profile', () => (props: JSX.IntrinsicElements['d
   <div id="DesmosProfile" {...props} />
 ));
 
-jest.mock('./components', () => ({
-  Connections: (props: JSX.IntrinsicElements['div']) => <div id="Connections" {...props} />,
-}));
+jest.mock('./components/connections', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Connections" {...props} />
+));
 
 // ==================================
 // unit tests

@@ -8,11 +8,11 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import SingleBlockMobile from '@components/single_block_mobile';
-import type { ItemType } from '../../types';
+import type { BlockType } from '../../types';
 
 const Mobile: React.FC<{
   className?: string;
-  items: ItemType[];
+  items: BlockType[];
 }> = ({ className, items }) => {
   return (
     <div className={classnames(className)}>

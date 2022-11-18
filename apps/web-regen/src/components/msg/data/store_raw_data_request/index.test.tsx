@@ -21,11 +21,11 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/StoreRawDataRequest', () => {
   it('matches snapshot', () => {
-    const message = {
+    const message: MsgStoreRawDataRequest = {
       category: 'data',
       type: 'MsgStoreRawDataRequest',
       sender: 'sender',
-    } as MsgStoreRawDataRequest;
+    };
 
     const component = renderer.create(
       <MockTheme>

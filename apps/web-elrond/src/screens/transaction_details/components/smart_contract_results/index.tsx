@@ -9,7 +9,7 @@ import AvatarName from '@components/avatar_name';
 import { formatNumber } from 'ui/utils/format_token';
 import { decodeBase64 } from '@utils/base64';
 import type { ResultType } from '../../types';
-import { CodeBlock } from '..';
+import CodeBlock from '../code_block';
 import { useStyles } from './styles';
 
 const SmartContractResults: React.FC<{ results: ResultType[] } & ComponentDefault> = (props) => {

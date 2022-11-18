@@ -3,11 +3,11 @@ import classnames from 'classnames';
 import Link from 'next/link';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import { useRecoilValue } from 'recoil';
-import { readSelectedNetwork } from '@recoil/big_dipper_networks';
+import { readSelectedNetwork } from 'ui/recoil/big_dipper_networks';
 import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red-sifchain.svg';
 import { HOME } from 'ui/utils/go_to_page';
-import { readTheme } from '@recoil/settings';
+import { readTheme } from 'ui/recoil/settings';
 import { useStyles } from './styles';
 import type { NavbarProps } from './types';
 

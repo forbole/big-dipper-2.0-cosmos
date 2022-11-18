@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
 import MsgCancelReplaceMarketOrder from '@models/emoney/msg/market/msg_cancel_replace_market_order';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const CancelReplaceMarketOrder: React.FC<{ message: MsgCancelReplaceMarketOrder }> = (props) => {
   const { message } = props;

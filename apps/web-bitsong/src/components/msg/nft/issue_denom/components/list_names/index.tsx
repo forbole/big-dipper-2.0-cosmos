@@ -1,5 +1,5 @@
 import React from 'react';
-import { useProfilesRecoil } from '@recoil/profiles';
+import { useProfilesRecoil } from 'ui/recoil/profiles';
 import Name from 'ui/components/name';
 import useTranslation from 'next-translate/useTranslation';
 

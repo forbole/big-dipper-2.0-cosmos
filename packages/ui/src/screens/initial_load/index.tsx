@@ -1,5 +1,5 @@
 import LinearProgress from '@material-ui/core/LinearProgress';
-import { readTheme } from '@recoil/settings';
+import { readTheme } from 'ui/recoil/settings';
 import React from 'react';
 import { useRecoilValue } from 'recoil';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';

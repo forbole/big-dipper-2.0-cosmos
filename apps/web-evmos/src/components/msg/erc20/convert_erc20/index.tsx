@@ -3,7 +3,7 @@ import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from 'ui/components/name';
 import MsgConvertErc20 from '@models/evmos/msg/erc20/msg_convert_erc20';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const ConvertErc20: React.FC<{ message: MsgConvertErc20 }> = (props) => {
   const { message } = props;

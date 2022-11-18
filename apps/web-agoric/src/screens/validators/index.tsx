@@ -3,7 +3,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { NextSeo } from 'next-seo';
 import Layout from 'ui/components/layout';
 import { useStyles } from './styles';
-import { List } from './components';
+import List from './components/list';
 
 const Validators = () => {
   const { t } = useTranslation('validators');
