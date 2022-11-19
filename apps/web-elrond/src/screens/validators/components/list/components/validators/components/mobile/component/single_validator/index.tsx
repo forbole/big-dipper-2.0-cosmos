@@ -9,7 +9,7 @@ const SingleValidator: React.FC<{
   idx: string;
   validator: React.ReactNode;
   locked: React.ReactNode;
-  stake: string;
+  // stake: string;
   nodes: string;
   delegators: string;
   commission: string;
