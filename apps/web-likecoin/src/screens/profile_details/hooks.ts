@@ -82,7 +82,8 @@ export const useProfileDetails = () => {
         });
       }
     }
-  }, [handleSetState, shouldShowProfile, state.desmosProfile]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.desmosProfile]);
 
   return {
     state,

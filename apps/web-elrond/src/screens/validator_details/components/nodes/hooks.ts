@@ -86,7 +86,7 @@ export const useBlocks = () => {
         console.log((error as any).message);
       }
     },
-    [handleSetState, router]
+    [handleSetState, router.query.identity]
   );
 
   const handlePageChangeCallback = useCallback(

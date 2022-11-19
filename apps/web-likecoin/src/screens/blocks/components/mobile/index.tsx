@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps, FC } from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import dayjs from 'ui/utils/dayjs';
@@ -9,7 +9,7 @@ import SingleBlockMobile from 'ui/components/single_block_mobile';
 import Loading from 'ui/components/loading';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import { VariableSizeList as List } from 'react-window';
+import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
@@ -18,7 +18,7 @@ import { useList, useListRow } from 'ui/hooks';
 import { useStyles } from './styles';
 import type { ItemType } from '../../types';
 
-const Mobile: React.FC<{
+const Mobile: FC<{
   className?: string;
   items: ItemType[];
   itemCount: number;
@@ -80,33 +80,46 @@ const Mobile: React.FC<{
                   ref={mergeRefs(listRef, ref)}
                   width={width}
                 >
-                  {({ index, style }) => {
-                    const { rowRef } = useListRow(index, setRowHeight);
-                    if (!isItemLoaded?.(index)) {
-                      return (
-                        <div style={style}>
-                          <div ref={rowRef}>
-                            <Loading />
-                          </div>
-                        </div>
-                      );
-                    }
-                    const item = formattedItems[index];
-                    return (
-                      <div style={style}>
-                        <div ref={rowRef}>
-                          <SingleBlockMobile {...item} />
-                          {index !== itemCount - 1 && <Divider />}
-                        </div>
-                      </div>
-                    );
-                  }}
+                  {({ index, style }) => (
+                    <ListItem
+                      {...{ index, style, setRowHeight, isItemLoaded, formattedItems, itemCount }}
+                    />
+                  )}
                 </List>
               )}
             </InfiniteLoader>
           );
         }}
       </AutoSizer>
+    </div>
+  );
+};
+
+const ListItem: FC<
+  Pick<ListChildComponentProps, 'index' | 'style'> & {
+    setRowHeight: ReturnType<typeof useList>['setRowHeight'];
+    isItemLoaded: ((index: number) => boolean) | undefined;
+    formattedItems: ComponentProps<typeof SingleBlockMobile>[];
+    itemCount: number;
+  }
+> = ({ index, style, setRowHeight, isItemLoaded, formattedItems, itemCount }) => {
+  const { rowRef } = useListRow(index, setRowHeight);
+  if (!isItemLoaded?.(index)) {
+    return (
+      <div style={style}>
+        <div ref={rowRef}>
+          <Loading />
+        </div>
+      </div>
+    );
+  }
+  const item = formattedItems[index];
+  return (
+    <div style={style}>
+      <div ref={rowRef}>
+        <SingleBlockMobile {...item} />
+        {index !== itemCount - 1 && <Divider />}
+      </div>
     </div>
   );
 };

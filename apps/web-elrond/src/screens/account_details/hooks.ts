@@ -79,7 +79,7 @@ export const useAccountDetails = () => {
     };
 
     getAccount();
-  }, [handleSetState, router]);
+  }, [handleSetState, router.query.address]);
 
   return {
     state,

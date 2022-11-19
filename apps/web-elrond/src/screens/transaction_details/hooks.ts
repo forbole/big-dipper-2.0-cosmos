@@ -130,7 +130,7 @@ export const useTransactionDetails = () => {
     };
 
     getTransactionDetail();
-  }, [handleSetState, router]);
+  }, [handleSetState, router.query.hash]);
 
   return {
     state,

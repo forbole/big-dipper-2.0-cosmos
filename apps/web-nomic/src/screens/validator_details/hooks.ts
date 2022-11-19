@@ -72,7 +72,7 @@ export const useValidatorDetails = () => {
       const address = validatorToDelegatorAddress(router.query.address as string);
       fetchDesmosProfile(address);
     }
-  }, [fetchDesmosProfile, handleSetState, router]);
+  }, [fetchDesmosProfile, handleSetState, router.query.address]);
 
   // ==========================
   // Fetch Data

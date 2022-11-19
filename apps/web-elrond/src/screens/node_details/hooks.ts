@@ -218,7 +218,7 @@ export const useNodeDetails = () => {
     };
 
     getData();
-  }, [handleSetState, router]);
+  }, [handleSetState, router.query.hash]);
 
   return {
     state,

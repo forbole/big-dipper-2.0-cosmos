@@ -52,7 +52,7 @@ export const useBlockDetails = () => {
     };
 
     getBlockDetails();
-  }, [handleSetState, router]);
+  }, [handleSetState, router.query.hash]);
 
   return {
     state,

@@ -38,7 +38,7 @@ export function useTransactions<TData>(
     variables: {
       limit: LIMIT + 1, // to check if more exist
       offset: 0,
-      address: `{${R.pathOr('', ['query', 'address'], router)}}`,
+      address: `{${router?.query?.address ?? ''}}`,
     },
     onCompleted: (data: any) => {
       const itemsLength = data.messagesByAddress.length;

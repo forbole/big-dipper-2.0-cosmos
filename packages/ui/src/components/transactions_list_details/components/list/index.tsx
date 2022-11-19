@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps, FC } from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import dayjs, { formatDayJs } from 'ui/utils/dayjs';
@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { TRANSACTION_DETAILS, BLOCK_DETAILS } from 'ui/utils/go_to_page';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import { VariableSizeList as List } from 'react-window';
+import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { mergeRefs } from 'ui/utils/merge_refs';
@@ -22,7 +22,7 @@ import { useStyles } from './styles';
 import type { TransactionsListDetailsState } from '../../types';
 import SingleTransaction from './components/single_transaction';
 
-const TransactionList: React.FC<TransactionsListDetailsState> = ({
+const TransactionList: FC<TransactionsListDetailsState> = ({
   className,
   itemCount,
   loadMoreItems,
@@ -36,7 +36,7 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
 
   const { listRef, getRowHeight, setRowHeight } = useList();
 
-  const items = transactions.map((x) => ({
+  const items: ComponentProps<typeof SingleTransaction>[] = transactions.map((x) => ({
     block: (
       <Link href={BLOCK_DETAILS(x.height)} passHref>
         <Typography variant="body1" component="a">
@@ -95,32 +95,42 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
                   ref={mergeRefs(listRef, ref)}
                   width={width}
                 >
-                  {({ index, style }) => {
-                    const { rowRef } = useListRow(index, setRowHeight);
-                    if (!isItemLoaded?.(index)) {
-                      return (
-                        <div style={style}>
-                          <div ref={rowRef}>
-                            <Loading />
-                          </div>
-                        </div>
-                      );
-                    }
-                    const item = items[index];
-                    return (
-                      <div style={style}>
-                        <div ref={rowRef}>
-                          <SingleTransaction {...item} />
-                        </div>
-                      </div>
-                    );
-                  }}
+                  {({ index, style }) => (
+                    <ListItem {...{ index, style, setRowHeight, isItemLoaded, items }} />
+                  )}
                 </List>
               )}
             </InfiniteLoader>
           );
         }}
       </AutoSizer>
+    </div>
+  );
+};
+
+const ListItem: FC<
+  Pick<ListChildComponentProps, 'index' | 'style'> & {
+    setRowHeight: ReturnType<typeof useList>['setRowHeight'];
+    isItemLoaded: TransactionsListDetailsState['isItemLoaded'];
+    items: ComponentProps<typeof SingleTransaction>[];
+  }
+> = ({ index, style, setRowHeight, isItemLoaded, items }) => {
+  const { rowRef } = useListRow(index, setRowHeight);
+  if (!isItemLoaded?.(index)) {
+    return (
+      <div style={style}>
+        <div ref={rowRef}>
+          <Loading />
+        </div>
+      </div>
+    );
+  }
+  const item = items[index];
+  return (
+    <div style={style}>
+      <div ref={rowRef}>
+        <SingleTransaction {...item} />
+      </div>
     </div>
   );
 };

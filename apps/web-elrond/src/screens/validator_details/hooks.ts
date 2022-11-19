@@ -204,7 +204,7 @@ export const useValidatorDetails = () => {
     };
 
     getValidator();
-  }, [handleSetState, router]);
+  }, [handleSetState, router.query.identity]);
 
   return {
     state,

@@ -62,7 +62,7 @@ export const useStaking = (rewards: RewardsType) => {
           'http://localhost:3000/v1/graphql',
         {
           variables: {
-            address: R.pathOr('', ['query', 'address'], router),
+            address: router?.query?.address as string ?? '',
             offset: page * LIMIT,
             limit: LIMIT,
             pagination: false,
@@ -84,7 +84,7 @@ export const useStaking = (rewards: RewardsType) => {
             'http://localhost:3000/v1/graphql',
           {
             variables: {
-              address: R.pathOr('', ['query', 'address'], router),
+              address: router?.query?.address as string ?? '',
               limit: LIMIT,
             },
             query: AccountDelegationsDocument,
@@ -135,7 +135,7 @@ export const useStaking = (rewards: RewardsType) => {
             'http://localhost:3000/v1/graphql',
           {
             variables: {
-              address: R.pathOr('', ['query', 'address'], router),
+              address: router?.query?.address as string ?? '',
               limit: LIMIT,
             },
             query: AccountRedelegationsDocument,
@@ -193,7 +193,7 @@ export const useStaking = (rewards: RewardsType) => {
             'http://localhost:3000/v1/graphql',
           {
             variables: {
-              address: R.pathOr('', ['query', 'address'], router),
+              address: router?.query?.address as string ?? '',
               limit: LIMIT,
             },
             query: AccountUndelegationsDocument,
@@ -243,7 +243,7 @@ export const useStaking = (rewards: RewardsType) => {
     getDelegations();
     getRedelegations();
     getUnbondings();
-  }, [handleSetState, rewards, router]);
+  }, [handleSetState, rewards, router?.query?.address]);
 
   const handleTabChange = useCallback((_event: any, newValue: number) => {
     setState((prevState) => ({

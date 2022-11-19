@@ -52,17 +52,16 @@ export function useBigDipperNetworksRecoil<TData, TVariables>(
     getNetworkList();
   }, [setNetworks]);
 
-  if (disabledSelection) return;
-
   /* A function that takes in a useChainIdQuery and returns a function that takes in a
   useChainIdQuery and returns a function that takes in a useChainIdQuery and returns a function that
   takes in a useChainIdQuery and returns a function that takes in a useChainIdQuery and returns a
   function that takes in a useChainIdQuery and returns a function that takes in a useChain */
-  useChainIdQuery({
+  useChainIdQuery?.({
     onError: (error) => {
       console.error(error?.message);
     },
     onCompleted: (data) => {
+      if (disabledSelection) return;
       setSelectedNetwork(formatUseChainIdQuery(data));
     },
   });
@@ -80,6 +79,7 @@ export function useBigDipperNetworksRecoil<TData, TVariables>(
  * @returns A tuple of the selected network and a function to set the selected network.
  */
 function useSelectedHook(disabledSelection: boolean): [Selected, SetterOrUpdater<Selected>] {
+  const result = useRecoilState(writeSelectedNetwork);
   if (disabledSelection) {
     return [
       '',
@@ -88,5 +88,5 @@ function useSelectedHook(disabledSelection: boolean): [Selected, SetterOrUpdater
       },
     ];
   }
-  return useRecoilState(writeSelectedNetwork);
+  return result;
 }

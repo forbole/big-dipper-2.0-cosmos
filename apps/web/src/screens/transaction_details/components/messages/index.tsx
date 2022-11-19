@@ -1,19 +1,19 @@
-import React from 'react';
-import classnames from 'classnames';
-import { VariableSizeList as List } from 'react-window';
-import useTranslation from 'next-translate/useTranslation';
-import AutoSizer from 'react-virtualized-auto-sizer';
 import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { useList, useListRow } from 'ui/hooks';
+import Switch from '@material-ui/core/Switch';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import React, { ComponentProps, FC } from 'react';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import Box from 'ui/components/box';
-import TransactionMessagesFilter from 'ui/components/transaction_messages_filter';
 import { getMessageByType } from 'ui/components/msg';
+import TransactionMessagesFilter from 'ui/components/transaction_messages_filter';
+import { useList, useListRow } from 'ui/hooks';
 import { useStyles } from './styles';
 
-const Messages: React.FC<{
+const Messages: FC<{
   className?: string;
   messages: any[];
   viewRaw: boolean;
@@ -75,27 +75,41 @@ const Messages: React.FC<{
                 ref={listRef as React.LegacyRef<List>}
                 width={width}
               >
-                {({ index, style }) => {
-                  const { rowRef } = useListRow(index, setRowHeight);
-                  const selectedItem = formattedItems[index];
-                  return (
-                    <div style={style}>
-                      <div ref={rowRef}>
-                        <div className={classes.item}>
-                          <div className={classes.tags}>{selectedItem.type}</div>
-                          <span className="msg">{selectedItem.message}</span>
-                        </div>
-                        {index !== props.messages.length - 1 && <Divider />}
-                      </div>
-                    </div>
-                  );
-                }}
+                {({ index, style }) => (
+                  <ListItem
+                    {...{ index, style, setRowHeight, formattedItems, classes }}
+                    messages={props.messages}
+                  />
+                )}
               </List>
             );
           }}
         </AutoSizer>
       </div>
     </Box>
+  );
+};
+
+const ListItem: FC<
+  Pick<ListChildComponentProps, 'index' | 'style'> & {
+    setRowHeight: ReturnType<typeof useList>['setRowHeight'];
+    formattedItems: Array<{ type: unknown; message: unknown }>;
+    classes: ReturnType<typeof useStyles>;
+    messages: unknown[];
+  }
+> = ({ index, style, setRowHeight, formattedItems, classes, messages }) => {
+  const { rowRef } = useListRow(index, setRowHeight);
+  const selectedItem = formattedItems[index];
+  return (
+    <div style={style}>
+      <div ref={rowRef}>
+        <div className={classes.item}>
+          <div className={classes.tags}>{selectedItem.type}</div>
+          <span className="msg">{selectedItem.message}</span>
+        </div>
+        {index !== messages.length - 1 && <Divider />}
+      </div>
+    </div>
   );
 };
 

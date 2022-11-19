@@ -20,7 +20,7 @@ export const useBlocks = () => {
 
   useLastHundredBlocksSubscription({
     variables: {
-      address: R.pathOr('', ['query', 'address'], router),
+      address: router?.query?.address as string ?? '',
     },
     onData: (data) => {
       setState(data.data.data ? formatLastHundredBlocks(data.data.data) : []);

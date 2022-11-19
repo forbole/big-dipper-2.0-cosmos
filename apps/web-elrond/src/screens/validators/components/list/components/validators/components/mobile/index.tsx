@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { ComponentProps, FC } from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
-import { VariableSizeList as List } from 'react-window';
+import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import Divider from '@material-ui/core/Divider';
 import AvatarName from '@components/avatar_name';
@@ -13,7 +13,7 @@ import VotingPower from '../voting_power';
 import type { ValidatorType } from '../../../../types';
 import { useStyles } from './styles';
 
-const Mobile: React.FC<{
+const Mobile: FC<{
   className?: string;
   items: ValidatorType[];
 }> = ({ className, items }) => {
@@ -63,22 +63,31 @@ const Mobile: React.FC<{
               ref={listRef as React.LegacyRef<List>}
               width={width}
             >
-              {({ index, style }) => {
-                const { rowRef } = useListRow(index, setRowHeight);
-                const selectedItem = formattedItems[index];
-                return (
-                  <div style={style}>
-                    <div ref={rowRef}>
-                      <SingleValidator {...selectedItem} />
-                      {index !== formattedItems.length - 1 && <Divider />}
-                    </div>
-                  </div>
-                );
-              }}
+              {({ index, style }) => (
+                <ListItem {...{ index, style, setRowHeight, formattedItems }} />
+              )}
             </List>
           );
         }}
       </AutoSizer>
+    </div>
+  );
+};
+
+const ListItem: FC<
+  Pick<ListChildComponentProps, 'index' | 'style'> & {
+    setRowHeight: ReturnType<typeof useList>['setRowHeight'];
+    formattedItems: Array<ComponentProps<typeof SingleValidator>>;
+  }
+> = ({ index, style, setRowHeight, formattedItems }) => {
+  const { rowRef } = useListRow(index, setRowHeight);
+  const selectedItem = formattedItems[index];
+  return (
+    <div style={style}>
+      <div ref={rowRef}>
+        <SingleValidator {...selectedItem} />
+        {index !== formattedItems.length - 1 && <Divider />}
+      </div>
     </div>
   );
 };

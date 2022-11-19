@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import { VariableSizeList as List } from 'react-window';
+import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import { useList, useListRow } from 'ui/hooks';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import EmailIcon from 'shared-utils/assets/icon-email.svg';
@@ -15,7 +15,7 @@ import type { ProviderInfo } from '../../../../types';
 import { useStyles } from './styles';
 import SingleProvider from './component/single_provider';
 
-const Mobile: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
+const Mobile: FC<{ list: ProviderInfo[] }> = ({ list }) => {
   const classes = useStyles();
   const { t } = useTranslation('providers');
   const { handleCopyToClipboard } = useAddress(t);
@@ -107,19 +107,27 @@ const Mobile: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
         itemSize={getRowHeight}
         ref={listRef as React.LegacyRef<List>}
       >
-        {({ index, style }) => {
-          const { rowRef } = useListRow(index, setRowHeight);
-          const selectedItem = itemsNew[index];
-          return (
-            <div style={style} className={index % 2 ? classes.even : ''}>
-              <div ref={rowRef}>
-                <SingleProvider {...(selectedItem as any)} />
-                {index !== itemsNew.length - 1 && <Divider />}
-              </div>
-            </div>
-          );
-        }}
+        {({ index, style }) => <ListItem {...{ index, style, setRowHeight, classes, itemsNew }} />}
       </List>
+    </div>
+  );
+};
+
+const ListItem: FC<
+  Pick<ListChildComponentProps, 'index' | 'style'> & {
+    setRowHeight: ReturnType<typeof useList>['setRowHeight'];
+    classes: ReturnType<typeof useStyles>;
+    itemsNew: unknown[];
+  }
+> = ({ index, style, setRowHeight, classes, itemsNew }) => {
+  const { rowRef } = useListRow(index, setRowHeight);
+  const selectedItem = itemsNew[index];
+  return (
+    <div style={style} className={index % 2 ? classes.even : ''}>
+      <div ref={rowRef}>
+        <SingleProvider {...(selectedItem as any)} />
+        {index !== itemsNew.length - 1 && <Divider />}
+      </div>
     </div>
   );
 };

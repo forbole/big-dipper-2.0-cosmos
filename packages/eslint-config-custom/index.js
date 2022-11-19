@@ -77,8 +77,7 @@ module.exports = {
     /* as per https://twitter.com/dan_abramov/status/1133878326358171650 this will eventually get deprecated. */
     'react/require-default-props': 'off',
     /* Https://github.com/facebook/react/issues/14920 */
-    'react-hooks/exhaustive-deps': 'warn',
-    'react-hooks/rules-of-hooks': 'off',
+    'react-hooks/exhaustive-deps': 'warn'
   },
   env: {
     es6: true,

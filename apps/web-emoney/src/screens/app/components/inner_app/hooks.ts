@@ -17,30 +17,30 @@ export function useChainHealthCheck<TData, TVariables>(
   const { t } = useTranslation('common');
   const [chainActive, setChainActive] = useState(true);
 
-  useEffect((): any => {
-    const [useLatestBlockTimestamp] = useLatestBlockTimestampLazyQuery({
-      onCompleted: (data) => {
-        const timestamp = (dayjs as any).utc(R.pathOr('', ['block', 0, 'timestamp'], data));
-        const timeNow = (dayjs as any).utc();
-        const timeDifference = timeNow.diff(timestamp, 's');
-        // if latest block has been over two minute ago
-        if (timeDifference > 120 && chainActive) {
-          toast.error(
-            t('blockTimeAgo', {
-              time: (dayjs as any).utc(timestamp).fromNow(),
-            }),
-            {
-              autoClose: false,
-            }
-          );
-          setChainActive(false);
-        }
-      },
-    });
+  const [getLatestBlockTimestamp] = useLatestBlockTimestampLazyQuery({
+    onCompleted: (data) => {
+      const timestamp = (dayjs as any).utc(R.pathOr('', ['block', 0, 'timestamp'], data));
+      const timeNow = (dayjs as any).utc();
+      const timeDifference = timeNow.diff(timestamp, 's');
+      // if latest block has been over two minute ago
+      if (timeDifference > 120 && chainActive) {
+        toast.error(
+          t('blockTimeAgo', {
+            time: (dayjs as any).utc(timestamp).fromNow(),
+          }),
+          {
+            autoClose: false,
+          }
+        );
+        setChainActive(false);
+      }
+    },
+  });
 
+  useEffect((): any => {
     if (!isClient) {
       return false;
     }
-    useLatestBlockTimestamp();
-  }, [chainActive, t, useLatestBlockTimestampLazyQuery]);
+    getLatestBlockTimestamp();
+  }, [getLatestBlockTimestamp,]);
 }

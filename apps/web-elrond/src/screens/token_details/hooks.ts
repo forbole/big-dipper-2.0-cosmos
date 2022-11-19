@@ -79,7 +79,7 @@ export const useTokenDetails = () => {
     };
 
     getTokenDetail();
-  }, [handleSetState, router]);
+  }, [handleSetState, router.query.token]);
 
   return {
     state,

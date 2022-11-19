@@ -55,7 +55,7 @@ export const useStaking = () => {
           'http://localhost:3000/v1/graphql',
         {
           variables: {
-            validatorAddress: R.pathOr('', ['query', 'address'], router),
+            validatorAddress: router?.query?.address ?? '',
             offset: page * LIMIT,
             limit: LIMIT,
             pagination: false,
@@ -77,7 +77,7 @@ export const useStaking = () => {
             'http://localhost:3000/v1/graphql',
           {
             variables: {
-              validatorAddress: R.pathOr('', ['query', 'address'], router),
+              validatorAddress: router?.query?.address ?? '',
               limit: LIMIT,
             },
             query: ValidatorDelegationsDocument,
@@ -145,7 +145,7 @@ export const useStaking = () => {
             'http://localhost:3000/v1/graphql',
           {
             variables: {
-              validatorAddress: R.pathOr('', ['query', 'address'], router),
+              validatorAddress: router?.query?.address ?? '',
               limit: LIMIT,
             },
             query: ValidatorRedelegationsDocument,
@@ -222,7 +222,7 @@ export const useStaking = () => {
             'http://localhost:3000/v1/graphql',
           {
             variables: {
-              validatorAddress: R.pathOr('', ['query', 'address'], router),
+              validatorAddress: router?.query?.address ?? '',
               limit: LIMIT,
             },
             query: ValidatorUndelegationsDocument,
@@ -291,7 +291,7 @@ export const useStaking = () => {
     getDelegations();
     getRedelegations();
     getUnbondings();
-  }, [handleSetState, router]);
+  }, [handleSetState, router?.query?.address]);
 
   const handleTabChange = useCallback((_event: any, newValue: number) => {
     setState((prevState) => ({

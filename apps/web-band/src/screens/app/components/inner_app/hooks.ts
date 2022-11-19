@@ -16,7 +16,7 @@ export function useChainHealthCheck<TData, TVariables>(
 ) {
   const [chainActive, setChainActive] = useState(true);
   const { t } = useTranslation('common');
-  const [useLatestBlockTimestamp] = useLatestBlockTimestampLazyQuery({
+  const [getLatestBlockTimestamp] = useLatestBlockTimestampLazyQuery({
     onCompleted: (data) => {
       const timestamp = (dayjs as any).utc(R.pathOr('', ['block', 0, 'timestamp'], data));
       const timeNow = (dayjs as any).utc();
@@ -40,6 +40,6 @@ export function useChainHealthCheck<TData, TVariables>(
     if (!isClient) {
       return false;
     }
-    useLatestBlockTimestamp();
-  }, [chainActive, useLatestBlockTimestamp, useLatestBlockTimestampLazyQuery]);
+    getLatestBlockTimestamp();
+  }, [getLatestBlockTimestamp]);
 }

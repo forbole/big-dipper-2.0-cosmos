@@ -56,7 +56,7 @@ export const useTokens = () => {
         console.log((error as any).message);
       }
     },
-    [handleSetState, router]
+    [handleSetState, router.query.address]
   );
 
   useEffect(() => {
@@ -75,7 +75,8 @@ export const useTokens = () => {
 
     getCount();
     getTransactionsByPage(0);
-  }, [getTransactionsByPage, handleSetState, router]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.query.address]);
 
   const handlePageChangeCallback = useCallback(
     async (page: number, _rowsPerPage: number) => {

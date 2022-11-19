@@ -22,7 +22,6 @@ export const useTransactions = () => {
 
   const getTransactionsByPage = useCallback(
     async (page: number) => {
-      const router = useRouter();
       try {
         const { data: transactionsData } = await axios.get(TRANSACTIONS, {
           params: {
@@ -53,7 +52,7 @@ export const useTransactions = () => {
         console.log((error as any).message);
       }
     },
-    [handleSetState]
+    [handleSetState, router.query.token]
   );
 
   useEffect(() => {
@@ -74,7 +73,8 @@ export const useTransactions = () => {
 
     getLatestTransactionCount();
     getTransactionsByPage(0);
-  }, [getTransactionsByPage, handleSetState, router]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.query.address]);
 
   const handlePageChangeCallback = useCallback(
     async (page: number, _rowsPerPage: number) => {

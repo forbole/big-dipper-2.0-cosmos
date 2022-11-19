@@ -52,7 +52,7 @@ export const useTransactions = () => {
         console.log((error as any).message);
       }
     },
-    [handleSetState, router]
+    [handleSetState, router.query.hash]
   );
 
   const handlePageChangeCallback = useCallback(
@@ -84,7 +84,8 @@ export const useTransactions = () => {
 
     getLatestTransactionCount();
     getTransactionsByPage(0);
-  }, [getTransactionsByPage, handleSetState, router]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.query.address]);
 
   return {
     state,

@@ -54,7 +54,7 @@ export const useBlockDetails = () => {
     };
 
     getBlockDetails();
-  }, [handleSetState, router]);
+  }, [handleSetState, router.query.nft]);
 
   return {
     state,
