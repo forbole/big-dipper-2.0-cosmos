@@ -18,45 +18,51 @@ export const useNFTs = () => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   }, []);
 
-  const getNFTsByPage = useCallback(async (page: number) => {
-    try {
-      const { data: nftData } = await axios.get(NFTS, {
-        headers: {
-          accept: 'application/json',
-        },
-        params: {
-          from: page * PAGE_SIZE,
-          size: PAGE_SIZE,
-          type: 'SemiFungibleESDT,NonFungibleESDT',
-        },
-      });
+  const getNFTsByPage = useCallback(
+    async (page: number) => {
+      try {
+        const { data: nftData } = await axios.get(NFTS, {
+          headers: {
+            accept: 'application/json',
+          },
+          params: {
+            from: page * PAGE_SIZE,
+            size: PAGE_SIZE,
+            type: 'SemiFungibleESDT,NonFungibleESDT',
+          },
+        });
 
-      const items = nftData.map((x: any) => {
-        return {
-          identifier: R.pathOr('', ['identifier'], x),
-          name: R.pathOr('', ['name'], x),
-          type: R.pathOr('', ['type'], x),
-          creator: R.pathOr('', ['creator'], x),
-          collection: R.pathOr('', ['collection'], x),
-        };
-      });
+        const items = nftData.map((x: any) => {
+          return {
+            identifier: R.pathOr('', ['identifier'], x),
+            name: R.pathOr('', ['name'], x),
+            type: R.pathOr('', ['type'], x),
+            creator: R.pathOr('', ['creator'], x),
+            collection: R.pathOr('', ['collection'], x),
+          };
+        });
 
+        handleSetState({
+          loading: false,
+          items,
+        });
+      } catch (error: any) {
+        console.log(NFTS, error.message);
+      }
+    },
+    [handleSetState]
+  );
+
+  const handlePageChangeCallback = useCallback(
+    async (page: number, _rowsPerPage: number) => {
       handleSetState({
-        loading: false,
-        items,
+        page,
+        loading: true,
       });
-    } catch (error: any) {
-      console.log(NFTS, error.message);
-    }
-  }, [handleSetState]);
-
-  const handlePageChangeCallback = useCallback(async (page: number, _rowsPerPage: number) => {
-    handleSetState({
-      page,
-      loading: true,
-    });
-    await getNFTsByPage(page);
-  }, [getNFTsByPage, handleSetState]);
+      await getNFTsByPage(page);
+    },
+    [getNFTsByPage, handleSetState]
+  );
 
   useEffect(() => {
     const getCount = async () => {

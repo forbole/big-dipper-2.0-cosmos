@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import Big from 'big.js';
 import axios from 'axios';
@@ -43,11 +43,11 @@ export const useValidatorDetails = () => {
     },
   });
 
-  useEffect(() => {
-    const handleSetState = (stateChange: any) => {
-      setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-    };
+  const handleSetState = useCallback((stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  }, []);
 
+  useEffect(() => {
     const getValidator = async () => {
       try {
         const identityData = await getIdentity();
@@ -204,7 +204,7 @@ export const useValidatorDetails = () => {
     };
 
     getValidator();
-  }, [router.query.identity]);
+  }, [handleSetState, router]);
 
   return {
     state,

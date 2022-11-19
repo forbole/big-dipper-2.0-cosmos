@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import {
@@ -23,9 +23,9 @@ export const useVotes = (resetPagination: any) => {
     tab: 0,
   });
 
-  const handleSetState = (stateChange: any) => {
+  const handleSetState = useCallback((stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  }, []);
 
   const handleTabChange = (_event: any, newValue: number) => {
     if (resetPagination) {

@@ -12,11 +12,11 @@ export const useBlocks = () => {
     items: [],
   });
 
-  const getBlocksByPage = useCallback(async () => {
-    const handleSetState = (stateChange: any) => {
-      setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-    };
+  const handleSetState = useCallback((stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  }, []);
 
+  const getBlocksByPage = useCallback(async () => {
     try {
       const { data: blocksData } = await axios.get(BLOCKS, {
         params: {
@@ -40,7 +40,7 @@ export const useBlocks = () => {
     } catch (error) {
       console.log((error as any).message);
     }
-  }, []);
+  }, [handleSetState]);
 
   useInterval(getBlocksByPage, POLLING_INTERVAL);
 

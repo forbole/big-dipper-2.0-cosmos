@@ -1,4 +1,4 @@
-import { useRef, useEffect, createRef } from 'react';
+import { createRef, useCallback, useEffect, useRef } from 'react';
 import * as R from 'ramda';
 
 // reusable hook helpers for react window list components
@@ -69,9 +69,12 @@ export const useGrid = (
     }
   }, [columnRef, gridRef]);
 
-  const getColumnWidth = useCallback((width: number, index: number) => {
-    return (columns[index].width * width) / 100;
-  }, [columns]);
+  const getColumnWidth = useCallback(
+    (width: number, index: number) => {
+      return (columns[index].width * width) / 100;
+    },
+    [columns]
+  );
 
   const getRowHeight = useCallback(() => {
     // this matches mui table height setup

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import setLanguage from 'next-translate/setLanguage';
 import { useRecoilState, SetterOrUpdater } from 'recoil';
 import { writeTheme, writeDate, writeTx, THEME_DICTIONARY } from 'ui/recoil/settings';
@@ -17,6 +17,10 @@ export const useSettingList = ({ lang }: { lang: string }) => {
     dateFormat: date,
     txListFormat: tx,
   });
+
+  const handleSetState = useCallback((stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  }, []);
 
   const resetSettings = () => {
     handleSetState({
@@ -37,10 +41,6 @@ export const useSettingList = ({ lang }: { lang: string }) => {
 
   const handleClose = () => {
     setOpen(false);
-  };
-
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
 
   const handleChange = (label: string, value: any) => {

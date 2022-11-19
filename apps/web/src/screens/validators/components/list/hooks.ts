@@ -21,26 +21,14 @@ export const useValidators = () => {
     sortDirection: 'asc',
   });
 
-  const handleSetState = (stateChange: any) => {
+  const handleSetState = useCallback((stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
-
-  // ==========================
-  // Fetch Data
-  // ==========================
-  useValidatorsQuery({
-    onCompleted: (data) => {
-      handleSetState({
-        loading: false,
-        ...formatValidators(data),
-      });
-    },
-  });
+  }, []);
 
   // ==========================
   // Parse data
   // ==========================
-  const formatValidators = (data: ValidatorsQuery) => {
+  const formatValidators = useCallback((data: ValidatorsQuery) => {
     const slashingParams = SlashingParams.fromJson(
       R.pathOr({}, ['slashingParams', 0, 'params'], data)
     );
@@ -106,7 +94,19 @@ export const useValidators = () => {
       votingPowerOverall,
       items: formattedItems,
     };
-  };
+  }, []);
+
+  // ==========================
+  // Fetch Data
+  // ==========================
+  useValidatorsQuery({
+    onCompleted: (data) => {
+      handleSetState({
+        loading: false,
+        ...formatValidators(data),
+      });
+    },
+  });
 
   const handleTabChange = useCallback((_event: any, newValue: number) => {
     setState((prevState) => ({
@@ -132,6 +132,10 @@ export const useValidators = () => {
     },
     [state.sortKey]
   );
+
+  const handleSearch = useCallback((value: string) => {
+    setSearch(value);
+  }, []);
 
   const sortItems = useCallback(
     (items: ItemType[]) => {
@@ -179,10 +183,6 @@ export const useValidators = () => {
     },
     [search, state.sortDirection, state.sortKey, state.tab]
   );
-
-  const handleSearch = useCallback((value: string) => {
-    setSearch(value);
-  }, []);
 
   return {
     state,

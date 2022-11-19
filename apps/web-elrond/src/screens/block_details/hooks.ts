@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
@@ -27,11 +27,11 @@ export const useBlockDetails = () => {
     consensus: [],
   });
 
-  useEffect(() => {
-    const handleSetState = (stateChange: any) => {
-      setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-    };
+  const handleSetState = useCallback((stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  }, []);
 
+  useEffect(() => {
     const getBlockDetails = async () => {
       try {
         const { data: blockData } = await axios.get(BLOCK_DETAILS(router.query.hash as string));
@@ -65,7 +65,7 @@ export const useBlockDetails = () => {
     };
 
     getBlockDetails();
-  }, [router.query.hash]);
+  }, [handleSetState, router]);
 
   return {
     state,

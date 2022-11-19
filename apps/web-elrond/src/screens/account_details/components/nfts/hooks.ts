@@ -16,45 +16,51 @@ export const useTokens = () => {
     total: 0,
   });
 
-  const handleSetState = (stateChange: any) => {
+  const handleSetState = useCallback((stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  }, []);
 
-  const getTransactionsByPage = useCallback(async (page: number) => {
-    try {
-      const { data } = await axios.get(ACCOUNT_DETAILS_NFTS(router.query.address as string), {
-        params: {
-          from: page * PAGE_SIZE,
-          size: PAGE_SIZE,
-          withLogs: false,
-          type: 'SemiFungibleESDT,NonFungibleESDT',
-        },
-      });
+  const getTransactionsByPage = useCallback(
+    async (page: number) => {
+      try {
+        const { data } = await axios.get(ACCOUNT_DETAILS_NFTS(router.query.address as string), {
+          params: {
+            from: page * PAGE_SIZE,
+            size: PAGE_SIZE,
+            withLogs: false,
+            type: 'SemiFungibleESDT,NonFungibleESDT',
+          },
+        });
 
-      const items = data.map((x: any) => {
-        return {
-          identifier: R.pathOr('', ['identifier'], x),
-          name: R.pathOr('', ['name'], x),
-          type: R.pathOr('', ['type'], x),
-        };
-      });
+        const items = data.map((x: any) => {
+          return {
+            identifier: R.pathOr('', ['identifier'], x),
+            name: R.pathOr('', ['name'], x),
+            type: R.pathOr('', ['type'], x),
+          };
+        });
 
+        handleSetState({
+          loading: false,
+          items,
+        });
+      } catch (error) {
+        console.log((error as any).message);
+      }
+    },
+    [handleSetState, router]
+  );
+
+  const handlePageChangeCallback = useCallback(
+    async (page: number, _rowsPerPage: number) => {
       handleSetState({
-        loading: false,
-        items,
+        page,
+        loading: true,
       });
-    } catch (error) {
-      console.log((error as any).message);
-    }
-  }, [router.query.address]);
-
-  const handlePageChangeCallback = useCallback(async (page: number, _rowsPerPage: number) => {
-    handleSetState({
-      page,
-      loading: true,
-    });
-    await getTransactionsByPage(page);
-  }, [getTransactionsByPage]);
+      await getTransactionsByPage(page);
+    },
+    [getTransactionsByPage, handleSetState]
+  );
 
   useEffect(() => {
     const getCount = async () => {
@@ -76,7 +82,7 @@ export const useTokens = () => {
     };
     getCount();
     getTransactionsByPage(0);
-  }, [getTransactionsByPage, router.query.address]);
+  }, [getTransactionsByPage, handleSetState, router]);
 
   return {
     state,

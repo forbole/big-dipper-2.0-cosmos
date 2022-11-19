@@ -20,65 +20,73 @@ export const useTransactions = () => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   }, []);
 
-  const getLatestTransactionCount = useCallback(async () => {
-    try {
-      const { data: total } = await axios.get(
-        ACCOUNT_DETAILS_TRANSACTIONS_COUNT(router.query.address as string)
-      );
+  const getTransactionsByPage = useCallback(
+    async (page: number) => {
+      const router = useRouter();
+
+      try {
+        const { data: transactionsData } = await axios.get(
+          ACCOUNT_DETAILS_TRANSACTIONS(router.query.address as string),
+          {
+            params: {
+              from: page * PAGE_SIZE,
+              size: PAGE_SIZE,
+              withLogs: false,
+            },
+          }
+        );
+
+        const items = transactionsData.map((x: any) => {
+          return {
+            hash: x.txHash,
+            fromShard: x.senderShard,
+            toShard: x.receiverShard,
+            from: x.sender,
+            to: x.receiver,
+            timestamp: x.timestamp,
+            status: x.status,
+          };
+        });
+
+        handleSetState({
+          loading: false,
+          items,
+        });
+      } catch (error) {
+        console.log((error as any).message);
+      }
+    },
+    [handleSetState]
+  );
+
+  const handlePageChangeCallback = useCallback(
+    async (page: number, _rowsPerPage: number) => {
       handleSetState({
-        total,
+        page,
+        loading: true,
       });
-    } catch (error) {
-      console.log((error as any).message);
-    }
-  }, [handleSetState, router.query.address]);
-
-  const getTransactionsByPage = useCallback(async (page: number) => {
-    try {
-      const { data: transactionsData } = await axios.get(
-        ACCOUNT_DETAILS_TRANSACTIONS(router.query.address as string),
-        {
-          params: {
-            from: page * PAGE_SIZE,
-            size: PAGE_SIZE,
-            withLogs: false,
-          },
-        }
-      );
-
-      const items = transactionsData.map((x: any) => {
-        return {
-          hash: x.txHash,
-          fromShard: x.senderShard,
-          toShard: x.receiverShard,
-          from: x.sender,
-          to: x.receiver,
-          timestamp: x.timestamp,
-          status: x.status,
-        };
-      });
-
-      handleSetState({
-        loading: false,
-        items,
-      });
-    } catch (error) {
-      console.log((error as any).message);
-    }
-  }, [handleSetState, router.query.address]);
-
-  const handlePageChangeCallback = useCallback(async (page: number, _rowsPerPage: number) => {
-    handleSetState({
-      page,
-      loading: true,
-    });
-    await getTransactionsByPage(page);
-  }, [getTransactionsByPage, handleSetState]);
+      await getTransactionsByPage(page);
+    },
+    [getTransactionsByPage, handleSetState]
+  );
 
   useEffect(() => {
+    const getLatestTransactionCount = async () => {
+      try {
+        const { data: total } = await axios.get(
+          ACCOUNT_DETAILS_TRANSACTIONS_COUNT(router.query.address as string)
+        );
+        handleSetState({
+          total,
+        });
+      } catch (error) {
+        console.log((error as any).message);
+      }
+    };
+
     getLatestTransactionCount();
     getTransactionsByPage(0);
-  }, [getLatestTransactionCount, getTransactionsByPage, router.query.address]);
+  }, [getTransactionsByPage, handleSetState, router]);
 
   return {
     state,

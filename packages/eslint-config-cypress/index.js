@@ -6,18 +6,16 @@ module.exports = {
   plugins: ['@typescript-eslint', 'import'],
 
   settings: {
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
-    "import/resolver": {
-      "typescript": {
-        "alwaysTryTypes": true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+    'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
         // use an array of glob patterns
-        "project": [
-          "./tsconfig.json",
-        ]
-      }
-    }
+        project: ['./tsconfig.json'],
+      },
+    },
   },
   env: {
     'cypress/globals': true,

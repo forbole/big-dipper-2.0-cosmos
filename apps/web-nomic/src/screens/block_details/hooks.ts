@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
 import { useRouter } from 'next/router';
@@ -20,9 +20,9 @@ export const useBlockDetails = () => {
     signatures: [],
     transactions: [],
   });
-  const handleSetState = (stateChange: any) => {
+  const handleSetState = useCallback((stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  }, []);
 
   useEffect(() => {
     // reset every call
@@ -30,7 +30,7 @@ export const useBlockDetails = () => {
       loading: true,
       exists: true,
     });
-  }, [router.query.height]);
+  }, [handleSetState]);
 
   // ==========================
   // Fetch Data
@@ -45,66 +45,66 @@ export const useBlockDetails = () => {
     },
   });
 
-  const formatRaws = (data: BlockDetailsQuery) => {
-    const stateChange: any = {
-      loading: false,
-    };
-
-    if (!data.block.length) {
-      stateChange.exists = false;
-      return stateChange;
-    }
-
-    // ==========================
-    // Overview
-    // ==========================
-    const formatOverview = () => {
-      const proposerAddress = R.pathOr('', ['block', 0, 'operatorAddress'], data);
-      const overview = {
-        height: data.block[0].height,
-        hash: data.block[0].hash,
-        txs: data.block[0].txs,
-        timestamp: data.block[0].timestamp,
-        proposer: proposerAddress,
-      };
-      return overview;
-    };
-
-    stateChange.overview = formatOverview();
-
-    // ==========================
-    // Signatures
-    // ==========================
-    const formatSignatures = () => {
-      const signatures = data.preCommits
-        .filter((x) => x?.operatorAddress)
-        .map((x) => {
-          return x.operatorAddress;
-        });
-      return signatures;
-    };
-    stateChange.signatures = formatSignatures();
-
-    // ==========================
-    // Transactions
-    // ==========================
-    const formatTransactions = () => {
-      const transactions = data.transaction.map((x) => {
-        return {
-          height: x.height,
-          hash: x.hash,
-          timestamp: stateChange.overview.timestamp,
-        };
-      });
-
-      return transactions;
-    };
-    stateChange.transactions = formatTransactions();
-
-    return stateChange;
-  };
-
   return {
     state,
   };
 };
+
+function formatRaws(data: BlockDetailsQuery) {
+  const stateChange: any = {
+    loading: false,
+  };
+
+  if (!data.block.length) {
+    stateChange.exists = false;
+    return stateChange;
+  }
+
+  // ==========================
+  // Overview
+  // ==========================
+  const formatOverview = () => {
+    const proposerAddress = R.pathOr('', ['block', 0, 'operatorAddress'], data);
+    const overview = {
+      height: data.block[0].height,
+      hash: data.block[0].hash,
+      txs: data.block[0].txs,
+      timestamp: data.block[0].timestamp,
+      proposer: proposerAddress,
+    };
+    return overview;
+  };
+
+  stateChange.overview = formatOverview();
+
+  // ==========================
+  // Signatures
+  // ==========================
+  const formatSignatures = () => {
+    const signatures = data.preCommits
+      .filter((x) => x?.operatorAddress)
+      .map((x) => {
+        return x.operatorAddress;
+      });
+    return signatures;
+  };
+  stateChange.signatures = formatSignatures();
+
+  // ==========================
+  // Transactions
+  // ==========================
+  const formatTransactions = () => {
+    const transactions = data.transaction.map((x) => {
+      return {
+        height: x.height,
+        hash: x.hash,
+        timestamp: stateChange.overview.timestamp,
+      };
+    });
+
+    return transactions;
+  };
+  stateChange.transactions = formatTransactions();
+
+  return stateChange;
+}

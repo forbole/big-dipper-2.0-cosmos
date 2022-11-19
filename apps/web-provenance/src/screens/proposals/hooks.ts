@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import * as R from 'ramda';
 import DOMPurify from 'dompurify';
 import { useProposalsQuery, ProposalsQuery } from '@graphql/types/general_types';
@@ -14,9 +14,9 @@ export const useProposals = () => {
     rawDataTotal: 0,
   });
 
-  const handleSetState = (stateChange: any) => {
+  const handleSetState = useCallback((stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  }, []);
 
   // ================================
   // proposals query

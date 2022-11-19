@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
@@ -22,15 +22,15 @@ export const useBlockDetails = () => {
     },
   });
 
+  const handleSetState = useCallback((stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  }, []);
+
   useEffect(() => {
-    const handleSetState = (stateChange: any) => {
-      setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-    };
-  
     const getBlockDetails = async () => {
       try {
         const { data: nftData } = await axios.get(NFT_DETAILS(router.query.nft as string));
-  
+
         handleSetState({
           loading: false,
           overview: {
@@ -54,7 +54,7 @@ export const useBlockDetails = () => {
     };
 
     getBlockDetails();
-  }, [router.query.nft]);
+  }, [handleSetState, router]);
 
   return {
     state,

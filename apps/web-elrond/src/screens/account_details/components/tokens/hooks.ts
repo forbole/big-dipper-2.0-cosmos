@@ -21,40 +21,43 @@ export const useTokens = () => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   }, []);
 
-  const getTransactionsByPage = useCallback(async (page: number) => {
-    try {
-      const { data } = await axios.get(ACCOUNT_DETAILS_TOKENS(router.query.address as string), {
-        params: {
-          from: page * PAGE_SIZE,
-          size: PAGE_SIZE,
-          withLogs: false,
-        },
-      });
-
-      const items = data.map((x: any) => {
-        const balance = R.pathOr('0', ['balance'], x);
-        const exponent = R.pathOr(0, ['decimals'], x);
-        return {
-          identifier: R.pathOr('', ['identifier'], x),
-          name: R.pathOr('', ['name'], x),
-          balance: {
-            displayDenom: R.pathOr('', ['name'], x),
-            baseDenom: R.pathOr('', ['name'], x),
-            exponent: R.pathOr(0, ['decimals'], x),
-            value: formatTokenByExponent(balance, exponent),
+  const getTransactionsByPage = useCallback(
+    async (page: number) => {
+      try {
+        const { data } = await axios.get(ACCOUNT_DETAILS_TOKENS(router.query.address as string), {
+          params: {
+            from: page * PAGE_SIZE,
+            size: PAGE_SIZE,
+            withLogs: false,
           },
-          imageUrl: R.pathOr('', ['assets', 'pngUrl'], x),
-        };
-      });
+        });
 
-      handleSetState({
-        loading: false,
-        items,
-      });
-    } catch (error) {
-      console.log((error as any).message);
-    }
-  }, [handleSetState, router.query.address]);
+        const items = data.map((x: any) => {
+          const balance = R.pathOr('0', ['balance'], x);
+          const exponent = R.pathOr(0, ['decimals'], x);
+          return {
+            identifier: R.pathOr('', ['identifier'], x),
+            name: R.pathOr('', ['name'], x),
+            balance: {
+              displayDenom: R.pathOr('', ['name'], x),
+              baseDenom: R.pathOr('', ['name'], x),
+              exponent: R.pathOr(0, ['decimals'], x),
+              value: formatTokenByExponent(balance, exponent),
+            },
+            imageUrl: R.pathOr('', ['assets', 'pngUrl'], x),
+          };
+        });
+
+        handleSetState({
+          loading: false,
+          items,
+        });
+      } catch (error) {
+        console.log((error as any).message);
+      }
+    },
+    [handleSetState, router]
+  );
 
   useEffect(() => {
     const getCount = async () => {
@@ -72,15 +75,18 @@ export const useTokens = () => {
 
     getCount();
     getTransactionsByPage(0);
-  }, [getTransactionsByPage, handleSetState, router.query.address]);
+  }, [getTransactionsByPage, handleSetState, router]);
 
-  const handlePageChangeCallback = useCallback(async (page: number, _rowsPerPage: number) => {
-    handleSetState({
-      page,
-      loading: true,
-    });
-    await getTransactionsByPage(page);
-  }, [getTransactionsByPage, handleSetState]);
+  const handlePageChangeCallback = useCallback(
+    async (page: number, _rowsPerPage: number) => {
+      handleSetState({
+        page,
+        loading: true,
+      });
+      await getTransactionsByPage(page);
+    },
+    [getTransactionsByPage, handleSetState]
+  );
 
   return {
     state,

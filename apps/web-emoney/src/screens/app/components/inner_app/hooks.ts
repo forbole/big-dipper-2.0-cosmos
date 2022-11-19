@@ -9,6 +9,8 @@ export type UseLatestBlockTimestampLazyQuery<TData, TVariables> = (
   baseOptions?: LazyQueryHookOptions<TData, TVariables>
 ) => LazyQueryResultTuple<TData, TVariables>;
 
+const isClient = typeof window === 'object';
+
 export function useChainHealthCheck<TData, TVariables>(
   useLatestBlockTimestampLazyQuery: UseLatestBlockTimestampLazyQuery<TData, TVariables>
 ) {
@@ -16,8 +18,6 @@ export function useChainHealthCheck<TData, TVariables>(
   const [chainActive, setChainActive] = useState(true);
 
   useEffect((): any => {
-    const isClient = typeof window === 'object';
-
     const [useLatestBlockTimestamp] = useLatestBlockTimestampLazyQuery({
       onCompleted: (data) => {
         const timestamp = (dayjs as any).utc(R.pathOr('', ['block', 0, 'timestamp'], data));

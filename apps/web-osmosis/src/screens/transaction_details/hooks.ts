@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useTransactionDetailsQuery, TransactionDetailsQuery } from '@graphql/types/general_types';
@@ -35,16 +35,16 @@ export const useTransactionDetails = () => {
     },
   });
 
-  const handleSetState = (stateChange: any) => {
+  const handleSetState = useCallback((stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  }, []);
 
   useEffect(() => {
     handleSetState({
       loading: true,
       exists: true,
     });
-  }, [router.query.tx]);
+  }, [handleSetState]);
 
   // ===============================
   // Fetch data
@@ -123,30 +123,39 @@ export const useTransactionDetails = () => {
     return stateChange;
   };
 
-  const onMessageFilterCallback = (value: string) => {
-    handleSetState({
-      messages: {
-        filterBy: value,
-      },
-    });
-  };
+  const onMessageFilterCallback = useCallback(
+    (value: string) => {
+      handleSetState({
+        messages: {
+          filterBy: value,
+        },
+      });
+    },
+    [handleSetState]
+  );
 
-  const toggleMessageDisplay = (event: React.ChangeEvent<HTMLInputElement>) => {
-    handleSetState({
-      messages: {
-        viewRaw: event.target.checked,
-      },
-    });
-  };
+  const toggleMessageDisplay = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      handleSetState({
+        messages: {
+          viewRaw: event.target.checked,
+        },
+      });
+    },
+    [handleSetState]
+  );
 
-  const filterMessages = (messages: any[]) => {
-    return messages.filter((x) => {
-      if (state.messages.filterBy !== 'none') {
-        return x.category === state.messages.filterBy;
-      }
-      return true;
-    });
-  };
+  const filterMessages = useCallback(
+    (messages: any[]) => {
+      return messages.filter((x) => {
+        if (state.messages.filterBy !== 'none') {
+          return x.category === state.messages.filterBy;
+        }
+        return true;
+      });
+    },
+    [state.messages.filterBy]
+  );
 
   return {
     state,

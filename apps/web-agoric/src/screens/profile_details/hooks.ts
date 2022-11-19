@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import chainConfig from 'ui/chainConfig';
@@ -27,26 +27,27 @@ export const useProfileDetails = () => {
     }
   }, [state.desmosProfile?.connections]);
 
+  const handleSetState = useCallback((stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  }, []);
+
+  // ==========================
+  // Desmos Profile
+  // ==========================
+  const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
+    onComplete: (data) => {
+      handleSetState({
+        loading: false,
+        exists: !!data.profile.length,
+        desmosProfile: formatDesmosProfile(data),
+      });
+    },
+  });
+
+  const profileDtag = router?.query?.dtag as string ?? '';
+
   useEffect(() => {
-    const handleSetState = (stateChange: any) => {
-      setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-    };
-
-    // ==========================
-    // Desmos Profile
-    // ==========================
-    const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
-      onComplete: (data) => {
-        handleSetState({
-          loading: false,
-          exists: !!data.profile.length,
-          desmosProfile: formatDesmosProfile(data),
-        });
-      },
-    });
-
     const regex = /^@/;
-    const profileDtag = router.query.dtag as string;
     const regexCheck = regex.test(profileDtag);
     const configProfile = chainConfig.extra.profile;
     handleSetState(initialState);
@@ -56,9 +57,10 @@ export const useProfileDetails = () => {
     }
 
     if (configProfile) {
-      fetchDesmosProfile(R.pathOr('', ['query', 'dtag'], router));
+      fetchDesmosProfile(profileDtag);
     }
-  }, [router]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [profileDtag]);
 
   useEffect(() => {
     if (state.desmosProfile) {
@@ -82,7 +84,8 @@ export const useProfileDetails = () => {
         });
       }
     }
-  }, [router, shouldShowProfile, state.desmosProfile]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.desmosProfile]);
 
   return {
     state,

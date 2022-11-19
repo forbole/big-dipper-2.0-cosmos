@@ -6,7 +6,8 @@ const TransactionDetailsPage = () => {
 
   useEffect(() => {
     router.replace(`/transactions/${router.query.tx}`);
-  }, [router]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return null;
 };

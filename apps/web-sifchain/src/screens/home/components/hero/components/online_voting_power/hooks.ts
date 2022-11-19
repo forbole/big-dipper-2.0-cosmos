@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { useOnlineVotingPowerQuery, OnlineVotingPowerQuery } from '@graphql/types/general_types';
@@ -18,9 +18,9 @@ const initialState: {
 export const useOnlineVotingPower = () => {
   const [state, setState] = useState(initialState);
 
-  const handleSetState = (stateChange: any) => {
+  const handleSetState = useCallback((stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  }, []);
 
   useOnlineVotingPowerQuery({
     onCompleted: (data) => {

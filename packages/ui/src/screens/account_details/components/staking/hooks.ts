@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import Big from 'big.js';
 import { useRouter } from 'next/router';
@@ -31,6 +31,10 @@ export const useStaking = (rewards: RewardsType) => {
     redelegations: stakingDefault,
     unbondings: stakingDefault,
   });
+
+  const handleSetState = useCallback((stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  }, []);
 
   useEffect(() => {
     const formatDelegations = (data: any[]) => {
@@ -103,7 +107,7 @@ export const useStaking = (rewards: RewardsType) => {
               allDelegations.push(...delegations);
             });
         }
-  
+
         handleSetState({
           delegations: {
             loading: false,
@@ -139,7 +143,7 @@ export const useStaking = (rewards: RewardsType) => {
         );
         const count = R.pathOr(0, ['data', 'redelegations', 'pagination', 'total'], data);
         const allData = R.pathOr([], ['data', 'redelegations', 'redelegations'], data);
-  
+
         // if there are more than the default 100, grab the remaining delegations
         if (count > LIMIT) {
           const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
@@ -159,9 +163,9 @@ export const useStaking = (rewards: RewardsType) => {
               allData.push(...fullfilledData);
             });
         }
-  
+
         const formattedData = formatRedelegations(allData);
-  
+
         handleSetState({
           redelegations: {
             loading: false,
@@ -197,7 +201,7 @@ export const useStaking = (rewards: RewardsType) => {
         );
         const count = R.pathOr(0, ['data', 'undelegations', 'pagination', 'total'], data);
         const allData = R.pathOr([], ['data', 'undelegations', 'undelegations'], data);
-  
+
         // if there are more than the default 100, grab the remaining delegations
         if (count > LIMIT) {
           const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
@@ -217,9 +221,9 @@ export const useStaking = (rewards: RewardsType) => {
               allData.push(...fullfilledData);
             });
         }
-  
+
         const formattedData = formatUnbondings(allData);
-  
+
         handleSetState({
           unbondings: {
             loading: false,
@@ -239,11 +243,7 @@ export const useStaking = (rewards: RewardsType) => {
     getDelegations();
     getRedelegations();
     getUnbondings();
-  }, [rewards, router, router.query.address]);
-
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  }, [handleSetState, rewards, router]);
 
   const handleTabChange = useCallback((_event: any, newValue: number) => {
     setState((prevState) => ({

@@ -7,7 +7,7 @@ import {
 
 const PROFILE_API = 'https://gql.mainnet.desmos.network/v1/graphql';
 
-const fetchDesmos = async (address: string) => {
+async function fetchDesmos(address: string) {
   const { data } = await axios.post(PROFILE_API, {
     variables: {
       address,
@@ -15,9 +15,9 @@ const fetchDesmos = async (address: string) => {
     query: DesmosProfileDocument,
   });
   return data.data;
-};
+}
 
-const fetchLink = async (address: string) => {
+async function fetchLink(address: string) {
   const { data } = await axios.post(PROFILE_API, {
     variables: {
       address,
@@ -25,9 +25,9 @@ const fetchLink = async (address: string) => {
     query: DesmosProfileLinkDocument,
   });
   return data.data;
-};
+}
 
-const fetchDesmosProfile = async (address: string) => {
+async function fetchDesmosProfile(address: string) {
   let data: DesmosProfileQuery = {
     profile: [],
   };
@@ -46,9 +46,9 @@ const fetchDesmosProfile = async (address: string) => {
   } catch (error) {
     return null;
   }
-};
+}
 
-const formatDesmosProfile = (data: DesmosProfileQuery) => {
+function formatDesmosProfile(data: DesmosProfileQuery) {
   if (!data.profile.length) {
     return null;
   }
@@ -89,7 +89,7 @@ const formatDesmosProfile = (data: DesmosProfileQuery) => {
     bio: profile.bio,
     connections: [nativeData, ...connectionsWithoutNativeSorted],
   };
-};
+}
 
 export const getProfile = async (delegatorAddress: string): Promise<DesmosProfile | null> => {
   const profile = await fetchDesmosProfile(delegatorAddress);

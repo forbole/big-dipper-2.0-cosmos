@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import Big from 'big.js';
 import { useRouter } from 'next/router';
@@ -48,19 +48,18 @@ export const useAccountDetails = () => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   }, []);
 
-  useEffect(() => {
-  
-    // ==========================
-    // Desmos Profile
-    // ==========================
-    const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
-      onComplete: (data) => {
-        handleSetState({
-          desmosProfile: formatDesmosProfile(data),
-        });
-      },
-    });
+  // ==========================
+  // Desmos Profile
+  // ==========================
+  const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
+    onComplete: (data) => {
+      handleSetState({
+        desmosProfile: formatDesmosProfile(data),
+      });
+    },
+  });
 
+  useEffect(() => {
     if (!isValidAddress(router.query.address as string)) {
       handleSetState({
         loading: false,
@@ -69,10 +68,9 @@ export const useAccountDetails = () => {
     } else if (chainConfig.extra.profile) {
       fetchDesmosProfile(router.query.address as string);
     }
-  }, [handleSetState, router.query.address]);
+  }, [fetchDesmosProfile, handleSetState, router]);
 
   useEffect(() => {
-
     // ==========================
     // Fetch Data
     // ==========================
@@ -85,19 +83,19 @@ export const useAccountDetails = () => {
     //     },
     //   });
     // };
-  
+
     const fetchBalance = async () => {
       const address = router.query.address as string;
       const promises = [fetchAvailableBalances(address), fetchDelegationBalance(address)];
       const [available, delegation] = await Promise.allSettled(promises);
-  
+
       const formattedRawData: any = {};
       formattedRawData.accountBalances = R.pathOr([], ['value', 'accountBalances'], available);
       formattedRawData.delegationBalance = R.pathOr([], ['value', 'delegationBalance'], delegation);
-  
+
       handleSetState(formatAllBalance(formattedRawData));
     };
-  
+
     // ==========================
     // Format Data
     // ==========================
@@ -105,7 +103,7 @@ export const useAccountDetails = () => {
       const stateChange: any = {
         loading: false,
       };
-  
+
       // ============================
       // balance
       // ============================
@@ -115,17 +113,17 @@ export const useAccountDetails = () => {
           chainConfig.primaryTokenUnit
         );
         const availableAmount = formatToken(available.amount, chainConfig.primaryTokenUnit);
-  
+
         const delegate = getDenom(
           R.pathOr([], ['delegationBalance', 'coins'], data),
           chainConfig.primaryTokenUnit
         );
         const delegateAmount = formatToken(delegate.amount, chainConfig.primaryTokenUnit);
-  
+
         const total = Big(availableAmount.value)
           .plus(delegateAmount.value)
           .toFixed(chainConfig.tokenUnits[chainConfig.primaryTokenUnit].exponent);
-  
+
         const balance = {
           available: availableAmount,
           total: {
@@ -135,12 +133,12 @@ export const useAccountDetails = () => {
             exponent: availableAmount.exponent,
           },
         };
-  
+
         return balance;
       };
-  
+
       stateChange.balance = formatBalance();
-  
+
       // ============================
       // other tokens
       // ============================
@@ -150,40 +148,40 @@ export const useAccountDetails = () => {
         const otherTokens: any[] = [];
         // available tokens
         const available = R.pathOr([], ['accountBalances', 'coins'], data);
-  
+
         available.forEach((x: any) => {
           otherTokenUnits.add(x.denom);
         });
-  
+
         // remove the primary token unit thats being shown in balance
         otherTokenUnits.delete(chainConfig.primaryTokenUnit);
-  
+
         otherTokenUnits.forEach((x: string) => {
           const availableRawAmount = getDenom(available, x);
           const availableAmount = formatToken(availableRawAmount.amount, x);
-  
+
           otherTokens.push({
             denom: R.pathOr(x, ['tokenUnits', x, 'display'], chainConfig),
             available: availableAmount,
           });
         });
-  
+
         return {
           data: otherTokens,
           count: otherTokens.length,
         };
       };
-  
+
       formatOtherTokens();
-  
+
       stateChange.otherTokens = formatOtherTokens();
-  
+
       return stateChange;
     };
 
     // fetchWithdrawalAddress();
     fetchBalance();
-  }, [handleSetState, router.query.address]);
+  }, [handleSetState, router]);
 
   return {
     state,

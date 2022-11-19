@@ -11,11 +11,11 @@ export const useEpoch = () => {
     roundsPerEpoch: 0,
   });
 
-  useEffect(() => {
-    const handleSetState = (stateChange: any) => {
-      setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-    };
+  const handleSetState = useCallback((stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  }, []);
 
+  useEffect(() => {
     const getEpoch = async () => {
       try {
         const { data: statsData } = await axios.get(STATS);
@@ -31,7 +31,7 @@ export const useEpoch = () => {
     };
 
     getEpoch();
-  }, []);
+  }, [handleSetState]);
 
   return {
     state,

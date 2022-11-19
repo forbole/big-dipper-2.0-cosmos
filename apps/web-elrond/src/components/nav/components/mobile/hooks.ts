@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import { useScreenSize } from 'ui/hooks';
 
@@ -34,7 +34,8 @@ export const useMobile = () => {
     if (isDesktop) {
       closeAll();
     }
-  }, [closeAll, isDesktop]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isDesktop]);
 
   // closes menu if opened and opens menu if
   // closed and hamburger icon is clicked

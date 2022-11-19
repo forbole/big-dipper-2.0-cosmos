@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import * as R from 'ramda';
 import {
   useBlocksListenerSubscription,
@@ -16,9 +16,9 @@ export const useBlocks = () => {
     isNextPageLoading: false,
   });
 
-  const handleSetState = (stateChange: any) => {
+  const handleSetState = useCallback((stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  }, []);
 
   // This is a bandaid as it can get extremely
   // expensive if there is too much data

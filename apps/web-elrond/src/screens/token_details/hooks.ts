@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
@@ -30,15 +30,15 @@ export const useTokenDetails = () => {
     },
   });
 
+  const handleSetState = useCallback((stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  }, []);
+
   useEffect(() => {
-    const handleSetState = (stateChange: any) => {
-      setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-    };
-  
     const getTokenDetail = async () => {
       try {
         const { data: tokenData } = await axios.get(TOKEN_DETAILS(router.query.token as string));
-  
+
         // profile
         const profile = {
           name: R.pathOr('', ['name'], tokenData),
@@ -46,7 +46,7 @@ export const useTokenDetails = () => {
           description: R.pathOr('', ['assets', 'description'], tokenData),
           imageUrl: R.pathOr('', ['assets', 'pngUrl'], tokenData),
         };
-  
+
         // overview
         const overview = {
           owner: R.pathOr('', ['owner'], tokenData),
@@ -54,7 +54,7 @@ export const useTokenDetails = () => {
           website: R.pathOr('', ['assets', 'website'], tokenData),
           email: R.pathOr('', ['assets', 'social', 'email'], tokenData),
         };
-  
+
         // stats
         const stats = {
           identifier: R.pathOr('', ['identifier'], tokenData),
@@ -62,7 +62,7 @@ export const useTokenDetails = () => {
           transactions: R.pathOr(0, ['transactions'], tokenData),
           supply: R.pathOr('', ['supply'], tokenData),
         };
-  
+
         handleSetState({
           loading: false,
           profile,
@@ -79,7 +79,7 @@ export const useTokenDetails = () => {
     };
 
     getTokenDetail();
-  }, [router.query.token]);
+  }, [handleSetState, router]);
 
   return {
     state,

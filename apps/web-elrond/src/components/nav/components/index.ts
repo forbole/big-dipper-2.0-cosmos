@@ -4,4 +4,3 @@ export { default as MenuItems } from './menu_items';
 export { default as Mobile } from './mobile';
 export { default as SearchBar } from './search_bar';
 export { default as TitleBar } from './title_bar';
-

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useRecoilState, SetterOrUpdater } from 'recoil';
 import { type Theme, writeTheme } from 'ui/recoil/settings';
 
@@ -42,9 +42,12 @@ export const useThemeDrawer = (toggleNavMenus: () => void) => {
     setDrawerOpen(!drawerOpen);
   }, [drawerOpen]);
 
-  const handleChangeTheme = useCallback((newTheme: Theme) => {
-    setTheme(newTheme);
-  }, [setTheme]);
+  const handleChangeTheme = useCallback(
+    (newTheme: Theme) => {
+      setTheme(newTheme);
+    },
+    [setTheme]
+  );
 
   return {
     toggleDrawer,

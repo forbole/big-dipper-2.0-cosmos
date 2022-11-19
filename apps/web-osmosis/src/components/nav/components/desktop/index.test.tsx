@@ -15,9 +15,10 @@ jest.mock('./components/action_bar', () => (props: JSX.IntrinsicElements['div'])
   <div id="actionBar" {...props} />
 ));
 
-jest.mock('ui/components/nav/components/menu_items', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="MenuItems" {...props} />
-));
+jest.mock(
+  'ui/components/nav/components/menu_items',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="MenuItems" {...props} />
+);
 jest.mock('../title_bar', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="TitleBar" {...props} />
 ));

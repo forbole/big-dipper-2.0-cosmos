@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { useParamsQuery, ParamsQuery } from '@graphql/types/general_types';
@@ -20,9 +20,9 @@ const initialState = {
 export const useParams = () => {
   const [state, setState] = useState<ParamsState>(initialState);
 
-  const handleSetState = (stateChange: any) => {
+  const handleSetState = useCallback((stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  }, []);
 
   // ================================
   // param query
@@ -112,7 +112,6 @@ export const useParams = () => {
     // ================================
     // distribution
     // ================================
-
     const formatDistribution = () => {
       if (data.distributionParams.length) {
         const distributionParamsRaw = DistributionParams.fromJson(
@@ -134,7 +133,6 @@ export const useParams = () => {
     // ================================
     // distribution
     // ================================
-
     const formatGov = () => {
       if (data.govParams.length) {
         const govParamsRaw = GovParams.fromJson(R.pathOr({}, ['govParams', 0], data));

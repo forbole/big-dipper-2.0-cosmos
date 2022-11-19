@@ -26,7 +26,7 @@ export const useProfileRecoil = (address: string): AvatarName => {
     const delegatorAddress = useRecoilValue(readDelegatorAddress(address));
     const fetchProfile = useRecoilCallback(({ set }) => async () => {
       const fetchedProfile = await getProfile(delegatorAddress);
-  
+
       if (fetchedProfile === null) {
         set(writeProfile(delegatorAddress), null);
       } else {
@@ -76,7 +76,7 @@ export const useProfilesRecoil = (addresses: string[]): AvatarName[] => {
           }
         })
       );
-  
+
       return fetchedProfiles;
     });
 

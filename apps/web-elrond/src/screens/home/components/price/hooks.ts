@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import axios from 'axios';
@@ -10,15 +10,15 @@ export const usePrice = () => {
     items: [],
   });
 
-  useEffect(() => {
-    const handleSetState = (stateChange: any) => {
-      setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-    };
+  const handleSetState = useCallback((stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  }, []);
 
+  useEffect(() => {
     const getPrices = async () => {
       try {
         const { data: prices } = await axios.get(PRICE_HISTORY);
-  
+
         handleSetState({
           items: prices.slice(-7),
         });
@@ -26,9 +26,9 @@ export const usePrice = () => {
         console.log((error as any).message);
       }
     };
-  
+
     getPrices();
-  }, []);
+  }, [handleSetState]);
 
   const tickPriceFormatter = useCallback((num: number) => {
     return `$${numeral(num).format('0,0')}`;

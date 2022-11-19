@@ -6,7 +6,8 @@ const AccountDetailsPage = () => {
 
   useEffect(() => {
     router.replace(`/accounts/${router.query.address}`);
-  }, [router]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return null;
 };

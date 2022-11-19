@@ -14,34 +14,41 @@ export const useBlocks = () => {
     total: 0,
   });
 
-  const getTransactionsByPage = useCallback(async (page: number) => {
-    try {
-      const { data: tokensData } = await axios.get(TOKENS, {
-        params: {
-          from: page * PAGE_SIZE,
-          size: PAGE_SIZE,
-        },
-      });
-
-      const items = tokensData.map((x: any) => {
-        return {
-          identifier: R.pathOr('', ['identifier'], x),
-          name: R.pathOr('', ['name'], x),
-          owner: R.pathOr('', ['owner'], x),
-          accounts: R.pathOr('', ['accounts'], x),
-          transactions: R.pathOr('', ['transactions'], x),
-          imageUrl: R.pathOr('', ['assets', 'pngUrl'], x),
-        };
-      });
-
-      handleSetState({
-        loading: false,
-        items,
-      });
-    } catch (error) {
-      console.log((error as any).message);
-    }
+  const handleSetState = useCallback((stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   }, []);
+
+  const getTransactionsByPage = useCallback(
+    async (page: number) => {
+      try {
+        const { data: tokensData } = await axios.get(TOKENS, {
+          params: {
+            from: page * PAGE_SIZE,
+            size: PAGE_SIZE,
+          },
+        });
+
+        const items = tokensData.map((x: any) => {
+          return {
+            identifier: R.pathOr('', ['identifier'], x),
+            name: R.pathOr('', ['name'], x),
+            owner: R.pathOr('', ['owner'], x),
+            accounts: R.pathOr('', ['accounts'], x),
+            transactions: R.pathOr('', ['transactions'], x),
+            imageUrl: R.pathOr('', ['assets', 'pngUrl'], x),
+          };
+        });
+
+        handleSetState({
+          loading: false,
+          items,
+        });
+      } catch (error) {
+        console.log((error as any).message);
+      }
+    },
+    [handleSetState]
+  );
 
   useEffect(() => {
     const getLatestTransactionCount = async () => {
@@ -57,19 +64,18 @@ export const useBlocks = () => {
 
     getLatestTransactionCount();
     getTransactionsByPage(0);
-  }, [getTransactionsByPage]);
+  }, [getTransactionsByPage, handleSetState]);
 
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
-
-  const handlePageChangeCallback = useCallback(async (page: number, _rowsPerPage: number) => {
-    handleSetState({
-      page,
-      loading: true,
-    });
-    await getTransactionsByPage(page);
-  }, [getTransactionsByPage]);
+  const handlePageChangeCallback = useCallback(
+    async (page: number, _rowsPerPage: number) => {
+      handleSetState({
+        page,
+        loading: true,
+      });
+      await getTransactionsByPage(page);
+    },
+    [getTransactionsByPage, handleSetState]
+  );
 
   return {
     state,

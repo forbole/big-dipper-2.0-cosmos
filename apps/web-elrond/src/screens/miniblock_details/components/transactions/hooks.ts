@@ -19,46 +19,52 @@ export const useTransactions = () => {
   const handleSetState = useCallback((stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   }, []);
-  
-  const getTransactionsByPage = useCallback(async (page: number) => {
-    try {
-      const { data: transactionsData } = await axios.get(TRANSACTIONS, {
-        params: {
-          from: page * PAGE_SIZE,
-          size: PAGE_SIZE,
-          withLogs: false,
-          miniBlockHash: router.query.hash,
-        },
-      });
 
-      const items = transactionsData.map((x: any) => {
-        return {
-          hash: x.txHash,
-          fromShard: x.senderShard,
-          toShard: x.receiverShard,
-          from: x.sender,
-          to: x.receiver,
-          timestamp: x.timestamp,
-          status: x.status,
-        };
-      });
+  const getTransactionsByPage = useCallback(
+    async (page: number) => {
+      try {
+        const { data: transactionsData } = await axios.get(TRANSACTIONS, {
+          params: {
+            from: page * PAGE_SIZE,
+            size: PAGE_SIZE,
+            withLogs: false,
+            miniBlockHash: router.query.hash,
+          },
+        });
 
+        const items = transactionsData.map((x: any) => {
+          return {
+            hash: x.txHash,
+            fromShard: x.senderShard,
+            toShard: x.receiverShard,
+            from: x.sender,
+            to: x.receiver,
+            timestamp: x.timestamp,
+            status: x.status,
+          };
+        });
+
+        handleSetState({
+          loading: false,
+          items,
+        });
+      } catch (error) {
+        console.log((error as any).message);
+      }
+    },
+    [handleSetState, router]
+  );
+
+  const handlePageChangeCallback = useCallback(
+    async (page: number, _rowsPerPage: number) => {
       handleSetState({
-        loading: false,
-        items,
+        page,
+        loading: true,
       });
-    } catch (error) {
-      console.log((error as any).message);
-    }
-  }, [handleSetState, router.query.hash]);
-
-  const handlePageChangeCallback = useCallback(async (page: number, _rowsPerPage: number) => {
-    handleSetState({
-      page,
-      loading: true,
-    });
-    await getTransactionsByPage(page);
-  }, [getTransactionsByPage, handleSetState]);
+      await getTransactionsByPage(page);
+    },
+    [getTransactionsByPage, handleSetState]
+  );
 
   useEffect(() => {
     const getLatestTransactionCount = async () => {
@@ -78,7 +84,7 @@ export const useTransactions = () => {
 
     getLatestTransactionCount();
     getTransactionsByPage(0);
-  }, [getTransactionsByPage, handleSetState, router.query.hash]);
+  }, [getTransactionsByPage, handleSetState, router]);
 
   return {
     state,

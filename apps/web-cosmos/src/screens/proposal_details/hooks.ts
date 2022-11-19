@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import { useProposalDetailsQuery, ProposalDetailsQuery } from '@graphql/types/general_types';
@@ -23,9 +23,9 @@ export const useProposalDetails = () => {
     },
   });
 
-  const handleSetState = (stateChange: any) => {
+  const handleSetState = useCallback((stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  }, []);
 
   // ==========================
   // fetch data

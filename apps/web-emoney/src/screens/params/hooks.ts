@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { useParamsQuery, ParamsQuery } from '@graphql/types/general_types';
@@ -24,9 +24,9 @@ const initialState: ParamsState = {
 export const useParams = () => {
   const [state, setState] = useState<ParamsState>(initialState);
 
-  const handleSetState = (stateChange: any) => {
+  const handleSetState = useCallback((stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  }, []);
 
   // ================================
   // param query

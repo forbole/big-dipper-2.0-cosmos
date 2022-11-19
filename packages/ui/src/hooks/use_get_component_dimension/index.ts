@@ -7,6 +7,7 @@ export const useGetComponentDimension = () => {
   const [height, setHeight] = useState(0);
   const [width, setWidth] = useState(0);
   const ref: any = useRef(null);
+
   useEffect(() => {
     if (ref?.current?.clientHeight) {
       setHeight(ref.current.clientHeight);

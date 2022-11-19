@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
@@ -38,17 +38,17 @@ export const useTransactionDetails = () => {
     results: [],
   });
 
+  const handleSetState = useCallback((stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  }, []);
+
   useEffect(() => {
-    const handleSetState = (stateChange: any) => {
-      setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-    };
-  
     const getTransactionDetail = async () => {
       try {
         const { data: transactionData } = await axios.get(
           TRANSACTION_DETAILS(router.query.hash as string)
         );
-  
+
         // overview
         const overview = {
           hash: transactionData.txHash,
@@ -67,7 +67,7 @@ export const useTransactionDetails = () => {
           ),
           price: transactionData.price,
         };
-  
+
         // action
         let action = null;
         if (transactionData.action) {
@@ -77,7 +77,7 @@ export const useTransactionDetails = () => {
             description: R.pathOr('', ['description'], transactionData.action),
           };
         }
-  
+
         // operations
         const operations = R.pathOr([], ['operations'], transactionData).map((x) => {
           // edge case if value is base token
@@ -100,7 +100,7 @@ export const useTransactionDetails = () => {
             },
           };
         });
-  
+
         // results
         const results = R.pathOr([], ['results'], transactionData).map((x) => {
           return {
@@ -111,7 +111,7 @@ export const useTransactionDetails = () => {
             value: formatToken(R.pathOr(0, ['value'], x), chainConfig.primaryTokenUnit),
           };
         });
-  
+
         handleSetState({
           loading: false,
           overview,
@@ -130,7 +130,7 @@ export const useTransactionDetails = () => {
     };
 
     getTransactionDetail();
-  }, [router.query.hash]);
+  }, [handleSetState, router]);
 
   return {
     state,

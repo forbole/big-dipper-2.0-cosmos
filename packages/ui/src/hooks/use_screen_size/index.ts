@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '@material-ui/core/styles';
 
-export const useScreenSize = () => {
-  const isClient = typeof window === 'object';
+const isClient = typeof window === 'object';
 
+export const useScreenSize = () => {
   const [windowSize, setWindowSize] = useState<{
     width: number | undefined;
     height: number | undefined;
@@ -25,7 +25,7 @@ export const useScreenSize = () => {
     window.addEventListener('resize', handleResize);
 
     return () => window.removeEventListener('resize', handleResize);
-  }, [isClient]);
+  }, []);
 
   useEffect(() => {
     const width = windowSize?.width ?? 0;

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import axios from 'axios';
 import { DesmosProfileQuery } from '../../graphql/types/profile_types';
 import {
@@ -23,49 +23,6 @@ export const useDesmosProfile = (options: Options) => {
 
   const fetchDesmosProfile = useCallback(
     async (input: string) => {
-      const fetchLink = async (address: string) => {
-        try {
-          const { data } = await axios.post(PROFILE_API, {
-            variables: {
-              address,
-            },
-            query: DesmosProfileLinkDocument,
-          });
-          return data.data;
-        } catch (error) {
-          return null;
-        }
-      };
-
-      const fetchDesmos = async (address: string) => {
-        try {
-          const { data } = await axios.post(PROFILE_API, {
-            variables: {
-              address,
-            },
-            query: DesmosProfileDocument,
-          });
-          return data.data;
-        } catch (error) {
-          return null;
-        }
-      };
-
-      const fetchDtag = async (dtag: string) => {
-        try {
-          const { data } = await axios.post(PROFILE_API, {
-            variables: {
-              dtag,
-            },
-            query: DesmosProfileDtagDocument,
-          });
-
-          return data.data;
-        } catch (error) {
-          return null;
-        }
-      };
-
       let data: DesmosProfileQuery = {
         profile: [],
       };
@@ -94,49 +51,6 @@ export const useDesmosProfile = (options: Options) => {
     [options]
   );
 
-  const formatDesmosProfile = useCallback((data: DesmosProfileQuery): DesmosProfile | null => {
-    if (!data.profile.length) {
-      return null;
-    }
-
-    const profile = data.profile[0];
-
-    const nativeData = {
-      network: 'native',
-      identifier: profile.address,
-      creationTime: profile.creationTime,
-    };
-
-    const applications = profile.applicationLinks.map((x) => {
-      return {
-        network: x.application,
-        identifier: x.username,
-        creationTime: x.creationTime,
-      };
-    });
-
-    const chains = profile.chainLinks.map((x) => {
-      return {
-        network: x.chainConfig.name,
-        identifier: x.externalAddress,
-        creationTime: x.creationTime,
-      };
-    });
-
-    const connectionsWithoutNativeSorted = [...applications, ...chains].sort((a, b) =>
-      a.network.toLowerCase() > b.network.toLowerCase() ? 1 : -1
-    );
-
-    return {
-      dtag: profile.dtag,
-      nickname: profile.nickname,
-      imageUrl: profile.profilePic,
-      coverUrl: profile.coverPic,
-      bio: profile.bio,
-      connections: [nativeData, ...connectionsWithoutNativeSorted],
-    };
-  }, []);
-
   useEffect(() => {
     if (options.address) {
       fetchDesmosProfile(options.address);
@@ -149,3 +63,89 @@ export const useDesmosProfile = (options: Options) => {
     formatDesmosProfile,
   };
 };
+
+async function fetchLink(address: string) {
+  try {
+    const { data } = await axios.post(PROFILE_API, {
+      variables: {
+        address,
+      },
+      query: DesmosProfileLinkDocument,
+    });
+    return data.data;
+  } catch (error) {
+    return null;
+  }
+}
+
+async function fetchDesmos(address: string) {
+  try {
+    const { data } = await axios.post(PROFILE_API, {
+      variables: {
+        address,
+      },
+      query: DesmosProfileDocument,
+    });
+    return data.data;
+  } catch (error) {
+    return null;
+  }
+}
+
+async function fetchDtag(dtag: string) {
+  try {
+    const { data } = await axios.post(PROFILE_API, {
+      variables: {
+        dtag,
+      },
+      query: DesmosProfileDtagDocument,
+    });
+
+    return data.data;
+  } catch (error) {
+    return null;
+  }
+}
+
+function formatDesmosProfile(data: DesmosProfileQuery): DesmosProfile | null {
+  if (!data.profile.length) {
+    return null;
+  }
+
+  const profile = data.profile[0];
+
+  const nativeData = {
+    network: 'native',
+    identifier: profile.address,
+    creationTime: profile.creationTime,
+  };
+
+  const applications = profile.applicationLinks.map((x) => {
+    return {
+      network: x.application,
+      identifier: x.username,
+      creationTime: x.creationTime,
+    };
+  });
+
+  const chains = profile.chainLinks.map((x) => {
+    return {
+      network: x.chainConfig.name,
+      identifier: x.externalAddress,
+      creationTime: x.creationTime,
+    };
+  });
+
+  const connectionsWithoutNativeSorted = [...applications, ...chains].sort((a, b) =>
+    a.network.toLowerCase() > b.network.toLowerCase() ? 1 : -1
+  );
+
+  return {
+    dtag: profile.dtag,
+    nickname: profile.nickname,
+    imageUrl: profile.profilePic,
+    coverUrl: profile.coverPic,
+    bio: profile.bio,
+    connections: [nativeData, ...connectionsWithoutNativeSorted],
+  };
+}

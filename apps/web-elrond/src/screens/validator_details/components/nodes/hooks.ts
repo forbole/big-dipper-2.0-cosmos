@@ -35,7 +35,7 @@ export const useBlocks = () => {
         } else {
           params.identity = router.query.identity;
         }
-  
+
         const { data: total } = await axios.get(NODES_COUNT, {
           params,
         });
@@ -50,49 +50,55 @@ export const useBlocks = () => {
     getNodesTotal();
   }, [handleSetState, router.query.identity]);
 
-  const getBlocksByPage = useCallback(async (page: number) => {
-    try {
-      const params: any = {
-        from: page * PAGE_SIZE,
-        size: PAGE_SIZE,
-        type: 'validator',
-      };
-      if (isBech32(router.query.identity as string)) {
-        params.provider = router.query.identity;
-      } else {
-        params.identity = router.query.identity;
-      }
-      const { data: blocksData } = await axios.get(NODES, {
-        params,
-      });
-
-      const items = blocksData.map((x: any) => {
-        return {
-          pubkey: R.pathOr('', ['bls'], x),
-          name: R.pathOr('', ['name'], x),
-          shard: R.pathOr(0, ['shard'], x),
-          version: R.pathOr('', ['version'], x),
-          status: R.pathOr('', ['status'], x),
-          online: R.pathOr(false, ['online'], x),
+  const getBlocksByPage = useCallback(
+    async (page: number) => {
+      try {
+        const params: any = {
+          from: page * PAGE_SIZE,
+          size: PAGE_SIZE,
+          type: 'validator',
         };
-      });
+        if (isBech32(router.query.identity as string)) {
+          params.provider = router.query.identity;
+        } else {
+          params.identity = router.query.identity;
+        }
+        const { data: blocksData } = await axios.get(NODES, {
+          params,
+        });
 
+        const items = blocksData.map((x: any) => {
+          return {
+            pubkey: R.pathOr('', ['bls'], x),
+            name: R.pathOr('', ['name'], x),
+            shard: R.pathOr(0, ['shard'], x),
+            version: R.pathOr('', ['version'], x),
+            status: R.pathOr('', ['status'], x),
+            online: R.pathOr(false, ['online'], x),
+          };
+        });
+
+        handleSetState({
+          loading: false,
+          items,
+        });
+      } catch (error) {
+        console.log((error as any).message);
+      }
+    },
+    [handleSetState, router]
+  );
+
+  const handlePageChangeCallback = useCallback(
+    async (page: number, _rowsPerPage: number) => {
       handleSetState({
-        loading: false,
-        items,
+        page,
+        loading: true,
       });
-    } catch (error) {
-      console.log((error as any).message);
-    }
-  }, [handleSetState, router.query.identity]);
-
-  const handlePageChangeCallback = useCallback(async (page: number, _rowsPerPage: number) => {
-    handleSetState({
-      page,
-      loading: true,
-    });
-    await getBlocksByPage(page);
-  }, [getBlocksByPage, handleSetState]);
+      await getBlocksByPage(page);
+    },
+    [getBlocksByPage, handleSetState]
+  );
 
   const getBlocksInterval = useCallback(async () => {
     if (state.page === 0) {

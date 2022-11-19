@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Big from 'big.js';
 import * as R from 'ramda';
 import axios from 'axios';
@@ -31,11 +31,11 @@ export const useStaking = () => {
     unbondings: stakingDefault,
   });
 
-  useEffect(() => {
-    const handleSetState = (stateChange: any) => {
-      setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-    };
+  const handleSetState = useCallback((stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  }, []);
 
+  useEffect(() => {
     const createPagination = (data: any[]) => {
       const pages: { [key: string]: any } = {};
       data.forEach((x, i) => {
@@ -289,7 +289,7 @@ export const useStaking = () => {
     getDelegations();
     getRedelegations();
     getUnbondings();
-  }, [router, router.query.address]);
+  }, [handleSetState, router]);
 
   const handleTabChange = useCallback((_event: any, newValue: number) => {
     setState((prevState) => ({

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import chainConfig from 'ui/chainConfig';
@@ -31,35 +31,39 @@ export const useAccountDetails = () => {
     },
   });
 
-  useEffect(() => {
-    const handleSetState = (stateChange: any) => {
-      setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-    };
+  const handleSetState = useCallback((stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  }, []);
 
+  useEffect(() => {
     const getAccount = async () => {
-  
-      const { data: accountData } = await axios.get(ACCOUNT_DETAILS(router.query.address as string));
-  
+      const { data: accountData } = await axios.get(
+        ACCOUNT_DETAILS(router.query.address as string)
+      );
+
       const { data: tokenCount } = await axios.get(
         ACCOUNT_DETAILS_TOKEN_COUNT(router.query.address as string)
       );
-  
+
       const newState: any = {
         loading: false,
       };
-  
+
       const getProfile = () => {
         return {
           address: R.pathOr('', ['address'], accountData),
           username: R.pathOr('', ['username'], accountData),
         };
       };
-  
+
       newState.profile = getProfile();
-  
+
       const getOverview = () => {
         return {
-          balance: formatToken(R.pathOr('0', ['balance'], accountData), chainConfig.primaryTokenUnit),
+          balance: formatToken(
+            R.pathOr('0', ['balance'], accountData),
+            chainConfig.primaryTokenUnit
+          ),
           developerReward: formatToken(
             R.pathOr('0', ['developerReward'], accountData),
             chainConfig.primaryTokenUnit
@@ -68,14 +72,14 @@ export const useAccountDetails = () => {
           tokenCount,
         };
       };
-  
+
       newState.overview = getOverview();
-  
+
       handleSetState(newState);
     };
 
     getAccount();
-  }, [router.query.address]);
+  }, [handleSetState, router]);
 
   return {
     state,

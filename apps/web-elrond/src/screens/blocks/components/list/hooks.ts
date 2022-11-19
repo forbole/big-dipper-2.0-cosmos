@@ -30,46 +30,52 @@ export const useBlocks = () => {
         console.log((error as any).message);
       }
     };
-    
+
     getLatestBlockHeight();
   }, [handleSetState]);
 
-  const getBlocksByPage = useCallback(async (page: number) => {
-    try {
-      const { data: blocksData } = await axios.get(BLOCKS, {
-        params: {
-          from: page * PAGE_SIZE,
-          size: PAGE_SIZE,
-        },
-      });
+  const getBlocksByPage = useCallback(
+    async (page: number) => {
+      try {
+        const { data: blocksData } = await axios.get(BLOCKS, {
+          params: {
+            from: page * PAGE_SIZE,
+            size: PAGE_SIZE,
+          },
+        });
 
-      const items = blocksData.map((x: any) => {
-        return {
-          block: x.round,
-          timestamp: x.timestamp,
-          hash: x.hash,
-          txs: x.txCount,
-          shard: x.shard,
-          size: x.sizeTxs,
-        };
-      });
+        const items = blocksData.map((x: any) => {
+          return {
+            block: x.round,
+            timestamp: x.timestamp,
+            hash: x.hash,
+            txs: x.txCount,
+            shard: x.shard,
+            size: x.sizeTxs,
+          };
+        });
 
+        handleSetState({
+          loading: false,
+          items,
+        });
+      } catch (error) {
+        console.log((error as any).message);
+      }
+    },
+    [handleSetState]
+  );
+
+  const handlePageChangeCallback = useCallback(
+    async (page: number, _rowsPerPage: number) => {
       handleSetState({
-        loading: false,
-        items,
+        page,
+        loading: true,
       });
-    } catch (error) {
-      console.log((error as any).message);
-    }
-  }, [handleSetState]);
-
-  const handlePageChangeCallback = useCallback(async (page: number, _rowsPerPage: number) => {
-    handleSetState({
-      page,
-      loading: true,
-    });
-    await getBlocksByPage(page);
-  }, [getBlocksByPage, handleSetState]);
+      await getBlocksByPage(page);
+    },
+    [getBlocksByPage, handleSetState]
+  );
 
   const getBlocksInterval = useCallback(async () => {
     if (state.page === 0) {

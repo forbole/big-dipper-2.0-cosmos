@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import { formatToken } from 'ui/utils/format_token';
@@ -47,22 +47,22 @@ export const useValidatorDetails = () => {
   const router = useRouter();
   const [state, setState] = useState<ValidatorDetailsState>(initialState);
 
-  const handleSetState = (stateChange: any) => {
+  const handleSetState = useCallback((stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  }, []);
+
+  // ==========================
+  // Desmos Profile
+  // ==========================
+  const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
+    onComplete: (data) => {
+      handleSetState({
+        desmosProfile: formatDesmosProfile(data),
+      });
+    },
+  });
 
   useEffect(() => {
-    // ==========================
-    // Desmos Profile
-    // ==========================
-    const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
-      onComplete: (data) => {
-        handleSetState({
-          desmosProfile: formatDesmosProfile(data),
-        });
-      },
-    });
-
     if (!isValidAddress(router.query.address as string)) {
       handleSetState({
         loading: false,
@@ -72,7 +72,7 @@ export const useValidatorDetails = () => {
       const address = validatorToDelegatorAddress(router.query.address as string);
       fetchDesmosProfile(address);
     }
-  }, [router.query.address]);
+  }, [fetchDesmosProfile, handleSetState, router]);
 
   // ==========================
   // Fetch Data
@@ -86,90 +86,90 @@ export const useValidatorDetails = () => {
     },
   });
 
-  const formatAccountQuery = (data: ValidatorDetailsQuery) => {
-    const stateChange: any = {
-      loading: false,
-    };
-
-    if (!data.validator.length) {
-      stateChange.exists = false;
-      return stateChange;
-    }
-
-    // ============================
-    // overview
-    // ============================
-    const formatOverview = () => {
-      const operatorAddress = R.pathOr(
-        '',
-        ['validator', 0, 'validatorInfo', 'operatorAddress'],
-        data
-      );
-      const selfDelegateAddress = R.pathOr(
-        '',
-        ['validator', 0, 'validatorInfo', 'selfDelegateAddress'],
-        data
-      );
-      const profile = {
-        validator: operatorAddress,
-        operatorAddress,
-        selfDelegateAddress,
-        description: R.pathOr('', ['validatorDescriptions', 0, 'details'], data.validator[0]),
-        website: R.pathOr('', ['validatorDescriptions', 0, 'website'], data.validator[0]),
-      };
-
-      return profile;
-    };
-
-    stateChange.overview = formatOverview();
-
-    // ============================
-    // status
-    // ============================
-    const formatStatus = () => {
-      const profile = {
-        inActiveSet: R.pathOr('false', ['validatorStatuses', 'in_active_set'], data.validator[0]),
-        jailed: R.pathOr('false', ['validatorStatuses', 0, 'jailed'], data.validator[0]),
-        tombstoned: R.pathOr(
-          'false',
-          ['validatorSigningInfos', 0, 'tombstoned'],
-          data.validator[0]
-        ),
-        commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], data.validator[0]),
-        maxRate: R.pathOr('0', ['validator', 0, 'validatorInfo', 'maxRate'], data),
-      };
-
-      return profile;
-    };
-
-    stateChange.status = formatStatus();
-    // ============================
-    // votingPower
-    // ============================
-    const formatVotingPower = () => {
-      const selfVotingPower = R.pathOr(
-        0,
-        ['validatorVotingPowers', 0, 'votingPower'],
-        data.validator[0]
-      );
-
-      const votingPower = {
-        self: selfVotingPower,
-        overall: formatToken(
-          R.pathOr(0, ['stakingPool', 0, 'bonded'], data),
-          chainConfig.votingPowerTokenUnit
-        ),
-        height: R.pathOr(0, ['validatorVotingPowers', 0, 'height'], data.validator[0]),
-      };
-
-      return votingPower;
-    };
-    stateChange.votingPower = formatVotingPower();
-
-    return stateChange;
-  };
-
   return {
     state,
   };
 };
+
+function formatAccountQuery(data: ValidatorDetailsQuery) {
+  const stateChange: any = {
+    loading: false,
+  };
+
+  if (!data.validator.length) {
+    stateChange.exists = false;
+    return stateChange;
+  }
+
+  // ============================
+  // overview
+  // ============================
+  const formatOverview = () => {
+    const operatorAddress = R.pathOr(
+      '',
+      ['validator', 0, 'validatorInfo', 'operatorAddress'],
+      data
+    );
+    const selfDelegateAddress = R.pathOr(
+      '',
+      ['validator', 0, 'validatorInfo', 'selfDelegateAddress'],
+      data
+    );
+    const profile = {
+      validator: operatorAddress,
+      operatorAddress,
+      selfDelegateAddress,
+      description: R.pathOr('', ['validatorDescriptions', 0, 'details'], data.validator[0]),
+      website: R.pathOr('', ['validatorDescriptions', 0, 'website'], data.validator[0]),
+    };
+
+    return profile;
+  };
+
+  stateChange.overview = formatOverview();
+
+  // ============================
+  // status
+  // ============================
+  const formatStatus = () => {
+    const profile = {
+      inActiveSet: R.pathOr('false', ['validatorStatuses', 'in_active_set'], data.validator[0]),
+      jailed: R.pathOr('false', ['validatorStatuses', 0, 'jailed'], data.validator[0]),
+      tombstoned: R.pathOr(
+        'false',
+        ['validatorSigningInfos', 0, 'tombstoned'],
+        data.validator[0]
+      ),
+      commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], data.validator[0]),
+      maxRate: R.pathOr('0', ['validator', 0, 'validatorInfo', 'maxRate'], data),
+    };
+
+    return profile;
+  };
+
+  stateChange.status = formatStatus();
+  // ============================
+  // votingPower
+  // ============================
+  const formatVotingPower = () => {
+    const selfVotingPower = R.pathOr(
+      0,
+      ['validatorVotingPowers', 0, 'votingPower'],
+      data.validator[0]
+    );
+
+    const votingPower = {
+      self: selfVotingPower,
+      overall: formatToken(
+        R.pathOr(0, ['stakingPool', 0, 'bonded'], data),
+        chainConfig.votingPowerTokenUnit
+      ),
+      height: R.pathOr(0, ['validatorVotingPowers', 0, 'height'], data.validator[0]),
+    };
+
+    return votingPower;
+  };
+  stateChange.votingPower = formatVotingPower();
+
+  return stateChange;
+}

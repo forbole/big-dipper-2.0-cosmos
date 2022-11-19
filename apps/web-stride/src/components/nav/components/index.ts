@@ -4,4 +4,3 @@ export { default as SearchBar } from 'ui/components/nav/components/search_bar';
 export { default as TitleBar } from 'ui/components/nav/components/title_bar';
 export { default as Desktop } from './desktop';
 export { default as Mobile } from './mobile';
-

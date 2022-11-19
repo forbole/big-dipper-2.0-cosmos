@@ -11,7 +11,6 @@ export const useMarketRecoil = () => {
     AtomState,
     SetterOrUpdater<AtomState>
   ];
-
   useEffect(() => {
     const getEconomics = async () => {
       try {
@@ -26,6 +25,7 @@ export const useMarketRecoil = () => {
         console.log(error);
       }
     };
+
     getEconomics();
   }, [setMarket]);
 };

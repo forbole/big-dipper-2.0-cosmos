@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
@@ -21,15 +21,15 @@ export const useBlockDetails = () => {
     },
   });
 
+  const handleSetState = useCallback((stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  }, []);
+
   useEffect(() => {
-    const handleSetState = (stateChange: any) => {
-      setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-    };
-  
     const getBlockDetails = async () => {
       try {
         const { data: blockData } = await axios.get(MINIBLOCK_DETAILS(router.query.hash as string));
-  
+
         handleSetState({
           loading: false,
           overview: {
@@ -52,7 +52,7 @@ export const useBlockDetails = () => {
     };
 
     getBlockDetails();
-  }, [router.query.hash]);
+  }, [handleSetState, router]);
 
   return {
     state,

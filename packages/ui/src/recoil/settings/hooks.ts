@@ -6,11 +6,12 @@ import { atomState } from './atom';
 import { THEME_DICTIONARY } from './utils';
 import type { AtomState, Theme } from './types';
 
+const isClient = typeof window === 'object';
+
 export const useSettingsRecoil = () => {
   const [settings, setSettings] = useRecoilState(atomState);
 
   useEffect(() => {
-    const isClient = typeof window === 'object';
     if (isClient) {
       const savedTheme = getItem(THEME_KEY, 'device');
       let currentTheme: Theme = settings.theme;

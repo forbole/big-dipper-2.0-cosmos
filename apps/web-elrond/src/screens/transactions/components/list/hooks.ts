@@ -34,43 +34,49 @@ export const useBlocks = () => {
     getLatestTransactionCount();
   }, [handleSetState]);
 
-  const getTransactionsByPage = useCallback(async (page: number) => {
-    try {
-      const { data: transactionsData } = await axios.get(TRANSACTIONS, {
-        params: {
-          from: page * PAGE_SIZE,
-          size: PAGE_SIZE,
-        },
-      });
+  const getTransactionsByPage = useCallback(
+    async (page: number) => {
+      try {
+        const { data: transactionsData } = await axios.get(TRANSACTIONS, {
+          params: {
+            from: page * PAGE_SIZE,
+            size: PAGE_SIZE,
+          },
+        });
 
-      const items = transactionsData.map((x: any) => {
-        return {
-          hash: x.txHash,
-          fromShard: x.senderShard,
-          toShard: x.receiverShard,
-          from: x.sender,
-          to: x.receiver,
-          timestamp: x.timestamp,
-          status: x.status,
-        };
-      });
+        const items = transactionsData.map((x: any) => {
+          return {
+            hash: x.txHash,
+            fromShard: x.senderShard,
+            toShard: x.receiverShard,
+            from: x.sender,
+            to: x.receiver,
+            timestamp: x.timestamp,
+            status: x.status,
+          };
+        });
 
+        handleSetState({
+          loading: false,
+          items,
+        });
+      } catch (error) {
+        console.log((error as any).message);
+      }
+    },
+    [handleSetState]
+  );
+
+  const handlePageChangeCallback = useCallback(
+    async (page: number, _rowsPerPage: number) => {
       handleSetState({
-        loading: false,
-        items,
+        page,
+        loading: true,
       });
-    } catch (error) {
-      console.log((error as any).message);
-    }
-  }, [handleSetState]);
-
-  const handlePageChangeCallback = useCallback(async (page: number, _rowsPerPage: number) => {
-    handleSetState({
-      page,
-      loading: true,
-    });
-    await getTransactionsByPage(page);
-  }, [getTransactionsByPage, handleSetState]);
+      await getTransactionsByPage(page);
+    },
+    [getTransactionsByPage, handleSetState]
+  );
 
   const getTransactionsInterval = useCallback(async () => {
     if (state.page === 0) {

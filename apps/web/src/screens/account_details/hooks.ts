@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import Big from 'big.js';
 import { useRouter } from 'next/router';
@@ -51,22 +51,22 @@ export const useAccountDetails = () => {
   const router = useRouter();
   const [state, setState] = useState<AccountDetailState>(initialState);
 
+  const handleSetState = useCallback((stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  }, []);
+
+  // ==========================
+  // Desmos Profile
+  // ==========================
+  const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
+    onComplete: (data) => {
+      handleSetState({
+        desmosProfile: formatDesmosProfile(data),
+      });
+    },
+  });
+
   useEffect(() => {
-    const handleSetState = (stateChange: any) => {
-      setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-    };
-
-    // ==========================
-    // Desmos Profile
-    // ==========================
-    const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
-      onComplete: (data) => {
-        handleSetState({
-          desmosProfile: formatDesmosProfile(data),
-        });
-      },
-    });
-
     if (!isValidAddress(router.query.address as string)) {
       handleSetState({
         loading: false,
@@ -75,7 +75,7 @@ export const useAccountDetails = () => {
     } else if (chainConfig.extra.profile) {
       fetchDesmosProfile(router.query.address as string);
     }
-  }, [router.query.address]);
+  }, [fetchDesmosProfile, handleSetState, router]);
 
   useEffect(() => {
     const fetchBalance = async () => {
@@ -116,7 +116,7 @@ export const useAccountDetails = () => {
 
     fetchWithdrawalAddress();
     fetchBalance();
-  }, [router.query.address]);
+  }, [handleSetState, router]);
 
   // ==========================
   // Format Data

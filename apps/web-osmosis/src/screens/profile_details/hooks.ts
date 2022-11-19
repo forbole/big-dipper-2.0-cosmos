@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import chainConfig from 'ui/chainConfig';
@@ -14,9 +14,22 @@ const initialState: ProfileDetailState = {
 export const useProfileDetails = () => {
   const router = useRouter();
   const [state, setState] = useState<ProfileDetailState>(initialState);
-  const handleSetState = (stateChange: any) => {
+  const handleSetState = useCallback((stateChange: any) => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  }, []);
+
+  // ==========================
+  // Desmos Profile
+  // ==========================
+  const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
+    onComplete: (data) => {
+      handleSetState({
+        loading: false,
+        exists: !!data.profile.length,
+        desmosProfile: formatDesmosProfile(data),
+      });
+    },
+  });
 
   const shouldShowProfile = useCallback(() => {
     const dtagConnections = state.desmosProfile?.connections ?? [];
@@ -30,24 +43,10 @@ export const useProfileDetails = () => {
     }
   }, [state.desmosProfile?.connections]);
 
-  const query = R.pathOr('', ['query', 'dtag'], router);
+  const profileDtag: string = router?.query?.dtag as string ?? '';
 
   useEffect(() => {
-    // ==========================
-    // Desmos Profile
-    // ==========================
-    const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
-      onComplete: (data) => {
-        handleSetState({
-          loading: false,
-          exists: !!data.profile.length,
-          desmosProfile: formatDesmosProfile(data),
-        });
-      },
-    });
-
     const regex = /^@/;
-    const profileDtag = router.query.dtag as string;
     const regexCheck = regex.test(profileDtag);
     const configProfile = chainConfig.extra.profile;
     handleSetState(initialState);
@@ -56,9 +55,10 @@ export const useProfileDetails = () => {
       router.replace('/');
     }
     if (configProfile) {
-      fetchDesmosProfile(query);
+      fetchDesmosProfile(profileDtag);
     }
-  }, [query, router]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [profileDtag]);
 
   useEffect(() => {
     if (state.desmosProfile) {
@@ -82,7 +82,8 @@ export const useProfileDetails = () => {
         });
       }
     }
-  }, [router, shouldShowProfile, state.desmosProfile]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.desmosProfile]);
 
   return {
     state,

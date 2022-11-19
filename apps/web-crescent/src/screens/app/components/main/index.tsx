@@ -47,7 +47,7 @@ const Main = (props: AppProps) => {
     if (typeof document !== 'undefined' && document?.documentElement) {
       document.documentElement.classList.toggle('mode-dark', muiTheme.palette.type === 'dark');
     }
-  }, [muiTheme.palette.type]);
+  }, [muiTheme]);
 
   return (
     <ThemeProvider theme={muiTheme}>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import { useScreenSize } from 'ui/hooks';
 
@@ -6,8 +6,6 @@ export const useMobile = () => {
   // ==========================
   // globals
   // ==========================
-  const { isDesktop } = useScreenSize();
-
   const [state, setState] = useState<{
     isMenu?: boolean;
     isNetwork?: boolean;
@@ -53,11 +51,14 @@ export const useMobile = () => {
     }
   }, [closeAll, handleSetState, state.isMenu, state.isNetwork]);
 
+  const { isDesktop } = useScreenSize();
+
   useEffect(() => {
     if (isDesktop) {
       closeAll();
     }
-  }, [closeAll, isDesktop]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isDesktop]);
 
   return {
     toggleNavMenus,

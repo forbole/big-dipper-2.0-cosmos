@@ -16,37 +16,45 @@ export const useTransactions = () => {
     total: 0,
   });
 
-  const getTransactionsByPage = useCallback(async (page: number) => {
-    try {
-      const { data: transactionsData } = await axios.get(TRANSACTIONS, {
-        params: {
-          from: page * PAGE_SIZE,
-          size: PAGE_SIZE,
-          withLogs: false,
-          token: router.query.token as string,
-        },
-      });
+  const handleSetState = useCallback((stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  }, []);
 
-      const items = transactionsData.map((x: any) => {
-        return {
-          hash: x.txHash,
-          fromShard: x.senderShard,
-          toShard: x.receiverShard,
-          from: x.sender,
-          to: x.receiver,
-          timestamp: x.timestamp,
-          status: x.status,
-        };
-      });
+  const getTransactionsByPage = useCallback(
+    async (page: number) => {
+      const router = useRouter();
+      try {
+        const { data: transactionsData } = await axios.get(TRANSACTIONS, {
+          params: {
+            from: page * PAGE_SIZE,
+            size: PAGE_SIZE,
+            withLogs: false,
+            token: router.query.token as string,
+          },
+        });
 
-      handleSetState({
-        loading: false,
-        items,
-      });
-    } catch (error) {
-      console.log((error as any).message);
-    }
-  }, [router.query.token]);
+        const items = transactionsData.map((x: any) => {
+          return {
+            hash: x.txHash,
+            fromShard: x.senderShard,
+            toShard: x.receiverShard,
+            from: x.sender,
+            to: x.receiver,
+            timestamp: x.timestamp,
+            status: x.status,
+          };
+        });
+
+        handleSetState({
+          loading: false,
+          items,
+        });
+      } catch (error) {
+        console.log((error as any).message);
+      }
+    },
+    [handleSetState]
+  );
 
   useEffect(() => {
     const getLatestTransactionCount = async () => {
@@ -66,19 +74,18 @@ export const useTransactions = () => {
 
     getLatestTransactionCount();
     getTransactionsByPage(0);
-  }, [getTransactionsByPage, router.query.token]);
+  }, [getTransactionsByPage, handleSetState, router]);
 
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
-
-  const handlePageChangeCallback = useCallback(async (page: number, _rowsPerPage: number) => {
-    handleSetState({
-      page,
-      loading: true,
-    });
-    await getTransactionsByPage(page);
-  }, [getTransactionsByPage]);
+  const handlePageChangeCallback = useCallback(
+    async (page: number, _rowsPerPage: number) => {
+      handleSetState({
+        page,
+        loading: true,
+      });
+      await getTransactionsByPage(page);
+    },
+    [getTransactionsByPage, handleSetState]
+  );
 
   return {
     state,

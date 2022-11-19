@@ -4,10 +4,11 @@ import { useEffect, useState } from 'react';
 // import { toast } from 'react-toastify';
 // import * as R from 'ramda';
 
+const isClient = typeof window === 'object';
+
 export const useChainHealthCheck = () => {
   // const { t } = useTranslation('common');
   const [_chainActive, _setChainActive] = useState(true);
-  const isClient = typeof window === 'object';
 
   // const [useLatestBlockTimestamp] = useLatestBlockTimestampLazyQuery({
   //   onCompleted: (data) => {
@@ -31,5 +32,5 @@ export const useChainHealthCheck = () => {
       return false;
     }
     // useLatestBlockTimestamp();
-  }, [isClient]);
+  }, []);
 };

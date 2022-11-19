@@ -6,7 +6,8 @@ const ValidatorDetailsPage = () => {
 
   useEffect(() => {
     router.replace(`/validators/${router.query.address}`);
-  }, [router]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return null;
 };

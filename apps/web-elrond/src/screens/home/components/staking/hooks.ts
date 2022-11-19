@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
 import { ECONOMICS } from '@api';
@@ -11,19 +11,21 @@ export const useStaking = () => {
     percentStaked: 0,
   });
 
-  useEffect(() => {
-    const handleSetState = (stateChange: any) => {
-      setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-    };
+  const handleSetState = useCallback((stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  }, []);
 
+  useEffect(() => {
     const getEconomics = async () => {
       try {
         const { data: economicsData } = await axios.get(ECONOMICS);
-  
+
         handleSetState({
           staked: economicsData.staked,
           circulatingSupply: economicsData.circulatingSupply,
-          percentStaked: ((economicsData.staked * 100) / economicsData.circulatingSupply).toFixed(2),
+          percentStaked: ((economicsData.staked * 100) / economicsData.circulatingSupply).toFixed(
+            2
+          ),
         });
       } catch (error) {
         console.log((error as any).message);
@@ -31,7 +33,7 @@ export const useStaking = () => {
     };
 
     getEconomics();
-  }, []);
+  }, [handleSetState]);
 
   return {
     state,
