@@ -15,12 +15,12 @@ import { formatNumber } from 'ui/utils/format_token';
 import { useStyles } from './styles';
 import { formatBalanceData } from './utils';
 
-const Balance: React.FC<{
+type Props = Parameters<typeof formatBalanceData>[0] & {
   className?: string;
-  available: TokenUnit;
-  delegate: TokenUnit;
   total: TokenUnit;
-}> = (props) => {
+};
+
+const Balance: React.FC<Props> = (props) => {
   const { t } = useTranslation('accounts');
   const { classes, theme } = useStyles();
   const market = useRecoilValue(readMarket);

@@ -11,19 +11,15 @@ import NextFastIcon from 'shared-utils/assets/icon-next-fast.svg';
 import { useStyles } from './styles';
 import { useTablePaginationActions } from './hooks';
 
+type Props = Parameters<typeof useTablePaginationActions>[0] & {
+  rowsPerPageOptions?: number[];
+};
+
 /**
  * custom pagination buttons
  * @param props
  */
-const Actions: React.FC<{
-  className?: string;
-  count: number;
-  onChangePage: (event: React.MouseEvent<HTMLButtonElement> | null, page: number) => void;
-  handleChangeRowsPerPage: (selectedRowsPerPage: number) => void;
-  page: number;
-  rowsPerPage: number;
-  rowsPerPageOptions?: number[];
-}> = (props) => {
+const Actions: React.FC<Props> = (props) => {
   const classes = useStyles();
 
   const { count, page, rowsPerPage, onChangePage, className, rowsPerPageOptions } = props;

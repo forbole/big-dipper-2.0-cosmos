@@ -69,7 +69,6 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'react/no-array-index-key': 'off',
     'react/no-unknown-property': 'off',
-    'react/no-unused-prop-types': 'off',
     /* https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md */
     /* nextjs has its own jsx transform */
     'react/react-in-jsx-scope': 'off',
