@@ -7,6 +7,11 @@ import { NextSeo } from 'next-seo';
 import Overview from 'ui/screens/account_details/components/overview';
 import Staking from 'ui/screens/account_details/components/staking';
 import OtherTokens from 'ui/screens/account_details/components/other_tokens';
+import {
+  AccountDelegationsDocument,
+  AccountRedelegationsDocument,
+  AccountUndelegationsDocument,
+} from '@graphql/general/account_details_documents';
 import Balance from './components/balance';
 import { useStyles } from './styles';
 import Transactions from './components/transactions';
@@ -53,7 +58,13 @@ const AccountDetails = () => {
               total={state.balance.total}
             />
             <OtherTokens className={classes.otherTokens} otherTokens={state.otherTokens} />
-            <Staking className={classes.staking} rewards={state.rewards} />
+            <Staking
+              className={classes.staking}
+              rewards={state.rewards}
+              accountDelegationsDocument={AccountDelegationsDocument}
+              accountRedelegationsDocument={AccountRedelegationsDocument}
+              accountUndelegationsDocument={AccountUndelegationsDocument}
+            />
             <Transactions className={classes.transactions} />
           </span>
         </LoadAndExist>

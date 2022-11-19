@@ -8,6 +8,11 @@ import Overview from 'ui/screens/account_details/components/overview';
 import Staking from 'ui/screens/account_details/components/staking';
 import Balance from 'ui/screens/account_details/components/balance';
 import OtherTokens from 'ui/screens/account_details/components/other_tokens';
+import {
+  AccountDelegationsDocument,
+  AccountRedelegationsDocument,
+  AccountUndelegationsDocument,
+} from '@graphql/general/account_details_documents';
 import { useStyles } from './styles';
 import Transactions from './components/transactions';
 import { useAccountDetails } from './hooks';
@@ -53,7 +58,13 @@ const AccountDetails = () => {
               total={state.balance.total}
             />
             <OtherTokens className={classes.otherTokens} otherTokens={state.otherTokens} />
-            <Staking className={classes.staking} rewards={state.rewards} />
+            <Staking
+              className={classes.staking}
+              rewards={state.rewards}
+              accountDelegationsDocument={AccountDelegationsDocument}
+              accountRedelegationsDocument={AccountRedelegationsDocument}
+              accountUndelegationsDocument={AccountUndelegationsDocument}
+            />
             <Transactions className={classes.transactions} />
           </span>
         </LoadAndExist>

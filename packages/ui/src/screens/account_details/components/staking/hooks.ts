@@ -3,11 +3,6 @@ import * as R from 'ramda';
 import Big from 'big.js';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import {
-  AccountDelegationsDocument,
-  AccountRedelegationsDocument,
-  AccountUndelegationsDocument,
-} from '@graphql/general/account_details_documents';
 import { formatToken } from 'ui/utils/format_token';
 import { getDenom } from 'ui/utils/get_denom';
 import chainConfig from 'ui/chainConfig';
@@ -23,7 +18,12 @@ const stakingDefault = {
 const LIMIT = 100;
 const PAGE_LIMIT = 10;
 
-export const useStaking = (rewards: RewardsType) => {
+export const useStaking = (
+  rewards: RewardsType,
+  accountDelegationsDocument: string,
+  accountRedelegationsDocument: string,
+  accountUndelegationsDocument: string
+) => {
   const router = useRouter();
   const [state, setState] = useState<StakingState>({
     tab: 0,
@@ -62,7 +62,7 @@ export const useStaking = (rewards: RewardsType) => {
           'http://localhost:3000/v1/graphql',
         {
           variables: {
-            address: router?.query?.address as string ?? '',
+            address: (router?.query?.address as string) ?? '',
             offset: page * LIMIT,
             limit: LIMIT,
             pagination: false,
@@ -84,10 +84,10 @@ export const useStaking = (rewards: RewardsType) => {
             'http://localhost:3000/v1/graphql',
           {
             variables: {
-              address: router?.query?.address as string ?? '',
+              address: (router?.query?.address as string) ?? '',
               limit: LIMIT,
             },
-            query: AccountDelegationsDocument,
+            query: accountDelegationsDocument,
           }
         );
         const count = R.pathOr(0, ['data', 'delegations', 'pagination', 'total'], data);
@@ -97,7 +97,7 @@ export const useStaking = (rewards: RewardsType) => {
           const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
           const remainingDelegationsPromises = [];
           for (let i = 0; i < remainingFetchCount; i += 1) {
-            remainingDelegationsPromises.push(getStakeByPage(i + 1, AccountDelegationsDocument));
+            remainingDelegationsPromises.push(getStakeByPage(i + 1, accountDelegationsDocument));
           }
           const remainingDelegations = await Promise.allSettled(remainingDelegationsPromises);
           remainingDelegations
@@ -135,10 +135,10 @@ export const useStaking = (rewards: RewardsType) => {
             'http://localhost:3000/v1/graphql',
           {
             variables: {
-              address: router?.query?.address as string ?? '',
+              address: (router?.query?.address as string) ?? '',
               limit: LIMIT,
             },
-            query: AccountRedelegationsDocument,
+            query: accountRedelegationsDocument,
           }
         );
         const count = R.pathOr(0, ['data', 'redelegations', 'pagination', 'total'], data);
@@ -149,7 +149,7 @@ export const useStaking = (rewards: RewardsType) => {
           const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
           const remainingPromises = [];
           for (let i = 0; i < remainingFetchCount; i += 1) {
-            remainingPromises.push(getStakeByPage(i + 1, AccountRedelegationsDocument));
+            remainingPromises.push(getStakeByPage(i + 1, accountRedelegationsDocument));
           }
           const remainingData = await Promise.allSettled(remainingPromises);
           remainingData
@@ -193,10 +193,10 @@ export const useStaking = (rewards: RewardsType) => {
             'http://localhost:3000/v1/graphql',
           {
             variables: {
-              address: router?.query?.address as string ?? '',
+              address: (router?.query?.address as string) ?? '',
               limit: LIMIT,
             },
-            query: AccountUndelegationsDocument,
+            query: accountUndelegationsDocument,
           }
         );
         const count = R.pathOr(0, ['data', 'undelegations', 'pagination', 'total'], data);
@@ -207,7 +207,7 @@ export const useStaking = (rewards: RewardsType) => {
           const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
           const remainingPromises = [];
           for (let i = 0; i < remainingFetchCount; i += 1) {
-            remainingPromises.push(getStakeByPage(i + 1, AccountUndelegationsDocument));
+            remainingPromises.push(getStakeByPage(i + 1, accountUndelegationsDocument));
           }
           const remainingData = await Promise.allSettled(remainingPromises);
           remainingData
@@ -243,7 +243,14 @@ export const useStaking = (rewards: RewardsType) => {
     getDelegations();
     getRedelegations();
     getUnbondings();
-  }, [handleSetState, rewards, router?.query?.address]);
+  }, [
+    accountDelegationsDocument,
+    accountRedelegationsDocument,
+    accountUndelegationsDocument,
+    handleSetState,
+    rewards,
+    router?.query?.address,
+  ]);
 
   const handleTabChange = useCallback((_event: any, newValue: number) => {
     setState((prevState) => ({

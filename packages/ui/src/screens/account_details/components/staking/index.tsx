@@ -15,9 +15,27 @@ const Delegations = dynamic(() => import('./components/delegations')) as typeof 
 const Redelgations = dynamic(() => import('./components/redelegations')) as typeof RedelgationsFC;
 const Unbondings = dynamic(() => import('./components/unbondings')) as typeof UnbondingsFC;
 
-const Staking: React.FC<{ rewards: RewardsType } & ComponentDefault> = (props) => {
+const Staking: React.FC<
+  {
+    rewards: RewardsType;
+    accountDelegationsDocument: string;
+    accountRedelegationsDocument: string;
+    accountUndelegationsDocument: string;
+  } & ComponentDefault
+> = ({
+  rewards,
+  accountDelegationsDocument,
+  accountRedelegationsDocument,
+  accountUndelegationsDocument,
+  className,
+}) => {
   const classes = useStyles();
-  const { state, handleTabChange } = useStaking(props.rewards);
+  const { state, handleTabChange } = useStaking(
+    rewards,
+    accountDelegationsDocument,
+    accountRedelegationsDocument,
+    accountUndelegationsDocument
+  );
 
   const tabs = [
     {
@@ -41,7 +59,7 @@ const Staking: React.FC<{ rewards: RewardsType } & ComponentDefault> = (props) =
   ];
 
   return (
-    <Box className={classnames(props.className, classes.root)}>
+    <Box className={classnames(className, classes.root)}>
       <Tabs tab={state.tab} handleTabChange={handleTabChange} tabs={tabs} />
       {tabs.map((x) => {
         return (
