@@ -63,15 +63,18 @@ module.exports = {
     'import/extensions': 'off',
     'import/prefer-default-export': 'off',
     'import/newline-after-import': 'off',
-    'import/no-extraneous-dependencies': 'off',
+    /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md */
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js", "**/*.test.ts", "**/*.spec.ts", "**/*.test.tsx", "**/*.spec.tsx"]}],
+    /* https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/destructuring-assignment.md */
     'react/destructuring-assignment': 'off',
-    'react/jsx-filename-extension': 'off',
+    /* https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md */
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx"] }],
+    /* https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spreading.md */
     'react/jsx-props-no-spreading': 'off',
-    // 'react/no-array-index-key': 'off',
-    /* https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md */
+    /* https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md */
     /* nextjs has its own jsx transform */
     'react/react-in-jsx-scope': 'off',
-    /* https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-default-props.md */
+    /* https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/require-default-props.md */
     /* as per https://twitter.com/dan_abramov/status/1133878326358171650 this will eventually get deprecated. */
     'react/require-default-props': 'off',
     /* Https://github.com/facebook/react/issues/14920 */

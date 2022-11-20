@@ -1,4 +1,4 @@
-import { type act } from 'react-test-renderer';
+import type { act } from 'react-test-renderer';
 
 /**
  * helper test util to wait for the dom to update
