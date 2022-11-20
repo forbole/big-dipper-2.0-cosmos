@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import Image, { type ImageProps } from 'next/future/image';
 import agoricIconLight from 'shared-utils/assets/icons/agoric-light.svg?url';
 import agoricLogoLight from 'shared-utils/assets/logos/agoric-light.png';
 import akashIconDark from 'shared-utils/assets/icons/akash-dark.svg?url';
@@ -62,7 +63,7 @@ import strideLogoLight from 'shared-utils/assets/logos/stride-light.svg?url';
 import chainCoing from 'ui/chainConfig';
 import { useStyles } from './useStyles';
 
-type IconProps = Omit<JSX.IntrinsicElements['img'], 'id' | 'src'> & {
+type IconProps = Omit<ImageProps, 'id' | 'src'> & {
   type: 'icon' | 'logo';
 };
 
@@ -199,15 +200,16 @@ const ChainIcon = ({ className, type, ...props }: IconProps) => {
       throw new Error(`chain ${chainName} not supported`);
   }
   return (
-    <span>
-      {
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={iconDark} alt="" {...props} className={classnames(className, classes.dark)} />
-      }
-      {
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={iconLight} alt="" {...props} className={classnames(className, classes.light)} />
-      }
+    <span className={classnames(className, classes.container)}>
+      <Image width={0} height={0} src={iconDark} {...props} className={classes.dark} unoptimized />
+      <Image
+        width={0}
+        height={0}
+        src={iconLight}
+        {...props}
+        className={classes.light}
+        unoptimized
+      />
     </span>
   );
 };

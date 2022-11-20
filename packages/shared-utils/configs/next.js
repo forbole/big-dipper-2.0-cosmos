@@ -78,6 +78,9 @@ function getBaseConfig(chainConfigJson) {
     typescript: {
       ignoreBuildErrors: true,
     },
+    images: {
+      allowFutureImage: true,
+    },
   };
   return config;
 }

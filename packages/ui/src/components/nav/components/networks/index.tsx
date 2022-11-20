@@ -1,5 +1,6 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
+import Image from 'next/future/image';
 import { useRecoilValue } from 'recoil';
 import { readNetworks } from 'ui/recoil/big_dipper_networks';
 import SingleNetwork from 'ui/components/nav/components/networks/components/single_network';
@@ -15,10 +16,7 @@ const Networks: React.FC<{
     <div className={className}>
       {networks.map((x) => (
         <div className={classes.networkList} key={x.name}>
-          {
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={x.logo} alt="logo" />
-          }
+          <Image width={0} height={0} className={classes.img} src={x.logo} alt="logo" unoptimized />
           <div className="network">
             <Typography variant="h4">{x.name}</Typography>
             {x.mainnet.map((network) => (

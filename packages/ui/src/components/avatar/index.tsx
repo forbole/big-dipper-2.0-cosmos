@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
 import * as jdenticon from 'jdenticon';
+import Image from 'next/future/image';
 import { useStyles } from './styles';
 
 const Avatar: React.FC<{
@@ -28,8 +29,15 @@ const Avatar: React.FC<{
   return (
     <div className={classnames(className, classes.root)}>
       {imageUrl && !error ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={imageUrl} alt="address avatar" onError={handleError} />
+        <Image
+          width={0}
+          height={0}
+          className={classes.img}
+          src={imageUrl}
+          alt="address avatar"
+          onError={handleError}
+          unoptimized
+        />
       ) : (
         <svg data-jdenticon-value={address} height="100%" ref={icon} width="100%" />
       )}

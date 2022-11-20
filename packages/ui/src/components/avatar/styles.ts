@@ -19,6 +19,10 @@ const styles = makeStyles((theme) => ({
         objectPosition: 'center center',
       },
     },
+    img: {
+      width: 'auto',
+      height: 'auto',
+    }
   }));
 
 export const useStyles = () => styles();

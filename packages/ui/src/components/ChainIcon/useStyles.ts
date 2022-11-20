@@ -1,17 +1,24 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const styles = makeStyles(() => ({
-    light: {
-      '.mode-dark &': {
-        display: 'none',
-      },
-    },
-    dark: {
+  container: {
+    display: 'inline-flex',
+  },
+  light: {
+    width: 'auto',
+    height: 'auto',
+    '.mode-dark &': {
       display: 'none',
-      '.mode-dark &': {
-        display: 'initial',
-      },
     },
-  }));
+  },
+  dark: {
+    width: 'auto',
+    height: 'auto',
+    display: 'none',
+    '.mode-dark &': {
+      display: 'initial',
+    },
+  },
+}));
 
 export const useStyles = () => styles();

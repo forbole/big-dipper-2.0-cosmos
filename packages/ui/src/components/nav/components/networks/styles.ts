@@ -14,6 +14,10 @@ const styles = makeStyles((theme) => ({
         minWidth: 0,
       },
     },
+    img: {
+      width: 'auto',
+      height: 'auto',
+    },
   }));
 
 export const useStyles = () => styles();
