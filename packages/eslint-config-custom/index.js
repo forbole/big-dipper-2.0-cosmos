@@ -55,7 +55,6 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-use-before-define': 'off',
     'no-shadow': 'off',
-    'no-underscore-dangle': 'off',
     'no-console': ['off', { allow: ['warn', 'error'] }],
     /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md */
     'import/extensions': 'off',
