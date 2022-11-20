@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { readFileSync } = require('fs');
 const { basename, join, resolve } = require('path');
 const nextTranslate = require('next-translate');
