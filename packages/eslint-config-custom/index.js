@@ -47,7 +47,6 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['off', { argsIgnorePattern: '^_' }],
     'arrow-body-style': 'off',
     camelcase: 'off',
-    'consistent-return': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/interactive-supports-focus': 'off',
@@ -58,8 +57,6 @@ module.exports = {
     'no-shadow': 'off',
     'no-underscore-dangle': 'off',
     'no-console': ['off', { allow: ['warn', 'error'] }],
-    /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-cycle.md */
-    // 'import/no-cycle': 'off',
     /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md */
     'import/extensions': 'off',
     /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md */

@@ -36,10 +36,8 @@ export function useChainHealthCheck<TData, TVariables>(
     },
   });
 
-  useEffect((): any => {
-    if (!isClient) {
-      return false;
-    }
+  useEffect(() => {
+    if (!isClient) return;
     getLatestBlockTimestamp();
   }, [getLatestBlockTimestamp]);
 }
