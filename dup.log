@@ -1,51 +1,24 @@
 # Report by fclones 0.29.1
-# Timestamp: 2022-11-20 19:43:43.427 +0800
+# Timestamp: 2022-11-20 20:37:37.062 +0800
 # Command: fclones group .
 # Base dir: /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos
-# Total: 27227292 B (27.2 MB) in 10665 files in 603 groups
-# Redundant: 23732248 B (23.7 MB) in 10062 files
+# Total: 22167292 B (22.2 MB) in 10638 files in 601 groups
+# Redundant: 19071161 B (19.1 MB) in 10037 files
 # Missing: 0 B (0 B) in 0 files
 5186bcac73df4e01fd3cfce846d653e6, 498895 B (498.9 KB) * 3:
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web/src/graphql/types/general_types.tsx
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-desmos/src/graphql/types/general_types.tsx
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/packages/ui/src/graphql/types/general_types.tsx
+    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web/src/graphql/types/general_types.ts
+    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-desmos/src/graphql/types/general_types.ts
+    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/packages/ui/src/graphql/types/general_types.ts
 2275e75e2a8149b7c27fb65821d9c7d7, 488489 B (488.5 KB) * 2:
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-bitsong/src/graphql/types/general_types.tsx
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-rizon/src/graphql/types/general_types.tsx
+    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-bitsong/src/graphql/types/general_types.ts
+    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-rizon/src/graphql/types/general_types.ts
 164159a56dc7c2770b6df962f1539d63, 488481 B (488.5 KB) * 3:
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-assetmantle/src/graphql/types/general_types.tsx
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-cosmos/src/graphql/types/general_types.tsx
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-persistence/src/graphql/types/general_types.tsx
+    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-assetmantle/src/graphql/types/general_types.ts
+    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-cosmos/src/graphql/types/general_types.ts
+    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-persistence/src/graphql/types/general_types.ts
 1e7794d13b52a1b78a2ed15b3073f826, 488365 B (488.4 KB) * 2:
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-agoric/src/graphql/types/general_types.tsx
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-regen/src/graphql/types/general_types.tsx
-eaeb13fdcedb6ea4ec0a9b010d2545a7, 202900 B (202.9 KB) * 23:
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-agoric/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-akash/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-assetmantle/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-band/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-bitsong/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-comdex/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-cosmos/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-crescent/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-desmos/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-emoney/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-evmos/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-likecoin/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-nomic/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-nym/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-osmosis/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-persistence/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-provenance/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-regen/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-rizon/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-shentu/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-sifchain/src/graphql/types/profile_types.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/packages/ui/src/graphql/types/profile_types.ts
-44c70797290e4776205734d7bab40597, 195800 B (195.8 KB) * 2:
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-osmosis/src/graphql/desmos_profile.ts
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-stride/src/graphql/types/profile_types.ts
+    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-agoric/src/graphql/types/general_types.ts
+    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-regen/src/graphql/types/general_types.ts
 109b9619cad647fe2afdae9ef1c2e39d, 46167 B (46.2 KB) * 24:
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web/public/images/default_cover_pattern.png
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-agoric/public/images/default_cover_pattern.png
@@ -6635,7 +6608,7 @@ e897265d4e628190ed3fdc24ef5fdd24, 703 B (703 B) * 2:
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-stride/src/screens/validator_details/components/staking/components/unbondings/components/mobile/styles.ts
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/packages/ui/src/screens/account_details/components/staking/components/redelegations/components/mobile/styles.ts
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/packages/ui/src/screens/account_details/components/staking/components/unbondings/components/mobile/styles.ts
-5c27ed15df5cf2424d5bf75be9ab75d0, 690 B (690 B) * 23:
+5c27ed15df5cf2424d5bf75be9ab75d0, 690 B (690 B) * 22:
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web/tsconfig.json
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-agoric/tsconfig.json
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-akash/tsconfig.json
@@ -6645,7 +6618,6 @@ e897265d4e628190ed3fdc24ef5fdd24, 703 B (703 B) * 2:
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-comdex/tsconfig.json
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-cosmos/tsconfig.json
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-crescent/tsconfig.json
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-desmos/tsconfig.json
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-emoney/tsconfig.json
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-evmos/tsconfig.json
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-likecoin/tsconfig.json
@@ -7081,10 +7053,6 @@ ad8685d4c40501c9c612172c826b1aac, 585 B (585 B) * 25:
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-shentu/src/screens/home/components/data_blocks/components/single_block/index.test.tsx
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-sifchain/src/screens/home/components/data_blocks/components/single_block/index.test.tsx
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-stride/src/screens/home/components/data_blocks/components/single_block/index.test.tsx
-036c330e7c1045771e652fbef290f64b, 584 B (584 B) * 3:
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web/codegen.yml
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-desmos/codegen.yml
-    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/packages/ui/codegen.yml
 bd51304ff7d5ba918bfe087a187fc681, 573 B (573 B) * 23:
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web/src/screens/block_details/components/transactions/styles.ts
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-agoric/src/screens/block_details/components/transactions/styles.ts
@@ -8249,6 +8217,9 @@ e3ce521680bbdd29880ec070d6fd051e, 377 B (377 B) * 23:
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-shentu/src/screens/home/components/data_blocks/components/single_block/__snapshots__/index.test.tsx.snap
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-sifchain/src/screens/home/components/data_blocks/components/single_block/__snapshots__/index.test.tsx.snap
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-stride/src/screens/home/components/data_blocks/components/single_block/__snapshots__/index.test.tsx.snap
+7a324af86d2f1aabd68a63dbb7e7a7bc, 371 B (371 B) * 2:
+    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web/codegen.yml
+    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-desmos/codegen.yml
 d66d74466b3492318c5cfbcc525067ce, 370 B (370 B) * 44:
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web/src/screens/proposal_details/components/deposits/components/paginate/__snapshots__/index.test.tsx.snap
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web/src/screens/proposal_details/components/votes/components/paginate/__snapshots__/index.test.tsx.snap

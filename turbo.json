@@ -28,16 +28,20 @@
       "dependsOn": ["ui#build"]
     },
     "start": {},
-    "check-types": {},
+    "check-types": {
+      "dependsOn": ["ui#build"]
+    },
     "lint": {
-      "dependsOn": ["check-types"],
+      "dependsOn": ["^check-types"],
       "outputs": []
     },
     "test": {
-      "dependsOn": [],
+      "dependsOn": ["ui#build"],
       "outputs": ["coverage/**"]
     },
-    "e2e": {},
+    "e2e": {
+      "dependsOn": ["ui#build"]
+    },
     "graphql:codegen": {},
     "deploy": {
       "dependsOn": ["build", "test", "lint"],

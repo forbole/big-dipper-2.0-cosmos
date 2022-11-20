@@ -3,7 +3,7 @@ config:
   # omitOperationSuffix: true
   skipTypeNameForRoot: true
 generates:
-  ./src/graphql/types/general_types.tsx:
+  ./src/graphql/types/general_types.ts:
     documents:
       - 'src/graphql/general/*'
     schema: https://gql.likecoin.forbole.com/v1/graphql

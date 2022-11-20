@@ -1,0 +1,15 @@
+query GetMessagesByAddress($address: _text, $limit: bigint = 50, $offset: bigint = 0 $types: _text = "{}") {
+  messagesByAddress: messages_by_address(args: {addresses: $address, types: $types, limit: $limit, offset: $offset}) {
+    transaction {
+      height
+      hash
+      success
+      messages
+      logs
+      block {
+        height
+        timestamp
+      }
+    }
+  }
+}
