@@ -63,8 +63,9 @@ const Multisend: React.FC<{ message: MsgMultiSend }> = (props) => {
       <div className={classes.multisend}>
         {receivers?.map((x, i) => {
           const recieverUser = receiverProfiles[i];
-          const recieverMoniker = recieverUser ? recieverUser?.name : x?.address;
+          const recieverMoniker = recieverUser ? recieverUser?.name : x.address;
           return (
+            // eslint-disable-next-line react/no-array-index-key
             <Typography key={`${x.address}-${i}`}>
               <Trans
                 i18nKey="message_contents:txMultisendContentTwo"

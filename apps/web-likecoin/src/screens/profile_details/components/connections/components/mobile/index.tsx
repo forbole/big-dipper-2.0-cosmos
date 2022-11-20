@@ -24,7 +24,7 @@ const Mobile: React.FC<{
       {items?.map((x, i) => {
         const checkIdentifier = new RegExp(`^(${chainConfig.prefix.account})`).test(x.identifier);
         return (
-          <React.Fragment key={`votes-mobile-${i}`}>
+          <React.Fragment key={`votes-mobile-${x.identifier}`}>
             <div className={classes.list}>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">

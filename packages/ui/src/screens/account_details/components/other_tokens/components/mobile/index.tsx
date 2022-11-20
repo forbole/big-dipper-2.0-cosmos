@@ -20,6 +20,7 @@ const Mobile: React.FC<{
         const reward = formatNumber(x.reward.value, x.reward.exponent);
         const commission = formatNumber(x.commission.value, x.commission.exponent);
         return (
+          // eslint-disable-next-line react/no-array-index-key
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
               <div className={classes.item}>

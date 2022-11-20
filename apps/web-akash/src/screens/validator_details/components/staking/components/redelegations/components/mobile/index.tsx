@@ -39,9 +39,9 @@ const Mobile: React.FC<{
 
   return (
     <div className={classnames(className)}>
-      {formattedItems?.map((x, i) => {
+      {formattedItems?.map((x) => {
         return (
-          <React.Fragment key={`votes-mobile-${i}`}>
+          <React.Fragment key={`votes-mobile-${x.completionTime}`}>
             <div className={classes.list}>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">

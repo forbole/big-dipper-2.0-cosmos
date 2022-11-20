@@ -68,6 +68,7 @@ const Desktop: React.FC<{
                 const { key, align } = column;
                 const item = row[key];
                 return (
+                  // eslint-disable-next-line react/no-array-index-key
                   <TableCell align={align} key={`${key}-${index}`}>
                     {item}
                   </TableCell>

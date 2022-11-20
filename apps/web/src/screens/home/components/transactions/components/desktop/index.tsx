@@ -73,8 +73,8 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedData.map((row: any, i) => (
-            <TableRow key={`row-${i}`}>
+          {formattedData.map((row: any) => (
+            <TableRow key={`row-${x.timestamp}`}>
               {columns.map((column, index) => {
                 const { key, align } = column;
                 const item = row[key];
@@ -82,6 +82,7 @@ const Desktop: React.FC<{
                   <TableCell
                     style={{ width: `${column.width}%` }}
                     align={align}
+                    // eslint-disable-next-line react/no-array-index-key
                     key={`${key}-${index}`}
                   >
                     {item}

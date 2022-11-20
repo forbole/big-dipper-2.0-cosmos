@@ -21,6 +21,7 @@ const Consensus: React.FC<{ consensus: ConsensusType } & ComponentDefault> = (pr
           {props.consensus.map((x, i) => {
             return (
               <Tooltip
+                // eslint-disable-next-line react/no-array-index-key
                 key={`blocks-tooltip-${i}`}
                 enterTouchDelay={50}
                 title={
@@ -38,6 +39,7 @@ const Consensus: React.FC<{ consensus: ConsensusType } & ComponentDefault> = (pr
                 placement="top"
               >
                 <div
+                  // eslint-disable-next-line react/no-array-index-key
                   key={i}
                   className={classnames(classes.singleBlock, {
                     signed: x.proposed,

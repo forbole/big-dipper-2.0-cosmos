@@ -18,6 +18,7 @@ const Mobile: React.FC<{
       {items?.map((x, i) => {
         const available = formatNumber(x.available.value, x.available.exponent);
         return (
+          // eslint-disable-next-line react/no-array-index-key
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
               <div className={classes.item}>

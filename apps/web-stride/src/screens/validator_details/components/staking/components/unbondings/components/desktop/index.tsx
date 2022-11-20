@@ -58,11 +58,13 @@ const Desktop: React.FC<{
         </TableHead>
         <TableBody>
           {formattedItems?.map((row: { [key: string]: unknown }, i) => (
+            // eslint-disable-next-line react/no-array-index-key
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => {
                 const selected = row[column.key];
                 return (
                   <TableCell
+                    // eslint-disable-next-line react/no-array-index-key
                     key={`holders-row-${i}-${column.key}`}
                     align={column.align}
                     style={{ width: `${column.width}%` }}

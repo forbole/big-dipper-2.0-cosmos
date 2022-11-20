@@ -28,6 +28,7 @@ const Mobile: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props)
     <div className={props.className}>
       {formattedItems?.map((x, i) => {
         return (
+          // eslint-disable-next-line react/no-array-index-key
           <React.Fragment key={`${x.identifier}-${i}`}>
             <div className={classes.root}>
               <div className={classes.item}>

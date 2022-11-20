@@ -19,7 +19,7 @@ const Mobile: React.FC<{
     <div className={classnames(className)}>
       {items?.map((x, i) => {
         return (
-          <React.Fragment key={`${x.height}-${i}`}>
+          <React.Fragment key={`${x.height}-${x.timestamp}`}>
             <SingleBlockMobile
               height={
                 <Link href={BLOCK_DETAILS(x.height)} passHref>

@@ -61,11 +61,11 @@ const Desktop: React.FC<{
         </TableHead>
         <TableBody>
           {formattedItems?.map((row: { [key: string]: unknown }, i) => (
-            <TableRow key={`holders-row-${i}`}>
+            <TableRow key={`holders-row-${row.timestamp}`}>
               {columns.map((column) => {
                 return (
                   <TableCell
-                    key={`holders-row-${i}-${column.key}`}
+                    key={`holders-row-${row.timestamp}-${column.key}`}
                     align={column.align}
                     style={{ width: `${column.width}%` }}
                   >

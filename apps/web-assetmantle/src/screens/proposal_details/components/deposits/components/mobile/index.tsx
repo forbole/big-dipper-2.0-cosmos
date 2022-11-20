@@ -43,7 +43,7 @@ const Mobile: React.FC<{
     <div className={classnames(className)}>
       {formattedItems?.map((x, i) => {
         return (
-          <React.Fragment key={`depositors-mobile-${i}`}>
+          <React.Fragment key={`depositors-mobile-${x.time}`}>
             <div className={classes.list}>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">

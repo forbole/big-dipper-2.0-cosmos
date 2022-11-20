@@ -79,6 +79,7 @@ const Balance: React.FC<Props> = (props) => {
                 stroke="none"
               >
                 {data.map((entry, index) => (
+                  // eslint-disable-next-line react/no-array-index-key
                   <Cell key={`cell-${index}`} fill={entry.background} stroke={entry.background} />
                 ))}
               </Pie>

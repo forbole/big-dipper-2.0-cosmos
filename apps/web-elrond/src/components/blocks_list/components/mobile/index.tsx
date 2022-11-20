@@ -37,6 +37,7 @@ const Mobile: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
     <div className={props.className}>
       {formattedItems?.map((x, i) => {
         return (
+          // eslint-disable-next-line react/no-array-index-key
           <React.Fragment key={`${x.block}-${i}`}>
             <SingleBlockMobile {...x} />
             {i !== formattedItems.length - 1 && <Divider />}

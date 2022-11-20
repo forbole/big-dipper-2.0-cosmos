@@ -67,7 +67,7 @@ module.exports = {
     'react/destructuring-assignment': 'off',
     'react/jsx-filename-extension': 'off',
     'react/jsx-props-no-spreading': 'off',
-    'react/no-array-index-key': 'off',
+    // 'react/no-array-index-key': 'off',
     /* https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md */
     /* nextjs has its own jsx transform */
     'react/react-in-jsx-scope': 'off',

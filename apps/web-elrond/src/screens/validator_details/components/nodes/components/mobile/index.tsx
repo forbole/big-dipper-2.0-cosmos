@@ -38,6 +38,7 @@ const Mobile: React.FC<{ items: NodeType[] } & ComponentDefault> = (props) => {
     <div className={props.className}>
       {formattedItems?.map((x, i) => {
         return (
+          // eslint-disable-next-line react/no-array-index-key
           <React.Fragment key={`${x.pubkey}-${i}`}>
             <div className={classes.wrapper}>
               <div className={classes.item}>

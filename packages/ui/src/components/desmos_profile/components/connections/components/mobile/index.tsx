@@ -20,7 +20,7 @@ const Mobile: React.FC<{
     <div className={classnames(className)}>
       {items?.map((x, i) => {
         return (
-          <React.Fragment key={`votes-mobile-${i}`}>
+          <React.Fragment key={`votes-mobile-${x.identifier}`}>
             <div className={classes.list}>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">

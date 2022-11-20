@@ -25,6 +25,7 @@ const BoxDetails: React.FC<{
       )}
       {details.map((x, i) => {
         return (
+          // eslint-disable-next-line react/no-array-index-key
           <div className={classnames(classes.item, x.className)} key={`box-detail__item--${i}`}>
             {React.isValidElement(x.label) ? (
               <div className="label">{x.label}</div>

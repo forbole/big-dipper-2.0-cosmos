@@ -50,9 +50,9 @@ const Mobile: React.FC<{
 
   return (
     <div className={classnames(className)}>
-      {formattedData.map((x, i) => {
+      {formattedData.map((x) => {
         return (
-          <React.Fragment key={`${x.block}-${i}`}>
+          <React.Fragment key={`${x.block}-${x.timestamp}`}>
             <SingleTransactionMobile {...x} />
             {i !== formattedData.length - 1 && <Divider />}
           </React.Fragment>

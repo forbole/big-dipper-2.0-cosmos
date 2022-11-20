@@ -32,7 +32,7 @@ const Blocks: React.FC<{
         {mergedDataWithProfiles.map((x: any, i) => {
           return (
             <Tooltip
-              key={`blocks-tooltip-${i}`}
+              key={`blocks-tooltip-${x.txs}`}
               enterTouchDelay={50}
               title={
                 <Box className={classes.toolTip}>
@@ -73,7 +73,7 @@ const Blocks: React.FC<{
               placement="top"
             >
               <div
-                key={i}
+                key={x.txs}
                 className={classnames(classes.singleBlock, {
                   signed: state[i].signed,
                 })}

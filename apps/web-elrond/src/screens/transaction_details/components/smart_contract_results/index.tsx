@@ -41,6 +41,7 @@ const SmartContractResults: React.FC<{ results: ResultType[] } & ComponentDefaul
       <div>
         {formattedItems?.map((x, i) => {
           return (
+            // eslint-disable-next-line react/no-array-index-key
             <React.Fragment key={`${x.data}-${i}`}>
               <div className={classes.itemWrap}>
                 <div className={classes.desktopFlex}>
