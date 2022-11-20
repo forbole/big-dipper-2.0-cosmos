@@ -20,6 +20,7 @@ const Network: React.FC<{
       onClick={toggleNetwork}
       role="button"
       tabIndex={0}
+      aria-hidden="true"
     >
       <ChainIcon type="icon" className={classes.icon} alt="icon" />
       <Typography variant="body1">{selected}</Typography>

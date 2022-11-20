@@ -32,7 +32,13 @@ const Navbar = (props: NavbarProps) => {
         {/* =================================== */}
         {/* Network */}
         {/* =================================== */}
-        <div className={classes.network} onClick={openNetwork} role="button" tabIndex={0}>
+        <div
+          className={classes.network}
+          onClick={openNetwork}
+          role="button"
+          tabIndex={0}
+          aria-hidden="true"
+        >
           <p className="text">{selected}</p>
           <ExpandMore fontSize="small" />
         </div>
@@ -46,6 +52,7 @@ const Navbar = (props: NavbarProps) => {
             active: isOpen,
           })}
           tabIndex={0}
+          aria-hidden="true"
         >
           <div className="hamburger-content" />
         </div>

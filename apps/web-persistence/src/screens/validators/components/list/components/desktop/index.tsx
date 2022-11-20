@@ -111,6 +111,7 @@ const Desktop: React.FC<{
                       onClick={() => (sort ? props.handleSort(sortingKey ?? '') : null)}
                       role="button"
                       tabIndex={0}
+                      aria-hidden="true"
                     >
                       {formattedComponent || (
                         <Typography variant="h4" align={align}>

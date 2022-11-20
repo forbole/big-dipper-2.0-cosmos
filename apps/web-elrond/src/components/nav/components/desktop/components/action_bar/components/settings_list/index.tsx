@@ -35,6 +35,7 @@ const Settings: React.FC<{
         role="button"
         className={classnames(props.className, classes.icon)}
         tabIndex={0}
+        aria-hidden="true"
       >
         <SettingIcon />
       </div>
