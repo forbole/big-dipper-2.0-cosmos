@@ -11,8 +11,7 @@
     "lint": "next lint",
     "check-types": "tsc --noemit",
     "test": "jest --passWithNoTests --ci --no-watchman",
-    "e2e": "cypress open",
-    "graphql:codegen": "graphql-codegen"
+    "e2e": "cypress open"
   },
   "dependencies": {
     "@apollo/client": "^3.7.1",

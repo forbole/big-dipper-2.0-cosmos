@@ -11,10 +11,4 @@ generates:
       - "typescript"
       - "typescript-operations"
       - "typescript-react-apollo" # To generate custom hooks per query
-  ./src/graphql/types/profile_types.ts:
-    schema: https://gql.mainnet.desmos.network/v1/graphql
-    documents:
-      - 'src/graphql/profiles/*'
-    plugins:
-      - "typescript"
-      - "typescript-operations"
+  
