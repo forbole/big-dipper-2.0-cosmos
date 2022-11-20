@@ -24,8 +24,10 @@
       "cache": false
     },
     "dev": {
-      "cache": false,
-      "dependsOn": ["ui#build"]
+      "cache": false
+    },
+    "watch": {
+      "cache": false
     },
     "start": {},
     "check-types": {

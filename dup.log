@@ -1,9 +1,9 @@
 # Report by fclones 0.29.1
-# Timestamp: 2022-11-20 20:37:37.062 +0800
+# Timestamp: 2022-11-20 20:49:34.796 +0800
 # Command: fclones group .
 # Base dir: /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos
-# Total: 22167292 B (22.2 MB) in 10638 files in 601 groups
-# Redundant: 19071161 B (19.1 MB) in 10037 files
+# Total: 22167982 B (22.2 MB) in 10639 files in 601 groups
+# Redundant: 19071851 B (19.1 MB) in 10038 files
 # Missing: 0 B (0 B) in 0 files
 5186bcac73df4e01fd3cfce846d653e6, 498895 B (498.9 KB) * 3:
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web/src/graphql/types/general_types.ts
@@ -6608,7 +6608,7 @@ e897265d4e628190ed3fdc24ef5fdd24, 703 B (703 B) * 2:
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-stride/src/screens/validator_details/components/staking/components/unbondings/components/mobile/styles.ts
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/packages/ui/src/screens/account_details/components/staking/components/redelegations/components/mobile/styles.ts
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/packages/ui/src/screens/account_details/components/staking/components/unbondings/components/mobile/styles.ts
-5c27ed15df5cf2424d5bf75be9ab75d0, 690 B (690 B) * 22:
+5c27ed15df5cf2424d5bf75be9ab75d0, 690 B (690 B) * 23:
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web/tsconfig.json
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-agoric/tsconfig.json
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-akash/tsconfig.json
@@ -6618,6 +6618,7 @@ e897265d4e628190ed3fdc24ef5fdd24, 703 B (703 B) * 2:
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-comdex/tsconfig.json
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-cosmos/tsconfig.json
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-crescent/tsconfig.json
+    /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-desmos/tsconfig.json
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-emoney/tsconfig.json
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-evmos/tsconfig.json
     /Users/steven_chong/Downloads/repos/big-dipper-2.0-cosmos/apps/web-likecoin/tsconfig.json
