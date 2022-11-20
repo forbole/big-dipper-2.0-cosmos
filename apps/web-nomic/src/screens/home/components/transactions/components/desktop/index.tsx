@@ -42,12 +42,6 @@ const Desktop: React.FC<{
           </Typography>
         </Link>
       ),
-      type: (
-        <div>
-          <Tag value={x.type?.[0] ?? ''} theme="six" />
-          {x.messages > 1 && ` + ${x.messages - 1}`}
-        </div>
-      ),
       time: (dayjs as any).utc(x.timestamp).fromNow(),
     }));
 

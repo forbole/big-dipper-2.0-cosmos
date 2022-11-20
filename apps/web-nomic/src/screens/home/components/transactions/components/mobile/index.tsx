@@ -6,7 +6,6 @@ import dayjs from 'ui/utils/dayjs';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import SingleTransactionMobile from '@components/single_transaction_mobile';
-import Tag from 'ui/components/tag';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from 'ui/utils/go_to_page';
 
@@ -34,13 +33,8 @@ const Mobile: React.FC<{
           </Typography>
         </Link>
       ),
-      type: (
-        <div>
-          <Tag value={x.type?.[0] ?? ''} theme="six" />
-          {x.messages > 1 && ` + ${x.messages - 1}`}
-        </div>
-      ),
       time: (dayjs as any).utc(x.timestamp).fromNow(),
+      messages: numeral(x.messages).format('0,0'),
     }));
 
   return (

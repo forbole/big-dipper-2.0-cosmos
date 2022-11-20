@@ -12,10 +12,6 @@ export const columns:{
     width: 60,
   },
   {
-    key: 'type',
-    width: 25,
-  },
-  {
     key: 'time',
     align: 'right',
     width: 20,

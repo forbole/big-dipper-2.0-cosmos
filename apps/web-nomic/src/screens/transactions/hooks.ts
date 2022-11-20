@@ -5,7 +5,6 @@ import {
   useTransactionsListenerSubscription,
   TransactionsListenerSubscription,
 } from '@graphql/types/general_types';
-import { convertMsgType } from 'ui/utils/convert_msg_type';
 import type { TransactionsState } from './types';
 
 export const useTransactions = () => {
@@ -116,20 +115,11 @@ export const useTransactions = () => {
       formattedData = data.transactions.slice(0, 51);
     }
 
-    return formattedData.map((x: any) => {
-      const msgType =
-        x.messages?.map((eachMsg: any) => {
-          const eachMsgType = R.pathOr('none type', ['@type'], eachMsg);
-          return eachMsgType ?? '';
-        }) ?? [];
-      const convertedMsgType = convertMsgType(msgType);
-      return {
+    return formattedData.map((x: any) => ({
         height: x.height,
         hash: x.hash,
-        type: convertedMsgType,
         timestamp: x.block.timestamp,
-      } as any;
-    });
+      } as any));
   };
 
   return {

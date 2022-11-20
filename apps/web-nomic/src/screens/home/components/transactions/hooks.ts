@@ -23,21 +23,12 @@ export const useTransactions = () => {
     },
   });
 
-  const formatTransactions = (data: TransactionsListenerSubscription) => data.transactions.map((x: any) => {
-      const msgType =
-        x.messages?.map((eachMsg: any) => {
-          const eachMsgType = R.pathOr('none type', ['@type'], eachMsg);
-          return eachMsgType ?? '';
-        }) ?? [];
-      const convertedMsgType = convertMsgType(msgType);
-
-      return {
-        height: x.height,
-        hash: x.hash,
-        type: convertedMsgType,
-        timestamp: x.block.timestamp,
-      };
-    });
+  const formatTransactions = (data: TransactionsListenerSubscription) =>
+    data.transactions.map((x: any) => ({
+      height: x.height,
+      hash: x.hash,
+      timestamp: x.block.timestamp,
+    }));
 
   return {
     state,
