@@ -53,7 +53,8 @@ module.exports = {
     'lines-between-class-members': 'off',
     'no-bitwise': 'off',
     'no-param-reassign': 'off',
-    'no-use-before-define': 'off',
+    /* https://eslint.org/docs/latest/rules/no-use-before-define */
+    'no-use-before-define': ['error', { classes: false, functions: false, variables: false }],
     'no-shadow': 'off',
     'no-console': ['off', { allow: ['warn', 'error'] }],
     /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md */
@@ -104,6 +105,6 @@ module.exports = {
     '**/cypress/support/*',
     '**/cypress/plugins/*',
     '**/cypress/fixtures/*',
-    '**/src/graphql/types/*',
+    '**/src/graphql/*',
   ],
 };
