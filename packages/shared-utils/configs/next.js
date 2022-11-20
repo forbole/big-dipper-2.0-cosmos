@@ -3,6 +3,7 @@ const { basename, join, resolve } = require('path');
 const nextTranslate = require('next-translate');
 const withTM = require('next-transpile-modules');
 const withSentry = require('shared-utils/configs/withSentry.js');
+
 const generalConfig = loadJson(join(__dirname, 'general.json'));
 
 /**

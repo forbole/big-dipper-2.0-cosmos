@@ -43,7 +43,7 @@ export const useProfileDetails = () => {
     }
   }, [state.desmosProfile?.connections]);
 
-  const profileDtag: string = router?.query?.dtag as string ?? '';
+  const profileDtag: string = (router?.query?.dtag as string) ?? '';
 
   useEffect(() => {
     const regex = /^@/;

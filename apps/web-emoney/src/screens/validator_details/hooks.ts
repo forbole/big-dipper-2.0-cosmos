@@ -149,11 +149,7 @@ function formatAccountQuery(data: ValidatorDetailsQuery) {
     const profile = {
       status: R.pathOr(3, ['validatorStatuses', 0, 'status'], data.validator[0]),
       jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], data.validator[0]),
-      tombstoned: R.pathOr(
-        false,
-        ['validatorSigningInfos', 0, 'tombstoned'],
-        data.validator[0]
-      ),
+      tombstoned: R.pathOr(false, ['validatorSigningInfos', 0, 'tombstoned'], data.validator[0]),
       commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], data.validator[0]),
       condition,
       missedBlockCounter,

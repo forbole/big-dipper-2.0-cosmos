@@ -44,7 +44,7 @@ export const useProfileDetails = () => {
     },
   });
 
-  const profileDtag = router?.query?.dtag as string ?? '';
+  const profileDtag = (router?.query?.dtag as string) ?? '';
 
   useEffect(() => {
     const regex = /^@/;

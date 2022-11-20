@@ -20,7 +20,7 @@ export const useBlocks = () => {
 
   useLastHundredBlocksSubscription({
     variables: {
-      address: router?.query?.address as string ?? '',
+      address: (router?.query?.address as string) ?? '',
     },
     onData: (data) => {
       setState(data.data.data ? formatLastHundredBlocks(data.data.data) : []);

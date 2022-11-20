@@ -32,7 +32,9 @@ const Mobile: FC<{
               ref={listRef as React.LegacyRef<List>}
               width={width}
             >
-              {({ index, style }) => <ListItem {...{ index, style, setRowHeight, signatures, classes, t }} />}
+              {({ index, style }) => (
+                <ListItem {...{ index, style, setRowHeight, signatures, classes, t }} />
+              )}
             </List>
           );
         }}

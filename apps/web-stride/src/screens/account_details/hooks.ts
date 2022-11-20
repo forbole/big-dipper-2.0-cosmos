@@ -65,7 +65,7 @@ export const useAccountDetails = () => {
       });
     },
   });
-  
+
   useEffect(() => {
     if (!isValidAddress(router.query.address as string)) {
       handleSetState({

@@ -62,13 +62,24 @@ module.exports = {
     'import/no-cycle': 'off',
     'import/extensions': 'off',
     'import/prefer-default-export': 'off',
-    'import/newline-after-import': 'off',
     /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md */
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js", "**/*.test.ts", "**/*.spec.ts", "**/*.test.tsx", "**/*.spec.tsx"]}],
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: [
+          '**/*.test.js',
+          '**/*.spec.js',
+          '**/*.test.ts',
+          '**/*.spec.ts',
+          '**/*.test.tsx',
+          '**/*.spec.tsx',
+        ],
+      },
+    ],
     /* https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/destructuring-assignment.md */
     'react/destructuring-assignment': 'off',
     /* https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md */
-    "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx"] }],
+    'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.jsx'] }],
     /* https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spreading.md */
     'react/jsx-props-no-spreading': 'off',
     /* https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md */
@@ -78,7 +89,7 @@ module.exports = {
     /* as per https://twitter.com/dan_abramov/status/1133878326358171650 this will eventually get deprecated. */
     'react/require-default-props': 'off',
     /* Https://github.com/facebook/react/issues/14920 */
-    'react-hooks/exhaustive-deps': 'warn'
+    'react-hooks/exhaustive-deps': 'warn',
   },
   env: {
     es6: true,
@@ -86,4 +97,14 @@ module.exports = {
     jest: true,
     node: true,
   },
+  ignorePatterns: [
+    '**/node_modules/*',
+    '**/out/*',
+    '**/.next/*',
+    '**/dist/*',
+    '**/cypress/support/*',
+    '**/cypress/plugins/*',
+    '**/cypress/fixtures/*',
+    '**/src/graphql/types/*',
+  ],
 };

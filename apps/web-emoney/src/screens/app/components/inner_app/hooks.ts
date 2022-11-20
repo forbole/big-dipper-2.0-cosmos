@@ -42,5 +42,5 @@ export function useChainHealthCheck<TData, TVariables>(
       return false;
     }
     getLatestBlockTimestamp();
-  }, [getLatestBlockTimestamp,]);
+  }, [getLatestBlockTimestamp]);
 }
