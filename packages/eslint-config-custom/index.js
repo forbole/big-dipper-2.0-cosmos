@@ -56,7 +56,8 @@ module.exports = {
     /* https://eslint.org/docs/latest/rules/no-use-before-define */
     'no-use-before-define': ['error', { classes: false, functions: false, variables: false }],
     'no-shadow': 'off',
-    'no-console': ['off', { allow: ['warn', 'error'] }],
+    /* https://eslint.org/docs/latest/rules/no-console */
+    'no-console': ['error', { allow: ['warn', 'error'] }],
     /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md */
     'import/extensions': 'off',
     /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md */

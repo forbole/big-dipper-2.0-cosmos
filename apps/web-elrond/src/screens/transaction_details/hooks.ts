@@ -125,7 +125,7 @@ export const useTransactionDetails = () => {
           loading: false,
           exists: false,
         });
-        console.log((error as any).message);
+        console.error((error as any).message);
       }
     };
 

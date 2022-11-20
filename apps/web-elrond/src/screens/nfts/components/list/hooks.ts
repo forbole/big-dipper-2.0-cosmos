@@ -47,7 +47,7 @@ export const useNFTs = () => {
           items,
         });
       } catch (error: any) {
-        console.log(NFTS, error.message);
+        console.error(NFTS, error.message);
       }
     },
     [handleSetState]
@@ -81,7 +81,7 @@ export const useNFTs = () => {
           total: total > maxSize ? maxSize : total,
         });
       } catch (error: any) {
-        console.log(NFTS_COUNT, error.message);
+        console.error(NFTS_COUNT, error.message);
       }
     };
 

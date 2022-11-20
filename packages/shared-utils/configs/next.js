@@ -70,6 +70,10 @@ function getBaseConfig(chainConfigJson) {
       styledComponents: true,
     },
     webpack,
+    eslint: {
+      // to speed up the build task
+      ignoreDuringBuilds: true,
+    },
   };
   return config;
 }

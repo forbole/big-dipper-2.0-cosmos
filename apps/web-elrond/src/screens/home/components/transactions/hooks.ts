@@ -39,7 +39,7 @@ export const useBlocks = () => {
         items,
       });
     } catch (error) {
-      console.log((error as any).message);
+      console.error((error as any).message);
     }
   }, [handleSetState]);
 

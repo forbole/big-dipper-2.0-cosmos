@@ -46,7 +46,7 @@ export const useTransactions = (provider: string) => {
           items,
         });
       } catch (error) {
-        console.log((error as any).message);
+        console.error((error as any).message);
       }
     },
     [handleSetState, provider]
@@ -60,7 +60,7 @@ export const useTransactions = (provider: string) => {
           total,
         });
       } catch (error) {
-        console.log((error as any).message);
+        console.error((error as any).message);
       }
     };
 

@@ -49,7 +49,7 @@ export const useTransactions = () => {
           items,
         });
       } catch (error) {
-        console.log((error as any).message);
+        console.error((error as any).message);
       }
     },
     [handleSetState, router.query.hash]
@@ -78,7 +78,7 @@ export const useTransactions = () => {
           total,
         });
       } catch (error) {
-        console.log((error as any).message);
+        console.error((error as any).message);
       }
     };
 

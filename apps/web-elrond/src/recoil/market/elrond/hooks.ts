@@ -22,7 +22,7 @@ export const useMarketRecoil = () => {
           apr: R.pathOr(0, ['apr'], data) as number,
         });
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     };
 

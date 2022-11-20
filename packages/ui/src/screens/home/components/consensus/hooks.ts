@@ -108,7 +108,7 @@ export const useConsensus = () => {
       };
 
       client.onclose = () => {
-        console.log('closing socket');
+        console.warn('closing socket');
         setTimeout(() => {
           connect();
         }, 1000);

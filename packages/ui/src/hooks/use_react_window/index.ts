@@ -14,7 +14,7 @@ export const useList = () => {
   const setRowHeight = useCallback((idx: keyof any, size: number) => {
     R.pathOr(
       (_: number) => {
-        console.log('something went wrong');
+        console.error('something went wrong');
       },
       ['current', 'resetAfterIndex'],
       listRef

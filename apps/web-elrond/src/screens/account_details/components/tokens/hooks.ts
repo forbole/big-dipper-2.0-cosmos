@@ -53,7 +53,7 @@ export const useTokens = () => {
           items,
         });
       } catch (error) {
-        console.log((error as any).message);
+        console.error((error as any).message);
       }
     },
     [handleSetState, router.query.address]
@@ -69,7 +69,7 @@ export const useTokens = () => {
           total,
         });
       } catch (error) {
-        console.log((error as any).message);
+        console.error((error as any).message);
       }
     };
 

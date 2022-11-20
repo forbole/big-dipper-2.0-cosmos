@@ -28,7 +28,7 @@ export const useStaking = () => {
           ),
         });
       } catch (error) {
-        console.log((error as any).message);
+        console.error((error as any).message);
       }
     };
 

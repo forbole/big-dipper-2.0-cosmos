@@ -44,7 +44,7 @@ export const useBlocks = () => {
           items,
         });
       } catch (error) {
-        console.log((error as any).message);
+        console.error((error as any).message);
       }
     },
     [handleSetState]
@@ -58,7 +58,7 @@ export const useBlocks = () => {
           total,
         });
       } catch (error) {
-        console.log((error as any).message);
+        console.error((error as any).message);
       }
     };
 
