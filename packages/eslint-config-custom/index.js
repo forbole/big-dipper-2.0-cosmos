@@ -36,8 +36,6 @@ module.exports = {
     },
   },
   rules: {
-    // TODO: disabled due to historical reason
-    '@next/next/no-img-element': 'off',
     /* https://typescript-eslint.io/rules/no-explicit-any/ */
     '@typescript-eslint/no-explicit-any': 'off',
     /* https://typescript-eslint.io/rules/no-unused-vars/ */

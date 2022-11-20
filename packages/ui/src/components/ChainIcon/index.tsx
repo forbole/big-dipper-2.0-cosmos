@@ -200,8 +200,14 @@ const ChainIcon = ({ className, type, ...props }: IconProps) => {
   }
   return (
     <span>
-      <img src={iconDark} alt="" {...props} className={classnames(className, classes.dark)} />
-      <img src={iconLight} alt="" {...props} className={classnames(className, classes.light)} />
+      {
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={iconDark} alt="" {...props} className={classnames(className, classes.dark)} />
+      }
+      {
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={iconLight} alt="" {...props} className={classnames(className, classes.light)} />
+      }
     </span>
   );
 };

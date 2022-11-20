@@ -15,7 +15,10 @@ const Networks: React.FC<{
     <div className={className}>
       {networks.map((x) => (
         <div className={classes.networkList} key={x.name}>
-          <img src={x.logo} alt="logo" />
+          {
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={x.logo} alt="logo" />
+          }
           <div className="network">
             <Typography variant="h4">{x.name}</Typography>
             {x.mainnet.map((network) => (

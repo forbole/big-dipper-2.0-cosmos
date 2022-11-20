@@ -28,6 +28,7 @@ const Avatar: React.FC<{
   return (
     <div className={classnames(className, classes.root)}>
       {imageUrl && !error ? (
+        // eslint-disable-next-line @next/next/no-img-element
         <img src={imageUrl} alt="address avatar" onError={handleError} />
       ) : (
         <svg data-jdenticon-value={address} height="100%" ref={icon} width="100%" />
