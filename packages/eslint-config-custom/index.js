@@ -55,7 +55,6 @@ module.exports = {
     'no-param-reassign': 'off',
     /* https://eslint.org/docs/latest/rules/no-use-before-define */
     'no-use-before-define': ['error', { classes: false, functions: false, variables: false }],
-    'no-shadow': 'off',
     /* https://eslint.org/docs/latest/rules/no-console */
     'no-console': ['error', { allow: ['warn', 'error'] }],
     /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md */

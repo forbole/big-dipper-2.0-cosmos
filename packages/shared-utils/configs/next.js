@@ -108,23 +108,23 @@ function webpack(config) {
 }
 
 /**
- * It takes two objects, `generalConfig` and `chainConfig`, and returns an object with the same keys as
+ * It takes two objects, `general` and `chainConfig`, and returns an object with the same keys as
  * the two input objects, but with the values of the keys being the values of the corresponding keys in
  * the input objects, or the values of the corresponding environment variables if they exist
- * @param generalConfig - This is the general configuration for the app. It's used to configure the
+ * @param general - This is the general configuration for the app. It's used to configure the
  * app's title, logo, and other general settings.
  * @param chainConfig - This is the chain configuration object. It contains the endpoints for the
  * GraphQL server, the GraphQL websocket, and the public RPC websocket.
  * @returns An object with the following properties:
  * - GENERAL_CONFIG:
  *   - If the environment variable GENERAL_CONFIG is set, it will be used.
- *   - Otherwise, the generalConfig object will be stringified and used.
+ *   - Otherwise, the general object will be stringified and used.
  * - CHAIN_CONFIG:
  *   - If the environment
  */
-function env(generalConfig, chainConfig) {
+function env(general, chainConfig) {
   return {
-    GENERAL_CONFIG: process.env.GENERAL_CONFIG || JSON.stringify(generalConfig),
+    GENERAL_CONFIG: process.env.GENERAL_CONFIG || JSON.stringify(general),
     CHAIN_CONFIG: process.env.CHAIN_CONFIG || JSON.stringify(chainConfig),
   };
 }
