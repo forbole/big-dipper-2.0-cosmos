@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import chainConfig from 'ui/chainConfig';
-import { useDesmosProfile } from 'ui/hooks';
+import { useDesmosProfile } from '@hooks';
 import type { ProfileDetailState } from './types';
 
 const initialState: ProfileDetailState = {

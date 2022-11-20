@@ -19,8 +19,20 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
     >
       <img
         alt="address avatar"
+        className="makeStyles-img"
+        data-nimg="future"
+        decoding="async"
+        height={0}
+        loading="lazy"
         onError={[Function]}
+        onLoad={[Function]}
         src="testurl.com"
+        style={
+          {
+            "color": "transparent",
+          }
+        }
+        width={0}
       />
     </div>
     <p

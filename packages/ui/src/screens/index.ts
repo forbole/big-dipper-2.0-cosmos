@@ -1,1 +1,1 @@
-export { default as Error } from 'ui/screens/error';
+export { default as Error } from '@screens/error';

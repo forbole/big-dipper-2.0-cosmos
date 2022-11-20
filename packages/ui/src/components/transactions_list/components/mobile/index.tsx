@@ -7,16 +7,16 @@ import React, { ComponentProps, FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
-import dayjs from 'ui/utils/dayjs';
-import { BLOCK_DETAILS, TRANSACTION_DETAILS } from 'ui/utils/go_to_page';
+import dayjs from '@utils/dayjs';
+import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@utils/go_to_page';
 
-import Loading from 'ui/components/loading';
-import Result from 'ui/components/result';
-import SingleTransactionMobile from 'ui/components/single_transaction_mobile';
-import Tag from 'ui/components/tag';
-import { useList, useListRow } from 'ui/hooks';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import { mergeRefs } from 'ui/utils/merge_refs';
+import Loading from '@components/loading';
+import Result from '@components/result';
+import SingleTransactionMobile from '@components/single_transaction_mobile';
+import Tag from '@components/tag';
+import { useList, useListRow } from '@hooks';
+import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import { mergeRefs } from '@utils/merge_refs';
 import type { TransactionsListState } from '../../types';
 import { useStyles } from './styles';
 

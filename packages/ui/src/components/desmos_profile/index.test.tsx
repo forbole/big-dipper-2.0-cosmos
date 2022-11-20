@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from 'ui/tests/utils';
-import DesmosProfile from 'ui/components/desmos_profile';
+import DesmosProfile from '@components/desmos_profile';
 
 // ==================================
 // mocks

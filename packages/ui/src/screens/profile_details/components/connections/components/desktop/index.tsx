@@ -3,16 +3,16 @@ import chainConfig from 'ui/chainConfig';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';
-import { readDate } from 'ui/recoil/settings';
+import { readDate } from '@recoil/settings';
 import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import TableBody from '@material-ui/core/TableBody';
 import Typography from '@material-ui/core/Typography';
-import dayjs, { formatDayJs } from 'ui/utils/dayjs';
+import dayjs, { formatDayJs } from '@utils/dayjs';
 import Link from 'next/link';
-import { ACCOUNT_DETAILS } from 'ui/utils/go_to_page';
+import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { columns } from './utils';
 
 const Desktop: React.FC<{

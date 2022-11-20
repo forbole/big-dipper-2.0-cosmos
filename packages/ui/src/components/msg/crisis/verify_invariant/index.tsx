@@ -1,9 +1,9 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import Name from 'ui/components/name';
+import Name from '@components/name';
 import { MsgVerifyInvariant } from '@models';
-import { useProfileRecoil } from 'ui/recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const VerifyInvariant: React.FC<{ message: MsgVerifyInvariant }> = (props) => {
   const { message } = props;

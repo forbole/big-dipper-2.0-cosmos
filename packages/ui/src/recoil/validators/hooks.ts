@@ -4,7 +4,7 @@ import { useRecoilCallback } from 'recoil';
 import * as R from 'ramda';
 import { QueryHookOptions, QueryResult } from '@apollo/client';
 import chainConfig from 'ui/chainConfig';
-import { useDesmosProfile } from 'ui/hooks';
+import { useDesmosProfile } from '@hooks';
 import { atomFamilyState as validatorAtomState } from './atom';
 import { atomFamilyState as profileAtomFamilyState } from '../profiles';
 

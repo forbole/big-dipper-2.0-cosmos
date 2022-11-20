@@ -15,7 +15,7 @@ jest.mock('next/router', () => ({
   useRouter: () => mockRouter,
 }));
 
-jest.mock('ui/hooks', () => ({
+jest.mock('@hooks', () => ({
   useDesmosProfile: (options: Parameters<typeof useDesmosProfile>[0]) => ({
       fetchDesmosProfile: jest.fn((dtag) => {
         let results;

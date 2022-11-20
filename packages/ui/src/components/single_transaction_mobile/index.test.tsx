@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from 'ui/tests/utils';
-import Tag from 'ui/components/tag';
-import Result from 'ui/components/result';
+import Tag from '@components/tag';
+import Result from '@components/result';
 import SingleTransactionMobile from '.';
 
 // ==================================

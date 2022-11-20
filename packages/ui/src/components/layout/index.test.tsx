@@ -15,10 +15,10 @@ const mockI18n = {
 // ==================================
 // mocks
 // ==================================
-jest.mock('ui/components/nav', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@components/nav', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Nav" {...props} />
 ));
-jest.mock('ui/components/footer', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@components/footer', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Footer" {...props} />
 ));
 

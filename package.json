@@ -17,6 +17,7 @@
     "lint": "turbo run lint --filter ${0:-web}...",
     "lint:ci": "turbo run lint --concurrency=30%",
     "test": "turbo run test --filter ${0:-web}...",
+    "test:update:snapshot": "turbo run test --filter ${0:-web}... -- -u",
     "test:ci": "turbo run test --concurrency=30%",
     "e2e": "turbo run e2e --filter ${0:-web}...",
     "e2e:ci": "turbo run e2e --concurrency=30%",

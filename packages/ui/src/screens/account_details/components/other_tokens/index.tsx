@@ -2,10 +2,10 @@ import React from 'react';
 import classnames from 'classnames';
 import dynamic from 'next/dynamic';
 import useTranslation from 'next-translate/useTranslation';
-import Pagination from 'ui/components/pagination';
-import Box from 'ui/components/box';
+import Pagination from '@components/pagination';
+import Box from '@components/box';
 
-import { usePagination, useScreenSize } from 'ui/hooks';
+import { usePagination, useScreenSize } from '@hooks';
 import Typography from '@material-ui/core/Typography';
 import { useStyles } from './styles';
 import type { OtherTokenType } from '../../types';

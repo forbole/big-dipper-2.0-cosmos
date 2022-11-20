@@ -5,16 +5,42 @@ exports[`screen: InitialLoad matches snapshot 1`] = `
   className="makeStyles-root"
 >
   <div>
-    <span>
+    <span
+      className="makeStyles-logo makeStyles-container"
+    >
       <img
         alt="logo"
-        className="makeStyles-logo makeStyles-dark"
+        className="makeStyles-dark"
+        data-nimg="future"
+        decoding="async"
+        height={0}
+        loading="lazy"
+        onError={[Function]}
+        onLoad={[Function]}
         src="svg"
+        style={
+          {
+            "color": "transparent",
+          }
+        }
+        width={0}
       />
       <img
         alt="logo"
-        className="makeStyles-logo makeStyles-light"
+        className="makeStyles-light"
+        data-nimg="future"
+        decoding="async"
+        height={0}
+        loading="lazy"
+        onError={[Function]}
+        onLoad={[Function]}
         src="svg"
+        style={
+          {
+            "color": "transparent",
+          }
+        }
+        width={0}
       />
     </span>
     <div

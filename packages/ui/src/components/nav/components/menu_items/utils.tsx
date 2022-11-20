@@ -5,7 +5,7 @@ import TransactionIcon from 'shared-utils/assets/icon-transaction.svg';
 import ProposalsIcon from 'shared-utils/assets/icon-proposals.svg';
 import UserIcon from 'shared-utils/assets/icon-user.svg';
 import ParamIcon from 'shared-utils/assets/icon-param.svg';
-import { HOME, BLOCKS, VALIDATORS, TRANSACTIONS, PROPOSALS, PARAMS } from 'ui/utils/go_to_page';
+import { HOME, BLOCKS, VALIDATORS, TRANSACTIONS, PROPOSALS, PARAMS } from '@utils/go_to_page';
 
 export const getMenuItems = () => {
   const iconProps = {

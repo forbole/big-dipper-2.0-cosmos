@@ -166,7 +166,7 @@
     "links": [
       {
         "name": "Mainnet",
-        "chain_id": "likecoin-mainnet-2",
+        "chain_id": "mainnet",
         "url": "https://flow.bigdipper.live/"
       }
     ]

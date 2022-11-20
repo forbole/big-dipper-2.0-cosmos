@@ -1,14 +1,14 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import dayjs, { formatDayJs } from 'ui/utils/dayjs';
+import dayjs, { formatDayJs } from '@utils/dayjs';
 import { useRecoilValue } from 'recoil';
-import { readDate } from 'ui/recoil/settings';
+import { readDate } from '@recoil/settings';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import chainConfig from 'ui/chainConfig';
 import Link from 'next/link';
-import { ACCOUNT_DETAILS } from 'ui/utils/go_to_page';
+import { ACCOUNT_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
 
 const Mobile: React.FC<{

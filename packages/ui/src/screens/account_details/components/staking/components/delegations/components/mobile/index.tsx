@@ -3,8 +3,8 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import AvatarName from 'ui/components/avatar_name';
-import { formatNumber } from 'ui/utils/format_token';
+import AvatarName from '@components/avatar_name';
+import { formatNumber } from '@utils/format_token';
 import { useStyles } from './styles';
 import type { ItemType } from '../../types';
 

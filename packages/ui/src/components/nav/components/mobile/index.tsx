@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { useGetComponentDimension } from 'ui/hooks';
+import { useGetComponentDimension } from '@hooks';
 import { useStyles } from './styles';
 import { useMobile } from './hooks';
 import Networks from '../networks';

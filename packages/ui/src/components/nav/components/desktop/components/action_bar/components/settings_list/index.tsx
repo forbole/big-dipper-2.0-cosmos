@@ -14,7 +14,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Select from '@material-ui/core/Select';
 import CloseIcon from '@material-ui/icons/Close';
-import { THEME_LIST, DATE_LIST, TX_LIST } from 'ui/recoil/settings';
+import { THEME_LIST, DATE_LIST, TX_LIST } from '@recoil/settings';
 import { useSettingList } from './hooks';
 import { useStyles } from './styles';
 

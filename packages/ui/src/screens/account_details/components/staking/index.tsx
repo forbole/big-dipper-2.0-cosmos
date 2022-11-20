@@ -1,8 +1,8 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import classnames from 'classnames';
-import Box from 'ui/components/box';
-import TabPanel from 'ui/components/tab_panel';
+import Box from '@components/box';
+import TabPanel from '@components/tab_panel';
 import Tabs from './components/tabs';
 import { useStaking } from './hooks';
 import { useStyles } from './styles';

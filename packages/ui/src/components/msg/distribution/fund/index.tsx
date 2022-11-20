@@ -2,10 +2,10 @@ import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import { formatToken, formatNumber } from 'ui/utils/format_token';
-import Name from 'ui/components/name';
+import { formatToken, formatNumber } from '@utils/format_token';
+import Name from '@components/name';
 import { MsgFundCommunityPool } from '@models';
-import { useProfileRecoil } from 'ui/recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const Fund: React.FC<{ message: MsgFundCommunityPool }> = (props) => {
   const { t } = useTranslation('transactions');

@@ -3,9 +3,11 @@
 exports[`screen: Nav/SettingList it renders 1`] = `
 <div>
   <div
+    aria-hidden="true"
     className="makeStyles-icon"
     onClick={[Function]}
     role="button"
+    tabIndex={0}
   >
     <svg />
   </div>

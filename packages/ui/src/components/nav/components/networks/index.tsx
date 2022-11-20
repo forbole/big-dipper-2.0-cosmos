@@ -2,8 +2,8 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Image from 'next/future/image';
 import { useRecoilValue } from 'recoil';
-import { readNetworks } from 'ui/recoil/big_dipper_networks';
-import SingleNetwork from 'ui/components/nav/components/networks/components/single_network';
+import { readNetworks } from '@recoil/big_dipper_networks';
+import SingleNetwork from '@components/nav/components/networks/components/single_network';
 import { useStyles } from './styles';
 
 const Networks: React.FC<{

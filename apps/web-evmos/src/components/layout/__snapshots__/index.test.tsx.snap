@@ -250,9 +250,11 @@ exports[`component: Layout it renders 1`] = `
             className="makeStyles-footerActions"
           >
             <div
+              aria-hidden="true"
               className="makeStyles-language"
               onClick={[Function]}
               role="button"
+              tabIndex={0}
             >
               <svg />
               <span
@@ -273,9 +275,11 @@ exports[`component: Layout it renders 1`] = `
               </svg>
             </div>
             <div
+              aria-hidden="true"
               className="makeStyles-theme"
               onClick={[Function]}
               role="button"
+              tabIndex={0}
             >
               <span
                 role="button"
@@ -315,9 +319,11 @@ exports[`component: Layout it renders 1`] = `
             className="makeStyles-actions"
           >
             <div
+              aria-hidden="true"
               className="makeStyles-network"
               onClick={[Function]}
               role="button"
+              tabIndex={0}
             >
               <p
                 className="text"
@@ -337,9 +343,11 @@ exports[`component: Layout it renders 1`] = `
               </svg>
             </div>
             <div
+              aria-hidden="true"
               className="makeStyles-hamburger"
               onClick={[Function]}
               role="button"
+              tabIndex={0}
             >
               <div
                 className="hamburger-content"
@@ -395,16 +403,42 @@ exports[`component: Layout it renders 1`] = `
       <div
         className="makeStyles-root"
       >
-        <span>
+        <span
+          className="makeStyles-logo makeStyles-container"
+        >
           <img
             alt="logo"
-            className="makeStyles-logo makeStyles-dark"
+            className="makeStyles-dark"
+            data-nimg="future"
+            decoding="async"
+            height={0}
+            loading="lazy"
+            onError={[Function]}
+            onLoad={[Function]}
             src="svg"
+            style={
+              {
+                "color": "transparent",
+              }
+            }
+            width={0}
           />
           <img
             alt="logo"
-            className="makeStyles-logo makeStyles-light"
+            className="makeStyles-light"
+            data-nimg="future"
+            decoding="async"
+            height={0}
+            loading="lazy"
+            onError={[Function]}
+            onLoad={[Function]}
             src="svg"
+            style={
+              {
+                "color": "transparent",
+              }
+            }
+            width={0}
           />
         </span>
         <div

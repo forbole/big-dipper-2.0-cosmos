@@ -1,6 +1,6 @@
 import React from 'react';
-import NoData from 'ui/components/no_data';
-import { useScreenSize } from 'ui/hooks';
+import NoData from '@components/no_data';
+import { useScreenSize } from '@hooks';
 import { useStyles } from './styles';
 import type { TransactionsListState } from './types';
 

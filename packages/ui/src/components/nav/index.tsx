@@ -1,5 +1,5 @@
 import React from 'react';
-import { useScreenSize } from 'ui/hooks';
+import { useScreenSize } from '@hooks';
 import Mobile from './components/mobile';
 import { useStyles } from './styles';
 import Desktop from './components/desktop';

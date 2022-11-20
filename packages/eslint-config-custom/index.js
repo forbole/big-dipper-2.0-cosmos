@@ -31,7 +31,7 @@ module.exports = {
       typescript: {
         alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
         // use an array of glob patter
-        project: ['**/tsconfig.json'],
+        project: ['./**/tsconfig.json'],
       },
     },
   },
@@ -102,7 +102,7 @@ module.exports = {
     /* Https://github.com/facebook/react/issues/14920 */
     'react-hooks/exhaustive-deps': 'warn',
     /* https://nextjs.org/docs/messages/no-html-link-for-pages */
-    "@next/next/no-html-link-for-pages": 'off',
+    '@next/next/no-html-link-for-pages': 'off',
   },
   env: {
     es6: true,

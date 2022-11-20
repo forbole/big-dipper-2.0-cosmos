@@ -4,7 +4,7 @@ import useTranslation from 'next-translate/useTranslation';
 import Typography from '@material-ui/core/Typography';
 import Dialog from '@material-ui/core/Dialog';
 import { QRCodeSVG } from 'qrcode.react';
-import { useScreenSize, useWindowOrigin } from 'ui/hooks';
+import { useScreenSize, useWindowOrigin } from '@hooks';
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -19,8 +19,8 @@ import {
 } from 'react-share';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import ShareIcon from 'shared-utils/assets/icon-share.svg';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import Box from 'ui/components/box';
+import { getMiddleEllipsis } from '@utils/get_middle_ellipsis';
+import Box from '@components/box';
 import { useStyles } from './styles';
 import { useOverview } from './hooks';
 

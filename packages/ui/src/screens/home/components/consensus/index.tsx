@@ -3,10 +3,10 @@ import classnames from 'classnames';
 import numeral from 'numeral';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import Box from 'ui/components/box';
-import AvatarName from 'ui/components/avatar_name';
+import Box from '@components/box';
+import AvatarName from '@components/avatar_name';
 import { RadialBarChart, PolarAngleAxis, RadialBar, Tooltip } from 'recharts';
-import { useProfileRecoil } from 'ui/recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 import { useStyles } from './styles';
 import { useConsensus } from './hooks';
 

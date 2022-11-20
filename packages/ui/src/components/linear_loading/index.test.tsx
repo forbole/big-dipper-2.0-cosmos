@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from 'ui/tests/utils';
-import LinearLoading from 'ui/components/linear_loading';
+import LinearLoading from '@components/linear_loading';
 
 // ==================================
 // unit tests

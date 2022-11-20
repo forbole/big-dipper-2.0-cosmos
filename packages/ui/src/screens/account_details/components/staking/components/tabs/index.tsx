@@ -4,7 +4,7 @@ import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import { a11yProps } from 'ui/utils/a11yProps';
+import { a11yProps } from '@utils/a11yProps';
 import { useStyles } from './styles';
 
 const TabsHeader: React.FC<{

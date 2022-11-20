@@ -1,3 +1,2 @@
-import SingleTransaction from './single_transaction';
+export { default as SingleTransaction } from './single_transaction';
 
-export { SingleTransaction };

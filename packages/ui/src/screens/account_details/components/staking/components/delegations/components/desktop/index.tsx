@@ -6,8 +6,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import TableBody from '@material-ui/core/TableBody';
-import AvatarName from 'ui/components/avatar_name';
-import { formatNumber } from 'ui/utils/format_token';
+import AvatarName from '@components/avatar_name';
+import { formatNumber } from '@utils/format_token';
 import { columns } from './utils';
 import type { ItemType } from '../../types';
 

@@ -8,10 +8,10 @@ let component: renderer.ReactTestRenderer;
 // ==================================
 // mocks
 // ==================================
-jest.mock('ui/components/box_details', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@components/box_details', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="BoxDetails" {...props} />
 ));
-jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
 

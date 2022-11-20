@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import * as R from 'ramda';
 import { useRecoilState, SetterOrUpdater } from 'recoil';
-import { BigDipperNetwork } from 'ui/models';
+import { BigDipperNetwork } from '@models';
 import { writeNetworks, writeSelectedNetwork } from './selectors';
 import type { Networks, Selected } from './types';
 

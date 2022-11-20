@@ -1,9 +1,9 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import Name from 'ui/components/name';
+import Name from '@components/name';
 import { type MsgUnjail } from '@models';
-import { useProfileRecoil } from 'ui/recoil/profiles';
+import { useProfileRecoil } from '@recoil/profiles';
 
 const Unjail: React.FC<{ message: MsgUnjail }> = (props) => {
   const { message } = props;

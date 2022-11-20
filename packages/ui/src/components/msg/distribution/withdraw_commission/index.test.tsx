@@ -7,7 +7,7 @@ import WithdrawCommission from '.';
 // ==================================
 // mocks
 // =============================
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

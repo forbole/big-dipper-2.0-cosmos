@@ -7,7 +7,20 @@ exports[`screen: Nav/Networks it renders 1`] = `
   >
     <img
       alt="logo"
+      className="makeStyles-img"
+      data-nimg="future"
+      decoding="async"
+      height={0}
+      loading="lazy"
+      onError={[Function]}
+      onLoad={[Function]}
       src="logo"
+      style={
+        {
+          "color": "transparent",
+        }
+      }
+      width={0}
     />
     <div
       className="network"

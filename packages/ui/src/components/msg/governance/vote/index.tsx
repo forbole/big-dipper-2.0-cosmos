@@ -3,10 +3,10 @@ import Link from 'next/link';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 import Typography from '@material-ui/core/Typography';
-import Name from 'ui/components/name';
+import Name from '@components/name';
 import { MsgVote } from '@models';
-import { useProfileRecoil } from 'ui/recoil/profiles';
-import { PROPOSAL_DETAILS } from 'ui/utils/go_to_page';
+import { useProfileRecoil } from '@recoil/profiles';
+import { PROPOSAL_DETAILS } from '@utils/go_to_page';
 
 const Vote: React.FC<{ message: MsgVote }> = (props) => {
   const { t } = useTranslation('transactions');

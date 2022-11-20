@@ -1,4 +1,4 @@
-import { formatNumber } from 'ui/utils/format_token';
+import { formatNumber } from '@utils/format_token';
 import Big from 'big.js';
 
 export const formatBalanceData = (data: {

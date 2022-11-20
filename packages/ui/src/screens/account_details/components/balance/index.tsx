@@ -4,14 +4,14 @@ import Big from 'big.js';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { useRecoilValue } from 'recoil';
-import { readMarket } from 'ui/recoil/market';
+import { readMarket } from '@recoil/market';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import { PieChart, Pie, ResponsiveContainer, Cell } from 'recharts';
 import useTranslation from 'next-translate/useTranslation';
-import Box from 'ui/components/box';
+import Box from '@components/box';
 import chainConfig from 'ui/chainConfig';
-import { formatNumber } from 'ui/utils/format_token';
+import { formatNumber } from '@utils/format_token';
 import { useStyles } from './styles';
 import { formatBalanceData } from './utils';
 

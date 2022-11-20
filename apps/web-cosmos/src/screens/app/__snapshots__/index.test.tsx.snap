@@ -9,16 +9,42 @@ exports[`screen: _app matches snapshot 1`] = `
     className="makeStyles-root-1"
   >
     <div>
-      <span>
+      <span
+        className="makeStyles-logo-2 makeStyles-container-4"
+      >
         <img
           alt="logo"
-          className="makeStyles-logo-2 makeStyles-dark-5"
+          className="makeStyles-dark-6"
+          data-nimg="future"
+          decoding="async"
+          height={0}
+          loading="lazy"
+          onError={[Function]}
+          onLoad={[Function]}
           src="svg"
+          style={
+            {
+              "color": "transparent",
+            }
+          }
+          width={0}
         />
         <img
           alt="logo"
-          className="makeStyles-logo-2 makeStyles-light-4"
+          className="makeStyles-light-5"
+          data-nimg="future"
+          decoding="async"
+          height={0}
+          loading="lazy"
+          onError={[Function]}
+          onLoad={[Function]}
           src="svg"
+          style={
+            {
+              "color": "transparent",
+            }
+          }
+          width={0}
         />
       </span>
       <div

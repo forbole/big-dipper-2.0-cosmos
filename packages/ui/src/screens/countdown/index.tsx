@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from 'react';
 import Typography from '@material-ui/core/Typography';
-import { useInterval } from 'ui/hooks';
-import dayjs from 'ui/utils/dayjs';
+import { useInterval } from '@hooks';
+import dayjs from '@utils/dayjs';
 import chainConfig from 'ui/chainConfig';
-import ChainIcon from 'ui/components/ChainIcon';
-import Loading from 'ui/components/loading';
+import ChainIcon from '@components/ChainIcon';
+import Loading from '@components/loading';
 import { useStyles } from './styles';
 
 const Countdown: React.FC<{

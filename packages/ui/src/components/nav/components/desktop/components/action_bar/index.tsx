@@ -1,4 +1,4 @@
-import { useGetComponentDimension } from 'ui/hooks';
+import { useGetComponentDimension } from '@hooks';
 import classnames from 'classnames';
 import React from 'react';
 import SearchBar from '../../../search_bar';

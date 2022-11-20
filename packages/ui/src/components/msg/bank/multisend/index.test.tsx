@@ -4,7 +4,7 @@ import { MockTheme } from 'ui/tests/utils';
 import { MsgMultiSend } from '@models';
 import Multisend from '.';
 
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

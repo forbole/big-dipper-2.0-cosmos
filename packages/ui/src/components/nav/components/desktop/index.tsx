@@ -4,7 +4,7 @@ import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import { useRecoilValue } from 'recoil';
-import { readTheme } from 'ui/recoil/settings';
+import { readTheme } from '@recoil/settings';
 import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
 import { useStyles } from './styles';

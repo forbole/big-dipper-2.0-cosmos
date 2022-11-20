@@ -54,8 +54,8 @@ const TransactionList: FC<TransactionsListDetailsState> = ({
     ),
     type: (
       <div>
-        <Tag value="txDelegateLabel" theme="six" />
-        {x.messages.count > 1 && ' +'}
+        <Tag value={x.type?.[0] ?? ''} theme="six" />
+        {x.messages?.count > 1 && ` + ${x.messages.count - 1}`}
       </div>
     ),
     time: formatDayJs((dayjs as any).utc(x.timestamp), dateFormat),
